@@ -172,11 +172,38 @@ python -m ingestion.ingest --clean -v
 - `{name}_chunks.json` - Chunks with metadata  
 - `{name}_structure.json` - Document structure summary
 
-### 6. Run the CLI Agent
+### 6. Start the API Server (Terminal 1)
+
+After ingesting documents, start the FastAPI server in your first terminal:
 
 ```bash
-python cli.py
+# Make sure your virtual environment is activated
+python -m agent.api
 ```
+
+The API server will start on `http://localhost:8000` by default.
+
+**API Endpoints:**
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+- Health Check: http://localhost:8000/health
+
+### 7. Run the CLI Agent (Terminal 2)
+
+Open a **second terminal** and start the CLI to interact with the agent:
+
+```bash
+# Start the CLI (connects to default API at http://localhost:8000)
+python cli.py
+
+# Connect to a different URL
+python cli.py --url http://localhost:8058
+
+# Connect to a specific port
+python cli.py --port 8080
+```
+
+The CLI provides an interactive way to chat with the agent and see which tools it uses for each query.
 
 ## 💬 Example Queries
 
