@@ -1,6 +1,31 @@
 # Malaysia CPG Agentic RAG with Knowledge Graph
 
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pydantic AI](https://img.shields.io/badge/Pydantic_AI-Agent_Framework-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-pgvector-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Neo4j](https://img.shields.io/badge/Neo4j-Knowledge_Graph-4581C3?style=for-the-badge&logo=neo4j&logoColor=white)
+![Gemini](https://img.shields.io/badge/Google_Gemini-LLM_&_Embeddings-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
 An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for the Malaysia CPG on Erectile Dysfunction Management.
+
+---
+
+## 📑 Content Overview
+
+| Section | Description |
+|---------|-------------|
+| [What This System Does](#-what-this-system-does) | Core capabilities overview |
+| [Tech Stack](#-tech-stack) | Technologies and frameworks used |
+| [Features](#-features) | Document ingestion, knowledge graph, agent tools |
+| [Quick Start](#-quick-start) | Installation and setup guide |
+| [Example Queries](#-example-queries) | Sample clinical queries |
+| [Project Structure](#-project-structure) | Folder and file organization |
+| [Architecture](#-architecture) | System design diagram |
+| [Next Steps](#-next-steps) | Development roadmap |
+| [Disclaimer](#️-disclaimer) | Clinical usage disclaimer |
+
+---
 
 ## 🏥 What This System Does
 
@@ -10,17 +35,34 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 - **Enables evidence-filtered search**: Find Grade A recommendations, filter by patient population (Diabetes, Cardiac, Elderly)
 - **Provides clinical decision support** via conversational AI agent
 
-## 🛠 Built With
+## 🛠 Tech Stack
 
-| Component | Technology |
-|-----------|------------|
-| **Agent Framework** | Pydantic AI |
-| **LLM** | Google Gemini (via OpenRouter) |
-| **Vector Database** | PostgreSQL + pgvector (Neon) |
-| **Knowledge Graph** | Neo4j + Graphiti |
-| **Embeddings** | Google Gemini text-embedding-004 (768 dimensions) |
-| **PDF Parsing** | PyMuPDF (fitz) + pymupdf4llm |
-| **API** | FastAPI with streaming |
+### Core Framework
+| Component | Technology | Badge |
+|-----------|------------|-------|
+| **Agent Framework** | Pydantic AI | ![Pydantic](https://img.shields.io/badge/Pydantic_AI-E92063?style=flat-square&logo=pydantic) |
+| **LLM Provider** | OpenRouter → Gemini | ![OpenRouter](https://img.shields.io/badge/OpenRouter-000000?style=flat-square) |
+| **LLM Model** | `google/gemini-2.0-flash-001` | ![Gemini](https://img.shields.io/badge/Gemini_2.0-4285F4?style=flat-square&logo=google) |
+
+### Data Layer
+| Component | Technology | Badge |
+|-----------|------------|-------|
+| **Vector Database** | PostgreSQL + pgvector (Neon) | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) |
+| **Knowledge Graph** | Neo4j Aura + Graphiti | ![Neo4j](https://img.shields.io/badge/Neo4j-4581C3?style=flat-square&logo=neo4j&logoColor=white) |
+| **Embeddings** | Gemini `text-embedding-004` (768d) | ![Embeddings](https://img.shields.io/badge/768_dim-Embeddings-green?style=flat-square) |
+
+### Document Processing
+| Component | Technology | Badge |
+|-----------|------------|-------|
+| **PDF Parsing** | PyMuPDF (fitz) | ![PyMuPDF](https://img.shields.io/badge/PyMuPDF-PDF_Parser-red?style=flat-square) |
+| **PDF → Markdown** | pymupdf4llm | ![Markdown](https://img.shields.io/badge/Markdown-Converter-blue?style=flat-square) |
+| **Chunking** | Semantic (1200 chars) | ![Chunks](https://img.shields.io/badge/1200_char-Chunks-orange?style=flat-square) |
+
+### API & Interface
+| Component | Technology | Badge |
+|-----------|------------|-------|
+| **API Framework** | FastAPI + SSE Streaming | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) |
+| **CLI** | Interactive Python CLI | ![CLI](https://img.shields.io/badge/CLI-Terminal-black?style=flat-square) |
 
 ## 📋 Features
 
@@ -285,13 +327,23 @@ Each chunk is enriched with:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+## 🚧 Next Steps
+
+| Priority | Task | Description |
+|----------|------|-------------|
+| 🔴 High | **Validate Embeddings** | Test with more documents containing tables, algorithms, and complex structures to verify vector DB and knowledge graph are structured correctly |
+| 🔴 High | **Validate All Tools** | Comprehensive testing of all 12 agent tools with various query types |
+| 🟡 Medium | **Implement Ollama** | Add local LLM support via Ollama for offline prototyping and development |
+| 🟡 Medium | **Reflector Agent** | Integrate a reflection/self-critique agent for improved response quality |
+| 🟢 Future | **UI Integration** | Replace CLI with web UI or other user interface (Streamlit, Gradio, or custom frontend) |
+
+---
+
 ## ⚠️ Disclaimer
 
 This system provides clinical decision support based on Malaysia's CPG for ED Management. It is intended as a reference tool and should not replace professional medical judgment. Always consult qualified healthcare providers for patient care decisions.
 
-## 📄 License
-
-MIT License
+---
 
 ## 🙏 Acknowledgments
 
