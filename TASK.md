@@ -129,27 +129,70 @@ This document tracks all tasks for building the CPG (Clinical Practice Guideline
 - [x] Update TASK.md to CPG focus
 - [x] Remove `SimpleEntityExtractor` with old tech patterns
 - [x] Update `main()` example in graph_builder.py
+- [x] Update requirements.txt with organized dependencies (2026-01-07)
 
 ---
 
-## Phase 8: Full Deployment (TODO)
+## Phase 8: Validation & Testing (IN PROGRESS)
 
 ### Full CPG Ingestion
-- [ ] Ingest complete Malaysia ED CPG PDF
-- [ ] Verify all sections are parsed
-- [ ] Validate metadata extraction accuracy
-- [ ] Test all 12 agent tools with real queries
+- [ ] Ingest complete Malaysia ED CPG PDF (full document, not just 10 pages)
+- [ ] Verify all sections are parsed correctly
+- [ ] Validate metadata extraction accuracy (evidence levels, grades)
+- [ ] Test with documents containing complex tables and algorithms
 
-### Performance Optimization
-- [ ] Index optimization for CPG searches
-- [ ] Batch processing for large PDFs
-- [ ] Caching for frequent queries
+### Tool Validation
+- [ ] Test `vector_search` with various clinical queries
+- [ ] Test `graph_search` for entity relationships
+- [ ] Test `hybrid_search` combined results
+- [ ] Test `cpg_filtered_search` with grade/population filters
+- [ ] Test `get_grade_a_recommendations` returns correct recommendations
+- [ ] Test `get_drug_information` for all PDE5 inhibitors
+- [ ] Test `get_treatment_recommendations` by condition
+- [ ] Test `get_chunk_with_parent_context` hierarchical retrieval
+- [ ] Test `get_entity_relationships` in Neo4j
+- [ ] Test `get_entity_timeline` temporal facts
+- [ ] Test `get_document` and `list_documents`
 
-### Validation
-- [ ] Verify Grade A recommendations are correct
-- [ ] Validate drug contraindication accuracy
-- [ ] Test population-specific filtering
-- [ ] Cross-reference with original CPG document
+### Data Structure Validation
+- [ ] Verify vector DB embeddings are correct (768 dimensions)
+- [ ] Verify knowledge graph entities are properly linked
+- [ ] Verify CPG metadata columns are populated
+
+---
+
+## Phase 9: Local LLM Support (TODO)
+
+### Ollama Integration
+- [ ] Add Ollama provider to `providers.py`
+- [ ] Configure local model selection (llama3, mistral, etc.)
+- [ ] Test with local embeddings (nomic-embed-text)
+- [ ] Update .env.example with Ollama configuration
+- [ ] Document offline usage in README
+
+---
+
+## Phase 10: Reflector Agent (TODO)
+
+### Self-Critique Implementation
+- [ ] Design reflection prompt for clinical accuracy
+- [ ] Implement reflection loop after initial response
+- [ ] Add evidence grade verification check
+- [ ] Add contraindication cross-reference check
+- [ ] Implement retry mechanism for incomplete answers
+- [ ] Test reflection quality improvement
+
+---
+
+## Phase 11: UI Integration (TODO)
+
+### Replace CLI with Web UI
+- [ ] Choose framework (Streamlit, Gradio, or custom React)
+- [ ] Design clinical query interface
+- [ ] Implement streaming response display
+- [ ] Add tool usage visualization
+- [ ] Add source/evidence citation display
+- [ ] Deploy to cloud (optional)
 
 ---
 
@@ -157,7 +200,16 @@ This document tracks all tasks for building the CPG (Clinical Practice Guideline
 
 **Completed:** Phases 1-7 (Foundation, CPG Enhancement, Agent Tools, System Prompt, Pipeline, Testing, Cleanup)
 
-**Next:** Phase 8 - Full CPG ingestion and validation
+**In Progress:** Phase 8 - Validation & Testing
+
+**Next:** Phase 9 (Ollama) → Phase 10 (Reflector) → Phase 11 (UI)
+
+---
+
+## Discovered During Work (2026-01-07)
+- requirements.txt was missing `pymupdf` and `pymupdf4llm` packages
+- Old requirements had many unnecessary transitive dependencies
+- Cleaned up and organized requirements.txt with categories
 
 ---
 
@@ -165,6 +217,9 @@ This document tracks all tasks for building the CPG (Clinical Practice Guideline
 
 ### CLI Commands
 ```bash
+# Install dependencies
+pip install -r requirements.txt
+
 # Ingest CPG documents
 python -m ingestion.ingest --clean -v
 
