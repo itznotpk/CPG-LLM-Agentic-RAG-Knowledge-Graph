@@ -172,15 +172,87 @@ This document tracks all tasks for building the CPG (Clinical Practice Guideline
 
 ---
 
-## Phase 10: Reflector Agent (TODO)
+## Phase 10: Chunk Verifier Agent (TODO)
 
-### Self-Critique Implementation
-- [ ] Design reflection prompt for clinical accuracy
-- [ ] Implement reflection loop after initial response
-- [ ] Add evidence grade verification check
-- [ ] Add contraindication cross-reference check
-- [ ] Implement retry mechanism for incomplete answers
-- [ ] Test reflection quality improvement
+> **Architecture:** Tool-Level Verification (Option A)
+> **Purpose:** Add a verifier agent that checks whether retrieved chunks are relevant to the user query before sending to main LLM for synthesis.
+> **Added:** 2026-01-07
+
+### Step 1: Create Pydantic Models
+- [ ] Add `VerificationResult` model to `agent/models.py`
+  - Fields: `chunk_id`, `is_relevant`, `relevance_score` (0-1), `reasoning`, `verification_time_ms`
+
+### Step 2: Add Verification Prompt
+- [ ] Add `VERIFICATION_PROMPT` to `agent/prompts.py`
+  - Template with query and chunk content placeholders
+  - JSON output format: `{"is_relevant": bool, "score": float, "reason": str}`
+  - Scoring rubric (1.0 = directly answers, 0.0 = irrelevant)
+
+### Step 3: Add Provider Configuration
+- [ ] Add `get_verification_model()` to `agent/providers.py`
+  - Use faster/cheaper model (e.g., `gemini-2.0-flash-lite`)
+  - Falls back to main LLM if not configured
+- [ ] Add `get_verification_config()` to `agent/providers.py`
+  - Returns: `enabled`, `threshold`, `max_chunks`
+
+### Step 4: Create Verifier Module (NEW FILE)
+- [ ] Create `agent/verifier.py` (~120 lines)
+- [ ] Implement `ChunkVerifier` class with:
+  - [ ] `verify_chunks(query, chunks, threshold)` - Main verification method
+  - [ ] `_verify_single_chunk(query, chunk)` - Single chunk verification via LLM
+  - [ ] `verify_batch(query, chunks)` - Parallel verification (asyncio.gather)
+- [ ] Implement `get_verifier()` singleton function
+- [ ] Add chunk content truncation (500 chars) for cost efficiency
+- [ ] Return both filtered chunks AND verification metadata
+
+### Step 5: Integrate with Retrieval Tools
+- [ ] Modify `vector_search_tool()` in `agent/tools.py`
+  - Fetch more chunks initially (top_k * 1.5)
+  - Add verification step if `ENABLE_CHUNK_VERIFICATION=true`
+  - Filter chunks below threshold
+  - Log verification results
+- [ ] Modify `hybrid_search_tool()` in `agent/tools.py`
+  - Same pattern as vector_search_tool
+
+### Step 6: Environment Configuration
+- [ ] Add to `.env.example`:
+  ```
+  ENABLE_CHUNK_VERIFICATION=false
+  VERIFICATION_MODEL=google/gemini-2.0-flash-lite-001
+  VERIFICATION_THRESHOLD=0.6
+  VERIFICATION_MAX_CHUNKS=10
+  ```
+
+### Step 7: Unit Tests
+- [ ] Create `tests/agent/test_verifier.py`
+  - [ ] `test_verify_relevant_chunk` - Relevant chunks pass
+  - [ ] `test_verify_irrelevant_chunk` - Irrelevant chunks filtered
+  - [ ] `test_threshold_filtering` - Threshold logic works
+  - [ ] `test_verification_disabled` - Bypass when disabled
+  - [ ] `test_batch_verification` - Parallel processing works
+
+### Step 8: Documentation
+- [ ] Update `PLANNING.md` with verifier architecture diagram
+- [ ] Update `README.md` with verification configuration section
+- [ ] Add inline comments explaining verification flow
+
+### Expected Outcomes
+| Metric | Expected |
+|--------|----------|
+| Latency increase | +300-800ms per query |
+| API cost increase | ~1.5x (mitigated by using cheaper model) |
+| Precision improvement | Higher (fewer irrelevant chunks) |
+| Hallucination reduction | Significant |
+
+### Files Affected Summary
+| Action | File | Lines |
+|--------|------|-------|
+| CREATE | `agent/verifier.py` | ~120 |
+| CREATE | `tests/agent/test_verifier.py` | ~80 |
+| MODIFY | `agent/models.py` | +20 |
+| MODIFY | `agent/prompts.py` | +25 |
+| MODIFY | `agent/providers.py` | +20 |
+| MODIFY | `agent/tools.py` | +40 |
 
 ---
 
