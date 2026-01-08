@@ -55,8 +55,9 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 | Component | Technology | Badge |
 |-----------|------------|-------|
 | **PDF Parsing** | PyMuPDF (fitz) | ![PyMuPDF](https://img.shields.io/badge/PyMuPDF-PDF_Parser-red?style=flat-square) |
-| **PDF → Markdown** | pymupdf4llm | ![Markdown](https://img.shields.io/badge/Markdown-Converter-blue?style=flat-square) |
+| **PDF → Markdown** | Docling / pymupdf4llm | ![Docling](https://img.shields.io/badge/Docling-PDF_to_MD-blue?style=flat-square) |
 | **Chunking** | Semantic (1200 chars) | ![Chunks](https://img.shields.io/badge/1200_char-Chunks-orange?style=flat-square) |
+
 
 ### API & Interface
 | Component | Technology | Badge |
