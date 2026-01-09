@@ -1,4 +1,4 @@
-documents
+# documents
 venv
 venv_linux
 .env
@@ -166,7 +166,7 @@ Desktop.ini
 logs/
 temp/
 tmp/
-documents/
+# documents/
 *.pkl
 *.pickle
 *.h5

@@ -263,7 +263,7 @@ agentic-rag-knowledge-graph/
 ├── documents/            # Place CPG PDFs here
 │   └── _processed/       # Auto-generated markdown/JSON
 ├── convert_pdf.py        # Basic PDF to Markdown (CLI)
-├── document_ingestion.py # Advanced PDF ingestion with VLM + glossary
+├── pk_document_ingestion.py # Advanced PDF ingestion with VLM + glossary
 ├── cli.py                # Command-line interface
 ├── api.py                # FastAPI server
 └── .env                  # Configuration
@@ -285,7 +285,7 @@ Options:
 
 ### Document Ingestion (VLM + Glossary)
 ```bash
-python document_ingestion.py [OPTIONS]
+python pk_document_ingestion.py [OPTIONS]
 
 Options:
   --input, -i DIR    Input directory (default: documents)
