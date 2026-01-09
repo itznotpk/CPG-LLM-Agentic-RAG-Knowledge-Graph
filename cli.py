@@ -63,8 +63,8 @@ class AgenticRAGCLI:
 {Colors.BOLD}Examples:{Colors.END}
   - "What is the first-line treatment for erectile dysfunction?"
   - "What are the contraindications for Sildenafil?"
-  - "Give me Grade A recommendations for PDE5 inhibitors"
-  - "How should ED be treated in diabetic patients?"
+  - "What is IIEF-5 and how is it used?"
+  - "What treatments are available for ED?"
 """
         print(help_text)
     

@@ -16,23 +16,14 @@ from .tools import (
     vector_search_tool,
     graph_search_tool,
     hybrid_search_tool,
-    get_document_tool,
-    list_documents_tool,
     get_entity_relationships_tool,
-    get_entity_timeline_tool,
-    cpg_filtered_search_tool,
-    get_grade_a_recommendations_tool,
     get_drug_info_tool,
     get_treatment_recommendations_tool,
     get_chunk_with_context_tool,
     VectorSearchInput,
     GraphSearchInput,
     HybridSearchInput,
-    DocumentInput,
-    DocumentListInput,
     EntityRelationshipInput,
-    EntityTimelineInput,
-    CPGFilteredSearchInput,
     DrugInteractionInput,
     TreatmentRecommendationInput
 )
@@ -187,79 +178,6 @@ async def hybrid_search(
 
 
 @rag_agent.tool
-async def get_document(
-    ctx: RunContext[AgentDependencies],
-    document_id: str
-) -> Optional[Dict[str, Any]]:
-    """
-    Retrieve the complete content of a specific document.
-    
-    This tool fetches the full document content along with all its chunks
-    and metadata. Best for getting comprehensive information from a specific
-    source when you need the complete context.
-    
-    Args:
-        document_id: UUID of the document to retrieve
-    
-    Returns:
-        Complete document data with content and metadata, or None if not found
-    """
-    input_data = DocumentInput(document_id=document_id)
-    
-    document = await get_document_tool(input_data)
-    
-    if document:
-        # Format for agent consumption
-        return {
-            "id": document["id"],
-            "title": document["title"],
-            "source": document["source"],
-            "content": document["content"],
-            "chunk_count": len(document.get("chunks", [])),
-            "created_at": document["created_at"]
-        }
-    
-    return None
-
-
-@rag_agent.tool
-async def list_documents(
-    ctx: RunContext[AgentDependencies],
-    limit: int = 20,
-    offset: int = 0
-) -> List[Dict[str, Any]]:
-    """
-    List available documents with their metadata.
-    
-    This tool provides an overview of all documents in the knowledge base,
-    including titles, sources, and chunk counts. Best for understanding
-    what information sources are available.
-    
-    Args:
-        limit: Maximum number of documents to return (1-100)
-        offset: Number of documents to skip for pagination
-    
-    Returns:
-        List of documents with metadata and chunk counts
-    """
-    input_data = DocumentListInput(limit=limit, offset=offset)
-    
-    documents = await list_documents_tool(input_data)
-    
-    # Convert to dict for agent
-    return [
-        {
-            "id": d.id,
-            "title": d.title,
-            "source": d.source,
-            "chunk_count": d.chunk_count,
-            "created_at": d.created_at.isoformat()
-        }
-        for d in documents
-    ]
-
-
-@rag_agent.tool
 async def get_entity_relationships(
     ctx: RunContext[AgentDependencies],
     entity_name: str,
@@ -287,105 +205,9 @@ async def get_entity_relationships(
     return await get_entity_relationships_tool(input_data)
 
 
-@rag_agent.tool
-async def get_entity_timeline(
-    ctx: RunContext[AgentDependencies],
-    entity_name: str,
-    start_date: Optional[str] = None,
-    end_date: Optional[str] = None
-) -> List[Dict[str, Any]]:
-    """
-    Get the timeline of facts for a specific entity.
-    
-    This tool retrieves chronological information about an entity,
-    showing how information has evolved over time. Best for understanding
-    how information about an entity has developed or changed.
-    
-    Args:
-        entity_name: Name of the entity (e.g., "Microsoft", "AI")
-        start_date: Start date in ISO format (YYYY-MM-DD), optional
-        end_date: End date in ISO format (YYYY-MM-DD), optional
-    
-    Returns:
-        Chronological list of facts about the entity with timestamps
-    """
-    input_data = EntityTimelineInput(
-        entity_name=entity_name,
-        start_date=start_date,
-        end_date=end_date
-    )
-    
-    return await get_entity_timeline_tool(input_data)
-
-
 # =============================================================================
-# CPG-SPECIFIC TOOLS (Clinical Practice Guidelines)
+# DRUG AND TREATMENT TOOLS
 # =============================================================================
-
-@rag_agent.tool
-async def cpg_filtered_search(
-    ctx: RunContext[AgentDependencies],
-    query: str,
-    grade: Optional[str] = None,
-    population: Optional[str] = None,
-    category: Optional[str] = None,
-    recommendations_only: bool = False,
-    limit: int = 10
-) -> List[Dict[str, Any]]:
-    """
-    Search Clinical Practice Guidelines with evidence-based filters.
-    
-    This tool provides precise retrieval of clinical recommendations by filtering:
-    - By evidence grade (Grade A = highest, Grade B, Grade C)
-    - By target population (Diabetes, Cardiac Disease, Elderly, etc.)
-    - By category (Diagnosis, Treatment, Referral, Monitoring)
-    
-    Best for: "Give me Grade A recommendations for diabetic patients"
-    
-    Args:
-        query: Search query for clinical content
-        grade: Filter by grade - 'Grade A', 'Grade B', 'Grade C', or 'Key Recommendation'
-        population: Filter by population - 'General', 'Diabetes', 'Cardiac Disease', 'Elderly', etc.
-        category: Filter by category - 'Diagnosis', 'Treatment', 'Referral', 'Monitoring', 'Prevention'
-        recommendations_only: If True, only return graded recommendations
-        limit: Maximum results (default 10)
-    
-    Returns:
-        List of filtered CPG content with evidence metadata
-    """
-    input_data = CPGFilteredSearchInput(
-        query=query,
-        grade=grade,
-        population=population,
-        category=category,
-        recommendations_only=recommendations_only,
-        limit=limit
-    )
-    
-    return await cpg_filtered_search_tool(input_data)
-
-
-@rag_agent.tool
-async def get_grade_a_recommendations(
-    ctx: RunContext[AgentDependencies],
-    query: str,
-    limit: int = 10
-) -> List[Dict[str, Any]]:
-    """
-    Get only Grade A (highest evidence) recommendations for a query.
-    
-    Grade A recommendations have the strongest evidence base and should be
-    followed in most clinical situations. Use this when you need the most
-    authoritative guidance.
-    
-    Args:
-        query: Search query (e.g., "PDE5 inhibitor treatment", "ED diagnosis")
-        limit: Maximum results (default 10)
-    
-    Returns:
-        List of Grade A recommendations with section context
-    """
-    return await get_grade_a_recommendations_tool(query, limit)
 
 
 @rag_agent.tool
@@ -415,27 +237,21 @@ async def get_drug_information(
 @rag_agent.tool
 async def get_treatment_recommendations(
     ctx: RunContext[AgentDependencies],
-    condition: str,
-    population: Optional[str] = None
+    condition: str
 ) -> Dict[str, Any]:
     """
-    Get treatment recommendations for a condition, organized by evidence grade.
+    Get treatment recommendations for a medical condition.
     
-    This tool retrieves all treatment recommendations for a specific condition,
-    organized by evidence strength (Grade A > B > C). Optionally filter by
-    patient population for more specific guidance.
+    This tool retrieves treatment recommendations for a specific condition
+    from the CPG content using vector search and knowledge graph.
     
     Args:
         condition: Medical condition (e.g., 'Erectile Dysfunction', 'Vasculogenic ED')
-        population: Optional patient population (e.g., 'Diabetes', 'Cardiac Disease', 'Elderly')
     
     Returns:
-        Treatment recommendations organized by evidence grade
+        Treatment recommendations from CPG content
     """
-    input_data = TreatmentRecommendationInput(
-        condition=condition,
-        population=population
-    )
+    input_data = TreatmentRecommendationInput(condition=condition)
     return await get_treatment_recommendations_tool(input_data)
 
 

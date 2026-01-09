@@ -43,11 +43,9 @@ from .tools import (
     vector_search_tool,
     graph_search_tool,
     hybrid_search_tool,
-    list_documents_tool,
     VectorSearchInput,
     GraphSearchInput,
-    HybridSearchInput,
-    DocumentListInput
+    HybridSearchInput
 )
 
 # Load environment variables
@@ -602,26 +600,7 @@ async def search_hybrid(request: SearchRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/documents")
-async def list_documents_endpoint(
-    limit: int = 20,
-    offset: int = 0
-):
-    """List documents endpoint."""
-    try:
-        input_data = DocumentListInput(limit=limit, offset=offset)
-        documents = await list_documents_tool(input_data)
-        
-        return {
-            "documents": documents,
-            "total": len(documents),
-            "limit": limit,
-            "offset": offset
-        }
-        
-    except Exception as e:
-        logger.error(f"Document listing failed: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+# Documents endpoint removed - use vector_search or graph_search instead
 
 
 @app.get("/sessions/{session_id}")

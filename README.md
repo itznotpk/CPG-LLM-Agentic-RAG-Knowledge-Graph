@@ -33,7 +33,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 - **Dynamic LLM entity extraction**: Uses LLM to identify and categorize ANY medical entity (no hardcoded lists)
 - **Custom Neo4j entity types**: Medication, Condition, Procedure, DiagnosticTool, AdverseEvent, RiskFactor, Organization
 - **Builds a knowledge graph** with medical relationships (TREATS, CONTRAINDICATED_WITH, HAS_DOSAGE, etc.)
-- **Enables evidence-filtered search**: Find Grade A recommendations, filter by patient population (Diabetes, Cardiac, Elderly)
+- **Enables semantic search**: Vector and hybrid search for relevant clinical content
 - **Semantic chunking**: Keeps headers with content, preserves tables/lists as units
 - **Provides clinical decision support** via conversational AI agent
 
@@ -92,14 +92,12 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 | `ASSESSED_BY` | (Erectile Dysfunction) → (IIEF-5) |
 | `RECOMMENDED_FOR` | (Li-ESWT) → ("Mild vasculogenic ED") |
 
-### Agent Tools (9 Dynamic Tools)
+### Agent Tools (7 Dynamic Tools)
 | Tool | Purpose |
 |------|---------|
 | `vector_search` | Semantic similarity search |
 | `graph_search` | Knowledge graph facts |
 | `hybrid_search` | Vector + keyword combined |
-| `cpg_filtered_search` | Filter by grade/population/category |
-| `get_grade_a_recommendations` | Highest evidence only |
 | `get_drug_information` | **Dynamic** - searches graph + vector DB for drug info |
 | `get_treatment_recommendations` | Treatments by condition |
 | `get_entity_relationships` | Entity connections in graph |

@@ -76,17 +76,6 @@ class EntityRelationshipInput(BaseModel):
     depth: int = Field(default=2, description="Maximum traversal depth")
 
 
-# CPG-Specific Tool Input Models
-class CPGFilteredSearchInput(BaseModel):
-    """Input for CPG filtered search - search with evidence filters."""
-    query: str = Field(..., description="Search query for clinical content")
-    grade: Optional[str] = Field(None, description="Filter by recommendation grade: 'Grade A', 'Grade B', 'Grade C', or 'Key Recommendation'")
-    population: Optional[str] = Field(None, description="Filter by target population: 'General', 'Diabetes', 'Cardiac Disease', 'Elderly', etc.")
-    category: Optional[str] = Field(None, description="Filter by category: 'Diagnosis', 'Treatment', 'Referral', 'Monitoring', 'Prevention'")
-    recommendations_only: bool = Field(default=False, description="Only return recommendations (graded content)")
-    limit: int = Field(default=10, description="Maximum number of results")
-
-
 class DrugInteractionInput(BaseModel):
     """Input for drug interaction/contraindication search."""
     drug_name: str = Field(..., description="Name of the drug to check (e.g., 'Sildenafil', 'Tadalafil')")
@@ -95,7 +84,6 @@ class DrugInteractionInput(BaseModel):
 class TreatmentRecommendationInput(BaseModel):
     """Input for treatment recommendation search."""
     condition: str = Field(..., description="Medical condition to get recommendations for (e.g., 'Erectile Dysfunction', 'Vasculogenic ED')")
-    population: Optional[str] = Field(None, description="Optional patient population filter (e.g., 'Diabetes', 'Cardiac Disease')")
 
 
 # Tool Implementation Functions
@@ -289,120 +277,8 @@ async def perform_comprehensive_search(
 
 
 # =============================================================================
-# CPG-SPECIFIC SEARCH TOOLS (Clinical Practice Guidelines)
+# DRUG AND TREATMENT TOOLS
 # =============================================================================
-
-async def cpg_filtered_search_tool(input_data: CPGFilteredSearchInput) -> List[Dict[str, Any]]:
-    """
-    Search CPG content with metadata filters.
-    
-    This tool enables precise retrieval by filtering on:
-    - Evidence grade (Grade A, B, C)
-    - Target population (Diabetes, Cardiac Disease, etc.)
-    - Category (Diagnosis, Treatment, Referral)
-    
-    Args:
-        input_data: CPG search parameters with filters
-    
-    Returns:
-        List of filtered CPG chunks with metadata
-    """
-    from .db_utils import db_pool
-    
-    try:
-        # Generate embedding for the query
-        embedding = await generate_embedding(input_data.query)
-        embedding_str = '[' + ','.join(map(str, embedding)) + ']'
-        
-        async with db_pool.acquire() as conn:
-            results = await conn.fetch(
-                """
-                SELECT * FROM cpg_filtered_search(
-                    $1::vector,
-                    $2,
-                    $3,
-                    $4,
-                    $5,
-                    $6
-                )
-                """,
-                embedding_str,
-                input_data.grade,
-                input_data.population,
-                input_data.category,
-                input_data.recommendations_only,
-                input_data.limit
-            )
-            
-            return [
-                {
-                    "content": r["content"],
-                    "similarity": r["similarity"],
-                    "evidence_level": r["evidence_level"],
-                    "grade": r["grade"],
-                    "target_population": r["target_population"],
-                    "category": r["category"],
-                    "section_hierarchy": r["section_hierarchy"],
-                    "is_recommendation": r["is_recommendation"],
-                    "is_table": r["is_table"],
-                    "structured_content": r["structured_content"],
-                    "document_title": r["document_title"],
-                    "chunk_id": str(r["chunk_id"])
-                }
-                for r in results
-            ]
-            
-    except Exception as e:
-        logger.error(f"CPG filtered search failed: {e}")
-        # Fallback to regular vector search
-        return await vector_search_tool(VectorSearchInput(
-            query=input_data.query,
-            limit=input_data.limit
-        ))
-
-
-async def get_grade_a_recommendations_tool(query: str, limit: int = 10) -> List[Dict[str, Any]]:
-    """
-    Get Grade A (highest evidence) recommendations related to a query.
-    
-    Args:
-        query: Search query
-        limit: Maximum results
-    
-    Returns:
-        List of Grade A recommendations
-    """
-    from .db_utils import db_pool
-    
-    try:
-        embedding = await generate_embedding(query)
-        embedding_str = '[' + ','.join(map(str, embedding)) + ']'
-        
-        async with db_pool.acquire() as conn:
-            results = await conn.fetch(
-                """
-                SELECT * FROM get_grade_a_recommendations($1::vector, $2)
-                """,
-                embedding_str,
-                limit
-            )
-            
-            return [
-                {
-                    "content": r["content"],
-                    "similarity": r["similarity"],
-                    "section_hierarchy": r["section_hierarchy"],
-                    "target_population": r["target_population"],
-                    "document_title": r["document_title"],
-                    "chunk_id": str(r["chunk_id"])
-                }
-                for r in results
-            ]
-            
-    except Exception as e:
-        logger.error(f"Grade A recommendations search failed: {e}")
-        return []
-
 
 async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]:
     """
@@ -496,62 +372,50 @@ async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]
 
 async def get_treatment_recommendations_tool(input_data: TreatmentRecommendationInput) -> Dict[str, Any]:
     """
-    Get treatment recommendations for a specific condition, optionally filtered by patient population.
+    Get treatment recommendations for a specific condition.
     
     Args:
-        input_data: Condition and optional population filter
+        input_data: Condition to search for
     
     Returns:
-        Treatment recommendations with evidence grades
+        Treatment recommendations from CPG content
     """
-    # First, search for relevant content
+    # Search for treatment content
     query = f"treatment recommendation {input_data.condition}"
-    if input_data.population:
-        query += f" {input_data.population}"
     
-    # Use CPG filtered search if possible
     try:
-        cpg_results = await cpg_filtered_search_tool(CPGFilteredSearchInput(
+        # Use vector search to find relevant treatment content
+        vector_results = await vector_search_tool(VectorSearchInput(
             query=query,
-            population=input_data.population,
-            category="Treatment",
-            recommendations_only=True,
             limit=10
         ))
         
-        # Organize by grade
-        by_grade = {"Grade A": [], "Grade B": [], "Grade C": [], "Other": []}
+        # Also search knowledge graph for related facts
+        graph_results = await graph_search_tool(GraphSearchInput(
+            query=f"{input_data.condition} treatment"
+        ))
         
-        for r in cpg_results:
-            grade = r.get("grade", "Other")
-            if grade in by_grade:
-                by_grade[grade].append({
-                    "content": r["content"][:500],
-                    "section": " > ".join(r.get("section_hierarchy", [])),
-                    "population": r.get("target_population")
-                })
-            else:
-                by_grade["Other"].append({
-                    "content": r["content"][:500],
-                    "section": " > ".join(r.get("section_hierarchy", []))
-                })
+        recommendations = []
+        for r in vector_results:
+            recommendations.append({
+                "content": r.content[:500],
+                "document": r.document_title,
+                "score": r.score
+            })
         
         return {
             "condition": input_data.condition,
-            "population_filter": input_data.population,
-            "recommendations_by_grade": by_grade,
-            "total_found": len(cpg_results)
+            "recommendations": recommendations,
+            "related_facts": [r.fact for r in graph_results[:5]] if graph_results else [],
+            "total_found": len(vector_results)
         }
         
     except Exception as e:
         logger.error(f"Treatment recommendations search failed: {e}")
-        # Fallback to regular search
-        vector_results = await vector_search_tool(VectorSearchInput(query=query, limit=5))
         return {
             "condition": input_data.condition,
-            "population_filter": input_data.population,
-            "results": [{"content": r.content[:500]} for r in vector_results],
-            "note": "Using fallback search (CPG metadata not available)"
+            "recommendations": [],
+            "error": str(e)
         }
 
 
