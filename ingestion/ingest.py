@@ -38,7 +38,7 @@ except ImportError:
     CPG_PARSER_AVAILABLE = False
     print("Warning: CPG parser not available. Using basic PDF processing.")
 
-from .chunker import ChunkingConfig, create_chunker, DocumentChunk
+from .chunker import ChunkingConfig, MarkdownChunker, DocumentChunk
 from .embedder import create_embedder
 from .graph_builder import create_graph_builder
 
@@ -94,15 +94,14 @@ class DocumentIngestionPipeline:
         if self.save_processed:
             os.makedirs(self.processed_folder, exist_ok=True)
         
-        # Initialize components
+        # Initialize components - use MarkdownChunker for structured docs
         self.chunker_config = ChunkingConfig(
             chunk_size=config.chunk_size,
             chunk_overlap=config.chunk_overlap,
-            max_chunk_size=config.max_chunk_size,
-            use_semantic_splitting=config.use_semantic_chunking
+            max_chunk_size=config.max_chunk_size
         )
         
-        self.chunker = create_chunker(self.chunker_config)
+        self.chunker = MarkdownChunker(self.chunker_config)
         self.embedder = create_embedder()
         self.graph_builder = create_graph_builder()
         
@@ -234,7 +233,7 @@ class DocumentIngestionPipeline:
         logger.info(f"Processing document: {document_title}")
         
         # Chunk the document
-        chunks = await self.chunker.chunk_document(
+        chunks = self.chunker.chunk_document(
             content=document_content,
             title=document_title,
             source=document_source,
@@ -483,7 +482,7 @@ class DocumentIngestionPipeline:
             document_metadata = self._extract_document_metadata(document_content, file_path)
             
             # Use standard chunking
-            chunks = await self.chunker.chunk_document(
+            chunks = self.chunker.chunk_document(
                 content=document_content,
                 title=document_title,
                 source=document_source,

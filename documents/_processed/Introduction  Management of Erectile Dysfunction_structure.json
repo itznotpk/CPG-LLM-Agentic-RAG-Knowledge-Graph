@@ -1,0 +1,31 @@
+{
+  "title": "",
+  "page_count": 2,
+  "parse_date": "2026-01-07T23:32:01.624119",
+  "total_chunks": 3,
+  "table_count": 0,
+  "algorithm_count": 0,
+  "sections": [
+    "1.\t\nINTRODUCTION"
+  ],
+  "chunk_summary": {
+    "recommendations": 0,
+    "tables": 0,
+    "algorithms": 0,
+    "by_grade": {
+      "Grade A": 0,
+      "Grade B": 0,
+      "Grade C": 0,
+      "Key Recommendation": 0
+    },
+    "by_category": {
+      "Treatment": 2,
+      "Diagnosis": 1
+    },
+    "by_population": {
+      "Spinal Cord Injury": 1,
+      "Diabetes": 1,
+      "General": 1
+    }
+  }
+}
