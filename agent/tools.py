@@ -2,28 +2,22 @@
 Tools for the Pydantic AI agent.
 """
 
-import os
 import logging
 from typing import List, Dict, Any, Optional
-from datetime import datetime
-import asyncio
+
 
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 
 from .db_utils import (
     vector_search,
-    hybrid_search,
-    get_document,
-    list_documents,
-    get_document_chunks
+    hybrid_search
 )
 from .graph_utils import (
     search_knowledge_graph,
-    get_entity_relationships,
-    graph_client
+    get_entity_relationships
 )
-from .models import ChunkResult, GraphSearchResult, DocumentMetadata
+from .models import ChunkResult, GraphSearchResult
 from .providers import get_embedding_client, get_embedding_model
 
 # Load environment variables
@@ -76,28 +70,10 @@ class HybridSearchInput(BaseModel):
     text_weight: float = Field(default=0.3, description="Weight for text similarity (0-1)")
 
 
-class DocumentInput(BaseModel):
-    """Input for document retrieval."""
-    document_id: str = Field(..., description="Document ID to retrieve")
-
-
-class DocumentListInput(BaseModel):
-    """Input for listing documents."""
-    limit: int = Field(default=20, description="Maximum number of documents")
-    offset: int = Field(default=0, description="Number of documents to skip")
-
-
 class EntityRelationshipInput(BaseModel):
     """Input for entity relationship query."""
     entity_name: str = Field(..., description="Name of the entity")
     depth: int = Field(default=2, description="Maximum traversal depth")
-
-
-class EntityTimelineInput(BaseModel):
-    """Input for entity timeline query."""
-    entity_name: str = Field(..., description="Name of the entity")
-    start_date: Optional[str] = Field(None, description="Start date (ISO format)")
-    end_date: Optional[str] = Field(None, description="End date (ISO format)")
 
 
 # CPG-Specific Tool Input Models
@@ -235,69 +211,9 @@ async def hybrid_search_tool(input_data: HybridSearchInput) -> List[ChunkResult]
         return []
 
 
-async def get_document_tool(input_data: DocumentInput) -> Optional[Dict[str, Any]]:
-    """
-    Retrieve a complete document.
-    
-    Args:
-        input_data: Document retrieval parameters
-    
-    Returns:
-        Document data or None
-    """
-    try:
-        document = await get_document(input_data.document_id)
-        
-        if document:
-            # Also get all chunks for the document
-            chunks = await get_document_chunks(input_data.document_id)
-            document["chunks"] = chunks
-        
-        return document
-        
-    except Exception as e:
-        logger.error(f"Document retrieval failed: {e}")
-        return None
-
-
-async def list_documents_tool(input_data: DocumentListInput) -> List[DocumentMetadata]:
-    """
-    List available documents.
-    
-    Args:
-        input_data: Listing parameters
-    
-    Returns:
-        List of document metadata
-    """
-    try:
-        documents = await list_documents(
-            limit=input_data.limit,
-            offset=input_data.offset
-        )
-        
-        # Convert to DocumentMetadata models
-        return [
-            DocumentMetadata(
-                id=d["id"],
-                title=d["title"],
-                source=d["source"],
-                metadata=d["metadata"],
-                created_at=datetime.fromisoformat(d["created_at"]),
-                updated_at=datetime.fromisoformat(d["updated_at"]),
-                chunk_count=d.get("chunk_count")
-            )
-            for d in documents
-        ]
-        
-    except Exception as e:
-        logger.error(f"Document listing failed: {e}")
-        return []
-
-
 async def get_entity_relationships_tool(input_data: EntityRelationshipInput) -> Dict[str, Any]:
     """
-    Get relationships for an entity.
+    Get relationships for an entity from the knowledge graph.
     
     Args:
         input_data: Entity relationship parameters
@@ -320,40 +236,6 @@ async def get_entity_relationships_tool(input_data: EntityRelationshipInput) -> 
             "depth": input_data.depth,
             "error": str(e)
         }
-
-
-async def get_entity_timeline_tool(input_data: EntityTimelineInput) -> List[Dict[str, Any]]:
-    """
-    Get timeline of facts for an entity.
-    
-    Args:
-        input_data: Timeline query parameters
-    
-    Returns:
-        Timeline of facts
-    """
-    try:
-        # Parse dates if provided
-        start_date = None
-        end_date = None
-        
-        if input_data.start_date:
-            start_date = datetime.fromisoformat(input_data.start_date)
-        if input_data.end_date:
-            end_date = datetime.fromisoformat(input_data.end_date)
-        
-        # Get timeline from graph
-        timeline = await graph_client.get_entity_timeline(
-            entity_name=input_data.entity_name,
-            start_date=start_date,
-            end_date=end_date
-        )
-        
-        return timeline
-        
-    except Exception as e:
-        logger.error(f"Entity timeline query failed: {e}")
-        return []
 
 
 # Combined search function for agent use
@@ -524,63 +406,92 @@ async def get_grade_a_recommendations_tool(query: str, limit: int = 10) -> List[
 
 async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]:
     """
-    Get comprehensive information about a drug including contraindications,
-    dosages, and adverse events.
+    Get comprehensive information about a drug by dynamically searching
+    the knowledge graph and document chunks.
+    
+    This is fully dynamic - no hardcoded drug data. All information comes from:
+    1. Knowledge graph relationships (CONTRAINDICATED_WITH, HAS_DOSAGE, CAUSES)
+    2. Vector search on document chunks
     
     Args:
         input_data: Drug name to look up
     
     Returns:
-        Drug information with contraindications, dosages, side effects
+        Drug information with contraindications, dosages, side effects from the knowledge base
     """
-    from .db_utils import db_pool
-    
-    # Knowledge base from graph_builder (should match)
-    DRUG_CONTRAINDICATIONS = {
-        "Sildenafil": ["Nitrates", "Glyceryl trinitrate", "Isosorbide mononitrate", "Riociguat", "Severe Heart Failure"],
-        "Tadalafil": ["Nitrates", "Glyceryl trinitrate", "Isosorbide mononitrate", "Riociguat", "Severe Heart Failure"],
-        "Vardenafil": ["Nitrates", "Glyceryl trinitrate", "Isosorbide mononitrate", "Riociguat"],
-        "Avanafil": ["Nitrates", "Riociguat"],
-    }
-    
-    DRUG_DOSAGES = {
-        "Sildenafil": ["50mg on-demand", "25-100mg range", "Start 50mg, adjust based on response"],
-        "Tadalafil": ["10mg on-demand", "5mg daily for regular use", "10-20mg on-demand"],
-        "Vardenafil": ["10mg on-demand", "5-20mg range"],
-        "Avanafil": ["100mg on-demand", "50-200mg range"],
-    }
-    
-    DRUG_ADVERSE_EVENTS = {
-        "Sildenafil": ["Headache", "Flushing", "Dyspepsia", "Nasal congestion", "Visual abnormalities"],
-        "Tadalafil": ["Headache", "Back pain", "Myalgia", "Dyspepsia"],
-        "Vardenafil": ["Headache", "Flushing", "Dyspepsia"],
-        "Avanafil": ["Headache", "Flushing", "Nasal congestion"],
-    }
-    
     drug = input_data.drug_name
     
     result = {
         "drug_name": drug,
-        "contraindications": DRUG_CONTRAINDICATIONS.get(drug, []),
-        "dosages": DRUG_DOSAGES.get(drug, []),
-        "adverse_events": DRUG_ADVERSE_EVENTS.get(drug, []),
+        "contraindications": [],
+        "dosages": [],
+        "adverse_events": [],
+        "related_facts": [],
         "related_content": []
     }
     
-    # Also search for relevant content from the vector DB
+    # 1. Search knowledge graph for drug relationships
+    try:
+        graph_results = await graph_search_tool(GraphSearchInput(
+            query=f"{drug} contraindication dosage adverse effect side effect"
+        ))
+        
+        for fact_result in graph_results:
+            fact = fact_result.fact.lower() if hasattr(fact_result, 'fact') else str(fact_result).lower()
+            result["related_facts"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
+            
+            # Categorize facts based on content
+            if 'contraindicated' in fact or 'avoid' in fact or 'must not' in fact:
+                result["contraindications"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
+            elif 'dosage' in fact or 'dose' in fact or 'mg' in fact:
+                result["dosages"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
+            elif 'adverse' in fact or 'side effect' in fact or 'cause' in fact or 'headache' in fact:
+                result["adverse_events"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
+                
+    except Exception as e:
+        logger.warning(f"Graph search failed for {drug}: {e}")
+    
+    # 2. Get entity relationships from graph
+    try:
+        relationships = await get_entity_relationships_tool(EntityRelationshipInput(
+            entity_name=drug,
+            depth=2
+        ))
+        
+        for rel in relationships.get("relationships", []):
+            rel_type = rel.get("type", "")
+            target = rel.get("target", "")
+            
+            if rel_type == "CONTRAINDICATED_WITH":
+                result["contraindications"].append(f"Contraindicated with {target}")
+            elif rel_type == "HAS_DOSAGE":
+                result["dosages"].append(target)
+            elif rel_type == "CAUSES":
+                result["adverse_events"].append(target)
+                
+    except Exception as e:
+        logger.warning(f"Entity relationship query failed for {drug}: {e}")
+    
+    # 3. Search vector DB for related content
     try:
         search_results = await vector_search_tool(VectorSearchInput(
-            query=f"{drug} dosage contraindication adverse effects",
-            limit=3
+            query=f"{drug} dosage contraindication adverse effect side effect",
+            limit=5
         ))
         result["related_content"] = [
-            {"content": r.content[:500], "document": r.document_title}
+            {"content": r.content[:500], "document": r.document_title, "score": r.score}
             for r in search_results
         ]
     except Exception as e:
-        logger.warning(f"Could not fetch related content for {drug}: {e}")
+        logger.warning(f"Vector search failed for {drug}: {e}")
+    
+    # Remove duplicates
+    result["contraindications"] = list(set(result["contraindications"]))
+    result["dosages"] = list(set(result["dosages"]))
+    result["adverse_events"] = list(set(result["adverse_events"]))
     
     return result
+
 
 
 async def get_treatment_recommendations_tool(input_data: TreatmentRecommendationInput) -> Dict[str, Any]:

@@ -16,12 +16,67 @@ from graphiti_core.llm_client.config import LLMConfig
 from graphiti_core.llm_client.openai_client import OpenAIClient
 from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
 from graphiti_core.cross_encoder.openai_reranker_client import OpenAIRerankerClient
+from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
 logger = logging.getLogger(__name__)
+
+
+# =============================================================================
+# CUSTOM ENTITY TYPES FOR MEDICAL/CPG DOMAIN
+# =============================================================================
+# These define custom entity labels that will appear in Neo4j
+# instead of generic "Entity" labels.
+
+class Medication(BaseModel):
+    """A drug or pharmaceutical used for treatment."""
+    drug_class: Optional[str] = Field(None, description="Drug class (e.g., PDE5 inhibitor)")
+    dosage: Optional[str] = Field(None, description="Typical dosage")
+    contraindications: Optional[str] = Field(None, description="Known contraindications")
+
+class Condition(BaseModel):
+    """A medical condition, disease, or diagnosis."""
+    severity: Optional[str] = Field(None, description="Severity level if applicable")
+    icd_code: Optional[str] = Field(None, description="ICD code if known")
+
+class Procedure(BaseModel):
+    """A medical procedure, treatment, or intervention."""
+    procedure_type: Optional[str] = Field(None, description="Type: surgical, lifestyle, mechanical")
+    indication: Optional[str] = Field(None, description="Primary indication")
+
+class DiagnosticTool(BaseModel):
+    """A diagnostic test, score, or assessment tool."""
+    tool_type: Optional[str] = Field(None, description="Type: questionnaire, lab test, imaging")
+    normal_range: Optional[str] = Field(None, description="Normal range if applicable")
+
+class AdverseEvent(BaseModel):
+    """A side effect, complication, or adverse event."""
+    severity: Optional[str] = Field(None, description="Severity: mild, moderate, severe")
+    frequency: Optional[str] = Field(None, description="How common: rare, common, frequent")
+
+class RiskFactor(BaseModel):
+    """A risk factor or predisposing condition."""
+    modifiable: Optional[bool] = Field(None, description="Whether the risk factor is modifiable")
+
+class Organization(BaseModel):
+    """A medical organization, hospital, or institution."""
+    org_type: Optional[str] = Field(None, description="Type: hospital, association, regulatory")
+    country: Optional[str] = Field(None, description="Country if applicable")
+
+
+# Dictionary of custom entity types for Graphiti
+CUSTOM_ENTITY_TYPES: Dict[str, type] = {
+    "Medication": Medication,
+    "Condition": Condition,
+    "Procedure": Procedure,
+    "DiagnosticTool": DiagnosticTool,
+    "AdverseEvent": AdverseEvent,
+    "RiskFactor": RiskFactor,
+    "Organization": Organization,
+}
 
 # Help from this PR for setting up the custom clients: https://github.com/getzep/graphiti/pull/601/files
 class GraphitiClient:
@@ -130,10 +185,11 @@ class GraphitiClient:
         content: str,
         source: str,
         timestamp: Optional[datetime] = None,
-        metadata: Optional[Dict[str, Any]] = None
+        metadata: Optional[Dict[str, Any]] = None,
+        use_custom_entity_types: bool = True
     ):
         """
-        Add an episode to the knowledge graph.
+        Add an episode to the knowledge graph with custom medical entity types.
         
         Args:
             episode_id: Unique episode identifier
@@ -141,6 +197,7 @@ class GraphitiClient:
             source: Source of the content
             timestamp: Episode timestamp
             metadata: Additional metadata
+            use_custom_entity_types: Whether to use custom medical entity types
         """
         if not self._initialized:
             await self.initialize()
@@ -150,15 +207,22 @@ class GraphitiClient:
         # Import EpisodeType for proper source handling
         from graphiti_core.nodes import EpisodeType
         
+        # Use custom entity types for medical domain
+        entity_types = CUSTOM_ENTITY_TYPES if use_custom_entity_types else None
+        
         await self.graphiti.add_episode(
             name=episode_id,
             episode_body=content,
             source=EpisodeType.text,  # Always use text type for our content
             source_description=source,
-            reference_time=episode_timestamp
+            reference_time=episode_timestamp,
+            entity_types=list(entity_types.values()) if entity_types else None
         )
         
-        logger.info(f"Added episode {episode_id} to knowledge graph")
+        if use_custom_entity_types:
+            logger.info(f"Added episode {episode_id} with custom entity types: {list(CUSTOM_ENTITY_TYPES.keys())}")
+        else:
+            logger.info(f"Added episode {episode_id} to knowledge graph")
     
     async def search(
         self,

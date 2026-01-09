@@ -142,30 +142,62 @@ class SemanticChunker:
         current_chunk = ""
         
         for section in sections:
+            # Clean the section first
+            section = section.strip()
+            if not section:
+                continue
+                
             # Check if adding this section would exceed chunk size
-            potential_chunk = current_chunk + "\n\n" + section if current_chunk else section
+            potential_chunk = current_chunk.rstrip() + "\n\n" + section if current_chunk else section
             
             if len(potential_chunk) <= self.config.chunk_size:
                 current_chunk = potential_chunk
             else:
-                # Current chunk is ready, decide if we should split the section
-                if current_chunk:
-                    chunks.append(current_chunk.strip())
-                    current_chunk = ""
-                
-                # Handle oversized sections
-                if len(section) > self.config.max_chunk_size:
-                    # Split the section semantically
-                    sub_chunks = await self._split_long_section(section)
-                    chunks.extend(sub_chunks)
+                # Current chunk is ready, but check if it ends with a header
+                # Option 2: Don't let chunk end with a header (keep header with content)
+                if current_chunk and re.search(r'\n#{1,6}\s+.+?\s*$', current_chunk):
+                    # Header at end - force include this section with the header
+                    current_chunk = potential_chunk
                 else:
-                    current_chunk = section
+                    # Safe to save current chunk
+                    if current_chunk:
+                        chunks.append(current_chunk.strip())
+                        current_chunk = ""
+                    
+                    # Handle oversized sections
+                    if len(section) > self.config.max_chunk_size:
+                        # Split the section semantically
+                        sub_chunks = await self._split_long_section(section)
+                        chunks.extend(sub_chunks)
+                    else:
+                        current_chunk = section
         
         # Add the last chunk
         if current_chunk:
             chunks.append(current_chunk.strip())
         
-        return [chunk for chunk in chunks if len(chunk.strip()) >= self.config.min_chunk_size]
+        return [self._normalize_whitespace(chunk) for chunk in chunks if len(chunk.strip()) >= self.config.min_chunk_size]
+    
+    def _normalize_whitespace(self, text: str) -> str:
+        """
+        Normalize whitespace in text.
+        
+        - Remove leading/trailing whitespace
+        - Collapse 3+ newlines to 2 (single blank line)
+        - Normalize spaces
+        
+        Args:
+            text: Text to normalize
+            
+        Returns:
+            Normalized text
+        """
+        text = text.strip()
+        # Collapse 3+ newlines to 2 (max one blank line)
+        text = re.sub(r'\n{3,}', '\n\n', text)
+        # Normalize multiple spaces to single space (but not newlines)
+        text = re.sub(r'[^\S\n]+', ' ', text)
+        return text
     
     def _split_on_structure(self, content: str) -> List[str]:
         """
@@ -177,14 +209,15 @@ class SemanticChunker:
         Returns:
             List of sections
         """
-        # Split on markdown headers, paragraphs, and other structural elements
+        # Option 1: Split on headers and paragraphs only
+        # REMOVED: list items, numbered lists, table rows - these stay together
         patterns = [
             r'\n#{1,6}\s+.+?\n',  # Markdown headers
             r'\n\n+',            # Multiple newlines (paragraph breaks)
-            r'\n[-*+]\s+',       # List items
-            r'\n\d+\.\s+',       # Numbered lists
-            r'\n```.*?```\n',    # Code blocks
-            r'\n\|\s*.+?\|\s*\n', # Tables
+            # REMOVED: r'\n[-*+]\s+' - list items stay together
+            # REMOVED: r'\n\d+\.\s+' - numbered lists stay together  
+            # REMOVED: r'\n\|.*\|' - table rows stay together
+            r'\n```.*?```\n',    # Code blocks (keep as separator)
         ]
         
         # Split by patterns but keep the separators
@@ -331,7 +364,7 @@ class SemanticChunker:
             }
             
             chunk_objects.append(DocumentChunk(
-                content=chunk_text.strip(),
+                content=self._normalize_whitespace(chunk_text),
                 index=i,
                 start_char=start_pos,
                 end_char=end_pos,

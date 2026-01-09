@@ -11,6 +11,7 @@ import re
 
 from graphiti_core import Graphiti
 from dotenv import load_dotenv
+import json
 
 from .chunker import DocumentChunk
 
@@ -49,6 +50,99 @@ class GraphBuilder:
         if self._initialized:
             await self.graph_client.close()
             self._initialized = False
+    
+    # ==========================================================================
+    # LLM-BASED DYNAMIC ENTITY EXTRACTION
+    # ==========================================================================
+    
+    # Entity categories (structure only, values are extracted dynamically)
+    ENTITY_CATEGORIES = [
+        "MEDICATIONS",       # Drug names, pharmaceuticals, drug classes
+        "CONDITIONS",        # Diseases, diagnoses, symptoms
+        "PROCEDURES",        # Treatments, surgeries, therapies
+        "DIAGNOSTIC_TOOLS",  # Tests, scores, questionnaires, imaging
+        "RISK_FACTORS",      # Lifestyle factors, comorbidities
+        "ADVERSE_EVENTS",    # Side effects, complications
+        "ORGANIZATIONS",     # Medical organizations, hospitals
+    ]
+    
+    async def _extract_entities_with_llm(self, text: str) -> Dict[str, List[str]]:
+        """
+        Use LLM to dynamically extract and classify medical entities from text.
+        
+        This is fully dynamic - no hardcoded entity values. The LLM identifies
+        and categorizes all medical entities based on context.
+        
+        Args:
+            text: Content to extract entities from
+            
+        Returns:
+            Dictionary with entity categories as keys and lists of entities as values
+        """
+        from pydantic_ai import Agent
+        
+        try:
+            # Import the ingestion model
+            from agent.providers import get_ingestion_model
+            model = get_ingestion_model()
+            
+            # Truncate text if too long (LLM context limit)
+            max_chars = 4000
+            truncated_text = text[:max_chars] if len(text) > max_chars else text
+            
+            prompt = f"""Analyze this medical text and extract entities into categories.
+
+CATEGORIES:
+- MEDICATIONS: Drug names, drug classes (e.g., "Sildenafil", "PDE5 inhibitors", "Nitrates")
+- CONDITIONS: Diseases, diagnoses, symptoms (e.g., "Erectile Dysfunction", "Diabetes", "Hypertension")
+- PROCEDURES: Treatments, surgeries, therapies (e.g., "Penile prosthesis", "Lifestyle modification")
+- DIAGNOSTIC_TOOLS: Tests, scores, questionnaires (e.g., "IIEF-5", "HbA1c", "PSA")
+- RISK_FACTORS: Lifestyle factors, comorbidities (e.g., "Smoking", "Obesity", "Advanced age")
+- ADVERSE_EVENTS: Side effects, complications (e.g., "Headache", "Flushing", "Priapism")
+- ORGANIZATIONS: Medical organizations, hospitals (e.g., "MOH", "WHO", "Malaysian Urological Association")
+
+TEXT:
+{truncated_text}
+
+Return ONLY a valid JSON object with the categories as keys and arrays of extracted entity strings as values.
+If no entities found for a category, use an empty array [].
+Do not include explanations, only the JSON.
+
+Example format:
+{{"MEDICATIONS": ["Sildenafil", "Tadalafil"], "CONDITIONS": ["ED", "Diabetes"], "PROCEDURES": [], ...}}
+"""
+            
+            # Create temporary agent for entity extraction
+            temp_agent = Agent(model)
+            response = await temp_agent.run(prompt)
+            result_text = response.data
+            
+            # Parse JSON response
+            # Try to extract JSON from response (may have extra text)
+            json_match = re.search(r'\{[^{}]*\}', result_text, re.DOTALL)
+            if json_match:
+                result_text = json_match.group()
+            
+            entities = json.loads(result_text)
+            
+            # Ensure all categories exist
+            for category in self.ENTITY_CATEGORIES:
+                if category not in entities:
+                    entities[category] = []
+                # Convert to list if not already
+                if not isinstance(entities[category], list):
+                    entities[category] = [entities[category]]
+            
+            logger.debug(f"LLM extracted entities: {entities}")
+            return entities
+            
+        except json.JSONDecodeError as e:
+            logger.warning(f"Failed to parse LLM response as JSON: {e}")
+            return {cat: [] for cat in self.ENTITY_CATEGORIES}
+        except Exception as e:
+            logger.warning(f"LLM entity extraction failed: {e}")
+            return {cat: [] for cat in self.ENTITY_CATEGORIES}
+
     
     async def add_document_to_graph(
         self,
@@ -200,61 +294,58 @@ class GraphBuilder:
     async def extract_entities_from_chunks(
         self,
         chunks: List[DocumentChunk],
-        extract_companies: bool = True,
-        extract_technologies: bool = True,
-        extract_people: bool = True
+        use_llm: bool = True
     ) -> List[DocumentChunk]:
         """
         Extract medical entities from chunks and add to metadata.
         
-        Extracts: conditions, medications, diagnostic tools, procedures,
-        risk factors, adverse events, organizations, locations.
+        Uses LLM-based dynamic extraction to identify and categorize entities.
+        No hardcoded entity lists - all entities are discovered from the text.
         
         Args:
             chunks: List of document chunks
-            extract_companies: Whether to extract organization names
-            extract_technologies: Whether to extract medical terms/procedures
-            extract_people: Whether to extract person names
+            use_llm: Use LLM for dynamic entity extraction (recommended)
         
         Returns:
             Chunks with entity metadata added
         """
-        logger.info(f"Extracting medical entities from {len(chunks)} chunks")
+        logger.info(f"Extracting medical entities from {len(chunks)} chunks using {'LLM' if use_llm else 'pattern matching'}")
         
         enriched_chunks = []
         
-        for chunk in chunks:
-            entities = {
-                # Medical-specific categories
-                "conditions": [],
-                "medications": [],
-                "diagnostic_tools": [],
-                "procedures": [],
-                "risk_factors": [],
-                "adverse_events": [],
-                # General categories
-                "organizations": [],
-                "people": [],
-                "locations": []
-            }
-            
+        for i, chunk in enumerate(chunks):
             content = chunk.content
             
-            # Extract medical entities
-            entities["conditions"] = self._extract_conditions(content)
-            entities["medications"] = self._extract_medications(content)
-            entities["diagnostic_tools"] = self._extract_technologies(content)  # Uses DIAGNOSTIC_TOOLS + PROCEDURES
-            entities["risk_factors"] = self._extract_risk_factors(content)
-            entities["adverse_events"] = self._extract_adverse_events(content)
+            if use_llm:
+                # Dynamic LLM-based entity extraction
+                llm_entities = await self._extract_entities_with_llm(content)
+                
+                entities = {
+                    "conditions": llm_entities.get("CONDITIONS", []),
+                    "medications": llm_entities.get("MEDICATIONS", []),
+                    "diagnostic_tools": llm_entities.get("DIAGNOSTIC_TOOLS", []),
+                    "procedures": llm_entities.get("PROCEDURES", []),
+                    "risk_factors": llm_entities.get("RISK_FACTORS", []),
+                    "adverse_events": llm_entities.get("ADVERSE_EVENTS", []),
+                    "organizations": llm_entities.get("ORGANIZATIONS", []),
+                    "extraction_method": "llm"
+                }
+            else:
+                # Fallback to legacy pattern matching (deprecated)
+                entities = {
+                    "conditions": self._extract_conditions(content),
+                    "medications": self._extract_medications(content),
+                    "diagnostic_tools": self._extract_technologies(content),
+                    "procedures": [],
+                    "risk_factors": self._extract_risk_factors(content),
+                    "adverse_events": self._extract_adverse_events(content),
+                    "organizations": self._extract_companies(content),
+                    "extraction_method": "pattern"
+                }
             
-            # Extract general entities
-            if extract_companies:
-                entities["organizations"] = self._extract_companies(content)
-            
-            if extract_people:
-                entities["people"] = self._extract_people(content)
-            
-            entities["locations"] = self._extract_locations(content)
+            # Log progress
+            if (i + 1) % 5 == 0 or i == 0:
+                logger.info(f"  Processed chunk {i + 1}/{len(chunks)}")
             
             # Create enriched chunk
             enriched_chunk = DocumentChunk(
@@ -276,11 +367,24 @@ class GraphBuilder:
             
             enriched_chunks.append(enriched_chunk)
         
-        logger.info("Entity extraction complete")
+        # Log summary
+        total_entities = sum(
+            len(c.metadata.get("entities", {}).get(cat, []))
+            for c in enriched_chunks
+            for cat in ["conditions", "medications", "procedures", "diagnostic_tools"]
+        )
+        logger.info(f"Entity extraction complete: {total_entities} entities across {len(enriched_chunks)} chunks")
+        
         return enriched_chunks
     
     # ==========================================================================
-    # MEDICAL ENTITY EXTRACTION (Malaysia CPG - Clinical Practice Guidelines)
+    # LEGACY FALLBACK: Pattern-Based Entity Extraction (DEPRECATED)
+    # ==========================================================================
+    # NOTE: These hardcoded sets are DEPRECATED and only used as fallback
+    # when use_llm=False in extract_entities_from_chunks().
+    # 
+    # PRIMARY METHOD: LLM-based extraction via _extract_entities_with_llm()
+    # which dynamically identifies ALL entities from text without limitation.
     # ==========================================================================
     
     # 1. DIAGNOSIS & CONDITIONS (For "Risk Assessment" & "Clinical Summary")
