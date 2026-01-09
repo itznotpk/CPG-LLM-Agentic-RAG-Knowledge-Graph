@@ -215,8 +215,8 @@ class GraphitiClient:
             episode_body=content,
             source=EpisodeType.text,  # Always use text type for our content
             source_description=source,
-            reference_time=episode_timestamp,
-            entity_types=list(entity_types.values()) if entity_types else None
+            reference_time=episode_timestamp
+            # Note: entity_types removed - using Graphiti's default entity extraction
         )
         
         if use_custom_entity_types:

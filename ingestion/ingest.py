@@ -562,13 +562,13 @@ class DocumentIngestionPipeline:
                         """
                         INSERT INTO chunks (
                             document_id, content, embedding, chunk_index, metadata, token_count,
-                            section_hierarchy, evidence_level, grade, target_population, category,
+                            section_hierarchy,
                             is_recommendation, is_table, is_algorithm, structured_content
                         )
                         VALUES (
                             $1::uuid, $2, $3::vector, $4, $5, $6,
-                            $7, $8, $9, $10, $11,
-                            $12, $13, $14, $15
+                            $7,
+                            $8, $9, $10, $11
                         )
                         RETURNING id::text
                         """,
@@ -579,10 +579,6 @@ class DocumentIngestionPipeline:
                         json.dumps(meta),
                         chunk.token_count,
                         section_hierarchy,
-                        meta.get("evidence_level"),
-                        meta.get("grade"),
-                        meta.get("target_population"),
-                        meta.get("category"),
                         meta.get("is_recommendation", False),
                         meta.get("is_table", False),
                         meta.get("is_algorithm", False),

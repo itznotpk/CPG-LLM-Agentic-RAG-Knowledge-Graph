@@ -115,7 +115,7 @@ Example format:
             # Create temporary agent for entity extraction
             temp_agent = Agent(model)
             response = await temp_agent.run(prompt)
-            result_text = response.data
+            result_text = response.output
             
             # Parse JSON response
             # Try to extract JSON from response (may have extra text)

@@ -1,3 +1,6 @@
+-- CPG-LLM Agentic RAG Schema
+-- Simplified schema without Grade/Population metadata
+
 CREATE EXTENSION IF NOT EXISTS vector;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
@@ -6,11 +9,8 @@ DROP TABLE IF EXISTS messages CASCADE;
 DROP TABLE IF EXISTS sessions CASCADE;
 DROP TABLE IF EXISTS chunks CASCADE;
 DROP TABLE IF EXISTS documents CASCADE;
-DROP INDEX IF EXISTS idx_chunks_embedding;
-DROP INDEX IF EXISTS idx_chunks_document_id;
-DROP INDEX IF EXISTS idx_documents_metadata;
-DROP INDEX IF EXISTS idx_chunks_content_trgm;
 
+-- Documents table
 CREATE TABLE documents (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     title TEXT NOT NULL,
@@ -24,25 +24,20 @@ CREATE TABLE documents (
 CREATE INDEX idx_documents_metadata ON documents USING GIN (metadata);
 CREATE INDEX idx_documents_created_at ON documents (created_at DESC);
 
+-- Chunks table (simplified - no grade/population columns)
 CREATE TABLE chunks (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     document_id UUID NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
     content TEXT NOT NULL,
-    embedding vector(768), -- Gemini text-embedding-004 uses 768 dimensions
+    embedding vector(768),
     chunk_index INTEGER NOT NULL,
     metadata JSONB DEFAULT '{}',
     token_count INTEGER,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     
-    -- CPG Hierarchical Structure
+    -- Hierarchical Structure
     parent_chunk_id UUID REFERENCES chunks(id) ON DELETE SET NULL,
-    section_hierarchy TEXT[], -- e.g., ["4. TREATMENT", "4.2 Pharmacological Treatment"]
-    
-    -- CPG Metadata for Filtered Search
-    evidence_level TEXT,      -- Level I, II, III
-    grade TEXT,               -- Grade A, B, C, Key Recommendation
-    target_population TEXT,   -- General, Diabetes, Cardiac Disease, etc.
-    category TEXT,            -- Diagnosis, Treatment, Referral, Monitoring
+    section_hierarchy TEXT[],
     
     -- Content Type Flags
     is_recommendation BOOLEAN DEFAULT FALSE,
@@ -50,24 +45,20 @@ CREATE TABLE chunks (
     is_algorithm BOOLEAN DEFAULT FALSE,
     
     -- Structured Content (for tables/algorithms)
-    structured_content JSONB  -- JSON table data or algorithm steps
+    structured_content JSONB
 );
 
+-- Indexes
 CREATE INDEX idx_chunks_embedding ON chunks USING ivfflat (embedding vector_cosine_ops) WITH (lists = 1);
 CREATE INDEX idx_chunks_document_id ON chunks (document_id);
 CREATE INDEX idx_chunks_chunk_index ON chunks (document_id, chunk_index);
 CREATE INDEX idx_chunks_content_trgm ON chunks USING GIN (content gin_trgm_ops);
-
--- CPG-specific indexes for filtered retrieval
 CREATE INDEX idx_chunks_parent ON chunks (parent_chunk_id);
-CREATE INDEX idx_chunks_evidence_level ON chunks (evidence_level) WHERE evidence_level IS NOT NULL;
-CREATE INDEX idx_chunks_grade ON chunks (grade) WHERE grade IS NOT NULL;
-CREATE INDEX idx_chunks_population ON chunks (target_population);
-CREATE INDEX idx_chunks_category ON chunks (category);
 CREATE INDEX idx_chunks_recommendations ON chunks (is_recommendation) WHERE is_recommendation = TRUE;
 CREATE INDEX idx_chunks_tables ON chunks (is_table) WHERE is_table = TRUE;
 CREATE INDEX idx_chunks_algorithms ON chunks (is_algorithm) WHERE is_algorithm = TRUE;
 
+-- Sessions table
 CREATE TABLE sessions (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id TEXT,
@@ -80,6 +71,7 @@ CREATE TABLE sessions (
 CREATE INDEX idx_sessions_user_id ON sessions (user_id);
 CREATE INDEX idx_sessions_expires_at ON sessions (expires_at);
 
+-- Messages table
 CREATE TABLE messages (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     session_id UUID NOT NULL REFERENCES sessions(id) ON DELETE CASCADE,
@@ -91,6 +83,7 @@ CREATE TABLE messages (
 
 CREATE INDEX idx_messages_session_id ON messages (session_id, created_at);
 
+-- Vector search function
 CREATE OR REPLACE FUNCTION match_chunks(
     query_embedding vector(768),
     match_count INT DEFAULT 10
@@ -124,6 +117,7 @@ BEGIN
 END;
 $$;
 
+-- Hybrid search function
 CREATE OR REPLACE FUNCTION hybrid_search(
     query_embedding vector(768),
     query_text TEXT,
@@ -188,6 +182,7 @@ BEGIN
 END;
 $$;
 
+-- Get document chunks function
 CREATE OR REPLACE FUNCTION get_document_chunks(doc_id UUID)
 RETURNS TABLE (
     chunk_id UUID,
@@ -210,63 +205,7 @@ BEGIN
 END;
 $$;
 
--- CPG Filtered Search: Find recommendations by population and grade
-CREATE OR REPLACE FUNCTION cpg_filtered_search(
-    query_embedding vector(768),
-    filter_grade TEXT DEFAULT NULL,
-    filter_population TEXT DEFAULT NULL,
-    filter_category TEXT DEFAULT NULL,
-    recommendations_only BOOLEAN DEFAULT FALSE,
-    match_count INT DEFAULT 10
-)
-RETURNS TABLE (
-    chunk_id UUID,
-    document_id UUID,
-    content TEXT,
-    similarity FLOAT,
-    evidence_level TEXT,
-    grade TEXT,
-    target_population TEXT,
-    category TEXT,
-    section_hierarchy TEXT[],
-    is_recommendation BOOLEAN,
-    is_table BOOLEAN,
-    structured_content JSONB,
-    metadata JSONB,
-    document_title TEXT
-)
-LANGUAGE plpgsql
-AS $$
-BEGIN
-    RETURN QUERY
-    SELECT 
-        c.id AS chunk_id,
-        c.document_id,
-        c.content,
-        1 - (c.embedding <=> query_embedding) AS similarity,
-        c.evidence_level,
-        c.grade,
-        c.target_population,
-        c.category,
-        c.section_hierarchy,
-        c.is_recommendation,
-        c.is_table,
-        c.structured_content,
-        c.metadata,
-        d.title AS document_title
-    FROM chunks c
-    JOIN documents d ON c.document_id = d.id
-    WHERE c.embedding IS NOT NULL
-        AND (filter_grade IS NULL OR c.grade = filter_grade)
-        AND (filter_population IS NULL OR c.target_population = filter_population)
-        AND (filter_category IS NULL OR c.category = filter_category)
-        AND (NOT recommendations_only OR c.is_recommendation = TRUE)
-    ORDER BY c.embedding <=> query_embedding
-    LIMIT match_count;
-END;
-$$;
-
--- Get parent context for a chunk (for hierarchical retrieval)
+-- Get chunk with parent context
 CREATE OR REPLACE FUNCTION get_chunk_with_parent_context(target_chunk_id UUID)
 RETURNS TABLE (
     chunk_id UUID,
@@ -295,40 +234,7 @@ BEGIN
 END;
 $$;
 
--- Get all Grade A recommendations for a condition
-CREATE OR REPLACE FUNCTION get_grade_a_recommendations(
-    query_embedding vector(768),
-    match_count INT DEFAULT 10
-)
-RETURNS TABLE (
-    chunk_id UUID,
-    content TEXT,
-    similarity FLOAT,
-    section_hierarchy TEXT[],
-    target_population TEXT,
-    document_title TEXT
-)
-LANGUAGE plpgsql
-AS $$
-BEGIN
-    RETURN QUERY
-    SELECT 
-        c.id AS chunk_id,
-        c.content,
-        1 - (c.embedding <=> query_embedding) AS similarity,
-        c.section_hierarchy,
-        c.target_population,
-        d.title AS document_title
-    FROM chunks c
-    JOIN documents d ON c.document_id = d.id
-    WHERE c.embedding IS NOT NULL
-        AND c.grade = 'Grade A'
-        AND c.is_recommendation = TRUE
-    ORDER BY c.embedding <=> query_embedding
-    LIMIT match_count;
-END;
-$$;
-
+-- Timestamp update trigger
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -343,6 +249,7 @@ CREATE TRIGGER update_documents_updated_at BEFORE UPDATE ON documents
 CREATE TRIGGER update_sessions_updated_at BEFORE UPDATE ON sessions
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+-- Document summaries view
 CREATE OR REPLACE VIEW document_summaries AS
 SELECT 
     d.id,

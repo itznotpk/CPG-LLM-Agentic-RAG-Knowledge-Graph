@@ -178,6 +178,7 @@ Run the SQL in `sql/schema.sql` in your Neon database console. This creates tabl
 ```bash
 # Place your CPG PDF in documents/ folder
 python -m ingestion.ingest --clean -v
+python -m ingestion.ingest -d markdown -v
 ```
 
 **Output files saved to `documents/_processed/`:**
