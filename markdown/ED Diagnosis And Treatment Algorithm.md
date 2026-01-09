@@ -1,0 +1,241 @@
+# ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED
+
+## Overview
+This algorithm outlines the clinical decision pathway for diagnosing and treating Erectile Dysfunction (ED).
+
+---
+
+## 📖 Glossary
+
+| Term | Definition |
+|------|------------|
+| **ASCVD** | Atherosclerotic Cardiovascular Disease |
+| **BPH** | Benign Prostatic Hyperplasia |
+| **CBT** | Cognitive Behavioral Therapy |
+| **ED** | Erectile Dysfunction |
+| **EHS** | Erection Hardness Score |
+| **Exercise Ability** | Walking 1.6 km in 20 min or climbing 2 flights of stairs in 10 sec |
+| **GAD-7** | Generalized Anxiety Disorder 7-item scale |
+| **HbA1c** | Glycated Hemoglobin |
+| **IIEF-5** | 5-item version of International Index of Erectile Function |
+| **LH** | Luteinizing Hormone |
+| **Li-ESWT** | Low-intensity Extracorporeal Shockwave Therapy |
+| **LUTS** | Lower Urinary Tract Symptoms |
+| **PDE5i** | Phosphodiesterase-5 inhibitors |
+| **PHQ-9** | Patient Health Questionnaire-9 |
+| **PSA** | Prostate-Specific Antigen |
+| **VED** | Vacuum Erection Device |
+
+---
+
+## Step 1: Initial Assessment
+
+**Patient presents with symptoms of ED**
+
+↓
+
+### History Taking & Examination
+- **Medical history** (cardiovascular, diabetes, neurological)
+- **Psychological history** (depression, anxiety, relationship issues)
+- **Sexual history** (with partner involvement preferred)
+- **Assessment using IIEF-5** (International Index of Erectile Function)
+- **Focused physical examination**
+- ± Laboratory investigation
+- ± Imaging
+
+↓
+
+## Step 2: Diagnosis of ED
+
+After assessment, classify the **Type of ED**:
+
+| Type | Description |
+|------|-------------|
+| **Organic ED** | Physical/medical cause (vascular, hormonal, neurogenic) |
+| **Psychogenic ED** | Psychological cause (anxiety, depression, relationship) |
+| **Mixed ED*** | Combination of organic and psychogenic factors |
+
+> *Some cases may present with mixed ED. It is best to categorize the severity of mixed ED according to IIEF-5. Management of mixed ED may follow organic or psychogenic ED pathways.
+
+---
+
+## Step 3: Severity Assessment (for Organic ED)
+
+**Based on IIEF-5 Score:**
+
+| Score | Severity |
+|-------|----------|
+| 22-25 | Normal |
+| 17-21 | Mild |
+| 12-16 | Mild-moderate |
+| 8-11 | Moderate |
+| 5-7 | Severe |
+
+> *Co-morbidities should be considered when selecting pharmacotherapy.
+
+---
+
+## Step 4: Treatment Pathways
+
+### Pathway A: Mild/Moderate ED (Score 8-21)
+
+**First-line treatment:**
+- Lifestyle modification
+- ± Pharmacotherapy***
+
+**If no improvement:**
+→ Refer to urologist for mechanical devices/surgical intervention
+
+**May also consider:**
+→ Refer to mental health professionals for psychological intervention
+
+---
+
+### Pathway B: Severe ED (Score 5-7)
+
+**Refer to urologist:**
+- Lifestyle modification
+- ± Pharmacotherapy***
+- ± Mechanical devices
+- ± Surgical intervention
+
+**May also consider:**
+→ Refer to mental health professionals for psychological intervention
+
+---
+
+### Pathway C: Psychogenic ED
+
+**Treatment approach:**
+- Lifestyle modification
+- ± Pharmacotherapy***
+
+**May also consider:**
+→ Refer to mental health professionals for psychological intervention
+
+---
+
+## Key Abbreviations
+
+| Abbreviation | Meaning |
+|--------------|---------|
+| ED | Erectile Dysfunction |
+| IIEF-5 | 5-item version of International Index of Erectile Function |
+
+---
+
+## Notes
+
+- **→** May consider (referral pathway)
+- ***Co-morbidities should be considered** when selecting pharmacotherapy
+
+---
+
+# ALGORITHM 2: CLASSIFICATION FOR ED PATIENTS WITH CARDIOVASCULAR DISEASE
+
+## Overview
+
+This algorithm classifies ED patients with cardiovascular disease for safe treatment selection.
+
+> **Note:** If vasculogenic ED, perform ASCVD risk score assessment.
+
+---
+
+## Step 1: Starting Point
+
+**Patients with confirmed ED**
+
+↓
+
+## Step 2: Exercise Ability Assessment<sup>a</sup>
+
+Assess the patient's exercise ability to estimate cardiovascular risk.
+
+↓
+
+## Step 3: Cardiac Risk Stratification
+
+**Cardiac risk stratification according to Princeton Consensus***
+
+> *Refer to Table 1 for cardiac risk stratification for patients with ED based on 2nd and 3rd Princeton Consensus.
+
+↓
+
+Classify into one of three risk categories:
+
+---
+
+## Step 4: Risk-Based Pathways
+
+### Low Risk Pathway
+
+**Low Risk** → Elective risk assessment (optional)
+
+↓ (or optionally → **Stress test<sup>b</sup>** → if Pass → proceed below)
+
+**For advice and treatment by primary team**
+
+↓
+
+Continue to Step 5 (Nitrate Assessment)
+
+---
+
+### Intermediate Risk Pathway
+
+**Intermediate Risk** → **Stress test<sup>b</sup>**
+
+↓
+
+| Test Result | Next Step |
+|-------------|-----------|
+| **Pass** | Reclassify as **Low Risk** → For advice and treatment by primary team |
+| **Fail** | Reclassify as **High Risk** → For further cardiac assessment |
+
+---
+
+### High Risk Pathway
+
+**High Risk** → **For further cardiac assessment**
+
+(Treatment deferred until cardiac condition stabilized)
+
+---
+
+## Step 5: Nitrate Assessment (After Risk Classification)
+
+For patients cleared for treatment (Low Risk):
+
+### Decision: Is the patient prescribed nitrate/riociguat?
+
+| Patient Status | Treatment Path |
+|----------------|----------------|
+| **No** (not on nitrates) | → **PDE5i** (phosphodiesterase-5 inhibitors) |
+| **Yes** (on nitrates) | → Check: Is nitrate necessary? |
+
+### If on nitrates, is nitrate necessary?
+
+| Answer | Treatment Path |
+|--------|----------------|
+| **Yes** (nitrate essential) | → **Non-PDE5i treatment** |
+| **No** (nitrate can be stopped) | → **Consider stopping nitrate, then PDE5i** |
+
+---
+
+## Key Abbreviations
+
+| Abbreviation | Meaning |
+|--------------|---------|
+| ASCVD | Atherosclerotic Cardiovascular Disease |
+| ED | Erectile Dysfunction |
+| PDE5i | Phosphodiesterase-5 Inhibitors |
+
+---
+
+## Footnotes
+
+<sup>a</sup> **Exercise ability** is used to guide physician estimating cardiovascular risk associated with sexual activity and should be established before the initiation of ED treatment. Sexual activity is equivalent to:
+- Walking 1.6 km (1 mile) on the flat in 20 minutes
+- Briskly climbing two flights of stairs in 10 seconds
+
+<sup>b</sup> **Stress test:** Sexual activity is equivalent to 4 minutes of the Bruce treadmill protocol. **Pass** is defined as completion of the test without symptoms, arrhythmias, or a fall in systolic blood pressure.

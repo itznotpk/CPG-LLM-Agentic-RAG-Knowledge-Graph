@@ -56,6 +56,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 |-----------|------------|-------|
 | **PDF Parsing** | PyMuPDF (fitz) | ![PyMuPDF](https://img.shields.io/badge/PyMuPDF-PDF_Parser-red?style=flat-square) |
 | **PDF → Markdown** | Docling / pymupdf4llm | ![Docling](https://img.shields.io/badge/Docling-PDF_to_MD-blue?style=flat-square) |
+| **VLM Image Description** | Ollama (qwen3-vl) | ![Ollama](https://img.shields.io/badge/Ollama-VLM-purple?style=flat-square) |
 | **Chunking** | Semantic (1200 chars) | ![Chunks](https://img.shields.io/badge/1200_char-Chunks-orange?style=flat-square) |
 
 
@@ -70,8 +71,11 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 ### Document Ingestion
 - **Hierarchical PDF parsing** - Detects sections by font size/boldness
 - **Table extraction** - Converts tables to structured JSON
-- **Algorithm/flowchart handling** - Vision LLM describes flowcharts as text
+- **VLM image/flowchart description** - Ollama qwen3-vl describes clinical algorithms
 - **Metadata extraction** - Evidence levels (Grade A/B/C), target populations, categories
+- **Auto-glossary generation** - Extracts term definitions and creates glossary chunk
+- **Page number tracking** - Each page marked with `## 📄 Page N` headers
+- **Skip existing files** - Won't re-process files unless `--force` is used
 - **Processed file output** - Saves markdown and JSON to `documents/_processed/`
 
 ### Knowledge Graph Relationships
@@ -80,6 +84,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 | `TREATS` | (Sildenafil) → (Erectile Dysfunction) |
 | `CONTRAINDICATED_WITH` | (Sildenafil) → (Nitrates) |
 | `HAS_DOSAGE` | (Tadalafil) → ("10mg on-demand") |
+| `HAS_DEFINITION` | (IIEF-5) → ("5-item International Index of Erectile Function") |
 | `REQUIRES_MONITORING` | (Testosterone) → (PSA) |
 | `CAUSES` | (Sildenafil) → (Headache) |
 | `ASSESSED_BY` | (Erectile Dysfunction) → (IIEF-5) |
@@ -257,6 +262,8 @@ agentic-rag-knowledge-graph/
 │   └── schema.sql        # Database schema with CPG columns
 ├── documents/            # Place CPG PDFs here
 │   └── _processed/       # Auto-generated markdown/JSON
+├── convert_pdf.py        # Basic PDF to Markdown (CLI)
+├── document_ingestion.py # Advanced PDF ingestion with VLM + glossary
 ├── cli.py                # Command-line interface
 ├── api.py                # FastAPI server
 └── .env                  # Configuration
@@ -264,6 +271,7 @@ agentic-rag-knowledge-graph/
 
 ## 🔧 CLI Options
 
+### Ingestion Pipeline
 ```bash
 python -m ingestion.ingest [OPTIONS]
 
@@ -273,6 +281,23 @@ Options:
   --no-cpg           Disable CPG-specific parsing
   --fast, -f         Skip knowledge graph building
   --verbose, -v      Enable debug logging
+```
+
+### Document Ingestion (VLM + Glossary)
+```bash
+python document_ingestion.py [OPTIONS]
+
+Options:
+  --input, -i DIR    Input directory (default: documents)
+  --output, -o DIR   Output directory (default: markdown)
+  --single, -s FILE  Process a single PDF file
+  --force, -f        Re-process even if markdown exists
+```
+
+Requires Ollama running with `qwen3-vl:4b` model:
+```bash
+ollama pull qwen3-vl:4b
+ollama serve
 ```
 
 ## 📊 CPG Metadata Schema

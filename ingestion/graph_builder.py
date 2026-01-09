@@ -357,6 +357,29 @@ class GraphBuilder:
         "Malaysian Medical Association", "WHO", "AUA", "EAU"
     }
     
+    # 8. DEFINITIONS (Abbreviations and term definitions)
+    DEFINITIONS = {
+        "ED": "Erectile Dysfunction",
+        "IIEF-5": "5-item version of International Index of Erectile Function",
+        "EHS": "Erection Hardness Score",
+        "PDE5i": "Phosphodiesterase-5 inhibitors",
+        "ASCVD": "Atherosclerotic Cardiovascular Disease",
+        "VED": "Vacuum Erection Device",
+        "Li-ESWT": "Low-intensity Extracorporeal Shockwave Therapy",
+        "LUTS": "Lower Urinary Tract Symptoms",
+        "BPH": "Benign Prostatic Hyperplasia",
+        "NPT": "Nocturnal Penile Tumescence",
+        "PSA": "Prostate-Specific Antigen",
+        "HbA1c": "Glycated Hemoglobin",
+        "LH": "Luteinizing Hormone",
+        "PHQ-9": "Patient Health Questionnaire-9",
+        "GAD-7": "Generalized Anxiety Disorder 7-item scale",
+        "CBT": "Cognitive Behavioral Therapy",
+        "MOH": "Ministry of Health",
+        "CPG": "Clinical Practice Guideline",
+        "Exercise Ability": "Walking 1.6 km in 20 min or climbing 2 flights of stairs in 10 sec",
+    }
+    
     def _extract_companies(self, text: str) -> List[str]:
         """Extract organization/institution names from text."""
         # Healthcare organizations and institutions
@@ -473,6 +496,55 @@ class GraphBuilder:
         
         return list(found)
     
+    def _extract_definitions(self, text: str) -> List[Dict[str, str]]:
+        """
+        Extract term definitions from text.
+        
+        Looks for abbreviations and terms that have known definitions,
+        and extracts any new definition patterns from the text.
+        
+        Args:
+            text: Content to extract definitions from
+            
+        Returns:
+            List of dicts with 'term' and 'definition' keys
+        """
+        found_definitions = []
+        text_lower = text.lower()
+        
+        # Check for known definitions mentioned in text
+        for term, definition in self.DEFINITIONS.items():
+            if term.lower() in text_lower:
+                found_definitions.append({
+                    "term": term,
+                    "definition": definition,
+                    "source": "known"
+                })
+        
+        # Extract new definitions using patterns
+        definition_patterns = [
+            # "TERM = definition"
+            r'\b([A-Z][A-Z0-9\-]{1,10})\s*=\s*([^.;\n]+[a-z])',
+            # "TERM (definition)"
+            r'\b([A-Z][A-Z0-9\-]{1,10})\s+\(([^)]+)\)',
+        ]
+        
+        for pattern in definition_patterns:
+            matches = re.findall(pattern, text)
+            for match in matches:
+                term = match[0].strip()
+                definition = match[1].strip()
+                
+                # Skip if already in known definitions
+                if term not in self.DEFINITIONS and len(definition) <= 100:
+                    found_definitions.append({
+                        "term": term,
+                        "definition": definition,
+                        "source": "extracted"
+                    })
+        
+        return found_definitions
+    
     # ==========================================================================
     # MEDICAL RELATIONSHIP EXTRACTION (Neo4j Knowledge Graph)
     # ==========================================================================
@@ -489,6 +561,7 @@ class GraphBuilder:
         'FIRST_LINE_FOR': 'Drug is first-line treatment for condition',
         'SECOND_LINE_FOR': 'Drug is second-line treatment for condition',
         'ASSESSED_BY': 'Condition is assessed by diagnostic tool',
+        'HAS_DEFINITION': 'Term has a definition/explanation',
     }
     
     # Knowledge base for relationship extraction (Malaysia CPG ED)
