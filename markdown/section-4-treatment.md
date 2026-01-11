@@ -45,9 +45,12 @@ Psychotherapy, on the other hand, goes one step further and is directed towards 
 
 ## 4.2 Pharmacological Treatment
 
-The main pharmacological agents for ED are phosphodiesterase-5 inhibitors (PDE5is). These agents cause corporeal smooth muscle relaxation, increased arterial blood flow and compression of sub-tunical venous plexus leading to erection.
+The main pharmacological agents for ED are phosphodiesterase-5 inhibitors (PDE5is). They are contraindicated 
+in patients taking nitric oxide (NO) donors, organic nitrates or organic nitrites (e.g. glyceryl trinitrate). These agents cause corporeal smooth muscle relaxation, increased arterial blood flow and compression of sub-tunical venous plexus leading to erection.
 
 > **Important:** PDE5is are not initiators of erection; they require environmental and psychological cues for sufficient sexual arousal and stimulation to facilitate an erection.
+
+> **Reference:** For detailed dosing, contraindications, and dose adjustments, see [Appendix 6: Treatment in ED](appendix-6-treatment.md).
 
 ### 4.2.1 Phosphodiesterase-5 Inhibitors (PDE5i)
 
@@ -305,5 +308,98 @@ use_case: medication_safety_check
 | Nasal congestion | ✓ | ✓ | ✓ |
 | Back pain/Myalgia | Less | ✓ (more) | Less |
 | Visual disturbances | ✓ | Less | Less |
+
+---
+
+## APPENDIX 7: APPLICATION OF VACUUM ERECTILE DEVICE (VED)
+
+<!-- METADATA
+category: treatment_procedure
+treatment_type: mechanical
+-->
+
+### Equipment
+- Vacuum chamber
+- Vacuum pump (manual or battery-operated)
+- Constricting ring or band
+
+### Application Steps
+
+1. **Preparation:** Lubricate the constricting band with water-soluble jelly and place it around the chamber near its open end.
+
+2. **Apply lubricant:** Apply jelly generously to the base of the penis to assure an air-tight seal.
+
+3. **Insert penis:** Place the penis in the chamber.
+
+4. **Create vacuum:** Apply the vacuum for 3-6 minutes or until the penis becomes rigid.
+
+5. **Transfer band:** Slide the constricting band off the end of the chamber to constrict the base of the penis.
+
+6. **Release vacuum:** Release the vacuum and remove the chamber.
+
+7. **Proceed:** Sexual intercourse can be performed immediately after.
+
+> **Warning:** The band should NOT be left on longer than 30 minutes.
+
+**Source:** Nadig PW. Vacuum erection devices: a review. World J Urol. 1990;8:114-117.
+
+---
+
+## APPENDIX 8: LOW-INTENSITY EXTRACORPOREAL SHOCKWAVE THERAPY (Li-ESWT)
+
+<!-- METADATA
+category: treatment_procedure
+treatment_type: mechanical
+-->
+
+### How It Works
+
+1. While the patient is lying down, ultrasound gel is applied to the applicator head and/or the treatment area.
+
+2. The applicator head is applied to areas of the penile shaft and crus.
+
+3. The shockwave technology creates waves that treat a broad area from the superficial surface of the penile shaft to the deeper erectile tissues of the crura.
+
+### Treatment Protocol
+
+| Parameter | Recommendation |
+|-----------|----------------|
+| **Frequency** | Once or twice a week |
+| **Minimum sessions** | 6 sessions |
+| **Progress expected** | After 3-4 sessions |
+
+### Safety
+
+- The waves stimulate tissue and do NOT cause any pain or external scarring
+- Patients can resume daily regular activity after the procedure
+- Side effects (if any) are usually mild and temporary
+
+---
+
+## APPENDIX 9: EXAMPLES OF PENILE PROSTHESIS
+
+<!-- METADATA
+category: treatment_device
+treatment_type: surgical
+-->
+
+### Types of Penile Prosthesis
+
+| Type | Description |
+|------|-------------|
+| **Three-piece inflatable prosthesis** | Provides most natural erection; consists of cylinders, pump, and reservoir |
+| **Two-piece inflatable device** | Simpler than three-piece; cylinders and pump combined |
+| **Malleable prosthesis** | Semi-rigid rods; manually positioned for intercourse |
+
+### Selection Considerations
+
+| Factor | Consideration |
+|--------|---------------|
+| **Manual dexterity** | Malleable may be better for patients with limited hand function |
+| **Body habitus** | Reservoir placement may be an issue in obese patients |
+| **Prior surgery** | May affect device placement options |
+| **SCI patients** | Malleable NOT recommended due to erosion risk from lack of sensation |
+
+**Source:** Levine LA, Becher E, Bella A, et al. Penile prosthesis surgery: current recommendations from the international consultation on sexual medicine. J Sex Med. 2016;13(4):489-518.
 
 ---

@@ -41,7 +41,7 @@ A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps t
 
 ---
 
-### 2.1.2 Physical Examination
+### 3.1.2 Physical Examination
 Patients should undergo physical examination and vital parameters recording during clinical examination as part of cardiovascular risk assessment.
 
 **Focus areas for examination:**
@@ -63,7 +63,7 @@ Patients should undergo physical examination and vital parameters recording duri
 
 ---
 
-### 2.1.3 Laboratory Testing
+### 3.1.3 Laboratory Testing
 
 Laboratory testing must be tailored to patient's symptoms and risk factors to identify modifiable risk factors.
 
