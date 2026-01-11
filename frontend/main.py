@@ -34,9 +34,43 @@ HTML_PAGE = """
         .float { animation: float 2s ease-in-out infinite; }
         .fade-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .sidebar-open { transform: translateX(0); }
+        .sidebar-closed { transform: translateX(-100%); }
+        .history-item:hover { background: rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 min-h-screen">
+
+    <!-- Chat History Sidebar -->
+    <div id="historySidebar" class="fixed left-0 top-0 h-full w-80 bg-slate-900/95 backdrop-blur-lg border-r border-white/10 z-50 transition-transform duration-300 sidebar-closed">
+        <div class="flex flex-col h-full">
+            <!-- Sidebar Header -->
+            <div class="p-4 border-b border-white/10 flex items-center justify-between">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                    <span>📜</span> Chat History
+                </h2>
+                <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white text-xl">&times;</button>
+            </div>
+
+            <!-- History List -->
+            <div id="historyList" class="flex-1 overflow-y-auto p-3 space-y-2">
+                <p class="text-gray-500 text-sm text-center py-8">No history yet</p>
+            </div>
+
+            <!-- Clear History -->
+            <div class="p-3 border-t border-white/10">
+                <button onclick="clearHistory()" class="w-full bg-red-500/20 hover:bg-red-500/30 text-red-400 py-2 rounded-lg text-sm transition">
+                    🗑️ Clear History
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button (always visible) -->
+    <button onclick="toggleSidebar()" id="sidebarToggle" class="fixed left-4 top-4 z-40 bg-white/10 hover:bg-white/20 backdrop-blur p-3 rounded-xl border border-white/20 transition">
+        <span class="text-white text-lg">📜</span>
+        <span id="historyBadge" class="hidden absolute -top-1 -right-1 bg-blue-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+    </button>
 
     <!-- PAGE 1: Query Input -->
     <div id="queryPage" class="min-h-screen flex flex-col">
@@ -226,6 +260,18 @@ HTML_PAGE = """
                 </div>
             </div>
 
+            <!-- Related Questions -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-in mb-6" style="animation-delay: 0.55s">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-4">
+                    <h3 class="text-lg font-bold flex items-center gap-2">💡 Related Questions</h3>
+                </div>
+                <div id="relatedQuestions" class="p-5">
+                    <div class="grid gap-3" id="relatedQuestionsGrid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
             <!-- Disclaimer -->
             <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 fade-in" style="animation-delay: 0.6s">
                 <p class="text-amber-800 text-sm">
@@ -252,6 +298,13 @@ HTML_PAGE = """
     <script>
         const BACKEND_URL = 'http://localhost:8058';
         let currentQuery = '';
+        let chatHistory = JSON.parse(localStorage.getItem('cpgChatHistory') || '[]');
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHistoryList();
+            updateHistoryBadge();
+        });
 
         function setQuery(text) {
             document.getElementById('query').value = text;
@@ -271,6 +324,142 @@ HTML_PAGE = """
         function closeError() {
             document.getElementById('errorModal').classList.add('hidden');
             showPage('queryPage');
+        }
+
+        // ============ SIDEBAR FUNCTIONS ============
+        function toggleSidebar() {
+            const sidebar = document.getElementById('historySidebar');
+            if (sidebar.classList.contains('sidebar-closed')) {
+                sidebar.classList.remove('sidebar-closed');
+                sidebar.classList.add('sidebar-open');
+            } else {
+                sidebar.classList.remove('sidebar-open');
+                sidebar.classList.add('sidebar-closed');
+            }
+        }
+
+        function saveToHistory(query, summary) {
+            const entry = {
+                id: Date.now(),
+                query: query,
+                summary: summary.substring(0, 100) + (summary.length > 100 ? '...' : ''),
+                timestamp: new Date().toLocaleString()
+            };
+            chatHistory.unshift(entry);
+            if (chatHistory.length > 20) chatHistory.pop(); // Keep last 20
+            localStorage.setItem('cpgChatHistory', JSON.stringify(chatHistory));
+            renderHistoryList();
+            updateHistoryBadge();
+        }
+
+        function renderHistoryList() {
+            const list = document.getElementById('historyList');
+            if (chatHistory.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 text-sm text-center py-8">No history yet</p>';
+                return;
+            }
+            list.innerHTML = chatHistory.map(item => `
+                <div class="history-item p-3 rounded-lg cursor-pointer border border-white/5 transition" onclick="loadFromHistory('${item.query.replace(/'/g, "\\'")}')">
+                    <p class="text-white text-sm font-medium truncate">${item.query}</p>
+                    <p class="text-gray-400 text-xs mt-1 truncate">${item.summary}</p>
+                    <p class="text-gray-500 text-xs mt-1">${item.timestamp}</p>
+                </div>
+            `).join('');
+        }
+
+        function loadFromHistory(query) {
+            document.getElementById('query').value = query;
+            toggleSidebar();
+            showPage('queryPage');
+        }
+
+        function clearHistory() {
+            if (confirm('Clear all chat history?')) {
+                chatHistory = [];
+                localStorage.removeItem('cpgChatHistory');
+                renderHistoryList();
+                updateHistoryBadge();
+            }
+        }
+
+        function updateHistoryBadge() {
+            const badge = document.getElementById('historyBadge');
+            if (chatHistory.length > 0) {
+                badge.textContent = chatHistory.length;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        // ============ RELATED QUESTIONS ============
+        function generateRelatedQuestions(query, response) {
+            // Generate contextual follow-up questions based on the query
+            const relatedQuestions = [];
+            const queryLower = query.toLowerCase();
+
+            // Base questions that are always relevant
+            const baseQuestions = [
+                "What are the contraindications I should be aware of?",
+                "What lifestyle modifications should be recommended?",
+                "When should the patient be referred to a specialist?"
+            ];
+
+            // Condition-specific questions
+            if (queryLower.includes('diabetes') || queryLower.includes('dm')) {
+                relatedQuestions.push("How does diabetes affect ED treatment choice?");
+                relatedQuestions.push("What is the HbA1c target for ED patients with diabetes?");
+            }
+            if (queryLower.includes('hypertension') || queryLower.includes('htn') || queryLower.includes('blood pressure')) {
+                relatedQuestions.push("Which antihypertensives are preferred in ED patients?");
+                relatedQuestions.push("Can I use PDE5 inhibitors with antihypertensive medications?");
+            }
+            if (queryLower.includes('cardiac') || queryLower.includes('heart') || queryLower.includes('cad') || queryLower.includes('coronary')) {
+                relatedQuestions.push("What cardiac workup is needed before starting ED treatment?");
+                relatedQuestions.push("What is the Princeton III algorithm for cardiac risk?");
+            }
+            if (queryLower.includes('pde5') || queryLower.includes('sildenafil') || queryLower.includes('tadalafil')) {
+                relatedQuestions.push("What are the dosing recommendations for PDE5 inhibitors?");
+                relatedQuestions.push("What if the patient fails first-line PDE5 inhibitor therapy?");
+            }
+            if (queryLower.includes('testosterone') || queryLower.includes('hypogonadism') || queryLower.includes('low t')) {
+                relatedQuestions.push("When should testosterone replacement be considered?");
+                relatedQuestions.push("What monitoring is needed for testosterone therapy?");
+            }
+            if (queryLower.includes('anxiety') || queryLower.includes('psychological') || queryLower.includes('depression')) {
+                relatedQuestions.push("When should psychosexual therapy be recommended?");
+                relatedQuestions.push("How do SSRIs affect erectile function?");
+            }
+            if (queryLower.includes('prostatectomy') || queryLower.includes('prostate') || queryLower.includes('surgery')) {
+                relatedQuestions.push("What is penile rehabilitation after prostatectomy?");
+                relatedQuestions.push("What are second-line options for post-surgical ED?");
+            }
+
+            // Add base questions if we don't have enough
+            while (relatedQuestions.length < 4 && baseQuestions.length > 0) {
+                relatedQuestions.push(baseQuestions.shift());
+            }
+
+            // Limit to 4 questions
+            return relatedQuestions.slice(0, 4);
+        }
+
+        function renderRelatedQuestions(questions) {
+            const grid = document.getElementById('relatedQuestionsGrid');
+            grid.innerHTML = questions.map(q => `
+                <button onclick="askRelatedQuestion('${q.replace(/'/g, "\\'")}')"
+                    class="text-left p-3 bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-xl transition group">
+                    <span class="text-gray-600 group-hover:text-blue-600 text-sm flex items-center gap-2">
+                        <span class="text-blue-500">→</span> ${q}
+                    </span>
+                </button>
+            `).join('');
+        }
+
+        function askRelatedQuestion(question) {
+            document.getElementById('query').value = question;
+            showPage('queryPage');
+            startAnalysis();
         }
 
         // Dynamic status messages for each step
@@ -479,6 +668,13 @@ HTML_PAGE = """
                 document.getElementById('medications').innerHTML = marked.parse(sections.medications || 'No medication suggestions.');
                 document.getElementById('nextsteps').innerHTML = marked.parse(sections.nextsteps || 'No next steps available.');
                 renderSources(data.sources || []);
+
+                // Save to history
+                saveToHistory(currentQuery, sections.summary || message.substring(0, 100));
+
+                // Generate and render related questions
+                const relatedQs = generateRelatedQuestions(currentQuery, message);
+                renderRelatedQuestions(relatedQs);
 
                 // Reset sources toggle
                 document.getElementById('sources').classList.add('hidden');
