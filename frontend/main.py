@@ -110,33 +110,43 @@ HTML_PAGE = """
             <div class="relative mb-8">
                 <div class="absolute inset-0 bg-blue-500 rounded-full pulse-ring"></div>
                 <div class="relative p-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full float">
-                    <span class="text-5xl">🧠</span>
+                    <span id="analysisIcon" class="text-5xl">🔍</span>
                 </div>
             </div>
 
             <!-- Status Text -->
-            <h2 class="text-3xl font-bold text-white mb-4">Analyzing Your Case</h2>
-            <p id="analysisStatus" class="text-blue-300 text-lg mb-8">Searching clinical guidelines...</p>
+            <h2 class="text-3xl font-bold text-white mb-2">Analyzing Your Case</h2>
+            <p id="analysisStatus" class="text-blue-300 text-lg mb-2 h-7 transition-all">Initializing AI agent...</p>
+            <p id="analysisDetail" class="text-gray-400 text-sm mb-8 h-5 italic"></p>
 
             <!-- Progress Steps -->
             <div class="max-w-md w-full space-y-3">
-                <div id="step1" class="flex items-center gap-3 text-gray-400">
-                    <div class="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center">
-                        <span class="text-xs">1</span>
+                <div id="step1" class="flex items-center gap-3 text-gray-400 transition-all">
+                    <div class="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center">
+                        <span id="step1Icon" class="text-sm">1</span>
                     </div>
-                    <span>Searching knowledge base</span>
+                    <div>
+                        <span class="font-medium">Searching Knowledge Base</span>
+                        <p id="step1Detail" class="text-xs text-gray-500"></p>
+                    </div>
                 </div>
-                <div id="step2" class="flex items-center gap-3 text-gray-500">
-                    <div class="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center">
-                        <span class="text-xs">2</span>
+                <div id="step2" class="flex items-center gap-3 text-gray-500 transition-all">
+                    <div class="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center">
+                        <span id="step2Icon" class="text-sm">2</span>
                     </div>
-                    <span>Analyzing clinical context</span>
+                    <div>
+                        <span class="font-medium">Analyzing Clinical Context</span>
+                        <p id="step2Detail" class="text-xs text-gray-500"></p>
+                    </div>
                 </div>
-                <div id="step3" class="flex items-center gap-3 text-gray-500">
-                    <div class="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center">
-                        <span class="text-xs">3</span>
+                <div id="step3" class="flex items-center gap-3 text-gray-500 transition-all">
+                    <div class="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center">
+                        <span id="step3Icon" class="text-sm">3</span>
                     </div>
-                    <span>Generating recommendations</span>
+                    <div>
+                        <span class="font-medium">Generating Recommendations</span>
+                        <p id="step3Detail" class="text-xs text-gray-500"></p>
+                    </div>
                 </div>
             </div>
 
@@ -263,30 +273,101 @@ HTML_PAGE = """
             showPage('queryPage');
         }
 
+        // Dynamic status messages for each step
+        const analysisMessages = {
+            step1: {
+                icon: '🔍',
+                status: 'Searching Knowledge Base',
+                details: [
+                    'Querying vector database for relevant CPG sections...',
+                    'Finding clinical guidelines for erectile dysfunction...',
+                    'Searching treatment algorithms and protocols...',
+                    'Retrieving medication recommendations...',
+                    'Scanning diagnostic criteria and assessments...',
+                    'Looking up contraindications and precautions...'
+                ],
+                stepDetail: 'Vector search + Knowledge graph'
+            },
+            step2: {
+                icon: '🧠',
+                status: 'Analyzing Clinical Context',
+                details: [
+                    'Evaluating patient risk factors...',
+                    'Cross-referencing comorbidities with guidelines...',
+                    'Checking drug interactions and contraindications...',
+                    'Assessing cardiovascular risk profile...',
+                    'Matching patient profile to treatment pathways...',
+                    'Reviewing lifestyle factors and history...'
+                ],
+                stepDetail: 'AI reasoning with CPG context'
+            },
+            step3: {
+                icon: '📋',
+                status: 'Generating Recommendations',
+                details: [
+                    'Formulating personalized treatment plan...',
+                    'Prioritizing evidence-based interventions...',
+                    'Creating follow-up care schedule...',
+                    'Compiling medication options with dosing...',
+                    'Drafting clinical summary and next steps...',
+                    'Finalizing recommendations...'
+                ],
+                stepDetail: 'Structured response generation'
+            }
+        };
+
+        let detailInterval = null;
+
         function updateAnalysisStep(step) {
             const steps = ['step1', 'step2', 'step3'];
-            const messages = [
-                'Searching knowledge base...',
-                'Analyzing clinical context...',
-                'Generating recommendations...'
-            ];
+            const stepKeys = ['step1', 'step2', 'step3'];
+
+            // Clear previous interval
+            if (detailInterval) clearInterval(detailInterval);
 
             steps.forEach((s, i) => {
                 const el = document.getElementById(s);
+                const iconEl = document.getElementById(s + 'Icon');
+                const detailEl = document.getElementById(s + 'Detail');
+
                 if (i < step) {
                     el.classList.remove('text-gray-400', 'text-gray-500', 'text-blue-400');
                     el.classList.add('text-green-400');
+                    iconEl.textContent = '✓';
+                    detailEl.textContent = 'Complete';
                 } else if (i === step) {
                     el.classList.remove('text-gray-400', 'text-gray-500', 'text-green-400');
                     el.classList.add('text-blue-400');
+                    iconEl.textContent = '⟳';
+                    detailEl.textContent = analysisMessages[stepKeys[i]].stepDetail;
                 } else {
                     el.classList.remove('text-blue-400', 'text-green-400');
                     el.classList.add('text-gray-500');
+                    iconEl.textContent = (i + 1).toString();
+                    detailEl.textContent = '';
                 }
             });
 
-            if (step < messages.length) {
-                document.getElementById('analysisStatus').textContent = messages[step];
+            if (step < stepKeys.length) {
+                const currentStep = analysisMessages[stepKeys[step]];
+                document.getElementById('analysisIcon').textContent = currentStep.icon;
+                document.getElementById('analysisStatus').textContent = currentStep.status;
+
+                // Cycle through detail messages
+                let detailIndex = 0;
+                document.getElementById('analysisDetail').textContent = currentStep.details[0];
+
+                detailInterval = setInterval(() => {
+                    detailIndex = (detailIndex + 1) % currentStep.details.length;
+                    document.getElementById('analysisDetail').textContent = currentStep.details[detailIndex];
+                }, 2000);
+            }
+        }
+
+        function stopDetailAnimation() {
+            if (detailInterval) {
+                clearInterval(detailInterval);
+                detailInterval = null;
             }
         }
 
@@ -358,14 +439,20 @@ HTML_PAGE = """
                 return;
             }
 
+            // Reset step icons before starting
+            ['step1', 'step2', 'step3'].forEach((s, i) => {
+                document.getElementById(s + 'Icon').textContent = (i + 1).toString();
+                document.getElementById(s + 'Detail').textContent = '';
+            });
+
             // Show analyzing page
             document.getElementById('queryPreview').textContent = currentQuery;
             showPage('analyzingPage');
             updateAnalysisStep(0);
 
-            // Simulate step progression
-            setTimeout(() => updateAnalysisStep(1), 1500);
-            setTimeout(() => updateAnalysisStep(2), 3000);
+            // Simulate step progression based on typical response time
+            const step1Timer = setTimeout(() => updateAnalysisStep(1), 3000);
+            const step2Timer = setTimeout(() => updateAnalysisStep(2), 7000);
 
             try {
                 const response = await fetch(`${BACKEND_URL}/chat`, {
@@ -373,6 +460,11 @@ HTML_PAGE = """
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: currentQuery })
                 });
+
+                // Clear timers and stop animation
+                clearTimeout(step1Timer);
+                clearTimeout(step2Timer);
+                stopDetailAnimation();
 
                 if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
@@ -396,6 +488,9 @@ HTML_PAGE = """
                 showPage('resultsPage');
 
             } catch (err) {
+                clearTimeout(step1Timer);
+                clearTimeout(step2Timer);
+                stopDetailAnimation();
                 document.getElementById('errorText').textContent = err.message;
                 document.getElementById('errorModal').classList.remove('hidden');
             }
