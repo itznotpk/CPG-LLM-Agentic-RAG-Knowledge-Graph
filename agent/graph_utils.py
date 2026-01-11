@@ -415,6 +415,94 @@ class GraphitiClient:
             await self.graphiti.build_indices_and_constraints()
             
             logger.warning("Reinitialized Graphiti client (fresh indices created)")
+    
+    async def get_entity_node_by_name(
+        self,
+        entity_name: str,
+        fuzzy_match: bool = True
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Get an entity node directly from Neo4j by name, including its summary.
+        
+        This is useful for getting structured info like dosages, contraindications
+        that are stored in the node's summary field.
+        
+        Args:
+            entity_name: Name of the entity to find (e.g., "Sildenafil")
+            fuzzy_match: If True, use case-insensitive contains matching
+        
+        Returns:
+            Entity node data including name, summary, labels, or None if not found
+        """
+        if not self._initialized:
+            await self.initialize()
+        
+        try:
+            async with self.graphiti.driver.session() as session:
+                if fuzzy_match:
+                    # Case-insensitive fuzzy match
+                    query = """
+                    MATCH (n:Entity)
+                    WHERE toLower(n.name) CONTAINS toLower($name)
+                    RETURN n.name as name, n.summary as summary, labels(n) as labels, 
+                           n.uuid as uuid, n.created_at as created_at
+                    LIMIT 5
+                    """
+                else:
+                    # Exact match
+                    query = """
+                    MATCH (n:Entity {name: $name})
+                    RETURN n.name as name, n.summary as summary, labels(n) as labels,
+                           n.uuid as uuid, n.created_at as created_at
+                    LIMIT 1
+                    """
+                
+                result = await session.run(query, name=entity_name)
+                records = await result.data()
+                
+                if records:
+                    return records if fuzzy_match else records[0]
+                return None
+                
+        except Exception as e:
+            logger.error(f"Failed to get entity node for '{entity_name}': {e}")
+            return None
+    
+    async def search_entities_by_type(
+        self,
+        entity_type: str,
+        limit: int = 20
+    ) -> List[Dict[str, Any]]:
+        """
+        Search for entities by a keyword in their name or summary.
+        
+        Args:
+            entity_type: Type keyword to search for (e.g., "PDE5", "medication", "dose")
+            limit: Maximum results to return
+        
+        Returns:
+            List of matching entity nodes with summaries
+        """
+        if not self._initialized:
+            await self.initialize()
+        
+        try:
+            async with self.graphiti.driver.session() as session:
+                query = """
+                MATCH (n:Entity)
+                WHERE toLower(n.name) CONTAINS toLower($type)
+                   OR toLower(n.summary) CONTAINS toLower($type)
+                RETURN n.name as name, n.summary as summary, labels(n) as labels
+                LIMIT $limit
+                """
+                
+                result = await session.run(query, type=entity_type, limit=limit)
+                records = await result.data()
+                return records
+                
+        except Exception as e:
+            logger.error(f"Failed to search entities by type '{entity_type}': {e}")
+            return []
 
 
 # Global Graphiti client instance
@@ -510,3 +598,40 @@ async def test_graph_connection() -> bool:
     except Exception as e:
         logger.error(f"Graph connection test failed: {e}")
         return False
+
+
+async def get_entity_node_with_summary(
+    entity_name: str,
+    fuzzy_match: bool = True
+) -> Optional[Dict[str, Any]]:
+    """
+    Get an entity node from Neo4j with its summary.
+    
+    The summary contains rich information like dosages, contraindications,
+    side effects that the LLM extracted during graph building.
+    
+    Args:
+        entity_name: Name of the entity (e.g., "Sildenafil")
+        fuzzy_match: If True, use case-insensitive contains matching
+    
+    Returns:
+        Entity node data with name, summary, labels, or None
+    """
+    return await graph_client.get_entity_node_by_name(entity_name, fuzzy_match)
+
+
+async def search_entities_by_keyword(
+    keyword: str,
+    limit: int = 20
+) -> List[Dict[str, Any]]:
+    """
+    Search for entities by keyword in their name or summary.
+    
+    Args:
+        keyword: Search keyword (e.g., "dose", "PDE5", "contraindication")
+        limit: Maximum results
+    
+    Returns:
+        List of matching entity nodes with summaries
+    """
+    return await graph_client.search_entities_by_type(keyword, limit)

@@ -15,7 +15,8 @@ from .db_utils import (
 )
 from .graph_utils import (
     search_knowledge_graph,
-    get_entity_relationships
+    get_entity_relationships,
+    get_entity_node_with_summary
 )
 from .models import ChunkResult, GraphSearchResult
 from .providers import get_embedding_client, get_embedding_model
@@ -286,8 +287,9 @@ async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]
     the knowledge graph and document chunks.
     
     This is fully dynamic - no hardcoded drug data. All information comes from:
-    1. Knowledge graph relationships (CONTRAINDICATED_WITH, HAS_DOSAGE, CAUSES)
-    2. Vector search on document chunks
+    1. Entity node summaries (from Neo4j) - contains dosages, side effects, etc.
+    2. Knowledge graph search (for related facts)
+    3. Vector search on document chunks (multiple targeted searches)
     
     Args:
         input_data: Drug name to look up
@@ -296,9 +298,11 @@ async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]
         Drug information with contraindications, dosages, side effects from the knowledge base
     """
     drug = input_data.drug_name
+    logger.info(f"Getting drug information for: {drug}")
     
     result = {
         "drug_name": drug,
+        "entity_summary": None,  # NEW: Direct from Neo4j node
         "contraindications": [],
         "dosages": [],
         "adverse_events": [],
@@ -306,7 +310,52 @@ async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]
         "related_content": []
     }
     
-    # 1. Search knowledge graph for drug relationships
+    # ==========================================================================
+    # STEP 0: Get entity node directly from Neo4j (contains rich summary info!)
+    # This is the most important step - the summary has dosages, side effects, etc.
+    # ==========================================================================
+    try:
+        entity_nodes = await get_entity_node_with_summary(drug, fuzzy_match=True)
+        
+        if entity_nodes:
+            logger.info(f"Found {len(entity_nodes)} entity nodes for '{drug}'")
+            
+            for node in entity_nodes:
+                name = node.get("name", "")
+                summary = node.get("summary", "")
+                
+                if summary:
+                    # Store the best matching summary
+                    if drug.lower() in name.lower():
+                        result["entity_summary"] = {
+                            "name": name,
+                            "summary": summary,
+                            "source": "neo4j_entity_node"
+                        }
+                    
+                    # Parse the summary for specific info
+                    summary_lower = summary.lower()
+                    
+                    # Extract dosage info from summary
+                    if any(kw in summary_lower for kw in ['mg', 'dose', 'initial', 'daily', 'on-demand']):
+                        result["dosages"].append(f"[From {name}]: {summary}")
+                    
+                    # Extract contraindication info
+                    if any(kw in summary_lower for kw in ['contraindicated', 'avoid', 'nitrate', 'must not']):
+                        result["contraindications"].append(f"[From {name}]: {summary}")
+                    
+                    # Extract adverse events
+                    if any(kw in summary_lower for kw in ['headache', 'flushing', 'side effect', 'adverse', 'myalgia']):
+                        result["adverse_events"].append(f"[From {name}]: {summary}")
+        else:
+            logger.info(f"No entity nodes found for '{drug}'")
+            
+    except Exception as e:
+        logger.warning(f"Entity node lookup failed for {drug}: {e}")
+    
+    # ==========================================================================
+    # STEP 1: Search knowledge graph for related facts
+    # ==========================================================================
     try:
         graph_results = await graph_search_tool(GraphSearchInput(
             query=f"{drug} contraindication dosage adverse effect side effect"
@@ -317,12 +366,14 @@ async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]
             result["related_facts"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
             
             # Categorize facts based on content
-            if 'contraindicated' in fact or 'avoid' in fact or 'must not' in fact:
+            if 'contraindicated' in fact or 'avoid' in fact or 'must not' in fact or 'nitrate' in fact:
                 result["contraindications"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
-            elif 'dosage' in fact or 'dose' in fact or 'mg' in fact:
+            elif 'dosage' in fact or 'dose' in fact or 'mg' in fact or 'initial' in fact:
                 result["dosages"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
-            elif 'adverse' in fact or 'side effect' in fact or 'cause' in fact or 'headache' in fact:
+            elif 'adverse' in fact or 'side effect' in fact or 'cause' in fact or 'headache' in fact or 'flushing' in fact:
                 result["adverse_events"].append(fact_result.fact if hasattr(fact_result, 'fact') else str(fact_result))
+        
+        logger.info(f"Graph search found {len(graph_results)} results for {drug}")
                 
     except Exception as e:
         logger.warning(f"Graph search failed for {drug}: {e}")
@@ -348,23 +399,107 @@ async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]
     except Exception as e:
         logger.warning(f"Entity relationship query failed for {drug}: {e}")
     
-    # 3. Search vector DB for related content
+    # ==========================================================================
+    # STEP 3: Dynamic vector search - query built from entity summary keywords
+    # This adapts automatically to new documents without manual updates!
+    # ==========================================================================
+    
+    # Extract keywords dynamically from entity summary (if available)
+    dynamic_keywords = set()
+    
+    # Base keywords (minimal fallback)
+    base_keywords = {"dose", "mg", "contraindication", "side effect", "adverse"}
+    
+    if result.get("entity_summary") and result["entity_summary"].get("summary"):
+        summary = result["entity_summary"]["summary"]
+        
+        # Extract important terms from the summary
+        summary_lower = summary.lower()
+        
+        # Add drug-specific terms found in summary
+        keyword_patterns = [
+            "mg", "dose", "initial", "max", "daily", "on-demand",
+            "onset", "duration", "hours", "minutes", 
+            "headache", "flushing", "myalgia", "back pain",
+            "contraindicated", "avoid", "nitrate", "riociguat",
+            "effective", "improved", "side effect", "adverse"
+        ]
+        
+        for kw in keyword_patterns:
+            if kw in summary_lower:
+                dynamic_keywords.add(kw)
+        
+        logger.info(f"Extracted {len(dynamic_keywords)} keywords from entity summary for '{drug}'")
+    
+    # Combine with base keywords if we didn't find many dynamic ones
+    all_keywords = dynamic_keywords if len(dynamic_keywords) >= 3 else dynamic_keywords.union(base_keywords)
+    
+    # Build dynamic query
+    dynamic_query = f"{drug} " + " ".join(all_keywords)
+    logger.info(f"Dynamic vector search query: {dynamic_query[:100]}...")
+    
     try:
         search_results = await vector_search_tool(VectorSearchInput(
-            query=f"{drug} dosage contraindication adverse effect side effect",
-            limit=5
+            query=dynamic_query,
+            limit=10
         ))
-        result["related_content"] = [
-            {"content": r.content[:500], "document": r.document_title, "score": r.score}
-            for r in search_results
-        ]
+        for r in search_results:
+            result["related_content"].append({
+                "content": r.content[:2000],
+                "document": r.document_title, 
+                "score": r.score,
+                "search_type": "dynamic"
+            })
+        logger.info(f"Dynamic vector search found {len(search_results)} results for {drug}")
     except Exception as e:
-        logger.warning(f"Vector search failed for {drug}: {e}")
+        logger.warning(f"Dynamic vector search failed for {drug}: {e}")
+    
+    # ==========================================================================
+    # STEP 4: Fallback search - only if Steps 0-3 didn't find enough info
+    # ==========================================================================
+    if not result["related_content"] and not result.get("entity_summary"):
+        logger.info(f"No results from primary searches, running comprehensive fallback for {drug}")
+        try:
+            # Comprehensive fallback with all possible keywords
+            fallback_query = f"""
+            {drug} onset duration hours initial dose max dose mg 
+            contraindication adverse effect side effect 
+            nitrate washout period caution warning
+            """.strip().replace('\n', ' ')
+            
+            fallback_results = await vector_search_tool(VectorSearchInput(
+                query=fallback_query,
+                limit=10
+            ))
+            for r in fallback_results:
+                result["related_content"].append({
+                    "content": r.content[:2000],
+                    "document": r.document_title,
+                    "score": r.score,
+                    "search_type": "fallback"
+                })
+            logger.info(f"Fallback search found {len(fallback_results)} results for {drug}")
+        except Exception as e:
+            logger.warning(f"Fallback search failed for {drug}: {e}")
     
     # Remove duplicates
     result["contraindications"] = list(set(result["contraindications"]))
     result["dosages"] = list(set(result["dosages"]))
     result["adverse_events"] = list(set(result["adverse_events"]))
+    
+    # Deduplicate related_content by content hash
+    seen_content = set()
+    unique_content = []
+    for item in result["related_content"]:
+        content_hash = hash(item["content"][:200])  # Use first 200 chars as hash
+        if content_hash not in seen_content:
+            seen_content.add(content_hash)
+            unique_content.append(item)
+    result["related_content"] = unique_content
+    
+    logger.info(f"Drug info for {drug}: {len(result['contraindications'])} contraindications, "
+                f"{len(result['dosages'])} dosages, {len(result['adverse_events'])} adverse events, "
+                f"{len(result['related_content'])} content chunks")
     
     return result
 

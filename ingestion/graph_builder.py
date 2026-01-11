@@ -64,6 +64,9 @@ class GraphBuilder:
         "RISK_FACTORS",      # Lifestyle factors, comorbidities
         "ADVERSE_EVENTS",    # Side effects, complications
         "ORGANIZATIONS",     # Medical organizations, hospitals
+        "CONTRAINDICATIONS", # Drug interactions, safety warnings
+        "DOSAGES",           # Dose amounts, timing, frequency
+        "RISK_CATEGORIES",   # Clinical risk classifications (Low/Intermediate/High)
     ]
     
     async def _extract_entities_with_llm(self, text: str) -> Dict[str, List[str]]:
@@ -87,19 +90,27 @@ class GraphBuilder:
             model = get_ingestion_model()
             
             # Truncate text if too long (LLM context limit)
-            max_chars = 4000
+            # Increased from 4000 to 8000 to capture more tables and contraindication data
+            max_chars = 8000
             truncated_text = text[:max_chars] if len(text) > max_chars else text
+            
+            # Log if truncation happens
+            if len(text) > max_chars:
+                logger.warning(f"LLM extraction: Truncating text from {len(text)} to {max_chars} chars")
             
             prompt = f"""Analyze this medical text and extract entities into categories.
 
 CATEGORIES:
-- MEDICATIONS: Drug names, drug classes (e.g., "Sildenafil", "PDE5 inhibitors", "Nitrates")
+- MEDICATIONS: Drug names, drug classes (e.g., "Sildenafil", "PDE5 inhibitors", "Nitrates", "Alpha-blockers")
 - CONDITIONS: Diseases, diagnoses, symptoms (e.g., "Erectile Dysfunction", "Diabetes", "Hypertension")
-- PROCEDURES: Treatments, surgeries, therapies (e.g., "Penile prosthesis", "Lifestyle modification")
-- DIAGNOSTIC_TOOLS: Tests, scores, questionnaires (e.g., "IIEF-5", "HbA1c", "PSA")
+- PROCEDURES: Treatments, surgeries, therapies (e.g., "Penile prosthesis", "Lifestyle modification", "Stress test")
+- DIAGNOSTIC_TOOLS: Tests, scores, questionnaires (e.g., "IIEF-5", "HbA1c", "PSA", "Bruce Protocol")
 - RISK_FACTORS: Lifestyle factors, comorbidities (e.g., "Smoking", "Obesity", "Advanced age")
-- ADVERSE_EVENTS: Side effects, complications (e.g., "Headache", "Flushing", "Priapism")
-- ORGANIZATIONS: Medical organizations, hospitals (e.g., "MOH", "WHO", "Malaysian Urological Association")
+- ADVERSE_EVENTS: Side effects, complications (e.g., "Headache", "Flushing", "Priapism", "Hypotension")
+- ORGANIZATIONS: Medical organizations, hospitals (e.g., "MOH", "WHO", "EAU", "ACC/AHA")
+- CONTRAINDICATIONS: Drug interactions, safety warnings (e.g., "Nitrates contraindicated with PDE5i", "Riociguat")
+- DOSAGES: Dose amounts, timing, frequency (e.g., "50 mg initial", "24 hour washout", "once daily")
+- RISK_CATEGORIES: Clinical risk classifications (e.g., "Low Risk", "Intermediate Risk", "High Risk", "NYHA class")
 
 TEXT:
 {truncated_text}
@@ -109,7 +120,7 @@ If no entities found for a category, use an empty array [].
 Do not include explanations, only the JSON.
 
 Example format:
-{{"MEDICATIONS": ["Sildenafil", "Tadalafil"], "CONDITIONS": ["ED", "Diabetes"], "PROCEDURES": [], ...}}
+{{"MEDICATIONS": ["Sildenafil", "Tadalafil"], "CONDITIONS": ["ED"], "CONTRAINDICATIONS": ["Nitrates"], "DOSAGES": ["50 mg"], ...}}
 """
             
             # Create temporary agent for entity extraction
@@ -174,10 +185,10 @@ Example format:
         logger.info(f"Adding {len(chunks)} chunks to knowledge graph for document: {document_title}")
         logger.info("⚠️ Large chunks will be truncated to avoid Graphiti token limits.")
         
-        # Check for oversized chunks and warn
-        oversized_chunks = [i for i, chunk in enumerate(chunks) if len(chunk.content) > 6000]
+        # Check for oversized chunks and warn (increased from 6000 to 10000)
+        oversized_chunks = [i for i, chunk in enumerate(chunks) if len(chunk.content) > 10000]
         if oversized_chunks:
-            logger.warning(f"Found {len(oversized_chunks)} chunks over 6000 chars that will be truncated: {oversized_chunks}")
+            logger.warning(f"Found {len(oversized_chunks)} chunks over 10000 chars that will be truncated: {oversized_chunks}")
         
         episodes_created = 0
         errors = []
