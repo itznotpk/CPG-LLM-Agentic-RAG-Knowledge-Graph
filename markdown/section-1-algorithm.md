@@ -1,40 +1,38 @@
-# ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED
+# SECTION 1: CLINICAL DECISION ALGORITHMS
 
-## Overview
+## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED
+
+<!-- METADATA
+category: algorithm
+use_case: treatment_decision
+patient_input: symptoms, IIEF-5_score
+output: treatment_pathway
+-->
+
+### Overview
 This algorithm outlines the clinical decision pathway for diagnosing and treating Erectile Dysfunction (ED).
 
 ---
 
-## 📖 Glossary
+### 📖 Glossary
 
 | Term | Definition |
 |------|------------|
 | **ASCVD** | Atherosclerotic Cardiovascular Disease |
-| **BPH** | Benign Prostatic Hyperplasia |
-| **CBT** | Cognitive Behavioral Therapy |
 | **ED** | Erectile Dysfunction |
-| **EHS** | Erection Hardness Score |
-| **Exercise Ability** | Walking 1.6 km in 20 min or climbing 2 flights of stairs in 10 sec |
-| **GAD-7** | Generalized Anxiety Disorder 7-item scale |
-| **HbA1c** | Glycated Hemoglobin |
 | **IIEF-5** | 5-item version of International Index of Erectile Function |
-| **LH** | Luteinizing Hormone |
-| **Li-ESWT** | Low-intensity Extracorporeal Shockwave Therapy |
-| **LUTS** | Lower Urinary Tract Symptoms |
 | **PDE5i** | Phosphodiesterase-5 inhibitors |
-| **PHQ-9** | Patient Health Questionnaire-9 |
-| **PSA** | Prostate-Specific Antigen |
 | **VED** | Vacuum Erection Device |
 
 ---
 
-## Step 1: Initial Assessment
+### Step 1: Initial Assessment
 
 **Patient presents with symptoms of ED**
 
 ↓
 
-### History Taking & Examination
+#### History Taking & Examination
 - **Medical history** (cardiovascular, diabetes, neurological)
 - **Psychological history** (depression, anxiety, relationship issues)
 - **Sexual history** (with partner involvement preferred)
@@ -45,7 +43,7 @@ This algorithm outlines the clinical decision pathway for diagnosing and treatin
 
 ↓
 
-## Step 2: Diagnosis of ED
+### Step 2: Diagnosis of ED
 
 After assessment, classify the **Type of ED**:
 
@@ -53,13 +51,13 @@ After assessment, classify the **Type of ED**:
 |------|-------------|
 | **Organic ED** | Physical/medical cause (vascular, hormonal, neurogenic) |
 | **Psychogenic ED** | Psychological cause (anxiety, depression, relationship) |
-| **Mixed ED*** | Combination of organic and psychogenic factors |
+| **Mixed ED** | Combination of organic and psychogenic factors |
 
-> *Some cases may present with mixed ED. It is best to categorize the severity of mixed ED according to IIEF-5. Management of mixed ED may follow organic or psychogenic ED pathways.
+> *Some cases may present with mixed ED. Categorize severity according to IIEF-5.
 
 ---
 
-## Step 3: Severity Assessment (for Organic ED)
+### Step 3: Severity Assessment (for Organic ED)
 
 **Based on IIEF-5 Score:**
 
@@ -71,69 +69,38 @@ After assessment, classify the **Type of ED**:
 | 8-11 | Moderate |
 | 5-7 | Severe |
 
-> *Co-morbidities should be considered when selecting pharmacotherapy.
-
 ---
 
-## Step 4: Treatment Pathways
+### Step 4: Treatment Pathways
 
-### Pathway A: Mild/Moderate ED (Score 8-21)
-
-**First-line treatment:**
+#### Pathway A: Mild/Moderate ED (Score 8-21)
 - Lifestyle modification
-- ± Pharmacotherapy***
+- ± Pharmacotherapy
+- **If no improvement:** → Refer to urologist
 
-**If no improvement:**
-→ Refer to urologist for mechanical devices/surgical intervention
-
-**May also consider:**
-→ Refer to mental health professionals for psychological intervention
-
----
-
-### Pathway B: Severe ED (Score 5-7)
-
+#### Pathway B: Severe ED (Score 5-7)
 **Refer to urologist:**
+- Lifestyle modification + Pharmacotherapy
+- ± Mechanical devices / Surgical intervention
+
+#### Pathway C: Psychogenic ED
 - Lifestyle modification
-- ± Pharmacotherapy***
-- ± Mechanical devices
-- ± Surgical intervention
-
-**May also consider:**
-→ Refer to mental health professionals for psychological intervention
+- ± Pharmacotherapy
+- → Refer to mental health professionals
 
 ---
 
-### Pathway C: Psychogenic ED
+## ALGORITHM 2: CLASSIFICATION FOR ED PATIENTS WITH CARDIOVASCULAR DISEASE
 
-**Treatment approach:**
-- Lifestyle modification
-- ± Pharmacotherapy***
+<!-- METADATA
+category: algorithm
+use_case: cardiac_risk_stratification
+patient_input: cardiac_history, exercise_ability, medications
+output: treatment_safety_classification
+critical: true
+-->
 
-**May also consider:**
-→ Refer to mental health professionals for psychological intervention
-
----
-
-## Key Abbreviations
-
-| Abbreviation | Meaning |
-|--------------|---------|
-| ED | Erectile Dysfunction |
-| IIEF-5 | 5-item version of International Index of Erectile Function |
-
----
-
-## Notes
-
-- **→** May consider (referral pathway)
-- ***Co-morbidities should be considered** when selecting pharmacotherapy
-
----
-
-# ALGORITHM 2: CLASSIFICATION FOR ED PATIENTS WITH CARDIOVASCULAR DISEASE
-
-## Overview
+### Overview
 
 This algorithm classifies ED patients with cardiovascular disease for safe treatment selection.
 
@@ -141,19 +108,19 @@ This algorithm classifies ED patients with cardiovascular disease for safe treat
 
 ---
 
-## Step 1: Starting Point
+### Step 1: Starting Point
 
 **Patients with confirmed ED**
 
 ↓
 
-## Step 2: Exercise Ability Assessment<sup>a</sup>
+### Step 2: Exercise Ability Assessment<sup>a</sup>
 
 Assess the patient's exercise ability to estimate cardiovascular risk.
 
 ↓
 
-## Step 3: Cardiac Risk Stratification
+### Step 3: Cardiac Risk Stratification
 
 **Cardiac risk stratification according to Princeton Consensus***
 
@@ -165,9 +132,9 @@ Classify into one of three risk categories:
 
 ---
 
-## Step 4: Risk-Based Pathways
+### Step 4: Risk-Based Pathways
 
-### Low Risk Pathway
+#### Low Risk Pathway
 
 **Low Risk** → Elective risk assessment (optional)
 
@@ -181,7 +148,7 @@ Continue to Step 5 (Nitrate Assessment)
 
 ---
 
-### Intermediate Risk Pathway
+#### Intermediate Risk Pathway
 
 **Intermediate Risk** → **Stress test<sup>b</sup>**
 
@@ -194,7 +161,7 @@ Continue to Step 5 (Nitrate Assessment)
 
 ---
 
-### High Risk Pathway
+#### High Risk Pathway
 
 **High Risk** → **For further cardiac assessment**
 
@@ -202,18 +169,18 @@ Continue to Step 5 (Nitrate Assessment)
 
 ---
 
-## Step 5: Nitrate Assessment (After Risk Classification)
+### Step 5: Nitrate Assessment (After Risk Classification)
 
 For patients cleared for treatment (Low Risk):
 
-### Decision: Is the patient prescribed nitrate/riociguat?
+#### Decision: Is the patient prescribed nitrate/riociguat?
 
 | Patient Status | Treatment Path |
 |----------------|----------------|
 | **No** (not on nitrates) | → **PDE5i** (phosphodiesterase-5 inhibitors) |
 | **Yes** (on nitrates) | → Check: Is nitrate necessary? |
 
-### If on nitrates, is nitrate necessary?
+#### If on nitrates, is nitrate necessary?
 
 | Answer | Treatment Path |
 |--------|----------------|
@@ -222,7 +189,7 @@ For patients cleared for treatment (Low Risk):
 
 ---
 
-## Key Abbreviations
+### Key Abbreviations
 
 | Abbreviation | Meaning |
 |--------------|---------|
@@ -232,10 +199,12 @@ For patients cleared for treatment (Low Risk):
 
 ---
 
-## Footnotes
+### Footnotes
 
 <sup>a</sup> **Exercise ability** is used to guide physician estimating cardiovascular risk associated with sexual activity and should be established before the initiation of ED treatment. Sexual activity is equivalent to:
 - Walking 1.6 km (1 mile) on the flat in 20 minutes
 - Briskly climbing two flights of stairs in 10 seconds
 
 <sup>b</sup> **Stress test:** Sexual activity is equivalent to 4 minutes of the Bruce treadmill protocol. **Pass** is defined as completion of the test without symptoms, arrhythmias, or a fall in systolic blood pressure.
+
+---

@@ -1,10 +1,3 @@
-# Malaysia CPG: Erectile Dysfunction - RAG Optimized
-> **Source**: Clinical Practice Guidelines on Management of Erectile Dysfunction (2024)
-> **Publisher**: Malaysian Health Technology Assessment Section (MaHTAS), Ministry of Health Malaysia
-> **Optimized for**: RAG-based care plan generation
-
----
-
 # SECTION 1: CLINICAL DECISION ALGORITHMS
 
 ## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED
@@ -680,7 +673,7 @@ Surgical interventions in ED include penile revascularisation surgery and penile
 
 #### Arterial Insufficiency (AI)
 
-AI occurs when there is inadequate arterial blood to the penis at the time of erection.
+arterial insufficiency occurs when there is inadequate arterial blood to the penis at the time of erection.
 
 **Candidate Criteria (ICSM Consensus):**
 - Age <55 years
@@ -703,7 +696,7 @@ VOD occurs when erection cannot be achieved/maintained despite adequate arterial
 
 ### 3.4.2 Penile Prosthesis (PP)
 
-Used when other treatment modalities have failed.
+Used when other type of treatment modalities have failed.
 
 **Types:**
 - Malleable
@@ -723,9 +716,42 @@ Used when other treatment modalities have failed.
 
 > **Note:** Vascular ED should be suspected in patients with ED at younger age with absence of other risk factors.
 
+### Recommendation 5
+
+Penile prothesis may be offered to patients with erectile dysfunction who have failed other interventions.
+
 ---
 
-## CONTRAINDICATIONS (Critical Safety)
+## 3.5 Psychological Intervention
+
+<!-- METADATA
+category: treatment
+treatment_type: psychological
+use_case: psychogenic_ED, mixed_ED
+-->
+
+Psychosocial intervention plays a vital role in ED treatment as psychological and social factors often pre-dispose and perpetuate erectile problems. Partner involvement is recommended to identify shared sexual difficulties.
+
+> **Core Components:** Psychoeducation, cognitive and behavioural techniques (reducing anxiety, challenging dysfunctional beliefs), increasing sexual stimulation, disrupting sexual avoidance, and increasing intimacy.
+
+### Evidence Summary
+
+| Intervention | Outcome | Evidence |
+|--------------|---------|----------|
+| **Focused sex-group therapy** | Reduced persistence of ED vs control (RR=0.13) | Level I |
+| **Group therapy + Sildenafil** | Better reduction of persistent ED vs Sildenafil alone (RR=0.46) | Level I |
+| **Combined Treatment** (Psych + PDE5i) | Superior to PDE5i or Psych intervention alone (Cohen's d=0.45, RR=2.26) | Level I |
+| **Internet-based interventions (IMIs)** | Small effect size (g=0.18) in improving sexual function | Level I |
+
+> **Note:** Combined treatment (PDE5i + Psychological intervention) consistently shows better efficacy than monotherapy for psychogenic or mixed ED.
+
+### Recommendation 6
+
+- An integrated and collaborative approach with psychological interventions should be considered in the treatment of erectile dysfunction.
+
+---
+
+## CONTRAINDICATIONS (Critical Safety/Appendix 6)
 
 <!-- METADATA
 category: contraindication
