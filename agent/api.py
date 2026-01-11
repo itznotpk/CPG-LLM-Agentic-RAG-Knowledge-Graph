@@ -117,8 +117,8 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Agentic RAG with Knowledge Graph",
     description="AI agent combining vector search and knowledge graph for tech company analysis",
-    version="0.1.0",
-    lifespan=lifespan
+    version="0.1.0"
+    
 )
 
 # Add middleware with flexible CORS
@@ -176,76 +176,130 @@ async def get_conversation_context(
 def extract_tool_calls(result) -> List[ToolCall]:
     """
     Extract tool calls from Pydantic AI result.
-    
+
     Args:
         result: Pydantic AI result object
-    
+
     Returns:
         List of ToolCall objects
     """
     tools_used = []
-    
+
     try:
         # Get all messages from the result
         messages = result.all_messages()
-        
+
         for message in messages:
             if hasattr(message, 'parts'):
                 for part in message.parts:
                     # Check if this is a tool call part
                     if part.__class__.__name__ == 'ToolCallPart':
                         try:
-                            # Debug logging to understand structure
-                            logger.debug(f"ToolCallPart attributes: {dir(part)}")
-                            logger.debug(f"ToolCallPart content: tool_name={getattr(part, 'tool_name', None)}")
-                            
-                            # Extract tool information safely
                             tool_name = str(part.tool_name) if hasattr(part, 'tool_name') else 'unknown'
-                            
-                            # Get args - the args field is a JSON string in Pydantic AI
+
                             tool_args = {}
                             if hasattr(part, 'args') and part.args is not None:
                                 if isinstance(part.args, str):
-                                    # Args is a JSON string, parse it
                                     try:
-                                        import json
                                         tool_args = json.loads(part.args)
-                                        logger.debug(f"Parsed args from JSON string: {tool_args}")
-                                    except json.JSONDecodeError as e:
-                                        logger.debug(f"Failed to parse args JSON: {e}")
+                                    except json.JSONDecodeError:
                                         tool_args = {}
                                 elif isinstance(part.args, dict):
                                     tool_args = part.args
-                                    logger.debug(f"Args already a dict: {tool_args}")
-                            
-                            # Alternative: use args_as_dict method if available
+
                             if hasattr(part, 'args_as_dict'):
                                 try:
                                     tool_args = part.args_as_dict()
-                                    logger.debug(f"Got args from args_as_dict(): {tool_args}")
                                 except:
                                     pass
-                            
-                            # Get tool call ID
+
                             tool_call_id = None
                             if hasattr(part, 'tool_call_id'):
                                 tool_call_id = str(part.tool_call_id) if part.tool_call_id else None
-                            
-                            # Create ToolCall with explicit field mapping
-                            tool_call_data = {
-                                "tool_name": tool_name,
-                                "args": tool_args,
-                                "tool_call_id": tool_call_id
-                            }
-                            logger.debug(f"Creating ToolCall with data: {tool_call_data}")
-                            tools_used.append(ToolCall(**tool_call_data))
+
+                            tools_used.append(ToolCall(
+                                tool_name=tool_name,
+                                args=tool_args,
+                                tool_call_id=tool_call_id
+                            ))
                         except Exception as e:
                             logger.debug(f"Failed to parse tool call part: {e}")
                             continue
     except Exception as e:
         logger.warning(f"Failed to extract tool calls: {e}")
-    
+
     return tools_used
+
+
+def extract_sources(result) -> List[Dict[str, Any]]:
+    """
+    Extract source documents/chunks from tool results.
+
+    Args:
+        result: Pydantic AI result object
+
+    Returns:
+        List of source documents with content and metadata
+    """
+    sources = []
+    seen_content = set()  # Deduplicate by content
+
+    try:
+        messages = result.all_messages()
+
+        for message in messages:
+            if hasattr(message, 'parts'):
+                for part in message.parts:
+                    # Check for tool return parts
+                    if part.__class__.__name__ == 'ToolReturnPart':
+                        try:
+                            content = part.content if hasattr(part, 'content') else None
+                            tool_name = str(part.tool_name) if hasattr(part, 'tool_name') else 'unknown'
+
+                            # Parse the content if it's a string
+                            if isinstance(content, str):
+                                try:
+                                    content = json.loads(content)
+                                except json.JSONDecodeError:
+                                    pass
+
+                            # Extract sources from vector_search, hybrid_search results
+                            if tool_name in ['vector_search', 'hybrid_search'] and isinstance(content, list):
+                                for item in content:
+                                    if isinstance(item, dict):
+                                        chunk_content = item.get('content', '')[:200]
+                                        if chunk_content and chunk_content not in seen_content:
+                                            seen_content.add(chunk_content)
+                                            sources.append({
+                                                'tool': tool_name,
+                                                'content': item.get('content', '')[:300] + '...' if len(item.get('content', '')) > 300 else item.get('content', ''),
+                                                'document_title': item.get('document_title', 'Unknown'),
+                                                'document_source': item.get('document_source', ''),
+                                                'score': round(item.get('score', 0), 3)
+                                            })
+
+                            # Extract from graph_search results
+                            elif tool_name == 'graph_search' and isinstance(content, list):
+                                for item in content:
+                                    if isinstance(item, dict):
+                                        fact = item.get('fact', '')
+                                        if fact and fact not in seen_content:
+                                            seen_content.add(fact)
+                                            sources.append({
+                                                'tool': tool_name,
+                                                'content': fact,
+                                                'document_title': 'Knowledge Graph',
+                                                'document_source': 'graph',
+                                                'score': 1.0
+                                            })
+
+                        except Exception as e:
+                            logger.debug(f"Failed to parse tool return part: {e}")
+                            continue
+    except Exception as e:
+        logger.warning(f"Failed to extract sources: {e}")
+
+    return sources
 
 
 async def save_conversation_turn(
@@ -285,18 +339,18 @@ async def execute_agent(
     session_id: str,
     user_id: Optional[str] = None,
     save_conversation: bool = True
-) -> tuple[str, List[ToolCall]]:
+) -> tuple[str, List[ToolCall], List[Dict[str, Any]]]:
     """
     Execute the agent with a message.
-    
+
     Args:
         message: User message
         session_id: Session ID
         user_id: Optional user ID
         save_conversation: Whether to save the conversation
-    
+
     Returns:
-        Tuple of (agent response, tools used)
+        Tuple of (agent response, tools used, sources)
     """
     try:
         # Create dependencies
@@ -304,10 +358,10 @@ async def execute_agent(
             session_id=session_id,
             user_id=user_id
         )
-        
+
         # Get conversation context
         context = await get_conversation_context(session_id)
-        
+
         # Build prompt with context
         full_prompt = message
         if context:
@@ -316,13 +370,14 @@ async def execute_agent(
                 for msg in context[-6:]  # Last 3 turns
             ])
             full_prompt = f"Previous conversation:\n{context_str}\n\nCurrent question: {message}"
-        
+
         # Run the agent
         result = await rag_agent.run(full_prompt, deps=deps)
-        
-        response = result.data
+
+        response = result.output
         tools_used = extract_tool_calls(result)
-        
+        sources = extract_sources(result)
+
         # Save conversation if requested
         if save_conversation:
             await save_conversation_turn(
@@ -331,16 +386,17 @@ async def execute_agent(
                 assistant_message=response,
                 metadata={
                     "user_id": user_id,
-                    "tool_calls": len(tools_used)
+                    "tool_calls": len(tools_used),
+                    "sources_count": len(sources)
                 }
             )
-        
-        return response, tools_used
-        
+
+        return response, tools_used, sources
+
     except Exception as e:
         logger.error(f"Agent execution failed: {e}")
         error_response = f"I encountered an error while processing your request: {str(e)}"
-        
+
         if save_conversation:
             await save_conversation_turn(
                 session_id=session_id,
@@ -348,8 +404,8 @@ async def execute_agent(
                 assistant_message=error_response,
                 metadata={"error": str(e)}
             )
-        
-        return error_response, []
+
+        return error_response, [], []
 
 
 # API Endpoints
@@ -389,21 +445,22 @@ async def chat(request: ChatRequest):
     try:
         # Get or create session
         session_id = await get_or_create_session(request)
-        
+
         # Execute agent
-        response, tools_used = await execute_agent(
+        response, tools_used, sources = await execute_agent(
             message=request.message,
             session_id=session_id,
             user_id=request.user_id
         )
-        
+
         return ChatResponse(
             message=response,
             session_id=session_id,
             tools_used=tools_used,
+            sources=sources,
             metadata={"search_type": str(request.search_type)}
         )
-        
+
     except Exception as e:
         logger.error(f"Chat endpoint failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -468,10 +525,11 @@ async def chat_stream(request: ChatRequest):
                                         yield f"data: {json.dumps({'type': 'text', 'content': delta_content})}\n\n"
                                         full_response += delta_content
                 
-                # Extract tools used from the final result
+                # Extract tools used and sources from the final result
                 result = run.result
                 tools_used = extract_tool_calls(result)
-                
+                sources = extract_sources(result)
+
                 # Send tools used information
                 if tools_used:
                     tools_data = [
@@ -483,7 +541,11 @@ async def chat_stream(request: ChatRequest):
                         for tool in tools_used
                     ]
                     yield f"data: {json.dumps({'type': 'tools', 'tools': tools_data})}\n\n"
-                
+
+                # Send sources information
+                if sources:
+                    yield f"data: {json.dumps({'type': 'sources', 'sources': sources})}\n\n"
+
                 # Save assistant response
                 await add_message(
                     session_id=session_id,
@@ -491,10 +553,11 @@ async def chat_stream(request: ChatRequest):
                     content=full_response,
                     metadata={
                         "streamed": True,
-                        "tool_calls": len(tools_used)
+                        "tool_calls": len(tools_used),
+                        "sources_count": len(sources)
                     }
                 )
-                
+
                 yield f"data: {json.dumps({'type': 'end'})}\n\n"
                 
             except Exception as e:

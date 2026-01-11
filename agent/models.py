@@ -107,11 +107,20 @@ class ToolCall(BaseModel):
     tool_call_id: Optional[str] = None
 
 
+class SourceInfo(BaseModel):
+    """Source information from search results."""
+    tool: str = "unknown"
+    content: str = ""
+    document_title: str = "Unknown"
+    document_source: str = ""
+    score: float = 0.0
+
+
 class ChatResponse(BaseModel):
     """Chat response model."""
     message: str
     session_id: str
-    sources: List[DocumentMetadata] = Field(default_factory=list)
+    sources: List[SourceInfo] = Field(default_factory=list)
     tools_used: List[ToolCall] = Field(default_factory=list)
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
