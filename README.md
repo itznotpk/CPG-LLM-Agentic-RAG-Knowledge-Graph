@@ -16,102 +16,190 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 | Section | Description |
 |---------|-------------|
 | [What This System Does](#-what-this-system-does) | Core capabilities overview |
-| [Tech Stack](#-tech-stack) | Technologies and frameworks used |
+| [Architecture](#-architecture) | System design and flow |
+| [Tech Stack](#-tech-stack) | Technologies and frameworks |
 | [Features](#-features) | Document ingestion, knowledge graph, agent tools |
 | [Quick Start](#-quick-start) | Installation and setup guide |
+| [Running the System](#-running-the-system) | API, CLI, and Frontend |
 | [Example Queries](#-example-queries) | Sample clinical queries |
 | [Project Structure](#-project-structure) | Folder and file organization |
-| [Architecture](#-architecture) | System design diagram |
+| [Configuration](#-configuration) | Environment variables |
 | [Next Steps](#-next-steps) | Development roadmap |
-| [Disclaimer](#️-disclaimer) | Clinical usage disclaimer |
 
 ---
 
 ## 🏥 What This System Does
 
-- **Ingests CPG PDF documents** with hierarchical structure parsing (Section → Subsection → Recommendation)
-- **Dynamic LLM entity extraction**: Uses LLM to identify and categorize ANY medical entity (no hardcoded lists)
-- **Custom Neo4j entity types**: Medication, Condition, Procedure, DiagnosticTool, AdverseEvent, RiskFactor, Organization
-- **Builds a knowledge graph** with medical relationships (TREATS, CONTRAINDICATED_WITH, HAS_DOSAGE, etc.)
-- **Enables semantic search**: Vector and hybrid search for relevant clinical content
-- **Semantic chunking**: Keeps headers with content, preserves tables/lists as units
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  USER: "What is the recommended initial dose for Sildenafil    │
+│         and how long does its effect persist?"                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    AGENTIC RAG SYSTEM                            │
+│                                                                  │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │ Agent decides│→ │ Queries Neo4j│→ │ Queries      │           │
+│  │ which tools  │  │ entity nodes │  │ Vector DB    │           │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
+│                              │                                   │
+│                              ▼                                   │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ Synthesizes answer from all sources                       │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  RESPONSE: "The recommended initial dose for Sildenafil is     │
+│  50 mg, up to 100 mg. Sildenafil's effects can last up to      │
+│  12 hours."                                                     │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Core Capabilities
+
+- **Ingests CPG markdown documents** with hierarchical structure parsing
+- **Dynamic LLM entity extraction** with 10 medical entity categories
+- **Builds a knowledge graph** in Neo4j with entity summaries
+- **Enables semantic search** via Vector DB (PostgreSQL + pgvector)
 - **Provides clinical decision support** via conversational AI agent
+- **Web Frontend** for clinical case analysis
+
+---
+
+## 🏗 Architecture
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│                           USER INTERFACES                             │
+├────────────────┬────────────────┬────────────────────────────────────┤
+│   Web Frontend │    CLI (cli.py)│        Direct API                  │
+│   (port 8080)  │                │      (port 8058)                   │
+└────────────────┴────────────────┴────────────────────────────────────┘
+                              │
+                              ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                      FASTAPI BACKEND                                  │
+│                      (agent/api.py)                                   │
+│  ┌────────────────────────────────────────────────────────────────┐  │
+│  │                    PYDANTIC AI AGENT                            │  │
+│  │  • LLM: Gemini 2.0 Flash via OpenRouter                        │  │
+│  │  • System Prompt: Clinical ED Assistant                         │  │
+│  │  • Autonomous Tool Selection                                    │  │
+│  └────────────────────────────────────────────────────────────────┘  │
+│                              │                                        │
+│  ┌───────────────────────────┼───────────────────────────┐           │
+│  ▼                           ▼                           ▼           │
+│ ┌────────────┐   ┌────────────────────┐   ┌────────────────────┐    │
+│ │vector_search│   │get_drug_information│   │   graph_search     │    │
+│ │hybrid_search│   │get_treatment_recs  │   │entity_relationships│    │
+│ └────────────┘   └────────────────────┘   └────────────────────┘    │
+└──────────────────────────────────────────────────────────────────────┘
+          │                    │                        │
+          ▼                    ▼                        ▼
+┌──────────────────┐  ┌──────────────────┐  ┌──────────────────────┐
+│   PostgreSQL     │  │     Neo4j        │  │   Entity Summaries   │
+│   + pgvector     │  │  Knowledge Graph │  │   (from graph nodes) │
+│                  │  │                  │  │                      │
+│ • Document chunks│  │ • Entity nodes   │  │ "Sildenafil (50 mg   │
+│ • Embeddings     │  │ • RELATES_TO     │  │  initial dose, up to │
+│ • CPG metadata   │  │ • MENTIONS       │  │  100 mg) is a PDE5i" │
+└──────────────────┘  └──────────────────┘  └──────────────────────┘
+```
+
+---
 
 ## 🛠 Tech Stack
 
 ### Core Framework
-| Component | Technology | Badge |
-|-----------|------------|-------|
-| **Agent Framework** | Pydantic AI | ![Pydantic](https://img.shields.io/badge/Pydantic_AI-E92063?style=flat-square&logo=pydantic) |
-| **LLM Provider** | OpenRouter → Gemini | ![OpenRouter](https://img.shields.io/badge/OpenRouter-000000?style=flat-square) |
-| **LLM Model** | `google/gemini-2.0-flash-001` | ![Gemini](https://img.shields.io/badge/Gemini_2.0-4285F4?style=flat-square&logo=google) |
+| Component | Technology |
+|-----------|------------|
+| **Agent Framework** | Pydantic AI |
+| **LLM Provider** | OpenRouter → Gemini 2.0 Flash |
+| **Embeddings** | Google Gemini `text-embedding-004` (768d) |
 
 ### Data Layer
-| Component | Technology | Badge |
-|-----------|------------|-------|
-| **Vector Database** | PostgreSQL + pgvector (Neon) | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) |
-| **Knowledge Graph** | Neo4j Aura + Graphiti | ![Neo4j](https://img.shields.io/badge/Neo4j-4581C3?style=flat-square&logo=neo4j&logoColor=white) |
-| **Embeddings** | Gemini `text-embedding-004` (768d) | ![Embeddings](https://img.shields.io/badge/768_dim-Embeddings-green?style=flat-square) |
+| Component | Technology |
+|-----------|------------|
+| **Vector Database** | PostgreSQL + pgvector (Neon) |
+| **Knowledge Graph** | Neo4j Aura + Graphiti |
 
-### Document Processing
-| Component | Technology | Badge |
-|-----------|------------|-------|
-| **PDF Parsing** | PyMuPDF (fitz) | ![PyMuPDF](https://img.shields.io/badge/PyMuPDF-PDF_Parser-red?style=flat-square) |
-| **PDF → Markdown** | Docling / pymupdf4llm | ![Docling](https://img.shields.io/badge/Docling-PDF_to_MD-blue?style=flat-square) |
-| **VLM Image Description** | Ollama (qwen3-vl) | ![Ollama](https://img.shields.io/badge/Ollama-VLM-purple?style=flat-square) |
-| **Chunking** | Semantic (1200 chars) | ![Chunks](https://img.shields.io/badge/1200_char-Chunks-orange?style=flat-square) |
+### Interfaces
+| Component | Port |
+|-----------|------|
+| **Backend API** | `http://localhost:8058` |
+| **Web Frontend** | `http://localhost:8080` |
+| **CLI** | Terminal |
 
-
-### API & Interface
-| Component | Technology | Badge |
-|-----------|------------|-------|
-| **API Framework** | FastAPI + SSE Streaming | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) |
-| **CLI** | Interactive Python CLI | ![CLI](https://img.shields.io/badge/CLI-Terminal-black?style=flat-square) |
+---
 
 ## 📋 Features
 
-### Document Ingestion
-- **Hierarchical PDF parsing** - Detects sections by font size/boldness
-- **Table extraction** - Converts tables to structured JSON
-- **VLM image/flowchart description** - Ollama qwen3-vl describes clinical algorithms
-- **Metadata extraction** - Evidence levels (Grade A/B/C), target populations, categories
-- **Auto-glossary generation** - Extracts term definitions and creates glossary chunk
-- **Page number tracking** - Each page marked with `## 📄 Page N` headers
-- **Skip existing files** - Won't re-process files unless `--force` is used
-- **Processed file output** - Saves markdown and JSON to `documents/_processed/`
-
-### Knowledge Graph Relationships
-| Relationship | Example |
-|--------------|---------|
-| `TREATS` | (Sildenafil) → (Erectile Dysfunction) |
-| `CONTRAINDICATED_WITH` | (Sildenafil) → (Nitrates) |
-| `HAS_DOSAGE` | (Tadalafil) → ("10mg on-demand") |
-| `HAS_DEFINITION` | (IIEF-5) → ("5-item International Index of Erectile Function") |
-| `REQUIRES_MONITORING` | (Testosterone) → (PSA) |
-| `CAUSES` | (Sildenafil) → (Headache) |
-| `ASSESSED_BY` | (Erectile Dysfunction) → (IIEF-5) |
-| `RECOMMENDED_FOR` | (Li-ESWT) → ("Mild vasculogenic ED") |
-
 ### Agent Tools (7 Dynamic Tools)
-| Tool | Purpose |
-|------|---------|
-| `vector_search` | Semantic similarity search |
-| `graph_search` | Knowledge graph facts |
-| `hybrid_search` | Vector + keyword combined |
-| `get_drug_information` | **Dynamic** - searches graph + vector DB for drug info |
-| `get_treatment_recommendations` | Treatments by condition |
-| `get_entity_relationships` | Entity connections in graph |
-| `get_chunk_with_parent_context` | Hierarchical context |
+
+| Tool | Purpose | Data Source |
+|------|---------|-------------|
+| `vector_search` | Semantic similarity search | PostgreSQL |
+| `graph_search` | Knowledge graph facts | Neo4j |
+| `hybrid_search` | Vector + keyword combined | PostgreSQL |
+| `get_drug_information` | **Dynamic** drug info with entity summaries | Neo4j + PostgreSQL |
+| `get_treatment_recommendations` | Treatments by condition | Neo4j + PostgreSQL |
+| `get_entity_relationships` | Entity connections | Neo4j |
+| `get_chunk_with_parent_context` | Hierarchical context | PostgreSQL |
+
+### Dynamic `get_drug_information` Tool
+
+The drug information tool uses a **4-step dynamic retrieval**:
+
+```
+STEP 0: Query Neo4j entity nodes directly
+        → Gets summaries like "Sildenafil (50 mg initial dose...)"
+
+STEP 1: Graph search for related facts
+        → Gets relationships and edges
+
+STEP 2: Entity relationships
+        → Gets connected entities
+
+STEP 3: Dynamic vector search
+        → Extracts keywords FROM entity summary
+        → Builds targeted search query automatically
+        → Falls back to comprehensive search if no summary
+
+STEP 4: Fallback search (if prior steps return nothing)
+```
 
 ### Entity Extraction (LLM-Based)
-Entities are extracted **dynamically by LLM** during ingestion - no hardcoded entity lists:
-- **MEDICATIONS**: Any drug names, drug classes found in text
-- **CONDITIONS**: Any diseases, diagnoses, symptoms
-- **PROCEDURES**: Any treatments, surgeries, therapies
-- **DIAGNOSTIC_TOOLS**: Any tests, scores, questionnaires
-- **ADVERSE_EVENTS**: Any side effects, complications
-- **RISK_FACTORS**: Any lifestyle factors, comorbidities
-- **ORGANIZATIONS**: Any medical organizations
+
+10 entity categories extracted during ingestion:
+
+| Category | Examples |
+|----------|----------|
+| `MEDICATIONS` | Sildenafil, Tadalafil, PDE5 inhibitors |
+| `CONDITIONS` | Erectile Dysfunction, Diabetes, Hypertension |
+| `PROCEDURES` | Penile prosthesis, Stress test, Lifestyle modification |
+| `DIAGNOSTIC_TOOLS` | IIEF-5, HbA1c, PSA, Bruce Protocol |
+| `RISK_FACTORS` | Smoking, Obesity, Advanced age |
+| `ADVERSE_EVENTS` | Headache, Flushing, Priapism, Hypotension |
+| `ORGANIZATIONS` | MOH, WHO, EAU, ACC/AHA |
+| `CONTRAINDICATIONS` | Nitrates contraindicated with PDE5i |
+| `DOSAGES` | 50 mg initial, 24 hour washout, once daily |
+| `RISK_CATEGORIES` | Low Risk, Intermediate Risk, High Risk |
+
+### Web Frontend
+
+Modern web UI for clinical case analysis:
+
+- 🎨 Dark theme with Tailwind CSS
+- 📝 Sample clinical cases
+- ⏳ Animated progress indicators
+- 📚 Collapsible sources section
+- ⚠️ Clinical disclaimer
+
+---
 
 ## 🚀 Quick Start
 
@@ -120,13 +208,14 @@ Entities are extracted **dynamically by LLM** during ingestion - no hardcoded en
 - Python 3.11+
 - PostgreSQL with pgvector (recommend [Neon](https://neon.tech))
 - Neo4j database (recommend [Neo4j Aura](https://neo4j.com/cloud/aura/))
-- API keys for OpenRouter and Gemini
+- API keys: OpenRouter, Google Gemini
 
 ### 2. Installation
 
 ```bash
-# Enter directory
-cd agentic-rag-knowledge-graph
+# Clone repository
+git clone https://github.com/itznotpk/CPG-LLM-Agentic-RAG-Knowledge-Graph.git
+cd CPG-LLM-Agentic-RAG-Knowledge-Graph
 
 # Create virtual environment
 python -m venv venv
@@ -135,7 +224,6 @@ venv\Scripts\activate  # Windows
 
 # Install dependencies
 pip install -r requirements.txt
-pip install pymupdf pymupdf4llm
 ```
 
 ### 3. Environment Setup
@@ -156,6 +244,9 @@ OPENROUTER_API_KEY=sk-or-v1-xxxxx
 OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
 LLM_MODEL=google/gemini-2.0-flash-001
 
+# Ingestion LLM (can be same or different)
+INGESTION_LLM=gpt-4.1-nano
+
 # Embeddings (Gemini - Free!)
 GEMINI_API_KEY=AIzaxxxxx
 EMBEDDING_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
@@ -168,235 +259,138 @@ CHUNK_SIZE=1200
 
 ### 4. Database Setup
 
-Run the SQL in `sql/schema.sql` in your Neon database console. This creates tables with CPG-specific columns:
-- `evidence_level`, `grade`, `target_population`, `category`
-- `section_hierarchy`, `is_recommendation`, `is_table`, `is_algorithm`
-- `parent_chunk_id` for hierarchical relationships
+Run the SQL in `sql/schema.sql` in your Neon database console.
 
-### 5. Ingest CPG Documents
+### 5. Ingest Documents
 
 ```bash
-# Place your CPG PDF in documents/ folder
-python -m ingestion.ingest --clean -v
+# Ingest markdown files into vector DB and knowledge graph
 python -m ingestion.ingest -d markdown -v
+
+# Clean databases and re-ingest
+python -m ingestion.ingest -d markdown -v --clean
 ```
 
-**Output files saved to `documents/_processed/`:**
-- `{name}.md` - Full markdown content
-- `{name}_chunks.json` - Chunks with metadata  
-- `{name}_structure.json` - Document structure summary
+---
 
-### 6. Start the API Server (Terminal 1)
+## 🖥 Running the System
 
-After ingesting documents, start the FastAPI server in your first terminal:
+### Terminal 1: Backend API
 
 ```bash
-# Make sure your virtual environment is activated
 python -m agent.api
+# Runs on http://localhost:8058
 ```
 
-The API server will start on `http://localhost:8000` by default.
-
-**API Endpoints:**
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
-- Health Check: http://localhost:8000/health
-
-### 7. Run the CLI Agent (Terminal 2)
-
-Open a **second terminal** and start the CLI to interact with the agent:
+### Terminal 2: CLI Agent
 
 ```bash
-# Start the CLI (connects to default API at http://localhost:8000)
 python cli.py
-
-# Connect to a different URL
-python cli.py --url http://localhost:8058
-
-# Connect to a specific port
-python cli.py --port 8080
+# Or specify port: python cli.py --port 8058
 ```
 
-The CLI provides an interactive way to chat with the agent and see which tools it uses for each query.
+### Terminal 3: Web Frontend
+
+```bash
+cd frontend
+python main.py
+# Runs on http://localhost:8080
+```
+
+Open browser to `http://localhost:8080` for the web interface.
+
+---
 
 ## 💬 Example Queries
 
-### Treatment Recommendations
-```
-What is the first-line treatment for erectile dysfunction?
-Give me Grade A recommendations for PDE5 inhibitors
-How should ED be treated in diabetic patients?
-```
-
 ### Drug Information
 ```
-What are the contraindications for Sildenafil?
-What is the recommended dosage for Tadalafil?
-What side effects should I monitor for with PDE5 inhibitors?
+What is the recommended initial dose for Sildenafil?
+What are the contraindications for PDE5 inhibitors?
+How long does Tadalafil's effect last?
+```
+
+### Clinical Decision Support
+```
+45-year-old male with ED, hypertension, and diabetes. Currently on metformin and amlodipine.
+Patient classified as 'Intermediate Risk' for cardiac issues - what is the next step?
 ```
 
 ### Diagnosis
 ```
 How is erectile dysfunction diagnosed?
-What diagnostic tools are used for ED assessment?
 What does IIEF-5 measure?
+What score ranges indicate severe ED?
 ```
 
-### Knowledge Graph Queries
-```
-Search the knowledge graph for erectile dysfunction facts
-What entities are related to Sildenafil?
-Show me the relationships for cardiovascular disease
-```
+---
 
 ## 📁 Project Structure
 
 ```
-agentic-rag-knowledge-graph/
+CPG-LLM-Agentic-RAG-Knowledge-Graph/
 ├── agent/
-│   ├── agent.py          # Pydantic AI agent with 9 dynamic tools
-│   ├── tools.py          # Tool implementations (all dynamic, no hardcoded data)
+│   ├── agent.py          # Pydantic AI agent with tools
+│   ├── tools.py          # Tool implementations (dynamic)
 │   ├── prompts.py        # System prompt for CPG assistant
 │   ├── providers.py      # LLM/embedding provider config
+│   ├── api.py            # FastAPI backend server
 │   ├── db_utils.py       # PostgreSQL utilities
-│   └── graph_utils.py    # Neo4j/Graphiti utilities
+│   └── graph_utils.py    # Neo4j/Graphiti utilities + entity queries
 ├── ingestion/
 │   ├── ingest.py         # Main ingestion pipeline
-│   ├── cpg_parser.py     # Hierarchical PDF parser
-│   ├── graph_builder.py  # Entity & relationship extraction
+│   ├── graph_builder.py  # Entity extraction (10 categories)
 │   ├── chunker.py        # Semantic chunking
 │   └── embedder.py       # Embedding generation
+├── frontend/
+│   ├── main.py           # FastAPI frontend server
+│   └── run.py            # Frontend runner script
+├── markdown/             # CPG markdown files
+│   ├── section-3-diagnosis.md
+│   ├── section-4-treatment.md
+│   ├── section-5-tcm.md
+│   ├── section-6-followup.md
+│   ├── section-7-referral.md
+│   ├── section-8-special-populations.md
+│   ├── section-9-implementation.md
+│   └── appendix-6-treatment.md
 ├── sql/
-│   └── schema.sql        # Database schema with CPG columns
-├── documents/            # Place CPG PDFs here
-│   └── _processed/       # Auto-generated markdown/JSON
-├── convert_pdf.py        # Basic PDF to Markdown (CLI)
-├── pk_document_ingestion.py # Advanced PDF ingestion with VLM + glossary
+│   └── schema.sql        # Database schema
 ├── cli.py                # Command-line interface
-├── api.py                # FastAPI server
-└── .env                  # Configuration
+└── .env                  # Configuration (not in repo)
 ```
 
-## 🔧 CLI Options
+---
 
-### Ingestion Pipeline
-```bash
-python -m ingestion.ingest [OPTIONS]
+## ⚙️ Configuration
 
-Options:
-  --clean, -c        Clean databases before ingestion
-  --chunk-size N     Chunk size (default: 1200)
-  --no-cpg           Disable CPG-specific parsing
-  --fast, -f         Skip knowledge graph building
-  --verbose, -v      Enable debug logging
-```
+### Graph Builder Limits
 
-### Document Ingestion (VLM + Glossary)
-```bash
-python pk_document_ingestion.py [OPTIONS]
+| Setting | Value | Purpose |
+|---------|-------|---------|
+| `max_chars` for LLM extraction | 8000 | Captures more tables |
+| Chunk warning threshold | 10000 | Logs oversized chunks |
+| Entity categories | 10 | Comprehensive extraction |
 
-Options:
-  --input, -i DIR    Input directory (default: documents)
-  --output, -o DIR   Output directory (default: markdown)
-  --single, -s FILE  Process a single PDF file
-  --force, -f        Re-process even if markdown exists
-```
+### Tool Settings
 
-Requires Ollama running with `qwen3-vl:4b` model:
-```bash
-ollama pull qwen3-vl:4b
-ollama serve
-```
+| Setting | Value |
+|---------|-------|
+| Vector search results | 10 |
+| Content per result | 2000 chars |
+| Dynamic keyword extraction | From entity summaries |
 
-## 📊 CPG Metadata Schema
-
-Each chunk is enriched with:
-
-| Field | Example Values |
-|-------|----------------|
-| `evidence_level` | Level I, Level II, Level III |
-| `grade` | Grade A, Grade B, Grade C, Key Recommendation |
-| `target_population` | General, Diabetes, Cardiac Disease, Elderly, Spinal Cord Injury |
-| `category` | Diagnosis, Treatment, Referral, Monitoring, Prevention |
-| `section_hierarchy` | ["4. TREATMENT", "4.2 Pharmacological Treatment"] |
-| `is_recommendation` | true/false |
-| `is_table` | true/false |
-| `is_algorithm` | true/false |
-
-## 🏗 Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              USER QUERY                                      │
-│                    "What are PDE5 inhibitor contraindications?"              │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         PYDANTIC AI AGENT                                    │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                        SYSTEM PROMPT                                 │    │
-│  │  "You are a clinical decision support assistant for Malaysia CPG.   │    │
-│  │   Use cpg_filtered_search for evidence-based queries..."            │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                    │                                         │
-│                                    ▼                                         │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                    LLM (Gemini via OpenRouter)                       │    │
-│  │                                                                      │    │
-│  │   REASONING: "User asks about contraindications for a drug.         │    │
-│  │   I should use get_drug_information tool for Sildenafil/Tadalafil"  │    │
-│  │                                                                      │    │
-│  │   DECISION: Call get_drug_information("Sildenafil")                 │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                    │                                         │
-│                                    ▼                                         │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                         TOOL REGISTRY                                │    │
-│  │                    (12 Tools Available)                              │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                    │
-                    ┌───────────────┼───────────────┐
-                    ▼               ▼               ▼
-    ┌───────────────────┐ ┌─────────────────┐ ┌──────────────────┐
-    │   VECTOR DB       │ │ KNOWLEDGE GRAPH │ │   STATIC RULES   │
-    │   (PostgreSQL +   │ │    (Neo4j +     │ │  (Hardcoded in   │
-    │    pgvector)      │ │    Graphiti)    │ │   graph_builder) │
-    └───────────────────┘ └─────────────────┘ └──────────────────┘
-            │                     │                    │
-            ▼                     ▼                    ▼
-    ┌───────────────────┐ ┌─────────────────┐ ┌──────────────────┐
-    │ • Chunk embeddings│ │ • Entity nodes  │ │ • Contraindications│
-    │ • Full text search│ │ • Relationships │ │ • Dosages         │
-    │ • CPG metadata    │ │ • Temporal facts│ │ • Drug-condition  │
-    │   (grade, pop.)   │ │                 │ │   mappings        │
-    └───────────────────┘ └─────────────────┘ └──────────────────┘
-                    │               │               │
-                    └───────────────┼───────────────┘
-                                    ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                          TOOL RESULTS                                        │
-│   {contraindications: ["Nitrates", "Riociguat"], dosages: ["50mg"], ...}    │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                     LLM SYNTHESIZES RESPONSE                                 │
-│  "Sildenafil is contraindicated with Nitrates (Grade A). The standard       │
-│   dose is 50mg on-demand. Common side effects include headache..."          │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+---
 
 ## 🚧 Next Steps
 
-| Priority | Task | Description |
-|----------|------|-------------|
-| 🔴 High | **Validate Embeddings** | Test with more documents containing tables, algorithms, and complex structures to verify vector DB and knowledge graph are structured correctly |
-| 🔴 High | **Validate All Tools** | Comprehensive testing of all 12 agent tools with various query types |
-| 🟡 Medium | **Implement Ollama** | Add local LLM support via Ollama for offline prototyping and development |
-| 🟡 Medium | **Reflector Agent** | Integrate a reflection/self-critique agent for improved response quality |
-| 🟢 Future | **UI Integration** | Replace CLI with web UI or other user interface (Streamlit, Gradio, or custom frontend) |
+| Priority | Task |
+|----------|------|
+| 🔴 High | Add more CPG sections for comprehensive coverage |
+| 🔴 High | Test with more clinical queries |
+| 🟡 Medium | Implement local LLM via Ollama |
+| 🟡 Medium | Add reflection agent for improved responses |
+| 🟢 Future | Mobile-friendly frontend |
 
 ---
 
@@ -409,5 +403,5 @@ This system provides clinical decision support based on Malaysia's CPG for ED Ma
 ## 🙏 Acknowledgments
 
 - Malaysia Ministry of Health for CPG development
-- Original agentic-rag-knowledge-graph framework by Cole Medin
 - Graphiti by Zep for temporal knowledge graphs
+- Pydantic AI for the agent framework
