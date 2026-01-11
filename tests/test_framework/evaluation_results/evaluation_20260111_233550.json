@@ -1,0 +1,687 @@
+{
+  "evaluated_at": "2026-01-11T23:35:50.245237",
+  "metrics": {
+    "total_cases": 15,
+    "successful": 15,
+    "failed": 0,
+    "success_rate": "100.0%",
+    "avg_response_time_ms": 4789.71,
+    "avg_sources_per_response": 2.67,
+    "by_difficulty": {
+      "easy": {
+        "total": 3,
+        "success": 3
+      },
+      "hard": {
+        "total": 2,
+        "success": 2
+      },
+      "medium": {
+        "total": 10,
+        "success": 10
+      }
+    },
+    "by_clinical_focus": {
+      "pde5i_selection": {
+        "total": 2,
+        "success": 2
+      },
+      "cardiac_risk": {
+        "total": 3,
+        "success": 3
+      },
+      "psychogenic_ed": {
+        "total": 1,
+        "success": 1
+      },
+      "post_prostatectomy": {
+        "total": 1,
+        "success": 1
+      },
+      "vasculogenic_ed": {
+        "total": 1,
+        "success": 1
+      },
+      "treatment_failure": {
+        "total": 2,
+        "success": 2
+      },
+      "cv_risk_assessment": {
+        "total": 1,
+        "success": 1
+      },
+      "psychological_assessment": {
+        "total": 2,
+        "success": 2
+      },
+      "diabetes": {
+        "total": 1,
+        "success": 1
+      },
+      "physical_exam": {
+        "total": 1,
+        "success": 1
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "TC001",
+      "query": "What is the recommended first-line treatment for this patient with mild-moderate ED and hypertension?",
+      "difficulty": "easy",
+      "clinical_focus": "pde5i_selection",
+      "ground_truth": {
+        "summary": "Patient presents with mild-moderate ED and controlled hypertension. Cardiac risk is likely low given controlled hypertension and ability to perform normal activities.",
+        "followup_care_plan": "Advise on lifestyle modifications. Initiate pharmacotherapy and follow up in 2-4 weeks to assess response and tolerability.",
+        "medications": "Consider PDE5i such as Sildenafil 50mg or Tadalafil 10mg on demand. Adjust based on response and tolerance.",
+        "next_steps": "Counsel on proper use of PDE5i including timing and need for sexual stimulation."
+      },
+      "rag_response": {
+        "summary": "**\nFor a patient with mild-moderate ED and hypertension, the guidelines recommend a treatment approach that includes lifestyle modifications, pharmacological agents, mechanical devices, surgeries, and psychological interventions. The specific approach should be patient-centered.\n\n**",
+        "followup_care_plan": "Consider the various treatment options, including lifestyle changes, medications, and other therapies, to develop a patient-centered plan. Regular follow-up is essential to monitor treatment effectiveness and adjust the plan as needed.",
+        "medications": "While specific first-line medications are not mentioned in this result, the guidelines do refer to pharmacological agents as a treatment option.\n\n**",
+        "next_steps": ""
+      },
+      "sources_used": [],
+      "response_time_ms": 5224.281999999999,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC002",
+      "query": "What are the treatment options and precautions for a patient with severe ED, diabetes, stable angina, and current nitrate use?",
+      "difficulty": "hard",
+      "clinical_focus": "cardiac_risk",
+      "ground_truth": {
+        "summary": "Patient presents with severe ED, diabetes, stable angina, and is taking nitrates. Nitrate use is an absolute contraindication for PDE5i use.",
+        "followup_care_plan": "Refer patient to cardiologist for evaluation of angina and potential alternative treatments to nitrates. Advise on lifestyle modifications.",
+        "medications": "PDE5i are contraindicated due to nitrate use. Non-PDE5i treatment options should be considered.",
+        "next_steps": "Advise patient that PDE5i are not safe given his nitrate use. Discuss VED as an alternative."
+      },
+      "rag_response": {
+        "summary": "**\nThe patient has severe ED, diabetes, stable angina, and is currently using nitrates. The presence of diabetes and stable angina suggests the need for careful cardiovascular risk assessment. Concomitant use of nitrates is a contraindication for PDE5 inhibitors.\n\n**",
+        "followup_care_plan": "- Given the patient's diabetes and stable angina, assess and optimize cardiovascular risk factors.\n- Discuss alternative treatment options for ED due to the contraindication with nitrates.\n- Monitor the patient for any worsening of angina symptoms or other cardiovascular events.\n\n**",
+        "medications": "- **PDE5 Inhibitors:** Contraindicated due to current nitrate use (Algorithm 1).\n- **Alternatives to PDE5 Inhibitors:** Consider other options like alprostadil or vacuum erection devices, after nitrates are stopped if appropriate.\n- **Do not prescribe** a PDE5i concomitantly with nitrates or riociguat.\n\n**",
+        "next_steps": "- **Confirm Nitrate Necessity:** Determine if nitrates can be safely discontinued, as this would open up PDE5 inhibitor options, proceed with caution!\n- **Explore Alternatives:** If nitrates are essential, explore non-PDE5i options for ED.\n- **Cardiology consult:** Given the stable angina, consult cardiology."
+      },
+      "sources_used": [],
+      "response_time_ms": 3717.0950000000003,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC003",
+      "query": "What is the appropriate management for a patient with ED primarily related to anxiety and relationship issues?",
+      "difficulty": "medium",
+      "clinical_focus": "psychogenic_ed",
+      "ground_truth": {
+        "summary": "Patient presents with mild-moderate ED likely related to psychological factors (anxiety, relationship problems). This is likely psychogenic ED.",
+        "followup_care_plan": "Refer to mental health professional for therapy. Advise on lifestyle modifications to reduce stress.",
+        "medications": "Consider PDE5i on demand as adjunct to therapy. ",
+        "next_steps": "Emphasize the importance of therapy and partner involvement."
+      },
+      "rag_response": {
+        "summary": "**\nFor ED primarily related to anxiety and relationship issues (psychogenic ED), the guidelines recommend a multifaceted approach. Initial steps involve stress management and counseling to provide support and guidance. A key component involves psychological interventions, including psychoeducation, cognitive and behavioral techniques, and increasing sexual stimulation and intimacy. The guidelines also suggest considering combined treatment with PDE5i and psychological intervention, which consistently shows better efficacy than monotherapy.\n\n**",
+        "followup_care_plan": "*   Short-term follow-up: To assess response and tolerance to any medications.\n*   Long-term follow-up: Ongoing assessment of treatment effectiveness and any emerging health issues.\n*   Regular communication and collaboration between healthcare providers are essential.\n\n**",
+        "medications": "*   **PDE5i:** May be considered, especially in combination with psychological interventions. Be aware of contraindications (Nitrates, Riociguat).\n\n**",
+        "next_steps": "1.  **Lifestyle Modifications:** Advise on lifestyle and risk factor modifications.\n2.  **Referral:** Refer to mental health professionals for psychological interventions.\n3.  **Combination Therapy:** Consider combining PDE5i with psychological interventions for better outcomes."
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.609
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 6: FOLLOW-UP  \n<!-- METADATA\ncategory: follow_up\nuse_case: treatment_monitoring, care_continuity\n-->  \n## Overview  \nThe follow-up for a patient with ED depends on the individual case and the initial treatment plan.  \n---  \n## Follow-up Types  \n### Short-term Follow-up\nFor patients initiat...",
+          "document_title": "SECTION 6: FOLLOW-UP",
+          "document_source": "section-6-followup.md",
+          "score": 0.585
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 7: REFERRAL  \n<!-- METADATA\ncategory: referral\nuse_case: specialist_consultation, care_coordination\n-->  \n## Overview  \nReferring a patient with ED to a urologist or other relevant specialist is typically considered in the following situations:  \n---  \n## Referral Indications  \n### 1. Prim...",
+          "document_title": "SECTION 7: REFERRAL",
+          "document_source": "section-7-referral.md",
+          "score": 0.574
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 2: INTRODUCTION AND RISK FACTORS  \n<!-- METADATA\ncategory: background_knowledge\ntopics: introduction, risk_factors, epidemiology, etiology\n-->  \n## 1. INTRODUCTION  \nErectile dysfunction (ED) is a prevalent and multifaceted medical condition characterised by the persistent inability to ach...",
+          "document_title": "SECTION 2: INTRODUCTION AND RISK FACTORS",
+          "document_source": "section-2-introduction-risk.md",
+          "score": 0.567
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 1: CLINICAL DECISION ALGORITHMS  \n## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED  \n<!-- METADATA\ncategory: algorithm\nuse_case: treatment_decision\npatient_input: symptoms, IIEF-5_score\noutput: treatment_pathway\n-->  \n### Overview\nThis algorithm outlines the clinical decision pathway for diag...",
+          "document_title": "SECTION 1: CLINICAL DECISION ALGORITHMS",
+          "document_source": "section-1-algorithm.md",
+          "score": 0.564
+        }
+      ],
+      "response_time_ms": 5139.57,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC004",
+      "query": "What is the recommended treatment approach for ED following radical prostatectomy?",
+      "difficulty": "medium",
+      "clinical_focus": "post_prostatectomy",
+      "ground_truth": {
+        "summary": "Patient presents with severe ED following radical prostatectomy. Significant proportion experience ED post-prostatectomy.",
+        "followup_care_plan": "Start penile rehabilitation early. Explain that erectile function recovery can take up to 48 months.",
+        "medications": "PDE5i are effective post-nerve-sparing surgery. Initiate PDE5i therapy.",
+        "next_steps": "Counsel on proper use of PDE5i. Consider VED if PDE5i is ineffective. Refer to urologist if ED persists despite initial treatments."
+      },
+      "rag_response": {
+        "summary": "**\nFollowing radical prostatectomy, the primary treatment approaches for erectile dysfunction (ED) involve both non-invasive and invasive strategies. These include the use of PDE5 inhibitors, vacuum erection devices, intracavernosal injections, and, in some cases, penile prostheses. The choice of treatment depends on patient preference, the severity of ED, and other individual factors.\n\n**",
+        "followup_care_plan": "*   Regular follow-up appointments are essential to monitor treatment effectiveness and adjust the approach as needed.\n*   Counseling and support should be offered to address any psychological impact of ED and treatment.\n\n**",
+        "medications": "*   **PDE5 Inhibitors:** These are often the first-line treatment. It's important to manage patient expectations - they may be less effective post-prostatectomy.\n    *   **Important:** Make sure the patient isn't taking nitrates or riociguat, which are contraindications for PDE5 inhibitors.\n*   **Intracavernosal Injections:** Alprostadil is commonly used.\n\n**",
+        "next_steps": "1.  Begin with a thorough evaluation to determine the severity and etiology of ED.\n2.  Discuss treatment options with the patient, considering their preferences and expectations.\n3.  Start with first-line therapies like PDE5 inhibitors, and consider other options if these are ineffective or not tolerated."
+      },
+      "sources_used": [],
+      "response_time_ms": 6718.085,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC005",
+      "query": "What diagnostic tests are indicated for a young patient with ED following a pelvic fracture?",
+      "difficulty": "medium",
+      "clinical_focus": "vasculogenic_ed",
+      "ground_truth": {
+        "summary": "Patient presents with moderate ED of sudden onset following a pelvic fracture, suggesting possible vasculogenic ED due to trauma.",
+        "followup_care_plan": "Refer to urologist for advanced work-up to assess for vasculogenic etiology.",
+        "medications": "Not applicable at this stage.",
+        "next_steps": "Refer to urologist for advanced diagnostic tests such as intracavernosal injection test with duplex Doppler ultrasound, or arteriography."
+      },
+      "rag_response": {
+        "summary": "**\n\nFollowing a pelvic fracture, young patients experiencing ED may have vasculogenic ED. In addition to a detailed medical, sexual, and psychological history, physical examination, and routine laboratory tests, specific diagnostic tests are indicated.\n\n**",
+        "followup_care_plan": "*   Tailor laboratory testing to the patient's symptoms and risk factors.\n*   Assess cardiovascular risk using the 2019 ACC/AHA ASCVD risk score, especially for vasculogenic ED.\n*   Consider a psychosocial and sexual history to assess psychological factors.\n\n**",
+        "medications": "*   No medications are mentioned in this section.\n\n**",
+        "next_steps": "1.  **Detailed History**: Obtain a thorough medical, sexual, and psychological history, including validated questionnaires like IIEF-5.\n2.  **Physical Examination**: Perform a physical exam, focusing on the genitourinary, endocrine, vascular, and neurological systems.\n3.  **Laboratory Testing**:\n    *   **Routine Tests**: Fasting blood glucose or HbA1c and lipid profile for cardiovascular risk assessment.\n    *   **Additional Tests (Case-by-Case)**: Consider hormonal tests such as early morning total testosterone, total prostate-specific antigen (PSA), prolactin, and luteinizing hormone (LH).\n4.  **Advanced Work-Up (Specific Indications)**:\n    *   **Nocturnal Penile Tumescence and Rigidity Test (NPTR)**: To differentiate between psychogenic and organic ED.\n    *   **Intracavernous Injection Test**: With or without dynamic duplex Doppler ultrasound to confirm vasculogenic etiology. Normal parameters include peak systolic blood flow >30 cm/s, end-diastolic velocity <3 cm/s, and resistance index >0.8.\n    *   **Arteriography**: Penile pudendal arteriography for candidates for penile revascularization and computed tomography angiography for ED with isolated penile artery stenosis.\n5.  **Cardiovascular Risk Assessment**: Assess cardiovascular risk using the 2019 ACC/AHA ASCVD risk score, particularly for vasculogenic ED.\n6.  **Psychological and Sexual Assessment**: Evaluate the patient's current psychological state, relationship history, life stressors, cognitive factors, and sexual-related factors."
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 3: DIAGNOSIS AND ASSESSMENT  \n<!-- METADATA\ncategory: diagnosis\nuse_case: initial_assessment, severity_determination\npatient_input: symptoms, medical_history, physical_exam_findings, lab_results\noutput: ED_type, ED_severity, cardiovascular_risk_level\n-->  \n## Overview\nAssessment and diagno...",
+          "document_title": "SECTION 3: DIAGNOSIS AND ASSESSMENT",
+          "document_source": "section-3-diagnosis.md",
+          "score": 0.607
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 8: SPECIAL POPULATIONS  \n<!-- METADATA\ncategory: special_populations\nuse_case: treatment_modification, comorbidity_management\ncritical: true\n-->  \n## Overview  \nCertain patient populations require special considerations in the management of ED due to underlying conditions or unique circums...",
+          "document_title": "SECTION 8: SPECIAL POPULATIONS",
+          "document_source": "section-8-special-populations.md",
+          "score": 0.557
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 1: CLINICAL DECISION ALGORITHMS  \n## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED  \n<!-- METADATA\ncategory: algorithm\nuse_case: treatment_decision\npatient_input: symptoms, IIEF-5_score\noutput: treatment_pathway\n-->  \n### Overview\nThis algorithm outlines the clinical decision pathway for diag...",
+          "document_title": "SECTION 1: CLINICAL DECISION ALGORITHMS",
+          "document_source": "section-1-algorithm.md",
+          "score": 0.526
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.519
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 2: INTRODUCTION AND RISK FACTORS  \n<!-- METADATA\ncategory: background_knowledge\ntopics: introduction, risk_factors, epidemiology, etiology\n-->  \n## 1. INTRODUCTION  \nErectile dysfunction (ED) is a prevalent and multifaceted medical condition characterised by the persistent inability to ach...",
+          "document_title": "SECTION 2: INTRODUCTION AND RISK FACTORS",
+          "document_source": "section-2-introduction-risk.md",
+          "score": 0.518
+        }
+      ],
+      "response_time_ms": 5563.134,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC006",
+      "query": "What steps should be taken when a patient reports treatment failure with sildenafil 100mg?",
+      "difficulty": "medium",
+      "clinical_focus": "treatment_failure",
+      "ground_truth": {
+        "summary": "Patient presents with treatment failure despite using sildenafil 100mg. Important to rule out correct usage and dosing.",
+        "followup_care_plan": "Reassess correct usage, timing, and need for sexual stimulation. Try different PDE5i. Add VED if still failing or refer to urologist.",
+        "medications": "Consider switching to Tadalafil. If still failing, add VED.",
+        "next_steps": "Counsel on proper sildenafil use. Consider switching to Tadalafil or adding VED."
+      },
+      "rag_response": {
+        "summary": "**\nWhen a patient reports treatment failure with sildenafil 100mg, you should first confirm treatment failure, then consider alternative PDE5i options, and finally assess and treat any psychological factors.\n\n**",
+        "followup_care_plan": "1.  **Confirm Treatment Failure:** Make sure the patient has tried sildenafil 100mg on several occasions and under optimal conditions (e.g., on an empty stomach, with sexual stimulation).\n2.  **Consider Alternative PDE5i Options**: If sildenafil fails, consider other PDE5 inhibitors like tadalafil or vardenafil.\n3.  **Assess and Treat Psychological Factors**: Evaluate the patient for psychological factors that might be contributing to treatment failure, such as performance anxiety or relationship issues. Psychological or couples therapy can be beneficial.\n\n**",
+        "medications": "*   **Alternative PDE5 Inhibitors:**\n    *   Tadalafil and vardenafil are alternatives if sildenafil is ineffective. You can use `get_drug_information` to check dosages, contraindications, and precautions.\n\n**",
+        "next_steps": "1.  Confirm the patient’s experience with sildenafil, ensuring proper usage and optimal conditions.\n2.  If confirmed, discuss alternative PDE5i options and their proper use.\n3.  Evaluate and address any psychological factors."
+      },
+      "sources_used": [],
+      "response_time_ms": 3153.8140000000003,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC007",
+      "query": "What initial lab tests are recommended for a patient presenting with new-onset ED and no known medical history, but is a smoker?",
+      "difficulty": "easy",
+      "clinical_focus": "cv_risk_assessment",
+      "ground_truth": {
+        "summary": "Patient presents with new onset mild ED and risk factors for cardiovascular disease (smoking, elevated BP, BMI).",
+        "followup_care_plan": "Order fasting blood glucose or HbA1c and lipid profile for cardiovascular risk assessment. Cardiac risk assessment.",
+        "medications": "Not applicable at this stage.",
+        "next_steps": "Order lab tests. Advise on smoking cessation and lifestyle modifications."
+      },
+      "rag_response": {
+        "summary": "Based on the search results, here are the recommended initial lab tests for your patient:\n\n*   **Fasting blood glucose OR HbA1c:** To screen for diabetes.\n*   **Lipid profile:** For cardiovascular risk assessment.\n\nAdditional tests like hormonal tests (early morning total testosterone, PSA, prolactin, LH) can be considered on a case-by-case basis.\n",
+        "followup_care_plan": "",
+        "medications": "",
+        "next_steps": ""
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 3: DIAGNOSIS AND ASSESSMENT  \n<!-- METADATA\ncategory: diagnosis\nuse_case: initial_assessment, severity_determination\npatient_input: symptoms, medical_history, physical_exam_findings, lab_results\noutput: ED_type, ED_severity, cardiovascular_risk_level\n-->  \n## Overview\nAssessment and diagno...",
+          "document_title": "SECTION 3: DIAGNOSIS AND ASSESSMENT",
+          "document_source": "section-3-diagnosis.md",
+          "score": 0.622
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 2: INTRODUCTION AND RISK FACTORS  \n<!-- METADATA\ncategory: background_knowledge\ntopics: introduction, risk_factors, epidemiology, etiology\n-->  \n## 1. INTRODUCTION  \nErectile dysfunction (ED) is a prevalent and multifaceted medical condition characterised by the persistent inability to ach...",
+          "document_title": "SECTION 2: INTRODUCTION AND RISK FACTORS",
+          "document_source": "section-2-introduction-risk.md",
+          "score": 0.554
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 1: CLINICAL DECISION ALGORITHMS  \n## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED  \n<!-- METADATA\ncategory: algorithm\nuse_case: treatment_decision\npatient_input: symptoms, IIEF-5_score\noutput: treatment_pathway\n-->  \n### Overview\nThis algorithm outlines the clinical decision pathway for diag...",
+          "document_title": "SECTION 1: CLINICAL DECISION ALGORITHMS",
+          "document_source": "section-1-algorithm.md",
+          "score": 0.549
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.512
+        },
+        {
+          "tool": "vector_search",
+          "content": "# APPENDIX 6: TREATMENT IN ED  \n<!-- METADATA\ncategory: treatment_reference\nuse_case: prescribing_guidance, contraindications\nreferenced_by: section-4-treatment, section-8-special-populations\ncritical: true\n-->  \n## A) Mechanical Treatment  \n| Device | When/How to Apply | Precautions | Adverse Event...",
+          "document_title": "APPENDIX 6: TREATMENT IN ED",
+          "document_source": "appendix-6-treatment.md",
+          "score": 0.499
+        }
+      ],
+      "response_time_ms": 3866.0299999999997,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC008",
+      "query": "How should ED be managed when it co-exists with premature ejaculation?",
+      "difficulty": "medium",
+      "clinical_focus": "psychological_assessment",
+      "ground_truth": {
+        "summary": "Patient presents with mild ED and co-morbid premature ejaculation. Psychosocial history is important.",
+        "followup_care_plan": "Assess psychosocial and sexual history. Address both ED and PE concurrently. Consider referral for psychotherapy.",
+        "medications": "Consider PDE5i for ED and SSRI for PE.",
+        "next_steps": "Comprehensive history taking, consider referral to psychotherapy."
+      },
+      "rag_response": {
+        "summary": "**\nWhen erectile dysfunction (ED) and premature ejaculation (PE) coexist, the guidelines recommend addressing both conditions concurrently. Here's how to manage it:\n\n**",
+        "followup_care_plan": "*   **Evaluation:** A thorough evaluation should be conducted to determine the severity of both ED and PE, as well as any underlying psychological or relationship issues.\n*   **Patient Education:** Educate the patient about the potential causes of both conditions, including psychological factors, and the available treatment options.\n*   **Combination Therapy:** Combination therapies may be considered, addressing both ED and PE simultaneously.\n\n**",
+        "medications": "*   **PDE5 Inhibitors:** A PDE5 inhibitor can be used to treat ED.\n*   **Off-Label SSRIs:** SSRIs (e.g., sertraline, paroxetine, fluoxetine, citalopram) can be used off-label to treat PE.\n\n**",
+        "next_steps": "1.  Treat both conditions concurrently, tailoring the approach to the individual patient's needs and preferences.\n2.  Consider combination therapy: combining medications or therapies that address both ED and PE simultaneously.\n3.  Evaluate and treat any underlying psychological or relationship issues."
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.638
+        },
+        {
+          "tool": "vector_search",
+          "content": "# APPENDIX 6: TREATMENT IN ED  \n<!-- METADATA\ncategory: treatment_reference\nuse_case: prescribing_guidance, contraindications\nreferenced_by: section-4-treatment, section-8-special-populations\ncritical: true\n-->  \n## A) Mechanical Treatment  \n| Device | When/How to Apply | Precautions | Adverse Event...",
+          "document_title": "APPENDIX 6: TREATMENT IN ED",
+          "document_source": "appendix-6-treatment.md",
+          "score": 0.593
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 6: FOLLOW-UP  \n<!-- METADATA\ncategory: follow_up\nuse_case: treatment_monitoring, care_continuity\n-->  \n## Overview  \nThe follow-up for a patient with ED depends on the individual case and the initial treatment plan.  \n---  \n## Follow-up Types  \n### Short-term Follow-up\nFor patients initiat...",
+          "document_title": "SECTION 6: FOLLOW-UP",
+          "document_source": "section-6-followup.md",
+          "score": 0.553
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 1: CLINICAL DECISION ALGORITHMS  \n## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED  \n<!-- METADATA\ncategory: algorithm\nuse_case: treatment_decision\npatient_input: symptoms, IIEF-5_score\noutput: treatment_pathway\n-->  \n### Overview\nThis algorithm outlines the clinical decision pathway for diag...",
+          "document_title": "SECTION 1: CLINICAL DECISION ALGORITHMS",
+          "document_source": "section-1-algorithm.md",
+          "score": 0.543
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 8: SPECIAL POPULATIONS  \n<!-- METADATA\ncategory: special_populations\nuse_case: treatment_modification, comorbidity_management\ncritical: true\n-->  \n## Overview  \nCertain patient populations require special considerations in the management of ED due to underlying conditions or unique circums...",
+          "document_title": "SECTION 8: SPECIAL POPULATIONS",
+          "document_source": "section-8-special-populations.md",
+          "score": 0.531
+        }
+      ],
+      "response_time_ms": 4509.123,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC009",
+      "query": "What ED treatments are safe and effective for a patient on warfarin for atrial fibrillation?",
+      "difficulty": "medium",
+      "clinical_focus": "cardiac_risk",
+      "ground_truth": {
+        "summary": "Patient has severe ED and is on warfarin. Caution with anticoagulation.",
+        "followup_care_plan": "Assess cardiac risk. PDE5i are generally safe in patients on warfarin, but monitor for bleeding. Alternative is VED.",
+        "medications": "PDE5i can be used with caution, monitor for bleeding. VED is an alternative.",
+        "next_steps": "Assess cardiac risk. Counsel on risks and benefits of treatment options."
+      },
+      "rag_response": {
+        "summary": "**\nWhen managing erectile dysfunction (ED) in patients on warfarin for atrial fibrillation, it's crucial to consider cardiovascular risk and potential drug interactions. The guidelines suggest several treatment options, including lifestyle modifications, pharmacotherapy, mechanical devices, and psychological interventions.\n\n**",
+        "followup_care_plan": "-   Regular monitoring for cardiovascular health is essential, given the association between ED and cardiovascular disease.\n-   Follow-up should include assessing the effectiveness and side effects of the chosen ED treatment.\n-   If a PDE5i is prescribed, educate the patient about potential interactions with other medications and the importance of reporting any adverse effects.\n\n**",
+        "medications": "*   **Phosphodiesterase-5 inhibitors (PDE5i):** Sildenafil, Tadalafil, and Avanafil are options, but caution is advised.\n    *   **Contraindications:** Concurrent use of nitrates or riociguat is an absolute contraindication due to the risk of severe hypotension.\n*   **Important Considerations for Patients on Warfarin:**\n    *   While not explicitly contraindicated, be aware of potential bleeding risks with any ED treatment, especially with Intracavernosal Injections (ICI).\n    *   Start with the lowest effective dose of PDE5i due to potential interactions and increased risk of side effects.\n*   **Alternative Medications (If PDE5i is contraindicated):**\n    *   **Alprostadil:** as an intracavernosal injection or intraurethral suppository. Note: caution with anticoagulation (higher bleeding risk, though not significant).\n\n**",
+        "next_steps": "1.  **Assess Cardiovascular Risk:** Use the Princeton Consensus guidelines to categorize the patient's risk (Low, Intermediate, or High).\n2.  **Lifestyle Modifications:** Counsel onmodifiable risk factors.\n3.  **Choose Treatment:**\n    *If low risk and not on nitrates: PDE5i may be considered.\n    *If nitrates are essential: Non-PDE5i treatments like Vacuum Erection Devices (VED) or surgical options might be necessary.\n4.  **Follow up:** Monitor the patient for effectiveness of treatment and any adverse effects."
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.648
+        },
+        {
+          "tool": "vector_search",
+          "content": "# APPENDIX 6: TREATMENT IN ED  \n<!-- METADATA\ncategory: treatment_reference\nuse_case: prescribing_guidance, contraindications\nreferenced_by: section-4-treatment, section-8-special-populations\ncritical: true\n-->  \n## A) Mechanical Treatment  \n| Device | When/How to Apply | Precautions | Adverse Event...",
+          "document_title": "APPENDIX 6: TREATMENT IN ED",
+          "document_source": "appendix-6-treatment.md",
+          "score": 0.648
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 8: SPECIAL POPULATIONS  \n<!-- METADATA\ncategory: special_populations\nuse_case: treatment_modification, comorbidity_management\ncritical: true\n-->  \n## Overview  \nCertain patient populations require special considerations in the management of ED due to underlying conditions or unique circums...",
+          "document_title": "SECTION 8: SPECIAL POPULATIONS",
+          "document_source": "section-8-special-populations.md",
+          "score": 0.614
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 3: DIAGNOSIS AND ASSESSMENT  \n<!-- METADATA\ncategory: diagnosis\nuse_case: initial_assessment, severity_determination\npatient_input: symptoms, medical_history, physical_exam_findings, lab_results\noutput: ED_type, ED_severity, cardiovascular_risk_level\n-->  \n## Overview\nAssessment and diagno...",
+          "document_title": "SECTION 3: DIAGNOSIS AND ASSESSMENT",
+          "document_source": "section-3-diagnosis.md",
+          "score": 0.597
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 1: CLINICAL DECISION ALGORITHMS  \n## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED  \n<!-- METADATA\ncategory: algorithm\nuse_case: treatment_decision\npatient_input: symptoms, IIEF-5_score\noutput: treatment_pathway\n-->  \n### Overview\nThis algorithm outlines the clinical decision pathway for diag...",
+          "document_title": "SECTION 1: CLINICAL DECISION ALGORITHMS",
+          "document_source": "section-1-algorithm.md",
+          "score": 0.597
+        }
+      ],
+      "response_time_ms": 6486.372,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC010",
+      "query": "How should ED be treated in a patient who developed symptoms after starting an alpha-blocker for BPH?",
+      "difficulty": "easy",
+      "clinical_focus": "pde5i_selection",
+      "ground_truth": {
+        "summary": "Patient presents with mild ED after starting alpha-blocker. ED can be side effect of alpha-blocker.",
+        "followup_care_plan": "Consider PDE5i. Start sildenafil at 25mg due to concurrent alpha-blocker use.",
+        "medications": "Sildenafil 25mg PRN. Monitor BP.",
+        "next_steps": "Counsel on potential for hypotension. Monitor BP."
+      },
+      "rag_response": {
+        "summary": "**\nErectile dysfunction (ED) can be caused by alpha-blockers, which are commonly used to treat benign prostatic hyperplasia (BPH). The guidelines suggest exploring various treatment options, including lifestyle modifications, pharmacological agents, mechanical devices, surgeries, and psychological interventions.\n\n**",
+        "followup_care_plan": "*   Regular follow-up is important to assess the response to medication and tolerance.\n*   Consider short-term follow-up within a few weeks to a couple of months for patients initiating oral medications.\n\n**",
+        "medications": "Since the ED is related to alpha-blocker use, consider the following:\n*   **PDE5 Inhibitors:** Combination of PDE5i with alpha-blocker was more effective than PDE5i monotherapy\n\n**⚠️ Safety Information:** Always screen for contraindications to PDE5 inhibitors, such as concurrent use of nitrates or riociguat.\n\n**",
+        "next_steps": "1.  **Comprehensive Assessment:** A detailed medical, sexual, and psychological history should be taken.\n2.  **Referral:** If the underlying cause of ED is not evident or if there are specific indications, consider referring the patient to a urologist or other specialist.\n3.  **Treatment Strategy:** Develop a patient-centered treatment strategy based on the assessment."
+      },
+      "sources_used": [],
+      "response_time_ms": 5113.6,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC011",
+      "query": "What are the appropriate steps in managing ED and decreased libido in a diabetic and obese patient?",
+      "difficulty": "medium",
+      "clinical_focus": "diabetes",
+      "ground_truth": {
+        "summary": "Patient presents with moderate ED and decreased libido. Diabetes and obesity are risk factors.",
+        "followup_care_plan": "Optimize glycemic control. Check testosterone levels. Lifestyle modifications.",
+        "medications": "Consider PDE5i. May need higher doses. Consider combination therapy.",
+        "next_steps": "Check testosterone levels. Counsel on lifestyle modifications. Initiate PDE5i."
+      },
+      "rag_response": {
+        "summary": "**\nFor a diabetic and obese patient experiencing ED and decreased libido, the guidelines recommend a comprehensive approach. This includes lifestyle modifications, risk factor management, and potential medical interventions based on individual risk stratification.\n\n**",
+        "followup_care_plan": "1.  **Initial Assessment**: Comprehensive assessment of ED and decreased libido, including medical history, physical examination, and relevant laboratory tests.\n2.  **Risk Stratification**: Determine the patient's cardiovascular risk to guide treatment decisions.\n3.  **Intervention**: Implement lifestyle modifications, manage risk factors, and consider medical interventions based on the patient's individual needs and risk profile.\n4.  **Follow-up**: Regularly monitor treatment effectiveness and adjust the care plan as needed.\n\nI can provide more specific recommendations if you have more information about the patient's cardiovascular risk and current medications.",
+        "medications": "*   **PDE5 inhibitors**: Consider prescribing a PDE5 inhibitor (e.g., sildenafil, tadalafil, vardenafil) if appropriate and not contraindicated.\n    *   **Contraindications**: Nitrates or Riociguat\n*   **Testosterone therapy**: Evaluate and treat for hypogonadism if indicated.\n\n**",
+        "next_steps": ""
+      },
+      "sources_used": [],
+      "response_time_ms": 3002.4829999999997,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC012",
+      "query": "What are the next steps for a patient experiencing ED despite using tadalafil 20mg?",
+      "difficulty": "medium",
+      "clinical_focus": "treatment_failure",
+      "ground_truth": {
+        "summary": "Patient presents with treatment failure despite using tadalafil 20mg. Rule out incorrect usage, timing, and sexual stimulation.",
+        "followup_care_plan": "Reassess correct usage. Try different PDE5i. Consider VED. Refer to urologist if still failing.",
+        "medications": "Consider switching to Sildenafil. Add VED.",
+        "next_steps": "Counsel on proper tadalafil use. If still failing, switch to alternative and consider VED."
+      },
+      "rag_response": {
+        "summary": "**\nIt appears you're looking for guidance on what to do when a patient isn't responding to tadalafil 20mg for erectile dysfunction (ED). The guidelines suggest several potential next steps.\n\n**",
+        "followup_care_plan": "*   **Short-term Follow-up:** A short-term follow-up is recommended to assess response and tolerance to the medication.\n*   **Long-term Follow-up:** After establishing a treatment plan, schedule regular check-ups to assess effectiveness, adjust the plan if needed and monitor for any new health issues.\n\n**",
+        "medications": "*   **Combination Therapy:** Adding other agents (alpha-blockers, testosterone, antioxidants) to PDE5i may be more effective than PDE5i alone.\n*   **Other Medications:**\n    *   Consider other PDE5i medications such as sildenafil or avanafil.\n    *   Intracavernosal injections (ICI) with alprostadil could be considered, but may not be readily available.\n    *   Intraurethral alprostadil (MUSE or topical cream) is another option, but also might not be readily available.\n\n**",
+        "next_steps": "1.  **Lifestyle Modifications:** Ensure the patient is addressing any lifestyle risk factors (exercise, diet, weight loss, smoking, alcohol).\n2.  **Psychological Factors:** Consider psychological interventions, especially if psychogenic factors contribute to the ED.\n3.  **Mechanical Devices:** Explore vacuum erection devices (VED) or low-intensity extracorporeal shockwave therapy (Li-ESWT), performed by a urologist.\n4.  **Referral:** If the above steps don't yield satisfactory results, the guidelines suggest referring to a urologist for specialized interventions or to address underlying medical conditions."
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.626
+        },
+        {
+          "tool": "vector_search",
+          "content": "# APPENDIX 6: TREATMENT IN ED  \n<!-- METADATA\ncategory: treatment_reference\nuse_case: prescribing_guidance, contraindications\nreferenced_by: section-4-treatment, section-8-special-populations\ncritical: true\n-->  \n## A) Mechanical Treatment  \n| Device | When/How to Apply | Precautions | Adverse Event...",
+          "document_title": "APPENDIX 6: TREATMENT IN ED",
+          "document_source": "appendix-6-treatment.md",
+          "score": 0.592
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 6: FOLLOW-UP  \n<!-- METADATA\ncategory: follow_up\nuse_case: treatment_monitoring, care_continuity\n-->  \n## Overview  \nThe follow-up for a patient with ED depends on the individual case and the initial treatment plan.  \n---  \n## Follow-up Types  \n### Short-term Follow-up\nFor patients initiat...",
+          "document_title": "SECTION 6: FOLLOW-UP",
+          "document_source": "section-6-followup.md",
+          "score": 0.582
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 1: CLINICAL DECISION ALGORITHMS  \n## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED  \n<!-- METADATA\ncategory: algorithm\nuse_case: treatment_decision\npatient_input: symptoms, IIEF-5_score\noutput: treatment_pathway\n-->  \n### Overview\nThis algorithm outlines the clinical decision pathway for diag...",
+          "document_title": "SECTION 1: CLINICAL DECISION ALGORITHMS",
+          "document_source": "section-1-algorithm.md",
+          "score": 0.573
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 7: REFERRAL  \n<!-- METADATA\ncategory: referral\nuse_case: specialist_consultation, care_coordination\n-->  \n## Overview  \nReferring a patient with ED to a urologist or other relevant specialist is typically considered in the following situations:  \n---  \n## Referral Indications  \n### 1. Prim...",
+          "document_title": "SECTION 7: REFERRAL",
+          "document_source": "section-7-referral.md",
+          "score": 0.567
+        }
+      ],
+      "response_time_ms": 5479.29,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC013",
+      "query": "What evaluation is necessary for a young man presenting with ED and decreased sexual desire?",
+      "difficulty": "medium",
+      "clinical_focus": "psychological_assessment",
+      "ground_truth": {
+        "summary": "Patient presents with mild ED and decreased sexual desire. Requires comprehensive psychosocial and sexual history.",
+        "followup_care_plan": "Assess current psychological state, relationship history, and sexual-related factors. Check testosterone levels.",
+        "medications": "Not applicable at this stage.",
+        "next_steps": "Assess psychological and sexual history. Check testosterone levels."
+      },
+      "rag_response": {
+        "summary": "**\nFor a young man presenting with ED and decreased sexual desire, a comprehensive evaluation is necessary. This includes a detailed medical, sexual, and psychological history, along with a physical examination and tailored laboratory testing to identify underlying causes and risk factors.\n\n**",
+        "followup_care_plan": "Follow-up should be tailored to the individual, considering their response to treatment, tolerance of medications, and any changes in their health status. Regular communication between specialists and primary care physicians is essential for effective care.\n\n**",
+        "medications": "While medications like PDE5 inhibitors (e.g., Sildenafil, Tadalafil, Avanafil) may be considered, they are contraindicated in patients taking nitrates or riociguat. The choice of agent should be individualized, considering potential adverse effects and patient preferences.\n\n**",
+        "next_steps": "1.  **Detailed History:** Obtain a thorough medical, sexual, and psychological history, including validated questionnaires like IIEF-5 to assess sexual function domains (Section 3.1.1).\n2.  **Physical Examination:** Perform a focused physical exam, including vital parameters and examination of the genitourinary, endocrine, vascular, and neurological systems (Section 3.1.2).\n3.  **Laboratory Testing:** Conduct routine tests like fasting blood glucose and lipid profile for cardiovascular risk assessment. Consider additional tests like early morning total testosterone, PSA, prolactin, and LH based on the patient's symptoms and risk factors (Section 3.1.3).\n4.  **Cardiovascular Risk Assessment:** Evaluate cardiovascular risk factors using tools like the 2019 ACC/AHA ASCVD risk score, as ED can be an early marker of cardiovascular disease (Section 3.2).\n5.  **Psychological Assessment:** Assess psychosocial and sexual factors, including current psychological state, relationship history, life stressors, and sexual-related factors (Section 3.3)."
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 3: DIAGNOSIS AND ASSESSMENT  \n<!-- METADATA\ncategory: diagnosis\nuse_case: initial_assessment, severity_determination\npatient_input: symptoms, medical_history, physical_exam_findings, lab_results\noutput: ED_type, ED_severity, cardiovascular_risk_level\n-->  \n## Overview\nAssessment and diagno...",
+          "document_title": "SECTION 3: DIAGNOSIS AND ASSESSMENT",
+          "document_source": "section-3-diagnosis.md",
+          "score": 0.637
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 7: REFERRAL  \n<!-- METADATA\ncategory: referral\nuse_case: specialist_consultation, care_coordination\n-->  \n## Overview  \nReferring a patient with ED to a urologist or other relevant specialist is typically considered in the following situations:  \n---  \n## Referral Indications  \n### 1. Prim...",
+          "document_title": "SECTION 7: REFERRAL",
+          "document_source": "section-7-referral.md",
+          "score": 0.588
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 1: CLINICAL DECISION ALGORITHMS  \n## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED  \n<!-- METADATA\ncategory: algorithm\nuse_case: treatment_decision\npatient_input: symptoms, IIEF-5_score\noutput: treatment_pathway\n-->  \n### Overview\nThis algorithm outlines the clinical decision pathway for diag...",
+          "document_title": "SECTION 1: CLINICAL DECISION ALGORITHMS",
+          "document_source": "section-1-algorithm.md",
+          "score": 0.582
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.559
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 6: FOLLOW-UP  \n<!-- METADATA\ncategory: follow_up\nuse_case: treatment_monitoring, care_continuity\n-->  \n## Overview  \nThe follow-up for a patient with ED depends on the individual case and the initial treatment plan.  \n---  \n## Follow-up Types  \n### Short-term Follow-up\nFor patients initiat...",
+          "document_title": "SECTION 6: FOLLOW-UP",
+          "document_source": "section-6-followup.md",
+          "score": 0.554
+        }
+      ],
+      "response_time_ms": 5074.407,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC014",
+      "query": "What is the appropriate management of ED in a patient with a recent myocardial infarction?",
+      "difficulty": "hard",
+      "clinical_focus": "cardiac_risk",
+      "ground_truth": {
+        "summary": "Patient presents with moderate ED and recent MI (3 weeks ago). High risk.",
+        "followup_care_plan": "Refer for specialized cardiac evaluation and management. Treatment for ED to be deferred until cardiac condition stabilized and/or specialist evaluation completed.",
+        "medications": "ED treatment is deferred.",
+        "next_steps": "Refer to cardiologist for evaluation and management."
+      },
+      "rag_response": {
+        "summary": "**\nFor patients with ED and a recent MI, it's important to determine their risk stratification before considering treatment options. If they are high-risk, cardiac stabilization is needed before ED treatment. For low to intermediate risk patients, shared decision making is appropriate regarding resuming sexual activity.\n\n**",
+        "followup_care_plan": "1.  **Risk Stratification**: Determine the patient's cardiovascular risk. If high-risk, focus on cardiac stabilization first.\n2.  **Shared Decision Making**: For low to intermediate-risk patients, discuss the risks and benefits of resuming sexual activity.\n3.  **Further testing:** Consider stress testing for intermediate risk patients.\n\n**",
+        "medications": "*   **Phosphodiesterase Type 5 Inhibitors (PDE5i)**:\n    *   **Contraindications**: Avoid PDE5i in patients taking nitrates or riociguat (Section 6.1.1).\n    *   **Caution**: Be cautious when prescribing PDE5i to patients with cardiovascular disease.\n\n**",
+        "next_steps": "1.  Determine the patient's cardiovascular risk.\n2.  If the patient is low to intermediate risk, discuss ED treatment options, including PDE5i, with the patient, ensuring they are not taking nitrates.\n3.  If the patient is high risk, refer to cardiology."
+      },
+      "sources_used": [],
+      "response_time_ms": 3302.108,
+      "success": true,
+      "error": null
+    },
+    {
+      "case_id": "TC015",
+      "query": "How should ED be managed in a patient with Peyronie's disease?",
+      "difficulty": "medium",
+      "clinical_focus": "physical_exam",
+      "ground_truth": {
+        "summary": "Patient presents with mild-moderate ED and Peyronie's disease. Requires physical examination.",
+        "followup_care_plan": "Perform focused physical exam to evaluate penile deformity. Consider PDE5i. Refer to urologist for surgical options if needed.",
+        "medications": "Consider PDE5i.",
+        "next_steps": "Perform physical exam, consider PDE5i, refer to urologist if conservative options fail or surgical correction is needed."
+      },
+      "rag_response": {
+        "summary": "**\nManaging ED in patients with Peyronie's disease requires a comprehensive approach. When ED is present with Peyronie's disease, specific diagnostic tests may be performed.\n\n**",
+        "followup_care_plan": "Follow-up depends on the individual case and treatment plan. Short-term follow-up assesses medication response and tolerance. Long-term follow-up monitors treatment effectiveness and emerging health issues. As-needed follow-up is suitable for on-demand treatments or lifestyle modifications. Regular communication between specialists and primary care physicians ensures effective care.\n\n**",
+        "medications": "Phosphodiesterase-5 inhibitors (PDE5i) are a common pharmacological treatment. Be aware of contraindications such as concurrent use of nitrates or riociguat. (See full prescribing details in [Appendix 6: Treatment in ED](appendix-6-treatment.md).)\n\n**",
+        "next_steps": "Consider a comprehensive medical, psychosocial, and sexual history. Perform a focused physical examination to identify underlying conditions and co-morbid genital disorders. Routine lab tests should identify modifiable risk factors. A validated questionnaire should assess all sexual function domains."
+      },
+      "sources_used": [
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 4: TREATMENT  \n<!-- METADATA\ncategory: treatment\nuse_case: treatment_selection, care_plan_generation\npatient_input: ED_severity, cardiovascular_risk, patient_preferences\noutput: treatment_pathway\n-->  \n## Overview  \nED can be treated with multiple therapeutic options. These include lifesty...",
+          "document_title": "SECTION 4: TREATMENT",
+          "document_source": "section-4-treatment.md",
+          "score": 0.627
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 3: DIAGNOSIS AND ASSESSMENT  \n<!-- METADATA\ncategory: diagnosis\nuse_case: initial_assessment, severity_determination\npatient_input: symptoms, medical_history, physical_exam_findings, lab_results\noutput: ED_type, ED_severity, cardiovascular_risk_level\n-->  \n## Overview\nAssessment and diagno...",
+          "document_title": "SECTION 3: DIAGNOSIS AND ASSESSMENT",
+          "document_source": "section-3-diagnosis.md",
+          "score": 0.595
+        },
+        {
+          "tool": "vector_search",
+          "content": "# APPENDIX 6: TREATMENT IN ED  \n<!-- METADATA\ncategory: treatment_reference\nuse_case: prescribing_guidance, contraindications\nreferenced_by: section-4-treatment, section-8-special-populations\ncritical: true\n-->  \n## A) Mechanical Treatment  \n| Device | When/How to Apply | Precautions | Adverse Event...",
+          "document_title": "APPENDIX 6: TREATMENT IN ED",
+          "document_source": "appendix-6-treatment.md",
+          "score": 0.573
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 8: SPECIAL POPULATIONS  \n<!-- METADATA\ncategory: special_populations\nuse_case: treatment_modification, comorbidity_management\ncritical: true\n-->  \n## Overview  \nCertain patient populations require special considerations in the management of ED due to underlying conditions or unique circums...",
+          "document_title": "SECTION 8: SPECIAL POPULATIONS",
+          "document_source": "section-8-special-populations.md",
+          "score": 0.568
+        },
+        {
+          "tool": "vector_search",
+          "content": "# SECTION 6: FOLLOW-UP  \n<!-- METADATA\ncategory: follow_up\nuse_case: treatment_monitoring, care_continuity\n-->  \n## Overview  \nThe follow-up for a patient with ED depends on the individual case and the initial treatment plan.  \n---  \n## Follow-up Types  \n### Short-term Follow-up\nFor patients initiat...",
+          "document_title": "SECTION 6: FOLLOW-UP",
+          "document_source": "section-6-followup.md",
+          "score": 0.561
+        }
+      ],
+      "response_time_ms": 5496.32,
+      "success": true,
+      "error": null
+    }
+  ]
+}

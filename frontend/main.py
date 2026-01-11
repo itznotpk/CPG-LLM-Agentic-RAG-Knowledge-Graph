@@ -97,39 +97,49 @@ HTML_PAGE = """
                     </button>
                 </div>
 
-                <!-- Sample Cases -->
+                <!-- Test Cases Dropdown -->
                 <div class="mt-6">
-                    <p class="text-gray-400 text-sm mb-3 text-center">Or try a sample case:</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <p class="text-gray-400 text-sm mb-3 text-center">Or select a test case:</p>
+                    <div class="relative">
+                        <button onclick="toggleTestCaseDropdown()" id="testCaseBtn"
+                            class="w-full bg-white/10 hover:bg-white/15 border border-white/20 rounded-xl p-4 text-left transition flex items-center justify-between">
+                            <div>
+                                <p class="text-white font-medium">🧪 Select Test Case</p>
+                                <p class="text-gray-400 text-sm">15 CPG-validated clinical scenarios</p>
+                            </div>
+                            <span class="text-white text-xl" id="dropdownArrow">▼</span>
+                        </button>
+
+                        <!-- Dropdown Panel -->
+                        <div id="testCaseDropdown" class="hidden absolute z-50 w-full mt-2 bg-slate-800/95 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl max-h-96 overflow-y-auto">
+                            <div class="p-2">
+                                <!-- Difficulty Filter -->
+                                <div class="flex gap-2 p-2 border-b border-white/10 mb-2">
+                                    <button onclick="filterTestCases('all')" class="filter-btn active px-3 py-1 rounded-lg text-xs font-medium bg-blue-500 text-white">All</button>
+                                    <button onclick="filterTestCases('easy')" class="filter-btn px-3 py-1 rounded-lg text-xs font-medium bg-white/10 text-gray-300 hover:bg-white/20">Easy</button>
+                                    <button onclick="filterTestCases('medium')" class="filter-btn px-3 py-1 rounded-lg text-xs font-medium bg-white/10 text-gray-300 hover:bg-white/20">Medium</button>
+                                    <button onclick="filterTestCases('hard')" class="filter-btn px-3 py-1 rounded-lg text-xs font-medium bg-white/10 text-gray-300 hover:bg-white/20">Hard</button>
+                                </div>
+
+                                <!-- Test Cases List -->
+                                <div id="testCasesList"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Sample Buttons -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
                         <button onclick="setQuery('45-year-old male with erectile dysfunction, hypertension, and diabetes. Currently on metformin and amlodipine.')"
-                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 text-left transition">
-                            <p class="text-white font-medium">🩺 ED with Comorbidities</p>
-                            <p class="text-gray-400 text-sm">45yo male with HTN, DM on medications</p>
+                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 text-left transition">
+                            <p class="text-white font-medium text-sm">🩺 ED + Comorbidities</p>
                         </button>
-                        <button onclick="setQuery('28-year-old male with performance anxiety and mild erectile dysfunction. No other medical conditions. First relationship.')"
-                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 text-left transition">
-                            <p class="text-white font-medium">😰 Young Adult ED</p>
-                            <p class="text-gray-400 text-sm">28yo with performance anxiety</p>
+                        <button onclick="setQuery('68-year-old male with severe ED, diabetes, stable angina, on nitroglycerin PRN. IIEF-5 score 6.')"
+                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 text-left transition">
+                            <p class="text-white font-medium text-sm">⚠️ Nitrate User (Hard)</p>
                         </button>
-                        <button onclick="setQuery('62-year-old male with severe erectile dysfunction post radical prostatectomy for prostate cancer 6 months ago.')"
-                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 text-left transition">
-                            <p class="text-white font-medium">🏥 Post-Prostatectomy ED</p>
-                            <p class="text-gray-400 text-sm">62yo post prostate cancer surgery</p>
-                        </button>
-                        <button onclick="setQuery('55-year-old male with ED who failed sildenafil 100mg. History of coronary artery disease with stent placement 2 years ago.')"
-                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 text-left transition">
-                            <p class="text-white font-medium">💔 ED with Cardiac History</p>
-                            <p class="text-gray-400 text-sm">55yo CAD, PDE5i failure</p>
-                        </button>
-                        <button onclick="setQuery('38-year-old male with low libido and erectile dysfunction. BMI 32, sedentary lifestyle, smoker for 15 years.')"
-                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 text-left transition">
-                            <p class="text-white font-medium">🚬 Lifestyle-Related ED</p>
-                            <p class="text-gray-400 text-sm">38yo obese smoker, low libido</p>
-                        </button>
-                        <button onclick="setQuery('50-year-old male with diabetes, ED, and symptoms of hypogonadism including fatigue and decreased muscle mass. Morning testosterone pending.')"
-                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 text-left transition">
-                            <p class="text-white font-medium">🧪 ED with Low Testosterone</p>
-                            <p class="text-gray-400 text-sm">50yo DM, suspected hypogonadism</p>
+                        <button onclick="setQuery('62-year-old male with severe ED post radical prostatectomy for prostate cancer 6 months ago.')"
+                            class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 text-left transition">
+                            <p class="text-white font-medium text-sm">🏥 Post-Prostatectomy</p>
                         </button>
                     </div>
                 </div>
@@ -299,16 +309,121 @@ HTML_PAGE = """
         const BACKEND_URL = 'http://localhost:8058';
         let currentQuery = '';
         let chatHistory = JSON.parse(localStorage.getItem('cpgChatHistory') || '[]');
+        let currentFilter = 'all';
+
+        // CPG-Validated Test Cases (Generated from ED CPG Guidelines)
+        const TEST_CASES = [
+            { id: "TC001", title: "Mild-Moderate ED + Hypertension", difficulty: "easy", focus: "pde5i_selection", icon: "💊",
+              query: "52-year-old male with mild-moderate ED (IIEF-5: 14), hypertension controlled with Amlodipine 5mg. BP 130/80, BMI 28. What is the recommended first-line treatment?" },
+            { id: "TC002", title: "Severe ED + Nitrate Use", difficulty: "hard", focus: "cardiac_risk", icon: "⚠️",
+              query: "68-year-old male with severe ED (IIEF-5: 6), Type 2 diabetes, stable angina on Nitroglycerin PRN. Also on Metformin, Atorvastatin, Aspirin. BP 140/90, BMI 32. What are safe treatment options?" },
+            { id: "TC003", title: "Psychogenic ED + Anxiety", difficulty: "medium", focus: "psychogenic_ed", icon: "😰",
+              query: "45-year-old male with mild-moderate ED (IIEF-5: 15), anxiety, relationship problems, on Sertraline 50mg. BP 120/80, BMI 24. What is appropriate management for ED related to psychological factors?" },
+            { id: "TC004", title: "Post-Prostatectomy ED", difficulty: "medium", focus: "post_prostatectomy", icon: "🏥",
+              query: "62-year-old male with severe ED (IIEF-5: 7) following radical prostatectomy 6 months ago. BP 130/85, BMI 27. What is recommended treatment approach?" },
+            { id: "TC005", title: "Vasculogenic ED Post-Trauma", difficulty: "medium", focus: "vasculogenic_ed", icon: "🩻",
+              query: "38-year-old male with moderate ED (IIEF-5: 10) of sudden onset after pelvic fracture 3 months ago. BP 125/80, BMI 25. What diagnostic tests are indicated?" },
+            { id: "TC006", title: "Sildenafil Treatment Failure", difficulty: "medium", focus: "treatment_failure", icon: "🔄",
+              query: "70-year-old male with moderate ED (IIEF-5: 9), hypertension, hyperlipidemia. Currently on Sildenafil 100mg with no improvement. What are next steps?" },
+            { id: "TC007", title: "New-Onset ED + CV Risk", difficulty: "easy", focus: "cv_risk_assessment", icon: "❤️",
+              query: "58-year-old male smoker with new-onset mild ED (IIEF-5: 19). No known medical history. BP 145/90, BMI 30. What initial lab tests are recommended?" },
+            { id: "TC008", title: "ED + Premature Ejaculation", difficulty: "medium", focus: "psychological_assessment", icon: "🧠",
+              query: "42-year-old male with mild ED (IIEF-5: 20) and premature ejaculation. No medical history. BP 120/80, BMI 23. How should coexisting ED and PE be managed?" },
+            { id: "TC009", title: "ED on Warfarin", difficulty: "medium", focus: "cardiac_risk", icon: "💉",
+              query: "75-year-old male with severe ED (IIEF-5: 6), atrial fibrillation on Warfarin and Digoxin. BP 130/80, irregular HR 75. What ED treatments are safe?" },
+            { id: "TC010", title: "ED After Alpha-Blocker", difficulty: "easy", focus: "pde5i_selection", icon: "💊",
+              query: "60-year-old male with mild ED (IIEF-5: 18) that started after beginning Tamsulosin for BPH. BP 125/75, BMI 27. How should ED be treated with concurrent alpha-blocker?" },
+            { id: "TC011", title: "Diabetic + Obese ED", difficulty: "medium", focus: "diabetes", icon: "🍬",
+              query: "55-year-old male with moderate ED (IIEF-5: 11) and decreased libido, Type 2 diabetes on Metformin, obesity. BP 135/85, BMI 33. What are appropriate management steps?" },
+            { id: "TC012", title: "Tadalafil Treatment Failure", difficulty: "medium", focus: "treatment_failure", icon: "🔄",
+              query: "48-year-old male with moderate ED (IIEF-5: 10) despite using Tadalafil 20mg PRN. No other medical history. BP 120/80, BMI 26. What are next steps?" },
+            { id: "TC013", title: "Young Male + Low Desire", difficulty: "medium", focus: "psychological_assessment", icon: "🧪",
+              query: "28-year-old male with mild ED (IIEF-5: 21) and decreased sexual desire. No medical history. BP 110/70, BMI 22. What evaluation is necessary?" },
+            { id: "TC014", title: "ED + Recent MI", difficulty: "hard", focus: "cardiac_risk", icon: "🚨",
+              query: "65-year-old male with moderate ED (IIEF-5: 10), had myocardial infarction 3 weeks ago. On Aspirin, Metoprolol. BP 120/80, HR 60. What is appropriate ED management?" },
+            { id: "TC015", title: "ED + Peyronie's Disease", difficulty: "medium", focus: "physical_exam", icon: "🔍",
+              query: "50-year-old male with mild-moderate ED (IIEF-5: 13) and Peyronie's disease. BP 120/80, BMI 25. How should ED be managed with Peyronie's?" }
+        ];
 
         // Initialize on load
         document.addEventListener('DOMContentLoaded', () => {
             renderHistoryList();
             updateHistoryBadge();
+            renderTestCases();
         });
 
         function setQuery(text) {
             document.getElementById('query').value = text;
+            // Close dropdown if open
+            document.getElementById('testCaseDropdown').classList.add('hidden');
+            document.getElementById('dropdownArrow').textContent = '▼';
         }
+
+        // ============ TEST CASES DROPDOWN ============
+        function toggleTestCaseDropdown() {
+            const dropdown = document.getElementById('testCaseDropdown');
+            const arrow = document.getElementById('dropdownArrow');
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+                arrow.textContent = '▲';
+            } else {
+                dropdown.classList.add('hidden');
+                arrow.textContent = '▼';
+            }
+        }
+
+        function filterTestCases(difficulty) {
+            currentFilter = difficulty;
+            // Update button styles
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-500', 'text-white');
+                btn.classList.add('bg-white/10', 'text-gray-300');
+            });
+            event.target.classList.add('active', 'bg-blue-500', 'text-white');
+            event.target.classList.remove('bg-white/10', 'text-gray-300');
+            renderTestCases();
+        }
+
+        function renderTestCases() {
+            const filtered = currentFilter === 'all'
+                ? TEST_CASES
+                : TEST_CASES.filter(tc => tc.difficulty === currentFilter);
+
+            const diffColors = { easy: 'bg-green-500/20 text-green-300', medium: 'bg-yellow-500/20 text-yellow-300', hard: 'bg-red-500/20 text-red-300' };
+
+            document.getElementById('testCasesList').innerHTML = filtered.map(tc => `
+                <button onclick="selectTestCase('${tc.id}')"
+                    class="w-full text-left p-3 hover:bg-white/10 rounded-lg transition border-b border-white/5 last:border-0">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">${tc.icon}</span>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-white font-medium">${tc.id}: ${tc.title}</span>
+                                <span class="px-2 py-0.5 rounded text-xs ${diffColors[tc.difficulty]}">${tc.difficulty}</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mt-1 line-clamp-2">${tc.query.substring(0, 100)}...</p>
+                        </div>
+                    </div>
+                </button>
+            `).join('');
+        }
+
+        function selectTestCase(id) {
+            const tc = TEST_CASES.find(t => t.id === id);
+            if (tc) {
+                setQuery(tc.query);
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('testCaseDropdown');
+            const btn = document.getElementById('testCaseBtn');
+            if (dropdown && !dropdown.contains(e.target) && !btn.contains(e.target)) {
+                dropdown.classList.add('hidden');
+                document.getElementById('dropdownArrow').textContent = '▼';
+            }
+        });
 
         function showPage(pageId) {
             ['queryPage', 'analyzingPage', 'resultsPage'].forEach(id => {

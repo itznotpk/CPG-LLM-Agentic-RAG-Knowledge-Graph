@@ -1,0 +1,572 @@
+{
+  "generated_at": "2026-01-11T23:23:29.573341",
+  "num_cases": 15,
+  "test_cases": [
+    {
+      "case_id": "TC001",
+      "patient_demographics": {
+        "age": 52,
+        "gender": "Male"
+      },
+      "chief_complaint": "Difficulty getting and maintaining an erection",
+      "medical_history": "Hypertension, controlled with medication",
+      "current_medications": [
+        "Amlodipine 5mg daily"
+      ],
+      "vital_signs": {
+        "BP": "130/80 mmHg",
+        "heart_rate": "72 bpm",
+        "BMI": "28"
+      },
+      "ed_symptoms": {
+        "duration": "6 months",
+        "severity": "Mild to moderate",
+        "IIEF-5_score": 15
+      },
+      "clinical_query": "What is the appropriate first-line treatment for this patient with mild to moderate ED and controlled hypertension?",
+      "ground_truth": {
+        "summary": "Patient has mild-moderate ED, likely organic or mixed, with controlled hypertension. Cardiac risk is likely low.",
+        "followup_care_plan": "Advise on lifestyle modifications (exercise, diet). Schedule follow-up in 2-4 weeks to assess response to lifestyle changes and tolerability of PDE5i.",
+        "medications": [
+          "Consider PDE5i (Sildenafil 50mg or Tadalafil 10mg on-demand)"
+        ],
+        "next_steps": "Initiate lifestyle modifications. Assess exercise ability (walking 1.6 km or climbing two flights of stairs). Since patient is on Amlodipine, start with lower dose of Sildenafil (25mg)."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Algorithm 2",
+        "Section 3.1",
+        "Section 3.2.1",
+        "Appendix: PDE5i Dose Adjustments"
+      ],
+      "difficulty": "easy",
+      "clinical_focus": "pde5i_selection"
+    },
+    {
+      "case_id": "TC002",
+      "patient_demographics": {
+        "age": 68,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction for the past year",
+      "medical_history": "Type 2 diabetes, coronary artery disease (previous MI 8 weeks ago), hyperlipidemia",
+      "current_medications": [
+        "Metformin 1000mg BID",
+        "Atorvastatin 40mg daily",
+        "Aspirin 81mg daily",
+        "Lisinopril 20mg daily"
+      ],
+      "vital_signs": {
+        "BP": "135/85 mmHg",
+        "heart_rate": "78 bpm",
+        "BMI": "30"
+      },
+      "ed_symptoms": {
+        "duration": "1 year",
+        "severity": "Moderate",
+        "IIEF-5_score": 10
+      },
+      "clinical_query": "What is the appropriate management of ED in a patient with diabetes, previous MI (8 weeks ago), and hyperlipidemia?",
+      "ground_truth": {
+        "summary": "Patient has moderate ED and multiple cardiovascular risk factors. He is in the intermediate cardiac risk category due to recent MI (between 2-6 weeks).",
+        "followup_care_plan": "Refer to cardiologist for cardiac risk assessment and stabilization. Optimize glycaemic control. Lifestyle modifications are essential.",
+        "medications": [],
+        "next_steps": "Refer patient to cardiologist for stress test. Defer ED treatment until cardiac condition is stabilized."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Algorithm 2",
+        "Section 2.2",
+        "Section 4"
+      ],
+      "difficulty": "medium",
+      "clinical_focus": "cardiac_risk"
+    },
+    {
+      "case_id": "TC003",
+      "patient_demographics": {
+        "age": 45,
+        "gender": "Male"
+      },
+      "chief_complaint": "Inability to achieve an erection",
+      "medical_history": "Depression, anxiety, relationship problems",
+      "current_medications": [
+        "Sertraline 100mg daily"
+      ],
+      "vital_signs": {
+        "BP": "120/80 mmHg",
+        "heart_rate": "70 bpm",
+        "BMI": "24"
+      },
+      "ed_symptoms": {
+        "duration": "3 months",
+        "severity": "Varies",
+        "IIEF-5_score": 18
+      },
+      "clinical_query": "How should I manage ED in a patient with depression, anxiety, and relationship problems?",
+      "ground_truth": {
+        "summary": "Patient likely suffering from psychogenic ED.",
+        "followup_care_plan": "Refer to mental health professional for psychological intervention. Consider partner involvement in therapy.",
+        "medications": [
+          "Consider PDE5i on-demand alongside therapy"
+        ],
+        "next_steps": "Refer to psychiatrist/psychologist. Lifestyle modifications. Consider PDE5i."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Section 2.3",
+        "Section 3.5"
+      ],
+      "difficulty": "easy",
+      "clinical_focus": "psychogenic_ed"
+    },
+    {
+      "case_id": "TC004",
+      "patient_demographics": {
+        "age": 72,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction",
+      "medical_history": "Angina, currently taking Isosorbide Mononitrate",
+      "current_medications": [
+        "Isosorbide Mononitrate 20mg BID",
+        "Aspirin 81mg daily"
+      ],
+      "vital_signs": {
+        "BP": "120/70 mmHg",
+        "heart_rate": "65 bpm",
+        "BMI": "27"
+      },
+      "ed_symptoms": {
+        "duration": "6 months",
+        "severity": "Moderate",
+        "IIEF-5_score": 9
+      },
+      "clinical_query": "What are the treatment options for ED in a patient taking nitrates for angina?",
+      "ground_truth": {
+        "summary": "Patient is taking nitrates, which are an absolute contraindication for PDE5i.",
+        "followup_care_plan": "Assess if nitrates are still necessary. If not, consider stopping nitrate, then PDE5i.",
+        "medications": [
+          "Non-PDE5i treatment (VED)"
+        ],
+        "next_steps": "Attempt to switch from nitrates if possible. If nitrates are essential, consider VED or surgical options."
+      },
+      "key_cpg_references": [
+        "Algorithm 2",
+        "Section 3.3.1",
+        "Contraindications"
+      ],
+      "difficulty": "medium",
+      "clinical_focus": "cardiac_risk"
+    },
+    {
+      "case_id": "TC005",
+      "patient_demographics": {
+        "age": 60,
+        "gender": "Male"
+      },
+      "chief_complaint": "Decreased erectile function",
+      "medical_history": "History of radical prostatectomy 6 months ago (nerve-sparing)",
+      "current_medications": [],
+      "vital_signs": {
+        "BP": "130/80 mmHg",
+        "heart_rate": "70 bpm",
+        "BMI": "26"
+      },
+      "ed_symptoms": {
+        "duration": "6 months",
+        "severity": "Moderate",
+        "IIEF-5_score": 11
+      },
+      "clinical_query": "What is the best approach for managing ED post-radical prostatectomy?",
+      "ground_truth": {
+        "summary": "Patient with post-prostatectomy ED. Nerve-sparing surgery increases chances of recovery.",
+        "followup_care_plan": "Start penile rehabilitation. Educate patient on potential recovery time of up to 48 months.",
+        "medications": [
+          "PDE5i (Sildenafil 50mg or Tadalafil 10mg on-demand)"
+        ],
+        "next_steps": "Start PDE5i for rehabilitation."
+      },
+      "key_cpg_references": [
+        "Section 4"
+      ],
+      "difficulty": "easy",
+      "clinical_focus": "post_prostatectomy"
+    },
+    {
+      "case_id": "TC006",
+      "patient_demographics": {
+        "age": 38,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction",
+      "medical_history": "None",
+      "current_medications": [],
+      "vital_signs": {
+        "BP": "120/80 mmHg",
+        "heart_rate": "68 bpm",
+        "BMI": "23"
+      },
+      "ed_symptoms": {
+        "duration": "2 months",
+        "severity": "Mild",
+        "IIEF-5_score": 19
+      },
+      "clinical_query": "What initial steps should be taken for a young patient presenting with new-onset mild ED?",
+      "ground_truth": {
+        "summary": "Patient has mild ED, likely organic or psychogenic.",
+        "followup_care_plan": "Assess lifestyle factors (smoking, alcohol, exercise). Take detailed sexual and psychological history. Consider cardiac risk assessment.",
+        "medications": [
+          "Lifestyle modifications"
+        ],
+        "next_steps": "Lifestyle modifications, psychological assessment and sexual history."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Section 2.1",
+        "Section 2.3"
+      ],
+      "difficulty": "easy",
+      "clinical_focus": "lifestyle"
+    },
+    {
+      "case_id": "TC007",
+      "patient_demographics": {
+        "age": 55,
+        "gender": "Male"
+      },
+      "chief_complaint": "ED despite using Sildenafil",
+      "medical_history": "Diabetes, hypertension, hyperlipidemia",
+      "current_medications": [
+        "Metformin 1000mg BID",
+        "Amlodipine 5mg daily",
+        "Atorvastatin 20mg daily",
+        "Sildenafil 100mg PRN"
+      ],
+      "vital_signs": {
+        "BP": "130/80 mmHg",
+        "heart_rate": "75 bpm",
+        "BMI": "31"
+      },
+      "ed_symptoms": {
+        "duration": "2 years",
+        "severity": "Moderate",
+        "IIEF-5_score": 10
+      },
+      "clinical_query": "What should be done for a patient with ED who has failed Sildenafil 100mg?",
+      "ground_truth": {
+        "summary": "Patient is a PDE5i non-responder.",
+        "followup_care_plan": "Reassess Sildenafil usage (timing, stimulation). Try a different PDE5i. If still failing, consider VED or referral to urologist.",
+        "medications": [
+          "Tadalafil or VED"
+        ],
+        "next_steps": "Reassess Sildenafil use, try Tadalafil, consider VED or refer to urologist."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Appendix: Treatment Failure Algorithm",
+        "Section 3.3.1"
+      ],
+      "difficulty": "medium",
+      "clinical_focus": "treatment_failure"
+    },
+    {
+      "case_id": "TC008",
+      "patient_demographics": {
+        "age": 48,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction",
+      "medical_history": "Spinal cord injury (T6 level)",
+      "current_medications": [],
+      "vital_signs": {
+        "BP": "110/70 mmHg",
+        "heart_rate": "60 bpm",
+        "BMI": "22"
+      },
+      "ed_symptoms": {
+        "duration": "1 year",
+        "severity": "Severe",
+        "IIEF-5_score": 6
+      },
+      "clinical_query": "How should I manage ED in a patient with a spinal cord injury?",
+      "ground_truth": {
+        "summary": "Patient has ED secondary to spinal cord injury.",
+        "followup_care_plan": "Awareness of autonomic dysreflexia. Monitor for potential complications.",
+        "medications": [
+          "PDE5i, ICI, VED, Penile prosthesis"
+        ],
+        "next_steps": "Start with PDE5i, with caution for autonomic dysreflexia. Consider ICI or VED if PDE5i fails. Penile prosthesis is an option."
+      },
+      "key_cpg_references": [
+        "Section 4"
+      ],
+      "difficulty": "medium",
+      "clinical_focus": "special_population"
+    },
+    {
+      "case_id": "TC009",
+      "patient_demographics": {
+        "age": 58,
+        "gender": "Male"
+      },
+      "chief_complaint": "Difficulty maintaining erection",
+      "medical_history": "Peripheral vascular disease, smoker",
+      "current_medications": [
+        "Aspirin 81mg daily"
+      ],
+      "vital_signs": {
+        "BP": "140/90 mmHg",
+        "heart_rate": "80 bpm",
+        "BMI": "29"
+      },
+      "ed_symptoms": {
+        "duration": "1 year",
+        "severity": "Moderate",
+        "IIEF-5_score": 10
+      },
+      "clinical_query": "What is the best treatment approach for a patient with ED, peripheral vascular disease, and who is a smoker?",
+      "ground_truth": {
+        "summary": "Patient has vasculogenic ED and cardiovascular risk factors.",
+        "followup_care_plan": "Encourage smoking cessation. Lifestyle modifications are crucial. Assess ASCVD risk score.",
+        "medications": [
+          "PDE5i (Sildenafil 50mg or Tadalafil 10mg on-demand)"
+        ],
+        "next_steps": "Encourage smoking cessation. Start PDE5i. Calculate ASCVD risk score."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Section 2.2",
+        "Section 3.1"
+      ],
+      "difficulty": "medium",
+      "clinical_focus": "cardiac_risk"
+    },
+    {
+      "case_id": "TC010",
+      "patient_demographics": {
+        "age": 63,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction",
+      "medical_history": "Controlled hypertension, enlarged prostate (BPH)",
+      "current_medications": [
+        "Amlodipine 5mg daily",
+        "Tamsulosin 0.4mg daily"
+      ],
+      "vital_signs": {
+        "BP": "125/75 mmHg",
+        "heart_rate": "68 bpm",
+        "BMI": "27"
+      },
+      "ed_symptoms": {
+        "duration": "6 months",
+        "severity": "Mild-moderate",
+        "IIEF-5_score": 14
+      },
+      "clinical_query": "How should I manage ED in a patient with controlled hypertension and taking Tamsulosin for BPH?",
+      "ground_truth": {
+        "summary": "Patient has mild-moderate ED with controlled hypertension and taking alpha-blocker.",
+        "followup_care_plan": "Monitor for hypotension when starting PDE5i.",
+        "medications": [
+          "PDE5i (Sildenafil 25mg or Tadalafil 5mg on-demand)"
+        ],
+        "next_steps": "Start PDE5i at the lowest dose (Sildenafil 25mg or Tadalafil 5mg). Monitor for hypotension."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Contraindications",
+        "Appendix: PDE5i Dose Adjustments"
+      ],
+      "difficulty": "medium",
+      "clinical_focus": "pde5i_selection"
+    },
+    {
+      "case_id": "TC011",
+      "patient_demographics": {
+        "age": 50,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction",
+      "medical_history": "None",
+      "current_medications": [],
+      "vital_signs": {
+        "BP": "120/80 mmHg",
+        "heart_rate": "70 bpm",
+        "BMI": "25"
+      },
+      "ed_symptoms": {
+        "duration": "3 months",
+        "severity": "Mild",
+        "IIEF-5_score": 20
+      },
+      "clinical_query": "What are the treatment options for a patient with mild ED and no comorbidities?",
+      "ground_truth": {
+        "summary": "Patient has mild ED, likely organic or psychogenic.",
+        "followup_care_plan": "Lifestyle modifications. Consider psychological assessment.",
+        "medications": [
+          "PDE5i if lifestyle modifications fail"
+        ],
+        "next_steps": "Lifestyle modifications, psychological assessment, consider PDE5i if needed."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Section 3.1"
+      ],
+      "difficulty": "easy",
+      "clinical_focus": "lifestyle"
+    },
+    {
+      "case_id": "TC012",
+      "patient_demographics": {
+        "age": 75,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction",
+      "medical_history": "History of stroke 3 years ago, atrial fibrillation on warfarin",
+      "current_medications": [
+        "Warfarin 5mg daily",
+        "Aspirin 81mg daily"
+      ],
+      "vital_signs": {
+        "BP": "130/80 mmHg",
+        "heart_rate": "75 bpm, irregular",
+        "BMI": "28"
+      },
+      "ed_symptoms": {
+        "duration": "1 year",
+        "severity": "Moderate",
+        "IIEF-5_score": 11
+      },
+      "clinical_query": "How should I manage ED in a patient with a history of stroke and taking warfarin?",
+      "ground_truth": {
+        "summary": "Patient has ED, history of stroke, and is on warfarin.",
+        "followup_care_plan": "Assess cardiac risk. Caution with ICI due to bleeding risk. PDE5i should be safe.",
+        "medications": [
+          "PDE5i (Sildenafil 50mg or Tadalafil 10mg on-demand)"
+        ],
+        "next_steps": "Assess cardiac risk. Start PDE5i monitoring for bleeding risk."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Algorithm 2",
+        "Section 3.2.3"
+      ],
+      "difficulty": "hard",
+      "clinical_focus": "cardiac_risk"
+    },
+    {
+      "case_id": "TC013",
+      "patient_demographics": {
+        "age": 42,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction following pelvic trauma",
+      "medical_history": "Pelvic fracture 6 months ago",
+      "current_medications": [],
+      "vital_signs": {
+        "BP": "120/80 mmHg",
+        "heart_rate": "70 bpm",
+        "BMI": "24"
+      },
+      "ed_symptoms": {
+        "duration": "6 months",
+        "severity": "Moderate",
+        "IIEF-5_score": 9
+      },
+      "clinical_query": "What is the best approach for a young patient with ED following pelvic trauma?",
+      "ground_truth": {
+        "summary": "Patient has ED post-pelvic trauma. Likely vasculogenic.",
+        "followup_care_plan": "Refer to urologist. Consider advanced work-up.",
+        "medications": [
+          "Likely to require advanced diagnostics before treatment"
+        ],
+        "next_steps": "Refer to urologist. Consider penile Doppler ultrasound or arteriography."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Section 2.1.4"
+      ],
+      "difficulty": "medium",
+      "clinical_focus": "referral"
+    },
+    {
+      "case_id": "TC014",
+      "patient_demographics": {
+        "age": 35,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction and premature ejaculation",
+      "medical_history": "Anxiety",
+      "current_medications": [],
+      "vital_signs": {
+        "BP": "110/70 mmHg",
+        "heart_rate": "80 bpm",
+        "BMI": "23"
+      },
+      "ed_symptoms": {
+        "duration": "6 months",
+        "severity": "Mild",
+        "IIEF-5_score": 17
+      },
+      "clinical_query": "How should I manage a patient with ED and premature ejaculation, with underlying anxiety?",
+      "ground_truth": {
+        "summary": "Patient has ED and premature ejaculation, likely psychogenic.",
+        "followup_care_plan": "Refer to mental health professional. Consider combined therapy (psychological and pharmacological).",
+        "medications": [
+          "PDE5i and SSRI"
+        ],
+        "next_steps": "Refer to psychiatrist/psychologist. Consider PDE5i and SSRI for premature ejaculation."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Section 2.3",
+        "Section 3.5"
+      ],
+      "difficulty": "hard",
+      "clinical_focus": "psychogenic_ed"
+    },
+    {
+      "case_id": "TC015",
+      "patient_demographics": {
+        "age": 61,
+        "gender": "Male"
+      },
+      "chief_complaint": "Erectile dysfunction despite multiple treatments",
+      "medical_history": "Diabetes, hypertension, hyperlipidemia, previous MI (1 year ago)",
+      "current_medications": [
+        "Metformin 1000mg BID",
+        "Amlodipine 5mg daily",
+        "Atorvastatin 40mg daily",
+        "Sildenafil 100mg PRN",
+        "Tadalafil 20mg PRN"
+      ],
+      "vital_signs": {
+        "BP": "135/85 mmHg",
+        "heart_rate": "75 bpm",
+        "BMI": "32"
+      },
+      "ed_symptoms": {
+        "duration": "3 years",
+        "severity": "Severe",
+        "IIEF-5_score": 7
+      },
+      "clinical_query": "What are the next steps for a patient with severe ED who has failed both Sildenafil and Tadalafil?",
+      "ground_truth": {
+        "summary": "Patient has severe ED and has failed multiple PDE5i. Cardiac risk should be reassessed.",
+        "followup_care_plan": "Refer to urologist. Consider VED or Penile Prosthesis.",
+        "medications": [
+          "VED or Penile Prosthesis"
+        ],
+        "next_steps": "Refer to urologist for further management (VED or Penile Prosthesis)."
+      },
+      "key_cpg_references": [
+        "Algorithm 1",
+        "Appendix: Treatment Failure Algorithm",
+        "Section 3.4.2"
+      ],
+      "difficulty": "hard",
+      "clinical_focus": "treatment_failure"
+    }
+  ]
+}
