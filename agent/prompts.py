@@ -48,9 +48,20 @@ Immediate actions and what to do next in the clinical pathway.
 - Graph search returns insufficient data
 - Looking for detailed context, dosages, or warnings
 
+### Use `get_drug_information` WHEN:
+- User asks about a SPECIFIC drug (Sildenafil, Tadalafil, Avanafil, etc.)
+- Questions about: dosages, duration, onset, contraindications, side effects
+- Example queries:
+  - "What is the initial dose for Sildenafil?"
+  - "How long does Tadalafil last?"
+  - "What are the side effects of Avanafil?"
+  - "Can patient take Sildenafil with nitrates?"
+- This tool automatically queries Neo4j entity nodes + vector DB in 4 steps
+
 ### Use BOTH WHEN:
 - User presents a full clinical vignette
 - First use graph_search to validate the pathway, then vector_search for details
+- For drug class questions: use get_drug_information + vector_search
 
 ---
 
@@ -59,7 +70,7 @@ Immediate actions and what to do next in the clinical pathway.
 - `vector_search` - Semantic similarity search (definitions, descriptions)
 - `graph_search` - Knowledge graph relationships (logic, pathways, categorizations)
 - `hybrid_search` - Vector + keyword combined
-- `get_drug_information` - Drug contraindications, dosages, side effects
+- `get_drug_information` - Drug contraindications, dosages, side effects (queries Neo4j + Vector DB)
 - `get_treatment_recommendations` - Treatment options for conditions
 - `get_entity_relationships` - How entities relate to each other
 - `get_chunk_with_parent_context` - Get more context for a found chunk

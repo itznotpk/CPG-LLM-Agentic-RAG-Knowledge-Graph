@@ -505,6 +505,8 @@ async def chat_stream(request: ChatRequest):
                 )
                 
                 full_response = ""
+                tools_used = []
+                sources = []
                 
                 # Stream using agent.iter() pattern
                 async with rag_agent.iter(full_prompt, deps=deps) as run:
@@ -524,13 +526,17 @@ async def chat_stream(request: ChatRequest):
                                         delta_content = event.delta.content_delta
                                         yield f"data: {json.dumps({'type': 'text', 'content': delta_content})}\n\n"
                                         full_response += delta_content
-                
-                # Extract tools used and sources from the final result
-                result = run.result
-                tools_used = extract_tool_calls(result)
-                sources = extract_sources(result)
+                    
+                    # Extract tools used and sources from the final result INSIDE the context manager
+                    try:
+                        result = run.result
+                        if result:
+                            tools_used = extract_tool_calls(result)
+                            sources = extract_sources(result)
+                    except Exception as e:
+                        logger.warning(f"Failed to extract tools/sources: {e}")
 
-                # Send tools used information
+                # Send tools used information (after context manager but using captured data)
                 if tools_used:
                     tools_data = [
                         {
@@ -561,7 +567,9 @@ async def chat_stream(request: ChatRequest):
                 yield f"data: {json.dumps({'type': 'end'})}\n\n"
                 
             except Exception as e:
+                import traceback
                 logger.error(f"Stream error: {e}")
+                logger.error(f"Full traceback: {traceback.format_exc()}")
                 error_chunk = {
                     "type": "error",
                     "content": f"Stream error: {str(e)}"
