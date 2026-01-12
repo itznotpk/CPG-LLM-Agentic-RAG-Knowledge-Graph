@@ -95,7 +95,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 │  ▼                           ▼                           ▼           │
 │ ┌────────────┐   ┌────────────────────┐   ┌────────────────────┐    │
 │ │vector_search│   │get_drug_information│   │   graph_search     │    │
-│ │hybrid_search│   │get_treatment_recs  │   │entity_relationships│    │
+│ │hybrid_search│   │get_algorithm_path  │   │entity_relationships│    │
 │ └────────────┘   └────────────────────┘   └────────────────────┘    │
 └──────────────────────────────────────────────────────────────────────┘
           │                    │                        │
@@ -146,7 +146,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 | `graph_search` | Knowledge graph facts | Neo4j |
 | `hybrid_search` | Vector + keyword combined | PostgreSQL |
 | `get_drug_information` | **Dynamic** drug info with entity summaries | Neo4j + PostgreSQL |
-| `get_treatment_recommendations` | Treatments by condition | Neo4j + PostgreSQL |
+| `get_algorithm_pathway` | Step-by-step algorithm navigation, next steps | Neo4j + PostgreSQL |
 | `get_entity_relationships` | Entity connections | Neo4j |
 | `get_chunk_with_parent_context` | Hierarchical context | PostgreSQL |
 
@@ -171,6 +171,38 @@ STEP 3: Dynamic vector search
 
 STEP 4: Fallback search (if prior steps return nothing)
 ```
+
+### `get_algorithm_pathway` Tool (NEW)
+
+Navigate CPG algorithms step-by-step and find next treatment steps:
+
+```
+get_algorithm_pathway(
+    current_step="PDE5i failure",    # Current clinical situation
+    condition="ED"                    # Medical context
+)
+
+Returns:
+  - next_steps: What to do next in the pathway
+  - pathway_facts: Related graph facts
+  - alternatives: Options when treatment fails
+```
+
+**Use When:**
+- Following CPG algorithms (Algorithm 1, Algorithm 2)
+- Treatment has failed, need next steps
+- Patient passed/failed a test
+
+### Agent Output Format
+
+The agent responds in a structured 4-section format:
+
+| Section | Content |
+|---------|---------|
+| **1) Summary** | [Age]y [Sex] with [Diagnosis Type], Risk Factors, Classification |
+| **2) Medication Changes** | START/STOP/CHANGE/CONTRAINDICATED with doses |
+| **3) Patient Education** | Lifestyle, Drug instructions, Safety warnings |
+| **4) Monitoring & Next Steps** | Tests, Side effects, Follow-up, Red flags |
 
 ### Entity Extraction (LLM-Based)
 

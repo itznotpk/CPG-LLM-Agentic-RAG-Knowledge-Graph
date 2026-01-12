@@ -82,9 +82,10 @@ class DrugInteractionInput(BaseModel):
     drug_name: str = Field(..., description="Name of the drug to check (e.g., 'Sildenafil', 'Tadalafil')")
 
 
-class TreatmentRecommendationInput(BaseModel):
-    """Input for treatment recommendation search."""
-    condition: str = Field(..., description="Medical condition to get recommendations for (e.g., 'Erectile Dysfunction', 'Vasculogenic ED')")
+class AlgorithmPathwayInput(BaseModel):
+    """Input for algorithm pathway navigation."""
+    current_step: str = Field(..., description="Current clinical situation or step (e.g., 'PDE5i failure', 'Low cardiac risk', 'treatment failure')")
+    condition: str = Field(default="ED", description="Medical condition context (e.g., 'ED', 'cardiovascular')")
 
 
 # Tool Implementation Functions
@@ -505,51 +506,83 @@ async def get_drug_info_tool(input_data: DrugInteractionInput) -> Dict[str, Any]
 
 
 
-async def get_treatment_recommendations_tool(input_data: TreatmentRecommendationInput) -> Dict[str, Any]:
+async def get_algorithm_pathway_tool(input_data: AlgorithmPathwayInput) -> Dict[str, Any]:
     """
-    Get treatment recommendations for a specific condition.
+    Navigate CPG algorithms step-by-step and find next steps in treatment pathway.
+    
+    Use this when:
+    - Following a clinical algorithm (e.g., Algorithm 1, Algorithm 2)
+    - Determining what to do when current treatment fails
+    - Finding next steps after a certain clinical event
     
     Args:
-        input_data: Condition to search for
+        input_data: Current step/situation and condition context
     
     Returns:
-        Treatment recommendations from CPG content
+        Next steps in the algorithm pathway with alternatives
     """
-    # Search for treatment content
-    query = f"treatment recommendation {input_data.condition}"
+    current_step = input_data.current_step
+    condition = input_data.condition
+    
+    logger.info(f"Algorithm pathway search for: {current_step} in context of {condition}")
     
     try:
-        # Use vector search to find relevant treatment content
-        vector_results = await vector_search_tool(VectorSearchInput(
-            query=query,
-            limit=10
-        ))
+        # Search for algorithm/pathway content with multiple targeted queries
+        queries = [
+            f"algorithm {current_step} {condition} next step",
+            f"if {current_step} then {condition}",
+            f"{current_step} failure alternative {condition}",
+            f"after {current_step} {condition} management"
+        ]
         
-        # Also search knowledge graph for related facts
+        all_results = []
+        
+        # Search vector DB for pathway content
+        for q in queries[:2]:  # Limit to avoid too many calls
+            results = await vector_search_tool(VectorSearchInput(query=q, limit=5))
+            all_results.extend(results)
+        
+        # Search knowledge graph for related pathway facts
         graph_results = await graph_search_tool(GraphSearchInput(
-            query=f"{input_data.condition} treatment"
+            query=f"{current_step} {condition} pathway next"
         ))
         
-        recommendations = []
-        for r in vector_results:
-            recommendations.append({
-                "content": r.content[:500],
-                "document": r.document_title,
-                "score": r.score
-            })
+        # Deduplicate and structure results
+        seen_content = set()
+        pathway_steps = []
+        
+        for r in all_results:
+            content_key = r.content[:100]
+            if content_key not in seen_content:
+                seen_content.add(content_key)
+                pathway_steps.append({
+                    "content": r.content[:600],
+                    "document": r.document_title,
+                    "score": r.score
+                })
+        
+        # Extract pathway facts from graph
+        pathway_facts = []
+        if graph_results:
+            for r in graph_results[:5]:
+                if hasattr(r, 'fact'):
+                    pathway_facts.append(r.fact)
         
         return {
-            "condition": input_data.condition,
-            "recommendations": recommendations,
-            "related_facts": [r.fact for r in graph_results[:5]] if graph_results else [],
-            "total_found": len(vector_results)
+            "current_step": current_step,
+            "condition": condition,
+            "next_steps": pathway_steps[:8],  # Top 8 most relevant
+            "pathway_facts": pathway_facts,
+            "alternatives": [p for p in pathway_steps if 'alternative' in p['content'].lower() or 'fail' in p['content'].lower()][:3],
+            "total_found": len(pathway_steps)
         }
         
     except Exception as e:
-        logger.error(f"Treatment recommendations search failed: {e}")
+        logger.error(f"Algorithm pathway search failed: {e}")
         return {
-            "condition": input_data.condition,
-            "recommendations": [],
+            "current_step": current_step,
+            "condition": condition,
+            "next_steps": [],
             "error": str(e)
         }
 

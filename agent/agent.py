@@ -18,14 +18,14 @@ from .tools import (
     hybrid_search_tool,
     get_entity_relationships_tool,
     get_drug_info_tool,
-    get_treatment_recommendations_tool,
+    get_algorithm_pathway_tool,
     get_chunk_with_context_tool,
     VectorSearchInput,
     GraphSearchInput,
     HybridSearchInput,
     EntityRelationshipInput,
     DrugInteractionInput,
-    TreatmentRecommendationInput
+    AlgorithmPathwayInput
 )
 
 # Load environment variables
@@ -235,24 +235,28 @@ async def get_drug_information(
 
 
 @rag_agent.tool
-async def get_treatment_recommendations(
+async def get_algorithm_pathway(
     ctx: RunContext[AgentDependencies],
-    condition: str
+    current_step: str,
+    condition: str = "ED"
 ) -> Dict[str, Any]:
     """
-    Get treatment recommendations for a medical condition.
+    Navigate CPG algorithms step-by-step and find next treatment steps.
     
-    This tool retrieves treatment recommendations for a specific condition
-    from the CPG content using vector search and knowledge graph.
+    Use this tool to:
+    - Follow clinical algorithms (Algorithm 1, Algorithm 2)
+    - Find what to do when current treatment fails (e.g., "PDE5i failure")
+    - Get next steps after a clinical event (e.g., "stress test passed")
     
     Args:
-        condition: Medical condition (e.g., 'Erectile Dysfunction', 'Vasculogenic ED')
+        current_step: Current situation (e.g., 'PDE5i failure', 'Low cardiac risk', 'treatment failure')
+        condition: Medical context (default: 'ED')
     
     Returns:
-        Treatment recommendations from CPG content
+        Next steps in the pathway with alternatives
     """
-    input_data = TreatmentRecommendationInput(condition=condition)
-    return await get_treatment_recommendations_tool(input_data)
+    input_data = AlgorithmPathwayInput(current_step=current_step, condition=condition)
+    return await get_algorithm_pathway_tool(input_data)
 
 
 @rag_agent.tool
