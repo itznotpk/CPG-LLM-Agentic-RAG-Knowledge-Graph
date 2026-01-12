@@ -713,31 +713,66 @@ HTML_PAGE = """
 
         function parseResponse(text) {
             const sections = { summary: '', medications: '', education: '', monitoring: '' };
-            const parts = text.split(/##\\s+/);
+
+            // Split by various header formats: **## 1), ## 1), **1), 1), etc.
+            // First normalize the text - remove ** markers around headers
+            let normalized = text.replace(/\*\*##/g, '##').replace(/\*\*(\d\))/g, '$1');
+
+            // Split by ## or by numbered sections
+            const parts = normalized.split(/(?:^|\n)(?:##\s*)?(?=\d\))/);
 
             for (const part of parts) {
-                const lower = part.toLowerCase();
+                const trimmed = part.trim();
+                const lower = trimmed.toLowerCase();
+
                 // 1) Summary
-                if (lower.startsWith('1)') || lower.startsWith('summary')) {
-                    sections.summary = cleanMarkdown(part.replace(/^1\\)\\s*/i, '').replace(/^summary\\s*/i, '').trim());
+                if (lower.startsWith('1)') || lower.match(/^summary/i)) {
+                    const content = trimmed.replace(/^1\)\s*/i, '').replace(/^summary\s*/i, '').trim();
+                    sections.summary = cleanMarkdown(content);
                 }
                 // 2) Medication Changes
-                else if (lower.startsWith('2)') || lower.startsWith('medication')) {
-                    sections.medications = cleanMarkdown(part.replace(/^2\\)\\s*/i, '').replace(/^medication[s]?\\s*(changes)?\\s*/i, '').trim());
+                else if (lower.startsWith('2)') || lower.match(/^medication/i)) {
+                    const content = trimmed.replace(/^2\)\s*/i, '').replace(/^medications?\s*(changes?)?\s*/i, '').trim();
+                    sections.medications = cleanMarkdown(content);
                 }
                 // 3) Patient Education & Counseling
-                else if (lower.startsWith('3)') || lower.startsWith('patient education') || lower.startsWith('education') || lower.startsWith('counseling')) {
-                    sections.education = cleanMarkdown(part.replace(/^3\\)\\s*/i, '').replace(/^patient\\s*education\\s*(&|and)?\\s*counseling\\s*/i, '').trim());
+                else if (lower.startsWith('3)') || lower.match(/^(patient\s*)?education/i) || lower.match(/^counseling/i)) {
+                    const content = trimmed.replace(/^3\)\s*/i, '').replace(/^patient\s*education\s*(&|and)?\s*counseling\s*/i, '').replace(/^education\s*/i, '').trim();
+                    sections.education = cleanMarkdown(content);
                 }
                 // 4) Monitoring & Next Steps
-                else if (lower.startsWith('4)') || lower.startsWith('monitoring') || lower.startsWith('next step')) {
-                    sections.monitoring = cleanMarkdown(part.replace(/^4\\)\\s*/i, '').replace(/^monitoring\\s*(&|and)?\\s*next\\s*steps?\\s*/i, '').trim());
+                else if (lower.startsWith('4)') || lower.match(/^monitoring/i) || lower.match(/^next\s*step/i)) {
+                    const content = trimmed.replace(/^4\)\s*/i, '').replace(/^monitoring\s*(&|and)?\s*next\s*steps?\s*/i, '').replace(/^monitoring\s*/i, '').trim();
+                    sections.monitoring = cleanMarkdown(content);
                 }
             }
 
+            // Fallback: if no sections found, try to split by double newlines and ** headers
+            if (!sections.summary && !sections.medications && !sections.education && !sections.monitoring) {
+                // Try alternative parsing - look for **1) or **Summary patterns
+                const altParts = text.split(/\*\*(?:##\s*)?(\d\)|Summary|Medication|Education|Monitoring)/i);
+
+                for (let i = 0; i < altParts.length; i++) {
+                    const part = altParts[i];
+                    const nextPart = altParts[i + 1] || '';
+
+                    if (part === '1)' || part.toLowerCase() === 'summary') {
+                        sections.summary = cleanMarkdown(nextPart.replace(/^\*\*\s*/, '').trim());
+                    } else if (part === '2)' || part.toLowerCase().startsWith('medication')) {
+                        sections.medications = cleanMarkdown(nextPart.replace(/^\*\*\s*/, '').trim());
+                    } else if (part === '3)' || part.toLowerCase().startsWith('education')) {
+                        sections.education = cleanMarkdown(nextPart.replace(/^\*\*\s*/, '').trim());
+                    } else if (part === '4)' || part.toLowerCase().startsWith('monitoring')) {
+                        sections.monitoring = cleanMarkdown(nextPart.replace(/^\*\*\s*/, '').trim());
+                    }
+                }
+            }
+
+            // Last fallback: put everything in summary
             if (!sections.summary && !sections.medications && !sections.education && !sections.monitoring) {
                 sections.summary = cleanMarkdown(text);
             }
+
             return sections;
         }
 
