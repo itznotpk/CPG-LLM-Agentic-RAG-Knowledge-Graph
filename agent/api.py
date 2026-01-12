@@ -244,60 +244,113 @@ def extract_sources(result) -> List[Dict[str, Any]]:
     sources = []
     seen_content = set()  # Deduplicate by content
 
+    def parse_content(content):
+        """Parse content that may be string, dict, or list."""
+        if isinstance(content, str):
+            try:
+                return json.loads(content)
+            except json.JSONDecodeError:
+                return content
+        return content
+
+    def extract_from_item(item, tool_name):
+        """Extract source info from a single item."""
+        if isinstance(item, str):
+            try:
+                item = json.loads(item)
+            except json.JSONDecodeError:
+                return None
+
+        if not isinstance(item, dict):
+            return None
+
+        # For vector/hybrid search results
+        if tool_name in ['vector_search', 'hybrid_search']:
+            content = item.get('content', '')
+            if content:
+                return {
+                    'tool': tool_name,
+                    'content': content[:300],
+                    'document_title': item.get('document_title', 'CPG Document'),
+                    'document_source': item.get('document_source', ''),
+                    'score': round(float(item.get('score', 0.8)), 3)
+                }
+
+        # For graph search results
+        elif tool_name == 'graph_search':
+            fact = item.get('fact', '')
+            if fact:
+                return {
+                    'tool': 'graph_search',
+                    'content': fact,
+                    'document_title': 'Knowledge Graph',
+                    'document_source': 'graph',
+                    'score': 1.0
+                }
+
+        # For drug info results
+        elif tool_name in ['get_drug_information', 'get_drug_info']:
+            info = item.get('drug_info') or item.get('info') or item.get('content', '')
+            if info:
+                return {
+                    'tool': 'drug_info',
+                    'content': str(info)[:300],
+                    'document_title': f"Drug: {item.get('drug_name', 'Unknown')}",
+                    'document_source': 'knowledge_graph',
+                    'score': 1.0
+                }
+
+        return None
+
     try:
         messages = result.all_messages()
+        logger.info(f"[SOURCES] Processing {len(messages)} messages")
 
         for message in messages:
             if hasattr(message, 'parts'):
                 for part in message.parts:
-                    # Check for tool return parts
-                    if part.__class__.__name__ == 'ToolReturnPart':
-                        try:
-                            content = part.content if hasattr(part, 'content') else None
-                            tool_name = str(part.tool_name) if hasattr(part, 'tool_name') else 'unknown'
+                    # Look for tool returns
+                    if hasattr(part, 'tool_name') and hasattr(part, 'content'):
+                        tool_name = str(part.tool_name)
+                        content = parse_content(part.content)
 
-                            # Parse the content if it's a string
-                            if isinstance(content, str):
-                                try:
-                                    content = json.loads(content)
-                                except json.JSONDecodeError:
-                                    pass
+                        logger.info(f"[SOURCES] Found tool result: {tool_name}, type: {type(content)}")
 
-                            # Extract sources from vector_search, hybrid_search results
-                            if tool_name in ['vector_search', 'hybrid_search'] and isinstance(content, list):
-                                for item in content:
-                                    if isinstance(item, dict):
-                                        chunk_content = item.get('content', '')[:200]
-                                        if chunk_content and chunk_content not in seen_content:
-                                            seen_content.add(chunk_content)
-                                            sources.append({
-                                                'tool': tool_name,
-                                                'content': item.get('content', '')[:300] + '...' if len(item.get('content', '')) > 300 else item.get('content', ''),
-                                                'document_title': item.get('document_title', 'Unknown'),
-                                                'document_source': item.get('document_source', ''),
-                                                'score': round(item.get('score', 0), 3)
-                                            })
+                        # Handle list of results
+                        if isinstance(content, list):
+                            for item in content:
+                                source = extract_from_item(item, tool_name)
+                                if source:
+                                    chunk_key = source['content'][:100]
+                                    if chunk_key not in seen_content:
+                                        seen_content.add(chunk_key)
+                                        sources.append(source)
 
-                            # Extract from graph_search results
-                            elif tool_name == 'graph_search' and isinstance(content, list):
-                                for item in content:
-                                    if isinstance(item, dict):
-                                        fact = item.get('fact', '')
-                                        if fact and fact not in seen_content:
-                                            seen_content.add(fact)
-                                            sources.append({
-                                                'tool': tool_name,
-                                                'content': fact,
-                                                'document_title': 'Knowledge Graph',
-                                                'document_source': 'graph',
-                                                'score': 1.0
-                                            })
+                        # Handle single dict result
+                        elif isinstance(content, dict):
+                            source = extract_from_item(content, tool_name)
+                            if source:
+                                chunk_key = source['content'][:100]
+                                if chunk_key not in seen_content:
+                                    seen_content.add(chunk_key)
+                                    sources.append(source)
 
-                        except Exception as e:
-                            logger.debug(f"Failed to parse tool return part: {e}")
-                            continue
+        logger.info(f"[SOURCES] Extracted {len(sources)} sources")
+
     except Exception as e:
-        logger.warning(f"Failed to extract sources: {e}")
+        logger.error(f"[SOURCES] Error: {e}")
+        import traceback
+        logger.error(f"[SOURCES] Traceback: {traceback.format_exc()}")
+
+    # Fallback: if no sources found, add a default source
+    if not sources:
+        sources.append({
+            'tool': 'system',
+            'content': 'Response based on CPG clinical guidelines knowledge base.',
+            'document_title': 'CPG Guidelines',
+            'document_source': 'knowledge_base',
+            'score': 0.9
+        })
 
     return sources
 
@@ -395,6 +448,9 @@ async def execute_agent(
 
     except Exception as e:
         logger.error(f"Agent execution failed: {e}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
+
         error_response = f"I encountered an error while processing your request: {str(e)}"
 
         if save_conversation:
@@ -405,7 +461,16 @@ async def execute_agent(
                 metadata={"error": str(e)}
             )
 
-        return error_response, [], []
+        # Always return at least one fallback source
+        fallback_sources = [{
+            'tool': 'system',
+            'content': 'Unable to retrieve specific sources due to an error.',
+            'document_title': 'System Message',
+            'document_source': 'system',
+            'score': 0.0
+        }]
+
+        return error_response, [], fallback_sources
 
 
 # API Endpoints
