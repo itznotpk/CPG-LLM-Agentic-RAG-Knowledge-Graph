@@ -32,29 +32,29 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  USER: "What is the recommended initial dose for Sildenafil    │
+│  USER: "What is the recommended initial dose for Sildenafil     │
 │         and how long does its effect persist?"                  │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                    AGENTIC RAG SYSTEM                            │
-│                                                                  │
+│                    AGENTIC RAG SYSTEM                           │
+│                                                                 │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
 │  │ Agent decides│→ │ Queries Neo4j│→ │ Queries      │           │
 │  │ which tools  │  │ entity nodes │  │ Vector DB    │           │
 │  └──────────────┘  └──────────────┘  └──────────────┘           │
-│                              │                                   │
-│                              ▼                                   │
+│                              │                                  │
+│                              ▼                                  │
 │  ┌──────────────────────────────────────────────────────────┐   │
-│  │ Synthesizes answer from all sources                       │   │
+│  │ Synthesizes answer from all sources                      │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  RESPONSE: "The recommended initial dose for Sildenafil is     │
-│  50 mg, up to 100 mg. Sildenafil's effects can last up to      │
+│  RESPONSE: "The recommended initial dose for Sildenafil is      │
+│  50 mg, up to 100 mg. Sildenafil's effects can last up to       │
 │  12 hours."                                                     │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -74,7 +74,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│                           USER INTERFACES                             │
+│                           USER INTERFACES                            │
 ├────────────────┬────────────────┬────────────────────────────────────┤
 │   Web Frontend │    CLI (cli.py)│        Direct API                  │
 │   (port 8080)  │                │      (port 8058)                   │
@@ -82,21 +82,21 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
                               │
                               ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│                      FASTAPI BACKEND                                  │
-│                      (agent/api.py)                                   │
+│                      FASTAPI BACKEND                                 │
+│                      (agent/api.py)                                  │
 │  ┌────────────────────────────────────────────────────────────────┐  │
-│  │                    PYDANTIC AI AGENT                            │  │
+│  │                    PYDANTIC AI AGENT                           │  │
 │  │  • LLM: Gemini 2.0 Flash via OpenRouter                        │  │
-│  │  • System Prompt: Clinical ED Assistant                         │  │
-│  │  • Autonomous Tool Selection                                    │  │
+│  │  • System Prompt: Clinical ED Assistant                        │  │
+│  │  • Autonomous Tool Selection                                   │  │
 │  └────────────────────────────────────────────────────────────────┘  │
-│                              │                                        │
+│                              │                                       │
 │  ┌───────────────────────────┼───────────────────────────┐           │
 │  ▼                           ▼                           ▼           │
-│ ┌────────────┐   ┌────────────────────┐   ┌────────────────────┐    │
-│ │vector_search│   │get_drug_information│   │   graph_search     │    │
-│ │hybrid_search│   │get_algorithm_path  │   │entity_relationships│    │
-│ └────────────┘   └────────────────────┘   └────────────────────┘    │
+│ ┌────────────┐   ┌────────────────────┐   ┌────────────────────┐     │
+│ │vector_search│  │get_drug_information│   │   graph_search     │     │
+│ │hybrid_search│  │get_algorithm_path  │   │entity_relationships│     │
+│ └────────────┘   └────────────────────┘   └────────────────────┘     │
 └──────────────────────────────────────────────────────────────────────┘
           │                    │                        │
           ▼                    ▼                        ▼
@@ -138,17 +138,15 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 
 ## 📋 Features
 
-### Agent Tools (7 Dynamic Tools)
+### Agent Tools (5 Specialized Retrieval Tools)
 
 | Tool | Purpose | Data Source |
 |------|---------|-------------|
-| `vector_search` | Semantic similarity search | PostgreSQL |
-| `graph_search` | Knowledge graph facts | Neo4j |
-| `hybrid_search` | Vector + keyword combined | PostgreSQL |
-| `get_drug_information` | **Dynamic** drug info with entity summaries | Neo4j + PostgreSQL |
+| `vector_search` | Semantic similarity search (definitions, protocols) | PostgreSQL |
+| `graph_search` | Knowledge graph relationships (classifications, pathways) | Neo4j |
+| `hybrid_search` | Vector + keyword combined (specific drug+dose) | PostgreSQL |
+| `get_drug_information` | Multi-step drug info with entity summaries | Neo4j + PostgreSQL |
 | `get_algorithm_pathway` | Step-by-step algorithm navigation, next steps | Neo4j + PostgreSQL |
-| `get_entity_relationships` | Entity connections | Neo4j |
-| `get_chunk_with_parent_context` | Hierarchical context | PostgreSQL |
 
 ### Dynamic `get_drug_information` Tool
 
@@ -195,14 +193,16 @@ Returns:
 
 ### Agent Output Format
 
-The agent responds in a structured 4-section format:
+The agent responds in a structured **6-section care plan** format:
 
-| Section | Content |
-|---------|---------|
-| **1) Summary** | [Age]y [Sex] with [Diagnosis Type], Risk Factors, Classification |
-| **2) Medication Changes** | START/STOP/CHANGE/CONTRAINDICATED with doses |
-| **3) Patient Education** | Lifestyle, Drug instructions, Safety warnings |
-| **4) Monitoring & Next Steps** | Tests, Side effects, Follow-up, Red flags |
+| Section | Content | Primary Tool |
+|---------|---------|-------------|
+| **1) Summary** | Diagnosis classification, risk factors | `graph_search` |
+| **2) Medication Changes** | START/STOP/CHANGE with doses | `get_drug_information` + `hybrid_search` |
+| **3) Patient Education** | Lifestyle, drug instructions, warnings | `vector_search` |
+| **4) Monitoring & Next Steps** | Tests, side effects, red flags | `vector_search` + `get_algorithm_pathway` |
+| **5) Referrals** | When/which specialist, urgency | `graph_search` + `vector_search` |
+| **6) Follow-up** | Timeline, reassessment criteria | `vector_search` + `get_algorithm_pathway` |
 
 ### Entity Extraction (LLM-Based)
 
@@ -325,7 +325,7 @@ python cli.py
 
 ```bash
 cd frontend
-python main.py
+python run.py
 # Runs on http://localhost:8080
 ```
 
@@ -375,8 +375,7 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   ├── chunker.py        # Semantic chunking
 │   └── embedder.py       # Embedding generation
 ├── frontend/
-│   ├── main.py           # FastAPI frontend server
-│   └── run.py            # Frontend runner script
+│   └── run.py            # FastAPI frontend server
 ├── markdown/             # CPG markdown files
 │   ├── section-3-diagnosis.md
 │   ├── section-4-treatment.md
