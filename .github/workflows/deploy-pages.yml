@@ -96,5 +96,9 @@ jobs:
           echo "After merging to main, the site will be available at:" >> $GITHUB_STEP_SUMMARY
           echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Frontend files:**" >> $GITHUB_STEP_SUMMARY
-          ls -1 frontend/ | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY
+          if [ -d "frontend" ]; then
+            echo "**Frontend files:**" >> $GITHUB_STEP_SUMMARY
+            ls -1 frontend/ | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Note:** frontend/ directory not found" >> $GITHUB_STEP_SUMMARY
+          fi
