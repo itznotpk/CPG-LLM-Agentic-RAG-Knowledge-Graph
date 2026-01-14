@@ -16,14 +16,11 @@ from .tools import (
     vector_search_tool,
     graph_search_tool,
     hybrid_search_tool,
-    get_entity_relationships_tool,
     get_drug_info_tool,
     get_algorithm_pathway_tool,
-    get_chunk_with_context_tool,
     VectorSearchInput,
     GraphSearchInput,
     HybridSearchInput,
-    EntityRelationshipInput,
     DrugInteractionInput,
     AlgorithmPathwayInput
 )
@@ -177,34 +174,6 @@ async def hybrid_search(
     ]
 
 
-@rag_agent.tool
-async def get_entity_relationships(
-    ctx: RunContext[AgentDependencies],
-    entity_name: str,
-    depth: int = 2
-) -> Dict[str, Any]:
-    """
-    Get all relationships for a specific entity in the knowledge graph.
-    
-    This tool explores the knowledge graph to find how a specific entity
-    (company, person, technology) relates to other entities. Best for
-    understanding how companies or technologies relate to each other.
-    
-    Args:
-        entity_name: Name of the entity to explore (e.g., "Google", "OpenAI")
-        depth: Maximum traversal depth for relationships (1-5)
-    
-    Returns:
-        Entity relationships and connected entities with relationship types
-    """
-    input_data = EntityRelationshipInput(
-        entity_name=entity_name,
-        depth=depth
-    )
-    
-    return await get_entity_relationships_tool(input_data)
-
-
 # =============================================================================
 # DRUG AND TREATMENT TOOLS
 # =============================================================================
@@ -257,24 +226,3 @@ async def get_algorithm_pathway(
     """
     input_data = AlgorithmPathwayInput(current_step=current_step, condition=condition)
     return await get_algorithm_pathway_tool(input_data)
-
-
-@rag_agent.tool
-async def get_chunk_with_parent_context(
-    ctx: RunContext[AgentDependencies],
-    chunk_id: str
-) -> Dict[str, Any]:
-    """
-    Get a chunk with its parent section for full context.
-    
-    When vector search returns a chunk, use this to get the parent section
-    context. This helps understand what the recommendation belongs to
-    (e.g., the subsection it's under).
-    
-    Args:
-        chunk_id: UUID of the chunk from a previous search result
-    
-    Returns:
-        Chunk with parent content and full hierarchical context
-    """
-    return await get_chunk_with_context_tool(chunk_id)
