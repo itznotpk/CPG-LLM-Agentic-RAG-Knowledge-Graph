@@ -743,11 +743,11 @@ Psychosocial intervention plays a vital role in ED treatment as psychological an
 | **Combined Treatment** (Psych + PDE5i) | Superior to PDE5i or Psych intervention alone (Cohen's d=0.45, RR=2.26) | Level I |
 | **Internet-based interventions (IMIs)** | Small effect size (g=0.18) in improving sexual function | Level I |
 
-> **Note:** Combined treatment (PDE5i + Psychological intervention) consistently shows better efficacy than monotherapy for psychogenic or mixed ED.
+> **Note:** Combined treatment (PDE5i + Psychological intervention) consistently shows better efficacy than monotherapy for psychogenic or PDE5i alone.
 
 ### Recommendation 6
 
-- An integrated and collaborative approach with psychological interventions should be considered in the treatment of erectile dysfunction.
+Psychological interventions should be considered in the treatment of erectile dysfunction.
 
 ---
 

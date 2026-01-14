@@ -7,7 +7,7 @@ referenced_by: section-4-treatment, section-8-special-populations
 critical: true
 -->
 
-## A) Mechanical Treatment
+## Mechanical Treatment
 
 | Device | When/How to Apply | Precautions | Adverse Events |
 |--------|-------------------|-------------|----------------|
@@ -16,7 +16,7 @@ critical: true
 
 ---
 
-## B) Pharmacological Treatment (PDE5 Inhibitors)
+## Pharmacological Treatment (PDE5 Inhibitors)
 
 ### Sildenafil
 

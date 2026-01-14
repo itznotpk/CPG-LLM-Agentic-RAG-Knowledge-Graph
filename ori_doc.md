@@ -716,14 +716,15 @@ Psychosocial and sexual history is important for thorough and comprehensive asse
 - partner's sexual functioning (e.g. FSD)
 - life stressors and coping abilities
 - cognitive factors -
--  dysfunctional thinking style
--  expectations on sexuality and sexual performance, and treatment preferences
+- dysfunctional thinking style
+- expectations on sexuality and sexual performance, and treatment preferences
+
 - sexual related factors -
--  education
--  trauma
--  experience (e.g. masturbation, pornography usage)
--  cultural and religious aspects
--  gender dysphoria and sexual orientation
+- education
+- trauma
+- experience (e.g. masturbation, pornography usage)
+- cultural and religious aspects
+- gender dysphoria and sexual orientation
 - co-morbid sexual dysfunction (e.g. premature ejaculation)
 
 <!-- image -->
