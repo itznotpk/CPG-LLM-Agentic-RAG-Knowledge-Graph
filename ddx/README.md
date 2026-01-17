@@ -12,15 +12,22 @@
 | `data/ha00_sexual_dysfunctions.md` | ICD-11 codes source data |
 | `ingest_icd11.py` | Parse markdown → generate embeddings → insert to Neon |
 | `search_ddx.py` | Interactive CLI with Morbidity Tabulation Layer |
+| `migrate_inclusion_embeddings.py` | Add semantic matching for inclusions |
 
 ## Architecture
 
 ```
-Query → Vector Search (10 candidates) → Morbidity Tabulation Layer → Top 5
-                                              ↓
-                                   ✗ Remove if exclusion matches (NO list)
-                                   ✓ Boost if inclusion matches (YES list)
+Query → Normalize → Vector Search (10) → Tabulation Filter → Top 5
+              ↓                               ↓
+      Lowercase, strip          ✗ Exclusion match → REMOVE
+      punctuation               ✓ Inclusion match (semantic) → BOOST
 ```
+
+### Two-Stage Retrieval
+1. **Vector Similarity Search**: Embedding comparison for semantic matching
+2. **Morbidity Tabulation Layer**: ICD-11 coding rules enforcement
+   - **Exclusions**: Substring match → Remove candidate
+   - **Inclusions**: Semantic similarity > 70% → Boost ranking
 
 ## Quick Start
 
@@ -29,12 +36,17 @@ Query → Vector Search (10 candidates) → Morbidity Tabulation Layer → Top 5
 python ddx/ingest_icd11.py
 ```
 
-### 2. Run DDx Search (Interactive)
+### 2. Migrate Inclusion Embeddings (one-time)
+```bash
+python ddx/migrate_inclusion_embeddings.py
+```
+
+### 3. Run DDx Search (Interactive)
 ```bash
 python ddx/search_ddx.py
 ```
 
-### 3. Single Query
+### 4. Single Query
 ```bash
 python ddx/search_ddx.py "difficulty maintaining erection"
 ```
@@ -43,59 +55,56 @@ python ddx/search_ddx.py "difficulty maintaining erection"
 
 ## Test Cases
 
-### TC-01: Inclusion Match (Synonym Detection)
-**Query:** `impotence`  
-**Expected:** HA01.1 shows "✓ MATCH" with matched term "Impotence"
+### TC-01: Semantic Search (Vector Similarity)
+**Query:** `difficulty maintaining erection`  
+**Expected:** HA01.1 (Male erectile dysfunction) ranks #1 via semantic matching
 
-### TC-02: Direct Semantic Match
-**Query:** `difficulty achieving erection`  
-**Expected:** HA01.1 ranks high by similarity (no inclusion match)
+### TC-02: Inclusion Match (Semantic Similarity)
+**Query:** `psychological inability to reach orgasm`  
+**Expected:** HA02.0 with `[MATCH]` showing "Semantic match: Psychogenic anorgasmy (75.6%)"
 
-### TC-03: Female-Specific Query
-**Query:** `reduced vaginal lubrication during arousal`  
-**Expected:** HA01.0 (Female sexual arousal dysfunction) ranks high
-
-### TC-04: Inclusion Boost Demonstration
-**Query:** `inability to orgasm due to medication side effects`  
-**Expected:** HA02.0 boosted to #1 via inclusion match despite lower similarity
-
----
-
-## Test Results: TC-04 (Inclusion Boost)
-
-| Rank | Code | Similarity | Inclusion Match | Why Ranked Higher? |
-|------|------|------------|-----------------|---------------------|
-| #1 | HA02.0 | 60.9% | ✓ "Psychogenic anorgasmy" | Boosted by inclusion match |
-| #2 | HA02 | 69.4% | No | Higher similarity but no match |
-| #3 | HA02.Z | 68.9% | No | |
-| #4 | HA02.Y | 67.0% | No | |
-| #5 | HA01.Z | 62.4% | No | |
-
-**Key Observation:** HA02.0 ranked #1 despite having **lower similarity** (60.9%) than HA02 (69.4%) because it matched the inclusion term "Psychogenic anorgasmy". This demonstrates the boost logic is working correctly.
+### TC-03: Exclusion Filter
+**Query:** `male early ejaculation`  
+**Expected:** HA02 REMOVED from results (exclusion applies)
 
 ---
 
 ## Example Output
 
 ```
-══════════════════════════════════════════════════════════════════════
-  🏥  ICD-11 DIFFERENTIAL DIAGNOSIS ENGINE  🏥
-     Chapter 17: Conditions Related to Sexual Health
-══════════════════════════════════════════════════════════════════════
+🩺 Patient condition: psychological inability to reach orgasm
 
-🩺 Patient condition: inability to orgasm due to medication side effects
+🔍 Searching ICD-11 database...
 
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  🟡 #1  [HA02.0      ]  Anorgasmia                      ✓ MATCH │
-  │      Similarity: ███████░░░  60.9%                     │
-  │      ↳ Matched: "Psychogenic anorgasmy"                │
-  └──────────────────────────────────────────────────────────────────┘
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  📋 QUERY: psychological inability to reach orgasm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌────────┬────────────┬──────────────────────────────────────────┐
+  │ 🟠 #1  │ HA02.0     │ Anorgasmia                      [MATCH] │
+  ├────────────────────────────────────────────────────────────────┤
+  │Confidence:  69.1%                                              │
+  │ ↳ Semantic match: "Psychogenic anorgasmy" (75.6%)              │
+  │Anorgasmia is characterised by the absence or marked...         │
+  └────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Features
+
+### Query Preprocessing
+- **Normalization**: Lowercase, strip punctuation, collapse whitespace
+- **Validation**: Min 3 chars, max 500 chars, must contain letters
+
+### Semantic Inclusion Matching
+- Compares query embedding with pre-computed inclusion embeddings
+- Threshold: 70% similarity for match
+- Shows match percentage in results
 
 ---
 
 ## Database
 - **Table**: `icd11_codes` in Neon (PostgreSQL + pgvector)
-- **Embedding**: Title + Description + Inclusions → 768d vector
-- **Stored but not embedded**: Exclusions, Parent, Chapter (for filtering)
+- **Columns**: code, title, description, inclusions, exclusions, inclusion_embeddings, embedding
 - **Does NOT modify** any other tables

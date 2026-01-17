@@ -19,6 +19,62 @@ load_dotenv()
 
 import asyncpg
 from agent.providers import get_embedding_client, get_embedding_model
+import re
+
+
+def normalize_query(query: str) -> str:
+    """
+    Normalize user query for consistent embedding results.
+    
+    Preprocessing:
+    - Strip leading/trailing whitespace
+    - Remove trailing punctuation (.,!?;:)
+    - Collapse multiple spaces to single space
+    - Convert to lowercase
+    - Remove special characters except hyphens and apostrophes
+    """
+    if not query:
+        return ""
+    
+    # Strip whitespace
+    query = query.strip()
+    
+    # Remove trailing punctuation
+    query = query.rstrip('.,!?;:')
+    
+    # Collapse multiple spaces
+    query = re.sub(r'\s+', ' ', query)
+    
+    # Remove special characters (keep alphanumeric, spaces, hyphens, apostrophes)
+    query = re.sub(r"[^\w\s\-']", '', query)
+    
+    # Lowercase
+    query = query.lower()
+    
+    return query
+
+
+def validate_query(query: str) -> tuple[bool, str]:
+    """
+    Validate query before processing.
+    
+    Returns:
+        (is_valid, error_message)
+    """
+    if not query:
+        return False, "Query cannot be empty"
+    
+    if len(query) < 3:
+        return False, "Query too short (minimum 3 characters)"
+    
+    if len(query) > 500:
+        return False, "Query too long (maximum 500 characters)"
+    
+    # Check if query has meaningful content (at least one letter)
+    if not re.search(r'[a-zA-Z]', query):
+        return False, "Query must contain at least one letter"
+    
+    return True, ""
 
 
 async def generate_embedding(text: str) -> list[float]:
@@ -32,28 +88,44 @@ async def generate_embedding(text: str) -> list[float]:
     return response.data[0].embedding
 
 
-def apply_tabulation_filter(
+import numpy as np
+
+def cosine_similarity(vec1: list[float], vec2: list[float]) -> float:
+    """Calculate cosine similarity between two vectors."""
+    a = np.array(vec1)
+    b = np.array(vec2)
+    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
+
+
+async def apply_tabulation_filter(
     candidates: list[dict],
-    query_symptoms: str
+    query_symptoms: str,
+    query_embedding: list[float],
+    inclusion_threshold: float = 0.70
 ) -> list[dict]:
     """
     Apply Morbidity Tabulation Layer filter to candidates.
     
     Rules:
-    - REMOVE if query matches any Exclusion (NO list) - strict boundary
-    - BOOST if query matches any Inclusion (YES list) - synonym match
+    - REMOVE if query matches any Exclusion (NO list) - substring match (strict)
+    - BOOST if query embedding is similar to Inclusion embedding (semantic match)
+    
+    Args:
+        candidates: List of ICD-11 code candidates from vector search
+        query_symptoms: Original query text (for exclusion check)
+        query_embedding: Pre-computed embedding of query (for inclusion check)
+        inclusion_threshold: Minimum similarity for inclusion match (default 0.70)
     """
     filtered = []
     query_lower = query_symptoms.lower()
     query_words = set(query_lower.split())
     
     for candidate in candidates:
-        # Check NO list first (strict removal)
+        # Check NO list first (strict removal - substring match)
         exclusions = candidate.get("exclusions") or []
         excluded = False
         for exc in exclusions:
             exc_lower = exc.lower()
-            # Check if exclusion term appears in query
             if exc_lower in query_lower or any(word in exc_lower for word in query_words if len(word) > 3):
                 excluded = True
                 candidate["filter_reason"] = f"Excluded: {exc}"
@@ -62,24 +134,44 @@ def apply_tabulation_filter(
         if excluded:
             continue  # Skip this candidate
         
-        # Check YES list (boost confidence if synonym matches)
-        inclusions = candidate.get("inclusions") or []
+        # Check YES list using SEMANTIC SIMILARITY
+        inclusion_embeddings = candidate.get("inclusion_embeddings") or {}
         inclusion_match = False
         matched_inclusion = None
-        for inc in inclusions:
-            inc_lower = inc.lower()
-            if inc_lower in query_lower or any(word in inc_lower for word in query_words if len(word) > 3):
-                inclusion_match = True
-                matched_inclusion = inc
-                break
+        match_similarity = 0.0
+        
+        if inclusion_embeddings and query_embedding:
+            for inc_text, inc_emb in inclusion_embeddings.items():
+                if inc_emb:
+                    sim = cosine_similarity(query_embedding, inc_emb)
+                    if sim > inclusion_threshold and sim > match_similarity:
+                        inclusion_match = True
+                        matched_inclusion = inc_text
+                        match_similarity = sim
+        
+        # Fallback to substring matching if no embeddings available
+        if not inclusion_match and not inclusion_embeddings:
+            inclusions = candidate.get("inclusions") or []
+            for inc in inclusions:
+                inc_lower = inc.lower()
+                if inc_lower in query_lower or any(word in inc_lower for word in query_words if len(word) > 3):
+                    inclusion_match = True
+                    matched_inclusion = inc
+                    match_similarity = 0.5  # Lower confidence for substring match
+                    break
         
         candidate["inclusion_match"] = inclusion_match
         candidate["matched_term"] = matched_inclusion
+        candidate["inclusion_similarity"] = round(match_similarity, 3) if match_similarity else None
         filtered.append(candidate)
     
-    # Sort: inclusion matches first, then by similarity descending
+    # Sort: inclusion matches first (by inclusion similarity), then by vector similarity
     filtered.sort(
-        key=lambda x: (not x.get("inclusion_match", False), -x["similarity"])
+        key=lambda x: (
+            not x.get("inclusion_match", False),
+            -(x.get("inclusion_similarity") or 0),
+            -x["similarity"]
+        )
     )
     
     return filtered
@@ -99,11 +191,25 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
     
     Returns:
         List of ICD-11 code suggestions with similarity scores
+    
+    Raises:
+        ValueError: If query is invalid
     """
+    # Validate query
+    is_valid, error_msg = validate_query(symptoms)
+    if not is_valid:
+        raise ValueError(f"Invalid query: {error_msg}")
+    
+    # Normalize query for consistent embeddings
+    normalized_symptoms = normalize_query(symptoms)
+    
     database_url = os.getenv("DATABASE_URL")
     
-    # Generate embedding for symptoms
-    embedding = await generate_embedding(symptoms)
+    # Generate embedding for normalized symptoms
+    try:
+        embedding = await generate_embedding(normalized_symptoms)
+    except Exception as e:
+        raise RuntimeError(f"Failed to generate embedding: {e}")
 
     if not database_url:
         print("\n⚠️  WARNING: DATABASE_URL not set. Running in MOCK/DEMO mode.")
@@ -156,7 +262,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
         
         # Apply the ACTUAL Morbidity Tabulation Layer logic to these mock candidates
         print("    [Mock] applying tabulation filter logic...")
-        filtered = apply_tabulation_filter(mock_candidates, symptoms)
+        filtered = await apply_tabulation_filter(mock_candidates, normalized_symptoms, embedding)
         
         # Format for output (ensure description length, etc)
         suggestions = []
@@ -186,6 +292,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 description,
                 inclusions,
                 exclusions,
+                inclusion_embeddings,
                 1 - (embedding <=> $1::vector) AS similarity
             FROM icd11_codes
             WHERE embedding IS NOT NULL
@@ -195,17 +302,25 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
         
         candidates = []
         for row in results:
+            # Parse inclusion_embeddings from JSONB
+            inc_emb_raw = row["inclusion_embeddings"]
+            inc_emb = {}
+            if inc_emb_raw:
+                import json
+                inc_emb = json.loads(inc_emb_raw) if isinstance(inc_emb_raw, str) else inc_emb_raw
+            
             candidates.append({
                 "code": row["code"],
                 "title": row["title"],
                 "description": row["description"],
                 "inclusions": row["inclusions"],
                 "exclusions": row["exclusions"],
+                "inclusion_embeddings": inc_emb,
                 "similarity": round(float(row["similarity"]), 4)
             })
         
-        # Apply Morbidity Tabulation Layer filter
-        filtered = apply_tabulation_filter(candidates, symptoms)
+        # Apply Morbidity Tabulation Layer filter with semantic matching
+        filtered = await apply_tabulation_filter(candidates, normalized_symptoms, embedding)
         
         # Prepare final suggestions (limit to top_k)
         suggestions = []
@@ -217,7 +332,8 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "description": desc[:200] + "..." if len(desc) > 200 else desc,
                 "similarity": item["similarity"],
                 "inclusion_match": item.get("inclusion_match", False),
-                "matched_term": item.get("matched_term")
+                "matched_term": item.get("matched_term"),
+                "inclusion_similarity": item.get("inclusion_similarity")
             })
         
         return suggestions
@@ -313,7 +429,11 @@ def print_results(symptoms: str, suggestions: list[dict]):
         
         # 2. Matched Term
         if s.get('matched_term'):
-             term_raw = f" ↳ Term found: \"{s['matched_term']}\""
+             inc_sim = s.get('inclusion_similarity')
+             if inc_sim:
+                 term_raw = f" ↳ Semantic match: \"{s['matched_term']}\" ({inc_sim*100:.1f}%)"
+             else:
+                 term_raw = f" ↳ Substring match: \"{s['matched_term']}\""
              pad = TOTAL_W - len(term_raw)
              print(f"  │{term_raw}{' ' * max(0, pad)}│")
 
