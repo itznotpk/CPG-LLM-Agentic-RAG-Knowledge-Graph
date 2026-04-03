@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=C:\Users\zhchua\Documents\CPG-LLM-Agentic-RAG-Knowledge-Graph\venv_docling"
+set "VIRTUAL_ENV=C:\Users\zhchua\Documents\Project (Comp)\CPG-LLM-Agentic-RAG-Knowledge-Graph\venv_docling"
 
 if not defined PROMPT set PROMPT=$P$G
 
