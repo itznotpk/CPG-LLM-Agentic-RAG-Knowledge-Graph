@@ -11,7 +11,7 @@ Features:
 import argparse
 import logging
 from pathlib import Path
-from docling.document_converter import DocumentConverter
+from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.pipeline_options import PdfPipelineOptions
 from docling.datamodel.base_models import InputFormat
 
@@ -31,7 +31,7 @@ def create_converter(do_ocr: bool = True, do_table_structure: bool = True) -> Do
     
     converter = DocumentConverter(
         format_options={
-            InputFormat.PDF: pipeline_options
+            InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
         }
     )
     logger.info(f"Converter initialized (OCR: {do_ocr}, Table Structure: {do_table_structure})")
