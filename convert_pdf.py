@@ -11,7 +11,7 @@ Features:
 import argparse
 import logging
 from pathlib import Path
-from docling.document_converter import DocumentConverter
+from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.pipeline_options import PdfPipelineOptions
 from docling.datamodel.base_models import InputFormat
 
@@ -25,16 +25,21 @@ logger = logging.getLogger(__name__)
 
 def create_converter(do_ocr: bool = True, do_table_structure: bool = True) -> DocumentConverter:
     """Create a configured DocumentConverter instance."""
+    from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
+    
     pipeline_options = PdfPipelineOptions()
     pipeline_options.do_ocr = do_ocr
     pipeline_options.do_table_structure = do_table_structure
     
     converter = DocumentConverter(
         format_options={
-            InputFormat.PDF: pipeline_options
+            InputFormat.PDF: PdfFormatOption(
+                pipeline_options=pipeline_options,
+                backend=PyPdfiumDocumentBackend
+            )
         }
     )
-    logger.info(f"Converter initialized (OCR: {do_ocr}, Table Structure: {do_table_structure})")
+    logger.info(f"Converter initialized (OCR: {do_ocr}, Table Structure: {do_table_structure}) using PyPdfiumDocumentBackend")
     return converter
 
 

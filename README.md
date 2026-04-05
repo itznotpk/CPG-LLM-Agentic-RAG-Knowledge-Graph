@@ -331,6 +331,26 @@ python run.py
 
 Open browser to `http://localhost:8080` for the web interface.
 
+### ICD-11 DDx Engine (Prototype)
+
+```bash
+# Ingest ICD-11 codes
+python ddx/ingest_icd11.py
+
+# Migrate inclusion embeddings (one-time, for semantic matching)
+python ddx/migrate_inclusion_embeddings.py
+
+# Interactive differential diagnosis search
+python ddx/search_ddx.py
+```
+
+The DDx Engine features:
+- **Two-stage retrieval**: Vector search + Morbidity Tabulation Layer
+- **Semantic inclusion matching**: Compares query to inclusion synonyms
+- **Query normalization**: Handles typos, punctuation, casing
+
+See [ddx/README.md](ddx/README.md) for details.
+
 ---
 
 ## 💬 Example Queries
@@ -385,6 +405,12 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   ├── section-8-special-populations.md
 │   ├── section-9-implementation.md
 │   └── appendix-6-treatment.md
+├── ddx/                  # ICD-11 Differential Diagnosis Engine
+│   ├── data/             # ICD-11 code markdown files
+│   ├── ingest_icd11.py   # ICD-11 ingestion script
+│   ├── search_ddx.py     # DDx search with semantic matching
+│   ├── migrate_inclusion_embeddings.py  # Inclusion embeddings migration
+│   └── README.md         # DDx module documentation
 ├── sql/
 │   └── schema.sql        # Database schema
 ├── cli.py                # Command-line interface
