@@ -39,6 +39,7 @@ deactivate () {
 deactivate nondestructive
 
 # on Windows, a path can contain colons and backslashes and has to be converted:
+<<<<<<< HEAD
 if [ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ] ; then
     # transform D:\path\to\venv to /d/path/to/venv on MSYS
     # and to /cygdrive/d/path/to/venv on Cygwin
@@ -47,6 +48,20 @@ else
     # use the path as-is
     export VIRTUAL_ENV="C:\Documents\CPG\CPG markdown\CPG-LLM-Agentic-RAG-Knowledge-Graph-main\venv_docling"
 fi
+=======
+case "$(uname)" in
+    CYGWIN*|MSYS*|MINGW*)
+        # transform D:\path\to\venv to /d/path/to/venv on MSYS and MINGW
+        # and to /cygdrive/d/path/to/venv on Cygwin
+        VIRTUAL_ENV=$(cygpath 'C:\Users\zhchua\Documents\Project (Comp)\CPG-LLM-Agentic-RAG-Knowledge-Graph\venv_docling')
+        export VIRTUAL_ENV
+        ;;
+    *)
+        # use the path as-is
+        export VIRTUAL_ENV='C:\Users\zhchua\Documents\Project (Comp)\CPG-LLM-Agentic-RAG-Knowledge-Graph\venv_docling'
+        ;;
+esac
+>>>>>>> 2e9de29bdf74acd2f9dd4619219228284fa28a16
 
 _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/Scripts:$PATH"
