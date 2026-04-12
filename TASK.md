@@ -1,0 +1,311 @@
+# Task List - CPG Agentic RAG with Knowledge Graph
+
+## Overview
+This document tracks all tasks for building the CPG (Clinical Practice Guidelines) Agentic RAG system with knowledge graph capabilities for the Malaysia ED Treatment Guidelines.
+
+---
+
+## Phase 1: Foundation & Setup ✅
+
+### Database Setup
+- [x] Create Neon PostgreSQL database with pgvector
+- [x] Create Neo4j Aura instance
+- [x] Set up database schema with CPG columns
+- [x] Create connection utilities
+
+### Environment Configuration
+- [x] Configure OpenRouter for LLM (Gemini)
+- [x] Configure Gemini for embeddings (768 dimensions)
+- [x] Set up environment variables
+- [x] Test connectivity to all services
+
+---
+
+## Phase 2: CPG Enhancement ✅
+
+### Step 1: Structural PDF Parsing
+- [x] Create `cpg_parser.py` with hierarchical parsing
+- [x] Detect headers by font size and boldness
+- [x] Maintain section hierarchy (Section → Subsection → Content)
+- [x] Add `parent_chunk_id` for chunk relationships
+
+### Step 2: Metadata Extraction
+- [x] Create `CPGMetadataExtractor` class
+- [x] Extract evidence levels (Level I, II, III)
+- [x] Extract grades (Grade A, B, C)
+- [x] Identify target populations (Diabetes, Cardiac, Elderly)
+- [x] Classify categories (Diagnosis, Treatment, Referral)
+- [x] Flag recommendations, tables, algorithms
+
+### Step 3: Table & Algorithm Handling
+- [x] Table extraction with bounding boxes
+- [x] Convert tables to structured JSON
+- [x] Vision LLM integration for flowchart description
+- [x] Preserve table headers and rows
+
+### Step 4: Knowledge Graph Relationships
+- [x] Define 7 medical entity categories in `graph_builder.py`
+- [x] Implement relationship extraction (TREATS, CONTRAINDICATED_WITH, etc.)
+- [x] Add keyword-based entity detection
+- [x] Integrate with Graphiti for graph storage
+
+### Step 5: Database Schema Updates
+- [x] Add CPG columns to `chunks` table in `schema.sql`
+- [x] Create `cpg_filtered_search()` function
+- [x] Create `get_chunk_with_parent_context()` function
+- [x] Create `get_grade_a_recommendations()` function
+
+---
+
+## Phase 3: Agent Tools ✅
+
+### Core Search Tools
+- [x] `vector_search` - Semantic similarity search
+- [x] `graph_search` - Knowledge graph facts
+- [x] `hybrid_search` - Vector + keyword combined
+
+### CPG-Specific Tools
+- [x] `cpg_filtered_search` - Filter by grade/population/category
+- [x] `get_grade_a_recommendations` - Highest evidence only
+- [x] `get_drug_information` - Contraindications, dosages, side effects
+- [x] `get_treatment_recommendations` - Treatments by condition
+- [x] `get_chunk_with_parent_context` - Hierarchical context
+
+### Entity Tools
+- [x] `get_entity_relationships` - Entity connections in graph
+- [x] `get_entity_timeline` - Temporal facts
+
+### Document Tools
+- [x] `get_document` - Full document retrieval
+- [x] `list_documents` - Available documents
+
+---
+
+## Phase 4: System Prompt ✅
+
+### Clinical Decision Support Prompt
+- [x] Define role as CPG clinical assistant
+- [x] List medical entity types
+- [x] Document tool usage guidance
+- [x] Add example clinical queries
+- [x] Include evidence grade citation instructions
+- [x] Add disclaimer for clinical use
+
+---
+
+## Phase 5: Ingestion Pipeline ✅
+
+### Pipeline Integration
+- [x] Add `use_cpg_parser` flag to ingest.py
+- [x] Create `_ingest_cpg_pdf()` method
+- [x] Create `_save_cpg_to_postgres()` with CPG columns
+- [x] Add entity extraction to chunks
+- [x] Integrate with graph builder
+
+### Debug Output
+- [x] Add `save_processed` flag
+- [x] Save markdown to `documents/_processed/{name}.md`
+- [x] Save chunks JSON to `documents/_processed/{name}_chunks.json`
+- [x] Save structure summary to `documents/_processed/{name}_structure.json`
+
+---
+
+## Phase 6: Testing ✅
+
+### Trial Ingestion
+- [x] Test with 10-page trial PDF (pages 1-10)
+- [x] Verify chunks are created in PostgreSQL
+- [x] Verify entities are extracted
+- [x] Verify graph nodes are created in Neo4j
+- [x] Test CLI with sample queries
+
+---
+
+## Phase 7: Cleanup ✅
+
+### Remove Old Tech References
+- [x] Update README.md to CPG focus
+- [x] Update PLANNING.md to CPG focus
+- [x] Update TASK.md to CPG focus
+- [x] Remove `SimpleEntityExtractor` with old tech patterns
+- [x] Update `main()` example in graph_builder.py
+- [x] Update requirements.txt with organized dependencies (2026-01-07)
+
+---
+
+## Phase 8: Validation & Testing (IN PROGRESS)
+
+### Full CPG Ingestion
+- [ ] Ingest complete Malaysia ED CPG PDF (full document, not just 10 pages)
+- [ ] Verify all sections are parsed correctly
+- [ ] Validate metadata extraction accuracy (evidence levels, grades)
+- [ ] Test with documents containing complex tables and algorithms
+
+### Tool Validation
+- [ ] Test `vector_search` with various clinical queries
+- [ ] Test `graph_search` for entity relationships
+- [ ] Test `hybrid_search` combined results
+- [ ] Test `cpg_filtered_search` with grade/population filters
+- [ ] Test `get_grade_a_recommendations` returns correct recommendations
+- [ ] Test `get_drug_information` for all PDE5 inhibitors
+- [ ] Test `get_treatment_recommendations` by condition
+- [ ] Test `get_chunk_with_parent_context` hierarchical retrieval
+- [ ] Test `get_entity_relationships` in Neo4j
+- [ ] Test `get_entity_timeline` temporal facts
+- [ ] Test `get_document` and `list_documents`
+
+### Data Structure Validation
+- [ ] Verify vector DB embeddings are correct (768 dimensions)
+- [ ] Verify knowledge graph entities are properly linked
+- [ ] Verify CPG metadata columns are populated
+
+---
+
+## Phase 9: Local LLM Support (TODO)
+
+### Ollama Integration
+- [ ] Add Ollama provider to `providers.py`
+- [ ] Configure local model selection (llama3, mistral, etc.)
+- [ ] Test with local embeddings (nomic-embed-text)
+- [ ] Update .env.example with Ollama configuration
+- [ ] Document offline usage in README
+
+---
+
+## Phase 10: Chunk Verifier Agent (TODO)
+
+> **Architecture:** Tool-Level Verification (Option A)
+> **Purpose:** Add a verifier agent that checks whether retrieved chunks are relevant to the user query before sending to main LLM for synthesis.
+> **Added:** 2026-01-07
+
+### Step 1: Create Pydantic Models
+- [ ] Add `VerificationResult` model to `agent/models.py`
+  - Fields: `chunk_id`, `is_relevant`, `relevance_score` (0-1), `reasoning`, `verification_time_ms`
+
+### Step 2: Add Verification Prompt
+- [ ] Add `VERIFICATION_PROMPT` to `agent/prompts.py`
+  - Template with query and chunk content placeholders
+  - JSON output format: `{"is_relevant": bool, "score": float, "reason": str}`
+  - Scoring rubric (1.0 = directly answers, 0.0 = irrelevant)
+
+### Step 3: Add Provider Configuration
+- [ ] Add `get_verification_model()` to `agent/providers.py`
+  - Use faster/cheaper model (e.g., `gemini-2.0-flash-lite`)
+  - Falls back to main LLM if not configured
+- [ ] Add `get_verification_config()` to `agent/providers.py`
+  - Returns: `enabled`, `threshold`, `max_chunks`
+
+### Step 4: Create Verifier Module (NEW FILE)
+- [ ] Create `agent/verifier.py` (~120 lines)
+- [ ] Implement `ChunkVerifier` class with:
+  - [ ] `verify_chunks(query, chunks, threshold)` - Main verification method
+  - [ ] `_verify_single_chunk(query, chunk)` - Single chunk verification via LLM
+  - [ ] `verify_batch(query, chunks)` - Parallel verification (asyncio.gather)
+- [ ] Implement `get_verifier()` singleton function
+- [ ] Add chunk content truncation (500 chars) for cost efficiency
+- [ ] Return both filtered chunks AND verification metadata
+
+### Step 5: Integrate with Retrieval Tools
+- [ ] Modify `vector_search_tool()` in `agent/tools.py`
+  - Fetch more chunks initially (top_k * 1.5)
+  - Add verification step if `ENABLE_CHUNK_VERIFICATION=true`
+  - Filter chunks below threshold
+  - Log verification results
+- [ ] Modify `hybrid_search_tool()` in `agent/tools.py`
+  - Same pattern as vector_search_tool
+
+### Step 6: Environment Configuration
+- [ ] Add to `.env.example`:
+  ```
+  ENABLE_CHUNK_VERIFICATION=false
+  VERIFICATION_MODEL=google/gemini-2.0-flash-lite-001
+  VERIFICATION_THRESHOLD=0.6
+  VERIFICATION_MAX_CHUNKS=10
+  ```
+
+### Step 7: Unit Tests
+- [ ] Create `tests/agent/test_verifier.py`
+  - [ ] `test_verify_relevant_chunk` - Relevant chunks pass
+  - [ ] `test_verify_irrelevant_chunk` - Irrelevant chunks filtered
+  - [ ] `test_threshold_filtering` - Threshold logic works
+  - [ ] `test_verification_disabled` - Bypass when disabled
+  - [ ] `test_batch_verification` - Parallel processing works
+
+### Step 8: Documentation
+- [ ] Update `PLANNING.md` with verifier architecture diagram
+- [ ] Update `README.md` with verification configuration section
+- [ ] Add inline comments explaining verification flow
+
+### Expected Outcomes
+| Metric | Expected |
+|--------|----------|
+| Latency increase | +300-800ms per query |
+| API cost increase | ~1.5x (mitigated by using cheaper model) |
+| Precision improvement | Higher (fewer irrelevant chunks) |
+| Hallucination reduction | Significant |
+
+### Files Affected Summary
+| Action | File | Lines |
+|--------|------|-------|
+| CREATE | `agent/verifier.py` | ~120 |
+| CREATE | `tests/agent/test_verifier.py` | ~80 |
+| MODIFY | `agent/models.py` | +20 |
+| MODIFY | `agent/prompts.py` | +25 |
+| MODIFY | `agent/providers.py` | +20 |
+| MODIFY | `agent/tools.py` | +40 |
+
+---
+
+## Phase 11: UI Integration (TODO)
+
+### Replace CLI with Web UI
+- [ ] Choose framework (Streamlit, Gradio, or custom React)
+- [ ] Design clinical query interface
+- [ ] Implement streaming response display
+- [ ] Add tool usage visualization
+- [ ] Add source/evidence citation display
+- [ ] Deploy to cloud (optional)
+
+---
+
+## Current Status
+
+**Completed:** Phases 1-7 (Foundation, CPG Enhancement, Agent Tools, System Prompt, Pipeline, Testing, Cleanup)
+
+**In Progress:** Phase 8 - Validation & Testing
+
+**Next:** Phase 9 (Ollama) → Phase 10 (Reflector) → Phase 11 (UI)
+
+---
+
+## Discovered During Work (2026-01-07)
+- requirements.txt was missing `pymupdf` and `pymupdf4llm` packages
+- Old requirements had many unnecessary transitive dependencies
+- Cleaned up and organized requirements.txt with categories
+
+---
+
+## Quick Reference
+
+### CLI Commands
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Ingest CPG documents
+python -m ingestion.ingest --clean -v
+
+# Run CLI agent
+python cli.py
+
+# Run API server
+python api.py
+```
+
+### Example Queries
+```
+What is the first-line treatment for ED?
+Give me Grade A recommendations
+What are contraindications for Sildenafil?
+How is ED diagnosed in diabetic patients?
+```

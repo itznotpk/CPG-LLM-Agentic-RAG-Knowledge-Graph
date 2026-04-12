@@ -1,0 +1,91 @@
+# ============================================
+# CPG Agentic RAG with Knowledge Graph
+# Requirements - Updated: April 2026
+# ============================================
+
+# ------------------------------------------
+# Core Agent Framework
+# ------------------------------------------
+pydantic>=2.11.0
+pydantic-ai>=0.3.2
+pydantic-ai-slim>=0.3.2
+pydantic-settings>=2.10.0
+
+# ------------------------------------------
+# LLM Providers
+# ------------------------------------------
+openai>=1.90.0              # OpenAI-compatible API client (used for OpenRouter & Gemini)
+anthropic>=0.54.0           # Anthropic Claude (optional)
+groq>=0.28.0                # Groq (optional)
+mistralai>=1.8.2            # Mistral (optional)
+cohere>=5.15.0              # Cohere (optional)
+
+# ------------------------------------------
+# Vector Database (PostgreSQL + pgvector)
+# ------------------------------------------
+asyncpg>=0.30.0             # Async PostgreSQL driver
+psycopg2-binary>=2.9.9      # PostgreSQL driver (sync, for migrations)
+
+# ------------------------------------------
+# Knowledge Graph (Neo4j + Graphiti)
+# ------------------------------------------
+neo4j>=5.28.0               # Neo4j driver
+graphiti-core>=0.12.4       # Graphiti temporal knowledge graph
+
+# ------------------------------------------
+# PDF Processing (CPG Document Parsing)
+# ------------------------------------------
+pymupdf>=1.25.0             # PyMuPDF (fitz) - PDF parsing
+pymupdf4llm>=0.0.17         # PDF to Markdown conversion
+
+# ------------------------------------------
+# API & Web Framework
+# ------------------------------------------
+fastapi>=0.115.0            # FastAPI framework
+uvicorn>=0.34.0             # ASGI server
+starlette>=0.46.0           # Starlette (FastAPI dependency)
+sse-starlette>=2.3.0        # Server-Sent Events for streaming
+python-multipart>=0.0.20    # File uploads
+
+# ------------------------------------------
+# HTTP Clients
+# ------------------------------------------
+httpx>=0.28.0               # Async HTTP client
+aiohttp>=3.12.0             # Async HTTP client (for CLI)
+requests>=2.32.0            # Sync HTTP client
+
+# ------------------------------------------
+# Environment & Configuration
+# ------------------------------------------
+python-dotenv>=1.1.0        # .env file loading
+
+# ------------------------------------------
+# Data Processing
+# ------------------------------------------
+numpy>=2.0.0                # Numerical processing
+tokenizers>=0.21.0          # Tokenization
+
+# ------------------------------------------
+# CLI & User Interface
+# ------------------------------------------
+rich>=14.0.0                # Rich terminal output
+prompt_toolkit>=3.0.50      # Interactive CLI
+colorama>=0.4.6             # Terminal colors (Windows)
+
+# ------------------------------------------
+# Testing
+# ------------------------------------------
+pytest>=8.4.0               # Testing framework
+pytest-asyncio>=1.0.0       # Async test support
+
+# ------------------------------------------
+# Utilities
+# ------------------------------------------
+tqdm>=4.67.0                # Progress bars
+PyYAML>=6.0.0               # YAML parsing
+python-dateutil>=2.9.0      # Date utilities
+
+# ------------------------------------------
+# PDF to Markdown Conversion (Optional)
+# ------------------------------------------
+docling>=2.0.0              # PDF to Markdown (requires Python 3.12)
