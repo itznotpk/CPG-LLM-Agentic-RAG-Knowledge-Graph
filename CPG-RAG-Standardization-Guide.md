@@ -55,9 +55,6 @@ Step 7: Final Scan & Validation
 
 Open the appendix file (e.g. `section-8-appendices.md`) and verify:
 - All Appendix tables match the source PDF verbatim
-- The **Grades of Recommendation** table is present and complete
-- The **Levels of Evidence** table is present and complete
-- The master **Abbreviations** list is comprehensive
 
 This is your **single source of truth** for overlap content.
 
