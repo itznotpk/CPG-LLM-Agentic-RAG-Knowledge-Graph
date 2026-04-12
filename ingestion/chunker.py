@@ -62,9 +62,11 @@ class MarkdownChunker:
         """Initialize markdown chunker."""
         self.config = config or ChunkingConfig()
         
-        # Only split on H1 (#) - keeps all subsections together
+        # Split on H1, H2, H3 to isolate clinical topics and recommendations
         self.headers_to_split_on = [
             ("#", "doc_title"),
+            ("##", "section"),
+            ("###", "subsection")
         ]
         
         self.splitter = MarkdownHeaderTextSplitter(
@@ -126,12 +128,38 @@ class MarkdownChunker:
                 start_pos = current_pos
             end_pos = start_pos + len(chunk_content)
             
+            # Extract Evidence Grade and Level tags
+            grades = []
+            levels = []
+            for match in re.finditer(r'\[Grade\s+(I{1,3}[-]?[a-c]?),\s*Level\s+([A-D])\]', chunk_content, re.IGNORECASE):
+                grade_val = match.group(1).upper()
+                level_val = match.group(2).upper()
+                if grade_val not in grades:
+                    grades.append(grade_val)
+                if level_val not in levels:
+                    levels.append(level_val)
+            
+            # Calculate parent relationship from headers
+            parent_id = None
+            chunk_type = "parent"
+            if "subsection" in doc.metadata:
+                chunk_type = "child"
+                parent_id = doc.metadata.get("section") or doc.metadata.get("doc_title")
+            elif "section" in doc.metadata:
+                chunk_type = "mid"
+                parent_id = doc.metadata.get("doc_title")
+            
             chunk_metadata = {
                 **base_metadata,
                 "context_path": context_path,
                 "total_chunks": len(docs),
+                "chunk_type": chunk_type,
+                "parent_header": parent_id,
                 **doc.metadata
             }
+            if grades and levels:
+                chunk_metadata["evidence_grades"] = grades
+                chunk_metadata["evidence_levels"] = levels
             
             chunks.append(DocumentChunk(
                 content=chunk_content.strip(),
