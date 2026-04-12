@@ -7,6 +7,10 @@ patient_input: Current and past medical history, medication review, allergies
 output: Patient readiness for surgery, documented consultation, informed consent
 -->
 
+> **Context:** This section covers pre-anaesthetic consultation requirements, including timing, elements of consultation (history, examination, investigations, anaesthetic plan), informed consent, and documentation.
+
+---
+
 ## Key Points for Section 8
 
 1. **Pre-anaesthetic consultation assesses and ensures the patient is optimised before surgery.**
@@ -68,3 +72,12 @@ b. There should be **consultation with colleagues in other disciplines** where a
 ## 8.5 Documentation
 
 A written summary of the pre-anaesthetic consultation should be available and becomes part of the patient's medical records.
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ICU | Intensive care unit |
+| OT | Operating theatre |

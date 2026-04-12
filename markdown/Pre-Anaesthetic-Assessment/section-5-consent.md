@@ -7,6 +7,10 @@ patient_input: Patient understanding, questions, signature
 output: Properly obtained and documented consent for anaesthesia
 -->
 
+> **Context:** This section covers informed consent for anaesthesia, including the consent process, consent form requirements per Malaysian Medical Council guidelines, special populations, emergency consent, and the validity period of consent.
+
+---
+
 ## Key Points for Section 5
 
 1. **A separate, written consent for anaesthesia should be obtained by the anaesthesiologist after due explanation and risk information.**
@@ -117,3 +121,11 @@ When a patient from whom consent had been taken for a particular procedure and t
 
 3. Jenkins K, Baker AB. Consent and anaesthetic risk. *Anaesthesia* 2003;58:962-84
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ANZCA | Australian and New Zealand College of Anaesthetists |
+| IC | Identity card |

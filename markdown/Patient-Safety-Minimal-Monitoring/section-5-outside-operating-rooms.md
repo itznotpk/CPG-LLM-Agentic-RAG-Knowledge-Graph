@@ -7,6 +7,10 @@ patient_input: Patient scheduled for procedure outside operating room
 output: Ensuring safety and monitoring equivalent to operating room standards
 -->
 
+> **Context:** This section covers anaesthesia administered outside operating rooms (e.g., radiology suites, MRI rooms, radiotherapy), requiring equivalent monitoring standards and suitable adaptations for hazardous environments.
+
+---
+
 ## Key Points for Section 5
 
 1. **Anaesthesia outside the operating room may be associated with greater risks due to physical separation, hazardous environments, or inability to use certain monitors.**
@@ -55,3 +59,15 @@ b. **Recovery Areas:** Appropriate locations with adequate monitoring facilities
 ## 5.4 Hazards and Adaptations
 
 Where close physical monitoring is not possible due to specific hazards (e.g., radiation, magnetic resonance imaging), **suitable adaptations of techniques and equipment** to monitor the patient are required to provide an adequate level of anaesthetic care and safety for the patient.
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| BP | Blood pressure |
+| ECG | Electrocardiogram |
+| GA | General anaesthesia |
+| MAC | Minimum alveolar concentration |
+| MRI | Magnetic resonance imaging |

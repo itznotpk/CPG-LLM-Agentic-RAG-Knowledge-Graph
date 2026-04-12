@@ -7,6 +7,10 @@ patient_input: IV access site assessment, signs of extravasation
 output: IV delivery protocols, extravasation prevention and management, infection control practices
 -->
 
+> **Context:** This section covers IV medication delivery protocols, extravasation injury prevention and management, intra-arterial injection management, and infection control practices during medication administration.
+
+---
+
 ## 2.11 Intravenous Medication Delivery
 
 1. **Standardise the use of intravenous infusion pumps and syringe drivers** within each facility to improve familiarity and reduce error.
@@ -142,3 +146,18 @@ h. Consider informing hospital risk management team
 
 7. Keep IV access ports clean and covered with cap when not in use. Hub disinfection with 70% alcohol swab and allowing to dry is good practice. Passive hub disinfection is another option.
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 2 Part 4 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| IV | Intravenous |
+| PCA | Patient-controlled analgesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

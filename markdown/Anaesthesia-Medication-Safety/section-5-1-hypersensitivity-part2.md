@@ -7,6 +7,10 @@ patient_input: Multiple allergy history, food allergy history, prior anaesthetic
 output: Allergy management strategies, anaesthetic technique selection, drug avoidance protocols
 -->
 
+> **Context:** This section covers managing patients with multiple drug allergies, food allergies relevant to anaesthesia, and urgent surgery in suspected allergy cases.
+
+---
+
 ## 5.1.7 Managing Cases with Multiple Allergies
 
 a. **Multiple drug allergies** = reactions to two or more chemically unrelated drugs.
@@ -93,3 +97,22 @@ Insufficient Malaysian data; international published data suggests:
 
 8. Romano A., et al. Cross-reactivity and tolerability of cephalosporins in patients with IgE-mediated hypersensitivity to penicillins. J Allergy Clin Immunol Pract, 2018. 6(5): 1662-72
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 5.1 Part 2 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| GA | General anaesthesia |
+| IgE | Immunoglobulin E |
+| IV | Intravenous |
+| MCT | Mast cell tryptase |
+| NMBAs | Neuromuscular blocking agents |
+| RA | Regional anaesthesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

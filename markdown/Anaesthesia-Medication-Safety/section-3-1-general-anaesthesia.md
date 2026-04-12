@@ -7,6 +7,10 @@ patient_input: Patient weight, age, comorbidities, GLP-1 agonist use
 output: Safe handling of inhalational agents, medical gases, IV fluids, TIVA protocols
 -->
 
+> **Context:** This section covers safe medication use during general anaesthesia, including volatile anaesthetic agents, medical gas safety, cylinder handling, and piped gas systems.
+
+---
+
 ## Key Points for General Anaesthesia
 
 1. **Volatile anaesthetic agents and medical gas cylinders should be stored safely.**
@@ -106,3 +110,21 @@ f. **Large spills require specific cleaning and containment procedures.** Instit
 5. Check apparatus connected to oxygen supply with adequate reserve cylinder
 6. All cylinders on GA machines securely seated and turned off after checking contents
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 3.1 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| GA | General anaesthesia |
+| IV | Intravenous |
+| MAC | Minimum alveolar concentration |
+| TIVA | Total intravenous anaesthesia |
+| WAGs | Waste anaesthetic gases |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

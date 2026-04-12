@@ -7,9 +7,13 @@ patient_input: Medications administered, times, doses
 output: Proper documentation practices, legal compliance
 -->
 
+> **Context:** This section covers medication documentation requirements, record keeping practices, waste disposal, and references for the entire Section 2 on Key Principles.
+
+---
+
 ## 2.14 Waste and Disposal Practices
 
-*See Section 6: Safe Waste Management for detailed guidance.*
+(refer Section 6: Safe Waste Management)
 
 ---
 
@@ -71,3 +75,22 @@ output: Proper documentation practices, legal compliance
 
 18. Guideline on Infection Control of Anaesthesia. College of Anaesthesiologists, Academy of Medicine of Malaysia and Malaysian Society of Anaesthesiologists. 2014
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 2 Part 5 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ANZCA | Australian and New Zealand College of Anaesthetists |
+| ISMP | Institute for Safe Medication Practices |
+| ISO | International Organization for Standardization |
+| IV | Intravenous |
+| WAGs | Waste anaesthetic gases |
+| WHO | World Health Organization |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

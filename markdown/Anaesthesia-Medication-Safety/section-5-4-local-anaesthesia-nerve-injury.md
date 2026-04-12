@@ -7,6 +7,10 @@ patient_input: Block type, LA concentration required, patient risk factors
 output: Safe LA concentrations, neurotoxicity prevention strategies, epinephrine precautions
 -->
 
+> **Context:** This section covers local anaesthetic neurotoxicity, strategies for preventing nerve injury during regional anaesthesia, and precautions regarding epinephrine use as an LA adjuvant.
+
+---
+
 ## Key Points for Local Anaesthesia and Nerve Injury
 
 1. **All local anaesthetics are potentially neurotoxic** with the ability to reduce neural blood flow in a concentration- and time-dependent manner.
@@ -118,3 +122,19 @@ The use of epinephrine in peripheral nerve blocks is associated with **increased
 
 11. Hewson DW., Bedforth NM., Hardman JG. Peripheral nerve injury arising in anaesthesia practice. Anaesthesia, 2018. 73 Suppl 1:51-60
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 5.4 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| LA | Local anaesthetic |
+| PNB | Peripheral nerve block |
+| RA | Regional anaesthesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

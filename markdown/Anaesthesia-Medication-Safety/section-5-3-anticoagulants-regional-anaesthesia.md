@@ -7,6 +7,10 @@ patient_input: Anticoagulant type, dosing schedule, last dose timing, indication
 output: Safe timing for regional anaesthesia, risk-benefit assessment, guidelines compliance
 -->
 
+> **Context:** This section covers the safe management of anticoagulants and antiplatelet agents in patients undergoing regional anaesthesia, including timing guidelines and risk-benefit assessment.
+
+---
+
 ## Key Points for Anticoagulants and Antiplatelet in Regional Anaesthesia
 
 1. **Perioperative use of anticoagulants and antiplatelets in providing Regional Anaesthesia are to follow current practice guidelines.**
@@ -76,3 +80,24 @@ https://med.stanford.edu/content/dam/sm/pain/documents/neuraxial-procedure-v2-3.
 
 6. Kietaibl S., Ferrandis R., Godier A., et al. Regional anaesthesia in patients on antithrombotic drugs: Joint ESAIC/ESRA guidelines. Eur J Anaesthesiol, 2022. 39(2): 100-132
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 5.3 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| DOAC | Direct oral anticoagulant |
+| ESAIC | European Society of Anaesthesiology and Intensive Care |
+| ESRA | European Society of Regional Anaesthesia |
+| INR | International normalized ratio |
+| LA | Local anaesthetic |
+| LMWH | Low molecular weight heparin |
+| RA | Regional anaesthesia |
+| UFH | Unfractionated heparin |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

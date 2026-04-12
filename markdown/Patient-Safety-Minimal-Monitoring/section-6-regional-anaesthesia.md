@@ -7,6 +7,10 @@ patient_input: Patient refusal or specific contraindications for regional block
 output: Ensuring equivalent standard of care for regional anaesthesia
 -->
 
+> **Context:** This section covers regional anaesthesia requirements, including equivalent monitoring standards, contraindications (patient refusal is absolute), and ultrasound/nerve stimulator guidance.
+
+---
+
 ## Key Points for Section 6
 
 1. **Patients receiving regional anaesthesia must have the equivalent standard of care and monitoring as those undergoing general anaesthesia.**
@@ -44,3 +48,14 @@ Apart from the routine preoperative assessment, **enquiry into any possible cont
 ## 6.3 Safe Conduct of Regional Blocks
 
 **Ultrasound guidance with or without a nerve stimulator** is encouraged for the safe conduct of regional blocks when necessary.
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| BP | Blood pressure |
+| ECG | Electrocardiogram |
+| GA | General anaesthesia |
+| RA | Regional anaesthesia |

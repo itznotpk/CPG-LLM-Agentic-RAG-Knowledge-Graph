@@ -7,6 +7,10 @@ patient_input: Previous reactions, allergy history, PEN-FAST score, MCT results
 output: Anaphylaxis grading, MCT sampling, referral pathway, alternative antibiotics, cross-reactivity guidance
 -->
 
+> **Context:** This section covers perioperative hypersensitivity and anaphylaxis, including diagnosis using mast cell tryptase, ANZAAG grading, PEN-FAST scoring for penicillin allergy, β-lactam cross-reactivity, and HKLAAC referral pathway.
+
+---
+
 ## Key Points for Perioperative Hypersensitivity and Anaphylaxis
 
 1. **Serum mast cell tryptase level should be done** when perioperative anaphylaxis is suspected to confirm diagnosis.
@@ -158,3 +162,22 @@ g. **Cross-reactivity with 3rd/4th-gen cephalosporins and carbapenems is low/ver
 
 h. **Antibiotic test dose not effective** in preventing anaphylaxis (NAP6). Administer antibiotics **prior to induction** to simplify treatment and diagnostic workup.
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 5.1 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ANZAAG | Australian and New Zealand Anaesthetic Allergy Group |
+| HKLAAC | Hospital Kuala Lumpur Allergy and Anaphylaxis Clinic |
+| MCT | Mast cell tryptase |
+| NAP6 | 6th National Audit Project |
+| NMBAs | Neuromuscular blocking agents |
+| POH | Perioperative hypersensitivity |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

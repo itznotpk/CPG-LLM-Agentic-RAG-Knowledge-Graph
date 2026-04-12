@@ -7,6 +7,10 @@ patient_input: Patient requiring anaesthesia, surgical procedure details
 output: Safe administration of anaesthesia by qualified personnel, informed consent, adequate documentation
 -->
 
+> **Context:** This section covers the fundamental principles of anaesthesia care, including personnel qualifications, direct care requirements, delegation rules, pre-anaesthetic consultation, informed consent, and documentation.
+
+---
+
 ## Key Points for Section 1
 
 1. **Anaesthetics must be administered by a qualified specialist anaesthesiologist or a medical officer/trainee under adequate supervision.**
@@ -62,3 +66,12 @@ a. The anaesthesiologist must provide an **adequate and legible record** of the 
 
 b. The anaesthesiologist must ensure that **all equipment used for the administration of anaesthesia is functioning properly before the start of each anaesthetic**. 
    - However, the health facility shall be responsible for maintenance and servicing of anaesthetic equipment used.
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ICU | Intensive care unit |
+| OT | Operating theatre |

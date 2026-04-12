@@ -7,6 +7,10 @@ patient_input: Patient age, weight (actual, lean, ideal, adjusted), comorbiditie
 output: Age/weight-appropriate dosing, population-specific precautions, monitoring requirements
 -->
 
+> **Context:** This section covers medication safety considerations for specific patient populations: paediatric, elderly, obstetric, and extreme body weight patients.
+
+---
+
 ## Key Points for Section 4
 
 1. **Use child's current body weight** for precise dosing and follow standard protocols to minimise medication errors.
@@ -140,3 +144,22 @@ c. **Neostigmine can cause life-threatening cardiac arrhythmias** in severely ma
 4. ASHP Clinical Practice Guidelines for Antimicrobial Prophylaxis in Surgery
 5. Anaesthetising the malnourished patient. Update in Anesthesia, 2016
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 4 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ABW | Adjusted body weight |
+| BMI | Body mass index |
+| IBW | Ideal body weight |
+| LBW | Lean body weight |
+| OSA | Obstructive sleep apnoea |
+| TBW | Total body weight |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

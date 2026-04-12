@@ -7,6 +7,10 @@ patient_input: Patient details, reaction details, sample timing
 output: MCT test request form for IMR submission
 -->
 
+> **Context:** This appendix contains the Mast Cell Tryptase (MCT) test request form for use when perioperative anaphylaxis is suspected, including sample timing and submission to IMR.
+
+---
+
 ## Purpose
 
 This appendix contains the **Mast Cell Tryptase (MCT) Test Request Form** used when sending blood samples to the Institute for Medical Research (IMR) following a suspected perioperative anaphylaxis.
@@ -74,3 +78,19 @@ The MCT Test Request Form typically requires:
 
 Guidelines on Safe Use of Medication in Anaesthesia (October 2024). College of Anaesthesiologists, Academy of Medicine of Malaysia and Malaysian Society of Anaesthesiologists.
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Appendix 1 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| IMR | Institute for Medical Research |
+| MCT | Mast cell tryptase |
+| POH | Perioperative hypersensitivity |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

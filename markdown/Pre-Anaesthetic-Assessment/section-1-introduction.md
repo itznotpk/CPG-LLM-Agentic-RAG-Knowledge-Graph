@@ -7,6 +7,10 @@ patient_input: Medical records, patient interview, physical examination findings
 output: Understanding of pre-anaesthetic assessment purpose and scope
 -->
 
+> **Context:** This section introduces the CPG Recommendations on Pre-Anaesthetic Assessment, covering background, objectives, and scope of pre-anaesthetic evaluation in Malaysia.
+
+---
+
 ## Key Points for Section 1
 
 1. **Adequate pre-anaesthetic assessment is an integral part of anaesthetic practice and is critical for patient safety.**
@@ -59,3 +63,11 @@ The term "pre-anaesthetic assessment" in this document refers not only to situat
 
 3. Association of Anaesthetists of Great Britain and Ireland (AAGBI). Pre-operative assessment and patient preparation - the role of the anaesthetist. (2010).
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| AAGBI | Association of Anaesthetists of Great Britain and Ireland |
+| ANZCA | Australian and New Zealand College of Anaesthetists |

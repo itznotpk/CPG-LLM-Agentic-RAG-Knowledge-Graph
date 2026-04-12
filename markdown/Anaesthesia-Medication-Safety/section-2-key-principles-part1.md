@@ -7,6 +7,10 @@ patient_input: Patient weight, allergies, current medications
 output: Safe medication practices, proper labelling, storage guidelines
 -->
 
+> **Context:** This section covers the key principles for safe medication use in anaesthesia, including medication management workflow, purchasing, storage, reconciliation, and the 5Rs concept.
+
+---
+
 ## Key Points for Section 2
 
 1. **Optimising medication management workflow and processes ensures safe medication use** which includes efficient purchasing, appropriate storage, systematic anaesthesia medication carts, accurate drug preparation, clear labelling, safe administration, strict infection control, detailed documentation, and responsible drug disposal.
@@ -109,3 +113,20 @@ c. **Drug allergies and intolerances.** This information should be gathered from
 - Consider alternative routes of administration if patient will be nil by mouth pre-operatively
 - Monitor for potential complications related to continuing or withholding specific drugs (hyperglycaemia, hypertension, hypotension, arrhythmias, withdrawal syndromes)
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 2 Part 1 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ACE | Angiotensin-converting enzyme |
+| NSAIDs | Non-steroidal anti-inflammatory drugs |
+| OT | Operating theatre |
+| PCA | Patient-controlled analgesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

@@ -7,6 +7,10 @@ patient_input: Suspected MH history, family history, previous anaesthetic reacti
 output: MH diagnosis, emergency management, dantrolene reconstitution, trigger-free anaesthesia protocol
 -->
 
+> **Context:** This section covers malignant hyperthermia (MH) — a rare but potentially fatal anaesthetic emergency — including diagnostic features, management protocols, dantrolene reconstitution, and trigger-free anaesthesia.
+
+---
+
 ## Key Points for Malignant Hyperthermia
 
 1. **The diagnostic features are unexplained, unexpected increase in ETCO₂, heart rate and temperature.**
@@ -114,3 +118,21 @@ g. **All anaesthesia healthcare professionals should be familiar with trigger-fr
 
 4. Larach MG., Localio AR., Allen GC., et al. A clinical grading scale to predict malignant hyperthermia susceptibility. Anesthesiology, 1994. 80(4): 771-9
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 5.2 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| CO₂ | Carbon dioxide |
+| ETCO₂ | End-tidal carbon dioxide |
+| GA | General anaesthesia |
+| MH | Malignant hyperthermia |
+| TIVA | Total intravenous anaesthesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

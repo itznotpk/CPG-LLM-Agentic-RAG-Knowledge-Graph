@@ -5,7 +5,11 @@ category: Introduction
 use_case: Background Information, Purpose, Scope
 patient_input: N/A
 output: Understanding of medication safety importance in anaesthesia
--->
+>
+
+> **Context:** This section introduces the Guidelines on Safe Use of Medication in Anaesthesia (2024), covering background, purpose, and scope of medication safety in anaesthesiology and critical care in Malaysia.
+
+---
 
 ## Key Points for Section 1
 
@@ -86,3 +90,20 @@ The term 'medication use' in this guideline addresses:
 
 5. Mackay, E., Jennings, J., Webber, S. Medicines Safety in Anaesthetic Practice. BJA Education, 2019. 19(5): 151-157
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 1 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ISMP | Institute for Safe Medication Practices |
+| WFSA | World Federation of Societies of Anaesthesiologists |
+| WHO | World Health Organization |
+| ANZCA | Australian and New Zealand College of Anaesthetists |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

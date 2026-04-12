@@ -7,6 +7,10 @@ patient_input: Patient identification, allergy status, current IV access
 output: Safe administration protocols, drug delivery guidelines
 -->
 
+> **Context:** This section covers safe medication administration protocols, high-concentration drug handling, and the complete Table 2 listing medications requiring central venous catheter administration.
+
+---
+
 ## 2.9 Medication Administration
 
 ### 2.9.1 Introduction
@@ -115,3 +119,21 @@ Errors occur due to incorrect calculations or failure to monitor blood glucose a
 
 > **Important:** This table is critical for safe administration of high-risk medications. When central access is not immediately available, use large bore peripheral IV temporarily while establishing central venous access.
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 2 Part 3 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| CVC | Central venous catheter |
+| IV | Intravenous |
+| MAC | Minimum alveolar concentration |
+| PCA | Patient-controlled analgesia |
+| TIVA | Total intravenous anaesthesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

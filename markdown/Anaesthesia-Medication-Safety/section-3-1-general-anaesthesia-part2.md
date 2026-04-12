@@ -7,6 +7,10 @@ patient_input: Patient weight, GLP-1 agonist history, dosing schedule, GI sympto
 output: Fluid administration protocols, TIVA monitoring, GLP-1 preoperative management
 -->
 
+> **Context:** This section covers fluid administration, total intravenous anaesthesia (TIVA), neuromuscular blocking agents, and GLP-1 receptor agonist preoperative management.
+
+---
+
 ## 3.1.3 Fluid Administration
 
 a. **Smart Infusion pump technology is recommended** for administration of IV solutions in perioperative/procedural environments to minimise complications from excessive and insufficient fluid delivery, particularly in:
@@ -130,3 +134,22 @@ When possible, **withhold these medications prior to scheduled procedures.** Whe
 
 11. Milder DA., et al. GLP-1 receptor agonists: clinical pharmacology and peri-operative implications. Anaesthesia, 2024. 79(7):735-747
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 3.1 Part 2 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| GI | Gastrointestinal |
+| GLP-1 | Glucagon-like peptide-1 |
+| IV | Intravenous |
+| NMBAs | Neuromuscular blocking agents |
+| TCI | Target-controlled infusion |
+| TIVA | Total intravenous anaesthesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

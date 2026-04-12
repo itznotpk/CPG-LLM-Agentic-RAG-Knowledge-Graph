@@ -7,6 +7,10 @@ patient_input: N/A
 output: Storage guidelines, preparation protocols, syringe labelling standards
 -->
 
+> **Context:** This section covers anaesthesia medication storage, anaesthesia cart organisation, drug preparation, syringe labelling standards, and LASA (Look-Alike Sound-Alike) drug identification.
+
+---
+
 ## 2.6 Anaesthesia Medication Storage
 
 1. Storage of anaesthesia medications must adhere to regulations specific to institutional practice. **Dangerous and psychotropic drugs must be securely locked**, and usage controlled and recorded in accordance with Dangerous Drug Act 1952.
@@ -111,3 +115,21 @@ output: Storage guidelines, preparation protocols, syringe labelling standards
 
 9. **Distinguishable labels on tubing sets are mandatory** for continuous neuraxial and peripheral nerve infusions.
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 2 Part 2 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| HAMs | High Alert Medications |
+| ISO | International Organization for Standardization |
+| LASA | Look-Alike Sound-Alike |
+| OT | Operating theatre |
+| TIVA | Total intravenous anaesthesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

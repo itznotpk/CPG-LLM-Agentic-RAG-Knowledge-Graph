@@ -7,6 +7,10 @@ patient_input: Pain assessment, opioid history, respiratory status, anticoagulat
 output: Pain protocols, PCA programming, epidural management, monitoring requirements
 -->
 
+> **Context:** This section covers acute pain services, including patient-controlled analgesia (PCA), epidural infusion management in the ward, and monitoring requirements.
+
+---
+
 ## Key Points for Acute Pain Service
 
 1. **Institutions should implement formal protocols and quality assurance programmes** to safely individualise pain management.
@@ -133,3 +137,20 @@ viii. **Regularly examine insertion site** for catheter migration, leaks, and in
 1. The Faculty of Pain Medicine of the Royal College of Anaesthetists. Best Practice in the Management of Epidural Analgesia in the Hospital Setting, 2020
 2. Ministry of Health, Malaysia. Pain Management Handbook, 3rd edition, 2023
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 3.3 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| IV | Intravenous |
+| LAST | Local anaesthetic systemic toxicity |
+| NMBA | Neuromuscular blocking agent |
+| PCA | Patient-controlled analgesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

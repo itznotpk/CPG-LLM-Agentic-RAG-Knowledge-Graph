@@ -7,6 +7,10 @@ patient_input: Emergency medical condition outside operating room
 output: Preparedness for resuscitation with required drugs and equipment
 -->
 
+> **Context:** This section covers resuscitation facilities required in critical care areas outside the operating room, including the complete emergency drugs list (with Dantrolene for MH and Intralipid for LAST) and equipment list.
+
+---
+
 ## Key Points for Section 9
 
 1. **Adequate resuscitation facilities are required in critical care areas outside the operating room and intensive care.**
@@ -85,3 +89,16 @@ These facilities should include a range of emergency drugs and resuscitation equ
 6. Association of Anaesthetists of Great Britain & Ireland Safety Guide. *Management of severe local anaesthetic toxicity.* 2010.
 7. Brull SJ. Lipid Emulsion for the Treatment of Local Anesthetic Toxicity: Patient Safety Implications. *Anesth Analg* 2008;106:1337-9.
 8. Glahn KP, Ellis FR, Halsall PJ, Müller CR, Snoeck MM, Urwyler A, et al. European Malignant Hyperthermia Group. Recognizing and managing a malignant hyperthermia crisis: Guidelines from the European Malignant Hyperthermia Group. *Br J Anaesth* 2010;105:417-20.
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| AAGBI | Association of Anaesthetists of Great Britain and Ireland |
+| ANZCA | Australian and New Zealand College of Anaesthetists |
+| ECG | Electrocardiogram |
+| IV | Intravenous |
+| LAST | Local anaesthetic systemic toxicity |
+| MH | Malignant hyperthermia |
