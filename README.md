@@ -74,7 +74,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 
 ## 📚 Supported CPGs
 
-The system currently supports **6 Malaysia Clinical Practice Guidelines**, each with high-fidelity, RAG-optimized markdown sections:
+The system currently supports **7 Malaysia Clinical Practice Guidelines**, each with high-fidelity, RAG-optimized markdown sections:
 
 | # | CPG Title | Edition | Sections | Status |
 |---|-----------|---------|----------|--------|
@@ -84,6 +84,7 @@ The system currently supports **6 Malaysia Clinical Practice Guidelines**, each 
 | 4 | **Management of Cancer Pain** | 2nd Edition | 15 sections | ✅ Complete |
 | 5 | **Management of Hypertension** | 5th Edition | 16 sections (incl. appendix & references) | ✅ Complete |
 | 6 | **Stable Coronary Artery Disease** | 2nd Edition | 16 sections (incl. appendix & references) | ✅ Complete |
+| 7 | **Management of Heart Failure** | 5th Edition | 22 sections (incl. appendix) | ✅ Complete |
 
 ### Dyslipidaemia (6th Edition) — Section Breakdown
 
@@ -106,6 +107,33 @@ The system currently supports **6 Malaysia Clinical Practice Guidelines**, each 
 | `section-14-quality-indicators.md` | Quality Performance Indicators |
 | `section-15-faqs.md` | Frequently Asked Questions |
 | `appendices.md` | Appendices & Supplementary Data |
+
+### Heart Failure (5th Edition) — Section Breakdown
+
+| File | Topic |
+|------|-------|
+| `section-0-key-messages.md` | All 25 Key Messages & 22 Key Recommendations (Quick Reference) |
+| `section-1-introduction.md` | Introduction, Epidemiology & Socioeconomic Burden |
+| `section-4-pathophysiology.md` | Pathophysiology (HFrEF, HFpEF, HFmrEF, HFimpEF) |
+| `section-5-etiology.md` | Etiology & CHAMPION Decompensation Mnemonic |
+| `section-6-diagnosis.md` | Diagnosis — Symptoms, Signs, ECG, BNP, Echocardiogram |
+| `section-7-prevention.md` | Prevention — Stage A & B Risk Factor Control |
+| `section-8-non-pharmacological.md` | Non-Pharmacological Measures (Diet, Exercise, Fluid) |
+| `section-9-acute-heart-failure.md` | Acute HF — 3-Phase Management, Diuretics, Inotropes, MCS |
+| `section-10-chronic-hfref.md` | Chronic HFrEF — Foundational HF Medications & Device Therapy |
+| `section-11-hfmref.md` | HFmrEF (LVEF 41-49%) Management |
+| `section-12-hfimpef.md` | HFimpEF (Improved EF) — Therapy Continuation |
+| `section-13-chronic-hfpef.md` | Chronic HFpEF (LVEF >50%) — SGLT2i, Comorbidity Management |
+| `section-14-1-diabetes-vhd-cardiomyopathy.md` | HF & Diabetes, Valvular Heart Disease, Cardiomyopathy |
+| `section-14-2-arrhythmias-oncology.md` | HF & Arrhythmias, Cardio-Oncology |
+| `section-14-3-ckd.md` | HF & Chronic Kidney Disease |
+| `section-14-4-pregnancy.md` | HF & Pregnancy, Peripartum Cardiomyopathy |
+| `section-14-5-covid-achd.md` | HF & COVID-19, Adult Congenital Heart Disease |
+| `section-15-advanced-hf.md` | Advanced HF — Transplant, MCS, Palliative Care |
+| `section-16-rehabilitation.md` | HF Rehabilitation & Exercise Prescription |
+| `section-17-organisation-of-care.md` | Organisation of Care, Follow-up, Telemedicine |
+| `section-18-other-therapies-performance.md` | Other Therapies & Performance Measures |
+| `appendix.md` | Appendices — Drug Dosing, Flowcharts, WHO Risk Class |
 
 ---
 
@@ -437,6 +465,16 @@ When is coronary angiography indicated?
 What is the optimal medical therapy for SCAD?
 ```
 
+### Heart Failure
+```
+What are the foundational HF medications for HFrEF?
+How should ARNI be initiated in acute heart failure?
+What is the LVEF classification for HFmrEF?
+How do you manage heart failure in a patient with CKD?
+What are the indications for CRT in heart failure?
+What medications are safe in pregnancy with heart failure?
+```
+
 ---
 
 ## 📁 Project Structure
@@ -471,7 +509,8 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   ├── Breast-Cancer(3rd Edition)/        # 16 section files
 │   ├── Cancer-Pain(2nd Edition)/          # 15 section files
 │   ├── Hypertension(5th Edition)/         # 16 section files
-│   └── Stable-Coronary-Artery-Disease(2nd Edition)/  # 16 section files
+│   ├── Stable-Coronary-Artery-Disease(2nd Edition)/  # 16 section files
+│   └── Heart-Failure(5th Edition)/                   # 22 section files
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
 │   ├── ingest_icd11.py   # ICD-11 ingestion script
