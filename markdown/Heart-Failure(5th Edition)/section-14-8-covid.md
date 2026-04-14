@@ -16,105 +16,78 @@ In hospitalized patients with COVID-19, the prevalence of HF varied between 4% a
 HF is an independent predictor of mortality in hospitalized COVID-19 patients and these patients were more likely to be sicker and develop complications. Patients with HFrEF did worse than those with HFmrEF or HFpEF. 784
 
 Patients hospitalized for COVID-19 may develop both an acute decompensation of chronic HF as well as new onset HF. New onset HF was observed in as much as a quarter of hospitalized COVID-19 patients and about one-third of those admitted to the intensive care unit (ICU). 786
-
-
-Pharmacotherapy 809,810,812
+* Pharmacotherapy 809,810,812
 
 In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired HF. The medical treatment is based on the varying subgroups of ACHD-HF.
 
 A)
 
-
-
-
-
-
-
-
-
-Impaired systolic function
+* * * * Impaired systolic function
 
 Systemic left ventricle failure (LVEF<40%)
 
- The treatment is similar as acquired HF.
+* The treatment is similar as acquired HF.
 
- Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers,
+* Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers,
 
 MRA and SGLT2-i. Loop diuretics are given for symptom relief.
 
 Systolic failure of subpulmonic RV (RVEF<40%)
- No medical treatment is indicated for asymptomatic patients.
+* No medical treatment is indicated for asymptomatic patients.
 
- There is limited evidence for the use of RAS blockers or β-blockers.
+* There is limited evidence for the use of RAS blockers or β-blockers.
 
- Diuretics are the mainstay treatment for symptomatic patients.
+* Diuretics are the mainstay treatment for symptomatic patients.
 
- It is important to identify hemodynamically significant lesions and to address these.
- Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension
+* It is important to identify hemodynamically significant lesions and to address these.
+* Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension
 
 (PAH)/Eisenmenger would benefit from PAH targeted therapy.
 
 Systolic failure of systemic RV824,825
 
- There are no standard guidelines for medical therapy for asymptomatic patients.
+* There are no standard guidelines for medical therapy for asymptomatic patients.
 
- In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
+* In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
 
- An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
+* An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
 
 Systolic failure of single ventricle
- There are no guidelines for the use of standard drugs in asymptomatic patients.
+* There are no guidelines for the use of standard drugs in asymptomatic patients.
 
- Loop diuretics may be used judiciously in symptomatic patients.
+* Loop diuretics may be used judiciously in symptomatic patients.
 
- PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
+* PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
 
 B) Arrhythmias
 
-
-Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in
+* Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in
 
 a regional ACHD center by a cardiac electrophysiologist with expertize in CHD, and in a laboratory with appropriate personnel and equipment.821,830
 
 These should be managed promptly and aggressively with appropriate antiarrhythmic drug therapy, catheter, or surgical ablation.
 
 Permanent pacing is recommended in:
- Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
+* Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
 
- Post operative advanced second- or third-degree AV block that persists more than
+* Post operative advanced second- or third-degree AV block that persists more than
 
 7days after cardiac surgery.
 
- Congenital 3
+* Congenital 3
 
 rd degree AV block.
 Cardiac implantable cardioverter defibrillator (ICD) may be considered for the secondary prevention of sudden death in:
 
- High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
+* High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
 
- In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
+* In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
 CRT may be helpful in managing HF in patients with subpulmonary and systemic RV.833,834
 823
 
-
+* * * * HF may develop in pregnancy:192,764
 
-
-
-
-
-
-
-HF may develop in pregnancy:192,764
-
-
-
-
-
-
-
-
-
-For the first time in a patient with pre-existing heart disease (congenital and/or valvular)
+* * * * For the first time in a patient with pre-existing heart disease (congenital and/or valvular)
 
 due to decompensation from the stress.
 
@@ -123,13 +96,13 @@ May occur in a patient who had HF previously and still has a depressed myocardia
 In a patient with a previously unrecognized genetic cardiomyopathy or a latent cardiac viral infection which has been unmasked or activated by the stress of pregnancy.
 
 In a patient with a previously normal heart due to:
- Hypertensive complications of pregnancy i.e. gestational hypertension and the more severe forms preeclampsia, the HELLP syndrome.
+* Hypertensive complications of pregnancy i.e. gestational hypertension and the more severe forms preeclampsia, the HELLP syndrome.
 
 (H: hemolysis, EL: elevated liver enzymes, LP: low platelet count).
 
- Peripartum cardiomyopathy.
+* Peripartum cardiomyopathy.
 
- Takotsubo syndrome.
+* Takotsubo syndrome.
 
 14.7.1. Diagnosis
 
@@ -139,17 +112,9 @@ CMR may be considered.
 
 14.7.2. Risk stratification
 
-
+* Pregnant women with cardiac disease are at risk of adverse maternal and fetal outcomes.
 
-Pregnant women with cardiac disease are at risk of adverse maternal and fetal outcomes.
-
-
-
-
-
-
-
-Their risk should be assessed before conception or early in the pregnancy to optimize the outcome of the pregnancy.192,764
+* * * Their risk should be assessed before conception or early in the pregnancy to optimize the outcome of the pregnancy.192,764
 
 Maternal cardiovascular risk can be assessed using the modified World Health Organization
 
@@ -157,11 +122,11 @@ Maternal cardiovascular risk can be assessed using the modified World Health Org
 (Appendix XI & XII, page 172-173)
 
 Level of Care will depend on the maternal CV risk:
- Low risk: can be managed at their local center after review by a family medicine specialist/physician or cardiologist.
+* Low risk: can be managed at their local center after review by a family medicine specialist/physician or cardiologist.
 
- Moderate risk: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
+* Moderate risk: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
 
- High risk: should be referred early to the tertiary center for assessment. If termination of pregnancy is considered, it can be performed up to 22 weeks.
+* High risk: should be referred early to the tertiary center for assessment. If termination of pregnancy is considered, it can be performed up to 22 weeks.
 
 14.7.3. Management
 
@@ -171,27 +136,17 @@ pediatricians.789,754,755,764
 
 In the management of HF in pregnancy, the following issues need to be considered:192,755,764
 
-
-
-
-
-
-
-Gestational age at presentation.
+* * * Gestational age at presentation.
 
 Clinical presentation, either as Acute HF or Chronic HF.
 
 Response to medical therapy.
 
- Potential maternal and fetal risks.
+* Potential maternal and fetal risks.
 
-
+* Review and replace all fetotoxic drugs
 
-Review and replace all fetotoxic drugs
-
-
-
-Timing and mode of delivery.
+* Timing and mode of delivery.
 
 Predictors of maternal cardiac complications are as in Table 20, Page 139.
 
@@ -209,21 +164,15 @@ vaccination.788
 
 Myocarditis is defined by the presence of all of the following:
 
-
-Cardiac symptoms (e.g., chest pain, dyspnea, palpitations, syncope),
+* Cardiac symptoms (e.g., chest pain, dyspnea, palpitations, syncope),
 
-
-
-
-
-Elevated cardiac troponin (cTn) and
+* * Elevated cardiac troponin (cTn) and
 
 Abnormal electrocardiographic, and /or echocardiographic, cardiac magnetic resonance imaging (CMR), in the absence of flow-limiting coronary artery disease.
 
 There may also be myocardial involvement only without myocarditis and this is defined by:
 
-
-An abnormal myocardium manifest by electrocardiographic, echocardiographic, CMR and
+* An abnormal myocardium manifest by electrocardiographic, echocardiographic, CMR and
 
 /or histopathologic findings, with or without symptoms and with or without an elevated cTn.
 
@@ -249,8 +198,7 @@ Despite this, COVID-19 vaccination is associated with a very favorable benefit-t
 
 Management
 
-
-Hospitalization is recommended for patients with definite myocarditis, ideally at an advanced HF center.
+* Hospitalization is recommended for patients with definite myocarditis, ideally at an advanced HF center.
 
 Patients with myocarditis and COVID-19 pneumonia (with an ongoing need for supplemental oxygen) should be treated with corticosteroids.
 
@@ -262,8 +210,7 @@ COVID-19 myocarditis with hemodynamic compromise or multisystem inflammatory syn
 
 C) Cyanosis
 
-
-Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
+* Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
 
 Routine phlebotomy based on a predetermined hematocrit should be avoided.
 
@@ -271,66 +218,45 @@ These patients are also at risk of thromboembolic events and bleeding. Anticoagu
 
 D) Advanced therapies for ACHD- HF835,836
 
-
+* The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
 
-The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
+* Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
 
- Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
+* Prior surgical intervention/repeated sternotomies.
 
- Prior surgical intervention/repeated sternotomies.
+* Allosensitization due to blood transfusion, use of homografts.
 
- Allosensitization due to blood transfusion, use of homografts.
+* Pulmonary hypertension - thus a heart-lung transplant may be required.
 
- Pulmonary hypertension - thus a heart-lung transplant may be required.
-
- End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
+* End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
 
 E) General measures
 
- Infective endocarditis837
+* Infective endocarditis837
 
- Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
- Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
+* Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
+* Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
 
 Pregnancy (refer to section 14.7).
 
- It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
+* It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
 
- Exercise rehabilitation838 (refer to section 16)
+* Exercise rehabilitation838 (refer to section 16)
 
- Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
- Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
+* Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
+* Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
 
 F) Palliative care and advance care planning (refer to section 15.3)
 
-
-
-
-Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
+* * Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
 
 It should be patient-tailored and age appropriate due to the heterogenous nature and chronicity of ACHD and counselling should be given based on the projected course of the
 
 respective disease and prognosis.
 755
-
+* * * * * * 14.7.3.1. Preconceptual counselling
 
-
-
-
-
-
-
-
-
-
-
-14.7.3.1. Preconceptual counselling
-
-
-
-
-
-Patient-centered counselling regarding contraception and the risks of cardiovascular deterioration during pregnancy should be provided to all women in the childbearing age
+* * Patient-centered counselling regarding contraception and the risks of cardiovascular deterioration during pregnancy should be provided to all women in the childbearing age
 
 with known or suspected heart disease.192-194,764
 
@@ -344,62 +270,44 @@ If pregnant, termination should be considered.
 
 This includes:
 
-
-
-Non-pharmacological measures
+* Non-pharmacological measures
 
 The management of patients with mild symptoms consists mainly of non-pharmacological measures such as:192
 
- Limiting strenuous exercise.
+* Limiting strenuous exercise.
 
- Adequate rest - maintaining a low salt diet.
+* Adequate rest - maintaining a low salt diet.
 
- Treating anemia and infections early.
+* Treating anemia and infections early.
 
- Frequent antenatal examinations.
+* Frequent antenatal examinations.
 
 Pharmacological measures
 
-
+* The following drugs may be used in the pregnant patient with HF:
+* Diuretics are the first line therapy in patients who are fluid overloaded.
 
-The following drugs may be used in the pregnant patient with HF:
- Diuretics are the first line therapy in patients who are fluid overloaded.
+* Nitrates and/or hydralazine are used for preload and afterload reduction.
 
- Nitrates and/or hydralazine are used for preload and afterload reduction.
+* β-blockers can be used cautiously, most commonly metoprolol.773,774
 
- β-blockers can be used cautiously, most commonly metoprolol.773,774
+* Digoxin is safe in pregnancy and during breast feeding.
 
- Digoxin is safe in pregnancy and during breast feeding.
+* ACE-I, ARB, ARNI, MRA, SGLT2-i and ivabradine are contraindicated in pregnancy. 755,775,776
 
- ACE-I, ARB, ARNI, MRA, SGLT2-i and ivabradine are contraindicated in pregnancy. 755,775,776
+* ACE-I (enalapril and captopril) can be used in the post partum period.775,776
 
- ACE-I (enalapril and captopril) can be used in the post partum period.775,776
-
- In the postpartum period, Foundational HF medications may be given. The patient should however be advised not to breast feed.
+* In the postpartum period, Foundational HF medications may be given. The patient should however be advised not to breast feed.
 
 As appropriate, guideline-directed medical therapy for HF should be initiated and contin ued after hospital discharge.
 
 In general, vaccine-associated myocarditis should be diagnosed, categorized, and treated
 
-
-
-
-
-in a manner similar analogous to myocarditis following Covid-19 infection.
+* * in a manner similar analogous to myocarditis following Covid-19 infection.
 
 Long-term cardiovascular outcomes of COVID-19
 
-
-
-
-
-
-
-
-
-
-
-The risk and 1-year burden of cardiovascular disease in survivors of acute COVID-19 are substantial.793
+* * * * * The risk and 1-year burden of cardiovascular disease in survivors of acute COVID-19 are substantial.793
 
 Individuals with COVID-19 are at increased risk of other CV diseases such as cerebrovas cular disorders, arrhythmias, ischemic and non-ischemic heart disease, pericarditis,
 
@@ -423,37 +331,25 @@ congenital heart disease (ACHD) are at risk of long term sequalae with increased
 
 Definition of HF in the ACHD in patients with biventricular circulation is like that of those with acquired heart disease.
 However, defining HF in patients with Fontan circulation, may be more complicated.
-
+* * * Other treatment considerations in the pregnant patient.
 
-
+* Patients with AF who are hemodynamically unstable should be promptly electrically cardioverted. This is safe in pregnancy.
 
-
+* Anticoagulation is indicated in the presence of AF, dilated left atrium or mechanical prosthetic heart valve.
 
-Other treatment considerations in the pregnant patient.
+* Patients with valvular lesions who remain symptomatic despite optimal medical treatment may be considered for percutaneous valve intervention or surgery.
 
- Patients with AF who are hemodynamically unstable should be promptly electrically cardioverted. This is safe in pregnancy.
+* Commonly recommended antihypertensive drugs include methyldopa, labetalol, calcium channel blockers and hydralazine.192,775
 
- Anticoagulation is indicated in the presence of AF, dilated left atrium or mechanical prosthetic heart valve.
+* Echocardiographic reexamination may be considered:
 
- Patients with valvular lesions who remain symptomatic despite optimal medical treatment may be considered for percutaneous valve intervention or surgery.
-
- Commonly recommended antihypertensive drugs include methyldopa, labetalol, calcium channel blockers and hydralazine.192,775
-
- Echocardiographic reexamination may be considered:
-
-
-
-
-
-
-
-In the third trimester for reassessment of myocardial structure and function before labor.
+* * * In the third trimester for reassessment of myocardial structure and function before labor.
 
 When there are significant changes in HF symptoms or signs during pregnancy.
 
 When HF medications are reduced or discontinued.
 
- In selected patients, Natriuretic peptide (BNP or NT-Pro BNP) monitoring may have some value for prediction of cardiovascular events.777,778
+* In selected patients, Natriuretic peptide (BNP or NT-Pro BNP) monitoring may have some value for prediction of cardiovascular events.777,778
 
 A. Antenatal care
 
@@ -467,46 +363,32 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 
 delivery.
 
- Cesarean section is indicated:192
+* Cesarean section is indicated:192
 
- For obstetric reasons.
+* For obstetric reasons.
 
- In patients on warfarin or who have discontinued their warfarin for < 2 weeks and who now are in imminent labour.
+* In patients on warfarin or who have discontinued their warfarin for < 2 weeks and who now are in imminent labour.
 
- In patients with severe pulmonary hypertension.
+* In patients with severe pulmonary hypertension.
 
 It is beneficial to shorten the second stage of labour by forceps or vacuum assisted delivery.
- Left lateral decubitus position is preferred to attenuate the hemodynamic effects in the supine position.
+* Left lateral decubitus position is preferred to attenuate the hemodynamic effects in the supine position.
 
- A slow i.v. infusion of oxytocin immediately after birth, (2 U of oxytocin given over 10
+* A slow i.v. infusion of oxytocin immediately after birth, (2 U of oxytocin given over 10
 
 min followed by 12 mU/min for 4 h) reduces the risk of post-partum hemorrhage and has a minimal impact on cardiovascular parameters.
 Routine antibiotic prophylaxis is not recommended in patients with valvular heart disease undergoing uncomplicated vaginal delivery or Cesarean section.
 
 C. Post partum care
 
-
-
-After delivery, careful monitoring of hemodynamic status should be done for at least 24
+* After delivery, careful monitoring of hemodynamic status should be done for at least 24
 
 hours, or longer in high-risk patients. In patients with severe cardiac lesions, hemody namics may be abnormal up to 10 days after delivery.
- These patients should be evaluated post-partum to assess the need for corrective surgery
+* These patients should be evaluated post-partum to assess the need for corrective surgery
 
 14.9.2. Burden of disease
 
-
-
-
-
-
-
-
-
-
-
-
-
-Prevalence of HF in ACHD ranges from 3.3% (median follow up of 27.5 years)
+* * * * * * Prevalence of HF in ACHD ranges from 3.3% (median follow up of 27.5 years)
 
 at a mean age of 35 years.
 HF is the most common cause of death in ACHD patients, accounting for 17- 42% of all deaths.800-803
@@ -530,9 +412,7 @@ was 35%.808 Male gender, pacemaker implantation, admission duration, non-cardiac
 3-year mortality.
 14.9.3. Predisposing risk factors
 
-
-
-The risk factors for developing HF and related mortality in ACHD patients includes advancing age, worsening NYHA functional class, complexity of the underlying congenital
+* The risk factors for developing HF and related mortality in ACHD patients includes advancing age, worsening NYHA functional class, complexity of the underlying congenital
 
 heart defect(s), pulmonary hypertension/ Eisenmenger syndrome, endocarditis, atrial arrhythmias, ventricular dysfunction, end organ dysfunction and previous interventions
 
@@ -540,15 +420,7 @@ e.g., Fontan surgery.799,802,803
 
 14.9.4. Pathophysiology of HF in ACHD
 
-
-
-
-
-
-
-
-
-Unlike acquired heart disease, the underlying mechanism for HF is more heterogenous and complex.
+* * * * Unlike acquired heart disease, the underlying mechanism for HF is more heterogenous and complex.
 
 It is highly dependent on the underlying anatomy, presence of pulmonary arterial hypertension, timing and type of intervention, myocardial protection during surgery,
 
@@ -562,15 +434,7 @@ pages 174-175. 186-187796,809,810
 
 14.9.5. Diagnosis of HF in ACHD
 
-
-
-
-
-
-
-
-
-Diagnosing HF is challenging as typical clinical findings may not be present and most patients do not report symptoms of decreased functional capacity due to chronic
+* * * * Diagnosing HF is challenging as typical clinical findings may not be present and most patients do not report symptoms of decreased functional capacity due to chronic
 
 adaptation since childhood.
 Interpreting the routine investigations also poses a challenge as many are abnormal even at baseline.
@@ -584,25 +448,7 @@ Due to the multifactorial etiology of HF in these patients, a patient-centered a
 
 to 6.4%
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The risk of recurrence of HF in subsequent pregnancies should also be made known to the patient.
+* * * * * * * * * The risk of recurrence of HF in subsequent pregnancies should also be made known to the patient.
 
 Follow-up visit at 6 weeks post-partum should be attended by the multidisciplinary team, a full cardiac assessment should be done, and appropriate contraception should be
 
@@ -613,21 +459,7 @@ Postpartum women who breast feed can start ACE-I (enalapril or captopril preferr
 Metoprolol remains the preferred β-blocker.
 14.7.4 Peripartum Cardiomyopathy (PPCM)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PPCM presents as HF secondary to LV systolic dysfunction, usually shown by an
+* * * * * * * PPCM presents as HF secondary to LV systolic dysfunction, usually shown by an
 
 LVEF < 45% occurring during the third trimester or in the months following delivery without any other identifiable cause.
 
@@ -645,23 +477,23 @@ The incidence of intracardiac thrombi during Acute HF caused by peripartum cardi
 
 Predictors of adverse pregnancy outcomes include:780,781
 
- LVEF < 30%
+* LVEF < 30%
 
- RV involvement.
+* RV involvement.
 
 Prognosis is related to the initial LVEF, presence of LV thrombus, RV involvement, preeclampsia, geographical region, and race.779,780
 
 14.7.4.1. Management:
 
- This is as listed in section 14.7.3.2
+* This is as listed in section 14.7.3.2
 
- In addition:
+* In addition:
 
- In those patients presenting with severe HF and cardiogenic shock requiring inotropic or vasopressor support, it is advisable to transfer them to an advanced HF center.
+* In those patients presenting with severe HF and cardiogenic shock requiring inotropic or vasopressor support, it is advisable to transfer them to an advanced HF center.
 
 Urgent delivery by cesarean section (irrespective of gestation) should be considered.
 
- Bromocriptine has been proposed for patients with acute PPCM to reduce the production of a cleaved 16 kDa prolactin fragment, which may contribute to the
+* Bromocriptine has been proposed for patients with acute PPCM to reduce the production of a cleaved 16 kDa prolactin fragment, which may contribute to the
 
 pathophysiology of PPCM. The efficacy and safety of bromocriptine for acute PPCM
 
@@ -669,7 +501,7 @@ treatment, however, remains uncertain currently, particularly in the setting of 
 
 HF and cardiogenic shock management.780,783 The use of bromocriptine increases thromboembolic risk and thus, adequate anti-coagulation is important.
 
- Some patients may present with HF late post-partum and thus, they should be followed up closely long-term. They should also be counselled about subsequent pregnancies
+* Some patients may present with HF late post-partum and thus, they should be followed up closely long-term. They should also be counselled about subsequent pregnancies
 
 and the risk of relapse.
 
@@ -690,23 +522,19 @@ deficiency anemia or thyrotoxicosis.)
 
 14.9.6. Investigations
 
-
-
-
-
-Investigations are like that of acquired heart disease as outlined earlier in Section 6. In addition, the following investigations are important to assess both structural and
+* * Investigations are like that of acquired heart disease as outlined earlier in Section 6. In addition, the following investigations are important to assess both structural and
 
 hemodynamic anomalies: (Appendix XIV, page 176)
 
- Transthoracic and transesophageal echocardiogram
+* Transthoracic and transesophageal echocardiogram
 
- Cardiac magnetic resonance (CMR)
+* Cardiac magnetic resonance (CMR)
 
- Computer tomography scan
+* Computer tomography scan
 
- Cardiac catheterization for invasive hemodynamic assessment.
+* Cardiac catheterization for invasive hemodynamic assessment.
 
- Rhythm monitoring and analysis.
+* Rhythm monitoring and analysis.
 
 Patients with ACHD are usually well adapted to their functional limitations. Thus, objective assessment of their functional capacity and response to therapy is important. This can be
 
@@ -718,44 +546,32 @@ compared to acquired heart disease especially in single ventricle physiology816,
 
 14.9.7. Management (Appendix XV: Flowchart of the management of ACHD-HF, page 177)
 
-
-
-
-
-
-
-The aim of treatment is to alleviate symptoms, improve quality of life and to improve survival. These patients are preferably managed by a multidisciplinary team that includes
+* * * The aim of treatment is to alleviate symptoms, improve quality of life and to improve survival. These patients are preferably managed by a multidisciplinary team that includes
 
 both the ACHD and HF cardiologist.
 
 The principles of managing HF in ACHD HF are:
 
- First to access and address all reversible causes.
+* First to access and address all reversible causes.
 
- To initiate pharmacotherapy if HF control is still not optimal.
+* To initiate pharmacotherapy if HF control is still not optimal.
 
- To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
+* To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
 
 Potentially reversible causes in ACHD-HF are:
 
- Native, new, or residual structural anomalies that are amenable to surgical or catheter interventions. These include:
+* Native, new, or residual structural anomalies that are amenable to surgical or catheter interventions. These include:
 
-
-
-
-
-Shunts (VSD/ASD/PDA)
+* * Shunts (VSD/ASD/PDA)
 
 Valvular lesions (free flow Pulmonary regurgitation post TOF repair/aortic regurgitation e.g., post arterial switch)
 
-
+* Outflow tract obstruction (conduit stenosis/ LV outflow tract obstruction).
 
-Outflow tract obstruction (conduit stenosis/ LV outflow tract obstruction).
-
- Arrhythmias- atrial
+* Arrhythmias- atrial
 or ventricular tachyarrhythmias
 
- Other medical problems such as-sepsis, thyrotoxicosis, anemia, uncontrolled hypertension.
+* Other medical problems such as-sepsis, thyrotoxicosis, anemia, uncontrolled hypertension.
 820
 
 14.7 HEART FAILURE IN PREGNANCY
@@ -774,25 +590,19 @@ In general, pregnancy is well-tolerated in women with cardiomyopathy and NYHA cl
 
 pre- pregnancy. Factors increasing maternal and fetal risks include:
 
- Previous cardiac events
+* Previous cardiac events
 
- NYHA class III to IV or
+* NYHA class III to IV or
 
- LVEF < 40%.
+* LVEF < 40%.
 
 In the ROPAC Registry, women with pre-pregnancy or peripartum cardiomyopathy had the highest mortality rate (2.4%)762,763
 
 Normal hemodynamic changes that occur in pregnancy are:
 
-
+* An increase in cardiac output by 30-50% during normal pregnancy.
 
-An increase in cardiac output by 30-50% during normal pregnancy.
-
-
-
-
-
-An increase in cardiac output to 80% above baseline during labour and delivery.
+* * An increase in cardiac output to 80% above baseline during labour and delivery.
 
 Hemodynamic changes return to baseline 2-4 weeks after vaginal delivery and up to 6
 
@@ -824,103 +634,77 @@ HF as well as new onset HF. New onset HF was observed in as much as a quarter of
 
 unit (ICU).
 
-
-Pharmacotherapy 809,810,812
+* Pharmacotherapy 809,810,812
 
 In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired HF. The medical treatment is based on the varying subgroups of ACHD-HF.
 
 A)
 
-
-
-
-
-
-
-
-
-Impaired systolic function
+* * * * Impaired systolic function
 
 Systemic left ventricle failure (LVEF<40%)
 
- The treatment is similar as acquired HF.
+* The treatment is similar as acquired HF.
 
- Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers,
+* Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers,
 
 MRA and SGLT2-i. Loop diuretics are given for symptom relief.
 
 Systolic failure of subpulmonic RV (RVEF<40%)
- No medical treatment is indicated for asymptomatic patients.
+* No medical treatment is indicated for asymptomatic patients.
 
- There is limited evidence for the use of RAS blockers or β-blockers.
+* There is limited evidence for the use of RAS blockers or β-blockers.
 
- Diuretics are the mainstay treatment for symptomatic patients.
+* Diuretics are the mainstay treatment for symptomatic patients.
 
- It is important to identify hemodynamically significant lesions and to address these.
- Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension
+* It is important to identify hemodynamically significant lesions and to address these.
+* Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension
 
 (PAH)/Eisenmenger would benefit from PAH targeted therapy.
 
 Systolic failure of systemic RV824,825
 
- There are no standard guidelines for medical therapy for asymptomatic patients.
+* There are no standard guidelines for medical therapy for asymptomatic patients.
 
- In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
+* In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
 
- An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
+* An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
 
 Systolic failure of single ventricle
- There are no guidelines for the use of standard drugs in asymptomatic patients.
+* There are no guidelines for the use of standard drugs in asymptomatic patients.
 
- Loop diuretics may be used judiciously in symptomatic patients.
+* Loop diuretics may be used judiciously in symptomatic patients.
 
- PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
+* PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
 
 B) Arrhythmias
 
-
-Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in
+* Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in
 
 a regional ACHD center by a cardiac electrophysiologist with expertize in CHD, and in a laboratory with appropriate personnel and equipment.821,830
 
 These should be managed promptly and aggressively with appropriate antiarrhythmic drug therapy, catheter, or surgical ablation.
 
 Permanent pacing is recommended in:
- Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
+* Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
 
- Post operative advanced second- or third-degree AV block that persists more than
+* Post operative advanced second- or third-degree AV block that persists more than
 
 7days after cardiac surgery.
 
- Congenital 3
+* Congenital 3
 
 rd degree AV block.
 Cardiac implantable cardioverter defibrillator (ICD) may be considered for the secondary prevention of sudden death in:
 
- High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
+* High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
 
- In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
+* In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
 CRT may be helpful in managing HF in patients with subpulmonary and systemic RV.833,834
 823
-
+* * * * HF may develop in pregnancy:192,764
 
-
-
-
-
-
-
-HF may develop in pregnancy:192,764
-
-
-
-
-
-
-
-
-
-For the first time in a patient with pre-existing heart disease (congenital and/or valvular)
+* * * * For the first time in a patient with pre-existing heart disease (congenital and/or valvular)
 
 due to decompensation from the stress.
 
@@ -929,13 +713,13 @@ May occur in a patient who had HF previously and still has a depressed myocardia
 In a patient with a previously unrecognized genetic cardiomyopathy or a latent cardiac viral infection which has been unmasked or activated by the stress of pregnancy.
 
 In a patient with a previously normal heart due to:
- Hypertensive complications of pregnancy i.e. gestational hypertension and the more severe forms preeclampsia, the HELLP syndrome.
+* Hypertensive complications of pregnancy i.e. gestational hypertension and the more severe forms preeclampsia, the HELLP syndrome.
 
 (H: hemolysis, EL: elevated liver enzymes, LP: low platelet count).
 
- Peripartum cardiomyopathy.
+* Peripartum cardiomyopathy.
 
- Takotsubo syndrome.
+* Takotsubo syndrome.
 
 14.7.1. Diagnosis
 
@@ -945,17 +729,9 @@ CMR may be considered.
 
 14.7.2. Risk stratification
 
-
+* Pregnant women with cardiac disease are at risk of adverse maternal and fetal outcomes.
 
-Pregnant women with cardiac disease are at risk of adverse maternal and fetal outcomes.
-
-
-
-
-
-
-
-Their risk should be assessed before conception or early in the pregnancy to optimize the outcome of the pregnancy.192,764
+* * * Their risk should be assessed before conception or early in the pregnancy to optimize the outcome of the pregnancy.192,764
 
 Maternal cardiovascular risk can be assessed using the modified World Health Organization
 
@@ -963,11 +739,11 @@ Maternal cardiovascular risk can be assessed using the modified World Health Org
 
 (Appendix XI & XII, page 172-173)
 Level of Care will depend on the maternal CV risk:
- Low risk: can be managed at their local center after review by a family medicine specialist/physician or cardiologist.
+* Low risk: can be managed at their local center after review by a family medicine specialist/physician or cardiologist.
 
- Moderate risk: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
+* Moderate risk: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
 
- High risk: should be referred early to the tertiary center for assessment. If termination of pregnancy is considered, it can be performed up to 22 weeks.
+* High risk: should be referred early to the tertiary center for assessment. If termination of pregnancy is considered, it can be performed up to 22 weeks.
 
 14.7.3. Management
 
@@ -977,27 +753,17 @@ pediatricians.789,754,755,764
 
 In the management of HF in pregnancy, the following issues need to be considered:192,755,764
 
-
-
-
-
-
-
-Gestational age at presentation.
+* * * Gestational age at presentation.
 
 Clinical presentation, either as Acute HF or Chronic HF.
 
 Response to medical therapy.
 
- Potential maternal and fetal risks.
+* Potential maternal and fetal risks.
 
-
+* Review and replace all fetotoxic drugs
 
-Review and replace all fetotoxic drugs
-
-
-
-Timing and mode of delivery.
+* Timing and mode of delivery.
 
 Predictors of maternal cardiac complications are as in Table 20, Page 139.
 
@@ -1009,13 +775,13 @@ This is a rare but serious complication of SARS-CoV-2 infection as well as COVID
 
 Myocarditis is defined by the presence of all of the following: 788
 
--  Cardiac symptoms (e.g., chest pain, dyspnea, palpitations, syncope),
--  Elevated cardiac troponin (cTn) and
--  Abnormal electrocardiographic, and /or echocardiographic, cardiac magnetic resonance imaging (CMR), in the absence of flow-limiting coronary artery disease.
+* Cardiac symptoms (e.g., chest pain, dyspnea, palpitations, syncope),
+* Elevated cardiac troponin (cTn) and
+* Abnormal electrocardiographic, and /or echocardiographic, cardiac magnetic resonance imaging (CMR), in the absence of flow-limiting coronary artery disease.
 
 There may also be myocardial involvement only without myocarditis and this is defined by: 788
 
--  An abnormal myocardium manifest by electrocardiographic, echocardiographic, CMR and /or histopathologic findings, with or without symptoms and with or without an elevated cTn.
+* An abnormal myocardium manifest by electrocardiographic, echocardiographic, CMR and /or histopathologic findings, with or without symptoms and with or without an elevated cTn.
 
 ## Prevalence
 
@@ -1027,16 +793,15 @@ Despite this, COVID-19 vaccination is associated with a very favorable benefit-t
 
 ## Management 788
 
--  Hospitalization is recommended for patients with definite myocarditis, ideally at an advanced HF center.
--  Patients with myocarditis and COVID-19 pneumonia (with an ongoing need for supplemental oxygen) should be treated with corticosteroids.
--  For patients with suspected pericardial involvement, treatment with nonsteroidal anti- inflammatory drugs, colchicine, and/or prednisone is reasonable.
--  Intravenous corticosteroids may be considered in those with suspected or confirmed COVID-19 myocarditis with hemodynamic compromise or multisystem inflammatory syndrome in adults.
+* Hospitalization is recommended for patients with definite myocarditis, ideally at an advanced HF center.
+* Patients with myocarditis and COVID-19 pneumonia (with an ongoing need for supplemental oxygen) should be treated with corticosteroids.
+* For patients with suspected pericardial involvement, treatment with nonsteroidal anti- inflammatory drugs, colchicine, and/or prednisone is reasonable.
+* Intravenous corticosteroids may be considered in those with suspected or confirmed COVID-19 myocarditis with hemodynamic compromise or multisystem inflammatory syndrome in adults.
 765-768
 
 C) Cyanosis
 
-
-Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
+* Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
 
 Routine phlebotomy based on a predetermined hematocrit should be avoided.
 
@@ -1044,59 +809,44 @@ These patients are also at risk of thromboembolic events and bleeding. Anticoagu
 
 D) Advanced therapies for ACHD- HF835,836
 
-
+* The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
 
-The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
+* Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
 
- Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
+* Prior surgical intervention/repeated sternotomies.
 
- Prior surgical intervention/repeated sternotomies.
+* Allosensitization due to blood transfusion, use of homografts.
 
- Allosensitization due to blood transfusion, use of homografts.
+* Pulmonary hypertension - thus a heart-lung transplant may be required.
 
- Pulmonary hypertension - thus a heart-lung transplant may be required.
-
- End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
+* End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
 
 E) General measures
 
- Infective endocarditis837
+* Infective endocarditis837
 
- Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
- Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
+* Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
+* Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
 
 Pregnancy (refer to section 14.7).
 
- It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
+* It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
 
- Exercise rehabilitation838 (refer to section 16)
+* Exercise rehabilitation838 (refer to section 16)
 
- Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
- Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
+* Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
+* Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
 
 F) Palliative care and advance care planning (refer to section 15.3)
 
-
-
-
-Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
+* * Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
 
 It should be patient-tailored and age appropriate due to the heterogenous nature and chronicity of ACHD and counselling should be given based on the projected course of the
 
 respective disease and prognosis.
-
+* * * 14.7.3.1. Preconceptual counselling
 
-
-
-
-
-14.7.3.1. Preconceptual counselling
-
-
-
-
-
-Patient-centered counselling regarding contraception and the risks of cardiovascular deterioration during pregnancy should be provided to all women in the childbearing age
+* * Patient-centered counselling regarding contraception and the risks of cardiovascular deterioration during pregnancy should be provided to all women in the childbearing age
 
 with known or suspected heart disease.192-194,764
 
@@ -1110,62 +860,44 @@ If pregnant, termination should be considered.
 
 This includes:
 
-
-
-Non-pharmacological measures
+* Non-pharmacological measures
 
 The management of patients with mild symptoms consists mainly of non-pharmacological measures such as:192
 
- Limiting strenuous exercise.
+* Limiting strenuous exercise.
 
- Adequate rest - maintaining a low salt diet.
+* Adequate rest - maintaining a low salt diet.
 
- Treating anemia and infections early.
+* Treating anemia and infections early.
 
- Frequent antenatal examinations.
+* Frequent antenatal examinations.
 
 Pharmacological measures
 
-
+* The following drugs may be used in the pregnant patient with HF:
+* Diuretics are the first line therapy in patients who are fluid overloaded.
 
-The following drugs may be used in the pregnant patient with HF:
- Diuretics are the first line therapy in patients who are fluid overloaded.
+* Nitrates and/or hydralazine are used for preload and afterload reduction.
 
- Nitrates and/or hydralazine are used for preload and afterload reduction.
+* β-blockers can be used cautiously, most commonly metoprolol.773,774
 
- β-blockers can be used cautiously, most commonly metoprolol.773,774
+* Digoxin is safe in pregnancy and during breast feeding.
 
- Digoxin is safe in pregnancy and during breast feeding.
+* ACE-I, ARB, ARNI, MRA, SGLT2-i and ivabradine are contraindicated in pregnancy. 755,775,776
 
- ACE-I, ARB, ARNI, MRA, SGLT2-i and ivabradine are contraindicated in pregnancy. 755,775,776
+* ACE-I (enalapril and captopril) can be used in the post partum period.775,776
 
- ACE-I (enalapril and captopril) can be used in the post partum period.775,776
-
- In the postpartum period, Foundational HF medications may be given. The patient should however be advised not to breast feed.
+* In the postpartum period, Foundational HF medications may be given. The patient should however be advised not to breast feed.
 
 As appropriate, guideline-directed medical therapy for HF should be initiated and contin ued after hospital discharge.
 
 In general, vaccine-associated myocarditis should be diagnosed, categorized, and treated
 
-
-
-
-
-in a manner similar analogous to myocarditis following Covid-19 infection.
+* * in a manner similar analogous to myocarditis following Covid-19 infection.
 
 Long-term cardiovascular outcomes of COVID-19
 
-
-
-
-
-
-
-
-
-
-
-The risk and 1-year burden of cardiovascular disease in survivors of acute COVID-19 are substantial.793
+* * * * * The risk and 1-year burden of cardiovascular disease in survivors of acute COVID-19 are substantial.793
 
 Individuals with COVID-19 are at increased risk of other CV diseases such as cerebrovas cular disorders, arrhythmias, ischemic and non-ischemic heart disease, pericarditis,
 
@@ -1189,37 +921,25 @@ congenital heart disease (ACHD) are at risk of long term sequalae with increased
 
 Definition of HF in the ACHD in patients with biventricular circulation is like that of those with acquired heart disease.
 However, defining HF in patients with Fontan circulation, may be more complicated.
-
+* * * Other treatment considerations in the pregnant patient.
 
-
+* Patients with AF who are hemodynamically unstable should be promptly electrically cardioverted. This is safe in pregnancy.
 
-
+* Anticoagulation is indicated in the presence of AF, dilated left atrium or mechanical prosthetic heart valve.
 
-Other treatment considerations in the pregnant patient.
+* Patients with valvular lesions who remain symptomatic despite optimal medical treatment may be considered for percutaneous valve intervention or surgery.
 
- Patients with AF who are hemodynamically unstable should be promptly electrically cardioverted. This is safe in pregnancy.
+* Commonly recommended antihypertensive drugs include methyldopa, labetalol, calcium channel blockers and hydralazine.192,775
 
- Anticoagulation is indicated in the presence of AF, dilated left atrium or mechanical prosthetic heart valve.
+* Echocardiographic reexamination may be considered:
 
- Patients with valvular lesions who remain symptomatic despite optimal medical treatment may be considered for percutaneous valve intervention or surgery.
-
- Commonly recommended antihypertensive drugs include methyldopa, labetalol, calcium channel blockers and hydralazine.192,775
-
- Echocardiographic reexamination may be considered:
-
-
-
-
-
-
-
-In the third trimester for reassessment of myocardial structure and function before labor.
+* * * In the third trimester for reassessment of myocardial structure and function before labor.
 
 When there are significant changes in HF symptoms or signs during pregnancy.
 
 When HF medications are reduced or discontinued.
 
- In selected patients, Natriuretic peptide (BNP or NT-Pro BNP) monitoring may have some value for prediction of cardiovascular events.777,778
+* In selected patients, Natriuretic peptide (BNP or NT-Pro BNP) monitoring may have some value for prediction of cardiovascular events.777,778
 
 A. Antenatal care
 
@@ -1233,46 +953,32 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 
 delivery.
 
- Cesarean section is indicated:192
+* Cesarean section is indicated:192
 
- For obstetric reasons.
+* For obstetric reasons.
 
- In patients on warfarin or who have discontinued their warfarin for < 2 weeks and who now are in imminent labour.
+* In patients on warfarin or who have discontinued their warfarin for < 2 weeks and who now are in imminent labour.
 
- In patients with severe pulmonary hypertension.
+* In patients with severe pulmonary hypertension.
 
 It is beneficial to shorten the second stage of labour by forceps or vacuum assisted delivery.
- Left lateral decubitus position is preferred to attenuate the hemodynamic effects in the supine position.
+* Left lateral decubitus position is preferred to attenuate the hemodynamic effects in the supine position.
 
- A slow i.v. infusion of oxytocin immediately after birth, (2 U of oxytocin given over 10
+* A slow i.v. infusion of oxytocin immediately after birth, (2 U of oxytocin given over 10
 
 min followed by 12 mU/min for 4 h) reduces the risk of post-partum hemorrhage and has a minimal impact on cardiovascular parameters.
 Routine antibiotic prophylaxis is not recommended in patients with valvular heart disease undergoing uncomplicated vaginal delivery or Cesarean section.
 
 C. Post partum care
 
-
-
-After delivery, careful monitoring of hemodynamic status should be done for at least 24
+* After delivery, careful monitoring of hemodynamic status should be done for at least 24
 
 hours, or longer in high-risk patients. In patients with severe cardiac lesions, hemody namics may be abnormal up to 10 days after delivery.
- These patients should be evaluated post-partum to assess the need for corrective surgery
+* These patients should be evaluated post-partum to assess the need for corrective surgery
 
 14.9.2. Burden of disease
 
-
-
-
-
-
-
-
-
-
-
-
-
-Prevalence of HF in ACHD ranges from 3.3% (median follow up of 27.5 years)
+* * * * * * Prevalence of HF in ACHD ranges from 3.3% (median follow up of 27.5 years)
 
 at a mean age of 35 years.
 HF is the most common cause of death in ACHD patients, accounting for 17- 42% of all deaths.800-803
@@ -1296,9 +1002,7 @@ was 35%.808 Male gender, pacemaker implantation, admission duration, non-cardiac
 3-year mortality.
 14.9.3. Predisposing risk factors
 
-
-
-The risk factors for developing HF and related mortality in ACHD patients includes advancing age, worsening NYHA functional class, complexity of the underlying congenital
+* The risk factors for developing HF and related mortality in ACHD patients includes advancing age, worsening NYHA functional class, complexity of the underlying congenital
 
 heart defect(s), pulmonary hypertension/ Eisenmenger syndrome, endocarditis, atrial arrhythmias, ventricular dysfunction, end organ dysfunction and previous interventions
 
@@ -1306,15 +1010,7 @@ e.g., Fontan surgery.799,802,803
 
 14.9.4. Pathophysiology of HF in ACHD
 
-
-
-
-
-
-
-
-
-Unlike acquired heart disease, the underlying mechanism for HF is more heterogenous and complex.
+* * * * Unlike acquired heart disease, the underlying mechanism for HF is more heterogenous and complex.
 
 It is highly dependent on the underlying anatomy, presence of pulmonary arterial hypertension, timing and type of intervention, myocardial protection during surgery,
 
@@ -1328,15 +1024,7 @@ pages 174-175. 186-187796,809,810
 
 14.9.5. Diagnosis of HF in ACHD
 
-
-
-
-
-
-
-
-
-Diagnosing HF is challenging as typical clinical findings may not be present and most patients do not report symptoms of decreased functional capacity due to chronic
+* * * * Diagnosing HF is challenging as typical clinical findings may not be present and most patients do not report symptoms of decreased functional capacity due to chronic
 
 adaptation since childhood.
 Interpreting the routine investigations also poses a challenge as many are abnormal even at baseline.
@@ -1350,25 +1038,7 @@ Due to the multifactorial etiology of HF in these patients, a patient-centered a
 
 to 6.4%
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The risk of recurrence of HF in subsequent pregnancies should also be made known to the patient.
+* * * * * * * * * The risk of recurrence of HF in subsequent pregnancies should also be made known to the patient.
 
 Follow-up visit at 6 weeks post-partum should be attended by the multidisciplinary team, a full cardiac assessment should be done, and appropriate contraception should be
 
@@ -1379,21 +1049,7 @@ Postpartum women who breast feed can start ACE-I (enalapril or captopril preferr
 Metoprolol remains the preferred β-blocker.
 14.7.4 Peripartum Cardiomyopathy (PPCM)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PPCM presents as HF secondary to LV systolic dysfunction, usually shown by an
+* * * * * * * PPCM presents as HF secondary to LV systolic dysfunction, usually shown by an
 
 LVEF < 45% occurring during the third trimester or in the months following delivery without any other identifiable cause.
 
@@ -1411,23 +1067,23 @@ The incidence of intracardiac thrombi during Acute HF caused by peripartum cardi
 
 Predictors of adverse pregnancy outcomes include:780,781
 
- LVEF < 30%
+* LVEF < 30%
 
- RV involvement.
+* RV involvement.
 
 Prognosis is related to the initial LVEF, presence of LV thrombus, RV involvement, preeclampsia, geographical region, and race.779,780
 
 14.7.4.1. Management:
 
- This is as listed in section 14.7.3.2
+* This is as listed in section 14.7.3.2
 
- In addition:
+* In addition:
 
- In those patients presenting with severe HF and cardiogenic shock requiring inotropic or vasopressor support, it is advisable to transfer them to an advanced HF center.
+* In those patients presenting with severe HF and cardiogenic shock requiring inotropic or vasopressor support, it is advisable to transfer them to an advanced HF center.
 
 Urgent delivery by cesarean section (irrespective of gestation) should be considered.
 
- Bromocriptine has been proposed for patients with acute PPCM to reduce the production of a cleaved 16 kDa prolactin fragment, which may contribute to the
+* Bromocriptine has been proposed for patients with acute PPCM to reduce the production of a cleaved 16 kDa prolactin fragment, which may contribute to the
 
 pathophysiology of PPCM. The efficacy and safety of bromocriptine for acute PPCM
 
@@ -1435,7 +1091,7 @@ treatment, however, remains uncertain currently, particularly in the setting of 
 
 HF and cardiogenic shock management.780,783 The use of bromocriptine increases thromboembolic risk and thus, adequate anti-coagulation is important.
 
- Some patients may present with HF late post-partum and thus, they should be followed up closely long-term. They should also be counselled about subsequent pregnancies
+* Some patients may present with HF late post-partum and thus, they should be followed up closely long-term. They should also be counselled about subsequent pregnancies
 
 and the risk of relapse.
 
@@ -1456,23 +1112,19 @@ deficiency anemia or thyrotoxicosis.)
 
 14.9.6. Investigations
 
-
-
-
-
-Investigations are like that of acquired heart disease as outlined earlier in Section 6. In addition, the following investigations are important to assess both structural and
+* * Investigations are like that of acquired heart disease as outlined earlier in Section 6. In addition, the following investigations are important to assess both structural and
 
 hemodynamic anomalies: (Appendix XIV, page 176)
 
- Transthoracic and transesophageal echocardiogram
+* Transthoracic and transesophageal echocardiogram
 
- Cardiac magnetic resonance (CMR)
+* Cardiac magnetic resonance (CMR)
 
- Computer tomography scan
+* Computer tomography scan
 
- Cardiac catheterization for invasive hemodynamic assessment.
+* Cardiac catheterization for invasive hemodynamic assessment.
 
- Rhythm monitoring and analysis.
+* Rhythm monitoring and analysis.
 
 Patients with ACHD are usually well adapted to their functional limitations. Thus, objective assessment of their functional capacity and response to therapy is important. This can be
 
@@ -1484,44 +1136,32 @@ compared to acquired heart disease especially in single ventricle physiology816,
 
 14.9.7. Management (Appendix XV: Flowchart of the management of ACHD-HF, page 177)
 
-
-
-
-
-
-
-The aim of treatment is to alleviate symptoms, improve quality of life and to improve survival. These patients are preferably managed by a multidisciplinary team that includes
+* * * The aim of treatment is to alleviate symptoms, improve quality of life and to improve survival. These patients are preferably managed by a multidisciplinary team that includes
 
 both the ACHD and HF cardiologist.
 
 The principles of managing HF in ACHD HF are:
 
- First to access and address all reversible causes.
+* First to access and address all reversible causes.
 
- To initiate pharmacotherapy if HF control is still not optimal.
+* To initiate pharmacotherapy if HF control is still not optimal.
 
- To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
+* To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
 
 Potentially reversible causes in ACHD-HF are:
 
- Native, new, or residual structural anomalies that are amenable to surgical or catheter interventions. These include:
+* Native, new, or residual structural anomalies that are amenable to surgical or catheter interventions. These include:
 
-
-
-
-
-Shunts (VSD/ASD/PDA)
+* * Shunts (VSD/ASD/PDA)
 
 Valvular lesions (free flow Pulmonary regurgitation post TOF repair/aortic regurgitation e.g., post arterial switch)
 
-
+* Outflow tract obstruction (conduit stenosis/ LV outflow tract obstruction).
 
-Outflow tract obstruction (conduit stenosis/ LV outflow tract obstruction).
-
- Arrhythmias- atrial
+* Arrhythmias- atrial
 or ventricular tachyarrhythmias
 
- Other medical problems such as-sepsis, thyrotoxicosis, anemia, uncontrolled hypertension.
+* Other medical problems such as-sepsis, thyrotoxicosis, anemia, uncontrolled hypertension.
 820
 
 14.7 HEART FAILURE IN PREGNANCY
@@ -1540,25 +1180,19 @@ In general, pregnancy is well-tolerated in women with cardiomyopathy and NYHA cl
 
 pre- pregnancy. Factors increasing maternal and fetal risks include:
 
- Previous cardiac events
+* Previous cardiac events
 
- NYHA class III to IV or
+* NYHA class III to IV or
 
- LVEF < 40%.
+* LVEF < 40%.
 
 In the ROPAC Registry, women with pre-pregnancy or peripartum cardiomyopathy had the highest mortality rate (2.4%)762,763
 
 Normal hemodynamic changes that occur in pregnancy are:
 
-
+* An increase in cardiac output by 30-50% during normal pregnancy.
 
-An increase in cardiac output by 30-50% during normal pregnancy.
-
-
-
-
-
-An increase in cardiac output to 80% above baseline during labour and delivery.
+* * An increase in cardiac output to 80% above baseline during labour and delivery.
 
 Hemodynamic changes return to baseline 2-4 weeks after vaginal delivery and up to 6
 
@@ -1590,103 +1224,77 @@ HF as well as new onset HF. New onset HF was observed in as much as a quarter of
 
 unit (ICU).
 
-
-Pharmacotherapy 809,810,812
+* Pharmacotherapy 809,810,812
 
 In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired HF. The medical treatment is based on the varying subgroups of ACHD-HF.
 
 A)
 
-
-
-
-
-
-
-
-
-Impaired systolic function
+* * * * Impaired systolic function
 
 Systemic left ventricle failure (LVEF<40%)
 
- The treatment is similar as acquired HF.
+* The treatment is similar as acquired HF.
 
- Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers,
+* Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers,
 
 MRA and SGLT2-i. Loop diuretics are given for symptom relief.
 
 Systolic failure of subpulmonic RV (RVEF<40%)
- No medical treatment is indicated for asymptomatic patients.
+* No medical treatment is indicated for asymptomatic patients.
 
- There is limited evidence for the use of RAS blockers or β-blockers.
+* There is limited evidence for the use of RAS blockers or β-blockers.
 
- Diuretics are the mainstay treatment for symptomatic patients.
+* Diuretics are the mainstay treatment for symptomatic patients.
 
- It is important to identify hemodynamically significant lesions and to address these.
- Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension
+* It is important to identify hemodynamically significant lesions and to address these.
+* Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension
 
 (PAH)/Eisenmenger would benefit from PAH targeted therapy.
 
 Systolic failure of systemic RV824,825
 
- There are no standard guidelines for medical therapy for asymptomatic patients.
+* There are no standard guidelines for medical therapy for asymptomatic patients.
 
- In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
+* In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
 
- An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
+* An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
 
 Systolic failure of single ventricle
- There are no guidelines for the use of standard drugs in asymptomatic patients.
+* There are no guidelines for the use of standard drugs in asymptomatic patients.
 
- Loop diuretics may be used judiciously in symptomatic patients.
+* Loop diuretics may be used judiciously in symptomatic patients.
 
- PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
+* PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
 
 B) Arrhythmias
 
-
-Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in
+* Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in
 
 a regional ACHD center by a cardiac electrophysiologist with expertize in CHD, and in a laboratory with appropriate personnel and equipment.821,830
 
 These should be managed promptly and aggressively with appropriate antiarrhythmic drug therapy, catheter, or surgical ablation.
 
 Permanent pacing is recommended in:
- Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
+* Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
 
- Post operative advanced second- or third-degree AV block that persists more than
+* Post operative advanced second- or third-degree AV block that persists more than
 
 7days after cardiac surgery.
 
- Congenital 3
+* Congenital 3
 
 rd degree AV block.
 Cardiac implantable cardioverter defibrillator (ICD) may be considered for the secondary prevention of sudden death in:
 
- High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
+* High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
 
- In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
+* In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
 CRT may be helpful in managing HF in patients with subpulmonary and systemic RV.833,834
 823
-
+* * * * HF may develop in pregnancy:192,764
 
-
-
-
-
-
-
-HF may develop in pregnancy:192,764
-
-
-
-
-
-
-
-
-
-For the first time in a patient with pre-existing heart disease (congenital and/or valvular)
+* * * * For the first time in a patient with pre-existing heart disease (congenital and/or valvular)
 
 due to decompensation from the stress.
 
@@ -1695,13 +1303,13 @@ May occur in a patient who had HF previously and still has a depressed myocardia
 In a patient with a previously unrecognized genetic cardiomyopathy or a latent cardiac viral infection which has been unmasked or activated by the stress of pregnancy.
 
 In a patient with a previously normal heart due to:
- Hypertensive complications of pregnancy i.e. gestational hypertension and the more severe forms preeclampsia, the HELLP syndrome.
+* Hypertensive complications of pregnancy i.e. gestational hypertension and the more severe forms preeclampsia, the HELLP syndrome.
 
 (H: hemolysis, EL: elevated liver enzymes, LP: low platelet count).
 
- Peripartum cardiomyopathy.
+* Peripartum cardiomyopathy.
 
- Takotsubo syndrome.
+* Takotsubo syndrome.
 
 14.7.1. Diagnosis
 
@@ -1711,17 +1319,9 @@ CMR may be considered.
 
 14.7.2. Risk stratification
 
-
+* Pregnant women with cardiac disease are at risk of adverse maternal and fetal outcomes.
 
-Pregnant women with cardiac disease are at risk of adverse maternal and fetal outcomes.
-
-
-
-
-
-
-
-Their risk should be assessed before conception or early in the pregnancy to optimize the outcome of the pregnancy.192,764
+* * * Their risk should be assessed before conception or early in the pregnancy to optimize the outcome of the pregnancy.192,764
 
 Maternal cardiovascular risk can be assessed using the modified World Health Organization
 
@@ -1729,11 +1329,11 @@ Maternal cardiovascular risk can be assessed using the modified World Health Org
 
 (Appendix XI & XII, page 172-173)
 Level of Care will depend on the maternal CV risk:
- Low risk: can be managed at their local center after review by a family medicine specialist/physician or cardiologist.
+* Low risk: can be managed at their local center after review by a family medicine specialist/physician or cardiologist.
 
- Moderate risk: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
+* Moderate risk: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
 
- High risk: should be referred early to the tertiary center for assessment. If termination of pregnancy is considered, it can be performed up to 22 weeks.
+* High risk: should be referred early to the tertiary center for assessment. If termination of pregnancy is considered, it can be performed up to 22 weeks.
 
 14.7.3. Management
 
@@ -1743,27 +1343,17 @@ pediatricians.789,754,755,764
 
 In the management of HF in pregnancy, the following issues need to be considered:192,755,764
 
-
-
-
-
-
-
-Gestational age at presentation.
+* * * Gestational age at presentation.
 
 Clinical presentation, either as Acute HF or Chronic HF.
 
 Response to medical therapy.
 
- Potential maternal and fetal risks.
+* Potential maternal and fetal risks.
 
-
+* Review and replace all fetotoxic drugs
 
-Review and replace all fetotoxic drugs
-
-
-
-Timing and mode of delivery.
+* Timing and mode of delivery.
 
 Predictors of maternal cardiac complications are as in Table 20, Page 139.
 
@@ -1781,21 +1371,15 @@ vaccination.788
 
 Myocarditis is defined by the presence of all of the following:
 
-
-Cardiac symptoms (e.g., chest pain, dyspnea, palpitations, syncope),
+* Cardiac symptoms (e.g., chest pain, dyspnea, palpitations, syncope),
 
-
-
-
-
-Elevated cardiac troponin (cTn) and
+* * Elevated cardiac troponin (cTn) and
 
 Abnormal electrocardiographic, and /or echocardiographic, cardiac magnetic resonance imaging (CMR), in the absence of flow-limiting coronary artery disease.
 
 There may also be myocardial involvement only without myocarditis and this is defined by:
 
-
-An abnormal myocardium manifest by electrocardiographic, echocardiographic, CMR and
+* An abnormal myocardium manifest by electrocardiographic, echocardiographic, CMR and
 
 /or histopathologic findings, with or without symptoms and with or without an elevated cTn.
 
@@ -1821,8 +1405,7 @@ Despite this, COVID-19 vaccination is associated with a very favorable benefit-t
 
 Management
 
-
-Hospitalization is recommended for patients with definite myocarditis, ideally at an advanced HF center.
+* Hospitalization is recommended for patients with definite myocarditis, ideally at an advanced HF center.
 
 Patients with myocarditis and COVID-19 pneumonia (with an ongoing need for supplemental oxygen) should be treated with corticosteroids.
 
@@ -1834,8 +1417,7 @@ COVID-19 myocarditis with hemodynamic compromise or multisystem inflammatory syn
 
 C) Cyanosis
 
-
-Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
+* Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
 
 Routine phlebotomy based on a predetermined hematocrit should be avoided.
 
@@ -1843,66 +1425,45 @@ These patients are also at risk of thromboembolic events and bleeding. Anticoagu
 
 D) Advanced therapies for ACHD- HF835,836
 
-
+* The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
 
-The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
+* Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
 
- Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
+* Prior surgical intervention/repeated sternotomies.
 
- Prior surgical intervention/repeated sternotomies.
+* Allosensitization due to blood transfusion, use of homografts.
 
- Allosensitization due to blood transfusion, use of homografts.
+* Pulmonary hypertension - thus a heart-lung transplant may be required.
 
- Pulmonary hypertension - thus a heart-lung transplant may be required.
-
- End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
+* End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
 
 E) General measures
 
- Infective endocarditis837
+* Infective endocarditis837
 
- Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
- Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
+* Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
+* Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
 
 Pregnancy (refer to section 14.7).
 
- It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
+* It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
 
- Exercise rehabilitation838 (refer to section 16)
+* Exercise rehabilitation838 (refer to section 16)
 
- Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
- Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
+* Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
+* Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
 
 F) Palliative care and advance care planning (refer to section 15.3)
 
-
-
-
-Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
+* * Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
 
 It should be patient-tailored and age appropriate due to the heterogenous nature and chronicity of ACHD and counselling should be given based on the projected course of the
 
 respective disease and prognosis.
 755
-
+* * * * * * 14.7.3.1. Preconceptual counselling
 
-
-
-
-
-
-
-
-
-
-
-14.7.3.1. Preconceptual counselling
-
-
-
-
-
-Patient-centered counselling regarding contraception and the risks of cardiovascular deterioration during pregnancy should be provided to all women in the childbearing age
+* * Patient-centered counselling regarding contraception and the risks of cardiovascular deterioration during pregnancy should be provided to all women in the childbearing age
 
 with known or suspected heart disease.192-194,764
 
@@ -1916,97 +1477,93 @@ If pregnant, termination should be considered.
 
 This includes:
 
-
-
-Non-pharmacological measures
+* Non-pharmacological measures
 
 The management of patients with mild symptoms consists mainly of non-pharmacological measures such as:192
 
- Limiting strenuous exercise.
+* Limiting strenuous exercise.
 
- Adequate rest - maintaining a low salt diet.
+* Adequate rest - maintaining a low salt diet.
 
- Treating anemia and infections early.
+* Treating anemia and infections early.
 
- Frequent antenatal examinations.
+* Frequent antenatal examinations.
 
 Pharmacological measures
 
-
+* The following drugs may be used in the pregnant patient with HF:
+* Diuretics are the first line therapy in patients who are fluid overloaded.
 
-The following drugs may be used in the pregnant patient with HF:
- Diuretics are the first line therapy in patients who are fluid overloaded.
+* Nitrates and/or hydralazine are used for preload and afterload reduction.
 
- Nitrates and/or hydralazine are used for preload and afterload reduction.
+* β-blockers can be used cautiously, most commonly metoprolol.773,774
 
- β-blockers can be used cautiously, most commonly metoprolol.773,774
+* Digoxin is safe in pregnancy and during breast feeding.
 
- Digoxin is safe in pregnancy and during breast feeding.
+* ACE-I, ARB, ARNI, MRA, SGLT2-i and ivabradine are contraindicated in pregnancy. 755,775,776
 
- ACE-I, ARB, ARNI, MRA, SGLT2-i and ivabradine are contraindicated in pregnancy. 755,775,776
+* ACE-I (enalapril and captopril) can be used in the post partum period.775,776
 
- ACE-I (enalapril and captopril) can be used in the post partum period.775,776
+* In the postpartum period, Foundational HF medications may be given. The patient should however be advised not to breast feed.
 
- In the postpartum period, Foundational HF medications may be given. The patient should however be advised not to breast feed.
-
--  As appropriate, guideline-directed medical therapy for HF should be initiated and contin ued after hospital discharge.
--  In general, vaccine-associated myocarditis should be diagnosed, categorized, and treated in a manner similar analogous to myocarditis following Covid-19 infection.
+* As appropriate, guideline-directed medical therapy for HF should be initiated and contin ued after hospital discharge.
+* In general, vaccine-associated myocarditis should be diagnosed, categorized, and treated in a manner similar analogous to myocarditis following Covid-19 infection.
 
 ## Long-term cardiovascular outcomes of COVID-19
 
--  The risk and 1-year burden of cardiovascular disease in survivors of acute COVID-19 are substantial.793
--  Individuals with COVID-19 are at increased risk of other CV diseases such as cerebrovas cular disorders, arrhythmias, ischemic and non-ischemic heart disease, pericarditis, myocarditis, HF, and thromboembolic disease.
--  These risks and burdens were evident even among individuals who were not hospitalized during the acute phase of the infection.
--  Patients with more severe initial illness were more likely to develop long-term CV complications and this increased in a graded fashion according to the care setting during the acute phase (non-hospitalized, hospitalized and admitted to intensive care).
--  Care pathways of those surviving the acute episode of COVID-19 should include attention to CV health and disease.
+* The risk and 1-year burden of cardiovascular disease in survivors of acute COVID-19 are substantial.793
+* Individuals with COVID-19 are at increased risk of other CV diseases such as cerebrovas cular disorders, arrhythmias, ischemic and non-ischemic heart disease, pericarditis, myocarditis, HF, and thromboembolic disease.
+* These risks and burdens were evident even among individuals who were not hospitalized during the acute phase of the infection.
+* Patients with more severe initial illness were more likely to develop long-term CV complications and this increased in a graded fashion according to the care setting during the acute phase (non-hospitalized, hospitalized and admitted to intensive care).
+* Care pathways of those surviving the acute episode of COVID-19 should include attention to CV health and disease.
 
 ## Key Message # 21: HF and Covid 19 Infection and Vaccine
 
--  In hospitalized patients with COVID-19, the prevalence of HF varied between 4% and 21% and about 8%-33% required critical care admissions.
--  Patients with HF who develop COVID-19 had an overall mortality rate between 20% and 40%.
--  Myocarditis is a rare but serious complication of SARS-CoV-2 infection as well as COVID-19 mRNA vaccination.
--  The rate of myocarditis or pericarditis across different age groups:  After SARS-CoV-2 infection:
--  12.6-114 per 100,000 for males and 5.4-61.7 per 100,000 for females.  After mRNA COVID-19:
--  0-35.9 per 100,000 for males and 0-10.9 per 100,000 for females.
+* In hospitalized patients with COVID-19, the prevalence of HF varied between 4% and 21% and about 8%-33% required critical care admissions.
+* Patients with HF who develop COVID-19 had an overall mortality rate between 20% and 40%.
+* Myocarditis is a rare but serious complication of SARS-CoV-2 infection as well as COVID-19 mRNA vaccination.
+* The rate of myocarditis or pericarditis across different age groups: * After SARS-CoV-2 infection:
+* 12.6-114 per 100,000 for males and 5.4-61.7 per 100,000 for females. * After mRNA COVID-19:
+* 0-35.9 per 100,000 for males and 0-10.9 per 100,000 for females.
 
 ---
 
 ## Abbreviations Used in This Section
 
-| Abbreviation | Description |
-|---|---|
-| ACE-I | Angiotensin Converting Enzyme Inhibitor |
-| AF | Atrial Fibrillation |
-| ARB | Angiotensin Receptor Blocker |
-| ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
-| BNP | B-type Natriuretic Peptide |
-| BP | Blood Pressure |
-| CAD | Coronary Artery Disease |
-| CKD | Chronic Kidney Disease |
-| CRT | Cardiac Resynchronization Therapy |
-| CV | Cardiovascular |
-| CVD | Cardiovascular Disease |
-| DM | Diabetes Mellitus |
-| ECG | Electrocardiogram |
-| eGFR | Estimated Glomerular Filtration Rate |
-| HF | Heart Failure |
-| HFimpEF | HF with Improved Ejection Fraction |
-| HFmrEF | HF with Mildly Reduced Ejection Fraction |
-| HFpEF | HF with Preserved Ejection Fraction |
-| HFrEF | HF with Reduced Ejection Fraction |
-| ICD | Implantable Cardioverter Defibrillator |
-| IV | Intravenous |
-| LV | Left Ventricular |
-| LVEF | Left Ventricular Ejection Fraction |
-| MACE | Major Adverse Cardiovascular Events |
-| MCS | Mechanical Circulatory Support |
-| MI | Myocardial Infarction |
-| MRA | Mineralocorticoid Receptor Antagonist |
-| NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
-| NYHA | New York Heart Association |
-| PPCM | Peripartum Cardiomyopathy |
-| SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
-| VHD | Valvular Heart Disease |
+* Abbreviation | Description |
+* ---|---|
+* ACE-I | Angiotensin Converting Enzyme Inhibitor |
+* AF | Atrial Fibrillation |
+* ARB | Angiotensin Receptor Blocker |
+* ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
+* BNP | B-type Natriuretic Peptide |
+* BP | Blood Pressure |
+* CAD | Coronary Artery Disease |
+* CKD | Chronic Kidney Disease |
+* CRT | Cardiac Resynchronization Therapy |
+* CV | Cardiovascular |
+* CVD | Cardiovascular Disease |
+* DM | Diabetes Mellitus |
+* ECG | Electrocardiogram |
+* eGFR | Estimated Glomerular Filtration Rate |
+* HF | Heart Failure |
+* HFimpEF | HF with Improved Ejection Fraction |
+* HFmrEF | HF with Mildly Reduced Ejection Fraction |
+* HFpEF | HF with Preserved Ejection Fraction |
+* HFrEF | HF with Reduced Ejection Fraction |
+* ICD | Implantable Cardioverter Defibrillator |
+* IV | Intravenous |
+* LV | Left Ventricular |
+* LVEF | Left Ventricular Ejection Fraction |
+* MACE | Major Adverse Cardiovascular Events |
+* MCS | Mechanical Circulatory Support |
+* MI | Myocardial Infarction |
+* MRA | Mineralocorticoid Receptor Antagonist |
+* NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
+* NYHA | New York Heart Association |
+* PPCM | Peripartum Cardiomyopathy |
+* SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
+* VHD | Valvular Heart Disease |
 
 
 ---

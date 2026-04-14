@@ -17,42 +17,42 @@ The multidisciplinary team usually consists of cardiologists and/or general phys
 
 Care can be done in two different settings:
 
--  In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the patient's quality of life. 855 This may now be possible with telemedicine.
--  Specialist outpatient clinic - the HF clinic.
+* In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the patient's quality of life. 855 This may now be possible with telemedicine.
+* Specialist outpatient clinic - the HF clinic.
 
 ## HF clinics can either be:
 
--  Nurse-directed - these are run by nurses with special training in HF.
--  Physician-directed - run by general physicians and/or cardiologists.
+* Nurse-directed - these are run by nurses with special training in HF.
+* Physician-directed - run by general physicians and/or cardiologists.
 
 HF clinics can be established in the tertiary hospitals or in the primary care setting. The minimum human resource requirements are:
 
--  A cardiologist or general physician with an interest in cardiology and heart failure,
--  A dedicated nurse and
--  A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
+* A cardiologist or general physician with an interest in cardiology and heart failure,
+* A dedicated nurse and
+* A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
 
 In bigger clinic settings, the involvement of a cardiac rehabilitation team and physiotherapists to encourage physical activities, pharmacists and counsellors for end-of-life care would be advisable. The needs of these patients vary, and these may need to be addressed by a multidisciplinary team.
 
 These clinics will be the intermediary between in-patient hospital care and community primary care. Patients who can be seen in these clinics include those: 887
 
--  Recently discharged after an admission for decompensated HF (a waiting time of 7-12 days post discharge has to be the maximum wait-time).
--  Who are in the early decompensation phase and need treatment modification.
--  Who are stable but need up titration of HF medications.
--  With ICD or CRTs.
--  With comorbidities, such as renal dysfunction, diabetes and COPD.
--  With advanced HF who may benefit from:
--  Heart transplant.
--  Left Ventricular Assist Device (LVAD).
--  Palliative care.
+* Recently discharged after an admission for decompensated HF (a waiting time of 7-12 days post discharge has to be the maximum wait-time).
+* Who are in the early decompensation phase and need treatment modification.
+* Who are stable but need up titration of HF medications.
+* With ICD or CRTs.
+* With comorbidities, such as renal dysfunction, diabetes and COPD.
+* With advanced HF who may benefit from:
+* Heart transplant.
+* Left Ventricular Assist Device (LVAD).
+* Palliative care.
 
 The objectives of these HF clinics may vary based on local settings. They include:887,888
 
--  Optimization of Foundational HF medications particularly the up titration of β-blockers, ACE-I and MRA.
--  Initiating referral for Cardiac Rehabilitation
--  Education of the patient and caregiver on the nature of the disease and its progression.
--  Promotion of self-care such as :
--  Compliance to medical therapy and fluid restriction.
--  Regular weighing and adjusting diuretic doses according to symptoms and body weight.
+* Optimization of Foundational HF medications particularly the up titration of β-blockers, ACE-I and MRA.
+* Initiating referral for Cardiac Rehabilitation
+* Education of the patient and caregiver on the nature of the disease and its progression.
+* Promotion of self-care such as :
+* Compliance to medical therapy and fluid restriction.
+* Regular weighing and adjusting diuretic doses according to symptoms and body weight.
 
 Patient with optimized HF medications/treatment plans can be discharged to the community with appropriate care plans to primary care. Close partnership between these HF clinics and primary care helps to reduce unnecessary admissions to hospital.
 
@@ -70,16 +70,9 @@ These clinics are conducted by pharmacists in collaboration with doctors and oth
 
 are:
 
-
-Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
+* Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
 
-
-
-
-
-
-
-To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
+* * * To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
 
 To provide consultative service to doctors on evidence-based HF pharmacotherapy and related issues.
 
@@ -95,55 +88,51 @@ progression.
 
 Key components of assessment include:
 
-
+* * History:
 
-
+* Functional capacity - NYHA functional class or 6-minute walk test
 
-History:
+* Cognitive status and nutritional status
 
- Functional capacity - NYHA functional class or 6-minute walk test
+* Diet and sodium intake
 
- Cognitive status and nutritional status
+* Consumption of alcohol or illicit drugs
 
- Diet and sodium intake
-
- Consumption of alcohol or illicit drugs
-
- Smoking history
+* Smoking history
 
 Physical examination:
 
- Fluid status and body weight
+* Fluid status and body weight
 
- Blood pressure, heart rate and rhythm
+* Blood pressure, heart rate and rhythm
 
- Examination of the cardiovascular and respiratory systems
+* Examination of the cardiovascular and respiratory systems
 
- Investigations:
+* Investigations:
 
- Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
+* Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
 
- Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
+* Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
 
- Echocardiogram:
+* Echocardiogram:
 
- Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the
+* Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the
 
 patient has received treatment (e.g., revascularization or device therapy) that might significantly change certain echocardiographic parameters, a follow-up echocardiogram
 
 is reasonable to re-assess the LVEF, degree of valvular function and structural remodeling.
 
- Others:
+* Others:
 
- Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
+* Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
 
- Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
+* Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
 
- Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
+* Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
 
- Education:
+* Education:
 
- Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of
+* Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of
 
 enhancing compliance, but this is also to avoid polypharmacy from a different facility the patient may also be seeing.
 
@@ -151,13 +140,9 @@ enhancing compliance, but this is also to avoid polypharmacy from a different fa
 
 This will depend on:
 
-
+* The patient's clinical stability and
 
-The patient's clinical stability and
-
-
-
-Need for pharmacotherapy optimization.
+* Need for pharmacotherapy optimization.
 
 A patient with a recent episode of decompensation or clinical instability, for instance, should ideally be seen again soon, usually within 2 weeks. Ultimately, the intensity and type of
 
@@ -169,17 +154,7 @@ HF patients with stable symptoms may be managed at the primary care level.
 
 Referral to the cardiologist should be considered in the following situations:
 
-
-
-
-
-
-
-
-
-
-
-De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
+* * * * * De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
 
 Episodes of acute decompensation
 
@@ -189,19 +164,9 @@ HF that is complicated with symptomatic hypotension or excessive bradycardia, li
 
 Symptomatic stable CAD and/or acute coronary syndrome for consideration of revascularization (PCI or CABG)
 
- Resuscitated cardiac arrest.
+* Resuscitated cardiac arrest.
 
-
-
-
-
-
-
-
-
-
-
-Documented or suspected significant arrhythmias e.g., AF, VT
+* * * * * Documented or suspected significant arrhythmias e.g., AF, VT
 
 ECG demonstrating a LBBB morphology with a QRS duration of > 150ms for consideration of device therapy.
 
@@ -222,90 +187,66 @@ Early escalation of HF care with a multidisciplinary team is possible without th
 
 Requirements
 
-
+* Home Monitoring Equipment -The following are required:
 
-Home Monitoring Equipment -The following are required:
+* Computer, tablet, or smart phone
 
- Computer, tablet, or smart phone
+* BP machines
 
- BP machines
+* Weighing scales
 
- Weighing scales
+* Optional:
 
- Optional:
+* ECG recording device on smart phone.
 
-
-
-ECG recording device on smart phone.
-
-
-
-Mobile monitor (e.g., Cardio Mobile)
+* Mobile monitor (e.g., Cardio Mobile)
 
 Patients, and/or their younger family members can record and transmit the information to the physician.
 
 Virtual visits
 
-
-
-
-
-This will help maintain the doctor-patient relationship.
+* * This will help maintain the doctor-patient relationship.
 
 These virtual visits can be performed via audio-visual telecommunication system or through an online portal to review the following:
 
- Assessment of symptoms.
+* Assessment of symptoms.
 
- Review information from the Home Monitoring devices.
+* Review information from the Home Monitoring devices.
 
- Where available, laboratory results from a laboratory close to the patient's home.
+* Where available, laboratory results from a laboratory close to the patient's home.
 
- Optimization of Foundational HF Medications.
+* Optimization of Foundational HF Medications.
 
 Telerehabilitation
 
 Telemedicine can allow:
 
-
-
-
-
-Initiation of dietary and physical cardiac rehabilitation.
+* * Initiation of dietary and physical cardiac rehabilitation.
 
 Identification of cardiac decompensation and advise hospitalization, when necessary.
 
 Care can be done in two different settings:
 
- In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the
+* In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the
 
 patient's quality of life.
 This may now be possible with telemedicine.
 
 Specialist outpatient clinic - the HF clinic.
 
-
+* HF clinics can either be:
 
-HF clinics can either be:
+* Nurse-directed - these are run by nurses with special training in HF.
 
-
-
-Nurse-directed - these are run by nurses with special training in HF.
-
-
-
-Physician-directed - run by general physicians and/or cardiologists.
+* Physician-directed - run by general physicians and/or cardiologists.
 
 HF clinics can be established in the tertiary hospitals or in the primary care setting. The minimum human resource requirements are:
 
-
+* A cardiologist or general physician with an interest in cardiology and heart failure,
 
-A cardiologist or general physician with an interest in cardiology and heart failure,
+* A dedicated nurse and
 
- A dedicated nurse and
-
-
-
-A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
+* A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
 
 In bigger clinic settings, the involvement of a cardiac rehabilitation team and physiotherapists to encourage physical activities, pharmacists and counsellors for end-of-life care would be
 
@@ -313,12 +254,7 @@ advisable. The needs of these patients vary, and these may need to be addressed 
 
 These clinics will be the intermediary between in-patient hospital care and community primary care. Patients who can be seen in these clinics include those:
 
-
-
-
-
-
-Recently discharged after an admission for decompensated HF (a waiting time of 7-12
+* * * Recently discharged after an admission for decompensated HF (a waiting time of 7-12
 
 days post discharge has to be the maximum wait-time).
 
@@ -326,31 +262,21 @@ Who are in the early decompensation phase and need treatment modification.
 
 Who are stable but need up titration of HF medications.
 
- With ICD or CRTs.
+* With ICD or CRTs.
 
-
+* With comorbidities, such as renal dysfunction, diabetes and COPD.
 
-With comorbidities, such as renal dysfunction, diabetes and COPD.
+* With advanced HF who may benefit from:
 
-
+* Heart transplant.
 
-With advanced HF who may benefit from:
+* Left Ventricular Assist Device (LVAD).
 
- Heart transplant.
-
- Left Ventricular Assist Device (LVAD).
-
- Palliative care.
+* Palliative care.
 
 The objectives of these HF clinics may vary based on local settings. They include:887,888
 
-
-
-
-
-
-
-Optimization of Foundational HF medications particularly the up titration of β-blockers,
+* * * Optimization of Foundational HF medications particularly the up titration of β-blockers,
 
 ACE-I and MRA.
 
@@ -358,11 +284,11 @@ Initiating referral for Cardiac Rehabilitation
 
 Education of the patient and caregiver on the nature of the disease and its progression.
 
- Promotion of self-care such as :
+* Promotion of self-care such as :
 
- Compliance to medical therapy and fluid restriction.
+* Compliance to medical therapy and fluid restriction.
 
- Regular weighing and adjusting diuretic doses according to symptoms and body weight.
+* Regular weighing and adjusting diuretic doses according to symptoms and body weight.
 
 Patient with optimized HF medications/treatment plans can be discharged to the community with appropriate care plans to primary care. Close partnership between these HF clinics and
 
@@ -374,10 +300,10 @@ rehabilitation center for individuals with chronic illnesses. It could be run by
 
 In 2018, the Heart Failure Medication Therapy Adherence Clinic (MTAC) was introduced. These clinics are conducted by pharmacists in collaboration with doctors and other healthcare providers to improve heart failure management. The objectives of the Heart Failure MTAC are: 889
 
--  Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
--  To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
--  To provide consultative service to doctors on evidence-based HF pharmacotherapy and related issues.
--  To collaborate with doctors and other health care professionals in HF management program.
+* Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
+* To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
+* To provide consultative service to doctors on evidence-based HF pharmacotherapy and related issues.
+* To collaborate with doctors and other health care professionals in HF management program.
 
 ## 17.2. MONITORING AND FOLLOW-UP
 
@@ -387,36 +313,36 @@ Patients with HF require regular follow-up and monitoring. Serial evaluations se
 
 Key components of assessment include:
 
-##  History:
+## * History:
 
--  Functional capacity - NYHA functional class or 6-minute walk test
--  Cognitive status and nutritional status
--  Diet and sodium intake
--  Consumption of alcohol or illicit drugs
--  Smoking history
+* Functional capacity - NYHA functional class or 6-minute walk test
+* Cognitive status and nutritional status
+* Diet and sodium intake
+* Consumption of alcohol or illicit drugs
+* Smoking history
 
-##  Physical examination:
+## * Physical examination:
 
--  Fluid status and body weight
--  Blood pressure, heart rate and rhythm
--  Examination of the cardiovascular and respiratory systems
+* Fluid status and body weight
+* Blood pressure, heart rate and rhythm
+* Examination of the cardiovascular and respiratory systems
 
-##  Investigations:
+## * Investigations:
 
--  Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
--  Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
--  Echocardiogram:
--  Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the patient has received treatment (e.g., revascularization or device therapy) that might significantly change certain echocardiographic parameters, a follow-up echocardiogram is reasonable to re-assess the LVEF, degree of valvular function and structural remodeling.
+* Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
+* Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
+* Echocardiogram:
+* Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the patient has received treatment (e.g., revascularization or device therapy) that might significantly change certain echocardiographic parameters, a follow-up echocardiogram is reasonable to re-assess the LVEF, degree of valvular function and structural remodeling.
 
-##  Others:
+## * Others:
 
--  Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
--  Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
--  Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
+* Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
+* Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
+* Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
 
- Education:
+* Education:
 
- Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of
+* Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of
 
 enhancing compliance, but this is also to avoid polypharmacy from a different facility the patient may also be seeing.
 
@@ -424,13 +350,9 @@ enhancing compliance, but this is also to avoid polypharmacy from a different fa
 
 This will depend on:
 
-
+* The patient's clinical stability and
 
-The patient's clinical stability and
-
-
-
-Need for pharmacotherapy optimization.
+* Need for pharmacotherapy optimization.
 
 A patient with a recent episode of decompensation or clinical instability, for instance, should ideally be seen again soon, usually within 2 weeks. Ultimately, the intensity and type of
 
@@ -442,17 +364,7 @@ HF patients with stable symptoms may be managed at the primary care level.
 
 Referral to the cardiologist should be considered in the following situations:
 
-
-
-
-
-
-
-
-
-
-
-De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
+* * * * * De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
 
 Episodes of acute decompensation
 
@@ -462,19 +374,9 @@ HF that is complicated with symptomatic hypotension or excessive bradycardia, li
 
 Symptomatic stable CAD and/or acute coronary syndrome for consideration of revascularization (PCI or CABG)
 
- Resuscitated cardiac arrest.
+* Resuscitated cardiac arrest.
 
-
-
-
-
-
-
-
-
-
-
-Documented or suspected significant arrhythmias e.g., AF, VT
+* * * * * Documented or suspected significant arrhythmias e.g., AF, VT
 
 ECG demonstrating a LBBB morphology with a QRS duration of > 150ms for consideration of device therapy.
 
@@ -495,90 +397,66 @@ Early escalation of HF care with a multidisciplinary team is possible without th
 
 Requirements
 
-
+* Home Monitoring Equipment -The following are required:
 
-Home Monitoring Equipment -The following are required:
+* Computer, tablet, or smart phone
 
- Computer, tablet, or smart phone
+* BP machines
 
- BP machines
+* Weighing scales
 
- Weighing scales
+* Optional:
 
- Optional:
+* ECG recording device on smart phone.
 
-
-
-ECG recording device on smart phone.
-
-
-
-Mobile monitor (e.g., Cardio Mobile)
+* Mobile monitor (e.g., Cardio Mobile)
 
 Patients, and/or their younger family members can record and transmit the information to the physician.
 
 Virtual visits
 
-
-
-
-
-This will help maintain the doctor-patient relationship.
+* * This will help maintain the doctor-patient relationship.
 
 These virtual visits can be performed via audio-visual telecommunication system or through an online portal to review the following:
 
- Assessment of symptoms.
+* Assessment of symptoms.
 
- Review information from the Home Monitoring devices.
+* Review information from the Home Monitoring devices.
 
- Where available, laboratory results from a laboratory close to the patient's home.
+* Where available, laboratory results from a laboratory close to the patient's home.
 
- Optimization of Foundational HF Medications.
+* Optimization of Foundational HF Medications.
 
 Telerehabilitation
 
 Telemedicine can allow:
 
-
-
-
-
-Initiation of dietary and physical cardiac rehabilitation.
+* * Initiation of dietary and physical cardiac rehabilitation.
 
 Identification of cardiac decompensation and advise hospitalization, when necessary.
 
 Care can be done in two different settings:
 
- In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the
+* In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the
 
 patient's quality of life.
 This may now be possible with telemedicine.
 
 Specialist outpatient clinic - the HF clinic.
 
-
+* HF clinics can either be:
 
-HF clinics can either be:
+* Nurse-directed - these are run by nurses with special training in HF.
 
-
-
-Nurse-directed - these are run by nurses with special training in HF.
-
-
-
-Physician-directed - run by general physicians and/or cardiologists.
+* Physician-directed - run by general physicians and/or cardiologists.
 
 HF clinics can be established in the tertiary hospitals or in the primary care setting. The minimum human resource requirements are:
 
-
+* A cardiologist or general physician with an interest in cardiology and heart failure,
 
-A cardiologist or general physician with an interest in cardiology and heart failure,
+* A dedicated nurse and
 
- A dedicated nurse and
-
-
-
-A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
+* A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
 
 In bigger clinic settings, the involvement of a cardiac rehabilitation team and physiotherapists to encourage physical activities, pharmacists and counsellors for end-of-life care would be
 
@@ -586,12 +464,7 @@ advisable. The needs of these patients vary, and these may need to be addressed 
 
 These clinics will be the intermediary between in-patient hospital care and community primary care. Patients who can be seen in these clinics include those:
 
-
-
-
-
-
-Recently discharged after an admission for decompensated HF (a waiting time of 7-12
+* * * Recently discharged after an admission for decompensated HF (a waiting time of 7-12
 
 days post discharge has to be the maximum wait-time).
 
@@ -599,31 +472,21 @@ Who are in the early decompensation phase and need treatment modification.
 
 Who are stable but need up titration of HF medications.
 
- With ICD or CRTs.
+* With ICD or CRTs.
 
-
+* With comorbidities, such as renal dysfunction, diabetes and COPD.
 
-With comorbidities, such as renal dysfunction, diabetes and COPD.
+* With advanced HF who may benefit from:
 
-
+* Heart transplant.
 
-With advanced HF who may benefit from:
+* Left Ventricular Assist Device (LVAD).
 
- Heart transplant.
-
- Left Ventricular Assist Device (LVAD).
-
- Palliative care.
+* Palliative care.
 
 The objectives of these HF clinics may vary based on local settings. They include:887,888
 
-
-
-
-
-
-
-Optimization of Foundational HF medications particularly the up titration of β-blockers,
+* * * Optimization of Foundational HF medications particularly the up titration of β-blockers,
 
 ACE-I and MRA.
 
@@ -631,11 +494,11 @@ Initiating referral for Cardiac Rehabilitation
 
 Education of the patient and caregiver on the nature of the disease and its progression.
 
- Promotion of self-care such as :
+* Promotion of self-care such as :
 
- Compliance to medical therapy and fluid restriction.
+* Compliance to medical therapy and fluid restriction.
 
- Regular weighing and adjusting diuretic doses according to symptoms and body weight.
+* Regular weighing and adjusting diuretic doses according to symptoms and body weight.
 
 Patient with optimized HF medications/treatment plans can be discharged to the community with appropriate care plans to primary care. Close partnership between these HF clinics and
 
@@ -655,16 +518,9 @@ These clinics are conducted by pharmacists in collaboration with doctors and oth
 
 are:
 
-
-Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
+* Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
 
-
-
-
-
-
-
-To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
+* * * To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
 
 To provide consultative service to doctors on evidence-based HF pharmacotherapy and related issues.
 
@@ -680,61 +536,57 @@ progression.
 
 Key components of assessment include:
 
-
+* * History:
 
-
+* Functional capacity - NYHA functional class or 6-minute walk test
 
-History:
+* Cognitive status and nutritional status
 
- Functional capacity - NYHA functional class or 6-minute walk test
+* Diet and sodium intake
 
- Cognitive status and nutritional status
+* Consumption of alcohol or illicit drugs
 
- Diet and sodium intake
-
- Consumption of alcohol or illicit drugs
-
- Smoking history
+* Smoking history
 
 Physical examination:
 
- Fluid status and body weight
+* Fluid status and body weight
 
- Blood pressure, heart rate and rhythm
+* Blood pressure, heart rate and rhythm
 
- Examination of the cardiovascular and respiratory systems
+* Examination of the cardiovascular and respiratory systems
 
- Investigations:
+* Investigations:
 
- Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
+* Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
 
- Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
+* Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
 
- Echocardiogram:
+* Echocardiogram:
 
- Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the
+* Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the
 
 patient has received treatment (e.g., revascularization or device therapy) that might significantly change certain echocardiographic parameters, a follow-up echocardiogram
 
 is reasonable to re-assess the LVEF, degree of valvular function and structural remodeling.
 
- Others:
+* Others:
 
- Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
+* Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
 
- Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
+* Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
 
- Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
+* Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
 
--  Education:
--  Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of enhancing compliance, but this is also to avoid polypharmacy from a different facility the patient may also be seeing.
+* Education:
+* Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of enhancing compliance, but this is also to avoid polypharmacy from a different facility the patient may also be seeing.
 
 ## 17.2.2. Frequency of follow-up
 
 This will depend on:
 
--  The patient's clinical stability and
--  Need for pharmacotherapy optimization.
+* The patient's clinical stability and
+* Need for pharmacotherapy optimization.
 
 A patient with a recent episode of decompensation or clinical instability, for instance, should ideally be seen again soon, usually within 2 weeks. Ultimately, the intensity and type of follow-up would be determined by the local organization of care and resources.
 
@@ -744,17 +596,17 @@ HF patients with stable symptoms may be managed at the primary care level.
 
 Referral to the cardiologist should be considered in the following situations:
 
--  De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
--  Episodes of acute decompensation
--  Worsening HF symptoms despite appropriate therapy
--  HF that is complicated with symptomatic hypotension or excessive bradycardia, limiting up titration of pharmacotherapy.
--  Symptomatic stable CAD and/or acute coronary syndrome for consideration of revascularization (PCI or CABG)
--  Resuscitated cardiac arrest.
--  Documented or suspected significant arrhythmias e.g., AF, VT
--  ECG demonstrating a LBBB morphology with a QRS duration of > 150ms for consideration of device therapy.
--  Significant valvular disease not previously assessed or worsening valvular dysfunction.
--  Preconception assessment and counselling of women with significant structural heart disease and a history of HF or LV dysfunction.
--  Complex congenital cardiac lesions and/or Eisenmenger's syndrome.
+* De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
+* Episodes of acute decompensation
+* Worsening HF symptoms despite appropriate therapy
+* HF that is complicated with symptomatic hypotension or excessive bradycardia, limiting up titration of pharmacotherapy.
+* Symptomatic stable CAD and/or acute coronary syndrome for consideration of revascularization (PCI or CABG)
+* Resuscitated cardiac arrest.
+* Documented or suspected significant arrhythmias e.g., AF, VT
+* ECG demonstrating a LBBB morphology with a QRS duration of > 150ms for consideration of device therapy.
+* Significant valvular disease not previously assessed or worsening valvular dysfunction.
+* Preconception assessment and counselling of women with significant structural heart disease and a history of HF or LV dysfunction.
+* Complex congenital cardiac lesions and/or Eisenmenger's syndrome.
 
 ## 17.4. TELEMEDICINE/TELEHEALTH
 
@@ -766,90 +618,66 @@ Early escalation of HF care with a multidisciplinary team is possible without th
 
 Requirements
 
-
+* Home Monitoring Equipment -The following are required:
 
-Home Monitoring Equipment -The following are required:
+* Computer, tablet, or smart phone
 
- Computer, tablet, or smart phone
+* BP machines
 
- BP machines
+* Weighing scales
 
- Weighing scales
+* Optional:
 
- Optional:
+* ECG recording device on smart phone.
 
-
-
-ECG recording device on smart phone.
-
-
-
-Mobile monitor (e.g., Cardio Mobile)
+* Mobile monitor (e.g., Cardio Mobile)
 
 Patients, and/or their younger family members can record and transmit the information to the physician.
 
 Virtual visits
 
-
-
-
-
-This will help maintain the doctor-patient relationship.
+* * This will help maintain the doctor-patient relationship.
 
 These virtual visits can be performed via audio-visual telecommunication system or through an online portal to review the following:
 
- Assessment of symptoms.
+* Assessment of symptoms.
 
- Review information from the Home Monitoring devices.
+* Review information from the Home Monitoring devices.
 
- Where available, laboratory results from a laboratory close to the patient's home.
+* Where available, laboratory results from a laboratory close to the patient's home.
 
- Optimization of Foundational HF Medications.
+* Optimization of Foundational HF Medications.
 
 Telerehabilitation
 
 Telemedicine can allow:
 
-
-
-
-
-Initiation of dietary and physical cardiac rehabilitation.
+* * Initiation of dietary and physical cardiac rehabilitation.
 
 Identification of cardiac decompensation and advise hospitalization, when necessary.
 
 Care can be done in two different settings:
 
- In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the
+* In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the
 
 patient's quality of life.
 This may now be possible with telemedicine.
 
 Specialist outpatient clinic - the HF clinic.
 
-
+* HF clinics can either be:
 
-HF clinics can either be:
+* Nurse-directed - these are run by nurses with special training in HF.
 
-
-
-Nurse-directed - these are run by nurses with special training in HF.
-
-
-
-Physician-directed - run by general physicians and/or cardiologists.
+* Physician-directed - run by general physicians and/or cardiologists.
 
 HF clinics can be established in the tertiary hospitals or in the primary care setting. The minimum human resource requirements are:
 
-
+* A cardiologist or general physician with an interest in cardiology and heart failure,
 
-A cardiologist or general physician with an interest in cardiology and heart failure,
+* A dedicated nurse and
 
- A dedicated nurse and
-
-
-
-A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
+* A medical technologist for blood taking, doing echocardiography and 6 minute-walk tests.
 
 In bigger clinic settings, the involvement of a cardiac rehabilitation team and physiotherapists to encourage physical activities, pharmacists and counsellors for end-of-life care would be
 
@@ -857,12 +685,7 @@ advisable. The needs of these patients vary, and these may need to be addressed 
 
 These clinics will be the intermediary between in-patient hospital care and community primary care. Patients who can be seen in these clinics include those:
 
-
-
-
-
-
-Recently discharged after an admission for decompensated HF (a waiting time of 7-12
+* * * Recently discharged after an admission for decompensated HF (a waiting time of 7-12
 
 days post discharge has to be the maximum wait-time).
 
@@ -870,31 +693,21 @@ Who are in the early decompensation phase and need treatment modification.
 
 Who are stable but need up titration of HF medications.
 
- With ICD or CRTs.
+* With ICD or CRTs.
 
-
+* With comorbidities, such as renal dysfunction, diabetes and COPD.
 
-With comorbidities, such as renal dysfunction, diabetes and COPD.
+* With advanced HF who may benefit from:
 
-
+* Heart transplant.
 
-With advanced HF who may benefit from:
+* Left Ventricular Assist Device (LVAD).
 
- Heart transplant.
-
- Left Ventricular Assist Device (LVAD).
-
- Palliative care.
+* Palliative care.
 
 The objectives of these HF clinics may vary based on local settings. They include:887,888
 
-
-
-
-
-
-
-Optimization of Foundational HF medications particularly the up titration of β-blockers,
+* * * Optimization of Foundational HF medications particularly the up titration of β-blockers,
 
 ACE-I and MRA.
 
@@ -902,11 +715,11 @@ Initiating referral for Cardiac Rehabilitation
 
 Education of the patient and caregiver on the nature of the disease and its progression.
 
- Promotion of self-care such as :
+* Promotion of self-care such as :
 
- Compliance to medical therapy and fluid restriction.
+* Compliance to medical therapy and fluid restriction.
 
- Regular weighing and adjusting diuretic doses according to symptoms and body weight.
+* Regular weighing and adjusting diuretic doses according to symptoms and body weight.
 
 Patient with optimized HF medications/treatment plans can be discharged to the community with appropriate care plans to primary care. Close partnership between these HF clinics and
 
@@ -926,16 +739,9 @@ These clinics are conducted by pharmacists in collaboration with doctors and oth
 
 are:
 
-
-Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
+* Enhance patient's adherence to HF pharmacotherapy and non-pharmacological interventions.
 
-
-
-
-
-
-
-To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
+* * * To reduce unscheduled emergency department visits or hospitalizations of HF patient due to acute decompensation.
 
 To provide consultative service to doctors on evidence-based HF pharmacotherapy and related issues.
 
@@ -951,55 +757,51 @@ progression.
 
 Key components of assessment include:
 
-
+* * History:
 
-
+* Functional capacity - NYHA functional class or 6-minute walk test
 
-History:
+* Cognitive status and nutritional status
 
- Functional capacity - NYHA functional class or 6-minute walk test
+* Diet and sodium intake
 
- Cognitive status and nutritional status
+* Consumption of alcohol or illicit drugs
 
- Diet and sodium intake
-
- Consumption of alcohol or illicit drugs
-
- Smoking history
+* Smoking history
 
 Physical examination:
 
- Fluid status and body weight
+* Fluid status and body weight
 
- Blood pressure, heart rate and rhythm
+* Blood pressure, heart rate and rhythm
 
- Examination of the cardiovascular and respiratory systems
+* Examination of the cardiovascular and respiratory systems
 
- Investigations:
+* Investigations:
 
- Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
+* Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
 
- Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
+* Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.77,81,891,892
 
- Echocardiogram:
+* Echocardiogram:
 
- Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the
+* Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary sydrome) or if the
 
 patient has received treatment (e.g., revascularization or device therapy) that might significantly change certain echocardiographic parameters, a follow-up echocardiogram
 
 is reasonable to re-assess the LVEF, degree of valvular function and structural remodeling.
 
- Others:
+* Others:
 
- Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
+* Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
 
- Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
+* Control of disease specific management - hypothyroidism, hyperthyrodism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
 
- Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
+* Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
 
- Education:
+* Education:
 
- Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of
+* Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of
 
 enhancing compliance, but this is also to avoid polypharmacy from a different facility the patient may also be seeing.
 
@@ -1007,13 +809,9 @@ enhancing compliance, but this is also to avoid polypharmacy from a different fa
 
 This will depend on:
 
-
+* The patient's clinical stability and
 
-The patient's clinical stability and
-
-
-
-Need for pharmacotherapy optimization.
+* Need for pharmacotherapy optimization.
 
 A patient with a recent episode of decompensation or clinical instability, for instance, should ideally be seen again soon, usually within 2 weeks. Ultimately, the intensity and type of
 
@@ -1025,17 +823,7 @@ HF patients with stable symptoms may be managed at the primary care level.
 
 Referral to the cardiologist should be considered in the following situations:
 
-
-
-
-
-
-
-
-
-
-
-De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
+* * * * * De novo HF for a comprehensive workup to confirm the diagnosis and determine the etiology, and to devise a management plan.
 
 Episodes of acute decompensation
 
@@ -1045,19 +833,9 @@ HF that is complicated with symptomatic hypotension or excessive bradycardia, li
 
 Symptomatic stable CAD and/or acute coronary syndrome for consideration of revascularization (PCI or CABG)
 
- Resuscitated cardiac arrest.
+* Resuscitated cardiac arrest.
 
-
-
-
-
-
-
-
-
-
-
-Documented or suspected significant arrhythmias e.g., AF, VT
+* * * * * Documented or suspected significant arrhythmias e.g., AF, VT
 
 ECG demonstrating a LBBB morphology with a QRS duration of > 150ms for consideration of device therapy.
 
@@ -1078,70 +856,70 @@ Early escalation of HF care with a multidisciplinary team is possible without th
 
 ## Requirements
 
--  Home Monitoring Equipment -The following are required:
--  Computer, tablet, or smart phone
--  BP machines
--  Weighing scales
--  Optional:
--  ECG recording device on smart phone.
--  Mobile monitor (e.g., Cardio Mobile)
+* Home Monitoring Equipment -The following are required:
+* Computer, tablet, or smart phone
+* BP machines
+* Weighing scales
+* Optional:
+* ECG recording device on smart phone.
+* Mobile monitor (e.g., Cardio Mobile)
 
 Patients, and/or their younger family members can record and transmit the information to the physician.
 
 ## Virtual visits
 
--  This will help maintain the doctor-patient relationship.
--  These virtual visits can be performed via audio-visual telecommunication system or through an online portal to review the following:
--  Assessment of symptoms.
--  Review information from the Home Monitoring devices.
--  Where available, laboratory results from a laboratory close to the patient's home.
--  Optimization of Foundational HF Medications.
+* This will help maintain the doctor-patient relationship.
+* These virtual visits can be performed via audio-visual telecommunication system or through an online portal to review the following:
+* Assessment of symptoms.
+* Review information from the Home Monitoring devices.
+* Where available, laboratory results from a laboratory close to the patient's home.
+* Optimization of Foundational HF Medications.
 
 ## Telerehabilitation
 
 Telemedicine can allow:
 
--  Initiation of dietary and physical cardiac rehabilitation.
--  Identification of cardiac decompensation and advise hospitalization, when necessary.
+* Initiation of dietary and physical cardiac rehabilitation.
+* Identification of cardiac decompensation and advise hospitalization, when necessary.
 
 ---
 
 ## Abbreviations Used in This Section
 
-| Abbreviation | Description |
-|---|---|
-| ACE-I | Angiotensin Converting Enzyme Inhibitor |
-| AF | Atrial Fibrillation |
-| ARB | Angiotensin Receptor Blocker |
-| ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
-| BNP | B-type Natriuretic Peptide |
-| BP | Blood Pressure |
-| CAD | Coronary Artery Disease |
-| CKD | Chronic Kidney Disease |
-| CRT | Cardiac Resynchronization Therapy |
-| CV | Cardiovascular |
-| CVD | Cardiovascular Disease |
-| DM | Diabetes Mellitus |
-| ECG | Electrocardiogram |
-| eGFR | Estimated Glomerular Filtration Rate |
-| HF | Heart Failure |
-| HFimpEF | HF with Improved Ejection Fraction |
-| HFmrEF | HF with Mildly Reduced Ejection Fraction |
-| HFpEF | HF with Preserved Ejection Fraction |
-| HFrEF | HF with Reduced Ejection Fraction |
-| ICD | Implantable Cardioverter Defibrillator |
-| IV | Intravenous |
-| LV | Left Ventricular |
-| LVEF | Left Ventricular Ejection Fraction |
-| MACE | Major Adverse Cardiovascular Events |
-| MCS | Mechanical Circulatory Support |
-| MI | Myocardial Infarction |
-| MRA | Mineralocorticoid Receptor Antagonist |
-| NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
-| NYHA | New York Heart Association |
-| PPCM | Peripartum Cardiomyopathy |
-| SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
-| VHD | Valvular Heart Disease |
+* Abbreviation | Description |
+* ---|---|
+* ACE-I | Angiotensin Converting Enzyme Inhibitor |
+* AF | Atrial Fibrillation |
+* ARB | Angiotensin Receptor Blocker |
+* ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
+* BNP | B-type Natriuretic Peptide |
+* BP | Blood Pressure |
+* CAD | Coronary Artery Disease |
+* CKD | Chronic Kidney Disease |
+* CRT | Cardiac Resynchronization Therapy |
+* CV | Cardiovascular |
+* CVD | Cardiovascular Disease |
+* DM | Diabetes Mellitus |
+* ECG | Electrocardiogram |
+* eGFR | Estimated Glomerular Filtration Rate |
+* HF | Heart Failure |
+* HFimpEF | HF with Improved Ejection Fraction |
+* HFmrEF | HF with Mildly Reduced Ejection Fraction |
+* HFpEF | HF with Preserved Ejection Fraction |
+* HFrEF | HF with Reduced Ejection Fraction |
+* ICD | Implantable Cardioverter Defibrillator |
+* IV | Intravenous |
+* LV | Left Ventricular |
+* LVEF | Left Ventricular Ejection Fraction |
+* MACE | Major Adverse Cardiovascular Events |
+* MCS | Mechanical Circulatory Support |
+* MI | Myocardial Infarction |
+* MRA | Mineralocorticoid Receptor Antagonist |
+* NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
+* NYHA | New York Heart Association |
+* PPCM | Peripartum Cardiomyopathy |
+* SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
+* VHD | Valvular Heart Disease |
 
 
 ---

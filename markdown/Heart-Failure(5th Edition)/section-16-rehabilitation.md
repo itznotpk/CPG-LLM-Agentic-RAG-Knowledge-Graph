@@ -11,59 +11,45 @@ output: Cardiac rehabilitation, exercise prescription, special populations
 
 Fatigue and breathlessness lead to individuals restricting their physical activities. This in turn leads to deconditioning - a phenomenon of reduced capacity to perform physical, mental, and cognitive tasks. This adds to the humanistic burden of HF, increasing morbidity and recurrent hospitalizations.
 
--  Exercise training in HF addresses 3 main impairments:
--  Exercise intolerance due to muscle wasting leading to a loss of strength and endurance. 856
--  Cardiopulmonary and musculoskeletal deconditioning. 857
--  Exertional dyspnea that occurs from: 857
--  Increased respiratory muscle work because of excessive ventilation to compensate for increased muscle lactate release.
--  Increased lung dead space.
--  Decreased lung compliance caused by chronic pulmonary congestion and fibrosis.
--  Exercise training in HF is safe and effective. 858 Long-term exercise training leads to improvement in quality of life, functional capacity and survival rates.155,164,165,859-865
+* Exercise training in HF addresses 3 main impairments:
+* Exercise intolerance due to muscle wasting leading to a loss of strength and endurance. 856
+* Cardiopulmonary and musculoskeletal deconditioning. 857
+* Exertional dyspnea that occurs from: 857
+* Increased respiratory muscle work because of excessive ventilation to compensate for increased muscle lactate release.
+* Increased lung dead space.
+* Decreased lung compliance caused by chronic pulmonary congestion and fibrosis.
+* Exercise training in HF is safe and effective. 858 Long-term exercise training leads to improvement in quality of life, functional capacity and survival rates.155,164,165,859-865
 
 ## 16.1 Cardiac rehabilitation (CR) in HF
 
--  HF is now endorsed as an indication for CR.866 CR spans throughout the continuum of HF care.862
--  A formal cardiac rehabilitation program usually includes:
--  A medical and functional evaluation.
--  Education of the patient and family on the importance of:
--  Medical adherence
--  Lifestyle changes
--  Fluid management
--  Dietary recommendations and
--  Addressing psychosocial concerns
--  Exercise prescription, training, counselling on physical and daily activities.
--  Functional training and work hardening.
--  Stress management and adaptation.
--  CR should be recommended to all stable HF patients, in NYHA II-III. This includes patients with no recent (≤ 6 weeks) or planned (≤ 6 months) major CV hospitalizations or procedures. 858
--  There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
--  CR involves:
--  An inpatient phase which aims towards safe home discharge. Compared to routine care, early CR significantly improves the effect of physical capacity, physiological outcomes, and clinical outcomes in acute HF patients. 867
+* HF is now endorsed as an indication for CR.866 CR spans throughout the continuum of HF care.862
+* A formal cardiac rehabilitation program usually includes:
+* A medical and functional evaluation.
+* Education of the patient and family on the importance of:
+* Medical adherence
+* Lifestyle changes
+* Fluid management
+* Dietary recommendations and
+* Addressing psychosocial concerns
+* Exercise prescription, training, counselling on physical and daily activities.
+* Functional training and work hardening.
+* Stress management and adaptation.
+* CR should be recommended to all stable HF patients, in NYHA II-III. This includes patients with no recent (≤ 6 weeks) or planned (≤ 6 months) major CV hospitalizations or procedures. 858
+* There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
+* CR involves:
+* An inpatient phase which aims towards safe home discharge. Compared to routine care, early CR significantly improves the effect of physical capacity, physiological outcomes, and clinical outcomes in acute HF patients. 867
 
-
-
-
-
-
-
-
-
- An outpatient phase to improve functional gains. Three exercise training modalities in
+* * * * * An outpatient phase to improve functional gains. Three exercise training modalities in
 
 HF include:862
 
-
-
-
-
-
-
-Endurance aerobic training.
+* * * Endurance aerobic training.
 
 Resistance strengthening - this addresses skeletal muscle alterations and sarcopenia.
 
 Respiratory muscle training.
 
- A maintenance phase that aims at improving long term survival by focusing on identifying and treating CV risk factors and optimizing HF treatment.
+* A maintenance phase that aims at improving long term survival by focusing on identifying and treating CV risk factors and optimizing HF treatment.
 Hydrotherapy or aquatic exercise training can improve exercise capacity, muscle strength and quality of life like land-based training programs. It is a safe and effective alternative
 
 for those unable to participate in traditional exercise programs.
@@ -73,54 +59,42 @@ The details of the Cardiac Rehabilitation program in HF can be obtained from sev
 
 16.2. Settings for CR in HF
 
-
-
-
-
-A community-based CR program provides patients with a structured exercise training intervention alongside educational support and psychological counselling.
+* * A community-based CR program provides patients with a structured exercise training intervention alongside educational support and psychological counselling.
 
 Settings for CR in HF include:
- Traditional center-based CR programs are safe and effective but are resource intensive and of limited availability. It is recommended during the initial sessions following
+* Traditional center-based CR programs are safe and effective but are resource intensive and of limited availability. It is recommended during the initial sessions following
 
 discharge particularly in patients with severe HF symptoms.
 
- Home-based programs are available for stable and well-treated patients. It is a cost-effective treatment option even in HFrEF.
+* Home-based programs are available for stable and well-treated patients. It is a cost-effective treatment option even in HFrEF.
 
- Emerging CR models include:
+* Emerging CR models include:
 
-
+* Hybrid CR that combines short-term center-based CR with home-based CR.
 
-Hybrid CR that combines short-term center-based CR with home-based CR.
-
-
-
-
-
-Mobile phone based CR
+* * Mobile phone based CR
 Telerehabilitation services.877 There is still inadequate evidence at present on the impact of this modality on hospitalization and CV death reduction.
 
 16.3. Heart failure CR in special populations
 
 These include:
 
-
+* Individuals with implantable devices
 
-Individuals with implantable devices
+* CR in HF patients with ICD and CRT is safe and beneficial.862,879-881
 
- CR in HF patients with ICD and CRT is safe and beneficial.862,879-881
-
- Activities such as hydrotherapy or pronounced arm - shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
+* Activities such as hydrotherapy or pronounced arm - shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
 
 Elderly patients with HF
 
- Frailty is common among the elderly and is associated with increased morbidity and mortality. It is partially reversible and potentially preventable in HF with early rehabilitation
+* Frailty is common among the elderly and is associated with increased morbidity and mortality. It is partially reversible and potentially preventable in HF with early rehabilitation
 
 referral.882
 
- Rehabilitation non-enrolment results in worsening frailty status.
- Cognitive impairment and HF frequently coexist - either as acute delirium with decompensated HF during hospital admission or dementia.
+* Rehabilitation non-enrolment results in worsening frailty status.
+* Cognitive impairment and HF frequently coexist - either as acute delirium with decompensated HF during hospital admission or dementia.
 
- Patients with a high frailty score and cognitive impairment will benefit from closer contact with the HF specialist team, more frequent follow-up and monitoring and
+* Patients with a high frailty score and cognitive impairment will benefit from closer contact with the HF specialist team, more frequent follow-up and monitoring and
 
 individualized self-care support.
 165
@@ -144,19 +118,7 @@ Assessment for heart transplant is done by a multispecialty, multidisciplinary t
 
 Eligibility criteria to be considered for heart transplant include:
 
-
-
-
-
-
-
-
-
-
-
-
-
-Poor LVEF (< 25%).
+* * * * * * Poor LVEF (< 25%).
 
 Recurrent HF hospitalizations.
 
@@ -174,25 +136,11 @@ Motivated, psychologically stable, and compliant with therapy.
 
 Contraindications to heart transplant:
 
- Active infection.
+* Active infection.
 
-
+* Severe peripheral arterial or cerebrovascular disease.
 
-Severe peripheral arterial or cerebrovascular disease.
-
-
-
-
-
-
-
-
-
-
-
-
-
-Malignancy within 5 years.
+* * * * * * Malignancy within 5 years.
 
 Diabetes mellitus with widespread microvascular complications.
 
@@ -206,57 +154,37 @@ Other medical or psychosocial issues that would impact survival.
 
 16.4 Barriers to HF rehabilitation
 
-
-
-Despite benefits, cost-effectiveness, and strong practice guideline recommendations, CR
+* Despite benefits, cost-effectiveness, and strong practice guideline recommendations, CR
 
 remains underused.172
 
- Barriers include884
+* Barriers include884
 
- Physician Factors:
+* Physician Factors:
 
-
+* Fewer referrals from cardiologists.
 
-Fewer referrals from cardiologists.
+* Fewer well trained CR staff.
 
-
+* Overworked doctors.
 
-Fewer well trained CR staff.
+* Patient Factors:
 
-
+* Lack of motivation
 
-Overworked doctors.
+* Reluctance to change in lifestyle.
 
- Patient Factors:
+* Transport difficulties.
 
-
+* Lack of family support.
 
-Lack of motivation
+* Time constraints.
 
- Reluctance to change in lifestyle.
+* Service Factors:
 
-
+* Lack of insurance coverage.
 
-Transport difficulties.
-
-
-
-Lack of family support.
-
-
-
-Time constraints.
-
- Service Factors:
-
-
-
-Lack of insurance coverage.
-
-
-
-Accessibility of programs.
+* Accessibility of programs.
 
 15.2. Mechanical Circulatory Support (MCS)-see Section 9.2.2.
 
@@ -264,14 +192,9 @@ The use of a mechanical circulatory support (e.g., Left Ventricular Assist Devic
 
 may be considered as a:
 
-
-Bridge to recovery in patients with potentially reversible or treatable conditions or
+* Bridge to recovery in patients with potentially reversible or treatable conditions or
 
-
-
-
-
-Bridge to heart transplant in suitable candidates or
+* * Bridge to heart transplant in suitable candidates or
 
 Destination therapy in candidates who are not suitable for transplant.
 
@@ -287,17 +210,9 @@ Despite recent advances in therapy, for some patients, HF remains a progressive 
 
 medical therapy, should be considered for cardiac transplantation or LVAD implantation if deemed eligible. This includes:
 
-
+* Those with < 50% survival at 1 year (using established scoring tools)
 
-Those with < 50% survival at 1 year (using established scoring tools)
-
-
-
-
-
-
-
-Persistently elevated natriuretic peptide levels and/or
+* * * Persistently elevated natriuretic peptide levels and/or
 
 A low V02 max measurement (if available) and other eligibility criteria as stated in section 15.1.
 
@@ -310,18 +225,7 @@ patients for palliative care consideration, due to the often-unpredictable traje
 
 international consensus referral criterion for specialist palliative care for patients with advanced HF includes 6 major categories:
 
-
-
-
-
-
-
-
-
-
-
-
-Patients suffering from advanced HF alongside complications including cardiac cachexia or multiorgan failure, having concurrent non-cardiac life-threatening diseases, or being
+* * * * * * Patients suffering from advanced HF alongside complications including cardiac cachexia or multiorgan failure, having concurrent non-cardiac life-threatening diseases, or being
 
 intolerant to guideline-directed therapies.
 
@@ -344,81 +248,66 @@ Nonetheless, there exists several position papers and expert consensus documents
 
 palliative care for HF patients, including the following:853,854
 
-
+* * * Advanced care planning
 
-
-
-
-
-Advanced care planning
-
- Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation,
+* Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation,
 
 ICD implantation, etc)
 
- Address disease-specific aspects of care with clear limits to escalation.
+* Address disease-specific aspects of care with clear limits to escalation.
 
- Record and clearly document these plans in the medical records.
+* Record and clearly document these plans in the medical records.
 
- When requested and possible, clearly nominate a personal representative for medical decision-making.
+* When requested and possible, clearly nominate a personal representative for medical decision-making.
 
- When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
+* When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
 Medical management
 
- Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
+* Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
 
- Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most
+* Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most
 
 importantly depression and anxiety.
 
- Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
+* Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
 
- Religious and spiritual needs, values and existential quest need to be continually addressed during each consultation or visit.
+* Religious and spiritual needs, values and existential quest need to be continually addressed during each consultation or visit.
 
- Professional help offered by specialists in spiritual care should be engaged when requested for.
+* Professional help offered by specialists in spiritual care should be engaged when requested for.
 
- Care for the dying.
+* Care for the dying.
 
- Understanding that dying is a medical diagnosis that should neither be neglected nor postponed.
+* Understanding that dying is a medical diagnosis that should neither be neglected nor postponed.
 
- Understanding that dying is a complex and dynamic process.
+* Understanding that dying is a complex and dynamic process.
 
- Counselling, support, and reassurance should be provided to patients and their families.
+* Counselling, support, and reassurance should be provided to patients and their families.
 
- The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation)
+* The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation)
 
 Managing ethical dilemma
 
- An ethical dilemma arises when at least two of the four ethical principles conflict with one another.
+* An ethical dilemma arises when at least two of the four ethical principles conflict with one another.
 
- Patient autonomy remains central in the decision making for palliative care, although the
+* Patient autonomy remains central in the decision making for palliative care, although the
 
 3 other ethical principles remain paramount (beneficence, non-maleficence, and justice).
 
- In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
+* In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
 
 Fatigue and breathlessness lead to individuals restricting their physical activities. This in turn leads to deconditioning - a phenomenon of reduced capacity to perform physical,
 
 mental, and cognitive tasks. This adds to the humanistic burden of HF, increasing morbidity and recurrent hospitalizations.
 
-
+* * Exercise training in HF addresses 3 main impairments:
 
-
+* Exercise intolerance due to muscle wasting leading to a loss of strength and endurance.
 
-Exercise training in HF addresses 3 main impairments:
+* Cardiopulmonary and musculoskeletal deconditioning.
 
- Exercise intolerance due to muscle wasting leading to a loss of strength and endurance.
+* Exertional dyspnea that occurs from:
 
- Cardiopulmonary and musculoskeletal deconditioning.
-
- Exertional dyspnea that occurs from:
-
-
-
-
-
-
-Increased respiratory muscle work because of excessive ventilation to compensate for increased muscle lactate release.
+* * * Increased respiratory muscle work because of excessive ventilation to compensate for increased muscle lactate release.
 
 Increased lung dead space.
 
@@ -429,27 +318,17 @@ Long-term exercise training leads to improvement in quality of life, functional 
 
 16.1 Cardiac rehabilitation (CR) in HF
 
- HF is now endorsed as an indication for CR.866 CR spans throughout the continuum of
+* HF is now endorsed as an indication for CR.866 CR spans throughout the continuum of
 
 HF care.862
 
 A formal cardiac rehabilitation program usually includes:
 
- A medical and functional evaluation.
+* A medical and functional evaluation.
 
- Education of the patient and family on the importance of:
+* Education of the patient and family on the importance of:
 
-
-
-
-
-
-
-
-
-
-
-Medical adherence
+* * * * * Medical adherence
 
 Lifestyle changes
 
@@ -459,61 +338,56 @@ Dietary recommendations and
 
 Addressing psychosocial concerns
 
- Exercise prescription, training, counselling on physical and daily activities.
+* Exercise prescription, training, counselling on physical and daily activities.
 
- Functional training and work hardening.
+* Functional training and work hardening.
 
- Stress management and adaptation.
+* Stress management and adaptation.
 
 CR should be recommended to all stable HF patients, in NYHA II-III. This includes patients with no recent (≤ 6 weeks) or planned (≤ 6 months) major CV hospitalizations or
 
 procedures.
-
+* There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
 
-There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
+* CR involves:
 
- CR involves:
-
- An inpatient phase which aims towards safe home discharge. Compared to routine care, early CR significantly improves the effect of physical capacity, physiological
+* An inpatient phase which aims towards safe home discharge. Compared to routine care, early CR significantly improves the effect of physical capacity, physiological
 
 outcomes, and clinical outcomes in acute HF patients.
 857
 
-
-
-
--  An outpatient phase to improve functional gains. Three exercise training modalities in HF include:862
--  Endurance aerobic training.
--  Resistance strengthening - this addresses skeletal muscle alterations and sarcopenia.
--  Respiratory muscle training.
--  A maintenance phase that aims at improving long term survival by focusing on identifying and treating CV risk factors and optimizing HF treatment. 868
--  Hydrotherapy or aquatic exercise training can improve exercise capacity, muscle strength and quality of life like land-based training programs. It is a safe and effective alternative for those unable to participate in traditional exercise programs. 869
--  Active participation in any kind of exercise training program is sufficient to improve the prognosis, quality of life and functional capacity. 870 Active participation is a more important factor in achieving improvement than how the exercise is performed. 871
--  The details of the Cardiac Rehabilitation program in HF can be obtained from several resources.868,872
+* * * An outpatient phase to improve functional gains. Three exercise training modalities in HF include:862
+* Endurance aerobic training.
+* Resistance strengthening - this addresses skeletal muscle alterations and sarcopenia.
+* Respiratory muscle training.
+* A maintenance phase that aims at improving long term survival by focusing on identifying and treating CV risk factors and optimizing HF treatment. 868
+* Hydrotherapy or aquatic exercise training can improve exercise capacity, muscle strength and quality of life like land-based training programs. It is a safe and effective alternative for those unable to participate in traditional exercise programs. 869
+* Active participation in any kind of exercise training program is sufficient to improve the prognosis, quality of life and functional capacity. 870 Active participation is a more important factor in achieving improvement than how the exercise is performed. 871
+* The details of the Cardiac Rehabilitation program in HF can be obtained from several resources.868,872
 
 ## 16.2. Settings for CR in HF
 
--  A community-based CR program provides patients with a structured exercise training intervention alongside educational support and psychological counselling. 873
--  Settings for CR in HF include: 874
--  Traditional center-based CR programs are safe and effective but are resource intensive and of limited availability. It is recommended during the initial sessions following discharge particularly in patients with severe HF symptoms.
--  Home-based programs are available for stable and well-treated patients. It is a cost-effective treatment option even in HFrEF. 165
--  Emerging CR models include:
--  Hybrid CR that combines short-term center-based CR with home-based CR. 875
--  Mobile phone based CR 876
--  Telerehabilitation services.877 There is still inadequate evidence at present on the impact of this modality on hospitalization and CV death reduction. 878
+* A community-based CR program provides patients with a structured exercise training intervention alongside educational support and psychological counselling. 873
+* Settings for CR in HF include: 874
+* Traditional center-based CR programs are safe and effective but are resource intensive and of limited availability. It is recommended during the initial sessions following discharge particularly in patients with severe HF symptoms.
+* Home-based programs are available for stable and well-treated patients. It is a cost-effective treatment option even in HFrEF. 165
+* Emerging CR models include:
+* Hybrid CR that combines short-term center-based CR with home-based CR. 875
+* Mobile phone based CR 876
+* Telerehabilitation services.877 There is still inadequate evidence at present on the impact of this modality on hospitalization and CV death reduction. 878
 
 ## 16.3. Heart failure CR in special populations
 
 ## These include:
 
--  Individuals with implantable devices
--  CR in HF patients with ICD and CRT is safe and beneficial.862,879-881
--  Activities such as hydrotherapy or pronounced arm - shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
--  Elderly patients with HF
--  Frailty is common among the elderly and is associated with increased morbidity and mortality. It is partially reversible and potentially preventable in HF with early rehabilitation referral.882
--  Rehabilitation non-enrolment results in worsening frailty status. 883
--  Cognitive impairment and HF frequently coexist - either as acute delirium with decompensated HF during hospital admission or dementia.
--  Patients with a high frailty score and cognitive impairment will benefit from closer contact with the HF specialist team, more frequent follow-up and monitoring and individualized self-care support.
+* Individuals with implantable devices
+* CR in HF patients with ICD and CRT is safe and beneficial.862,879-881
+* Activities such as hydrotherapy or pronounced arm - shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
+* Elderly patients with HF
+* Frailty is common among the elderly and is associated with increased morbidity and mortality. It is partially reversible and potentially preventable in HF with early rehabilitation referral.882
+* Rehabilitation non-enrolment results in worsening frailty status. 883
+* Cognitive impairment and HF frequently coexist - either as acute delirium with decompensated HF during hospital admission or dementia.
+* Patients with a high frailty score and cognitive impairment will benefit from closer contact with the HF specialist team, more frequent follow-up and monitoring and individualized self-care support.
 
 15.1. Heart Transplant
 
@@ -535,19 +409,7 @@ Assessment for heart transplant is done by a multispecialty, multidisciplinary t
 
 Eligibility criteria to be considered for heart transplant include:
 
-
-
-
-
-
-
-
-
-
-
-
-
-Poor LVEF (< 25%).
+* * * * * * Poor LVEF (< 25%).
 
 Recurrent HF hospitalizations.
 
@@ -565,25 +427,11 @@ Motivated, psychologically stable, and compliant with therapy.
 
 Contraindications to heart transplant:
 
- Active infection.
+* Active infection.
 
-
+* Severe peripheral arterial or cerebrovascular disease.
 
-Severe peripheral arterial or cerebrovascular disease.
-
-
-
-
-
-
-
-
-
-
-
-
-
-Malignancy within 5 years.
+* * * * * * Malignancy within 5 years.
 
 Diabetes mellitus with widespread microvascular complications.
 
@@ -597,57 +445,37 @@ Other medical or psychosocial issues that would impact survival.
 
 16.4 Barriers to HF rehabilitation
 
-
-
-Despite benefits, cost-effectiveness, and strong practice guideline recommendations, CR
+* Despite benefits, cost-effectiveness, and strong practice guideline recommendations, CR
 
 remains underused.172
 
- Barriers include884
+* Barriers include884
 
- Physician Factors:
+* Physician Factors:
 
-
+* Fewer referrals from cardiologists.
 
-Fewer referrals from cardiologists.
+* Fewer well trained CR staff.
 
-
+* Overworked doctors.
 
-Fewer well trained CR staff.
+* Patient Factors:
 
-
+* Lack of motivation
 
-Overworked doctors.
+* Reluctance to change in lifestyle.
 
- Patient Factors:
+* Transport difficulties.
 
-
+* Lack of family support.
 
-Lack of motivation
+* Time constraints.
 
- Reluctance to change in lifestyle.
+* Service Factors:
 
-
+* Lack of insurance coverage.
 
-Transport difficulties.
-
-
-
-Lack of family support.
-
-
-
-Time constraints.
-
- Service Factors:
-
-
-
-Lack of insurance coverage.
-
-
-
-Accessibility of programs.
+* Accessibility of programs.
 
 15.2. Mechanical Circulatory Support (MCS)-see Section 9.2.2.
 
@@ -655,14 +483,9 @@ The use of a mechanical circulatory support (e.g., Left Ventricular Assist Devic
 
 may be considered as a:
 
-
-Bridge to recovery in patients with potentially reversible or treatable conditions or
+* Bridge to recovery in patients with potentially reversible or treatable conditions or
 
-
-
-
-
-Bridge to heart transplant in suitable candidates or
+* * Bridge to heart transplant in suitable candidates or
 
 Destination therapy in candidates who are not suitable for transplant.
 
@@ -678,17 +501,9 @@ Despite recent advances in therapy, for some patients, HF remains a progressive 
 
 medical therapy, should be considered for cardiac transplantation or LVAD implantation if deemed eligible. This includes:
 
-
+* Those with < 50% survival at 1 year (using established scoring tools)
 
-Those with < 50% survival at 1 year (using established scoring tools)
-
-
-
-
-
-
-
-Persistently elevated natriuretic peptide levels and/or
+* * * Persistently elevated natriuretic peptide levels and/or
 
 A low V02 max measurement (if available) and other eligibility criteria as stated in section 15.1.
 
@@ -701,18 +516,7 @@ patients for palliative care consideration, due to the often-unpredictable traje
 
 international consensus referral criterion for specialist palliative care for patients with advanced HF includes 6 major categories:
 
-
-
-
-
-
-
-
-
-
-
-
-Patients suffering from advanced HF alongside complications including cardiac cachexia or multiorgan failure, having concurrent non-cardiac life-threatening diseases, or being
+* * * * * * Patients suffering from advanced HF alongside complications including cardiac cachexia or multiorgan failure, having concurrent non-cardiac life-threatening diseases, or being
 
 intolerant to guideline-directed therapies.
 
@@ -735,81 +539,66 @@ Nonetheless, there exists several position papers and expert consensus documents
 
 palliative care for HF patients, including the following:853,854
 
-
+* * * Advanced care planning
 
-
-
-
-
-Advanced care planning
-
- Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation,
+* Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation,
 
 ICD implantation, etc)
 
- Address disease-specific aspects of care with clear limits to escalation.
+* Address disease-specific aspects of care with clear limits to escalation.
 
- Record and clearly document these plans in the medical records.
+* Record and clearly document these plans in the medical records.
 
- When requested and possible, clearly nominate a personal representative for medical decision-making.
+* When requested and possible, clearly nominate a personal representative for medical decision-making.
 
- When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
+* When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
 Medical management
 
- Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
+* Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
 
- Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most
+* Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most
 
 importantly depression and anxiety.
 
- Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
+* Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
 
- Religious and spiritual needs, values and existential quest need to be continually addressed during each consultation or visit.
+* Religious and spiritual needs, values and existential quest need to be continually addressed during each consultation or visit.
 
- Professional help offered by specialists in spiritual care should be engaged when requested for.
+* Professional help offered by specialists in spiritual care should be engaged when requested for.
 
- Care for the dying.
+* Care for the dying.
 
- Understanding that dying is a medical diagnosis that should neither be neglected nor postponed.
+* Understanding that dying is a medical diagnosis that should neither be neglected nor postponed.
 
- Understanding that dying is a complex and dynamic process.
+* Understanding that dying is a complex and dynamic process.
 
- Counselling, support, and reassurance should be provided to patients and their families.
+* Counselling, support, and reassurance should be provided to patients and their families.
 
- The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation)
+* The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation)
 
 Managing ethical dilemma
 
- An ethical dilemma arises when at least two of the four ethical principles conflict with one another.
+* An ethical dilemma arises when at least two of the four ethical principles conflict with one another.
 
- Patient autonomy remains central in the decision making for palliative care, although the
+* Patient autonomy remains central in the decision making for palliative care, although the
 
 3 other ethical principles remain paramount (beneficence, non-maleficence, and justice).
 
- In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
+* In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
 
 Fatigue and breathlessness lead to individuals restricting their physical activities. This in turn leads to deconditioning - a phenomenon of reduced capacity to perform physical,
 
 mental, and cognitive tasks. This adds to the humanistic burden of HF, increasing morbidity and recurrent hospitalizations.
 
-
+* * Exercise training in HF addresses 3 main impairments:
 
-
+* Exercise intolerance due to muscle wasting leading to a loss of strength and endurance.
 
-Exercise training in HF addresses 3 main impairments:
+* Cardiopulmonary and musculoskeletal deconditioning.
 
- Exercise intolerance due to muscle wasting leading to a loss of strength and endurance.
+* Exertional dyspnea that occurs from:
 
- Cardiopulmonary and musculoskeletal deconditioning.
-
- Exertional dyspnea that occurs from:
-
-
-
-
-
-
-Increased respiratory muscle work because of excessive ventilation to compensate for increased muscle lactate release.
+* * * Increased respiratory muscle work because of excessive ventilation to compensate for increased muscle lactate release.
 
 Increased lung dead space.
 
@@ -820,27 +609,17 @@ Long-term exercise training leads to improvement in quality of life, functional 
 
 16.1 Cardiac rehabilitation (CR) in HF
 
- HF is now endorsed as an indication for CR.866 CR spans throughout the continuum of
+* HF is now endorsed as an indication for CR.866 CR spans throughout the continuum of
 
 HF care.862
 
 A formal cardiac rehabilitation program usually includes:
 
- A medical and functional evaluation.
+* A medical and functional evaluation.
 
- Education of the patient and family on the importance of:
+* Education of the patient and family on the importance of:
 
-
-
-
-
-
-
-
-
-
-
-Medical adherence
+* * * * * Medical adherence
 
 Lifestyle changes
 
@@ -850,54 +629,35 @@ Dietary recommendations and
 
 Addressing psychosocial concerns
 
- Exercise prescription, training, counselling on physical and daily activities.
+* Exercise prescription, training, counselling on physical and daily activities.
 
- Functional training and work hardening.
+* Functional training and work hardening.
 
- Stress management and adaptation.
+* Stress management and adaptation.
 
 CR should be recommended to all stable HF patients, in NYHA II-III. This includes patients with no recent (≤ 6 weeks) or planned (≤ 6 months) major CV hospitalizations or
 
 procedures.
-
+* There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
 
-There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
+* CR involves:
 
- CR involves:
-
- An inpatient phase which aims towards safe home discharge. Compared to routine care, early CR significantly improves the effect of physical capacity, physiological
+* An inpatient phase which aims towards safe home discharge. Compared to routine care, early CR significantly improves the effect of physical capacity, physiological
 
 outcomes, and clinical outcomes in acute HF patients.
 857
 
-
-
-
-
-
-
-
-
-
-
-
- An outpatient phase to improve functional gains. Three exercise training modalities in
+* * * * * * * An outpatient phase to improve functional gains. Three exercise training modalities in
 
 HF include:862
 
-
-
-
-
-
-
-Endurance aerobic training.
+* * * Endurance aerobic training.
 
 Resistance strengthening - this addresses skeletal muscle alterations and sarcopenia.
 
 Respiratory muscle training.
 
- A maintenance phase that aims at improving long term survival by focusing on identifying and treating CV risk factors and optimizing HF treatment.
+* A maintenance phase that aims at improving long term survival by focusing on identifying and treating CV risk factors and optimizing HF treatment.
 Hydrotherapy or aquatic exercise training can improve exercise capacity, muscle strength and quality of life like land-based training programs. It is a safe and effective alternative
 
 for those unable to participate in traditional exercise programs.
@@ -907,54 +667,42 @@ The details of the Cardiac Rehabilitation program in HF can be obtained from sev
 
 16.2. Settings for CR in HF
 
-
-
-
-
-A community-based CR program provides patients with a structured exercise training intervention alongside educational support and psychological counselling.
+* * A community-based CR program provides patients with a structured exercise training intervention alongside educational support and psychological counselling.
 
 Settings for CR in HF include:
- Traditional center-based CR programs are safe and effective but are resource intensive and of limited availability. It is recommended during the initial sessions following
+* Traditional center-based CR programs are safe and effective but are resource intensive and of limited availability. It is recommended during the initial sessions following
 
 discharge particularly in patients with severe HF symptoms.
 
- Home-based programs are available for stable and well-treated patients. It is a cost-effective treatment option even in HFrEF.
+* Home-based programs are available for stable and well-treated patients. It is a cost-effective treatment option even in HFrEF.
 
- Emerging CR models include:
+* Emerging CR models include:
 
-
+* Hybrid CR that combines short-term center-based CR with home-based CR.
 
-Hybrid CR that combines short-term center-based CR with home-based CR.
-
-
-
-
-
-Mobile phone based CR
+* * Mobile phone based CR
 Telerehabilitation services.877 There is still inadequate evidence at present on the impact of this modality on hospitalization and CV death reduction.
 
 16.3. Heart failure CR in special populations
 
 These include:
 
-
+* Individuals with implantable devices
 
-Individuals with implantable devices
+* CR in HF patients with ICD and CRT is safe and beneficial.862,879-881
 
- CR in HF patients with ICD and CRT is safe and beneficial.862,879-881
-
- Activities such as hydrotherapy or pronounced arm - shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
+* Activities such as hydrotherapy or pronounced arm - shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
 
 Elderly patients with HF
 
- Frailty is common among the elderly and is associated with increased morbidity and mortality. It is partially reversible and potentially preventable in HF with early rehabilitation
+* Frailty is common among the elderly and is associated with increased morbidity and mortality. It is partially reversible and potentially preventable in HF with early rehabilitation
 
 referral.882
 
- Rehabilitation non-enrolment results in worsening frailty status.
- Cognitive impairment and HF frequently coexist - either as acute delirium with decompensated HF during hospital admission or dementia.
+* Rehabilitation non-enrolment results in worsening frailty status.
+* Cognitive impairment and HF frequently coexist - either as acute delirium with decompensated HF during hospital admission or dementia.
 
- Patients with a high frailty score and cognitive impairment will benefit from closer contact with the HF specialist team, more frequent follow-up and monitoring and
+* Patients with a high frailty score and cognitive impairment will benefit from closer contact with the HF specialist team, more frequent follow-up and monitoring and
 
 individualized self-care support.
 165
@@ -978,19 +726,7 @@ Assessment for heart transplant is done by a multispecialty, multidisciplinary t
 
 Eligibility criteria to be considered for heart transplant include:
 
-
-
-
-
-
-
-
-
-
-
-
-
-Poor LVEF (< 25%).
+* * * * * * Poor LVEF (< 25%).
 
 Recurrent HF hospitalizations.
 
@@ -1008,23 +744,11 @@ Motivated, psychologically stable, and compliant with therapy.
 
 Contraindications to heart transplant:
 
- Active infection.
+* Active infection.
 
-
+* Severe peripheral arterial or cerebrovascular disease.
 
-Severe peripheral arterial or cerebrovascular disease.
-
-
-
-
-
-
-
-
-
-
-
-Malignancy within 5 years.
+* * * * * Malignancy within 5 years.
 
 Diabetes mellitus with widespread microvascular complications.
 
@@ -1034,37 +758,35 @@ Irreversible chronic kidney, liver, or lung disease.
 
 Pharmacologically irreversible pulmonary hypertension.
 
-
-
-Other medical or psychosocial issues that would impact survival.
+* Other medical or psychosocial issues that would impact survival.
 
 ## 16.4 Barriers to HF rehabilitation
 
--  Despite benefits, cost-effectiveness, and strong practice guideline recommendations, CR remains underused.172
--  Barriers include884
--  Physician Factors:
--  Fewer referrals from cardiologists.
--  Fewer well trained CR staff.
--  Overworked doctors.
--  Patient Factors:
--  Lack of motivation
--  Reluctance to change in lifestyle.
--  Transport difficulties.
--  Lack of family support.
--  Time constraints.
--  Service Factors:
--  Lack of insurance coverage.
--  Accessibility of programs.
+* Despite benefits, cost-effectiveness, and strong practice guideline recommendations, CR remains underused.172
+* Barriers include884
+* Physician Factors:
+* Fewer referrals from cardiologists.
+* Fewer well trained CR staff.
+* Overworked doctors.
+* Patient Factors:
+* Lack of motivation
+* Reluctance to change in lifestyle.
+* Transport difficulties.
+* Lack of family support.
+* Time constraints.
+* Service Factors:
+* Lack of insurance coverage.
+* Accessibility of programs.
 
 ## Key Messages # 24: HF Rehabilitation
 
--  Fatigue and breathlessness lead to individuals restricting their physical activities and this in turn, leads to deconditioning.
--  Exercise training in patients with HF is safe and leads to an improvement in functional capacity, exercise duration, and health related quality of life.
--  HF is now endorsed as an indication for Cardiac Rehabilitation, and it spans through out the continuum of HF care.
+* Fatigue and breathlessness lead to individuals restricting their physical activities and this in turn, leads to deconditioning.
+* Exercise training in patients with HF is safe and leads to an improvement in functional capacity, exercise duration, and health related quality of life.
+* HF is now endorsed as an indication for Cardiac Rehabilitation, and it spans through out the continuum of HF care.
 
 ## Key Recommendations #19: HF Rehabilitation
 
--  Cardiac Rehabilitation should be recommended to all stable HF patients, in NYHA II-III.
+* Cardiac Rehabilitation should be recommended to all stable HF patients, in NYHA II-III.
 
 ---
 
@@ -1072,52 +794,52 @@ Other medical or psychosocial issues that would impact survival.
 
 ### Table 9: New York Heart Association Functional Classification
 
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms at rest. | 20-50% |
+* Class | Functional Capacity | 1-Year Mortality |
+* ---|---|---|
+* **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
+* **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
+* **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
+* **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms at rest. | 20-50% |
 
 
 ---
 
 ## Abbreviations Used in This Section
 
-| Abbreviation | Description |
-|---|---|
-| ACE-I | Angiotensin Converting Enzyme Inhibitor |
-| AF | Atrial Fibrillation |
-| ARB | Angiotensin Receptor Blocker |
-| ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
-| BNP | B-type Natriuretic Peptide |
-| BP | Blood Pressure |
-| CAD | Coronary Artery Disease |
-| CKD | Chronic Kidney Disease |
-| CRT | Cardiac Resynchronization Therapy |
-| CV | Cardiovascular |
-| CVD | Cardiovascular Disease |
-| DM | Diabetes Mellitus |
-| ECG | Electrocardiogram |
-| eGFR | Estimated Glomerular Filtration Rate |
-| HF | Heart Failure |
-| HFimpEF | HF with Improved Ejection Fraction |
-| HFmrEF | HF with Mildly Reduced Ejection Fraction |
-| HFpEF | HF with Preserved Ejection Fraction |
-| HFrEF | HF with Reduced Ejection Fraction |
-| ICD | Implantable Cardioverter Defibrillator |
-| IV | Intravenous |
-| LV | Left Ventricular |
-| LVEF | Left Ventricular Ejection Fraction |
-| MACE | Major Adverse Cardiovascular Events |
-| MCS | Mechanical Circulatory Support |
-| MI | Myocardial Infarction |
-| MRA | Mineralocorticoid Receptor Antagonist |
-| NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
-| NYHA | New York Heart Association |
-| PPCM | Peripartum Cardiomyopathy |
-| SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
-| VHD | Valvular Heart Disease |
+* Abbreviation | Description |
+* ---|---|
+* ACE-I | Angiotensin Converting Enzyme Inhibitor |
+* AF | Atrial Fibrillation |
+* ARB | Angiotensin Receptor Blocker |
+* ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
+* BNP | B-type Natriuretic Peptide |
+* BP | Blood Pressure |
+* CAD | Coronary Artery Disease |
+* CKD | Chronic Kidney Disease |
+* CRT | Cardiac Resynchronization Therapy |
+* CV | Cardiovascular |
+* CVD | Cardiovascular Disease |
+* DM | Diabetes Mellitus |
+* ECG | Electrocardiogram |
+* eGFR | Estimated Glomerular Filtration Rate |
+* HF | Heart Failure |
+* HFimpEF | HF with Improved Ejection Fraction |
+* HFmrEF | HF with Mildly Reduced Ejection Fraction |
+* HFpEF | HF with Preserved Ejection Fraction |
+* HFrEF | HF with Reduced Ejection Fraction |
+* ICD | Implantable Cardioverter Defibrillator |
+* IV | Intravenous |
+* LV | Left Ventricular |
+* LVEF | Left Ventricular Ejection Fraction |
+* MACE | Major Adverse Cardiovascular Events |
+* MCS | Mechanical Circulatory Support |
+* MI | Myocardial Infarction |
+* MRA | Mineralocorticoid Receptor Antagonist |
+* NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
+* NYHA | New York Heart Association |
+* PPCM | Peripartum Cardiomyopathy |
+* SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
+* VHD | Valvular Heart Disease |
 
 
 ---

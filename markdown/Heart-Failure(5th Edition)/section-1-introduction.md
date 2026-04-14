@@ -21,12 +21,12 @@ In the ASIAN-HF registry, the 1-year all-cause mortality for the whole populatio
 
 In Malaysia for Acute HF, (see Table 7, page 48), the: 11-17
 
--  Median age of patients was 59-64 years. In Thailand, the mean age of patients with HF was 65.3 years. 34
--  Median length of hospital stay (LOS) was 3-5 days - comparable to that in the US. 18
--  In-hospital mortality varied from <3% to as high as 7.5%. In the European Society of Cardiology (ESC) HF-Long term (LT) registry, the in-hospital mortality was 4.9% and in the Get With The Guidelines-HF (GWTG-HF) registry, the in-hospital mortality was <3%.18,19
--  30-day mortality was high at 11-15%.
--  1-year mortality was also similarly high at 33-49.5%.
--  30-day and 1-year all cause readmission rates were 4-18% and 24-76% respectively compared to the 19% and 53% seen in a meta-analysis of 27 HF registries. 20
+* Median age of patients was 59-64 years. In Thailand, the mean age of patients with HF was 65.3 years. 34
+* Median length of hospital stay (LOS) was 3-5 days - comparable to that in the US. 18
+* In-hospital mortality varied from <3% to as high as 7.5%. In the European Society of Cardiology (ESC) HF-Long term (LT) registry, the in-hospital mortality was 4.9% and in the Get With The Guidelines-HF (GWTG-HF) registry, the in-hospital mortality was <3%.18,19
+* 30-day mortality was high at 11-15%.
+* 1-year mortality was also similarly high at 33-49.5%.
+* 30-day and 1-year all cause readmission rates were 4-18% and 24-76% respectively compared to the 19% and 53% seen in a meta-analysis of 27 HF registries. 20
 
 In general, in addition to hospitalizations due to HF, all-cause hospitalizations were also increased and observed in up to 60% of patients. 21 In Malaysia, cardiovascular causes accounted for half of all 30-day readmissions (50.1%) with HF specifically accounting for 27.8%.17 Readmission rates were higher in the older age and those with CKD. 17 Length of stay increased with each hospitalization and the time in between hospitalizations decreased with each subsequent hospitalization. 17
 
@@ -49,20 +49,15 @@ expanding population.
 
 The overall global economic cost of HF is highly variable from country to country.21,28 In general, the costs of treatment of a HF patient is higher:
 
-
-
-
-than other diseases such as asthma, coronary artery disease, chronic obstructive pulmonary diseases, diabetes, hyperlipidemia and hypertension.
+* * than other diseases such as asthma, coronary artery disease, chronic obstructive pulmonary diseases, diabetes, hyperlipidemia and hypertension.
 
 in the presence of comorbidities such as diabetes, obesity and chronic kidney disease.
 
 Healthcare costs for HF include:27
 
- Direct costs - this accounts for 60% of total costs.
+* Direct costs - this accounts for 60% of total costs.
 
-
-
-Indirect costs - account for 40%. This includes premature mortality, 'presenteeism' (the lost productivity that occurs when employees are not fully functioning in the workplace
+* Indirect costs - account for 40%. This includes premature mortality, 'presenteeism' (the lost productivity that occurs when employees are not fully functioning in the workplace
 
 because of an illness, injury, or other condition), disability, sick absenteeism (short- and medium-term absence from work) and costs of caregiver's absenteeism.
 
@@ -109,13 +104,7 @@ improved HRQoL to length of survival.
 
 The goals of management of HF include:
 
-
-
-
-
-
-
-Preventing hospitalizations and unplanned hospital visits - this will reduce both the socio-economic and humanistic burden of HF.
+* * * Preventing hospitalizations and unplanned hospital visits - this will reduce both the socio-economic and humanistic burden of HF.
 
 Reducing symptoms, improving functional capacity and quality of life, and thus improving the humanistic burden of HF.
 
@@ -162,18 +151,7 @@ mortality (13.6%) compared with South Asians (8.3%) and Northeast Asians (8.9%).
 
 In Malaysia for Acute HF, (see Table 7, page 48), the:
 
-
-
-
-
-
-
-
-
-
-
-
-11-17
+* * * * * * 11-17
 
 Median age of patients was 59-64 years. In Thailand, the mean age of patients with HF
 
@@ -218,13 +196,13 @@ The socio-economic burden of HF is huge. In high-income countries, 1-2% of the t
 
 The overall global economic cost of HF is highly variable from country to country.21,28 In general, the costs of treatment of a HF patient is higher: 28-30
 
--  than other diseases such as asthma, coronary artery disease, chronic obstructive pulmonary diseases, diabetes, hyperlipidemia and hypertension.
--  in the presence of comorbidities such as diabetes, obesity and chronic kidney disease.
+* than other diseases such as asthma, coronary artery disease, chronic obstructive pulmonary diseases, diabetes, hyperlipidemia and hypertension.
+* in the presence of comorbidities such as diabetes, obesity and chronic kidney disease.
 
 Healthcare costs for HF include:27
 
--  Direct costs - this accounts for 60% of total costs.
--  Indirect costs - account for 40%. This includes premature mortality, 'presenteeism' (the lost productivity that occurs when employees are not fully functioning in the workplace because of an illness, injury, or other condition), disability, sick absenteeism (short- and medium-term absence from work) and costs of caregiver's absenteeism.
+* Direct costs - this accounts for 60% of total costs.
+* Indirect costs - account for 40%. This includes premature mortality, 'presenteeism' (the lost productivity that occurs when employees are not fully functioning in the workplace because of an illness, injury, or other condition), disability, sick absenteeism (short- and medium-term absence from work) and costs of caregiver's absenteeism.
 
 In general, in most low and medium economies like Malaysia, the indirect costs of HF in terms of premature mortality, morbidity, lost earning potential and unpaid care costs outweigh the direct costs. 27
 
@@ -246,13 +224,7 @@ improved HRQoL to length of survival.
 
 The goals of management of HF include:
 
-
-
-
-
-
-
-Preventing hospitalizations and unplanned hospital visits - this will reduce both the socio-economic and humanistic burden of HF.
+* * * Preventing hospitalizations and unplanned hospital visits - this will reduce both the socio-economic and humanistic burden of HF.
 
 Reducing symptoms, improving functional capacity and quality of life, and thus improving the humanistic burden of HF.
 
@@ -299,18 +271,7 @@ mortality (13.6%) compared with South Asians (8.3%) and Northeast Asians (8.9%).
 
 In Malaysia for Acute HF, (see Table 7, page 48), the:
 
-
-
-
-
-
-
-
-
-
-
-
-11-17
+* * * * * * 11-17
 
 Median age of patients was 59-64 years. In Thailand, the mean age of patients with HF
 
@@ -366,20 +327,15 @@ expanding population.
 
 The overall global economic cost of HF is highly variable from country to country.21,28 In general, the costs of treatment of a HF patient is higher:
 
-
-
-
-than other diseases such as asthma, coronary artery disease, chronic obstructive pulmonary diseases, diabetes, hyperlipidemia and hypertension.
+* * than other diseases such as asthma, coronary artery disease, chronic obstructive pulmonary diseases, diabetes, hyperlipidemia and hypertension.
 
 in the presence of comorbidities such as diabetes, obesity and chronic kidney disease.
 
 Healthcare costs for HF include:27
 
- Direct costs - this accounts for 60% of total costs.
+* Direct costs - this accounts for 60% of total costs.
 
-
-
-Indirect costs - account for 40%. This includes premature mortality, 'presenteeism' (the lost productivity that occurs when employees are not fully functioning in the workplace
+* Indirect costs - account for 40%. This includes premature mortality, 'presenteeism' (the lost productivity that occurs when employees are not fully functioning in the workplace
 
 because of an illness, injury, or other condition), disability, sick absenteeism (short- and medium-term absence from work) and costs of caregiver's absenteeism.
 
@@ -416,48 +372,48 @@ Thus, an important goal in management of HF is to prevent readmissions, reducing
 
 Table 7 : Epidemiology of HF in Asia & Malaysia
 
-|                                        | registry 11                                                                                                                                                                                                                                                                                                                                      | et al12                                                                                                 | Asian HF Lim YMF MYHF13,14                                                                             | Sharif RER Ling HS Azmee  et al14  et al15  et al16                                                                  |
-|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-|                                        | Source Prospective 10 years Prospective Single center Single center Single center  of Data longitudinal retrospective observational Retrospective Prospective Retrospective  outpatient 1 (at least 1 to 31 decompensated hospitalized Dec 2020  HF in the with HF  previous 6  months) and  hospitalized  patients 1st Oct 2012 - 31st Oct 2016 | st  st  episode of 2016 of pts Aug 2019 -                                                               | Jan 2007 hospitalized Jan 2012 - study on pts 1 Dec patients from Dec 2016 hospitalized 2009 to        | study of data from study on data observational on hospitalized  st  Jan  pts 31 st  Dec  Sept 2017 to 2018  Oct 2018 |
+* | registry 11                                                                                                                                                                                                                                                                                                                                      | et al12                                                                                                 | Asian HF Lim YMF MYHF13,14                                                                             | Sharif RER Ling HS Azmee  et al14  et al15  et al16                                                                  |
+* ----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+* | Source Prospective 10 years Prospective Single center Single center Single center  of Data longitudinal retrospective observational Retrospective Prospective Retrospective  outpatient 1 (at least 1 to 31 decompensated hospitalized Dec 2020  HF in the with HF  previous 6  months) and  hospitalized  patients 1st Oct 2012 - 31st Oct 2016 | st  st  episode of 2016 of pts Aug 2019 -                                                               | Jan 2007 hospitalized Jan 2012 - study on pts 1 Dec patients from Dec 2016 hospitalized 2009 to        | study of data from study on data observational on hospitalized  st  Jan  pts 31 st  Dec  Sept 2017 to 2018  Oct 2018 |
 
 ---
 
 ## Abbreviations Used in This Section
 
-| Abbreviation | Description |
-|---|---|
-| ACE-I | Angiotensin Converting Enzyme Inhibitor |
-| AF | Atrial Fibrillation |
-| ARB | Angiotensin Receptor Blocker |
-| ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
-| BNP | B-type Natriuretic Peptide |
-| BP | Blood Pressure |
-| CAD | Coronary Artery Disease |
-| CKD | Chronic Kidney Disease |
-| CRT | Cardiac Resynchronization Therapy |
-| CV | Cardiovascular |
-| CVD | Cardiovascular Disease |
-| DM | Diabetes Mellitus |
-| ECG | Electrocardiogram |
-| eGFR | Estimated Glomerular Filtration Rate |
-| HF | Heart Failure |
-| HFimpEF | HF with Improved Ejection Fraction |
-| HFmrEF | HF with Mildly Reduced Ejection Fraction |
-| HFpEF | HF with Preserved Ejection Fraction |
-| HFrEF | HF with Reduced Ejection Fraction |
-| ICD | Implantable Cardioverter Defibrillator |
-| IV | Intravenous |
-| LV | Left Ventricular |
-| LVEF | Left Ventricular Ejection Fraction |
-| MACE | Major Adverse Cardiovascular Events |
-| MCS | Mechanical Circulatory Support |
-| MI | Myocardial Infarction |
-| MRA | Mineralocorticoid Receptor Antagonist |
-| NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
-| NYHA | New York Heart Association |
-| PPCM | Peripartum Cardiomyopathy |
-| SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
-| VHD | Valvular Heart Disease |
+* Abbreviation | Description |
+* ---|---|
+* ACE-I | Angiotensin Converting Enzyme Inhibitor |
+* AF | Atrial Fibrillation |
+* ARB | Angiotensin Receptor Blocker |
+* ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
+* BNP | B-type Natriuretic Peptide |
+* BP | Blood Pressure |
+* CAD | Coronary Artery Disease |
+* CKD | Chronic Kidney Disease |
+* CRT | Cardiac Resynchronization Therapy |
+* CV | Cardiovascular |
+* CVD | Cardiovascular Disease |
+* DM | Diabetes Mellitus |
+* ECG | Electrocardiogram |
+* eGFR | Estimated Glomerular Filtration Rate |
+* HF | Heart Failure |
+* HFimpEF | HF with Improved Ejection Fraction |
+* HFmrEF | HF with Mildly Reduced Ejection Fraction |
+* HFpEF | HF with Preserved Ejection Fraction |
+* HFrEF | HF with Reduced Ejection Fraction |
+* ICD | Implantable Cardioverter Defibrillator |
+* IV | Intravenous |
+* LV | Left Ventricular |
+* LVEF | Left Ventricular Ejection Fraction |
+* MACE | Major Adverse Cardiovascular Events |
+* MCS | Mechanical Circulatory Support |
+* MI | Myocardial Infarction |
+* MRA | Mineralocorticoid Receptor Antagonist |
+* NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
+* NYHA | New York Heart Association |
+* PPCM | Peripartum Cardiomyopathy |
+* SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
+* VHD | Valvular Heart Disease |
 
 
 ---
