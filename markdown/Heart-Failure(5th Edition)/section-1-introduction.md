@@ -4,7 +4,7 @@
 category: Introduction
 use_case: Background Information
 patient_input: 
-output: HF epidemiology, socioeconomic burden, classification, NYHA staging
+output: HF epidemiology, socioeconomic burden
 -->
 
 ## 1. INTRODUCTION
@@ -419,100 +419,6 @@ Table 7 : Epidemiology of HF in Asia & Malaysia
 |                                        | registry 11                                                                                                                                                                                                                                                                                                                                      | et al12                                                                                                 | Asian HF Lim YMF MYHF13,14                                                                             | Sharif RER Ling HS Azmee  et al14  et al15  et al16                                                                  |
 |----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 |                                        | Source Prospective 10 years Prospective Single center Single center Single center  of Data longitudinal retrospective observational Retrospective Prospective Retrospective  outpatient 1 (at least 1 to 31 decompensated hospitalized Dec 2020  HF in the with HF  previous 6  months) and  hospitalized  patients 1st Oct 2012 - 31st Oct 2016 | st  st  episode of 2016 of pts Aug 2019 -                                                               | Jan 2007 hospitalized Jan 2012 - study on pts 1 Dec patients from Dec 2016 hospitalized 2009 to        | study of data from study on data observational on hospitalized  st  Jan  pts 31 st  Dec  Sept 2017 to 2018  Oct 2018 |
-| Population                             | aged > 18 years > 20 years > 18 years > 18 years >18 years Adult With symptomatic incident HF                                                                                                                                                                                                                                                    | 6480 patients 105,399 2673 patients 1307 patients 117 patients  HF hospitalizations  in a MOH  hospital |                                                                                                        | 3923 patients  Acute HF Acute HF HF pts patients patients                                                            |
-| Mean Age                               |                                                                                                                                                                                                                                                                                                                                                  |                                                                                                         | 61.6 years 64.1 years 60.17 years 63.4 years 59 years 62 years                                         |                                                                                                                      |
-| % Women                                | 27%                                                                                                                                                                                                                                                                                                                                              | 44%                                                                                                     |                                                                                                        | 33.2% 53.6% 41.1% 37.7%                                                                                              |
-| % HFrEF                                | 81%                                                                                                                                                                                                                                                                                                                                              | NA                                                                                                      |                                                                                                        | 64.6% 40.8% 48.6% 62.9%                                                                                              |
-| Length of  Hospital Stay               | NA                                                                                                                                                                                                                                                                                                                                               |                                                                                                         | 3 days 7.3 days 5.3 ± 3.4 days 5 days 9.2 days  (median) (mean) (mean). (median) (mean) 3 - 4 (median) |                                                                                                                      |
-| All Cause Readmission  30 days  1 year | NA  NA                                                                                                                                                                                                                                                                                                                                           | NA                                                                                                      | NA                                                                                                     | 18.1% 12.9% 4.1% 11.2% 6.8% 76.1% NA 24.7%                                                                           |
-| In Hospital  Mortality                 |                                                                                                                                                                                                                                                                                                                                                  | 5.3%                                                                                                    |                                                                                                        | 2.8% 1.7% 7.5% 7.2%                                                                                                  |
-| 30 days  Mortality                     |                                                                                                                                                                                                                                                                                                                                                  | 11.2%                                                                                                   | 7.8% 15.7% 13.1% NA                                                                                    |                                                                                                                      |
-| 1 year                                 | 9.6%  Mortality HFrEF:10.6%  HFpEF: 5.4%,                                                                                                                                                                                                                                                                                                        | 33.1%                                                                                                   | NA                                                                                                     | 49.7% NA  NA                                                                                                         |
-
-Table 8: Classification Of Heart Failure According To LVEF
-
-| Ejection Fraction Terminology                                | LVEF                                                                                                                                           |
-|--------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) ≤ 40%   |                                                                                                                                                |
-| Heart Failure with mildly reduced LVEF (HFmrEF) 41 -         | 49%                                                                                                                                            |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) ≥ 50% |                                                                                                                                                |
-| Heart Failure with Improved Ejection  Fraction (HFimpEF)     | HF with a baseline LVEF of  ≤ 40%, a ≥10-point increase  from baseline LVEF following  treatment, and a second  measurement of LVEF of  > 40%. |
-
-## Stages of HF include 35 :
-
--  A - 'At Risk"
--  Asymptomatic without structural cardiac disease but 'at risk' of developing HF.
--  B - "Pre HF"
--  Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF. They may have normal or mildly reduced LV function.
--  C - "HF"
--  Symptomatic HF, either previous or current symptoms.
--  D - "Advanced HF"
--  Marked symptoms interfering with daily activities of living and with recurrent hospitalizations.
-
-The severity of symptomatic HF can be assessed by the New York Heart Association (NYHA) Functional Class. (Table 9, page 50)
-
-|           | CLASS FUNCTIONAL CAPACITY                                                                                                                                                                        | 1 YEAR MORTALITY   |
-|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| CLASS I   | No limitation. Ordinary physical activity does not  cause undue fatigue, dyspnea or palpitation.                                                                                                 | 5 - 10%            |
-| CLASS II  | Slight limitation of physical activity. Such patients  are comfortable at rest. Ordinary physical activity 10 - 15%  results in fatigue, palpitation, dyspnea or angina.                         |                    |
-| CLASS III | Marked limitation of physical activity. Although  patients are comfortable at rest, less than ordinary 15 - 20%  activity will lead to symptoms.                                                 |                    |
-| CLASS IV  | Inability to carry on any physical activity without  discomfort. Symptoms of congestive failure are 20 - 50%  present at rest. With any physical activity,  increased discomfort is experienced. |                    |
-
-Table 9: New York Heart Association Functional Classification for Patients with Heart Disease
-
-## Key Message #3: Classification & Stages of HF
-
--  HF can be classified according to:
--  Clinical Presentation:
--  Acute heart failure (Acute HF)
--  Chronic heart failure (Chronic HF)
--  Left ventricular ejection fraction (LVEF):
--  Reduced (LVEF ≤ 40%) - Heart failure with reduced ejection function (HFrEF).
--  Mildly reduced (LVEF 41%-49%) - Heart Failure with the LVEF being in the mildly reduced range (HFmrEF)
--  Preserved (LVEF > 50%) - Heart failure with preserved ejection fraction (HFpEF)
--  Improved Ejection Fraction - HF with a baseline LVEF of < 40%, a >10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of >40%.(HFimpEF)
--  Stages of HF are:
--  A - "At Risk"
--  B - "Pre HF"
--  C - "Symptomatic HF with previous or current symptoms"
--  D - "Advanced HF"
--  The severity of symptomatic HF and the exercise capacity of the patient can be assessed using the New York Heart Association (NYHA) functional Class (Table 9, page 50).
-
----
-
-## Contextual Anchors (Overlapping)
-
-### Table 8: Classification Of Heart Failure According To LVEF
-
-| Ejection Fraction Terminology | LVEF |
-|---|---|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
-| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
-| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
-
----
-
-### Table 9: New York Heart Association Functional Classification
-
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms at rest. | 20-50% |
-
----
-
-### Stages of Heart Failure
-
-| Stage | Description |
-|---|---|
-| **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| **B - "Pre HF"** | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| **C - "HF"** | Symptomatic HF, either previous or current symptoms |
-| **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
-
 
 ---
 

@@ -145,8 +145,10 @@ def find(pattern, start=0):
 
 # Find key positions
 pos = {}
-pos['key_messages'] = find(r'^## KEY MESSAGES')
+pos['table8'] = find(r'Table 8.*Classification|Classification Of Heart Failure According To LVEF')
 pos['s1'] = find(r'^## 1\. INTRODUCTION')
+pos['s2'] = pos['table8'] - 10  # approximate boundary
+pos['s3'] = pos['table8']
 pos['s4'] = find(r'^## 4\. PATHOPHYSIOLOGY')
 pos['s5'] = find(r'^## 5\. ETIOLOGY')
 pos['s6'] = find(r'^## 6\. DIAGNOSIS')
@@ -163,9 +165,9 @@ pos['s14'] = find(r'^## 14\.\s|SPECIAL GROUPS', pos.get('s13', 0) + 10)
 pos['s14_4'] = find(r'ARRHYTHMIAS.*CONDUCTION|14\.4', pos.get('s14', 0) + 100)
 pos['s14_5'] = find(r'CARDIO-ONCOLOGY|14\.5', pos.get('s14_4', 0) + 10)
 pos['s14_6'] = find(r'CHRONIC KIDNEY DISEASE|14\.6', pos.get('s14_5', 0) + 10)
-pos['s14_7'] = find(r'PREGNANCY|14\.7', pos.get('s14_6', 0) + 10)
-pos['s14_8'] = find(r'CORONAVIRUS|COVID|14\.8', pos.get('s14_7', 0) + 10)
-pos['s14_9'] = find(r'CONGENITAL.*HEART|ACHD|14\.9', pos.get('s14_8', 0) + 10)
+pos['s14_7'] = find(r'^## 14\.7', pos.get('s14_6', 0) + 10)
+pos['s14_8'] = find(r'^## 14\.8', pos.get('s14_7', 0) + 10)
+pos['s14_9'] = find(r'^## 14\.9', pos.get('s14_8', 0) + 10)
 pos['s15'] = find(r'^## 15\.\s|ADVANCED HEART FAILURE', pos.get('s14_9', 0) + 10)
 pos['s16'] = find(r'^## 16\.\s|REHABILITATION', pos.get('s15', 0) + 10)
 pos['s17'] = find(r'ORGANISATION OF CARE|^## 17', pos.get('s16', 0) + 10)
@@ -182,18 +184,25 @@ for k, v in pos.items():
 # ── Extract & Write Sections ──
 print("\nWriting sections...")
 
-# Key Messages & Recommendations
-content = extract(pos['key_messages'], pos['s1'] - 50)
-write_section("section-0-key-messages.md", 
-    "SECTION 0: KEY MESSAGES & KEY RECOMMENDATIONS",
-    ("Summary", "Quick Reference", "", "All 25 key messages and 22 key recommendations"),
-    content, [TABLE8, TABLE9])
-
 # Section 1: Introduction
-content = extract(pos['s1'], pos['s4'])
+content = extract(pos['s1'], pos['s2'])
 write_section("section-1-introduction.md",
     "SECTION 1: INTRODUCTION & EPIDEMIOLOGY",
-    ("Introduction", "Background Information", "", "HF epidemiology, socioeconomic burden, classification, NYHA staging"),
+    ("Introduction", "Background Information", "", "HF epidemiology, socioeconomic burden"),
+    content)
+
+# Section 2: Definition
+content = extract(pos['s2'], pos['s3'])
+write_section("section-2-definition.md",
+    "SECTION 2: DEFINITION",
+    ("Introduction", "Definition", "", "Definition of Heart Failure"),
+    content)
+
+# Section 3: Classification
+content = extract(pos['s3'], pos['s4'])
+write_section("section-3-classification.md",
+    "SECTION 3: CLASSIFICATION",
+    ("Classification", "Staging and Classification", "LVEF, Symptoms", "Classification, NYHA staging, Stages of HF"),
     content, [TABLE8, TABLE9, STAGES])
 
 # Section 4: Pathophysiology
@@ -282,23 +291,30 @@ write_section("section-14-2-arrhythmias-oncology.md",
 
 # Section 14.6: CKD
 content = extract(pos['s14_6'], pos['s14_7'])
-write_section("section-14-3-ckd.md",
+write_section("section-14-6-ckd.md",
     "SECTION 14.6: HF AND CHRONIC KIDNEY DISEASE",
     ("Special Groups", "CKD Management", "eGFR, creatinine, potassium, dialysis status", "Cardio-renal syndrome, drug dosing in CKD, dialysis considerations"),
     content)
 
 # Section 14.7: Pregnancy
 content = extract(pos['s14_7'], pos['s14_8'])
-write_section("section-14-4-pregnancy.md",
+write_section("section-14-7-pregnancy.md",
     "SECTION 14.7: HF AND PREGNANCY",
     ("Special Groups", "Pregnancy Management", "Pregnancy status, cardiac condition, NYHA class", "Risk stratification, safe medications, PPCM management"),
     content)
 
-# Section 14.8-14.9: COVID, ACHD
-content = extract(pos['s14_8'], pos['s15'])
-write_section("section-14-5-covid-achd.md",
-    "SECTION 14.8-14.9: COVID-19 & ADULT CONGENITAL HEART DISEASE",
-    ("Special Groups", "COVID-19 and ACHD", "COVID history, congenital heart disease type", "COVID-19 cardiac effects, ACHD-HF management"),
+# Section 14.8: COVID-19
+content = extract(pos['s14_8'], pos['s14_9'])
+write_section("section-14-8-covid.md",
+    "SECTION 14.8: CORONAVIRUS 2019 (COVID 19) AND HEART FAILURE",
+    ("Special Groups", "COVID-19 Management", "COVID history, vaccination", "COVID-19 cardiac effects, myocarditis"),
+    content)
+
+# Section 14.9: ACHD
+content = extract(pos['s14_9'], pos['s15'])
+write_section("section-14-9-achd.md",
+    "SECTION 14.9: HEART FAILURE IN ADULT CONGENITAL HEART DISEASE (ACHD)",
+    ("Special Groups", "ACHD Management", "congenital heart disease type", "ACHD-HF management, diagnosis, pathophysiology"),
     content)
 
 # Section 15: Advanced HF
