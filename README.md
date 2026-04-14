@@ -7,7 +7,7 @@
 ![Gemini](https://img.shields.io/badge/Google_Gemini-LLM_&_Embeddings-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 
-An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support across **multiple Malaysia CPGs**.
+An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for the Malaysia CPG on Erectile Dysfunction Management.
 
 ---
 
@@ -16,7 +16,6 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 | Section | Description |
 |---------|-------------|
 | [What This System Does](#-what-this-system-does) | Core capabilities overview |
-| [Supported CPGs](#-supported-cpgs) | All clinical guidelines currently ingested |
 | [Architecture](#-architecture) | System design and flow |
 | [Tech Stack](#-tech-stack) | Technologies and frameworks |
 | [Features](#-features) | Document ingestion, knowledge graph, agent tools |
@@ -33,8 +32,8 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  USER: "What is the LDL-C target for a very high-risk patient  │
-│         with acute coronary syndrome?"                          │
+│  USER: "What is the recommended initial dose for Sildenafil     │
+│         and how long does its effect persist?"                  │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
@@ -54,9 +53,9 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  RESPONSE: "For very high-risk patients (e.g. ACS), the        │
-│  LDL-C target is <1.4 mmol/L, with ≥50% reduction from        │
-│  baseline. [Grade A, Level I]"                                  │
+│  RESPONSE: "The recommended initial dose for Sildenafil is      │
+│  50 mg, up to 100 mg. Sildenafil's effects can last up to       │
+│  12 hours."                                                     │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -68,72 +67,6 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 - **Enables semantic search** via Vector DB (PostgreSQL + pgvector)
 - **Provides clinical decision support** via conversational AI agent
 - **Web Frontend** for clinical case analysis
-- **Multi-CPG support** — handles multiple clinical guidelines simultaneously
-
----
-
-## 📚 Supported CPGs
-
-The system currently supports **7 Malaysia Clinical Practice Guidelines**, each with high-fidelity, RAG-optimized markdown sections:
-
-| # | CPG Title | Edition | Sections | Status |
-|---|-----------|---------|----------|--------|
-| 1 | **Management of Dyslipidaemia** | 6th Edition | 17 sections (incl. appendices & references) | ✅ Complete |
-| 2 | **Management of Erectile Dysfunction** | — | 14 sections (incl. appendix) | ✅ Complete |
-| 3 | **Management of Breast Cancer** | 3rd Edition | 16 sections (incl. appendices) | ✅ Complete |
-| 4 | **Management of Cancer Pain** | 2nd Edition | 15 sections | ✅ Complete |
-| 5 | **Management of Hypertension** | 5th Edition | 16 sections (incl. appendix & references) | ✅ Complete |
-| 6 | **Stable Coronary Artery Disease** | 2nd Edition | 16 sections (incl. appendix & references) | ✅ Complete |
-| 7 | **Management of Heart Failure** | 5th Edition | 22 sections (incl. appendix) | ✅ Complete |
-
-### Dyslipidaemia (6th Edition) — Section Breakdown
-
-| File | Topic |
-|------|-------|
-| `section-1-introduction.md` | Introduction & Epidemiology |
-| `section-2-measurement.md` | Lipid Measurement |
-| `section-3-classification.md` | Classification of Dyslipidaemia |
-| `section-4-cv-risk-factor.md` | Cardiovascular Risk Factors |
-| `section-5-risk-assessment.md` | CV Risk Assessment & Stratification |
-| `section-6-target-lipid-levels.md` | Target Lipid Levels |
-| `section-7-1-tlc.md` | Therapeutic Lifestyle Changes |
-| `section-7-2-drugs.md` | Pharmacological Treatment |
-| `section-8-primary-prevention.md` | Primary Prevention |
-| `section-9-secondary-prevention.md` | Secondary Prevention |
-| `section-10-specific-conditions.md` | Specific Clinical Conditions |
-| `section-11-specific-disorders.md` | Specific Lipid Disorders |
-| `section-12-special-groups.md` | Special Groups |
-| `section-13-adherence.md` | Adherence & Compliance |
-| `section-14-quality-indicators.md` | Quality Performance Indicators |
-| `section-15-faqs.md` | Frequently Asked Questions |
-| `appendices.md` | Appendices & Supplementary Data |
-
-### Heart Failure (5th Edition) — Section Breakdown
-
-| File | Topic |
-|------|-------|
-| `section-0-key-messages.md` | All 25 Key Messages & 22 Key Recommendations (Quick Reference) |
-| `section-1-introduction.md` | Introduction, Epidemiology & Socioeconomic Burden |
-| `section-4-pathophysiology.md` | Pathophysiology (HFrEF, HFpEF, HFmrEF, HFimpEF) |
-| `section-5-etiology.md` | Etiology & CHAMPION Decompensation Mnemonic |
-| `section-6-diagnosis.md` | Diagnosis — Symptoms, Signs, ECG, BNP, Echocardiogram |
-| `section-7-prevention.md` | Prevention — Stage A & B Risk Factor Control |
-| `section-8-non-pharmacological.md` | Non-Pharmacological Measures (Diet, Exercise, Fluid) |
-| `section-9-acute-heart-failure.md` | Acute HF — 3-Phase Management, Diuretics, Inotropes, MCS |
-| `section-10-chronic-hfref.md` | Chronic HFrEF — Foundational HF Medications & Device Therapy |
-| `section-11-hfmref.md` | HFmrEF (LVEF 41-49%) Management |
-| `section-12-hfimpef.md` | HFimpEF (Improved EF) — Therapy Continuation |
-| `section-13-chronic-hfpef.md` | Chronic HFpEF (LVEF >50%) — SGLT2i, Comorbidity Management |
-| `section-14-1-diabetes-vhd-cardiomyopathy.md` | HF & Diabetes, Valvular Heart Disease, Cardiomyopathy |
-| `section-14-2-arrhythmias-oncology.md` | HF & Arrhythmias, Cardio-Oncology |
-| `section-14-3-ckd.md` | HF & Chronic Kidney Disease |
-| `section-14-4-pregnancy.md` | HF & Pregnancy, Peripartum Cardiomyopathy |
-| `section-14-5-covid-achd.md` | HF & COVID-19, Adult Congenital Heart Disease |
-| `section-15-advanced-hf.md` | Advanced HF — Transplant, MCS, Palliative Care |
-| `section-16-rehabilitation.md` | HF Rehabilitation & Exercise Prescription |
-| `section-17-organisation-of-care.md` | Organisation of Care, Follow-up, Telemedicine |
-| `section-18-other-therapies-performance.md` | Other Therapies & Performance Measures |
-| `appendix.md` | Appendices — Drug Dosing, Flowcharts, WHO Risk Class |
 
 ---
 
@@ -154,7 +87,7 @@ The system currently supports **7 Malaysia Clinical Practice Guidelines**, each 
 │  ┌────────────────────────────────────────────────────────────────┐  │
 │  │                    PYDANTIC AI AGENT                           │  │
 │  │  • LLM: Gemini 2.0 Flash via OpenRouter                        │  │
-│  │  • System Prompt: Multi-CPG Clinical Assistant                 │  │
+│  │  • System Prompt: Clinical ED Assistant                        │  │
 │  │  • Autonomous Tool Selection                                   │  │
 │  └────────────────────────────────────────────────────────────────┘  │
 │                              │                                       │
@@ -171,9 +104,9 @@ The system currently supports **7 Malaysia Clinical Practice Guidelines**, each 
 │   PostgreSQL     │  │     Neo4j        │  │   Entity Summaries   │
 │   + pgvector     │  │  Knowledge Graph │  │   (from graph nodes) │
 │                  │  │                  │  │                      │
-│ • Document chunks│  │ • Entity nodes   │  │ • Drug summaries     │
-│ • Embeddings     │  │ • RELATES_TO     │  │ • Condition details  │
-│ • CPG metadata   │  │ • MENTIONS       │  │ • Treatment pathways │
+│ • Document chunks│  │ • Entity nodes   │  │ "Sildenafil (50 mg   │
+│ • Embeddings     │  │ • RELATES_TO     │  │  initial dose, up to │
+│ • CPG metadata   │  │ • MENTIONS       │  │  100 mg) is a PDE5i" │
 └──────────────────┘  └──────────────────┘  └──────────────────────┘
 ```
 
@@ -221,7 +154,7 @@ The drug information tool uses a **4-step dynamic retrieval**:
 
 ```
 STEP 0: Query Neo4j entity nodes directly
-        → Gets summaries like "Atorvastatin (10–80 mg daily...)"
+        → Gets summaries like "Sildenafil (50 mg initial dose...)"
 
 STEP 1: Graph search for related facts
         → Gets relationships and edges
@@ -237,14 +170,14 @@ STEP 3: Dynamic vector search
 STEP 4: Fallback search (if prior steps return nothing)
 ```
 
-### `get_algorithm_pathway` Tool
+### `get_algorithm_pathway` Tool (NEW)
 
 Navigate CPG algorithms step-by-step and find next treatment steps:
 
 ```
 get_algorithm_pathway(
-    current_step="Statin intolerance",      # Current clinical situation
-    condition="Dyslipidaemia"               # Medical context
+    current_step="PDE5i failure",    # Current clinical situation
+    condition="ED"                    # Medical context
 )
 
 Returns:
@@ -254,7 +187,7 @@ Returns:
 ```
 
 **Use When:**
-- Following CPG algorithms
+- Following CPG algorithms (Algorithm 1, Algorithm 2)
 - Treatment has failed, need next steps
 - Patient passed/failed a test
 
@@ -277,16 +210,16 @@ The agent responds in a structured **6-section care plan** format:
 
 | Category | Examples |
 |----------|----------|
-| `MEDICATIONS` | Atorvastatin, Rosuvastatin, Ezetimibe, PCSK9 inhibitors |
-| `CONDITIONS` | Dyslipidaemia, ACS, Familial Hypercholesterolaemia, CKD |
-| `PROCEDURES` | Coronary angiography, CABG, PCI, Lifestyle modification |
-| `DIAGNOSTIC_TOOLS` | Lipid profile, IIEF-5, HbA1c, FRS, SCORE2 |
-| `RISK_FACTORS` | Smoking, Obesity, Diabetes, Hypertension |
-| `ADVERSE_EVENTS` | Myopathy, Rhabdomyolysis, Hepatotoxicity, Flushing |
-| `ORGANIZATIONS` | MOH Malaysia, WHO, EAU, ACC/AHA, ESC/EAS |
-| `CONTRAINDICATIONS` | Active liver disease, Pregnancy, Nitrates with PDE5i |
-| `DOSAGES` | 10 mg initial, 80 mg max, once daily, 24-hour washout |
-| `RISK_CATEGORIES` | Low Risk, Moderate Risk, High Risk, Very High Risk |
+| `MEDICATIONS` | Sildenafil, Tadalafil, PDE5 inhibitors |
+| `CONDITIONS` | Erectile Dysfunction, Diabetes, Hypertension |
+| `PROCEDURES` | Penile prosthesis, Stress test, Lifestyle modification |
+| `DIAGNOSTIC_TOOLS` | IIEF-5, HbA1c, PSA, Bruce Protocol |
+| `RISK_FACTORS` | Smoking, Obesity, Advanced age |
+| `ADVERSE_EVENTS` | Headache, Flushing, Priapism, Hypotension |
+| `ORGANIZATIONS` | MOH, WHO, EAU, ACC/AHA |
+| `CONTRAINDICATIONS` | Nitrates contraindicated with PDE5i |
+| `DOSAGES` | 50 mg initial, 24 hour washout, once daily |
+| `RISK_CATEGORIES` | Low Risk, Intermediate Risk, High Risk |
 
 ### Web Frontend
 
@@ -422,57 +355,24 @@ See [ddx/README.md](ddx/README.md) for details.
 
 ## 💬 Example Queries
 
-### Dyslipidaemia
-```
-What is the LDL-C target for very high-risk patients?
-What are the side effects of statins?
-When should PCSK9 inhibitors be considered?
-How do you manage statin intolerance?
-```
-
-### Erectile Dysfunction
+### Drug Information
 ```
 What is the recommended initial dose for Sildenafil?
 What are the contraindications for PDE5 inhibitors?
 How long does Tadalafil's effect last?
 ```
 
-### Hypertension
+### Clinical Decision Support
 ```
-What is the first-line treatment for hypertension in diabetic patients?
-When should resistant hypertension be suspected?
-What are the BP targets for elderly patients?
-```
-
-### Breast Cancer
-```
-What are the screening recommendations for breast cancer?
-When is neoadjuvant chemotherapy indicated?
-What are the risk factors for familial breast cancer?
+45-year-old male with ED, hypertension, and diabetes. Currently on metformin and amlodipine.
+Patient classified as 'Intermediate Risk' for cardiac issues - what is the next step?
 ```
 
-### Cancer Pain
+### Diagnosis
 ```
-What is the WHO analgesic ladder approach?
-How should opioid rotation be performed?
-What are the non-pharmacological options for cancer pain?
-```
-
-### Stable Coronary Artery Disease
-```
-What are the diagnostic criteria for stable angina?
-When is coronary angiography indicated?
-What is the optimal medical therapy for SCAD?
-```
-
-### Heart Failure
-```
-What are the foundational HF medications for HFrEF?
-How should ARNI be initiated in acute heart failure?
-What is the LVEF classification for HFmrEF?
-How do you manage heart failure in a patient with CKD?
-What are the indications for CRT in heart failure?
-What medications are safe in pregnancy with heart failure?
+How is erectile dysfunction diagnosed?
+What does IIEF-5 measure?
+What score ranges indicate severe ED?
 ```
 
 ---
@@ -482,51 +382,39 @@ What medications are safe in pregnancy with heart failure?
 ```
 CPG-LLM-Agentic-RAG-Knowledge-Graph/
 ├── agent/
-│   ├── __init__.py
 │   ├── agent.py          # Pydantic AI agent with tools
 │   ├── tools.py          # Tool implementations (dynamic)
 │   ├── prompts.py        # System prompt for CPG assistant
 │   ├── providers.py      # LLM/embedding provider config
-│   ├── models.py         # Pydantic data models
 │   ├── api.py            # FastAPI backend server
 │   ├── db_utils.py       # PostgreSQL utilities
 │   └── graph_utils.py    # Neo4j/Graphiti utilities + entity queries
 ├── ingestion/
-│   ├── __init__.py
 │   ├── ingest.py         # Main ingestion pipeline
-│   ├── cpg_parser.py     # Hierarchical CPG PDF parser
 │   ├── graph_builder.py  # Entity extraction (10 categories)
 │   ├── chunker.py        # Semantic chunking
 │   └── embedder.py       # Embedding generation
 ├── frontend/
-│   ├── run.py            # FastAPI frontend server
-│   ├── base.html         # Base template
-│   ├── index.html        # Main page
-│   └── results.html      # Results display
-├── markdown/                              # CPG markdown files (RAG-optimized)
-│   ├── Dyslipidaemia(6th-Edition)/        # 17 section files
-│   ├── Erectile-Dysfunction/              # 14 section files
-│   ├── Breast-Cancer(3rd Edition)/        # 16 section files
-│   ├── Cancer-Pain(2nd Edition)/          # 15 section files
-│   ├── Hypertension(5th Edition)/         # 16 section files
-│   ├── Stable-Coronary-Artery-Disease(2nd Edition)/  # 16 section files
-│   └── Heart-Failure(5th Edition)/                   # 22 section files
+│   └── run.py            # FastAPI frontend server
+├── markdown/             # CPG markdown files
+│   ├── section-3-diagnosis.md
+│   ├── section-4-treatment.md
+│   ├── section-5-tcm.md
+│   ├── section-6-followup.md
+│   ├── section-7-referral.md
+│   ├── section-8-special-populations.md
+│   ├── section-9-implementation.md
+│   └── appendix-6-treatment.md
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
 │   ├── ingest_icd11.py   # ICD-11 ingestion script
 │   ├── search_ddx.py     # DDx search with semantic matching
-│   ├── migrate_inclusion_embeddings.py
+│   ├── migrate_inclusion_embeddings.py  # Inclusion embeddings migration
 │   └── README.md         # DDx module documentation
 ├── sql/
 │   └── schema.sql        # Database schema
-├── tests/                # Test suite
-│   └── test_framework/
 ├── cli.py                # Command-line interface
-├── requirements.txt      # Python dependencies
-├── .env.example          # Environment variable template
-├── PLANNING.md           # Architecture & design document
-├── TASK.md               # Development task tracker
-└── CLAUDE.md             # AI assistant context
+└── .env                  # Configuration (not in repo)
 ```
 
 ---
@@ -555,19 +443,17 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 
 | Priority | Task |
 |----------|------|
-| 🔴 High | Ingest all 6 CPGs into vector DB and knowledge graph |
-| 🔴 High | Test cross-CPG clinical queries |
-| 🟡 Medium | Implement chunk verifier agent (Phase 10) |
-| 🟡 Medium | Implement local LLM via Ollama (Phase 9) |
+| 🔴 High | Add more CPG sections for comprehensive coverage |
+| 🔴 High | Test with more clinical queries |
+| 🟡 Medium | Implement local LLM via Ollama |
 | 🟡 Medium | Add reflection agent for improved responses |
 | 🟢 Future | Mobile-friendly frontend |
-| 🟢 Future | Add more Malaysia CPGs |
 
 ---
 
 ## ⚠️ Disclaimer
 
-This system provides clinical decision support based on Malaysia's Clinical Practice Guidelines. It is intended as a reference tool and should not replace professional medical judgment. Always consult qualified healthcare providers for patient care decisions.
+This system provides clinical decision support based on Malaysia's CPG for ED Management. It is intended as a reference tool and should not replace professional medical judgment. Always consult qualified healthcare providers for patient care decisions.
 
 ---
 
