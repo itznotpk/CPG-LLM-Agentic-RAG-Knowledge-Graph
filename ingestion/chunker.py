@@ -47,13 +47,28 @@ class DocumentChunk:
             self.token_count = len(self.content) // 4  # ~4 chars per token
 
 
+# Regex pattern matching overlap comment blocks in the standardized markdown
+# Matches: <!-- OVERLAP CONTENT FROM: ... --> ... <!-- END OVERLAP FROM: ... -->
+OVERLAP_BLOCK_PATTERN = re.compile(
+    r'<!--\s*=+\s*-->\s*\n'
+    r'<!--\s*OVERLAP CONTENT FROM:.*?-->\s*\n'
+    r'(?:<!--.*?-->\s*\n)*'
+    r'(.*?)'
+    r'<!--\s*END OVERLAP FROM:.*?-->',
+    re.DOTALL
+)
+
+
 class MarkdownChunker:
     """
     Markdown header-based chunker using LangChain's MarkdownHeaderTextSplitter.
     
     Features:
-    - Splits only by H1 headers (#) - each chunk is a complete section
-    - Keeps ##, ###, #### subsections within the same chunk
+    - Splits by H1, H2, H3 headers for parent-child chunk architecture
+    - Strips overlap blocks (Grades, Levels, Abbreviations) to prevent
+      duplicate chunks, then re-attaches them as context to the last chunk
+    - Extracts [Grade X, Level Y] tags as structured metadata
+    - Tracks parent-child relationships via chunk_type and parent_header
     - Preserves complete tables and lists
     - Includes header hierarchy in metadata for context
     """
@@ -103,8 +118,14 @@ class MarkdownChunker:
             **(metadata or {})
         }
         
-        # Split the document
-        docs = self.splitter.split_text(content)
+        # --- Pre-processing: Strip overlap blocks before chunking ---
+        # This prevents Grades/Levels/Abbreviations tables from becoming
+        # separate searchable chunks (they'd be near-duplicates across files).
+        # The stripped content is saved and re-attached to the last real chunk.
+        stripped_content, overlap_blocks = self._strip_overlap_blocks(content)
+        
+        # Split the document (overlap-free)
+        docs = self.splitter.split_text(stripped_content)
         
         # Convert to DocumentChunk objects
         chunks = []
@@ -179,12 +200,54 @@ class MarkdownChunker:
             else:
                 final_chunks.append(chunk)
         
+        # --- Post-processing: Re-attach overlap content to last chunk ---
+        # The overlap tables (Grades, Levels, Abbreviations) are appended to
+        # the last real chunk so the LLM still has them as context, but they
+        # are NOT standalone searchable chunks.
+        if final_chunks and overlap_blocks:
+            combined_overlap = "\n\n---\n\n".join(overlap_blocks)
+            last_chunk = final_chunks[-1]
+            last_chunk.content += f"\n\n---\n<!-- REFERENCE CONTEXT (not a separate chunk) -->\n\n{combined_overlap}"
+            last_chunk.metadata["has_overlap_context"] = True
+            last_chunk.metadata["overlap_sources"] = [
+                "Grades of Recommendation", "Levels of Evidence", "Abbreviations"
+            ]
+        
         # Re-index chunks
         for i, chunk in enumerate(final_chunks):
             chunk.index = i
             chunk.metadata["total_chunks"] = len(final_chunks)
         
         return final_chunks
+    
+    @staticmethod
+    def _strip_overlap_blocks(content: str) -> tuple:
+        """
+        Strip overlap comment blocks from markdown content.
+        
+        Overlap blocks are wrapped in standardized HTML comments:
+            <!-- OVERLAP CONTENT FROM: ... -->
+            ... content ...
+            <!-- END OVERLAP FROM: ... -->
+        
+        Returns:
+            Tuple of (stripped_content, list_of_overlap_block_texts)
+        """
+        overlap_blocks = []
+        
+        def collect_and_remove(match):
+            overlap_blocks.append(match.group(1).strip())
+            return ""  # Remove from main content
+        
+        stripped = OVERLAP_BLOCK_PATTERN.sub(collect_and_remove, content)
+        
+        # Clean up any leftover separator lines from removal
+        stripped = re.sub(r'\n{3,}', '\n\n', stripped)
+        
+        if overlap_blocks:
+            logger.info(f"Stripped {len(overlap_blocks)} overlap block(s) before chunking")
+        
+        return stripped.strip(), overlap_blocks
     
     def _split_large_chunk(self, chunk: DocumentChunk) -> List[DocumentChunk]:
         """Split a large chunk into smaller pieces while preserving context."""
