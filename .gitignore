@@ -196,3 +196,8 @@ secrets/
 *.pem
 *.crt
 mcp_config.json
+
+# Claude AI CLI & Proxy Scripts
+claude.ps1
+start-proxy.ps1
+litellm_config.yaml
