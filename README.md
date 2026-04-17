@@ -406,6 +406,9 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   │   └── ...
 │   ├── Dyslipidaemia(6th Edition)/
 │   │   └── ...
+│   ├── Ischaemic-Stroke(3rd Edition)/
+│   │   ├── section-1-epidemiology...md
+│   │   └── ...
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
 │   ├── ingest_icd11.py   # ICD-11 ingestion script
