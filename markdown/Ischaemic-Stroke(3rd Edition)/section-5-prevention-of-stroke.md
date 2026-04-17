@@ -9,21 +9,21 @@ output:
 
 ## PREVENTION OF STROKE
 
-## 5 . 2 Modifiable and Non -modifiable Risk Factors
+## 5 . Modifiable and Non -modifiable Risk Factors
 
-## 5 . 2 . 1 Non -modifiable Risk Factors
+## 5 . 2 . Non -modifiable Risk Factors
 
 Understanding the epidemiology of risk factors for stroke among Malaysians allows prioritization of primary prevention strategies specific to the needs of the population . Stroke risk factors can be categorized into modifiable and non-modifiable risk factors . Non -modifiable risk factors include age , sex , and family history .
 
-Age: The cumulative effect of aging on the cardiovascular system and the progressive nature of stroke risk factors over a prolonged period of time substantially increase stroke risk . The risk of stroke doubles in each successive decade after 55 years of age . 8 , 9
+Age: The cumulative effect of aging on the cardiovascular system and the progressive nature of stroke risk factors over a prolonged period of time substantially increase stroke risk . The risk of stroke doubles in each successive decade after 55 years of age .
 
-Sex: Stroke is more prevalent in men than women . 8 Overall , men have higher age-specific stroke incidence rates compared to women . 10 Exceptions are in the 35 to 44 year-olds and in those over 85 years of age , of whom women have slightly greater age-specific incidence than men . 10 Circumstances such as oral contraceptive use and pregnancy uniquely contributes to the risk of stroke in women . 11 -13
+Sex: Stroke is more prevalent in men than women . Overall , men have higher age-specific stroke incidence rates compared to women . Exceptions are in the 35 to 44 year-olds and in those over 85 years of age , of whom women have slightly greater age-specific incidence than men . Circumstances such as oral contraceptive use and pregnancy uniquely contributes to the risk of stroke in women .
 
-Family History: Both paternal and maternal history of stroke may be associated with an increased risk . This may be mediated through genetic and shared environmental factors . 14 , 15 Patients with a strong family history of recurrent subcortical infarcts and leucoencephalopathy should be investigated for CADASIL , Fabry ' s disease or mitochondrial diseases .
+Family History: Both paternal and maternal history of stroke may be associated with an increased risk . This may be mediated through genetic and shared environmental factors . Patients with a strong family history of recurrent subcortical infarcts and leucoencephalopathy should be investigated for CADASIL , Fabry ' s disease or mitochondrial diseases .
 
 (New recommendation)
 
-## 5 . 2 . 2 Modifiable Risk Factors
+## 5 . 2 . Modifiable Risk Factors
 
 The National Stroke Registry has identified the following as the top modifiable risk factors for the first -ever stroke among Malaysians 2 :
 
@@ -34,11 +34,11 @@ The National Stroke Registry has identified the following as the top modifiable 
 -  IHD
 -  Atrial fibrillation
 
-## 5 . 3 Risk Stratification and Monitoring
+## 5 . Risk Stratification and Monitoring
 
-## 5 . 3 . 1 Cardiovascular Risk Estimates
+## 5 . 3 . Cardiovascular Risk Estimates
 
-For primary prevention strategies to be effective , understanding risk estimates is crucial for both the population at large and healthcare providers . Individualized risk estimation scores that takes into account both modifiable and non -modifiable risk factors , validated across multi populations such as the Framingham Stroke Risk Score Calculator , ASCVD and QRISK2 is helpful to create awareness and stratifying individuals according to cardiovascular risk categories . 16 , 17 The Revised FSRS is shown to be better than the conventional FRS as it adjusts for temporal trends in stroke risk factors and has better discriminatory index for detecting stroke in various populations . 18 These risk estimations allow stratifying of individuals into risk categories for better preventive strategies .
+For primary prevention strategies to be effective , understanding risk estimates is crucial for both the population at large and healthcare providers . Individualized risk estimation scores that takes into account both modifiable and non -modifiable risk factors , validated across multi populations such as the Framingham Stroke Risk Score Calculator , ASCVD and QRISK2 is helpful to create awareness and stratifying individuals according to cardiovascular risk categories . The Revised FSRS is shown to be better than the conventional FRS as it adjusts for temporal trends in stroke risk factors and has better discriminatory index for detecting stroke in various populations . These risk estimations allow stratifying of individuals into risk categories for better preventive strategies .
 
 The 2017 Malaysian Primary and Secondary Prevention of Cardiovascular Disease Clinical Practice Guideline (CPG) has advocated the use of FRS to stratify individuals into low risk , intermediate , high and very high risk based on their 10-year risks of developing cardiovascular events . 19
 
@@ -51,39 +51,39 @@ Patients with low risk should be counselled to maintain their status of health a
 
 (Level II, I, Grade B)
 
-## 5 . 3 . 2 Stroke Risk Estimates
+## 5 . 3 . Stroke Risk Estimates
 
-The Stroke Riskometer App , a smart phone-based application available in various languages (including the Malay language) allows for individualized stroke risk calculation , using 20 modifiable and non -modifiable risk factors . It contains educational videos for self -management of risk factors . 20 The app calculates individualized 5and 10-year risks of stroke and is an effective tool for monitoring risk reductions associated with lifestyle and medical interventions . The Malay version has been validated for language and content (unpublished data) . 21 Two interventional studies using Stroke Riskometer as a tool to reduce stroke risk have been completed among Malaysians with high risk (diabetics and stroke carers) , with positive outcomes . 22 , 23
+The Stroke Riskometer App , a smart phone-based application available in various languages (including the Malay language) allows for individualized stroke risk calculation , using 20 modifiable and non -modifiable risk factors . It contains educational videos for self -management of risk factors . The app calculates individualized 5and 10-year risks of stroke and is an effective tool for monitoring risk reductions associated with lifestyle and medical interventions . The Malay version has been validated for language and content (unpublished data) . Two interventional studies using Stroke Riskometer as a tool to reduce stroke risk have been completed among Malaysians with high risk (diabetics and stroke carers) , with positive outcomes .
 
 The use of Stroke Riskometer and R -FRS Calculator may be beneficial in the community and in clinics for individualizing stroke risk and its management . 20
 
 (Level II, I, Grade B)
 
-## 5 . 4 Prevention and Management of Risk Factors
+## 5 . Prevention and Management of Risk Factors
 
-## 5 . 4 . 1 Lifestyle Changes
+## 5 . 4 . Lifestyle Changes
 
-The US Health Professionals and Nurses study showed that participants who achieved all five healthy lifestyle choices (not smoking , moderate intake of alcohol , BMI &lt;25 kg/m 2 , daily exercise for 30 minutes and a healthy diet score in the top 40%) , had their incidence of stroke reduced by 80% as compared to those who achieved none . 24
+The US Health Professionals and Nurses study showed that participants who achieved all five healthy lifestyle choices (not smoking , moderate intake of alcohol , BMI &lt;25 kg/m, daily exercise for 30 minutes and a healthy diet score in the top 40%) , had their incidence of stroke reduced by 80% as compared to those who achieved none .
 
-A study among 11450 Swedish men with high cardiovascular risk (hypertensive , high cholesterol , diabetes , heart failure or atrial fibrillation) showed that adopting all five healthy lifestyle choices [(≥5 servings of fruits and vegetables and &lt;30g/day of processed meat; not smoking; ≥150min of physical activity /week; BMI 18 . 5 -25 kg/m 2 ; low to moderate alcohol consumption (&gt;0 to &lt;30g/day)] had a 72% reduction of stroke incidence over 9 years as compared to those who were adherent to none or only one healthy behaviour . 25
+A study among 11450 Swedish men with high cardiovascular risk (hypertensive , high cholesterol , diabetes , heart failure or atrial fibrillation) showed that adopting all five healthy lifestyle choices [(≥5 servings of fruits and vegetables and &lt;30g/day of processed meat; not smoking; ≥150min of physical activity /week; BMI 18 . 5 -25 kg/m 2 ; low to moderate alcohol consumption (&gt;0 to &lt;30g/day)] had a 72% reduction of stroke incidence over 9 years as compared to those who were adherent to none or only one healthy behaviour .
 
 Recommendation: Adopting a healthy lifestyle (diets rich in fruits and vegetables , no smoking , daily exercise of &gt;30 minutes or 150 minutes/week , low to moderate alcohol intake and maintaining a normal BMI of 18 . 5 -25 kg/m 2 ) reduces stroke incidence in normal and high-risk populations . 24 , 25
 
 (New recommendation , Level I , Grade A)
 
-## 5 . 4 . 2 Hypertension
+## 5 . 4 . Hypertension
 
-Hypertension is the commonest and major risk factor for both ischaemic and haemorrhagic strokes in Malaysia , affecting 69 . 9% of patients with the first ever stroke . 2 The incidence of stroke increases in proportion to both systolic and diastolic blood pressures . Isolated systolic hypertension is an
+Hypertension is the commonest and major risk factor for both ischaemic and haemorrhagic strokes in Malaysia , affecting 69 . 9% of patients with the first ever stroke . The incidence of stroke increases in proportion to both systolic and diastolic blood pressures . Isolated systolic hypertension is an
 
-important risk factor for stroke in the elderly (systolic blood pressure &gt;140mmHg and diastolic blood pressure &lt;90mmHg) . 26
+important risk factor for stroke in the elderly (systolic blood pressure &gt;140mmHg and diastolic blood pressure &lt;90mmHg) .
 
 Population specific and individualized strategies should be conducted to prevent the development of hypertension . Adopting healthy lifestyle such as smoking cessation , Dietary Action to Stop Hypertension (DASH) diet , increased physical activity and reducing salt consumption are shown to reduce the risk of developing hypertension . 27
 
 (Level I , Grade A)
 
-## 5 . 4 . 2 . 1 Primary Stroke Prevention in Specific High-risk Group with Hypertension
+## 5 . 4 . 2 . Primary Stroke Prevention in Specific High-risk Group with Hypertension
 
-The ACCORD BP trial showed that a lower target systolic value of 120 mmHg was superior to a target value of 140 mmHg in preventing any stroke and non-fatal stroke in diabetics , as secondary endpoint , but did not prevent other cardiovascular events . 28 The SPRINT (Systolic Blood Pressure Intervention Trial) study showed that intensive BP lowering regime to a target of ≤120 mmHg in high-risk non-diabetic hypertensive patients aged 50 years or older led to a reduction in all cardiovascular events and mortality but with an excess of adverse events in the intensive group . 29 However , there was no significant reduction in stroke event in these patients compared to the non-intensive group .
+The ACCORD BP trial showed that a lower target systolic value of 120 mmHg was superior to a target value of 140 mmHg in preventing any stroke and non-fatal stroke in diabetics , as secondary endpoint , but did not prevent other cardiovascular events . The SPRINT (Systolic Blood Pressure Intervention Trial) study showed that intensive BP lowering regime to a target of ≤120 mmHg in high-risk non-diabetic hypertensive patients aged 50 years or older led to a reduction in all cardiovascular events and mortality but with an excess of adverse events in the intensive group . However , there was no significant reduction in stroke event in these patients compared to the non-intensive group .
 
 Large randomized controlled trials and meta-analyses have confirmed that reduction in blood pressure reduces first ever and recurrent stroke by 40% . 30 , 31
 
@@ -93,7 +93,7 @@ Lowering the systolic blood pressure by 10mmHg is associated with a reduction in
 
 (Level I)
 
-For diabetics with hypertension , lowering systolic blood pressure to a target of 120 mmHg or below with careful monitoring of adverse events led to a significant reduction in stroke incidence . 26
+For diabetics with hypertension , lowering systolic blood pressure to a target of 120 mmHg or below with careful monitoring of adverse events led to a significant reduction in stroke incidence .
 
 Recommendation: Target BP for diabetics is &lt;130mmHg systolic and &lt;80mmHg diastolic , preferably &lt;120mmHg if tolerated .
 
@@ -107,9 +107,9 @@ Recommendation: Newly diagnosed hypertension in the very elderly (&gt;80 years o
 
 (New recommendation , Level I , Grade B)
 
-## 5 . 4 . 3 Smoking
+## 5 . 4 . Smoking
 
-The Malaysian National Stroke Registry data showed that 51% of all patients with the first ever stroke were smokers . All forms of smoking , both active and passive , are a major risk factor for stroke . 2 Smokers who stopped for more than 5 years have the same risk as non-smokers . 33
+The Malaysian National Stroke Registry data showed that 51% of all patients with the first ever stroke were smokers . All forms of smoking , both active and passive , are a major risk factor for stroke . Smokers who stopped for more than 5 years have the same risk as non-smokers . 33
 
 (Level III)
 
@@ -117,13 +117,13 @@ The Malaysian National Stroke Registry data showed that 51% of all patients with
 
 Recommendation: Cessation of smoking is strongly recommended .
 
-## 5 . 4 . 3 . 1 Smoking And Non Communicable Diseases
+## 5 . 4 . 3 . Smoking And Non Communicable Diseases
 
 Smoking of tobacco and tobacco products (cigarette , electronic cigarette/vape , shisha , pipe , cigar etc . ) can lead to various non-communicable diseases (NCDs) . Worldwide , more than eight million people die every year because of this habit (WHO Tobacco Fact Sheet , 2020) .
 
 Hence , the decision to integrate smoking treatment with NCDs is important to reduce the prevalence of NCDs and their complications . This decision was made during the World Health Organization Framework Convention on Tobacco Control (WHO FCTC) Steering Committee Meeting in December 2019 chaired by the Honourable Health Minister of Malaysia .
 
-The treatment for smoking should be initiated by the treating doctor based on the assessment and treatment of tobacco use disorder as in Table 1 . Details on this can be found in the CPG on Treatment of Tobacco Use Disorder 2016 , available at:
+The treatment for smoking should be initiated by the treating doctor based on the assessment and treatment of tobacco use disorder as in Table 1 . Details on this can be found in the CPG on Treatment of Tobacco Use Disorder, available at:
 
 https://www . moh . gov . my/moh/resources/Penerbitan/CPG/Respiratory/CPG \_ TobacoDisorder . pdf
 
@@ -139,23 +139,23 @@ https://www . moh . gov . my/moh/resources/Penerbitan/CPG/Respiratory/CPG \_ Tob
 | 7 .                                                             | Use  smoking cessation  medications  with caution in  special populations (e . g .  children  and adolescents ,  pregnant ,  breastfeeding  women ,  psychiatric  and  substance  abuse  disorder patients) .                                                  |
 | 8 .                                                             | Arrange  a  minimum  of six to  eight face to face follow-up sessions for smoking cessation interventions  in  six  months  through  counselling  support team  (health  education  officer ,  pharmacists or any officer trained for quit smoking services) . |
 
-## 5 . 4 . 4 Alcohol
+## 5 . 4 . Alcohol
 
-Alcohol consumption has been identified as one of the risk factors for global stroke burden . 33 Heavy alcohol drinking , of more than 4 units/day (1unit = 1glass wine = 1 pack of hard liquor) , increases the risk of stroke .
+Alcohol consumption has been identified as one of the risk factors for global stroke burden . Heavy alcohol drinking , of more than 4 units/day (1unit = 1glass wine = 1 pack of hard liquor) , increases the risk of stroke .
 
 Recommendation: Avoid heavy alcohol consumption or limit to &lt; 1 drink per day .
 
 (New recommendation , Level II -2 , Grade B)
 
-## 5 . 4 . 5 Posttmenopausal Hormone Replacement Therapy
+## 5 . 4 . Posttmenopausal Hormone Replacement Therapy
 
-Stroke rates rapidly rise in women once they become menopausal . The Nurses ' Health Study (6-year follow -up of 59 , 337 postmenopausal women) showed only a weak association between stroke and oestrogen replacement therapy . However , the Women ' s Health Initiative Estrogen Plus Progestin Study (E+P Study) showed a 31% increase in the risk of stroke due to E+ P . 34
+Stroke rates rapidly rise in women once they become menopausal . The Nurses ' Health Study (6-year follow -up of, 337 postmenopausal women) showed only a weak association between stroke and oestrogen replacement therapy . However , the Women ' s Health Initiative Estrogen Plus Progestin Study (E+P Study) showed a 31% increase in the risk of stroke due to E+ P .
 
 Recommendation: Post -menopausal hormonal therapy may increase the risk of stroke and is not recommended for primary stroke prevention .
 
 (Level II, I, Grade B)
 
-## 5 . 4 . 6 Diabetes
+## 5 . 4 . Diabetes
 
 Case -control studies of stroke patients and prospective epidemiological studies have confirmed an independent effect of diabetes on ischaemic stroke , with an increased relative risk in diabetics ranging from 1 . 8 -to nearly 6-folds . 35
 
@@ -165,21 +165,21 @@ Recommendation: Tight control of hypertension in diabetics is recommended to red
 
 (Level I , Grade A)
 
-A systematic review and meta-analysis of observational cohort and nested case-control cohort studies showed that compared to controls with a normal HbA1c range (i . e . &lt;5 . 7%) , patients with diabetes mellitus with an abnormal HbA1c range (i . e . ≥6 . 5%) had an increased risk of first-ever stroke with an average HR [] of 2 . 15 [95% CI 1 . 76 , 2 . 63] . In those with a pre–diabetes mellitus HbA1c range (i . e . 5 . 7 – 6 . 5%) there was not increased risk of first-ever stroke (average HR 1 . 19 , 95% CI 0 . 87 , 1 . 62) . 36
+A systematic review and meta-analysis of observational cohort and nested case-control cohort studies showed that compared to controls with a normal HbA1c range (i . e . &lt;5 . 7%) , patients with diabetes mellitus with an abnormal HbA1c range (i . e . ≥6 . 5%) had an increased risk of first-ever stroke with an average HR [] of 2 . 15 [95% CI 1 . 76 , 2 . 63] . In those with a pre–diabetes mellitus HbA1c range (i . e . 5 . 7 – 6 . 5%) there was not increased risk of first-ever stroke (average HR 1 . 19 , 95% CI 0 . 87 , 1 . 62) .
 
 Recommendation: More intensive glycaemic control targets (HbA1c &lt;6 . 5%) may be required for optimal ischemic stroke prevention .
 
 (Level I , Grade A)
 
-## 5 . 4 . 7 Hyperlipidaemia
+## 5 . 4 . Hyperlipidaemia
 
-Although the relationship between high cholesterol and increased risk of coronary heart disease is stronger , epidemiological studies have also shown an association between raised serum lipids and risk of ischaemic stroke . 37 , 38
+Although the relationship between high cholesterol and increased risk of coronary heart disease is stronger , epidemiological studies have also shown an association between raised serum lipids and risk of ischaemic stroke .
 
-The MRC/BHF , a RCT involving 20 , 536 high risk individuals showed that statin therapy significantly reduced the incidence of fatal and non -fatal strokes by 28% . 39 A meta -analysis of trials on statin therapy versus control in individuals with a 5-year risk of major vascular events lower than 10% , showed that each 1 mmol/L reduction in LDL cholesterol levels produced an absolute reduction in major vascular events of about 11 per 1000 over 5 years . 40
+The MRC/BHF , a RCT involving, 536 high risk individuals showed that statin therapy significantly reduced the incidence of fatal and non -fatal strokes by 28% . A meta -analysis of trials on statin therapy versus control in individuals with a 5-year risk of major vascular events lower than 10% , showed that each 1 mmol/L reduction in LDL cholesterol levels produced an absolute reduction in major vascular events of about 11 per 1000 over 5 years .
 
-The HOPE -3 trial studied 12 , 705 patients with intermediate risk and used fixed-dose BP lowering (Candersartan and HCTZ) , cholesterol lowering (Rosuvastain) or combination treatment regime . It was found that a low -dose Rosuvastatin therapy and combination treatment reduced stroke incidence by 30% and 44% , respectively . 41
+The HOPE -3 trial studied, 705 patients with intermediate risk and used fixed-dose BP lowering (Candersartan and HCTZ) , cholesterol lowering (Rosuvastain) or combination treatment regime . It was found that a low -dose Rosuvastatin therapy and combination treatment reduced stroke incidence by 30% and 44% , respectively .
 
-A prospective study involving 7484 elderly population (&gt;65 years) with no history of vascular events showed that the use of statins or fibrates reduced stroke incidence by 30% . 42
+A prospective study involving 7484 elderly population (&gt;65 years) with no history of vascular events showed that the use of statins or fibrates reduced stroke incidence by 30% .
 
 In the high-risk group (those with cardiovascular disease , occlusive arterial disease , or diabetes) , statin therapy is recommended to reduce the incidence of coronary events and ischaemic strokes , even amongst individuals with normal cholesterol concentrations . 39
 
@@ -193,9 +193,9 @@ Low dose statin is beneficial in reducing stroke risk in patients with low and i
 
 Low dose statin is beneficial in reducing stroke risk in elderly patients with no vascular events . 42 (New recommendation , Level II, I, Grade B)
 
-## 5 . 4 . 8 Dietary Factors
+## 5 . 4 . Dietary Factors
 
-The PREDIMED study showed that a Mediterranean diet enriched with either olive oil or mixed nuts , reduced the incidence of stroke by 47% in 5 years as compared to a low fat diet . 43 A meta -analysis involving 20 prospective studies showed that diet rich in fruits and vegetables reduced stroke incidence with a linear inverse relationship between fruits and vegetables consumption and stroke incidence . 44
+The PREDIMED study showed that a Mediterranean diet enriched with either olive oil or mixed nuts , reduced the incidence of stroke by 47% in 5 years as compared to a low fat diet . A meta -analysis involving 20 prospective studies showed that diet rich in fruits and vegetables reduced stroke incidence with a linear inverse relationship between fruits and vegetables consumption and stroke incidence .
 
 Recommendation: A Mediterranean diet rich in olive oil and canola oil , with less meat and increased vegetables is beneficial for stroke prevention . 43
 
@@ -209,9 +209,9 @@ Recommendation: DASH diet that is high in vegetables and fruits and low in satur
 
 (New recommendation , Level I , Grade A)
 
-## 5 . 4 . 9 Physical Activity
+## 5 . 4 . Physical Activity
 
-Physical activity is defined as any bodily movements involving skeletal muscles that results in energy expenditure and may involve occupational and leisure time activities such as walking , commuting and housework . However , meta -analyses of observational studies on physical activity and stroke showed that increased physical activity in healthy adults reduced stroke incidence by 20-25% 46 and stroke mortality by 17% irrespective of gender . 47 Analysis from the Japanese Diabetes Complications study showed that increased physical activity (30 minutes of walking daily) reduced stroke incidence in diabetics by 45% . 48
+Physical activity is defined as any bodily movements involving skeletal muscles that results in energy expenditure and may involve occupational and leisure time activities such as walking , commuting and housework . However , meta -analyses of observational studies on physical activity and stroke showed that increased physical activity in healthy adults reduced stroke incidence by 20-25% 46 and stroke mortality by 17% irrespective of gender . Analysis from the Japanese Diabetes Complications study showed that increased physical activity (30 minutes of walking daily) reduced stroke incidence in diabetics by 45% .
 
 Recommendation: Increased physical activity is recommended for stroke prevention in healthy adults and high-risk patients . 46 -48
 
@@ -221,17 +221,17 @@ Recommendation: Increased physical activity is recommended for stroke prevention
 |---------------------------------|------------------------------------|
 | Atrial fibrillation             | See Cardio - embolism & Stroke     |
 
-## 5 . 4 . 10 Medical Therapy
+## 5 . 4 . Medical Therapy
 
-## 5 . 4 . 10 . 1 Aspirin
+## 5 . 4 . 10 . Aspirin
 
-The ARRIVE trial which involved 12500 participants with moderate cardiovascular risk and low risk of bleeding , showed that Aspirin did not prevent the first occurrence of cardiovascular events and stroke as compared to placebo . 49
+The ARRIVE trial which involved 12500 participants with moderate cardiovascular risk and low risk of bleeding , showed that Aspirin did not prevent the first occurrence of cardiovascular events and stroke as compared to placebo .
 
 Similarly , the Japanese Primary Prevention Project , a randomized controlled trial which involved elderly patients (60-85 years of age) with hypertension , diabetes and hyperlipidaemia did not show
 
-the net benefit of Aspirin in stroke prevention . There were concerns that Aspirin use may lead to increased incidence of intracranial bleeding in Asian patients . 50
+the net benefit of Aspirin in stroke prevention . There were concerns that Aspirin use may lead to increased incidence of intracranial bleeding in Asian patients .
 
-The ASCEND Aspirin study , a RCT which involved 15480 diabetic patients did not show a net benefit of Aspirin in preventing stroke or cardiovascular events , but with an increased risk of bleeding . 51
+The ASCEND Aspirin study , a RCT which involved 15480 diabetic patients did not show a net benefit of Aspirin in preventing stroke or cardiovascular events , but with an increased risk of bleeding .
 
 Recommendation: Daily Aspirin is not recommended for primary prevention of stroke in diabetics , moderate risk individuals or elderly patients in view of the high risk of bleeding which outweighs any benefits . 49 -51
 
@@ -267,67 +267,67 @@ Recommendation: Daily Aspirin is not recommended for primary prevention of strok
 | Diet                                            | Mediterranean diet  –  (low glycaemic and high in vegetables) supplemented with nuts and olive oil is beneficial .  New recommendation | II     | B   |
 | Diet                                            | Diet high in fruits and leafy green vegetables is beneficial .  New recommendation                                                     | II     | B   |
 
-## 5 . 5 Secondary Prevention of Stroke
+## 5 . Secondary Prevention of Stroke
 
 Secondary prevention strategies are aimed at preventing recurrent stroke . This should be tailored according to the individual ' s stroke pathogenesis based on neuroimaging and investigations (see Investigations) .
 
-The risk for recurrent vascular events after stroke or transient ischaemic attack is approximately 5% per year for stroke , 3% per year for myocardial infarction and 7% per year for any one of stroke , myocardial infarction or vascular death . 52 This figure is even higher in certain populations , especially in those with high cerebrovascular atherosclerotic burden and for patients with ipsilateral high grade (70%) extracranial carotid stenosis . 53
+The risk for recurrent vascular events after stroke or transient ischaemic attack is approximately 5% per year for stroke , 3% per year for myocardial infarction and 7% per year for any one of stroke , myocardial infarction or vascular death . This figure is even higher in certain populations , especially in those with high cerebrovascular atherosclerotic burden and for patients with ipsilateral high grade (70%) extracranial carotid stenosis . 53
 
-## 5 . 5 . 1 Antii-p -platelet Therapy
+## 5 . 5 . Antii-p -platelet Therapy
 
-Aspirin: There is substantial evidence to support the use of Aspirin . A 25% risk reduction of stroke was seen in all patients with stroke who received Aspirin . 54 Aspirin given within 48 hours had shown to be beneficial in reducing recurrent stroke and deaths . 54 -56 Studies comparing the effects of different dosages of Aspirin had failed to show any differences in stroke recurrences . 57 -60
+Aspirin: There is substantial evidence to support the use of Aspirin . A 25% risk reduction of stroke was seen in all patients with stroke who received Aspirin . Aspirin given within 48 hours had shown to be beneficial in reducing recurrent stroke and deaths . Studies comparing the effects of different dosages of Aspirin had failed to show any differences in stroke recurrences .
 
 Recommendation: The recommended dose of oral Aspirin post-stroke is 75mg to 325mg daily . (Level I , Grade A)
 
 Alternative anti -platelet medications can be considered for patients with Aspirin allergy , Aspirin failure , Aspirin intolerance or Aspirin contraindications based on the evidence presented below .
 
-Ticlopidine: Previous clinical trials demonstrated that Ticlopidine is slightly superior to Aspirin . 61 , 62 Full blood count monitoring is essential as neutropenia is the most important side-effect . 61 Severe neutropenia usually occurs within the first 3 months of use . Thus , a baseline full blood count should be performed every 2-3 weeks during this time frame . Ticlopidine can also be used if the patient has recurrent symptoms despite Aspirin administration .
+Ticlopidine: Previous clinical trials demonstrated that Ticlopidine is slightly superior to Aspirin . Full blood count monitoring is essential as neutropenia is the most important side-effect . Severe neutropenia usually occurs within the first 3 months of use . Thus , a baseline full blood count should be performed every 2-3 weeks during this time frame . Ticlopidine can also be used if the patient has recurrent symptoms despite Aspirin administration .
 
 Recommendation: The recommended dose of oral Ticlopidine is 250mg twice a day .
 
 (Level I , Grade A)
 
-Clopidogrel: Clopidogrel is a newer thienopyridine derivative . It is slightly superior to the 325 mg daily dosage of Aspirin . 63 It may be more beneficial than Aspirin in several settings , including patients with contraindications or having adverse effects due to Aspirin and in high risk subjects with multiple risk factors (i . e . with a previous stroke , peripheral artery disease , symptomatic coronary disease and diabetes) 64
+Clopidogrel: Clopidogrel is a newer thienopyridine derivative . It is slightly superior to the 325 mg daily dosage of Aspirin . It may be more beneficial than Aspirin in several settings , including patients with contraindications or having adverse effects due to Aspirin and in high risk subjects with multiple risk factors (i . e . with a previous stroke , peripheral artery disease , symptomatic coronary disease and diabetes) 64
 
 Recommendation: The recommended dose of oral Clopidogrel is 75mg daily .
 
 (Level I , Grade A)
 
-Triflusal: Triflusal is a viable alternative to Aspirin in secondary prevention of ischaemic stroke at a dosage of 600mg daily . There are less haemorrhagic complications compared to Aspirin . Triflusal is licensed in Malaysia for the secondary prevention of ischaemic stroke . 65
+Triflusal: Triflusal is a viable alternative to Aspirin in secondary prevention of ischaemic stroke at a dosage of 600mg daily . There are less haemorrhagic complications compared to Aspirin . Triflusal is licensed in Malaysia for the secondary prevention of ischaemic stroke .
 
 Recommendation: The recommended dose of oral Triflusal is 600mg daily .
 
 (Level I , Grade A)
 
-Cilostazol: Cilostazol is another alternative in the secondary prevention of acute ischaemic stroke at a dosage of 100mg twice daily . Studies from Japan and China supports the safety and efficacy of Cilostazol for secondary stroke prevention in Asian populations . However , there are as yet no high-quality data regarding the use of Cilostazol for secondary stroke prevention in non-Asian ethnic groups . 66 , 67 The most recent meta -analysis showed that Cilostazol appeared to be effective for long-term secondary stroke prevention without increasing the risk of haemorrhage . 68 Combination use of cilostazol with aspirin or clopidogrel was explored in open-label trial in Japan that showed adult patients with non-cardioembolic ischemic stroke who had ≥50% stenosis of a major intracranial or extracranial artery , or two or more vascular risk factors , had lower recurrent ischaemic stroke compared to monotherapy (3% vs . 7%) with similar bleeding rates . 69
+Cilostazol: Cilostazol is another alternative in the secondary prevention of acute ischaemic stroke at a dosage of 100mg twice daily . Studies from Japan and China supports the safety and efficacy of Cilostazol for secondary stroke prevention in Asian populations . However , there are as yet no high-quality data regarding the use of Cilostazol for secondary stroke prevention in non-Asian ethnic groups . The most recent meta -analysis showed that Cilostazol appeared to be effective for long-term secondary stroke prevention without increasing the risk of haemorrhage . Combination use of cilostazol with aspirin or clopidogrel was explored in open-label trial in Japan that showed adult patients with non-cardioembolic ischemic stroke who had ≥50% stenosis of a major intracranial or extracranial artery , or two or more vascular risk factors , had lower recurrent ischaemic stroke compared to monotherapy (3% vs . 7%) with similar bleeding rates .
 
 Recommendation: The recommended dose of oral Cilostazol is 100mg twice a day .
 
 (Level I , Grade A)
 
-Aspirin and Clopidogrel combination: Recent evidence from 2 large trials in minor stroke and high risk TIA patients (NIHSS ≤ 3 , ABCD2 ≥ 4) , showed that those who received a combination of Clopidogrel and Aspirin had a lower risk of major ischaemic events for 3 weeks to 3 months , but a higher risk of major haemorrhage at 90 days than those who received Aspirin alone . 70 , 71
+Aspirin and Clopidogrel combination: Recent evidence from 2 large trials in minor stroke and high risk TIA patients (NIHSS ≤ 3 , ABCD2 ≥ 4) , showed that those who received a combination of Clopidogrel and Aspirin had a lower risk of major ischaemic events for 3 weeks to 3 months , but a higher risk of major haemorrhage at 90 days than those who received Aspirin alone .
 
 Recommendation: Dual antiplatelet therapy (Clopidogrel and Aspirin) is recommended for 21 days in patients with high risk TIA or minor ischaemic stroke .
 
 (New recommendation , Level I , Grade A)
 
-Ticagrelor: In the SOCRATES trial , Ticagrelor was not superior to Aspirin in the prevention of fatal stroke , MI and death at 90 days in patients with minor stroke or TIA . 72 However , sub -analysis in the Asian population , showed a trend towards reduction in stroke , MI and death with Ticagrelor . 73 Since there were no significant safety differences in the 2 groups , Ticagrelor may be a reasonable alternative in stroke patients who have a contraindication to Aspirin .
+Ticagrelor: In the SOCRATES trial , Ticagrelor was not superior to Aspirin in the prevention of fatal stroke , MI and death at 90 days in patients with minor stroke or TIA . However , sub -analysis in the Asian population , showed a trend towards reduction in stroke , MI and death with Ticagrelor . Since there were no significant safety differences in the 2 groups , Ticagrelor may be a reasonable alternative in stroke patients who have a contraindication to Aspirin .
 
 (Level II, I, Grade B)
 
-Aspirin and Ticagrelor: A recent trial examining the use of ticagrelor as combination therapy with aspirin in patients with mild-to-moderate acute non-cardioembolic ischaemic stroke (NIHSS score ≤5) or TIA who were not undergoing intravenous or endovascular thrombolysis , showed that the risk of the composite of stroke or death within 30 days was lower with ticagrelor–aspirin than with aspirin alone , but the incidence of disability did not differ significantly between the two groups . Severe bleeding was more frequent with the ticagrelor-aspirin combination therapy than with aspirin alone . 74
+Aspirin and Ticagrelor: A recent trial examining the use of ticagrelor as combination therapy with aspirin in patients with mild-to-moderate acute non-cardioembolic ischaemic stroke (NIHSS score ≤5) or TIA who were not undergoing intravenous or endovascular thrombolysis , showed that the risk of the composite of stroke or death within 30 days was lower with ticagrelor–aspirin than with aspirin alone , but the incidence of disability did not differ significantly between the two groups . Severe bleeding was more frequent with the ticagrelor-aspirin combination therapy than with aspirin alone .
 
 Warfarin is not indicated for secondary stroke prevention for patients with sinus rhythm in the absence of other conditions predisposing to cardioembolic risk .
 
 (Level I , Grade A)
 
-## 5 . 5 . 2 Antiihypertensive Treatment
+## 5 . 5 . Antiihypertensive Treatment
 
-Reduction of blood pressure after the acute phase of a cerebrovascular event results in further reduction of vascular events . This benefit was noted in both ischaemic and haemorrhagic stroke in hypertensive and normotensive subjects . 75 Meta -analyses of randomized controlled trials confirmed an approximate 30 – 40% reduction of stroke risk with blood pressure lowering . 76
+Reduction of blood pressure after the acute phase of a cerebrovascular event results in further reduction of vascular events . This benefit was noted in both ischaemic and haemorrhagic stroke in hypertensive and normotensive subjects . Meta -analyses of randomized controlled trials confirmed an approximate 30 – 40% reduction of stroke risk with blood pressure lowering .
 
-In one study , the combination of an ACE -inhibitor and thiazide diuretic was beneficial in both hypertensive and normotensive stroke patients when initiated two weeks after the event . 77
+In one study , the combination of an ACE -inhibitor and thiazide diuretic was beneficial in both hypertensive and normotensive stroke patients when initiated two weeks after the event .
 
-Another study proved the superiority of an angiotensin receptor blocker (ARB) , Losartan over a beta -blocker (Atenolol) in a specific group of high-risk patients with left ventricular hypertrophy , including subjects with previous stroke . 78
+Another study proved the superiority of an angiotensin receptor blocker (ARB) , Losartan over a beta -blocker (Atenolol) in a specific group of high-risk patients with left ventricular hypertrophy , including subjects with previous stroke .
 
 Recommendation: In the post-stroke period (2 weeks or more after stroke) , ACE -inhibitor based therapy has been shown to reduce recurrent stroke in normotensive and hypertensive patients . 79
 
@@ -347,23 +347,23 @@ The choice of antihypertensive drug therapy (single or in combination) should al
 
 ## Carotid Endarterectomy (CEA) See Revascularization Procedures
 
-## 5 . 5 . 3 Lipid Lowering
+## 5 . 5 . Lipid Lowering
 
-Statins were proven to reduce vascular events among high risk patients including subjects with previous stroke . 83 , 84
+Statins were proven to reduce vascular events among high risk patients including subjects with previous stroke .
 
 Recommendation: Lipid reduction should be considered in all patients with previous ischaemic strokes .
 
 (Level I , Grade A)
 
-The Treat Stroke to Target trial that involved 2860 patients with a history of ischaemic stroke or TIA showed that patients who achieved a target LDL of 1 . 8 mmol had a lower cardiovascular and stroke events at 3 . 5 years than those with a target LDL of 2 . 5 mmol/L . 85
+The Treat Stroke to Target trial that involved 2860 patients with a history of ischaemic stroke or TIA showed that patients who achieved a target LDL of 1 . 8 mmol had a lower cardiovascular and stroke events at 3 . 5 years than those with a target LDL of 2 . 5 mmol/L .
 
 Recommendation: LDL target of 1 . 8 mmol/L is recommended .
 
 (New recommendation , Level I , Grade A)
 
-## 5 . 6 Other Risk Factors
+## 5 . Other Risk Factors
 
-The control of risk factors such as better glycaemic control in diabetes and smoking cessation has not been the subject of major randomized secondary prevention clinical trials . Although diabetes is recognized as an independent risk factor for ischaemic stroke , better diabetes control resulted only in the reduction of microvascular but not macrovascular complications . 86 Inferences can also be drawn from positive results of primary prevention trials (see primary prevention section) . Nevertheless , better control of these risk factors should be advocated for better overall health after an ischaemic stroke .
+The control of risk factors such as better glycaemic control in diabetes and smoking cessation has not been the subject of major randomized secondary prevention clinical trials . Although diabetes is recognized as an independent risk factor for ischaemic stroke , better diabetes control resulted only in the reduction of microvascular but not macrovascular complications . Inferences can also be drawn from positive results of primary prevention trials (see primary prevention section) . Nevertheless , better control of these risk factors should be advocated for better overall health after an ischaemic stroke .
 
 Recommendation: All diabetic patients with a previous stroke should maintain a good glycaemic control .
 
@@ -395,11 +395,11 @@ Recommendation: All smokers should stop smoking
 | Diabetic control                              | All diabetic patients with a previous stroke should maintain a good glycaemic control .                                                                  | III                                           | C                                             |
 | Cigarette smoking                             | All smokers should stop smoking .                                                                                                                        | III                                           | C                                             |
 
-## 5 . 7 Cardioembolism
+## 5 . Cardioembolism
 
-Cardioembolic stroke accounts for about 20% of all ischaemic strokes . 87 -89 Generally , they are severe , prone to early recurrence , and more likely when there is documented source of embolism and involvement of different cerebrovascular territories or multiple infarctions . The predominant pathogenic process for stroke associated with cardiac disease is embolism due to formation of intra -atrial and intra -ventricular thrombus .
+Cardioembolic stroke accounts for about 20% of all ischaemic strokes . Generally , they are severe , prone to early recurrence , and more likely when there is documented source of embolism and involvement of different cerebrovascular territories or multiple infarctions . The predominant pathogenic process for stroke associated with cardiac disease is embolism due to formation of intra -atrial and intra -ventricular thrombus .
 
-Atrial fibrillation (AF) whether chronic or paroxysmal , is the most common cause of cardioembolism and accounts for 50% of all cardiogenic emboli . Other high-risk conditions are having prosthetic heart valves , rheumatic mitral valvular disease , acute myocardial infarction , and severe left ventricular dysfunction . Non -thrombotic embolism may result from atrial myxoma and endocarditis . Investigations are directed at demonstrating cardiac sources of embolism in the absence of significant atherosclerosis or other vascular disease . All patients with stroke/TIA require a 12-lead electrocardiogram . A 72 -hour Holter monitor is required to detect paroxysmal AF . In addition , all patients under 45 years of age and those in whom baseline investigations did not reveal an apparent cause for stroke will require a transthoracic echocardiogram (TTE) . Patients in whom there is high suspicion of cardioembolism but have a normal TTE may undergo a trans-oesophageal echocardiogram (TOE) . Conditions in which this method is superior to TTE include thrombi in the left atrium and left atrial appendage , patent foramen ovale , atrial septal aneurysm and aortic arch atheroma . 89 , 90
+Atrial fibrillation (AF) whether chronic or paroxysmal , is the most common cause of cardioembolism and accounts for 50% of all cardiogenic emboli . Other high-risk conditions are having prosthetic heart valves , rheumatic mitral valvular disease , acute myocardial infarction , and severe left ventricular dysfunction . Non -thrombotic embolism may result from atrial myxoma and endocarditis . Investigations are directed at demonstrating cardiac sources of embolism in the absence of significant atherosclerosis or other vascular disease . All patients with stroke/TIA require a 12-lead electrocardiogram . A 72 -hour Holter monitor is required to detect paroxysmal AF . In addition , all patients under 45 years of age and those in whom baseline investigations did not reveal an apparent cause for stroke will require a transthoracic echocardiogram (TTE) . Patients in whom there is high suspicion of cardioembolism but have a normal TTE may undergo a trans-oesophageal echocardiogram (TOE) . Conditions in which this method is superior to TTE include thrombi in the left atrium and left atrial appendage , patent foramen ovale , atrial septal aneurysm and aortic arch atheroma .
 
 Oral anticoagulant may reduce the risk of first and subsequent stroke for selected high-risk cardiac conditions but must be weighed against the risk of haemorrhagic complications . 87 , 88 , 91 , 92 (see table 5 . 4)
 
@@ -411,7 +411,7 @@ If patients are Aspirin intolerant then consider: Clopidogrel 75mg daily , Ticlo
 
 (Level III , Grade C)
 
-Anticoagulation is not indicated for non-thrombotic causes of cardiac emboli and may cause substantial intracranial haemorrhage in infective endocarditis of native valves . 87
+Anticoagulation is not indicated for non-thrombotic causes of cardiac emboli and may cause substantial intracranial haemorrhage in infective endocarditis of native valves .
 
 Anticoagulation is not proven to reduce recurrent stroke in the first 14 days following an acute cardioembolic event [Level I] with the possible exception of prosthetic heart valves , recent MI , presence of intra-cardiac thrombus , AF with additional risk factors and previous stroke . 89 (see table 5 . 5)
 
@@ -427,9 +427,9 @@ Further details on stroke and cardioembolism in Chapter 13 .
 | Atrial Fibrillation                                                | Risk factors to be assessed by CHA2DS2 - VASc score .                                                           | OAC to prevent cardioembolic stroke is recommended for all NVAF male patients with CHA2DS2 - VASc score of 2 or more and female patients with a CHA2DS2-VASc score of 3 or more .  New recommendation                                                               | I                                                                  | A                                                                  |
 | Atrial Fibrillation                                                |                                                                                                                 | Direct Oral Anticoagulant (DOAC) vs .  Warfarin                                                                                                                                                                                                                     | Direct Oral Anticoagulant (DOAC) vs .  Warfarin                    | Direct Oral Anticoagulant (DOAC) vs .  Warfarin                    |
 | Atrial Fibrillation                                                |                                                                                                                 | Dabigatran is superior (150mg bid) to and as effective (110mg bid) as compared to Warfarin ,  in preventing stroke and systemic embolism .  Bleeding rates are similar with Warfarin at 150mg bid but have a lower bleeding rates at 110mg bid . 93                 | I                                                                  | A                                                                  |
-| Atrial Fibrillation                                                |                                                                                                                 | Rivaroxaban was compared with adjusted-dose warfarin and found to be non-inferior with regards to the primary composite end point of stroke or non-central nervous systemic embolism . 94 New recommendation                                                        | I                                                                  | A                                                                  |
-| Atrial Fibrillation                                                |                                                                                                                 | Apixaban was compared with adjusted-dose warfarin and found to be superior to warfarin in preventing stroke or systemic embolism .  Apixaban also caused less major bleeding compared with warfarin and resulted in lower overall mortality . 95 New recommendation | I                                                                  | A                                                                  |
-| Atrial Fibrillation                                                |                                                                                                                 | Edoxaban *  as compared to warfarin was found to be non - inferior with regards to the primary efficacy end point and caused less bleeding . 96 New recommendation * Currently not available in Malaysia .                                                          | I                                                                  | A                                                                  |
+| Atrial Fibrillation                                                |                                                                                                                 | Rivaroxaban was compared with adjusted-dose warfarin and found to be non-inferior with regards to the primary composite end point of stroke or non-central nervous systemic embolism . New recommendation                                                        | I                                                                  | A                                                                  |
+| Atrial Fibrillation                                                |                                                                                                                 | Apixaban was compared with adjusted-dose warfarin and found to be superior to warfarin in preventing stroke or systemic embolism .  Apixaban also caused less major bleeding compared with warfarin and resulted in lower overall mortality . New recommendation | I                                                                  | A                                                                  |
+| Atrial Fibrillation                                                |                                                                                                                 | Edoxaban *  as compared to warfarin was found to be non - inferior with regards to the primary efficacy end point and caused less bleeding . New recommendation * Currently not available in Malaysia .                                                          | I                                                                  | A                                                                  |
 | Prosthetic Heart Valves (Mechanical)                               | Moderate risk: Bileaflet or tilting disk aortic valves in NSR                                                   | Lifelong Warfarin                                                                                                                                                                                                                                                   | II - 2                                                             | B                                                                  |
 | Prosthetic Heart Valves (Mechanical)                               | High risk: Bileaflet or tilting disk aortic valves in AF; Bileaflet or tilting disk mitral valve in AF or NSR . | Lifelong Warfarin (target INR 3 . 0; range 2 . 5 - 3 . 5)                                                                                                                                                                                                           | II - 3                                                             | B                                                                  |
 | Prosthetic Heart Valves (Mechanical)                               | Caged-ball and caged-disk designs; documented stroke/TIA despite adequate therapy with Warfarin .               | Lifelong Warfarin (target INR 3 . 0; range 2 . 5 - 3 . 5) plus Aspirin 75 - 150mg daily                                                                                                                                                                             | II-1                                                               | B                                                                  |
@@ -466,21 +466,21 @@ Risk of bleeding is as following (see chart):
 |                  2 |  744 |            14 | 1 . 88                  |
 |                  3 |  187 |             7 | 3 . 74                  |
 
-## 5 . 8 Revascularisation Procedures
+## 5 . Revascularisation Procedures
 
 Surgical procedures in stroke management may be classified to procedures performed to prevent first stroke occurrence (primary prevention in asymptomatic patients) or following a stroke event (secondary prevention) .
 
-## 5 . 8 . 1 Primary Prevention
+## 5 . 8 . Primary Prevention
 
-Carotid endarterectomy (CEA) has been compared to conservative medical therapy for asymptomatic patients without prior history of TIA or stroke for whom imaging of the carotid arteries reveals a definite stenosis . Of the 5 published randomized studies , only 2 were sufficiently powered to compare the outcomes between surgery and medical therapy . The absolute 5 -year risk reduction for patients with 70-99% carotid artery stenosis (by ultrasound) was 5 . 4% in the recent follow -up of the ACST trial , which was consistent with the ACAS study from North America (5-year absolute risk reduction of 5 . 9%) . 99 , 100 This translates into a 1% annual stroke rate reduction . Patients who are asymptomatic and receiving appropriate medical therapy face an annual stroke rate of 2% without CEA . Surgical morbidity and mortality often exceed this beneficial risk reduction . In the ACST and ACAS trials , surgery -related events were 3 . 1% and 2 . 3% , respectively . 99 , 100 In an unselected patient group undergoing CEA in a centre without proper auditing of the surgeon or the centre ' s operative records , the complications are likely to outweigh the benefits of CEA . Furthermore , asymptomatic patients should not be offered CEA if their 5-year probability of dying from unrelated causes is high . Finally , in the NASCET study , nearly 45% of all strokes occurring in patients with asymptomatic stenosis may be attributable to lacunar infarcts or cardioembolism . 101
+Carotid endarterectomy (CEA) has been compared to conservative medical therapy for asymptomatic patients without prior history of TIA or stroke for whom imaging of the carotid arteries reveals a definite stenosis . Of the 5 published randomized studies , only 2 were sufficiently powered to compare the outcomes between surgery and medical therapy . The absolute 5 -year risk reduction for patients with 70-99% carotid artery stenosis (by ultrasound) was 5 . 4% in the recent follow -up of the ACST trial , which was consistent with the ACAS study from North America (5-year absolute risk reduction of 5 . 9%) . This translates into a 1% annual stroke rate reduction . Patients who are asymptomatic and receiving appropriate medical therapy face an annual stroke rate of 2% without CEA . Surgical morbidity and mortality often exceed this beneficial risk reduction . In the ACST and ACAS trials , surgery -related events were 3 . 1% and 2 . 3% , respectively . In an unselected patient group undergoing CEA in a centre without proper auditing of the surgeon or the centre ' s operative records , the complications are likely to outweigh the benefits of CEA . Furthermore , asymptomatic patients should not be offered CEA if their 5-year probability of dying from unrelated causes is high . Finally , in the NASCET study , nearly 45% of all strokes occurring in patients with asymptomatic stenosis may be attributable to lacunar infarcts or cardioembolism .
 
 Recommendation: Endarterectomy may be considered in patients with high-grade asymptomatic carotid stenosis (70-99%) when performed by a surgeon with less than 3% morbidity/ mortality rate . (Level I , Grade A)
 
 Careful patient selection , guided by comorbid conditions , life expectancy , and patient preference , followed by a thorough discussion of the risks and benefits of the procedure is required . It is important that asymptomatic patients receive appropriate medical treatment and be fully evaluated for other treatable causes of stroke .
 
-## 5 . 8 . 2 Secondary Prevention
+## 5 . 8 . Secondary Prevention
 
-Two large randomized trials (NASCET and ECST) have compared the outcomes of patients with recent cerebrovascular symptoms treated conservatively or with carotid endarterectomy . 102 , 103 Long-term follow-up and a meta-analysis is available for these trials . 104 Standardizing the same measurements and definitions yielded highly consistent results among the 3 trials . In general , CEA is highly beneficial for patients with carotid stenosis (70-99%) , producing a 16% absolute 5-year risk reduction (ARR) . For patients with 50-69% stenosis , the 5 -year ARR was 4 . 6% . No benefit was observed for patients with milder degrees of stenosis . Subgroup analyses revealed that benefits in surgery was the greatest in men , aged 75 years or older , and those randomized within 2 weeks of their stroke event . These studies excluded patients with medical co-morbidities , previous neck irradiation and recurrent stenosis following previous endarterectomy .
+Two large randomized trials (NASCET and ECST) have compared the outcomes of patients with recent cerebrovascular symptoms treated conservatively or with carotid endarterectomy . Long-term follow-up and a meta-analysis is available for these trials . Standardizing the same measurements and definitions yielded highly consistent results among the 3 trials . In general , CEA is highly beneficial for patients with carotid stenosis (70-99%) , producing a 16% absolute 5-year risk reduction (ARR) . For patients with 50-69% stenosis , the 5 -year ARR was 4 . 6% . No benefit was observed for patients with milder degrees of stenosis . Subgroup analyses revealed that benefits in surgery was the greatest in men , aged 75 years or older , and those randomized within 2 weeks of their stroke event . These studies excluded patients with medical co-morbidities , previous neck irradiation and recurrent stenosis following previous endarterectomy .
 
 Extracranial -intracranial anastomosis between the superficial temporal and middle cerebral arteries (EC-IC Bypass) has not been shown to be beneficial for secondary stroke prevention by the EC/IC Bypass Study Group .
 
@@ -508,15 +508,15 @@ Recommendation: External/internal carotid bypass is not recommended for secondar
 
 (Level I , Grade A)
 
-## 5 . 9 Angioplasty or Stenting
+## 5 . Angioplasty or Stenting
 
-This is a rapidly evolving field in stroke treatment and prevention . Several randomized trials have compared extra-cranial carotid angioplasty and stenting (CAS) to carotid endarterectomy (CEA) . 99 , 101 , 105 , 106
+This is a rapidly evolving field in stroke treatment and prevention . Several randomized trials have compared extra-cranial carotid angioplasty and stenting (CAS) to carotid endarterectomy (CEA) .
 
 Recommendation: CAS represents a feasible alternative to carotid endarterectomy for secondary stroke prevention when surgery is undesirable , technically difficult , or inaccessible . 107 , 109
 
 (Level II-2)
 
-In recent studies , the 4 -year outcome in death , stroke and myocardial infarction was similar in CAS and CEA . However , the periprocedural rate of stroke was higher in the CAS group while the periprocedural rate of myocardial infarction was higher in the CEA group . Selection of patients for either CAS or CEA may require attention to age , with younger patients having a slightly better outcome with CAS and older patients having a better outcome with CEA . 106 -112
+In recent studies , the 4 -year outcome in death , stroke and myocardial infarction was similar in CAS and CEA . However , the periprocedural rate of stroke was higher in the CAS group while the periprocedural rate of myocardial infarction was higher in the CEA group . Selection of patients for either CAS or CEA may require attention to age , with younger patients having a slightly better outcome with CAS and older patients having a better outcome with CEA .
 
 The criteria needed for a centre to do CAS:
 
@@ -533,9 +533,9 @@ Recommendation: Complex configuration of the aortic arch and internal carotid ar
 
 (Level II-2 , Grade B)
 
-Intracranial artery stenting (IAS) is also technically feasible but has not been proven to be an established treatment modality . A re -stenosis rate of up to 30% has been reported . 105 Clinical data has much less evidence with more controversy as compared to carotid angioplasty . 105 The SAMMPRIS and VISSIT randomized trials found that patients with symptomatic intracranial atherosclerosis treated with angioplasty and stenting had worse outcomes than those who received medical therapy 114 , 115 .
+Intracranial artery stenting (IAS) is also technically feasible but has not been proven to be an established treatment modality . A re -stenosis rate of up to 30% has been reported . Clinical data has much less evidence with more controversy as compared to carotid angioplasty . The SAMMPRIS and VISSIT randomized trials found that patients with symptomatic intracranial atherosclerosis treated with angioplasty and stenting had worse outcomes than those who received medical therapy, 115 .
 
-The role of CAS in intra -cranial stenoses , asymptomatic stenoses and acute stroke is unclear and may not be recommended . 102 , 103 , 116 However , the most recent study (WEAVE Trial) showed that with experienced interventionalists , and proper patient selection , the use of the stent for intracranial atherosclerotic disease demonstrated a low periprocedural complication rate and excellent safety profile . 117
+The role of CAS in intra -cranial stenoses , asymptomatic stenoses and acute stroke is unclear and may not be recommended . However , the most recent study (WEAVE Trial) showed that with experienced interventionalists , and proper patient selection , the use of the stent for intracranial atherosclerotic disease demonstrated a low periprocedural complication rate and excellent safety profile .
 
 Therefore , careful selection with extensive multidisciplinary discussions by centres experienced in stroke management is recommended . As angioplasty with or without stenting is still an investigational procedure , it should be carried out under appropriate clinical trial protocols .
 
@@ -571,7 +571,7 @@ Table 5 . 6: Revascularisation Procedures
 
 <!-- image -->
 
-## 6 . 1 Investigational Objectives
+## 6 . Investigational Objectives
 
 
 <!-- ============================================================ -->
@@ -613,181 +613,59 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES , Ministry of Health Malaysi
 
 | Abbreviations   | Descriptions                                                                                                                                                                                 |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ACA             | Anterior Cerebral Artery                                                                                                                                                                     |
 | ACAS            | Asymptomatic Carotid Atherosclerosis                                                                                                                                                         |
 | ACCORD          | Action to Control Cardiovascular Risk in Diabetes                                                                                                                                            |
 | ACE             | Angiotensin-Converting Enzyme                                                                                                                                                                |
 | ACST            | Asymptomatic Carotid Surgery Trial                                                                                                                                                           |
-| ADC             | Ambulance Dispatch Centre                                                                                                                                                                    |
-| ADL             | Activities of Daily Living                                                                                                                                                                   |
-| AED             | Anti - epileptic Drug                                                                                                                                                                        |
 | AF              | Atrial Fibrillation                                                                                                                                                                          |
-| AIS             | Acute Ischaemic Stroke                                                                                                                                                                       |
-| ANCA            | Antineutrophil Cytoplasmic Antibodies                                                                                                                                                        |
-| aPTT            | activated Partial Thromboplastin Time                                                                                                                                                        |
 | ARB             | Angiotensin Receptor Blocker                                                                                                                                                                 |
 | ARR             | Absolute Risk Reduction                                                                                                                                                                      |
 | ARRIVE          | Aspirin to Reduce Risk of Initial Vascular Events                                                                                                                                            |
 | ASCEND          | A Study of Cardiovascular Events in Diabetes                                                                                                                                                 |
-| ASCO            | Atherosclerosis ,  Small - vessel disease ,  Cardiac source ,  and Other causes                                                                                                              |
 | ASCVD           | Atherosclerotic Cardiovascular Disease                                                                                                                                                       |
-| ASD             | Atrial Septal Defect                                                                                                                                                                         |
-| ASTER           | Contact Aspiration vs Stent Retriever for Successful Revascularization                                                                                                                       |
-| AVERT           | A Very Early Rehabilitation Trial after stroke                                                                                                                                               |
 | BP              | Blood Pressure                                                                                                                                                                               |
 | CADASIL         | Cerebral Autosomal Dominant Arteriopathy with Subcortical Infarcts and Leukoencephalopathy                                                                                                   |
 | CAS             | Carotid Angioplasty and Stenting                                                                                                                                                             |
-| CCS             | Causative Classification Systems                                                                                                                                                             |
 | CEA             | Carotid Endarterectomy                                                                                                                                                                       |
 | CHA2DS2 - VASc  | Congestive heart failure ,  Hypertension ,  Age ≥ 75 years ,  Diabetes mellitus ,  Stroke ,  or transient ischemic attack (TIA) ,  Vascular disease ,  Age 65 to 74 years ,  Gender category |
-| CISS            | Chinese Ischaemic Stroke Classification                                                                                                                                                      |
-| CLOT            | Clots in Legs Or Stockings after Stroke                                                                                                                                                      |
-| CNS             | Central Nervous System                                                                                                                                                                       |
-| CPAP            | Continuous Positive Airway Pressure                                                                                                                                                          |
 | CPG             | Clinical Practice Guideline                                                                                                                                                                  |
-| CPSS            | Cincinnati Prehospital Stroke Scale                                                                                                                                                          |
-| CRP             | C - Reactive Protein                                                                                                                                                                         |
-| CSP             | Cryosupernatant Plasma                                                                                                                                                                       |
-| CT              | Computerized Tomography                                                                                                                                                                      |
-| CTA             | Computerized Tomography Angiography                                                                                                                                                          |
-| CTB             | CT scans of the Brain                                                                                                                                                                        |
-| CTP/MRP         | CT or MR Perfusion                                                                                                                                                                           |
-| CV              | Cardiovascular                                                                                                                                                                               |
 | CVD             | Cardiovascular Disease                                                                                                                                                                       |
 
-| CVT         | Cerebral Venous Thrombosis                                                                                                                                |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DALYs       | Disability Adjusted Life Years                                                                                                                            |
 | DASH        | Dietary Action to Stop Hypertension                                                                                                                       |
-| DAWN        | Clinical Mismatch in the Triage of Wake Up and Late Presenting Strokes Undergoing Neurointervention With Trevo                                            |
-| DEFUSE      | Endovascular Therapy Following Imaging Evaluation for Ischemic Stroke                                                                                     |
-| DNA         | Deoxyribonucleic Acid                                                                                                                                     |
 | DOAC        | Direct Oral Anticoagulant                                                                                                                                 |
-| DSA         | Digital Subtraction Angiography                                                                                                                           |
-| DVT         | Deep Vein Thrombosis                                                                                                                                      |
-| DWI - FLAIR | MRI Diffusion Weighted Imaging – Fluid Attenuated Inversion Recovery                                                                                      |
-| DWI - MRI   | Diffusion - weighted imaging-MRI                                                                                                                          |
-| ECG         | Electrocardiogram                                                                                                                                         |
-| ECHO        | Echocardiography                                                                                                                                          |
-| EC - IC     | Extracranial  –  Intracranial                                                                                                                             |
-| ED          | Emergency Department                                                                                                                                      |
 | EF          | Ejection Fraction                                                                                                                                         |
 | eGFR        | estimated Glomerular Filtration Rate                                                                                                                      |
-| EMD         | Emergency Medical Dispatchers                                                                                                                             |
-| EMS         | Emergency Medical Services                                                                                                                                |
-| EMTS        | Emergency Medicine and Trauma Service                                                                                                                     |
-| ENT         | Ear ,  Nose ,  and Throat                                                                                                                                 |
-| ESCT        | European Surgical Carotid Trial                                                                                                                           |
-| ESR         | Erythrocyte Sedimentation Rate                                                                                                                            |
-| ESUS        | Embolic Stroke of Undetermined Source                                                                                                                     |
-| EVT         | Endovascular Treatment                                                                                                                                    |
-| FAST        | Face ,  Arm ,  Speech and Time                                                                                                                            |
-| FBC         | Full Blood Count                                                                                                                                          |
-| FDA         | Food and Drug Administration                                                                                                                              |
-| FFP         | Fresh Frozen Plasma                                                                                                                                       |
-| FOOD        | Feed or Ordinary Diet                                                                                                                                     |
-| FORTA - A   | Fit For The Aged - Highly Beneficial                                                                                                                      |
-| FORTA - B   | Fit For The Aged - Beneficial                                                                                                                             |
 | FRS         | Framingham Risk Score                                                                                                                                     |
-| FRS - CVD   | Framingham CVD Risk Score                                                                                                                                 |
 | FSRS        | Framingham Stroke Risk Score                                                                                                                              |
-| GCS         | Glasgow Coma Scale                                                                                                                                        |
-| GTN         | Glyceryl Trinitrate                                                                                                                                       |
-| GXM         | Group and Crossmatch                                                                                                                                      |
 | HAS - BLED  | Hypertension ,  Abnormal renal/liver function ,  Stroke ,  Bleeding history or predisposition ,  Labile INR ,  Elderly (age over 65) ,  and Drugs/alcohol |
 | HCTZ        | Hydrochlorothiazide                                                                                                                                       |
-| HELLP       | Haemolysis ,  Elevated Liver Enzyme levels ,  and Low Platelet levels .                                                                                   |
-| HHT         | Hereditary Haemorrhagic Telangiectasia                                                                                                                    |
-| HIV/AIDS    | Human Immunodeficiency Virus infection/Acquired Immune Deficiency Syndrome                                                                                |
-| HOPE - 3    | Heart Outcomes Prevention Evaluation - 3                                                                                                                  |
 | IAS         | Intracranial Artery Stenting                                                                                                                              |
-| ICA         | Internal Carotid Artery                                                                                                                                   |
-| ICP         | Intracranial Pressure                                                                                                                                     |
-| ICU         | Intensive Care Unit                                                                                                                                       |
 
 | IHD         | Ischaemic Heart Disease                                                       |
 |-------------|-------------------------------------------------------------------------------|
 | INR         | International Normalised Ratio                                                |
-| IPC         | Intermittent Pneumatic Compression                                            |
 | IV          | Intravenous                                                                   |
-| IVT         | Intravenous Thrombolysis                                                      |
-| KPI         | Key Performance Indicator                                                     |
-| LAPSS       | Los Angeles Prehospital Stroke Screen                                         |
 | LDL         | Low - Density Lipoprotein                                                     |
-| LDL - C     | Low - Density Lipoprotein Cholesterol                                         |
-| LFT         | Liver Function Test                                                           |
-| LMIC        | Low and Middle - Income Countries                                             |
-| LMWH        | Low Molecular Weight Heparin                                                  |
-| LSD         | D - lysergic acid diethylamide                                                |
 | LV          | Left Ventricular                                                              |
-| LVO         | Large Vessel Occlusion                                                        |
-| MBS         | Modified Barium Swallow Examination                                           |
-| MCA         | Middle Cerebral Artery                                                        |
-| MD          | Medical Doctor                                                                |
-| MECC        | Medical Emergency Coordination Centre                                         |
-| MELAS       | Mitochondrial Encephalopathy ,  Lactic Acidosis ,  and Stroke - like episodes |
-| MPDS        | Medical Priority Dispatch System                                              |
-| MR          | Magnetic Resonance                                                            |
-| MRA         | Magnetic Resonance Angiography                                                |
 | MRC/BHF     | Medical Research Council/British Heart Foundation                             |
-| MRI         | Magnetic Resonance Imaging                                                    |
-| mRS         | Modified Rankin Scale                                                         |
-| mtDNA       | Mitochondrial DNA                                                             |
-| MTHFR       | Methylenetetrahydrofolate Reductase                                           |
 | NASCET      | North American Symptomatic Carotid Endarterectomy Trial                       |
-| NBM         | Nil by Mouth                                                                  |
-| NCCT        | Non - Contrast CT                                                             |
-| NES         | Neuroendovascular surgeon                                                     |
-| NG          | Nasogastric                                                                   |
-| NHMS        | National Health Morbidity Survey                                              |
 | NIHSS       | National Institutes of Health Stroke Scale                                    |
-| NSAID       | Non - Steroidal Anti - Inflammatory Drug                                      |
 | NSR         | Normal Sinus Rhythm                                                           |
 | NVAF        | Non - Valvular Atrial Fibrillation                                            |
 | OAC         | Oral Anticoagulant                                                            |
-| OAC - FORTA | Oral Anticoagulant – Fit for the Aged                                         |
-| OCSP        | Oxford Community Stroke Project                                               |
-| PACNS       | Primary Angiitis of the Central Nervous System                                |
-| PAN         | Polyarteritis Nodosa                                                          |
-| PAR         | Population-Adjustable Risk                                                    |
-| PCA         | Posterior Cerebral Artery                                                     |
-| PCC         | Prothrombin Complex Concentrate                                               |
-| PCO2        | Partial Pressure of Carbon Dioxide                                            |
-| PEG         | Percutaneous Endoscopic Gastrostomy                                           |
-| PET         | Positron Emission Tomography                                                  |
-| PFO         | Patent Foramen Ovale                                                          |
-| PHC         | Pre - Hospital Care                                                           |
 
 | PREDIMED    | Prevención con Dieta Mediterránea (Prevention with Mediterranean Diet)                                 |
 |-------------|--------------------------------------------------------------------------------------------------------|
-| PT          | Prothrombin Time                                                                                       |
 | RCT         | Randomized Clinical Trials                                                                             |
-| RNA         | Ribonucleic Acid                                                                                       |
-| RP          | Renal Profile                                                                                          |
-| rtPA        | recombinant tissue Plasminogen Activator                                                               |
-| RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
-| RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
 | SAMMPRIS    | Stenting and Aggressive Medical management for prevention of Recurrent Stroke in Intracranial Stenosis |
-| sICH        | Symptomatic Intracranial Haemorrhage                                                                   |
-| SLE         | Systemic Lupus Erythematosus                                                                           |
 | SOCRATES    | Acute Stroke or Transient Ischaemic Attack Treated With Aspirin or Ticagrelor and Patient Outcomes     |
 | SPRINT      | Systolic Blood Pressure Intervention Trial                                                             |
-| SSS - TOAST | Stop-Stroke Study TOAST                                                                                |
-| TB          | Tuberculosis                                                                                           |
 | TIA         | Transient Ischaemic Attack                                                                             |
-| TLSW        | Time Last Seen Well                                                                                    |
-| TMS         | Transcranial Magnetic Stimulation                                                                      |
-| TOAST       | Trial of Org 10172 in Acute Stroke Treatment                                                           |
 | TOE         | Trans - Oesophageal Echocardiogram                                                                     |
-| TT          | Thrombin Time                                                                                          |
 | TTE         | Transthoracic Echocardiogram                                                                           |
-| UFH         | Unfractionated Heparin                                                                                 |
 | US          | United States                                                                                          |
-| VDRL        | Venereal Disease Research Laboratory                                                                   |
-| VFSE        | Video Fluoroscopic Swallowing Examination                                                              |
 | VISSIT      | Vitesse Intracranial Stent Study for Ischemic Therapy                                                  |
-| VKA         | Vitamin K Antagonists                                                                                  |
-| VTE         | Venous Thromboembolism                                                                                 |
 | WEAVE       | Wingspan Stent System Post Market Surveillance                                                         |
 
 <!-- END OVERLAP FROM: ABBREVIATIONS -->

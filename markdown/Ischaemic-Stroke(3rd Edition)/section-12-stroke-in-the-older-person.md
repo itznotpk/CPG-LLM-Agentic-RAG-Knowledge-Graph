@@ -9,19 +9,19 @@ output:
 
 ## STROKE IN THE OLDER PERSON
 
-## 12 . 2 . 2 Endovascular Thrombectomy
+## 12 . 2 . Endovascular Thrombectomy
 
-A meta -analysis of five randomised controlled trials with 1287 patients , on endovascular thrombectomy for anterior circulation large vessel ischaemic stroke versus control , showed that there was benefit across all age-groups in significantly reducing post-stroke dependency at 90 days , including in those aged 80 years and above . 4
+A meta -analysis of five randomised controlled trials with 1287 patients , on endovascular thrombectomy for anterior circulation large vessel ischaemic stroke versus control , showed that there was benefit across all age-groups in significantly reducing post-stroke dependency at 90 days , including in those aged 80 years and above .
 
 Recommendation: An older person can benefit from endovascular thrombectomy for anterior circulatory large vessel occlusion .
 
 (New recommendation , Level I , Grade A)
 
-## 12 . 2 . 3 Management of glucose level in the acute phase of stroke
+## 12 . 2 . Management of glucose level in the acute phase of stroke
 
-The International Diabetes Federation published a comprehensive guideline on managing older people with type 2 diabetes which included a section on management of hyperglycaemia post-acute stroke . 5
+The International Diabetes Federation published a comprehensive guideline on managing older people with type 2 diabetes which included a section on management of hyperglycaemia post-acute stroke .
 
-At present , the optimal level of blood glucose after a stroke is unclear . A systematic review of 11 RCTs concluded that administration of intravenous insulin to maintain tight glucose control within a specific range (4 . 0 -7 . 5 mmol/L) in the first few hours of acute ischaemic stroke does not provide benefit in terms of functional outcome , death , or improvement in final neurological deficit , but significantly increased the number of hypoglycaemic episodes . 6
+At present , the optimal level of blood glucose after a stroke is unclear . A systematic review of 11 RCTs concluded that administration of intravenous insulin to maintain tight glucose control within a specific range (4 . 0 -7 . 5 mmol/L) in the first few hours of acute ischaemic stroke does not provide benefit in terms of functional outcome , death , or improvement in final neurological deficit , but significantly increased the number of hypoglycaemic episodes .
 
 Recommendation: After an acute stroke , treat hyperglycaemia to keep the blood glucose levels between 6 . 0 -10 . 0 mmol/L (110-180 mg/dL) and ensure that hypoglycaemia is avoided . 5
 
@@ -31,53 +31,53 @@ Recommendation: Avoid very tight targets of glucose control (4 . 0 -7 . 5 mmol/L
 
 (New recommendation , Level I , Grade A)
 
-## 12 . 3 Management of risk factors for stroke prevention
+## 12 . Management of risk factors for stroke prevention
 
-## 12 . 3 . 1 Hypertension
+## 12 . 3 . Hypertension
 
 Older persons may develop orthostatic hypotension , have falls and syncope when prescribed with multiple antihypertensive medications . Home BP monitoring may supplement clinic BP measurements for a more reflective picture of the overall BP control .
 
-Older persons with high frailty levels , advanced cognitive impairment , or terminal illness , requires accurate prognostication , risk stratification and setting of treatment goals . These population groups are not represented in large RCTs and therefore have no demonstrated safety data for intensive BP lowering . 7
+Older persons with high frailty levels , advanced cognitive impairment , or terminal illness , requires accurate prognostication , risk stratification and setting of treatment goals . These population groups are not represented in large RCTs and therefore have no demonstrated safety data for intensive BP lowering .
 
 Recommendation: Older persons who have one or more of the following: frailty , multiple comorbidities , cognitive impairment , require an individualised approach for blood pressure management .
 
 (New recommendation , Level I , Grade A)
 
-## 12 . 3 . 2 Diabetes Mellitus
+## 12 . 3 . Diabetes Mellitus
 
-In older people , therapeutic decisions on blood glucose control should be based on comprehensive assessment and individualized risk stratification of key risk factors . Hypoglycaemia , hyperglycaemia and their consequences , comorbidities , frailty , falls , pain , medication adherence , and medicine related adverse events , and life expectancy should be considered when planning and monitoring care for older people with diabetes mellitus . 5 , 8
+In older people , therapeutic decisions on blood glucose control should be based on comprehensive assessment and individualized risk stratification of key risk factors . Hypoglycaemia , hyperglycaemia and their consequences , comorbidities , frailty , falls , pain , medication adherence , and medicine related adverse events , and life expectancy should be considered when planning and monitoring care for older people with diabetes mellitus .
 
 Recommendation: Targets of blood glucose control in older persons with diabetes should be individualised taking into account their functional status , medical comorbidities , and likelihood of developing adverse events .
 
 (New recommendation , Level III , Grade C)
 
-## 12 . 3 . 3 Dyslipidaemia
+## 12 . 3 . Dyslipidaemia
 
-A meta -analysis of 28 RCTs with 186 , 854 participants of whom 14483 (8%) were aged 75 years and above , showed that statin therapy produced significant reductions in major vascular events including
+A meta -analysis of 28 RCTs with, 854 participants of whom 14483 (8%) were aged 75 years and above , showed that statin therapy produced significant reductions in major vascular events including
 
-stroke , regardless of age . However , there is less direct evidence of benefit among patients older than 75 years for the purpose of primary prevention of vascular events . In particular , in patients aged over 75 years , the reduction in stroke rates was not found to be significant . 9
+stroke , regardless of age . However , there is less direct evidence of benefit among patients older than 75 years for the purpose of primary prevention of vascular events . In particular , in patients aged over 75 years , the reduction in stroke rates was not found to be significant .
 
 Recommendation: Statins are recommended for stroke prevention in older persons with less direct evidence of benefit for stroke prevention and primary prevention of vascular events in those aged over 75 years .
 
 (New recommendation , Level I , Grade A)
 
-## 12 . 3 . 4 Atrial Fibrillation
+## 12 . 3 . Atrial Fibrillation
 
-Older persons with atrial fibrillation can benefit from anticoagulation for stroke prevention , either with warfarin or a direct oral anticoagulant (DOAC) . DOACs were found to have a better efficacy/risk ratio as compared to warfarin . 10 , 11 However , the cost of DOACs are considerably higher than warfarin , in terms of the medications themselves .
+Older persons with atrial fibrillation can benefit from anticoagulation for stroke prevention , either with warfarin or a direct oral anticoagulant (DOAC) . DOACs were found to have a better efficacy/risk ratio as compared to warfarin . However , the cost of DOACs are considerably higher than warfarin , in terms of the medications themselves .
 
-It is important to follow the individual DOACs prescription guidelines taking into consideration their age , body weight and creatinine clearance to determine the appropriate dose of the DOAC . A higher percentage of older persons have impaired renal function , low body weight and sarcopenia . Prescribing a DOAC without following the prescription guidelines results in a higher number of strokes and adverse events . 12
+It is important to follow the individual DOACs prescription guidelines taking into consideration their age , body weight and creatinine clearance to determine the appropriate dose of the DOAC . A higher percentage of older persons have impaired renal function , low body weight and sarcopenia . Prescribing a DOAC without following the prescription guidelines results in a higher number of strokes and adverse events .
 
 Falls and dementia are not absolute contraindication to anticoagulation , the decision needs to be made on an individualised basis . Falls prevention measures and carer education are important in these circumstances .
 
-The 2019 Beers criteria recommend that rivaroxaban and dabigatran are prescribed with caution in older persons aged 75 years and above due to the higher risk for gastrointestinal bleeding . 13
+The 2019 Beers criteria recommend that rivaroxaban and dabigatran are prescribed with caution in older persons aged 75 years and above due to the higher risk for gastrointestinal bleeding .
 
-The OAC -FORTA (Oral Anticoagulant – Fit for the Aged) guidelines recommend apixaban as FORTA -A (highly beneficial) in older persons and the other DOACs and warfarin as FORTA-B (beneficial) . 11
+The OAC -FORTA (Oral Anticoagulant – Fit for the Aged) guidelines recommend apixaban as FORTA -A (highly beneficial) in older persons and the other DOACs and warfarin as FORTA-B (beneficial) .
 
 Recommendation: Older persons with atrial fibrillation can benefit from oral anticoagulant for stroke prevention with an individualised treatment plan taking medical co-morbidities , functional status , and social factors into consideration .
 
 (New recommendation , Level I , Grade A)
 
-## 12 . 4 Medication management in the older person with stroke
+## 12 . Medication management in the older person with stroke
 
 Older persons , especially those who had a stroke and several stroke risk factors , are more likely to experience polypharmacy (≥5 medications) with high pill burden , adverse events from medications , drug-drug interactions , drug-disease interactions and the high cost of treatment .
 
@@ -95,11 +95,11 @@ Recommendation: A comprehensive care plan for a frail older person should includ
 
 (New recommendation , Level III , Grade C)
 
-## 12 . 5 Delirium post-acute stroke
+## 12 . Delirium post-acute stroke
 
-Delirium is a common complication of stroke , affecting at least 1 in 4 acute stroke patients . 14 Delirium in post-stroke is associated with higher mortality , increased length of stay and worse functional outcome . 15 -17 Risk of developing post-stroke delirium is higher in patients with advanced age , pre -stroke cognitive impairment , atrial fibrillation , previous stroke , left cortical stroke , visual disturbances , more severe stroke and platelet to white-cell count ratio &lt; 20 . 22 . 14 , 16 -18 A majority of delirium were detected on the first day of admission and the remainder appeared within the next 5 days . 14 , 18
+Delirium is a common complication of stroke , affecting at least 1 in 4 acute stroke patients . Delirium in post-stroke is associated with higher mortality , increased length of stay and worse functional outcome . Risk of developing post-stroke delirium is higher in patients with advanced age , pre -stroke cognitive impairment , atrial fibrillation , previous stroke , left cortical stroke , visual disturbances , more severe stroke and platelet to white-cell count ratio &lt; 20 . 22 . A majority of delirium were detected on the first day of admission and the remainder appeared within the next 5 days .
 
-The 4AT is a validated tool to screen for delirium in acute stroke patients (sensitivity 90 -100%; specificity 65 - 86%) . It allows assessment for all (including non-verbal) patients . 19
+The 4AT is a validated tool to screen for delirium in acute stroke patients (sensitivity 90 -100%; specificity 65 - 86%) . It allows assessment for all (including non-verbal) patients .
 
 Recommendation: All post-stroke patients should be screened for delirium throughout hospitalization . 14 , 20
 
@@ -113,25 +113,25 @@ Recommendation: A multi -component intervention for post-stroke delirium prevent
 
 (New recommendation , Level II -2 , Grade B)
 
-## 12 . 6 Falls prevention post-stroke
+## 12 . Falls prevention post-stroke
 
-Falls are common adverse events post-stroke . The incidence is 7% in the first week but can be as high as 73% one year after suffering a stroke . 23 , 24 Post -stroke falls may result in serious injury (such as fragility fracture) , fear of falling , activities limitation , increased dependence and higher cost of care . 25 , 26 Although any patients with residual difficulties following a stroke are at risk of falls , patients with modified Rankin Scale (mRS) score of 2 are at greater risk of falls . 27 This inverse U -shaped relationship suggests interplay between opportunities of falling and susceptibility to falls . 28
+Falls are common adverse events post-stroke . The incidence is 7% in the first week but can be as high as 73% one year after suffering a stroke . Post -stroke falls may result in serious injury (such as fragility fracture) , fear of falling , activities limitation , increased dependence and higher cost of care . Although any patients with residual difficulties following a stroke are at risk of falls , patients with modified Rankin Scale (mRS) score of 2 are at greater risk of falls . This inverse U -shaped relationship suggests interplay between opportunities of falling and susceptibility to falls .
 
-Although interventions for preventing falls after stroke are largely ineffective other than those involving exercises , people with stroke should be offered falls and fragility fracture risk assessment and management as part of their stroke rehabilitation . 29 , 30
+Although interventions for preventing falls after stroke are largely ineffective other than those involving exercises , people with stroke should be offered falls and fragility fracture risk assessment and management as part of their stroke rehabilitation .
 
 Recommendation: All people with stroke should be offered falls and fragility fracture risk assessment and management during their rehabilitation period .
 
 (New recommendation , Level III , Grade C)
 
-## 12 . 7 Discharge planning and early supported discharge post stroke
+## 12 . Discharge planning and early supported discharge post stroke
 
 The process of recovering from a stroke includes treatment , spontaneous recovery , rehabilitation , and the return to community living .
 
 After receiving acute care , rehabilitation which is typically complex for older persons is offered as soon as possible . Decisions about rehabilitation are made by the patients , family , and a multidisciplinary team . Some patients may not need rehabilitation as they fully recover or have a mild neurological deficit that does not interfere with their daily activities .
 
-A very important stage of stroke recovery is called discharge planning and it begins with the person ' s return to community living after acute care and/or rehabilitation . 31 Discharge planning is an important and complex process following acute stroke management to ensure a smooth transition from one level of care to another where the patient ' s level of care is matched to the site of care provision . The objective of discharge planning is to maintain the benefits of rehabilitation after the patient has been discharged from the hospital once their goals are attained . 32
+A very important stage of stroke recovery is called discharge planning and it begins with the person ' s return to community living after acute care and/or rehabilitation . Discharge planning is an important and complex process following acute stroke management to ensure a smooth transition from one level of care to another where the patient ' s level of care is matched to the site of care provision . The objective of discharge planning is to maintain the benefits of rehabilitation after the patient has been discharged from the hospital once their goals are attained .
 
-The benefits of discharge planning include reduced length of stay and readmission rate , and improved quality of life . 33
+The benefits of discharge planning include reduced length of stay and readmission rate , and improved quality of life .
 
 Elements of discharge planning are:
 
@@ -174,11 +174,11 @@ Recommendation: Evaluation of home environment by an occupational therapist shou
 
 (New recommendation , Level III , Grade C)
 
-## 12 . 8 End -of -life care
+## 12 . End -of -life care
 
 Stroke is often the mode of death for older persons , either as a primary incident or exacerbated by other acute conditions . The recognition that lifespan is limited or that the patient is dying should be considered positively . Death should be recognized as an inevitability of life , and hence palliative care should be considered a core competency of those accredited to deliver stroke care . Treatment at the end -of -life for stroke patients needs to prioritize patient dignity and the need to facilitate a good death .
 
-Common burdensome symptoms at the end of life in stroke include anxiety , agitation , decubitus ulcers , pain and issues with hydration and nutrition . 34 Studies involving caregivers of those who died of stroke revealed limited preparations for the end of life with the use of the term palliative care equated to ' last days of life ' . 35 The quality of intervention studies in palliative care in general is limited , with available studies conducted mainly in cancer patients . Available registry studies have supported implementation of the palliative care principles and encounters . 34 , 36
+Common burdensome symptoms at the end of life in stroke include anxiety , agitation , decubitus ulcers , pain and issues with hydration and nutrition . Studies involving caregivers of those who died of stroke revealed limited preparations for the end of life with the use of the term palliative care equated to ' last days of life ' . The quality of intervention studies in palliative care in general is limited , with available studies conducted mainly in cancer patients . Available registry studies have supported implementation of the palliative care principles and encounters .
 
 Recommendation: The multidisciplinary stroke team should be trained in principles and practice of end -of -life care .
 
@@ -246,15 +246,15 @@ Recommendation: Stroke teams should be prepared to facilitate the transfer of ca
 
 13
 
-## 13 . 1 Cardioembolic Stroke
+## 13 . Cardioembolic Stroke
 
-Cardioembolic stroke accounts for about 20% of all ischaemic strokes . 1 -3 They are generally severe , prone to early recurrence , more likely to happen when there is documented source of embolism and involve different cerebrovascular territories or multiple infarctions . The predominant pathogenic process for stroke associated with cardiac disease is embolism due to the formation of intra-atrial and intra -ventricular thrombi .
+Cardioembolic stroke accounts for about 20% of all ischaemic strokes . They are generally severe , prone to early recurrence , more likely to happen when there is documented source of embolism and involve different cerebrovascular territories or multiple infarctions . The predominant pathogenic process for stroke associated with cardiac disease is embolism due to the formation of intra-atrial and intra -ventricular thrombi .
 
 Atrial fibrillation (AF) whether chronic or paroxysmal , is the most common cause of cardioembolism and accounts for 50% of all cardiogenic emboli . Other high-risk conditions are prosthetic heart valves , rheumatic mitral valvular disease , acute myocardial infarction , and severe left ventricular dysfunction . Non -thrombotic embolism may result from atrial myxoma and endocarditis .
 
 Investigations are directed at demonstrating cardiac sources of embolism in the absence of significant atherosclerosis or other vascular disease . All patients with stroke/TIA require a 12-lead electrocardiogram . A 72 -hour Holter monitor is required to detect paroxysmal AF . In addition , all patients under 45 years of age and those in whom baseline investigations do not reveal an apparent cause for stroke will require a transthoracic echocardiogram (TTE) . Patients in whom there is high suspicion of cardioembolism not found on TTE may undergo a trans-oesophageal echocardiogram (TOE) . Conditions in which this method is superior to TTE include identifying thrombi in the left atrium and left atrial appendage , patent foramen ovale , atrial septal aneurysm and aortic arch atheroma . 3 , 4
 
-## 13 . 2 Stroke Prevention in Atrial Fibrillation Patients
+## 13 . Stroke Prevention in Atrial Fibrillation Patients
 
 Recommendation: Antiplatelet monotherapy is not indicated for stroke prevention in non-valvular atrial fibrillation (NVAF) patients .
 
@@ -312,181 +312,22 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES , Ministry of Health Malaysi
 
 | Abbreviations   | Descriptions                                                                                                                                                                                 |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ACA             | Anterior Cerebral Artery                                                                                                                                                                     |
-| ACAS            | Asymptomatic Carotid Atherosclerosis                                                                                                                                                         |
-| ACCORD          | Action to Control Cardiovascular Risk in Diabetes                                                                                                                                            |
-| ACE             | Angiotensin-Converting Enzyme                                                                                                                                                                |
-| ACST            | Asymptomatic Carotid Surgery Trial                                                                                                                                                           |
-| ADC             | Ambulance Dispatch Centre                                                                                                                                                                    |
-| ADL             | Activities of Daily Living                                                                                                                                                                   |
-| AED             | Anti - epileptic Drug                                                                                                                                                                        |
 | AF              | Atrial Fibrillation                                                                                                                                                                          |
-| AIS             | Acute Ischaemic Stroke                                                                                                                                                                       |
-| ANCA            | Antineutrophil Cytoplasmic Antibodies                                                                                                                                                        |
-| aPTT            | activated Partial Thromboplastin Time                                                                                                                                                        |
-| ARB             | Angiotensin Receptor Blocker                                                                                                                                                                 |
-| ARR             | Absolute Risk Reduction                                                                                                                                                                      |
-| ARRIVE          | Aspirin to Reduce Risk of Initial Vascular Events                                                                                                                                            |
-| ASCEND          | A Study of Cardiovascular Events in Diabetes                                                                                                                                                 |
-| ASCO            | Atherosclerosis ,  Small - vessel disease ,  Cardiac source ,  and Other causes                                                                                                              |
-| ASCVD           | Atherosclerotic Cardiovascular Disease                                                                                                                                                       |
-| ASD             | Atrial Septal Defect                                                                                                                                                                         |
-| ASTER           | Contact Aspiration vs Stent Retriever for Successful Revascularization                                                                                                                       |
-| AVERT           | A Very Early Rehabilitation Trial after stroke                                                                                                                                               |
 | BP              | Blood Pressure                                                                                                                                                                               |
-| CADASIL         | Cerebral Autosomal Dominant Arteriopathy with Subcortical Infarcts and Leukoencephalopathy                                                                                                   |
-| CAS             | Carotid Angioplasty and Stenting                                                                                                                                                             |
-| CCS             | Causative Classification Systems                                                                                                                                                             |
-| CEA             | Carotid Endarterectomy                                                                                                                                                                       |
-| CHA2DS2 - VASc  | Congestive heart failure ,  Hypertension ,  Age ≥ 75 years ,  Diabetes mellitus ,  Stroke ,  or transient ischemic attack (TIA) ,  Vascular disease ,  Age 65 to 74 years ,  Gender category |
-| CISS            | Chinese Ischaemic Stroke Classification                                                                                                                                                      |
-| CLOT            | Clots in Legs Or Stockings after Stroke                                                                                                                                                      |
-| CNS             | Central Nervous System                                                                                                                                                                       |
-| CPAP            | Continuous Positive Airway Pressure                                                                                                                                                          |
 | CPG             | Clinical Practice Guideline                                                                                                                                                                  |
-| CPSS            | Cincinnati Prehospital Stroke Scale                                                                                                                                                          |
-| CRP             | C - Reactive Protein                                                                                                                                                                         |
-| CSP             | Cryosupernatant Plasma                                                                                                                                                                       |
-| CT              | Computerized Tomography                                                                                                                                                                      |
-| CTA             | Computerized Tomography Angiography                                                                                                                                                          |
-| CTB             | CT scans of the Brain                                                                                                                                                                        |
-| CTP/MRP         | CT or MR Perfusion                                                                                                                                                                           |
-| CV              | Cardiovascular                                                                                                                                                                               |
-| CVD             | Cardiovascular Disease                                                                                                                                                                       |
 
-| CVT         | Cerebral Venous Thrombosis                                                                                                                                |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DALYs       | Disability Adjusted Life Years                                                                                                                            |
-| DASH        | Dietary Action to Stop Hypertension                                                                                                                       |
-| DAWN        | Clinical Mismatch in the Triage of Wake Up and Late Presenting Strokes Undergoing Neurointervention With Trevo                                            |
-| DEFUSE      | Endovascular Therapy Following Imaging Evaluation for Ischemic Stroke                                                                                     |
-| DNA         | Deoxyribonucleic Acid                                                                                                                                     |
 | DOAC        | Direct Oral Anticoagulant                                                                                                                                 |
-| DSA         | Digital Subtraction Angiography                                                                                                                           |
-| DVT         | Deep Vein Thrombosis                                                                                                                                      |
-| DWI - FLAIR | MRI Diffusion Weighted Imaging – Fluid Attenuated Inversion Recovery                                                                                      |
-| DWI - MRI   | Diffusion - weighted imaging-MRI                                                                                                                          |
-| ECG         | Electrocardiogram                                                                                                                                         |
-| ECHO        | Echocardiography                                                                                                                                          |
-| EC - IC     | Extracranial  –  Intracranial                                                                                                                             |
-| ED          | Emergency Department                                                                                                                                      |
-| EF          | Ejection Fraction                                                                                                                                         |
-| eGFR        | estimated Glomerular Filtration Rate                                                                                                                      |
-| EMD         | Emergency Medical Dispatchers                                                                                                                             |
-| EMS         | Emergency Medical Services                                                                                                                                |
-| EMTS        | Emergency Medicine and Trauma Service                                                                                                                     |
-| ENT         | Ear ,  Nose ,  and Throat                                                                                                                                 |
-| ESCT        | European Surgical Carotid Trial                                                                                                                           |
-| ESR         | Erythrocyte Sedimentation Rate                                                                                                                            |
-| ESUS        | Embolic Stroke of Undetermined Source                                                                                                                     |
-| EVT         | Endovascular Treatment                                                                                                                                    |
-| FAST        | Face ,  Arm ,  Speech and Time                                                                                                                            |
-| FBC         | Full Blood Count                                                                                                                                          |
-| FDA         | Food and Drug Administration                                                                                                                              |
-| FFP         | Fresh Frozen Plasma                                                                                                                                       |
-| FOOD        | Feed or Ordinary Diet                                                                                                                                     |
-| FORTA - A   | Fit For The Aged - Highly Beneficial                                                                                                                      |
-| FORTA - B   | Fit For The Aged - Beneficial                                                                                                                             |
-| FRS         | Framingham Risk Score                                                                                                                                     |
-| FRS - CVD   | Framingham CVD Risk Score                                                                                                                                 |
-| FSRS        | Framingham Stroke Risk Score                                                                                                                              |
-| GCS         | Glasgow Coma Scale                                                                                                                                        |
-| GTN         | Glyceryl Trinitrate                                                                                                                                       |
-| GXM         | Group and Crossmatch                                                                                                                                      |
-| HAS - BLED  | Hypertension ,  Abnormal renal/liver function ,  Stroke ,  Bleeding history or predisposition ,  Labile INR ,  Elderly (age over 65) ,  and Drugs/alcohol |
-| HCTZ        | Hydrochlorothiazide                                                                                                                                       |
-| HELLP       | Haemolysis ,  Elevated Liver Enzyme levels ,  and Low Platelet levels .                                                                                   |
-| HHT         | Hereditary Haemorrhagic Telangiectasia                                                                                                                    |
-| HIV/AIDS    | Human Immunodeficiency Virus infection/Acquired Immune Deficiency Syndrome                                                                                |
-| HOPE - 3    | Heart Outcomes Prevention Evaluation - 3                                                                                                                  |
-| IAS         | Intracranial Artery Stenting                                                                                                                              |
-| ICA         | Internal Carotid Artery                                                                                                                                   |
-| ICP         | Intracranial Pressure                                                                                                                                     |
-| ICU         | Intensive Care Unit                                                                                                                                       |
 
-| IHD         | Ischaemic Heart Disease                                                       |
 |-------------|-------------------------------------------------------------------------------|
-| INR         | International Normalised Ratio                                                |
-| IPC         | Intermittent Pneumatic Compression                                            |
-| IV          | Intravenous                                                                   |
-| IVT         | Intravenous Thrombolysis                                                      |
-| KPI         | Key Performance Indicator                                                     |
-| LAPSS       | Los Angeles Prehospital Stroke Screen                                         |
-| LDL         | Low - Density Lipoprotein                                                     |
-| LDL - C     | Low - Density Lipoprotein Cholesterol                                         |
-| LFT         | Liver Function Test                                                           |
-| LMIC        | Low and Middle - Income Countries                                             |
-| LMWH        | Low Molecular Weight Heparin                                                  |
-| LSD         | D - lysergic acid diethylamide                                                |
-| LV          | Left Ventricular                                                              |
-| LVO         | Large Vessel Occlusion                                                        |
-| MBS         | Modified Barium Swallow Examination                                           |
-| MCA         | Middle Cerebral Artery                                                        |
-| MD          | Medical Doctor                                                                |
-| MECC        | Medical Emergency Coordination Centre                                         |
-| MELAS       | Mitochondrial Encephalopathy ,  Lactic Acidosis ,  and Stroke - like episodes |
-| MPDS        | Medical Priority Dispatch System                                              |
-| MR          | Magnetic Resonance                                                            |
-| MRA         | Magnetic Resonance Angiography                                                |
-| MRC/BHF     | Medical Research Council/British Heart Foundation                             |
-| MRI         | Magnetic Resonance Imaging                                                    |
 | mRS         | Modified Rankin Scale                                                         |
-| mtDNA       | Mitochondrial DNA                                                             |
-| MTHFR       | Methylenetetrahydrofolate Reductase                                           |
-| NASCET      | North American Symptomatic Carotid Endarterectomy Trial                       |
-| NBM         | Nil by Mouth                                                                  |
-| NCCT        | Non - Contrast CT                                                             |
-| NES         | Neuroendovascular surgeon                                                     |
-| NG          | Nasogastric                                                                   |
-| NHMS        | National Health Morbidity Survey                                              |
-| NIHSS       | National Institutes of Health Stroke Scale                                    |
-| NSAID       | Non - Steroidal Anti - Inflammatory Drug                                      |
-| NSR         | Normal Sinus Rhythm                                                           |
 | NVAF        | Non - Valvular Atrial Fibrillation                                            |
 | OAC         | Oral Anticoagulant                                                            |
-| OAC - FORTA | Oral Anticoagulant – Fit for the Aged                                         |
-| OCSP        | Oxford Community Stroke Project                                               |
-| PACNS       | Primary Angiitis of the Central Nervous System                                |
-| PAN         | Polyarteritis Nodosa                                                          |
-| PAR         | Population-Adjustable Risk                                                    |
-| PCA         | Posterior Cerebral Artery                                                     |
-| PCC         | Prothrombin Complex Concentrate                                               |
-| PCO2        | Partial Pressure of Carbon Dioxide                                            |
-| PEG         | Percutaneous Endoscopic Gastrostomy                                           |
-| PET         | Positron Emission Tomography                                                  |
-| PFO         | Patent Foramen Ovale                                                          |
-| PHC         | Pre - Hospital Care                                                           |
 
-| PREDIMED    | Prevención con Dieta Mediterránea (Prevention with Mediterranean Diet)                                 |
 |-------------|--------------------------------------------------------------------------------------------------------|
-| PT          | Prothrombin Time                                                                                       |
 | RCT         | Randomized Clinical Trials                                                                             |
-| RNA         | Ribonucleic Acid                                                                                       |
-| RP          | Renal Profile                                                                                          |
-| rtPA        | recombinant tissue Plasminogen Activator                                                               |
-| RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
-| RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
-| SAMMPRIS    | Stenting and Aggressive Medical management for prevention of Recurrent Stroke in Intracranial Stenosis |
-| sICH        | Symptomatic Intracranial Haemorrhage                                                                   |
-| SLE         | Systemic Lupus Erythematosus                                                                           |
-| SOCRATES    | Acute Stroke or Transient Ischaemic Attack Treated With Aspirin or Ticagrelor and Patient Outcomes     |
-| SPRINT      | Systolic Blood Pressure Intervention Trial                                                             |
-| SSS - TOAST | Stop-Stroke Study TOAST                                                                                |
-| TB          | Tuberculosis                                                                                           |
 | TIA         | Transient Ischaemic Attack                                                                             |
-| TLSW        | Time Last Seen Well                                                                                    |
-| TMS         | Transcranial Magnetic Stimulation                                                                      |
-| TOAST       | Trial of Org 10172 in Acute Stroke Treatment                                                           |
 | TOE         | Trans - Oesophageal Echocardiogram                                                                     |
-| TT          | Thrombin Time                                                                                          |
 | TTE         | Transthoracic Echocardiogram                                                                           |
-| UFH         | Unfractionated Heparin                                                                                 |
-| US          | United States                                                                                          |
-| VDRL        | Venereal Disease Research Laboratory                                                                   |
-| VFSE        | Video Fluoroscopic Swallowing Examination                                                              |
-| VISSIT      | Vitesse Intracranial Stent Study for Ischemic Therapy                                                  |
-| VKA         | Vitamin K Antagonists                                                                                  |
-| VTE         | Venous Thromboembolism                                                                                 |
-| WEAVE       | Wingspan Stent System Post Market Surveillance                                                         |
 
 <!-- END OVERLAP FROM: ABBREVIATIONS -->

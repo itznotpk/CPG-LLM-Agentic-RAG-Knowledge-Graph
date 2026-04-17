@@ -9,9 +9,9 @@ output:
 
 ## ENDOVASCULAR THROMBECTOMY
 
-## 10 . 1 Acute Endovascular Thrombectomy Treatment
+## 10 . Acute Endovascular Thrombectomy Treatment
 
-Acute Endovascular Thrombectomy treatment (EVT) is considered as the standard of care since 2015 following the publications of 5 RCTs which have led to a major guideline revamp around the world . 1 -5 EVT is indicated in acute ischaemic stroke that presents within 6-8 hours , and is equally beneficial in selected patients of up to 24 hours from the time last seen well (TLSW) with evidence of large vessel occlusion (LVO) . 1 -7
+Acute Endovascular Thrombectomy treatment (EVT) is considered as the standard of care since 2015 following the publications of 5 RCTs which have led to a major guideline revamp around the world . EVT is indicated in acute ischaemic stroke that presents within 6-8 hours , and is equally beneficial in selected patients of up to 24 hours from the time last seen well (TLSW) with evidence of large vessel occlusion (LVO) .
 
 EVT should be offered at the comprehensive stroke centre if the following are available and in coordination with the EMS:
 
@@ -19,9 +19,9 @@ EVT should be offered at the comprehensive stroke centre if the following are av
 - II . A stroke team consisting of neuro-interventional experts (interventional neuro-radiologist or interventional neurologist/neurosurgeon) .
 - III . All AIS patients who are a candidate for EVT must at least undergo NCCT and CT angiography from arch of aorta -vertex with or without multiphase CTA or CT perfusion . MRI with MRA can be considered in selected cases if necessary and not as a routine modality to avoid any delays .
 
-(New recommendation , Level 1 , Grade A)
+(New recommendation , Level, Grade A)
 
-## 10 . 2 Indication for Acute Endovascular Thrombectomy
+## 10 . Indication for Acute Endovascular Thrombectomy
 
 - I . Baseline functional status mRS of 0 -2 or generally ADL independent .
 - II . EVT is indicated in patients who have received intravenous Alteplase , but do not wait to assess response , and those who are not eligible for intravenous Alteplase with evidence of LVO .
@@ -52,9 +52,9 @@ Recommendation: EVT is indicated in selected patients who arrive after 6 hours a
 
 (New recommendation , Level I , Grade A)
 
-## 10 . 3 Early Revascularization
+## 10 . Early Revascularization
 
-Revascularization needs to be organized immediately . The majority of the EVT studies emphasise the importance of the early timing of recanalization through a properly organized stroke workflow , which was lacking in the previous neutral study . It is very important to understand that the treatment benefit declines over time; and despite recent evidence for extended hours for reperfusion therapy via EVT , there is no reason to delay recanalization in order to maximize the possible best outcome . 6 , 7
+Revascularization needs to be organized immediately . The majority of the EVT studies emphasise the importance of the early timing of recanalization through a properly organized stroke workflow , which was lacking in the previous neutral study . It is very important to understand that the treatment benefit declines over time; and despite recent evidence for extended hours for reperfusion therapy via EVT , there is no reason to delay recanalization in order to maximize the possible best outcome .
 
 Recommendation: AIS patients who arrive within 4 . 5 hours of stroke onset and are eligible for rtPA treatment should be considered for thrombolytic treatment prior to EVT . 1 -5
 
@@ -72,19 +72,19 @@ Recommendation: Transfer to high-volume centres has been associated with reduced
 
 (New recommendation , Level II, I, Grade B)
 
-## 10 . 4 Endovascular Thrombectomy Devices
+## 10 . Endovascular Thrombectomy Devices
 
 Aspiration devices and Stent retriever are used widely for EVT , and these devices have been used almost exclusively in clinical trials within the past 5 years .
 
 (New recommendation , Level II, I, Grade B)
 
-## 10 . 5 Sedation vs General Anaesthesia
+## 10 . Sedation vs General Anaesthesia
 
 Procedural sedation is generally preferred over general anaesthesia and intubation in most patients undergoing EVT . General anaesthesia and intubation is however , appropriate , if medically indicated (e . g . , for airway compromise , respiratory distress , depressed level of consciousness , severe agitation , or any other indication as determined by the treating physician) and in such cases , excessive and prolonged hypotension and time delays should be avoided .
 
 (New recommendation , Level II, I, Grade B)
 
-## 10 . 6 Endovascular Thrombectomy Work Flow
+## 10 . Endovascular Thrombectomy Work Flow
 
 EVT should be offered at the comprehensive stroke centree when the following are available and in coordination with the EMS as following:
 
@@ -98,7 +98,7 @@ Figure 10 . 1: Endovascular Thrombectomy Work Flow
 |-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
 | Treatment                                                 | Recommendations                                                                                                                                                                                                            | Level of Evidence                                         | Grade                                                     |
 | Acute Endovascular Thrombectomy (EVT)                     | EVT is indicated for AIS with large vessel occlusion; proximal middle cerebral artery segment 1 (M1)/proximal M2 occlusion/internal carotid artery (ICA) ,  and presenting within 6 hours from onset .  New recommendation | I                                                         | A                                                         |
-| Acute Endovascular Thrombectomy (EVT)                     | EVT is indicated in selected patients who arrive after 6 hours and up to 24 hours of stroke onset with evidence of large vessel occlusion .  5 , 6 New recommendation                                                      | I                                                         | A                                                         |
+| Acute Endovascular Thrombectomy (EVT)                     | EVT is indicated in selected patients who arrive after 6 hours and up to 24 hours of stroke onset with evidence of large vessel occlusion . New recommendation                                                      | I                                                         | A                                                         |
 | EVT bridging with Alteplase (Drip & Ship)                 | AIS patients who arrive within 4 . 5 hours of stroke onset and are eligible for rtPA treatment should be considered for thrombolytic treatment prior to EVT .  New recommendation                                          | I                                                         | A                                                         |
 | EVT bridging with Alteplase (Drip & Ship)                 | For patients undergoing  “ Drip & Ship ”  (EVT following administration of IVT) ,  there should be no delay in proceeding to EVT to determine the clinical effectiveness of Alteplase .  New recommendation                | I                                                         | A                                                         |
 | EVT bridging with Tenecteplase                            | AIS patients who arrive within 4 . 5 hours of stroke onset and are eligible for thrombolytic treatment can be considered for intravenous Tenecteplase prior to EVT .  New recommendation                                   | II                                                        | B                                                         |
@@ -110,9 +110,9 @@ Figure 10 . 1: Endovascular Thrombectomy Work Flow
 
 ## 11
 
-## 11 . 1 Stroke Unit
+## 11 . Stroke Unit
 
-All patients with acute stroke should ideally have access to stroke units . There is clear evidence that the treatment of patients with stroke in stroke units significantly reduces death , dependency , institutionalisation , and length of hospital stay as compared to treatment in the general medical ward . 1 -7
+All patients with acute stroke should ideally have access to stroke units . There is clear evidence that the treatment of patients with stroke in stroke units significantly reduces death , dependency , institutionalisation , and length of hospital stay as compared to treatment in the general medical ward .
 
 Recommendation: Every hospital should set up a stroke unit as it can significantly reduce deaths , dependency , institutionalisation , and the length of hospital stay .
 
@@ -136,7 +136,7 @@ Ideally , a stroke unit should have/provide:
 - IV . Management protocols for common problems based upon the best available evidence
 - V . Close links with the primary care setting , community services and patient ' s welfare unit
 - VI . Training for healthcare professionals in the specialty of stroke
-- VII . The use of comprehensive specialized stroke care (stroke units) that incorporates rehabilitation services is recommended . It has been shown to reduce mortality and disabilities . 1
+- VII . The use of comprehensive specialized stroke care (stroke units) that incorporates rehabilitation services is recommended . It has been shown to reduce mortality and disabilities .
 
 Recommendation: The use of comprehensive specialized stroke care (stroke units) that incorporates rehabilitation services is recommended .
 
@@ -186,181 +186,33 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES , Ministry of Health Malaysi
 
 | Abbreviations   | Descriptions                                                                                                                                                                                 |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ACA             | Anterior Cerebral Artery                                                                                                                                                                     |
-| ACAS            | Asymptomatic Carotid Atherosclerosis                                                                                                                                                         |
-| ACCORD          | Action to Control Cardiovascular Risk in Diabetes                                                                                                                                            |
-| ACE             | Angiotensin-Converting Enzyme                                                                                                                                                                |
-| ACST            | Asymptomatic Carotid Surgery Trial                                                                                                                                                           |
-| ADC             | Ambulance Dispatch Centre                                                                                                                                                                    |
 | ADL             | Activities of Daily Living                                                                                                                                                                   |
-| AED             | Anti - epileptic Drug                                                                                                                                                                        |
-| AF              | Atrial Fibrillation                                                                                                                                                                          |
 | AIS             | Acute Ischaemic Stroke                                                                                                                                                                       |
-| ANCA            | Antineutrophil Cytoplasmic Antibodies                                                                                                                                                        |
-| aPTT            | activated Partial Thromboplastin Time                                                                                                                                                        |
-| ARB             | Angiotensin Receptor Blocker                                                                                                                                                                 |
-| ARR             | Absolute Risk Reduction                                                                                                                                                                      |
-| ARRIVE          | Aspirin to Reduce Risk of Initial Vascular Events                                                                                                                                            |
-| ASCEND          | A Study of Cardiovascular Events in Diabetes                                                                                                                                                 |
-| ASCO            | Atherosclerosis ,  Small - vessel disease ,  Cardiac source ,  and Other causes                                                                                                              |
-| ASCVD           | Atherosclerotic Cardiovascular Disease                                                                                                                                                       |
-| ASD             | Atrial Septal Defect                                                                                                                                                                         |
-| ASTER           | Contact Aspiration vs Stent Retriever for Successful Revascularization                                                                                                                       |
-| AVERT           | A Very Early Rehabilitation Trial after stroke                                                                                                                                               |
-| BP              | Blood Pressure                                                                                                                                                                               |
-| CADASIL         | Cerebral Autosomal Dominant Arteriopathy with Subcortical Infarcts and Leukoencephalopathy                                                                                                   |
-| CAS             | Carotid Angioplasty and Stenting                                                                                                                                                             |
-| CCS             | Causative Classification Systems                                                                                                                                                             |
-| CEA             | Carotid Endarterectomy                                                                                                                                                                       |
-| CHA2DS2 - VASc  | Congestive heart failure ,  Hypertension ,  Age ≥ 75 years ,  Diabetes mellitus ,  Stroke ,  or transient ischemic attack (TIA) ,  Vascular disease ,  Age 65 to 74 years ,  Gender category |
-| CISS            | Chinese Ischaemic Stroke Classification                                                                                                                                                      |
-| CLOT            | Clots in Legs Or Stockings after Stroke                                                                                                                                                      |
-| CNS             | Central Nervous System                                                                                                                                                                       |
-| CPAP            | Continuous Positive Airway Pressure                                                                                                                                                          |
 | CPG             | Clinical Practice Guideline                                                                                                                                                                  |
-| CPSS            | Cincinnati Prehospital Stroke Scale                                                                                                                                                          |
-| CRP             | C - Reactive Protein                                                                                                                                                                         |
-| CSP             | Cryosupernatant Plasma                                                                                                                                                                       |
 | CT              | Computerized Tomography                                                                                                                                                                      |
 | CTA             | Computerized Tomography Angiography                                                                                                                                                          |
-| CTB             | CT scans of the Brain                                                                                                                                                                        |
-| CTP/MRP         | CT or MR Perfusion                                                                                                                                                                           |
-| CV              | Cardiovascular                                                                                                                                                                               |
-| CVD             | Cardiovascular Disease                                                                                                                                                                       |
 
-| CVT         | Cerebral Venous Thrombosis                                                                                                                                |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DALYs       | Disability Adjusted Life Years                                                                                                                            |
-| DASH        | Dietary Action to Stop Hypertension                                                                                                                       |
 | DAWN        | Clinical Mismatch in the Triage of Wake Up and Late Presenting Strokes Undergoing Neurointervention With Trevo                                            |
 | DEFUSE      | Endovascular Therapy Following Imaging Evaluation for Ischemic Stroke                                                                                     |
-| DNA         | Deoxyribonucleic Acid                                                                                                                                     |
-| DOAC        | Direct Oral Anticoagulant                                                                                                                                 |
-| DSA         | Digital Subtraction Angiography                                                                                                                           |
-| DVT         | Deep Vein Thrombosis                                                                                                                                      |
-| DWI - FLAIR | MRI Diffusion Weighted Imaging – Fluid Attenuated Inversion Recovery                                                                                      |
-| DWI - MRI   | Diffusion - weighted imaging-MRI                                                                                                                          |
-| ECG         | Electrocardiogram                                                                                                                                         |
-| ECHO        | Echocardiography                                                                                                                                          |
-| EC - IC     | Extracranial  –  Intracranial                                                                                                                             |
-| ED          | Emergency Department                                                                                                                                      |
-| EF          | Ejection Fraction                                                                                                                                         |
-| eGFR        | estimated Glomerular Filtration Rate                                                                                                                      |
-| EMD         | Emergency Medical Dispatchers                                                                                                                             |
 | EMS         | Emergency Medical Services                                                                                                                                |
-| EMTS        | Emergency Medicine and Trauma Service                                                                                                                     |
-| ENT         | Ear ,  Nose ,  and Throat                                                                                                                                 |
-| ESCT        | European Surgical Carotid Trial                                                                                                                           |
-| ESR         | Erythrocyte Sedimentation Rate                                                                                                                            |
-| ESUS        | Embolic Stroke of Undetermined Source                                                                                                                     |
 | EVT         | Endovascular Treatment                                                                                                                                    |
-| FAST        | Face ,  Arm ,  Speech and Time                                                                                                                            |
-| FBC         | Full Blood Count                                                                                                                                          |
-| FDA         | Food and Drug Administration                                                                                                                              |
-| FFP         | Fresh Frozen Plasma                                                                                                                                       |
-| FOOD        | Feed or Ordinary Diet                                                                                                                                     |
-| FORTA - A   | Fit For The Aged - Highly Beneficial                                                                                                                      |
-| FORTA - B   | Fit For The Aged - Beneficial                                                                                                                             |
-| FRS         | Framingham Risk Score                                                                                                                                     |
-| FRS - CVD   | Framingham CVD Risk Score                                                                                                                                 |
-| FSRS        | Framingham Stroke Risk Score                                                                                                                              |
-| GCS         | Glasgow Coma Scale                                                                                                                                        |
-| GTN         | Glyceryl Trinitrate                                                                                                                                       |
-| GXM         | Group and Crossmatch                                                                                                                                      |
-| HAS - BLED  | Hypertension ,  Abnormal renal/liver function ,  Stroke ,  Bleeding history or predisposition ,  Labile INR ,  Elderly (age over 65) ,  and Drugs/alcohol |
-| HCTZ        | Hydrochlorothiazide                                                                                                                                       |
-| HELLP       | Haemolysis ,  Elevated Liver Enzyme levels ,  and Low Platelet levels .                                                                                   |
-| HHT         | Hereditary Haemorrhagic Telangiectasia                                                                                                                    |
-| HIV/AIDS    | Human Immunodeficiency Virus infection/Acquired Immune Deficiency Syndrome                                                                                |
-| HOPE - 3    | Heart Outcomes Prevention Evaluation - 3                                                                                                                  |
-| IAS         | Intracranial Artery Stenting                                                                                                                              |
 | ICA         | Internal Carotid Artery                                                                                                                                   |
-| ICP         | Intracranial Pressure                                                                                                                                     |
-| ICU         | Intensive Care Unit                                                                                                                                       |
 
-| IHD         | Ischaemic Heart Disease                                                       |
 |-------------|-------------------------------------------------------------------------------|
-| INR         | International Normalised Ratio                                                |
-| IPC         | Intermittent Pneumatic Compression                                            |
 | IV          | Intravenous                                                                   |
 | IVT         | Intravenous Thrombolysis                                                      |
-| KPI         | Key Performance Indicator                                                     |
-| LAPSS       | Los Angeles Prehospital Stroke Screen                                         |
-| LDL         | Low - Density Lipoprotein                                                     |
-| LDL - C     | Low - Density Lipoprotein Cholesterol                                         |
-| LFT         | Liver Function Test                                                           |
-| LMIC        | Low and Middle - Income Countries                                             |
-| LMWH        | Low Molecular Weight Heparin                                                  |
-| LSD         | D - lysergic acid diethylamide                                                |
-| LV          | Left Ventricular                                                              |
 | LVO         | Large Vessel Occlusion                                                        |
-| MBS         | Modified Barium Swallow Examination                                           |
-| MCA         | Middle Cerebral Artery                                                        |
-| MD          | Medical Doctor                                                                |
-| MECC        | Medical Emergency Coordination Centre                                         |
-| MELAS       | Mitochondrial Encephalopathy ,  Lactic Acidosis ,  and Stroke - like episodes |
-| MPDS        | Medical Priority Dispatch System                                              |
 | MR          | Magnetic Resonance                                                            |
 | MRA         | Magnetic Resonance Angiography                                                |
-| MRC/BHF     | Medical Research Council/British Heart Foundation                             |
 | MRI         | Magnetic Resonance Imaging                                                    |
 | mRS         | Modified Rankin Scale                                                         |
-| mtDNA       | Mitochondrial DNA                                                             |
-| MTHFR       | Methylenetetrahydrofolate Reductase                                           |
-| NASCET      | North American Symptomatic Carotid Endarterectomy Trial                       |
-| NBM         | Nil by Mouth                                                                  |
 | NCCT        | Non - Contrast CT                                                             |
-| NES         | Neuroendovascular surgeon                                                     |
-| NG          | Nasogastric                                                                   |
-| NHMS        | National Health Morbidity Survey                                              |
 | NIHSS       | National Institutes of Health Stroke Scale                                    |
-| NSAID       | Non - Steroidal Anti - Inflammatory Drug                                      |
-| NSR         | Normal Sinus Rhythm                                                           |
-| NVAF        | Non - Valvular Atrial Fibrillation                                            |
-| OAC         | Oral Anticoagulant                                                            |
-| OAC - FORTA | Oral Anticoagulant – Fit for the Aged                                         |
-| OCSP        | Oxford Community Stroke Project                                               |
-| PACNS       | Primary Angiitis of the Central Nervous System                                |
-| PAN         | Polyarteritis Nodosa                                                          |
-| PAR         | Population-Adjustable Risk                                                    |
-| PCA         | Posterior Cerebral Artery                                                     |
-| PCC         | Prothrombin Complex Concentrate                                               |
-| PCO2        | Partial Pressure of Carbon Dioxide                                            |
-| PEG         | Percutaneous Endoscopic Gastrostomy                                           |
-| PET         | Positron Emission Tomography                                                  |
-| PFO         | Patent Foramen Ovale                                                          |
-| PHC         | Pre - Hospital Care                                                           |
 
-| PREDIMED    | Prevención con Dieta Mediterránea (Prevention with Mediterranean Diet)                                 |
 |-------------|--------------------------------------------------------------------------------------------------------|
-| PT          | Prothrombin Time                                                                                       |
 | RCT         | Randomized Clinical Trials                                                                             |
-| RNA         | Ribonucleic Acid                                                                                       |
-| RP          | Renal Profile                                                                                          |
 | rtPA        | recombinant tissue Plasminogen Activator                                                               |
-| RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
-| RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
-| SAMMPRIS    | Stenting and Aggressive Medical management for prevention of Recurrent Stroke in Intracranial Stenosis |
-| sICH        | Symptomatic Intracranial Haemorrhage                                                                   |
-| SLE         | Systemic Lupus Erythematosus                                                                           |
-| SOCRATES    | Acute Stroke or Transient Ischaemic Attack Treated With Aspirin or Ticagrelor and Patient Outcomes     |
-| SPRINT      | Systolic Blood Pressure Intervention Trial                                                             |
-| SSS - TOAST | Stop-Stroke Study TOAST                                                                                |
-| TB          | Tuberculosis                                                                                           |
-| TIA         | Transient Ischaemic Attack                                                                             |
 | TLSW        | Time Last Seen Well                                                                                    |
-| TMS         | Transcranial Magnetic Stimulation                                                                      |
-| TOAST       | Trial of Org 10172 in Acute Stroke Treatment                                                           |
-| TOE         | Trans - Oesophageal Echocardiogram                                                                     |
-| TT          | Thrombin Time                                                                                          |
-| TTE         | Transthoracic Echocardiogram                                                                           |
-| UFH         | Unfractionated Heparin                                                                                 |
-| US          | United States                                                                                          |
-| VDRL        | Venereal Disease Research Laboratory                                                                   |
-| VFSE        | Video Fluoroscopic Swallowing Examination                                                              |
-| VISSIT      | Vitesse Intracranial Stent Study for Ischemic Therapy                                                  |
-| VKA         | Vitamin K Antagonists                                                                                  |
-| VTE         | Venous Thromboembolism                                                                                 |
-| WEAVE       | Wingspan Stent System Post Market Surveillance                                                         |
 
 <!-- END OVERLAP FROM: ABBREVIATIONS -->

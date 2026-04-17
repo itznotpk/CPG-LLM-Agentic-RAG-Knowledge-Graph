@@ -9,17 +9,17 @@ output:
 
 ## STROKE IN SPECIAL CIRCUMSTANCES
 
-## 14 . 1 Stroke in Young Adults
+## 14 . Stroke in Young Adults
 
-The incidence of stroke in young adults (18 to 45 years) is increasing and the prevalence is reported to be approximately 10-15% of all stroke patients . 1 The causes and risk factors of stroke in young adults is distinct from those in older patients , in which cardiac embolism and other aetiologies are more common , notably non-atherosclerotic arteriopathies and haematological disorders . 2 , 3 Therefore , the diagnostic evaluation and management strategy are usually more comprehensive and challenging . This chapter will cover the aetiology and risk factors in young adults with stroke , in addition to the diagnosis and management of specific causes of stroke in young adults .
+The incidence of stroke in young adults (18 to 45 years) is increasing and the prevalence is reported to be approximately 10-15% of all stroke patients . The causes and risk factors of stroke in young adults is distinct from those in older patients , in which cardiac embolism and other aetiologies are more common , notably non-atherosclerotic arteriopathies and haematological disorders . Therefore , the diagnostic evaluation and management strategy are usually more comprehensive and challenging . This chapter will cover the aetiology and risk factors in young adults with stroke , in addition to the diagnosis and management of specific causes of stroke in young adults .
 
-## 14 . 2 Young Stroke Aetiology
+## 14 . Young Stroke Aetiology
 
-The causes of ischaemic stroke in young adults are diverse and vary by age , gender , and geographic region . 4 The causes may be classified according to the TOAST classification .
+The causes of ischaemic stroke in young adults are diverse and vary by age , gender , and geographic region . The causes may be classified according to the TOAST classification .
 
-Non -atherosclerotic arteriopathies such as arterial dissection as well as premature atherosclerosis due to hypertension , cigarette smoking and hyperlipidaemia are collectively the most common causes of ischaemic stroke in young individuals . 3 , 5 But often , the cause of the stroke is unknown . 6
+Non -atherosclerotic arteriopathies such as arterial dissection as well as premature atherosclerosis due to hypertension , cigarette smoking and hyperlipidaemia are collectively the most common causes of ischaemic stroke in young individuals . But often , the cause of the stroke is unknown .
 
-Cryptogenic stroke is defined as stroke without any probable cause identified after adequate diagnostic evaluation . 7 -10 Cryptogenic stroke has been reported in up to 40% of young stroke cases . 4 In 2014 , the clinical construct of " embolic stroke of undetermined source " (ESUS) was introduced to identify patients with non-lacunar cryptogenic ischaemic strokes in whom embolism was the likely stroke mechanism . About 1/6 of stroke patients are labelled as ESUS and they are generally younger patients with milder stroke but are associated with a higher risk of stroke recurrence . 7 , 8 To date , there is no evidence to suggest the role of anticoagulants in the management of ESUS .
+Cryptogenic stroke is defined as stroke without any probable cause identified after adequate diagnostic evaluation . Cryptogenic stroke has been reported in up to 40% of young stroke cases . In, the clinical construct of " embolic stroke of undetermined source " (ESUS) was introduced to identify patients with non-lacunar cryptogenic ischaemic strokes in whom embolism was the likely stroke mechanism . About 1/6 of stroke patients are labelled as ESUS and they are generally younger patients with milder stroke but are associated with a higher risk of stroke recurrence . To date , there is no evidence to suggest the role of anticoagulants in the management of ESUS .
 
 ## Table 14 . 1: Aetiology of Young Stroke
 
@@ -115,7 +115,7 @@ vasculopathy with cerebral leukodystrophy (RVCL) due to TREX1 mutation , hyperho
 -  Criteria: (1) non-lacunar stroke detected by CT or MRI; (2) absence of extracranial or intracranial atherosclerosis causing 50% luminal stenosis in arteries supplying the ischaemic area; (3) absence of a major-risk cardiac source of embolism; and (4) absence of any other specific cause of index stroke . Lacunar stroke is defined as a subcortical infarct 1 . 5 cm in its largest dimension and in the distribution of the small , penetrating arteries .
 -  Management is long-term antiplatelet with no evidence for oral anticoagulants . One RCT showed direct oral anticoagulants (Rivaroxaban) is not superior to aspirin in prevention of recurrent stroke and associated with higher risk of bleeding . Prolonged ambulatory ECG monitoring to detect AF is more important as occult AF occurs in about 25% of all ESUS .
 
-## 14 . 3 Stroke Patients with Patent Foramen Ovale (PFO)
+## 14 . Stroke Patients with Patent Foramen Ovale (PFO)
 
 Recommendation: PFO closure devices have moderate benefit to young and middle-aged patients with cryptogenic ischaemic stroke . PFO closure devices combined with antiplatelet therapy is also recommended . 19
 
@@ -137,11 +137,11 @@ In patients with PFO and deep vein thrombosis (DVT) , PFO closure with a transca
 
 (New recommendation , Level III , Class C)
 
-PFO closure during pregnancy is not recommended . 21 Low -dose oral Aspirin is the first line of treatment . 21 If a pregnant patient with a known PFO is at increased risk of venous thrombosis , prophylactic low molecular weight heparin (LMWH) doses can be considered . 21
+PFO closure during pregnancy is not recommended . Low -dose oral Aspirin is the first line of treatment . If a pregnant patient with a known PFO is at increased risk of venous thrombosis , prophylactic low molecular weight heparin (LMWH) doses can be considered .
 
-In one study , in patients who had a recent cryptogenic stroke due to PFO with an associated atrial septal aneurysm or large interatrial shunt , the rate of stroke recurrence was lower in patients with combined PFO closure/antiplatelet therapy compared to patients with antiplatelet therapy alone . 22 However , the closure of PFO was associated with a higher frequency of atrial fibrillation . 22
+In one study , in patients who had a recent cryptogenic stroke due to PFO with an associated atrial septal aneurysm or large interatrial shunt , the rate of stroke recurrence was lower in patients with combined PFO closure/antiplatelet therapy compared to patients with antiplatelet therapy alone . However , the closure of PFO was associated with a higher frequency of atrial fibrillation . 22
 
-## 14 . 4 Investigation of Young Stroke
+## 14 . Investigation of Young Stroke
 
 Identify the cause / predisposing factor 6
 
@@ -183,24 +183,24 @@ Identify the cause / predisposing factor 6
 | Table 14 . 3: Treatment of Stroke in Certain Circumstances   | Table 14 . 3: Treatment of Stroke in Certain Circumstances                                                                                                                                                                                                                    | Table 14 . 3: Treatment of Stroke in Certain Circumstances   | Table 14 . 3: Treatment of Stroke in Certain Circumstances   |
 |--------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
 | Treatment                                                    | Recommendations                                                                                                                                                                                                                                                               | Level of Evidence                                            | Grade                                                        |
-| Aspirin 24 , 25                                              | If the cause is not identified ,  Aspirin is usually given while additional tests are obtained to guide the choice between long-term antiplatelet or anticoagulant therapy .                                                                                                  | III                                                          | C                                                            |
-| Aspirin 24 , 25                                              | Antiplatelet therapy is recommended in patients who are found to have abnormal findings on coagulation testing after an initial ischaemic stroke or TIA if anticoagulant therapy is not administered .                                                                        | I                                                            | A                                                            |
-| Aspirin 24 , 25                                              | For patients with ischaemic stroke or TIA who have an anti - phospholipid antibody but who do not fulfil the criteria for anti - phospholipid antibody syndrome ,  antiplatelet therapy is recommended                                                                        | I                                                            | B                                                            |
-| Aspirin 24 , 25                                              | For patients with ischaemic stroke or TIA who meet the criteria for the anti - phospholipid antibody syndrome but in whom anticoagulation is not yet started ,  antiplatelet therapy is indicated                                                                             | I                                                            | A                                                            |
-| DOAC                                                         | ESUS: There is no role of anticoagulant in ESUS .  Rivaroxaban was not superior to aspirin with regard to the prevention of recurrent stroke after an initial embolic stroke of undetermined source and was associated with a higher risk of bleeding . 26 New recommendation | I                                                            | A                                                            |
+| Aspirin, 25                                              | If the cause is not identified ,  Aspirin is usually given while additional tests are obtained to guide the choice between long-term antiplatelet or anticoagulant therapy .                                                                                                  | III                                                          | C                                                            |
+| Aspirin, 25                                              | Antiplatelet therapy is recommended in patients who are found to have abnormal findings on coagulation testing after an initial ischaemic stroke or TIA if anticoagulant therapy is not administered .                                                                        | I                                                            | A                                                            |
+| Aspirin, 25                                              | For patients with ischaemic stroke or TIA who have an anti - phospholipid antibody but who do not fulfil the criteria for anti - phospholipid antibody syndrome ,  antiplatelet therapy is recommended                                                                        | I                                                            | B                                                            |
+| Aspirin, 25                                              | For patients with ischaemic stroke or TIA who meet the criteria for the anti - phospholipid antibody syndrome but in whom anticoagulation is not yet started ,  antiplatelet therapy is indicated                                                                             | I                                                            | A                                                            |
+| DOAC                                                         | ESUS: There is no role of anticoagulant in ESUS .  Rivaroxaban was not superior to aspirin with regard to the prevention of recurrent stroke after an initial embolic stroke of undetermined source and was associated with a higher risk of bleeding . New recommendation | I                                                            | A                                                            |
 
-|                   | For patients with an ischaemic stroke or TIA and both a PFO and a venous source of embolism ,  anticoagulation is indicated ,  depending on the stroke characteristics . 27 New recommendation                                                                                                                                              | I      | A   |
+|                   | For patients with an ischaemic stroke or TIA and both a PFO and a venous source of embolism ,  anticoagulation is indicated ,  depending on the stroke characteristics . New recommendation                                                                                                                                              | I      | A   |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----|
 |                   | Anticoagulation might be considered in patients who are found to have abnormal findings on coagulation testing after an initial ischaemic stroke or TIA ,  depending on the abnormality and the clinical circumstances .  New recommendation                                                                                                | II - 2 | C   |
 |                   | For patients with ischaemic stroke or TIA who meet the criteria for the APS ,  anticoagulant therapy might be considered depending on the perception of risk for recurrent thrombotic events and bleeding .  New recommendation                                                                                                             | II - 2 | C   |
-| Device            | PFO closure device therapy PFO closure devices have moderate benefit to young and middle - aged patients with cryptogenic ischaemic stroke .  PFO closure devices combined with antiplatelet therapy is also recommended . 19 New recommendation                                                                                            | I      | A   |
-|                   | Continuous positive airway pressure (CPAP) machine CPAP therapy might be considered for patients with ischaemic stroke or TIA and sleep apnoea given the emerging evidence in support of improved outcomes . 28 New recommendation                                                                                                          | II - 2 | B   |
-| Blood transfusion | For patients with sickle cell disease and prior ischaemic stroke or TIA ,  long-term blood transfusions to reduce haemoglobin S to <30% of total haemoglobin composition are recommended . 29 New recommendation                                                                                                                            | I      | B   |
+| Device            | PFO closure device therapy PFO closure devices have moderate benefit to young and middle - aged patients with cryptogenic ischaemic stroke .  PFO closure devices combined with antiplatelet therapy is also recommended . New recommendation                                                                                            | I      | A   |
+|                   | Continuous positive airway pressure (CPAP) machine CPAP therapy might be considered for patients with ischaemic stroke or TIA and sleep apnoea given the emerging evidence in support of improved outcomes . New recommendation                                                                                                          | II - 2 | B   |
+| Blood transfusion | For patients with sickle cell disease and prior ischaemic stroke or TIA ,  long-term blood transfusions to reduce haemoglobin S to <30% of total haemoglobin composition are recommended . New recommendation                                                                                                                            | I      | B   |
 | Supplements       | Supplementation with folate ,  vitamin B6 and vitamin B1 In adults with a recent ischaemic stroke or TIA who are known to have mild to moderate hyperhomocysteinaemia ,  supplementation with folate ,  vitamin B6 and vitamin B12 safely reduces the levels of homocysteine but has not been shown to prevent stroke .  New recommendation | III    | B   |
 
-## 14 . 5 Cerebral Venous Thrombosis
+## 14 . Cerebral Venous Thrombosis
 
-CVT is a type of stroke where the thrombosis occurs in the venous side of the brain circulation , leading to occlusion of one or more cerebral veins and dural venous sinus . The age and gender distribution of CVT is different from that of ischaemic stroke , CVT being more frequent in young adults and women . The incidence is higher in developing countries . CVT is associated with prothrombotic conditions either due to transient causes or permanent primary causes . In around 13% of adult with CVT , no risk factors are identified . The European Stroke Organization guideline addresses both diagnostic and therapeutic topics in CVT . 10 CVT in pregnancy is outlined in the chapter of stroke in pregnancy .
+CVT is a type of stroke where the thrombosis occurs in the venous side of the brain circulation , leading to occlusion of one or more cerebral veins and dural venous sinus . The age and gender distribution of CVT is different from that of ischaemic stroke , CVT being more frequent in young adults and women . The incidence is higher in developing countries . CVT is associated with prothrombotic conditions either due to transient causes or permanent primary causes . In around 13% of adult with CVT , no risk factors are identified . The European Stroke Organization guideline addresses both diagnostic and therapeutic topics in CVT . CVT in pregnancy is outlined in the chapter of stroke in pregnancy .
 
 ## Recommendations:
 
@@ -280,181 +280,56 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES , Ministry of Health Malaysi
 
 | Abbreviations   | Descriptions                                                                                                                                                                                 |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ACA             | Anterior Cerebral Artery                                                                                                                                                                     |
-| ACAS            | Asymptomatic Carotid Atherosclerosis                                                                                                                                                         |
-| ACCORD          | Action to Control Cardiovascular Risk in Diabetes                                                                                                                                            |
-| ACE             | Angiotensin-Converting Enzyme                                                                                                                                                                |
-| ACST            | Asymptomatic Carotid Surgery Trial                                                                                                                                                           |
-| ADC             | Ambulance Dispatch Centre                                                                                                                                                                    |
-| ADL             | Activities of Daily Living                                                                                                                                                                   |
-| AED             | Anti - epileptic Drug                                                                                                                                                                        |
 | AF              | Atrial Fibrillation                                                                                                                                                                          |
-| AIS             | Acute Ischaemic Stroke                                                                                                                                                                       |
-| ANCA            | Antineutrophil Cytoplasmic Antibodies                                                                                                                                                        |
 | aPTT            | activated Partial Thromboplastin Time                                                                                                                                                        |
-| ARB             | Angiotensin Receptor Blocker                                                                                                                                                                 |
-| ARR             | Absolute Risk Reduction                                                                                                                                                                      |
-| ARRIVE          | Aspirin to Reduce Risk of Initial Vascular Events                                                                                                                                            |
-| ASCEND          | A Study of Cardiovascular Events in Diabetes                                                                                                                                                 |
-| ASCO            | Atherosclerosis ,  Small - vessel disease ,  Cardiac source ,  and Other causes                                                                                                              |
-| ASCVD           | Atherosclerotic Cardiovascular Disease                                                                                                                                                       |
 | ASD             | Atrial Septal Defect                                                                                                                                                                         |
-| ASTER           | Contact Aspiration vs Stent Retriever for Successful Revascularization                                                                                                                       |
-| AVERT           | A Very Early Rehabilitation Trial after stroke                                                                                                                                               |
-| BP              | Blood Pressure                                                                                                                                                                               |
 | CADASIL         | Cerebral Autosomal Dominant Arteriopathy with Subcortical Infarcts and Leukoencephalopathy                                                                                                   |
-| CAS             | Carotid Angioplasty and Stenting                                                                                                                                                             |
-| CCS             | Causative Classification Systems                                                                                                                                                             |
-| CEA             | Carotid Endarterectomy                                                                                                                                                                       |
-| CHA2DS2 - VASc  | Congestive heart failure ,  Hypertension ,  Age ≥ 75 years ,  Diabetes mellitus ,  Stroke ,  or transient ischemic attack (TIA) ,  Vascular disease ,  Age 65 to 74 years ,  Gender category |
-| CISS            | Chinese Ischaemic Stroke Classification                                                                                                                                                      |
-| CLOT            | Clots in Legs Or Stockings after Stroke                                                                                                                                                      |
 | CNS             | Central Nervous System                                                                                                                                                                       |
 | CPAP            | Continuous Positive Airway Pressure                                                                                                                                                          |
 | CPG             | Clinical Practice Guideline                                                                                                                                                                  |
-| CPSS            | Cincinnati Prehospital Stroke Scale                                                                                                                                                          |
 | CRP             | C - Reactive Protein                                                                                                                                                                         |
-| CSP             | Cryosupernatant Plasma                                                                                                                                                                       |
 | CT              | Computerized Tomography                                                                                                                                                                      |
-| CTA             | Computerized Tomography Angiography                                                                                                                                                          |
-| CTB             | CT scans of the Brain                                                                                                                                                                        |
-| CTP/MRP         | CT or MR Perfusion                                                                                                                                                                           |
-| CV              | Cardiovascular                                                                                                                                                                               |
-| CVD             | Cardiovascular Disease                                                                                                                                                                       |
 
 | CVT         | Cerebral Venous Thrombosis                                                                                                                                |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DALYs       | Disability Adjusted Life Years                                                                                                                            |
-| DASH        | Dietary Action to Stop Hypertension                                                                                                                       |
-| DAWN        | Clinical Mismatch in the Triage of Wake Up and Late Presenting Strokes Undergoing Neurointervention With Trevo                                            |
-| DEFUSE      | Endovascular Therapy Following Imaging Evaluation for Ischemic Stroke                                                                                     |
 | DNA         | Deoxyribonucleic Acid                                                                                                                                     |
 | DOAC        | Direct Oral Anticoagulant                                                                                                                                 |
 | DSA         | Digital Subtraction Angiography                                                                                                                           |
 | DVT         | Deep Vein Thrombosis                                                                                                                                      |
-| DWI - FLAIR | MRI Diffusion Weighted Imaging – Fluid Attenuated Inversion Recovery                                                                                      |
-| DWI - MRI   | Diffusion - weighted imaging-MRI                                                                                                                          |
 | ECG         | Electrocardiogram                                                                                                                                         |
-| ECHO        | Echocardiography                                                                                                                                          |
-| EC - IC     | Extracranial  –  Intracranial                                                                                                                             |
-| ED          | Emergency Department                                                                                                                                      |
-| EF          | Ejection Fraction                                                                                                                                         |
-| eGFR        | estimated Glomerular Filtration Rate                                                                                                                      |
-| EMD         | Emergency Medical Dispatchers                                                                                                                             |
-| EMS         | Emergency Medical Services                                                                                                                                |
-| EMTS        | Emergency Medicine and Trauma Service                                                                                                                     |
-| ENT         | Ear ,  Nose ,  and Throat                                                                                                                                 |
-| ESCT        | European Surgical Carotid Trial                                                                                                                           |
 | ESR         | Erythrocyte Sedimentation Rate                                                                                                                            |
 | ESUS        | Embolic Stroke of Undetermined Source                                                                                                                     |
-| EVT         | Endovascular Treatment                                                                                                                                    |
-| FAST        | Face ,  Arm ,  Speech and Time                                                                                                                            |
 | FBC         | Full Blood Count                                                                                                                                          |
-| FDA         | Food and Drug Administration                                                                                                                              |
-| FFP         | Fresh Frozen Plasma                                                                                                                                       |
-| FOOD        | Feed or Ordinary Diet                                                                                                                                     |
-| FORTA - A   | Fit For The Aged - Highly Beneficial                                                                                                                      |
-| FORTA - B   | Fit For The Aged - Beneficial                                                                                                                             |
-| FRS         | Framingham Risk Score                                                                                                                                     |
-| FRS - CVD   | Framingham CVD Risk Score                                                                                                                                 |
-| FSRS        | Framingham Stroke Risk Score                                                                                                                              |
-| GCS         | Glasgow Coma Scale                                                                                                                                        |
-| GTN         | Glyceryl Trinitrate                                                                                                                                       |
-| GXM         | Group and Crossmatch                                                                                                                                      |
-| HAS - BLED  | Hypertension ,  Abnormal renal/liver function ,  Stroke ,  Bleeding history or predisposition ,  Labile INR ,  Elderly (age over 65) ,  and Drugs/alcohol |
-| HCTZ        | Hydrochlorothiazide                                                                                                                                       |
-| HELLP       | Haemolysis ,  Elevated Liver Enzyme levels ,  and Low Platelet levels .                                                                                   |
 | HHT         | Hereditary Haemorrhagic Telangiectasia                                                                                                                    |
 | HIV/AIDS    | Human Immunodeficiency Virus infection/Acquired Immune Deficiency Syndrome                                                                                |
-| HOPE - 3    | Heart Outcomes Prevention Evaluation - 3                                                                                                                  |
-| IAS         | Intracranial Artery Stenting                                                                                                                              |
-| ICA         | Internal Carotid Artery                                                                                                                                   |
-| ICP         | Intracranial Pressure                                                                                                                                     |
-| ICU         | Intensive Care Unit                                                                                                                                       |
 
-| IHD         | Ischaemic Heart Disease                                                       |
 |-------------|-------------------------------------------------------------------------------|
-| INR         | International Normalised Ratio                                                |
-| IPC         | Intermittent Pneumatic Compression                                            |
 | IV          | Intravenous                                                                   |
-| IVT         | Intravenous Thrombolysis                                                      |
-| KPI         | Key Performance Indicator                                                     |
-| LAPSS       | Los Angeles Prehospital Stroke Screen                                         |
-| LDL         | Low - Density Lipoprotein                                                     |
-| LDL - C     | Low - Density Lipoprotein Cholesterol                                         |
-| LFT         | Liver Function Test                                                           |
-| LMIC        | Low and Middle - Income Countries                                             |
 | LMWH        | Low Molecular Weight Heparin                                                  |
 | LSD         | D - lysergic acid diethylamide                                                |
-| LV          | Left Ventricular                                                              |
-| LVO         | Large Vessel Occlusion                                                        |
-| MBS         | Modified Barium Swallow Examination                                           |
-| MCA         | Middle Cerebral Artery                                                        |
-| MD          | Medical Doctor                                                                |
-| MECC        | Medical Emergency Coordination Centre                                         |
 | MELAS       | Mitochondrial Encephalopathy ,  Lactic Acidosis ,  and Stroke - like episodes |
-| MPDS        | Medical Priority Dispatch System                                              |
 | MR          | Magnetic Resonance                                                            |
 | MRA         | Magnetic Resonance Angiography                                                |
-| MRC/BHF     | Medical Research Council/British Heart Foundation                             |
 | MRI         | Magnetic Resonance Imaging                                                    |
-| mRS         | Modified Rankin Scale                                                         |
 | mtDNA       | Mitochondrial DNA                                                             |
 | MTHFR       | Methylenetetrahydrofolate Reductase                                           |
-| NASCET      | North American Symptomatic Carotid Endarterectomy Trial                       |
-| NBM         | Nil by Mouth                                                                  |
-| NCCT        | Non - Contrast CT                                                             |
-| NES         | Neuroendovascular surgeon                                                     |
-| NG          | Nasogastric                                                                   |
-| NHMS        | National Health Morbidity Survey                                              |
-| NIHSS       | National Institutes of Health Stroke Scale                                    |
-| NSAID       | Non - Steroidal Anti - Inflammatory Drug                                      |
-| NSR         | Normal Sinus Rhythm                                                           |
-| NVAF        | Non - Valvular Atrial Fibrillation                                            |
-| OAC         | Oral Anticoagulant                                                            |
-| OAC - FORTA | Oral Anticoagulant – Fit for the Aged                                         |
-| OCSP        | Oxford Community Stroke Project                                               |
 | PACNS       | Primary Angiitis of the Central Nervous System                                |
 | PAN         | Polyarteritis Nodosa                                                          |
-| PAR         | Population-Adjustable Risk                                                    |
-| PCA         | Posterior Cerebral Artery                                                     |
-| PCC         | Prothrombin Complex Concentrate                                               |
-| PCO2        | Partial Pressure of Carbon Dioxide                                            |
-| PEG         | Percutaneous Endoscopic Gastrostomy                                           |
 | PET         | Positron Emission Tomography                                                  |
 | PFO         | Patent Foramen Ovale                                                          |
-| PHC         | Pre - Hospital Care                                                           |
 
-| PREDIMED    | Prevención con Dieta Mediterránea (Prevention with Mediterranean Diet)                                 |
 |-------------|--------------------------------------------------------------------------------------------------------|
 | PT          | Prothrombin Time                                                                                       |
 | RCT         | Randomized Clinical Trials                                                                             |
 | RNA         | Ribonucleic Acid                                                                                       |
 | RP          | Renal Profile                                                                                          |
-| rtPA        | recombinant tissue Plasminogen Activator                                                               |
 | RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
 | RVCL        | Retinal Vasculopathy with Cerebral Leukodystrophy                                                      |
-| SAMMPRIS    | Stenting and Aggressive Medical management for prevention of Recurrent Stroke in Intracranial Stenosis |
-| sICH        | Symptomatic Intracranial Haemorrhage                                                                   |
 | SLE         | Systemic Lupus Erythematosus                                                                           |
-| SOCRATES    | Acute Stroke or Transient Ischaemic Attack Treated With Aspirin or Ticagrelor and Patient Outcomes     |
-| SPRINT      | Systolic Blood Pressure Intervention Trial                                                             |
-| SSS - TOAST | Stop-Stroke Study TOAST                                                                                |
 | TB          | Tuberculosis                                                                                           |
 | TIA         | Transient Ischaemic Attack                                                                             |
-| TLSW        | Time Last Seen Well                                                                                    |
-| TMS         | Transcranial Magnetic Stimulation                                                                      |
 | TOAST       | Trial of Org 10172 in Acute Stroke Treatment                                                           |
 | TOE         | Trans - Oesophageal Echocardiogram                                                                     |
-| TT          | Thrombin Time                                                                                          |
-| TTE         | Transthoracic Echocardiogram                                                                           |
 | UFH         | Unfractionated Heparin                                                                                 |
-| US          | United States                                                                                          |
-| VDRL        | Venereal Disease Research Laboratory                                                                   |
-| VFSE        | Video Fluoroscopic Swallowing Examination                                                              |
-| VISSIT      | Vitesse Intracranial Stent Study for Ischemic Therapy                                                  |
-| VKA         | Vitamin K Antagonists                                                                                  |
-| VTE         | Venous Thromboembolism                                                                                 |
-| WEAVE       | Wingspan Stent System Post Market Surveillance                                                         |
 
 <!-- END OVERLAP FROM: ABBREVIATIONS -->
