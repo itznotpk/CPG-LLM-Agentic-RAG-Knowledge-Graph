@@ -7,15 +7,58 @@ patient_input:
 output: Definition of Heart Failure
 -->
 
-| Population                             | aged > 18 years > 20 years > 18 years > 18 years >18 years Adult With symptomatic incident HF                                                                                                                                                                                                                                                    | 6480 patients 105,399 2673 patients 1307 patients 117 patients  HF hospitalizations  in a MOH  hospital |                                                                                                        | 3923 patients  Acute HF Acute HF HF pts patients patients                                                            |
-| Mean Age                               |                                                                                                                                                                                                                                                                                                                                                  |                                                                                                         | 61.6 years 64.1 years 60.17 years 63.4 years 59 years 62 years                                         |                                                                                                                      |
-| % Women                                | 27%                                                                                                                                                                                                                                                                                                                                              | 44%                                                                                                     |                                                                                                        | 33.2% 53.6% 41.1% 37.7%                                                                                              |
-| % HFrEF                                | 81%                                                                                                                                                                                                                                                                                                                                              | NA                                                                                                      |                                                                                                        | 64.6% 40.8% 48.6% 62.9%                                                                                              |
-| Length of  Hospital Stay               | NA                                                                                                                                                                                                                                                                                                                                               |                                                                                                         | 3 days 7.3 days 5.3 ± 3.4 days 5 days 9.2 days  (median) (mean) (mean). (median) (mean) 3 - 4 (median) |                                                                                                                      |
-| All Cause Readmission  30 days  1 year | NA  NA                                                                                                                                                                                                                                                                                                                                           | NA                                                                                                      | NA                                                                                                     | 18.1% 12.9% 4.1% 11.2% 6.8% 76.1% NA 24.7%                                                                           |
-| In Hospital  Mortality                 |                                                                                                                                                                                                                                                                                                                                                  | 5.3%                                                                                                    |                                                                                                        | 2.8% 1.7% 7.5% 7.2%                                                                                                  |
-| 30 days  Mortality                     |                                                                                                                                                                                                                                                                                                                                                  | 11.2%                                                                                                   | 7.8% 15.7% 13.1% NA                                                                                    |                                                                                                                      |
-| 1 year                                 | 9.6%  Mortality HFrEF:10.6%  HFpEF: 5.4%,                                                                                                                                                                                                                                                                                                        | 33.1%                                                                                                   | NA                                                                                                     | 49.7% NA  NA                                                                                                         |
+## 2. Definition
+
+**HF is a clinical syndrome** due to any structural or physiological abnormality of the heart resulting in its inability to meet the metabolic demands of the body or its ability to do so only at higher-than-normal filling pressures. This is supported by either an elevation of natriuretic peptides and/or evidence of pulmonary or systemic congestion.
+
+This may be accompanied by signs and symptoms of systemic hypoperfusion and/or volume overload. Patients may have typical symptoms (e.g., breathlessness, ankle swelling and fatigue) and signs (e.g., elevated jugular venous pressure, ankle edema, pulmonary crackles and displaced apex beat). Occasionally, some patients may present without signs or symptoms of volume overload. Older patients, often, present with atypical symptoms such as delirium, reduced appetite, immobility, incontinence, and falls.
+
+Most commonly, HF is due to myocardial dysfunction- either systolic, diastolic, or both. However, pathology of the valves, pericardium, and endocardium, and abnormalities of heart rhythm and conduction can also cause HF.
+
+Occasionally, non-cardiac disease, e.g., anemia, pulmonary, renal, thyroid, or hepatic disease may have symptoms and signs like those of HF, but in the absence of cardiac dysfunction, these do not fulfil the criteria for HF. However, these pathologies can coexist with HF and exacerbate the condition.
+
+---
+
+## Key Message #2: Definition
+
+* HF is a clinical syndrome due to any structural or physiological abnormality of the heart resulting in its inability to meet the metabolic demands of the body or its ability to do so only at higher-than-normal filling pressures.
+* This is supported objectively by either an elevation of natriuretic peptides and/or evidence of pulmonary or systemic congestion.
+
+---
+
+## Contextual Anchors (Overlapping)
+
+### Table 8: Classification Of Heart Failure According To LVEF
+
+| Ejection Fraction Terminology | LVEF |
+|---|---|
+| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
+| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
+| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
+| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
+
+### Stages of Heart Failure
+
+| Stage | Description |
+|---|---|
+| **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
+| **B - "Pre HF"** | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
+| **C - "HF"** | Symptomatic HF, either previous or current symptoms |
+| **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+
+The severity of symptomatic HF can be assessed by the New York Heart Association 
+(NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
+
+---
+
+### Table 9: New York Heart Association Functional Classification
+
+| Class | Functional Capacity | 1-Year Mortality |
+|---|---|---|
+| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
+| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
+| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
+| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 
 ---
 
@@ -23,49 +66,10 @@ output: Definition of Heart Failure
 
 | Abbreviation | Description |
 |---|---|
-| ACE-I | Angiotensin Converting Enzyme Inhibitor |
-| AF | Atrial Fibrillation |
-| ARB | Angiotensin Receptor Blocker |
-| ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
-| BNP | B-type Natriuretic Peptide |
-| BP | Blood Pressure |
-| CAD | Coronary Artery Disease |
-| CKD | Chronic Kidney Disease |
-| CRT | Cardiac Resynchronization Therapy |
-| CV | Cardiovascular |
-| CVD | Cardiovascular Disease |
-| DM | Diabetes Mellitus |
-| ECG | Electrocardiogram |
-| eGFR | Estimated Glomerular Filtration Rate |
 | HF | Heart Failure |
-| HFimpEF | HF with Improved Ejection Fraction |
-| HFmrEF | HF with Mildly Reduced Ejection Fraction |
-| HFpEF | HF with Preserved Ejection Fraction |
-| HFrEF | HF with Reduced Ejection Fraction |
-| ICD | Implantable Cardioverter Defibrillator |
-| IV | Intravenous |
-| LV | Left Ventricular |
+| HFimpEF | Heart Failure with Improved Ejection Fraction |
+| HFmrEF | Heart Failure with Mildly Reduced Ejection Fraction |
+| HFpEF | Heart Failure with Preserved Ejection Fraction |
+| HFrEF | Heart Failure with Reduced Ejection Fraction |
 | LVEF | Left Ventricular Ejection Fraction |
-| MACE | Major Adverse Cardiovascular Events |
-| MCS | Mechanical Circulatory Support |
-| MI | Myocardial Infarction |
-| MRA | Mineralocorticoid Receptor Antagonist |
-| NT-proBNP | N-terminal pro-B-type Natriuretic Peptide |
 | NYHA | New York Heart Association |
-| PPCM | Peripartum Cardiomyopathy |
-| SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitor |
-| VHD | Valvular Heart Disease |
-
-
----
-
-## Grades of Recommendation and Level of Evidence
-
-*   **Class I**: Evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
-*   **Class IIa**: Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.
-*   **Class IIb**: Usefulness/efficacy is less well established. *May be considered*.
-*   **Class III**: Evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful.
-*   **Level A**: Data from multiple randomized clinical trials or meta-analyses.
-*   **Level B**: Data from a single randomized clinical trial or large non-randomized studies.
-*   **Level C**: Consensus of opinion of experts, case studies, or standard-of-care.
-
