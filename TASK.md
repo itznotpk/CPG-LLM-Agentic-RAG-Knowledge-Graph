@@ -5,6 +5,12 @@ This document tracks all tasks for building the CPG (Clinical Practice Guideline
 
 ---
 
+## Discovered During Work
+
+- [x] Convert and split the uploaded CPG PDF "8 Primary & Secondary Prevention of CVD 2017" into markdown sections for the RAG system (Added 2026-04-06)
+- [x] Convert and split the uploaded CPG PDF "CPG Prevention, Diagnosis & Management of IE" into markdown sections for the RAG system (Added 2026-04-06, Completed 2026-04-10)
+- [x] Convert and split the uploaded CPG PDF "CPG Heart Disease in Pregnancy" into markdown sections for the RAG system (Added 2026-04-17, Completed 2026-04-17)
+
 ## Phase 1: Foundation & Setup ✅
 
 ### Database Setup

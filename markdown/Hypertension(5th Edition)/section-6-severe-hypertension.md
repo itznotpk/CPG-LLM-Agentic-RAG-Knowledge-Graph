@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Management of Severe Hypertension"
--->
-
 # MANAGEMENT OF SEVERE HYPERTENSION
+
+<!-- METADATA
+category: treatment
+use_case: acute_management, hypertensive_crisis
+patient_input: bp_level, symptoms, end_organ_damage_signs, labs
+output: acute_management_plan
+-->
 
 ## Management of Severe Hypertension
 

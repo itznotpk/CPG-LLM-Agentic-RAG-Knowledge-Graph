@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "References"
--->
-
 # REFERENCES
+
+<!-- METADATA
+category: references
+use_case: citation_lookup
+patient_input: citation_query
+output: bibliography
+-->
 
 ## REFERENCES
 

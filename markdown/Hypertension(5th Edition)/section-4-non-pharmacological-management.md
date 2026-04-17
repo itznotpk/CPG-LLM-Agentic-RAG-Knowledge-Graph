@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Non-Pharmacological Management"
--->
-
 # NON-PHARMACOLOGICAL MANAGEMENT
+
+<!-- METADATA
+category: treatment
+use_case: lifestyle_intervention, nonpharmacological_management
+patient_input: risk_factors, lifestyle, patient_preferences
+output: nonpharmacological_plan
+-->
 
 ## Non-pharmacological Management (refer to chapter 4)
 

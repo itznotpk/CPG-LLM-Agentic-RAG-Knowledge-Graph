@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Measurement of Blood Pressure"
--->
-
 # MEASUREMENT OF BLOOD PRESSURE
+
+<!-- METADATA
+category: diagnosis
+use_case: blood_pressure_measurement, technique_selection
+patient_input: bp_readings, device_type, measurement_setting
+output: measurement_protocol
+-->
 
 ## Measurement of Blood Pressure
 

@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Special Groups"
--->
-
 # SPECIAL GROUPS
+
+<!-- METADATA
+category: special_populations
+use_case: population_specific_management
+patient_input: population_type, comorbidities
+output: tailored_management
+-->
 
 ## 10. SPECIAL GROUPS
 

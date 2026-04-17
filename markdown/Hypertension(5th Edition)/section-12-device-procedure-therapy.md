@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Device and Procedure Based Therapy"
--->
-
 # DEVICE AND PROCEDURE BASED THERAPY
+
+<!-- METADATA
+category: treatment
+use_case: device_procedure_selection
+patient_input: refractory_hypertension, eligibility_criteria
+output: procedure_options
+-->
 
 ## Device and Procedure Based Therapy in 12
 
@@ -22,4 +22,3 @@ Since 2014, several sham controlled randomised trials employing variations in im
 Baroreceptor activation therapy (BAT) is based on sympathetic inhibition by carotid sinus stimulation. The arterial stretch baroreceptors respond with a higher discharge rate, to lower blood pressure, in the setting of rising blood pressure. In chronic hypertension, this firing is blunted, rendering it less sensitive to respond to changes in blood pressure. 504 Carotid stimulation via surgical implantation of electrodes onto the carotid bulbs have resulted in lowering the blood pressure. 505 This invasive procedure is still limited by technical, safety issues and cost.
 
 Clinical development in this area should be accompanied by investigations identifying predictors for good treatment response. Device based therapy should not be part of routine medical care until further evidence is available.472,506
-

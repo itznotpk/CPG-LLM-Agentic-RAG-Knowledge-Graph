@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Natural History and Prognosis"
--->
-
 # NATURAL HISTORY AND PROGNOSIS
+
+<!-- METADATA
+category: background_knowledge
+use_case: prognosis, risk_overview
+patient_input: risk_profile
+output: prognostic_factors
+-->
 
 ## 4. NATURAL HISTORY AND PROGNOSIS OF STABLE CAD
 
@@ -567,4 +567,3 @@ This highlights the importance of optimal medical therapy in all patients with C
 - In patients with Stable CAD on OMT, the incidence of MI occurs at a rate of 0.8% per year.
 - Predictors of MI are CV risk factors such as active smoking, poorly controlled diabetes and/or lipids, persistent angina and multivessel disease.
 - The most important predictors of adverse CV outcomes are LV function and the extent of myocardial ischemia (total ischemic burden).
-

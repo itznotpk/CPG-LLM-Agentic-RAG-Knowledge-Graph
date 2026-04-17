@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Other Non-Invasive Investigations"
--->
-
 # OTHER NON-INVASIVE INVESTIGATIONS
+
+<!-- METADATA
+category: diagnosis
+use_case: noninvasive_testing, test_selection
+patient_input: pretest_probability, functional_capacity, ecg
+output: investigation_selection
+-->
 
 ## 6. OTHER NON-INVASIVE INVESTIGATIONS FOR THE DIAGNOSIS OF CAD
 

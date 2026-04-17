@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Management"
--->
-
 # MANAGEMENT
+
+<!-- METADATA
+category: treatment
+use_case: treatment_selection, care_plan_generation
+patient_input: risk_category, comorbidities, current_meds
+output: management_plan
+-->
 
 ## 8. MANAGEMENT (Fig 2, pg 25)
 

@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Resistant and Refractory Hypertension"
--->
-
 # RESISTANT AND REFRACTORY HYPERTENSION
+
+<!-- METADATA
+category: treatment
+use_case: resistant_hypertension_management, secondary_cause_evaluation
+patient_input: bp_on_therapy, adherence, secondary_causes, labs
+output: step_up_plan
+-->
 
 ## Resistant and Refractory Hypertension
 

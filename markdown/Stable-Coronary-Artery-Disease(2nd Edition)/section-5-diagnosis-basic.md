@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Diagnosis of CAD - Basic Assessment"
--->
-
 # DIAGNOSIS OF CAD - BASIC ASSESSMENT
+
+<!-- METADATA
+category: diagnosis
+use_case: initial_assessment, diagnostic_workup
+patient_input: symptoms, exam, ecg, labs, risk_factors
+output: baseline_diagnosis_workup
+-->
 
 ## 5. DIAGNOSIS OF CAD -BASIC ASSESSMENT
 

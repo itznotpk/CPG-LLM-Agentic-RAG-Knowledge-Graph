@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Appendices"
--->
-
 # APPENDICES
+
+<!-- METADATA
+category: appendix
+use_case: supporting_reference
+patient_input: reference_lookup
+output: appendix_content
+-->
 
 ## Appendices
 
@@ -203,4 +203,3 @@ APPENDIX 4 Dosing Recommendation for the Initial Prescription of Antihypertensiv
 23. What key research areas should be focused on to address unanswered clinical questions?
 
 <!-- image -->
-

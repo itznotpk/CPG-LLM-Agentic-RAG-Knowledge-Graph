@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Suggested Areas of Research"
--->
-
 # SUGGESTED AREAS OF RESEARCH
+
+<!-- METADATA
+category: implementation
+use_case: research_priorities
+patient_input: knowledge_gaps
+output: research_agenda
+-->
 
 ## Suggested Areas of Research
 
@@ -60,4 +60,3 @@ This latest CPG on hypertension has incorporated key references from research do
 - What level of proteinuria is considered significant in women with hypertension and its correlation with outcome?
 - Is there a difference in maternal and fetal outcomes in using mercury sphygmomanometer vs automated device for BP measurement?
 - Home Blood Pressure Monitoring in pregnancy
-

@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Epidemiology, Definition and Classification of Hypertension"
--->
-
 # EPIDEMIOLOGY, DEFINITION AND CLASSIFICATION OF HYPERTENSION
+
+<!-- METADATA
+category: background_knowledge
+use_case: epidemiology, definition_classification
+patient_input: population_risk_factors
+output: definitions, classification
+-->
 
 ## Epidemiology, Definition and Classification of Hypertension
 
@@ -82,4 +82,3 @@ For both isolated office and masked hypertension, once diagnosed, initial therap
 
 - Measure BP at every opportunity as a high number of Malaysians are undiagnosed.
 - Check BP for every adult above age 18 years at least once as part of their annual health screening, and more frequently for those who are at risk (family history, obese and those at-risk of high blood pressure).
-

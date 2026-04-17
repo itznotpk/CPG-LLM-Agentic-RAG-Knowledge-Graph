@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Types of Antihypertensive Agents"
--->
-
 # TYPES OF ANTIHYPERTENSIVE AGENTS
+
+<!-- METADATA
+category: treatment_reference
+use_case: drug_reference, adverse_effects_contraindications
+patient_input: drug_class, comorbidities, interacting_meds
+output: drug_comparison
+-->
 
 ## Types of Antihypertensive Agents
 
@@ -315,4 +315,3 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 ## SUMMARY
 
 - Relaxation therapy may complement non-pharmacological and pharmacological treatment of hypertension however it is not recommended as primary treatment for hypertension.
-

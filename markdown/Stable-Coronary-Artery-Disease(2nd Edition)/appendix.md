@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Acknowledgments and Appendices"
--->
-
 # ACKNOWLEDGMENTS AND APPENDICES
+
+<!-- METADATA
+category: appendix
+use_case: supporting_reference
+patient_input: reference_lookup
+output: appendix_content
+-->
 
 ## MEMBERS OF THE EXPERT PANEL
 
@@ -6064,4 +6064,3 @@ Figure 2: Management of Stable CAD
 ## Stable Coronary Artery Disease 2018
 
 ## (2 nd d Edition)
-

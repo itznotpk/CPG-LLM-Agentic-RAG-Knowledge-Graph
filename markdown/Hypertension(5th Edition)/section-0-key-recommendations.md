@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Key Recommendations and Intro"
--->
-
 # KEY RECOMMENDATIONS AND INTRO
+
+<!-- METADATA
+category: key_recommendations
+use_case: quick_reference, care_plan_generation
+patient_input: blood_pressure, comorbidities, risk_factors
+output: key_recommendations
+-->
 
 CLINICAL PRACTICE GUIDELINES
 
@@ -620,4 +620,3 @@ Additional risk factors (smoking, TC &gt;6.5mmol/L, family history of premature 
 |         6 | 6-C      | Flowchart in Management of Hypertensive Emergency                       |     59 |
 |         7 | 7.4-A    | Treatment Algorithm for Acute Stroke                                    |     76 |
 |         7 | 7.6-A    | ABPM to Diagnose and Manage Isolated Office  Hypertension in Pregnancy. |     84 |
-

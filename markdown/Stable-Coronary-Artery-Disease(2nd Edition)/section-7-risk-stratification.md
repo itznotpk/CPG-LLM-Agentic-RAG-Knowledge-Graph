@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Risk Stratification"
--->
-
 # RISK STRATIFICATION
+
+<!-- METADATA
+category: diagnosis
+use_case: risk_stratification
+patient_input: test_results, symptoms, comorbidities
+output: risk_category
+-->
 
 ## 7. RISK STRATIFICATION IN STABLE CAD
 

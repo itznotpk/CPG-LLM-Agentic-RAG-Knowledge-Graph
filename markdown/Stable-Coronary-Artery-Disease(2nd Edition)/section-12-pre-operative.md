@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Pre-Operative Assessment"
--->
-
 # PRE-OPERATIVE ASSESSMENT
+
+<!-- METADATA
+category: monitoring
+use_case: perioperative_risk_assessment
+patient_input: procedure_risk, functional_status, comorbidities
+output: perioperative_plan
+-->
 
 ## 12. PRE-OPERATIVE ASSESSMENT FOR ELECTIVE NON-CARDIAC SURGERY
 

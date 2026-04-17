@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Pharmacological Management"
--->
-
 # PHARMACOLOGICAL MANAGEMENT
+
+<!-- METADATA
+category: treatment
+use_case: antihypertensive_selection, treatment_titration
+patient_input: bp_target, comorbidities, kidney_function, current_meds
+output: medication_plan
+-->
 
 ## Pharmacological Management
 
