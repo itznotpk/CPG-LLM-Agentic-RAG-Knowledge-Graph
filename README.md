@@ -7,7 +7,7 @@
 ![Gemini](https://img.shields.io/badge/Google_Gemini-LLM_&_Embeddings-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 
-An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for the Malaysia CPG on Erectile Dysfunction Management.
+An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for the Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, and **Dyslipidaemia (6th Edition)**.
 
 ---
 
@@ -397,14 +397,15 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 ├── frontend/
 │   └── run.py            # FastAPI frontend server
 ├── markdown/             # CPG markdown files
-│   ├── section-3-diagnosis.md
-│   ├── section-4-treatment.md
-│   ├── section-5-tcm.md
-│   ├── section-6-followup.md
-│   ├── section-7-referral.md
-│   ├── section-8-special-populations.md
-│   ├── section-9-implementation.md
-│   └── appendix-6-treatment.md
+│   ├── Erectile-Dysfunction/
+│   │   ├── section-1-introduction.md
+│   │   └── ...
+│   ├── Heart-Failure(5th Edition)/
+│   │   ├── section-9-acute-heart-failure.md
+│   │   ├── section-10-chronic-hfref.md
+│   │   └── ...
+│   ├── Dyslipidaemia(6th Edition)/
+│   │   └── ...
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
 │   ├── ingest_icd11.py   # ICD-11 ingestion script
