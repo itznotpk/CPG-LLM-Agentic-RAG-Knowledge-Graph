@@ -7,7 +7,7 @@
 ![Gemini](https://img.shields.io/badge/Google_Gemini-LLM_&_Embeddings-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 
-An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for the Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, and **Dyslipidaemia (6th Edition)**.
+An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, **Dyslipidaemia (6th Edition)**, and **Ischaemic Stroke (3rd Edition)**.
 
 ---
 
@@ -67,6 +67,7 @@ An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **
 - **Enables semantic search** via Vector DB (PostgreSQL + pgvector)
 - **Provides clinical decision support** via conversational AI agent
 - **Web Frontend** for clinical case analysis
+- **RAG-optimized markdown** with localized glossaries, contextual anchors, and evidence keys per section
 
 ---
 
@@ -396,7 +397,7 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   └── embedder.py       # Embedding generation
 ├── frontend/
 │   └── run.py            # FastAPI frontend server
-├── markdown/             # CPG markdown files
+├── markdown/             # CPG markdown files (RAG-optimized)
 │   ├── Erectile-Dysfunction/
 │   │   ├── section-1-introduction.md
 │   │   └── ...
@@ -406,9 +407,26 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   │   └── ...
 │   ├── Dyslipidaemia(6th Edition)/
 │   │   └── ...
-│   ├── Ischaemic-Stroke(3rd Edition)/
-│   │   ├── section-1-epidemiology...md
-│   │   └── ...
+│   ├── Ischaemic-Stroke(3rd Edition)/  # 18 sections, fully standardized
+│   │   ├── section-1-epidemiology-definition-and-classification-of-stroke.md
+│   │   ├── section-2-causes-and-pathophysiology.md
+│   │   ├── section-3-diagnosis-and-initial-assessment.md
+│   │   ├── section-4-prognosis.md
+│   │   ├── section-5-prevention-of-stroke.md
+│   │   ├── section-6-investigations.md
+│   │   ├── section-7-emergency-medicine-services.md
+│   │   ├── section-8-acute-general-management.md
+│   │   ├── section-9-reperfusion-of-ischaemic-brain.md
+│   │   ├── section-10-endovascular-thrombectomy.md
+│   │   ├── section-11-stroke-unit.md
+│   │   ├── section-12-stroke-in-the-older-person.md
+│   │   ├── section-13-stroke-and-cardioembolism.md
+│   │   ├── section-14-stroke-in-special-circumstances.md
+│   │   ├── section-15-management-of-stroke-in-pregnancy.md
+│   │   ├── section-16-stroke-therapies-with-limited-evidence.md
+│   │   ├── section-17-quality-assurance.md
+│   │   └── section-18-appendices.md
+│   └── ...               # Additional CPGs (20+ guidelines)
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
 │   ├── ingest_icd11.py   # ICD-11 ingestion script
@@ -443,12 +461,45 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 
 ---
 
+## 📄 Ingested CPGs
+
+| CPG Document | Edition | Sections | Status |
+|---|---|---|---|
+| Erectile Dysfunction | - | 12 | ✅ Complete |
+| Heart Failure | 5th Edition | 14 | ✅ Complete |
+| Dyslipidaemia | 6th Edition | 14 | ✅ Complete |
+| **Ischaemic Stroke** | **3rd Edition** | **18** | **✅ Complete** |
+| Hypertension | 5th Edition | - | 📋 Ingested (raw) |
+| Stable Coronary Artery Disease | 2nd Edition | - | 📋 Ingested (raw) |
+| Atrial Fibrillation | 2012 | - | 📋 Ingested (raw) |
+| NSTEMI | 2011 | - | 📋 Ingested (raw) |
+| Cancer Pain | 2nd Edition | - | 📋 Ingested (raw) |
+| Breast Cancer | 3rd Edition | - | 📋 Ingested (raw) |
+| Heart Disease in Pregnancy | 2nd Edition | - | 📋 Ingested (raw) |
+| CVD Prevention in Women | 2016 | - | 📋 Ingested (raw) |
+| Primary & Secondary Prevention of CVD | 2017 | - | 📋 Ingested (raw) |
+| Prevention, Diagnosis & Mgmt of IE | - | - | 📋 Ingested (raw) |
+| Nasopharyngeal Carcinoma | - | - | 📋 Ingested (raw) |
+| Anaesthesia Medication Safety | 2024 | - | 📋 Ingested (raw) |
+
+### RAG-Optimized Document Structure
+
+The fully standardized CPGs (Ischaemic Stroke, Dyslipidaemia, Heart Failure, ED) follow a consistent structure designed for optimal agentic retrieval:
+
+- **Localized Abbreviation Tables** — Each section file contains its own glossary of abbreviations used, eliminating cross-file lookups.
+- **Contextual Anchors (Overlapping)** — Sections that reference other chapters embed summarized content from the referenced section as contextual anchors, enabling single-chunk retrieval.
+- **Evidence Keys** — Each section contains its own Levels of Evidence Scale and Grades of Recommendations table for self-contained interpretation.
+- **Standardized Recommendation Blocks** — Recommendations use consistent `[Level, Grade]` formatting.
+- **Pure Markdown** — No HTML tags except for necessary entities (`<br>`, `&ge;`, `&le;`) for table cell formatting.
+
+---
+
 ## 🚧 Next Steps
 
 | Priority | Task |
 |----------|------|
-| 🔴 High | Add more CPG sections for comprehensive coverage |
-| 🔴 High | Test with more clinical queries |
+| 🔴 High | RAG-optimize remaining raw CPGs (Hypertension, SCAD, etc.) |
+| 🔴 High | Test with more clinical queries across all CPGs |
 | 🟡 Medium | Implement local LLM via Ollama |
 | 🟡 Medium | Add reflection agent for improved responses |
 | 🟢 Future | Mobile-friendly frontend |
@@ -457,7 +508,7 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 
 ## ⚠️ Disclaimer
 
-This system provides clinical decision support based on Malaysia's CPG for ED Management. It is intended as a reference tool and should not replace professional medical judgment. Always consult qualified healthcare providers for patient care decisions.
+This system provides clinical decision support based on Malaysia's Clinical Practice Guidelines (CPGs). It is intended as a reference tool and should not replace professional medical judgment. Always consult qualified healthcare providers for patient care decisions.
 
 ---
 
