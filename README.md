@@ -7,7 +7,7 @@
 ![Gemini](https://img.shields.io/badge/Google_Gemini-LLM_&_Embeddings-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 
-An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, **Dyslipidaemia (6th Edition)**, and **Ischaemic Stroke (3rd Edition)**.
+An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, **Dyslipidaemia (6th Edition)**, **Ischaemic Stroke (3rd Edition)**, and **STEMI (4th Edition)**.
 
 ---
 
@@ -426,6 +426,29 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   │   ├── section-16-stroke-therapies-with-limited-evidence.md
 │   │   ├── section-17-quality-assurance.md
 │   │   └── section-18-appendices.md
+│   ├── STEMI(4th Edition)/            # 22 sections, fully standardized
+│   │   ├── section-0-front-matter.md
+│   │   ├── section-1-introduction.md
+│   │   ├── section-2-definition-and-pathogenesis.md
+│   │   ├── section-3-diagnosis.md
+│   │   ├── section-4-pre-hospital-management.md
+│   │   ├── section-5-stemi-network.md
+│   │   ├── section-6-in-hospital-management.md
+│   │   ├── section-7-reperfusion-strategies.md
+│   │   ├── section-8-ccu-management.md
+│   │   ├── section-9-complications-of-stemi.md
+│   │   ├── section-10-urgent-emergent-cabg-surgery.md
+│   │   ├── section-11-risk-stratification-post-stemi.md
+│   │   ├── section-12-duration-of-hospitalisation.md
+│   │   ├── section-13-secondary-prevention.md
+│   │   ├── section-14-special-groups.md
+│   │   ├── section-15-cardiac-rehabilitation.md
+│   │   ├── section-16-checklists-for-follow-up-visits.md
+│   │   ├── section-17-performance-measures.md
+│   │   ├── section-18-algorithms.md
+│   │   ├── section-19-appendices.md
+│   │   ├── section-20-references.md
+│   │   └── section-21-acknowledgements.md
 │   └── ...               # Additional CPGs (20+ guidelines)
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
@@ -469,6 +492,7 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 | Heart Failure | 5th Edition | 14 | ✅ Complete |
 | Dyslipidaemia | 6th Edition | 14 | ✅ Complete |
 | **Ischaemic Stroke** | **3rd Edition** | **18** | **✅ Complete** |
+| **STEMI** | **4th Edition** | **22** | **✅ Complete** |
 | Hypertension | 5th Edition | - | 📋 Ingested (raw) |
 | Stable Coronary Artery Disease | 2nd Edition | - | 📋 Ingested (raw) |
 | Atrial Fibrillation | 2012 | - | 📋 Ingested (raw) |
@@ -484,7 +508,7 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 
 ### RAG-Optimized Document Structure
 
-The fully standardized CPGs (Ischaemic Stroke, Dyslipidaemia, Heart Failure, ED) follow a consistent structure designed for optimal agentic retrieval:
+The fully standardized CPGs (STEMI, Ischaemic Stroke, Dyslipidaemia, Heart Failure, ED) follow a consistent structure designed for optimal agentic retrieval:
 
 - **Localized Abbreviation Tables** — Each section file contains its own glossary of abbreviations used, eliminating cross-file lookups.
 - **Contextual Anchors (Overlapping)** — Sections that reference other chapters embed summarized content from the referenced section as contextual anchors, enabling single-chunk retrieval.
