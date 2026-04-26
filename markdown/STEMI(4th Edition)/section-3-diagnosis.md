@@ -25,7 +25,7 @@ Other important points to note in the history are the presence of:
 - Upon clinical suspicion of ACS, a 12-lead ECG should be performed and interpreted immediately within 10 minutes of FMC.
 
 ## 3.2 Electrocardiographic Changes
-
+(refer to Table 6: ECG Patterns of Various STEMI Locations and Diagnostic Cut-Off Points (in the absence of LVH or LBBB) & Table 7: Location of Ischaemia/infarction in STEMI)
 The diagnosis of STEMI depends upon the presence of characteristic ECG changes.
 
 The presence of ST elevation in two contiguous leads in a patient with symptoms of ischaemia is the cardinal feature of STEMI.
@@ -64,39 +64,37 @@ Occasionally patients with ongoing chest pains and myocardial ischaemia may have
   - Compared with previous ECGs.
   - Additional chest leads (V7-9) and right ventricular leads should be done to identify posterior and right ventricular infarcts.
 
-### Table 6: ECG Patterns of Various STEMI Locations and Diagnostic Cut-Off Points (in the absence of LVH or LBBB)
+## 3.3 Serum cardiac biomarkers
 
-| Location | Leads | ECG Findings |
-|---|---|---|
-| Anteroseptal | V1–V3 | ST elevation in leads V2-3: ≥ 0.25 mV (in males < 40 years), ≥ 0.2 mV (in males ≥ 40 years), ≥ 0.15 mV in females; Q wave |
-| Extensive anterior | V1–V6 | ST elevation of ≥ 0.1 mV in all leads except leads V2-V3. In leads V2-3: ≥ 0.25 mV (in males < 40 years), ≥ 0.2 mV (in males ≥ 40 years), ≥ 0.15 mV in females; Q wave |
-| Posterior | V7–V8 | ST elevation ≥ 0.05 mV (≥ 0.1 mV in men < 40 years); Q wave |
-| Posterior | V1–V2 | ST depression, Tall R wave |
-| Anterolateral | I, aVL, V5–V6 | ST elevation of ≥ 0.1 mV; Q wave |
-| Inferior | II, III, aVF | ST elevation of ≥ 0.1 mV; Q wave |
-| RV infarction | V4R | ST elevation ≥ 0.05 mV (≥ 0.1 mV in men < 30 years) |
-| Lateral | I, aVL | ST elevation of ≥ 0.1 mV; Q wave |
+The history and ECG are of paramount importance in making the diagnosis of STEMI and determining the reperfusion strategy. A rise and fall in the levels of serum cardiac biomarkers support the diagnosis of STEMI. One should not, however, wait for the results of these biomarkers before initiating reperfusion therapy.
 
-### Table 7: ECG Localisation of MI — Leads, Coronary Territory and Coronary Artery Involved
+These cardiac biomarkers include:<br>
+• Cardiac Troponin T (cTnT) and Cardiac Troponin I (cTnI).<br>
+• Creatine Kinase-Myocardial Band (CK-MB).<br>
+• Creatine Kinase (CK).<br>
+• Myoglobulin -This appears rapidly after myocardial necrosis but has not achieved<br>
+&nbsp;&nbsp;widespread use in cardiac practice.
 
-| ECG LEADS | TERRITORY OF MI | CORONARY ARTERY INVOLVED |
-|---|---|---|
-| V1–V4 | Anterior wall LV | LAD artery |
-| V1–V6, I, aVL | Extensive anterior | LAD artery (proximal occlusion) |
-| I, aVL, V5–V6 | Anterolateral | LAD / LCx |
-| II, III, aVF | Inferior wall LV | RCA (85%) or LCx (15%) |
-| V7–V9 | Inferobasal (posterior) | RCA or LCx |
-| V4R | RV infarction | RCA (proximal) |
+For the relative timing, rate of rise, peak value, duration of elevation and properties of these cardiac biomarkers following STEMI, refer to Figure 2: Time Course of Elevation of Serum Cardiac Biomarkers after STEMI and Table 8: Properties of serum cardiac biomarkers.
 
-## 3.3 Serum Cardiac Biomarkers
+Troponins have near absolute specificity and high clinical sensitivity for myocardial necrosis. It rises within 3-4 hours of the onset of MI and is more likely to be positive 6 hours after symptom onset. Troponins may also be raised in other conditions (refer to Appendix II).
 
-The preferred biomarker for the diagnosis of MI is the cardiac troponin (I or T). These assays have near-absolute specificity for the heart. The detection of a rise and/or fall in cardiac troponins above the 99th percentile URL, in the clinical setting of myocardial ischaemia, is used to diagnose an acute MI.
+High Sensitive (hs) troponins can detect even lower concentrations of troponins in the setting of myocardial necrosis leading to an earlier diagnosis of MI. They are useful as a rule-out for MI. The negative predictive value is > 95% as a single test on admission and almost 100% when repeated after 3 hours. Sex-dependent values are recommended for hs-troponin assays.
 
-The choice of an optimal cut-off value for an MI is still the subject of much debate. For the purposes of diagnosis, each centre should ideally establish its own cut-off values based on its locally available assay and reagents.
+CK-MB (measured by mass assay) is the next best alternative. It is less tissue-specific than troponins and values differ between the gender. The criterion most commonly used for the diagnosis of acute MI is 2 serial elevations above the 99th percentile of a reference control group or a single result more than twice the URL.
 
-High-sensitivity cardiac troponins (hs-cTn) assays have been shown to be superior to conventional troponin assays for the detection of MI as they increase the detection of myocardial injury. When used appropriately, they can lead to a more rapid diagnosis.
+CK-MB first appears 4-6 hours after symptom onset, peaks at 24 hours, and returns to normal in 48-72 hours. Its value in the early and late (>72 h) diagnosis of acute MI is limited. Values for CK-MB should rise and fall; values that remain elevated without change are almost never due to MI.
 
-To diagnose reinfarction, in patients in whom a recurrent MI is suspected from clinical signs or symptoms following the initial MI, a new hs-cTn measurement is recommended. A rise of ≥ 20% in the value from the last sample is diagnostic of reinfarction.
+These cardiac biomarkers (troponins and CK-MB) should be measured at the time of first assessment and repeated 6-9 hours later:<br>
+• To document the rise and/or fall exceeding the 99th percentile URL for the<br>
+&nbsp;&nbsp;diagnosis of MI.<br>
+• If the first measurement is non-diagnostic and the clinical suspicion of MI is high.
+
+It used to be thought that troponins are not useful for the detection of reinfarction because they can remain elevated for up to 10-14 days and sometimes longer. However, if a patient is suspected of having a reinfarction on clinical grounds, a ≥ 20% increase in the value of either troponins or CK-MB between 2 samples 3-6 hours apart supports the diagnosis.
+
+To ensure the reliability of these tests, each individual laboratory should maintain high quality laboratory practice and confirm the range of reference values in their specific setting.
+
+Total CK measurement is also not recommended owing to its poor specificity and large distribution in skeletal muscles.
 
 ## Key Message 3:
 
@@ -104,15 +102,25 @@ To diagnose reinfarction, in patients in whom a recurrent MI is suspected from c
 - If the initial ECG is non-diagnostic, it may need to be repeated at frequent intervals to detect evolving changes of STEMI. Additional chest leads (V7-9) and right ventricular leads may also be helpful.
 - Too early a measurement of the cardiac biomarkers can sometimes result in misleadingly low levels.
 
-## 3.4 Other Diagnostic Modalities
+## 3.4 Other diagnostic modalities
 
-### 3.4.1 Echocardiography
+Echocardiography is a particularly useful bedside imaging technique. It is useful in detecting:
+- New regional wall motion abnormalities.
+- LV and RV function.
+- Mechanical complications of acute MI e.g. free wall rupture, acute ventricular septal defect (VSD), and mitral regurgitation.
 
-Echocardiography can help in making the diagnosis by demonstrating new regional wall motion abnormalities in the presence of ongoing ischaemic chest pain, especially when the ECG is non-diagnostic or equivocal. The LVEF can also be quantified. Echocardiography should not delay reperfusion.
+Other imaging techniques such as chest radiography, computed tomographic coronary angiography (CTCA), magnetic resonance imaging (MRI) and radionuclide techniques may be useful investigations in the patient presenting with acute chest pain in difficult diagnostic situations.
 
-### 3.4.2 CT Coronary Angiography
+They help to detect:
+- Coronary atherosclerotic plaques, myocardial ischaemia and/or scars from previous MI.
+- Non-ischaemic conditions causing chest pain such as valvular heart disease, peri-myocarditis, pulmonary embolism, aortic dissection and pneumothorax.
 
-CT coronary angiography may be useful in the assessment of patients for whom the ECG and biomarkers are not diagnostic and the clinical presentation is atypical. It may also be useful for the assessment of possible mechanical complications post-STEMI.
+In STEMI, there is no role for routine CTCA. Use of CT should be confined to selected cases where acute aortic dissection or pulmonary embolism is suspected.
+
+## Key Recommendation 3:
+- The diagnosis of STEMI is made based on history of characteristic ischaemic type chest pain accompanied by ECG changes of ST elevation of at least 1 mm in at least 2 contiguous leads or new onset LBBB.
+- A rise and fall of the cardiac biomarkers support the diagnosis of STEMI.
+- Troponins and CKMB are the cardiac biomarkers of choice.
 
 ---
 
@@ -121,6 +129,49 @@ CT coronary angiography may be useful in the assessment of patients for whom the
 > For difficulties in ECG diagnosis of MI (e.g., mimics of STEMI), see **Appendix I**.
 > For elevated troponin in the absence of overt ischaemic heart disease, see **Appendix II**.
 > For the definition and pathogenesis of MI including 5-type classification, see **Section 2: Definition and Pathogenesis**.
+
+---
+### Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB)¹⁰,²³
+
+| LOCATION | LEADS | ECG FINDINGS |
+|---|---|---|
+| Anteroseptal | V1 – V3 | • ST elevation in leads V2-3:<br>&nbsp;&nbsp;≥ 0.25 mV (in males < 40 years),<br>&nbsp;&nbsp;≥ 0.2 mV (in males ≥ 40 years)<br>&nbsp;&nbsp;≥ 0.15 mV in females,<br>• Q wave |
+| Extensive anterior | V1 – V6 | • ST elevation of ≥ 0.1 mV in all leads<br>&nbsp;&nbsp;except leads V2-V3. In leads V2-3 :<br>&nbsp;&nbsp;≥ 0.25 mV (in males < 40 years),<br>&nbsp;&nbsp;≥ 0.2 mV (in males ≥ 40 years)<br>&nbsp;&nbsp;≥ 0.15 mV in females,<br>• Q wave |
+| Posterior | V7 – V8 | • ST elevation≥ 0.05 mV (≥ 0.1 mV in<br>&nbsp;&nbsp;men < 40 years),<br>• Q wave |
+| Posterior | V1 – V2 | • ST depression, Tall R wave |
+| Anterolateral | I, AVL,V5<br>– V6 | • ST elevation ST elevation of ≥ 0.1 mV,<br>• Q wave |
+| Inferior | II, III, AVF | • ST elevation ST elevation of ≥ 0.1 mV,<br>• Q wave |
+| Right Ventricular (RV) | V4R | • ST elevation> 0.5 mm (≥ 1 mm in men<br>&nbsp;&nbsp;< 30 years old). |
+
+---
+
+### Table 7: Location of Ischaemia/infarction in STEMI
+
+| LEADS WITH ST SEGMENT ELEVATION | AFFECTED MYOCARDIAL AREA | OCCLUDED ARTERY (CULPRIT VESSEL) |
+|---|---|---|
+| V1 – V2 | Septal | Proximal LAD |
+| V3 – V4 | Anterior | LAD |
+| V5 – V6 | Apical | Distal LAD, left circumflex<br>or RCA |
+| I, aVL | Lateral | circumflex |
+| II, III,aVF | Inferior | RCA 90%, circumflex: 10% |
+| V7,8,9 (reciprocal ST<br>segment depression<br>often seen in V1-3) | Posterolateral (also<br>referred to as posterior<br>or inferobasal) | RCA or circumflex |
+
+---
+
+### Table 8: Properties of serum cardiac biomarkers
+
+| PROTEIN | FIRST DETECTION* | DURATION OF DETECTION | SENSITIVITY | SPECIFICITY |
+|---|---|---|---|---|
+| CK-MB | 2 – 3 hours | 1 – 2 days | +++ | +++ |
+| Troponin I | 3 – 4 hours | 7 – 10 days | ++++ | ++++ |
+| Troponin T | 3 –4 hours | 7 – 14 days | ++++ | ++++ |
+| CK | 4 – 6 hours | 2 – 3 days | ++ | ++ |
+| Myoglobulin | 1.5- 2 hours | 8- 12 hours | +++ | + |
+
+*\* Hours after symptom onset.*
+
+#### Figure 2: Time Course of Elevation of Serum Cardiac Biomarkers after STEMI²⁵
+*(Line graph omitted. Depicts cardiac marker concentration (50x - 100x ULRR) over Time in days for Myoglobin, CK-MB, Troponin I, Troponin T, CK, and LDH.)*
 
 ---
 
@@ -133,13 +184,18 @@ CT coronary angiography may be useful in the assessment of patients for whom the
 | BBB | Bundle Branch Block |
 | CABG | Coronary Artery Bypass Grafting |
 | CAD | Coronary Artery Disease |
+| CK | Creatine Kinase |
+| CK-MB | Creatine Kinase-Myocardial Band |
 | CT | Computed Tomography |
+| cTnI | Cardiac Troponin I |
+| cTnT | Cardiac Troponin T |
 | ECG | Electrocardiogram |
 | FMC | First Medical Contact |
 | hs-cTn | High-Sensitivity Cardiac Troponin |
 | LAD | Left Anterior Descending Artery |
 | LBBB | Left Bundle Branch Block |
 | LCx | Left Circumflex Artery |
+| LDH | Lactate Dehydrogenase |
 | LV | Left Ventricular |
 | LVEF | Left Ventricular Ejection Fraction |
 | LVH | Left Ventricular Hypertrophy |
@@ -151,4 +207,5 @@ CT coronary angiography may be useful in the assessment of patients for whom the
 | RV | Right Ventricular |
 | STEMI | ST Segment Elevation Myocardial Infarction |
 | TIA | Transient Ischaemic Attack |
+| ULRR | Upper Limit Reference Range |
 | URL | Upper Reference Limit |

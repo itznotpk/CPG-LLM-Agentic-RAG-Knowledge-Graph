@@ -3,7 +3,9 @@
 
 ## 2.1 Acute Coronary Syndrome
 
-Acute Coronary Syndrome (ACS) is a clinical spectrum of Coronary Artery Disease (CAD) ranging from Unstable Angina (UA), Non-ST Segment Elevation Myocardial Infarction (NSTEMI) to STEMI depending upon the degree and acuteness of coronary occlusion. In UA, myocardial injury is absent and cardiac biomarkers are normal. In myocardial injury, cardiac biomarkers are raised.
+Acute Coronary Syndrome (ACS) is a clinical spectrum of Coronary Artery Disease (CAD) ranging from Unstable Angina (UA), Non-ST Segment Elevation Myocardial Infarction (NSTEMI) to STEMI depending upon the degree and acuteness of coronary occlusion (refer to Figure 1: Clinical spectrum of ACS*). In UA, myocardial injury is absent and cardiac biomarkers are normal. In myocardial injury, cardiac biomarkers are raised.
+
+
 
 ## 2.2 Myocardial Injury vs Myocardial Infarction
 
@@ -29,13 +31,13 @@ MI is diagnosed when there is a rise and/or fall in cardiac troponins, with at l
 - iii. Imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 - iv. Identification of an intracoronary (IC) thrombus by angiography or autopsy.
 
-MI may be STEMI or NSTE-ACS based on the ECG.
+MI may be STEMI or NSTE-ACS based on the ECG (refer to Figure 1: Clinical spectrum of ACS*).
 
 ## 2.4 Diagnosis of STEMI
 
 STEMI is diagnosed when there is:
 
-- ST elevation of ≥ 1 mm in 2 contiguous leads or
+- ST elevation of > 1 mm in 2 contiguous leads or
 - A new onset LBBB in the resting ECG
 - In a patient with ischaemic type chest pains of > 30 minutes and
 - Accompanied by a rise and fall in cardiac biomarkers.
@@ -46,35 +48,7 @@ In NSTE-ACS, ST elevation is absent on the resting ECG. In addition, patients ha
 
 ## 2.5 Clinical Classification of MI
 
-According to the 4th Universal Definition, MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies. This CPG focuses on STEMI which is almost always Type 1 MI (spontaneous MI related to atherosclerotic plaque rupture).
-
-### Table 5: Clinical Classification of MI
-
-**Type 1: Spontaneous MI due to coronary athero-thrombosis**
-
-Spontaneous MI related to atherosclerotic plaque rupture, ulceration, fissuring, erosion, or dissection with resulting intraluminal thrombus in one or more of the coronary arteries leading to decreased myocardial blood flow or distal platelet emboli with ensuing myocyte necrosis.
-
-**Type 2: MI secondary to an imbalance between myocardial oxygen demand and supply unrelated to acute coronary athero-thrombosis**
-
-MI that occurs due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis e.g., coronary endothelial dysfunction, coronary artery spasm, coronary embolism, coronary artery dissection, tachy/bradyarrhythmias, anaemia, respiratory failure, sepsis, hypotension, and hypertension with or without LVH.
-
-**Type 3: MI resulting in death when biomarker values are unavailable**
-
-Cardiac death with symptoms suggestive of myocardial ischaemia and presumed new ischaemic ECG changes or new LBBB, but death occurring before blood samples could be obtained, before cardiac biomarker could rise, or in rare cases cardiac biomarkers were not collected.
-
-**Type 4a: MI related to PCI**
-
-MI associated with PCI is arbitrarily defined by elevation of cardiac troponin (cTn) values 5 × > 99th percentile URL in patients with normal baseline values (≤ 99th percentile URL) or a rise of cTn values > 20% if the baseline values are elevated but are stable or falling. In addition, either (i) symptoms suggestive of myocardial ischaemia, or (ii) new ischaemic ECG changes or new LBBB, or (iii) angiographic loss of patency of a major coronary artery or a side branch or persistent slow- or no-flow or embolization, or (iv) imaging demonstration of new loss of viable myocardium or new regional wall motion abnormality is required.
-
-**Type 4b: MI related to stent thrombosis**
-
-MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischaemia and with a rise and/or fall of cardiac biomarker values with at least one value above the 99th percentile URL.
-
-**Type 5: MI related to coronary artery bypass surgery (CABG)**
-
-MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 × 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either (i) new pathological Q waves or new LBBB, or (ii) angiographic documented new graft or new native coronary artery occlusion, or (iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
-
-'Reinfarction' is used for MI that occurs within 28 days of the incident event (incident MI) while recurrent MI occurs after 28 days.
+According to the 4th Universal Definition, MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies (refer to Table 5: Clinical Classification of MI). This CPG focuses on STEMI which is almost always Type 1 MI (spontaneous MI related to atherosclerotic plaque rupture).
 
 ## Key Message 2:
 
@@ -96,6 +70,88 @@ MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker
 
 > For ECG diagnostic criteria and patterns of various STEMI locations, see **Section 3: Diagnosis** (Tables 6 & 7).
 > For elevated troponin in the absence of overt ischaemic heart disease, see **Appendix II**.
+---
+
+#### Figure 1: Clinical spectrum of ACS*
+
+##### Step 1: Presentation
+**Ischaemic Chest Discomfort**
+
+↓
+
+##### Step 2: Provisional Diagnosis
+**ACS (Acute Coronary Syndrome)**
+
+↓
+
+##### Step 3: ECG Assessment (Two Pathways)
+
+Determine the pathway based on ECG findings:
+
+**Pathway A: No ST Elevation**
+*   → Proceed to Step 4A
+
+**Pathway B: ST Elevation**
+*   → Proceed to Step 4B
+
+---
+
+##### Step 4A: Cardiac Biomarkers (No ST Elevation)
+
+Evaluate cardiac biomarkers.
+
+**Outcome Evaluation:**
+*   **If Normal:** → **Unstable Angina** (Final Diagnosis)
+*   **If Elevated:** → **NSTEMI** (Final Diagnosis)
+
+> *Note: Unstable Angina and NSTEMI together encompass **NSTE-ACS**.*
+
+---
+
+##### Step 4B: Cardiac Biomarkers (ST Elevation)
+
+Evaluate cardiac biomarkers.
+
+**Outcome Evaluation:**
+*   **If Elevated:** → **STEMI** (Final Diagnosis)
+
+> *Note: NSTEMI and STEMI together encompass **MI (Myocardial Infarction)**.*
+
+---
+### Table 5: Clinical Classification of MI
+
+**Type 1: Spontaneous MI due to coronary athero-thrombosis**
+
+Spontaneous MI related to atherosclerotic plaque rupture, ulceration, fissuring, erosion, or dissection with resulting intraluminal thrombus in one or more of the coronary arteries leading to decreased myocardial blood flow or distal platelet emboli with ensuing myocyte necrosis.
+
+**Type 2: MI secondary to an imbalance between myocardial oxygen demand and supply unrelated to acute coronary athero-thrombosis**
+
+MI that occurs due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis eg coronary endothelial dysfunction, coronary artery spasm, coronary embolism, coronary artery dissection, tachy/bradyarrhythmias, anaemia, respiratory failure, sepsis, hypotension, and hypertension with or without left ventricular hypertrophy (LVH).
+
+**Type 3: MI resulting in death when biomarker values are unavailable**
+
+Cardiac death with symptoms suggestive of myocardial ischaemia and presumed new ischaemic ECG changes or new LBBB, but death occurring before blood samples could be obtained, before cardiac biomarker could rise, or in rare cases cardiac biomarkers were not collected.
+
+**Type 4a: MI related to PCI**
+
+MI associated with PCI is arbitrarily defined by elevation of cardiac troponin (cTn) values 5 x > 99th percentile URL in patients with normal baseline values (≤ 99th percentile URL) or a rise of cTn values > 20% if the baseline values are elevated but are stable or falling. In addition, either<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(i) symptoms suggestive of myocardial ischaemia, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) new ischaemic ECG changes or new LBBB, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(iii) angiographic loss of patency of a major coronary artery or a side branch or persistent slow- or no-flow or embolization, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(iv) imaging demonstration of new loss of viable myocardium or new regional wall motion abnormality is required.
+
+**Type 4b: MI related to stent thrombosis**
+
+MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischaemia and with a rise and/or fall of cardiac biomarker values with at least one value above the 99th percentile URL.
+
+**Type 5: MI related to coronary artery bypass surgery (CABG)**
+
+MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 x 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(i) new pathological Q waves or new LBBB, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) angiographic documented new graft or new native coronary artery occlusion, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
+
+'Reinfarction' is used for MI that occurs within 28 days of the incident event (incident MI) while recurrent MI occurs after 28 days.
 
 ---
 
@@ -104,16 +160,17 @@ MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |
-| CABG | Coronary Artery Bypass Grafting |
+| CABG | Coronary Artery Bypass Surgery |
 | CAD | Coronary Artery Disease |
+| CPG | Clinical Practice Guidelines |
 | cTn | Cardiac Troponin |
 | ECG | Electrocardiogram |
 | IC | Intracoronary |
 | LBBB | Left Bundle Branch Block |
 | LVH | Left Ventricular Hypertrophy |
 | MI | Myocardial Infarction |
-| NSTEMI | Non-ST Elevation Myocardial Infarction |
 | NSTE-ACS | Non-ST Elevation Acute Coronary Syndrome |
+| NSTEMI | Non-ST Segment Elevation Myocardial Infarction |
 | PCI | Percutaneous Coronary Intervention |
 | RBBB | Right Bundle Branch Block |
 | STEMI | ST Segment Elevation Myocardial Infarction |

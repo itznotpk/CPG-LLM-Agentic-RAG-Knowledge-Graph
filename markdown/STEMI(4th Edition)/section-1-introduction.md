@@ -1,59 +1,65 @@
 # SECTION 1: INTRODUCTION
-## INTRODUCTION TO STEMI
+## INTRODUCTION
 
-## 1.1 Epidemiology
+The most recent data from the National Department of Statistics Malaysia indicated that in 2014, ischaemic heart disease (IHD) was the principal cause of mortality (13.7%). For men, it was the principle cause of death (15.2%) and for women, it was second after pneumonias.
 
-Ischaemic Heart Disease (IHD) is the leading cause of mortality globally and in Malaysia. Local data from the National Cardiovascular Disease-Acute Coronary Syndrome (NCVD-ACS) Registry (2014-2015) has shown that the overall in-hospital mortality following STEMI was 10.6%. The 30-day and 1-year mortality was 12.3% and 17.9% respectively. AMI is the most common ACS requiring hospital admission.
+Most deaths in STEMI occur within the first hour due to fatal arrhythmias. In addition, **TIME LOST IS MYOCARDIUM LOST**. Thus, early diagnosis and prompt reperfusion is important.
 
-- The STEMI mortality in Malaysia remains high — the in-hospital, 30-day and 1-year mortality following STEMI being 10.6%, 12.3% and 17.9% respectively.
-- Patients receiving reperfusion (Primary PCI or fibrinolytic) had better survival compared to patients who did not receive any reperfusion.
-- Patients who had PCI during the index hospitalisation (including those who underwent Primary PCI and PCI post-fibrinolysis) had better short-term and long-term survival as compared to those who did not undergo in-hospital PCI.
+Based on the latest Malaysian Annual Report of the National Cardiovascular Database- Acute Coronary Syndrome (NCVD-ACS) Registry 2014-2015 it was noted that:
+- The demographics of patients with Acute Coronary Syndrome (ACS) have not changed over the last 10 years.
+  - They are young with a mean age of 58.6 years, and about a quarter are below the age of 50 years. This age is lower than that seen in Thailand, Singapore and in Western populations. The patients presenting with ST segment Elevation Myocardial Infarction (STEMI) are even younger with a mean age of 56 years.
+  - Majority of men presented with STEMI (50.5%) whereas women presented with Non ST Elevation Acute Coronary syndrome (NSTE-ACS) (70.8%). NSTE-ACS encompasses both Unstable Angina (UA) and Non ST-Elevation Myocardial Infarction (NSTEMI).
+  - There was a high prevalence of hypertension, dyslipidaemia and diabetes – the prevalence of these risk factors has not changed over the last 10 years.
 
-In the pre-PCI era, mortality at 30-days was much higher (approximately 13% with treatment and approximately 30% without treatment). In-hospital mortality ranges from 6-14% depending on the registry.
+- The in-hospital mortality following STEMI was 10.6% and that following NSTE-ACS was 8.0%.
 
-## 1.2 Risk Factors for Coronary Artery Disease
+- The STEMI patients were generally more ill.
+  - 67.4% were in the intermediate-high TIMI risk score.
+  - 19.0% were in Killip class III/IV.
 
-The major risk factors include:
+- Fibrinolytic therapy was the most common mode of reperfusion (69.1%), and only 13.7% were treated with primary PCI. Even in PCI capable centres, only 16.4% of STEMI patients underwent Primary PCI. About 14% of patients did not receive any form of reperfusion treatment due to late presentation, missed and delayed diagnosis.
+  - The median door-to-needle time (DNT) was 45 minutes and only 35.2% achieved the recommended DNT time of < 30 minutes. However, as a Key Performance Indicator for the Emergency Department (ED) the DNT of < 30 mins was achieved in 87.1% of patients diagnosed with STEMI at presentation.
+  - The median door-to-device (balloon) (DBT) time was 69 minutes and 63.6% achieved the recommended DBT time of < 90 minutes.
 
-- Diabetes Mellitus
-- Hypertension
-- Dyslipidaemia
-- Cigarette smoking (including e-cigarettes and vaping)
-- Family history of premature atherosclerotic disease
-- Obesity
-- Physical inactivity
+- More than 90.0% of the patients were discharged on dual antiplatelet therapy (DAPT) and statins. About 69.0% and 56.1% were on ß-blockers and Angiotensin Converting Enzyme Inhibitors (ACE- I)/ Angiotensin Receptor Blockers (ARB) upon discharge.
 
-## 1.3 Causes of Death Following STEMI
+- The in-hospital, 30-day and 1-year mortality following STEMI remains high at 10.6%, 12.3% and 17.9% respectively. This in-hospital mortality is almost double that reported in the ACTION (Acute Coronary Treatment and Intervention Outcomes Network) Registry-GWTG (Get With the Guidelines) database in the United States for the period January 2012 to December 2013 which was only 4.6%.
 
-The most common cause of death in patients with STEMI is left ventricular (LV) failure. The mortality is highest in the first few hours. In a recent registry, the most common cause of early death (within 30 days) was cardiogenic shock, whereas the causes of late death (after 30 days) were most frequently non-cardiac.
+- Patients receiving reperfusion therapy (PCI or fibrinolytic) had overall better survival than those who did not receive any form of reperfusion.
 
-The distribution of time of death post-STEMI varies according to different treatment strategies:
+- Patients who underwent PCI during the index hospitalisation did better irrespective of it being primary PCI, rescue PCI, as part of pharmaco-invasive therapy or delayed PCI. Mortality was (PCI during the index hospitalisation compared to no PCI):
+  - In-hospital: 7.9% vs 12.8%,
+  - 30-day: 9.0% vs 14.9%
+  - 1 year: 13.1% vs 21.8%.
 
-- Following fibrinolysis, 55% of deaths from all causes occurred within the first 48 hours after hospitalisation and 80% within the first week.
-- Following primary PCI, about 40% of deaths occurred during the first 24 hours.
+- These figures are consistent with that of other registries.
 
-## Key Recommendation 1:
+To improve outcomes, it is important to:
+- make an early diagnosis.
+- reduce delays in the pre-hospital phase and delays related to systems.
+- have a system in place for timely reperfusion (fibrinolysis or PCI).
+- provide a seamless clinical pathway for high risk patients to have early revascularization.
 
-- A quick targeted history should be taken and is essential in raising the suspicion that the chest pain or chest pain equivalent is ischaemic in origin.
+The last Clinical Practice Guidelines (CPG) on Management of Acute ST Segment Elevation Myocardial Infarction (STEMI) - 3rd Edition was published in 2014. The objectives of this update are to:
+- Determine the best practice in terms of pre-hospital and in-hospital care logistics and risk assessment.
+- Decide the best reperfusion strategy for the patient.
+- Optimise secondary prevention strategies.
 
----
+The focus is to:
+- Develop seamless systems and pathways in the management of STEMI patients.
+- Improve the quality of care and outcomes.
+- Shorten the total ischemic time by:
+  - patient education so that they seek medical attention early.
+  - improvements in the pre-hospital care, ambulance services and emergency department management.
+  - establishment of STEMI networks of STEMI-referral (non-PCI capable) hospitals and STEMI-receiving (PCI capable) hospitals. This network in the Klang Valley is called MySTEMI.
+- Work with payers and policy makers for reimbursement.
 
-## Contextual Anchors (Overlapping)
+Guidelines are intended to help in the management of patients. All the recommendations stated in this guideline may not be available to all eligible patients. Patient care should be individualised, and sound clinical judgement still plays an important role in decision-making.
 
-### Table 1: Levels of Evidence and Grades of Recommendation
-
-| Grade | Description |
-|---|---|
-| I | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| IIa | Weight of evidence/opinion is in favour of its usefulness/efficacy. |
-| IIb | Usefulness/efficacy is less well established by evidence/opinion. |
-| III | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
-
-| Level | Description |
-|---|---|
-| A | Data derived from multiple randomised clinical trials or meta-analyses. |
-| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| C | Only consensus of opinions of experts, case studies or standard of care. |
+> **Key message #1:**
+> - The STEMI mortality (in-hospital, 30 day and 1 year) remains high.
+> - Data from the latest 2014-2015 NCVD-ACS Registry indicated that patients receiving reperfusion (Primary PCI or fibrinolytic) had better survival compared to patients who did not receive any form of reperfusion.
+> - Patients who had any form of PCI during the index hospitalisation had better short-term and long-term survival compared to those who did not undergo PCI. This is consistent with other registries.
 
 ---
 
@@ -61,10 +67,21 @@ The distribution of time of death post-STEMI varies according to different treat
 
 | Abbreviation | Description |
 |---|---|
+| ACE-I | Angiotensin Converting Enzyme Inhibitors |
 | ACS | Acute Coronary Syndrome |
-| AMI | Acute Myocardial Infarction |
+| ACTION | Acute Coronary Treatment and Intervention Outcomes Network |
+| ARB | Angiotensin Receptor Blockers |
+| CPG | Clinical Practice Guidelines |
+| DAPT | Dual Antiplatelet Therapy |
+| DBT | Door-to-Device (balloon) Time |
+| DNT | Door-to-Needle Time |
+| ED | Emergency Department |
+| GWTG | Get With the Guidelines |
 | IHD | Ischaemic Heart Disease |
-| LV | Left Ventricular |
-| NCVD-ACS | National Cardiovascular Disease-Acute Coronary Syndrome |
-| PCI | Percutaneous Coronary Interventions |
-| STEMI | ST Segment Elevation Myocardial Infarction |
+| NCVD-ACS | National Cardiovascular Database- Acute Coronary Syndrome |
+| NSTE-ACS | Non ST Elevation Acute Coronary syndrome |
+| NSTEMI | Non ST-Elevation Myocardial Infarction |
+| PCI | Percutaneous Coronary Intervention |
+| STEMI | ST segment Elevation Myocardial Infarction |
+| TIMI | Thrombolysis in Myocardial Infarction |
+| UA | Unstable Angina |

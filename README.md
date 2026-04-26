@@ -9,6 +9,8 @@
 
 An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, **Dyslipidaemia (6th Edition)**, **Ischaemic Stroke (3rd Edition)**, and **STEMI (4th Edition)**.
 
+> **Last Updated:** April 2026
+
 ---
 
 ## 📑 Content Overview
@@ -397,58 +399,13 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   └── embedder.py       # Embedding generation
 ├── frontend/
 │   └── run.py            # FastAPI frontend server
+├── documents/            # Source PDF files (not tracked in git)
 ├── markdown/             # CPG markdown files (RAG-optimized)
 │   ├── Erectile-Dysfunction/
-│   │   ├── section-1-introduction.md
-│   │   └── ...
 │   ├── Heart-Failure(5th Edition)/
-│   │   ├── section-9-acute-heart-failure.md
-│   │   ├── section-10-chronic-hfref.md
-│   │   └── ...
-│   ├── Dyslipidaemia(6th Edition)/
-│   │   └── ...
-│   ├── Ischaemic-Stroke(3rd Edition)/  # 18 sections, fully standardized
-│   │   ├── section-1-epidemiology-definition-and-classification-of-stroke.md
-│   │   ├── section-2-causes-and-pathophysiology.md
-│   │   ├── section-3-diagnosis-and-initial-assessment.md
-│   │   ├── section-4-prognosis.md
-│   │   ├── section-5-prevention-of-stroke.md
-│   │   ├── section-6-investigations.md
-│   │   ├── section-7-emergency-medicine-services.md
-│   │   ├── section-8-acute-general-management.md
-│   │   ├── section-9-reperfusion-of-ischaemic-brain.md
-│   │   ├── section-10-endovascular-thrombectomy.md
-│   │   ├── section-11-stroke-unit.md
-│   │   ├── section-12-stroke-in-the-older-person.md
-│   │   ├── section-13-stroke-and-cardioembolism.md
-│   │   ├── section-14-stroke-in-special-circumstances.md
-│   │   ├── section-15-management-of-stroke-in-pregnancy.md
-│   │   ├── section-16-stroke-therapies-with-limited-evidence.md
-│   │   ├── section-17-quality-assurance.md
-│   │   └── section-18-appendices.md
-│   ├── STEMI(4th Edition)/            # 22 sections, fully standardized
-│   │   ├── section-0-front-matter.md
-│   │   ├── section-1-introduction.md
-│   │   ├── section-2-definition-and-pathogenesis.md
-│   │   ├── section-3-diagnosis.md
-│   │   ├── section-4-pre-hospital-management.md
-│   │   ├── section-5-stemi-network.md
-│   │   ├── section-6-in-hospital-management.md
-│   │   ├── section-7-reperfusion-strategies.md
-│   │   ├── section-8-ccu-management.md
-│   │   ├── section-9-complications-of-stemi.md
-│   │   ├── section-10-urgent-emergent-cabg-surgery.md
-│   │   ├── section-11-risk-stratification-post-stemi.md
-│   │   ├── section-12-duration-of-hospitalisation.md
-│   │   ├── section-13-secondary-prevention.md
-│   │   ├── section-14-special-groups.md
-│   │   ├── section-15-cardiac-rehabilitation.md
-│   │   ├── section-16-checklists-for-follow-up-visits.md
-│   │   ├── section-17-performance-measures.md
-│   │   ├── section-18-algorithms.md
-│   │   ├── section-19-appendices.md
-│   │   ├── section-20-references.md
-│   │   └── section-21-acknowledgements.md
+│   ├── Dyslipidaemia(6th-Edition)/
+│   ├── Ischaemic-Stroke(3rd Edition)/  # 18 sections
+│   ├── STEMI(4th Edition)/             # 22 sections
 │   └── ...               # Additional CPGs (20+ guidelines)
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
@@ -458,7 +415,9 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   └── README.md         # DDx module documentation
 ├── sql/
 │   └── schema.sql        # Database schema
+├── convert_pdf.py        # PDF to Markdown converter (Docling)
 ├── cli.py                # Command-line interface
+├── CPG-RAG-Standardization-Guide.md  # Formatting standards for CPG ingestion
 └── .env                  # Configuration (not in repo)
 ```
 
@@ -515,6 +474,11 @@ The fully standardized CPGs (STEMI, Ischaemic Stroke, Dyslipidaemia, Heart Failu
 - **Evidence Keys** — Each section contains its own Levels of Evidence Scale and Grades of Recommendations table for self-contained interpretation.
 - **Standardized Recommendation Blocks** — Recommendations use consistent `[Level, Grade]` formatting.
 - **Pure Markdown** — No HTML tags except for necessary entities (`<br>`, `&ge;`, `&le;`) for table cell formatting.
+
+### Recent Changes (April 2026)
+
+- **STEMI (4th Ed) sections verified against source PDF** — Tables 6, 7, 8 repositioned; Section 3.4 corrected; Key Recommendation 3 added.
+- **Repository cleanup** — Removed 22 unnecessary files (temp outputs, one-off Python scripts, backup files, AI scaffolding docs). Moved source PDFs from `markdown/` to `documents/`. Fixed corrupted `.gitignore`.
 
 ---
 
