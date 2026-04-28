@@ -125,13 +125,145 @@ In STEMI, there is no role for routine CTCA. Use of CT should be confined to sel
 ---
 
 ## Contextual Anchors (Overlapping)
+## Appendix I: Difficulties in ECG Diagnosis of MI
 
-> For difficulties in ECG diagnosis of MI (e.g., mimics of STEMI), see **Appendix I**.
-> For elevated troponin in the absence of overt ischaemic heart disease, see **Appendix II**.
-> For the definition and pathogenesis of MI including 5-type classification, see **Section 2: Definition and Pathogenesis**.
+The following conditions may cause ECG changes that may be confused with that of STEMI:
+
+- Prior MI with Q-waves and/or persistent ST elevation.
+- Early repolarisation.
+- LBBB.
+- Right ventricular pacing.
+- Pre-excitation.
+- Peri-/myocarditis.
+- Pulmonary embolism.
+- Subarachnoid haemorrhage.
+- Metabolic disturbances such as hyperkalaemia.
+- Cardiomyopathy.
+- Cholecystitis.
+- Tricyclic antidepressants or phenothiazines.
+- J point elevation syndromes, e.g., Brugada syndrome.
+
+In these difficult situations where the ECG is non-diagnostic, cardiac imaging techniques such as echocardiogram looking for presumed new wall motion abnormalities or elevation of cardiac biomarkers will help in making the diagnosis.
 
 ---
-### Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB)¹⁰,²³
+
+## Appendix II: Elevations of Cardiac Troponin in the Absence of Overt Ischaemic Heart Disease
+
+### Damage Related to Secondary Myocardial Ischaemia (MI Type 2)
+
+- Tachy- or bradyarrhythmias
+- Aortic dissection and severe aortic valve disease
+- Hypo- or hypertension, e.g., haemorrhagic shock, hypertensive emergency
+- Acute and chronic HF without significant concomitant CAD
+- Hypertrophic cardiomyopathy
+- Coronary vasculitis, e.g., systemic lupus erythematosus, Kawasaki syndrome
+- Coronary endothelial dysfunction without significant CAD, e.g., cocaine abuse
+
+### Damage Not Related to Myocardial Ischaemia
+
+- Cardiac contusion
+- Cardiac incisions with surgery
+- Radiofrequency or cryoablation therapy
+- Rhabdomyolysis with cardiac involvement
+- Myocarditis
+- Cardiotoxic agents, e.g., anthracyclines, herceptin, carbon monoxide poisoning
+- Severe burns affecting > 30% of body surface
+
+### Indeterminant or Multifactorial Group
+
+- Apical ballooning syndrome
+- Severe pulmonary embolism or pulmonary hypertension
+- Peripartum cardiomyopathy
+- Renal failure
+- Severe acute neurological disease, e.g., stroke, trauma
+- Infiltrative disease, e.g., amyloidosis, sarcoidosis
+- Extreme exertion
+- Sepsis
+- Acute respiratory failure
+- Frequent defibrillator shocks
+
+## Section 2: Definition and Pathogenesis of MI (Overlapping)
+
+### 2.2 Myocardial Injury vs Myocardial Infarction
+
+It is important to distinguish between myocardial injury and myocardial infarction (MI). Myocardial injury may be due to:
+
+- Ischaemia and/or
+- Non-ischaemic causes (e.g., myocarditis, renal failure)
+
+MI is myocardial injury due to ischaemia. It is defined pathologically as myocardial cell death due to prolonged ischaemia.
+
+The preferred cardiac biomarkers are the troponins (both I and T). Elevation of cardiac troponins indicates myocardial necrosis. A level above the 99th percentile of the URL is abnormal and indicative of myocardial injury. All locally available commercial assays indicate this level, the exact value varying depending on the reagents used. The point of care kits, however, although giving a more rapid result, are not sensitive enough to detect this low level.
+
+Troponins should always be interpreted in the clinical setting. Many troponin elevations, especially below certain cut-off points and troponin elevations without a rise and fall, are myocardial injuries and not MI.
+
+A rise and/or fall in the troponin level is indicative of acute injury, while a persistently elevated level is indicative of chronic injury.
+
+### 2.3 Diagnosis of MI
+
+MI is diagnosed when there is a rise and/or fall in cardiac troponins, with at least one value above the 99th percentile of the URL, and accompanied with at least one of the following:
+
+- i. Clinical history consistent with chest pain of ischaemic origin of > 30 minutes.
+- ii. ECG changes of ischaemia/infarction and/or the development of pathological Q waves.
+- iii. Imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
+- iv. Identification of an intracoronary (IC) thrombus by angiography or autopsy.
+
+MI may be STEMI or NSTE-ACS based on the ECG.
+
+### 2.4 Diagnosis of STEMI
+
+STEMI is diagnosed when there is:
+
+- ST elevation of > 1 mm in 2 contiguous leads or
+- A new onset LBBB in the resting ECG
+- In a patient with ischaemic type chest pains of > 30 minutes and
+- Accompanied by a rise and fall in cardiac biomarkers.
+
+New onset Right Bundle Branch Block with ST elevation of ≥ 1 mm in 2 contiguous leads does not interfere with the diagnosis of STEMI.
+
+### 2.5 Clinical Classification of MI
+
+According to the 4th Universal Definition, MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies (refer to Table 5: Clinical Classification of MI). This CPG focuses on STEMI which is almost always Type 1 MI (spontaneous MI related to atherosclerotic plaque rupture).
+
+---
+
+### Table 5: Clinical Classification of MI
+
+**Type 1: Spontaneous MI due to coronary athero-thrombosis**
+
+Spontaneous MI related to atherosclerotic plaque rupture, ulceration, fissuring, erosion, or dissection with resulting intraluminal thrombus in one or more of the coronary arteries leading to decreased myocardial blood flow or distal platelet emboli with ensuing myocyte necrosis.
+
+**Type 2: MI secondary to an imbalance between myocardial oxygen demand and supply unrelated to acute coronary athero-thrombosis**
+
+MI that occurs due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis eg coronary endothelial dysfunction, coronary artery spasm, coronary embolism, coronary artery dissection, tachy/bradyarrhythmias, anaemia, respiratory failure, sepsis, hypotension, and hypertension with or without left ventricular hypertrophy (LVH).
+
+**Type 3: MI resulting in death when biomarker values are unavailable**
+
+Cardiac death with symptoms suggestive of myocardial ischaemia and presumed new ischaemic ECG changes or new LBBB, but death occurring before blood samples could be obtained, before cardiac biomarker could rise, or in rare cases cardiac biomarkers were not collected.
+
+**Type 4a: MI related to PCI**
+
+MI associated with PCI is arbitrarily defined by elevation of cardiac troponin (cTn) values 5 x > 99th percentile URL in patients with normal baseline values (≤ 99th percentile URL) or a rise of cTn values > 20% if the baseline values are elevated but are stable or falling. In addition, either<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(i) symptoms suggestive of myocardial ischaemia, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) new ischaemic ECG changes or new LBBB, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(iii) angiographic loss of patency of a major coronary artery or a side branch or persistent slow- or no-flow or embolization, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(iv) imaging demonstration of new loss of viable myocardium or new regional wall motion abnormality is required.
+
+**Type 4b: MI related to stent thrombosis**
+
+MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischaemia and with a rise and/or fall of cardiac biomarker values with at least one value above the 99th percentile URL.
+
+**Type 5: MI related to coronary artery bypass surgery (CABG)**
+
+MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 x 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(i) new pathological Q waves or new LBBB, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(ii) angiographic documented new graft or new native coronary artery occlusion, or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
+
+'Reinfarction' is used for MI that occurs within 28 days of the incident event (incident MI) while recurrent MI occurs after 28 days.
+
+---
+### Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB)
 
 | LOCATION | LEADS | ECG FINDINGS |
 |---|---|---|
@@ -170,8 +302,20 @@ In STEMI, there is no role for routine CTCA. Use of CT should be confined to sel
 
 *\* Hours after symptom onset.*
 
-#### Figure 2: Time Course of Elevation of Serum Cardiac Biomarkers after STEMI²⁵
-*(Line graph omitted. Depicts cardiac marker concentration (50x - 100x ULRR) over Time in days for Myoglobin, CK-MB, Troponin I, Troponin T, CK, and LDH.)*
+#### Figure 2: Time Course of Elevation of Serum Cardiac Biomarkers after STEMI
+
+_ULRR: Upper Limit Reference Range_
+
+This figure depicts the time course (in days) and relative cardiac marker concentration (expressed as multiples of the ULRR) of six serum cardiac biomarkers following STEMI:
+
+- **Myoglobin:** The earliest marker to rise, detectable at approximately 1.5–2 hours after symptom onset. It peaks early (within 6–12 hours) at a relatively low concentration (~10x ULRR) and returns to baseline rapidly, within approximately 1 day.
+- **CK-MB:** Begins to rise at approximately 2–3 hours. It peaks at around 12–24 hours reaching approximately 30–40x ULRR, then returns to baseline by 1–2 days.
+- **CK (total Creatine Kinase):** Rises slightly later than CK-MB, detectable at 4–6 hours. It peaks at approximately 24 hours at a lower concentration (~10x ULRR) and returns to baseline by 2–3 days.
+- **LDH (Lactate Dehydrogenase):** The slowest to rise, with a gradual increase over 1–2 days, peaking at a low level (~5–10x ULRR) and remaining slightly elevated for several days before normalising.
+- **Troponin I:** Rises at 3–4 hours, peaks sharply at approximately 12–24 hours reaching the highest concentration of all markers (~80–90x ULRR). It then gradually declines but remains elevated for 7–10 days, showing a characteristic prolonged tail.
+- **Troponin T:** Follows a similar initial rise and peak as Troponin I (peaking at ~80–90x ULRR within 12–24 hours) but demonstrates an even more prolonged elevation, remaining detectable for 7–14 days. Troponin T shows a characteristic biphasic pattern with a secondary smaller rise around day 3–4 before slowly declining.
+
+**Key clinical takeaway:** Troponin I and Troponin T are the most sensitive and specific biomarkers, with the highest peak concentrations and longest detection windows (7–14 days), making them the preferred biomarkers for diagnosing MI. Myoglobin, while the earliest to rise, has the lowest specificity and shortest detection window.
 
 ---
 
@@ -187,11 +331,14 @@ In STEMI, there is no role for routine CTCA. Use of CT should be confined to sel
 | CK | Creatine Kinase |
 | CK-MB | Creatine Kinase-Myocardial Band |
 | CT | Computed Tomography |
+| cTn | Cardiac Troponin |
 | cTnI | Cardiac Troponin I |
 | cTnT | Cardiac Troponin T |
 | ECG | Electrocardiogram |
 | FMC | First Medical Contact |
+| HF | Heart Failure |
 | hs-cTn | High-Sensitivity Cardiac Troponin |
+| IC | Intracoronary |
 | LAD | Left Anterior Descending Artery |
 | LBBB | Left Bundle Branch Block |
 | LCx | Left Circumflex Artery |
@@ -200,6 +347,7 @@ In STEMI, there is no role for routine CTCA. Use of CT should be confined to sel
 | LVEF | Left Ventricular Ejection Fraction |
 | LVH | Left Ventricular Hypertrophy |
 | MI | Myocardial Infarction |
+| NSTE-ACS | Non-ST Elevation Acute Coronary Syndrome |
 | NSTEMI | Non-ST Elevation Myocardial Infarction |
 | PCI | Percutaneous Coronary Intervention |
 | RBBB | Right Bundle Branch Block |

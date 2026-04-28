@@ -15,11 +15,11 @@ Complications of STEMI include:
 
 **Pulseless Ventricular Tachyarrhythmias**
 
-This is either pulseless ventricular tachycardia (VT) or ventricular fibrillation (VF). Defibrillate immediately. Early VF occurs within the first 48 hours and is due to electrical instability. Late VF is associated with large infarcts and poor pump function and carries a poor prognosis (refer to Algorithm 1).
+This is either pulseless ventricular tachycardia (VT) or ventricular fibrillation (VF). Defibrillate immediately. Early VF occurs within the first 48 hours and is due to electrical instability. Late VF is associated with large infarcts and poor pump function and carries a poor prognosis (refer to Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm).
 
 **Ventricular Tachycardia (VT)**
 
-VT in the setting of STEMI may arise from either ischaemia (usually within 48 hours) or from a myocardial scar due to the infarct (late onset). Treatment of ischaemia may result in the termination of the tachycardia (refer to Algorithm 2).
+VT in the setting of STEMI may arise from either ischaemia (usually within 48 hours) or from a myocardial scar due to the infarct (late onset). Treatment of ischaemia may result in the termination of the tachycardia (refer to Algorithm 2: Stable Ventricular Tachycardia (VT)).
 
 **Ventricular Premature Contractions (VPC)**
 
@@ -31,7 +31,7 @@ These do not require any treatment. This is a sign suggestive of successful repe
 
 **Atrial Fibrillation (AF)**
 
-This is more commonly seen in the elderly and is associated with large infarcts. It denotes a poorer prognosis and carries an increased risk of thromboembolism (refer to Algorithm 3).
+This is more commonly seen in the elderly and is associated with large infarcts. It denotes a poorer prognosis and carries an increased risk of thromboembolism (refer to Algorithm 3: Atrial Fibrillation).
 
 ### B. Bradyarrhythmias
 
@@ -41,13 +41,13 @@ This does not require treatment unless associated with symptoms and/or hypotensi
 
 **Atrio-ventricular (AV) Block**
 
-- First degree and second degree type 1 (Mobitz 1) do not need treatment. Patients with second degree type 2 (Mobitz 2) and complete AV block may not require treatment if haemodynamically stable. If unstable, urgent temporary pacing is necessary. Atropine may be given in the interim (maximum 3 mg) (refer to Algorithm 4).
+- First degree and second degree type 1 (Mobitz 1) do not need treatment. Patients with second degree type 2 (Mobitz 2) and complete AV block may not require treatment if haemodynamically stable. If unstable, urgent temporary pacing is necessary. Atropine may be given in the interim (maximum 3 mg) (refer to Algorithm 4: Bradycardia).
 - Patients with anterior infarcts who develop second degree (Mobitz 2) and complete AV block carry a worse prognosis. Even if haemodynamically stable, these patients require temporary pacing.
 - In inferior MI, the inferior wall of the RV may be friable. Insertion of a temporary wire may lead to RV perforation. Thus, extra care is required to prevent this complication.
 
 **Asystole and Pulseless Electrical Activity (PEA)**
 
-Rhythms which require defibrillation (pulseless VT/VF) are called shockable rhythms while asystole and PEA are non-shockable rhythms. For the management of asystole and PEA, refer to Algorithm 1.
+Rhythms which require defibrillation (pulseless VT/VF) are called shockable rhythms while asystole and PEA are non-shockable rhythms. For the management of asystole and PEA, refer to Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update).
 
 ## 9.2 LV Dysfunction and Cardiogenic Shock
 
@@ -60,15 +60,6 @@ Co-morbidities such as infection, pulmonary disease, renal dysfunction, diabetes
 The clinical manifestation of LV dysfunction varies from asymptomatic to cardiogenic shock. An important prognostic indicator is LVEF which can be assessed objectively using echocardiography.
 
 A useful clinical classification of LV dysfunction is the Killip Classification.
-
-### Table 13: Prognosis Post Fibrinolysis and Post Primary PCI According to Killip Classification
-
-| Killip Class | Clinical Features | Post Fibrinolytics (21-day mortality) | Post Primary PCI (In-hospital) | Post Primary PCI (6 months) | Post Primary PCI (5 years) |
-|---|---|---|---|---|---|
-| I | No signs of LV failure | 7% | 2.4% | 4% | 17.7% |
-| II | S3 gallop, bibasal crackles, Elevated JVP | 18% | 7% | 10% | 27.3% |
-| III | Acute pulmonary oedema | 36% | 9% | 28% | 30.4% |
-| IV | Cardiogenic shock | 70% | — | — | 48.8% |
 
 ### 9.2.2 Investigations
 
@@ -188,7 +179,7 @@ Pericarditis used to occur in about 20% of patients post-STEMI. In the contempor
 
 Pericarditis may produce pain as early as the first day and as late as 6 weeks. The pain classically becomes worse on deep inspiration and may be relieved when the patient sits up and leans forward. A pericardial rub may be detected.
 
-Dressler's syndrome (post-MI syndrome) usually occurs 2–10 weeks after STEMI. This is immunologically mediated.
+Dressler's syndrome (post-MI syndrome) usually occurs 2–10 weeks after STEMI. This is immunologically mediated and used to occur in 3% to 4% of patients post STEMI. In the contemporary era, it is seen in much fewer patients.
 
 Management includes:
 
@@ -219,15 +210,317 @@ In high-risk patients (prolonged bed rest, HF, unable to mobilise), prophylactic
   - Reinfarction/Recurrent MI
   - Post-infarct angina
   - Pericarditis
-  - Non-cardiac causes such as gastritis
 
 ---
 
 ## Contextual Anchors (Overlapping)
 
-> For CCU management and concomitant pharmacotherapy, see **Section 8: CCU Management**.
-> For urgent/emergent CABG surgery indications, see **Section 10: Urgent/Emergent CABG Surgery**.
-> For arrhythmia management algorithms, see **Section 18: Algorithms** (Algorithms 1–4).
+### Table 13: Prognosis Post Fibrinolysis and Post Primary PCI According to Killip Classification
+
+| Killip Class | Clinical Features | Post Fibrinolytics (21-day mortality) | Post Primary PCI (In-hospital) | Post Primary PCI (6 months) | Post Primary PCI (5 years) |
+|---|---|---|---|---|---|
+| I | No signs of LV failure | 7% | 2.4% | 4% | 17.7% |
+| II | S3 gallop, bibasal crackles, Elevated JVP | 18% | 7% | 10% | 27.3% |
+| III | Acute pulmonary oedema | 36% | 9% | 28% | 30.4% |
+| IV | Cardiogenic shock | 70% | — | — | 48.8% |
+
+---
+
+### Section 8: CCU Management (Overlapping)
+
+#### 8.1 General measures
+
+All STEMI patients should be admitted to a CCU or equivalent unit equipped with adequate monitoring facilities. Following successful reperfusion, uncomplicated cases may be kept for a minimum of 24 hours before transfer to a step-down unit. Sedatives may be useful. Titrated IV opioids may be administered to relieve pain. Early referral for cardiac rehabilitation is advisable.
+
+#### 8.2 Monitoring
+
+The general condition of the patient, vital signs, pulse oximetry and the cardiac rhythm should be continuously monitored following STEMI. SBP should be > 90 mmHg prior to starting ACE-I or ß-blockers.
+
+#### 8.3 Concomitant therapy
+
+**8.3.1 Oxygen:**
+- [Grade I, Level B] Oxygen via nasal prongs at 2-4 litres/minute. Aim to maintain oxygen saturation > 95%.
+
+**8.3.2 Antiplatelet agents:**
+- [Grade I, Level A] Aspirin 300 mg loading then 75-100 mg daily indefinitely.
+- P2Y₁₂ inhibitor: Clopidogrel, Prasugrel (primary PCI only, 60 mg loading), or Ticagrelor (primary PCI only, 180 mg loading).
+- DAPT duration: Post-fibrinolysis 1 month to 1 year; Post-PCI up to 1 year (6 months if high bleeding risk).
+
+**8.3.4 ß-blockers:**
+- [Grade I, Level A] Initiation immediately after STEMI, especially with LV systolic dysfunction — reduces hospitalisation for HF and mortality.
+- Contraindications: Bradycardia < 60 bpm, SBP < 100 mmHg, pulmonary congestion, peripheral hypoperfusion, 2nd/3rd degree AV block.
+
+**8.3.5 ACE-Is and ARBs:**
+- [Grade I, Level A] ACE-Is within 24 hours, especially in high-risk patients (LVEF ≤ 40%, HF, diabetes, anterior infarct).
+- [Grade I, Level B] ARB (preferably valsartan) if ACE-I intolerant.
+
+**8.3.6 MRA:**
+- [Grade I, Level B] Eplerenone in patients with LVEF ≤ 40% and HF, in absence of renal failure or hyperkalaemia.
+
+**8.3.7 Statins:**
+- [Grade I, Level A] High-intensity statin therapy (atorvastatin 40-80 mg or rosuvastatin 20-40 mg daily) as early as possible.
+- [Grade I, Level A] Target LDL-C < 1.8 mmol/L or ≥ 50% reduction from baseline.
+
+**8.3.8 Nitrates:**
+- [Grade III, Level B] Oral nitrates are not routinely recommended.
+- [Grade I, Level C] IV nitrates in acute stage for continuing chest pain, HF, hypertension. Contraindicated if SBP < 90 mmHg, RV infarction.
+
+**8.3.9 CCBs:**
+- [Grade IIb, Level B] No data for routine use post-STEMI.
+- [Grade IIa, Level B] CCBs + ß-blockers more effective than monotherapy for persistent angina.
+
+#### Key Recommendation 7 (from Section 8):
+
+- All patients with STEMI receiving **fibrinolytic therapy** should receive aspirin 300 mg + clopidogrel (75 mg if > 75 years, 300 mg if ≤ 75 years). DAPT 1 month to 1 year.
+- All patients undergoing **Primary PCI** should receive aspirin 300 mg + clopidogrel 300-600 mg or ticagrelor 180 mg or prasugrel 60 mg. DAPT up to 1 year.
+
+#### Key Recommendation 8 (from Section 8):
+
+- All patients with STEMI should receive medications shown to improve survival: ACE-Is (ARBs if intolerant), ß-blockers, MRA, high dose statins.
+
+---
+### Section 10: Urgent/Emergent CABG Surgery (Overlapping)
+
+Urgent/emergent CABG surgery should be considered in the following situations:
+
+- Patients with a patent IRA but with unsuitable anatomy for PCI and either a large myocardial area at jeopardy or with cardiogenic shock.
+- At the time of surgical repair of post-infarction ventricular septal rupture or mitral valve regurgitation.
+- Patients with failed reperfusion whose coronary anatomy and clinical profile are suitable.
+
+In general, CABG surgery in this group of patients carries a very high in-hospital mortality rate.
+
+---
+
+---
+## Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update)
+
+*(Adapted from Guidelines for Resuscitation Training for Ministry of Health Malaysia, March 2016)*
+
+**Step 1: Start CPR**
+- Give oxygen.
+- Attach monitor/defibrillator.
+
+**Step 2: Assess — Is rhythm shockable?**
+- **Yes →** Go to Shockable Pathway (VF / Pulseless VT)
+- **No →** Go to Non-Shockable Pathway (Asystole / PEA)
+---
+
+### Shockable Pathway (VF / Pulseless VT)
+
+**Step 2:** Identify VF/pVT on monitor.
+
+**Step 3:** Deliver shock.
+
+**Step 4:** CPR for 2 minutes.
+- Establish IV/IO access during CPR.
+
+**Step 5:** Rhythm check — Is rhythm shockable?
+- **Yes →** Deliver shock (Step 5).
+- **No →**  - If no signs of return of spontaneous circulation (ROSC), go to Step 10 or 11.
+  - If ROSC, go to Post-Cardiac Arrest Care.
+
+**Step 6:** CPR for 2 minutes.
+- Epinephrine 1 mg IV every 3–5 minutes.
+- Consider advanced airway and capnography.
+
+**Step 7:** Rhythm check — Is rhythm shockable?
+- **Yes →** Deliver shock (Step 7).
+- **No →**  - If no signs of return of spontaneous circulation (ROSC), go to Step 10 or 11.
+  - If ROSC, go to Post-Cardiac Arrest Care.
+
+**Step 8:** CPR for 2 minutes.
+- Amiodarone 300 mg IV bolus (first dose); consider second dose of 150 mg IV.
+- Treat reversible causes.
+- Continue cycles: CPR 2 min → rhythm check → shock if shockable.
+
+---
+
+### Non-Shockable Pathway (Asystole / PEA)
+
+**Step 9:** Identify Asystole/PEA on monitor.
+
+**Step 10:** CPR for 2 minutes.
+- Establish IV/IO access.
+- Epinephrine 1 mg IV every 3–5 minutes.
+- Consider advanced airway and capnography.
+
+**Step 11:** Rhythm check — Is rhythm shockable?
+- **Yes →** Go to Shockable Pathway (Step 5 or 7).
+- **No →** CPR for 2 minutes. Treat reversible causes.
+
+**Step 12:** Rhythm check — Is rhythm shockable?
+- **Yes →** Go to Shockable Pathway (Step 5 or 7).
+- **No →**
+  - If no signs of return of spontaneous circulation (ROSC), go to Step 10 or 11.
+  - If ROSC, go to Post-Cardiac Arrest Care.
+
+---
+
+### CPR Quality Standards
+
+- Push hard: at least 2 inches (5 cm) depth, at a rate of 100–120/min. Allow complete chest recoil.
+- Minimise interruptions in compressions.
+- Avoid excessive ventilation.
+- Rotate compressor every 2 minutes, or sooner if fatigued.
+- If no advanced airway: 30:2 compression-to-ventilation ratio.
+- Quantitative waveform capnography: if PETCO₂ < 10 mmHg, attempt to improve CPR quality.
+- Intra-arterial pressure: if relaxation phase (diastolic) pressure < 20 mmHg, attempt to improve CPR quality.
+
+### Shock Energy for Defibrillation
+
+- **Biphasic:** Manufacturer recommendation (e.g. initial dose of 120–200 J); if unknown, use maximum available. Second and subsequent doses should be equivalent, and higher doses may be considered.
+- **Monophasic:** 360 J.
+
+### Drug Therapy
+
+- **Epinephrine IV/IO dose:** 1 mg every 3–5 minutes.
+- **Amiodarone IV/IO dose:** First dose: 300 mg bolus. Second dose: 150 mg.
+
+### Advanced Airway
+
+- Endotracheal intubation or supraglottic advanced airway.
+- Waveform capnography or capnometry to confirm and monitor ET tube placement.
+- Once advanced airway in place, give 1 breath every 6 seconds (10 breaths/min) with continuous chest compressions.
+
+### Return of Spontaneous Circulation (ROSC)
+
+Signs of ROSC include:
+- Pulse and blood pressure.
+- Abrupt sustained increase in PETCO₂ (typically > 40 mmHg).
+- Spontaneous arterial pressure waves with intra-arterial monitoring.
+
+### Reversible Causes (5 H's and 5 T's)
+
+- **H:** Hypovolaemia, Hypoxia, Hydrogen ion (acidosis), Hypo-/Hyperkalaemia, Hypothermia.
+- **T:** Tension pneumothorax, Tamponade (cardiac), Toxins, Thrombosis (pulmonary), Thrombosis (coronary).
+
+---
+
+## Algorithm 2: Stable Ventricular Tachycardia (VT)
+
+*(If unstable → immediate synchronised cardioversion)*
+
+**Step 1: Initial Assessment**
+- Assess and support ABCs (Airway, Breathing, Circulation).
+- Give oxygen.
+- Monitor ECG.
+
+**Step 2: Assess Haemodynamic Stability**
+
+- **If Haemodynamically Unstable** (hypotension, chest pain, HF, altered mental status):
+  - Proceed to immediate synchronised cardioversion.
+  - Sedate the patient if conscious.
+
+- **If Haemodynamically Stable** → Determine VT morphology:
+
+**Pathway A: Monomorphic VT**
+1. IV amiodarone 150 mg over 10 minutes.
+2. Repeat as needed up to 2.2 g / 24 hours.
+3. Assess response:
+   - **Successful pharmacological cardioversion (CV)** → Transition to oral amiodarone.
+   - **Failed pharmacological CV** → Proceed to electrical cardioversion (synchronised).
+
+**Pathway B: Polymorphic VT**
+1. Check electrolytes and correct accordingly.
+2. Stop all anti-arrhythmic drugs (if any) IV magnesium.
+3. Overdrive pacing.
+
+**Footnotes:**
+- *ABC: Airway, Breathing, Circulation*
+- *CV: Cardioversion*
+
+---
+
+## Algorithm 3: Atrial Fibrillation
+
+**Step 1: Search and treat identifiable underlying causes.**
+
+**Step 2: Preparation**
+- A) Pre-medicate for cardioversion (CV).
+- B) Anticoagulation assessment.
+
+**Step 3: Assess Haemodynamic Stability**
+
+**Pathway A: Haemodynamically Unstable**
+1. Proceed to electrical cardioversion (CV).
+2. Assess response:
+   - **Successful CV** → Transition to oral amiodarone → Patient stabilised.
+   - **Unsuccessful CV** → IV amiodarone
+
+**Pathway B: Haemodynamically Stable**
+
+Assess LV function:
+
+**B1. Normal LV Function:**
+- **Rate control options:**
+  - ß-blockers
+  - Calcium channel blockers
+- **Rhythm control options:**
+  - IV amiodarone followed by oral amiodarone
+- **Anticoagulation:**
+  - If AF persistent after 48 hours, or if cardioversion is contemplated.
+
+**B2. Impaired LV Function:**
+- **Rhythm control** — preferably IV amiodarone followed by oral amiodarone.
+- **Anticoagulation** — initiate.
+- **Electrical cardioversion (CV)** — may be considered.
+
+**Footnote:**
+- *CV: Cardioversion*
+
+---
+
+## Algorithm 4: Bradycardia
+
+**Step 1: Identify Bradycardia**
+- Slow: absolute bradycardia ≤ 50 bpm, **or**
+- Relatively slow: rate less than expected relative to the underlying condition/cause.
+
+**Step 2: Initial Assessment**
+- Assess ABC (Airway, Breathing, Circulation).
+- Vital signs monitoring.
+- Search for underlying reversible causes (e.g. electrolytes, drugs) and treat accordingly.
+
+**Step 3: Are there serious symptoms due to bradycardia?**
+
+**If YES (symptomatic — hypotension, altered consciousness, shock, HF):**
+- **Intervention sequence:**
+  1. Atropine 0.5 to 1 mg IV (may repeat to a maximum of 3 mg).
+  2. Dopamine 2 to 10 mcg/kg/minute.
+  3. Epinephrine 2 to 10 mcg/minute.
+  4. Transcutaneous pacing if available.
+- If unresponsive to above → arrange transvenous pacing.
+
+**If NO (asymptomatic):**
+- **Is there Type II second degree AV block or Third degree AV block?**
+  - **Yes →** Is the patient haemodynamically stable?
+    - **Yes →** Is it an anterior MI?
+      - **Yes →** Transvenous pacing (risk of sudden deterioration).
+      - **No →** Observe and monitor.
+    - **No →** Go to intervention sequence (above).
+  - **No →** Observe and monitor. No urgent treatment required for first degree AV block or Mobitz type 1 (Wenckebach).
+
+**Important Note:** In anterior MI with Mobitz type 2 or complete AV block — temporary pacing should be considered even if the patient is haemodynamically stable, as there is a risk of sudden deterioration.
+
+**Footnote:**
+- *ABC: Airway, Breathing, Circulation*
+
+---
+## Table 1: Levels of evidence and grades of recommendation
+
+| GRADES OF RECOMMENDATION | |
+| :--- | :--- |
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+<br>
+
+| LEVELS OF EVIDENCE | |
+| :--- | :--- |
+| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 
@@ -235,28 +528,46 @@ In high-risk patients (prolonged bed rest, HF, unable to mobilise), prophylactic
 
 | Abbreviation | Description |
 |---|---|
+| ABC | Airway, Breathing, Circulation |
+| ACE-I | Angiotensin Converting Enzyme Inhibitor |
 | AF | Atrial Fibrillation |
+| ARB | Angiotensin Receptor Blocker |
 | AV | Atrioventricular |
 | BiPAP | Bi-Level Positive Airway Pressure |
+| BLS | Basic Life Support |
+| bpm | Beats per minute |
 | CABG | Coronary Artery Bypass Grafting |
+| CCB | Calcium Channel Blocker |
+| CCU | Cardiac Care Unit |
 | CK-MB | Creatine Kinase-Myocardial Band |
 | CPAP | Continuous Positive Airway Pressure |
+| CPR | Cardiopulmonary Resuscitation |
 | CRP | C-Reactive Protein |
+| CV | Cardioversion |
 | DAPT | Dual Antiplatelet Therapy |
+| DOAC | Direct Oral Anticoagulant |
 | DVT | Deep Venous Thrombosis |
 | ECG | Electrocardiogram |
 | ECMO | Extracorporeal Membrane Oxygenation |
+| ET | Endotracheal |
 | HF | Heart Failure |
 | IABP | Intra-Aortic Balloon Pump |
+| IO | Intraosseous |
+| IRA | Infarct-Related Artery |
 | IV | Intravenous |
 | JVP | Jugular Venous Pressure |
+| LDL-C | Low-Density Lipoprotein Cholesterol |
 | LMWH | Low Molecular Weight Heparin |
 | LV | Left Ventricular |
 | LVEF | Left Ventricular Ejection Fraction |
 | MI | Myocardial Infarction |
+| MRA | Mineralocorticoid Receptor Antagonist |
 | NSAIDs | Non-Steroidal Anti-Inflammatory Drugs |
 | PCI | Percutaneous Coronary Intervention |
 | PEA | Pulseless Electrical Activity |
+| PETCO₂ | End-Tidal Carbon Dioxide |
+| pVT | Pulseless Ventricular Tachycardia |
+| ROSC | Return of Spontaneous Circulation |
 | RV | Right Ventricular |
 | RVI | Right Ventricular Infarction |
 | SBP | Systolic Blood Pressure |

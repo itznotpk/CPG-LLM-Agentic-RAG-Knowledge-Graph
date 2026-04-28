@@ -5,8 +5,6 @@
 
 Acute Coronary Syndrome (ACS) is a clinical spectrum of Coronary Artery Disease (CAD) ranging from Unstable Angina (UA), Non-ST Segment Elevation Myocardial Infarction (NSTEMI) to STEMI depending upon the degree and acuteness of coronary occlusion (refer to Figure 1: Clinical spectrum of ACS*). In UA, myocardial injury is absent and cardiac biomarkers are normal. In myocardial injury, cardiac biomarkers are raised.
 
-
-
 ## 2.2 Myocardial Injury vs Myocardial Infarction
 
 It is important to distinguish between myocardial injury and myocardial infarction (MI). Myocardial injury may be due to:
@@ -68,8 +66,68 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 
 ## Contextual Anchors (Overlapping)
 
-> For ECG diagnostic criteria and patterns of various STEMI locations, see **Section 3: Diagnosis** (Tables 6 & 7).
-> For elevated troponin in the absence of overt ischaemic heart disease, see **Appendix II**.
+### Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB)
+
+| LOCATION | LEADS | ECG FINDINGS |
+|---|---|---|
+| Anteroseptal | V1 – V3 | • ST elevation in leads V2-3:<br>&nbsp;&nbsp;≥ 0.25 mV (in males < 40 years),<br>&nbsp;&nbsp;≥ 0.2 mV (in males ≥ 40 years)<br>&nbsp;&nbsp;≥ 0.15 mV in females,<br>• Q wave |
+| Extensive anterior | V1 – V6 | • ST elevation of ≥ 0.1 mV in all leads<br>&nbsp;&nbsp;except leads V2-V3. In leads V2-3 :<br>&nbsp;&nbsp;≥ 0.25 mV (in males < 40 years),<br>&nbsp;&nbsp;≥ 0.2 mV (in males ≥ 40 years)<br>&nbsp;&nbsp;≥ 0.15 mV in females,<br>• Q wave |
+| Posterior | V7 – V8 | • ST elevation≥ 0.05 mV (≥ 0.1 mV in<br>&nbsp;&nbsp;men < 40 years),<br>• Q wave |
+| Posterior | V1 – V2 | • ST depression, Tall R wave |
+| Anterolateral | I, AVL,V5<br>– V6 | • ST elevation ST elevation of ≥ 0.1 mV,<br>• Q wave |
+| Inferior | II, III, AVF | • ST elevation ST elevation of ≥ 0.1 mV,<br>• Q wave |
+| Right Ventricular (RV) | V4R | • ST elevation> 0.5 mm (≥ 1 mm in men<br>&nbsp;&nbsp;< 30 years old). |
+
+---
+
+### Table 7: Location of Ischaemia/infarction in STEMI
+
+| LEADS WITH ST SEGMENT ELEVATION | AFFECTED MYOCARDIAL AREA | OCCLUDED ARTERY (CULPRIT VESSEL) |
+|---|---|---|
+| V1 – V2 | Septal | Proximal LAD |
+| V3 – V4 | Anterior | LAD |
+| V5 – V6 | Apical | Distal LAD, left circumflex<br>or RCA |
+| I, aVL | Lateral | circumflex |
+| II, III,aVF | Inferior | RCA 90%, circumflex: 10% |
+| V7,8,9 (reciprocal ST<br>segment depression<br>often seen in V1-3) | Posterolateral (also<br>referred to as posterior<br>or inferobasal) | RCA or circumflex |
+
+---
+
+## Appendix II: Elevations of Cardiac Troponin in the Absence of Overt Ischaemic Heart Disease
+
+### Damage Related to Secondary Myocardial Ischaemia (MI Type 2)
+
+- Tachy- or bradyarrhythmias
+- Aortic dissection and severe aortic valve disease
+- Hypo- or hypertension, e.g., haemorrhagic shock, hypertensive emergency
+- Acute and chronic HF without significant concomitant CAD
+- Hypertrophic cardiomyopathy
+- Coronary vasculitis, e.g., systemic lupus erythematosus, Kawasaki syndrome
+- Coronary endothelial dysfunction without significant CAD, e.g., cocaine abuse
+
+### Damage Not Related to Myocardial Ischaemia
+
+- Cardiac contusion
+- Cardiac incisions with surgery
+- Radiofrequency or cryoablation therapy
+- Rhabdomyolysis with cardiac involvement
+- Myocarditis
+- Cardiotoxic agents, e.g., anthracyclines, herceptin, carbon monoxide poisoning
+- Severe burns affecting > 30% of body surface
+
+### Indeterminant or Multifactorial Group
+
+- Apical ballooning syndrome
+- Severe pulmonary embolism or pulmonary hypertension
+- Peripartum cardiomyopathy
+- Renal failure
+- Severe acute neurological disease, e.g., stroke, trauma
+- Infiltrative disease, e.g., amyloidosis, sarcoidosis
+- Extreme exertion
+- Sepsis
+- Acute respiratory failure
+- Frequent defibrillator shocks
+
 ---
 
 #### Figure 1: Clinical spectrum of ACS*
@@ -165,7 +223,9 @@ MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker
 | CPG | Clinical Practice Guidelines |
 | cTn | Cardiac Troponin |
 | ECG | Electrocardiogram |
+| HF | Heart Failure |
 | IC | Intracoronary |
+| LAD | Left Anterior Descending |
 | LBBB | Left Bundle Branch Block |
 | LVH | Left Ventricular Hypertrophy |
 | MI | Myocardial Infarction |
@@ -173,6 +233,8 @@ MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker
 | NSTEMI | Non-ST Segment Elevation Myocardial Infarction |
 | PCI | Percutaneous Coronary Intervention |
 | RBBB | Right Bundle Branch Block |
+| RCA | Right Coronary Artery |
+| RV | Right Ventricular |
 | STEMI | ST Segment Elevation Myocardial Infarction |
 | UA | Unstable Angina |
 | URL | Upper Reference Limit |

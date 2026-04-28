@@ -477,7 +477,12 @@ The fully standardized CPGs (STEMI, Ischaemic Stroke, Dyslipidaemia, Heart Failu
 
 ### Recent Changes (April 2026)
 
-- **STEMI (4th Ed) sections verified against source PDF** — Tables 6, 7, 8 repositioned; Section 3.4 corrected; Key Recommendation 3 added.
+- **STEMI (4th Ed) — Full RAG-Optimized Ingestion Complete** — All 20 section files (Sections 2–19) are now fully self-contained, atomic knowledge chunks:
+  - **Cross-reference elimination** — Every "See Section X" pointer has been replaced with the literal, evidence-graded content from the source section. Overlapping modules now exist as contextual anchors within each file, covering pharmacotherapy, reperfusion strategies, risk stratification, secondary prevention, cardiac rehabilitation, performance measures, follow-up checklists, and special groups.
+  - **Abbreviation table harmonisation** — Each section's abbreviation table has been expanded to include all terms introduced by embedded overlapping content, ensuring zero undefined acronyms per chunk.
+  - **Table 1: Levels of Evidence & Grades of Recommendation** — Embedded at the end of every clinical section (Sections 4–17), enabling self-contained interpretation of `[Grade X, Level Y]` annotations.
+  - **PDF-verified tables** — Tables 6, 7, 8, 14, 15, 19 repositioned and corrected against source PDF. Section 3.4 and Key Recommendations verified.
+  - **Sections 20–21 consolidated** — References and Acknowledgements merged into Section 19 (Appendices).
 - **Repository cleanup** — Removed 22 unnecessary files (temp outputs, one-off Python scripts, backup files, AI scaffolding docs). Moved source PDFs from `markdown/` to `documents/`. Fixed corrupted `.gitignore`.
 
 ---

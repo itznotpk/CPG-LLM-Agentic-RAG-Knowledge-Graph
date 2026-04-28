@@ -83,7 +83,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
-| Heart rate (bpm) | < 50, 50–69, 70–89, 90–109, 110–149, 150–199, ≥ 200 |
+| Heart rate (bpm) | 0< 50, 50–69, 70–89, 90–109, 110–149, 150–199, ≥ 200 |
 | SBP (mmHg) | < 80, 80–99, 100–119, 120–139, 140–159, 160–199, ≥ 200 |
 | Creatinine (mg/dL) | 0–0.39, 0.4–0.79, 0.8–1.19, 1.2–1.59, 1.6–1.99, 2.0–3.99, ≥ 4 |
 | CHF (Killip Class) | I (No CHF), II (Rales and/or JVD), III (Pulmonary oedema), IV (Cardiogenic shock) |
@@ -96,7 +96,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
-| Heart rate (bpm) | < 50, 50–69, 70–89, 90–109, 110–149, 150–199, ≥ 200 |
+| Heart rate (bpm) | 0< 50, 50–69, 70–89, 90–109, 110–149, 150–199, ≥ 200 |
 | SBP (mmHg) | < 80, 80–99, 100–119, 120–139, 140–159, 160–199, ≥ 200 |
 | Creatinine (mg/dL) | 0–0.39, 0.4–0.79, 0.8–1.19, 1.2–1.59, 1.6–1.99, 2.0–3.99, ≥ 4 |
 | CHF (Killip Class) | I (No CHF), II (Rales and/or JVD), III (Pulmonary oedema), IV (Cardiogenic shock) |
@@ -151,15 +151,6 @@ Where:
 CrCL (ml/min/1.73 m²) = (140 − age (years)) × body weight (kg) / Scr (µmol/L) × Constant
 
 Where the constant is **1.23 in males** or **1.04 in females**.
-
----
-
-## Contextual Anchors (Overlapping)
-
-> For ECG diagnostic criteria, see **Section 3: Diagnosis** (Table 6 & 7).
-> For risk stratification using TIMI and GRACE scores, see **Section 11: Risk Stratification Post STEMI**.
-> For anti-thrombotic dose adjustments in CKD, see **Section 14: Special Groups** (Section 14.4, Table 15).
-> For atrial fibrillation management and anti-coagulation, see **Section 8: CCU Management** (Section 8.3.3.1).
 
 ---
 
