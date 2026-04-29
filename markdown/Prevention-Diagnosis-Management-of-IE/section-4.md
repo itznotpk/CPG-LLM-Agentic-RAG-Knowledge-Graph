@@ -7,18 +7,6 @@ patient_input: diagnosis, severity, comorbidities, microbiology
 output: treatment_plan, monitoring_plan
 -->
 
-## 4.0 MANAGEMENT
-
-
-# SECTION 4.1: CLINICAL MANAGEMENT
-
-<!-- METADATA
-category: management
-use_case: treatment_planning
-patient_input: diagnosis, severity, comorbidities, microbiology
-output: treatment_plan, monitoring_plan
--->
-
 ## 4.1 Clinical management
 
 The major goals of management of IE are:
@@ -35,50 +23,48 @@ The mainstay of treatment for IE is appropriate antimicrobial therapy. Factors w
 - Proper monitoring of potentially toxic regimens.
 - Aggressive surgical management of correctable mechanical complications.
 
-## 4.1.1 Monitoring
+### 4.1.1 Monitoring
 
 Whilst in the ward, general management steps include the monitoring of:
 
 - Clinical condition:
-- &gt; Fever:
-- » Fever usually resolves in a few days after commencement of appropriate antimicrobials.
-- » However, fever may return after this initial period in 30% of cases.
-- » If fever persists after 10 days of treatment, the patient should be evaluated for suppurative complications (e.g. abscess collections in the abdomen, lungs or intracardiac abscess).
-- &gt; The patient should be examined regularly for symptoms and signs of the following:
-- » Heart failure: symptoms should be treated with standard medical therapy and its severity regularly assessed. Heart failure may persist despite microbiological resolution.
-- » Embolic events.
-- » Ongoing sepsis.
-- » Neurological sequelae.
+  - Fever:
+    - Fever usually resolves in a few days after commencement of appropriate antimicrobials.
+    - However, fever may return after this initial period in 30% of cases.
+    - If fever persists after 10 days of treatment, the patient should be evaluated for suppurative complications (e.g. abscess collections in the abdomen, lungs or intracardiac abscess).
+- The patient should be examined regularly for symptoms and signs of the following:
+  - Heart failure: symptoms should be treated with standard medical therapy and its severity regularly assessed. Heart failure may persist despite microbiological resolution.
+  - Embolic events.
+  - Ongoing sepsis.
+  - Neurological sequelae.
 
-## · ECG:
-
-- &gt; Should be done daily to monitor heart rhythm and to look for conduction defects. This is especially important in cases of prosthetic valve IE or native valve IE as they are at higher risk for extension of infection to the conduction pathways which can occur very abruptly.
-- &gt; Conduction defects may be a sign of perivalvular extension of infection especially in cases involving the aortic valve.
+- ECG:
+  - Should be done daily to monitor heart rhythm and to look for conduction defects. This is especially important in cases of prosthetic valve IE or native valve IE as they are at higher risk for extension of infection to the conduction pathways which can occur very abruptly.
+  - Conduction defects may be a sign of perivalvular extension of infection especially in cases involving the aortic valve.
 - Blood investigations:
-- &gt; General investigations:
-- » Regular levels of inflammatory markers e.g. CRP and ESR (daily in the acute period and at least twice weekly thereafter once the patient is more stable).
-- » Regular FBC for total white cell count, haemoglobin and platelet count (thrombocytopaenia).
-- » Blood urea and electrolytes for signs of acute renal failure. Renal failure is a complication of IE and haemodialysis may be required.
-- » Liver function tests.
-- » Coagulation profile in patients on anticoagulation.
-
-- &gt; Blood cultures:
-- » Should be taken 3-4 days after the commencement of treatment to document the eradication of bacteraemia.
-- » If the blood cultures remain positive despite adequate levels of appropriate antimicrobials, metastatic infection should be looked for.
+  - General investigations:
+    - Regular levels of inflammatory markers e.g. CRP and ESR (daily in the acute period and at least twice weekly thereafter once the patient is more stable).
+    - Regular FBC for total white cell count, haemoglobin and platelet count (thrombocytopaenia).
+    - Blood urea and electrolytes for signs of acute renal failure. Renal failure is a complication of IE and haemodialysis may be required.
+    - Liver function tests.
+    - Coagulation profile in patients on anticoagulation.
+  - Blood cultures:
+    - Should be taken 3-4 days after the commencement of treatment to document the eradication of bacteraemia.
+    - If the blood cultures remain positive despite adequate levels of appropriate antimicrobials, metastatic infection should be looked for.
 - Echocardiography (refer Figure 3b):
-- &gt; TTE should be repeated if there is any change to the patient's clinical condition.
-- &gt; During the course of management of IE, assess for:
-- » Haemodynamics and/or cause of heart failure.
-- » Causes of uncontrolled infection: paravalvular abscess, pseudoaneurysms or fistulae (using TEE).
-- » Echocardiographic features for risk of embolisation (refer Section 4.1.2.3).
-- » Monitor vegetation:
-- Resolution of IE: vegetations gradually reduce in size, decrease in mobility and increase in echogenicity. In the long-term, these vegetations may not disappear or even change in size, even with clinical treatment success.
-- Risk of embolisation: vegetations increase in size60,61 and mobility.
-- » Monitor for rarer complications: e.g. purulent pericarditis (presence of fluid in the pericardial space), coronary obstruction (regional wall motion abnormality corresponding to coronary artery distribution) and myocarditis (general hypokinesia).
-- &gt; In uncomplicated cases, a baseline, pre-discharge TTE should be performed.
+  - TTE should be repeated if there is any change to the patient's clinical condition.
+  - During the course of management of IE, assess for:
+    - Haemodynamics and/or cause of heart failure.
+    - Causes of uncontrolled infection: paravalvular abscess, pseudoaneurysms or fistulae (using TEE).
+    - Echocardiographic features for risk of embolisation (refer Section 4.1.2.3).
+    - Monitor vegetation:
+      - Resolution of IE: vegetations gradually reduce in size, decrease in mobility and increase in echogenicity. In the long-term, these vegetations may not disappear or even change in size, even with clinical treatment success.
+      - Risk of embolisation: vegetations increase in size60,61 and mobility.
+    - Monitor for rarer complications: e.g. purulent pericarditis (presence of fluid in the pericardial space), coronary obstruction (regional wall motion abnormality corresponding to coronary artery distribution) and myocarditis (general hypokinesia).
+  - In uncomplicated cases, a baseline, pre-discharge TTE should be performed.
 - Antimicrobial peak and trough levels should be done as appropriate. Patients should be assessed for clinical features of antimicrobial toxicity.
 
-## 4.1.2 Complications
+### 4.1.2 Complications
 
 It is important to recognise the common and serious complications of IE, as cardiac surgery should be considered in circumstances involving such complications. The main complications of IE are:
 
@@ -89,49 +75,50 @@ It is important to recognise the common and serious complications of IE, as card
 
 All IE patients who develop cardiac complications should be referred to a SC (a centre with cardiology and cardiothoracic surgery services; refer Section 4.1.4) as most would need more advanced imaging, surgical intervention and cardiac intensive services.
 
-## 4.1.2.1 Heart failure
+#### 4.1.2.1 Heart failure
 
 Heart failure is the most common complication of IE, which occurs in up to half of all cases.62 It is the most important predictor of mortality. In most cases of IE, heart failure is usually caused by valvular dysfunction and not myocardial failure. 63 Heart failure is more commonly associated with aortic valve dysfunction compared to mitral valve dysfunction. 64 Less commonly, intracardiac fistulae may also cause heart failure. 65 The clinical presentation of heart failure includes dyspnoea, pulmonary oedema and cardiogenic shock.
 
-## The management of heart failure in infective endocarditis A. Imaging and monitoring in heart failure
+##### The management of heart failure in infective endocarditis
+##### A. Imaging and monitoring in heart failure
 
 Echocardiography (TTE or TEE) is important in the evaluation of:
 
 - Acute valve regurgitation: if symptoms or signs of heart failure occur, an echocardiogram should be performed immediately to diagnose possible acute valve regurgitation, which carries a very high mortality. In acute regurgitation, the size of the chamber may be normal or only slightly enlarged. Ejection fraction may be normal. There may be findings of:
-- &gt; Extensive destruction of the valve leaflets.
-- &gt; Massive regurgitation.
-- &gt; Abscess or pseudoaneurysms.
+  - Extensive destruction of the valve leaflets.
+  - Massive regurgitation.
+  - Abscess or pseudoaneurysms.
 
 However in cases of chronic valve regurgitation with superimposed IE, the size of the cardiac chamber may be enlarged with impaired systolic function.
 
 - Valve perforation.
 - Secondary mitral lesions.
-- Aneurysms/fistula (are best assessed using TEE). 43
+- Aneurysms/fistula (are best assessed using TEE).
 - Haemodynamic consequences of valvular dysfunction:
-- &gt; Measurement of pulmonary artery pressure.
-- &gt; Detection of pericardial effusion.
-- &gt; Assessment and monitoring of left ventricular systolic function. 43
+  - Measurement of pulmonary artery pressure.
+  - Detection of pericardial effusion.
+  - Assessment and monitoring of left ventricular systolic function.
 
-## B. Heart failure marker
+##### B. Heart failure marker
 
-- N-terminal pro brain-type natriuretic peptide (NT-proBNP) is useful in diagnosing heart failure and effectiveness of medical therapy. 66
-- C. Medical management (refer to 3 rd edition of Management of Heart Failure CPG 2014, Section 7.1 available at http://www.moh.gov.my/ penerbitan/CPG)
+- N-terminal pro brain-type natriuretic peptide (NT-proBNP) is useful in diagnosing heart failure and effectiveness of medical therapy.
+
+##### C. Medical management (refer to 3 rd edition of Management of Heart Failure CPG 2014, Section 7.1 available at http://www.moh.gov.my/ penerbitan/CPG)
+
 - Pharmacotherapy:
-- &gt; Diuretics (e.g. furosemide).
-- &gt; Intravenous diuretics are indicated for patients with symptoms of acute pulmonary oedema or fluid overload (raised jugular venous pressure; JVP and ankle oedema).
-- &gt; Angiotensin converting enzyme (ACE) inhibitors.
-- &gt; Beta-blockers:
-- » Although beta-blockade in acute heart failure may cause harm and beta-blockers should also not be used in aortic regurgitation as this will increase diastolic time and regurgitation volume.
+  - Diuretics (e.g. furosemide).
+  - Intravenous diuretics are indicated for patients with symptoms of acute pulmonary oedema or fluid overload (raised jugular venous pressure; JVP and ankle oedema).
+  - Angiotensin converting enzyme (ACE) inhibitors.
+  - Beta-blockers:
+    - Although beta-blockade in acute heart failure may cause harm and beta-blockers should also not be used in aortic regurgitation as this will increase diastolic time and regurgitation volume.
 
-## D. Surgical management (refer Chapter 5.0)
+#### D. Surgical management (refer Chapter 5.0)
 
 - Indication and timing:
-- &gt; All cases of IE with acute heart failure should be stabilised with medical management and referred for consideration of surgery.
-- &gt; Although surgery is urgent, the timing should be agreed with the surgical team in order to optimise the patient's condition to minimise surgical risk.
+- All cases of IE with acute heart failure should be stabilised with medical management and referred for consideration of surgery.
+- Although surgery is urgent, the timing should be agreed with the surgical team in order to optimise the patient's condition to minimise surgical risk.
 
-## 4.0 MANAGEMENT
-
-## 4.1.2.2 Persistent infection and perivalvular extension
+#### 4.1.2.2 Persistent infection and perivalvular extension
 
 If after 7-10 days of antimicrobial therapy, there is persistent fever and positive blood cultures, assess for the following possibilities and manage accordingly:
 
@@ -146,35 +133,33 @@ In cases of both suspected persistent infection and perivalvular extension, the 
 - Perform a TEE in cases of persistent fever especially in those with prosthetic valves, aortic valve IE and S. aureus infection, or new AV block.
 - Perform an ECG-gated cardiac CT scan to assess for aortic root abscess or perivalvular extension in cases when TEE facilities are not available.
 
-## 4.1.2.3 Systemic embolism
+#### 4.1.2.3 Systemic embolism
 
-The risk of systemic embolism is very high in IE (20-50%) and life-threatening complications are often related to the migration of cardiac vegetations. The risk is highest during the first days following the initiation of antimicrobial therapy and rapidly decreases subsequent to that.61,67 Frequent sites for embolisation in left-sided IE are the brain and spleen whilst pulmonary embolism frequently occurs in native right-sided and pacemaker lead IE. 68 Stroke is a major complication and is associated with increased morbidity and mortality. 68
+The risk of systemic embolism is very high in IE (20-50%) and life-threatening complications are often related to the migration of cardiac vegetations. The risk is highest during the first days following the initiation of antimicrobial therapy and rapidly decreases subsequent to that.61,67 Frequent sites for embolisation in left-sided IE are the brain and spleen whilst pulmonary embolism frequently occurs in native right-sided and pacemaker lead IE. 68 Stroke is a major complication and is associated with increased morbidity and mortality.
 
 Factors associated with an increased risk of embolism are:
 
-- Vegetation size &gt; 10 mm (higher risk if &gt; 15 mm). 69
-- Mobility of vegetations. 69
+- Vegetation size > 10 mm (higher risk if > 15 mm).
+- Mobility of vegetations.
 - Location of the vegetation on the anterior mitral valve leaflet.
-- Increase in the size of the vegetation under antimicrobial therapy. 60
-- S. aureus60 and Streptococcus bovis 70 infection.
+- Increase in the size of the vegetation under antimicrobial therapy.
+- S. aureus and Streptococcus bovis infection.
 - Fungal endocarditis.
-- Previous embolism.61
-- Multivalvular IE.71
-- Biological markers (e.g. elevated CRP). 72
+- Previous embolism.
+- Multivalvular IE.
+- Biological markers (e.g. elevated CRP).
 
-Embolisation may occur before diagnosis, usually within the first 2-4 weeks of therapy or after antimicrobial therapy. 68 Late embolisation can occur up to 15-30 weeks after diagnosis usually due to poor response to antimicrobial treatment. In order to predict the risk of embolic events, several features can be assessed with the use of echocardiography. They are usually related to the size, mobility and the location of the vegetation.60,68
+Embolisation may occur before diagnosis, usually within the first 2-4 weeks of therapy or after antimicrobial therapy. Late embolisation can occur up to 15-30 weeks after diagnosis usually due to poor response to antimicrobial treatment. In order to predict the risk of embolic events, several features can be assessed with the use of echocardiography. They are usually related to the size, mobility and the location of the vegetation.
 
-Distal emboli may lead to metastatic infection or abscesses. 63 Emboli may also involve other systemic organs such as the liver, kidneys and abdominal mesenteric vessels.63 Osteomyelitis is estimated to occur in 2-6% of cases of IE and is more common in intravenous (IV) drug abusers. 73 18 F-FDG PET/CT imaging in IE has been useful in detecting peripheral embolic and metastatic infectious events in some cases where other diagnostic imaging has not identified foci.54
+Distal emboli may lead to metastatic infection or abscesses. Emboli may also involve other systemic organs such as the liver, kidneys and abdominal mesenteric vessels. Osteomyelitis is estimated to occur in 2-6% of cases of IE and is more common in intravenous (IV) drug abusers. F-FDG PET/CT imaging in IE has been useful in detecting peripheral embolic and metastatic infectious events in some cases where other diagnostic imaging has not identified foci.
 
-## 4.0 MANAGEMENT
+#### 4.1.2.4 Neurological complications
 
-## 4.1.2.4 Neurological complications
-
-IE can have profound and devastating neurological consequences. Neurological complications can occur before or during the diagnosis of IE, but they can also occur later in the clinical course of IE. Symptomatic neurological events develop in 25-40% of patients with IE.4,46,74
+IE can have profound and devastating neurological consequences. Neurological complications can occur before or during the diagnosis of IE, but they can also occur later in the clinical course of IE. Symptomatic neurological events develop in 25-40% of patients with IE.
 
 Most neurological complications occur early in the course of IE and they are most common in left-sided IE. The most common complications are ischaemic and haemorrhagic complications.
 
-## Diagnosis of neurological complications
+**Diagnosis of neurological complications**
 
 It is important to make the diagnosis of neurological complications early, as well as to assess the severity of the complication. Intracerebral events are diagnosed by history-taking, clinical examination, and by imaging modalities. Imaging modalities commonly used for the assessment of intracerebral events include:
 
@@ -183,33 +168,6 @@ It is important to make the diagnosis of neurological complications early, as we
 - Cerebral angiography is advisable when there is strong clinical suspicion of mycotic aneurysm despite negative findings on non-invasive imaging modalities.
 
 Imaging investigations should be done as soon as clinical features appear, preferably within 24 hours. The presence of neurological complications, its type and severity is important as it will impact the optimal management of IE. It is of particular importance to be specific when describing and grading the neurological complications of IE (refer Table 4.1).
-
-Table 4.1: Description of neurological complications
-
-| Neurologic  complication   | Epidemiology                                                                                                                                                                                                                                                                                                                                                                                                                                       | Clinical  manifestation  in IE                 | Management                                                                                                                                                                                                                           | Implications for  cardiac surgery if  indicated                                                                                                                                                                                                                                                                   |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ischaemic                  | Clinically present  in 20-40% of  patients with IE.  Asymptomatic  ischaemia can  be found in an  additional 30-40%  of patients with IE. Can be divided into:  •  Small ischaemic  complications  such as TIA or  minor infarction  affecting < 30%  of a brain lobe  or clinically silent  infarcts. •  Moderate-severe  ischaemic  complication  such as multiple  cerebral  embolisms or a  single embolism  affecting ≥ 30% of  a brain lobe. | Focal deficits,  encephalopathy  and seizures. | Avoid IV tissue  plasminogen  activator (tPA) or  streptokinase,  antiplatelet agents  and warfarin.75-77 Decision to withhold  anticoagulation  should be  individualised and  dependent on the  multidisciplinary  team (IE team). | As the evidence  is not yet strong  enough to  make a uniform  recommendation,  these decisions  should be  individualised in  consultation with all  members of the IE  team. Clinically silent or  small lesions should  not delay cardiac  surgery. Larger infarcts may  warrant a delay  (refer Chapter 5.0). |
-
-## 4.0 MANAGEMENT
-
-| Neurologic  complication   | Epidemiology                                                                                                                                                                                                                                      | Clinical  manifestation  in IE                           | Management                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Implications for  cardiac surgery if  indicated                                             |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Haemorrhagic               | Present in 4-27% of  patients with IE.  These include: •  Primary  intracerebral  haemorrhage. •  Haemorrhagic  infarction  (transformation). •  Subarachnoid  haemorrhage. •  Microhae morrhage is  present in up to  57% of patients  with IE. | Focal deficits,  headache,  encephalopathy  and seizure. | Native valve: avoid  all antiplatelets and  anticoagulants. Prosthetic valves: stop anticoagulation  with close  monitoring and  evaluation of the  patient’s clinical  condition for at least  2 weeks.78 Consider magnetic  resonance  angiogram (MRA)  in this group of  patients and refer  for Neurology  consult (for  best timing to  recommence the  anticoagulation). Consider conversion  to heparin in  anticipation of  surgical intervention. As the evidence  is not yet strong  enough to make a  uniform recommen dation, these  decisions should  be individualised in  consultation with  all members of the  specialist team. | Postpone cardiac  surgery for 4  weeks following  clinically significant  haemorrhage.79,80 |
-
-## 4.0 MANAGEMENT
-
-| Neurologic  complication   | Epidemiology                                    | Clinical  manifestation  in IE                                                                  | Management                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Implications for  cardiac surgery if  indicated                                                                                                                 |
-|----------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Mycotic  aneurysms         | Present in at least  2-4% of patients  with IE. | Headaches,  seizures,  focal deficits,  encephalopathy,  opthalmoplegia  and rarely  proptosis. | Antimicrobials  and serial imaging  for stable, small,  unruptured  aneurysms.  Endovascular repair  of large or enlarging  unruptured  aneurysms, if  suitable. Open  surgical clipping for  large or enlarging  unruptured  aneurysms not  amenable to  endovascular  repair or in areas  where surgical  anastomoses may  spare function. Any anticoagulation  should be stopped  and the decision  to restart should  be made in  consultation with all  members of the IE | Postpone cardiac  surgery for 1-2  weeks following  aneurysmal repair.                                                                                          |
-| Cerebral  abscess          | Present in 1-7% of  patients with IE.           | Focal deficits,  headache,  encephalopathy,  unresolved  sepsis and  seizures.                  | Antimicrobials  alone for small  or multifocal  abscesses.  Surgical drainage  for abscesses  that are large or  do not respond to  antimicrobials.  Neurosurgical  intervention as  appropriate for  hydrocephalus or  significant mass  effect.                                                                                                                                                                                                                              | Typically will not  interfere with  surgical planning.  Prioritise  neurosurgical  intervention in  the setting of  hydrocephalus or  significant mass  effect. |
-
-## 4.0 MANAGEMENT
-
-| Neurologic  complication   | Epidemiology                           | Clinical  manifestation  in IE                                                             | Management                           | Implications for  cardiac surgery if  indicated        |
-|----------------------------|----------------------------------------|--------------------------------------------------------------------------------------------|--------------------------------------|--------------------------------------------------------|
-| Meningitis                 | Present in 1-20% of  patients with IE. | Headache,  encephalopathy,  seizures,  neck/back  pain, nuchal  rigidity and  photophobia. | At least 4 weeks of  antimicrobials. | Typically will not  interfere with  surgical planning. |
-
-Adapted from Morris et al. Neurohospitalist. 2014. 81
 
 - Patients at highest risk of morbidity and mortality are those who had moderate-severe ischaemic strokes and intracranial haemorrhage.
 - Antimicrobial therapy should be started as soon as possible as the rate of neurological complications reduces significantly after one week of treatment.
@@ -931,4 +889,15 @@ Adapted from European Society of Cardiology infective endocarditis guidelines. 2
 | INR                                                                                                   |
 | Echocardiogram                                                                                        |
 
+## Contextual Anchors (Overlapping)
+### Table 4.1: Description of neurological complications
 
+| Neurologic complication | Epidemiology | Clinical manifestation in IE | Management | Implications for cardiac surgery if indicated |
+|---|---|---|---|---|
+| **Ischaemic** | Clinically present in 20-40% of patients with IE. Asymptomatic ischaemia can be found in an additional 30-40% of patients with IE.<br><br>Can be divided into:<br>• Small ischaemic complications such as TIA or minor infarction affecting < 30% of a brain lobe or clinically silent infarcts.<br>• Moderate-severe ischaemic complication such as multiple cerebral embolisms or a single embolism affecting ≥ 30% of a brain lobe. | Focal deficits, encephalopathy and seizures. | Avoid IV tissue plasminogen activator (tPA) or streptokinase, antiplatelet agents and warfarin.<sup>75-77</sup><br><br>Decision to withhold anticoagulation should be individualised and dependent on the multidisciplinary team (IE team). | As the evidence is not yet strong enough to make a uniform recommendation, these decisions should be individualised in consultation with all members of the IE team.<br><br>Clinically silent or small lesions should not delay cardiac surgery.<br><br>Larger infarcts may warrant a delay (refer Chapter 5.0). |
+| **Haemorrhagic** | Present in 4-27% of patients with IE.<br><br>These include:<br>• Primary intracerebral haemorrhage.<br>• Haemorrhagic infarction (transformation).<br>• Subarachnoid haemorrhage.<br>• Microhaemorrhage is present in up to 57% of patients with IE. | Focal deficits, headache, encephalopathy and seizure. | Native valve: avoid all antiplatelets and anticoagulants.<br><br>Prosthetic valves: stop anticoagulation with close monitoring and evaluation of the patient’s clinical condition for at least 2 weeks.<sup>78</sup><br><br>Consider magnetic resonance angiogram (MRA) in this group of patients and refer for Neurology consult (for best timing to recommence the anticoagulation).<br><br>Consider conversion to heparin in anticipation of surgical intervention.<br><br>As the evidence is not yet strong enough to make a uniform recommendation, these decisions should be individualised in consultation with all members of the specialist team. | Postpone cardiac surgery for 4 weeks following clinically significant haemorrhage.<sup>79,80</sup> |
+| **Mycotic aneurysms** | Present in at least 2-4% of patients with IE. | Headaches, seizures, focal deficits, encephalopathy, opthalmoplegia and rarely proptosis. | Antimicrobials and serial imaging for stable, small, unruptured aneurysms.<br><br>Endovascular repair of large or enlarging unruptured aneurysms, if suitable.<br><br>Open surgical clipping for large or enlarging unruptured aneurysms not amenable to endovascular repair or in areas where surgical anastomoses may spare function.<br><br>Any anticoagulation should be stopped and the decision to restart should be made in consultation with all members of the IE team. | Postpone cardiac surgery for 1-2 weeks following aneurysmal repair. |
+| **Cerebral abscess** | Present in 1-7% of patients with IE. | Focal deficits, headache, encephalopathy, unresolved sepsis and seizures. | Antimicrobials alone for small or multifocal abscesses.<br><br>Surgical drainage for abscesses that are large or do not respond to antimicrobials.<br><br>Neurosurgical intervention as appropriate for hydrocephalus or significant mass effect. | Typically will not interfere with surgical planning.<br><br>Prioritise neurosurgical intervention in the setting of hydrocephalus or significant mass effect. |
+| **Meningitis** | Present in 1-20% of patients with IE. | Headache, encephalopathy, seizures, neck/back pain, nuchal rigidity and photophobia. | At least 4 weeks of antimicrobials. | Typically will not interfere with surgical planning. |
+
+*Adapted from Morris et al. Neurohospitalist. 2014.<sup>81</sup>*
