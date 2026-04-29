@@ -2,10 +2,14 @@
 
 <!-- METADATA
 category: Safe Medication Practice
-use_case: Anaphylaxis Management, Drug Allergy, Antibiotic Allergy, Multiple Allergies
-patient_input: Previous reactions, allergy history, PEN-FAST score, MCT results
-output: Anaphylaxis grading, MCT sampling, referral pathway, alternative antibiotics, cross-reactivity guidance
+use_case: Anaphylaxis Management, Drug Allergy, Antibiotic Allergy, Multiple Allergies, Food Allergies, Urgent Surgery
+patient_input: Previous reactions, allergy history, PEN-FAST score, MCT results, multiple allergy history, food allergy history
+output: Anaphylaxis grading, MCT sampling, referral pathway, alternative antibiotics, cross-reactivity guidance, allergy management strategies
 -->
+
+> **Context:** This section covers perioperative hypersensitivity and anaphylaxis, including diagnosis using mast cell tryptase, ANZAAG grading, PEN-FAST scoring for penicillin allergy, β-lactam cross-reactivity, HKLAAC referral pathway, managing multiple drug allergies, food allergies relevant to anaesthesia, and urgent surgery in suspected allergy cases.
+
+---
 
 ## Key Points for Perioperative Hypersensitivity and Anaphylaxis
 
@@ -158,3 +162,88 @@ g. **Cross-reactivity with 3rd/4th-gen cephalosporins and carbapenems is low/ver
 
 h. **Antibiotic test dose not effective** in preventing anaphylaxis (NAP6). Administer antibiotics **prior to induction** to simplify treatment and diagnostic workup.
 
+---
+
+## 5.1.7 Managing Cases with Multiple Allergies
+
+a. **Multiple drug allergies** = reactions to two or more chemically unrelated drugs.
+
+b. **Patients with hypersensitivity to many drugs in same class** (e.g., antibiotics, NSAIDs) should NOT be considered as multiple drug allergies.
+
+c. Patients labelled as multiple drug allergies **might have underlying chronic urticaria** (spontaneous or inducible).
+
+d. **Referral pathway:**
+   - Refer directly to allergist/immunologist or dermatologist for investigation
+   - Only refer to Anaesthetic Allergy Clinic when multiple allergies include IV anaesthetic agents, local anaesthetics, or other perioperative agents
+
+e. Patients with chronic urticaria usually on antihistamines and/or steroids. **Continue these perioperatively** to prevent flare-ups.
+
+---
+
+## 5.1.8 Managing Cases with Food Allergies
+
+| Food Allergy Concern | Evidence-Based Guidance |
+|---------------------|------------------------|
+| **Egg, soy, or peanut allergy** | **No evidence to avoid propofol** |
+| **Fish or shellfish allergy** | NOT related to iodine |
+| **Seafood allergy** | **No evidence to avoid iodinated drugs** |
+| **Fish allergy / NPH insulin use** | **No evidence to avoid protamine** (usual precautions apply) |
+
+---
+
+## 5.1.9 Managing Suspected POH Cases Planned for Urgent Surgeries
+
+### Information Gathering
+
+a. **Try to get as much information** about the reaction and anaesthetic procedure as possible.
+
+b. **If prior exposure information available:** Avoid all exposures before the reaction and use alternatives whenever possible.
+
+### When No Information is Available
+
+| Strategy | Details |
+|----------|---------|
+| **Alternative technique** | Regional anaesthesia may be technique of choice (fewer drugs used) |
+| **Minimise IV agents** | Use as few drugs as possible |
+| **General anaesthesia** | Avoid NMBAs if possible |
+| **When NMBA absolutely indicated** | Exercise caution and vigilance |
+| **Avoid if possible** | Latex and chlorhexidine |
+| **Penicillin allergy suspected** | Avoid penicillin/cephalosporin group; use non-β lactam alternatives |
+
+### NMBA Considerations (When Absolutely Indicated)
+
+Insufficient Malaysian data; international published data suggests:
+
+| NMBA | Risk Level |
+|------|------------|
+| **Suxamethonium, Rocuronium** | Higher risk of anaphylaxis |
+| **Pancuronium, Cis-atracurium** | Lowest risk |
+
+**Cross-reactivity patterns:**
+- Most frequently observed with rocuronium
+- Less frequently with cis-atracurium
+- Suxamethonium anaphylaxis cross-reacts with cis-atracurium in 10% and rocuronium in 20%
+- Cross-reactivity between atracurium and cis-atracurium: ~50%
+
+### Additional Measures for Urgent Surgery
+
+- **Resuscitation drugs and equipment** must be readily available
+- **Pre-treatment with steroids and antihistamines** may be considered (no strong evidence of prevention)
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ANZAAG | Australian and New Zealand Anaesthetic Allergy Group |
+| GA | General anaesthesia |
+| HKLAAC | Hospital Kuala Lumpur Allergy and Anaphylaxis Clinic |
+| IgE | Immunoglobulin E |
+| IV | Intravenous |
+| MCT | Mast cell tryptase |
+| NAP6 | 6th National Audit Project |
+| NMBAs | Neuromuscular blocking agents |
+| NSAIDs | Non-steroidal anti-inflammatory drugs |
+| POH | Perioperative hypersensitivity |
+| RA | Regional anaesthesia |

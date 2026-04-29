@@ -7,6 +7,10 @@ patient_input: Patient co-morbidities, surgical complexity, patient questions an
 output: Risk stratification, informed discussion with patient/family, documented risk disclosure
 -->
 
+> **Context:** This section covers risk assessment, stratification, and disclosure, including the ASA Physical Status Classification, risk-benefit judgment, counselling high-risk patients, and factors for risk disclosure.
+
+---
+
 ## Key Points for Section 4
 
 1. **Multiple factors contribute to peri-operative outcome: patient's condition, surgical complexity, urgency, surgical skill, and anaesthesia factors.**
@@ -116,3 +120,10 @@ The consent form should be **signed, witnessed and dated**.
 
 4. Malaysian Medical Council Guideline. Consent for treatment of patients by registered medical practitioners. (2013).
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ASA | American Society of Anesthesiologists |

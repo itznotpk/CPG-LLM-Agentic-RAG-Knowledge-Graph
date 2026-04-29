@@ -7,6 +7,10 @@ patient_input: Patient scheduled for anaesthesia
 output: Ensuring functional and safe anaesthetic machine operation
 -->
 
+> **Context:** This section covers the anaesthetic machine and apparatus requirements, including equipment checks, alternative ventilation, oxygen supply monitoring, breathing system safety, disconnection alarms, and scavenging systems.
+
+---
+
 ## Key Points for Section 2
 
 1. **The anaesthesiologist must ensure the anaesthetic machine, airway devices, breathing system, and monitors are functioning before each case.**
@@ -49,3 +53,11 @@ b. **Disconnection Alarm:** The use of a device with an audible alarm to detect 
 ## 2.4 Anaesthetic Scavenging
 
 All anaesthetic machines should be fitted with an **anaesthetic scavenging system**. The use of an active anaesthetic scavenging system is encouraged.
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| WAGs | Waste anaesthetic gases |

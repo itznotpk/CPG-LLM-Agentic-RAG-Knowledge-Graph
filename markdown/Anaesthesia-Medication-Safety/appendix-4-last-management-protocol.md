@@ -7,6 +7,10 @@ patient_input: LAST symptoms, patient weight, cardiac arrest status
 output: Step-by-step LAST management, lipid emulsion dosing, resuscitation guidance
 -->
 
+> **Context:** This appendix contains the complete LAST (Local Anaesthetic Systemic Toxicity) management protocol, including the emergency algorithm, lipid emulsion 20% therapy dosing, and post-resuscitation care.
+
+---
+
 ## Purpose
 
 This appendix provides the **LAST Management Protocol** for emergency treatment of local anaesthetic systemic toxicity.
@@ -178,3 +182,24 @@ Ensure the following are immediately available in all locations where LA is used
 
 3. El-Boghdadly K., Pawa A., Chin KJ. Local anesthetic systemic toxicity: current perspectives. Local Reg Anesth, 2018. 11: 35-44
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Appendix 4 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| AAGBI | Association of Anaesthetists of Great Britain and Ireland |
+| ACLS | Advanced cardiac life support |
+| ASRA | American Society of Regional Anesthesia |
+| CPR | Cardiopulmonary resuscitation |
+| ICU | Intensive care unit |
+| IV | Intravenous |
+| LA | Local anaesthetic |
+| LAST | Local anaesthetic systemic toxicity |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

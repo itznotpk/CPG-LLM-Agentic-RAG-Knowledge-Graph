@@ -7,6 +7,10 @@ patient_input: Patient weight (lean body weight), block indication, anticoagulat
 output: Safe LA administration, dosing guidelines, contamination prevention
 -->
 
+> **Context:** This section covers safe use of medication in regional anaesthesia, including local anaesthetic dosing, neuraxial and peripheral nerve block workflow, contamination prevention, and LAST recognition.
+
+---
+
 ## Key Points for Regional Anaesthesia
 
 1. **A standardised and safe institutional regional anaesthesia workflow should be adopted** to reduce variation in practice and minimize errors from various stages of drug handling.
@@ -142,3 +146,23 @@ The volume and concentration of LA prepared must consider:
 
 8. Klein JA., Jeske DR. Estimated Maximal Safe Dosages of Tumescent Lidocaine. Anesth Analg, 2016. 122(5):1350–1359
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 3.2 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| CNS | Central nervous system |
+| CVS | Cardiovascular system |
+| ETCO₂ | End-tidal carbon dioxide |
+| IV | Intravenous |
+| LA | Local anaesthetic |
+| LAST | Local anaesthetic systemic toxicity |
+| RA | Regional anaesthesia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

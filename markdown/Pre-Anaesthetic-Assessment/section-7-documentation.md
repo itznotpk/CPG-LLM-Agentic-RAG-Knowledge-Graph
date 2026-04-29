@@ -7,6 +7,10 @@ patient_input: Assessment findings, planned interventions
 output: Written summary in anaesthetic record, clear ward instructions
 -->
 
+> **Context:** This section covers documentation requirements for pre-anaesthetic assessment, including ward staff instructions, legibility standards, and pre-operative fasting guidelines for paediatric and adult patients.
+
+---
+
 ## Key Points for Section 7
 
 1. **A written summary of the pre-anaesthetic assessment, orders or arrangements should be documented in the patient's anaesthetic record.**
@@ -78,3 +82,11 @@ Documentation should be:
 
 2. Practice advisory for preanesthesia evaluation: an updated report by the American Society of Anesthesiologists Task Force on Preanesthesia Evaluation. *Anesthesiology* 2012;110:1-17
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| GXM | Group and cross-match |
+| OT | Operating theatre |

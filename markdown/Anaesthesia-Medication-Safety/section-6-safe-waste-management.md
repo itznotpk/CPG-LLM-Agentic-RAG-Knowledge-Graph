@@ -7,6 +7,10 @@ patient_input: N/A
 output: Proper disposal protocols, controlled substance disposal, WAG scavenging, environmental protection
 -->
 
+> **Context:** This section covers safe waste management of anaesthetic medications, including disposal of controlled substances, sharps, and the environmental impact of waste anaesthetic gases (WAGs).
+
+---
+
 ## Key Points for Section 6
 
 1. **Safely discard used vials, ampoules, and syringes** in designated containers, following institutional protocols to prevent contamination and injury.
@@ -126,3 +130,20 @@ Handling and disposal of medical waste including the above wastes mentioned are 
 
 2. McGain F., Muret J., Lawson C., Sherman JD. Environmental sustainability in anaesthesia and critical care. Br J Anaesth, 2020. 125(5): 680-692
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 6 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| GWP | Global warming potential |
+| IV | Intravenous |
+| N₂O | Nitrous oxide |
+| WAGs | Waste anaesthetic gases |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

@@ -7,6 +7,10 @@ patient_input: Current medications list, allergies
 output: Medication continuation/discontinuation instructions, premedication orders
 -->
 
+> **Context:** This section covers pre-operative medication management, including review of current medication, drug interactions with anaesthetic agents, and premedication prescribing for adults.
+
+---
+
 ## Key Points for Section 6
 
 1. **Patient's current medication should be reviewed and continued when necessary with clear instructions given to patient/guardian and nursing staff.**
@@ -79,3 +83,11 @@ Pre-operative medication may be prescribed to facilitate anaesthetic management:
 
 2. Practice advisory for preanesthesia evaluation: an updated report by the American Society of Anesthesiologists Task Force on Preanesthesia Evaluation. *Anesthesiology* 2012;110:1-17
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| PO | Per oral |
+| PPI | Proton pump inhibitor |

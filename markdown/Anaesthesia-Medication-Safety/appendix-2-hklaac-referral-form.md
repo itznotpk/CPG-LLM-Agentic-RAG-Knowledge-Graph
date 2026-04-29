@@ -7,6 +7,10 @@ patient_input: Patient details, reaction description, anaesthetic record, blood 
 output: Referral to Hospital Kuala Lumpur Anaesthetic Allergy Clinic (HKLAAC)
 -->
 
+> **Context:** This appendix contains the HKLAAC referral form for patients who have experienced suspected perioperative hypersensitivity reactions requiring formal investigation with skin prick testing.
+
+---
+
 ## Purpose
 
 This appendix contains the **Hospital Kuala Lumpur Anaesthetic Allergy Clinic (HKLAAC) Referral Form** used for referring patients who have experienced suspected perioperative hypersensitivity reactions for formal investigation.
@@ -119,3 +123,20 @@ The HKLAAC Referral Form typically requires:
 
 Guidelines on Safe Use of Medication in Anaesthesia (October 2024). College of Anaesthesiologists, Academy of Medicine of Malaysia and Malaysian Society of Anaesthesiologists.
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Appendix 2 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| HKLAAC | Hospital Kuala Lumpur Anaesthetic Allergy Clinic |
+| MCT | Mast cell tryptase |
+| NMBAs | Neuromuscular blocking agents |
+| POH | Perioperative hypersensitivity |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

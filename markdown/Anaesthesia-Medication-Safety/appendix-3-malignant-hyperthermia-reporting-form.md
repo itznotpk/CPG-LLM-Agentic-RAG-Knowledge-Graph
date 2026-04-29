@@ -7,6 +7,10 @@ patient_input: Patient details, clinical features, Larach score, treatment given
 output: Voluntary MH case report to Hospital Kuala Lumpur database
 -->
 
+> **Context:** This appendix contains the Malignant Hyperthermia reporting form for voluntary case reporting to the national MH database at Hospital Kuala Lumpur, including Larach clinical grading scale.
+
+---
+
 ## Purpose
 
 This appendix contains the **Malignant Hyperthermia Reporting Form** for voluntary reporting of suspected MH cases to the Department of Anaesthesiology & Critical Care, Hospital Kuala Lumpur (HKL).
@@ -135,3 +139,22 @@ https://www.msa.net.my/index
 
 Guidelines on Safe Use of Medication in Anaesthesia (October 2024). College of Anaesthesiologists, Academy of Medicine of Malaysia and Malaysian Society of Anaesthesiologists.
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Appendix 3 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ABG | Arterial blood gas |
+| CK | Creatine kinase |
+| ETCO₂ | End-tidal carbon dioxide |
+| GA | General anaesthesia |
+| HKL | Hospital Kuala Lumpur |
+| MH | Malignant hyperthermia |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

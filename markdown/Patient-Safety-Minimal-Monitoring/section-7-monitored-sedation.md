@@ -7,6 +7,10 @@ patient_input: Patient scheduled for uncomfortable diagnostic or minor surgical 
 output: Safe administration of monitored sedation with proper facilities and documentation
 -->
 
+> **Context:** This section covers monitored anaesthesia care (MAC) and monitored sedation, including objectives, qualifications of personnel, mandatory facility requirements, documentation, and recovery/handover protocols.
+
+---
+
 ## Key Points for Section 7
 
 1. **Sedating a patient aims to bring about anxiolysis, amnesia, and cooperation.**
@@ -66,3 +70,13 @@ a. **Handover Protocol:** There should be a protocol on the handing over of care
 b. **Medical Assistance:** Extra medical staff should be immediately available in case of an emergency.
 
 c. **Discharge Review:** The patient should be reviewed by the doctor before discharge from the recovery room.
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| BP | Blood pressure |
+| ECG | Electrocardiogram |
+| MAC | Monitored anaesthesia care |

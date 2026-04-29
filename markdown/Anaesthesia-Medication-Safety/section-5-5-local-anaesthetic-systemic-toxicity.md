@@ -7,6 +7,10 @@ patient_input: LA dose administered, patient weight, comorbidities, symptoms
 output: LAST risk assessment, prevention strategies, emergency treatment protocol
 -->
 
+> **Context:** This section covers Local Anaesthetic Systemic Toxicity (LAST), including prevention strategies, recognition of symptoms, and the complete emergency management protocol with lipid emulsion therapy.
+
+---
+
 ## Key Points for Local Anaesthetic Systemic Toxicity
 
 1. **Monitoring and vigilance are key elements** whenever any local anaesthetic preparations are used.
@@ -192,3 +196,24 @@ For cardiac arrest: Start CPR, use standard ACLS protocols with modifications:
 
 6. El-Boghdadly K., Pawa A., Chin KJ. Local anesthetic systemic toxicity: current perspectives. Local Reg Anesth, 2018. 11: 35-44
 
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 5.5 -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ACLS | Advanced cardiac life support |
+| CNS | Central nervous system |
+| CPR | Cardiopulmonary resuscitation |
+| CVS | Cardiovascular system |
+| ICU | Intensive care unit |
+| IV | Intravenous |
+| LA | Local anaesthetic |
+| LAST | Local anaesthetic systemic toxicity |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

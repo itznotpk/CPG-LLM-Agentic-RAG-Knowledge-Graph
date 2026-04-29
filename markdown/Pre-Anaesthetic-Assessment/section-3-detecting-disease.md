@@ -7,6 +7,10 @@ patient_input: Medical history, current medications, allergies, family history, 
 output: Comprehensive disease identification, severity assessment, preoperative orders
 -->
 
+> **Context:** This section covers detecting disease and assessing severity through history, physical examination, investigations (refer Table I: Routine Investigations, refer Table II: Investigations by Clinical Indication), ASA classification, and preoperative preparation.
+
+---
+
 ## Key Points for Section 3
 
 1. **Medical history should include concomitant conditions, medications (including herbal supplements), allergies, previous anaesthesia, and family history of anaesthetic complications.**
@@ -169,3 +173,19 @@ For risk stratification based on assessment findings:
 
 1. Practice advisory for preanesthesia evaluation: an updated report by the American Society of Anesthesiologists Task Force on Preanesthesia Evaluation. *Anesthesiology* 2012;110:1-17
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ABG | Arterial blood gas |
+| ASA | American Society of Anesthesiologists |
+| CXR | Chest X-ray |
+| DVT | Deep vein thrombosis |
+| ECG | Electrocardiogram |
+| FBC | Full blood count |
+| GXM | Group and cross-match |
+| HDU | High dependency unit |
+| ICU | Intensive care unit |
+| LFT | Liver function test |

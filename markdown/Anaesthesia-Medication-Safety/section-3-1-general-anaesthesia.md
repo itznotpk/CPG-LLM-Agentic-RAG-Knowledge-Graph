@@ -2,10 +2,14 @@
 
 <!-- METADATA
 category: Specific Areas
-use_case: General Anaesthesia, Volatile Agents, Medical Gases, Fluid Administration, TIVA
-patient_input: Patient weight, age, comorbidities, GLP-1 agonist use
-output: Safe handling of inhalational agents, medical gases, IV fluids, TIVA protocols
+use_case: General Anaesthesia, Volatile Agents, Medical Gases, Fluid Administration, TIVA, TCI, Neuromuscular Blocking Agents, GLP-1 Agonist Management
+patient_input: Patient weight, age, comorbidities, GLP-1 agonist use, dosing schedule, GI symptoms
+output: Safe handling of inhalational agents, medical gases, IV fluids, TIVA protocols, GLP-1 preoperative management
 -->
+
+> **Context:** This section covers safe medication use during general anaesthesia, including volatile anaesthetic agents, medical gas safety, cylinder handling, piped gas systems, fluid administration, TIVA/TCI monitoring, neuromuscular blocking agents, and GLP-1 receptor agonist preoperative management.
+
+---
 
 ## Key Points for General Anaesthesia
 
@@ -106,3 +110,117 @@ f. **Large spills require specific cleaning and containment procedures.** Instit
 5. Check apparatus connected to oxygen supply with adequate reserve cylinder
 6. All cylinders on GA machines securely seated and turned off after checking contents
 
+---
+
+## 3.1.3 Fluid Administration
+
+a. **Smart Infusion pump technology is recommended** for administration of IV solutions in perioperative/procedural environments to minimise complications from excessive and insufficient fluid delivery, particularly in:
+   - Paediatric patients
+   - Geriatric patients
+
+b. **Gravity infusions** may be used for IV solutions if solely utilised as flush solution (carrier fluid) or for immediate fluid resuscitation needs.
+
+c. **Rapid IV infusion systems** should be available for rapid administration of fluids and blood when required. Anaesthesia healthcare professionals should have comprehensive knowledge and skills to prevent potential harm from its use.
+
+d. **Fluid warming devices are recommended** for perioperative fluid management to prevent inadvertent hypothermia.
+
+---
+
+## 3.1.4 Target-Controlled Infusion / Total Intravenous Anaesthesia Monitoring
+
+a. When administering drugs via infusion:
+   - **Label the patient end of the infusion line**
+   - Use one-way valves to prevent unintended syphoning
+   - Use dedicated IV cannula when feasible
+   - Take precaution to avoid bolus injection of residual drugs in tubing at end of TIVA/TCI
+
+b. **Use TCI when maintaining general anaesthesia with TIVA.** Before determining initial bolus and subsequent infusion rates:
+   - Choose drug and pharmacokinetic model
+   - Input patient characteristics (age, gender, body weight)
+
+c. **Monitoring of depth of anaesthesia via processed EEG is indicated when TIVA is practised.**
+
+d. **Standardise concentration of propofol and dilution of remifentanil** in anaesthesia departments to reduce medication error.
+
+e. **Place syringes containing drugs in pump prior to programming** infusion pumps.
+
+f. IV cannula used for infusion should remain **visible throughout anaesthesia** whenever feasible.
+
+g. **Same standards of practice and monitoring apply** when administering TIVA outside the operating room.
+
+---
+
+## 3.1.5 Use of Neuromuscular Blocking Agent
+
+**Neuromuscular monitoring should be available whenever a neuromuscular blocking agent (NMBA) is used.**
+
+---
+
+## 3.1.6 Drugs Affecting Gastric Emptying
+
+### Background
+
+Several drugs used in perioperative period can result in:
+- Delayed gastric emptying
+- Increased risk for regurgitation and aspiration
+
+**Examples:**
+- Glucagon-like peptide-1 (GLP-1) receptor agonists
+- Opioids
+- Anti-Parkinson's medication (levodopa)
+
+When possible, **withhold these medications prior to scheduled procedures.** When not feasible, consider delaying surgery or treating patient as 'full stomach'.
+
+### Special Considerations for GLP-1 Agonists
+
+**Background:**
+- Oral hypoglycaemic agent also used for weight reduction
+- Causes delayed gastric emptying as mechanism of action
+- Examples: Liraglutide
+
+### GLP-1 Agonist Preoperative Management
+
+**Irrespective of indication, dose, or procedure type:**
+
+| Dosing Schedule | Recommendation |
+|-----------------|----------------|
+| **Daily dosing** | Withhold on day of procedure/surgery or three half-lives |
+| **Weekly dosing** | Withhold one week prior to procedure/surgery |
+
+**On day of surgery:**
+- Assess for GI symptoms of GLP-1 effects indicating delayed gastric emptying:
+  - Vomiting
+  - Retching
+  - Bloating
+
+### Preoperative Gastric Ultrasound
+
+**Recommended when:**
+- GLP-1 agonists not adequately withheld
+- Patient has symptoms of delayed gastric emptying
+
+**Based on gastric ultrasound findings:**
+- If stomach is full, inconclusive, or not possible to perform → **consider delaying procedure**
+- When delaying surgery is not feasible → **treat as 'full stomach'** and manage accordingly
+
+### Additional Considerations
+
+- **No current evidence** supports optimal preoperative fasting duration for GLP-1 patients
+- General preoperative fasting guidelines may not apply to patients taking GLP-1 agonists
+- If GLP-1 agonists (prescribed for diabetes) held longer than dosing schedule → **consult endocrinologist** for bridging antidiabetic therapy to avoid hyperglycaemia
+
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| GA | General anaesthesia |
+| GI | Gastrointestinal |
+| GLP-1 | Glucagon-like peptide-1 |
+| IV | Intravenous |
+| MAC | Minimum alveolar concentration |
+| NMBAs | Neuromuscular blocking agents |
+| TCI | Target-controlled infusion |
+| TIVA | Total intravenous anaesthesia |
+| WAGs | Waste anaesthetic gases |

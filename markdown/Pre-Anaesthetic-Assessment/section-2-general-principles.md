@@ -7,6 +7,10 @@ patient_input: Patient co-morbidity status, type of surgery planned
 output: Guidelines on who performs assessment, when to assess, and how to conduct assessment
 -->
 
+> **Context:** This section covers the general principles of pre-anaesthetic assessment, including who performs the assessment, when it should be done, day surgery considerations, and emergency surgery requirements.
+
+---
+
 ## Key Points for Section 2
 
 1. **The pre-anaesthetic assessment should preferably be performed by the anaesthesiologist who is to conduct the anaesthesia.**
@@ -110,3 +114,12 @@ When assessing timing for paediatric surgery, consider RTI status:
 
 2. Australian & New Zealand College of Anaesthetists (ANZCA) College Policy Document. Recommendations for the pre-anaesthesia consultation. Review PS7 (2008).
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ANZCA | Australian and New Zealand College of Anaesthetists |
+| OT | Operating theatre |
+| RTI | Respiratory tract infection |

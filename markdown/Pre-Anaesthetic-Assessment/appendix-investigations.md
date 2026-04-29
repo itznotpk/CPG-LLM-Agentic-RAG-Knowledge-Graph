@@ -7,6 +7,10 @@ patient_input: Patient age, co-morbidities, type of surgery planned
 output: Appropriate investigation selection, validity periods for test results
 -->
 
+> **Context:** This appendix contains the recommended pre-anaesthetic investigations (refer Table I: Routine Investigations, refer Table II: Investigations by Clinical Indication), validity periods for test results, and criteria for repeating investigations.
+
+---
+
 ## Key Points for Appendix
 
 1. **Routine investigations are based on age and nature of surgery for asymptomatic patients without abnormal clinical findings.**
@@ -85,3 +89,14 @@ Investigations should be repeated under the following circumstances:
 
 1. Practice advisory for preanesthesia evaluation: an updated report by the American Society of Anesthesiologists Task Force on Preanesthesia Evaluation. *Anesthesiology* 2012;110:1-17
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| ABG | Arterial blood gas |
+| CXR | Chest X-ray |
+| ECG | Electrocardiogram |
+| FBC | Full blood count |
+| LFT | Liver function test |

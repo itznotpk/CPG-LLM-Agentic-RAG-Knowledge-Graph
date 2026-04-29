@@ -7,6 +7,10 @@ patient_input: Birth history, developmental milestones, feeding pattern, RTI his
 output: Paediatric-specific assessment, RTI postponement criteria, fasting orders, premedication prescription
 -->
 
+> **Context:** This section covers pre-anaesthetic assessment specific to paediatric patients, including additional history-taking, respiratory tract infection (RTI) management, preoperative fasting guidelines, and paediatric premedication.
+
+---
+
 ## Key Points for Section 8
 
 1. **Pre-anaesthetic assessment for paediatrics includes birth history (for <6 months), developmental milestones, and feeding patterns.**
@@ -179,3 +183,13 @@ While sedative premedication may be used to provide anxiolysis, other **non-drug
 
 2. College of Anaesthesiologists, Academy of Medicine of Malaysia. Guideline on preoperative fasting. (2008).
 
+---
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| EMLA | Eutectic mixture of local anaesthetics |
+| IV | Intravenous |
+| PO | Per oral |
+| RTI | Respiratory tract infection |
