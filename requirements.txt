@@ -1,4 +1,4 @@
-﻿# ============================================
+# ============================================
 # CPG Agentic RAG with Knowledge Graph
 # Requirements - Updated: April 2026
 # ============================================
@@ -15,6 +15,7 @@ pydantic-settings>=2.10.0
 # LLM Providers
 # ------------------------------------------
 openai>=1.90.0              # OpenAI-compatible API client (used for OpenRouter & Gemini)
+pydantic-ai[bedrock]>=0.3.2 # AWS Bedrock support
 anthropic>=0.54.0           # Anthropic Claude (optional)
 groq>=0.28.0                # Groq (optional)
 mistralai>=1.8.2            # Mistral (optional)

@@ -26,7 +26,6 @@ Most breast cancer patients experience at least some psychosocial distress durin
 | Anxiety | 18.8% |
 | Post-traumatic stress disorder | 19.6% |
 
-*Sources: Chan CM, et al. 2015¹³⁹; Chan CMH, et al. 2018¹⁴⁰*
 
 ### Common Psychosocial Concerns¹⁴¹
 
@@ -42,11 +41,11 @@ Most breast cancer patients experience at least some psychosocial distress durin
 | Feelings of vulnerability |
 | Existential concerns regarding mortality |
 
-> **Key Insight:** Almost half of Malaysian families with cancer survivors experienced financial constraints.¹⁴² Other issues include lack of constant psychosocial support and tendency to delay or default treatment.¹⁴³⁻¹⁵⁰
+> **Key Insight:** Almost half of Malaysian families with cancer survivors experienced financial constraints. Other issues include lack of constant psychosocial support and tendency to delay or default treatment.
 
 ### Screening for Distress
 
-*   Women with breast cancer should be screened for emotional distress using **validated self-assessment tools** by trained healthcare providers.⁴
+*   Women with breast cancer should be screened for emotional distress using **validated self-assessment tools** by trained healthcare providers.
 *   Assessment should occur at **key time points**: diagnosis, during treatment, after treatment, and throughout survivorship.
 
 #### Recommended Screening Tools
@@ -58,8 +57,7 @@ Most breast cancer patients experience at least some psychosocial distress durin
 | Hospital Anxiety and Depression Scale (HADS) | Previously widely used; now copyrighted and requires payment |
 
 ### Psychosocial Interventions
-
-The following should be offered by trained healthcare providers:⁴
+The aim of a psychological intervention is to reduce emotional and mental burden as well as to equip patients with accurate information and psychological skills to manage their distress. The following should be offered by trained healthcare providers:
 
 | Intervention |
 |---|
@@ -74,7 +72,7 @@ The following should be offered by trained healthcare providers:⁴
 
 ## b. Breast Care Nurse (BCN)
 
-A breast care nurse improves continuity of care and provides important information, support and referral for a wide range of needs.¹⁵⁵
+A breast care nurse improves continuity of care and provides important information, support and referral for a wide range of needs. All patients should have access to a BCN for treatment of breast cancer.
 
 ### Improving BCN Accessibility
 
@@ -86,27 +84,27 @@ A breast care nurse improves continuity of care and provides important informati
 | Availability in rural and remote areas through telephone and video conferencing |
 | Sustainable, ongoing funding for positions |
 
-> **Clinical Note:** A breast care nurse should be assigned to **all patients** to provide information on management and psychosocial support throughout diagnosis, treatment and follow-up.⁴
+> **Clinical Note:** A breast care nurse should be assigned to **all patients** to provide information on management and psychosocial support throughout diagnosis, treatment and follow-up.
 
 ---
 
 ## c. Lifestyle Modifications
 
-Lifestyle changes can be recommended to patients as an adjunct to standard breast cancer treatment.¹⁵⁶
+Lifestyle changes can be recommended to patients as an adjunct to standard breast cancer treatment.
 
 ### Key Findings
 
-*   Malaysian breast cancer cohort study: high proportion of survivors being overweight/obese¹⁴⁸˒¹⁵⁷
-*   No particular diet style has been found to be more beneficial for reducing recurrence risk¹⁵⁶
+*   Malaysian breast cancer cohort study: high proportion of survivors being overweight/obese
+*   No particular diet style has been found to be more beneficial for reducing recurrence risk
 
 ### Recommended Healthy Lifestyle
 
 | Recommendation | Evidence |
 |---|---|
-| Regular physical activity (**≥150 min/week**) | Most robust effect of all lifestyle factors on reducing recurrence¹⁵⁶ |
+| Regular physical activity (**≥150 min/week**) | Most robust effect of all lifestyle factors on reducing recurrence |
 | Achieve and maintain healthy weight | Through regular physical activity and dietary modification |
-| Limit alcohol | Below 5 units/week (3–4 drinks/week or 6 g alcohol/day)²⁵ |
-| Smoking cessation | —²⁵ |
+| Limit alcohol | Below 5 units/week (3–4 drinks/week or 6 g alcohol/day) |
+| Smoking cessation | — |
 
 ---
 
@@ -138,7 +136,7 @@ Palliative care aims to improve quality of life of patients and families in faci
 
 ## e. Patient Navigation Programme (PNP)
 
-Patient navigation programme is a community-based service delivery intervention designed to promote access to timely diagnosis and treatment of cancer by eliminating barriers to care.¹⁵⁹˒ ˡᵉᵛᵉˡ ᴵᴵᴵ
+Patient navigation programme is a community-based service delivery intervention designed to promote access to timely diagnosis and treatment of cancer by eliminating barriers to care.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 ### Principles of PNP
 
@@ -155,8 +153,8 @@ Patient navigation programme is a community-based service delivery intervention 
 
 ### Evidence
 
-*   PNP is effective in improving screening rates, adherence to follow-up, and timeliness of diagnosis¹⁵⁹˒ ˡᵉᵛᵉˡ ᴵᴵᴵ
-*   Minimal research on effectiveness for post-treatment surveillance¹⁶⁰˒ ˡᵉᵛᵉˡ ᴵ
+*   PNP is effective in improving screening rates, adherence to follow-up, and timeliness of diagnosisˡᵉᵛᵉˡ ᴵᴵᴵ
+*   Minimal research on effectiveness for post-treatment surveillanceˡᵉᵛᵉˡ ᴵ
 
 > **Key Insight:** Malaysia has only **66.8%** 5-year survival rate, mainly due to late presentation and poor adherence to treatment.² Cancer Research Malaysia has identified PNP as a potential community-based solution.¹⁶¹
 
@@ -172,7 +170,7 @@ Breast cancer support groups are invaluable resources that provide:
 | Empowering patients to self-care during and after treatment |
 | Public education on breast cancer awareness |
 
-*   A case-control study showed patients supported by a peer group enjoyed **higher quality of life** compared with others.¹⁶²˒ ˡᵉᵛᵉˡ ᴵᴵ⁻²
+*   A case-control study showed patients supported by a peer group enjoyed **higher quality of life** compared with others.ˡᵉᵛᵉˡ ᴵᴵ⁻²
 
 ### Local Support Groups
 
@@ -194,3 +192,50 @@ Breast cancer support groups are invaluable resources that provide:
 > *   Palliative care
 > *   Patient navigation programme
 > *   Breast cancer patient support groups
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: APPENDIX 9 (Post-Treatment Cancer Survivorship) -->
+<!-- Purpose: Management of Treatment Complications                 -->
+<!-- ============================================================ -->
+
+## Appendix 9: Post-Treatment Cancer Survivorship (Management of Treatment Complications)
+
+Breast cancer patients may be at risk of developing treatment-related complications. Thus, healthcare providers must recognise and manage the long-term sequelae of the constellation of therapeutic modalities. There is limited evidence for multidisciplinary rehabilitation among these populations. A systematic review concluded that multidisciplinary rehabilitation was not harmful and may improve functional ability and quality of life in the short-term.¹
+
+### Breast cancer-related lymphoedema
+
+Breast cancer-related lymphoedema (BCRL) is a common consequence of breast cancer treatment. Patient should be counselled on ways to prevent or reduce risk of lymphedema. Weight loss for those who are overweight or obese may reduce this risk.²,³ Good evidence showed that there was no increased risk of BRCL with exercise; thus patient should not restrict or avoid physical activity.⁴ Patients should be routinely examined for clinical symptoms or swelling suggestive of lymphoedema. They should be referred to therapists knowledgeable about the diagnosis and treatment of it.
+
+> **Clinical Note:**
+> * Physiotherapist plays an important role in the rehabilitation care of women with breast cancer as well as the care of the survivors.
+
+### Late onset cardiotoxicity
+
+Occurrence of late onset cardiotoxicity associated with chemotherapy is generally low except for anthracycline especially if dose given is above the limit. If occur, it typically presents as reduced left ventricular function failure. In contrast, trastuzumab cardiotoxicity usually occur during treatment and does not have risk of delayed cardiotoxicity.⁵
+
+Identification of high-risk patients including patients with pre-existing heart problems, cardiovascular (CV) risk factors and treatments like trastuzumab and anthracyclines,⁶ education of patients on healthy lifestyle modifications, aggressive management of underlying CV risk factors, consideration of cardioprotective strategies and, routine surveillance of left ventricular function before and after therapies are recommended to reduce breast cancer treatment-associated cardiotoxicities.⁷ Aerobic exercise is considered a promising non-pharmacological strategy to prevent and/or treat chemotherapy-induced cardiotoxicity.⁵
+
+### Cognitive impairment
+
+Cognitive impairment is one of the frequent complications reported by patients with breast cancer. All patients need to be screened for cognitive impairment and to identify reversible contributing factors e.g. organic brain disease, mood disorder, endocrine problem, dehydration, infections or medication-related and optimally treat when possible.
+
+### Fatigue
+
+Studies of long-term cancer survivors suggested that approximately one-quarter to one-third experienced persistent fatigue for up to 10 years after cancer diagnosis.⁸ Fatigue has a negative impact on work, social relationship, mood and daily activities. It causes impairment in overall quality of life during and after treatment. All patients should be assessed for fatigue and treated for any causative factors including anaemia, cardiac dysfunction, depression, sleep disturbance, etc. Patients without otherwise identifiable cause are encouraged to engage in regular physical activity and cognitive behavioural therapy as appropriate.
+
+### Pain
+
+Approximately 20 - 50% of patients complain of pain during the survivorship period. Types of pain may be nociceptive, neuropathic or mixed pattern.⁹˒¹⁰ Pain will lead to physical, emotional, spiritual and functional discomfort. Pain can be assessed with a comprehensive history taking and simple pain scales e.g. visual analog scale. Aetiology of the pain needs to be identified before initiation of treatment. Refer to CPG on Management of Cancer Pain.¹¹
+
+### Bone health
+
+Survivors of breast cancer are at high risk of significant bone loss. Assessment of bone mineral density in high risk patients as detailed below are:¹²
+*   post-menopausal survivors should have a baseline DEXA scan
+*   a repeat DEXA scans every two years should be done for:
+    *   women taking AIs
+    *   pre-menopausal women on GnRHa
+    *   women who have chemotherapy-induced premature menopause
+
+Non-pharmacologic interventions including lifestyle changes, vitamin D and calcium supplements are extremely important.¹³
+
+<!-- END OVERLAP FROM: APPENDIX 9 -->

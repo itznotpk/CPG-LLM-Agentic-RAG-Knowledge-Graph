@@ -17,15 +17,15 @@ The cause of the vast majority of breast cancers remains unknown. However, a num
 
 ### Age
 
-The risk of breast cancer increases with age. Based on the latest National Cancer Registry Report of Malaysia, the incidence starts to increase at age 25 and peaks at age 60–64 years.¹
+The risk of breast cancer increases with age. Based on the latest National Cancer Registry Report of Malaysia, the incidence starts to increase at age 25 and peaks at age 60–64 years.
 
 ### Gender
 
-Females have a much higher risk of breast cancer compared with males.⁴
+Females have a much higher risk of breast cancer compared with males.
 
 ### Family History
 
-The risk for breast cancer increases in women with:⁵
+The risk for breast cancer increases in women with:
 *   Family history of breast cancer at young age
 *   Being a carrier of pathogenic or likely pathogenic variants in BRCA1, BRCA2, PALB2, ATM and CHEK2
 
@@ -33,19 +33,21 @@ The risk for breast cancer increases in women with:⁵
 
 ### Reproductive Factors
 
-Early menarche and late menopause are risk factors for breast cancer.⁶˒ ˡᵉᵛᵉˡ ᴵᴵ⁻²
+Early menarche and late menopause are risk factors for breast cancer.ˡᵉᵛᵉˡ ᴵᴵ⁻²
 
 | Factor | Tumour Type | Risk (OR, 95% CI) |
 |---|---|---|
 | Young menarche (≤12 years) | Luminal tumour | OR=1.39 (1.23 to 1.57) |
 | Late menopause (≥50 years) | Luminal tumour | OR=1.15 (1.0 to 1.32) |
-| Late menopause (≥50 years) | ER-/PR- tumour | OR=1.19 (1.00 to 1.43) |
+| Late menopause (≥50 years) **Refer to Table 2** | ER-/PR- tumour | OR=1.19 (1.00 to 1.43) |
+
+
 
 ### History of Neoplastic Disease of the Breast
 
-*   Patients with **previous breast cancer** carry an elevated risk of developing new primary breast cancer.⁴
-*   Patients with **breast carcinoma in situ** are at high risk to develop invasive breast carcinoma.⁴
-*   Patients with **atypical ductal hyperplasia** and **lobular hyperplasia** (atypical lobular hyperplasia and lobular carcinoma in-situ) have clinically significant increased risk of developing breast cancer.⁷˒ ˡᵉᵛᵉˡ ᴵᴵᴵ
+*   Patients with **previous breast cancer** carry an elevated risk of developing new primary breast cancer.
+*   Patients with **breast carcinoma in situ** are at high risk to develop invasive breast carcinoma.
+*   Patients with **atypical ductal hyperplasia** and **lobular hyperplasia** (atypical lobular hyperplasia and lobular carcinoma in-situ) have clinically significant increased risk of developing breast cancer.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 ### Breast Density
 
@@ -56,7 +58,7 @@ Early menarche and late menopause are risk factors for breast cancer.⁶˒ ˡᵉ
 | Non-dense (BI-RADS® a) — pre-menopausal | **Reduced** risk (OR=0.82, 95% CI 0.71 to 0.94) |
 | Non-dense (BI-RADS® a) — post-menopausal | **Reduced** risk (OR=0.85, 95% CI 0.75 to 0.96) |
 
-*Source: Pettersson A, et al. J Natl Cancer Inst. 2014.*⁸˒ ˡᵉᵛᵉˡ ᴵᴵ⁻²
+*Source: Refer to Appendix 3 on Recommended Reporting System (Breast Composition Illustrations).
 
 ---
 
@@ -64,7 +66,7 @@ Early menarche and late menopause are risk factors for breast cancer.⁶˒ ˡᵉ
 
 ### Reproductive Factors
 
-Nulliparity and lack of breastfeeding are risk factors for breast cancer.⁶˒ ˡᵉᵛᵉˡ ᴵᴵ⁻²
+Nulliparity and lack of breastfeeding are risk factors for breast cancer.ˡᵉᵛᵉˡ ᴵᴵ⁻²
 
 | Factor | Tumour Subtype | Risk (OR, 95% CI) |
 |---|---|---|
@@ -79,17 +81,21 @@ Nulliparity and lack of breastfeeding are risk factors for breast cancer.⁶˒ �
 
 | Factor | Risk | Evidence |
 |---|---|---|
-| Oral contraceptives (OC) | Small risk: OR=1.521 (95% CI 1.25 to 1.85) | 9, level II-2 |
-| Current OC use | HR=1.36 (95% CI 1.09 to 1.71) — pre-menopausal | 10, level II-2 |
-| ≥10 years OC duration | HR=1.29 (95% CI 1.09 to 1.54) | 10, level II-2 |
-| <10 years since last OC use | HR=1.36 (95% CI 1.15 to 1.61) | 10, level II-2 |
-| Progestogen OC ≥5 years | ER+ breast cancer: HR=1.59 (95% CI 1.09 to 2.32) | 10, level II-2 |
-| Combination HRT | Mild risk | 4 |
-| Unopposed oestrogen (hysterectomised) | Mildly increased after >15 years use | 4 |
+| Oral contraceptives (OC) | Small risk: OR=1.521 (95% CI 1.25 to 1.85) | level II-2 |
+| Current OC use | HR=1.36 (95% CI 1.09 to 1.71) — pre-menopausal | level II-2 |
+| ≥10 years OC duration | HR=1.29 (95% CI 1.09 to 1.54) | level II-2 |
+| <10 years since last OC use | HR=1.36 (95% CI 1.15 to 1.61) | level II-2 |
+| Progestogen OC ≥5 years | ER+ breast cancer: HR=1.59 (95% CI 1.09 to 2.32) | level II-2 |
+| Combination HRT | Mild risk | - |
+| Unopposed oestrogen (hysterectomised) | Mildly increased after >15 years use | - |
 
 ### Lifestyle Factors
-
-#### Physical Activity (Dose-Response Effect)
+* Being overweight or obese throughout adulthood increases 
+the risk of post-menopausal breast cancer.
+* Physical activity measured in metabolic equivalent of task 
+(MET) minutes/week shows dose-dependent effect on risk 
+of breast cancer. The higher the MET, the lower the risk as 
+shown below.
 
 | MET minutes/week | Pooled RR (95% CI) |
 |---|---|
@@ -98,7 +104,6 @@ Nulliparity and lack of breastfeeding are risk factors for breast cancer.⁶˒ �
 | 4,000–7,999 (moderately active) | 0.941 (0.904 to 0.981) |
 | ≥8,000 (highly active) | **0.863 (0.829 to 0.900)** |
 
-*Source: Kyu HH, et al. BMJ. 2016.*¹¹˒ ˡᵉᵛᵉˡ ᴵᴵ⁻²
 
 > **Key Insight:** WHO recommends at least 600 MET minutes/week (approximately 150 min/week brisk walking or 75 min/week running) for health benefits.
 
@@ -106,15 +111,83 @@ Nulliparity and lack of breastfeeding are risk factors for breast cancer.⁶˒ �
 
 | Factor | Effect on Risk | Evidence |
 |---|---|---|
-| Green tea ≥3 cups/day (Chinese females) | **Decreased** risk: OR=0.79 (0.65 to 0.95) | 12, level II-2 |
-| Coffee ≥2 cups/day | Reduced but non-significant: RR=0.98 (0.97 to 1.00) | 13, level II-2 |
-| Dietary folate intake | No effect: RR=0.98 (0.90 to 1.05) | 14, level II-2 |
-| Soy isoflavone (pre-menopausal) | **Decreased** risk: OR=0.74 (0.64 to 0.85) | 15, level II-2 |
-| Soy isoflavone (post-menopausal) | **Decreased** risk: OR=0.75 (0.63 to 0.86) | 15, level II-2 |
+| Green tea ≥3 cups/day (Chinese females) | **Decreased** risk: OR=0.79 (0.65 to 0.95) | level II-2 |
+| Coffee ≥2 cups/day | Reduced but non-significant: RR=0.98 (0.97 to 1.00) | level II-2 |
+| Dietary folate intake | No effect: RR=0.98 (0.90 to 1.05) | level II-2 |
+| Soy isoflavone (pre-menopausal) | **Decreased** risk: OR=0.74 (0.64 to 0.85) | level II-2 |
+| Soy isoflavone (post-menopausal) | **Decreased** risk: OR=0.75 (0.63 to 0.86) | level II-2 |
 | Alcohol >10 g/day (especially beer) | **Increased** risk (especially post-menopausal) | 4 |
 | Overweight/obesity throughout adulthood | **Increased** risk of post-menopausal breast cancer | 163 |
 
 ### Radiation Exposure
 
-*   **Therapeutic radiation to chest** at an early age (e.g. Hodgkin's disease) — high risk of developing breast cancer.⁴
-*   **Radiotherapy for breast cancer treatment** — increases risk of contralateral breast cancer.⁴
+*   **Therapeutic radiation to chest** at an early age (e.g. Hodgkin's disease) — high risk of developing breast cancer.
+*   **Radiotherapy for breast cancer treatment** — increases risk of contralateral breast cancer.
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: APPENDICES 4 & 5                       -->
+<!-- Purpose: Explicit details of TNM, WHO, and Reporting Proforma for RAG Context -->
+
+
+### Cross Reference of Section 8 on Familial Breast Cancer for detailed genetic risk assessment
+
+Initial risk evaluation by the responsible doctor (surgeon or oncologist) should include:
+
+| Component | Details |
+|---|---|
+| **Personal history** | Medical and surgical history, patient's needs and concerns |
+| **Family history** | First- and second-degree relatives on both maternal and paternal sides for breast, ovarian and other cancers |
+
+**Key Counselling Points:**
+*   Risk of being a carrier increases with increasing number of affected relatives, closeness of relationship, and age at which they were diagnosed
+*   Maternal and paternal family history should be considered independently
+*   Risk assessment is a dynamic process — can change if additional relatives are diagnosed
+
+#### Genetic Referral and Testing Criteria (NCCN)
+
+Meeting **one or more** of these criteria warrants further personalised risk assessment, genetic counselling and often genetic testing:
+*   Individual from a family with a known BRCA1/2 pathogenic/likely pathogenic variant
+*   Personal history of breast cancer diagnosed **≤45 years** of age
+*   Personal history of breast cancer diagnosed **46–50 years** with:
+    *   An additional breast cancer primary at any age
+    *   ≥1 close blood relative with breast cancer at any age
+    *   ≥1 close blood relative with high-grade prostate cancer (Gleason ≥7)
+    *   Unknown or limited family history
+*   **Triple-negative** breast cancer diagnosed **≤60 years**
+*   Personal history of breast cancer at **any age** with:
+    *   ≥1 close blood relative with breast cancer ≤50 years, ovarian carcinoma, male breast cancer, metastatic prostate cancer, or pancreatic cancer
+    *   ≥2 additional breast cancer diagnoses in patient and/or close relatives
+*   Ashkenazi Jewish ancestry
+*   Personal history of ovarian carcinoma, male breast cancer, pancreatic cancer, or metastatic prostate cancer
+*   BRCA1/2 pathogenic/likely pathogenic variant detected by tumour profiling on any tumour type (without germline analysis)
+
+> **Clinical Note:** Testing of an individual without a cancer diagnosis should only be considered when an appropriate affected family member is unavailable for testing.
+
+---
+
+### Table 2. Histopathologic Features Suggestive of Possible HER2 Test Discordance
+
+*Criteria to consider if there are concerns regarding discordance with apparent histopathologic findings and possible false-negative or false-positive HER2 test result.*
+
+**A new HER2 test should not be ordered if the following histopathologic findings occur and the initial HER2 test was negative:**
+*   Histologic grade 1 carcinoma of the following types:
+    *   Infiltrating ductal or lobular carcinoma, ER and PR positive
+    *   Tubular (at least 90% pure)
+    *   Mucinous (at least 90% pure)
+    *   Cribriform (at least 90% pure)
+    *   Adenoid cystic carcinoma (90% pure) and often triple negative
+
+**Similarly, a new HER2 test should be ordered if the following histopathologic findings occur and the initial HER2 test was positive:**
+*   Histologic grade 1 carcinoma of the following types:
+    *   Infiltrating ductal or lobular carcinoma, ER and PR positive
+    *   Tubular (at least 90% pure)
+    *   Mucinous (at least 90% pure)
+    *   Cribriform (at least 90% pure)
+    *   Adenoid cystic carcinoma (90% pure) and often triple negative
+
+**If the initial HER2 test result in a core needle biopsy specimen of a primary breast cancer is negative, a new HER2 test may be ordered on the excision specimen if one of the following is observed:**
+*   Tumour is grade 3
+*   Amount of invasive tumour in the core biopsy specimen is small
+*   Resection specimen contains high-grade carcinoma that is morphologically distinct from that in the core
+*   Core biopsy result is equivocal for HER2 after testing by both ISH and IHC
+*   There is doubt about the handling of the core biopsy specimen (long ischaemic time, short time in fixative, different fixative) or the test is suspected

@@ -8,62 +8,29 @@ output: fertility_preservation_option, referral_timing, contraception_advice
 treatment_type: GnRHa, letrozole, gonadotropins
 -->
 
-## Overview
+## 7. FERTILITY PRESERVATION
 
-All oncologic healthcare providers should discuss infertility as a potential risk of treatment when cancer diagnosis is made. Patients who express an interest in fertility and those who are ambivalent or uncertain should be referred to a fertility specialist as soon as possible.¹¹⁰˒ ˡᵉᵛᵉˡ ᴵᴵ⁻²˒ ¹¹¹
+All oncologic healthcare providers should discuss infertility as a potential risk of treatment when cancer diagnosis is made. Patients who express an interest in fertility and those who are ambivalent or uncertain should be referred to fertility specialist as soon as possible. **[level II-2]** The 'gold standard' for fertility preservation (FP) are embryo and oocytes cryopreservation. Both techniques involve controlled ovarian hyperstimulation (COH) with gonadotropins and will take about 2 - 4 weeks to complete. The mature oocytes retrieved will either be fertilised or cryopreserved for utilisation later.
 
----
+A large multicentre retrospective cohort study showed non-significance difference in pregnancy outcome between FP for elective reason (EFP) and oncology reason (onco-FP). **[level II-2]**
 
-## Methods of Fertility Preservation
+There has been concern regarding elevated oestrogen levels which may be harmful for patients who are ER+. In a retrospective cohort study, fertility preservation with or without hormonal stimulation had not been shown to increase the rate of breast cancer recurrence. **[level II-2]** In a recent systematic review on safety of COH, the combination of letrozole and gonadotropins during COH reduced oestrogen levels without significant reduction in number of oocytes retrieved. **[level I]**
 
-The **gold standard** for fertility preservation (FP) are **embryo and oocyte cryopreservation**.¹¹¹
+Ovarian stimulation is not associated with any delay in treatment for breast cancer. It can be started at any point of the menstrual cycle without any decrease in oocyte yield and fertilisation rate. **[level III]**
 
-*   Both techniques involve controlled ovarian hyperstimulation (COH) with gonadotropins
-*   Takes approximately **2–4 weeks** to complete
-*   Mature oocytes retrieved will either be fertilised or cryopreserved for later utilisation
+GnRHa during chemotherapy can be used as an option to preserve ovarian function and fertility in pre-menopausal patients. A meta-analysis showed that premature ovarian insufficiency was lower in patients who had GnRHa during chemotherapy compared with those who did not (OR=0.38, 95% CI 0.26 to 0.57). **[level I]**
 
----
-
-## Key Evidence
-
-### Pregnancy Outcomes
-
-| Finding | Evidence |
-|---|---|
-| No significant difference in pregnancy outcome between elective FP and oncology FP | 112, level II-2 |
-
-### Safety of Fertility Preservation
-
-| Concern | Finding | Evidence |
-|---|---|---|
-| Elevated oestrogen levels (ER+ patients) | FP with or without hormonal stimulation does **NOT** increase rate of breast cancer recurrence | 113, level II-2 |
-| Letrozole + gonadotropins during COH | Reduces oestrogen levels without significant reduction in oocytes retrieved | 114, level I |
-| Timing of ovarian stimulation | Can be started at **any point** of menstrual cycle without decrease in oocyte yield or fertilisation rate | 115, level III |
-| Delay in cancer treatment | Ovarian stimulation is **NOT** associated with delay in breast cancer treatment | 115, level III |
-
-### GnRH Agonists During Chemotherapy
-
-GnRH agonists (GnRHa) during chemotherapy can preserve ovarian function and fertility in pre-menopausal patients:¹¹⁶˒ ˡᵉᵛᵉˡ ᴵ
-
-| Finding | Result |
-|---|---|
-| Premature ovarian insufficiency (GnRHa vs no GnRHa) | **Lower** in GnRHa group: OR=0.38 (95% CI 0.26 to 0.57) |
-
----
-
-## Referral Criteria for Fertility Preservation
-
-Breast cancer patients who fulfil **all** of the following criteria should be referred for fertility preservation:¹¹⁰˒ ˡᵉᵛᵉˡ ᴵᴵ⁻²˒ ¹¹⁷
-
-| Criteria |
-|---|
-| Interested in fertility preservation |
-| Aged <40 years old |
-| Have good prognosis |
-| Able to undergo ovarian stimulation and egg collection |
-| Have enough time to undergo ovarian stimulation before start of cancer treatment |
+> **Clinical Note:**
+> * Breast cancer patients who fulfill all the following criteria should be referred for fertility preservation: **[level II-2]**
+>   * interested in fertility preservation
+>   * aged <40 years old
+>   * have good prognosis
+>   * able to undergo ovarian stimulation and egg collection
+>   * have enough time to undergo ovarian stimulation before the start of their cancer treatment
 
 > [!IMPORTANT]
 > **Recommendation 30**
-> *   Fertility preservation should be **discussed with all breast cancer patients** in the reproductive age group.
-> *   Suitable patients should be referred to a fertility specialist.
+> * Fertility preservation should be discussed with all breast cancer patients in the reproductive age group and suitable patients should be referred to fertility specialist.*
+>   * Patients' religious belief should be taken into consideration.
+>
+> \*Refer to yellow box above.

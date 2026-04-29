@@ -17,7 +17,7 @@ Radiotherapy plays a crucial role in breast cancer management, both after breast
 
 ## 6.4.1 Radiotherapy Post-Breast Conserving Surgery
 
-Adjuvant radiotherapy following BCS reduces risk of local recurrence in the affected breast by **half** and risk of death by a **sixth**.¹⁰³˒ ˡᵉᵛᵉˡ ᴵ
+Adjuvant radiotherapy following BCS reduces risk of local recurrence in the affected breast by **half** and risk of death by a **sixth**.ˡᵉᵛᵉˡ ᴵ
 
 All patients with invasive breast cancer who have BCS with clear margin should be offered adjuvant whole breast irradiation (WBI).⁴˒²⁵
 
@@ -25,20 +25,20 @@ All patients with invasive breast cancer who have BCS with clear margin should b
 
 | Study | Finding | Evidence |
 |---|---|---|
-| Cochrane SR — PBI vs WBI (local control) | PBI **worse:** HR=1.62 (1.11 to 2.35) | 104, level I |
-| Cochrane SR — PBI vs WBI (cosmesis) | PBI **worse:** OR=1.51 (1.17 to 1.95) | 104, level I |
-| Meta-analysis — LR at 5 years | PBI **higher** LR: HR=2.33 (1.45 to 3.74) | 105, level I |
-| Meta-analysis — LR at 7 years | PBI **higher** LR: HR=1.91 (1.30 to 2.79) | 105, level I |
-| **UK IMPORT LOW** (RCT) — PBI with IMRT | **Non-inferior** to WBI in early breast cancer | 106, level I |
-| — Late adverse events | Less change in breast appearance (p=0.007) and breast hardening (p<0.0001) with partial breast IMRT | 106, level I |
+| Cochrane SR — PBI vs WBI (local control) | PBI **worse:** HR=1.62 (1.11 to 2.35) | level I |
+| Cochrane SR — PBI vs WBI (cosmesis) | PBI **worse:** OR=1.51 (1.17 to 1.95) | level I |
+| Meta-analysis — LR at 5 years | PBI **higher** LR: HR=2.33 (1.45 to 3.74) | level I |
+| Meta-analysis — LR at 7 years | PBI **higher** LR: HR=1.91 (1.30 to 2.79) | level I |
+| **UK IMPORT LOW** (RCT) — PBI with IMRT | **Non-inferior** to WBI in early breast cancer | level I |
+| — Late adverse events | Less change in breast appearance (p=0.007) and breast hardening (p<0.0001) with partial breast IMRT | level I |
 
 ### Intraoperative Radiotherapy (IORT)
 
-IORT delivers radiotherapy during surgery in a single session, compared with conventional radiotherapy requiring ≥15 fractions over 3–5 weeks.¹⁰⁷˒ ˡᵉᵛᵉˡ ᴵᴵᴵ
+IORT delivers radiotherapy during surgery in a single session, compared with conventional radiotherapy requiring ≥15 fractions over 3–5 weeks.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 | Finding | Result | Evidence |
 |---|---|---|
-| IORT vs WBI — Local recurrence | IORT **higher** LR: RR=4.11 (0.99 to 17.13) | 108, level I |
+| IORT vs WBI — Local recurrence | IORT **higher** LR: RR=4.11 (0.99 to 17.13) | level I |
 
 > **Clinical Note:** There is not enough evidence to recommend PBI or IORT as standard of care.²⁶ NICE considers PBI with IMRT technique only for breast cancer patients fulfilling stringent criteria of low absolute risk of local recurrence.²⁵
 
@@ -57,7 +57,7 @@ Adjuvant radiotherapy is recommended for post-mastectomy patients with **≥4 ly
 
 ### EBCTCG Meta-Analysis Update — 1 to 3 Positive Nodes
 
-Post-mastectomy radiotherapy also benefits those with 1 to 3 positive lymph nodes:¹⁰⁹˒ ˡᵉᵛᵉˡ ᴵ
+Post-mastectomy radiotherapy also benefits those with 1 to 3 positive lymph nodes:ˡᵉᵛᵉˡ ᴵ
 
 | Metric | Result |
 |---|---|

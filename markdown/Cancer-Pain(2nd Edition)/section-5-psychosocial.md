@@ -7,9 +7,7 @@ patient_input:
 output:
 -->
 
-Psychoeducation, psychological and spiritual interventions are important in the management of cancer pain. Patients with cancer pain may perceive the pain as the most feared physical consequence — related to losing hope for cure or as a punishment for previous wrongdoings. It can also affect mood and cause anxiety and other psychological symptoms.
-
----
+Psychoeducation, psychological and spiritual interventions are important in the management of cancer pain. Patients with cancer pain may perceive the pain as the most feared physical consequence. The consequences may be related to losing hope for cure or as a punishment for previous wrongdoings. It can also affect mood and cause anxiety and other psychological symptoms.
 
 ## 5.1 Psychoeducation Intervention
 

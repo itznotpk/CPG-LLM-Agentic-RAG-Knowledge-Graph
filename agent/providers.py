@@ -6,6 +6,7 @@ import os
 from typing import Optional
 from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.models.bedrock import BedrockConverseModel
 import openai
 from dotenv import load_dotenv
 
@@ -13,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def get_llm_model(model_choice: Optional[str] = None) -> OpenAIModel:
+def get_llm_model(model_choice: Optional[str] = None) -> OpenAIModel | BedrockConverseModel:
     """
     Get LLM model configuration based on environment variables.
     
@@ -21,14 +22,19 @@ def get_llm_model(model_choice: Optional[str] = None) -> OpenAIModel:
         model_choice: Optional override for model choice
     
     Returns:
-        Configured OpenAI-compatible model
+        Configured OpenAI-compatible or Bedrock model
     """
+    provider = os.getenv('LLM_PROVIDER', 'openai').lower()
     llm_choice = model_choice or os.getenv('LLM_CHOICE', 'gpt-4-turbo-preview')
+    
+    if provider == 'bedrock':
+        return BedrockConverseModel(llm_choice)
+    
     base_url = os.getenv('LLM_BASE_URL', 'https://api.openai.com/v1')
     api_key = os.getenv('LLM_API_KEY', 'ollama')
     
-    provider = OpenAIProvider(base_url=base_url, api_key=api_key)
-    return OpenAIModel(llm_choice, provider=provider)
+    openai_provider = OpenAIProvider(base_url=base_url, api_key=api_key)
+    return OpenAIModel(llm_choice, provider=openai_provider)
 
 
 def get_embedding_client() -> openai.AsyncOpenAI:
@@ -99,9 +105,22 @@ def validate_configuration() -> bool:
     ]
     
     missing_vars = []
-    for var in required_vars:
-        if not os.getenv(var):
-            missing_vars.append(var)
+    
+    provider = os.getenv('LLM_PROVIDER', 'openai').lower()
+    if provider == 'bedrock':
+        bedrock_vars = [
+            'AWS_ACCESS_KEY_ID',
+            'AWS_SECRET_ACCESS_KEY',
+            'AWS_REGION',
+            'LLM_CHOICE'
+        ]
+        for var in bedrock_vars:
+            if not os.getenv(var):
+                missing_vars.append(var)
+    else:
+        for var in required_vars:
+            if not os.getenv(var):
+                missing_vars.append(var)
     
     if missing_vars:
         print(f"Missing required environment variables: {', '.join(missing_vars)}")

@@ -43,5 +43,5 @@ Regular follow-up visits are essential for early detection of recurrence and mon
 
 | Organisation | Recommendation |
 |---|---|
-| **American Cancer Society** | Screening mammography should be continued **beyond 75 years** as long as a woman is in good health and expected to live ≥10 more years¹³⁷ |
+| **American Cancer Society** | Screening mammography should be continued **beyond 75 years** as long as a woman is in good health and expected to live ≥10 more years |
 | **US Preventive Services Task Force** | Current evidence is **insufficient** to assess benefits vs harms of screening mammography in women aged ≥75 years¹³⁸ |

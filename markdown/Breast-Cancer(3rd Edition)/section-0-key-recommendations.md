@@ -46,21 +46,23 @@ The following key recommendations are highlighted by the CPG Development Group a
 
 ## C. Treatment
 
-*   **Multidisciplinary team (MDT)** approach should be considered to improve clinical outcomes.
-*   In **DCIS** with <2 mm margin after BCS, the benefits and risks of further treatment (surgery or radiotherapy) should be discussed.
-*   In **early breast cancer** with clinically node-negative patients:
-    *   After **BCS** + SLN biopsy: no further axillary treatment needed in ≤2 positive SLNs
-    *   After **mastectomy** + SLN biopsy with ≤2 positive SLNs: axillary treatment (RT or surgery) should be offered
-*   **Neoadjuvant chemotherapy** may be offered to patients with **triple negative or HER2-positive** early breast cancer to enable BCS.
-*   **Neoadjuvant endocrine therapy** (preferably aromatase inhibitors) may be considered in **post-menopausal women** with HR-positive breast cancer not suitable for chemotherapy.
-*   **Chemotherapy + trastuzumab-based therapy** should be offered to HER2-positive patients requiring neoadjuvant therapy.
-*   **Adjuvant extended endocrine therapy** may be offered based on individual risk of recurrence and potential side effects.
-*   **Trastuzumab** should be given to women with HER2-positive breast cancer having adjuvant chemotherapy.
-*   **Endocrine therapy** should be first-line for HR-positive, HER2-negative metastatic breast cancer (unless visceral crisis or endocrine resistance).
-*   **Bisphosphonates** may be offered for bone metastases to reduce skeletal-related events.
-*   **Adjuvant radiotherapy** should be offered to all invasive breast cancer patients after BCS with clear margin.
-*   **Post-mastectomy radiotherapy** should be offered for: ≥1 positive lymph nodes; positive margin not amenable for surgery.
-*   Adjuvant radiotherapy should be **considered** in node-negative T3 or T4 breast cancer.
+*   **Multidisciplinary team** approach should be considered in the management of breast cancer to improve clinical outcomes.
+*   In women treated with **breast conserving surgery** for **ductal carcinoma in situ** of <2 mm margin, the benefits and risks of further treatment (surgery or radiotherapy) should be discussed to reduce the risk of local recurrence.
+*   In **early breast cancer** patients with clinically lymph nodes negative:
+    *   who have **breast conserving surgery** and **sentinel lymph nodes (SLNs)** biopsy, no further axillary treatment is needed in two or less positive SLNs.
+    *   who have **mastectomy** and **SLNs biopsy** with two or less positive SLNs, axillary treatment either radiotherapy or surgery should be offered.
+*   **Neoadjuvant chemotherapy** may be offered to patients with **triple negative** or **HER2-positive** early breast cancer to enable breast conserving surgery but its benefits and risks need to be discussed with the patients.
+*   **Neoadjuvant endocrine therapy**, preferably aromatase inhibitors, may be considered in **post-menopausal women** with **hormone-receptor positive** breast cancer who are not suitable for chemotherapy.
+*   **Chemotherapy and trastuzumab-based therapy** should be offered to patients with **HER2-positive** breast cancer who require neoadjuvant therapy.
+*   **Adjuvant extended endocrine therapy** may be offered to **hormone receptor-positive** breast cancer based on the individual's risk of disease recurrence and potential side effects.
+*   **Trastuzumab** should be given to women with **HER2-positive** breast cancer having adjuvant chemotherapy.
+*   **Endocrine therapy** should be considered as first-line treatment in **hormone-receptor positive, HER2-negative** metastatic breast cancer unless there is evidence of visceral crisis or endocrine resistance.
+*   **Bisphosphonates** may be offered in breast cancer patients with bone metastases to reduce skeletal-related events.
+*   All patients with invasive breast cancer who have **breast conserving surgery** with clear margin should be offered **adjuvant radiotherapy**.
+*   **Adjuvant radiotherapy** should be offered to the following postmastectomy breast cancer patients with:
+    *   one or more positive lymph nodes
+    *   positive margin not amenable for surgery
+*   **Adjuvant radiotherapy** should be considered in node negative T3 or T4 breast cancer.
 
 ---
 
@@ -100,3 +102,106 @@ The CPG Unit of MaHTAS adapts GRADE (Grading Recommendations, Assessment, Develo
 *   Values and preferences
 *   Resource implications
 *   Equity, feasibility and acceptability
+
+---
+
+## F. Algorithms
+
+### ALGORITHM 1: MANAGEMENT OF EARLY BREAST CANCER
+
+#### Step 1: Initial Presentation & Systemic Therapy
+**Early breast cancer**
+
+* **Option A:** Direct to **Surgery**
+* **Option B:** **Neoadjuvant systemic therapy** → followed by **Surgery**
+
+↓
+
+#### Step 2: Post-Surgical Pathways (Breast & Axilla)
+*Note: Management of the breast and axilla proceed as parallel considerations post-surgery.*
+
+**Pathway A: Breast Management**
+* **Surgical Options:**
+  * Breast conserving surgery (BCS) + whole breast irradiation
+  * Mastectomy ± reconstruction
+* **Subsequent Treatment:**
+  * **Option 1:** Surveillance (if adjuvant therapy not indicated)
+  * **Option 2:** Adjuvant therapy*
+    * Adjuvant therapy options include: Chemotherapy ± anti-HER2 therapy, Radiotherapy, and Endocrine therapy. *(Note: Chemotherapy can precede Radiotherapy and/or Endocrine therapy).*
+
+**Pathway B: Axilla Management**
+* **Initial Assessment:** Clinical breast examination ± imaging
+* **Node Status:**
+  * **If Clinical lymph node positive:** → Axillary clearance
+  * **If Clinical lymph node negative:** → Sentinel lymph node biopsy positive
+    * **If > 2 nodes positive:** → Axillary clearance
+    * **If ≤ 2 nodes positive:**
+      * **If BCS:** → No further axillary surgery but axillary radiotherapy may be considered
+      * **If mastectomy:** → Axillary radiotherapy / axillary clearance
+
+---
+
+#### 📝 Clinical Notes
+> **\*Indication for adjuvant radiotherapy:**
+> i. BCS with clear margin
+> ii. Post-mastectomy
+>    - ≥1 lymph node positive
+>    - lymph node negative in T3 or T4
+>    - positive margin not amenable for surgery
+
+---
+
+### ALGORITHM 2: MANAGEMENT OF LOCALLY ADVANCED BREAST CANCER
+
+#### Step 1: Initial Assessment
+**Locally advanced breast cancer**
+
+Categorize based on operability:
+
+#### Pathway A: Operable
+* **Option 1:** Mastectomy & axillary surgery
+  * → Chemotherapy ± trastuzumab
+  * → Radiotherapy ± hormone therapy
+* **Option 2:** Neoadjuvant chemotherapy ± anti-HER2 therapy
+  * → **Surgery Options:** Breast conserving surgery & axillary surgery **OR** Mastectomy & axillary surgery
+  * → Radiotherapy ± hormone therapy ± trastuzumab
+
+#### Pathway B: Inoperable
+* **Initial Treatment:** Neoadjuvant chemotherapy ± anti-HER2 therapy
+* **Reassessment (Post-Neoadjuvant):**
+  * **If becomes Operable:** → Surgery → Radiotherapy ± hormone therapy ± trastuzumab
+  * **If remains Inoperable:** → Individualised treatment
+
+---
+
+### ALGORITHM 3: MANAGEMENT OF METASTATIC BREAST CANCER
+
+#### Step 1: Initial Assessment
+**Metastatic breast cancer**
+
+Categorize based on the presence of visceral crisis:
+
+#### Pathway A: No Visceral Crisis
+Determine hormone receptor (ER/PR) status:
+
+* **ER/PR Positive (+):**
+  * **HER2-Negative:**
+    * Pre-menopausal: → Endocrine therapy ± Ovarian ablation/suppression
+    * Post-menopausal: → Endocrine therapy
+  * **HER2-Positive:** → Chemotherapy ± Anti-HER2
+* **ER/PR Negative (-):**
+  * **HER2-Positive:** → Chemotherapy ± Anti-HER2
+  * **HER2-Negative:** → Chemotherapy
+
+#### Pathway B: Visceral Crisis
+Determine HER2 status:
+
+* **HER2-Negative:** → Chemotherapy
+* **HER2-Positive:** → Chemotherapy ± Anti-HER2
+
+---
+
+#### 📝 Adjunct & Local Treatments
+> **Adjunct treatment:**
+> * Bisphosphonates
+> * Consider local treatment (radiotherapy/surgery) if indicated
