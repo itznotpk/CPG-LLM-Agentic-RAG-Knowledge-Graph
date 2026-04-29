@@ -338,25 +338,6 @@ In cases where clinical suspicion is high but the application of the Duke criter
 2. For patients with possible or rejected IE in whom there is a high clinical suspicion of IE, it is advisable to consider further microbiological testing or other imaging modalities to guide in the diagnosis.
 3. Clinicians should treat each individual patient accordingly.
 
-## 3.0 DIAGNOSIS
-
-## Figure 3c: The use of modified Duke criteria in diagnosing IE
-
-<!-- image -->
-
-## **Other imaging modalities:
-
-- Cardiac CT (detect pseudoaneurysms, abscesses and fistulae) especially in patients with prosthetic valves/ conduits (major criteria).47,48
-- Screen for silent septic emboli:
-- &gt; CT/MRA brain: infarct/mycotic aneurysm (detection of cerebral lesions on MRI in patients with no neurological symptoms or signs adds 1 minor Duke criteria).
-- &gt; CTPA (pulmonary infarcts/abscesses/ mycotic aneurysm) in right-sided IE.
-- CT abdomen: splenic infarct.
-- 18 F-FDG PET/CT and radiolabelled leucocyte SPECT/CT to detect silent metastatic infectious lesion/peripheral embolism.
-
-18 F-FDG: fluorine-18 (F-18) fluorodeoxyglucose (FDG); CT: computed tomography; CTPA: CT pulmonary angiogram; IE: infective endocarditis; MRA: magnetic resonance angiogram; MRI: magnetic resonance imaging; PET: positron emission tomography; SPECT: single photon emission computerised tomography; TEE: transoesophageal echocardiography; TTE: transthoracic echocardiography.
-
-Adapted from Habib G, et al. Eur Heart J. 2015.
-
 ## Contextual Anchors (Overlapping)
 ### Table 3.1: Symptoms and signs of IE
 
@@ -548,5 +529,53 @@ Refer Section 3.3.1 for positive and negative findings.
 
 ---
 
+### Figure 3c: The use of modified Duke criteria in diagnosing IE
+
+**Step 1: Clinical suspicion of IE**
+* ↓
+* Apply Modified Duke Criteria
+
+**Step 2: Initial Stratification**
+
+**Pathway A: Definite IE**
+* → **Treat as IE**
+
+**Pathway B: Possible IE**
+* → **Assess Clinical Suspicion:**
+  * **Scenario B1: High clinical suspicion**
+    * → Proceed to **Step 3 (Further Investigations)**
+
+**Pathway C: Rejected IE**
+* → **Assess Clinical Suspicion:**
+  * **Scenario C1: High clinical suspicion**
+    * → Proceed to **Step 3 (Further Investigations)**
+  * **Scenario C2: Low clinical suspicion**
+    * → Look for other causes. Treat as bacteraemia.
+
+**Step 3: Further Investigations (for Possible IE or Rejected IE with high clinical suspicion)**
+* Repeat TTE/TEE
+* Additional microbiological investigations (refer Figure 3a)
+* Send cardiac tissue for HPE if available
+* \*\*Consider other imaging modalities
+* ↓
+* **Revise diagnosis**
+* ↓
+* **Final Stratification:**
+  * → **Definite IE**
+  * → **Possible IE**
+  * → **Rejected IE**
+
+---
+\*\*Other imaging modalities:
+* Cardiac CT (detect pseudoaneurysms, abscesses and fistulae) especially in patients with prosthetic valves/ conduits (major criteria).
+* Screen for silent septic emboli:
+  * > CT/MRA brain: infarct/mycotic aneurysm (detection of cerebral lesions on MRI in patients with no neurological symptoms or signs adds 1 minor Duke criteria).
+  * > CTPA (pulmonary infarcts/abscesses/ mycotic aneurysm) in right-sided IE.
+* CT abdomen: splenic infarct.
+* <sup>18</sup>F-FDG PET/CT and radiolabelled leucocyte SPECT/CT to detect silent metastatic infectious lesion/peripheral embolism.
+
+<sup>18</sup>F-FDG: fluorine-18 (F-18) fluorodeoxyglucose (FDG); CT: computed tomography; CTPA: CT pulmonary angiogram; IE: infective endocarditis; MRA: magnetic resonance angiogram; MRI: magnetic resonance imaging; PET: positron emission tomography; SPECT: single photon emission computerised tomography; TEE: transoesophageal echocardiography; TTE: transthoracic echocardiography.
+
+*Adapted from Habib G, et al. Eur Heart J. 2015.*
 ## Abbreviations Used in This Section
 
