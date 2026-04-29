@@ -167,16 +167,15 @@ It is important to make the diagnosis of neurological complications early, as we
 - MRI, with or without gadolinium enhancement (better detection in patients with focal neurological lesions and may also detect lesions in patients without symptoms e.g. microbleeds). In addition to normal sequences, diffusion-weighted magnetic resonance imaging (DWI)/T2weighted (T2W) gradient-echo (GRE) sequences are important to show asymptomatic infarcts or small microbleeds respectively.
 - Cerebral angiography is advisable when there is strong clinical suspicion of mycotic aneurysm despite negative findings on non-invasive imaging modalities.
 
-Imaging investigations should be done as soon as clinical features appear, preferably within 24 hours. The presence of neurological complications, its type and severity is important as it will impact the optimal management of IE. It is of particular importance to be specific when describing and grading the neurological complications of IE (refer Table 4.1).
+Imaging investigations should be done as soon as clinical features appear, preferably within 24 hours. The presence of neurological complications, its type and severity is important as it will impact the optimal management of IE. It is of particular importance to be specific when describing and grading the neurological complications of IE (refer Table 4.1: Description of neurological complications).
 
 - Patients at highest risk of morbidity and mortality are those who had moderate-severe ischaemic strokes and intracranial haemorrhage.
 - Antimicrobial therapy should be started as soon as possible as the rate of neurological complications reduces significantly after one week of treatment.
 - Anticoagulation therapy (warfarin or heparin) should be reviewed and adjusted according to clinical status (e.g. S. aureus IE in the presence of a mechanical prosthetic valve).
 - However, despite antimicrobial therapy, patients with large vegetations (&gt; 10 mm) should be considered for early surgical intervention (refer Chapter 5.0).
 
-## Management of neurological complications
-
-## A. General Principles
+**Management of neurological complications** <br>
+**A. General Principles**
 
 Some general measures in the management of neurological complications:
 
@@ -185,18 +184,17 @@ Some general measures in the management of neurological complications:
 - In the event of any neurological complication, it is advisable to refer to a neurologist for consultation and further management.
 - Referrals to a neurosurgeon and interventional radiologist may be needed in the event of an intracerebral bleed, mycotic aneurysm or brain abscess.
 
-## B. Management of ischaemic and haemorrhagic complications
+**B. Management of ischaemic and haemorrhagic complications**
 
-Ischaemic stroke and haemorrhagic events are associated with higher mortality. Therefore, it is crucial to anticipate the potential risk in patients with predisposing factors for embolisation (refer Section 4.1.2.3), make a rapid diagnosis and initiate appropriate antimicrobials as soon as possible to prevent a first or recurrent neurological event. 80
+Ischaemic stroke and haemorrhagic events are associated with higher mortality. Therefore, it is crucial to anticipate the potential risk in patients with predisposing factors for embolisation (refer Section 4.1.2.3), make a rapid diagnosis and initiate appropriate antimicrobials as soon as possible to prevent a first or recurrent neurological event.
 
-## C. Management of mycotic aneurysms
+**C. Management of mycotic aneurysms**
 
-An aneurysm is a focal arterial dilatation involving all three layers of the arterial wall. Anuerysmal degeneration secondary to bacteraemia or septic embolisation is called a mycotic aneurysm. They are thin walled, friable and rupture easily resulting in intracranial haemorrhage. Cerebral mycotic aneurysms are a rare and deadly type of aneurysm that have no definitive treatment guidelines and represent 0.7-5.4% of all cerebral aneurysms. The mortality rate after rupture could reach as high as 80%. 82 The diagnosis of mycotic aneurysm is made by magnetic resonance angiography (MRA) or cerebral angiography.
+An aneurysm is a focal arterial dilatation involving all three layers of the arterial wall. Anuerysmal degeneration secondary to bacteraemia or septic embolisation is called a mycotic aneurysm. They are thin walled, friable and rupture easily resulting in intracranial haemorrhage. Cerebral mycotic aneurysms are a rare and deadly type of aneurysm that have no definitive treatment guidelines and represent 0.7-5.4% of all cerebral aneurysms. The mortality rate after rupture could reach as high as 80%. The diagnosis of mycotic aneurysm is made by magnetic resonance angiography (MRA) or cerebral angiography.
 
-The evolution of mycotic aneurysms is unpredictable even after antimicrobial therapy and variable outcomes have been reported. 83 Predictive factors for aneurysmal rupture have not been ascertained up to date.
+The evolution of mycotic aneurysms is unpredictable even after antimicrobial therapy and variable outcomes have been reported. Predictive factors for aneurysmal rupture have not been ascertained up to date.
 
-The treatment of mycotic aneurysms should be tailored according to response to antimicrobial therapy, location of aneurysm and clinical status of the patient. They can be treated surgically, endovascularly or by watchful waiting. Cerebral mycotic aneurysms should be treated by a multidisciplinary team in a tertiary centre. This team consists of cardiologists, neurosurgeons, interventional neuroradiologists, neurologists and intensivists. In addition, this centre must have facilities and expertise to manage cerebral mycotic aneurysm patients. There are many factors which determine the choice of management, either open surgery or endovascular management. However, the most important are the following: 82
-
+The treatment of mycotic aneurysms should be tailored according to response to antimicrobial therapy, location of aneurysm and clinical status of the patient. They can be treated surgically, endovascularly or by watchful waiting. Cerebral mycotic aneurysms should be treated by a multidisciplinary team in a tertiary centre. This team consists of cardiologists, neurosurgeons, interventional neuroradiologists, neurologists and intensivists. In addition, this centre must have facilities and expertise to manage cerebral mycotic aneurysm patients. There are many factors which determine the choice of management, either open surgery or endovascular management. However, the most important are the following:
 - The morphology and location of the aneurysm.
 - Whether it is possible to sacrifice the parent artery.
 - Whether the patient needs or has received valve replacement surgery.
@@ -204,28 +202,25 @@ The treatment of mycotic aneurysms should be tailored according to response to a
 
 Decisions by the multidisciplinary team should be followed after discussion with the patient and family members.
 
-## 4.0 MANAGEMENT
-
-If cardiac surgery is needed in the presence of a mycotic aneurysm, preoperative endovascular intervention may be considered. Endovascular intervention involves occluding the aneurysm with a coil or other occluder materials (such as autologous clots or polyvinyl alcohol microparticles) and can be done safely with good outcomes in centres with available expertise. 83
+If cardiac surgery is needed in the presence of a mycotic aneurysm, preoperative endovascular intervention may be considered. Endovascular intervention involves occluding the aneurysm with a coil or other occluder materials (such as autologous clots or polyvinyl alcohol microparticles) and can be done safely with good outcomes in centres with available expertise.
 
 The role for routine MRA or cerebral angiography in all patients with left-sided IE is unknown as is the role of prophylactic coiling of all asymptomatic mycotic aneurysms.
 
-## D. Management of brain abscess, meningitis or encephalitis.
+**D. Management of brain abscess, meningitis or encephalitis.**
 
 In the event of these complications, consultation from a neurologist and ID specialist should be sought.
 
-## Recommendations
+###### Recommendations
+**In the management of complications in IE:**
 
-## In the management of complications in IE:
+1. [Grade I, Level B] Surgery should be considered in patients with acute heart failure due to mechanical complications (refer Chapter 5.0).
+2. [Grade IIa, Level C] Further imaging should be considered in patients with persistent infection or high-risk for systemic embolisation.
+3. [Grade I, Level C] A multidisciplinary team inclusive of a neurologist with or without a neurosurgeon is recommended in the management of patients with IE and neurological complications.
+4. [Grade IIb, Level C] If cardiac surgery is indicated in the presence of cerebral mycotic aneurysm, pre-operative endovascular or neurosurgical intervention may be considered.
 
-1. Surgery should be considered in patients with acute heart failure due to mechanical complications (refer Chapter 5.0). [I/B]
-2. Further imaging should be considered in patients with persistent infection or high-risk for systemic embolisation. [IIa/C]
-3. A multidisciplinary team inclusive of a neurologist with or without a neurosurgeon is recommended in the management of patients with IE and neurological complications. [I/C]
-4. If cardiac surgery is indicated in the presence of cerebral mycotic aneurysm, pre-operative endovascular or neurosurgical intervention may be considered. [IIb/C]
+### 4.1.3 Issues with anticoagulation
 
-## 4.1.3 Issues with anticoagulation
-
-Cerebral injuries occur in 20-40% of patients during the active course of IE. 84 These include ischaemic stroke, TIA or intracerebral haemorrhage. The management of ischaemic stroke due to IE is different to ischaemic strokes from non-infective causes with regards to anticoagulation.
+Cerebral injuries occur in 20-40% of patients during the active course of IE. These include ischaemic stroke, TIA or intracerebral haemorrhage. The management of ischaemic stroke due to IE is different to ischaemic strokes from non-infective causes with regards to anticoagulation.
 
 Anticoagulation in the setting of IE raises concerns of intracerebral haemorrhage, an often fatal event. Cerebral haemorrhage in endocarditis occurs through one of three mechanisms:
 
@@ -233,35 +228,32 @@ Anticoagulation in the setting of IE raises concerns of intracerebral haemorrhag
 - Haemorrhagic transformation of embolic infarcts.
 - Rupture of dilated mycotic aneurysms.
 
-## Antiplatelet therapy
+#### Antiplatelet therapy
 
 The potential role of antiplatelet therapy such as aspirin to reduce cerebrovascular events in IE has been investigated.
 
-- Aspirin has not been shown to be of clear benefit as an adjunctive treatment in reducing mortality or morbidity in IE75,85 and initiation of aspirin as treatment for IE is not recommended.
-- In patients who were on aspirin long-term prior to the diagnosis of IE, it may be continued if there are no bleeding complications. 86
+- Aspirin has not been shown to be of clear benefit as an adjunctive treatment in reducing mortality or morbidity in IE and initiation of aspirin as treatment for IE is not recommended.
+- In patients who were on aspirin long-term prior to the diagnosis of IE, it may be continued if there are no bleeding complications.
 - The role of other antiplatelet agents such as clopidogrel has not yet been extensively investigated.
 
-## Anticoagulation with warfarin
+#### Anticoagulation with warfarin
 
 Cerebral haemorrhage is a major determinant of poor clinical outcome in IE.
 
-## A. Native valve infective endocarditis
+**A. Native valve infective endocarditis**
 
 - No evidence of a cerebrovascular ischaemic or haemorrhagic event.
-- &gt; Warfarin may be continued for those who are on anticoagulation with warfarin for non-valvular indications (e.g. atrial fibrillation and deep vein thrombosis). 87
-
-## 4.0 MANAGEMENT
-
+    - Warfarin may be continued for those who are on anticoagulation with warfarin for non-valvular indications (e.g. atrial fibrillation and deep vein thrombosis).
 - Presence of a cerebrovascular ischaemic or haemorrhagic event.
-- &gt; Warfarin should be stopped to prevent haemorrhagic transformation (in the case of ischaemic stroke) or expansion of the haemorrhagic event. 88
-- &gt; Warfarin may be recommenced 2-3 weeks after the event or until the period of sepsis is over. 89
-- &gt; The role of low molecular weight heparin (LMWH) and new oral anticoagulants (NOAC) in this context is not known. It is advisable to stop all forms of anticoagulation such as NOAC or LMWH in the event of an ischaemic stroke or intracerebral haemorrhage in IE patients. 81
+    - Warfarin should be stopped to prevent haemorrhagic transformation (in the case of ischaemic stroke) or expansion of the haemorrhagic event.
+    - Warfarin may be recommenced 2-3 weeks after the event or until the period of sepsis is over.
+    - The role of low molecular weight heparin (LMWH) and new oral anticoagulants (NOAC) in this context is not known. It is advisable to stop all forms of anticoagulation such as NOAC or LMWH in the event of an ischaemic stroke or intracerebral haemorrhage in IE patients.
 
-## B. Mechanical prosthetic valve infective endocarditis
+**B. Mechanical prosthetic valve infective endocarditis**
 
-Patients with mechanical prosthetic valves require anticoagulation with warfarin because of the risk of thromboembolic complications. Mechanical prosthetic valve IE (MPVIE) carries a higher mortality and poorer prognosis compared to native valve IE (NVE).90,91 In MPVIE, the risks of cerebral haemorrhage with continued anticoagulation need to be weighed against the risk of thromboembolic complications from the mechanical prosthesis if anticoagulation is stopped.
+Patients with mechanical prosthetic valves require anticoagulation with warfarin because of the risk of thromboembolic complications. Mechanical prosthetic valve IE (MPVIE) carries a higher mortality and poorer prognosis compared to native valve IE (NVE). In MPVIE, the risks of cerebral haemorrhage with continued anticoagulation need to be weighed against the risk of thromboembolic complications from the mechanical prosthesis if anticoagulation is stopped.
 
-The thromboembolic risk is higher with certain features such as: 92
+The thromboembolic risk is higher with certain features such as:
 
 - Prosthetic mitral valves rather than aortic valves.
 - Non-bileaflet valves.
@@ -276,31 +268,28 @@ In the event that a major ischaemic cerebral event occurs in MPVIE, it is reason
 
 - Stop warfarin for at least 2-3 weeks during the period of highest risk for haemorrhagic transformation.
 - Unfractionated heparin may be used from the 2 nd week after stopping warfarin under close monitoring to reduce the thromboembolic complications from the mechanical valve prosthesis.
-- Patients with77,80 MPVIE due to S. aureus have been shown to be at much higher risk for cerebral haemorrhage. In these cases, even if there is no neurological complication, once diagnosis of IE is made warfarin can be stopped and substituted with unfractionated heparin for 2 weeks.
+- Patients with MPVIE due to *S. aureus* have been shown to be at much higher risk for cerebral haemorrhage. In these cases, even if there is no neurological complication, once diagnosis of IE is made warfarin can be stopped and substituted with unfractionated heparin for 2 weeks.
 
-## In the event of intracranial bleeding occurring in MPVIE:
+In the event of intracranial bleeding occurring in MPVIE:
 
 - Anticoagulation should be stopped.
 - Anticoagulation should be avoided during the first 2 weeks as the risk of further bleeding and expansion of the intracerebral haemorrhage is highest during this period.
-- It is reasonable in most cases to restart anticoagulation with caution using unfractionated heparin after 2 weeks as the risk of further intracranial bleeding is low after 2 weeks, while the risk of thromboembolic complications in mechanical prosthetic valves without anticoagulation increases.89,93
+- It is reasonable in most cases to restart anticoagulation with caution using unfractionated heparin after 2 weeks as the risk of further intracranial bleeding is low after 2 weeks, while the risk of thromboembolic complications in mechanical prosthetic valves without anticoagulation increases.
 - In cases where the risk of further intracranial bleeding after 2 weeks is judged to be high by the neurosurgical team, this must be balanced with the risk of thromboembolic complications from the mechanical prosthetic valve without anticoagulation, and a consensus decision made by the team.
 - In those patients with MPVIE who may require imminent surgery it is advisable to discontinue warfarin at the time of diagnosis until the management plan is elucidated.
-- If surgery is not indicated and the patient is deemed stable without contraindications or neurologic complications, warfarin can be restarted with caution.94
+- If surgery is not indicated and the patient is deemed stable without contraindications or neurologic complications, warfarin can be restarted with caution.
 
 Restarting anticoagulation should be done very cautiously starting with intravenous unfractionated heparin guided by activated partial thromboplastin time (aPTT) monitoring and subsequently with dose adjusted warfarin. The role of LMWH in this context is not known. There are currently no guidelines on the use of NOAC for mechanical prosthetic valves. A Phase II trial on dabigatran in mechanical valves was terminated early due to excess bleeding in the dabigatran arm.
 
-## Recommendations
+#### Recommendations
+**On the use of anticoagulants in IE patients with neurological complications:**
 
-## On the use of anticoagulants in IE patients with neurological complications:
+1. [Grade I, Level B] In the event of intracranial bleeding, anticoagulation should be stopped.
+2. [Grade IIa, Level C] In MPVIE complicated by a major ischaemic cerebral event, it is reasonable to stop anticoagulation with warfarin for 2-3 weeks and cautiously substitute with intravenous unfractionated heparin after 2 weeks.
+3. [Grade IIa, Level C] In MPVIE due to S. aureus, it may be reasonable to stop warfarin and substitute with unfractionated heparin for 2 weeks, even with no neurological complication.
+4. [Grade IIa, Level C] In the event of intracranial bleeding, it is reasonable to stop warfarin for 2 weeks and anticoagulate with unfractionated heparin after 2 weeks in most cases.
 
-1. In the event of intracranial bleeding, anticoagulation should be stopped. [I/B]
-2. In MPVIE complicated by a major ischaemic cerebral event, it is reasonable to stop anticoagulation with warfarin for 2-3 weeks and cautiously substitute with intravenous unfractionated heparin after 2 weeks. [IIa/C]
-3. In MPVIE due to S. aureus, it may be reasonable to stop warfarin and substitute with unfractionated heparin for 2 weeks, even with no neurological complication. [IIa/C]
-4. In the event of intracranial bleeding, it is reasonable to stop warfarin for 2 weeks and anticoagulate with unfractionated heparin after 2 weeks in most cases. [IIa/C]
-
-## 4.0 MANAGEMENT
-
-## 4.1.4 Referral for specialist care
+### 4.1.4 Referral for specialist care
 
 IE is an unusual disease for a few reasons:
 
@@ -313,28 +302,27 @@ To ensure a good outcome and to prevent complications, it is important to establ
 Referral to a SC is recommended in the following situations (refer Table 4.2):
 
 - Strong clinical suspicion of IE but TTE negative.
-- &gt; Requires TEE and/or other imaging modalities to diagnose IE and to monitor for complications.
+    - Requires TEE and/or other imaging modalities to diagnose IE and to monitor for complications.
 - Patients with high predisposing risks.
-- &gt; Prosthetic valves or material (e.g. conduit IE, prosthetic shunts and intracardiac devices).
-- &gt; Transcatheter valve implantation (e.g. transcatheter aortic valve implantation; TAVI and pulmonary valve implantation; PVI).
-- &gt; CIED infections.
-- &gt; CHD.
+    - Prosthetic valves or material (e.g. conduit IE, prosthetic shunts and intracardiac devices).
+    - Transcatheter valve implantation (e.g. transcatheter aortic valve implantation; TAVI and pulmonary valve implantation; PVI).
+    - CIED infections.
+    - CHD.
 - Patients with indications for cardiac surgery (refer Section 5.1).
 - Patients with cardiac complications.
-- &gt; Valvular dysfunction especially of the left-sided valves.
-- &gt; Cardiac abscess (confirmed or suspected).
-- &gt; Congestive heart failure.
-- &gt; Metastatic infection.
+    - Valvular dysfunction especially of the left-sided valves.
+    - Cardiac abscess (confirmed or suspected).
+    - Congestive heart failure.
+- Metastatic infection.
 
 Specific situations that may need other non-cardiac consultations:
-
 - ID and microbiology:
-- &gt; BCNIE.
-- &gt; Persistent infection that is not responding to treatment.
+  - BCNIE.
+  - Persistent infection that is not responding to treatment.
 - Neurology/neurosurgery:
-- &gt; Patients with neurological complications.
+  - Patients with neurological complications.
 - Haematology:
-- &gt; Patients who are on anticoagulation with coagulopathies and haemorrhagic complications.
+  - Patients who are on anticoagulation with coagulopathies and haemorrhagic complications.
 
 Patients with non-complicated IE can be managed in a centre with internal medicine specialists. These are patients with:
 
@@ -343,15 +331,6 @@ Patients with non-complicated IE can be managed in a centre with internal medici
 - Not more than mild ischaemic neurological complications (involving &lt; 30% of a lobe).
 
 However, in the event that complications arise they should be referred to a SC.
-
-Table 4.2: Specific clinical situations needing referrals/specialised consultation
-
-| Complicated IE (requires transfer to a SC if  possible or constant consultation with a SC)                                                                                                                                    | Non-complicated IE (manage in centre with  internal medicine specialists but refer to SC  in the event complications arise)                                                                    |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| •  Heart failure •  Perivalvular extensions •  Embolic complication •  Neurological complication** •  Metastatic or uncontrolled infection# •  CHD •  Prosthetic valve •  CIED •  Transcatheter implantable valves or devices | •  Mild-moderate abnormality of cardiac valvular  function with no heart failure •  Native valves only •  Not more than mild ischaemic neurological  complications (involving < 30% of a lobe) |
-| Additional consultation with non-cardiac subspecialties: **neurology/neurosurgery;  # ID and  microbiology.                                                                                                                   | Additional consultation with non-cardiac subspecialties: **neurology/neurosurgery;  # ID and  microbiology.                                                                                    |
-
-## 4.0 MANAGEMENT
 
 A Specialist Centre (SC) is defined as a centre with cardiothoracic, cardiac imaging and specialised cardiology services.
 
@@ -900,4 +879,12 @@ Adapted from European Society of Cardiology infective endocarditis guidelines. 2
 | **Cerebral abscess** | Present in 1-7% of patients with IE. | Focal deficits, headache, encephalopathy, unresolved sepsis and seizures. | Antimicrobials alone for small or multifocal abscesses.<br><br>Surgical drainage for abscesses that are large or do not respond to antimicrobials.<br><br>Neurosurgical intervention as appropriate for hydrocephalus or significant mass effect. | Typically will not interfere with surgical planning.<br><br>Prioritise neurosurgical intervention in the setting of hydrocephalus or significant mass effect. |
 | **Meningitis** | Present in 1-20% of patients with IE. | Headache, encephalopathy, seizures, neck/back pain, nuchal rigidity and photophobia. | At least 4 weeks of antimicrobials. | Typically will not interfere with surgical planning. |
 
-*Adapted from Morris et al. Neurohospitalist. 2014.<sup>81</sup>*
+---
+
+### Table 4.2: Specific clinical situations needing referrals/specialised consultation
+
+| Complicated IE (requires transfer to a SC if possible or constant consultation with a SC) | Non-complicated IE (manage in centre with internal medicine specialists but refer to SC in the event complications arise) |
+|---|---|
+| • Heart failure<br>• Perivalvular extensions<br>• Embolic complication<br>• Neurological complication\*\*<br>• Metastatic or uncontrolled infection<sup>#</sup><br>• CHD<br>• Prosthetic valve<br>• CIED<br>• Transcatheter implantable valves or devices | • Mild-moderate abnormality of cardiac valvular function with no heart failure<br>• Native valves only<br>• Not more than mild ischaemic neurological complications (involving < 30% of a lobe) |
+
+*Additional consultation with non-cardiac subspecialties: \*\*neurology/neurosurgery; <sup>#</sup>ID and microbiology.*
