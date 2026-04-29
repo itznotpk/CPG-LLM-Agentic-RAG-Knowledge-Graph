@@ -232,7 +232,7 @@ Other important information to gather from an echocardiogram include:
 - Assessment and quantification of valve regurgitation.
 - Presence and quantification of pericardial effusion.
 
-## 3.3.1.2 Interpretation of echocardiography
+#### 3.3.1.2 Interpretation of echocardiography
 
 Echocardiography in IE can be challenging. This may be due to the absence of vegetations despite a high index of clinical suspicion or the presence of masses on the endocardial surface that are not due to infective vegetation. Therefore the results of the echocardiographic study must be interpreted with caution, taking into account the patient's clinical presentation and the likelihood of IE. The limitations of echocardiography in the diagnosis of IE should be noted as follows:
 
@@ -243,7 +243,7 @@ Echocardiography in IE can be challenging. This may be due to the absence of veg
 
 ##### Recommendations
 
-## The use of echocardiography in diagnosing IE:
+**The use of echocardiography in diagnosing IE:**
 
 1. [Grade I, Level B] Echocardiography should be performed as soon as possible in all patients suspected of having IE. 
 2. [Grade I, Level C] If there is a high suspicion of IE despite an initial negative TTE/TEE, then a repeat TTE/TEE is recommended within a week or if clinical findings change.
@@ -549,6 +549,49 @@ The directory of laboratories that perform the serological and PCR tests of the 
 ---
 ### Figure 3b: Use of echocardiography in the diagnosis and management of IE
 
+**Step 1: Suspect IE**
+* ↓
+* Initial TTE as soon as possible
+
+**Step 2: Evaluate Initial TTE Findings**
+
+**Pathway A: Positive TTE findings**
+* → **Treat for IE**
+* **Assess Clinical Course:**
+  * **Scenario 1: Low predisposing risk AND Good response to treatment**
+    * → Repeat TTE as indicated and before discharge.
+    * → Continue treatment and monitor for complications. Repeat TEE or TTE/other imaging where necessary. Surgical intervention when indicated (refer Chapter 5.0).
+    * → Pre-discharge ECHO to document baseline findings (refer Section 4.1.4 and Chapter 6).
+  * **Scenario 2: Worsening clinical course OR High predisposing risk<sup>§</sup> OR Echocardiographic findings suggest possible complications**
+    * → TEE.
+    * → Proceed to Continue treatment and monitor for complications (as above).
+    * → Pre-discharge ECHO to document baseline findings (as above).
+
+**Pathway B: Negative TTE findings**
+* **Assess Clinical Suspicion and Risk:**
+  * **Scenario 1: Low risk\*\* AND Low clinical suspicion**
+    * → Investigate for other sources of fever and treat accordingly.
+  * **Scenario 2: High predisposing risk<sup>§</sup> OR High clinical suspicion OR Poor echocardiographic window/difficult to image on TTE**
+    * → TEE.
+    * **Evaluate TEE Findings:**
+      * **Positive TEE findings:**
+        * → Treat for IE.
+        * → Proceed to Continue treatment and monitor for complications (as above).
+        * → Pre-discharge ECHO to document baseline findings (as above).
+      * **Negative TEE findings:**
+        * → If high clinical suspicion persists, start empirical treatment (refer Section 4.2.3).
+        * → Consider repeat TEE/TTE within a week.
+        * **Evaluate Repeat Imaging:**
+          * **Positive TEE/TTE findings:** → Treat for IE (Proceed to Continue treatment & Pre-discharge ECHO).
+          * **Negative TEE/TTE findings:** → Consider advanced microbiological assessment and other imaging modalities (refer Figures 3a and 3c).
+
+---
+TEE: Transoesophageal echocardiography; TTE: Transthoracic echocardiography; ECHO: echocardiogram.
+Refer Section 3.3.1 for positive and negative findings.
+\*\*E.g. a patient with fever and known heart murmur but with no other signs or symptoms of IE
+<sup>§</sup>Includes presence of prosthetic valves, various CHD, appearance of new murmur, presence of heart failure, or other signs and symptoms of IE
+
+*Adapted from Baddour LM, et al. Circulation. 2015.*
 
 ## Abbreviations Used in This Section
 
