@@ -804,6 +804,34 @@ class DocumentIngestionPipeline:
             except Exception as e:
                 logger.warning(f"Failed to parse frontmatter: {e}")
         
+        # Try to extract <!-- METADATA --> HTML comment blocks (Breast Cancer format)
+        import re
+        meta_match = re.search(
+            r'<!--\s*METADATA\s*\n(.*?)\n\s*-->',
+            content, re.DOTALL
+        )
+        if meta_match:
+            meta_block = meta_match.group(1)
+            for line in meta_block.strip().split('\n'):
+                line = line.strip()
+                if ':' in line:
+                    key, _, value = line.partition(':')
+                    key = key.strip()
+                    value = value.strip()
+                    if key and value:  # Only add non-empty values
+                        metadata[key] = value
+        
+        # Extract CPG name from parent folder (e.g. "Breast-Cancer(3rd Edition)")
+        parent_folder = os.path.basename(os.path.dirname(file_path))
+        if parent_folder and parent_folder != self.documents_folder:
+            metadata["cpg_name"] = parent_folder
+        
+        # Extract section number from filename (e.g. "section-20-..." -> 20)
+        basename = os.path.basename(file_path)
+        sec_match = re.match(r'section-(\d+)', basename)
+        if sec_match:
+            metadata["section_number"] = int(sec_match.group(1))
+        
         # Extract some basic metadata from content
         lines = content.split('\n')
         metadata['line_count'] = len(lines)

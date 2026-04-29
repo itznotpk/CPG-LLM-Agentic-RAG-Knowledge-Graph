@@ -47,14 +47,26 @@ class DocumentChunk:
             self.token_count = len(self.content) // 4  # ~4 chars per token
 
 
-# Regex pattern matching overlap comment blocks in the standardized markdown
-# Matches: <!-- OVERLAP CONTENT FROM: ... --> ... <!-- END OVERLAP FROM: ... -->
+# Regex pattern matching overlap comment blocks in the standardized markdown.
+# Supports BOTH formats:
+#   NEW (standardized):  <!-- OVERLAP CONTENT --> ... <!-- END OVERLAP CONTENT -->
+#   OLD (legacy):        <!-- ======= -->
+#                        <!-- OVERLAP CONTENT FROM: ... --> ... <!-- END OVERLAP FROM: ... -->
 OVERLAP_BLOCK_PATTERN = re.compile(
-    r'<!--\s*=+\s*-->\s*\n'
-    r'<!--\s*OVERLAP CONTENT FROM:.*?-->\s*\n'
-    r'(?:<!--.*?-->\s*\n)*'
-    r'(.*?)'
-    r'<!--\s*END OVERLAP FROM:.*?-->',
+    r'(?:'
+        # --- NEW format (standardized PAH/BC files) ---
+        r'<!--\s*OVERLAP CONTENT\s*-->'
+        r'\s*\n'
+        r'(.*?)'
+        r'<!--\s*END OVERLAP CONTENT\s*-->'
+    r'|'
+        # --- OLD format (legacy files with FROM: labels) ---
+        r'<!--\s*=+\s*-->\s*\n'
+        r'<!--\s*OVERLAP CONTENT FROM:.*?-->\s*\n'
+        r'(?:<!--.*?-->\s*\n)*'
+        r'(.*?)'
+        r'<!--\s*END OVERLAP FROM:.*?-->'
+    r')',
     re.DOTALL
 )
 
@@ -149,16 +161,36 @@ class MarkdownChunker:
                 start_pos = current_pos
             end_pos = start_pos + len(chunk_content)
             
-            # Extract Evidence Grade and Level tags
+            # Extract Evidence Grade, Level, and WHO Class tags
+            # Supports multiple CPG formats:
+            #   PAH: **[Grade I]**, **[Level C]**, **[Grade II-a, Level B]**, **[WHO Class III]**
+            #   BC:  **[level I]**
+            #   ED:  [Grade I-a, Level A]
             grades = []
             levels = []
-            for match in re.finditer(r'\[Grade\s+(I{1,3}[-]?[a-c]?),\s*Level\s+([A-D])\]', chunk_content, re.IGNORECASE):
-                grade_val = match.group(1).upper()
-                level_val = match.group(2).upper()
-                if grade_val not in grades:
-                    grades.append(grade_val)
-                if level_val not in levels:
-                    levels.append(level_val)
+            who_classes = []
+            
+            # Pattern 1: Combined [Grade X, Level Y] (with optional bold **)
+            for m in re.finditer(r'\*{0,2}\[Grade\s+(I{1,3}[-]?[a-c]?),\s*Level\s+([A-C])\]\*{0,2}', chunk_content, re.IGNORECASE):
+                g = m.group(1).upper()
+                lv = m.group(2).upper()
+                if g not in grades: grades.append(g)
+                if lv not in levels: levels.append(lv)
+            
+            # Pattern 2: Standalone [Grade X] (no Level)
+            for m in re.finditer(r'\*{0,2}\[Grade\s+(I{1,3}[-]?[a-c]?)\]\*{0,2}', chunk_content, re.IGNORECASE):
+                g = m.group(1).upper()
+                if g not in grades: grades.append(g)
+            
+            # Pattern 3: Standalone [Level X] (PAH: **[Level C]**, BC: **[level I]**)
+            for m in re.finditer(r'\*{0,2}\[(?:L|l)evel\s+([A-C]|I{1,3})\]\*{0,2}', chunk_content):
+                lv = m.group(1).upper()
+                if lv not in levels: levels.append(lv)
+            
+            # Pattern 4: [WHO Class I-IV] (PAH functional classification)
+            for m in re.finditer(r'\*{0,2}\[WHO\s+Class\s+(I{1,3}V?|IV)(?:[-\s]?[A-Z])?\]\*{0,2}', chunk_content, re.IGNORECASE):
+                w = m.group(1).upper()
+                if w not in who_classes: who_classes.append(w)
             
             # Calculate parent relationship from headers
             parent_id = None
@@ -178,9 +210,12 @@ class MarkdownChunker:
                 "parent_header": parent_id,
                 **doc.metadata
             }
-            if grades and levels:
+            if grades:
                 chunk_metadata["evidence_grades"] = grades
+            if levels:
                 chunk_metadata["evidence_levels"] = levels
+            if who_classes:
+                chunk_metadata["who_functional_classes"] = who_classes
             
             chunks.append(DocumentChunk(
                 content=chunk_content.strip(),
@@ -225,10 +260,9 @@ class MarkdownChunker:
         """
         Strip overlap comment blocks from markdown content.
         
-        Overlap blocks are wrapped in standardized HTML comments:
-            <!-- OVERLAP CONTENT FROM: ... -->
-            ... content ...
-            <!-- END OVERLAP FROM: ... -->
+        Supports both formats:
+            NEW: <!-- OVERLAP CONTENT --> ... <!-- END OVERLAP CONTENT -->
+            OLD: <!-- OVERLAP CONTENT FROM: ... --> ... <!-- END OVERLAP FROM: ... -->
         
         Returns:
             Tuple of (stripped_content, list_of_overlap_block_texts)
@@ -236,7 +270,10 @@ class MarkdownChunker:
         overlap_blocks = []
         
         def collect_and_remove(match):
-            overlap_blocks.append(match.group(1).strip())
+            # Alternation: group(1) = new format, group(2) = old format
+            block_text = match.group(1) or match.group(2) or ""
+            if block_text.strip():
+                overlap_blocks.append(block_text.strip())
             return ""  # Remove from main content
         
         stripped = OVERLAP_BLOCK_PATTERN.sub(collect_and_remove, content)
