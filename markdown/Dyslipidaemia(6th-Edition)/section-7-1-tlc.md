@@ -1,10 +1,10 @@
 # SECTION 7: MANAGEMENT OF DYSLIPIDAEMIA
 # SECTION 7.1: THERAPEUTIC LIFESTYLE CHANGES (TLC) (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#)
 <!-- METADATA
-category: Management
-use_case: Lifestyle Intervention
-patient_input: Diet, Exercise habits, Smoking status, Weight
-output: TLC Recommendations (Dietary patterns, Physical activity targets)
+category: Treatment, Prevention
+use_case: Therapeutic lifestyle changes for dyslipidaemia management — diet, exercise, weight_loss, smoking_cessation, alcohol, MNT, TLC
+patient_input: diet_history, exercise_habits, smoking_status, BMI, waist_circumference
+output: TLC_recommendations, dietary_pattern, exercise_target, weight_goal
 -->
 
 ## Introduction

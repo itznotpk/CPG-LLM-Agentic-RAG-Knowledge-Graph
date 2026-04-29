@@ -1,10 +1,12 @@
 # SECTION 5: MANAGEMENT — ACUTE-ONSET AF
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: acute_management, cardioversion
-patient_input: haemodynamic_status, AF_duration, structural_heart_disease
-output: rate_control, cardioversion_strategy
+category: Treatment
+use_case: Acute-onset AF management including haemodynamic stabilisation, IV rate control, pharmacological and electrical cardioversion, and pill-in-the-pocket approach — acute_rate_control, DCCV, pharmacological_cardioversion, pill-in-the-pocket, TOE-guided_cardioversion, pre-excitation, WPW
+patient_input: haemodynamic_status, AF_duration, structural_heart_disease, ventricular_rate, pre-excitation_status
+output: IV_agent_selection, cardioversion_strategy, energy_protocol, anticoagulation_peri-cardioversion, recurrence_prevention
+critical: true
+treatment_type: esmolol, metoprolol, propranolol, verapamil, diltiazem, digoxin, amiodarone, flecainide, propafenone, DCCV, heparin, LMWH
 -->
 
 > **Context:** This section covers the acute management of AF, including acute rate control in haemodynamically unstable patients (Table 9: IV agents), pharmacological cardioversion drug selection (Table 10: flecainide, propafenone, amiodarone), the pill-in-the-pocket outpatient approach, direct current cardioversion (DCCV) procedure and energy protocols, and TOE-guided cardioversion strategy (Figure 9: Cardioversion algorithm with LAA thrombus routing and post-cardioversion anticoagulation review).

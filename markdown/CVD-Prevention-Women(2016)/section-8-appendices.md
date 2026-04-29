@@ -1,10 +1,10 @@
 # SECTION 8: APPENDICES
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: reference, supplemental_data
-patient_input: 
-output: 
+category: Reference
+use_case: Supplementary reference tables and treatment algorithms for CVD prevention — cardiotoxicity_risk, COC_classification, alcohol_content, BP_risk_stratification, anti-hypertensive_selection, T2DM_algorithm, NCD_audit
+patient_input: cardiotoxicity_risk_score, BP_level, comorbidities, HbA1c, FPG, COC_type
+output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, audit_form
 -->
 
 > **Context:** This section houses supplementary tables, scoring systems, and specific management algorithms referred to throughout the main text, acting as a quick-reference guide for complex clinical decisions.

@@ -1,10 +1,10 @@
 # SECTION 7: ADHERENCE, COMPLIANCE AND QUALITY ASSURANCE
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: implementation, adherence, audit
-patient_input: 
-output: 
+category: Supportive Treatment, Reference
+use_case: Adherence strategies, compliance improvement, and clinical quality assurance audit parameters for CVD prevention — adherence_barriers, patient_compliance, MTAC, clinical_audit, quality_assurance, NCD_audit
+patient_input: medication_regimen, adherence_barriers, clinical_audit_data, patient_records
+output: adherence_strategies, regimen_simplification, audit_numerator_denominator, quality_metrics
 -->
 
 > **Context:** This section covers strategies to ensure adherence to cardiovascular preventive guidelines, targeting both patients and healthcare providers, and defines audit parameters for clinical quality assurance.

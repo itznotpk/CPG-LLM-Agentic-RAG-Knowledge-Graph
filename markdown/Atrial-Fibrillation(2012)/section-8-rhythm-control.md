@@ -1,10 +1,11 @@
 # SECTION 8: MANAGEMENT — LONG-TERM RHYTHM CONTROL
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: rhythm_control, antiarrhythmic_drugs, catheter_ablation
-patient_input: structural_heart_disease, af_pattern, comorbidities
-output: rhythm_control_strategy, drug_selection, ablation_indication
+category: Treatment, Prevention
+use_case: Long-term rhythm control including antiarrhythmic drug selection, catheter ablation, surgical ablation, pacing, and upstream therapy — amiodarone, dronedarone, flecainide, propafenone, sotalol, PVI, catheter_ablation, surgical_ablation, Maze_procedure, ACEI, ARB, statins, PUFA, upstream_therapy, LVH, CHD, heart_failure
+patient_input: structural_heart_disease, AF_pattern, LVH_status, LVEF, coronary_artery_disease, NYHA_class, comorbidities
+output: AAD_selection, rhythm_control_algorithm, ablation_indication, upstream_therapy_recommendation, proarrhythmia_risk
+treatment_type: amiodarone, dronedarone, flecainide, propafenone, sotalol, catheter_ablation, PVI, surgical_ablation, ACEI, ARB, statins
 -->
 
 > **Context:** This section establishes long-term rhythm control algorithms, detailing pharmacological selection derived from pathology (Figures 12 and 13). It comprehensively defines decision hierarchies for left atrial catheter ablation (Figure 14), surgical ablation, and pacing requirements. Furthermore, it outlines secondary 'upstream' therapies including ACEI, ARB, and statins.

@@ -2,10 +2,11 @@
 # SECTION 7.2: LIPID MODIFYING DRUGS (PHARMACOTHERAPY)
 
 <!-- METADATA
-category: Management
-use_case: Drug Intervention
-patient_input: Risk Category, Baseline LDL-C, Comorbidities
-output: Drug options (Statins, Ezetimibe, PCSK9-i), Monitoring, Adherence
+category: Treatment
+use_case: Pharmacological lipid-lowering therapy — statins, ezetimibe, PCSK9_inhibitors, inclisiran, bempedoic_acid, fibrates, combination_therapy
+patient_input: CV_risk_category, baseline_LDL-C, comorbidities, statin_tolerance
+output: drug_selection, dose_titration, monitoring_schedule, combination_regimen
+treatment_type: statins, ezetimibe, PCSK9 inhibitors, inclisiran, bempedoic acid, fibrates, bile acid sequestrants, niacin, omega-3 fatty acids
 -->
 
 ## Introduction

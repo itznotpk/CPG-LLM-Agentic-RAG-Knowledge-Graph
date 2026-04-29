@@ -1,10 +1,10 @@
 # SECTION 8: PRIMARY PREVENTION
 
 <!-- METADATA
-category: Prevention
-use_case: Risk Modification (Healthy Individuals)
-patient_input: Age, Risk Category, Lifestyle
-output: Prevention strategies (Population-based vs Individual-based)
+category: Prevention, Screening
+use_case: Primary prevention of CVD through lipid screening and lifestyle modification — population_strategy, individual_screening, lipid_screening, public_education
+patient_input: age, lipid_profile, CV_risk_factors
+output: screening_interval, prevention_strategy, lifestyle_advice
 -->
 
 ## Introduction

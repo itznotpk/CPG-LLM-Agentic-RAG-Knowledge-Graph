@@ -1,10 +1,10 @@
 # SECTION 5: TOTAL CARDIOVASCULAR RISK ASSESSMENT
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: risk_assessment, screening
-patient_input: 
-output: 
+category: Screening, Assessment
+use_case: Total cardiovascular risk assessment and stratification in women — FRS, ACC/AHA_risk_calculator, SCORE, QRISK, risk_classification, vascular_age, screening_rationale
+patient_input: age, sex, TC, HDL-C, SBP, smoking_status, diabetes_status, BP_treatment, family_history, waist_circumference, BMI
+output: CVD_risk_category, 10-year_CVD_risk, vascular_age, risk-based_preventive_strategy
 -->
 
 > **Context:** This section dictates the methodologies for assessing total cardiovascular risk in women, outlining the process, metrics, and tools such as the Framingham Risk Score.

@@ -1,10 +1,10 @@
 # SECTION 5: GLOBAL CARDIOVASCULAR RISK ASSESSMENT
 
 <!-- METADATA
-category: Risk Assessment
-use_case: Patient Stratification
-patient_input: Age, Sex, TC, HDL-C, BP, Smoking status, Diabetes status
-output: CV Risk Category (Low, Intermediate, High, Very High)
+category: Screening, Assessment
+use_case: Lipid screening and global cardiovascular risk stratification — FRS_General_CVD, risk_score, Framingham, lipid_screening, risk_classification
+patient_input: age, sex, TC, HDL-C, SBP, smoking_status, diabetes_status, BP_treatment
+output: CV_risk_category, 10-year_CVD_risk, vascular_age
 -->
 
 ## 5.1. Lipid Screening

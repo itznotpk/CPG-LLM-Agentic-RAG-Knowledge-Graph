@@ -1,10 +1,10 @@
 # SECTION 3: INITIAL MANAGEMENT
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: diagnosis, investigation, clinical_assessment
-patient_input: symptoms, physical_examination, ECG
-output: diagnosis_confirmation, risk_assessment, follow_up_plan
+category: Diagnosis, Screening, Assessment
+use_case: Initial management of AF including clinical assessment, ECG confirmation, EHRA symptom scoring, echocardiography, and structured follow-up — EHRA_score, ECG, Holter_monitoring, TTE, TOE, pulse_palpation, diagnostic_evaluation, clinical_follow-up
+patient_input: symptoms, pulse_regularity, ECG, EHRA_class, exercise_tolerance, haemodynamic_status
+output: AF_diagnosis_confirmation, EHRA_classification, echocardiography_indication, diagnostic_work-up, follow-up_plan, rate_vs_rhythm_strategy
 -->
 
 > **Context:** This section covers clinical history, physical examination, investigations, AF detection strategies (ECG confirmation, Holter monitoring), the EHRA symptom score classification, echocardiography indications (TTE and TOE), diagnostic evaluation, and structured clinical follow-up for patients with suspected or confirmed AF.

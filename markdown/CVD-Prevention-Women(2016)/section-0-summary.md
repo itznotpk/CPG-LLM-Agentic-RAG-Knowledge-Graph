@@ -1,10 +1,10 @@
 # SECTION 0: SUMMARY AND KEY GENERAL RECOMMENDATIONS
 
 <!-- METADATA
-category: background_knowledge
-use_case: general_reference, clinical_audit
-patient_input: 
-output: 
+category: Methodology, Reference
+use_case: Executive summary of CVD prevention in women with key recommendations, risk classification, and treatment targets — risk_classification, FRS, CHA2DS2-VASc, treatment_targets, evidence_grading, abbreviations
+patient_input: age, sex, TC, HDL-C, SBP, smoking_status, diabetes_status, BP_treatment
+output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, evidence_grades
 -->
 
 > **Context:** This section provides a summary of the clinical practice guidelines for the prevention of cardiovascular disease in women in Malaysia.

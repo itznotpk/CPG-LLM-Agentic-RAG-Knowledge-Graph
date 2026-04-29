@@ -1,10 +1,10 @@
 # SECTION 4: MANAGEMENT PRINCIPLES
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: treatment_strategy, decision_making
-patient_input: risk_profile, symptom_severity, AF_type
-output: rate_vs_rhythm_decision, thromboembolic_strategy
+category: Treatment, Assessment
+use_case: Management principles of AF including five treatment objectives, rate vs rhythm control strategy, thromboembolic prophylaxis, and clinical trial evidence — rate_control, rhythm_control, AFFIRM, RACE, PIAF, STAF, HOT_CAFE, AF-CHF, J-RHYTHM, VKA, aspirin, LMWH, LAA_occlusion, EHRA_score
+patient_input: AF_type, EHRA_class, age, comorbidities, symptom_severity, haemodynamic_status
+output: rate_vs_rhythm_decision, thromboembolic_strategy, treatment_objectives, trial_evidence_summary
 -->
 
 > **Context:** This section covers the five objectives of AF treatment (symptom relief, complication prevention, comorbidity management, rate control, rhythm correction), thromboembolic prophylaxis strategies (VKA, antiplatelet, LMWH, LAA occlusion), the evidence-based comparison of rate control versus rhythm control approaches, and the EHRA symptom-guided decision algorithm (Figure 3) for selecting the optimal control strategy.

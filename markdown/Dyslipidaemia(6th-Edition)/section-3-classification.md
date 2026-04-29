@@ -1,10 +1,10 @@
 # SECTION 3: CLASSIFICATION OF DYSLIPIDEMIA
 
 <!-- METADATA
-category: Classification
-use_case: Diagnosis & Etiology
-patient_input: 
-output:
+category: Classification, Diagnosis
+use_case: Classification of primary and secondary dyslipidaemias — genetic_dyslipidaemia, familial_hypercholesterolaemia, secondary_causes, hypothyroidism, diabetes
+patient_input: lipid_profile, family_history, comorbidities
+output: dyslipidaemia_classification, aetiology_identification, secondary_cause_exclusion
 -->
 
 Dyslipidemias may be classified as primary (genetic) or secondary to other conditions. (refer to Table 8: Primary (Genetic) Dyslipidemias and Table 9: Effects of Secondary Causes of Dyslipidemias)

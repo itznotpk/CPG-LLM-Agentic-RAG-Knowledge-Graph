@@ -1,10 +1,10 @@
 # SECTION 1: INTRODUCTION
 
 <!-- METADATA
-category: background_knowledge
-use_case: general_reference
-patient_input: 
-output: 
+category: Introduction, Classification, Epidemiology
+use_case: Definition, classification, natural history, and epidemiology of atrial fibrillation — AF_definition, AFL_definition, paroxysmal, persistent, long-standing_persistent, permanent, lone_AF, silent_AF, AF_progression, prevalence, mortality, stroke_risk
+patient_input: ECG, clinical_presentation, AF_duration, age
+output: AF_subtype_classification, disease_stage, stroke_risk_context, mortality_prognosis, quality_of_life_impact
 -->
 
 > **Context:** This section defines atrial fibrillation and atrial flutter, classifies the five AF subtypes (first detected, paroxysmal, persistent, long-standing persistent, permanent), describes the natural time course of AF progression from paroxysmal to permanent, and summarises epidemiology, prevalence, and prognosis data including stroke and mortality risk.
