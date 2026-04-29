@@ -210,14 +210,7 @@ If a cardiac specimen is also being collected for:
 | **Sarawak** |
 | Heart Centre, Kota Samarahan |
 
-# APPENDIX 8: ANTIMICROBIAL DOSING IN ADULTS WITH RENAL IMPAIRMENT
-
-<!-- METADATA
-category: appendix
-use_case: supporting_reference
-patient_input: none
-output: appendix_content
--->
+---
 
 ## Appendix 8: Antimicrobial dosing in adults with renal impairment
 
@@ -273,88 +266,41 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 | Drug | Dose for normal renal function | Method | Adjustment for renal failure Estimated CrCl (ml/min) > 50-90 | Adjustment for renal failure Estimated CrCl (ml/min) 10-50 | Adjustment for renal failure Estimated CrCl (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
 |---|---|---|---|---|---|---|---|
 | **AMINOGLYCOSIDES** | | | | | | | |
-| Gentamicin<sup>2,3</sup> | 1 mg/kg 8 hourly | I | CrCl 40-59:<br>1 mg/kg 12 hourly | CrCl: 20-39:<br>1 mg/kg daily<br><br>CrCl < 20:<br>1 mg/kg ONCE (check level in 24 hours and redose when serum level is < 1 mg/l (< 2 µmol/l) | 1 mg/kg ONCE (check level in 24 hours and redose when serum level is < 1 mg/l (< 2 µmol/l) | | • Monitor gentamicin level and renal function weekly. There should be a low threshold for stopping gentamicin in patients with deteriorating renal function or other signs of toxicity.<br>• When given in a single daily dose, give infusion over 30 minutes. Aim for pre dose (trough) serum level of < 1 mg/l (< 2 µmol/l).<br>• Trough levels should be checked to monitor for toxicity in patients with renal impairment. |
+| Gentamicin | 1 mg/kg 8 hourly | I | CrCl 40-59:<br>1 mg/kg 12 hourly | CrCl: 20-39:<br>1 mg/kg daily<br><br>CrCl < 20:<br>1 mg/kg ONCE (check level in 24 hours and redose when serum level is < 1 mg/l (< 2 µmol/l) | 1 mg/kg ONCE (check level in 24 hours and redose when serum level is < 1 mg/l (< 2 µmol/l) | | • Monitor gentamicin level and renal function weekly. There should be a low threshold for stopping gentamicin in patients with deteriorating renal function or other signs of toxicity.<br>• When given in a single daily dose, give infusion over 30 minutes. Aim for pre dose (trough) serum level of < 1 mg/l (< 2 µmol/l).<br>• Trough levels should be checked to monitor for toxicity in patients with renal impairment. |
 | **CEPHALOSPORINS** | | | | | | | |
-| Cefazolin<sup>2,4,5-7</sup> | 2 g IV 8 hourly | I | 2 g IV 8 hourly | CrCl 35-54: 2 g IV ≥ 8 hourly<br><br>CrCl 11-34: 1 g IV 12 hourly | 1 g IV 18-24 hourly | HD: 500 mg then 1 g IV daily; give post-dialysis on dialysis days<br>CAPD: 500 mg IV 12 hourly<br>CVVH: LD 2 g then 2 g IV 12 hourly<br>CVVHD/CVVHDF: LD 2 g then either 1 g IV 8 hourly or 2 g 12 hourly | |
-| Cefepime<sup>2,6-9</sup> | 2 g IV 8 hourly (max. dose) | D & I | 2 g IV 8 hourly | CrCl 30-60: 2 g IV 12 hourly<br><br>CrCl: 11-29: 2 g IV daily | 1g IV daily | HD: 1g initially then 500 mg-1 g daily; give post-dialysis on dialysis days<br>CAPD: 2 g IV 48 hourly<br>CVVH: LD 2 g then 1-2 g 12 hourly<br>CVVHD/CVVHDF: LD 2 g then either 1 g IV 8 hourly or 2 g 12 hourly | |
-| Ceftriaxone<sup>10,11</sup> | 2 g IV daily (max. 4 g/day) | - | 2 g IV daily | 2 g IV daily | 2 g IV daily (max. 2 g/day) | HD: 2 g IV daily; give post-dialysis on dialysis days<br>HDF/Highflux, CAPD: Dose as in CrCl < 10<br>CAVHD/CVVHD/ CVVHDF: 2 g IV 12 hourly to daily | |
+| Cefazolin | 2 g IV 8 hourly | I | 2 g IV 8 hourly | CrCl 35-54: 2 g IV ≥ 8 hourly<br><br>CrCl 11-34: 1 g IV 12 hourly | 1 g IV 18-24 hourly | HD: 500 mg then 1 g IV daily; give post-dialysis on dialysis days<br>CAPD: 500 mg IV 12 hourly<br>CVVH: LD 2 g then 2 g IV 12 hourly<br>CVVHD/CVVHDF: LD 2 g then either 1 g IV 8 hourly or 2 g 12 hourly | |
+| Cefepime | 2 g IV 8 hourly (max. dose) | D & I | 2 g IV 8 hourly | CrCl 30-60: 2 g IV 12 hourly<br><br>CrCl: 11-29: 2 g IV daily | 1g IV daily | HD: 1g initially then 500 mg-1 g daily; give post-dialysis on dialysis days<br>CAPD: 2 g IV 48 hourly<br>CVVH: LD 2 g then 1-2 g 12 hourly<br>CVVHD/CVVHDF: LD 2 g then either 1 g IV 8 hourly or 2 g 12 hourly | |
+| Ceftriaxone | 2 g IV daily (max. 4 g/day) | - | 2 g IV daily | 2 g IV daily | 2 g IV daily (max. 2 g/day) | HD: 2 g IV daily; give post-dialysis on dialysis days<br>HDF/Highflux, CAPD: Dose as in CrCl < 10<br>CAVHD/CVVHD/ CVVHDF: 2 g IV 12 hourly to daily | |
 | **FLUOROQUINOLONES** | | | | | | | |
-| Ciprofloxacin<sup>6,7,12,13</sup> | 500 mg PO 12 hourly | D | 500 PO 12 hourly | 50-75% of usual dose 12 hourly | 250 mg PO 12 hourly | HD: 500 mg PO or 400 mg IV daily; give post-dialysis on dialysis days<br>CAPD: max 500 mg PO or 400 mg IV daily<br>CVVH/CAVHD/CVVHD/ CVVHDF: 500 mg PO 12 hourly or 400 mg IV 12 hourly | |
-| Ciprofloxacin<sup>6,7,12,13</sup> | 400 mg IV 12 hourly | D | 400 mg IV 12 hourly | 50-75% of usual dose 12 hourly | 200mg IV 12 hourly | HD: 500 mg PO or 400 mg IV daily; give post-dialysis on dialysis days<br>CAPD: max 500 mg PO or 400 mg IV daily<br>CVVH/CAVHD/CVVHD/ CVVHDF: 500 mg PO 12 hourly or 400 mg IV 12 hourly | |
+| Ciprofloxacin | 500 mg PO 12 hourly | D | 500 PO 12 hourly | 50-75% of usual dose 12 hourly | 250 mg PO 12 hourly | HD: 500 mg PO or 400 mg IV daily; give post-dialysis on dialysis days<br>CAPD: max 500 mg PO or 400 mg IV daily<br>CVVH/CAVHD/CVVHD/ CVVHDF: 500 mg PO 12 hourly or 400 mg IV 12 hourly | |
+| Ciprofloxacin | 400 mg IV 12 hourly | D | 400 mg IV 12 hourly | 50-75% of usual dose 12 hourly | 200mg IV 12 hourly | HD: 500 mg PO or 400 mg IV daily; give post-dialysis on dialysis days<br>CAPD: max 500 mg PO or 400 mg IV daily<br>CVVH/CAVHD/CVVHD/ CVVHDF: 500 mg PO 12 hourly or 400 mg IV 12 hourly | |
 | **PENICILLINS** | | | | | | | |
-| Ampicillin<sup>2,6,13,14</sup> | 12 g/day IV in 4-6 equally divided doses | I | 12 g/day IV in 4-6 equally divided doses | 2 g IV 6 to 12 hourly | 2 g IV 12 to 24 hourly | HD: 2 g IV 12 to 24 hourly; give post dialysis on dialysis days<br>CAPD: 250 mg IV 12 hourly<br>CVVH: LD of 2 g then 2 g 8 to 12 hourly<br>CVVHD: LD of 2 g then 2 g 8 hourly<br>CVVHDF: LD of 2 g then 2 g 6 to 8 hourly | |
-| Ampicillin (AM) + Sulbactam (SB) (IV 2:1)<sup>2,6,7,15,16</sup> | 3 g IV 6 hourly | I | 3 g IV 6 hourly | CrCl 15-29: 3 g IV 12 hourly | CrCl < 15: 3 g IV daily | HD: 3 g 12 to 24 hourly; give post dialysis on dialysis days<br>CVVH: Initial 3 g then 3 g 8 to 12 hourly<br>CVVHD: Initial 3 g then 3 g 8 hourly<br>CVVHDF: Initial 3 g then 3 g 6 to 8 hourly | |
-| Cloxacillin<sup>17,18</sup> | 2 g IV 4 hourly | - | 2 g IV 4 hourly | 2 g IV 4 hourly | 2 g IV 4 hourly | HD: Dosage adjustment not needed | |
-| Benzyl Penicillin<sup>2,6,7,13,19</sup> (Crystalline Penicillin) | 3-4 MU IV 4-6 hourly | D | 100% | 75% of normal dose | 20-50% of normal dose (See comments) | HD: up to 2 MU 4 to 6 hourly; give post dialysis on dialysis days or supplement with 500,000 units post dialysis | Increased risk of neurotoxicity (seizures) in renal impairment |
+| Ampicillin | 12 g/day IV in 4-6 equally divided doses | I | 12 g/day IV in 4-6 equally divided doses | 2 g IV 6 to 12 hourly | 2 g IV 12 to 24 hourly | HD: 2 g IV 12 to 24 hourly; give post dialysis on dialysis days<br>CAPD: 250 mg IV 12 hourly<br>CVVH: LD of 2 g then 2 g 8 to 12 hourly<br>CVVHD: LD of 2 g then 2 g 8 hourly<br>CVVHDF: LD of 2 g then 2 g 6 to 8 hourly | |
+| Ampicillin (AM) + Sulbactam (SB) (IV 2:1) | 3 g IV 6 hourly | I | 3 g IV 6 hourly | CrCl 15-29: 3 g IV 12 hourly | CrCl < 15: 3 g IV daily | HD: 3 g 12 to 24 hourly; give post dialysis on dialysis days<br>CVVH: Initial 3 g then 3 g 8 to 12 hourly<br>CVVHD: Initial 3 g then 3 g 8 hourly<br>CVVHDF: Initial 3 g then 3 g 6 to 8 hourly | |
+| Cloxacillin | 2 g IV 4 hourly | - | 2 g IV 4 hourly | 2 g IV 4 hourly | 2 g IV 4 hourly | HD: Dosage adjustment not needed | |
+| Benzyl Penicillin (Crystalline Penicillin) | 3-4 MU IV 4-6 hourly | D | 100% | 75% of normal dose | 20-50% of normal dose (See comments) | HD: up to 2 MU 4 to 6 hourly; give post dialysis on dialysis days or supplement with 500,000 units post dialysis | Increased risk of neurotoxicity (seizures) in renal impairment |
 | **MISCELLANEOUS** | | | | | | | |
-| Daptomycin<sup>6,7,20,21</sup> | 10 mg/kg IV daily | I | 10 mg/kg IV daily | CrCl < 30: 10 mg/kg IV 48 hourly case reports | CrCl < 30: 10 mg/kg IV 48 hourly case reports | Dose adjustment is based on HD/PD:<br>Dose as in CrCl < 30 (give post-dialysis on dialysis days) or normal dose after HD 3x/week | Monitor creatine phosphokinase (CPK) |
-| Vancomycin<sup>6,7,22</sup> | 15 mg/kg 12 hourly based on ABW; not to exceed 2 g/day unless serum levels are monitored | D & I | Start with 15-20 mg/kg 8-12 hourly | CrCl 20-49:<br>start with 15-20 mg/kg daily | CrCl < 20:<br>will need longer intervals; determine by serum concentration monitoring | HD: LD then either 500 mg-1 g or 5-10 mg/kg after each HD session based on serum concentrations. Measure pre-HD serum level before 3rd HD session. Consider redosing for vancomycin pre-HD levels as follows:<br>• < 10 mg/l give 1000 mg<br>• 10-25 mg/l give 500-750 mg<br>• > 25 mg/l hold<br>Consider redosing for vancomycin post-HD levels < 10-15 mg/l give 500-1000 mg<br>PD (via PD fluid): 15-30 mg/l of PD fluid<br>PD (systemic): LD of 1 g then 500 mg-1 g 48 to 72 hourly (monitor levels closely)<br>CVVH: LD 15-25 mg/kg then either 1 g 48 hourly or 10-15 mg/kg 24 to 48 hourly<br>CVVHD: LD 15-25 mg/ kg then either 1 g daily or 10-15 mg/kg daily<br>CVVHDF: LD 15-25 mg/kg then either 1 g daily or 7.5-10 mg/ kg 12 hourly<br>Note: Consider redosing patients receiving CRRT for vancomycin concentrations < 10-15 mg/l | • In the critically ill patient with renal insufficiency, the initial LD (25-30 mg/kg) should not be reduced. Make subsequent dose adjustment based on renal function and trough serum concentrations.<br>• Trough level monitoring:<br>> Trough levels are most accurate and practical (unless ESRD on HD).<br>> Trough levels should be obtained approximately 30 minutes of the next dose before the 4th dose.<br>> Once weekly monitoring is recommended for patients with stable renal function.<br>> More frequent monitoring is recommended for patients who are haemodynamically unstable and changing renal function. |
-| Rifampicin<sup>23,24</sup> | 300-450 mg PO 12 hourly | D | No dose adjustment | CrCl ≤ 50 ml/ min: 50-100% of the full dose | 50-100% of the full dose | HD: Normal dose with no supplement after dialysis<br>PD: 50-100% of the full dose, with an extra 50- 100% of the full dose after PD<br>CRRT: Dose as in normal renal function | Rifampicin is not dialysed & excreted in CAPD fluid causing an orange/yellow colour |
+| Daptomycin | 10 mg/kg IV daily | I | 10 mg/kg IV daily | CrCl < 30: 10 mg/kg IV 48 hourly case reports | CrCl < 30: 10 mg/kg IV 48 hourly case reports | Dose adjustment is based on HD/PD:<br>Dose as in CrCl < 30 (give post-dialysis on dialysis days) or normal dose after HD 3x/week | Monitor creatine phosphokinase (CPK) |
+| Vancomycin | 15 mg/kg 12 hourly based on ABW; not to exceed 2 g/day unless serum levels are monitored | D & I | Start with 15-20 mg/kg 8-12 hourly | CrCl 20-49:<br>start with 15-20 mg/kg daily | CrCl < 20:<br>will need longer intervals; determine by serum concentration monitoring | HD: LD then either 500 mg-1 g or 5-10 mg/kg after each HD session based on serum concentrations. Measure pre-HD serum level before 3rd HD session. Consider redosing for vancomycin pre-HD levels as follows:<br>• < 10 mg/l give 1000 mg<br>• 10-25 mg/l give 500-750 mg<br>• > 25 mg/l hold<br>Consider redosing for vancomycin post-HD levels < 10-15 mg/l give 500-1000 mg<br>PD (via PD fluid): 15-30 mg/l of PD fluid<br>PD (systemic): LD of 1 g then 500 mg-1 g 48 to 72 hourly (monitor levels closely)<br>CVVH: LD 15-25 mg/kg then either 1 g 48 hourly or 10-15 mg/kg 24 to 48 hourly<br>CVVHD: LD 15-25 mg/ kg then either 1 g daily or 10-15 mg/kg daily<br>CVVHDF: LD 15-25 mg/kg then either 1 g daily or 7.5-10 mg/ kg 12 hourly<br>Note: Consider redosing patients receiving CRRT for vancomycin concentrations < 10-15 mg/l | • In the critically ill patient with renal insufficiency, the initial LD (25-30 mg/kg) should not be reduced. Make subsequent dose adjustment based on renal function and trough serum concentrations.<br>• Trough level monitoring:<br>> Trough levels are most accurate and practical (unless ESRD on HD).<br>> Trough levels should be obtained approximately 30 minutes of the next dose before the 4th dose.<br>> Once weekly monitoring is recommended for patients with stable renal function.<br>> More frequent monitoring is recommended for patients who are haemodynamically unstable and changing renal function. |
+| Rifampicin | 300-450 mg PO 12 hourly | D | No dose adjustment | CrCl ≤ 50 ml/ min: 50-100% of the full dose | 50-100% of the full dose | HD: Normal dose with no supplement after dialysis<br>PD: 50-100% of the full dose, with an extra 50- 100% of the full dose after PD<br>CRRT: Dose as in normal renal function | Rifampicin is not dialysed & excreted in CAPD fluid causing an orange/yellow colour |
 | **ANTIFUNGALS** | | | | | | | |
-| Amphotericin B deoxycholate<sup>25</sup> | 0.6-1 mg/ kg/day IV | I | Avoid; if essential use normal dose (see Comments)<br>If renal dysfunction is due to drug, the daily total can be decreased by 50% or the dose can be given every other day. | Avoid; if essential use normal dose (see Comments)<br>If renal dysfunction is due to drug, the daily total can be decreased by 50% or the dose can be given every other day. | Avoid; if essential use normal dose (see Comments)<br>If renal dysfunction is due to drug, the daily total can be decreased by 50% or the dose can be given every other day. | HD/CRRT: If essential use normal dose | Amphotericin is nephrotoxic; monitor serum creatinine closely; lipid formulations are less nephrotoxic |
-| Amphotericin B lipid complex<sup>2,13,26</sup> | 3-5 mg/kg IV daily | - | 3-5 mg/kg IV daily | 3-5 mg/kg IV daily | 3-5 mg/kg IV daily | HD/PD/CRRT: 3-5 mg/kg IV daily | Amphotericin may be nephrotoxic; monitor serum creatinine closely |
-| Anidulafungin<sup>27-29</sup> | 200 mg IV daily | - | 200 mg IV daily | 200 mg IV daily | 200 mg IV daily | HD/PD/CRRT: Dose as in normal renal function | |
-| Caspofungin<sup>29-31</sup> | 150 mg IV daily | - | 150 mg IV daily | 150 mg IV daily | 150 mg IV daily | HD/PD/CRRT: No supplemental or dose adjustment necessary | |
-| Fluconazole<sup>28,29,32,33</sup> | 400-800 mg (6-12 mg/kg) IV/ PO daily | D | Normal dose | LD of 400 mg then 50% of normal dose | LD of 400 mg then 50% of normal dose | HD: 100% of daily dose after each dialysis session: on non-dialysis days patient should receive a reduced dose according to CrCl<br>PD: Dose as for CrCl < 10<br>CVVH: LD of 400-800 mg then 200-400 mg daily<br>CVVHD/CVVHDF: Dose as in normal renal function | |
-| Flucytosine<sup>29,34</sup> | 25 mg/kg PO 6 hourly | I | 25 mg/kg PO 6 hourly | CrCl 20-40:<br>12.5 mg/kg PO 6 hourly | CrCl 10-20:<br>6.25 mg/kg PO 6 hourly | HD: 25 mg/kg 48 to 72 hourly | |
-| Micafungin<sup>29,35</sup> | 150 mg IV daily | - | 150 mg IV daily | 150 mg IV daily | 150 mg IV daily | HD: No supplemental or dose adjustment necessary | |
+| Amphotericin B deoxycholate | 0.6-1 mg/ kg/day IV | I | Avoid; if essential use normal dose (see Comments)<br>If renal dysfunction is due to drug, the daily total can be decreased by 50% or the dose can be given every other day. | Avoid; if essential use normal dose (see Comments)<br>If renal dysfunction is due to drug, the daily total can be decreased by 50% or the dose can be given every other day. | Avoid; if essential use normal dose (see Comments)<br>If renal dysfunction is due to drug, the daily total can be decreased by 50% or the dose can be given every other day. | HD/CRRT: If essential use normal dose | Amphotericin is nephrotoxic; monitor serum creatinine closely; lipid formulations are less nephrotoxic |
+| Amphotericin B lipid complex | 3-5 mg/kg IV daily | - | 3-5 mg/kg IV daily | 3-5 mg/kg IV daily | 3-5 mg/kg IV daily | HD/PD/CRRT: 3-5 mg/kg IV daily | Amphotericin may be nephrotoxic; monitor serum creatinine closely |
+| Anidulafungin | 200 mg IV daily | - | 200 mg IV daily | 200 mg IV daily | 200 mg IV daily | HD/PD/CRRT: Dose as in normal renal function | |
+| Caspofungin | 150 mg IV daily | - | 150 mg IV daily | 150 mg IV daily | 150 mg IV daily | HD/PD/CRRT: No supplemental or dose adjustment necessary | |
+| Fluconazole | 400-800 mg (6-12 mg/kg) IV/ PO daily | D | Normal dose | LD of 400 mg then 50% of normal dose | LD of 400 mg then 50% of normal dose | HD: 100% of daily dose after each dialysis session: on non-dialysis days patient should receive a reduced dose according to CrCl<br>PD: Dose as for CrCl < 10<br>CVVH: LD of 400-800 mg then 200-400 mg daily<br>CVVHD/CVVHDF: Dose as in normal renal function | |
+| Flucytosine | 25 mg/kg PO 6 hourly | I | 25 mg/kg PO 6 hourly | CrCl 20-40:<br>12.5 mg/kg PO 6 hourly | CrCl 10-20:<br>6.25 mg/kg PO 6 hourly | HD: 25 mg/kg 48 to 72 hourly | |
+| Micafungin | 150 mg IV daily | - | 150 mg IV daily | 150 mg IV daily | 150 mg IV daily | HD: No supplemental or dose adjustment necessary | |
 
-## References:
-
-1. Cervelli, M.J. ed. The renal reference guide. Adelaide, South Australia: Nexus Printing, 2007.
-2. Gilbert D.N., et al. The Sanford guide to antimicrobial therapy. 45 th ed. USA: Antimicrobial Therapy, Inc., 2015.
-3. Cosgrove S.E., et al. Antibiotic guidelines 2015-2016: treatment recommendations for adult inpatients.The John Hopkins Hospital Antimicrobial Stewardship Program 2015.
-4. Cefazolin injection [Product Information]. Sandoz, Inc, Princeton, NJ, 2006.
-5. Cefazolin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 11, 2016.
-6. Heintz BH, Matzke GR, Dager WE. Antimicrobial dosing concepts and recommendations for critically ill adult patients receiving continuous renal replacement therapy or intermittent hemodialysis. Pharmacotherapy. 2009;29:562–57.
-7. Trotman RL, Williamson JC, Shoemaker DM, Salzer WL. Antibiotic dosing in critically ill adult patients receiving continuous renal replacement therapy. Clin Infect Dis. 2005;41:1159-1166.
-8. Maxipime TM intravenous injection, intramuscular injection, cefepime HCl intravenous injection, intramuscular injection [Product Information]. Hospira, Inc (per FDA), Lake Forest, IL, 2013.
-9. Cefepime. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 11, 2016.
-10. Rocephin powder for injection, ceftriaxone sodium powder for injection [Product Information]. Roche Pharmaceuticals, Nutley, NJ, 2007.
-11. Cunha, B.A. Physicians' Press Antibiotics Essentials. 10 th ed. USA: Jones &amp; Bartlett Learning, 2011.
-12. Ciprofloxacin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 11, 2016.
-13. Aronoff GR, Bennett WM, Berns JS, et al. Drug prescribing in renal failure: dosing guidelines for adults and children. 5th ed. Philadelphia: American College of Physicians, 2007.
-14. Ampicillin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 11, 2016.
-15. Unasyn ® , Sulbactam sodium/ampicillin sodium [Product Information]. Pfizer Italia S.r.l., N.Y., USA. Aug 2008.
-16. Ampicillin/Sulbactam. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http:// online.lexi.com. Accessed July 11, 2016.
-17. Micromedex® 2.0, 2012. Cloxacillin (Drugdex ® Evaluations) [online]. Accessed July 2016.
-18. Cloxacillin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 11, 2016.
-19. Benzylpenicillin sodium. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http:// online.lexi.com. Accessed July 12, 2016.
-20. Daptomycin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 12, 2016.
-21. Marchand S, et al. Pharmacokinetics of daptomycin in a patient with severe renal failure not receiving dialysis. Antimicrob Agents Chemother. 2013;57(6):2898-2899.
-22. Vancomycin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 12, 2016.
-23. Micromedex® 2.0, 2016. Rifampin (Drugdex ® Evaluations) [online]. Accessed July 2016.
-24. Rifampicin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 12, 2016.
-25. Amphotericin B (Conventional). Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 12, 2016.
-26. Amphotericin B (Lipid Complex). Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 12, 2016.
-27. Eraxis®, Anidulafungin for injection [Product Information]. Pfizer Inc, NY, USA, Feb 2006.
-28. Ashley, C., Currie, A. The renal drug handbook. 3 rd ed. Radcliffe Medical Press Ltd, Oxon UK, 2009.
-29. Pappas PG, et al. Clinical practice guidelines for the management of candidiasis: 2016 Update by the Infectious Diseases Society of America. Available at http://cid.oxfordjournals.org. Accessed February 2016.
-30. Cancidas®, Caspofungin acetate IV injection [Product Information]. Merck and Co Inc, Whitehouse Station, NJ, 2009.
-31. Caspofungin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 12, 2016.
-32. Diflucan®, Fluconazole [Product Information]. Pfizer, N.Y., USA, Sep 2009.
-33. Fluconazole. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 12, 2016.
-34. Flucytosine. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 12, 2016.
-35. Micafungin. Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi. com. Accessed July 12, 2016.
-
-
-
-# APPENDIX 9: ANTIMICROBIAL DOSING IN CHILDREN WITH RENAL IMPAIRMENT
-
-<!-- METADATA
-category: appendix
-use_case: supporting_reference
-patient_input: none
-output: appendix_content
--->
+---
 
 ## Appendix 9: Antimicrobial dosing in children with renal impairment
 
 ### Estimating creatinine clearance in paediatrics
 
-There are 2 methods to calculate CrCl in children. Available data suggest that the bias of Schwartz calculated glomerular filtration rate (eGFR) increases at lower levels of GFR. The Schwartz and Counahan-Barratt formulae can provide rapid and convenient estimates of GFR, although clinicians should be aware of their imprecision in this setting.<sup>1</sup>
+There are 2 methods to calculate CrCl in children. Available data suggest that the bias of Schwartz calculated glomerular filtration rate (eGFR) increases at lower levels of GFR. The Schwartz and Counahan-Barratt formulae can provide rapid and convenient estimates of GFR, although clinicians should be aware of their imprecision in this setting.
 
-### Schwartz Method:<sup>1,2</sup>
+### Schwartz Method:
 
 <p align="center">
   <strong>CrCl (ml/min) = k* x Height in cm / Serum Creatinine (µmol/l)</strong>
@@ -368,13 +314,13 @@ There are 2 methods to calculate CrCl in children. Available data suggest that t
 | Adolescent females 13-21 years old | 48.6 |
 | Adolescent males 13-21 years old | 61.9 |
 
-### Counahan-Barratt:<sup>1,3</sup>
+### Counahan-Barratt:
 
 <p align="center">
   <strong>GFR (ml/min/1.73m<sup>2</sup>) = 38 x Height in cm / Serum Creatinine (µmol/l)</strong>
 </p>
 
-### Ideal body weight table for paediatric and young adults<sup>4</sup>
+### Ideal body weight table for paediatric and young adults
 
 | Infants aged 0-24 months old (mo) | 0-6 mo | 6-12 mo | 12-24 mo |
 |---|---|---|---|
@@ -390,107 +336,61 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 
 ### Antimicrobial doses in paediatrics with renal impairment
 
-| Drug | Dose for normal renal function | Method | Adjustment for renal failure Estimated GFR (ml/min) > 50-90 | Adjustment for renal failure Estimated GFR (ml/min) 10-50 | Adjustment for renal failure Estimated GFR (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
-|---|---|---|---|---|---|---|---|
-| **AMINOGLYCOSIDES** | | | | | | | |
-| Gentamicin<sup>5-7</sup><br>*Infants, children and adolescents* | 1 mg/kg IV 8 hourly | D & I | All ages, give first dose as above and await plasma level result before further dosing. If trough level is still high after 36 hours consider reducing dose. | All ages, give first dose as above and await plasma level result before further dosing. If trough level is still high after 36 hours consider reducing dose. | All ages, give first dose as above and await plasma level result before further dosing. If trough level is still high after 36 hours consider reducing dose. | | Blood levels/TDM:<br>• Take level 6 hours before 3rd dose (6 hours before 2nd dose if renal function is unstable). Repeat daily until stable then every 3 doses.<br>• Pre-dose (‘trough’) concentration > < 2 µmol/ml (< 1mcg/ml for paediatrics) > < 4 µmol/ml (< 2mcg/ml for NICU/ PICU)<br>• Re-dose patient at 24 hours if trough level achieved (at 36 hours if on 36 hour dosing). If trough is high, recheck level 12 hours after that level was taken and re-dose after that if level now in range. Dosing adjustment is to avoid accumulation, but do not delay at the detriment of not treating the patient.<br>• In very overweight or grossly oedematous patients, use lean body weight. |
-| **CEPHALOSPORINS** | | | | | | | |
-| Ceftriaxone<sup>5-7,10,12,13</sup><br>*Infants, children and adolescents* | 100 mg/kg IV once daily | - | Normal dose | Normal dose | Max 50 mg/kg IV daily (max. 2 g daily) | HD/CAPD: 50 mg/kg IV daily (max. 2 g daily). On HD days scheduled doses should be administered after HD session.<br>CRRT: Normal dose | Ceftriaxone should not be administered to premature, acidotic, jaundiced neonates or those with impaired or reduced bilirubin binding. |
-| **PENICILLINS** | | | | | | | |
-| Ampicillin<sup>7,10,14,15</sup><br>*Infants, children and adolescents* | 200-300 mg/kg/day IV in 4-6 equally divided doses (max. 12 g/day) | I | Normal dose | GFR 10-30: Normal dose 6 to 12 hourly | Normal dose 12 hourly | HD: Normal dose 12 hourly; dose after HD or give supplemental same dose after HD session<br>CVVH: Normal LD then normal dose 8 to 12 hourly<br>CVVHD: Normal LD then normal dose 8 hourly<br>CVVHDF: Normal LD then normal dose 6 to 8 hourly | |
-| Ampicillin (AM) + Sulbactam (SB) (IV 2:1)<sup>10,15-17</sup><br>*Infants, children and adolescents < 40 kg* | 200-300 mg AM/kg/day IV in 4-6 equally divided doses | I | Normal dose | GFR 15-29: Normal dose 12 hourly<br>GFR 5-14: Normal dose daily | Normal dose daily | Dose expressed as AM component<br>HD: Normal dose 12 to 24 hourly; give after dialysis on dialysis days<br>CVVH: Max dose as LD then normal dose 8 to 12 hourly<br>CVVHD: Max dose as LD then normal dose 8 hourly<br>CVVHDF: Max dose as LD then normal dose 6 to 8 hourly | |
-| Cloxacillin<sup>18</sup><br>*Children and adolescents* | 200-300 mg/kg/day IV in 4-6 equally divided doses (max. 2 g/dose) | - | Normal dose | Normal dose | Normal dose | HD: Dosage adjustment not needed | |
-| Benzyl Penicillin<sup>6,10,19</sup> (Crystalline Penicillin)<br>*Infants, children and adolescents* | 200,000- 300,000 units/kg/day IV in 4-6 equally divided doses | I | Normal dose | Normal dose 8 to 12 hourly | Normal dose 12 hourly | HD: Normal dose 8 to 12 hourly; give afer dialysis on dialysis days<br>CAVH/CVVH/ CVVHD: Normal dose 8 to 12 hourly | |
-| **MISCELLANEOUS** | | | | | | | |
-| Daptomycin<sup>10,20</sup><br>*Children ≥ 2 years and adolescents* | 10 mg/kg IV daily | I | Normal dose | GFR 10-29: 67% of full dose daily | 67% of full dose 48 hourly | HD/PD: 67% of full dose 48 hourly after dialysis | In paediatric patients, daptomycin is not routinely used as a 1st line therapy. Avoid using in < 12 months due to musculoskeletal, neuromuscular and nervous system adverse effects. |
-| Vancomycin<sup>6,10,21</sup><br>*Infants, children and adolescents* | 40-60 mg/kg/day IV in 2-3 equally divided doses (Initial dose is based on actual body weight; subsequent dosing based on serum trough levels) | D & I | Doses should be reduced in renal failure according to blood levels<br>• Trough level monitoring:<br>> Only give subsequent doses when vancomycin level reaches trough target<br>> Therapeutic level: Trough 7-10 umol/l (10-15 mg/l) or 10-14 umol/l (15-20 mg/l)<br>> Trough levels should be obtained approximately 30 minutes of the next dose<br>> Approx. time to steady state 1-2 days<br>> Peak levels are not usually required | Doses should be reduced in renal failure according to blood levels<br>• Trough level monitoring:<br>> Only give subsequent doses when vancomycin level reaches trough target<br>> Therapeutic level: Trough 7-10 umol/l (10-15 mg/l) or 10-14 umol/l (15-20 mg/l)<br>> Trough levels should be obtained approximately 30 minutes of the next dose<br>> Approx. time to steady state 1-2 days<br>> Peak levels are not usually required | Doses should be reduced in renal failure according to blood levels<br>• Trough level monitoring:<br>> Only give subsequent doses when vancomycin level reaches trough target<br>> Therapeutic level: Trough 7-10 umol/l (10-15 mg/l) or 10-14 umol/l (15-20 mg/l)<br>> Trough levels should be obtained approximately 30 minutes of the next dose<br>> Approx. time to steady state 1-2 days<br>> Peak levels are not usually required | HD/CAPD: 10 mg/kg IV as needed per serum concentration monitoring<br>CRRT: 10 mg/kg IV 12 to 24 hourly, monitoring serum concentration | |
-| Rifampicin<sup>10,22,23</sup><br>*Children and adolescents* | 20 mg/kg/day PO in 3 divided doses (max. 900 mg/day) | D | Normal dose | Normal dose | Normal dose | HD/CAPD/CRRT: Normal dose | |
-| **ANTIFUNGALS** | | | | | | | |
-| Amphotericin B deoxycholate<sup>22,24</sup><br>*Infants, children and adolescents* | After test dose 1 mg/kg IV daily | - | Avoid; use normal dose if only no alternative (see Comments). If renal dysfunction is due to drug, the total daily dose can be decreased by 50% or the dose can be given every other day | Avoid; use normal dose if only no alternative (see Comments). If renal dysfunction is due to drug, the total daily dose can be decreased by 50% or the dose can be given every other day | Avoid; use normal dose if only no alternative (see Comments). If renal dysfunction is due to drug, the total daily dose can be decreased by 50% or the dose can be given every other day | HD/PD/CRRT: If essential use normal dose | Amphotericin is nephrotoxic; monitor serum creatinine closely; lipid formulations are less nephrotoxic. |
-| Amphotericin B lipid complex<sup>22,25</sup><br>*Infants, children and adolescents* | 3-5 mg/kg IV daily | - | No dosage adjustment required in pre existing renal failure. | No dosage adjustment required in pre existing renal failure. | No dosage adjustment required in pre existing renal failure. | HD/PD/CRRT: Normal dose; consider standard amphotericin due to cost | Amphotericin is highly nephrotoxic; monitor serum creatinine closely. |
-| Fluconazole<sup>6,7,10,22,26</sup><br>*Infants, children and adolescents* | 6-12 mg/kg PO/IV daily | D | Normal dose | Normal LD then 50% of normal dose daily | Normal LD then 50% of normal dose 48 hourly | HD: 100% of normal dose 3x/week after HD session or 50% of normal dose every 48 hours; administer after dialysis on dialysis days<br>PD: 50% of normal dose 48 hourly<br>CRRT: 6 mg/kg/dose daily | Refer to product information for more dosing details. |
-| Flucytosine<sup>5,10,27</sup><br>*Infants, children and adolescents* | 150 mg/kg/day PO in 4 equally divided doses | - | Normal dose | GFR 30-50: 25-37.5 mg/kg/dose 8 hourly<br>GFR 10-29: 25-37.5 mg/kg/dose 12 hourly | GFR < 10: 25-37.5 mg/kg/dose daily | HD/PD: 25-37.5 mg/kg/dose daily<br>CRRT: 25-37.5 mg/kg/dose 8 hourly | |
+| Drug | Age | Dose for normal renal function | Method | Adjustment for renal failure Estimated GFR (ml/min) > 50-90 | Adjustment for renal failure Estimated GFR (ml/min) 10-50 | Adjustment for renal failure Estimated GFR (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
+|---|---|---|---|---|---|---|---|---|
+| **AMINOGLYCOSIDES** | | | | | | | | |
+| **Gentamicin** | Infants, children and adolescents | 1 mg/kg IV 8 hourly | D & I | All ages, give first dose as above and await plasma level result before further dosing. If trough level is still high after 36 hours consider reducing dose.<br><br>**Blood levels/TDM:**<br>• Take level 6 hours before 3rd dose (6 hours before 2nd dose if renal function is unstable). Repeat daily until stable then every 3 doses.<br>• Pre-dose (‘trough’) concentration<br>> < 2 µmol/ml (< 1mcg/ml for paediatrics)<br>> < 4 µmol/ml (< 2mcg/ml for NICU/PICU)<br>• Re-dose patient at 24 hours if trough level achieved (at 36 hours if on 36 hour dosing). If trough is high, recheck level 12 hours after that level was taken and re-dose after that if level now in range. Dosing adjustment is to avoid accumulation, but do not delay at the detriment of not treating the patient.<br>• In very overweight or grossly oedematous patients, use lean body weight for calculating dose. | All ages, give first dose as above and await plasma level result before further dosing. If trough level is still high after 36 hours consider reducing dose.<br><br>**Blood levels/TDM:**<br>• Take level 6 hours before 3rd dose (6 hours before 2nd dose if renal function is unstable). Repeat daily until stable then every 3 doses.<br>• Pre-dose (‘trough’) concentration<br>> < 2 µmol/ml (< 1mcg/ml for paediatrics)<br>> < 4 µmol/ml (< 2mcg/ml for NICU/PICU)<br>• Re-dose patient at 24 hours if trough level achieved (at 36 hours if on 36 hour dosing). If trough is high, recheck level 12 hours after that level was taken and re-dose after that if level now in range. Dosing adjustment is to avoid accumulation, but do not delay at the detriment of not treating the patient.<br>• In very overweight or grossly oedematous patients, use lean body weight for calculating dose. | All ages, give first dose as above and await plasma level result before further dosing. If trough level is still high after 36 hours consider reducing dose.<br><br>**Blood levels/TDM:**<br>• Take level 6 hours before 3rd dose (6 hours before 2nd dose if renal function is unstable). Repeat daily until stable then every 3 doses.<br>• Pre-dose (‘trough’) concentration<br>> < 2 µmol/ml (< 1mcg/ml for paediatrics)<br>> < 4 µmol/ml (< 2mcg/ml for NICU/PICU)<br>• Re-dose patient at 24 hours if trough level achieved (at 36 hours if on 36 hour dosing). If trough is high, recheck level 12 hours after that level was taken and re-dose after that if level now in range. Dosing adjustment is to avoid accumulation, but do not delay at the detriment of not treating the patient.<br>• In very overweight or grossly oedematous patients, use lean body weight for calculating dose. | | |
+| **CEPHALOSPORINS** | | | | | | | | |
+| **Cefazolin** | Infants, children and adolescents | 100 mg/kg/**day** IV in 3 equally divided doses | D & I | GFR 40-70:<br>Normal initial dose then 60% of total daily dose given in 2 equal doses | GFR 20-40:<br>Normal initial dose then 25% of total daily dose given in 2 equal doses;<br>GFR 5-20:<br>Normal initial dose then 10% of total daily dose daily | 25 mg/kg IV daily | HD/PD: 25 mg/kg IV daily<br><br>CRRT: 25 mg/kg IV 8 hourly | |
+| **Cefepime** | Infants, children and adolescents | 50 mg/kg IV 8 hourly (Max. single dose 2 g) | D & I | Normal dose | 25-50 mg/kg IV 12 to 18 hourly | 25-50 mg/kg IV daily | HD: LD of 25-50 mg/kg IV on Day 1 then 12.5-25 mg/kg IV daily; dose after HD or give supplemental same dose after HD session<br>PD: Normal dose daily<br>CRRT: Normal dose 12 hourly | |
+| **Ceftriaxone** | Infants, children and adolescents | 100 mg/kg IV once daily | - | Normal dose | Normal dose | Max 50 mg/kg IV daily (max. 2 g daily) | HD/CAPD: 50 mg/kg IV daily (max. 2 g daily).<br>On HD days scheduled doses should be administered after HD session.<br>CRRT: Normal dose | Ceftriaxone should not be administered to premature, acidotic, jaundiced neonates or those with impaired or reduced bilirubin binding. |
+| **PENICILLINS** | | | | | | | | |
+| **Ampicillin** | Infants, children and adolescents | 200-300 mg/kg/**day** IV in 4-6 equally divided doses (max. 12 g/**day**) | I | Normal dose | GFR 10-30:<br>Normal dose 6 to 12 hourly | Normal dose 12 hourly | HD: Normal dose 12 hourly; dose after HD or give supplemental same dose after HD session<br>CVVH: Normal LD then normal dose 8 to 12 hourly<br>CVVHD: Normal LD then normal dose 8 hourly<br>CVVHDF: Normal LD then normal dose 6 to 8 hourly | |
+| **Ampicillin (AM) + Sulbactam (SB)**<br>**(IV 2:1)** | Infants, children and adolescents < 40 kg | 200-300 mg AM/kg/**day** IV in 4-6 equally divided doses | I | Normal dose | FR 15-29:<br>Normal dose 12 hourly;<br>GFR 5-14:<br>Normal dose daily | Normal dose daily | Dose expressed as AM component<br>HD: Normal dose 12 to 24 hourly; give after dialysis on dialysis days<br>CVVH: Max dose as LD then normal dose 8 to 12 hourly<br>CVVHD: Max dose as LD then normal dose 8 hourly<br>CVVHDF: Max dose as LD then normal dose 6 to 8 hourly | |
+| **Cloxacillin** | Children and adolescents | 200-300 mg/kg/**day** IV in 4-6 equally divided doses (max. 2 g/**dose**) | - | Normal dose | Normal dose | Normal dose | HD: Dosage adjustment not needed | |
+| **Benzyl Penicillin**<br>**(Crystalline Penicillin)** | Infants, children and adolescents | 200,000- 300,000 units/kg/**day** IV in 4-6 equally divided doses | I | Normal dose | Normal dose 8 to 12 hourly | Normal dose 12 hourly | HD: Normal dose 8 to 12 hourly; give afer dialysis on dialysis days<br>CAVH/CVVH/CVVHD: Normal dose 8 to 12 hourly | |
+| **MISCELLANEOUS** | | | | | | | | |
+| **Daptomycin** | Children ≥ 2 years and adolescents | 10 mg/kg IV daily | I | Normal dose | GFR 10-29:<br>67% of full dose daily | 67% of full dose 48 hourly | HD/PD: 67% of full dose 48 hourly after dialysis | In paediatric patients, daptomycin is not routinely used as a 1st line therapy. Avoid using in < 12 months due to musculoskeletal, neuromuscular and nervous system adverse effects. |
+| **Vancomycin** | Infants, children and adolescents | 40-60 mg/kg/day IV in 2-3 equally divided doses (Initial dose is based on actual body weight; subsequent dosing based on serum trough levels) | D & I | Doses should be reduced in renal failure according to blood levels<br>• Trough level monitoring:<br>> Only give subsequent doses when vancomycin level reaches trough target<br>> Therapeutic level: Trough 7-10 umol/l (10-15 mg/l) or 10-14 umol/l (15-20 mg/l)<br>> Trough levels should be obtained approximately 30 minutes of the next dose<br>> Approx. time to steady state 1-2 days<br>> Peak levels are not usually required | Doses should be reduced in renal failure according to blood levels<br>• Trough level monitoring:<br>> Only give subsequent doses when vancomycin level reaches trough target<br>> Therapeutic level: Trough 7-10 umol/l (10-15 mg/l) or 10-14 umol/l (15-20 mg/l)<br>> Trough levels should be obtained approximately 30 minutes of the next dose<br>> Approx. time to steady state 1-2 days<br>> Peak levels are not usually required | Doses should be reduced in renal failure according to blood levels<br>• Trough level monitoring:<br>> Only give subsequent doses when vancomycin level reaches trough target<br>> Therapeutic level: Trough 7-10 umol/l (10-15 mg/l) or 10-14 umol/l (15-20 mg/l)<br>> Trough levels should be obtained approximately 30 minutes of the next dose<br>> Approx. time to steady state 1-2 days<br>> Peak levels are not usually required | HD/CAPD: 10 mg/kg IV as needed per serum concentration monitoring<br>CRRT: 10 mg/kg IV 12 to 24 hourly, monitoring serum concentration | |
+| **Rifampicin** | Children and adolescents | 20 mg/kg/day PO in 3 divided doses (max. 900 mg/day) | D | Normal dose | Normal dose | Normal dose | HD/CAPD/CRRT: Normal dose | |
+| **ANTIFUNGALS** | | | | | | | | |
+| **Amphotericin B deoxycholate** | Infants, children and adolescents | After test dose 1 mg/kg IV daily | - | Avoid; use normal dose if only no alternative (see Comments). If renal dysfunction is due to drug, the total daily dose can be decreased by 50% or the dose can be given every other day | Avoid; use normal dose if only no alternative (see Comments). If renal dysfunction is due to drug, the total daily dose can be decreased by 50% or the dose can be given every other day | Avoid; use normal dose if only no alternative (see Comments). If renal dysfunction is due to drug, the total daily dose can be decreased by 50% or the dose can be given every other day | HD/PD/CRRT: If essential use normal dose | Amphotericin is nephrotoxic; monitor serum creatinine closely; lipid formulations are less nephrotoxic. |
+| **Amphotericin B lipid complex** | Infants, children and adolescents | 3-5 mg/kg IV daily | - | No dosage adjustment required in pre existing renal failure. | No dosage adjustment required in pre existing renal failure. | No dosage adjustment required in pre existing renal failure. | HD/PD/CRRT: Normal dose; consider standard amphotericin due to cost | Amphotericin is highly nephrotoxic; monitor serum creatinine closely. |
+| **Fluconazole** | Infants, children and adolescents | 6-12 mg/kg PO/IV daily | D | Normal dose | Normal LD then 50% of normal dose daily | Normal LD then 50% of normal dose 48 hourly | HD: 100% of normal dose 3x/week after HD session or 50% of normal dose every 48 hours; administer after dialysis on dialysis days<br>PD: 50% of normal dose 48 hourly<br>CRRT: 6 mg/kg/dose daily | Refer to product information for more dosing details. |
+| **Flucytosine** | Infants, children and adolescents | 150 mg/kg/day PO in 4 equally divided doses | - | Normal dose | GFR 30-50:<br>25-37.5 mg/kg/dose 8 hourly<br>GFR 10-29:<br>25-37.5 mg/kg/dose 12 hourly | GFR < 10:<br>25-37.5 mg/kg/dose daily | HD/PD: 25-37.5 mg/kg/dose daily<br>CRRT: 25-37.5 mg/kg/dose 8 hourly | |
 
-
-## References:
-
-1. Use of estimated glomerular filtration rate to assess level of kidney function. The CARI Guidelines. Available at http:// www.cari.org.au/guidelines.php. Accessed July 2016.
-2. Schwartz GJ, Haycock GB, Edelmann CM Jr, Spitzer A. A simple estimate of glomerular filtration rate in children derived from body length and plasma creatinine. Pediatrics. 1976;58:259-263.
-3. Counahan R, Chantler C, Ghazali S, Kirkwood B, Rose F, Barratt TM. Estimation of glomerular filtration rate from plasma creatinine concentration in children. Arch Dis Child. 1976;51(11):875-878.
-4. McMillan, J.A., Siberry, G.K., Dick, J.D and Lee, C.K.K., eds. The Harriet Lane handbook of pediatric antimicrobial therapy. USA: Mosby Elsevie, 2009.
-5. Baltimore RS, et al. Infective endocarditis in childhood: 2015 update. A scientific statement from the American Heart Association. Circulation. 2015;132:1487-1515.
-6. Tomlin S, Kirk E. Guy's and St Thomas', King's College and University Lewisham Hospitals Paediatric Formulary, 9 th edn. Revised Dec 2012, Guy's &amp; St Thomas' NHS Foundation Trust London, UK, 2010.
-7. Veltri MA, Neu AM, Fivush BA, et al. Drug dosing during intermittent hemodialysis and continuous renal replacement therapy, special considerations in pediatric patients. Pediatr Drugs. 2004;6(1):45-65.
-8. Cefazolin for injection, USP [Product Information]. Sagent Pharmaceuticals Inc., IL., USA. June 2012.
-9. Ancef®, Cefazolin [Product Information]. GlaxoSmithKline, Research Triangle Park, NC. April 2005.
-10. Aronoff GR, Bennett WM, Berns JS et al. Drug prescribing in renal failure, dosing guidelines for adults and children. 5th edn. American College of Physicians, US, 2007.
-11. Cefazolin. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-12. Cefepime for injection, USP [Product Information]. Sagent Pharmaceuticals Inc., IL., USA. March 2012.
-13. Cefepime. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-14. Ampicillin. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-15. Heintz BH, Matzke GR, Dager WE. Antimicrobial dosing concepts and recommendations for critically ill adult patients receiving continuous renal replacement therapy or intermittent hemodialysis. Pharmacotherapy. 2009;29:562–577.
-16. Unasyn ® , Sulbactam sodium/ampicillin sodium [Product Information]. Pfizer Italia S.r.l., N.Y., USA. Aug 2008.
-17. Ampicillin/Sulbactam. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-18. Cloxacillin. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-19. Benzyl Penicillin Sodium. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-20. Daptomycin. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-21. Vancomycin. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-22. Levy J, Brown E, Daley C, Lawrence A. Oxford Handbook of Dialysis, 3 rd edn. Oxford University Press, Oxford, UK, 2009.
-23. Rifampicin. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-24. Amphotericin B (Conventional). Paediatric &amp; Neonatal Lexi-Drugs Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-25. Amphotericin B (Lipid Complex). Paediatric &amp; Neonatal Lexi-Drugs Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-26. Fluconazole. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-27. Flucytosine. Paediatric &amp; Neonatal Lexi-Drugs. Lexicomp ® 2.3.5. Wolters Kluwer Health, Inc. Hudson, OH. Available at: http://online.lexi.com. Accessed July 15, 2016.
-
-
-
-# APPENDIX 10: WEEKLY OPAT REVIEW CHECKLIST (FOR DOCTORS)
-
-<!-- METADATA
-category: appendix
-use_case: supporting_reference
-patient_input: none
-output: appendix_content
--->
+---
 
 ## Appendix 10: Weekly OPAT review checklist (for doctors)
 
-| General review of the patient and clinical examination (specifically look for)                        |
-|-------------------------------------------------------------------------------------------------------|
-| Heart failure                                                                                         |
-| Embolic events                                                                                        |
-| Recurrence of fever or worsening of other septic parameters                                           |
-| New neurological signs or symptoms                                                                    |
-| Ask about side effects of antimicrobials such as rash                                                 |
-| To check compliance of patient/difficulties faced with vascular device                                |
-| To check branula/peripherally inserted central catheter (PICC) line for evidence of  thrombophlebitis |
-| To check on control of co-morbidities such as diabetes and hypertension                               |
-| Baselines blood investigations such as FBC, CRP, RP and LFT                                           |
-| Review the planned duration of antimicrobials                                                         |
-| To ensure antimicrobials are ordered up to next hospital appointment                                  |
-| If required                                                                                           |
-| ECG                                                                                                   |
-| Therapeutic drug monitoring                                                                           |
-| INR                                                                                                   |
-| Echocardiogram                                                                                        |
+| General review of the patient and clinical examination (specifically look for) |
+|---|
+| Heart failure |
+| Embolic events |
+| Recurrence of fever or worsening of other septic parameters |
+| New neurological signs or symptoms |
+| Ask about side effects of antimicrobials such as rash |
+| To check compliance of patient/difficulties faced with vascular device |
+| To check branula/peripherally inserted central catheter (PICC) line for evidence of thrombophlebitis |
+| To check on control of co-morbidities such as diabetes and hypertension |
+| Baselines blood investigations such as FBC, CRP, RP and LFT |
+| Review the planned duration of antimicrobials |
+| To ensure antimicrobials are ordered up to next hospital appointment |
+| **If required** |
+| ECG |
+| Therapeutic drug monitoring |
+| INR |
+| Echocardiogram |
 
-
-# APPENDIX 11: CLINICAL INDICATORS
-
-<!-- METADATA
-category: appendix
-use_case: supporting_reference
-patient_input: none
-output: appendix_content
--->
+---
 
 ## Appendix 11: Clinical indicators
 
 Performance measures for this CPG is to monitor the implementation of these guidelines with the aim of achieving the following within 5 years.
 
-| Performance indicators                                                                                                                                                                                                                                     | Yes    | No   | Target to achieve  in 5 years   |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------|---------------------------------|
-| Decrease in the mortality caused by IE: Number of deaths of IE patients due to IE or its complications over a given time frame                                                                                                                             | x 100% |      | By 50%                          |
-| Total number of patients diagnosed with IE over the same time frame Surgery performed within 24 hours for patients with  emergency indication (as per the guidelines): Number of IE patients requiring emergency surgery receiving surgery within 24 hours | x 100% |      | 50%                             |
+| Performance indicators | Yes | No | Target to achieve in 5 years |
+|---|---|---|---|
+| Decrease in the mortality caused by IE:<br><br><i><u>Number of deaths of IE patients due to IE or its complications over a given time frame</u><br>Total number of patients diagnosed with IE over the same time frame</i> x 100% | | | By 50% |
+| Surgery performed within 24 hours for patients with emergency indication (as per the guidelines):<br><br><i><u>Number of IE patients requiring emergency surgery receiving surgery within 24 hours</u><br>Total number of IE patients requiring emergency surgery</i> x 100% | | | 50% |
 
 
