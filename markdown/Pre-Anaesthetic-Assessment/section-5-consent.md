@@ -1,131 +1,38 @@
-# SECTION 5: CONSENT
+# 5 CONSENT
 
 <!-- METADATA
-category: Consent
-use_case: Informed consent process, consent form requirements, validity of consent
-patient_input: Patient understanding, questions, signature
-output: Properly obtained and documented consent for anaesthesia
+category: Consent, Legal Requirements
+use_case: Informed consent for anaesthesia — separate_anaesthesia_consent, Malaysian_Medical_Council_2013_guidelines, consent_form_requirements, under-aged_patients, unconscious_patients, emergency_consent, two_consultant_consent, risk_information_disclosure, alternative_anaesthetic_options, validity_of_consent, 7_day_validity_period, delayed_procedure_consent
+patient_input: patient_understanding, patient_questions, patient_signature, next-of-kin_signature, IC_number, parent_guardian_consent
+output: signed_witnessed_dated_consent, anaesthesia_consent_documentation, risk_disclosure_record, consent_form_with_practitioner_stamp
 -->
 
 > **Context:** This section covers informed consent for anaesthesia, including the consent process, consent form requirements per Malaysian Medical Council guidelines, special populations, emergency consent, and the validity period of consent.
 
----
+5.1 It is highly desirable that a separate, written consent for anaesthesia should be obtained by the anaesthesiologist after due explanation and risk information. This avoids the problem of misinformation or miscommunication inherent in a common surgical and anaesthetic consent obtained by the surgeon. The consent form should be signed, witnessed and dated.
 
-## Key Points for Section 5
+5.2 Consent should be obtained from the parent or guardian for an under-aged patient, while explanation and discussion should involve the patient's next-of-kin if the patient himself/herself is in no condition to provide consent for treatment.
 
-1. **A separate, written consent for anaesthesia should be obtained by the anaesthesiologist after due explanation and risk information.**
+5.3 In an emergency, it is often not practical to delay life-saving procedures on account of the issue of consent. Similarly, unconscious patients may be given essential emergency treatment without consent. In such cases, consent provided by two consultants involved in the care of the patient is deemed appropriate.
 
-2. **Consent should be signed, witnessed and dated.**
+5.4 In order to allow the patient to make a considered decision, sufficient information should be provided during the pre-operative visit. The following should be included in the discussion:
+- The planned anaesthetic procedure
+- Alternative anaesthetic options, if applicable
+- Possible risks and complications pertaining to anaesthesia
+- Benefits versus risks
 
-3. **The validity of consent is a reasonable period of no more than 7 days.**
+5.5 As stated in the Guidelines on Consent by Malaysian Medical Council (2013), a standard consent form should contain:
+- Patient identification data: Name, IC Number, Address, gender
+- Name of procedure / surgery to be performed in full
+- Type of anaesthesia
+- Name(s) of registered medical practitioner(s) performing the procedure / surgery
+- Permission to proceed with any additional procedure that may become necessary during the surgery and related to the procedure for which the original consent had been obtained
+- A statement to the effect that the person who is performing the procedure has explained to the patient (or next-of-kin) the nature of the procedure and the potential material risks
+- A statement to indicate that the patient has received and read additional explanatory notes, if so provided by the practitioner
+- Signature of patient / next-of-kin (relationship) and IC Number and date
+- Signature of practitioner and name stamp, and date
+- Signature & name of witness (to the signing of the form) and date
 
-4. **In emergencies, consent from two consultants involved in patient care is deemed appropriate when patient cannot consent.**
-
----
-
-## 5.1 Separate Anaesthesia Consent
-
-It is highly desirable that a **separate, written consent for anaesthesia** should be obtained by the anaesthesiologist after due explanation and risk information.
-
-**Rationale:** This avoids the problem of misinformation or miscommunication inherent in a common surgical and anaesthetic consent obtained by the surgeon.
-
-The consent form should be:
-- **Signed**
-- **Witnessed**
-- **Dated**
-
----
-
-## 5.2 Consent for Special Populations
-
-| Population | Requirement |
-|------------|-------------|
-| **Under-aged patient** | Consent from parent or guardian |
-| **Patient unable to consent** | Explanation and discussion with patient's next-of-kin |
-
----
-
-## 5.3 Emergency and Unconscious Patients
-
-- In an emergency, it is often not practical to delay life-saving procedures on account of the issue of consent
-- Unconscious patients may be given essential emergency treatment without consent
-- In such cases, **consent provided by two consultants** involved in the care of the patient is deemed appropriate
-
----
-
-## 5.4 Information for Informed Consent
-
-In order to allow the patient to make a considered decision, sufficient information should be provided during the pre-operative visit:
-
-| Information | Details |
-|-------------|---------|
-| **Planned procedure** | The planned anaesthetic procedure |
-| **Alternatives** | Alternative anaesthetic options, if applicable |
-| **Risks and complications** | Possible risks and complications pertaining to anaesthesia |
-| **Risk-benefit** | Benefits versus risks |
-
-### Risk Disclosure Factors (from Risk Assessment)
-
-When discussing risks, consider:
-- **Nature of matter disclosed** - More likely and more serious risks require disclosure
-- **Nature of procedure** - Complex intervention typically requires more information
-- **Patient's desire for information** - Patients who ask questions should be told
-- **Temperament and health** - Anxious patients and those with relevant circumstances may need more information
-- **Surrounding circumstances** - Elective vs emergency settings require different approaches
-
-> **Note:** The severity of a complication (e.g., permanent disability or death) should be discussed even if unlikely to occur.
-
----
-
-## 5.5 Standard Consent Form Contents (Malaysian Medical Council 2013)
-
-A standard consent form should contain:
-
-| Element | Details |
-|---------|---------|
-| Patient identification | Name, IC Number, Address, Gender |
-| Procedure | Name of procedure/surgery in full |
-| Anaesthesia type | Type of anaesthesia |
-| Practitioner names | Name(s) of registered medical practitioner(s) performing the procedure/surgery |
-| Additional procedures | Permission to proceed with additional procedure that may become necessary during surgery |
-| Explanation statement | Statement that practitioner has explained nature of procedure and potential material risks |
-| Information acknowledgment | Statement that patient has received and read additional explanatory notes (if provided) |
-| Patient signature | Signature of patient/next-of-kin with relationship, IC Number and date |
-| Practitioner signature | Signature of practitioner with name stamp and date |
-| Witness signature | Signature and name of witness with date |
-
----
-
-## 5.6 Period of Validity of Consent
-
-### Time Limit
-The consent has to be taken a **reasonable period before the procedure**. A reasonable period would be **no more than 7 days**.
-
-### Change in Circumstances
-If during this period there is a change in the circumstances or condition of the patient requiring a review of the procedure initially planned, **a fresh consent must be obtained**.
-
-### Delayed or Postponed Procedures
-When a patient from whom consent had been taken for a particular procedure and the procedure is delayed or postponed:
-- Including especially when an in-patient is discharged home
-- **A new consent has to be taken** before undertaking the procedure
-- The circumstances or disease condition may have changed during that period
-- The patient may not remember the details of the consent
-
----
-
-## References
-
-1. Malaysian Medical Council Guideline. Consent for treatment of patients by registered medical practitioners. (2013).
-
-2. Australian & New Zealand College of Anaesthetists (ANZCA) College Policy Document. Guidelines on consent for anaesthesia and sedation. Review PS26 (2005).
-
-3. Jenkins K, Baker AB. Consent and anaesthetic risk. *Anaesthesia* 2003;58:962-84
-
----
-
-### Abbreviations
-
-| Abbreviation | Full Term |
-|---|---|
-| ANZCA | Australian and New Zealand College of Anaesthetists |
-| IC | Identity card |
+5.6 Period of validity of consent
+- The consent has to be taken a reasonable period before the procedure. A reasonable period would be no more than 7 days. If during this period there is a change in the circumstances or condition of the patient requiring a review of the procedure initially planned, for which consent had been taken, then it is necessary to obtain a fresh consent.
+- In instance when a patient from whom consent had been taken for a particular procedure, and the procedure is delayed or postponed, including and especially when an in-patient is discharged home, a new consent has to be taken before undertaking the procedure, examination, surgery, or treatment, as the circumstances or the disease condition may have changed during that period or the patient may not remember the details of the consent.

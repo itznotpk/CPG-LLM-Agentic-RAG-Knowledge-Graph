@@ -1,23 +1,13 @@
 # SECTION 1: INTRODUCTION
 
 <!-- METADATA
-category: Introduction
-use_case: Pre-anaesthetic assessment fundamentals, objectives of assessment
-patient_input: Medical records, patient interview, physical examination findings
-output: Understanding of pre-anaesthetic assessment purpose and scope
+category: Introduction, Patient Safety
+use_case: Pre-anaesthetic assessment fundamentals and objectives — patient_safety, morbidity_reduction, mortality_reduction, medical_illness_identification, anaesthetic_risk, general_anaesthesia, regional_anaesthesia, sedation
+patient_input: medical_records, patient_interview, physical_examination, medical_tests, evaluations
+output: assessment_purpose, assessment_scope, patient_optimisation, anaesthetic_planning, informed_consent, rapport_building, anxiety_reduction
 -->
 
 > **Context:** This section introduces the CPG Recommendations on Pre-Anaesthetic Assessment, covering background, objectives, and scope of pre-anaesthetic evaluation in Malaysia.
-
----
-
-## Key Points for Section 1
-
-1. **Adequate pre-anaesthetic assessment is an integral part of anaesthetic practice and is critical for patient safety.**
-
-2. **Pre-anaesthetic assessment serves to identify associated medical illness and anaesthetic risks, with the aim of reducing morbidity and mortality.**
-
-3. **The assessment encompasses general anaesthesia, regional anaesthesia/analgesia, and sedation.**
 
 ---
 
@@ -52,22 +42,3 @@ The objectives of the pre-anaesthetic assessment are to:
 The term "pre-anaesthetic assessment" in this document refers not only to situations pertinent to the administration of **general anaesthesia** but also includes those related to:
 - Regional anaesthesia/analgesia
 - Sedation
-
----
-
-## References
-
-1. Practice advisory for preanesthesia evaluation: an updated report by the American Society of Anesthesiologists Task Force on Preanesthesia Evaluation. *Anesthesiology* 2012;110:1-17
-
-2. Australian & New Zealand College of Anaesthetists (ANZCA) College Policy Document. Recommendations for the pre-anaesthesia consultation. Review PS7 (2008).
-
-3. Association of Anaesthetists of Great Britain and Ireland (AAGBI). Pre-operative assessment and patient preparation - the role of the anaesthetist. (2010).
-
----
-
-### Abbreviations
-
-| Abbreviation | Full Term |
-|---|---|
-| AAGBI | Association of Anaesthetists of Great Britain and Ireland |
-| ANZCA | Australian and New Zealand College of Anaesthetists |

@@ -19,25 +19,69 @@ IE still remains a therapeutic challenge with a high morbidity and mortality des
 
 The aim of these clinical practice guidelines (CPG) is to enable medical personnel at all levels of care to diagnose IE early and effectively manage these patients. It also stresses the importance of preventing IE in those with predisposing risk factors.
 
-## 1.0 INTRODUCTION
-
 In keeping to this aim, this CPG attempts to highlight some of the more crucial areas in the diagnosis and management of IE:
 
-- To enable early and accurate diagnosis:
-- &gt; The chapter on diagnosis (refer Chapter 3.0) incorporates important information and recommendations pertaining to clinical, microbiological and imaging assessments to guide physicians in making an early diagnosis of IE.
-- &gt; Included in this chapter is a comprehensive section (refer Section 3.2.2) on microbiological investigations focusing on increasing the yield in blood culture negative infective endocarditis (BCNIE).
-- &gt; The role of echocardiography especially transoesophageal echocardiogram (TOE/TEE) and newer imaging modalities in the diagnosis of IE and its complications are detailed in Section 3.3.
-- To improve and optimise the treatment of IE:
-- &gt; As the clinical manifestations of IE can be varied, a good outcome depends on the combined management of a multidisciplinary team, which should include specialists such as cardiologists, cardiothoracic surgeons, infectious disease (ID) physicians and other relevant medical subspecialties.
-- &gt; Early referral to a Specialist Centre (SC) for those patients with complicated IE is strongly recommended. A centre designated as a SC should have available expertise in basic and advance cardiac imaging with specialised cardiology and cardiothoracic services (refer Section 4.1.4).
-- &gt; The section on antimicrobial therapy (refer Section 4.2) covers both paediatric and adult dosing regimes. Included is a focus on therapy for BCNIE and empirical therapy based on our local setting and experiences. Appropriate antimicrobials should be started promptly once 3 specimens of blood cultures have been taken, as delayed treatment could have poorer outcomes.
-- &gt; The sections on indications and timing of surgery (refer Chapter 5.0) offer a paradigm shift as earlier surgical intervention has been shown to have a better outcome in IE patients in whom surgery is indicated.
-- &gt; We have also included the management of IE in some specialised patient groups e.g. patients with CHD, cardiac implantable electronic device (CIED) and transcatheter implantable valves to accommodate the advances in medical interventions.
+* To enable early and accurate diagnosis:
+    * The chapter on diagnosis (refer Chapter 3.0) incorporates important information and recommendations pertaining to clinical, microbiological and imaging assessments to guide physicians in making an early diagnosis of IE.
+    * Included in this chapter is a comprehensive section (refer Section 3.2.2) on microbiological investigations focusing on increasing the yield in blood culture negative infective endocarditis (BCNIE).
+    * The role of echocardiography especially transoesophageal echocardiogram (TOE/TEE) and newer imaging modalities in the diagnosis of IE and its complications are detailed in Section 3.3.
 
-## 1.0 INTRODUCTION
+* To improve and optimise the treatment of IE:
+    * As the clinical manifestations of IE can be varied, a good outcome depends on the combined management of a multidisciplinary team, which should include specialists such as cardiologists, cardiothoracic surgeons, infectious disease (ID) physicians and other relevant medical subspecialties.
+    * Early referral to a Specialist Centre (SC) for those patients with complicated IE is strongly recommended. A centre designated as a SC should have available expertise in basic and advance cardiac imaging with specialised cardiology and cardiothoracic services (refer Section 4.1.4).
+    * The section on antimicrobial therapy (refer Section 4.2) covers both paediatric and adult dosing regimes. Included is a focus on therapy for BCNIE and empirical therapy based on our local setting and experiences. Appropriate antimicrobials should be started promptly once 3 specimens of blood cultures have been taken, as delayed treatment could have poorer outcomes.
+    * The sections on indications and timing of surgery (refer Chapter 5.0) offer a paradigm shift as earlier surgical intervention has been shown to have a better outcome in IE patients in whom surgery is indicated.
+    * We have also included the management of IE in some specialised patient groups e.g. patients with CHD, cardiac implantable electronic device (CIED) and transcatheter implantable valves to accommodate the advances in medical interventions.
 
-- To initiate appropriate antimicrobial prophylaxis:
-- &gt; The committee has developed evidence-based recommendations for the prophylaxis of IE based on the predisposing risks and types of invasive procedures found in the local setting.
-- &gt; The current emphasis is on maintaining good dental and gum hygiene, and preventing oral disease.
+* To initiate appropriate antimicrobial prophylaxis:
+    * The committee has developed evidence-based recommendations for the prophylaxis of IE based on the predisposing risks and types of invasive procedures found in the local setting.
+    * The current emphasis is on maintaining good dental and gum hygiene, and preventing oral disease.
 
 The recommendations developed in this CPG were based on the latest available data and evidence, taking into account the local healthcare system structure and patients. Though there are certain areas that would require a shift from the norm, the committee hopes that these evidence-based recommendations will not only serve to effectively manage IE patients but to also improve their outcomes.
+
+## Contextual Anchors (Overlapping)
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: DIAGNOSIS (CHAPTER 3) & IMAGING        -->
+<!-- Purpose: Summary of diagnostic criteria, BCNIE, and imaging  -->
+<!-- ============================================================ -->
+
+### Diagnosis, Microbiological Investigations & Imaging Summary
+
+- **Diagnostic Criteria:** Diagnosis of IE relies on the modified Duke criteria, combining clinical, echocardiographic, and microbiological findings.
+- **Blood Culture Negative IE (BCNIE) (Section 3.2.2):** BCNIE indicates IE with no microorganism grown after at least 3 independent blood samples. This is often due to partially treated IE (prior antibiotics), fastidious bacteria (e.g., Brucella, Nocardia, HACEK), or intracellular bacteria (e.g., Bartonella, Coxiella).
+- **Imaging (Section 3.3):** Echocardiography (TTE and TOE/TEE) is crucial for identifying vegetations, abscesses, and new prosthetic valve dehiscence. TOE/TEE is recommended if TTE is negative but clinical suspicion remains high, or to assess complications.
+
+<!-- END OVERLAP FROM: DIAGNOSIS & IMAGING -->
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: MANAGEMENT (CHAPTER 4 & 5)             -->
+<!-- Purpose: Referral to Specialist Centre, Antimicrobial Therapy, and Surgery -->
+<!-- ============================================================ -->
+
+### Treatment, Referral & Surgical Intervention Summary
+
+- **Referral to Specialist Centre (SC) (Section 4.1.4):** A SC is a hospital with cardiothoracic, cardiac imaging, and specialised cardiology services. Referral is recommended for patients with high predisposing risks (prosthetic valves, CIED, CHD), indications for surgery, or cardiac complications.
+- **Antimicrobial Therapy (Section 4.2):** Appropriate antimicrobials should be started promptly after 3 sets of blood cultures are taken. Treatment involves prolonged parenteral bactericidal therapy, tailored to the specific microorganism's susceptibility (MIC).
+- **Surgical Intervention (Chapter 5):** Early surgery is indicated for severe valvular incompetence causing heart failure, uncontrolled infection/sepsis, paravalvular extension (abscess), fungal IE, and large vegetations (>10 mm) with a high risk of recurrent systemic embolisation.
+
+<!-- END OVERLAP FROM: MANAGEMENT -->
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in Section 1 -->
+<!-- ============================================================ -->
+
+## Abbreviations Used in This Section
+
+| Abbreviation | Full Term |
+|---|---|
+| BCNIE | Blood culture negative infective endocarditis |
+| CHD | Congenital heart disease |
+| CIED | Cardiac implantable electronic device |
+| CPG | Clinical practice guidelines |
+| ID | Infectious disease |
+| IE | Infective endocarditis |
+| SC | Specialist centre |
+| TEE | Transoesophageal echocardiogram |
+| TOE | Transoesophageal echocardiogram |
