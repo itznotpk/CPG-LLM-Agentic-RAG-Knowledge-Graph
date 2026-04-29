@@ -9,7 +9,7 @@ output: diagnosis_criteria, diagnostic_pathway
 
 As this disease affects multiple organ systems, patients with IE can present with very diverse clinical presentations making its diagnosis challenging. The clinical course of the disease can vary from subacute to acute infection, and each will manifest differently. Patients often visit multiple health practitioners before a correct diagnosis is made.
 
-## Making a clinical diagnosis of IE requires:
+Making a clinical diagnosis of IE requires:
 
 - Careful and thorough clinical history taking and physical examination.
 - Laboratory investigations.
@@ -21,11 +21,11 @@ In difficult cases, consultation with other experts such as ID specialists, card
 
 ## 3.1 Clinical evaluation of suspected infective endocarditis
 
-The most common symptom at presentation (up to 87%) is fever associated with chills, poor appetite and weight loss. Heart failure may be present at admission (up to 58%) and there may be a new or altered cardiac murmur (50-85%).15,16 Embolic events may also cause presenting symptoms (27-30%) and these events may be singular or multiple in nature.13,16,17
+The most common symptom at presentation (up to 87%) is fever associated with chills, poor appetite and weight loss. Heart failure may be present at admission (up to 58%) and there may be a new or altered cardiac murmur (50-85%). Embolic events may also cause presenting symptoms (27-30%) and these events may be singular or multiple in nature.
 
-## 3.1.1 Pre-existing risk factors
+### 3.1.1 Pre-existing risk factors
 
-A high level of suspicion of IE is warranted in patients with fever and pre-existing risk factors who present with non-specific symptoms. These are:15,18-21
+A high level of suspicion of IE is warranted in patients with fever and pre-existing risk factors who present with non-specific symptoms. These are:
 
 - Previous history of IE.
 - Pre-existing cardiac disease.
@@ -34,38 +34,12 @@ A high level of suspicion of IE is warranted in patients with fever and pre-exis
 - History of IVDU.
 - Presence of chronic intravenous access (e.g. haemodialysis catheters, chemoports and neonate/paediatric patients with indwelling central venous catheters).
 - Presence of CHD (refer Section 7.1).
-- Elderly or immunocompromised patients. 22
+- Elderly or immunocompromised patients.
 - Co-existing conditions such as diabetes, human immunodeficiency virus (HIV) infection and malignancy.
 
-## 3.1.2 Clinical manifestations
+### 3.1.2 Clinical manifestations
 
-Patients do not often present with classic textbook manifestations of subacute or chronic endocarditis. Therefore medical personnel should bear in mind that the symptoms and signs of IE can be general and/or system specific as presented in Table 3.1 below.
-
-Table 3.1: Symptoms and signs of IE
-
-| | Symptoms and signs | Site | Comments |
-|---|---|---|---|
-| **General** | • Night sweats and chills<br>• Weight loss<br>• Fatigue<br>• Body aches<br>• Poor appetite | | |
-| | • Fever | | • Temperature may be normal or subnormal in:<br>> Subacute cases<br>> Elderly<br>> Immunocompromised patients<br>• Fever is usually very high in acute IE |
-| | • Anaemia | | • In subacute cases this may be anaemia of chronic disease or microcytic anaemia |
-| **Peripheral** | • Splinter haemorrhages | • Nail beds of the fingers or toes | • Examine all digits of upper and lower limbs<br>• Exclude workplace trauma |
-| | • Osler's nodes<br>> Painful subcutaneous nodules (red-purple, slightly raised, tender lumps and with a pale centre) | • Pulps of the fingers or toes | • Pain precedes the development of the visible lesion by up to 24 hours<br>• Can occur at any time during the course of endocarditis (usually subacute)<br>• Lasts from hours to several days |
-| | • Janeway lesions<br>> Non-tender lesions<br>> 1-4 mm in diameter<br>> Often haemorrhagic | • On the palms and soles | • Lasts days to weeks<br>• Commonly seen in acute endocarditis<br>• The histology is usually consistent with septic microembolism |
-| | • Digital clubbing | | • Usually seen in patients who have an extended period of untreated IE<sup>23</sup> |
-| | • Subconjunctival haemorrhages | | • Examine both eyes |
-| | • Generalised petechiae | • Conjunctivae<br>• Dorsa of the hands and feet<br>• Anterior chest wall<br>• Abdominal wall<br>• Oral mucosa<br>• Soft palate | |
-| | • Embolic lesions | • Fingers and toes | |
-| | • Arthritis | | • Asymmetrical<br>• Single or multiple joints |
-| **Central** | • Roth spots (white-centred retinal haemorrhages) | • Retina | • Examine both eyes |
-| | • Splenomegaly | | • Occurs with long-standing subacute disease<br>• May not resolve after treatment |
-| | • Haematuria | | • Due to glomerulonephritis |
-| | • Septic embolisation | • Lung embolisation<br><br>• Abdominal embolisation | • Occurs in right-sided IE causing pneumonia or lung abscess<br><br>• Splenic abscesses or infarcts |
-| **Cardiac** | • Murmurs | | • Appearance of new murmur<br>• Usually regurgitant<br>• Right-sided IE may not have a murmur |
-| | • Heart failure | | • Usually due to valve dysfunction/regurgitant lesions |
-| | • Bradycardia | | • Indicates aortic root abscess interfering with cardiac conduction pathways |
-| **Neurological** | • Focal signs: hemiparesis, aphasia and others | • Cerebral septic embolisation | • May be due to ischaemic/haemorrhagic lesions or cerebral abscess |
-| | • Delirium in meningitis, meningoencephalitis and encephalopathy | | • Occurs from purulent meningitis especially with acute IE |
-| | • Intracranial bleeding<br>> Manifests as:<br>» Confusion<br>» Drowsiness<br>» Reduced consciousness<br>» Vomiting<br>» Seizures | | |
+Patients do not often present with classic textbook manifestations of subacute or chronic endocarditis. Therefore medical personnel should bear in mind that the symptoms and signs of IE can be general and/or system specific as presented in Table 3.1:
 
 It is very rare for IE patients to present with the full spectrum of physical signs and there may be only one or two of these clinical features present. For the primary care physician, general practitioner or emergency room physician, the diagnosis of IE may be missed or delayed because of the failure to recognise certain clinical manifestations of the disease.
 
@@ -80,123 +54,106 @@ In the presence of fever, IE should be considered as part of the differential di
 > 1. IE can present with very diverse clinical presentations which makes its diagnosis challenging.
 > 2. A high level of suspicion of IE is warranted in patients with fever and pre-existing risk factors who present with non-specific symptoms.
 
-
-# SECTION 3.2: INVESTIGATIONS
-
-<!-- METADATA
-category: diagnosis
-use_case: diagnostic_workup
-patient_input: symptoms, signs, labs, imaging
-output: diagnosis_criteria, diagnostic_pathway
--->
-
 ## 3.2 Investigations
 
-## 3.2.1 Laboratory investigations
+### 3.2.1 Laboratory investigations
 
 Laboratory tests for infection may aid the diagnosis of IE. These include:
 
 - Inflammatory markers:
-- &gt; Elevated C-reactive protein (CRP).
-- &gt; Elevated erythrocyte sedimentation rate (ESR).
-- &gt; Procalcitonin (PCT):
-- » &gt; 2 and &lt; 10 ng/ml: severe systemic inflammatory response or sepsis.
-- » &gt; 10 ng/ml: severe bacterial sepsis or septic shock.
+  - \> Elevated C-reactive protein (CRP).
+  - \> Elevated erythrocyte sedimentation rate (ESR).
+  - \> Procalcitonin (PCT):
+    - » > 2 and < 10 ng/ml: severe systemic inflammatory response or sepsis.
+    - » > 10 ng/ml: severe bacterial sepsis or septic shock.
 
-PCT is available in Hospital Universiti Kebangsaan Malaysia (HUKM) and University Malaya Medical Centre (UMMC).
+*PCT is available in Hospital Universiti Kebangsaan Malaysia (HUKM) and University Malaya Medical Centre (UMMC).*
 
 - Complete blood count (CBC)/full blood count (FBC):
-- &gt; Raised white cell count.
-- &gt; Low haemoglobin.
+  - \> Raised white cell count.
+  - \> Low haemoglobin.
+
 - Urine full examination and microscopic examination (UFEME):
-- &gt; Microscopic haematuria.
+  - \> Microscopic haematuria.
+
 - Blood culture and sensitivity (refer Section 3.2.2).
 
-With the exception of blood cultures, the above tests are not specific and may indicate other causes of sepsis.
+With the exception of blood cultures, the **above tests are not specific** and may indicate other causes of sepsis.
 
-## 3.2.2 Microbiological diagnosis
+### 3.2.2 Microbiological diagnosis
 
 The microbiological diagnosis of IE can be divided into:
 
 - Blood culture positive IE.
 - Blood culture negative IE.
 
-## 3.2.2.1 Blood culture positive infective endocarditis
+#### 3.2.2.1 Blood culture positive infective endocarditis
 
-Blood cultures should be taken before the commencement of empiric antimicrobial agents as it is critical to the diagnosis and treatment of patients with IE. In order to obtain high yield of positive blood cultures, the following considerations are crucial: 24
+Blood cultures should be taken before the commencement of empiric antimicrobial agents as it is critical to the diagnosis and treatment of patients with IE. In order to obtain high yield of positive blood cultures, the following considerations are crucial:<sup>24</sup>
 
-## A. Timing of blood cultures
+**A. Timing of blood cultures**
+- The blood cultures can be obtained at anytime:<sup>24</sup>
+  - \> This is due to the continuous nature of bacteraemia associated with IE.
+  - \> There is no necessity to wait for spikes of fever.
+  - \> Blood cultures should be taken at 30-minute intervals between samples.<sup>24</sup>
 
-- The blood cultures can be obtained at anytime: 24
-- &gt; This is due to the continuous nature of bacteraemia associated with IE.
-- &gt; There is no necessity to wait for spikes of fever.
-- &gt; Blood cultures should be taken at 30-minute intervals between samples. 24
+**B. Number of blood culture sets and the blood volume**
+- At least three sets of blood cultures:<sup>25</sup>
+  - \> To distinguish between 'false positive' blood cultures due to skin contaminants from 'true positive' blood cultures.
+  - \> Increases the volume of blood cultured, which is the most important factor in the recovery of microorganisms from blood.
 
-## B. Number of blood culture sets and the blood volume
-
-- At least three sets of blood cultures:25
-- &gt; To distinguish between 'false positive' blood cultures due to skin contaminants from 'true positive' blood cultures.
-- &gt; Increases the volume of blood cultured, which is the most important factor in the recovery of microorganisms from blood.
 - Microorganisms that are skin contaminants include:
-- &gt; Coagulase negative staphylococci.
-- &gt; Bacillus spp.
-- &gt; Corynebacterium spp. (diphteroids).
-- &gt; Propionibacterium spp., viridans group of streptococci (VGS).
-- &gt; Aerococcus spp.
-- &gt; Micrococcus spp.
+  - \> Coagulase negative staphylococci.
+  - \> *Bacillus* spp.
+  - \> *Corynebacterium* spp. (diphteroids).
+  - \> *Propionibacterium* spp., viridans group of streptococci (VGS).
+  - \> *Aerococcus* spp.
+  - \> *Micrococcus* spp.
 
 These microorganisms may be considered as significant pathogens when they are cultured from 2 or more blood cultures drawn on separate occasions.
 
-- If the initial 3 blood culture sets are negative at 24 hours, obtain 2 more sets of cultures, for a total of 5 sets overall. 25
-
-## 3.0 DIAGNOSIS
-
-- A set includes 1 aerobic and 1 anaerobic bottle25 with samples taken from a single venepuncture site:
-- &gt; The anaerobic culture is vital for the growth of nutritionally variant streptococci (NVS) and facultative anaerobic microorganisms such as Enterobacteriaceae (refer Appendix 2).
+- If the initial 3 blood culture sets are negative at 24 hours, obtain 2 more sets of cultures, for a total of 5 sets overall.<sup>25</sup>
+- A set includes 1 aerobic and 1 anaerobic bottle<sup>25</sup> with samples taken from a single venepuncture site:
+  - \> The anaerobic culture is vital for the growth of nutritionally variant streptococci (NVS) and facultative anaerobic microorganisms such as *Enterobacteriaceae* (refer Appendix 2).
 - Each bottle should contain 10 ml of blood for adults and 1-3 ml of blood for paediatric patients (using the appropriate paediatric blood culture bottles).
-- &gt; Adequate volume is the most important factor in the recovery of microorganisms in IE.
+  - \> Adequate volume is the most important factor in the recovery of microorganisms in IE.
 - If the blood cultures are negative, BCNIE should be considered (refer Section 3.2.2.2).
 
-## C. Sampling sites of blood cultures
-
+**C. Sampling sites of blood cultures**
 - Strict aseptic techniques should be observed (refer Appendix 3).
 - Blood should be sampled from separate peripheral venepuncture sites.
-- Avoid sampling from central venous or indwelling catheters. Catheterdrawn blood cultures have increased risk of contamination25 and thus may give rise to misleading interpretation.
+- Avoid sampling from central venous or indwelling catheters. Catheter-drawn blood cultures have increased risk of contamination<sup>25</sup> and thus may give rise to misleading interpretation.
 
-## D. Duration of incubation of blood cultures
-
-- Within 5 days, most clinically important microorganisms including Haemophilus, Aggregatibacter actinomycetemcomitans, Cardiobacterium, Eikinella and Kingella (HACEK) will be isolated. 26
+**D. Duration of incubation of blood cultures**
+- Within 5 days, most clinically important microorganisms including *Haemophilus*, *Aggregatibacter actinomycetemcomitans*, *Cardiobacterium*, *Eikinella* and *Kingella* (HACEK) will be isolated.<sup>26</sup>
 - If all blood cultures are negative at 5 days and the diagnosis of IE is still being pursued consider:
-- &gt; BCNIE (refer Section 3.2.2.2).
-- &gt; Fungal IE.
-- Longer incubation time for a total of 2 weeks and appropriate selective culture media may be required when fungaemia or bacteraemia caused by fastidious microorganisms e.g. Legionella, Brucella or Nocardia spp. is suspected.
+  - \> BCNIE (refer Section 3.2.2.2).
+  - \> Fungal IE.
+- Longer incubation time for a total of 2 weeks and appropriate selective culture media may be required when fungaemia or bacteraemia caused by fastidious microorganisms e.g. *Legionella*, *Brucella* or *Nocardia* spp. is suspected.
 
-## E. Identification of the microorganisms and antimicrobial susceptibility testing
-
+**E. Identification of the microorganisms and antimicrobial susceptibility testing**
 - Identification must be rapid and done up to the level of the bacterial species.
-- A newly available state-of the-art technology in rapid bacterial identification is based on peptide spectra by matrix-assisted laser desorption ionisation time-of-flight mass spectrometry (MALDI-TOF) which is able to provide direct identification of bacteria in the blood culture supernatant. 27 This has improved the turnaround time of bacterial identification tremendously.
+- A newly available state-of-the-art technology in rapid bacterial identification is based on peptide spectra by matrix-assisted laser desorption ionisation time-of-flight mass spectrometry (MALDI-TOF) which is able to provide direct identification of bacteria in the blood culture supernatant.<sup>27</sup> This has improved the turnaround time of bacterial identification tremendously.
 - For decisions on optimal therapy in IE, especially for infections involving streptococci spp. and multidrug resistant microorganisms, it is recommended to test for susceptibility of antimicrobials by determining the minimal inhibitory concentration (MIC) of the drug.
 
-## 3.2.2.2 Blood culture-negative infective endocarditis
+#### 3.2.2.2 Blood culture-negative infective endocarditis
 
 In general, BCNIE indicates IE which has no microorganism grown following inoculation of at least 3 independent blood samples when using the usual currently available culture methods in clinical laboratories after 5 days of incubation.
 
 - BCNIE can be due to 3 main reasons:
-- &gt; Partially treated IE by previous antimicrobial treatment, which is the most common cause (usually due to usual endocarditis-causing bacteria, i.e. streptococci, more rarely staphylococci, or enterococci).
-- &gt; For the isolation of fastidious bacteria such as Brucella, Nocardia spp., NVS and fungi other than yeasts, blood culture incubation may need to be extended for two weeks before a negative result is released. Specimens other than blood, e.g. excised tissue and aspirated intracardiac pus, incubation of the inoculated agar media beyond 48 hours may be needed. Special media and prolonged incubation is required for the isolation of Legionella pneumophilia .
-- &gt; "True" BCNIE due to intracellular bacteria that cannot be routinely cultured in blood with currently available techniques (e.g. Bartonella spp., Coxiella burnetti and Tropheryma whipplei).
+  - \> Partially treated IE by previous antimicrobial treatment, which is the most common cause (usually due to usual endocarditis-causing bacteria, i.e. streptococci, more rarely staphylococci, or enterococci).
+  - \> For the isolation of fastidious bacteria such as *Brucella*, *Nocardia* spp., NVS and fungi other than yeasts, blood culture incubation may need to be extended for two weeks before a negative result is released. Specimens other than blood, e.g. excised tissue and aspirated intracardiac pus, incubation of the inoculated agar media beyond 48 hours may be needed. Special media and prolonged incubation is required for the isolation of *Legionella pneumophilia*.
+  - \> "True" BCNIE due to intracellular bacteria that cannot be routinely cultured in blood with currently available techniques (e.g. *Bartonella* spp., *Coxiella burnetti* and *Tropheryma whipplei*).
 - Diagnosis of BCNIE (refer to Table 3.2):
-- &gt; Serological testing and molecular techniques such as polymerase chain reaction (PCR) assay aid in establishing the causative agent in BCNIE.
-
-## 3.0 DIAGNOSIS
+  - \> Serological testing and molecular techniques such as polymerase chain reaction (PCR) assay aid in establishing the causative agent in BCNIE.
 
 However limitations when using such assays are as follows:
 
 - Serology:
-- &gt; Cross reaction of serological assays (e.g. IE caused by Bartonella and Chlamydia spp. are often indistinguishable). 28
+  - \> Cross reaction of serological assays (e.g. IE caused by *Bartonella* and *Chlamydia* spp. are often indistinguishable).<sup>28</sup>
 - PCR:
-- &gt; Low sensitivity of PCR when using blood specimens. It is however more sensitive when performed directly on cardiac valvular tissue16,29-31 or surgical material.
-- &gt; PCR findings should not be used to guide duration of therapy and should be interpreted in the context of other clinical information. This is due to persistence of bacterial deoxyribonucleic acid (DNA) even after eradication of viable microorganisms, causing false positive results.
+  - \> Low sensitivity of PCR when using blood specimens. It is however more sensitive when performed directly on cardiac valvular tissue<sup>16,29-31</sup> or surgical material.
+  - \> PCR findings should not be used to guide duration of therapy and should be interpreted in the context of other clinical information. This is due to persistence of bacterial deoxyribonucleic acid (DNA) even after eradication of viable microorganisms, causing false positive results.
 
 Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations
 
@@ -684,4 +641,33 @@ In cases where clinical suspicion is high but the application of the Duke criter
 
 Adapted from Habib G, et al. Eur Heart J. 2015.
 
+## Contextual Anchors (Overlapping)
+### Table 3.1: Symptoms and signs of IE
+
+| | Symptoms and signs | Site | Comments |
+|---|---|---|---|
+| **General** | • Night sweats and chills<br>• Weight loss<br>• Fatigue<br>• Body aches<br>• Poor appetite | | |
+| | • Fever | | • Temperature may be normal or subnormal in:<br>> Subacute cases<br>> Elderly<br>> Immunocompromised patients<br>• Fever is usually very high in acute IE |
+| | • Anaemia | | • In subacute cases this may be anaemia of chronic disease or microcytic anaemia |
+| **Peripheral** | • Splinter haemorrhages | • Nail beds of the fingers or toes | • Examine all digits of upper and lower limbs<br>• Exclude workplace trauma |
+| | • Osler's nodes<br>> Painful subcutaneous nodules (red-purple, slightly raised, tender lumps and with a pale centre) | • Pulps of the fingers or toes | • Pain precedes the development of the visible lesion by up to 24 hours<br>• Can occur at any time during the course of endocarditis (usually subacute)<br>• Lasts from hours to several days |
+| | • Janeway lesions<br>> Non-tender lesions<br>> 1-4 mm in diameter<br>> Often haemorrhagic | • On the palms and soles | • Lasts days to weeks<br>• Commonly seen in acute endocarditis<br>• The histology is usually consistent with septic microembolism |
+| | • Digital clubbing | | • Usually seen in patients who have an extended period of untreated IE<sup>23</sup> |
+| | • Subconjunctival haemorrhages | | • Examine both eyes |
+| | • Generalised petechiae | • Conjunctivae<br>• Dorsa of the hands and feet<br>• Anterior chest wall<br>• Abdominal wall<br>• Oral mucosa<br>• Soft palate | |
+| | • Embolic lesions | • Fingers and toes | |
+| | • Arthritis | | • Asymmetrical<br>• Single or multiple joints |
+| **Central** | • Roth spots (white-centred retinal haemorrhages) | • Retina | • Examine both eyes |
+| | • Splenomegaly | | • Occurs with long-standing subacute disease<br>• May not resolve after treatment |
+| | • Haematuria | | • Due to glomerulonephritis |
+| | • Septic embolisation | • Lung embolisation<br><br>• Abdominal embolisation | • Occurs in right-sided IE causing pneumonia or lung abscess<br><br>• Splenic abscesses or infarcts |
+| **Cardiac** | • Murmurs | | • Appearance of new murmur<br>• Usually regurgitant<br>• Right-sided IE may not have a murmur |
+| | • Heart failure | | • Usually due to valve dysfunction/regurgitant lesions |
+| | • Bradycardia | | • Indicates aortic root abscess interfering with cardiac conduction pathways |
+| **Neurological** | • Focal signs: hemiparesis, aphasia and others | • Cerebral septic embolisation | • May be due to ischaemic/haemorrhagic lesions or cerebral abscess |
+| | • Delirium in meningitis, meningoencephalitis and encephalopathy | | • Occurs from purulent meningitis especially with acute IE |
+| | • Intracranial bleeding<br>> Manifests as:<br>» Confusion<br>» Drowsiness<br>» Reduced consciousness<br>» Vomiting<br>» Seizures | | |
+
+
+## Abbreviations Used in This Section
 
