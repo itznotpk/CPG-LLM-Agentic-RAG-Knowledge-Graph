@@ -245,13 +245,13 @@ Echocardiography in IE can be challenging. This may be due to the absence of veg
 
 ## The use of echocardiography in diagnosing IE:
 
-1. Echocardiography should be performed as soon as possible in all patients suspected of having IE. [I/B]
-2. If there is a high suspicion of IE despite an initial negative TTE/TEE, then a repeat TTE/TEE is recommended within a week or if clinical findings change. [I/C]
-3. TEE should be done if initial TTE images are negative or inadequate in patients for whom there is a persistent suspicion for IE. [I/B]
-4. TEE is advised in cases with prosthetic valves, prosthetic cardiac material or cases with high-risk features. [I/B]
-5. The echocardiographic measurement of the size of the vegetation at its longest diameter is preferable rather than its circumference. Documentation of the window in which the measurement was done will be useful. [IIa/C]
-6. Intraoperative TEE recommended for all cases of IE undergoing surgery. [I/B]
-7. It may be reasonable to perform TTE at the time of antimicrobial therapy completion to record baseline features. [IIa/C]
+1. [Grade I, Level B] Echocardiography should be performed as soon as possible in all patients suspected of having IE. 
+2. [Grade I, Level C] If there is a high suspicion of IE despite an initial negative TTE/TEE, then a repeat TTE/TEE is recommended within a week or if clinical findings change.
+3. [Grade I, Level B] TEE should be done if initial TTE images are negative or inadequate in patients for whom there is a persistent suspicion for IE.
+4. [Grade I, Level B] TEE is advised in cases with prosthetic valves, prosthetic cardiac material or cases with high-risk features. 
+5. [Grade IIa, Level C] The echocardiographic measurement of the size of the vegetation at its longest diameter is preferable rather than its circumference. Documentation of the window in which the measurement was done will be useful.
+6. [Grade I, Level B] Intraoperative TEE recommended for all cases of IE undergoing surgery.
+7. [Grade IIa, Level C] It may be reasonable to perform TTE at the time of antimicrobial therapy completion to record baseline features.
 
 ## 3.3.2 Other imaging modalities
 
