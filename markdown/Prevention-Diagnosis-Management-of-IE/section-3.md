@@ -190,23 +190,21 @@ The various special stains that are used to detect the infectious agents of inte
 
 Echocardiography plays a key role in the diagnosis of IE. The first line imaging investigation in suspected IE is usually transthoracic echocardiography (TTE) as it is non-invasive and widely available. TEE should be performed subsequently if indicated.
 
-- In native valves, the sensitivity of TTE in diagnosing vegetations is 4463%.35-38
-- For prosthetic valves, the diagnostic yield of TTE is much lower, 36-69% due to acoustic shadowing from the prosthetic material and a higher chance of annular infection which cannot be seen clearly on TTE. 38
-- TEE enhances diagnostic sensitivity between 90-100% for native valves and 86-94% for prosthetic valves. 38
-- The specificity of TTE and TEE exceeds 90% for both native and prosthetic valves whilst the specificity of TEE for vegetation on prosthetic valves is 88-100%. 38
+- In native valves, the sensitivity of TTE in diagnosing vegetations is 44-63%.
+- For prosthetic valves, the diagnostic yield of TTE is much lower, 36-69% due to acoustic shadowing from the prosthetic material and a higher chance of annular infection which cannot be seen clearly on TTE.
+- TEE enhances diagnostic sensitivity between 90-100% for native valves and 86-94% for prosthetic valves.
+- The specificity of TTE and TEE exceeds 90% for both native and prosthetic valves whilst the specificity of TEE for vegetation on prosthetic valves is 88-100%.
 
-Indications for TEE in patients with IE or those with pre-existing risk factors include:39
+Indications for TEE in patients with IE or those with pre-existing risk factors include:
 
 - Poor or suboptimal transthoracic window (e.g. morbid obesity, chronic obstructive pulmonary disease; COPD and previous sternotomy).
 - High clinical suspicion of IE but negative TTE (e.g. typical microorganism of IE found on blood cultures).
-- Staphylococcal bacteraemia if community acquired without an obvious focus of infection (e.g. cellulitis).40,41
+- Staphylococcal bacteraemia if community acquired without an obvious focus of infection (e.g. cellulitis).
 - All cases of IE with prosthetic valves and prosthetic material such as conduits.
 - High-risk features for complications (e.g. new atrioventricular; AV block on electrocardiogram; ECG which may indicate a periannular extension of infection).
-- Perioperative TEE to assess mechanism and severity of valve dysfunction, perivalvular extensions and the success of surgery/ presence of residual lesions. 42
+- Perioperative TEE to assess mechanism and severity of valve dysfunction, perivalvular extensions and the success of surgery/ presence of residual lesions.
 
-## 3.0 DIAGNOSIS
-
-Echocardiographic findings suggestive of IE include (refer Table 3.4):1,43
+Echocardiographic findings suggestive of IE include (refer Table 3.4):
 
 - Vegetation.**
 - Abscess.**
@@ -222,15 +220,15 @@ Echocardiographic findings suggestive of IE include (refer Table 3.4):1,43
 Other important information to gather from an echocardiogram include:
 
 - Haemodynamic and ventricular functional assessments:
-- &gt; Transthoracic Doppler echocardiogram is used to assess haemodynamic dysfunction as it is more reliable and reproducible compared to TEE.
-- &gt; For left ventricular systolic dysfunction, assessment of ejection fraction by using modified Simpson's method and others such as tissue Doppler imaging is recommended.
-- &gt; For diastolic function, using pulse wave Doppler and tissue Doppler imaging is recommended. However, in situations where there are significant regurgitant lesions, the estimation of ventricular filling pressures by Doppler method is not accurate.
-- &gt; For right ventricular function, assessing systolic function visually or by using quantitative parameters, e.g. tricuspid annular systolic plane excursion (TAPSE) or fractional area change (FAC) can be used.
+  - Transthoracic Doppler echocardiogram is used to assess haemodynamic dysfunction as it is more reliable and reproducible compared to TEE.
+  - For left ventricular systolic dysfunction, assessment of ejection fraction by using modified Simpson's method and others such as tissue Doppler imaging is recommended.
+  - For diastolic function, using pulse wave Doppler and tissue Doppler imaging is recommended. However, in situations where there are significant regurgitant lesions, the estimation of ventricular filling pressures by Doppler method is not accurate.
+  - For right ventricular function, assessing systolic function visually or by using quantitative parameters, e.g. tricuspid annular systolic plane excursion (TAPSE) or fractional area change (FAC) can be used.
 
 - Pulmonary artery pressure assessment by estimation of:
-- &gt; Right atrial pressure.
-- &gt; Tricuspid regurgitation peak velocity.
-- &gt; Pulmonary regurgitation end diastolic velocity.
+  - Right atrial pressure.
+  - Tricuspid regurgitation peak velocity.
+  - Pulmonary regurgitation end diastolic velocity.
 - Assessment and quantification of valve regurgitation.
 - Presence and quantification of pericardial effusion.
 
@@ -243,35 +241,7 @@ Echocardiography in IE can be challenging. This may be due to the absence of veg
 - In some situations, a repeat TTE or repeat TEE may be necessary.
 - Results of an echocardiogram must be interpreted with caution, as it is possible to have a false positive study (refer Table 3.5).
 
-Table 3.4: Findings suggestive of IE and their anatomical and echocardiographic definitions
-
-|                                   | Surgical or autopsy findings                                                                              | Echocardiography findings                                                                                                           |
-|-----------------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Vegetation                        | Infected mass attached to an  endocardial structure or on  implanted intracardiac material                | Oscillating or non-oscillating  intracardiac mass on valve or  other endocardial structures, or on  implanted intracardiac material |
-| Abscess                           | Perivalvular cavity with necrosis and purulent material  not communicating with the  cardiovascular lumen | Thickened, non-homogeneous  perivalvular area with echodense or  echolucent appearance                                              |
-| Pseudoaneurysms                   | Perivalvular cavity communicating  with the cardiovascular lumen                                          | Pulsatile perivalvular  echocardiographic-free space, with  colour-Doppler detected                                                 |
-| Perforation                       | Interruption of endocardial tissue  continuity                                                            | Interruption of endocardial tissue  continuity traversed by colour Doppler                                                         |
-| Fistula                           | Communication between two  neighbouring cavities through a  perforation                                   | Colour-Doppler communication  between two neighbouring cavities  through a perforation                                              |
-| Valve aneurysm                    | Saccular outpouching of valvular  tissue                                                                  | Saccular bulging of valvular leaflet  tissue                                                                                        |
-| Dehiscence of a  prosthetic valve | Dehiscence of the prosthesis                                                                              | Paravalvular regurgitation identified  by TTE/TEE, with or without rocking  motion of the prosthesis                                |
-
-Adapted from Habib G, et al. Eur J Echocardiogr. 2010. 43
-
-Table 3.5: Challenges in echocardiography interpretation in the context of IE
-
-| False positive echocardiogram  (“vegetation” seen but diagnosis is  NOT IE)                                                                                                                                                                                                                                                                                                     | False negative echocardiogram  (“vegetation” not seen but diagnosis  IS IE)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| This may be due to: •  Thrombus •  Papillary fibroelastoma •  Lambl’s excrescences  •  Cusp prolapse •  Chordal rupture •  Degenerative or myxomatous valve disease •  Strands •  Systemic lupus (Libman-Sacks) lesions •  Primary antiphospholipid syndrome •  Rheumatoid lesions or marantic vegetations •  Prominent Chiari network or Eustachian valve  in the right atrium | This may be due to: •  Vegetations that have embolised •  Initial/incipient abscess (if imaged early in  the disease may appear like non-specific  thickening) •  Presence of pre-existing valvular lesions such  as mitral valve prolapse and degenerative  calcified valve disease •  Prosthetic valves •  Small vegetations (< 2-3 mm)  •  Non-vegetant IE •  Intracardiac devices (this is difficult even with  the use of TEE) •  Sutures, suture pledgets and free floating  chords in post-surgical patients (discuss with  the operating surgeon) If the clinical suspicion is high but initial  imaging is negative, a repeat TTE or TEE is  warranted within a week or even earlier in  cases positive for S. aureus . |
-
-## 3.0 DIAGNOSIS
-
-## Figure 3b: Use of echocardiography in the diagnosis and management of IE
-
-<!-- image -->
-
-Adapted from Baddour LM, et al. Circulation. 2015.
-
-## Recommendations
+##### Recommendations
 
 ## The use of echocardiography in diagnosing IE:
 
@@ -553,6 +523,32 @@ The directory of laboratories that perform the serological and PCR tests of the 
 ^*Legionella*, *Brucella*, *Nocardia* spp., fungi and NVS e.g. *Gemella*, *Granulicatella* and *Abiotrophia* may require longer incubation periods.
 
 *Adapted from Habib G, et al. Eur Heart J. 2015.*
+
+---
+
+### Table 3.4: Findings suggestive of IE and their anatomical and echocardiographic definitions
+
+|                                   | Surgical or autopsy findings                                                                              | Echocardiography findings                                                                                                           |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Vegetation                        | Infected mass attached to an  endocardial structure or on  implanted intracardiac material                | Oscillating or non-oscillating  intracardiac mass on valve or  other endocardial structures, or on  implanted intracardiac material |
+| Abscess                           | Perivalvular cavity with necrosis and purulent material  not communicating with the  cardiovascular lumen | Thickened, non-homogeneous  perivalvular area with echodense or  echolucent appearance                                              |
+| Pseudoaneurysms                   | Perivalvular cavity communicating  with the cardiovascular lumen                                          | Pulsatile perivalvular  echocardiographic-free space, with  colour-Doppler detected                                                 |
+| Perforation                       | Interruption of endocardial tissue  continuity                                                            | Interruption of endocardial tissue  continuity traversed by colour Doppler                                                         |
+| Fistula                           | Communication between two  neighbouring cavities through a  perforation                                   | Colour-Doppler communication  between two neighbouring cavities  through a perforation                                              |
+| Valve aneurysm                    | Saccular outpouching of valvular  tissue                                                                  | Saccular bulging of valvular leaflet  tissue                                                                                        |
+| Dehiscence of a  prosthetic valve | Dehiscence of the prosthesis                                                                              | Paravalvular regurgitation identified  by TTE/TEE, with or without rocking  motion of the prosthesis                                |
+
+---
+
+### Table 3.5: Challenges in echocardiography interpretation in the context of IE
+
+| False positive echocardiogram ("vegetation" seen but diagnosis is NOT IE) | False negative echocardiogram ("vegetation" not seen but diagnosis IS IE) |
+|---|---|
+| This may be due to:<br><br>• Thrombus<br>• Papillary fibroelastoma<br>• Lambl's excrescences<br>• Cusp prolapse<br>• Chordal rupture<br>• Degenerative or myxomatous valve disease<br>• Strands<br>• Systemic lupus (Libman-Sacks) lesions<br>• Primary antiphospholipid syndrome<br>• Rheumatoid lesions or marantic vegetations<br>• Prominent Chiari network or Eustachian valve in the right atrium | This may be due to:<br><br>• Vegetations that have embolised<br>• Initial/incipient abscess (if imaged early in the disease may appear like non-specific thickening)<br>• Presence of pre-existing valvular lesions such as mitral valve prolapse and degenerative calcified valve disease<br>• Prosthetic valves<br>• Small vegetations (< 2-3 mm)<br>• Non-vegetant IE<br>• Intracardiac devices (this is difficult even with the use of TEE)<br>• Sutures, suture pledgets and free floating chords in post-surgical patients (discuss with the operating surgeon)<br><br>**If the clinical suspicion is high but initial imaging is negative, a repeat TTE or TEE is warranted within a week or even earlier in cases positive for *S. aureus*.** |
+
+---
+### Figure 3b: Use of echocardiography in the diagnosis and management of IE
+
 
 ## Abbreviations Used in This Section
 
