@@ -569,13 +569,57 @@ Refer Section 3.3.1 for positive and negative findings.
 \*\*Other imaging modalities:
 * Cardiac CT (detect pseudoaneurysms, abscesses and fistulae) especially in patients with prosthetic valves/ conduits (major criteria).
 * Screen for silent septic emboli:
-  * > CT/MRA brain: infarct/mycotic aneurysm (detection of cerebral lesions on MRI in patients with no neurological symptoms or signs adds 1 minor Duke criteria).
-  * > CTPA (pulmonary infarcts/abscesses/ mycotic aneurysm) in right-sided IE.
+  * CT/MRA brain: infarct/mycotic aneurysm (detection of cerebral lesions on MRI in patients with no neurological symptoms or signs adds 1 minor Duke criteria).
+  * CTPA (pulmonary infarcts/abscesses/ mycotic aneurysm) in right-sided IE.
 * CT abdomen: splenic infarct.
-* <sup>18</sup>F-FDG PET/CT and radiolabelled leucocyte SPECT/CT to detect silent metastatic infectious lesion/peripheral embolism.
+* F-FDG PET/CT and radiolabelled leucocyte SPECT/CT to detect silent metastatic infectious lesion/peripheral embolism.
 
-<sup>18</sup>F-FDG: fluorine-18 (F-18) fluorodeoxyglucose (FDG); CT: computed tomography; CTPA: CT pulmonary angiogram; IE: infective endocarditis; MRA: magnetic resonance angiogram; MRI: magnetic resonance imaging; PET: positron emission tomography; SPECT: single photon emission computerised tomography; TEE: transoesophageal echocardiography; TTE: transthoracic echocardiography.
+F-FDG: fluorine-18 (F-18) fluorodeoxyglucose (FDG); CT: computed tomography; CTPA: CT pulmonary angiogram; IE: infective endocarditis; MRA: magnetic resonance angiogram; MRI: magnetic resonance imaging; PET: positron emission tomography; SPECT: single photon emission computerised tomography; TEE: transoesophageal echocardiography; TTE: transthoracic echocardiography.
 
-*Adapted from Habib G, et al. Eur Heart J. 2015.*
+---
+
 ## Abbreviations Used in This Section
 
+| Abbreviation | Definition |
+|---|---|
+| **CBC** | complete blood count |
+| **CHD** | congenital heart disease |
+| **CNS** | central nervous system |
+| **CRP** | C-reactive protein |
+| **CT** | computed tomography |
+| **CTPA** | CT pulmonary angiogram |
+| **DNA** | deoxyribonucleic acid |
+| **ECHO** | echocardiogram |
+| **ESC** | European Society of Cardiology |
+| **ESR** | erythrocyte sedimentation rate |
+| **FAC** | fractional area change |
+| **FBC** | full blood count |
+| **F-FDG** | fluorine-18 (F-18) fluorodeoxyglucose |
+| **HACEK** | *Haemophilus* species, *Aggregatibacter* species, *Cardiobacterium hominis*, *Eikenella corrodens*, and *Kingella* species |
+| **HPE** | histopathological examination |
+| **HUKM** | Hospital Universiti Kebangsaan Malaysia |
+| **IE** | infective endocarditis |
+| **IgG** | immunoglobulin G |
+| **IVDU** | intravenous drug use |
+| **MIC** | minimal inhibitory concentration |
+| **MRA** | magnetic resonance angiogram |
+| **MRI** | magnetic resonance imaging |
+| **MSCT** | multislice computed tomography |
+| **NVS** | nutritionally variant streptococci |
+| **PCR** | polymerase chain reaction |
+| **PCT** | procalcitonin |
+| **PET** | positron emission tomography |
+| **PVE** | prosthetic valve endocarditis |
+| ***S. aureus*** | *Staphylococcus aureus* |
+| **SLE** | systemic lupus erythematosus |
+| **SPECT** | single-photon emission computed tomography |
+| **spp.** | species |
+| **TAPSE** | tricuspid annular systolic plane excursion |
+| **TEE** | transoesophageal echocardiography |
+| **TIA** | transient ischaemic attack |
+| **TTE** | transthoracic echocardiography |
+| **UFEME** | urine full examination and microscopic examination |
+| **UMMC** | University Malaya Medical Centre |
+| **USA** | United States of America |
+| **VGS** | viridans group of streptococci |
+| **WBC** | white blood cell |
