@@ -1,22 +1,14 @@
 # SECTION 1: PRINCIPLES OF ANAESTHESIA CARE
 
 <!-- METADATA
-category: Principles of Anaesthesia Care
-use_case: Personnel, qualifications, direct care requirements, delegation, preoperative consultation, record keeping
-patient_input: Patient requiring anaesthesia, surgical procedure details
-output: Safe administration of anaesthesia by qualified personnel, informed consent, adequate documentation
+category: Assessment, Treatment, Prevention
+use_case: Principles of Anaesthesia Care — personnel_qualifications, direct_care, delegation, preoperative_consultation, record_keeping
+patient_input: planned_surgery, patient_history
+output: anaesthesia_personnel_requirement, consent_documentation, safety_checklist
+critical: true
 -->
 
 > **Context:** This section covers the fundamental principles of anaesthesia care, including personnel qualifications, direct care requirements, delegation rules, pre-anaesthetic consultation, informed consent, and documentation.
-
----
-
-## Key Points for Section 1
-
-1. **Anaesthetics must be administered by a qualified specialist anaesthesiologist or a medical officer/trainee under adequate supervision.**
-2. **The anaesthesiologist cannot provide direct care for more than one patient at a time and should be present from induction until safe transfer.**
-3. **Delegation of monitoring is temporary and only to competent personnel when the patient is stable.**
-4. **Pre-anaesthetic consultation and informed consent are mandatory prior to anaesthesia.**
 
 ---
 
@@ -67,11 +59,3 @@ a. The anaesthesiologist must provide an **adequate and legible record** of the 
 b. The anaesthesiologist must ensure that **all equipment used for the administration of anaesthesia is functioning properly before the start of each anaesthetic**. 
    - However, the health facility shall be responsible for maintenance and servicing of anaesthetic equipment used.
 
----
-
-### Abbreviations
-
-| Abbreviation | Full Term |
-|---|---|
-| ICU | Intensive care unit |
-| OT | Operating theatre |

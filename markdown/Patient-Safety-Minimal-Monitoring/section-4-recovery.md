@@ -1,22 +1,14 @@
 # SECTION 4: RECOVERY FROM ANAESTHESIA
 
 <!-- METADATA
-category: Postoperative Care
-use_case: Recovery area standards, monitoring, handover, discharge
-patient_input: Patient condition post-anaesthesia
-output: Safe recovery, monitoring, handover to ward
+category: Supportive Treatment, Assessment, Prevention
+use_case: Recovery Area Guidelines — monitoring_standards, handover_protocols, discharge_criteria, patient_transport
+patient_input: postoperative_vital_signs, consciousness_level
+output: discharge_decision, monitoring_plan, handover_documentation
+critical: true
 -->
 
 > **Context:** This section covers recovery from anaesthesia, including designated recovery area requirements, minimum facilities, monitoring standards (overlapping from Section 3), handover protocols, discharge criteria, and patient transport.
-
----
-
-## Key Points for Section 4
-
-1. **Recovery from anaesthesia must take place in an appropriately staffed and equipped designated area.**
-2. **Monitoring standards in recovery must align with the patient's clinical condition.**
-3. **There must be a proper handover of care from the operating room staff to recovery staff, and from recovery staff to the ward.**
-4. **Discharge from the recovery area requires a review by the anaesthesiologist.**
 
 ---
 
@@ -92,14 +84,3 @@ b. **From the Recovery Area to the Ward or Intensive Care Unit:**
    - **Checklist:** A checklist should be established to document that the patient is fit to be discharged from the recovery area safely.
    - **Handover:** The patient should be received by a qualified nurse during the handover and with documentation.
 
----
-
-### Abbreviations
-
-| Abbreviation | Full Term |
-|---|---|
-| BP | Blood pressure |
-| ECG | Electrocardiogram |
-| HDU | High dependency unit |
-| ICU | Intensive care unit |
-| OT | Operating theatre |

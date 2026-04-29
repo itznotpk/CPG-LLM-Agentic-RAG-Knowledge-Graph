@@ -1,22 +1,14 @@
 # SECTION 3: INTRAOPERATIVE MONITORING OF THE PATIENT
 
 <!-- METADATA
-category: Intraoperative Monitoring
-use_case: Oxygenation, circulation, ventilation, temperature, neuromuscular function, anaesthetic depth, specialised monitors
-patient_input: Intraoperative patient physiological variables
-output: Recommended monitoring standards for patient safety
+category: Assessment, Prevention
+use_case: Intraoperative Patient Monitoring — oxygenation_monitoring, circulation_monitoring, capnography, temperature_monitoring, neuromuscular_monitoring, depth_of_anaesthesia
+patient_input: SpO2, heart_rate, blood_pressure, ECG, ETCO2, temperature
+output: monitoring_requirements, alarm_settings, specialized_monitoring_decision
+critical: true
 -->
 
 > **Context:** This section defines the minimal intraoperative monitoring standards, including oxygenation (pulse oximetry mandatory), circulation (ECG, BP, HR), ventilation (capnography mandatory for GA), temperature, neuromuscular function, anaesthetic depth, and specialised monitors.
-
----
-
-## Key Points for Section 3
-
-1. **Essential vital signs (oxygenation, circulation, ventilation) must be monitored at all times from induction until transfer.**
-2. **Clinical observations must be supplemented by appropriate monitoring equipment.**
-3. **Pulse oximetry is mandatory for oxygenation.**
-4. **Capnography is mandatory during general anaesthesia.**
 
 ---
 
@@ -125,16 +117,3 @@ b. **Impracticality:** In certain rare or unusual circumstances, some methods of
 
 c. **Limitation of Guarantees:** Observing monitoring parameters is to encourage quality patient care. Even when appropriately used, monitors may fail to detect untoward clinical developments and observing them cannot guarantee any specific outcome.
 
----
-
-### Abbreviations
-
-| Abbreviation | Full Term |
-|---|---|
-| BIS | Bispectral Index |
-| BP | Blood pressure |
-| ECG | Electrocardiogram |
-| ETCO₂ | End-tidal carbon dioxide |
-| GA | General anaesthesia |
-| HR | Heart rate |
-| MAC | Minimum alveolar concentration |
