@@ -1,10 +1,11 @@
 # SECTION 14.6: HF AND CHRONIC KIDNEY DISEASE
 
 <!-- METADATA
-category: Special Groups
-use_case: CKD Management
-patient_input: eGFR, creatinine, potassium, dialysis status
-output: Cardio-renal syndrome, drug dosing in CKD, dialysis considerations
+category: Special Populations
+use_case: HF with Chronic Kidney Disease — cardiorenal_syndrome, drug_dosing_in_CKD, dialysis_considerations
+patient_input: eGFR, creatinine, potassium, dialysis_status
+output: cardiorenal_syndrome_management, drug_dosing_in_CKD, dialysis_considerations
+treatment_type: dose_adjusted_pharmacotherapy, dialysis
 -->
 
 ## Section 14.6: HEART FAILURE AND CHRONIC KIDNEY DISEASE (CKD)

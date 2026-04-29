@@ -1,9 +1,12 @@
----
-title: "Section 16 – Introduction to PAH in Congenital Heart Diseases"
-description: "Classification of congenital heart defects associated with PAH and the pathophysiology of Eisenmenger syndrome."
----
-
 # SECTION 16: INTRODUCTION TO PAH IN CONGENITAL HEART DISEASES
+
+<!-- METADATA
+category: Introduction
+use_case: CHD-PAH Pathophysiology Overview — high_volume_shunts, Eisenmenger_progression, post_closure_PAH, reversible_vs_irreversible
+patient_input: CHD_type, shunt_direction, defect_size
+output: CHD_PAH_classification, Eisenmenger_risk_assessment
+-->
+
 
 > **Context:** This section introduces pulmonary arterial hypertension (PAH) associated with congenital heart diseases. It classifies CHD-PAH into three pathophysiological categories: high volume/high pressure shunts (e.g., large VSD, PDA), high volume/low pressure shunts (e.g., large ASD), and high pulmonary venous pressure. It also describes the progression from reversible pulmonary hypertension to irreversible PAH, the development of Eisenmenger syndrome due to flow reversal, and the phenomenon where patients develop progressive PAH even after successful cardiac defect closure, behaving like idiopathic PAH (IPAH).
 

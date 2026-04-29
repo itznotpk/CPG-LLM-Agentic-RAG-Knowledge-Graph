@@ -1,9 +1,12 @@
----
-title: "Section 3 – Pathogenesis of PAH in Adults"
-description: "Pathophysiology of PAH including endothelial dysfunction, genetic factors (BMPR2), vasoconstriction, and vascular remodelling."
----
-
 # SECTION 3: PATHOGENESIS OF PAH IN ADULTS
+
+<!-- METADATA
+category: Pathophysiology
+use_case: Disease Mechanism Understanding — endothelial_dysfunction, ET1_overexpression, NO_prostacyclin_deficiency, BMPR2_mutation, RV_failure
+patient_input: 
+output: pathogenesis_cascade, genetic_risk_factors, disease_progression_model
+-->
+
 
 > **Context:** This section details the pathophysiology of PAH, covering the endothelial dysfunction cascade (ET-1 overexpression, nitric oxide/prostacyclin deficiency), genetic susceptibility (BMPR2 mutation), smooth muscle proliferation, and the progression to right ventricular failure and death.
 

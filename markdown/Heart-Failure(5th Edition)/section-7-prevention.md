@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Prevention
-use_case: Risk Factor Management
-patient_input: HTN, DM, obesity, smoking, family history
-output: Stage A & B prevention strategies
+use_case: HF Risk Factor Management — HTN_control, DM_management, obesity, smoking_cessation, Stage_A_B_prevention
+patient_input: HTN, DM, obesity, smoking, family_history
+output: Stage_A_B_prevention_strategies, risk_factor_targets
 -->
 
 ## 7. PREVENTION

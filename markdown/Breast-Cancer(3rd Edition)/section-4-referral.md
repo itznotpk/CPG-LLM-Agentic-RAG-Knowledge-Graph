@@ -1,10 +1,10 @@
 # SECTION 4: REFERRAL
 
 <!-- METADATA
-category: Referral
-use_case: Referral Criteria
-patient_input: 
-output:
+category: Diagnosis
+use_case: Referral Criteria and Pathways — urgent_referral, non_urgent_referral, two_week_wait, triple_assessment
+patient_input: clinical_findings, imaging_results, symptom_description
+output: referral_urgency, referral_pathway, specialist_type
 -->
 
 ## Overview

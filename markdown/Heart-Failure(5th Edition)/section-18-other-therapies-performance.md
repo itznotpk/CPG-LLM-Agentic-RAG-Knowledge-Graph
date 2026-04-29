@@ -1,10 +1,10 @@
 # SECTION 18-19: OTHER THERAPIES & PERFORMANCE MEASURES
 
 <!-- METADATA
-category: Other
-use_case: Complementary Therapies and Quality Indicators
+category: Reference
+use_case: Complementary Therapies and Quality Indicators — EECP, stem_cell_therapy, supplements, performance_measures
 patient_input: 
-output: EECP, stem cell therapy, supplements, performance measures
+output: EECP_evidence, stem_cell_therapy_status, supplement_guidance, performance_measures
 -->
 
 ## 18. OTHER THERAPIES FOR HEART FAILURE

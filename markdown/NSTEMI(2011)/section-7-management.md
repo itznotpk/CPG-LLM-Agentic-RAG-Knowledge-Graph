@@ -1,7 +1,11 @@
----
-title: "Management of UA/NSTEMI"
-description: "Guidelines on pre-hospital and in-hospital management, including antiplatelet, anticoagulant, and anti-ischemic drug therapies."
----
+<!-- METADATA
+category: Treatment
+use_case: Pharmacological Management of UA/NSTEMI — antiplatelet_therapy, anticoagulant_therapy, anti_ischaemic_therapy, lipid_therapy, pre_hospital_care
+patient_input: bleeding_risk, renal_function, haemodynamic_status, pain_severity, contraindications
+output: drug_selection, dosing_protocol, treatment_duration, combination_therapy
+critical: true
+treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, UFH, LMWH, fondaparinux, beta_blocker, statin, ACEi_ARB, nitrate
+-->
 
 # SECTION 7: MANAGEMENT OF UA/NSTEMI
 

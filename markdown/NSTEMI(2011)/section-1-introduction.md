@@ -1,7 +1,9 @@
----
-title: "Introduction"
-description: "Background on Cardiovascular Disease in Malaysia and the rationale for updating the CPG."
----
+<!-- METADATA
+category: Introduction
+use_case: Epidemiology and CPG Rationale — cardiovascular_disease_malaysia, ACS_prevalence, guideline_update_rationale
+patient_input: 
+output: disease_burden_context, guideline_objectives
+-->
 
 # SECTION 1: INTRODUCTION
 

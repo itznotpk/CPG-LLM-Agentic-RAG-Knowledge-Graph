@@ -1,10 +1,10 @@
 # SECTION 5: ETIOLOGY
 
 <!-- METADATA
-category: Etiology
-use_case: Cause Identification
-patient_input: Patient history, risk factors
-output: Causes of HF, decompensation factors (CHAMPION mnemonic)
+category: Epidemiology
+use_case: HF Aetiology and Cause Identification — ischaemic, non_ischaemic, decompensation_triggers, CHAMPION_mnemonic
+patient_input: patient_history, risk_factors, echocardiography
+output: HF_aetiology, decompensation_factors, reversible_causes
 -->
 
 ## 5. ETIOLOGY

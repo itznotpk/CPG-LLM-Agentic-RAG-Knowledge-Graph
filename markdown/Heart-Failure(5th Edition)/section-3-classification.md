@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Classification
-use_case: Staging and Classification
-patient_input: LVEF, Symptoms
-output: Classification, NYHA staging, Stages of HF
+use_case: HF Staging and Classification — LVEF_based, NYHA_functional_class, ACC_AHA_stages, HFrEF, HFmrEF, HFpEF, HFimpEF
+patient_input: LVEF, symptoms, functional_status
+output: HF_classification, NYHA_staging, HF_stage_assignment
 -->
 
 ## 3. Classification

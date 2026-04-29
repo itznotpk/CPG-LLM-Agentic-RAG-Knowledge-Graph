@@ -1,10 +1,10 @@
 # SECTION 14.9: HEART FAILURE IN ADULT CONGENITAL HEART DISEASE (ACHD)
 
 <!-- METADATA
-category: Special Groups
-use_case: ACHD Management
-patient_input: congenital heart disease type, surgical history
-output: ACHD-HF management, pharmacotherapy by subgroup, advanced therapies
+category: Special Populations
+use_case: HF in Adult Congenital Heart Disease — ACHD_HF_management, pharmacotherapy_by_subgroup, advanced_therapies
+patient_input: congenital_heart_disease_type, surgical_history
+output: ACHD_HF_management_plan, pharmacotherapy_selection, advanced_therapy_referral
 -->
 
 ## 14.9. HEART FAILURE IN ADULT CONGENITAL HEART DISEASE (ACHD)

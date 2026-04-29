@@ -1,9 +1,13 @@
----
-title: "Section 18 – Assessment of PAH in Congenital Heart Diseases"
-description: "Assessment protocols and operability evaluation including Heath and Edwards lung biopsy grading for PAH in CHD."
----
-
 # SECTION 18: ASSESSMENT OF PAH IN CONGENITAL HEART DISEASES
+
+<!-- METADATA
+category: Assessment
+use_case: CHD-PAH Operability Evaluation — PVR_assessment, vasodilator_testing, Heath_Edwards_grading, echocardiography, catheterisation, lung_biopsy
+patient_input: CHD_type, age_at_presentation, pulse_oximetry, echocardiography_findings, catheterisation_data
+output: operability_decision, surgical_vs_medical_pathway, histologic_grading
+critical: true
+-->
+
 
 > **Context:** This section outlines the assessment of operability in patients with PAH in congenital heart diseases. It describes the variable timeline for developing irreversible pulmonary vascular obstructive disease (50% of large VSDs/PDAs by early childhood, 10% of large ASDs by 2nd-3rd decade, nearly all unrepaired truncus arteriosus/AVSD/TGA with large VSD by end of 1st year). It details the clinical assessment requirements for determining surgical operability, ranging from history and clinical findings through non-invasive testing (pulse oximetry, chest X-ray, ECG, echocardiography, exercise testing) to invasive haemodynamic assessment, vasodilator response testing, and the Heath and Edwards histologic grading system (Stages I-VI) for lung biopsies.
 

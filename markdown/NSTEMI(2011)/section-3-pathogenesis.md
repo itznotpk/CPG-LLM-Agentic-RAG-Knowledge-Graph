@@ -1,7 +1,9 @@
----
-title: "Pathogenesis"
-description: "The underlying pathogenesis of ACS, defining Primary vs Secondary UA/NSTEMI."
----
+<!-- METADATA
+category: Pathophysiology
+use_case: ACS Pathogenesis — plaque_rupture, thrombosis, coronary_vasospasm, primary_vs_secondary_UA
+patient_input: 
+output: pathogenesis_classification, mechanism_of_ACS
+-->
 
 # SECTION 3: PATHOGENESIS
 

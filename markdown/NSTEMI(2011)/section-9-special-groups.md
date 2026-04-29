@@ -1,7 +1,10 @@
----
-title: "Special Groups"
-description: "Guidelines for managing UA/NSTEMI in distinct patient populations including the elderly, women, CKD patients, and diabetics."
----
+<!-- METADATA
+category: Special Populations
+use_case: Comorbidity-Specific Management — elderly_ACS, women_ACS, diabetes_ACS, chronic_kidney_disease, contrast_nephropathy_prevention
+patient_input: age, gender, eGFR, diabetic_status, contrast_allergy
+output: dose_adjustment, invasive_strategy_modification, nephropathy_prevention_protocol
+treatment_type: adjusted_pharmacotherapy, modified_PCI_strategy
+-->
 
 # SECTION 9: UA/NSTEMI IN SPECIAL GROUPS
 

@@ -1,10 +1,11 @@
 # SECTION 16: HF REHABILITATION
 
 <!-- METADATA
-category: Rehabilitation
-use_case: Exercise and Rehabilitation
-patient_input: Functional capacity, exercise tolerance
-output: Cardiac rehabilitation, exercise prescription, special populations
+category: Supportive Treatment
+use_case: HF Rehabilitation — cardiac_rehabilitation, exercise_prescription, special_populations_exercise
+patient_input: functional_capacity, exercise_tolerance
+output: cardiac_rehabilitation_plan, exercise_prescription, special_population_guidance
+treatment_type: exercise_rehabilitation
 -->
 
 ## 16. HEART FAILURE REHABILITATION

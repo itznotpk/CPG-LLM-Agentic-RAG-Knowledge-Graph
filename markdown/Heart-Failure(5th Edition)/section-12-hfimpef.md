@@ -1,10 +1,10 @@
 # SECTION 12: HFimpEF (Improved Ejection Fraction)
 
 <!-- METADATA
-category: Management
-use_case: HFimpEF Management
-patient_input: Baseline LVEF <40% improved to >40%
-output: Continuation of therapy, monitoring, relapse risk
+category: Treatment
+use_case: HFimpEF Management — therapy_continuation, monitoring, relapse_prevention
+patient_input: baseline_LVEF_below_40_improved_above_40
+output: therapy_continuation_plan, monitoring_protocol, relapse_risk_assessment
 -->
 
 ## 12. HEART FAILURE WITH IMPROVED LV EJECTION FRACTION (HFimpEF)

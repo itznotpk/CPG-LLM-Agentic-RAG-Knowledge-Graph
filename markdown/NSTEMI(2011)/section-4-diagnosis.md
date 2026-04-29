@@ -1,7 +1,10 @@
----
-title: "Diagnosis of UA/NSTEMI"
-description: "Guidelines for patient history, physical examination, ECG interpretation, and cardiac biomarkers."
----
+<!-- METADATA
+category: Diagnosis
+use_case: UA/NSTEMI Diagnostic Criteria — history_taking, physical_examination, ECG_interpretation, troponin_assay, biomarker_kinetics
+patient_input: chest_pain_history, ECG_findings, cardiac_biomarkers, risk_factors
+output: UA_NSTEMI_diagnosis, biomarker_timing, differential_diagnosis
+critical: true
+-->
 
 # SECTION 4: DIAGNOSIS
 

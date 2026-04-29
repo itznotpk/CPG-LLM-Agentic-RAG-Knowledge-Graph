@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Pathophysiology
-use_case: Disease Mechanism
+use_case: HF Disease Mechanism — neurohormonal_activation, RAAS, sympathetic_nervous_system, ventricular_remodelling
 patient_input: 
-output: HFrEF, HFpEF, HFmrEF, HFimpEF pathophysiology
+output: HFrEF_pathophysiology, HFpEF_pathophysiology, HFmrEF_pathophysiology, HFimpEF_pathophysiology
 -->
 
 ## 4. PATHOPHYSIOLOGY

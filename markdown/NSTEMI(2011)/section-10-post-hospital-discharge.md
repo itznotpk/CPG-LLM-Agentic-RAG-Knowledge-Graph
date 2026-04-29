@@ -1,7 +1,10 @@
----
-title: "Post Hospital Discharge"
-description: "Guidelines specifying the continuation of preventative and stabilization medications post-hospital discharge."
----
+<!-- METADATA
+category: Treatment
+use_case: Post-Discharge Pharmacotherapy and Follow-Up — antiplatelet_duration, beta_blocker_continuation, statin_therapy, ACEi_ARB_titration, discharge_instructions
+patient_input: LVEF, medication_tolerance, lipid_profile, blood_pressure, renal_function
+output: discharge_medication_plan, follow_up_investigation_plan, medication_titration_targets
+treatment_type: aspirin, clopidogrel, beta_blocker, statin, ACEi_ARB, aldosterone_antagonist
+-->
 
 # SECTION 10: POST HOSPITAL DISCHARGE
 

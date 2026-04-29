@@ -1,7 +1,10 @@
----
-title: "Secondary Prevention and Rehabilitation"
-description: "Guidelines covering rehabilitation protocols, risk factor modifications (e.g. smoking, weight, lipids), and discharge educational priorities."
----
+<!-- METADATA
+category: Prevention
+use_case: Cardiac Rehabilitation and Secondary Prevention — rehabilitation_phases, lifestyle_modification, smoking_cessation, weight_management, lipid_targets, blood_pressure_targets, glycaemic_control
+patient_input: functional_capacity, BMI, smoking_status, lipid_profile, blood_pressure, HbA1c
+output: rehabilitation_phase_plan, risk_factor_targets, lifestyle_plan, exercise_prescription
+treatment_type: exercise_rehabilitation, lifestyle, statin, ACEi_ARB
+-->
 
 # SECTION 11: CARDIAC REHABILITATION / SECONDARY PREVENTION
 

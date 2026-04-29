@@ -1,10 +1,10 @@
 # SECTION 11: IMPLEMENTING THE GUIDELINES
 
 <!-- METADATA
-category: Implementation
-use_case: Guidelines Implementation
+category: Reference
+use_case: Guidelines Implementation — clinical_audit, quality_indicators, resource_allocation, training
 patient_input: 
-output:
+output: implementation_framework, audit_criteria, quality_benchmarks
 -->
 
 ## Overview

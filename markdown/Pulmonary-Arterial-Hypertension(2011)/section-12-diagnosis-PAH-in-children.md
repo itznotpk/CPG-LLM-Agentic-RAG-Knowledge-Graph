@@ -1,9 +1,13 @@
----
-title: "Section 12 – Diagnosis of PAH in Children"
-description: "Clinical signs, initial non-invasive tests, and specific tests for determining the underlying cause of paediatric PAH."
----
-
 # SECTION 12: DIAGNOSIS OF PAH IN CHILDREN
+
+<!-- METADATA
+category: Diagnosis
+use_case: Paediatric Diagnostic Pathway — clinical_suspicion_by_age, ECG, CXR, echocardiography, TOE, laboratory_workup, RHC, vasoreactivity_testing
+patient_input: age, symptoms, ECG_findings, echocardiography_findings, laboratory_results
+output: paediatric_PAH_diagnosis, IPAH_vs_secondary_classification, referral_for_RHC
+critical: true
+-->
+
 
 > **Context:** This section covers the paediatric PAH diagnostic pathway, including clinical suspicion by age group (Table 6: infants, children, older children), initial non-invasive detection tests (Table 7: ECG, Chest X-ray, Doppler echocardiography, TOE), PHT clinical class identification via detailed history taking (Table 8: perinatal, respiratory, familial, CHD, drug, and systemic causes), and general/specific laboratory workup (Table 9a/9b) including thrombophilia screening and imaging for CTEPH. IPAH is diagnosed when no secondary cause is found. All paediatric patients require referral to specialized centres for invasive RHC confirmation, severity assessment, and vasoreactivity testing.
 

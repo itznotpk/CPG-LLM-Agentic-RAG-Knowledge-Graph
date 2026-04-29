@@ -2,9 +2,11 @@
 
 <!-- METADATA
 category: Treatment
-use_case: Systemic Therapy Guidelines
-patient_input: 
-output:
+use_case: Systemic Therapy Guidelines — chemotherapy, endocrine_therapy, targeted_therapy, neoadjuvant, adjuvant, metastatic
+patient_input: receptor_status, TNM_stage, menopausal_status, comorbidities, genomic_assay
+output: regimen_selection, treatment_sequence, dose_schedule, response_monitoring
+critical: true
+treatment_type: chemotherapy, endocrine_therapy, anti_HER2, CDK4_6_inhibitor, immunotherapy
 -->
 
 ## Overview

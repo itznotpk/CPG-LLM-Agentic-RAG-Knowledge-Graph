@@ -1,10 +1,11 @@
 # SECTION 14.1-14.3: HF AND DIABETES, VALVULAR HEART DISEASE, CARDIOMYOPATHY
 
 <!-- METADATA
-category: Special Groups
-use_case: Comorbidity Management
-patient_input: Diabetes, VHD type, cardiomyopathy type
-output: SGLT2i in diabetes, valve intervention criteria, DCM/HCM/RCM management
+category: Special Populations
+use_case: HF with Diabetes, VHD and Cardiomyopathy — SGLT2i_in_diabetes, valve_intervention_criteria, DCM, HCM, RCM
+patient_input: diabetes_status, VHD_type, cardiomyopathy_type
+output: SGLT2i_in_diabetes, valve_intervention_criteria, DCM_HCM_RCM_management
+treatment_type: SGLT2i, valve_surgery, cardiomyopathy_specific_therapy
 -->
 
 ## Section 14. SPECIAL GROUPS

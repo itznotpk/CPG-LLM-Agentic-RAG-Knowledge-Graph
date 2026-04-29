@@ -1,7 +1,11 @@
----
-title: "Revascularization Strategies"
-description: "Guidelines and indications for early invasive versus conservative management strategies in UA/NSTEMI."
----
+<!-- METADATA
+category: Treatment
+use_case: Revascularisation Strategy Selection — early_invasive_vs_conservative, PCI_indications, CABG_indications, coronary_angiography_timing
+patient_input: TIMI_score, GRACE_score, coronary_anatomy, haemodynamic_status, refractory_ischaemia
+output: revascularisation_strategy, PCI_vs_CABG_decision, angiography_timing
+critical: true
+treatment_type: PCI, CABG, medical_therapy
+-->
 
 # SECTION 8: REVASCULARIZATION STRATEGIES
 

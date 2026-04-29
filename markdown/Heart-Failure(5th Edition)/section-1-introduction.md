@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Introduction
-use_case: Background Information
+use_case: HF Epidemiology and Burden — prevalence_data, mortality_statistics, socioeconomic_impact, Malaysian_context
 patient_input: 
-output: HF epidemiology, socioeconomic burden
+output: HF_epidemiology, socioeconomic_burden, guideline_objectives
 -->
 
 ## 1. INTRODUCTION

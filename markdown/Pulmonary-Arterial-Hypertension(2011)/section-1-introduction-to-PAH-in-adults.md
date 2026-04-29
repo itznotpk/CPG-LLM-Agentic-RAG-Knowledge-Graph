@@ -1,9 +1,12 @@
----
-title: "Section 1 – Introduction to PAH in Adults"
-description: "Introduction to PAH including disease overview, mortality statistics, available therapies, and the Malaysian healthcare context."
----
-
 # SECTION 1: INTRODUCTION TO PAH IN ADULTS
+
+<!-- METADATA
+category: Introduction
+use_case: PAH Disease Overview and Malaysian Context — disease_overview, mortality_statistics, available_therapies, healthcare_context
+patient_input: 
+output: disease_burden_context, therapy_landscape, guideline_objectives
+-->
+
 
 > **Context:** This section introduces Pulmonary Arterial Hypertension (PAH), establishing it as a subset of pulmonary hypertension characterised by sustained elevations in PAP and increased PVR leading to right heart failure. It summarises historical mortality data, lists the approved drug classes (prostanoids, PDE-5 inhibitors, ERAs), and frames the guideline within the Malaysian healthcare system.
 

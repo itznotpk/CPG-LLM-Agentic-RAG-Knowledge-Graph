@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Supportive Treatment
-use_case: Supportive Care Guidelines
-patient_input: 
-output:
+use_case: Supportive Care Guidelines — pain_management, nausea_vomiting, lymphoedema, psychological_support, palliative_care
+patient_input: symptom_type, treatment_phase, functional_status
+output: supportive_intervention, symptom_management_plan, palliative_referral
 -->
 
 ## Overview

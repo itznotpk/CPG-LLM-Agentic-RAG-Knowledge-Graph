@@ -1,7 +1,9 @@
----
-title: "Summary: Management of Unstable Angina/Non ST Elevation Myocardial Infarction"
-description: "Executive summary, triage flowcharts, medication protocols, and overall recommendations."
----
+<!-- METADATA
+category: Methodology
+use_case: Executive Summary and Key Recommendations — triage_flowcharts, medication_protocols, risk_stratification_overview, evidence_grading
+patient_input: 
+output: guideline_summary, key_recommendations, triage_pathways
+-->
 
 # SECTION 0: SUMMARY
 

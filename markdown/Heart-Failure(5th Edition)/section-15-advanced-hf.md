@@ -1,10 +1,12 @@
 # SECTION 15: ADVANCED HEART FAILURE
 
 <!-- METADATA
-category: Management
-use_case: Advanced/End-Stage HF
-patient_input: Refractory symptoms, NYHA III-IV, recurrent hospitalizations
-output: Heart transplant, MCS, palliative care, end-of-life planning
+category: Treatment
+use_case: Advanced and End-Stage HF — heart_transplant, MCS, palliative_care, end_of_life_planning, refractory_symptoms
+patient_input: refractory_symptoms, NYHA_III_IV, recurrent_hospitalisations
+output: transplant_referral, MCS_indication, palliative_care_plan, end_of_life_planning
+critical: true
+treatment_type: heart_transplant, MCS, LVAD, palliative_care
 -->
 
 ## 15. ADVANCED HEART FAILURE

@@ -1,9 +1,12 @@
----
-title: "Section 2 – Clinical Classification of PAH in Adults"
-description: "Dana Point 2008 classification of PHT, PAH definition criteria, and WHO functional class system for PAH severity staging."
----
-
 # SECTION 2: CLINICAL CLASSIFICATION OF PAH IN ADULTS
+
+<!-- METADATA
+category: Classification
+use_case: Disease Classification and Staging — Dana_Point_2008, WHO_functional_class, haemodynamic_criteria, mPAP_threshold, PCWP
+patient_input: mPAP, PCWP, functional_status
+output: PHT_classification, WHO_class_assignment, severity_staging
+-->
+
 
 > **Context:** This section codifies the Dana Point 2008 classification update for Pulmonary Hypertension, defines PAH by haemodynamic criteria (mPAP >25 mmHg, PCWP ≤15 mmHg), and establishes the WHO functional class system (Classes I–IV) for severity staging. Table 1 provides the five-category PHT classification and Table 2 provides the WHO functional class definitions.
 

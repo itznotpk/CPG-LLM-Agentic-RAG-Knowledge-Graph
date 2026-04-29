@@ -2,9 +2,11 @@
 
 <!-- METADATA
 category: Treatment
-use_case: Surgical Management
-patient_input: 
-output:
+use_case: Surgical Management — mastectomy, breast_conserving_surgery, sentinel_node_biopsy, axillary_clearance, reconstruction
+patient_input: tumour_size, tumour_location, TNM_stage, patient_preference, comorbidities
+output: surgical_approach, reconstruction_option, axillary_management
+critical: true
+treatment_type: mastectomy, BCS, SLNB, ALND, reconstruction
 -->
 
 ## Overview

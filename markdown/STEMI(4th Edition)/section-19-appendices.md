@@ -1,8 +1,8 @@
 # SECTION 19: APPENDICES
 
 <!-- METADATA
-category: reference_tables
-use_case: Killip_classification, TIMI_risk_score, GRACE_score, Sgarbossa_criteria, drug_dosing_tables
+category: Reference
+use_case: Appendices and Reference Tables — Killip_classification, TIMI_risk_score, GRACE_score, Sgarbossa_criteria, drug_dosing_tables
 patient_input: clinical_parameters, scoring_variables
 output: risk_score_calculation, diagnostic_criteria_reference, drug_dosing_reference
 -->

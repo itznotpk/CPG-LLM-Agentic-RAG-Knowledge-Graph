@@ -1,7 +1,10 @@
----
-title: "Triage of UA/NSTEMI"
-description: "Guidelines on rapid triage categorization, clinical assessment, and risk stratification necessary for management decisions."
----
+<!-- METADATA
+category: Diagnosis
+use_case: Emergency Triage and Risk Categorisation — rapid_assessment, high_risk_identification, invasive_vs_conservative_decision
+patient_input: vital_signs, ECG_findings, cardiac_biomarkers, haemodynamic_status
+output: triage_category, management_pathway, admission_decision
+critical: true
+-->
 
 # SECTION 6: TRIAGE
 

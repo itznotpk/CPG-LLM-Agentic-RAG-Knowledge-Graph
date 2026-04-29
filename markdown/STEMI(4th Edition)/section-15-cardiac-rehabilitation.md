@@ -1,8 +1,8 @@
 # SECTION 15: CARDIAC REHABILITATION
 
 <!-- METADATA
-category: rehabilitation
-use_case: cardiac_rehabilitation_phases, exercise_prescription, psychosocial_support, return_to_work, sexual_activity_resumption, driving_resumption
+category: Supportive Treatment
+use_case: Cardiac Rehabilitation Programme — cardiac_rehabilitation_phases, exercise_prescription, psychosocial_support, return_to_work, sexual_activity_resumption, driving_resumption
 patient_input: functional_capacity, LVEF, complication_history, occupation_type, psychological_status
 output: rehabilitation_phase_plan, exercise_programme, activity_clearance, psychosocial_intervention, return_to_work_timeline
 treatment_type: exercise_rehabilitation, psychosocial_therapy

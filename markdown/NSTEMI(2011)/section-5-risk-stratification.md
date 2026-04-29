@@ -1,7 +1,10 @@
----
-title: "Risk Stratification of UA/NSTEMI"
-description: "Guidelines for risk assessment for adverse clinical outcomes (TIMI, GRACE) and bleeding risks."
----
+<!-- METADATA
+category: Assessment
+use_case: Risk Stratification for Adverse Outcomes — TIMI_risk_score, GRACE_score, bleeding_risk, ACUITY_HORIZONS, CRUSADE_score
+patient_input: age, troponin, ECG_changes, prior_CAD, risk_factors, renal_function, haemoglobin
+output: risk_category, prognosis, bleeding_risk_score, management_pathway_selection
+critical: true
+-->
 
 # SECTION 5: RISK STRATIFICATION
 

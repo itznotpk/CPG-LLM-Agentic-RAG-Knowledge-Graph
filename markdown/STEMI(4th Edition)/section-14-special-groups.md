@@ -1,8 +1,8 @@
 # SECTION 14: SPECIAL GROUPS
 
 <!-- METADATA
-category: special_populations
-use_case: elderly_STEMI, diabetes_mellitus, gender_differences, chronic_kidney_disease, multivessel_disease, anticoagulation_management
+category: Special Populations
+use_case: Age, Gender and Comorbidity-Specific Management — elderly_STEMI, diabetes_mellitus, gender_differences, chronic_kidney_disease, multivessel_disease, anticoagulation_management
 patient_input: age, diabetic_status, eGFR, gender, concomitant_anticoagulation, coronary_anatomy
 output: age_adjusted_management, renal_dose_adjustment, gender_specific_considerations, anticoagulant_antiplatelet_combination
 treatment_type: adjusted_pharmacotherapy, modified_PCI_strategy

@@ -1,10 +1,11 @@
 # SECTION 11: HFmrEF (LVEF 41-49%)
 
 <!-- METADATA
-category: Management
-use_case: HFmrEF Management
-patient_input: LVEF 41-49%
-output: Management approach for mildly reduced EF
+category: Treatment
+use_case: HFmrEF Management — mildly_reduced_EF, pharmacotherapy_extrapolation, SGLT2i
+patient_input: LVEF_41_to_49
+output: HFmrEF_management_approach, medication_recommendations
+treatment_type: SGLT2i, ACEi_ARB, beta_blocker, MRA
 -->
 
 ## 11. HEART FAILURE WITH MILDLY REDUCED LV EJECTION FRACTION (HFmrEF)

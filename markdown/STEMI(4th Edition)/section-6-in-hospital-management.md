@@ -1,11 +1,12 @@
 # SECTION 6: IN-HOSPITAL MANAGEMENT
 
 <!-- METADATA
-category: acute_management
-use_case: ED_triage, pain_management, initial_stabilisation, oxygen_therapy, antiplatelet_loading, anticoagulation
+category: Treatment
+use_case: In-Hospital Acute Management — ED_triage, pain_management, initial_stabilisation, oxygen_therapy, antiplatelet_loading, anticoagulation
 patient_input: vital_signs, ECG_findings, pain_severity, haemodynamic_status, bleeding_risk
 output: initial_treatment_plan, reperfusion_strategy_selection, pharmacotherapy_initiation
 critical: true
+treatment_type: antiplatelet_loading, analgesia, oxygen_therapy, reperfusion
 -->
 
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019

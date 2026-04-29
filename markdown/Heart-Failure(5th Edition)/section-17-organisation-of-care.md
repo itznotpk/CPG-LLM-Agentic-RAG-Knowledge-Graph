@@ -1,10 +1,10 @@
 # SECTION 17: ORGANISATION OF CARE
 
 <!-- METADATA
-category: Organisation
-use_case: Care Coordination
+category: Reference
+use_case: Care Coordination and Organisation — HF_clinics, follow_up_schedules, referral_criteria, telemedicine
 patient_input: 
-output: HF clinics, follow-up schedules, referral criteria, telemedicine
+output: HF_clinic_model, follow_up_schedules, referral_criteria, telemedicine_guidance
 -->
 
 ## 17. ORGANISATION OF CARE

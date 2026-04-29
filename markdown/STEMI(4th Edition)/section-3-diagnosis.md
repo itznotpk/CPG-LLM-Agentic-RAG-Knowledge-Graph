@@ -1,8 +1,8 @@
 # SECTION 3: DIAGNOSIS
 
 <!-- METADATA
-category: diagnosis
-use_case: clinical_assessment, ECG_interpretation, biomarker_evaluation, differential_diagnosis
+category: Diagnosis
+use_case: Clinical Assessment and ECG Interpretation — clinical_assessment, ECG_interpretation, biomarker_evaluation, differential_diagnosis
 patient_input: chest_pain_history, ECG_findings, cardiac_biomarkers, risk_factors
 output: STEMI_diagnosis, infarct_localisation, differential_diagnoses
 critical: true

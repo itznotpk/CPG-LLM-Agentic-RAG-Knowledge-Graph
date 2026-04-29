@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Introduction
-use_case: Definition
+use_case: Heart Failure Definition — haemodynamic_criteria, clinical_syndrome, structural_functional_abnormality
 patient_input: 
-output: Definition of Heart Failure
+output: HF_definition, diagnostic_framework
 -->
 
 ## 2. Definition

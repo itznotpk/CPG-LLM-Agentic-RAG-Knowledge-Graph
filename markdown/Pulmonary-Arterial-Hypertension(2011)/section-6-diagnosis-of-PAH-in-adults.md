@@ -1,9 +1,13 @@
----
-title: "Section 6 – Diagnosis of PAH in Adults"
-description: "Four-stage diagnostic approach for PAH including clinical suspicion, PHT detection, class identification, and PAH evaluation with right-heart catheterisation."
----
-
 # SECTION 6: DIAGNOSIS OF PAH IN ADULTS
+
+<!-- METADATA
+category: Diagnosis
+use_case: Diagnostic Pathway and Investigations — clinical_suspicion, ECG, CXR, Doppler_echo, PFT, VQ_scan, CT_angiography, RHC, vasoreactivity_testing
+patient_input: symptoms, ECG_findings, echocardiography_findings, PFT_results, VQ_scan_results
+output: PAH_diagnosis, PHT_class_identification, vasoreactivity_response, haemodynamic_profile
+critical: true
+-->
+
 
 > **Context:** This section defines the four-stage sequential diagnostic pathway for PAH: (I) Clinical suspicion from symptoms and examination, (II) Detection via ECG, CXR, and Doppler echo, (III) PHT class identification via PFTs, V/Q scan, CT angiography, and (IV) PAH evaluation via blood tests, 6MWT, and right-heart catheterisation (RHC) with vasoreactivity testing. Tables 4 and 5 provide the specific investigation protocols and vasoreactivity drug regimens.
 

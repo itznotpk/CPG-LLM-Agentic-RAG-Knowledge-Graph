@@ -2,9 +2,11 @@
 
 <!-- METADATA
 category: Treatment
-use_case: Radiotherapy Guidelines
-patient_input: 
-output:
+use_case: Radiotherapy Guidelines — whole_breast, chest_wall, nodal_irradiation, boost, fractionation, DCIS
+patient_input: surgery_type, tumour_bed, nodal_status, margin_status, age
+output: radiotherapy_indication, fractionation_schedule, treatment_volume
+critical: true
+treatment_type: radiotherapy, brachytherapy
 -->
 
 ## Overview

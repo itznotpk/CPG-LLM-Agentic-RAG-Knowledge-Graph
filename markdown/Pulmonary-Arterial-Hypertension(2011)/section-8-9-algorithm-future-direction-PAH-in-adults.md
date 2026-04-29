@@ -1,9 +1,14 @@
----
-title: "Section 8-9 – Treatment Algorithm and Future Directions for PAH in Adults"
-description: "Evidence-based PAH treatment algorithm for Malaysia and future therapeutic directions including pharmacogenomics, anti-angiogenesis, and growth factor inhibitors."
----
-
 # SECTION 8-9: TREATMENT ALGORITHM AND FUTURE DIRECTIONS FOR PAH IN ADULTS
+
+<!-- METADATA
+category: Treatment
+use_case: Treatment Algorithm and Future Therapies — vasoreactivity_testing, CCB_pathway, non_vasoreactive_pathway, sequential_combination, pharmacogenomics, anti_angiogenesis
+patient_input: WHO_functional_class, vasoreactivity_status, treatment_response
+output: treatment_algorithm_pathway, escalation_strategy, future_therapy_options
+critical: true
+treatment_type: CCB, ERA, PDE5_inhibitor, prostanoid, combination_therapy
+-->
+
 
 > **Context:** This section covers the Malaysia-specific evidence-based PAH treatment algorithm (Figure 2) for **[WHO Class II–IV]** patients, including supportive therapy and general measures with **[Grade/Level]** tags, expert referral, acute vasoreactivity testing with vasoreactive (CCBs) and non-vasoreactive pathways (PAH-specific drug selection by WHO functional class and strength of recommendation), sequential combination therapy (ERA + PDE-5/Prostanoids), and last-resort interventions (atrial septostomy/lung transplant). Section 9 outlines future therapeutic directions including pharmacogenomics, anti-angiogenesis, and growth factor inhibitors. Refer to Appendix 11 and 12 for the 2008 Dana Point international guidelines comparison.
 

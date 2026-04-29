@@ -1,10 +1,10 @@
 # SECTION 9: FOLLOW-UP
 
 <!-- METADATA
-category: Follow-up
-use_case: Post-Treatment Surveillance
-patient_input: 
-output:
+category: Prevention
+use_case: Post-Treatment Surveillance — follow_up_schedule, recurrence_monitoring, imaging_frequency, symptom_assessment
+patient_input: treatment_history, time_since_treatment, symptom_status
+output: follow_up_schedule, investigation_plan, recurrence_screening
 -->
 
 ## Overview

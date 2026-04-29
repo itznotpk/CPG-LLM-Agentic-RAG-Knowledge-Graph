@@ -1,8 +1,8 @@
 # SECTION 18: ALGORITHMS
 
 <!-- METADATA
-category: clinical_algorithms
-use_case: STEMI_management_algorithm, cardiac_arrest_algorithm, tachycardia_algorithm, bradycardia_algorithm, reperfusion_decision_pathway
+category: Reference
+use_case: Clinical Decision Algorithms — STEMI_management_algorithm, cardiac_arrest_algorithm, tachycardia_algorithm, bradycardia_algorithm, reperfusion_decision_pathway
 patient_input: clinical_presentation, ECG_rhythm, haemodynamic_status
 output: treatment_pathway, step_by_step_decision_tree, emergency_protocol
 critical: true
