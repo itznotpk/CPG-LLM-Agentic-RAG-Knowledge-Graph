@@ -52,107 +52,25 @@ class GraphBuilder:
             self._initialized = False
     
     # ==========================================================================
-    # LLM-BASED DYNAMIC ENTITY EXTRACTION
+    # UNIVERSAL CLINICAL RELATION TYPES (for LLM triple extraction)
     # ==========================================================================
     
-    # Entity categories (structure only, values are extracted dynamically)
-    ENTITY_CATEGORIES = [
-        "MEDICATIONS",       # Drug names, pharmaceuticals, drug classes
-        "CONDITIONS",        # Diseases, diagnoses, symptoms
-        "PROCEDURES",        # Treatments, surgeries, therapies
-        "DIAGNOSTIC_TOOLS",  # Tests, scores, questionnaires, imaging
-        "RISK_FACTORS",      # Lifestyle factors, comorbidities
-        "ADVERSE_EVENTS",    # Side effects, complications
-        "ORGANIZATIONS",     # Medical organizations, hospitals
-        "CONTRAINDICATIONS", # Drug interactions, safety warnings
-        "DOSAGES",           # Dose amounts, timing, frequency
-        "RISK_CATEGORIES",   # Clinical risk classifications (Low/Intermediate/High)
+    # Universal clinical relationship types â€” apply to ANY CPG domain
+    CLINICAL_RELATION_TYPES = [
+        "TREATS",               # Drug/procedure treats condition
+        "CONTRAINDICATED_WITH", # Drug/intervention is contraindicated
+        "INCREASES_RISK_OF",    # Factor increases risk of condition
+        "REDUCES_RISK_OF",      # Intervention reduces risk of condition
+        "INDICATED_FOR",        # Drug/procedure is indicated for profile
+        "ASSESSED_BY",          # Condition is assessed by tool
+        "CAUSES",               # Drug/procedure causes adverse event
+        "FIRST_LINE_FOR",       # Drug/procedure is first-line
+        "SECOND_LINE_FOR",      # Drug/procedure is second-line
+        "REQUIRES_MONITORING",  # Drug/procedure requires monitoring
+        "RECOMMENDED_FOR",      # Intervention is recommended for profile
+        "HAS_DOSAGE",           # Drug has specific dosage
+        "OTHER",                # Clinical relation not covered above
     ]
-    
-    async def _extract_entities_with_llm(self, text: str) -> Dict[str, List[str]]:
-        """
-        Use LLM to dynamically extract and classify medical entities from text.
-        
-        This is fully dynamic - no hardcoded entity values. The LLM identifies
-        and categorizes all medical entities based on context.
-        
-        Args:
-            text: Content to extract entities from
-            
-        Returns:
-            Dictionary with entity categories as keys and lists of entities as values
-        """
-        from pydantic_ai import Agent
-        
-        try:
-            # Import the ingestion model
-            from agent.providers import get_ingestion_model
-            model = get_ingestion_model()
-            
-            # Truncate text if too long (LLM context limit)
-            # Increased from 4000 to 8000 to capture more tables and contraindication data
-            max_chars = 8000
-            truncated_text = text[:max_chars] if len(text) > max_chars else text
-            
-            # Log if truncation happens
-            if len(text) > max_chars:
-                logger.warning(f"LLM extraction: Truncating text from {len(text)} to {max_chars} chars")
-            
-            prompt = f"""Analyze this medical text and extract entities into categories.
-
-CATEGORIES:
-- MEDICATIONS: Drug names, drug classes (e.g., "Sildenafil", "PDE5 inhibitors", "Nitrates", "Alpha-blockers")
-- CONDITIONS: Diseases, diagnoses, symptoms (e.g., "Erectile Dysfunction", "Diabetes", "Hypertension")
-- PROCEDURES: Treatments, surgeries, therapies (e.g., "Penile prosthesis", "Lifestyle modification", "Stress test")
-- DIAGNOSTIC_TOOLS: Tests, scores, questionnaires (e.g., "IIEF-5", "HbA1c", "PSA", "Bruce Protocol")
-- RISK_FACTORS: Lifestyle factors, comorbidities (e.g., "Smoking", "Obesity", "Advanced age")
-- ADVERSE_EVENTS: Side effects, complications (e.g., "Headache", "Flushing", "Priapism", "Hypotension")
-- ORGANIZATIONS: Medical organizations, hospitals (e.g., "MOH", "WHO", "EAU", "ACC/AHA")
-- CONTRAINDICATIONS: Drug interactions, safety warnings (e.g., "Nitrates contraindicated with PDE5i", "Riociguat")
-- DOSAGES: Dose amounts, timing, frequency (e.g., "50 mg initial", "24 hour washout", "once daily")
-- RISK_CATEGORIES: Clinical risk classifications (e.g., "Low Risk", "Intermediate Risk", "High Risk", "NYHA class")
-
-TEXT:
-{truncated_text}
-
-Return ONLY a valid JSON object with the categories as keys and arrays of extracted entity strings as values.
-If no entities found for a category, use an empty array [].
-Do not include explanations, only the JSON.
-
-Example format:
-{{"MEDICATIONS": ["Sildenafil", "Tadalafil"], "CONDITIONS": ["ED"], "CONTRAINDICATIONS": ["Nitrates"], "DOSAGES": ["50 mg"], ...}}
-"""
-            
-            # Create temporary agent for entity extraction
-            temp_agent = Agent(model)
-            response = await temp_agent.run(prompt)
-            result_text = response.output
-            
-            # Parse JSON response
-            # Try to extract JSON from response (may have extra text)
-            json_match = re.search(r'\{[^{}]*\}', result_text, re.DOTALL)
-            if json_match:
-                result_text = json_match.group()
-            
-            entities = json.loads(result_text)
-            
-            # Ensure all categories exist
-            for category in self.ENTITY_CATEGORIES:
-                if category not in entities:
-                    entities[category] = []
-                # Convert to list if not already
-                if not isinstance(entities[category], list):
-                    entities[category] = [entities[category]]
-            
-            logger.debug(f"LLM extracted entities: {entities}")
-            return entities
-            
-        except json.JSONDecodeError as e:
-            logger.warning(f"Failed to parse LLM response as JSON: {e}")
-            return {cat: [] for cat in self.ENTITY_CATEGORIES}
-        except Exception as e:
-            logger.warning(f"LLM entity extraction failed: {e}")
-            return {cat: [] for cat in self.ENTITY_CATEGORIES}
 
     
     async def add_document_to_graph(
@@ -183,7 +101,7 @@ Example format:
             return {"episodes_created": 0, "errors": []}
         
         logger.info(f"Adding {len(chunks)} chunks to knowledge graph for document: {document_title}")
-        logger.info("⚠️ Large chunks will be truncated to avoid Graphiti token limits.")
+        logger.info("âš ï¸ Large chunks will be truncated to avoid Graphiti token limits.")
         
         # Check for oversized chunks and warn (increased from 6000 to 10000)
         oversized_chunks = [i for i, chunk in enumerate(chunks) if len(chunk.content) > 10000]
@@ -225,7 +143,7 @@ Example format:
                 )
                 
                 episodes_created += 1
-                logger.info(f"✓ Added episode {episode_id} to knowledge graph ({episodes_created}/{len(chunks)})")
+                logger.info(f"âœ“ Added episode {episode_id} to knowledge graph ({episodes_created}/{len(chunks)})")
                 
                 # Small delay between each episode to reduce API pressure
                 if i < len(chunks) - 1:
@@ -302,648 +220,175 @@ Example format:
         """Check if content is too large for Graphiti processing."""
         return self._estimate_tokens(content) > max_tokens
     
-    async def extract_entities_from_chunks(
-        self,
-        chunks: List[DocumentChunk],
-        use_llm: bool = True
-    ) -> List[DocumentChunk]:
+    
+    # ==========================================================================
+    # LLM TRIPLE EXTRACTION â€” Universal CPG Relationship Extraction
+    # ==========================================================================
+    
+    async def _extract_triples_with_llm(self, text: str, chunk_index: int, source: str) -> List[Dict[str, Any]]:
         """
-        Extract medical entities from chunks and add to metadata.
-        
-        Uses LLM-based dynamic extraction to identify and categorize entities.
-        No hardcoded entity lists - all entities are discovered from the text.
+        Use LLM to extract (subject, relation, object) triples from a clinical text chunk.
+        Works for any CPG domain â€” no hardcoding required.
         
         Args:
-            chunks: List of document chunks
-            use_llm: Use LLM for dynamic entity extraction (recommended)
+            text: Chunk content
+            chunk_index: Index of the chunk in its document
+            source: Source document path
         
         Returns:
-            Chunks with entity metadata added
+            List of triple dicts with keys: subject, subject_type, relation, object, object_type, evidence
         """
-        logger.info(f"Extracting medical entities from {len(chunks)} chunks using {'LLM' if use_llm else 'pattern matching'}")
+        from pydantic_ai import Agent
         
-        enriched_chunks = []
+        try:
+            from pydantic_ai.models.bedrock import BedrockConverseModel
+            model = BedrockConverseModel("us.meta.llama3-3-70b-instruct-v1:0")
+        except Exception as e:
+            logger.warning(f"Could not load ingestion model for triple extraction: {e}")
+            return []
         
-        for i, chunk in enumerate(chunks):
-            content = chunk.content
-            
-            if use_llm:
-                # Dynamic LLM-based entity extraction
-                llm_entities = await self._extract_entities_with_llm(content)
-                
-                entities = {
-                    "conditions": llm_entities.get("CONDITIONS", []),
-                    "medications": llm_entities.get("MEDICATIONS", []),
-                    "diagnostic_tools": llm_entities.get("DIAGNOSTIC_TOOLS", []),
-                    "procedures": llm_entities.get("PROCEDURES", []),
-                    "risk_factors": llm_entities.get("RISK_FACTORS", []),
-                    "adverse_events": llm_entities.get("ADVERSE_EVENTS", []),
-                    "organizations": llm_entities.get("ORGANIZATIONS", []),
-                    "extraction_method": "llm"
-                }
-            else:
-                # Fallback to legacy pattern matching (deprecated)
-                entities = {
-                    "conditions": self._extract_conditions(content),
-                    "medications": self._extract_medications(content),
-                    "diagnostic_tools": self._extract_technologies(content),
-                    "procedures": [],
-                    "risk_factors": self._extract_risk_factors(content),
-                    "adverse_events": self._extract_adverse_events(content),
-                    "organizations": self._extract_companies(content),
-                    "extraction_method": "pattern"
-                }
-            
-            # Log progress
-            if (i + 1) % 5 == 0 or i == 0:
-                logger.info(f"  Processed chunk {i + 1}/{len(chunks)}")
-            
-            # Create enriched chunk
-            enriched_chunk = DocumentChunk(
-                content=chunk.content,
-                index=chunk.index,
-                start_char=chunk.start_char,
-                end_char=chunk.end_char,
-                metadata={
-                    **chunk.metadata,
-                    "entities": entities,
-                    "entity_extraction_date": datetime.now().isoformat()
-                },
-                token_count=chunk.token_count
-            )
-            
-            # Preserve embedding if it exists
-            if hasattr(chunk, 'embedding'):
-                enriched_chunk.embedding = chunk.embedding
-            
-            enriched_chunks.append(enriched_chunk)
+        # Truncate to avoid token limit
+        max_chars = 6000
+        truncated = text[:max_chars] if len(text) > max_chars else text
         
-        # Log summary
-        total_entities = sum(
-            len(c.metadata.get("entities", {}).get(cat, []))
-            for c in enriched_chunks
-            for cat in ["conditions", "medications", "procedures", "diagnostic_tools"]
-        )
-        logger.info(f"Entity extraction complete: {total_entities} entities across {len(enriched_chunks)} chunks")
+        relation_list = "\n".join(f"  - {r}" for r in self.CLINICAL_RELATION_TYPES)
         
-        return enriched_chunks
-    
-    # ==========================================================================
-    # LEGACY FALLBACK: Pattern-Based Entity Extraction (DEPRECATED)
-    # ==========================================================================
-    # NOTE: These hardcoded sets are DEPRECATED and only used as fallback
-    # when use_llm=False in extract_entities_from_chunks().
-    # 
-    # PRIMARY METHOD: LLM-based extraction via _extract_entities_with_llm()
-    # which dynamically identifies ALL entities from text without limitation.
-    # ==========================================================================
-    
-    # 1. DIAGNOSIS & CONDITIONS (For "Risk Assessment" & "Clinical Summary")
-    CONDITIONS = {
-        "Erectile Dysfunction", "Psychogenic ED", "Organic ED", "Mixed ED",
-        "Vasculogenic ED", "Neurogenic ED", "Arteriogenic ED", "Veno-occlusive dysfunction",
-        "Peyronie's disease", "Hypogonadism", "Testicular atrophy",
-        "Diabetes Mellitus", "Type 2 Diabetes", "Hypertension", "Dyslipidemia",
-        "Cardiovascular Disease", "Ischaemic Heart Disease", "Coronary Artery Disease",
-        "Heart Failure", "Atrial Fibrillation", "Stroke", "Depression", "Anxiety",
-        "Benign Prostatic Hyperplasia", "LUTS", "Prostate Cancer", "Spinal Cord Injury",
-        "Premature Ejaculation", "Obesity", "Metabolic Syndrome"
-    }
+        prompt = f"""You are a clinical knowledge graph expert. Extract medical relationships from the clinical text below.
 
-    # 2. PHARMACOLOGICAL AGENTS (For "Pharmacological Management")
-    MEDICATIONS = {
-        # Drug Classes
-        "Phosphodiesterase-5 inhibitors", "PDE5i", "Alpha-blockers", "Antihypertensives",
-        "Nitrates", "Androgens", "Antidepressants", "SSRI",
-        # Specific Agents (ED Treatment)
-        "Sildenafil", "Tadalafil", "Vardenafil", "Avanafil", "Udenafil",
-        "Alprostadil", "Papaverine", "Phentolamine", "Yohimbine",
-        # Contraindicated/Interacting Agents
-        "Glyceryl trinitrate", "Isosorbide mononitrate", "Riociguat", "Doxazosin",
-        # Traditional/Complementary (mentioned in CPG)
-        "Tongkat Ali", "Ginseng", "L-arginine", "Propionyl-L-carnitine"
-    }
+EXTRACT relationships as JSON triples. Each triple must have:
+- subject: the entity performing or being described (string)
+- subject_type: one of [Drug, Condition, Procedure, DiagnosticTool, RiskFactor, AdverseEvent, PatientProfile, Organization]
+- relation: one of the relation types listed below (string)
+- object: the target entity (string)
+- object_type: one of [Drug, Condition, Procedure, DiagnosticTool, RiskFactor, AdverseEvent, PatientProfile, Organization, Dosage]
+- evidence: the exact sentence or phrase from the text that supports this triple (string)
 
-    # 3. DIAGNOSTIC TOOLS & SCORES (For "Investigations" & "Assessment")
-    DIAGNOSTIC_TOOLS = {
-        # Scores/Questionnaires
-        "IIEF-5", "International Index of Erectile Function", 
-        "EHS", "Erection Hardness Score", 
-        "Framingham Risk Score", "Princeton Consensus", "PHQ-9", "GAD-7",
-        # Lab/Imaging
-        "Fasting Blood Glucose", "HbA1c", "Lipid Profile", "Total Testosterone",
-        "Prolactin", "LH", "PSA", "Serum Creatinine", "Urinalysis",
-        "Nocturnal Penile Tumescence", "NPTR", 
-        "Penile Duplex Doppler Ultrasound", "Pudendal Arteriography"
-    }
+RELATION TYPES (use exactly as written):
+{relation_list}
 
-    # 4. INTERVENTIONS & PROCEDURES (For "Interventions" & "Disposition")
-    PROCEDURES = {
-        # Lifestyle
-        "Lifestyle modification", "Weight loss", "Smoking cessation", 
-        "Pelvic floor muscle training", "Physical activity",
-        # Mechanical/Surgical
-        "Vacuum Erection Device", "VED", 
-        "Low-intensity Extracorporeal Shockwave Therapy", "Li-ESWT",
-        "Penile Prosthesis", "Inflatable Penile Prosthesis", "Malleable Prosthesis",
-        "Penile Revascularization", "Angioplasty",
-        # Psych
-        "Psychosexual therapy", "CBT", "Couples therapy", "Sex therapy"
-    }
+RULES:
+- Extract ONLY relationships explicitly stated in the text. Do not infer.
+- If a relation does not fit any type, use "OTHER" and describe it in the object.
+- Subject and object must be specific named entities, not vague phrases.
+- Return a JSON array of triples. If no relationships found, return [].
+- Do not include commentary â€” only the JSON array.
 
-    # 5. RISK FACTORS & SYMPTOMS (For "Clinical Summary")
-    RISK_FACTORS = {
-        "Smoking", "Sedentary lifestyle", "Alcohol consumption", "Recreational drug use",
-        "Advanced age", "Pelvic surgery", "Radiotherapy", "Trauma",
-        "Morning erection loss", "Low libido", "Performance anxiety"
-    }
+TEXT:
+{truncated}
 
-    # 6. ADVERSE EVENTS (For "Monitoring & Nursing")
-    ADVERSE_EVENTS = {
-        "Priapism", "Hypotension", "Headache", "Flushing", "Dyspepsia", 
-        "Nasal congestion", "Visual abnormalities", "Myalgia", "Back pain",
-        "NAION", "Hearing loss"
-    }
+Return format:
+[
+  {{"subject": "Tamoxifen", "subject_type": "Drug", "relation": "TREATS", "object": "ER-positive breast cancer", "object_type": "Condition", "evidence": "Tamoxifen is recommended for ER-positive breast cancer patients."}},
+  ...
+]
+"""
+        
+        try:
+            temp_agent = Agent(model)
+            response = await temp_agent.run(prompt)
+            result_text = response.output.strip()
+            
+            # Extract JSON array from response
+            json_match = re.search(r'\[.*\]', result_text, re.DOTALL)
+            if json_match:
+                result_text = json_match.group()
+            
+            triples = json.loads(result_text)
+            
+            if not isinstance(triples, list):
+                return []
+            
+            # Validate and clean triples
+            valid_triples = []
+            for t in triples:
+                if not isinstance(t, dict):
+                    continue
+                if not all(k in t for k in ["subject", "relation", "object"]):
+                    continue
+                if t.get("relation") not in self.CLINICAL_RELATION_TYPES:
+                    t["relation"] = "OTHER"
+                t["chunk_index"] = chunk_index
+                t["source"] = source
+                valid_triples.append(t)
+            
+            logger.debug(f"Chunk {chunk_index}: extracted {len(valid_triples)} triples")
+            return valid_triples
+            
+        except json.JSONDecodeError as e:
+            logger.warning(f"Triple extraction JSON parse failed for chunk {chunk_index}: {e}")
+            return []
+        except Exception as e:
+            logger.warning(f"Triple extraction failed for chunk {chunk_index}: {e}")
+            return []
     
-    # 7. MEDICAL ORGANIZATIONS (Malaysia Healthcare)
-    MEDICAL_ORGANIZATIONS = {
-        "MOH", "Ministry of Health", "KKM", "Kementerian Kesihatan Malaysia",
-        "Malaysian Urological Association", "Academy of Medicine Malaysia",
-        "Malaysian Medical Association", "WHO", "AUA", "EAU"
-    }
-    
-    # 8. DEFINITIONS (Abbreviations and term definitions)
-    DEFINITIONS = {
-        "ED": "Erectile Dysfunction",
-        "IIEF-5": "5-item version of International Index of Erectile Function",
-        "EHS": "Erection Hardness Score",
-        "PDE5i": "Phosphodiesterase-5 inhibitors",
-        "ASCVD": "Atherosclerotic Cardiovascular Disease",
-        "VED": "Vacuum Erection Device",
-        "Li-ESWT": "Low-intensity Extracorporeal Shockwave Therapy",
-        "LUTS": "Lower Urinary Tract Symptoms",
-        "BPH": "Benign Prostatic Hyperplasia",
-        "NPT": "Nocturnal Penile Tumescence",
-        "PSA": "Prostate-Specific Antigen",
-        "HbA1c": "Glycated Hemoglobin",
-        "LH": "Luteinizing Hormone",
-        "PHQ-9": "Patient Health Questionnaire-9",
-        "GAD-7": "Generalized Anxiety Disorder 7-item scale",
-        "CBT": "Cognitive Behavioral Therapy",
-        "MOH": "Ministry of Health",
-        "CPG": "Clinical Practice Guideline",
-        "Exercise Ability": "Walking 1.6 km in 20 min or climbing 2 flights of stairs in 10 sec",
-    }
-    
-    def _extract_companies(self, text: str) -> List[str]:
-        """Extract organization/institution names from text."""
-        # Healthcare organizations and institutions
-        organizations = self.MEDICAL_ORGANIZATIONS | {
-            # Pharmaceutical companies
-            "Pfizer", "Eli Lilly", "Bayer", "GSK", "Novartis", "Roche",
-            # Hospitals (add Malaysian hospitals as needed)
-            "Hospital Kuala Lumpur", "HKL", "UMMC", "IJN"
-        }
-        
-        found = set()
-        text_lower = text.lower()
-        
-        for org in organizations:
-            pattern = r'\b' + re.escape(org.lower()) + r'\b'
-            if re.search(pattern, text_lower):
-                found.add(org)
-        
-        return list(found)
-    
-    def _extract_technologies(self, text: str) -> List[str]:
-        """Extract medical terms, diagnostic tools, and procedures from text."""
-        # Combine diagnostic tools and procedures
-        medical_terms = self.DIAGNOSTIC_TOOLS | self.PROCEDURES | {
-            "AI", "machine learning", "telemedicine", "telehealth",
-            "electronic health record", "EHR", "clinical decision support"
-        }
-        
-        found = set()
-        text_lower = text.lower()
-        
-        for term in medical_terms:
-            if term.lower() in text_lower:
-                found.add(term)
-        
-        return list(found)
-    
-    def _extract_conditions(self, text: str) -> List[str]:
-        """Extract medical conditions and diagnoses from text."""
-        found = set()
-        text_lower = text.lower()
-        
-        for condition in self.CONDITIONS:
-            pattern = r'\b' + re.escape(condition.lower()) + r'\b'
-            if re.search(pattern, text_lower):
-                found.add(condition)
-        
-        return list(found)
-    
-    def _extract_medications(self, text: str) -> List[str]:
-        """Extract medication and drug names from text."""
-        found = set()
-        text_lower = text.lower()
-        
-        for med in self.MEDICATIONS:
-            pattern = r'\b' + re.escape(med.lower()) + r'\b'
-            if re.search(pattern, text_lower):
-                found.add(med)
-        
-        return list(found)
-    
-    def _extract_risk_factors(self, text: str) -> List[str]:
-        """Extract risk factors and symptoms from text."""
-        found = set()
-        text_lower = text.lower()
-        
-        for rf in self.RISK_FACTORS:
-            if rf.lower() in text_lower:
-                found.add(rf)
-        
-        return list(found)
-    
-    def _extract_adverse_events(self, text: str) -> List[str]:
-        """Extract adverse events and side effects from text."""
-        found = set()
-        text_lower = text.lower()
-        
-        for ae in self.ADVERSE_EVENTS:
-            pattern = r'\b' + re.escape(ae.lower()) + r'\b'
-            if re.search(pattern, text_lower):
-                found.add(ae)
-        
-        return list(found)
-    
-    def _extract_people(self, text: str) -> List[str]:
-        """Extract person names from text (medical authors, experts)."""
-        # Add Malaysian medical experts or CPG authors as needed
-        medical_experts = {
-            # Add CPG authors here if known
-        }
-        
-        found = set()
-        for person in medical_experts:
-            if person in text:
-                found.add(person)
-        
-        return list(found)
-    
-    def _extract_locations(self, text: str) -> List[str]:
-        """Extract location names from text."""
-        locations = {
-            # Malaysian states and cities
-            "Malaysia", "Kuala Lumpur", "Selangor", "Penang", "Johor",
-            "Sabah", "Sarawak", "Perak", "Kedah", "Kelantan", "Terengganu",
-            "Pahang", "Negeri Sembilan", "Melaka", "Perlis", "Putrajaya",
-            # Healthcare facilities
-            "Hospital", "Klinik", "Pusat Kesihatan"
-        }
-        
-        found = set()
-        for location in locations:
-            if location in text:
-                found.add(location)
-        
-        return list(found)
-    
-    def _extract_definitions(self, text: str) -> List[Dict[str, str]]:
+    async def _write_triples_to_neo4j(self, triples: List[Dict[str, Any]], document_title: str):
         """
-        Extract term definitions from text.
+        Write extracted triples to Neo4j as typed edges using MERGE.
         
-        Looks for abbreviations and terms that have known definitions,
-        and extracts any new definition patterns from the text.
+        Uses MERGE so re-ingestion is idempotent â€” duplicate triples are not created.
+        Each node is labelled with its entity type (e.g., :Drug, :Condition).
+        Each edge carries evidence text and source metadata.
         
         Args:
-            text: Content to extract definitions from
+            triples: List of triple dicts from _extract_triples_with_llm
+            document_title: Source document title (stored on each edge)
+        """
+        if not triples:
+            return
+        
+        if not self._initialized:
+            await self.initialize()
+        
+        try:
+            async with self.graph_client.graphiti.driver.session() as session:
+                for triple in triples:
+                    subject = triple.get("subject", "").strip()
+                    subject_type = triple.get("subject_type", "Entity").strip()
+                    relation = triple.get("relation", "OTHER").strip().upper()
+                    obj = triple.get("object", "").strip()
+                    obj_type = triple.get("object_type", "Entity").strip()
+                    evidence = triple.get("evidence", "")[:500]  # Cap evidence length
+                    chunk_index = triple.get("chunk_index", 0)
+                    source = triple.get("source", "")
+                    
+                    if not subject or not obj:
+                        continue
+                    
+                    # Sanitize labels (Neo4j labels cannot have spaces)
+                    subject_label = re.sub(r'\W+', '', subject_type) or "Entity"
+                    obj_label = re.sub(r'\W+', '', obj_type) or "Entity"
+                    
+                    # MERGE nodes by name+label, then MERGE relationship with evidence
+                    cypher = f"""
+                    MERGE (s:{subject_label} {{name: $subject}})
+                    MERGE (o:{obj_label} {{name: $object}})
+                    MERGE (s)-[r:{relation}]->(o)
+                    ON CREATE SET
+                        r.evidence = $evidence,
+                        r.source_document = $document_title,
+                        r.chunk_index = $chunk_index,
+                        r.source = $source,
+                        r.created_at = datetime()
+                    ON MATCH SET
+                        r.evidence = CASE WHEN r.evidence IS NULL THEN $evidence ELSE r.evidence END,
+                        r.source_document = $document_title
+                    """
+                    
+                    await session.run(
+                        cypher,
+                        subject=subject,
+                        object=obj,
+                        evidence=evidence,
+                        document_title=document_title,
+                        chunk_index=chunk_index,
+                        source=source
+                    )
             
-        Returns:
-            List of dicts with 'term' and 'definition' keys
-        """
-        found_definitions = []
-        text_lower = text.lower()
-        
-        # Check for known definitions mentioned in text
-        for term, definition in self.DEFINITIONS.items():
-            if term.lower() in text_lower:
-                found_definitions.append({
-                    "term": term,
-                    "definition": definition,
-                    "source": "known"
-                })
-        
-        # Extract new definitions using patterns
-        definition_patterns = [
-            # "TERM = definition"
-            r'\b([A-Z][A-Z0-9\-]{1,10})\s*=\s*([^.;\n]+[a-z])',
-            # "TERM (definition)"
-            r'\b([A-Z][A-Z0-9\-]{1,10})\s+\(([^)]+)\)',
-        ]
-        
-        for pattern in definition_patterns:
-            matches = re.findall(pattern, text)
-            for match in matches:
-                term = match[0].strip()
-                definition = match[1].strip()
-                
-                # Skip if already in known definitions
-                if term not in self.DEFINITIONS and len(definition) <= 100:
-                    found_definitions.append({
-                        "term": term,
-                        "definition": definition,
-                        "source": "extracted"
-                    })
-        
-        return found_definitions
-    
-    # ==========================================================================
-    # MEDICAL RELATIONSHIP EXTRACTION (Neo4j Knowledge Graph)
-    # ==========================================================================
-    
-    # Relationship definitions for CPG
-    MEDICAL_RELATIONSHIPS = {
-        'TREATS': 'Drug/Intervention treats a condition',
-        'CONTRAINDICATED_WITH': 'Drug is contraindicated with another drug or condition',
-        'HAS_DOSAGE': 'Drug has specific dosage information',
-        'REQUIRES_MONITORING': 'Drug/Intervention requires monitoring of labs/symptoms',
-        'RECOMMENDED_FOR': 'Intervention is recommended for specific patient profile',
-        'CAUSES': 'Drug causes adverse event',
-        'ALTERNATIVE_TO': 'Drug is alternative to another drug',
-        'FIRST_LINE_FOR': 'Drug is first-line treatment for condition',
-        'SECOND_LINE_FOR': 'Drug is second-line treatment for condition',
-        'ASSESSED_BY': 'Condition is assessed by diagnostic tool',
-        'HAS_DEFINITION': 'Term has a definition/explanation',
-    }
-    
-    # Knowledge base for relationship extraction (Malaysia CPG ED)
-    DRUG_CONDITION_TREATMENTS = {
-        # PDE5 Inhibitors treat ED
-        "Sildenafil": ["Erectile Dysfunction", "Vasculogenic ED", "Psychogenic ED"],
-        "Tadalafil": ["Erectile Dysfunction", "Vasculogenic ED", "Benign Prostatic Hyperplasia", "LUTS"],
-        "Vardenafil": ["Erectile Dysfunction"],
-        "Avanafil": ["Erectile Dysfunction"],
-        "Alprostadil": ["Erectile Dysfunction", "Neurogenic ED"],
-        "Testosterone": ["Hypogonadism", "Low libido"],
-        # Procedures
-        "Vacuum Erection Device": ["Erectile Dysfunction", "Post-prostatectomy ED"],
-        "Li-ESWT": ["Vasculogenic ED", "Mild ED"],
-        "Penile Prosthesis": ["Refractory ED", "Severe ED"],
-        "Psychosexual therapy": ["Psychogenic ED", "Performance anxiety"],
-    }
-    
-    DRUG_CONTRAINDICATIONS = {
-        # PDE5i contraindications
-        "Sildenafil": ["Nitrates", "Glyceryl trinitrate", "Isosorbide mononitrate", "Riociguat", "Severe Heart Failure"],
-        "Tadalafil": ["Nitrates", "Glyceryl trinitrate", "Isosorbide mononitrate", "Riociguat", "Severe Heart Failure"],
-        "Vardenafil": ["Nitrates", "Glyceryl trinitrate", "Isosorbide mononitrate", "Riociguat"],
-        "Avanafil": ["Nitrates", "Riociguat"],
-        # Alpha-blocker interactions
-        "PDE5i": ["Alpha-blockers", "Doxazosin"],
-    }
-    
-    DRUG_DOSAGES = {
-        "Sildenafil": ["50mg on-demand", "25-100mg", "Start 50mg, adjust based on response"],
-        "Tadalafil": ["10mg on-demand", "5mg daily", "2.5-20mg", "10-20mg on-demand"],
-        "Vardenafil": ["10mg on-demand", "5-20mg"],
-        "Avanafil": ["100mg on-demand", "50-200mg"],
-        "Alprostadil": ["10-20mcg intracavernosal", "125-1000mcg intraurethral"],
-    }
-    
-    DRUG_MONITORING = {
-        "Testosterone": ["PSA", "Hematocrit", "Lipid Profile", "Liver function tests"],
-        "Alprostadil": ["Priapism monitoring", "Blood pressure"],
-        "PDE5i": ["Blood pressure", "Visual symptoms", "Hearing changes"],
-    }
-    
-    DRUG_ADVERSE_EVENTS = {
-        "Sildenafil": ["Headache", "Flushing", "Dyspepsia", "Nasal congestion", "Visual abnormalities", "NAION"],
-        "Tadalafil": ["Headache", "Back pain", "Myalgia", "Dyspepsia", "Flushing"],
-        "Vardenafil": ["Headache", "Flushing", "Dyspepsia"],
-        "Alprostadil": ["Priapism", "Penile pain", "Fibrosis"],
-    }
-    
-    CONDITION_ASSESSMENTS = {
-        "Erectile Dysfunction": ["IIEF-5", "EHS", "Nocturnal Penile Tumescence", "Penile Duplex Doppler Ultrasound"],
-        "Cardiovascular Disease": ["Framingham Risk Score", "Princeton Consensus", "ECG"],
-        "Hypogonadism": ["Total Testosterone", "LH", "Prolactin"],
-        "Diabetes Mellitus": ["HbA1c", "Fasting Blood Glucose"],
-        "Depression": ["PHQ-9"],
-        "Anxiety": ["GAD-7"],
-    }
-    
-    PATIENT_PROFILE_RECOMMENDATIONS = {
-        "Li-ESWT": ["Mild vasculogenic ED", "PDE5i responders wanting drug-free option"],
-        "Penile Prosthesis": ["Refractory ED", "PDE5i non-responders", "Post-radical prostatectomy"],
-        "Psychosexual therapy": ["Psychogenic ED", "Performance anxiety", "Relationship issues"],
-        "Tadalafil daily": ["Frequent sexual activity", "Concurrent BPH/LUTS"],
-        "Vacuum Erection Device": ["Elderly patients", "Post-prostatectomy", "Contraindication to PDE5i"],
-    }
-    
-    def extract_medical_relationships(
-        self,
-        text: str,
-        entities: Dict[str, List[str]]
-    ) -> List[Dict[str, Any]]:
-        """
-        Extract medical relationships from text based on extracted entities.
-        
-        Args:
-            text: Chunk text content
-            entities: Previously extracted entities
+            logger.info(f"Wrote {len(triples)} triples to Neo4j for '{document_title}'")
             
-        Returns:
-            List of relationship dictionaries with source, target, type, and evidence
-        """
-        relationships = []
-        text_lower = text.lower()
-        
-        medications = entities.get("medications", [])
-        conditions = entities.get("conditions", [])
-        procedures = entities.get("procedures", []) + entities.get("diagnostic_tools", [])
-        adverse_events = entities.get("adverse_events", [])
-        
-        # 1. TREATS relationships
-        for med in medications:
-            if med in self.DRUG_CONDITION_TREATMENTS:
-                for condition in self.DRUG_CONDITION_TREATMENTS[med]:
-                    if condition.lower() in text_lower or any(c.lower() == condition.lower() for c in conditions):
-                        relationships.append({
-                            "source": med,
-                            "source_type": "Drug",
-                            "target": condition,
-                            "target_type": "Condition",
-                            "relationship": "TREATS",
-                            "evidence": self._extract_evidence_snippet(text, med, condition)
-                        })
-        
-        # 2. CONTRAINDICATED_WITH relationships
-        for med in medications:
-            if med in self.DRUG_CONTRAINDICATIONS:
-                for contra in self.DRUG_CONTRAINDICATIONS[med]:
-                    if contra.lower() in text_lower:
-                        relationships.append({
-                            "source": med,
-                            "source_type": "Drug",
-                            "target": contra,
-                            "target_type": "Drug" if contra in self.MEDICATIONS else "Condition",
-                            "relationship": "CONTRAINDICATED_WITH",
-                            "evidence": self._extract_evidence_snippet(text, med, contra)
-                        })
-        
-        # 3. HAS_DOSAGE relationships
-        for med in medications:
-            if med in self.DRUG_DOSAGES:
-                # Look for dosage patterns in text
-                dosage_pattern = r'\b(\d+(?:\.\d+)?)\s*(?:mg|mcg|ml)\b'
-                if re.search(dosage_pattern, text, re.IGNORECASE):
-                    for dosage in self.DRUG_DOSAGES[med]:
-                        if any(d in text_lower for d in dosage.lower().split()):
-                            relationships.append({
-                                "source": med,
-                                "source_type": "Drug",
-                                "target": dosage,
-                                "target_type": "Dosage",
-                                "relationship": "HAS_DOSAGE",
-                                "evidence": self._extract_evidence_snippet(text, med, dosage.split()[0])
-                            })
-                            break
-        
-        # 4. REQUIRES_MONITORING relationships
-        for med in medications:
-            if med in self.DRUG_MONITORING:
-                for monitor in self.DRUG_MONITORING[med]:
-                    if monitor.lower() in text_lower:
-                        relationships.append({
-                            "source": med,
-                            "source_type": "Drug",
-                            "target": monitor,
-                            "target_type": "LabTest",
-                            "relationship": "REQUIRES_MONITORING",
-                            "evidence": self._extract_evidence_snippet(text, med, monitor)
-                        })
-        
-        # 5. CAUSES (adverse events)
-        for med in medications:
-            if med in self.DRUG_ADVERSE_EVENTS:
-                for ae in self.DRUG_ADVERSE_EVENTS[med]:
-                    if ae.lower() in text_lower:
-                        relationships.append({
-                            "source": med,
-                            "source_type": "Drug",
-                            "target": ae,
-                            "target_type": "AdverseEvent",
-                            "relationship": "CAUSES",
-                            "evidence": self._extract_evidence_snippet(text, med, ae)
-                        })
-        
-        # 6. ASSESSED_BY relationships
-        for condition in conditions:
-            if condition in self.CONDITION_ASSESSMENTS:
-                for tool in self.CONDITION_ASSESSMENTS[condition]:
-                    if tool.lower() in text_lower:
-                        relationships.append({
-                            "source": condition,
-                            "source_type": "Condition",
-                            "target": tool,
-                            "target_type": "DiagnosticTool",
-                            "relationship": "ASSESSED_BY",
-                            "evidence": self._extract_evidence_snippet(text, condition, tool)
-                        })
-        
-        # 7. RECOMMENDED_FOR relationships (procedures -> patient profiles)
-        for proc in procedures:
-            if proc in self.PATIENT_PROFILE_RECOMMENDATIONS:
-                for profile in self.PATIENT_PROFILE_RECOMMENDATIONS[proc]:
-                    if profile.lower() in text_lower:
-                        relationships.append({
-                            "source": proc,
-                            "source_type": "Intervention",
-                            "target": profile,
-                            "target_type": "PatientProfile",
-                            "relationship": "RECOMMENDED_FOR",
-                            "evidence": self._extract_evidence_snippet(text, proc, profile)
-                        })
-        
-        # 8. Detect FIRST_LINE_FOR / SECOND_LINE_FOR from text patterns
-        first_line_patterns = [
-            r'first[- ]line\s+(?:treatment|therapy|option)',
-            r'recommended\s+as\s+first',
-            r'initial\s+treatment',
-        ]
-        second_line_patterns = [
-            r'second[- ]line\s+(?:treatment|therapy|option)',
-            r'alternative\s+(?:treatment|therapy)',
-            r'if\s+.*\s+fails',
-        ]
-        
-        for med in medications:
-            if med.lower() in text_lower:
-                for pattern in first_line_patterns:
-                    if re.search(pattern, text_lower):
-                        for condition in conditions:
-                            relationships.append({
-                                "source": med,
-                                "source_type": "Drug",
-                                "target": condition,
-                                "target_type": "Condition",
-                                "relationship": "FIRST_LINE_FOR",
-                                "evidence": self._extract_sentence_containing(text, med)
-                            })
-                        break
-                
-                for pattern in second_line_patterns:
-                    if re.search(pattern, text_lower):
-                        for condition in conditions:
-                            relationships.append({
-                                "source": med,
-                                "source_type": "Drug",
-                                "target": condition,
-                                "target_type": "Condition",
-                                "relationship": "SECOND_LINE_FOR",
-                                "evidence": self._extract_sentence_containing(text, med)
-                            })
-                        break
-        
-        return relationships
-    
-    def _extract_evidence_snippet(self, text: str, term1: str, term2: str, context_chars: int = 150) -> str:
-        """Extract a text snippet containing both terms as evidence."""
-        text_lower = text.lower()
-        term1_lower = term1.lower()
-        term2_lower = term2.lower()
-        
-        # Find positions
-        pos1 = text_lower.find(term1_lower)
-        pos2 = text_lower.find(term2_lower)
-        
-        if pos1 == -1 or pos2 == -1:
-            return ""
-        
-        # Get range containing both terms
-        start = max(0, min(pos1, pos2) - context_chars // 2)
-        end = min(len(text), max(pos1 + len(term1), pos2 + len(term2)) + context_chars // 2)
-        
-        snippet = text[start:end].strip()
-        
-        # Add ellipsis if truncated
-        if start > 0:
-            snippet = "..." + snippet
-        if end < len(text):
-            snippet = snippet + "..."
-        
-        return snippet
-    
-    def _extract_sentence_containing(self, text: str, term: str) -> str:
-        """Extract the sentence containing a term."""
-        sentences = re.split(r'[.!?]\s+', text)
-        for sentence in sentences:
-            if term.lower() in sentence.lower():
-                return sentence.strip()[:200]
-        return ""
+        except Exception as e:
+            logger.error(f"Failed to write triples to Neo4j: {e}")
+            raise
     
     async def build_relationship_graph(
         self,
@@ -951,39 +396,54 @@ Example format:
         document_title: str
     ) -> Dict[str, Any]:
         """
-        Build knowledge graph with medical relationships.
+        Build knowledge graph with LLM-extracted medical relationship triples.
+        
+        For each chunk, the LLM reads the clinical text and extracts typed
+        (subject, relation, object) triples using universal clinical relation types.
+        Triples are written to Neo4j as typed edges via MERGE (idempotent).
+        
+        Works for ANY CPG domain â€” no hardcoded entity names or drug lists.
         
         Args:
-            chunks: List of chunks with entities extracted
+            chunks: List of document chunks (entities already extracted)
             document_title: Title of the source document
-            
+        
         Returns:
-            Summary of relationships created
+            Summary of triples created
         """
-        all_relationships = []
+        all_triples = []
+        rel_counts: Dict[str, int] = {}
+        
+        logger.info(f"Extracting LLM triples from {len(chunks)} chunks for '{document_title}'")
         
         for chunk in chunks:
-            entities = chunk.metadata.get("entities", {})
-            relationships = self.extract_medical_relationships(chunk.content, entities)
+            triples = await self._extract_triples_with_llm(
+                text=chunk.content,
+                chunk_index=chunk.index,
+                source=chunk.metadata.get("source", "")
+            )
             
-            for rel in relationships:
-                rel["source_document"] = document_title
-                rel["chunk_index"] = chunk.index
+            for t in triples:
+                t["source_document"] = document_title
+                rel = t.get("relation", "OTHER")
+                rel_counts[rel] = rel_counts.get(rel, 0) + 1
             
-            all_relationships.extend(relationships)
+            all_triples.extend(triples)
+            
+            # Small delay between chunks
+            if chunk.index < len(chunks) - 1:
+                await asyncio.sleep(0.3)
         
-        # Log relationship summary
-        rel_counts = {}
-        for rel in all_relationships:
-            rel_type = rel["relationship"]
-            rel_counts[rel_type] = rel_counts.get(rel_type, 0) + 1
+        # Write all triples to Neo4j
+        if all_triples:
+            await self._write_triples_to_neo4j(all_triples, document_title)
         
-        logger.info(f"Extracted {len(all_relationships)} relationships: {rel_counts}")
+        logger.info(f"Relationship graph built: {len(all_triples)} triples, types: {rel_counts}")
         
         return {
-            "relationships": all_relationships,
+            "relationships": all_triples,
             "counts": rel_counts,
-            "total": len(all_relationships)
+            "total": len(all_triples)
         }
     
     async def clear_graph(self):
@@ -1042,20 +502,17 @@ async def main():
     
     print(f"Created {len(chunks)} chunks")
     
-    # Extract medical entities
-    enriched_chunks = await graph_builder.extract_entities_from_chunks(chunks)
-    
-    for i, chunk in enumerate(enriched_chunks):
-        entities = chunk.metadata.get('entities', {})
-        print(f"Chunk {i}:")
-        print(f"  Medications: {entities.get('medications', [])}")
-        print(f"  Conditions: {entities.get('conditions', [])}")
-        print(f"  Adverse Events: {entities.get('adverse_events', [])}")
-    
-    # Add to knowledge graph
+    # Build relationship graph using LLM triple extraction
     try:
+        rel_result = await graph_builder.build_relationship_graph(
+            chunks=chunks,
+            document_title="Malaysia CPG - ED Management"
+        )
+        print(f"Triple extraction result: {rel_result['total']} triples, types: {rel_result['counts']}")
+        
+        # Add to Graphiti knowledge graph
         result = await graph_builder.add_document_to_graph(
-            chunks=enriched_chunks,
+            chunks=chunks,
             document_title="Malaysia CPG - ED Management",
             document_source="cpg_ed_treatment.pdf",
             document_metadata={"category": "Treatment", "evidence_level": "Grade A"}
@@ -1072,3 +529,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+

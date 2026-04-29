@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS documents CASCADE;
 CREATE TABLE documents (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     title TEXT NOT NULL,
-    source TEXT NOT NULL,
+    source TEXT NOT NULL UNIQUE,
     content TEXT NOT NULL,
     metadata JSONB DEFAULT '{}',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
@@ -29,7 +29,7 @@ CREATE TABLE chunks (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     document_id UUID NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
     content TEXT NOT NULL,
-    embedding vector(768),
+    embedding vector(1536),
     chunk_index INTEGER NOT NULL,
     metadata JSONB DEFAULT '{}',
     token_count INTEGER,
@@ -85,7 +85,7 @@ CREATE INDEX idx_messages_session_id ON messages (session_id, created_at);
 
 -- Vector search function
 CREATE OR REPLACE FUNCTION match_chunks(
-    query_embedding vector(768),
+    query_embedding vector(1536),
     match_count INT DEFAULT 10
 )
 RETURNS TABLE (
@@ -119,7 +119,7 @@ $$;
 
 -- Hybrid search function
 CREATE OR REPLACE FUNCTION hybrid_search(
-    query_embedding vector(768),
+    query_embedding vector(1536),
     query_text TEXT,
     match_count INT DEFAULT 10,
     text_weight FLOAT DEFAULT 0.3

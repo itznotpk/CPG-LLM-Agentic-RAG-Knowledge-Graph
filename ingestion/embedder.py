@@ -16,13 +16,13 @@ from .chunker import DocumentChunk
 
 # Import flexible providers
 try:
-    from ..agent.providers import get_embedding_client, get_embedding_model
+    from ..agent.providers import get_embedding_client, get_embedding_model, get_embedding_provider
 except ImportError:
     # For direct execution or testing
     import sys
     import os
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from agent.providers import get_embedding_client, get_embedding_model
+    from agent.providers import get_embedding_client, get_embedding_model, get_embedding_provider
 
 # Load environment variables
 load_dotenv()
@@ -32,6 +32,7 @@ logger = logging.getLogger(__name__)
 # Initialize client with flexible provider
 embedding_client = get_embedding_client()
 EMBEDDING_MODEL = get_embedding_model()
+EMBEDDING_PROVIDER = get_embedding_provider()
 
 
 class EmbeddingGenerator:
@@ -44,25 +45,25 @@ class EmbeddingGenerator:
         max_retries: int = 3,
         retry_delay: float = 1.0
     ):
-        """
-        Initialize embedding generator.
-        
-        Args:
-            model: OpenAI embedding model to use
-            batch_size: Number of texts to process in parallel
-            max_retries: Maximum number of retry attempts
-            retry_delay: Delay between retries in seconds
-        """
         self.model = model
         self.batch_size = batch_size
         self.max_retries = max_retries
         self.retry_delay = retry_delay
+        self.provider = EMBEDDING_PROVIDER
+        
+        if self.provider == "bedrock":
+            import boto3
+            # Assumes AWS_ACCESS_KEY_ID etc. are available in environment
+            self.bedrock_client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
         
         # Model-specific configurations
         self.model_configs = {
             "text-embedding-3-small": {"dimensions": 1536, "max_tokens": 8191},
             "text-embedding-3-large": {"dimensions": 3072, "max_tokens": 8191},
-            "text-embedding-ada-002": {"dimensions": 1536, "max_tokens": 8191}
+            "text-embedding-ada-002": {"dimensions": 1536, "max_tokens": 8191},
+            "amazon.titan-embed-text-v1": {"dimensions": 1536, "max_tokens": 8000},
+            "amazon.titan-embed-text-v2:0": {"dimensions": 1024, "max_tokens": 8000},
+            "cohere.embed-english-v3": {"dimensions": 1024, "max_tokens": 512}
         }
         
         if model not in self.model_configs:
@@ -71,43 +72,53 @@ class EmbeddingGenerator:
         else:
             self.config = self.model_configs[model]
     
+    def _invoke_bedrock_sync(self, text: str) -> List[float]:
+        """Synchronous wrapper for Bedrock invocation."""
+        if "titan" in self.model:
+            body = json.dumps({"inputText": text})
+            response = self.bedrock_client.invoke_model(
+                modelId=self.model,
+                body=body,
+                contentType='application/json',
+                accept='application/json'
+            )
+            result = json.loads(response.get('body').read())
+            return result.get('embedding')
+        elif "cohere" in self.model:
+            body = json.dumps({"texts": [text], "input_type": "search_document"})
+            response = self.bedrock_client.invoke_model(
+                modelId=self.model,
+                body=body,
+                contentType='application/json',
+                accept='application/json'
+            )
+            result = json.loads(response.get('body').read())
+            return result.get('embeddings')[0]
+        else:
+            raise ValueError(f"Unsupported Bedrock model: {self.model}")
+
     async def generate_embedding(self, text: str) -> List[float]:
-        """
-        Generate embedding for a single text.
-        
-        Args:
-            text: Text to embed
-        
-        Returns:
-            Embedding vector
-        """
         # Truncate text if too long
         if len(text) > self.config["max_tokens"] * 4:  # Rough token estimation
             text = text[:self.config["max_tokens"] * 4]
         
         for attempt in range(self.max_retries):
             try:
-                response = await embedding_client.embeddings.create(
-                    model=self.model,
-                    input=text
-                )
-                
-                return response.data[0].embedding
+                if self.provider == "bedrock":
+                    return await asyncio.to_thread(self._invoke_bedrock_sync, text)
+                else:
+                    response = await embedding_client.embeddings.create(
+                        model=self.model,
+                        input=text
+                    )
+                    return response.data[0].embedding
                 
             except RateLimitError as e:
                 if attempt == self.max_retries - 1:
                     raise
-                
-                # Exponential backoff for rate limits
                 delay = self.retry_delay * (2 ** attempt)
                 logger.warning(f"Rate limit hit, retrying in {delay}s")
                 await asyncio.sleep(delay)
-                
-            except APIError as e:
-                logger.error(f"OpenAI API error: {e}")
-                if attempt == self.max_retries - 1:
-                    raise
-                await asyncio.sleep(self.retry_delay)
                 
             except Exception as e:
                 logger.error(f"Unexpected error generating embedding: {e}")
@@ -119,27 +130,21 @@ class EmbeddingGenerator:
         self,
         texts: List[str]
     ) -> List[List[float]]:
-        """
-        Generate embeddings for a batch of texts.
-        
-        Args:
-            texts: List of texts to embed
-        
-        Returns:
-            List of embedding vectors
-        """
         # Filter and truncate texts
         processed_texts = []
         for text in texts:
             if not text or not text.strip():
                 processed_texts.append("")
                 continue
-                
-            # Truncate if too long
             if len(text) > self.config["max_tokens"] * 4:
                 text = text[:self.config["max_tokens"] * 4]
-            
             processed_texts.append(text)
+            
+        if self.provider == "bedrock":
+            # Bedrock doesn't support bulk embedding for all models through the simple API
+            # We process concurrently via individual threads
+            tasks = [self.generate_embedding(txt) if txt else self.generate_embedding(" ") for txt in processed_texts]
+            return await asyncio.gather(*tasks)
         
         for attempt in range(self.max_retries):
             try:
@@ -296,79 +301,24 @@ class EmbeddingGenerator:
         return self.config["dimensions"]
 
 
-# Cache for embeddings
-class EmbeddingCache:
-    """Simple in-memory cache for embeddings."""
-    
-    def __init__(self, max_size: int = 1000):
-        """Initialize cache."""
-        self.cache: Dict[str, List[float]] = {}
-        self.access_times: Dict[str, datetime] = {}
-        self.max_size = max_size
-    
-    def get(self, text: str) -> Optional[List[float]]:
-        """Get embedding from cache."""
-        text_hash = self._hash_text(text)
-        if text_hash in self.cache:
-            self.access_times[text_hash] = datetime.now()
-            return self.cache[text_hash]
-        return None
-    
-    def put(self, text: str, embedding: List[float]):
-        """Store embedding in cache."""
-        text_hash = self._hash_text(text)
-        
-        # Evict oldest entries if cache is full
-        if len(self.cache) >= self.max_size:
-            oldest_key = min(self.access_times.keys(), key=lambda k: self.access_times[k])
-            del self.cache[oldest_key]
-            del self.access_times[oldest_key]
-        
-        self.cache[text_hash] = embedding
-        self.access_times[text_hash] = datetime.now()
-    
-    def _hash_text(self, text: str) -> str:
-        """Generate hash for text."""
-        import hashlib
-        return hashlib.md5(text.encode()).hexdigest()
 
 
 # Factory function
 def create_embedder(
     model: str = EMBEDDING_MODEL,
-    use_cache: bool = True,
     **kwargs
 ) -> EmbeddingGenerator:
     """
-    Create embedding generator with optional caching.
+    Create embedding generator.
     
     Args:
         model: Embedding model to use
-        use_cache: Whether to use caching
         **kwargs: Additional arguments for EmbeddingGenerator
     
     Returns:
         EmbeddingGenerator instance
     """
-    embedder = EmbeddingGenerator(model=model, **kwargs)
-    
-    if use_cache:
-        # Add caching capability
-        cache = EmbeddingCache()
-        original_generate = embedder.generate_embedding
-        
-        async def cached_generate(text: str) -> List[float]:
-            cached = cache.get(text)
-            if cached is not None:
-                return cached
-            
-            embedding = await original_generate(text)
-            cache.put(text, embedding)
-            return embedding
-        
-        embedder.generate_embedding = cached_generate
-    
-    return embedder
+    return EmbeddingGenerator(model=model, **kwargs)
 
 
 # Example usage

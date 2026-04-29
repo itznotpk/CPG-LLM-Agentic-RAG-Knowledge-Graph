@@ -10,9 +10,17 @@ import logging
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
 
-from langchain_text_splitters import MarkdownHeaderTextSplitter
+from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
+
+try:
+    import tiktoken
+    _enc = tiktoken.encoding_for_model("text-embedding-3-small")
+    TIKTOKEN_AVAILABLE = True
+except ImportError:
+    TIKTOKEN_AVAILABLE = False
 
 logger = logging.getLogger(__name__)
+
 
 
 @dataclass
@@ -20,15 +28,11 @@ class ChunkingConfig:
     """Configuration for chunking."""
     chunk_size: int = 1000
     chunk_overlap: int = 200
-    max_chunk_size: int = 2000
-    min_chunk_size: int = 100
     
     def __post_init__(self):
         """Validate configuration."""
         if self.chunk_overlap >= self.chunk_size:
             raise ValueError("Chunk overlap must be less than chunk size")
-        if self.min_chunk_size <= 0:
-            raise ValueError("Minimum chunk size must be positive")
 
 
 @dataclass
@@ -44,7 +48,10 @@ class DocumentChunk:
     def __post_init__(self):
         """Calculate token count if not provided."""
         if self.token_count is None:
-            self.token_count = len(self.content) // 4  # ~4 chars per token
+            if TIKTOKEN_AVAILABLE:
+                self.token_count = len(_enc.encode(self.content))
+            else:
+                self.token_count = len(self.content) // 4  # ~4 chars per token
 
 
 # Regex pattern matching overlap comment blocks in the standardized markdown.
@@ -76,11 +83,11 @@ class MarkdownChunker:
     Markdown header-based chunker using LangChain's MarkdownHeaderTextSplitter.
     
     Features:
-    - Splits by H1, H2, H3 headers for parent-child chunk architecture
+    - Splits by H1 headers only (file-per-section architecture)
     - Strips overlap blocks (Grades, Levels, Abbreviations) to prevent
       duplicate chunks, then re-attaches them as context to the last chunk
     - Extracts [Grade X, Level Y] tags as structured metadata
-    - Tracks parent-child relationships via chunk_type and parent_header
+    - Oversized chunks are auto-split by paragraphs with context preserved
     - Preserves complete tables and lists
     - Includes header hierarchy in metadata for context
     """
@@ -89,7 +96,7 @@ class MarkdownChunker:
         """Initialize markdown chunker."""
         self.config = config or ChunkingConfig()
         
-        # Split on H1, H2, H3 to isolate clinical topics and recommendations
+        # Split on H1, H2, and H3 to ensure chunks aren't too large
         self.headers_to_split_on = [
             ("#", "doc_title"),
             ("##", "section"),
@@ -137,7 +144,16 @@ class MarkdownChunker:
         stripped_content, overlap_blocks = self._strip_overlap_blocks(content)
         
         # Split the document (overlap-free)
-        docs = self.splitter.split_text(stripped_content)
+        header_docs = self.splitter.split_text(stripped_content)
+        
+        # Apply recursive character text splitter on top to ensure no chunk exceeds limit
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=self.config.chunk_size * 4, # rough approx of chars for chunk_size tokens
+            chunk_overlap=self.config.chunk_overlap * 4,
+            separators=["\n\n", "\n", " ", ""]
+        )
+        
+        docs = text_splitter.split_documents(header_docs)
         
         # Convert to DocumentChunk objects
         chunks = []
@@ -148,7 +164,7 @@ class MarkdownChunker:
             
             # Build context path from header hierarchy
             context_parts = []
-            for header_key in ["doc_title", "section", "subsection", "subsubsection"]:
+            for header_key in ["doc_title", "section", "subsection"]:
                 if header_key in doc.metadata:
                     context_parts.append(doc.metadata[header_key])
             
@@ -156,7 +172,7 @@ class MarkdownChunker:
             
             # Find position in original content
             search_text = chunk_content[:100] if len(chunk_content) >= 100 else chunk_content
-            start_pos = content.find(search_text, current_pos)
+            start_pos = stripped_content.find(search_text, current_pos)
             if start_pos == -1:
                 start_pos = current_pos
             end_pos = start_pos + len(chunk_content)
@@ -192,22 +208,10 @@ class MarkdownChunker:
                 w = m.group(1).upper()
                 if w not in who_classes: who_classes.append(w)
             
-            # Calculate parent relationship from headers
-            parent_id = None
-            chunk_type = "parent"
-            if "subsection" in doc.metadata:
-                chunk_type = "child"
-                parent_id = doc.metadata.get("section") or doc.metadata.get("doc_title")
-            elif "section" in doc.metadata:
-                chunk_type = "mid"
-                parent_id = doc.metadata.get("doc_title")
-            
             chunk_metadata = {
                 **base_metadata,
                 "context_path": context_path,
                 "total_chunks": len(docs),
-                "chunk_type": chunk_type,
-                "parent_header": parent_id,
                 **doc.metadata
             }
             if grades:
@@ -227,13 +231,7 @@ class MarkdownChunker:
             
             current_pos = end_pos
         
-        # Split oversized chunks while preserving context
-        final_chunks = []
-        for chunk in chunks:
-            if len(chunk.content) > self.config.max_chunk_size:
-                final_chunks.extend(self._split_large_chunk(chunk))
-            else:
-                final_chunks.append(chunk)
+        final_chunks = chunks
         
         # --- Post-processing: Re-attach overlap content to last chunk ---
         # The overlap tables (Grades, Levels, Abbreviations) are appended to
@@ -253,6 +251,16 @@ class MarkdownChunker:
             chunk.index = i
             chunk.metadata["total_chunks"] = len(final_chunks)
         
+        if final_chunks:
+            sizes = [len(c.content) for c in final_chunks]
+            logger.info(
+                f"📊 Chunk stats for '{title}': "
+                f"count={len(sizes)}, "
+                f"min={min(sizes)}, max={max(sizes)}, "
+                f"avg={sum(sizes)//len(sizes)}, "
+                f"has_evidence={sum(1 for c in final_chunks if c.metadata.get('evidence_grades') or c.metadata.get('evidence_levels'))}"
+            )
+            
         return final_chunks
     
     @staticmethod
@@ -285,54 +293,6 @@ class MarkdownChunker:
             logger.info(f"Stripped {len(overlap_blocks)} overlap block(s) before chunking")
         
         return stripped.strip(), overlap_blocks
-    
-    def _split_large_chunk(self, chunk: DocumentChunk) -> List[DocumentChunk]:
-        """Split a large chunk into smaller pieces while preserving context."""
-        content = chunk.content
-        context_path = chunk.metadata.get("context_path", "")
-        
-        paragraphs = re.split(r'\n\s*\n', content)
-        sub_chunks = []
-        current_content = ""
-        
-        for para in paragraphs:
-            para = para.strip()
-            if not para:
-                continue
-            
-            potential = current_content + "\n\n" + para if current_content else para
-            
-            if len(potential) <= self.config.chunk_size:
-                current_content = potential
-            else:
-                if current_content:
-                    sub_content = current_content
-                    if context_path and not sub_content.startswith("#"):
-                        sub_content = f"<!-- CONTEXT: {context_path} -->\n\n{sub_content}"
-                    
-                    sub_chunks.append(DocumentChunk(
-                        content=sub_content,
-                        index=len(sub_chunks),
-                        start_char=chunk.start_char,
-                        end_char=chunk.end_char,
-                        metadata=chunk.metadata.copy()
-                    ))
-                current_content = para
-        
-        if current_content:
-            sub_content = current_content
-            if context_path and not sub_content.startswith("#"):
-                sub_content = f"<!-- CONTEXT: {context_path} -->\n\n{sub_content}"
-            
-            sub_chunks.append(DocumentChunk(
-                content=sub_content,
-                index=len(sub_chunks),
-                start_char=chunk.start_char,
-                end_char=chunk.end_char,
-                metadata=chunk.metadata.copy()
-            ))
-        
-        return sub_chunks if sub_chunks else [chunk]
 
 
 # Convenience function

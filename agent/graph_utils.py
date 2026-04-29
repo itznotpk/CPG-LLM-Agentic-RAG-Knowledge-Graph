@@ -118,7 +118,8 @@ class GraphitiClient:
         self.embedding_model = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
         self.embedding_dimensions = int(os.getenv("VECTOR_DIMENSION", "1536"))
         
-        if not self.embedding_api_key:
+        self.embedding_provider = os.getenv("EMBEDDING_PROVIDER", "openai").lower()
+        if self.embedding_provider != "bedrock" and not self.embedding_api_key:
             raise ValueError("EMBEDDING_API_KEY environment variable not set")
         
         self.graphiti: Optional[Graphiti] = None
@@ -137,19 +138,139 @@ class GraphitiClient:
                 small_model=self.llm_choice,  # Can be the same as main model
                 base_url=self.llm_base_url
             )
+            llm_provider = os.getenv("LLM_PROVIDER", "openai").lower()
             
-            # Create OpenAI LLM client
-            llm_client = OpenAIClient(config=llm_config)
+            if llm_provider == "bedrock":
+                import boto3
+                import json
+                import asyncio
+                from graphiti_core.llm_client.client import LLMClient
+                
+                class BedrockLlamaClient(LLMClient):
+                    def __init__(self, config):
+                        super().__init__(config)
+                        self.client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
+                        self.model_id = "us.meta.llama3-3-70b-instruct-v1:0"
+                        
+                    async def _generate_response(self, messages, response_model, max_tokens, model_size):
+                        boto_messages = []
+                        system_prompts = []
+                        
+                        for msg in messages:
+                            msg_dict = msg.model_dump() if hasattr(msg, 'model_dump') else msg
+                            role = msg_dict.get('role')
+                            content = msg_dict.get('content')
+                            
+                            if role == 'system':
+                                system_prompts.append({"text": content})
+                            else:
+                                boto_messages.append({"role": role, "content": [{"text": content}]})
+                        
+                        if response_model:
+                            schema_str = json.dumps(response_model.model_json_schema(), indent=2)
+                            sys_prompt = f"You MUST output raw valid JSON that adheres exactly to this JSON schema. Do NOT wrap it in markdown block or any text. ONLY return JSON.\n{schema_str}"
+                            system_prompts.append({"text": sys_prompt})
+                            
+                        def _invoke():
+                            print(f"\n\n[DEBUG] Boto3 Converse Call -> modelId: {self.model_id}\n\n")
+                            return self.client.converse(
+                                modelId=self.model_id,
+                                messages=boto_messages,
+                                system=system_prompts,
+                                inferenceConfig={"maxTokens": max_tokens, "temperature": 0.0}
+                            )
+                            
+                        response = await asyncio.to_thread(_invoke)
+                        output_text = response['output']['message']['content'][0]['text']
+                        
+                        if response_model:
+                            if "```json" in output_text:
+                                output_text = output_text.split("```json")[1].split("```")[0].strip()
+                            elif "```" in output_text:
+                                output_text = output_text.split("```")[1].split("```")[0].strip()
+                            return response_model.model_validate_json(output_text)
+                        return output_text
+
+                llm_client = BedrockLlamaClient(config=llm_config)
+            else:
+                # Create OpenAI LLM client
+                llm_client = OpenAIClient(config=llm_config)
             
-            # Create OpenAI embedder
-            embedder = OpenAIEmbedder(
-                config=OpenAIEmbedderConfig(
-                    api_key=self.embedding_api_key,
-                    embedding_model=self.embedding_model,
-                    embedding_dim=self.embedding_dimensions,
-                    base_url=self.embedding_base_url
+            # Check embedding provider
+            embedding_provider = os.getenv("EMBEDDING_PROVIDER", "openai").lower()
+            
+            if embedding_provider == "bedrock":
+                from graphiti_core.embedder.client import EmbedderClient
+                import boto3
+                
+                class BedrockEmbedder(EmbedderClient):
+                    def __init__(self, model_id, dimension):
+                        self.model_id = model_id
+                        self.dimension = dimension
+                        self.client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
+                        
+                    def _invoke_bedrock_sync(self, text: str) -> list[float]:
+                        if "titan" in self.model_id:
+                            body = json.dumps({"inputText": text})
+                            response = self.client.invoke_model(
+                                modelId=self.model_id,
+                                body=body,
+                                contentType='application/json',
+                                accept='application/json'
+                            )
+                            result = json.loads(response.get('body').read())
+                            return result.get('embedding')[:self.dimension]
+                        elif "cohere" in self.model_id:
+                            body = json.dumps({"texts": [text], "input_type": "search_document"})
+                            response = self.client.invoke_model(
+                                modelId=self.model_id,
+                                body=body,
+                                contentType='application/json',
+                                accept='application/json'
+                            )
+                            result = json.loads(response.get('body').read())
+                            return result.get('embeddings')[0][:self.dimension]
+                        else:
+                            raise ValueError(f"Unsupported Bedrock model: {self.model_id}")
+                            
+                    async def create(self, input_data: str | list[str] | Any) -> list[float]:
+                        text = input_data[0] if isinstance(input_data, list) else str(input_data)
+                        return await asyncio.to_thread(self._invoke_bedrock_sync, text)
+                        
+                    async def create_batch(self, input_data_list: list[str]) -> list[list[float]]:
+                        tasks = [self.create(txt) for txt in input_data_list]
+                        return await asyncio.gather(*tasks)
+
+                embedder = BedrockEmbedder(
+                    model_id=self.embedding_model,
+                    dimension=self.embedding_dimensions
                 )
-            )
+            else:
+                if not self.embedding_api_key:
+                    raise ValueError("EMBEDDING_API_KEY environment variable not set")
+                    
+                # Create OpenAI embedder
+                embedder = OpenAIEmbedder(
+                    config=OpenAIEmbedderConfig(
+                        api_key=self.embedding_api_key,
+                        embedding_model=self.embedding_model,
+                        embedding_dim=self.embedding_dimensions,
+                        base_url=self.embedding_base_url
+                    )
+                )
+            
+            cross_encoder_client = None
+            if llm_provider != "bedrock":
+                cross_encoder_client = OpenAIRerankerClient(client=llm_client, config=llm_config)
+            else:
+                from graphiti_core.cross_encoder.client import CrossEncoderClient
+                class BedrockMockRerankerClient(CrossEncoderClient):
+                    async def rank(self, query: str, passages: list[str]) -> list[tuple[str, float]]:
+                        # Simple fallback: return passages with dummy scores (1.0 for all)
+                        # We could implement Bedrock reranking later if needed
+                        return [(p, 1.0) for p in passages]
+                
+                cross_encoder_client = BedrockMockRerankerClient()
             
             # Initialize Graphiti with custom clients
             self.graphiti = Graphiti(
@@ -158,7 +279,7 @@ class GraphitiClient:
                 self.neo4j_password,
                 llm_client=llm_client,
                 embedder=embedder,
-                cross_encoder=OpenAIRerankerClient(client=llm_client, config=llm_config)
+                cross_encoder=cross_encoder_client
             )
             
             # Build indices and constraints
@@ -385,34 +506,8 @@ class GraphitiClient:
             if self.graphiti:
                 await self.graphiti.close()
             
-            # Create OpenAI-compatible clients for reinitialization
-            llm_config = LLMConfig(
-                api_key=self.llm_api_key,
-                model=self.llm_choice,
-                small_model=self.llm_choice,
-                base_url=self.llm_base_url
-            )
-            
-            llm_client = OpenAIClient(config=llm_config)
-            
-            embedder = OpenAIEmbedder(
-                config=OpenAIEmbedderConfig(
-                    api_key=self.embedding_api_key,
-                    embedding_model=self.embedding_model,
-                    embedding_dim=self.embedding_dimensions,
-                    base_url=self.embedding_base_url
-                )
-            )
-            
-            self.graphiti = Graphiti(
-                self.neo4j_uri,
-                self.neo4j_user,
-                self.neo4j_password,
-                llm_client=llm_client,
-                embedder=embedder,
-                cross_encoder=OpenAIRerankerClient(client=llm_client, config=llm_config)
-            )
-            await self.graphiti.build_indices_and_constraints()
+            self._initialized = False
+            await self.initialize()
             
             logger.warning("Reinitialized Graphiti client (fresh indices created)")
     

@@ -71,7 +71,8 @@ class DocumentIngestionPipeline:
         documents_folder: str = "documents",
         clean_before_ingest: bool = False,
         use_cpg_parser: bool = True,  # Enable CPG parsing for medical documents
-        save_processed: bool = True   # Save processed markdown to disk
+        save_processed: bool = True,  # Save processed markdown to disk
+        dry_run: bool = False         # Run without saving
     ):
         """
         Initialize ingestion pipeline.
@@ -82,23 +83,24 @@ class DocumentIngestionPipeline:
             clean_before_ingest: Whether to clean existing data before ingestion
             use_cpg_parser: Whether to use CPG-specific parsing for PDFs
             save_processed: Whether to save processed markdown files to disk
+            dry_run: Whether to skip DB saving and embeddings
         """
         self.config = config
         self.documents_folder = documents_folder
         self.clean_before_ingest = clean_before_ingest
         self.use_cpg_parser = use_cpg_parser and CPG_PARSER_AVAILABLE
         self.save_processed = save_processed
+        self.dry_run = dry_run
         
         # Create processed output folder
         self.processed_folder = os.path.join(documents_folder, "_processed")
-        if self.save_processed:
+        if self.save_processed and not self.dry_run:
             os.makedirs(self.processed_folder, exist_ok=True)
         
         # Initialize components - use MarkdownChunker for structured docs
         self.chunker_config = ChunkingConfig(
             chunk_size=config.chunk_size,
-            chunk_overlap=config.chunk_overlap,
-            max_chunk_size=config.max_chunk_size
+            chunk_overlap=config.chunk_overlap
         )
         
         self.chunker = MarkdownChunker(self.chunker_config)
@@ -124,6 +126,11 @@ class DocumentIngestionPipeline:
         
         logger.info("Initializing ingestion pipeline...")
         
+        if self.dry_run:
+            logger.info("Dry-run mode: skipping database and graph initialization")
+            self._initialized = True
+            return
+        
         # Initialize database connections
         await initialize_database()
         await initialize_graph()
@@ -134,7 +141,7 @@ class DocumentIngestionPipeline:
     
     async def close(self):
         """Close database connections."""
-        if self._initialized:
+        if self._initialized and not self.dry_run:
             await self.graph_builder.close()
             await close_graph()
             await close_database()
@@ -254,17 +261,20 @@ class DocumentIngestionPipeline:
         
         logger.info(f"Created {len(chunks)} chunks")
         
-        # Extract entities if configured
-        entities_extracted = 0
-        if self.config.extract_entities:
-            chunks = await self.graph_builder.extract_entities_from_chunks(chunks)
-            entities_extracted = sum(
-                len(chunk.metadata.get("entities", {}).get("conditions", [])) +
-                len(chunk.metadata.get("entities", {}).get("medications", [])) +
-                len(chunk.metadata.get("entities", {}).get("procedures", []))
-                for chunk in chunks
+        if self.dry_run:
+            self._print_dry_run_summary(document_title, chunks)
+            return IngestionResult(
+                document_id="(dry-run)",
+                title=document_title,
+                chunks_created=len(chunks),
+                entities_extracted=0,
+                relationships_created=0,
+                processing_time_ms=(datetime.now() - start_time).total_seconds() * 1000,
+                errors=[]
             )
-            logger.info(f"Extracted {entities_extracted} entities")
+        
+        # Entity extraction is now handled by build_relationship_graph (LLM triples)
+        entities_extracted = 0
         
         # Generate embeddings
         embedded_chunks = await self.embedder.embed_chunks(chunks)
@@ -288,6 +298,15 @@ class DocumentIngestionPipeline:
         if not self.config.skip_graph_building:
             try:
                 logger.info("Building knowledge graph relationships (this may take several minutes)...")
+                
+                # Extract LLM triples and write to Neo4j
+                rel_result = await self.graph_builder.build_relationship_graph(
+                    embedded_chunks,
+                    document_title
+                )
+                logger.info(f"Extracted {rel_result['total']} medical relationships: {rel_result['counts']}")
+                
+                # Add to Graphiti knowledge graph
                 graph_result = await self.graph_builder.add_document_to_graph(
                     chunks=embedded_chunks,
                     document_title=document_title,
@@ -371,7 +390,6 @@ class DocumentIngestionPipeline:
                 # Build metadata with CPG-specific fields
                 chunk_metadata = {
                     "section_hierarchy": cpg_chunk.section_hierarchy,
-                    "parent_section": cpg_chunk.parent_section,
                     "evidence_level": cpg_chunk.evidence_level,
                     "grade": cpg_chunk.grade,
                     "target_population": cpg_chunk.target_population,
@@ -399,25 +417,27 @@ class DocumentIngestionPipeline:
                 )
                 document_chunks.append(doc_chunk)
             
-            # Extract medical entities
-            entities_extracted = 0
-            if self.config.extract_entities:
-                document_chunks = await self.graph_builder.extract_entities_from_chunks(document_chunks)
-                entities_extracted = sum(
-                    len(chunk.metadata.get("entities", {}).get("conditions", [])) +
-                    len(chunk.metadata.get("entities", {}).get("medications", [])) +
-                    len(chunk.metadata.get("entities", {}).get("procedures", [])) +
-                    len(chunk.metadata.get("entities", {}).get("diagnostic_tools", []))
-                    for chunk in document_chunks
+            if self.dry_run:
+                self._print_dry_run_summary(document_title, document_chunks)
+                return IngestionResult(
+                    document_id="(dry-run)",
+                    title=document_title,
+                    chunks_created=len(document_chunks),
+                    entities_extracted=0,
+                    relationships_created=0,
+                    processing_time_ms=(datetime.now() - start_time).total_seconds() * 1000,
+                    errors=[]
                 )
-                logger.info(f"Extracted {entities_extracted} medical entities")
+            
+            # Entity extraction is now handled by build_relationship_graph (LLM triples)
+            entities_extracted = 0
             
             # Generate embeddings
             embedded_chunks = await self.embedder.embed_chunks(document_chunks)
             logger.info(f"Generated embeddings for {len(embedded_chunks)} chunks")
             
             # Save to PostgreSQL with CPG metadata
-            document_id = await self._save_cpg_to_postgres(
+            document_id = await self._save_to_postgres(
                 document_title,
                 document_source,
                 full_content,
@@ -489,8 +509,7 @@ class DocumentIngestionPipeline:
                 metadata=document_metadata
             )
             
-            if self.config.extract_entities:
-                chunks = await self.graph_builder.extract_entities_from_chunks(chunks)
+            # Entity extraction removed — handled by build_relationship_graph (LLM triples)
             
             embedded_chunks = await self.embedder.embed_chunks(chunks)
             
@@ -514,98 +533,7 @@ class DocumentIngestionPipeline:
                 errors=[f"CPG parsing failed, used fallback: {str(e)}"]
             )
     
-    async def _save_cpg_to_postgres(
-        self,
-        title: str,
-        source: str,
-        content: str,
-        chunks: List[DocumentChunk],
-        metadata: Dict[str, Any]
-    ) -> str:
-        """
-        Save CPG document and chunks to PostgreSQL with full metadata.
-        
-        Includes CPG-specific columns: evidence_level, grade, target_population,
-        category, section_hierarchy, is_recommendation, is_table, is_algorithm.
-        """
-        async with db_pool.acquire() as conn:
-            async with conn.transaction():
-                # Insert document
-                document_result = await conn.fetchrow(
-                    """
-                    INSERT INTO documents (title, source, content, metadata)
-                    VALUES ($1, $2, $3, $4)
-                    RETURNING id::text
-                    """,
-                    title,
-                    source,
-                    content,
-                    json.dumps(metadata)
-                )
-                
-                document_id = document_result["id"]
-                
-                # First pass: Insert all chunks and collect IDs
-                chunk_ids = {}
-                for chunk in chunks:
-                    # Convert embedding to PostgreSQL vector string format
-                    embedding_data = None
-                    if hasattr(chunk, 'embedding') and chunk.embedding:
-                        embedding_data = '[' + ','.join(map(str, chunk.embedding)) + ']'
-                    
-                    # Extract CPG metadata
-                    meta = chunk.metadata
-                    section_hierarchy = meta.get("section_hierarchy", [])
-                    structured_content = meta.get("structured_content")
-                    
-                    result = await conn.fetchrow(
-                        """
-                        INSERT INTO chunks (
-                            document_id, content, embedding, chunk_index, metadata, token_count,
-                            section_hierarchy,
-                            is_recommendation, is_table, is_algorithm, structured_content
-                        )
-                        VALUES (
-                            $1::uuid, $2, $3::vector, $4, $5, $6,
-                            $7,
-                            $8, $9, $10, $11
-                        )
-                        RETURNING id::text
-                        """,
-                        document_id,
-                        chunk.content,
-                        embedding_data,
-                        chunk.index,
-                        json.dumps(meta),
-                        chunk.token_count,
-                        section_hierarchy,
-                        meta.get("is_recommendation", False),
-                        meta.get("is_table", False),
-                        meta.get("is_algorithm", False),
-                        json.dumps(structured_content) if structured_content else None
-                    )
-                    
-                    chunk_ids[chunk.index] = result["id"]
-                
-                # Second pass: Update parent_chunk_id for hierarchical relationships
-                # This creates parent-child links between section and subsection chunks
-                for chunk in chunks:
-                    parent_section = chunk.metadata.get("parent_section")
-                    if parent_section:
-                        # Find the chunk with this section as its title
-                        for other_chunk in chunks:
-                            if other_chunk.metadata.get("section_hierarchy", [])[-1:] == [parent_section]:
-                                await conn.execute(
-                                    """
-                                    UPDATE chunks SET parent_chunk_id = $1::uuid
-                                    WHERE id = $2::uuid
-                                    """,
-                                    chunk_ids.get(other_chunk.index),
-                                    chunk_ids.get(chunk.index)
-                                )
-                                break
-                
-                return document_id
+
     
     async def _save_processed_files(
         self,
@@ -856,11 +784,15 @@ class DocumentIngestionPipeline:
         """Save document and chunks to PostgreSQL."""
         async with db_pool.acquire() as conn:
             async with conn.transaction():
-                # Insert document
+                # Upsert document
                 document_result = await conn.fetchrow(
                     """
                     INSERT INTO documents (title, source, content, metadata)
                     VALUES ($1, $2, $3, $4)
+                    ON CONFLICT (source) DO UPDATE SET
+                        title = EXCLUDED.title,
+                        content = EXCLUDED.content,
+                        metadata = EXCLUDED.metadata
                     RETURNING id::text
                     """,
                     title,
@@ -871,6 +803,12 @@ class DocumentIngestionPipeline:
                 
                 document_id = document_result["id"]
                 
+                # Delete old chunks for this document
+                await conn.execute(
+                    "DELETE FROM chunks WHERE document_id = $1::uuid",
+                    document_id
+                )
+                
                 # Insert chunks
                 for chunk in chunks:
                     # Convert embedding to PostgreSQL vector string format
@@ -879,20 +817,51 @@ class DocumentIngestionPipeline:
                         # PostgreSQL vector format: '[1.0,2.0,3.0]' (no spaces after commas)
                         embedding_data = '[' + ','.join(map(str, chunk.embedding)) + ']'
                     
+                    meta = chunk.metadata
+                    section_hierarchy = meta.get("section_hierarchy", [])
+                    structured_content = meta.get("structured_content")
+                    
                     await conn.execute(
                         """
-                        INSERT INTO chunks (document_id, content, embedding, chunk_index, metadata, token_count)
-                        VALUES ($1::uuid, $2, $3::vector, $4, $5, $6)
+                        INSERT INTO chunks (
+                            document_id, content, embedding, chunk_index, metadata, token_count,
+                            section_hierarchy,
+                            is_recommendation, is_table, is_algorithm, structured_content
+                        )
+                        VALUES (
+                            $1::uuid, $2, $3::vector, $4, $5, $6,
+                            $7,
+                            $8, $9, $10, $11
+                        )
                         """,
                         document_id,
                         chunk.content,
                         embedding_data,
                         chunk.index,
-                        json.dumps(chunk.metadata),
-                        chunk.token_count
+                        json.dumps(meta),
+                        chunk.token_count,
+                        section_hierarchy,
+                        meta.get("is_recommendation", False),
+                        meta.get("is_table", False),
+                        meta.get("is_algorithm", False),
+                        json.dumps(structured_content) if structured_content else None
                     )
                 
                 return document_id
+
+    def _print_dry_run_summary(self, title: str, chunks: List[DocumentChunk]):
+        sizes = [len(c.content) for c in chunks]
+        print(f"\n📄 {title}")
+        print(f"   Chunks: {len(chunks)}")
+        print(f"   Sizes:  {sizes}")
+        print(f"   Total chars: {sum(sizes)}")
+        for i, chunk in enumerate(chunks):
+            preview = chunk.content[:120].replace('\n', ' ')
+            print(f"   [{i}] ({len(chunk.content)} chars) {preview}...")
+            if chunk.metadata.get("evidence_grades"):
+                print(f"       Grades: {chunk.metadata['evidence_grades']}")
+            if chunk.metadata.get("evidence_levels"):
+                print(f"       Levels: {chunk.metadata['evidence_levels']}")
     
     async def _clean_databases(self):
         """Clean existing data from databases."""
@@ -924,6 +893,7 @@ async def main():
     parser.add_argument("--no-entities", action="store_true", help="Disable entity extraction")
     parser.add_argument("--fast", "-f", action="store_true", help="Fast mode: skip knowledge graph building")
     parser.add_argument("--no-cpg", action="store_true", help="Disable CPG-specific PDF parsing (use basic parsing)")
+    parser.add_argument("--dry-run", action="store_true", help="Run chunking without database writes or embedding generation")
     parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose logging")
     
     args = parser.parse_args()
@@ -949,7 +919,8 @@ async def main():
         config=config,
         documents_folder=args.documents,
         clean_before_ingest=args.clean,
-        use_cpg_parser=not args.no_cpg
+        use_cpg_parser=not args.no_cpg,
+        dry_run=args.dry_run
     )
     
     def progress_callback(current: int, total: int):
