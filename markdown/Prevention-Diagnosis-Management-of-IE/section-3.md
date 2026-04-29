@@ -7,8 +7,6 @@ patient_input: symptoms, signs, labs, imaging
 output: diagnosis_criteria, diagnostic_pathway
 -->
 
-## 3.0 DIAGNOSIS
-
 As this disease affects multiple organ systems, patients with IE can present with very diverse clinical presentations making its diagnosis challenging. The clinical course of the disease can vary from subacute to acute infection, and each will manifest differently. Patients often visit multiple health practitioners before a correct diagnosis is made.
 
 ## Making a clinical diagnosis of IE requires:
@@ -20,18 +18,6 @@ As this disease affects multiple organ systems, patients with IE can present wit
 - Imaging, namely echocardiography and radiological investigations.
 
 In difficult cases, consultation with other experts such as ID specialists, cardiac imaging specialists and microbiologists may be required.
-
-## 3.0 DIAGNOSIS
-
-
-# SECTION 3.1: CLINICAL EVALUATION OF SUSPECTED INFECTIVE ENDOCARDITIS
-
-<!-- METADATA
-category: diagnosis
-use_case: diagnostic_workup
-patient_input: symptoms, signs, labs, imaging
-output: diagnosis_criteria, diagnostic_pathway
--->
 
 ## 3.1 Clinical evaluation of suspected infective endocarditis
 
@@ -57,40 +43,29 @@ Patients do not often present with classic textbook manifestations of subacute o
 
 Table 3.1: Symptoms and signs of IE
 
-|            | Symptoms and signs                                                                                                      | Site                                 | Comments                                                                                                                                                                                        |
-|------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| General    | •  Night sweats and chills •  Weight loss •  Fatigue •  Body aches •  Poor appetite                                     |                                      |                                                                                                                                                                                                 |
-|            | •  Fever                                                                                                                |                                      | •  Temperature may be normal  or subnormal in: > Subacute cases > Elderly > Immunocompromised  patients  •  Fever is usually very high in  acute IE                                             |
-|            | •  Anaemia                                                                                                              |                                      | •  In subacute cases this  may be anaemia of chronic  disease or microcytic  anaemia                                                                                                            |
-| Peripheral | •  Splinter haemorrhages                                                                                                | •  Nail beds of the  fingers or toes | •  Examine all digits of upper  and lower limbs •  Exclude workplace trauma                                                                                                                     |
-|            | •  Osler’s nodes  > Painful subcutaneous  nodules (red-purple,  slightly raised, tender  lumps and with a pale  centre) | •  Pulps of the  fingers or toes     | •  Pain precedes the  development of the visible  lesion by up to 24 hours •  Can occur at any time during  the course of endocarditis  (usually subacute) •  Lasts from hours to several  days |
-|            | •  Janeway lesions  > Non-tender lesions  > 1-4 mm in diameter > Often haemorrhagic                                     | •  On the palms  and soles           | •  Lasts days to weeks •  Commonly seen in acute  endocarditis •  The histology is usually  consistent with septic  microembolism                                                               |
-
-## 3.0 DIAGNOSIS
-
-|         | Symptoms and signs                                   | Site                                                                                                                    | Comments                                                                                   |
-|---------|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-|         | •  Digital clubbing                                  |                                                                                                                         | •  Usually seen in patients who  have an extended period of  untreated IE23                |
-|         | •  Subconjunctival  haemorrhages                     |                                                                                                                         | •  Examine both eyes                                                                       |
-|         | •  Generalised petechiae                             | •  Conjunctivae •  Dorsa of the  hands and feet •  Anterior chest  wall •  Abdominal wall •  Oral mucosa •  Soft palate |                                                                                            |
-|         | •  Embolic lesions                                   | •  Fingers and  toes                                                                                                    |                                                                                            |
-|         | •  Arthritis                                         |                                                                                                                         | • Asymmetrical •  Single or multiple joints                                                |
-| Central | •  Roth spots (white centred retinal  haemorrhages) | •  Retina                                                                                                               | •  Examine both eyes                                                                       |
-|         | •  Splenomegaly                                      |                                                                                                                         | •  Occurs with long-standing  subacute disease •  May not resolve after  treatment         |
-|         | •  Haematuria                                        |                                                                                                                         | •  Due to glomerulonephritis                                                               |
-|         | •  Septic embolisation                               | •  Lung  embolisation                                                                                                   | •  Occurs in right-sided IE  causing pneumonia or lung  abscess                            |
-|         |                                                      | •  Abdominal  embolisation                                                                                              | •  Splenic abscesses or infarcts                                                           |
-| Cardiac | •  Murmurs                                           |                                                                                                                         | • Appearance of new murmur •  Usually regurgitant •  Right-sided IE may not have  a murmur |
-|         | •  Heart failure                                     |                                                                                                                         | •  Usually due to valve  dysfunction/regurgitant  lesions                                  |
-|         | •  Bradycardia                                       |                                                                                                                         | •  Indicates aortic root abscess  interfering with cardiac  conduction pathways            |
-
-## 3.0 DIAGNOSIS
-
-|              | Symptoms and signs                                                                                                      | Site                             | Comments                                                              |
-|--------------|-------------------------------------------------------------------------------------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
-| Neurological | •  Focal signs: hemiparesis,  aphasia and others                                                                        | •  Cerebral septic  embolisation | •  May be due to ischaemic/ haemorrhagic lesions or  cerebral abscess |
-|              | •  Delirium in meningitis,  meningoencephalitis and  encephalopathy                                                     |                                  | •  Occurs from purulent  meningitis especially with  acute IE         |
-|              | •  Intracranial bleeding > Manifests as: »  Confusion »  Drowsiness  »  Reduced  consciousness »  Vomiting  »  Seizures |                                  |                                                                       |
+| | Symptoms and signs | Site | Comments |
+|---|---|---|---|
+| **General** | • Night sweats and chills<br>• Weight loss<br>• Fatigue<br>• Body aches<br>• Poor appetite | | |
+| | • Fever | | • Temperature may be normal or subnormal in:<br>> Subacute cases<br>> Elderly<br>> Immunocompromised patients<br>• Fever is usually very high in acute IE |
+| | • Anaemia | | • In subacute cases this may be anaemia of chronic disease or microcytic anaemia |
+| **Peripheral** | • Splinter haemorrhages | • Nail beds of the fingers or toes | • Examine all digits of upper and lower limbs<br>• Exclude workplace trauma |
+| | • Osler's nodes<br>> Painful subcutaneous nodules (red-purple, slightly raised, tender lumps and with a pale centre) | • Pulps of the fingers or toes | • Pain precedes the development of the visible lesion by up to 24 hours<br>• Can occur at any time during the course of endocarditis (usually subacute)<br>• Lasts from hours to several days |
+| | • Janeway lesions<br>> Non-tender lesions<br>> 1-4 mm in diameter<br>> Often haemorrhagic | • On the palms and soles | • Lasts days to weeks<br>• Commonly seen in acute endocarditis<br>• The histology is usually consistent with septic microembolism |
+| | • Digital clubbing | | • Usually seen in patients who have an extended period of untreated IE<sup>23</sup> |
+| | • Subconjunctival haemorrhages | | • Examine both eyes |
+| | • Generalised petechiae | • Conjunctivae<br>• Dorsa of the hands and feet<br>• Anterior chest wall<br>• Abdominal wall<br>• Oral mucosa<br>• Soft palate | |
+| | • Embolic lesions | • Fingers and toes | |
+| | • Arthritis | | • Asymmetrical<br>• Single or multiple joints |
+| **Central** | • Roth spots (white-centred retinal haemorrhages) | • Retina | • Examine both eyes |
+| | • Splenomegaly | | • Occurs with long-standing subacute disease<br>• May not resolve after treatment |
+| | • Haematuria | | • Due to glomerulonephritis |
+| | • Septic embolisation | • Lung embolisation<br><br>• Abdominal embolisation | • Occurs in right-sided IE causing pneumonia or lung abscess<br><br>• Splenic abscesses or infarcts |
+| **Cardiac** | • Murmurs | | • Appearance of new murmur<br>• Usually regurgitant<br>• Right-sided IE may not have a murmur |
+| | • Heart failure | | • Usually due to valve dysfunction/regurgitant lesions |
+| | • Bradycardia | | • Indicates aortic root abscess interfering with cardiac conduction pathways |
+| **Neurological** | • Focal signs: hemiparesis, aphasia and others | • Cerebral septic embolisation | • May be due to ischaemic/haemorrhagic lesions or cerebral abscess |
+| | • Delirium in meningitis, meningoencephalitis and encephalopathy | | • Occurs from purulent meningitis especially with acute IE |
+| | • Intracranial bleeding<br>> Manifests as:<br>» Confusion<br>» Drowsiness<br>» Reduced consciousness<br>» Vomiting<br>» Seizures | | |
 
 It is very rare for IE patients to present with the full spectrum of physical signs and there may be only one or two of these clinical features present. For the primary care physician, general practitioner or emergency room physician, the diagnosis of IE may be missed or delayed because of the failure to recognise certain clinical manifestations of the disease.
 
@@ -101,10 +76,9 @@ In the presence of fever, IE should be considered as part of the differential di
 - Heart failure that cannot be accounted for.
 - Haemorrhages in unusual locations.
 
-## KEY MESSAGE:
-
-1. IE can present with very diverse clinical presentations which makes its diagnosis challenging.
-2. A high level of suspicion of IE is warranted in patients with fever and pre-existing risk factors who present with non-specific symptoms.
+> **KEY MESSAGE:**
+> 1. IE can present with very diverse clinical presentations which makes its diagnosis challenging.
+> 2. A high level of suspicion of IE is warranted in patients with fever and pre-existing risk factors who present with non-specific symptoms.
 
 
 # SECTION 3.2: INVESTIGATIONS
