@@ -1,4 +1,11 @@
 # SECTION 12: STROKE IN THE OLDER PERSON
+
+<!-- METADATA
+category: special_populations
+use_case: geriatric_stroke_management, frailty_assessment, treatment_modification, discharge_planning, end_of_life_care
+patient_input: age, frailty_status, comorbidities, functional_status, cognitive_status
+output: individualised_treatment_plan, discharge_plan, palliative_care_pathway
+-->
 ## 12.1 Introduction
 
 An older person is defined as those aged 60 years and above by the Malaysian Ministry of Health. As the average age of getting a stroke in Malaysia is 63 years, a significant number of stroke survivors are in the older age group.

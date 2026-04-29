@@ -1,4 +1,12 @@
 # SECTION 12: DURATION OF HOSPITALISATION
+
+<!-- METADATA
+category: discharge_planning
+use_case: length_of_stay, early_discharge_criteria, risk_based_discharge, post_discharge_follow_up
+patient_input: complication_status, LVEF, residual_ischaemia, social_support, symptom_stability
+output: discharge_timing, early_discharge_eligibility, follow_up_schedule
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 The duration of hospital stay following STEMI will depend on the patient's cardiac risk, extent of myocardial damage, presence of complications, comorbidities and social support.

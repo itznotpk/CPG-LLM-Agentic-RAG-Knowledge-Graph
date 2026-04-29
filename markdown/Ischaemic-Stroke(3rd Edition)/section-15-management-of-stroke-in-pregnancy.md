@@ -1,4 +1,12 @@
 # SECTION 15: MANAGEMENT OF STROKE IN PREGNANCY
+
+<!-- METADATA
+category: special_populations
+use_case: pregnancy_stroke_management, anticoagulation_in_pregnancy, labour_management
+patient_input: gestational_age, stroke_type, cardiac_status, coagulation_status
+output: treatment_pathway, anticoagulation_regimen, labour_drug_management
+critical: true
+-->
 ## 15.1 Burden and Aetiology
 
 The incidence of pregnancy-associated stroke is 10.2 per 100 000 deliveries. The incidence rate of stroke in pregnancy is higher in the peripartum and postpartum period, especially in the first six to twelve weeks after delivery. In a Japanese study, most pregnancy-associated strokes were haemorrhagic strokes (73.5%), less than a quarter (24.5%) were ischaemic strokes and rarely, there were mixed strokes (2%).

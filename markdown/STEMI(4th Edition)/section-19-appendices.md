@@ -1,4 +1,12 @@
 # SECTION 19: APPENDICES
+
+<!-- METADATA
+category: reference_tables
+use_case: Killip_classification, TIMI_risk_score, GRACE_score, Sgarbossa_criteria, drug_dosing_tables
+patient_input: clinical_parameters, scoring_variables
+output: risk_score_calculation, diagnostic_criteria_reference, drug_dosing_reference
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 ## Appendix I: Difficulties in ECG Diagnosis of MI

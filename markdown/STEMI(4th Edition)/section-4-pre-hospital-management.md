@@ -1,4 +1,13 @@
 # SECTION 4: PRE-HOSPITAL MANAGEMENT
+
+<!-- METADATA
+category: pre_hospital_management
+use_case: public_education, symptom_recognition, emergency_transport, pre_hospital_ECG, first_medical_contact
+patient_input: chest_pain_onset_time, symptom_description, pre_hospital_ECG_findings
+output: activation_of_STEMI_protocol, pre_hospital_triage, transport_decision, first_medical_contact_to_device_time
+critical: true
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC. Most deaths following STEMI occur in the pre-hospital phase.

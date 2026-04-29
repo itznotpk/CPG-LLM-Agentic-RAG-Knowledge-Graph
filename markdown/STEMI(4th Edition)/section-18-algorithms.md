@@ -1,4 +1,13 @@
 # SECTION 18: ALGORITHMS
+
+<!-- METADATA
+category: clinical_algorithms
+use_case: STEMI_management_algorithm, cardiac_arrest_algorithm, tachycardia_algorithm, bradycardia_algorithm, reperfusion_decision_pathway
+patient_input: clinical_presentation, ECG_rhythm, haemodynamic_status
+output: treatment_pathway, step_by_step_decision_tree, emergency_protocol
+critical: true
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 The following clinical algorithms are adapted from the Guidelines for Resuscitation Training for the Ministry of Health Malaysia, March 2016.

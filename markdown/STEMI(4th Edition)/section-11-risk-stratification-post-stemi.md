@@ -1,4 +1,13 @@
 # SECTION 11: RISK STRATIFICATION POST STEMI
+
+<!-- METADATA
+category: risk_stratification
+use_case: prognostic_assessment, TIMI_risk_score, GRACE_score, LVEF_evaluation, sudden_cardiac_death_risk, ICD_indication, stress_testing
+patient_input: LVEF, TIMI_score, GRACE_score, residual_ischaemia, arrhythmia_burden, symptom_status
+output: risk_category, ICD_recommendation, further_revascularisation_decision, follow_up_intensity
+critical: true
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 Risk stratification of patients post-STEMI serves to prognosticate and identify appropriate treatment strategies. It starts from admission and is a continuing process. It is especially important in patients treated medically and those with multivessel disease who underwent PCI of the IRA only.

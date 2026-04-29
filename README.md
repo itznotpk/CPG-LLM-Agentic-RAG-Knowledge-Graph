@@ -7,7 +7,7 @@
 ![Gemini](https://img.shields.io/badge/Google_Gemini-LLM_&_Embeddings-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 
-An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, **Dyslipidaemia (6th Edition)**, **Ischaemic Stroke (3rd Edition)**, and **STEMI (4th Edition)**.
+An intelligent **Clinical Practice Guidelines (CPG) Assistant** that combines **Agentic RAG** (Retrieval-Augmented Generation) with a **Knowledge Graph** to provide evidence-based clinical decision support for Malaysia CPGs, including **Erectile Dysfunction**, **Heart Failure (5th Edition)**, **Dyslipidaemia (6th Edition)**, **Ischaemic Stroke (3rd Edition)**, **STEMI (4th Edition)**, and **NSTE-ACS (3rd Edition)**.
 
 > **Last Updated:** April 2026
 
@@ -405,7 +405,8 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 │   ├── Heart-Failure(5th Edition)/
 │   ├── Dyslipidaemia(6th-Edition)/
 │   ├── Ischaemic-Stroke(3rd Edition)/  # 18 sections
-│   ├── STEMI(4th Edition)/             # 22 sections
+│   ├── STEMI(4th Edition)/             # 20 sections
+│   ├── NSTE-ACS(3rd Edition)/          # 12 sections
 │   └── ...               # Additional CPGs (20+ guidelines)
 ├── ddx/                  # ICD-11 Differential Diagnosis Engine
 │   ├── data/             # ICD-11 code markdown files
@@ -450,8 +451,9 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 | Erectile Dysfunction | - | 12 | ✅ Complete |
 | Heart Failure | 5th Edition | 14 | ✅ Complete |
 | Dyslipidaemia | 6th Edition | 14 | ✅ Complete |
-| **Ischaemic Stroke** | **3rd Edition** | **18** | **✅ Complete** |
-| **STEMI** | **4th Edition** | **22** | **✅ Complete** |
+| Ischaemic Stroke | 3rd Edition | 18 | ✅ Complete |
+| STEMI | 4th Edition | 20 | ✅ Complete |
+| **NSTE-ACS** | **3rd Edition** | **12** | **✅ Complete** |
 | Hypertension | 5th Edition | - | 📋 Ingested (raw) |
 | Stable Coronary Artery Disease | 2nd Edition | - | 📋 Ingested (raw) |
 | Atrial Fibrillation | 2012 | - | 📋 Ingested (raw) |
@@ -467,8 +469,9 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 
 ### RAG-Optimized Document Structure
 
-The fully standardized CPGs (STEMI, Ischaemic Stroke, Dyslipidaemia, Heart Failure, ED) follow a consistent structure designed for optimal agentic retrieval:
+The fully standardized CPGs (STEMI, Ischaemic Stroke, NSTE-ACS, Dyslipidaemia, Heart Failure, ED) follow a consistent structure designed for optimal agentic retrieval:
 
+- **RAG-Optimized Metadata** — Each section file includes an HTML-comment metadata block (`<!-- METADATA ... -->`) immediately after the first heading, categorising the content by domain (e.g., `diagnosis`, `reperfusion_therapy`, `secondary_prevention`), defining key `use_case`, `patient_input`, and `output` fields, and flagging `critical` sections for high-priority retrieval.
 - **Localized Abbreviation Tables** — Each section file contains its own glossary of abbreviations used, eliminating cross-file lookups.
 - **Contextual Anchors (Overlapping)** — Sections that reference other chapters embed summarized content from the referenced section as contextual anchors, enabling single-chunk retrieval.
 - **Evidence Keys** — Each section contains its own Levels of Evidence Scale and Grades of Recommendations table for self-contained interpretation.
@@ -477,13 +480,15 @@ The fully standardized CPGs (STEMI, Ischaemic Stroke, Dyslipidaemia, Heart Failu
 
 ### Recent Changes (April 2026)
 
-- **STEMI (4th Ed) — Full RAG-Optimized Ingestion Complete** — All 20 section files (Sections 2–19) are now fully self-contained, atomic knowledge chunks:
-  - **Cross-reference elimination** — Every "See Section X" pointer has been replaced with the literal, evidence-graded content from the source section. Overlapping modules now exist as contextual anchors within each file, covering pharmacotherapy, reperfusion strategies, risk stratification, secondary prevention, cardiac rehabilitation, performance measures, follow-up checklists, and special groups.
+- **NSTE-ACS (3rd Ed) — RAG-Optimized Ingestion Complete** — 12 section files covering introduction, definitions, pathogenesis, diagnosis, risk scores, pre-hospital management, in-hospital management, special groups, post-discharge, cardiac rehabilitation, quality assurance, and appendices.
+- **RAG-Optimized Metadata Standardization** — Added structured `<!-- METADATA -->` blocks to all sections across **Ischaemic Stroke (18 sections)**, **STEMI (20 sections)**, and **Erectile Dysfunction (12 sections)**. Each block includes `category`, `use_case`, `patient_input`, `output`, `critical`, and `treatment_type` fields to enable downstream RAG systems to classify and prioritise chunk retrieval.
+- **STEMI (4th Ed) — Full RAG-Optimized Ingestion Complete** — All 20 section files (Sections 0–19) are now fully self-contained, atomic knowledge chunks:
+  - **Cross-reference elimination** — Every "See Section X" pointer has been replaced with the literal, evidence-graded content from the source section.
   - **Abbreviation table harmonisation** — Each section's abbreviation table has been expanded to include all terms introduced by embedded overlapping content, ensuring zero undefined acronyms per chunk.
   - **Table 1: Levels of Evidence & Grades of Recommendation** — Embedded at the end of every clinical section (Sections 4–17), enabling self-contained interpretation of `[Grade X, Level Y]` annotations.
-  - **PDF-verified tables** — Tables 6, 7, 8, 14, 15, 19 repositioned and corrected against source PDF. Section 3.4 and Key Recommendations verified.
+  - **PDF-verified tables** — Tables 6, 7, 8, 14, 15, 19 repositioned and corrected against source PDF.
   - **Sections 20–21 consolidated** — References and Acknowledgements merged into Section 19 (Appendices).
-- **Repository cleanup** — Removed 22 unnecessary files (temp outputs, one-off Python scripts, backup files, AI scaffolding docs). Moved source PDFs from `markdown/` to `documents/`. Fixed corrupted `.gitignore`.
+- **Repository cleanup** — Removed unnecessary files (temp outputs, one-off Python scripts, backup files, AI scaffolding docs). Moved source PDFs from `markdown/` to `documents/`. Fixed corrupted `.gitignore`.
 
 ---
 

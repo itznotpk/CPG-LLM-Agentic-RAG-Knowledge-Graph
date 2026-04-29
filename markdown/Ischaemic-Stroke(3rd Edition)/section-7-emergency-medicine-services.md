@@ -1,4 +1,13 @@
 # SECTION 7: EMERGENCY MEDICINE SERVICES
+
+<!-- METADATA
+category: emergency_management
+use_case: prehospital_care, emergency_department_management, stroke_triage, thrombolysis_eligibility
+patient_input: symptom_onset_time, neurological_status, oxygen_saturation, blood_glucose
+output: transport_decision, triage_priority, acute_intervention_pathway
+critical: true
+-->
+
 ## EMERGENCY MEDICINE SERVICES
 
 Most people with acute stroke (95%) have their first symptoms out of hospital. Based on data in other countries, approximately two-thirds of all patients who seek acute care for stroke arrive to the emergency department by ambulance.

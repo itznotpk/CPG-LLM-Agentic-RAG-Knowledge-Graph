@@ -1,5 +1,11 @@
 # SECTION 18: APPENDICES
 
+<!-- METADATA
+category: reference
+use_case: search_terms, screening_tools, operational_definitions, swallowing_assessment
+referenced_by: section-7-emergency-medicine-services, section-8-acute-general-management
+-->
+
 **Appendix A.** *MeSH terms or free text terms used for literature search*
 *(Reference:Rationale, Objectives And Process Of Guideline Development)*
 

@@ -1,4 +1,10 @@
 # SECTION 16: STROKE THERAPIES WITH LIMITED EVIDENCE
+
+<!-- METADATA
+category: treatment
+treatment_type: limited_evidence
+use_case: alternative_therapy_evaluation, evidence_review
+-->
 A variety of medicines and treatment modalities have been used for stroke. Although yet to be proven effective, they may be considered for treatment in acute stroke (refer to Table 16.1: Stroke Therapy Modalities).
 
 ### Table 16.1: Stroke Therapy Modalities

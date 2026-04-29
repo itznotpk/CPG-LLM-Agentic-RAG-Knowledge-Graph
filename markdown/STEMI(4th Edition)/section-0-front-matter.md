@@ -1,4 +1,11 @@
 # SECTION 0: FRONT MATTER
+
+<!-- METADATA
+category: front_matter
+use_case: guideline_overview, expert_panel, methodology, evidence_grading
+output: guideline_scope, development_process, grading_system
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 ## Statement of Intent

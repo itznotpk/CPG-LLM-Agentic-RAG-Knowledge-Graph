@@ -1,4 +1,11 @@
 # SECTION 11: STROKE UNIT
+
+<!-- METADATA
+category: care_delivery
+use_case: stroke_unit_setup, multidisciplinary_team_coordination, quality_indicators
+patient_input: stroke_severity, rehabilitation_needs
+output: care_pathway, KPI_benchmarks
+-->
 ## 11.1 Stroke Unit
 
 All patients with acute stroke should ideally have access to stroke units. There is clear evidence that the treatment of patients with stroke in stroke units significantly reduces death, dependency, institutionalisation, and length of hospital stay as compared to treatment in the general medical ward.

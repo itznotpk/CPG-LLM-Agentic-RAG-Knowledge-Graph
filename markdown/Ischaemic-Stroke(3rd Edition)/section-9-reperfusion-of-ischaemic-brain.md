@@ -1,4 +1,13 @@
 # SECTION 9: REPERFUSION OF ISCHAEMIC BRAIN
+
+<!-- METADATA
+category: treatment
+treatment_type: reperfusion_therapy
+use_case: thrombolysis_decision, IVT_administration, complication_management
+patient_input: symptom_onset_time, NIHSS_score, imaging_findings, contraindications, blood_pressure
+output: IVT_eligibility, treatment_regimen, complication_protocol
+critical: true
+-->
 ## 9.1 Introduction
 
 In cerebral infarcts, restoration of perfusion to the ischaemic brain tissues is the key therapeutic strategy. The concept of existence of an ischaemic penumbra is fundamental to the current approach in the treatment of ischaemic stroke. Although the core infarcted tissues might not be salvageable, adjacent dysfunctional tissue might be saved if the circulation is restored and metabolism is normalized.

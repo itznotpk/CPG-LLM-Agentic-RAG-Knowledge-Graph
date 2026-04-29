@@ -1,4 +1,13 @@
 # SECTION 5: PREVENTION OF STROKE
+
+<!-- METADATA
+category: prevention
+use_case: primary_prevention, secondary_prevention, risk_factor_management, antiplatelet_selection, revascularisation_decision
+patient_input: risk_factors, medication_history, cardiovascular_status, lipid_profile, blood_pressure
+output: prevention_strategy, treatment_pathway, risk_reduction
+critical: true
+-->
+
 ## PREVENTION OF STROKE
 
 ## 5.1 Primary Prevention

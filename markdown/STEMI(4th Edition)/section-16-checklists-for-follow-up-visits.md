@@ -1,4 +1,12 @@
 # SECTION 16: CHECKLISTS FOR FOLLOW-UP VISITS
+
+<!-- METADATA
+category: follow_up
+use_case: post_discharge_checklist, medication_review, risk_factor_monitoring, symptom_reassessment, investigation_scheduling
+patient_input: symptom_status, medication_adherence, blood_pressure, lipid_profile, HbA1c, LVEF
+output: follow_up_action_plan, medication_adjustment, investigation_requests, referral_decisions
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 The following should be assessed at each follow-up visit:

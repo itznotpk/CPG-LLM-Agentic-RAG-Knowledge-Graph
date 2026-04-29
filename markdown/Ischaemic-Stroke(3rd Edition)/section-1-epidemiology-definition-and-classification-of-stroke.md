@@ -1,4 +1,12 @@
 # SECTION 1: EPIDEMIOLOGY DEFINITION AND CLASSIFICATION OF STROKE
+
+<!-- METADATA
+category: epidemiology
+use_case: stroke_classification, prevalence_data, risk_factor_identification
+patient_input: demographics, stroke_type, risk_factors
+output: stroke_classification, epidemiological_context
+-->
+
 ## EPIDEMIOLOGY , DEFINITION AND CLASSIFICATION OF STROKE
 
 ## 1. Epidemiology of Stroke

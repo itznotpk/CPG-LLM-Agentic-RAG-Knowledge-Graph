@@ -1,4 +1,12 @@
 # SECTION 13: STROKE AND CARDIOEMBOLISM
+
+<!-- METADATA
+category: cardioembolism
+use_case: AF_stroke_prevention, anticoagulant_selection, bleeding_management, secondary_prevention
+patient_input: CHA2DS2_VASc_score, AF_type, cardiac_investigations, HAS_BLED_score
+output: OAC_recommendation, DOAC_initiation_timing, bleeding_reversal_protocol
+critical: true
+-->
 ## 13.1 Cardioembolic Stroke
 
 Cardioembolic stroke accounts for about 20% of all ischaemic strokes. They are generally severe, prone to early recurrence, more likely to happen when there is documented source of embolism and involve different cerebrovascular territories or multiple infarctions. The predominant pathogenic process for stroke associated with cardiac disease is embolism due to the formation of intra-atrial and intra-ventricular thrombi.

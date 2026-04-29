@@ -1,4 +1,14 @@
 # SECTION 7: REPERFUSION STRATEGIES
+
+<!-- METADATA
+category: reperfusion_therapy
+use_case: primary_PCI, fibrinolytic_therapy, pharmaco_invasive_strategy, rescue_PCI, door_to_balloon_time, door_to_needle_time
+patient_input: symptom_onset_time, ECG_findings, contraindications_to_fibrinolysis, PCI_centre_availability, haemodynamic_status, TIMI_risk_score
+output: reperfusion_strategy_selection, fibrinolytic_agent_choice, PCI_timing, transfer_decision, adjunctive_antiplatelet_regimen
+critical: true
+treatment_type: primary_PCI, fibrinolysis, rescue_PCI, pharmaco_invasive
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 A patient's immediate and long-term prognosis following STEMI can be predicted by using the:

@@ -1,4 +1,12 @@
 # SECTION 8: ACUTE GENERAL MANAGEMENT
+
+<!-- METADATA
+category: acute_management
+use_case: supportive_care, complication_management, blood_pressure_control, glycaemic_management
+patient_input: vital_signs, blood_glucose, oxygen_saturation, neurological_status, swallowing_ability
+output: acute_treatment_plan, complication_prevention
+critical: true
+-->
 ## 8.1 General Management
 
 The primary aim of acute stroke management is for early reperfusion therapy which will be covered in Section 9: Reperfusion of Ischaemic Brain and Section 10: Endovascular Thrombectomy. This section will cover the general management of acute stroke that includes supportive care and treatment of acute complications. This is important to improve the mortality rates and reduce the functional disability.

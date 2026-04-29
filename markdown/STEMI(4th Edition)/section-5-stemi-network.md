@@ -1,4 +1,13 @@
 # SECTION 5: STEMI NETWORK
+
+<!-- METADATA
+category: systems_of_care
+use_case: hub_and_spoke_network, inter_hospital_transfer, total_ischaemic_time, PCI_capable_facility_routing
+patient_input: geographic_location, symptom_onset_time, nearest_PCI_centre_availability
+output: transfer_protocol, optimal_reperfusion_pathway, door_to_balloon_time_target, network_activation
+critical: true
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 The objective of a STEMI network is to link non-PCI-capable centres to PCI-capable centres with the aim of providing PCI services in a timely manner for patients:

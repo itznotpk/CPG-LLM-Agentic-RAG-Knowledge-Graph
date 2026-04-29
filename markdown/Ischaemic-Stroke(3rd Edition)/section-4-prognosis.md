@@ -1,4 +1,11 @@
 # SECTION 4: PROGNOSIS
+
+<!-- METADATA
+category: prognosis
+use_case: survival_estimation, recurrence_risk, disability_assessment
+patient_input: stroke_type, stroke_severity, age, comorbidities
+output: mortality_risk, recurrence_rate, functional_outcome
+-->
 ## 4.1 Survival after Stroke
 
 Prognosis of stroke depends on the type of stroke, size, and location of the lesion. Haemorrhagic stroke has a higher mortality than ischaemic stroke. However, patients with haemorrhagic stroke show a better neurological and functional recovery. Brainstem infarction, large hemispheric infarction and cardioembolic stroke also carry a poor prognosis. Lacunar infarct has the lowest mortality rate.

@@ -1,4 +1,12 @@
 # SECTION 2: CAUSES AND PATHOPHYSIOLOGY
+
+<!-- METADATA
+category: pathophysiology
+use_case: stroke_aetiology, mechanism_identification
+patient_input: imaging_findings, clinical_presentation
+output: stroke_mechanism, aetiological_classification
+-->
+
 ## CAUSES AND PATHOPHYSIOLOGY
 
 ## 2.1 Principal Causes of Ischaemic Stroke

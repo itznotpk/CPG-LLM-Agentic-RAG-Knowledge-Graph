@@ -1,4 +1,13 @@
 # SECTION 3: DIAGNOSIS
+
+<!-- METADATA
+category: diagnosis
+use_case: clinical_assessment, ECG_interpretation, biomarker_evaluation, differential_diagnosis
+patient_input: chest_pain_history, ECG_findings, cardiac_biomarkers, risk_factors
+output: STEMI_diagnosis, infarct_localisation, differential_diagnoses
+critical: true
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 The diagnosis of STEMI is based on:

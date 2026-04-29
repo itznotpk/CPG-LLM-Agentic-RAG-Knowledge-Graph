@@ -1,4 +1,13 @@
 # SECTION 2: DEFINITION AND PATHOGENESIS OF MYOCARDIAL INFARCTION
+
+<!-- METADATA
+category: pathophysiology
+use_case: MI_classification, STEMI_diagnosis_criteria, troponin_interpretation, ECG_localisation
+patient_input: ECG_findings, cardiac_biomarkers, chest_pain_history
+output: MI_type_classification, STEMI_confirmation, culprit_vessel_identification
+critical: true
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 ## 2.1 Acute Coronary Syndrome

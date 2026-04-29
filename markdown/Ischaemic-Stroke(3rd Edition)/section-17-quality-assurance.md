@@ -1,4 +1,10 @@
 # SECTION 17: QUALITY ASSURANCE
+
+<!-- METADATA
+category: quality_assurance
+use_case: clinical_audit, performance_monitoring, benchmarking
+output: quality_metrics, compliance_targets
+-->
 ## Stroke Care Quality Measures to Monitor for Hospitals providing Thrombolysis and/or Thrombectomy Services in Malaysia
 
 | | Stroke Care Quality | Minimal measures |

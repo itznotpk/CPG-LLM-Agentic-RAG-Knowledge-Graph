@@ -1,4 +1,13 @@
 # SECTION 10: ENDOVASCULAR THROMBECTOMY
+
+<!-- METADATA
+category: treatment
+treatment_type: endovascular_thrombectomy
+use_case: EVT_eligibility, device_selection, sedation_decision, workflow_coordination
+patient_input: symptom_onset_time, NIHSS_score, imaging_findings, mRS_baseline, vessel_occlusion_site
+output: EVT_eligibility, treatment_pathway, bridging_therapy_decision
+critical: true
+-->
 ## 10.1 Acute Endovascular Thrombectomy Treatment
 
 Acute Endovascular Thrombectomy treatment (EVT) is considered as the standard of care since 2015 following the publications of 5 RCTs which have led to a major guideline revamp around the world. EVT is indicated in acute ischaemic stroke that presents within 6-8 hours, and is equally beneficial in selected patients of up to 24 hours from the time last seen well (TLSW) with evidence of large vessel occlusion (LVO).

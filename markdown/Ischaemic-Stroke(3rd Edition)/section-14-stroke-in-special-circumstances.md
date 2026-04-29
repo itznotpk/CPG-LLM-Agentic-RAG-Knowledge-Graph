@@ -1,4 +1,11 @@
 # SECTION 14: STROKE IN SPECIAL CIRCUMSTANCES
+
+<!-- METADATA
+category: special_populations
+use_case: young_stroke_evaluation, PFO_management, cerebral_venous_thrombosis, cryptogenic_stroke
+patient_input: age, coagulation_screen, cardiac_investigations, imaging_findings, thrombophilia_results
+output: aetiological_diagnosis, treatment_pathway, PFO_closure_decision
+-->
 ## 14.1 Stroke in Young Adults
 
 The incidence of stroke in young adults (18 to 45 years) is increasing and the prevalence is reported to be approximately 10-15% of all stroke patients. The causes and risk factors of stroke in young adults is distinct from those in older patients, in which cardiac embolism and other aetiologies are more common, notably non-atherosclerotic arteriopathies and haematological disorders. Therefore, the diagnostic evaluation and management strategy are usually more comprehensive and challenging. This section will cover the aetiology and risk factors in young adults with stroke, in addition to the diagnosis and management of specific causes of stroke in young adults.

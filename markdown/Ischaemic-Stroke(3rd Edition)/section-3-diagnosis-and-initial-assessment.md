@@ -1,4 +1,11 @@
 # SECTION 3: DIAGNOSIS AND INITIAL ASSESSMENT
+
+<!-- METADATA
+category: diagnosis
+use_case: initial_assessment, clinical_evaluation, differential_diagnosis
+patient_input: symptoms, neurological_exam, medical_history
+output: stroke_diagnosis, lesion_localisation, differential_diagnoses
+-->
 ## 3.1 General Aim
 
 In general, the diagnosis of stroke is made by evaluating and analysing information derived from a good history and physical examination and is supplemented with selected diagnostic tests. Due to the nature of the illness and the dramatic manner in which the neurological deficit occurs, history is of utmost importance. Every effort must be made to obtain information from the patient, family members, friends, and witnesses.

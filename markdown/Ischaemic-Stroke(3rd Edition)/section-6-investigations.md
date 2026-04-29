@@ -1,4 +1,11 @@
 # SECTION 6: INVESTIGATIONS
+
+<!-- METADATA
+category: investigations
+use_case: diagnostic_workup, imaging_selection, laboratory_testing
+patient_input: clinical_presentation, stroke_type, suspected_mechanism
+output: investigation_plan, imaging_pathway
+-->
 ## 6.1 Investigational Objectives
 
 Investigations carried out for stroke patients are aimed to:

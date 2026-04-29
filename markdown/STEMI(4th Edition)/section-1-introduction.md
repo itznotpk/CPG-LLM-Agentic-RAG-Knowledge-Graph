@@ -1,4 +1,12 @@
 # SECTION 1: INTRODUCTION
+
+<!-- METADATA
+category: epidemiology
+use_case: prevalence_data, mortality_statistics, registry_data, reperfusion_outcomes
+patient_input: demographic_data, presentation_type
+output: mortality_benchmarks, treatment_gap_analysis, guideline_objectives
+-->
+
 ## INTRODUCTION
 
 The most recent data from the National Department of Statistics Malaysia indicated that in 2014, ischaemic heart disease (IHD) was the principal cause of mortality (13.7%). For men, it was the principle cause of death (15.2%) and for women, it was second after pneumonias.

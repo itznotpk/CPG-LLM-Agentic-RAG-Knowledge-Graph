@@ -1,4 +1,14 @@
 # SECTION 8: CARDIAC CARE UNIT (CCU) MANAGEMENT
+
+<!-- METADATA
+category: inpatient_management
+use_case: CCU_monitoring, DAPT_regimen, beta_blocker_therapy, ACE_inhibitor_initiation, statin_therapy, glycaemic_control, haemodynamic_monitoring
+patient_input: post_reperfusion_status, LVEF, blood_pressure, heart_rate, renal_function, blood_glucose
+output: pharmacotherapy_plan, monitoring_protocol, early_secondary_prevention, discharge_medication_plan
+critical: true
+treatment_type: DAPT, beta_blocker, ACEi_ARB, statin, anticoagulation
+-->
+
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
 
 ## 8.1 General measures
