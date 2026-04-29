@@ -1,8 +1,8 @@
 # APPENDIX: POST-TREATMENT CANCER SURVIVORSHIP
 
 <!-- METADATA
-category: Supportive Treatment
-use_case: Post-Treatment Cancer Survivorship — treatment_complications, long_term_effects, surveillance, quality_of_life
+category: Supportive Treatment, Prevention, Assessment
+use_case: Post-Treatment Cancer Survivorship — treatment_complications, long_term_effects, surveillance, quality_of_life, lymphoedema, cardiotoxicity, cognitive_impairment, fatigue, bone_health
 patient_input: treatment_history, complication_type, functional_status
 output: survivorship_care_plan, complication_management, follow_up_schedule
 -->

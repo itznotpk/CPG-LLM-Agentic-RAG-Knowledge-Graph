@@ -1,10 +1,11 @@
 # SECTION 3: DIAGNOSIS AND INITIAL ASSESSMENT
 
 <!-- METADATA
-category: diagnosis
-use_case: initial_assessment, clinical_evaluation, differential_diagnosis
+category: Diagnosis, Assessment
+use_case: Stroke Initial Assessment and Diagnosis — clinical_evaluation, NIHSS, differential_diagnosis, lesion_localisation, FAST_recognition, stroke_mimics
 patient_input: symptoms, neurological_exam, medical_history
 output: stroke_diagnosis, lesion_localisation, differential_diagnoses
+critical: true
 -->
 ## 3.1 General Aim
 

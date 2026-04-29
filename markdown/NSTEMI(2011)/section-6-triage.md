@@ -1,6 +1,6 @@
 <!-- METADATA
-category: Diagnosis
-use_case: Emergency Triage and Risk Categorisation — rapid_assessment, high_risk_identification, invasive_vs_conservative_decision
+category: Diagnosis, Assessment
+use_case: Emergency Triage and Risk Categorisation — rapid_assessment, high_risk_identification, invasive_vs_conservative_decision, low_risk_workup
 patient_input: vital_signs, ECG_findings, cardiac_biomarkers, haemodynamic_status
 output: triage_category, management_pathway, admission_decision
 critical: true

@@ -1,9 +1,9 @@
 # APPENDICES
 
 <!-- METADATA
-category: Reference
-use_case: Reference Tables and Flowcharts — drug_dosing, WHO_risk_classification, NYHA_classification, clinical_flowcharts
-patient_input: 
+category: Reference, Classification
+use_case: Reference Tables and Flowcharts — drug_dosing, WHO_risk_classification, NYHA_classification, clinical_flowcharts, diagnostic_algorithms
+patient_input: lab_results, symptoms
 output: drug_dosing_tables, flowcharts, WHO_risk_classification, NYHA_classification
 -->
 

@@ -1,12 +1,12 @@
 # SECTION 6.2: SYSTEMIC THERAPY
 
 <!-- METADATA
-category: Treatment
-use_case: Systemic Therapy Guidelines — chemotherapy, endocrine_therapy, targeted_therapy, neoadjuvant, adjuvant, metastatic
+category: Treatment, Prevention
+use_case: Systemic Therapy Guidelines — chemotherapy, endocrine_therapy, targeted_therapy, neoadjuvant, adjuvant, metastatic, bone_modifying_agents
 patient_input: receptor_status, TNM_stage, menopausal_status, comorbidities, genomic_assay
 output: regimen_selection, treatment_sequence, dose_schedule, response_monitoring
 critical: true
-treatment_type: chemotherapy, endocrine_therapy, anti_HER2, CDK4_6_inhibitor, immunotherapy
+treatment_type: chemotherapy, tamoxifen, aromatase_inhibitor, trastuzumab, pertuzumab, TDM1, CDK4_6_inhibitor, PARP_inhibitor, immunotherapy, bisphosphonate, denosumab
 -->
 
 ## Overview

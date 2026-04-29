@@ -1,8 +1,8 @@
 # SECTION 3: SCREENING
 
 <!-- METADATA
-category: Screening
-use_case: Breast Cancer Screening Guidelines — mammography, CBE, BSE, screening_intervals, high_risk_screening
+category: Screening, Prevention
+use_case: Breast Cancer Screening Guidelines — mammography, CBE, BSE, screening_intervals, high_risk_screening, MRI_screening
 patient_input: age, risk_category, family_history, BRCA_status
 output: screening_modality, screening_interval, referral_criteria
 -->

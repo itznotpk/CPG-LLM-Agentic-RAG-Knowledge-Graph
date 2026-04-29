@@ -1,8 +1,8 @@
 # SECTION 2: RISK FACTORS
 
 <!-- METADATA
-category: Epidemiology
-use_case: Breast Cancer Risk Assessment — modifiable_risk_factors, non_modifiable_risk_factors, hormonal_factors, genetic_predisposition
+category: Epidemiology, Prevention, Screening
+use_case: Breast Cancer Risk Assessment — modifiable_risk_factors, non_modifiable_risk_factors, hormonal_factors, genetic_predisposition, breast_density, lifestyle_modification
 patient_input: age, family_history, reproductive_history, lifestyle_factors, BRCA_status
 output: risk_category, risk_reduction_recommendations
 -->

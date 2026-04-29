@@ -1,11 +1,12 @@
 # SECTION 11: RISK STRATIFICATION POST STEMI
 
 <!-- METADATA
-category: Assessment
-use_case: Risk Stratification Post STEMI — prognostic_assessment, TIMI_risk_score, GRACE_score, LVEF_evaluation, sudden_cardiac_death_risk, ICD_indication, stress_testing
+category: Assessment, Prevention
+use_case: Risk Stratification Post STEMI — prognostic_assessment, TIMI_risk_score, GRACE_score, LVEF_evaluation, sudden_cardiac_death_risk, ICD_indication, stress_testing, myocardial_viability
 patient_input: LVEF, TIMI_score, GRACE_score, residual_ischaemia, arrhythmia_burden, symptom_status
 output: risk_category, ICD_recommendation, further_revascularisation_decision, follow_up_intensity
 critical: true
+treatment_type: ICD, beta_blocker, ACEi, MRA, statin
 -->
 
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019

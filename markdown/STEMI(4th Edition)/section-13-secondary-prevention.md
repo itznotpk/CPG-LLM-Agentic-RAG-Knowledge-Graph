@@ -1,11 +1,11 @@
 # SECTION 13: SECONDARY PREVENTION
 
 <!-- METADATA
-category: Prevention
+category: Prevention, Treatment
 use_case: Secondary Prevention Post STEMI — lifestyle_modification, smoking_cessation, lipid_management, blood_pressure_control, diabetes_management, antiplatelet_duration, cardiac_medication_optimisation
 patient_input: LDL_cholesterol, blood_pressure, HbA1c, BMI, smoking_status, LVEF, medication_adherence
 output: target_LDL, target_blood_pressure, DAPT_duration, statin_dose, lifestyle_plan, medication_titration
-treatment_type: statin, antiplatelet, ACEi_ARB, beta_blocker, lifestyle
+treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, atorvastatin, rosuvastatin, ezetimibe, PCSK9_inhibitor, ACEi, ARB, beta_blocker, eplerenone, rivaroxaban, ivabradine, trimetazidine
 -->
 
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019

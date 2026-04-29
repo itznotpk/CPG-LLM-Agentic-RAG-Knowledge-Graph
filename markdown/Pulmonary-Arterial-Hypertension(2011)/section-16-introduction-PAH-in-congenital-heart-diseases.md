@@ -1,8 +1,8 @@
 # SECTION 16: INTRODUCTION TO PAH IN CONGENITAL HEART DISEASES
 
 <!-- METADATA
-category: Introduction
-use_case: CHD-PAH Pathophysiology Overview — high_volume_shunts, Eisenmenger_progression, post_closure_PAH, reversible_vs_irreversible
+category: Introduction, Pathophysiology
+use_case: CHD-PAH Pathophysiology Overview — high_volume_shunts, Eisenmenger_progression, post_closure_PAH, reversible_vs_irreversible, VSD, ASD, PDA
 patient_input: CHD_type, shunt_direction, defect_size
 output: CHD_PAH_classification, Eisenmenger_risk_assessment
 -->

@@ -1,9 +1,10 @@
 # SECTION 7: SUPPORTIVE CARE
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Dental Care, Nutrition, Contraception
-patient_input: 
+category: Supportive Treatment
+use_case: NPC Supportive Care — dental_care, nutritional_support, contraception, pre_radiotherapy_dental_assessment, enteral_feeding
+patient_input: dental_status, nutritional_status, reproductive_status, treatment_plan
+output: dental_management_plan, nutritional_support_plan, contraception_advice, pre_treatment_preparation
 -->
 
 > **Context:** Best practices for supportive care including dental, nutritional, and family planning for NPC patients.

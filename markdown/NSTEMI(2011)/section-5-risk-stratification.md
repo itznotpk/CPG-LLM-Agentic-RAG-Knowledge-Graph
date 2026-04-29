@@ -1,6 +1,6 @@
 <!-- METADATA
-category: Assessment
-use_case: Risk Stratification for Adverse Outcomes — TIMI_risk_score, GRACE_score, bleeding_risk, ACUITY_HORIZONS, CRUSADE_score
+category: Assessment, Diagnosis
+use_case: Risk Stratification for Adverse Outcomes — TIMI_risk_score, GRACE_score, bleeding_risk, ACUITY_HORIZONS, CRUSADE_score, ACS_likelihood_assessment
 patient_input: age, troponin, ECG_changes, prior_CAD, risk_factors, renal_function, haemoglobin
 output: risk_category, prognosis, bleeding_risk_score, management_pathway_selection
 critical: true

@@ -1,10 +1,10 @@
 # SECTION 5: ETIOLOGY
 
 <!-- METADATA
-category: Epidemiology
-use_case: HF Aetiology and Cause Identification — ischaemic, non_ischaemic, decompensation_triggers, CHAMPION_mnemonic
-patient_input: patient_history, risk_factors, echocardiography
-output: HF_aetiology, decompensation_factors, reversible_causes
+category: Epidemiology, Diagnosis
+use_case: HF Aetiology and Cause Identification — ischaemic, non_ischaemic, decompensation_triggers, CHAMPION_mnemonic, reversible_causes, cardiotoxins
+patient_input: patient_history, risk_factors, echocardiography, medication_history
+output: HF_aetiology, decompensation_factors, reversible_causes, underlying_cause_identification
 -->
 
 ## 5. ETIOLOGY

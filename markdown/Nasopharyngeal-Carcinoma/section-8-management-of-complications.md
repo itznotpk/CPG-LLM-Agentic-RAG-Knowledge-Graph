@@ -1,9 +1,10 @@
 # SECTION 8: MANAGEMENT OF COMPLICATIONS
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Treatment Complications, Side Effects, Post-Radiotherapy
-patient_input: 
+category: Supportive Treatment
+use_case: NPC Treatment Complication Management — oral_complications, xerostomia, mucositis, osteoradionecrosis, trismus, cranial_nerve_palsy, hearing_loss, radiation_toxicity
+patient_input: complication_type, severity, time_since_treatment, cranial_nerve_status
+output: complication_management_plan, symptom_relief, rehabilitation_referral
 -->
 
 > **Context:** Guidelines for managing common oral, neurological, and related complications arising post-treatment for NPC.

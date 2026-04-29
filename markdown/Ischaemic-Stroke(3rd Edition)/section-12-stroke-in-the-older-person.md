@@ -1,10 +1,11 @@
 # SECTION 12: STROKE IN THE OLDER PERSON
 
 <!-- METADATA
-category: special_populations
-use_case: geriatric_stroke_management, frailty_assessment, treatment_modification, discharge_planning, end_of_life_care
+category: Special Populations, Treatment, Supportive Treatment
+use_case: Geriatric Stroke Management — frailty_assessment, treatment_modification, discharge_planning, end_of_life_care, polypharmacy, delirium_screening, falls_prevention
 patient_input: age, frailty_status, comorbidities, functional_status, cognitive_status
 output: individualised_treatment_plan, discharge_plan, palliative_care_pathway
+treatment_type: thrombolysis, thrombectomy, statin, DOAC, warfarin, antihypertensive
 -->
 ## 12.1 Introduction
 

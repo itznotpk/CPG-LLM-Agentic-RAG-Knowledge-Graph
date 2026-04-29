@@ -1,8 +1,8 @@
 # SECTION 11: HFmrEF (LVEF 41-49%)
 
 <!-- METADATA
-category: Treatment
-use_case: HFmrEF Management — mildly_reduced_EF, pharmacotherapy_extrapolation, SGLT2i
+category: Treatment, Classification
+use_case: HFmrEF Management — mildly_reduced_EF_classification, pharmacotherapy_extrapolation, SGLT2i
 patient_input: LVEF_41_to_49
 output: HFmrEF_management_approach, medication_recommendations
 treatment_type: SGLT2i, ACEi_ARB, beta_blocker, MRA

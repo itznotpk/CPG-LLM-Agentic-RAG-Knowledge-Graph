@@ -1,8 +1,8 @@
 # SECTION 5: ASSESSMENT AND DIAGNOSIS
 
 <!-- METADATA
-category: Diagnosis
-use_case: Assessment and Diagnosis — triple_assessment, imaging, biopsy, histopathology, receptor_status, staging
+category: Diagnosis, Classification, Assessment
+use_case: Assessment and Diagnosis — triple_assessment, imaging, biopsy, histopathology, receptor_status, staging, prognostic_markers, molecular_subtyping
 patient_input: clinical_examination, mammography, ultrasound, biopsy_results, ER_PR_HER2_status
 output: histological_diagnosis, receptor_status, TNM_stage, prognostic_markers
 critical: true

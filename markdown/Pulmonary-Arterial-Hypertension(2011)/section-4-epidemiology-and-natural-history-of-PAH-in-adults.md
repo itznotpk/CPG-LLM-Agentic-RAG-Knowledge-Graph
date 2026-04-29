@@ -1,8 +1,8 @@
 # SECTION 4: EPIDEMIOLOGY AND NATURAL HISTORY OF PAH IN ADULTS
 
 <!-- METADATA
-category: Epidemiology
-use_case: Prevalence and Prognosis — incidence_rate, survival_data, prognostic_indicators, 6MWT_threshold, functional_class
+category: Epidemiology, Assessment
+use_case: Prevalence, Prognosis and Prognostic Indicators — incidence_rate, survival_data, prognostic_indicators, 6MWT_threshold, functional_class, BNP, RV_dysfunction
 patient_input: 6MWT_distance, WHO_functional_class, haemodynamic_parameters
 output: prognosis_estimation, survival_benchmarks, poor_prognostic_markers
 -->

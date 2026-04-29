@@ -1,9 +1,10 @@
 # SECTION 9: PROGNOSIS AND FOLLOW-UP
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Prognosis, Survival Rate, Follow-Up Schedule
-patient_input: 
+category: Prevention
+use_case: NPC Prognosis and Follow-Up — survival_rates, stage_based_prognosis, follow_up_schedule, recurrence_surveillance, post_treatment_monitoring
+patient_input: TNM_stage, treatment_completed, time_since_treatment, symptom_status
+output: prognosis_estimation, follow_up_schedule, surveillance_investigation_plan
 -->
 
 > **Context:** Survival statistics for NPC and the recommended follow-up schedule and evaluation.

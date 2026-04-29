@@ -1,12 +1,12 @@
 # SECTION 14: TREATMENT OF iPAH IN CHILDREN
 
 <!-- METADATA
-category: Treatment
-use_case: Paediatric iPAH Treatment Guidelines — general_measures, CCB, iloprost, bosentan, sildenafil, combination_therapy, atrial_septostomy, transplantation
+category: Treatment, Supportive Treatment, Special Populations
+use_case: Paediatric iPAH Treatment Guidelines — general_measures, CCB, iloprost, bosentan, sildenafil, combination_therapy, atrial_septostomy, transplantation, weight_based_dosing
 patient_input: WHO_functional_class, vasoreactivity_response, weight, 6MWT_distance, treatment_response
 output: treatment_selection, weight_based_dosing, combination_strategy, follow_up_targets, escalation_decision
 critical: true
-treatment_type: CCB, ERA, PDE5_inhibitor, prostanoid, atrial_septostomy, transplantation
+treatment_type: CCB, bosentan, sildenafil, iloprost, atrial_septostomy, transplantation
 -->
 
 

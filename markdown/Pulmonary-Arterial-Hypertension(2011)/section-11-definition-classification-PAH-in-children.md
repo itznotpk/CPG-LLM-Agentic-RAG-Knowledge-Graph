@@ -1,8 +1,8 @@
 # SECTION 11: DEFINITION AND CLASSIFICATION OF PAH IN CHILDREN
 
 <!-- METADATA
-category: Classification
-use_case: Paediatric PAH Definition and Classification — haemodynamic_criteria, WHO_classification, IPAH, CHD_PAH, aetiology
+category: Classification, Diagnosis
+use_case: Paediatric PAH Definition and Classification — haemodynamic_criteria, WHO_classification, IPAH, CHD_PAH, aetiology, paediatric_vs_adult_differences
 patient_input: mPAP, PCWP, CHD_status
 output: paediatric_PAH_classification, aetiology_identification
 -->

@@ -1,10 +1,10 @@
 # SECTION 1: INTRODUCTION & EPIDEMIOLOGY
 
 <!-- METADATA
-category: Introduction
-use_case: HF Epidemiology and Burden — prevalence_data, mortality_statistics, socioeconomic_impact, Malaysian_context
-patient_input: 
-output: HF_epidemiology, socioeconomic_burden, guideline_objectives
+category: Introduction, Epidemiology
+use_case: HF Epidemiology and Disease Burden — prevalence_data, mortality_statistics, incidence_trends, socioeconomic_impact, Malaysian_context, global_burden
+patient_input: demographics, region
+output: HF_epidemiology, prevalence_statistics, socioeconomic_burden, guideline_objectives, Malaysian_HF_context
 -->
 
 ## 1. INTRODUCTION

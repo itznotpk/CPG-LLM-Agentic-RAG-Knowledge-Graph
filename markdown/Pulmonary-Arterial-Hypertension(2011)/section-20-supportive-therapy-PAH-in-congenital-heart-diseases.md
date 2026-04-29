@@ -1,12 +1,12 @@
 # SECTION 20: SUPPORTIVE THERAPY FOR PAH IN CONGENITAL HEART DISEASES
 
 <!-- METADATA
-category: Treatment
-use_case: Eisenmenger Supportive Therapy and Disease-Targeted Management — phlebotomy, iron_deficiency, bleeding, thrombosis, arrhythmias, perioperative_management, nephropathy, contraception, bosentan, sildenafil, prostanoids, transplantation
+category: Treatment, Supportive Treatment, Special Populations
+use_case: Eisenmenger Supportive Therapy and Disease-Targeted Management — phlebotomy, iron_deficiency, bleeding, thrombosis, arrhythmias, perioperative_management, nephropathy, contraception, bosentan, sildenafil, prostanoids, transplantation, haemoptysis_management
 patient_input: haemoglobin, haematocrit, iron_studies, SpO2, bleeding_history, pregnancy_status, WHO_functional_class
 output: supportive_therapy_plan, phlebotomy_decision, PAH_specific_therapy_selection, transplant_referral
 critical: true
-treatment_type: phlebotomy, ERA, PDE5_inhibitor, prostanoid, transplantation
+treatment_type: phlebotomy, iron_supplementation, bosentan, sildenafil, iloprost, epoprostenol, tranexamic_acid, colchicine, transplantation
 -->
 
 

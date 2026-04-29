@@ -1,8 +1,8 @@
 # SECTION 13: ASSESSMENT OF SEVERITY OF PAH IN CHILDREN
 
 <!-- METADATA
-category: Assessment
-use_case: Paediatric Severity Assessment and Monitoring — Ability_Index, WHO_functional_class, BNP_NT_proBNP, 6MWT, echocardiography_RV, RHC_haemodynamics, vasoreactivity
+category: Assessment, Diagnosis
+use_case: Paediatric Severity Assessment and Monitoring — Ability_Index, WHO_functional_class, BNP_NT_proBNP, 6MWT, echocardiography_RV, RHC_haemodynamics, vasoreactivity, non_invasive_monitoring
 patient_input: functional_status, BNP, 6MWT_distance, echocardiography_findings, RHC_parameters
 output: severity_grading, treatment_response_assessment, vasoreactivity_result
 critical: true

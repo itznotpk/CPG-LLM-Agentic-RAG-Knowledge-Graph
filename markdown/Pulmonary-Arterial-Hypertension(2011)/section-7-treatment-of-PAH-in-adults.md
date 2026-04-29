@@ -1,12 +1,12 @@
 # SECTION 7: TREATMENT OF PAH IN ADULTS
 
 <!-- METADATA
-category: Treatment
-use_case: Pharmacological and Supportive Therapy — conventional_therapy, bosentan, ambrisentan, iloprost, sildenafil, tadalafil, combination_therapy, atrial_septostomy, transplantation
+category: Treatment, Supportive Treatment
+use_case: Pharmacological and Supportive Therapy — conventional_therapy, bosentan, ambrisentan, iloprost, sildenafil, tadalafil, combination_therapy, atrial_septostomy, transplantation, anticoagulation, diuretics, oxygen
 patient_input: WHO_functional_class, vasoreactivity_response, 6MWT_distance, haemodynamic_parameters, treatment_response
 output: treatment_selection, drug_dosing, combination_strategy, treatment_response_evaluation, escalation_decision
 critical: true
-treatment_type: CCB, ERA, PDE5_inhibitor, prostanoid, combination_therapy, atrial_septostomy, transplantation
+treatment_type: CCB, bosentan, ambrisentan, sildenafil, tadalafil, iloprost, warfarin, diuretics, oxygen, digoxin, atrial_septostomy, transplantation
 -->
 
 

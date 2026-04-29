@@ -1,7 +1,7 @@
 # SECTION 16: HF REHABILITATION
 
 <!-- METADATA
-category: Supportive Treatment
+category: Supportive Treatment, Prevention
 use_case: HF Rehabilitation — cardiac_rehabilitation, exercise_prescription, special_populations_exercise
 patient_input: functional_capacity, exercise_tolerance
 output: cardiac_rehabilitation_plan, exercise_prescription, special_population_guidance

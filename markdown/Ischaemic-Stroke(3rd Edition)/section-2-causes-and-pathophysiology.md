@@ -1,8 +1,8 @@
 # SECTION 2: CAUSES AND PATHOPHYSIOLOGY
 
 <!-- METADATA
-category: pathophysiology
-use_case: stroke_aetiology, mechanism_identification
+category: Pathophysiology
+use_case: Stroke Aetiology and Mechanism — large_artery_atherosclerosis, cardioembolism, small_vessel_occlusion, TOAST_classification, ischaemic_cascade
 patient_input: imaging_findings, clinical_presentation
 output: stroke_mechanism, aetiological_classification
 -->

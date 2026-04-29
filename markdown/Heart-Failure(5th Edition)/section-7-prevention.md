@@ -1,10 +1,11 @@
 # SECTION 7: PREVENTION
 
 <!-- METADATA
-category: Prevention
-use_case: HF Risk Factor Management — HTN_control, DM_management, obesity, smoking_cessation, Stage_A_B_prevention
-patient_input: HTN, DM, obesity, smoking, family_history
-output: Stage_A_B_prevention_strategies, risk_factor_targets
+category: Prevention, Screening
+use_case: HF Risk Factor Management and Screening — HTN_control, DM_management, obesity, smoking_cessation, Stage_A_B_prevention, at_risk_screening, cardiomyopathy_family_screening, CKD_monitoring
+patient_input: HTN, DM, obesity, smoking, family_history, CKD_status, cardiotoxin_exposure
+output: Stage_A_B_prevention_strategies, risk_factor_targets, screening_recommendations, SGLT2i_prevention
+treatment_type: SGLT2i, ACEi, beta_blocker, statin
 -->
 
 ## 7. PREVENTION

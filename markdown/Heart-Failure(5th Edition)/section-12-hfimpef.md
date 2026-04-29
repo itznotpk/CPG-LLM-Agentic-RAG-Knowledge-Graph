@@ -1,8 +1,8 @@
 # SECTION 12: HFimpEF (Improved Ejection Fraction)
 
 <!-- METADATA
-category: Treatment
-use_case: HFimpEF Management — therapy_continuation, monitoring, relapse_prevention
+category: Treatment, Prevention, Classification
+use_case: HFimpEF Management — improved_EF_classification, therapy_continuation, monitoring, relapse_prevention
 patient_input: baseline_LVEF_below_40_improved_above_40
 output: therapy_continuation_plan, monitoring_protocol, relapse_risk_assessment
 -->

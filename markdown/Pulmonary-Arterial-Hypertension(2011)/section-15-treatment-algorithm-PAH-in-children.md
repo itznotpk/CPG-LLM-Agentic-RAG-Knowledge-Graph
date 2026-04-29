@@ -1,12 +1,12 @@
 # SECTION 15: TREATMENT ALGORITHM FOR PAH IN CHILDREN
 
 <!-- METADATA
-category: Treatment
-use_case: Paediatric Treatment Algorithm — vasoreactive_pathway, non_vasoreactive_pathway, sequential_combination, WHO_class_based_therapy
+category: Treatment, Reference
+use_case: Paediatric Treatment Algorithm — vasoreactive_pathway, non_vasoreactive_pathway, sequential_combination, WHO_class_based_therapy, paediatric_algorithm
 patient_input: WHO_functional_class, vasoreactivity_status, treatment_response
 output: treatment_algorithm_pathway, monotherapy_vs_combination, escalation_to_transplant
 critical: true
-treatment_type: CCB, ERA, PDE5_inhibitor, prostanoid, combination_therapy, transplantation
+treatment_type: CCB, bosentan, sildenafil, iloprost, combination_therapy, transplantation
 -->
 
 

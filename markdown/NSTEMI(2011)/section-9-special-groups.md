@@ -1,9 +1,10 @@
 <!-- METADATA
-category: Special Populations
-use_case: Comorbidity-Specific Management — elderly_ACS, women_ACS, diabetes_ACS, chronic_kidney_disease, contrast_nephropathy_prevention
-patient_input: age, gender, eGFR, diabetic_status, contrast_allergy
+category: Special Populations, Treatment, Diagnosis
+use_case: Comorbidity-Specific Management — elderly_ACS, women_ACS, diabetes_ACS, chronic_kidney_disease, contrast_nephropathy_prevention, atypical_presentation, renal_dose_adjustment
+patient_input: age, gender, eGFR, diabetic_status, contrast_allergy, body_weight
 output: dose_adjustment, invasive_strategy_modification, nephropathy_prevention_protocol
-treatment_type: adjusted_pharmacotherapy, modified_PCI_strategy
+critical: true
+treatment_type: aspirin, clopidogrel, prasugrel, UFH, LMWH, fondaparinux, bivalirudin, eptifibatide, tirofiban, insulin, N_acetylcysteine, sodium_bicarbonate
 -->
 
 # SECTION 9: UA/NSTEMI IN SPECIAL GROUPS

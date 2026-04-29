@@ -1,10 +1,11 @@
 # SECTION 14.8: CORONAVIRUS 2019 (COVID 19) AND HEART FAILURE
 
 <!-- METADATA
-category: Special Populations
+category: Special Populations, Treatment
 use_case: COVID-19 and Heart Failure — cardiac_effects, myocarditis_management, vaccination, pandemic_considerations
 patient_input: COVID_history, vaccination_status
 output: COVID_cardiac_effects, myocarditis_management, HF_continuation_plan
+treatment_type: vaccine, corticosteroids, immunosuppressant
 -->
 
 ## 14.8. CORONAVIRUS 2019 (COVID 19) +/- VACCINE AND HEART FAILURE

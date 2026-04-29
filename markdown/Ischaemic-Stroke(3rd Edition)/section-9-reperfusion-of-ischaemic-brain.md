@@ -1,12 +1,12 @@
 # SECTION 9: REPERFUSION OF ISCHAEMIC BRAIN
 
 <!-- METADATA
-category: treatment
-treatment_type: reperfusion_therapy
-use_case: thrombolysis_decision, IVT_administration, complication_management
+category: Treatment
+use_case: IV Thrombolysis and Reperfusion — IVT_eligibility, alteplase, tenecteplase, contraindications, door_to_needle_time, complication_management
 patient_input: symptom_onset_time, NIHSS_score, imaging_findings, contraindications, blood_pressure
-output: IVT_eligibility, treatment_regimen, complication_protocol
+output: IVT_eligibility, thrombolytic_selection, dose_regimen, complication_protocol
 critical: true
+treatment_type: alteplase, tenecteplase, IV_thrombolysis
 -->
 ## 9.1 Introduction
 

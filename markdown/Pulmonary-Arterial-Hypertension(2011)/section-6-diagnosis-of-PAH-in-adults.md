@@ -1,8 +1,8 @@
 # SECTION 6: DIAGNOSIS OF PAH IN ADULTS
 
 <!-- METADATA
-category: Diagnosis
-use_case: Diagnostic Pathway and Investigations — clinical_suspicion, ECG, CXR, Doppler_echo, PFT, VQ_scan, CT_angiography, RHC, vasoreactivity_testing
+category: Diagnosis, Assessment
+use_case: Diagnostic Pathway and Investigations — clinical_suspicion, ECG, CXR, Doppler_echo, PFT, VQ_scan, CT_angiography, RHC, vasoreactivity_testing, haemodynamic_profiling
 patient_input: symptoms, ECG_findings, echocardiography_findings, PFT_results, VQ_scan_results
 output: PAH_diagnosis, PHT_class_identification, vasoreactivity_response, haemodynamic_profile
 critical: true

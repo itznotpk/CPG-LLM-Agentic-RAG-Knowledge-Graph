@@ -1,8 +1,8 @@
 # SECTION 21: APPENDIX
 
 <!-- METADATA
-category: Reference
-use_case: Clinical Trial Evidence and Treatment Algorithms — bosentan_RCTs, iloprost_RCTs, sildenafil_RCTs, combination_trials, Dana_Point_grading, PAH_treatment_algorithm
+category: Reference, Assessment, Treatment
+use_case: Clinical Trial Evidence and Treatment Algorithms — bosentan_RCTs, iloprost_RCTs, sildenafil_RCTs, combination_trials, Dana_Point_grading, PAH_treatment_algorithm, BREATHE_studies
 patient_input: 
 output: trial_evidence_reference, treatment_algorithm_reference, grading_comparison
 -->

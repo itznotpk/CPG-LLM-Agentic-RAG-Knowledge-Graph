@@ -1,9 +1,10 @@
 # SECTION 10: IMPLEMENTING THE GUIDELINES
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Implementation strategy, Resource implications, Clinical Audit
+category: Reference
+use_case: Guideline Implementation — facilitating_factors, limiting_factors, resource_implications, clinical_audit_indicators
 patient_input: 
+output: implementation_framework, audit_criteria, quality_benchmarks
 -->
 
 > **Context:** Expected resource implications, limiting factors, and measurable clinical audit indicators for managing NPC.

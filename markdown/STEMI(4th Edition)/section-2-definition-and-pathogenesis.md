@@ -1,8 +1,8 @@
 # SECTION 2: DEFINITION AND PATHOGENESIS OF MYOCARDIAL INFARCTION
 
 <!-- METADATA
-category: Pathophysiology
-use_case: MI Classification and STEMI Diagnosis Criteria — MI_classification, STEMI_diagnosis_criteria, troponin_interpretation, ECG_localisation
+category: Pathophysiology, Classification, Diagnosis
+use_case: MI Classification and STEMI Diagnosis Criteria — MI_classification, STEMI_diagnosis_criteria, troponin_interpretation, ECG_localisation, culprit_vessel_identification, universal_MI_definition
 patient_input: ECG_findings, cardiac_biomarkers, chest_pain_history
 output: MI_type_classification, STEMI_confirmation, culprit_vessel_identification
 critical: true

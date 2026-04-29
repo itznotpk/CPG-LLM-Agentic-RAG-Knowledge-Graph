@@ -1,11 +1,12 @@
 # SECTION 19: EISENMENGER SYNDROME IN PAH IN CONGENITAL HEART DISEASES
 
 <!-- METADATA
-category: Treatment
-use_case: Eisenmenger Syndrome General Management — pregnancy_avoidance, dehydration_prevention, exercise_restriction, altitude_avoidance, medication_scrutiny, oxygen_therapy
+category: Treatment, Prevention, Special Populations
+use_case: Eisenmenger Syndrome General Management — pregnancy_avoidance, dehydration_prevention, exercise_restriction, altitude_avoidance, medication_scrutiny, oxygen_therapy, air_travel
 patient_input: pregnancy_status, SpO2, altitude_exposure, medication_list
 output: risk_reduction_plan, lifestyle_restrictions, oxygen_therapy_decision
 critical: true
+treatment_type: oxygen_therapy
 -->
 
 

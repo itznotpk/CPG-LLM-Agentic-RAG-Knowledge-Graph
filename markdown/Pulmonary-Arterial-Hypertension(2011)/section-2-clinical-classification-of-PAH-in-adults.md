@@ -1,8 +1,8 @@
 # SECTION 2: CLINICAL CLASSIFICATION OF PAH IN ADULTS
 
 <!-- METADATA
-category: Classification
-use_case: Disease Classification and Staging — Dana_Point_2008, WHO_functional_class, haemodynamic_criteria, mPAP_threshold, PCWP
+category: Classification, Diagnosis
+use_case: Disease Classification and Staging — Dana_Point_2008, WHO_functional_class, haemodynamic_criteria, mPAP_threshold, PCWP, PHT_5_categories
 patient_input: mPAP, PCWP, functional_status
 output: PHT_classification, WHO_class_assignment, severity_staging
 -->

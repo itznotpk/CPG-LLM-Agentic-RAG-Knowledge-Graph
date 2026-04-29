@@ -1,8 +1,8 @@
 # SECTION 13: CHRONIC HF - HFpEF (LVEF ≥50%)
 
 <!-- METADATA
-category: Treatment
-use_case: Chronic HFpEF Management — diuretics, SGLT2i, comorbidity_management, preserved_EF_pharmacotherapy
+category: Treatment, Classification
+use_case: Chronic HFpEF Management — preserved_EF_classification, diuretics, SGLT2i, comorbidity_management, preserved_EF_pharmacotherapy
 patient_input: LVEF_50_or_above, comorbidities
 output: HFpEF_management_plan, diuretic_selection, SGLT2i_indication, comorbidity_targets
 treatment_type: diuretics, SGLT2i, comorbidity_specific_therapy

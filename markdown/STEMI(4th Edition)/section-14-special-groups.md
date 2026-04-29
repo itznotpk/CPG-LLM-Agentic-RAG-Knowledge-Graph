@@ -1,11 +1,11 @@
 # SECTION 14: SPECIAL GROUPS
 
 <!-- METADATA
-category: Special Populations
-use_case: Age, Gender and Comorbidity-Specific Management — elderly_STEMI, diabetes_mellitus, gender_differences, chronic_kidney_disease, multivessel_disease, anticoagulation_management
-patient_input: age, diabetic_status, eGFR, gender, concomitant_anticoagulation, coronary_anatomy
+category: Special Populations, Treatment, Diagnosis
+use_case: Age, Gender and Comorbidity-Specific Management — elderly_STEMI, diabetes_mellitus, gender_differences, chronic_kidney_disease, CKD_dose_adjustment, renal_drug_dosing, atypical_presentation
+patient_input: age, diabetic_status, eGFR, gender, concomitant_anticoagulation, coronary_anatomy, body_weight
 output: age_adjusted_management, renal_dose_adjustment, gender_specific_considerations, anticoagulant_antiplatelet_combination
-treatment_type: adjusted_pharmacotherapy, modified_PCI_strategy
+treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, enoxaparin, fondaparinux, tenecteplase, PCI, CABG, SGLT2i, GLP1_agonist, statin
 -->
 
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019

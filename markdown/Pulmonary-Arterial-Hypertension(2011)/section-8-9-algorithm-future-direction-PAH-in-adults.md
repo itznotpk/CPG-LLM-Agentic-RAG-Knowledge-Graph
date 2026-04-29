@@ -1,12 +1,12 @@
 # SECTION 8-9: TREATMENT ALGORITHM AND FUTURE DIRECTIONS FOR PAH IN ADULTS
 
 <!-- METADATA
-category: Treatment
-use_case: Treatment Algorithm and Future Therapies — vasoreactivity_testing, CCB_pathway, non_vasoreactive_pathway, sequential_combination, pharmacogenomics, anti_angiogenesis
+category: Treatment, Reference
+use_case: Treatment Algorithm and Future Therapies — vasoreactivity_testing, CCB_pathway, non_vasoreactive_pathway, sequential_combination, pharmacogenomics, anti_angiogenesis, Malaysia_specific_algorithm
 patient_input: WHO_functional_class, vasoreactivity_status, treatment_response
 output: treatment_algorithm_pathway, escalation_strategy, future_therapy_options
 critical: true
-treatment_type: CCB, ERA, PDE5_inhibitor, prostanoid, combination_therapy
+treatment_type: CCB, bosentan, ambrisentan, sildenafil, tadalafil, iloprost, combination_therapy, atrial_septostomy, transplantation
 -->
 
 

@@ -1,10 +1,11 @@
 # SECTION 7: FERTILITY PRESERVATION
 
 <!-- METADATA
-category: Special Populations
-use_case: Fertility Preservation — oocyte_cryopreservation, embryo_freezing, ovarian_suppression, counselling_timing
+category: Special Populations, Treatment
+use_case: Fertility Preservation — oocyte_cryopreservation, embryo_freezing, ovarian_suppression, counselling_timing, GnRHa, letrozole_COH
 patient_input: age, reproductive_status, treatment_plan, partner_status
 output: fertility_preservation_option, referral_timing, contraception_advice
+treatment_type: GnRHa, letrozole, gonadotropins
 -->
 
 ## Overview

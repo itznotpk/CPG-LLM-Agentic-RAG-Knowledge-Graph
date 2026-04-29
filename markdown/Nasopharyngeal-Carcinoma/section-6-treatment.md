@@ -1,9 +1,12 @@
 # SECTION 6: TREATMENT
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Treatment Principles, Primary Cancer, Recurrent Disease, Advanced Disease
-patient_input: 
+category: Treatment
+use_case: NPC Treatment Principles — radiotherapy, concurrent_chemoradiation, neoadjuvant_chemotherapy, adjuvant_chemotherapy, recurrent_disease, metastatic_disease
+patient_input: TNM_stage, histological_type, performance_status, renal_function, recurrence_status
+output: treatment_modality_selection, chemotherapy_regimen, radiotherapy_technique, dose_schedule
+critical: true
+treatment_type: radiotherapy, IMRT, concurrent_chemoradiation, cisplatin, 5FU, neoadjuvant_chemotherapy, adjuvant_chemotherapy, palliative_chemotherapy
 -->
 
 > **Context:** Primary treatment guidelines for newly diagnosed, recurrent, and advanced NPC, focusing on radiotherapy and chemotherapy techniques.

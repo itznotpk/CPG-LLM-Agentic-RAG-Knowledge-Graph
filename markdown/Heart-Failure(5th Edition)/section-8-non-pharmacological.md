@@ -1,7 +1,7 @@
 # SECTION 8: NON-PHARMACOLOGICAL MEASURES
 
 <!-- METADATA
-category: Treatment
+category: Treatment, Supportive Treatment, Prevention
 use_case: Non-Pharmacological Lifestyle Intervention — education, exercise, diet, fluid_restriction, weight_monitoring
 patient_input: lifestyle, diet, fluid_intake, exercise_capacity
 output: education_plan, exercise_prescription, dietary_guidance, fluid_restriction_plan

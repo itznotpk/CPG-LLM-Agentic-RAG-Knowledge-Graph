@@ -1,8 +1,8 @@
 # SECTION 17: CLINICAL MANIFESTATIONS OF PAH IN CONGENITAL HEART DISEASES
 
 <!-- METADATA
-category: Diagnosis
-use_case: CHD-PAH Clinical Presentation and Complications — IPAH_vs_Eisenmenger, cyanosis, erythrocytosis, hyperviscosity, bleeding, thromboembolism, arrhythmias
+category: Diagnosis, Assessment
+use_case: CHD-PAH Clinical Presentation and Complications — IPAH_vs_Eisenmenger, cyanosis, erythrocytosis, hyperviscosity, bleeding, thromboembolism, arrhythmias, complication_surveillance
 patient_input: SpO2, haemoglobin, haematocrit, symptoms, functional_status
 output: Eisenmenger_diagnosis, complication_identification, differential_from_IPAH
 -->

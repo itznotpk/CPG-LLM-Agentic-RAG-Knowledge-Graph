@@ -1,9 +1,9 @@
 <!-- METADATA
-category: Treatment
-use_case: Post-Discharge Pharmacotherapy and Follow-Up — antiplatelet_duration, beta_blocker_continuation, statin_therapy, ACEi_ARB_titration, discharge_instructions
+category: Treatment, Prevention
+use_case: Post-Discharge Pharmacotherapy and Follow-Up — antiplatelet_duration, beta_blocker_continuation, statin_therapy, ACEi_ARB_titration, discharge_instructions, DES_DAPT_duration
 patient_input: LVEF, medication_tolerance, lipid_profile, blood_pressure, renal_function
 output: discharge_medication_plan, follow_up_investigation_plan, medication_titration_targets
-treatment_type: aspirin, clopidogrel, beta_blocker, statin, ACEi_ARB, aldosterone_antagonist
+treatment_type: aspirin, clopidogrel, ticlopidine, prasugrel, ticagrelor, beta_blocker, statin, captopril, ramipril, enalapril, lisinopril, perindopril, valsartan, spironolactone, eplerenone
 -->
 
 # SECTION 10: POST HOSPITAL DISCHARGE

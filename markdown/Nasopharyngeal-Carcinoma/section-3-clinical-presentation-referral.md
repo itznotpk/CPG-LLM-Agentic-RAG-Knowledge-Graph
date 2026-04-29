@@ -1,9 +1,10 @@
 # SECTION 3: CLINICAL PRESENTATION AND REFERRAL
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Clinical Presentation, Symptoms, Referral Criteria
-patient_input: 
+category: Diagnosis
+use_case: NPC Clinical Presentation and Referral — presenting_symptoms, neck_mass, cranial_nerve_palsy, nasal_symptoms, ear_symptoms, referral_criteria
+patient_input: symptom_description, neck_mass_location, cranial_nerve_status, nasal_findings, ear_findings
+output: clinical_suspicion, referral_urgency, specialist_referral_pathway
 -->
 
 > **Context:** Typical presenting symptoms of NPC and the criteria for early referral.

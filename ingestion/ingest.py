@@ -812,6 +812,8 @@ class DocumentIngestionPipeline:
         )
         if meta_match:
             meta_block = meta_match.group(1)
+            # Fields that should be stored as arrays (comma-separated → list)
+            ARRAY_FIELDS = {'category', 'treatment_type'}
             for line in meta_block.strip().split('\n'):
                 line = line.strip()
                 if ':' in line:
@@ -819,7 +821,11 @@ class DocumentIngestionPipeline:
                     key = key.strip()
                     value = value.strip()
                     if key and value:  # Only add non-empty values
-                        metadata[key] = value
+                        if key in ARRAY_FIELDS:
+                            # Split comma-separated values into a list, strip each
+                            metadata[key] = [v.strip() for v in value.split(',') if v.strip()]
+                        else:
+                            metadata[key] = value
         
         # Extract CPG name from parent folder (e.g. "Breast-Cancer(3rd Edition)")
         parent_folder = os.path.basename(os.path.dirname(file_path))

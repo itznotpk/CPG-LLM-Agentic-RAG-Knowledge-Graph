@@ -1,8 +1,8 @@
 # SECTION 18: ASSESSMENT OF PAH IN CONGENITAL HEART DISEASES
 
 <!-- METADATA
-category: Assessment
-use_case: CHD-PAH Operability Evaluation — PVR_assessment, vasodilator_testing, Heath_Edwards_grading, echocardiography, catheterisation, lung_biopsy
+category: Assessment, Diagnosis, Treatment
+use_case: CHD-PAH Operability Evaluation — PVR_assessment, vasodilator_testing, Heath_Edwards_grading, echocardiography, catheterisation, lung_biopsy, surgical_vs_medical_decision
 patient_input: CHD_type, age_at_presentation, pulse_oximetry, echocardiography_findings, catheterisation_data
 output: operability_decision, surgical_vs_medical_pathway, histologic_grading
 critical: true

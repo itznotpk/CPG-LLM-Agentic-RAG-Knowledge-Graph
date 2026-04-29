@@ -1,11 +1,12 @@
 # SECTION 5: PREVENTION OF STROKE
 
 <!-- METADATA
-category: prevention
-use_case: primary_prevention, secondary_prevention, risk_factor_management, antiplatelet_selection, revascularisation_decision
-patient_input: risk_factors, medication_history, cardiovascular_status, lipid_profile, blood_pressure
-output: prevention_strategy, treatment_pathway, risk_reduction
+category: Prevention, Treatment
+use_case: Stroke Primary and Secondary Prevention — risk_factor_management, antiplatelet_selection, statin_therapy, BP_targets, carotid_revascularisation, cardioembolism_prevention
+patient_input: risk_factors, medication_history, cardiovascular_status, lipid_profile, blood_pressure, CHA2DS2_VASc_score
+output: prevention_strategy, antiplatelet_regimen, risk_reduction_plan, OAC_recommendation
 critical: true
+treatment_type: aspirin, clopidogrel, ticlopidine, cilostazol, triflusal, statin, ACE_inhibitor, ARB, carotid_endarterectomy, carotid_stenting, warfarin, DOAC
 -->
 
 ## PREVENTION OF STROKE
