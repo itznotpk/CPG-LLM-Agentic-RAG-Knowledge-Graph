@@ -5,6 +5,9 @@ venv_linux
 .claude
 .pytest_cache
 examples
+CLAUDE.md
+PLANNING.md
+TASK.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -169,6 +172,7 @@ tmp/
 # documents/
 *.pkl
 *.pickle
+*.pdf
 *.h5
 *.model
 *.joblib
@@ -196,3 +200,35 @@ secrets/
 *.pem
 *.crt
 mcp_config.json
+
+# Claude AI CLI & Proxy Scripts
+claude.ps1
+start-proxy.ps1
+litellm_config.yaml
+
+# Virtual environments (project-specific)
+venv_convert/
+venv_docling/
+venv_new/
+
+# Temporary / scratch files
+ori_doc.md
+temp_*.txt
+temp_*.md
+e-CPG-ED-RAG-Optimized.md
+pk_document_ingestion.py
+
+# One-off utility scripts in markdown/
+markdown/extract.py
+markdown/fix_hierarchy.py
+markdown/fix_section1.py
+markdown/format_fixer.py
+markdown/match.py
+markdown/render_pages.py
+markdown/split_ischaemic.py
+markdown/out.txt
+markdown/page_*.png
+markdown/cleaned_*.md
+
+# Source PDFs (keep in documents/ only)
+markdown/*.pdf

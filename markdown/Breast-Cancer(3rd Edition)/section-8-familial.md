@@ -182,9 +182,9 @@ Screening for BRCA carriers starts considerably earlier than standard recommenda
 
 | Finding | Result | Evidence |
 |---|---|---|
-| 20-year follow-up — all breast cancers | Reduced: HR=0.71 (0.60 to 0.83) | 134, level I |
-| NNT (5yr treatment to prevent 1 BC in 20yr) | **22** (95% CI 19 to 26) | 134, level I |
-| Deep vein thrombosis (first 10 years) | Increased: OR=1.87 (1.11 to 3.18) | 134, level I |
+| 20-year follow-up — all breast cancers | Reduced: HR=0.71 (0.60 to 0.83) | 134, **[level I]** |
+| NNT (5yr treatment to prevent 1 BC in 20yr) | **22** (95% CI 19 to 26) | 134, **[level I]** |
+| Deep vein thrombosis (first 10 years) | Increased: OR=1.87 (1.11 to 3.18) | 134, **[level I]** |
 
 ##### Aromatase Inhibitors (Anastrozole)
 

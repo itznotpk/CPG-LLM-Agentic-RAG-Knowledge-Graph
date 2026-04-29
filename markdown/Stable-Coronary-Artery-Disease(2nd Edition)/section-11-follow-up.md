@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Follow-Up"
--->
-
 # FOLLOW-UP
+
+<!-- METADATA
+category: follow_up
+use_case: treatment_monitoring, care_continuity
+patient_input: symptoms, adherence, vitals, labs
+output: followup_plan
+-->
 
 ## 11. FOLLOW-UP OF PATIENTS WITH STABLE CAD
 

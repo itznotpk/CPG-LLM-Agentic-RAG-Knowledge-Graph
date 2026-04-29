@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Clinical Spectrum of Stable CAD"
--->
-
 # CLINICAL SPECTRUM OF STABLE CAD
+
+<!-- METADATA
+category: diagnosis
+use_case: clinical_presentation, differential_overview
+patient_input: symptoms, signs, history
+output: presentation_framework
+-->
 
 ## 2. CLINICAL SPECTRUM OF STABLE CAD
 

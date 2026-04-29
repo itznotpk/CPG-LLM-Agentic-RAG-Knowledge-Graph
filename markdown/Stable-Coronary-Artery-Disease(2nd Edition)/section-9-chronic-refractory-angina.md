@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Chronic Refractory Angina"
--->
-
 # CHRONIC REFRACTORY ANGINA
+
+<!-- METADATA
+category: treatment
+use_case: advanced_management, refractory_symptom_control
+patient_input: angina_severity, prior_therapy, comorbidities
+output: advanced_options
+-->
 
 ## 9. CHRONIC REFRACTORY ANGINA
 

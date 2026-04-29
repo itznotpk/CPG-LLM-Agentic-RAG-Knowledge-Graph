@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Summary and Table of Contents"
--->
-
 # SUMMARY AND TABLE OF CONTENTS
+
+<!-- METADATA
+category: key_recommendations
+use_case: quick_reference, navigation
+patient_input: symptoms, risk_profile
+output: summary, table_of_contents
+-->
 
 <!-- image -->
 
@@ -752,4 +752,3 @@ SOURCES OF FUNDING
 ## Stable Coronary Artery Disease 2018
 
 ## (2 nd d Edition)
-

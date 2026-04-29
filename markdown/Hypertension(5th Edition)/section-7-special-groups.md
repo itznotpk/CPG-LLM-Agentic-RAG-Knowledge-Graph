@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Hypertension in Special Groups"
--->
-
 # HYPERTENSION IN SPECIAL GROUPS
+
+<!-- METADATA
+category: special_populations
+use_case: population_specific_management
+patient_input: population_type, comorbidities, pregnancy_status
+output: tailored_management
+-->
 
 ## Hypertension in Special Groups
 

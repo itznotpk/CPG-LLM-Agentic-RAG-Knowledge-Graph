@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Introduction"
--->
-
 # INTRODUCTION
+
+<!-- METADATA
+category: introduction
+use_case: scope_and_objectives
+patient_input: none
+output: guideline_scope
+-->
 
 ## 1. INTRODUCTION
 
@@ -553,4 +553,3 @@ It is a useful test to assess LV function in individuals with:
 
 - CAD covers a wide spectrum – from individuals who are asymptomatic to those presenting with ACS and SCD.
 - Individuals with CAD, even with minimal or absent symptoms, including those post-revascularization, are at high risk for recurrent CV events.
-

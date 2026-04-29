@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Monitoring and Quality Assurance"
--->
-
 # MONITORING AND QUALITY ASSURANCE
+
+<!-- METADATA
+category: implementation
+use_case: quality_improvement, clinical_audit
+patient_input: service_metrics, outcomes
+output: qa_framework
+-->
 
 ## 13. MONITORING AND QUALITY ASSURANCE
 
@@ -138,4 +138,3 @@ No. of patients with CAD seen on that clinic day
 ## Stable Coronary Artery Disease 2018
 
 ## (2 nd d Edition)
-

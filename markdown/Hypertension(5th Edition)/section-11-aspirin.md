@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Aspirin in Hypertension"
--->
-
 # ASPIRIN IN HYPERTENSION
+
+<!-- METADATA
+category: treatment
+use_case: adjunct_therapy_risk_benefit
+patient_input: cv_risk, bleeding_risk, comorbidities
+output: aspirin_guidance
+-->
 
 ## Aspirin in Hypertension
 
@@ -17,4 +17,3 @@ A recent large cohort study in Asia showed that aspirin given to uncomplicated h
 
 - Consider using aspirin in patients with higher baseline BP. (Grade B)
 - Treat patients BP to target first before initiating aspirin therapy. (Grade A)
-

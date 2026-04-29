@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Pathophysiology"
--->
-
 # PATHOPHYSIOLOGY
+
+<!-- METADATA
+category: background_knowledge
+use_case: mechanism_understanding
+patient_input: risk_factors
+output: pathophysiology_summary
+-->
 
 ## 3. PATHOPHYSIOLOGY
 
@@ -509,4 +509,3 @@ Renal profile - electrolyte, serum creatinine and/or glomerular filtration rate 
 -  Atherosclerotic obstructive CAD (coronary lesions &gt;50% luminal narrowing)
 -  Non-obstructive CAD (≥20% and &lt;50% luminal narrowing). The prognosis of these patients is not benign. It is worse if myocardial ischemia is documented.
 -  Normal coronary arteries (Cardiac Syndrome X) – (&lt;20% luminal narrowing)
-

@@ -363,6 +363,46 @@ User Query: "What is the evidence for aspirin in women?"
           - Full section context from parent chunk
 ```
 
+### 4.5 Handling Overlap Content (Deduplication)
+
+**Problem:** If every section file has overlapped Grades + Levels + Abbreviations tables, and we chunk at `###`, those overlap tables become standalone chunks — **near-duplicates across 8+ files**. The vector search would return 3 copies of the "Grades" table instead of the actual clinical answer.
+
+**Solution:** The chunker **strips overlap blocks before chunking**, then **re-attaches them as context to the last real chunk.**
+
+```
+BEFORE (what happens in the file):
+┌─────────────────────────────────────────────────┐
+│ section-6-recommendations.md                     │
+│                                                  │
+│   ### 6.1.1 Nutrition        → chunk (clinical)  │
+│   ### 6.2.1 Dyslipidaemia    → chunk (clinical)  │
+│   ### 6.2.2 Hypertension     → chunk (clinical)  │
+│   <!-- OVERLAP FROM: GRADES OF RECOMMENDATION --> │
+│   ### Grades of Recommendation → STRIPPED ❌       │
+│   ### Levels of Evidence       → STRIPPED ❌       │
+│   <!-- END OVERLAP -->                           │
+│   <!-- OVERLAP FROM: ABBREVIATIONS -->           │
+│   ### Abbreviations            → STRIPPED ❌       │
+│   <!-- END OVERLAP -->                           │
+└─────────────────────────────────────────────────┘
+
+AFTER (what ends up in the database):
+  Chunk 1: "6.1.1 Nutrition"        ← searchable
+  Chunk 2: "6.2.1 Dyslipidaemia"    ← searchable
+  Chunk 3: "6.2.2 Hypertension"     ← searchable, PLUS Grades/Levels/
+                                       Abbreviations attached as reference
+                                       context (NOT a separate chunk)
+```
+
+**How it works in the code:**
+1. The `_strip_overlap_blocks()` method detects the `<!-- OVERLAP CONTENT FROM: ... -->` / `<!-- END OVERLAP FROM: ... -->` comment markers
+2. It removes those blocks from the markdown BEFORE the splitter runs
+3. After chunking, the stripped content is **appended to the last real chunk** with a `<!-- REFERENCE CONTEXT -->` marker
+4. The last chunk's metadata gets `"has_overlap_context": true`
+
+> [!IMPORTANT]
+> **This is why the overlap comment markers are critical.** Without the standardized `<!-- OVERLAP CONTENT FROM: ... -->` / `<!-- END OVERLAP FROM: ... -->` wrapping, the chunker cannot distinguish overlap content from real clinical content. Always use the exact comment format from Step 5 of the SOP.
+
 ---
 
 ## 5. Code Changes Summary
@@ -427,6 +467,25 @@ elif "section" in doc.metadata:
 
 **Effect:** Every chunk now has `chunk_type` (`parent`, `mid`, or `child`) and `parent_header` in its metadata, enabling hierarchical retrieval strategies.
 
+#### Change 4: Overlap Block Stripping (Deduplication)
+
+Added a pre-processing step that detects and removes overlap blocks before the splitter runs, then re-attaches them to the last chunk as non-searchable context:
+
+```python
+# Pre-processing: strip overlap blocks
+stripped_content, overlap_blocks = self._strip_overlap_blocks(content)
+docs = self.splitter.split_text(stripped_content)  # chunk overlap-free content
+
+# Post-processing: re-attach to last chunk
+if final_chunks and overlap_blocks:
+    combined_overlap = "\n\n---\n\n".join(overlap_blocks)
+    last_chunk = final_chunks[-1]
+    last_chunk.content += f"\n\n---\n<!-- REFERENCE CONTEXT -->\n\n{combined_overlap}"
+    last_chunk.metadata["has_overlap_context"] = True
+```
+
+**Effect:** Grades, Levels, and Abbreviation overlap tables are no longer duplicated as standalone searchable chunks across files. They remain available as embedded context in the last chunk of each document.
+
 ### 5.2 Database Compatibility
 
 > [!NOTE]
@@ -435,7 +494,7 @@ elif "section" in doc.metadata:
 > - `parent_chunk_id` column (UUID) — pre-built for parent-child relationships
 > - `section_hierarchy` column (ARRAY) — pre-built for header path tracking
 >
-> The new metadata fields (`evidence_grades`, `evidence_levels`, `chunk_type`, `parent_header`) are stored inside the JSONB `metadata` column automatically.
+> The new metadata fields (`evidence_grades`, `evidence_levels`, `chunk_type`, `parent_header`, `has_overlap_context`) are stored inside the JSONB `metadata` column automatically.
 
 ---
 
@@ -480,3 +539,4 @@ The metadata enables a powerful retrieval strategy:
 4. **Audit trail:** The LLM can cite exactly which Grade and Level backs its answer
 
 This transforms the RAG system from a "search and hope" approach into a **clinically auditable, evidence-aware retrieval engine**.
+

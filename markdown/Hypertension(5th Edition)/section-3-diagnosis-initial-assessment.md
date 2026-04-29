@@ -1,11 +1,11 @@
-<!--
-category: "internal medicine"
-use_case: "RAG"
-patient_input: "null"
-output: "Diagnosis and Initial Assessment"
--->
-
 # DIAGNOSIS AND INITIAL ASSESSMENT
+
+<!-- METADATA
+category: diagnosis
+use_case: initial_assessment, diagnostic_workup
+patient_input: bp_readings, history, exam, labs, comorbidities
+output: diagnosis, baseline_workup
+-->
 
 ## Diagnosis and Initial Assessment
 
