@@ -254,134 +254,70 @@ Echocardiography in IE can be challenging. This may be due to the absence of veg
 7. [Grade IIa, Level C] It may be reasonable to perform TTE at the time of antimicrobial therapy completion to record baseline features.
 
 ## 3.3.2 Other imaging modalities
-
-## A. Multislice computed tomography
+### A. Multislice computed tomography
 
 Multislice computed tomography (MSCT) in the context of IE maybe useful in the following situations:
 
 - To:
-- &gt; Detect abscesses/pseudoaneurysms in the heart.44,45
-- &gt; Assess the extent and consequences of any perivalvular extension, including the anatomy of pseudoaneurysms, abscesses and fistulae.44,45
+    - Detect abscesses/pseudoaneurysms in the heart.
+    - Assess the extent and consequences of any perivalvular extension, including the anatomy of pseudoaneurysms, abscesses and fistulae.
 - To detect and assess extracardiac complications:
-- &gt; Concomitant pulmonary disease, e.g. abscesses and infarcts in right-sided/pulmonary endocarditis.
-- &gt; Evaluation for central nervous system (CNS) lesions (e.g. mycotic aneurysm).
-- &gt; Intra-abdominal lesions (e.g. silent splenic abscesses).
-- &gt; Peripheral vascular complications of IE (e.g. extracerebral mycotic aneurysms) and their follow-up. 46
+    - Concomitant pulmonary disease, e.g. abscesses and infarcts in right-sided/pulmonary endocarditis.
+    - Evaluation for central nervous system (CNS) lesions (e.g. mycotic aneurysm).
+    - Intra-abdominal lesions (e.g. silent splenic abscesses).
+    - Peripheral vascular complications of IE (e.g. extracerebral mycotic aneurysms) and their follow-up.
 - To aid in surgical planning:
-- &gt; Pre-operative coronary assessments in unstable patients who are to undergo cardiac surgery for IE complications. 47
-- &gt; To define the size, anatomy and calcification of the aortic valve, root and ascending aorta, in cases of IE affecting the aorta.
+    - Pre-operative coronary assessments in unstable patients who are to undergo cardiac surgery for IE complications.
+    - To define the size, anatomy and calcification of the aortic valve, root and ascending aorta, in cases of IE affecting the aorta.
 
-## Limitations of MSCT:44
-
+Limitations of MSCT:
 - Exposure to radiation.
 - Nephrotoxicity associated with contrast dye.
 - Relative lack of sensitivity to demonstrate valve perforations.
 
-## B. Magnetic resonance imaging
+### B. Magnetic resonance imaging
 
-Magnetic resonance imaging (MRI) has a higher sensitivity than computed tomography (CT) in detecting cerebral embolic events, majority of which are clinically silent. 48 Studies have shown that systematic cerebral MRI during acute IE has consistently reported frequent cerebral embolic lesions, in 6080% of patients. 48-50
+Magnetic resonance imaging (MRI) has a higher sensitivity than computed tomography (CT) in detecting cerebral embolic events, majority of which are clinically silent. Studies have shown that systematic cerebral MRI during acute IE has consistently reported frequent cerebral embolic lesions, in 60-80% of patients. 
 
-Most commonly seen abnormalities are: 50
-
+Most commonly seen abnormalities are:
 - Ischaemic lesions (50-80%).
-- &gt; Small ischaemic lesions are more frequent than larger territorial infarcts.
+    - Small ischaemic lesions are more frequent than larger territorial infarcts.
 - Parenchymal or subarachnoidal haemorrhage (≤ 10%).
-- Abscesses or mycotic aneurysms (&lt; 10%).
+- Abscesses or mycotic aneurysms (< 10%).
 
-In IE patients with neurological symptoms: 51
-
+In IE patients with neurological symptoms:
 - Cerebral MRI has no impact on the diagnosis of IE.
 - It is often abnormal and more sensitive than CT in detecting lesions causing stroke, transient ischaemic attack (TIA) and encephalopathy.
 - MRI may impact the therapeutic strategy, particularly the timing of surgery.
 
 However in IE patients with no neurological symptoms:
-
 - At least 50% show cerebral lesions on MRI, mostly ischaemic in nature.
-- The detection of cerebral lesions on MRI adds 1 minor Duke criteria.52,53
+- The detection of cerebral lesions on MRI adds 1 minor Duke criteria.
 
-Systematic abdominal MRI: 53
-
+Systematic abdominal MRI:
 - Has shown to detect lesions in one of three IE patients.
 - Lesions occur most often in the spleen and commonly include splenic infarcts, abscesses and haemorrhagic lesions.
 
 Whenever cerebral MRI findings are present, abdominal MRI is not indicated for the diagnosis of IE. However, it may play a role in further management (e.g. to detect intra-abdominal occult abscesses although CT abdomen would be the preferred investigation for this).
 
-## 3.0 DIAGNOSIS
+### C. Nuclear imaging
 
-## C. Nuclear imaging
+New modalities in nuclear imaging like single-photon emission computed tomography (SPECT)/CT and positron emission tomography (PET)/ CT are evolving as important supplementary assessments for patients with suspected IE and diagnostic difficulties. Several reports have shown promising results for radiolabelled white blood cell (WBC) SPECT/CT and fluorine-18 (F-18) fluorodeoxyglucose (FDG); F-FDG PET/CT imaging in IE. Nuclear imaging may be of added value in refining a 'possible IE' to a 'definite IE' based on the Duke criteria by detecting peripheral embolic and metastatic infectious lesions. There is also growing evidence that cardiac nuclear imaging can play a key role in the diagnosis and management of patients with suspected prosthetic valve endocarditis. Recent European Society of Cardiology (ESC) guidelines for the management of IE updated in 2015 have added F-FDG PET/CT or radiolabelled WBC SPECT/CT as a new major criterion if abnormal uptakes are found around the area of prosthetic valve implantation in patients with a prosthesis implanted for more than 3 months. However, the limited availability of these modalities in the local setting also limits its usage in the diagnosis and management of IE (refer Appendix 6).
 
-New modalities in nuclear imaging like single-photon emission computed tomography (SPECT)/CT and positron emission tomography (PET)/ CT are evolving as important supplementary assessments for patients with suspected IE and diagnostic difficulties. Several reports have shown promising results for radiolabelled white blood cell (WBC) SPECT/CT and fluorine-18 (F-18) fluorodeoxyglucose (FDG); 18 F-FDG PET/CT imaging in IE. Nuclear imaging may be of added value in refining a 'possible IE' to a 'definite IE' based on the Duke criteria by detecting peripheral embolic and metastatic infectious lesions.54,55 There is also growing evidence that cardiac nuclear imaging can play a key role in the diagnosis and management of patients with suspected prosthetic valve endocarditis. Recent European Society of Cardiology (ESC) guidelines for the management of IE updated in 2015 have added 18F-FDG PET/CT or radiolabelled WBC SPECT/CT as a new major criterion if abnormal uptakes are found around the area of prosthetic valve implantation in patients with a prosthesis implanted for more than 3 months.16 However, the limited availability of these modalities in the local setting also limits its usage in the diagnosis and management of IE (refer Appendix 6).
-
-## KEY MESSAGE:
+#### KEY MESSAGE:
 
 1. MSCT can be used to assess for perivalvular extensions and extracardiac complications and/or embolism.
 2. MRI is more sensitive than CT in diagnosing cerebral embolic lesions many of which are silent.
-3. Radiolabelled WBC SPECT/CT and 18F-FDG PET/CT may have a supplementary role in detecting peripheral embolic or metastatic infectious lesions in those with high clinical suspicion of IE and diagnostic difficulties. They may also be useful in diagnosing prosthetic valve endocarditis.
-
-## OVERLAP (DUPLICATED CONTEXT)
-
-The following content is duplicated from other sections/appendices referenced in this section so the file is standalone.
+3. Radiolabelled WBC SPECT/CT and F-FDG PET/CT may have a supplementary role in detecting peripheral embolic or metastatic infectious lesions in those with high clinical suspicion of IE and diagnostic difficulties. They may also be useful in diagnosing prosthetic valve endocarditis.
 
 ---
 
-## Appendix 6: Centres with PET and SPECT/CT WBC scan services*
-
-| PET scan                                                                                            | WBC SPECT/CT scan                                                                                   |
-|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| Institut Kanser Negara                                                                              | Hospital Kuala Lumpur                                                                               |
-| Pusat Pengimejan Diagnostik Nuclear, Universiti  Putra Malaysia                                     | Jabatan Pengimejan Molekul dan Perubatan  Nuklear, Pusat Perubatan Universiti  Kebangsaaan Malaysia |
-| Jabatan Pengimejan Molekul dan Perubatan  Nuklear, Pusat Perubatan Universiti  Kebangsaaan Malaysia | Medical Physics Unit, University Malaya Medical  Centre                                             |
-| Medical Physics Unit, University Malaya Medical  Centre                                             |                                                                                                     |
-| Penang General Hospital                                                                             |                                                                                                     |
-
-## 10.0 APPENDICES
-
-Table 3.7: Definition of IE according to the modified Duke criteria
-| Definite IE   | Pathological criteria: Microorganisms demonstrated by culture or HPE of a vegetation, a vegetation  that has embolised, or an intracardiac abscess specimen;  or pathological lesions; vegetation or intracardiac abscess confirmed by HPE  showing active endocarditis       |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|               | Clinical criteria: 2 major criteria  or 1 major criterion and 3 minor criteria  or  5 minor criteria                                                                                                                                                                          |
-| Possible IE   | 1 major criterion and 1 minor criterion or 3 minor criteria                                                                                                                                                                                                                   |
-| Rejected IE   | Firm alternative diagnosis explaining evidence of IE or resolution of IE syndrome with antimicrobial therapy for ≤ 4 days or no pathological evidence of IE at surgery or autopsy with antimicrobial  therapy for ≤ 4 days or does not meet criteria for possible IE as above |
-
-
-# SECTION 3.4: DIAGNOSTIC CRITERIA
-
-<!-- METADATA
-category: diagnosis
-use_case: diagnostic_workup
-patient_input: symptoms, signs, labs, imaging
-output: diagnosis_criteria, diagnostic_pathway
-critical: true
--->
-
 ## 3.4 Diagnostic criteria
+### 3.4.1	The modified Duke criteria and its limitations
 
-## 3.4.1	The modified Duke criteria and its limitations
+The Duke criteria was first proposed in 1994 by Durack et al. from the Duke University Medical Centre, North Carolina, United State of America (USA). This was a diagnostic schema that stratified patients with suspected IE into 3 categories; definite, possible and rejected. In the year 2000, taking into account further evidence, the Duke criteria was refined further into the modified Duke criteria (refer Table 3.7) which is currently widely used in clinical practice.
 
-The Duke criteria was first proposed in 1994 by Durack et al. from the Duke University Medical Centre, North Carolina, United State of America (USA). This was a diagnostic schema that stratified patients with suspected IE into 3 categories; definite, possible and rejected. In the year 2000, taking into account further evidence, the Duke criteria was refined further into the modified Duke criteria 56 (refer Table 3.7) which is currently widely used in clinical practice.
-
-The Duke criteria should be used as a research tool rather than a clinical tool for diagnosing IE, therefore clinicians should treat each individual patient appropriately. In very ill patients and patients in whom the diagnosis of IE is likely, empirical treatment should be started before blood culture results are available. This classification has a sensitivity of approximately 80% overall, when the criteria are evaluated at the end of patient follow-up in epidemiological studies. 57
-
-Table 3.7: Definition of IE according to the modified Duke criteria
-
-| Definite IE   | Pathological criteria: Microorganisms demonstrated by culture or HPE of a vegetation, a vegetation  that has embolised, or an intracardiac abscess specimen;  or pathological lesions; vegetation or intracardiac abscess confirmed by HPE  showing active endocarditis       |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|               | Clinical criteria: 2 major criteria  or 1 major criterion and 3 minor criteria  or  5 minor criteria                                                                                                                                                                          |
-| Possible IE   | 1 major criterion and 1 minor criterion or 3 minor criteria                                                                                                                                                                                                                   |
-| Rejected IE   | Firm alternative diagnosis explaining evidence of IE or resolution of IE syndrome with antimicrobial therapy for ≤ 4 days or no pathological evidence of IE at surgery or autopsy with antimicrobial  therapy for ≤ 4 days or does not meet criteria for possible IE as above |
-
-## 3.0 DIAGNOSIS
-
-Adapted from Li JS, et al. Clin Infect Dis. 2000. 56
-
-| Major Criteria   | Blood culture  positive for IE                                                                                                                                                                                                                                                                                       | Typical microorganisms consistent with IE from 2  separate blood cultures:  •  VGS, Streptococcus bovis, HACEK group, S. aureus •  Or community-acquired enterococci in the absence of  a primary focus •  Or microorganisms consistent with IE from persistently  positive blood cultures defined as follows: > At least 2 positive cultures of blood samples drawn  > 12 hours apart > Or all of 3 or a majority of ≥ 4 separate cultures of  blood (with first and last sample drawn at least 1  hour apart) •  Single positive blood culture from Coxiella burnetii or  phase 1 IgG antibody titres > 1:800   |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Major Criteria   | Evidence of  endocardial  involvement                                                                                                                                                                                                                                                                                | Echocardiogram positive for IE defined as follows:  •  Oscillating intracardiac mass on valve or supporting  structures, in the path of regurgitant jets, or on  implanted material in the absence of an alternative  anatomic explanation •  Abscess  •  Or new partial dehiscence of prosthetic valve  •  Or new valvular regurgitation (worsening or changing  or pre-existing murmur not sufficient) (TEE is recommended for patients with prosthetic  valves rated as at least possible IE by clinical  criteria, or complicated IE (paravalvular abscess)                                                   |
-| Minor criteria   | Predisposition: predisposing heart condition or IVDU                                                                                                                                                                                                                                                                 | Predisposition: predisposing heart condition or IVDU                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Minor criteria   | Fever: temperature > 38°C                                                                                                                                                                                                                                                                                            | Fever: temperature > 38°C                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Minor criteria   | Vascular phenomena: major arterial emboli, septic pulmonary infarcts, mycotic  aneurysm, intracranial haemorrhage, conjunctival haemorrhages and Janeway  lesions                                                                                                                                                    | Vascular phenomena: major arterial emboli, septic pulmonary infarcts, mycotic  aneurysm, intracranial haemorrhage, conjunctival haemorrhages and Janeway  lesions                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Minor criteria   | Immunological phenomena: glomerulonephritis, Osler nodes, Roth spots and  rheumatoid factor                                                                                                                                                                                                                          | Immunological phenomena: glomerulonephritis, Osler nodes, Roth spots and  rheumatoid factor                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Minor criteria   | Microbiological evidence: positive blood cultures but does not meet a major  criterion as noted above (excludes single positive cultures for coagulase negative staphylococci and microorganisms that do not cause endocarditis) or  serological evidence of active infection with microorganism consistent with IE | Microbiological evidence: positive blood cultures but does not meet a major  criterion as noted above (excludes single positive cultures for coagulase negative staphylococci and microorganisms that do not cause endocarditis) or  serological evidence of active infection with microorganism consistent with IE                                                                                                                                                                                                                                                                                              |
+The Duke criteria should be used as a research tool rather than a clinical tool for diagnosing IE, therefore clinicians should treat each individual patient appropriately. In very ill patients and patients in whom the diagnosis of IE is likely, empirical treatment should be started before blood culture results are available. This classification has a sensitivity of approximately 80% overall, when the criteria are evaluated at the end of patient follow-up in epidemiological studies.                               |
 
 Limitations of the modified Duke criteria include a lower diagnostic accuracy especially in:
 
@@ -592,6 +528,25 @@ Refer Section 3.3.1 for positive and negative findings.
 <sup>§</sup>Includes presence of prosthetic valves, various CHD, appearance of new murmur, presence of heart failure, or other signs and symptoms of IE
 
 *Adapted from Baddour LM, et al. Circulation. 2015.*
+
+---
+
+### Table 3.7: Definition of IE according to the modified Duke criteria
+
+| Category | Criteria Description |
+|---|---|
+| **Definite IE** | *Pathological criteria:*<br>Microorganisms demonstrated by culture or HPE of a vegetation, a vegetation that has embolised, or an intracardiac abscess specimen;<br>**or** pathological lesions; vegetation or intracardiac abscess confirmed by HPE showing active endocarditis<br><br>*Clinical criteria:*<br>2 major criteria<br>**or**<br>1 major criterion and 3 minor criteria<br>**or**<br>5 minor criteria |
+| **Possible IE** | 1 major criterion and 1 minor criterion<br>**or**<br>3 minor criteria |
+| **Rejected IE** | Firm alternative diagnosis explaining evidence of IE<br>**or** resolution of IE syndrome with antimicrobial therapy for ≤ 4 days<br>**or** no pathological evidence of IE at surgery or autopsy with antimicrobial therapy for ≤ 4 days<br>**or** does not meet criteria for possible IE as above |
+| **Major Criteria** | **Blood culture positive for IE**<br>Typical microorganisms consistent with IE from 2 separate blood cultures:<br>• VGS, *Streptococcus bovis*, HACEK group, ***S. aureus***<br>• **Or** community-acquired enterococci in the absence of a primary focus<br>• **Or** microorganisms consistent with IE from persistently positive blood cultures defined as follows:<br>&nbsp;&nbsp;&nbsp;> At least 2 positive cultures of blood samples drawn > 12 hours apart<br>&nbsp;&nbsp;&nbsp;> **Or** all of 3 or a majority of ≥ 4 separate cultures of blood (with first and last sample drawn at least 1 hour apart)<br>• Single positive blood culture from *Coxiella burnetii* or phase 1 IgG antibody titres > 1:800 |
+| | **Evidence of endocardial involvement**<br>Echocardiogram positive for IE defined as follows:<br>• Oscillating intracardiac mass on valve or supporting structures, in the path of regurgitant jets, or on implanted material in the absence of an alternative anatomic explanation<br>• Abscess<br>• **Or** new partial dehiscence of prosthetic valve<br>• **Or** new valvular regurgitation (worsening or changing or pre-existing murmur not sufficient)<br>**(TEE is recommended for patients with prosthetic valves rated as at least possible IE by clinical criteria, or complicated IE (paravalvular abscess))** |
+| **Minor criteria** | **Predisposition:** predisposing heart condition or IVDU |
+| | **Fever:** temperature > 38°C |
+| | **Vascular phenomena:** major arterial emboli, septic pulmonary infarcts, mycotic aneurysm, intracranial haemorrhage, conjunctival haemorrhages and Janeway lesions |
+| | **Immunological phenomena:** glomerulonephritis, Osler nodes, Roth spots and rheumatoid factor |
+| | **Microbiological evidence:** positive blood cultures but does not meet a major criterion as noted above (excludes single positive cultures for coagulase-negative staphylococci and microorganisms that do not cause endocarditis) or serological evidence of active infection with microorganism consistent with IE |
+
+---
 
 ## Abbreviations Used in This Section
 
