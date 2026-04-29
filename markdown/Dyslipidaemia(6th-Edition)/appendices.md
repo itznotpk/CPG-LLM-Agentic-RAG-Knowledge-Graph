@@ -1,10 +1,10 @@
 # APPENDICES
 
 <!-- METADATA
-category: Reference Tables
-use_case: Data Lookup & Comparison
-patient_input: 
-output: Risk Score Comparison, Food Classifications, Fatty Acid Composition
+category: Reference
+use_case: Reference tables for CV risk score comparison, food classification, and fatty acid composition — FRS, SCORE2, PCE, NOVA_classification, fatty_acid_composition, Malaysian_food
+patient_input: risk_score_type, food_item
+output: risk_score_comparison, food_classification, fatty_acid_profile
 -->
 
 ## APPENDIX 1: COMPARISON OF CARDIOVASCULAR RISK SCORES

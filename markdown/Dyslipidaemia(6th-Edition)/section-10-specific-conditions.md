@@ -1,10 +1,11 @@
 # SECTION 10: MANAGEMENT OF DYSLIPIDEMIA IN SPECIFIC CONDITIONS
 
 <!-- METADATA
-category: Management
-use_case: Comorbidity-Specific Guidelines
-patient_input: HTN, Diabetes, CKD, HF, Endocrine/Psychiatric history
-output: Tailored management and targets for specific patient populations
+category: Treatment, Special Populations
+use_case: Dyslipidaemia management in specific comorbid conditions — atherosclerosis, hypertension, diabetes, heart_failure, CKD, dialysis, thyroid, Cushing, HIV, psychiatric
+patient_input: comorbidities, eGFR, diabetes_type, HF_aetiology, ART_regimen, antipsychotic_use
+output: tailored_LDL-C_target, drug_selection, dose_modification, monitoring_plan
+treatment_type: statins, ezetimibe, PCSK9 inhibitors, fibrates, fenofibrate, pravastatin, rosuvastatin, fluvastatin
 -->
 
 ## 10.1. Asymptomatic Atherosclerotic Disease

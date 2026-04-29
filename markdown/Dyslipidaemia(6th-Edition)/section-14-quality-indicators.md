@@ -1,10 +1,10 @@
 # SECTION 14: QUALITY INDICATORS & PERFORMANCE MEASURES
 
 <!-- METADATA
-category: Implementation & Quality
-use_case: Performance Monitoring
-patient_input: Clinical audit data
-output: Quality metrics for guideline implementation and clinical audit parameters
+category: Reference
+use_case: Clinical audit parameters and quality indicators for guideline implementation — performance_measures, clinical_audit, primary_care, secondary_prevention_audit
+patient_input: clinical_audit_data, patient_records
+output: quality_metrics, audit_numerator_denominator, performance_targets
 -->
 
 This CPG recommends the following audit parameters:

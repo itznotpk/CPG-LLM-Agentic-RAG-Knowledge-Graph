@@ -1,10 +1,10 @@
 # SECTION 13: ADHERENCE TO LIFESTYLE CHANGES AND MEDICATIONS
 
 <!-- METADATA
-category: Implementation & Quality
-use_case: Adherence Optimization
-patient_input: Medication regimens, Lifestyle compliance
-output: Strategies to improve adherence to lipid-lowering therapy and lifestyle changes
+category: Supportive Treatment
+use_case: Strategies to improve adherence to lipid-lowering therapy and lifestyle changes — compliance, pill_burden, polypharmacy, patient_education, MTAC, shared_decision_making
+patient_input: medication_regimen, adherence_barriers, patient_preferences
+output: adherence_strategies, regimen_simplification, follow-up_plan
 -->
 
 *   It has been well documented that there is a lack of adherence to cardiovascular preventive therapy. Several scientific studies have shown that adherence among patients with chronic disease is only about 50%.

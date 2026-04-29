@@ -1,10 +1,12 @@
 # SECTION 6: RECOMMENDATIONS FOR PREVENTION OF CVD IN WOMEN
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: patient_management, risk_factor_reduction
-patient_input: 
-output: 
+category: Treatment, Prevention
+use_case: Evidence-based recommendations for CVD prevention in women including lifestyle and pharmacotherapy — nutrition, physical_activity, weight_management, smoking_cessation, aspirin, dyslipidaemia, hypertension, diabetes, anticoagulation, AF, CHA2DS2-VASc
+patient_input: CVD_risk_category, lipid_profile, BP, HbA1c, BMI, AF_status, CHA2DS2-VASc_score, comorbidities
+output: LDL-C_target, BP_target, HbA1c_target, drug_selection, lifestyle_prescription, anticoagulation_strategy
+critical: true
+treatment_type: statins, aspirin, ACEI, ARB, beta-blockers, CCB, diuretics, warfarin, NOAC, metformin, omega-3 fatty acids
 -->
 
 > **Context:** This section covers general healthy lifestyle interventions and targeted recommendations for managing specific clinical risk factors (dyslipidaemia, hypertension, diabetes) in women to prevent cardiovascular disease.

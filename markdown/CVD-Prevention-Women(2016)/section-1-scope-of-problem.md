@@ -1,10 +1,10 @@
 # SECTION 1: THE SCOPE OF THE PROBLEM
 
 <!-- METADATA
-category: background_knowledge
-use_case: general_reference, clinical_context
-patient_input: 
-output: 
+category: Introduction, Epidemiology
+use_case: Scope and epidemiology of CVD in women including gender disparities in presentation, treatment, and outcomes — CVD_mortality, gender_differences, NCVD-ACS_registry, MI_prognosis, stroke, awareness
+patient_input: sex, age, clinical_presentation
+output: CVD_burden_in_women, gender_specific_risk_context, awareness_gaps
 -->
 
 > **Context:** This section introduces the scope and epidemiology of cardiovascular disease in women, highlighting key gender differences.

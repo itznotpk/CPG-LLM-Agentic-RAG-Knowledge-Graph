@@ -1,10 +1,12 @@
 # SECTION 6: MANAGEMENT — PREVENTION OF THROMBOEMBOLISM
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: stroke_prevention, anticoagulation, risk_stratification
-patient_input: CHADS2_score, CHA2DS2VASc_score, bleeding_risk, AF_type
-output: antithrombotic_strategy, INR_target, drug_selection
+category: Treatment, Prevention
+use_case: Stroke prevention and antithrombotic therapy in AF including risk stratification, anticoagulation protocols, bleeding risk assessment, and cardioversion anticoagulation — CHADS2, CHA2DS2-VASc, HAS-BLED, VKA, warfarin, dabigatran, aspirin, clopidogrel, INR_target, perioperative_bridging, PCI_triple_therapy, LAA_occlusion, TOE-guided_cardioversion
+patient_input: CHADS2_score, CHA2DS2-VASc_score, HAS-BLED_score, AF_type, INR, renal_function, valve_status, PCI_status
+output: antithrombotic_strategy, INR_target, drug_selection, bleeding_risk_category, perioperative_bridging_plan, cardioversion_anticoagulation_protocol
+critical: true
+treatment_type: warfarin, dabigatran, aspirin, clopidogrel, heparin, LMWH, LAA_occlusion_device
 -->
 
 > **Context:** This section covers stroke risk stratification (CHADS₂ and CHA₂DS₂-VASc scores in Table 12), antithrombotic therapy strategies (VKA, dabigatran, aspirin, dual/triple therapy in Table 13), the clinical OAC decision flowchart (Figure 7), optimal INR targets and dose-response relationship (Figure 8), bleeding risk assessment (HAS-BLED score in Table 14), non-pharmacological stroke prevention (LAA occlusion), perioperative anticoagulation bridging (overlapped Appendix C.1.9), and the cardioversion anticoagulation algorithm (Figure 9).

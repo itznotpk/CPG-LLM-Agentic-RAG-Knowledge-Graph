@@ -1,10 +1,10 @@
 # SECTION 11: APPENDICES, GLOSSARY & REFERENCES
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: reference, supplemental_data
-patient_input: 
-output: 
+category: Reference
+use_case: Supplementary appendices including warfarin initiation protocols, INR monitoring, ethnic dosing, dose adjustments, perioperative bridging, AAD classification, glossary, and clinical questions — warfarin_initiation, INR_monitoring, Pacific-Asian_dosing, dose_adjustment, elevated_INR_management, perioperative_bridging, Vaughan_Williams_classification, search_terms, clinical_questions, abbreviations
+patient_input: INR, warfarin_dose, age, ethnicity, surgical_status, bleeding_status
+output: warfarin_initiation_protocol, INR_dose_adjustment_table, elevated_INR_management, perioperative_bridging_plan, AAD_classification, glossary
 -->
 
 > **Context:** This section consolidates supplementary appendices: Appendix A (search terms), Appendix B (clinical questions by topic), Appendix C: Warfarin in Practice (initiation protocols, INR monitoring, therapeutic ranges, ethnic dosing for Pacific-Asian populations, dose adjustment tables, elevated INR management, and Appendix C.1.9: perioperative warfarin interruption and bridging therapy), Appendix D: Vaughan Williams Classification of Antiarrhythmic Drugs, the master glossary of abbreviations, and all references cited in the CPG Management of Atrial Fibrillation (2012).

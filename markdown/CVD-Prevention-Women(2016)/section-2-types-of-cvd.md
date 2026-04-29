@@ -1,10 +1,11 @@
 # SECTION 2: TYPES OF CARDIOVASCULAR DISEASE
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: disease_classification, clinical_presentation, diagnosis, management
-patient_input: 
-output: 
+category: Diagnosis, Classification, Treatment, Special Populations
+use_case: Types of CVD in women including CHD, cerebrovascular disease, PAD, and gender-specific cardiac conditions — CHD, SCAD, Takotsubo, Cardiac_Syndrome_X, non-obstructive_CHD, stroke, PAD, AAA, AF, heart_failure, arrhythmia
+patient_input: clinical_presentation, chest_pain, ECG, exercise_tolerance, coronary_angiogram, ABI, imaging
+output: disease_classification, diagnostic_pathway, investigation_algorithm, management_strategy, gender-specific_prognosis
+treatment_type: statins, ACEI, beta-blockers, CCB, nitrates, ranolazine, anticoagulants, warfarin, NOAC, PCI, CABG, ICD
 -->
 
 > **Context:** This section details the specific types of CVD (Coronary Heart Disease, Cerebrovascular Disease, Peripheral Arterial Disease, and Aortic Pathologies) with a focus on gender-specific presentations, diagnosis, investigations, and management in women.

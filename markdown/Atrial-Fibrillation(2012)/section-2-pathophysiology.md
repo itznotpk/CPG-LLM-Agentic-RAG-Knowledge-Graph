@@ -1,10 +1,10 @@
 # SECTION 2: PATHOPHYSIOLOGY
 
 <!-- METADATA
-category: background_knowledge
-use_case: general_reference
-patient_input: 
-output: 
+category: Pathophysiology
+use_case: Pathophysiology, causes, and associated conditions of atrial fibrillation — atrial_remodelling, hypertension, valvular_disease, cardiomyopathy, thyrotoxicosis, obesity, diabetes, COPD, sleep_apnoea, lone_AF, familial_AF, coronary_artery_disease
+patient_input: comorbidities, clinical_history, echocardiogram
+output: AF_aetiology, reversible_causes, predisposing_conditions, risk_factor_table
 -->
 
 > **Context:** This section covers the pathophysiology of atrial fibrillation, including atrial remodelling mechanisms, clinical risk factors (hypertension, valvular disease, cardiomyopathy, thyrotoxicosis, obesity, diabetes, COPD), and the spectrum of causes and associated cardiovascular and non-cardiovascular conditions.

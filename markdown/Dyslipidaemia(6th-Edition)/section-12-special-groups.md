@@ -1,10 +1,11 @@
 # SECTION 12: MANAGEMENT IN SPECIAL GROUPS
 
 <!-- METADATA
-category: Management
-use_case: Population-Specific Treatment
-patient_input: Gender, Age (Child/Elderly), Pregnancy status
-output: Tailored management for Women, Children, and the Elderly
+category: Special Populations, Treatment
+use_case: Lipid management in women, children/adolescents, and the elderly — pregnancy, paediatric, elderly, familial_hypercholesterolaemia, gender, age-specific
+patient_input: age, sex, pregnancy_status, FH_diagnosis, functional_status, comorbidities
+output: population-specific_LDL-C_target, statin_selection, dose_adjustment, monitoring
+treatment_type: statins, pravastatin, rosuvastatin, ezetimibe
 -->
 
 ## 12.1. Women

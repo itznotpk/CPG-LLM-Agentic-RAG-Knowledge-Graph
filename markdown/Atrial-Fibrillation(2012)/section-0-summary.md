@@ -1,10 +1,10 @@
 # SECTION 0: SUMMARY & KEY MESSAGES
 
 <!-- METADATA
-category: clinical_guidelines, summary, algorithmic_workflow
-use_case: global_repository_index, clinical_decision_support_entry, guideline_overview
-patient_input: unspecified, all_af_patients, initial_presentation
-output: global_management_cascade, key_clinical_messages, grading_schemas
+category: Methodology, Reference
+use_case: Executive summary of AF management with key messages, four-stage management cascade, and evidence grading — AF_management_cascade, key_messages, CHADS2, CHA2DS2-VASc, HAS-BLED, rate_control, rhythm_control, upstream_therapy, evidence_grading, abbreviations
+patient_input: ECG, pulse_regularity, AF_type
+output: management_cascade_algorithm, key_clinical_messages, grades_of_recommendation, levels_of_evidence
 -->
 
 > **Context:** This section serves as the global index and executive summary for the 2012 Atrial Fibrillation Clinical Practice Guidelines. It codifies the six foundational "Key Messages" of AF management and visually establishes the definitive four-stage management cascade (Figure 1: Initial Assessment → Anticoagulation → Rate/Rhythm Control → Upstream Therapy). Crucially for this RAG repository, it also houses the master definitions for the Grades of Recommendation, Levels of Evidence, and baseline abbreviations that are uniformly injected as reference overlays across all subsequent clinical modules.

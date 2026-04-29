@@ -1,10 +1,10 @@
 # SECTION 2: MEASUREMENT OF LIPIDS AND APOLIPOPROTEINS
 
 <!-- METADATA
-category: Diagnostics
-use_case: Laboratory Measurement
-patient_input: 
-output:
+category: Diagnosis
+use_case: Lipid measurement and laboratory testing — lipid_profile, LDL-C_calculation, fasting_vs_nonfasting, apolipoprotein, Lp(a)
+patient_input: TC, HDL-C, TG, fasting_status
+output: LDL-C_calculation, Non-HDL-C, lipid_panel_interpretation
 -->
 
 ## 2. Standard Lipid Profile
