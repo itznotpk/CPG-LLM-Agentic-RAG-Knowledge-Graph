@@ -61,20 +61,20 @@ In the presence of fever, IE should be considered as part of the differential di
 Laboratory tests for infection may aid the diagnosis of IE. These include:
 
 - Inflammatory markers:
-  - \> Elevated C-reactive protein (CRP).
-  - \> Elevated erythrocyte sedimentation rate (ESR).
-  - \> Procalcitonin (PCT):
+  - Elevated C-reactive protein (CRP).
+  - Elevated erythrocyte sedimentation rate (ESR).
+  - Procalcitonin (PCT):
     - » > 2 and < 10 ng/ml: severe systemic inflammatory response or sepsis.
     - » > 10 ng/ml: severe bacterial sepsis or septic shock.
 
 *PCT is available in Hospital Universiti Kebangsaan Malaysia (HUKM) and University Malaya Medical Centre (UMMC).*
 
 - Complete blood count (CBC)/full blood count (FBC):
-  - \> Raised white cell count.
-  - \> Low haemoglobin.
+  - Raised white cell count.
+  - Low haemoglobin.
 
 - Urine full examination and microscopic examination (UFEME):
-  - \> Microscopic haematuria.
+  - Microscopic haematuria.
 
 - Blood culture and sensitivity (refer Section 3.2.2).
 
@@ -89,46 +89,46 @@ The microbiological diagnosis of IE can be divided into:
 
 #### 3.2.2.1 Blood culture positive infective endocarditis
 
-Blood cultures should be taken before the commencement of empiric antimicrobial agents as it is critical to the diagnosis and treatment of patients with IE. In order to obtain high yield of positive blood cultures, the following considerations are crucial:<sup>24</sup>
+Blood cultures should be taken before the commencement of empiric antimicrobial agents as it is critical to the diagnosis and treatment of patients with IE. In order to obtain high yield of positive blood cultures, the following considerations are crucial:
 
 **A. Timing of blood cultures**
-- The blood cultures can be obtained at anytime:<sup>24</sup>
-  - \> This is due to the continuous nature of bacteraemia associated with IE.
-  - \> There is no necessity to wait for spikes of fever.
-  - \> Blood cultures should be taken at 30-minute intervals between samples.<sup>24</sup>
+- The blood cultures can be obtained at anytime:
+  -  This is due to the continuous nature of bacteraemia associated with IE.
+  -  There is no necessity to wait for spikes of fever.
+  - Blood cultures should be taken at 30-minute intervals between samples.
 
 **B. Number of blood culture sets and the blood volume**
-- At least three sets of blood cultures:<sup>25</sup>
-  - \> To distinguish between 'false positive' blood cultures due to skin contaminants from 'true positive' blood cultures.
-  - \> Increases the volume of blood cultured, which is the most important factor in the recovery of microorganisms from blood.
+- At least three sets of blood cultures:
+  -  To distinguish between 'false positive' blood cultures due to skin contaminants from 'true positive' blood cultures.
+  -  Increases the volume of blood cultured, which is the most important factor in the recovery of microorganisms from blood.
 
 - Microorganisms that are skin contaminants include:
-  - \> Coagulase negative staphylococci.
-  - \> *Bacillus* spp.
-  - \> *Corynebacterium* spp. (diphteroids).
-  - \> *Propionibacterium* spp., viridans group of streptococci (VGS).
-  - \> *Aerococcus* spp.
-  - \> *Micrococcus* spp.
+  -  Coagulase negative staphylococci.
+  -  *Bacillus* spp.
+  -  *Corynebacterium* spp. (diphteroids).
+  -  *Propionibacterium* spp., viridans group of streptococci (VGS).
+  -  *Aerococcus* spp.
+  -  *Micrococcus* spp.
 
 These microorganisms may be considered as significant pathogens when they are cultured from 2 or more blood cultures drawn on separate occasions.
 
-- If the initial 3 blood culture sets are negative at 24 hours, obtain 2 more sets of cultures, for a total of 5 sets overall.<sup>25</sup>
-- A set includes 1 aerobic and 1 anaerobic bottle<sup>25</sup> with samples taken from a single venepuncture site:
-  - \> The anaerobic culture is vital for the growth of nutritionally variant streptococci (NVS) and facultative anaerobic microorganisms such as *Enterobacteriaceae* (refer Appendix 2).
+- If the initial 3 blood culture sets are negative at 24 hours, obtain 2 more sets of cultures, for a total of 5 sets overall.
+- A set includes 1 aerobic and 1 anaerobic bottle with samples taken from a single venepuncture site:
+  -  The anaerobic culture is vital for the growth of nutritionally variant streptococci (NVS) and facultative anaerobic microorganisms such as *Enterobacteriaceae* (refer Appendix 2).
 - Each bottle should contain 10 ml of blood for adults and 1-3 ml of blood for paediatric patients (using the appropriate paediatric blood culture bottles).
-  - \> Adequate volume is the most important factor in the recovery of microorganisms in IE.
+  -  Adequate volume is the most important factor in the recovery of microorganisms in IE.
 - If the blood cultures are negative, BCNIE should be considered (refer Section 3.2.2.2).
 
 **C. Sampling sites of blood cultures**
 - Strict aseptic techniques should be observed (refer Appendix 3).
 - Blood should be sampled from separate peripheral venepuncture sites.
-- Avoid sampling from central venous or indwelling catheters. Catheter-drawn blood cultures have increased risk of contamination<sup>25</sup> and thus may give rise to misleading interpretation.
+- Avoid sampling from central venous or indwelling catheters. Catheter-drawn blood cultures have increased risk of contamination and thus may give rise to misleading interpretation.
 
 **D. Duration of incubation of blood cultures**
-- Within 5 days, most clinically important microorganisms including *Haemophilus*, *Aggregatibacter actinomycetemcomitans*, *Cardiobacterium*, *Eikinella* and *Kingella* (HACEK) will be isolated.<sup>26</sup>
+- Within 5 days, most clinically important microorganisms including *Haemophilus*, *Aggregatibacter actinomycetemcomitans*, *Cardiobacterium*, *Eikinella* and *Kingella* (HACEK) will be isolated.
 - If all blood cultures are negative at 5 days and the diagnosis of IE is still being pursued consider:
-  - \> BCNIE (refer Section 3.2.2.2).
-  - \> Fungal IE.
+  - BCNIE (refer Section 3.2.2.2).
+  - Fungal IE.
 - Longer incubation time for a total of 2 weeks and appropriate selective culture media may be required when fungaemia or bacteraemia caused by fastidious microorganisms e.g. *Legionella*, *Brucella* or *Nocardia* spp. is suspected.
 
 **E. Identification of the microorganisms and antimicrobial susceptibility testing**
@@ -141,45 +141,21 @@ These microorganisms may be considered as significant pathogens when they are cu
 In general, BCNIE indicates IE which has no microorganism grown following inoculation of at least 3 independent blood samples when using the usual currently available culture methods in clinical laboratories after 5 days of incubation.
 
 - BCNIE can be due to 3 main reasons:
-  - \> Partially treated IE by previous antimicrobial treatment, which is the most common cause (usually due to usual endocarditis-causing bacteria, i.e. streptococci, more rarely staphylococci, or enterococci).
-  - \> For the isolation of fastidious bacteria such as *Brucella*, *Nocardia* spp., NVS and fungi other than yeasts, blood culture incubation may need to be extended for two weeks before a negative result is released. Specimens other than blood, e.g. excised tissue and aspirated intracardiac pus, incubation of the inoculated agar media beyond 48 hours may be needed. Special media and prolonged incubation is required for the isolation of *Legionella pneumophilia*.
-  - \> "True" BCNIE due to intracellular bacteria that cannot be routinely cultured in blood with currently available techniques (e.g. *Bartonella* spp., *Coxiella burnetti* and *Tropheryma whipplei*).
+  - Partially treated IE by previous antimicrobial treatment, which is the most common cause (usually due to usual endocarditis-causing bacteria, i.e. streptococci, more rarely staphylococci, or enterococci).
+  - For the isolation of fastidious bacteria such as *Brucella*, *Nocardia* spp., NVS and fungi other than yeasts, blood culture incubation may need to be extended for two weeks before a negative result is released. Specimens other than blood, e.g. excised tissue and aspirated intracardiac pus, incubation of the inoculated agar media beyond 48 hours may be needed. Special media and prolonged incubation is required for the isolation of *Legionella pneumophilia*.
+  - "True" BCNIE due to intracellular bacteria that cannot be routinely cultured in blood with currently available techniques (e.g. *Bartonella* spp., *Coxiella burnetti* and *Tropheryma whipplei*).
 - Diagnosis of BCNIE (refer to Table 3.2):
-  - \> Serological testing and molecular techniques such as polymerase chain reaction (PCR) assay aid in establishing the causative agent in BCNIE.
+  - Serological testing and molecular techniques such as polymerase chain reaction (PCR) assay aid in establishing the causative agent in BCNIE.
 
 However limitations when using such assays are as follows:
 
 - Serology:
-  - \> Cross reaction of serological assays (e.g. IE caused by *Bartonella* and *Chlamydia* spp. are often indistinguishable).<sup>28</sup>
+  - Cross reaction of serological assays (e.g. IE caused by *Bartonella* and *Chlamydia* spp. are often indistinguishable).
 - PCR:
-  - \> Low sensitivity of PCR when using blood specimens. It is however more sensitive when performed directly on cardiac valvular tissue<sup>16,29-31</sup> or surgical material.
-  - \> PCR findings should not be used to guide duration of therapy and should be interpreted in the context of other clinical information. This is due to persistence of bacterial deoxyribonucleic acid (DNA) even after eradication of viable microorganisms, causing false positive results.
+  - Low sensitivity of PCR when using blood specimens. It is however more sensitive when performed directly on cardiac valvular tissue or surgical material.
+  - PCR findings should not be used to guide duration of therapy and should be interpreted in the context of other clinical information. This is due to persistence of bacterial deoxyribonucleic acid (DNA) even after eradication of viable microorganisms, causing false positive results.
 
-Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations
-
-| Microorganism                             | Predisposing risk factors,  epidemiology and exposure  risks                                                                                      | Laboratory investigation                                                                                                                                                                       |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aspergillus and  other non- Candida fungi | Prosthetic valves                                                                                                                                 | Culture: Blood culture Serology: Galactomanan PCR: Blood or cardiac valvular tissue/ vegetations HPE**: Cardiac tissue or emboli                                                               |
-| Bartonella spp.                           | Cat contact or ownership  (Bartonella henselae), chronic  alcoholism, contact with human  body louse and homeless shelters  (Bartonella quintana) | Culture: Blood culture Serology: IgG/IgM/total antibodies HPE**: Cardiac valvular tissue                                                                                                       |
-| Brucella spp.                             | Ingestion of unpasteurised  milk or cheese, contact with or  occupational exposure to farm  animals                                               | Culture: Blood culture (requires  extended incubation as 80% of  cultures become positive with an  incubation time of 4-6 weeks) and  tissue Serology: IgG/IgM and total antibodies PCR: Blood |
-| Coxiella burnetti                         | Ingestion of unpasteurised  milk or cheese, contact with or  occupational exposure to farm  animals, or visit to farms                            | Serology: IgG/IgM HPE**: Cardiac valvular tissue/ vegetations                                                                                                                                  |
-| Legionella spp.                           | Prosthetic valves                                                                                                                                 | PCR: Cardiac valvular tissue/ vegetations HPE**: Cardiac valvular tissue/ vegetations                                                                                                          |
-| Nutritionally variant  streptococci       | Slow indolent course                                                                                                                              | Culture: Blood culture (culture on  supplemented media or growth as  satellite colonies around S. aureus streak)                                                                               |
-
-**HPE consists of:
-
-- Haematoxylin and Eosin (H&amp;E) stain for basic morphology.
-- Special stains which aid in the identification of the causative microorganisms of IE (refer Table 3.3).
-
-IgG: immunglobulin G; IgM: immunoglobulin M; HPE: histopathological examination.
-
-Adapted from Mandell JE, et al. 2015. 32
-
-The directory of laboratories that perform the serological and PCR tests of the rare aetiological agents of IE is given in Appendix 4.
-
-## 3.0 DIAGNOSIS
-
-## 3.2.3 Histopathological diagnosis
+### 3.2.3 Histopathological diagnosis
 
 Patients with IE often undergo surgery to repair or replace their heart valve. Histopathology when available is of diagnostic value.33,34 If excised tissue is obtained during cardiac surgery, it must be sent for HPE and culture.
 
@@ -196,187 +172,21 @@ A diagnosis can be made from the pathological specimens if:
 
 The various special stains that are used to detect the infectious agents of interest in valvular tissue are shown in Table 3.3. For the preparation and transportation of cardiac tissue for HPE refer Appendix 5.
 
-Table 3.3: Special stains which aid in the identification of the causative microorganisms of IE from cardiac tissue specimens
-
-| Tissue stain         | Detected microorganism            |
-|----------------------|-----------------------------------|
-| General stain        |                                   |
-| Acridine orange      | Any bacterium                     |
-| Giemsa               | Any bacterium                     |
-| Tissue Gram          | Gram-positive bacteria            |
-| Periodic acid-Schiff | Tropheryma whipplei  Fungi        |
-| Warthin-Starry       | Bartonella spp.                   |
-| Ziehl-Nielsen        | Acid-fast bacilli                 |
-| Gimenez              | Coxiella burnetti Legionella spp. |
-| Specific stains      | Chlamydia spp.                    |
-| Kinyoun, Machiavello |                                   |
-| Gomori-Grocott       | Fungi                             |
-
-Adapted from P. Houpikian, D. Raoult 2003. 33
-
-## Recommendations
+#### Recommendations
 
 ## Processes to ensure successful microbiological diagnosis:
 
-1. At least 3 sets of blood cultures to be taken at least 30 minutes apart. In adult patients, each bottle should contain 10 ml of blood. [IIa/C]
-2. For optimal recovery of diverse aetiological agents, each set of blood cultures should include paired aerobic and anaerobic blood culture bottles. [IIa/C]
-3. Sampling should be obtained from a peripheral vein rather than from a central venous catheter. [IIa/C]
-4. An incubation period of blood cultures for 5 days is adequate for the detection of the majority of pathogens including those from the HACEK group. [IIa/C]
-5. Pathological specimens obtained during cardiac surgery which are of diagnostic value, should be sent for HPE. [IIa/C]
-
-## 3.0 DIAGNOSIS
-
-Figure 3a: Approach to microbiological diagnosis of IE
-
-<!-- image -->
-
-Adapted from Habib G, et al. Eur Heart J. 2015.
-
-## OVERLAP (DUPLICATED CONTEXT)
-
-The following content is duplicated from other sections/appendices referenced in this section so the file is standalone.
-
----
-
-## Appendix 2: Enterobacteriaceae
-
-The family Enterobacteriaceae includes many genera that are Gram-negative rods. They are also known as enteric Gram-negative rods or enteric bacteria (enteric means pertaining to the intestines).
-
-## Enterobacteriaceae have the following characteristics:
-
-- Gram-negative rods.
-- Grow well on MacConkey agar and can be divided into lactose-fermenter or non-lactose fermenters.
-- Grow aerobically and anaerobically (are facultative anaerobes).
-- Ferment glucose, often with gas production.
-- Catalase-positive, oxidase-negative and reduce nitrate to nitrite.
-
-The following are some of the Enterobacteriaceae microorganisms that can cause IE:
-
-- Enterobacter aerogenes.
-- Enterobacter cloacae.
-- Escherichia coli.
-- Klebsiella pneumoniae.
-- Salmonella spp.
-- Serratia liquefaciens.
-- Serratia marcescens.
-
-## Reference:
-
-Jawetz, Melnick and Adelberg's Medical Microbiology. In: GF Brooks, JS Butel and AS Morse. New York; Lange Medical Books/Mc\_Graw Hill 27 th Ed.
-
-## 10.0 APPENDICES
-
-## Appendix 3: Blood culture collection
-
-Strict aseptic technique should be used throughout the procedure.
-
-1. Identify the site of venepuncture where blood is to be drawn.
-2. Wash your hands using soap and water, then dry or apply an alcohol hand rub.
-3. Put on a pair of sterile gloves.
-4. Cleanse the site of the venepuncture with 70% isopropyl alcohol, allowing it to air dry.
-5. Disinfect the skin of site on a circle approximately 5 cm in diameter with chlorhexidine gluconate in alcohol, rubbing vigorously for at least 30 seconds. Allow to air dry.
-6. To prevent contamination, do not palpate the disinfected venepuncture site.
-7. Perform venepuncture.
-8. Draw blood using a sterile needle and syringe or a blood collection device.
-9. Prior to use, examine the blood culture bottles for evidence of damage or deterioration (discoloration).
-10. Check the expiry date printed on each blood culture bottle. Discard bottles that have expired.
-11. Recommended volume of blood (OR follow manufacturer's instruction):
-- a. Adult: 10 ml of blood into each culture bottle (aerobic/anaerobic bottles).
-- b. Paediatric: 1-5 ml of blood in paediatric blood culture bottle.
-12. Disinfect the rubber septum on the blood culture bottles with 70% isopropyl alcohol using fresh alcohol prep for each container. Allow bottle tops to dry to fully disinfect.
-13. Using a transfer device or a fresh sterile needle, aseptically transfer the blood into the blood culture bottles as soon as possible.
-14. If the amount of blood drawn is less than the recommended volume, the blood should be inoculated into the aerobic bottle first, since aerobic and facultative bacteria cause most bacteraemia. Any remaining blood should then be inoculated into the anaerobic bottle.
-15. Invert the blood culture bottles gently several times to prevent clotting.
-16. Label each bottle with the appropriate specimen label that contains the patient's name, ID number and, date and time of collection.
-17. Send the blood culture bottles to the laboratory within 2-4 hours of collection.
-
-## Note:
-
-1. Blood cultures should not be obtained from indwelling intravascular access devices, e.g. intravascular catheters or ports, as it is associated with higher contamination rates. When blood is obtained from a port or line, blood drawn via a peripheral vein should also be taken for meaningful interpretation.
-2. Blood culture bottles should not be refrigerated after they have been inoculated.
-3. Do not leave the blood cultures at room temperature for more than 4 hours, as it will delay or impede the detection of growth by the continuous-monitoring blood culture instrument.
-
-## References:
-
-1. Principles and Procedures for Blood Cultures; Approved Guideline; CLSI document M47-A Vol. 27. No. 17.
-2. BD BACTEC Package insert PP-105E 2001/01.
-3. Blood culture: A key innovation for diagnosis of bloodstream infections. Biomerieux 2016.
-
-## Appendix 4: Directory of laboratories*
-
-Table: Directory of main laboratories that provide serological testing of rare aetiological agents of infective endocarditis
-
-| Microorganisms    | Serology IgG/IgM   |
-|-------------------|--------------------|
-| Brucella spp.     | IMR HSB            |
-| Coxiella burnetti | IMR HSB            |
-| Bartonella spp.   | IMR                |
-| Legionella spp.   | HKL UMMC PPUKM     |
-
-- PCR for Brucella is available in IMR.
-- HPE of the cardiac or valvular tissue, or emboli is available upon request at State and major specialist hospitals with anatomic pathology services.
-
-IMR: Institute of Medical Research; HSB: Hospital Sungai Buloh; HKL: Hospital Kuala Lumpur; UMMC: University Malaya Medical Centre; PPUKM: Pusat Perubatan Universiti Kebangsaan Malaysia.
-
-*This list is not exhaustive and only include public institutions with the available facilities. For a full list of accredited laboratories, please refer to Standards Malaysia website (www.jsm. gov.my).
-
-## Note:
-
-1. Interpretation of serological results in these rare aetiological agents of IE can be difficult. Please consult an ID physician to guide treatment in these cases.
-2. PCR amplification of 16SrDNA gene and sequencing for the identification of bacterial pathogen from bacterial isolate is provided at the Department of Medical Microbiology PPUM.
-
-The main laboratories and the contact details are as follows:*
-
-| Institution/hospital                             | Name of laboratory and address                                                                                                                                 | Contact number   |
-|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| Institute for Medical  Research                  | Bacteriology Unit Institute for Medical Research Jalan Pahang 50588 Kuala Lumpur                                                                               | 03-26162666      |
-| Hospital Sungai Buloh                            | Microbiology Unit Department of Pathology  Hospital Sungai Buloh 47000 Sungai Buloh, Selangor                                                                  | 03-61454333      |
-| Hospital Kuala Lumpur                            | Microbiology Unit Department of Pathology  Hospital Kuala Lumpur Jalan Pahang 50586 Kuala Lumpur                                                               | 03-26155590      |
-| University Malaya  Medical Centre                | Department of Medical Microbiology Pusat Perubatan Universiti Malaya Lembah Pantai 59100 Kuala Lumpur                                                          | 03-79493039      |
-| Pusat Perubatan  Universiti Kebangsaan  Malaysia | Department of Medical Microbiology and  Immunology Pusat Perubatan UKM Jalan Yaacob Latiff 56000 Kuala Lumpur                                                  | 03-91455555      |
-| Pusat Pakar Perubatan  UiTM                      | Anatomic Pathology Unit Centre for Pathology Diagnostics and  Research Laboratories Pusat Pakar Perubatan UiTM Sungai Buloh Campus 47000 Sungai Buloh Selangor | 03- 61265053     |
-
-## 10.0 APPENDICES
-
-## Appendix 5: Guidelines on specimen collection
-
-Instructions for specimen collection and transport for HPE of cardiac valvular/ tissue/emboli in the diagnosis of infective endocarditis.
-
-## A. Specimen collection
-
-1. Place the cardiac specimen in a container containing 10% formalin with a volume of approximately 3-4 times tissue volume (30 ml minimum).
-2. Do not remove or scrape any tissue (e.g. clots and fibrins) attached to the cardiac specimen.
-3. Secure the sample container properly to avoid spillage.
-
-## Note:
-
-If a cardiac specimen is also being collected for:
-
-- Microbiological culture, place the specimen in a container with normal saline.
-- HPE, place another specimen in a different container with formalin.
-
-## B. Labelling of specimen container(s)
-
-1. Label the specimen container(s) with the patient's full name, a second patient identifier, and the source/anatomical site and type of the specimen.
-2. The label should be placed/written on the container and not on the cap.
-3. If there is more than one sample, place multiple specimens in separate containers.
-4. Review the completeness and accuracy of the request form in comparison with the label on the specimen container, against the patient's ID prior to leaving the procedural site.
-
-
-# SECTION 3.3: IMAGING
-
-<!-- METADATA
-category: diagnosis
-use_case: diagnostic_workup
-patient_input: symptoms, signs, labs, imaging
-output: diagnosis_criteria, diagnostic_pathway
--->
+1. [Grade IIa, Level C] At least 3 sets of blood cultures to be taken at least 30 minutes apart. In adult patients, each bottle should contain 10 ml of blood.
+2. [Grade IIa, Level C] For optimal recovery of diverse aetiological agents, each set of blood cultures should include paired aerobic and anaerobic blood culture bottles.
+3. [Grade IIa, Level C] Sampling should be obtained from a peripheral vein rather than from a central venous catheter.
+4. [Grade IIa, Level C] An incubation period of blood cultures for 5 days is adequate for the detection of the majority of pathogens including those from the HACEK group.
+5. [Grade IIa, Level C] Pathological specimens obtained during cardiac surgery which are of diagnostic value, should be sent for HPE.
 
 ## 3.3 Imaging
 
-## 3.3.1 Echocardiography
+### 3.3.1 Echocardiography
 
-## 3.3.1.1 Echocardiography in diagnosis of infective endocarditis
+#### 3.3.1.1 Echocardiography in diagnosis of infective endocarditis
 
 Echocardiography plays a key role in the diagnosis of IE. The first line imaging investigation in suspected IE is usually transthoracic echocardiography (TTE) as it is non-invasive and widely available. TEE should be performed subsequently if indicated.
 
@@ -668,6 +478,81 @@ Adapted from Habib G, et al. Eur Heart J. 2015.
 | | • Delirium in meningitis, meningoencephalitis and encephalopathy | | • Occurs from purulent meningitis especially with acute IE |
 | | • Intracranial bleeding<br>> Manifests as:<br>» Confusion<br>» Drowsiness<br>» Reduced consciousness<br>» Vomiting<br>» Seizures | | |
 
+---
+
+### Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations
+
+| Microorganism                             | Predisposing risk factors,  epidemiology and exposure  risks                                                                                      | Laboratory investigation                                                                                                                                                                       |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Aspergillus and  other non- Candida fungi | Prosthetic valves                                                                                                                                 | Culture: Blood culture Serology: Galactomanan PCR: Blood or cardiac valvular tissue/ vegetations HPE**: Cardiac tissue or emboli                                                               |
+| Bartonella spp.                           | Cat contact or ownership  (Bartonella henselae), chronic  alcoholism, contact with human  body louse and homeless shelters  (Bartonella quintana) | Culture: Blood culture Serology: IgG/IgM/total antibodies HPE**: Cardiac valvular tissue                                                                                                       |
+| Brucella spp.                             | Ingestion of unpasteurised  milk or cheese, contact with or  occupational exposure to farm  animals                                               | Culture: Blood culture (requires  extended incubation as 80% of  cultures become positive with an  incubation time of 4-6 weeks) and  tissue Serology: IgG/IgM and total antibodies PCR: Blood |
+| Coxiella burnetti                         | Ingestion of unpasteurised  milk or cheese, contact with or  occupational exposure to farm  animals, or visit to farms                            | Serology: IgG/IgM HPE**: Cardiac valvular tissue/ vegetations                                                                                                                                  |
+| Legionella spp.                           | Prosthetic valves                                                                                                                                 | PCR: Cardiac valvular tissue/ vegetations HPE**: Cardiac valvular tissue/ vegetations                                                                                                          |
+| Nutritionally variant  streptococci       | Slow indolent course                                                                                                                              | Culture: Blood culture (culture on  supplemented media or growth as  satellite colonies around S. aureus streak)                                                                               |
+
+**HPE consists of:
+
+- Haematoxylin and Eosin (H&amp;E) stain for basic morphology.
+- Special stains which aid in the identification of the causative microorganisms of IE (refer Table 3.3).
+
+IgG: immunglobulin G; IgM: immunoglobulin M; HPE: histopathological examination.
+
+The directory of laboratories that perform the serological and PCR tests of the rare aetiological agents of IE is given in Appendix 4.
+
+---
+### Table 3.3: Special stains which aid in the identification of the causative microorganisms of IE from cardiac tissue specimens
+
+| Tissue stain         | Detected microorganism            |
+|----------------------|-----------------------------------|
+| General stain        |                                   |
+| Acridine orange      | Any bacterium                     |
+| Giemsa               | Any bacterium                     |
+| Tissue Gram          | Gram-positive bacteria            |
+| Periodic acid-Schiff | Tropheryma whipplei  Fungi        |
+| Warthin-Starry       | Bartonella spp.                   |
+| Ziehl-Nielsen        | Acid-fast bacilli                 |
+| Gimenez              | Coxiella burnetti Legionella spp. |
+| Specific stains      | Chlamydia spp.                    |
+| Kinyoun, Machiavello |                                   |
+| Gomori-Grocott       | Fungi                             |
+
+---
+
+### Figure 3a: Approach to microbiological diagnosis of IE
+
+**Step 1: Suspect IE**
+* *Note: Elicit risk factors for fastidious/intracellular pathogens\*\* and send for appropriate serological tests as indicated (refer Table 3.2).*
+* ↓
+
+**Step 2: Blood Cultures**
+* 3 x blood culture
+* ↓
+
+**Step 3: Empirical Treatment**
+* Start empirical antimicrobials (refer Section 4.2.3)
+* ↓
+
+**Step 4: Culture Results Evaluation**
+
+* **Pathway A: Culture positive**
+  * → Identification of microorganisms and Antimicrobial susceptibility testing
+  * → Adjust antimicrobials accordingly
+
+* **Pathway B: Culture negative**
+  * *Note: If no history of recent antimicrobial use or if there are risk factors for fastidious/intracellular pathogens\*\*, request for prolonged incubation^.*
+  * ↓
+  * **Assess Response to empirical antimicrobials:**
+    * **Yes (Responded)** OR **No (Did not respond)** → In either case, proceed with the following diagnostic considerations:
+      * If the patient is undergoing surgery, send the valve or annulus (for prosthetic valves) for HPE and/or PCR (if available)
+      * Send serology for *Brucella*, *Coxiella*, *Bartonella* and *Legionella*, and blood PCR if available\*\*
+      * Consider non-bacterial thrombotic endocarditis such as underlying malignancy, systemic lupus erythematosus (SLE) and, test for rheumatoid factor and antinuclear antibodies
+
+---
+\*\*Refer Table 3.2 for the risk factors for fastidious/intracellular pathogens.
+^*Legionella*, *Brucella*, *Nocardia* spp., fungi and NVS e.g. *Gemella*, *Granulicatella* and *Abiotrophia* may require longer incubation periods.
+
+*Adapted from Habib G, et al. Eur Heart J. 2015.*
 
 ## Abbreviations Used in This Section
 
