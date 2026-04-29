@@ -7,7 +7,7 @@ patient_input: Patient weight, allergies, current medications, IV access site as
 output: Safe medication practices, proper labelling, storage guidelines, IV delivery protocols, extravasation management, infection control, documentation
 -->
 
-> **Context:** This section covers all key principles for safe medication use in anaesthesia — medication management workflow, purchasing, storage, reconciliation, the 5Rs concept, anaesthesia cart organisation, drug preparation, syringe labelling (including TML and colour-coded standards), safe administration of high-concentration drugs (refer Table 2: Medications via Central Venous Catheter), IV delivery protocols, extravasation injury prevention/management, intra-arterial injection management, infection control, and documentation requirements.
+> **Context:** This section covers all key principles for safe medication use in anaesthesia — medication management workflow, purchasing, storage, reconciliation, the 5Rs concept, anaesthesia cart organisation, drug preparation, syringe labelling including TML (refer Table 1: Tall Man Lettering for Look-Alike Drug Names) and colour-coded standards, safe administration of high-concentration drugs (refer Table 2: Medications to be Administered via Central Venous Catheter), IV delivery protocols, extravasation injury prevention/management (refer Table 3: Complications of Extravasation and Intra-Arterial Injection), intra-arterial injection management, infection control, and documentation requirements.
 
 ---
 
@@ -80,7 +80,7 @@ output: Safe medication practices, proper labelling, storage guidelines, IV deli
 
 3. Essential anaesthesia medication purchases must be prioritised to ensure uninterrupted supply.
 
-4. **Purchasing decisions should prioritise clear labelling and avoid look-alike presentations** to ensure easy identification of medications. This includes similar drugs with different concentrations.
+4. **Purchasing decisions should prioritise clear labelling and avoid look-alike presentations** to ensure easy identification of medications. This includes similar drugs with different concentrations (refer Table 1: Tall Man Lettering (TML) for Look-Alike Drug Names).
 
 5. Consider purchasing ready-to-use medications that reduce the necessity for dilution before administration.
 
@@ -198,7 +198,7 @@ c. **Drug allergies and intolerances.** This information should be gathered from
    - Fluorescent red 805 for muscle relaxants
    - Blue 297 for narcotics
 
-### Tall Man Lettering (TML) for Look-Alike Drug Names
+### Table 1: Tall Man Lettering (TML) for Look-Alike Drug Names
 
 | Non-TML Labelling | TML Labelling |
 |-------------------|---------------|
@@ -301,7 +301,7 @@ Errors occur due to incorrect calculations or failure to monitor blood glucose a
 | **Independent verification** | Electrolytes require independent double-check by another provider |
 | **Colour-coded labels** | Use to differentiate drugs |
 | **Slow administration** | Administer slowly (infusion) and titrate to effect |
-| **Central venous access** | Vasopressors, concentrated electrolytes and glucose should be via central venous catheter. Initial peripheral administration via large bore IV acceptable while waiting for central access |
+| **Central venous access** | Vasopressors, concentrated electrolytes and glucose should be via central venous catheter. Initial peripheral administration via large bore IV acceptable while waiting for central access (refer Table 2: Medications to be Administered via Central Venous Catheter) |
 
 ---
 
@@ -352,6 +352,8 @@ Errors occur due to incorrect calculations or failure to monitor blood glucose a
 Extravasation injuries and inadvertent intra-arterial drug injection may occur during anaesthesia practice due to:
 - Higher number of intravenous drugs administered
 - Some drugs are vesicants, irritants and hyperosmolar solutions
+
+(refer Table 3: Complications of Extravasation and Intra-Arterial Injection)
 
 ### Table 3: Complications of Extravasation and Intra-Arterial Injection
 

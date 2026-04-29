@@ -128,26 +128,6 @@ The volume and concentration of LA prepared must consider:
 
 ---
 
-## References for Regional Anaesthesia
-
-1. Mulroy MF., Weller RS., Liguori GA. A checklist for performing regional nerve blocks. Reg Anesth Pain Med, 2014. 39: 195-199
-
-2. Kinsella SM., Boaden B., et al. Handling injectable medications in anaesthesia: Guidelines from the Association of Anaesthetists. Anaesthesia, 2023. 78(10):1285-1294
-
-3. Topor B., Oldman M., Nicholls B. Best practices for safety and quality in peripheral regional anaesthesia. BJA Educ, 2020. 20(10): 341-347
-
-4. Priston MJ., et al. Stability of an epidural analgesic admixture containing epinephrine, fentanyl and bupivacaine. Anaesthesia, 2004. 59: 979-83
-
-5. Azi LMTA., et al. SBA 2020: Regional anesthesia safety recommendations update. Braz J Anesthesiol, 2020. 70(4): 398-418
-
-6. Sevarino FB., et al. Sterility of epidural solutions - recommendations for cost-effective use. Reg Anesth Pain Med, 2000. 25:368-71
-
-7. Busch CA., et al. Efficacy of periarticular multimodal drug injection in total knee arthroplasty. J Bone Joint Surg Am, 2006. 88(5): 959-63
-
-8. Klein JA., Jeske DR. Estimated Maximal Safe Dosages of Tumescent Lidocaine. Anesth Analg, 2016. 122(5):1350–1359
-
----
-
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Localized list of clinical abbreviations used in Section 3.2 -->

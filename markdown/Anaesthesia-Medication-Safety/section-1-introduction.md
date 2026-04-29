@@ -78,20 +78,6 @@ The term 'medication use' in this guideline addresses:
 
 ---
 
-## References
-
-1. World Federation of Societies of Anaesthesiologists (WFSA). Medication Safety. https://wfsahq.org/news/world-anaesthesia-day-2022-medication-safety-medsafe/
-
-2. The Institute for Safe Medication Practices (ISMP). Guidelines for Safe Medication Use in Perioperative and Procedural Settings, 2022. https://psnet.ahrq.gov/issue/ismp-guidelines-safe-medication-use-perioperative-and-procedural-settings
-
-3. Australian and New Zealand College of Anaesthetists. PG51(A) Guideline for the Safe Management and Use of Medications in Anaesthesia, 2021. https://www.anzca.edu.au/getattachment/17f3f75c-9164-41e6-a918-9f403261c8eb/PG51(A)-Guideline-for-the-safe-management-and-use-of-medications-in-anaesthesia-(PS51)
-
-4. World Health Organization (WHO). Medication Without Harm initiative, 2023. https://www.who.int/initiatives/medication-without-harm
-
-5. Mackay, E., Jennings, J., Webber, S. Medicines Safety in Anaesthetic Practice. BJA Education, 2019. 19(5): 151-157
-
----
-
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Localized list of clinical abbreviations used in Section 1 -->

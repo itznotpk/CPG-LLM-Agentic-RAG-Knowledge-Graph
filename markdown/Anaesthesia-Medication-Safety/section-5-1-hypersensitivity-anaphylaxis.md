@@ -7,7 +7,7 @@ patient_input: Previous reactions, allergy history, PEN-FAST score, MCT results,
 output: Anaphylaxis grading, MCT sampling, referral pathway, alternative antibiotics, cross-reactivity guidance, allergy management strategies
 -->
 
-> **Context:** This section covers perioperative hypersensitivity and anaphylaxis, including diagnosis using mast cell tryptase, ANZAAG grading, PEN-FAST scoring for penicillin allergy, β-lactam cross-reactivity, HKLAAC referral pathway, managing multiple drug allergies, food allergies relevant to anaesthesia, and urgent surgery in suspected allergy cases.
+> **Context:** This section covers perioperative hypersensitivity and anaphylaxis, including diagnosis using mast cell tryptase, ANZAAG grading (refer Table 4: ANZAAG Grading of Perioperative Anaphylaxis), PEN-FAST scoring for penicillin allergy, β-lactam cross-reactivity (refer Table 5: β-Lactam Cross-Reactivity in Penicillin-Allergic Patients), HKLAAC referral pathway, managing multiple drug allergies, food allergies relevant to anaesthesia, and urgent surgery in suspected allergy cases.
 
 ---
 
@@ -33,7 +33,7 @@ output: Anaphylaxis grading, MCT sampling, referral pathway, alternative antibio
 
 a. Perioperative hypersensitivity (POH) reactions are **unexpected, unpredictable and potentially life-threatening** during surgery and anaesthesia.
 
-b. **Severity ranges from mild to severe** (see Table 4 below). Extreme cases may be fatal despite prompt treatment.
+b. **Severity ranges from mild to severe** (refer Table 4: ANZAAG Grading of Perioperative Anaphylaxis). Extreme cases may be fatal despite prompt treatment.
 
 c. **Estimated incidence:** 1 in 18,600 to 1 in 353 anaesthetic procedures with geographical variability.
 
@@ -158,7 +158,7 @@ e. **If surgery urgent or referral not feasible:**
 
 f. **Dual allergy (reaction with another cephalosporin with dissimilar side chain)** occurs in ~4% of patients.
 
-g. **Cross-reactivity with 3rd/4th-gen cephalosporins and carbapenems is low/very low.**
+g. **Cross-reactivity with 3rd/4th-gen cephalosporins and carbapenems is low/very low** (refer Table 5: β-Lactam Cross-Reactivity in Penicillin-Allergic Patients).
 
 h. **Antibiotic test dose not effective** in preventing anaphylaxis (NAP6). Administer antibiotics **prior to induction** to simplify treatment and diagnostic workup.
 

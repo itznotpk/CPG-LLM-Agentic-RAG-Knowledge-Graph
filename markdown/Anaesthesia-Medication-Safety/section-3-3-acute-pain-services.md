@@ -123,22 +123,6 @@ viii. **Regularly examine insertion site** for catheter migration, leaks, and in
 
 ---
 
-## References for Acute Pain Services
-
-### Acute Pain Management in the Ward
-1. Australian and New Zealand College of Anaesthetists. PS41(G) Position statement on acute pain management, 2023
-2. Ministry of Health, Malaysia. Pain Free Program: Pain Free Manual, 3rd Edition, 2023
-
-### Patient Controlled Analgesia
-1. Pastino A., Lakra A. Patient-Controlled Analgesia. StatPearls, 2024
-2. Ministry of Health, Malaysia. Pain Management Handbook, 3rd edition, 2023
-
-### Epidural Infusion in the Ward
-1. The Faculty of Pain Medicine of the Royal College of Anaesthetists. Best Practice in the Management of Epidural Analgesia in the Hospital Setting, 2020
-2. Ministry of Health, Malaysia. Pain Management Handbook, 3rd edition, 2023
-
----
-
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Localized list of clinical abbreviations used in Section 3.3 -->

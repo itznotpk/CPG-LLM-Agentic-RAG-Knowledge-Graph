@@ -174,16 +174,6 @@ Ensure the following are immediately available in all locations where LA is used
 
 ---
 
-## References
-
-1. Neal JM., et al. The Third ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med, 2018. 43(2): 113-123
-
-2. AAGBI Safety Guideline: Management of Severe Local Anaesthetic Toxicity
-
-3. El-Boghdadly K., Pawa A., Chin KJ. Local anesthetic systemic toxicity: current perspectives. Local Reg Anesth, 2018. 11: 35-44
-
----
-
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Localized list of clinical abbreviations used in Appendix 4 -->

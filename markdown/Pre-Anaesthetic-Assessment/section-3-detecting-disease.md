@@ -83,7 +83,7 @@ d. **Routine investigations** (See Appendix) are solely based on age and nature 
 
 e. In an era where **cost containment** is important, factors like cost-benefit and benefit-risk ratios will have to be taken into consideration.
 
-> **Important:** See investigation tables below for routine and indicated tests.
+> **Important:** (refer Table I: Routine Investigations) and (refer Table II: Investigations by Clinical Indication) for routine and indicated tests.
 
 ---
 
