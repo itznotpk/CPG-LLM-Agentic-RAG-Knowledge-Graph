@@ -1,10 +1,10 @@
 # SECTION 2: DEFINITION
 
 <!-- METADATA
-category: Introduction
-use_case: Definition
-patient_input: 
-output: Definition of Heart Failure
+category: Introduction, Classification
+use_case: Heart Failure Definition and Classification Framework — haemodynamic_criteria, clinical_syndrome, structural_functional_abnormality, LVEF_classification, NYHA_staging, ACC_AHA_stages
+patient_input: LVEF, symptoms, functional_status
+output: HF_definition, diagnostic_framework, LVEF_classification, NYHA_class, HF_stage_assignment
 -->
 
 ## 2. Definition

@@ -1,8 +1,8 @@
 # SECTION 5: STEMI NETWORK
 
 <!-- METADATA
-category: systems_of_care
-use_case: hub_and_spoke_network, inter_hospital_transfer, total_ischaemic_time, PCI_capable_facility_routing
+category: Treatment, Reference
+use_case: STEMI Network and Systems of Care — hub_and_spoke_network, inter_hospital_transfer, total_ischaemic_time, PCI_capable_facility_routing, ambulance_bypass
 patient_input: geographic_location, symptom_onset_time, nearest_PCI_centre_availability
 output: transfer_protocol, optimal_reperfusion_pathway, door_to_balloon_time_target, network_activation
 critical: true

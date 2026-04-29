@@ -1,10 +1,10 @@
 # SECTION 0: KEY RECOMMENDATIONS & EVIDENCE GRADING
 
 <!-- METADATA
-category: Key Recommendations
-use_case: Quick Reference
+category: Methodology
+use_case: Key Recommendations and Evidence Grading — evidence_summary, grading_system, recommendation_strength
 patient_input: 
-output:
+output: guideline_summary, key_recommendations, grading_reference
 -->
 
 ## Overview

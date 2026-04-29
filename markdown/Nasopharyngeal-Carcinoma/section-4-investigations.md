@@ -1,9 +1,11 @@
 # SECTION 4: INVESTIGATION
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Diagnostics, Investigations, Biopsy, Histopathology
-patient_input: 
+category: Diagnosis
+use_case: NPC Investigations and Histopathology — baseline_investigations, nasoendoscopy, biopsy, FNAC, histopathology, WHO_classification, EBV_testing
+patient_input: clinical_findings, endoscopy_result, biopsy_specimen, EBV_serology
+output: histopathological_diagnosis, WHO_histological_type, EBV_status, baseline_assessment
+critical: true
 -->
 
 > **Context:** Baseline investigations, cytology, and histopathological diagnosis of NPC.

@@ -1,10 +1,12 @@
 # SECTION 8: FAMILIAL BREAST CANCER
 
 <!-- METADATA
-category: Familial Breast Cancer
-use_case: Genetic Risk Assessment and Management
-patient_input: 
-output:
+category: Special Populations, Prevention, Screening, Treatment
+use_case: Familial and Genetic Risk Assessment — BRCA1_BRCA2, genetic_counselling, risk_reducing_surgery, enhanced_surveillance, chemoprevention, PARP_inhibitors, PALB2_ATM_CHEK2
+patient_input: family_history, BRCA_status, age, personal_cancer_history
+output: genetic_risk_category, genetic_testing_indication, risk_reducing_strategy
+critical: true
+treatment_type: tamoxifen, anastrozole, olaparib, talazoparib, bilateral_mastectomy, bilateral_salpingo_oophorectomy
 -->
 
 ## Overview

@@ -1,10 +1,10 @@
 # SECTION 6: TARGET LIPID LEVELS
 
 <!-- METADATA
-category: Clinical Targets
-use_case: Treatment Goals
-patient_input: Risk Category
-output: Target LDL-C and Non-HDL-C levels
+category: Treatment
+use_case: LDL-C and Non-HDL-C treatment target determination — target_LDL-C, target_Non-HDL-C, risk-based_goals, treatment_thresholds
+patient_input: CV_risk_category, baseline_LDL-C
+output: target_LDL-C, target_Non-HDL-C, drug_initiation_threshold
 -->
 
 ## 6.1. LDL-C Goals

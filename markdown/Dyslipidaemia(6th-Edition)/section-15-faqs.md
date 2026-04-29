@@ -1,10 +1,10 @@
 # SECTION 15: FAQs ON LIPIDS
 
 <!-- METADATA
-category: Implementation & Quality
-use_case: Clinical FAQs
-patient_input: Common clinical questions on lipid management
-output: Evidence-based answers to frequently asked questions about dyslipidemia management
+category: Reference
+use_case: Evidence-based answers to common clinical questions on lipid management — statin_safety, fish_oil, CoQ10, coconut_oil, red_yeast_rice, HRT, garlic
+patient_input: clinical_question, patient_concern
+output: evidence_summary, recommendation_grade
 -->
 
 | Topic | Evidence | Grade of Recommendation / Level of Evidence |

@@ -1,9 +1,12 @@
----
-title: "Section 21 – Appendix"
-description: "Supplementary clinical trial evidence appendices (Appendix 1–12) for the 2011 CPG on Management of Pulmonary Arterial Hypertension. Contains patient characteristics, efficacy outcomes, and survival data from key RCTs and registries for bosentan, inhaled iloprost, and sildenafil; combination therapy trials in progress; the Dana Point strength of recommendation grading system; and the PAH evidence-based treatment algorithm."
----
-
 # SECTION 21: APPENDIX
+
+<!-- METADATA
+category: Reference, Assessment, Treatment
+use_case: Clinical Trial Evidence and Treatment Algorithms — bosentan_RCTs, iloprost_RCTs, sildenafil_RCTs, combination_trials, Dana_Point_grading, PAH_treatment_algorithm, BREATHE_studies
+patient_input: 
+output: trial_evidence_reference, treatment_algorithm_reference, grading_comparison
+-->
+
 
 > **Context:** This section consolidates supplementary appendices (Appendix 1–12) for the 2011 CPG on Management of Pulmonary Arterial Hypertension: patient characteristics and results from RCTs and long-term extension studies/registries for bosentan (Appendix 1–4), inhaled iloprost (Appendix 5–6), and sildenafil (Appendix 7–9), combination therapy trials in progress (Appendix 10), the Dana Point strength of recommendation grading system (Appendix 11, distinct from the CPG Classes of Recommendations/Levels of Evidence in Section 0), and the PAH evidence-based treatment algorithm (Appendix 12).
 

@@ -1,9 +1,12 @@
----
-title: "Section 4 – Epidemiology and Natural History of PAH in Adults"
-description: "Epidemiology of PAH, survival statistics, and prognostic indicators."
----
-
 # SECTION 4: EPIDEMIOLOGY AND NATURAL HISTORY OF PAH IN ADULTS
+
+<!-- METADATA
+category: Epidemiology, Assessment
+use_case: Prevalence, Prognosis and Prognostic Indicators — incidence_rate, survival_data, prognostic_indicators, 6MWT_threshold, functional_class, BNP, RV_dysfunction
+patient_input: 6MWT_distance, WHO_functional_class, haemodynamic_parameters
+output: prognosis_estimation, survival_benchmarks, poor_prognostic_markers
+-->
+
 
 > **Context:** This section covers the epidemiology of PAH (incidence 1-52 per million), natural history data (untreated median survival 2.8 years), and prognostic indicators (6MWT <300m, advanced functional class, haemodynamic parameters).
 

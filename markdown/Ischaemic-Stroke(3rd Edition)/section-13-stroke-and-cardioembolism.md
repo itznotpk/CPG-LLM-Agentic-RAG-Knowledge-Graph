@@ -1,11 +1,12 @@
 # SECTION 13: STROKE AND CARDIOEMBOLISM
 
 <!-- METADATA
-category: cardioembolism
-use_case: AF_stroke_prevention, anticoagulant_selection, bleeding_management, secondary_prevention
-patient_input: CHA2DS2_VASc_score, AF_type, cardiac_investigations, HAS_BLED_score
+category: Treatment, Prevention
+use_case: Cardioembolic Stroke and AF Management — AF_stroke_prevention, OAC_selection, DOAC_initiation, bleeding_management, CHA2DS2_VASc, HAS_BLED, 1_3_6_12_day_rule
+patient_input: CHA2DS2_VASc_score, AF_type, cardiac_investigations, HAS_BLED_score, NIHSS_score
 output: OAC_recommendation, DOAC_initiation_timing, bleeding_reversal_protocol
 critical: true
+treatment_type: warfarin, dabigatran, rivaroxaban, apixaban, edoxaban, idarucizumab, andexanet_alfa, LAA_occlusion
 -->
 ## 13.1 Cardioembolic Stroke
 

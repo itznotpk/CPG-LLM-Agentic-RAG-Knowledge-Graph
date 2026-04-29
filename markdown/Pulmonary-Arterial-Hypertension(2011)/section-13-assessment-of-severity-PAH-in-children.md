@@ -1,9 +1,13 @@
----
-title: "Section 13 – Assessment of Severity of PAH in Children"
-description: "Symptom grading (Ability Index), non-invasive monitoring (BNP, 6MWT, Echocardiography), and invasive right heart catheterization parameters for paediatric PAH."
----
-
 # SECTION 13: ASSESSMENT OF SEVERITY OF PAH IN CHILDREN
+
+<!-- METADATA
+category: Assessment, Diagnosis
+use_case: Paediatric Severity Assessment and Monitoring — Ability_Index, WHO_functional_class, BNP_NT_proBNP, 6MWT, echocardiography_RV, RHC_haemodynamics, vasoreactivity, non_invasive_monitoring
+patient_input: functional_status, BNP, 6MWT_distance, echocardiography_findings, RHC_parameters
+output: severity_grading, treatment_response_assessment, vasoreactivity_result
+critical: true
+-->
+
 
 > **Context:** This section covers paediatric PAH severity assessment via symptom grading using the Ability Index (Table 10: 4-tier classification from normal activity to housebound) for younger children and the modified NYHA/WHO functional classification (overlapped Table 2) for older children, non-invasive monitoring tools (Table 11: BNP/NT-proBNP, hs-CRP, uric acid; 6MWT < 300 m threshold; echocardiographic RV Tei index, TAPSE, TR velocity, RA size, pericardial effusion) for baseline and treatment response tracking, and invasive RHC haemodynamic parameters (Table 12: mRAP, PAP, aortic:PA ratio, PCWP, cardiac output, PVR, Qp:Qs). Positive vasoreactivity response is defined as mPAP drop ≥ 10 mmHg to ≤ 40 mmHg with preserved cardiac output; testing is contraindicated in pulmonary venous obstruction. Vasodilator agents (overlapped Table 5: Epoprostenol, Adenosine, Nitric oxide) with dose ranges and half-lives are provided for reference.
 

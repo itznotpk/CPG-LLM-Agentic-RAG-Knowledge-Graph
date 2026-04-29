@@ -1,8 +1,8 @@
 # SECTION 11: STROKE UNIT
 
 <!-- METADATA
-category: care_delivery
-use_case: stroke_unit_setup, multidisciplinary_team_coordination, quality_indicators
+category: Reference
+use_case: Stroke Unit Organisation — stroke_unit_setup, multidisciplinary_team, quality_indicators, KPI_benchmarks
 patient_input: stroke_severity, rehabilitation_needs
 output: care_pathway, KPI_benchmarks
 -->

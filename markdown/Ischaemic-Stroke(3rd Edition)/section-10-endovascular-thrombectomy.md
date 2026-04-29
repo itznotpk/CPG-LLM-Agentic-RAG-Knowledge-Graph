@@ -1,12 +1,12 @@
 # SECTION 10: ENDOVASCULAR THROMBECTOMY
 
 <!-- METADATA
-category: treatment
-treatment_type: endovascular_thrombectomy
-use_case: EVT_eligibility, device_selection, sedation_decision, workflow_coordination
+category: Treatment
+use_case: Endovascular Thrombectomy — EVT_eligibility, device_selection, sedation_decision, workflow_coordination, large_vessel_occlusion
 patient_input: symptom_onset_time, NIHSS_score, imaging_findings, mRS_baseline, vessel_occlusion_site
 output: EVT_eligibility, treatment_pathway, bridging_therapy_decision
 critical: true
+treatment_type: mechanical_thrombectomy, stent_retriever, aspiration_catheter
 -->
 ## 10.1 Acute Endovascular Thrombectomy Treatment
 

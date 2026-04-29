@@ -1,10 +1,11 @@
 # SECTION 7: MANAGEMENT — LONG-TERM RATE CONTROL
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: rate_control, pharmacological_agents, AV_node_ablation
-patient_input: ventricular_rate, comorbidities, heart_failure_status
-output: rate_control_strategy, drug_selection, ablation_criteria
+category: Treatment
+use_case: Long-term pharmacological and non-pharmacological rate control in AF including lenient vs strict targets, comorbidity-based drug selection, combination therapy, and AV nodal ablation with pacing — lenient_rate_control, strict_rate_control, beta-blockers, CCB, digoxin, amiodarone, dronedarone, AV_node_ablation, CRT, permanent_pacing
+patient_input: ventricular_rate, AF_type, comorbidities, heart_failure_status, LVEF, COPD_status, lifestyle_activity
+output: rate_control_target, drug_selection, combination_therapy, AV_ablation_indication, pacemaker_type
+treatment_type: atenolol, carvedilol, metoprolol, nadolol, propranolol, diltiazem, verapamil, digoxin, amiodarone, AV_node_ablation, CRT, DDDR, VVIR
 -->
 
 > **Context:** This section establishes long-term rate control protocols, defining lenient vs. strict rate control objectives (Figure 10). It maps comorbidity-based pharmacological selection (Table 15) and exhaustive dosing parameters (Table 16). Additionally, it codifies combination therapy pathways and outlines criteria for AV nodal ablation coupled with permanent pacing.

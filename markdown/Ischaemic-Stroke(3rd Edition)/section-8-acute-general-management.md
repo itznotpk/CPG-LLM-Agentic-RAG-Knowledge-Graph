@@ -1,11 +1,12 @@
 # SECTION 8: ACUTE GENERAL MANAGEMENT
 
 <!-- METADATA
-category: acute_management
-use_case: supportive_care, complication_management, blood_pressure_control, glycaemic_management
+category: Treatment, Supportive Treatment
+use_case: Acute General Stroke Management — supportive_care, BP_control, glycaemic_management, fever_management, DVT_prophylaxis, dysphagia_screening, nutrition, infection
 patient_input: vital_signs, blood_glucose, oxygen_saturation, neurological_status, swallowing_ability
 output: acute_treatment_plan, complication_prevention
 critical: true
+treatment_type: labetalol, captopril, insulin, heparin, aspirin, enoxaparin
 -->
 ## 8.1 General Management
 

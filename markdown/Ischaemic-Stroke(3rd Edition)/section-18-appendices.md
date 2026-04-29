@@ -1,9 +1,10 @@
 # SECTION 18: APPENDICES
 
 <!-- METADATA
-category: reference
-use_case: search_terms, screening_tools, operational_definitions, swallowing_assessment
-referenced_by: section-7-emergency-medicine-services, section-8-acute-general-management
+category: Reference
+use_case: Appendices and Reference Tools — search_terms, screening_tools, operational_definitions, swallowing_assessment, NIHSS
+patient_input: 
+output: reference_tools, screening_instruments, operational_definitions
 -->
 
 **Appendix A.** *MeSH terms or free text terms used for literature search*

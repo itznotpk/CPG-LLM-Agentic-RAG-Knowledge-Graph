@@ -1,7 +1,9 @@
----
-title: "Appendices"
-description: "Supplementary clinical classification tables and diagnostic likelihood criteria for UA/NSTEMI."
----
+<!-- METADATA
+category: Reference, Diagnosis, Assessment
+use_case: Appendices and Classification Tables — Braunwald_classification, troponin_differential, ACS_likelihood_criteria, TIMI_score, GRACE_score, creatinine_clearance, contrast_nephropathy
+patient_input: clinical_parameters, scoring_variables
+output: classification_reference, risk_score_calculation, diagnostic_criteria, dosing_reference
+-->
 
 # SECTION 12: APPENDICES
 

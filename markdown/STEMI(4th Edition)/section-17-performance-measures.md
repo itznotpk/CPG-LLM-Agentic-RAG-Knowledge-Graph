@@ -1,8 +1,8 @@
 # SECTION 17: PERFORMANCE MEASURES
 
 <!-- METADATA
-category: quality_assurance
-use_case: KPI_benchmarking, door_to_balloon_time_audit, reperfusion_rate_monitoring, mortality_tracking, aspirin_on_arrival_compliance
+category: Reference
+use_case: Performance Measures and Quality Benchmarking — KPI_benchmarking, door_to_balloon_time_audit, reperfusion_rate_monitoring, mortality_tracking, aspirin_on_arrival_compliance
 patient_input: institutional_data, registry_data, time_metrics
 output: performance_indicators, quality_improvement_targets, benchmarking_report
 -->

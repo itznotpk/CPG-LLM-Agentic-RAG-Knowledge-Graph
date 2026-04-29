@@ -1,10 +1,11 @@
 # SECTION 11: SPECIFIC LIPID DISORDERS
 
 <!-- METADATA
-category: Management
-use_case: Disorder-Specific Treatment (TG, HDL)
-patient_input: Triglyceride levels, HDL-C levels
-output: Treatment for hypertriglyceridemia and low HDL
+category: Treatment
+use_case: Management of specific lipid disorders including hypertriglyceridaemia and low HDL-C — elevated_TG, low_HDL-C, atherogenic_dyslipidaemia, pancreatitis, severe_hypertriglyceridaemia
+patient_input: TG_level, HDL-C_level, CV_risk_category, diabetes_status
+output: TG_management_strategy, Non-HDL-C_target, drug_escalation, pancreatitis_prevention
+treatment_type: statins, fibrates, omega-3 fatty acids, niacin, IV insulin
 -->
 
 ## 11.1 Elevated TG

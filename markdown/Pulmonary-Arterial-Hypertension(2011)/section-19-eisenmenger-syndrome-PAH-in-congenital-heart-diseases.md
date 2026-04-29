@@ -1,9 +1,14 @@
----
-title: "Section 19 – Eisenmenger Syndrome in PAH in Congenital Heart Diseases"
-description: "General principles and precautions for patients with Eisenmenger syndrome."
----
-
 # SECTION 19: EISENMENGER SYNDROME IN PAH IN CONGENITAL HEART DISEASES
+
+<!-- METADATA
+category: Treatment, Prevention, Special Populations
+use_case: Eisenmenger Syndrome General Management — pregnancy_avoidance, dehydration_prevention, exercise_restriction, altitude_avoidance, medication_scrutiny, oxygen_therapy, air_travel
+patient_input: pregnancy_status, SpO2, altitude_exposure, medication_list
+output: risk_reduction_plan, lifestyle_restrictions, oxygen_therapy_decision
+critical: true
+treatment_type: oxygen_therapy
+-->
+
 
 > **Context:** This section details the general principles of managing Eisenmenger syndrome in PAH in congenital heart diseases. It emphasizes the primary goal of not destabilizing balanced physiology and outlines critical risk reduction strategies. These include avoiding pregnancy, dehydration, strenuous exercise, excessive heat, high-altitude exposure, and smoking. It also discusses considerations for air travel, the careful scrutiny of all medications to prevent haemodynamic alteration or renal/hepatic adverse effects, and the role of long-term oxygen therapy.
 

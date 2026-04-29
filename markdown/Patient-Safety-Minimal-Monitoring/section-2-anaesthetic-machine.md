@@ -1,22 +1,14 @@
 # SECTION 2: THE ANAESTHETIC MACHINE / APPARATUS
 
 <!-- METADATA
-category: Anaesthetic Equipment
-use_case: Machine checks, ventilation alternatives, oxygen supply, breathing systems, alarms, scavenging
-patient_input: Patient scheduled for anaesthesia
-output: Ensuring functional and safe anaesthetic machine operation
+category: Reference, Prevention
+use_case: Anaesthetic Machine Apparatus — machine_checks, alternative_ventilation, oxygen_supply_alarm, anti_hypoxic_device, scavenging
+patient_input: 
+output: equipment_safety_checklist, machine_readiness
+critical: true
 -->
 
 > **Context:** This section covers the anaesthetic machine and apparatus requirements, including equipment checks, alternative ventilation, oxygen supply monitoring, breathing system safety, disconnection alarms, and scavenging systems.
-
----
-
-## Key Points for Section 2
-
-1. **The anaesthesiologist must ensure the anaesthetic machine, airway devices, breathing system, and monitors are functioning before each case.**
-2. **Alternative means of ventilating the patient (e.g., self-inflating bag) with an independent oxygen supply must be available.**
-3. **Safety alarms and monitoring features are mandatory, including oxygen supply failure alarms, anti-hypoxic devices, oxygen concentration analysers, and pressure gauges.**
-4. **All anaesthetic machines must be fitted with a scavenging system.**
 
 ---
 
@@ -54,10 +46,3 @@ b. **Disconnection Alarm:** The use of a device with an audible alarm to detect 
 
 All anaesthetic machines should be fitted with an **anaesthetic scavenging system**. The use of an active anaesthetic scavenging system is encouraged.
 
----
-
-### Abbreviations
-
-| Abbreviation | Full Term |
-|---|---|
-| WAGs | Waste anaesthetic gases |

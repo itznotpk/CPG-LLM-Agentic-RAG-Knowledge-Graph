@@ -1,10 +1,10 @@
 # APPENDICES
 
 <!-- METADATA
-category: Appendix
-use_case: Reference Tables and Flowcharts
-patient_input: 
-output: Drug dosing tables, flowcharts, WHO risk classification, NYHA classification
+category: Reference, Classification
+use_case: Reference Tables and Flowcharts — drug_dosing, WHO_risk_classification, NYHA_classification, clinical_flowcharts, diagnostic_algorithms
+patient_input: lab_results, symptoms
+output: drug_dosing_tables, flowcharts, WHO_risk_classification, NYHA_classification
 -->
 
 ## Appendix I: Causes of Elevated Natriuretic Peptide Levels*

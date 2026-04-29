@@ -1,8 +1,8 @@
 # SECTION 7: EMERGENCY MEDICINE SERVICES
 
 <!-- METADATA
-category: emergency_management
-use_case: prehospital_care, emergency_department_management, stroke_triage, thrombolysis_eligibility
+category: Treatment
+use_case: Emergency Stroke Services — prehospital_care, stroke_triage, ED_management, thrombolysis_eligibility, door_to_needle_time
 patient_input: symptom_onset_time, neurological_status, oxygen_saturation, blood_glucose
 output: transport_decision, triage_priority, acute_intervention_pathway
 critical: true

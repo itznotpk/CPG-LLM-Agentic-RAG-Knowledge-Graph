@@ -1,9 +1,11 @@
 # SECTION 5: STAGING
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: TNM Staging, Anatomical Stage, Radiological Staging
-patient_input: 
+category: Classification
+use_case: NPC TNM Staging — AJCC_7th_edition, T_stage, N_stage, M_stage, anatomical_stage_grouping, radiological_staging
+patient_input: tumour_extent, lymph_node_involvement, distant_metastasis, MRI_findings, PET_CT_findings
+output: TNM_stage, anatomical_stage_group, imaging_modality_selection
+critical: true
 -->
 
 > **Context:** TNM staging criteria and radiological imaging recommendations for NPC.

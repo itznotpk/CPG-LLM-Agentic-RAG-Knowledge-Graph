@@ -1,9 +1,12 @@
----
-title: "Section 11 – Definition and Classification of PAH in Children"
-description: "Definition of paediatric PAH and common aetiologies compared to adult populations."
----
-
 # SECTION 11: DEFINITION AND CLASSIFICATION OF PAH IN CHILDREN
+
+<!-- METADATA
+category: Classification, Diagnosis
+use_case: Paediatric PAH Definition and Classification — haemodynamic_criteria, WHO_classification, IPAH, CHD_PAH, aetiology, paediatric_vs_adult_differences
+patient_input: mPAP, PCWP, CHD_status
+output: paediatric_PAH_classification, aetiology_identification
+-->
+
 
 > **Context:** This section defines paediatric PAH (mPAP > 25 mmHg, PCWP < 15 mmHg) and explores its distinct aetiologies compared to adults. While sharing the Revised WHO Classification 2008 (Table 1), it emphasizes that Idiopathic PAH (IPAH) and PAH associated with congenital heart disease (CHD) are the predominant causes in children.
 

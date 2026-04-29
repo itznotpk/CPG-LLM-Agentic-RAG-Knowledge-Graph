@@ -1,8 +1,8 @@
 # SECTION 1: INTRODUCTION
 
 <!-- METADATA
-category: epidemiology
-use_case: prevalence_data, mortality_statistics, registry_data, reperfusion_outcomes
+category: Introduction
+use_case: Epidemiology and Guideline Rationale — prevalence_data, mortality_statistics, registry_data, reperfusion_outcomes
 patient_input: demographic_data, presentation_type
 output: mortality_benchmarks, treatment_gap_analysis, guideline_objectives
 -->

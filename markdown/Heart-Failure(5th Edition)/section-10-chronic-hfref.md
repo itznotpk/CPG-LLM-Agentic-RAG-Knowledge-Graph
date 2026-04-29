@@ -1,10 +1,12 @@
 # SECTION 10: CHRONIC HF - HFrEF (LVEF <40%)
 
 <!-- METADATA
-category: Management
-use_case: Pharmacological Treatment HFrEF
-patient_input: LVEF <40%, BP, HR, renal function, potassium
-output: Foundational HF medications: ACEi/ARB/ARNI, beta-blockers, MRA, SGLT2i, device therapy
+category: Treatment, Assessment, Reference
+use_case: Chronic HFrEF Pharmacotherapy — ACEi_ARB_ARNI, beta_blockers, MRA, SGLT2i, device_therapy, foundational_therapy, therapy_monitoring
+patient_input: LVEF_below_40, BP, HR, renal_function, potassium
+output: foundational_HF_medications, device_therapy_indication, titration_plan, monitoring_parameters
+critical: true
+treatment_type: ACEi, ARB, ARNI, beta_blocker, MRA, SGLT2i, ICD, CRT
 -->
 
 ## 10. CHRONIC HEART FAILURE – HF DUE TO REDUCED LV FUNCTION, LVEF<40% (HFrEF)

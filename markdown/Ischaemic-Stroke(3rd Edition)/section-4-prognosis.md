@@ -1,8 +1,8 @@
 # SECTION 4: PROGNOSIS
 
 <!-- METADATA
-category: prognosis
-use_case: survival_estimation, recurrence_risk, disability_assessment
+category: Assessment
+use_case: Stroke Prognosis and Outcome Prediction — survival_estimation, recurrence_risk, disability_assessment, mRS_outcome
 patient_input: stroke_type, stroke_severity, age, comorbidities
 output: mortality_risk, recurrence_rate, functional_outcome
 -->

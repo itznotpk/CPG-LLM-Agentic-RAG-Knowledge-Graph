@@ -1,9 +1,11 @@
----
-title: "Summary, Objectives and Grading System"
-description: "Executive summary of the 2011 PAH CPG including the Preface, guideline objectives, clinical questions, target population, the Classes of Recommendations / Levels of Evidence framework, and proposed clinical quality indicators."
----
-
 # SECTION 0: SUMMARY, OBJECTIVES AND GRADING SYSTEM
+
+<!-- METADATA
+category: Methodology
+use_case: Executive Summary and Evidence Framework — key_recommendations, evidence_grading, classes_of_recommendation, levels_of_evidence, quality_indicators
+patient_input: 
+output: guideline_summary, grading_system, abbreviation_reference
+-->
 
 > **Context:** This section serves as the global index for the 2011 CPG on Management of Pulmonary Arterial Hypertension (PAH). It contains the Preface establishing PAH as a progressive disease characterised by increased PVR leading to right ventricular failure, the guideline summary across three sections (A: Adults, B: Children, C: Congenital Heart Disease), specific objectives, target population (adults and paediatric patients per Dana Point 2008 classification), and target users. It houses the master definitions for Classes of Recommendations (I, II, II-a, II-b, III) and Levels of Evidence (A, B, C), and defines the proposed clinical quality indicators (6MWD improvement rate and 2-year survival rate on therapy). This section also contains the master abbreviation glossary referenced by all section modules.
 

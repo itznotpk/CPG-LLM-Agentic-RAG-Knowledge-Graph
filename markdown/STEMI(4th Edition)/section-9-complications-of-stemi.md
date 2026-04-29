@@ -1,12 +1,12 @@
 # SECTION 9: COMPLICATIONS OF STEMI
 
 <!-- METADATA
-category: complications_management
-use_case: arrhythmia_management, cardiogenic_shock, mechanical_complications, LV_dysfunction, pericarditis, RV_infarction, LV_thrombus
+category: Treatment, Supportive Treatment, Diagnosis
+use_case: STEMI Complications Management — arrhythmia_management, cardiogenic_shock, mechanical_complications, LV_dysfunction, pericarditis, RV_infarction, LV_thrombus, DVT_prophylaxis, reinfarction
 patient_input: haemodynamic_status, ECG_rhythm, echocardiography_findings, LVEF, Killip_class
 output: arrhythmia_treatment_plan, inotrope_vasopressor_selection, mechanical_support_decision, surgical_intervention_referral
 critical: true
-treatment_type: antiarrhythmic, inotropes, mechanical_circulatory_support, temporary_pacing, surgical_repair
+treatment_type: amiodarone, noradrenaline, IABP, ECMO, temporary_pacing, defibrillation, surgical_repair, aspirin, colchicine, heparin
 -->
 
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019

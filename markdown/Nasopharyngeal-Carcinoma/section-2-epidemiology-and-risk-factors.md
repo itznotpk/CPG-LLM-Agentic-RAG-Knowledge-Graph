@@ -1,9 +1,10 @@
 # SECTION 2: EPIDEMIOLOGY AND RISK FACTORS
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Epidemiology, Risk Factors, Screening
-patient_input: 
+category: Epidemiology
+use_case: NPC Epidemiology and Risk Factors — incidence_by_region, EBV_association, genetic_predisposition, dietary_risk, smoking, screening_recommendations
+patient_input: ethnicity, family_history, EBV_serology, dietary_history, smoking_status
+output: risk_category, screening_indication, EBV_serological_markers
 -->
 
 > **Context:** Details regarding the epidemiology, associated risk factors, and screening guidelines for NPC.

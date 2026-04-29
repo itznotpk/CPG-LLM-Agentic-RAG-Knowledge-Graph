@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Introduction
-use_case: Background Information
+use_case: Epidemiology and Guideline Background — incidence_data, mortality_statistics, Malaysian_context, guideline_rationale
 patient_input: 
-output:
+output: disease_burden_context, guideline_objectives
 -->
 
 ## Overview

@@ -1,10 +1,12 @@
 # SECTION 9: ACUTE HEART FAILURE
 
 <!-- METADATA
-category: Management
-use_case: Acute Management
-patient_input: Acute presentation, hemodynamics, congestion status
-output: Acute HF phases, diuretics, vasodilators, inotropes, discharge planning
+category: Treatment, Assessment
+use_case: Acute Heart Failure Management — acute_presentation, clinical_assessment, diuretics, vasodilators, inotropes, discharge_planning
+patient_input: acute_presentation, haemodynamics, congestion_status, perfusion_status
+output: acute_HF_phase_management, diuretic_selection, vasodilator_dosing, inotrope_indication, discharge_plan
+critical: true
+treatment_type: diuretics, vasodilators, inotropes, oxygen_therapy
 -->
 
 ## 9. ACUTE HEART FAILURE

@@ -83,14 +83,6 @@ Investigations should be repeated under the following circumstances:
   - Dialysis for patients with renal failure
   - Blood products for correction of coagulopathy
 
----
-
-## References
-
-1. Practice advisory for preanesthesia evaluation: an updated report by the American Society of Anesthesiologists Task Force on Preanesthesia Evaluation. *Anesthesiology* 2012;110:1-17
-
----
-
 ### Abbreviations
 
 | Abbreviation | Full Term |

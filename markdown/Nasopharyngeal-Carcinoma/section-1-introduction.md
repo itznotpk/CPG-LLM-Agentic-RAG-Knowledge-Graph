@@ -1,9 +1,10 @@
 # SECTION 1: INTRODUCTION
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: Introduction, Background, Burden of Disease
-patient_input: nasopharyngeal carcinoma, NPC
+category: Introduction
+use_case: NPC Disease Overview and Burden — disease_definition, incidence, mortality, Malaysian_context, guideline_rationale
+patient_input: 
+output: disease_burden_context, guideline_objectives, NPC_significance
 -->
 
 > **Context:** Introduction and overview of Nasopharyngeal Carcinoma (NPC) burden and clinical significance.

@@ -1,10 +1,11 @@
 # SECTION 9: MANAGEMENT — SPECIAL POPULATIONS
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: special_populations, complex_comorbidities, tailored_therapy
-patient_input: pregnancy, acute_coronary_syndrome, heart_failure, athletes, valvular_disease
-output: adapted_rate_control, adapted_rhythm_control, thromboembolic_prophylaxis
+category: Special Populations, Treatment
+use_case: AF management in special populations with tailored rate/rhythm control and anticoagulation — post-operative_AF, ACS, WPW, hyperthyroidism, pregnancy, HCM, COPD, heart_failure, athletes, valvular_heart_disease, mitral_stenosis, accessory_pathway, amiodarone-induced_thyrotoxicosis
+patient_input: surgical_status, ACS_status, pre-excitation_status, thyroid_function, pregnancy_status, HCM_diagnosis, COPD_status, NYHA_class, LVEF, athletic_status, valve_disease
+output: adapted_rate_control, adapted_rhythm_control, population-specific_anticoagulation, catheter_ablation_indication, pregnancy-safe_drug_selection
+treatment_type: beta-blockers, amiodarone, sotalol, digoxin, verapamil, diltiazem, DCCV, catheter_ablation, LMWH, heparin, warfarin, quinidine
 -->
 
 > **Context:** This section outlines tailored clinical adaptations for atrial fibrillation management across ten distinct high-risk or complex conditions, including perioperative environments, pregnancy, severe structural heart disease, and athlete physiology. It establishes precise modifications to rate/rhythm control paradigms and antithrombotic strategies, addressing specific contraindications and unique thromboembolic risks inherent to each special population. Crucially, it integrates localized pharmacological reference tools (like Table 15) to ensure contextual autonomy and streamline RAG extraction.

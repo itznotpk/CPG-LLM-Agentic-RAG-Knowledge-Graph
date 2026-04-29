@@ -1,10 +1,11 @@
 # SECTION 13: CHRONIC HF - HFpEF (LVEF ≥50%)
 
 <!-- METADATA
-category: Management
-use_case: Pharmacological Treatment HFpEF
-patient_input: LVEF ≥50%, comorbidities
-output: HFpEF management, diuretics, SGLT2i, comorbidity management
+category: Treatment, Classification
+use_case: Chronic HFpEF Management — preserved_EF_classification, diuretics, SGLT2i, comorbidity_management, preserved_EF_pharmacotherapy
+patient_input: LVEF_50_or_above, comorbidities
+output: HFpEF_management_plan, diuretic_selection, SGLT2i_indication, comorbidity_targets
+treatment_type: diuretics, SGLT2i, comorbidity_specific_therapy
 -->
 
 ## 13. CHRONIC HEART FAILURE - HF DUE TO PRESERVED LV SYSTOLIC FUNCTION, LVEF ≥50% (HFpEF)

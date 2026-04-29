@@ -1,10 +1,10 @@
 # SECTION 10: REFERRALS & AUDIT
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: referral_criteria, clinical_audit
-patient_input: 
-output: 
+category: Supportive Treatment, Reference
+use_case: Referral pathways and clinical audit criteria for AF management quality assurance — acute_hospitalisation, outpatient_specialist, cardiac_electrophysiologist, referral_criteria, clinical_audit, quality_assurance, WPW_referral
+patient_input: haemodynamic_status, AF_type, symptom_severity, rate_control_adequacy, ventricular_rate
+output: referral_pathway, audit_criteria, quality_metrics, guideline_compliance_indicators
 -->
 
 > **Context:** This section establishes the stratified referral protocols for atrial fibrillation, categorizing escalation pathways into acute hospitalisation, outpatient specialist, and tertiary electrophysiology evaluations. Additionally, it defines the six measurable, operational clinical audit criteria designed for quality-assurance monitoring and guideline-compliance evaluation across clinical practice.

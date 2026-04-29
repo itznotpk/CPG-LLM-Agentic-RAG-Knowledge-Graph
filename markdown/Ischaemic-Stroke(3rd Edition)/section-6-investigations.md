@@ -1,10 +1,11 @@
 # SECTION 6: INVESTIGATIONS
 
 <!-- METADATA
-category: investigations
-use_case: diagnostic_workup, imaging_selection, laboratory_testing
+category: Diagnosis, Assessment
+use_case: Stroke Diagnostic Workup — CT_brain, MRI, CT_angiography, carotid_duplex, echocardiography, laboratory_testing, haematological_investigations
 patient_input: clinical_presentation, stroke_type, suspected_mechanism
-output: investigation_plan, imaging_pathway
+output: investigation_plan, imaging_pathway, aetiological_workup
+critical: true
 -->
 ## 6.1 Investigational Objectives
 

@@ -1,9 +1,14 @@
----
-title: "Section 7 – Treatment of PAH in Adults"
-description: "Conventional and PAH-specific therapies including oxygen, anticoagulation, CCBs, bosentan, ambrisentan, iloprost, sildenafil, tadalafil, combination therapy, atrial septostomy, and transplantation."
----
-
 # SECTION 7: TREATMENT OF PAH IN ADULTS
+
+<!-- METADATA
+category: Treatment, Supportive Treatment
+use_case: Pharmacological and Supportive Therapy — conventional_therapy, bosentan, ambrisentan, iloprost, sildenafil, tadalafil, combination_therapy, atrial_septostomy, transplantation, anticoagulation, diuretics, oxygen
+patient_input: WHO_functional_class, vasoreactivity_response, 6MWT_distance, haemodynamic_parameters, treatment_response
+output: treatment_selection, drug_dosing, combination_strategy, treatment_response_evaluation, escalation_decision
+critical: true
+treatment_type: CCB, bosentan, ambrisentan, sildenafil, tadalafil, iloprost, warfarin, diuretics, oxygen, digoxin, atrial_septostomy, transplantation
+-->
+
 
 > **Context:** This section covers the complete treatment landscape for PAH, divided into conventional therapy (oxygen, anticoagulation, digoxin, diuretics, CCBs, vaccination, pregnancy avoidance, physical activity) and PAH-specific therapy (bosentan, ambrisentan, iloprost, sildenafil, tadalafil). It also addresses combination therapy strategies, evaluation of treatment response, atrial septostomy, and transplantation as last-resort interventions. Table 13 provides recommended drug dosages natively placed within the PAH-specific therapy section, and Table 14 provides the parameters and targets for re-evaluation of treatment response.
 

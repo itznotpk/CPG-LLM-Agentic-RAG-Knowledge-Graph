@@ -1,9 +1,14 @@
----
-title: "Section 14 – Treatment of iPAH in Children"
-description: "General measures, pharmacological therapy, PAH-specific therapy, combination therapy, follow-up assessment, atrial septostomy, and transplantation for paediatric iPAH."
----
-
 # SECTION 14: TREATMENT OF iPAH IN CHILDREN
+
+<!-- METADATA
+category: Treatment, Supportive Treatment, Special Populations
+use_case: Paediatric iPAH Treatment Guidelines — general_measures, CCB, iloprost, bosentan, sildenafil, combination_therapy, atrial_septostomy, transplantation, weight_based_dosing
+patient_input: WHO_functional_class, vasoreactivity_response, weight, 6MWT_distance, treatment_response
+output: treatment_selection, weight_based_dosing, combination_strategy, follow_up_targets, escalation_decision
+critical: true
+treatment_type: CCB, bosentan, sildenafil, iloprost, atrial_septostomy, transplantation
+-->
+
 
 > **Context:** This section covers paediatric iPAH treatment strategies via general measures (vaccination, infection management, dehydration/constipation prevention, exercise restriction), pharmacological therapy with **[Grade/Level]** tags (oxygen, anticoagulation with warfarin INR 2-3, digoxin, diuretics, inotropes, calcium channel blockers [40% vasoreactivity response rate]), PAH-specific therapy by WHO Class (inhaled Iloprost, Bosentan with weight-based dosing [Table 13], Ambrisentan, Sildenafil [referencing overlapped Table 5 for vasoreactivity testing agents]), sequential combination therapy for inadequate monotherapy response, follow-up assessment targets (Table 14: functional class improvement, 6MWD > 380 m, peak oxygen consumption > 10.4 ml/kg/min, BNP/NT-proBNP trends, echocardiography, RHC haemodynamics) along with clinical deterioration criteria, and last-resort interventions (atrial septostomy [Table 15: safety recommendations] and lung/heart-lung transplantation).
 

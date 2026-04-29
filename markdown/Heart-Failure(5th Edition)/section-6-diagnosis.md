@@ -2,9 +2,10 @@
 
 <!-- METADATA
 category: Diagnosis
-use_case: Clinical Assessment
-patient_input: Symptoms, signs, ECG, BNP/NT-proBNP, echocardiogram
-output: Diagnostic criteria, Framingham criteria, investigations
+use_case: HF Clinical Assessment — symptoms, signs, ECG, BNP_NT_proBNP, echocardiogram, Framingham_criteria
+patient_input: symptoms, signs, ECG, BNP_NT_proBNP, echocardiogram
+output: HF_diagnosis, Framingham_criteria, investigation_plan
+critical: true
 -->
 
 ## 6. DIAGNOSIS

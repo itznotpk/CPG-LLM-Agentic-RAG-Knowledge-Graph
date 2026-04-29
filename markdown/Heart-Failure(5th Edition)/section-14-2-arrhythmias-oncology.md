@@ -1,10 +1,11 @@
 # SECTION 14.4-14.5: HF AND ARRHYTHMIAS, CARDIO-ONCOLOGY
 
 <!-- METADATA
-category: Special Groups
-use_case: Arrhythmia and Oncology
-patient_input: Arrhythmia type, cancer treatment history
-output: Arrhythmia-induced cardiomyopathy, AF management, cardiotoxicity protocols
+category: Special Populations
+use_case: HF with Arrhythmias and Cardio-Oncology — arrhythmia_induced_cardiomyopathy, AF_management, cardiotoxicity_protocols
+patient_input: arrhythmia_type, cancer_treatment_history
+output: arrhythmia_induced_cardiomyopathy_management, AF_management, cardiotoxicity_prevention
+treatment_type: antiarrhythmic, ablation, cardioprotective_therapy
 -->
 
 ## Section 14.4: CARDIOMYOPATHY DUE TO ARRHYTHMIAS OR CONDUCTION ABNORMALITIES

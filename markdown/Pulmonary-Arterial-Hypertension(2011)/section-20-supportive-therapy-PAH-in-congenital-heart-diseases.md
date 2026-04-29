@@ -1,9 +1,14 @@
----
-title: "Section 20 – Supportive Therapy for PAH in Congenital Heart Diseases"
-description: "Management of complications, supportive therapies, pregnancy contraindications, specific treatments, and transplantation for Eisenmenger syndrome."
----
-
 # SECTION 20: SUPPORTIVE THERAPY FOR PAH IN CONGENITAL HEART DISEASES
+
+<!-- METADATA
+category: Treatment, Supportive Treatment, Special Populations
+use_case: Eisenmenger Supportive Therapy and Disease-Targeted Management — phlebotomy, iron_deficiency, bleeding, thrombosis, arrhythmias, perioperative_management, nephropathy, contraception, bosentan, sildenafil, prostanoids, transplantation, haemoptysis_management
+patient_input: haemoglobin, haematocrit, iron_studies, SpO2, bleeding_history, pregnancy_status, WHO_functional_class
+output: supportive_therapy_plan, phlebotomy_decision, PAH_specific_therapy_selection, transplant_referral
+critical: true
+treatment_type: phlebotomy, iron_supplementation, bosentan, sildenafil, iloprost, epoprostenol, tranexamic_acid, colchicine, transplantation
+-->
+
 
 > **Context:** This section covers supportive and disease-targeted therapies for PAH in congenital heart diseases, particularly Eisenmenger syndrome. It details the management of hyperviscosity (phlebotomy indications and method), iron deficiency (Hb, MCV, MCH, serum iron, ferritin, transferrin saturation monitoring), bleeding complications including the paradoxical thrombosis-bleeding diathesis, sodium citrate coagulation formula, and haemoptysis management (Table 18), thrombosis and thromboembolic complications (20% prevalence, stroke risk 13.6%), arrhythmias and heart failure (sudden death risk), perioperative management of non-cardiac surgery (19% mortality, risk reduction strategies), nephropathy and hyperuricaemia, infections, and the absolute contraindication of pregnancy with contraception guidance. It also outlines PAH-specific therapies (Bosentan BREATHE-5 trial, Sildenafil, prostanoids), lung/heart-lung transplantation as a last resort, and concludes with Algorithm 1: Management Algorithm for Eisenmenger Syndrome — a 6-step clinical pathway from diagnosis through disease-targeted therapy to transplantation.
 

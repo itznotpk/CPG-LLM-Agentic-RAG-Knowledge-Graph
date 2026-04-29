@@ -1,10 +1,10 @@
 # SECTION 1: INTRODUCTION
 
 <!-- METADATA
-category: Introduction
-use_case: Background Information
-patient_input: 
-output:
+category: Introduction, Epidemiology
+use_case: Disease burden and epidemiology of dyslipidaemia in Malaysia — epidemiology, prevalence, CVD_burden, risk_factors, definition
+patient_input: population_data, NHMS_survey, NCVD_registry
+output: disease_prevalence, CVD_risk_context, dyslipidaemia_definition, LDL-C_cutoffs
 -->
 
 ## 1.1. Epidemiology

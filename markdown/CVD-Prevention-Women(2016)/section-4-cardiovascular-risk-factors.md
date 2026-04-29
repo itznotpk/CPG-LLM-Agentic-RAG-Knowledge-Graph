@@ -1,10 +1,10 @@
 # SECTION 4: CARDIOVASCULAR RISK FACTORS
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: risk_assessment, risk_factor_identification
-patient_input: 
-output: 
+category: Epidemiology, Assessment, Special Populations
+use_case: Traditional and sex-specific cardiovascular risk factors in women — CHD_history, menopause, family_history, dyslipidaemia, hypertension, diabetes, metabolic_syndrome, obesity, PCOS, smoking, physical_inactivity, COC, HRT, pre-eclampsia, alcohol, depression
+patient_input: age, menopausal_status, family_history, lipid_profile, BP, fasting_glucose, HbA1c, BMI, waist_circumference, smoking_status, COC_use, pregnancy_history, PCOS_diagnosis
+output: risk_factor_identification, sex-specific_risk_profile, NHMS_prevalence_data, metabolic_syndrome_criteria
 -->
 
 > **Context:** This section details traditional and sex-specific cardiovascular risk factors in women, explaining their distinct impact and thresholds compared to men.

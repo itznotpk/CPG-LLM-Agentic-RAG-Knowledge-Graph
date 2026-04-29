@@ -1,10 +1,12 @@
 # SECTION 9: SECONDARY PREVENTION
 
 <!-- METADATA
-category: Management
-use_case: Risk Modification (Established CVD)
-patient_input: Baseline LDL-C, Current Medications
-output: Secondary prevention targets and initiation timing
+category: Treatment, Prevention
+use_case: Secondary prevention lipid-lowering in established CVD — ACS, PCI, ischaemic_stroke, statin_initiation, recurrent_events
+patient_input: CVD_type, baseline_LDL-C, current_medications, time_since_event
+output: statin_initiation_timing, target_LDL-C, escalation_strategy
+critical: true
+treatment_type: high-intensity statins, ezetimibe, PCSK9 inhibitors
 -->
 
 ## Introduction

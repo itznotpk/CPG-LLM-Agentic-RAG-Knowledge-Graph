@@ -1,8 +1,8 @@
 # SECTION 10: URGENT/EMERGENT CABG SURGERY
 
 <!-- METADATA
-category: surgical_management
-use_case: CABG_indications, failed_PCI, multivessel_disease, mechanical_complications_requiring_surgery, antiplatelet_washout_timing
+category: Treatment
+use_case: Urgent/Emergent CABG Surgery — CABG_indications, failed_PCI, multivessel_disease, mechanical_complications_requiring_surgery, antiplatelet_washout_timing
 patient_input: coronary_anatomy, PCI_outcome, haemodynamic_status, antiplatelet_agent_timing
 output: CABG_timing_decision, surgical_referral, antiplatelet_bridging_plan
 critical: true

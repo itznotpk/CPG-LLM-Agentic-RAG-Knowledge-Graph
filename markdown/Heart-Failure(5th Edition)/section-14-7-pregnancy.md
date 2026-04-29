@@ -1,10 +1,12 @@
 # SECTION 14.7: HF AND PREGNANCY
 
 <!-- METADATA
-category: Special Groups
-use_case: Pregnancy Management
-patient_input: Pregnancy status, cardiac condition, NYHA class
-output: Risk stratification, safe medications, PPCM management
+category: Special Populations, Treatment, Assessment
+use_case: HF in Pregnancy — risk_stratification, safe_medications, PPCM_management, mWHO_classification
+patient_input: pregnancy_status, cardiac_condition, NYHA_class
+output: pregnancy_risk_stratification, safe_medication_list, PPCM_management_plan
+critical: true
+treatment_type: beta_blocker, diuretics, digoxin
 -->
 
 ## 14.7 HEART FAILURE IN PREGNANCY

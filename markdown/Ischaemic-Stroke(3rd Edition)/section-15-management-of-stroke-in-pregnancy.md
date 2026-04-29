@@ -1,11 +1,12 @@
 # SECTION 15: MANAGEMENT OF STROKE IN PREGNANCY
 
 <!-- METADATA
-category: special_populations
-use_case: pregnancy_stroke_management, anticoagulation_in_pregnancy, labour_management
+category: Special Populations, Treatment
+use_case: Stroke in Pregnancy — pregnancy_stroke_management, anticoagulation_in_pregnancy, labour_management, CVT_in_pregnancy, BP_control_in_preeclampsia
 patient_input: gestational_age, stroke_type, cardiac_status, coagulation_status
 output: treatment_pathway, anticoagulation_regimen, labour_drug_management
 critical: true
+treatment_type: aspirin, LMWH, UFH, warfarin, methyldopa, labetalol, nifedipine
 -->
 ## 15.1 Burden and Aetiology
 

@@ -1,8 +1,8 @@
 # SECTION 1: EPIDEMIOLOGY DEFINITION AND CLASSIFICATION OF STROKE
 
 <!-- METADATA
-category: epidemiology
-use_case: stroke_classification, prevalence_data, risk_factor_identification
+category: Epidemiology, Classification
+use_case: Stroke Epidemiology and Classification — prevalence_data, stroke_subtypes, TOAST_classification, OCSP, TIA_definition, risk_factor_identification
 patient_input: demographics, stroke_type, risk_factors
 output: stroke_classification, epidemiological_context
 -->

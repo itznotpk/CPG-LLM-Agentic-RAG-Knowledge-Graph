@@ -1,11 +1,12 @@
 # SECTION 4: PRE-HOSPITAL MANAGEMENT
 
 <!-- METADATA
-category: pre_hospital_management
-use_case: public_education, symptom_recognition, emergency_transport, pre_hospital_ECG, first_medical_contact
+category: Treatment
+use_case: Pre-Hospital Management and Emergency Transport — public_education, symptom_recognition, emergency_transport, pre_hospital_ECG, first_medical_contact
 patient_input: chest_pain_onset_time, symptom_description, pre_hospital_ECG_findings
 output: activation_of_STEMI_protocol, pre_hospital_triage, transport_decision, first_medical_contact_to_device_time
 critical: true
+treatment_type: pre_hospital_fibrinolysis, antiplatelet_loading
 -->
 
 ## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019

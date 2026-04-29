@@ -1,9 +1,12 @@
----
-title: "Section 17 – Clinical Manifestations of PAH in Congenital Heart Diseases"
-description: "Differences between IPAH and Eisenmenger syndrome, and the clinical complications of Eisenmenger syndrome."
----
-
 # SECTION 17: CLINICAL MANIFESTATIONS OF PAH IN CONGENITAL HEART DISEASES
+
+<!-- METADATA
+category: Diagnosis, Assessment
+use_case: CHD-PAH Clinical Presentation and Complications — IPAH_vs_Eisenmenger, cyanosis, erythrocytosis, hyperviscosity, bleeding, thromboembolism, arrhythmias, complication_surveillance
+patient_input: SpO2, haemoglobin, haematocrit, symptoms, functional_status
+output: Eisenmenger_diagnosis, complication_identification, differential_from_IPAH
+-->
+
 
 > **Context:** This section covers the clinical manifestations of PAH in congenital heart diseases. It details the Dana Point Classification context and provides a comprehensive comparison between IPAH and Eisenmenger syndrome (Table 16) across parameters like right ventricular response, cardiac output, cyanosis, secondary erythrocytosis, systemic complications, and perception of exercise limitation. It also catalogs the specific clinical manifestations and complications of Eisenmengers syndrome (Table 17) including hyperviscosity syndrome, bleeding, thromboembolism, bacterial infections, arrhythmias, and other systemic issues.
 

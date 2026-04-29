@@ -1,10 +1,10 @@
 # SECTION 3: OTHER DISEASES WITH INCREASED RISK FOR CARDIOVASCULAR DISEASE
 
 <!-- METADATA
-category: clinical_guidelines
-use_case: disease_association, risk_factors, comorbidity_management
-patient_input: 
-output: 
+category: Pathophysiology, Special Populations
+use_case: Non-traditional diseases with increased CVD risk in women — SLE, rheumatoid_arthritis, vasculitis, chemotherapy_cardiotoxicity, radiation, HIV, influenza, periodontal_disease, OSA
+patient_input: connective_tissue_disease_status, chemotherapy_regimen, radiation_dose, HIV_status, OSA_status
+output: cardiotoxicity_risk_score, monitoring_recommendations, CV_risk_modification, CPAP_recommendation
 -->
 
 > **Context:** This section highlights non-traditional medical conditions and treatments that significantly elevate cardiovascular risks specifically in women, including rheumatological conditions, oncology therapies, overlapping infections, and sleep disorders.

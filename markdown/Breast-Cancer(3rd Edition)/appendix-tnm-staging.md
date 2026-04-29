@@ -1,10 +1,10 @@
 # APPENDIX: TNM CLASSIFICATION OF BREAST CANCER
 
 <!-- METADATA
-category: Staging
-use_case: TNM Classification Reference
-patient_input: 
-output:
+category: Reference, Classification, Diagnosis
+use_case: TNM Classification Reference — tumour_size, nodal_status, metastasis, staging_tables, AJCC_8th_edition
+patient_input: tumour_size, lymph_node_involvement, distant_metastasis
+output: TNM_stage, anatomic_stage_group
 -->
 
 ## Overview

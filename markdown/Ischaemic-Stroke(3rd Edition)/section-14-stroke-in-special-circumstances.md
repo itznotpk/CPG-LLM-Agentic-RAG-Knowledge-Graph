@@ -1,10 +1,12 @@
 # SECTION 14: STROKE IN SPECIAL CIRCUMSTANCES
 
 <!-- METADATA
-category: special_populations
-use_case: young_stroke_evaluation, PFO_management, cerebral_venous_thrombosis, cryptogenic_stroke
+category: Special Populations, Diagnosis, Treatment
+use_case: Stroke in Special Circumstances — young_stroke_evaluation, PFO_management, cerebral_venous_thrombosis, cryptogenic_stroke, ESUS, thrombophilia, arterial_dissection
 patient_input: age, coagulation_screen, cardiac_investigations, imaging_findings, thrombophilia_results
-output: aetiological_diagnosis, treatment_pathway, PFO_closure_decision
+output: aetiological_diagnosis, treatment_pathway, PFO_closure_decision, CVT_anticoagulation
+critical: true
+treatment_type: aspirin, DOAC, LMWH, UFH, PFO_closure_device, CPAP, anticoagulant
 -->
 ## 14.1 Stroke in Young Adults
 

@@ -1,9 +1,14 @@
----
-title: "Section 15 – Treatment Algorithm for PAH in Children"
-description: "Paediatric PAH treatment algorithm referencing the adult evidence-based algorithm (Figure 2)."
----
-
 # SECTION 15: TREATMENT ALGORITHM FOR PAH IN CHILDREN
+
+<!-- METADATA
+category: Treatment, Reference
+use_case: Paediatric Treatment Algorithm — vasoreactive_pathway, non_vasoreactive_pathway, sequential_combination, WHO_class_based_therapy, paediatric_algorithm
+patient_input: WHO_functional_class, vasoreactivity_status, treatment_response
+output: treatment_algorithm_pathway, monotherapy_vs_combination, escalation_to_transplant
+critical: true
+treatment_type: CCB, bosentan, sildenafil, iloprost, combination_therapy, transplantation
+-->
+
 
 > **Context:** This section outlines the highly individualised paediatric PAH treatment algorithm by explicitly cross-referencing the adult evidence-based pathway (overlapped Figure 2). It provides a complete 4-step clinical algorithm: Step 1 covers supportive therapy (anticoagulants, diuretics, oxygen, digoxin) and general measures (rehabilitation, birth control, vaccination); Step 2 mandates expert referral; Step 3 defines acute vasoreactivity testing; Step 4 splits into the Vasoreactive Pathway (CCB treatment for WHO Class I-IV responders) and the Non-Vasoreactive Pathway, mapping PAH-specific monotherapy (Bosentan, Sildenafil, Iloprost, Ambrisentan) by WHO Functional Class, sequential combination therapies (ERA + PDE-5, etc.), and last-resort interventions (atrial septostomy or lung transplant).
 

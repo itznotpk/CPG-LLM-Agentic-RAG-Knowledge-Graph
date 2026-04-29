@@ -1,9 +1,12 @@
----
-title: "Section 10 – Introduction to PAH in Children"
-description: "Differences in prevalence, survival, and pulmonary circulation vasoreactivity between paediatric and adult patients with PAH."
----
-
 # SECTION 10: INTRODUCTION TO PAH IN CHILDREN
+
+<!-- METADATA
+category: Introduction
+use_case: Paediatric PAH Overview — natural_history, survival_data, physiological_differences, vasodilator_responsiveness
+patient_input: 
+output: paediatric_vs_adult_differences, prognosis_context
+-->
+
 
 > **Context:** This section introduces paediatric PAH, highlighting the poorer natural history (median survival 10 months vs 2.8 years in adults) and key physiological differences, such as greater vasodilator responsiveness in children compared to adults.
 

@@ -1,7 +1,10 @@
----
-title: "Definition of Terms"
-description: "Definitions of UA and NSTEMI, classification criteria, and the diagnostic flow of ACS."
----
+<!-- METADATA
+category: Pathophysiology, Classification, Diagnosis
+use_case: ACS Classification and Definition — UA_definition, NSTEMI_definition, STEMI_differentiation, cardiac_biomarker_criteria, ACS_spectrum
+patient_input: ECG_findings, cardiac_biomarkers
+output: ACS_classification, UA_vs_NSTEMI_differentiation
+critical: true
+-->
 
 # SECTION 2: DEFINITION OF TERMS
 

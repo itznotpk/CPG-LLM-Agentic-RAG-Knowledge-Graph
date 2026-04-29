@@ -2,9 +2,9 @@
 
 <!-- METADATA
 category: Pathophysiology
-use_case: Risk Justification / Rationale
-patient_input: 
-output:
+use_case: Causal role of dyslipidaemia in cardiovascular disease — LDL-C_causality, HDL-C, triglycerides, Non-HDL-C, atherogenic_dyslipidaemia, Lp(a)
+patient_input: LDL-C, HDL-C, TG, Non-HDL-C, Lp(a)
+output: CV_risk_justification, treatment_target_rationale
 -->
 
 Dyslipidemia is recognized as one of the major risk factors for CVD. According to the Malaysian NCVD-ACS Registry 2018-2019, the prevalence of dyslipidemia among individuals admitted with Acute Coronary Syndrome was 36.7%. The mean LDL-C on admission was 3.1 mmol/l in males and 3.0 mmol/l in females.

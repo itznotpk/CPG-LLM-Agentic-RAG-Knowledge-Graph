@@ -1,9 +1,12 @@
----
-title: "Section 5 – Screening of PAH in Adults"
-description: "Screening recommendations for high-risk populations, including scleroderma, familial PAH, and CHD."
----
-
 # SECTION 5: SCREENING OF PAH IN ADULTS
+
+<!-- METADATA
+category: Screening, Prevention
+use_case: High-Risk Population Screening — scleroderma, familial_PAH, congenital_heart_disease, portal_hypertension, at_risk_prevalence, BMPR2_genetic_testing
+patient_input: connective_tissue_disease_status, family_history, CHD_status, liver_disease_status
+output: screening_indication, at_risk_identification, referral_for_investigation
+-->
+
 
 > **Context:** This section covers screening strategies for high-risk populations (scleroderma, familial PAH, congenital heart disease, portal hypertension). Table 3 defines the specific at-risk patient profiles and their prevalence.
 

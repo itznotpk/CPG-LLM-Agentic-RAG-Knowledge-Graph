@@ -1,8 +1,9 @@
 # SECTION 0: FRONT MATTER
 
 <!-- METADATA
-category: front_matter
-use_case: guideline_overview, expert_panel, methodology, evidence_grading
+category: Methodology
+use_case: Guideline Overview and Development Process — guideline_overview, expert_panel, methodology, evidence_grading
+patient_input: 
 output: guideline_scope, development_process, grading_system
 -->
 
