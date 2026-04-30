@@ -72,6 +72,16 @@ class GraphBuilder:
         "OTHER",                # Clinical relation not covered above
     ]
 
+    # Entity categories for LLM-based entity extraction
+    ENTITY_CATEGORIES = [
+        "CONDITIONS",       # Diseases, disorders, syndromes
+        "MEDICATIONS",      # Drugs, drug classes
+        "DIAGNOSTIC_TOOLS", # Tests, scales, imaging
+        "PROCEDURES",       # Surgeries, interventions
+        "RISK_FACTORS",     # Lifestyle, comorbidity risks
+        "ADVERSE_EVENTS",   # Side effects, complications
+        "ORGANIZATIONS",    # Guideline bodies, societies
+    ]
     
     async def add_document_to_graph(
         self,
@@ -222,6 +232,133 @@ class GraphBuilder:
     
     
     # ==========================================================================
+    # LLM-BASED ENTITY EXTRACTION (for PostgreSQL metadata)
+    # ==========================================================================
+    
+    async def _extract_entities_with_llm(self, text: str) -> Dict[str, List[str]]:
+        """
+        Use LLM to dynamically extract and classify medical entities from text.
+        
+        Returns:
+            Dict mapping category names to lists of entity strings
+        """
+        from pydantic_ai import Agent
+        
+        try:
+            from agent.providers import get_ingestion_model
+            model = get_ingestion_model()
+        except Exception:
+            try:
+                from ..agent.providers import get_ingestion_model
+                model = get_ingestion_model()
+            except Exception as e:
+                logger.warning(f"Could not load ingestion model for entity extraction: {e}")
+                return {}
+        
+        max_chars = 6000
+        truncated = text[:max_chars] if len(text) > max_chars else text
+        
+        categories = "\n".join(f"  - {c}" for c in self.ENTITY_CATEGORIES)
+        
+        prompt = f"""Extract medical entities from the clinical text below.
+Classify each entity into one of these categories:
+{categories}
+
+Return a JSON object where keys are category names and values are arrays of entity strings.
+If a category has no entities, omit it.
+Return ONLY the JSON object, no commentary.
+
+TEXT:
+{truncated}
+"""
+        
+        try:
+            temp_agent = Agent(model)
+            response = await temp_agent.run(prompt)
+            result_text = response.output.strip()
+            
+            json_match = re.search(r'\{.*\}', result_text, re.DOTALL)
+            if json_match:
+                result_text = json_match.group()
+            
+            entities = json.loads(result_text)
+            if not isinstance(entities, dict):
+                return {}
+            return entities
+            
+        except Exception as e:
+            logger.warning(f"LLM entity extraction failed: {e}")
+            return {}
+    
+    async def extract_entities_from_chunks(
+        self,
+        chunks: List[DocumentChunk],
+        use_llm: bool = True
+    ) -> List[DocumentChunk]:
+        """
+        Extract medical entities from chunks and add to metadata.
+        
+        Args:
+            chunks: List of document chunks
+            use_llm: Use LLM for dynamic entity extraction (recommended)
+        
+        Returns:
+            Chunks with entity metadata added
+        """
+        logger.info(f"Extracting medical entities from {len(chunks)} chunks using {'LLM' if use_llm else 'pattern matching'}")
+        
+        enriched_chunks = []
+        
+        for i, chunk in enumerate(chunks):
+            content = chunk.content
+            
+            if use_llm:
+                llm_entities = await self._extract_entities_with_llm(content)
+                
+                entities = {
+                    "conditions": llm_entities.get("CONDITIONS", []),
+                    "medications": llm_entities.get("MEDICATIONS", []),
+                    "diagnostic_tools": llm_entities.get("DIAGNOSTIC_TOOLS", []),
+                    "procedures": llm_entities.get("PROCEDURES", []),
+                    "risk_factors": llm_entities.get("RISK_FACTORS", []),
+                    "adverse_events": llm_entities.get("ADVERSE_EVENTS", []),
+                    "organizations": llm_entities.get("ORGANIZATIONS", []),
+                    "extraction_method": "llm"
+                }
+            else:
+                entities = {
+                    "conditions": [],
+                    "medications": [],
+                    "diagnostic_tools": [],
+                    "procedures": [],
+                    "risk_factors": [],
+                    "adverse_events": [],
+                    "organizations": [],
+                    "extraction_method": "skipped"
+                }
+            
+            if (i + 1) % 5 == 0 or i == 0:
+                logger.info(f"  Processed chunk {i + 1}/{len(chunks)}")
+            
+            enriched_chunk = DocumentChunk(
+                content=chunk.content,
+                index=chunk.index,
+                start_char=chunk.start_char,
+                end_char=chunk.end_char,
+                metadata={
+                    **chunk.metadata,
+                    "entities": entities,
+                    "entity_extraction_date": datetime.now().isoformat()
+                },
+                token_count=chunk.token_count
+            )
+            enriched_chunks.append(enriched_chunk)
+        
+        logger.info(f"Entity extraction complete for {len(enriched_chunks)} chunks")
+        return enriched_chunks
+    
+    
+    # ==========================================================================
     # LLM TRIPLE EXTRACTION â€” Universal CPG Relationship Extraction
     # ==========================================================================
     
@@ -340,7 +477,10 @@ Return format:
             await self.initialize()
         
         try:
-            async with self.graph_client.graphiti.driver.session() as session:
+            # Get database name from the graph driver or env var
+            db_name = getattr(self.graph_client.graphiti.driver, '_database', None) \
+                      or os.getenv("NEO4J_DATABASE", "neo4j")
+            async with self.graph_client.graphiti.driver.client.session(database=db_name) as session:
                 for triple in triples:
                     subject = triple.get("subject", "").strip()
                     subject_type = triple.get("subject_type", "Entity").strip()

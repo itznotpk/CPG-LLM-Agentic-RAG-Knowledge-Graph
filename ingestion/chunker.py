@@ -96,11 +96,10 @@ class MarkdownChunker:
         """Initialize markdown chunker."""
         self.config = config or ChunkingConfig()
         
-        # Split on H1, H2, and H3 to ensure chunks aren't too large
+        # Split ONLY on H1 (#) — each markdown file is one section,
+        # so ## and ### sub-headings stay together inside the chunk.
         self.headers_to_split_on = [
             ("#", "doc_title"),
-            ("##", "section"),
-            ("###", "subsection")
         ]
         
         self.splitter = MarkdownHeaderTextSplitter(
@@ -143,17 +142,8 @@ class MarkdownChunker:
         # The stripped content is saved and re-attached to the last real chunk.
         stripped_content, overlap_blocks = self._strip_overlap_blocks(content)
         
-        # Split the document (overlap-free)
-        header_docs = self.splitter.split_text(stripped_content)
-        
-        # Apply recursive character text splitter on top to ensure no chunk exceeds limit
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=self.config.chunk_size * 4, # rough approx of chars for chunk_size tokens
-            chunk_overlap=self.config.chunk_overlap * 4,
-            separators=["\n\n", "\n", " ", ""]
-        )
-        
-        docs = text_splitter.split_documents(header_docs)
+        # Split the document by H1 headers only
+        docs = self.splitter.split_text(stripped_content)
         
         # Convert to DocumentChunk objects
         chunks = []

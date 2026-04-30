@@ -100,6 +100,7 @@ class GraphitiClient:
         self.neo4j_uri = neo4j_uri or os.getenv("NEO4J_URI", "bolt://localhost:7687")
         self.neo4j_user = neo4j_user or os.getenv("NEO4J_USER", "neo4j")
         self.neo4j_password = neo4j_password or os.getenv("NEO4J_PASSWORD")
+        self.neo4j_database = os.getenv("NEO4J_DATABASE", "neo4j")
         
         if not self.neo4j_password:
             raise ValueError("NEO4J_PASSWORD environment variable not set")
@@ -150,7 +151,8 @@ class GraphitiClient:
                     def __init__(self, config):
                         super().__init__(config)
                         self.client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
-                        self.model_id = "us.meta.llama3-3-70b-instruct-v1:0"
+                        # Read model ID from env — defaults to Llama 3.3 70B
+                        self.model_id = os.getenv('LLM_CHOICE', 'us.meta.llama3-3-70b-instruct-v1:0')
                         
                     async def _generate_response(self, messages, response_model, max_tokens, model_size):
                         boto_messages = []
@@ -172,24 +174,27 @@ class GraphitiClient:
                             system_prompts.append({"text": sys_prompt})
                             
                         def _invoke():
-                            print(f"\n\n[DEBUG] Boto3 Converse Call -> modelId: {self.model_id}\n\n")
+                            logger.debug(f"Boto3 Converse Call -> modelId: {self.model_id}")
                             return self.client.converse(
                                 modelId=self.model_id,
                                 messages=boto_messages,
                                 system=system_prompts,
-                                inferenceConfig={"maxTokens": max_tokens, "temperature": 0.0}
+                                inferenceConfig={"maxTokens": min(max_tokens, 8192), "temperature": 0.0}
                             )
                             
                         response = await asyncio.to_thread(_invoke)
                         output_text = response['output']['message']['content'][0]['text']
                         
                         if response_model:
+                            # Strip markdown fences if present
                             if "```json" in output_text:
                                 output_text = output_text.split("```json")[1].split("```")[0].strip()
                             elif "```" in output_text:
                                 output_text = output_text.split("```")[1].split("```")[0].strip()
-                            return response_model.model_validate_json(output_text)
-                        return output_text
+                            # MUST return dict — base class handles Pydantic validation
+                            return json.loads(output_text)
+                        # When no response_model, return raw text wrapped in dict
+                        return {"content": output_text}
 
                 llm_client = BedrockLlamaClient(config=llm_config)
             else:
@@ -264,22 +269,70 @@ class GraphitiClient:
                 cross_encoder_client = OpenAIRerankerClient(client=llm_client, config=llm_config)
             else:
                 from graphiti_core.cross_encoder.client import CrossEncoderClient
-                class BedrockMockRerankerClient(CrossEncoderClient):
-                    async def rank(self, query: str, passages: list[str]) -> list[tuple[str, float]]:
-                        # Simple fallback: return passages with dummy scores (1.0 for all)
-                        # We could implement Bedrock reranking later if needed
-                        return [(p, 1.0) for p in passages]
                 
-                cross_encoder_client = BedrockMockRerankerClient()
+                class BedrockCohereRerankerClient(CrossEncoderClient):
+                    """Reranker using Cohere Rerank v3.5 on AWS Bedrock."""
+                    def __init__(self):
+                        self.client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
+                        self.model_id = os.getenv('RERANKER_MODEL', 'cohere.rerank-v3-5:0')
+                    
+                    async def rank(self, query: str, passages: list[str]) -> list[tuple[str, float]]:
+                        if not passages:
+                            return []
+                        
+                        try:
+                            body = json.dumps({
+                                "query": query,
+                                "documents": passages,
+                                "top_n": len(passages)
+                            })
+                            
+                            def _invoke():
+                                return self.client.invoke_model(
+                                    modelId=self.model_id,
+                                    body=body,
+                                    contentType='application/json',
+                                    accept='application/json'
+                                )
+                            
+                            response = await asyncio.to_thread(_invoke)
+                            result = json.loads(response['body'].read())
+                            
+                            ranked = []
+                            for item in result.get('results', []):
+                                idx = item['index']
+                                score = item['relevance_score']
+                                ranked.append((passages[idx], score))
+                            
+                            # Sort descending by relevance score
+                            ranked.sort(key=lambda x: x[1], reverse=True)
+                            return ranked
+                            
+                        except Exception as e:
+                            logger.warning(f"Bedrock Cohere reranker failed, falling back to passthrough: {e}")
+                            # Graceful fallback: return passages with equal scores
+                            return [(p, 1.0) for p in passages]
+                
+                cross_encoder_client = BedrockCohereRerankerClient()
             
             # Initialize Graphiti with custom clients
+            # Create Neo4jDriver with correct database name (Aura uses a generated ID, not 'neo4j')
+            from graphiti_core.driver.neo4j_driver import Neo4jDriver
+            neo4j_driver = Neo4jDriver(
+                uri=self.neo4j_uri,
+                user=self.neo4j_user,
+                password=self.neo4j_password,
+                database=self.neo4j_database,
+            )
+            
             self.graphiti = Graphiti(
                 self.neo4j_uri,
                 self.neo4j_user,
                 self.neo4j_password,
                 llm_client=llm_client,
                 embedder=embedder,
-                cross_encoder=cross_encoder_client
+                cross_encoder=cross_encoder_client,
+                graph_driver=neo4j_driver
             )
             
             # Build indices and constraints
