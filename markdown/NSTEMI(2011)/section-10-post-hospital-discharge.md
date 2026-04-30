@@ -1,3 +1,5 @@
+# SECTION 10: POST HOSPITAL DISCHARGE
+
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Post-Discharge Pharmacotherapy and Follow-Up — antiplatelet_duration, beta_blocker_continuation, statin_therapy, ACEi_ARB_titration, discharge_instructions, DES_DAPT_duration
@@ -5,8 +7,6 @@ patient_input: LVEF, medication_tolerance, lipid_profile, blood_pressure, renal_
 output: discharge_medication_plan, follow_up_investigation_plan, medication_titration_targets
 treatment_type: aspirin, clopidogrel, ticlopidine, prasugrel, ticagrelor, beta_blocker, statin, captopril, ramipril, enalapril, lisinopril, perindopril, valsartan, spironolactone, eplerenone
 -->
-
-# SECTION 10: POST HOSPITAL DISCHARGE
 
 > **Context:** This section specifies the post-hospital discharge maintenance protocols for UA/NSTEMI patients. It strictly defines the long-term duration and initiation of secondary prevention pharmacotherapy (Antiplatelets, Beta-blockers, Statins, ACE-Is/ARBs) and integrates evaluation logic for follow-up investigations, securing continuity of care after the acute intervention phase.
 

@@ -1,11 +1,11 @@
+# SECTION 0: SUMMARY
+
 <!-- METADATA
 category: Methodology
 use_case: Executive Summary and Key Recommendations — triage_flowcharts, medication_protocols, risk_stratification_overview, evidence_grading
 patient_input: 
 output: guideline_summary, key_recommendations, triage_pathways
 -->
-
-# SECTION 0: SUMMARY
 
 > **Context:** This section provides an executive summary of the UA/NSTEMI clinical practice guidelines, outlining the diagnosis, risk stratification, and primary management pathways. It serves as a high-level reference for triage and therapeutic decisions detailed in subsequent sections.
 

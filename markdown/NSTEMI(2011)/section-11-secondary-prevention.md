@@ -1,3 +1,5 @@
+# SECTION 11: CARDIAC REHABILITATION / SECONDARY PREVENTION
+
 <!-- METADATA
 category: Prevention, Supportive Treatment
 use_case: Cardiac Rehabilitation and Secondary Prevention — rehabilitation_phases, lifestyle_modification, smoking_cessation, weight_management, lipid_targets, blood_pressure_targets, glycaemic_control, return_to_activity
@@ -5,8 +7,6 @@ patient_input: functional_capacity, BMI, smoking_status, lipid_profile, blood_pr
 output: rehabilitation_phase_plan, risk_factor_targets, lifestyle_plan, exercise_prescription
 treatment_type: exercise_rehabilitation, lifestyle, statin, ACEi, ARB
 -->
-
-# SECTION 11: CARDIAC REHABILITATION / SECONDARY PREVENTION
 
 > **Context:** This section structures the long-term secondary prevention and cardiac rehabilitation framework for post-UA/NSTEMI patients. It defines the multiphase rehabilitation programs (Phases 1-3), provides specific targets for cardiovascular risk factor modifications (lifestyle, LDL-C, blood pressure, glycemic control), bridges optimal medical therapy compliance with discharge instructions, and specifies treadmill-guided timing for return to physical activity.
 

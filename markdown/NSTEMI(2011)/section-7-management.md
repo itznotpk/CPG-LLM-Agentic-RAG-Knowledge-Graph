@@ -1,3 +1,5 @@
+# SECTION 7: MANAGEMENT OF UA/NSTEMI
+
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Pharmacological Management of UA/NSTEMI — antiplatelet_therapy, anticoagulant_therapy, anti_ischaemic_therapy, lipid_therapy, pre_hospital_care, GPIIbIIIa_inhibitors
@@ -6,8 +8,6 @@ output: drug_selection, dosing_protocol, treatment_duration, combination_therapy
 critical: true
 treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, ticlopidine, UFH, LMWH, fondaparinux, bivalirudin, eptifibatide, tirofiban, beta_blocker, statin, ACEi, ARB, nitrate, CCB
 -->
-
-# SECTION 7: MANAGEMENT OF UA/NSTEMI
 
 > **Context:** This section codifies the comprehensive pharmacological management of UA/NSTEMI from immediate pre-hospital care through in-hospital stabilization. It provides definitive dosing and application guidelines for antiplatelets, anticoagulants, anti-ischemics, and lipid-modifying therapies.
 

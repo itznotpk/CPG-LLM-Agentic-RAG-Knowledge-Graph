@@ -1,3 +1,5 @@
+# SECTION 4: DIAGNOSIS
+
 <!-- METADATA
 category: Diagnosis
 use_case: UA/NSTEMI Diagnostic Criteria — history_taking, physical_examination, ECG_interpretation, troponin_assay, biomarker_kinetics
@@ -5,8 +7,6 @@ patient_input: chest_pain_history, ECG_findings, cardiac_biomarkers, risk_factor
 output: UA_NSTEMI_diagnosis, biomarker_timing, differential_diagnosis
 critical: true
 -->
-
-# SECTION 4: DIAGNOSIS
 
 > **Context:** This section details the diagnostic criteria for UA/NSTEMI encompassing patient history, physical examination, specific ECG findings, and the critical role and timing of cardiac biomarker (troponin) assays. It also provides a tabular breakdown of biomarker elevation kinetics, alongside the definitive grading framework for clinical evidence and recommendations, and an abbreviation index.
 

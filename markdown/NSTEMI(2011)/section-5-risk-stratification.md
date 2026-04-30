@@ -1,3 +1,5 @@
+# SECTION 5: RISK STRATIFICATION
+
 <!-- METADATA
 category: Assessment, Diagnosis
 use_case: Risk Stratification for Adverse Outcomes — TIMI_risk_score, GRACE_score, bleeding_risk, ACUITY_HORIZONS, CRUSADE_score, ACS_likelihood_assessment
@@ -5,8 +7,6 @@ patient_input: age, troponin, ECG_changes, prior_CAD, risk_factors, renal_functi
 output: risk_category, prognosis, bleeding_risk_score, management_pathway_selection
 critical: true
 -->
-
-# SECTION 5: RISK STRATIFICATION
 
 > **Context:** This section provides the clinical framework for risk stratification of UA/NSTEMI patients to predict adverse outcomes (e.g., death, recurrent MI, heart failure) using established prognostic logic and scoring systems like the TIMI and GRACE scales. It outlines the rationale for utilizing these metrics to guide site-of-care selection and therapeutic interventions, while incorporating bleeding risk assessments via the ACUITY HORIZONS-AMI and CRUSADE systems.
 
