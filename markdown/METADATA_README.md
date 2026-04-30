@@ -274,6 +274,8 @@ Stored in Neo4j as typed edges between entity nodes:
 | Nasopharyngeal Carcinoma | — | — | ✅ Complete |
 | PAH (2011) | 21 | 16 | ✅ Complete |
 | Breast Cancer (3rd Edition) | 16 | 11 | ✅ Complete |
+| Percutaneous Coronary Intervention | 11 | 11 | ✅ Complete |
+| Prevention, Diagnosis & Mgmt of IE | 10 | 4 | ✅ Complete |
 | Stable CAD (2nd Edition) | — | — | ⏳ Pending |
 
 ---

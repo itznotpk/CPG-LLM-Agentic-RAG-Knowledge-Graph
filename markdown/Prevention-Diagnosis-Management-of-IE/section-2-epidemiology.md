@@ -1,10 +1,10 @@
 # SECTION 2.0: EPIDEMIOLOGY
 
 <!-- METADATA
-category: epidemiology
-use_case: risk_context
-patient_input: none
-output: epidemiology_context
+category: Epidemiology
+use_case: Disease Epidemiology and Risk Context — incidence, prevalence, demographics, mortality
+patient_input: demographic_data, risk_factors
+output: epidemiological_context
 -->
 
 ## 2.0 EPIDEMIOLOGY
@@ -30,7 +30,7 @@ A recent local study done in Hospital Kuala Lumpur (a tertiary inner city hospit
 
 Methicillin-sensitive Staphylococcus aureus (MSSA) was the predominant microorganism grown from blood cultures (30%). All patients were treated with antimicrobials; with 91% on antimicrobial therapy for a duration of 42 days or less. Five patients died (13.9%) primarily due to overwhelming sepsis. Fifty-three percent of patients had indications for surgical intervention, however none had surgery within the index hospitalisation.
 
-## OVERLAP (DUPLICATED CONTEXT)
+## Contextual Anchors (Overlapping)
 
 The following content is duplicated from other sections/appendices referenced in this section so the file is standalone.
 

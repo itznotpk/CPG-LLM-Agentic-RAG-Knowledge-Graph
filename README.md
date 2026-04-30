@@ -449,7 +449,7 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 | CPG Document | Edition | Sections | Status |
 |---|---|---|---|
 | Erectile Dysfunction | - | 12 | ✅ Complete |
-| Heart Failure | 5th Edition | 14 | ✅ Complete |
+| Heart Failure | 5th Edition | 26 | ✅ Complete |
 | Dyslipidaemia | 6th Edition | 14 | ✅ Complete |
 | Ischaemic Stroke | 3rd Edition | 18 | ✅ Complete |
 | STEMI | 4th Edition | 20 | ✅ Complete |
@@ -457,15 +457,16 @@ CPG-LLM-Agentic-RAG-Knowledge-Graph/
 | Hypertension | 5th Edition | - | 📋 Ingested (raw) |
 | Stable Coronary Artery Disease | 2nd Edition | - | 📋 Ingested (raw) |
 | Atrial Fibrillation | 2012 | 12 | ✅ Complete |
-| NSTEMI | 2011 | - | 📋 Ingested (raw) |
+| NSTEMI | 2011 | 13 | ✅ Complete |
 | Cancer Pain | 2nd Edition | - | 📋 Ingested (raw) |
-| Breast Cancer | 3rd Edition | - | 📋 Ingested (raw) |
+| Breast Cancer | 3rd Edition | 16 | ✅ Complete |
 | Heart Disease in Pregnancy | 2nd Edition | - | 📋 Ingested (raw) |
 | CVD Prevention in Women | 2016 | 9 | ✅ Complete |
 | Primary & Secondary Prevention of CVD | 2017 | - | 📋 Ingested (raw) |
-| Prevention, Diagnosis & Mgmt of IE | - | - | 📋 Ingested (raw) |
-| Nasopharyngeal Carcinoma | - | - | 📋 Ingested (raw) |
+| Prevention, Diagnosis & Mgmt of IE | - | 10 | ✅ Complete |
+| Nasopharyngeal Carcinoma | - | - | ✅ Complete |
 | Anaesthesia Medication Safety | 2024 | - | 📋 Ingested (raw) |
+| Percutaneous Coronary Intervention | - | 11 | ✅ Complete |
 
 ### RAG-Optimized Document Structure
 
@@ -480,7 +481,10 @@ The fully standardized CPGs (STEMI, Ischaemic Stroke, NSTE-ACS, Dyslipidaemia, H
 
 ### Recent Changes (April 2026)
 
-- **Layer 1 Metadata Standardization** — Applied the authorized Layer 1 metadata block to all sections across **Dyslipidaemia (6th Edition)**, **CVD Prevention in Women (2016)**, and **Atrial Fibrillation (2012)**. Each block includes standardized `category`, `use_case`, `patient_input`, `output`, `critical`, and `treatment_type` fields compliant with `METADATA_README.md`, aligning metadata keywords with each guideline's specific clinical context.
+- **New Guideline Ingestion** — Added fully RAG-optimized ingestion of **Percutaneous Coronary Intervention (PCI)** (11 sections).
+- **Heart Failure Refactoring** — Split the acute heart failure section in **Heart Failure (5th Edition)** into three modular phases for better chunking and retrieval precision, expanding the guideline to 26 sections.
+- **Layer 1 Metadata Standardization** — Applied the authorized Layer 1 metadata block to all 10 sections of **Prevention, Diagnosis & Mgmt of IE**. Each block includes standardized `category`, `use_case`, `patient_input`, `output`, `critical`, and `treatment_type` fields compliant with `METADATA_README.md`.
+- **Ongoing Metadata Standardization** — Applied the authorized Layer 1 metadata block to all sections across **Dyslipidaemia (6th Edition)**, **CVD Prevention in Women (2016)**, and **Atrial Fibrillation (2012)**. Each block includes standardized `category`, `use_case`, `patient_input`, `output`, `critical`, and `treatment_type` fields compliant with `METADATA_README.md`, aligning metadata keywords with each guideline's specific clinical context.
 - **NSTE-ACS (3rd Ed) — RAG-Optimized Ingestion Complete** — 12 section files covering introduction, definitions, pathogenesis, diagnosis, risk scores, pre-hospital management, in-hospital management, special groups, post-discharge, cardiac rehabilitation, quality assurance, and appendices.
 - **RAG-Optimized Metadata Standardization** — Added structured `<!-- METADATA -->` blocks to all sections across **Ischaemic Stroke (18 sections)**, **STEMI (20 sections)**, and **Erectile Dysfunction (12 sections)**. Each block includes `category`, `use_case`, `patient_input`, `output`, `critical`, and `treatment_type` fields to enable downstream RAG systems to classify and prioritise chunk retrieval.
 - **STEMI (4th Ed) — Full RAG-Optimized Ingestion Complete** — All 20 section files (Sections 0–19) are now fully self-contained, atomic knowledge chunks:

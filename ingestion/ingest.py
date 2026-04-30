@@ -133,8 +133,13 @@ class DocumentIngestionPipeline:
         
         # Initialize database connections
         await initialize_database()
-        await initialize_graph()
-        await self.graph_builder.initialize()
+        
+        # Only initialize Neo4j graph if graph building is enabled
+        if not self.config.skip_graph_building:
+            await initialize_graph()
+            await self.graph_builder.initialize()
+        else:
+            logger.info("Skipping Neo4j graph initialization (--skip-graph)")
         
         self._initialized = True
         logger.info("Ingestion pipeline initialized")
@@ -142,8 +147,9 @@ class DocumentIngestionPipeline:
     async def close(self):
         """Close database connections."""
         if self._initialized and not self.dry_run:
-            await self.graph_builder.close()
-            await close_graph()
+            if not self.config.skip_graph_building:
+                await self.graph_builder.close()
+                await close_graph()
             await close_database()
             self._initialized = False
     

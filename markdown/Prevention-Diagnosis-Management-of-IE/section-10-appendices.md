@@ -1,10 +1,10 @@
 # SECTION 10.0: APPENDICES
 
 <!-- METADATA
-category: appendices
-use_case: supporting_reference
-patient_input: none
-output: appendix_index
+category: Reference, Classification, Diagnosis
+use_case: Reference Appendices — diagnostic criteria, definitions, classification
+patient_input: clinical_findings, imaging_data
+output: classification, diagnostic_criteria_reference
 -->
 
 ## Appendix 1: Classification and definition of infective endocarditis
@@ -390,7 +390,7 @@ Performance measures for this CPG is to monitor the implementation of these guid
 
 | Performance indicators | Yes | No | Target to achieve in 5 years |
 |---|---|---|---|
-| Decrease in the mortality caused by IE:<br><br><i><u>Number of deaths of IE patients due to IE or its complications over a given time frame</u><br>Total number of patients diagnosed with IE over the same time frame</i> x 100% | | | By 50% |
-| Surgery performed within 24 hours for patients with emergency indication (as per the guidelines):<br><br><i><u>Number of IE patients requiring emergency surgery receiving surgery within 24 hours</u><br>Total number of IE patients requiring emergency surgery</i> x 100% | | | 50% |
+| Decrease in the mortality caused by IE:<br><br>(Number of deaths of IE patients due to IE or its complications over a given time frame)/(Total number of patients diagnosed with IE over the same time frame) x 100% | | | By 50% |
+| Surgery performed within 24 hours for patients with emergency indication (as per the guidelines):<br><br>(Number of IE patients requiring emergency surgery receiving surgery within 24 hours)/(Total number of IE patients requiring emergency surgery) x 100% | | | 50% |
 
 
