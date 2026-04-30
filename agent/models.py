@@ -219,6 +219,7 @@ class IngestionConfig(BaseModel):
     extract_entities: bool = True
     # New option for faster ingestion
     skip_graph_building: bool = Field(default=False, description="Skip knowledge graph building for faster ingestion")
+    skip_vector_db: bool = Field(default=False, description="Skip PostgreSQL vector DB saving (graph-only mode)")
     
     @field_validator('chunk_overlap')
     @classmethod

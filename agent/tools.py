@@ -33,7 +33,7 @@ EMBEDDING_MODEL = get_embedding_model()
 
 async def generate_embedding(text: str) -> List[float]:
     """
-    Generate embedding for text using OpenAI.
+    Generate embedding for text using configured provider (OpenAI or Bedrock).
     
     Args:
         text: Text to embed
@@ -41,15 +41,53 @@ async def generate_embedding(text: str) -> List[float]:
     Returns:
         Embedding vector
     """
-    try:
-        response = await embedding_client.embeddings.create(
-            model=EMBEDDING_MODEL,
-            input=text
-        )
-        return response.data[0].embedding
-    except Exception as e:
-        logger.error(f"Failed to generate embedding: {e}")
-        raise
+    import os
+    embedding_provider = os.getenv('EMBEDDING_PROVIDER', 'openai').lower()
+    
+    if embedding_provider == 'bedrock':
+        # Use Bedrock Titan/Cohere for embeddings (matches ingestion pipeline)
+        import boto3
+        import json
+        import asyncio
+        
+        client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
+        model_id = os.getenv('EMBEDDING_MODEL', 'amazon.titan-embed-text-v1')
+        dimension = int(os.getenv('VECTOR_DIMENSION', '1536'))
+        
+        def _invoke():
+            if 'titan' in model_id:
+                body = json.dumps({"inputText": text})
+            elif 'cohere' in model_id:
+                body = json.dumps({"texts": [text], "input_type": "search_query"})
+            else:
+                raise ValueError(f"Unsupported Bedrock embedding model: {model_id}")
+            
+            response = client.invoke_model(
+                modelId=model_id,
+                body=body,
+                contentType='application/json',
+                accept='application/json'
+            )
+            result = json.loads(response['body'].read())
+            
+            if 'titan' in model_id:
+                return result.get('embedding')[:dimension]
+            elif 'cohere' in model_id:
+                return result.get('embeddings')[0][:dimension]
+        
+        return await asyncio.to_thread(_invoke)
+    
+    else:
+        # Use OpenAI-compatible API for embeddings
+        try:
+            response = await embedding_client.embeddings.create(
+                model=EMBEDDING_MODEL,
+                input=text
+            )
+            return response.data[0].embedding
+        except Exception as e:
+            logger.error(f"Failed to generate embedding: {e}")
+            raise
 
 
 # Tool Input Models

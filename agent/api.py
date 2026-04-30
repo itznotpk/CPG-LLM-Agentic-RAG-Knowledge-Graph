@@ -539,7 +539,7 @@ async def chat_stream(request: ChatRequest):
         session_id = await get_or_create_session(request)
         
         async def generate_stream():
-            """Generate streaming response using agent.iter() pattern."""
+            """Generate streaming response. Falls back to non-streaming for Bedrock (no tool+stream support)."""
             try:
                 yield f"data: {json.dumps({'type': 'session', 'session_id': session_id})}\n\n"
                 
@@ -573,35 +573,50 @@ async def chat_stream(request: ChatRequest):
                 tools_used = []
                 sources = []
                 
-                # Stream using agent.iter() pattern
-                async with rag_agent.iter(full_prompt, deps=deps) as run:
-                    async for node in run:
-                        if rag_agent.is_model_request_node(node):
-                            # Stream tokens from the model
-                            async with node.stream(run.ctx) as request_stream:
-                                async for event in request_stream:
-                                    from pydantic_ai.messages import PartStartEvent, PartDeltaEvent, TextPartDelta
-                                    
-                                    if isinstance(event, PartStartEvent) and event.part.part_kind == 'text':
-                                        delta_content = event.part.content
-                                        yield f"data: {json.dumps({'type': 'text', 'content': delta_content})}\n\n"
-                                        full_response += delta_content
-                                        
-                                    elif isinstance(event, PartDeltaEvent) and isinstance(event.delta, TextPartDelta):
-                                        delta_content = event.delta.content_delta
-                                        yield f"data: {json.dumps({'type': 'text', 'content': delta_content})}\n\n"
-                                        full_response += delta_content
+                # Check if provider supports streaming with tools
+                llm_provider = os.getenv('LLM_PROVIDER', 'openai').lower()
+                
+                if llm_provider == 'bedrock':
+                    # Bedrock Llama 3.3 doesn't support tool use in streaming mode
+                    # Fall back to non-streaming execution, then emit as SSE
+                    result = await rag_agent.run(full_prompt, deps=deps)
+                    full_response = result.output
+                    tools_used = extract_tool_calls(result)
+                    sources = extract_sources(result)
                     
-                    # Extract tools used and sources from the final result INSIDE the context manager
-                    try:
-                        result = run.result
-                        if result:
-                            tools_used = extract_tool_calls(result)
-                            sources = extract_sources(result)
-                    except Exception as e:
-                        logger.warning(f"Failed to extract tools/sources: {e}")
+                    # Emit the full response as a single text event
+                    yield f"data: {json.dumps({'type': 'text', 'content': full_response})}\n\n"
+                
+                else:
+                    # Stream using agent.iter() pattern (OpenAI, etc.)
+                    async with rag_agent.iter(full_prompt, deps=deps) as run:
+                        async for node in run:
+                            if rag_agent.is_model_request_node(node):
+                                # Stream tokens from the model
+                                async with node.stream(run.ctx) as request_stream:
+                                    async for event in request_stream:
+                                        from pydantic_ai.messages import PartStartEvent, PartDeltaEvent, TextPartDelta
+                                        
+                                        if isinstance(event, PartStartEvent) and event.part.part_kind == 'text':
+                                            delta_content = event.part.content
+                                            yield f"data: {json.dumps({'type': 'text', 'content': delta_content})}\n\n"
+                                            full_response += delta_content
+                                            
+                                        elif isinstance(event, PartDeltaEvent) and isinstance(event.delta, TextPartDelta):
+                                            delta_content = event.delta.content_delta
+                                            yield f"data: {json.dumps({'type': 'text', 'content': delta_content})}\n\n"
+                                            full_response += delta_content
+                        
+                        # Extract tools used and sources from the final result INSIDE the context manager
+                        try:
+                            result = run.result
+                            if result:
+                                tools_used = extract_tool_calls(result)
+                                sources = extract_sources(result)
+                        except Exception as e:
+                            logger.warning(f"Failed to extract tools/sources: {e}")
 
-                # Send tools used information (after context manager but using captured data)
+                # Send tools used information
                 if tools_used:
                     tools_data = [
                         {

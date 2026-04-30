@@ -158,7 +158,12 @@ Based on situation:
 - If not found: "Not found." (no elaboration)
 - ALWAYS use the 6-section format (Summary, Medication Changes, Patient Education & Counseling, Monitoring & Next Steps, Referrals, Follow-up)
 
-Remember: Be helpful and natural, but only use information from search results. No guessing or opinions."""
+Remember: Be helpful and natural, but only use information from search results. No guessing or opinions.
+ 
+## CRITICAL INSTRUCTION FOR TOOL USE:
+You MUST use the official tool calling/function calling mechanism provided by the API to invoke tools.
+DO NOT output raw JSON blocks (like `{"type": "function", "name": "vector_search"...}`) in your regular text response.
+If you need to search, use the built-in tool invocation interface.
 
 
 SYSTEM_PROMPT_SHORT = """Helpful clinical assistant. Search first, answer naturally from chunks.
