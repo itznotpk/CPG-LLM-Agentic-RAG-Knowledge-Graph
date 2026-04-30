@@ -1,11 +1,11 @@
+# SECTION 1: INTRODUCTION
+
 <!-- METADATA
 category: Introduction
 use_case: Epidemiology and CPG Rationale — cardiovascular_disease_malaysia, ACS_prevalence, guideline_update_rationale
 patient_input: 
 output: disease_burden_context, guideline_objectives
 -->
-
-# SECTION 1: INTRODUCTION
 
 > **Context:** This section provides local incidence and mortality statistics for Cardiovascular Disease (CVD) and Acute Coronary Syndrome (ACS) in Malaysia, establishing the rationale for the guideline update.
 

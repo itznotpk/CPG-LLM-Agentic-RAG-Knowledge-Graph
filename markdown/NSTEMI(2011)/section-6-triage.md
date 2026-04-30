@@ -1,3 +1,5 @@
+# SECTION 6: TRIAGE
+
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Emergency Triage and Risk Categorisation — rapid_assessment, high_risk_identification, invasive_vs_conservative_decision, low_risk_workup
@@ -5,8 +7,6 @@ patient_input: vital_signs, ECG_findings, cardiac_biomarkers, haemodynamic_statu
 output: triage_category, management_pathway, admission_decision
 critical: true
 -->
-
-# SECTION 6: TRIAGE
 
 > **Context:** This section covers the immediate clinical evaluation, vital sign assessment, and rapid triage categorization necessary to identify high-risk ACS patients requiring early invasive strategy over conservative management.
 
