@@ -170,7 +170,23 @@ Table 14: Risk Stratification*
 
 Figure 1: Algorithm for the Management of Hypertension
 
-<!-- image -->
+**Text interpretation (decision flow):**
+
+1. **Confirm blood pressure** using repeated readings.
+2. If **SBP ≥160 mmHg and/or DBP ≥100 mmHg** → **start drug treatment** (combination therapy preferred).
+3. If **SBP 130–159 mmHg and/or DBP 80–99 mmHg**:
+	- **Assess global cardiovascular risk** (Table 14).
+	- If risk is **Medium/High/Very High** → **start drug treatment**.
+4. Provide **3–6 monthly follow-up** with advice on **non-pharmacological management**.
+5. At follow-up:
+	- If **SBP <140 mmHg and/or DBP <90 mmHg** → **6-monthly follow-up**.
+	- If **SBP ≥140 mmHg and/or DBP ≥90 mmHg** → **drug treatment**.
+
+**Key takeaways:**
+
+- Stage 2 hypertension (≥160/100) triggers **immediate pharmacotherapy**.
+- Stage 1 range (130–159/80–99) uses **global CV risk** to decide early drug treatment.
+- Reassess every **3–6 months**; if controlled, extend to **6-monthly**.
 
 *either free or single pill combination
 
@@ -591,7 +607,29 @@ Despite the approval of FDA for empaglifozin in preventing CV mortality, several
 
 Figure 2: Recommendations for Glycaemic Control in Patients with Pre-Existing CVD and Specific Disease Profiles.
 
-<!-- image -->
+**Text interpretation (stepwise pharmacotherapy by profile; top → bottom):**
+
+| DM + CVD profile | Preferred escalation sequence (top → bottom) |
+|---|---|
+| **Low risk** (chronic stable angina; normal kidney function) | Metformin → SGLT2i**** → GLP-1***** → DPP-4i / Gliclazide / TZD*** → Basal insulin → Basal bolus insulin |
+| **High risk** (Hx of AMI; Hx of CCF*) | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
+| **History of severe hypoglycaemia** | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide / TZD*** → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
+| **Obese** ** (BMI >27.5 kg/m²) | SGLT2i → GLP-1 → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
+| **GFR <45 mL/min/1.73m²** | Low-dose DPP-4i → TZD*** → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
+
+**Notes (from figure footnotes):**
+
+- * Modify dose of diuretic if on SGLT2i.
+- ** Definition of obesity is based on the Malaysian CPG for the Management of Obesity 2003.
+- *** At present only TZD available is pioglitazone; contraindicated in NYHA Class 3 & 4 patients.
+- **** At present only empagliflozin has CV outcome data.
+- ***** At present only liraglutide, semaglutide have CV outcome data.
+
+**Key takeaways:**
+
+- The figure prioritizes agents by **safety** and **cardio-metabolic risk reduction**, then efficacy, convenience, and cost.
+- **Renal function (GFR)** and **hypoglycaemia history** materially change the preferred escalation pathway.
+- In several higher-risk phenotypes, **SGLT2i/GLP-1** appear early in the sequence.
 
 ## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
 
