@@ -1,7 +1,7 @@
-# TYPES OF ANTIHYPERTENSIVE AGENTS
+# SECTION 9: TYPES OF ANTIHYPERTENSIVE AGENTS
 
 <!-- METADATA
-category: Treatment Reference, Antihypertensive Agents
+category: Treatment, Reference
 use_case: Antihypertensive Drug Class Reference — dosing, contraindications, adverse_effects, interactions, class_selection, combination_considerations
 patient_input: drug_class, comorbidities, kidney_function, pregnancy_status, interacting_meds, adverse_effect_history
 output: drug_reference, dosing_guidance, contraindications, adverse_effects_summary
@@ -11,15 +11,16 @@ output: drug_reference, dosing_guidance, contraindications, adverse_effects_summ
 
 ## 9.1 DIURETICS
 
-Diuretics, specifically thiazide diuretics, have been the mainstay of hypertension treatment, alone or in combination with other anti-hypertensive agents. Diuretics work via inducing natriuresis which alter long term sodium balance, leading to reduced peripheral vascular resistance and sustained blood pressure reduction. Diuretics provide synergistic effect to almost all anti-hypertensive agents, particularly renin-angiotensin system (RAS) blockers. There were also outcome data that supported the potential cardiovascular benefits of thiazide diuretics, particularly in those with preserved renal function.419 (Level 1)
+Diuretics, specifically thiazide diuretics, have been the mainstay of hypertension treatment, alone or in combination with other anti-hypertensive agents. Diuretics work via inducing natriuresis which alter long term sodium balance, leading to reduced peripheral vascular resistance and sustained blood pressure reduction.
+* [Level I] Diuretics provide synergistic effect to almost all anti-hypertensive agents, particularly renin-angiotensin system (RAS) blockers. There were also outcome data that supported the potential cardiovascular benefits of thiazide diuretics, particularly in those with preserved renal function. 419
 
-Thiazide diuretics are classified into thiazide (e.g. hydrochlorothiazide) and thiazidelike diuretics, e.g. chlorthalidone (CTD) and indapamide. Locally, hydrochlorothiazide (HCTZ) is the most commonly used thiazide diuretic. Most positive outcome studies used thiazide-like diuretics, i.e. chlorthalidone5,89 and indapamide. 113 Even though there were no head to head trials comparing HCTZ and CTD, a systematic review and network meta-analyses reported superiority of CTD to HCTZ in preventing cardiovascular events. This difference might be attributed to the pleomorphic effects of CTD or to the shorter duration of action of HCTZ.420(Level II-1)
+Thiazide diuretics are classified into thiazide (e.g. hydrochlorothiazide) and thiazidelike diuretics, e.g. chlorthalidone (CTD) and indapamide. Locally, hydrochlorothiazide (HCTZ) is the most commonly used thiazide diuretic. Most positive outcome studies used thiazide-like diuretics, i.e. chlorthalidone 5,89 and indapamide. 1=13
+* [Level II-1] Even though there were no head to head trials comparing HCTZ and CTD, a systematic review and network meta-analyses reported superiority of CTD to HCTZ in preventing cardiovascular events. This difference might be attributed to the pleomorphic effects of CTD or to the shorter duration of action of HCTZ. 420
 
-HCTZ is effective in the range of 12.5mg – 50mg daily dose.421(Level II-1) However a dose above 25mg per day is more likely to cause electrolyte and metabolic adverse effects. The major out come data for the use of thiazide-like diuretics (CTD) was from ALLHAT study.89(Level II-1) Chlorthalidone-based regimen was equally effective in reducing clinical outcome as lisinopril and amlodipine. In chronic kidney disease with eGFR&lt;30ml/ min/1.73m2
+* [Level II-1] HCTZ is effective in the range of 12.5mg – 50mg daily dose. 421 However a dose above 25mg per day is more likely to cause electrolyte and metabolic adverse effects.
+* [Level II-1] The major out come data for the use of thiazide-like diuretics (CTD) was from ALLHAT study. 89 Chlorthalidone-based regimen was equally effective in reducing clinical outcome as lisinopril and amlodipine. In chronic kidney disease with eGFR < 30ml/min/1.73m2, thiazide diuretics are less effective and a switch to loop diuretics is recommended.
 
-, thiazide diuretics are less effective and a switch to loop diuretics is recommended.
-
-A recent case-control study highlighted a significant increase in the risk of skin and lip squamous cell carcinoma among thiazide diuretics users. 422,423 (Level II-2) There was a clear dose-response effect with the highest cumulative dose of HCTZ having the highest risk. There was more than 7-fold increased risk of squamous cell carcinoma for a cumulative use of ≥200,000 mg HCTZ (equivalent to 50mg daily for a duration of more than 11 years). Even though this is an observational study, the risk is not negligible.
+* [Level II-2] A recent case-control study highlighted a significant increase in the risk of skin and lip squamous cell carcinoma among thiazide diuretics users. 422,423 There was a clear dose-response effect with the highest cumulative dose of HCTZ having the highest risk. There was more than 7-fold increased risk of squamous cell carcinoma for a cumulative use of ≥200,000 mg HCTZ (equivalent to 50mg daily for a duration of more than 11 years). Even though this is an observational study, the risk is not negligible.
 
 TABLE 9.1-A Recommended Dosing for Diuretics
 
@@ -29,36 +30,35 @@ TABLE 9.1-A Recommended Dosing for Diuretics
 | Amiloride/hydrochlorothiazide  5 mg/50 mg | 1 tablet od      | 1 tablet od                        |
 | Indapamide SR                             | 1.5 mg od        | 1.5 mg od                          |
 
-## 9.2 Beta-Blockers (ß-Blockers)
+## 9.2 Beta�-blockers (ß�-blockers)
 
-Beta-blockers have long been used in the treatment of hypertension. They are particularly useful in hypertensive patients with effort angina, tachyarrhythmias or previous myocardial infarction where they have been shown to reduce cardiovascular morbidity and mortality. Certain ß-blockers have been shown to be beneficial in patients with heart failure. (Table 5-C)
+Beta�-blockers have long been used in the treatment of hypertension. They are particularly useful in hypertensive patients with effort angina, tachyarrhythmias or previous myocardial infarction where they have been shown to reduce cardiovascular morbidity and mortality. Certain ß�-blockers have been shown to be beneficial in patients with heart failure. (Table 5-C)
 
-Beta-blockers are absolutely contraindicated in patients with uncontrolled asthma and relatively contraindicated in other forms of obstructive airways disease (including controlled bronchial asthma). It is also absolutely contraindicated in patients with severe peripheral vascular disease and heart block (2 nd and 3rd degree).
+Beta�-blockers are absolutely contraindicated in patients with uncontrolled asthma and relatively contraindicated in other forms of obstructive airways disease (including controlled bronchial asthma). It is also absolutely contraindicated in patients with severe peripheral vascular disease and heart block (2 nd and 3rd degree).
 
-They are generally well tolerated. Adverse effects reported include dyslipidaemia, masking of hypoglycaemia, and increased incidence of new onset diabetes mellitus. Despite that, a long-term follow-up of a study in newly diagnosed type 2 diabetes showed that the benefit of ß-blocker persisted and is even better than an ACEI.424(Level II-2) Other reported adverse events include erectile dysfunction, cold extremities and nightmares (especially for lipophilic ß-blockers), increased triglyceride levels and reduced HDL levels (especially for non-selective ß-blockers). Use of ß-blockers during pregnancy is cautioned.
+* [Level II-2] They are generally well tolerated. Adverse effects reported include dyslipidaemia, masking of hypoglycaemia, and increased incidence of new onset diabetes mellitus. Despite that, a long-term follow-up of a study in newly diagnosed type 2 diabetes showed that the benefit of ß�-blocker persisted and is even better than an ACEI. 424 Other reported adverse events include erectile dysfunction, cold extremities and nightmares (especially for lipophilic ß�-blockers), increased triglyceride levels and reduced HDL levels (especially for non-selective ß�-blockers). Use of ß�-blockers during pregnancy is cautioned.
 
-In a major landmark study, an ARB was shown to be superior than ß-blocker in patients with high risk hypertension and ECG LVH 112 (Level 1) This prompted a meta-analysis on the use of ß-blockers in the treatment of hypertension. 92 Beta-blocker therapy did not reduce the risk for first myocardial infarction compared to other drugs but was associated with a significant 16% higher risk for stroke when compared to non- ß-blocker therapy and that atenolol in particular was associated with a significant 26% increase in the risk of stroke when compared to other anti-hypertensive agents. Beta-blockers lower brachial systolic blood pressure but not the aortic pressure compared to other drugs. Heart rate is reduced but peripheral resistance is increased, thus increasing the arterial wave reflection during systole rather than diastole.425 (Level II-1) Similarly, another meta-analysis 94
+* [Level I] In a major landmark study, an ARB was shown to be superior than ß�-blocker in patients with high risk hypertension and ECG LVH 112 This prompted a meta-analysis on the use of ß�-blockers in the treatment of hypertension. 92 Beta�-blocker therapy did not reduce the risk for first myocardial infarction compared to other drugs but was associated with a significant 16% higher risk for stroke when compared to non- ß�-blocker therapy and that atenolol in particular was associated with a significant 26% increase in the risk of stroke when compared to other anti-hypertensive agents.
+* [Level II-1] Beta�-blockers lower brachial systolic blood pressure but not the aortic pressure compared to other drugs. Heart rate is reduced but peripheral resistance is increased, thus increasing the arterial wave reflection during systole rather than diastole. 425 Similarly, another meta-analysis 94 and a systematic review also showed that ß�-blockers were associated with a significant increase in their withdrawal due to side effects. 426
 
-and a systematic review also showed that ß-blockers were associated with a significant increase in their withdrawal due to side effects.426
+Caution is necessary in the interpretations of negative findings from earlier analysis on ß�-blocker as:
 
-Caution is necessary in the interpretations of negative findings from earlier analysis on ß-blocker as:
-
-- most of the studies involved atenolol (hence the comparative outcomes of other newer vasodilatating ß-blockers are not well established as there has been no comparative studies between the ß-blocker sub-classes.
+- most of the studies involved atenolol (hence the comparative outcomes of other newer vasodilatating ß�-blockers are not well established as there has been no comparative studies between the ß�-blocker sub-classes.
 - almost all the studies were carried out in the West, hence the comparative outcomes of other ethnic groups are not well established.
 
-However, more recent meta analysis showed that ß-blocker is as effective as other drugs in improving clinical outcome. 95-98 The latest Cochrane Review95 however indicates that as first line treatment, they are:
+However, more recent meta analysis showed that ß�-blocker is as effective as other drugs in improving clinical outcome. 95-98 The latest Cochrane Review95 however indicates that as first line treatment, they are:
 
 - inferior to CCB for total mortality outcomes.
 - better than placebo for total CVD (primarily driven by decrease strokes) but no better than other classes of anti-hypertensive agents.
 - better than placebo for strokes but worse than CCB and no better than other classes of anti-hypertensive agents for total coronary heart disease outcome.
 
-It is thus reasonable for ß-blockers to be used as single first line therapy to initiate anti-hypertensive therapy for patients with hypertension especially if there are specific compelling needs for its use such as those with post-MI or heart failure. Some guidelines like The National Institute for Clinical Excellence (NICE) UK Guideline, 4 JNC VIII90 and the ACC/AHA1
+It is thus reasonable for ß�-blockers to be used as single first line therapy to initiate anti-hypertensive therapy for patients with hypertension especially if there are specific compelling needs for its use such as those with post-MI or heart failure. Some guidelines like The National Institute for Clinical Excellence (NICE) UK Guideline, 4 JNC VIII90 and the ACC/AHA1
 
- did not recommend ß-blockers as first line anti-hypertensive agent. It is however still recommended as first line by other guidelines.26,101 including guidelines from this region. 102,427,428
+ did not recommend ß�-blockers as first line anti-hypertensive agent. It is however still recommended as first line by other guidelines.26,101 including guidelines from this region. 102,427,428
 
-TABLE 9.2-A Recommended Dosing for ß-blockers
+TABLE 9.2-A Recommended Dosing for ß�-blockers
 
-| ß-blockers   | Starting Dose*               | Recommended Maximum Daily Dose*   |
+| ß�-blockers   | Starting Dose*               | Recommended Maximum Daily Dose*   |
 |--------------|------------------------------|-----------------------------------|
 | Acebutolol   | 200 mg bd                    | 1.2 g in divided doses            |
 | Atenolol     | 50 mg od                     | 100 mg od                         |
@@ -70,16 +70,17 @@ TABLE 9.2-A Recommended Dosing for ß-blockers
 
 ## RECOMMENDATIONS
 
-- Consider ß-blocker as single first-line anti-hypertensive agent especially when there are compelling indications for their use. (Grade A)
-- Choose vasodilating over non-vasodilating ß-blockers as a preference. However there had not been extensive head-to-head comparison between ß-blockers. (Grade C)
+* **[Grade A, Level I]** Consider ß�-blocker as single first-line anti-hypertensive agent especially when there are compelling indications for their use.
+* **[Grade C, Level III]** Choose vasodilating over non-vasodilating ß�-blockers as a preference. However there had not been extensive head-to-head comparison between ß�-blockers.
 
 ## 9.3 Calcium Channel Blockers
 
 Calcium channel blockers (CCBs) are a structurally and functionally heterogenous class of drug. The main mechanism of action is vasodilation, which decreases peripheral resistance. Certain subtypes of dihydropyridine (DHP) CCBs, e.g. T-type CCBs have been shown to dilate both the afferent and efferent arterioles, reduce glomerular capillary pressure and proteinuria. This may play a role in prevention of kidney damage and preservation of renal function.
 
-In view of the effective BP lowering property and excellent safety profile, CCBs especially dihydropyridine (DHP) type have been recommended as first-line anti-hypertensive agents. A metanalysis showed that CCBs reduced stroke in hypertensive patients more than placebo and ß-blockers but were not different than ACE inhibitors and diuretics.429 (Level 1) However, there is no evidence that dihydropyridine CCBs are superior to other antihypertensive agents in Asian populations for the treatment of hypertension in reducing cardiovascular death, major cardiovascular events, stroke, congestive heart failure, and coronary revascularisation.430 (Level 1)
+* [Level I] In view of the effective BP lowering property and excellent safety profile, CCBs especially dihydropyridine (DHP) type have been recommended as first-line anti-hypertensive agents. A metanalysis showed that CCBs reduced stroke in hypertensive patients more than placebo and ß�-blockers but were not different than ACE inhibitors and diuretics. 429
+* [Level I] However, there is no evidence that dihydropyridine CCBs are superior to other antihypertensive agents in Asian populations for the treatment of hypertension in reducing cardiovascular death, major cardiovascular events, stroke, congestive heart failure, and coronary revascularisation. 430
 
-Metanalyses have shown that RAS blockers and CCBs combinations are superior to other combinations in lowering cardiovascular events, in addition to a better safety profile. 431,432 (Level 1)
+* [Level I] Metanalyses have shown that RAS blockers and CCBs combinations are superior to other combinations in lowering cardiovascular events, in addition to a better safety profile. 431,432
 
 TABLE 9.3-A Recommended Dosing for CCBs
 
@@ -102,13 +103,16 @@ The RAS is implicated at all stages of the "CV continuum" that links hypertensio
 
 ## 9.4.1 Ace Inhibitors (ACEIs)
 
-ACEIs are effective antihypertensive agents which can lower cardiovascular risk, reducing mortality and morbidity in hypertensives and those at high cardiovascular risk.245,434 (Level 1) They are more effective in preventing coronary artery disease in patients with hypertension. 435 (Level 1) ACEIs are generally well tolerated and do not have adverse effects on lipid and glucose metabolism. Their safety profile is good. ACEIs have also been shown to reduce mortality and morbidity in patients with congestive heart failure436-438 (Level 1) and in post myocardial infarction patients with reduced left ventricular ejection fraction. 439-444 (Level 1)
+* [Level I] ACEIs are effective antihypertensive agents which can lower cardiovascular risk, reducing mortality and morbidity in hypertensives and those at high cardiovascular risk. 245,434
+* [Level I] They are more effective in preventing coronary artery disease in patients with hypertension. 435 ACEIs are generally well tolerated and do not have adverse effects on lipid and glucose metabolism. Their safety profile is good.
+* [Level I] ACEIs have also been shown to reduce mortality and morbidity in patients with congestive heart failure 436-438 and in post myocardial infarction patients with reduced left ventricular ejection fraction. 439-444
 
 In patients with established vascular disease but normal left ventricular function, ACEIs reduce mortality, myocardial infarction, stroke and new-onset congestive heart failure.245
 
-In the diabetic patient, ACEIs have been shown to reduce cardiovascular mortality.155 (Level 1) These agents prevent the onset of microalbuminuria, reduce proteinuria and retard progression of diabetic and non-diabetic renal disease.445,446 (Level1)
+* [Level I] In the diabetic patient, ACEIs have been shown to reduce cardiovascular mortality. 155
+* [Level I] These agents prevent the onset of microalbuminuria, reduce proteinuria and retard progression of diabetic and non-diabetic renal disease. 445,446
 
-Adverse effects include cough and, rarely, angioedema. In patients with renovascular disease or renal impairment, deterioration in renal function may occur. Serum creatinine and potassium should be checked before initiation and within 2 weeks after starting. If there is hyperkalemia (&gt;5.6 mmol/L) or a persistent rise of serum creatinine of more than 30% from baseline within two months, the dose of the ACEI should be reduced or discontinued.
+Adverse effects include cough and, rarely, angioedema. In patients with renovascular disease or renal impairment, deterioration in renal function may occur. Serum creatinine and potassium should be checked before initiation and within 2 weeks after starting. If there is hyperkalemia (>5.6 mmol/L) or a persistent rise of serum creatinine of more than 30% from baseline within two months, the dose of the ACEI should be reduced or discontinued.
 
 This class of drug may increase foetal and neonatal mortality and therefore are contraindicated in pregnancy and breast feeding. Counselling should be given to women of child bearing age before initiation of RAS blockers. Pregnant patients should seek immediate medical advice.
 
@@ -125,17 +129,26 @@ TABLE 9.4-A Recommended Dosing for ACEIs
 
 ## Combination Therapy with ACEI
 
-The combination of an ACEI and a dihydropyridine CCB is preferred over the combination of an ACEI and a thiazide diuretic in patients with hypertension and high CV risk.84 (Level 1)
+* [Level I] The combination of an ACEI and a dihydropyridine CCB is preferred over the combination of an ACEI and a thiazide diuretic in patients with hypertension and high CV risk. 84
 
 ## 9.4.2 Angiotensin Receptor Blockers (ARBs)
 
-ARBs are drugs which specifically block angiotensin II receptors. Unlike ACEIs, persistent dry cough is less and as such ARBs are recommended for risk reduction in ACEI intolerant patients. 447,448(Level 1)
+* [Level I] ARBs are drugs which specifically block angiotensin II receptors. Unlike ACEIs, persistent dry cough is less and as such ARBs are recommended for risk reduction in ACEI intolerant patients. 447,448
 
-ARBs are effective in preventing progression of diabetic nephropathy145,449(Level 1) and may reduce the incidence of major cardiac events in patients with heart failure, 450,451 (Level 1) hypertensive LVH 452 (Level 1) and diastolic heart failure.213 (Level 1) In patients with LV dysfunction post MI, ARBs have also been shown to be non-inferior to ACEIs.453 (Level 1)
+* [Level I] ARBs are effective in preventing progression of diabetic nephropathy 145,449 and may reduce the incidence of major cardiac events in patients with heart failure, 450,451 hypertensive LVH 452 and diastolic heart failure. 2=13
+* [Level I] In patients with LV dysfunction post MI, ARBs have also been shown to be non-inferior to ACEIs. 453
 
-The cardioprotective effects of ARBs when compared to ACEIs especially for prevention of myocardial infarction, CV and all cause mortality were recently called into question. 454(Level 1) An earlier large meta-analysis of ARBs showed that although it did not increase the risk of myocardial infarction compared to placebo or active control, unlike ACEIs, it seem not to have special cardio protective effects.455 (Level 1) A more recent meta-analysis however concluded that that ARBs do reduce CV events including the risk of myocardial infarction. 456 (Level 1)
+* [Level I] The cardioprotective effects of ARBs when compared to ACEIs especially for prevention of myocardial infarction, CV and all cause mortality were recently called into question. 454
+* [Level I] An earlier large meta-analysis of ARBs showed that although it did not increase the risk of myocardial infarction compared to placebo or active control, unlike ACEIs, it seem not to have special cardio protective effects. 455
+* [Level I] A more recent meta-analysis however concluded that that ARBs do reduce CV events including the risk of myocardial infarction. 456
 
-Despite conflicting findings from various meta analyses, it is important to look at the original studies, especially "head to head" trials on these drugs. In high risk CV patients with or without hypertension, the evidence showed that ARB is noninferior to ACEI for CV protection.457 (Level 1) However in patients with left ventricular dysfunction, ACEI have more evidence including reducing mortality and ARB is used for ACEI intolerant patients.451,458(Level 1) As for diabetics patients with or without hypertension, ACEI improves CV outcome including total mortality especially in combination with thiazide-like diuretics.83 (Level) The same is true for non-diabetic nephropathy 178(Level 1) and type 1 diabetes mellitus with nephropathy. 140,141(Level 1) However for type 2 diabetic nephropathy, both ACEI155(Level 1) and ARB144-146(Level 1) improve renal outcome although only ACEI has the added advantage in improving CV and renal outcomes. In hypertensives with ECG left ventricular hypertrophy, CV protection (especially stroke reduction) have been demonstrated with ARB. 112 (Level 1) On the other hand for secondary stroke prevention, the evidence favour ACEI especially in combination with thiazide-like diuretics. 79(Level 1) Table 9.4-C summarises the available evidence on the therapeutics of RAS blockers in patients with various comorbidities.
+* [Level I] Despite conflicting findings from various meta analyses, it is important to look at the original studies, especially "head to head" trials on these drugs. In high risk CV patients with or without hypertension, the evidence showed that ARB is noninferior to ACEI for CV protection. 457
+* [Level I] However in patients with left ventricular dysfunction, ACEI have more evidence including reducing mortality and ARB is used for ACEI intolerant patients. 451,458
+* [Level I] As for diabetics patients with or without hypertension, ACEI improves CV outcome including total mortality especially in combination with thiazide-like diuretics. 83
+* [Level I] The same is true for non-diabetic nephropathy 178 and type 1 diabetes mellitus with nephropathy. 140,141
+* [Level I] However for type 2 diabetic nephropathy, both ACEI 155 and ARB 144-146 improve renal outcome although only ACEI has the added advantage in improving CV and renal outcomes.
+* [Level I] In hypertensives with ECG left ventricular hypertrophy, CV protection (especially stroke reduction) have been demonstrated with ARB. 112
+* [Level I] On the other hand for secondary stroke prevention, the evidence favour ACEI especially in combination with thiazide-like diuretics. 79 Table 9.4-C summarises the available evidence on the therapeutics of RAS blockers in patients with various comorbidities.
 
 TABLE 9.4-B Recommended Dosing for ARBs
 
@@ -154,7 +167,7 @@ The safety profile of ARB is very similar to ACEI except for a lower incidence o
 
 The combination of ACEI and ARB is not recommended and is to be avoided.
 
-TABLE 9.4-C RAS Blockers Use in Co-Morbidities 116,133,136,137,140-147,459,460
+TABLE 9.4-C RAS Blockers Use in Co-Morbidities 116,=133,=136,=137,140-147,459,460
 
 | Condition                                                               | ACEIs     | ARBs               |
 |-------------------------------------------------------------------------|-----------|--------------------|
@@ -171,27 +184,27 @@ TABLE 9.4-C RAS Blockers Use in Co-Morbidities 116,133,136,137,140-147,459,460
 
 ## 9.5 Miscellaneous Drugs
 
-## 9.5.1 The ∂-Blockers and the Combined ∂, ß-Blockers
+## 9.5.1 The ∂�-blockers and the Combined ∂, ß�-blockers
 
-The peripheral ∂1-adrenergic blockers lower BP by reducing peripheral resistance. They also reduce prostatic and urethral smooth muscle tone and provide symptomatic relief for patients with early benign prostatic hyperplasia (BPH). 461 Unless there are other compelling reasons, they should be the treatment of choice for hypertensive patients with BPH. The use of non-specific ∂-blockers like phentolamine and phenoxybenzamine has been restricted to the treatment of phaechromocytoma.
+The peripheral ∂1-adrenergic blockers lower BP by reducing peripheral resistance. They also reduce prostatic and urethral smooth muscle tone and provide symptomatic relief for patients with early benign prostatic hyperplasia (BPH). 461 Unless there are other compelling reasons, they should be the treatment of choice for hypertensive patients with BPH. The use of non-specific ∂�-blockers like phentolamine and phenoxybenzamine has been restricted to the treatment of phaechromocytoma.
 
-In addition, ∂-blockers have favourable effects on lipid metabolism. However postural hypotension is a known side effect, especially at initiation of therapy. 462,463 They should be used with care in the elderly.
+In addition, ∂�-blockers have favourable effects on lipid metabolism. However postural hypotension is a known side effect, especially at initiation of therapy. 462,463 They should be used with care in the elderly.
 
-Combined ∂ and ß-blockers offer enhanced neurohormonal blockade. Labetalol has been in use for over 20 years and is safe in pregnancy (Refer to chapter 7.6 on Hypertension in Pregnancy). The intravenous formulation is useful in hypertensive emergencies, including pre-eclampsia and eclampsia. 464
+Combined ∂ and ß�-blockers offer enhanced neurohormonal blockade. Labetalol has been in use for over 20 years and is safe in pregnancy (Refer to chapter 7.6 on Hypertension in Pregnancy). The intravenous formulation is useful in hypertensive emergencies, including pre-eclampsia and eclampsia. 464
 
-Carvedilol has been shown to be effective in hypertension and also to improve mortality and morbidity in patients with heart failure.465-467 (Level 1) In addition, it has no adverse effects on insulin resistance and lipid metabolism. 468 However, its safety in pregnancy has not been established.
+* [Level I] Carvedilol has been shown to be effective in hypertension and also to improve mortality and morbidity in patients with heart failure. 465-467 In addition, it has no adverse effects on insulin resistance and lipid metabolism. 468 However, its safety in pregnancy has not been established.
 
-TABLE 9.5-A Recommended Dosing for ∂-blockers
+TABLE 9.5-A Recommended Dosing for ∂�-blockers
 
-| ∂-blockers   | Starting Dose*   | Recommended Maximum Daily Dose*   |
+| ∂�-blockers   | Starting Dose*   | Recommended Maximum Daily Dose*   |
 |--------------|------------------|-----------------------------------|
 | Doxazosin    | 1 mg od          | 16 mg od                          |
 | Prazosin     | 0.5 mg bd-tds    | 20 mg in divided doses            |
 | Terazosin    | 1 mg nocte       | 20 mg od                          |
 
-Table 9.5-B Recommended Dosing for ∂, ß-blockers
+Table 9.5-B Recommended Dosing for ∂, ß�-blockers
 
-| ∂, ß-blockers   | Starting Dose*   | Maximum Dose*                             |
+| ∂, ß�-blockers   | Starting Dose*   | Maximum Dose*                             |
 |-----------------|------------------|-------------------------------------------|
 | Labetolol **    | 100 mg bd        | 2.4 gm per day in 2-4 divided doses       |
 | Carvedilol ***  | 12.5 mg od       | 50 mg od or in divided doses if necessary |
@@ -300,7 +313,7 @@ An extensive online review on Medscape 474 showed that herbal medicines for hype
 
 ## RECOMMENDATIONS
 
-- Traditional medicines are not recommended for the treatment of hypertension.
+* **[Grade C, Level III]** Traditional medicines are not recommended for the treatment of hypertension.
 
 ## 9.6.2 Relaxation Exercises for Hypertension
 
@@ -323,7 +336,7 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 
 TABLE 5-C Choice of Anti-Hypertensive Drugs in Patients with Concomitant Conditions
 
-| Concomitant  Condition                                 | Diuretics   | ß-blockers   | ACEIs   | CCBs   | Peripheral ∂-blockers   | ARBs   |
+| Concomitant  Condition                                 | Diuretics   | ß�-blockers   | ACEIs   | CCBs   | Peripheral ∂�-blockers   | ARBs   |
 |--------------------------------------------------------|-------------|--------------|---------|--------|-------------------------|--------|
 | Diabetes  mellitus (without  nephropathy)              | +           | +/-          | +++     | +      | +/-                     | ++     |
 | Diabetes mellitus  (with nephropathy)                  | ++          | +/-          | +++     | ++     | +/-                     | +++    |
@@ -345,3 +358,4 @@ The grading of recommendation from (+) to (+++) is based on increasing levels of
 - Metoprolol, bisoprolol, carvedilol, nebivolol – dose needs to be gradually titrated #
 - Current evidence available for amlodipine and felodipine only @
 - Contraindicated in bilateral renal artery stenosis $
+

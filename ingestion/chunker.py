@@ -185,23 +185,50 @@ class MarkdownChunker:
             grades = []
             levels = []
             who_classes = []
+
+            # Evidence tag tokens
+            # - Grade: traditional I/II/III (optionally with a/b/c) OR Hypertension A/B/C
+            # - Level: A/B/C OR I/II/III (optionally with -1/-2/-3 etc) OR numeric (e.g., Level 1)
+            grade_token = r'(?:I{1,3}[-]?[a-c]?|A|B|C)'
+            level_token = r'(?:[A-C]|I{1,3}(?:\s*-\s*\d+)?|\d+(?:\s*-\s*\d+)?)'
             
             # Pattern 1: Combined [Grade X, Level Y] (with optional bold **)
-            for m in re.finditer(r'\*{0,2}\[Grade\s+(I{1,3}[-]?[a-c]?),\s*Level\s+([A-C])\]\*{0,2}', chunk_content, re.IGNORECASE):
-                g = m.group(1).upper()
-                lv = m.group(2).upper()
-                if g not in grades: grades.append(g)
-                if lv not in levels: levels.append(lv)
+            combined_bracket = rf'\*{{0,2}}\[Grade\s*({grade_token}),\s*Level\s*({level_token})\]\*{{0,2}}'
+            for m in re.finditer(combined_bracket, chunk_content, re.IGNORECASE):
+                g = re.sub(r'\s+', '', m.group(1).upper())
+                lv = re.sub(r'\s+', '', m.group(2).upper())
+                if g not in grades:
+                    grades.append(g)
+                if lv not in levels:
+                    levels.append(lv)
             
             # Pattern 2: Standalone [Grade X] (no Level)
-            for m in re.finditer(r'\*{0,2}\[Grade\s+(I{1,3}[-]?[a-c]?)\]\*{0,2}', chunk_content, re.IGNORECASE):
-                g = m.group(1).upper()
-                if g not in grades: grades.append(g)
+            grade_bracket = rf'\*{{0,2}}\[Grade\s*({grade_token})\]\*{{0,2}}'
+            for m in re.finditer(grade_bracket, chunk_content, re.IGNORECASE):
+                g = re.sub(r'\s+', '', m.group(1).upper())
+                if g not in grades:
+                    grades.append(g)
             
-            # Pattern 3: Standalone [Level X] (PAH: **[Level C]**, BC: **[level I]**)
-            for m in re.finditer(r'\*{0,2}\[(?:L|l)evel\s+([A-C]|I{1,3})\]\*{0,2}', chunk_content):
-                lv = m.group(1).upper()
-                if lv not in levels: levels.append(lv)
+            # Pattern 3: Standalone [Level X] (PAH: **[Level C]**, BC: **[level I]**, HTN: **[Level II-2]**)
+            level_bracket = rf'\*{{0,2}}\[(?:L|l)evel\s*({level_token})\]\*{{0,2}}'
+            for m in re.finditer(level_bracket, chunk_content):
+                lv = re.sub(r'\s+', '', m.group(1).upper())
+                if lv not in levels:
+                    levels.append(lv)
+
+            # Pattern 3b: Parenthetical (Grade X)/(Level Y) tags (some legacy HTN text uses parentheses)
+            # Examples: (Grade A), (Level II-2), 49(Level I)
+            grade_paren = rf'\(\s*Grade\s*({grade_token})\s*\)'
+            for m in re.finditer(grade_paren, chunk_content, re.IGNORECASE):
+                g = re.sub(r'\s+', '', m.group(1).upper())
+                if g not in grades:
+                    grades.append(g)
+
+            level_paren = rf'\(\s*(?:L|l)evel\s*({level_token})\s*\)'
+            for m in re.finditer(level_paren, chunk_content):
+                lv = re.sub(r'\s+', '', m.group(1).upper())
+                if lv not in levels:
+                    levels.append(lv)
             
             # Pattern 4: [WHO Class I-IV] (PAH functional classification)
             for m in re.finditer(r'\*{0,2}\[WHO\s+Class\s+(I{1,3}V?|IV)(?:[-\s]?[A-Z])?\]\*{0,2}', chunk_content, re.IGNORECASE):

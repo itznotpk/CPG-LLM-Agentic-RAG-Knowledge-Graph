@@ -1,4 +1,4 @@
-# RESISTANT AND REFRACTORY HYPERTENSION
+# SECTION 10: RESISTANT AND REFRACTORY HYPERTENSION
 
 <!-- METADATA
 category: Treatment, Resistant and Refractory Hypertension
@@ -37,19 +37,21 @@ Non-pharmacological approaches (healthy living) must be re-emphasised. (Refer to
 
 ## b. Pharmacological Management
 
-A fourth drug should be added to the combination of RAS blocker, CCB and diuretic. Two recent metaanalyses of randomised and non-randomised controlled trials showed that spironolactone is superior to active controls (which includes alpha blockers, ß-blockers, candesartan, frusemide or alpha methyldopa) in reducing office, home and ambulatory blood pressures.489,490 (Level 1) These meta analyses of disparate studies was strengthened by a multicenter randomised controlled double blind trial which confirmed that spironolactone is the drug of choice as the fourth drug in resistant hypertension. 491 (Level 1)
+* [Level I] A fourth drug should be added to the combination of RAS blocker, CCB and diuretic. Two recent metaanalyses of randomised and non-randomised controlled trials showed that spironolactone is superior to active controls (which includes alpha blockers, ß�-blockers, candesartan, frusemide or alpha methyldopa) in reducing office, home and ambulatory blood pressures. 489,490
+* [Level I] These meta analyses of disparate studies was strengthened by a multicenter randomised controlled double blind trial which confirmed that spironolactone is the drug of choice as the fourth drug in resistant hypertension. 491
 
 ## 10.2 Refractory Hypertension
 
 The definition has been proposed to be used on patients whose BP are not controlled after ≥5 antihypertensives. 492
 
-If blood pressures are still not controlled with four drugs, a fifth drug may be considered. Subsequent therapeutic options include a ß-blocker, an alpha blocker or a centrally acting drug. The prevalence of refractory hypertension among patients referred to a specialty clinic for resistant hypertension was reported to be 2.7% 489 in one series and 9.5% in another.493
+If blood pressures are still not controlled with four drugs, a fifth drug may be considered. Subsequent therapeutic options include a ß�-blocker, an alpha blocker or a centrally acting drug. The prevalence of refractory hypertension among patients referred to a specialty clinic for resistant hypertension was reported to be 2.7% 489 in one series and 9.5% in another.493
 
 Both resistant and refractory hypertensives are candidates for devise-based intervention.
 
 ## RECOMMENDATIONS
 
-- Treat patients with at least 3 drugs (inclusive of a diuretic) before diagnosing resistant hypertension. (Grade C)
-- Consider drug non-adherence and secondary hypertension before diagnosing resistant hypertension. (Grade C)
-- Add spironolactone as a fourth drug in resistant hypertension. (Grade A)
-- Consider referring for device based therapy in patients with true resistant and refractory hypertension. (Grade C)
+* **[Grade C, Level III]** Treat patients with at least 3 drugs (inclusive of a diuretic) before diagnosing resistant hypertension.
+* **[Grade C, Level III]** Consider drug non-adherence and secondary hypertension before diagnosing resistant hypertension.
+* **[Grade A, Level I]** Add spironolactone as a fourth drug in resistant hypertension.
+* **[Grade C, Level III]** Consider referring for device based therapy in patients with true resistant and refractory hypertension.
+

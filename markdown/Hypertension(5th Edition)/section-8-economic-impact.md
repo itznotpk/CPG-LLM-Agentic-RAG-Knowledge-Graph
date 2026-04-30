@@ -1,7 +1,7 @@
-# ECONOMIC IMPACT OF HYPERTENSION
+# SECTION 8: ECONOMIC IMPACT OF HYPERTENSION
 
 <!-- METADATA
-category: Implementation, Health Economics
+category: Reference
 use_case: Economic Impact and Resource Planning — cost_burden, cost_effectiveness, screening_programs, medication_costs, complication_costs, health_system_implications
 patient_input: care_setting, available_resources, population_scope
 output: resource_implications, cost_considerations, program_rationale
@@ -17,7 +17,7 @@ A study in a primary care setting showed that more than half of treatment cost i
 
 The direct and indirect cost for hypertensive complications is not available for Malaysia. A study in Malaysia showed that the estimated direct cost for complications in patients with diabetes for the outcomes of stroke, myocardial infarction and heart failure to be as high as RM12,685 per admission. The estimated cost of diabetes complication to the country annually may be as high as RM3.52 billion based on the highest estimate sensitivity analysis. It is likely that hypertension complication with its higher prevalence would cost more than this. 412
 
-Patients with hypertension have a significantly higher risk of developing CKD which is associated with a high socioeconomic burden. The annual cost of chronic haemodialysis was RM40,557 and peritoneal dialysis was RM38,138 per patient per year in 2009. The average cost of adult living kidney transplant was RM29,482. 413 The total estimated cost for Renal Replacement Therapy (RRT) was RM1.7 billion. Hypertension contributed to at least 20% of this cost (RM340 million).
+Patients with hypertension have a significantly higher risk of developing CKD which is associated with a high socioeconomic burden. The annual cost of chronic haemodialysis was RM40,557 and peritoneal dialysis was RM38,=138 per patient per year in 2009. The average cost of adult living kidney transplant was RM29,482. 4=13 The total estimated cost for Renal Replacement Therapy (RRT) was RM1.7 billion. Hypertension contributed to at least 20% of this cost (RM340 million).
 
 Treating hypertension is cost effective. 414 A recent study showed that screening and treating hypertension even for primary prevention has a high health impact (equivalent to RM50,925 per QALY adjusted for purchasing parity). 415 The impact on treating hypertension for secondary prevention is expected to be even higher.
 
@@ -34,6 +34,7 @@ Hypertension is responsible for at least 45% and 51% of deaths from heart diseas
 ## RECOMMENDATIONS
 
 - Conduct more awareness programmes on clinical and economic benefits in prevention and early treatment of hypertension.
+
 
 
 

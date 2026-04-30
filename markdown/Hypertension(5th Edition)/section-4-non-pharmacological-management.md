@@ -1,7 +1,7 @@
-# NON-PHARMACOLOGICAL MANAGEMENT
+# SECTION 4: NON-PHARMACOLOGICAL MANAGEMENT
 
 <!-- METADATA
-category: Treatment, Lifestyle (Non-Pharmacological)
+category: Treatment, Prevention
 use_case: Lifestyle Management for Hypertension — weight_reduction, sodium_restriction, physical_activity, DASH_style_diet, smoking_cessation, alcohol_reduction, potassium_intake, counselling
 patient_input: weight, BMI, diet_pattern, salt_intake, alcohol_consumption, physical_activity_level, smoking_status, kidney_function
 output: lifestyle_plan, behaviour_targets, counselling_points, expected_BP_reduction
@@ -21,7 +21,9 @@ High salt intake is associated with increased risk of stroke, stroke mortality, 
 
 ## 4.3 Alcohol Consumption
 
-Alcohol consumption elevates BP. Previous meta-analysis has shown that reducing alcohol consumption reduced BP by 3.3/2 mmHg. 49(Level I) A recent meta-analysis has shown that reducing alcohol intake lowers BP in a dose-dependent manner with an apparent threshold. 50(Level I) People who drink are advised to limit alcohol consumption to < two drinks per day. 50(Level I)
+* [Level I] Alcohol consumption elevates BP. Previous meta-analysis has shown that reducing alcohol consumption reduced BP by 3.3/2 mmHg. 49
+* [Level I] A recent meta-analysis has shown that reducing alcohol intake lowers BP in a dose-dependent manner with an apparent threshold. 50
+* [Level I] People who drink are advised to limit alcohol consumption to < two drinks per day. 50
 
 ## 4.4 Regular Physical Activity
 
@@ -29,7 +31,8 @@ Increased physical activity has been shown to reduce BP. However, there is a lac
 
 ## 4.5 Healthy Eating
 
-A diet rich in fruits, vegetables and low fat dairy products with reduced saturated and total fat can substantially lower BP (11/6 mmHg in hypertensive patients and 4/2 mmHg in patients with high normal BP). 60(Level I) A recent meta-analysis suggests that healthy dietary patterns such as the Dietary Approaches to Stop Hypertension (DASH), Nordic, and Mediterranean diet significantly lowered BP by 4.26/2.38 mmHg. 61 These diets are rich in fruit, vegetables, whole grains, legumes, seeds, nuts, fish and dairy products and low in meat, sweets, and alcohol. A recent cohort study that included Malaysian population without cardiovascular disease has shown that higher fruit, vegetable, and legume consumption was associated with a lower risk of non-cardiovascular and total mortality. 62
+* [Level I] A diet rich in fruits, vegetables and low fat dairy products with reduced saturated and total fat can substantially lower BP (11/6 mmHg in hypertensive patients and 4/2 mmHg in patients with high normal BP). 60
+* [Level I] A recent meta-analysis suggests that healthy dietary patterns such as the Dietary Approaches to Stop Hypertension (DASH), Nordic, and Mediterranean diet significantly lowered BP by 4.26/2.38 mmHg. 61 These diets are rich in fruit, vegetables, whole grains, legumes, seeds, nuts, fish and dairy products and low in meat, sweets, and alcohol. A recent cohort study that included Malaysian population without cardiovascular disease has shown that higher fruit, vegetable, and legume consumption was associated with a lower risk of non-cardiovascular and total mortality. 62
 
 ## 4.6 Cessation of Smoking
 
@@ -45,9 +48,18 @@ A meta-analysis has shown that increased dietary potassium intake reduces BP in 
 
 ## 4.9 Others
 
-Evidence for beneficial effect of micronutrient alterations, caffeine reduction and dietary supplementation with fish oil, calcium, magnesium, garlic and fibre on BP is limited.34,35,66-73 Meta-analyses have suggested that regular consumption of black tea and green tea can reduce BP but the sample size was small and quality of studies varied.74,75(Level 1)
+Evidence for beneficial effect of micronutrient alterations, caffeine reduction and dietary supplementation with fish oil, calcium, magnesium, garlic and fibre on BP is limited. 34,35,66-73
+* [Level I] Meta-analyses have suggested that regular consumption of black tea and green tea can reduce BP but the sample size was small and quality of studies varied. 74,75
 
 ## RECOMMENDATIONS
 
-- Healthy Living must be instituted as an integral part in managing hypertension. (Grade A)
-- Reduce salt intake, do regular physical activity, limit alcohol intake to < 2 drinks per day for those who drink, increase dietary potassium and lose weight to reduce BP. (Grade A)
+* **[Grade A]** Healthy Living must be instituted as an integral part in managing hypertension.
+* **[Grade A]** Achieve a weight loss of as little as 1kg from baseline to reduce blood pressure by 1 mmHg SBP.
+* **[Grade A]** Reduce salt intake to <2g of sodium or <5g of salt a day (equivalent to 1 teaspoonful of salt).
+* **[Grade A]** Refrain from alcohol intake. Advise patient who insists to continue drinking to consume ≤ two drinks per day.
+* **[Grade A]** Advise patients to perform physical activity (e.g. moderate intensity aerobic exercise of at least 150 minutes per week).
+* **[Grade A]** Encourage diet rich in fruits, vegetables and dairy products with reduced saturated and total fat.
+* **[Grade C]** Stop smoking to reduce overall cardiovascular risk.
+* **[Grade C]** Encourage patient to manage stress although evidence on relaxation interventions have not been convincing.
+* **[Grade A]** Increase dietary potassium intake (for those with normal renal function) to reduce BP.
+

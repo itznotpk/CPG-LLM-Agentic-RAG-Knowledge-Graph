@@ -3167,19 +3167,19 @@ Figure 2: Recommendations for Glycaemic Control in Patients with Pre-Existing CV
 
 | DM + CVD profile | Preferred escalation sequence (top → bottom) |
 |---|---|
-| **Low risk** (chronic stable angina; normal kidney function) | Metformin → SGLT2i (see note ****) → GLP-1 (see note *****) → DPP-4i / Gliclazide / TZD (see note ***) → Basal insulin → Basal bolus insulin |
-| **High risk** (Hx of AMI; Hx of CCF; see note *) | SGLT2i (see note ****) → GLP-1 (see note *****) → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
-| **History of severe hypoglycaemia** | SGLT2i (see note ****) → GLP-1 (see note *****) → Metformin → DPP-4i / Gliclazide / TZD (see note ***) → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
-| **Obese** (BMI >27.5 kg/m²; see note **) | SGLT2i → GLP-1 → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
-| **GFR <45 mL/min/1.73m²** | Low-dose DPP-4i → TZD (see note ***) → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
+| **Low risk** (chronic stable angina; normal kidney function) | Metformin → SGLT2i**** → GLP-1***** → DPP-4i / Gliclazide / TZD*** → Basal insulin → Basal bolus insulin |
+| **High risk** (Hx of AMI; Hx of CCF*) | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
+| **History of severe hypoglycaemia** | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide / TZD*** → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
+| **Obese** ** (BMI >27.5 kg/m²) | SGLT2i → GLP-1 → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
+| **GFR <45 mL/min/1.73m²** | Low-dose DPP-4i → TZD*** → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
 
 **Notes (from figure footnotes):**
 
-- Note *: Modify dose of diuretic if on SGLT2i.
-- Note **: Definition of obesity is based on the Malaysian CPG for the Management of Obesity 2003.
-- Note ***: At present only TZD available is pioglitazone; contraindicated in NYHA Class 3 & 4 patients.
-- Note ****: At present only empagliflozin has CV outcome data.
-- Note *****: At present only liraglutide, semaglutide have CV outcome data.
+- * Modify dose of diuretic if on SGLT2i.
+- ** Definition of obesity is based on the Malaysian CPG for the Management of Obesity 2003.
+- *** At present only TZD available is pioglitazone; contraindicated in NYHA Class 3 & 4 patients.
+- **** At present only empagliflozin has CV outcome data.
+- ***** At present only liraglutide, semaglutide have CV outcome data.
 
 **Key takeaways:**
 

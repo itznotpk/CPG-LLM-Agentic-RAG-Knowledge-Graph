@@ -1,7 +1,7 @@
-# EPIDEMIOLOGY, DEFINITION AND CLASSIFICATION OF HYPERTENSION
+# SECTION 1: EPIDEMIOLOGY, DEFINITION AND CLASSIFICATION OF HYPERTENSION
 
 <!-- METADATA
-category: Background, Definitions, Classification
+category: Introduction, Epidemiology, Classification
 use_case: Hypertension Epidemiology and BP Classification — prevalence_data, Malaysian_context, definitions, staging, isolated_systolic_hypertension, white_coat_hypertension, masked_hypertension
 patient_input: age, blood_pressure_readings, measurement_context, cardiovascular_risk_factors
 output: hypertension_definition, bp_classification, staging_criteria, phenotype_definitions
@@ -11,7 +11,7 @@ output: hypertension_definition, bp_classification, staging_criteria, phenotype_
 
 Hypertension is defined as persistent elevation of systolic blood pressure (BP) of 140 mmHg or greater and/or diastolic BP of 90 mmHg or greater, taken at least twice on two separate occasions.
 
-Although there is an attempt to redefine hypertension as &gt;130 and/or 80 mmHg, 1 this Committee recommends that the old recommendation remains. The Committee is of the opinion the proposed lower definition will not change the way we treat our patients, particularly those with cardiovascular complications with BP equal to or more than 130/80 mmHg needs treatment to lower BP regardless.
+Although there is an attempt to redefine hypertension as >=130 and/or 80 mmHg, 1 this Committee recommends that the old recommendation remains. The Committee is of the opinion the proposed lower definition will not change the way we treat our patients, particularly those with cardiovascular complications with BP equal to or more than =130/80 mmHg needs treatment to lower BP regardless.
 
 Non-Communicable Diseases (NCDs) is already the main cause of death in Malaysia (Figure 1-A) and the biggest contributor in terms of disability life-years (DALYs), with high blood pressure the biggest contributor for both males and females 2 (Figure 1-B).
 
@@ -70,7 +70,7 @@ TABLE 1-A Classification of Clinic Blood Pressure Levels in Adults
 |--------------------------------|-------------------|--------|--------------------|-----------------------------|
 | Optimal                        | <120              | and    | <80                |                        30.7 |
 | Normal                         | 120-129           | and/or | 80-84              |                        25.3 |
-| At Risk                        | 130-139           | and/or | 85-89              |                        18.6 |
+| At Risk                        | =130-=139           | and/or | 85-89              |                        18.6 |
 | Hypertension                   |                   |        |                    |                             |
 | Stage 1 (Mild)                 | 140-159           | and/or | 90-99              |                        17.3 |
 | Stage 2 (Moderate)             | 160-179           | and/or | 100-109            |                         5.7 |
@@ -83,7 +83,7 @@ TABLE 1-B Criteria for Staging Hypertension Based on Clinic, Home and Ambulatory
 
 | Category              | Clinic BP (mmHg)     | Home BP Monitoring Average  or Ambulatory BP Daytime  Average (mmHg)   |
 |-----------------------|----------------------|------------------------------------------------------------------------|
-| Stage I Hypertension  | ≥140/90              | ≥135/85                                                                |
+| Stage I Hypertension  | ≥140/90              | ≥=135/85                                                                |
 | Stage II Hypertension | ≥160/100             | ≥150/95                                                                |
 | Severe Hypertension   | SBP ≥180 or DBP ≥110 | -                                                                      |
 
@@ -91,7 +91,7 @@ Note: Adapted from National Institute for Health and Clinical Excellence (NICE) 
 
 ## 1.1 Isolated Systolic Hypertension
 
-Isolated systolic hypertension (ISH) is defined as SBP of ≥140 mmHg and DBP &lt;90 mmHg. It is common after the age of 50, and carries with it a poor prognosis. Clinical trials have demonstrated that control of ISH reduces total mortality, cardiovascular mortality, stroke and heart failure events.5,6,7
+Isolated systolic hypertension (ISH) is defined as SBP of ≥140 mmHg and DBP <90 mmHg. It is common after the age of 50, and carries with it a poor prognosis. Clinical trials have demonstrated that control of ISH reduces total mortality, cardiovascular mortality, stroke and heart failure events.5,6,7
 
 Changing patterns of BP occur with increasing age. The rise in SBP continues throughout life in contrast to DBP, which rises until approximately age 50, tends to level off over
 
@@ -99,11 +99,11 @@ the next decade, and may remain the same or fall later in life.8,9 Diastolic hyp
 
 ## 1.2 Isolated Office ("White-Coat") Hypertension
 
-Isolated office hypertension is characterised by an elevation in clinic blood pressure but normal home or ambulatory blood-pressure values. In these subjects the clinic BP is persistently above 140/90 mmHg but the home or daytime ambulatory systolic/ diastolic BP measurements are lower than 135/85 mmHg.
+Isolated office hypertension is characterised by an elevation in clinic blood pressure but normal home or ambulatory blood-pressure values. In these subjects the clinic BP is persistently above 140/90 mmHg but the home or daytime ambulatory systolic/ diastolic BP measurements are lower than =135/85 mmHg.
 
 ## 1.3 Masked Hypertension
 
-Patients with masked hypertension have normal clinic blood pressure but elevated daytime ambulatory or home blood-pressure level (≥135/85 mmHg). Prognosis of masked hypertension is worse than isolated office hypertension. 12
+Patients with masked hypertension have normal clinic blood pressure but elevated daytime ambulatory or home blood-pressure level (≥=135/85 mmHg). Prognosis of masked hypertension is worse than isolated office hypertension. 12
 
 For both isolated office and masked hypertension, once diagnosed, initial therapeutic interventions should be non-pharmacological and aim for adoption of healthy living. However, drug treatment is indicated, particularly when the patient's cardiovascular risk profile is elevated or when target-organ damage (TOD) is detected. 12 (Refer to chapter 3 on Diagnosis and Initial Assessment).
 
@@ -115,3 +115,4 @@ For both isolated office and masked hypertension, once diagnosed, initial therap
 
 - Measure BP at every opportunity as a high number of Malaysians are undiagnosed.
 - Check BP for every adult above age 18 years at least once as part of their annual health screening, and more frequently for those who are at risk (family history, obese and those at-risk of high blood pressure).
+

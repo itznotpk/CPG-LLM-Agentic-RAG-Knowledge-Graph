@@ -1,7 +1,7 @@
-# DIAGNOSIS AND INITIAL ASSESSMENT
+# SECTION 3: DIAGNOSIS AND INITIAL ASSESSMENT
 
 <!-- METADATA
-category: Diagnosis, Initial Assessment
+category: Diagnosis, Assessment
 use_case: Hypertension Diagnostic Workup and Risk Stratification — secondary_causes, target_organ_damage, target_organ_complications, baseline_investigations, cardiovascular_risk_assessment, referral_criteria
 patient_input: blood_pressure_readings, symptoms, medical_history, physical_exam, labs, comorbidities, medications
 output: diagnostic_plan, baseline_workup, secondary_cause_screening, risk_profile, referral_triggers
@@ -50,7 +50,7 @@ TOD = Target organ damage (LVH, retinopathy, proteinuria)
 
 TOC = Target organ complication (heart failure, renal failure)
 
-- defined as normal to mildly increased (UACR&lt;30mg/g), moderately increased (UACR 30-300mg/g) and severely increased (UACR &gt;300mg/g) *
+- defined as normal to mildly increased (UACR <30mg/g), moderately increased (UACR 30-300mg/g) and severely increased (UACR >300mg/g) *
 
 ## A complete history should include:
 
@@ -63,7 +63,7 @@ TOC = Target organ complication (heart failure, renal failure)
 - dietary history including salt, caffeine, liquorice and alcohol intake
 - drug history of either prescribed or over-the-counter medication (NSAIDs, nasal decongestants, OCP/HRT)
 - exposure to traditional or complementary medicine
-- lifestyle and environmental factors including air pollution that will affect treatment and outcome (e.g. smoking, physical inactivity, substance abuse; recreational &amp; doping, psychosocial stressors and excessive weight gain)
+- lifestyle and environmental factors including air pollution that will affect treatment and outcome (e.g. smoking, physical inactivity, substance abuse; recreational & doping, psychosocial stressors and excessive weight gain)
 - presence of snoring and/or day time somnolence which may indicate sleep apnoea
 
 Physical examination should include the following:
@@ -78,14 +78,14 @@ Physical examination should include the following:
 - Signs of endocrine disorders (e.g. Cushing syndrome, acromegaly and thyroid disease)
 - Ankle brachial index (if available)
 
-The minimum initial investigations aim to screen for presence of secondary causes of hypertension, determine the presence of CV risk factors, target organ damage (TOD) and target organ complication (TOC). They should include the following:26(Level III)
+* [Level III] The minimum initial investigations aim to screen for presence of secondary causes of hypertension, determine the presence of CV risk factors, target organ damage (TOD) and target organ complication (TOC). They should include the following: 26
 
 - Full blood count
 - Blood glucose
 - Renal function tests (creatinine, eGFR, serum electrolytes)
 - Lipid profile (total cholesterol, HDL cholesterol, LDL cholesterol and triglycerides)
 - Uric acid
-- Urinalysis (dip stick: albuminuria/microalbuminuria &amp; microscopic haematuria)
+- Urinalysis (dip stick: albuminuria/microalbuminuria & microscopic haematuria)
 - Electrocardiogram (ECG)
 
 If the examination or investigations suggest the presence of a secondary causes, the patient should be referred for specialist evaluation. If there is evidence of TOD or TOC (Table 3-B), further tests should be considered.
@@ -96,7 +96,7 @@ If the examination or investigations suggest the presence of a secondary causes,
 - Dyslipidaemia
 - Cigarette smoking
 - Microalbuminuria/Proteinuria
-- Estimated GFR &lt;60 mL/min/m2
+- Estimated GFR <60 mL/min/m2
 
 According to a study in Malaysia as many as 54% patients with essential hypertension did not have their cardiovascular risks adequately assessed. 27
 
@@ -108,7 +108,7 @@ TABLE 3-D Risk Stratification
 
 | Co-Existing Condition BP Levels (mmHg)   | No RF No TOD No TOC   | TOD or  RF (1-2)  No TOC   | TOC or RF(≥3) or Clinical atherosclerosis  or CKD   | Previous MI /  IHD, Previous  stroke or  Diabetes or  CKD   |
 |------------------------------------------|-----------------------|----------------------------|-----------------------------------------------------|-------------------------------------------------------------|
-| SBP 130 - 139 and/or DBP 80 - 89         | Low                   | Intermediate               | High                                                | Very High                                                   |
+| SBP =130 - =139 and/or DBP 80 - 89         | Low                   | Intermediate               | High                                                | Very High                                                   |
 | SBP 140 - 159 and/or DBP 90 - 99         | Low                   | Medium                     | High                                                | Very High                                                   |
 | SBP 160 - 179 and/or DBP 100 - 109       | Medium                | High                       | Very High                                           | Very High                                                   |
 | SBP >180 and/or  DBP >110                | High                  | Very High                  | Very High                                           | Very High                                                   |
@@ -126,13 +126,19 @@ TABLE 3-E Recommendations for Follow-Up Visit Based on Initial Blood Pressure Me
 |---------------------|---------------------|---------------------|---------------------------------------------------------------------------------------------------|
 | Systolic            |                     | Diastolic           | Recommended follow-up                                                                             |
 | <120                | and                 | <80                 | Recheck in one year                                                                               |
-| 120 – 139           | and                 | 80 – 89             | Assess global CV risk & Recheck within  3 – 6 months                                              |
+| 120 – =139           | and                 | 80 – 89             | Assess global CV risk & Recheck within  3 – 6 months                                              |
 | 140 – 159           | and/or              | 90 – 99             | Assess global CV risk & Confirm within  two months                                                |
 | 160 – 179           | and/or              | 100 – 109           | Assess global CV risk & Evaluate within  one month and treat if confirmed                         |
 | 180 – 209           | and/or              | 110 – 119           | Assess global CV risk & Evaluate within  one week and treat if confirmed                          |
 | ≥210                | and/or              | ≥120                | Assess global CV risk & Initiate treatment  after repeated measurement during the  same encounter |
 
-Modified from JNC-VII 32(Level III)
+* [Level III] Modified from JNC-VII 32
+
+## RECOMMENDATIONS
+
+* **[Grade C, Level III]** Assess initial BP measurement results and global CV risk before deciding on the appropriate follow-up required.
+
+
 
 
 

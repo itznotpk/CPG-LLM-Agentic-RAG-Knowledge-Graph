@@ -1,7 +1,7 @@
-# MANAGEMENT OF SEVERE HYPERTENSION
+# SECTION 6: MANAGEMENT OF SEVERE HYPERTENSION
 
 <!-- METADATA
-category: Acute Care, Severe Hypertension
+category: Treatment, Assessment
 use_case: Hypertensive Urgency/Emergency Management — crisis_classification, end_organ_damage_assessment, BP_reduction_targets, oral_agents, IV_agents, monitoring, disposition
 patient_input: blood_pressure_level, symptoms, end_organ_damage_signs, neurologic_status, cardiac_status, kidney_function, pregnancy_status
 output: acute_management_plan, treatment_targets, monitoring_plan, disposition_plan
@@ -25,7 +25,7 @@ Severe hypertension is defined as persistent elevated SBP &gt;180 mmHg and/or DB
 2. b.hypertensive emergencies (emergency)
 3. (a) and (b) are also referred to as hypertensive crises.
 
-In a recent large series, only a minority of patients admitted (5.1%) had hypertensive crises. Of those, more than three quarters (76.6%) constitute hypertensive emergencies. 120(Level II)
+* [Level II] In a recent large series, only a minority of patients admitted (5.1%) had hypertensive crises. Of those, more than three quarters (76.6%) constitute hypertensive emergencies. 120
 
 Management of these patients depends on the clinical presentation and laboratory investigations. The evaluation of these patients should include a thorough history and physical examination, particularly looking for signs of acute target organ damage/ complication and causes of secondary hypertension. (Table 6-A)
 
@@ -51,7 +51,9 @@ The aim of management is to reduce BP in a controlled, predictable and safe mann
 
 Hypertensive urgency is defined as severe increase in BP which is not associated with acute end organ damage/complication and these include patients with grade III or IV retinal changes (also known as accelerated and malignant hypertension), but no overt symptoms and signs of acute target organ damage/complication. These patients may be admitted.
 
-Blood pressure measurement should be repeated after 30 minutes of bed rest.121,122(Level II) Initial treatment should aim for about 25% reduction in BP over 24 hours but not lower than 160/100 mmHg.123,124(Level II) Oral drugs proven to be effective are outlined in Table 6-B. Combination therapy may be necessary. Importantly, there is no role for intravenous BP lowering drugs. Many of these patients have withdrawn from or are not adhering to antihypertensive therapy and do not have clinical or laboratory evidence of acute target organ damage. 125 Possible precipitating factors for hypertensive urgency include non-adherence to anti-hypertensive medications, less effective outpatient blood pressure control, acute pain, herbal supplement and emotional stress. 125,126
+* [Level II] Blood pressure measurement should be repeated after 30 minutes of bed rest. 121,122
+* [Level II] Initial treatment should aim for about 25% reduction in BP over 24 hours but not lower than 160/100 mmHg. 123,124
+Oral drugs proven to be effective are outlined in Table 6-B. Combination therapy may be necessary. Importantly, there is no role for intravenous BP lowering drugs. Many of these patients have withdrawn from or are not adhering to antihypertensive therapy and do not have clinical or laboratory evidence of acute target organ damage. 125 Possible precipitating factors for hypertensive urgency include non-adherence to anti-hypertensive medications, less effective outpatient blood pressure control, acute pain, herbal supplement and emotional stress. 125,126
 
 Therapeutic strategies for previously undiagnosed patients include (Figure 6-A: Flowchart in management of hypertensive urgency):
 
@@ -109,7 +111,7 @@ Hypertensive emergency is defined as severe elevation of blood pressure associat
 
 - should be admitted for immediate intervention and monitoring.
 - need to be reduce their BP rapidly based on clinical scenarios - refer also to chapter 7.4 Hypertension and Stroke, and chapter 7.6 Hypertension in Women.
-- should have their BP reduced by 10%-25% within certain minutes to hours but not lower than 160/90 mmHg.128,129(Level III)
+* [Level III] These patients should have their BP reduced by 10%-25% within certain minutes to hours but not lower than 160/90 mmHg. 128,129
 
 This is best achieved with parenteral drugs. (Table 6-D)
 
@@ -117,29 +119,29 @@ TABLE 6-C Common Clinical Scenario of Hypertensive Emergencies with Treatment Go
 
 | Clinical scenario        | BP reduction                                                                                                                                                                                                                                                                                                                                                 | Additional consideration                                                                                                                                                                                                                                                                              |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Acute heart failure      | BP lowering until symptom  resolution. <25% within 1 hour, then  ≤160/100 mmHg over 2 to  6 hours.                                                                                                                                                                                                                                                           | ß-blocker or CCB use  could cause exacerbation  of symptoms.                                                                                                                                                                                                                                          |
-| Acute coronary  syndrome | Reduce BP to reduce  cardiac workload and  improve coronary  perfusion. <25% within 1 hour, then  ≤160/100 mmHg over 2 to  6 hours.128 An alternative is to reduce  DBP by 10% to 15% or to  approximately 110 mmHg  in 30 to 60 minutes, if the  patient is clinically stable,  further gradual reductions  toward a normal BP can  be implemented over the | Consider type A aortic  dissection as cause of  acute coronary syndrome;  avoid selective ß-blockers  if cocaine abuse  suspected. 125,130,131                                                                                                                                                        |
-| Acute aortic  dissection | Reduce SBP to ≤120 or BP  ≤120/80 mmHg (lower if  tolerable) and HR to <60  bpm within 1 hour.                                                                                                                                                                                                                                                               | Beta blockade should  precede vasodilator  (e.g., nicardipine  or nitroprusside)  administration, if needed  for BP control or to  prevent reflex tachycardia  or inotropic effect; SBP  ≤120 mmHg should be  achieved within 20 min.1 Avoid ß-blockers if severe  aortic regurgitation is  noted.131 |
+| Acute heart failure      | BP lowering until symptom  resolution. <25% within 1 hour, then  ≤160/100 mmHg over 2 to  6 hours.                                                                                                                                                                                                                                                           | ß�-blocker or CCB use  could cause exacerbation  of symptoms.                                                                                                                                                                                                                                          |
+| Acute coronary  syndrome | Reduce BP to reduce  cardiac workload and  improve coronary  perfusion. <25% within 1 hour, then  ≤160/100 mmHg over 2 to  6 hours.128 An alternative is to reduce  DBP by 10% to 15% or to  approximately 110 mmHg  in 30 to 60 minutes, if the  patient is clinically stable,  further gradual reductions  toward a normal BP can  be implemented over the | Consider type A aortic  dissection as cause of  acute coronary syndrome;  avoid selective ß�-blockers  if cocaine abuse  suspected. 125,=130,=131                                                                                                                                                        |
+| Acute aortic  dissection | Reduce SBP to ≤120 or BP  ≤120/80 mmHg (lower if  tolerable) and HR to <60  bpm within 1 hour.                                                                                                                                                                                                                                                               | Beta blockade should  precede vasodilator  (e.g., nicardipine  or nitroprusside)  administration, if needed  for BP control or to  prevent reflex tachycardia  or inotropic effect; SBP  ≤120 mmHg should be  achieved within 20 min.1 Avoid ß�-blockers if severe  aortic regurgitation is  noted.=131 |
 
 continued on next page...
 
 | Clinical scenario            | BP reduction                                                                              | Additional consideration                                                                                                    |
 |------------------------------|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | Hypertensive  Encephalopathy | Reduce BP 20% –25%  within 1 hour to reduce  intracranial pressure.                       | Avoid nitroprusside  because it can lead to  intracranial oedema.                                                           |
-| Acute renal failure          | Reduce BP to around 25%  within 3 to 24 hours.132                                         |                                                                                                                             |
+| Acute renal failure          | Reduce BP to around 25%  within 3 to 24 hours.=132                                         |                                                                                                                             |
 | Preeclampsia and  Eclampsia  | Reduce SBP to <140  mmHg within the first  hour. Refer Chapter 7.6  Hypertension in Women | Definitive treatment is  delivery of foetus. ACE inhibitors, ARBs,  renin inhibitors,  and nitroprusside  contraindicated.1 |
-| Sympathetic crises           | Rapid BP lowering until  symptom resolution.                                              | Avoid ß-blocker  monotherapy (except for  labetalol).                                                                       |
-| Phaeochromocytoma            | Rapid BP lowering until  symptom resolution.                                              | Avoid ß-blocker  monotherapy (except for  labetalol).                                                                       |
+| Sympathetic crises           | Rapid BP lowering until  symptom resolution.                                              | Avoid ß�-blocker  monotherapy (except for  labetalol).                                                                       |
+| Phaeochromocytoma            | Rapid BP lowering until  symptom resolution.                                              | Avoid ß�-blocker  monotherapy (except for  labetalol).                                                                       |
 | Acute ischemic stroke        | Refer Chapter 7.4  Hypertension and Stroke                                                |                                                                                                                             |
 | Haemorrhagic stroke          | Refer Chapter 7.4  Hypertension and Stroke                                                |                                                                                                                             |
 
-There has been very few head to head comparative trials on the management of hypertensive crises especially hypertensive emergencies. A recent meta-analysis showed that IV labetalol have comparable efficacy and safety compared to nicardipine with the later showing more predictable and consistent BP control. 133,134 (Level 1)
+* [Level I] There has been very few head to head comparative trials on the management of hypertensive crises especially hypertensive emergencies. A recent meta-analysis showed that IV labetalol have comparable efficacy and safety compared to nicardipine with the later showing more predictable and consistent BP control. =133,=134
 
-Specific clinical scenarios requiring rapid lowering of SBP, usually to at least &lt;140 mmHg, in the first hour of treatment include aortic dissection, severe preeclampsia or eclampsia, and pheochromocytoma with hypertensive crisis. 1,131
+Specific clinical scenarios requiring rapid lowering of SBP, usually to at least &lt;140 mmHg, in the first hour of treatment include aortic dissection, severe preeclampsia or eclampsia, and pheochromocytoma with hypertensive crisis. 1,=131
 
 In summary, the selection of an antihypertensive agent should be based on the drug's pharmacology, pathophysiological factors underlying the patient's hypertension, degree of progression of target organ damage, the desirable rate of BP decline, and the presence of comorbidities. The therapeutic goal is to minimise target organ damage safely by rapid recognition of the problem and early initiation of appropriate antihypertensive treatment. 1,129
 
-TABLE 6-D Treatment Options for Hypertensive Emergencies123,129,135
+TABLE 6-D Treatment Options for Hypertensive Emergencies123,129,=135
 
 | Drugs                 | Dose                                                                                                                                                                                                                                                                                                                 | Onset of  action   | Duration   | Remarks                                                                                                                            |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -195,9 +197,10 @@ FIGURE 6-C Flowchart in Management of Hypertensive Emergency*
 
 ## 6.2 Dangers of Rapid Reduction in Blood Pressure
 
-Rapid reduction of BP (within minutes to hours) in hypertensive urgencies should be avoided as it may precipitate ischaemic events. 136
+Rapid reduction of BP (within minutes to hours) in hypertensive urgencies should be avoided as it may precipitate ischaemic events. =136
 
-Oral or sublingual drugs with rapid onset of action can result in an uncontrolled BP reduction. Several serious side effects have been reported with the administration of sublingual fast-acting nifedipine and therefore this is no longer recommended.137(Level III) However oral nifedipine retard can be used and has been recommended as first line therapy for hypertensive urgencies.124(Level III)
+* [Level III] Oral or sublingual drugs with rapid onset of action can result in an uncontrolled BP reduction. Several serious side effects have been reported with the administration of sublingual fast-acting nifedipine and therefore this is no longer recommended. =137
+* [Level III] However oral nifedipine retard can be used and has been recommended as first line therapy for hypertensive urgencies. 124
 
 Following stabilisation of patient's BP, subsequent management is tailored towards achieving optimal control.
 
@@ -205,8 +208,11 @@ For management of patients with severe hypertension and stroke, refer to chapter
 
 ## RECOMMENDATIONS
 
-- In hypertensive urgencies, aim for 10-20 mmHg SBP reduction after 2 hours of rest. Failing this, pharmacotherapy should be initiated. (Grade B)
-- Treat hypertensive urgencies with combination oral therapy targeting BP to reduce by around 25% within 24 hours. (Grade C)
-- Treat hypertensive emergencies with intravenous drugs with specific targets based upon clinical scenarios. (Grade B)
-- Reduce SBP to less than 140 mmHg during the first hour for patients with severe preeclampsia or eclampsia, and pheochromocytoma crisis. For patients with aortic dissection reduce SBP to less than 120 mmHg. (Grade C)
-- Reduce SBP by no more than 25% within the first hour; then, if stable, to 160/100 mmHg within the next 2 to 6 hours; and then cautiously to normal during the following 24 to 48 hours in all other situations. (Grade C)
+* **[Grade B, Level II]** In hypertensive urgencies, aim for 10-20 mmHg SBP reduction after 2 hours of rest. Failing this, pharmacotherapy should be initiated.
+* **[Grade C, Level III]** Do not reduce BP rapidly (within minutes to hours) in hypertensive urgencies as it may precipitate ischaemic events.
+* **[Grade B, Level II]** For patients whose BP responded with adequate rest (after 2 hours), discharge them with Hypertensive Urgency Discharge Plan.
+* **[Grade C, Level III]** For patients whose BP do not respond to adequate rest, start with combination oral pharmacotherapy targeting a BP reduction of 25% within 24 hours.
+* **[Grade B, Level III]** Reduce BP by 10%-25% within minutes to hours but not lower than 160/100 mmHg in hypertensive emergencies. This is best achieved with parenteral drugs.
+* **[Grade C, Level III]** Reduce SBP to less than 140 mmHg during the first hour for patients with severe preeclampsia or eclampsia, and pheochromocytoma crisis. For patients with aortic dissection reduce SBP to less than 120 mmHg.
+* **[Grade C, Level III]** Reduce BP by no more than 25% within the first hour; then, if stable, to 160/100 mmHg within the next 2 to 6 hours; and then cautiously to normal during the following 24 to 48 hours in all other situations.
+

@@ -1,7 +1,7 @@
-# KEY RECOMMENDATIONS AND INTRO
+# SECTION 0: KEY RECOMMENDATIONS AND INTRO
 
 <!-- METADATA
-category: Key Recommendations, Guideline Overview
+category: Methodology, Introduction
 use_case: Hypertension Key Messages & Guideline Context — quick_reference, key_messages, statement_of_intent, scope, summary_of_recommendations, table_of_contents
 patient_input: blood_pressure, comorbidities, cardiovascular_risk_factors, care_setting
 output: hypertension_key_recommendations, guideline_scope, high_level_principles, quick_reference_summary
@@ -31,7 +31,7 @@ This guideline was developed to be a guide for best clinical practice in the man
 
 ## REVIEW OF THE GUIDELINES
 
-This guideline was issued in 2018 and will be reviewed in 2023 or earlier if important new evidence becomes available. This is an update to the Clinical Practice Guideline on Management of Hypertension – 4th Edition (published 2013) and supersedes the previous. Electronic version will be made available on the following websites:
+This guideline was issued in 2018 and will be reviewed in 2023 or earlier if important new evidence becomes available. This is an update to the Clinical Practice Guideline on Management of Hypertension – 4th Edition (published 20=13) and supersedes the previous. Electronic version will be made available on the following websites:
 
 www.moh.gov.my www.acadmed.org.my www.msh.org.my
 
@@ -49,10 +49,10 @@ The development of the CPG on Management of Hypertension (5th Edition) was suppo
 2. The prevalence of hypertension in Malaysians aged 18 years and above was 35.3% in 2015, a slight increase from 33.6% in 2011.
 3. Hypertension is a silent disease; unfortunately, in 2015, for every two diagnosed patients in Malaysia there are 3 undiagnosed patients. This has not changed since 2011. Blood pressure should be measured at every chance encounter.
 4. Untreated or sub-optimally controlled hypertension leads to increased cardiovascular, cerebrovascular and renal morbidity/ mortality and overall mortality.
-5. A systolic BP of 120 to 139 mmHg and/or diastolic BP of 85 to 89 mmHg is defined as 'at risk blood pressure' and should be treated in certain high risk groups.
+5. A systolic BP of 120 to =139 mmHg and/or diastolic BP of 85 to 89 mmHg is defined as 'at risk blood pressure' and should be treated in certain high risk groups.
 6. Healthy living should be recommended for all individuals with hypertension and 'at risk blood pressure'.
 7. Decisions on pharmacological treatment should be based on global vascular risks and not on the level of blood pressure per se.
-8. In patients with newly diagnosed uncomplicated hypertension and no compelling indications, choice of first line monotherapy includes ACEIs, ARBs, CCBs, diuretics and ß-blockers.
+8. In patients with newly diagnosed uncomplicated hypertension and no compelling indications, choice of first line monotherapy includes ACEIs, ARBs, CCBs, diuretics and ß�-blockers.
 9. Only 37.4% of Malaysian patients achieved blood pressure control (&lt;140/90 mmHg) while on treatment. Although this is an improvement from 2011 (34.7%) every effort should be made to achieve target blood pressure in all patients. Target blood pressure depends on specific patient groups.
 10. Combination therapy is often required to achieve target and may be instituted early in patients with stage II hypertension and in high risk stage I hypertension.
 11. A patients whose BP is not controlled on three or more drugs (including a diuretic) is by definition having resistant hypertension.
@@ -147,25 +147,25 @@ The development of the CPG on Management of Hypertension (5th Edition) was suppo
 | 8. Economic Impact of Hypertension                     |  100 |
 | 9. Types of Antihypertensive Agents                    |  102 |
 | 9.1 Diuretics                                          |  102 |
-| 9.2 Beta-blockers (ß-Blockers)                         |  103 |
+| 9.2 Beta�-blockers (ß�-blockers)                         |  103 |
 | 9.3 Calcium Channel Blockers (CCBs)                    |  105 |
 | 9.4 Renin-Angiotensin-System (RAS) Blockers            |  106 |
 | 9.4.1 ACE Inhibitors (ACEIs)                           |  106 |
 | 9.4.2 Angiotensin Receptor Blockers (ARBs)             |  108 |
 | 9.5 Miscellaneous Drugs                                |  110 |
-| 9.5.1 The ∂-Blockers and the Combined ∂, ß-Blockers    |  110 |
+| 9.5.1 The ∂�-blockers and the Combined ∂, ß�-blockers    |  110 |
 | 9.5.2 Centrally Acting Agents                          |  111 |
 | 9.5.3 Direct Vasodilators                              |  112 |
 | 9.5.4 Drugs In Development                             |  112 |
-| 9.6 Traditional Herbal Medicine and Hypertension       |  113 |
-| 9.6.1 Traditional Medicine for Hypertension            |  113 |
+| 9.6 Traditional Herbal Medicine and Hypertension       |  1=13 |
+| 9.6.1 Traditional Medicine for Hypertension            |  1=13 |
 | 9.6.2 Relaxation Exercises for Hypertension            |  115 |
 | 10. Resistant and Refractory Hypertension              |  116 |
 | 10.1 Resistant Hypertension                            |  116 |
 | 10.2 Refractory Hypertension                           |  118 |
 | 11. Aspirin in Hypertension                            |  119 |
 | 12. Device and Procedure Based Therapy in Hypertension |  120 |
-| 13. Suggested Areas of Research                        |  121 |
+| =13. Suggested Areas of Research                        |  121 |
 
 ## Foreword
 
@@ -301,19 +301,19 @@ Senior Consultant &amp; Professor of Obstetrics &amp; Gynaecology Dean, Faculty 
 
 ## RATIONALE
 
-The Clinical Practice Guideline on the Management of Hypertension was developed to provide a clear and concise approach to all health care providers on the current concepts in the management of hypertension. Since hypertension is managed by various levels of health care providers in Malaysia, attempts were made to ensure the different stakeholders will benefit from this CPG. This is reflected by the representation of the committee members who developed the guideline. There were four previous guidelines on hypertension; in 1998, 2002, 2008 and 2013.This edition is the fifth in the series and was deemed necessary due to new evidence which has emerged since the last edition. Prior to the publication of this edition, the National Health and Morbidity Survey 2015 was published. The results of the survey showed that the prevalence of hypertension has increased while the awareness has decreased compared to a similar survey done in 2011. However the rate of blood pressure control in the hypertensive population has increased by 10% (now 37.4% of treated patients are controlled). This rate of blood pressure control is still poor when one compares with a large nation like Canada where the control rate was more than 80%. This may reflect the fact that clinicians are still not clear of the target blood pressure to achieve in their patients. It is hoped that this CPG will contribute towards achieving the desired targets.
+The Clinical Practice Guideline on the Management of Hypertension was developed to provide a clear and concise approach to all health care providers on the current concepts in the management of hypertension. Since hypertension is managed by various levels of health care providers in Malaysia, attempts were made to ensure the different stakeholders will benefit from this CPG. This is reflected by the representation of the committee members who developed the guideline. There were four previous guidelines on hypertension; in 1998, 2002, 2008 and 20=13.This edition is the fifth in the series and was deemed necessary due to new evidence which has emerged since the last edition. Prior to the publication of this edition, the National Health and Morbidity Survey 2015 was published. The results of the survey showed that the prevalence of hypertension has increased while the awareness has decreased compared to a similar survey done in 2011. However the rate of blood pressure control in the hypertensive population has increased by 10% (now 37.4% of treated patients are controlled). This rate of blood pressure control is still poor when one compares with a large nation like Canada where the control rate was more than 80%. This may reflect the fact that clinicians are still not clear of the target blood pressure to achieve in their patients. It is hoped that this CPG will contribute towards achieving the desired targets.
 
 ## GUIDELINE DEVELOPMENT PROCESS
 
 The members of the Development Group (DG) for this Clinical Practice Guideline (CPG) were from the Ministry of Health (MOH), Ministry of Higher Education (MOHE) and private healthcare providers. The membership of the DG was multidisciplinary and most specialties are represented by at least 2 experts. These are Cardiovascular Medicine, Nephrology, Geriatrics, Obstetrics and Gynaecology, Family Medicine and Clinical Pharmacology/Clinical Pharmacy. There are also specialties which are represented by 1 expert. These include Endocrinology, Neurology and Public Health. Where there are at least 2 members, 1 act as the principal author and the other reviewer of the initial draft. Each draft will then be reviewed collectively in every DG meeting.
 
-The CPG update was done based on the CPG Management of Hypertension 4th edition of 2013. In the update, systematic review methodology was used and the scope covered include epidemiology and public health, definition and classification, blood pressure management, diagnostic criteria, investigations, global cardiovascular risk evaluation, general principle of management, non pharmacological and pharmacological management, management of patient sub groups and approach to resistant and refractory hypertension. Emerging areas in hypertension are also covered including Health Economics, Device Based treatment and scope for future research. A literature
+The CPG update was done based on the CPG Management of Hypertension 4th edition of 20=13. In the update, systematic review methodology was used and the scope covered include epidemiology and public health, definition and classification, blood pressure management, diagnostic criteria, investigations, global cardiovascular risk evaluation, general principle of management, non pharmacological and pharmacological management, management of patient sub groups and approach to resistant and refractory hypertension. Emerging areas in hypertension are also covered including Health Economics, Device Based treatment and scope for future research. A literature
 
 search was carried out using the following electronic databases: mainly Medline via Ovid and Cochrane Database of Systemic Reviews and others e.g. Pubmed and Guidelines International Network. The search was done on Published English literature focusing mainly but not exclusively on Clinical Trials. Important observation studies, where relevant, were also looked at. Unlike some CPGs, the search was not limited to literature published in the last fifteen years. This is because hypertension management has be powered and driven by good evidence generated over the last thirty years. Some seminal and practice changing trials were conducted a few decades ago and the result so conclusive that repeating the trials will be an act of futility. In addition, the reference lists of all recent Hypertension Guidelines i.e that written over the last 5 years only were retrieved and searched to further identify relevant studies. All searches were conducted from 24 May 2017 to 5 January 2018. Literature searches were repeated for all clinical questions at the end of the CPG development process allowing any relevant papers published after January 2018 to be included. Future CPG updates will consider evidence published after this cut-off date.
 
 References were also made to the most recent CPG on Hypertension from the American College of Cardiology / American Heart Association released in full in December 2017. This CPG was evaluated using the Appraisal of Guidelines for Research and Evaluation (AGREE) II prior to them being used as references.
 
-A total of 23 clinical questions were developed under 13 different sections. Members of the DG were assigned individual questions within these sections (refer to Appendix 5 for Clinical Questions). The DG members met 9 times throughout the development of these Guideline. All literature retrieved were appraised by at least two DG members using Critical Appraisal Skill Programme checklist, presented in evidence tables and further discussed in each DG meetings. All statements and recommendations formulated after that were agreed upon. Where evidence was insufficient, the recommendations were made by consensus of the DG. This CPG is based largely on the findings of systematic reviews, meta-analyses and clinical trials in particular trials where Malaysia participated. Where evidence are lacking or non existent, local practices are taken into consideration.
+A total of 23 clinical questions were developed under =13 different sections. Members of the DG were assigned individual questions within these sections (refer to Appendix 5 for Clinical Questions). The DG members met 9 times throughout the development of these Guideline. All literature retrieved were appraised by at least two DG members using Critical Appraisal Skill Programme checklist, presented in evidence tables and further discussed in each DG meetings. All statements and recommendations formulated after that were agreed upon. Where evidence was insufficient, the recommendations were made by consensus of the DG. This CPG is based largely on the findings of systematic reviews, meta-analyses and clinical trials in particular trials where Malaysia participated. Where evidence are lacking or non existent, local practices are taken into consideration.
 
 The literature used in these guidelines were graded using the US/Canadian Preventive Services Task Force Level of Evidence (2001), while the grading of recommendation was done using the principles of Scottish Intercollegiate Guidelines Network (Version 1.0 updated July 2017). The writing of the CPG follows strictly the requirement of AGREE II.
 
@@ -372,7 +372,7 @@ Primary care / Secondary care
 
 - &lt;140/90 mmHg for all
 - &lt;140/80 mmHg for patients with diabetes
-- &lt;130/80 mmHg for patients with ischaemic heart disease/ cerebrovascular disease/renal impairment
+- &lt;=130/80 mmHg for patients with ischaemic heart disease/ cerebrovascular disease/renal impairment
 
 ## Numerator:
 
@@ -434,10 +434,10 @@ Note: The grades of recommendation relate to the strength of the evidence on whi
 | Non Pharmacological  Management (Continued) | Smoking Stop smoking to reduce overall cardiovascular risk.                                                                                                                                                                         | C       |
 | Non Pharmacological  Management (Continued) | Relaxation Encourage patient to manage stress although evidence on  relaxation interventions have not been convincing.                                                                                                              | C       |
 | Pharmacological  Management                  | Treat most patients with pharmacological agent life-long.                                                                                                                                                                           | C       |
-| Pharmacological  Management                  | Choose mono-therapy in patients with stage 1 hypertension  and with no compelling indication from one of the 5 classes  of drug (ACEIs, ARBs, CCBs, Diuretics or ß-blockers) based  on patient’s individual clinical profile. (NEW) | C       |
+| Pharmacological  Management                  | Choose mono-therapy in patients with stage 1 hypertension  and with no compelling indication from one of the 5 classes  of drug (ACEIs, ARBs, CCBs, Diuretics or ß�-blockers) based  on patient’s individual clinical profile. (NEW) | C       |
 | Pharmacological  Management                  | Choose combination therapy in patients with medium/high/ very high risk stage 1 hypertension and stage 2 hypertension.  (NEW)                                                                                                       | A       |
 | Pharmacological  Management                  | Treat BP to SBP <140 mmHg and DBP <90 mmHg for most  hypertensive patients.                                                                                                                                                         | A       |
-| Pharmacological  Management                  | Treat SBP to <130 mmHg and DBP <80 mmHg for high/very  high risk patients.                                                                                                                                                          | A       |
+| Pharmacological  Management                  | Treat SBP to <=130 mmHg and DBP <80 mmHg for high/very  high risk patients.                                                                                                                                                          | A       |
 | Pharmacological  Management                  | Use combination therapy (free or single pill) for most patients  to achieve BP control.                                                                                                                                             | A       |
 | Pharmacological  Management                  | Arrange periodic scheduled visits to assess global CV risk,  emerging new risk factors and organ damage/complications.                                                                                                              | C       |
 | Pharmacological  Management                  | Co-manage patients whose BP are controlled with primary  care facilities (Klinik Kesihatan or private General Practice).                                                                                                            | C       |
@@ -455,11 +455,11 @@ Note: The grades of recommendation relate to the strength of the evidence on whi
 | Hypertension  and Diabetes  Mellitus | Initiate drug treatment if BP is consistently >140/80 mmHg.                                                                                                                                                       | A                        |
 | Hypertension  and Diabetes  Mellitus | Use ACEIs in diabetes without proteinuria. Use ARB for ACEI  intolerant patients.                                                                                                                                 | A                        |
 | Hypertension  and Diabetes  Mellitus | Use ACEIs or ARBs in patients with diabetes and proteinuria.                                                                                                                                                      | A                        |
-| Hypertension  and Diabetes  Mellitus | Consider CCBs, diuretics or ß-blockers if RAS blockers  cannot be used.                                                                                                                                           | C                        |
+| Hypertension  and Diabetes  Mellitus | Consider CCBs, diuretics or ß�-blockers if RAS blockers  cannot be used.                                                                                                                                           | C                        |
 | Hypertension  and Diabetes  Mellitus | Aim for BP in the diabetic to be <140/80 mmHg.                                                                                                                                                                    | A                        |
-| Hypertension  and Diabetes  Mellitus | Consider to lower BP <130/80 mmHg in younger patients.                                                                                                                                                            | C                        |
+| Hypertension  and Diabetes  Mellitus | Consider to lower BP <=130/80 mmHg in younger patients.                                                                                                                                                            | C                        |
 | Hypertension  and Renal              | Patients with proteinuria of <1 g/24 hours, lower BP to  <140/90 mmHg. (NEW)                                                                                                                                      | A                        |
-| Diseases                             | In patients with proteinuria of >1g/24 hours, lower BP to  <130/80 mmHg. (NEW)                                                                                                                                    | A                        |
+| Diseases                             | In patients with proteinuria of >1g/24 hours, lower BP to  <=130/80 mmHg. (NEW)                                                                                                                                    | A                        |
 
 | ISSUES                                        | RECOMMENDATIONS                                                                                                                                                          | GRADE   |
 |-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
@@ -468,16 +468,16 @@ Note: The grades of recommendation relate to the strength of the evidence on whi
 | Hypertension  and Renal  Diseases (Continued) | Add non-dihydropyridine CCBs if BP goal is still not achieved  and there is persistent proteinuria.                                                                      | A       |
 | Hypertension  and Renal  Diseases (Continued) | Consider concurrent diuretic therapy and dietary salt  restriction as salt and water retention are important  determinants of hypertension in CKD.                       | B       |
 | Hypertension  and Renal  Diseases (Continued) | Avoid dual RAS blockade in patients with CKD. (NEW)                                                                                                                      | A       |
-| Hypertension  and Heart  Diseases             | Use ß-blockers, ACEIs or ARBs in post myocardial infarction  patients to reduce recurrent myocardial infarction and death.                                               | A       |
-| Hypertension  and Heart  Diseases             | Initiate ß-blockers, ACEIs and Aldosterone antagonists  in patients with systolic heart failure (HFrEF) to reduce  morbidity and mortality.                              | A       |
+| Hypertension  and Heart  Diseases             | Use ß�-blockers, ACEIs or ARBs in post myocardial infarction  patients to reduce recurrent myocardial infarction and death.                                               | A       |
+| Hypertension  and Heart  Diseases             | Initiate ß�-blockers, ACEIs and Aldosterone antagonists  in patients with systolic heart failure (HFrEF) to reduce  morbidity and mortality.                              | A       |
 | Hypertension  and Heart  Diseases             | Use ARBs or ACEIs and aldosterone antagonist in heart  failure patients with preserved ejection fraction (HFpEF) to  reduce morbidity including hospitalisation.         | A       |
 | Hypertension  and Heart  Diseases             | Use RAS blockers in patients >75 years old with AF to reduce  mortality. (NEW)                                                                                           | B       |
-| Hypertension  and Heart  Diseases             | Use any antihypertensive except ß-blockers as first choice in  patients with PAD.                                                                                        | C       |
+| Hypertension  and Heart  Diseases             | Use any antihypertensive except ß�-blockers as first choice in  patients with PAD.                                                                                        | C       |
 | Hypertension  and Heart  Diseases             | Give ACEI to patients with PAD to prevent vascular events.  (NEW)                                                                                                        | B       |
 | Hypertension  and Heart  Diseases             | Consider cilostazol in the elderly patients with symptomatic  CAD and concurrent PAD. (NEW)                                                                              | B       |
 | Hypertension  and Heart  Diseases             | Use ARBs as treatment of choice in hypertensive patients  with LVH on ECG.                                                                                               | A       |
 | Hypertension  and Heart  Diseases             | Treat blood pressure to <140 / <90 mmHg in patients with  concurrent IHD, peripheral arterial disease (PAD), PAD with/ without AF. (NEW)                                 | B       |
-| Hypertension  and Heart  Diseases             | Treat blood pressure to <130/80 mmHg in patients with LVH.  (NEW)                                                                                                        | B       |
+| Hypertension  and Heart  Diseases             | Treat blood pressure to <=130/80 mmHg in patients with LVH.  (NEW)                                                                                                        | B       |
 | Hypertension  and Heart  Diseases             | Prescribe antiplatelet agent unless contraindicated.                                                                                                                     | A       |
 
 | ISSUES                            | RECOMMENDATIONS                                                                                                                                                                                                            | GRADE   |
@@ -485,18 +485,18 @@ Note: The grades of recommendation relate to the strength of the evidence on whi
 | Hypertension  and Stroke          | Treat BP to prevent both primary and secondary stroke.                                                                                                                                                                     | A       |
 |                                   | Treat BP to <140/90 mmHg for primary prevention.                                                                                                                                                                           | B       |
 |                                   | Lower BP to be <140/90 mmHg in both normotensive and  hypertensive patients for secondary prevention. Combination  of ACEI and diuretics is preferred for secondary prevention.                                            | A       |
-|                                   | Lower BP to <130/80 mmHg for secondary prevention in  lacunar stroke. (NEW)                                                                                                                                                | A       |
+|                                   | Lower BP to <=130/80 mmHg for secondary prevention in  lacunar stroke. (NEW)                                                                                                                                                | A       |
 |                                   | Do not lower SBP <180 mmHg in the first 2 weeks in acute  ischaemic stroke patients unless hypertensive emergencies  co-exist. (NEW)                                                                                       | C       |
 |                                   | Avoid lowering BP abruptly with sublingual nifedipine in  acute stroke.                                                                                                                                                    | C       |
-|                                   | Do not lower SBP to <140 mmHg in patients presenting  within 6 hours of haemoraghic stroke (HS) and presenting  SBP of <220 mmHg.                                                                                          | C       |
-|                                   | Consider aggressive reduction of BP in HS patients  presenting with SBP ≥220 mmHg with continuous  intravenous infusion of antihypertensive and frequent BP  monitoring. (NEW)                                             | C       |
+|                                   | Do not lower SBP to <140 mmHg in patients presenting  within 6 hours of haemoraghic stroke (HS) and presenting  SBP of <=220 mmHg.                                                                                          | C       |
+|                                   | Consider aggressive reduction of BP in HS patients  presenting with SBP ≥=220 mmHg with continuous  intravenous infusion of antihypertensive and frequent BP  monitoring. (NEW)                                             | C       |
 | Hypertension in  The Older Adults | Measure standing BP and use it to guide treatment decision.  (NEW)                                                                                                                                                         | C       |
 | Hypertension in  The Older Adults | Assess comprehensively to confirm hypertension. (NEW)                                                                                                                                                                      | C       |
 | Hypertension in  The Older Adults | Assess for frailty, mobility, function, cognition, nutrition,  postural hypotension and falls. (NEW)                                                                                                                       | C       |
 | Hypertension in  The Older Adults | Individualised treatment based on clinical scenarios. (NEW)                                                                                                                                                                | C       |
 | Hypertension in  The Older Adults | Target SBP <150 mmHg for >80 year olds.                                                                                                                                                                                    | A       |
 | Hypertension in  The Older Adults | Target SBP <140 mmHg for 65-80 year olds. (NEW)                                                                                                                                                                            | B       |
-| Hypertension in  The Older Adults | Consider SBP <130 mmHg in fit 65-80 year olds. (NEW)                                                                                                                                                                       | A       |
+| Hypertension in  The Older Adults | Consider SBP <=130 mmHg in fit 65-80 year olds. (NEW)                                                                                                                                                                       | A       |
 | Hypertension in  The Older Adults | Apply less strict targets for the frail, functionally and/or  cognitively-impaired, those with multi-morbidities and those  with adverse reactions from therapy. Consider de-prescribing  in this group of patients. (NEW) | C       |
 
 | ISSUES                 | RECOMMENDATIONS                                                                                                                                                                                                                                                            | GRADE                                |
@@ -524,7 +524,7 @@ Note: The grades of recommendation relate to the strength of the evidence on whi
 | Hypertension  in Neonates,  Children and  Adolescents | Measure BP at every encounter if the child have risk factors  or annually for obese children >7 year old.                                                       | C       |
 | Hypertension  in Neonates,  Children and  Adolescents | Once a child is diagnosed with hypertension, he/she should  be referred to a paediatrician for further evaluation and  management.                              | C       |
 | Hypertension  in Neonates,  Children and  Adolescents | Start non-pharmacologic management especially weight  reduction in obese children and in all children with BP of  >90th percentile.                             | C       |
-| Hypertension  in Neonates,  Children and  Adolescents | Once pharmacologic therapy is initiated, BP must be  reduced to <90th percentile (Systolic and Diastolic) and  <130/80 mmHg in adolescents ≥13 years old. (NEW) | C       |
+| Hypertension  in Neonates,  Children and  Adolescents | Once pharmacologic therapy is initiated, BP must be  reduced to <90th percentile (Systolic and Diastolic) and  <=130/80 mmHg in adolescents ≥=13 years old. (NEW) | C       |
 | Hypertension  in Neonates,  Children and  Adolescents | In children and adolescent with CKD, lower BP to <50 th percentile. (NEW)                                                                                       | C       |
 | Economic Impact  of Hypertension                      | Conduct more awareness programmes on clinical and  economic benefits in prevention and early treatment of  hypertension.                                        | B       |
 | Economic Impact  of Hypertension                      | Institute behavioral changes especially on medical treatment  adherence to reduce complications and long-term healthcare  cost. (NEW)                           | A       |
@@ -547,7 +547,7 @@ Note: The grades of recommendation relate to the strength of the evidence on whi
 
 | Co-Existing Condition BP Levels (mmHg)   | No RF No TOD No TOC   | TOD or  RF (1-2)  No TOC   | TOC or RF(≥3) or Clinical atherosclerosis  or CKD   | Previous MI /  IHD, Previous  stroke or  Diabetes or  CKD   |
 |------------------------------------------|-----------------------|----------------------------|-----------------------------------------------------|-------------------------------------------------------------|
-| SBP 130 - 139 and/or DBP 80 - 89         | Low                   | Intermediate               | High                                                | Very High                                                   |
+| SBP =130 - =139 and/or DBP 80 - 89         | Low                   | Intermediate               | High                                                | Very High                                                   |
 | SBP 140 - 159 and/or DBP 90 - 99         | Low                   | Medium                     | High                                                | Very High                                                   |
 | SBP 160 - 179 and/or DBP 100 - 109       | Medium                | High                       | Very High                                           | Very High                                                   |
 | SBP >180 and/or  DBP >110                | High                  | Very High                  | Very High                                           | Very High                                                   |
@@ -594,7 +594,7 @@ Additional risk factors (smoking, TC &gt;6.5mmol/L, family history of premature 
 |         7 | 7.6-D   | COC and Hormonal Therapy Preparations Containing  Drospirenone                                              |     91 |
 |         7 | 7.7-A   | Definition of BP Categories, Stages, Patient Evalution and  Management (0-18 years)                         |     95 |
 |         9 | 9.1-A   | Recommended Dosing for Diuretics                                                                            |    103 |
-|         9 | 9.2-A   | Recommended Dosing for ß-blockers                                                                           |    104 |
+|         9 | 9.2-A   | Recommended Dosing for ß�-blockers                                                                           |    104 |
 |         9 | 9.3-A   | Recommended Dosing for CCBs                                                                                 |    106 |
 |         9 | 9.4-A   | Recommended Dosing for ACEIs                                                                                |    107 |
 
@@ -602,11 +602,11 @@ Additional risk factors (smoking, TC &gt;6.5mmol/L, family history of premature 
 |-----------|---------|------------------------------------------------|--------|
 |         9 | 9.4-B   | Recommended Dosing for ARBs                    |    109 |
 |         9 | 9.4-C   | RAS blockers Use in Co-Morbidities             |    109 |
-|         9 | 9.5-A   | Recommended Dosing for ∂-blockers              |    110 |
-|         9 | 9.5-B   | Recommended Dosing for ∂, ß-blockers           |    110 |
+|         9 | 9.5-A   | Recommended Dosing for ∂�-blockers              |    110 |
+|         9 | 9.5-B   | Recommended Dosing for ∂, ß�-blockers           |    110 |
 |         9 | 9.5-C   | Recommended Dosing for Centrally Acting Agents |    111 |
 |         9 | 9.5-D   | Recommended Dosing for Minoxidil               |    112 |
-|         9 | 9.5-E   | New Drugs for Hypertension                     |    113 |
+|         9 | 9.5-E   | New Drugs for Hypertension                     |    1=13 |
 
 ## List of Figures
 
@@ -639,7 +639,7 @@ Additional risk factors (smoking, TC &gt;6.5mmol/L, family history of premature 
 10. What non-pharmacological intervention is recommended and beneficial?
 11. What and how should pharmacological management be started?
 12. What target blood pressure should be aimed for in general hypertensive population and in specific sub-groups?
-13. When should target blood pressure be achieved?
+=13. When should target blood pressure be achieved?
 14. When should combination therapy be used?
 15. How to recognise, evaluate and manage resistant hypertension?
 16. How should severe hypertension be assessed and managed?
@@ -657,3 +657,4 @@ Additional risk factors (smoking, TC &gt;6.5mmol/L, family history of premature 
 21. Should aspirin be prescribed to patients with hypertension?
 22. What is the role of device based therapy in hypertension?
 23. What key research areas should be focused on to address unanswered clinical questions?
+
