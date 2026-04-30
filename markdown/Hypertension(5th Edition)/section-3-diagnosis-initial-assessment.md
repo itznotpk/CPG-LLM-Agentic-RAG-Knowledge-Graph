@@ -1,10 +1,10 @@
 # DIAGNOSIS AND INITIAL ASSESSMENT
 
 <!-- METADATA
-category: diagnosis
-use_case: initial_assessment, diagnostic_workup
-patient_input: bp_readings, history, exam, labs, comorbidities
-output: diagnosis, baseline_workup
+category: Diagnosis, Initial Assessment
+use_case: Hypertension Diagnostic Workup and Risk Stratification — secondary_causes, target_organ_damage, target_organ_complications, baseline_investigations, cardiovascular_risk_assessment, referral_criteria
+patient_input: blood_pressure_readings, symptoms, medical_history, physical_exam, labs, comorbidities, medications
+output: diagnostic_plan, baseline_workup, secondary_cause_screening, risk_profile, referral_triggers
 -->
 
 ## Diagnosis and Initial Assessment
@@ -136,61 +136,4 @@ Modified from JNC-VII 32(Level III)
 
 
 
---- 
 
-> **OVERLAPPING DIAGNOSTIC & RISK CONTEXT FOR RAG:**
-
-TABLE 1-A Classification of Clinic Blood Pressure Levels in Adults
-
-| Classification*                | Systolic (mmHg)   |        | Diastolic (mmHg)   |   Prevalence in  Malaysia 3 |
-|--------------------------------|-------------------|--------|--------------------|-----------------------------|
-| Optimal                        | <120              | and    | <80                |                        30.7 |
-| Normal                         | 120-129           | and/or | 80-84              |                        25.3 |
-| At Risk                        | 130-139           | and/or | 85-89              |                        18.6 |
-| Hypertension                   |                   |        |                    |                             |
-| Stage 1 (Mild)                 | 140-159           | and/or | 90-99              |                        17.3 |
-| Stage 2 (Moderate)             | 160-179           | and/or | 100-109            |                         5.7 |
-| Stage 3 (Severe)               | ≥180              | and/or | ≥110               |                         2.4 |
-| Isolated Systolic Hypertension | ≥140              | and    | <90                |                        11.2 |
-
-Home and Ambulatory BP may be used to diagnose and classify elevated blood pressure (Table 1-B) (see section on chapter 2.2 and 2.3).
-
-TABLE 1-B Criteria for Staging Hypertension Based on Clinic, Home and Ambulatory Blood Pressure Monitoring
-
-| Category              | Clinic BP (mmHg)     | Home BP Monitoring Average  or Ambulatory BP Daytime  Average (mmHg)   |
-|-----------------------|----------------------|------------------------------------------------------------------------|
-| Stage I Hypertension  | ≥140/90              | ≥135/85                                                                |
-| Stage II Hypertension | ≥160/100             | ≥150/95                                                                |
-| Severe Hypertension   | SBP ≥180 or DBP ≥110 | -                                                                      |
-
-Note: Adapted from National Institute for Health and Clinical Excellence (NICE) Hypertension, 2011. 4
-
-TABLE 3-C Co-existing Cardiovascular Risk Factors for Risk Stratification
-
-- Diabetes mellitus
-- Dyslipidaemia
-- Cigarette smoking
-- Microalbuminuria/Proteinuria
-- Estimated GFR &lt;60 mL/min/m2
-
-According to a study in Malaysia as many as 54% patients with essential hypertension did not have their cardiovascular risks adequately assessed. 27
-
-Following initial clinical evaluation and investigations, the patient should be risk stratified. Many patients with hypertension have more than one other cardiovascular
-
-risk factor. Each additional risk factor increases cardiovascular risk substantially. Hence, overall global cardiovascular risk of a patient with hypertension should be done. 28,29 There are various ways to assess global cardiovascular risk and this includes using validated risk charts like the Framingham General Cardiovascular Risk Chart which has been validated locally and found to perform quite well 30,31 or using risk stratification tables (Table 3-D) which stratifies the risk of developing major cardiovascular events, which includes stroke, myocardial infarction and total mortality.
-
-TABLE 3-D Risk Stratification
-
-| Co-Existing Condition BP Levels (mmHg)   | No RF No TOD No TOC   | TOD or  RF (1-2)  No TOC   | TOC or RF(≥3) or Clinical atherosclerosis  or CKD   | Previous MI /  IHD, Previous  stroke or  Diabetes or  CKD   |
-|------------------------------------------|-----------------------|----------------------------|-----------------------------------------------------|-------------------------------------------------------------|
-| SBP 130 - 139 and/or DBP 80 - 89         | Low                   | Intermediate               | High                                                | Very High                                                   |
-| SBP 140 - 159 and/or DBP 90 - 99         | Low                   | Medium                     | High                                                | Very High                                                   |
-| SBP 160 - 179 and/or DBP 100 - 109       | Medium                | High                       | Very High                                           | Very High                                                   |
-| SBP >180 and/or  DBP >110                | High                  | Very High                  | Very High                                           | Very High                                                   |
-
-| Risk Level       | Risk of Major CV  Event in 10 years   | Management                        |
-|------------------|---------------------------------------|-----------------------------------|
-| Low-Intermediate | <10%                                  | Healthy living                    |
-| Medium           | 10 - 20%                              | Drug treatment and healthy living |
-| High             | 20 - 30%                              | Drug treatment and healthy living |
-| Very high        | >30%                                  | Drug treatment and healthy living |

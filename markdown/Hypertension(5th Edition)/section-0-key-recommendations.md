@@ -1,10 +1,10 @@
 # KEY RECOMMENDATIONS AND INTRO
 
 <!-- METADATA
-category: key_recommendations
-use_case: quick_reference, care_plan_generation
-patient_input: blood_pressure, comorbidities, risk_factors
-output: key_recommendations
+category: Key Recommendations, Guideline Overview
+use_case: Hypertension Key Messages & Guideline Context — quick_reference, key_messages, statement_of_intent, scope, summary_of_recommendations, table_of_contents
+patient_input: blood_pressure, comorbidities, cardiovascular_risk_factors, care_setting
+output: hypertension_key_recommendations, guideline_scope, high_level_principles, quick_reference_summary
 -->
 
 CLINICAL PRACTICE GUIDELINES
@@ -620,3 +620,40 @@ Additional risk factors (smoking, TC &gt;6.5mmol/L, family history of premature 
 |         6 | 6-C      | Flowchart in Management of Hypertensive Emergency                       |     59 |
 |         7 | 7.4-A    | Treatment Algorithm for Acute Stroke                                    |     76 |
 |         7 | 7.6-A    | ABPM to Diagnose and Manage Isolated Office  Hypertension in Pregnancy. |     84 |
+
+---
+
+# PRECISION OVERLAP: REFERENCE ARTIFACTS
+
+## APPENDIX 5 Clinical Questions
+
+1. What is the prevalence of hypertension in adults?
+2. What are the causes of hypertension in adults?
+3. What are the diagnostic criteria of hypertension in adults, pregnant women and neonates/children/adolescents?
+4. What is the role of home blood pressure monitoring and how it should be measured?
+5. What is the role of ambulatory blood pressure monitoring?
+6. What are the secondary causes of hypertension in adults, pregnant women and neonates/children/adolescents?
+7. How should patients with hypertension be assessed clinically?
+8. Which investigation should be done in newly diagnosed hypertension?
+9. How should patients be stratified according to global cardiovascular risk?
+10. What non-pharmacological intervention is recommended and beneficial?
+11. What and how should pharmacological management be started?
+12. What target blood pressure should be aimed for in general hypertensive population and in specific sub-groups?
+13. When should target blood pressure be achieved?
+14. When should combination therapy be used?
+15. How to recognise, evaluate and manage resistant hypertension?
+16. How should severe hypertension be assessed and managed?
+17. How should specific sub-groups with hypertension be managed?
+- Diabetes
+- Renal disease
+- Heart disease
+- Stroke
+- Older adults
+- Women
+- Neonates, children and adolescents
+18. What are the current available pharmacological treatment for hypertension?
+19. How cost effective is treating hypertensive?
+20. How should resistant and refractory hypertension be diagnosed, assessed and managed?
+21. Should aspirin be prescribed to patients with hypertension?
+22. What is the role of device based therapy in hypertension?
+23. What key research areas should be focused on to address unanswered clinical questions?

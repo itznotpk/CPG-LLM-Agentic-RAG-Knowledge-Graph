@@ -1,10 +1,10 @@
 # ECONOMIC IMPACT OF HYPERTENSION
 
 <!-- METADATA
-category: implementation
-use_case: resource_planning, cost_considerations
-patient_input: care_setting, available_resources
-output: resource_implications
+category: Implementation, Health Economics
+use_case: Economic Impact and Resource Planning — cost_burden, cost_effectiveness, screening_programs, medication_costs, complication_costs, health_system_implications
+patient_input: care_setting, available_resources, population_scope
+output: resource_implications, cost_considerations, program_rationale
 -->
 
 ## Economic Impact of Hypertension
@@ -34,3 +34,6 @@ Hypertension is responsible for at least 45% and 51% of deaths from heart diseas
 ## RECOMMENDATIONS
 
 - Conduct more awareness programmes on clinical and economic benefits in prevention and early treatment of hypertension.
+
+
+

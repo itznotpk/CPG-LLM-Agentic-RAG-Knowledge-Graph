@@ -1,10 +1,10 @@
 # ASPIRIN IN HYPERTENSION
 
 <!-- METADATA
-category: treatment
-use_case: adjunct_therapy_risk_benefit
-patient_input: cv_risk, bleeding_risk, comorbidities
-output: aspirin_guidance
+category: Adjunct Therapy, Antiplatelet (Aspirin)
+use_case: Aspirin in Hypertension (Risk–Benefit) — primary_prevention, secondary_prevention, bleeding_risk, BP_control_prerequisite, patient_selection
+patient_input: cardiovascular_risk, bleeding_risk, prior_CVD, blood_pressure_control, kidney_function
+output: aspirin_guidance, patient_selection_criteria, precautions
 -->
 
 ## Aspirin in Hypertension

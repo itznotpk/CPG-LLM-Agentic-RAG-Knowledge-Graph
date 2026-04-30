@@ -1,10 +1,10 @@
 # DEVICE AND PROCEDURE BASED THERAPY
 
 <!-- METADATA
-category: treatment
-use_case: device_procedure_selection
-patient_input: refractory_hypertension, eligibility_criteria
-output: procedure_options
+category: Treatment, Device- and Procedure-Based Therapy
+use_case: Device Therapies for Hypertension — renal_denervation, baroreceptor_activation, evidence_summary, eligibility, referral_considerations, not_routine_care
+patient_input: resistant_hypertension_status, refractory_hypertension_status, eligibility_criteria, care_setting, specialist_access
+output: procedure_options, evidence_summary, referral_considerations
 -->
 
 ## Device and Procedure Based Therapy in 12

@@ -1,10 +1,10 @@
 # EPIDEMIOLOGY, DEFINITION AND CLASSIFICATION OF HYPERTENSION
 
 <!-- METADATA
-category: background_knowledge
-use_case: epidemiology, definition_classification
-patient_input: population_risk_factors
-output: definitions, classification
+category: Background, Definitions, Classification
+use_case: Hypertension Epidemiology and BP Classification — prevalence_data, Malaysian_context, definitions, staging, isolated_systolic_hypertension, white_coat_hypertension, masked_hypertension
+patient_input: age, blood_pressure_readings, measurement_context, cardiovascular_risk_factors
+output: hypertension_definition, bp_classification, staging_criteria, phenotype_definitions
 -->
 
 ## Epidemiology, Definition and Classification of Hypertension
@@ -17,11 +17,44 @@ Non-Communicable Diseases (NCDs) is already the main cause of death in Malaysia 
 
 FIGURE 1-A Mortality Attributable to Risk Factors, Malaysia 2008 2
 
-<!-- image -->
+**Text interpretation (Male vs Female, % of mortality attributable):**
+
+| Risk factor | Male (%) | Female (%) |
+|---|---:|---:|
+| Poor water & sanitation | 0.1 | 0.1 |
+| Underweight | 0.2 | 0.2 |
+| Physical inactivity | 2.3 | 0.3 |
+| Alcohol | 5.0 | 7.1 |
+| High cholesterol | 7.0 | 8.2 |
+| High BMI | 7.3 | 8.1 |
+| Diabetes mellitus | 8.5 | 9.1 |
+| Tobacco | 15.7 | 1.2 |
+| High BP | 19.4 | 22.8 |
+
+**Key takeaways:**
+- High BP is the largest attributable risk factor for both sexes (Male 19.4%, Female 22.8%).
+- Tobacco is a major male contributor (15.7%) but much lower in females (1.2%).
 
 FIGURE 1-B DALYs Attributable to Risk Factors, Malaysia 2008 2
 
-<!-- image -->
+**Text interpretation (Male vs Female, % of DALYs attributable):**
+
+| Risk factor | Male (%) | Female (%) |
+|---|---:|---:|
+| Poor water & sanitation | 0.1 | 0.1 |
+| Underweight | 0.7 | 0.7 |
+| Physical inactivity | 3.1 | 4.3 |
+| Alcohol | 4.3 | 0.9 |
+| High cholesterol | 5.2 | 5.1 |
+| High BMI | 8.3 | 12.1 |
+| Diabetes mellitus | 9.0 | 11.4 |
+| Tobacco | 10.7 | 0.7 |
+| High BP | 10.8 | 10.8 |
+
+**Key takeaways:**
+- High BP contributes similarly to DALYs in both sexes (10.8% each).
+- In females, high BMI (12.1%) and diabetes mellitus (11.4%) are the largest DALY contributors.
+- In males, tobacco (10.7%) and high BP (10.8%) are major DALY contributors.
 
 The latest National Health and Morbidity Survey (NHMS) for NCD risk factors in 2015 3 showed an overall prevalence of hypertension of 35.3% among adults 18 years and above. This is an increase from 33.6% in 2011 as compared to 34.6% in 2006. However, in terms of awareness, only 37.5% were aware in 2015 a drop from 40.7% in 2011. In 2006, the awareness rate was 35.6%. 3
 

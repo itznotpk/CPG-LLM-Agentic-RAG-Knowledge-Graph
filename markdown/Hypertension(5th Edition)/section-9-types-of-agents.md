@@ -1,10 +1,10 @@
 # TYPES OF ANTIHYPERTENSIVE AGENTS
 
 <!-- METADATA
-category: treatment_reference
-use_case: drug_reference, adverse_effects_contraindications
-patient_input: drug_class, comorbidities, interacting_meds
-output: drug_comparison
+category: Treatment Reference, Antihypertensive Agents
+use_case: Antihypertensive Drug Class Reference — dosing, contraindications, adverse_effects, interactions, class_selection, combination_considerations
+patient_input: drug_class, comorbidities, kidney_function, pregnancy_status, interacting_meds, adverse_effect_history
+output: drug_reference, dosing_guidance, contraindications, adverse_effects_summary
 -->
 
 ## Types of Antihypertensive Agents
@@ -315,3 +315,33 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 ## SUMMARY
 
 - Relaxation therapy may complement non-pharmacological and pharmacological treatment of hypertension however it is not recommended as primary treatment for hypertension.
+
+
+---
+
+> **OVERLAPPING PHARMACOLOGICAL CONTEXT FOR RAG:**
+
+TABLE 5-C Choice of Anti-Hypertensive Drugs in Patients with Concomitant Conditions
+
+| Concomitant  Condition                                 | Diuretics   | ß-blockers   | ACEIs   | CCBs   | Peripheral ∂-blockers   | ARBs   |
+|--------------------------------------------------------|-------------|--------------|---------|--------|-------------------------|--------|
+| Diabetes  mellitus (without  nephropathy)              | +           | +/-          | +++     | +      | +/-                     | ++     |
+| Diabetes mellitus  (with nephropathy)                  | ++          | +/-          | +++     | ++     | +/-                     | +++    |
+| Gout                                                   | +/-         | +            | +       | +      | +                       | ++     |
+| Dyslipidaemia                                          | +/-         | +/-          | +       | +      | +                       | +      |
+| Coronary heart  disease                                | +           | +++          | +++     | ++     | +                       | +++    |
+| Heart failure                                          | +++         | +++#         | +++     | +@     | +                       | +++    |
+| Asthma                                                 | +           | –            | +       | +      | +                       | +      |
+| Peripheral vascular  disease                           | +           | +/-          | ++      | +      | +                       | +      |
+| Non-diabetic renal  impairment                         | ++          | +            | +++     | ++     | +                       | ++     |
+| Unilateral Renal  artery stenosis                      | +           | +            | ++$     | +      | +                       | ++$    |
+| Older Adults with  no co-morbid  conditions            | +++         | +            | +       | +++    | +/-                     | +      |
+| Very Elderly  (>80 yrs) with no  co-morbid  conditions | +++         | +            | +++     | ++     | +/-                     | ++     |
+
+The grading of recommendation from (+) to (+++) is based on increasing levels of evidence and/or current widely accepted practice.
+
+- Use with care +/-
+- Contraindicated –
+- Metoprolol, bisoprolol, carvedilol, nebivolol – dose needs to be gradually titrated #
+- Current evidence available for amlodipine and felodipine only @
+- Contraindicated in bilateral renal artery stenosis $

@@ -1,10 +1,10 @@
 # SUGGESTED AREAS OF RESEARCH
 
 <!-- METADATA
-category: implementation
-use_case: research_priorities
-patient_input: knowledge_gaps
-output: research_agenda
+category: Implementation, Research Priorities
+use_case: Suggested Areas of Research — knowledge_gaps, Malaysian_context, epidemiology, monitoring, treatment, complications, pregnancy, health_system_research
+patient_input: none
+output: research_agenda, priority_topics
 -->
 
 ## Suggested Areas of Research
