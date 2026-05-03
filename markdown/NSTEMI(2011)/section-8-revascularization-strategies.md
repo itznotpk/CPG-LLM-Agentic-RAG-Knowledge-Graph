@@ -1,3 +1,5 @@
+# SECTION 8: REVASCULARIZATION STRATEGIES
+
 <!-- METADATA
 category: Treatment
 use_case: Revascularisation Strategy Selection — early_invasive_vs_conservative, PCI_indications, CABG_indications, coronary_angiography_timing
@@ -6,8 +8,6 @@ output: revascularisation_strategy, PCI_vs_CABG_decision, angiography_timing
 critical: true
 treatment_type: PCI, CABG, medical_therapy
 -->
-
-# SECTION 8: REVASCULARIZATION STRATEGIES
 
 > **Context:** This section provides definitive guidelines on revascularization timelines: routine early invasive versus selective conservative management. By intersecting TIMI/GRACE risk profiling with dynamic clinical variables, this module outlines precisely which patient profiles require immediate catheterization and which can be managed medically, ensuring evidence-based resource allocation.
 

@@ -1,3 +1,5 @@
+# SECTION 9: UA/NSTEMI IN SPECIAL GROUPS
+
 <!-- METADATA
 category: Special Populations, Treatment, Diagnosis
 use_case: Comorbidity-Specific Management — elderly_ACS, women_ACS, diabetes_ACS, chronic_kidney_disease, contrast_nephropathy_prevention, atypical_presentation, renal_dose_adjustment
@@ -6,8 +8,6 @@ output: dose_adjustment, invasive_strategy_modification, nephropathy_prevention_
 critical: true
 treatment_type: aspirin, clopidogrel, prasugrel, UFH, LMWH, fondaparinux, bivalirudin, eptifibatide, tirofiban, insulin, N_acetylcysteine, sodium_bicarbonate
 -->
-
-# SECTION 9: UA/NSTEMI IN SPECIAL GROUPS
 
 > **Context:** This section outlines critical modifications to UA/NSTEMI therapy protocols for vulnerable populations—Elderly, Women, Diabetics, and patients with Chronic Kidney Disease (CKD). It provides precise, age-weighted anti-thrombotic dosage limits, criteria for conservative versus early invasive management strategies, and protocols for avoiding contrast-induced nephropathy during percutaneous coronary interventions.
 

@@ -1,11 +1,11 @@
+# SECTION 12: APPENDICES
+
 <!-- METADATA
 category: Reference, Diagnosis, Assessment
 use_case: Appendices and Classification Tables — Braunwald_classification, troponin_differential, ACS_likelihood_criteria, TIMI_score, GRACE_score, creatinine_clearance, contrast_nephropathy
 patient_input: clinical_parameters, scoring_variables
 output: classification_reference, risk_score_calculation, diagnostic_criteria, dosing_reference
 -->
-
-# SECTION 12: APPENDICES
 
 > **Context:** This section consolidates supplementary clinical classification tables and diagnostic criteria, including Appendix I (Braunwald's Classification of Unstable Angina), Appendix II (differential diagnoses for cardiac troponin elevations), Appendix III (clinical likelihood assessment matrix for ACS secondary to CAD), Appendix IV (TIMI Risk Score), Appendix V (GRACE Prediction Score nomogram), Appendix VI (Creatinine Clearance Calculation), Appendix VII and VIII (Contrast Induced Nephropathy Prevention guidelines and dosing).
 

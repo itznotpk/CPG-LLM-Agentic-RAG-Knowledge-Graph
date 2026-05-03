@@ -1,11 +1,11 @@
+# SECTION 3: PATHOGENESIS
+
 <!-- METADATA
 category: Pathophysiology
 use_case: ACS Pathogenesis — plaque_rupture, thrombosis, coronary_vasospasm, primary_vs_secondary_UA
 patient_input: 
 output: pathogenesis_classification, mechanism_of_ACS
 -->
-
-# SECTION 3: PATHOGENESIS
 
 > **Context:** This section details the biological cascade of ACS, from vulnerable atherosclerotic plaque rupture and thrombosis through to the resulting degree of coronary occlusion and specific final clinical presentation.
 
