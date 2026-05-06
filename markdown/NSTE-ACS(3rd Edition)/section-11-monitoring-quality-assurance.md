@@ -1,75 +1,38 @@
 # SECTION 11: MONITORING OF ACTIVITY AND QUALITY ASSURANCE
-## CPG MANAGEMENT OF NON-ST ELEVATION MYOCARDIAL INFARCTION (NSTE-ACS), 3RD EDITION, 2021
 
-Regular audit of performance and outcome measures should be performed periodically to monitor and improve quality of care.
+<!-- METADATA
+category: Reference, Assessment
+use_case: Quality Assurance and Performance Measures - hs_cTn_access, HEART_score_documentation, angiogram_timing, discharge_medications, cardiac_rehabilitation_referral
+patient_input: ED_cases, suspected_ACS, NSTE_ACS_discharge, high_risk_status, angiogram_timing, discharge_medications
+output: performance_indicators, outcome_measures, audit_targets, quality_improvement_metrics
+-->
 
----
+Implementation of the recommendations listed in this CPG can be accomplished by:
 
-## Table 7: Performance and Outcome Measures
+- Continuous medical education via regular seminars, lectures and roadshows particularly at the district hospital and family medicine clinics. Education and training is the most important aspect of the implementation of this CPG.
+- Widespread availability of this CPG to healthcare providers via printed copies, electronic websites, etc.
 
-### Performance Measures
+## Key Recommendations 13:
 
-| No. | Performance Measure | Target |
-|---|---|---|
-| 1 | Aspirin at arrival | > 90% |
-| 2 | Aspirin prescribed at discharge | > 90% |
-| 3 | P2Y12 inhibitor (clopidogrel/ticagrelor/prasugrel) prescribed at discharge | > 90% |
-| 4 | Statin prescribed at discharge | > 90% |
-| 5 | ACEI/ARB at discharge for patients with LVEF < 40% | > 80% |
-| 6 | ß-blocker at discharge for patients with LVEF < 40% | > 80% |
-| 7 | Smoking cessation advice/counselling during hospitalisation | > 90% |
-| 8 | Coronary angiography performed during index hospitalisation in high-risk patients | > 70% |
-| 9 | PCI performed during index hospitalisation when indicated | > 60% |
-| 10 | Referral to cardiac rehabilitation program | > 50% |
-
-### Outcome Measures
-
-| No. | Outcome Measure | Target |
-|---|---|---|
-| 1 | In-hospital mortality (NSTEMI) | < 5% |
-| 2 | In-hospital mortality (UA) | < 1% |
-| 3 | 30-day mortality (NSTEMI) | < 10% |
-| 4 | 30-day mortality (UA) | < 2% |
-| 5 | 30-day readmission rate | < 15% |
-| 6 | Major bleeding events during hospitalisation | < 5% |
+- Regular audit of performance and outcome measures (refer to Table 7: Performance and Outcome Measures) should be performed periodically to monitor and improve quality of care.
 
 ---
 
-### Overlapping Content: Discharge Checklist (from Sections 9 & 10)
+## Contextual Anchors (Overlapping)
 
-Before discharge, ensure the following have been addressed:
+### Table 7: Performance and Outcome Measures
 
-- [ ] DAPT prescribed (aspirin + P2Y12 inhibitor)
-- [ ] High intensity statin prescribed
-- [ ] ACEI/ARB prescribed (if LVEF < 40%, anterior infarct, diabetes)
-- [ ] ß-blocker prescribed (if LVEF < 40% or ongoing ischaemia)
-- [ ] Aldosterone antagonist considered (if LVEF < 40% and HF)
-- [ ] SGLT2 inhibitor considered (if diabetic and/or HF)
-- [ ] Smoking cessation counselling provided
-- [ ] Lifestyle modification advice given
-- [ ] Follow-up appointment scheduled
-- [ ] Cardiac rehabilitation referral made
-- [ ] Patient education on warning symptoms completed
-- [ ] Sublingual GTN use instructions provided
-- [ ] Copy of discharge ECG given to patient
-
----
-
-## Table 1: Levels of evidence and grades of recommendation
-
-| GRADES OF RECOMMENDATION | |
-| :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
-
-<br>
-
-| LEVELS OF EVIDENCE | |
-| :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| Documentation of the Following | Targets |
+| :--- | :---: |
+| **Performance Measures** | |
+| **Access to hs Troponin Testing in all EDs =**<br><br>Total number of EDs using hs-cTn / Total number of EDs x 100% | 50% |
+| **Measurement and Documentation of HEART Score at Emergency Department =**<br><br>Total number of patients with suspected ACS for which HEART score is documented / Total Number of patients with suspected ACS seen in ED x 100% | 70% |
+| **Percentage of High-Risk Patients Admitted to PCI Capable Hospitals and Undergoing Angiogram Within 48 hours =**<br><br>Total number of high-risk patients undergoing coronary angiogram within 48 hours / Total Number of high-risk patients admitted x 100% | 50% |
+| **Medications at Discharge:**<br>- Aspirin<br>- P2Y12 inhibitors<br>- High intensity statins<br><br>Total number of patients with NSTE-ACS who were discharged with aspirin (or P2Y12 inhibitors) or (high intensity statins) / Total Number of patients with NSTE-ACS who were discharged x 100% | 90%<br>90%<br>90% |
+| **Cardiac Rehabilitation =**<br><br>Total number of patients with NSTE-ACS who were referred for cardiac rehabilitation / Total Number of patients with NSTE-ACS who were discharged x 100% | 50% |
+| **Outcome Measures** | |
+| In-hospital mortality and morbidity in patients admitted with ACS (NCVD registry). | |
+| Readmission rates for a cardiac related event in patients discharged with a diagnosis of ACS. Elective admissions for cardiac procedure are excluded. | |
 
 ---
 
@@ -77,15 +40,14 @@ Before discharge, ensure the following have been addressed:
 
 | Abbreviation | Description |
 |---|---|
-| ACEI | Angiotensin Converting Enzyme Inhibitor |
-| ARB | Angiotensin Receptor Blocker |
-| DAPT | Dual Antiplatelet Therapy |
+| ACS | Acute Coronary Syndrome |
+| CPG | Clinical Practice Guideline |
+| ED | Emergency Department |
 | ECG | Electrocardiogram |
-| GTN | Glyceryl Trinitrate |
-| HF | Heart Failure |
-| LVEF | Left Ventricular Ejection Fraction |
+| HEART | History, ECG, Age, Risk Factors, Troponin |
+| hs | High-Sensitivity |
+| hs-cTn | High-Sensitivity Cardiac Troponin |
+| NCVD | National Cardiovascular Disease Database |
 | NSTE-ACS | Non-ST Elevation Acute Coronary Syndrome |
-| NSTEMI | Non-ST Elevation Myocardial Infarction |
+| P2Y12 | Purinergic Receptor P2Y12 |
 | PCI | Percutaneous Coronary Intervention |
-| SGLT2 | Sodium-Glucose Co-Transporter 2 |
-| UA | Unstable Angina |

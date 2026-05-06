@@ -1,5 +1,7 @@
 # Malaysia CPG Agentic RAG with Knowledge Graph
 
+Upstream repository: https://github.com/itznotpk/CPG-LLM-Agentic-RAG-Knowledge-Graph
+
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pydantic AI](https://img.shields.io/badge/Pydantic_AI-Agent_Framework-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-pgvector-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)

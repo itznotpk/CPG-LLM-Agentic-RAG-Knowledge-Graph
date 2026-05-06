@@ -1,5 +1,11 @@
 # SECTION 1: INTRODUCTION
-## CPG MANAGEMENT OF NON-ST ELEVATION MYOCARDIAL INFARCTION (NSTE-ACS), 3RD EDITION, 2021
+
+<!-- METADATA
+category: Introduction, Epidemiology
+use_case: Epidemiology and Guideline Scope - disease_burden, registry_data, NSTE_ACS_definition, guideline_objectives
+patient_input: suspected_ACS, demographic_data, cardiovascular_risk_factors
+output: guideline_scope, disease_burden_context, care_gap_priorities
+-->
 
 Ischaemic heart disease (IHD) remains the principal cause of death in Malaysia. In 2017, IHD was responsible for 13.9% of deaths, followed by pneumonia (12.7%) and cerebrovascular diseases (7.1%). It is the principal cause of death for all major ethnic groups being highest among Indians (19.5%), 13.3% Bumiputera (12.3% Malays, others 1.01%), and 13.2% Chinese.
 
@@ -31,7 +37,7 @@ The in-hospital, 30-day and 1-year mortality were:
 - 7.5%, 11.5% and 23.6% for NSTEMI respectively
 - 1.0%, 2.2% and 9.6% for UA respectively.
 
-These figures are slightly lower than that seen in the NCVD 2014–2015 but still higher than that of other registries. (refer to Table 4:)
+These figures are slightly lower than that seen in the NCVD 2014–2015 but still higher than that of other registries. (refer to Table 4: In-hospital, 30-day and 1-year mortalities in the NCVD 2014–2015, NCVD 2016–2017, GRACE, CZECH-2 and FAST MI Registries)
 
 The Malaysian Clinical Practice Guidelines (CPGs) on Stable Coronary Artery Disease 2018, 2nd Ed and ST Elevation Myocardial Infarction 4th Ed, 2019 were recently updated. The last CPG on UA/NSTEMI was published in 2011. Since then, there have been significant advances in the understanding of the pathophysiology and management. Thus, an update is timely to keep abreast with contemporary evidence.
 

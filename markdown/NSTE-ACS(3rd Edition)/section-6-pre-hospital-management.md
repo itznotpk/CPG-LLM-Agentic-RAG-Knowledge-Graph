@@ -1,7 +1,13 @@
 # SECTION 6: PRE-HOSPITAL MANAGEMENT
-## CPG MANAGEMENT OF NON-ST ELEVATION MYOCARDIAL INFARCTION (NSTE-ACS), 3RD EDITION, 2021
 
----
+<!-- METADATA
+category: Treatment, Diagnosis
+use_case: Pre-Hospital NSTE-ACS Management - public_awareness, aspirin_loading, ECG_acquisition, ambulance_triage, early_transfer
+patient_input: suspected_ACS, chest_pain, aspirin_allergy, ECG_findings, hemodynamic_status
+output: first_aid_actions, prehospital_ECG, aspirin_administration, transfer_destination, stabilization_priority
+critical: true
+treatment_type: aspirin, ECG, ambulance_transfer
+-->
 
 ## 6.1 For the General Public
 
@@ -23,15 +29,15 @@ A meta-analysis indicated that only around half of the studied interventions rep
 
 It was, however, not possible to establish which particular BCT was more effective.
 
-### Immediate measures to be taken by the individual in suspected cases of ACS:
+Immediate measures to be taken by the individual in suspected cases of ACS:
 
 - Seek immediate medical attention at the nearest clinic or hospital.
 - Call for an ambulance (dial 999) or get someone to take you immediately.
 - Do not drive yourself.
-- If not on regular aspirin and with no history of allergy, chew 300 mg aspirin immediately. Soluble and chewable aspirin formulations are preferable to solid aspirin either chewed or swallowed. Regular aspirin is preferred over enteric coated aspirin in this situation because of its faster onset of action.
+- [Level I, Grade C] If not on regular aspirin and with no history of allergy, chew 300 mg aspirin immediately. Soluble and chewable aspirin formulations are preferable to solid aspirin either chewed or swallowed. Regular aspirin is preferred over enteric coated aspirin in this situation because of its faster onset of action.
 - Although all Guidelines advise the use of aspirin as soon as possible after the onset of symptoms, there is a lack of randomised trial data and a risk of misdiagnosis. In a small retrospective study, patients receiving aspirin before admission were less likely to present with NSTE-ACS.
-- For patients with known CHD, history of previous PCI and/or CABG, take one dose of GTN either as a sublingual tablet or spray and 300 mg of chewable aspirin (if not taken earlier).
-- If the patient is already on aspirin 75–150 mg, it is advisable to take an additional 300 mg of aspirin.
+- [Level I, Grade C] For patients with known CHD, history of previous PCI and/or CABG, take one dose of GTN either as a sublingual tablet or spray and 300 mg of chewable aspirin (if not taken earlier).
+- [Level I, Grade C] If the patient is already on aspirin 75–150 mg, it is advisable to take an additional 300 mg of aspirin.
 - The 999 dispatchers will provide additional care instructions before the arrival of the pre-hospital care (PHC) providers.
 
 ---
@@ -40,13 +46,13 @@ It was, however, not possible to establish which particular BCT was more effecti
 
 Chest pain is one of the more common presentations in primary care facilities. In less urban areas, it may be the most accessible healthcare facility to the patient.
 
-### Management will begin with assessment of the patient by:
+Management will begin with assessment of the patient by:
 
-- **Taking history and physical examination.** It is important to look for haemodynamic instability.
-- **Performing an ECG** — This is an essential investigation and should be made routinely available in all primary care settings. A patient with a non-interpretable ECG may have NSTE-ACS. Also, a normal ECG does not exclude NSTE-ACS.
-- **Measuring cardiac biomarkers (cTn)** — Presently, this is usually done at the hospital level where definitive treatment can also be given.
+-  [Level I, Grade C] Taking history and physical examination. It is important to look for haemodynamic instability.
+-  [Level I, Grade C] Performing an ECG — This is an essential investigation and should be made routinely available in all primary care settings. A patient with a non-interpretable ECG may have NSTE-ACS. Also, a normal ECG does not exclude NSTE-ACS.
+- Measuring cardiac biomarkers (cTn) — Presently, this is usually done at the hospital level where definitive treatment can also be given.
 
-### In suspected NSTE-ACS:
+In suspected NSTE-ACS:
 
 - If the primary care facility does not have ambulance facilities, call 999 to assist in patient transfer to hospital.
 - Ask patient to chew and swallow aspirin 300 mg (non-enteric coated) if not already done so.
@@ -86,19 +92,31 @@ Pre-arrival instructions will be given and this includes immediate self-care or 
 Ambulance teams dispatched to the scene should be trained and equipped to perform an ECG (with the use of Advanced Cardiac Care Device which is capable of ECG recording, transmission, and real-time ECG monitoring and telemetry).
 
 - If the ECG (after interpretation by trained personnel) shows features of **STEMI**, the patient should be transported to the nearest hospital preferably with PCI-capable services.
-- If the patient with **NSTE-ACS** has ongoing/recurrent chest pain, they too should be considered for immediate transfer to a PCI-capable hospital.
+-  [Level I, Grade B] If the patient with **NSTE-ACS** has ongoing/recurrent chest pain, they too should be considered for immediate transfer to a PCI-capable hospital.
 - **High-risk unstable patients** should be taken to the nearest hospital for stabilization first.
 
 ### Supportive Care During Transfer:
 - Monitor the patient's haemodynamics continuously prior to and during transfer including continuous ECG monitoring.
-- Give 300 mg of chewable aspirin (if not taken earlier).
-- GTN either as a sublingual tablet or spray if there are no contraindications.
+-  [Level I, Grade A] Give 300 mg of chewable aspirin (if not taken earlier).
+-  [Level I, Grade C] GTN either as a sublingual tablet or spray if there are no contraindications.
 
 ### Pre-hospital care personnel should be trained to:
 - Identify patients at high risk of developing ACS such as those with prior heart disease, the elderly, presence of multiple cardiovascular risk factors — diabetes, smoking, hypertension, dyslipidaemia, and a family history of premature heart disease.
 - Interpret the ECG, identify and treat common arrhythmias. There should be periodic feedback reports and other quality improvement measures in the interpretation of ECGs.
 - Identify patients with NSTE-ACS and STEMI based on history and characteristic ECG changes after consultation with the ED physician/medical officer.
 - Assess, stabilise and monitor the patient's haemodynamics continuously prior to and during transfer.
+
+---
+
+### Key Recommendations 5:
+
+- Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC.
+- If the person is suspected to have an ACS and is not on regular aspirin with no history of allergy, 300mg aspirin should be administered. Soluble and chewable aspirin formulations are preferable to solid aspirin either chewed or swallowed.
+
+### Key Recommendations 6:
+
+- Ambulance responders should be trained and equipped to perform an ECG.
+- If the ECG shows STEMI or the patient with NSTE-ACS has ongoing/recurrent chest pain, they should be considered for immediate transfer to a PCI-capable hospital. High-risk unstable patients should be taken to the nearest hospital for stabilization first.
 
 ---
 
