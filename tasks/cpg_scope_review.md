@@ -9,10 +9,11 @@ Groups: 16
 ## Atrial-Fibrillation(2012)
 - Rows in DB: 10
 - Last classified: 2026-05-08T13:48:07.294617+00:00
-- Proposed icd11_scope: `BC81`
+- Proposed icd11_scope: `BC81.3`
 - Proposed procedure_scope: `referral_pathway`, `clinical_audit`, `quality_assurance`, `warfarin_initiation`, `inr_monitoring`, `dose_adjustment`, `perioperative_bridging`
-- Rationale: Atrial fibrillation and atrial flutter (BC81).
-- [ ] Approve / [ ] Edit / [ ] Reject
+- Rationale: Specific AF guidance maps to BC81.3 (Atrial fibrillation) under the cardiac arrhythmia hierarchy.
+- ICD-11 hierarchy: Chapter 11 (Diseases of the circulatory system) > Block BC60-BC9Z (Cardiac arrhythmia) > Category BC80-BC8Z (Supraventricular rhythm disturbance) > Section BC81 (Supraventricular tachyarrhythmia) > Specific BC81.3 (Atrial fibrillation)
+- [ ] Approve / [x] Edit / [ ] Reject
 
 ---
 
@@ -22,7 +23,8 @@ Groups: 16
 - Proposed icd11_scope: `2C60-2C6Z`
 - Proposed procedure_scope: (none)
 - Rationale: Malignant neoplasms of breast (2C60-2C6Z).
-- [ ] Approve / [ ] Edit / [ ] Reject
+- ICD-11 hierarchy: Chapter 02 (Neoplasms) > Malignant neoplasms of breast range 2C60-2C6Z > Verified examples from API search include 2C60, 2C63, 2C65, 2C6Y, and 2C6Z
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 

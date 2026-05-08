@@ -78,12 +78,46 @@ def validate_query(query: str) -> tuple[bool, str]:
 
 
 async def generate_embedding(text: str) -> list[float]:
-    """Generate embedding using the existing embedding model."""
+    """Generate embedding using the configured embedding provider."""
+    embedding_provider = os.getenv("EMBEDDING_PROVIDER", "openai").lower()
+
+    if embedding_provider == "bedrock":
+        import boto3
+        import json
+        import asyncio
+
+        client = boto3.client("bedrock-runtime", region_name=os.getenv("AWS_REGION", "us-east-1"))
+        model_id = os.getenv("EMBEDDING_MODEL", "amazon.titan-embed-text-v1")
+        dimension = int(os.getenv("VECTOR_DIMENSION", "1536"))
+
+        def _invoke():
+            if "titan" in model_id:
+                body = json.dumps({"inputText": text})
+            elif "cohere" in model_id:
+                body = json.dumps({"texts": [text], "input_type": "search_query"})
+            else:
+                raise ValueError(f"Unsupported Bedrock embedding model: {model_id}")
+
+            response = client.invoke_model(
+                modelId=model_id,
+                body=body,
+                contentType="application/json",
+                accept="application/json",
+            )
+            result = json.loads(response["body"].read())
+
+            if "titan" in model_id:
+                return result.get("embedding")[:dimension]
+            if "cohere" in model_id:
+                return result.get("embeddings")[0][:dimension]
+
+        return await asyncio.to_thread(_invoke)
+
     client = get_embedding_client()
     model_name = get_embedding_model()
     response = await client.embeddings.create(
         input=text,
-        model=model_name
+        model=model_name,
     )
     return response.data[0].embedding
 
@@ -95,6 +129,51 @@ def cosine_similarity(vec1: list[float], vec2: list[float]) -> float:
     a = np.array(vec1)
     b = np.array(vec2)
     return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
+
+
+def _tokenize(text: str) -> set[str]:
+    return {t for t in re.findall(r"[a-z0-9]+", text.lower()) if len(t) > 3}
+
+
+def _lexical_overlap(query_text: str, title: str, inclusions: list[str] | None) -> list[str]:
+    query_tokens = _tokenize(query_text)
+    if not query_tokens:
+        return []
+
+    candidate_text = title or ""
+    if inclusions:
+        candidate_text += " " + " ".join(inclusions)
+
+    candidate_tokens = _tokenize(candidate_text)
+    overlap = sorted(query_tokens & candidate_tokens)
+    return overlap
+
+
+def build_reasoning(candidate: dict, query_text: str) -> list[str]:
+    reasons: list[str] = []
+
+    sim = candidate.get("similarity")
+    if sim is not None:
+        reasons.append(f"Vector similarity {sim:.3f}")
+
+    if candidate.get("inclusion_match"):
+        matched = candidate.get("matched_term")
+        inc_sim = candidate.get("inclusion_similarity")
+        if matched:
+            if inc_sim:
+                reasons.append(f"Inclusion match: {matched} ({inc_sim:.3f})")
+            else:
+                reasons.append(f"Inclusion match: {matched}")
+
+    overlap = _lexical_overlap(
+        query_text,
+        candidate.get("title", ""),
+        candidate.get("inclusions") or [],
+    )
+    if overlap:
+        reasons.append("Keyword overlap: " + ", ".join(overlap[:5]))
+
+    return reasons
 
 
 async def apply_tabulation_filter(
@@ -274,7 +353,8 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "description": desc, # print_results handles wrapping
                 "similarity": item["similarity"],
                 "inclusion_match": item.get("inclusion_match", False),
-                "matched_term": item.get("matched_term")
+                "matched_term": item.get("matched_term"),
+                "reasoning": build_reasoning(item, normalized_symptoms)
             })
             
         return suggestions[:top_k] # Filter to top K
@@ -333,7 +413,8 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "similarity": item["similarity"],
                 "inclusion_match": item.get("inclusion_match", False),
                 "matched_term": item.get("matched_term"),
-                "inclusion_similarity": item.get("inclusion_similarity")
+                "inclusion_similarity": item.get("inclusion_similarity"),
+                "reasoning": build_reasoning(item, normalized_symptoms)
             })
         
         return suggestions

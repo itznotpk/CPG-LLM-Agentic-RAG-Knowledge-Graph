@@ -198,6 +198,7 @@ neo4j/
 secrets/
 *.key
 *.pem
+icd11_api_credentials.txt
 *.crt
 mcp_config.json
 

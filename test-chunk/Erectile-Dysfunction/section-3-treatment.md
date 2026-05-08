@@ -2,6 +2,8 @@
 
 <!-- METADATA
 category: treatment
+icd11_primary: HA01.1
+icd11_related: HA00, HA00.0, HA00.1, HA00.2, HA00.3, HA00.Z, HA01, HA01.0, HA01.00, HA01.01, HA01.02, HA01.03, HA01.0Z, HA01.1, HA01.10, HA01.11, HA01.12, HA01.13, HA01.1Z, HA01.Y, HA01.Z, HA02, HA02.0, HA02.00, HA02.01, HA02.02, HA02.03, HA02.0Z, HA02.Y, HA02.Z, HA03, HA03.0, HA03.00, HA03.01, HA03.02, HA03.03, HA03.0Z, HA03.1, HA03.10, HA03.11, HA03.12, HA03.13, HA03.1Z, HA03.Y, HA03.Z, HA0Y, HA0Z
 use_case: treatment_selection, care_plan_generation
 patient_input: ED_severity, cardiovascular_risk, patient_preferences
 output: treatment_pathway
@@ -235,6 +237,8 @@ Penile prothesis may be offered to patients with erectile dysfunction who have f
 
 <!-- METADATA
 category: treatment
+icd11_primary: HA01.1
+icd11_related: HA00, HA00.0, HA00.1, HA00.2, HA00.3, HA00.Z, HA01, HA01.0, HA01.00, HA01.01, HA01.02, HA01.03, HA01.0Z, HA01.1, HA01.10, HA01.11, HA01.12, HA01.13, HA01.1Z, HA01.Y, HA01.Z, HA02, HA02.0, HA02.00, HA02.01, HA02.02, HA02.03, HA02.0Z, HA02.Y, HA02.Z, HA03, HA03.0, HA03.00, HA03.01, HA03.02, HA03.03, HA03.0Z, HA03.1, HA03.10, HA03.11, HA03.12, HA03.13, HA03.1Z, HA03.Y, HA03.Z, HA0Y, HA0Z
 treatment_type: psychological
 use_case: psychogenic_ED, mixed_ED
 -->
@@ -264,6 +268,8 @@ Psychological interventions should be considered in the treatment of erectile dy
 
 <!-- METADATA
 category: contraindication
+icd11_primary: HA01.1
+icd11_related: HA00, HA00.0, HA00.1, HA00.2, HA00.3, HA00.Z, HA01, HA01.0, HA01.00, HA01.01, HA01.02, HA01.03, HA01.0Z, HA01.1, HA01.10, HA01.11, HA01.12, HA01.13, HA01.1Z, HA01.Y, HA01.Z, HA02, HA02.0, HA02.00, HA02.01, HA02.02, HA02.03, HA02.0Z, HA02.Y, HA02.Z, HA03, HA03.0, HA03.00, HA03.01, HA03.02, HA03.03, HA03.0Z, HA03.1, HA03.10, HA03.11, HA03.12, HA03.13, HA03.1Z, HA03.Y, HA03.Z, HA0Y, HA0Z
 critical: true
 use_case: medication_safety_check
 -->
