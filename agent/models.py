@@ -209,6 +209,60 @@ class AgentContext(BaseModel):
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
 
+# Clinical Workflow Models
+class PatientCase(BaseModel):
+    """Stage 1 input — structured patient record passed into the clinical workflow."""
+
+    chief_complaint: str = Field(..., description="Presenting symptoms — required, non-empty free text")
+    history: Optional[str] = Field(None, description="Patient history narrative")
+    age: Optional[int] = Field(None, ge=0, le=130, description="Patient age in years")
+    sex: Optional[Literal["M", "F", "other"]] = Field(None, description="Biological sex")
+    comorbidities: List[str] = Field(default_factory=list, description="List of known comorbidities")
+    current_medications: List[str] = Field(default_factory=list, description="Current medication names")
+    allergies: List[str] = Field(default_factory=list, description="Known allergies")
+    vitals: Dict[str, float] = Field(default_factory=dict, description="Vital signs, e.g. {'sbp': 165, 'dbp': 95, 'hr': 110}")
+
+    @field_validator("chief_complaint")
+    @classmethod
+    def chief_complaint_not_empty(cls, v: str) -> str:
+        stripped = v.strip()
+        if not stripped:
+            raise ValueError("chief_complaint must not be empty or whitespace-only")
+        return stripped
+
+
+class Recommendation(BaseModel):
+    """Single clinical recommendation produced in Stage 5."""
+
+    intervention: str = Field(..., description="What to do, e.g. 'Sildenafil 50 mg PRN'")
+    type: Literal["pharmacological", "procedure", "lifestyle", "referral", "investigation"] = Field(
+        ..., description="Category of the recommendation"
+    )
+    evidence_grade: Optional[str] = Field(None, description="Evidence grade, e.g. 'Grade A, Level 1'")
+    cpg_source: str = Field(..., description="Required citation, e.g. 'CPG AF Management §4.2'")
+    rationale: str = Field(..., description="Clinical rationale — required, non-empty")
+    contraindications_checked: List[str] = Field(default_factory=list, description="Contraindications reviewed before recommending")
+
+
+class TreatmentPlan(BaseModel):
+    """Stage 5 output — the final structured plan returned to the doctor."""
+
+    icd_primary: str = Field(..., description="Highest-confidence ICD-11 code")
+    icd_alternates: List[str] = Field(default_factory=list, description="Alternative ICD-11 codes considered")
+    recommendations: List[Recommendation] = Field(..., description="Clinical recommendations — must contain at least one entry")
+    monitoring: List[str] = Field(default_factory=list, description="Monitoring parameters to track")
+    red_flags: List[str] = Field(default_factory=list, description="Symptoms or signs that warrant escalation")
+    confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score for the plan (0.0–1.0)")
+    unresolved_questions: List[str] = Field(default_factory=list, description="Clinical questions that could not be resolved from available evidence")
+
+    @field_validator("recommendations")
+    @classmethod
+    def recommendations_not_empty(cls, v: List[Recommendation]) -> List[Recommendation]:
+        if len(v) < 1:
+            raise ValueError("recommendations must contain at least one entry; use unresolved_questions for cases with no actionable guidance")
+        return v
+
+
 # Ingestion Models
 class IngestionConfig(BaseModel):
     """Configuration for document ingestion."""

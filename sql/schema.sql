@@ -18,11 +18,22 @@ CREATE TABLE documents (
     content TEXT NOT NULL,
     metadata JSONB DEFAULT '{}',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+    -- CPG scope (Stage 3 routing index)
+    icd11_scope      TEXT[]      NOT NULL DEFAULT '{}',
+    procedure_scope  TEXT[]      NOT NULL DEFAULT '{}',
+    scope_rationale  TEXT,
+    scope_verified   BOOLEAN     NOT NULL DEFAULT FALSE,
+    classified_at    TIMESTAMP WITH TIME ZONE,
+    verified_at      TIMESTAMP WITH TIME ZONE,
+    verified_by      TEXT
 );
 
 CREATE INDEX idx_documents_metadata ON documents USING GIN (metadata);
 CREATE INDEX idx_documents_created_at ON documents (created_at DESC);
+CREATE INDEX idx_documents_icd_scope ON documents USING GIN (icd11_scope);
+CREATE INDEX idx_documents_scope_verified ON documents (scope_verified) WHERE scope_verified = TRUE;
 
 -- Chunks table (simplified - no grade/population columns)
 CREATE TABLE chunks (
