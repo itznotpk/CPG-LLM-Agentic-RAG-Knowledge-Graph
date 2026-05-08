@@ -8,7 +8,6 @@ output: reference_classification, score_interpretation, dosage_guidance, renal_a
 treatment_type: antiplatelets, anticoagulants, beta_blockers, ACEI, ARB, nitrates, CCB, smoking_cessation
 -->
 
-
 ## Appendix I: BRAUNWALD’S CLASSIFICATION OF UNSTABLE ANGINA*
 
 | Severity | CLINICAL CIRCUMSTANCES<br><br>A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES<br><br>B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES<br><br>C<br>Develops Within 2 weeks of MI (Postinfarction UA) |

@@ -77,13 +77,19 @@ async def lifespan(app: FastAPI):
     logger.info("Starting up agentic RAG API...")
     
     try:
-        # Initialize database connections
-        await initialize_database()
+        # Initialize database connections with timeout
+        logger.info("Initializing database...")
+        await asyncio.wait_for(initialize_database(), timeout=15.0)
         logger.info("Database initialized")
         
-        # Initialize graph database
-        await initialize_graph()
-        logger.info("Graph database initialized")
+        # Initialize graph database (Optional - don't crash if it fails)
+        try:
+            logger.info("Initializing graph database...")
+            await asyncio.wait_for(initialize_graph(), timeout=15.0)
+            logger.info("Graph database initialized")
+        except Exception as ge:
+            logger.warning(f"Graph database initialization failed (Optional): {ge}")
+            logger.warning("Continuing without Knowledge Graph functionality")
         
         # Test connections
         db_ok = await test_connection()
@@ -92,13 +98,18 @@ async def lifespan(app: FastAPI):
         if not db_ok:
             logger.error("Database connection failed")
         if not graph_ok:
-            logger.error("Graph database connection failed")
+            logger.warning("Graph database connection failed - searching will fall back to vector search only")
         
         logger.info("Agentic RAG API startup complete")
         
+    except asyncio.TimeoutError:
+        logger.error("Startup timed out during database initialization")
+        # Don't raise, let the app start in a degraded state if possible
     except Exception as e:
         logger.error(f"Startup failed: {e}")
-        raise
+        # Only raise for critical failures (like Postgres)
+        if "database" in str(e).lower():
+            raise
     
     yield
     

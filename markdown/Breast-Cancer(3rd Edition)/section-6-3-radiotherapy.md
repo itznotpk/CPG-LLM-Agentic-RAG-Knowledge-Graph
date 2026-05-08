@@ -2,11 +2,9 @@
 
 <!-- METADATA
 category: Treatment
-use_case: Radiotherapy Guidelines — whole_breast, chest_wall, nodal_irradiation, boost, fractionation, DCIS
-patient_input: surgery_type, tumour_bed, nodal_status, margin_status, age
-output: radiotherapy_indication, fractionation_schedule, treatment_volume
-critical: true
-treatment_type: radiotherapy, brachytherapy
+use_case: Radiotherapy Guidelines
+patient_input: 
+output:
 -->
 
 ## Overview
@@ -19,7 +17,7 @@ Radiotherapy plays a crucial role in breast cancer management, both after breast
 
 Adjuvant radiotherapy following BCS reduces risk of local recurrence in the affected breast by **half** and risk of death by a **sixth**.ˡᵉᵛᵉˡ ᴵ
 
-All patients with invasive breast cancer who have BCS with clear margin should be offered adjuvant whole breast irradiation (WBI).⁴˒²⁵
+All patients with invasive breast cancer who have BCS with clear margin should be offered adjuvant whole breast irradiation (WBI).
 
 ### Partial Breast Irradiation (PBI) vs Whole Breast Irradiation (WBI)
 

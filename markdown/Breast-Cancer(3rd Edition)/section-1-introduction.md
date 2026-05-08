@@ -2,14 +2,14 @@
 
 <!-- METADATA
 category: Introduction
-use_case: Epidemiology and Guideline Background — incidence_data, mortality_statistics, Malaysian_context, guideline_rationale
+use_case: Background Information
 patient_input: 
-output: disease_burden_context, guideline_objectives
+output:
 -->
 
 ## Overview
 
-Breast cancer is the most important cancer among women worldwide including in Malaysia. Regardless of gender, breast cancer contributed to 19.0% of all new cancer cases diagnosed in 2012–2016 compared with 17.7% in 2007–2011. The new cases of breast cancer had increased from 32.1% to 34.1% of overall cancer among women in the same period — a 2% increment. The Age-Standardised Incidence Rate (ASR) increased to 34.1 per 100,000 population (2012–2016) from 31.1 per 100,000 population (2007–2011). The incidence starts to increase at age 25 and peaks at age 60–64 years.ˡᵉᵛᵉˡ ᴵᴵᴵ
+Breast cancer is the most important cancer among women worldwide including in Malaysia. Regardless of gender, breast cancer contributed to 19.0% of all new cancer cases diagnosed in 2012–2016 compared with 17.7% in 2007–2011. The new cases of breast cancer had increased from 32.1% to 34.1% of overall cancer among women in the same period, a 2% increment. The Age-Standardised Incidence Rate (ASR) increased to 34.1 per 100,000 population (2012–2016) from 31.1 per 100,000 population (2007–2011). The incidence starts to increase at age 25 and peaks at age 60–64 years.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 ---
 
@@ -27,22 +27,10 @@ Breast cancer is the most important cancer among women worldwide including in Ma
 | 2015 | 4,518 | 33.0 | 33.4 | 3.6 |
 | 2016 | 4,626 | 33.8 | 34.4 | 3.8 |
 
-### Incidence by Ethnicity
-
-| Ethnicity | ASR per 100,000 | Lifetime Risk |
-|---|---|---|
-| Chinese | 40.7 | 1 in 22 |
-| Indian | 38.1 | 1 in 23 |
-| Malay | 31.5 | 1 in 30 |
-| **Overall** | **34.1** | **1 in 27** |
-
----
 
 ## Staging at Diagnosis
 
 At diagnosis, **52.1%** of cases were diagnosed at early stage (stage I and II) with mainly stage II (34.5%). However, the percentage of **late diagnosis** (stage III and IV) had **increased** from 43.2% (2007–2011) to **47.9%** (2012–2016).ˡᵉᵛᵉˡ ᴵᴵᴵ
-
-> **Key Insight:** Despite improvements in screening, nearly half of breast cancer cases in Malaysia are still diagnosed at a late stage (III or IV), highlighting the urgent need for early detection strategies.
 
 ---
 
