@@ -1,10 +1,10 @@
 # SECTION 3: SCREENING
 
 <!-- METADATA
-category: Screening, Prevention
-use_case: Breast Cancer Screening Guidelines — mammography, CBE, BSE, screening_intervals, high_risk_screening, MRI_screening
-patient_input: age, risk_category, family_history, BRCA_status
-output: screening_modality, screening_interval, referral_criteria
+category: Screening
+use_case: Screening Guidelines
+patient_input: 
+output:
 -->
 
 ## Overview
@@ -77,6 +77,12 @@ For local setting, breast cancer screening is based on the risk of developing ca
 | **General population** | Women with no personal history of breast cancer and no strong family history |
 | **High risk** | BRCA mutation carriers; first-degree relatives of BRCA carriers (untested); history of chest irradiation at young age; personal history of breast cancer; strong family history of breast or ovarian cancer |
 
+> [!IMPORTANT]
+> **Recommendation 1**
+> *   Screening mammography may be performed **biennially** in women aged **50–74 years** in the general population.
+> *   For women of **moderate risk**, screening mammography may be performed annually from 40–49 years of age, annually or biennially from 50–59 and biennially from 60 onwards.
+> *   For women of **high risk** of breast cancer, where no genetic variant has been identified, screening mammography may be considered from 30–39 years of age, performed annually from 40–59 and biennially from 60 onwards.
+> *   For **carriers of pathogenic or likely pathogenic variants** in BRCA1, BRCA2 and PALB2, annual MRI should be offered from 30–49 years of age, annual mammography from 40–69 and biennial mammography from 70 onwards.
 ---
 
 ## Table 7. Summary of Recommendations on Screening for Women with No Personal History of Breast Cancer
@@ -95,10 +101,3 @@ For local setting, breast cancer screening is based on the risk of developing ca
 ³ Lifetime risk of developing breast cancer is at least 30%. This is likely to include individuals with pathogenic/likely pathogenic variants in PALB2 and strong family history of breast cancer, or individuals where BOADICEA or other risk prediction tools suggest a high risk based on family history of breast cancer.
 
 *Adapted: NICE. Familial breast cancer: classification, care and managing breast cancer and related risks in people with a family history of breast cancer. London: NICE; 2018.*⁵
-
-> [!IMPORTANT]
-> **Recommendation 1**
-> *   Screening mammography may be performed **biennially** in women aged **50–74 years** in the general population.
-> *   For women of **moderate risk**, screening mammography may be performed annually from 40–49 years of age, annually or biennially from 50–59 and biennially from 60 onwards.
-> *   For women of **high risk** of breast cancer, where no genetic variant has been identified, screening mammography may be considered from 30–39 years of age, performed annually from 40–59 and biennially from 60 onwards.
-> *   For **carriers of pathogenic or likely pathogenic variants** in BRCA1, BRCA2 and PALB2, annual MRI should be offered from 30–49 years of age, annual mammography from 40–69 and biennial mammography from 70 onwards.
