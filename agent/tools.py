@@ -95,11 +95,19 @@ class VectorSearchInput(BaseModel):
     """Input for vector search tool."""
     query: str = Field(..., description="Search query")
     limit: int = Field(default=10, description="Maximum number of results")
+    document_id_filter: Optional[List[str]] = Field(
+        default=None,
+        description="If provided, restrict results to chunks from these document UUIDs",
+    )
 
 
 class GraphSearchInput(BaseModel):
     """Input for graph search tool."""
     query: str = Field(..., description="Search query")
+    document_id_filter: Optional[List[str]] = Field(
+        default=None,
+        description="Accepted for API consistency; graph search does not support scoping — unscoped results are returned",
+    )
 
 
 class HybridSearchInput(BaseModel):
@@ -107,6 +115,10 @@ class HybridSearchInput(BaseModel):
     query: str = Field(..., description="Search query")
     limit: int = Field(default=10, description="Maximum number of results")
     text_weight: float = Field(default=0.3, description="Weight for text similarity (0-1)")
+    document_id_filter: Optional[List[str]] = Field(
+        default=None,
+        description="If provided, restrict results to chunks from these document UUIDs",
+    )
 
 
 class EntityRelationshipInput(BaseModel):
@@ -144,7 +156,8 @@ async def vector_search_tool(input_data: VectorSearchInput) -> List[ChunkResult]
         # Perform vector search
         results = await vector_search(
             embedding=embedding,
-            limit=input_data.limit
+            limit=input_data.limit,
+            document_id_filter=input_data.document_id_filter,
         )
 
         # Convert to ChunkResult models
@@ -169,14 +182,18 @@ async def vector_search_tool(input_data: VectorSearchInput) -> List[ChunkResult]
 async def graph_search_tool(input_data: GraphSearchInput) -> List[GraphSearchResult]:
     """
     Search the knowledge graph.
-    
+
     Args:
         input_data: Search parameters
-    
+
     Returns:
         List of graph search results
     """
     try:
+        if input_data.document_id_filter is not None:
+            logger.warning(
+                "graph_search_tool does not support document_id_filter; returning unscoped results"
+            )
         results = await search_knowledge_graph(
             query=input_data.query
         )
@@ -217,7 +234,8 @@ async def hybrid_search_tool(input_data: HybridSearchInput) -> List[ChunkResult]
             embedding=embedding,
             query_text=input_data.query,
             limit=input_data.limit,
-            text_weight=input_data.text_weight
+            text_weight=input_data.text_weight,
+            document_id_filter=input_data.document_id_filter,
         )
         
         # Convert to ChunkResult models

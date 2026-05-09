@@ -249,17 +249,18 @@ def _make_entity(uri_id: str, code: str, title: str, children=None) -> dict:
 async def test_walker_yields_all_descendants():
     """Synthetic 3-level tree → walker yields all nodes with real codes."""
     # Tree: root (grouping, no code) → A (BA00) → B (BA01), C (BA02)
-    root = {"@id": "http://root", "code": "", "title": {"@value": "Root group"},
-            "child": ["http://id.who.int/icd/entity/A"]}
-    node_a = {"@id": "http://id.who.int/icd/entity/A", "code": "BA00", "title": {"@value": "A"},
-               "child": ["http://id.who.int/icd/entity/B", "http://id.who.int/icd/entity/C"]}
-    node_b = {"@id": "http://id.who.int/icd/entity/B", "code": "BA01", "title": {"@value": "B"}, "child": []}
-    node_c = {"@id": "http://id.who.int/icd/entity/C", "code": "BA02", "title": {"@value": "C"}, "child": []}
+    # Use https:// URIs — walker normalizes http→https before lookup
+    root = {"@id": "https://root", "code": "", "title": {"@value": "Root group"},
+            "child": ["https://id.who.int/icd/entity/A"]}
+    node_a = {"@id": "https://id.who.int/icd/entity/A", "code": "BA00", "title": {"@value": "A"},
+               "child": ["https://id.who.int/icd/entity/B", "https://id.who.int/icd/entity/C"]}
+    node_b = {"@id": "https://id.who.int/icd/entity/B", "code": "BA01", "title": {"@value": "B"}, "child": []}
+    node_c = {"@id": "https://id.who.int/icd/entity/C", "code": "BA02", "title": {"@value": "C"}, "child": []}
 
     entity_map = {
-        "http://id.who.int/icd/entity/A": node_a,
-        "http://id.who.int/icd/entity/B": node_b,
-        "http://id.who.int/icd/entity/C": node_c,
+        "https://id.who.int/icd/entity/A": node_a,
+        "https://id.who.int/icd/entity/B": node_b,
+        "https://id.who.int/icd/entity/C": node_c,
     }
 
     mock_api = MagicMock()
@@ -278,9 +279,9 @@ async def test_walker_yields_all_descendants():
 @pytest.mark.asyncio
 async def test_walker_records_parent_code():
     """Walker passes correct parent_code into each parsed entity."""
-    root = {"@id": "http://root", "code": "BA00", "title": {"@value": "Root"},
-            "child": ["http://id.who.int/icd/entity/child1"]}
-    child = {"@id": "http://id.who.int/icd/entity/child1", "code": "BA01",
+    root = {"@id": "https://root", "code": "BA00", "title": {"@value": "Root"},
+            "child": ["https://id.who.int/icd/entity/child1"]}
+    child = {"@id": "https://id.who.int/icd/entity/child1", "code": "BA01",
              "title": {"@value": "Child"}, "child": []}
 
     mock_api = MagicMock()

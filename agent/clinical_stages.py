@@ -1,0 +1,380 @@
+"""
+Pipeline stages 2–5 for the clinical RAG workflow.
+
+  stage_2_ddx        — differential diagnosis via ICD-11 vector search
+  stage_3_route      — map DDx codes to CPG documents
+  stage_4_retrieve   — LLM-generated queries + scoped vector retrieval
+  stage_5_synthesize — structured TreatmentPlan synthesis from evidence
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+import os
+
+import openai
+from pydantic import BaseModel
+from pydantic import ValidationError
+
+from .models import ChunkResult, PatientCase, TreatmentPlan
+from .routing import CPGDocRef, route_icd_to_cpgs
+from .tools import VectorSearchInput, vector_search_tool
+
+logger = logging.getLogger(__name__)
+
+DDX_RERANK_MODEL = "google/gemini-2.5-flash-preview"
+DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidates
+
+
+# ---------------------------------------------------------------------------
+# DDxResult — pipeline-internal, not a user-facing schema type
+# ---------------------------------------------------------------------------
+
+class DDxResult(BaseModel):
+    code: str
+    title: str
+    similarity: float
+    inclusion_match: bool = False
+    matched_term: str | None = None
+    reasoning: list[str] = []
+
+
+# ---------------------------------------------------------------------------
+# Stage 2 — DDx
+# ---------------------------------------------------------------------------
+
+def _build_symptom_text(case: PatientCase) -> str:
+    parts = [case.chief_complaint]
+    if case.history:
+        parts.append(case.history)
+    if case.comorbidities:
+        parts.append("Comorbidities: " + ", ".join(case.comorbidities))
+    if case.vitals:
+        vitals_str = ", ".join(f"{k}={v}" for k, v in case.vitals.items())
+        parts.append("Vitals: " + vitals_str)
+    return ". ".join(parts)
+
+
+async def _llm_rerank_ddx(
+    case: PatientCase,
+    candidates: list[DDxResult],
+) -> list[DDxResult]:
+    """
+    Re-rank DDx candidates using Gemini 2.5 Flash extended thinking.
+
+    Applies clinical reasoning over age, sex, vitals, comorbidities, medications
+    that pure vector similarity cannot weight correctly.
+    Falls back to original order on any failure.
+    """
+    if not candidates:
+        return candidates
+
+    client = openai.AsyncOpenAI(
+        base_url=os.getenv("LLM_BASE_URL"),
+        api_key=os.getenv("LLM_API_KEY"),
+    )
+
+    vitals_str = json.dumps(case.vitals) if case.vitals else "none"
+    candidate_lines = "\n".join(
+        f"  {i+1}. {c.code}  {c.title}  (vector score: {c.similarity:.3f})"
+        for i, c in enumerate(candidates)
+    )
+
+    prompt = f"""You are a clinical coding expert performing differential diagnosis.
+
+Patient:
+- Chief complaint: {case.chief_complaint}
+- Age / sex: {case.age or "unknown"} / {case.sex or "unknown"}
+- History: {case.history or "none"}
+- Comorbidities: {", ".join(case.comorbidities) or "none"}
+- Current medications: {", ".join(case.current_medications) or "none"}
+- Allergies: {", ".join(case.allergies) or "none"}
+- Vitals: {vitals_str}
+
+Candidate ICD-11 codes (pre-ranked by vector similarity):
+{candidate_lines}
+
+Re-rank these candidates based on clinical probability for THIS specific patient.
+Apply reasoning about:
+- How age, sex, vitals, and comorbidities shift the prior probability of each code
+- Whether current medications suggest an existing diagnosis
+- Which codes are actionable vs incidental findings
+
+Return a JSON array of objects, ordered from most to least likely. Include ALL candidates.
+No markdown fences. Example format:
+[
+  {{"code": "BC81.3", "confidence": 0.91, "reasoning": "68M irregular pulse HR 110 — persistent AF fits best"}},
+  {{"code": "BC81.1", "confidence": 0.72, "reasoning": "Paroxysmal AF cannot be excluded without Holter"}},
+  ...
+]"""
+
+    try:
+        resp = await client.chat.completions.create(
+            model=DDX_RERANK_MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=1,          # required when thinking is enabled
+            extra_body={
+                "thinking": {
+                    "type": "enabled",
+                    "budget_tokens": DDX_THINKING_BUDGET,
+                }
+            },
+        )
+        raw = resp.choices[0].message.content.strip().strip("` \n")
+        if raw.startswith("json"):
+            raw = raw[4:]
+        ranked = json.loads(raw)
+
+        # Map re-ranked codes back to DDxResult objects, preserving all fields
+        code_to_result = {c.code: c for c in candidates}
+        reranked: list[DDxResult] = []
+        for item in ranked:
+            code = item.get("code")
+            if code and code in code_to_result:
+                result = code_to_result[code].model_copy()
+                llm_reason = item.get("reasoning", "")
+                if llm_reason:
+                    result.reasoning = result.reasoning + [f"LLM: {llm_reason}"]
+                reranked.append(result)
+
+        # Safety: any candidates the LLM dropped → append at end
+        seen = {r.code for r in reranked}
+        for c in candidates:
+            if c.code not in seen:
+                reranked.append(c)
+
+        logger.info("DDx re-ranked %d candidates via %s", len(reranked), DDX_RERANK_MODEL)
+        return reranked
+
+    except Exception as exc:
+        logger.warning("DDx LLM re-rank failed (%s) — using original order", exc)
+        return candidates   # graceful fallback
+
+
+async def stage_2_ddx(
+    case: PatientCase,
+    top_k: int = 5,
+    rerank: bool = True,
+) -> list[DDxResult]:
+    """
+    Return top-k ICD-11 differential diagnoses for the patient case.
+
+    Pass 1: vector similarity + morbidity tabulation (search_ddx).
+    Pass 2: Gemini 2.5 Flash thinking re-ranks by clinical probability.
+    Set rerank=False to skip Pass 2 (e.g. in unit tests or latency-sensitive paths).
+    """
+    from ddx.search_ddx import search_ddx
+
+    symptom_text = _build_symptom_text(case)
+
+    # Pass 1 — fetch more candidates than needed so re-ranker has material to work with
+    fetch_k = top_k * 2 if rerank else top_k
+    raw = await search_ddx(symptom_text, top_k=fetch_k)
+
+    results: list[DDxResult] = []
+    for r in raw:
+        try:
+            results.append(
+                DDxResult(**{k: v for k, v in r.items() if k in DDxResult.model_fields})
+            )
+        except Exception as exc:
+            logger.warning("Skipping malformed DDx result %r: %s", r, exc)
+
+    # Pass 2 — LLM re-rank (skipped if rerank=False or no results)
+    if rerank and results:
+        results = await _llm_rerank_ddx(case, results)
+
+    return results[:top_k]
+
+
+# ---------------------------------------------------------------------------
+# Stage 3 — Route
+# ---------------------------------------------------------------------------
+
+async def stage_3_route(
+    ddx: list[DDxResult],
+    top_k_codes: int = 2,
+    top_k_cpgs: int = 3,
+) -> list[CPGDocRef]:
+    """Map the top DDx ICD-11 codes to CPG document sets."""
+    all_refs: dict[str, CPGDocRef] = {}  # keyed by cpg_name
+
+    for result in ddx[:top_k_codes]:
+        refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs)
+        for ref in refs:
+            if ref.cpg_name not in all_refs:
+                all_refs[ref.cpg_name] = ref
+
+    return list(all_refs.values())[:top_k_cpgs]
+
+
+# ---------------------------------------------------------------------------
+# Stage 4 — Retrieve
+# ---------------------------------------------------------------------------
+
+async def _generate_retrieval_queries(
+    case: PatientCase,
+    ddx: list[DDxResult],
+    cpgs: list[CPGDocRef],
+    n: int = 3,
+) -> list[str]:
+    """Use the LLM to produce n focused retrieval queries for vector search."""
+    client = openai.AsyncOpenAI(
+        base_url=os.getenv("LLM_BASE_URL"),
+        api_key=os.getenv("LLM_API_KEY"),
+    )
+    model = os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
+
+    icd_summary = ", ".join(f"{d.code} ({d.title})" for d in ddx[:2])
+    cpg_names = ", ".join(c.cpg_name for c in cpgs)
+    vitals_str = json.dumps(case.vitals) if case.vitals else "none"
+
+    prompt = f"""You are a clinical search query expert.
+
+Patient:
+- Chief complaint: {case.chief_complaint}
+- Age/sex: {case.age or "unknown"} / {case.sex or "unknown"}
+- History: {case.history or "none"}
+- Comorbidities: {", ".join(case.comorbidities) or "none"}
+- Current medications: {", ".join(case.current_medications) or "none"}
+- Vitals: {vitals_str}
+
+Predicted ICD-11 codes: {icd_summary}
+Relevant CPGs: {cpg_names}
+
+Generate exactly {n} targeted search queries to retrieve the most relevant CPG recommendations for this patient.
+Each query should target a specific clinical decision (e.g. drug choice, dosing, contraindication check, monitoring).
+Do NOT use the patient's name or generic phrases like "treatment guidelines".
+Return a JSON array of strings, nothing else. Example: ["query 1", "query 2", "query 3"]"""
+
+    resp = await client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.2,
+    )
+    raw = resp.choices[0].message.content.strip()
+    raw = raw.strip("` \n")
+    if raw.startswith("json"):
+        raw = raw[4:]
+    queries = json.loads(raw)
+    return [q for q in queries if isinstance(q, str)][:n]
+
+
+async def stage_4_retrieve(
+    case: PatientCase,
+    ddx: list[DDxResult],
+    cpgs: list[CPGDocRef],
+    queries_per_code: int = 3,
+    chunks_per_query: int = 5,
+) -> list[ChunkResult]:
+    """Generate targeted queries and retrieve scoped evidence chunks."""
+    if not cpgs:
+        logger.warning("stage_4_retrieve: no CPGs to scope search — returning empty")
+        return []
+
+    all_doc_ids = [doc_id for cpg in cpgs for doc_id in cpg.document_ids]
+
+    queries = await _generate_retrieval_queries(case, ddx, cpgs, n=queries_per_code)
+
+    seen_chunk_ids: set[str] = set()
+    all_chunks: list[ChunkResult] = []
+
+    for query in queries:
+        results = await vector_search_tool(VectorSearchInput(
+            query=query,
+            limit=chunks_per_query,
+            document_id_filter=all_doc_ids,
+        ))
+        for chunk in results:
+            if chunk.chunk_id not in seen_chunk_ids:
+                seen_chunk_ids.add(chunk.chunk_id)
+                all_chunks.append(chunk)
+
+    all_chunks.sort(key=lambda c: c.score, reverse=True)
+    return all_chunks[:20]
+
+
+# ---------------------------------------------------------------------------
+# Stage 5 — Synthesize
+# ---------------------------------------------------------------------------
+
+SYNTHESIS_SYSTEM = """You are a clinical decision support system grounded in evidence-based guidelines.
+Your role is to synthesise a treatment plan from the retrieved CPG evidence provided.
+
+Rules:
+- Every Recommendation.cpg_source MUST reference a specific CPG and section from the evidence (e.g. "CPG AF Management §4.2"). Do not invent sources.
+- If the evidence does not cover a needed clinical decision, add it to unresolved_questions instead of inventing a recommendation.
+- evidence_grade must come verbatim from the retrieved text (e.g. "Grade A, Level I") or be null if not stated.
+- confidence reflects how completely the evidence addresses this case (0.0 = no evidence, 1.0 = full coverage).
+- Return valid JSON matching the TreatmentPlan schema exactly. No markdown fences."""
+
+SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
+
+
+def _format_evidence(chunks: list[ChunkResult]) -> str:
+    lines = []
+    for i, c in enumerate(chunks, 1):
+        section = c.metadata.get("section_number", "")
+        cpg = c.document_title or c.document_source
+        lines.append(f"[{i}] {cpg} §{section}\n{c.content[:400]}")
+    return "\n\n".join(lines)
+
+
+async def stage_5_synthesize(
+    case: PatientCase,
+    ddx: list[DDxResult],
+    cpgs: list[CPGDocRef],
+    evidence: list[ChunkResult],
+) -> TreatmentPlan:
+    """Synthesise a structured TreatmentPlan from patient context and CPG evidence."""
+    client = openai.AsyncOpenAI(
+        base_url=os.getenv("LLM_BASE_URL"),
+        api_key=os.getenv("LLM_API_KEY"),
+    )
+    model = os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
+
+    evidence_text = _format_evidence(evidence)
+    icd_primary = ddx[0].code if ddx else "Unknown"
+    icd_alternates = [d.code for d in ddx[1:3]]
+
+    user_prompt = f"""Patient Case:
+- Chief complaint: {case.chief_complaint}
+- Age/sex: {case.age or "unknown"} / {case.sex or "unknown"}
+- History: {case.history or "none"}
+- Comorbidities: {", ".join(case.comorbidities) or "none"}
+- Medications: {", ".join(case.current_medications) or "none"}
+- Allergies: {", ".join(case.allergies) or "none"}
+- Vitals: {json.dumps(case.vitals) if case.vitals else "none"}
+
+Predicted ICD-11: {icd_primary} ({ddx[0].title if ddx else ""})
+Alternate codes: {", ".join(icd_alternates) or "none"}
+
+Retrieved Evidence ({len(evidence)} chunks):
+{evidence_text}
+
+Produce a TreatmentPlan JSON object matching this schema:
+{json.dumps(SYNTHESIS_SCHEMA, indent=2)}"""
+
+    resp = await client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": SYNTHESIS_SYSTEM},
+            {"role": "user", "content": user_prompt},
+        ],
+        temperature=0.1,
+        response_format={"type": "json_object"},
+    )
+
+    raw_json = resp.choices[0].message.content.strip()
+    data = json.loads(raw_json)
+
+    # Ensure ICD fields are populated from DDx when LLM omits them
+    data.setdefault("icd_primary", icd_primary)
+    data.setdefault("icd_alternates", icd_alternates)
+
+    try:
+        return TreatmentPlan.model_validate(data)
+    except ValidationError as exc:
+        logger.error("TreatmentPlan validation failed. Raw JSON: %s", raw_json)
+        raise RuntimeError(f"TreatmentPlan validation failed: {exc}") from exc

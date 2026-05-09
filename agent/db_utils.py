@@ -368,38 +368,60 @@ async def list_documents(
 # Vector Search Functions
 async def vector_search(
     embedding: List[float],
-    limit: int = 10
+    limit: int = 10,
+    document_id_filter: Optional[List[str]] = None,
 ) -> List[Dict[str, Any]]:
     """
     Perform vector similarity search.
-    
+
     Args:
         embedding: Query embedding vector
         limit: Maximum number of results
-    
+        document_id_filter: If provided, restrict results to chunks from these document UUIDs
+
     Returns:
         List of matching chunks ordered by similarity (best first)
     """
     async with db_pool.acquire() as conn:
-        # Convert embedding to PostgreSQL vector string format
-        # PostgreSQL vector format: '[1.0,2.0,3.0]' (no spaces after commas)
         embedding_str = '[' + ','.join(map(str, embedding)) + ']'
-        
-        results = await conn.fetch(
-            "SELECT * FROM match_chunks($1::vector, $2)",
-            embedding_str,
-            limit
-        )
-        
+
+        if document_id_filter:
+            results = await conn.fetch(
+                """
+                SELECT
+                    c.id AS chunk_id,
+                    c.document_id,
+                    c.content,
+                    1 - (c.embedding <=> $1::vector) AS similarity,
+                    COALESCE(c.metadata::text, '{}') AS metadata,
+                    d.title AS document_title,
+                    d.source AS document_source
+                FROM chunks c
+                JOIN documents d ON d.id = c.document_id
+                WHERE c.document_id = ANY($3::uuid[])
+                ORDER BY c.embedding <=> $1::vector
+                LIMIT $2
+                """,
+                embedding_str,
+                limit,
+                document_id_filter,
+            )
+        else:
+            results = await conn.fetch(
+                "SELECT * FROM match_chunks($1::vector, $2)",
+                embedding_str,
+                limit,
+            )
+
         return [
             {
                 "chunk_id": row["chunk_id"],
                 "document_id": row["document_id"],
                 "content": row["content"],
                 "similarity": row["similarity"],
-                "metadata": json.loads(row["metadata"]),
+                "metadata": json.loads(row["metadata"]) if isinstance(row["metadata"], str) else row["metadata"],
                 "document_title": row["document_title"],
-                "document_source": row["document_source"]
+                "document_source": row["document_source"],
             }
             for row in results
         ]
@@ -409,33 +431,64 @@ async def hybrid_search(
     embedding: List[float],
     query_text: str,
     limit: int = 10,
-    text_weight: float = 0.3
+    text_weight: float = 0.3,
+    document_id_filter: Optional[List[str]] = None,
 ) -> List[Dict[str, Any]]:
     """
     Perform hybrid search (vector + keyword).
-    
+
     Args:
         embedding: Query embedding vector
         query_text: Query text for keyword search
         limit: Maximum number of results
         text_weight: Weight for text similarity (0-1)
-    
+        document_id_filter: If provided, restrict results to chunks from these document UUIDs
+
     Returns:
         List of matching chunks ordered by combined score (best first)
     """
     async with db_pool.acquire() as conn:
-        # Convert embedding to PostgreSQL vector string format
-        # PostgreSQL vector format: '[1.0,2.0,3.0]' (no spaces after commas)
         embedding_str = '[' + ','.join(map(str, embedding)) + ']'
-        
-        results = await conn.fetch(
-            "SELECT * FROM hybrid_search($1::vector, $2, $3, $4)",
-            embedding_str,
-            query_text,
-            limit,
-            text_weight
-        )
-        
+
+        if document_id_filter:
+            vector_weight = 1.0 - text_weight
+            results = await conn.fetch(
+                """
+                SELECT
+                    c.id AS chunk_id,
+                    c.document_id,
+                    c.content,
+                    (
+                        $5::float * (1 - (c.embedding <=> $1::vector))
+                        + $4::float * similarity(c.content, $2)
+                    ) AS combined_score,
+                    1 - (c.embedding <=> $1::vector) AS vector_similarity,
+                    similarity(c.content, $2)         AS text_similarity,
+                    COALESCE(c.metadata::text, '{}')  AS metadata,
+                    d.title  AS document_title,
+                    d.source AS document_source
+                FROM chunks c
+                JOIN documents d ON d.id = c.document_id
+                WHERE c.document_id = ANY($6::uuid[])
+                ORDER BY combined_score DESC
+                LIMIT $3
+                """,
+                embedding_str,
+                query_text,
+                limit,
+                text_weight,
+                vector_weight,
+                document_id_filter,
+            )
+        else:
+            results = await conn.fetch(
+                "SELECT * FROM hybrid_search($1::vector, $2, $3, $4)",
+                embedding_str,
+                query_text,
+                limit,
+                text_weight,
+            )
+
         return [
             {
                 "chunk_id": row["chunk_id"],
@@ -444,9 +497,9 @@ async def hybrid_search(
                 "combined_score": row["combined_score"],
                 "vector_similarity": row["vector_similarity"],
                 "text_similarity": row["text_similarity"],
-                "metadata": json.loads(row["metadata"]),
+                "metadata": json.loads(row["metadata"]) if isinstance(row["metadata"], str) else row["metadata"],
                 "document_title": row["document_title"],
-                "document_source": row["document_source"]
+                "document_source": row["document_source"],
             }
             for row in results
         ]
