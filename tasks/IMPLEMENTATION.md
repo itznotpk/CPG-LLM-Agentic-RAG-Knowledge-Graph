@@ -14,38 +14,43 @@
 | CPG chunking + embedding ingestion | ✅ Working | [ingestion/](ingestion/) |
 | Vector / hybrid / graph retrieval tools | ✅ Working | [agent/tools.py](agent/tools.py) |
 | Pydantic AI agent (5 tools registered) | ✅ Working | [agent/agent.py](agent/agent.py) |
-| ICD-11 vector search (Chapter 17 only, 47 codes) | 🟡 Partial | [ddx/](ddx/) |
-| ICD-11 → CPG routing | ❌ Missing | — |
-| Structured patient input contract | ❌ Missing | — |
-| Structured treatment plan output | ❌ Missing | — |
-| Multi-stage clinical orchestrator | ❌ Missing | — |
+| ICD-11 vector search (3,914 codes, chapters 02/05/08/11/16/17) | ✅ Done | [ddx/](ddx/) |
+| ICD-11 → CPG routing (`route_icd_to_cpgs`) | ✅ Done | [agent/routing.py](agent/routing.py) |
+| Scoped retrieval (`document_id_filter`) | ✅ Done | [agent/tools.py](agent/tools.py) |
+| Structured patient input contract | ✅ Done | [agent/models.py](agent/models.py) |
+| Structured treatment plan output | ✅ Done | [agent/models.py](agent/models.py) |
+| Pipeline stages 2–5 (DDx→Route→Retrieve→Synthesize) | ✅ Done | [agent/clinical_stages.py](agent/clinical_stages.py) |
+| Multi-stage clinical orchestrator + API endpoint | 🔜 Step 08 | — |
 
-The two missing bridges are **ICD → CPG routing** and **patient input → treatment plan output schema**. Everything else either exists or is an extension of existing code.
+**One step remaining**: wire the stages into `agent/clinical_workflow.py` and expose `POST /clinical/plan`.
 
 ---
 
 ## 2. Target workflow
 
 ```
-[Stage 1]  Patient input          (PatientCase Pydantic schema)
+[Stage 1]  Patient input              (PatientCase Pydantic schema)
               │
               ▼
-[Stage 2]  Symptom → ICD-11        (ddx vector + Morbidity Tabulation, expanded chapters)
-              │  top-K candidates with confidence
+[Stage 2]  Symptom → ICD-11           Pass 1: vector search + Morbidity Tabulation (search_ddx)
+              │                        Pass 2: Gemini 2.5 Flash + thinking (budget=5k) re-ranks
+              │  list[DDxResult]               by clinical probability (age/sex/vitals/meds)
+              ▼                        Fallback to Pass 1 order if LLM fails
+[Stage 3]  ICD → CPG routing          exact/parent/range structural match on documents.icd11_scope
+              │                        grouped by cpg_name → CPGDocRef.document_ids (all sections)
+              │  list[CPGDocRef]        semantic fallback (scoped chunk vector search) if no match
               ▼
-[Stage 3]  ICD → CPG routing       (filter documents by icd11_scope; semantic fallback)
-              │  shortlist of document_id's
+[Stage 4]  CPG section retrieval      LLM generates 3 targeted queries (Gemini Flash)
+              │                        vector_search_tool scoped via document_id_filter
+              │  list[ChunkResult]      deduplicated, top-20 by score
               ▼
-[Stage 4]  CPG section retrieval   (existing tools, scoped via document_id_filter)
-              │  evidence chunks tagged with [Grade X, Level Y]
-              ▼
-[Stage 5]  Treatment plan synthesis (TreatmentPlan structured output)
-              │
+[Stage 5]  Treatment plan synthesis   Gemini Flash structured JSON → TreatmentPlan.model_validate()
+              │                        cpg_source must cite retrieved chunk; else unresolved_questions
               ▼
        Doctor UI (answer + evidence chain)
 ```
 
-Each stage produces a typed artifact. Each stage is independently testable. The orchestrator is a thin sequential controller — no graph framework needed for v1.
+Each stage produces a typed artifact. Each stage is independently testable. The orchestrator (Step 08) is a thin sequential controller — no graph framework needed for v1.
 
 ---
 
@@ -53,17 +58,17 @@ Each stage produces a typed artifact. Each stage is independently testable. The 
 
 | # | Component | Status | Path |
 |---|---|---|---|
-| 3.1 | `PatientCase` / `Recommendation` / `TreatmentPlan` schemas | ✅ DONE (Step 01) | [agent/models.py](../agent/models.py) |
-| 3.2 | Extend `documents` table with scope columns + GIN index | NEW | [sql/schema.sql](../sql/schema.sql) |
-| 3.3 | CPG scope classifier (one-shot) | NEW | `ingestion/classify_cpg_scope.py` |
-| 3.4 | Human review + verification flip | NEW | `ingestion/verify_cpg_scope.py` |
-| 3.5 | ICD-11 ingestion expanded to relevant chapters | EXTEND | [ddx/ingest_icd11.py](../ddx/ingest_icd11.py) |
-| 3.6 | DDx vector + tabulation search | REUSE | [ddx/search_ddx.py](../ddx/search_ddx.py) |
-| 3.7 | `route_icd_to_cpgs()` | NEW | `agent/routing.py` |
-| 3.8 | Add `document_id_filter` to retrieval tools | EXTEND | [agent/tools.py](../agent/tools.py) |
-| 3.9 | Targeted query generator | NEW | inside Stage 4 prompt |
-| 3.10 | Clinical orchestrator | NEW | `agent/clinical_workflow.py` |
-| 3.11 | API endpoint for clinical flow | EXTEND | [agent/api.py](../agent/api.py) |
+| 3.1 | `PatientCase` / `Recommendation` / `TreatmentPlan` schemas | ✅ Done | [agent/models.py](../agent/models.py) |
+| 3.2 | Extend `documents` table with scope columns + GIN index | ✅ Done | [sql/migrations/001_documents_scope.sql](../sql/migrations/001_documents_scope.sql) |
+| 3.3 | CPG scope classifier (one-shot) | ✅ Done | [ingestion/classify_cpg_scope.py](../ingestion/classify_cpg_scope.py) |
+| 3.4 | Human review + verification flip | ✅ Done | [ingestion/verify_cpg_scope.py](../ingestion/verify_cpg_scope.py) |
+| 3.5 | ICD-11 ingestion expanded to relevant chapters | ✅ Done | [ddx/ingest_icd11_full.py](../ddx/ingest_icd11_full.py) |
+| 3.6 | DDx: vector + tabulation (Pass 1) + Gemini 2.5 Flash thinking re-rank (Pass 2) | ✅ Done | [agent/clinical_stages.py](../agent/clinical_stages.py) |
+| 3.7 | `route_icd_to_cpgs()` — structural + semantic, grouped by cpg_name | ✅ Done | [agent/routing.py](../agent/routing.py) |
+| 3.8 | `document_id_filter` on retrieval tools + db_utils | ✅ Done | [agent/tools.py](../agent/tools.py), [agent/db_utils.py](../agent/db_utils.py) |
+| 3.9 | Targeted query generator + scoped retrieval (Stage 4) | ✅ Done | [agent/clinical_stages.py](../agent/clinical_stages.py) |
+| 3.10 | Clinical orchestrator | 🔜 Step 08 | `agent/clinical_workflow.py` |
+| 3.11 | API endpoint `POST /clinical/plan` | 🔜 Step 08 | [agent/api.py](../agent/api.py) |
 
 > **Architectural simplification (post-IMPLEMENTATION-v1):** Originally proposed a separate `cpg_documents` table with a new `cpg_id` foreign key on `chunks`. After inspecting [sql/schema.sql](../sql/schema.sql), every document in this system *is* a CPG, and `chunks.document_id` already references `documents.id`. So scope metadata is added as columns on `documents` directly — no new table, no chunks backfill, no FK churn. Routing filters `documents` by `icd11_scope` and joins chunks via the existing `document_id`.
 
@@ -73,64 +78,52 @@ Each stage produces a typed artifact. Each stage is independently testable. The 
 
 Each step is independently shippable and testable. Do not start step N+1 until step N has a passing test.
 
-### Step A — Schema foundations (~1 h) ✅ DONE
-- Added `PatientCase`, `Recommendation`, `TreatmentPlan` to [agent/models.py](../agent/models.py).
-- Tests in [tests/test_clinical_schemas.py](../tests/test_clinical_schemas.py) — 32 passing.
+### ~~Step A — Schema foundations (~1 h)~~ ✅ DONE
+- ~~Added `PatientCase`, `Recommendation`, `TreatmentPlan` to [agent/models.py](../agent/models.py).~~
+- ~~Tests in [tests/test_clinical_schemas.py](../tests/test_clinical_schemas.py) — 32 passing.~~
 - Brief: [STEP_01_schemas.md](STEP_01_schemas.md).
 
-### Step B — Extend `documents` with scope columns (~30 min)
-- `ALTER TABLE documents` adding `icd11_scope TEXT[]`, `procedure_scope TEXT[]`, `scope_rationale TEXT`, `scope_verified BOOLEAN`, `classified_at`, `verified_at`, `verified_by`.
-- New GIN index on `documents(icd11_scope)`.
-- Update destructive `DROP/CREATE` block in [sql/schema.sql](../sql/schema.sql) so a fresh schema apply produces the new columns.
-- Test: a fixture document with `icd11_scope = ARRAY['BC81']` is retrievable via the GIN index.
-- No changes to `chunks` (already references `documents.id`).
+### ~~Step B — Extend `documents` with scope columns (~30 min)~~ ✅ DONE
+- ~~`ALTER TABLE documents` adding `icd11_scope TEXT[]`, `procedure_scope TEXT[]`, `scope_rationale TEXT`, `scope_verified BOOLEAN`, `classified_at`, `verified_at`, `verified_by`.~~
+- ~~New GIN index on `documents(icd11_scope)`. Migration: [sql/migrations/001_documents_scope.sql](../sql/migrations/001_documents_scope.sql).~~
+- ~~Updated `CREATE TABLE documents` in [sql/schema.sql](../sql/schema.sql) to include new columns inline.~~
 - Brief: [STEP_02_extend_documents.md](STEP_02_extend_documents.md).
 
-### Step C — CPG scope classifier (~1.5 h)
-- Script `ingestion/classify_cpg_scope.py`.
-- Reads each `markdown/*.md`, sends `(title + first ~200 lines)` to LLM, parses JSON, upserts the matching row in `documents` with the proposed scope and `scope_verified = FALSE`.
-- Generates `ingestion/cpg_scope_review.md` for clinician review.
-- Test: dry-run on 3 known CPGs (AF, Hypertension, Stroke), assert expected ICD blocks present.
+### ~~Step C — CPG scope classifier (~1.5 h)~~ ✅ DONE
+- ~~Script `ingestion/classify_cpg_scope.py` — groups CPGs by `cpg_name`, calls OpenRouter (Gemini Flash), parses JSON, upserts `icd11_scope` with `scope_verified = FALSE`.~~
+- ~~MiMo hallucinated 10/16 CPG scopes; fixed via migrations [002](../sql/migrations/002_fix_cpg_scopes.sql) and [003](../sql/migrations/003_fix_remaining_scopes.sql).~~
+- ~~`ingestion/regenerate_scope_review.py` added to rebuild review file from DB state.~~
 
-### Step D — Human verification (~30 min clinician + 20 min eng)
-- Clinician reviews `cpg_scope_review.md`, edits where needed.
-- Script `ingestion/verify_cpg_scope.py` parses the reviewed file and flips `scope_verified = TRUE`, writes `verified_at` / `verified_by`.
-- Outcome: all 25 CPG rows in `documents` have `scope_verified = TRUE`.
+### ~~Step D — Human verification (~30 min clinician + 20 min eng)~~ ✅ DONE
+- ~~Dr Chin reviewed `tasks/cpg_scope_review.md`: 9 Approved, 7 Edited, 0 Rejected.~~
+- ~~`ingestion/verify_cpg_scope.py` parsed review file, flipped `scope_verified = TRUE`, wrote `verified_at` / `verified_by`.~~
+- ~~All 16 CPG rows in `documents` have `scope_verified = TRUE`.~~
 
-### Step E — Expand ICD-11 ingestion (~2 h)
-- Extend [ddx/ingest_icd11.py](../ddx/ingest_icd11.py) to pull additional chapters from WHO ICD-11 API or MMS linearization download. Target chapters: 02 (neoplasms), 08 (nervous system), BA–BE (circulatory), keep 17 (sexual health). Skip chapters with no covering CPG.
-- Test: random spot-checks that `BC81.3`, `8B20`, `2C61` are retrievable by description text.
+### ~~Step E — Expand ICD-11 ingestion (~2 h)~~ ✅ DONE
+- ~~New script `ddx/ingest_icd11_full.py` — WHO ICD-11 API OAuth2, recursive chapter walker, 8 req/sec rate limit, exponential backoff, resume via `ddx/data/.icd11_progress.json`, Bedrock 1536-dim embeddings.~~
+- ~~Migration [sql/migrations/004_icd11_embedding_to_1536.sql](../sql/migrations/004_icd11_embedding_to_1536.sql) standardised `icd11_codes.embedding` from vector(768) → vector(1536).~~
+- ~~Ingested 3,914 codes: ch02=1244, ch05=640, ch08=845, ch11=593, ch16=545, ch17=47 (preserved).~~
+- ~~`ddx/migrate_inclusion_embeddings.py` populated `inclusion_embeddings` JSONB — 197 codes updated.~~
+- Brief: [STEP_05_icd11_ingestion.md](STEP_05_icd11_ingestion.md).
 
-### Step F — `route_icd_to_cpgs()` (~1 h)
-- New module `agent/routing.py`.
-- Function signature:
-  ```python
-  async def route_icd_to_cpgs(
-      icd_code: str,
-      top_k: int = 3,
-  ) -> list[CPGDocRef]
-  ```
-- Logic:
-  1. Structural match: any `documents` row where `scope_verified = TRUE` and whose `icd11_scope` contains `icd_code` or its 3-char parent block (or covers a stored range like `BC60-BC9Z`).
-  2. If no structural match → semantic fallback: embed ICD code title+description, cosine match against pre-computed CPG title/scope embeddings.
-  3. Return list of `(document_id, title, match_type, score)`.
-- Helper SQL function `icd11_in_scope(code TEXT, scope TEXT[]) RETURNS BOOLEAN` to keep the hierarchy/range logic in one place.
-- Tests: `BC81.3 → CPG AF`, `8B20 → CPG Stroke`, `2C61 → CPG Breast Cancer`, `XX99 (unknown) → semantic fallback returns top-K`.
+### ~~Step F — `route_icd_to_cpgs()` (~1 h)~~ ✅ DONE
+- ~~New module `agent/routing.py` — `CPGDocRef` model, exact/parent/range structural match, semantic fallback via scoped chunk vector search.~~
+- ~~Tests: 17 passing, zero real DB/embedding calls.~~
 
-### Step G — Scope retrieval tools (~30 min)
-- Add optional `document_id_filter: list[UUID] | None` parameter to `vector_search_tool`, `hybrid_search_tool`, `graph_search_tool` in [agent/tools.py](../agent/tools.py).
-- When provided, retrieval is restricted to chunks whose parent `document_id` is in the filter.
-- When `None`, behavior is unchanged (backward compatible).
+### ~~Step G — Scope retrieval tools (~30 min)~~ ✅ DONE
+- ~~`document_id_filter: list[str] | None` added to `VectorSearchInput`, `HybridSearchInput`, `GraphSearchInput` in [agent/tools.py](../agent/tools.py).~~
+- ~~`vector_search()` and `hybrid_search()` in [agent/db_utils.py](../agent/db_utils.py) extended with inline SQL filter (`ANY($3::uuid[])`). Graph tool logs warning, stays unscoped.~~
 
-### Step H — Targeted query generator (~1 h)
-- Inside the Stage 4 step of the orchestrator: prompt the LLM with `(PatientCase, predicted ICD, CPG titles)` and ask it to produce 3–5 *targeted retrieval queries*. Do not pass raw user chat text into vector search.
-- Each generated query is run through the scoped tools.
-- Results are deduplicated and ranked by embedding score.
+> Brief: [STEP_06_routing_and_scoped_retrieval.md](STEP_06_routing_and_scoped_retrieval.md).
 
-### Step I — Treatment plan synthesizer (~1.5 h)
-- Final LLM call. Inputs: `PatientCase`, predicted ICD(s), retrieved evidence chunks.
-- Output: validated `TreatmentPlan` (use Pydantic AI's structured output / `result_type=TreatmentPlan`).
-- Prompt enforces: every `Recommendation.cpg_source` must reference a chunk that was actually retrieved; if no evidence found for a needed decision, populate `unresolved_questions` instead of inventing.
+### ~~Step H — Targeted query generator (~1 h)~~ ✅ DONE
+- ~~`_generate_retrieval_queries()` in `agent/clinical_stages.py` — LLM produces 3 focused retrieval queries from PatientCase + ICD codes + CPG names. Scoped vector search via `document_id_filter`.~~
+
+### ~~Step I — Treatment plan synthesizer (~1.5 h)~~ ✅ DONE
+- ~~`stage_5_synthesize()` in `agent/clinical_stages.py` — Gemini Flash structured JSON output → `TreatmentPlan.model_validate()`. Falls back to `unresolved_questions` when evidence is absent.~~
+- ~~**07B bonus**: `stage_2_ddx` upgraded to two-pass — Pass 1 vector+tabulation, Pass 2 Gemini 2.5 Flash + thinking (budget=5000) re-ranks by clinical probability (age/sex/vitals/meds). Fallback to math order on failure.~~
+
+> Briefs: [STEP_07_pipeline_stages.md](STEP_07_pipeline_stages.md), [STEP_07B_ddx_llm_rerank.md](STEP_07B_ddx_llm_rerank.md).
 
 ### Step J — Clinical orchestrator (~1.5 h)
 - New file `agent/clinical_workflow.py`.
@@ -249,9 +242,9 @@ The `icd11_in_scope(code, scope)` function:
 3. Range match: any element of `scope` formatted `AAA-BBB` whose lex-bounded interval contains `code`.
 
 ### 7.2 Semantic fallback
-- Pre-compute one embedding per CPG: `title + scope_rationale`. Store in `documents.title_embedding VECTOR(...)` (added in the same migration as the scope columns, or in Step F).
-- On unknown ICD code: embed the code's title + description, cosine-rank against `title_embedding`, return top-K with score ≥ threshold.
-- Mark these results with `match_type = "semantic"` so the audit/UI can show that routing was inferred, not direct.
+- **Option A chosen (no schema change):** embed the ICD code's title + description, scoped vector search against chunks from `scope_verified = TRUE` documents, deduplicate by `document_id`, return top-K by best chunk score ≥ threshold.
+- `documents.title_embedding` column was **not added** — Option A proved sufficient.
+- Results carry `match_type = "semantic"` so the UI can flag inferred routing.
 
 ### 7.3 Multi-ICD case
 If Stage 2 returns multiple high-confidence ICDs (e.g. AF + HTN), call `route_icd_to_cpgs` for each, union the `document_id` shortlist, deduplicate. Stage 4 retrieval runs once over the combined shortlist.
@@ -290,31 +283,36 @@ The following are intentionally deferred. Do not build them until v1 ships and p
 
 | Phase | Tasks | Estimate |
 |---|---|---|
-| Foundations | A ✅, B, E | ~3.5 h (A done) |
-| Scope tagging | C, D | ~2 h + 30 min clinician |
-| Routing layer | F, G | ~1.5 h |
-| Retrieval + synthesis | H, I | ~2.5 h |
-| Orchestration + API | J, K | ~2 h |
-| Tests | L | ~1 h |
-| **Total** | | **~12.5 h engineering + 30 min clinician review** |
+| ~~Foundations~~ | ~~A, B, E~~ ✅ | ~~done~~ |
+| ~~Scope tagging~~ | ~~C, D~~ ✅ | ~~done~~ |
+| ~~Routing layer~~ | ~~F, G~~ ✅ | ~~done~~ |
+| ~~Retrieval + synthesis~~ | ~~H, I~~ ✅ | ~~done~~ |
+| Orchestration + API | J, K (Step 08) | ~2 h |
+| Tests | L (Step 08) | ~1 h |
+| **Remaining** | | **~3 h** |
 
 Realistically a focused 2–3 day build for one engineer. (Reduced slightly from the original ~13 h after the chunks-backfill step was eliminated by extending `documents` directly.)
 
 ---
 
-## 11. Open decisions before kickoff
+## 11. Decisions made
 
-1. **CPG scope granularity** → document-level (settled, see §6.5).
-2. **Orchestration framework** → Pydantic AI for v1, revisit LangGraph only if branching/HITL is needed.
-3. **ICD-11 ingestion source** → WHO ICD-11 API vs MMS linearization download. Pick whichever your network/access supports; data shape is equivalent.
-4. **CPG scope reviewer** → who is the clinician signing off on the 25 rows? Block step D until identified.
+1. **CPG scope granularity** → document-level ✅ (see §6.5)
+2. **Orchestration framework** → plain async functions, no LangGraph ✅
+3. **ICD-11 ingestion source** → WHO ICD-11 API (OAuth2, recursive chapter walker) ✅
+4. **CPG scope reviewer** → Dr Chin reviewed all 16 CPGs ✅
+5. **Embedding dimension** → 1536 (Bedrock Titan v1), unified across `chunks` and `icd11_codes` ✅
+6. **Semantic routing fallback** → Option A (chunk-based, no new column) ✅
+7. **DDx re-ranking** → two-pass: math first, Gemini 2.5 Flash thinking re-ranks by clinical context ✅
+8. **LLM for synthesis** → Gemini 2.0 Flash via OpenRouter (raw `openai.AsyncOpenAI`, not Pydantic AI — avoids `service_tier` rejection) ✅
 
 ---
 
 ## 12. Done criteria for v1
 
-- All 25 CPG rows in `documents` have `scope_verified = TRUE` with non-empty `icd11_scope` (or non-empty `procedure_scope` for procedure-only CPGs).
-- ICD-11 chapters covering the 25 CPGs are ingested and searchable.
-- `route_icd_to_cpgs()` passes unit tests for all CPG/ICD fixture pairs.
-- `POST /clinical/plan` end-to-end returns a `TreatmentPlan` for each of the 3 fixture patients in under 15 s.
-- No hardcoded ICD→CPG mappings anywhere in code (all routing data lives in `documents`).
+- ✅ All 16 CPG rows in `documents` have `scope_verified = TRUE` with non-empty `icd11_scope`.
+- ✅ 3,914 ICD-11 codes across chapters 02/05/08/11/16/17 ingested and searchable at vector(1536).
+- ✅ `route_icd_to_cpgs()` passes 19 unit tests; groups by `cpg_name`, returns all section IDs.
+- ✅ Pipeline stages 2–5 implemented and tested (59 tests passing total).
+- 🔜 `POST /clinical/plan` end-to-end returns a `TreatmentPlan` for each of the 3 fixture patients in under 15 s.
+- ✅ No hardcoded ICD→CPG mappings anywhere in code (all routing data lives in `documents`).
