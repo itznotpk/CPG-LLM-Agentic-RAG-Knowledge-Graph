@@ -21,13 +21,50 @@ from agent.providers import get_embedding_client, get_embedding_model
 
 
 async def generate_embedding(text: str) -> list[float]:
-    """Generate embedding using the existing embedding model."""
+    """Generate embedding using the configured provider.
+
+    Provider-aware: branches on EMBEDDING_PROVIDER. Inlined here (rather than
+    importing from agent.tools) to avoid agent.graph_utils -> graphiti_core,
+    a heavy dependency this script doesn't need.
+    """
+    embedding_provider = os.getenv("EMBEDDING_PROVIDER", "openai").lower()
+
+    if embedding_provider == "bedrock":
+        import boto3
+
+        bedrock_client = boto3.client(
+            "bedrock-runtime",
+            region_name=os.getenv("AWS_REGION", "us-east-1"),
+        )
+        model_id = os.getenv("EMBEDDING_MODEL", "amazon.titan-embed-text-v1")
+        dimension = int(os.getenv("VECTOR_DIMENSION", "1536"))
+
+        def _invoke():
+            if "titan" in model_id:
+                body = json.dumps({"inputText": text})
+            elif "cohere" in model_id:
+                body = json.dumps({"texts": [text], "input_type": "search_query"})
+            else:
+                raise ValueError(f"Unsupported Bedrock embedding model: {model_id}")
+
+            response = bedrock_client.invoke_model(
+                modelId=model_id,
+                body=body,
+                contentType="application/json",
+                accept="application/json",
+            )
+            result = json.loads(response["body"].read())
+
+            if "titan" in model_id:
+                return result["embedding"][:dimension]
+            return result["embeddings"][0][:dimension]
+
+        return await asyncio.to_thread(_invoke)
+
+    # OpenAI-compatible fallback
     client = get_embedding_client()
     model_name = get_embedding_model()
-    response = await client.embeddings.create(
-        input=text,
-        model=model_name
-    )
+    response = await client.embeddings.create(input=text, model=model_name)
     return response.data[0].embedding
 
 
