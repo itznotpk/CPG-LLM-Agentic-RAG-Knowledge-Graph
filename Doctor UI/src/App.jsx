@@ -9,7 +9,7 @@ import {
   CarePlanSection,
   OutputSection,
 } from './components/sections';
-import { StepIndicator, GlassPanel } from './components/shared';
+import { StepIndicator, GlassPanel, PatientBanner, TraceDrawer } from './components/shared';
 import Home from './components/pages/Home';
 import MyPatients from './components/pages/MyPatients';
 import Settings from './components/pages/Settings';
@@ -26,9 +26,15 @@ function AppContent() {
   const { state, dispatch } = useApp();
   const { isDark } = useTheme();
   const { currentStep } = state;
-  const [currentView, setCurrentView] = useState('dashboard'); // dashboard, patients, consultation, settings, chart
+  const [currentView, setCurrentView] = useState('dashboard');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [chartPatient, setChartPatient] = useState(null);
+  const [traceOpen, setTraceOpen] = useState(false);
+
+  // Auto-open trace drawer when entering Step 2
+  React.useEffect(() => {
+    if (currentStep === 2) setTraceOpen(true);
+  }, [currentStep]);
 
   // Shared profile state
   const [profile, setProfile] = useState({
@@ -131,15 +137,28 @@ function AppContent() {
       case 'consultation':
         return (
           <>
+            {/* Persistent Patient Banner */}
+            <PatientBanner />
+
             {/* Step Indicator */}
-            <div className="mb-8">
+            <div className="mb-6">
               <StepIndicator steps={steps} currentStep={currentStep} />
             </div>
 
-            {/* Main Content Area */}
-            <GlassPanel className="min-h-[600px]">
-              {renderCurrentSection()}
-            </GlassPanel>
+            {/* Main Content Area — shift right when drawer is open */}
+            <div className={`transition-all duration-300 ${traceOpen && currentStep >= 2 ? 'pr-[390px]' : ''}`}>
+              <GlassPanel className="min-h-[600px]">
+                {renderCurrentSection()}
+              </GlassPanel>
+            </div>
+
+            {/* Persistent AI Reasoning Trace Drawer (Steps 2-4) */}
+            {currentStep >= 2 && (
+              <TraceDrawer
+                isOpen={traceOpen}
+                onToggle={() => setTraceOpen(o => !o)}
+              />
+            )}
           </>
         );
       case 'settings':

@@ -125,20 +125,68 @@ Each step is independently shippable and testable. Do not start step N+1 until s
 
 > Briefs: [STEP_07_pipeline_stages.md](STEP_07_pipeline_stages.md), [STEP_07B_ddx_llm_rerank.md](STEP_07B_ddx_llm_rerank.md).
 
-### Step J — Clinical orchestrator (~1.5 h)
-- New file `agent/clinical_workflow.py`.
-- Single async function `run_clinical_workflow(case: PatientCase) -> TreatmentPlan` that calls Stages 2 → 5 sequentially.
-- Each stage's output is held in a local dict; all stages have explicit error handling.
+### ~~Step J — Clinical orchestrator~~  ✅ DONE
+- ~~`agent/clinical_workflow.py` — `run_clinical_workflow()` returns `WorkflowResult` (plan + ddx + cpgs + elapsed_ms + stage_errors). Stages 2–4 fault-tolerant; Stage 5 propagates.~~
 
-### Step K — API integration (~30 min)
-- Add `POST /clinical/plan` endpoint to [agent/api.py](../agent/api.py) accepting `PatientCase`, returning `TreatmentPlan`.
-- Keep the existing `/chat` endpoint untouched for general Q&A.
+### ~~Step K — API + v1 UI wiring~~ ✅ DONE
+- ~~`POST /clinical/plan` added to `agent/api.py`. `ClinicalPlanRequest` / `ClinicalPlanResponse` models added.~~
+- ~~`Doctor UI/src/lib/clinicalApi.js` — `runClinicalPlan()` maps UI state → `PatientCase` → POST.~~
+- ~~`Doctor UI/src/lib/clinicalMappers.js` — `mapDdxToDiagnosis()` + `mapTreatmentPlanToCarePlan()`.~~
+- ~~`AppContext.jsx` — `analyzeAssessment()` calls real pipeline with sample data fallback. `confirmDiagnosis()` Supabase calls preserved; `setTimeout(sampleCarePlan)` mock removed.~~
+- ~~`DiagnosisSection.jsx` — CPG badge row + collapsible LLM reasoning accordion per ICD card.~~
+- ~~`CarePlanSection.jsx` — yellow unresolved-questions warning card.~~
 
-### Step L — End-to-end smoke tests (~1 h)
-- Three fixture cases:
-  1. AF symptoms → `BC81.x` → CPG AF → rate/rhythm/anticoagulation recommendations.
-  2. ED symptoms → `HA01.1` → CPG Erectile Dysfunction → PDE5 inhibitor recommendation.
-  3. Out-of-scope query (e.g. dermatology) → low-confidence ICD → semantic CPG fallback or graceful "unresolved".
+### ~~Step L — End-to-end smoke tests~~ ✅ DONE
+- ~~`tests/test_clinical_workflow.py` — 12 mocked unit tests (orchestrator + endpoint).~~
+- ~~`tests/test_e2e_smoke.py` — 3 fixture cases (AF, ED, out-of-scope), all mocked.~~
+
+> Brief: [STEP_08_orchestrator_and_api.md](STEP_08_orchestrator_and_api.md).
+
+---
+
+### ~~Step M — Live pipeline transparency UI (~3 h)~~ ✅ DONE (Steps 09 + 09B)
+
+Briefs: [STEP_09_sse_streaming.md](STEP_09_sse_streaming.md), [STEP_09B_transparency_ui.md](STEP_09B_transparency_ui.md)
+
+Streams each stage's progress to the Doctor UI as the backend runs, using SSE via `fetch + ReadableStream` (POST body required — `EventSource` is GET-only).
+
+#### Backend changes (done)
+- `run_clinical_workflow_streaming(case, emit)` in `agent/clinical_workflow.py` — emits `stage_update` events before/after each stage. Non-streaming `run_clinical_workflow` unchanged.
+- `POST /clinical/plan/stream` endpoint — SSE `StreamingResponse` + `asyncio.Queue`. Events: `stage_update`, `sub_step`, `thinking_delta`, `final_result`, `done`.
+- `stage_2_ddx` streams Gemini 2.5 Flash thinking tokens as `thinking_delta` events (`delta.reasoning` / `delta.thinking` / `delta.reasoning_content`).
+- `stage_3_route` emits per-CPG `sub_step` with `match_type` badge (exact/parent/range/semantic).
+- `stage_4_retrieve` emits query-generation + per-query ("N new / M hits") + dedup sub_steps.
+
+#### Frontend changes (done)
+- `PipelineProgress.jsx` — numbered timeline (01–04 circles), tree connectors, per-CPG sub-steps with match-type badges, collapsible thinking-token accordion, persistent collapsed trace card.
+- `clinicalApi.js` — `runClinicalPlanStream()` + `buildClinicalPlanBody()`; `runClinicalPlan()` kept as fallback.
+- `AppContext.jsx` — `pipelineEvents` ordered log + `pipelineSummary`; `SET_PIPELINE_EVENT`, `SET_PIPELINE_SUMMARY`, `RESET_PIPELINE_FROM_STAGE` reducer cases.
+- `DiagnosisSection.jsx` — persistent collapsed trace card after analysis completes.
+
+---
+
+### Step N — Clinician-directed re-synthesis (~2 h) 🔜 Step 10
+
+Detailed brief: [STEP_10_clinician_directed_resynth.md](STEP_10_clinician_directed_resynth.md)
+
+When the clinician's final ICD-11 selection differs from the AI's top-2 routing codes, re-runs Stages 3–5 scoped to the clinician-selected codes and streams the new treatment plan.
+
+#### Problem
+`confirmDiagnosis()` currently saves diagnoses to Supabase but does **not** re-run the pipeline if the clinician selects different ICD codes than the AI recommended. The treatment plan is locked at analysis time regardless of the clinician's selection.
+
+#### Backend changes
+- `SelectedDiagnosis` + `ResynthesizeRequest` Pydantic models in `agent/models.py`.
+- `run_resynthesize_streaming(case, selected_ddx, emit)` in `agent/clinical_workflow.py` — runs Stages 3–5 only with `top_k_codes=len(selected_ddx)`; emits `clinician_override` event first.
+- New `POST /clinical/plan/resynthesize/stream` endpoint in `agent/api.py`.
+
+#### Frontend changes (`Doctor UI/src/`)
+- `clinicalApi.js` — new `resynthesizePlanStream(body, callbacks)`.
+- `AppContext.jsx` — `SET_RESYNTH_OVERRIDE` reducer; `confirmDiagnosis()` detects `needsResynth` (selected codes ∉ `aiTopCodes = new Set(ddx.slice(0,2).map(d=>d.code))`); if true, calls `resynthesizePlanStream` instead of saving immediately.
+- `DiagnosisSection.jsx` — amber warning notice + updated "Confirm & Generate Plan" button when clinician override is detected.
+- `PipelineProgress.jsx` — "Clinician override" marker row + re-runs Stages 3–4–5 in the trace.
+
+#### Tests
+- `tests/test_resynthesize.py` — 5 tests: `run_resynthesize_streaming` emits `clinician_override`; endpoint 200; Stage 2 events preserved on RESET; no resynth when selection matches AI top codes; validation error on empty selection.
 
 ---
 
@@ -287,11 +335,10 @@ The following are intentionally deferred. Do not build them until v1 ships and p
 | ~~Scope tagging~~ | ~~C, D~~ ✅ | ~~done~~ |
 | ~~Routing layer~~ | ~~F, G~~ ✅ | ~~done~~ |
 | ~~Retrieval + synthesis~~ | ~~H, I~~ ✅ | ~~done~~ |
-| Orchestration + API | J, K (Step 08) | ~2 h |
-| Tests | L (Step 08) | ~1 h |
-| **Remaining** | | **~3 h** |
-
-Realistically a focused 2–3 day build for one engineer. (Reduced slightly from the original ~13 h after the chunks-backfill step was eliminated by extending `documents` directly.)
+| ~~Orchestration + API + v1 UI wiring~~ | ~~J, K, L~~ ✅ | ~~done~~ |
+| ~~Live pipeline transparency UI (v2)~~ | ~~M (Steps 09 + 09B)~~ ✅ | ~~done~~ |
+| Clinician-directed re-synthesis | N (Step 10) | ~2 h |
+| **Remaining** | | **~2 h (Step 10 only)** |
 
 ---
 
@@ -314,5 +361,8 @@ Realistically a focused 2–3 day build for one engineer. (Reduced slightly from
 - ✅ 3,914 ICD-11 codes across chapters 02/05/08/11/16/17 ingested and searchable at vector(1536).
 - ✅ `route_icd_to_cpgs()` passes 19 unit tests; groups by `cpg_name`, returns all section IDs.
 - ✅ Pipeline stages 2–5 implemented and tested (59 tests passing total).
-- 🔜 `POST /clinical/plan` end-to-end returns a `TreatmentPlan` for each of the 3 fixture patients in under 15 s.
+- ✅ `POST /clinical/plan` end-to-end returns a `TreatmentPlan` for all 3 fixture patients.
+- ✅ Doctor UI `DiagnosisSection` and `CarePlanSection` populated from real pipeline output.
+- ✅ Live pipeline transparency: stages 2–5 stream to UI with DDx thinking tokens visible. *(Steps 09 + 09B)*
+- 🔜 Clinician ICD selection triggers re-synthesis when it differs from AI top-2 codes. *(Step 10)*
 - ✅ No hardcoded ICD→CPG mappings anywhere in code (all routing data lives in `documents`).

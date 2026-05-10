@@ -402,9 +402,9 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
         </div>
         <button
           onClick={onNewPatient}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--accent-primary)]
             bg-gradient-to-r ${accent.gradient} text-white
-            transition-all shadow-lg ${accent.shadow}`}
+            transition-transform hover:scale-[1.02] shadow-lg ${accent.shadow}`}
         >
           <UserPlus className="w-5 h-5" />
           New Patient
@@ -419,14 +419,17 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
             <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
             <input
               type="text"
-              placeholder="Search by name or NRIC..."
+              name="patient-search"
+              autoComplete="off"
+              spellCheck={false}
+              placeholder="Search by name or NRIC…"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full pl-10 pr-4 py-2.5 rounded-xl border transition-all
+              className={`w-full pl-10 pr-4 py-2.5 rounded-xl border transition-colors
                 ${isDark
-                  ? 'bg-white/5 border-white/10 text-white placeholder-slate-500 focus:border-[var(--accent-primary)]/50'
-                  : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[var(--accent-primary)]'
-                } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/20`}
+                  ? 'bg-white/5 border-white/10 text-white placeholder-slate-500 focus-visible:border-[var(--accent-primary)]/50'
+                  : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus-visible:border-[var(--accent-primary)]'
+                } focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)]/20`}
             />
           </div>
 
@@ -441,7 +444,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
               <button
                 key={tab.key}
                 onClick={() => setStatusFilter(tab.key)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)]
                   ${statusFilter === tab.key
                     ? `bg-[var(--accent-primary)]/20 ${accent.text} border border-[var(--accent-primary)]/30`
                     : isDark
@@ -529,9 +532,12 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                     <td className="p-4 w-12">
                       <button
                         onClick={() => handlePatientExpand(patient)}
-                        className={`p-2 rounded-lg transition-all ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-200'}`}
+                        aria-label="Expand Patient Details"
+                        aria-expanded={selectedPatient?.id === patient.id}
+                        className={`p-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-200'}`}
                       >
                         <ChevronRight
+                          aria-hidden="true"
                           className={`w-5 h-5 transition-transform duration-200 ${isDark ? 'text-slate-400' : 'text-slate-500'}
                             ${selectedPatient?.id === patient.id ? 'rotate-90' : ''}`}
                         />

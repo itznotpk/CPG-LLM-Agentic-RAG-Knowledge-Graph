@@ -37,8 +37,37 @@ from .models import (
     StreamDelta,
     ErrorResponse,
     HealthStatus,
-    ToolCall
+    ToolCall,
+    PatientCase,
+    TreatmentPlan,
 )
+from pydantic import BaseModel as _BaseModel
+
+
+class ClinicalPlanRequest(_BaseModel):
+    case: PatientCase
+    session_id: str | None = None
+
+
+class SelectedDiagnosis(_BaseModel):
+    code: str
+    title: str
+    probability: float = 0.9
+    reasoning: list[str] = []
+
+
+class ResynthesizeRequest(_BaseModel):
+    case: PatientCase
+    selected_diagnoses: list[SelectedDiagnosis]
+
+
+class ClinicalPlanResponse(_BaseModel):
+    treatment_plan: TreatmentPlan
+    ddx: list[dict]
+    cpgs_matched: list[str]
+    elapsed_ms: float
+    stage_errors: list[str] = []
+
 from .tools import (
     vector_search_tool,
     graph_search_tool,
@@ -540,6 +569,151 @@ async def chat(request: ChatRequest):
     except Exception as e:
         logger.error(f"Chat endpoint failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/clinical/plan", response_model=ClinicalPlanResponse)
+async def clinical_plan(request: ClinicalPlanRequest):
+    """
+    Run the full clinical workflow for a patient case.
+    Accepts PatientCase, returns TreatmentPlan + DDx candidates + matched CPGs.
+    """
+    from .clinical_workflow import run_clinical_workflow
+
+    try:
+        result = await run_clinical_workflow(request.case)
+        return ClinicalPlanResponse(
+            treatment_plan=result.treatment_plan,
+            ddx=[d.model_dump() for d in result.ddx],
+            cpgs_matched=[c.cpg_name for c in result.cpgs],
+            elapsed_ms=result.elapsed_ms,
+            stage_errors=result.stage_errors,
+        )
+    except RuntimeError as e:
+        logger.error("Clinical plan synthesis failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e))
+    except Exception as e:
+        logger.error("Clinical plan endpoint failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/clinical/plan/stream")
+async def clinical_plan_stream(request: ClinicalPlanRequest):
+    """
+    Run clinical workflow and stream stage progress + DDx thinking as SSE events.
+
+    Events:
+      event: stage_update    data: {stage, name, status, detail, data?}
+      event: thinking_delta  data: {stage, node, chunk}
+      event: final_result    data: ClinicalPlanResponse JSON
+      event: error           data: {detail}
+      event: done            data: {}
+    """
+    from .clinical_workflow import run_clinical_workflow_streaming
+
+    async def generate():
+        queue: asyncio.Queue = asyncio.Queue()
+
+        async def emit(event_type: str, data: dict):
+            await queue.put((event_type, data))
+
+        async def run_workflow():
+            try:
+                result = await run_clinical_workflow_streaming(request.case, emit)
+                final = ClinicalPlanResponse(
+                    treatment_plan=result.treatment_plan,
+                    ddx=[d.model_dump() for d in result.ddx],
+                    cpgs_matched=[c.cpg_name for c in result.cpgs],
+                    elapsed_ms=result.elapsed_ms,
+                    stage_errors=result.stage_errors,
+                )
+                await queue.put(("final_result", final.model_dump()))
+            except Exception as e:
+                logger.error("Streaming clinical plan failed: %s", e)
+                await queue.put(("error", {"detail": str(e)}))
+            finally:
+                await queue.put(None)
+
+        asyncio.create_task(run_workflow())
+
+        while True:
+            item = await queue.get()
+            if item is None:
+                yield f"event: done\ndata: {{}}\n\n"
+                break
+            event_type, data = item
+            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
+@app.post("/clinical/plan/resynthesize/stream")
+async def clinical_resynthesize_stream(request: ResynthesizeRequest):
+    """
+    Re-run Stages 3–5 with clinician-selected diagnoses and stream SSE events.
+
+    Called when the clinician confirms a diagnosis that differs from the AI top pick.
+    Stage 2 is skipped. Events are identical in shape to /clinical/plan/stream.
+    Extra event:
+      event: clinician_override   data: {"codes": ["BC81.3 AF", ...]}
+    """
+    from .clinical_workflow import run_resynthesize_streaming
+    from .clinical_stages import DDxResult
+
+    async def generate():
+        queue: asyncio.Queue = asyncio.Queue()
+
+        async def emit(event_type: str, data: dict):
+            await queue.put((event_type, data))
+
+        async def run_workflow():
+            try:
+                selected_ddx = [
+                    DDxResult(
+                        code=d.code,
+                        title=d.title,
+                        similarity=d.probability,
+                        reasoning=d.reasoning,
+                    )
+                    for d in request.selected_diagnoses
+                ]
+                result = await run_resynthesize_streaming(request.case, selected_ddx, emit)
+                final = ClinicalPlanResponse(
+                    treatment_plan=result.treatment_plan,
+                    ddx=[d.model_dump() for d in result.ddx],
+                    cpgs_matched=[c.cpg_name for c in result.cpgs],
+                    elapsed_ms=result.elapsed_ms,
+                    stage_errors=result.stage_errors,
+                )
+                await queue.put(("final_result", final.model_dump()))
+            except Exception as e:
+                logger.error("Re-synthesis streaming failed: %s", e)
+                await queue.put(("error", {"detail": str(e)}))
+            finally:
+                await queue.put(None)
+
+        asyncio.create_task(run_workflow())
+
+        while True:
+            item = await queue.get()
+            if item is None:
+                yield f"event: done\ndata: {{}}\n\n"
+                break
+            event_type, data = item
+            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "Connection": "keep-alive", "X-Accel-Buffering": "no"},
+    )
 
 
 @app.post("/chat/stream")

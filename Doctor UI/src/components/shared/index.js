@@ -9,3 +9,5 @@ export { WorkflowStatusBadge, WorkflowActions, WorkflowIndicator, WORKFLOW_STATE
 export { RegenerateButton, QuickFeedback, FeedbackBanner } from './RegenerateButton';
 export { ToastProvider, useToast } from './Notification';
 export { default as PatientQuickView } from './PatientQuickView';
+export { PatientBanner } from './PatientBanner';
+export { TraceDrawer } from './TraceDrawer';

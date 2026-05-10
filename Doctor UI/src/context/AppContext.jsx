@@ -3,6 +3,8 @@ import {
   sampleDiagnosis,
   sampleCarePlan,
 } from '../data/sampleData';
+import { runClinicalPlan, runClinicalPlanStream, resynthesizePlanStream } from '../lib/clinicalApi';
+import { mapDdxToDiagnosis, mapTreatmentPlanToCarePlan } from '../lib/clinicalMappers';
 import {
   searchPatientByNRIC,
   savePatientVitals,
@@ -52,10 +54,15 @@ const initialState = {
   nextReviewDate: '', // TCA date from step 1
   patientStatus: 'active', // Patient status from step 3 (active, follow-up, discharged)
   currentConsultationId: null, // ID of the current consultation in progress
+  clinicalPlanResponse: null,
   diagnosis: null,
   carePlan: null,
   isAnalyzing: false,
   isGeneratingPlan: false,
+  pipelineEvents: [],      // ordered log: [...stage_updates, ...sub_steps]
+  pipelineThinking: {},    // { [nodeName: string]: string }  accumulated thinking text
+  pipelineSummary: null,   // { elapsed_ms, ddxCount, cpgCount, chunkCount } set on final_result
+  resynthOverride: null,   // { codes: string[] } set when clinician override runs
 };
 
 function appReducer(state, action) {
@@ -74,6 +81,8 @@ function appReducer(state, action) {
       return { ...state, vitals: { ...state.vitals, ...action.payload } };
     case 'SET_MPIS_DATA':
       return { ...state, mpisData: action.payload, mpisSynced: true };
+    case 'SET_CLINICAL_PLAN_RESPONSE':
+      return { ...state, clinicalPlanResponse: action.payload };
     case 'SET_DIAGNOSIS':
       return { ...state, diagnosis: action.payload };
     case 'SELECT_DIAGNOSIS': {
@@ -124,6 +133,32 @@ function appReducer(state, action) {
           },
         },
       };
+    case 'APPEND_PIPELINE_EVENT':
+      return { ...state, pipelineEvents: [...state.pipelineEvents, action.payload] };
+    case 'SET_PIPELINE_SUMMARY':
+      return { ...state, pipelineSummary: action.payload };
+    case 'RESET_PIPELINE':
+      return { ...state, pipelineEvents: [], pipelineThinking: {}, pipelineSummary: null, resynthOverride: null };
+    case 'RESET_PIPELINE_FROM_STAGE': {
+      const fromStage = action.payload;
+      return {
+        ...state,
+        pipelineEvents: state.pipelineEvents.filter((e) => (e.stage || 0) < fromStage),
+        pipelineSummary: null,
+      };
+    }
+    case 'SET_RESYNTH_OVERRIDE':
+      return { ...state, resynthOverride: action.payload };
+    case 'APPEND_THINKING_CHUNK': {
+      const { node, chunk } = action.payload;
+      return {
+        ...state,
+        pipelineThinking: {
+          ...state.pipelineThinking,
+          [node]: (state.pipelineThinking[node] || '') + chunk,
+        },
+      };
+    }
     case 'RESET':
       return initialState;
     default:
@@ -185,12 +220,11 @@ export function AppProvider({ children }) {
   const analyzeAssessment = async () => {
     dispatch({ type: 'SET_ANALYZING', payload: true });
 
-    // Start a new consultation in the database (creates new row with unique ID)
+    // Keep Supabase consultation creation (audit trail)
     if (USE_SUPABASE && state.patient.nsn) {
       try {
         console.log('🆕 Starting new consultation for patient:', state.patient.nsn);
         const result = await startConsultation(state.patient.nsn, state.clinicalNotes);
-
         if (result.success && result.consultationId) {
           console.log('✅ New consultation created with ID:', result.consultationId);
           dispatch({ type: 'SET_CONSULTATION_ID', payload: result.consultationId });
@@ -198,18 +232,77 @@ export function AppProvider({ children }) {
           console.warn('⚠️ Failed to start consultation:', result.error);
         }
       } catch (err) {
-        console.error('Error starting consultation:', err);
+        console.warn('Consultation DB save failed (non-fatal):', err);
       }
     }
 
-    return new Promise((resolve) => {
-      setTimeout(() => {
+    try {
+      dispatch({ type: 'RESET_PIPELINE' });
+
+      const response = await runClinicalPlanStream(
+        state.patient,
+        state.vitals,
+        state.clinicalNotes,
+        state.mpisData,
+        (stageUpdate) => {
+          dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } });
+        },
+        (thinkingDelta) => {
+          dispatch({
+            type: 'APPEND_THINKING_CHUNK',
+            payload: { node: thinkingDelta.node, chunk: thinkingDelta.chunk },
+          });
+        },
+        (subStep) => {
+          dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } });
+        },
+      );
+
+      const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
+      const carePlan  = mapTreatmentPlanToCarePlan(response.treatment_plan);
+
+      if (response.stage_errors?.length > 0) {
+        console.warn('Clinical pipeline stage errors:', response.stage_errors);
+      }
+
+      dispatch({
+        type: 'SET_PIPELINE_SUMMARY',
+        payload: {
+          elapsed_ms: response.elapsed_ms,
+          ddxCount: response.ddx?.length || 0,
+          cpgCount: response.cpgs_matched?.length || 0,
+          chunkCount: null,
+        },
+      });
+      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
+      dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
+      dispatch({ type: 'SET_CARE_PLAN', payload: carePlan });
+      dispatch({ type: 'SET_ANALYZING', payload: false });
+      dispatch({ type: 'SET_STEP', payload: 2 });
+      return diagnosis;
+
+    } catch (err) {
+      console.error('Streaming failed, falling back to non-streaming:', err);
+      try {
+        const response = await runClinicalPlan(
+          state.patient, state.vitals, state.clinicalNotes, state.mpisData,
+        );
+        const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
+        const carePlan  = mapTreatmentPlanToCarePlan(response.treatment_plan);
+        dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
+        dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
+        dispatch({ type: 'SET_CARE_PLAN', payload: carePlan });
+        dispatch({ type: 'SET_ANALYZING', payload: false });
+        dispatch({ type: 'SET_STEP', payload: 2 });
+        return diagnosis;
+      } catch (fallbackErr) {
+        console.error('Fallback also failed:', fallbackErr);
         dispatch({ type: 'SET_DIAGNOSIS', payload: sampleDiagnosis });
         dispatch({ type: 'SET_ANALYZING', payload: false });
         dispatch({ type: 'SET_STEP', payload: 2 });
-        resolve(sampleDiagnosis);
-      }, 2000);
-    });
+        throw fallbackErr;
+      }
+    }
   };
 
   const confirmDiagnosis = async () => {
@@ -286,14 +379,44 @@ export function AppProvider({ children }) {
       }
     }
 
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({ type: 'SET_CARE_PLAN', payload: sampleCarePlan });
-        dispatch({ type: 'SET_GENERATING_PLAN', payload: false });
-        dispatch({ type: 'SET_STEP', payload: 3 });
-        resolve(sampleCarePlan);
-      }, 2000);
-    });
+    // ── Re-synthesis logic ──────────────────────────────────────────────────
+    // Determine if clinician selected codes different from what the pipeline used.
+    // The pipeline routes on the AI's top-2 DDx codes; if the clinician picked
+    // anything outside that set, we must re-run Stages 3-5.
+    const aiTopCodes = new Set(
+      (state.clinicalPlanResponse?.ddx || []).slice(0, 2).map((d) => d.code)
+    );
+    const needsResynth = selectedDiagnoses.some((d) => !aiTopCodes.has(d.icdCode));
+
+    if (needsResynth) {
+      console.log('🔄 Clinician override detected — re-running Stages 3-5 for:', selectedDiagnoses.map(d => d.icdCode));
+      dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 3 });
+
+      try {
+        const response = await resynthesizePlanStream(
+          state.patient, state.vitals, state.clinicalNotes, state.mpisData,
+          selectedDiagnoses,
+          (stageUpdate)  => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
+          (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
+          (overrideData) => dispatch({ type: 'SET_RESYNTH_OVERRIDE', payload: overrideData }),
+        );
+
+        const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);
+        dispatch({ type: 'SET_CARE_PLAN', payload: newCarePlan });
+        dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
+        dispatch({
+          type: 'SET_PIPELINE_SUMMARY',
+          payload: { elapsed_ms: response.elapsed_ms, ddxCount: selectedDiagnoses.length, cpgCount: response.cpgs_matched?.length || 0 },
+        });
+        console.log('✅ Re-synthesis complete for clinician-selected diagnosis');
+      } catch (err) {
+        console.error('Re-synthesis failed — keeping original plan:', err);
+        // Non-fatal: keep the original care plan, still advance to Step 3
+      }
+    }
+
+    dispatch({ type: 'SET_GENERATING_PLAN', payload: false });
+    dispatch({ type: 'SET_STEP', payload: 3 });
   };
 
   const finalizePlan = async () => {
@@ -442,6 +565,10 @@ export function AppProvider({ children }) {
   const value = {
     state,
     dispatch,
+    pipelineEvents:   state.pipelineEvents,
+    pipelineSummary:  state.pipelineSummary,
+    pipelineThinking: state.pipelineThinking,
+    resynthOverride:  state.resynthOverride,
     loadDemoData,
     syncMPIS,
     analyzeAssessment,

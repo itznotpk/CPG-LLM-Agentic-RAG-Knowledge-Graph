@@ -5,20 +5,13 @@ import {
   Users,
   AlertTriangle,
   Play,
-  User,
   Activity,
-  Thermometer,
-  Heart,
-  Wind,
   ChevronRight,
   ChevronDown,
   Bell,
-  RefreshCw,
-  Filter,
-  ArrowUpDown,
   Eye
 } from 'lucide-react';
-import { todaySchedule, dashboardStats, recentActivity } from '../../data/scheduleData';
+import { todaySchedule, dashboardStats } from '../../data/scheduleData';
 import { GlassCard } from '../shared/GlassCard';
 import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../shared/Notification';
@@ -73,11 +66,8 @@ const Home = ({ onStartConsult, onViewChart }) => {
     return avatarColors[Math.abs(hash) % avatarColors.length];
   };
 
-  // Filtering and sorting states
-  const [statusFilter, setStatusFilter] = useState('all'); // all, waiting, in-progress, done
+  // Category filter state for stats
   const [categoryFilter, setCategoryFilter] = useState('all'); // all, waiting, emergency, highRisk
-  const [sortBy, setSortBy] = useState('time'); // time, urgency
-  const [showFilters, setShowFilters] = useState(false);
 
   // Patient quick view modal state
   const [selectedPatient, setSelectedPatient] = useState(null);
@@ -141,14 +131,9 @@ const Home = ({ onStartConsult, onViewChart }) => {
     return colors[status] || (isDark ? 'text-white' : 'text-slate-800');
   };
 
-  // Filter and sort the schedule
-  const filteredAndSortedSchedule = useMemo(() => {
+  // Filter the schedule
+  const filteredSchedule = useMemo(() => {
     let filtered = [...schedule];
-
-    // Apply status filter
-    if (statusFilter !== 'all') {
-      filtered = filtered.filter(apt => apt.status === statusFilter);
-    }
 
     // Apply category filter from stat cards
     if (categoryFilter === 'waiting') {
@@ -159,28 +144,15 @@ const Home = ({ onStartConsult, onViewChart }) => {
       filtered = filtered.filter(apt => apt.isHighRisk && !apt.isEmergency);
     }
 
-    // Apply sorting
-    if (sortBy === 'urgency') {
-      filtered.sort((a, b) => {
-        // Emergency first, then high risk, then others
-        const urgencyScore = (apt) => {
-          if (apt.isEmergency) return 0;
-          if (apt.isHighRisk) return 1;
-          return 2;
-        };
-        return urgencyScore(a) - urgencyScore(b);
-      });
-    } else {
-      // Sort by time (default)
-      filtered.sort((a, b) => {
-        const timeA = a.time.replace(':', '');
-        const timeB = b.time.replace(':', '');
-        return parseInt(timeA) - parseInt(timeB);
-      });
-    }
+    // Sort by time
+    filtered.sort((a, b) => {
+      const timeA = a.time.replace(':', '');
+      const timeB = b.time.replace(':', '');
+      return parseInt(timeA) - parseInt(timeB);
+    });
 
     return filtered;
-  }, [schedule, statusFilter, categoryFilter, sortBy]);
+  }, [schedule, categoryFilter]);
 
   const handleStartConsultClick = (appointment) => {
     // Update status to in-progress
@@ -212,11 +184,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
     toast.success('Patient data exported as CSV');
   };
 
-  const handleRefresh = () => {
-    setSchedule(todaySchedule);
-    setStats(dashboardStats);
-    toast.info('Schedule refreshed');
-  };
+
 
   return (
     <div className="space-y-6">
@@ -242,11 +210,12 @@ const Home = ({ onStartConsult, onViewChart }) => {
         <div className="relative">
           <button
             onClick={() => setShowNotifications(!showNotifications)}
-            className={`p-3 rounded-xl transition-all relative
-              ${isDark ? 'bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white'
-                : 'bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-600 hover:text-slate-800'}`}
+            aria-label="Notifications"
+            className={`p-3 rounded-xl transition-colors relative focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none
+              ${isDark ? 'bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white focus-visible:ring-white/50'
+                : 'bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-600 hover:text-slate-800 focus-visible:ring-slate-400'}`}
           >
-            <Bell className="w-5 h-5" />
+            <Bell aria-hidden="true" className="w-5 h-5" />
             {unreadCount > 0 && (
               <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
                 {unreadCount}
@@ -310,9 +279,12 @@ const Home = ({ onStartConsult, onViewChart }) => {
       {/* Daily Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <GlassCard
-          className={`p-4 cursor-pointer transition-all ${categoryFilter === 'all' ? 'ring-2 ring-blue-500' : 'hover:scale-[1.02]'}`}
+          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'all' ? 'ring-2 ring-blue-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400`}
           variant={isDark ? 'dark' : 'light'}
           onClick={() => setCategoryFilter('all')}
+          tabIndex={0}
+          role="button"
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter('all'); }}
         >
           <div className="flex items-center justify-between">
             <div>
@@ -320,15 +292,18 @@ const Home = ({ onStartConsult, onViewChart }) => {
               <p className={`text-3xl font-bold mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>{stats.totalAppointments}</p>
             </div>
             <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-blue-400" />
+              <Calendar aria-hidden="true" className="w-6 h-6 text-blue-400" />
             </div>
           </div>
         </GlassCard>
 
         <GlassCard
-          className={`p-4 cursor-pointer transition-all ${categoryFilter === 'waiting' ? 'ring-2 ring-amber-500' : 'hover:scale-[1.02]'}`}
+          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'waiting' ? 'ring-2 ring-amber-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400`}
           variant={isDark ? 'dark' : 'light'}
           onClick={() => setCategoryFilter(categoryFilter === 'waiting' ? 'all' : 'waiting')}
+          tabIndex={0}
+          role="button"
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter(categoryFilter === 'waiting' ? 'all' : 'waiting'); }}
         >
           <div className="flex items-center justify-between">
             <div>
@@ -336,15 +311,18 @@ const Home = ({ onStartConsult, onViewChart }) => {
               <p className="text-3xl font-bold text-amber-500 mt-1">{stats.patientsWaiting}</p>
             </div>
             <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center">
-              <Users className="w-6 h-6 text-amber-500" />
+              <Users aria-hidden="true" className="w-6 h-6 text-amber-500" />
             </div>
           </div>
         </GlassCard>
 
         <GlassCard
-          className={`p-4 cursor-pointer transition-all ${categoryFilter === 'emergency' ? 'ring-2 ring-red-500' : 'hover:scale-[1.02]'}`}
+          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'emergency' ? 'ring-2 ring-red-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400`}
           variant={isDark ? 'dark' : 'light'}
           onClick={() => setCategoryFilter(categoryFilter === 'emergency' ? 'all' : 'emergency')}
+          tabIndex={0}
+          role="button"
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter(categoryFilter === 'emergency' ? 'all' : 'emergency'); }}
         >
           <div className="flex items-center justify-between">
             <div>
@@ -352,15 +330,18 @@ const Home = ({ onStartConsult, onViewChart }) => {
               <p className="text-3xl font-bold text-red-500 mt-1">{stats.emergencyCases}</p>
             </div>
             <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
-              <AlertTriangle className="w-6 h-6 text-red-500" />
+              <AlertTriangle aria-hidden="true" className="w-6 h-6 text-red-500" />
             </div>
           </div>
         </GlassCard>
 
         <GlassCard
-          className={`p-4 cursor-pointer transition-all ${categoryFilter === 'highRisk' ? 'ring-2 ring-orange-500' : 'hover:scale-[1.02]'}`}
+          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'highRisk' ? 'ring-2 ring-orange-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400`}
           variant={isDark ? 'dark' : 'light'}
           onClick={() => setCategoryFilter(categoryFilter === 'highRisk' ? 'all' : 'highRisk')}
+          tabIndex={0}
+          role="button"
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter(categoryFilter === 'highRisk' ? 'all' : 'highRisk'); }}
         >
           <div className="flex items-center justify-between">
             <div>
@@ -368,260 +349,133 @@ const Home = ({ onStartConsult, onViewChart }) => {
               <p className="text-3xl font-bold text-orange-500 mt-1">{stats.highRiskCases}</p>
             </div>
             <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
-              <Activity className="w-6 h-6 text-orange-500" />
+              <Activity aria-hidden="true" className="w-6 h-6 text-orange-500" />
             </div>
           </div>
         </GlassCard>
       </div>
 
-      {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Schedule Timeline - Takes 2 columns */}
-        <div className="lg:col-span-2">
-          <GlassCard className="p-6" variant={isDark ? 'dark' : 'light'}>
-            <div className="flex items-center justify-between mb-4">
-              <button
-                onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
-                className={`text-xl font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity`}
+      {/* Main Content */}
+      <div>
+        {/* Schedule Timeline */}
+        <GlassCard className="p-6" variant={isDark ? 'dark' : 'light'}>
+          <div className="flex items-center justify-between mb-4">
+            <button
+              onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
+              aria-label="Toggle Schedule"
+              className={`text-xl font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg px-2 py-1 -ml-2`}
+            >
+              <Clock aria-hidden="true" className={`w-5 h-5 ${accent.text}`} />
+              Today's Schedule
+              <ChevronDown aria-hidden="true" className={`w-5 h-5 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} />
+            </button>
+          </div>
+
+          {isScheduleExpanded && <div className="space-y-4">
+            {filteredSchedule.length === 0 ? (
+              <div className={`text-center py-8 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                No appointments match the current filter
+              </div>
+            ) : filteredSchedule.map((appointment, index) => (
+              <div
+                key={appointment.id}
+                className={`p-4 rounded-xl border transition-colors
+                  ${appointment.isEmergency
+                    ? 'bg-red-500/10 border-red-500/30 hover:bg-red-500/15'
+                    : appointment.isHighRisk
+                      ? 'bg-orange-500/10 border-orange-500/30 hover:bg-orange-500/15'
+                      : isDark
+                        ? 'bg-white/5 border-white/10 hover:bg-white/10'
+                        : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
+                  }`}
               >
-                <Clock className={`w-5 h-5 ${accent.text}`} />
-                Today's Schedule
-                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} />
-              </button>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-all
-                    ${showFilters
-                      ? `bg-gradient-to-r ${accent.gradient} text-white`
-                      : isDark ? 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white'
-                        : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800'}`}
-                >
-                  <Filter className="w-4 h-4" />
-                  Filter
-                </button>
-                <button
-                  onClick={handleRefresh}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-all
-                    ${isDark ? 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800'}`}
-                >
-                  <RefreshCw className="w-4 h-4" />
-                  Refresh
-                </button>
-              </div>
-            </div>
-
-            {/* Filter Controls */}
-            {showFilters && (
-              <div className={`mb-4 p-4 rounded-lg ${isDark ? 'bg-white/5' : 'bg-slate-50'} flex flex-wrap gap-4`}>
-                <div>
-                  <label className={`text-xs font-medium uppercase mb-2 block ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                    Filter by Status
-                  </label>
-                  <div className="flex gap-2">
-                    {['all', 'waiting', 'in-progress', 'done'].map((status) => (
-                      <button
-                        key={status}
-                        onClick={() => setStatusFilter(status)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all capitalize
-                          ${statusFilter === status
-                            ? `bg-gradient-to-r ${accent.gradient} text-white`
-                            : isDark ? 'bg-white/10 text-slate-300 hover:bg-white/20'
-                              : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'}`}
-                      >
-                        {status === 'all' ? 'All' : status.replace('-', ' ')}
-                      </button>
-                    ))}
+                <div className="flex items-start gap-4">
+                  {/* Time Column */}
+                  <div className="flex flex-col items-center min-w-[80px]">
+                    <span className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.time}</span>
+                    {appointment.isEmergency && (
+                      <span className="mt-1 px-2 py-0.5 rounded-full text-xs font-bold bg-red-500 text-white">
+                        URGENT
+                      </span>
+                    )}
+                    {!appointment.isEmergency && appointment.isHighRisk && (
+                      <span className="mt-1 px-2 py-0.5 rounded-full text-xs font-bold bg-orange-500 text-white">
+                        HIGH RISK
+                      </span>
+                    )}
                   </div>
-                </div>
-                <div>
-                  <label className={`text-xs font-medium uppercase mb-2 block ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                    Sort by
-                  </label>
-                  <div className="flex gap-2">
-                    {[{ id: 'time', label: 'Time' }, { id: 'urgency', label: 'Urgency' }].map((option) => (
-                      <button
-                        key={option.id}
-                        onClick={() => setSortBy(option.id)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1
-                          ${sortBy === option.id
-                            ? `bg-gradient-to-r ${accent.gradient} text-white`
-                            : isDark ? 'bg-white/10 text-slate-300 hover:bg-white/20'
-                              : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'}`}
-                      >
-                        <ArrowUpDown className="w-3 h-3" />
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
 
-            {isScheduleExpanded && <div className="space-y-4">
-              {filteredAndSortedSchedule.length === 0 ? (
-                <div className={`text-center py-8 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                  No appointments match the current filter
-                </div>
-              ) : filteredAndSortedSchedule.map((appointment, index) => (
-                <div
-                  key={appointment.id}
-                  className={`p-4 rounded-xl border transition-all
-                    ${appointment.isEmergency
-                      ? 'bg-red-500/10 border-red-500/30 hover:bg-red-500/15'
-                      : appointment.isHighRisk
-                        ? 'bg-orange-500/10 border-orange-500/30 hover:bg-orange-500/15'
-                        : isDark
-                          ? 'bg-white/5 border-white/10 hover:bg-white/10'
-                          : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
-                    }`}
-                >
-                  <div className="flex items-start gap-4">
-                    {/* Time Column */}
-                    <div className="flex flex-col items-center min-w-[80px]">
-                      <span className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.time}</span>
-                      {appointment.isEmergency && (
-                        <span className="mt-1 px-2 py-0.5 rounded-full text-xs font-bold bg-red-500 text-white">
-                          URGENT
-                        </span>
-                      )}
-                      {!appointment.isEmergency && appointment.isHighRisk && (
-                        <span className="mt-1 px-2 py-0.5 rounded-full text-xs font-bold bg-orange-500 text-white">
-                          HIGH RISK
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Patient Info */}
-                    <div className="flex-1">
-                      {/* Name row with avatar */}
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br ${getAvatarColor(appointment.patient.name)} text-white font-bold text-sm flex-shrink-0`}>
-                          {getInitials(appointment.patient.name)}
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <h3 className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.patient.name}</h3>
-                            {getStatusBadge(appointment.status)}
-                          </div>
-                          <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                            {appointment.patient.age} y/o • {appointment.patient.gender} • {appointment.patient.nsn}
-                          </p>
-                        </div>
+                  {/* Patient Info */}
+                  <div className="flex-1 min-w-0">
+                    {/* Name row with avatar */}
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br ${getAvatarColor(appointment.patient.name)} text-white font-bold text-sm flex-shrink-0`}>
+                        {getInitials(appointment.patient.name)}
                       </div>
-                      {/* Chief Complaint - Below name row */}
-                      <div className={`ml-13 px-3 py-2 rounded-lg ${isDark ? 'bg-black/20' : 'bg-slate-100'}`} style={{ marginLeft: '52px' }}>
-                        <p className={`text-xs uppercase mb-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Chief Complaint</p>
-                        <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.triage.chiefComplaint}</p>
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className={`font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.patient.name}</h3>
+                          {getStatusBadge(appointment.status)}
+                        </div>
+                        <p className={`text-sm truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          {appointment.patient.age} y/o • {appointment.patient.gender} • {appointment.patient.nsn}
+                        </p>
                       </div>
                     </div>
-
-                    {/* Action Buttons - Right side */}
-                    <div className="flex flex-col gap-2 ml-4">
-                      {/* Quick View Button */}
-                      <button
-                        onClick={() => handleQuickView(appointment)}
-                        className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all min-w-[130px]
-                            ${isDark
-                            ? 'bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white border border-white/10'
-                            : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800 border border-slate-200'}`}
-                      >
-                        <Eye className="w-4 h-4" />
-                        Quick View
-                      </button>
-                      {appointment.status === 'waiting' && (
-                        <button
-                          onClick={() => handleStartConsultClick(appointment)}
-                          className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium min-w-[130px]
-                              bg-gradient-to-r ${accent.gradient} text-white
-                              hover:${accent.gradientHover} transition-all shadow-lg ${accent.shadow}`}
-                        >
-                          <Play className="w-4 h-4" />
-                          Start Consult
-                        </button>
-                      )}
-                      {appointment.status === 'in-progress' && (
-                        <button
-                          onClick={() => handleStartConsultClick(appointment)}
-                          className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium min-w-[130px]
-                              bg-blue-500/20 border border-blue-500/30 text-blue-500
-                              hover:bg-blue-500/30 transition-all`}
-                        >
-                          Continue
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      )}
-                      {appointment.status === 'done' && (
-                        <span className="px-4 py-2.5 rounded-lg text-sm text-emerald-500 bg-emerald-500/10 font-medium text-center min-w-[130px]">
-                          ✓ Completed
-                        </span>
-                      )}
+                    {/* Chief Complaint - Below name row */}
+                    <div className={`ml-13 px-3 py-2 rounded-lg ${isDark ? 'bg-black/20' : 'bg-slate-100'}`} style={{ marginLeft: '52px' }}>
+                      <p className={`text-xs uppercase mb-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Chief Complaint</p>
+                      <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.triage.chiefComplaint}</p>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>}
-          </GlassCard>
-        </div>
 
-        {/* Right Sidebar */}
-        <div className="space-y-6">
-          {/* Quick Stats Summary */}
-          <GlassCard className="p-6" variant={isDark ? 'dark' : 'light'}>
-            <h2 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>Progress Today</h2>
-            <div className="space-y-4">
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className={isDark ? 'text-slate-300' : 'text-slate-600'}>Consultations</span>
-                  <span className={isDark ? 'text-white' : 'text-slate-800'}>{stats.patientsDone}/{stats.totalAppointments}</span>
-                </div>
-                <div className={`h-2 rounded-full overflow-hidden ${isDark ? 'bg-white/10' : 'bg-slate-200'}`}>
-                  <div
-                    className={`h-full bg-gradient-to-r ${accent.gradient} rounded-full transition-all`}
-                    style={{ width: `${(stats.patientsDone / stats.totalAppointments) * 100}%` }}
-                  />
-                </div>
-              </div>
-
-              <div className={`pt-4 border-t ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                <div className="flex items-center justify-between py-2">
-                  <span className={isDark ? 'text-slate-300' : 'text-slate-600'}>Completed</span>
-                  <span className="text-emerald-500 font-medium">{stats.patientsDone}</span>
-                </div>
-                <div className="flex items-center justify-between py-2">
-                  <span className={isDark ? 'text-slate-300' : 'text-slate-600'}>In Progress</span>
-                  <span className="text-blue-500 font-medium">{stats.patientsInProgress}</span>
-                </div>
-                <div className="flex items-center justify-between py-2">
-                  <span className={isDark ? 'text-slate-300' : 'text-slate-600'}>Waiting</span>
-                  <span className="text-amber-500 font-medium">{stats.patientsWaiting}</span>
-                </div>
-              </div>
-            </div>
-          </GlassCard>
-
-          {/* Recent Activity */}
-          <GlassCard className="p-6" variant={isDark ? 'dark' : 'light'}>
-            <h2 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>Recent Activity</h2>
-            <div className="space-y-3">
-              {recentActivity.map((activity) => (
-                <div key={activity.id} className={`flex items-start gap-3 py-2 border-b last:border-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
-                  <div className={`w-2 h-2 rounded-full mt-2 ${activity.type === 'plan' ? 'bg-cyan-500' :
-                    activity.type === 'schedule' ? 'bg-amber-500' :
-                      activity.type === 'lab' ? 'bg-purple-500' :
-                        'bg-emerald-500'
-                    }`} />
-                  <div>
-                    <p className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{activity.action}</p>
-                    <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{activity.patient} • {activity.time}</p>
+                  {/* Action Buttons - Right side */}
+                  <div className="flex flex-col gap-2 ml-4 flex-shrink-0">
+                    {/* Quick View Button */}
+                    <button
+                      onClick={() => handleQuickView(appointment)}
+                      className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors min-w-[130px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400
+                          ${isDark
+                          ? 'bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white border border-white/10'
+                          : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800 border border-slate-200'}`}
+                    >
+                      <Eye aria-hidden="true" className="w-4 h-4" />
+                      Quick View
+                    </button>
+                    {appointment.status === 'waiting' && (
+                      <button
+                        onClick={() => handleStartConsultClick(appointment)}
+                        className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium min-w-[130px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)]
+                            bg-gradient-to-r ${accent.gradient} text-white
+                            hover:${accent.gradientHover} shadow-lg ${accent.shadow}`}
+                      >
+                        <Play aria-hidden="true" className="w-4 h-4" />
+                        Start Consult
+                      </button>
+                    )}
+                    {appointment.status === 'in-progress' && (
+                      <button
+                        onClick={() => handleStartConsultClick(appointment)}
+                        className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium min-w-[130px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400
+                            bg-blue-500/20 border border-blue-500/30 text-blue-500
+                            hover:bg-blue-500/30`}
+                      >
+                        Continue
+                        <ChevronRight aria-hidden="true" className="w-4 h-4" />
+                      </button>
+                    )}
+                    {appointment.status === 'done' && (
+                      <span className="px-4 py-2.5 rounded-lg text-sm text-emerald-500 bg-emerald-500/10 font-medium text-center min-w-[130px]">
+                        ✓ Completed
+                      </span>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
-          </GlassCard>
-        </div>
-      </div >
+              </div>
+            ))}
+          </div>}
+        </GlassCard>
+      </div>
 
       {/* Patient Quick View Modal */}
       < PatientQuickView

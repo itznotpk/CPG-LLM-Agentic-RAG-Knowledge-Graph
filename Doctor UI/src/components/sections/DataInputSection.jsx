@@ -1,6 +1,7 @@
 import React from 'react';
 import { Stethoscope, Sparkles, Brain, FileText, Activity, Search, UserPlus, CheckCircle, AlertCircle, X, Database, Heart, Pill, BarChart2, Wind, Scale, Thermometer, Loader2, ClipboardList } from 'lucide-react';
 import { ClinicalNotes } from './ClinicalNotes';
+import { PipelineProgress } from './PipelineProgress';
 import { VitalsGrid } from './VitalsGrid';
 import { Button, Skeleton, SkeletonDiagnosis, GlassCard, Badge } from '../shared';
 import { useApp } from '../../context/AppContext';
@@ -811,9 +812,18 @@ export function DataInputSection({ onViewChart }) {
     analyzeAssessment();
   };
 
-  // Show skeleton loader when analyzing
+  // Show pipeline progress when analyzing
   if (isAnalyzing) {
-    return <AnalyzingSkeleton />;
+    return (
+      <div className="space-y-6 animate-fadeIn">
+        <PipelineProgress
+          pipelineEvents={state.pipelineEvents}
+          pipelineThinking={state.pipelineThinking}
+          summary={state.pipelineSummary}
+          isLive={true}
+        />
+      </div>
+    );
   }
 
   // Handler for NRIC submission
@@ -860,182 +870,177 @@ export function DataInputSection({ onViewChart }) {
         <h2 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-800'}`}>
           Clinical Assessment Input
         </h2>
-        <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-          Step 1: Enter the patient's NRIC to retrieve their medical records
-        </p>
       </div>
 
-      {/* Step 1: NRIC Input */}
-      {!mpisChecked && (
-        <GlassCard className="p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-              <Database className="w-5 h-5 text-[var(--accent-primary)]" />
-            </div>
-            <div>
-              <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                MPIS Patient Lookup
-              </h3>
-              <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                Medical Patient Information System
-              </p>
-            </div>
-          </div>
+      <div className={`grid grid-cols-1 ${mpisChecked ? 'xl:grid-cols-12' : ''} gap-6`}>
+        {/* LEFT COLUMN: Patient Context */}
+        <div className={mpisChecked ? 'xl:col-span-5 space-y-6' : 'max-w-3xl mx-auto w-full space-y-6'}>
+          {/* Step 1: NRIC Input */}
+          {!mpisChecked && (
+            <GlassCard className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
+                  <Database className="w-5 h-5 text-[var(--accent-primary)]" />
+                </div>
+                <div>
+                  <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                    Patient Lookup
+                  </h3>
+                </div>
+              </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-end">
-            <div className="flex-1">
-              <label
-                htmlFor="nsn-input"
-                className={`block text-sm font-medium mb-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}
-              >
-                National Registration Identity Card (NRIC)
-              </label>
-              <input
-                id="nsn-input"
-                type="text"
-                className={`w-full px-4 py-3 rounded-xl border-2 text-lg ${nricError
-                  ? 'border-red-500 focus:border-red-500'
-                  : isDark
-                    ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500 focus:border-[var(--accent-primary)]'
-                    : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400 focus:border-[var(--accent-primary)]'
-                  } ${isDark ? 'bg-slate-800/50 text-white placeholder-slate-500' : 'bg-white/60 text-slate-800 placeholder-slate-400'} focus:outline-none transition-colors`}
-                value={nsn}
-                onChange={handleNricChange}
-                onKeyDown={e => e.key === 'Enter' && handleCheckNRIC()}
-                placeholder="e.g., 580315-08-1234"
-                disabled={mpisLoading}
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-end">
+                <div className="flex-1">
+                  <label
+                    htmlFor="nsn-input"
+                    className={`block text-sm font-medium mb-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}
+                  >
+                    National Registration Identity Card (NRIC)
+                  </label>
+                  <input
+                    id="nsn-input"
+                    name="nric"
+                    type="text"
+                    autoComplete="off"
+                    spellCheck={false}
+                    className={`w-full px-4 py-3 rounded-xl border-2 text-lg ${nricError
+                      ? 'border-red-500 focus-visible:border-red-500 focus-visible:ring-red-500/20'
+                      : isDark
+                        ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500 focus-visible:border-[var(--accent-primary)] focus-visible:ring-[var(--accent-primary)]/20'
+                        : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400 focus-visible:border-[var(--accent-primary)] focus-visible:ring-[var(--accent-primary)]/20'
+                      } ${isDark ? 'bg-slate-800/50 text-white placeholder-slate-500' : 'bg-white/60 text-slate-800 placeholder-slate-400'} focus:outline-none focus-visible:ring-4 transition-colors`}
+                    value={nsn}
+                    onChange={handleNricChange}
+                    onKeyDown={e => e.key === 'Enter' && handleCheckNRIC()}
+                    placeholder="e.g., 580315-08-1234…"
+                    disabled={mpisLoading}
+                  />
+                  {nricError && (
+                    <p className="text-sm mt-2 text-red-500 flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {nricError}
+                    </p>
+                  )}
+                </div>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  icon={Search}
+                  onClick={handleCheckNRIC}
+                  loading={mpisLoading}
+                  disabled={!nsn.trim() || mpisLoading}
+                  className="min-w-[160px]"
+                >
+                  {mpisLoading ? 'Searching...' : 'Search Patient'}
+                </Button>
+              </div>
+            </GlassCard>
+          )}
+
+          {/* Step 2: Show auto-filled or manual entry */}
+          {mpisChecked && (
+            mpisFound ? (
+              <PatientInfoCard
+                patient={patient}
+                mpisData={mpisData}
+                onClear={handleClear}
+                onViewChart={() => setIsChartModalOpen(true)}
               />
-              {nricError && (
-                <p className="text-sm mt-2 text-red-500 flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {nricError}
-                </p>
-              )}
-              {!nricError && (
-                <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
-                  Try: 580315-08-1234, 750622-10-5678, 680910-14-9012, or 850415-07-3456
-                </p>
-              )}
-            </div>
-            <Button
-              variant="primary"
-              size="lg"
-              icon={Search}
-              onClick={handleCheckNRIC}
-              loading={mpisLoading}
-              disabled={!nsn.trim() || mpisLoading}
-              className="min-w-[160px]"
-            >
-              {mpisLoading ? 'Searching...' : 'Search MPIS'}
-            </Button>
-          </div>
-        </GlassCard>
-      )}
-
-      {/* Step 2: Show auto-filled or manual entry */}
-      {mpisChecked && (
-        mpisFound ? (
-          <PatientInfoCard
-            patient={patient}
-            mpisData={mpisData}
-            onClear={handleClear}
-            onViewChart={() => setIsChartModalOpen(true)}
-          />
-        ) : (
-          <NewPatientForm
-            nsn={patient?.nsn || nsn}
-            onClear={handleClear}
-            onPatientRegistered={() => setMpisFound(true)}
-          />
-        )
-      )}
-
-      {/* Vitals & Clinical Notes - only show after NRIC check */}
-      {mpisChecked && (
-        <>
-          <VitalsGrid />
-          <ClinicalNotes
-            isConfirmed={notesConfirmed}
-            onConfirm={setNotesConfirmed}
-          />
-        </>
-      )}
-
-      {/* Validation Warning */}
-      {showValidationWarning && !canAnalyze && mpisChecked && (
-        <div className={`p-4 rounded-xl border-2 ${isDark ? 'bg-amber-500/10 border-amber-500/30' : 'bg-amber-50 border-amber-300'} animate-fadeIn`}>
-          <div className="flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-            <div className="flex-1">
-              {isCompletelyBlank ? (
-                <>
-                  <h4 className={`font-semibold mb-1 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
-                    Please complete vital signs and clinical notes
-                  </h4>
-                  <p className={`text-sm ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
-                    All vital signs fields and clinical notes are required before proceeding with the analysis.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <h4 className={`font-semibold mb-2 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
-                    Please complete the following missing fields:
-                  </h4>
-                  {getMissingVitalFields().length > 0 && (
-                    <div className="mb-2">
-                      <span className={`text-xs font-medium ${isDark ? 'text-amber-400/70' : 'text-amber-600/80'}`}>Vital Signs:</span>
-                      <ul className={`text-sm space-y-1 mt-1 ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
-                        {getMissingVitalFields().map((field, idx) => (
-                          <li key={idx} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                            {field}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {getMissingClinicalFields().length > 0 && (
-                    <div>
-                      <span className={`text-xs font-medium ${isDark ? 'text-amber-400/70' : 'text-amber-600/80'}`}>Clinical Notes:</span>
-                      <ul className={`text-sm space-y-1 mt-1 ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
-                        {getMissingClinicalFields().map((field, idx) => (
-                          <li key={idx} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                            {field}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-            <button
-              onClick={() => setShowValidationWarning(false)}
-              className={`p-1 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-amber-100'}`}
-            >
-              <X className="w-4 h-4 text-amber-500" />
-            </button>
-          </div>
+            ) : (
+              <NewPatientForm
+                nsn={patient?.nsn || nsn}
+                onClear={handleClear}
+                onPatientRegistered={() => setMpisFound(true)}
+              />
+            )
+          )}
         </div>
-      )}
 
-      {mpisChecked && (
-        <div className="flex justify-center pt-4">
-          <Button
-            variant="primary"
-            size="xl"
-            icon={Stethoscope}
-            onClick={handleAnalyze}
-            glow={canAnalyze}
-            className="min-w-[300px]"
-          >
-            Analyze Clinical Assessment
-          </Button>
-        </div>
-      )}
+        {/* RIGHT COLUMN: Action & Input */}
+        {mpisChecked && (
+          <div className="xl:col-span-7 space-y-6">
+            <VitalsGrid />
+            <ClinicalNotes
+              isConfirmed={notesConfirmed}
+              onConfirm={setNotesConfirmed}
+            />
+
+            {/* Validation Warning */}
+            {showValidationWarning && !canAnalyze && (
+              <div className={`p-4 rounded-xl border-2 ${isDark ? 'bg-amber-500/10 border-amber-500/30' : 'bg-amber-50 border-amber-300'} animate-fadeIn`}>
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    {isCompletelyBlank ? (
+                      <>
+                        <h4 className={`font-semibold mb-1 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
+                          Please complete vital signs and clinical notes
+                        </h4>
+                        <p className={`text-sm ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
+                          All vital signs fields and clinical notes are required before proceeding with the analysis.
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <h4 className={`font-semibold mb-2 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
+                          Please complete the following missing fields:
+                        </h4>
+                        {getMissingVitalFields().length > 0 && (
+                          <div className="mb-2">
+                            <span className={`text-xs font-medium ${isDark ? 'text-amber-400/70' : 'text-amber-600/80'}`}>Vital Signs:</span>
+                            <ul className={`text-sm space-y-1 mt-1 ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
+                              {getMissingVitalFields().map((field, idx) => (
+                                <li key={idx} className="flex items-center gap-2">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                  {field}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {getMissingClinicalFields().length > 0 && (
+                          <div>
+                            <span className={`text-xs font-medium ${isDark ? 'text-amber-400/70' : 'text-amber-600/80'}`}>Clinical Notes:</span>
+                            <ul className={`text-sm space-y-1 mt-1 ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
+                              {getMissingClinicalFields().map((field, idx) => (
+                                <li key={idx} className="flex items-center gap-2">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                  {field}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => setShowValidationWarning(false)}
+                    className={`p-1 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-amber-100'}`}
+                  >
+                    <X className="w-4 h-4 text-amber-500" />
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <div className="flex justify-center pt-4">
+              <Button
+                variant="primary"
+                size="xl"
+                icon={Stethoscope}
+                onClick={handleAnalyze}
+                glow={canAnalyze}
+                className="min-w-[300px]"
+              >
+                Analyze Clinical Assessment
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* Chart Modal */}
       <ChartModal

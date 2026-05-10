@@ -18,6 +18,8 @@ import {
   ArrowLeft,
   Shield,
   Heart,
+  BrainCircuit,
+  TrendingUp,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -473,7 +475,7 @@ function CPGReferencesSection({ references }) {
 export function CarePlanSection() {
   const { state, updateCarePlanItem, updateMedication, finalizePlan, goToStep } = useApp();
   const { isDark, accent } = useTheme();
-  const { carePlan, patientData, diagnosis } = state;
+  const { carePlan, patientData, diagnosis, mpisData, vitals } = state;
 
   // Get selected diagnoses (supports multiple selection)
   const selectedIds = diagnosis?.selectedDiagnosisIds?.length > 0
@@ -549,64 +551,155 @@ export function CarePlanSection() {
       summary += `Medications to Stop: ${carePlan.medications.stop.map(m => m.name).join(', ')}. `;
     }
 
-    summary += `Follow-up: ${carePlan.disposition.followUp}.`;
+    summary += `Follow-up: ${carePlan.disposition?.followUp || 'As needed'}.`;
     return summary;
   };
 
+  // Process allergies for the left reference panel
+  let allergiesList = [];
+  if (mpisData?.allergies) {
+    if (Array.isArray(mpisData.allergies)) {
+      allergiesList = mpisData.allergies;
+    } else if (typeof mpisData.allergies === 'string' && mpisData.allergies.toLowerCase() !== 'none known') {
+      allergiesList = mpisData.allergies.split(',').map(s => s.trim()).filter(Boolean);
+    }
+  }
+
   return (
-    <div className="space-y-4 animate-fadeIn">
-      <div className="text-center mb-6">
+    <div className="space-y-6 animate-fadeIn">
+      <div className="text-center mb-2">
         <h2 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-800'}`}>
           Recommended Care Plan
         </h2>
       </div>
 
-      {/* Summary */}
-      <ClinicalSummary
-        summary={carePlan.clinicalSummary}
-        readSummaryButton={
-          <TextToSpeechButton
-            text={generateCarePlanSummary()}
-            label="Read"
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* LEFT PANEL: Reference Context */}
+        <div className="lg:col-span-4 space-y-4">
+          <GlassCard className="p-4 border-l-4 border-[var(--accent-primary)] sticky top-4">
+            <h3 className={`text-base font-semibold mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Reference Context
+            </h3>
+            
+            <div className="space-y-4">
+              {/* Confirmed Diagnosis */}
+              <div>
+                <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Confirmed Diagnosis</span>
+                {selectedDiagnoses.length > 0 ? (
+                  <div className="mt-1 space-y-2">
+                    {selectedDiagnoses.map(d => (
+                      <div key={d.id} className={`p-2 rounded bg-[var(--accent-primary)]/10`}>
+                        <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{d.name}</p>
+                        {d.icdCode && <p className={`text-xs ${isDark ? 'text-[var(--accent-primary)]' : 'text-blue-600'}`}>ICD-11: {d.icdCode}</p>}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>None selected</p>
+                )}
+              </div>
+
+              {/* Allergies */}
+              <div>
+                <span className={`text-xs font-medium mb-1 block ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Known Allergies</span>
+                {allergiesList.length > 0 ? (
+                  <div className="flex flex-wrap gap-1.5">
+                    {allergiesList.map((allergy, idx) => (
+                      <span key={idx} className="bg-red-100 text-red-700 border border-red-300 rounded-full px-2 py-0.5 text-xs font-semibold">
+                        {allergy}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No known allergies</span>
+                )}
+              </div>
+              
+              {/* Critical Vitals — abnormals only */}
+              {(() => {
+                const v = vitals;
+                const abnormals = [];
+                if (v?.bpSystolic && parseInt(v.bpSystolic) > 140) abnormals.push({ label: 'SBP', value: `${v.bpSystolic} mmHg ↑`, color: 'text-red-500' });
+                if (v?.bpDiastolic && parseInt(v.bpDiastolic) > 90) abnormals.push({ label: 'DBP', value: `${v.bpDiastolic} mmHg ↑`, color: 'text-red-500' });
+                if (v?.hr && parseInt(v.hr) > 100) abnormals.push({ label: 'HR', value: `${v.hr} bpm ↑`, color: 'text-amber-500' });
+                if (v?.spo2 && parseInt(v.spo2) < 95) abnormals.push({ label: 'SpO₂', value: `${v.spo2}% ↓`, color: 'text-red-500' });
+                if (v?.temp && parseFloat(v.temp) > 37.5) abnormals.push({ label: 'Temp', value: `${v.temp} °C ↑`, color: 'text-amber-500' });
+                if (abnormals.length === 0) return null;
+                return (
+                  <div>
+                    <span className={`text-xs font-medium mb-1 block flex items-center gap-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                      <TrendingUp className="w-3 h-3 text-red-400" /> Critical Vitals
+                    </span>
+                    <div className={`p-2 rounded-lg grid grid-cols-2 gap-x-3 gap-y-1
+                      ${isDark ? 'bg-red-900/20 border border-red-500/20' : 'bg-red-50 border border-red-100'}`}>
+                      {abnormals.map((a, i) => (
+                        <div key={i} className="flex items-baseline gap-1">
+                          <span className={`text-[10px] font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{a.label}</span>
+                          <span className={`text-xs font-bold ${a.color}`}>{a.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Trace quick-access */}
+              <div className={`flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer transition-colors
+                ${isDark
+                  ? 'border-indigo-500/30 bg-indigo-900/20 hover:bg-indigo-900/40 text-indigo-300'
+                  : 'border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-700'}`}
+                title="Open AI Reasoning Trace drawer"
+              >
+                <BrainCircuit className="w-4 h-4 shrink-0" />
+                <span className="text-xs font-medium">AI Reasoning Trace</span>
+                <span className={`ml-auto text-[10px] ${isDark ? 'text-indigo-400' : 'text-indigo-500'}`}>→ right panel</span>
+              </div>
+              {carePlan?.unresolvedQuestions?.length > 0 && (
+                <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
+                  <p className="text-amber-500 text-sm font-medium mb-1">⚠ Unresolved Questions</p>
+                  <ul className={`text-xs space-y-1 pl-3 list-disc ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
+                    {carePlan.unresolvedQuestions.map((q, i) => (
+                      <li key={i}>{q}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </GlassCard>
+        </div>
+
+        {/* RIGHT PANEL: Actionable Plan */}
+        <div className="lg:col-span-8 space-y-4">
+          <ClinicalSummary
+            summary={carePlan.clinicalSummary}
+            readSummaryButton={
+              <TextToSpeechButton
+                text={generateCarePlanSummary()}
+                label="Read"
+              />
+            }
           />
-        }
-      />
 
+          <MedicationsSection medications={carePlan.medications} />
+          <InterventionsSection interventions={carePlan.interventions} />
+          <MonitoringSection monitoring={carePlan.monitoring} />
+          <PatientEducationSection education={carePlan.disposition?.patientEducation} />
+          <ReferralsSection referrals={carePlan.disposition?.referrals} />
+          <LifestyleSection lifestyle={carePlan.lifestyle} />
+          <FollowUpSection followUp={carePlan.disposition?.followUp} />
+          <CPGReferencesSection references={carePlan.cpgReferences} />
 
-
-      {/* Medication Recommendations - Stop/Start/Change/Continue */}
-      <MedicationsSection medications={carePlan.medications} />
-
-      {/* Interventions & Procedures */}
-      <InterventionsSection interventions={carePlan.interventions} />
-
-      {/* Monitoring & Testing */}
-      <MonitoringSection monitoring={carePlan.monitoring} />
-
-      {/* Patient Education & Counseling */}
-      <PatientEducationSection education={carePlan.disposition?.patientEducation} />
-
-      {/* Referrals */}
-      <ReferralsSection referrals={carePlan.disposition?.referrals} />
-
-      {/* Lifestyle & Self-Management Goals */}
-      <LifestyleSection lifestyle={carePlan.lifestyle} />
-
-      {/* Follow-up */}
-      <FollowUpSection followUp={carePlan.disposition?.followUp} />
-
-      {/* CPG References */}
-      <CPGReferencesSection references={carePlan.cpgReferences} />
-
-      {/* Approval Workflow */}
-      <div className="mt-6">
-        <WorkflowActions
-          currentStatus={workflowStatus}
-          onStatusChange={handleStatusChange}
-          onReject={handleReject}
-          onRegenerate={handleRegenerate}
-          history={workflowHistory}
-        />
+          {/* Approval Workflow */}
+          <div className="mt-6">
+            <WorkflowActions
+              currentStatus={workflowStatus}
+              onStatusChange={handleStatusChange}
+              onReject={handleReject}
+              onRegenerate={handleRegenerate}
+              history={workflowHistory}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Action Buttons */}

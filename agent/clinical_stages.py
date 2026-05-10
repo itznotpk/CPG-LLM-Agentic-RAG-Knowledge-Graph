@@ -23,7 +23,7 @@ from .tools import VectorSearchInput, vector_search_tool
 
 logger = logging.getLogger(__name__)
 
-DDX_RERANK_MODEL = "google/gemini-2.5-flash-preview"
+DDX_RERANK_MODEL = "gemini-2.5-flash-preview-05-20"
 DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidates
 
 
@@ -59,13 +59,13 @@ def _build_symptom_text(case: PatientCase) -> str:
 async def _llm_rerank_ddx(
     case: PatientCase,
     candidates: list[DDxResult],
+    emit=None,                      # async callable(event_type, data) | None
 ) -> list[DDxResult]:
     """
     Re-rank DDx candidates using Gemini 2.5 Flash extended thinking.
 
-    Applies clinical reasoning over age, sex, vitals, comorbidities, medications
-    that pure vector similarity cannot weight correctly.
     Falls back to original order on any failure.
+    When emit is provided, streams thinking tokens as thinking_delta SSE events.
     """
     if not candidates:
         return candidates
@@ -110,23 +110,50 @@ No markdown fences. Example format:
 ]"""
 
     try:
-        resp = await client.chat.completions.create(
-            model=DDX_RERANK_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=1,          # required when thinking is enabled
-            extra_body={
-                "thinking": {
-                    "type": "enabled",
-                    "budget_tokens": DDX_THINKING_BUDGET,
-                }
-            },
-        )
-        raw = resp.choices[0].message.content.strip().strip("` \n")
+        raw_content = ""
+
+        if emit is not None:
+            # Streaming path — capture thinking tokens
+            # Gemini 2.5 Flash thinks by default; no extra_body needed on the native API
+            stream = await client.chat.completions.create(
+                model=DDX_RERANK_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=1,
+                stream=True,
+            )
+            async for chunk in stream:
+                if not chunk.choices:
+                    continue
+                delta = chunk.choices[0].delta
+                # Google native API exposes thinking as delta.reasoning or delta.thinking
+                thinking_chunk = (
+                    getattr(delta, "reasoning", None)
+                    or getattr(delta, "thinking", None)
+                    or getattr(delta, "reasoning_content", None)
+                )
+                if thinking_chunk:
+                    await emit("thinking_delta", {
+                        "stage": 2,
+                        "node": "DDx Re-rank",
+                        "chunk": thinking_chunk,
+                    })
+                if delta.content:
+                    raw_content += delta.content
+        else:
+            # Non-streaming path — identical to pre-Step-09 behavior
+            resp = await client.chat.completions.create(
+                model=DDX_RERANK_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=1,
+            )
+            raw_content = resp.choices[0].message.content
+
+        # Parse re-ranked list (shared by both paths)
+        raw = raw_content.strip().strip("` \n")
         if raw.startswith("json"):
             raw = raw[4:]
         ranked = json.loads(raw)
 
-        # Map re-ranked codes back to DDxResult objects, preserving all fields
         code_to_result = {c.code: c for c in candidates}
         reranked: list[DDxResult] = []
         for item in ranked:
@@ -138,7 +165,6 @@ No markdown fences. Example format:
                     result.reasoning = result.reasoning + [f"LLM: {llm_reason}"]
                 reranked.append(result)
 
-        # Safety: any candidates the LLM dropped → append at end
         seen = {r.code for r in reranked}
         for c in candidates:
             if c.code not in seen:
@@ -149,13 +175,14 @@ No markdown fences. Example format:
 
     except Exception as exc:
         logger.warning("DDx LLM re-rank failed (%s) — using original order", exc)
-        return candidates   # graceful fallback
+        return candidates
 
 
 async def stage_2_ddx(
     case: PatientCase,
     top_k: int = 5,
     rerank: bool = True,
+    emit=None,                      # async callable | None; passed through to _llm_rerank_ddx
 ) -> list[DDxResult]:
     """
     Return top-k ICD-11 differential diagnoses for the patient case.
@@ -163,12 +190,12 @@ async def stage_2_ddx(
     Pass 1: vector similarity + morbidity tabulation (search_ddx).
     Pass 2: Gemini 2.5 Flash thinking re-ranks by clinical probability.
     Set rerank=False to skip Pass 2 (e.g. in unit tests or latency-sensitive paths).
+    When emit is provided, thinking tokens are streamed as thinking_delta events.
     """
     from ddx.search_ddx import search_ddx
 
     symptom_text = _build_symptom_text(case)
 
-    # Pass 1 — fetch more candidates than needed so re-ranker has material to work with
     fetch_k = top_k * 2 if rerank else top_k
     raw = await search_ddx(symptom_text, top_k=fetch_k)
 
@@ -181,9 +208,8 @@ async def stage_2_ddx(
         except Exception as exc:
             logger.warning("Skipping malformed DDx result %r: %s", r, exc)
 
-    # Pass 2 — LLM re-rank (skipped if rerank=False or no results)
     if rerank and results:
-        results = await _llm_rerank_ddx(case, results)
+        results = await _llm_rerank_ddx(case, results, emit=emit)
 
     return results[:top_k]
 
@@ -196,15 +222,23 @@ async def stage_3_route(
     ddx: list[DDxResult],
     top_k_codes: int = 2,
     top_k_cpgs: int = 3,
+    emit=None,                      # async callable | None
 ) -> list[CPGDocRef]:
     """Map the top DDx ICD-11 codes to CPG document sets."""
-    all_refs: dict[str, CPGDocRef] = {}  # keyed by cpg_name
+    all_refs: dict[str, CPGDocRef] = {}
 
     for result in ddx[:top_k_codes]:
         refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs)
         for ref in refs:
             if ref.cpg_name not in all_refs:
                 all_refs[ref.cpg_name] = ref
+                if emit:
+                    await emit("sub_step", {
+                        "stage": 3,
+                        "detail": f"{ref.cpg_name}",
+                        "badge": ref.match_type,
+                        "status": "complete",
+                    })
 
     return list(all_refs.values())[:top_k_cpgs]
 
@@ -220,11 +254,15 @@ async def _generate_retrieval_queries(
     n: int = 3,
 ) -> list[str]:
     """Use the LLM to produce n focused retrieval queries for vector search."""
+    # STAGE4_LLM_* vars override main LLM config (e.g. when primary API is blocked)
+    base_url = os.getenv("STAGE4_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
+    api_key = os.getenv("STAGE4_LLM_API_KEY") or os.getenv("LLM_API_KEY")
+    model = os.getenv("STAGE4_LLM_CHOICE") or os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
+
     client = openai.AsyncOpenAI(
-        base_url=os.getenv("LLM_BASE_URL"),
-        api_key=os.getenv("LLM_API_KEY"),
+        base_url=base_url,
+        api_key=api_key,
     )
-    model = os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
 
     icd_summary = ", ".join(f"{d.code} ({d.title})" for d in ddx[:2])
     cpg_names = ", ".join(c.cpg_name for c in cpgs)
@@ -267,6 +305,7 @@ async def stage_4_retrieve(
     cpgs: list[CPGDocRef],
     queries_per_code: int = 3,
     chunks_per_query: int = 5,
+    emit=None,                      # async callable | None
 ) -> list[ChunkResult]:
     """Generate targeted queries and retrieve scoped evidence chunks."""
     if not cpgs:
@@ -274,6 +313,13 @@ async def stage_4_retrieve(
         return []
 
     all_doc_ids = [doc_id for cpg in cpgs for doc_id in cpg.document_ids]
+
+    if emit:
+        await emit("sub_step", {
+            "stage": 4,
+            "detail": f"Generating {queries_per_code} targeted queries…",
+            "status": "running",
+        })
 
     queries = await _generate_retrieval_queries(case, ddx, cpgs, n=queries_per_code)
 
@@ -286,13 +332,32 @@ async def stage_4_retrieve(
             limit=chunks_per_query,
             document_id_filter=all_doc_ids,
         ))
+        new_chunks = 0
         for chunk in results:
             if chunk.chunk_id not in seen_chunk_ids:
                 seen_chunk_ids.add(chunk.chunk_id)
                 all_chunks.append(chunk)
+                new_chunks += 1
+        if emit:
+            total = len(results)
+            await emit("sub_step", {
+                "stage": 4,
+                "detail": f'"{query[:60]}{"…" if len(query) > 60 else ""}"',
+                "badge": f"{new_chunks} new / {total} hits",
+                "status": "complete",
+            })
 
     all_chunks.sort(key=lambda c: c.score, reverse=True)
-    return all_chunks[:20]
+    final = all_chunks[:20]
+
+    if emit:
+        await emit("sub_step", {
+            "stage": 4,
+            "detail": f"{len(final)} unique chunks after deduplication",
+            "status": "complete",
+        })
+
+    return final
 
 
 # ---------------------------------------------------------------------------
@@ -328,11 +393,15 @@ async def stage_5_synthesize(
     evidence: list[ChunkResult],
 ) -> TreatmentPlan:
     """Synthesise a structured TreatmentPlan from patient context and CPG evidence."""
+    # STAGE5_LLM_* vars override main LLM config (e.g. when primary API is blocked)
+    base_url = os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
+    api_key = os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
+    model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
+
     client = openai.AsyncOpenAI(
-        base_url=os.getenv("LLM_BASE_URL"),
-        api_key=os.getenv("LLM_API_KEY"),
+        base_url=base_url,
+        api_key=api_key,
     )
-    model = os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
 
     evidence_text = _format_evidence(evidence)
     icd_primary = ddx[0].code if ddx else "Unknown"

@@ -140,8 +140,7 @@ function PlanSummary({ carePlan, patient, nextReviewDate }) {
 export function OutputSection() {
   const { state, resetApp, goToStep } = useApp();
   const { isDark } = useTheme();
-  const { patient, carePlan, diagnosis, nextReviewDate } = state;
-  const [showPrintPreview, setShowPrintPreview] = useState(false);
+  const { patient, carePlan, diagnosis, nextReviewDate, clinicalNotes, vitals } = state;
 
   // Get the selected diagnoses from the differentials array (supports multiple selection)
   const selectedIds = diagnosis?.selectedDiagnosisIds?.length > 0
@@ -153,10 +152,6 @@ export function OutputSection() {
 
   const handleNewAssessment = () => {
     resetApp();
-  };
-
-  const handleViewChart = () => {
-    goToStep(3);
   };
 
   const handleExportPDF = () => {
@@ -172,9 +167,9 @@ export function OutputSection() {
   };
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-6 animate-fadeIn pb-8 relative">
       {/* Success Banner */}
-      <GlassCard variant="success" className="p-6">
+      <GlassCard variant="success" className="p-6 max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="p-4 bg-green-500/20 rounded-full">
@@ -182,10 +177,10 @@ export function OutputSection() {
             </div>
             <div>
               <h2 className={`text-2xl font-bold ${isDark ? 'text-green-300' : 'text-green-800'}`}>
-                Care Plan Successfully Generated & Saved
+                Care Plan Successfully Generated
               </h2>
               <p className={`mt-1 ${isDark ? 'text-green-200' : 'text-green-700'}`}>
-                The evidence-based care plan has been saved to the patient's chart.
+                Review the clinical encounter note below before signing.
               </p>
             </div>
           </div>
@@ -197,122 +192,123 @@ export function OutputSection() {
         </div>
       </GlassCard>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Main Content */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Action Tools */}
-          <GlassCard className="p-5">
-            <h3 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>Quick Actions</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <Button
-                variant="primary"
-                size="md"
-                icon={Download}
-                onClick={handleExportPDF}
-                className="w-full"
-              >
-                Export PDF
-              </Button>
-              <Button
-                variant="secondary"
-                size="md"
-                icon={Printer}
-                onClick={handlePrint}
-                className="w-full"
-              >
-                Print
-              </Button>
-              <Button
-                variant="secondary"
-                size="md"
-                icon={Eye}
-                onClick={handleViewChart}
-                className="w-full"
-              >
-                View Plan
-              </Button>
-              <Button
-                variant="secondary"
-                size="md"
-                icon={Share2}
-                onClick={() => { }}
-                className="w-full"
-              >
-                Share
-              </Button>
-            </div>
-          </GlassCard>
+      {/* SOAP NOTE VIEW */}
+      <GlassCard className="p-8 max-w-5xl mx-auto border-t-8 border-t-[var(--accent-primary)] shadow-lg bg-white dark:bg-slate-900">
+        <h3 className={`text-2xl font-bold mb-6 text-center border-b pb-4 ${isDark ? 'text-white border-white/10' : 'text-slate-800 border-slate-200'}`}>
+          Clinical Encounter Note
+        </h3>
+         
+        <div className="space-y-8">
+          {/* Subjective */}
+          <section>
+            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <User className="w-4 h-4" /> Subjective
+            </h4>
+            <p className={`whitespace-pre-wrap pl-6 border-l-2 ${isDark ? 'border-slate-700 text-slate-300' : 'border-slate-200 text-slate-700'}`}>
+              {clinicalNotes || 'No clinical notes provided.'}
+            </p>
+          </section>
 
-          {/* Diagnosis Summary */}
-          <GlassCard className="p-5">
-            <h3 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-              Diagnosis Summary ({selectedDiagnoses.length})
-            </h3>
-            <div className="space-y-3">
-              {selectedDiagnoses.map((diag, idx) => (
-                <div key={diag.id} className={`p-4 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/50'}`}>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                        {idx + 1}. {diag.name}
-                      </p>
-                      <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                        ICD-11: {diag.icdCode}
-                      </p>
-                    </div>
-                    <Badge
-                      variant={diag.risk === 'high' ? 'danger' : diag.risk === 'medium' ? 'warning' : 'success'}
-                      size="md"
-                    >
-                      {diag.risk?.charAt(0).toUpperCase() + diag.risk?.slice(1)} Risk
-                    </Badge>
-                  </div>
+          {/* Objective */}
+          <section>
+            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <Activity className="w-4 h-4" /> Objective (Vitals)
+            </h4>
+            <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-xl ml-6 ${isDark ? 'bg-slate-800/50' : 'bg-slate-50'}`}>
+              <div><span className="text-xs text-slate-500 block mb-1">Blood Pressure</span> <span className="font-medium font-variant-numeric: tabular-nums">{vitals?.bpSystolic}/{vitals?.bpDiastolic} mmHg</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Heart Rate</span> <span className="font-medium font-variant-numeric: tabular-nums">{vitals?.hr} bpm</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Temperature</span> <span className="font-medium font-variant-numeric: tabular-nums">{vitals?.temp} °C</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">SpO2</span> <span className="font-medium font-variant-numeric: tabular-nums">{vitals?.spo2} %</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Weight</span> <span className="font-medium font-variant-numeric: tabular-nums">{vitals?.weight} kg</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Height</span> <span className="font-medium font-variant-numeric: tabular-nums">{vitals?.height} cm</span></div>
+            </div>
+          </section>
+
+          {/* Assessment */}
+          <section>
+            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <Stethoscope className="w-4 h-4" /> Assessment
+            </h4>
+            <div className="ml-6 space-y-2">
+              {selectedDiagnoses.map(d => (
+                <div key={d.id} className={`p-3 rounded-lg border ${isDark ? 'border-slate-700 bg-slate-800/30' : 'border-slate-200 bg-white'}`}>
+                  <span className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{d.name}</span>
+                  {d.icdCode && <span className="text-xs bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] px-2 py-0.5 rounded ml-3">ICD-11: {d.icdCode}</span>}
                 </div>
               ))}
+              {selectedDiagnoses.length === 0 && <p className="text-slate-500">No diagnoses selected.</p>}
+              {/* CPG Evidence source */}
+              {carePlan?.cpgReferences?.length > 0 && (
+                <div className={`mt-2 p-2.5 rounded-lg text-xs flex items-start gap-2 ${isDark ? 'bg-indigo-900/20 text-indigo-300 border border-indigo-500/20' : 'bg-indigo-50 text-indigo-700 border border-indigo-100'}`}>
+                  <span className="font-semibold shrink-0">CPG Evidence:</span>
+                  <span>{carePlan.cpgReferences.map(r => r.title || r).join(' · ')}</span>
+                </div>
+              )}
             </div>
-          </GlassCard>
+          </section>
 
-          {/* Key Recommendations */}
-          <GlassCard className="p-5">
-            <h3 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>Key Recommendations</h3>
-            <div className="space-y-3">
-              <div className={`p-4 rounded-xl border-l-4 border-red-500 ${isDark ? 'bg-red-900/30' : 'bg-red-50/80'}`}>
-                <span className={`text-xs font-bold uppercase ${isDark ? 'text-red-400' : 'text-red-700'}`}>Stop Medication</span>
-                <p className={`font-medium mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                  Glipizide 5mg OD - Replacing with SGLT2i
-                </p>
+          {/* Plan */}
+          <section>
+            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <ClipboardList className="w-4 h-4" /> Plan
+            </h4>
+            <div className={`ml-6 space-y-4 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+              <p className="leading-relaxed">{carePlan?.clinicalSummary}</p>
+              
+              {carePlan?.medications?.start?.length > 0 && (
+                <div className={`p-3 rounded-lg border-l-4 border-green-500 ${isDark ? 'bg-green-900/10' : 'bg-green-50'}`}>
+                  <strong className={`text-sm block mb-2 ${isDark ? 'text-green-400' : 'text-green-700'}`}>Start Medications:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {carePlan.medications.start.filter(m => m.accepted !== false).map(m => <li key={m.id}><span className="font-medium">{m.name} {m.dose}</span> — {m.reason}</li>)}
+                  </ul>
+                </div>
+              )}
+              {carePlan?.medications?.stop?.length > 0 && (
+                <div className={`p-3 rounded-lg border-l-4 border-red-500 ${isDark ? 'bg-red-900/10' : 'bg-red-50'}`}>
+                  <strong className={`text-sm block mb-2 ${isDark ? 'text-red-400' : 'text-red-700'}`}>Stop Medications:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {carePlan.medications.stop.filter(m => m.accepted !== false).map(m => <li key={m.id}><span className="font-medium">{m.name}</span> — {m.reason}</li>)}
+                  </ul>
+                </div>
+              )}
+              {carePlan?.investigations?.filter(i => i.accepted !== false)?.length > 0 && (
+                <div className={`p-3 rounded-lg border-l-4 border-blue-400 ${isDark ? 'bg-blue-900/10' : 'bg-blue-50'}`}>
+                  <strong className={`text-sm block mb-2 ${isDark ? 'text-blue-400' : 'text-blue-700'}`}>Investigations:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {carePlan.investigations.filter(i => i.accepted !== false).map(i => <li key={i.id}>{i.name}</li>)}
+                  </ul>
+                </div>
+              )}
+              <div className={`p-3 rounded-lg border ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
+                <strong className="text-sm font-medium">Follow-up:</strong>
+                <span className="ml-2">{nextReviewDate || carePlan?.disposition?.followUp || 'As needed'}</span>
               </div>
-              <div className={`p-4 rounded-xl border-l-4 border-green-500 ${isDark ? 'bg-green-900/30' : 'bg-green-50/80'}`}>
-                <span className={`text-xs font-bold uppercase ${isDark ? 'text-green-400' : 'text-green-700'}`}>Start Medications</span>
-                <p className={`font-medium mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                  Empagliflozin 10mg OD, Lisinopril 5mg OD
-                </p>
-              </div>
-              <div className={`p-4 rounded-xl border-l-4 border-blue-500 ${isDark ? 'bg-blue-900/30' : 'bg-blue-50/80'}`}>
-                <span className={`text-xs font-bold uppercase ${isDark ? 'text-blue-400' : 'text-blue-700'}`}>Referral</span>
-                <p className={`font-medium mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                  Ophthalmology for diabetic retinopathy screening
-                </p>
-              </div>
+              {carePlan?.unresolvedQuestions?.length > 0 && (
+                <div className={`p-3 rounded-lg border ${isDark ? 'border-amber-500/30 bg-amber-900/10' : 'border-amber-200 bg-amber-50'}`}>
+                  <strong className={`text-sm block mb-2 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>⚠ Unresolved:</strong>
+                  <ul className={`list-disc pl-5 space-y-1 text-sm ${isDark ? 'text-amber-300/80' : 'text-amber-800'}`}>
+                    {carePlan.unresolvedQuestions.map((q, i) => <li key={i}>{q}</li>)}
+                  </ul>
+                </div>
+              )}
             </div>
-          </GlassCard>
+          </section>
         </div>
+      </GlassCard>
 
-        {/* Sidebar */}
-        <div className="space-y-6">
-          <PlanSummary carePlan={carePlan} patient={patient} nextReviewDate={nextReviewDate} />
-
-          {/* New Assessment Button */}
-          <Button
-            variant="outline"
-            size="lg"
-            icon={RefreshCw}
-            onClick={handleNewAssessment}
-            className="w-full"
-          >
-            Start New Assessment
+      {/* Floating Action Bar */}
+      <div className="sticky bottom-4 mx-auto max-w-5xl mt-8">
+        <GlassCard className="p-4 shadow-xl border border-[var(--accent-primary)]/20 flex flex-wrap justify-center gap-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl">
+          <Button variant="outline" size="lg" icon={Download} onClick={handleExportPDF}>
+            Export to EMR
           </Button>
-        </div>
+          <Button variant="secondary" size="lg" icon={Printer} onClick={handlePrint}>
+            Print Instructions
+          </Button>
+          <Button variant="primary" size="lg" icon={CheckCircle} onClick={handleNewAssessment} className="min-w-[200px]">
+            Sign Note & Close
+          </Button>
+        </GlassCard>
       </div>
     </div>
   );
