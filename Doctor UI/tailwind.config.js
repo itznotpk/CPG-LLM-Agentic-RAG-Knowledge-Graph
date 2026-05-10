@@ -8,27 +8,28 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#d4e6f1',
-          100: '#a1c6e7',
-          200: '#78a3db',
-          300: '#4b8cce',
-          400: '#0f6fbb',
-          500: '#4b8c9c',
-          600: '#3bb19c',
-          700: '#2ca57c',
-          800: '#1a8858',
-          900: '#0b5e3c',
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
         },
         // High-contrast text colors
         text: {
-          primary: '#1e293b',    // slate-800 - main headings
-          secondary: '#475569',  // slate-600 - secondary text
-          muted: '#64748b',      // slate-500 - subtle labels
-          inverse: '#ffffff',    // white - on dark backgrounds
+          primary: '#0f172a',    // slate-900
+          secondary: '#334155',  // slate-700
+          muted: '#64748b',      // slate-500
+          inverse: '#ffffff',    // white
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Geist', 'system-ui', 'sans-serif'],
+        mono: ['Geist Mono', 'monospace'],
       },
       backdropBlur: {
         xs: '2px',

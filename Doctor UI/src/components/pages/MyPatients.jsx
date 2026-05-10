@@ -210,40 +210,22 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
     fetchPatients();
   }, [fetchPatients]);
 
-  // Fetch ALL consultations for all patients to display Next Review dates and ALL Diagnoses
+  // Fetch latest consultation for all patients to display Next Review dates and Diagnoses
   // Always fetch fresh data to ensure sync with database
   useEffect(() => {
     const fetchAllConsultations = async () => {
       if (allPatients.length === 0) return;
 
-      // Fetch ALL consultations for all patients in parallel (not just the latest)
+      // Fetch consultations for all patients in parallel
       const results = await Promise.all(
         allPatients.map(async (patient) => {
           try {
-            // Get ALL consultations for this patient (up to 50)
-            const result = await getAllPatientConsultations(patient.nsn, 50);
+            // Get the latest consultation for this patient (limit 1)
+            const result = await getAllPatientConsultations(patient.nsn, 1);
             if (result.consultations && result.consultations.length > 0) {
-              // Combine all diagnoses from all consultations
-              const allDiagnoses = [];
-              result.consultations.forEach(consultation => {
-                if (consultation.diagnoses && Array.isArray(consultation.diagnoses)) {
-                  consultation.diagnoses.forEach(dx => {
-                    allDiagnoses.push({
-                      ...dx,
-                      consultationId: consultation.id,
-                      consultationTime: consultation.consultationTime
-                    });
-                  });
-                }
-              });
-
-              // Return the latest consultation (for next review, clinical notes) plus all diagnoses combined
               return {
                 nric: patient.nsn,
-                consultation: {
-                  ...result.consultations[0], // Latest consultation
-                  diagnoses: allDiagnoses // All diagnoses from ALL consultations
-                }
+                consultation: result.consultations[0]
               };
             }
             return { nric: patient.nsn, consultation: null };
@@ -274,16 +256,13 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // Avatar color palette for patients
   const avatarColors = [
-    'from-cyan-500 to-blue-500',
-    'from-emerald-500 to-teal-500',
-    'from-purple-500 to-pink-500',
-    'from-orange-500 to-amber-500',
-    'from-rose-500 to-red-500',
-    'from-indigo-500 to-violet-500',
-    'from-lime-500 to-green-500',
-    'from-fuchsia-500 to-purple-500',
+    'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-200',
+    'bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200',
+    'bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-200',
+    'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200',
+    'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-200',
+    'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200',
   ];
 
   // Get initials from name
@@ -307,31 +286,14 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
   };
 
   // Refresh consultation data for a specific patient (for dynamic sync)
-  // Fetches ALL consultations and combines diagnoses
+  // Fetches the latest consultation
   const refreshPatientConsultation = async (patientNric) => {
     try {
-      const result = await getAllPatientConsultations(patientNric, 50);
+      const result = await getAllPatientConsultations(patientNric, 1);
       if (result.consultations && result.consultations.length > 0) {
-        // Combine all diagnoses from all consultations
-        const allDiagnoses = [];
-        result.consultations.forEach(consultation => {
-          if (consultation.diagnoses && Array.isArray(consultation.diagnoses)) {
-            consultation.diagnoses.forEach(dx => {
-              allDiagnoses.push({
-                ...dx,
-                consultationId: consultation.id,
-                consultationTime: consultation.consultationTime
-              });
-            });
-          }
-        });
-
         setPatientConsultations(prev => ({
           ...prev,
-          [patientNric]: {
-            ...result.consultations[0], // Latest consultation
-            diagnoses: allDiagnoses // All diagnoses from ALL consultations
-          }
+          [patientNric]: result.consultations[0]
         }));
       }
     } catch (err) {
@@ -545,7 +507,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                     </td>
                     <td className="p-4">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br ${getAvatarColor(patient.name || '')} text-white font-bold text-sm`}>
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${getAvatarColor(patient.name || '')} font-semibold text-sm`}>
                           {getInitials(patient.name || '')}
                         </div>
                         <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.name || 'Unknown'}</p>
@@ -557,28 +519,14 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                     <td className="p-4">
                       <div className="max-w-[200px]">
                         {(() => {
-                          // Get diagnoses ONLY from consultation (from consultations.diagnoses database column)
+                          // Get diagnoses ONLY from the latest consultation
                           const consultation = patientConsultations[patient.nsn];
                           const consultDiagnoses = consultation?.diagnoses || [];
 
                           let displayDiagnoses = [];
 
                           if (consultDiagnoses.length > 0) {
-                            // 1. Try to filter by the latest recordedAt timestamp
-                            const timestamps = consultDiagnoses
-                              .map(d => d.recordedAt)
-                              .filter(Boolean);
-
-                            if (timestamps.length > 0) {
-                              const latestTime = timestamps.sort().reverse()[0];
-                              displayDiagnoses = consultDiagnoses
-                                .filter(d => d.recordedAt === latestTime)
-                                .map(d => typeof d === 'object' ? d.name : d);
-                            } else {
-                              // 2. Fallback for older data: Only show the VERY LAST item in the array
-                              const lastDx = consultDiagnoses[consultDiagnoses.length - 1];
-                              displayDiagnoses = [typeof lastDx === 'object' ? lastDx.name : lastDx];
-                            }
+                            displayDiagnoses = consultDiagnoses.map(d => typeof d === 'object' ? d.name : d);
                           }
                           // No fallback to comorbidities - diagnoses come ONLY from consultations.diagnoses
 
@@ -821,8 +769,8 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
             {/* Modal Header */}
             <div className={`flex items-center justify-between p-6 border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${getAvatarColor(historyPatient.name)} 
-                  flex items-center justify-center text-white font-bold`}>
+                <div className={`w-12 h-12 rounded-full ${getAvatarColor(historyPatient.name)} 
+                  flex items-center justify-center font-semibold`}>
                   {getInitials(historyPatient.name)}
                 </div>
                 <div>

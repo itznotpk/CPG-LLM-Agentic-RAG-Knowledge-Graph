@@ -31,6 +31,7 @@ import {
 } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
+import { PipelineProgress } from './PipelineProgress';
 
 
 // Accordion Section Component
@@ -449,6 +450,8 @@ function LifestyleSection({ lifestyle }) {
 function CPGReferencesSection({ references }) {
   const { isDark } = useTheme();
 
+  if (!references || references.length === 0) return null;
+
   return (
     <AccordionSection title="CPG References" icon={BookOpen} defaultOpen={false}>
       <div className="flex flex-wrap gap-2">
@@ -489,6 +492,7 @@ export function CarePlanSection() {
   const [workflowStatus, setWorkflowStatus] = useState(WORKFLOW_STATES.DRAFT);
   const [workflowHistory, setWorkflowHistory] = useState([]);
   const [notes, setNotes] = useState([]);
+  const [traceCollapsed, setTraceCollapsed] = useState(true);
 
   if (!carePlan) return null;
 
@@ -643,17 +647,16 @@ export function CarePlanSection() {
                 );
               })()}
 
-              {/* Trace quick-access */}
-              <div className={`flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer transition-colors
-                ${isDark
-                  ? 'border-indigo-500/30 bg-indigo-900/20 hover:bg-indigo-900/40 text-indigo-300'
-                  : 'border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-700'}`}
-                title="Open AI Reasoning Trace drawer"
-              >
-                <BrainCircuit className="w-4 h-4 shrink-0" />
-                <span className="text-xs font-medium">AI Reasoning Trace</span>
-                <span className={`ml-auto text-[10px] ${isDark ? 'text-indigo-400' : 'text-indigo-500'}`}>→ right panel</span>
-              </div>
+              {/* AI Reasoning Trace inline */}
+              <PipelineProgress
+                pipelineEvents={state.pipelineEvents}
+                pipelineThinking={state.pipelineThinking}
+                summary={state.pipelineSummary}
+                isLive={false}
+                resynthOverride={state.resynthOverride}
+                collapsed={traceCollapsed}
+                onToggle={() => setTraceCollapsed(prev => !prev)}
+              />
               {carePlan?.unresolvedQuestions?.length > 0 && (
                 <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
                   <p className="text-amber-500 text-sm font-medium mb-1">⚠ Unresolved Questions</p>

@@ -34,16 +34,14 @@ const Home = ({ onStartConsult, onViewChart }) => {
   const [stats, setStats] = useState(dashboardStats);
   const [isScheduleExpanded, setIsScheduleExpanded] = useState(true);
 
-  // Avatar color palette for patients
+  // Avatar color palette for patients (Refined clinical tints)
   const avatarColors = [
-    'from-cyan-500 to-blue-500',
-    'from-emerald-500 to-teal-500',
-    'from-purple-500 to-pink-500',
-    'from-orange-500 to-amber-500',
-    'from-rose-500 to-red-500',
-    'from-indigo-500 to-violet-500',
-    'from-lime-500 to-green-500',
-    'from-fuchsia-500 to-purple-500',
+    'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-200',
+    'bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200',
+    'bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-200',
+    'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200',
+    'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-200',
+    'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200',
   ];
 
   // Get initials from name
@@ -277,83 +275,70 @@ const Home = ({ onStartConsult, onViewChart }) => {
       </div>
 
       {/* Daily Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <GlassCard
-          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'all' ? 'ring-2 ring-blue-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400`}
-          variant={isDark ? 'dark' : 'light'}
-          onClick={() => setCategoryFilter('all')}
-          tabIndex={0}
-          role="button"
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter('all'); }}
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Total Appointments</p>
-              <p className={`text-3xl font-bold mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>{stats.totalAppointments}</p>
-            </div>
-            <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-              <Calendar aria-hidden="true" className="w-6 h-6 text-blue-400" />
+      {/* Daily Stats Cards - Dashboard Hardened */}
+      <GlassCard className="mb-6 overflow-hidden p-0" variant={isDark ? 'dark' : 'light'}>
+        <div className={`grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
+          <div
+            className={`p-6 cursor-pointer transition-colors ${categoryFilter === 'all' ? (isDark ? 'bg-white/5' : 'bg-slate-50') : 'hover:bg-black/5 dark:hover:bg-white/5'}`}
+            onClick={() => setCategoryFilter('all')}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Total Appointments</p>
+                <p className={`text-3xl font-light mt-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{stats.totalAppointments}</p>
+              </div>
+              <Calendar className={`w-5 h-5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
             </div>
           </div>
-        </GlassCard>
 
-        <GlassCard
-          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'waiting' ? 'ring-2 ring-amber-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400`}
-          variant={isDark ? 'dark' : 'light'}
-          onClick={() => setCategoryFilter(categoryFilter === 'waiting' ? 'all' : 'waiting')}
-          tabIndex={0}
-          role="button"
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter(categoryFilter === 'waiting' ? 'all' : 'waiting'); }}
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Patients Waiting</p>
-              <p className="text-3xl font-bold text-amber-500 mt-1">{stats.patientsWaiting}</p>
-            </div>
-            <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center">
-              <Users aria-hidden="true" className="w-6 h-6 text-amber-500" />
+          <div
+            className={`p-6 cursor-pointer transition-colors ${categoryFilter === 'waiting' ? (isDark ? 'bg-teal-500/10' : 'bg-teal-50') : 'hover:bg-black/5 dark:hover:bg-white/5'}`}
+            onClick={() => setCategoryFilter(categoryFilter === 'waiting' ? 'all' : 'waiting')}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Waiting</p>
+                <p className={`text-3xl font-light mt-2 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>{stats.patientsWaiting}</p>
+              </div>
+              <Users className={`w-5 h-5 ${isDark ? 'text-teal-500/50' : 'text-teal-400'}`} />
             </div>
           </div>
-        </GlassCard>
 
-        <GlassCard
-          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'emergency' ? 'ring-2 ring-red-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400`}
-          variant={isDark ? 'dark' : 'light'}
-          onClick={() => setCategoryFilter(categoryFilter === 'emergency' ? 'all' : 'emergency')}
-          tabIndex={0}
-          role="button"
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter(categoryFilter === 'emergency' ? 'all' : 'emergency'); }}
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Emergency Cases</p>
-              <p className="text-3xl font-bold text-red-500 mt-1">{stats.emergencyCases}</p>
-            </div>
-            <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
-              <AlertTriangle aria-hidden="true" className="w-6 h-6 text-red-500" />
+          <div
+            className={`p-6 cursor-pointer transition-colors ${categoryFilter === 'emergency' ? (isDark ? 'bg-rose-500/10' : 'bg-rose-50') : 'hover:bg-black/5 dark:hover:bg-white/5'}`}
+            onClick={() => setCategoryFilter(categoryFilter === 'emergency' ? 'all' : 'emergency')}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-rose-400' : 'text-rose-600'}`}>Emergency</p>
+                <p className={`text-3xl font-light mt-2 ${isDark ? 'text-rose-400' : 'text-rose-600'}`}>{stats.emergencyCases}</p>
+              </div>
+              <AlertTriangle className={`w-5 h-5 ${isDark ? 'text-rose-500/50' : 'text-rose-400'}`} />
             </div>
           </div>
-        </GlassCard>
 
-        <GlassCard
-          className={`p-4 cursor-pointer transition-transform ${categoryFilter === 'highRisk' ? 'ring-2 ring-orange-500' : 'hover:scale-[1.02]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400`}
-          variant={isDark ? 'dark' : 'light'}
-          onClick={() => setCategoryFilter(categoryFilter === 'highRisk' ? 'all' : 'highRisk')}
-          tabIndex={0}
-          role="button"
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCategoryFilter(categoryFilter === 'highRisk' ? 'all' : 'highRisk'); }}
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>High Risk</p>
-              <p className="text-3xl font-bold text-orange-500 mt-1">{stats.highRiskCases}</p>
-            </div>
-            <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
-              <Activity aria-hidden="true" className="w-6 h-6 text-orange-500" />
+          <div
+            className={`p-6 cursor-pointer transition-colors ${categoryFilter === 'highRisk' ? (isDark ? 'bg-amber-500/10' : 'bg-amber-50') : 'hover:bg-black/5 dark:hover:bg-white/5'}`}
+            onClick={() => setCategoryFilter(categoryFilter === 'highRisk' ? 'all' : 'highRisk')}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>High Risk</p>
+                <p className={`text-3xl font-light mt-2 ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>{stats.highRiskCases}</p>
+              </div>
+              <Activity className={`w-5 h-5 ${isDark ? 'text-amber-500/50' : 'text-amber-400'}`} />
             </div>
           </div>
-        </GlassCard>
-      </div>
+        </div>
+      </GlassCard>
 
       {/* Main Content */}
       <div>
@@ -409,7 +394,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                   <div className="flex-1 min-w-0">
                     {/* Name row with avatar */}
                     <div className="flex items-center gap-3 mb-2">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br ${getAvatarColor(appointment.patient.name)} text-white font-bold text-sm flex-shrink-0`}>
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${getAvatarColor(appointment.patient.name)} font-semibold text-sm flex-shrink-0`}>
                         {getInitials(appointment.patient.name)}
                       </div>
                       <div className="min-w-0">

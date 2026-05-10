@@ -4,26 +4,26 @@ const ThemeContext = createContext();
 
 // Available accent colors with their Tailwind classes
 export const accentColors = {
-  cyan: {
-    name: 'Cyan',
-    primary: 'rgb(6, 182, 212)',      // cyan-500
-    primaryHover: 'rgb(34, 211, 238)', // cyan-400
-    secondary: 'rgb(59, 130, 246)',    // blue-500
-    gradient: 'from-cyan-500 to-blue-500',
-    gradientHover: 'from-cyan-400 to-blue-400',
-    text: 'text-cyan-400',
-    textLight: 'text-cyan-700',
-    bg: 'bg-cyan-500',
-    bgHover: 'hover:bg-cyan-400',
-    lightBg: 'bg-cyan-100',
-    lightBgHover: 'hover:bg-cyan-200',
-    lightBgDark: 'bg-cyan-500/20',
-    lightBgDarkHover: 'hover:bg-cyan-500/30',
-    lightBorder: 'border-cyan-200',
-    lightBorderDark: 'border-cyan-500/30',
-    border: 'border-cyan-500',
-    shadow: 'shadow-cyan-500/20',
-    ring: 'ring-cyan-500',
+  teal: {
+    name: 'Teal',
+    primary: 'rgb(20, 184, 166)',       // teal-500
+    primaryHover: 'rgb(13, 148, 136)',  // teal-600
+    secondary: 'rgb(45, 212, 191)',     // teal-400
+    gradient: 'from-teal-500 to-emerald-500',
+    gradientHover: 'from-teal-400 to-emerald-400',
+    text: 'text-teal-500',
+    textLight: 'text-teal-700',
+    bg: 'bg-teal-500',
+    bgHover: 'hover:bg-teal-400',
+    lightBg: 'bg-teal-100',
+    lightBgHover: 'hover:bg-teal-200',
+    lightBgDark: 'bg-teal-500/20',
+    lightBgDarkHover: 'hover:bg-teal-500/30',
+    lightBorder: 'border-teal-200',
+    lightBorderDark: 'border-teal-500/30',
+    border: 'border-teal-500',
+    shadow: 'shadow-teal-500/20',
+    ring: 'ring-teal-500',
   },
   blue: {
     name: 'Blue',
@@ -46,26 +46,26 @@ export const accentColors = {
     shadow: 'shadow-blue-500/20',
     ring: 'ring-blue-500',
   },
-  purple: {
-    name: 'Purple',
-    primary: 'rgb(168, 85, 247)',
-    primaryHover: 'rgb(192, 132, 252)',
-    secondary: 'rgb(236, 72, 153)',
-    gradient: 'from-purple-500 to-pink-500',
-    gradientHover: 'from-purple-400 to-pink-400',
-    text: 'text-purple-400',
-    textLight: 'text-purple-700',
-    bg: 'bg-purple-500',
-    bgHover: 'hover:bg-purple-400',
-    lightBg: 'bg-purple-100',
-    lightBgHover: 'hover:bg-purple-200',
-    lightBgDark: 'bg-purple-500/20',
-    lightBgDarkHover: 'hover:bg-purple-500/30',
-    lightBorder: 'border-purple-200',
-    lightBorderDark: 'border-purple-500/30',
-    border: 'border-purple-500',
-    shadow: 'shadow-purple-500/20',
-    ring: 'ring-purple-500',
+  navy: {
+    name: 'Navy',
+    primary: 'rgb(59, 130, 246)',
+    primaryHover: 'rgb(96, 165, 250)',
+    secondary: 'rgb(14, 165, 233)',
+    gradient: 'from-blue-600 to-sky-500',
+    gradientHover: 'from-blue-500 to-sky-400',
+    text: 'text-blue-500',
+    textLight: 'text-blue-700',
+    bg: 'bg-blue-600',
+    bgHover: 'hover:bg-blue-500',
+    lightBg: 'bg-blue-100',
+    lightBgHover: 'hover:bg-blue-200',
+    lightBgDark: 'bg-blue-500/20',
+    lightBgDarkHover: 'hover:bg-blue-500/30',
+    lightBorder: 'border-blue-200',
+    lightBorderDark: 'border-blue-500/30',
+    border: 'border-blue-600',
+    shadow: 'shadow-blue-500/20',
+    ring: 'ring-blue-600',
   },
   emerald: {
     name: 'Emerald',
@@ -141,11 +141,16 @@ export const ThemeProvider = ({ children }) => {
     return 'light';
   });
 
+  // Migration map: old accent keys → new keys
+  const ACCENT_MIGRATION = { cyan: 'teal', purple: 'navy' };
+
   const [accentColor, setAccentColor] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('mhnexus-accent') || 'cyan';
+      const stored = localStorage.getItem('mhnexus-accent') || 'teal';
+      // Migrate stale keys that no longer exist
+      return ACCENT_MIGRATION[stored] || (accentColors[stored] ? stored : 'teal');
     }
-    return 'cyan';
+    return 'teal';
   });
 
   // Determine effective theme (for 'system' mode)
@@ -187,7 +192,8 @@ export const ThemeProvider = ({ children }) => {
     root.classList.add(effectiveTheme);
   }, [effectiveTheme]);
 
-  const accent = accentColors[accentColor];
+  // Safety fallback — accent must never be undefined
+  const accent = accentColors[accentColor] || accentColors['teal'];
 
   return (
     <ThemeContext.Provider

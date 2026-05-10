@@ -2,35 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@fontsource/geist-sans";
+@import "@fontsource/geist-mono";
+
 :root {
-  /* Default accent colors (cyan) */
-  --accent-primary: rgb(6, 182, 212);
-  --accent-primary-hover: rgb(34, 211, 238);
-  --accent-secondary: rgb(59, 130, 246);
+  /* Elegant healthcare accent colors (teal) */
+  --accent-primary: rgb(20, 184, 166); /* teal-500 */
+  --accent-primary-hover: rgb(13, 148, 136); /* teal-600 */
+  --accent-secondary: rgb(45, 212, 191); /* teal-400 */
   
   /* Theme colors - Dark mode (default) */
-  --bg-primary: rgb(15, 23, 42);
-  --bg-secondary: rgb(30, 41, 59);
-  --bg-tertiary: rgb(51, 65, 85);
+  --bg-primary: rgb(15, 23, 42); /* slate-900 */
+  --bg-secondary: rgb(30, 41, 59); /* slate-800 */
+  --bg-tertiary: rgb(51, 65, 85); /* slate-700 */
   --text-primary: rgb(248, 250, 252);
   --text-secondary: rgb(203, 213, 225);
   --text-muted: rgb(148, 163, 184);
-  --border-color: rgba(255, 255, 255, 0.1);
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-hover: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.06);
 }
 
 /* Light theme */
 :root.light {
-  --bg-primary: rgb(241, 245, 249);
+  --bg-primary: rgb(248, 250, 252); /* slate-50 */
   --bg-secondary: rgb(255, 255, 255);
-  --bg-tertiary: rgb(226, 232, 240);
+  --bg-tertiary: rgb(241, 245, 249); /* slate-100 */
   --text-primary: rgb(15, 23, 42);
   --text-secondary: rgb(51, 65, 85);
   --text-muted: rgb(100, 116, 139);
-  --border-color: rgba(0, 0, 0, 0.1);
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --card-hover: rgba(255, 255, 255, 0.95);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-hover: rgba(255, 255, 255, 1);
 }
 
 * {
@@ -40,7 +43,7 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Geist', system-ui, sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -63,8 +63,8 @@ const Settings = ({ profile, setProfile }) => {
     <div className="space-y-6">
       <div className="flex items-start gap-6">
         <div className="relative">
-          <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${accent.gradient} 
-            flex items-center justify-center text-white text-2xl font-bold`}>
+          <div className={`w-24 h-24 rounded-full bg-teal-500/20 border-2 border-teal-500/30
+            flex items-center justify-center text-teal-400 text-2xl font-semibold`}>
             {getInitials(profile?.name)}
           </div>
           {isProfileEditing && (
@@ -103,8 +103,8 @@ const Settings = ({ profile, setProfile }) => {
                   value={profile.name}
                   onChange={(e) => setProfile({ ...profile, name: e.target.value })}
                   className={`w-full px-4 py-2.5 rounded-xl border 
-                    focus:outline-none focus:border-cyan-500/50 transition-all
-                    ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
+                focus:outline-none focus:border-[var(--accent-primary)]/50 transition-all
+                ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
                 />
               </div>
               <div>
@@ -114,8 +114,8 @@ const Settings = ({ profile, setProfile }) => {
                   value={profile.specialty}
                   onChange={(e) => setProfile({ ...profile, specialty: e.target.value })}
                   className={`w-full px-4 py-2.5 rounded-xl border 
-                    focus:outline-none focus:border-cyan-500/50 transition-all
-                    ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
+                focus:outline-none focus:border-[var(--accent-primary)]/50 transition-all
+                ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
                 />
               </div>
             </div>
@@ -231,7 +231,7 @@ const Settings = ({ profile, setProfile }) => {
             <button
               onClick={() => setNotifications({ ...notifications, [item.key]: !notifications[item.key] })}
               className={`w-12 h-6 rounded-full transition-all relative
-                ${notifications[item.key] ? 'bg-cyan-500' : 'bg-slate-600'}`}
+                ${notifications[item.key] ? 'bg-[var(--accent-primary)]' : isDark ? 'bg-slate-700' : 'bg-slate-300'}`}
             >
               <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all
                 ${notifications[item.key] ? 'left-7' : 'left-1'}`}
@@ -343,7 +343,7 @@ const Settings = ({ profile, setProfile }) => {
         <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Database className={`w-5 h-5 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />
+              <Database className={`w-5 h-5 ${accent.text}`} />
               <div>
                 <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>MPIS Integration</p>
                 <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Malaysian Patient Information System</p>
@@ -358,7 +358,7 @@ const Settings = ({ profile, setProfile }) => {
         <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Shield className={`w-5 h-5 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />
+              <Shield className={`w-5 h-5 ${accent.text}`} />
               <div>
                 <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Security</p>
                 <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Two-factor authentication enabled</p>
@@ -374,7 +374,7 @@ const Settings = ({ profile, setProfile }) => {
         <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Globe className={`w-5 h-5 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />
+              <Globe className={`w-5 h-5 ${accent.text}`} />
               <div>
                 <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Language & Region</p>
                 <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>English (Malaysia)</p>
@@ -390,13 +390,13 @@ const Settings = ({ profile, setProfile }) => {
         <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Clock className={`w-5 h-5 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />
+              <Clock className={`w-5 h-5 ${accent.text}`} />
               <div>
                 <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Session Timeout</p>
                 <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Auto-logout after 30 minutes of inactivity</p>
               </div>
             </div>
-            <select className={`px-3 py-1.5 rounded-lg text-sm border focus:outline-none focus:border-cyan-500/50
+            <select className={`px-3 py-1.5 rounded-lg text-sm border focus:outline-none focus:border-[var(--accent-primary)]/50
               ${isDark ? 'bg-white/5 text-slate-300 border-white/10' : 'bg-white text-slate-600 border-slate-300'}`}>
               <option value="15">15 mins</option>
               <option value="30" selected>30 mins</option>
@@ -428,7 +428,7 @@ const Settings = ({ profile, setProfile }) => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left
                     ${activeTab === tab.id
-                      ? `bg-cyan-500/20 ${isDark ? 'text-cyan-400' : 'text-cyan-600'} border border-cyan-500/30`
+                      ? `bg-[var(--accent-primary)]/10 ${accent.text} border border-[var(--accent-primary)]/20`
                       : `${isDark ? 'text-slate-400 hover:bg-white/5 hover:text-white' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'} border border-transparent`
                     }`}
                 >
@@ -463,8 +463,7 @@ const Settings = ({ profile, setProfile }) => {
               <button
                 onClick={handleSaveProfile}
                 className="flex items-center gap-2 px-6 py-2 rounded-lg font-medium
-                  bg-gradient-to-r from-cyan-500 to-blue-500 text-white
-                  hover:from-cyan-400 hover:to-blue-400 transition-all"
+                  bg-[var(--accent-primary)] hover:opacity-90 text-white transition-all"
               >
                 <Save className="w-4 h-4" />
                 Save Changes

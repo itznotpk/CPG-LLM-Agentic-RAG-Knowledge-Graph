@@ -47,8 +47,8 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
         />
         {!isCollapsed && (
           <div className="flex flex-col min-w-0">
-            <span className={`font-bold text-lg leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>CPG LLM</span>
-            <span className={`text-[10px] leading-tight ${accent.text} whitespace-nowrap`}>Connecting Values in Healthcare</span>
+            <span className={`font-semibold text-base leading-tight tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>CPG LLM</span>
+            <span className={`text-[10px] leading-tight ${accent.text} whitespace-nowrap tracking-wide uppercase`}>MHNexus Healthcare</span>
           </div>
         )}
       </div>
@@ -109,8 +109,8 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
       {!isCollapsed && (
         <div className={`p-4 ${isDark ? 'border-t border-white/10' : 'border-t border-slate-200'}`}>
           <div className="flex items-center gap-3">
-            <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${accent.gradient}
-              flex items-center justify-center text-white font-bold text-sm`}>
+            <div className={`w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30
+              flex items-center justify-center text-teal-400 font-semibold text-sm`}>
               {getInitials(profile?.name)}
             </div>
             <div className="flex flex-col">

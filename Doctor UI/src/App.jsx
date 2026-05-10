@@ -9,7 +9,7 @@ import {
   CarePlanSection,
   OutputSection,
 } from './components/sections';
-import { StepIndicator, GlassPanel, PatientBanner, TraceDrawer } from './components/shared';
+import { StepIndicator, GlassPanel, PatientBanner } from './components/shared';
 import Home from './components/pages/Home';
 import MyPatients from './components/pages/MyPatients';
 import Settings from './components/pages/Settings';
@@ -29,12 +29,7 @@ function AppContent() {
   const [currentView, setCurrentView] = useState('dashboard');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [chartPatient, setChartPatient] = useState(null);
-  const [traceOpen, setTraceOpen] = useState(false);
 
-  // Auto-open trace drawer when entering Step 2
-  React.useEffect(() => {
-    if (currentStep === 2) setTraceOpen(true);
-  }, [currentStep]);
 
   // Shared profile state
   const [profile, setProfile] = useState({
@@ -145,20 +140,12 @@ function AppContent() {
               <StepIndicator steps={steps} currentStep={currentStep} />
             </div>
 
-            {/* Main Content Area — shift right when drawer is open */}
-            <div className={`transition-all duration-300 ${traceOpen && currentStep >= 2 ? 'pr-[390px]' : ''}`}>
+            {/* Main Content Area */}
+            <div className="transition-all duration-300">
               <GlassPanel className="min-h-[600px]">
                 {renderCurrentSection()}
               </GlassPanel>
             </div>
-
-            {/* Persistent AI Reasoning Trace Drawer (Steps 2-4) */}
-            {currentStep >= 2 && (
-              <TraceDrawer
-                isOpen={traceOpen}
-                onToggle={() => setTraceOpen(o => !o)}
-              />
-            )}
           </>
         );
       case 'settings':

@@ -258,11 +258,8 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
           </div>
           <div>
             <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-              Patient Found in MPIS
+              Patient Found
             </h3>
-            <p className={`text-sm ${isDark ? 'text-green-400' : 'text-green-700'}`}>
-              Data auto-populated from medical records
-            </p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -536,7 +533,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
               New Patient Registration
             </h3>
             <p className={`text-sm ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
-              NRIC "{nsn}" not found in MPIS. Please enter patient information.
+              NRIC "{nsn}" not found. Please enter patient information.
             </p>
           </div>
         </div>
