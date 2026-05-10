@@ -1,12 +1,14 @@
 # SECTION 3: GENERAL PRINCIPLES IN THE MANAGEMENT OF CARDIAC DISEASE IN PREGNANCY
 
 <!-- METADATA
-category: Assessment, Classification, Follow-up/Monitoring, Referral, Pharmacological Treatment, Intervention/Surgery, Counselling, Special Populations
-use_case: general_principles_of_management_in_pregnancy — WHO_classification, NYHA_functional_class, risk_stratification, preconception_counselling, genetic_transmission, drug_safety_in_pregnancy, antepartum_intrapartum_postpartum_care, cardiac_intervention_surgery, anaesthetic_management
-patient_input: cardiac_diagnosis, functional_status, symptoms, baseline_observations, investigations, medications, family_history
-output: risk_class, care_level, pregnancy_care_plan, medication_safety_review, delivery_timing_and_mode, anaesthetic_plan
+category: Assessment, Diagnosis, Treatment, Prevention, Special Populations
+use_case: General Management Principles — risk_stratification, preconception_counselling, medication_review, clinical_findings, specialist_referral, pregnancy_care_plan, intervention_surgery, anaesthetic_management
+patient_input: cardiac_diagnosis, WHO_class, NYHA_class, medication_list, gestational_age, symptoms, investigation_results, fetal_risk_factors
+output: risk_classification, counselling_plan, medication_safety_plan, investigation_plan, referral_level, pregnancy_care_plan, anaesthetic_plan
 critical: true
+treatment_type: warfarin, unfractionated_heparin, low_molecular_weight_heparin, oxytocin, prostaglandin_E1, prostaglandin_E2, epidural_analgesia
 -->
+
 
 ## 3.1 Risk Stratification
 
@@ -22,7 +24,7 @@ Maternal cardiovascular risk can be assessed using the modified World Health Org
 - **[WHO Class II-III & III]** Significantly increased risk of maternal mortality or severe morbidity. Expert counselling required. If pregnancy is decided upon, intensive specialist cardiac and obstetric monitoring needed throughout pregnancy, childbirth, and the puerperium.
 - **[WHO Class IV]** Extremely high risk of maternal mortality or severe morbidity; pregnancy contraindicated. *If pregnancy occurs, termination should be discussed.* If pregnancy continues, care as for class II-III & III.
 
-The functional capacity of the patient can be classified using the NYHA functional class (refer to Table 2).
+The functional capacity of the patient can be classified using the NYHA functional class (refer to Table 2: New York Heart Association Functional Classification).
 
 Risk stratification is accomplished by considering disease specific outcome predictors and risk scores from large studies of pregnant women with heart disease. The maternal and fetal risk magnifies if the disease complexity increases and when there are additional cumulative risk factors.
 
@@ -37,7 +39,7 @@ Factors to be considered during maternal cardiovascular risk assessment include:
 - Fetal outcomes, e.g. fetotoxic drugs, genetic transmission
 - Individual variations
 
-Based on these considerations, maternal cardiovascular risk assessment using Tables 1A, 1B & 2 is recommended.
+Based on these considerations, maternal cardiovascular risk assessment using Tables 1A: Maternal Mortality Risk Based on Modified WHO Classification, Table 1B: Modified World Health Organization Maternal Cardiovascular Risk Assessment & Table 2: New York Heart Association Functional Classification is recommended.
 
 ### 3.1.2 Fetal Outcomes and Risk
 
@@ -52,13 +54,9 @@ The maternal predictors of poor neonatal/fetal outcome in women with cardiac dis
 - Smoking during pregnancy
 - Twin/multiple pregnancy
 
-Some maternal cardiac conditions have an increased risk of genetic transmission to the fetus (e.g. Marfan syndrome). There is also an increased risk of congenital heart disease (CHD) in the fetus if either parent has CHD (refer to Section 3.2.1).
+Some maternal cardiac conditions have an increased risk of genetic transmission to the fetus (e.g. Marfan syndrome). There is also an increased risk of congenital heart disease (CHD) in the fetus if either parent has CHD (refer to Section 3.2.1: Genetic counselling).
 
-Key Message:
-
-All pregnant women with cardiac disease should be risk stratified.
-This can be done using the modified WHO risk score and the NYHA Functional Class (refer to Tables 1A, 1B & 2).
-Fetal risks are higher in women with cardiac disease.
+ > **Key Message:** All pregnant women with cardiac disease should be risk stratified. This can be done using the modified WHO risk score and the NYHA Functional Class (refer to Tables 1A: Maternal Mortality Risk Based on Modified WHO Classification, Table 1B: Modified World Health Organization Maternal Cardiovascular Risk Assessment & Table 2: New York Heart Association Functional Classification).Fetal risks are higher in women with cardiac disease.
 
 ---
 
@@ -78,7 +76,7 @@ Preconception counselling involves:
 - A thorough history particularly focusing on exercise capacity and past cardiac events.
 - A detailed clinical examination.
 - Prior relevant cardiac imaging studies such as echocardiography, Computed Tomography (CT) and magnetic resonance imaging scans should be reviewed.
-- A review of medications with potential harm to the fetus and advice given accordingly (discontinuing fetotoxic medications and substituting with safer alternative) (refer to Appendix B-D).
+- A review of medications with potential harm to the fetus and advice given accordingly (discontinuing fetotoxic medications and substituting with safer alternative) (refer to Appendix B: Recommendations for Cardiovascular Drug Use during Pregnancy, Appendix C: Recommendations for Antibiotic Use during Pregnancy and Appendix D: Recommendations for Drug Use during Pregnancy).
 - Women with treated hypertension and of child bearing potential should be informed about anti-hypertensive medications that are safe in pregnancy preferably at every medical review or at least annually.
 - An assessment for comorbidities (e.g. obesity, hypertension, diabetes mellitus, connective tissue disease).
 - A review of past pregnancies.
@@ -89,12 +87,12 @@ Preconception counselling involves:
 
 If necessary, they should be referred for further cardiac evaluation (ECG, echocardiogram, stress test, etc).
 
-**[Grade I, Level C]** Those at moderate to high maternal cardiovascular risk (refer to Tables 1A, 1B & 2) should be referred to a tertiary centre. For these patients, the counselling should involve the patient, spouse and family members with a multidisciplinary team consisting of an obstetrician, cardiologist and anaesthetist with expertise in the management of pregnant women with cardiac disease.
+**[Grade I, Level C]** Those at moderate to high maternal cardiovascular risk (refer to Tables 1A: Maternal Mortality Risk Based on Modified WHO Classification, Table 1B: Modified World Health Organization Maternal Cardiovascular Risk Assessment & Table 2: New York Heart Association Functional Classification) should be referred to a tertiary centre. For these patients, the counselling should involve the patient, spouse and family members with a multidisciplinary team consisting of an obstetrician, cardiologist and anaesthetist with expertise in the management of pregnant women with cardiac disease.
 
 Some important areas that should be addressed are:
 - Detailed cardiac assessment and appropriate intervention prior to pregnancy (e.g. valvuloplasty for mitral stenosis, cardiac surgery for congenital cardiac lesions).
-- Appropriate contraception for those with high maternal cardiovascular risk (NYHA III & IV, WHO Class IV) in whom pregnancy is contraindicated (refer to Tables 1A, 1B & 2).
-- Identification of patients at risk of genetic transmission to the fetus (e.g. CHD, Marfan syndrome) (refer to Section 3.2.1).
+- Appropriate contraception for those with high maternal cardiovascular risk (NYHA III & IV, WHO Class IV) in whom pregnancy is contraindicated (refer to Tables 1A: Maternal Mortality Risk Based on Modified WHO Classification, Table 1B: Modified World Health Organization Maternal Cardiovascular Risk Assessment & Table 2: New York Heart Association Functional Classification).
+- Identification of patients at risk of genetic transmission to the fetus (e.g. CHD, Marfan syndrome) (refer to Section 3.2.1: Genetic counselling).
 - Timing of pregnancy - For cardiac lesions with potential risk to deteriorate over-time, pregnancy should be encouraged early in the disease process (e.g. patients with systemic right ventricle, Fontan, certain valvular lesions).
 - Appropriate advice and identification of the nearest health facility for antenatal booking as soon as pregnancy is confirmed.
 
@@ -104,34 +102,17 @@ Women with selected types of CHD have increased risk of cardiac disease in their
 
 **[Grade I, Level C]** Hence it is important for these women to undergo genetic counselling during their preconception counselling.
 
-The risk of the fetus having CHD in a woman with CHD ranges from 4-7% versus a background risk of 1% in the normal population. This risk varies depending on the type of lesion, presence of family history of CHD and gender of the affected parent (refer to Table 10). In lesions with autosomal dominance inheritance (e.g. Marfan syndrome, DiGeorge syndrome (22q11 deletion)), the risk of recurrence can be as high as 50%.
+The risk of the fetus having CHD in a woman with CHD ranges from 4-7% versus a background risk of 1% in the normal population. This risk varies depending on the type of lesion, presence of family history of CHD and gender of the affected parent (refer to Table 10: Risk of Recurrent Congenital Heart Lesions in the Fetus of Parents with CHD*). In lesions with autosomal dominance inheritance (e.g. Marfan syndrome, DiGeorge syndrome (22q11 deletion)), the risk of recurrence can be as high as 50%.
 
 Genetic counselling and screening should be offered for the following conditions:
-- Parents with CHD (refer to Table 10)
+- Parents with CHD (refer to Table 10: Risk of Recurrent Congenital Heart Lesions in the Fetus of Parents with CHD*)
 - Autosomal dominant lesions e.g. Marfan syndrome, inherited cardiomyopathies and arrhythmias
 - Channelopathies and cardiomyopathies e.g. long QT syndrome, cardiomyopathies
 - Chromosomal 22q11.2 deletion syndrome (DiGeorge syndrome) - features of this syndrome include Arch anomalies, truncus arteriosus, Tetralogy of Fallot with aortopulmonary collaterals, dysmorphic features, developmental delay and psychiatric illness.
 - Strong family history of genetic disorders and CHD
 - Bicuspid aortic valve
----
 
-### Table 10: Risk of Recurrent Congenital Heart Lesions in the Fetus of Parents with CHD
-
-| Lesion | Mother affected - Risk of transmission (%) | Father affected - Risk of transmission (%) | 1 sibling in unaffected parents (%) | ≥ 2 siblings in unaffected parents (%) |
-|---|---|---|---|---|
-| Atrioventricular septal defect | 7-11.6 | 4.3-7 | 3-4 | NA |
-| Aortic stenosis | 8.0 | 3.8 | 2 | 6 |
-| Coarctation | 6.3 | 3.0 | 2 | 6 |
-| Atrial septal defect | 6.1 | 3.5 | 2-3 | 8 |
-| Ventricular septal defect | 6.0 | 3.6 | 3 | 10 |
-| Pulmonary stenosis | 5.3 | 3.5 | 2 | 6 |
-| Persistent ductus arteriosus | 4.1 | 2.0 | NA | NA |
-| Tetralogy of Fallot | 2-5 | 1-6 | 2-3 | 8 |
-| All heart defects | 5-7 | 2.2 | NA | NA |
-
-If neither parent is affected, the risk of recurrence of CHD in a sibling of an affected individual is between 1-6% and if more than one sibling is affected the recurrence risk can be up to 10%.
-
-In addition to the standard Pregnancy Care Plan (refer to Table 6), it is advisable that these patients undergo:
+In addition to the standard Pregnancy Care Plan (refer to Table 6: Specialist Referral and Pregnancy Care Plan), it is advisable that these patients undergo:
 - **[Grade II-a, Level C]** Nuchal translucency scan at 11 to < 14 weeks gestation.
 - **[Grade II-a, Level C]** Genetic karyotyping can be considered whenever necessary.
 - **[Grade II-a, Level C]** A detailed anomaly scan should be offered at 18-22 weeks to screen for congenital heart lesions.
@@ -154,7 +135,7 @@ Many maternal medical diseases increase fetal risks. These include conditions su
 - risk, if any, of genetic transmission to the fetus
 - risk, if any, associated with the drug
 
-The United States Food and Drug Administration (FDA) had formulated a Pregnancy Risk Classification, classifying drugs according to the available evidence of safety in pregnancy (refer to Appendix A). From 30th June 2015 however, FDA has proposed a new Pregnancy and Lactation Labelling Final Rule (PLLR) where the previous Risk Categories are replaced with Pregnancy Exposure Registries. This new labelling includes:
+The United States Food and Drug Administration (FDA) had formulated a Pregnancy Risk Classification, classifying drugs according to the available evidence of safety in pregnancy (refer to Appendix A: US FDA Pregnancy Risk Classification and Suggested Manegemnet Strategies). From 30th June 2015 however, FDA has proposed a new Pregnancy and Lactation Labelling Final Rule (PLLR) where the previous Risk Categories are replaced with Pregnancy Exposure Registries. This new labelling includes:
 - a summary of the risks of using the drug during pregnancy and lactation
 - a discussion of the data supporting that summary, and
 - relevant information to help health care providers make prescribing decisions and counsel women about the use of drugs during pregnancy and lactation
@@ -173,7 +154,7 @@ It is not in itself an indication for termination of pregnancy.
 
 **[Grade I, Level C]** Before drugs are prescribed to the pregnant patient, the risk versus the benefit should be carefully weighed and discussed with the patient. Many drugs that are commonly prescribed are best avoided in pregnancy. This list includes statins, some anti-hypertensive medications (such as ACE-I/ARB, diuretics, β-blockers) and certain antibiotics (aminoglycosides, tetracycline). These medications are categorised C according to the previous FDA Pregnancy Risk Classification.
 
-**[Grade II-a, Level C]** Wherever possible, these medications should be stopped and substituted with safer alternatives. (refer to Appendix B, C, D)
+**[Grade II-a, Level C]** Wherever possible, these medications should be stopped and substituted with safer alternatives. (refer to Appendix B: Recommendations for Cardiovascular Drug Use during Pregnancy, Appendix C: Recommendations for Antibiotic Use during Pregnancy, Appendix D: Recommendations for Drug Use during Pregnancy)
 
 **[Grade II-a, Level C]** Pregnant women should be discouraged from taking over the counter medications and should be taught methods other than drugs to cope with stress, aches and pains.
 
@@ -187,16 +168,16 @@ Key Message: Before drugs are prescribed to the pregnant patient, the risk versu
 
 ### 3.4.1 Symptoms and signs
 
-Women with pre-existing yet undiagnosed cardiac disease and those with new onset (whether or not pregnancy-related) disease, are likely to present for the first time when pregnant. To add to this, the symptoms and signs of a normal pregnancy may mimic that of cardiac disease. (refer to Table 9)
+Women with pre-existing yet undiagnosed cardiac disease and those with new onset (whether or not pregnancy-related) disease, are likely to present for the first time when pregnant. To add to this, the symptoms and signs of a normal pregnancy may mimic that of cardiac disease. (refer to Table 9: Physical Findings and Changes Seen in Common Cardiac Investigations in Normal Pregnancy)
 
 **[Grade I, Level C]** Thus a careful history and a thorough physical examination by the primary healthcare provider are important.
 
 - **History:** In the history, the following should be elicited:
-  - History of breathlessness, palpitations, near faints and chest pains. In patients with known cardiac disease, the WHO Risk Score and the NYHA Functional Class (refer to Tables 1A, 1B & 2) should be documented.
+  - History of breathlessness, palpitations, near faints and chest pains. In patients with known cardiac disease, the WHO Risk Score and the NYHA Functional Class (refer to Tables 1A: Maternal Mortality Risk Based on Modified WHO Classification, Table 1B: Modified World Health Organization Maternal Cardiovascular Risk Assessment & Table 2: New York Heart Association Functional Classification) should be documented.
   - Past medical history of being told to have cardiac murmurs, having undergone cardiac surgery or procedures.
   - Family history of cardiac disease, arrhythmias or sudden death.
 
-- **Clinical examination:** Patients with normal pregnancy may have physiological flow murmurs. (refer to Table 9) The following should be performed:
+- **Clinical examination:** Patients with normal pregnancy may have physiological flow murmurs. (refer to Table 9: Physical Findings and Changes Seen in Common Cardiac Investigations in Normal Pregnancy) The following should be performed:
   - The heart rate and blood pressure (BP) should be measured manually.
     - **[Grade I, Level C]** Mercury sphygmomanometer remains the gold standard for recording BP in pregnancy.
     - Increasingly aneroid devices are being used and the accuracy of these devices are variable. The automated ones are commonly not reliable in pregnancy.
@@ -218,7 +199,7 @@ Essential investigations include:
 
 If the fetal dose is below a milliGray, the risks of childhood cancer are considered to be very low (below 1 in 10,000). This is judged acceptable when compared with the natural risk of childhood cancers (1 in 500).
 
-**[Grade I, Level C]** The very low fetal risk from an inadvertent maternal exposure to a chest X-ray does not justify termination of pregnancy. (refer to Appendix E)
+**[Grade I, Level C]** The very low fetal risk from an inadvertent maternal exposure to a chest X-ray does not justify termination of pregnancy. (refer to Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures)
 
 Key Message: A careful history and a thorough physical examination by the primary healthcare provider are important in all patients with known or suspected to have cardiac disease.
 
@@ -226,19 +207,19 @@ Key Message: A careful history and a thorough physical examination by the primar
 
 ## 3.5 Specialist referral and pregnancy care plan
 
-Please refer to Tables 3-5.
+Please refer to Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV).
 
 ### 3.5.1 Specialist referral and level of care
 
 When pregnancy is confirmed, the patient should be seen at the nearest health care facility. This patient should be referred as soon as possible for cardiac assessment and risk stratification.
 
-Under the Ministry of Health Obstetrics Risk Stratification Charts, heart disease is coded red. (refer to Colour coding Appendix F)
+Under the Ministry of Health Obstetrics Risk Stratification Charts, heart disease is coded red. (refer to Colour coding Appendix F: Sistem Kod Warna dan Senarai Semak Penjagaan Antenatal*)
 
 The level of care will depend upon the maternal cardiovascular risk stratification.
-- Women with WHO risk class I-II and NYHA I & II can be managed in their local hospital after at least one review by the physician/cardiac specialist. This review enables the primary team to anticipate any potential risk(s) to ensure good antepartum, intrapartum and postpartum care. (refer to Table 3)
-- Women with WHO risk class II-III, III & IV and NYHA III & IV should be followed up in a tertiary centre by a multidisciplinary team with expertise in managing high risk pregnancies. (refer to Table 3)
+- Women with WHO risk class I-II and NYHA I & II can be managed in their local hospital after at least one review by the physician/cardiac specialist. This review enables the primary team to anticipate any potential risk(s) to ensure good antepartum, intrapartum and postpartum care. (refer to Table 3: Maternal Cardiovascular Risk assessment and Level of Care*)
+- Women with WHO risk class II-III, III & IV and NYHA III & IV should be followed up in a tertiary centre by a multidisciplinary team with expertise in managing high risk pregnancies. (refer to Table 3: Maternal Cardiovascular Risk assessment and Level of Care*)
 
-Frequency of follow up at the specialist centre will depend on the maternal risk, baseline cardiovascular and functional status, progression of the pregnancy, onset of symptoms & potential complications. (refer to Tables 3-5) Policies of the respective centres, patient socioeconomic & geographical factors and patient preferences should also be considered.
+Frequency of follow up at the specialist centre will depend on the maternal risk, baseline cardiovascular and functional status, progression of the pregnancy, onset of symptoms & potential complications. (refer to Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV)) Policies of the respective centres, patient socioeconomic & geographical factors and patient preferences should also be considered.
 
 ### 3.5.2 General pregnancy care plan
 
@@ -256,7 +237,7 @@ Once pregnancy is confirmed:
 - Early booking is advised.
 - Detailed medical and surgical history should be taken.
 - A medical report of the cardiac diagnosis and current status should be requested from the attending physicians.
-- All pregnant women with cardiac disease should undergo risk stratification/ functional class assessment to determine the frequency and the level of antenatal care. (refer to Tables 1-5)
+- All pregnant women with cardiac disease should undergo risk stratification/ functional class assessment to determine the frequency and the level of antenatal care. (refer to Tables 1A: Maternal Mortality Risk Based on Modified WHO Classification, Table 1B: Modified World Health Organization Maternal Cardiovascular Risk Assessment, Table 2: New York Heart Association Functional Classification is recommended, Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV))
 - The core members of the multidisciplinary team should be family medicine specialist(s), obstetricians, maternal fetal medicine (MFM) specialists, cardiologists, and/or obstetric anaesthetists. Where appropriate, neonatologists, cardiac anaesthetists, cardiothoracic surgeons and/or intensivists should also be involved in the care.
 - Patient information, education and advice about how cardiac disease will affect the pregnancy, birth and postpartum assessment are to be discussed. Wherever possible, the family should also be involved in the counselling.
 - Appropriate care can be shared between district and tertiary hospitals to provide combined follow up by relevant specialists according to the maternal cardiovascular risk.
@@ -274,10 +255,10 @@ Once pregnancy is confirmed:
   - Fetal echocardiogram is advisable in women with CHD
 - Iron and folic acid supplements should be prescribed to all patients.
 - Correct anaemia if present.
-- For anticoagulation in pregnancy, refer to section 4.9.
+- For anticoagulation in pregnancy, refer to section 4.9: Anticoagulation in Pregnancy.
 - Admission and rest may be required in patients with NYHA/ WHO Class II-III, III & IV.
 - Correct factors that may contribute to cardiac decompensation e.g. infection, arrhythmias and hypertension.
-- Depending on the severity of the cardiac condition, the women may need to be seen at closer intervals. (refer to Tables 3-5)
+- Depending on the severity of the cardiac condition, the women may need to be seen at closer intervals. (refer to Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV))
 - The pregnancy care plan should be available to all caregivers. This should be filled up at the first specialist consultation and revised (if necessary) at each specialist review.
 - The pregnancy care plan addresses:
   - timing of delivery (spontaneous/ induced)
@@ -321,7 +302,7 @@ General Principles:
 
 During vaginal delivery:
 - **[Grade I, Level C]** Prolonged and difficult labour should be avoided. Lateral decubitus position to avoid aortocaval compression is preferred in labour.
-- **[Grade I, Level C]** Epidural is the analgesia of choice in labour and it should be instituted slowly with appropriate rehydration to prevent marked fluctuations in blood pressure. It should be initiated with low doses of local anaesthetic agents with increments given very slowly to avoid hypotension. Epidural analgesia should be administered more cautiously than in otherwise healthy women. (refer to Section 3.7.2)
+- **[Grade I, Level C]** Epidural is the analgesia of choice in labour and it should be instituted slowly with appropriate rehydration to prevent marked fluctuations in blood pressure. It should be initiated with low doses of local anaesthetic agents with increments given very slowly to avoid hypotension. Epidural analgesia should be administered more cautiously than in otherwise healthy women. (refer to Section 3.7.2: Intrapartum analgesia)
 - **[Grade I, Level C]** Oxytocin and artificial rupture of membranes are indicated when bishop score is favourable.
 - Oxytocin is the drug of choice for:
   - **[Grade I, Level B]** Active management during the 3rd stage of labour:
@@ -337,7 +318,7 @@ During vaginal delivery:
 - In the 2nd stage of labour, active pushing should be limited as this can cause haemodynamic instability in some women. The 2nd stage should be shortened by assisted delivery to avoid excessive maternal effort.
 - **[Grade III, Level C]** Syntometrine is contraindicated in women with cardiac disease.
 - Consider central access or arterial monitoring in PPH.
-- For antibiotic prophylaxis against infective endocarditis in high risk patients see section 4.10.3.
+- For antibiotic prophylaxis against infective endocarditis in high risk patients see section 4.10.3: Prophylaxis.
 
 #### 3.5.2.3 Postpartum care
 
@@ -349,7 +330,7 @@ During vaginal delivery:
   - input-output charts
 - The postpartum obstetric review should be individualised.
 - **[Grade I, Level C]** Medication should be recommenced as indicated with breastfeeding safety profile considered.
-- **[Grade I, Level C]** Patients at risk of thromboembolism should be identified and managed appropriately with: (refer to section 4.13)
+- **[Grade I, Level C]** Patients at risk of thromboembolism should be identified and managed appropriately with: (refer to section 4.13: Venous Thromboembolism in Pregnancy)
   - early ambulation
   - the use of anti-embolism stockings - these may be of limited use however, since pelvic veins are a more common site of deep vein thrombosis in pregnant patients.
   - the use of Low Molecular Weight Heparin for thrombophylaxis where indicated.
@@ -370,7 +351,7 @@ Key Message: Refer to flowcharts on antepartum, intrapartum and postpartum care.
 
 Wherever possible, cardiac intervention is preferably done after delivery. However, if an intervention is absolutely necessary, the best time to intervene is considered to be after the 4th month in the second trimester. By this time organogenesis is complete, the fetal thyroid gland is still inactive, and the volume of the uterus is still small, so there is a greater distance between the fetus and the chest than in later months. The disadvantage however, is that if there are any inadvertent maternal complications and the baby needs to be delivered, it will be very premature.
 
-The effect of radiation on the fetus depends on the radiation dose and the gestational age at which exposure occurs. (refer to Appendix E) If possible, procedures should be delayed until the completion of the period of major organogenesis (first trimester). There is no evidence of an increased fetal risk of congenital malformations, intellectual disability, FGR, or pregnancy loss at doses of radiation to the pregnant woman of < 50 mGy.
+The effect of radiation on the fetus depends on the radiation dose and the gestational age at which exposure occurs. (refer to Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures) If possible, procedures should be delayed until the completion of the period of major organogenesis (first trimester). There is no evidence of an increased fetal risk of congenital malformations, intellectual disability, FGR, or pregnancy loss at doses of radiation to the pregnant woman of < 50 mGy.
 
 **[Grade I, Level C]** Fluoroscopy and cine-angiography should be as brief as possible and the gravid uterus should be shielded from direct radiation using abdominal lead shields.
 
@@ -420,15 +401,15 @@ Key Message:
 
 ### 3.7.1 General principles
 
-**[Grade I, Level C]** Pregnant women in WHO risk class II-III, III & IV and NYHA functional class III & IV should be referred to a multidisciplinary team as outlined in Tables 3-5 and Flowchart 2.
+**[Grade I, Level C]** Pregnant women in WHO risk class II-III, III & IV and NYHA functional class III & IV should be referred to a multidisciplinary team as outlined in Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV) and Flowchart 2: Antenatal Care Plan for Women with Cardiac Disease.
 
 **[Grade I, Level C]** The anaesthetist referral should be done early and the anaesthetist should be part of the multidisciplinary team.
 
-Risk stratification (Tables 1A, 1B & 2, refer to section 3.1) constitutes an important element during anaesthetic assessment. This will determine the level of care needed for the patient. (refer to Tables 3-5)
+Risk stratification (refer to Tables 1A: Maternal Mortality Risk Based on Modified WHO Classification, Table 1B: Modified World Health Organization Maternal Cardiovascular Risk Assessment & Table 2: New York Heart Association Functional Classification and section 3.1: Risk stratification) constitutes an important element during anaesthetic assessment. This will determine the level of care needed for the patient. (refer to Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV))
 
 **[Grade I, Level C]** Important points to consider in risk stratifying these patients include:
 - Complete history and physical examination to assess the severity of cardiac lesion
-- Detailed assessment of functional status using NYHA classification (refer to Table 2)
+- Detailed assessment of functional status using NYHA classification (refer to Table 2: New York Heart Association Functional Classification)
 - Investigations include:
   - full blood count
   - arterial blood gases
@@ -448,7 +429,7 @@ The overall aim of anaesthetic management for the delivery is to reduce maternal
 - Close monitoring – pulse oximetry, continuous ECG, intra-arterial line and/or central venous line
 - Avoiding haemodynamic instability (e.g. hypotension), major fluid shift, hypoxia, acidosis, electrolyte imbalances
 - Avoiding aortocaval compression at all times
-- Adequate analgesia (refer to section 3.7.2)
+- Adequate analgesia (refer to section 3.7.2: Intrapartum analgesia)
 - Close attention to obstetric complications such as pre-eclampsia and haemorrhage
 - Good communication by all members of the team
 
@@ -496,7 +477,7 @@ Efforts should be taken to reduce the risk of gastric acid aspiration.
 
 **[Grade I, Level C]** Hypotension should be avoided by positioning the patient in a left lateral tilt to avoid aortocaval compression.
 
-In patients with Eisenmenger syndrome, vasopressors (such as IV phenylephredrine) may be necessary to increase the systemic vascular resistance and reduce the right to left shunt. In these patients, cardiac based anaesthesia is the strategy of choice. For suggested regimes, see Appendix G.
+In patients with Eisenmenger syndrome, vasopressors (such as IV phenylephredrine) may be necessary to increase the systemic vascular resistance and reduce the right to left shunt. In these patients, cardiac based anaesthesia is the strategy of choice. For suggested regimes, see Appendix G: Suggested Anaesthetic Techniquesl Regimes for Pregnant Patients with Heart Disease*.
 
 **[Grade I, Level C]** Post-operatively, patients should be closely monitored preferably in the intensive care unit for 24 to 72 hours as they are still at risk of decompensation.
 
@@ -504,7 +485,7 @@ Pain relief is very important. Epidural opioid (e.g. 3 mg morphine at the end of
 
 Key Message: The anaesthetist is part of the multidisciplinary team and should be involved early in the care of high risk patients.
 
-<!-- OVERLAP CONTENT -->
+## Contextual Anchors (Overlapping)
 
 ### Table 1A: Maternal Mortality Risk Based on Modified WHO Classification
 
@@ -575,13 +556,553 @@ Key Message: The anaesthetist is part of the multidisciplinary team and should b
 | **Class III** | Marked limitation of physical activity. Although patients are comfortable at rest, less than ordinary activity will lead to fatigue, palpitation, dyspnoea or angina. | High |
 | **Class IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive heart failure are present at rest. With any physical activity, increased discomfort is experienced. | High |
 
-<!-- END OVERLAP CONTENT -->
+---
+### Table 3: Maternal Cardiovascular Risk assessment and Level of Care*
+
+| Maternal Cardiovascular Risk Assessment |  |
+|---|---|
+| **Risk Assessment** | - WHO Risk Classification<br>- NYHA Functional Classification |
+| **Laboratory investigation and physical examination** | - BP<br>- Fasting blood glucose<br>- ECG<br>- CXR (if indicated)<br>- Echocardiography<br>- Renal profile |
+
+| Level of Care Depending on Maternal Cardiovascular Risk |  |  |
+|---|---|---|
+| **Classification** | **WHO/ NHYA<br>Class I & II** | **WHO/ NHYA<br>Class II-III, III & IV** |
+| **Level of Personnel** | - **Primary care:**<br>MO & FMS | - **Tertiary care:**<br>Physician/ Cardiologist/ Obstetrician/ MFM |
+| **Level of Care** | - **Primary care:**<br>Health Clinic | - **Tertiary care:**<br>Hospital with multidisciplinary team |
+| **Frequency of visits:<br>Primary care by MO/FMS** | - 1 visit for 1st trimester (if indicated, to refer to a centre which provides nuchal translucency scan)<br>- 3 visits for 2nd trimester<br>- 6 visits for 3rd trimester (weekly > 36 weeks) | - |
+| **Tertiary care by:**<br>➢ **obstetrician/MFM**<br><br>➢ **cardiologist/ multidisciplinary team** | - Once, at 18-22 weeks for fetal anomaly scan<br><br>- Once, preferably within the 1st trimester and <18 weeks (to formulate individualised pregnancy care plan) | - 1 for 1st trimester<br><br>- 3 for 2nd trimester<br><br>- 6 for 3rd trimester (weekly > 36 weeks) |
+
+*frequency of visits and level of care will depend upon the individualised pregnancy care plan 
+Adapted from: Ministry Of Health, Perinatal Care Manual 3rd Ed. 2013
+
+**MO:** Medical Officer  
+**FMS:** Family Medicine Specialist  
+**MFM:** Maternal Fetal-Medicine Specialist
 
 ---
 
-<!-- OVERLAP CONTENT -->
-## Grades of Recommendation and Levels of Evidence
+### Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II)
 
+| Frequency of visit at primary care by MO/FMS | Frequency of visit at tertiary centre by obstetrician/ MFM | Frequency of visit by cardiologist/ multidisciplinary team |
+|---|---|---|
+| **Once confirmed pregnancy** | - Confirm viability and gestational age of pregnancy<br>- For risk stratification | - |
+| **By week 12** | - For nuchal translucency scan, if indicated | - To determine individualised pregnancy care plan |
+| **Week 18 - 22** | - For detailed anomaly scan<br>- In mothers with congenital heart disease, a detailed fetal echocardiogram should be offered | - |
+| **Week 22 - 28** | 2 visits |  |
+| **Week 28 - 32** | - | - For assessment and to establish a plan of management for delivery and postpartum care |
+| **Week 36 - 40** | - Weekly visits<br>- Number and timing of further appointments will be dependent on the nature and severity of cardiac disease<br>- Some appointments may be with the family medicine specialist / Medical officer at primary care. | - |
+
+---
+
+### Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV)
+
+| Frequency of visit at primary care by MO/FMS | Frequency of visit at tertiary centre by obstetrician/ MFM | Frequency of visit by cardiologist/ multidisciplinary team |
+|---|---|---|
+| **Once confirmed pregnancy** | - | *Advice TOP |
+| **By week 12** | - If pregnancy continues, for a nuchal translucency scan if indicated | - For individualised pregnancy care plan if pregnancy continues |
+| **Week 18 - 22** | - For a detailed fetal anomaly scan<br>- In mothers with congenital heart disease, a detailed fetal echocardiogram should be offered | - |
+| **Week 22 - 28** | - Once in 2 weeks<br>- Number and timing of further appointments will be dependent on the nature and severity of cardiac disease |  |
+| **Week 28 - 32** | - Weekly visits<br>- Number and timing of further appointments will be dependent on the nature and severity of cardiac disease | - For assessment and to establish timing, mode of delivery and postpartum care |
+| **Week 32 - 40** | - Weekly visits<br>- Number and timing of further appointments will be dependent on the nature and severity of cardiac disease | - Consider admission<br>- Anaesthetic review |
+
+*The following High Risk patients should be offered TOP: Severe pulmonary hypertension, Eisenmenger syndrome, Marfan syndrome with aortic root dilatation > 45 cm, previous peripartum cardiomyopathy with residual impairment of left ventricular function, LVEF < 30%, NYHA III-IV, severe mitral stenosis (MVA < 1.0 cm²), severe symptomatic aortic stenosis (AVA < 1.0 cm²)
+
+---
+
+### Table 6: Specialist Referral and Pregnancy Care Plan
+
+| Maternal Risk | Timing of Specialist Referral | Special Considerations |
+|---|---|---|
+| **All women with known cardiac disease** | Preconception | Needs detailed assessment to determine the maternal cardiovascular risk. |
+| **All women with known cardiac disease** | Early in pregnancy | To do antenatal booking at the nearest healthcare facility as soon as pregnancy is suspected.<br>When pregnant, an individualised care plan should be developed. (pg. 29) |
+| **Women with suspected cardiac disease** (symptoms/ clinical findings or history of heart disease/ surgery) | As soon as pregnancy is confirmed. | To confirm the diagnosis and for risk stratification. |
+| **Women &/ spouses with congenital heart disease (CHD) and/or family history of CHD** | Preconception referral to obstetrician/ maternal fetal medicine (MFM) specialist recommended.<br>If pregnant, early referral to MFM recommended. | To determine risk of CHD in the fetus of parents with CHD. (section 3.2.1: Genetic counselling) |
+| **Women &/ spouses and/or family history of genetic diseases with cardiac lesions** | Preconception referral to MFM/ geneticist recommended.<br>If pregnant, early referral to MFM. | To determine risk of disease transmission to the fetus. (section 3.2: Preconception and genetic counselling) |
+| **Fetuses with critical CHD*/ major congenital anomalies** | Once diagnosis has been made, to refer to a tertiary centre with the appropriate expertise.<br>(e.g. Paediatric cardiologist, paediatric surgeon with expertise in congenital malformations, neonatal intensive care with expertise to manage very low birth weight and severe prematurity). | Once diagnosis made, a tailored pregnancy care plan (pg. 29) by a multidisciplinary team. |
+
+*Critical congenital heart disease/defects (CCHD) are serious congenital heart defects that present with symptoms soon after birth and need early intervention. They are usually duct dependant lesions and may have hypoxaemia. (E.g. coarctation of aorta, transposition of the great arteries, hypoplastic left heart syndrome, pulmonary atresia with intact ventricular septum)
+*Definition from: Frank LH, Bradshaw E, Beekman R, Mahle WT, Martin GR. Critical congenital heart disease screening using pulse oximetry. Journal of Pediatrics. 2013; 162(3): 445-453*
+
+---
+
+### Table 9: Physical Findings and Changes Seen in Common Cardiac Investigations in Normal Pregnancy
+
+|  |  |
+|---|---|
+| **Clinical examination** | - Peripheral oedema is a common finding<br>- Pulse rate may be increased<br>- Pulse may be bounding<br>- Occasional ectopics are common and are often benign<br>- Apex beat may be shifted more laterally<br>- Ejection systolic murmurs and continuous flow murmurs due to mammary souffle and venous hum are common*<br>- Splitting of the first heart sound is common<br>- The intensity of the pulmonary second sound (P2) may be accentuated<br>- Physiological third heart sound may be present<br>- A fourth heart sound is seldom heard |
+| **ECG** | - Heart rate may be increased<br>- Occasional atrial or ventricular ectopics may be present<br>- There may be a shift of the QRS plane axis to the left<br>- Minor T wave changes |
+| **CXR** | - Heart size is normal<br>- The heart may be shifted to a more horizontal position late in pregnancy<br>- Pulmonary blood vessels may become more prominent due to the increased blood flow |
+| **Echocardiogram** | - There may be an increase in the left and right ventricular end-diastolic dimensions compared with a previous echo done in the non-pregnant state<br>- The left ventricular mass may be increased |
+
+*Diastolic murmurs almost always indicate pathological cardiac disease
+
+Adapted from: Alpert JS, Ewy GA. (Ed). Manual of Cardiovascular Diagnosis and Therapy. 5th Ed. Pregnancy and Heart disease. Chap 26. Lippincott Williams & Wilkins. Philadelphia 2002
+
+---
+
+### Table 10: Risk of Recurrent Congenital Heart Lesions in the Fetus of Parents with CHD*
+
+| Lesion | Mother affected - Risk of transmission (%) | Father affected - Risk of transmission (%) | 1 sibling in unaffected parents (%) | ≥ 2 siblings in unaffected parents (%) |
+|---|---|---|---|---|
+| Atrioventricular septal defect | 7-11.6 | 4.3-7 | 3-4 | NA |
+| Aortic stenosis | 8.0 | 3.8 | 2 | 6 |
+| Coarctation | 6.3 | 3.0 | 2 | 6 |
+| Atrial septal defect | 6.1 | 3.5 | 2-3 | 8 |
+| Ventricular septal defect | 6.0 | 3.6 | 3 | 10 |
+| Pulmonary stenosis | 5.3 | 3.5 | 2 | 6 |
+| Persistent ductus arteriosus | 4.1 | 2.0 | NA | NA |
+| Tetralogy of Fallot | 2-5 | 1-6 | 2-3 | 8 |
+| All heart defects | 5-7 | 2.2 | NA | NA |
+
+NA: not available, *CHD: Congenital Heart Disease
+
+If neither parent is affected, the risk of recurrence of CHD in a sibling of an affected individual is between 1-6% and if more than one sibling is affected the recurrence risk can be up to 10%.
+
+---
+
+### Appendix A: US FDA Pregnancy Risk Classification and Suggested Manegemnet Strategies
+
+| CATEGORY                          | DEFINITION                                                                                                                                                                                                                                                                                              | MANAGEMENT STRATEGY                                                                                                                                                                                                                       | EXAMPLE DRUGS                                                            |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| A (controlled studies show no risk) | Adequate and well-controlled studies in pregnant women have failed to demonstrate a risk to the fetus in the first trimester of pregnancy (there is no evidence of risk in later trimesters) .                                                                                                          | Because studies are not able to rule out the possibility of harm; the drug should be used during pregnancy only if clearly indicated.                                                                                                     | levothyroxine; folic acid, magnesium sulfate liothyronine                |
+| B (no evidence of risk in humans)   | Animal reproduction studies have failed to demonstrate a risk to the fetus but there are no adequate and well-controlled studies of pregnant women Or Animal studies demonstrate a risk, and adequate and well-controlled studies in pregnant women have not been done during the first trimester.      | Because the studies of humans cannot rule out the possibility of harm; the drug should be used during pregnancy only if clearly needed.                                                                                                   | metformin hydrochlorothiazide cyclobenzaprine, amoxicillin; pantoprazole |
+| C (risk cannot be ruled out)        | Animal reproduction studies have failed to demonstrate a risk to the fetus, but there are no adequate well-controlled studies of pregnant women. Or Animal studies demonstrate a risk and adequate and well-controlled studies in pregnant women have not been done during the first trimester. and     | The drug should be given to pregnant women only if clearly needed.                                                                                                                                                                        | tramadol, gabapentin; prednisone                                         |
+| D (positive evidence of risk)       | There is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience or studies of humans but the potential benefits from the use of the drug in pregnant women might be acceptable despite its potential risks                                   | If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be apprised of the potential hazard to the fetus                                                                     | lisinopril , alprazolam, losartan; clonazepam, lorazepam                 |
+| X (contraindicated in pregnancy)    | Studies in animals or humans have demonstrated fetal abnormalities or there is positive evidence of fetal risk based on adverse reaction reports from investigational or marketing experience both. The risk involved in the use of the drug in pregnant women clearly outweighs any possible benefits. | This is contraindicated in women who are might become pregnant. If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be advised of the potential hazard to the fetus drug | atorvastatin, simvastatin; warfarin; methotrexate_ finasteride           |
+
+## Adapted from:
+
+- Boothby LA, Doering PL. FDA labeling system for drugs in pregnancy. Ann Pharmacother. 2001; 35(11):1485-9
+- PDR Staff. Drug Information for the Health Care Professional USDPI vol. (23d Edition) . Micromedex; NY; USA (2003).
+
+---
+
+### Appendix B: Recommendations for Cardiovascular Drug Use during Pregnancy
+
+| Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
+|---|---|---|---|---|
+| Aspirin (low dose) | B | Yes | Well tolerated | No teratogenic effects known (large data sets) |
+| Adenosine | C | No | No | No fetal adverse effects reported (limited human data) |
+| Amiodarone | D | Yes | Yes | Thyroid insufficiency (9%), hyperthyroidism, goitre, bradycardia, growth retardation, premature birth |
+| Atenolol | D | Yes | Yes | Hypospadias (first trimester): birth defects, low birth weight, bradycardia and hypoglycaemia in fetus (second and third trimester) |
+| ACE-Inhibitors | D | Yes | Yes | Renal or tubular dysplasia, oligohydramnion, growth retardation, ossification disorders of skull, lung hypoplasia, contractures, large joints, anaemia, intrauterine fetal death |
+| Angiotensin Receptors Blockers | D | Unknown | Unknown (not recommended) | Renal or tubular dysplasia, oligohydramnion, growth retardation, ossification disorders of skull, lung hypoplasia, contractures, large joints, anaemia, intrauterine fetal death |
+| B-Blockers (bisoprolol,metoprolol, propranolol) | C | Yes | Yes | Bradycardia and hypoglycaemia in fetus |
+| Clopidogrel | C | Unknown | Unknown | No information during pregnancy available |
+| Digoxin | C | Yes | Yes | Serum levels unreliable, safe |
+| Diltiazem | C | No | Yes | Possible teratogenic effects |
+| Diuretics (frusemide/hydrochlorothiazide) | C | Yes | Yes, Well tolerated; milk production can be reduced | Oligohydramnion |
+| Fibrates (fenofibrate<sup>a</sup>, gemfibrozil<sup>b</sup>) | C | Yes | Yes<sup>a</sup> /Unknown<sup>b</sup> | No adequate human data |
+| Fondaparinux |  | Yes | No | New drug, (limited experience) |
+| Heparin (low molecular weight) | B | No | No | Long-term application: seldom osteoporosis and markedly less thrombocytopenia than UF heparin |
+| Heparin (unfractionated) | B/C* | No | No | Long-term application: osteoporosis and thrombocytopenia |
+| Labetalol | C | Yes | Yes | Fetal growth restriction (second and third trimester), neonatal bradycardia and hypotension (used near term) |
+| Lidocaine | C | Yes | Yes | Fetal bradycardia, acidosis, central nervous system toxicity |
+| Methyldopa | B | Yes | Yes | Mild neonatal hypotension |
+| Nifedipine | C | Yes | Yes | Tocolytic; s.l. application and potential synergism with magnesium sulfate may induce hypotension (mother) and fetal hypoxia |
+| Nitrates (GTN, Isosorbide dinitrate) | B | Unknown | Unknown | Bradycardia, tocolytic |
+| Propafenone | C | Yes | Unknown | Unknown (limited experience) |
+| Sotalol | B | Yes | Yes | Bradycardia and hypoglycaemia in fetus (limited experience) |
+| Spironolactone | D | Yes | Yes, milk production can be reduced | Antiandrogenic effects, oral clefts (first trimester) |
+| Statins | X | Yes | Unknown | Congenital anomalies |
+| Ticlopine | C | Unknown | Unknown | Unknown (limited experience) |
+| Verapamil (oral) | C | Yes | Yes | Well tolerated (limited experience during pregnancy) |
+| Verapamil (IV) | C | Yes | Yes | Intravenously use is may be associated with a greater risk of hypotension and subsequent fetal hypoperfusion |
+| Warfarin | D/X* | Yes | Yes, well tolerated as inactive metabolite | Coumarin-embryopathy, bleeding |
+
+*MERCK manual grading
+http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
+
+---
+
+### Appendix C: Recommendations for Antibiotic Use during Pregnancy
+
+| Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
+|---|---|---|---|---|
+| Ampicillin, amoxicillin, cephalosporins, erythromycin, mezlocillin, penicillin | B | Yes | Yes | No fetal adverse effects reported |
+| Imipenem, rifampicin, teicoplanin, vancomycin | C | Unknown | Unknown | Risk cannot be excluded (limited human data) |
+| Chloramphenical | C |  |  | Gray Baby syndrome, in women or fetuses with G6PD deficiency - haemolysis |
+| Aminoglycosides | D |  |  | Ototoxicity (e.g. damage to fetal labyrinth), resulting in deafness |
+| Fluoroquinolones | D/C* |  |  | Possibly arthralgia; theoretically, musculoskeletal defects (e.g. impaired bone growth), but no proof of this effect |
+| Nitrofurantoin | B |  |  | In women or fetuses with G6PD deficiency - haemolysis |
+| Primaquine | C |  |  | In women or fetuses with G6PD deficiency - haemolysis |
+| Sulfonamides (except sulfasalazine, which has minimal fetal risk) | C |  |  | When the drugs are given after about 34 weeks gestation, neonatal jaundice and, without treatment, kernicterus<br>In women or fetuses with G6PD deficiency - haemolysis |
+| Tetracycline | D |  |  | Slowed bone growth, enamel hypoplasia, permanent yellowing of the teeth, and increased susceptibility to cavities in offspring<br>Occasionally, liver failure in pregnant women |
+| Trimethoprim | C |  |  | Increased risk of neural tube defects due to folate antagonism |
+
+*MERCK manual grading
+http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
+
+---
+
+### Appendix D: Recommendations for Drug Use during Pregnancy
+
+| Drug | FDA Category | Adverse Effects |
+|---|---|---|
+| **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
+| Chlorpropamide | C | Neonatal hypoglycaemia |
+| Glyburide | C | Neonatal hypoglycaemia |
+| Metformin | B | Neonatal hypoglycaemia |
+| **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** |
+| Aspirin and other salicylates | D | Fetal kernicterus<br>With high doses, possibly 1st- trimester spontaneous abortions, delayed onset of labour, premature closing of the fetal ductus arteriosus, jaundice, occasionally maternal (intrapartum and postpartum) and/or neonatal haemorrhage, necrotising enterocolitis, and oligohydramnios<br>With low doses (81 mg) of aspirin, no significant teratogenic risk |
+| NSAIDs | C<br>D - for some drugs if given after 30 weeks | Same as those for salicylate<br>Contraindicated in the 3rd trimester |
+| **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** |
+| Methimazole | D | Fetal goitre and neonatal scalp defects (aplasia cutis) |
+| Propylthiouracil | D | Fetal goitre and maternal hepatotoxicity and agranulocytosis |
+| Radioactive iodine (<sup>131</sup>I) | D | Destruction of the fetal thyroid gland or, when the drug is given near the end of the 1st trimester, severe fetal hyperthyroidism |
+| Saturated solution of K iodide |  | Large fetal goitre, which may obstruct breathing in neonates |
+| Triiodothyronine | D | Fetal goitre |
+| **VACCINES** | **VACCINES** | **VACCINES** |
+| Live-virus vaccines such as those for measles, mumps, rubella, polio, chickenpox, and yellow fever |  | With rubella and varicella vaccines, potential infection of the placenta and developing fetus<br>With other vaccines, potential but unknown risks |
+| **OTHERS** | **OTHERS** | **OTHERS** |
+| Corticosteroids | B | When these drugs are used during the 1st trimester, possibly orofacial clefts |
+| Loratadine | B | Possible hypospadias |
+| Ondansetron | B | No significant teratogenic risk |
+| Pseudoephedrine | C | Placental vasoconstriction and possible risk of gastroschisis |
+| Vitamin K | C | In women or fetuses with G6PD deficiency- haemolysis |
+
+---
+
+### Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures
+
+| Conventional X-Ray examinations | Fetal dose | Fetal dose | Maternal Exposure* |
+|---|---|---|---|
+|  | Mean (mGy) | Maximum (mGy) | mGy |
+| Skull | <0.01 | <0.01 | 0.1 |
+| Chest | <0.01 | <0.01 |  |
+| Thoracic Spine | <0.01 | <0.01 |  |
+| Abdomen | 1.4 | 4.2 |  |
+| Lumbar spine | 1.7 | 10 |  |
+| Pelvis | 1.1 | 4 |  |
+| Intravenous Urogram | 1.7 | 10 |  |
+| **Computed Tomography** | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
+|  | Mean (mGy) | Maximum (mGy) | mGy |
+| Head | <0.005 | <0.005 |  |
+| Chest | 0.06 | 0.96 | 7 |
+| Abdomen | 8.0 | 49 |  |
+| Lumbar spine | 2.4 | 8.6 |  |
+| Pelvis | 25 | 79 |  |
+| **Fluoroscopic Examinations** | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
+|  | Mean (mGy) | Maximum (mGy) | mGy |
+| Barium meal (Upper GI) | 1.1 | 5.8 |  |
+| Barium meal (lower GI) | 6.8 | 24 |  |
+| **Cardiac procedures***<br>*(depends on number of exposures)* | **Fetal exposure*** | **Fetal exposure*** | **Maternal exposure*** |
+| Coronary angiogram | 1.5 |  | 7 |
+| Percutaneous Coronary intervention or Radiofrequency Catheter Ablation | 3 |  | 15 |
+
+When considering fetal risk from radiation exposure and termination of pregnancy:
+
+- at fetal doses of less than 100 mGy (10,000 mrad) termination is **NOT** justified based upon radiation risk
+- at fetal doses between 100 and 500 mGy, decisions should be based upon individual circumstances
+- at fetal doses in excess of 500 mGy, there can be significant fetal damage, the magnitude and type of which is a function of dose and stage of pregnancy
+
+---
+
+### Appendix F: Sistem Kod Warna dan Senarai Semak Penjagaan Antenatal*
+
+| KOD WARNA   | TAHAP PENJAGAAN                                                                                                                                                                                                      |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| MERAH       | Rujukan segera ke Hospital dan pengendalian selanjutnya adalah bersama (shared care) Pakar O&G dan Pakar Perubatan Keluarga                                                                                          |
+| KUNING      | Rujukan untuk pengendalian oleh Pakar O&G HospitallPakar Perubatan Keluarga; dan penjagaan selanjutnya boleh dilakukan bersama (shared care) Pegawai Perubatan dan Jururawat Kesihatan                               |
+| HIJAU       | Pengendalian di Klinik Kesihatan oleh Pegawai Perubatan dan Kesihatan dan pengendalian selanjutnya boleh dilakukan bersama Jururawat KesihatanlJururawat Masyarakat di bawah pengawasan Pegawai Perubatan            |
+| PUTIH       | Penjagaan oleh Jururawat KesihatanlJururawat Masyarakat di Klinik Kesihatan dan Klinik Desa (sekiranya tiada terdapat faktor risiko yang disenaraikan dalam kod merah, kuning dan hijau; ibu diberi kod warna putih) |
+
+---
+
+### Appendix G: Suggested Anaesthetic Techniquesl Regimes for Pregnant Patients with Heart Disease*
+
+### Anaesthetic preparation
+
+Preparation for anaesthesia should be the same like any other case but extra monitoring and more cardio stable drugs should be chosen.
+
+**Haemodynamic goals for both GA and regional anaesthesia:**
+
+- To maintain sinus rhythm (Phenylephrine infusion can help maintaining heart rate)
+- To maintain good cardiac output (might need Dopamine or Dobutamine infusion)
+- To prevent hypotension (MAP to keep at baseline of above 70 mmHg)
+
+**GA technique for heart case**
+
+1.1 Invasive line i.e. arterial line and CVP monitoring (via Internal jugular preferably under ultrasound guidance) should be done whilst patient still widely awake.  
+**Some centres consider central line monitoring as an optional especially in mild to moderate risk case.**
+
+1.2 Induction agent of choice-Etomidate 0.2 mg/kg, Titration midazolam up to 5 mg
+
+1.3 IV fentanyl (2-3 mcg/kg) during induction.  
+(Need to warn paediatrician on the risk of fetal apnoea).
+
+1.4 Muscle relaxant-Suxamethonium can induce bradyarrthmias. Rocuronium can be used instead (0.6-1 mg/kg of lean body weight). Normally 50 mg is enough for average weight.  
+**Please ensure the availability of Sugammadex before using high dose Rocuronium for intubation.**
+
+1.5 To maintain MAP as recorded during baseline monitoring or (above 70 mmHg) especially in Pulmonary HPT, any congenital heart defect and hypertensive patient.
+
+1.6 IV Morphine 10 mg (titration of 5,5 mg), after fetus is delivered.
+
+1.7 IV Oxytocin to be given as slow bolus, 2 unit in 5 cc N/S over 10 mins then followed by either 5 IU in 50 ml at 7 ml per hour or 10 IU in 500 ml at 36 ml per hour. Continue for 4 hours.
+
+1.8 Reversal is by IV Sugammadex 0.2 mg/kg or mixture of IV Glycopyrrolate 400 mcg and IV Neostigmine 2.5 mg.
+
+1.9 Pain relief is by multimodal analgesia if no contraindication. PCA morphine is optional.
+
+1.10 Post-operative monitoring should be in HDW/ICU.
+
+**Regional technique for heart case**
+
+Low dose sequential Combined Spinal Epidural (CSE) is recommended whenever regional is considered as a better choice compared to GA.
+
+**2.1 Dosage of (CSE) in Heart Case**
+
+- **Spinal dose**  
+(0.5-1 ml of heavy 0.5% bupivacaine) + 25 mcg fentanyl.  
+To check the level of sensory loss to pin prick after 5 minutes. If still below T5-T6 level, to slowly increase the level with titration of epidural.
+
+- **Epidural drug**  
+(2% of lignocaine in 1:200 000 Adrenaline), 3-5 mls every 5 minutes until T5-T6 is reached.
+
+---
+
+### Flowchart 2: Antenatal Care Plan for Women with Cardiac Disease
+
+*(no later than end of 1st trimester)*
+
+#### Step 1: Initial Actions
+
+- To do antenatal booking at the nearest healthcare facility as soon as pregnancy is suspected.
+- The patient should be referred as soon as possible for cardiac assessment and risk stratification.
+
+#### Step 2: Clinical Assessment
+
+Perform clinical assessment including:
+
+- History and physical examination
+- Drug history
+- Baseline investigations (if necessary)
+
+#### Step 3: Risk Stratification
+
+Perform risk stratification using **WHO & NYHA** classifications (refer to Table 1 & 2).
+
+This risk is cumulative depending on obstetric and cardiac risk factors.
+
+#### Step 4: Risk Pathways
+
+**Low risk**
+
+- WHO risk I-II
+- NYHA I & II
+- Can be managed at local health facility with appropriate advice.
+
+**Moderate Risk**
+
+- WHO risk II-III & III
+- Manage by a multidisciplinary team with cardiac expertise.
+- Develop a pregnancy care plan. Proceed to step 5.
+
+**High risk**
+
+- WHO risk IV
+- NYHA III & IV
+
+If pregnant:
+
+- Early termination of pregnancy to be discussed.
+- Termination considered up to 22 weeks.
+
+If patient chooses to continue pregnancy:
+
+- Detailed medical counselling advised.
+- Careful documentation in the medical records is mandatory.
+- Close monitoring and ± early hospitalisation (manage as per moderate risk).
+- Develop a pregnancy care plan.
+
+#### Step 5: Develop Pregnancy Care Plan
+
+**Antepartum:**
+
+- Follow up in a tertiary centre at least one visit per trimester (frequency of follow up dependent on maternal risk).
+- Close maternal-fetal surveillance.
+- Anaesthetic review in advance.
+
+**Intrapartum:**
+
+- Detailed labour and delivery plan written in advance addressing:
+  - Timing of delivery (spontaneous/ induced)
+  - Mode of delivery
+  - Method of induction
+  - Anaesthetic considerations
+
+**Postpartum:**
+
+- Appropriate contraception.
+
+This care plan should be widely disseminated and there should be close communication between tertiary centre and primary health care team.
+
+- Proceed to step 6.
+
+#### Step 6: Identify Additional Care Needs
+
+- Close maternal-fetal surveillance:
+  - Nuchal translucency scan 11 to < 14 weeks, if indicated
+  - Genetic karyotyping, if indicated
+  - Fetal anomaly scan at 18-22 weeks
+  - Women with CHD - offer fetal echocardiogram at 18-22 weeks
+- Appropriate anticoagulation (refer to Section 4.9: Anticoagulation in Pregnancy) or cardiovascular medication(s).
+- Correct factors that may contribute to cardiac decompensation, e.g. infection, anaemia, arrhythmias and hypertension.
+
+---
+
+### Section 4.9: Anticoagulation in Pregnancy
+
+Anticoagulation in pregnancy should be considered according to the indication, maternal thrombotic risk, fetal risk, patient preference and multidisciplinary team consensus.
+
+**General indications for anticoagulation include:**
+
+- Mechanical heart valves
+- Atrial fibrillation
+- Eisenmenger syndrome - use with caution as bleeding diathesis may occur
+- Pulmonary arterial hypertension
+- Congenital heart disease - cyanotic heart disease, Fontan circuit
+- Previous history/current history of thromboembolic disease
+- Hypercoagulable states, e.g. antiphospholipid syndrome
+
+**Mechanical heart valves**
+
+- Prosthetic valve thrombosis risk is higher during pregnancy because of the prothrombotic state.
+- The goal of anticoagulation is to prevent valve thrombosis, which is a lethal event for both mother and fetus.
+- There is no optimal anticoagulation regimen during pregnancy for patients with mechanical heart valves because every therapeutic option has drawbacks.
+- Anticoagulation regimens carry risks of fetal teratogenicity, fetal wastage, miscarriage and haemorrhagic complications.
+- [Grade I, Level C] Anticoagulation regimes in patients with mechanical heart valves should be individualised based on the patients' preferences, maternal and fetal risk.
+- Suggested regimes include:
+  - Warfarin throughout pregnancy up till 36 weeks
+  - Warfarin in the 2nd and 3rd trimester up to 36 weeks with heparin bridging in the first trimester
+  - [Grade II-a, Level C] Low dose aspirin (75-100 mg) daily can be added to warfarin or heparin throughout pregnancy especially in patients with first generation heart valves.
+
+**Anticoagulation regimens in the 1st trimester**
+
+**Regime A: Warfarin throughout pregnancy**
+
+- [Grade II-a, Level C] If dose of warfarin is > 5 mg/day, there may be potential fetal adverse events.
+- If the warfarin dose <= 5 mg, the risk of embryopathy is low.
+
+**Regime B: Bridging heparin therapy in the 1st trimester**
+
+- [Grade II-b, Level C] Intravenous dose adjusted UFH with regular aPTT monitoring which should be kept at > 2x control **OR** self-injected adjusted-dose LMWH with monitoring at regular intervals at the discretion of the attending physician/cardiologist/haematologist.
+- Target anti-Xa levels 4-6 hours post dose should be 0.8-1.2 U/mL.
+- Target trough levels should be >= 0.7 U/mL.
+- Dose should be closely monitored and adjusted weekly as the weight of the patient increases during pregnancy.
+- During the initial up-titration phase, the patient needs to be admitted to hospital until an appropriate dose has been determined.
+
+**Patients at higher risk of valve thrombosis include:**
+
+- First generation mechanical heart valves (Starr Edwards, Bjork-Shiley)
+- Double mechanical valve replacement
+- Mechanical valve in the mitral position with AF
+- History of valve thrombosis despite anticoagulation
+
+**Management from 36 weeks gestation till delivery**
+
+- [Grade II-a, Level C] At 36 weeks, the patient and warfarin should be switched to LMWH or IV UFH.
+- [Grade II-a, Level C] Women on LMWH should be switched to IV UFH at least 36 hours before induction of labour or caesarean section.
+- [Grade II-a, Level C] IV UFH should be discontinued 4-6 hours before planned delivery and restarted 4-6 hours after vaginal delivery and 6-12 hours after LSCS if there are no bleeding complications.
+- [Grade I, Level C] Oral anticoagulation can be resumed after 24 hours if there are no bleeding concerns.
+
+**Anticoagulation for other indications**
+
+- [Grade II-b, Level C] Regime A - warfarin throughout pregnancy till 36 weeks.
+- [Grade II-b, Level C] Regime B - UFH/LMWH therapy in the first trimester.
+- [Grade II-b, Level C] Depending on the indication(s), e.g. venous thrombosis embolism or non valvular AF, and the risk of thrombosis, LMWH may be given as a weight based regime without anti-Xa monitoring.
+- [Grade II-a, Level C] In patients where the risk of thrombosis is high, e.g. PH due to thromboembolic disease, recent pulmonary embolism, valvular AF, Regime A is advocated.
+- [Grade II-a, Level C] If Regime B - bridging therapy with LMWH in the 1st trimester is chosen, efforts should be taken to monitor anti-Xa levels.
+- If AF should occur for the first time in patients with valvular heart disease, immediate anticoagulation with UFH is advised.
+- Both warfarin and heparin based therapy are safe during breast feeding.
+
+---
+
+### Section 4.10.3: Prophylaxis
+
+This content supports the intrapartum care reference to antibiotic prophylaxis against infective endocarditis in high risk patients.
+
+- [Grade II-a, Level C] International guidelines do not advocate the use of routine antibiotic prophylaxis for normal vaginal delivery. They advocate that antibiotic prophylaxis be restricted to high risk patients such as:
+  - Prosthetic cardiac valves/ material
+  - Previous history of bacterial endocarditis
+  - Complex cyanotic congenital heart disease (operated or un-operated)
+- [Grade I, Level C] In all other women with structural cardiac disease, the risk and benefits of antibiotic prophylaxis against IE should be discussed with the patient (serious nature of IE and the low risk of anaphylaxis).
+
+The antibiotic prophylaxis regimes against IE are as follows:
+
+- Ampicillin 2 g IV and gentamycin 1.5 mg/kg IV
+- Vancomycin 1 g IV over 1-2 hrs along with Gentamycin IV (if penicillin allergy)
+
+The first dose of antibiotic should be given at:
+
+- rupture of membranes for vaginal delivery or
+- 15 to 60 minutes prior to skin incision for caesarean section
+
+The second dose of antibiotics should be given 6 hours after the first dose.
+
+---
+
+### Section 4.13: Venous Thromboembolism in Pregnancy
+
+This content supports the postpartum care reference to identifying patients at risk of thromboembolism and managing them with early ambulation, anti-embolism stockings and LMWH thromboprophylaxis where indicated.
+
+Venous thromboembolism (VTE) occurs in 1 in 500 to 1 in 2000 pregnancies. This is about 4-5 times higher than in the non-pregnant state. The 2 manifestations of VTE are deep venous thrombosis (DVT) and pulmonary embolism (PE). The sequelae of VTE are pulmonary hypertension, post-thrombotic syndrome and venous insufficiency.
+
+VTE in pregnancy is more common:
+
+- In the postpartum period than antepartum - the risk of VTE and PE is higher in the postpartum period compared to during pregnancy.
+- After LSCS than with vaginal delivery - it is twice as common after LSCS.
+- In the left than in the right leg - it is postulated that this is due to the May-Thurner syndrome, in which the left iliac vein is compressed by the right iliac artery.
+- In the pelvic veins than in the calf veins - pelvic veins are a more common site of DVT in pregnancy than in the general population.
+
+The more common risk factors for VTE in pregnancy and the puerperium are:
+
+- Normal physiological changes of pregnancy such as the hypercoagulable state, venous stasis and vascular endothelial damage during delivery
+- Previous history or family history of VTE
+- Thrombophilias
+- Older age > 35 years of age
+- Obesity BMI >= 30 kg/m²
+- Gross varicose veins
+- Smoking
+- Parity >= 3
+- Maternal cardiac disease
+
+Cardiac patients who are at higher risk of VTE include those with:
+
+- Eisenmenger Syndrome and other forms of cyanotic heart disease
+- Heart failure who are sedentary and lying in bed most of the time
+
+#### Treatment and post-delivery anticoagulation
+
+- [Grade I, Level C] Where the diagnosis is strongly suspected, especially in the case of PE, empiric anticoagulation is recommended unless contraindicated for other reasons prior to the diagnostic evaluation. In patients with low or intermediate suspicion for PE or DVT, anticoagulation may be delayed till the diagnosis is confirmed.
+- [Grade I, Level A] LMWH is the therapy of choice and superior to UFH for treatment of DVT.
+- [Grade I, Level C] LMWH should be dosed according to the patient's weight.
+- [Grade II-b, Level C] Routine monitoring of anti-Xa activity is not necessary.
+- LMWH should be continued throughout pregnancy and for at least 6 weeks postpartum until a total of at least 3 months of treatment have been given.
+- [Grade I, Level C] Following delivery, the patient should be offered the choice of continuing LMWH or warfarin postnatally. Both are safe during breast feeding.
+- [Grade II-a, Level C] Following delivery LMWH or UFH can be restarted 4-6 hours after vaginal delivery and 6-12 hours after LSCS if there are no bleeding complications. Oral anticoagulation can be resumed after 24 hours if there are no bleeding concerns.
+
+#### Prevention of VTE
+
+- [Grade I, Level C] All women should undergo an assessment of risk factors for VTE in:
+  - Early pregnancy or before pregnancy and
+  - Intrapartum or immediately postpartum
+- [Grade I, Level C] This assessment should be repeated if the woman is admitted to the hospital for any reason or develops other intercurrent problems during the antenatal and postpartum period. They should be offered thromboprophylaxis with LMWH where appropriate.
+
+#### Postnatal Risk Assessment and Indications for Postnatal Thrombophylaxis*
+
+| Risk Factors | Requirements | Management |
+|---|---|---|
+| **High Risk** |  |  |
+| - Any previous VTE; - Anyone requiring antenatal prophylactic LMWH | Any 1 Risk Factor | At least 6 weeks postnatal prophylactic LMWH |
+| **Intermediate Risk** |  |  |
+| - Caesarean section in labour; - BMI > 40 kg/m²; - Prolonged hospital admission; - Medical comorbidities e.g. heart/lung disease, SLE, cancer, inflammatory conditions, nephrotic syndrome, sickle cell disease, thalassaemia; - Intravenous drug abuser | Any 1 Risk Factor | - At least 7 days postnatal prophylactic LMWH; - If persisting or > 3 risk factors, consider extending thromboprophylaxis with LMWH |
+| - Age > 35 years; - Obesity BMI > 30 kg/m²; - Parity >= 3; - Smoker; - Elective caesarean section; - Any surgical procedure in the puerperium; - Gross varicose veins; - Current systemic infection; - Immobility e.g. paraplegia, long haul travel > 4 hours; - Preeclampsia; - Midcavity rotational operative delivery; - Prolonged labour > 24 hours; - Assisted reproductive treatment; - Postpartum hemorrhage > 1 litre or blood transfusion | Any >= 2 Risk Factors | - At least 7 days postnatal prophylactic LMWH; - If persisting or > 3 risk factors, consider extending thromboprophylaxis with LMWH |
+| - Age > 35 years; - Obesity BMI > 30 kg/m²; - Parity >= 3; - Smoker; - Elective caesarean section; - Any surgical procedure in the puerperium; - Gross varicose veins; - Current systemic infection; - Immobility e.g. paraplegia, long haul travel > 4 hours; - Preeclampsia; - Midcavity rotational operative delivery; - Prolonged labour > 24 hours; - Assisted reproductive treatment; - Postpartum hemorrhage > 1 litre or blood transfusion | Any <= 2 Risk Factors or less (not admitted into hospital) | - Mobilisation; - Avoid dehydration |
+
+*Adapted from Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
+
+## Grades of Recommendation and Levels of Evidence
 ### Grades of Recommendation
 
 | Grade | Definition |
@@ -599,20 +1120,20 @@ Key Message: The anaesthetist is part of the multidisciplinary team and should b
 | **Level B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | **Level C** | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP CONTENT -->
-
----
-
 ## Abbreviations Used in This Section
 
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitors |
+| AF | Atrial Fibrillation |
+| anti-Xa | Anti-factor Xa |
+| aPTT | Activated Partial Thromboplastin Time |
 | AR | Aortic Regurgitation |
 | ARB | Angiotensin Receptor Blockers |
 | ASD | Atrial Septal Defect |
 | AVA | Aortic Valve Area |
 | BNP | Brain Natriuretic Peptide |
+| BMI | Body Mass Index |
 | BP | Blood Pressure |
 | CCT | Controlled Cord Traction |
 | CCU | Coronary Care Unit |
@@ -625,6 +1146,7 @@ Key Message: The anaesthetist is part of the multidisciplinary team and should b
 | CXR | Chest X-Ray |
 | DAPT | Dual Antiplatelet Therapy |
 | DES | Drug-Eluting Stents |
+| DVT | Deep Venous Thrombosis |
 | ECG | Electrocardiogram |
 | FDA | Food and Drug Administration |
 | FGR | Fetal Growth Restriction |
@@ -632,9 +1154,12 @@ Key Message: The anaesthetist is part of the multidisciplinary team and should b
 | HCM | Hypertrophic Cardiomyopathy |
 | HDU | High Dependency Unit |
 | ICU | Intensive Care Unit |
+| IE | Infective Endocarditis |
+| INR | International Normalised Ratio |
 | IM | Intramuscular |
 | IV | Intravenous |
 | LMWH | Low Molecular Weight Heparin |
+| LSCS | Lower Segment Caesarean Section |
 | LV | Left Ventricular |
 | LVEF | Left Ventricular Ejection Fraction |
 | LVOTO | Left Ventricular Outflow Tract Obstruction |
@@ -643,19 +1168,24 @@ Key Message: The anaesthetist is part of the multidisciplinary team and should b
 | MO | Medical Officer |
 | MVA | Mitral Valve Area |
 | NYHA | New York Heart Association |
+| OAC | Oral Anticoagulants |
 | PAH | Pulmonary Arterial Hypertension |
 | PCA | Patient Controlled Analgesia |
 | PCEA | Patient Controlled Epidural Analgesia |
 | PCI | Percutaneous Coronary Intervention |
 | PDA | Patent Ductus Arteriosus |
+| PE | Pulmonary Embolism |
 | PGE2 | Prostaglandin E2 |
 | PLLR | Pregnancy and Lactation Labelling Final Rule |
 | PPCM | Peripartum Cardiomyopathy |
 | PPH | Postpartum Haemorrhage |
 | PTMC | Percutaneous Mitral Commisurotomy |
+| PH | Pulmonary Hypertension |
+| SLE | Systemic Lupus Erythematosus |
 | STEMI | ST Elevation Myocardial Infarction |
 | TOF | Tetralogy of Fallot |
+| TPA | Tissue Plasminogen Activator |
+| UFH | Unfractionated Heparin |
+| VTE | Venous Thromboembolism |
 | VSD | Ventricular Septal Defect |
 | WHO | World Health Organisation |
-
-<!-- END OVERLAP CONTENT -->
