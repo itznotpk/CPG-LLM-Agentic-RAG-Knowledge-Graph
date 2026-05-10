@@ -1,49 +1,60 @@
 # SECTION 9: IMPLEMENTING THE GUIDELINES
 
 <!-- METADATA
-category: implementation
-topics: clinical_audit, resource_implications, facilitating_factors, limiting_factors
-use_case: guideline_adoption, healthcare_planning
+category: Reference
+use_case: Guidelines Implementation — clinical_audit, quality_indicators, resource_allocation, training, CPG_distribution
+patient_input: 
+output: implementation_framework, audit_criteria, quality_benchmarks
 -->
 
-## Overview
+Implementation of CPG is important as it helps in providing quality healthcare services based on best available evidence applied to local scenario and expertise. Various factors and resource implications should be considered for the success of the uptake in the CPG recommendations.
 
-Effective implementation of CRC management guidelines requires addressing facilitating and limiting factors, resource implications, and establishing audit indicators to measure impact.
+## 9.1 Facilitating and Limiting Factors
 
----
+The facilitating factors in implementing the CPG are:
+1. availability of CPG to healthcare providers (hardcopies and softcopies)
+2. conferences and updates on management of CRC involving professional societies or bodies (Malaysian Society of Colorectal Surgeons, Malaysian Society of Gastroenterology & Hepatology, Malaysian Oncological Society)
+3. public awareness CRC campaign such as World Digestive Day, etc.
 
-## Facilitating and Limiting Factors
+Limiting factors in the CPG implementation include:
+1. limited awareness and knowledge in management of CRC among healthcare providers
+2. different levels of CRC care due to expertise, facilities and financial constraints
 
-| Category | Factors |
-|:---|:---|
-| **Facilitating** | • Widespread availability of CPG (hardcopy/digital)<br>• Conferences/updates by professional societies (MSCRS, MSGH, MOS)<br>• Public awareness campaigns (e.g., World Digestive Day) |
-| **Limiting** | • Resource constraints (expertise, facilities, finance)<br>• Limited awareness/knowledge among some healthcare providers |
+## 9.2 Potential Resource Implications
 
----
+To implement the CPG, there must be strong commitments to:
+1. ensure widespread distribution of CPG to healthcare providers via printed copies and online accessibility
+2. reinforce training of healthcare providers via regular seminars and workshops
+3. involve multidisciplinary team at all levels of health care
+4. improve the diagnostic and therapeutic facilities
+5. train more experts in the field of CRC
+6. strengthen the cancer registry
 
-## Resource Implications
+To assist in the implementation of the CPG, the following is proposed as the clinical audit indicator for quality management:
 
-Implementing these guidelines requires long-term commitment to:
-1. Widespread CPG distribution (printed and online).
-2. Regular seminars and workshops for healthcare provider training.
-3. Multidisciplinary team involvement at all levels of care.
-4. Improved diagnostic and therapeutic facilities.
-5. Training more experts in the field of CRC.
-6. Strengthening the cancer registry.
+Percentage of patients with positive iFOBT or with symptoms of CRC undergoing urgent colonoscopy within 2 weeks =
+(Number of patients with positive iFOBT or with symptoms of CRC undergoing urgent colonoscopy within 2 weeks in a period)
+/
+(Total number of patients with positive iFOBT or with symptoms of CRC referred for urgent colonoscopy in the same period)
+x 100%
 
----
+Implementation strategies will be developed following the approval of the CPG by MoH which include Quick Reference and Training Module.
 
-## Proposed Audit Indicator
+## Levels of Evidence
 
-### Clinical Audit for Quality Management
+| Level | Study design |
+|---|---|
+| I | Evidence from at least one properly randomised controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomisation |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
+| II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-| Indicator | Formula |
-|:---|:---|
-| **Urgent Colonoscopy Access** | $\frac{\text{No. of patients with positive iFOBT or CRC symptoms undergoing urgent colonoscopy within 2 weeks}}{\text{Total number of patients with positive iFOBT or CRC symptoms referred for urgent colonoscopy}} \times 100\%$ |
+## Abbreviations Used in This Section
 
-### Abbreviations
-
-* **CPG** = Clinical practice guidelines
-* **CRC** = Colorectal carcinoma
-* **iFOBT** = Immunofaecal occult blood test
-
+| Abbreviation | Description |
+|---|---|
+| CPG | Clinical Practice Guidelines |
+| CRC | Colorectal carcinoma |
+| iFOBT | Immunochemical fecal occult blood test |
+| MoH | Ministry of Health |

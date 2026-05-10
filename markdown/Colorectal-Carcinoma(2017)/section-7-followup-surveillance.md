@@ -1,46 +1,45 @@
 # SECTION 7: FOLLOW-UP AND SURVEILLANCE
 
 <!-- METADATA
-category: follow_up_surveillance
-topics: survivorship, recurrence_monitoring, CEA, colonoscopy, CT_surveillance
-use_case: post_treatment_care, long_term_monitoring
+category: Prevention, Assessment
+use_case: Post-Treatment Surveillance — follow_up_schedule, CEA_monitoring, colonoscopy_surveillance, CT_imaging, survivorship
+patient_input: treatment_history, time_since_treatment, symptom_status, risk_level
+output: follow_up_schedule, investigation_plan, recurrence_screening, lifestyle_recommendation
 -->
 
-## Overview
+Surveillance should be guided by presumed risk of recurrence and functional status of the patient (important within the first two to four years). Any new, persistent or worsening symptoms warrant the consideration of a recurrence.
 
-Follow-up after curative treatment of CRC aims to detect recurrence early, manage treatment-related complications, and promote survivorship through healthy lifestyle modification.
+> [Level III] Follow-up strategies in post-surgery and/or adjuvant treatment are:
+> 1. History, physical examination and CEA levels every three to six months for five years.
+> 2. Surveillance colonoscopy at year one and every three to five years thereafter, dictated by the findings of the previous investigation.
+>    - If a colonoscopy has not been performed before diagnosis, it should be done after completion of adjuvant therapy (before one year).
+> 3. CT scan of thorax, abdomen and pelvis is performed annually for three years. For high-risk patients, it is reasonable to consider imaging every six to 12 months for the first three years.
 
----
+[Level II-2] In a cohort study on stage III colon carcinoma, patients treated with surgery and adjuvant chemotherapy, and survived without recurrence six months after treatments, those who continued to engage in at least 18-metabolic equivalent task-hours per week of activity (equivalent of walking >=6 hours per week at an average pace) had significant improvement in DFS compared with inactive patients at a median follow-up of 3.8 years.
 
-## Follow-Up Strategy
+[Level III] Survivors of CRC should be encouraged to:
+- maintain an ideal body weight throughout life
+- adopt a physically active lifestyle
+- consume a healthy diet
+- limit alcohol consumption and quit smoking
 
-| Investigation | Timing/Interval | Purpose |
-|:---|:---|:---|
-| **CEA** | Pre-operative baseline; regular post-operative monitoring | Tumour marker for recurrence detection |
-| **Colonoscopy** | At 1 year post-resection; then every 3–5 years if normal | Detect metachronous lesions and local recurrence |
-| **CT (thorax/abdomen/pelvis)** | Regular intervals (typically annually for 3–5 years) | Detect distant metastases and recurrence |
-| **Clinical review** | Regular intervals | Symptom assessment, physical examination |
+> - CRC survivors are encouraged to maintain an ideal body weight, participate in regular physical activity and consume a well-balanced diet.
 
----
+## Levels of Evidence
 
-## Survivorship and Lifestyle
+| Level | Study design |
+|---|---|
+| I | Evidence from at least one properly randomised controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomisation |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
+| II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-| Recommendation | Rationale |
-|:---|:---|
-| **Healthy diet** | Reduce recurrence risk; maintain adequate nutrition |
-| **Regular physical activity** | Associated with improved outcomes |
-| **Weight management** | Obesity associated with increased CRC risk |
-| **Smoking cessation** | Smoking increases recurrence and mortality risk |
-| **Limit alcohol** | >30 g/day associated with increased CRC risk |
+## Abbreviations Used in This Section
 
----
-
-### Abbreviations
-
-* **CEA** = Carcinoembryonic antigen
-* **CRC** = Colorectal carcinoma
-* **CT** = Computed tomography
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 4 (Diagnostic & Staging)       -->
-<!-- Purpose: Foundational monitoring tools                       -->
+| Abbreviation | Description |
+|---|---|
+| CEA | Carcinoembryonic antigen |
+| CRC | Colorectal carcinoma |
+| CT | Computed tomography |
+| DFS | Disease-free survival |

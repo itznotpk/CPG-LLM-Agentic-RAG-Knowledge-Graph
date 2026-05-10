@@ -1,54 +1,37 @@
-# SECTION 8: PREVENTION
+# SECTION 8: PREVENTION OF COLORECTAL CARCINOMA IN GENERAL POPULATION
 
 <!-- METADATA
-category: prevention
-topics: chemoprevention, aspirin, NSAIDs, calcium, flavonoids, dietary_fibre, risk_reduction
-use_case: primary_prevention, lifestyle_counselling
+category: Prevention
+use_case: Chemoprevention — aspirin, NSAIDs, calcium, flavanoids, dietary_fibre, risk_reduction
+patient_input: risk_factors, medication_history
+output: chemoprevention_recommendation, risk_reduction_strategy
 -->
 
-## Overview
+Acetylsalicylic acid (ASA) such as aspirin and non-steroidal anti-inflammatory drugs (NSAIDs) may have protective effect against CRC mainly due to reduction in prostaglandin production and induction of apoptosis.
 
-Several chemopreventive agents and dietary factors have been studied for their potential role in reducing CRC risk. The evidence base varies in strength across different agents.
+[Level I] Aspirin had mixed results in prevention of CRC in general population. [Level I] It was not significant in primary prevention but significant in secondary prevention with a reduction of 23 to 28% risk of CRC. [Level I] There was no difference in adverse events including serious ones between the treatment and control groups.
 
----
+[Level I] In a systematic review of observational studies, CRC incidence was reduced with non-aspirin NSAIDs. However, the review also reported an increased risk of peptic ulceration and gastrointestinal haemorrhage with non-ASA NSAIDs use.
 
-## Chemopreventive Agents
+Even though aspirin and NSAIDs have shown some benefits in the prevention of CRC, long-term safety profiles are warranted before any recommendation can be made on their use.
 
-| Agent | Effect on CRC Risk | Evidence |
-|:---|:---|:---|
-| **Aspirin** | **Primary Prevention:** No significant benefit.<br>**Secondary Prevention:** 23–28% risk reduction. | Level I |
-| **NSAIDs (Non-Aspirin)** | Reduced CRC incidence; however, increased risk of peptic ulceration and GI hemorrhage. | Level I |
-| **Calcium supplementation** | **Primary Prevention:** No significant benefit.<br>**Secondary Prevention:** Modest reduction in adenoma recurrence. | Level I |
+[Level I] There was no significant benefit from daily consumption of calcium, flavanoids or increased dietary fiber in prevention of CRC in general population.
 
-> **Clinical Note:** Even though aspirin and NSAIDs have shown some benefits, long-term safety profiles (GI bleeding risk) are warranted before routine recommendation. Benefits must be weighed against risks, particularly in patients with history of gastrointestinal issues.
+## Levels of Evidence
 
----
+| Level | Study design |
+|---|---|
+| I | Evidence from at least one properly randomised controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomisation |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
+| II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Dietary Factors
+## Abbreviations Used in This Section
 
-| Factor | Association with CRC Risk | Evidence |
-|:---|:---|:---|
-| **Dietary fibre** | No significant benefit for prevention in general population. | Level I |
-| **Flavonoids** | No significant benefit for prevention in general population. | Level I |
-| **Red meat (>500 g/week)** | Increased risk (OR=1.17 per 100 g/day increase) — Caucasian populations | Level II-2 |
-| **Processed meat** | Increased risk (OR=1.49 per 25 g/day increase) — Caucasian populations | Level II-2 |
+| Abbreviation | Description |
+|---|---|
+| ASA | Acetylsalicylic acid |
+| CRC | Colorectal carcinoma |
+| NSAIDs | Non-steroidal anti-inflammatory drugs |
 
-> **Summary Observation:** Recent Level I evidence (RCTs) has not confirmed the clinical benefit of daily consumption of calcium, flavonoids, or increased fiber for CRC prevention in the general population, despite earlier observational associations.
-
----
-
-### Levels of Evidence
-
-* **Level I** = Evidence from at least one properly randomised controlled trial
-* **Level II-2** = Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group
-
-### Abbreviations
-* **CI** = Confidence interval
-* **CRC** = Colorectal carcinoma
-* **NSAIDs** = Non-steroidal anti-inflammatory drugs
-* **OR** = Odds ratio
-* **RR** = Relative risk
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 2 (Screening & Surveillance)   -->
-<!-- Purpose: Modifiable risk factors to prevent CRC              -->

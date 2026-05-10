@@ -1,5 +1,12 @@
 # APPENDIX
 
+<!-- METADATA
+category: Reference, Classification
+use_case: Appendices and Reference Tables — search_strategy, clinical_questions, TNM_staging, histopathology_proforma, algorithms, ESMO_guidelines
+patient_input: tumour_characteristics, histopathology_findings
+output: staging_classification, reporting_proforma, evidence_search_strategy
+-->
+
 ## Appendix 1: Example of Search Strategy
 
 The following search strategy was used (e.g., Medline via Ovid) to identify relevant literature:

@@ -1,5 +1,12 @@
 # SECTION 2: SCREENING AND SURVEILLANCE
 
+<!-- METADATA
+category: Screening, Prevention
+use_case: CRC Screening and Surveillance — iFOBT, colonoscopy, sigmoidoscopy, risk_stratification, hereditary_syndromes, genetic_counselling
+patient_input: age, family_history, risk_category, adenoma_history, IBD_status
+output: screening_modality, screening_interval, surveillance_schedule, genetic_referral
+-->
+
 ## 2.1 Screening in Average Risk Population
 
 Average risk population is defined as population with no known risk for CRC. There is no retrievable evidence on the age to start CRC screening for average risk population. This section is written based on recommendation by existing guidelines on CRC and unpublished data from international and local cancer registries.
@@ -249,7 +256,7 @@ Targeting genetic services for patients with a strong family history of cancer r
 
 | Category | Description | Screening recommendation |
 |---|---|---|
-| Category 1 Average risk | No family history and age >50 years | - Perform IFOBT (refer to Algorithm A). |
+| Category 1 Average risk | No family history and age >50 years | - Perform IFOBT (refer to Algorithm A: Screening for Colorectal Carcinoma). |
 |  |  | - [Level III] Stop screening at age 75. |
 | Category 2 Moderate risk | Family history of CRC either: | - FDR with CRC diagnosed at age <60 years, colonoscopy should be performed at age 40 or 10 years younger than affected relative (whichever is younger). If normal, repeat every 3-5 years. |
 |  | - ≥1 FDR | - FDR with CRC diagnosed at ≥60 years, colonoscopy should be performed at age 40 years. If normal, repeat every 10 years. |
@@ -276,6 +283,105 @@ Targeting genetic services for patients with a strong family history of cancer r
 | MUTYH-Associated Polyposis (MAP) | Cumulative risk: 63% at age 60 years [Level II-2] | 18-20 years old [Level II-2] | Colonoscopy [Level II-2] | 1-2 yearly [Level II-2] |
 
 ---
+### ALGORITHM A: SCREENING FOR COLORECTAL CARCINOMA
+
+#### Step 1: Initial Assessment
+**ASSESS PATIENT FOR SYMPTOMS OF CRC\***
+
+↓
+
+**PRESENCE OF SYMPTOM(S)**
+* **YES:** → **REFER ALGORITHM B**
+* **NO:** → **STRATIFY RISK FOR FAMILY HISTORY**
+
+---
+
+#### Step 2: Risk Stratification
+**STRATIFY RISK FOR FAMILY HISTORY**
+
+Categorize the patient into one of the following groups:
+
+**Pathway A: CATEGORY 1 - AVERAGE RISK\*\***
+* Perform **IMMUNOFAECAL OCCULT BLOOD TESTING (iFOBT)**
+    * **If POSITIVE:** → **REFER FOR COLONOSCOPY**
+    * **If NEGATIVE:** → **REPEAT iFOBT YEARLY**
+
+**Pathway B: CATEGORY 2 - MODERATE RISK\*\***
+* → **REFER FOR COLONOSCOPY**
+
+**Pathway C: CATEGORY 3 - HIGH RISK\*\***
+* → **REFER FOR COLONOSCOPY**
+
+---
+
+### Algorithm B: Primary Care Referral for Symptoms of Colorectal Carcinoma
+
+#### Step 1: Initial Presentation
+**Presence of any of the following signs or symptoms:**
+* per rectal bleeding
+* mucoid stool
+* loss of weight or appetite
+* abdominal discomfort
+* altered bowel habits
+* perianal symptoms
+* tenesmus
+* constipation
+* anaemia
+* palpable abdominal mass
+* palpable anorectal mass
+
+↓
+
+#### Step 2: Clinical Assessment
+
+**Focused history**
+* Age and sex
+* Rectal bleeding (colour)
+* Altered bowel habit (alternating constipation and diarrhoea)
+* Perianal symptoms (lump, pruritus, pain, discharge)
+* Symptoms of anaemia (look for causes)
+* Personal history of colorectal polyps or inflammatory bowel disease, or family history of CRC
+
+**Focused physical examination and tests**
+* Weight
+* Look for signs of anaemia
+* Abdominal examination
+* Digital rectal examination and proctoscopy
+* Full blood count
+
+↓
+
+#### Step 3: Referral Pathways
+
+**Pathway A: Urgent**
+**Criteria:**
+Unexplained rectal bleeding with ≥1 of the following:
+* fresh blood
+* blood mixed with stool
+* with altered bowel habits
+* with significant weight loss
+**AND/OR**
+Unexplained iron deficiency anaemia
+**AND/OR**
+Palpable abdominal or rectal mass
+* **Action:** → **URGENT REFERRAL FOR COLONOSCOPY WITHIN TWO WEEKS**
+
+**Pathway B: Non-Urgent**
+**Criteria:**
+All other unexplained signs and symptoms that do not meet criteria for urgent referral
+* **Initial Action:** → Treat signs or symptoms accordingly
+* **Follow-up:** If signs and symptoms not resolved in 4-6 weeks → **REFER FOR ELECTIVE COLONOSCOPY**
+
+## Levels of Evidence
+
+| Level | Study design |
+|---|---|
+| I | Evidence from at least one properly randomised controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomisation |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
+| II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
+
 
 ## Abbreviations Used in This Section
 

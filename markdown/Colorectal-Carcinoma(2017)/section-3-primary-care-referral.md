@@ -1,69 +1,113 @@
 # SECTION 3: PRIMARY CARE AND REFERRAL
 
 <!-- METADATA
-category: primary_care_referral
-topics: primary_care, general_practice, symptom_referral, iFOBT
-use_case: initial_assessment, referral_pathway
+category: Diagnosis, Screening
+use_case: Primary Care Referral Pathway — symptom_assessment, urgent_referral, elective_referral, risk_stratification
+patient_input: symptoms, rectal_bleeding, bowel_habit, weight_loss, anaemia, abdominal_mass
+output: referral_urgency, referral_pathway, colonoscopy_indication
+critical: true
 -->
 
-## Overview
+In Malaysia, CRC screening is done mainly in primary care. Most of the patients with symptomatic CRC often present at later stages of the disease. In an attempt to improve early detection of CRC, various 
+efforts have been done to establish CRC screening programme in primary care setting. 
 
-Primary care plays a crucial role in the early detection of CRC through screening and timely referral of symptomatic patients. Primary care providers should be familiar with both the screening pathway (Algorithm A) and the symptomatic referral pathway (Algorithm B).
+Therefore, one of the objectives of this CPG is to assist Family Medicine Specialists and other primary care providers in providing structured screening and referral programme according to the symptoms and risk stratification (refer to Algorithm A: Screening for colorectal carcinoma and Algorithm B: Primary Care Referral for Symptoms of Colorectal Carcinoma ).
 
----
+## Contextual Anchors (Overlapping)
+### ALGORITHM A: SCREENING FOR COLORECTAL CARCINOMA
 
-## Referral Criteria
+#### Step 1: Initial Assessment
+**ASSESS PATIENT FOR SYMPTOMS OF CRC\***
 
-### Red Flag Symptoms Requiring Specialist Referral
+↓
 
-| Symptom | Action |
-|:---|:---|
-| **Altered bowel habit** | Specialist referral |
-| **Rectal bleeding** | Specialist referral |
-| **Unexplained weight loss** | Specialist referral |
-| **Iron deficiency anaemia** | Specialist referral |
-| **Abdominal mass** | Urgent specialist referral |
-| **Positive iFOBT** | Early colonoscopy |
+**PRESENCE OF SYMPTOM(S)**
+* **YES:** → **REFER ALGORITHM B**
+* **NO:** → **STRATIFY RISK FOR FAMILY HISTORY**
 
 ---
 
-## Screening Integration in Primary Care
+#### Step 2: Risk Stratification
+**STRATIFY RISK FOR FAMILY HISTORY**
 
-| Population | Action | Follow-up |
-|:---|:---|:---|
-| **Average risk (age 50–75)** | Offer annual iFOBT | If positive → colonoscopy; if negative → repeat yearly |
-| **Moderate risk (family history)** | Colonoscopy per risk category (Table 4) | Interval based on risk stratification |
-| **High risk (hereditary syndromes)** | Refer to colorectal surgeon/genetics | Per syndrome-specific protocol (Table 5) |
+Categorize the patient into one of the following groups:
 
-> **Clinical Note:** Algorithm B outlines the symptomatic referral pathway. Primary care providers should maintain a low threshold for referral given that 15–25% of CRC patients present with metastatic disease.
+**Pathway A: CATEGORY 1 - AVERAGE RISK\*\***
+* Perform **IMMUNOFAECAL OCCULT BLOOD TESTING (iFOBT)**
+    * **If POSITIVE:** → **REFER FOR COLONOSCOPY**
+    * **If NEGATIVE:** → **REPEAT iFOBT YEARLY**
+
+**Pathway B: CATEGORY 2 - MODERATE RISK\*\***
+* → **REFER FOR COLONOSCOPY**
+
+**Pathway C: CATEGORY 3 - HIGH RISK\*\***
+* → **REFER FOR COLONOSCOPY**
 
 ---
 
-### Abbreviations
+### Algorithm B: Primary Care Referral for Symptoms of Colorectal Carcinoma
 
-* **CRC** = Colorectal carcinoma
-* **iFOBT** = Immunofaecal occult blood test
+#### Step 1: Initial Presentation
+**Presence of any of the following signs or symptoms:**
+* per rectal bleeding
+* mucoid stool
+* loss of weight or appetite
+* abdominal discomfort
+* altered bowel habits
+* perianal symptoms
+* tenesmus
+* constipation
+* anaemia
+* palpable abdominal mass
+* palpable anorectal mass
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 1                              -->
-<!-- Purpose: Explicit details of Algorithm A and B for RAG Context-->
+↓
 
-## Reference: Algorithm A (Screening)
-- **Step 1:** Assess asymptomatic patients. If symptomatic, refer to Algorithm B. If no symptoms, stratify family history risk.
-- **Category 1 (Average Risk):** Offer yearly Immunochemical Faecal Occult Blood Test (iFOBT). If positive, refer for colonoscopy. If negative, repeat yearly.
-- **Category 2 & 3 (Moderate/High Risk):** Refer directly for colonoscopy based on specific guidelines.
+#### Step 2: Clinical Assessment
 
-## Reference: Algorithm B (Symptomatic Referral)
+**Focused history**
+* Age and sex
+* Rectal bleeding (colour)
+* Altered bowel habit (alternating constipation and diarrhoea)
+* Perianal symptoms (lump, pruritus, pain, discharge)
+* Symptoms of anaemia (look for causes)
+* Personal history of colorectal polyps or inflammatory bowel disease, or family history of CRC
 
-**Step 1: Initial Presentation Signs & Symptoms**
-Look for the presence of: per rectal bleeding, mucoid stool, loss of weight/appetite, abdominal discomfort, altered bowel habits, perianal symptoms, tenesmus, constipation, anaemia, or palpable abdominal/anorectal mass.
+**Focused physical examination and tests**
+* Weight
+* Look for signs of anaemia
+* Abdominal examination
+* Digital rectal examination and proctoscopy
+* Full blood count
 
-**Step 2: Clinical Assessment**
-- **Focused History:** Age/sex, details of rectal bleeding (colour) and altered bowel habit, perianal symptoms, anaemia symptoms, and personal/family history of CRC, polyps, or IBD.
-- **Physical Exam & Tests:** Weight, signs of anaemia, abdominal examination, digital rectal examination and proctoscopy, and full blood count.
+↓
 
-**Step 3: Referral Pathways**
-- **Urgent Referral (Within 2 Weeks):** Triggered by an unexplained palpable abdominal/rectal mass, unexplained iron deficiency anaemia, OR unexplained rectal bleeding with ≥1 of the following: fresh blood, blood mixed with stool, altered bowel habits, or significant weight loss.
-- **Non-Urgent Referral (Elective):** All other unexplained signs and symptoms. Initial action is to treat accordingly. If symptoms do not resolve within 4-6 weeks, refer for elective colonoscopy.
+#### Step 3: Referral Pathways
 
-<!-- END OVERLAP FROM: SECTION 1 -->
+**Pathway A: Urgent**
+**Criteria:**
+Unexplained rectal bleeding with ≥1 of the following:
+* fresh blood
+* blood mixed with stool
+* with altered bowel habits
+* with significant weight loss
+**AND/OR**
+Unexplained iron deficiency anaemia
+**AND/OR**
+Palpable abdominal or rectal mass
+* **Action:** → **URGENT REFERRAL FOR COLONOSCOPY WITHIN TWO WEEKS**
+
+**Pathway B: Non-Urgent**
+**Criteria:**
+All other unexplained signs and symptoms that do not meet criteria for urgent referral
+* **Initial Action:** → Treat signs or symptoms accordingly
+* **Follow-up:** If signs and symptoms not resolved in 4-6 weeks → **REFER FOR ELECTIVE COLONOSCOPY**
+
+
+## Abbreviations Used in This Section
+
+| Abbreviation | Description |
+|---|---|
+| CPG | Clinical practice guideline |
+| CRC | Colorectal carcinoma |
+| iFOBT | Immunochemical faecal occult blood test |
