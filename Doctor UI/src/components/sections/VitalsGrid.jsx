@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
-import { Activity, Heart, Thermometer, Wind, Droplets, Scale, Ruler, Zap } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
+import { Activity, Heart, Thermometer, Wind, Droplets, Scale, Ruler, Zap, Scan } from 'lucide-react';
 import { GlassCard, Input, Badge } from '../shared';
+import { RPPGScanModal } from '../shared/RPPGScanModal';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -8,6 +9,7 @@ export function VitalsGrid() {
   const { state, dispatch, calculateBMI } = useApp();
   const { isDark } = useTheme();
   const { vitals } = state;
+  const [showScanner, setShowScanner] = useState(false);
 
   const handleChange = (field, value) => {
     dispatch({ type: 'SET_VITALS', payload: { [field]: value } });
@@ -107,6 +109,8 @@ export function VitalsGrid() {
   };
 
   return (
+    <>
+    {showScanner && <RPPGScanModal onClose={() => setShowScanner(false)} />}
     <GlassCard className="p-5">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -115,18 +119,31 @@ export function VitalsGrid() {
           </div>
           <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Vital Signs</h3>
         </div>
-        <button
-          onClick={handleDemoFill}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
-            ${isDark
-              ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
-              : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
-            }`}
-          title="Fill with demo data"
-        >
-          <Zap className="w-4 h-4" />
-          Demo Fill
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setShowScanner(true)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
+              ${isDark
+                ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30'
+                : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+              }`}
+          >
+            <Scan className="w-4 h-4" />
+            Scan with rPPG
+          </button>
+          <button
+            onClick={handleDemoFill}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
+              ${isDark
+                ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
+                : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+              }`}
+            title="Fill with demo data"
+          >
+            <Zap className="w-4 h-4" />
+            Demo Fill
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -196,5 +213,6 @@ export function VitalsGrid() {
         </div>
       </div>
     </GlassCard>
+    </>
   );
 }
