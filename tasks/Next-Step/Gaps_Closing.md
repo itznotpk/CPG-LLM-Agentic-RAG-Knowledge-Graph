@@ -34,7 +34,35 @@ PatientCase
 
 ## Gap 1 — Comorbidity routing is blind
 
+**Status: ✅ CODE IMPLEMENTED — ⚠️ DATA INCOMPLETE (see `Gap_1_CPG_Ingestion.md`)**
+
 **Safety impact: CRITICAL**
+
+### Resolution summary (2026-05-11)
+
+- `route_comorbidities()` added in `agent/clinical_workflow.py`, called after `stage_3_route` in both streaming and non-streaming workflows
+- Per-comorbidity DDx lookup (`top_k=3`) with 0.55 similarity threshold to reject semantic-fallback drift
+- Full diagnostic logging: candidate codes/similarities + ICD → CPG mapping per comorbidity
+- Streaming path emits `[comorbidity]` badge `sub_step` events for each additional CPG
+- Clinical synonym expansion added to `ddx/search_ddx.py` `normalize_query()` — abbreviations (CKD, T2DM, HFpEF, etc.) expanded to ICD-11 full-form terminology before vector embedding
+- 11 unit tests in `tests/test_extraction_and_routing.py` covering threshold, dedup, capping, error paths — all passing
+
+### Validated in Test Run 3 (58M ACS, T2DM, CKD, HTN)
+
+| Comorbidity | DDx top match | Similarity | Routed to |
+|---|---|---|---|
+| Hypertension | `BA03` Hypertensive crisis | 0.75 | Hypertension(5th Edition), CVD-Prevention-Women ✅ |
+| Type 2 Diabetes Mellitus | `5A13.3` DM due to endocrinopathies | 0.57 | **No DM CPG ingested** ⚠️ |
+| CKD Stage 3 | `2E63` Melanoma in situ (junk) | 0.26 | Skipped (below threshold) ✅ |
+
+### Remaining gap (data, not code)
+
+DM and CKD CPGs are not ingested. Comorbidity routing works correctly when data exists, but cannot route to documents that don't exist. **See `Gap_1_CPG_Ingestion.md` for the ingestion plan.**
+
+---
+
+### Original gap description (preserved for context)
+
 
 ### What the current system does
 Stage 3 routes using only the **top-2 DDx ICD-11 codes**. Comorbidities listed in `PatientCase.comorbidities` are passed as plain text into the Stage 5 synthesis prompt but are never used to retrieve additional CPG documents.
@@ -115,123 +143,13 @@ Show comorbidity-routed CPGs with a distinct badge colour (e.g. purple `bg-purpl
 
 ## Gap 2 — No structured drug interaction / allergy check
 
-**Safety impact: CRITICAL**
+**Status: 🟡 DEFERRED — folded into knowledge-graph work in `RAG_Pipeline_and_Prompt_Gaps.md` (Gap R6).**
 
-### What the current system does
-`case.current_medications` and `case.allergies` are injected as plain text into the Stage 5 synthesis prompt with the instruction: *"contraindications_checked: list of contraindications considered"*. The LLM performs this check from training memory.
+A hardcoded `HIGH_RISK_PAIRS` lookup table was designed but not implemented. Reason: the knowledge graph (Gap R6) is the principled long-term solution — `(Drug)-[INTERACTS_WITH]->(Drug)` and `(Drug)-[CONTRAINDICATED_IN]->(Condition)` relations extracted from CPG text give evidence-grounded flags with real citations, scalable beyond a ~20-pair maintained list. Doing both creates retire-debt.
 
-### Why this is dangerous
-Drug-drug interactions and allergy cross-reactivities are the leading cause of preventable adverse drug events. Two concrete failure scenarios:
+**Bridge until KG lands:** the Stage 5 synthesis prompt (`stage5_synthesis.txt`) already instructs the LLM to populate `contraindications_checked` for every recommendation and to never leave it empty when patient has allergies or current medications. This is "good enough" for monitored clinical pilot — clinicians remain in the loop.
 
-1. **Patient on warfarin** → CPG recommends rivaroxaban for AF → LLM may or may not flag double anticoagulation. If it misses it, the `contraindications_checked` field appears populated with other items, giving false assurance.
-
-2. **Patient with sulfa allergy** → CPG recommends furosemide (sulfonamide structure, ~1% cross-reactivity risk) → LLM training data is inconsistent on this interaction; it may recommend furosemide without flagging sulfa cross-reactivity.
-
-3. **Patient on ACE inhibitor** → CPG recommends spironolactone (potassium-sparing) → hyperkalemia risk is well-known but the LLM may omit it if the relevant CPG chunk was not retrieved.
-
-These are the errors that cause ICU admissions. A supervised clinical decision support tool that misses them and presents a clean `contraindications_checked` list is more dangerous than one that says nothing.
-
-### Implementation plan
-
-**New file — `agent/drug_interactions.py`**
-
-A structured lookup table for high-risk pairs, covering the most common interactions in primary care:
-
-```python
-from __future__ import annotations
-
-# (drug_a_keyword, drug_b_keyword): (severity, description)
-HIGH_RISK_PAIRS: list[tuple[str, str, str, str]] = [
-    ("warfarin",       "aspirin",           "MAJOR",    "Combined antiplatelet + anticoagulant: major bleeding risk"),
-    ("warfarin",       "nsaid",             "MAJOR",    "NSAIDs potentiate warfarin: major GI and intracranial bleed risk"),
-    ("warfarin",       "rivaroxaban",       "MAJOR",    "Dual anticoagulation: major bleeding risk"),
-    ("warfarin",       "apixaban",          "MAJOR",    "Dual anticoagulation: major bleeding risk"),
-    ("ace inhibitor",  "spironolactone",    "MODERATE", "Hyperkalemia risk — monitor K+ within 1 week of initiation"),
-    ("ace inhibitor",  "potassium",         "MODERATE", "Hyperkalemia risk — avoid routine K+ supplementation"),
-    ("metformin",      "contrast",          "MODERATE", "Hold metformin 48h before/after iodinated contrast (AKI risk)"),
-    ("ssri",           "tramadol",          "MAJOR",    "Serotonin syndrome risk"),
-    ("statin",         "amiodarone",        "MODERATE", "Myopathy risk — cap simvastatin at 20mg"),
-    ("digoxin",        "amiodarone",        "MAJOR",    "Digoxin toxicity — reduce digoxin dose by 50%"),
-]
-
-# (allergy_keyword, drug_keyword): description
-HIGH_RISK_ALLERGY_CROSS: list[tuple[str, str, str]] = [
-    ("penicillin",  "amoxicillin",   "Direct allergy — contraindicated"),
-    ("penicillin",  "ampicillin",    "Direct allergy — contraindicated"),
-    ("penicillin",  "cephalosporin", "Cross-reactivity ~1-2% — use with caution, have resuscitation available"),
-    ("sulfa",       "furosemide",    "Sulfonamide cross-reactivity risk — consider alternative loop diuretic"),
-    ("sulfa",       "thiazide",      "Sulfonamide cross-reactivity risk — consider alternative"),
-    ("sulfa",       "celecoxib",     "Sulfonamide cross-reactivity risk"),
-    ("aspirin",     "nsaid",         "NSAID cross-reactivity in aspirin-sensitive patients — contraindicated"),
-    ("contrast",    "metformin",     "Hold metformin — AKI risk with contrast nephropathy"),
-]
-
-
-def check_interactions(
-    medications: list[str],
-    allergies: list[str],
-    proposed_drugs_context: str,
-) -> list[dict]:
-    """
-    Screen current medications and allergies against a proposed drug context string.
-    Returns a list of flagged interactions with severity and description.
-    """
-    flags = []
-    meds_lower = " ".join(medications).lower()
-    allergies_lower = " ".join(allergies).lower()
-    context_lower = proposed_drugs_context.lower()
-
-    for drug_a, drug_b, severity, description in HIGH_RISK_PAIRS:
-        a_in_meds = drug_a in meds_lower
-        b_in_meds = drug_b in meds_lower
-        a_in_context = drug_a in context_lower
-        b_in_context = drug_b in context_lower
-
-        if (a_in_meds and b_in_context) or (b_in_meds and a_in_context):
-            flags.append({
-                "type": "drug_drug",
-                "severity": severity,
-                "detail": description,
-                "pair": f"{drug_a} + {drug_b}",
-            })
-
-    for allergy, drug, description in HIGH_RISK_ALLERGY_CROSS:
-        if allergy in allergies_lower and drug in context_lower:
-            flags.append({
-                "type": "allergy_cross",
-                "severity": "MAJOR",
-                "detail": description,
-                "pair": f"{allergy} allergy + {drug}",
-            })
-
-    return flags
-```
-
-**In `stage_5_synthesize` — inject flags into evidence prompt:**
-
-```python
-from .drug_interactions import check_interactions
-
-# Before synthesis call:
-interaction_flags = check_interactions(
-    case.current_medications,
-    case.allergies,
-    evidence_text,          # screen against retrieved CPG evidence
-)
-
-if interaction_flags:
-    flag_text = "\n".join(
-        f"  ⚠ [{f['severity']}] {f['detail']} ({f['pair']})"
-        for f in interaction_flags
-    )
-    evidence_text = f"INTERACTION FLAGS — address each in contraindications_checked:\n{flag_text}\n\n{evidence_text}"
-```
-
-This forces the synthesis LLM to see the flags as part of the evidence block, making it structurally impossible to omit them from the response.
-
-**Files to change:** New `agent/drug_interactions.py`, `agent/clinical_stages.py` (`stage_5_synthesize`)
-**Effort:** ~2 h
-**Test:** Fixture patient on warfarin; evidence text mentions rivaroxaban; assert `contraindications_checked` contains the warfarin interaction.
+**Full design preserved in:** `tasks/RAG_Pipeline_and_Prompt_Gaps.md` (Gap R6 section, refined).
 
 ---
 
@@ -406,19 +324,57 @@ Show a `⚠ 2011` amber chip next to old CPG citations in the trace and in the `
 
 ---
 
+## Gap D1 — Deterministic comorbidity → ICD-11 map (DEFERRED)
+
+**Status: 🟡 DEFERRED — superseded by Gap 4 (structured severity staging UI).**
+
+### What was proposed
+
+A hardcoded ~30-entry Python dict mapping common Malaysian comorbidity strings to their ICD-11 codes, used BEFORE `search_ddx` inside `route_comorbidities`:
+
+```python
+COMORBIDITY_ICD_MAP = {
+    "CKD Stage 3":              "GB61.3",
+    "Type 2 Diabetes Mellitus": "5A11",
+    "Type 2 DM":                "5A11",
+    "T2DM":                     "5A11",
+    "Hypertension":             "BA00.Z",
+    "Atrial Fibrillation":      "BC81.3",
+    "PAH WHO FC III":           "BB01.1",
+    # … ~30 most common entries
+}
+```
+
+This would remove vector-quality risk for the head of the distribution — "CKD Stage 3" reliably resolves to `GB61.3` instead of relying on `search_ddx` similarity (which scored 0.26 in Test Run 3, well below the 0.55 threshold).
+
+### Why deferred
+
+Same retire-debt concern as Gap 2: a maintained hardcoded table is the wrong long-term shape. The right shape is **structured UI input** — when the clinician picks "CKD Stage 3" from a dropdown in the Doctor UI, the underlying value submitted to the API is already `{"GB61.3": "CKD Stage 3"}`. No vector lookup, no maintained map, no abbreviation guessing.
+
+This is exactly what Gap 4 (severity staging in `PatientCase`) addresses for staging fields, and the same pattern can extend to comorbidities (`comorbidities: list[{icd_code, label, severity}]` instead of `list[str]`).
+
+### Bridge already in place
+
+`ddx/search_ddx.py` `normalize_query()` now applies a clinical abbreviation expansion table (`_CLINICAL_SYNONYMS`) before embedding — CKD → "chronic kidney disease", T2DM → "type 2 diabetes mellitus", etc. This recovers most of the precision the hardcoded map would have given, without a parallel maintained ICD-mapping. Combined with the `route_comorbidities` 0.55 similarity threshold, the system fails cleanly (skips + logs) rather than silently mis-routing.
+
+### When to revisit
+
+When Gap 4 is implemented and the Doctor UI starts sending structured comorbidity payloads, delete the comorbidity DDx-lookup path from `route_comorbidities` entirely — replace with a direct `route_icd_to_cpgs(icd_code)` call per submitted code. At that point, this Gap D1 entry can be deleted.
+
+---
+
 ## Implementation roadmap
 
-| Priority | Gap | Files affected | Effort | Safety rating |
-|---|---|---|---|---|
-| 1 | Comorbidity routing | `clinical_workflow.py` | ~3 h | 🔴 Critical |
-| 2 | Drug interaction lookup | New `drug_interactions.py`, `clinical_stages.py` | ~2 h | 🔴 Critical |
-| 3 | 5 domain-templated queries | `clinical_stages.py` | ~1 h | 🟠 High |
-| 4 | Severity staging in PatientCase + queries | `models.py`, `DataInputSection.jsx`, `clinical_stages.py` | ~4 h | 🟠 High |
-| 5 | CPG currency warning | SQL migration, `clinical_stages.py`, UI | ~1.5 h | 🟡 Medium |
+| Priority | Gap | Files affected | Effort | Safety rating | Status |
+|---|---|---|---|---|---|
+| 1 | Comorbidity routing | `clinical_workflow.py`, `ddx/search_ddx.py` | ~3 h | 🔴 Critical | ✅ Code complete (see Gap_1_CPG_Ingestion.md for data follow-up) |
+| 2 | Drug interaction lookup | — | — | 🔴 Critical | 🟡 Deferred → folded into Gap R6 (KG wiring) in `RAG_Pipeline_and_Prompt_Gaps.md` |
+| 3 | 5 domain-templated queries | `clinical_stages.py`, `stage4_query_generation.txt` | ~1 h | 🟠 High | ✅ Done (R4 in RAG gaps) |
+| 4 | Severity staging in PatientCase + queries | `models.py`, `DataInputSection.jsx`, `clinical_stages.py` | ~4 h | 🟠 High | 🔜 Next |
+| 5 | CPG currency warning | SQL migration 005, `clinical_stages.py`, `stage5_synthesis.txt`, `db_utils.py` | ~1.5 h | 🟡 Medium | ✅ Done |
+| D1 | Deterministic comorbidity → ICD map | — | — | 🟡 Medium | 🟡 Deferred (superseded by Gap 4 + synonym expansion bridge) |
 
-**Total effort: ~11.5 h across 2–3 sessions**
-
-Gaps 1 and 2 should be implemented before any clinical pilot. Gaps 3 and 4 should follow immediately after. Gap 5 can ship alongside the next CPG ingestion run.
+Gap 1 code is complete; data-side blocked on `Gap_1_CPG_Ingestion.md` (DM and CKD CPG ingestion). Gap 4 is the next active item — it also retires the deferred Gap D1 once structured comorbidity input lands.
 
 ---
 

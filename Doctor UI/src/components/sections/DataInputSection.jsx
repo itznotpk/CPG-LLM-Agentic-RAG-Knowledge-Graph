@@ -3,6 +3,7 @@ import { Stethoscope, Sparkles, Brain, FileText, Activity, Search, UserPlus, Che
 import { ClinicalNotes } from './ClinicalNotes';
 import { PipelineProgress } from './PipelineProgress';
 import { VitalsGrid } from './VitalsGrid';
+import { SeverityStagingGrid } from './SeverityStagingGrid';
 import { Button, Skeleton, SkeletonDiagnosis, GlassCard, Badge } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -959,6 +960,7 @@ export function DataInputSection({ onViewChart }) {
         {mpisChecked && (
           <div className="xl:col-span-7 space-y-6">
             <VitalsGrid />
+            <SeverityStagingGrid />
             <ClinicalNotes
               isConfirmed={notesConfirmed}
               onConfirm={setNotesConfirmed}

@@ -9,6 +9,7 @@ Pipeline stages 2–5 for the clinical RAG workflow.
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import os
@@ -70,9 +71,23 @@ async def _llm_rerank_ddx(
     if not candidates:
         return candidates
 
+    # Stage 2 override (e.g. MiMo) takes precedence over primary LLM_* vars.
+    # Trades thinking-token transparency for availability when Google credits are exhausted.
+    stage2_base = os.getenv("STAGE2_LLM_BASE_URL")
+    stage2_key = os.getenv("STAGE2_LLM_API_KEY")
+    stage2_model = os.getenv("STAGE2_LLM_CHOICE")
+    using_override = bool(stage2_base and stage2_key and stage2_model)
+
     client = openai.AsyncOpenAI(
-        base_url=os.getenv("LLM_BASE_URL"),
-        api_key=os.getenv("LLM_API_KEY"),
+        base_url=stage2_base or os.getenv("LLM_BASE_URL"),
+        api_key=stage2_key or os.getenv("LLM_API_KEY"),
+    )
+    active_model = stage2_model or DDX_RERANK_MODEL
+    logger.info(
+        "Stage 2 rerank using model=%s endpoint=%s (override=%s)",
+        active_model,
+        stage2_base or os.getenv("LLM_BASE_URL"),
+        using_override,
     )
 
     vitals_str = json.dumps(case.vitals) if case.vitals else "none"
@@ -101,12 +116,16 @@ Apply reasoning about:
 - Whether current medications suggest an existing diagnosis
 - Which codes are actionable vs incidental findings
 
-Return a JSON array of objects, ordered from most to least likely. Include ALL candidates.
-No markdown fences. Example format:
+CRITICAL OUTPUT RULES:
+- Keep ALL reasoning extremely concise — one short sentence per code, max 20 words each.
+- Your TOTAL response must be under 1500 tokens. The JSON array is the required output.
+- Return ONLY the JSON array. No preamble, no markdown fences, no explanation before/after.
+- Include ALL candidate codes, ordered from most to least likely.
+
+Format:
 [
-  {{"code": "BC81.3", "confidence": 0.91, "reasoning": "68M irregular pulse HR 110 — persistent AF fits best"}},
-  {{"code": "BC81.1", "confidence": 0.72, "reasoning": "Paroxysmal AF cannot be excluded without Holter"}},
-  ...
+  {{"code": "BC81.3", "confidence": 0.91, "reasoning": "68M with irregular HR 110 — persistent AF fits best"}},
+  {{"code": "BC81.1", "confidence": 0.72, "reasoning": "Paroxysmal AF cannot be excluded without Holter"}}
 ]"""
 
     try:
@@ -114,17 +133,22 @@ No markdown fences. Example format:
 
         if emit is not None:
             # Streaming path — capture thinking tokens
-            # Gemini 2.5 Flash thinks by default; no extra_body needed on the native API
+            # max_tokens caps total output so MiMo doesn't burn the budget on
+            # verbose reasoning and run out before emitting the JSON array.
             stream = await client.chat.completions.create(
-                model=DDX_RERANK_MODEL,
+                model=active_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=1,
+                max_tokens=4000,
                 stream=True,
             )
             async for chunk in stream:
                 if not chunk.choices:
                     continue
                 delta = chunk.choices[0].delta
+                # TEMP diagnostic — remove after confirming thinking field name
+                delta_dict = delta.model_dump() if hasattr(delta, "model_dump") else delta.__dict__
+                logger.debug("Stage 2 delta: %s", {k: v for k, v in delta_dict.items() if v})
                 # Google native API exposes thinking as delta.reasoning or delta.thinking
                 thinking_chunk = (
                     getattr(delta, "reasoning", None)
@@ -142,16 +166,32 @@ No markdown fences. Example format:
         else:
             # Non-streaming path — identical to pre-Step-09 behavior
             resp = await client.chat.completions.create(
-                model=DDX_RERANK_MODEL,
+                model=active_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=1,
+                max_tokens=4000,
             )
             raw_content = resp.choices[0].message.content
 
-        # Parse re-ranked list (shared by both paths)
+        # Parse re-ranked list (shared by both paths).
+        # Robust to MiMo prepending reasoning prose before the JSON array — locate
+        # the first '[' and parse from there. Falls through to the outer except
+        # if no valid array found.
         raw = raw_content.strip().strip("` \n")
         if raw.startswith("json"):
-            raw = raw[4:]
+            raw = raw[4:].strip()
+        if not raw.startswith("["):
+            bracket_idx = raw.find("[")
+            if bracket_idx == -1:
+                raise ValueError(
+                    f"No JSON array found in rerank output (len={len(raw_content)} chars). "
+                    f"First 200 chars: {raw_content[:200]!r}"
+                )
+            raw = raw[bracket_idx:]
+            # Trim anything after the matching closing ']' to handle trailing prose
+            end_idx = raw.rfind("]")
+            if end_idx != -1:
+                raw = raw[: end_idx + 1]
         ranked = json.loads(raw)
 
         code_to_result = {c.code: c for c in candidates}
@@ -170,12 +210,68 @@ No markdown fences. Example format:
             if c.code not in seen:
                 reranked.append(c)
 
-        logger.info("DDx re-ranked %d candidates via %s", len(reranked), DDX_RERANK_MODEL)
+        logger.info("DDx re-ranked %d candidates via %s", len(reranked), active_model)
         return reranked
 
     except Exception as exc:
-        logger.warning("DDx LLM re-rank failed (%s) — using original order", exc)
+        logger.warning(
+            "DDx LLM re-rank FAILED with model=%s endpoint=%s: %s — using original order",
+            active_model,
+            stage2_base or os.getenv("LLM_BASE_URL"),
+            exc,
+        )
         return candidates
+
+
+async def _extract_symptom_phrase(
+    notes: str,
+    client: openai.AsyncOpenAI,
+    model: str,
+) -> str:
+    """Compress clinical notes to a symptom-focused query string for DDx vector search.
+
+    Long clinical narratives dilute the ICD-11 vector match. This pre-step extracts
+    only the presenting symptoms relevant to differential diagnosis.
+    """
+    # Concise prompt without few-shot examples — MiMo follows direct instructions
+    # better than imitating examples (which it can confuse with the expected output format).
+    prompt = (
+        "Rewrite these clinical notes as a single short phrase (max 15 words) "
+        "containing ONLY the primary symptom, its anatomical location or radiation, "
+        "character, and duration. Exclude age, sex, history, comorbidities, "
+        "medications, and vital signs. Output the phrase only — no preamble, no quotes, "
+        "no explanation.\n\n"
+        f"Notes: {notes}\n\n"
+        "Phrase:"
+    )
+    logger.info("Symptom extraction starting: model=%s notes_len=%d", model, len(notes))
+    try:
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=80,
+            temperature=0,
+        )
+        phrase = resp.choices[0].message.content.strip().strip('"').strip("'").rstrip(".")
+
+        word_count = len(phrase.split())
+        if word_count > 25:
+            logger.warning(
+                "Symptom extraction returned %d words (>25) — likely echoed input. "
+                "Truncating to 15 words. Raw: %r",
+                word_count, phrase[:120],
+            )
+            phrase = " ".join(phrase.split()[:15])
+
+        if not phrase:
+            logger.warning("Symptom extraction returned empty — falling back to raw notes")
+            return notes
+
+        logger.info("Symptom extraction OK: %r → %r (%d words)", notes[:60], phrase, len(phrase.split()))
+        return phrase
+    except Exception as exc:
+        logger.warning("Symptom extraction FAILED (%s) — falling back to raw notes", exc)
+        return notes
 
 
 async def stage_2_ddx(
@@ -194,10 +290,33 @@ async def stage_2_ddx(
     """
     from ddx.search_ddx import search_ddx
 
-    symptom_text = _build_symptom_text(case)
+    # Honour STAGE2_LLM_* override for extraction (same fallback as _llm_rerank_ddx).
+    # When Google API is quota-exhausted, both rerank and extraction use MiMo.
+    _s2_base = os.getenv("STAGE2_LLM_BASE_URL")
+    _s2_key = os.getenv("STAGE2_LLM_API_KEY")
+    _s2_model = os.getenv("STAGE2_LLM_CHOICE")
+    _using_override = bool(_s2_base and _s2_key and _s2_model)
+
+    client = openai.AsyncOpenAI(
+        base_url=_s2_base or os.getenv("LLM_BASE_URL"),
+        api_key=_s2_key or os.getenv("LLM_API_KEY"),
+        max_retries=0,   # extraction has a clean fallback; don't waste 3s on 429 retries
+    )
+    extraction_model = (
+        _s2_model if _using_override
+        else os.getenv("SYMPTOM_EXTRACT_MODEL", os.getenv("LLM_CHOICE", "gemini-2.0-flash"))
+    )
+    query = await _extract_symptom_phrase(case.chief_complaint, client, extraction_model)
+
+    if emit is not None:
+        await emit("sub_step", {
+            "stage": 2,
+            "detail": f"Extracted symptom query: \"{query}\"",
+            "badge": "DDx",
+        })
 
     fetch_k = top_k * 2 if rerank else top_k
-    raw = await search_ddx(symptom_text, top_k=fetch_k)
+    raw = await search_ddx(query, top_k=fetch_k)
 
     results: list[DDxResult] = []
     for r in raw:
@@ -267,7 +386,8 @@ async def _generate_retrieval_queries(
     icd_summary = ", ".join(f"{d.code} ({d.title})" for d in ddx[:2])
     cpg_names = ", ".join(c.cpg_name for c in cpgs)
     vitals_str = json.dumps(case.vitals) if case.vitals else "none"
-    severity_str = json.dumps(getattr(case, "severity_staging", {})) if getattr(case, "severity_staging", None) else "not specified"
+    staging_dict = case.severity_staging if case.severity_staging else {}
+    severity_str = ", ".join(f"{k} {v}" for k, v in staging_dict.items()) or "not specified"
 
     system_prompt = _load_prompt("stage4_query_generation.txt")
 
@@ -331,23 +451,31 @@ async def stage_4_retrieve(
     seen_chunk_ids: set[str] = set()
     all_chunks: list[ChunkResult] = []
 
-    for query in queries:
-        results = await vector_search_tool(VectorSearchInput(
-            query=query,
+    search_tasks = [
+        vector_search_tool(VectorSearchInput(
+            query=q,
             limit=chunks_per_query,
             document_id_filter=all_doc_ids,
         ))
+        for q in queries
+    ]
+    results_per_query = await asyncio.gather(*search_tasks, return_exceptions=True)
+
+    for q, result in zip(queries, results_per_query):
+        if isinstance(result, Exception):
+            logger.warning("Query %r failed: %s", q, result)
+            continue
         new_chunks = 0
-        for chunk in results:
+        for chunk in result:
             if chunk.chunk_id not in seen_chunk_ids:
                 seen_chunk_ids.add(chunk.chunk_id)
                 all_chunks.append(chunk)
                 new_chunks += 1
         if emit:
-            total = len(results)
+            total = len(result)
             await emit("sub_step", {
                 "stage": 4,
-                "detail": f'"{query[:60]}{"…" if len(query) > 60 else ""}"',
+                "detail": f'"{q[:60]}{"…" if len(q) > 60 else ""}"',
                 "badge": f"{new_chunks} new / {total} hits",
                 "status": "complete",
             })
@@ -405,12 +533,28 @@ SYNTHESIS_SYSTEM = _load_prompt("stage5_synthesis.txt")
 SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
 
 
+_CURRENT_YEAR = 2026
+_CPG_STALE_THRESHOLD_YEARS = 5
+
+
 def _format_evidence(chunks: list[ChunkResult]) -> str:
     lines = []
     for i, c in enumerate(chunks, 1):
         section = c.metadata.get("section_number", "")
         cpg = c.document_title or c.document_source
-        lines.append(f"[{i}] {cpg} §{section}\n{c.content[:800]}")
+        # CPG currency warning — flag stale evidence so the synthesis LLM can
+        # de-emphasise it or surface it in unresolved_questions.
+        published_year = c.metadata.get("published_year")
+        age_warning = ""
+        if published_year:
+            try:
+                year_int = int(published_year)
+                age = _CURRENT_YEAR - year_int
+                if age > _CPG_STALE_THRESHOLD_YEARS:
+                    age_warning = f"  ⚠ Published {year_int} ({age}y old — verify against current guidelines)"
+            except (TypeError, ValueError):
+                pass
+        lines.append(f"[{i}] {cpg} §{section}{age_warning}\n{c.content[:800]}")
     return "\n\n".join(lines)
 
 

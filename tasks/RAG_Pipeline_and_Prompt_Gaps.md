@@ -254,21 +254,56 @@ Cannot be added until `TreatmentPlan` model has those fields (Gap M1).
 
 **Impact: HIGH (future) — no graph-based contraindication or pathway retrieval**
 
+**Absorbs:** `Gaps_Closing.md` Gap 2 (structured drug interaction / allergy check). The KG is the principled, evidence-grounded replacement for the hardcoded `HIGH_RISK_PAIRS` table. Until this lands, the Stage 5 synthesis prompt enforces `contraindications_checked` population per recommendation as the bridge mechanism.
+
 ### Current state
 
 - `graph_search_tool` exists in `agent/tools.py` but Stage 4 never calls it
 - Entity extraction ran with `extraction_method: "skipped"` on many chunks (graph_builder not run on all CPGs)
 - No `icd11_code` property on `(:Condition)` nodes — cannot traverse from DDx code to first-line drugs
 - `graph_search` does not support `document_id_filter` — returns unscoped results
+- No `INTERACTS_WITH` or `CONTRAINDICATED_IN` relation types reliably extracted across CPGs
+
+### What "good" looks like (target schema)
+
+```
+(Drug {name, generic_name, drug_class})
+    -[:INTERACTS_WITH {severity, mechanism, cpg_chunk_id}]-> (Drug)
+    -[:CONTRAINDICATED_IN {reason, severity, cpg_chunk_id}]-> (Condition)
+    -[:CROSS_REACTS_WITH {risk_pct, cpg_chunk_id}]-> (Allergen)
+    -[:REQUIRES_DOSE_ADJUSTMENT {trigger, target, cpg_chunk_id}]-> (Condition)
+
+(Condition {name, icd11_code, severity_field})
+    -[:FIRST_LINE_TREATMENT {grade, level, cpg_chunk_id}]-> (Drug)
+    -[:MONITORED_BY {parameter, frequency, cpg_chunk_id}]-> (LabTest)
+```
+
+Every relation carries a `cpg_chunk_id` for traceability back to the originating evidence chunk. This is the property that makes KG-based flags clinically defensible — every interaction surfaces with a real citation, not a memorised pair.
 
 ### Fix plan (Phase 3 — after Phase 2 category filter)
 
-1. Add `icd11_code` to Condition nodes (Cypher batch, 2 h)
-2. Re-run `graph_builder.py` scoped to Treatment/Assessment chunks using category filter (1 day)
-3. Wire `graph_search` into Stage 4 contraindication query path (0.5 day)
-4. Validate: patient on warfarin → graph returns CONTRAINDICATED_WITH nitrates (1 h)
+1. **Schema** — add `icd11_code` to `(:Condition)` nodes (Cypher batch, 2 h)
+2. **Re-extract** — re-run `graph_builder.py` scoped to Treatment/Assessment chunks using category filter, with extraction prompt explicitly asking for the 6 relation types above (1 day)
+3. **Wire retrieval** — modify Stage 4 to call `graph_search` for:
+   - Drug-drug interactions: query each `case.current_medications` × each drug mentioned in retrieved chunks
+   - Allergy cross-reactivities: query each `case.allergies` for `CROSS_REACTS_WITH` edges
+   - Comorbidity dose adjustments: query each `case.comorbidities` ICD for `REQUIRES_DOSE_ADJUSTMENT` edges from any drug in chunks (0.5 day)
+4. **Inject into Stage 5** — graph results become a structured "INTERACTION FLAGS" block prepended to the evidence text (replaces the hardcoded-table approach from former Gap 2). Each flag carries its CPG chunk citation (0.5 day)
+5. **Validate** — fixture cases:
+   - warfarin + retrieved-rivaroxaban → `INTERACTS_WITH severity=MAJOR cpg_chunk_id=<x>` returned by graph
+   - sulfa allergy + retrieved-furosemide → `CROSS_REACTS_WITH risk_pct=1 cpg_chunk_id=<y>`
+   - T2DM + retrieved-metformin + CKD Stage 4 in comorbidities → `REQUIRES_DOSE_ADJUSTMENT trigger=eGFR<30`
 
-**Effort:** ~2 days | **Status:** 🔜 Phase 3 (after Phase 2)
+### Bridge until KG lands
+
+The Stage 5 synthesis prompt (`agent/prompts/stage5_synthesis.txt`) already requires every pharmacological recommendation to populate `contraindications_checked` against the patient's full `allergies` and `current_medications` lists. The LLM performs the screen from training memory — imperfect, but explicit and clinician-visible. Once KG lands, the LLM additionally sees structured "INTERACTION FLAGS" prepended to evidence, making omissions structurally implausible.
+
+### Out of scope for this gap
+
+- ❌ Do NOT build a hardcoded `HIGH_RISK_PAIRS` Python table — that's the path the former `Gaps_Closing.md` Gap 2 proposed, and it creates retire-debt once KG provides the same data evidence-grounded
+- ❌ Do NOT add `INTERACTS_WITH` relations by manual Cypher inserts — extraction must come from the CPG text so every relation has a `cpg_chunk_id`
+
+**Effort:** ~2.5 days | **Status:** 🔜 Phase 3 (after Phase 2 SQL category pre-filter)
 
 ---
 

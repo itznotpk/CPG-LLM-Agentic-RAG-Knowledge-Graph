@@ -9,9 +9,63 @@ from dataclasses import dataclass, field
 
 from .models import PatientCase, TreatmentPlan
 from .clinical_stages import DDxResult, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
-from .routing import CPGDocRef
+from .routing import CPGDocRef, route_icd_to_cpgs
 
 logger = logging.getLogger(__name__)
+
+
+async def route_comorbidities(
+    comorbidities: list[str],
+    existing_cpgs: list[CPGDocRef],
+    top_k: int = 2,
+) -> list[CPGDocRef]:
+    """Map free-text comorbidity names to additional CPG documents.
+
+    For each comorbidity, run a DDx lookup (top_k=3) to obtain an ICD-11 code,
+    then route that code to CPGs. Skips matches below similarity 0.55 to prevent
+    semantic-fallback drift (e.g. DM/CKD routing to Breast Cancer CPG).
+    Deduplicated against existing_cpgs.
+    """
+    from ddx.search_ddx import search_ddx
+    additional: list[CPGDocRef] = []
+    existing_names = {c.cpg_name for c in existing_cpgs}
+    for condition in comorbidities[:4]:           # cap at 4 to limit latency
+        if not condition.strip():
+            continue
+        try:
+            hits = await search_ddx(condition, top_k=3)
+            logger.info(
+                "Comorbidity %r → DDx candidates: %s",
+                condition,
+                [(h.get("code"), h.get("title"), round(h.get("similarity", 0), 3)) for h in hits[:3]],
+            )
+            if not hits:
+                continue
+
+            top = hits[0]
+            top_similarity = top.get("similarity", 0)
+            if top_similarity < 0.55:
+                logger.warning(
+                    "Comorbidity %r — top DDx %s (%s) similarity %.3f below 0.55 threshold; skipping",
+                    condition, top.get("code"), top.get("title"), top_similarity,
+                )
+                continue
+
+            refs = await route_icd_to_cpgs(top.get("code"), top_k=top_k)
+            logger.info(
+                "Comorbidity %r → ICD %s → CPGs: %s (match_types=%s)",
+                condition, top.get("code"),
+                [r.cpg_name for r in refs],
+                [r.match_type for r in refs],
+            )
+
+            for ref in refs:
+                if ref.cpg_name not in existing_names:
+                    additional.append(ref)
+                    existing_names.add(ref.cpg_name)
+        except Exception as exc:
+            logger.warning("Comorbidity routing failed for %r: %s", condition, exc)
+    return additional
 
 
 @dataclass
@@ -54,6 +108,9 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     # Stage 3 — Route
     try:
         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3)
+        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
+        if extra_cpgs:
+            cpgs = cpgs + extra_cpgs
         logger.info("Stage 3 Routing: %d CPGs matched: %s",
                     len(cpgs), [c.cpg_name for c in cpgs])
     except Exception as e:
@@ -129,6 +186,11 @@ async def run_clinical_workflow_streaming(
     })
     try:
         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit)
+        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
+        if extra_cpgs:
+            cpgs = cpgs + extra_cpgs
+            for c in extra_cpgs:
+                await emit("sub_step", {"stage": 3, "detail": c.cpg_name, "badge": "comorbidity"})
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",

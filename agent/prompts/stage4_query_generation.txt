@@ -14,8 +14,11 @@ Do NOT write queries that are just the condition name — these retrieve overvie
 
 Domain 1 — PHARMACOTHERAPY
 Target: drug choice, dose, duration for this condition at this severity level.
-Include severity class if known (e.g. "WHO FC III", "NYHA Class II", "HbA1c >9%").
-Example: "first-line combination therapy ERA PDE5i WHO functional class III pulmonary arterial hypertension"
+ALWAYS embed the severity class from severity_staging into the query when provided
+(e.g. "WHO FC III", "NYHA Class II", "LVEF 35%", "HbA1c >9%").
+If severity_staging is "not specified", use whatever clinical severity cues appear in the history.
+Example without staging: "first-line pharmacotherapy heart failure reduced ejection fraction"
+Example with staging:    "first-line pharmacotherapy heart failure NYHA III LVEF 35% beta-blocker ACEi"
 
 Domain 2 — CONTRAINDICATIONS & DRUG INTERACTIONS
 Target: specific contraindications for the patient's current medications listed below.
@@ -28,11 +31,15 @@ Example: "LFT monitoring bosentan frequency target liver function pulmonary arte
 
 Domain 4 — DOSE ADJUSTMENT
 Target: dose modifications for the patient's specific comorbidities (renal, hepatic, elderly, paediatric).
-Include the relevant comorbidity explicitly.
-Example: "sildenafil dose adjustment renal impairment CKD eGFR pulmonary hypertension"
+ALWAYS embed the CKD stage and eGFR from severity_staging when provided.
+If CKD_stage or eGFR is present in severity_staging, include both in the query.
+Example without staging: "metformin dose renal impairment CKD"
+Example with staging:    "metformin dose CKD stage 3b eGFR 42 renal impairment dose reduction"
 
 Domain 5 — ESCALATION & REFERRAL
 Target: criteria for treatment escalation, specialist referral, hospitalisation, or switch of therapy.
-Example: "pulmonary hypertension treatment failure escalation referral WHO FC IV prostacyclin"
+Reference the current severity class from severity_staging to identify the next escalation threshold.
+Example without staging: "heart failure treatment failure escalation referral"
+Example with staging:    "heart failure NYHA III escalation criteria NYHA IV hospitalisation criteria"
 
 Return a JSON array of exactly 5 strings. No domain labels inside the strings. No markdown. No preamble.

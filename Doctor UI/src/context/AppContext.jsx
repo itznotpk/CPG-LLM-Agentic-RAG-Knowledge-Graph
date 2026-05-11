@@ -50,6 +50,7 @@ const initialState = {
     comorbidities: [],
     currentMeds: [],
   },
+  severityStaging: {},
   mpisSynced: false,
   nextReviewDate: '', // TCA date from step 1
   patientStatus: 'active', // Patient status from step 3 (active, follow-up, discharged)
@@ -79,6 +80,8 @@ function appReducer(state, action) {
       return { ...state, currentConsultationId: action.payload };
     case 'SET_VITALS':
       return { ...state, vitals: { ...state.vitals, ...action.payload } };
+    case 'SET_SEVERITY_STAGING':
+      return { ...state, severityStaging: action.payload };
     case 'SET_MPIS_DATA':
       return { ...state, mpisData: action.payload, mpisSynced: true };
     case 'SET_CLINICAL_PLAN_RESPONSE':
@@ -256,6 +259,7 @@ export function AppProvider({ children }) {
         (subStep) => {
           dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } });
         },
+        state.severityStaging || {},
       );
 
       const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
@@ -286,6 +290,7 @@ export function AppProvider({ children }) {
       try {
         const response = await runClinicalPlan(
           state.patient, state.vitals, state.clinicalNotes, state.mpisData,
+          state.severityStaging || {},
         );
         const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
         const carePlan  = mapTreatmentPlanToCarePlan(response.treatment_plan);
@@ -399,6 +404,7 @@ export function AppProvider({ children }) {
           (stageUpdate)  => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
           (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
           (overrideData) => dispatch({ type: 'SET_RESYNTH_OVERRIDE', payload: overrideData }),
+          state.severityStaging || {},
         );
 
         const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);

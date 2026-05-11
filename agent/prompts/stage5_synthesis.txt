@@ -106,7 +106,10 @@ SYNTHESIS RULES:
 
 1. recommendations — one Recommendation object per distinct clinical action supported by evidence.
    - intervention: follow the ACTION format above for pharmacological; be specific for all types
-   - cpg_source: cite exact chunk number and CPG section, e.g. "CPG PAH §6.1 [chunk 3]"
+   - cpg_source: cite exact chunk number and CPG section, e.g. "CPG PAH §6.1 [chunk 3]".
+     If the evidence header contains a "⚠ Published YYYY" tag, APPEND it verbatim to cpg_source
+     (e.g. "CPG PAH §6.1 [chunk 3] ⚠ Published 2011 (15y old)") AND add an unresolved_questions entry
+     noting the CPG is stale and a current guideline check is warranted.
    - evidence_grade: assign using EVIDENCE GRADE ASSIGNMENT rules above. Null if no tag present.
    - rationale: one sentence explaining WHY this applies to THIS SPECIFIC PATIENT.
      Must reference patient-specific data: age, sex, comorbidities, vitals, or medications.

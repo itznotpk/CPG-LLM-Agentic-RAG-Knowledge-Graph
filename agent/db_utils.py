@@ -395,7 +395,8 @@ async def vector_search(
                     1 - (c.embedding <=> $1::vector) AS similarity,
                     COALESCE(c.metadata::text, '{}') AS metadata,
                     d.title AS document_title,
-                    d.source AS document_source
+                    d.source AS document_source,
+                    d.published_year AS published_year
                 FROM chunks c
                 JOIN documents d ON d.id = c.document_id
                 WHERE c.document_id = ANY($3::uuid[])
@@ -413,13 +414,21 @@ async def vector_search(
                 limit,
             )
 
+        def _merge_year(row) -> dict:
+            md = json.loads(row["metadata"]) if isinstance(row["metadata"], str) else (row["metadata"] or {})
+            # match_chunks() doesn't return published_year — only the filter branch does
+            year = row["published_year"] if "published_year" in row.keys() else None
+            if year is not None:
+                md = {**md, "published_year": int(year)}
+            return md
+
         return [
             {
                 "chunk_id": row["chunk_id"],
                 "document_id": row["document_id"],
                 "content": row["content"],
                 "similarity": row["similarity"],
-                "metadata": json.loads(row["metadata"]) if isinstance(row["metadata"], str) else row["metadata"],
+                "metadata": _merge_year(row),
                 "document_title": row["document_title"],
                 "document_source": row["document_source"],
             }
@@ -466,7 +475,8 @@ async def hybrid_search(
                     similarity(c.content, $2)         AS text_similarity,
                     COALESCE(c.metadata::text, '{}')  AS metadata,
                     d.title  AS document_title,
-                    d.source AS document_source
+                    d.source AS document_source,
+                    d.published_year AS published_year
                 FROM chunks c
                 JOIN documents d ON d.id = c.document_id
                 WHERE c.document_id = ANY($6::uuid[])
@@ -489,6 +499,13 @@ async def hybrid_search(
                 text_weight,
             )
 
+        def _merge_year(row) -> dict:
+            md = json.loads(row["metadata"]) if isinstance(row["metadata"], str) else (row["metadata"] or {})
+            year = row["published_year"] if "published_year" in row.keys() else None
+            if year is not None:
+                md = {**md, "published_year": int(year)}
+            return md
+
         return [
             {
                 "chunk_id": row["chunk_id"],
@@ -497,7 +514,7 @@ async def hybrid_search(
                 "combined_score": row["combined_score"],
                 "vector_similarity": row["vector_similarity"],
                 "text_similarity": row["text_similarity"],
-                "metadata": json.loads(row["metadata"]) if isinstance(row["metadata"], str) else row["metadata"],
+                "metadata": _merge_year(row),
                 "document_title": row["document_title"],
                 "document_source": row["document_source"],
             }

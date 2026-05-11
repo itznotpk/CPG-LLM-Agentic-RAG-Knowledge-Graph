@@ -1,7 +1,7 @@
 const CLINICAL_API_BASE = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
 // ─── shared helper ────────────────────────────────────────────────────────────
-function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData) {
+function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities) {
   return {
     case: {
       chief_complaint: clinicalNotes || patientState.chiefComplaint || '',
@@ -29,6 +29,8 @@ function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData) {
         ...(vitals.weight      ? { weight: Number(vitals.weight) }     : {}),
         ...(vitals.height      ? { height: Number(vitals.height) }     : {}),
       } : {},
+      severity_staging: stagingData || {},
+      ...(structuredComorbidities?.length ? { staged_comorbidities: structuredComorbidities } : {}),
     },
   };
 }
@@ -37,8 +39,8 @@ function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData) {
  * Run the full clinical pipeline for a patient case.
  * Maps Doctor UI state → PatientCase → POST /clinical/plan → response.
  */
-export async function runClinicalPlan(patientState, vitals, clinicalNotes, mpisData) {
-  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData);
+export async function runClinicalPlan(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities) {
+  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities);
 
   const resp = await fetch(`${CLINICAL_API_BASE}/clinical/plan`, {
     method: 'POST',
@@ -74,8 +76,10 @@ export async function runClinicalPlanStream(
   onStageUpdate,
   onThinkingChunk,
   onSubStep,
+  stagingData,
+  structuredComorbidities,
 ) {
-  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData);
+  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities);
 
   const response = await fetch(`${CLINICAL_API_BASE}/clinical/plan/stream`, {
     method: 'POST',
@@ -157,11 +161,15 @@ export async function resynthesizePlanStream(
   onStageUpdate,
   onSubStep,
   onClinicianOverride,
+  stagingData,
+  structuredComorbidities,
 ) {
   const BASE_URL = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
   const body = {
-    case: buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData).case,
+    case: buildClinicalPlanBody(
+      patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities,
+    ).case,
     selected_diagnoses: selectedDiagnoses.map((d) => ({
       code:        d.icdCode,
       title:       d.name,

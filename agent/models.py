@@ -209,6 +209,14 @@ class AgentContext(BaseModel):
 
 
 # Clinical Workflow Models
+class StagedComorbidity(BaseModel):
+    """Structured comorbidity entry — supersedes free-text strings.
+    Frontend submits this when the clinician picks from a dropdown."""
+    icd_code: Optional[str] = Field(None, description="ICD-11 code if known, e.g. '5A11', 'GB61.3'")
+    label: str = Field(..., description="Human-readable label, e.g. 'Type 2 Diabetes Mellitus', 'CKD Stage 3'")
+    severity: Optional[str] = Field(None, description="Severity qualifier, e.g. 'Stage 3b', 'NYHA III'")
+
+
 class PatientCase(BaseModel):
     """Stage 1 input — structured patient record passed into the clinical workflow."""
 
@@ -216,10 +224,21 @@ class PatientCase(BaseModel):
     history: Optional[str] = Field(None, description="Patient history narrative")
     age: Optional[int] = Field(None, ge=0, le=130, description="Patient age in years")
     sex: Optional[Literal["M", "F", "other"]] = Field(None, description="Biological sex")
-    comorbidities: List[str] = Field(default_factory=list, description="List of known comorbidities")
+    # KEEP the free-text comorbidities list for backward compatibility with existing CLI / older UI
+    comorbidities: List[str] = Field(default_factory=list, description="Free-text comorbidity list (legacy)")
     current_medications: List[str] = Field(default_factory=list, description="Current medication names")
     allergies: List[str] = Field(default_factory=list, description="Known allergies")
     vitals: Dict[str, float] = Field(default_factory=dict, description="Vital signs, e.g. {'sbp': 165, 'dbp': 95, 'hr': 110}")
+    # NEW — structured severity staging dictionary
+    severity_staging: Dict[str, str] = Field(
+        default_factory=dict,
+        description="Structured staging: NYHA, WHO_FC, CKD_stage, HbA1c, LVEF, eGFR, etc.",
+    )
+    # NEW — optional structured comorbidities (retires Gap D1 deterministic map)
+    staged_comorbidities: List[StagedComorbidity] = Field(
+        default_factory=list,
+        description="Structured comorbidities with ICD codes. Frontend may populate either this OR comorbidities (free text).",
+    )
 
     @field_validator("chief_complaint")
     @classmethod
