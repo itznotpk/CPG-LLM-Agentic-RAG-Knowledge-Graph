@@ -23,7 +23,7 @@ from .tools import VectorSearchInput, vector_search_tool
 
 logger = logging.getLogger(__name__)
 
-DDX_RERANK_MODEL = "gemini-2.5-flash-preview-05-20"
+DDX_RERANK_MODEL = os.getenv("DDX_RERANK_MODEL", "gemini-2.5-flash-preview-05-20")
 DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidates
 
 
@@ -267,10 +267,11 @@ async def _generate_retrieval_queries(
     icd_summary = ", ".join(f"{d.code} ({d.title})" for d in ddx[:2])
     cpg_names = ", ".join(c.cpg_name for c in cpgs)
     vitals_str = json.dumps(case.vitals) if case.vitals else "none"
+    severity_str = json.dumps(getattr(case, "severity_staging", {})) if getattr(case, "severity_staging", None) else "not specified"
 
-    prompt = f"""You are a clinical search query expert.
+    system_prompt = _load_prompt("stage4_query_generation.txt")
 
-Patient:
+    user_content = f"""patient_context:
 - Chief complaint: {case.chief_complaint}
 - Age/sex: {case.age or "unknown"} / {case.sex or "unknown"}
 - History: {case.history or "none"}
@@ -278,17 +279,21 @@ Patient:
 - Current medications: {", ".join(case.current_medications) or "none"}
 - Vitals: {vitals_str}
 
-Predicted ICD-11 codes: {icd_summary}
-Relevant CPGs: {cpg_names}
+icd_codes: {icd_summary}
+cpg_names: {cpg_names}
+severity_staging: {severity_str}
 
-Generate exactly {n} targeted search queries to retrieve the most relevant CPG recommendations for this patient.
-Each query should target a specific clinical decision (e.g. drug choice, dosing, contraindication check, monitoring).
-Do NOT use the patient's name or generic phrases like "treatment guidelines".
-Return a JSON array of strings, nothing else. Example: ["query 1", "query 2", "query 3"]"""
+Generate exactly {n} queries (one per domain as instructed)."""
+
+    messages = (
+        [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_content}]
+        if system_prompt
+        else [{"role": "user", "content": user_content}]
+    )
 
     resp = await client.chat.completions.create(
         model=model,
-        messages=[{"role": "user", "content": prompt}],
+        messages=messages,
         temperature=0.2,
     )
     raw = resp.choices[0].message.content.strip()
@@ -303,7 +308,7 @@ async def stage_4_retrieve(
     case: PatientCase,
     ddx: list[DDxResult],
     cpgs: list[CPGDocRef],
-    queries_per_code: int = 3,
+    queries_per_code: int = 5,
     chunks_per_query: int = 5,
     emit=None,                      # async callable | None
 ) -> list[ChunkResult]:
@@ -347,7 +352,28 @@ async def stage_4_retrieve(
                 "status": "complete",
             })
 
-    all_chunks.sort(key=lambda c: c.score, reverse=True)
+    _CATEGORY_BOOST: dict[str, float] = {
+        "Treatment": 1.4,
+        "Supportive Treatment": 1.3,
+        "Assessment": 1.2,
+        "Diagnosis": 1.2,
+        "Prevention": 1.2,
+        "Special Populations": 1.1,
+        "Reference": 1.0,
+        "Introduction": 0.5,
+        "Pathophysiology": 0.4,
+        "Epidemiology": 0.4,
+        "Methodology": 0.3,
+    }
+
+    def _boosted_score(chunk: ChunkResult) -> float:
+        cats = chunk.metadata.get("category", [])
+        if not cats:
+            return chunk.score
+        boost = max(_CATEGORY_BOOST.get(cat, 1.0) for cat in cats)
+        return min(chunk.score * boost, 1.0)
+
+    all_chunks.sort(key=_boosted_score, reverse=True)
     final = all_chunks[:20]
 
     if emit:
@@ -364,16 +390,18 @@ async def stage_4_retrieve(
 # Stage 5 — Synthesize
 # ---------------------------------------------------------------------------
 
-SYNTHESIS_SYSTEM = """You are a clinical decision support system grounded in evidence-based guidelines.
-Your role is to synthesise a treatment plan from the retrieved CPG evidence provided.
+def _load_prompt(filename: str) -> str:
+    """Load a prompt from agent/prompts/<filename>. Falls back to empty string on error."""
+    prompt_path = os.path.join(os.path.dirname(__file__), "prompts", filename)
+    try:
+        with open(prompt_path, encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        logger.warning("Prompt file not found: %s", prompt_path)
+        return ""
 
-Rules:
-- Every Recommendation.cpg_source MUST reference a specific CPG and section from the evidence (e.g. "CPG AF Management §4.2"). Do not invent sources.
-- If the evidence does not cover a needed clinical decision, add it to unresolved_questions instead of inventing a recommendation.
-- evidence_grade must come verbatim from the retrieved text (e.g. "Grade A, Level I") or be null if not stated.
-- confidence reflects how completely the evidence addresses this case (0.0 = no evidence, 1.0 = full coverage).
-- Return valid JSON matching the TreatmentPlan schema exactly. No markdown fences."""
 
+SYNTHESIS_SYSTEM = _load_prompt("stage5_synthesis.txt")
 SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
 
 
@@ -382,14 +410,14 @@ def _format_evidence(chunks: list[ChunkResult]) -> str:
     for i, c in enumerate(chunks, 1):
         section = c.metadata.get("section_number", "")
         cpg = c.document_title or c.document_source
-        lines.append(f"[{i}] {cpg} §{section}\n{c.content[:400]}")
+        lines.append(f"[{i}] {cpg} §{section}\n{c.content[:800]}")
     return "\n\n".join(lines)
 
 
 async def stage_5_synthesize(
     case: PatientCase,
     ddx: list[DDxResult],
-    cpgs: list[CPGDocRef],
+    _cpgs: list[CPGDocRef],
     evidence: list[ChunkResult],
 ) -> TreatmentPlan:
     """Synthesise a structured TreatmentPlan from patient context and CPG evidence."""
@@ -438,9 +466,11 @@ Produce a TreatmentPlan JSON object matching this schema:
     raw_json = resp.choices[0].message.content.strip()
     data = json.loads(raw_json)
 
-    # Ensure ICD fields are populated from DDx when LLM omits them
+    # Ensure required fields are populated when LLM omits them
     data.setdefault("icd_primary", icd_primary)
     data.setdefault("icd_alternates", icd_alternates)
+    data.setdefault("summary", f"ICD-11 {icd_primary}: {ddx[0].title if ddx else 'Unknown'}")
+    data.setdefault("follow_up", [])
 
     try:
         return TreatmentPlan.model_validate(data)

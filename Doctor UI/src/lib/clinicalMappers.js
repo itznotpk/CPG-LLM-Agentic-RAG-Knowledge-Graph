@@ -30,16 +30,17 @@ export function mapTreatmentPlanToCarePlan(plan) {
   const referrals       = plan.recommendations.filter(r => r.type === 'referral');
   const investigations  = plan.recommendations.filter(r => r.type === 'investigation');
 
-  // Build medication list — treat all pharmacological as START (no STOP/CHANGE without prior meds context)
-  const startMeds = pharmacological.map((r, i) => ({
-    id: i + 1,
-    name: r.intervention,
-    dose: '',            // LLM puts dose in intervention string
-    reason: r.rationale,
-    cpgRef: r.cpg_source,
-    evidenceGrade: r.evidence_grade || null,
-    accepted: true,
-  }));
+  // Split pharmacological recommendations by action field
+  const byAction = (action) => pharmacological
+    .filter(r => (r.action ?? 'start') === action)
+    .map((r, i) => ({
+      id: i + 1,
+      name: r.intervention,
+      reason: r.rationale,
+      cpgRef: r.cpg_source,
+      evidenceGrade: r.evidence_grade || null,
+      accepted: true,
+    }));
 
   const interventionItems = [...procedures, ...investigations].map((r, i) => ({
     id: i + 1,
@@ -67,26 +68,24 @@ export function mapTreatmentPlanToCarePlan(plan) {
     accepted: true,
   }));
 
-  // Clinical summary — build from primary ICD + first recommendation rationale
-  const summary = `ICD-11: ${plan.icd_primary}. Confidence: ${Math.round(plan.confidence * 100)}%. `
-    + (plan.recommendations[0]?.rationale || '');
-
   return {
-    clinicalSummary: summary,
+    clinicalSummary: plan.summary ?? '',
     icdPrimary: plan.icd_primary,
     icdAlternates: plan.icd_alternates,
     confidence: plan.confidence,
     medications: {
-      stop: [],
-      start: startMeds,
-      change: [],
-      continue: [],
+      start: byAction('start'),
+      stop: byAction('stop'),
+      change: byAction('change'),
+      continue: byAction('continue'),
+      contraindicated: byAction('contraindicated'),
     },
     interventions: interventionItems,
     lifestyle: lifestyleItems,
     referrals: referralItems,
     monitoring: plan.monitoring.map((m, i) => ({ id: i + 1, item: m, accepted: true })),
     redFlags: plan.red_flags,
+    followUp: plan.follow_up ?? [],
     unresolvedQuestions: plan.unresolved_questions,
   };
 }

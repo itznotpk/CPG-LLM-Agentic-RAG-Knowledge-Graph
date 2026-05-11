@@ -4,7 +4,6 @@ Pydantic models for data validation and serialization.
 
 from typing import List, Dict, Any, Optional, Literal
 from datetime import datetime
-from uuid import UUID
 from pydantic import BaseModel, Field, ConfigDict, field_validator
 from enum import Enum
 
@@ -238,6 +237,9 @@ class Recommendation(BaseModel):
     type: Literal["pharmacological", "procedure", "lifestyle", "referral", "investigation"] = Field(
         ..., description="Category of the recommendation"
     )
+    action: Optional[Literal["start", "stop", "change", "continue", "contraindicated"]] = Field(
+        None, description="For pharmacological only: medication action. Null for non-drug types."
+    )
     evidence_grade: Optional[str] = Field(None, description="Evidence grade, e.g. 'Grade A, Level 1'")
     cpg_source: str = Field(..., description="Required citation, e.g. 'CPG AF Management §4.2'")
     rationale: str = Field(..., description="Clinical rationale — required, non-empty")
@@ -249,9 +251,11 @@ class TreatmentPlan(BaseModel):
 
     icd_primary: str = Field(..., description="Highest-confidence ICD-11 code")
     icd_alternates: List[str] = Field(default_factory=list, description="Alternative ICD-11 codes considered")
+    summary: str = Field(..., description="Clinical assessment: diagnosis type, key risk factors, safety alerts, and classification")
     recommendations: List[Recommendation] = Field(..., description="Clinical recommendations — must contain at least one entry")
-    monitoring: List[str] = Field(default_factory=list, description="Monitoring parameters to track")
-    red_flags: List[str] = Field(default_factory=list, description="Symptoms or signs that warrant escalation")
+    monitoring: List[str] = Field(default_factory=list, description="Monitoring parameters with targets and frequency")
+    red_flags: List[str] = Field(default_factory=list, description="Symptoms or signs that warrant escalation or immediate review")
+    follow_up: List[str] = Field(default_factory=list, description="Follow-up timeline, reassessment criteria, and outcome-based actions")
     confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score for the plan (0.0–1.0)")
     unresolved_questions: List[str] = Field(default_factory=list, description="Clinical questions that could not be resolved from available evidence")
 
