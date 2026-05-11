@@ -1,121 +1,118 @@
 # SECTION 8: MANAGEMENT OF COMPLICATIONS
 
 <!-- METADATA
-category: Supportive Treatment
-use_case: NPC Treatment Complication Management — oral_complications, xerostomia, mucositis, osteoradionecrosis, trismus, cranial_nerve_palsy, hearing_loss, radiation_toxicity
-patient_input: complication_type, severity, time_since_treatment, cranial_nerve_status
+category: Treatment, Supportive Treatment
+use_case: NPC Complication Management — xerostomia, mucositis, osteoradionecrosis, cranial_nerve_palsy, otitis_media, radiation_toxicity, pilocarpine
+patient_input: complication_type, severity, time_since_treatment, cranial_nerve_status, dental_status
 output: complication_management_plan, symptom_relief, rehabilitation_referral
+treatment_type: pilocarpine, fluoride_therapy, chlorhexidine, hyperbaric_oxygen, botulinum_toxin_A
 -->
 
-> **Context:** Guidelines for managing common oral, neurological, and related complications arising post-treatment for NPC.
-
-Post-radiotherapy complications such as oral complications, aural complications, and cranial nerve palsies are common in NPC treatment.
-
-*(For an exhaustive list of radiation toxicities, refer to Appendix 8: Toxicities of Radiotherapy on Head and Neck below)*
+Post-radiotherapy complications such as oral and aural complications, and cranial nerve palsies are common in the treatment of NPC. Other late toxicities post-radiotherapy are listed in **Appendix 8: Toxicities of Radiotherapy on Head and Neck**.
 
 ## 8.1 Oral Complications
 
-Oral complications cause significant negative impacts on physical function, social interaction, and overall oral health-related quality of life. Dental assessment *prior* to radiotherapy is essential to minimize these risks.
+The common oral complications post-radiotherapy are:
+- [Level II-3] xerostomia (80% to 100%)
+- [Level II-3] mucositis (60% from third to fourth week after the beginning of radiotherapy)
+- [Level II-3] candidiasis (16% to 67%)
 
-| Post-RT Complication | Frequency/Risk Window | Evidence |
-|---|---|---|
-| **Xerostomia** | Very Common (80% to 100%) | Level II-3 |
-| **Mucositis** | Typically peaks 3rd to 4th week of RT (60%) | Level II-3 |
-| **Candidiasis** | Common (16% to 67%) | Level II-3 |
+It is essential that NPC patients receive dental assessment prior to radiotherapy to minimise post-treatment oral complications. [Level II-3] The oral complications among NPC survivors causes significant negative impact in functional, physical, social and handicap in oral health-related quality of life (Oral Health Impact Profile-subscale).
 
-### Dental Management Strategies
-While targeted clinical trials for NPC specific dental management are lacking, general head and neck cancer interventions include:
+At present, there is no retrievable evidence on specific dental management in NPC patients due to lack of clinical trials for such treatment modality. However, some of the dental management for the head and neck cancer includes:
+- [Level I] fluoride therapy
+- [Level I] chlorhexidine rinse (preferably alcohol-free)
+- [Level II-3] dental extraction
 
-- Fluoride therapy [Level I]
-- Chlorhexidine rinse (preferably alcohol-free) [Level I]
-- Dental extraction [Level II-3]
+Treatment for xerostomia is limited. Locally, symptomatic relief such as frequent sipping of plain water and the use of moisturising mouth gel or gargle has been offered to the affected patients. [Level I] Although there is limited evidence available, pilocarpine is an efficacious and safe option of treatment.
 
-### Management of Xerostomia
-- **Symptomatic relief:** Frequent sipping of plain water, moisturizing mouth gel/gargle.
-- **Pharmacological Treatment:** Pilocarpine is an efficacious and safe option for symptomatic relief. [Level I]
+## 8.2 Osteoradionecrosis
 
-## 8.2 Osteoradionecrosis (ORN)
+Dental diseases increase the risk of osteoradionecrosis (ORN). Therefore, dental assessment prior to radiotherapy is essential to reduce the risks of ORN.
 
-Dental disease heavily increases the risk of osteoradionecrosis (ORN). Pre-radiotherapy dental assessment mitigates this risk.
+Osteoradionecrosis of the skull base post-radiotherapy can be controlled by sequestrectomy combined with hyperbaric oxygen in majority of NPC patients. [Level III] In extensive cases, radical sequestrectomy with microvascular free flap reconstruction are justified. Long-term antibiotics can be used but may not be sufficient to treat an extensive disease.
 
-| Extent of Disease | Treatment Modality |
-|---|---|
-| **Standard Presentation** | Can be controlled by sequestrectomy combined with hyperbaric oxygen therapy. |
-| **Extensive Disease** | Radical sequestrectomy with microvascular free flap reconstruction is justified. Long-term antibiotics may be used but are typically insufficient. [Level III] |
+---
 
-### Recommendation 7
+> **Recommendation 7**
+> - All nasopharyngeal carcinoma (NPC) patients should have dental assessment prior to radiotherapy and treated accordingly by oral/dental specialists trained in dealing with patients receiving radiotherapy.
+> - Pilocarpine may be offered for treatment of post-radiotherapy xerostomia in NPC patients, if it is available.
 
-- All nasopharyngeal carcinoma (NPC) patients should have a dental assessment prior to radiotherapy and be treated accordingly by oral/dental specialists trained in dealing with patients receiving radiotherapy.
-- Pilocarpine may be offered for treatment of post-radiotherapy xerostomia in NPC patients, if available.
+---
 
 ## 8.3 Cranial Nerve Palsy
 
-There is no definitive cure for cranial nerve palsy post-radiotherapy. Treatments are primarily symptomatic:
-
-| Condition / Symptom | Symptomatic Treatment Option |
-|---|---|
-| **Dysphagia / Aspiration Risk** | Nasogastric tube or gastrostomy tube feeding. |
-| **Intractable Aspiration** (Due to encephalopathy or nerve damage) | Closure of laryngotracheal cavity and tracheostomy. [Level III] |
-| **Strabismus** (Due to 6th cranial nerve palsy) | Temporary Botulinum Toxin A injection. [Level III] |
+There is no definite treatment for cranial nerve palsy post-radiotherapy in NPC patients. Symptomatic treatments such as nasogastric tube or gastrostomy tube feeding for dysphagia or aspiration may be offered. [Level III] In intractable aspiration secondary to radiation encephalopathy or radiation damage of cranial nerve, closure of laryngotracheal cavity and tracheostomy is an option. [Level III] Strabismus as a result of sixth cranial nerve palsy can be treated temporarily by Botulinum Toxin A injection.
 
 ## 8.4 Otitis Media with Effusion
 
-*(Refer to Subchapter 7.2 under Supportive Care)*
+Refer to **Section 7.2** under **Supportive Care**.
 
-# Subchapter 7.2
+---
 
-Otitis media with effusion (OME) is a common complication in NPC patients.
+## Contextual Anchors (Overlapping)
+### Section 7.2: Treatment of Otitis Media with Effusion
 
-**Post-Irradiation OME Treatment Options:** [Level I]
-1. Myringotomy plus grommet insertion
-2. Simple aspiration (auripuncture)
-3. Tympanic membrane fenestration with cauterization
+Otitis media with effusion (OME) is common in NPC patients. [Level I] The treatment options for post-irradiation OME are:
+- Myringotomy plus grommet insertion
+- Simple aspiration (auripuncture)
+- Tympanic membrane fenestration with cauterization
 
-| Procedure | Clinical Efficacy | Complication Rate |
-|---|---|---|
-| **Myringotomy + Grommet** | Higher cure rate at the end of 2-year follow-up (51%) | Higher incidence of complications (28.9%) |
-| **Simple Auripuncture + Aspiration**| Lower cure rate (38%) | Lower incidence of complications (15.6%) |
+[Level I] Myringotomy and grommet insertion has higher cure rate at the end of 2-year follow-up compared with simple auripuncture plus aspiration (51% vs 38%, p=0.011) despite higher incidence of complications (28.9% vs 15.6%).
 
-*(Significance: Myringotomy + grommet yields significantly better outcomes despite higher complication risk; p=0.011)*
+---
 
-*(Refer to Subchapter 7.2 under Supportive Care)*
+### Appendix 8: Toxicities of Radiotherapy on Head and Neck
 
-## Appendix 8: Toxicities of Radiotherapy on Head and Neck
-
-### Acute Toxicities
-- Taste changes
-- Nausea and vomiting
-- Haematological toxicities (neutropaenia)
+### ACUTE TOXICITIES
 - Lethargy
 - Radiation dermatitis
 - Mucositis
 - Dysphagia
+- Taste changes
+- Nausea and vomiting
+- Haematological toxicities (neutropaenia)
 
-### Late Toxicities
-**Neurological Complications:**
+### LATE TOXICITIES
+
+**Neurological Complications**
 - Temporal lobe injuries
 - Cranial nerve palsies
-- Lhermitte's syndrome
+- Lhermitte’s syndrome
 
-**Non-neurological Complications:**
+**Non-neurological Complications**
 - Tinnitus
 - Hearing loss
 - Otorrhea
 - Trismus
 - Dysphagia
 - Subcutaneous fibrosis
-- Endocrinopathy (primary hypothyroidism, hypopituitarism)
+- Endocrinopathy
+  - primary hypothyroidism
+  - hypopituitarism
 - Xerostomia
 - Second cancer within radiotherapy fields
 
-<!-- ============================================================ -->
+---
 
-### Abbreviations
+## LEVELS OF EVIDENCE
+
+| Level | Study design |
+|---|---|
+| I | Evidence from at least one properly randomised controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomisation |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
+| II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
+
+*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
+
+---
+
+## Abbreviations used in this section
 
 | Abbreviation | Full Term |
 |---|---|
-| NPC | Nasopharyngeal carcinoma |
+| NPC | Nasopharyngeal Carcinoma |
+| OME | Otitis Media with Effusion |
 | ORN | Osteoradionecrosis |
-| RT | Radiotherapy |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->

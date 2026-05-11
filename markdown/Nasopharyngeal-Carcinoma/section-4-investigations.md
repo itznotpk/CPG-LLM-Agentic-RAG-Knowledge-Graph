@@ -8,73 +8,68 @@ output: histopathological_diagnosis, WHO_histological_type, EBV_status, baseline
 critical: true
 -->
 
-> **Context:** Baseline investigations, cytology, and histopathological diagnosis of NPC.
-
 ## 4.1 Baseline Investigations
 
-While there is no retrievable evidence specifically on baseline investigations for NPC patients, established routine assessments are necessary to evaluate the patient's general health before treatment.
-
-**Required Baseline Investigations:**
-- Full blood count
-- Renal profile
-- Random blood sugar
-- Liver function test
-- Chest X-ray
-- Electrocardiogram (ECG)
+There is no retrievable evidence on baseline investigations for NPC patients. The established baseline investigations which include full blood count, renal profile, random blood sugar, liver function test, chest X-ray and electrocardiogram (ECG) are required to assess patient’s general health.
 
 ## 4.2 Histopathology and Cytology
 
-### 4.2.1 Biopsy and Cytology Procedures
+Biopsy of nasopharynx is mandatory in diagnosis of NPC. It is the preferred method for obtaining a definitive histological diagnosis as diagnostic sensitivity of nasopharyngeal cytology is limited (70 - 90%). Biopsies are taken via nasopharyngoscopy from the gross lesions. In the absence of a gross lesion, multiple biopsies should be taken from nasopharynx for patients with high suspicion of NPC. Fine needle aspiration cytological (FNAC) examination of enlarged cervical lymph nodes is useful in reaching a diagnosis of metastatic NPC, either for initial diagnosis or staging.
 
-| Diagnostic Approach | Details | Evidence/Notes |
-|---|---|---|
-| **Nasopharyngeal Biopsy** | Mandatory for definitively diagnosing NPC. Performed via nasopharyngoscopy. | If no gross lesion is present but suspicion is high, multiple biopsies should be taken. |
-| **Cytology** | Diagnostic sensitivity is limited (70% - 90%). | Biopsy is preferred over cytology alone. |
-| **FNAC of Lymph Nodes** | Useful for reaching a diagnosis of metastatic NPC. | Full head and neck assessment should be done *before* lymph node biopsy to account for possible extracapsular spread. |
+Histological grading of NPC is based on World Health Organization (WHO) Classification of Tumours, Pathology and Genetics of Head and Neck Tumours as outlined in **Table 1: Histopathological Classification of Nasopharyngeal Carcinoma**.
 
-> **Clinical Note:** In doubtful situations where the histological finding is unclear, ancillary tests such as immunohistochemical staining and EBV encoded early RNAs (EBER) in-situ hybridization will be performed.
+> - In doubtful situation where the histological finding is unclear, ancillary tests such as immunohistochemical staining and EBV encoded early RNAs (EBER) in-situ hybridization will be performed.
 
-### 4.2.2 Histological Subtypes
+---
 
-Histological grading of NPC is based on the World Health Organization (WHO) Classification of Tumours, Pathology and Genetics of Head and Neck Tumours (2005).
+[Level III] Non-keratinizing carcinoma is the commonest histological subtype (75 - 99%) while the basaloid squamous cell carcinoma (SCC) is the least common (<0.2%). [Level III] Keratinizing SCC is more common in low incidence area of NPC. [Level II-2] The histological type does not differ by gender.
 
-| WHO Classification 2005 | Prevalence | Notes |
-|---|---|---|
-| **Non-keratinizing carcinoma** (Differentiated / Undifferentiated) | Most Common (75% - 99%) | Type does not differ by gender [Level II-2]. |
-| **Keratinizing squamous cell carcinoma** | Less Common | More common in geographic areas with low NPC incidence [Level III]. |
-| **Basaloid squamous cell carcinoma** | Rare (<0.2%) | |
+There is no retrievable evidence on contraindication of lymph node biopsy in NPC. However, the CPG DG opines that full ENT assessment and FNAC is warranted before embarking on lymph node biopsy due to the possibility of extracapsular spread of the cancer cells.
 
-**Table 1: Histopathological Classification of Nasopharyngeal Carcinoma**
+---
+
+> **Recommendation 2**
+> - Nasopharyngoscopy should be performed in all patients suspected of nasopharyngeal carcinoma (NPC).
+> - NPC should be diagnosed by histopathological examination of the nasopharynx.
+> - In patients presenting with cervical lymphadenopathy, full head and neck assessment and fine needle aspiration cytological examination of the nodes should be done.
+
+---
+## Contextual Anchors (Overlapping)
+### Table 1: Histopathological Classification of Nasopharyngeal Carcinoma
 
 | WHO Classification 2005 | WHO Classification 1991 | WHO Classification 1978 |
 |---|---|---|
 | Keratinizing squamous cell carcinoma | Squamous cell carcinoma | WHO Type I (Squamous cell carcinoma) |
-| Non-keratinizing carcinoma <br> • Differentiated | Non-keratinizing carcinoma <br> • Differentiated | WHO Type II (Non keratinizing carcinoma) |
-| Non-keratinizing carcinoma <br> • Undifferentiated | Non-keratinizing carcinoma <br> • Undifferentiated | WHO Type III (Undifferentiated carcinoma) |
+| Non-keratinizing carcinoma<br>• Differentiated | Non-keratinizing carcinoma<br>• Differentiated | WHO Type II (Non keratinizing carcinoma) |
+| • Undifferentiated | • Undifferentiated | WHO Type III (Undifferentiated carcinoma) |
 | Basaloid squamous cell carcinoma | No synonym exists (recently described) | No synonym exists (recently described) |
 
-### Recommendation 2
+---
 
-- Nasopharyngoscopy should be performed in all patients suspected of nasopharyngeal carcinoma (NPC).
-- NPC should be diagnosed by histopathological examination of the nasopharynx.
-- In patients presenting with cervical lymphadenopathy, full head and neck assessment and fine needle aspiration cytological (FNAC) examination of the nodes should be done.
+## LEVELS OF EVIDENCE
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Localized list of clinical abbreviations used in Section 4 -->
-<!-- ============================================================ -->
+| Level | Study design |
+|---|---|
+| I | Evidence from at least one properly randomised controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomisation |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
+| II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-### Abbreviations
+*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
+
+---
+
+## Abbreviations used in this section
 
 | Abbreviation | Full Term |
 |---|---|
-| CPG | Clinical practice guidelines |
-| DG | Development Group |
-| EBV | Ebstein-Barr virus |
+| CPG DG | Clinical Practice Guidelines Development Group |
+| EBV | Epstein-Barr Virus |
+| EBER | EBV encoded early RNAs |
 | ECG | Electrocardiogram |
-| FNAC | Fine needle aspiration cytology |
-| NPC | Nasopharyngeal carcinoma |
-| SCC | Squamous cell carcinoma |
+| ENT | Ear, Nose and Throat |
+| FNAC | Fine Needle Aspiration Cytology |
+| NPC | Nasopharyngeal Carcinoma |
+| SCC | Squamous Cell Carcinoma |
 | WHO | World Health Organization |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->

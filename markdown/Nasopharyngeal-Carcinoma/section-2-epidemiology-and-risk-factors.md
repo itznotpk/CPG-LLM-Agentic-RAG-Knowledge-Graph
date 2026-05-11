@@ -2,70 +2,61 @@
 
 <!-- METADATA
 category: Epidemiology
-use_case: NPC Epidemiology and Risk Factors — incidence_by_region, EBV_association, genetic_predisposition, dietary_risk, smoking, screening_recommendations
-patient_input: ethnicity, family_history, EBV_serology, dietary_history, smoking_status
-output: risk_category, screening_indication, EBV_serological_markers
+use_case: NPC Epidemiology and Risk Factors — incidence, prevalence, EBV, salted_fish, smoking, family_history, occupational_exposure, risk_factors
+patient_input: ethnicity, geographic_origin, dietary_history, family_history, EBV_status, smoking_status
+output: risk_assessment, epidemiological_context, risk_factor_identification
 -->
-
-> **Context:** Details regarding the epidemiology, associated risk factors, and screening guidelines for NPC.
 
 ## 2.1 Epidemiology
 
-### Global Statistics
+The number of new cancer cases is increasing worldwide. In 2012, there was an estimated of 86,700 new NPC cases with 50,800 deaths. [Level III] Although NPC may be considered one of the rarer forms of cancer globally, the incidence is notably high in selected geographic and ethnic populations, such as in South-East Asia and Southern China. 
 
-| Metric | Detail | Evidence |
-|---|---|---|
-| **New Cases (2012)** | Estimated 86,700 new cases globally | |
-| **Mortality (2012)** | Estimated 50,800 deaths globally | |
-| **High Incidence Regions** | South-East Asia and Southern China | Level III |
-
-### Malaysia Demographics
-
-| Demographic | Detail | Evidence |
-|---|---|---|
-| **National Cancer Rank** | 4th most common overall (5.2%); 3rd most common in males (8.4%) | Level III |
-| **Gender Ratio** | Male to Female ratio is 3:1 | Level III |
-| **Age Group** | Most common between 40 to 60 years old (Youngest detected: 6 years old) | Level III |
-| **Ethnicity** | Chinese (49%), Natives of Sabah/Sarawak (28%), Malay (22%) | Level III |
-| **Specific High Incidence** | Bidayuh in Sarawak (48.4%) | Level III |
+[Level III] In Malaysia, NPC is the fourth (5.2%) most common cancer among Malaysians and the third (8.4%) most common cancer among males. [Level III] The male to female ratio is 3:1 for both newly diagnosed and recurrent cases. [Level III] Most common age group at presentation is 40 to 60 years old. [Level III] However, NPC may also occur in younger age group and the youngest case of NPC detected was in a 6 year old. [Level III] NPC is predominant among Chinese (49%), followed by the natives of Sabah and Sarawak (28%) and Malay (22%). [Level III] In Sarawak, high incidence of NPC is reported among Bidayuh (48.4%). 
 
 ## 2.2 Risk Factors
 
-| Risk Factor | Details | Risk Increase | Evidence |
-|---|---|---|---|
-| **EBV Infection** | Patients testing positive for Epstein-Barr virus antibodies | **RR:** 3.5 to 32.8 | Level II-2 |
-| **Family History** | First-degree relatives of NPC patients | **Risk:** 3.1 to 8.0 times higher | Level II-2 |
-| **Tobacco Smoking** | Risk rises by 1-2% with each pack-year | **OR:** 2.41 (95% CI 1.61-3.60) | Level II-2 |
-| **Salted Fish** | Consumption since childhood, or ≥3 times/month | **OR:** 1.9 to 2.45 | Level II-2 |
-| **Wood Cooking Fires** | Domestic exposure for >10 years | **OR:** 5.8 (95% CI 2.5-13.6) | Level II-2 |
-| **Occupational Solvents** | Exposure for ≤10 years | **OR:** 2.6 (95% CI 1.4-4.8) | Level II-2 |
-| **Wood Dust** | Occupational exposure | **OR:** 1.63 (95% CI 1.02-2.61) | Level II-2 |
+Other risk factors for NPC are:
+- **Infection** – [Level II-2] increased risk of NPC in those tested positive for Epstein-Barr virus antibodies (RR of 3.5 to 32.8) 
+- **Family** – [Level II-2] the risk of NPC among the first-degree relatives was 3.1 to 8.0 compared to those without family history 
+- **Lifestyle and environment**
+  - **Tobacco smoking** [Level II-2] is one of the important risk factors for NPC (OR=2.41, 95% CI 1.61 to 3.60). [Level II-2] The risk rise by 1 - 2% with each pack-year of smoking. 
+  - [Level II-2] Consumption of **salted fish** has higher risk of getting NPC in people who consume it since childhood (OR=2.45, 95% CI 2.03 to 2.94) and those who have it for three times or more in 1 month (OR=1.9, 95% CI 1.1 to 3.5). 
+  - [Level II-2] Exposure to domestic **wood cooking fires** for more than 10 years (OR=5.8; 95% CI 2.5 to 13.6). 
+  - [Level II-2] Exposure to **occupational solvents** for 10 or less years (OR=2.6; 95% CI 1.4 to 4.8). 
+  - [Level II-2] Occupational exposure to **wood dust** (OR=1.63, 95% CI 1.02 to 2.61). 
 
 ## 2.3 Screening
 
-Screening for NPC in the general population in endemic areas relies on Epstein-Barr virus (EBV) serology tests and nasopharyngoscopy. However, current evidence does not support mass screening.
+Screening of NPC for general population in endemic area has been extensively studied. The methods used are Epstein-Barr virus (EBV) serology test and nasopharyngoscopy. [Level II-2] The Health Technology Assessment (HTA) report by the Ministry of Health (MoH) Malaysia published in 2011 concluded that there was insufficient evidence to recommend a population-based NPC screening programme as a public health policy. [Level I] The findings of a recent Cochrane systematic review on NPC screening published in 2015 were consistent with the HTA report. 
 
-**Key Evidence:**
-- The Health Technology Assessment (HTA) report by MoH Malaysia (2011) and a Cochrane systematic review (2015) independently concluded there is **insufficient evidence** to recommend a population-based NPC screening programme. [Level II-2, Level I]
+---
 
-### Recommendation
+> **Recommendation:**
+> - Screening of NPC in general population could not be recommended due to insufficient evidence for its effectiveness and safety.
 
-- Screening of NPC in general population could not be recommended due to insufficient evidence for its effectiveness and safety.
+---
+## LEVELS OF EVIDENCE
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Localized list of clinical abbreviations used in Section 2 -->
-<!-- ============================================================ -->
+| Level | Study design |
+|---|---|
+| I | Evidence from at least one properly randomised controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomisation |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
+| II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-### Abbreviations
+*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
+
+---
+
+## Abbreviations used in this section
 
 | Abbreviation | Full Term |
 |---|---|
-| CI | Confidence interval |
-| EBV | Ebstein-Barr virus |
+| CI | Confidence Interval |
+| EBV | Epstein-Barr virus |
+| HTA | Health Technology Assessment |
 | MoH | Ministry of Health |
 | NPC | Nasopharyngeal carcinoma |
-| OR | Odds ratio |
-| RR | Relative risk / risk ratio |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+| OR | Odds Ratio |
+| RR | Relative Risk |
