@@ -1,9 +1,10 @@
+@import "@fontsource/geist-sans";
+@import "@fontsource/geist-mono";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "@fontsource/geist-sans";
-@import "@fontsource/geist-mono";
 
 :root {
   /* Elegant healthcare accent colors (teal) */

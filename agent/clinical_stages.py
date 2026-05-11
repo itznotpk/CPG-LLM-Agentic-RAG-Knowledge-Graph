@@ -23,7 +23,7 @@ from .tools import VectorSearchInput, vector_search_tool
 
 logger = logging.getLogger(__name__)
 
-DDX_RERANK_MODEL = os.getenv("DDX_RERANK_MODEL", "gemini-2.5-flash-preview-05-20")
+DDX_RERANK_MODEL = os.getenv("LLM_CHOICE", "gpt-4o")
 DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidates
 
 
@@ -257,7 +257,7 @@ async def _generate_retrieval_queries(
     # STAGE4_LLM_* vars override main LLM config (e.g. when primary API is blocked)
     base_url = os.getenv("STAGE4_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("STAGE4_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("STAGE4_LLM_CHOICE") or os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
+    model = os.getenv("STAGE4_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
 
     client = openai.AsyncOpenAI(
         base_url=base_url,
@@ -424,7 +424,7 @@ async def stage_5_synthesize(
     # STAGE5_LLM_* vars override main LLM config (e.g. when primary API is blocked)
     base_url = os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "google/gemini-2.0-flash-001")
+    model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
 
     client = openai.AsyncOpenAI(
         base_url=base_url,

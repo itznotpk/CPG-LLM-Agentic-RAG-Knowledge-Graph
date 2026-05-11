@@ -11,7 +11,7 @@ import openai
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
+load_dotenv(override=True)
 
 
 def get_llm_model(model_choice: Optional[str] = None) -> OpenAIModel | BedrockConverseModel:
