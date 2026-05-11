@@ -1,0 +1,92 @@
+/**
+ * Map ClinicalPlanResponse.ddx → diagnosis state shape for DiagnosisSection
+ */
+export function mapDdxToDiagnosis(ddxList, cpgsMatched) {
+  const differentials = ddxList.map((d, i) => ({
+    id: i + 1,
+    name: d.title,
+    icdCode: d.code,
+    probability: Math.round(d.similarity * 100),
+    risk: d.similarity >= 0.85 ? 'high' : d.similarity >= 0.65 ? 'medium' : 'low',
+    reasoning: d.reasoning || [],       // LLM reasoning for display
+    inclusionMatch: d.inclusion_match,
+  }));
+
+  return {
+    differentials,
+    selectedDiagnosisIds: differentials.length > 0 ? [differentials[0].id] : [],
+    cpgsMatched,    // e.g. ["CPG AF Management", "CPG Hypertension"]
+  };
+}
+
+/**
+ * Map ClinicalPlanResponse.treatment_plan → carePlan state shape for CarePlanSection
+ */
+export function mapTreatmentPlanToCarePlan(plan) {
+  // Split recommendations by type into UI sections
+  const pharmacological = plan.recommendations.filter(r => r.type === 'pharmacological');
+  const procedures      = plan.recommendations.filter(r => r.type === 'procedure');
+  const lifestyle       = plan.recommendations.filter(r => r.type === 'lifestyle');
+  const referrals       = plan.recommendations.filter(r => r.type === 'referral');
+  const investigations  = plan.recommendations.filter(r => r.type === 'investigation');
+
+  // Build medication list — treat all pharmacological as START (no STOP/CHANGE without prior meds context)
+  const startMeds = pharmacological.map((r, i) => ({
+    id: i + 1,
+    name: r.intervention,
+    dose: '',            // LLM puts dose in intervention string
+    reason: r.rationale,
+    cpgRef: r.cpg_source,
+    evidenceGrade: r.evidence_grade || null,
+    accepted: true,
+  }));
+
+  const interventionItems = [...procedures, ...investigations].map((r, i) => ({
+    id: i + 1,
+    name: r.intervention,
+    rationale: r.rationale,
+    urgency: '',
+    cpgRef: r.cpg_source,
+    evidenceGrade: r.evidence_grade || null,
+    accepted: true,
+  }));
+
+  const lifestyleItems = lifestyle.map((r, i) => ({
+    id: i + 1,
+    goal: r.intervention,
+    rationale: r.rationale,
+    cpgRef: r.cpg_source,
+    accepted: true,
+  }));
+
+  const referralItems = referrals.map((r, i) => ({
+    id: i + 1,
+    specialty: r.intervention,
+    reason: r.rationale,
+    cpgRef: r.cpg_source,
+    accepted: true,
+  }));
+
+  // Clinical summary — build from primary ICD + first recommendation rationale
+  const summary = `ICD-11: ${plan.icd_primary}. Confidence: ${Math.round(plan.confidence * 100)}%. `
+    + (plan.recommendations[0]?.rationale || '');
+
+  return {
+    clinicalSummary: summary,
+    icdPrimary: plan.icd_primary,
+    icdAlternates: plan.icd_alternates,
+    confidence: plan.confidence,
+    medications: {
+      stop: [],
+      start: startMeds,
+      change: [],
+      continue: [],
+    },
+    interventions: interventionItems,
+    lifestyle: lifestyleItems,
+    referrals: referralItems,
+    monitoring: plan.monitoring.map((m, i) => ({ id: i + 1, item: m, accepted: true })),
+    redFlags: plan.red_flags,
+    unresolvedQuestions: plan.unresolved_questions,
+  };
+}
