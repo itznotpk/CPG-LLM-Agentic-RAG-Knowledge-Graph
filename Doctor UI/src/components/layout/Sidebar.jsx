@@ -4,6 +4,7 @@ import {
   Users,
   Stethoscope,
   Settings,
+  BarChart3,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
@@ -13,6 +14,7 @@ const navItems = [
   { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
   { id: 'patients', label: 'My Patients', icon: Users },
   { id: 'consultation', label: 'Consultation', icon: Stethoscope },
+  { id: 'analytics', label: 'AI Performance', icon: BarChart3 },
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 

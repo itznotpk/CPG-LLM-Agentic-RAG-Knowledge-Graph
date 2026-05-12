@@ -360,7 +360,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>My Patients</h1>
-          <p className={`mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Manage your patient registry and follow-ups</p>
+          <p className={`mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Your patient panel and clinical history</p>
         </div>
         <button
           onClick={onNewPatient}
@@ -369,7 +369,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
             transition-transform hover:scale-[1.02] shadow-lg ${accent.shadow}`}
         >
           <UserPlus className="w-5 h-5" strokeWidth={1.5} />
-          New Patient
+          Walk-in Consult
         </button>
       </div>
 

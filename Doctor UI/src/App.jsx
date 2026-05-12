@@ -8,6 +8,7 @@ import {
   DiagnosisSection,
   CarePlanSection,
   OutputSection,
+  DashboardSection,
 } from './components/sections';
 import { StepIndicator, GlassPanel, PatientBanner } from './components/shared';
 import Home from './components/pages/Home';
@@ -150,6 +151,8 @@ function AppContent() {
         );
       case 'settings':
         return <Settings profile={profile} setProfile={setProfile} />;
+      case 'analytics':
+        return <DashboardSection />;
       case 'chart':
         return <PatientChart patient={chartPatient} onBack={() => setCurrentView('patients')} />;
       default:

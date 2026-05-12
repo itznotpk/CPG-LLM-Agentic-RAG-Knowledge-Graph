@@ -49,102 +49,6 @@ export const todaySchedule = [
       notes: 'Annual check-up, no acute complaints'
     }
   },
-  {
-    id: 'apt-003',
-    time: '10:00 AM',
-    patient: {
-      id: 'p-003',
-      name: 'Raj Kumar A/L Muthu',
-      age: 52,
-      gender: 'Male',
-      nsn: '740812-14-9012',
-      photo: null
-    },
-    status: 'waiting',
-    triage: {
-      vitals: {
-        bp: '180/110',
-        bpStatus: 'critical',
-        hr: 102,
-        temp: 37.0,
-        spo2: 94
-      },
-      chiefComplaint: 'Severe headache, blurred vision',
-      notes: 'Hypertensive urgency suspected, known HTN non-compliant with meds'
-    }
-  },
-  {
-    id: 'apt-004',
-    time: '10:30 AM',
-    patient: {
-      id: 'p-004',
-      name: 'Lee Mei Ling',
-      age: 35,
-      gender: 'Female',
-      nsn: '910605-07-3456',
-      photo: null
-    },
-    status: 'waiting',
-    triage: {
-      vitals: {
-        bp: '118/75',
-        bpStatus: 'normal',
-        hr: 68,
-        temp: 36.5,
-        spo2: 99
-      },
-      chiefComplaint: 'Prenatal check-up (20 weeks)',
-      notes: 'Second pregnancy, no complications so far'
-    }
-  },
-  {
-    id: 'apt-005',
-    time: '11:00 AM',
-    patient: {
-      id: 'p-005',
-      name: 'Mohammad Faiz bin Yusof',
-      age: 72,
-      gender: 'Male',
-      nsn: '540118-02-7890',
-      photo: null
-    },
-    status: 'waiting',
-    triage: {
-      vitals: {
-        bp: '145/88',
-        bpStatus: 'high',
-        hr: 78,
-        temp: 37.1,
-        spo2: 95
-      },
-      chiefComplaint: 'Chest discomfort on exertion',
-      notes: 'History of CAD, post-CABG 2019, on dual antiplatelet therapy'
-    }
-  },
-  {
-    id: 'apt-006',
-    time: '11:30 AM',
-    patient: {
-      id: 'p-006',
-      name: 'Aminah binti Osman',
-      age: 58,
-      gender: 'Female',
-      nsn: '680923-06-4567',
-      photo: null
-    },
-    status: 'waiting',
-    triage: {
-      vitals: {
-        bp: '130/82',
-        bpStatus: 'normal',
-        hr: 74,
-        temp: 36.7,
-        spo2: 97
-      },
-      chiefComplaint: 'Joint pain, difficulty climbing stairs',
-      notes: 'Suspected osteoarthritis, BMI 28'
-    }
-  }
 ];
 
 export const patientRegistry = [
@@ -154,7 +58,7 @@ export const patientRegistry = [
     age: 68,
     gender: 'Male',
     nsn: '600521-04-1834',
-    status: 'active', // active, discharged, follow-up
+    status: 'active',
     lastVisit: '2026-01-07',
     nextReview: '2026-01-10',
     tcaDays: 3,
@@ -206,66 +110,6 @@ export const patientRegistry = [
     email: 'siti.nurhaliza@email.com'
   },
   {
-    id: 'p-003',
-    name: 'Raj Kumar A/L Muthu',
-    age: 52,
-    gender: 'Male',
-    nsn: '740812-14-9012',
-    status: 'follow-up',
-    lastVisit: '2026-01-07',
-    nextReview: '2026-01-08',
-    tcaDays: 1,
-    diagnoses: ['Hypertensive Urgency', 'Essential Hypertension', 'Medication Non-compliance'],
-    riskLevel: 'critical',
-    phone: '+60 14-567 8901',
-    email: 'raj.kumar@email.com'
-  },
-  {
-    id: 'p-004',
-    name: 'Lee Mei Ling',
-    age: 35,
-    gender: 'Female',
-    nsn: '910605-07-3456',
-    status: 'active',
-    lastVisit: '2026-01-07',
-    nextReview: '2026-02-07',
-    tcaDays: 31,
-    diagnoses: ['Pregnancy (G2P1, 20 weeks)'],
-    riskLevel: 'moderate',
-    phone: '+60 15-678 9012',
-    email: 'mei.ling@email.com'
-  },
-  {
-    id: 'p-005',
-    name: 'Mohammad Faiz bin Yusof',
-    age: 72,
-    gender: 'Male',
-    nsn: '540118-02-7890',
-    status: 'follow-up',
-    lastVisit: '2026-01-07',
-    nextReview: '2026-01-14',
-    tcaDays: 7,
-    diagnoses: ['Coronary Artery Disease', 'Post-CABG', 'Stable Angina'],
-    riskLevel: 'high',
-    phone: '+60 16-789 0123',
-    email: 'faiz.yusof@email.com'
-  },
-  {
-    id: 'p-006',
-    name: 'Aminah binti Osman',
-    age: 58,
-    gender: 'Female',
-    nsn: '680923-06-4567',
-    status: 'active',
-    lastVisit: '2026-01-07',
-    nextReview: '2026-01-21',
-    tcaDays: 14,
-    diagnoses: ['Osteoarthritis', 'Overweight'],
-    riskLevel: 'low',
-    phone: '+60 17-890 1234',
-    email: 'aminah.osman@email.com'
-  },
-  {
     id: 'p-007',
     name: 'Tan Wei Ming',
     age: 28,
@@ -298,8 +142,8 @@ export const patientRegistry = [
 ];
 
 export const dashboardStats = {
-  totalAppointments: 6,
-  patientsWaiting: 6,
+  totalAppointments: 2,
+  patientsWaiting: 2,
   patientsInProgress: 0,
   patientsDone: 0,
 };
@@ -307,6 +151,4 @@ export const dashboardStats = {
 export const recentActivity = [
   { id: 1, action: 'Care plan generated', patient: 'Tan Wei Ming', time: '2 days ago', type: 'plan' },
   { id: 2, action: 'Follow-up scheduled', patient: 'Fatimah binti Ismail', time: '2 days ago', type: 'schedule' },
-  { id: 3, action: 'Lab results reviewed', patient: 'Mohammad Faiz', time: '3 days ago', type: 'lab' },
-  { id: 4, action: 'Prescription renewed', patient: 'Ahmad bin Abdullah', time: '1 week ago', type: 'prescription' },
 ];

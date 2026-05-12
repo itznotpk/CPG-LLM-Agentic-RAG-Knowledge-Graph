@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import {
-  Calendar,
   Clock,
   Play,
   ChevronRight,
   ChevronDown,
   Bell,
   Eye,
-  AlertTriangle,
   UserCheck,
-  RefreshCw,
   BookOpen,
   Timer,
   TrendingUp,
+  TrendingDown,
+  Minus,
   FileCheck,
   ArrowRight
 } from 'lucide-react';
@@ -24,11 +23,10 @@ import { useToast } from '../shared/Notification';
 import PatientQuickView from '../shared/PatientQuickView';
 
 const sampleNotifications = [
-  { id: 1, type: 'urgent', title: 'Critical Lab Result', message: 'Raj Kumar - HbA1c at 12.5%', time: '5 min ago', read: false },
-  { id: 2, type: 'alert', title: 'Appointment Reminder', message: 'Ahmad bin Abdullah scheduled in 30 minutes', time: '10 min ago', read: false },
+  { id: 1, type: 'urgent', title: 'Critical Lab Result', message: 'Wong Kin Meng - HbA1c at 8.5%', time: '5 min ago', read: false },
+  { id: 2, type: 'alert', title: 'Appointment Reminder', message: 'Siti Nurhaliza scheduled in 30 minutes', time: '10 min ago', read: false },
   { id: 3, type: 'info', title: 'MPIS Sync Complete', message: 'Patient records successfully updated', time: '1 hour ago', read: true },
   { id: 4, type: 'success', title: 'Care Plan Approved', message: 'Siti Nurhaliza care plan approved by specialist', time: '2 hours ago', read: true },
-  { id: 5, type: 'alert', title: 'Medication Refill', message: 'Mohammad Faiz prescription expires in 3 days', time: '3 hours ago', read: true },
 ];
 
 // Static impact metrics (in production: derived from care-plan pipeline)
@@ -37,6 +35,34 @@ const agenticImpact = {
   cpgAligned: { count: 12, total: 14 },
   citations: 38,
   referrals: { count: 3, cpgJustified: 3 },
+  // Yesterday baseline for trend calculation
+  yesterday: {
+    timeSavedMin: 39,
+    cpgAlignedPct: 79,
+    citations: 31,
+    referrals: 3,
+  },
+};
+
+// Trend badge: shows ▲/▼/– delta vs yesterday
+const TrendBadge = ({ current, previous, suffix = '' }) => {
+  const delta = current - previous;
+  const pct = previous > 0 ? Math.round((delta / previous) * 100) : 0;
+  if (delta === 0) return (
+    <span className="inline-flex items-center gap-0.5 text-[10px] font-medium text-slate-400">
+      <Minus className="w-3 h-3" strokeWidth={2} /> same as yesterday
+    </span>
+  );
+  const up = delta > 0;
+  return (
+    <span className={`inline-flex items-center gap-0.5 text-[10px] font-semibold ${up ? 'text-emerald-500' : 'text-rose-400'
+      }`}>
+      {up
+        ? <TrendingUp className="w-3 h-3" strokeWidth={2.5} />
+        : <TrendingDown className="w-3 h-3" strokeWidth={2.5} />}
+      {up ? '+' : ''}{pct}%{suffix} vs yesterday
+    </span>
+  );
 };
 
 const Home = ({ onStartConsult, onViewChart }) => {
@@ -148,7 +174,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
       'in-progress': 'bg-blue-500/20 text-blue-500 border-blue-400/30',
       done: 'bg-emerald-500/20 text-emerald-600 border-emerald-400/30'
     };
-    const labels = { waiting: 'Waiting', 'in-progress': 'In Progress', done: 'Done' };
+    const labels = { waiting: 'Waiting', 'in-progress': 'In Consult', done: 'Completed' };
     return (
       <span className={`px-2 py-1 rounded-full text-xs font-medium border ${styles[status] || ''}`}>
         {labels[status] || status}
@@ -193,7 +219,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
             <span className={accent.text}>Dr. Tay</span>
           </h1>
           <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-            {formatDate()}
+            {formatDate()} &nbsp;·&nbsp; <span className="ds-numeric font-medium">{formatTime()}</span>
           </p>
         </div>
 
@@ -243,7 +269,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                       <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0
                         ${notif.type === 'urgent' ? 'bg-red-500' :
                           notif.type === 'alert' ? 'bg-amber-500' :
-                          notif.type === 'success' ? 'bg-emerald-500' : 'bg-blue-500'}`}
+                            notif.type === 'success' ? 'bg-emerald-500' : 'bg-blue-500'}`}
                       />
                       <div className="flex-1 min-w-0">
                         <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{notif.title}</p>
@@ -260,131 +286,151 @@ const Home = ({ onStartConsult, onViewChart }) => {
       </div>
 
       {/* Today's Pulse strip */}
-      <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
-        <div className={`px-5 py-3 border-b ${isDark ? 'border-white/10' : 'border-slate-100'}`}>
-          <p className={`text-[10px] font-semibold uppercase tracking-widest ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            Today's Pulse
-          </p>
-        </div>
-        <div className={`divide-y ${isDark ? 'divide-white/5' : 'divide-slate-100'}`}>
+      <div>
+        <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+          Today's Pulse
+        </p>
+        <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
+          <div className={`divide-y ${isDark ? 'divide-white/5' : 'divide-slate-100'}`}>
 
-          {/* Critical cue */}
-          {criticalPatient ? (
-            <div className={`flex items-center gap-4 px-5 py-3.5 ${isDark ? 'bg-rose-500/8' : 'bg-rose-50/70'}`}>
-              <div className="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0 animate-pulse" />
-              <div className="flex-1 min-w-0">
-                <p className={`text-sm font-medium ${isDark ? 'text-rose-300' : 'text-rose-700'}`}>
-                  {criticalPatient.patient.name} needs you now
-                </p>
-                <p className={`text-xs ${isDark ? 'text-rose-400/70' : 'text-rose-500/80'}`}>
-                  {criticalPatient.triage.chiefComplaint} · arrived {criticalPatient.time}
-                </p>
+            {/* Critical cue */}
+            {criticalPatient ? (
+              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-rose-500 ${isDark ? 'bg-rose-500/8' : 'bg-rose-50/70'}`}>
+                <div className="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0 animate-pulse" />
+                <div className="flex-1 min-w-0">
+                  <p className={`text-sm font-medium ${isDark ? 'text-rose-300' : 'text-rose-700'}`}>
+                    {criticalPatient.patient.name} needs you now
+                  </p>
+                  <p className={`text-xs mt-0.5 ${isDark ? 'text-rose-400/70' : 'text-rose-500/80'}`}>
+                    {criticalPatient.triage.chiefComplaint} · arrived {criticalPatient.time}
+                  </p>
+                </div>
+                <button
+                  onClick={() => handleStartConsultClick(criticalPatient)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-500 text-white hover:bg-rose-600 transition-colors flex-shrink-0"
+                >
+                  See now <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
+                </button>
               </div>
-              <button
-                onClick={() => handleStartConsultClick(criticalPatient)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-500 text-white hover:bg-rose-600 transition-colors flex-shrink-0"
-              >
-                See now <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-              </button>
-            </div>
-          ) : (
-            <div className={`flex items-center gap-4 px-5 py-3.5`}>
-              <div className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
-              <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No critical patients at this time</p>
-            </div>
-          )}
-
-          {/* Overdue follow-ups cue */}
-          {overdueFollowUps.length > 0 && (
-            <div className={`flex items-center gap-4 px-5 py-3.5`}>
-              <div className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <p className={`text-sm font-medium ${isDark ? 'text-amber-300' : 'text-amber-700'}`}>
-                  {overdueFollowUps.length} follow-up{overdueFollowUps.length > 1 ? 's' : ''} overdue
-                </p>
-                <p className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                  {overdueFollowUps.map(p => `${p.name.split(' ')[0]} (TCA ${p.tcaDays}d ago)`).join(', ')}
-                </p>
+            ) : (
+              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-emerald-500`}>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No critical patients at this time</p>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Next up cue */}
-          {upcomingPatients.length > 0 && (
-            <div className={`flex items-center gap-4 px-5 py-3.5`}>
-              <div className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <p className={`text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                  Next {upcomingPatients.length === 1 ? 'up' : `${upcomingPatients.length}`}
-                </p>
-                <p className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                  {upcomingPatients.map(a => `${a.patient.name.split(' ')[0]} ${a.time} — ${a.triage.chiefComplaint}`).join(' · ')}
-                </p>
+            {/* Overdue follow-ups cue */}
+            {overdueFollowUps.length > 0 && (
+              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-amber-400`}>
+                <div className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className={`text-sm font-medium ${isDark ? 'text-amber-300' : 'text-amber-700'}`}>
+                    {overdueFollowUps.length} follow-up{overdueFollowUps.length > 1 ? 's' : ''} overdue
+                  </p>
+                  <p className={`text-xs mt-0.5 truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    {overdueFollowUps.map(p => `${p.name.split(' ')[0]} (TCA ${p.tcaDays}d ago)`).join(', ')}
+                  </p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-        </div>
-      </GlassCard>
+            {/* Next up cue */}
+            {upcomingPatients.length > 0 && (
+              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-blue-400`}>
+                <div className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className={`text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                    Next {upcomingPatients.length === 1 ? 'up' : `${upcomingPatients.length}`}
+                  </p>
+                  <p className={`text-xs mt-0.5 truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    {upcomingPatients.map(a => `${a.patient.name.split(' ')[0]} ${a.time} — ${a.triage.chiefComplaint}`).join(' · ')}
+                  </p>
+                </div>
+              </div>
+            )}
+
+          </div>
+        </GlassCard>
+      </div>
 
       {/* Agentic RAG Impact row */}
       <div>
         <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-          Assistant impact today
+          Assistant Impact Today
         </p>
         <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
           <div className={`grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
 
             {/* Time reclaimed */}
             <div className="p-5">
-              <div className="flex items-start justify-between mb-3">
-                <Timer className={`w-4 h-4 mt-0.5 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} strokeWidth={1.5} />
-                <span className={`text-[10px] font-medium uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Time reclaimed</span>
+              <div className="flex items-center gap-2 mb-4">
+                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-teal-500/15' : 'bg-teal-50'}`}>
+                  <Timer className={`w-3.5 h-3.5 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} strokeWidth={2} />
+                </span>
+                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Time reclaimed</span>
               </div>
-              <p className={`text-3xl font-light ds-numeric ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                {agenticImpact.timeSavedMin}<span className={`text-base ml-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>min</span>
+              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                {agenticImpact.timeSavedMin}<span className={`text-lg font-medium ml-1 ${isDark ? 'text-teal-400/70' : 'text-teal-600/70'}`}>min</span>
               </p>
-              <p className={`text-xs mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>vs ~8 min/plan manual</p>
+              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>vs ~8 min/plan manual</p>
+              <div className="mt-1.5">
+                <TrendBadge current={agenticImpact.timeSavedMin} previous={agenticImpact.yesterday.timeSavedMin} />
+              </div>
             </div>
 
             {/* CPG-aligned */}
             <div className="p-5">
-              <div className="flex items-start justify-between mb-3">
-                <FileCheck className={`w-4 h-4 mt-0.5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} strokeWidth={1.5} />
-                <span className={`text-[10px] font-medium uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>CPG-aligned</span>
+              <div className="flex items-center gap-2 mb-4">
+                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-violet-500/15' : 'bg-violet-50'}`}>
+                  <FileCheck className={`w-3.5 h-3.5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} strokeWidth={2} />
+                </span>
+                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>CPG-aligned</span>
               </div>
-              <p className={`text-3xl font-light ds-numeric ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                {cpgPct}<span className={`text-base ml-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>%</span>
+              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>
+                {cpgPct}<span className={`text-lg font-medium ml-0.5 ${isDark ? 'text-violet-400/70' : 'text-violet-600/70'}`}>%</span>
               </p>
-              <p className={`text-xs mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                 {agenticImpact.cpgAligned.count} of {agenticImpact.cpgAligned.total} plans
               </p>
+              <div className="mt-1.5">
+                <TrendBadge current={cpgPct} previous={agenticImpact.yesterday.cpgAlignedPct} />
+              </div>
             </div>
 
             {/* Citations issued */}
             <div className="p-5">
-              <div className="flex items-start justify-between mb-3">
-                <BookOpen className={`w-4 h-4 mt-0.5 ${isDark ? 'text-sky-400' : 'text-sky-600'}`} strokeWidth={1.5} />
-                <span className={`text-[10px] font-medium uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Citations issued</span>
+              <div className="flex items-center gap-2 mb-4">
+                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-sky-500/15' : 'bg-sky-50'}`}>
+                  <BookOpen className={`w-3.5 h-3.5 ${isDark ? 'text-sky-400' : 'text-sky-600'}`} strokeWidth={2} />
+                </span>
+                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Citations issued</span>
               </div>
-              <p className={`text-3xl font-light ds-numeric ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
                 {agenticImpact.citations}
               </p>
-              <p className={`text-xs mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>evidence-backed decisions</p>
+              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>evidence-backed decisions</p>
+              <div className="mt-1.5">
+                <TrendBadge current={agenticImpact.citations} previous={agenticImpact.yesterday.citations} />
+              </div>
             </div>
 
             {/* Referrals */}
             <div className="p-5">
-              <div className="flex items-start justify-between mb-3">
-                <UserCheck className={`w-4 h-4 mt-0.5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} strokeWidth={1.5} />
-                <span className={`text-[10px] font-medium uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Referrals</span>
+              <div className="flex items-center gap-2 mb-4">
+                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-amber-500/15' : 'bg-amber-50'}`}>
+                  <UserCheck className={`w-3.5 h-3.5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} strokeWidth={2} />
+                </span>
+                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Referrals</span>
               </div>
-              <p className={`text-3xl font-light ds-numeric ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>
                 {agenticImpact.referrals.count}
               </p>
-              <p className={`text-xs mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                 all {agenticImpact.referrals.cpgJustified} CPG-justified
               </p>
+              <div className="mt-1.5">
+                <TrendBadge current={agenticImpact.referrals.count} previous={agenticImpact.yesterday.referrals} />
+              </div>
             </div>
 
           </div>
@@ -392,15 +438,15 @@ const Home = ({ onStartConsult, onViewChart }) => {
       </div>
 
       {/* Schedule */}
-      <GlassCard className="p-6" variant={isDark ? 'dark' : 'light'}>
-        <div className="flex items-center justify-between mb-5">
+      <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
+        <div className={`flex items-center justify-between px-5 py-4 border-b ${isDark ? 'border-white/10' : 'border-slate-100'}`}>
           <button
             onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
             aria-label="Toggle Schedule"
-            className={`text-base font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg px-2 py-1 -ml-2`}
+            className={`text-base font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg`}
           >
             <Clock aria-hidden="true" className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
-            Today's Schedule
+            Today's Patients
             <ChevronDown aria-hidden="true" className={`w-4 h-4 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} strokeWidth={1.5} />
           </button>
           {/* Filter pills */}
@@ -409,7 +455,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
               <button
                 key={f}
                 onClick={() => setCategoryFilter(f)}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors
                   ${categoryFilter === f
                     ? f === 'emergency'
                       ? 'bg-rose-500 text-white'
@@ -426,7 +472,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
         </div>
 
         {isScheduleExpanded && (
-          <div className="space-y-3">
+          <div className="space-y-0 divide-y divide-slate-100 dark:divide-white/5 px-5 py-3">
             {filteredSchedule.length === 0 ? (
               <div className={`text-center py-10 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                 No appointments match the current filter
@@ -434,14 +480,12 @@ const Home = ({ onStartConsult, onViewChart }) => {
             ) : filteredSchedule.map((appointment) => (
               <div
                 key={appointment.id}
-                className={`p-4 rounded-xl border transition-colors
+                className={`py-4 border-l-2 pl-4 transition-colors
                   ${isEmergency(appointment.patient.nsn)
-                    ? isDark ? 'bg-rose-500/8 border-rose-500/25' : 'bg-rose-50 border-rose-200'
+                    ? 'border-l-rose-500 ' + (isDark ? 'bg-rose-500/5' : 'bg-rose-50/60')
                     : isHighRisk(appointment.patient.nsn)
-                      ? isDark ? 'bg-amber-500/8 border-amber-500/25' : 'bg-amber-50 border-amber-200'
-                      : isDark
-                        ? 'bg-white/4 border-white/8 hover:bg-white/8'
-                        : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
+                      ? 'border-l-amber-400 ' + (isDark ? 'bg-amber-500/5' : 'bg-amber-50/60')
+                      : 'border-l-transparent hover:' + (isDark ? 'bg-white/5' : 'bg-slate-50')
                   }`}
               >
                 <div className="flex items-start gap-4">
@@ -503,10 +547,10 @@ const Home = ({ onStartConsult, onViewChart }) => {
                     {appointment.status === 'in-progress' && (
                       <button
                         onClick={() => handleStartConsultClick(appointment)}
-                        className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg font-medium text-sm min-w-[128px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 bg-blue-500/15 border border-blue-500/25 text-blue-500 hover:bg-blue-500/25"
+                        className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg font-medium text-sm min-w-[128px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 bg-blue-500 text-white hover:bg-blue-600 shadow-md"
                       >
-                        Continue
-                        <ChevronRight aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
+                        Resume
+                        <ChevronRight aria-hidden="true" className="w-4 h-4" strokeWidth={2} />
                       </button>
                     )}
                     {appointment.status === 'done' && (
