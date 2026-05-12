@@ -1,45 +1,58 @@
 # SECTION 10: FOLLOW-UP AND REFERRAL
 
 <!-- METADATA
-category: Guidelines
-use_case: Follow-Up and Referral
-patient_input: 
-output:
+category: Prevention, Assessment
+use_case: Cancer Pain Follow-up and Referral — outpatient_follow_up, home_care, telehealth, mHealth, palliative_care_referral, pain_clinic_referral, multidisciplinary_referral
+patient_input: pain_score, functional_status, treatment_response, accessibility, mobility_status
+output: follow_up_modality, referral_pathway, telehealth_recommendation, palliative_care_referral
 -->
 
-## Overview
+Follow-up care for patients with cancer pain can be provided at home, primary care clinics or specialised outpatient clinics. With the advent of better internet services, teleconferencing or video call services can also be used to help patients who do not have easy access to conventional follow-up.
 
-Follow-up care for patients with cancer pain can be provided at home, primary care clinics or specialised outpatient clinics. With the advent of better internet services, teleconsultations can also be used.
+Two recent observational studies supported the structured outpatient follow-up of cancer patients:
+* [Level II-3] proper clinic guideline programme with a multidisciplinary approach, availability of pain interventions and palliative care referral in a specialist outpatient clinic led to significant improvement in BPI and pain score in ESAS
+* [Level II-2] physician-pharmacist joint clinic was significantly more effective than standard care in BPI pain intensity, adequacy of pain management and medication adherence
 
----
+A home care service provided by community palliative care providers can reach out to patients in their own homes. This is especially important for patients who are unable to travel or have mobility issues. [Level I] A Cochrane systematic review showed mixed results in the improvement in pain control between community home palliative care services and standard care.
 
-## Follow-Up Modalities and Evidence
+In the previous local CPG on cancer pain, regular follow-up either at home, primary care clinics or specialised outpatient clinics including palliative care and cancer pain clinics according to their preferences or circumstances has been recommended.
 
-| Modality | Source | Finding | Quality |
-|---|---|---|---|
-| **Specialist outpatient clinic** (MDT approach, pain interventions, palliative care referral) | Observational study | Significant improvement in BPI and pain score in ESAS | — |
-| **Physician-pharmacist joint clinic** | Observational study | Significantly more effective than standard care in BPI pain intensity, adequacy of pain management and medication adherence | — |
-| **Community home palliative care** | Cochrane SR | Mixed results in improvement in pain control vs standard care | — |
-| **Telephone interventions** | Cochrane SR | Limited and mixed results on pain reduction vs usual care | Very low certainty |
-| **Home telemonitoring** | Non-RCT | Significantly increased pain registration and prescription for analgesics vs usual care | — |
-| **mHealth apps** (self-management) | SR | 3 of 4 studies reported improvement in pain; only 1 showed significant difference vs non-app users | — |
-| **Telemedicine** (overall) | Meta-analysis | Improved pain intensity (SMD= -0.28, 95% CI -0.49 to -0.06) and pain interference (SMD= -0.41, 95% CI -0.54 to -0.28) | Low risk of bias (Cochrane RoB) |
+There are many different types of healthcare technology that can be used in delivering patient care. Videoconferencing can help when in-person conversations are not feasible. [Level I] A Cochrane systemic review on telephone interventions for adults with cancer showed limited and mixed results on pain reduction compared with usual care. The certainty of the evidence on this outcome was very low. [Level II-1] In a non-randomised controlled trial, home telemonitoring significantly increased pain registration and prescription for analgesics compared with usual care in cancer patients.
 
-> **Previous CPG Guidance:** Regular follow-up at home, primary care clinics or specialised outpatient clinics (including palliative care and cancer pain clinics) according to patient preferences or circumstances has been recommended.
+[Level I] In another systematic review assessing the effectiveness of mHealth applications (apps) for self-management in improving pain, psychological distress, fatigue or sleep outcomes in adult cancer survivors, three out of four studies reported improvement in pain but only one showed a significant difference in those patients using the apps compared with those not using it.
 
----
+[Level I] A meta-analysis on the effectiveness of telemedicine on pain management in patients with cancer showed it improved:
+* pain intensity (SMD= -0.28, 95% CI -0.49 to -0.06)
+* pain interference (SMD= -0.41, 95% CI -0.54 to -0.28)
+According to the Cochrane Risk of Bias, the risk of bias in most studies was considered low.
 
-## Community Palliative Care Resources
+A list of community palliative care providers available in Malaysia can be downloaded from the Malaysian Hospice & Palliative Care Council website (https://www.malaysianhospicecouncil.com/).
 
-A list of community palliative care providers available in Malaysia can be downloaded from the Malaysian Hospice & Palliative Care Council website: https://www.malaysianhospicecouncil.com/
-
-> [!IMPORTANT]
 > **Recommendation 21**
-> * Cancer patients should be followed-up for pain management either in the specialist outpatient clinic, primary care clinic or at home.
->   * Teleconsultations and digital applications may be used for this purpose.
+> - Cancer patients should be followed-up for pain management either in the specialist outpatient clinic, primary care clinic or at home.
+>   - Teleconsultations and digital applications may be used for this purpose.
+
+[Level III] Although most pain experienced by the patients can be managed by the primary team, there might be pain which does not respond well to initial treatment and requires specialised care. Thus, patients with severe pain and inadequate pain management should be considered for referral to pain or palliative specialist services.
 
 ---
 
-## Referral
+## LEVELS OF EVIDENCE
 
-Although most pain experienced by patients can be managed by the primary team, there might be pain which does not respond well to initial treatment and requires specialised care. Patients with severe pain and inadequate pain management should be considered for referral to pain or palliative specialist services.
+| Level | Study design |
+|---|---|
+| I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
+| II-1 | Well-designed controlled trial without randomisation |
+| II-2 | Well-designed cohort or case-control analysis study |
+| II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
+| III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
+
+### Abbreviations Used in This Section
+
+| Abbreviation | Description |
+|---|---|
+| BPI | Brief Pain Inventory |
+| CI | Confidence interval |
+| CPG | Clinical Practice Guideline |
+| ESAS | Edmonton Symptom Assessment System |
+| RoB | Risk of bias |
+| SMD | Standardised mean difference |

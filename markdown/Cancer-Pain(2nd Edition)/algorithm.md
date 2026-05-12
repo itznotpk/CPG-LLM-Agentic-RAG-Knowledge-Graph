@@ -1,13 +1,15 @@
-# SECTION 0: ALGORITHMS
+# ALGORITHMS
 
 <!-- METADATA
-category: Guidelines
-use_case: Algorithms
-patient_input: 
-output:
+category: Reference, Treatment
+use_case: Clinical Decision Algorithms — cancer_pain_adults, morphine_titration, cancer_pain_children, WHO_analgesic_ladder, pain_score_pathway, rapid_pain_relief
+patient_input: pain_score, age, IV_access, opioid_history, respiratory_rate, sedation_score
+output: treatment_pathway, analgesic_step, morphine_titration_protocol, paediatric_pain_pathway
+critical: true
 -->
 
-## Algorithm 1. Management of Cancer Pain in Adults
+
+## Algorithm 1: Management of Cancer Pain in Adults
 
 ### Step 1: Initial Assessment
 
@@ -87,13 +89,11 @@ After the initial assessment, classify the pain based on the following parameter
 
 ### 📝 Notes & Abbreviations
 
-> **NSAIDs:** Non-steroidal anti-inflammatory drugs
-> **COX-2:** Cyclooxygenase-2
-> ***Note:** Strong opioids can be considered to treat moderate cancer pain.*
-> 
-> *Adapted from: Ministry of Health, Malaysia. CPG Management of Cancer Pain. Putrajaya: MoH; 2010.*
+> **NSAIDs:** Non-steroidal anti-inflammatory drugs <br>
+> **COX-2:** Cyclooxygenase-2 <br>
+> \[Level I] *Strong opioids can be considered to treat moderate cancer pain.
 
-## Algorithm 2. Titration of Morphine for Rapid Pain Relief in Adults with Severe Pain and Distress
+## Algorithm 2: Titration of Morphine for Rapid Pain Relief in Adults with Severe Pain and Distress
 
 ### Step 1: Initial Presentation
 
@@ -152,24 +152,10 @@ Assess the following parameters:
 
 ### 📝 Notes & References
 
-> ***\*** For patients already on opioids, the bolus dose of morphine should be 10% of the total 24-hour morphine requirement converted to intravenous/subcutaneous equivalent. For elderly, frail or renal impaired patients, use lower dose of the given range.*
-> ***\*\*** Sedation score details — see cross-reference below.*
-> 
-> *Adapted from: Ministry of Health, Malaysia. CPG Management of Cancer Pain. Putrajaya: MoH; 2010.*
+> ***\*** For patients already on opioids, the bolus dose of morphine should be 10% of the total 24-hour morphine requirement converted to intravenous/subcutaneous equivalent. For elderly, frail or renal impaired patients, use lower dose of the given range.* <br>
+> ***\*\*** For details on sedation score, refer to Appendix 3 in the CPG
 
-> **Cross-reference from Appendix 3:**
-> **Sedation Score (Macintyre)**
-> 
-> | Score | Sedation Level | Clinical Findings |
-> |---|---|---|
-> | 0 | None | Patient is awake and alert |
-> | 1 | Mild | Occasionally drowsy, easy to rouse, and can stay awake once awoken |
-> | 2 | Moderate | Constantly drowsy, still easy to rouse, unable to stay awake once awoken |
-> | 3 | Severe | Somnolent, difficult to rouse, severe respiratory depression |
-> 
-> *Source: Macintyre PE & Schug SA. Acute Pain Management: A Practical Guide. Saunders Elsevier: London; 2007.*
-
-## Algorithm 3. Management of Cancer Pain in Children
+## Algorithm 3: Management of Cancer Pain in Children
 
 ### Step 1: Initial Assessment
 
@@ -239,8 +225,3 @@ After the initial assessment, classify the pain based on the following parameter
 *   **If Pain Control is achieved (Yes):** → Reassessment and Follow-up
 *   **If Pain Control is not achieved (No):** → **Refer to Palliative Care Team / Pain Specialist**
 
----
-
-### 📝 Notes & References
-
-> *Source: Ministry of Health, Malaysia. Paediatric Pain Management Guidelines 2023. Putrajaya: MoH; 2023.*
