@@ -155,6 +155,33 @@ Only start once Phase 4 is shipped and graph results are clinically validated.
 
 **Effort:** ~3–4 days total for 5a + 5b.
 
+### 5c — Safety Critic Phase 2: KG-grounded evaluator
+
+**Why:** The Safety Critic (already shipped as a post-Stage-5 LLM pass) currently relies on MiMo's training-time pharmacology memory. Smoke testing confirmed this is unreliable for nuanced cross-reactivities — the sulfa + furosemide case initially missed and required hardcoding the sulfonamide-derived drug list directly into the prompt. That hardcoded list is fragile maintenance debt; the KG is the principled fix.
+
+**Current state:** [agent/safety_critic.py](../agent/safety_critic.py) is live, using MiMo v2.5-pro via `SAFETY_CRITIC_*` env vars (fallback to `STAGE5_*`). Sulfonamide cross-reactivity is handled via an explicit hardcoded drug list in the system prompt as a Phase 1 workaround.
+
+**Do (after Phase 4 KG relations are validated):**
+
+Convert `run_safety_critic` from a single LLM call to a pydantic-ai agent with four graph tools:
+
+```python
+tools = [
+    find_interactions(drug_a, drug_b)          # → INTERACTS_WITH edges + cpg_chunk_id
+    check_contraindications(drug, condition)   # → CONTRAINDICATED_IN edges + cpg_chunk_id
+    check_allergy_crossreact(drug, allergen)   # → CROSS_REACTS_WITH edges + risk_pct + cpg_chunk_id
+    check_dose_adjustment(drug, comorbidity)   # → REQUIRES_DOSE_ADJUSTMENT edges + threshold
+]
+```
+
+The LLM's role shrinks to: receive structured graph results → assign severity → render `SafetyFlag` objects. Every flag carries a real `cpg_chunk_id` citation, not LLM memory.
+
+**In the same PR:** Remove the hardcoded sulfonamide drug list from `SAFETY_CRITIC_SYSTEM` — the `CROSS_REACTS_WITH` graph edges replace it as the authoritative source.
+
+**Model:** MiMo v2.5-pro remains appropriate — the task simplifies from "recall pharmacology" to "interpret structured graph evidence and decide severity," which suits a strong reasoning model.
+
+**Effort:** ~1 day after Phase 4 is validated.
+
 ---
 
 ## Execution order
@@ -167,6 +194,7 @@ Only start once Phase 4 is shipped and graph results are clinically validated.
 | 4 | 4 | R6 — KG schema + extraction + deterministic Stage 4 wiring | 2.5 days | needs Phase 1 (category filter) for scoped re-extraction |
 | 5 | 5a | Stage 4 → agentic sub-agent | 2 days | needs Phase 4 validated |
 | 6 | 5b | Stage 5 → self-critique loop | 1.5 days | needs Phase 5a (proves the agentic pattern works) |
+| 7 | 5c | Safety Critic → KG-grounded pydantic-ai agent; remove hardcoded sulfonamide list | 1 day | needs Phase 4 KG relations validated |
 
 ---
 
@@ -180,3 +208,4 @@ Only start once Phase 4 is shipped and graph results are clinically validated.
 | R3 Phase 1 | Category score boosting post-retrieval | [clinical_stages.py](../agent/clinical_stages.py) `_CATEGORY_BOOST` |
 | R4 | 7-domain query generation (covers all 6 care plan sections) | [stage4_query_generation.txt](../agent/prompts/stage4_query_generation.txt) |
 | R5 | Mandatory 6-section synthesis rules + structured `monitoring` / `red_flags` | [stage5_synthesis.txt](../agent/prompts/stage5_synthesis.txt) |
+| Safety Critic Phase 1 | Post-Stage-5 MiMo adversarial reviewer; `SafetyReport` banner in Doctor UI; fail-open; sulfonamide list hardcoded as Phase 1 workaround | [agent/safety_critic.py](../agent/safety_critic.py) |

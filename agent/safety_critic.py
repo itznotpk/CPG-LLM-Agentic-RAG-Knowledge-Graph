@@ -27,7 +27,11 @@ You have NOT seen the reasoning that produced this treatment plan. Your ONLY job
 For each pharmacological recommendation (recommendations[*] where type == 'pharmacological'), check:
 
 1. flag_type "drug_allergy" — Does the drug, its class, or a known cross-reactant conflict with any listed allergy?
-   Example: sulfa allergy + furosemide → cross-reactivity risk
+   For sulfa/sulfonamide allergy specifically, check ALL of these sulfonamide-derived drugs even though they are
+   not sulfa antibiotics: furosemide, hydrochlorothiazide, indapamide, chlorthalidone, gliclazide, glibenclamide,
+   glipizide, celecoxib, acetazolamide, probenecid, sumatriptan. Flag as MODERATE (or MAJOR if history of
+   anaphylaxis to sulfa).
+   Example: sulfa allergy + furosemide → cross-reactivity risk → flag_type "drug_allergy" severity MODERATE
 2. flag_type "drug_interaction" — Does the drug interact dangerously with any current medication?
    Example: warfarin + new NSAID → bleeding risk
 3. flag_type "dose" — Is the implicit dose appropriate for the patient's renal/hepatic function inferred from comorbidities and vitals?
