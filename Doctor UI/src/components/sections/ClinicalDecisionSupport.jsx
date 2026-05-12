@@ -11,6 +11,8 @@ import {
   ChevronUp,
   Info,
   XCircle,
+  Lightbulb,
+  UserRound,
 } from 'lucide-react';
 import { GlassCard, Badge } from '../shared';
 import { useApp } from '../../context/AppContext';
@@ -105,13 +107,15 @@ function AlertCard({ type, icon: Icon, title, alerts, defaultOpen = true }) {
                   </div>
                   <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{alert.description || alert.note}</p>
                   {alert.recommendation && (
-                    <p className={`text-xs mt-1 italic ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                      💡 {alert.recommendation}
+                    <p className={`text-xs mt-1 flex items-start gap-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                      <Lightbulb className="w-3 h-3 mt-0.5 flex-shrink-0 text-amber-500" strokeWidth={1.5} />
+                      {alert.recommendation}
                     </p>
                   )}
                   {alert.crossReactivity && (
-                    <p className={`text-xs mt-1 italic ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                      ⚠️ {alert.crossReactivity}
+                    <p className={`text-xs mt-1 flex items-start gap-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                      <AlertTriangle className="w-3 h-3 mt-0.5 flex-shrink-0 text-amber-500" strokeWidth={1.5} />
+                      {alert.crossReactivity}
                     </p>
                   )}
                 </div>
@@ -151,8 +155,8 @@ function DosageCalculator({ medications, patient, vitals }) {
         className={`w-full flex items-center justify-between p-4 transition-colors ${isDark ? 'hover:bg-white/10' : 'hover:bg-white/20'}`}
       >
         <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-xl ${isDark ? 'bg-purple-500/20' : 'bg-purple-100'}`}>
-            <Calculator className="w-5 h-5 text-purple-600" />
+          <div className={`p-2 rounded-xl ${isDark ? 'bg-blue-500/20' : 'bg-blue-100'}`}>
+            <Calculator className="w-5 h-5 text-blue-600" />
           </div>
           <div className="text-left">
             <h4 className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Dosage Recommendations</h4>
@@ -171,7 +175,7 @@ function DosageCalculator({ medications, patient, vitals }) {
       {isOpen && (
         <div className="px-4 pb-4 space-y-2">
           {recommendations.map((rec, idx) => (
-            <div key={idx} className={`p-3 rounded-lg ${isDark ? 'bg-purple-500/10' : 'bg-purple-50/80'}`}>
+            <div key={idx} className={`p-3 rounded-lg ${isDark ? 'bg-blue-500/10' : 'bg-blue-50/80'}`}>
               <div className="flex items-center justify-between mb-2">
                 <span className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{rec.drug}</span>
                 {rec.renalAdjustment && rec.renalAdjustment !== 'none' && (
@@ -189,8 +193,9 @@ function DosageCalculator({ medications, patient, vitals }) {
                 </p>
               )}
               {rec.ageNote && (
-                <p className={`text-xs mt-1 ${isDark ? 'text-purple-400' : 'text-purple-700'}`}>
-                  👴 {rec.ageNote}
+                <p className={`text-xs mt-1 flex items-start gap-1 ${isDark ? 'text-blue-400' : 'text-blue-700'}`}>
+                  <UserRound className="w-3 h-3 mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                  {rec.ageNote}
                 </p>
               )}
             </div>
