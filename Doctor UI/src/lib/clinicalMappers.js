@@ -7,7 +7,7 @@ export function mapDdxToDiagnosis(ddxList, cpgsMatched) {
     name: d.title,
     icdCode: d.code,
     probability: Math.round(d.similarity * 100),
-    risk: d.similarity >= 0.85 ? 'high' : d.similarity >= 0.65 ? 'medium' : 'low',
+    risk: d.similarity >= 0.75 ? 'high' : d.similarity >= 0.45 ? 'medium' : 'low',
     reasoning: d.reasoning || [],       // LLM reasoning for display
     inclusionMatch: d.inclusion_match,
   }));

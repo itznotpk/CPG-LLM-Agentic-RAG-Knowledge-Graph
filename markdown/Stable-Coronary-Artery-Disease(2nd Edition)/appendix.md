@@ -1,11 +1,23 @@
 # ACKNOWLEDGMENTS AND APPENDICES
 
 <!-- METADATA
-category: appendix
-use_case: supporting_reference
+category: Reference
+use_case: Supporting reference material and acknowledgments — expert_panel, appendices
 patient_input: reference_lookup
 output: appendix_content
 -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## MEMBERS OF THE EXPERT PANEL
 
@@ -5930,9 +5942,9 @@ Management (Fig 2, pg 25) should be multifaceted and involves OMT which includes
 In persons with suspected CAD and undergoing non-invasive cardiac testing, it is important to determine the:
 
 - Pre-Test Probability (PTP) of CAD of that individual. (Table 1, pg 22). In the Euro model for assessing PTP, which this writing group has adopted, (Table 1, pg 22) patients with a:
--  low PTP of &lt;15% can be assumed to have no significant obstructive CAD. In these individuals, CV risk factors should be treated to target. Other causes of chest pain should be looked for. (Table 5, pg 35)
--  intermediate PTP (≥15-≤ 85%) require further non-invasive evaluation.
--  high PTP &gt;85% can be assumed to have significant obstructive CAD and nvasive coronary angiography maybe a more appropriate investigation.
+-  low PTP of <15% can be assumed to have no significant obstructive CAD. In these individuals, CV risk factors should be treated to target. Other causes of chest pain should be looked for. **[Grade I, Level C]** (Table 5, pg 35)
+-  intermediate PTP (≥15-≤ 85%) require further non-invasive evaluation. **[Grade I, Level B]**
+-  high PTP >85% can be assumed to have significant obstructive CAD and invasive coronary angiography maybe a more appropriate investigation. **[Grade I, Level B]**
 - Sensitivity and specificity of the different diagnostic modalities.
 
 (Table 6, pg 39)
@@ -5945,28 +5957,28 @@ In persons with suspected CAD and undergoing non-invasive cardiac testing, it is
 
 In non-invasive cardiac testing: (Fig 1, pg 23)
 
-- Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs.
+- Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs. **[Grade I, Level B]**
 - Stress imaging tests are used in individuals who have intermediate PTP of CAD and who:
--  are unable to exercise adequately and/or
--  have uninterpretable resting ECG and/or
--  have exercise stress ECG with equivocal results or which are abnormal at moderate to high workloads depending upon the clinical condition.
-- Coronary Calcium has been used to detect CAD but is more useful for CV risk assessment.
-- CTA may be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity.
-- Invasive Coronary Angiogram (ICA) is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization.
+  -  are unable to exercise adequately and/or **[Grade I, Level B]**
+  -  have uninterpretable resting ECG and/or **[Grade I, Level B]**
+  -  have exercise stress ECG with equivocal results or which are abnormal at moderate to high workloads depending upon the clinical condition. **[Grade I, Level B]**
+- Coronary Calcium has been used to detect CAD but is more useful for CV risk assessment. **[Grade II-b, Level B]**
+- CTA may be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity. **[Grade II-a, Level B]**
+- Invasive Coronary Angiogram (ICA) is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization. **[Grade I, Level C]**
 
 ## B) Risk Stratification of patients with suspected or known CAD
 
 ## Recommendation 4:
 
 - This is done by: (section 7, pg 53-61)
--  Clinical evaluation
--  Resting ECG
--  Non-invasive assessment of myocardial ischaemia (Table 2, pg 24)
--  Assessment of Left ventricular function
--  Where indicated, evaluation of coronary anatomy and physiological assessment of the significance of the coronary lesion by Fractional Flow Reserve (FFR).
-- Low risk individuals (annual mortality of &lt;1%) should be managed with risk factor reduction and/or anti anginal medications as necessary. No further intervention is required.
-- Intermediate risk individuals (annual mortality of 1-3%) may be managed with risk reduction strategies +/- anti anginal therapy or considered for invasive coronary angiogram and revascularization depending on the clinical condition and patient preferences.
-- High risk individuals (annual mortality of &gt;3%) in addition to risk reduction strategies, should be considered for invasive coronary angiography with view to revascularization.
+  -  Clinical evaluation **[Grade I, Level B]**
+  -  Resting ECG **[Grade I, Level B]**
+  -  Non-invasive assessment of myocardial ischaemia **[Grade I, Level C]** (Table 2, pg 24)
+  -  Assessment of Left ventricular function **[Grade I, Level B]**
+  -  Where indicated, evaluation of coronary anatomy and physiological assessment of the significance of the coronary lesion by Fractional Flow Reserve (FFR). **[Grade I, Level A]**
+- Low risk individuals (annual mortality of <1%) should be managed with risk factor reduction and/or anti anginal medications as necessary. No further intervention is required. **[Grade I, Level C]**
+- Intermediate risk individuals (annual mortality of 1-3%) may be managed with risk reduction strategies +/- anti anginal therapy or considered for invasive coronary angiogram and revascularization depending on the clinical condition and patient preferences. **[Grade I, Level C]**
+- High risk individuals (annual mortality of >3%) in addition to risk reduction strategies, should be considered for invasive coronary angiography with view to revascularization. **[Grade I, Level C]**
 
 ## Stable Coronary Artery Disease 2018
 
@@ -5974,36 +5986,36 @@ In non-invasive cardiac testing: (Fig 1, pg 23)
 
 ## Recommendation 5
 
-- Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists.
-- Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated.
+- Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. **[Grade I, Level C]**
+- Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated. **[Grade I, Level C]**
 
 ## C) Management of Stable CAD
 
 ## Recommendation 6:
 
-- All patients should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy). (Fig 2, pg 25)
+- All patients should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy). **[Grade I, Level A]** (Fig 2, pg 25)
 - Appropriate pharmacotherapy includes:
--  aspirin (or clopidogrel/ticlopidine if aspirin intolerant) and
--  statin (+/- non- statin therapy) with the aim of achieving LDL-C targets and
--  at least 2 anti anginal agents.
+  -  aspirin (or clopidogrel/ticlopidine if aspirin intolerant) **[Grade I, Level A]** and
+  -  statin (+/- non-statin therapy) with the aim of achieving LDL-C targets **[Grade I, Level A]** and
+  -  at least 2 anti anginal agents. **[Grade I, Level A]**
 - In addition:
--  All CV risk factors should be treated to target.
--  Patients with depressed LV function (LVEF &lt;40%) should receive ACEi/ARB, β-blockers and mineralocorticoid antagonists.
-- Optimal medical therapy should be instituted prior to revascularization procedures.
+  -  All CV risk factors should be treated to target. **[Grade I, Level A]**
+  -  Patients with depressed LV function (LVEF <40%) should receive ACEi/ARB, β-blockers and mineralocorticoid antagonists. **[Grade I, Level A]**
+- Optimal medical therapy should be instituted prior to revascularization procedures. **[Grade I, Level C]**
 
 ## Recommendation 7:
 
 - ·
 - The decision to revascularize patients with stable CAD on OMT will depend on:
--  Symptoms
--  Extent of ischemia
--  Extent of coronary disease and where applicable physiological functional testing using FFR.
-- Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy.
+  -  Symptoms **[Grade I, Level C]**
+  -  Extent of ischemia **[Grade II-a, Level B]**
+  -  Extent of coronary disease and where applicable physiological functional testing using FFR. **[Grade I, Level A]**
+- Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy. **[Grade I, Level C]**
 
 ## Recommendation 8:
 
-- All patients with Stable CAD with no change in symptoms and medications over a period of 1-2 years, can be discharged from the speciality cardiac clinics.
-- When there is a change in the patient's clinical condition, they should be referred to tertiary cardiac centres for optimization of management.
+- All patients with Stable CAD with no change in symptoms and medications over a period of 1-2 years, can be discharged from the speciality cardiac clinics. **[Grade II-a, Level C]**
+- When there is a change in the patient's clinical condition, they should be referred to tertiary cardiac centres for optimization of management. **[Grade I, Level C]**
 
 ## Stable Coronary Artery Disease 2018
 
@@ -6032,7 +6044,20 @@ Red boxes: High PTP &gt;85%; Yellow boxes: Intermediate PTP &gt;15-&lt;85%; Gree
 
 Figure 1: Algorithm for the investigation of individuals with stable chest symptoms suspected to be due to CAD
 
-<!-- image -->
+- Entry point: Symptomatic individuals with intermediate pre-test likelihood of CAD (PTP $15\% - 85\%$).
+- Condition 1: Normal ECG, good exercise tolerance.
+	- Action: Exercise stress test.
+	- Result (positive @ low workloads): Invasive coronary angiogram.
+	- Result (equivocal / positive @ low-mod workloads / negative but PTP $>65\%$): Non-invasive imaging / functional tests.
+	- Result (negative): Risk factor reduction +/- medical therapy for CAD.
+- Condition 2: Abnormal ECG, limited exercise tolerance.
+	- Action: Non-invasive imaging / functional tests.
+	- Test modalities: Exercise/dobutamine stress echo, MPI (SPECT), cardiac MRI, calcium score and/or CT coronary angiogram.
+	- Result (equivocal / positive): Invasive coronary angiogram.
+	- Result (negative): Risk factor reduction +/- medical therapy for CAD.
+
+Summary Figure1:
+- Investigation summary: This protocol filters symptomatic patients into diagnostic pathways based on physical fitness and ECG baseline. It prioritizes non-invasive stress testing and imaging to confirm CAD, reserving invasive coronary angiography for high-risk profiles or unclear results.
 
 ## Stable Coronary Artery Disease 2018 (2 nd d Edition)
 
@@ -6059,8 +6084,108 @@ Table 2: Prognostic indicators for Adverse CV outcomes on Non-Invasive testing 1
 
 Figure 2: Management of Stable CAD
 
-<!-- image -->
+- Goal A: Symptom control
+	- Initial therapy: Short-acting nitrate (e.g. GTN) + $\beta$-blocker and/or CCB.
+	- Persistent symptoms: Add/substitute long-acting nitrates, trimetazidine, ivabradine, ranolazine, nicorandil.
+	- Uncontrolled / large ischaemic burden: Consider coronary angiography with view for revascularization.
+- Goal B: Prevention of CV events
+	- Lifestyle: Behavioural modification therapy + risk factor control.
+	- Primary meds: Aspirin 75-150mg (or clopidogrel/ticlopidine) + lipid-lowering therapy.
+	- Specific comorbidities (diabetes, hypertension, $LVEF < 40\%$): ACEi/ARB.
+	- Specific condition ($LVEF < 40\%$): $\beta$-blocker.
+
+Summary Figure2:
+- Management summary: The strategy uses a dual-track approach for symptom relief and event prevention, combining anti-anginal therapy and potential revascularization with antiplatelets, statins, and lifestyle changes tailored to risk factors.
 
 ## Stable Coronary Artery Disease 2018
 
 ## (2 nd d Edition)
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in this section -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| 3-KAT | 3-ketoacyl CoAThiolase |
+| ACEi | Angiotensin Converting Enzyme Inhibitor |
+| ACS | Acute Coronary Syndrome |
+| AF | Atrial Fibrillation |
+| AHA/ACC | American Heart Association/american College Of Cardiology |
+| ARB | AngiotensinReceptorBlocker |
+| ATP | Adenosine Triphosphate |
+| BMI | BodyMass Index |
+| BMT | Behavioural ModificationTherapy |
+| BP | Blood Pressure |
+| CABG | Coronary Artery Bypass Surgery |
+| CAD | CoronaryArteryDisease |
+| CAC | CoronaryCalciumScore |
+| CASS | CoronaryArtery Surgery Study |
+| CCB | CalciumChannelBlockers |
+| CCS | Canadian Cardiovascular Society |
+| CHF | Congestive Heart Failure |
+| CKD | ChronicKidney Disease |
+| CMR | CardiacMagneticResonance |
+| CPG | Clinical Practice Guidelines |
+| CT | Computerised Tomographic |
+| CTA | ComputerisedTomographicAngiography |
+| CVD | Cardiovascular Disease |
+| DAPT | Dual Antiplatelet Therapy |
+| DASH | DietaryApproachesToStopHypertension |
+| DSE | Dobutamine Stress Echocardiogram |
+| DTS | Duke Treadmill Score |
+| ECG | Electrocardiogram |
+| ED | ErectileDysfunction |
+| EECP | Enhanced External Counterpulsation |
+| eGFR | EstimatedGlomerularFiltrationRate |
+| ESC | European Society of Cardiology |
+| ESMR | ExtracorporealShockwaveMyocardial Revascularisation |
+| FFR | Fractional FlowReserve |
+| GFR | GlomerularFiltrationRate |
+| GTN | Glyceryl Trinitrate |
+| HbA1c | Glycated Haemoglobin |
+| HDL-C | High Density Lipoprotein Cholesterol |
+| HIV | Human Immunodeficiency Virus |
+| HOCM | Hypertrophic Obstructive Cardiomyopathy |
+| HRT | HormoneReplacement Therapy |
+| ICA | InvasiveCoronaryAngiogram |
+| iFR | InstantaneousWave-FreeRatio |
+| ISCHEMIA-CKD | InternationalStudyOfComparativeHealthEffectivenessWithMedical And InvasiveApproaches-ChronicKidneyDisease |
+| ISDN | Isosorbide Dinitrate |
+| ISMN | IsosorbideMononitrate |
+| K(ATP) | AdenosineTriphosphateSensitivePotassium |
+| LAD | Left Anterior Descending |
+| LBBB | Left Bundle Branch Block |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| LV | Left Ventricle |
+| LVEF | Left Ventricular EjectionFraction |
+| LVH | Left Ventricular Hypertrophy |
+| MET | MetabolicEquivalent |
+| MI | Myocardial Infarction |
+| MPI | Myocardial Perfusion Imaging |
+| MRI | Magnetic Resonance Imaging |
+| MUFA | Monounsaturated Fatty Acid |
+| NCVD | National CardiovascularDisease Registry |
+| NOAC | NewerOralAnticoagulant |
+| NSTEMI | Non-STElevationMyocardialInfarction |
+| OMT | Optimal Medical Therapy |
+| OSA | ObstructiveSleepApnea |
+| PA | Physical Activity |
+| PCI | PercutaneousCoronaryIntervention |
+| PDE5 | PhosphodiesteraseType5Inhibitor |
+| PET | Positron Emission Tomography |
+| PUFA | Polyunsaturated Fatty Acid |
+| SCAD | StableCoronaryArteryDisease |
+| SCD | SuddenCardiacDeath |
+| SFA | SaturatedFattyAcid |
+| SLE | Systemic Lupus Erythematosus |
+| SPECT | Single-Photon Emission Computed Tomography |
+| STEMI | STElevationMyocardial Infarction |
+| TIA | TransientIschemicAttack |
+| TFA | Trans Fatty Acid |
+| TMR | TransmyocardialRevascularization |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

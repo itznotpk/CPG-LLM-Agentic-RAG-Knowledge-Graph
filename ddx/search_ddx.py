@@ -182,12 +182,14 @@ def _tokenize(text: str) -> set[str]:
     return {t for t in re.findall(r"[a-z0-9]+", text.lower()) if len(t) > 3}
 
 
-def _lexical_overlap(query_text: str, title: str, inclusions: list[str] | None) -> list[str]:
+def _lexical_overlap(query_text: str, title: str, inclusions: list[str] | None, description: str | None = None) -> list[str]:
     query_tokens = _tokenize(query_text)
     if not query_tokens:
         return []
 
     candidate_text = title or ""
+    if description:
+        candidate_text += " " + description
     if inclusions:
         candidate_text += " " + " ".join(inclusions)
 
@@ -216,9 +218,17 @@ def build_reasoning(candidate: dict, query_text: str) -> list[str]:
         query_text,
         candidate.get("title", ""),
         candidate.get("inclusions") or [],
+        description=candidate.get("description"),
     )
     if overlap:
         reasons.append("Keyword overlap: " + ", ".join(overlap[:5]))
+
+    # Better labeling for special matches
+    if candidate.get("matched_term") == "[DESCRIPTION]":
+        # Rename the matched term for the UI reasoning list
+        for i, r in enumerate(reasons):
+            if "Inclusion match: [DESCRIPTION]" in r:
+                reasons[i] = r.replace("Inclusion match: [DESCRIPTION]", "Exact description match")
 
     return reasons
 

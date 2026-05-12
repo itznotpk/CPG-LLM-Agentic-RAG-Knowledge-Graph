@@ -909,9 +909,23 @@ Redboxes:HighPTP&gt;85%;Yellowboxes:Intermediate PTP&gt;15-&lt;85%; Greenbox:Low
 
 ## Stable Coronary Artery Disease 2018 (2nd Edition)
 
-Figure1:Algorithmfor theinvestigationof individualswith stable chest symptomssuspectedtobeduetoCAD
+Figure1: Algorithm for the investigation of individuals with stable chest 
+symptoms suspected to be due to CAD
 
-<!-- image -->
+- Entry point: Symptomatic individuals with intermediate pre-test likelihood of CAD (PTP $15\% - 85\%$).
+- Condition 1: Normal ECG, good exercise tolerance.
+	- Action: Exercise stress test.
+	- Result (positive @ low workloads): Invasive coronary angiogram.
+	- Result (equivocal / positive @ low-mod workloads / negative but PTP $>65\%$): Non-invasive imaging / functional tests.
+	- Result (negative): Risk factor reduction +/- medical therapy for CAD.
+- Condition 2: Abnormal ECG, limited exercise tolerance.
+	- Action: Non-invasive imaging / functional tests.
+	- Test modalities: Exercise/dobutamine stress echo, MPI (SPECT), cardiac MRI, calcium score and/or CT coronary angiogram.
+	- Result (equivocal / positive): Invasive coronary angiogram.
+	- Result (negative): Risk factor reduction +/- medical therapy for CAD.
+
+Summary Figure1:
+- Invasive stress testing and imaging to confirm CAD, reserving invasive coronary angiography for high-risk profiles or unclear results.
 
 ## Stable Coronary Artery Disease 2018 (2nd Edition)
 
@@ -934,9 +948,20 @@ Table 2: Prognostic indicators for Adverse CV outcomes on Non-lnvasive testing1-
 
 ## Stable Coronary Artery Disease 2018 (2nd Edition)
 
-Figure2:ManagementofStableCAD
+Figure2:Management of Stable CAD
 
-<!-- image -->
+- Goal A: Symptom control
+	- Initial therapy: Short-acting nitrate (e.g. GTN) + $\beta$-blocker and/or CCB.
+	- Persistent symptoms: Add/substitute long-acting nitrates, trimetazidine, ivabradine, ranolazine, nicorandil.
+	- Uncontrolled symptoms or large ischaemic burden: Consider coronary angiography with view for revascularization.
+- Goal B: Prevention of CV events
+	- Lifestyle: Behavioural modification therapy + risk factor control.
+	- Primary meds: Aspirin 75-150mg (or clopidogrel/ticlopidine) + lipid-lowering therapy.
+	- Specific comorbidities (diabetes, hypertension, $LVEF < 40\%$): ACEi/ARB.
+	- Specific condition ($LVEF < 40\%$): $\beta$-blocker.
+
+Summary Figure2:
+- Management summary: The strategy uses a dual-track approach for symptom relief and event prevention, combining anti-anginal therapy and potential revascularization with antiplatelets, statins, and lifestyle changes tailored to risk factors.
 
 ## Stable Coronary Artery Disease 2018
 
@@ -1498,9 +1523,17 @@ DTS Risk
 
 ## Stable Coronary Artery Disease 2018 (2nd Edition)
 
-Figure3:NomogramofthepercentageofPredictedExercise capacity for Age in asymptomatic Individuals
+Figure3: Predicted Exercise Capacity (Data Mapping)
 
-<!-- image -->
+- Component: Range / Values -> Function
+- Input 1 (left axis): Age 35-85 years -> starting point for measurement.
+- Input 2 (right axis): METs 1-15 -> ending point for measurement.
+- Output (center lines): Men (blue) / Women (red) -> gender-specific intersection.
+- Result scale: 10%-150% predicted exercise capacity.
+- Logic: Connect age -> METs; intersection gives the percent value.
+
+Summary Figure3:
+- A clinical nomogram used to determine a patient's percentage of predicted exercise capacity. By drawing a straight line from the patient's age to their achieved METs (exercise workload), the point where the line crosses their respective gender axis reveals their objective fitness level compared to peers.
 
 ## Stable Coronary Artery Disease 2018 (2nd Edition)
 

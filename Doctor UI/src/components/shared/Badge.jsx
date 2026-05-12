@@ -77,7 +77,14 @@ export function RiskBadge({ risk, className = '' }) {
     low: { variant: 'success', icon: Info },
   };
 
+  const riskLabels = {
+    high: 'High Confidence',
+    medium: 'Mid Confidence',
+    low: 'Low Confidence',
+  };
+
   const { variant, icon: Icon } = riskStyles[risk] || riskStyles.low;
+  const label = riskLabels[risk] || riskLabels.low;
 
   return (
     <Badge variant={variant} size="sm" className={`gap-1 ${className}`}>
