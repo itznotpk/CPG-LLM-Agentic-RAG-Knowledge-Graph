@@ -61,10 +61,10 @@ class AgenticRAGCLI:
   The agent has access to vector search, knowledge graph, and hybrid search tools.
   
 {Colors.BOLD}Examples:{Colors.END}
-  - "What is the first-line treatment for erectile dysfunction?"
-  - "What are the contraindications for Sildenafil?"
-  - "What is IIEF-5 and how is it used?"
-  - "What treatments are available for ED?"
+  - "What is the recommended treatment for Hypertension?"
+  - "How is Breast Cancer staged according to the guidelines?"
+  - "What are the principles of Cancer Pain management?"
+  - "What is the first-line treatment for Erectile Dysfunction?"
 """
         print(help_text)
     
@@ -204,7 +204,7 @@ class AgenticRAGCLI:
             print(f"{Colors.RED}Cannot connect to API. Please ensure the server is running.{Colors.END}")
             return
         
-        print(f"{Colors.GREEN}Ready to chat! Ask me about clinical practice guidelines for ED management.{Colors.END}\n")
+        print(f"{Colors.GREEN}Ready to chat! Ask me about any clinical practice guidelines.{Colors.END}\n")
         
         try:
             while True:

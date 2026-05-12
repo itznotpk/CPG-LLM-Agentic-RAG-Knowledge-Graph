@@ -1,9 +1,11 @@
+@import "@fontsource/geist-sans";
+@import "@fontsource/geist-mono";
+@import "./mhnexus-design.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "@fontsource/geist-sans";
-@import "@fontsource/geist-mono";
 
 :root {
   /* Elegant healthcare accent colors (teal) */
@@ -82,12 +84,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(75, 140, 156, 0.4);
+  background: rgba(20, 184, 166, 0.4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(75, 140, 156, 0.6);
+  background: rgba(20, 184, 166, 0.6);
 }
 
 /* Glass effect utilities */
@@ -99,15 +101,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-dark {
-  background: rgba(11, 94, 60, 0.85);
+  background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Glow effects */
 .glow-primary {
-  box-shadow: 0 0 20px rgba(59, 177, 156, 0.4), 0 0 40px rgba(59, 177, 156, 0.2);
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.4), 0 0 40px rgba(20, 184, 166, 0.2);
 }
 
 .glow-success {
@@ -143,10 +145,10 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 177, 156, 0.4), 0 0 40px rgba(59, 177, 156, 0.2);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.4), 0 0 40px rgba(20, 184, 166, 0.2);
   }
   50% {
-    box-shadow: 0 0 30px rgba(59, 177, 156, 0.6), 0 0 60px rgba(59, 177, 156, 0.3);
+    box-shadow: 0 0 30px rgba(20, 184, 166, 0.6), 0 0 60px rgba(20, 184, 166, 0.3);
   }
 }
 
@@ -179,12 +181,12 @@ button, .btn {
 
 button:hover:not(:disabled), .btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 177, 156, 0.3);
+  box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3);
 }
 
 button:active:not(:disabled), .btn:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(59, 177, 156, 0.2);
+  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.2);
 }
 
 /* Card hover effects */
@@ -194,12 +196,12 @@ button:active:not(:disabled), .btn:active:not(:disabled) {
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(75, 140, 156, 0.2);
+  box-shadow: 0 12px 40px rgba(20, 184, 166, 0.2);
 }
 
 /* Input focus glow */
 input:focus, textarea:focus, select:focus {
-  box-shadow: 0 0 0 3px rgba(59, 177, 156, 0.2);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
 }
 
 /* Icon button hover */
@@ -209,7 +211,7 @@ input:focus, textarea:focus, select:focus {
 
 .icon-btn:hover {
   transform: scale(1.1);
-  background-color: rgba(59, 177, 156, 0.15);
+  background-color: rgba(20, 184, 166, 0.15);
 }
 
 /* Badge hover */

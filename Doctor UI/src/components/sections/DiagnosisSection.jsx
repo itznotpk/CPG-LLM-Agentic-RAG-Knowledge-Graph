@@ -93,7 +93,7 @@ export function DiagnosisSection() {
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-[var(--accent-primary)]/20 rounded-xl">
-              <Brain className="w-6 h-6 text-[var(--accent-primary)]" />
+              <Brain className="w-6 h-6 text-[var(--accent-primary)]" strokeWidth={1.5} />
             </div>
             <div>
               <span className={`text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
@@ -121,7 +121,7 @@ export function DiagnosisSection() {
 
         <div className={`p-4 border rounded-xl ${isDark ? 'bg-amber-900/30 border-amber-500/30' : 'bg-amber-50/50 border-amber-200/50'}`}>
           <div className="flex items-start gap-3">
-            <AlertCircle className={`w-5 h-5 mt-0.5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />
+            <AlertCircle className={`w-5 h-5 mt-0.5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} strokeWidth={1.5} />
             <div>
               <p className={`font-medium ${isDark ? 'text-amber-300' : 'text-amber-800'}`}>Clinical Correlation Required</p>
               <p className={`text-sm mt-1 ${isDark ? 'text-amber-200/80' : 'text-amber-700'}`}>
@@ -137,18 +137,16 @@ export function DiagnosisSection() {
       <GlassCard className="p-6">
         <div className="flex items-center gap-3 mb-5">
           <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-            <Target className="w-5 h-5 text-[var(--accent-primary)]" />
+            <Target className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
           </div>
           <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Differential Diagnosis</h3>
         </div>
 
         {diagnosis?.cpgsMatched?.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
-            <span className="text-xs text-gray-400">CPGs consulted:</span>
+          <div className="flex flex-wrap items-center gap-1.5 mb-3">
+            <span className="ds-eyebrow">CPGs consulted</span>
             {diagnosis.cpgsMatched.map(name => (
-              <span key={name} className="text-xs bg-blue-900/40 text-blue-300 px-2 py-0.5 rounded">
-                {name}
-              </span>
+              <Badge key={name} variant="info" size="sm">{name}</Badge>
             ))}
           </div>
         )}
@@ -179,7 +177,7 @@ export function DiagnosisSection() {
                         : isDark ? 'bg-[var(--accent-primary)]/30 text-slate-300' : 'bg-[var(--accent-primary)]/20 text-slate-700'
                         }`}
                     >
-                      {isSelected ? <Check className="w-4 h-4" /> : idx + 1}
+                      {isSelected ? <Check className="w-4 h-4" strokeWidth={1.5} /> : idx + 1}
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
@@ -200,8 +198,8 @@ export function DiagnosisSection() {
                   </div>
                 </div>
                 {diff.reasoning && diff.reasoning.length > 0 && (
-                  <details className="mt-2 text-xs text-gray-500">
-                    <summary className="cursor-pointer hover:text-gray-300">
+                  <details className={`mt-2 text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    <summary className={`cursor-pointer ${isDark ? 'hover:text-slate-200' : 'hover:text-slate-700'}`}>
                       View reasoning ({diff.reasoning.length})
                     </summary>
                     <ul className="mt-1 space-y-0.5 pl-3">
@@ -222,7 +220,7 @@ export function DiagnosisSection() {
         <div className={`flex items-center gap-2 text-xs px-4 py-2 rounded-lg
           ${isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20'
                    : 'bg-amber-50    text-amber-700 border border-amber-200'}`}>
-          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+          <AlertCircle className="w-3.5 h-3.5 shrink-0" strokeWidth={1.5} />
           Your selection differs from the AI recommendation — the care plan will be
           re-generated specifically for{' '}
           <strong>{selectedDiagnoses.map(d => d.name).join(', ')}</strong>.
@@ -261,7 +259,7 @@ export function DiagnosisSection() {
       {isGeneratingPlan && (
         <div className="flex flex-col items-center gap-4 py-6 animate-fadeIn">
           <div className={`flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            <Sparkles className="w-5 h-5 animate-pulse text-[var(--accent-primary)]" />
+            <Sparkles className="w-5 h-5 animate-pulse text-[var(--accent-primary)]" strokeWidth={1.5} />
             <span>
               {willResynth 
                 ? `AI is re-synthesizing evidence-based care plan for ${selectedDiagnoses.length === 1 ? selectedDiagnoses[0]?.name : `${selectedDiagnoses.length} diagnoses`}...`

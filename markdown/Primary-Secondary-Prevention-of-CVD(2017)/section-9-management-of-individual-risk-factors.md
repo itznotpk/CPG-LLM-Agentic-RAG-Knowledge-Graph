@@ -1,11 +1,15 @@
-# MANAGEMENT OF INDIVIDUAL RISK FACTORS
+# SECTION 9: MANAGEMENT OF INDIVIDUAL RISK FACTORS
 
 <!-- METADATA
 category: treatment
-use_case: risk_factor_management, prescribing_guidance
-patient_input: risk_factors, labs, current_meds, comorbidities
-output: management_plan
+use_case: risk_factor_management, prescribing_guidance, target_setting
+patient_input: risk_factors, labs, current_meds, comorbidities, cv_risk_category, bp, lipids, glucose, weight
+output: management_plan, treatment_targets, drug_selection, referral_criteria
 -->
+
+> **Context:** This is the core clinical management section. It covers pharmacological and non-pharmacological management of hypertension (staging, drug selection, resistant hypertension), dyslipidaemia (LDL-C targeting by risk tier, statin/ezetimibe/PCSK-9 use), prediabetes and T2DM (A1c targets, SGLT2i/GLP-1 sequencing, hypoglycaemia risk), antiplatelet therapy (primary and secondary prevention), and anticoagulation (AF, LV thrombus).
+
+---
 
 ## 9. Management of Individual Risk Factors
 
@@ -874,4 +878,85 @@ In patients with LV thrombus demonstrated by echocardiography following a recent
 -  Anticoagulation in these patients can be achieved using either warfarin or NOACs.
 - Patients with AF due to valve disease or prosthetic heart valves should be anticoagulated with warfarin.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| AF | Atrial Fibrillation |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CAD | Coronary Artery Disease |
+| CHD | Coronary Heart Disease |
+| CKD | Chronic Kidney Disease |
+| CVD | Cardiovascular Disease |
+| DAPT | Dual Antiplatelet Therapy |
+| DBP | Diastolic Blood Pressure |
+| DM | Diabetes Mellitus |
+| DPP-4i | Dipeptidyl Peptidase-4 Inhibitor |
+| eGFR | Estimated Glomerular Filtration Rate |
+| FBG | Fasting Blood Glucose |
+| FRS | Framingham Risk Score |
+| GFR | Glomerular Filtration Rate |
+| GLP-1 | Glucagon-Like Peptide-1 |
+| HbA1c | Glycated Haemoglobin A1c |
+| HDL-C | High Density Lipoprotein Cholesterol |
+| IFG | Impaired Fasting Glucose |
+| IGT | Impaired Glucose Tolerance |
+| IHD | Ischaemic Heart Disease |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| LV | Left Ventricular |
+| LVH | Left Ventricular Hypertrophy |
+| MI | Myocardial Infarction |
+| NHMS | National Health and Morbidity Survey |
+| NOACs | Novel Oral Anticoagulants |
+| OGTT | Oral Glucose Tolerance Test |
+| PA | Physical Activity |
+| PAD | Peripheral Artery Disease |
+| PCSK-9 | Proprotein Convertase Subtilisin/Kexin Type 9 |
+| PCI | Percutaneous Coronary Intervention |
+| SBP | Systolic Blood Pressure |
+| SGLT2i | Sodium-Glucose Co-Transporter 2 Inhibitor |
+| T2DM | Type 2 Diabetes Mellitus |
+| TC | Total Cholesterol |
+| TG | Triglycerides |
+| TIA | Transient Ischaemic Attack |
+| TZD | Thiazolidinedione |
+| VLDL-C | Very Low Density Lipoprotein Cholesterol |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

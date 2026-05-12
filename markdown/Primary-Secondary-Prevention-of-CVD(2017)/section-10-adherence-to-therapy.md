@@ -1,11 +1,15 @@
-# ADHERENCE TO THERAPY
+# SECTION 10: ADHERENCE TO THERAPY
 
 <!-- METADATA
 category: follow_up
-use_case: adherence_support, care_continuity
-patient_input: barriers, adherence, side_effects
-output: adherence_plan
+use_case: adherence_support, care_continuity, patient_engagement
+patient_input: barriers_to_adherence, current_medications, side_effects, socioeconomic_factors
+output: adherence_assessment, intervention_strategies, adherence_plan
 -->
+
+> **Context:** This section addresses medication non-adherence — a major contributor to poor CVD outcomes. It provides a structured approach to identifying causes of non-adherence (patient, system, therapy, socioeconomic factors) and interventions to improve it, including team-based care, polypill strategies, and motivational counselling techniques.
+
+---
 
 ## 10 . Adherence to Therapy
 
@@ -99,4 +103,49 @@ Adapted from:
 
 · Osterberg et al 2005 NEJM. Adherence to medication. N Engl J Med. 2005 Aug 4;353(5):487-97 607
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| BP | Blood Pressure |
+| CVD | Cardiovascular Disease |
+| MI | Myocardial Infarction |
+| MOH | Ministry of Health |
+| WHO | World Health Organization |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

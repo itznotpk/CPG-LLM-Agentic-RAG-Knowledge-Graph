@@ -84,12 +84,16 @@ recommendations array MUST cover all applicable types below:
               "Routine cardiology review — optimise rate control in persistent AF"
 
 monitoring list — MUST be populated if ANY monitoring content appears in the retrieved chunks.
-  Format: "Parameter: target or frequency (CPG §section)"
+  Each entry is a structured object with these fields:
+    parameter : string — what to monitor (e.g. "LFTs", "6-Minute Walk Test", "BNP/NT-proBNP")
+    schedule  : string — when and how often (e.g. "monthly for 4 months, then quarterly")
+    target    : string or null — goal value or threshold (e.g. "within normal range", "eGFR >45 mL/min")
+    cpg_ref   : string or null — CPG section (e.g. "CPG PAH §7.3")
   Examples:
-    "LFTs: monthly for 4 months, then quarterly during bosentan therapy (CPG PAH §7.3)"
-    "6-Minute Walk Test: every 3 months to assess functional capacity (CPG PAH §8.1)"
-    "BNP/NT-proBNP: at baseline and every 3–6 months (CPG PAH §8.1)"
-    "INR: weekly until stable, then monthly (CPG AF §5.2)"
+    {"parameter": "LFTs", "schedule": "monthly for 4 months, then quarterly", "target": "within normal range", "cpg_ref": "CPG PAH §7.3"}
+    {"parameter": "6-Minute Walk Test", "schedule": "every 3 months", "target": "improvement in functional capacity", "cpg_ref": "CPG PAH §8.1"}
+    {"parameter": "BNP/NT-proBNP", "schedule": "at baseline and every 3–6 months", "target": null, "cpg_ref": "CPG PAH §8.1"}
+    {"parameter": "INR", "schedule": "weekly until stable, then monthly", "target": "therapeutic range", "cpg_ref": "CPG AF §5.2"}
   If no monitoring chunk was retrieved, add to unresolved_questions:
     "Monitoring protocol not retrieved — recommend re-scoring retrieval query."
 
@@ -106,7 +110,10 @@ SYNTHESIS RULES:
 
 1. recommendations — one Recommendation object per distinct clinical action supported by evidence.
    - intervention: follow the ACTION format above for pharmacological; be specific for all types
-   - cpg_source: cite exact chunk number and CPG section, e.g. "CPG PAH §6.1 [chunk 3]"
+   - cpg_source: cite exact chunk number and CPG section, e.g. "CPG PAH §6.1 [chunk 3]".
+     If the evidence header contains a "⚠ Published YYYY" tag, APPEND it verbatim to cpg_source
+     (e.g. "CPG PAH §6.1 [chunk 3] ⚠ Published 2011 (15y old)") AND add an unresolved_questions entry
+     noting the CPG is stale and a current guideline check is warranted.
    - evidence_grade: assign using EVIDENCE GRADE ASSIGNMENT rules above. Null if no tag present.
    - rationale: one sentence explaining WHY this applies to THIS SPECIFIC PATIENT.
      Must reference patient-specific data: age, sex, comorbidities, vitals, or medications.

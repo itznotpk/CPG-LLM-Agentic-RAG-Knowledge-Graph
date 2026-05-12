@@ -379,7 +379,8 @@ TEXT:
         
         try:
             from pydantic_ai.models.bedrock import BedrockConverseModel
-            model = BedrockConverseModel("us.meta.llama3-3-70b-instruct-v1:0")
+            model_id = os.getenv("BEDROCK_MODEL_ID", "anthropic.claude-3-haiku-20240307-v1:0")
+            model = BedrockConverseModel(model_id)
         except Exception as e:
             logger.warning(f"Could not load ingestion model for triple extraction: {e}")
             return []
@@ -478,8 +479,9 @@ Return format:
         
         try:
             # Get database name from the graph driver or env var
-            db_name = getattr(self.graph_client.graphiti.driver, '_database', None) \
-                      or os.getenv("NEO4J_DATABASE", "neo4j")
+            # Pass None so the neo4j driver uses its own default (works with Aura).
+            # Explicit NEO4J_DATABASE env var overrides when set.
+            db_name = os.getenv("NEO4J_DATABASE") or None
             async with self.graph_client.graphiti.driver.client.session(database=db_name) as session:
                 for triple in triples:
                     subject = triple.get("subject", "").strip()

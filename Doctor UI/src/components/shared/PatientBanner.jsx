@@ -48,9 +48,9 @@ export function PatientBanner() {
             {patient.name}
           </h2>
           <div className={`flex items-center gap-2 text-sm mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            <span>{patient.nsn}</span>
+            <span className="ds-mono">{patient.nsn}</span>
             <span>•</span>
-            <span>{patient.age || '--'} yrs</span>
+            <span className="ds-numeric">{patient.age || '--'} yrs</span>
             <span>•</span>
             <span>{patient.gender || '--'}</span>
           </div>
@@ -60,14 +60,14 @@ export function PatientBanner() {
       <div className="flex items-center gap-4 flex-wrap">
         {patient.riskLevel && (
           <div className="flex items-center gap-2">
-            <Activity className={`w-4 h-4 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
+            <Activity className={`w-4 h-4 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} strokeWidth={1.5} />
             {getRiskBadge(patient.riskLevel)}
           </div>
         )}
 
         {allergiesList.length > 0 && (
           <div className="flex items-center gap-2 border-l pl-4 border-slate-200 dark:border-white/10">
-            <AlertCircle className="w-4 h-4 text-red-500" />
+            <AlertCircle className="w-4 h-4 text-red-500" strokeWidth={1.5} />
             <div className="flex flex-wrap gap-1.5">
               {allergiesList.map((allergy, idx) => (
                 <span key={idx} className="bg-red-100 text-red-700 border border-red-300 rounded-full px-2.5 py-0.5 text-xs font-semibold shadow-sm">

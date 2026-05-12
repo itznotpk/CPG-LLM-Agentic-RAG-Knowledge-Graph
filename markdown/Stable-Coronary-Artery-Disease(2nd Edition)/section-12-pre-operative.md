@@ -1,206 +1,120 @@
 # PRE-OPERATIVE ASSESSMENT
 
 <!-- METADATA
-category: monitoring
-use_case: perioperative_risk_assessment
-patient_input: procedure_risk, functional_status, comorbidities
-output: perioperative_plan
+category: Assessment, Diagnosis
+use_case: Pre-operative cardiac risk assessment for elective non-cardiac surgery — functional_capacity, risk_scoring, testing
+patient_input: surgery_type, functional_capacity, CAD_status, risk_factors
+output: perioperative_risk, clearance_plan
 -->
 
-## 12. PRE-OPERATIVE ASSESSMENT FOR ELECTIVE NON-CARDIAC SURGERY
+
+
+
+
+
+
+
+
+
+
+## 12.PRE-OPERATIVEASSESSMENTFORELECTIVENON-CARDIAC SURGERY
 
 The extent of investigation in the pre-operative assessment of patients with stable CAD going for elective non-cardiac surgery will depend on the risk of the surgery:
 
-- low risk surgery (risk of death or MI &lt;1% 528 e.g. cataract, simple plastic surgery)
-- intermediate risk and High-Risk surgery (risk of death or MI &gt; 1% 528 e.g. intra peritoneal, intra thoracic surgery)
-- vascular surgery/liver and kidney transplant
+- surgery)
+- intermediate risk and High-Risk surgery (risk of death or MI &gt; 1%528 e.g. intra peritoneal, intra thoracic surgery)
+- vascular surgery/liverandkidneytransplant
 
-## In addition, other factors that need to be considered include the presence of:
+## In addition,otherfactors that need tobe considered include thepresence of:
 
-- diabetes
-- CKD
-- LV dysfunction
-- In general, a resting ECG should be performed in all patients and compared with previous ECGs. I, C
+- ·diabetes
+- ·CKD
+- ·LV dysfunction
+- In general, a resting ECG should be performed in all patients and compared withpreviousECGs.
 
-IIa, B
+An echocardiogram may be considered in:528
 
-An echocardiogram may be considered in: 528
+- intermediateandhigh-risksurgery
+- &gt;1otherclinicalriskfactorsthatinclude:
+- &gt;CAD-previousrevascularization/MI
+- &gt;heartfailure
+- &gt;stroke/TIA
+- &gt;renal dysfunction (serum creatinine &gt;170umol/l or Cr Cl &lt;60 mL/min)
+- &gt;diabetes
+- If aprevious echocardiogram had beendonewithin thelast 12months and it **[Grade I, Level C]** wasnormal and thepatient has no change inhis symptoms, then a repeat examinationisnotwarranted.
 
-- intermediate and high-risk surgery
-- &gt;1 other clinical risk factors that include:
--  CAD - previous revascularization/MI
--  heart failure
--  stroke/TIA
--  renal dysfunction (serum creatinine &gt;170umol/l or Cr Cl &lt;60 mL/min)
--  diabetes
-- If a previous echocardiogram had been done within the last 12 months and it was normal and the patient has no change in his symptoms, then a repeat examination is not warranted. I, C
+**[Grade II-a, Level B]**
 
-If the patient is asymptomatic with good effort tolerance (&gt;4 METS*), no further investigations is necessary.68,528
 
-Non-invasive stress testing may be considered if the patient has:
+If the patient is asymptomatic with good effort tolerance (&gt;4 METS*), no **[Grade II-a, Level B]** further investigations is necessary.68.528
 
- poor functional capacity (&lt;4 METS) and
+**[Grade II-b, Level C]**
 
- ≥1 clinical risk factors and
+Non-invasive stress testing may be considered if the patient has:68
 
- undergoing intermediate and high-risk surgery or vascular surgery/liver and kidney transplant.
+- &gt;poorfunctionalcapacity(&lt;4METS)and
+- &gt;≥1clinical riskfactors and
+- &gt; undergoing intermediate and high-risk surgery or vascular surgery/liver and kidney transplant.
+- Weadvocatethattheseconsiderationsshouldbedonepriortolistingthe **[Grade I, Level C]** patient for surgery, for proper evaluation, planning of investigations and appropriate ethical informed consent process to be offered.
 
-We advocate that these considerations should be done prior to listing the patient for surgery, for proper evaluation, planning of investigations and
+In patients who have undergone PCl and stenting and are on DAPT, a consultation with the cardiologist is necessary.
 
-appropriate ethical informed consent process to be offered.
-
-In patients who have undergone PCI and stenting and are on DAPT, a consultation with the cardiologist is necessary.
-
-*4 METS is equivalent to doing housework, sweeping floors and climbing 1 flight of stairs.
-
-68
-
-13. MONITORING AND QUALITY ASSURANCE
-
-Recommended Performance Indicators for Management of Stable CAD - to be audited on hospital discharges and at review at the outpatient clinics on an annual
-
-basis.
-
-Percentage of patients with CAD on antiplatelet therapy:
-
-No. of patients with CAD on aspirin
-
-(or clopidogrel or ticlopidine, if aspirin intolerant)
-
-= X 100%
-
-No. of patients with CAD seen on that clinic day
-
-Percentage of patients with CAD on statins:
-
-No. of patients with CAD on statin
-
-= X 100%
-
-No. of patients with CAD seen on that clinic day
-
-(Target &gt; 70%)
-
-12.
-
-PRE-OPERATIVE ASSESSMENT FOR ELECTIVE NON-CARDIAC
-
-SURGERY
-
-The extent of investigation in the pre-operative assessment of patients with stable CAD going for elective non-cardiac surgery will depend on the risk of
-
-the surgery:
-
-·
-
-low risk surgery (risk of death or MI &lt;1%
-
-surgery)
-
-· intermediate risk and High-Risk surgery (risk of death or MI &gt; 1%
-
-e.g. intra peritoneal, intra thoracic surgery)
-
-· vascular surgery/liver and kidney transplant
-
-In addition, other factors that need to be considered include the presence of:
-
-· diabetes
-
-· CKD
-
-· LV dysfunction
-
-In general, a resting ECG should be performed in all patients and compared with previous ECGs.
-
-An echocardiogram may be considered in:
-
-528
-
-· intermediate and high-risk surgery
-
-· &gt;1 other clinical risk factors that include:
-
- CAD - previous revascularization/MI
-
- heart failure
-
- stroke/TIA
-
- renal dysfunction (serum creatinine &gt;170umol/l or Cr Cl &lt;60 mL/min)
-
- diabetes
-
-If a previous echocardiogram had been done within the last 12 months and it was normal and the patient has no change in his symptoms, then a repeat
-
-examination is not warranted.
-
-528
-
-e.g. cataract, simple plastic
-
-528
-
-## Stable Coronary Artery Disease 2018
-
-## (2 nd d Edition)
-
-If the patient is asymptomatic with good effort tolerance (&gt;4 METS*), no further investigations is necessary.68,528 IIa, B
-
-IIb, C
-
-Non-invasive stress testing may be considered if the patient has: 68
-
--  poor functional capacity (&lt;4 METS) and
--  ≥1 clinical risk factors and
--  undergoing intermediate and high-risk surgery or vascular surgery/liver and kidney transplant.
-- We advocate that these considerations should be done prior to listing the patient for surgery, for proper evaluation, planning of investigations and appropriate ethical informed consent process to be offered. I, C
-
-In patients who have undergone PCI and stenting and are on DAPT, a consultation with the cardiologist is necessary.
-
-*4 METS is equivalent to doing housework, sweeping floors and climbing 1 flight of stairs.
+*4METSis equivalent to doing housework,sweeping floors and climbing1flight of stairs.
 
 ## Key Messages:
 
-- The extent of investigation in the pre-operative assessment of patients with stable CAD going for elective non-cardiac surgery will depend on the risk of the surgery:
--  low risk surgery (risk of death or MI &lt;1% e.g. cataract, simple plastic surgery)
--  intermediate risk and High-Risk surgery (risk of death or MI &gt; 1% e.g. intra peritoneal, intra thoracic surgery)
--  vascular surgery/liver and kidney transplant
+- The extent of investigation in thepre-operative assessment of patientswith stableCADgoingforelectivenon-cardiacsurgerywill dependontheriskof the surgery:
+- &gt; intermediate risk and High-Risk surgery (risk of death or Ml &gt; 1% e.g. intra peritoneal, intra thoracic surgery)
+- &gt; low risk surgery (risk of death or Ml &lt;1% e.g. cataract, simple plastic surgery)
+- &gt;vascular surgery/liverandkidney transplant
 - In addition, other factors that need to be considered include the presence of:
--  diabetes
--  CKD
--  LV dysfunction
-- In general, a resting ECG should be performed in all patients and compared with previous ECGs.
+- &gt;diabetes
+- &gt; CKD
+- &gt;LV dysfunction
+- In general, a resting ECG should be performed in all patients and compared withprevious ECGs.
 - An echocardiogram may be considered in selected patients.
 - If the patient is asymptomatic with good effort tolerance (&gt;4 METS), no further investigations is necessary.
 
-## Stable Coronary Artery Disease 2018 (2 nd d Edition)
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
 
+### Grades of Recommendation
 
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
---- 
+### Levels of Evidence
 
-> **OVERLAPPING DIAGNOSTIC & RISK CONTEXT FOR RAG:**
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
 
-Table 1: Pre-Test Probability (PTP) of CAD in patients with stable Chest Pain*
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 
-| Pre-test Probability of CAD                         | Pre-test Probability of CAD                         | Pre-test Probability of CAD   | Pre-test Probability of CAD   | Pre-test Probability of CAD   | Pre-test Probability of CAD   |
-|-----------------------------------------------------|-----------------------------------------------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
-| Age Typical Angina Atypical Angina Non-anginal Pain | Age Typical Angina Atypical Angina Non-anginal Pain |                               |                               |                               |                               |
-|                                                     | Men Women Men Women Men Women                       |                               |                               |                               |                               |
-|                                                     |                                                     | 30-39 59 28 29 10 18 5        |                               |                               |                               |
-|                                                     |                                                     | 40-49 69 37 38 14 25 8        |                               |                               |                               |
-|                                                     |                                                     | 50-59 77 47 49 20 34 12       |                               |                               |                               |
-|                                                     |                                                     | 60-69 84 58 59 28 44 17       |                               |                               |                               |
-|                                                     | 70-79 89 68 69 37 54 24                             |                               |                               |                               |                               |
-|                                                     |                                                     | >80 93 76 78 47 65 32         |                               |                               |                               |
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in this section -->
+<!-- ============================================================ -->
 
-Table 4: Canadian Cardiovascular Society (CCS) Classification of Angina
+### Abbreviations
 
-57
+| Abbreviation | Full Term |
+|---|---|
+| CAD | CoronaryArteryDisease |
+| CKD | ChronicKidney Disease |
+| DAPT | Dual Antiplatelet Therapy |
+| ECG | Electrocardiogram |
+| LV | Left Ventricle |
+| MI | Myocardial Infarction |
+| TIA | TransientIschemicAttack |
 
-Myocardial ischemia may occur in the presence of:
-
-Table 6: Sensitivity and Specificity of the Various Non-Invasive Diagnostic tests for CAD*
-
-*Montalescot G, Sechtem U, Achenbach S, Andreotti F, Arden C et al. The Task Force on the management of stable coronary artery disease of the European Society of Cardiology. 2013 ESC guidelines on the management
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

@@ -3,6 +3,7 @@ import { Stethoscope, Sparkles, Brain, FileText, Activity, Search, UserPlus, Che
 import { ClinicalNotes } from './ClinicalNotes';
 import { PipelineProgress } from './PipelineProgress';
 import { VitalsGrid } from './VitalsGrid';
+import { SeverityStagingGrid } from './SeverityStagingGrid';
 import { Button, Skeleton, SkeletonDiagnosis, GlassCard, Badge } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -19,7 +20,7 @@ function AnalyzingSkeleton() {
       <div className={`backdrop-blur-xl border rounded-2xl p-6 ${isDark ? 'bg-slate-800/80 border-white/10' : 'bg-white/60 border-slate-200'}`}>
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-[var(--accent-primary)]/20 rounded-xl">
-            <Brain className={`w-6 h-6 animate-pulse text-[var(--accent-primary)]`} />
+            <Brain className={`w-6 h-6 animate-pulse text-[var(--accent-primary)]`} strokeWidth={1.5} />
           </div>
           <div className="flex-1">
             <h3 className={`text-lg font-semibold mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>AI Analysis in Progress</h3>
@@ -156,8 +157,8 @@ function ChartModal({ patient, isOpen, onClose }) {
         <div className={`sticky top-0 flex items-center justify-between p-4 border-b
           ${isDark ? 'bg-slate-900 border-white/10' : 'bg-white border-slate-200'}`}>
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-emerald-500/20 rounded-xl">
-              <BarChart2 className="w-5 h-5 text-emerald-500" />
+            <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
+              <BarChart2 className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
             </div>
             <div>
               <h2 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -174,7 +175,7 @@ function ChartModal({ patient, isOpen, onClose }) {
               ${isDark ? 'hover:bg-white/10 text-slate-400 hover:text-white'
                 : 'hover:bg-slate-100 text-slate-500 hover:text-slate-800'}`}
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" strokeWidth={1.5} />
           </button>
         </div>
 
@@ -190,7 +191,7 @@ function ChartModal({ patient, isOpen, onClose }) {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all
                     ${isActive
-                      ? 'bg-emerald-500 text-white'
+                      ? 'bg-[var(--accent-primary)] text-white shadow-sm'
                       : isDark ? 'bg-white/10 text-slate-300 hover:bg-white/20' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                 >
@@ -250,11 +251,11 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
   }, [patient?.nsn]);
 
   return (
-    <GlassCard className="p-6 border-2 border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5">
+    <GlassCard variant="success" className="p-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-green-500/20 rounded-xl">
-            <CheckCircle className="w-6 h-6 text-green-500" />
+            <CheckCircle className="w-6 h-6 text-green-500" strokeWidth={1.5} />
           </div>
           <div>
             <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -279,103 +280,91 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
         </div>
       </div>
 
-      {/* Patient Demographics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-        <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
-          <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Full Name</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.name || '-'}</p>
+      {/* Patient Demographics — bordered grid with ds-eyebrow labels */}
+      <div className={`grid grid-cols-2 md:grid-cols-4 text-sm mb-4 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'} border rounded-xl overflow-hidden ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+        {[
+          { label: 'Full name', value: patient?.name || '—', cls: '' },
+          { label: 'NRIC', value: patient?.nsn || '—', cls: 'ds-mono' },
+          { label: 'Date of birth', value: patient?.dob || '—', cls: 'ds-numeric' },
+          { label: 'Age / Gender', value: `${patient?.age || '—'} / ${patient?.gender || '—'}`, cls: 'ds-numeric' },
+        ].map(({ label, value, cls }) => (
+          <div key={label} className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
+            <p className="ds-eyebrow mb-1">{label}</p>
+            <p className={`font-medium text-sm ${cls} ${isDark ? 'text-white' : 'text-slate-800'}`}>{value}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Race + Allergies row */}
+      <div className={`grid grid-cols-2 text-sm mb-4 divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'} border rounded-xl overflow-hidden ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+        <div className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
+          <p className="ds-eyebrow mb-1">Race</p>
+          <p className={`font-medium text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{mpisData?.race || '—'}</p>
         </div>
-        <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
-          <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>NRIC</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.nsn || '-'}</p>
-        </div>
-        <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
-          <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Date of Birth</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.dob || '-'}</p>
-        </div>
-        <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
-          <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Age / Gender</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.age || '-'} / {patient?.gender || '-'}</p>
+        <div className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
+          <p className="ds-eyebrow mb-1">Allergies</p>
+          <p className={`font-medium text-sm ${mpisData?.allergies ? 'text-red-500' : isDark ? 'text-white' : 'text-slate-800'}`}>
+            {mpisData?.allergies || 'No known allergies'}
+          </p>
         </div>
       </div>
 
-      {/* MPIS Data */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-        <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
-          <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Race</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{mpisData?.race || '-'}</p>
+      {/* Three-panel row: Comorbidities | Previous notes | Current medications */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {/* Comorbidities */}
+        <div className={`p-4 rounded-xl border-l-2 border-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20'}`}>
+          <p className="ds-eyebrow mb-2">Comorbidities</p>
+          {mpisData?.comorbidities?.length > 0 ? (
+            <div className="flex flex-wrap gap-1.5">
+              {mpisData.comorbidities.map((condition, idx) => (
+                <Badge key={idx} variant="warning" size="sm">{condition}</Badge>
+              ))}
+            </div>
+          ) : (
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>None recorded</p>
+          )}
         </div>
-        <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
-          <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Allergies</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{mpisData?.allergies || 'None known'}</p>
+
+        {/* Previous Clinical Notes */}
+        <div className={`p-4 rounded-xl border-l-2 border-blue-400 ${isDark ? 'bg-blue-500/5 border border-blue-500/20' : 'bg-blue-50/60 border border-blue-200'}`}>
+          <p className="ds-eyebrow mb-2" style={{ color: 'rgb(59,130,246)' }}>Previous clinical notes</p>
+          {loadingNotes ? (
+            <div className="flex items-center gap-2">
+              <Loader2 className="w-4 h-4 animate-spin text-slate-400" strokeWidth={1.5} />
+              <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading...</span>
+            </div>
+          ) : previousNotes?.clinicalNotes ? (
+            <div>
+              <p className={`text-sm whitespace-pre-wrap leading-relaxed ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                {previousNotes.clinicalNotes}
+              </p>
+              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                Last updated: {new Date(previousNotes.consultationTime).toLocaleString()}
+                {previousNotes.doctorName && ` · ${previousNotes.doctorName}`}
+              </p>
+            </div>
+          ) : (
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No previous clinical notes</p>
+          )}
+        </div>
+
+        {/* Current Medications */}
+        <div className={`p-4 rounded-xl border-l-2 border-amber-400 ${isDark ? 'bg-amber-500/5 border border-amber-500/20' : 'bg-amber-50/60 border border-amber-200'}`}>
+          <p className="ds-eyebrow mb-2" style={{ color: 'rgb(245,158,11)' }}>Current medications</p>
+          {mpisData?.currentMeds?.length > 0 ? (
+            <div className="space-y-1.5">
+              {mpisData.currentMeds.map((med, idx) => (
+                <div key={idx} className={`flex items-center justify-between text-sm ${isDark ? 'border-b border-white/10' : 'border-b border-amber-100'} pb-1 last:border-0 last:pb-0`}>
+                  <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{med.name}</span>
+                  <span className={`ds-mono text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{med.dose} {med.frequency}</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No medications recorded</p>
+          )}
         </div>
       </div>
-
-      {/* Comorbidities */}
-      {mpisData?.comorbidities?.length > 0 && (
-        <div className="mb-4">
-          <div className="flex items-center gap-2 mb-2">
-            <Heart className="w-4 h-4 text-[var(--accent-primary)]" />
-            <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-700'}`}>Comorbidities</span>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {mpisData.comorbidities.map((condition, idx) => (
-              <Badge key={idx} variant="warning" size="md">
-                {condition}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Previous Clinical Notes */}
-      <div className="mb-4">
-        <div className="flex items-center gap-2 mb-2">
-          <ClipboardList className="w-4 h-4 text-[var(--accent-primary)]" />
-          <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-700'}`}>Previous Clinical Notes</span>
-        </div>
-        {loadingNotes ? (
-          <div className="flex items-center gap-2">
-            <Loader2 className="w-4 h-4 animate-spin text-slate-400" />
-            <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading...</span>
-          </div>
-        ) : previousNotes?.clinicalNotes ? (
-          <div className={`p-3 rounded-lg ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
-            <p className={`text-sm whitespace-pre-wrap ${isDark ? 'text-white' : 'text-slate-800'}`}>
-              {previousNotes.clinicalNotes}
-            </p>
-            <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-              Last updated: {new Date(previousNotes.consultationTime).toLocaleString()}
-              {previousNotes.doctorName && ` by ${previousNotes.doctorName}`}
-            </p>
-          </div>
-        ) : (
-          <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No previous clinical notes</p>
-        )}
-      </div>
-
-      {/* Current Medications */}
-      {mpisData?.currentMeds?.length > 0 && (
-        <div>
-          <div className="flex items-center gap-2 mb-2">
-            <Pill className="w-4 h-4 text-[var(--accent-primary)]" />
-            <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-700'}`}>Current Medications</span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {mpisData.currentMeds.map((med, idx) => (
-              <div
-                key={idx}
-                className={`flex items-center justify-between p-2.5 rounded-lg ${isDark ? 'bg-white/10' : 'bg-white/60'}`}
-              >
-                <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{med.name}</span>
-                <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                  {med.dose} {med.frequency}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </GlassCard>
   );
 }
@@ -522,11 +511,11 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
   };
 
   return (
-    <GlassCard className="p-6 border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-orange-500/5">
+    <GlassCard variant="warning" className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-amber-500/20 rounded-xl">
-            <UserPlus className="w-6 h-6 text-amber-500" />
+            <UserPlus className="w-6 h-6 text-amber-500" strokeWidth={1.5} />
           </div>
           <div>
             <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -545,7 +534,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
       {/* Success Message */}
       {registrationSuccess && (
         <div className="mb-4 p-3 rounded-lg bg-green-500/20 border border-green-500/30 flex items-center gap-2">
-          <CheckCircle className="w-5 h-5 text-green-500" />
+          <CheckCircle className="w-5 h-5 text-green-500" strokeWidth={1.5} />
           <span className={`text-sm font-medium ${isDark ? 'text-green-400' : 'text-green-700'}`}>
             Patient registered successfully! You can now proceed with the clinical assessment.
           </span>
@@ -555,7 +544,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
       {/* Error Message */}
       {registrationError && (
         <div className="mb-4 p-3 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center gap-2">
-          <AlertCircle className="w-5 h-5 text-red-500" />
+          <AlertCircle className="w-5 h-5 text-red-500" strokeWidth={1.5} />
           <span className={`text-sm font-medium ${isDark ? 'text-red-400' : 'text-red-700'}`}>
             {registrationError}
           </span>
@@ -877,7 +866,7 @@ export function DataInputSection({ onViewChart }) {
             <GlassCard className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-                  <Database className="w-5 h-5 text-[var(--accent-primary)]" />
+                  <Database className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -959,6 +948,7 @@ export function DataInputSection({ onViewChart }) {
         {mpisChecked && (
           <div className="xl:col-span-7 space-y-6">
             <VitalsGrid />
+            <SeverityStagingGrid />
             <ClinicalNotes
               isConfirmed={notesConfirmed}
               onConfirm={setNotesConfirmed}
@@ -968,7 +958,7 @@ export function DataInputSection({ onViewChart }) {
             {showValidationWarning && !canAnalyze && (
               <div className={`p-4 rounded-xl border-2 ${isDark ? 'bg-amber-500/10 border-amber-500/30' : 'bg-amber-50 border-amber-300'} animate-fadeIn`}>
                 <div className="flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
                   <div className="flex-1">
                     {isCompletelyBlank ? (
                       <>
@@ -1017,7 +1007,7 @@ export function DataInputSection({ onViewChart }) {
                     onClick={() => setShowValidationWarning(false)}
                     className={`p-1 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-amber-100'}`}
                   >
-                    <X className="w-4 h-4 text-amber-500" />
+                    <X className="w-4 h-4 text-amber-500" strokeWidth={1.5} />
                   </button>
                 </div>
               </div>

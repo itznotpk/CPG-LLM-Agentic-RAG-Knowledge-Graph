@@ -1,11 +1,15 @@
-# ESTIMATION OF GLOBAL CARDIOVASCULAR RISK
+# SECTION 3: ESTIMATION OF GLOBAL CARDIOVASCULAR RISK
 
 <!-- METADATA
 category: diagnosis
-use_case: risk_assessment, risk_stratification
-patient_input: age, sex, bp, lipids, diabetes, smoking
-output: global_risk_category
+use_case: risk_assessment, risk_stratification, screening_guidance
+patient_input: age, sex, bp, lipids, diabetes, smoking, family_history
+output: global_risk_category, 10_year_cvd_risk, vascular_age, screening_recommendation
 -->
+
+> **Context:** This section guides clinicians through the use of the Framingham Risk Score (FRS) General CVD Risk Calculator — the validated tool for Malaysian primary care — to stratify adults into Low, Intermediate, High, and Very High CV risk categories. It also covers secondary prevention targets for those with established CVD.
+
+---
 
 ## 3. Estimation of Global Cardiovascular Risk
 
@@ -169,4 +173,60 @@ Individuals with established CVD are at a high risk of a recurrent CV event.
 | 14       | 79               |
 | 15+      | >80              |
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CHD | Coronary Heart Disease |
+| CKD | Chronic Kidney Disease |
+| CVD | Cardiovascular Disease |
+| DM | Diabetes Mellitus |
+| FRS | Framingham Risk Score |
+| HDL-C | High Density Lipoprotein Cholesterol |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| NHMS | National Health and Morbidity Survey |
+| PA | Physical Activity |
+| PAD | Peripheral Artery Disease |
+| SBP | Systolic Blood Pressure |
+| TC | Total Cholesterol |
+| TG | Triglycerides |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

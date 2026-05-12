@@ -1,11 +1,15 @@
-# OTHER RISK MARKERS OF CVD
+# SECTION 7: OTHER RISK MARKERS OF CVD
 
 <!-- METADATA
 category: diagnosis
-use_case: advanced_risk_assessment
-patient_input: biomarkers, imaging, test_results
-output: risk_refinement_guidance
+use_case: advanced_risk_assessment, risk_reclassification
+patient_input: biomarkers, imaging, test_results, intermediate_risk_status
+output: risk_refinement_guidance, investigation_recommendations
 -->
+
+> **Context:** This section covers adjunct risk markers — ECG, echocardiography, hs-CRP, ABI, carotid ultrasound, CIMT, coronary artery calcium (CAC), and arterial stiffness — that can refine CV risk estimation beyond the FRS, particularly for individuals at Intermediate (Moderate) CV risk.
+
+---
 
 ## 7. Other Risk Markers of CVD
 
@@ -115,4 +119,61 @@ III,A
 -  Coronary Artery Calcium
 - They are most useful in further risk stratifying individuals at Intermediate (or moderate) CV risk.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ABI | Ankle-Brachial Index |
+| BP | Blood Pressure |
+| CAC | Coronary Artery Calcium |
+| CAD | Coronary Artery Disease |
+| CHD | Coronary Heart Disease |
+| CIMT | Carotid Intima-Media Thickness |
+| CKD | Chronic Kidney Disease |
+| CVD | Cardiovascular Disease |
+| DM | Diabetes Mellitus |
+| ECG | Electrocardiogram |
+| FRS | Framingham Risk Score |
+| hs-CRP | High-Sensitivity C-Reactive Protein |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| LVH | Left Ventricular Hypertrophy |
+| PAD | Peripheral Artery Disease |
+| PWV | Pulse Wave Velocity |
+| SBP | Systolic Blood Pressure |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

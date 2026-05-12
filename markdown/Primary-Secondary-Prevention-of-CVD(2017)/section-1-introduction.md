@@ -1,11 +1,15 @@
-# INTRODUCTION
+# SECTION 1: INTRODUCTION
 
 <!-- METADATA
 category: introduction
-use_case: scope_and_objectives
+use_case: scope_and_objectives, epidemiology
 patient_input: none
-output: guideline_scope
+output: guideline_scope, epidemiological_context
 -->
+
+> **Context:** This section establishes the epidemiological rationale for the CPG, documenting the high and rising burden of CVD and its modifiable risk factors in Malaysia. It provides context for why aggressive CVD prevention — both primary and secondary — is a public health priority.
+
+---
 
 ## 1. Introduction
 
@@ -76,4 +80,106 @@ To tackle the CV epidemic in this country, dietary and lifestyle changes in the 
 
 - To tackle the CV epidemic in this country, efforts should be made to reduce global CV risk. Dietary and lifestyle changes in the general population should be emphasized.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| AF | Atrial Fibrillation |
+| AHI | Apnea-Hypopnea Index |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CAD | Coronary Artery Disease |
+| CHD | Coronary Heart Disease |
+| CHO | Carbohydrate |
+| CIMT | Carotid Intima-Media Thickness |
+| CKD | Chronic Kidney Disease |
+| COC | Combined Oral Contraceptive |
+| CPG | Clinical Practice Guideline |
+| CRP | C-Reactive Protein |
+| CVA | Cerebrovascular Accident |
+| CVD | Cardiovascular Disease |
+| DAPT | Dual Antiplatelet Therapy |
+| DBP | Diastolic Blood Pressure |
+| DM | Diabetes Mellitus |
+| DPP-4i | Dipeptidyl Peptidase-4 Inhibitor |
+| eGFR | Estimated Glomerular Filtration Rate |
+| FBG | Fasting Blood Glucose |
+| FRS | Framingham Risk Score |
+| GFR | Glomerular Filtration Rate |
+| GI | Glycaemic Index |
+| GLP-1 | Glucagon-Like Peptide-1 |
+| HbA1c | Glycated Haemoglobin A1c |
+| HDL-C | High Density Lipoprotein Cholesterol |
+| hs-CRP | High-Sensitivity C-Reactive Protein |
+| IFG | Impaired Fasting Glucose |
+| IGT | Impaired Glucose Tolerance |
+| IHD | Ischaemic Heart Disease |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| LV | Left Ventricular |
+| LVH | Left Ventricular Hypertrophy |
+| MI | Myocardial Infarction |
+| MOH | Ministry of Health |
+| MUFA | Monounsaturated Fatty Acid |
+| NHMS | National Health and Morbidity Survey |
+| NOACs | Novel Oral Anticoagulants |
+| NRT | Nicotine Replacement Therapy |
+| OSA | Obstructive Sleep Apnea |
+| OGTT | Oral Glucose Tolerance Test |
+| PA | Physical Activity |
+| PAD | Peripheral Artery Disease |
+| PCI | Percutaneous Coronary Intervention |
+| PCSK-9 | Proprotein Convertase Subtilisin/Kexin Type 9 |
+| PUFA | Polyunsaturated Fatty Acid |
+| RA | Rheumatoid Arthritis |
+| SBP | Systolic Blood Pressure |
+| SGLT2i | Sodium-Glucose Co-Transporter 2 Inhibitor |
+| SFA | Saturated Fatty Acid |
+| SLE | Systemic Lupus Erythematosus |
+| T&CM | Traditional and Complementary Medicine |
+| T2DM | Type 2 Diabetes Mellitus |
+| TC | Total Cholesterol |
+| TFA | Trans Fatty Acid |
+| TG | Triglycerides |
+| TIA | Transient Ischaemic Attack |
+| TRT | Testosterone Replacement Therapy |
+| TZD | Thiazolidinedione |
+| VLDL-C | Very Low Density Lipoprotein Cholesterol |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

@@ -88,29 +88,39 @@ async def migrate():
         except Exception as e:
             print(f"   ⚠️ Column may already exist: {e}")
         
-        # Step 2: Get all codes with inclusions
-        print("\n📋 Step 2: Fetching codes with inclusions...")
+        # Step 2: Get all codes with inclusions OR descriptions
+        print("\n📋 Step 2: Fetching codes with inclusions or descriptions...")
         rows = await conn.fetch("""
-            SELECT code, title, inclusions 
+            SELECT code, title, description, inclusions 
             FROM icd11_codes 
-            WHERE inclusions IS NOT NULL AND array_length(inclusions, 1) > 0
+            WHERE (inclusions IS NOT NULL AND array_length(inclusions, 1) > 0)
+               OR (description IS NOT NULL AND description != '')
         """)
-        print(f"   Found {len(rows)} codes with inclusions")
+        print(f"   Found {len(rows)} codes to process")
         
-        # Step 3: Generate embeddings for each inclusion term
-        print("\n📋 Step 3: Generating inclusion embeddings...")
+        # Step 3: Generate embeddings for each inclusion term AND the description
+        print("\n📋 Step 3: Generating embeddings...")
         updated = 0
         
         for row in rows:
             code = row["code"]
-            inclusions = row["inclusions"]
+            inclusions = row["inclusions"] or []
+            description = row["description"]
             
             inclusion_embeddings = {}
+            
+            # 1. Embed Inclusions
             for inc_text in inclusions:
                 if inc_text.strip():
-                    print(f"   🔄 {code}: Embedding '{inc_text[:40]}...'")
+                    print(f"   🔄 {code}: Embedding inclusion '{inc_text[:40]}...'")
                     emb = await generate_embedding(inc_text)
                     inclusion_embeddings[inc_text] = emb
+            
+            # 2. Embed Description (CRITICAL: helps fix the "dilution" problem)
+            if description and description.strip():
+                print(f"   🔄 {code}: Embedding description '{description[:40]}...'")
+                emb = await generate_embedding(description)
+                inclusion_embeddings["[DESCRIPTION]"] = emb  # Special key for description
             
             # Update the row
             if inclusion_embeddings:

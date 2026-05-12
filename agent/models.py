@@ -209,6 +209,14 @@ class AgentContext(BaseModel):
 
 
 # Clinical Workflow Models
+class StagedComorbidity(BaseModel):
+    """Structured comorbidity entry — supersedes free-text strings.
+    Frontend submits this when the clinician picks from a dropdown."""
+    icd_code: Optional[str] = Field(None, description="ICD-11 code if known, e.g. '5A11', 'GB61.3'")
+    label: str = Field(..., description="Human-readable label, e.g. 'Type 2 Diabetes Mellitus', 'CKD Stage 3'")
+    severity: Optional[str] = Field(None, description="Severity qualifier, e.g. 'Stage 3b', 'NYHA III'")
+
+
 class PatientCase(BaseModel):
     """Stage 1 input — structured patient record passed into the clinical workflow."""
 
@@ -216,10 +224,21 @@ class PatientCase(BaseModel):
     history: Optional[str] = Field(None, description="Patient history narrative")
     age: Optional[int] = Field(None, ge=0, le=130, description="Patient age in years")
     sex: Optional[Literal["M", "F", "other"]] = Field(None, description="Biological sex")
-    comorbidities: List[str] = Field(default_factory=list, description="List of known comorbidities")
+    # KEEP the free-text comorbidities list for backward compatibility with existing CLI / older UI
+    comorbidities: List[str] = Field(default_factory=list, description="Free-text comorbidity list (legacy)")
     current_medications: List[str] = Field(default_factory=list, description="Current medication names")
     allergies: List[str] = Field(default_factory=list, description="Known allergies")
     vitals: Dict[str, float] = Field(default_factory=dict, description="Vital signs, e.g. {'sbp': 165, 'dbp': 95, 'hr': 110}")
+    # NEW — structured severity staging dictionary
+    severity_staging: Dict[str, str] = Field(
+        default_factory=dict,
+        description="Structured staging: NYHA, WHO_FC, CKD_stage, HbA1c, LVEF, eGFR, etc.",
+    )
+    # NEW — optional structured comorbidities (retires Gap D1 deterministic map)
+    staged_comorbidities: List[StagedComorbidity] = Field(
+        default_factory=list,
+        description="Structured comorbidities with ICD codes. Frontend may populate either this OR comorbidities (free text).",
+    )
 
     @field_validator("chief_complaint")
     @classmethod
@@ -246,6 +265,14 @@ class Recommendation(BaseModel):
     contraindications_checked: List[str] = Field(default_factory=list, description="Contraindications reviewed before recommending")
 
 
+class MonitoringItem(BaseModel):
+    """Structured monitoring entry produced in Stage 5."""
+    parameter: str = Field(..., description="What to monitor, e.g. 'LFTs', '6-Minute Walk Test'")
+    schedule: str = Field(..., description="Frequency / timeline, e.g. 'monthly for 4 months, then quarterly'")
+    target: Optional[str] = Field(None, description="Target value or threshold, e.g. 'within normal range', 'eGFR >45'")
+    cpg_ref: Optional[str] = Field(None, description="CPG section reference, e.g. 'CPG PAH §7.3'")
+
+
 class TreatmentPlan(BaseModel):
     """Stage 5 output — the final structured plan returned to the doctor."""
 
@@ -253,7 +280,7 @@ class TreatmentPlan(BaseModel):
     icd_alternates: List[str] = Field(default_factory=list, description="Alternative ICD-11 codes considered")
     summary: str = Field(..., description="Clinical assessment: diagnosis type, key risk factors, safety alerts, and classification")
     recommendations: List[Recommendation] = Field(..., description="Clinical recommendations — must contain at least one entry")
-    monitoring: List[str] = Field(default_factory=list, description="Monitoring parameters with targets and frequency")
+    monitoring: List[MonitoringItem] = Field(default_factory=list, description="Structured monitoring parameters with schedule and target")
     red_flags: List[str] = Field(default_factory=list, description="Symptoms or signs that warrant escalation or immediate review")
     follow_up: List[str] = Field(default_factory=list, description="Follow-up timeline, reassessment criteria, and outcome-based actions")
     confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score for the plan (0.0–1.0)")

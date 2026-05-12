@@ -77,11 +77,18 @@ export function RiskBadge({ risk, className = '' }) {
     low: { variant: 'success', icon: Info },
   };
 
+  const riskLabels = {
+    high: 'High Confidence',
+    medium: 'Mid Confidence',
+    low: 'Low Confidence',
+  };
+
   const { variant, icon: Icon } = riskStyles[risk] || riskStyles.low;
+  const label = riskLabels[risk] || riskLabels.low;
 
   return (
     <Badge variant={variant} size="sm" className={`gap-1 ${className}`}>
-      <Icon className="w-3 h-3" />
+      <Icon className="w-3 h-3" strokeWidth={1.5} />
       {risk.charAt(0).toUpperCase() + risk.slice(1)} Risk
     </Badge>
   );
@@ -98,12 +105,12 @@ export function StatusBadge({ accepted, className = '' }) {
 
   return accepted ? (
     <Badge variant="success" size="sm" className={`gap-1 ${className}`}>
-      <Check className="w-3 h-3" />
+      <Check className="w-3 h-3" strokeWidth={1.5} />
       Accepted
     </Badge>
   ) : (
     <Badge variant="danger" size="sm" className={`gap-1 ${className}`}>
-      <X className="w-3 h-3" />
+      <X className="w-3 h-3" strokeWidth={1.5} />
       Rejected
     </Badge>
   );
@@ -111,7 +118,7 @@ export function StatusBadge({ accepted, className = '' }) {
 
 export function CodeBadge({ code, className = '' }) {
   return (
-    <Badge variant="outline" size="sm" className={`font-mono ${className}`}>
+    <Badge variant="outline" size="sm" className={`ds-mono ${className}`}>
       {code}
     </Badge>
   );

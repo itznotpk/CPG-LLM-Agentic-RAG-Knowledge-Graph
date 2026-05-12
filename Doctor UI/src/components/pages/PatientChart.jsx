@@ -145,17 +145,13 @@ function PatientChart({ patient, onBack }) {
                         <h2 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
                             {patient?.name || 'Unknown Patient'}
                         </h2>
-                        <div className="flex flex-wrap gap-4 mt-1">
-                            <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                                <strong>NRIC:</strong> {patientNric || 'N/A'}
-                            </span>
-                            <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                                <strong>Age:</strong> {patient?.age || 'N/A'} years
-                            </span>
-                            <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                                <strong>Gender:</strong> {patient?.gender || 'N/A'}
-                            </span>
-                        </div>
+                        <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                            <code className="ds-mono not-italic">{patientNric || 'N/A'}</code>
+                            {' • '}
+                            {patient?.age || 'N/A'} yrs
+                            {' • '}
+                            {patient?.gender ? patient.gender.charAt(0).toUpperCase() + patient.gender.slice(1) : 'N/A'}
+                        </p>
                     </div>
                     {patient?.comorbidities && patient.comorbidities.length > 0 && (
                         <div className="flex flex-wrap gap-2">

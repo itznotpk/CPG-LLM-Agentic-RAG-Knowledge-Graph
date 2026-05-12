@@ -22,35 +22,82 @@ from agent.providers import get_embedding_client, get_embedding_model
 import re
 
 
+# Clinical abbreviation → ICD-11 full-form expansion.
+# Applied BEFORE embedding so short comorbidity strings ("CKD Stage 3", "T2DM")
+# match the ICD-11 title vectors which use full clinical terminology.
+# Patterns are word-boundary regex; replacements are lowercase.
+_CLINICAL_SYNONYMS: list[tuple[str, str]] = [
+    (r"\bckd\b",         "chronic kidney disease"),
+    (r"\bt2dm\b",        "type 2 diabetes mellitus"),
+    (r"\bt1dm\b",        "type 1 diabetes mellitus"),
+    (r"\bdm\b",          "diabetes mellitus"),
+    (r"\bhfpef\b",       "heart failure with preserved ejection fraction"),
+    (r"\bhfref\b",       "heart failure with reduced ejection fraction"),
+    (r"\bhfmref\b",      "heart failure with mildly reduced ejection fraction"),
+    (r"\bhf\b",          "heart failure"),
+    (r"\bchf\b",         "congestive heart failure"),
+    (r"\bcad\b",         "coronary artery disease"),
+    (r"\bihd\b",         "ischaemic heart disease"),
+    (r"\bacs\b",         "acute coronary syndrome"),
+    (r"\bmi\b",          "myocardial infarction"),
+    (r"\bstemi\b",       "st elevation myocardial infarction"),
+    (r"\bnstemi\b",      "non st elevation myocardial infarction"),
+    (r"\bafib\b",        "atrial fibrillation"),
+    (r"\baf\b",          "atrial fibrillation"),
+    (r"\bcopd\b",        "chronic obstructive pulmonary disease"),
+    (r"\bpah\b",         "pulmonary arterial hypertension"),
+    (r"\bhtn\b",         "hypertension"),
+    (r"\bdvt\b",         "deep vein thrombosis"),
+    (r"\bpe\b",          "pulmonary embolism"),
+    (r"\bcva\b",         "cerebrovascular accident"),
+    (r"\btia\b",         "transient ischaemic attack"),
+    (r"\bckd\s*stage\s*\d+\b", "chronic kidney disease"),  # strip stage qualifier — ICD encodes stage separately
+]
+
+
+def _expand_clinical_synonyms(text: str) -> str:
+    """Expand common clinical abbreviations to ICD-11 full-form terminology."""
+    for pattern, replacement in _CLINICAL_SYNONYMS:
+        text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+    return text
+
+
 def normalize_query(query: str) -> str:
     """
     Normalize user query for consistent embedding results.
-    
+
     Preprocessing:
     - Strip leading/trailing whitespace
     - Remove trailing punctuation (.,!?;:)
     - Collapse multiple spaces to single space
     - Convert to lowercase
     - Remove special characters except hyphens and apostrophes
+    - Expand clinical abbreviations (CKD → chronic kidney disease, T2DM → type 2 diabetes mellitus)
     """
     if not query:
         return ""
-    
+
     # Strip whitespace
     query = query.strip()
-    
+
     # Remove trailing punctuation
     query = query.rstrip('.,!?;:')
-    
+
     # Collapse multiple spaces
     query = re.sub(r'\s+', ' ', query)
-    
+
     # Remove special characters (keep alphanumeric, spaces, hyphens, apostrophes)
     query = re.sub(r"[^\w\s\-']", '', query)
-    
+
     # Lowercase
     query = query.lower()
-    
+
+    # Expand clinical abbreviations BEFORE embedding so vector search matches full ICD-11 titles
+    query = _expand_clinical_synonyms(query)
+
+    # Collapse any whitespace introduced by multi-word expansions
+    query = re.sub(r'\s+', ' ', query).strip()
+
     return query
 
 
@@ -135,12 +182,14 @@ def _tokenize(text: str) -> set[str]:
     return {t for t in re.findall(r"[a-z0-9]+", text.lower()) if len(t) > 3}
 
 
-def _lexical_overlap(query_text: str, title: str, inclusions: list[str] | None) -> list[str]:
+def _lexical_overlap(query_text: str, title: str, inclusions: list[str] | None, description: str | None = None) -> list[str]:
     query_tokens = _tokenize(query_text)
     if not query_tokens:
         return []
 
     candidate_text = title or ""
+    if description:
+        candidate_text += " " + description
     if inclusions:
         candidate_text += " " + " ".join(inclusions)
 
@@ -169,9 +218,17 @@ def build_reasoning(candidate: dict, query_text: str) -> list[str]:
         query_text,
         candidate.get("title", ""),
         candidate.get("inclusions") or [],
+        description=candidate.get("description"),
     )
     if overlap:
         reasons.append("Keyword overlap: " + ", ".join(overlap[:5]))
+
+    # Better labeling for special matches
+    if candidate.get("matched_term") == "[DESCRIPTION]":
+        # Rename the matched term for the UI reasoning list
+        for i, r in enumerate(reasons):
+            if "Inclusion match: [DESCRIPTION]" in r:
+                reasons[i] = r.replace("Inclusion match: [DESCRIPTION]", "Exact description match")
 
     return reasons
 

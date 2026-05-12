@@ -1,11 +1,15 @@
-# TRADITIONAL AND COMPLEMENTARY MEDICINE
+# SECTION 12: TRADITIONAL AND COMPLEMENTARY MEDICINE
 
 <!-- METADATA
 category: treatment_reference
-use_case: safety_counselling, interaction_screening
-patient_input: tcim_use, current_meds, comorbidities
-output: safety_guidance
+use_case: safety_counselling, interaction_screening, patient_education
+patient_input: tcim_use, current_meds, comorbidities, herbal_supplements
+output: safety_guidance, interaction_warnings, referral_criteria
 -->
+
+> **Context:** This section addresses Traditional and Complementary Medicine (T&CM) use in the context of CVD prevention in Malaysia. It covers utilisation rates, evidence and risks for specific practices (acupuncture, qi gong, mind-body therapies, herbal medicine), the role of the T&CM Act 775, and guidance for clinicians on monitoring patients who use T&CM concurrently with conventional medications.
+
+---
 
 ## 12.Traditional and Complimentary Medicine
 
@@ -151,4 +155,56 @@ Currently, only TCM offers professionalized and specialized services to patients
 - Herbal medicine, acupuncture and other forms of T&amp;CM should be used with caution in the prevention and treatment of CVD.
 - TCM practitioners should not replace conventional mainstream health professionals as sources of medical advice for the prevention of CVD.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| BP | Blood Pressure |
+| CAD | Coronary Artery Disease |
+| CVD | Cardiovascular Disease |
+| DM | Diabetes Mellitus |
+| FBG | Fasting Blood Glucose |
+| HbA1c | Glycated Haemoglobin A1c |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| MOH | Ministry of Health |
+| NHMS | National Health and Morbidity Survey |
+| T&CM | Traditional and Complementary Medicine |
+| TCM | Traditional Chinese Medicine |
+| WHO | World Health Organization |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

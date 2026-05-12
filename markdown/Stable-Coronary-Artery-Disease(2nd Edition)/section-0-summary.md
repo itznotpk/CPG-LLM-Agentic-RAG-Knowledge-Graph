@@ -1,11 +1,23 @@
 # SUMMARY AND TABLE OF CONTENTS
 
 <!-- METADATA
-category: key_recommendations
-use_case: quick_reference, navigation
+category: Methodology, Reference
+use_case: Executive summary and table of contents for stable CAD — key_points, toc, evidence_grades
 patient_input: symptoms, risk_profile
 output: summary, table_of_contents
 -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- image -->
 
@@ -752,3 +764,51 @@ SOURCES OF FUNDING
 ## Stable Coronary Artery Disease 2018
 
 ## (2 nd d Edition)
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+<!-- ============================================================ -->
+
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Localized list of clinical abbreviations used in this section -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Full Term |
+|---|---|
+| BMT | Behavioural ModificationTherapy |
+| CAD | CoronaryArteryDisease |
+| CAC | CoronaryCalciumScore |
+| CKD | ChronicKidney Disease |
+| CPG | Clinical Practice Guidelines |
+| CTA | ComputerisedTomographicAngiography |
+| ECG | Electrocardiogram |
+| ICA | InvasiveCoronaryAngiogram |
+| LV | Left Ventricle |
+| SCAD | StableCoronaryArteryDisease |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->
