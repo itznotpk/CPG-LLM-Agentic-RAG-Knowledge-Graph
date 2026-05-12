@@ -1,0 +1,4 @@
+{"id": "route_001", "icd11_code": "BA41.0", "expected_document_titles": ["STEMI"], "notes": "ST-elevation MI should route to STEMI CPG"}
+{"id": "route_002", "icd11_code": "BD10", "expected_document_titles": ["Heart Failure"], "notes": "HF CPG 5th ed"}
+{"id": "route_003", "icd11_code": "8B11", "expected_document_titles": ["Ischaemic Stroke"], "notes": "Stroke CPG 3rd ed"}
+{"id": "route_004", "icd11_code": "BA00", "expected_document_titles": ["Hypertension"], "notes": "Essential HTN"}

@@ -1,0 +1,3 @@
+{"id": "ddx_001", "vignette": "55-year-old man with crushing central chest pain radiating to left arm for 45 minutes, diaphoresis, ECG shows ST elevation in V2-V4.", "expected_icd11_codes": ["BA41.0"], "expected_top_k": 5, "notes": "STEMI — anterior"}
+{"id": "ddx_002", "vignette": "62F with exertional dyspnoea, bilateral ankle oedema, raised JVP, S3 gallop, BNP 1200.", "expected_icd11_codes": ["BD10"], "expected_top_k": 5, "notes": "Heart failure"}
+{"id": "ddx_003", "vignette": "48M smoker, sudden right-sided weakness and slurred speech 2 hours ago, NIHSS 14, CT brain no haemorrhage.", "expected_icd11_codes": ["8B11"], "expected_top_k": 5, "notes": "Ischaemic stroke"}
