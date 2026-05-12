@@ -143,12 +143,10 @@ export function DiagnosisSection() {
         </div>
 
         {diagnosis?.cpgsMatched?.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
-            <span className="text-xs text-gray-400">CPGs consulted:</span>
+          <div className="flex flex-wrap items-center gap-1.5 mb-3">
+            <span className="ds-eyebrow">CPGs consulted</span>
             {diagnosis.cpgsMatched.map(name => (
-              <span key={name} className="text-xs bg-blue-900/40 text-blue-300 px-2 py-0.5 rounded">
-                {name}
-              </span>
+              <Badge key={name} variant="info" size="sm">{name}</Badge>
             ))}
           </div>
         )}
@@ -200,8 +198,8 @@ export function DiagnosisSection() {
                   </div>
                 </div>
                 {diff.reasoning && diff.reasoning.length > 0 && (
-                  <details className="mt-2 text-xs text-gray-500">
-                    <summary className="cursor-pointer hover:text-gray-300">
+                  <details className={`mt-2 text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    <summary className={`cursor-pointer ${isDark ? 'hover:text-slate-200' : 'hover:text-slate-700'}`}>
                       View reasoning ({diff.reasoning.length})
                     </summary>
                     <ul className="mt-1 space-y-0.5 pl-3">

@@ -13,8 +13,6 @@ export const todaySchedule = [
       photo: null
     },
     status: 'waiting', // waiting, in-progress, done
-    isEmergency: false,
-    isHighRisk: true,
     triage: {
       vitals: {
         bp: '150/90',
@@ -39,8 +37,6 @@ export const todaySchedule = [
       photo: null
     },
     status: 'waiting',
-    isEmergency: false,
-    isHighRisk: false,
     triage: {
       vitals: {
         bp: '120/80',
@@ -65,8 +61,6 @@ export const todaySchedule = [
       photo: null
     },
     status: 'waiting',
-    isEmergency: true,
-    isHighRisk: true,
     triage: {
       vitals: {
         bp: '180/110',
@@ -91,8 +85,6 @@ export const todaySchedule = [
       photo: null
     },
     status: 'waiting',
-    isEmergency: false,
-    isHighRisk: false,
     triage: {
       vitals: {
         bp: '118/75',
@@ -117,8 +109,6 @@ export const todaySchedule = [
       photo: null
     },
     status: 'waiting',
-    isEmergency: false,
-    isHighRisk: true,
     triage: {
       vitals: {
         bp: '145/88',
@@ -143,8 +133,6 @@ export const todaySchedule = [
       photo: null
     },
     status: 'waiting',
-    isEmergency: false,
-    isHighRisk: false,
     triage: {
       vitals: {
         bp: '130/82',
@@ -314,8 +302,6 @@ export const dashboardStats = {
   patientsWaiting: 6,
   patientsInProgress: 0,
   patientsDone: 0,
-  emergencyCases: 1,
-  highRiskCases: 3
 };
 
 export const recentActivity = [

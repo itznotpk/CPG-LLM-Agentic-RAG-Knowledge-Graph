@@ -41,11 +41,11 @@ const mockAnalytics = {
     { day: 'Sun', sessions: 8 }
   ],
   recentActivity: [
-    { type: 'diagnosis', patient: 'J.S.', diagnosis: 'Type 2 Diabetes', time: '5 min ago', accepted: true },
-    { type: 'diagnosis', patient: 'M.K.', diagnosis: 'Hypertension', time: '12 min ago', accepted: true },
-    { type: 'regenerate', patient: 'A.B.', diagnosis: 'COPD', time: '25 min ago', reason: 'More conservative' },
-    { type: 'diagnosis', patient: 'R.T.', diagnosis: 'Heart Failure', time: '1 hr ago', accepted: false },
-    { type: 'diagnosis', patient: 'L.M.', diagnosis: 'CKD Stage 3', time: '2 hrs ago', accepted: true }
+    { type: 'diagnosis', patient: 'Mei Ling T.', diagnosis: 'Type 2 Diabetes', time: '5 min ago', accepted: true },
+    { type: 'diagnosis', patient: 'Ahmad K.', diagnosis: 'Essential Hypertension', time: '12 min ago', accepted: true },
+    { type: 'regenerate', patient: 'Siti R.', diagnosis: 'COPD', time: '25 min ago', reason: 'More conservative' },
+    { type: 'diagnosis', patient: 'Rajendran M.', diagnosis: 'Heart Failure', time: '1 hr ago', accepted: false },
+    { type: 'diagnosis', patient: 'Lee Chin H.', diagnosis: 'Chronic Kidney Disease Stage 3', time: '2 hrs ago', accepted: true }
   ]
 };
 
@@ -57,7 +57,7 @@ function StatCard({ icon: Icon, label, value, subValue, trend, color = 'primary'
     green: isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-600',
     amber: isDark ? 'bg-amber-500/20 text-amber-400' : 'bg-amber-100 text-amber-600',
     blue: isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-600',
-    purple: isDark ? 'bg-purple-500/20 text-purple-400' : 'bg-purple-100 text-purple-600'
+    emerald: isDark ? 'bg-emerald-500/20 text-emerald-400' : 'bg-emerald-100 text-emerald-600'
   };
 
   return (
@@ -178,7 +178,7 @@ export function DashboardSection() {
         <div>
           <h2 className={`text-2xl font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'}`}>
             <BarChart3 className="w-7 h-7 text-[var(--accent-primary)]" />
-            Analytics Dashboard
+            Analytics dashboard
           </h2>
           <p className={`mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Monitor CPG LLM usage and performance metrics</p>
         </div>
@@ -331,11 +331,11 @@ export function DashboardSection() {
         </Card>
         <Card className="p-4">
           <div className="text-center">
-            <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-3 ${isDark ? 'bg-purple-500/20' : 'bg-purple-100'}`}>
-              <TrendingUp className="w-6 h-6 text-purple-600" />
+            <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-3 ${isDark ? 'bg-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/10'}`}>
+              <TrendingUp className="w-6 h-6 text-[var(--accent-primary)]" />
             </div>
             <p className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>+18%</p>
-            <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Efficiency Gain</p>
+            <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Efficiency gain</p>
             <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>vs. previous month</p>
           </div>
         </Card>
@@ -348,7 +348,7 @@ export function DashboardSection() {
             <Activity className="w-4 h-4 text-amber-600" />
           </div>
           <div>
-            <p className={`text-sm font-medium ${isDark ? 'text-amber-400' : 'text-amber-800'}`}>Backend Integration Pending</p>
+            <p className={`text-sm font-medium ${isDark ? 'text-amber-400' : 'text-amber-800'}`}>Backend integration pending</p>
             <p className={`text-xs mt-1 ${isDark ? 'text-amber-500' : 'text-amber-700'}`}>
               This dashboard currently displays mock data. Real analytics will be available once the backend API is connected.
               The UI is ready to consume real data from your analytics endpoints.

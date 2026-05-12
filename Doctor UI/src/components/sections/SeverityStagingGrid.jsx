@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ChevronDown, ChevronUp, Activity } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { GlassCard } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -110,20 +110,16 @@ export function SeverityStagingGrid() {
         className="w-full flex items-center justify-between"
         type="button"
       >
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-            <Activity className="w-5 h-5 text-[var(--accent-primary)]" />
-          </div>
-          <div className="text-left">
-            <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-              Severity Staging
-            </h3>
-            <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              {filledCount > 0
-                ? `${filledCount} field${filledCount > 1 ? 's' : ''} entered`
-                : 'Optional — improves CPG query precision'}
-            </p>
-          </div>
+        <div className="text-left">
+          <p className={`text-[10px] font-semibold tracking-widest uppercase mb-0.5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>Staging</p>
+          <h3 className={`text-base font-semibold leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            Severity Staging
+          </h3>
+          <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+            {filledCount > 0
+              ? `${filledCount} field${filledCount > 1 ? 's' : ''} entered`
+              : 'Optional — improves CPG query precision'}
+          </p>
         </div>
         <div className={`p-1.5 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100'}`}>
           {expanded
