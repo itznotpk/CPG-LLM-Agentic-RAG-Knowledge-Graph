@@ -1,11 +1,15 @@
-# RISK FACTORS FOR CVD
+# SECTION 5: RISK FACTORS FOR CVD
 
 <!-- METADATA
 category: background_knowledge
-use_case: risk_factor_identification
-patient_input: risk_factors, lifestyle, family_history
-output: risk_factor_list
+use_case: risk_factor_identification, patient_profiling
+patient_input: risk_factors, lifestyle, family_history, ethnicity, comorbidities
+output: risk_factor_list, modifiable_vs_nonmodifiable_classification
 -->
+
+> **Context:** This section catalogs non-modifiable (age, gender, family history, ethnicity) and modifiable (diet, smoking, inactivity, obesity, hypertension, dyslipidaemia, diabetes, cardiometabolic risk) CV risk factors, with evidence for how each contributes to CVD risk burden in the Malaysian population.
+
+---
 
 ## 5. Risk Factors for CVD
 
@@ -128,3 +132,61 @@ Cardio metabolic risk refers to a cluster of CV risk factors that predispose to 
 ## Recommendation:
 
 - In addition to therapeutic lifestyle changes, individuals with modifiable CV risk factors should be treated appropriately to target in accordance with the respective CPG's.
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CHD | Coronary Heart Disease |
+| CKD | Chronic Kidney Disease |
+| COC | Combined Oral Contraceptive |
+| CVD | Cardiovascular Disease |
+| DM | Diabetes Mellitus |
+| FRS | Framingham Risk Score |
+| HDL-C | High Density Lipoprotein Cholesterol |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| MI | Myocardial Infarction |
+| NHMS | National Health and Morbidity Survey |
+| PA | Physical Activity |
+| PAD | Peripheral Artery Disease |
+| SBP | Systolic Blood Pressure |
+| T2DM | Type 2 Diabetes Mellitus |
+| TC | Total Cholesterol |
+| TG | Triglycerides |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

@@ -1,11 +1,15 @@
-# OTHER CONDITIONS ASSOCIATED WITH INCREASED CV RISK
+# SECTION 6: OTHER CONDITIONS ASSOCIATED WITH INCREASED CV RISK
 
 <!-- METADATA
 category: diagnosis
-use_case: risk_modifier_assessment
-patient_input: comorbidities, chronic_conditions
-output: risk_modifier_guidance
+use_case: risk_modifier_assessment, comorbidity_screening
+patient_input: comorbidities, chronic_conditions, medications, reproductive_history
+output: risk_modifier_guidance, referral_criteria, treatment_cautions
 -->
+
+> **Context:** This section covers conditions that amplify CVD risk beyond the traditional Framingham factors: CKD, infections (influenza, periodontal disease, HIV), cancer therapies, connective tissue diseases, sleep disorders (OSA), psychosocial factors, and gender-specific issues (ED, pre-eclampsia, COC, MHT, TRT).
+
+---
 
 ## 6. Other Conditions Associated with Increased CV Risk
 
@@ -319,4 +323,75 @@ It is not recommended for primary or secondary CV prevention.
 
 - In these patients who are at increased CV risk, all CV risk factors should be treated to target in accordance with the respective CPG's.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| AF | Atrial Fibrillation |
+| AHI | Apnea-Hypopnea Index |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CAD | Coronary Artery Disease |
+| CHD | Coronary Heart Disease |
+| CKD | Chronic Kidney Disease |
+| COC | Combined Oral Contraceptive |
+| CPAP | Continuous Positive Airway Pressure |
+| CVD | Cardiovascular Disease |
+| ED | Erectile Dysfunction |
+| eGFR | Estimated Glomerular Filtration Rate |
+| ESRD | End-Stage Renal Disease |
+| FRS | Framingham Risk Score |
+| HIV | Human Immunodeficiency Virus |
+| IHD | Ischaemic Heart Disease |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| LV | Left Ventricular |
+| LVH | Left Ventricular Hypertrophy |
+| MHT | Menopausal Hormone Therapy |
+| MI | Myocardial Infarction |
+| MOH | Ministry of Health |
+| OSA | Obstructive Sleep Apnea |
+| PAD | Peripheral Artery Disease |
+| PSA | Prostate Specific Antigen |
+| RA | Rheumatoid Arthritis |
+| SLE | Systemic Lupus Erythematosus |
+| TIA | Transient Ischaemic Attack |
+| TRT | Testosterone Replacement Therapy |
+| VTE | Venous Thromboembolism |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

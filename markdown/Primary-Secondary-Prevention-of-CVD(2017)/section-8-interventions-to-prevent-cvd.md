@@ -1,11 +1,15 @@
-# INTERVENTIONS TO PREVENT CVD
+# SECTION 8: INTERVENTIONS TO PREVENT CVD
 
 <!-- METADATA
 category: prevention
-use_case: intervention_selection, care_plan_generation
-patient_input: risk_category, comorbidities, patient_preferences
-output: prevention_plan
+use_case: intervention_selection, care_plan_generation, lifestyle_counselling
+patient_input: risk_category, comorbidities, patient_preferences, dietary_habits, activity_level, smoking_status, bmi
+output: prevention_plan, dietary_recommendations, physical_activity_plan, smoking_cessation_plan, weight_management_plan
 -->
+
+> **Context:** This section provides evidence-based guidance on the four pillars of CVD prevention lifestyle intervention: Nutrition (dietary patterns, food groups, key nutrients), Physical Activity (prescriptions for primary and secondary prevention), Smoking Cessation (NRT, varenicline, bupropion, MQuit), and Obesity/Weight Management (pharmacotherapy and bariatric surgery thresholds).
+
+---
 
 ## 8. Interventions to Prevent CVD
 
@@ -658,4 +662,71 @@ Risks of complication, reoperation and death post bariatric surgery is small but
 
 - For weight loss, in addition to dietary intervention, adults should engage in 150–420 minutes of moderate-intensity physical activity per week.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CHD | Coronary Heart Disease |
+| CHO | Carbohydrate |
+| CVD | Cardiovascular Disease |
+| DASH | Dietary Approaches to Stop Hypertension |
+| DHA | Docosahexaenoic Acid |
+| DM | Diabetes Mellitus |
+| EPA | Eicosapentaenoic Acid |
+| GI | Glycaemic Index |
+| GL | Glycaemic Load |
+| HDL-C | High Density Lipoprotein Cholesterol |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| MOH | Ministry of Health |
+| MUFA | Monounsaturated Fatty Acid |
+| NRT | Nicotine Replacement Therapy |
+| PA | Physical Activity |
+| PCI | Percutaneous Coronary Intervention |
+| PUFA | Polyunsaturated Fatty Acid |
+| SBP | Systolic Blood Pressure |
+| SFA | Saturated Fatty Acid |
+| T2DM | Type 2 Diabetes Mellitus |
+| TC | Total Cholesterol |
+| TFA | Trans Fatty Acid |
+| TG | Triglycerides |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

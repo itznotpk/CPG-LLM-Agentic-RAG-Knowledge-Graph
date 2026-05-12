@@ -1,11 +1,15 @@
-# COMMUNITY, POPULATION AND GOVERNMENTAL LEVEL
+# SECTION 11: COMMUNITY, POPULATION AND GOVERNMENTAL LEVEL
 
 <!-- METADATA
 category: implementation
-use_case: population_health_policy, program_design
-patient_input: population_data, resources
-output: policy_recommendations
+use_case: population_health_policy, program_design, public_health_advocacy
+patient_input: population_data, community_characteristics, national_targets
+output: policy_recommendations, community_programs, implementation_strategies
 -->
+
+> **Context:** This section covers Malaysia's national CVD prevention policy framework: tobacco control legislation and MPOWER strategy, the Salt Reduction Strategy 2015–2020, the Obesogenic Environment Task Force interventions, and the KOSPEN community health volunteer program. Relevant for public health planners and policymakers.
+
+---
 
 ## 11.Community, Population and Governmental Level
 
@@ -129,4 +133,58 @@ To date, KOSPEN volunteers have conducted weight management programs in 200 KOSP
 
 In 2017, further work will be done to further strengthen the NCD risk factor intervention components as well as exploring options in ensuring the sustainability of the KOSPEN program. In addition, 2017 will see the implementation of KOSPEN+, a workplace-based NCD risk factor intervention program to be implemented in a stepwise manner. This is to be done in collaboration with both public and the private sectors.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| AHI | Apnea-Hypopnea Index |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CVD | Cardiovascular Disease |
+| DALY | Disability Adjusted Life Year |
+| FCTC | Framework Convention on Tobacco Control |
+| KOSPEN | Komuniti Sihat Perkasa Negara |
+| MOH | Ministry of Health |
+| NCD | Non-Communicable Disease |
+| NGO | Non-Governmental Organization |
+| NRT | Nicotine Replacement Therapy |
+| PA | Physical Activity |
+| SBP | Systolic Blood Pressure |
+| WHO | World Health Organization |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

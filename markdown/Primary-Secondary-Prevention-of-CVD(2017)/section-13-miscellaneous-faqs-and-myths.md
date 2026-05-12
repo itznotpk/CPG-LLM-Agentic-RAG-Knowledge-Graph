@@ -1,11 +1,15 @@
-# MISCELLANEOUS FREQUENTLY ASKED QUESTIONS AND MYTHS
+# SECTION 13: MISCELLANEOUS FREQUENTLY ASKED QUESTIONS AND MYTHS
 
 <!-- METADATA
 category: background_knowledge
-use_case: patient_education, myth_busting
-patient_input: questions, misconceptions
-output: answers
+use_case: patient_education, myth_busting, safety_screening
+patient_input: patient_questions, misconceptions, alternative_treatment_requests
+output: evidence_based_answers, safety_guidance, patient_education_content
 -->
+
+> **Context:** This section addresses unproven or disproven therapies that patients may ask about in the CVD prevention context: chelation therapy (CT), ozone therapy, stem cells, and anti-aging hormone treatments. Each is reviewed against available evidence with clear recommendations. Section 14 (Monitoring and QA) is appended, covering NCD national targets for Malaysia by 2025.
+
+---
 
 ## 13. Miscellaneous Frequently Asked Questions and Myths
 
@@ -94,4 +98,54 @@ In addition, other performance measures include:
 - Mortality statistics
 - Burden of disease studies conducted every 10 years
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| CAD | Coronary Artery Disease |
+| CHD | Coronary Heart Disease |
+| CVD | Cardiovascular Disease |
+| DALY | Disability Adjusted Life Year |
+| EDTA | Ethylenediamine Tetraacetic Acid |
+| HbA1c | Glycated Haemoglobin A1c |
+| MOH | Ministry of Health |
+| NCD | Non-Communicable Disease |
+| T&CM | Traditional and Complementary Medicine |
+| WHO | World Health Organization |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->

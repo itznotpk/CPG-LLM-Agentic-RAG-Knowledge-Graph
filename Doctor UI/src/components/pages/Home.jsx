@@ -131,9 +131,9 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
   const getGreeting = () => {
     const h = currentTime.getHours();
-    if (h < 12) return 'Selamat pagi';
-    if (h < 17) return 'Selamat petang';
-    return 'Selamat malam';
+    if (h < 12) return 'Good morning';
+    if (h < 17) return 'Welcome';
+    return 'Good evening';
   };
 
   const formatDate = () =>

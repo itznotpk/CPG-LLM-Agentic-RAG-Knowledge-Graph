@@ -1,11 +1,15 @@
-# PREVENTION OF CVD
+# SECTION 2: PREVENTION OF CVD
 
 <!-- METADATA
 category: prevention
-use_case: prevention_principles, risk_reduction
-patient_input: risk_profile, comorbidities
-output: prevention_framework
+use_case: prevention_principles, risk_reduction, strategy_selection
+patient_input: risk_profile, comorbidities, established_cvd
+output: prevention_framework, strategy_guidance
 -->
+
+> **Context:** This section outlines the dual-track framework for CVD prevention — primary prevention targeting at-risk populations and secondary prevention targeting those with established disease. It establishes the complementary role of population-wide (Rose approach) and high-risk individual strategies.
+
+---
 
 ## 2. Prevention of CVD
 
@@ -34,4 +38,59 @@ Individuals with a low risk CV profile in middle age have dramatically lower tot
 
 - In the prevention of CVD, population preventative strategies are more cost effective and needs to be encouraged.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
+<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
+<!-- ============================================================ -->
+
+### Grades of Recommendation
+
+| Grade | Definition |
+|---|---|
+| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
+| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+
+### Levels of Evidence
+
+| Level | Definition |
+|---|---|
+| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
+| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+
+<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+
+---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
+<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ============================================================ -->
+
+### Abbreviations
+
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CHD | Coronary Heart Disease |
+| CVD | Cardiovascular Disease |
+| FRS | Framingham Risk Score |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| MI | Myocardial Infarction |
+| PA | Physical Activity |
+| PAD | Peripheral Artery Disease |
+| PCI | Percutaneous Coronary Intervention |
+| T2DM | Type 2 Diabetes Mellitus |
+| TC | Total Cholesterol |
+| TIA | Transient Ischaemic Attack |
+
+<!-- END OVERLAP FROM: ABBREVIATIONS -->
