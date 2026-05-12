@@ -1,118 +1,69 @@
 # SECTION 1: INTRODUCTION
 
 <!-- METADATA
-category: introduction
-use_case: scope_and_objectives, epidemiology
+category: Introduction, Epidemiology
+use_case: Epidemiological context for CVD burden in Malaysia; justification for primary and secondary prevention — epidemiology, cvd_burden, risk_factor_prevalence, malaysia_statistics
 patient_input: none
-output: guideline_scope, epidemiological_context
+output: guideline_context, epidemiological_background, key_messages
 -->
 
-> **Context:** This section establishes the epidemiological rationale for the CPG, documenting the high and rising burden of CVD and its modifiable risk factors in Malaysia. It provides context for why aggressive CVD prevention — both primary and secondary — is a public health priority.
+> **Context:** This section establishes the epidemiological rationale for the 2017 CPG, documenting the high and rising burden of CVD and its modifiable risk factors in Malaysia. It is background context and is less directly used for care plan generation. The Key Message and Recommendation are the highest-yield content for RAG retrieval.
 
 ---
-
-## 1. Introduction
 
 ## 1.1 Epidemiology of Cardiovascular Disease
 
-CVD is the main cause of global mortality and a major contributor to disease related disability.1,2 In Malaysia, CVD has been the leading cause of morbidity and mortality for more than a decade.1–5
+- CVD is the leading cause of morbidity and mortality in Malaysia for over a decade.
+- Data from the NCVD-ACS Registry (2011-2013) showed:
+  - Malaysians developed ACS at a younger age than neighbouring countries.
+  - Mean age at ACS: **58.5 years**; peak incidence in the **51-60 year** age group.
+  - Younger than Thailand (63.5 years) and Singapore (median: 68.3-69.2 years).
 
-There is limited data on the exact prevalence of CVD locally. The data available is from the NCVD-ACS Registry. This is a voluntary registry of patients admitted with ACS to public and private hospitals. Data from the 2011-2013 registry indicated that Malaysians developed ACS at a younger age than that seen in neighbouring countries.6 The mean age was 58.5 years and the peak incidence was in the 51-60 year age group. 6 This is younger than that noted in Thailand (63.5 years) 7 and Singapore (median: 68.3-69.2 years). 8
+---
 
-## 1.2 Prevalance of Cardiovascular Risk Factors in Malaysia
+## 1.2 Prevalence of Cardiovascular Risk Factors in Malaysia
 
-There is more representative information on the prevalence of CV risk factors locally from the National Health and Morbidity Surveys (NHMS).
+Based on the National Health and Morbidity Survey (NHMS), the Malaysian adult population (≥18 years) has high levels of CV risk factors:
 
-The Malaysian adult population (≥18 years) has high levels of CV risk factors.
+| CV Risk Factor | Men | Women |
+|---|---|---|
+| Overweight or obese | 63.6% | 64.5% |
+| Hypercholesterolaemia | 43.5% | 52.2% |
+| Smoking | 43% (59% aged 21-30) | — |
+| Hypertension | 30.8% | 29.7% |
+| Diabetes mellitus | 16.7% | 18.3% |
 
-- 63.6% of men, and 64.5% of women are either overweight or obese. 9
-- 43% of men smoke, 9 59% of men between the ages 21-30 smoke. 10
-- 43.5% of men, and 52.2% of women have hypercholesterolemia. 9
-- 30.8% of men, and 29.7% of women have hypertension. 9
-- 16.7% of men, and 18.3% of women have diabetes mellitus. 9
+- CV risk factors begin to increase from age 30 years (NHMS V, 2015).
+- Clustering is common — occurring in almost half of Malaysian adults:
+  - 43.2% had at least 2 of the above risk factors.
+  - 47% of those ≥30 years were at increased CV risk (FRS-based):
+    - 26.7% were at high CV risk.
+    - 20.3% were at intermediate CV risk.
+- The INTERHEART study found these 5 modifiable risk factors (abnormal lipids, hypertension, smoking, diabetes, abdominal obesity) contributed to ~80% of MI; smoking and abnormal lipids alone accounted for 2/3 of MIs.
 
-Data from NHMS V 2015 showed that the prevalence of these CV risk factors begin to increase from the age of 30 years. 9 (Table 7, pg 28)
+---
 
-The projected adult population (≥18 years of age) in this country for 2016, stands at 21.5 million, with 11 million men and 10.5 million women. The prevalence of CV risk factors above translates into the following estimates:
+## 1.3 Impact of Reducing / Modifying CV Risk Factors
 
-- 13.8 million adults are either overweight or obese; 7.0 million men and 6.8 million women.
-- 10.3 million adults have hypercholesterolemia; 4.8 million men and 5.5 million women.
+- Diet and lifestyle factors (smoking, physical inactivity, alcohol) may contribute up to 70% towards development of other CV risk factors (obesity, hypertension, diabetes, hypercholesterolaemia), which together account for >95% of acute coronary events.
+- Reducing CV risk factors has been shown to reduce CV morbidity and mortality in both primary and secondary prevention:
+  - Mortality risk reductions: **15-50%** in general population; **20-45%** in those with established CVD.
+  - Scotland: 30% reduction in CV mortality over ~20 years.
+  - Finland: CHD mortality decreased by 82% in men and 84% in women (1969-2012).
+  - UK modelling: >5,000 fewer deaths/year if cholesterol reduced by 1 mmol/L, smoking prevalence reduced from 30% to 18%, and diastolic BP reduced by 3.2 mmHg.
 
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
+---
 
-- 6.5 million adults have hypertension; 3.4 million men and 3.1 million women.
-- 4.8 million men smoke.
-- 3.8 million adults have diabetes mellitus; 1.8 million men and 1.9 million women.
-
-Clustering of these five CV risk factors is common, occurring in almost half of Malaysian adults:
-
-- 43.2% had at least 2 of the risk factors stated above.11
-- 47% of those ≥30 years were at increased CV risk; 12 based on the FRS;
--  26.7% were at high CV risk.
--  20.3% were at intermediate CV risk.
-
-In the INTERHEART study, these 5 modifiable risk factors (abnormal lipids, hypertension, current smoking, diabetes and abdominal obesity) contributed to about 80% of myocardial infarcts (MI). 13 Smoking and abnormal lipids accounted for 2/3 of the MIs in this study. 13
-
-## 1.3 Impact of Reducing/ Modifying CV Risk Factors
-
-Diet and lifestyle factors such as smoking, physical inactivity and alcohol consumption, may contribute by as much as 70% towards the development of other CV risk factors such as abdominal obesity, hypertension, diabetes and hypercholesterolemia. 14–17 Together they contribute to more than 95% of acute coronary events. 18
-
-A decrease in these CV risk factors has been shown to reduce CV morbidity and mortality in both people without (primary prevention) and with established CVD (secondary prevention). 19
-
-Mortality risk reductions can be as large as 15-50% in the general population and by 20-45% in those with CVD.20 This magnitude is more than the mortality risk reductions (range 18-26%) seen in the secondary prevention drug interventional trials.20
-
-Reductions in CV mortality can be achieved with reductions in CV risk factor levels and improved treatment strategies. In Scotland, there was a 30% reduction in CV mortality between 1975 –1994, 21 and in England and Wales, reductions in CV risk factors accounted for 79% of life years gained over 20 years. 22 In Finland, mortality due to CHD decreased by 82% in men and 84% in women between the years 1969-1972 and 2012.23,24
-
-## Primary &amp; Secondary Prevention of Cardiovascular Disease 2017
-
-Reductions in the 3 major CV risk factors – smoking, high cholesterol and high BP accounted for almost all of the observed CHD mortality reduction during the first 10 years of the study and about 69% in men and 66% in women in the last 10 years. 24
-
-It was estimated that there would be over 5000 fewer deaths per year in the UK if the total cholesterol was reduced by 1 mmol/L, the smoking prevalence was reduced from 30% to 18% and there was a 3.2 mmHg reduction in diastolic BP. 25
-
-To tackle the CV epidemic in this country, dietary and lifestyle changes in the general population have to be emphasized. This CPG aims to address this by recommending the appropriate preventive measures, to be implemented in a pragmatic way.
-
-## Key Message:
-
-- The prevalence of the common CV risk factors (hypertension, smoking, hypercholesterolemia, diabetes, overweight and obesity) in Malaysia is high and shows a rising trend.
+## Key Message
+- The prevalence of common CV risk factors (hypertension, smoking, hypercholesterolaemia, diabetes, overweight and obesity) in Malaysia is high and shows a rising trend.
 - A decrease in these CV risk factors has been shown to reduce CV morbidity and mortality in both people without (primary prevention) and with established CVD (secondary prevention).
 
-## Recommendation:
-
-- To tackle the CV epidemic in this country, efforts should be made to reduce global CV risk. Dietary and lifestyle changes in the general population should be emphasized.
-
-
----
+## Recommendation
+To tackle the CV epidemic in Malaysia, efforts should be made to reduce global CV risk. Dietary and lifestyle changes in the general population should be emphasized.
 
 <!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades of Recommendation
-
-| Grade | Definition |
-|---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
-
-### Levels of Evidence
-
-| Level | Definition |
-|---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
-
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- ABBREVIATIONS USED IN THIS SECTION                           -->
+<!-- All entries are defined in the Master List in Section 0      -->
 <!-- ============================================================ -->
 
 ### Abbreviations
@@ -120,66 +71,11 @@ To tackle the CV epidemic in this country, dietary and lifestyle changes in the 
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |
-| AF | Atrial Fibrillation |
-| AHI | Apnea-Hypopnea Index |
-| BMI | Body Mass Index |
 | BP | Blood Pressure |
-| CABG | Coronary Artery Bypass Graft Surgery |
-| CAD | Coronary Artery Disease |
 | CHD | Coronary Heart Disease |
-| CHO | Carbohydrate |
-| CIMT | Carotid Intima-Media Thickness |
-| CKD | Chronic Kidney Disease |
-| COC | Combined Oral Contraceptive |
-| CPG | Clinical Practice Guideline |
-| CRP | C-Reactive Protein |
-| CVA | Cerebrovascular Accident |
 | CVD | Cardiovascular Disease |
-| DAPT | Dual Antiplatelet Therapy |
-| DBP | Diastolic Blood Pressure |
-| DM | Diabetes Mellitus |
-| DPP-4i | Dipeptidyl Peptidase-4 Inhibitor |
-| eGFR | Estimated Glomerular Filtration Rate |
-| FBG | Fasting Blood Glucose |
 | FRS | Framingham Risk Score |
-| GFR | Glomerular Filtration Rate |
-| GI | Glycaemic Index |
-| GLP-1 | Glucagon-Like Peptide-1 |
-| HbA1c | Glycated Haemoglobin A1c |
-| HDL-C | High Density Lipoprotein Cholesterol |
-| hs-CRP | High-Sensitivity C-Reactive Protein |
-| IFG | Impaired Fasting Glucose |
-| IGT | Impaired Glucose Tolerance |
-| IHD | Ischaemic Heart Disease |
-| LDL-C | Low Density Lipoprotein Cholesterol |
-| LV | Left Ventricular |
-| LVH | Left Ventricular Hypertrophy |
 | MI | Myocardial Infarction |
-| MOH | Ministry of Health |
-| MUFA | Monounsaturated Fatty Acid |
 | NHMS | National Health and Morbidity Survey |
-| NOACs | Novel Oral Anticoagulants |
-| NRT | Nicotine Replacement Therapy |
-| OSA | Obstructive Sleep Apnea |
-| OGTT | Oral Glucose Tolerance Test |
-| PA | Physical Activity |
-| PAD | Peripheral Artery Disease |
-| PCI | Percutaneous Coronary Intervention |
-| PCSK-9 | Proprotein Convertase Subtilisin/Kexin Type 9 |
-| PUFA | Polyunsaturated Fatty Acid |
-| RA | Rheumatoid Arthritis |
-| SBP | Systolic Blood Pressure |
-| SGLT2i | Sodium-Glucose Co-Transporter 2 Inhibitor |
-| SFA | Saturated Fatty Acid |
-| SLE | Systemic Lupus Erythematosus |
-| T&CM | Traditional and Complementary Medicine |
-| T2DM | Type 2 Diabetes Mellitus |
-| TC | Total Cholesterol |
-| TFA | Trans Fatty Acid |
-| TG | Triglycerides |
-| TIA | Transient Ischaemic Attack |
-| TRT | Testosterone Replacement Therapy |
-| TZD | Thiazolidinedione |
-| VLDL-C | Very Low Density Lipoprotein Cholesterol |
 
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- END ABBREVIATIONS -->

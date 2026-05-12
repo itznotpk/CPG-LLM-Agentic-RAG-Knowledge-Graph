@@ -15,11 +15,10 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
 
 - Prevention of CVD includes:
   - Primary prevention strategies directed at:
-    - Healthy general population – Section 3
-    - Individuals with multiple CV risk factors or very high levels of a single CV risk factor – Section 4
-    - Individuals who are at high risk for a CV event – Section 5 & 6
-  - Secondary prevention strategies directed at individuals who:
-    - Have established CVD.
+    - Healthy general population (Refer to Section 3: Estimation of Global CVD Risk)
+    - Individuals with multiple CV risk factors or very high levels of a single CV risk factor (Refer to Section 4: Types of CVD)
+    - Individuals who are at high risk for a CV event (Refer to Section 5: Risk Factors for CVD & Section 6: Other Conditions Associated with Increased CV Risk)
+  - Secondary prevention strategies directed at individuals who has established CVD.
 - CVD includes:
   - Coronary heart disease (CHD)
   - Cerebrovascular accident (CVA)
@@ -32,27 +31,27 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
   - Modifiable – diet and dietary patterns, smoking, physical inactivity, obesity/overweight, hypertension, dyslipidemia and pre-diabetes/diabetes.
 - In addition, there are other conditions associated with increased CV risk. Risk markers may also be used to indicate individuals who are at higher risk for a CV event.
 - In primary prevention, the committee advocates:
-  - Screening at >30 years of age. (Section 3.2, pg 31)
+  - Screening at >30 years of age. (Section 3.2: Screening for CV Risk Factors)
   - Opportunistic rather than mass screening.
-  - The use of the Framingham Risk Score (FRS) General CVD Risk Score to assess future CV risk (Tables 1-3, pg 18-20, Appendix 2, pg 166-167)
+  - The use of the Framingham Risk Score (FRS) General CVD Risk Score to assess future CV risk. (Refer to Table 1A: Estimation of 10-year CVD Points for Men; Table 1B: CVD Risk for Men; Table 2A: CVD Points for Women; Table 2B: CVD Risk for Women; Table 3: Risk Stratification of Cardiovascular Risk)
 
 ---
 
 ## Intensifying Risk Factor Reduction Efforts and Treatment Goals
 
-- Treatment targets will depend on the individual's CV risk (Table 3, pg 20)
-- Individuals who at **Very High** and **High** CV risk (Table 3, pg 20) include those who:
+- Treatment targets will depend on the individual's CV risk. (Refer to Table 3: Risk Stratification of Cardiovascular Risk)
+- Individuals who at **Very High** and **High** CV risk (Refer to Table 3: Risk Stratification of Cardiovascular Risk) include those who:
   - Have established CVD (secondary prevention)
   - Multiple CV risk factors – 10 year risk of a CV event >20%
   - At high risk for a CV Event – e.g. chronic kidney disease (CKD), diabetes
-- In these individuals, all risk factors should be treated intensively to target levels via lifestyle modification and drug therapy as indicated, in accordance with the respective CPGs. (Table 4, pg 21)
+- In these individuals, all risk factors should be treated intensively to target levels via lifestyle modification and drug therapy as indicated, in accordance with the respective CPGs. (Refer to Table 4: Targets of Individual Risk Factors)
 - In individuals at **Low** to **Intermediate (Moderate)** CV risk the emphasis is on lifestyle modification to achieve targets.
 
 ---
 
 ## Management — General Measures
 
-- Nutrition – A diet high in fibre, fruits and vegetable, wholegrain, low in salt and saturated/trans-fat is associated with lower CV risk. A healthy food portion recommendation is the #QuarterQuarterHalf plate (Tables 5 & 6, pg 22-23)
+- Nutrition – A diet high in fibre, fruits and vegetable, wholegrain, low in salt and saturated/trans-fat is associated with lower CV risk. A healthy food portion recommendation is the #QuarterQuarterHalf plate. (Refer to Table 5: Malaysian Healthy Eating Recommendations; Table 6: Nutritional Recommendations)
 - Physical activity (PA):
   - Any amount of PA is better than none.
   - Regular PA reduces all causes and CV mortality.
@@ -61,7 +60,7 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
   - There is no safe level of exposure to second-hand tobacco smoke.
   - Smoking should be strongly discouraged and individuals referred to the MQuit services.
 - Overweight and obesity
-  - Overweight and obese individuals should be counselled on lifestyle changes that can produce at least a 5-10% weight loss. (Appendix 10, pg 175)
+  - Overweight and obese individuals should be counselled on lifestyle changes that can produce at least a 5-10% weight loss. (Refer to Section 8.4: Obesity/Weight Management for detailed lifestyle counselling guidance)
   - A small 3-5% weight loss itself is associated with a clinically significant reduction in CVD risk factors – blood pressure (BP), blood glucose and lipid.
   - Bariatric surgery may be considered as a treatment option for obesity if body mass index (BMI):
     - >35 kg/m² with or without co-morbidities.
@@ -72,7 +71,7 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
 
 ---
 
-## Treatment of Individual Risk Factors (Table 4, pg 21)
+## Treatment of Individual Risk Factors
 
 - Treating BP and lipids (particularly low density lipoprotein cholesterol (LDL-C)) to the recommended targets have been consistently shown to reduce CVD.
 - Good glycemic control reduces the risk of microvascular diseases (retinopathy, nephropathy) in the short term and reduces CV events (MI and CV mortality) in type 2 diabetes mellitus (T2DM) during long term follow up (Legacy effect). In patients with CVD, the newer diabetic medications have shown to cause a reduction in composite CV events.
@@ -215,18 +214,18 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 | Dyslipidaemia | LDL-C: This should be the primary target of therapy. Treatment targets depend on CVD Risk Classification (Table 3): **Very High Risk**: LDL-C goal <1.8 mmol/L (or ≥50% reduction from baseline). **High Risk**: LDL-C goal <2.6 mmol/L (or ≥50% reduction from baseline). | [Grade I, Level A] |
 | BP* | <140/90 mmHg in most individuals <80 years of age | [Grade I, Level A] |
 | BP* | <150/90 mmHg in individuals ≥80 years of age | [Grade I, Level A] |
-| Diabetes** — Pre-prandial / fasting blood sugar | 4.4 – 7.0 mmol/L*** | [Grade I, Level C] |
-| Diabetes** — Post-prandial blood sugar (90-120 min after meal) | 4.4 – 8.5 mmol/L*** | [Grade I, Level C] |
-| Diabetes** — HbA1c | ≤6.5%*** | [Grade I, Level A] |
+| Diabetes** — Pre-prandial / fasting blood sugar | 4.4 – 7.0 mmol/L *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level C] |
+| Diabetes** — Post-prandial blood sugar (90-120 min after meal) | 4.4 – 8.5 mmol/L *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level C] |
+| Diabetes** — HbA1c | ≤6.5% *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level A] |
 | Diabetes** — BP | ≤135/75 mmHg | [Grade I, Level B] |
 | Diabetes** — LDL-C | <2.6 mmol/L (the lower the better); <1.8 mmol/L in diabetics with CVD | [Grade I, Level A] |
 | Diabetes** — HDL-C | >1.0 mmol/L (males); >1.2 mmol/L (females) | — |
 | Diabetes** — Triglycerides | ≤1.7 mmol/L | — |
 | Overweight/Obesity** | Weight loss: aim for 5-10% in 6 months and maintain the weight in the next 1-2 years. | [Grade I, Level A] |
 
-*BP targets may be individualized based on comorbidities and tolerability.*
-**Targets should be individualized; more stringent targets may increase hypoglycaemia risk.*
-***More relaxed targets may be appropriate for elderly patients or those with hypoglycaemia unawareness.*
+> \* *Malaysian Clinical Practice Guidelines on Hypertension, 4th Ed 2013*
+>
+> \*\* *Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th Ed 2015*
 
 ---
 
@@ -236,9 +235,9 @@ A diet high in fruits, vegetables, wholegrains and fish and low in salt and satu
 
 **The #QuarterQuarterHalf plate recommendation of food portions consists of:**
 
-- Quarter of the plate* being carbohydrate – rice, noodles, bread, cereals and other cereal products and/or tubers.
-- Quarter of the plate* being protein – fish, poultry, meat and/or legumes.
-- Half of the plate* being fruits and vegetables.
+- Quarter of the 10-inch (25 cm) plate being carbohydrate – rice, noodles, bread, cereals and other cereal products and/or tubers.
+- Quarter of the 10-inch (25 cm) plate being protein – fish, poultry, meat and/or legumes.
+- Half of the 10-inch (25 cm) plate being fruits and vegetables.
 - Drinking plain water (instead of sugary drinks).
 
 **Together with the following 5 key recommendations, consume:**
@@ -257,25 +256,38 @@ A diet high in fruits, vegetables, wholegrains and fish and low in salt and satu
 - Sleep 8 hours.
 - Walk at least 8000 steps a day (10,000 steps are better).
 
-\*10 inches or 25 cm plate
-
-\*\*Ministry of Health Malaysia. Healthy Eating. Recipes for Healthy Living. 2013. Available at: www.moh.gov.my/images/gallery/publications/cny2013/Healthy_Eating2.pdf
+> \*\* *Ministry of Health Malaysia. Healthy Eating. Recipes for Healthy Living. 2013.*
 
 ---
 
 ## Table 6: Nutritional Recommendations
 
-| | Recommended Nutrient Intake | Grade / Level of Evidence |
+| | Recommendation | Grade / Level of Evidence |
 |---|---|---|
 | **A** | **Recommended Nutrient Intake** | |
 | | **Fat requirements** | |
 | | • 20-25% with an upper safe limit of 30% of energy from fat | [Grade I, Level B] |
-| | • 7-10% saturated fatty acid (SFA); substitute SFA with monounsaturated fatty acid (MUFA)/polyunsaturated fatty acid (PUFA); PUFA/MUFA should represent the rest of the calorie intake from fat | [Grade I, Level B] |
-| | • <1% trans fatty acid (TFA); minimise consumption of high fat processed meat (sausages, corned meat, nuggets, salami, burger, pepperoni, ham, serunding etc) and bakery products including cakes, biscuits, frozen pizza, cookies, crackers, and hard margarines and other spreads; reduce consumption of partially hydrogenated fats | [Grade I, Level A] |
-| | **Cholesterol-rich foods/eggs** — No evidence for restriction. However, dietary cholesterol-rich foods such as beef and pork also carry significant content of SFA which are known to increase TC and LDL-C levels. | [Grade IIa, Level B] |
-| | **Protein** — 10-20% of energy intake | [Grade I, Level B] |
-| | **Carbohydrate (CHO)** — 50-60% of energy intake; encourage high fiber, complex CHO, wholegrains, fruits, vegetables; limit intake of sugar to 5-10% of energy intake (includes sugar sweetened beverages, kuihs etc) | [Grade I, Level B] / [Grade I, Level A] |
-| | **Malaysian Healthy Plate and Current Healthy Eating Recommendation:** Increase plant-based foods such as nuts, legumes, beans, fruits and vegetables (taufu, tempe, 'ulam'); consume whole grain foods (oats, barley, bran, brown rice); eat fish more often (oily/marine fishes e.g. 'kembong/pelaling', patin, keli, terubuk); consume low-fat dairy products; consume less sweet foods; use healthy oils (blended oils, peanut oil, sunflower oil, olive oil, canola oil and corn oil); reduce intake of processed/salty foods. | [Grade I, Level B] |
+| | &nbsp;&nbsp;&nbsp;— 7-10% saturated fatty acid (SFA) | [Grade I, Level B] |
+| | &nbsp;&nbsp;&nbsp;— Substitute SFA with monounsaturated fatty acid (MUFA) / polyunsaturated fatty acid (PUFA) | [Grade I, Level B] |
+| | &nbsp;&nbsp;&nbsp;— PUFA/MUFA should represent the rest of the calorie intake from fat | [Grade I, Level B] |
+| | • <1% trans fatty acid (TFA) | [Grade I, Level A] |
+| | &nbsp;&nbsp;&nbsp;— Minimise consumption of high fat processed meat (sausages, corned meat, nuggets, salami, burger, pepperoni, ham, serunding etc) and bakery products including cakes, biscuits, frozen pizza, cookies, crackers, and hard margarines and other spreads | [Grade I, Level A] |
+| | &nbsp;&nbsp;&nbsp;— Reduce consumption of partially hydrogenated fats | [Grade I, Level A] |
+| | **Cholesterol-rich foods/eggs** — No evidence for restriction. However, dietary cholesterol-rich foods such as beef and pork also carry significant content of SFA which are known to increase TC and LDL-C levels. *(In individuals with Very High and High CV risk: cholesterol intake should be <200 mg/day.)* | [Grade IIa, Level B] |
+| | **Protein** | |
+| | • 10-20% of energy intake | [Grade I, Level B] |
+| | **Carbohydrate (CHO)** | |
+| | • 50-60% of energy intake | |
+| | &nbsp;&nbsp;&nbsp;— Encourage high fiber, complex carbohydrate (CHO), wholegrains, fruits, vegetables | [Grade I, Level B] |
+| | &nbsp;&nbsp;&nbsp;— Limit intake of sugar to 5-10% of energy intake. This includes sugar sweetened beverages, kuihs etc | [Grade I, Level A] |
+| | **Malaysian Healthy Plate and Current Healthy Eating Recommendation** | [Grade I, Level B] |
+| | • Increase plant-based foods such as nuts, legumes, beans, fruits and vegetables (taufu, tempe, 'ulam') | [Grade I, Level B] |
+| | • Consume whole grain foods (oats, barley, bran, brown rice) | [Grade I, Level B] |
+| | • Eat fish more often (oily/marine fishes e.g. 'kembong/pelaling', patin, keli, terubuk) | [Grade I, Level B] |
+| | • Consume low-fat dairy products | [Grade I, Level B] |
+| | • Consume less sweet foods (no added sugar, limit canned and carbonated drinks, fruit juices and 3in1 beverages) | [Grade I, Level B] |
+| | • Healthy oils (use blended oils, peanut oil, sunflower oil, olive oil, canola oil and corn oil) | [Grade I, Level B] |
+| | • Reduce intake of processed/salty foods | [Grade I, Level B] |
 | **B** | **Individual Dietary Pattern** | |
 | | • Dietary fiber of 20-30 g fiber per day (vegetables, fruits, legumes and whole grain cereals are encouraged) | [Grade I, Level B] |
 | | • Whole grain should form 50% of the total grain intake | [Grade I, Level B] |
@@ -315,75 +327,126 @@ A diet high in fruits, vegetables, wholegrains and fish and low in salt and satu
 ---
 
 <!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Common abbreviations used throughout this CPG       -->
+<!-- MASTER ABBREVIATIONS LIST — PRIMARY & SECONDARY CPG (2017)   -->
+<!-- Purpose: Complete abbreviations list for all 14 sections.    -->
+<!-- All other sections refer to this master list.                -->
 <!-- ============================================================ -->
 
-### Abbreviations
+### Abbreviations (Master List)
 
 | Abbreviation | Definition |
 |---|---|
+| A1c | Haemoglobin A1c |
+| ABI | Ankle-Brachial Index |
+| ACC | American College of Cardiology |
+| ACMOMS | Asian Consensus Meeting on Metabolic Surgery |
 | ACS | Acute Coronary Syndrome |
 | AF | Atrial Fibrillation |
+| AHA/ACC | American Heart Association / American College of Cardiology |
 | AHI | Apnea-Hypopnea Index |
+| AMI | Acute Myocardial Infarction |
 | BMI | Body Mass Index |
 | BP | Blood Pressure |
-| CABG | Coronary Artery Bypass Graft Surgery |
+| CABG | Coronary Artery Bypass Surgery |
+| CAC | Coronary Artery Calcium |
 | CAD | Coronary Artery Disease |
+| CCF | Congestive Cardiac Failure |
+| CDC | Centres for Disease Control |
 | CHD | Coronary Heart Disease |
 | CHO | Carbohydrate |
 | CIMT | Carotid Intima-Media Thickness |
 | CKD | Chronic Kidney Disease |
+| CKD-EPI | Chronic Kidney Disease Epidemiology Collaboration |
 | COC | Combined Oral Contraceptive |
-| CPG | Clinical Practice Guideline |
+| CPAP | Continuous Positive Airway Pressure |
+| CPG | Clinical Practice Guidelines |
+| CPTR | Control For Tobacco Products Regulations |
 | CRP | C-Reactive Protein |
+| CT | Chelation Therapy |
+| CV | Cardiovascular |
 | CVA | Cerebrovascular Accident |
 | CVD | Cardiovascular Disease |
+| DALY | Disability Adjusted Life Year |
 | DAPT | Dual Antiplatelet Therapy |
+| DASH | Dietary Advice To Stop Hypertension |
 | DBP | Diastolic Blood Pressure |
+| DHA | Docosahexaenoic Acid |
 | DM | Diabetes Mellitus |
 | DPP-4i | Dipeptidyl Peptidase-4 Inhibitor |
+| ECG | Electrocardiogram |
+| ED | Erectile Dysfunction |
+| EDTA | Ethylenediamine Tetraacetic Acid |
 | eGFR | Estimated Glomerular Filtration Rate |
+| EPA | Eicosapentaenoic Acid |
+| ESC | European Society of Cardiology |
+| ESRD | End-Stage Renal Disease |
+| ET/EPT | Oestrogen Therapy / Oestrogen Progesterone Therapy |
+| FBC | Full Blood Count |
 | FBG | Fasting Blood Glucose |
+| FCTC | Framework Convention for Tobacco Control |
 | FRS | Framingham Risk Score |
+| GDM | Gestational Diabetes Mellitus |
 | GFR | Glomerular Filtration Rate |
 | GI | Glycaemic Index |
+| GL | Glycaemic Load |
 | GLP-1 | Glucagon-Like Peptide-1 |
+| GRAS | Generally Recognized As Safe |
+| GTT | Glucose Tolerance Test |
 | HbA1c | Glycated Haemoglobin A1c |
 | HDL-C | High Density Lipoprotein Cholesterol |
+| HIV | Human Immunodeficiency Virus |
 | hs-CRP | High-Sensitivity C-Reactive Protein |
 | IFG | Impaired Fasting Glucose |
 | IGT | Impaired Glucose Tolerance |
 | IHD | Ischaemic Heart Disease |
+| KOSPEN | Komuniti Sihat Perkasa Negara |
+| LCD | Low Carbohydrate Diets |
 | LDL-C | Low Density Lipoprotein Cholesterol |
+| LFD | Low-Fat Diet |
 | LV | Left Ventricular |
 | LVH | Left Ventricular Hypertrophy |
+| MHT | Menopausal Hormone Therapy |
 | MI | Myocardial Infarction |
 | MOH | Ministry of Health |
+| MSSM | Metabolic Syndrome Study of Malaysia |
 | MUFA | Monounsaturated Fatty Acid |
+| NCCFN | National Coordinating Committee on Food and Nutrition Malaysia |
+| NCD | Non-Communicable Diseases |
+| NCVD-ACS | National Cardiovascular Disease – Acute Coronary Syndrome |
+| NGO | Non-Governmental Organization |
 | NHMS | National Health and Morbidity Survey |
-| NOACs | Novel Oral Anticoagulants |
+| NOAC | Newer Oral Anticoagulant |
 | NRT | Nicotine Replacement Therapy |
-| OSA | Obstructive Sleep Apnea |
 | OGTT | Oral Glucose Tolerance Test |
+| OSA | Obstructive Sleep Apnea |
 | PA | Physical Activity |
-| PAD | Peripheral Artery Disease |
+| PAD | Peripheral Arterial Disease |
+| PCOS | Polycystic Ovarian Syndrome |
 | PCI | Percutaneous Coronary Intervention |
+| PD | Periodontal Disease |
 | PCSK-9 | Proprotein Convertase Subtilisin/Kexin Type 9 |
+| PSA | Prostate Specific Antigen |
 | PUFA | Polyunsaturated Fatty Acid |
+| PWV | Pulse Wave Velocity |
 | RA | Rheumatoid Arthritis |
+| RNI | Recommended Nutrition Intake |
+| SACN | Scientific Advisory Committee on Nutrition |
 | SBP | Systolic Blood Pressure |
-| SGLT2i | Sodium-Glucose Co-Transporter 2 Inhibitor |
 | SFA | Saturated Fatty Acid |
+| SGLT2i | Sodium-Glucose Co-Transporter 2 Inhibitor |
 | SLE | Systemic Lupus Erythematosus |
 | T&CM | Traditional and Complementary Medicine |
 | T2DM | Type 2 Diabetes Mellitus |
 | TC | Total Cholesterol |
+| TCM | Traditional Chinese Medicine |
 | TFA | Trans Fatty Acid |
 | TG | Triglycerides |
 | TIA | Transient Ischaemic Attack |
 | TRT | Testosterone Replacement Therapy |
 | TZD | Thiazolidinedione |
+| USRDS | United States Renal Data System |
 | VLDL-C | Very Low Density Lipoprotein Cholesterol |
+| VTE | Venous Thromboembolism |
+| WHO | World Health Organisation |
 
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- END MASTER ABBREVIATIONS LIST -->
