@@ -7,7 +7,7 @@ import logging
 import time
 from dataclasses import dataclass, field
 
-from .models import PatientCase, TreatmentPlan
+from .models import PatientCase, TreatmentPlan, SafetyReport
 from .clinical_stages import DDxResult, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
 from .routing import CPGDocRef, route_icd_to_cpgs
 
@@ -75,6 +75,7 @@ class WorkflowResult:
     cpgs: list[CPGDocRef]
     elapsed_ms: float
     stage_errors: list[str] = field(default_factory=list)
+    safety_report: SafetyReport | None = None
 
 
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
@@ -130,6 +131,10 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     # Stage 5 — Synthesize (unrecoverable if it fails)
     treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence)
 
+    # Stage 6 — Safety review (fail-open, never raises)
+    from .safety_critic import run_safety_critic
+    safety_report = await run_safety_critic(case, treatment_plan)
+
     elapsed_ms = (time.monotonic() - t0) * 1000
     logger.info("Workflow complete in %.0f ms. ICD primary: %s",
                 elapsed_ms, treatment_plan.icd_primary)
@@ -140,6 +145,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         cpgs=cpgs,
         elapsed_ms=elapsed_ms,
         stage_errors=errors,
+        safety_report=safety_report,
     )
 
 
@@ -240,12 +246,18 @@ async def run_clinical_workflow_streaming(
     })
     logger.info("Workflow complete in %.0f ms", elapsed_ms)
 
+    # Stage 6 — Safety review (fail-open, never raises)
+    from .safety_critic import run_safety_critic
+    safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
+    await emit("safety_review", safety_report.model_dump())
+
     return WorkflowResult(
         treatment_plan=treatment_plan,
         ddx=ddx,
         cpgs=cpgs,
         elapsed_ms=elapsed_ms,
         stage_errors=errors,
+        safety_report=safety_report,
     )
 
 
@@ -323,10 +335,16 @@ async def run_resynthesize_streaming(
     })
     logger.info("Re-synthesis complete in %.0f ms", elapsed_ms)
 
+    # Stage 6 — Safety review (fail-open, never raises)
+    from .safety_critic import run_safety_critic
+    safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
+    await emit("safety_review", safety_report.model_dump())
+
     return WorkflowResult(
         treatment_plan=treatment_plan,
         ddx=selected_ddx,
         cpgs=cpgs,
         elapsed_ms=elapsed_ms,
         stage_errors=errors,
+        safety_report=safety_report,
     )

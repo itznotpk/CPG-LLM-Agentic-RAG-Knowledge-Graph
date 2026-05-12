@@ -4,7 +4,7 @@ Pydantic models for data validation and serialization.
 
 from typing import List, Dict, Any, Optional, Literal
 from datetime import datetime
-from pydantic import BaseModel, Field, ConfigDict, field_validator
+from pydantic import BaseModel, Field, ConfigDict, field_validator, model_validator
 from enum import Enum
 
 
@@ -292,6 +292,28 @@ class TreatmentPlan(BaseModel):
         if len(v) < 1:
             raise ValueError("recommendations must contain at least one entry; use unresolved_questions for cases with no actionable guidance")
         return v
+
+
+# Safety Critic Models
+class SafetyFlag(BaseModel):
+    severity: Literal["CRITICAL", "MAJOR", "MODERATE"]
+    recommendation_index: int = Field(..., ge=0, description="0-based index into TreatmentPlan.recommendations")
+    flag_type: Literal["drug_allergy", "drug_interaction", "dose", "contraindication"]
+    detail: str = Field(..., description="One-sentence patient-specific explanation of the concern")
+    suggested_alternative: Optional[str] = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _remap_type_field(cls, data: Any) -> Any:
+        if isinstance(data, dict) and "flag_type" not in data and "type" in data:
+            data = {**data, "flag_type": data["type"]}
+        return data
+
+
+class SafetyReport(BaseModel):
+    flags: List[SafetyFlag] = Field(default_factory=list)
+    safe_to_proceed: bool = Field(..., description="False if any CRITICAL or MAJOR flag is present")
+    reviewer_notes: Optional[str] = None
 
 
 # Ingestion Models

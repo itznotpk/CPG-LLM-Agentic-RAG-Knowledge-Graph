@@ -40,6 +40,7 @@ from .models import (
     ToolCall,
     PatientCase,
     TreatmentPlan,
+    SafetyReport,
 )
 from pydantic import BaseModel as _BaseModel
 
@@ -67,6 +68,7 @@ class ClinicalPlanResponse(_BaseModel):
     cpgs_matched: list[str]
     elapsed_ms: float
     stage_errors: list[str] = []
+    safety_report: Optional[SafetyReport] = None
 
 from .tools import (
     vector_search_tool,
@@ -587,6 +589,7 @@ async def clinical_plan(request: ClinicalPlanRequest):
             cpgs_matched=[c.cpg_name for c in result.cpgs],
             elapsed_ms=result.elapsed_ms,
             stage_errors=result.stage_errors,
+            safety_report=result.safety_report,
         )
     except RuntimeError as e:
         logger.error("Clinical plan synthesis failed: %s", e)
@@ -625,6 +628,7 @@ async def clinical_plan_stream(request: ClinicalPlanRequest):
                     cpgs_matched=[c.cpg_name for c in result.cpgs],
                     elapsed_ms=result.elapsed_ms,
                     stage_errors=result.stage_errors,
+                    safety_report=result.safety_report,
                 )
                 await queue.put(("final_result", final.model_dump()))
             except Exception as e:
@@ -691,6 +695,7 @@ async def clinical_resynthesize_stream(request: ResynthesizeRequest):
                     cpgs_matched=[c.cpg_name for c in result.cpgs],
                     elapsed_ms=result.elapsed_ms,
                     stage_errors=result.stage_errors,
+                    safety_report=result.safety_report,
                 )
                 await queue.put(("final_result", final.model_dump()))
             except Exception as e:

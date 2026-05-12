@@ -32,6 +32,7 @@ import {
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { PipelineProgress } from './PipelineProgress';
+import { SafetyReviewBanner } from './SafetyReviewBanner';
 
 
 // Accordion Section Component
@@ -583,7 +584,7 @@ function CPGReferencesSection({ references }) {
 export function CarePlanSection() {
   const { state, updateCarePlanItem, updateMedication, finalizePlan, goToStep } = useApp();
   const { isDark, accent } = useTheme();
-  const { carePlan, patientData, diagnosis, mpisData, vitals } = state;
+  const { carePlan, patientData, diagnosis, mpisData, vitals, safetyReport } = state;
 
   // Get selected diagnoses (supports multiple selection)
   const selectedIds = diagnosis?.selectedDiagnosisIds?.length > 0
@@ -598,6 +599,10 @@ export function CarePlanSection() {
   const [workflowHistory, setWorkflowHistory] = useState([]);
   const [notes, setNotes] = useState([]);
   const [traceCollapsed, setTraceCollapsed] = useState(true);
+  const [safetyAcknowledged, setSafetyAcknowledged] = useState(false);
+
+  // Block Approve until clinician acknowledges blocking safety flags
+  const safetyBlocksApprove = safetyReport && !safetyReport.safe_to_proceed && !safetyAcknowledged;
 
   if (!carePlan) return null;
 
@@ -778,6 +783,11 @@ export function CarePlanSection() {
 
         {/* RIGHT PANEL: Actionable Plan */}
         <div className="lg:col-span-8 space-y-4">
+          <SafetyReviewBanner
+            report={safetyReport}
+            acknowledged={safetyAcknowledged}
+            onAcknowledge={() => setSafetyAcknowledged(true)}
+          />
           <ClinicalSummary
             summary={carePlan.clinicalSummary}
             readSummaryButton={
@@ -805,6 +815,7 @@ export function CarePlanSection() {
               onReject={handleReject}
               onRegenerate={handleRegenerate}
               history={workflowHistory}
+              disabled={safetyBlocksApprove}
             />
           </div>
         </div>

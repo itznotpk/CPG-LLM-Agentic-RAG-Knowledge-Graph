@@ -64,6 +64,7 @@ const initialState = {
   pipelineThinking: {},    // { [nodeName: string]: string }  accumulated thinking text
   pipelineSummary: null,   // { elapsed_ms, ddxCount, cpgCount, chunkCount } set on final_result
   resynthOverride: null,   // { codes: string[] } set when clinician override runs
+  safetyReport: null,      // SafetyReport | null — set on safety_review SSE event
 };
 
 function appReducer(state, action) {
@@ -141,7 +142,7 @@ function appReducer(state, action) {
     case 'SET_PIPELINE_SUMMARY':
       return { ...state, pipelineSummary: action.payload };
     case 'RESET_PIPELINE':
-      return { ...state, pipelineEvents: [], pipelineThinking: {}, pipelineSummary: null, resynthOverride: null };
+      return { ...state, pipelineEvents: [], pipelineThinking: {}, pipelineSummary: null, resynthOverride: null, safetyReport: null };
     case 'RESET_PIPELINE_FROM_STAGE': {
       const fromStage = action.payload;
       return {
@@ -152,6 +153,8 @@ function appReducer(state, action) {
     }
     case 'SET_RESYNTH_OVERRIDE':
       return { ...state, resynthOverride: action.payload };
+    case 'SET_SAFETY_REPORT':
+      return { ...state, safetyReport: action.payload };
     case 'APPEND_THINKING_CHUNK': {
       const { node, chunk } = action.payload;
       return {
@@ -260,6 +263,10 @@ export function AppProvider({ children }) {
           dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } });
         },
         state.severityStaging || {},
+        undefined, // structuredComorbidities — not used in this call path
+        (safetyReport) => {
+          dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport });
+        },
       );
 
       const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
@@ -405,6 +412,8 @@ export function AppProvider({ children }) {
           (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
           (overrideData) => dispatch({ type: 'SET_RESYNTH_OVERRIDE', payload: overrideData }),
           state.severityStaging || {},
+          undefined,
+          (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
         );
 
         const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);
