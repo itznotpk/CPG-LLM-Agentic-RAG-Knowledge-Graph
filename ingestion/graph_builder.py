@@ -379,7 +379,8 @@ TEXT:
         
         try:
             from pydantic_ai.models.bedrock import BedrockConverseModel
-            model = BedrockConverseModel("us.meta.llama3-3-70b-instruct-v1:0")
+            model_id = os.getenv("BEDROCK_MODEL_ID", "anthropic.claude-3-haiku-20240307-v1:0")
+            model = BedrockConverseModel(model_id)
         except Exception as e:
             logger.warning(f"Could not load ingestion model for triple extraction: {e}")
             return []
