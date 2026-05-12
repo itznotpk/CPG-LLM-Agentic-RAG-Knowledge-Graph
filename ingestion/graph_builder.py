@@ -479,8 +479,9 @@ Return format:
         
         try:
             # Get database name from the graph driver or env var
-            db_name = getattr(self.graph_client.graphiti.driver, '_database', None) \
-                      or os.getenv("NEO4J_DATABASE", "neo4j")
+            # Pass None so the neo4j driver uses its own default (works with Aura).
+            # Explicit NEO4J_DATABASE env var overrides when set.
+            db_name = os.getenv("NEO4J_DATABASE") or None
             async with self.graph_client.graphiti.driver.client.session(database=db_name) as session:
                 for triple in triples:
                     subject = triple.get("subject", "").strip()

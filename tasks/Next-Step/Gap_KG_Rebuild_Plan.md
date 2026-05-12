@@ -501,8 +501,10 @@ If Phase F produces a worse graph than baseline:
 
 1. **Bedrock budget** — confirm with stakeholder before Phase A3. Hard cap?
 2. **Graphiti episodes** — clearing Neo4j wipes Graphiti's episode store too. Acceptable? (Probably yes — episodes weren't being used for clinical lookup anyway.)
-3. **`--graph-only` ingestion flag** — does `ingest.py` already support re-running graph build against existing NeonDB chunks without re-chunking? If not, Phase C needs a small CLI patch.
-4. **LLM model for extraction** — keep hardcoded Bedrock Llama 3.3 70B, or switch to STAGE*_LLM_* env override pattern? Latter is more consistent with rest of pipeline.
+3. **`--graph-only` ingestion flag** — ✅ RESOLVED. No external Graphiti episode ID references outside Neo4j. Safe to clear.
+4. **`--graph-only` ingestion flag + chunking strategy** — ✅ RESOLVED. Chunking is H1-level splitting, already correct in NeonDB. Must NOT re-chunk from markdown. `--graph-only` mode must read existing chunks directly from NeonDB (`SELECT chunk_id, document_id, content, metadata FROM chunks WHERE document_id = $1`) and feed into graph_builder. This is a Phase B code task to implement. Never re-chunk — NeonDB chunk_id is the source of truth for Problem 3 traceability.
+
+5. **LLM model for extraction** — keep hardcoded Bedrock Llama 3.3 70B, or switch to STAGE*_LLM_* env override pattern? Latter is more consistent with rest of pipeline.
 5. **Severity vocabulary** — confirm MAJOR/MODERATE/MINOR is the right axis (vs. say, ABSOLUTE/RELATIVE/CAUTION). Pick now, hard to change later.
 
 ---
