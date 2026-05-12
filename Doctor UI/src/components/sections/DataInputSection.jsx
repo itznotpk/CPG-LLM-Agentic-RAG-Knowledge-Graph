@@ -20,7 +20,7 @@ function AnalyzingSkeleton() {
       <div className={`backdrop-blur-xl border rounded-2xl p-6 ${isDark ? 'bg-slate-800/80 border-white/10' : 'bg-white/60 border-slate-200'}`}>
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-[var(--accent-primary)]/20 rounded-xl">
-            <Brain className={`w-6 h-6 animate-pulse text-[var(--accent-primary)]`} />
+            <Brain className={`w-6 h-6 animate-pulse text-[var(--accent-primary)]`} strokeWidth={1.5} />
           </div>
           <div className="flex-1">
             <h3 className={`text-lg font-semibold mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>AI Analysis in Progress</h3>
@@ -158,7 +158,7 @@ function ChartModal({ patient, isOpen, onClose }) {
           ${isDark ? 'bg-slate-900 border-white/10' : 'bg-white border-slate-200'}`}>
           <div className="flex items-center gap-3">
             <div className="p-2 bg-emerald-500/20 rounded-xl">
-              <BarChart2 className="w-5 h-5 text-emerald-500" />
+              <BarChart2 className="w-5 h-5 text-emerald-500" strokeWidth={1.5} />
             </div>
             <div>
               <h2 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -175,7 +175,7 @@ function ChartModal({ patient, isOpen, onClose }) {
               ${isDark ? 'hover:bg-white/10 text-slate-400 hover:text-white'
                 : 'hover:bg-slate-100 text-slate-500 hover:text-slate-800'}`}
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" strokeWidth={1.5} />
           </button>
         </div>
 
@@ -251,11 +251,11 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
   }, [patient?.nsn]);
 
   return (
-    <GlassCard className="p-6 border-2 border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5">
+    <GlassCard variant="success" className="p-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-green-500/20 rounded-xl">
-            <CheckCircle className="w-6 h-6 text-green-500" />
+            <CheckCircle className="w-6 h-6 text-green-500" strokeWidth={1.5} />
           </div>
           <div>
             <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -288,15 +288,15 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
         </div>
         <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
           <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>NRIC</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.nsn || '-'}</p>
+          <p className={`text-sm font-semibold ds-mono ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.nsn || '-'}</p>
         </div>
         <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
           <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Date of Birth</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.dob || '-'}</p>
+          <p className={`text-sm font-semibold ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.dob || '-'}</p>
         </div>
         <div className={`p-3 rounded-xl ${isDark ? 'bg-white/10' : 'bg-white/60'}`}>
           <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Age / Gender</span>
-          <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.age || '-'} / {patient?.gender || '-'}</p>
+          <p className={`text-sm font-semibold ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.age || '-'} / {patient?.gender || '-'}</p>
         </div>
       </div>
 
@@ -316,7 +316,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       {mpisData?.comorbidities?.length > 0 && (
         <div className="mb-4">
           <div className="flex items-center gap-2 mb-2">
-            <Heart className="w-4 h-4 text-[var(--accent-primary)]" />
+            <Heart className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.5} />
             <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-700'}`}>Comorbidities</span>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -332,12 +332,12 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       {/* Previous Clinical Notes */}
       <div className="mb-4">
         <div className="flex items-center gap-2 mb-2">
-          <ClipboardList className="w-4 h-4 text-[var(--accent-primary)]" />
+          <ClipboardList className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.5} />
           <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-700'}`}>Previous Clinical Notes</span>
         </div>
         {loadingNotes ? (
           <div className="flex items-center gap-2">
-            <Loader2 className="w-4 h-4 animate-spin text-slate-400" />
+            <Loader2 className="w-4 h-4 animate-spin text-slate-400" strokeWidth={1.5} />
             <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading...</span>
           </div>
         ) : previousNotes?.clinicalNotes ? (
@@ -359,7 +359,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       {mpisData?.currentMeds?.length > 0 && (
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <Pill className="w-4 h-4 text-[var(--accent-primary)]" />
+            <Pill className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.5} />
             <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-700'}`}>Current Medications</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -523,11 +523,11 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
   };
 
   return (
-    <GlassCard className="p-6 border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-orange-500/5">
+    <GlassCard variant="warning" className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-amber-500/20 rounded-xl">
-            <UserPlus className="w-6 h-6 text-amber-500" />
+            <UserPlus className="w-6 h-6 text-amber-500" strokeWidth={1.5} />
           </div>
           <div>
             <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -546,7 +546,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
       {/* Success Message */}
       {registrationSuccess && (
         <div className="mb-4 p-3 rounded-lg bg-green-500/20 border border-green-500/30 flex items-center gap-2">
-          <CheckCircle className="w-5 h-5 text-green-500" />
+          <CheckCircle className="w-5 h-5 text-green-500" strokeWidth={1.5} />
           <span className={`text-sm font-medium ${isDark ? 'text-green-400' : 'text-green-700'}`}>
             Patient registered successfully! You can now proceed with the clinical assessment.
           </span>
@@ -556,7 +556,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
       {/* Error Message */}
       {registrationError && (
         <div className="mb-4 p-3 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center gap-2">
-          <AlertCircle className="w-5 h-5 text-red-500" />
+          <AlertCircle className="w-5 h-5 text-red-500" strokeWidth={1.5} />
           <span className={`text-sm font-medium ${isDark ? 'text-red-400' : 'text-red-700'}`}>
             {registrationError}
           </span>
@@ -878,7 +878,7 @@ export function DataInputSection({ onViewChart }) {
             <GlassCard className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-                  <Database className="w-5 h-5 text-[var(--accent-primary)]" />
+                  <Database className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -970,7 +970,7 @@ export function DataInputSection({ onViewChart }) {
             {showValidationWarning && !canAnalyze && (
               <div className={`p-4 rounded-xl border-2 ${isDark ? 'bg-amber-500/10 border-amber-500/30' : 'bg-amber-50 border-amber-300'} animate-fadeIn`}>
                 <div className="flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
                   <div className="flex-1">
                     {isCompletelyBlank ? (
                       <>
@@ -1019,7 +1019,7 @@ export function DataInputSection({ onViewChart }) {
                     onClick={() => setShowValidationWarning(false)}
                     className={`p-1 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-amber-100'}`}
                   >
-                    <X className="w-4 h-4 text-amber-500" />
+                    <X className="w-4 h-4 text-amber-500" strokeWidth={1.5} />
                   </button>
                 </div>
               </div>

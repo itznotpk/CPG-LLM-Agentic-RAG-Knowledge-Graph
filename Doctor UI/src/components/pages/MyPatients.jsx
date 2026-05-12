@@ -58,9 +58,9 @@ function NextReviewDisplay({ patientNric, consultations, isDark, accent }) {
 
   return (
     <div className="flex items-center justify-center gap-2">
-      <Calendar className={`w-4 h-4 ${accent.text}`} />
+      <Calendar className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
       <div>
-        <p className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</p>
+        <p className={`text-sm ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</p>
         <p className={`text-xs font-medium ${tcaDays <= 3 ? 'text-amber-500' : tcaDays < 0 ? 'text-red-500' : isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           {tcaDays < 0 ? `Overdue: ${Math.abs(tcaDays)} ${Math.abs(tcaDays) === 1 ? 'Day' : 'Days'}` : `TCA: ${tcaDays} ${tcaDays === 1 ? 'Day' : 'Days'}`}
         </p>
@@ -108,7 +108,7 @@ function ClinicalNotesDisplay({ patientNric, consultations, setConsultations, lo
   if (isLoading) {
     return (
       <div className="flex items-center gap-2">
-        <Loader2 className="w-4 h-4 animate-spin text-slate-400" />
+        <Loader2 className="w-4 h-4 animate-spin text-slate-400" strokeWidth={1.5} />
         <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading clinical notes...</span>
       </div>
     );
@@ -325,7 +325,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
     const Icon = cfg.icon;
     return (
       <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${cfg.bg} ${cfg.text} ${cfg.border}`}>
-        <Icon className="w-3 h-3" />
+        <Icon className="w-3 h-3" strokeWidth={1.5} />
         {cfg.label}
       </span>
     );
@@ -368,7 +368,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
             bg-gradient-to-r ${accent.gradient} text-white
             transition-transform hover:scale-[1.02] shadow-lg ${accent.shadow}`}
         >
-          <UserPlus className="w-5 h-5" />
+          <UserPlus className="w-5 h-5" strokeWidth={1.5} />
           New Patient
         </button>
       </div>
@@ -378,7 +378,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search */}
           <div className="flex-1 relative">
-            <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
+            <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} strokeWidth={1.5} />
             <input
               type="text"
               name="patient-search"
@@ -441,7 +441,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                 <tr>
                   <td colSpan="6" className="p-8 text-center">
                     <div className="flex flex-col items-center gap-3">
-                      <Loader2 className={`w-8 h-8 animate-spin ${accent.text}`} />
+                      <Loader2 className={`w-8 h-8 animate-spin ${accent.text}`} strokeWidth={1.5} />
                       <p className={`${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading patients...</p>
                     </div>
                   </td>
@@ -453,7 +453,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                 <tr>
                   <td colSpan="6" className="p-8 text-center">
                     <div className="flex flex-col items-center gap-3">
-                      <AlertCircle className="w-8 h-8 text-red-500" />
+                      <AlertCircle className="w-8 h-8 text-red-500" strokeWidth={1.5} />
                       <p className="text-red-500">{error}</p>
                       <button
                         onClick={fetchPatients}
@@ -471,7 +471,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                 <tr>
                   <td colSpan="6" className="p-8 text-center">
                     <div className="flex flex-col items-center gap-3">
-                      <User className={`w-8 h-8 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
+                      <User className={`w-8 h-8 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} strokeWidth={1.5} />
                       <p className={`${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                         {searchTerm ? `No patients found matching "${searchTerm}"` : 'No patients found'}
                       </p>
@@ -502,6 +502,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                           aria-hidden="true"
                           className={`w-5 h-5 transition-transform duration-200 ${isDark ? 'text-slate-400' : 'text-slate-500'}
                             ${selectedPatient?.id === patient.id ? 'rotate-90' : ''}`}
+                          strokeWidth={1.5}
                         />
                       </button>
                     </td>
@@ -573,11 +574,11 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                               </div>
                               <div>
                                 <p className={isDark ? 'text-slate-400' : 'text-slate-500'}>NRIC</p>
-                                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.nsn || '—'}</p>
+                                <p className={`font-medium ds-mono ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.nsn || '—'}</p>
                               </div>
                               <div>
                                 <p className={isDark ? 'text-slate-400' : 'text-slate-500'}>Age</p>
-                                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.age || '—'} years</p>
+                                <p className={`font-medium ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.age || '—'} years</p>
                               </div>
                               <div>
                                 <p className={isDark ? 'text-slate-400' : 'text-slate-500'}>Gender</p>
@@ -641,7 +642,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                                   {typeof dx === 'object' ? dx.name : dx}
                                                 </p>
                                                 {typeof dx === 'object' && dx.icdCode && (
-                                                  <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                                  <p className={`text-xs ds-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                                                     ICD-11: {dx.icdCode}
                                                   </p>
                                                 )}
@@ -655,11 +656,11 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
 
                                                 return dateToDisplay && (
                                                   <div className="text-right">
-                                                    <p className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                                                    <p className={`text-xs ds-numeric ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                                                       {dateToDisplay}
                                                     </p>
                                                     {timeToDisplay && (
-                                                      <p className={`text-[10px] ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
+                                                      <p className={`text-[10px] ds-numeric ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
                                                         {timeToDisplay}
                                                       </p>
                                                     )}
@@ -701,7 +702,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                   className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium
                                     bg-gradient-to-r ${accent.gradient} text-white transition-all hover:opacity-90`}
                                 >
-                                  <FileText className="w-4 h-4" />
+                                  <FileText className="w-4 h-4" strokeWidth={1.5} />
                                   View Chart
                                 </button>
                               </div>
@@ -786,7 +787,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                 onClick={() => setShowMedicalHistory(false)}
                 className={`p-2 rounded-lg transition-colors ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100'}`}
               >
-                <X className={`w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
+                <X className={`w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} strokeWidth={1.5} />
               </button>
             </div>
 
@@ -797,7 +798,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                   {/* Allergies Alert */}
                   {historyPatient.medicalHistory.allergies?.length > 0 && (
                     <div className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30">
-                      <AlertTriangle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                      <AlertTriangle className="w-5 h-5 text-red-500 flex-shrink-0" strokeWidth={1.5} />
                       <div>
                         <p className="text-sm font-medium text-red-500">Allergies</p>
                         <p className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
@@ -810,7 +811,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                   {/* Conditions */}
                   <div>
                     <h3 className={`flex items-center gap-2 text-sm font-semibold uppercase mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                      <Stethoscope className="w-4 h-4" /> Medical Conditions
+                      <Stethoscope className="w-4 h-4" strokeWidth={1.5} /> Medical Conditions
                     </h3>
                     <div className={`rounded-xl overflow-hidden border ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
                       <table className="w-full">
@@ -842,7 +843,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                   {/* Medications */}
                   <div>
                     <h3 className={`flex items-center gap-2 text-sm font-semibold uppercase mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                      <Pill className="w-4 h-4" /> Medications
+                      <Pill className="w-4 h-4" strokeWidth={1.5} /> Medications
                     </h3>
                     <div className={`rounded-xl overflow-hidden border ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
                       <table className="w-full">
@@ -876,7 +877,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                   {/* Lab Results */}
                   <div>
                     <h3 className={`flex items-center gap-2 text-sm font-semibold uppercase mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                      <TestTube className="w-4 h-4" /> Recent Lab Results
+                      <TestTube className="w-4 h-4" strokeWidth={1.5} /> Recent Lab Results
                     </h3>
                     <div className={`rounded-xl overflow-hidden border ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
                       <table className="w-full">
@@ -912,7 +913,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                   {/* Procedures */}
                   <div>
                     <h3 className={`flex items-center gap-2 text-sm font-semibold uppercase mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                      <Activity className="w-4 h-4" /> Procedures & Tests
+                      <Activity className="w-4 h-4" strokeWidth={1.5} /> Procedures & Tests
                     </h3>
                     <div className={`rounded-xl overflow-hidden border ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
                       <table className="w-full">
@@ -938,7 +939,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <History className={`w-12 h-12 mx-auto mb-4 ${isDark ? 'text-slate-600' : 'text-slate-300'}`} />
+                  <History className={`w-12 h-12 mx-auto mb-4 ${isDark ? 'text-slate-600' : 'text-slate-300'}`} strokeWidth={1.5} />
                   <p className={`text-lg font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                     No medical history available
                   </p>

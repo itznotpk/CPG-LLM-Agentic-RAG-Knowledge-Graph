@@ -1,5 +1,6 @@
 @import "@fontsource/geist-sans";
 @import "@fontsource/geist-mono";
+@import "./mhnexus-design.css";
 
 @tailwind base;
 @tailwind components;

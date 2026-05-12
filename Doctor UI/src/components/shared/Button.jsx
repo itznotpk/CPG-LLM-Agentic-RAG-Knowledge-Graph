@@ -87,10 +87,10 @@ export function Button({
       disabled={disabled || loading}
       {...props}
     >
-      {loading && <Loader2 className="w-5 h-5 animate-spin" />}
-      {!loading && Icon && iconPosition === 'left' && <Icon className="w-5 h-5" />}
+      {loading && <Loader2 className="w-5 h-5 animate-spin" strokeWidth={1.5} />}
+      {!loading && Icon && iconPosition === 'left' && <Icon className="w-5 h-5" strokeWidth={1.5} />}
       {children}
-      {!loading && Icon && iconPosition === 'right' && <Icon className="w-5 h-5" />}
+      {!loading && Icon && iconPosition === 'right' && <Icon className="w-5 h-5" strokeWidth={1.5} />}
     </button>
   );
 }
@@ -139,7 +139,7 @@ export function IconButton({
       `}
       {...props}
     >
-      <Icon className={iconSizes[size]} />
+      <Icon className={iconSizes[size]} strokeWidth={1.5} />
     </button>
   );
 }

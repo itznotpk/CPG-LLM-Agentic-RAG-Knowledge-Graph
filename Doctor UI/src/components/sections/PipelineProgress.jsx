@@ -37,17 +37,17 @@ function StatusDot({ status, num }) {
   const base = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border-2 shrink-0 transition-all duration-300';
   if (status === 'complete') return (
     <div className={`${base} bg-emerald-500/20 border-emerald-500 text-emerald-400`}>
-      <CheckCircle className="w-4 h-4" />
+      <CheckCircle className="w-4 h-4" strokeWidth={1.5} />
     </div>
   );
   if (status === 'error') return (
     <div className={`${base} bg-red-500/20 border-red-500 text-red-400`}>
-      <AlertCircle className="w-4 h-4" />
+      <AlertCircle className="w-4 h-4" strokeWidth={1.5} />
     </div>
   );
   if (status === 'running') return (
     <div className={`${base} bg-[var(--accent-primary)]/20 border-[var(--accent-primary)] text-[var(--accent-primary)] animate-pulse`}>
-      <Loader2 className="w-4 h-4 animate-spin" />
+      <Loader2 className="w-4 h-4 animate-spin" strokeWidth={1.5} />
     </div>
   );
   return (
@@ -138,7 +138,7 @@ export function PipelineProgress({
             {isLive ? (
               <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent-primary)] animate-pulse" />
             ) : (
-              <BrainCircuit className={`w-4 h-4 ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`} />
+              <BrainCircuit className={`w-4 h-4 ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`} strokeWidth={1.5} />
             )}
             <span className={`text-base font-semibold ${isDark ? 'text-indigo-300' : 'text-indigo-700'}`}>
               AI Reasoning Trace
@@ -152,8 +152,8 @@ export function PipelineProgress({
         </div>
         {onToggle && (
           collapsed
-            ? <ChevronDown className="w-4 h-4 text-slate-500" />
-            : <ChevronUp   className="w-4 h-4 text-slate-500" />
+            ? <ChevronDown className="w-4 h-4 text-slate-500" strokeWidth={1.5} />
+            : <ChevronUp   className="w-4 h-4 text-slate-500" strokeWidth={1.5} />
         )}
       </div>
 
@@ -226,14 +226,14 @@ export function PipelineProgress({
                     {stage.status === 'error' ? (
                       <div className="mt-1 mb-2 p-3 rounded-lg bg-red-500/10 border border-red-500/30">
                         <p className={`text-xs font-semibold flex items-center gap-1.5 ${isDark ? 'text-red-400' : 'text-red-600'}`}>
-                          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0" strokeWidth={1.5} />
                           {stage.label} failed
                         </p>
                         <p className={`text-xs mt-1 ${isDark ? 'text-red-300/80' : 'text-red-700/80'}`}>
                           {getFriendlyError(stage.detail)}
                         </p>
                         <button className={`mt-2 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider ${isDark ? 'text-red-300' : 'text-red-700'} hover:underline`}>
-                          <RefreshCw className="w-3 h-3" /> Retry Stage
+                          <RefreshCw className="w-3 h-3" strokeWidth={1.5} /> Retry Stage
                         </button>
                       </div>
                     ) : stage.detail && stage.status !== 'pending' && (
@@ -271,9 +271,9 @@ export function PipelineProgress({
                           onClick={() => setThinkingOpen((o) => !o)}
                           className="flex items-center gap-1.5 text-xs text-[var(--accent-primary)] hover:opacity-80 transition-opacity"
                         >
-                          <BrainCircuit className="w-3.5 h-3.5" />
+                          <BrainCircuit className="w-3.5 h-3.5" strokeWidth={1.5} />
                           {thinkingOpen ? 'Hide reasoning' : 'View reasoning'}
-                          {thinkingOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                          {thinkingOpen ? <ChevronUp className="w-3 h-3" strokeWidth={1.5} /> : <ChevronDown className="w-3 h-3" strokeWidth={1.5} />}
                         </button>
                         {thinkingOpen && (
                           <ThinkingDropdown text={thinkingText} isStreaming={isThinkingStreaming} />

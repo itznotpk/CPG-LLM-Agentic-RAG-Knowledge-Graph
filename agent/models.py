@@ -265,6 +265,14 @@ class Recommendation(BaseModel):
     contraindications_checked: List[str] = Field(default_factory=list, description="Contraindications reviewed before recommending")
 
 
+class MonitoringItem(BaseModel):
+    """Structured monitoring entry produced in Stage 5."""
+    parameter: str = Field(..., description="What to monitor, e.g. 'LFTs', '6-Minute Walk Test'")
+    schedule: str = Field(..., description="Frequency / timeline, e.g. 'monthly for 4 months, then quarterly'")
+    target: Optional[str] = Field(None, description="Target value or threshold, e.g. 'within normal range', 'eGFR >45'")
+    cpg_ref: Optional[str] = Field(None, description="CPG section reference, e.g. 'CPG PAH §7.3'")
+
+
 class TreatmentPlan(BaseModel):
     """Stage 5 output — the final structured plan returned to the doctor."""
 
@@ -272,7 +280,7 @@ class TreatmentPlan(BaseModel):
     icd_alternates: List[str] = Field(default_factory=list, description="Alternative ICD-11 codes considered")
     summary: str = Field(..., description="Clinical assessment: diagnosis type, key risk factors, safety alerts, and classification")
     recommendations: List[Recommendation] = Field(..., description="Clinical recommendations — must contain at least one entry")
-    monitoring: List[str] = Field(default_factory=list, description="Monitoring parameters with targets and frequency")
+    monitoring: List[MonitoringItem] = Field(default_factory=list, description="Structured monitoring parameters with schedule and target")
     red_flags: List[str] = Field(default_factory=list, description="Symptoms or signs that warrant escalation or immediate review")
     follow_up: List[str] = Field(default_factory=list, description="Follow-up timeline, reassessment criteria, and outcome-based actions")
     confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score for the plan (0.0–1.0)")

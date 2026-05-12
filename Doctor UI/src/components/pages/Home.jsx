@@ -194,11 +194,11 @@ const Home = ({ onStartConsult, onViewChart }) => {
           </h1>
           <div className={`flex items-center gap-4 mt-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
             <span className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
+              <Calendar className="w-4 h-4" strokeWidth={1.5} />
               {formatDate()}
             </span>
             <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
+              <Clock className="w-4 h-4" strokeWidth={1.5} />
               {formatTime()}
             </span>
           </div>
@@ -213,7 +213,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
               ${isDark ? 'bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white focus-visible:ring-white/50'
                 : 'bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-600 hover:text-slate-800 focus-visible:ring-slate-400'}`}
           >
-            <Bell aria-hidden="true" className="w-5 h-5" />
+            <Bell aria-hidden="true" className="w-5 h-5" strokeWidth={1.5} />
             {unreadCount > 0 && (
               <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
                 {unreadCount}
@@ -289,7 +289,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Total Appointments</p>
                 <p className={`text-3xl font-light mt-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{stats.totalAppointments}</p>
               </div>
-              <Calendar className={`w-5 h-5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
+              <Calendar className={`w-5 h-5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} strokeWidth={1.5} />
             </div>
           </div>
 
@@ -304,7 +304,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Waiting</p>
                 <p className={`text-3xl font-light mt-2 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>{stats.patientsWaiting}</p>
               </div>
-              <Users className={`w-5 h-5 ${isDark ? 'text-teal-500/50' : 'text-teal-400'}`} />
+              <Users className={`w-5 h-5 ${isDark ? 'text-teal-500/50' : 'text-teal-400'}`} strokeWidth={1.5} />
             </div>
           </div>
 
@@ -319,7 +319,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-rose-400' : 'text-rose-600'}`}>Emergency</p>
                 <p className={`text-3xl font-light mt-2 ${isDark ? 'text-rose-400' : 'text-rose-600'}`}>{stats.emergencyCases}</p>
               </div>
-              <AlertTriangle className={`w-5 h-5 ${isDark ? 'text-rose-500/50' : 'text-rose-400'}`} />
+              <AlertTriangle className={`w-5 h-5 ${isDark ? 'text-rose-500/50' : 'text-rose-400'}`} strokeWidth={1.5} />
             </div>
           </div>
 
@@ -334,7 +334,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>High Risk</p>
                 <p className={`text-3xl font-light mt-2 ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>{stats.highRiskCases}</p>
               </div>
-              <Activity className={`w-5 h-5 ${isDark ? 'text-amber-500/50' : 'text-amber-400'}`} />
+              <Activity className={`w-5 h-5 ${isDark ? 'text-amber-500/50' : 'text-amber-400'}`} strokeWidth={1.5} />
             </div>
           </div>
         </div>
@@ -350,9 +350,9 @@ const Home = ({ onStartConsult, onViewChart }) => {
               aria-label="Toggle Schedule"
               className={`text-xl font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg px-2 py-1 -ml-2`}
             >
-              <Clock aria-hidden="true" className={`w-5 h-5 ${accent.text}`} />
+              <Clock aria-hidden="true" className={`w-5 h-5 ${accent.text}`} strokeWidth={1.5} />
               Today's Schedule
-              <ChevronDown aria-hidden="true" className={`w-5 h-5 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} />
+              <ChevronDown aria-hidden="true" className={`w-5 h-5 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} strokeWidth={1.5} />
             </button>
           </div>
 
@@ -377,7 +377,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 <div className="flex items-start gap-4">
                   {/* Time Column */}
                   <div className="flex flex-col items-center min-w-[80px]">
-                    <span className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.time}</span>
+                    <span className={`text-lg font-semibold ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.time}</span>
                     {appointment.isEmergency && (
                       <span className="mt-1 px-2 py-0.5 rounded-full text-xs font-bold bg-red-500 text-white">
                         URGENT
@@ -402,8 +402,8 @@ const Home = ({ onStartConsult, onViewChart }) => {
                           <h3 className={`font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.patient.name}</h3>
                           {getStatusBadge(appointment.status)}
                         </div>
-                        <p className={`text-sm truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                          {appointment.patient.age} y/o • {appointment.patient.gender} • {appointment.patient.nsn}
+                        <p className={`text-sm truncate ds-numeric ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          {appointment.patient.age} y/o • {appointment.patient.gender} • <span className="ds-mono">{appointment.patient.nsn}</span>
                         </p>
                       </div>
                     </div>
@@ -424,7 +424,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                           ? 'bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white border border-white/10'
                           : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800 border border-slate-200'}`}
                     >
-                      <Eye aria-hidden="true" className="w-4 h-4" />
+                      <Eye aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
                       Quick View
                     </button>
                     {appointment.status === 'waiting' && (
@@ -434,7 +434,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                             bg-gradient-to-r ${accent.gradient} text-white
                             hover:${accent.gradientHover} shadow-lg ${accent.shadow}`}
                       >
-                        <Play aria-hidden="true" className="w-4 h-4" />
+                        <Play aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
                         Start Consult
                       </button>
                     )}
@@ -446,7 +446,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                             hover:bg-blue-500/30`}
                       >
                         Continue
-                        <ChevronRight aria-hidden="true" className="w-4 h-4" />
+                        <ChevronRight aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
                       </button>
                     )}
                     {appointment.status === 'done' && (

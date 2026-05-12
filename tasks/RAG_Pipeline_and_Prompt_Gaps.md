@@ -17,13 +17,13 @@
 
 | Care plan section | TreatmentPlan field | Status |
 |---|---|---|
-| 1) Summary | `summary: str` | ❌ field missing from model |
+| 1) Summary | `summary: str` | ✅ field exists, mapped to `clinicalSummary` |
 | 2) Medication Changes | `recommendations` where `type="pharmacological"` | ✅ field exists |
-| 3) Patient Education & Counselling | `recommendations` where `type="lifestyle"` | ✅ field exists |
-| 4) Monitoring & Next Steps | `monitoring: list[str]` + `red_flags: list[str]` | ✅ fields exist — but LLM was leaving them empty |
+| 3) Patient Education & Counselling | `recommendations` where `type="lifestyle"` | ✅ field exists (lifestyle = education per prompt) |
+| 4) Monitoring & Next Steps | `monitoring: List[MonitoringItem]` + `red_flags: list[str]` | ✅ structured — parameter/schedule/target/cpg_ref |
 | 5) Referrals | `recommendations` where `type="referral"` | ✅ field exists |
-| 6) Follow-up | `follow_up: list[str]` | ❌ field missing from model |
-| Sources | `recommendations[*].cpg_source` | ✅ field exists per recommendation |
+| 6) Follow-up | `follow_up: list[str]` | ✅ field exists, UI shows timeline cards + smart TCA date |
+| Sources | `recommendations[*].cpg_source` → `cpgReferences` | ✅ mapper collects unique cpg_source strings |
 
 ---
 
@@ -31,7 +31,7 @@
 
 ```
 Phase 0 — Model alignment (MUST do first, everything else depends on it)
-  └── Gap M1: Add summary + follow_up fields to TreatmentPlan
+  └── Gap M1: Add summary + follow_up fields to TreatmentPlan  ✅ DONE
 
 Phase 1 — Code only, no re-ingestion (all data already in DB)
   ├── Gap R1: Chunk truncation 400 → 800 chars               ✅ DONE
@@ -53,65 +53,6 @@ Phase 3 — Knowledge graph enrichment (one-time batch, after Phase 2)
 Parallel (independent of all above)
   └── Gap C1: Comorbidity routing (route_comorbidities second pass)
 ```
-
----
-
-## Gap M1 — TreatmentPlan model missing summary and follow_up fields ⚡ DO FIRST
-
-**Impact: CRITICAL — sections 1 and 6 of the care plan cannot be populated without these fields**
-
-### What is missing
-
-```python
-# models.py — TreatmentPlan is currently missing:
-summary: str                    # Section 1 — clinical assessment paragraph
-follow_up: list[str]            # Section 6 — timeline, reassessment criteria, outcome-based actions
-```
-
-### Fix
-
-**`agent/models.py`** — add two fields to `TreatmentPlan`:
-```python
-class TreatmentPlan(BaseModel):
-    icd_primary: str
-    icd_alternates: list[str] = []
-    summary: str = Field(..., description="Clinical assessment: diagnosis type, key risk factors, classification")
-    recommendations: list[Recommendation]
-    monitoring: list[str] = []
-    red_flags: list[str] = []
-    follow_up: list[str] = []          # timeline + reassessment + outcome-based actions
-    confidence: float
-    unresolved_questions: list[str] = []
-```
-
-**`Doctor UI/src/lib/clinicalMappers.js`** — add rendering for summary and follow_up:
-```javascript
-summary: plan.summary ?? "",
-followUp: plan.follow_up ?? [],
-```
-
-**`agent/prompts/stage5_synthesis.txt`** — add instructions for both fields (see Gap R5 below).
-
-**Effort:** 30 min | **Status:** ✅ DONE
-
----
-
-## Gap R1 — Chunk content was truncated at 400 characters
-
-**Impact: HIGH — dosing instructions and monitoring parameters cut off mid-sentence**
-
-### What was wrong
-`_format_evidence` truncated every chunk to 400 chars. CPG recommendations typically span
-200–400 chars for the core statement alone; the dose, grade tag, and monitoring note that
-follow were all invisible to Stage 5.
-
-### Fix applied
-```python
-# clinical_stages.py — _format_evidence
-lines.append(f"[{i}] {cpg} §{section}\n{c.content[:800]}")
-```
-
-**Effort:** 30 min | **Status:** ✅ DONE
 
 ---
 

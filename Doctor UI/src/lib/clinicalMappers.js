@@ -68,11 +68,19 @@ export function mapTreatmentPlanToCarePlan(plan) {
     accepted: true,
   }));
 
+  // Collect unique CPG source strings across all recommendations
+  const allRecs = plan.recommendations ?? [];
+  const cpgSourceSet = new Set(
+    allRecs.map((r) => r.cpg_source).filter(Boolean)
+  );
+  const cpgReferences = [...cpgSourceSet].map((src) => ({ title: src }));
+
   return {
     clinicalSummary: plan.summary ?? '',
     icdPrimary: plan.icd_primary,
     icdAlternates: plan.icd_alternates,
     confidence: plan.confidence,
+    cpgReferences,
     medications: {
       start: byAction('start'),
       stop: byAction('stop'),
@@ -83,7 +91,13 @@ export function mapTreatmentPlanToCarePlan(plan) {
     interventions: interventionItems,
     lifestyle: lifestyleItems,
     referrals: referralItems,
-    monitoring: plan.monitoring.map((m, i) => ({ id: i + 1, item: m, accepted: true })),
+    monitoring: (plan.monitoring ?? []).map((m, i) => ({
+      id: i + 1,
+      parameter: typeof m === 'string' ? m : m.parameter,
+      schedule:  typeof m === 'string' ? null  : m.schedule,
+      target:    typeof m === 'string' ? null  : (m.target ?? null),
+      cpgRef:    typeof m === 'string' ? null  : (m.cpg_ref ?? null),
+    })),
     redFlags: plan.red_flags,
     followUp: plan.follow_up ?? [],
     unresolvedQuestions: plan.unresolved_questions,

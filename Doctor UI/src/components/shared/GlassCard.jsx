@@ -29,9 +29,8 @@ export function GlassCard({ children, className = '', variant = 'default', ...pr
     <div
       className={`
         ${variants[variant]}
-        backdrop-blur-xl
+        backdrop-blur-[14px]
         border
-        rounded-2xl
         shadow-lg
         transition-all
         duration-300
@@ -39,6 +38,7 @@ export function GlassCard({ children, className = '', variant = 'default', ...pr
         ${isDark ? 'hover:border-[var(--accent-primary)]/40' : 'hover:border-slate-300'}
         ${className}
       `}
+      style={{ borderRadius: 'var(--radius-lg)' }}
       {...props}
     >
       {children}
@@ -52,17 +52,17 @@ export function GlassPanel({ children, className = '', ...props }) {
   return (
     <div
       className={`
-        ${isDark ? 'bg-[var(--accent-primary)]/5 border-[var(--accent-primary)]/20' : 'bg-white/40 border-slate-200'}
-        backdrop-blur-lg
+        ${isDark ? 'bg-[var(--accent-primary)]/5 border-[var(--accent-primary)]/20' : 'bg-white/60 border-slate-200'}
+        backdrop-blur-[14px]
         border
-        rounded-3xl
         shadow-xl
         p-6
         transition-all
         duration-300
-        ${isDark ? 'hover:shadow-2xl hover:bg-[var(--accent-primary)]/10 hover:border-[var(--accent-primary)]/30' : 'hover:shadow-2xl hover:bg-white/50'}
+        ${isDark ? 'hover:shadow-2xl hover:bg-[var(--accent-primary)]/10 hover:border-[var(--accent-primary)]/30' : 'hover:shadow-2xl hover:bg-white/70'}
         ${className}
       `}
+      style={{ borderRadius: 'var(--radius-xl)' }}
       {...props}
     >
       {children}
