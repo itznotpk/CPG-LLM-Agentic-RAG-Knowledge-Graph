@@ -8,7 +8,7 @@ You will receive:
 - cpg_names         : CPG documents that are in scope for this patient
 - severity_staging  : structured severity data if available (NYHA class, CKD stage, HbA1c, LVEF, eGFR, etc.)
 
-Generate exactly 5 queries, one per clinical domain below.
+Generate exactly 7 queries, one per clinical domain below.
 Do NOT generate two queries for the same domain.
 Do NOT write queries that are just the condition name — these retrieve overview sections, not clinical algorithms.
 
@@ -42,4 +42,18 @@ Reference the current severity class from severity_staging to identify the next 
 Example without staging: "heart failure treatment failure escalation referral"
 Example with staging:    "heart failure NYHA III escalation criteria NYHA IV hospitalisation criteria"
 
-Return a JSON array of exactly 5 strings. No domain labels inside the strings. No markdown. No preamble.
+Domain 6 — LIFESTYLE & COUNSELLING
+Target: non-pharmacological recommendations — diet, exercise, smoking, alcohol, weight, vaccination,
+self-monitoring, patient education topics specific to this condition.
+Write the lifestyle domains explicitly — generic "lifestyle advice" retrieves overview sections.
+Example: "heart failure sodium restriction fluid restriction exercise rehabilitation smoking cessation patient education"
+
+Domain 7 — FOLLOW-UP & REVIEW SCHEDULE
+Target: timing of next review visit, reassessment cadence, criteria triggering early review,
+and what to reassess at each follow-up. Distinct from Domain 3 (which targets ongoing monitoring
+parameters) — this domain targets the visit schedule itself.
+Reference the current severity class to retrieve the appropriate review interval.
+Example without staging: "heart failure follow-up review interval reassessment schedule"
+Example with staging:    "heart failure NYHA III follow-up review 2 weeks 4 weeks reassessment criteria early review"
+
+Return a JSON array of exactly 7 strings. No domain labels inside the strings. No markdown. No preamble.

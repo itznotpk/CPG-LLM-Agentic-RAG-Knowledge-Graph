@@ -428,7 +428,7 @@ async def stage_4_retrieve(
     case: PatientCase,
     ddx: list[DDxResult],
     cpgs: list[CPGDocRef],
-    queries_per_code: int = 5,
+    queries_per_code: int = 7,
     chunks_per_query: int = 5,
     emit=None,                      # async callable | None
 ) -> list[ChunkResult]:
@@ -537,9 +537,23 @@ _CURRENT_YEAR = 2026
 _CPG_STALE_THRESHOLD_YEARS = 5
 
 
+# Per-chunk content ceiling and total evidence budget.
+# Chunks are stored as full markdown sections (often 5k–20k chars each) because
+# chunk_method="markdown_header" creates one chunk per CPG section.
+# We pass as much content as possible within a total token budget so grade tags,
+# dosing details, and monitoring parameters at the end of a section remain visible.
+# Layer 2 fix (requires re-ingestion): paragraph-level sub-chunking so each chunk
+# is already ~500 tokens — at that point these caps can be removed entirely.
+_CHUNK_CHAR_LIMIT = 4000    # per chunk — covers ~3 full recommendation paragraphs
+_TOTAL_CHAR_BUDGET = 80_000  # total evidence string — well within 200k-token LLM context
+
+
 def _format_evidence(chunks: list[ChunkResult]) -> str:
     lines = []
+    total_chars = 0
     for i, c in enumerate(chunks, 1):
+        if total_chars >= _TOTAL_CHAR_BUDGET:
+            break
         section = c.metadata.get("section_number", "")
         cpg = c.document_title or c.document_source
         # CPG currency warning — flag stale evidence so the synthesis LLM can
@@ -554,7 +568,11 @@ def _format_evidence(chunks: list[ChunkResult]) -> str:
                     age_warning = f"  ⚠ Published {year_int} ({age}y old — verify against current guidelines)"
             except (TypeError, ValueError):
                 pass
-        lines.append(f"[{i}] {cpg} §{section}{age_warning}\n{c.content[:800]}")
+        remaining = _TOTAL_CHAR_BUDGET - total_chars
+        content = c.content[:min(_CHUNK_CHAR_LIMIT, remaining)]
+        entry = f"[{i}] {cpg} §{section}{age_warning}\n{content}"
+        lines.append(entry)
+        total_chars += len(content)
     return "\n\n".join(lines)
 
 
