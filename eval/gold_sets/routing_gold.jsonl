@@ -1,4 +1,44 @@
-{"id": "route_001", "icd11_code": "BA41.0", "expected_document_titles": ["STEMI"], "notes": "ST-elevation MI should route to STEMI CPG"}
-{"id": "route_002", "icd11_code": "BD10", "expected_document_titles": ["Heart Failure"], "notes": "HF CPG 5th ed"}
-{"id": "route_003", "icd11_code": "8B11", "expected_document_titles": ["Ischaemic Stroke"], "notes": "Stroke CPG 3rd ed"}
-{"id": "route_004", "icd11_code": "BA00", "expected_document_titles": ["Hypertension"], "notes": "Essential HTN"}
+{"id": "route_001", "icd11_code": "BA41.0", "expected_document_titles": ["STEMI"], "notes": "ST-elevation MI — primary route to STEMI 4th Ed CPG"}
+{"id": "route_002", "icd11_code": "BA41.00", "expected_document_titles": ["STEMI"], "notes": "STEMI anterior wall — routes to STEMI CPG"}
+{"id": "route_003", "icd11_code": "BA41.0Z", "expected_document_titles": ["STEMI"], "notes": "STEMI unspecified — routes to STEMI CPG"}
+{"id": "route_004", "icd11_code": "BA41.1", "expected_document_titles": ["NSTE-ACS", "NSTEMI"], "notes": "NSTEMI — routes to both NSTE-ACS (3rd Ed) and NSTEMI (2011) CPG"}
+{"id": "route_005", "icd11_code": "BA80.0Z", "expected_document_titles": ["NSTE-ACS", "NSTEMI"], "notes": "Unstable angina — routes to NSTE-ACS and NSTEMI CPGs"}
+{"id": "route_006", "icd11_code": "BD10", "expected_document_titles": ["Heart Failure"], "notes": "Heart failure with reduced ejection fraction (HFrEF) — Heart Failure 5th Ed"}
+{"id": "route_007", "icd11_code": "BD11", "expected_document_titles": ["Heart Failure"], "notes": "Heart failure with preserved ejection fraction (HFpEF) — Heart Failure 5th Ed"}
+{"id": "route_008", "icd11_code": "BD10.1", "expected_document_titles": ["Heart Failure", "Heart Disease in Pregnancy"], "notes": "Peripartum cardiomyopathy — routes to both Heart Failure and Heart Disease in Pregnancy CPGs"}
+{"id": "route_009", "icd11_code": "BA00", "expected_document_titles": ["Hypertension"], "notes": "Essential hypertension — Hypertension 5th Ed CPG"}
+{"id": "route_010", "icd11_code": "BA00.Z", "expected_document_titles": ["Hypertension"], "notes": "Hypertension unspecified — Hypertension 5th Ed CPG"}
+{"id": "route_011", "icd11_code": "BA04", "expected_document_titles": ["Hypertension"], "notes": "Hypertensive emergency — Hypertension CPG section on severe hypertension"}
+{"id": "route_012", "icd11_code": "5C80", "expected_document_titles": ["Dyslipidaemia"], "notes": "Hypercholesterolaemia — Dyslipidaemia 6th Ed CPG"}
+{"id": "route_013", "icd11_code": "5C80.0", "expected_document_titles": ["Dyslipidaemia"], "notes": "Familial hypercholesterolaemia — Dyslipidaemia CPG has specific FH chapter"}
+{"id": "route_014", "icd11_code": "5C81", "expected_document_titles": ["Dyslipidaemia"], "notes": "Mixed hyperlipidaemia — Dyslipidaemia 6th Ed CPG"}
+{"id": "route_015", "icd11_code": "5C82", "expected_document_titles": ["Dyslipidaemia"], "notes": "Hypertriglyceridaemia — Dyslipidaemia CPG"}
+{"id": "route_016", "icd11_code": "BC81.0", "expected_document_titles": ["Atrial Fibrillation"], "notes": "Paroxysmal atrial fibrillation — AF 2012 CPG"}
+{"id": "route_017", "icd11_code": "BC81.1", "expected_document_titles": ["Atrial Fibrillation"], "notes": "Persistent atrial fibrillation — AF CPG"}
+{"id": "route_018", "icd11_code": "BC81.2", "expected_document_titles": ["Atrial Fibrillation"], "notes": "Permanent (long-standing persistent) atrial fibrillation — AF CPG"}
+{"id": "route_019", "icd11_code": "BA80.0", "expected_document_titles": ["Stable Coronary Artery Disease", "Percutaneous Coronary Intervention"], "notes": "Stable angina pectoris — Stable CAD CPG and PCI CPG for revascularization decisions"}
+{"id": "route_020", "icd11_code": "BA80", "expected_document_titles": ["Stable Coronary Artery Disease"], "notes": "Stable ischaemic heart disease — Stable CAD 2nd Ed CPG"}
+{"id": "route_021", "icd11_code": "BB01.0", "expected_document_titles": ["Pulmonary Arterial Hypertension"], "notes": "Idiopathic pulmonary arterial hypertension — PAH 2011 CPG"}
+{"id": "route_022", "icd11_code": "BB01", "expected_document_titles": ["Pulmonary Arterial Hypertension"], "notes": "Pulmonary hypertension Group 1 (PAH) — PAH CPG"}
+{"id": "route_023", "icd11_code": "JA24", "expected_document_titles": ["Heart Disease in Pregnancy"], "notes": "Cardiac disease complicating pregnancy — Heart Disease in Pregnancy 2nd Ed CPG"}
+{"id": "route_024", "icd11_code": "JA24.0", "expected_document_titles": ["Heart Disease in Pregnancy"], "notes": "Rheumatic heart disease complicating pregnancy"}
+{"id": "route_025", "icd11_code": "JA24.1", "expected_document_titles": ["Heart Disease in Pregnancy"], "notes": "Congenital heart disease complicating pregnancy"}
+{"id": "route_026", "icd11_code": "CA40", "expected_document_titles": ["Infective Endocarditis"], "notes": "Infective endocarditis unspecified — IE CPG"}
+{"id": "route_027", "icd11_code": "CA40.0", "expected_document_titles": ["Infective Endocarditis"], "notes": "Native valve infective endocarditis — IE CPG"}
+{"id": "route_028", "icd11_code": "CA40.1", "expected_document_titles": ["Infective Endocarditis"], "notes": "Prosthetic valve infective endocarditis — IE CPG"}
+{"id": "route_029", "icd11_code": "8B11", "expected_document_titles": ["Ischaemic Stroke"], "notes": "Ischaemic stroke unspecified — Ischaemic Stroke 3rd Ed CPG"}
+{"id": "route_030", "icd11_code": "8B11.0", "expected_document_titles": ["Ischaemic Stroke"], "notes": "Acute ischaemic stroke — Ischaemic Stroke CPG (thrombolysis and thrombectomy)"}
+{"id": "route_031", "icd11_code": "8B20", "expected_document_titles": ["Ischaemic Stroke"], "notes": "Transient ischaemic attack (TIA) — Ischaemic Stroke CPG covers TIA secondary prevention"}
+{"id": "route_032", "icd11_code": "2C61", "expected_document_titles": ["Breast Cancer"], "notes": "Breast cancer unspecified — Breast Cancer 3rd Ed CPG"}
+{"id": "route_033", "icd11_code": "2C61.0", "expected_document_titles": ["Breast Cancer"], "notes": "Early breast cancer — Breast Cancer CPG"}
+{"id": "route_034", "icd11_code": "2C61.3", "expected_document_titles": ["Breast Cancer"], "notes": "Locally advanced breast cancer — Breast Cancer CPG (neoadjuvant therapy section)"}
+{"id": "route_035", "icd11_code": "2C61.Z", "expected_document_titles": ["Breast Cancer"], "notes": "Breast cancer NOS — Breast Cancer CPG"}
+{"id": "route_036", "icd11_code": "2B90", "expected_document_titles": ["Colorectal Carcinoma"], "notes": "Colon adenocarcinoma — Colorectal Carcinoma 2017 CPG"}
+{"id": "route_037", "icd11_code": "2B91", "expected_document_titles": ["Colorectal Carcinoma"], "notes": "Rectal adenocarcinoma — Colorectal Carcinoma 2017 CPG"}
+{"id": "route_038", "icd11_code": "MG30.0", "expected_document_titles": ["Cancer Pain"], "notes": "Cancer-related chronic pain — Cancer Pain 2nd Ed CPG"}
+{"id": "route_039", "icd11_code": "MG30", "expected_document_titles": ["Cancer Pain"], "notes": "Cancer pain (any severity) — Cancer Pain CPG"}
+{"id": "route_040", "icd11_code": "2B6B", "expected_document_titles": ["Nasopharyngeal Carcinoma"], "notes": "Nasopharyngeal carcinoma — NPC CPG"}
+{"id": "route_041", "icd11_code": "HA00", "expected_document_titles": ["Erectile Dysfunction"], "notes": "Erectile dysfunction unspecified — ED CPG"}
+{"id": "route_042", "icd11_code": "HA00.0", "expected_document_titles": ["Erectile Dysfunction"], "notes": "Organic erectile dysfunction — ED CPG"}
+{"id": "route_043", "icd11_code": "HA00.1", "expected_document_titles": ["Erectile Dysfunction"], "notes": "Psychogenic erectile dysfunction — ED CPG"}
+{"id": "route_044", "icd11_code": "BA00", "expected_document_titles": ["Primary Secondary Prevention of CVD", "CVD Prevention in Women"], "notes": "Hypertension as CVD risk factor — also routes to CVD prevention CPGs for risk-factor management context"}
