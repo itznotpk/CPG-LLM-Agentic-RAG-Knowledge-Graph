@@ -149,7 +149,7 @@ The issue of oversized chunks causing information loss (Problem 4) and LLM trunc
 - **Vector DB Integrity:** The underlying chunks in the Vector DB (NeonDB) remain at the H1 level to preserve stable `chunk_id` citations. Only the *ingestion process* for the Knowledge Graph uses the smaller sub-chunks.
 - **Triple Deduplication:** A new deduplication layer ensures that triples extracted from overlapping sub-chunks are merged, preventing duplicate edges in Neo4j.
 
-> **→ Proposed Solution (Phase C scope):** Three options for improving sub-chunk context tracing — see [Phase_A_SubChunk_Context_Solution.md](Phase_A_SubChunk_Context_Solution.md) for full comparison:
+> **→ Proposed Solution (Phase C scope):** Three options for improving sub-chunk context tracing — see [Phase_A_Step2_ParentChild_Ingest.md](Phase_A_Step2_ParentChild_Ingest.md) for full comparison:
 > - **Option A (Re-chunk):** Split NeonDB at H2 level (3.1, 3.2, 3.3, 3.4 as separate chunks). NeonDB and Neo4j share the same H2 UUID. Parent-child retrieval: query hits H2 child → expands to H1 parent for context. Requires full re-ingestion. Cleanest long-term architecture.
 > - **Option B (Segment index, no re-chunk):** Keep existing NeonDB `chunks` table unchanged. Add new `chunk_segments` table with H2-level embeddings + `start_char`/`end_char` per segment. Vector search queries segments; Neo4j triple gains `segment_id` alongside existing `chunk_id`. Zero risk to stable citations.
 > - **Option C (Runtime reranking, zero DB changes):** After H1 retrieval, split H1 content at `##` headers in memory, rerank H2 sections against query embedding, return top section as citation. Quickest to ship; does not fix the NeonDB↔Neo4j citation link.
@@ -205,7 +205,7 @@ Two independent fixes are required, in this order:
 > **→ Proposed Solution:**
 > - **Bedrock model fix:** ✅ RESOLVED — `BEDROCK_MODEL_ID` updated to `us.anthropic.claude-haiku-4-5-20251001-v1:0` in `.env`. Confirmed working 2026-05-12 (extracted 5 correct triples from ED test chunk). `graph_builder.py` reads from env var — no code change needed.
 > - **Silent exception swallowing** (`graph_builder.py:458–460`): Upgrade `logger.warning` to `logger.error` and add a consecutive-failure counter — after N failures, raise rather than return `[]`. Prevents the pipeline from silently producing an empty graph again. Scope: Phase C1.
-> - **Chunk size fix:** 6k sub-chunking already implemented in `graph_builder.py:534–564`. For H2-level context tracing (precise retrieval + NeonDB↔Neo4j citation link), choose one of the three options in [Phase_A_SubChunk_Context_Solution.md](Phase_A_SubChunk_Context_Solution.md). Category whitelist filter: add to `build_relationship_graph` signature as `category_whitelist` param (Phase C2 in rebuild plan).
+> - **Chunk size fix:** 6k sub-chunking already implemented in `graph_builder.py:534–564`. For H2-level context tracing (precise retrieval + NeonDB↔Neo4j citation link), choose one of the three options in [Phase_A_Step2_ParentChild_Ingest.md](Phase_A_Step2_ParentChild_Ingest.md). Category whitelist filter: add to `build_relationship_graph` signature as `category_whitelist` param (Phase C2 in rebuild plan).
 
 ---
 
@@ -277,7 +277,7 @@ The current LLM pipeline (clinical stages 4/5) uses MiMo v2.5 Pro via `token-pla
 
 4. **Chunker H1-only split:** Every CPG section file becomes one giant chunk. The Phase C fix should add H2 splitting inside `graph_builder` (safer, doesn't touch NeonDB). Confirm: is re-chunking the NeonDB acceptable, or must the vector store stay unchanged?
 
-   > **→ UPDATED:** Three options now documented — decision pending. See [Phase_A_SubChunk_Context_Solution.md](Phase_A_SubChunk_Context_Solution.md):
+   > **→ UPDATED:** Three options now documented — decision pending. See [Phase_A_Step2_ParentChild_Ingest.md](Phase_A_Step2_ParentChild_Ingest.md):
    > - **Option A:** Re-chunk NeonDB at H2 level — cleanest architecture, NeonDB and Neo4j share H2 UUIDs, requires re-ingestion.
    > - **Option B:** Keep NeonDB unchanged, add `chunk_segments` table for H2-level embeddings — zero risk to existing chunk_ids, no re-ingestion.
    > - **Option C:** Runtime reranking — no DB changes, quick to ship, does not fix citation link.
