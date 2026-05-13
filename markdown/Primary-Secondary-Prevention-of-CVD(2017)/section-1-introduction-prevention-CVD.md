@@ -2,7 +2,7 @@
 
 <!-- METADATA
 category: Introduction, Epidemiology
-use_case: Epidemiological context for CVD burden in Malaysia; justification for primary and secondary prevention — epidemiology, cvd_burden, risk_factor_prevalence, malaysia_statistics
+use_case: Epidemiological context for CVD burden in Malaysia — epidemiology, cvd_burden, risk_factor_prevalence, malaysia_statistics
 patient_input: none
 output: guideline_context, epidemiological_background, key_messages
 -->

@@ -1,8 +1,8 @@
 # SECTION 4: TYPES OF CVD
 
 <!-- METADATA
-category: background_knowledge
-use_case: condition_overview, differential_diagnosis
+category: Classification
+use_case: CVD disease type taxonomy and spectrum overview — condition_overview, disease_classification, differential_diagnosis
 patient_input: presentation, known_conditions, symptoms
 output: cvd_types_reference, disease_classification
 -->

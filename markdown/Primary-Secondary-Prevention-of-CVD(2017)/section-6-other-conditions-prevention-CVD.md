@@ -1,10 +1,11 @@
 # SECTION 6: OTHER CONDITIONS ASSOCIATED WITH INCREASED CV RISK
 
 <!-- METADATA
-category: diagnosis
-use_case: risk_modifier_assessment, comorbidity_screening
+category: Assessment, Special Populations
+use_case: Risk modifier assessment for conditions amplifying CVD risk — risk_modifier_assessment, comorbidity_screening, ckd, sleep_apnea, depression, gender_specific
 patient_input: comorbidities, chronic_conditions, medications, reproductive_history
 output: risk_modifier_guidance, referral_criteria, treatment_cautions
+treatment_type: CPAP, sildenafil, tadalafil, SSRI, menopausal_hormone_therapy, testosterone
 -->
 
 > **Context:** This section covers conditions that amplify CVD risk beyond the traditional Framingham factors: CKD, infections (influenza, periodontal disease, HIV), cancer therapies, connective tissue diseases, sleep disorders (OSA), psychosocial factors, and gender-specific issues.
@@ -89,7 +90,7 @@ High risk individuals who should be evaluated for OSA include:
 - High risk driving population such as commercial truck drivers
 - Pre-operative bariatric surgery
 
-[Grade IIa, Level B] It is advisable to screen these high-risk individuals, if they have daytime sleepiness, for OSA. A commonly used assessment guide (STOP-BANG questionnaire) is listed in Appendix 3, pg 168.
+[Grade IIa, Level B] It is advisable to screen these high-risk individuals, if they have daytime sleepiness, for OSA. A commonly used assessment guide (STOP-BANG questionnaire) is listed in Appendix 3: STOP-BANG SLEEP APNEA QUESTIONNAIRE.
 
 The diagnosis of OSA is confirmed with a formal full-night polysomnography (sleep study). The number of individuals who are diagnosed and treated is very small (tip of the iceberg) compared to >85% who remain undiagnosed.
 
@@ -225,6 +226,41 @@ Conditions that are associated with increased CV risk are:
 In these patients who are at increased CV risk, all CV risk factors should be treated to target in accordance with the respective CPG's.
 
 ---
+
+<!-- ============================================================ -->
+<!-- OVERLAP CONTENT                                              -->
+<!-- ============================================================ -->
+
+### Appendix 3: STOP-BANG SLEEP APNEA QUESTIONNAIRE
+
+| STOP | | |
+|---|---|---|
+| Do you SNORE loudly (louder than talking or loud enough to be heard through closed doors)? | Yes | No |
+| Do you often feel TIRED, fatigued, or sleepy during daytime? | Yes | No |
+| Has anyone OBSERVED you stop breathing during your sleep? | Yes | No |
+| Do you have or are you being treated for high blood PRESSURE? | Yes | No |
+
+| BANG | | |
+|---|---|---|
+| BMI more than 35kg/m² | Yes | No |
+| AGE over 50 years old? | Yes | No |
+| NECK circumference >16 inches (40cm)? | Yes | No |
+| GENDER: Male? | Yes | No |
+
+| TOTAL SCORE | | |
+|---|---|---|
+
+High risk of OSA: Yes 5-8
+
+Intermediate risk of OSA: Yes 3-4
+
+Low Risk of OSA: Yes 0-2
+
+*From: Chung F, Abdullah HR, Liao P. STOP-Bang Questionnaire: A Practical Approach to Screen for Obstructive Sleep Apnea. Chest. 2016 Mar;149(3):631-8*
+
+---
+<!-- END OVERLAP -->
+
 
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->

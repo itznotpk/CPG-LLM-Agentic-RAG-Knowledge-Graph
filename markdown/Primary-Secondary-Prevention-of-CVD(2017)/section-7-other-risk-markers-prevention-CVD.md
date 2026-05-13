@@ -1,8 +1,8 @@
 # SECTION 7: OTHER RISK MARKERS OF CVD
 
 <!-- METADATA
-category: diagnosis
-use_case: advanced_risk_assessment, risk_reclassification
+category: Diagnosis, Assessment
+use_case: Advanced risk assessment using adjunct markers — advanced_risk_assessment, risk_reclassification, ecg, echocardiography, hs_crp, abi, cac
 patient_input: biomarkers, imaging, test_results, intermediate_risk_status
 output: risk_refinement_guidance, investigation_recommendations
 -->

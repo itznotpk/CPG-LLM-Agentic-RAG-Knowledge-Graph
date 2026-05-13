@@ -1,0 +1,98 @@
+# ALGORITHM
+
+<!-- METADATA
+category: Reference, Treatment
+use_case: Clinical Algorithms — assessment_flowchart, FIGO_stage_IA1, FIGO_stage_IA2, FIGO_stage_IB1_IIA, treatment_decision_pathway
+patient_input: FIGO_stage, tumour_size, nodal_status, fertility_desire, visible_lesion
+output: treatment_pathway, surgical_approach, referral_decision
+critical: true
+-->
+
+## ALGORITHM 1: ASSESSMENT OF CERVICAL CANCER
+
+- **Histologically-confirmed cervical cancer**
+  - Staging by a gynaecologist/gynae-oncologist
+  - **Visible lesion**
+    - **No**
+      - Pelvic examination
+      - Cervical conisation
+      - Laboratory tests as indicated
+      - **Proceed to:** Stage 1A or Stage 1B, then Treatment
+    - **Yes**
+      - Pelvic examination ± anaesthesia
+      - Cystoscopy and sigmoidoscopy if indicated
+      - Imaging assessment:
+        - CT/MRI
+        - If above not feasible:
+          - CXR
+          - U/S KUB
+          - IVU
+          - Skeletal survey if indicated
+      - Laboratory test as indicated
+      - **Proceed to:** Stage III then Treatment
+      - Stage II and Stage IV straight to Treatment
+---
+
+## ALGORITHM 2: MANAGEMENT OF FIGO STAGE IA1
+
+- **FIGO Stage IA1**
+  - **Fertility preservation required**
+    - **Yes**
+      - Cervical conisation
+      - **Margin positive**
+        - **Yes:** Repeat Conisation*
+          - **Margin positive**
+            - **Yes:** Treat as FIGO stage IB
+            - **No:** Follow-up
+        - **No:** Follow-up
+      - *\*If repeat conisation is not feasible, proceed with trachelectomy*
+    - **No**
+      - Simple / extrafascial hysterectomy
+      - Follow-up
+
+---
+
+## ALGORITHM 3: MANAGEMENT OF FIGO STAGE IA2
+
+- **FIGO Stage 1A2**
+  - **Fertility preservation required**
+    - **Yes**
+      - Cervical conisation + pelvic lymphadenectomy
+      - **Node positive**
+        - **Yes:** Treat as FIGO stage IB
+        - **No:**
+          - **Margin positive**
+            - **Yes:** Repeat conisation*
+              - **Margin positive**
+                - **Yes:** Treat as FIGO stage IB
+                - **No:** Follow-up
+            - **No:** Follow-up
+      - *\*If repeat conisation is not feasible, proceed with trachelectomy*
+    - **No**
+      - Simple/ extrafascial hysterectomy + pelvic lymphadenectomy
+      - Consider adjuvant if node positive
+
+---
+
+## ALGORITHM 4: MANAGEMENT OF FIGO STAGE IB1 / IIA
+
+- **FIGO Stage IB1 / IIA1**
+  - **Nodal involvement on imaging**
+    - **Yes:** Concurrent Chemoradiotherapy (CCRT)
+    - **No:**
+      - **Fertility preservation**
+        - **Yes**
+          - **Microscopic FIGO Stage IB1**
+            - Cervical conisation + pelvic lymph nodes dissection
+            - Proceed to Node positive assessment
+          - **Macroscopic FIGO Stage IB1 (up to 2 cm)**
+            - Radical trachelectomy + pelvic lymph nodes dissection
+          - **Node positive assessment**
+            - **Yes:** Concurrent Chemoradiotherapy (CCRT)
+            - **No:**
+              - **Margin positive**
+                - **Yes:** Repeat conisation. If margin still positive, then treat as macroscopic IB1
+                - **No:** Follow-up
+        - **No**
+          - Radical hysterectomy + pelvic lymph nodes dissection
+          - Consider adjuvant in high risk for recurrence

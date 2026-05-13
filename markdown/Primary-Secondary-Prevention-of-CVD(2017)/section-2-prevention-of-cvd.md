@@ -1,8 +1,8 @@
 # SECTION 2: PREVENTION OF CVD
 
 <!-- METADATA
-category: Prevention Framework
-use_case: prevention_principles, risk_reduction, strategy_selection — primary_prevention, secondary_prevention, population_strategy, high_risk_strategy
+category: Prevention
+use_case: Prevention principles and risk reduction framework — primary_prevention, secondary_prevention, population_strategy, high_risk_strategy
 patient_input: risk_profile, comorbidities, established_cvd
 output: prevention_framework, strategy_guidance
 -->

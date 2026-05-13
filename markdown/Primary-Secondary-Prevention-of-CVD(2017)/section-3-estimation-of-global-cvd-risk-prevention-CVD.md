@@ -1,8 +1,8 @@
 # SECTION 3: ESTIMATION OF GLOBAL CARDIOVASCULAR RISK
 
 <!-- METADATA
-category: Risk Assessment, Screening
-use_case: risk_stratification, frs_calculation, vascular_age, screening_guidance, secondary_prevention — framingham_risk_score, cvd_risk_category, primary_prevention, secondary_prevention
+category: Assessment, Screening
+use_case: CV risk stratification using Framingham Risk Score — framingham_risk_score, cvd_risk_category, vascular_age, primary_prevention, secondary_prevention
 patient_input: age, sex, bp, tc, hdl_c, ldl_c, tg, blood_glucose, hba1c, bmi, waist_circumference, smoking_status, diabetes_status, established_cvd, ckd_stage, gfr
 output: 10_year_cvd_risk_percentage, cvd_risk_category, vascular_age, screening_recommendation, treatment_intensity
 -->
@@ -14,26 +14,6 @@ output: 10_year_cvd_risk_percentage, cvd_risk_category, vascular_age, screening_
 ## 3.1 Primary Prevention
 
 [Grade I, Level B] Based on the prevalence of CV risk factors in our local population, the committee advocates **screening in adults >30 years of age.**
-
-### Table 7: Prevalence of CV Risk Factors among Adults ≥18 years of age in Malaysia According to Age (NHMS 2015)
-
-| Age Group | Hypercholesterolaemia (%) | Hypertension (%) | Diabetes (%) | Overweight BMI: 23–27.5 kg/m² (%) | Obesity BMI: >27.5 kg/m² (%) | Current Tobacco Smoking — Males only (%) |
-|---|---|---|---|---|---|---|
-| 18–19 | 22.0 | 6.7 | 5.5 | 20.8 | 20.2 | 49.6 |
-| 20–24 | 26.5 | 9.4 | 5.9 | 24.3 | 20.8 | 59.3 |
-| 25–29 | 33.7 | 13.2 | 8.9 | 27.8 | 26.1 | — |
-| 30–34 | 44.0 | 15.9 | 10.6 | 34.2 | 30.5 | 56.8 |
-| 35–39 | 49.7 | 23.9 | 12.9 | 36.0 | 35.6 | — |
-| 40–44 | 57.2 | 32.2 | 17.9 | 36.9 | 36.6 | 48.5 |
-| 45–49 | 60.1 | 38.8 | 22.0 | 38.4 | 37.0 | — |
-| 50–54 | 65.5 | 49.3 | 27.0 | 41.1 | 36.6 | 40.8 |
-| 55–59 | 68.8 | 55.5 | 32.9 | 39.7 | 37.5 | — |
-| 60–64 | 65.3 | 65.0 | 38.3 | 37.9 | 36.9 | 35.0 |
-| 65–69 | 61.6 | 67.8 | 38.0 | 37.9 | 34.2 | — |
-| 70–74 | 62.7 | 75.4 | 39.1 | 39.2 | 26.0 | — |
-| 75+ | 58.3 | 73.4 | 37.0 | 37.3 | 15.1 | — |
-
----
 
 ### 3.1.1 Information Required for CV Risk Assessment
 
@@ -114,7 +94,7 @@ Individuals with established CVD are at **high risk** of a recurrent CV event.
 ## Recommendations
 
 - Screen adults >30 years of age; opportunistic rather than mass screening.
-- Use the FRS General CVD Risk Score to assess 10-year CVD risk and guide risk reduction efforts. (Refer to Table 1A, 1B, 2A, 2B: Framingham Risk Score Tables; Table 3: Risk Stratification of Cardiovascular Risk)
+- Use the FRS General CVD Risk Score to assess 10-year CVD risk and guide risk reduction efforts. (Refer to Table 1A: Estimation of 10-year CVD Points for MEN (Framingham Point Scores), Table 1B: CVD Risk for Men; Table 2A: CVD Points for Women, Table 2B: CVD Risk for Women; Table 3: Risk Stratification of Cardiovascular Risk)
 - Treatment intensity and goals depend on the individual's baseline CV risk. (Refer to Table 3: Risk Stratification of Cardiovascular Risk; Table 4: Targets of Individual Risk Factors)
 - **Very High Risk** individuals are those with:
   - FRS-CVD score conferring >30% 10-year risk for CVD
@@ -133,55 +113,8 @@ Individuals with established CVD are at **high risk** of a recurrent CV event.
 
 ---
 
-### Table 8A: Heart Age / Vascular Age for Men
-
-| FRS Points | Vascular Age (years) |
-|---|---|
-| <0 | <30 |
-| 0 | 30 |
-| 1 | 32 |
-| 2 | 34 |
-| 3 | 36 |
-| 4 | 38 |
-| 5 | 40 |
-| 6 | 42 |
-| 7 | 45 |
-| 8 | 48 |
-| 9 | 51 |
-| 10 | 54 |
-| 11 | 57 |
-| 12 | 60 |
-| 13 | 64 |
-| 14 | 68 |
-| 15 | 72 |
-| 16 | 76 |
-| ≥17 | >80 |
-
-### Table 8B: Heart Age / Vascular Age for Women
-
-| FRS Points | Vascular Age (years) |
-|---|---|
-| <1 | <30 |
-| 1 | 31 |
-| 2 | 34 |
-| 3 | 36 |
-| 4 | 39 |
-| 5 | 42 |
-| 6 | 45 |
-| 7 | 48 |
-| 8 | 51 |
-| 9 | 55 |
-| 10 | 59 |
-| 11 | 64 |
-| 12 | 68 |
-| 13 | 73 |
-| 14 | 79 |
-| 15+ | >80 |
-
----
-
 <!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 0 (TABLES 1-4)                 -->
+<!-- OVERLAP CONTENT                                              -->
 <!-- Purpose: FRS scoring, Risk Stratification, and Targets       -->
 <!-- ============================================================ -->
 
@@ -315,7 +248,76 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 >
 > \*\* *Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th Ed 2015*
 
-<!-- END OVERLAP FROM: SECTION 0 (TABLES 1-4) -->
+---
+
+### Table 7: Prevalence of CV Risk Factors among Adults ≥18 years of age in Malaysia According to Age (NHMS 2015)
+
+| Age Group | Hypercholesterolaemia (%) | Hypertension (%) | Diabetes (%) | Overweight BMI: 23–27.5 kg/m² (%) | Obesity BMI: >27.5 kg/m² (%) | Current Tobacco Smoking — Males only (%) |
+|---|---|---|---|---|---|---|
+| 18–19 | 22.0 | 6.7 | 5.5 | 20.8 | 20.2 | 49.6 |
+| 20–24 | 26.5 | 9.4 | 5.9 | 24.3 | 20.8 | 59.3 |
+| 25–29 | 33.7 | 13.2 | 8.9 | 27.8 | 26.1 | — |
+| 30–34 | 44.0 | 15.9 | 10.6 | 34.2 | 30.5 | 56.8 |
+| 35–39 | 49.7 | 23.9 | 12.9 | 36.0 | 35.6 | — |
+| 40–44 | 57.2 | 32.2 | 17.9 | 36.9 | 36.6 | 48.5 |
+| 45–49 | 60.1 | 38.8 | 22.0 | 38.4 | 37.0 | — |
+| 50–54 | 65.5 | 49.3 | 27.0 | 41.1 | 36.6 | 40.8 |
+| 55–59 | 68.8 | 55.5 | 32.9 | 39.7 | 37.5 | — |
+| 60–64 | 65.3 | 65.0 | 38.3 | 37.9 | 36.9 | 35.0 |
+| 65–69 | 61.6 | 67.8 | 38.0 | 37.9 | 34.2 | — |
+| 70–74 | 62.7 | 75.4 | 39.1 | 39.2 | 26.0 | — |
+| 75+ | 58.3 | 73.4 | 37.0 | 37.3 | 15.1 | — |
+
+
+---
+
+### Table 8A: Heart Age / Vascular Age for Men
+
+| FRS Points | Vascular Age (years) |
+|---|---|
+| <0 | <30 |
+| 0 | 30 |
+| 1 | 32 |
+| 2 | 34 |
+| 3 | 36 |
+| 4 | 38 |
+| 5 | 40 |
+| 6 | 42 |
+| 7 | 45 |
+| 8 | 48 |
+| 9 | 51 |
+| 10 | 54 |
+| 11 | 57 |
+| 12 | 60 |
+| 13 | 64 |
+| 14 | 68 |
+| 15 | 72 |
+| 16 | 76 |
+| ≥17 | >80 |
+
+### Table 8B: Heart Age / Vascular Age for Women
+
+| FRS Points | Vascular Age (years) |
+|---|---|
+| <1 | <30 |
+| 1 | 31 |
+| 2 | 34 |
+| 3 | 36 |
+| 4 | 39 |
+| 5 | 42 |
+| 6 | 45 |
+| 7 | 48 |
+| 8 | 51 |
+| 9 | 55 |
+| 10 | 59 |
+| 11 | 64 |
+| 12 | 68 |
+| 13 | 73 |
+| 14 | 79 |
+| 15+ | >80 |
+
+---
+<!-- END OVERLAP -->
 
 ---
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
