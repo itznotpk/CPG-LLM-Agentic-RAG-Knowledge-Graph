@@ -28,6 +28,8 @@
 - Single source of truth: the same H2 UUID is both the embedded vector and the KG citation target.
 - The H1 parent row is kept (unembedded) so the synthesis stage can still pull full context.
 
+**Readiness check after Step 1:** Step 1 completion is sufficient to begin Step 2 coding because Stage 5 no longer hard-truncates evidence, has parent-context budgeting, dedupes repeated parents, and refuses oversized prompts. It is **not** sufficient to run re-ingest yet. Re-ingest should only start after the Step 2 schema, markdown alignment guide compliance, chunker, parent-only reference parsing, `cross_ref` metadata parsing, ingestion persistence, H2 retrieval, parent/cross-ref resolver, KG extraction, and ICD-11 scope checks are implemented and dry-run verified.
+
 ---
 
 ## 3. H2 Re-chunking Architecture
@@ -92,15 +94,69 @@ ALTER TABLE chunks ADD COLUMN parent_chunk_id UUID REFERENCES chunks(chunk_id);
 
 Vector search in [agent/db_utils.py:369-522](../../agent/db_utils.py): filter `WHERE chunk_level = 'h2'` for retrieval; fetch `WHERE chunk_id = $parent_chunk_id` for context.
 
+### Markdown Alignment Inputs
+
+Before re-ingest, align markdown against both guides:
+
+- [Markdown_Parent_Child_Standardization_Guide.md](./Markdown_Parent_Child_Standardization_Guide.md): controls standard section filenames, exactly-one-H1-per-file structure, H1/H2/H3/H4 hierarchy, H2 child boundaries, table heading levels, parent-only reference block placement, and cleanup before ingestion.
+- [Markdown_Cross_Reference_Marker_Guide.md](./Markdown_Cross_Reference_Marker_Guide.md): controls `cross_ref` markers when a visible "refer to..." sentence points outside the current H1 parent.
+
+There is no conflict between the two guides:
+
+```text
+Parent-child guide:
+  structures the current H1 parent and its H2/H3/H4 content
+
+Cross-reference guide:
+  links to content outside the current H1 parent
+
+Shared rule:
+  if referenced content is already copied into parent_only_reference,
+  do not add a cross_ref marker
+```
+
+Use the current repo examples as alignment references before ingestion:
+
+```text
+Anaesthesia Medication Safety:
+  standard section filenames such as section-0-appendix.md
+  one H1 parent per file
+  H2 retrievable clinical children
+  H3/H4 nested details and table groups
+  parent_only_reference blocks for shared TML/CVC examples
+
+Atrial Fibrillation (2012) Section 3:
+  one H1 parent
+  H2 child sections
+  H3/H4 nested clinical details
+```
+
 ### Chunker Change
 
 **File:** [ingestion/chunker.py:81-318](../../ingestion/chunker.py)
 
 Add `##` (H2) splitting to `MarkdownHeaderTextSplitter`. For each markdown file:
+- Require standard `section-{number}-{slug}.md` naming for newly aligned markdown files.
+- Require exactly one `# H1` parent per markdown file; remove, demote, or convert duplicate `#` headings before ingestion.
 - Pass 1: split at `#` → H1 parent chunk (stored, `embedding=NULL`)
 - Pass 2: split at `##` within each H1 → H2 child chunks (stored, embedded)
+- Keep `###` numbered subsections such as `3.1.1`, `3.1.2`, and `3.1.3` inside the owning H2 child.
+- Keep `### Table ...` headings inside the owning H2 child when the table belongs directly under that H2.
+- Keep `#### Table ...` or lower headings inside the owning H3 group when the table/detail falls under an H3.
 - Fallback: if no H2 headers exist, H1 chunk becomes both parent and leaf (`chunk_level='h1_leaf'`, embedded)
 - Cap: H2 chunk > 8,000 chars → split at `###` with same parent-child logic
+
+Cleanup before parsing: remove redundant `---` separators, normalize excessive blank lines, keep table headers directly above tables, and remove temporary run/log files from the repo.
+
+Heading levels are based on document hierarchy, not visual size:
+
+```text
+# Section 3                         H1 parent
+## 3.1 Primary Prevention           H2 child
+### 3.1.1 Information Required      H3 inside 3.1
+### Table 7: Prevalence...          H3 table inside 3.1
+#### Table 1A: Points for Men       H4 table under an H3 table group
+```
 
 #### Parent-only shared references
 
@@ -131,6 +187,39 @@ Chunker behavior:
 - If a nearby H2 child from the same H1 is retrieved, include the parent context so the marked reference is still visible to Stage 5 synthesis.
 - Prefer `###` or lower headings inside the marked block. Avoid `##` inside the block unless the parser removes/masks parent-only blocks before H2 splitting.
 
+#### Cross-reference markers
+
+Use `cross_ref` markers only when the referenced content lives outside the current H1 parent. Do not add `cross_ref` if the target table/form/appendix excerpt is already copied into the current H1 using `parent_only_reference`.
+
+Example:
+
+```md
+For estimation of global CVD risk, refer to Section 3: Estimation of Global CVD Risk.
+<!-- cross_ref target_file="section-3-estimation-of-global-cvd-risk.md" target_heading="Section 3: Estimation of Global CVD Risk" target_kind="h1_section" -->
+```
+
+Allowed `target_kind` values:
+
+```text
+h1_section
+h2_section
+algorithm_flowchart
+appendix
+```
+
+Chunker/ingestion behavior:
+- Keep the visible human sentence in the child text.
+- Parse the `cross_ref` marker into `cross_refs` metadata on the H2 child chunk where the "refer to..." sentence appears.
+- Strip the marker itself from embedding text and normal LLM prompt text.
+- Optionally aggregate cross-refs onto the H1 parent for audit/debugging, but retrieval must follow the child metadata.
+
+Retrieval behavior:
+- Retrieve the primary H2 child normally.
+- Fetch its own H1 parent context.
+- If `child.metadata.cross_refs` exists, resolve the target evidence before Stage 5 synthesis.
+- For `h1_section`, prefer the best matching H2 under the target H1; use capped/windowed target H1 only when a specific H2 cannot be resolved.
+- Do not blindly attach two full H1 parents by default.
+
 ### KG Extraction Change
 
 Read H2 child chunks from NeonDB instead of H1:
@@ -153,25 +242,38 @@ IE section-3: was 1 H1 → 9 sub-chunks (51k ÷ 6k). Now: 4 H2 → 0–2 sub-chu
 
 ### Implementation Steps After Step 1 Completion
 
-Step 1 must be merged first because Stage 5 now accepts larger evidence packs and has the `build_parent_context()` hook that Step 2 will expand. Execute Step 2 in this order:
+Step 1 must be merged first because Stage 5 now accepts larger evidence packs and has the `build_parent_context()` hook that Step 2 will expand. Step 1 completion is enough to begin Step 2 implementation, but it is not enough to run re-ingest immediately. Re-ingest starts only after A-1 through A-11 are implemented/verified.
 
-| Step | Action | Files / Area | Exit Gate |
-|------|--------|--------------|-----------|
-| A-0 | Confirm Step 1 is complete and green enough to proceed: tiered budgets, token counting, whole-chunk formatting, and `build_parent_context()` are present | `agent/clinical_stages.py`, `requirements.txt`, `tests/test_clinical_stages.py` | Focused Stage 5 formatter tests pass; remaining unrelated failures are documented |
-| A-1 | Add/confirm parent-child schema columns: `chunk_level`, `parent_chunk_id`, and child position fields needed for parent slicing (`start_char`, `end_char` if not already present) | Migration SQL, `chunks` table | `chunks` can store H1 parent rows and H2 child rows with parent links |
-| A-2 | Update `MarkdownChunker` to emit H1 parent chunks and H2 child chunks. Preserve H3+ content inside its owning H2; split oversized H2 children at H3 only when required | `ingestion/chunker.py` | Unit/sample parse shows `# H1` parent plus expected `## H2` children |
-| A-3 | Implement parent-only reference handling before H2 splitting: keep `parent_only_reference` blocks inside the H1 parent, but do not emit/embed them as retrievable children | `ingestion/chunker.py` | Marked shared tables remain in parent content and are absent from child embeddings |
-| A-4 | Update ingestion persistence so H1 parent rows are stored with `embedding=NULL`, H2 child rows are embedded, and H2 rows store `parent_chunk_id`, `start_char`, and `end_char` | `ingestion/ingest.py`, DB insert/upsert helpers | Re-ingest of one CPG produces linked H1/H2 rows |
-| A-5 | Protect document-scope metadata during re-ingest. Existing `documents.icd11_scope`, `scope_verified`, `verified_at`, and `verified_by` must survive document UPSERTs | `ingestion/ingest.py` | Existing verified CPGs remain verified after dry-run re-ingest |
-| A-6 | Update vector retrieval to search only embedded H2 children by default (`chunk_level = 'h2'`) and ignore unembedded H1 parents | `agent/db_utils.py` | Retrieval SQL returns H2 child chunks only |
-| A-7 | Update tool response shape to carry child plus parent context. Fetch parent by `parent_chunk_id` and use the Step 1 `build_parent_context()` path for synthesis formatting | `agent/tools.py`, `agent/clinical_stages.py` | Stage 5 evidence can include child citation content plus parent context |
-| A-8 | Update KG extraction to read H2 child chunks, not old H1 chunks. Keep H2 UUID as `cpg_chunk_id` for citation resolution | `ingestion/ingest.py`, `ingestion/graph_builder.py` | New triples point to H2 `chunks.chunk_id` |
-| A-9 | Implement KG sub-window context bands for oversized H2 children and stamp `subchunk_focus_start` on emitted triples | `ingestion/graph_builder.py`, prompt text | Unit test confirms `[BEFORE]`, `[FOCUS]`, `[AFTER]` behavior and metadata |
-| A-10 | Run ICD-11 scope pipeline for any newly added CPGs, then clinician review and verification | `classify_cpg_scope.py`, `verify_cpg_scope.py`, `tasks/cpg_scope_review.md` | All documents have non-empty `icd11_scope` and `scope_verified = TRUE` |
-| A-11 | Re-ingest one small CPG as a dry run, preferably Erectile-Dysfunction | CLI batch run | Counts show H1 parent + H2 children; retrieval query returns H2 hits; parent context resolves |
-| A-12 | Re-ingest all existing and new CPGs with H1/H2 parent-child chunks | CLI batch run | Expected H2 count exists across corpus; no verified scope metadata lost |
-| A-13 | Backup Neo4j, wipe old graph, then rebuild KG from new H2 chunks | Cypher, `ingestion.ingest --graph-only` | Typed clinical relations exist; no old Graphiti residue required for citation |
-| A-14 | End-to-end verification: Duke criteria IE, citation click-through, parent context inclusion, and prompt budget logs | Clinical pipeline smoke test | Correct answer, H2 citation resolves, parent context present, no prompt oversize |
+Status meaning:
+
+```text
+[x] Done / double-checked
+[done] Already resolved in Step 1
+[now] Can be solved before tomorrow ingestion
+[manual] Needs reviewer or teammate confirmation
+[tomorrow] Run during ingestion/rebuild
+```
+
+Execute Step 2 in this order:
+
+| Status | Step | Action | Files / Area | Exit Gate |
+|--------|------|--------|--------------|-----------|
+| [x] Done / double-checked | A-0 | Confirm Step 1 is complete and green enough to proceed: tiered budgets, token counting, whole-chunk formatting, parent dedupe, prompt-size guard, caller audit, and `build_parent_context()` are present. Resolution: already completed in Phase A Step 1 and double-checked for Step 2 readiness. | `agent/clinical_stages.py`, `requirements.txt`, `tests/test_clinical_stages.py` | Tick: complete. `tests/test_clinical_stages.py` passed locally; this gates Step 2 coding, not re-ingest |
+| [now] Can solve before ingestion | A-1 | Add/confirm parent-child schema columns: `chunk_level`, `parent_chunk_id`, and child position fields needed for parent slicing (`start_char`, `end_char` if not already present) | Migration SQL, `chunks` table | `chunks` can store H1 parent rows and H2 child rows with parent links |
+| [now] Can solve before ingestion | A-2 | Update `MarkdownChunker` to emit H1 parent chunks and H2 child chunks according to the parent-child standardization guide. Preserve H3/H4 numbered subsections and table headings inside the owning H2; split oversized H2 children at H3 only when required | `ingestion/chunker.py`, `Markdown_Parent_Child_Standardization_Guide.md` | Unit/sample parse shows `# H1` parent plus expected `## H2` children; H3/H4 content remains inside the correct H2 |
+| [now] Can solve before ingestion | A-3 | Implement parent-only reference handling before H2 splitting: keep `parent_only_reference` blocks inside the H1 parent, but do not emit/embed them as retrievable children | `ingestion/chunker.py`, `Markdown_Parent_Child_Standardization_Guide.md` | Marked shared tables remain in parent content and are absent from child embeddings |
+| [now] Can solve before ingestion | A-4 | Implement `cross_ref` marker parsing according to the cross-reference guide. Store `cross_refs` metadata on the H2 child chunk containing the reference sentence; strip marker comments from embedding/prompt text | `ingestion/chunker.py`, metadata helpers, `Markdown_Cross_Reference_Marker_Guide.md` | Sample H2 child has clean content plus `metadata.cross_refs`; no `cross_ref` is created for content already copied into `parent_only_reference` |
+| [now] Can solve before ingestion | A-5 | Update ingestion persistence so H1 parent rows are stored with `embedding=NULL`, H2 child rows are embedded, and H2 rows store `parent_chunk_id`, `start_char`, `end_char`, and metadata (`cross_refs` when present) | `ingestion/ingest.py`, DB insert/upsert helpers | Re-ingest of one CPG produces linked H1/H2 rows |
+| [now] Can solve before ingestion | A-6 | Protect document-scope metadata during re-ingest. Existing `documents.icd11_scope`, `scope_verified`, `verified_at`, and `verified_by` must survive document UPSERTs | `ingestion/ingest.py` | Existing verified CPGs remain verified after dry-run re-ingest |
+| [now] Can solve before ingestion | A-7 | Update vector retrieval to search only embedded H2 children by default (`chunk_level = 'h2'`) and ignore unembedded H1 parents | `agent/db_utils.py` | Retrieval SQL returns H2 child chunks only |
+| [now] Can solve before ingestion | A-8 | Update tool response shape to carry child plus parent context. Fetch parent by `parent_chunk_id`, resolve `child.metadata.cross_refs` when present, and use the Step 1 `build_parent_context()` path for synthesis formatting | `agent/tools.py`, `agent/clinical_stages.py` | Stage 5 evidence can include child citation content, parent context, and resolved cross-reference evidence |
+| [now] Can solve before ingestion | A-9 | Update KG extraction to read H2 child chunks, not old H1 chunks. Keep H2 UUID as `cpg_chunk_id` for citation resolution | `ingestion/ingest.py`, `ingestion/graph_builder.py` | New triples point to H2 `chunks.chunk_id` |
+| [now] Can solve before ingestion | A-10 | Implement KG sub-window context bands for oversized H2 children and stamp `subchunk_focus_start` on emitted triples | `ingestion/graph_builder.py`, prompt text | Unit test confirms `[BEFORE]`, `[FOCUS]`, `[AFTER]` behavior and metadata |
+| [manual] Confirm before ingestion | A-11 | Run ICD-11 scope pipeline for any newly added CPGs, then clinician review and verification | `classify_cpg_scope.py`, `verify_cpg_scope.py`, `tasks/cpg_scope_review.md` | All documents have non-empty `icd11_scope` and `scope_verified = TRUE` |
+| [tomorrow] Ingestion dry run | A-12 | Re-ingest one small CPG as a dry run, preferably Erectile-Dysfunction | CLI batch run | Counts show H1 parent + H2 children; retrieval query returns H2 hits; parent context resolves |
+| [tomorrow] Full ingestion | A-13 | Re-ingest all existing and new CPGs with H1/H2 parent-child chunks | CLI batch run | Expected H2 count exists across corpus; no verified scope metadata lost |
+| [tomorrow] Graph rebuild | A-14 | Backup Neo4j, wipe old graph, then rebuild KG from new H2 chunks | Cypher, `ingestion.ingest --graph-only` | Typed clinical relations exist; no old Graphiti residue required for citation |
+| [tomorrow] Smoke test | A-15 | End-to-end verification: Duke criteria IE, cross-reference resolution, citation click-through, parent context inclusion, and prompt budget logs | Clinical pipeline smoke test | Correct answer, H2 citation resolves, referenced evidence attaches when needed, parent context present, no prompt oversize |
 
 ### 3.1 ICD-11 Scope Wiring for New CPGs
 
@@ -196,7 +298,7 @@ markdown/<new-cpg-name>/ ─┐
                                   writes verified_at / verified_by
 ```
 
-**Validation queries before considering A-10 complete:**
+**Validation queries before considering A-11 complete:**
 
 ```sql
 -- Every CPG document must have at least one ICD-11 code in scope
@@ -216,7 +318,7 @@ WHERE NOT EXISTS (
 
 If any new CPG covers an ICD-11 code not yet in the `icd11_codes` table (e.g. a chapter not previously ingested), run `ddx/ingest_icd11_full.py` to fetch the missing codes from the WHO API **before** verification, so the `icd11_scope` reference is not dangling.
 
-### 3.2 Sequencing inside A-10/A-12
+### 3.2 Sequencing inside A-11/A-13
 
 For new CPGs, the order is strict:
 
@@ -228,7 +330,7 @@ For new CPGs, the order is strict:
 
 For **existing CPGs** being re-ingested at H2 level: scope is already verified, so steps 2–4 are skipped — only steps 1 and 5 run. The existing `documents.icd11_scope` values survive because `ingest.py` should `UPSERT` on `documents.source` rather than wiping the row.
 
-> **Safety check before A-12:** confirm `ingest.py` preserves `icd11_scope`, `scope_verified`, `verified_at`, `verified_by` on UPSERT. If it doesn't, the re-ingest will silently un-verify all 16 existing CPGs and Stage 3 routing breaks. Patch `ingest.py` to `ON CONFLICT DO UPDATE SET content = EXCLUDED.content, updated_at = NOW()` only — never touch the scope columns.
+> **Safety check before A-13:** confirm `ingest.py` preserves `icd11_scope`, `scope_verified`, `verified_at`, `verified_by` on UPSERT. If it doesn't, the re-ingest will silently un-verify all 16 existing CPGs and Stage 3 routing breaks. Patch `ingest.py` to `ON CONFLICT DO UPDATE SET content = EXCLUDED.content, updated_at = NOW()` only — never touch the scope columns.
 
 ---
 
@@ -271,6 +373,7 @@ Context reconstruction from any stored triple:
 
 | Check | Expected result |
 |-------|-----------------|
+| Markdown alignment follows both guides | H2 children preserve H3/H4/table structure; parent-only blocks and `cross_ref` markers follow their separate rules |
 | Query "Duke criteria IE" → correct section retrieved | H2 child chunk at rank 1 |
 | Neo4j triple → NeonDB chunk (clickable citation) | `cpg_chunk_id` = H2 UUID |
 | section-3-diagnosis chunk count in NeonDB | 5 rows (1 H1 + 4 H2) |
@@ -392,13 +495,13 @@ The sub-window itself is **not persisted**. The H2 UUID remains the citation tar
 
 ### KG rebuild — when to actually run the commands
 
-The code changes (K-1..K-5) land first as a deploy. The KG itself is then rebuilt during **A-13** in the §3 implementation steps. Strict order:
+The code changes (K-1..K-5) land first as a deploy. The KG itself is then rebuilt during **A-14** in the §3 implementation steps. Strict order:
 
 | Order | Command | Purpose |
 |-------|---------|---------|
 | 1 | `pytest tests/test_graph_builder_subwindow.py` | Unit-test the new window dicts + prompt template before touching prod Bedrock spend |
 | 2 | Backup current graph: `cypher-shell "CALL apoc.export.cypher.all('backups/kg_pre_step2.cypher', {format:'cypher-shell'})"` | Roll-back point. Skip only if previous backup `backups/kg_backup_2026-05-12.cypher` is recent enough |
-| 3 | A-12 must be complete — verify `SELECT count(*) FROM chunks WHERE chunk_level = 'h2'` returns expected H2 count | KG build reads H2 rows; running before A-12 would extract from the old polluted H1 rows |
+| 3 | A-13 must be complete — verify `SELECT count(*) FROM chunks WHERE chunk_level = 'h2'` returns expected H2 count | KG build reads H2 rows; running before A-13 would extract from the old polluted H1 rows |
 | 4 | `cypher-shell "MATCH (n) DETACH DELETE n"` | Wipe old graph (564 Graphiti edges + 13 old typed triples). Confirmed safe — see Phase_A_Findings.md open question 3 |
 | 5 | `python -m ingestion.ingest --graph-only --all-cpgs` (or per-CPG: `--cpg <name>`) | Runs `build_relationship_graph` with new sub-window context bands against H2 chunks |
 | 6 | Smoke-check: `MATCH ()-[r]->() RETURN type(r) AS rel, count(r) AS cnt ORDER BY cnt DESC` | Expect typed clinical relations (TREATS, INCREASES_RISK_OF, ASSESSED_BY, etc.) — no `MENTIONS` / `RELATES_TO` Graphiti residue |
@@ -408,7 +511,7 @@ The code changes (K-1..K-5) land first as a deploy. The KG itself is then rebuil
 
 **Cost expectation:** ~720 sub-windows × $0.0022 ≈ $1.60 across all CPGs at current size. With context bands (~+3k chars each) the figure rises to ~$2.10. Below the $50 threshold; no re-approval needed.
 
-**Rate-limit safety:** if running A-13 unbatched takes >10 min for the full corpus, apply the `Semaphore(5)` batching from Step 3 §2.6 early. Functional equivalent — just paid down sooner if you need the wall time back.
+**Rate-limit safety:** if running A-14 unbatched takes >10 min for the full corpus, apply the `Semaphore(5)` batching from Step 3 §2.6 early. Functional equivalent — just paid down sooner if you need the wall time back.
 
 ---
 
