@@ -1,4 +1,4 @@
-# SECTION 6: SAFE WASTE MANAGEMENT
+# Section 6: Safe Waste Management
 
 <!-- METADATA
 category: Prevention, Reference
@@ -7,8 +7,7 @@ patient_input: unused_medications, controlled_substance_remainder, used_sharps, 
 output: safe_disposal_process, controlled_substance_waste_documentation, environmental_waste_precautions, scavenging_requirements, institutional_waste_protocol_adherence
 -->
 
-## 6.1. DISPOSAL OF VIALS, AMPOULES AND SYRINGES
-
+## 6.1: Disposal of Vials, Ampoules and Syringes
 6.1.1. Safely discard all used vials, ampoules, and syringes after each case. It is the responsibility of anaesthesia healthcare professionals to discard items that had been used.
 
 6.1.2. All partially used ampoules and syringes filled with drugs should be disposed appropriately to minimise the risk of drugs being inadvertently administered to the next patient.
@@ -19,16 +18,14 @@ output: safe_disposal_process, controlled_substance_waste_documentation, environ
 
 6.1.5. Syringes with attached needles shall be discarded into sharps containers as one unit.
 
-## 6.2. PROPER DISPOSAL OF DRUGS
-
+## 6.2: Proper Disposal of Drugs
 6.2.1. The disposal of medications with potential for diversion and abuse, such as opioids, benzodiazepines, and propofol, should be carried out in a way that minimises this risk. Witness and document the disposal of unused controlled substances in compliance with institutional regulations. Leftover unused controlled substances in syringes or ampoules must be emptied into medical waste bins (yellow bin). Empty vials may be kept for Dangerous Drug inventory according to institutional practice.
 
 6.2.2. Medications used in anaesthesia should be disposed of in a manner that reduces potential environmental harm. Hospital waste management policy and local legislative requirements should be adhered to.
 
 6.2.3. Unmetabolised propofol does not degrade in the environment, is highly mobile in soil, accumulates in fat and is toxic to aquatic life. Unused propofol (in syringes, ampoules or infusion lines) should be disposed of into the hospital waste management system to be incinerated. Do not empty propofol into the sink.
 
-## 6.3. SCAVENGING, INHALATIONAL AGENT ABSORBER, CARBON DIOXIDE ABSORBER AND OPERATING ROOM ENVIRONMENT POLLUTION
-
+## 6.3: Scavenging, Inhalational Agent Absorber, Carbon Dioxide Absorber and Operating Room Environment Pollution
 6.3.1. Waste anaesthetic gases (WAGs) are vented to the outdoor atmosphere virtually not metabolised.
 
 6.3.2. To minimise accumulation of Waste anaesthetic gases in the operating room environment:

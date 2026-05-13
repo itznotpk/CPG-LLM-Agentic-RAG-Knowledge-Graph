@@ -1,4 +1,4 @@
-# SECTION 3: SAFE USE OF MEDICATION IN SPECIFIC AREAS
+# Section 3: Safe Use of Medication in Specific Areas
 
 <!-- METADATA
 category: Treatment, Supportive Treatment, Prevention
@@ -8,8 +8,8 @@ output: area_specific_medication_safety_measures, regional_anaesthesia_drug_safe
 treatment_type: propofol, remifentanil, local_anaesthetics, volatile_anaesthetic_agents, oxygen, opioids, epidural_infusion, PCA
 -->
 
-## 3.1 GENERAL ANAESTHESIA
-### 3.1.1 Handling of Inhalational Agents/ Volatile Agents
+## 3.1: General Anaesthesia
+### 3.1.1: Handling of Inhalational Agents/ Volatile Agents
 * a. Given the high potency and potential lethality of volatile anaesthetic agents, particularly in liquid form, it is crucial to securely store bottles, including those already opened.
 * b. Refilling of the vaporisers using unique key-fill systems must be strictly practised. Check the vaporiser is adequately filled but not overfilled and filling ports are tightly closed.
 * c. Partially emptied bottles need to be labelled with the date they were opened.
@@ -17,7 +17,7 @@ treatment_type: propofol, remifentanil, local_anaesthetics, volatile_anaesthetic
 * e. Ensure to regularly maintain and check the anaesthetic machines, vaporisers and breathing circuit to prevent leakage and environmental pollution. Vaporiser leak test according to the manufacturer’s recommendations must be performed prior to each use.
 * f. Large spills of volatile agents require specific cleaning and containment procedures. Institutions need to provide protocols on spill management which must be complied with.
 
-### 3.1.2 Medical Gases
+### 3.1.2: Medical Gases
 #### a. Storage of Medical Gas Cylinders
 i. It is important that medical gases in cylinders are stored safely and securely to mitigate the following health and safety and diversion risks:
 - cylinders are heavy and can cause severe injuries if mishandled.
@@ -98,7 +98,7 @@ v. Check that the anaesthetic apparatus is connected to a supply of oxygen and t
 
 vi. All cylinders on General anaesthesia (GA) machines should be securely seated and turned off after checking their contents.
 
-### 3.1.3 Fluid administration
+### 3.1.3: Fluid administration
 
 a. It is recommended that Smart Infusion pump technology be used for the administration of intravenous (IV) solutions in perioperative/procedural environments to minimise potential complications arising from both excessive and insufficient fluid delivery, particularly in volume sensitive patient populations. (e.g., paediatric, or geriatric patient).
 
@@ -108,7 +108,7 @@ c. Rapid IV infusion systems should be made available for rapid administration o
 
 d. Fluid warming devices are recommended for perioperative fluid management to prevent inadvertent hypothermia.
 
-### 3.1.4. Target-controlled Infusion / Total Intravenous Anaesthesia monitoring
+### 3.1.4: Target-controlled Infusion / Total Intravenous Anaesthesia monitoring
 
 a. When administering drugs via infusion, it is essential to label the patient end of the infusion line and implement precautions with one-way valves to prevent any unintended syphoning of the administered medication. When feasible, a dedicated IV cannula should be used. Precaution should be taken to avoid bolus injection of residual drugs in the infusion tubing at the end of total intravenous anaesthesia (TIVA)/ target-controlled infusion (TCI).
 
@@ -124,11 +124,11 @@ f. Whenever feasible, the IV cannula used to deliver infusion should remain visi
 
 g. When administering TIVA outside the operating room, it is essential to uphold the same standards of practice and monitoring as for anaesthesia within the operating room.
 
-### 3.1.5. Use of Neuromuscular Blocking Agent
+### 3.1.5: Use of Neuromuscular Blocking Agent
 
 a. A neuromuscular monitoring should be available whenever a neuromuscular blocking agent (NMBA) is used.
 
-### 3.1.6. Drugs Affecting Gastric Emptying
+### 3.1.6: Drugs Affecting Gastric Emptying
 
 a. Several drugs used in perioperative period can result in delayed gastric emptying and potential for increased risk for regurgitation and aspiration.
 
@@ -156,11 +156,11 @@ iv. Due to lack of current evidence, no recommendation can be made of optimal pr
 
 v. If GLP-1 agonists prescribed for diabetes management are held for longer than the dosing schedule, consider consulting an endocrinologist for bridging the antidiabetic therapy to avoid hyperglycaemia.
 
-## 3.2 REGIONAL ANAESTHESIA
-### 3.2.1 Safe Administration of Drugs in Regional Anaesthesia (RA)
+## 3.2: Regional Anaesthesia
+### 3.2.1: Safe Administration of Drugs in Regional Anaesthesia (RA)
 a. Recommended measures to avoid errors in drug administration include General and Specific measures.
 
-b. ‘General’ measures are steps and processes, from purchasing, storage and supply should be adopted for all drugs including those used in regional anaesthesia, as specified in Section 2: Key Principles of Safe Use of Medication in Anaesthesia.
+b. ‘General’ measures are steps and processes, from purchasing, storage and supply should be adopted for all drugs including those used in regional anaesthesia, as specified in Section 2: Key Principles of Safe Use of Medication in Anaesthesia. <!-- cross_ref target_file="section-2-key-principles-anaesthesia.md" target_heading="Section 2: Key Principles of Safe Use of Medication in Anaesthesia" target_kind="h1_section" -->
 
 c. Specific measures related to RA techniques:
 
@@ -196,7 +196,7 @@ xv. It is recommended to replace the LA solution after 72-hour infusion as micro
 
 xvi. Meticulous application of antisepsis solution is recommended to avoid dripping, splashing or contamination of the LA injectate. Both chlorhexidine and alcohol are neurotoxic and should be allowed to air-dry thoroughly (about 2-3 minutes) before a block needle is inserted.
 
-### 3.2.2 Dosing and Dilution of Local Anaesthetic for Regional Anaesthesia
+### 3.2.2: Dosing and Dilution of Local Anaesthetic for Regional Anaesthesia
 a. The volume and concentration of LA prepared must take into consideration the following factors: block intention for anaesthesia or analgesia, desired onset, duration and recovery profile.
 
 b. The maximum dose of LA drug mass is based on milligram-per-lean body weight (mg/kg).
@@ -205,8 +205,8 @@ c. For peri-articular knee injection, the use of LA beyond its maximum dose base
 
 d. Monitoring and vigilance are key elements for early detection and treatment of local anaesthetic systemic toxicity (LAST) in these situations.
 
-## 3.3 ACUTE PAIN SERVICES
-### 3.3.1 Acute Pain Management in the Ward
+## 3.3: Acute Pain Services
+### 3.3.1: Acute Pain Management in the Ward
 a. Institutions should have formal protocols and quality assurance programmes for effective acute pain management.
 
 b. Communication with the primary team is crucial to prevent double prescription.
@@ -223,7 +223,7 @@ g. Routine prescription of modified release opioids is best avoided unless there
 
 h. Implementation of standardised monitoring and protocols in various techniques of pain management are recommended.
 
-### 3.3.2 Patient-Controlled Analgesia
+### 3.3.2: Patient-Controlled Analgesia
 a. Anaesthesia healthcare professionals and ward staff should be familiar with the use of Patient-Controlled Analgesia (PCA) pumps, routes of administration and institutional protocols for PCA administration. This includes monitoring for potential complications.
 
 b. It is preferable that the institutions limit variability of equipment used for PCA to minimise medication error.
@@ -238,7 +238,7 @@ f. PCA devices should be routinely checked to ensure there has been no compromis
 
 g. The acute pain service team should verify orders and ensure correct drug delivery.
 
-### 3.3.3 Epidural Infusion in Ward
+### 3.3.3: Epidural Infusion in Ward
 #### a. Personnel, Staffing and Ward Environment
 i. Anaesthesia healthcare professionals and ward staff should be familiar with the epidural infusion in ward and institutional protocols for epidural administration. This includes monitoring for potential complications.
 

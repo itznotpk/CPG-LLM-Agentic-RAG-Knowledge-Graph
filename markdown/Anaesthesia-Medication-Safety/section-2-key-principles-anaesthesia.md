@@ -1,4 +1,4 @@
-# SECTION 2: KEY PRINCIPLES OF SAFE USE OF MEDICATION IN ANAESTHESIA
+# Section 2: Key Principles of Safe Use of Medication in Anaesthesia
 
 <!-- METADATA
 category: Prevention, Assessment, Reference
@@ -7,25 +7,25 @@ patient_input: patient_identity, medication_history, allergies, body_weight, IV_
 output: safe_medication_workflow, verified_medication_preparation, syringe_label, route_verification, extravasation_response, infection_control_measures, medication_documentation
 -->
 
-## 2.1 AIMS OF SAFE MEDICATION ADMINISTRATION
+## 2.1: Aims of Safe Medication Administration
 1) Ensure that the appropriate medication is administered to the designated patient, in the accurate dosage, through the proper route and at the designated time. This is following the 5Rs concept, the right patient, the right medicine, the right dose, the right route, and the right time of administration.
 2) Document accurately medication details in the anaesthesia record, patient’s drug chart, and controlled medication registers in accordance with Dangerous Drug Act 1952.
 3) Assess patients for anticipated responses to medications and potential adverse effects.
 4) Reduce chances for substance misuse and unauthorised distribution.
 
-## 2.2 RESPONSIBILITIES OF ANAESTHESIA HEALTHCARE PROFESSIONALS
+## 2.2: Responsibilities of Anaesthesia Healthcare Professionals
 1) Thorough comprehension of medication pharmacology, potential adverse effects, and its management.
 2) Complete knowledge of medication prescription and administration systems, including relevant legislation.
 3) Document complete records of prescribed medications in the anaesthesia record and patient’s drug chart.
 4) Understand the human factors that contribute to medication errors and implement proactive strategies to mitigate them.
 5) Monitor patients for the desired effects and potential side effects of the drugs.
 
-## 2.3 COLLABORATIVE PRACTICES WITH HOSPITAL PHARMACISTS
+## 2.3: Collaborative Practices with Hospital Pharmacists
 1) Engagement with hospital pharmacists to guarantee the availability and proper presentation of medications.
 2) Collaborate with pharmacists to ensure proper storage and disposal procedures of medications.
 3) Regular auditing of medication handling and reporting of administration errors to drive improvements in safe medication administration.
 
-## 2.4 PURCHASING DECISIONS FOR ANAESTHESIA MEDICATIONS
+## 2.4: Purchasing Decisions for Anaesthesia Medications
 1) Hospital pharmacy purchasing strategies should be based on ‘medication purchasing safety’ best practice that include the assessment of supply chain, source, quality, labelling, packaging, storage and delivery of the products.
 2) Involve pharmacists together with anaesthesiologists, pain medicine and critical care physicians in purchasing decisions.
 3) Essential anaesthesia medication purchases must be prioritised to ensure uninterrupted supply.
@@ -33,7 +33,7 @@ output: safe_medication_workflow, verified_medication_preparation, syringe_label
 5) Consideration to purchase ready-to-use medications that reduce the necessity for dilution before administration.
 6) Utilisation of prefilled and pre-labelled syringes where appropriate to reduce medication errors. Factors affecting this decision are frequency of use and shelf-life.
 
-## 2.5 PREOPERATIVE MEDICATION RECONCILIATION
+## 2.5: Preoperative Medication Reconciliation
 1) Obtain a complete and accurate medication history, including:
 * a. All prescription drugs, over-the-counter medicines, vitamins, supplements, and herbal/alternative medicines the patient is currently taking.
 * b. Any occurrences of adverse drug-related events.
@@ -44,7 +44,7 @@ output: safe_medication_workflow, verified_medication_preparation, syringe_label
 5) Consider alternative routes of administration if the patient will be nil by mouth pre-operatively.
 6) Monitor for potential complications related to continuing or withholding specific drugs in the perioperative period, such as hyperglycaemia, hypertension, hypotension, arrhythmias and withdrawal syndromes.
 
-## 2.6 ANAESTHESIA MEDICATION STORAGE
+## 2.6: Anaesthesia Medication Storage
 1) Storage of anaesthesia medications must adhere to regulations specific to institutional practice. Dangerous and psychotropic drugs must be securely locked, the usage is controlled and recorded in accordance with Dangerous Drug Act 1952.
 2) Anaesthesia medications are stored in various workspaces, such as resuscitation trolleys, fluid and drug stores, Dangerous Drug Act drug cupboards and anaesthesia medication carts. The storage should be organised systematically with standardisation within and across institutions. This includes keeping inventory of drugs, practising First In First Out method and ensuring security of storage.
 3) Storage of the medication is designed to optimise drug identification and minimise mix-ups.
@@ -60,7 +60,7 @@ output: safe_medication_workflow, verified_medication_preparation, syringe_label
 * The anaesthesia medication cart should be securely locked, preferably using keyless locks either by pin codes or swipe cards. This to ensure only authorised individuals have the access to the drugs in the cart.
 * Consider changes in medication suppliers and the presentation of medication ampoules, regular evaluation of medication storage in the anaesthesia cart is crucial.
 
-## 2.7 MEDICATION PREPARATION AND VERIFICATION
+## 2.7: Medication Preparation and Verification
 1) Prescriptions must specify the generic drug name, dose, route, frequency, and any special instructions. This includes prescription to pharmacy and recording of prescribed drugs in anaesthesia records.
 2) Maintain adequate lighting and minimise distractions during medication preparation.
 3) Verify the drug name, concentration, and expiry date before medication preparation.
@@ -83,7 +83,7 @@ The figure shows two recommended syringe label formats:
 | Small syringe label | 1 cm width x 3 cm length | Drug Name; concentration in mg/ml | Drug name in Arial 8 pt, bold. Background colour according to ASTM D4774-94 and ISO 26825:2008. Concentration in Arial Narrow 8 pt, bold. |
 | Large syringe label | 3 cm width x 5 cm length | Drug Name; dilution in mg in ml; concentration in mg/ml; date; time; name; RN; prepared by; checked by | Drug name in Arial 10 pt, bold. Background colour according to ASTM D4774-94 and ISO 26825:2008. Other details in Arial Narrow 8 pt, bold. |
 
-## 2.8 MEDICATION LABELLING
+## 2.8: Medication Labelling
 1) Label syringes according to the national standard; Guideline on Syringe Labelling in Critical Care Areas.
 2) The labelling of reconstituted medication solutions must include the medication name, concentration, date of preparation, and the name of the person who prepared it. The exception to include the name of the person who prepared the reconstituted medication on the labels is when the reconstituted medications are being used as bolus drugs in OTs.
 3) Optimise label legibility on ampoules and syringes.
@@ -95,21 +95,21 @@ The figure shows two recommended syringe label formats:
 9) Short or simple labels during emergency usage and resuscitation are acceptable to improve the speed of the resuscitation process. However, labelling according to standard needs to be complied with whenever possible.
 10) Using distinguishable labels on tubing sets is mandatory for continuous neuraxial and peripheral nerve infusions to reduce medication errors. Many commercially prepared regional block infusion sets provide coloured labels to be used for this purpose.
 
-## 2.9 MEDICATION ADMINISTRATION
-### 2.9.1 Introduction
+## 2.9: Medication administration
+### 2.9.1: Introduction
 - Good medication administration practice requires independent double-checks to verify medications before administration.
 - This should be practised whenever possible. However, operation theatre workflow makes this process impractical. Hence, vigilance must be practised.
 - Anaesthesia healthcare professionals must be aware that fatigue may reduce vigilance and seek assistance to avoid medication error.
 - Utilising barcode drugs identification scanning systems prior to medication administration can mitigate this issue.
 
-### 2.9.2 Safe Practice
+### 2.9.2: Safe Practice
 - Positively identify every patient before administering medications.
 - Minimise the time between medication preparation and administration to the patient.
 - The anaesthesiologist incharge of the patient is responsible for administering the medication to the patient under his care. If a second anaesthesia healthcare professional needs to administer the medication (e.g., in case of an emergency or relieve duty), there must be clear communication regarding the medications or should be carried out under direct supervision. Drugs that are brought from the operation room to the recovery bay or ICU for postoperative use should be labelled and handed over properly to receiving teams.
 - The ‘time-out’ session prior to procedures in WHO Safe Surgery Saves Lives checklist includes information on a patient’s drug allergies and timely prophylactic antibiotic administration.
 - In anaesthesia practice, the administration of highly concentrated drugs, electrolytes, glucose, and insulin requires special attention to ensure medication safety.
 
-## 2.10 ADMINISTRATION OF HIGHLY CONCENTRATED DRUGS, ELECTROLYTES, GLUCOSE, AND INSULIN.
+## 2.10: Administration of Highly Concentrated Drugs, Electrolytes, Glucose, and Insulin
 1) Potent drugs like vasopressors (e.g., epinephrine, norepinephrine) are often used in anaesthesia and are available in highly concentrated formulations. Inadvertent administration of undiluted drugs can lead to life-threatening complications, such as severe hypertension, arrythmias, or cardiorespiratory arrest.
 2) Highly concentrated anaesthetic drugs such as remifentanil and dexmedetomidine should be used with extra caution. Inadvertent administration of undiluted drugs can lead to life-threatening complications, such as severe hypotension, severe bradycardia, or cardiorespiratory arrest.
 3) Concentrated electrolyte solutions, such as potassium chloride, and magnesium sulphate can cause significant harm if administered too rapidly or in excessive doses. Errors in electrolyte administration can lead to arrythmias, cardiac arrest, or neurological damage.
@@ -125,14 +125,14 @@ The figure shows two recommended syringe label formats:
 - Administer drugs slowly (infusion) and titrate to effect while closely monitoring the patient’s response.
 - Vasopressors, concentrated electrolytes and glucose solutions should be administered via a central venous catheter. While waiting for a central venous access, initial administration via large bore peripheral IV line is acceptable (refer to Table 2: Medications to be administered via central venous catheter.).
 
-## 2.11 INTRAVENOUS MEDICATION DELIVERY
+## 2.11: Intravenous Medication Delivery
 1) Standardise the use of intravenous infusion pumps and syringe drivers within each facility to improve familiarity and reduce error.
 2) Place the label at the patient-end of the infusion line for fast identification of the medication.
 3) Anti-siphon and anti-reflux (one-way) valves are recommended to prevent free flow and retrograde pumping of analgesic agent into the infusion lines. Patient-controlled analgesia delivery lines must utilise infusion tubing with anti-siphon and anti-reflux valves.
 4) Infusion line connections should utilise a lock design that minimises risk of disconnection. Checking for disconnection is the responsibility of the anaesthesia healthcare professionals especially when the intended drug effect is not seen.
 5) The use of smart infusion pumps with dose error reduction software is highly recommended to prevent drug delivery errors. However, anaesthesia healthcare professionals need to understand the limitations of the pump that include intervariability among patients.
 
-## 2.12 MANAGEMENT OF EXTRAVASATION INJURIES AND INTRA-ARTERIAL INJECTION
+## 2.12: Management of Extravasation Injuries and Intra-Arterial Injection
 1) Extravasation injuries and inadvertent intra-arterial drug injection may be seen during anaesthesia practice due to higher number of intravenous drugs administered during anaesthesia and some of the drugs used are vesicants, irritants and hyperosmolar solutions.
 2) Table 3: Complications of extravasation and intra-arterial injection of anaesthesia drugs shows examples of anaesthesia drugs and the side effects that were previously reported.
 
@@ -180,7 +180,7 @@ The figure shows two recommended syringe label formats:
 * h. Make a documentation of the assessment, management and counselling to patient and relative.
 * i. Consider informing the hospital risk management team for severe intra-arterial injection cases.
 
-## 2.13 INFECTION CONTROL IN MEDICATION ADMINISTRATION
+## 2.13: Infection Control in Medication Administration
 1) Maintain clean workspaces and adhere to infection control practices as suggested in the Guidelines on Infection Control in Anaesthesia. Examples of good practices are recapping the syringes either by syringe caps or plugs, always keeping syringes in dedicated medication trays and proper hand hygiene while handling and administering medications.
 2) Use single-dose vials or ampoules for each patient to minimise the risk of cross-contamination. If sharing an ampoule among multiple patients is unavoidable, the anaesthesia healthcare professionals must ensure the integrity of the ampoule’s contents and prevent cross-contamination.
 3) In between patients, all work surfaces and medication trays must be decontaminated. Using different medication trays for each patient is advisable.
@@ -189,10 +189,10 @@ The figure shows two recommended syringe label formats:
 6) Administering intravenous bolus medication with a needle carries a risk of needle prick injury and is highly discouraged. Injections should be done directly into the intravenous access port.
 7) The intravenous access ports should be kept clean and covered with a cap when not in use. Hub disinfection with 70% alcohol swab and allowing it to dry is a good practice. Passive hub disinfection is another option.
 
-## 2.14 WASTE AND DISPOSAL PRACTICES
-(Refer to Section 6: Safe Waste Management)
+## 2.14: Waste and Disposal Practices
+(Refer to Section 6: Safe Waste Management) <!-- cross_ref target_file="section-6-safe-waste-management-anaethesia.md" target_heading="Section 6: Safe Waste Management" target_kind="h1_section" -->
 
-## 2.15 MEDICATION DOCUMENTATION
+## 2.15: Medication Documentation
 1) Accurately record each medication administered, including the drug name, dose, route time and date.
 2) The anaesthesia record must be signed by the anaesthesiologist and include the full name and the Malaysian Medical Council (MMC) registration number. The utilisation of doctor identification stamps is highly encouraged.
 3) Ensure the legibility of medication records, especially handwritten documentation. Use of electronic records enhances accuracy.

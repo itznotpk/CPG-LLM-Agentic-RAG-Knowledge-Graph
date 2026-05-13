@@ -1,4 +1,4 @@
-# SECTION 0: APPENDIX
+# Section 0: Appendix
 
 <!-- METADATA
 category: Reference, Assessment, Treatment
@@ -9,7 +9,7 @@ critical: true
 treatment_type: adrenaline, dantrolene, lipid_emulsion, local_anaesthetics, vasopressors, antihistamines, corticosteroids
 -->
 
-## APPENDIX 1: IMR ALLERGY REQUEST FORM
+## Appendix 1: IMR Allergy Request Form
 ### Patient and Request Details
 | No. | Field | Details |
 |---|---|---|
@@ -78,7 +78,7 @@ Please tick **ONLY** the appropriate test(s) required.
 
 ---
 
-## APPENDIX 2: HKLAAC REFERRAL FORM
+## Appendix 2: HKLAAC Referral Form
 ### Form Header
 **Referral Form for Perioperative Anaphylaxis**  
 Anaesthetic Allergy Clinic  
@@ -270,7 +270,7 @@ Please specify the grade of allergic reaction from the categories below.
 
 ---
 
-## APPENDIX 3: MALIGNANT HYPERTHERMIA REPORTING FORM
+## Appendix 3: Malignant Hyperthermia Reporting Form
 | MALIGNANT HYPERTHERMIA |
 |---|
 | Malignant hyperthermia (MH) is an uncommon pharmacogenetic disorder of muscle induced by exposure to suxamethonium and all the volatile anaesthetic agents. It is characterized by hypermetabolism, muscle rigidity and muscle injury. |
@@ -304,7 +304,7 @@ Please specify the grade of allergic reaction from the categories below.
 | C | Monitor vitals and labs as above (see #7)<br>- Frequent ABG<br>- CK every 6-8 hours |
 | D | Counsel the patient and family regarding MH and further precautions |
 
-### CONTENTS OF MALIGNANT HYPERTHERMIA CART
+### Contents of Malignant Hyperthermia Cart
 | | Items | Quantity | Purpose |
 |---|---|---|---|
 | 1 | Dantrolene | At least 12 vials | - |
@@ -321,7 +321,7 @@ Please specify the grade of allergic reaction from the categories below.
 | 12 | Normal saline (refrigerated) | 6 L | For injection and irrigation |
 OTHERS : Also included on the cart: crushed ice or ice maker, irrigating Foley catheter rectal tube, cooling blanket, central venous access kits, pulmonary artery catheter, new fresh gas hose, carbon dioxide-absorption canisters, anesthesia breathing circuit, ventilator bellows, blood-collection tubes, lab slips, labels
 
-### PRIVATE AND CONFIDENTIAL
+### Private and Confidential
 Report for suspected Malignant Hyperthermia Reaction
 | Field | Details |
 |---|---|
@@ -395,7 +395,7 @@ Report for suspected Malignant Hyperthermia Reaction
 
 ---
 
-## APPENDIX 4: LOCAL ANAESTHETIC SYSTEMIC TOXICITY (LAST) MANAGEMENT PROTOCOL
+## Appendix 4: Local Anaesthetic Systemic Toxicity (LAST) Management Protocol
 | LOCAL ANAESTHETIC SYSTEMIC TOXICITY |
 |---|
 | Local Anaesthetic Systemic Toxicity (LAST) is a rare but potentially fatal adverse drug reaction resulting from circulating levels of local anaesthetics (LA) reaching toxic levels |
