@@ -11,9 +11,9 @@ output: AF_diagnosis_confirmation, EHRA_classification, echocardiography_indicat
 
 ---
 
-## 3. Initial Management
+# 3. Initial Management
 
-### 3.1 Clinical History, Physical Examination and Investigations
+## 3.1 Clinical History, Physical Examination and Investigations
 
 The acute management of AF patients should concentrate on:
 

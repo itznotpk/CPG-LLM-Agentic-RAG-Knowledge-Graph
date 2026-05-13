@@ -8,31 +8,20 @@ output: area_specific_medication_safety_measures, regional_anaesthesia_drug_safe
 treatment_type: propofol, remifentanil, local_anaesthetics, volatile_anaesthetic_agents, oxygen, opioids, epidural_infusion, PCA
 -->
 
-## 3.1. GENERAL ANAESTHESIA
-### 3.1.1. Handling of Inhalational Agents/ Volatile Agents
+## 3.1 GENERAL ANAESTHESIA
+### 3.1.1 Handling of Inhalational Agents/ Volatile Agents
+* a. Given the high potency and potential lethality of volatile anaesthetic agents, particularly in liquid form, it is crucial to securely store bottles, including those already opened.
+* b. Refilling of the vaporisers using unique key-fill systems must be strictly practised. Check the vaporiser is adequately filled but not overfilled and filling ports are tightly closed.
+* c. Partially emptied bottles need to be labelled with the date they were opened.
+* d. Empty bottles should have their caps removed and be disposed of in a suitable container to prevent inadvertent reuse or refilling with a different liquid.
+* e. Ensure to regularly maintain and check the anaesthetic machines, vaporisers and breathing circuit to prevent leakage and environmental pollution. Vaporiser leak test according to the manufacturer’s recommendations must be performed prior to each use.
+* f. Large spills of volatile agents require specific cleaning and containment procedures. Institutions need to provide protocols on spill management which must be complied with.
 
-a. Given the high potency and potential lethality of volatile anaesthetic agents, particularly in liquid form, it is crucial to securely store bottles, including those already opened.
-
-b. Refilling of the vaporisers using unique key-fill systems must be strictly practised. Check the vaporiser is adequately filled but not overfilled and filling ports are tightly closed.
-
-c. Partially emptied bottles need to be labelled with the date they were opened.
-
-d. Empty bottles should have their caps removed and be disposed of in a suitable container to prevent inadvertent reuse or refilling with a different liquid.
-
-e. Ensure to regularly maintain and check the anaesthetic machines, vaporisers and breathing circuit to prevent leakage and environmental pollution. Vaporiser leak test according to the manufacturer’s recommendations must be performed prior to each use.
-
-f. Large spills of volatile agents require specific cleaning and containment procedures. Institutions need to provide protocols on spill management which must be complied with.
-
-### 3.1.2. Medical Gases
-
+### 3.1.2 Medical Gases
 #### a. Storage of Medical Gas Cylinders
-
 i. It is important that medical gases in cylinders are stored safely and securely to mitigate the following health and safety and diversion risks:
-
 - cylinders are heavy and can cause severe injuries if mishandled.
-
 - cylinders contain compressed gas at high pressure and can cause severe injury or death if damage leads to sudden escape of gas.
-
 - oxygen supports combustion and increases the risk of fire.
 
 ii. Cylinders must be stored in a cool, dry, and well-ventilated area, away from heat and potential ignition sources, and in a secure and upright position.
@@ -48,15 +37,11 @@ vi. Cylinders must be checked daily and documented for obvious signs of leakage.
 vii. Full cylinders should be used in strict rotation according to expiry dates.
 
 viii. A record must be maintained for each type of medical gas cylinder kept at each location.
-
 - this record should be used for inventory control purposes and for establishing maximum numbers of stock to be kept at the unit.
-
 - it is very important that accurate inventory control is maintained to avoid wastage or loss.
-
 - in the event of an emergency the Emergency services should be advised of the location of the cylinder store by the responsible person for fire safety at the site.
 
 #### b. Handling Medical Gas Cylinders
-
 i. All personnel handling medical gas cylinders must receive regular manual handling training in line with the statutory and mandatory training matrix.
 
 ii. It is highly recommended to have trained personnel who handle medical gases be aware of the hazards and emergency procedures.
@@ -74,17 +59,13 @@ vii. Never roll cylinders along the ground as this may cause the valve to open a
 viii. Cylinders must be turned off/fully closed when not in use.
 
 #### c. Use of Cylinders
-
 i. When using medical gas cylinders, it is most important that no part of the cylinder valve or equipment is either lubricated or contaminated with oil or grease.
 
 ii. Special care is needed with the use of hand creams as these could provide sufficient contamination to the medical cylinder valve surface when handling the cylinder to cause an ignition when the valve is turned on.
 
 iii. Before use ensure that:
-
 - always confirm the medical gas type by checking the gas cylinder identification label, the cylinder label must be used as the primary means of gas identification.
-
 - where a regulator is required, check that the cylinder product and filling pressure are compatible with the selected regulator.
-
 - the cylinder is not expired. Leave the spindle key in the valve so that it may be closed in an emergency.
 
 iv. Ensure that the equipment operating instructions are available.
@@ -117,7 +98,7 @@ v. Check that the anaesthetic apparatus is connected to a supply of oxygen and t
 
 vi. All cylinders on General anaesthesia (GA) machines should be securely seated and turned off after checking their contents.
 
-### 3.1.3. Fluid administration
+### 3.1.3 Fluid administration
 
 a. It is recommended that Smart Infusion pump technology be used for the administration of intravenous (IV) solutions in perioperative/procedural environments to minimise potential complications arising from both excessive and insufficient fluid delivery, particularly in volume sensitive patient populations. (e.g., paediatric, or geriatric patient).
 
@@ -168,19 +149,15 @@ ii. Irrespective of the indication and dose of GLP-1 agonists, or the type of pr
 - on the day of surgery, gastrointestinal (GI) symptoms of GLP-1 agonist effects should be assessed for delayed gastric emptying (e.g., vomiting, retching, bloating)
 
 iii. Preoperative gastric ultrasound is recommended to measure gastric residual volume when GLP-1 agonists have not been withheld adequately or the patients have symptoms of delayed gastric emptying.
-
 - based on gastric ultrasound, if the stomach is full, inconclusive or not possible to perform, consider delaying the procedure.
-
 - when delaying the surgery is not feasible, treat the patient as ‘full stomach’ and manage accordingly.
 
 iv. Due to lack of current evidence, no recommendation can be made of optimal preoperative fasting duration. General preoperative fasting guidelines may not be applicable to patients taking GLP-1 agonists.
 
 v. If GLP-1 agonists prescribed for diabetes management are held for longer than the dosing schedule, consider consulting an endocrinologist for bridging the antidiabetic therapy to avoid hyperglycaemia.
 
-## 3.2. REGIONAL ANAESTHESIA
-
-### 3.2.1. Safe Administration of Drugs in Regional Anaesthesia (RA)
-
+## 3.2 REGIONAL ANAESTHESIA
+### 3.2.1 Safe Administration of Drugs in Regional Anaesthesia (RA)
 a. Recommended measures to avoid errors in drug administration include General and Specific measures.
 
 b. ‘General’ measures are steps and processes, from purchasing, storage and supply should be adopted for all drugs including those used in regional anaesthesia, as specified in Section 2: Key Principles of Safe Use of Medication in Anaesthesia.
@@ -219,8 +196,7 @@ xv. It is recommended to replace the LA solution after 72-hour infusion as micro
 
 xvi. Meticulous application of antisepsis solution is recommended to avoid dripping, splashing or contamination of the LA injectate. Both chlorhexidine and alcohol are neurotoxic and should be allowed to air-dry thoroughly (about 2-3 minutes) before a block needle is inserted.
 
-### 3.2.2. Dosing and Dilution of Local Anaesthetic for Regional Anaesthesia
-
+### 3.2.2 Dosing and Dilution of Local Anaesthetic for Regional Anaesthesia
 a. The volume and concentration of LA prepared must take into consideration the following factors: block intention for anaesthesia or analgesia, desired onset, duration and recovery profile.
 
 b. The maximum dose of LA drug mass is based on milligram-per-lean body weight (mg/kg).
@@ -229,10 +205,8 @@ c. For peri-articular knee injection, the use of LA beyond its maximum dose base
 
 d. Monitoring and vigilance are key elements for early detection and treatment of local anaesthetic systemic toxicity (LAST) in these situations.
 
-## 3.3. ACUTE PAIN SERVICES
-
-### 3.3.1. Acute Pain Management in the Ward
-
+## 3.3 ACUTE PAIN SERVICES
+### 3.3.1 Acute Pain Management in the Ward
 a. Institutions should have formal protocols and quality assurance programmes for effective acute pain management.
 
 b. Communication with the primary team is crucial to prevent double prescription.
@@ -249,8 +223,7 @@ g. Routine prescription of modified release opioids is best avoided unless there
 
 h. Implementation of standardised monitoring and protocols in various techniques of pain management are recommended.
 
-### 3.3.2. Patient-Controlled Analgesia
-
+### 3.3.2 Patient-Controlled Analgesia
 a. Anaesthesia healthcare professionals and ward staff should be familiar with the use of Patient-Controlled Analgesia (PCA) pumps, routes of administration and institutional protocols for PCA administration. This includes monitoring for potential complications.
 
 b. It is preferable that the institutions limit variability of equipment used for PCA to minimise medication error.
@@ -265,10 +238,8 @@ f. PCA devices should be routinely checked to ensure there has been no compromis
 
 g. The acute pain service team should verify orders and ensure correct drug delivery.
 
-### 3.3.3. Epidural Infusion in Ward
-
+### 3.3.3 Epidural Infusion in Ward
 #### a. Personnel, Staffing and Ward Environment
-
 i. Anaesthesia healthcare professionals and ward staff should be familiar with the epidural infusion in ward and institutional protocols for epidural administration. This includes monitoring for potential complications.
 
 ii. Responsibility for the epidural infusion lies with the initiating practitioner who must ensure effective handover to ward staff before transfer of patient to ward.
@@ -278,7 +249,6 @@ iii. Dose, timings and therapeutic effect of all anticoagulation must be conside
 iv. Oxygen, resuscitation equipment, including specific medication (e.g. 20% Intralipid emulsion, naloxone) must be readily available.
 
 #### b. Epidural Drug Administration
-
 i. The epidural infusion system should be closed, with no injection ports. An anti-bacterial filter must be inserted at the junction of epidural catheter and infusion line.
 
 ii. Bolus injection should use the pump or strict aseptic technique and should only be performed by trained staff.
@@ -294,102 +264,3 @@ vi. Use the lowest effective concentration of LA to preserve motor function.
 vii. Epidural Infusions should be connected to the epidural catheter as soon as possible by the clinician to minimise errors due to wrong route administration of LA.
 
 viii. The insertion site should be regularly examined for signs of catheter migration, leaks and inflammation.
-
-## Contextual Anchors (Overlapping)
-### Section 2: Key Principles of Safe Use of Medication in Anaesthesia
-
-#### Related Section 2 Content for 3.2.1 Safe Administration of Drugs in Regional Anaesthesia
-
-Section 3.2.1 refers to Section 2 because the general medication-safety measures for regional anaesthesia should follow the same principles used for all anaesthesia medications, including purchasing, storage, preparation, labelling, administration, infection control, and documentation.
-
-#### 2.1. Aims of Safe Medication Administration
-
-2.1.1. Ensure that the appropriate medication is administered to the designated patient, in the accurate dosage, through the proper route and at the designated time. This is following the 5Rs concept, the right patient, the right medicine, the right dose, the right route, and the right time of administration.
-
-2.1.2. Document accurately medication details in the anaesthesia record, patient’s drug chart, and controlled medication registers in accordance with Dangerous Drug Act 1952.
-
-2.1.3. Assess patients for anticipated responses to medications and potential adverse effects.
-
-#### 2.3. Collaborative Practices with Hospital Pharmacists
-
-2.3.1. Engagement with hospital pharmacists to guarantee the availability and proper presentation of medications.
-
-2.3.2. Collaborate with pharmacists to ensure proper storage and disposal procedures of medications.
-
-2.3.3. Regular auditing of medication handling and reporting of administration errors to drive improvements in safe medication administration.
-
-#### 2.4. Purchasing Decisions for Anaesthesia Medications
-
-2.4.1. Hospital pharmacy purchasing strategies should be based on ‘medication purchasing safety’ best practice that include the assessment of supply chain, source, quality, labelling, packaging, storage and delivery of the products.
-
-2.4.4. Purchasing decisions should prioritise clear labelling and avoid look-alike presentations to ensure easy identification of medications. This includes similar drugs with different concentrations.
-
-2.4.5. Consideration to purchase ready-to-use medications that reduce the necessity for dilution before administration.
-
-2.4.6. Utilisation of prefilled and pre-labelled syringes where appropriate to reduce medication errors. Factors affecting this decision are frequency of use and shelf-life.
-
-#### 2.6. Anaesthesia Medication Storage
-
-2.6.1. Storage of anaesthesia medications must adhere to regulations specific to institutional practice. Dangerous and psychotropic drugs must be securely locked, the usage is controlled and recorded in accordance with Dangerous Drug Act 1952.
-
-2.6.2. Anaesthesia medications are stored in various workspaces, such as resuscitation trolleys, fluid and drug stores, Dangerous Drug Act drug cupboards and anaesthesia medication carts. The storage should be organised systematically with standardisation within and across institutions. This includes keeping inventory of drugs, practising First In First Out method and ensuring security of storage.
-
-2.6.3. Storage of the medication is designed to optimise drug identification and minimise mix-ups.
-
-2.6.7. Recommendations regarding anaesthesia medication cart to improve efficiency and reduce errors include categorised drug arrangement with clear labelling, limiting medication quantity to prevent selection error, storing medications with the same function together, separating high-risk or less frequently used medications from routine anaesthesia medications, flagging look-alike sound-alike medications, clearly segregating medications with different concentrations but similar presentation, and regularly evaluating medication storage when suppliers or ampoule presentations change.
-
-#### 2.7. Medication Preparation and Verification
-
-2.7.2. Maintain adequate lighting and minimise distractions during medication preparation.
-
-2.7.3. Verify the drug name, concentration, and expiry date before medication preparation.
-
-2.7.4. Standardise workflows for labelling syringes. Syringes should be labelled immediately after each medication preparation.
-
-2.7.5. It is good practice to use gauze to hold the ampoule while breaking it, ensuring the breaking part faces away from the anaesthesia healthcare professionals. If available, ampoule breakers should be used.
-
-2.7.6. Glass particle contamination of medications may occur when opening glass ampoules with potential harm to patients. The use of blunt filter needles or straws with a 5-micron filter is recommended to aspirate the medication from the glass ampoules.
-
-2.7.7. Check the labels on both the ampoule and the syringe after completion of the medication preparation to ensure they match.
-
-2.7.8. Discard and restart the preparation process if it is interrupted.
-
-2.7.9. Medications prepared for routes other than intravenous should be clearly flagged and separated.
-
-2.7.13. Multi-dose vials in anaesthesia practice are not recommended. If this is unavoidable, proper storage and infection control measures should be taken according to the manufacturer’s recommendations and institutional guidelines.
-
-#### 2.8. Medication Labelling
-
-2.8.1. Label syringes according to the national standard; Guideline on Syringe Labelling in Critical Care Areas.
-
-2.8.2. The labelling of reconstituted medication solutions must include the medication name, concentration, date of preparation, and the name of the person who prepared it. The exception to include the name of the person who prepared the reconstituted medication on the labels is when the reconstituted medications are being used as bolus drugs in OTs.
-
-2.8.3. Optimise label legibility on ampoules and syringes.
-
-2.8.5. Utilise tall-man lettering (TML) on medication labels to help differentiate look-alike drug names and prevent errors.
-
-2.8.7. Sterile labels should be available for utilisation during sterile procedures. In the absence of sterile labels, different sizes of syringes should be used for different medications and vigilance must be practised. However, this does not replace the safe practice provided by use of sterile labels.
-
-2.8.8. High alert medications should have ‘HIGH ALERT MEDICATION’ labels on storage shelves, containers, product packages and loose vials/ampoules.
-
-#### 2.9. Medication Administration
-
-2.9.1. Good medication administration practice requires independent double-checks to verify medications before administration. This should be practised whenever possible. However, operation theatre workflow makes this process impractical. Hence, vigilance must be practised.
-
-2.9.2. Positively identify every patient before administering medications; minimise the time between medication preparation and administration; ensure clear communication if a second anaesthesia healthcare professional administers medication; and include drug allergy information and timely prophylactic antibiotic administration in the time-out session.
-
-#### 2.13. Infection Control in Medication Administration
-
-2.13.1. Maintain clean workspaces and adhere to infection control practices as suggested in the Guidelines on Infection Control in Anaesthesia. Examples of good practices are recapping the syringes either by syringe caps or plugs, always keeping syringes in dedicated medication trays and proper hand hygiene while handling and administering medications.
-
-2.13.2. Use single-dose vials or ampoules for each patient to minimise the risk of cross-contamination. If sharing an ampoule among multiple patients is unavoidable, the anaesthesia healthcare professionals must ensure the integrity of the ampoule’s contents and prevent cross-contamination.
-
-2.13.3. In between patients, all work surfaces and medication trays must be decontaminated. Using different medication trays for each patient is advisable.
-
-2.13.4. All syringes should be discarded after completion of anaesthesia for each case. Sharing used syringes is not acceptable.
-
-#### 2.15. Medication Documentation
-
-2.15.1. Accurately record each medication administered, including the drug name, dose, route time and date.
-
-2.15.3. Ensure the legibility of medication records, especially handwritten documentation. Use of electronic records enhances accuracy.

@@ -1,4 +1,4 @@
-# APPENDIX 1: IMR ALLERGY REQUEST FORM
+# SECTION 0: APPENDIX
 
 <!-- METADATA
 category: Reference, Assessment, Treatment
@@ -9,24 +9,8 @@ critical: true
 treatment_type: adrenaline, dantrolene, lipid_emulsion, local_anaesthetics, vasopressors, antihistamines, corticosteroids
 -->
 
-## Allergy Request Form
-
-**Institute for Medical Research Malaysia (IMR)**  
-**Allergy Unit**  
-Allergy & Immunology Research Centre (AIRC)  
-Institute for Medical Research (IMR)  
-National Institutes of Health (NIH)  
-No. 1, Jalan Setia Murni U13/52  
-Seksyen U13 Setia Alam, 40170 Shah Alam, Selangor  
-Tel: 03-3362 8355  
-Email: allergy.imr@gmail.com
-
-**For IMR Lab No. ONLY:** ____________________
-
----
-
-## Patient and Request Details
-
+## APPENDIX 1: IMR ALLERGY REQUEST FORM
+### Patient and Request Details
 | No. | Field | Details |
 |---|---|---|
 | 1 | Name | ____________________ |
@@ -40,65 +24,46 @@ Email: allergy.imr@gmail.com
 | 9 | Requesting Doctor | ____________________ |
 | 10 | Hospital | ____________________ |
 
----
+### Related Disease
+Please pick if relevant:
+- Bronchial asthma
+- Allergic rhinitis / eye disease
+- Eczema
+- Urticaria
+- Anaphylaxis
+- Mast cell disease
+- Food / Medication Allergy
+- Multi-trigger wheeze
+- Primary immunodeficiency disorder (PID)
+- Hypereosinophilia syndrome
+- Allergic bronchopulmonary aspergillosis
 
-## Related Disease
-
-Please tick if relevant:
-
-- [ ] Bronchial asthma
-- [ ] Allergic rhinitis / eye disease
-- [ ] Eczema
-- [ ] Urticaria
-- [ ] Anaphylaxis
-- [ ] Mast cell disease
-- [ ] Food / Medication Allergy
-- [ ] Multi-trigger wheeze
-- [ ] Primary immunodeficiency disorder (PID)
-- [ ] Hypereosinophilia syndrome
-- [ ] Allergic bronchopulmonary aspergillosis
-
----
-
-## Clinical Details
-
+### Clinical Details
 | No. | Field | Details |
 |---|---|---|
 | 12 | Clinical Summary | ____________________ |
 | 13 | Diagnosis | ____________________ |
 
----
-
-## Test Requested
-
+### Test Requested
 Please tick **ONLY** the appropriate test(s) required.
-
 | No. | Test | Tick / Details |
 |---|---|---|
 | i. | Total IgE | [ ] |
 | ii. | Specific IgE | Please specify allergen to be tested:<br>- [ ] Aeroallergen: ____________________<br>- [ ] Food: ____________________<br>- [ ] Medication: ____________________<br>- [ ] Others: ____________________ |
 | iii. | Tryptase | - [ ] Anaphylaxis<br>Onset / Death time: ____________________<br>Sampling time: ____________________<br>- [ ] Mast cell disorder |
 | iv. | Eosinophil cationic protein (ECP) | - [ ] Allergic disease<br>- [ ] Eosinophil associated disorder |
+**For IMR Allergy Laboratory Use ONLY:** __
 
-**For IMR Allergy Laboratory Use ONLY:** ____________________
-
----
-
-## Specimen Collection Details
-
+### Specimen Collection Details
 | No. | Field | Details |
 |---|---|---|
 | 15 | Date | ____________________ |
 | 15 | Time | ____________________ |
 | 15 | Sampling site (forensic case) | ____________________ |
 | 16 | Applicant's Name (Signature & Stamp) | ____________________ |
-
 > **Important notice:** To ensure correct and reliable result given, please fill up the entire form and refer next page for sampling guidance.
 
----
-
-## Sample Collection Instruction and Guidance
-
+### Sample Collection Instruction and Guidance
 | No. | Tests | Specimen Type | Vacutainer | Guidance / Indication | LTAT (Working days) |
 |---|---|---|---|---|---|
 | 1 | Total IgE | Blood | - Plain tube<br>- 3 ml<br>- Store at 2-8°C<br>- Minimum volume 150 microlitre/test | - Patients with suspected diseases associated with elevations of total immunoglobulin E (IgE), including allergic disease, primary immunodeficiencies, autoimmunity, infections, malignancies, or other inflammatory diseases<br>- Diagnostic evaluation/progression in patient with allergic bronchopulmonary aspergillosis<br>- Identifying candidates for omalizumab (anti-IgE) therapy | 10 |
@@ -106,27 +71,20 @@ Please tick **ONLY** the appropriate test(s) required.
 | 3 | Tryptase | Blood | - Plain tube<br>- 3 ml<br>- Store at 2-8°C<br>- 1 plain tube for each sampling time | **Timing of samples collection**<br><br>**1. After anaphylaxis:**<br>- 1st sample within 15 minutes up to 3 hours after the onset of the symptoms<br>- 2nd sample after 24-48 hours to confirm the return to baseline levels<br>- 3rd sample after 1-2 weeks if incidents of mastocytosis or other causes of elevated basal levels are suspected<br><br>**2. For forensic sample, please specify sampling site, time of death and time of sampling.**<br><br>**Accurate timing of sampling is important for interpretation.** | 14 |
 | 4 | Eosinophil cationic protein (ECP) | Blood | - Plain tube<br>- 3 ml<br>- Store at 2-8°C | **Indication for ECP:**<br>- Eosinophilic related disease including eosinophilic esophagitis, eosinophilic gastroenteritis, hypereosinophilic syndrome etc.<br>- Allergic disease including bronchial asthma, atopic eczema, allergic rhinitis, ocular allergy, chronic urticaria etc. | 14 |
 
----
-
-## Additional Notes
-
+### Additional Notes
 - Private hospital/laboratory are advised to call the Allergy Unit prior to sending sample(s).
 - Sample(s) from East Malaysia are suggested to be transported in ice.
 - Spin/separate serum from RBC immediately. Grossly haemolysed samples will be rejected.
 
 ---
 
-# APPENDIX 2: HKLAAC REFERRAL FORM
-## Form Header
-
+## APPENDIX 2: HKLAAC REFERRAL FORM
+### Form Header
 **Referral Form for Perioperative Anaphylaxis**  
 Anaesthetic Allergy Clinic  
 Hospital Kuala Lumpur
 
----
-
-## Patient Details
-
+### Patient Details
 | Field | Details |
 |---|---|
 | Patient label (if available) | ____________________ |
@@ -137,10 +95,7 @@ Hospital Kuala Lumpur
 | Email | ____________________ |
 | Mailing Address | ____________________ |
 
----
-
-## Referring Doctor
-
+### Referring Doctor
 | Field | Details |
 |---|---|
 | Name | ____________________ |
@@ -149,10 +104,7 @@ Hospital Kuala Lumpur
 | Email | ____________________ |
 | Position | - [ ] Consultant Anaesthetist<br>- [ ] Specialist Anaesthetist<br>- [ ] Medical Officer<br>- [ ] Others (if referring doctor is non-anaesthetist) |
 
----
-
-## OT Personnel Involved
-
+### OT Personnel Involved
 | Field | Details |
 |---|---|
 | Anaesthetist's name | ____________________ |
@@ -161,12 +113,8 @@ Hospital Kuala Lumpur
 | Surgeon's name | ____________________ |
 | Surgeon's position | ____________________ |
 
----
-
-## Patient Medical History
-
+### Patient Medical History
 Does the patient have:
-
 - [ ] Pregnancy
 - [ ] Asthma
 - [ ] Eczema
@@ -181,7 +129,6 @@ Does the patient have:
 | Current Medications | ____________________ |
 
 Is the patient currently on:
-
 - [ ] Oral steroids
 - [ ] Antihistamines
 - [ ] Beta blockers
@@ -189,10 +136,7 @@ Is the patient currently on:
 - [ ] NSAID
 - [ ] ACE Inhibitors / AII Receptor antagonist
 
----
-
-## Details of Reaction
-
+### Details of Reaction
 | Field | Details |
 |---|---|
 | Procedure | ____________________ |
@@ -202,12 +146,8 @@ Is the patient currently on:
 | Time reaction first noted | ____________________ |
 | Mode of anaesthesia | - [ ] General<br>- [ ] Regional<br>- [ ] Local<br>- [ ] IV sedation<br>- [ ] GA + RA |
 
----
-
-## Medications Prior to Reaction
-
+### Medications Prior to Reaction
 The patient was exposed to the following medications **prior to the reaction**. Indicate time of exposure.
-
 | Agent | Time administered | Agent | Time administered |
 |---|---|---|---|
 | ____________________ | ____________________ | ____________________ | ____________________ |
@@ -217,12 +157,8 @@ The patient was exposed to the following medications **prior to the reaction**. 
 | ____________________ | ____________________ | ____________________ | ____________________ |
 | ____________________ | ____________________ | ____________________ | ____________________ |
 
----
-
-## Other Perioperative Exposures
-
+### Other Perioperative Exposures
 Please tick if the patient was exposed to the agents listed below and indicate time of exposure.
-
 | Agent | Details | Time |
 |---|---|---|
 | Chlorhexidine | - [ ] Skin prep<br>- [ ] Others | ____________________ |
@@ -236,10 +172,7 @@ Please tick if the patient was exposed to the agents listed below and indicate t
 | Urinary catheter | Specify type: ____________________ | ____________________ |
 | Lubricant | Specify type: ____________________ | ____________________ |
 
----
-
-## Symptoms and Signs of Reaction
-
+### Symptoms and Signs of Reaction
 | Symptom / Sign | Response / Details |
 |---|---|
 | Tachycardia >100 bpm (before adrenaline) | - [ ] Yes<br>- [ ] No |
@@ -258,31 +191,22 @@ Please tick if the patient was exposed to the agents listed below and indicate t
 | First symptom noticed | ____________________ |
 | Predominant symptom | ____________________ |
 
----
-
-## Severity of Allergic Reaction
-
+### Severity of Allergic Reaction
 Please specify the grade of allergic reaction from the categories below.
-
 - [ ] **Grade I:** Cutaneous-mucous signs: erythema, urticaria +/- angioedema
 - [ ] **Grade II:** Moderate multisystemic signs: cutaneous-mucous signs +/- hypotension +/- tachycardia +/- dyspnoea +/- gastrointestinal disturbance
 - [ ] **Grade III:** Life-threatening single- or multisystemic signs: cardiovascular collapse, tachycardia or bradycardia +/- cardiac dysrhythmia +/- bronchospasm +/- cutaneous-mucous signs +/- gastrointestinal disturbance
 - [ ] **Grade IV:** Cardiac arrest
 
----
-
-## Details of Treatment
-
-### Airway Management
-
+### Details of Treatment
+#### Airway Management
 | Treatment | Response / Details |
 |---|---|
 | Assisted/mechanical ventilation | - [ ] Yes<br>- [ ] No<br>- [ ] Planned<br>- [ ] Unplanned |
 | Endotracheal intubation | - [ ] Yes<br>- [ ] No<br>- [ ] Before onset<br>- [ ] After onset |
 | Bronchospasm treatment | - [ ] Yes<br>- [ ] No<br>Specify drugs used and dose: ____________________ |
 
-### Circulation and Resuscitation
-
+#### Circulation and Resuscitation
 | Treatment | Response / Details |
 |---|---|
 | Adrenaline given | - [ ] Yes<br>- [ ] No<br>- [ ] IV<br>- [ ] IM<br>- [ ] SC<br>- [ ] ETT<br>Total dose given: ________ mcg |
@@ -291,23 +215,15 @@ Please specify the grade of allergic reaction from the categories below.
 | Cardioversion/Defibrillation | - [ ] Yes<br>- [ ] No<br>Number of shocks: ____________________ |
 | Vasopressors other than adrenaline given | - [ ] Yes<br>- [ ] No<br>- [ ] Ephedrine dose: ________<br>- [ ] Phenylephrine dose: ________<br>- [ ] Noradrenaline dose: ________<br>- [ ] Others (specify): ____________________ |
 
-### Other Medications
-
+#### Other Medications
 | Treatment | Response / Details |
 |---|---|
 | Steroids given | - [ ] Yes<br>- [ ] No<br>Specify steroid used and dose: ____________________ |
 | Antihistamines used | - [ ] Yes<br>- [ ] No<br>Specify antihistamine used and dose: ____________________ |
 
----
-
-## Investigations
-
-Serum tryptase taken?
-
-- [ ] Yes
-- [ ] No
-
-Please take **5 mL serum bottle at 1 hour, 4 hours and 24 hours after reaction**. State brief history in request form. Please record time samples taken and attach results to this referral, if available.
+### Investigations
+- Serum tryptase taken? Yes or No?
+- Please take **5 mL serum bottle at 1 hour, 4 hours and 24 hours after reaction**. State brief history in request form. Please record time samples taken and attach results to this referral, if available.
 
 | Sample | Time | Result |
 |---|---|---|
@@ -320,13 +236,9 @@ Please take **5 mL serum bottle at 1 hour, 4 hours and 24 hours after reaction**
 | Pathology laboratory specimens sent to | ____________________ |
 | Other differential diagnosis other than anaphylaxis | ____________________ |
 | Comments | ____________________ |
-
 > Send to IMR if from HKL or via hospital laboratory if from other hospitals. Store at 4 degrees if there is delay in transport, maximum 4 days.
 
----
-
-## Outcome / Sequelae
-
+### Outcome / Sequelae
 | Field | Response / Details |
 |---|---|
 | Operation/procedure | - [ ] Completed<br>- [ ] Abandoned |
@@ -338,8 +250,7 @@ Please take **5 mL serum bottle at 1 hour, 4 hours and 24 hours after reaction**
 | Duration of inotrope infusion | ____________________ |
 | Duration of ICU stay | ____________________ |
 
-### Further Complications
-
+#### Further Complications
 - [ ] ECG Changes
 - [ ] Coagulopathy
 - [ ] Troponin rise
@@ -348,23 +259,18 @@ Please take **5 mL serum bottle at 1 hour, 4 hours and 24 hours after reaction**
 - [ ] Others (specify): ____________________
 
 **Comments / summary of events:**  
-____________________
 
----
-
-## Referral Submission Notes
-
+### Referral Submission Notes
 - [ ] Please forward this referral and supporting documents to Anaesthetic Allergy Clinic, Hospital Kuala Lumpur. Contact 03-26155555 ext 1133/1134, email hklaac@gmail.com.
 - [ ] Please attach a copy of the anaesthetic/recovery/PACU chart.
 - [ ] Please ensure the correct patient details have been supplied.
 - [ ] Please inform the patient of the events and this referral which entails skin and serum testing.
 - [ ] Provide the patient with a letter listing all substances administered perioperatively to show to those providing care until testing can be conducted.
-
 > Patient will be contacted by our clinic for an appointment date.
 
 ---
 
-# APPENDIX 3: MALIGNANT HYPERTHERMIA REPORTING FORM
+## APPENDIX 3: MALIGNANT HYPERTHERMIA REPORTING FORM
 | MALIGNANT HYPERTHERMIA |
 |---|
 | Malignant hyperthermia (MH) is an uncommon pharmacogenetic disorder of muscle induced by exposure to suxamethonium and all the volatile anaesthetic agents. It is characterized by hypermetabolism, muscle rigidity and muscle injury. |
@@ -398,8 +304,7 @@ ____________________
 | C | Monitor vitals and labs as above (see #7)<br>- Frequent ABG<br>- CK every 6-8 hours |
 | D | Counsel the patient and family regarding MH and further precautions |
 
-## CONTENTS OF MALIGNANT HYPERTHERMIA CART
-
+### CONTENTS OF MALIGNANT HYPERTHERMIA CART
 | | Items | Quantity | Purpose |
 |---|---|---|---|
 | 1 | Dantrolene | At least 12 vials | - |
@@ -414,14 +319,10 @@ ____________________
 | 10 | Calcium gluconate 10% | 4 ampules | Treatment of hyperkalemia |
 | 11 | Adrenaline 1 mg | 4 ampules | Treatment of hypotension |
 | 12 | Normal saline (refrigerated) | 6 L | For injection and irrigation |
+OTHERS : Also included on the cart: crushed ice or ice maker, irrigating Foley catheter rectal tube, cooling blanket, central venous access kits, pulmonary artery catheter, new fresh gas hose, carbon dioxide-absorption canisters, anesthesia breathing circuit, ventilator bellows, blood-collection tubes, lab slips, labels
 
-**OTHERS :**  
-Also included on the cart: crushed ice or ice maker, irrigating Foley catheter, rectal tube, cooling blanket, central venous access kits, pulmonary artery catheter, new fresh gas hose, carbon dioxide-absorption canisters, anesthesia breathing circuit, ventilator bellows, blood-collection tubes, lab slips, labels
-
-## PRIVATE AND CONFIDENTIAL
-
-**Report for suspected Malignant Hyperthermia Reaction**
-
+### PRIVATE AND CONFIDENTIAL
+Report for suspected Malignant Hyperthermia Reaction
 | Field | Details |
 |---|---|
 | Hospital : | |
@@ -494,8 +395,7 @@ Also included on the cart: crushed ice or ice maker, irrigating Foley catheter, 
 
 ---
 
-
-# APPENDIX 4: LOCAL ANAESTHETIC SYSTEMIC TOXICITY (LAST) MANAGEMENT PROTOCOL
+## APPENDIX 4: LOCAL ANAESTHETIC SYSTEMIC TOXICITY (LAST) MANAGEMENT PROTOCOL
 | LOCAL ANAESTHETIC SYSTEMIC TOXICITY |
 |---|
 | Local Anaesthetic Systemic Toxicity (LAST) is a rare but potentially fatal adverse drug reaction resulting from circulating levels of local anaesthetics (LA) reaching toxic levels |
