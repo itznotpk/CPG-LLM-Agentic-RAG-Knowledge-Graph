@@ -379,15 +379,14 @@ TEXT:
         
         try:
             from pydantic_ai.models.bedrock import BedrockConverseModel
-            model_id = os.getenv("BEDROCK_MODEL_ID", "anthropic.claude-3-haiku-20240307-v1:0")
+            model_id = os.getenv("BEDROCK_MODEL_ID", "us.anthropic.claude-haiku-4-5-20251001-v1:0")
             model = BedrockConverseModel(model_id)
         except Exception as e:
             logger.warning(f"Could not load ingestion model for triple extraction: {e}")
             return []
         
-        # Truncate to avoid token limit
-        max_chars = 6000
-        truncated = text[:max_chars] if len(text) > max_chars else text
+        # Use provided text directly (already truncated/subchunked by caller)
+        truncated = text
         
         relation_list = "\n".join(f"  - {r}" for r in self.CLINICAL_RELATION_TYPES)
         
@@ -532,6 +531,38 @@ Return format:
             logger.error(f"Failed to write triples to Neo4j: {e}")
             raise
     
+    def _split_into_subchunks(self, text: str, max_chars: int = 6000, overlap: int = 500) -> List[str]:
+        """Split a large text into overlapping sub-chunks for LLM processing."""
+        if len(text) <= max_chars:
+            return [text]
+        
+        subchunks = []
+        start = 0
+        while start < len(text):
+            end = start + max_chars
+            chunk = text[start:end]
+            
+            # If not at the end, try to find a clean break (newline or period)
+            if end < len(text):
+                last_newline = chunk.rfind('\n')
+                last_period = chunk.rfind('. ')
+                
+                if last_newline > max_chars * 0.7:
+                    end = start + last_newline + 1
+                elif last_period > max_chars * 0.7:
+                    end = start + last_period + 2
+                
+                chunk = text[start:end]
+            
+            subchunks.append(chunk)
+            start = end - overlap if end < len(text) else end
+            
+            # Safety break for very small progress
+            if end <= start:
+                start += max_chars // 2
+                
+        return subchunks
+
     async def build_relationship_graph(
         self,
         chunks: List[DocumentChunk],
@@ -540,39 +571,56 @@ Return format:
         """
         Build knowledge graph with LLM-extracted medical relationship triples.
         
-        For each chunk, the LLM reads the clinical text and extracts typed
-        (subject, relation, object) triples using universal clinical relation types.
-        Triples are written to Neo4j as typed edges via MERGE (idempotent).
-        
-        Works for ANY CPG domain â€” no hardcoded entity names or drug lists.
-        
-        Args:
-            chunks: List of document chunks (entities already extracted)
-            document_title: Title of the source document
-        
-        Returns:
-            Summary of triples created
+        Splits oversized chunks into overlapping sub-chunks to ensure 100% coverage
+        without hitting LLM context limits or truncation.
         """
         all_triples = []
         rel_counts: Dict[str, int] = {}
+        processed_triples_keys: Set[Tuple[str, str, str]] = set() # For deduping
         
         logger.info(f"Extracting LLM triples from {len(chunks)} chunks for '{document_title}'")
         
         for chunk in chunks:
-            triples = await self._extract_triples_with_llm(
-                text=chunk.content,
-                chunk_index=chunk.index,
-                source=chunk.metadata.get("source", "")
-            )
+            # Phase A2 Fix: Split into overlapping subchunks to avoid 6000 char truncation
+            subchunks = self._split_into_subchunks(chunk.content, max_chars=6000, overlap=500)
             
-            for t in triples:
-                t["source_document"] = document_title
-                rel = t.get("relation", "OTHER")
-                rel_counts[rel] = rel_counts.get(rel, 0) + 1
+            if len(subchunks) > 1:
+                logger.info(f"  Chunk {chunk.index} is large ({len(chunk.content)} chars) - split into {len(subchunks)} sub-chunks")
             
-            all_triples.extend(triples)
+            for sub_idx, sub_content in enumerate(subchunks):
+                # Use a fractional index for sub-chunks (e.g., 12.1, 12.2)
+                display_idx = f"{chunk.index}.{sub_idx+1}" if len(subchunks) > 1 else chunk.index
+                
+                triples = await self._extract_triples_with_llm(
+                    text=sub_content,
+                    chunk_index=chunk.index,
+                    source=chunk.metadata.get("source", "")
+                )
+                
+                for t in triples:
+                    # Deduplication check
+                    triple_key = (
+                        t.get("subject", "").lower().strip(),
+                        t.get("relation", "").upper().strip(),
+                        t.get("object", "").lower().strip()
+                    )
+                    
+                    if triple_key in processed_triples_keys:
+                        continue
+                    
+                    processed_triples_keys.add(triple_key)
+                    t["source_document"] = document_title
+                    t["subchunk_index"] = display_idx
+                    
+                    rel = t.get("relation", "OTHER")
+                    rel_counts[rel] = rel_counts.get(rel, 0) + 1
+                    all_triples.append(t)
+                
+                # Small delay between sub-chunks
+                if sub_idx < len(subchunks) - 1:
+                    await asyncio.sleep(0.5)
             
-            # Small delay between chunks
+            # Small delay between main chunks
             if chunk.index < len(chunks) - 1:
                 await asyncio.sleep(0.3)
         

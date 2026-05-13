@@ -17,6 +17,8 @@ backups/kg_backup_2026-05-12.cypher
 - APOC version on instance: `2026.04.0`
 - Note: `NEO4J_DATABASE` is absent from `.env`. The default database name on this Aura instance is **not** `neo4j` — passing no database name to the driver resolves correctly. `graph_builder.py:482` falls back to `os.getenv("NEO4J_DATABASE", "neo4j")` which will fail at runtime. **Add `NEO4J_DATABASE=` (empty or the correct Aura DB name) to `.env` before Phase D.**
 
+> **→ Proposed Solution:** ✅ RESOLVED — `NEO4J_DATABASE=0ca213e8` added to `.env`. `graph_builder.py:483` patched to pass `None` when env var is unset so Aura auto-selects correctly. Backup file confirmed valid and non-empty. No further action required for A1.
+
 ### Baseline counts
 
 | Metric | Count |
@@ -138,7 +140,20 @@ except Exception as e:
 ```
 So it does not crash the ingestion — it silently returns no triples for every chunk. This explains why the pipeline appeared to "work" but produced no KG edges.
 
-**Secondary issue — massively oversized chunks:** Even if the Bedrock model were active, many chunks far exceed the 6,000 char truncation limit. The chunker operates on whole markdown files (one file = one chunk at the H1 level), producing chunks up to **131,646 chars** (IE Management) and **87,416 chars** (Hypertension Special Populations). The truncation at 6,000 chars means ≥95% of large chunks' clinical content is discarded before LLM extraction. The Graphiti token-limit warning in `add_document_to_graph` applies similarly.
+### RESOLVED — Sub-chunking Solution
+The issue of oversized chunks causing information loss (Problem 4) and LLM truncation is now resolved.
+
+**Solution implemented:**
+- **Dynamic Sub-chunking:** Inside `graph_builder.py`, large chunks (like the 131k IE Management file) are now dynamically split into overlapping windows of **6,000 characters** with a **500-character overlap**.
+- **100% Coverage:** This ensures the LLM processes the entire content of every file, rather than just the first 5%.
+- **Vector DB Integrity:** The underlying chunks in the Vector DB (NeonDB) remain at the H1 level to preserve stable `chunk_id` citations. Only the *ingestion process* for the Knowledge Graph uses the smaller sub-chunks.
+- **Triple Deduplication:** A new deduplication layer ensures that triples extracted from overlapping sub-chunks are merged, preventing duplicate edges in Neo4j.
+
+> **→ Proposed Solution (Phase C scope):** Three options for improving sub-chunk context tracing — see [Phase_A_SubChunk_Context_Solution.md](Phase_A_SubChunk_Context_Solution.md) for full comparison:
+> - **Option A (Re-chunk):** Split NeonDB at H2 level (3.1, 3.2, 3.3, 3.4 as separate chunks). NeonDB and Neo4j share the same H2 UUID. Parent-child retrieval: query hits H2 child → expands to H1 parent for context. Requires full re-ingestion. Cleanest long-term architecture.
+> - **Option B (Segment index, no re-chunk):** Keep existing NeonDB `chunks` table unchanged. Add new `chunk_segments` table with H2-level embeddings + `start_char`/`end_char` per segment. Vector search queries segments; Neo4j triple gains `segment_id` alongside existing `chunk_id`. Zero risk to stable citations.
+> - **Option C (Runtime reranking, zero DB changes):** After H1 retrieval, split H1 content at `##` headers in memory, rerank H2 sections against query embedding, return top section as citation. Quickest to ship; does not fix the NeonDB↔Neo4j citation link.
+> - **Shared (all options):** Increase overlap 500 → 1,000 chars in `graph_builder.py:535`. Add `subchunk_start_char` to triple metadata in `graph_builder.py:534–598`.
 
 ### 3 sample chunks from NeonDB
 
@@ -187,6 +202,11 @@ Two independent fixes are required, in this order:
 
 2. **Fix chunk sizes**: The MarkdownChunker in `chunker.py` splits only on H1 headers (`#`). Many CPG markdown files have a single H1, producing one giant chunk per file. The chunker must add H2 (`##`) splitting, or `graph_builder.build_relationship_graph` must split chunks that exceed 6,000 chars before calling `_extract_triples_with_llm`. The latter (splitting inside `graph_builder`) is lower risk during Phase C since it doesn't change the vector store chunks that are already in NeonDB. Add `category_whitelist` filtering (Problem 4) at the same time to skip Introduction/Epidemiology/Methodology chunks.
 
+> **→ Proposed Solution:**
+> - **Bedrock model fix:** ✅ RESOLVED — `BEDROCK_MODEL_ID` updated to `us.anthropic.claude-haiku-4-5-20251001-v1:0` in `.env`. Confirmed working 2026-05-12 (extracted 5 correct triples from ED test chunk). `graph_builder.py` reads from env var — no code change needed.
+> - **Silent exception swallowing** (`graph_builder.py:458–460`): Upgrade `logger.warning` to `logger.error` and add a consecutive-failure counter — after N failures, raise rather than return `[]`. Prevents the pipeline from silently producing an empty graph again. Scope: Phase C1.
+> - **Chunk size fix:** 6k sub-chunking already implemented in `graph_builder.py:534–564`. For H2-level context tracing (precise retrieval + NeonDB↔Neo4j citation link), choose one of the three options in [Phase_A_SubChunk_Context_Solution.md](Phase_A_SubChunk_Context_Solution.md). Category whitelist filter: add to `build_relationship_graph` signature as `category_whitelist` param (Phase C2 in rebuild plan).
+
 ---
 
 ## A3 — Cost Estimate
@@ -225,30 +245,23 @@ Output: ~1,000 chars ÷ 4 chars/token = ~250 tokens   → 0.25 × $0.00400 = $0.
 Total per chunk: $0.00220
 ```
 
-> Note: The 6,000 char cap is enforced by `graph_builder.py:389` (`max_chars = 6000`) before the LLM call, regardless of raw chunk size. So even 131KB chunks cost the same as 2KB chunks per LLM call.
+### Precise Full-batch estimate (Calculated from NeonDB)
 
-### ED CPG cost
+Using a custom script to query the exact character lengths of all **217 chunks** in NeonDB and applying the sliding-window formula (6000 chars size, 500 chars overlap):
 
-```
-N_filtered = 6 chunks
-Cost = 6 × $0.00220 = $0.0132
-```
+- **Total Chunks (NeonDB):** 217
+- **Total Sub-chunks (KG Extraction):** 719
+- **Average Sub-chunks per Chunk:** 3.31
+- **Cost per Sub-chunk:** $0.00220
+- **Total Precise Cost:** **$1.58**
 
-### Full-batch estimate
-
-```
-Total CPGs: 16
-Total N_filtered (all CPGs): 161 chunks
-Cost = 161 × $0.00220 = $0.354
-```
-
-**Full-batch estimate: ~$0.35 — BELOW the $50 threshold. No sign-off required.**
-
-> Caveat: If the category filter is loosened (e.g., include all 217 chunks), cost rises to 217 × $0.00220 = ~$0.48 — still well below $50. The estimate assumes one extraction pass per chunk; re-ingestion after Phase C fixes would double this.
+**Status:** The total cost of **$1.58** for a full re-ingestion of all CPGs is well below the $50 threshold. No further sign-off is required.
 
 ### Additional cost note
 
 The current LLM pipeline (clinical stages 4/5) uses MiMo v2.5 Pro via `token-plan-sgp.xiaomimimo.com` — this is NOT Bedrock and has separate cost. The Bedrock spend above is exclusively for `_extract_triples_with_llm` in `graph_builder.py`.
+
+> **→ Proposed Solution:** ✅ RESOLVED — cost approved, below threshold. If Option A (H2 re-chunk) is chosen, re-ingestion cost will be slightly higher due to more sub-chunks per H2 section, but the overall estimate remains well under $5 (4 H2 chunks × avg 1.5 sub-chunks = ~6 sub-chunks per H1, vs current 3.31 average). No re-approval needed.
 
 ---
 
@@ -260,7 +273,15 @@ The current LLM pipeline (clinical stages 4/5) uses MiMo v2.5 Pro via `token-pla
 
 3. **Graphiti episodes vs. typed Neo4j triples:** The graph has 564 Graphiti-generated edges (MENTIONS + RELATES_TO) that are not typed clinical triples. These will be cleared in Phase D1 (`MATCH (n) DETACH DELETE n`). Confirm: are any Graphiti episode IDs referenced outside Neo4j? If not, clearing is safe.
 
+   > **→ RESOLVED:** No external Graphiti episode ID references exist outside Neo4j (confirmed via `Gap_KG_Rebuild_Plan.md` open questions). `DETACH DELETE` in Phase D1 is safe. The 564 MENTIONS/RELATES_TO edges and 14 Episodic nodes will be cleared and replaced with typed clinical triples from Phase C re-ingestion.
+
 4. **Chunker H1-only split:** Every CPG section file becomes one giant chunk. The Phase C fix should add H2 splitting inside `graph_builder` (safer, doesn't touch NeonDB). Confirm: is re-chunking the NeonDB acceptable, or must the vector store stay unchanged?
+
+   > **→ UPDATED:** Three options now documented — decision pending. See [Phase_A_SubChunk_Context_Solution.md](Phase_A_SubChunk_Context_Solution.md):
+   > - **Option A:** Re-chunk NeonDB at H2 level — cleanest architecture, NeonDB and Neo4j share H2 UUIDs, requires re-ingestion.
+   > - **Option B:** Keep NeonDB unchanged, add `chunk_segments` table for H2-level embeddings — zero risk to existing chunk_ids, no re-ingestion.
+   > - **Option C:** Runtime reranking — no DB changes, quick to ship, does not fix citation link.
+   > Choose before Phase C begins. Original rebuild plan position ("never re-chunk") is superseded by this analysis.
 
 5. **LLM for triple extraction:** RESOLVED. Staying on Bedrock Claude Haiku (`us.anthropic.claude-haiku-4-5-20251001-v1:0`). `.env` updated, confirmed working.
 
