@@ -16,7 +16,7 @@ from agent.routing import CPGDocRef
 from agent.clinical_stages import (
     DDxResult,
     DDX_RERANK_MODEL,
-    DDX_THINKING_BUDGET,
+    PromptOversizeError,
     _build_symptom_text,
     _generate_retrieval_queries,
     _format_evidence,
@@ -116,7 +116,10 @@ def _make_valid_plan_dict(icd_primary: str = "BC81.3") -> dict:
                 "contraindications_checked": ["severe bradycardia"],
             }
         ],
-        "monitoring": ["heart rate", "blood pressure"],
+        "monitoring": [
+            {"parameter": "heart rate", "schedule": "each visit", "target": "controlled"},
+            {"parameter": "blood pressure", "schedule": "each visit", "target": "<140/90 mmHg"},
+        ],
         "red_flags": ["syncope", "haemodynamic instability"],
         "confidence": 0.85,
         "unresolved_questions": [],
@@ -484,6 +487,51 @@ async def test_stage5_formats_evidence_with_section():
 
 
 @pytest.mark.asyncio
+async def test_stage5_evidence_keeps_late_chunk_content():
+    """Long retrieved chunks should not be cut at the old 4k character ceiling."""
+    late_marker = "DUKE_CRITERIA_LATE_SECTION"
+    chunk = _make_chunk()
+    chunk.content = "a" * 4500 + late_marker
+
+    evidence_text = _format_evidence([chunk])
+
+    assert late_marker in evidence_text
+
+
+@pytest.mark.asyncio
+async def test_stage5_dedupes_parent_context_for_same_document():
+    """Repeated chunks from one document should not inject parent context twice."""
+    first = _make_chunk(chunk_id="c1")
+    second = _make_chunk(chunk_id="c2")
+
+    with patch("agent.clinical_stages.build_parent_context", side_effect=lambda c, include_parent=True: c.content) as mock_build:
+        _format_evidence([first, second])
+
+    assert mock_build.call_args_list[0].kwargs["include_parent"] is True
+    assert mock_build.call_args_list[1].kwargs["include_parent"] is False
+
+
+@pytest.mark.asyncio
+async def test_stage5_prompt_guard_blocks_oversized_prompt():
+    """Oversized Stage 5 prompts should fail before the LLM call."""
+    case = _make_case()
+    ddx = [_make_ddx()]
+    cpgs = [_make_cpg()]
+    evidence = [_make_chunk()]
+
+    mock_client = MagicMock()
+    mock_client.chat.completions.create = AsyncMock()
+
+    with patch("agent.clinical_stages.openai") as mock_openai, \
+         patch("agent.clinical_stages._count_tokens", return_value=200_000):
+        mock_openai.AsyncOpenAI.return_value = mock_client
+        with pytest.raises(PromptOversizeError):
+            await stage_5_synthesize(case, ddx, cpgs, evidence)
+
+    mock_client.chat.completions.create.assert_not_called()
+
+
+@pytest.mark.asyncio
 async def test_stage5_empty_evidence_populates_unresolved():
     """Zero evidence chunks — LLM mock returns plan with unresolved_questions populated."""
     case = _make_case()
@@ -537,7 +585,7 @@ async def test_stage2_rerank_skipped_when_false(minimal_case):
 
 @pytest.mark.asyncio
 async def test_rerank_uses_gemini_25_flash(minimal_case):
-    """_llm_rerank_ddx calls DDX_RERANK_MODEL with thinking extra_body and temperature=1."""
+    """_llm_rerank_ddx calls the configured rerank model with deterministic output bounds."""
     candidates = [
         DDxResult(code="BC81.3", title="AF",  similarity=0.91),
         DDxResult(code="BA00",   title="HTN", similarity=0.72),
@@ -556,9 +604,8 @@ async def test_rerank_uses_gemini_25_flash(minimal_case):
 
         call_kwargs = mock_client.chat.completions.create.call_args.kwargs
         assert call_kwargs["model"] == DDX_RERANK_MODEL
-        assert call_kwargs["extra_body"]["thinking"]["type"] == "enabled"
-        assert call_kwargs["extra_body"]["thinking"]["budget_tokens"] == DDX_THINKING_BUDGET
         assert call_kwargs["temperature"] == 1
+        assert call_kwargs["max_tokens"] == 4000
 
 
 @pytest.mark.asyncio

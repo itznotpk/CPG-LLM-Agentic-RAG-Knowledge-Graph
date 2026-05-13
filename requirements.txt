@@ -64,6 +64,7 @@ python-dotenv>=1.1.0        # .env file loading
 # Data Processing
 # ------------------------------------------
 numpy>=2.0.0                # Numerical processing
+tiktoken>=0.7.0             # Token counting for prompt budgets
 tokenizers>=0.21.0          # Tokenization
 
 # ------------------------------------------

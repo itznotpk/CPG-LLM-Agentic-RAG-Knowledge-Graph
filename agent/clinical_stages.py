@@ -15,6 +15,10 @@ import logging
 import os
 
 import openai
+try:
+    import tiktoken
+except ImportError:  # pragma: no cover - only used before requirements are reinstalled
+    tiktoken = None
 from pydantic import BaseModel
 from pydantic import ValidationError
 
@@ -537,22 +541,60 @@ _CURRENT_YEAR = 2026
 _CPG_STALE_THRESHOLD_YEARS = 5
 
 
-# Per-chunk content ceiling and total evidence budget.
-# Chunks are stored as full markdown sections (often 5k–20k chars each) because
-# chunk_method="markdown_header" creates one chunk per CPG section.
-# We pass as much content as possible within a total token budget so grade tags,
-# dosing details, and monitoring parameters at the end of a section remain visible.
-# Layer 2 fix (requires re-ingestion): paragraph-level sub-chunking so each chunk
-# is already ~500 tokens — at that point these caps can be removed entirely.
-_CHUNK_CHAR_LIMIT = 4000    # per chunk — covers ~3 full recommendation paragraphs
-_TOTAL_CHAR_BUDGET = 80_000  # total evidence string — well within 200k-token LLM context
+# Tiered evidence budgets for Stage 5 synthesis.
+# Step 1 still receives whole markdown-header chunks. Keep each retrieved chunk
+# intact whenever possible so late-section criteria, tables, and qualifiers remain
+# visible to the synthesis LLM.
+_CHILD_CHAR_LIMIT = 20_000
+_PARENT_CHAR_LIMIT = 60_000
+_TOTAL_TOKEN_BUDGET = 50_000
+_PROMPT_TOKEN_LIMIT = 180_000
+_ENC = None
+
+
+class PromptOversizeError(RuntimeError):
+    """Raised before an oversized synthesis prompt is sent to the LLM."""
+
+
+def _get_token_encoder():
+    global _ENC
+    if _ENC is False:
+        return None
+    if _ENC is None and tiktoken is not None:
+        try:
+            _ENC = tiktoken.encoding_for_model("gpt-4")
+        except Exception as exc:
+            logger.warning("tiktoken encoder unavailable; using char proxy: %s", exc)
+            _ENC = False
+    return None if _ENC is False else _ENC
+
+
+def _count_tokens(s: str) -> int:
+    """Count tokens with tiktoken; fall back to a conservative char proxy."""
+    if not s:
+        return 0
+    encoder = _get_token_encoder()
+    if encoder is None:
+        return max(1, len(s) // 4)
+    return len(encoder.encode(s))
+
+
+def build_parent_context(chunk: ChunkResult, include_parent: bool = True) -> str:
+    """
+    Step 1 form: no parent layer exists yet. Return chunk content capped at the
+    parent budget. Step 2 will expand this once parent fields are populated.
+    """
+    if not include_parent:
+        return chunk.content
+    return chunk.content[:_PARENT_CHAR_LIMIT]
 
 
 def _format_evidence(chunks: list[ChunkResult]) -> str:
     lines = []
-    total_chars = 0
+    running_tokens = 0
+    seen_documents: set[str] = set()
     for i, c in enumerate(chunks, 1):
-        if total_chars >= _TOTAL_CHAR_BUDGET:
+        if running_tokens >= _TOTAL_TOKEN_BUDGET:
             break
         section = c.metadata.get("section_number", "")
         cpg = c.document_title or c.document_source
@@ -568,12 +610,50 @@ def _format_evidence(chunks: list[ChunkResult]) -> str:
                     age_warning = f"  ⚠ Published {year_int} ({age}y old — verify against current guidelines)"
             except (TypeError, ValueError):
                 pass
-        remaining = _TOTAL_CHAR_BUDGET - total_chars
-        content = c.content[:min(_CHUNK_CHAR_LIMIT, remaining)]
+        document_key = c.metadata.get("parent_chunk_id") or c.document_id
+        include_parent = document_key not in seen_documents
+        if include_parent:
+            seen_documents.add(document_key)
+        else:
+            logger.debug(
+                "Skipping duplicate parent context for document %s via chunk %s",
+                document_key,
+                c.chunk_id,
+            )
+
+        content = build_parent_context(c, include_parent=include_parent)
+        content_tokens = _count_tokens(content)
+        if len(content) > _CHILD_CHAR_LIMIT and running_tokens + content_tokens > _TOTAL_TOKEN_BUDGET:
+            logger.info(
+                "Skipping oversized child %s (%d chars, budget exhausted)",
+                c.chunk_id,
+                len(content),
+            )
+            continue
+        if running_tokens + content_tokens > _TOTAL_TOKEN_BUDGET:
+            logger.info(
+                "Skipping chunk %s (%d tokens would exceed synthesis evidence budget)",
+                c.chunk_id,
+                content_tokens,
+            )
+            continue
         entry = f"[{i}] {cpg} §{section}{age_warning}\n{content}"
         lines.append(entry)
-        total_chars += len(content)
+        running_tokens += content_tokens
     return "\n\n".join(lines)
+
+
+def _guard_prompt_size(system_prompt: str, user_prompt: str) -> None:
+    prompt_tokens = _count_tokens(system_prompt) + _count_tokens(user_prompt)
+    if prompt_tokens > _PROMPT_TOKEN_LIMIT:
+        logger.error(
+            "Stage 5 prompt assembled to %d tokens; refusing send",
+            prompt_tokens,
+        )
+        raise PromptOversizeError(
+            f"Stage 5 prompt assembled to {prompt_tokens} tokens; "
+            f"limit is {_PROMPT_TOKEN_LIMIT}"
+        )
 
 
 async def stage_5_synthesize(
@@ -614,6 +694,8 @@ Retrieved Evidence ({len(evidence)} chunks):
 
 Produce a TreatmentPlan JSON object matching this schema:
 {json.dumps(SYNTHESIS_SCHEMA, indent=2)}"""
+
+    _guard_prompt_size(SYNTHESIS_SYSTEM, user_prompt)
 
     resp = await client.chat.completions.create(
         model=model,

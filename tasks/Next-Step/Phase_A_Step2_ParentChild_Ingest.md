@@ -1,8 +1,8 @@
 # Phase A — Step 2: Parent-Child Re-ingest (NeonDB + KG)
 
 > **Position in rollout:** Step 2 of 3. Runs **after** Step 1 (synthesis cap fixes — see `Phase_A_Step1_Synthesis_Fixes_Now.md`) and **before** Step 3 (performance pass — see `Phase_A_Step3_Performance_Pass.md`).
-> **Status:** Three solution paths documented — choose based on willingness to re-chunk.
-> **Recommendation:** Option A (H2 re-chunk). Cleanest single-source-of-truth — same H2 UUID serves retrieval and KG citation.
+> **Status:** Option A selected — H2 re-chunk with full re-ingest.
+> **Recommendation:** Proceed with H2 re-chunk. Cleanest single-source-of-truth — same H2 UUID serves retrieval and KG citation.
 > **Trigger:** Query — "if an answer falls in the middle of a 6k sub-chunk split, does the system know what's before and after?"
 
 ---
@@ -19,26 +19,18 @@
 
 ---
 
-## 2. Decision Guide — Which Option to Use
+## 2. Selected Path — H2 Re-chunk with Full Re-ingest
 
-> **Re-embedding is mandatory in both options.** The existing 51k+ H1 vectors were built from incomplete input — `text-embedding-3-small` truncates at ~8,191 tokens (~32k chars), so the late portion of every oversized H1 was never represented in its vector. No retrieval-time trick can fix a vector that was built from incomplete input. The only choice is **where the new H2 embeddings live**, not whether to re-embed.
+> **Re-embedding is mandatory.** The existing 51k+ H1 vectors were built from incomplete input — `text-embedding-3-small` truncates at ~8,191 tokens (~32k chars), so the late portion of every oversized H1 was never represented in its vector. No retrieval-time trick can fix a vector that was built from incomplete input.
 
-Two solution paths:
-
-| Option | Where H2 embeddings live | Re-chunk `chunks` table? | Fixes P1 (precision) | Fixes P2 (citation link) | Fixes P3 (boundary) | Effort |
-|--------|-------------------------|--------------------------|---------------------|--------------------------|---------------------|--------|
-| **A — H2 Re-chunk** | New H2 rows in `chunks` (alongside H1 parent rows) | **Yes** — `chunks` rebuilt | Full | Full (same UUID for retrieval + KG) | Full | High |
-| **B — Segment Index** | New `chunk_segments` table; `chunks` untouched | No — `chunks` rows stable | Full | Full (via `segment_id` on triple) | Full | Medium |
-
-**Recommendation: Option A.**
+**Decision: Option A / H2 re-chunk.**
 - New CPGs are about to be added — the re-ingest pass happens anyway. Cleanest to handle it as one operation.
 - Single source of truth: the same H2 UUID is both the embedded vector and the KG citation target.
 - The H1 parent row is kept (unembedded) so the synthesis stage can still pull full context.
-- Option B remains a fallback if a fresh re-ingest of existing CPGs is blocked for unrelated reasons.
 
 ---
 
-## 3. Option A — H2 Re-chunking (Full Solution, Requires Re-ingest)
+## 3. H2 Re-chunking Architecture
 
 ### Architecture
 
@@ -110,6 +102,35 @@ Add `##` (H2) splitting to `MarkdownHeaderTextSplitter`. For each markdown file:
 - Fallback: if no H2 headers exist, H1 chunk becomes both parent and leaf (`chunk_level='h1_leaf'`, embedded)
 - Cap: H2 chunk > 8,000 chars → split at `###` with same parent-child logic
 
+#### Parent-only shared references
+
+Use this rule for shared or overlap material such as cross-cutting tables, criteria lists, dosing reference tables, and appendix-style content that should support synthesis but should not become an independent vector hit:
+
+```text
+Retrievable children = clinically specific H2 sections
+Parent context = full H1, including shared/overlap tables
+Parent-only references = visible to synthesis, invisible to direct child retrieval
+```
+
+Recommended markdown marker:
+
+```md
+<!-- parent_only_reference_start -->
+### Shared Reference: Modified Duke Criteria
+
+| Criteria | Details |
+|---|---|
+| Major criteria | ... |
+| Minor criteria | ... |
+<!-- parent_only_reference_end -->
+```
+
+Chunker behavior:
+- Keep the marked block inside the H1 parent content.
+- Do not emit the marked block as a retrievable H2 child or embed it separately.
+- If a nearby H2 child from the same H1 is retrieved, include the parent context so the marked reference is still visible to Stage 5 synthesis.
+- Prefer `###` or lower headings inside the marked block. Avoid `##` inside the block unless the parser removes/masks parent-only blocks before H2 splitting.
+
 ### KG Extraction Change
 
 Read H2 child chunks from NeonDB instead of H1:
@@ -130,18 +151,27 @@ IE section-3: was 1 H1 → 9 sub-chunks (51k ÷ 6k). Now: 4 H2 → 0–2 sub-chu
 | H1 not embedded | H1 content unreachable by semantic search; only loadable via parent_chunk_id join. |
 | Neo4j re-ingest | Phase D1 `DETACH DELETE` + re-extraction from H2 chunks required. Old `chunk_index` integers abandoned. |
 
-### Implementation Steps
+### Implementation Steps After Step 1 Completion
 
-| Step | Action | Files | Risk |
-|------|--------|-------|------|
-| A-1 | Add `chunk_level` column (`parent_chunk_id` already exists in `chunks` from prior migration) | Migration SQL | Low — additive |
-| A-2 | Update `MarkdownChunker` for H1→H2 split (cap H2 > 8k → split at H3) | `chunker.py` L81–318 | Medium |
-| A-3 | Update `ingest.py` to read H2 chunks for KG (filter `chunk_level = 'h2'`) | `ingest.py` | Low |
-| A-4 | Update `db_utils.py` vector search filter (`WHERE chunk_level = 'h2'`) | `db_utils.py` L369–522 | Low |
-| A-5 | Update `tools.py` to return `{child, parent}` with `build_parent_context()` helper from Step 1 | `tools.py` L142–257 | Low |
-| **A-6** | **ICD-11 scope wiring for new CPGs** — see §3.1 below | `classify_cpg_scope.py`, `verify_cpg_scope.py` | Medium |
-| A-7 | Re-ingest all CPGs (existing + new) | CLI batch run | Medium |
-| A-8 | Re-run Neo4j extraction from new H2 chunks; `DETACH DELETE` old graph first | `graph_builder.py`, Cypher | Medium |
+Step 1 must be merged first because Stage 5 now accepts larger evidence packs and has the `build_parent_context()` hook that Step 2 will expand. Execute Step 2 in this order:
+
+| Step | Action | Files / Area | Exit Gate |
+|------|--------|--------------|-----------|
+| A-0 | Confirm Step 1 is complete and green enough to proceed: tiered budgets, token counting, whole-chunk formatting, and `build_parent_context()` are present | `agent/clinical_stages.py`, `requirements.txt`, `tests/test_clinical_stages.py` | Focused Stage 5 formatter tests pass; remaining unrelated failures are documented |
+| A-1 | Add/confirm parent-child schema columns: `chunk_level`, `parent_chunk_id`, and child position fields needed for parent slicing (`start_char`, `end_char` if not already present) | Migration SQL, `chunks` table | `chunks` can store H1 parent rows and H2 child rows with parent links |
+| A-2 | Update `MarkdownChunker` to emit H1 parent chunks and H2 child chunks. Preserve H3+ content inside its owning H2; split oversized H2 children at H3 only when required | `ingestion/chunker.py` | Unit/sample parse shows `# H1` parent plus expected `## H2` children |
+| A-3 | Implement parent-only reference handling before H2 splitting: keep `parent_only_reference` blocks inside the H1 parent, but do not emit/embed them as retrievable children | `ingestion/chunker.py` | Marked shared tables remain in parent content and are absent from child embeddings |
+| A-4 | Update ingestion persistence so H1 parent rows are stored with `embedding=NULL`, H2 child rows are embedded, and H2 rows store `parent_chunk_id`, `start_char`, and `end_char` | `ingestion/ingest.py`, DB insert/upsert helpers | Re-ingest of one CPG produces linked H1/H2 rows |
+| A-5 | Protect document-scope metadata during re-ingest. Existing `documents.icd11_scope`, `scope_verified`, `verified_at`, and `verified_by` must survive document UPSERTs | `ingestion/ingest.py` | Existing verified CPGs remain verified after dry-run re-ingest |
+| A-6 | Update vector retrieval to search only embedded H2 children by default (`chunk_level = 'h2'`) and ignore unembedded H1 parents | `agent/db_utils.py` | Retrieval SQL returns H2 child chunks only |
+| A-7 | Update tool response shape to carry child plus parent context. Fetch parent by `parent_chunk_id` and use the Step 1 `build_parent_context()` path for synthesis formatting | `agent/tools.py`, `agent/clinical_stages.py` | Stage 5 evidence can include child citation content plus parent context |
+| A-8 | Update KG extraction to read H2 child chunks, not old H1 chunks. Keep H2 UUID as `cpg_chunk_id` for citation resolution | `ingestion/ingest.py`, `ingestion/graph_builder.py` | New triples point to H2 `chunks.chunk_id` |
+| A-9 | Implement KG sub-window context bands for oversized H2 children and stamp `subchunk_focus_start` on emitted triples | `ingestion/graph_builder.py`, prompt text | Unit test confirms `[BEFORE]`, `[FOCUS]`, `[AFTER]` behavior and metadata |
+| A-10 | Run ICD-11 scope pipeline for any newly added CPGs, then clinician review and verification | `classify_cpg_scope.py`, `verify_cpg_scope.py`, `tasks/cpg_scope_review.md` | All documents have non-empty `icd11_scope` and `scope_verified = TRUE` |
+| A-11 | Re-ingest one small CPG as a dry run, preferably Erectile-Dysfunction | CLI batch run | Counts show H1 parent + H2 children; retrieval query returns H2 hits; parent context resolves |
+| A-12 | Re-ingest all existing and new CPGs with H1/H2 parent-child chunks | CLI batch run | Expected H2 count exists across corpus; no verified scope metadata lost |
+| A-13 | Backup Neo4j, wipe old graph, then rebuild KG from new H2 chunks | Cypher, `ingestion.ingest --graph-only` | Typed clinical relations exist; no old Graphiti residue required for citation |
+| A-14 | End-to-end verification: Duke criteria IE, citation click-through, parent context inclusion, and prompt budget logs | Clinical pipeline smoke test | Correct answer, H2 citation resolves, parent context present, no prompt oversize |
 
 ### 3.1 ICD-11 Scope Wiring for New CPGs
 
@@ -166,7 +196,7 @@ markdown/<new-cpg-name>/ ─┐
                                   writes verified_at / verified_by
 ```
 
-**Validation queries before considering A-6 complete:**
+**Validation queries before considering A-10 complete:**
 
 ```sql
 -- Every CPG document must have at least one ICD-11 code in scope
@@ -186,7 +216,7 @@ WHERE NOT EXISTS (
 
 If any new CPG covers an ICD-11 code not yet in the `icd11_codes` table (e.g. a chapter not previously ingested), run `ddx/ingest_icd11_full.py` to fetch the missing codes from the WHO API **before** verification, so the `icd11_scope` reference is not dangling.
 
-### 3.2 Sequencing inside A-6/A-7
+### 3.2 Sequencing inside A-10/A-12
 
 For new CPGs, the order is strict:
 
@@ -194,143 +224,17 @@ For new CPGs, the order is strict:
 2. `classify_cpg_scope.py --cpg <new-cpg-name>` — adds `icd11_scope`.
 3. **Manual review** of `tasks/cpg_scope_review.md`.
 4. `verify_cpg_scope.py` — flips `scope_verified = TRUE`.
-5. `ingest.py --graph-only <new-cpg-dir>` — runs `graph_builder.py` against the verified H2 chunks (ephemeral sub-windowing per §8).
+5. `ingest.py --graph-only <new-cpg-dir>` — runs `graph_builder.py` against the verified H2 chunks (ephemeral sub-windowing per §6).
 
 For **existing CPGs** being re-ingested at H2 level: scope is already verified, so steps 2–4 are skipped — only steps 1 and 5 run. The existing `documents.icd11_scope` values survive because `ingest.py` should `UPSERT` on `documents.source` rather than wiping the row.
 
-> **Safety check before A-7:** confirm `ingest.py` preserves `icd11_scope`, `scope_verified`, `verified_at`, `verified_by` on UPSERT. If it doesn't, the re-ingest will silently un-verify all 16 existing CPGs and Stage 3 routing breaks. Patch `ingest.py` to `ON CONFLICT DO UPDATE SET content = EXCLUDED.content, updated_at = NOW()` only — never touch the scope columns.
+> **Safety check before A-12:** confirm `ingest.py` preserves `icd11_scope`, `scope_verified`, `verified_at`, `verified_by` on UPSERT. If it doesn't, the re-ingest will silently un-verify all 16 existing CPGs and Stage 3 routing breaks. Patch `ingest.py` to `ON CONFLICT DO UPDATE SET content = EXCLUDED.content, updated_at = NOW()` only — never touch the scope columns.
 
 ---
 
-## 4. Option B — Segment Index (No Re-chunk, New Table)
+## 4. KG Sub-chunk Improvements
 
-### Architecture
-
-NeonDB `chunks` table is **completely unchanged** — all existing H1 chunk_ids remain stable. A new `chunk_segments` table stores H2-level embeddings alongside the position within the parent H1 chunk.
-
-```
-chunks table (UNCHANGED)
-└── chunk_id: "a1b2-h1"  content: full 51k chars  embedding: [old H1 vector, kept]
-
-chunk_segments table (NEW)
-├── segment_id: "seg-3.1"  chunk_id: "a1b2-h1"  h2_header: "3.1 Clinical evaluation"
-│   start_char: 500   end_char: 3200   embedding: [focused H2 vector]
-│
-├── segment_id: "seg-3.2"  chunk_id: "a1b2-h1"  h2_header: "3.2 Investigations"
-│   start_char: 3200  end_char: 10400  embedding: [focused H2 vector]
-│
-├── segment_id: "seg-3.3"  chunk_id: "a1b2-h1"  h2_header: "3.3 Imaging"
-│   start_char: 10400 end_char: 20800  embedding: [focused H2 vector]
-│
-└── segment_id: "seg-3.4"  chunk_id: "a1b2-h1"  h2_header: "3.4 Diagnostic criteria"
-    start_char: 20800 end_char: 29300  embedding: [focused H2 vector]
-
-Neo4j triple
-└── r.cpg_chunk_id = "a1b2-h1"   (original H1 UUID — unchanged)
-    r.segment_id   = "seg-3.3"   (NEW — points to the H2 segment in chunk_segments)
-    r.subchunk_start_char = 14200 (offset within segment)
-```
-
-### Query Path
-
-```
-User query: "What are the Duke criteria for diagnosing IE?"
-│
-├─ Step 1: Embed query → cosine search against chunk_segments.embedding
-│
-├─ Step 2: Top-K segment hits
-│          → "seg-3.4" (3.4 Diagnostic criteria) similarity: 0.91
-│
-├─ Step 3: Fetch parent H1 chunk: SELECT content FROM chunks WHERE chunk_id = "a1b2-h1"
-│          Slice focused context: content[20800:29300]  (start_char:end_char)
-│
-└─ Step 4: LLM receives:
-           [SEGMENT — citation] segment: "seg-3.4" | sliced content "Modified Duke criteria..."
-           [PARENT — context]   chunk: "a1b2-h1"  | full H1 content (or sliced wider window)
-```
-
-### New Table Schema
-
-```sql
-CREATE TABLE chunk_segments (
-    segment_id     UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    chunk_id       UUID NOT NULL REFERENCES chunks(chunk_id) ON DELETE CASCADE,
-    h2_header      TEXT,               -- e.g., "3.4 Diagnostic criteria"
-    segment_index  INT,                -- position within parent chunk (0-based)
-    start_char     INT NOT NULL,       -- char offset in parent chunk content
-    end_char       INT NOT NULL,       -- char offset in parent chunk content
-    embedding      vector(1536),       -- H2-level focused embedding
-    created_at     TIMESTAMPTZ DEFAULT NOW()
-);
-
-CREATE INDEX ON chunk_segments USING ivfflat (embedding vector_cosine_ops);
-CREATE INDEX ON chunk_segments (chunk_id);
-```
-
-### Ingestion Change (Segment Population)
-
-Add a post-chunking pass in `ingest.py` or a standalone `ingestion/segment_builder.py`:
-
-```python
-# For each existing H1 chunk in NeonDB:
-# 1. Parse content at ## boundaries → extract H2 sections with start/end char positions
-# 2. Embed each H2 section text
-# 3. INSERT into chunk_segments
-
-def build_segments_for_chunk(chunk_id, content):
-    sections = split_at_h2_headers(content)  # returns [{header, start, end, text}, ...]
-    for i, sec in enumerate(sections):
-        embedding = embed(sec['text'])
-        db.execute("""
-            INSERT INTO chunk_segments (chunk_id, h2_header, segment_index, start_char, end_char, embedding)
-            VALUES ($1, $2, $3, $4, $5, $6)
-        """, chunk_id, sec['header'], i, sec['start'], sec['end'], embedding)
-```
-
-This can be run as a **one-time backfill against existing NeonDB data** — no re-chunking of the `chunks` table.
-
-### KG Extraction Change
-
-For KG extraction, graph_builder still reads from `chunks` (H1), but now also receives the segment boundaries to pass into `_extract_triples_with_llm`. The triple is tagged with both the parent `chunk_id` and the matching `segment_id`:
-
-```python
-# In build_relationship_graph: iterate segments for this chunk
-segments = db.query("SELECT * FROM chunk_segments WHERE chunk_id = $1", chunk.chunk_id)
-for seg in segments:
-    sub_text = chunk.content[seg.start_char:seg.end_char]
-    triples = await self._extract_triples_with_llm(sub_text, ...)
-    for t in triples:
-        t['cpg_chunk_id'] = chunk.chunk_id    # original stable H1 UUID
-        t['segment_id']   = seg.segment_id    # H2 segment pointer
-        t['subchunk_start_char'] = seg.start_char
-```
-
-### Trade-offs
-
-| Decision | Trade-off |
-|----------|-----------|
-| Existing chunk_ids untouched | All stable citations remain valid. NeonDB `chunks` table needs no migration. |
-| New table required | One migration script + index build. Segment table must be kept in sync if chunks are re-ingested later. |
-| H1 embedding kept | H1 vector still exists; retrieval must explicitly query `chunk_segments` not `chunks` to get H2 precision. Old code querying `chunks` still works but with lower precision. |
-| Neo4j gains `segment_id` | No `DETACH DELETE` required. Existing triples get `segment_id` added via a backfill update after segmentation. |
-
-### Implementation Steps
-
-| Step | Action | Files | Risk |
-|------|--------|-------|------|
-| B-1 | Create `chunk_segments` table + index | Migration SQL | Low |
-| B-2 | Write `segment_builder.py` — backfill segments from existing chunks | New file | Low |
-| B-3 | Run backfill against NeonDB (no re-ingestion) | CLI | Low |
-| B-4 | Update `graph_builder.py` to read segments for KG extraction | `graph_builder.py` L566–614 | Low |
-| B-5 | Update `db_utils.py` vector search to query `chunk_segments` | `db_utils.py` L369–522 | Low |
-| B-6 | Update `tools.py` to return `{segment, parent_chunk}` | `tools.py` L142–257 | Low |
-| B-7 | Backfill `segment_id` onto existing Neo4j triples | Cypher batch | Low |
-
----
-
-## 6. Shared Fix — graph_builder Sub-chunk Improvements (Both Options)
-
-Regardless of which option is chosen, the following `graph_builder.py` changes apply:
+The following `graph_builder.py` changes apply to the selected H2 re-chunk path:
 
 ### Increase overlap 500 → 1,000 chars
 
@@ -357,27 +261,27 @@ for sub_text, sub_start in subchunks:
 
 Context reconstruction from any stored triple:
 ```python
-# fetch chunk content from NeonDB by cpg_chunk_id (or chunk_id / segment_id)
+# fetch H2 chunk content from NeonDB by cpg_chunk_id
 # slice: content[subchunk_start_char : subchunk_start_char + 6000]
 ```
 
 ---
 
-## 7. Verification Checklist
+## 5. Verification Checklist
 
-| Check | Option A | Option B |
-|-------|----------|----------|
-| Query "Duke criteria IE" → correct section retrieved | H2 child chunk at rank 1 | Segment at rank 1 |
-| Neo4j triple → NeonDB chunk (clickable citation) | `cpg_chunk_id` = H2 UUID | `segment_id` → parent `chunk_id` |
-| section-3-diagnosis chunk count in NeonDB | 5 rows (1 H1 + 4 H2) | 1 row (unchanged) + 4 segments |
-| Sub-chunk position tracking | `subchunk_focus_start` in triple | `subchunk_focus_start` in triple |
-| KG extraction LLM calls for IE section 3 | 4 H2 chunks × 1–2 sub-chunks | Same (reads segments instead of H1) |
-| **All `documents.icd11_scope` populated + `scope_verified = TRUE`** | Yes — new CPGs pass through §3.1 pipeline | Same |
-| Every code in `documents.icd11_scope` exists in `icd11_codes` | No dangling refs | No dangling refs |
+| Check | Expected result |
+|-------|-----------------|
+| Query "Duke criteria IE" → correct section retrieved | H2 child chunk at rank 1 |
+| Neo4j triple → NeonDB chunk (clickable citation) | `cpg_chunk_id` = H2 UUID |
+| section-3-diagnosis chunk count in NeonDB | 5 rows (1 H1 + 4 H2) |
+| Sub-chunk position tracking | `subchunk_focus_start` in triple |
+| KG extraction LLM calls for IE section 3 | 4 H2 chunks × 1–2 sub-chunks |
+| **All `documents.icd11_scope` populated + `scope_verified = TRUE`** | Yes — new CPGs pass through §3.1 pipeline |
+| Every code in `documents.icd11_scope` exists in `icd11_codes` | No dangling refs |
 
 ---
 
-## 8. KG Building — Ephemeral Sub-windowing with Context Bands
+## 6. KG Building — Ephemeral Sub-windowing with Context Bands
 
 **Decision:** Keep H2 as the persisted citation unit. If an H2 child is still oversized (>8k chars), `graph_builder.py` chops it ephemerally into 6k focus windows with context bands on either side. The bands give the LLM enough surrounding text to resolve pronouns, scope conditions, and trailing grade-of-recommendation tags — but only the focus window is treated as an extraction target.
 
@@ -488,13 +392,13 @@ The sub-window itself is **not persisted**. The H2 UUID remains the citation tar
 
 ### KG rebuild — when to actually run the commands
 
-The code changes (K-1..K-5) land first as a deploy. The KG itself is then rebuilt during **A-8** in the §3 implementation steps. Strict order:
+The code changes (K-1..K-5) land first as a deploy. The KG itself is then rebuilt during **A-13** in the §3 implementation steps. Strict order:
 
 | Order | Command | Purpose |
 |-------|---------|---------|
 | 1 | `pytest tests/test_graph_builder_subwindow.py` | Unit-test the new window dicts + prompt template before touching prod Bedrock spend |
 | 2 | Backup current graph: `cypher-shell "CALL apoc.export.cypher.all('backups/kg_pre_step2.cypher', {format:'cypher-shell'})"` | Roll-back point. Skip only if previous backup `backups/kg_backup_2026-05-12.cypher` is recent enough |
-| 3 | A-7 must be complete — verify `SELECT count(*) FROM chunks WHERE chunk_level = 'h2'` returns expected H2 count | KG build reads H2 rows; running before A-7 would extract from the old polluted H1 rows |
+| 3 | A-12 must be complete — verify `SELECT count(*) FROM chunks WHERE chunk_level = 'h2'` returns expected H2 count | KG build reads H2 rows; running before A-12 would extract from the old polluted H1 rows |
 | 4 | `cypher-shell "MATCH (n) DETACH DELETE n"` | Wipe old graph (564 Graphiti edges + 13 old typed triples). Confirmed safe — see Phase_A_Findings.md open question 3 |
 | 5 | `python -m ingestion.ingest --graph-only --all-cpgs` (or per-CPG: `--cpg <name>`) | Runs `build_relationship_graph` with new sub-window context bands against H2 chunks |
 | 6 | Smoke-check: `MATCH ()-[r]->() RETURN type(r) AS rel, count(r) AS cnt ORDER BY cnt DESC` | Expect typed clinical relations (TREATS, INCREASES_RISK_OF, ASSESSED_BY, etc.) — no `MENTIONS` / `RELATES_TO` Graphiti residue |
@@ -504,11 +408,11 @@ The code changes (K-1..K-5) land first as a deploy. The KG itself is then rebuil
 
 **Cost expectation:** ~720 sub-windows × $0.0022 ≈ $1.60 across all CPGs at current size. With context bands (~+3k chars each) the figure rises to ~$2.10. Below the $50 threshold; no re-approval needed.
 
-**Rate-limit safety:** if running A-8 unbatched takes >10 min for the full corpus, apply the `Semaphore(5)` batching from Step 3 §2.6 early. Functional equivalent — just paid down sooner if you need the wall time back.
+**Rate-limit safety:** if running A-13 unbatched takes >10 min for the full corpus, apply the `Semaphore(5)` batching from Step 3 §2.6 early. Functional equivalent — just paid down sooner if you need the wall time back.
 
 ---
 
-## 9. Retrieval/Synthesis — Window Slicing as Outlier Handler
+## 7. Retrieval/Synthesis — Window Slicing as Outlier Handler
 
 **Decision:** Most parents (under ~60k chars) are passed to the synthesis LLM in full. Window slicing is a **fallback for outliers** like IE section-3-diagnosis (97k) and section-4-management (131k) that would otherwise blow the evidence budget.
 
@@ -545,4 +449,4 @@ For IE section-4 (131k) with a child at chars 15k–60k and `_PARENT_CHAR_LIMIT=
 | W-2 | Update `_format_evidence` to call helper instead of raw `c.content` | `clinical_stages.py:551-575` | Low |
 | W-3 | Log when slicing fires (parent size + child position) for telemetry | `clinical_stages.py` | Low |
 
-Note: this code can be written and merged in Step 1 *before* parent-child ingest exists — it just won't trigger until Option A/B lands a real `child.start_char` / `parent.content` pair. Until then, treat retrieved chunks as standalone (no parent) and skip the helper.
+Note: this code can be written and merged in Step 1 *before* parent-child ingest exists — it just won't trigger until the H2 re-ingest lands a real `child.start_char` / `parent.content` pair. Until then, treat retrieved chunks as standalone (no parent) and skip the helper.
