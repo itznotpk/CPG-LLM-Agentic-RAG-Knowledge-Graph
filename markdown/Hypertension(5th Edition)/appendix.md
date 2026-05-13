@@ -1,15 +1,13 @@
-# SECTION APPENDIX: APPENDICES
+# APPENDICES
 
 <!-- METADATA
-category: Reference
-use_case: Supporting Reference Material — appendix, reference_tables, supplementary_values
-patient_input: reference_lookup
-output: appendix_content
+category: Reference, Special Populations
+use_case: Hypertension Appendices — neonatal_BP_reference, paediatric_BP_percentiles, antihypertensive_dosing_children, clinical_questions
+patient_input: age, gender, height_percentile, postconceptual_age, weight
+output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 -->
 
-## Appendices
-
-APPENDIX 1 Estimated BP Values After 2 Weeks of Age in Infants from 26 to 44 Weeks Postconceptual Age
+## Appendix 1: Estimated BP Values After 2 Weeks of Age in Infants from 26 to 44 Weeks Postconceptual Age
 
 | Postconceptual age   |   50th percentile |   95th percentile |   99th percentile |
 |----------------------|-------------------|-------------------|-------------------|
@@ -54,7 +52,9 @@ APPENDIX 1 Estimated BP Values After 2 Weeks of Age in Infants from 26 to 44 Wee
 | DBP                  |                30 |                50 |                56 |
 | MAP                  |                38 |                57 |                63 |
 
-APPENDIX 2 Blood Pressure Levels for Boys by Age and Height Percentile
+---
+
+## Appendix 2: Blood Pressure Levels for Boys by Age and Height Percentile
 
 | Age  year   | BP  Percentile   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   |
 |-------------|------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
@@ -97,9 +97,9 @@ APPENDIX 2 Blood Pressure Levels for Boys by Age and Height Percentile
 | 12          | 90th             | 1=13                  | 114                  | 115                  | 117                  | 119                  | 121                  | 122                  | 75                    | 75                    | 75                    | 75                    | 75                    | 76                    | 76                    |
 | 12          | 95th             | 116                  | 117                  | 118                  | 121                  | 124                  | 126                  | 128                  | 78                    | 78                    | 78                    | 78                    | 78                    | 79                    | 79                    |
 
-Clinical Practice Guideline for Screening and Management of High Blood Pressure in Children and Adolescents. Pediatrics 2017 Sep;140(3) pii:e20171904. 398
+---
 
-## APPENDIX 3 Blood Pressure Levels for Girls by Age and Height Percentile
+## Appendix 3: Blood Pressure Levels for Girls by Age and Height Percentile
 
 | Age  year   | BP  Percentile   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   |
 |-------------|------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
@@ -142,9 +142,9 @@ Clinical Practice Guideline for Screening and Management of High Blood Pressure 
 | 12          | 90th             | 114                  | 115                  | 116                  | 118                  | 120                  | 122                  | 122                  | 75                    | 75                    | 75                    | 75                    | 76                    | 76                    | 76                    |
 | 12          | 95th             | 118                  | 119                  | 120                  | 122                  | 124                  | 125                  | 126                  | 78                    | 78                    | 78                    | 78                    | 79                    | 79                    | 79                    |
 
-Clinical Practice Guideline for Screening and Management of High Blood Pressure in Children and Adolescents. Pediatrics 2017;140(3) pii:e20171904. 398
+---
 
-APPENDIX 4 Dosing Recommendation for the Initial Prescription of Antihypertensive Drugs for Outpatient Management of Chronic Hypertension in Children and Neonates 398,405
+## Appendix 4: Dosing Recommendation for the Initial Prescription of Antihypertensive Drugs for Outpatient Management of Chronic Hypertension in Children and Neonates
 
 | Drugs                                      | Doses                                                                                                                            | Frequency        |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------------------|
@@ -169,7 +169,14 @@ APPENDIX 4 Dosing Recommendation for the Initial Prescription of Antihypertensiv
 | Propranolol **                             | Initially 1 mg/kg/day Maintenance 2-4 mg/kg/day (Max 4 mg/kg/day)                                                                | BD or TDS        |
 | Atenolol **                                | 1 month - 11 years: 0.5-2 mg/day (Max 50 mg/day) Child 12-17 years: 25-50 mg/day (Max 50 mg/day)                                 | Once daily or BD |
 
-## APPENDIX 5 Clinical Questions
+\* ARB and ACEI are contraindicated in pregnant adolescent and neonates less than 44 weeks (Perindopril is not indicated in for the management of chronic hypertension in children and adolescents).
+**Referenced from 153rd Edition, MIMS, 2018.
+***British National Formulary for Children (BNFC) 2018-2019.
+\#American Academy of Pediatrics (AAP) 2017
+
+---
+
+## Appendix 5: Clinical Questions
 
 1. What is the prevalence of hypertension in adults?
 2. What are the causes of hypertension in adults?
@@ -183,24 +190,21 @@ APPENDIX 4 Dosing Recommendation for the Initial Prescription of Antihypertensiv
 10. What non-pharmacological intervention is recommended and beneficial?
 11. What and how should pharmacological management be started?
 12. What target blood pressure should be aimed for in general hypertensive population and in specific sub-groups?
-=13. When should target blood pressure be achieved?
+13. When should target blood pressure be achieved?
 14. When should combination therapy be used?
 15. How to recognise, evaluate and manage resistant hypertension?
 16. How should severe hypertension be assessed and managed?
 17. How should specific sub-groups with hypertension be managed?
-- Diabetes
-- Renal disease
-- Heart disease
-- Stroke
-- Older adults
-- Women
-- Neonates, children and adolescents
+    * Diabetes
+    * Renal disease
+    * Heart disease
+    * Stroke
+    * Older adults
+    * Women
+    * Neonates, children and adolescents
 18. What are the current available pharmacological treatment for hypertension?
 19. How cost effective is treating hypertensive?
 20. How should resistant and refractory hypertension be diagnosed, assessed and managed?
 21. Should aspirin be prescribed to patients with hypertension?
 22. What is the role of device based therapy in hypertension?
 23. What key research areas should be focused on to address unanswered clinical questions?
-
-<!-- image -->
-
