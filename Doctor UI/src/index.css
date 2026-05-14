@@ -6,6 +6,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   /* Elegant healthcare accent colors (teal) */
   --accent-primary: rgb(20, 184, 166); /* teal-500 */
