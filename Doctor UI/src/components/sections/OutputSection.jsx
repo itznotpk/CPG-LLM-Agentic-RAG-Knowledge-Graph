@@ -16,6 +16,8 @@ import {
   Check,
   X,
   User,
+  Activity,
+  ClipboardList,
 } from 'lucide-react';
 import { GlassCard, Button, Badge } from '../shared';
 import { useApp } from '../../context/AppContext';
