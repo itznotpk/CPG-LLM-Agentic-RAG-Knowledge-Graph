@@ -388,29 +388,53 @@ async def vector_search(
         embedding_str = '[' + ','.join(map(str, embedding)) + ']'
 
         if document_id_filter:
-            results = await conn.fetch(
-                """
-                SELECT
-                    c.id AS chunk_id,
-                    c.document_id,
-                    c.content,
-                    1 - (c.embedding <=> $1::vector) AS similarity,
-                    COALESCE(c.metadata::text, '{}') AS metadata,
-                    d.title AS document_title,
-                    d.source AS document_source,
-                    d.published_year AS published_year
-                FROM chunks c
-                JOIN documents d ON d.id = c.document_id
-                WHERE c.document_id = ANY($3::uuid[])
-                  AND c.chunk_level = $4
-                ORDER BY c.embedding <=> $1::vector
-                LIMIT $2
-                """,
-                embedding_str,
-                limit,
-                document_id_filter,
-                chunk_level,
-            )
+            try:
+                results = await conn.fetch(
+                    """
+                    SELECT
+                        c.id AS chunk_id,
+                        c.document_id,
+                        c.content,
+                        1 - (c.embedding <=> $1::vector) AS similarity,
+                        COALESCE(c.metadata::text, '{}') AS metadata,
+                        d.title AS document_title,
+                        d.source AS document_source,
+                        d.published_year AS published_year
+                    FROM chunks c
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE c.document_id = ANY($3::uuid[])
+                      AND c.chunk_level = $4
+                    ORDER BY c.embedding <=> $1::vector
+                    LIMIT $2
+                    """,
+                    embedding_str,
+                    limit,
+                    document_id_filter,
+                    chunk_level,
+                )
+            except asyncpg.UndefinedColumnError:
+                logger.warning("chunks.chunk_level missing; falling back to legacy filtered vector search")
+                results = await conn.fetch(
+                    """
+                    SELECT
+                        c.id AS chunk_id,
+                        c.document_id,
+                        c.content,
+                        1 - (c.embedding <=> $1::vector) AS similarity,
+                        COALESCE(c.metadata::text, '{}') AS metadata,
+                        d.title AS document_title,
+                        d.source AS document_source,
+                        d.published_year AS published_year
+                    FROM chunks c
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE c.document_id = ANY($3::uuid[])
+                    ORDER BY c.embedding <=> $1::vector
+                    LIMIT $2
+                    """,
+                    embedding_str,
+                    limit,
+                    document_id_filter,
+                )
         else:
             results = await conn.fetch(
                 "SELECT * FROM match_chunks($1::vector, $2)",
@@ -467,37 +491,69 @@ async def hybrid_search(
 
         if document_id_filter:
             vector_weight = 1.0 - text_weight
-            results = await conn.fetch(
-                """
-                SELECT
-                    c.id AS chunk_id,
-                    c.document_id,
-                    c.content,
-                    (
-                        $5::float * (1 - (c.embedding <=> $1::vector))
-                        + $4::float * similarity(c.content, $2)
-                    ) AS combined_score,
-                    1 - (c.embedding <=> $1::vector) AS vector_similarity,
-                    similarity(c.content, $2)         AS text_similarity,
-                    COALESCE(c.metadata::text, '{}')  AS metadata,
-                    d.title  AS document_title,
-                    d.source AS document_source,
-                    d.published_year AS published_year
-                FROM chunks c
-                JOIN documents d ON d.id = c.document_id
-                WHERE c.document_id = ANY($6::uuid[])
-                  AND c.chunk_level = $7
-                ORDER BY combined_score DESC
-                LIMIT $3
-                """,
-                embedding_str,
-                query_text,
-                limit,
-                text_weight,
-                vector_weight,
-                document_id_filter,
-                chunk_level,
-            )
+            try:
+                results = await conn.fetch(
+                    """
+                    SELECT
+                        c.id AS chunk_id,
+                        c.document_id,
+                        c.content,
+                        (
+                            $5::float * (1 - (c.embedding <=> $1::vector))
+                            + $4::float * similarity(c.content, $2)
+                        ) AS combined_score,
+                        1 - (c.embedding <=> $1::vector) AS vector_similarity,
+                        similarity(c.content, $2)         AS text_similarity,
+                        COALESCE(c.metadata::text, '{}')  AS metadata,
+                        d.title  AS document_title,
+                        d.source AS document_source,
+                        d.published_year AS published_year
+                    FROM chunks c
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE c.document_id = ANY($6::uuid[])
+                      AND c.chunk_level = $7
+                    ORDER BY combined_score DESC
+                    LIMIT $3
+                    """,
+                    embedding_str,
+                    query_text,
+                    limit,
+                    text_weight,
+                    vector_weight,
+                    document_id_filter,
+                    chunk_level,
+                )
+            except asyncpg.UndefinedColumnError:
+                logger.warning("chunks.chunk_level missing; falling back to legacy filtered hybrid search")
+                results = await conn.fetch(
+                    """
+                    SELECT
+                        c.id AS chunk_id,
+                        c.document_id,
+                        c.content,
+                        (
+                            $5::float * (1 - (c.embedding <=> $1::vector))
+                            + $4::float * similarity(c.content, $2)
+                        ) AS combined_score,
+                        1 - (c.embedding <=> $1::vector) AS vector_similarity,
+                        similarity(c.content, $2)         AS text_similarity,
+                        COALESCE(c.metadata::text, '{}')  AS metadata,
+                        d.title  AS document_title,
+                        d.source AS document_source,
+                        d.published_year AS published_year
+                    FROM chunks c
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE c.document_id = ANY($6::uuid[])
+                    ORDER BY combined_score DESC
+                    LIMIT $3
+                    """,
+                    embedding_str,
+                    query_text,
+                    limit,
+                    text_weight,
+                    vector_weight,
+                    document_id_filter,
+                )
         else:
             results = await conn.fetch(
                 "SELECT * FROM hybrid_search($1::vector, $2, $3, $4)",

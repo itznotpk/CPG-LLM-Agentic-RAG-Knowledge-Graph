@@ -1,15 +1,15 @@
 export const SAMPLE_CASES = [
   {
-    id: 'htn-01',
+    id: 'af-01',
     displayName: 'Mr. Tan, 58',
-    tag: 'High Blood Pressure',
-    blurb: 'Headaches and dizziness for 2 weeks',
+    tag: 'Atrial Fibrillation',
+    blurb: 'Palpitations with an irregular pulse',
     caseBody: {
-      chief_complaint: 'Recurring headaches, dizziness, and occasional blurred vision for the past two weeks',
-      history: '58-year-old man, smoker, office worker. Father had a stroke. Not on any medication.',
+      chief_complaint: 'Sudden palpitations and shortness of breath with an irregularly irregular pulse; ECG confirms atrial fibrillation',
+      history: '58-year-old man with hypertension. He developed rapid heartbeat and mild dizziness this morning. No chest pain.',
       age: 58, sex: 'M',
-      comorbidities: [], current_medications: [], allergies: [],
-      vitals: { sbp: 168, dbp: 102, hr: 88 },
+      comorbidities: ['Hypertension'], current_medications: [], allergies: [],
+      vitals: { sbp: 148, dbp: 92, hr: 126 },
       severity_staging: {}, staged_comorbidities: [],
     },
   },
