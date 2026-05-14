@@ -94,6 +94,16 @@ The figure shows two recommended syringe label formats:
 9) Short or simple labels during emergency usage and resuscitation are acceptable to improve the speed of the resuscitation process. However, labelling according to standard needs to be complied with whenever possible.
 10) Using distinguishable labels on tubing sets is mandatory for continuous neuraxial and peripheral nerve infusions to reduce medication errors. Many commercially prepared regional block infusion sets provide coloured labels to be used for this purpose.
 
+Table 1: Examples of tall man lettering for anaesthesia medications
+| Examples of Non-TML Labelling | Examples of TML Labelling |
+|---|---|
+| Fentanyl<br>Sufentanil | FentaNYL<br>SUFentanil |
+| Atracurium<br>Rocuronium | ATRAcurium<br>ROcuronium |
+| Ephedrine<br>Phenylephrine | EPHEDrine<br>PHENylephrine |
+| Epinephrine<br>Norepinephrine | EPINEPHrine<br>NORepinephrine |
+| Dopamine<br>Dobutamine | DOPamine<br>DOBUTamine |
+| Ropivacaine<br>Bupivacaine | ROPIvacaine<br>BUPIvacaine |
+
 ## 2.9: Medication administration
 
 ### 2.9.1: Introduction
@@ -124,6 +134,28 @@ The figure shows two recommended syringe label formats:
 - Utilise colour-coded labels or syringes to differentiate the drugs.
 - Administer drugs slowly (infusion) and titrate to effect while closely monitoring the patient’s response.
 - Vasopressors, concentrated electrolytes and glucose solutions should be administered via a central venous catheter. While waiting for a central venous access, initial administration via large bore peripheral IV line is acceptable (refer to Table 2: Medications to be administered via central venous catheter.).
+
+Table 2: Medications to be administered via central venous catheter
+| Medication | Recommendation |
+|---|---|
+| Adenosine | Injection into the most proximal injection site or central venous line. |
+| Amiodarone | Administer centrally if central access is available.<br>Central line is recommended for infusions greater than 24 hours and for concentrations greater than 2mg/ml. |
+| Calcium Gluconate | High risk for tissue necrosis.<br>Administer slowly via central line or a large peripheral vein. |
+| Dantrolene | It is a vesicant. Ensure proper dilution as per guideline. |
+| Dextrose in water | Central line is preferred for infusion concentrations ≥ 10%. |
+| Dobutamine | Central line is preferred.<br>Peripheral administration may be used for less than 4 hours while preparation for a central line is underway.<br>However, it should be administered via a large bore intravenous line and the rate should be less than 2 mcg/kg/min. |
+| Dopamine | Central line is preferred.<br>May use concentrations of 1600 mcg/ml (400 mg / 250 mls) at doses less than or equal to 3 mcg/kg/min peripherally.<br>Central line recommended for higher concentrations infusions >12 hours. |
+| Epinephrine | Central line is preferred.<br>Peripheral administration via a large bore IV may be used for less than 4 hours while preparations for a central line is underway. |
+| Esmolol | Boluses can be administered via large bore IV.<br>Central line is preferred for concentrations > 10mg/ml.<br>Central line is recommended for all concentrations if administering greater than 72 hours. |
+| Mannitol | Boluses can be administered via a large bore peripheral IV line.<br>Central line is still recommended if possible.<br>Central line is preferred for infusion. |
+| Norepinephrine | Central line is preferred.<br>Peripheral administration via a large bore IV may be used for less than 4 hours while preparations for a central line is underway. |
+| Phenylephrine | Peripheral administration via a large bore IV for boluses.<br>Central line is preferred for infusion. |
+| Phenytoin | Avoid extravasation. Severe tissue necrosis may occur.<br>Administer through a large vein, at least as large as the antecubital vein and preferably accessed with a catheter size 20 gauge or larger. |
+| Dilutions of concentrated potassium salts | Maximum rate of peripheral administration is 10 mEq potassium / hour.<br>Central line requires concentrations greater than 0.1 mEq/ml of potassium.<br>*Potassium Chloride, Potassium Phosphate, Potassium Acetate. |
+| 3% Sodium Chloride infusions | Administer hypertonic saline only through a large bore IV or preferably via a central venous catheter. |
+| Thiopental | Boluses can be given via a peripheral line.<br>Infusion of 5 mg/kg and more should be given via a central line. |
+| Vasopressin | Central line is preferred.<br>Peripheral administration via a large bore IV may be used for less than 4 hours while preparations for a central line is underway. |
+| Commonly used antibiotics | Commonly used antibiotics that may be given via a peripheral venous access device:<br>Ceftriaxone, Cefepime, Daptomycin, Ertapenem, Levofloxacin, Imipenem.<br>Vancomycin can be given peripherally if concentration is 5 mg/ml or less.<br>Commonly used antibiotics that may prompt consideration of PCC or central line for prolonged infusions:<br>Acyclovir, Caspofungin, Ciprofloxacin, Nafcilin, Oxacillin, Tobramycin.<br>Vancomycin at concentrations above 5 mg/ml. |
 
 ## 2.11: Intravenous Medication Delivery
 1) Standardise the use of intravenous infusion pumps and syringe drivers within each facility to improve familiarity and reduce error.
@@ -197,37 +229,3 @@ Table 3: Complications of extravasation and intra-arterial injection of anaesthe
 2) The anaesthesia record must be signed by the anaesthesiologist and include the full name and the Malaysian Medical Council (MMC) registration number. The utilisation of doctor identification stamps is highly encouraged.
 3) Ensure the legibility of medication records, especially handwritten documentation. Use of electronic records enhances accuracy.
 4) Document the handling of controlled substances according to regulatory requirements. The records must include the disposal of leftover controlled substances.
-
-<!-- parent_only_reference_start -->
-Table 1: Examples of tall man lettering for anaesthesia medications
-| Examples of Non-TML Labelling | Examples of TML Labelling |
-|---|---|
-| Fentanyl<br>Sufentanil | FentaNYL<br>SUFentanil |
-| Atracurium<br>Rocuronium | ATRAcurium<br>ROcuronium |
-| Ephedrine<br>Phenylephrine | EPHEDrine<br>PHENylephrine |
-| Epinephrine<br>Norepinephrine | EPINEPHrine<br>NORepinephrine |
-| Dopamine<br>Dobutamine | DOPamine<br>DOBUTamine |
-| Ropivacaine<br>Bupivacaine | ROPIvacaine<br>BUPIvacaine |
-
-Table 2: Medications to be administered via central venous catheter
-| Medication | Recommendation |
-|---|---|
-| Adenosine | Injection into the most proximal injection site or central venous line. |
-| Amiodarone | Administer centrally if central access is available.<br>Central line is recommended for infusions greater than 24 hours and for concentrations greater than 2mg/ml. |
-| Calcium Gluconate | High risk for tissue necrosis.<br>Administer slowly via central line or a large peripheral vein. |
-| Dantrolene | It is a vesicant. Ensure proper dilution as per guideline. |
-| Dextrose in water | Central line is preferred for infusion concentrations ≥ 10%. |
-| Dobutamine | Central line is preferred.<br>Peripheral administration may be used for less than 4 hours while preparation for a central line is underway.<br>However, it should be administered via a large bore intravenous line and the rate should be less than 2 mcg/kg/min. |
-| Dopamine | Central line is preferred.<br>May use concentrations of 1600 mcg/ml (400 mg / 250 mls) at doses less than or equal to 3 mcg/kg/min peripherally.<br>Central line recommended for higher concentrations infusions >12 hours. |
-| Epinephrine | Central line is preferred.<br>Peripheral administration via a large bore IV may be used for less than 4 hours while preparations for a central line is underway. |
-| Esmolol | Boluses can be administered via large bore IV.<br>Central line is preferred for concentrations > 10mg/ml.<br>Central line is recommended for all concentrations if administering greater than 72 hours. |
-| Mannitol | Boluses can be administered via a large bore peripheral IV line.<br>Central line is still recommended if possible.<br>Central line is preferred for infusion. |
-| Norepinephrine | Central line is preferred.<br>Peripheral administration via a large bore IV may be used for less than 4 hours while preparations for a central line is underway. |
-| Phenylephrine | Peripheral administration via a large bore IV for boluses.<br>Central line is preferred for infusion. |
-| Phenytoin | Avoid extravasation. Severe tissue necrosis may occur.<br>Administer through a large vein, at least as large as the antecubital vein and preferably accessed with a catheter size 20 gauge or larger. |
-| Dilutions of concentrated potassium salts | Maximum rate of peripheral administration is 10 mEq potassium / hour.<br>Central line requires concentrations greater than 0.1 mEq/ml of potassium.<br>*Potassium Chloride, Potassium Phosphate, Potassium Acetate. |
-| 3% Sodium Chloride infusions | Administer hypertonic saline only through a large bore IV or preferably via a central venous catheter. |
-| Thiopental | Boluses can be given via a peripheral line.<br>Infusion of 5 mg/kg and more should be given via a central line. |
-| Vasopressin | Central line is preferred.<br>Peripheral administration via a large bore IV may be used for less than 4 hours while preparations for a central line is underway. |
-| Commonly used antibiotics | Commonly used antibiotics that may be given via a peripheral venous access device:<br>Ceftriaxone, Cefepime, Daptomycin, Ertapenem, Levofloxacin, Imipenem.<br>Vancomycin can be given peripherally if concentration is 5 mg/ml or less.<br>Commonly used antibiotics that may prompt consideration of PCC or central line for prolonged infusions:<br>Acyclovir, Caspofungin, Ciprofloxacin, Nafcilin, Oxacillin, Tobramycin.<br>Vancomycin at concentrations above 5 mg/ml. |
-<!-- parent_only_reference_end -->

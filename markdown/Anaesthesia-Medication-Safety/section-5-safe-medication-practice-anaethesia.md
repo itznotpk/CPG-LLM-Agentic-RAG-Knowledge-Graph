@@ -19,6 +19,14 @@ c. The estimated incidence of POH in different countries is in the range of one 
 
 d. Neuromuscular blocking agents (NMBA) and antibiotics are the most common causes of POH worldwide. In the recent 6th National Audit Project (NAP6) of the Royal College of Anaesthetists, the incidence of severe life-threatening anaphylaxis (grades 3 and 4 POH, refer to Table 4: Australian and New Zealand Anaesthetic Allergy Group grading of perioperative anaphylaxis) was estimated at one in 10 000 anaesthetic procedures.
 
+Table 4: Australian and New Zealand Anaesthetic Allergy Group grading of perioperative anaphylaxis.
+| Grade | Description |
+|---|---|
+| Grade 1 | Mucocutaneous signs only (e.g., erythema, urticaria, peripheral angioedema). |
+| Grade 2 | Multi-organ manifestations, typically mucocutaneous signs combined with hypotension, brady- or tachyarrhythmia, and/or bronchospasm. |
+| Grade 3 | Life-threatening hypotension and/or high airway pressure requiring immediate and specific treatment to avoid progression from inadequate tissue perfusion to cardiac arrest or significant hypoxia. |
+| Grade 4 | Cardiac arrest. |
+
 ### 5.1.2: Management of Perioperative Hypersensitivity Reactions
 a. Management of suspected perioperative allergic (POA) reactions involves the following three key steps depending on the severity of the reaction:
 
@@ -123,6 +131,16 @@ g. Choice of alternative antibiotics should be made taking into consideration es
 
 h. Test dose of antibiotics for surgical prophylaxis commonly practised by anaesthesiologists for surgical prophylaxis, has been shown to be not effective in preventing or reducing the severity of an anaphylactic reaction in susceptible individuals (NAP6). It is recommended that antibiotics should be administered prior to induction of anaesthesia to simplify treatment and subsequent diagnostic workup (NAP6).
 
+Table 5: β-lactam cross reactivity in penicillin-allergic patients.
+| Drug Class and Available Formulary Agents | Estimated Cross-Reactivity |
+|---|---|
+| 1st Generation Cephalosporins<br>(e.g., cefadroxil, cephalexin) | 1.9 - 7.9% |
+| 2nd Generation Cephalosporins<br>(e.g., refactor, cefuroxime, cefoxitin) | 1.9% |
+| 3rd Generation Cephalosporins<br>(e.g., ceftriaxone, cefotaxime, ceftazidime) | 0.7% |
+| 4th/5th Generation Cephalosporins<br>(e.g., cefepime, ceftaroline) | Not available |
+| Carbapenem<br>(e.g., imipenem, meropenem, ertapenem) | ≤ 1% |
+| Monobactam (aztreonam) | Negligible (except with ceftazidime which shares identical side chains |
+
 ### 5.1.7: Managing Cases with Multiple Allergies
 a. Multiple drug allergies are defined as reactions to two or more chemically unrelated drugs.
 
@@ -145,6 +163,56 @@ d. There is no evidence to avoid the use of protamine in fish allergy and neutra
 
 ### 5.1.9: Managing Suspected Perioperative Hypersensitivity Cases Planned for Urgent Surgeries
 (Refer to Figure 7: Management of the patient with a suspected perioperative allergic reaction or unexplained perioperative reaction that has not been investigated.)
+
+Figure 7: Management of the patient with a suspected perioperative allergic reaction or unexplained perioperative reaction that has not been investigated
+
+**Step 1: Initial Situation**
+* Patient with suspected perioperative allergic reaction or unexplained perioperative reaction that has not been investigated.
+* ↓
+
+**Step 2: Determine Procedure Urgency**
+
+* **Pathway A: Emergency procedure**
+  * → Gather relevant charts to determine if allergy is suspected.
+  * → Identify drugs and other exposures before reaction.
+  * ↓
+  * **Review Findings:**
+    * **If information is available:**
+      * → Avoid all drugs and exposures before the reaction; use alternative drugs where possible.
+      * **If allergy is ruled out:** Proceed with routine anaesthesia.
+    * **If no information is available:**
+      * → Consult local anaesthesia allergy service for advice if possible.
+      * → Use regional or inhalation techniques if possible.
+      * → Use as few drugs as possible.
+      * → Avoid NMBAs if possible.
+      * → Avoid latex and disinfectants (e.g. chlorhexidine) if possible.
+      * → If antibiotics indicated, avoid penicillins and cephalosporins.
+      * → Maintain high index of suspicion for early signs of anaphylaxis and be ready to treat.
+
+* **Pathway B: Urgent elective procedure (e.g. cancer surgery)**
+ * → Gather relevant charts to determine if allergy is suspected.
+  * → Identify drugs and other exposures before reaction.
+  * ↓
+  * **Review Findings:**
+    * **If information is available:**
+      * → Avoid all drugs and exposures before the reaction; use alternative drugs where possible.
+      * **If allergy is ruled out:** Proceed with routine anaesthesia.
+    * **If no information is available:**
+      * → Consult local anaesthesia allergy service for advice if possible.
+      * → Use regional or inhalation techniques if possible.
+      * → Use as few drugs as possible.
+      * → Avoid NMBAs if possible.
+      * → Avoid latex and disinfectants (e.g. chlorhexidine) if possible.
+      * → If antibiotics indicated, avoid penicillins and cephalosporins.
+      * → Maintain high index of suspicion for early signs of anaphylaxis and be ready to treat.
+
+* **Pathway C: Non-urgent elective procedure**
+  * → Gather relevant charts to determine if allergy is suspected.
+  * → Consult local anaesthesia allergy service for advice if possible.
+  * ↓
+  * **Review Findings:**
+    * **If allergy is ruled out:** Proceed with routine anaesthesia.
+    * **If allergy is suspected OR no information is available:** Postpone surgery, refer for allergy investigation, reschedule after investigation, and follow advice from allergy investigation.
 
 a. The anaesthesiologist should try to get as much information about the reaction and anaesthetic procedure as possible.
 
@@ -311,78 +379,6 @@ g. Addition of epinephrine in LAs may serve as an intravascular marker of inject
 
 i. 15 µg/ml of epinephrine in the LA solution will increase the heart rate by ≥ 10 beats per minute or systolic blood pressure by ≥ 15 mmHg, but users must be aware of its limitations as a safety measure.
 
-<!-- parent_only_reference_start -->
-Table 4: Australian and New Zealand Anaesthetic Allergy Group grading of perioperative anaphylaxis.
-
-| Grade | Description |
-|---|---|
-| Grade 1 | Mucocutaneous signs only (e.g., erythema, urticaria, peripheral angioedema). |
-| Grade 2 | Multi-organ manifestations, typically mucocutaneous signs combined with hypotension, brady- or tachyarrhythmia, and/or bronchospasm. |
-| Grade 3 | Life-threatening hypotension and/or high airway pressure requiring immediate and specific treatment to avoid progression from inadequate tissue perfusion to cardiac arrest or significant hypoxia. |
-| Grade 4 | Cardiac arrest. |
-
-Table 5: β-lactam cross reactivity in penicillin-allergic patients.
-| Drug Class and Available Formulary Agents | Estimated Cross-Reactivity |
-|---|---|
-| 1st Generation Cephalosporins<br>(e.g., cefadroxil, cephalexin) | 1.9 - 7.9% |
-| 2nd Generation Cephalosporins<br>(e.g., refactor, cefuroxime, cefoxitin) | 1.9% |
-| 3rd Generation Cephalosporins<br>(e.g., ceftriaxone, cefotaxime, ceftazidime) | 0.7% |
-| 4th/5th Generation Cephalosporins<br>(e.g., cefepime, ceftaroline) | Not available |
-| Carbapenem<br>(e.g., imipenem, meropenem, ertapenem) | ≤ 1% |
-| Monobactam (aztreonam) | Negligible (except with ceftazidime which shares identical side chains |
-
----
-
-Figure 7: Management of the patient with a suspected perioperative allergic reaction or unexplained perioperative reaction that has not been investigated
-
-**Step 1: Initial Situation**
-* Patient with suspected perioperative allergic reaction or unexplained perioperative reaction that has not been investigated.
-* ↓
-
-**Step 2: Determine Procedure Urgency**
-
-* **Pathway A: Emergency procedure**
-  * → Gather relevant charts to determine if allergy is suspected.
-  * → Identify drugs and other exposures before reaction.
-  * ↓
-  * **Review Findings:**
-    * **If information is available:**
-      * → Avoid all drugs and exposures before the reaction; use alternative drugs where possible.
-      * **If allergy is ruled out:** Proceed with routine anaesthesia.
-    * **If no information is available:**
-      * → Consult local anaesthesia allergy service for advice if possible.
-      * → Use regional or inhalation techniques if possible.
-      * → Use as few drugs as possible.
-      * → Avoid NMBAs if possible.
-      * → Avoid latex and disinfectants (e.g. chlorhexidine) if possible.
-      * → If antibiotics indicated, avoid penicillins and cephalosporins.
-      * → Maintain high index of suspicion for early signs of anaphylaxis and be ready to treat.
-
-* **Pathway B: Urgent elective procedure (e.g. cancer surgery)**
- * → Gather relevant charts to determine if allergy is suspected.
-  * → Identify drugs and other exposures before reaction.
-  * ↓
-  * **Review Findings:**
-    * **If information is available:**
-      * → Avoid all drugs and exposures before the reaction; use alternative drugs where possible.
-      * **If allergy is ruled out:** Proceed with routine anaesthesia.
-    * **If no information is available:**
-      * → Consult local anaesthesia allergy service for advice if possible.
-      * → Use regional or inhalation techniques if possible.
-      * → Use as few drugs as possible.
-      * → Avoid NMBAs if possible.
-      * → Avoid latex and disinfectants (e.g. chlorhexidine) if possible.
-      * → If antibiotics indicated, avoid penicillins and cephalosporins.
-      * → Maintain high index of suspicion for early signs of anaphylaxis and be ready to treat.
-
-* **Pathway C: Non-urgent elective procedure**
-  * → Gather relevant charts to determine if allergy is suspected.
-  * → Consult local anaesthesia allergy service for advice if possible.
-  * ↓
-  * **Review Findings:**
-    * **If allergy is ruled out:** Proceed with routine anaesthesia.
-    * **If allergy is suspected OR no information is available:** Postpone surgery, refer for allergy investigation, reschedule after investigation, and follow advice from allergy investigation.
-
 Figure 8: Correlation of signs and symptoms with the serum levels of local anaesthetic
 
 As the serum level of local anaesthetic (LA) increases, the severity of signs and symptoms of Local Anaesthetic Systemic Toxicity (LAST) progresses as follows:
@@ -400,4 +396,3 @@ As the serum level of local anaesthetic (LA) increases, the severity of signs an
 
 * **Serum Level >25 mcg/ml: Cardiovascular Collapse**
   * → Cardiac Arrest
-<!-- parent_only_reference_end -->
