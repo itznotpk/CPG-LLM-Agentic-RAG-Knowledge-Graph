@@ -27,6 +27,7 @@ A recent local study done in Hospital Kuala Lumpur (a tertiary inner city hospit
 
 Methicillin-sensitive Staphylococcus aureus (MSSA) was the predominant microorganism grown from blood cultures (30%). All patients were treated with antimicrobials; with 91% on antimicrobial therapy for a duration of 42 days or less. Five patients died (13.9%) primarily due to overwhelming sepsis. Fifty-three percent of patients had indications for surgical intervention, however none had surgery within the index hospitalisation.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 The following content is duplicated from other sections/appendices referenced in this section so the file is standalone.
 
@@ -62,6 +63,8 @@ The following content is duplicated from other sections/appendices referenced in
 | **Reinfection** | • IE infection with a different microorganism<br>• A repeat episode of IE caused by the same microorganism > 6 months after the initial episode |
 
 Adapted from European Society of Cardiology infective endocarditis guidelines. 2009.
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

@@ -22,6 +22,7 @@ The successful implementation of this CPG would require:
 
 The measurement of specific performance measures (refer Appendix 11: Clinical indicators) affords an effective method in tracking the success of the implementation of these guidelines. The committee does not foresee any additional cost implications. The imaging modalities, microbiological testing and surgery can be performed, and appropriate antimicrobial therapy initiated in tertiary Ministry of Health and Ministry of Education hospitals.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Section 4: .1.4: Referral For Specialist Care
@@ -105,6 +106,8 @@ Performance measures for this CPG is to monitor the implementation of these guid
 *Note: The grades of recommendations denoted throughout these guidelines reflect the strength of the evidence that each recommendation is based upon. It may not refer to the clinical significance of the recommendation. All patients with infective endocarditis should be managed together with the best clinical judgment of the healthcare provider.*
 
 ---
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

@@ -220,6 +220,7 @@ Cardiac patients at risk (of IE) must be given advice during pre-pregnancy couns
 ## Key Message:
 All pregnant women who have IE in pregnancy should be referred to a SC with the appropriate expertise for the management of the IE and pregnancy.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Section 3: .0: Diagnosis
@@ -583,6 +584,9 @@ Table 7.2: Common Symptoms And Signs In Paediatric IE
 
 ---
 
+<!-- END OVERLAP CONTENT -->
+
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Section 8: .0: Antimicrobial Prophylaxis For Infective Endocarditis
@@ -702,6 +706,8 @@ Table 8.3: Antimicrobial Prophylaxis For Invasive Dental Procedures
 *Note: The grades of recommendations denoted throughout these guidelines reflect the strength of the evidence that each recommendation is based upon. It may not refer to the clinical significance of the recommendation. All patients with infective endocarditis should be managed together with the best clinical judgment of the healthcare provider.*
 
 ---
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

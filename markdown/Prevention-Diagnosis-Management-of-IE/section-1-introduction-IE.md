@@ -36,6 +36,7 @@ In keeping to this aim, this CPG attempts to highlight some of the more crucial 
 
 The recommendations developed in this CPG were based on the latest available data and evidence, taking into account the local healthcare system structure and patients. Though there are certain areas that would require a shift from the norm, the committee hopes that these evidence-based recommendations will not only serve to effectively manage IE patients but to also improve their outcomes.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Section 3: .0: Diagnosis
@@ -461,6 +462,8 @@ A randomised controlled trial of 76 patients with left-sided NVE comparing early
 | **Early** (within 1-2 weeks) | [Grade I, Level C] Fungal, S. aureus or other highly resistant microorganisms.<br>[Grade IIa, Level B] Persistent infection.<br>[Grade IIa, Level B] Persistent or enlarging vegetations despite antimicrobials.<br>[Grade I, Level B] Recurrent emboli. |
 | **Semi-elective** (after 2 weeks of antimicrobial cover) | [Grade I, Level B] PVE and relapsing infection. |
 | **Elective** (after 6 weeks of antimicrobial therapy) | [Grade I, Level C] Well-tolerated chronic severe valvular regurgitation with controlled infection. |
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

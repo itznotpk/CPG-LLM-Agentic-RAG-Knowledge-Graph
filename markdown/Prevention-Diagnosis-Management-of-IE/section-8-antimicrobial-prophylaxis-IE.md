@@ -70,6 +70,7 @@ IE risk is high in patients undergoing procedures that involve implanting prosth
 ### Preventive Measures By High-Risk Patients Are:
 [Grade IIa, Level B] Cardiac patients must be advised on the importance of dental and cutaneous hygiene.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 Table 8.1: Cardiac Conditions With Increased Risk Of IE
 
@@ -131,6 +132,8 @@ Table 8.3: Antimicrobial Prophylaxis For Invasive Dental Procedures
 *Note: The grades of recommendations denoted throughout these guidelines reflect the strength of the evidence that each recommendation is based upon. It may not refer to the clinical significance of the recommendation. All patients with infective endocarditis should be managed together with the best clinical judgment of the healthcare provider.*
 
 ---
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

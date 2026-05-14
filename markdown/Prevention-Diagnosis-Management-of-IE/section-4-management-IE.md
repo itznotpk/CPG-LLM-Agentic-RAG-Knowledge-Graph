@@ -436,6 +436,7 @@ In carefully selected patients, outpatient parenteral antimicrobial therapy (OPA
 
 The hospital must have established OPAT services with trained staff and protocols. Patients need to be reviewed daily by a trained nurse and by a doctor once/twice a week. Some important parameters that should be reviewed are presented in Appendix 10: Weekly OPAT review checklist (for doctors).
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Section 3: .3.1: Echocardiography
@@ -776,6 +777,9 @@ Table 4.12: Therapy For Initial Empirical Treatment Of IE In Acute Severely Ill 
 
 ---
 
+<!-- END OVERLAP CONTENT -->
+
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Section 5: .0: Surgical Intervention
@@ -1406,6 +1410,8 @@ The main laboratories and the contact details are as follows:*
 *Note: The grades of recommendations denoted throughout these guidelines reflect the strength of the evidence that each recommendation is based upon. It may not refer to the clinical significance of the recommendation. All patients with infective endocarditis should be managed together with the best clinical judgment of the healthcare provider.*
 
 ---
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

@@ -350,13 +350,6 @@ class MarkdownChunker:
                         ))
                         global_index += 1
 
-            # Attach overlap content to the last H2 child (same behaviour as before)
-            if child_chunks and overlap_blocks:
-                combined_overlap = "\n\n---\n\n".join(overlap_blocks)
-                last = child_chunks[-1]
-                last.content += f"\n\n---\n<!-- REFERENCE CONTEXT (not a separate chunk) -->\n\n{combined_overlap}"
-                last.metadata["has_overlap_context"] = True
-
             all_chunks.extend(child_chunks)
 
         # Final re-index and total_chunks update

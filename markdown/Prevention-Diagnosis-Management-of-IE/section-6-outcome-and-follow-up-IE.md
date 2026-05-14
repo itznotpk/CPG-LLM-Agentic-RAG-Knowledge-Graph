@@ -58,6 +58,7 @@ In the case of relapse or reinfection, appropriate antimicrobial therapy is give
 3. Education on preventive measures e.g. good oral and skin hygiene, and rehabilitation of high-risk behaviours should be provided.
 4. Risk of relapse is higher in those with inadequate initial antimicrobial therapy, previous history of IE, prosthetic valves, unrepaired CHD, IVDU and S. aureus IE.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Appendix 1: Classification And Definition Of Infective Endocarditis
@@ -215,6 +216,8 @@ The hospital must have established OPAT services with trained staff and protocol
 *Note: The grades of recommendations denoted throughout these guidelines reflect the strength of the evidence that each recommendation is based upon. It may not refer to the clinical significance of the recommendation. All patients with infective endocarditis should be managed together with the best clinical judgment of the healthcare provider.*
 
 ---
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

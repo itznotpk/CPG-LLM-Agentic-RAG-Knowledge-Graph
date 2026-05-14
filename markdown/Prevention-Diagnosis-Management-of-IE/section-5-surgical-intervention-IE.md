@@ -264,6 +264,7 @@ The surgical mortality for IE in the group of CHD has been reported between 10-1
 1. [Grade I, Level B] Degree of illness not be considered a limitation to surgical intervention, because the alternative, to delay or defer surgery, can have dire consequences.
 2. [Grade II, Level B] Surgery may be considered for patients with relapsing PVE even if valvular function remains intact after prolonged medical therapy.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 Table 5.1: Determinant Factors For Surgical Therapy
 
@@ -539,6 +540,8 @@ If a cardiac specimen is also being collected for:
 *Note: The grades of recommendations denoted throughout these guidelines reflect the strength of the evidence that each recommendation is based upon. It may not refer to the clinical significance of the recommendation. All patients with infective endocarditis should be managed together with the best clinical judgment of the healthcare provider.*
 
 ---
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |

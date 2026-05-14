@@ -955,7 +955,7 @@ class DocumentIngestionPipeline:
 
     def _print_dry_run_summary(self, title: str, chunks: List[DocumentChunk]):
         sizes = [len(c.content) for c in chunks]
-        print(f"\n📄 {title}")
+        print(f"\n[DOC] {title}")
         print(f"   Chunks: {len(chunks)}")
         print(f"   Sizes:  {sizes}")
         print(f"   Total chars: {sum(sizes)}")
@@ -1067,15 +1067,15 @@ async def main():
         
         if pipeline.use_cpg_parser:
             print("CPG Features:")
-            print("  ✓ Hierarchical structure parsing enabled")
-            print("  ✓ Table extraction to JSON enabled")
-            print("  ✓ Evidence level/Grade metadata extraction")
-            print("  ✓ Medical relationship extraction")
+            print("  [OK] Hierarchical structure parsing enabled")
+            print("  [OK] Table extraction to JSON enabled")
+            print("  [OK] Evidence level/Grade metadata extraction")
+            print("  [OK] Medical relationship extraction")
             print()
         
         # Print individual results
         for result in results:
-            status = "✓" if not result.errors else "✗"
+            status = "[OK]" if not result.errors else "[ERR]"
             print(f"{status} {result.title}: {result.chunks_created} chunks, {result.entities_extracted} entities, {result.relationships_created} relationships")
             
             if result.errors:

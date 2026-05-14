@@ -307,6 +307,7 @@ In cases where clinical suspicion is high but the application of the Duke criter
 2. For patients with possible or rejected IE in whom there is a high clinical suspicion of IE, it is advisable to consider further microbiological testing or other imaging modalities to guide in the diagnosis.
 3. Clinicians should treat each individual patient accordingly.
 
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 Table 3.1: Symptoms And Signs Of IE
 
@@ -675,6 +676,9 @@ If a cardiac specimen is also being collected for:
 
 ---
 
+<!-- END OVERLAP CONTENT -->
+
+<!-- OVERLAP CONTENT -->
 ## Contextual Anchors (Overlapping)
 
 ### Section 7: .1: Infective Endocarditis In Congenital Heart Disease
@@ -1116,6 +1120,8 @@ In the case of relapse or reinfection, appropriate antimicrobial therapy is give
 4. Risk of relapse is higher in those with inadequate initial antimicrobial therapy, previous history of IE, prosthetic valves, unrepaired CHD, IVDU and *S. aureus* IE.
 
 ---
+
+<!-- END OVERLAP CONTENT -->
 
 ## Abbreviations Used In This Section
 | Abbreviation | Definition |
