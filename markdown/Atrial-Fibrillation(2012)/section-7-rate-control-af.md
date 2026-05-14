@@ -14,13 +14,68 @@ Criteria for rate control vary with patient age but usually involve achieving ve
 
 However, maintaining lenient control of heart rate (a resting rate of less than 100 bpm) is easier to achieve and is comparable to strict control (resting heart rate <80 bpm and heart rate during moderate exercise <110 bpm) on long-term composite outcomes. For patients without severe symptoms due to high ventricular rate, a lenient rate control approach is reasonable (refer Figure 10: Optimal level of heart rate control).
 
+Figure 10: Optimal level of heart rate control
+ **Rate control**
+ *   **No or tolerable symptoms:**
+     *   &rarr; **Accept lenient rate control**
+ *   **Symptoms:**
+     *   &rarr; **More strict rate control**
+         *   &rarr; Exercise test if excessive heart rate is anticipated during exercise
+         *   &rarr; 24 h ECG for safety
+
 Drugs commonly used are ß-blockers, non-dihydropyridine calcium channel antagonists (diltiazem, verapamil), and digitalis. Acute treatment is described in Section 5.1.1: Acute Rate Control. <!-- cross_ref target_file="section-5-acute-onset-af.md" target_heading="5.1.1: Acute Rate Control" target_kind="h3_section" -->
 
 Combinations of drugs may be necessary. Dronedarone may also effectively reduce heart rate during AF recurrences. Amiodarone may be suitable for some patients with otherwise refractory rate control. The combination of a ß-blocker and digitalis may be beneficial in patients with heart failure.
 
 When a strict rate control policy is adopted (resting heart rate <80 bpm and target heart rate <110 bpm during moderate exercise), a 24-h Holter monitor should be performed to assess pauses and bradycardia.
 
-Selection of the most effective and appropriate rate-control agent, or combination of agents, is vital. Table 15: Choice of a Rate-Control Agent lists rate-control treatments in order of preference, taking into account other conditions that may be present. Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL lists the drugs and their doses for rate control.
+Selection of the most effective and appropriate rate-control agent, or combination of agents, is vital. Table 15: Choice of a Rate-Control Agent lists rate-control treatments in order of preference, taking into account other conditions that may be present. Figure 11: The choice of drugs depends on life-style and underlying disease provides an algorithm on how to make the drug choice. Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL lists the drugs and their doses for rate control.
+
+Table 15: Choice of a Rate-Control Agent
+| Comorbidity | First-Line | Second-Line | Less Effective or Desirable |
+|---|---|---|---|
+| No heart disease | ß-blockers* OR non-dihydropyridine CCBs† | — | Digoxin‡ (can be first-line in people unlikely to be active) |
+| Hypertension | ß-blockers* OR non-dihydropyridine CCBs† | — | Digoxin‡ |
+| Ischaemic heart disease | ß-blockers* | First-line agent + non-dihydropyridine CCBs† OR Digoxin‡ | Ablation + pacing |
+| Congestive heart failure | Digoxin in overt HF; Carvedilol, bisoprolol or metoprolol in stable HF | ß-blockers* (excluding carvedilol, bisoprolol, metoprolol) OR Diltiazem | Amiodarone; Ablation + pacing should be considered |
+| COPD | Non-dihydropyridine CCBs† | First-line agent + ß-blockers (if no reversible bronchospasm) | Digoxin‡ |
+
+ \* *excluding sotalol*
+ † *diltiazem or verapamil*
+ ‡ *as monotherapy (can be used in combination with other rate-control agents)*
+
+Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
+| Drug | Oral Loading Dose | Onset of Action | Commonly Used Maintenance Doses | Adverse Effects | Comments |
+|---|---|---|---|---|---|
+| **Beta-blockers** | | | | | |
+| Atenolol | N/A | 2–3 hr | 25–50 mg daily | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF (negative inotropic effect) |
+| Carvedilol | N/A | 60–90 min | 6.25–25 mg b.d. | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
+| Metoprolol | N/A | 4–6 hr | 23.75–200 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
+| Nadolol | N/A | 3–4 hr | 20–80 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
+| Propranolol | N/A | 60–90 min | 80–240 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
+| **Calcium channel blockers** | | | | | |
+| Diltiazem | N/A | 1–4 hr | 120–360 mg/day | Hypotension, heart block, heart failure | Lower doses in HF |
+| Verapamil | N/A | 1–2 hr | 120–360 mg/day | Hypotension, heart block, heart failure, digoxin interaction | Lower doses in HF (negative inotropic effect) |
+| **Other** | | | | | |
+| Digoxin | 0.5–1.0 mg | 2 hr | 0.0625–0.375 mg/day | Digoxin toxicity, heart block, bradycardia | First-line therapy only for people unlikely to be active (e.g., older people or infirm) and for people with heart failure. Less effective in hyperadrenergic states. |
+| Amiodarone | 400–800 mg/day for 1 week | 1–3 wk | 200 mg/day | Photosensitivity and other skin reactions, pulmonary toxicity, polyneuropathy, gastrointestinal upset, bradycardia, hepatic toxicity, thyroid dysfunction, torsades de pointes (rare) | Although there is fairly good evidence of efficacy, this is an agent of last resort in this indication, due to its long-term toxicity. |
+*N/A = No
+
+Figure 11: The choice of drugs depends on life-style and underlying disease
+
+ **Atrial fibrillation**
+ *   **Inactive lifestyle:**
+     *   &rarr; **Digitalis**
+ *   **Active lifestyle:**
+     *   &darr; Assess **Associated disease**
+         *   **None or hypertension:**
+             *   &rarr; ß-blocker, Diltiazem, Verapamil, Digitalis
+         *   **Heart failure:**
+             *   &rarr; ß-blocker, Digitalis
+         *   **COPD:**
+             *   &rarr; Diltiazem, Verapamil, Digitalis, ß1-selective blockers*
+
+ *\*Small doses of ß1-selective blockers may be used in COPD if rate control is not adequate with non-dihydropyridine calcium channel antagonists and digoxin. Amiodarone is also used for rate control in patients who do not respond to glycosides, ß-blockers or non-dihydropyridine calcium antagonists. Dronedarone may also be used for rate control in patient with recurrent episodes of atrial fibrillation.*
 
 [Grade I, Level B] Rate control using pharmacological agents (ß-blockers, non-dihydropyridine CCBs, digitalis, or a combination) is recommended in patients with paroxysmal, persistent, or permanent AF. The choice should be individualized and dose modulated to avoid bradycardia.
 
@@ -80,64 +135,6 @@ It is suggested that programming the pacemaker initially for the first month pos
 
 ---
 <!-- parent_only_reference_start -->
-Table 15: Choice of a Rate-Control Agent
-| Comorbidity | First-Line | Second-Line | Less Effective or Desirable |
-|---|---|---|---|
-| No heart disease | ß-blockers* OR non-dihydropyridine CCBs† | — | Digoxin‡ (can be first-line in people unlikely to be active) |
-| Hypertension | ß-blockers* OR non-dihydropyridine CCBs† | — | Digoxin‡ |
-| Ischaemic heart disease | ß-blockers* | First-line agent + non-dihydropyridine CCBs† OR Digoxin‡ | Ablation + pacing |
-| Congestive heart failure | Digoxin in overt HF; Carvedilol, bisoprolol or metoprolol in stable HF | ß-blockers* (excluding carvedilol, bisoprolol, metoprolol) OR Diltiazem | Amiodarone; Ablation + pacing should be considered |
-| COPD | Non-dihydropyridine CCBs† | First-line agent + ß-blockers (if no reversible bronchospasm) | Digoxin‡ |
-
- \* *excluding sotalol*
- † *diltiazem or verapamil*
- ‡ *as monotherapy (can be used in combination with other rate-control agents)*
-
-----
-
-Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
-| Drug | Oral Loading Dose | Onset of Action | Commonly Used Maintenance Doses | Adverse Effects | Comments |
-|---|---|---|---|---|---|
-| **Beta-blockers** | | | | | |
-| Atenolol | N/A | 2–3 hr | 25–50 mg daily | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF (negative inotropic effect) |
-| Carvedilol | N/A | 60–90 min | 6.25–25 mg b.d. | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
-| Metoprolol | N/A | 4–6 hr | 23.75–200 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
-| Nadolol | N/A | 3–4 hr | 20–80 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
-| Propranolol | N/A | 60–90 min | 80–240 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
-| **Calcium channel blockers** | | | | | |
-| Diltiazem | N/A | 1–4 hr | 120–360 mg/day | Hypotension, heart block, heart failure | Lower doses in HF |
-| Verapamil | N/A | 1–2 hr | 120–360 mg/day | Hypotension, heart block, heart failure, digoxin interaction | Lower doses in HF (negative inotropic effect) |
-| **Other** | | | | | |
-| Digoxin | 0.5–1.0 mg | 2 hr | 0.0625–0.375 mg/day | Digoxin toxicity, heart block, bradycardia | First-line therapy only for people unlikely to be active (e.g., older people or infirm) and for people with heart failure. Less effective in hyperadrenergic states. |
-| Amiodarone | 400–800 mg/day for 1 week | 1–3 wk | 200 mg/day | Photosensitivity and other skin reactions, pulmonary toxicity, polyneuropathy, gastrointestinal upset, bradycardia, hepatic toxicity, thyroid dysfunction, torsades de pointes (rare) | Although there is fairly good evidence of efficacy, this is an agent of last resort in this indication, due to its long-term toxicity. |
-
-*N/A = No
-
-Figure 10: Optimal level of heart rate control
- **Rate control**
- *   **No or tolerable symptoms:**
-     *   &rarr; **Accept lenient rate control**
- *   **Symptoms:**
-     *   &rarr; **More strict rate control**
-         *   &rarr; Exercise test if excessive heart rate is anticipated during exercise
-         *   &rarr; 24 h ECG for safety
-
-Figure 11: The choice of drugs depends on life-style and underlying disease
-
- **Atrial fibrillation**
- *   **Inactive lifestyle:**
-     *   &rarr; **Digitalis**
- *   **Active lifestyle:**
-     *   &darr; Assess **Associated disease**
-         *   **None or hypertension:**
-             *   &rarr; ß-blocker, Diltiazem, Verapamil, Digitalis
-         *   **Heart failure:**
-             *   &rarr; ß-blocker, Digitalis
-         *   **COPD:**
-             *   &rarr; Diltiazem, Verapamil, Digitalis, ß1-selective blockers*
-
- *\*Small doses of ß1-selective blockers may be used in COPD if rate control is not adequate with non-dihydropyridine calcium channel antagonists and digoxin. Amiodarone is also used for rate control in patients who do not respond to glycosides, ß-blockers or non-dihydropyridine calcium antagonists. Dronedarone may also be used for rate control in patient with recurrent episodes of atrial fibrillation.*
-
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|

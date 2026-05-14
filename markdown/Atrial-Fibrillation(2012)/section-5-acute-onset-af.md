@@ -126,6 +126,64 @@ DCCV is an effective method of converting AF to sinus rhythm. Successful DCCV is
 #### 5.1.3.1: Procedure
 Unless adequate anticoagulation has been documented for 4 weeks or AF is <48 h from a definite onset, a TOE should be performed to rule out atrial thrombi (refer Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy).
 
+Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy
+1.  **AF onset < 48 h?**
+     *   **Yes (Recent-onset AF):**
+         *   &rarr; Heparin &rarr; **Cardioversion**
+         *   **Outcome:**
+             *   &rarr; *If AF remains:* 4 weeks anticoagulation*
+            *   &rarr; *If Sinus Rhythm (SR) restored:* Check Risk factors
+                *   &rarr; **Yes:** 4 weeks anticoagulation*
+                 *   &rarr; **No:** No long-term OAC
+     *   **No (Conventional OAC or TOE Strategy):**
+         *   **Option A: Conventional Route**
+             *   &rarr; 3 weeks therapeutic OAC &rarr; **Cardioversion**
+             *   **Outcome:** (SR or AF) &rarr; 4 weeks anticoagulation*
+         *   **Option B: TOE Strategy**
+             *   &rarr; Transoesophageal echocardiography (TOE)
+                 *   &rarr; **No LAA thrombus:** Heparin &rarr; **Cardioversion** &rarr; **Outcome (e.g. SR):** &rarr; 4 weeks anticoagulation*
+                 *   &rarr; **LAA thrombus present:** Therapeutic OAC for 3 weeks &rarr; *Loop back to TOE Strategy*
+                     *   *(If LAA thrombus still present after loop: Opt for rate control &rarr; Proceed directly to **Long-term OAC indicated**)*
+
+ 2.  **Post-Cardioversion Anticoagulation Review:**
+     *   After the mandated "4 weeks anticoagulation*", evaluate: **Consider if long-term OAC indicated†**
+         *   **Risk factors?** (Yes) &rarr; Long-term OAC indicated
+         *   **Risk factors?** (No) &rarr; No long-term OAC
+
+**Footnotes:**
+\* *Anticoagulation should normally be continued for 4 weeks after a cardioversion attempt except when AF is recent onset and no risk factors are present.*
+† *Long-term OAC if stroke risk factors and/or risk of AF recurrence/presence of thrombus.*
+
+Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
+**Type IA**
+- Disopyramide
+- Procainamide
+- Quinidine
+
+**Type IB**
+- Lignocaine
+- Mexiletine
+
+**Type IC**
+- Flecainide
+- Propafenone
+
+**Type II**
+- Beta blockers (e.g. propranolol)
+
+**Type III**
+- Amiodarone
+- Dronedarone
+- Bretylium
+- Dofetilide
+- Ibutilide
+- Sotalol
+
+**Type IV**
+- Nondihydropyridine calcium channel antagonist (verapamil and diltiazem)
+
+*Note: Table includes compounds introduced after publication of the original classification.*
+
 A pacing catheter or external pacing pads may be needed if asystole or bradycardia occurs.
 
 Evidence favours the use of biphasic external defibrillators because of their lower energy requirements and greater efficacy compared with monophasic defibrillators. Trials have demonstrated a significant increase in the first shock success rate of DCCV for AF when biphasic waveforms were used.
@@ -190,64 +248,6 @@ Factors that predispose to AF recurrence are age, AF duration before cardioversi
 Refer Section 6: Management: Prevention Of Thromboembolism. <!-- cross_ref target_file="section-6-thromboembolism-prevention-af.md" target_heading="Section 6: Management: Prevention Of Thromboembolism" target_kind="h1_section" -->
 
 <!-- parent_only_reference_start -->
-Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy
-1.  **AF onset < 48 h?**
-     *   **Yes (Recent-onset AF):**
-         *   &rarr; Heparin &rarr; **Cardioversion**
-         *   **Outcome:**
-             *   &rarr; *If AF remains:* 4 weeks anticoagulation*
-            *   &rarr; *If Sinus Rhythm (SR) restored:* Check Risk factors
-                *   &rarr; **Yes:** 4 weeks anticoagulation*
-                 *   &rarr; **No:** No long-term OAC
-     *   **No (Conventional OAC or TOE Strategy):**
-         *   **Option A: Conventional Route**
-             *   &rarr; 3 weeks therapeutic OAC &rarr; **Cardioversion**
-             *   **Outcome:** (SR or AF) &rarr; 4 weeks anticoagulation*
-         *   **Option B: TOE Strategy**
-             *   &rarr; Transoesophageal echocardiography (TOE)
-                 *   &rarr; **No LAA thrombus:** Heparin &rarr; **Cardioversion** &rarr; **Outcome (e.g. SR):** &rarr; 4 weeks anticoagulation*
-                 *   &rarr; **LAA thrombus present:** Therapeutic OAC for 3 weeks &rarr; *Loop back to TOE Strategy*
-                     *   *(If LAA thrombus still present after loop: Opt for rate control &rarr; Proceed directly to **Long-term OAC indicated**)*
-
- 2.  **Post-Cardioversion Anticoagulation Review:**
-     *   After the mandated "4 weeks anticoagulation*", evaluate: **Consider if long-term OAC indicated†**
-         *   **Risk factors?** (Yes) &rarr; Long-term OAC indicated
-         *   **Risk factors?** (No) &rarr; No long-term OAC
-
-**Footnotes:**
-\* *Anticoagulation should normally be continued for 4 weeks after a cardioversion attempt except when AF is recent onset and no risk factors are present.*
-† *Long-term OAC if stroke risk factors and/or risk of AF recurrence/presence of thrombus.*
-
-Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
-**Type IA**
-- Disopyramide
-- Procainamide
-- Quinidine
-
-**Type IB**
-- Lignocaine
-- Mexiletine
-
-**Type IC**
-- Flecainide
-- Propafenone
-
-**Type II**
-- Beta blockers (e.g. propranolol)
-
-**Type III**
-- Amiodarone
-- Dronedarone
-- Bretylium
-- Dofetilide
-- Ibutilide
-- Sotalol
-
-**Type IV**
-- Nondihydropyridine calcium channel antagonist (verapamil and diltiazem)
-
-*Note: Table includes compounds introduced after publication of the original classification.*
-
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|

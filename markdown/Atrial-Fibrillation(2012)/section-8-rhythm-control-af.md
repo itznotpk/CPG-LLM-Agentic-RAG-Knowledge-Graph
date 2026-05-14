@@ -211,7 +211,6 @@ Figure 12: Choice of antiarrhythmic medication for the patient with AF and no or
 
 *ACEI = angiotensin-converting enzyme inhibitor; ARB = angiotensin receptor blocker; CAD = coronary artery disease; CHF = congestive heart failure; HT = hypertension; LVH = left ventricular hypertrophy; NYHA = New York Heart Association; unstable = cardiac decompensation within the prior 4 weeks. Antiarrhythmic agents are listed in alphabetical order within each treatment box. ? = evidence for 'upstream' therapy for prevention of atrial remodelling still remains controversial.*
 
-
 Figure 14: Choice between ablation and antiarrhythmic drug therapy for patients with and without structural heart disease
  **Branch A: Relevant underlying heart disease**
      **CHF (Congestive Heart Failure):**

@@ -323,6 +323,45 @@ Use this when shared tables, criteria lists, forms, or appendix excerpts should 
 
 Use this for shared or overlap material already copied into the current H1 parent, such as Anaesthesia Section 2 shared TML examples or CVC medication examples. Do not also add a `cross_ref` marker for the same copied content.
 
+### Inline vs parent-only — the decision rule
+
+`parent_only_reference` is a **narrow exception**, not the default home for tables.
+
+```text
+Table / figure / list belongs to exactly ONE H2 (or H3):
+  keep it INLINE inside that H2/H3 — do NOT move it to parent_only_reference
+
+Table / criteria list / form is genuinely SHARED by MULTIPLE H2s of this file:
+  put ONE copy in a parent_only_reference block
+```
+
+Why inline is the default — moving a single-H2 table into `parent_only_reference` actively harms that H2:
+
+```text
+1. Thinner embedding — the table's terms (drug names, doses, criteria) leave the
+   H2 vector, so the H2 scores weaker and can lose the top-K race for queries
+   that target the table's content.
+2. Lost citation path — parent_only_reference content is never a citation target
+   (only retrievable chunks are). The clickable "from Table N" link is broken.
+3. Budget noise — parent_only_reference is attached to EVERY child retrieval from
+   that H1, so a wrongly-parked table dilutes every sibling H2's evidence pack.
+```
+
+A single-H2 table has none of the problems `parent_only_reference` solves (no duplication, no spurious standalone hit) — so it pays the cost above for zero benefit. Test: *is this table referenced by more than one H2?* If no → inline.
+
+### No cross_ref for within-file shared tables
+
+A table shared across multiple H2s **of the same file** needs only the `parent_only_reference` block — **no `cross_ref` marker**. `cross_ref` is exclusively for content outside the current H1. The shared table already lives in this H1's parent content, so every H2 in the file sees it via parent context.
+
+```text
+Shared across H2s of THIS file        → parent_only_reference, no marker
+Shared across files / another H1      → cross_ref marker (Section 5)
+```
+
+### Placement of parent-only blocks
+
+Place `parent_only_reference` blocks at **H1 scope** — between H2s, or at the end of the file — **not nested inside an H2 body**. If a block sits inside an H2 that later exceeds the 8k cap and is split at `###`, its ownership becomes ambiguous. Keeping it at H1 scope means it unambiguously stays in H1 parent content and remains visible whenever H1 is loaded.
+
 ```md
 # Section 3: Diagnosis of Infective Endocarditis
 
@@ -475,6 +514,16 @@ h2_section
 Use when referring to a specific `## H2` section.
 
 ```text
+h3_section
+```
+Use when referring to a specific `### H3` subsection (a 3-part number like `3.1.2:`).
+An `### H3` is only an independently retrievable chunk when its parent `## H2` exceeded
+the 8,000-char cap and was split at `###` during ingestion (see Phase A Step 2 chunker
+cap rule). When the parent H2 was not cap-split, the resolver falls back to the
+enclosing H2 — so `h3_section` is always safe to use: point it at the real H3 heading
+and let the resolver pick the chunk that actually exists.
+
+```text
 algorithm_flowchart
 ```
 Use when referring to an algorithm, flowchart, pathway, or step sequence.
@@ -486,22 +535,33 @@ Use when referring to an appendix stored elsewhere and not copied into the curre
 
 ### Deep numeric references (Section 3.1.2, Section 3.1.2.1, Table N, Figure N, etc.)
 
-`target_kind` selects a **retrieval unit**, not a heading level. Only `# H1` and `## H2` are independently retrievable chunks — `### H3` / `#### H4` live inside their enclosing H2 and are never returned on their own.
+`target_kind` selects a **retrieval unit**, not a heading level. The independently retrievable chunks are `# H1`, `## H2`, and — only when a `## H2` exceeded the 8,000-char cap and was split at `###` during ingestion — its `### H3` children. `#### H4` and lower are never returned on their own.
 
-Therefore, resolve any reference deeper than H2 **upward** to the nearest enclosing retrievable unit:
+Resolution rule:
+
+```text
+3-part number (N.M.P)  → target_kind="h3_section", target_heading = the exact ### H3 heading.
+                         Resolver fetches the H3 child chunk if the parent H2 was cap-split,
+                         otherwise falls back to the enclosing H2. Always safe.
+
+Deeper than H3 (N.M.P.Q) or Table/Figure inside an H3
+                       → resolve UPWARD to the nearest retrievable unit:
+                         the enclosing H3 (h3_section) if that H3 is addressable,
+                         else the enclosing H2 (h2_section).
+```
 
 ```text
 Visible prose                       target_heading                            target_kind
 -------------------------------------------------------------------------------------------
-"refer to Section 3"                "Section 3: Initial management"           h1_section
-"refer to Section 3.1"              "3.1: Clinical history, ..."              h2_section
-"refer to Section 3.1.2"            "3.1: Clinical history, ..."              h2_section
-"refer to Section 3.1.2.1"          "3.1: Clinical history, ..."              h2_section
-"refer to Table 11"                 (enclosing H2 of where Table 11 lives)    h2_section
+"refer to Section 3"                "Section 3: Initial Management"           h1_section
+"refer to Section 3.1"              "3.1: Clinical History, ..."              h2_section
+"refer to Section 3.1.2"            "3.1.2: Risk Stratification"              h3_section
+"refer to Section 3.1.2.1"          "3.1.2: Risk Stratification"              h3_section
+"refer to Table 11"                 (enclosing H3, else H2, of Table 11)      h3_section / h2_section
 "refer to Figure 1"                 (enclosing H2 of where Figure 1 lives)    algorithm_flowchart
 ```
 
-Keep the visible sentence ("refer to Section 3.1.2.1") unchanged so the clinician still sees the exact pointer; the marker resolves to the H2 chunk the retriever can actually fetch.
+Keep the visible sentence ("refer to Section 3.1.2.1") unchanged so the clinician still sees the exact pointer; the marker resolves to the H3 chunk if it exists, otherwise the enclosing H2 the retriever can always fetch.
 
 **Exception** — if the referenced Table/Figure lives inside a `parent_only_reference_start/end` block in some file, set `target_heading` to that file's `# H1` and `target_kind="h1_section"`, since the table is only addressable via the parent context.
 
@@ -512,7 +572,8 @@ The simplest risk assessment scheme is the CHADS₂ score (refer to Table 11).
 <!-- cross_ref target_file="section-6-thromboembolism-prevention-af.md" target_heading="6.2: Stroke risk stratification" target_kind="h2_section" -->
 
 For ECG interpretation criteria, refer to Section 3.1.2.1.
-<!-- cross_ref target_file="section-3-initial-management.md" target_heading="3.1: Clinical history, physical examination and investigations" target_kind="h2_section" -->
+<!-- cross_ref target_file="section-3-initial-management.md" target_heading="3.1.2: Risk Stratification" target_kind="h3_section" -->
+<!-- Resolves upward from the 4-part 3.1.2.1 to the enclosing ### H3 3.1.2; if that H2 was not cap-split, the resolver falls back to its enclosing ## H2. -->
 ```
 
 ---

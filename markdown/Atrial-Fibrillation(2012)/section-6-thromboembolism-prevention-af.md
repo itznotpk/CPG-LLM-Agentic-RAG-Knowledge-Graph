@@ -19,6 +19,19 @@ Patients aged less than 60 years, with 'lone AF' (i.e. no clinical history or ph
 
 The various stroke clinical risk factors has led to publication of various stroke schemes. The simplest risk assessment scheme is the CHADS₂ score and as shown in Table 11: CHADS₂ Score and Stroke Rate, has good stroke correlation. The CHADS₂ [cardiac failure, hypertension, age, diabetes, stroke (doubled)] risk index evolved from the AF Investigators and Stroke Prevention in Atrial Fibrillation (SPAF) Investigators criteria, and is based on a point system in which 2 points are assigned for a history of stroke or TIA and 1 point each is assigned for age >75 years, a history of hypertension, diabetes, or recent cardiac failure.
 
+Table 11: CHADS₂ Score and Stroke Rate
+
+| CHADS₂ Score | Patients (n=1,733) | Adjusted Stroke Rate (%/year) (95% CI) |
+|---|---|---|
+| 0 | 120 | 1.9 (1.2–3.0) |
+| 1 | 463 | 2.8 (2.0–3.8) |
+| 2 | 523 | 4.0 (3.1–5.1) |
+| 3 | 337 | 5.9 (4.6–7.3) |
+| 4 | 220 | 8.5 (6.3–11.1) |
+| 5 | 65 | 12.5 (8.2–17.5) |
+| 6 | 5 | 18.2 (10.5–27.4) |
+*The adjusted stroke rate was derived from the multivariable analysis assuming no aspirin usage.*
+
 The CHADS₂ stroke risk stratification scheme should be used as an initial, rapid, and easy-to-remember means of assessing stroke risk. In patients with a CHADS₂ score ≥2, chronic OAC therapy with a VKA is recommended in a dose-adjusted approach to achieve an international normalized ratio (INR) target of 2.5 (range, 2.0–3.0), unless contraindicated.
 
 A comparison of the 12 published risk-stratification schemes to predict stroke in patients with non-valvular AF found that most had very modest predictive value for stroke and the proportion of patients assigned to individual risk categories varied widely across the schemes. The CHADS₂ score categorized most subjects as 'moderate risk'. The choice of antithrombotic (anticoagulants or antiplatelets) for the 'moderate risk' group was at best uncertain.
@@ -40,9 +53,26 @@ The CHADS₂ stroke risk stratification scheme should be used as a simple initia
 
 In patients with a CHADS₂ score of ≥2, chronic OAC therapy, e.g. with a VKA, is recommended in a dose adjusted to achieve an INR value in the range of 2.0–3.0, unless contraindicated.
 
-In patients with a CHADS₂ score of 0–1, or where a more detailed stroke risk assessment is indicated, it is recommended to use a more comprehensive risk factor-based approach (CHA₂DS₂-VASc) incorporating other risk factors for thrombo-embolism (refer Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis in patients with AF).
+In patients with a CHADS₂ score of 0–1, or where a more detailed stroke risk assessment is indicated, it is recommended to use a more comprehensive risk factor-based approach (CHA₂DS₂-VASc) incorporating other risk factors for thrombo-embolism (refer Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis in patients with AF & Figure 7: Clinical flowchart for the use of oral anticoagulant for stroke prevention in AF).
 
 In all cases where OAC is considered, a discussion of the pros and cons with the patient, and an evaluation of the risk of bleeding complications, ability to safely sustain adjusted chronic anticoagulation, and patient preferences are necessary. In some patients, for example, women aged less than 65 years with no other risk factors (i.e. a CHA₂DS₂-VASc score of 1), aspirin rather than OAC therapy may be considered.
+
+Figure 7: Clinical flowchart for the use of oral anticoagulant for stroke prevention in AF
+ *   **CHADS₂ score ≥ 2?** *(Score ≥ 2 indicates high risk)*
+     *   &rarr; **Yes:** &rarr; **OAC**
+     *   &rarr; **No:**
+         *   &darr; **Consider other risk factors***
+         *   &darr; **Age ≥ 75 years?**
+             *   &rarr; **Yes:** &rarr; **OAC**
+             *   &rarr; **No:**
+                 *   &darr; **≥ 2 other risk factors*?**
+                     *   &rarr; **Yes:** &rarr; **OAC**
+                     *   &rarr; **No:**
+                         *   &darr; **1 other risk factor*?**
+                             *   &rarr; **Yes:** &rarr; **OAC (or aspirin)**
+                             *   &rarr; **No:** &rarr; **Nothing (or aspirin)**
+
+ **⁺CHADS₂ Score**
 
 ## 6.3: Antithrombotic Therapy
 ### 6.3.1: Anticoagulation With Vitamin K Antagonists (Vka)
@@ -77,7 +107,29 @@ The level of anticoagulation is expressed as the INR and is derived from the rat
 
 The major bleeding rate for 5 randomized clinical trials was 1.2% per year. In time-dependent INR analyses of anticoagulation in elderly AF cohorts, intracranial bleed increased with INR values over 3.5 to 4.0, and there was no increment with values between 2.0 and 3.0 compared with lower INR levels (refer Figure 8: Adjusted odds ratios for ischaemic stroke and intracranial bleeding in relation to intensity of anticoagulation).
 
+Figure 8: Adjusted odds ratios for ischaemic stroke and intracranial bleeding in relation to intensity of anticoagulation
+
+ *   **INR < 2.0:** High risk of ischaemic stroke (Odds ratio sharply increases as INR drops towards 1.5).
+ *   **INR 2.0 – 3.0:** Optimal therapeutic window. Both ischaemic stroke risk and intracranial bleeding risk are at their baseline lowest (~1.0 Odds Ratio).
+ *   **INR > 3.0:** Ischaemic stroke risk remains low and flat, but the risk of intracranial bleeding begins to rise exponentially (reaching an Odds Ratio of >4.5 by INR 5.5 and >9.0 by INR 7.0).
+
+*(Reproduced with permission from Ann Intern Med. Hylek E, Singer D. Risk factors for intracranial hemorrhage in outpatients taking warfarin. Ann Intern Med 1994;120:897-902.)*
+
 For a guide on using VKA in daily practice, (refer Appendix C: Warfarin in Practice).
+
+Appendix C: Warfarin In Practice
+Barriers that may prevent people accessing medication and INR testing include:
+- Financial barriers (including the ability to take time off work)
+- Travel difficulties
+- Lack of access to a telephone
+- Fear or dislike of regular blood tests
+- Difficulties with general practitioner monitoring.
+
+Possible solutions include the following:
+- Financial assistance from relevant agencies
+- Provision of transport (e.g., shuttle service, taxi chits)
+- Domiciliary testing, either at home or the work place
+- Testing people in groups at a public health centre using a point-of-care monitor
 
 #### 6.3.2.1: Point-Of-Care Testing And Self-Monitoring Of Anticoagulation
 Self-monitoring may be considered if preferred by a patient who is both physically and cognitively able to perform the self-monitoring test, and, if not, a designated carer could help. Appropriate training by a competent healthcare professional is important, and the patient should remain in contact with a named clinician. These point-of-care devices may also be useful in remote places and allow patients easy access to testing. Point-of-care devices also require adequate quality assurance and calibration.
@@ -162,6 +214,26 @@ In cases of major surgery, consideration should be given to the risk of thromboe
 
 [Grade II-b, Level C] When surgical procedures require interruption of OAC therapy for longer than 48h in high-risk patients, unfractionated heparin or subcutaneous LMWH may be considered.
 
+Appendix C.1.9: Interruption Of Warfarin Therapy For Surgery
+| Condition | Recommendation |
+|---|---|
+| **Low risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
+| **Moderate risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
+| **High risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
+| **Low risk of bleeding** | Lower warfarin dose and operate at an INR of 1.3-1.5; the dose may be lowered 4-5 days before surgery; warfarin can be restarted post-op, supplement with LMWH if necessary. |
+| **Urgent surgical or other invasive procedure (within 12 hours)** | For immediate reversal give FFP, prothrombin complex concentrate in addition to vitamin K 2.5-5 mg po or by slow IV infusion. |
+| **Urgent surgical or other invasive procedure (within 18-24 hours)** | If surgery is urgent but can be delayed for 18-24 hrs give vitamin K 2.5- 5 mg po or by slow IV infusion. If INR is still high, additional vitamin K 1-2 mg po can be given. |
+
+> **Risk Stratification Definitions:**
+> - **Low risk:** VTE: Single VTE occurred >12 months ago and no other risk factors. AF: (CHADS2 score 0-2) without a history of stroke or other risk factors. Mech heart valve: bileaflet aortic valve without AF and no other risk factors for stroke.
+> - **Moderate risk:** VTE: VTE within 3-12 months, non-severe thrombophilic conditions, recurrent VTE, active cancer. AF: (CHADS2 score 3 or 4). Mech heart valve: bileaflet aortic valve and one of the following: AF, prior stroke or TIA, HTN, DM, CHF, age >75 yr.
+> - **High risk:** VTE: recent (within 3mo) VTE, severe thrombophilia. AF: (CHADS2 score 5 or 6), recent (within 3 months) stroke or TIA, rheumatic valvular heart disease. Mech heart valve: any mitral valve prosthesis, older aortic valve prosthesis (caged-ball or tilting disc), recent (within 6 months) stroke or TIA.
+
+- Resume warfarin therapy 12-24 hrs after surgery and when there is adequate hemostasis.
+- Resume bridge therapy:
+  - Minor surgery or other invasive procedure and receiving therapeutic dose LMWH: Resume 24 hrs after the procedure when there is adequate hemostasis.
+  - Major surgery or high bleeding risk surgery/procedure where post-op therapeutic dose LMWH is planned: delay initiation of therapeutic dose LMWH for 48-72 hours after surgery when hemostasis is secured or administering low dose LMWH after surgery when hemostasis is secured or completely avoiding LMWH after surgery.
+
 ### 6.4.2: Acute Stroke
 [Grade II-a, Level C] In all patients with AF who have had an acute stroke, any uncontrolled hypertension should be appropriately managed before antithrombotic therapy is started.
 
@@ -209,6 +281,34 @@ Conversion of AF to sinus rhythm results in transient mechanical dysfunction of 
 
 The risk of thromboembolism after cardioversion is between 1% and 5% and is reduced when anticoagulation (INR 2.0 to 3.0) is given for 4 wk before and after conversion (refer Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy).
 
+Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy
+1.  **AF onset < 48 h?**
+     *   **Yes (Recent-onset AF):**
+         *   &rarr; Heparin &rarr; **Cardioversion**
+         *   **Outcome:**
+             *   &rarr; *If AF remains:* 4 weeks anticoagulation*
+             *   &rarr; *If Sinus Rhythm (SR) restored:* Check Risk factors
+                 *   &rarr; **Yes:** 4 weeks anticoagulation*
+                 *   &rarr; **No:** No long-term OAC
+     *   **No (Conventional OAC or TOE Strategy):**
+         *   **Option A: Conventional Route**
+             *   &rarr; 3 weeks therapeutic OAC &rarr; **Cardioversion**
+             *   **Outcome:** (SR or AF) &rarr; 4 weeks anticoagulation*
+         *   **Option B: TOE Strategy**
+             *   &rarr; Transoesophageal echocardiography (TOE)
+                 *   &rarr; **No LAA thrombus:** Heparin &rarr; **Cardioversion** &rarr; **Outcome (e.g. SR):** &rarr; 4 weeks anticoagulation*
+                 *   &rarr; **LAA thrombus present:** Therapeutic OAC for 3 weeks &rarr; *Loop back to TOE Strategy*
+                     *   *(If LAA thrombus still present after loop: Opt for rate control &rarr; Proceed directly to **Long-term OAC indicated**)*
+
+ 2.  **Post-Cardioversion Anticoagulation Review:**
+     *   After the mandated "4 weeks anticoagulation*", evaluate: **Consider if long-term OAC indicated†**
+         *   **Risk factors?** (Yes) &rarr; Long-term OAC indicated
+         *   **Risk factors?** (No) &rarr; No long-term OAC
+
+ **Footnotes:**
+ \* *Anticoagulation should normally be continued for 4 weeks after a cardioversion attempt except when AF is recent onset and no risk factors are present.*
+ † *Long-term OAC if stroke risk factors and/or risk of AF recurrence/presence of thrombus.*
+
 [Grade I, Level B] For patients with AF or AFL of 48-h duration or longer, or when the duration of AF or AFL is unknown, anticoagulation (INR 2.0 to 3.0) is recommended for at least 4 weeks prior to and 4 weeks after cardioversion, regardless of the method used to restore sinus rhythm.
 
 [Grade I, Level C] For patients with AF requiring immediate/emergency cardioversion because of haemodynamic instability, heparin (i.v. UFH bolus followed by infusion, or weight-adjusted therapeutic dose LMWH) is recommended.
@@ -221,7 +321,6 @@ It is important to stress that in following cardioversion of all patients at hig
 [Grade I, Level B] For patients with AF <48 h and at high risk of stroke, i.v. heparin or weight-adjusted therapeutic dose LMWH is recommended peri-cardioversion, followed by OAC therapy with a VKA (INR 2.0–3.0) long term.
 
 [Grade I, Level B] In patients at high risk of stroke, OAC therapy with a VKA (INR 2.0–3.0) is recommended to be continued long-term.
-
 
 [Grade I, Level B] As an alternative to anticoagulation prior to cardioversion of AF or AFL, it is reasonable to perform TOE in search of thrombus.
 
@@ -265,19 +364,6 @@ It is reasonable to use the HAS-BLED score to assess bleeding risk in AF patient
 [Grade II-a, Level B] The HAS-BLED score [hypertension, abnormal renal/liver function, stroke, bleeding history or predisposition, labile INR, elderly (>65), drugs/alcohol concomitantly] should be considered as a calculation to assess bleeding risk, whereby a score of ≥ 3 indicates 'high risk' and some caution and regular review is needed, following the initiation of antithrombotic therapy, whether with OAC or aspirin.
 
 <!-- parent_only_reference_start -->
-Table 11: CHADS₂ Score and Stroke Rate
-
-| CHADS₂ Score | Patients (n=1,733) | Adjusted Stroke Rate (%/year) (95% CI) |
-|---|---|---|
-| 0 | 120 | 1.9 (1.2–3.0) |
-| 1 | 463 | 2.8 (2.0–3.8) |
-| 2 | 523 | 4.0 (3.1–5.1) |
-| 3 | 337 | 5.9 (4.6–7.3) |
-| 4 | 220 | 8.5 (6.3–11.1) |
-| 5 | 65 | 12.5 (8.2–17.5) |
-| 6 | 5 | 18.2 (10.5–27.4) |
-*The adjusted stroke rate was derived from the multivariable analysis assuming no aspirin usage.*
-
 Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis in patients with AF
 
 **a) Risk Factors for Stroke and thrombo-embolism in non-valvular AF:**
@@ -349,10 +435,8 @@ Table 13: Antithrombotic strategies following coronary artery stenting in patien
 *ᵃSirolimus, everolimus, and tacrolimus.*
 *ᵇCombination of VKA (INR 2.0–3.0) + aspirin ≤100 mg/day (with PPI, if indicated) may be considered as an alternative.*
 *ᶜDrug-eluting stents should be avoided as far as possible, but, if used, consideration of more prolonged (3–6 months) triple antithrombotic therapy is necessary.*
-*(Adapted from Lip et al.⁵⁴)*
 
 Table 14: Clinical characteristics comprising the HAS-BLED bleeding risk score
-
 | Letter | Clinical characteristicᵃ | Points awarded |
 |---|---|---|
 | **H** | Hypertension | 1 |
@@ -366,23 +450,6 @@ Table 14: Clinical characteristics comprising the HAS-BLED bleeding risk score
 
 *ᵃ 'Hypertension' is defined as systolic blood pressure >160 mmHg. 'Abnormal kidney function' is defined as the presence of chronic dialysis or renal transplantation or serum creatinine ≥200 mmol/L. 'Abnormal liver function' is defined as chronic hepatic disease (e.g. cirrhosis) or biochemical evidence of significant hepatic derangement (e.g. bilirubin >2 x upper limit of normal, in association with aspartate aminotransferase/alanine aminotransferase/alkaline phosphatase >3 x upper limit normal, etc.). 'Bleeding' refers to previous bleeding history and/or predisposition to bleeding, e.g. bleeding diathesis, anaemia, etc. 'Labile INRs' refers to unstable/high INRs or poor time in therapeutic range (e.g.<60%). Drugs/alcohol use refers to concomitant use of drugs, such as antiplatelet agents, non-steroidal anti-inflammatory drugs, or alcohol abuse, etc. INR = international normalized ratio.*
 
-Figure 7: Clinical flowchart for the use of oral anticoagulant for stroke prevention in AF
- *   **CHADS₂ score ≥ 2?** *(Score ≥ 2 indicates high risk)*
-     *   &rarr; **Yes:** &rarr; **OAC**
-     *   &rarr; **No:**
-         *   &darr; **Consider other risk factors***
-         *   &darr; **Age ≥ 75 years?**
-             *   &rarr; **Yes:** &rarr; **OAC**
-             *   &rarr; **No:**
-                 *   &darr; **≥ 2 other risk factors*?**
-                     *   &rarr; **Yes:** &rarr; **OAC**
-                     *   &rarr; **No:**
-                         *   &darr; **1 other risk factor*?**
-                             *   &rarr; **Yes:** &rarr; **OAC (or aspirin)**
-                             *   &rarr; **No:** &rarr; **Nothing (or aspirin)**
-
- **⁺CHADS₂ Score**
-
 | Risk Factors | Score |
 |---|---|
 | Congestive heart failure | 1 |
@@ -393,76 +460,6 @@ Figure 7: Clinical flowchart for the use of oral anticoagulant for stroke preven
 
  *\*Other clinically relevant non-major risk factor: Age 65-74, female sex, vascular disease*
  *(Adapted from the ESC Guidelines for the Management of Atrial Fibrillation 2010 Version. AF = atrial fibrillation; OAC = oral anticoagulant; TIA = transient ischaemic attack.)*
-
-Figure 8: Adjusted odds ratios for ischaemic stroke and intracranial bleeding in relation to intensity of anticoagulation
-
- *   **INR < 2.0:** High risk of ischaemic stroke (Odds ratio sharply increases as INR drops towards 1.5).
- *   **INR 2.0 – 3.0:** Optimal therapeutic window. Both ischaemic stroke risk and intracranial bleeding risk are at their baseline lowest (~1.0 Odds Ratio).
- *   **INR > 3.0:** Ischaemic stroke risk remains low and flat, but the risk of intracranial bleeding begins to rise exponentially (reaching an Odds Ratio of >4.5 by INR 5.5 and >9.0 by INR 7.0).
-
-*(Reproduced with permission from Ann Intern Med. Hylek E, Singer D. Risk factors for intracranial hemorrhage in outpatients taking warfarin. Ann Intern Med 1994;120:897-902.)*
-
- Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy
-1.  **AF onset < 48 h?**
-     *   **Yes (Recent-onset AF):**
-         *   &rarr; Heparin &rarr; **Cardioversion**
-         *   **Outcome:**
-             *   &rarr; *If AF remains:* 4 weeks anticoagulation*
-             *   &rarr; *If Sinus Rhythm (SR) restored:* Check Risk factors
-                 *   &rarr; **Yes:** 4 weeks anticoagulation*
-                 *   &rarr; **No:** No long-term OAC
-     *   **No (Conventional OAC or TOE Strategy):**
-         *   **Option A: Conventional Route**
-             *   &rarr; 3 weeks therapeutic OAC &rarr; **Cardioversion**
-             *   **Outcome:** (SR or AF) &rarr; 4 weeks anticoagulation*
-         *   **Option B: TOE Strategy**
-             *   &rarr; Transoesophageal echocardiography (TOE)
-                 *   &rarr; **No LAA thrombus:** Heparin &rarr; **Cardioversion** &rarr; **Outcome (e.g. SR):** &rarr; 4 weeks anticoagulation*
-                 *   &rarr; **LAA thrombus present:** Therapeutic OAC for 3 weeks &rarr; *Loop back to TOE Strategy*
-                     *   *(If LAA thrombus still present after loop: Opt for rate control &rarr; Proceed directly to **Long-term OAC indicated**)*
-
- 2.  **Post-Cardioversion Anticoagulation Review:**
-     *   After the mandated "4 weeks anticoagulation*", evaluate: **Consider if long-term OAC indicated†**
-         *   **Risk factors?** (Yes) &rarr; Long-term OAC indicated
-         *   **Risk factors?** (No) &rarr; No long-term OAC
-
- **Footnotes:**
- \* *Anticoagulation should normally be continued for 4 weeks after a cardioversion attempt except when AF is recent onset and no risk factors are present.*
- † *Long-term OAC if stroke risk factors and/or risk of AF recurrence/presence of thrombus.*
-
-Appendix C: Warfarin In Practice
-Barriers that may prevent people accessing medication and INR testing include:
-- Financial barriers (including the ability to take time off work)
-- Travel difficulties
-- Lack of access to a telephone
-- Fear or dislike of regular blood tests
-- Difficulties with general practitioner monitoring.
-
-Possible solutions include the following:
-- Financial assistance from relevant agencies
-- Provision of transport (e.g., shuttle service, taxi chits)
-- Domiciliary testing, either at home or the work place
-- Testing people in groups at a public health centre using a point-of-care monitor
-
-Appendix C.1.9: Interruption Of Warfarin Therapy For Surgery
-| Condition | Recommendation |
-|---|---|
-| **Low risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
-| **Moderate risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
-| **High risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
-| **Low risk of bleeding** | Lower warfarin dose and operate at an INR of 1.3-1.5; the dose may be lowered 4-5 days before surgery; warfarin can be restarted post-op, supplement with LMWH if necessary. |
-| **Urgent surgical or other invasive procedure (within 12 hours)** | For immediate reversal give FFP, prothrombin complex concentrate in addition to vitamin K 2.5-5 mg po or by slow IV infusion. |
-| **Urgent surgical or other invasive procedure (within 18-24 hours)** | If surgery is urgent but can be delayed for 18-24 hrs give vitamin K 2.5- 5 mg po or by slow IV infusion. If INR is still high, additional vitamin K 1-2 mg po can be given. |
-
-> **Risk Stratification Definitions:**
-> - **Low risk:** VTE: Single VTE occurred >12 months ago and no other risk factors. AF: (CHADS2 score 0-2) without a history of stroke or other risk factors. Mech heart valve: bileaflet aortic valve without AF and no other risk factors for stroke.
-> - **Moderate risk:** VTE: VTE within 3-12 months, non-severe thrombophilic conditions, recurrent VTE, active cancer. AF: (CHADS2 score 3 or 4). Mech heart valve: bileaflet aortic valve and one of the following: AF, prior stroke or TIA, HTN, DM, CHF, age >75 yr.
-> - **High risk:** VTE: recent (within 3mo) VTE, severe thrombophilia. AF: (CHADS2 score 5 or 6), recent (within 3 months) stroke or TIA, rheumatic valvular heart disease. Mech heart valve: any mitral valve prosthesis, older aortic valve prosthesis (caged-ball or tilting disc), recent (within 6 months) stroke or TIA.
-
-- Resume warfarin therapy 12-24 hrs after surgery and when there is adequate hemostasis.
-- Resume bridge therapy:
-  - Minor surgery or other invasive procedure and receiving therapeutic dose LMWH: Resume 24 hrs after the procedure when there is adequate hemostasis.
-  - Major surgery or high bleeding risk surgery/procedure where post-op therapeutic dose LMWH is planned: delay initiation of therapeutic dose LMWH for 48-72 hours after surgery when hemostasis is secured or administering low dose LMWH after surgery when hemostasis is secured or completely avoiding LMWH after surgery.
 
 Grades Of Recommendation
 | Grade | Definition |
