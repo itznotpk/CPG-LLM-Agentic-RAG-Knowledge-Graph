@@ -287,8 +287,8 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
       {/* Today's Pulse strip */}
       <div>
-        <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-          Today's Pulse
+        <p className="ds-eyebrow mb-3">
+          Today's pulse
         </p>
         <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
           <div className={`divide-y ${isDark ? 'divide-white/5' : 'divide-slate-100'}`}>
@@ -355,8 +355,8 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
       {/* Agentic RAG Impact row */}
       <div>
-        <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-          Assistant Impact Today
+        <p className="ds-eyebrow mb-3">
+          Assistant impact today
         </p>
         <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
           <div className={`grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
@@ -446,7 +446,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
             className={`text-base font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg`}
           >
             <Clock aria-hidden="true" className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
-            Today's Patients
+            Today's patients
             <ChevronDown aria-hidden="true" className={`w-4 h-4 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} strokeWidth={1.5} />
           </button>
           {/* Filter pills */}
@@ -532,7 +532,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                           : 'bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-800 border border-slate-200'}`}
                     >
                       <Eye aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
-                      Quick View
+                      Quick view
                     </button>
                     {appointment.status === 'waiting' && (
                       <button
@@ -541,7 +541,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                           bg-gradient-to-r ${accent.gradient} text-white shadow-md ${accent.shadow}`}
                       >
                         <Play aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
-                        Start Consult
+                        Start consult
                       </button>
                     )}
                     {appointment.status === 'in-progress' && (

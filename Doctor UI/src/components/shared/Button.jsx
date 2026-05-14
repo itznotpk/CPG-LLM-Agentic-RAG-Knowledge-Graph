@@ -76,8 +76,8 @@ export function Button({
         ${glow ? 'glow-primary animate-pulse-glow' : ''}
         inline-flex items-center justify-center gap-2
         font-medium
-        rounded-xl
-        transition-all duration-300 ease-out
+        rounded-2xl
+        transition-all duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)]
         focus:outline-none focus:ring-2 focus:ring-offset-2
         disabled:opacity-50 disabled:cursor-not-allowed
         hover:shadow-lg hover:-translate-y-0.5

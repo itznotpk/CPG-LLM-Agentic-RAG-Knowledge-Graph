@@ -17,9 +17,9 @@ import Settings from './components/pages/Settings';
 import PatientChart from './components/pages/PatientChart';
 
 const steps = [
-  { id: 1, label: 'Data Input' },
+  { id: 1, label: 'Data input' },
   { id: 2, label: 'Diagnosis' },
-  { id: 3, label: 'Care Plan' },
+  { id: 3, label: 'Care plan' },
   { id: 4, label: 'Complete' },
 ];
 
