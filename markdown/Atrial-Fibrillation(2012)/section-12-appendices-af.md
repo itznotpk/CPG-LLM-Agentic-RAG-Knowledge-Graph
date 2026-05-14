@@ -7,7 +7,6 @@ output: warfarin_initiation_protocol, INR_dose_adjustment_table, elevated_INR_ma
 -->
 
 ## Appendix A: Search Terms
-
 ### Scope Of Search
 A literature search was conducted for guidelines, systematic reviews and randomized controlled trials on the primary care management of Atrial fibrillation, with additional searches in the following areas:
 - Outpatient therapy
@@ -76,7 +75,6 @@ Various combinations of searches were carried out. The terms listed below are th
 ---
 
 ## Appendix B: Clinical Questions
-
 ### A. Introduction
 1. What is the best way to classify atrial fibrillation?
 2. What is the epidemiological characteristic of atrial fibrillation?
@@ -188,7 +186,7 @@ There are differences among various ethnic groups:
 - About **3–4 mg/day** or 21–28 mg/week for Pacific-Asian (excluding Caucasians in this region). This dose will be less if target INR is recommended at < 2.0.
 
 ### C.1.5 Factors Affecting The Daily Dose
-- **Age (for Caucasians):**
+- Age (for Caucasians):
   - < 35 yr → 8.1 mg/day
   - 35–49 yr → 6.4 mg/day
   - 50–59 yr → 5.1 mg/day

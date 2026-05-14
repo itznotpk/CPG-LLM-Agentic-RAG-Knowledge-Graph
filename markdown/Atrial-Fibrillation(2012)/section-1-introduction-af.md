@@ -15,18 +15,17 @@ Atrial Flutter (AFL) in the typical form is characterized by a saw-tooth pattern
 Clinically, five types of AF are recognized based on the presentation and the duration of the episode. These categories are set out below (refer to Table 1: Classification of AF Subtypes).
 
 Table 1: Classification of AF Subtypes
-
 | Terminology | Clinical Features | Pattern |
 |---|---|---|
-| **Initial event (first detected episode)** | May be symptomatic or asymptomatic. Onset unknown. | May or may not recur |
-| **Paroxysmal** | Spontaneous termination < 7 days and most often < 48 hours | Recurrent |
-| **Persistent** | Not self-terminating. Lasting > 7 days or requiring cardioversion for termination | Recurrent |
-| **Long-standing persistent** | AF that has lasted for ≥ 1 year when it is decided to adopt a rhythm control strategy | Recurrent |
-| **Permanent** | Not terminated. Terminated but relapsed. No cardioversion attempt. | Established |
+| Initial event (first detected episode) | May be symptomatic or asymptomatic. Onset unknown. | May or may not recur |
+| Paroxysmal | Spontaneous termination < 7 days and most often < 48 hours | Recurrent |
+| Persistent | Not self-terminating. Lasting > 7 days or requiring cardioversion for termination | Recurrent |
+| Long-standing persistent | AF that has lasted for ≥ 1 year when it is decided to adopt a rhythm control strategy | Recurrent |
+| Permanent | Not terminated. Terminated but relapsed. No cardioversion attempt. | Established |
 
-**Lone AF:** The term 'lone AF' applies to young individuals (under 60 years of age) without clinical or echocardiographic evidence of cardiopulmonary disease, including hypertension. These patients have a favourable prognosis with respect to thromboembolism and mortality.
+Lone AF: The term 'lone AF' applies to young individuals (under 60 years of age) without clinical or echocardiographic evidence of cardiopulmonary disease, including hypertension. These patients have a favourable prognosis with respect to thromboembolism and mortality.
 
-**Silent AF:** Being asymptomatic, silent AF is detected by an opportunistic ECG or may present as an AF-related complication such as ischemic stroke.
+Silent AF: Being asymptomatic, silent AF is detected by an opportunistic ECG or may present as an AF-related complication such as ischemic stroke.
 
 This classification is useful for clinical management of AF patients (refer Figure 1: Different types of AF), especially when AF-related symptoms are also considered.
 
@@ -88,14 +87,13 @@ The mortality rate of patients with AF is about double that of patients in sinus
 AF is associated with a prothrombotic state, intra-atrial stasis, structural heart disease or blood vessel abnormalities and abnormal platelet haemostasis, leading to a predisposition to thrombus formation. This prothrombotic state leads to stroke and thromboembolism in AF. Only antithrombotic therapy has been shown to reduce AF-related deaths.
 
 Table 2: Clinical Events (Outcomes) Affected by AF
-
 | Outcome Parameter | Relative Change in AF Patients |
 |---|---|
-| **1. Death** | Death rate doubled. |
-| **2. Stroke** (includes haemorrhagic stroke and cerebral bleeds) | Stroke risk increased; AF is associated with more severe stroke. |
-| **3. Hospitalizations** | Hospitalizations are frequent in AF patients and may contribute to reduced quality of life. |
-| **4. Quality of life and exercise capacity** | Wide variation, from no effect through palpitations and other AF-related symptoms. AF can cause marked distress to major reduction. |
-| **5. Left ventricular function** | Wide variation, from no change to tachycardiomyopathy with acute heart failure. |
+| 1. Death | Death rate doubled. |
+| 2. Stroke (includes haemorrhagic stroke and cerebral bleeds) | Stroke risk increased; AF is associated with more severe stroke. |
+| 3. Hospitalizations | Hospitalizations are frequent in AF patients and may contribute to reduced quality of life. |
+| 4. Quality of life and exercise capacity | Wide variation, from no effect through palpitations and other AF-related symptoms. AF can cause marked distress to major reduction. |
+| 5. Left ventricular function | Wide variation, from no change to tachycardiomyopathy with acute heart failure. |
 
 Stroke in AF is often severe and results in long-term disability or death. Approximately 20% of stroke is due to AF and undiagnosed 'silent AF' is a likely cause of some 'cryptogenic' strokes. Paroxysmal AF carries the same stroke risk as permanent or persistent AF.
 

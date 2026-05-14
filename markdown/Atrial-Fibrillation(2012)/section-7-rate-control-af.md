@@ -14,7 +14,7 @@ Criteria for rate control vary with patient age but usually involve achieving ve
 
 However, maintaining lenient control of heart rate (a resting rate of less than 100 bpm) is easier to achieve and is comparable to strict control (resting heart rate <80 bpm and heart rate during moderate exercise <110 bpm) on long-term composite outcomes. For patients without severe symptoms due to high ventricular rate, a lenient rate control approach is reasonable (refer Figure 10: Optimal level of heart rate control).
 
-Drugs commonly used are ß-blockers, non-dihydropyridine calcium channel antagonists (diltiazem, verapamil), and digitalis. Acute treatment is described in Section 5.1.1 Acute Rate Control. <!-- cross_ref target_file="section-5-acute-onset-af.md" target_heading="5.1.1: Acute Rate Control" target_kind="h3_section" -->
+Drugs commonly used are ß-blockers, non-dihydropyridine calcium channel antagonists (diltiazem, verapamil), and digitalis. Acute treatment is described in Section 5.1.1: Acute Rate Control. <!-- cross_ref target_file="section-5-acute-onset-af.md" target_heading="5.1.1: Acute Rate Control" target_kind="h3_section" -->
 
 Combinations of drugs may be necessary. Dronedarone may also effectively reduce heart rate during AF recurrences. Amiodarone may be suitable for some patients with otherwise refractory rate control. The combination of a ß-blocker and digitalis may be beneficial in patients with heart failure.
 
@@ -81,7 +81,6 @@ It is suggested that programming the pacemaker initially for the first month pos
 ---
 <!-- parent_only_reference_start -->
 Table 15: Choice of a Rate-Control Agent
-
 | Comorbidity | First-Line | Second-Line | Less Effective or Desirable |
 |---|---|---|---|
 | No heart disease | ß-blockers* OR non-dihydropyridine CCBs† | — | Digoxin‡ (can be first-line in people unlikely to be active) |
@@ -90,13 +89,13 @@ Table 15: Choice of a Rate-Control Agent
 | Congestive heart failure | Digoxin in overt HF; Carvedilol, bisoprolol or metoprolol in stable HF | ß-blockers* (excluding carvedilol, bisoprolol, metoprolol) OR Diltiazem | Amiodarone; Ablation + pacing should be considered |
 | COPD | Non-dihydropyridine CCBs† | First-line agent + ß-blockers (if no reversible bronchospasm) | Digoxin‡ |
 
- **Footnotes:**
  \* *excluding sotalol*
  † *diltiazem or verapamil*
  ‡ *as monotherapy (can be used in combination with other rate-control agents)*
 
-Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
+----
 
+Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
 | Drug | Oral Loading Dose | Onset of Action | Commonly Used Maintenance Doses | Adverse Effects | Comments |
 |---|---|---|---|---|---|
 | **Beta-blockers** | | | | | |

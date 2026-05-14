@@ -11,9 +11,9 @@ The acute management of AF patients should concentrate on:
 - Relief of symptoms
 - Assessment of AF-associated risk
 - Determination of the European Heart Rhythm Association (EHRA) score (refer Table 5: EHRA Score of AF-Related Symptoms)
-- Estimation of stroke risk (refer to Section 6.1: Risk Stratification For Stroke) <!-- cross_ref target_file="<CPG LLM\markdown\Atrial-Fibrillation(2012)\section-6-thromboembolism-prevention-af.md" target_heading="6.1: Risk Stratification For Stroke" target_kind="h2_section" -->
-- Search for conditions that predispose to AF (refer to Section 2.1.1: Causes and Associated Conditions) <!-- cross_ref target_file="<CPG LLM\markdown\Atrial-Fibrillation(2012)\section-2-pathophysiology-af.md" target_heading="2.1.1: Causes And Associated Conditions" target_kind="h3_section" -->
-- Search for complications of the arrhythmia (refer tp Section 1.4: Epidemiology and Prognosis) <!-- cross_ref target_file="<CPG LLM\markdown\Atrial-Fibrillation(2012)\section-1-introduction-af.md" target_heading="1.4: Epidemiology And Prognosis" target_kind="h2_section" -->
+- Estimation of stroke risk (refer to Section 6.1: Risk Stratification For Stroke) <!-- cross_ref target_file="<section-6-thromboembolism-prevention-af.md" target_heading="6.1: Risk Stratification For Stroke" target_kind="h2_section" -->
+- Search for conditions that predispose to AF (refer to Section 2.1.1: Causes and Associated Conditions) <!-- cross_ref target_file="<section-2-pathophysiology-af.md" target_heading="2.1.1: Causes And Associated Conditions" target_kind="h3_section" -->
+- Search for complications of the arrhythmia (refer tp Section 1.4: Epidemiology and Prognosis) <!-- cross_ref target_file="<section-1-introduction-af.md" target_heading="1.4: Epidemiology And Prognosis" target_kind="h2_section" -->
 
 With the above in mind, a thorough medical history should be obtained from the patient with suspected or known AF (refer Table 4: Relevant questions to be put to a patient with suspected or known AF).
 

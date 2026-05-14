@@ -261,7 +261,6 @@ Principal concerns surround the high risk of thrombo-embolism in subjects with v
 
 <!-- parent_only_reference_start -->
 Table 15: Choice of a Rate-Control Agent
-
 | Comorbidity | First-Line | Second-Line | Less Effective or Desirable |
 |---|---|---|---|
 | No heart disease | ß-blockers* OR non-dihydropyridine CCBs† | — | Digoxin‡ (can be first-line in people unlikely to be active) |
@@ -270,7 +269,6 @@ Table 15: Choice of a Rate-Control Agent
 | Congestive heart failure | Digoxin in overt HF; Carvedilol, bisoprolol or metoprolol in stable HF | ß-blockers* (excluding carvedilol, bisoprolol, metoprolol) OR Diltiazem | Amiodarone; Ablation + pacing should be considered |
 | COPD | Non-dihydropyridine CCBs† | First-line agent + ß-blockers (if no reversible bronchospasm) | Digoxin‡ |
 
-*Footnotes:*
 \* excluding sotalol
 † diltiazem or verapamil
 ‡ as monotherapy (can be used in combination with other rate-control agents)

@@ -8,19 +8,15 @@ output: rate_vs_rhythm_decision, thromboembolic_strategy, treatment_objectives, 
 
 ## 4.1: General Principles
 In patients with AF or AFL, the aims of treatment involve the following five objectives:
-1. **Relief of symptoms** — such as palpitations, dizziness, fatigue and dyspnoea, is paramount to the patient.
-2. **Prevention of serious complications** — such as thromboembolism (particularly ischaemic stroke) and heart failure, is equally important.
-3. **Optimal management of concomitant cardiovascular disease.**
-4. **Rate control.**
-5. **Correction of rhythm disturbance.**
+1. Relief of symptoms — such as palpitations, dizziness, fatigue and dyspnoea, is paramount to the patient.
+2. Prevention of serious complications — such as thromboembolism (particularly ischaemic stroke) and heart failure, is equally important.
+3. Optimal management of concomitant cardiovascular disease.
+4. Rate control.
+5. Correction of rhythm disturbance.
 
 These goals are not mutually exclusive and may be pursued simultaneously. The initial strategy may differ from the long-term therapeutic goal.
 
-A fundamental question to be answered for every patient with AF or AFL is whether to obtain and maintain sinus rhythm by pharmacological or non-pharmacological means (a rhythm-control strategy), or whether to aim primarily to control heart rate rather than the rhythm (a rate-control strategy).
-
-For patients with symptomatic AF lasting many weeks, initial therapy may be anticoagulation and rate control while the long-term goal is to restore sinus rhythm.
-
-If rate control offers inadequate symptomatic relief, restoration of sinus rhythm becomes a clear long-term goal. When cardioversion is contemplated and the duration of AF is unknown or exceeds 48 h, anticoagulation will be necessary.
+A fundamental question to be answered for every patient with AF or AFL is whether to obtain and maintain sinus rhythm by pharmacological or non-pharmacological means (a rhythm-control strategy), or whether to aim primarily to control heart rate rather than the rhythm (a rate-control strategy). For patients with symptomatic AF lasting many weeks, initial therapy may be anticoagulation and rate control while the long-term goal is to restore sinus rhythm. If rate control offers inadequate symptomatic relief, restoration of sinus rhythm becomes a clear long-term goal. When cardioversion is contemplated and the duration of AF is unknown or exceeds 48 h, anticoagulation will be necessary.
 
 Early cardioversion may be necessary if AF causes hypotension or worsening heart failure. In contrast, amelioration of symptoms by rate control in older patients may steer the clinician away from attempts to restore sinus rhythm. In some circumstances, when the initiating pathophysiology of AF is reversible, as for instance in the setting of thyrotoxicosis or after cardiac surgery, no long-term therapy may be necessary.
 
@@ -74,6 +70,43 @@ Figure 3: Choice of Rate and Rhythm Control Strategies
 
 Randomized trials comparing outcomes of rhythm versus rate control strategies in patients with AF are summarized in Tables 7: General Characteristics of Rhythm Control and Rate Control Trials in Patients with AF and Table 8: Comparison of Adverse Outcomes in Rhythm Control and Rate Control Trials in Patients with AF.
 
+The consistent finding in all five studies was that rhythm control offered no survival advantage and, in most cases, had little effect on morbidity and quality of life. However, it should be emphasised that these conclusions are not necessarily applicable to all groups of patients. The five recent studies enrolled mostly older patients with additional risk factors for stroke, many of whom also had heart failure. Younger patients with normal hearts and primarily paroxysmal AF were not well represented. Importantly, in a predefined subgroup of AFFIRM participants aged less than 65 years, hazard ratios for death showed a paradoxical trend towards superiority of the rhythm-control strategy.
+
+The initial therapy after onset of AF should always include adequate antithrombotic treatment and control of the ventricular rate. If the ultimate goal is restoration and maintenance of sinus rhythm, rate control medication should be continued throughout follow-up, unless continuous sinus rhythm is present. The goal is to control the ventricular rate adequately whenever recurrent AF occurs.
+
+The decision to add rhythm control therapy to the management of AF requires an individual decision and should therefore be discussed at the beginning of AF management. Before choosing rate control alone as a long-term strategy, the clinician should consider how permanent AF is likely to affect the individual patient in the future and how successful rhythm control is expected to be. Symptoms related to AF are an important determinant in making the decision to opt for rate or rhythm control (e.g. globally assessed by the EHRA score, refer Table 5: EHRA Score of AF-Related Symptoms), in addition to factors that may influence the success of rhythm control. The latter include a long history of AF, older age, more severe associated cardiovascular diseases, other associated medical conditions, and enlarged LA size.
+
+Table 5: EHRA Score of AF-Related Symptoms
+| EHRA Class | Explanation |
+|---|---|
+| **EHRA I** | 'No symptoms' |
+| **EHRA II** | 'Mild symptoms'; normal daily activity not affected |
+| **EHRA III** | 'Severe symptoms'; normal daily activity affected |
+| **EHRA IV** | 'Disabling symptoms'; normal daily activity discontinued |
+
+A rate-control strategy should be the preferred initial option in the following patients with persistent AF:
+- Over 65 years old
+- With coronary artery disease and/or left ventricular dysfunction
+- With contraindications to antiarrhythmic drugs
+- Unsuitable for cardioversion
+
+A rhythm-control strategy should be the preferred initial option in the following patients with persistent AF:
+- Those who are symptomatic
+- Younger patients
+- Those presenting for the first time with lone AF
+- Those with AF secondary to a treated/corrected precipitant
+
+## 4.4: Rate Vs Rhythm Control
+| Recommendation | Grade |
+|---|---|
+| Rate control should be the initial approach in elderly patients with AF and minor symptoms (EHRA class 1). | [Grade I, Level A] |
+| Rhythm control is recommended in patients with symptomatic (EHRA class ≥2) AF despite adequate rate control. | [Grade I, Level B] |
+| Rate control should be continued throughout a rhythm control approach to ensure adequate control of the ventricular rate during recurrences of AF. | [Grade I, Level A] |
+| Rhythm control as an initial approach should be considered in young symptomatic patients in whom catheter ablation treatment has not been ruled out. | [Grade II-a, Level C] |
+| Rhythm control should be considered in patients with AF secondary to a trigger or substrate that has been corrected (e.g. ischaemia, hyperthyroidism). | [Grade II-a, Level B] |
+| Rhythm control in patients with AF and AF-related heart failure should be considered for improvement of symptoms. | [Grade II-a, Level B] |
+
+<!-- parent_only_reference_start -->
 Table 7: General Characteristics of Rhythm Control and Rate Control Trials in Patients with AF
 
 | Trial | Ref | Patients (n) | Mean Age (years) | Mean Follow-up (years) | Inclusion Criteria | Primary Outcome Parameter | Rate Control Outcome | Rhythm Control Outcome | P-value |
@@ -102,45 +135,6 @@ Table 8: Comparison of Adverse Outcomes in Rhythm Control and Rate Control Trial
 > *^a Total number of patients not reported.*
 > *AF = atrial fibrillation; AFFIRM = Atrial Fibrillation Follow-up Investigation of Rhythm Management; HOT CAFÉ = HOw to Treat Chronic Atrial Fibrillation; ND = not determined; PIAF = Pharmacological Intervention in Atrial Fibrillation; RACE = RAte Control versus Electrical cardioversion for persistent atrial fibrillation; STAF = Strategies of Treatment of Atrial Fibrillation.*
 
-The consistent finding in all five studies was that rhythm control offered no survival advantage and, in most cases, had little effect on morbidity and quality of life. However, it should be emphasised that these conclusions are not necessarily applicable to all groups of patients. The five recent studies enrolled mostly older patients with additional risk factors for stroke, many of whom also had heart failure. Younger patients with normal hearts and primarily paroxysmal AF were not well represented. Importantly, in a predefined subgroup of AFFIRM participants aged less than 65 years, hazard ratios for death showed a paradoxical trend towards superiority of the rhythm-control strategy.
-
-The initial therapy after onset of AF should always include adequate antithrombotic treatment and control of the ventricular rate. If the ultimate goal is restoration and maintenance of sinus rhythm, rate control medication should be continued throughout follow-up, unless continuous sinus rhythm is present. The goal is to control the ventricular rate adequately whenever recurrent AF occurs.
-
-The decision to add rhythm control therapy to the management of AF requires an individual decision and should therefore be discussed at the beginning of AF management. Before choosing rate control alone as a long-term strategy, the clinician should consider how permanent AF is likely to affect the individual patient in the future and how successful rhythm control is expected to be. Symptoms related to AF are an important determinant in making the decision to opt for rate or rhythm control (e.g. globally assessed by the EHRA score, refer Table 5: EHRA Score of AF-Related Symptoms), in addition to factors that may influence the success of rhythm control. The latter include a long history of AF, older age, more severe associated cardiovascular diseases, other associated medical conditions, and enlarged LA size.
-
-Table 5: EHRA Score of AF-Related Symptoms
-| EHRA Class | Explanation |
-|---|---|
-| **EHRA I** | 'No symptoms' |
-| **EHRA II** | 'Mild symptoms'; normal daily activity not affected |
-| **EHRA III** | 'Severe symptoms'; normal daily activity affected |
-| **EHRA IV** | 'Disabling symptoms'; normal daily activity discontinued |
-
-**A rate-control strategy should be the preferred initial option in the following patients with persistent AF:**
-
-- Over 65 years old
-- With coronary artery disease and/or left ventricular dysfunction
-- With contraindications to antiarrhythmic drugs
-- Unsuitable for cardioversion
-
-**A rhythm-control strategy should be the preferred initial option in the following patients with persistent AF:**
-
-- Those who are symptomatic
-- Younger patients
-- Those presenting for the first time with lone AF
-- Those with AF secondary to a treated/corrected precipitant
-
-## 4.4: Rate Vs Rhythm Control
-| Recommendation | Grade |
-|---|---|
-| Rate control should be the initial approach in elderly patients with AF and minor symptoms (EHRA class 1). | [Grade I, Level A] |
-| Rhythm control is recommended in patients with symptomatic (EHRA class ≥2) AF despite adequate rate control. | [Grade I, Level B] |
-| Rate control should be continued throughout a rhythm control approach to ensure adequate control of the ventricular rate during recurrences of AF. | [Grade I, Level A] |
-| Rhythm control as an initial approach should be considered in young symptomatic patients in whom catheter ablation treatment has not been ruled out. | [Grade II-a, Level C] |
-| Rhythm control should be considered in patients with AF secondary to a trigger or substrate that has been corrected (e.g. ischaemia, hyperthyroidism). | [Grade II-a, Level B] |
-| Rhythm control in patients with AF and AF-related heart failure should be considered for improvement of symptoms. | [Grade II-a, Level B] |
-
-<!-- parent_only_reference_start -->
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|

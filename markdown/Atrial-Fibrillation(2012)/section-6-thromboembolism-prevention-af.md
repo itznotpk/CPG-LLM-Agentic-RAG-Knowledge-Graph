@@ -45,7 +45,6 @@ In patients with a CHADS₂ score of 0–1, or where a more detailed stroke risk
 In all cases where OAC is considered, a discussion of the pros and cons with the patient, and an evaluation of the risk of bleeding complications, ability to safely sustain adjusted chronic anticoagulation, and patient preferences are necessary. In some patients, for example, women aged less than 65 years with no other risk factors (i.e. a CHA₂DS₂-VASc score of 1), aspirin rather than OAC therapy may be considered.
 
 ## 6.3: Antithrombotic Therapy
-
 ### 6.3.1: Anticoagulation With Vitamin K Antagonists (Vka)
 There were 6 large randomized trials, both primary and secondary prevention, that provided an extensive and robust evidence base for VKA therapy in AF.
 
