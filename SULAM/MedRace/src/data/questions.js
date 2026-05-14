@@ -1,0 +1,42 @@
+export const QUESTIONS = [
+  {
+    id: 'q1',
+    text: 'According to the World Health Organization, what is the maximum amount of salt an adult should eat per day?',
+    hint: 'Look in a guideline about Blood Pressure Management.',
+    expectedAnswer: 'Less than 5 grams of salt per day (about one teaspoon), which equals less than 2 g of sodium.',
+    sourceCardId: 'c1',
+    topic: 'Sodium & Blood Pressure',
+  },
+  {
+    id: 'q2',
+    text: 'How many minutes of moderate-intensity exercise per week does the clinical guideline recommend to help manage high cholesterol?',
+    hint: 'Look in a guideline about Cholesterol Treatment.',
+    expectedAnswer: 'At least 150 minutes of moderate-intensity exercise per week (or 75 minutes of vigorous-intensity).',
+    sourceCardId: 'c2',
+    topic: 'Exercise & Cholesterol',
+  },
+  {
+    id: 'q3',
+    text: 'A heart failure patient weighs themselves every day at home. What specific weight change should make them call their doctor immediately?',
+    hint: 'Look in a guideline about Heart Failure care.',
+    expectedAnswer: 'A sudden weight gain of more than 2 kg in 3 days is a warning sign of worsening heart failure.',
+    sourceCardId: 'c3',
+    topic: 'Heart Failure Self-Care',
+  },
+  {
+    id: 'q4',
+    text: 'By roughly how much percentage can a high-intensity statin drug reduce a person\'s LDL (bad) cholesterol level?',
+    hint: 'Look in a guideline about Cholesterol Treatment.',
+    expectedAnswer: 'A high-intensity statin can reduce LDL-C by more than 50% on average.',
+    sourceCardId: 'c4',
+    topic: 'Statin Drugs',
+  },
+  {
+    id: 'q5',
+    text: 'What is the target blood pressure that doctors aim for in adults under 80 years old who have hypertension?',
+    hint: 'Look in a guideline about Blood Pressure Management.',
+    expectedAnswer: 'Target SBP (systolic) should be less than 140 mmHg and DBP (diastolic) less than 90 mmHg.',
+    sourceCardId: 'c5',
+    topic: 'Blood Pressure Targets',
+  },
+];
