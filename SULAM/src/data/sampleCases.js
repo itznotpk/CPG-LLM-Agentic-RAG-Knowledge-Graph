@@ -1,0 +1,58 @@
+export const SAMPLE_CASES = [
+  {
+    id: 'htn-01',
+    displayName: 'Mr. Tan, 58',
+    tag: 'High Blood Pressure',
+    blurb: 'Headaches and dizziness for 2 weeks',
+    caseBody: {
+      chief_complaint: 'Recurring headaches, dizziness, and occasional blurred vision for the past two weeks',
+      history: '58-year-old man, smoker, office worker. Father had a stroke. Not on any medication.',
+      age: 58, sex: 'M',
+      comorbidities: [], current_medications: [], allergies: [],
+      vitals: { sbp: 168, dbp: 102, hr: 88 },
+      severity_staging: {}, staged_comorbidities: [],
+    },
+  },
+  {
+    id: 'hf-01',
+    displayName: 'Mdm. Lee, 65',
+    tag: 'Heart Failure',
+    blurb: 'Breathless when walking, swollen ankles',
+    caseBody: {
+      chief_complaint: 'Shortness of breath on mild exertion and swelling of both ankles for one month',
+      history: '65-year-old woman. Gets tired easily, cannot lie flat at night. History of high blood pressure.',
+      age: 65, sex: 'F',
+      comorbidities: [], current_medications: [], allergies: [],
+      vitals: { sbp: 138, dbp: 86, hr: 102 },
+      severity_staging: {}, staged_comorbidities: [],
+    },
+  },
+  {
+    id: 'stroke-01',
+    displayName: 'Mr. Raj, 60',
+    tag: 'Stroke',
+    blurb: 'Sudden weakness in right arm and slurred speech',
+    caseBody: {
+      chief_complaint: 'Sudden weakness of the right arm and slurred speech that started two hours ago',
+      history: '60-year-old man. Known high blood pressure. Symptoms came on suddenly while watching TV.',
+      age: 60, sex: 'M',
+      comorbidities: [], current_medications: [], allergies: [],
+      vitals: { sbp: 176, dbp: 98, hr: 90 },
+      severity_staging: {}, staged_comorbidities: [],
+    },
+  },
+  {
+    id: 'lipid-01',
+    displayName: 'Mr. Wong, 45',
+    tag: 'High Cholesterol',
+    blurb: 'High cholesterol found at a health screening',
+    caseBody: {
+      chief_complaint: 'No symptoms — routine health screening showed high cholesterol levels',
+      history: '45-year-old man, overweight, sedentary job, eats out often. Father has heart disease.',
+      age: 45, sex: 'M',
+      comorbidities: [], current_medications: [], allergies: [],
+      vitals: { sbp: 132, dbp: 84, hr: 78 },
+      severity_staging: {}, staged_comorbidities: [],
+    },
+  },
+];
