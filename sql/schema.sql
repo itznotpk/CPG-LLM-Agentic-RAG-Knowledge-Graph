@@ -35,7 +35,7 @@ CREATE INDEX idx_documents_created_at ON documents (created_at DESC);
 CREATE INDEX idx_documents_icd_scope ON documents USING GIN (icd11_scope);
 CREATE INDEX idx_documents_scope_verified ON documents (scope_verified) WHERE scope_verified = TRUE;
 
--- Chunks table (simplified - no grade/population columns)
+-- Chunks table
 CREATE TABLE chunks (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     document_id UUID NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
@@ -45,18 +45,12 @@ CREATE TABLE chunks (
     metadata JSONB DEFAULT '{}',
     token_count INTEGER,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Hierarchical Structure
+
+    -- Hierarchical structure
     parent_chunk_id UUID REFERENCES chunks(id) ON DELETE SET NULL,
-    section_hierarchy TEXT[],
-    
-    -- Content Type Flags
-    is_recommendation BOOLEAN DEFAULT FALSE,
-    is_table BOOLEAN DEFAULT FALSE,
-    is_algorithm BOOLEAN DEFAULT FALSE,
-    
-    -- Structured Content (for tables/algorithms)
-    structured_content JSONB
+    chunk_level TEXT NOT NULL DEFAULT 'h1_leaf',  -- 'h1' | 'h2' | 'h1_leaf'
+    start_char INTEGER,  -- child byte offset inside parent content
+    end_char INTEGER
 );
 
 -- Indexes
@@ -65,9 +59,7 @@ CREATE INDEX idx_chunks_document_id ON chunks (document_id);
 CREATE INDEX idx_chunks_chunk_index ON chunks (document_id, chunk_index);
 CREATE INDEX idx_chunks_content_trgm ON chunks USING GIN (content gin_trgm_ops);
 CREATE INDEX idx_chunks_parent ON chunks (parent_chunk_id);
-CREATE INDEX idx_chunks_recommendations ON chunks (is_recommendation) WHERE is_recommendation = TRUE;
-CREATE INDEX idx_chunks_tables ON chunks (is_table) WHERE is_table = TRUE;
-CREATE INDEX idx_chunks_algorithms ON chunks (is_algorithm) WHERE is_algorithm = TRUE;
+CREATE INDEX idx_chunks_level ON chunks (chunk_level);
 
 -- Sessions table
 CREATE TABLE sessions (
@@ -94,7 +86,7 @@ CREATE TABLE messages (
 
 CREATE INDEX idx_messages_session_id ON messages (session_id, created_at);
 
--- Vector search function
+-- Vector search function (returns h2 children only — h1 parents have no embedding)
 CREATE OR REPLACE FUNCTION match_chunks(
     query_embedding vector(1536),
     match_count INT DEFAULT 10
@@ -112,7 +104,7 @@ LANGUAGE plpgsql
 AS $$
 BEGIN
     RETURN QUERY
-    SELECT 
+    SELECT
         c.id AS chunk_id,
         c.document_id,
         c.content,
@@ -123,12 +115,13 @@ BEGIN
     FROM chunks c
     JOIN documents d ON c.document_id = d.id
     WHERE c.embedding IS NOT NULL
+      AND c.chunk_level = 'h2'
     ORDER BY c.embedding <=> query_embedding
     LIMIT match_count;
 END;
 $$;
 
--- Hybrid search function
+-- Hybrid search function (h2 children only)
 CREATE OR REPLACE FUNCTION hybrid_search(
     query_embedding vector(1536),
     query_text TEXT,
@@ -151,7 +144,7 @@ AS $$
 BEGIN
     RETURN QUERY
     WITH vector_results AS (
-        SELECT 
+        SELECT
             c.id AS chunk_id,
             c.document_id,
             c.content,
@@ -162,9 +155,10 @@ BEGIN
         FROM chunks c
         JOIN documents d ON c.document_id = d.id
         WHERE c.embedding IS NOT NULL
+          AND c.chunk_level = 'h2'
     ),
     text_results AS (
-        SELECT 
+        SELECT
             c.id AS chunk_id,
             c.document_id,
             c.content,
@@ -175,6 +169,7 @@ BEGIN
         FROM chunks c
         JOIN documents d ON c.document_id = d.id
         WHERE to_tsvector('english', c.content) @@ plainto_tsquery('english', query_text)
+          AND c.chunk_level = 'h2'
     )
     SELECT 
         COALESCE(v.chunk_id, t.chunk_id) AS chunk_id,
@@ -222,21 +217,21 @@ RETURNS TABLE (
     chunk_id UUID,
     content TEXT,
     parent_content TEXT,
-    section_hierarchy TEXT[],
+    chunk_level TEXT,
     full_context TEXT
 )
 LANGUAGE plpgsql
 AS $$
 BEGIN
     RETURN QUERY
-    SELECT 
+    SELECT
         c.id AS chunk_id,
         c.content,
         p.content AS parent_content,
-        c.section_hierarchy,
-        CASE 
-            WHEN p.content IS NOT NULL 
-            THEN '[Parent Section: ' || array_to_string(c.section_hierarchy, ' > ') || ']' || E'\n\n' || p.content || E'\n\n---\n\n' || c.content
+        c.chunk_level,
+        CASE
+            WHEN p.content IS NOT NULL
+            THEN '[Parent] ' || E'\n\n' || p.content || E'\n\n---\n\n[Child]\n\n' || c.content
             ELSE c.content
         END AS full_context
     FROM chunks c

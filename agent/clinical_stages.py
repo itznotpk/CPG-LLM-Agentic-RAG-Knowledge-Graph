@@ -22,6 +22,7 @@ except ImportError:  # pragma: no cover - only used before requirements are rein
 from pydantic import BaseModel
 from pydantic import ValidationError
 
+from .db_utils import db_pool
 from .models import ChunkResult, PatientCase, TreatmentPlan
 from .routing import CPGDocRef, route_icd_to_cpgs
 from .tools import VectorSearchInput, vector_search_tool
@@ -579,14 +580,64 @@ def _count_tokens(s: str) -> int:
     return len(encoder.encode(s))
 
 
+async def _prefetch_parent_content(chunks: list[ChunkResult]) -> None:
+    """
+    Populate chunk.parent_content for every H2 chunk that has a parent_chunk_id
+    in its metadata. Called once before _format_evidence so the sync formatter
+    can read the already-fetched content.
+
+    For parents > _PARENT_CHAR_LIMIT, a window centred on the child's
+    start_char/end_char is sliced instead of the full parent.
+    """
+    parent_ids = {
+        c.metadata["parent_chunk_id"]
+        for c in chunks
+        if c.metadata.get("parent_chunk_id")
+    }
+    if not parent_ids:
+        return
+
+    async with db_pool.acquire() as conn:
+        rows = await conn.fetch(
+            "SELECT id::text, content FROM chunks WHERE id = ANY($1::uuid[])",
+            list(parent_ids),
+        )
+    parent_content_by_id = {r["id"]: r["content"] for r in rows}
+
+    for chunk in chunks:
+        pid = chunk.metadata.get("parent_chunk_id")
+        if not pid or pid not in parent_content_by_id:
+            continue
+        parent_text = parent_content_by_id[pid]
+        if len(parent_text) <= _PARENT_CHAR_LIMIT:
+            chunk.parent_content = parent_text
+        else:
+            # Slice a window centred on the child's position inside the parent
+            half = _PARENT_CHAR_LIMIT // 2
+            child_start = chunk.start_char or 0
+            child_end = chunk.end_char or child_start
+            window_start = max(0, child_start - half)
+            window_end = min(len(parent_text), child_end + half)
+            chunk.parent_content = parent_text[window_start:window_end]
+            logger.info(
+                "Parent window sliced for chunk %s: [%d:%d] of %d-char parent",
+                chunk.chunk_id, window_start, window_end, len(parent_text),
+            )
+
+
 def build_parent_context(chunk: ChunkResult, include_parent: bool = True) -> str:
     """
-    Step 1 form: no parent layer exists yet. Return chunk content capped at the
-    parent budget. Step 2 will expand this once parent fields are populated.
+    Return formatted evidence text for a chunk.
+
+    If parent_content was pre-fetched (H2 chunks), emit [CHILD] + [PARENT] blocks.
+    If include_parent is False (duplicate parent suppression), emit child only.
     """
-    if not include_parent:
-        return chunk.content
-    return chunk.content[:_PARENT_CHAR_LIMIT]
+    if not include_parent or chunk.parent_content is None:
+        return chunk.content[:_PARENT_CHAR_LIMIT]
+
+    child_block = f"[CHILD]\n{chunk.content}"
+    parent_block = f"[PARENT]\n{chunk.parent_content}"
+    return f"{child_block}\n\n{parent_block}"
 
 
 def _format_evidence(chunks: list[ChunkResult]) -> str:
@@ -673,6 +724,7 @@ async def stage_5_synthesize(
         api_key=api_key,
     )
 
+    await _prefetch_parent_content(evidence)
     evidence_text = _format_evidence(evidence)
     icd_primary = ddx[0].code if ddx else "Unknown"
     icd_alternates = [d.code for d in ddx[1:3]]

@@ -1,16 +1,19 @@
 """
 Markdown document chunker for RAG systems.
 
-Uses LangChain's MarkdownHeaderTextSplitter to split documents by headers,
-preserving complete tables and lists.
+Two-pass strategy:
+  Pass 1 — split at # (H1) → one H1 parent row per section (no embedding).
+  Pass 2 — split each H1 at ## (H2) → embedded child chunks.
+  Fallback — if no ## exists, the whole H1 becomes chunk_level='h1_leaf' (embedded).
+  Cap — H2 children > 8 000 chars are sub-split at ### with the same parent.
 """
 
 import re
 import logging
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import dataclass
 
-from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
+from langchain_text_splitters import MarkdownHeaderTextSplitter
 
 try:
     import tiktoken
@@ -21,6 +24,7 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
+_H2_MAX_CHARS = 8_000
 
 
 @dataclass
@@ -28,9 +32,8 @@ class ChunkingConfig:
     """Configuration for chunking."""
     chunk_size: int = 1000
     chunk_overlap: int = 200
-    
+
     def __post_init__(self):
-        """Validate configuration."""
         if self.chunk_overlap >= self.chunk_size:
             raise ValueError("Chunk overlap must be less than chunk size")
 
@@ -43,31 +46,28 @@ class DocumentChunk:
     start_char: int
     end_char: int
     metadata: Dict[str, Any]
+    chunk_level: str = 'h1_leaf'   # 'h1' | 'h2' | 'h1_leaf'
     token_count: Optional[int] = None
-    
+
     def __post_init__(self):
-        """Calculate token count if not provided."""
         if self.token_count is None:
             if TIKTOKEN_AVAILABLE:
                 self.token_count = len(_enc.encode(self.content))
             else:
-                self.token_count = len(self.content) // 4  # ~4 chars per token
+                self.token_count = len(self.content) // 4
 
 
-# Regex pattern matching overlap comment blocks in the standardized markdown.
-# Supports BOTH formats:
-#   NEW (standardized):  <!-- OVERLAP CONTENT --> ... <!-- END OVERLAP CONTENT -->
-#   OLD (legacy):        <!-- ======= -->
-#                        <!-- OVERLAP CONTENT FROM: ... --> ... <!-- END OVERLAP FROM: ... -->
+# ---------------------------------------------------------------------------
+# Regex patterns
+# ---------------------------------------------------------------------------
+
 OVERLAP_BLOCK_PATTERN = re.compile(
     r'(?:'
-        # --- NEW format (standardized PAH/BC files) ---
         r'<!--\s*OVERLAP CONTENT\s*-->'
         r'\s*\n'
         r'(.*?)'
         r'<!--\s*END OVERLAP CONTENT\s*-->'
     r'|'
-        # --- OLD format (legacy files with FROM: labels) ---
         r'<!--\s*=+\s*-->\s*\n'
         r'<!--\s*OVERLAP CONTENT FROM:.*?-->\s*\n'
         r'(?:<!--.*?-->\s*\n)*'
@@ -77,248 +77,337 @@ OVERLAP_BLOCK_PATTERN = re.compile(
     re.DOTALL
 )
 
+PARENT_ONLY_BLOCK_PATTERN = re.compile(
+    r'<!--\s*parent_only_reference_start\s*-->'
+    r'(.*?)'
+    r'<!--\s*parent_only_reference_end\s*-->',
+    re.DOTALL | re.IGNORECASE
+)
+
+CROSS_REF_PATTERN = re.compile(
+    r'<!--\s*cross_ref'
+    r'(?:\s+target_file="(?P<target_file>[^"]*)")?'
+    r'(?:\s+target_heading="(?P<target_heading>[^"]*)")?'
+    r'(?:\s+target_kind="(?P<target_kind>[^"]*)")?'
+    r'\s*-->',
+    re.IGNORECASE
+)
+
+_VALID_TARGET_KINDS = {'h1_section', 'h2_section', 'algorithm_flowchart', 'appendix'}
+
+# Evidence tag patterns (kept from original)
+_GRADE_TOKEN = r'(?:I{1,3}[-]?[a-c]?|A|B|C)'
+_LEVEL_TOKEN = r'(?:[A-C]|I{1,3}(?:\s*-\s*\d+)?|\d+(?:\s*-\s*\d+)?)'
+
+
+def _extract_evidence_tags(text: str) -> Dict[str, list]:
+    grades, levels, who_classes = [], [], []
+
+    combined = rf'\*{{0,2}}\[Grade\s*({_GRADE_TOKEN}),\s*Level\s*({_LEVEL_TOKEN})\]\*{{0,2}}'
+    for m in re.finditer(combined, text, re.IGNORECASE):
+        g = re.sub(r'\s+', '', m.group(1).upper())
+        lv = re.sub(r'\s+', '', m.group(2).upper())
+        if g not in grades: grades.append(g)
+        if lv not in levels: levels.append(lv)
+
+    grade_only = rf'\*{{0,2}}\[Grade\s*({_GRADE_TOKEN})\]\*{{0,2}}'
+    for m in re.finditer(grade_only, text, re.IGNORECASE):
+        g = re.sub(r'\s+', '', m.group(1).upper())
+        if g not in grades: grades.append(g)
+
+    level_only = rf'\*{{0,2}}\[(?:L|l)evel\s*({_LEVEL_TOKEN})\]\*{{0,2}}'
+    for m in re.finditer(level_only, text):
+        lv = re.sub(r'\s+', '', m.group(1).upper())
+        if lv not in levels: levels.append(lv)
+
+    grade_paren = rf'\(\s*Grade\s*({_GRADE_TOKEN})\s*\)'
+    for m in re.finditer(grade_paren, text, re.IGNORECASE):
+        g = re.sub(r'\s+', '', m.group(1).upper())
+        if g not in grades: grades.append(g)
+
+    level_paren = rf'\(\s*(?:L|l)evel\s*({_LEVEL_TOKEN})\s*\)'
+    for m in re.finditer(level_paren, text):
+        lv = re.sub(r'\s+', '', m.group(1).upper())
+        if lv not in levels: levels.append(lv)
+
+    for m in re.finditer(r'\*{0,2}\[WHO\s+Class\s+(I{1,3}V?|IV)(?:[-\s]?[A-Z])?\]\*{0,2}', text, re.IGNORECASE):
+        w = m.group(1).upper()
+        if w not in who_classes: who_classes.append(w)
+
+    result = {}
+    if grades: result["evidence_grades"] = grades
+    if levels: result["evidence_levels"] = levels
+    if who_classes: result["who_functional_classes"] = who_classes
+    return result
+
+
+def _strip_cross_refs(text: str) -> Tuple[str, list]:
+    """Remove cross_ref HTML comments; return (clean_text, list_of_ref_dicts)."""
+    refs = []
+
+    def collect(m):
+        kind = m.group("target_kind") or ""
+        if kind and kind not in _VALID_TARGET_KINDS:
+            logger.warning("Unknown cross_ref target_kind=%r — kept as-is", kind)
+        refs.append({
+            k: v for k, v in {
+                "target_file": m.group("target_file"),
+                "target_heading": m.group("target_heading"),
+                "target_kind": kind or None,
+            }.items() if v
+        })
+        return ""
+
+    clean = CROSS_REF_PATTERN.sub(collect, text)
+    return clean, refs
+
+
+def _strip_parent_only_blocks(text: str) -> Tuple[str, str]:
+    """
+    Return (child_text, parent_only_text).
+    child_text has parent_only blocks removed.
+    parent_only_text is the concatenated content of those blocks.
+    """
+    parent_only_parts = []
+
+    def collect(m):
+        parent_only_parts.append(m.group(1).strip())
+        return ""
+
+    child_text = PARENT_ONLY_BLOCK_PATTERN.sub(collect, text)
+    parent_only_text = "\n\n".join(parent_only_parts)
+    return child_text, parent_only_text
+
 
 class MarkdownChunker:
     """
-    Markdown header-based chunker using LangChain's MarkdownHeaderTextSplitter.
-    
-    Features:
-    - Splits by H1 headers only (file-per-section architecture)
-    - Strips overlap blocks (Grades, Levels, Abbreviations) to prevent
-      duplicate chunks, then re-attaches them as context to the last chunk
-    - Extracts [Grade X, Level Y] tags as structured metadata
-    - Oversized chunks are auto-split by paragraphs with context preserved
-    - Preserves complete tables and lists
-    - Includes header hierarchy in metadata for context
+    Two-pass markdown chunker producing H1 parent + H2 child chunks.
     """
-    
+
     def __init__(self, config: Optional[ChunkingConfig] = None):
-        """Initialize markdown chunker."""
         self.config = config or ChunkingConfig()
-        
-        # Split ONLY on H1 (#) — each markdown file is one section,
-        # so ## and ### sub-headings stay together inside the chunk.
-        self.headers_to_split_on = [
-            ("#", "doc_title"),
-        ]
-        
-        self.splitter = MarkdownHeaderTextSplitter(
-            headers_to_split_on=self.headers_to_split_on,
-            strip_headers=False  # Keep headers in content for context
+        self._h1_splitter = MarkdownHeaderTextSplitter(
+            headers_to_split_on=[("#", "doc_title")],
+            strip_headers=False,
         )
-    
+        self._h2_splitter = MarkdownHeaderTextSplitter(
+            headers_to_split_on=[("##", "h2_title")],
+            strip_headers=False,
+        )
+        self._h3_splitter = MarkdownHeaderTextSplitter(
+            headers_to_split_on=[("###", "h3_title")],
+            strip_headers=False,
+        )
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
     def chunk_document(
         self,
         content: str,
         title: str,
         source: str,
-        metadata: Optional[Dict[str, Any]] = None
+        metadata: Optional[Dict[str, Any]] = None,
     ) -> List[DocumentChunk]:
-        """
-        Chunk document by markdown headers.
-        
-        Args:
-            content: Document content (markdown)
-            title: Document title
-            source: Document source
-            metadata: Additional metadata
-        
-        Returns:
-            List of document chunks with header hierarchy in metadata
-        """
         if not content.strip():
             return []
-        
-        base_metadata = {
+
+        base_meta = {
             "title": title,
             "source": source,
             "chunk_method": "markdown_header",
-            **(metadata or {})
+            **(metadata or {}),
         }
-        
-        # --- Pre-processing: Strip overlap blocks before chunking ---
-        # This prevents Grades/Levels/Abbreviations tables from becoming
-        # separate searchable chunks (they'd be near-duplicates across files).
-        # The stripped content is saved and re-attached to the last real chunk.
+
+        # Strip overlap blocks (Grades/Levels/Abbreviations reference tables)
         stripped_content, overlap_blocks = self._strip_overlap_blocks(content)
-        
-        # Split the document by H1 headers only
-        docs = self.splitter.split_text(stripped_content)
-        
-        # Convert to DocumentChunk objects
-        chunks = []
-        current_pos = 0
-        
-        for i, doc in enumerate(docs):
-            chunk_content = doc.page_content
-            
-            # Build context path from header hierarchy
-            context_parts = []
-            for header_key in ["doc_title", "section", "subsection"]:
-                if header_key in doc.metadata:
-                    context_parts.append(doc.metadata[header_key])
-            
-            context_path = " > ".join(context_parts) if context_parts else ""
-            
-            # Find position in original content
-            search_text = chunk_content[:100] if len(chunk_content) >= 100 else chunk_content
-            start_pos = stripped_content.find(search_text, current_pos)
-            if start_pos == -1:
-                start_pos = current_pos
-            end_pos = start_pos + len(chunk_content)
-            
-            # Extract Evidence Grade, Level, and WHO Class tags
-            # Supports multiple CPG formats:
-            #   PAH: **[Grade I]**, **[Level C]**, **[Grade II-a, Level B]**, **[WHO Class III]**
-            #   BC:  **[level I]**
-            #   ED:  [Grade I-a, Level A]
-            grades = []
-            levels = []
-            who_classes = []
 
-            # Evidence tag tokens
-            # - Grade: traditional I/II/III (optionally with a/b/c) OR Hypertension A/B/C
-            # - Level: A/B/C OR I/II/III (optionally with -1/-2/-3 etc) OR numeric (e.g., Level 1)
-            grade_token = r'(?:I{1,3}[-]?[a-c]?|A|B|C)'
-            level_token = r'(?:[A-C]|I{1,3}(?:\s*-\s*\d+)?|\d+(?:\s*-\s*\d+)?)'
-            
-            # Pattern 1: Combined [Grade X, Level Y] (with optional bold **)
-            combined_bracket = rf'\*{{0,2}}\[Grade\s*({grade_token}),\s*Level\s*({level_token})\]\*{{0,2}}'
-            for m in re.finditer(combined_bracket, chunk_content, re.IGNORECASE):
-                g = re.sub(r'\s+', '', m.group(1).upper())
-                lv = re.sub(r'\s+', '', m.group(2).upper())
-                if g not in grades:
-                    grades.append(g)
-                if lv not in levels:
-                    levels.append(lv)
-            
-            # Pattern 2: Standalone [Grade X] (no Level)
-            grade_bracket = rf'\*{{0,2}}\[Grade\s*({grade_token})\]\*{{0,2}}'
-            for m in re.finditer(grade_bracket, chunk_content, re.IGNORECASE):
-                g = re.sub(r'\s+', '', m.group(1).upper())
-                if g not in grades:
-                    grades.append(g)
-            
-            # Pattern 3: Standalone [Level X] (PAH: **[Level C]**, BC: **[level I]**, HTN: **[Level II-2]**)
-            level_bracket = rf'\*{{0,2}}\[(?:L|l)evel\s*({level_token})\]\*{{0,2}}'
-            for m in re.finditer(level_bracket, chunk_content):
-                lv = re.sub(r'\s+', '', m.group(1).upper())
-                if lv not in levels:
-                    levels.append(lv)
+        # Pass 1 — split at H1
+        h1_docs = self._h1_splitter.split_text(stripped_content)
 
-            # Pattern 3b: Parenthetical (Grade X)/(Level Y) tags (some legacy HTN text uses parentheses)
-            # Examples: (Grade A), (Level II-2), 49(Level I)
-            grade_paren = rf'\(\s*Grade\s*({grade_token})\s*\)'
-            for m in re.finditer(grade_paren, chunk_content, re.IGNORECASE):
-                g = re.sub(r'\s+', '', m.group(1).upper())
-                if g not in grades:
-                    grades.append(g)
+        all_chunks: List[DocumentChunk] = []
+        global_index = 0
 
-            level_paren = rf'\(\s*(?:L|l)evel\s*({level_token})\s*\)'
-            for m in re.finditer(level_paren, chunk_content):
-                lv = re.sub(r'\s+', '', m.group(1).upper())
-                if lv not in levels:
-                    levels.append(lv)
-            
-            # Pattern 4: [WHO Class I-IV] (PAH functional classification)
-            for m in re.finditer(r'\*{0,2}\[WHO\s+Class\s+(I{1,3}V?|IV)(?:[-\s]?[A-Z])?\]\*{0,2}', chunk_content, re.IGNORECASE):
-                w = m.group(1).upper()
-                if w not in who_classes: who_classes.append(w)
-            
-            chunk_metadata = {
-                **base_metadata,
-                "context_path": context_path,
-                "total_chunks": len(docs),
-                **doc.metadata
+        for h1_doc in h1_docs:
+            h1_text = h1_doc.page_content
+
+            # --- A-3: separate parent_only blocks from child-visible text ---
+            h1_child_text, parent_only_text = _strip_parent_only_blocks(h1_text)
+            # parent_only content is retained in H1 parent row but excluded from H2 children
+
+            # Locate H1 position inside stripped_content
+            h1_start = stripped_content.find(h1_text[:80] if len(h1_text) >= 80 else h1_text)
+            if h1_start == -1:
+                h1_start = 0
+            h1_end = h1_start + len(h1_text)
+
+            h1_meta = {
+                **base_meta,
+                **h1_doc.metadata,
+                "context_path": h1_doc.metadata.get("doc_title", title),
             }
-            if grades:
-                chunk_metadata["evidence_grades"] = grades
-            if levels:
-                chunk_metadata["evidence_levels"] = levels
-            if who_classes:
-                chunk_metadata["who_functional_classes"] = who_classes
-            
-            chunks.append(DocumentChunk(
-                content=chunk_content.strip(),
-                index=i,
-                start_char=start_pos,
-                end_char=end_pos,
-                metadata=chunk_metadata
-            ))
-            
-            current_pos = end_pos
-        
-        final_chunks = chunks
-        
-        # --- Post-processing: Re-attach overlap content to last chunk ---
-        # The overlap tables (Grades, Levels, Abbreviations) are appended to
-        # the last real chunk so the LLM still has them as context, but they
-        # are NOT standalone searchable chunks.
-        if final_chunks and overlap_blocks:
-            combined_overlap = "\n\n---\n\n".join(overlap_blocks)
-            last_chunk = final_chunks[-1]
-            last_chunk.content += f"\n\n---\n<!-- REFERENCE CONTEXT (not a separate chunk) -->\n\n{combined_overlap}"
-            last_chunk.metadata["has_overlap_context"] = True
-            last_chunk.metadata["overlap_sources"] = [
-                "Grades of Recommendation", "Levels of Evidence", "Abbreviations"
-            ]
-        
-        # Re-index chunks
-        for i, chunk in enumerate(final_chunks):
-            chunk.index = i
-            chunk.metadata["total_chunks"] = len(final_chunks)
-        
-        if final_chunks:
-            sizes = [len(c.content) for c in final_chunks]
-            logger.info(
-                f"📊 Chunk stats for '{title}': "
-                f"count={len(sizes)}, "
-                f"min={min(sizes)}, max={max(sizes)}, "
-                f"avg={sum(sizes)//len(sizes)}, "
-                f"has_evidence={sum(1 for c in final_chunks if c.metadata.get('evidence_grades') or c.metadata.get('evidence_levels'))}"
+
+            # Emit H1 parent row (no embedding — stored for window context only)
+            h1_chunk = DocumentChunk(
+                content=h1_text.strip(),
+                index=global_index,
+                start_char=h1_start,
+                end_char=h1_end,
+                metadata={**h1_meta, "total_chunks": 0},  # updated after
+                chunk_level="h1",
             )
-            
-        return final_chunks
-    
+            all_chunks.append(h1_chunk)
+            h1_chunk_pos = len(all_chunks) - 1
+            global_index += 1
+
+            # Pass 2 — split H1 child text at ##
+            h2_docs = self._h2_splitter.split_text(h1_child_text)
+
+            # Fallback: no ## headings → whole section is h1_leaf (embedded, no parent)
+            if len(h2_docs) <= 1 and not any("##" in d.page_content for d in h2_docs):
+                leaf_text = h1_child_text.strip()
+                if not leaf_text:
+                    continue
+                evidence = _extract_evidence_tags(leaf_text)
+                clean_leaf, leaf_refs = _strip_cross_refs(leaf_text)
+                leaf_meta = {**h1_meta, **evidence}
+                if leaf_refs:
+                    leaf_meta["cross_refs"] = leaf_refs
+                # Promote the already-appended h1 to h1_leaf (no parent)
+                all_chunks[h1_chunk_pos].chunk_level = "h1_leaf"
+                all_chunks[h1_chunk_pos].content = clean_leaf
+                all_chunks[h1_chunk_pos].metadata.update(leaf_meta)
+                continue
+
+            # H2 children exist — build child chunks
+            child_chunks: List[DocumentChunk] = []
+            child_pos = 0  # tracks position inside h1_child_text
+
+            for h2_doc in h2_docs:
+                h2_text = h2_doc.page_content
+
+                # --- A-4: strip cross_ref markers from child embedding text ---
+                h2_clean, cross_refs = _strip_cross_refs(h2_text)
+
+                h2_start_in_parent = h1_child_text.find(
+                    h2_text[:80] if len(h2_text) >= 80 else h2_text, child_pos
+                )
+                if h2_start_in_parent == -1:
+                    h2_start_in_parent = child_pos
+                h2_end_in_parent = h2_start_in_parent + len(h2_text)
+                child_pos = h2_end_in_parent
+
+                h2_meta = {
+                    **h1_meta,
+                    **h2_doc.metadata,
+                    "context_path": " > ".join(filter(None, [
+                        h1_doc.metadata.get("doc_title", ""),
+                        h2_doc.metadata.get("h2_title", ""),
+                    ])),
+                    **_extract_evidence_tags(h2_clean),
+                }
+                if cross_refs:
+                    h2_meta["cross_refs"] = cross_refs
+
+                if len(h2_clean) <= _H2_MAX_CHARS:
+                    child_chunks.append(DocumentChunk(
+                        content=h2_clean.strip(),
+                        index=global_index,
+                        start_char=h2_start_in_parent,
+                        end_char=h2_end_in_parent,
+                        metadata={**h2_meta, "total_chunks": 0},
+                        chunk_level="h2",
+                    ))
+                    global_index += 1
+                else:
+                    # Cap: H2 > 8 000 chars — sub-split at ###
+                    h3_docs = self._h3_splitter.split_text(h2_clean)
+                    h3_pos = 0
+                    for h3_doc in h3_docs:
+                        h3_text = h3_doc.page_content.strip()
+                        if not h3_text:
+                            continue
+                        h3_start = h2_start_in_parent + h2_clean.find(
+                            h3_text[:80] if len(h3_text) >= 80 else h3_text, h3_pos
+                        )
+                        h3_end = h3_start + len(h3_text)
+                        h3_pos = max(0, h3_end - h2_start_in_parent)
+                        h3_clean, h3_refs = _strip_cross_refs(h3_text)
+                        h3_meta = {
+                            **h2_meta,
+                            **h3_doc.metadata,
+                        }
+                        if h3_refs:
+                            h3_meta["cross_refs"] = h3_meta.get("cross_refs", []) + h3_refs
+                        child_chunks.append(DocumentChunk(
+                            content=h3_clean.strip(),
+                            index=global_index,
+                            start_char=h3_start,
+                            end_char=h3_end,
+                            metadata={**h3_meta, "total_chunks": 0},
+                            chunk_level="h2",
+                        ))
+                        global_index += 1
+
+            # Attach overlap content to the last H2 child (same behaviour as before)
+            if child_chunks and overlap_blocks:
+                combined_overlap = "\n\n---\n\n".join(overlap_blocks)
+                last = child_chunks[-1]
+                last.content += f"\n\n---\n<!-- REFERENCE CONTEXT (not a separate chunk) -->\n\n{combined_overlap}"
+                last.metadata["has_overlap_context"] = True
+
+            all_chunks.extend(child_chunks)
+
+        # Final re-index and total_chunks update
+        total = len(all_chunks)
+        for i, c in enumerate(all_chunks):
+            c.index = i
+            c.metadata["total_chunks"] = total
+
+        if all_chunks:
+            embedded = [c for c in all_chunks if c.chunk_level != "h1"]
+            sizes = [len(c.content) for c in embedded]
+            if sizes:
+                logger.info(
+                    "Chunk stats for '%s': h1=%d, h2/leaf=%d, "
+                    "min=%d, max=%d, avg=%d",
+                    title,
+                    sum(1 for c in all_chunks if c.chunk_level == "h1"),
+                    len(embedded),
+                    min(sizes), max(sizes), sum(sizes) // len(sizes),
+                )
+
+        return all_chunks
+
+    # ------------------------------------------------------------------
+    # Static helpers
+    # ------------------------------------------------------------------
+
     @staticmethod
-    def _strip_overlap_blocks(content: str) -> tuple:
-        """
-        Strip overlap comment blocks from markdown content.
-        
-        Supports both formats:
-            NEW: <!-- OVERLAP CONTENT --> ... <!-- END OVERLAP CONTENT -->
-            OLD: <!-- OVERLAP CONTENT FROM: ... --> ... <!-- END OVERLAP FROM: ... -->
-        
-        Returns:
-            Tuple of (stripped_content, list_of_overlap_block_texts)
-        """
+    def _strip_overlap_blocks(content: str) -> Tuple[str, list]:
         overlap_blocks = []
-        
+
         def collect_and_remove(match):
-            # Alternation: group(1) = new format, group(2) = old format
             block_text = match.group(1) or match.group(2) or ""
             if block_text.strip():
                 overlap_blocks.append(block_text.strip())
-            return ""  # Remove from main content
-        
+            return ""
+
         stripped = OVERLAP_BLOCK_PATTERN.sub(collect_and_remove, content)
-        
-        # Clean up any leftover separator lines from removal
         stripped = re.sub(r'\n{3,}', '\n\n', stripped)
-        
+
         if overlap_blocks:
-            logger.info(f"Stripped {len(overlap_blocks)} overlap block(s) before chunking")
-        
+            logger.info("Stripped %d overlap block(s) before chunking", len(overlap_blocks))
+
         return stripped.strip(), overlap_blocks
 
 
 # Convenience function
 def create_chunker(config: Optional[ChunkingConfig] = None) -> MarkdownChunker:
-    """Create a markdown chunker with the given configuration."""
     return MarkdownChunker(config)
 
 
-# Example usage
 if __name__ == "__main__":
     sample = """
 # ED Treatment Algorithm
@@ -339,10 +428,10 @@ if __name__ == "__main__":
 - Lifestyle changes
 - PDE5 inhibitors
 """
-    
+
     chunker = MarkdownChunker()
     chunks = chunker.chunk_document(sample, "ED Algorithm", "algorithm.md")
-    
+
     for chunk in chunks:
-        print(f"\n--- {chunk.metadata.get('context_path', 'Root')} ---")
-        print(f"{chunk.content[:100]}...")
+        print(f"\n--- [{chunk.chunk_level}] {chunk.metadata.get('context_path', 'Root')} ---")
+        print(f"{chunk.content[:120]}...")

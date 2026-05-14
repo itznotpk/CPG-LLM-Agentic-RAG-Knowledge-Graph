@@ -848,15 +848,17 @@ class DocumentIngestionPipeline:
         """Save document and chunks to PostgreSQL."""
         async with db_pool.acquire() as conn:
             async with conn.transaction():
-                # Upsert document
+                # Upsert document — never overwrite scope columns set by the
+                # classifier/verifier (icd11_scope, scope_verified, verified_at, verified_by).
                 document_result = await conn.fetchrow(
                     """
                     INSERT INTO documents (title, source, content, metadata)
                     VALUES ($1, $2, $3, $4)
                     ON CONFLICT (source) DO UPDATE SET
-                        title = EXCLUDED.title,
-                        content = EXCLUDED.content,
-                        metadata = EXCLUDED.metadata
+                        title      = EXCLUDED.title,
+                        content    = EXCLUDED.content,
+                        metadata   = EXCLUDED.metadata,
+                        updated_at = NOW()
                     RETURNING id::text
                     """,
                     title,
@@ -864,53 +866,91 @@ class DocumentIngestionPipeline:
                     content,
                     json.dumps(metadata)
                 )
-                
+
                 document_id = document_result["id"]
-                
+
                 # Delete old chunks for this document
                 await conn.execute(
                     "DELETE FROM chunks WHERE document_id = $1::uuid",
                     document_id
                 )
-                
-                # Insert chunks
-                for chunk in chunks:
-                    # Convert embedding to PostgreSQL vector string format
-                    embedding_data = None
-                    if hasattr(chunk, 'embedding') and chunk.embedding:
-                        # PostgreSQL vector format: '[1.0,2.0,3.0]' (no spaces after commas)
-                        embedding_data = '[' + ','.join(map(str, chunk.embedding)) + ']'
-                    
-                    meta = chunk.metadata
-                    section_hierarchy = meta.get("section_hierarchy", [])
-                    structured_content = meta.get("structured_content")
-                    
-                    await conn.execute(
+
+                # Two-pass insert: H1 parents first so their UUIDs exist when
+                # H2 children reference them via parent_chunk_id.
+                h1_chunks = [c for c in chunks if c.chunk_level == "h1"]
+                child_chunks = [c for c in chunks if c.chunk_level != "h1"]
+
+                # Map chunk.index → DB UUID for H1 parents
+                parent_uuid_by_index: Dict[int, str] = {}
+
+                for chunk in h1_chunks:
+                    row = await conn.fetchrow(
                         """
                         INSERT INTO chunks (
-                            document_id, content, embedding, chunk_index, metadata, token_count,
-                            section_hierarchy,
-                            is_recommendation, is_table, is_algorithm, structured_content
+                            document_id, content, embedding, chunk_index, metadata,
+                            token_count, chunk_level, start_char, end_char, parent_chunk_id
                         )
                         VALUES (
-                            $1::uuid, $2, $3::vector, $4, $5, $6,
-                            $7,
-                            $8, $9, $10, $11
+                            $1::uuid, $2, NULL, $3, $4,
+                            $5, $6, $7, $8, NULL
                         )
+                        RETURNING id::text
+                        """,
+                        document_id,
+                        chunk.content,
+                        chunk.index,
+                        json.dumps(chunk.metadata),
+                        chunk.token_count,
+                        chunk.chunk_level,
+                        chunk.start_char,
+                        chunk.end_char,
+                    )
+                    parent_uuid_by_index[chunk.index] = row["id"]
+
+                for chunk in child_chunks:
+                    embedding_data = None
+                    if hasattr(chunk, 'embedding') and chunk.embedding:
+                        embedding_data = '[' + ','.join(map(str, chunk.embedding)) + ']'
+
+                    # Resolve parent UUID — stored in metadata by the chunker
+                    parent_chunk_id = chunk.metadata.get("parent_chunk_id")
+                    if parent_chunk_id is None:
+                        # Fall back: find the nearest preceding H1 by index
+                        for idx in sorted(parent_uuid_by_index.keys(), reverse=True):
+                            if idx < chunk.index:
+                                parent_chunk_id = parent_uuid_by_index[idx]
+                                break
+
+                    child_meta = {**chunk.metadata}
+                    if parent_chunk_id:
+                        child_meta["parent_chunk_id"] = parent_chunk_id
+
+                    child_row = await conn.fetchrow(
+                        """
+                        INSERT INTO chunks (
+                            document_id, content, embedding, chunk_index, metadata,
+                            token_count, chunk_level, start_char, end_char, parent_chunk_id
+                        )
+                        VALUES (
+                            $1::uuid, $2, $3::vector, $4, $5,
+                            $6, $7, $8, $9, $10::uuid
+                        )
+                        RETURNING id::text
                         """,
                         document_id,
                         chunk.content,
                         embedding_data,
                         chunk.index,
-                        json.dumps(meta),
+                        json.dumps(child_meta),
                         chunk.token_count,
-                        section_hierarchy,
-                        meta.get("is_recommendation", False),
-                        meta.get("is_table", False),
-                        meta.get("is_algorithm", False),
-                        json.dumps(structured_content) if structured_content else None
+                        chunk.chunk_level,
+                        chunk.start_char,
+                        chunk.end_char,
+                        parent_chunk_id,
                     )
-                
+                    chunk.metadata["chunk_id"] = child_row["id"]
+                    chunk.metadata["parent_chunk_id"] = parent_chunk_id
+
                 return document_id
 
     def _print_dry_run_summary(self, title: str, chunks: List[DocumentChunk]):

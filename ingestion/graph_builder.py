@@ -362,16 +362,18 @@ TEXT:
     # LLM TRIPLE EXTRACTION â€” Universal CPG Relationship Extraction
     # ==========================================================================
     
-    async def _extract_triples_with_llm(self, text: str, chunk_index: int, source: str) -> List[Dict[str, Any]]:
+    async def _extract_triples_with_llm(self, text: str, chunk_index: int, source: str, cpg_chunk_id: Optional[str] = None, before: str = "", after: str = "") -> List[Dict[str, Any]]:
         """
         Use LLM to extract (subject, relation, object) triples from a clinical text chunk.
         Works for any CPG domain â€” no hardcoding required.
-        
+
         Args:
-            text: Chunk content
+            text: Focus window — triples are extracted from this region only
             chunk_index: Index of the chunk in its document
             source: Source document path
-        
+            before: Up to 2 000 chars preceding the focus window (reference context only)
+            after: Up to 2 000 chars following the focus window (reference context only)
+
         Returns:
             List of triple dicts with keys: subject, subject_type, relation, object, object_type, evidence
         """
@@ -385,11 +387,11 @@ TEXT:
             logger.warning(f"Could not load ingestion model for triple extraction: {e}")
             return []
         
-        # Use provided text directly (already truncated/subchunked by caller)
-        truncated = text
-        
         relation_list = "\n".join(f"  - {r}" for r in self.CLINICAL_RELATION_TYPES)
-        
+
+        before_block = f"\n[BEFORE — reference context, do NOT extract from here]\n{before}\n" if before else ""
+        after_block = f"\n[AFTER — reference context, do NOT extract from here]\n{after}\n" if after else ""
+
         prompt = f"""You are a clinical knowledge graph expert. Extract medical relationships from the clinical text below.
 
 EXTRACT relationships as JSON triples. Each triple must have:
@@ -404,15 +406,18 @@ RELATION TYPES (use exactly as written):
 {relation_list}
 
 RULES:
-- Extract ONLY relationships explicitly stated in the text. Do not infer.
+- Extract ONLY relationships explicitly stated in the [FOCUS] region. Do not infer.
+- The [BEFORE] and [AFTER] regions are context only — use them to resolve references
+  (pronouns, abbreviations, dangling entities) but never extract a triple whose evidence
+  sentence lives outside [FOCUS].
 - If a relation does not fit any type, use "OTHER" and describe it in the object.
 - Subject and object must be specific named entities, not vague phrases.
 - Return a JSON array of triples. If no relationships found, return [].
 - Do not include commentary â€” only the JSON array.
-
-TEXT:
-{truncated}
-
+{before_block}
+[FOCUS — extract triples from this region only]
+{text}
+{after_block}
 Return format:
 [
   {{"subject": "Tamoxifen", "subject_type": "Drug", "relation": "TREATS", "object": "ER-positive breast cancer", "object_type": "Condition", "evidence": "Tamoxifen is recommended for ER-positive breast cancer patients."}},
@@ -446,6 +451,8 @@ Return format:
                     t["relation"] = "OTHER"
                 t["chunk_index"] = chunk_index
                 t["source"] = source
+                if cpg_chunk_id:
+                    t["cpg_chunk_id"] = cpg_chunk_id
                 valid_triples.append(t)
             
             logger.debug(f"Chunk {chunk_index}: extracted {len(valid_triples)} triples")
@@ -490,15 +497,16 @@ Return format:
                     obj_type = triple.get("object_type", "Entity").strip()
                     evidence = triple.get("evidence", "")[:500]  # Cap evidence length
                     chunk_index = triple.get("chunk_index", 0)
+                    cpg_chunk_id = triple.get("cpg_chunk_id")
                     source = triple.get("source", "")
-                    
+
                     if not subject or not obj:
                         continue
-                    
+
                     # Sanitize labels (Neo4j labels cannot have spaces)
                     subject_label = re.sub(r'\W+', '', subject_type) or "Entity"
                     obj_label = re.sub(r'\W+', '', obj_type) or "Entity"
-                    
+
                     # MERGE nodes by name+label, then MERGE relationship with evidence
                     cypher = f"""
                     MERGE (s:{subject_label} {{name: $subject}})
@@ -508,13 +516,15 @@ Return format:
                         r.evidence = $evidence,
                         r.source_document = $document_title,
                         r.chunk_index = $chunk_index,
+                        r.cpg_chunk_id = $cpg_chunk_id,
                         r.source = $source,
                         r.created_at = datetime()
                     ON MATCH SET
                         r.evidence = CASE WHEN r.evidence IS NULL THEN $evidence ELSE r.evidence END,
-                        r.source_document = $document_title
+                        r.source_document = $document_title,
+                        r.cpg_chunk_id = CASE WHEN $cpg_chunk_id IS NOT NULL THEN $cpg_chunk_id ELSE r.cpg_chunk_id END
                     """
-                    
+
                     await session.run(
                         cypher,
                         subject=subject,
@@ -522,6 +532,7 @@ Return format:
                         evidence=evidence,
                         document_title=document_title,
                         chunk_index=chunk_index,
+                        cpg_chunk_id=cpg_chunk_id,
                         source=source
                     )
             
@@ -531,37 +542,57 @@ Return format:
             logger.error(f"Failed to write triples to Neo4j: {e}")
             raise
     
-    def _split_into_subchunks(self, text: str, max_chars: int = 6000, overlap: int = 500) -> List[str]:
-        """Split a large text into overlapping sub-chunks for LLM processing."""
-        if len(text) <= max_chars:
-            return [text]
-        
-        subchunks = []
-        start = 0
-        while start < len(text):
-            end = start + max_chars
-            chunk = text[start:end]
-            
-            # If not at the end, try to find a clean break (newline or period)
-            if end < len(text):
-                last_newline = chunk.rfind('\n')
-                last_period = chunk.rfind('. ')
-                
-                if last_newline > max_chars * 0.7:
-                    end = start + last_newline + 1
-                elif last_period > max_chars * 0.7:
-                    end = start + last_period + 2
-                
-                chunk = text[start:end]
-            
-            subchunks.append(chunk)
-            start = end - overlap if end < len(text) else end
-            
-            # Safety break for very small progress
-            if end <= start:
-                start += max_chars // 2
-                
-        return subchunks
+    def _split_into_subchunks(self, text: str) -> List[Dict[str, Any]]:
+        """
+        Split text into non-overlapping focus windows with before/after context bands.
+
+        Returns list of dicts:
+          {
+            "before": str,        # up to 2 000 chars before focus (empty for first window)
+            "focus": str,         # 2 000-char focus window (extract triples from here only)
+            "after": str,         # up to 2 000 chars after focus (empty for last window)
+            "focus_start": int,   # byte offset of focus start inside text
+            "focus_end": int,     # byte offset of focus end inside text
+            "is_first": bool,
+            "is_last": bool,
+          }
+
+        Band size = 2 000 chars; stride = 6 000 chars (non-overlapping focus windows).
+        When text fits in one focus window, returns a single dict with empty before/after.
+        """
+        BAND = 2_000
+        STRIDE = 6_000
+
+        if len(text) <= STRIDE:
+            return [{
+                "before": "",
+                "focus": text,
+                "after": "",
+                "focus_start": 0,
+                "focus_end": len(text),
+                "is_first": True,
+                "is_last": True,
+            }]
+
+        windows = []
+        pos = 0
+        while pos < len(text):
+            focus_start = pos
+            focus_end = min(pos + STRIDE, len(text))
+            before = text[max(0, focus_start - BAND): focus_start]
+            after = text[focus_end: min(len(text), focus_end + BAND)]
+            windows.append({
+                "before": before,
+                "focus": text[focus_start:focus_end],
+                "after": after,
+                "focus_start": focus_start,
+                "focus_end": focus_end,
+                "is_first": pos == 0,
+                "is_last": focus_end >= len(text),
+            })
+            pos = focus_end
+
+        return windows
 
     async def build_relationship_graph(
         self,
@@ -578,23 +609,30 @@ Return format:
         rel_counts: Dict[str, int] = {}
         processed_triples_keys: Set[Tuple[str, str, str]] = set() # For deduping
         
-        logger.info(f"Extracting LLM triples from {len(chunks)} chunks for '{document_title}'")
-        
-        for chunk in chunks:
-            # Phase A2 Fix: Split into overlapping subchunks to avoid 6000 char truncation
-            subchunks = self._split_into_subchunks(chunk.content, max_chars=6000, overlap=500)
-            
+        embedded_chunks = [c for c in chunks if c.chunk_level in ("h2", "h1_leaf")]
+        logger.info(
+            "Extracting LLM triples from %d H2/h1_leaf chunks (skipping %d H1 parents) for '%s'",
+            len(embedded_chunks), len(chunks) - len(embedded_chunks), document_title,
+        )
+
+        for chunk in embedded_chunks:
+            subchunks = self._split_into_subchunks(chunk.content)
+
             if len(subchunks) > 1:
-                logger.info(f"  Chunk {chunk.index} is large ({len(chunk.content)} chars) - split into {len(subchunks)} sub-chunks")
-            
-            for sub_idx, sub_content in enumerate(subchunks):
-                # Use a fractional index for sub-chunks (e.g., 12.1, 12.2)
+                logger.info("  Chunk %s is large (%d chars) - split into %d sub-chunks", chunk.index, len(chunk.content), len(subchunks))
+
+            cpg_chunk_id: Optional[str] = chunk.metadata.get("chunk_id")
+
+            for sub_idx, window in enumerate(subchunks):
                 display_idx = f"{chunk.index}.{sub_idx+1}" if len(subchunks) > 1 else chunk.index
-                
+
                 triples = await self._extract_triples_with_llm(
-                    text=sub_content,
+                    text=window["focus"],
                     chunk_index=chunk.index,
-                    source=chunk.metadata.get("source", "")
+                    source=chunk.metadata.get("source", ""),
+                    cpg_chunk_id=cpg_chunk_id,
+                    before=window["before"],
+                    after=window["after"],
                 )
                 
                 for t in triples:
@@ -621,7 +659,7 @@ Return format:
                     await asyncio.sleep(0.5)
             
             # Small delay between main chunks
-            if chunk.index < len(chunks) - 1:
+            if chunk.index < len(embedded_chunks) - 1:
                 await asyncio.sleep(0.3)
         
         # Write all triples to Neo4j

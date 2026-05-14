@@ -40,7 +40,6 @@ from .models import (
     ToolCall,
     PatientCase,
     TreatmentPlan,
-    SafetyReport,
 )
 from pydantic import BaseModel as _BaseModel
 
@@ -68,7 +67,6 @@ class ClinicalPlanResponse(_BaseModel):
     cpgs_matched: list[str]
     elapsed_ms: float
     stage_errors: list[str] = []
-    safety_report: Optional[SafetyReport] = None
 
 from .tools import (
     vector_search_tool,
@@ -93,11 +91,7 @@ LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 # Configure logging
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL.upper()),
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.FileHandler("agent.log"),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
 # Set debug level for our module during development
@@ -145,7 +139,6 @@ async def lifespan(app: FastAPI):
         # Only raise for critical failures (like Postgres)
         if "database" in str(e).lower():
             raise
-    
     yield
     
     # Shutdown
@@ -593,7 +586,6 @@ async def clinical_plan(request: ClinicalPlanRequest):
             cpgs_matched=[c.cpg_name for c in result.cpgs],
             elapsed_ms=result.elapsed_ms,
             stage_errors=result.stage_errors,
-            safety_report=result.safety_report,
         )
     except RuntimeError as e:
         logger.error("Clinical plan synthesis failed: %s", e)
@@ -632,7 +624,6 @@ async def clinical_plan_stream(request: ClinicalPlanRequest):
                     cpgs_matched=[c.cpg_name for c in result.cpgs],
                     elapsed_ms=result.elapsed_ms,
                     stage_errors=result.stage_errors,
-                    safety_report=result.safety_report,
                 )
                 await queue.put(("final_result", final.model_dump()))
             except Exception as e:
@@ -699,7 +690,6 @@ async def clinical_resynthesize_stream(request: ResynthesizeRequest):
                     cpgs_matched=[c.cpg_name for c in result.cpgs],
                     elapsed_ms=result.elapsed_ms,
                     stage_errors=result.stage_errors,
-                    safety_report=result.safety_report,
                 )
                 await queue.put(("final_result", final.model_dump()))
             except Exception as e:
@@ -964,24 +954,6 @@ async def get_session_info(session_id: str):
         logger.error(f"Session retrieval failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-
-@app.get("/system/logs")
-async def get_system_logs(lines: int = 200):
-    """Fetch recent system and agent logs for the RAG Debugging UI."""
-    try:
-        log_file = "agent.log"
-        if not os.path.exists(log_file):
-            return {"logs": ["Log file not found."]}
-        
-        with open(log_file, "r", encoding="utf-8") as f:
-            # Read all lines and get the last N
-            all_lines = f.readlines()
-            recent_lines = all_lines[-lines:] if len(all_lines) > lines else all_lines
-            
-        return {"logs": recent_lines}
-    except Exception as e:
-        logger.error(f"Failed to read logs: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
 
 # Exception handlers
 @app.exception_handler(Exception)
