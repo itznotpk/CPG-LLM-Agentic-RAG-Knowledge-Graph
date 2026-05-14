@@ -1,9 +1,8 @@
-# SECTION 3: PATHOGENESIS OF PAH IN ADULTS
-
+# Section 3: Pathogenesis Of PAH In Adults
 <!-- METADATA
 category: Pathophysiology
 use_case: Disease Mechanism Understanding — endothelial_dysfunction, ET1_overexpression, NO_prostacyclin_deficiency, BMPR2_mutation, RV_failure
-patient_input: 
+patient_input:
 output: pathogenesis_cascade, genetic_risk_factors, disease_progression_model
 -->
 
@@ -12,8 +11,7 @@ output: pathogenesis_cascade, genetic_risk_factors, disease_progression_model
 
 ---
 
-## 3. Pathogenesis of PAH in Adults
-
+## 3: Pathogenesis Of PAH In Adults
 Under normal conditions, the pulmonary circulation is a low-pressure (mPAP 12-16 mmHg), high-capacity circuit. Healthy individuals can accommodate up to a four-fold rise from the resting cardiac output with little increase in PAP, due to distensibility of the thin-walled pulmonary vasculature and to recruitment of vessels that are normally closed when at rest. The excess capacity is such that approximately 70% of the vascular bed must be lost before there is an increase in resting PAP.
 
 Most forms of PAH share a common pathophysiology which includes:
@@ -31,18 +29,15 @@ Other important pathways in the process of pulmonary vascular remodeling include
 
 Various growth and transcription factors have also been postulated to be involved, including serotonin, platelet-derived growth factor (PDGF), fibroblast growth factor (FGF), insulin growth factor-1 (IGF-1), epidermal growth factor (EGF), hypoxia inducible factor-1 alpha (HIF-1α) and nuclear factor activating T lymphocytes (NFAT).
 
-### 3.1 Genetic Factors
-
+## 3.1: Genetic Factors
 Mutation of the Bone Morphogenetic Protein Receptor Type II (BMPR2) gene has been identified in approximately 70% of patients with familial PAH and 25% or less of individuals with IPAH without family history. However, the relationship of this gene mutation to the broad range of associated causes of PAH remains unknown, and not all individuals carrying the BMPR2 mutation develop PAH. A subject who possesses the mutation has a 10% to 20% lifetime risk of acquiring PAH, while an individual without the mutation has a lifetime risk of PAH no different to the general population.
 
-### 3.2 Disease Progression
-
+## 3.2: Disease Progression
 Despite the multitude of perturbations, the end result includes increased vasoconstriction, smooth muscle cell proliferation, decreased vasodilation, and fibrotic changes in medium- to small-sized pulmonary arteries. Both vasoconstrictive and hypertrophic changes lead to increased PVR, increasing the workload of the right ventricle. Initially, the right ventricle compensates to maintain adequate pulmonary flow, but as the increased workload causes the right ventricle to dilate, and eventually fails. Symptoms such as dyspnoea and fatigue appear, initially on exertion. Eventually and often suddenly, the right ventricle decompensates and right heart failure ensues. Death occurs as a result of end-stage right heart failure or arrhythmia.
 
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **BMPR2** | Bone Morphogenetic Protein Receptor Type II |

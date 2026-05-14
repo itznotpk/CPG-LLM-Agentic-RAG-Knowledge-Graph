@@ -1,5 +1,4 @@
-# SECTION 14.6: HF AND CHRONIC KIDNEY DISEASE
-
+# Section 14: .6: HF And Chronic Kidney Disease
 <!-- METADATA
 category: Special Populations
 use_case: HF with Chronic Kidney Disease — cardiorenal_syndrome, drug_dosing_in_CKD, dialysis_considerations
@@ -8,10 +7,9 @@ output: cardiorenal_syndrome_management, drug_dosing_in_CKD, dialysis_considerat
 treatment_type: dose_adjusted_pharmacotherapy, dialysis
 -->
 
-## Section 14.6: HEART FAILURE AND CHRONIC KIDNEY DISEASE (CKD)
+## Section 14: .6: Heart Failure And Chronic Kidney Disease (CKD)
 
-### 14.6.1. Epidemiology, Definitions, and Classifications
-
+### 14.6.1: Epidemiology, Definitions, And Classifications
 HF and CKD frequently co-exist. The presence of both at the time of admission for HF, varies from 45.4% in patients with chronic HF to > 60% in those with Acute HF.
 
 In addition, during treatment of acute HF, a significant proportion of patients will develop varying degrees of worsening renal function.
@@ -33,8 +31,7 @@ Worsening renal function may fulfill criteria for type 1 or type 2 cardiorenal s
 
 This syndrome has been classified by the Acute Dialysis Quality Initiative working group into 5 subtypes as shown in Table 17: Classification of Cardiorenal Syndrome (CRS). Many patients, however, may belong to more than one subtype and may move between subtypes during the course of their disease.
 
-### 14.6.2. Pathogenesis of Cardio-Renal Syndrome (CRS)
-
+### 14.6.2: Pathogenesis Of Cardio-Renal Syndrome (Crs)
 Multiple mechanisms are involved in the pathogenesis of CRS. These include:
 *   Increased renal venous pressure - venous congestion is probably the most important factor.
 *   Right ventricular dysfunction.
@@ -44,12 +41,10 @@ Multiple mechanisms are involved in the pathogenesis of CRS. These include:
 *   Anemia.
 *   Metabolic abnormalities e.g., disorders of calcium, magnesium, and potassium metabolism.
 
-### 14.6.3 Clinical Significance / Impact of Kidney Dysfunction in HF
-
+### 14.6.3: Clinical Significance / Impact Of Kidney Dysfunction In HF
 The combination of cardiac and kidney disease increases the complexity and costs of care and may interact to worsen prognosis.
 
 #### A. Pharmacologic Considerations
-
 *   **Safety:**
     *   Dosing of renally-excreted cardiac drugs need adjustment in the presence of renal impairment (e.g., digoxin, insulin, low molecular weight heparin, direct oral anticoagulants).
     *   Patients with HF are at increased risk of contrast-induced acute kidney injury.
@@ -63,25 +58,22 @@ The combination of cardiac and kidney disease increases the complexity and costs
     *   Higher doses of loop diuretics may be required with increasing renal impairment.
 
 #### B. Prognostic Implications
-
 *   CKD is a risk multiplier in patients with HF - as the disease severity worsens, the risks of CV events, hospitalizations, and mortality increase.
 *   In patients with HF, worsening renal function may not always indicate a poor outcome. The prognostic value of worsening renal function is mainly determined by:
     *   The presence of persistent congestion.
     *   Baseline renal function and magnitude of renal changes.
     *   Duration - a persistently worsening renal function is usually associated with hemodynamic derangements and poor prognosis as compared with a transient worsening of renal function as a result of aggressive decongestive therapy.
 
-### 14.6.4 Management
+### 14.6.4: Management
 
 #### A) General Considerations
-
 *   [Grade I, Level C] A multi-disciplinary approach with an early referral to a nephrologist is recommended.
 *   [Grade I, Level C] Exclude potentially reversible causes for increasing renal dysfunction such as hyper- or hypovolemia, concomitant medications such as aminoglycosides and NSAIDs, and renal artery stenosis.
 *   [Grade I, Level C] Closely monitor electrolytes and kidney function, especially during acute illnesses, dehydration and when increasing doses of cardiac drugs including diuretics. The baseline renal function will determine how frequently this should be done.
 *   The recommended range for serum potassium is 4 - 5.5 mmol/L.
 *   [Grade I, Level B] Wherever possible, avoid nephrotoxins, e.g. contrast media for angiography.
 
-#### B) Choice of Pharmacotherapy
-
+#### b) Choice Of Pharmacotherapy
 *   **Intravenous diuretics:**
     *  [Grade I, Level B] Loop diuretics are the first choice.
     *  [Grade IIa, Level B] Continuous infusion may not have greater benefits compared with bolus dosing.
@@ -112,7 +104,7 @@ The combination of cardiac and kidney disease increases the complexity and costs
 *   It may be considered for congestive symptoms refractory to diuresis but should be used in consultation with a nephrologist.
 *   [Grade IIa, Level B] Evidence for its efficacy in fluid removal is, however, mixed at present.
 
-#### D) Renal Replacement Therapy (Hemodialysis or Peritoneal Dialysis)
+#### d) Renal Replacement Therapy (Hemodialysis Or Peritoneal Dialysis)
 *   Criteria for possible need to initiate renal replacement therapy include:
     *   Oliguria (urine output < 200mls/12 hours) or anuria unresponsive to judicious fluid resuscitation.
     *   Intractable pulmonary edema.
@@ -124,14 +116,14 @@ The combination of cardiac and kidney disease increases the complexity and costs
 
 ---
 
-### Key Message # 19: HF and CKD
+### Key Message # 19: HF And CKD
 *   Cardiac and kidney disease frequently co-exist, and this increases the complexity and costs of care, and may interact to worsen prognosis.
 *   During treatment of Acute HF, a significant proportion of patients will develop varying degrees of worsening renal function usually in the first three to five days of hospitalization.
 *   In patients with HF, worsening renal function may not always indicate a poor outcome-especially if it is due to overdiuresis and hypotension or drug therapy.
 
 ---
 
-### Key Recommendations #15: HF and CKD
+### Key Recommendations #15: HF And CKD
 *   A multi-disciplinary approach with early referral to a nephrologist is recommended.
 *   Almost all Foundational HF Medications can be used in patients with eGFR > 30mls/min/1.73m²
 *   In patients with eGFR < 30mls/min/1.73m², the following drugs can be used:
@@ -146,7 +138,7 @@ The combination of cardiac and kidney disease increases the complexity and costs
 ---
 
 ## Contextual Anchors (Overlapping)
-#### Table 17: Classification of Cardiorenal Syndrome (CRS)
+Table 17: Classification Of Cardiorenal Syndrome (Crs)
 
 | Cardiorenal (CRS) Subtypes | Description |
 |---|---|
@@ -159,7 +151,7 @@ The combination of cardiac and kidney disease increases the complexity and costs
 *Adapted from Ronco C, McCullough P, Anker SD, et al. Cardio-renal syndromes: report from the consensus conference of the Acute Dialysis Quality Initiative. Eur Heart J 2010;31:703-11.*
 
 ---
-#### Table 18: Management of RAS Blockers in response to changes in renal function
+Table 18: Management Of Ras Blockers In Response To Changes In Renal Function
 
 | Compared to baseline, serum creatinine increases by: | HFpEF | HFrEF |
 |---|---|---|
@@ -169,7 +161,7 @@ The combination of cardiac and kidney disease increases the complexity and costs
 
 *Adapted from Clark AL, Kalra PR, Petrie MC, Mark PB, Tomlinson LA, Tomson CR. Change in renal function associated with drug treatment in heart failure: national guidance. Heart. 2019 Jun;105(12):904-910.*
 
-#### Table 19: Initiation of HF drugs in relation to baseline CKD status*
+Table 19: Initiation Of HF Drugs In Relation To Baseline CKD Status*
 
 | Medications | eGFR > 60 mls/min/1.73m² | eGFR 30-60 mls/min/1.73m² | eGFR 15-30 mls/min/1.73m² | ESRD |
 |---|---|---|---|---|
@@ -185,8 +177,7 @@ The combination of cardiac and kidney disease increases the complexity and costs
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I / ACEi | Angiotensin Converting Enzyme Inhibitor |
@@ -213,8 +204,7 @@ The combination of cardiac and kidney disease increases the complexity and costs
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.

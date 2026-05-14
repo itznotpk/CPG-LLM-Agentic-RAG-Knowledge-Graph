@@ -1,5 +1,4 @@
-# SECTION 7: PREVENTION
-
+# Section 7: Prevention
 <!-- METADATA
 category: Prevention, Screening
 use_case: HF Risk Factor Management and Screening — HTN_control, DM_management, obesity, smoking_cessation, Stage_A_B_prevention, at_risk_screening, cardiomyopathy_family_screening, CKD_monitoring
@@ -8,16 +7,14 @@ output: Stage_A_B_prevention_strategies, risk_factor_targets, screening_recommen
 treatment_type: SGLT2i, ACEi, beta_blocker, statin
 -->
 
-## 7. PREVENTION
-
-### Table: Foundation of Management of Heart Failure
+## 7: Prevention
+Table: Foundation Of Management Of Heart Failure
 
 | Stage A <br> "At Risk" | **Individuals who do not have structural cardiac disease but are at high risk of developing HF/CAD.**<br>Hypertension<br>Diabetes<br>Obesity and the Metabolic Syndrome<br>Cigarette smoking<br>Familial hypercholesterolemia<br>Multiple CV risk factors<br>Family history of Cardiomyopathy<br>Thyroid Disease<br>Renal Disease<br>Cardiotoxins<br>*Others:*<br>Sleep Disordered breathing,<br>Connective Tissue Disease,<br>Chronic Pulmonary disease and Pulmonary Hypertension |
 |---|---|
 | **Stage B** <br> **"Pre HF"** | **Individuals with structural cardiac disease and who either have normal or impaired myocardial function.**<br>Established CAD<br>Hypertension with LVH<br>Cardiac Valve disease<br>Congenital Heart disease<br>Arrhythmias |
 
 **Prevention of HF should always be the primary objective and the foundation of management.** It should focus on those who are in:
-
 *   **Stage A - "At Risk"** - Individuals who are at high risk of developing cardiac disease but who do not have symptoms or signs of HF and have structurally normal hearts.
 *   **Stage B - "Pre HF"** - Individuals with structural cardiac disease and who have either normal or impaired cardiac function but do not have signs and symptoms of HF.
 
@@ -25,10 +22,8 @@ There is robust clinical data that by appropriate and timely interventions, HF c
 
 ---
 
-### 7.1 STAGE A - "AT RISK"
-
+## 7.1: Stage A - "At Risk"
 Individuals who are at high risk of developing HF/CAD but who do not yet have structural heart disease. These include individuals with:
-
 *   **Hypertension -**
     *   This is an important risk factor for the development of HF especially in the elderly.
     *   In the Framingham Heart Study, 91% of the participants with HF had a previous diagnosis of hypertension. In multivariable analysis, the population-attributable risk of HF in the Framingham population was 39% and 59% for male and females respectively.
@@ -77,8 +72,7 @@ Individuals who are at high risk of developing HF/CAD but who do not yet have st
     *   There is a high prevalence of atherosclerotic coronary disease in these systemic inflammatory conditions. In addition, HF can occur secondary to chronic myocardial and pericardial inflammation, valvular disease and/or pulmonary hypertension.
     *   Chronic pulmonary disease with pulmonary hypertension- These lead to right HF which in turn also affects left heart function and causes a complex clinical syndrome affecting multiple organ systems.
 
-### 7.1.1 Preventive Strategies in Stage A
-
+### 7.1.1: Preventive Strategies In Stage A
 *   **Treating Hypertension to Target -**
     *   [Grade I, Level A] Reducing systolic BP to 140-145mmHg, has been shown in several trials in older patients with systolic hypertension to reduce new onset HF from 36-64%.
     *   [Grade IIa, Level B] Further lowering of the target SBP from ≤ 140 to ≤ 120 in non-diabetic hypertensive individuals who were age ≥ 50 years and at high CV risk was also shown to reduce the development of HF by as much as 37%.
@@ -125,11 +119,10 @@ Individuals who are at high risk of developing HF/CAD but who do not yet have st
 
 ---
 
-### 7.2. STAGE B - "Pre HF"
-
+## 7.2: Stage B - "Pre HF"
 Individuals with structural cardiac disease but who do not have signs and symptoms of HF. Cardiac function may be normal or impaired. The following strategies have been shown to prevent the development of HF.
 
-#### 7.2.1. In the presence of normal cardiac function
+### 7.2.1: In The Presence Of Normal Cardiac Function
 *   [Grade I, Level A] Timely triage and appropriate treatment of patients with acute coronary syndromes.
 *   [Grade I, Level A] Patients with CAD should be treated appropriately with guideline directed medical therapy (antiplatelet agents, statins, β-blockers, and Renin Angiotensin System blockers) and intervention as necessary.
 *   [Grade I, Level A] Patients with hypertension and left ventricular hypertrophy (LVH) should have their blood pressure control optimized. Regression of LVH has been shown to be associated with a lower incidence of new onset HF.
@@ -137,7 +130,7 @@ Individuals with structural cardiac disease but who do not have signs and sympto
 *   [Grade I, Level C] Patients with arrhythmias, when indicated, should be referred for evaluation and treatment.
 *   [Grade I, Level C] Patients with congenital heart disease should have their cardiac lesions corrected with appropriate follow-up looking for progression and sequelae.
 
-#### 7.2.2. In the presence of impaired LV function (LVEF < 40%) irrespective of symptoms:
+### 7.2.2: In The Presence Of Impaired Lv Function (Lvef < 40%) Irrespective Of Symptoms:
 *   [Grade I, Level A] Treat the underlying cause wherever possible.
 *   [Grade I, Level A] The evidence for the benefits of pharmacotherapy in patients with asymptomatic LV dysfunction in NYHA Class I has been mainly derived from studies conducted in patients with LVEF < 40% with β-blockers and ACE-I.
 *   [Grade I, Level A] SGLT2-i reduce hospitalization for HF in patients with and without established CVD, irrespective of diabetes status.
@@ -145,14 +138,14 @@ Individuals with structural cardiac disease but who do not have signs and sympto
 
 ---
 
-## Key message #6: Prevention of HF
+## Key Message #6: Prevention Of HF
 * Prevention and early intervention, wherever appropriate, should be the primary objective of management of patients at risk for HF.
 * There is robust clinical data that by appropriate and timely interventions, HF can be prevented in these individuals and cardiac function improved.
 * It should focus on those who are in:
     * Stage A - "At Risk" - Individuals who are at high risk of developing cardiac disease but who do not have symptoms or signs of HF and have structurally normal hearts.
     * Stage B - "Pre HF" - Individuals with structural cardiac disease and who have either normal or impaired cardiac function but do not have signs and symptoms of HF.
 
-## Key Recommendations #2: Prevention of HF
+## Key Recommendations #2: Prevention Of HF
 * In the prevention of HF for patients in Stage A:
     * All CV risk factors should be treated to target.
     * Optimal profiles of the 7 CV risk factors - blood pressure, glucose, cholesterol, absence of smoking, body mass index and physical activity has been shown to be associated with a lower lifetime risk of HF.
@@ -166,7 +159,7 @@ Individuals with structural cardiac disease but who do not have signs and sympto
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -175,8 +168,7 @@ Individuals with structural cardiac disease but who do not have signs and sympto
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -184,12 +176,12 @@ Individuals with structural cardiac disease but who do not have signs and sympto
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -200,8 +192,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | A1c | Glycated Hemoglobin |
@@ -238,8 +229,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement.
 *   **Grade II-a:** Weight of evidence/opinion is in favor of its usefulness/efficacy.

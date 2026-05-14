@@ -1,5 +1,4 @@
-# SECTION 12: MANAGEMENT IN SPECIAL GROUPS
-
+# Section 12: Management In Special Groups
 <!-- METADATA
 category: Special Populations, Treatment
 use_case: Lipid management in women, children/adolescents, and the elderly — pregnancy, paediatric, elderly, familial_hypercholesterolaemia, gender, age-specific
@@ -8,16 +7,15 @@ output: population-specific_LDL-C_target, statin_selection, dose_adjustment, mon
 treatment_type: statins, pravastatin, rosuvastatin, ezetimibe
 -->
 
-## 12.1. Women
-
-*   Women develop heart disease about 10 to 15 years later than men. 
-*   There are no gender differences in the risk factors that predispose to CVD although women with Type 2 diabetes are at higher risk of CVD than men. 
-*   In premenopausal women, CVD tends to occur in those with Type 2 diabetes and multiple CV risk factors. 
-*   Pregnancy related conditions hypertensive disorders of pregnancy, gestational diabetes, preterm birth, stillbirth, low birth weight infant, or placental abruption and other related complications is associated with an increased risk of developing pre-menopausal CVD. 
+## 12.1: Women
+*   Women develop heart disease about 10 to 15 years later than men.
+*   There are no gender differences in the risk factors that predispose to CVD although women with Type 2 diabetes are at higher risk of CVD than men.
+*   In premenopausal women, CVD tends to occur in those with Type 2 diabetes and multiple CV risk factors.
+*   Pregnancy related conditions hypertensive disorders of pregnancy, gestational diabetes, preterm birth, stillbirth, low birth weight infant, or placental abruption and other related complications is associated with an increased risk of developing pre-menopausal CVD.
 *   Although statins were previously considered teratogenic on the basis of earlier animal studies, this has not been consistently shown in recent human studies. Most cases of congenital malformations have been seen among infants whose mothers took lipophilic compounds (eg, atorvastatin, lovastatin, simvastatin) as opposed to hydrophilic compounds (eg, pravastatin, rosuvastatin).
 
-### 12.1.1. Management of Lipid Disorders
-*   **Primary Prevention**: Lifestyle modification is the cornerstone. Statin therapy should be considered for women at high risk who do not achieve targets. The cornerstone of management is lifestyle modification with advice on a healthy diet and exercise. 
+### 12.1.1: Management Of Lipid Disorders
+*   **Primary Prevention**: Lifestyle modification is the cornerstone. Statin therapy should be considered for women at high risk who do not achieve targets. The cornerstone of management is lifestyle modification with advice on a healthy diet and exercise.
 *   **Secondary Prevention**: Benefits of statins in women are similar to men; they should be the drug of first choice.
 *   **Pregnancy & Breastfeeding**:
     *   Statins should generally be **avoided**.
@@ -26,16 +24,16 @@ treatment_type: statins, pravastatin, rosuvastatin, ezetimibe
 
 ---
 
-## 12.2. Children and Adolescents
+## 12.2: Children And Adolescents
 *   The atherosclerotic process begins in childhood and is progressive. As the number of CV risk factors increase, so does the severity of asymptomatic coronary and aortic atherosclerosis in the young.
 *   Lipid levels, (TC, LDL-C and non-HDL-C) are low at birth, increase in the first two years of life and then remain stable till adolescence. Thereafter, serum lipid levels fluctuate with growth and sexual maturation and differ between the sexes.
 *   Risk factors for atherosclerosis in the pediatric age group include:
-    * Dyslipidemia especially genetic disorders such as familial hypercholesterolemia 
+    * Dyslipidemia especially genetic disorders such as familial hypercholesterolemia
     * Overweight / obesity and the metabolic syndrome
     * Kawasaki’s disease
     * Nephrotic syndrome
-    * Chronic kidney disease 
-    * Type 1 and 2 diabetes 
+    * Chronic kidney disease
+    * Type 1 and 2 diabetes
     * Chronic inflammatory diseases such as Systemic Lupus Erythematosis
     * HIV
     * Post organ transplantation - in adult transplantation trials, therapy with statins has been shown to reduce the development of graft coronary artery disease. Therefore, most pediatric heart transplantation patients are recommended to receive drug therapy with a statin regardless of the baseline lipoprotein levels.
@@ -46,11 +44,12 @@ treatment_type: statins, pravastatin, rosuvastatin, ezetimibe
     * Lifetime risk - The greater the burden of risk factors, the higher the lifetime risk.
 
 ---
-### 12.2.1. Management and Targets
+
+### 12.2.1: Management And Targets
 *   The main approach in children and adolescents is a healthy lifestyle with appropriate diet, maintenance of “desirable weight” and regular exercise.
 *   Children whose lipid levels are significantly elevated may have a genetic dyslipidemia and should be referred to specialists interested in this field.
-*   Targets of therapy: 
-    * For children and adolescents aged 10 and over: LDL-C < 4.9mmol/l. 
+*   Targets of therapy:
+    * For children and adolescents aged 10 and over: LDL-C < 4.9mmol/l.
     * For children and adolescents with a clinical presentation consistent with FH and who do not adequately respond to lifestyle change after 3-6 months: < 4.2mmol/l.
 *  [Grade IIa, Level B] Pharmacotherapy:
     * When prescribing drugs in children, the following need to be considered:
@@ -59,23 +58,23 @@ treatment_type: statins, pravastatin, rosuvastatin, ezetimibe
         * Risk of new onset diabetes should also be considered when prescribing statins in children with risk factors for diabetes.
     * Patients should be extensively counselled prior to initiation of drug therapy. They should be counselled on how to integrate therapy into their social norms and daily practices to achieve compliance to both pharmacotherapy as well as lifestyle modifications.
     * Statins:
-        * In patients with FH, statins are the drug of choice. 
+        * In patients with FH, statins are the drug of choice.
         * All statins can be used as an adjunct to diet, in children > 10 years of age.
         * Pravastatin and rosuvastatin can be used in > 8 years of age.
     * Bile acid sequestrants are difficult to ingest due to their unpalatability.
     * Fibric acid derivatives, niacin and omega-3 fish oils lack pediatric safety and efficacy data.
     * Ezetimibe provides clinicians with an alternative adjunct therapy option when synergistically paired with a statin or used as monotherapy for patient’s intolerant to statins and bile acid sequestrants.
 
-## 12.3. Elderly
+## 12.3: Elderly
 Increasing age is a major risk factor for CVD and death. The functional status, co-morbidities and cognitive function of the elderly make it imperative that lipid lowering therapy should be individualized.
 
-### 12.3.1. Management
+### 12.3.1: Management
 *   **Secondary Prevention**: The elderly derive a greater absolute benefit from lipid lowering therapy. Thus, they should not be deprived from lipid lowering therapy solely based on their age although there is limited clinical trial data in patients over the age of 80 years.
 *   **Primary Prevention**
     * The results appear mixed.
-    * A meta-analysis of subjects > 65 years of age showed that statin treatment reduced MI and stroke with no effect on mortality. 
+    * A meta-analysis of subjects > 65 years of age showed that statin treatment reduced MI and stroke with no effect on mortality.
     * Statin therapy should be considered in older adults (< 80 years) free from CVD, particularly in the presence of hypertension, smoking, diabetes and dyslipidemia.
-    * A more recent meta - analysis however, concluded that the benefit of statins in primary prevention for much older patients (> 80 years) is not certain. 
+    * A more recent meta - analysis however, concluded that the benefit of statins in primary prevention for much older patients (> 80 years) is not certain.
     * This underscores the importance of individualizing lipid lowering therapy in those > 80 years.
     * Lipid lowering therapy in the elderly has its challenges. The benefits and harm should be carefully considered, particularly in primary prevention, and there should be a discussion with the patient and family.
     * Some important considerations include:
@@ -83,14 +82,13 @@ Increasing age is a major risk factor for CVD and death. The functional status, 
         * Higher risk of adverse side effects.
         * Polypharmacy and risk of drug interactions.
         * Nonadherence to therapy.
-    * Since older people have co-morbidities and have altered pharmacokinetics, lipid lowering medication should be started at a lower dose and then titrated with caution to achieve target lipid levels. 
+    * Since older people have co-morbidities and have altered pharmacokinetics, lipid lowering medication should be started at a lower dose and then titrated with caution to achieve target lipid levels.
     * The recommendations of cholesterol-lowering treatment in the elderly should be followed with caution and common sense, adverse effects should be monitored closely, and treatment should be reconsidered periodically.
 
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -111,12 +109,11 @@ Increasing age is a major risk factor for CVD and death. The functional status, 
 ## Key Messages #12
 *   The goals of lipid lowering therapy is similar in both gender and in the elderly. Target LDL-C levels will depend on the global CV risk. (refer to Table 4: Target LDL-C levels)
 *   Children whose lipid levels are significantly elevated may have a genetic dyslipidemia and should be referred to specialists interested in this field.
-*   When prescribing lipid lowering therapy in the elderly, the presence of co-morbidities and altered pharmacokinetics should be considered. Lipid lowering medication should be started at a lower dose and then titrated with caution to achieve target lipid levels. 
+*   When prescribing lipid lowering therapy in the elderly, the presence of co-morbidities and altered pharmacokinetics should be considered. Lipid lowering medication should be started at a lower dose and then titrated with caution to achieve target lipid levels.
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CKD | Chronic Kidney Disease |
@@ -134,6 +131,6 @@ Increasing age is a major risk factor for CVD and death. The functional status, 
 | TC | Total Cholesterol |
 | TLC | Therapeutic Lifestyle Changes |
 
-## Grades of Recommendation and Level of Evidence
+## Grades Of Recommendation And Level Of Evidence
 *   **Grade IIa**: Weight of evidence/opinion is in favour of usefulness/efficacy. The specific treatment or procedure *should be considered*.
 *   **Level B**: Data derived from a single randomized clinical trial or large non-randomized studies.

@@ -1,5 +1,4 @@
-# APPENDIX: TNM CLASSIFICATION OF BREAST CANCER
-
+# Appendix: Tnm Classification Of Breast Cancer
 <!-- METADATA
 category: Reference, Classification, Diagnosis
 use_case: TNM Classification Reference — tumour_size, nodal_status, metastasis, staging_tables, AJCC_8th_edition
@@ -8,13 +7,11 @@ output: TNM_stage, anatomic_stage_group
 -->
 
 ## Overview
-
 The TNM classification system for breast cancer staging is based on the AJCC Cancer Staging Manual, 8th Edition (2017). This appendix provides the complete definitions for the primary tumour (T), regional lymph nodes (N), and distant metastasis (M) categories.
 
 ---
 
-## Definition of Primary Tumour (T) — Clinical and Pathological
-
+## Definition Of Primary Tumour (T) — Clinical And Pathological
 | T Category | Criteria |
 |---|---|
 | **TX** | Primary tumour cannot be assessed |
@@ -38,8 +35,7 @@ The TNM classification system for breast cancer staging is based on the AJCC Can
 
 ---
 
-## Definition of Regional Lymph Nodes — Clinical (cN)
-
+## Definition Of Regional Lymph Nodes — Clinical (cN)
 | cN Category | Criteria |
 |---|---|
 | **cNX** | Regional lymph nodes cannot be assessed (e.g. previously removed) |
@@ -58,8 +54,7 @@ The TNM classification system for breast cancer staging is based on the AJCC Can
 
 ---
 
-## Definition of Regional Lymph Nodes — Pathological (pN)
-
+## Definition Of Regional Lymph Nodes — Pathological (pN)
 | pN Category | Criteria |
 |---|---|
 | **pNX** | Regional lymph nodes cannot be assessed (not removed or previously removed) |
@@ -83,8 +78,7 @@ The TNM classification system for breast cancer staging is based on the AJCC Can
 
 ---
 
-## Definition of Distant Metastasis (M)
-
+## Definition Of Distant Metastasis (M)
 | M Category | Criteria |
 |---|---|
 | **M0** | No clinical or radiographic evidence of distant metastases |
@@ -93,8 +87,7 @@ The TNM classification system for breast cancer staging is based on the AJCC Can
 
 ---
 
-## AJCC Anatomic Stage Groups
-
+## Ajcc Anatomic Stage Groups
 > **Note:** The Anatomic Stage Group table should only be used in global regions where biomarker tests are **not routinely available**.
 
 | T | N | M | Stage Group |

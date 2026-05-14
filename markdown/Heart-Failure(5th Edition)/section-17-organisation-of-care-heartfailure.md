@@ -1,5 +1,4 @@
-# SECTION 17: ORGANISATION OF CARE
-
+# Section 17: Organisation Of Care
 <!-- METADATA
 category: Reference
 use_case: Care Coordination and Organisation — HF_clinics, multidisciplinary_team, follow_up_schedules, referral_criteria, telemedicine, primary_care_integration
@@ -7,10 +6,9 @@ patient_input: clinical_stability, remote_monitoring_needs
 output: HF_clinic_model, multidisciplinary_referral, follow_up_schedules, referral_criteria, telemedicine_guidance
 -->
 
-## 17. ORGANISATION OF CARE
+## 17: Organisation Of Care
 
-### 17.1 Level of Care and Shared Management
-
+## 17.1: Level Of Care And Shared Management
 The care of patients with HF should ideally take place in a multidisciplinary system, allowing for shared care between the hospital (secondary or tertiary settings) and community (primary setting). A multidisciplinary approach encompasses patient education, cardiac rehabilitation, psychosocial support and palliative care, and has been proven to reduce HF hospitalizations and mortality in discharged patients.
 
 The multidisciplinary team usually consists of cardiologists and/or general physicians, HF nurses, pharmacists, dieticians, physiotherapists, primary care providers, social workers as well as geriatricians, psychologists, cardiac rehabilitation physicians, occupational therapists and when necessary, palliative care specialists.
@@ -59,14 +57,11 @@ In 2018, the Heart Failure Medication Therapy Adherence Clinic (MTAC) was introd
 *   To provide consultative service to doctors on evidence-based HF pharmacotherapy and related issues.
 *   To collaborate with doctors and other health care professionals in HF management program.
 
-### 17.2. Monitoring and Follow-Up
-
+## 17.2: Monitoring And Follow-Up
 Patients with HF require regular follow-up and monitoring. Serial evaluations serve to assess a patient's status, response to therapy, development of complications and disease progression.
 
-#### 17.2.1. Assessment during Follow Up Visits
-
+### 17.2.1: Assessment During Follow Up Visits
 Key components of assessment include:
-
 *   **History:**
     *   Functional capacity - NYHA functional class or 6-minute walk test
     *   Cognitive status and nutritional status
@@ -88,16 +83,14 @@ Key components of assessment include:
 *   **Education:**
     *   Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of enhancing compliance, but this is also to avoid polypharmacy from a different facility the patient may also be seeing.
 
-#### 17.2.2. Frequency of Follow-Up
-
+### 17.2.2: Frequency Of Follow-Up
 This will depend on:
 *   The patient's clinical stability and
 *   Need for pharmacotherapy optimization.
 
 A patient with a recent episode of decompensation or clinical instability, for instance, should ideally be seen again soon, usually within 2 weeks. Ultimately, the intensity and type of follow-up would be determined by the local organization of care and resources.
 
-### 17.3. Cardiology Referrals
-
+## 17.3: Cardiology Referrals
 HF patients with stable symptoms may be managed at the primary care level.
 
 Referral to the cardiologist should be considered in the following situations:
@@ -113,14 +106,12 @@ Referral to the cardiologist should be considered in the following situations:
 *   Preconception assessment and counselling of women with significant structural heart disease and a history of HF or LV dysfunction.
 *   Complex congenital cardiac lesions and/or Eisenmenger's syndrome.
 
-### 17.4. Telemedicine/Telehealth
-
+## 17.4: Telemedicine/Telehealth
 Telemedicine services may improve healthcare accessibility and geographical limitations. In the unforeseen circumstances of a future pandemic, telemedicine may provide uninterrupted patient consultation when community lockdowns or social distancing is required.
 
 Early escalation of HF care with a multidisciplinary team is possible without the need for face-to-face consultation.
 
-#### 17.4.1. Telemedicine Strategies
-
+### 17.4.1: Telemedicine Strategies
 **Requirements:**
 *   Home Monitoring Equipment - The following are required:
     *   Computer, tablet, or smart phone
@@ -148,7 +139,7 @@ Telemedicine can allow:
 
 ---
 
-### Key Message #25: Level of Care, Shared Care, Monitoring and Follow-up & Telemedicine/Telehealth
+### Key Message #25: Level Of Care, Shared Care, Monitoring And Follow-Up & Telemedicine/Telehealth
 *   The care of patients with HF should ideally take place in a multidisciplinary system, allowing for shared care between the hospital (secondary or tertiary settings) and community (primary setting).
 *   Heart Failure clinics will serve as an intermediary between in-patient hospital care and community primary care.
 *   HF clinics can either be:
@@ -161,8 +152,7 @@ Telemedicine can allow:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

@@ -1,5 +1,4 @@
-# SECTION 9.1: ACUTE HEART FAILURE — PHASE 1: URGENT TREATMENT AND STABILIZATION
-
+# Section 9: .1: Acute Heart Failure — Phase 1: Urgent Treatment And Stabilization
 <!-- METADATA
 category: Treatment, Assessment
 use_case: Acute Heart Failure Phase 1 — urgent_treatment, clinical_assessment, classification, investigations, oxygenation, hemodynamic_stabilization, precipitating_factors
@@ -9,7 +8,7 @@ critical: true
 treatment_type: diuretics, vasodilators, inotropes, oxygen_therapy
 -->
 
-## 9. ACUTE HEART FAILURE
+## 9: Acute Heart Failure
 Acute heart failure is a heterogeneous clinical syndrome of new or worsening symptoms and signs of HF. It may occur as:
 *   **De Novo HF** - first occurrence of HF ***or***,
 *   **Acute decompensated HF (ADHF)** - this is a more common presentation occurring in a previously stable patient with HF who has now deteriorated.
@@ -27,8 +26,7 @@ Three important phases should be considered in the management of these patients.
 *   **Phase 2** - In-hospital management.
 *   **Phase 3** - Discharge and Post discharge "vulnerable" period.
 
-## 9.1 PHASE 1- Urgent treatment and stabilization (Refer to Flowchart II: Management of Acute Heart Failure)
-
+## 9.1: Phase 1- Urgent Treatment And Stabilization (Refer To Flowchart Ii: Management Of Acute Heart Failure)
 Assessment and management must be prompt and done concurrently.
 *   Rapid recognition and making the diagnosis of HF based on symptoms and signs and quickly assessing its severity.
 *   Maintaining adequate oxygenation and perfusion of vital organs.
@@ -63,8 +61,7 @@ In 40% of patients admitted with Acute HF however, a clear underlying precipitan
 *   It is important that **precipitating factors be identified as soon as possible after presentation and treated immediately** according to guidelines.
 *   The patient **should be seen by a specialist as soon as possible after admission** to co-ordinate the initial and further management. In the United Kingdom National Heart Failure Audit 2022, in-hospital mortality was lower in patients who had been seen by a specialist especially a cardiologist.
 
-### 9.1.1. Classification of Acute HF
-
+### 9.1.1: Classification Of Acute HF
 Based on the initial clinical assessment, the patient may be classified as:
 *   Wet or dry depending on their fluid status.
 *   Cold or warm depending on their perfusion status.
@@ -84,8 +81,7 @@ Thus according to the clinical presentation, the patient may be: (refer toTable 
 
 **The goal of therapy is to make them 'dry-warm'- optimal perfusion and fluid status.**
 
-### 9.1.2. Investigations
-
+### 9.1.2: Investigations
 *   [Grade I, Level C] **Essential Investigations** in Acute HF include: (refer to Section 6.2: Investigations)
     *   **Electrocardiogram** - ECG.
     *   **Chest Radiograph** - Chest X-Ray - About 20% of patients with congestion, however, may exhibit a normal Chest X-Ray.
@@ -97,8 +93,7 @@ Thus according to the clinical presentation, the patient may be: (refer toTable 
 *   **Blood Gases** - If oxygen saturation is still < 90% despite initial treatment.
 *   **Lung Ultrasound** - To look for extravascular fluid in the lungs (B-lines). These are often observed in patients with HF, but can also occur in other conditions, such as non-cardiogenic pulmonary edema and interstitial lung disease. Lung ultrasound is, in general, more sensitive in ruling out interstitial edema and pleural effusions than Chest X-Ray.
 
-### 9.1.4. Decision for hospitalization and care-setting
-
+### 9.1.4: Decision For Hospitalization And Care-Setting
 *   [Grade I, Level C] Initial care in the **critical care unit (ICU/CCU) should be considered for high-risk patients** with features such as:
     *   Hemodynamic instability.
     *   Arrhythmias.
@@ -106,12 +101,11 @@ Thus according to the clinical presentation, the patient may be: (refer toTable 
     *   Need for invasive ventilatory support.
     *   Oxygen saturation (SpO2) < 90% despite supplemental oxygen.
 
-*   [Grade I, Level C] **The remaining patients with Acute HF can be managed in a high-dependency unit or normal ward** depending on the clinical circumstances. However clinical deterioration may occur and hence, frequent re-assessments are necessary. 
+*   [Grade I, Level C] **The remaining patients with Acute HF can be managed in a high-dependency unit or normal ward** depending on the clinical circumstances. However clinical deterioration may occur and hence, frequent re-assessments are necessary.
 
 *   [Grade I, Level C] Step-down care from the ICU/CCU is dictated by clinical improvement. Similarly, should the patient not improve, he should be considered to be transferred to a tertiary hospital with a Cardiology Unit.
 
-### 9.1.5. Response to Therapy
-
+### 9.1.5: Response To Therapy
 **Response should be assessed continuously** using the following parameters:
 *   **Symptoms and signs of HF** - this requires repeated thorough clinical examinations looking for resolution or worsening of clinical signs.
 *   **Vital signs**
@@ -142,7 +136,7 @@ Generally, **a SBP ≥ 90mmHg would be considered adequate** if the patient has 
 
 ---
 
-### Table 11: Factors Contributing to Decompensation in a Patient with Stable HF
+Table 11: Factors Contributing To Decompensation In A Patient With Stable HF
 
 | Category | Factors |
 |---|---|
@@ -153,7 +147,7 @@ Generally, **a SBP ≥ 90mmHg would be considered adequate** if the patient has 
 
 ---
 
-### Table 13: Classification of Acute HF According to Clinical Presentation and a Guide to Management
+Table 13: Classification Of Acute HF According To Clinical Presentation And A Guide To Management
 
 | Warm / Wet | Warm / Dry |
 |---|---|
@@ -163,7 +157,7 @@ Generally, **a SBP ≥ 90mmHg would be considered adequate** if the patient has 
 
 ---
 
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -172,8 +166,7 @@ Generally, **a SBP ≥ 90mmHg would be considered adequate** if the patient has 
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -183,7 +176,7 @@ Generally, **a SBP ≥ 90mmHg would be considered adequate** if the patient has 
 
 The severity of symptomatic HF can be assessed by the New York Heart Association (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -194,15 +187,14 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-### Overlapping Content from Section 6.2: Investigations
-
+### Overlapping Content From Section 6.2: Investigations
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 6.2                             -->
 <!-- Purpose: Provides full breakdown of Essential Investigations   -->
 <!-- referenced in Section 9 initial management (line 85)          -->
 <!-- ============================================================ -->
 
-**Table: Basic and Important Investigations**
+Table: Basic and Important Investigations
 
 | | BASIC INVESTIGATIONS |
 |---|---|
@@ -219,7 +211,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 | **Invasive Tests** | * Coronary angiography<br>* Cardiac catheterisation<br>* Endomyocardial biopsy |
 | **Others** | * Holter electrocardiography, loop recorders<br>* Pulmonary function test |
 
-### Table 12: Optimal Natriuretic Peptide Cut Points for Diagnosis or Exclusion of Heart Failure among Patients with Dyspnea
+Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of Heart Failure Among Patients With Dyspnea
 
 | | BNP (ng/L) | NT-Pro BNP (ng/L) |
 |---|---|---|
@@ -231,8 +223,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-### Overlapping Content from Section 8.2: Exercise Training (Non-Pharmacological Measures)
-
+### Overlapping Content From Section 8.2: Exercise Training (Non-Pharmacological Measures)
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 8.2                             -->
 <!-- Purpose: Provides non-pharmacological exercise guidance        -->
@@ -259,8 +250,7 @@ Regular aerobic exercises are encouraged in NYHA I - III patients. These include
 
 ---
 
-### Overlapping Content from Section 14.1: Diabetes and Heart Failure
-
+### Overlapping Content From Section 14.1: Diabetes And Heart Failure
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 14.1                            -->
 <!-- Purpose: Provides comorbidity management for diabetes          -->
@@ -286,8 +276,7 @@ Regular aerobic exercises are encouraged in NYHA I - III patients. These include
 
 ---
 
-### Overlapping Content from Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)
-
+### Overlapping Content From Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 14.6                            -->
 <!-- Purpose: Provides comorbidity management for CKD               -->
@@ -342,8 +331,7 @@ Regular aerobic exercises are encouraged in NYHA I - III patients. These include
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -418,8 +406,7 @@ Regular aerobic exercises are encouraged in NYHA I - III patients. These include
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement.
 *   **Grade II-a:** Weight of evidence/opinion is in favor of its usefulness/efficacy.

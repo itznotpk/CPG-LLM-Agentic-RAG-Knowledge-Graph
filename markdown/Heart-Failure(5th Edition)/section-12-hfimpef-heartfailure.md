@@ -1,5 +1,4 @@
-# SECTION 12: HFimpEF (Improved Ejection Fraction)
-
+# Section 12: HFimpEF (Improved Ejection Fraction)
 <!-- METADATA
 category: Treatment, Prevention, Classification
 use_case: HFimpEF Management — improved_EF_classification, therapy_continuation, monitoring, relapse_prevention
@@ -7,7 +6,7 @@ patient_input: baseline_LVEF_below_40_improved_above_40
 output: therapy_continuation_plan, monitoring_protocol, relapse_risk_assessment
 -->
 
-## 12. HEART FAILURE WITH IMPROVED LV EJECTION FRACTION (HFimpEF)
+## 12: Heart Failure With Improved Lv Ejection Fraction (HFimpEF)
 This is a new category which includes patients with a:
 *   Baseline LVEF of < 40% and
 *   > 10-point increase from baseline LVEF and
@@ -21,22 +20,21 @@ LV function and structural abnormalities do not fully normalize despite improvem
 
 ---
 
-### Key Message # 12: Chronic HF due to HFimpEF
+### Key Message # 12: Chronic HF Due To HFimpEF
 *   HFimpEF includes patients with a:
     *   Baseline LVEF of < 40% and
     *   >10-point increase from baseline LVEF and
     *   A second measure of LVEF > 40%.
 *   LV function and structural abnormalities do not fully normalize despite improvement in symptoms, functional capacity, and near normalization of biomarkers.
 
-### Key Recommendation #10: Chronic HF due to HFimpEF
+### Key Recommendation #10: Chronic HF Due To HFimpEF
 *   Symptoms and signs may relapse, and cardiac biomarkers may increase if HF treatment is withdrawn.
 *   Foundational HF medications should be continued to prevent relapse of symptoms and subsequent deterioration of LV function.
 
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -45,8 +43,7 @@ LV function and structural abnormalities do not fully normalize despite improvem
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -58,7 +55,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -69,8 +66,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | HF | Heart Failure |
@@ -84,8 +80,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.
 

@@ -1,5 +1,4 @@
-# SECTION 2: CLINICAL CLASSIFICATION OF PAH IN ADULTS
-
+# Section 2: Clinical Classification Of PAH In Adults
 <!-- METADATA
 category: Classification, Diagnosis
 use_case: Disease Classification and Staging — Dana_Point_2008, WHO_functional_class, haemodynamic_criteria, mPAP_threshold, PCWP, PHT_5_categories
@@ -12,15 +11,14 @@ output: PHT_classification, WHO_class_assignment, severity_staging
 
 ---
 
-## 2. Clinical Classification of PAH in Adults
-
+## 2: Clinical Classification Of PAH In Adults
 The classification of PHT has undergone a series of changes since the first criteria were proposed in 1973. Until recently, PHT was defined by a mean PAP (mPAP) >25 mmHg at rest or >30 mmHg with exercise. However, this classification was recently updated at the 4th World Symposium on PHT, which took place in Dana Point, California, in early 2008. PHT is now defined simply as a resting mPAP >25 mmHg, thereby eliminating the diagnostic criteria associated with exercise. The new Dana Point definition also suggests that a resting mPAP of 8 to 20 mmHg should be considered as normal.
 
 PHT is classified into five categories based in part on aetiology: PAH, PHT owing to left heart disease, PHT associated with lung diseases and/or hypoxemia, PHT resulting from chronic thrombotic or embolic disease, and PHT with unclear multi-factorial mechanisms (refer Table 1: Updated clinical classification of PHT (Dana Point 2008)). The classification system aims to frame whether PHT is a manifestation of an underlying disease and provides an understanding of the context in which PHT occurs. PAH, a sub-category of PHT (the two terms are not synonymous), is defined as a mPAP >25 mmHg at rest with a normal pulmonary capillary wedge pressure (PCWP, ≤15 mmHg) and excluding pulmonary venous hypertension.
 
-## Table 1: Updated Clinical Classification of PHT (Dana Point 2008)
+Table 1: Updated Clinical Classification Of Pht (Dana Point 2008)
 
-### 1. Pulmonary arterial hypertension (PAH)
+## 1: Pulmonary Arterial Hypertension (PAH)
 - 1.1. Idiopathic PAH
 - 1.2. Heritable
   - 1.2.1. BMPR2
@@ -37,12 +35,12 @@ PHT is classified into five categories based in part on aetiology: PAH, PHT owin
 - 1.5. Persistent pulmonary hypertension of the newborn
 - 1.6. Pulmonary veno-occlusive disease (PVOD) and/or pulmonary capillary hemangiomatosis (PCH)
 
-### 2. Pulmonary hypertension owing to left heart disease
+## 2: Pulmonary Hypertension Owing To Left Heart Disease
 - 2.1. Systolic dysfunction
 - 2.2. Diastolic dysfunction
 - 2.3. Valvular disease
 
-### 3. Pulmonary hypertension owing to lung diseases and/or hypoxemia
+## 3: Pulmonary Hypertension Owing To Lung Diseases and/or Hypoxemia
 - 3.1. Chronic obstructive pulmonary disease
 - 3.2. Interstitial lung disease
 - 3.3. Other pulmonary diseases with mixed restrictive and obstructive pattern
@@ -51,9 +49,9 @@ PHT is classified into five categories based in part on aetiology: PAH, PHT owin
 - 3.6. Chronic exposure to high altitude
 - 3.7. Developmental abnormalities
 
-### 4. Chronic thromboembolic pulmonary hypertension (CTEPH)
+## 4: Chronic Thromboembolic Pulmonary Hypertension (Cteph)
 
-### 5. Pulmonary hypertension with unclear multifactorial mechanisms
+## 5: Pulmonary Hypertension With Unclear Multifactorial Mechanisms
 - 5.1. Haematologic disorders: myeloproliferative disorders, splenectomy
 - 5.2. Systemic disorders: sarcoidosis, pulmonary Langerhans cell histiocytosis, lymphangioleiomyomatosis, neurofibromatosis, vasculitis
 - 5.3. Metabolic disorders: glycogen storage disease, Gaucher disease, thyroid disorders
@@ -62,10 +60,9 @@ PHT is classified into five categories based in part on aetiology: PAH, PHT owin
 ---
 
 ## WHO Functional Classification
-
 Patients with confirmed PAH can be classified according to their ability to function and symptom severity. A modified version of the NYHA functional class was adopted by the WHO in 1998 to facilitate the evaluation of patients with PAH (refer Table 2: WHO classification of functional status in patients with PHT).
 
-## Table 2: WHO Classification of Functional Status in Patients with PHT
+Table 2: WHO Classification Of Functional Status In Patients With Pht
 
 | Class | Definition |
 |---|---|
@@ -77,7 +74,6 @@ Patients with confirmed PAH can be classified according to their ability to func
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ALK-1** | Activin Receptor-Like Kinase 1 |

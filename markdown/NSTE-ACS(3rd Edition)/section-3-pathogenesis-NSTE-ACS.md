@@ -1,5 +1,4 @@
-# SECTION 3: PATHOGENESIS
-
+# Section 3: Pathogenesis
 <!-- METADATA
 category: Pathophysiology, Classification
 use_case: Pathogenesis and MI Classification - plaque_rupture, thrombosis, coronary_spasm, type_1_MI, type_2_MI
@@ -12,16 +11,14 @@ ACS is commonly due to atherosclerotic plaque rupture, fissure or ulceration wit
 The majority (66%–78%) of ACS arise from lesions with <50% stenosis and less than 5% arise from lesions exhibiting >70% stenosis. From postmortem studies and in vivo studies using intravascular ultrasound, four pathologic pathways to ACS have been postulated:
 
 MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies. (refer to Table 6: Clinical Classification of MI). This CPG focuses on NSTE-ACS which is usually either:
-
-- Type 1 MI (spontaneous MI related to atherosclerotic plaque rupture, with ulceration, fissuring, erosion or dissection) or 
-- Type 2 MI (often due to an imbalance between myocardial oxygen supply  
+- Type 1 MI (spontaneous MI related to atherosclerotic plaque rupture, with ulceration, fissuring, erosion or dissection) or
+- Type 2 MI (often due to an imbalance between myocardial oxygen supply
 and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis).
 
 Type 2 MI is an important cause of ACS in the elderly. Distinguishing Type 2 MI from troponin release due to non-coronary diseases is often difficult and challenging (refer to Table 2: Interpreting Cardiac Troponins & Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE)
 
 ## Key Messages 4#:
 MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies (refer to Table 6: Clinical Classification of MI). This CPG focuses on NSTE-ACS which is usually either:
-
 - **Type 1 MI** — Spontaneous MI related to atherosclerotic plaque rupture, with ulceration, fissuring, erosion or dissection.
 - **Type 2 MI** — Often due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis. This is an important cause of ACS in the elderly.
 - The majority (66%-78%) of ACS arise from lesions with <50% stenosis and less than 5% arise from lesions exhibiting >70% stenosis.
@@ -29,7 +26,7 @@ MI can be classified as 5 types depending on the pathology, clinical features, p
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 2: Interpreting Cardiac Troponins
+Table 2: Interpreting Cardiac Troponins
 
 This table can be read as a clinical pathway for patients with **elevated cardiac troponins (>99th percentile)**.
 
@@ -53,26 +50,25 @@ A repeat cTn may be necessary depending on the patient's clinical condition and 
 **2. Consider analytical errors**
 
 Elevated troponins may occasionally be due to analytical issues, including:
-
 - Assay-based errors
 - Sample-based errors, such as a hemolysed specimen
 
 *A repeat cTn may be necessary depending on the clinical condition of the patient and the physician’s judgement. <br>
 ** Ischemic thresholds vary substantially in relation to the magnitude of the stressor and the extent of underlying cardiac disease. <br>
 *** Requires a rise and/or fall of troponins above the 99th percentile URL together with evidence of ischemia with at least one of the following:
-1)  Ischemic type chest pain of >30 mins or, 
-2)  electrocardiography (ECG) changes of new ischemia or, 
-3)  development of pathologic Q-waves in the ECG or 
+1)  Ischemic type chest pain of >30 mins or,
+2)  electrocardiography (ECG) changes of new ischemia or,
+3)  development of pathologic Q-waves in the ECG or
 4)  imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 
-#Stable denotes ≤20% variation of troponin values in the appropriate clinical context. 
+#Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
 *Adapted from:*
 - *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
 - *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
 
 ---
-### Table 6: Clinical Classification of MI
+Table 6: Clinical Classification Of MI
 
 | MI Type | Clinical Classification |
 | :--- | :--- |
@@ -87,8 +83,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-### Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE.
-
+### Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
 | Damage related to secondary myocardial ischemia (MI type 2) |
 | :--- |
 | Tachy - or bradyarrhythmias |
@@ -122,8 +117,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACCF | American College of Cardiology Foundation |

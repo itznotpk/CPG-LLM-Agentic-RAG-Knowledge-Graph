@@ -1,5 +1,4 @@
-# SECTION 15: ADVANCED HEART FAILURE
-
+# Section 15: Advanced Heart Failure
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Advanced and End-Stage HF — heart_transplant, MCS, palliative_care, end_of_life_planning, refractory_symptoms
@@ -9,9 +8,9 @@ critical: true
 treatment_type: heart_transplant, MCS, LVAD, palliative_care
 -->
 
-## 15. ADVANCED HEART FAILURE
-### 15.1. Heart Transplant
+## 15: Advanced Heart Failure
 
+## 15.1: Heart Transplant
 Heart transplantation is well-established for refractory end stage HF. It is the gold standard for the treatment of advanced HF in the absence of contraindications. World-wide the 1-year survival rate is 91% and the median survival post-transplant is 12 to 13 years.
 
 This definitive therapy for HF is however limited by the lack of donor organs. To address this, worldwide, efforts are being made to increase this organ donor shortage by increasing the donor age limit criteria, improving donor recovery strategies and being more stringent in the selection criteria.
@@ -38,8 +37,7 @@ Assessment for heart transplant is done by a multispecialty, multidisciplinary t
 *   Pharmacologically irreversible pulmonary hypertension.
 *   Other medical or psychosocial issues that would impact survival.
 
-### 15.2. Mechanical Circulatory Support (MCS) - refer to **Section 9.2.2: Mechanical Circulatory Support**
-
+## 15.2: Mechanical Circulatory Support (Mcs) - Refer To **Section 9.2.2: Mechanical Circulatory Support**
 The use of a mechanical circulatory support (e.g., Left Ventricular Assist Device - LVAD) may be considered as a:
 *   Bridge to recovery in patients with potentially reversible or treatable conditions or
 *   Bridge to heart transplant in suitable candidates or
@@ -49,8 +47,7 @@ Patients have improvement in their symptoms when compared to OMT.
 
 However, the rate of rehospitalizations due to complications of bleeding, thrombosis and infections are high. Many patients also go into major depression. Thus, extensive discussion with the patient and family is necessary prior to LVAD implantation.
 
-### 15.3. Palliative and End of Life Care
-
+## 15.3: Palliative And End Of Life Care
 Despite recent advances in therapy, for some patients, HF remains a progressive disease and carries a poor prognosis. Patients with refractory symptoms despite guideline-directed medical therapy, should be considered for cardiac transplantation or LVAD implantation if deemed eligible. This includes:
 *   Those with < 50% survival at 1 year (using established scoring tools)
 *   Persistently elevated natriuretic peptide levels and/or
@@ -69,14 +66,14 @@ Although majority of guidelines do not specifically address when best to refer e
 
 End-of-life issues surrounding advanced HF remains complex to this day, with minimal evidence in the literature to guide management. Nonetheless, there exists several position papers and expert consensus documents highlighting key components in providing palliative care for HF patients, including the following:
 
-#### Advanced care planning
+#### Advanced Care Planning
 *   Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation, ICD implantation, etc)
 *   Address disease-specific aspects of care with clear limits to escalation.
 *   Record and clearly document these plans in the medical records.
 *   When requested and possible, clearly nominate a personal representative for medical decision-making.
 *   When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
 
-#### Medical management
+#### Medical Management
 *   Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
 *   Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most importantly depression and anxiety.
 *   Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
@@ -88,7 +85,7 @@ End-of-life issues surrounding advanced HF remains complex to this day, with min
     *   Counselling, support, and reassurance should be provided to patients and their families.
     *   The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation).
 
-#### Managing ethical dilemmas
+#### Managing Ethical Dilemmas
 *   An ethical dilemma arises when at least two of the four ethical principles conflict with one another.
 *   Patient autonomy remains central in the decision making for palliative care, although the 3 other ethical principles remain paramount (beneficence, non-maleficence, and justice).
 *   In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
@@ -108,8 +105,7 @@ End-of-life issues surrounding advanced HF remains complex to this day, with min
 
 ## Contextual Anchors (Overlapping)
 
-#### Section 9.2.2: Mechanical Circulatory Support (Cross-Referenced for 15.2)
-
+#### Section 9: .2.2: Mechanical Circulatory Support (Cross-Referenced For 15.2)
 This includes:
 *   **Intra-aortic balloon pump (IABP):**
     *   [Grade IIa, Level B] This would be useful in patients with ADHF and cardiogenic shock who are not responding optimally to medical therapy and as a bridge to definitive treatment. IABP would be particularly useful in patients with intractable myocardial ischemia or acute moderate to severe mitral regurgitation.
@@ -120,7 +116,7 @@ This includes:
     *   These would be useful as a bridge in patients for whom recovery from Acute HF is expected or for whom heart transplant is an option. It may also be used as a destination therapy in selected patients.
 
 ---
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -131,8 +127,7 @@ This includes:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ADHF | Acute Decompensated Heart Failure |

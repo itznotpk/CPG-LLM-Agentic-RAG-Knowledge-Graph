@@ -1,5 +1,4 @@
-# ALGORITHM
-
+# Algorithm
 <!-- METADATA
 category: Reference, Treatment
 use_case: Clinical Algorithms — assessment_flowchart, FIGO_stage_IA1, FIGO_stage_IA2, FIGO_stage_IB1_IIA, treatment_decision_pathway
@@ -8,8 +7,7 @@ output: treatment_pathway, surgical_approach, referral_decision
 critical: true
 -->
 
-## ALGORITHM 1: ASSESSMENT OF CERVICAL CANCER
-
+## Algorithm 1: Assessment Of Cervical Cancer
 - **Histologically-confirmed cervical cancer**
   - Staging by a gynaecologist/gynae-oncologist
   - **Visible lesion**
@@ -33,8 +31,7 @@ critical: true
       - Stage II and Stage IV straight to Treatment
 ---
 
-## ALGORITHM 2: MANAGEMENT OF FIGO STAGE IA1
-
+## Algorithm 2: Management Of Figo Stage Ia1
 - **FIGO Stage IA1**
   - **Fertility preservation required**
     - **Yes**
@@ -52,8 +49,7 @@ critical: true
 
 ---
 
-## ALGORITHM 3: MANAGEMENT OF FIGO STAGE IA2
-
+## Algorithm 3: Management Of Figo Stage Ia2
 - **FIGO Stage 1A2**
   - **Fertility preservation required**
     - **Yes**
@@ -74,8 +70,7 @@ critical: true
 
 ---
 
-## ALGORITHM 4: MANAGEMENT OF FIGO STAGE IB1 / IIA
-
+## Algorithm 4: Management Of Figo Stage Ib1 / Iia
 - **FIGO Stage IB1 / IIA1**
   - **Nodal involvement on imaging**
     - **Yes:** Concurrent Chemoradiotherapy (CCRT)

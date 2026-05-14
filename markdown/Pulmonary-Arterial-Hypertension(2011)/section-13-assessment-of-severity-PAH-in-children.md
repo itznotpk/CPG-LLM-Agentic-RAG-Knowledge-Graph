@@ -1,5 +1,4 @@
-# SECTION 13: ASSESSMENT OF SEVERITY OF PAH IN CHILDREN
-
+# Section 13: Assessment Of Severity Of PAH In Children
 <!-- METADATA
 category: Assessment, Diagnosis
 use_case: Paediatric Severity Assessment and Monitoring — Ability_Index, WHO_functional_class, BNP_NT_proBNP, 6MWT, echocardiography_RV, RHC_haemodynamics, vasoreactivity, non_invasive_monitoring
@@ -13,14 +12,13 @@ critical: true
 
 ---
 
-## 13. Assessment of Severity of PAH in Children
-
+## 13: Assessment Of Severity Of PAH In Children
 Severity of PAH can be assessed by symptoms, non-invasive tests and invasive cardiac catheterization.
 
-### 13.1 Symptoms
+## 13.1: Symptoms
 Functional class can be categorized in older children using the modified New York Heart Association classification according to the World Health Organization 1998 (refer Table 2: WHO Classification of Functional Status in Patients with PHT). In younger children, the Ability Index (Table 10) may be more practical.
 
-## Table 10: Ability Index
+Table 10: Ability Index
 
 | Index | Definition |
 |---|---|
@@ -29,11 +27,10 @@ Functional class can be categorized in older children using the modified New Yor
 | **Ability Index 3** | Unable to work/school, limited in all activities |
 | **Ability Index 4** | Extreme limitation, dependent, almost housebound |
 
-### 13.2 Non-Invasive Tests
-
+## 13.2: Non-Invasive Tests
 These tests are useful in assessing baseline functional status as well as monitoring disease progression and treatment response.
 
-## Table 11: Non-Invasive Tests to Assess Severity of PAH
+Table 11: Non-Invasive Tests To Assess Severity Of PAH
 
 | Category | Tests |
 |---|---|
@@ -41,7 +38,7 @@ These tests are useful in assessing baseline functional status as well as monito
 | **Exercise Capacity** | 6-min walk test (<300m), cardiopulmonary exercise testing (in older children) |
 | **Echocardiography** | Monitoring of right ventricular function (RV Tei index, tricuspid annular plane systolic excursion), TR velocity, RA size, pericardial effusion |
 
-### 13.3 Invasive Tests
+## 13.3: Invasive Tests
 Right heart catheterization is required to assess the haemodynamics and the response to vasodilators. It confirms the diagnosis of PAH, assesses the severity and guides the management.
 
 Vasoreactivity test should be done in all cases of PAH with the exception of pulmonary venous obstruction (IV prostacyclin may induce pulmonary oedema). The purpose of vasoreactivity testing is:
@@ -50,7 +47,7 @@ Vasoreactivity test should be done in all cases of PAH with the exception of pul
 
 Positive vasoreactivity response is defined as a drop in mean PAP by 10 mmHg or more to an absolute mean pressure of 40 mmHg or less without a decrease in cardiac output. Vasodilator testing agents and regimens are similar to recommendations for adults (refer Table 5: Route of Administration, Half-Lives, Dose Ranges, Increments and Duration of Administration of the Most Used Substances on Pulmonary Vasoreactivity Tests).
 
-## Table 12: Haemodynamic Parameters to be Measured During Right Heart Catheterization
+Table 12: Haemodynamic Parameters To Be Measured During Right Heart Catheterization
 
 - Mean right atrial pressure
 - Pulmonary arterial pressure (systolic, diastolic and mean)
@@ -65,7 +62,7 @@ Positive vasoreactivity response is defined as a drop in mean PAP by 10 mmHg or 
 
 <!-- OVERLAP CONTENT -->
 
-## Table 5: Route of Administration, Half-Lives, Dose Ranges, Increments and Duration of Administration of the Most Used Substances on Pulmonary Vasoreactivity Tests
+Table 5: Route Of Administration, Half-Lives, Dose Ranges, Increments And Duration Of Administration Of The Most Used Substances On Pulmonary Vasoreactivity Tests
 
 | Drug | Route | Half-life | Dose Range (Initial and maximal dose suggested) | Increments (Dose increments by each step) | Duration (Duration of administration on each step) |
 |---|---|---|---|---|---|
@@ -73,7 +70,7 @@ Positive vasoreactivity response is defined as a drop in mean PAP by 10 mmHg or 
 | **Adenosine** | Intravenous | 5-10 s | 50-350 μg/kg/min | 50 μg/kg/min | 2 min |
 | **Nitric oxide** | Inhaled | 15-30 s | 10-20 ppm | - | 5 min (A single step within the dose range is suggested) |
 
-## Table 2: WHO Classification of Functional Status in Patients with PHT
+Table 2: WHO Classification Of Functional Status In Patients With Pht
 
 | Class | Definition |
 |---|---|
@@ -83,7 +80,6 @@ Positive vasoreactivity response is defined as a drop in mean PAP by 10 mmHg or 
 | **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **6MWT** | Six-Minute Walk Test |

@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Patient Safety
 use_case: Pre-anaesthetic assessment fundamentals and objectives — patient_safety, morbidity_reduction, mortality_reduction, medical_illness_identification, anaesthetic_risk, general_anaesthesia, regional_anaesthesia, sedation
@@ -11,8 +10,7 @@ output: assessment_purpose, assessment_scope, patient_optimisation, anaesthetic_
 
 ---
 
-## 1.1 Background
-
+## 1.1: Background
 Adequate pre-anaesthetic assessment has been identified as an important factor in patient safety and is an **integral part** of anaesthetic practice. It serves to identify associated medical illness and anaesthetic risks, with the ultimate aim of reducing morbidity and mortality associated with anaesthesia and surgery.
 
 Information from multiple sources should be considered during pre-anaesthetic assessment:
@@ -23,8 +21,7 @@ Information from multiple sources should be considered during pre-anaesthetic as
 
 ---
 
-## 1.2 Objectives of Pre-Anaesthetic Assessment
-
+## 1.2: Objectives Of Pre-Anaesthetic Assessment
 The objectives of the pre-anaesthetic assessment are to:
 
 | # | Objective |
@@ -37,8 +34,7 @@ The objectives of the pre-anaesthetic assessment are to:
 
 ---
 
-## 1.3 Scope
-
+## 1.3: Scope
 The term "pre-anaesthetic assessment" in this document refers not only to situations pertinent to the administration of **general anaesthesia** but also includes those related to:
 - Regional anaesthesia/analgesia
 - Sedation

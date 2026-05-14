@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: Epidemiological context for CVD burden in Malaysia — epidemiology, cvd_burden, risk_factor_prevalence, malaysia_statistics
@@ -11,8 +10,7 @@ output: guideline_context, epidemiological_background, key_messages
 
 ---
 
-## 1.1 Epidemiology of Cardiovascular Disease
-
+## 1.1: Epidemiology Of Cardiovascular Disease
 - CVD is the leading cause of morbidity and mortality in Malaysia for over a decade.
 - Data from the NCVD-ACS Registry (2011-2013) showed:
   - Malaysians developed ACS at a younger age than neighbouring countries.
@@ -21,8 +19,7 @@ output: guideline_context, epidemiological_background, key_messages
 
 ---
 
-## 1.2 Prevalence of Cardiovascular Risk Factors in Malaysia
-
+## 1.2: Prevalence Of Cardiovascular Risk Factors In Malaysia
 Based on the National Health and Morbidity Survey (NHMS), the Malaysian adult population (≥18 years) has high levels of CV risk factors:
 
 | CV Risk Factor | Men | Women |
@@ -43,8 +40,7 @@ Based on the National Health and Morbidity Survey (NHMS), the Malaysian adult po
 
 ---
 
-## 1.3 Impact of Reducing / Modifying CV Risk Factors
-
+## 1.3: Impact Of Reducing / Modifying CV Risk Factors
 - Diet and lifestyle factors (smoking, physical inactivity, alcohol) may contribute up to 70% towards development of other CV risk factors (obesity, hypertension, diabetes, hypercholesterolaemia), which together account for >95% of acute coronary events.
 - Reducing CV risk factors has been shown to reduce CV morbidity and mortality in both primary and secondary prevention:
   - Mortality risk reductions: **15-50%** in general population; **20-45%** in those with established CVD.
@@ -67,7 +63,6 @@ To tackle the CV epidemic in Malaysia, efforts should be made to reduce global C
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |

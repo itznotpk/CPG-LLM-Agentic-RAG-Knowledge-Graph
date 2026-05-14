@@ -1,9 +1,8 @@
-# SECTION 0: SUMMARY
-
+# Section 0: Summary
 <!-- METADATA
 category: Methodology
 use_case: Executive Summary and Key Recommendations — triage_flowcharts, medication_protocols, risk_stratification_overview, evidence_grading
-patient_input: 
+patient_input:
 output: guideline_summary, key_recommendations, triage_pathways
 -->
 
@@ -30,8 +29,7 @@ output: guideline_summary, key_recommendations, triage_pathways
 
 11. **[Grade I, Level A]** Cardiac rehabilitation and secondary prevention programs which includes lifestyle modification is an integral component of management.
 
-#### Flowchart 1: Risk Stratification of UA/NSTEMI
-
+#### Flowchart 1: Risk Stratification Of UA/NSTEMI
 **[ PATHWAY A: LOW RISK ]**
 
 **1. Clinical Profile Assessment:**
@@ -83,7 +81,7 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 * Coronary Angiography and Revascularization*
   *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
 
-## Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI
+Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
@@ -108,7 +106,7 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 | | **[Grade II-a, Level C]** | **[Grade II-a, Level C]** | Indicated for residual/ recurrent ischemia. |
 | +/- nitrates | **[Grade I, Level C]** | **[Grade I, Level C]** | Indicated for residual/ recurrent ischemia. |
 
-#### Figure 1: Non-Invasive Investigation of Low Risk Patients with UA/NSTEMI*
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 
 **[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
 
@@ -146,13 +144,13 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 * younger age group
 * normal LV function
 
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. 
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
 
 All Intermediate/High Risk UA/NSTEMI patients should be considered for coronary angiography and revascularization. (refer Flowchart 1: Algorithm for Risk Stratification of UA/NSTEMI)
 
 <!-- OVERLAP CONTENT -->
-## Grades of Recommendation and Levels of Evidence
 
+## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -168,7 +166,6 @@ All Intermediate/High Risk UA/NSTEMI patients should be considered for coronary 
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACE-I | Angiotensin-Converting Enzyme Inhibitor |

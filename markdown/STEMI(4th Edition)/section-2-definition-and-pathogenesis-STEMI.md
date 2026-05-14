@@ -1,5 +1,4 @@
-# SECTION 2: DEFINITION AND PATHOGENESIS OF MYOCARDIAL INFARCTION
-
+# Section 2: Definition And Pathogenesis Of Myocardial Infarction
 <!-- METADATA
 category: Pathophysiology, Classification, Diagnosis
 use_case: MI Classification and STEMI Diagnosis Criteria — MI_classification, STEMI_diagnosis_criteria, troponin_interpretation, ECG_localisation, culprit_vessel_identification, universal_MI_definition
@@ -8,16 +7,13 @@ output: MI_type_classification, STEMI_confirmation, culprit_vessel_identificatio
 critical: true
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 
-## 2.1 Acute Coronary Syndrome
-
+## 2.1: Acute Coronary Syndrome
 Acute Coronary Syndrome (ACS) is a clinical spectrum of Coronary Artery Disease (CAD) ranging from Unstable Angina (UA), Non-ST Segment Elevation Myocardial Infarction (NSTEMI) to STEMI depending upon the degree and acuteness of coronary occlusion (refer to Figure 1: Clinical spectrum of ACS*). In UA, myocardial injury is absent and cardiac biomarkers are normal. In myocardial injury, cardiac biomarkers are raised.
 
-## 2.2 Myocardial Injury vs Myocardial Infarction
-
+## 2.2: Myocardial Injury Vs Myocardial Infarction
 It is important to distinguish between myocardial injury and myocardial infarction (MI). Myocardial injury may be due to:
-
 - Ischaemia and/or
 - Non-ischaemic causes (e.g., myocarditis, renal failure)
 
@@ -29,10 +25,8 @@ Troponins should always be interpreted in the clinical setting. Many troponin el
 
 A rise and/or fall in the troponin level is indicative of acute injury, while a persistently elevated level is indicative of chronic injury.
 
-## 2.3 Diagnosis of MI
-
+## 2.3: Diagnosis Of MI
 MI is diagnosed when there is a rise and/or fall in cardiac troponins, with at least one value above the 99th percentile of the URL, and accompanied with at least one of the following:
-
 - i. Clinical history consistent with chest pain of ischaemic origin of > 30 minutes.
 - ii. ECG changes of ischaemia/infarction and/or the development of pathological Q waves.
 - iii. Imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
@@ -40,10 +34,8 @@ MI is diagnosed when there is a rise and/or fall in cardiac troponins, with at l
 
 MI may be STEMI or NSTE-ACS based on the ECG (refer to Figure 1: Clinical spectrum of ACS*).
 
-## 2.4 Diagnosis of STEMI
-
+## 2.4: Diagnosis Of STEMI
 STEMI is diagnosed when there is:
-
 - ST elevation of > 1 mm in 2 contiguous leads or
 - A new onset LBBB in the resting ECG
 - In a patient with ischaemic type chest pains of > 30 minutes and
@@ -53,12 +45,10 @@ New onset Right Bundle Branch Block with ST elevation of ≥ 1 mm in 2 contiguou
 
 In NSTE-ACS, ST elevation is absent on the resting ECG. In addition, patients having prolonged ischaemic type chest pain and having a non-interpretable resting ECG (e.g., paced rhythm, new RBBB) without ST elevation are having NSTE-ACS. There are separate guidelines for NSTE-ACS.
 
-## 2.5 Clinical Classification of MI
-
+## 2.5: Clinical Classification Of MI
 According to the 4th Universal Definition, MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies (refer to Table 5: Clinical Classification of MI). This CPG focuses on STEMI which is almost always Type 1 MI (spontaneous MI related to atherosclerotic plaque rupture).
 
 ## Key Message 2:
-
 - MI is defined pathologically as myocardial cell death due to prolonged ischaemia.
 - It is diagnosed by the rise and/or fall in cardiac troponins, with at least one value above the 99th percentile of the URL, and accompanied with at least one of the following:
   - i. Clinical history consistent with chest pain of ischaemic origin of > 30 minutes.
@@ -74,8 +64,7 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB)
+Table 6: ECG Patterns Of Various STEMI Locations And The Diagnostic Cut Off Points (In The Absence Of Lvh Or Lbbb)
 
 | LOCATION | LEADS | ECG FINDINGS |
 |---|---|---|
@@ -89,7 +78,7 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 
 ---
 
-### Table 7: Location of Ischaemia/infarction in STEMI
+Table 7: Location Of Ischaemia/infarction In STEMI
 
 | LEADS WITH ST SEGMENT ELEVATION | AFFECTED MYOCARDIAL AREA | OCCLUDED ARTERY (CULPRIT VESSEL) |
 |---|---|---|
@@ -102,10 +91,9 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 
 ---
 
-## Appendix II: Elevations of Cardiac Troponin in the Absence of Overt Ischaemic Heart Disease
+## Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischaemic Heart Disease
 
-### Damage Related to Secondary Myocardial Ischaemia (MI Type 2)
-
+### Damage Related To Secondary Myocardial Ischaemia (MI Type 2)
 - Tachy- or bradyarrhythmias
 - Aortic dissection and severe aortic valve disease
 - Hypo- or hypertension, e.g., haemorrhagic shock, hypertensive emergency
@@ -114,8 +102,7 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 - Coronary vasculitis, e.g., systemic lupus erythematosus, Kawasaki syndrome
 - Coronary endothelial dysfunction without significant CAD, e.g., cocaine abuse
 
-### Damage Not Related to Myocardial Ischaemia
-
+### Damage Not Related To Myocardial Ischaemia
 - Cardiac contusion
 - Cardiac incisions with surgery
 - Radiofrequency or cryoablation therapy
@@ -124,8 +111,7 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 - Cardiotoxic agents, e.g., anthracyclines, herceptin, carbon monoxide poisoning
 - Severe burns affecting > 30% of body surface
 
-### Indeterminant or Multifactorial Group
-
+### Indeterminant Or Multifactorial Group
 - Apical ballooning syndrome
 - Severe pulmonary embolism or pulmonary hypertension
 - Peripartum cardiomyopathy
@@ -139,7 +125,7 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 
 ---
 
-#### Figure 1: Clinical spectrum of ACS*
+Figure 1: Clinical Spectrum Of ACS*
 
 ##### Step 1: Presentation
 **Ischaemic Chest Discomfort**
@@ -152,7 +138,6 @@ According to the 4th Universal Definition, MI can be classified as 5 types depen
 ↓
 
 ##### Step 3: ECG Assessment (Two Pathways)
-
 Determine the pathway based on ECG findings:
 
 **Pathway A: No ST Elevation**
@@ -164,7 +149,6 @@ Determine the pathway based on ECG findings:
 ---
 
 ##### Step 4A: Cardiac Biomarkers (No ST Elevation)
-
 Evaluate cardiac biomarkers.
 
 **Outcome Evaluation:**
@@ -176,7 +160,6 @@ Evaluate cardiac biomarkers.
 ---
 
 ##### Step 4B: Cardiac Biomarkers (ST Elevation)
-
 Evaluate cardiac biomarkers.
 
 **Outcome Evaluation:**
@@ -185,7 +168,7 @@ Evaluate cardiac biomarkers.
 > *Note: NSTEMI and STEMI together encompass **MI (Myocardial Infarction)**.*
 
 ---
-### Table 5: Clinical Classification of MI
+Table 5: Clinical Classification Of MI
 
 **Type 1: Spontaneous MI due to coronary athero-thrombosis**
 
@@ -222,8 +205,7 @@ MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

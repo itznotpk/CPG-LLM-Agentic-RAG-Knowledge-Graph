@@ -1,5 +1,4 @@
-# SECTION 13: ADHERENCE TO LIFESTYLE CHANGES AND MEDICATIONS
-
+# Section 13: Adherence To Lifestyle Changes And Medications
 <!-- METADATA
 category: Supportive Treatment
 use_case: Strategies to improve adherence to lipid-lowering therapy and lifestyle changes — compliance, pill_burden, polypharmacy, patient_education, MTAC, shared_decision_making
@@ -59,11 +58,10 @@ output: adherence_strategies, regimen_simplification, follow-up_plan
 
 ## Contextual Anchors (Overlapping)
 
-### Section 7.1: Therapeutic Lifestyle Changes (TLC)
-
+### Section 7: .1: Therapeutic Lifestyle Changes (Tlc)
 Section 13 references the importance of TLC adherence. For the full TLC recommendations, including dietary patterns, exercise targets, weight management, smoking cessation and alcohol restriction, refer to Section 7.1.
 
-#### Table 5: Recommendations for Therapeutic Lifestyle Changes
+Table 5: Recommendations For Therapeutic Lifestyle Changes
 
 | Nutrition / Intervention | Comments | Grades of Recommendation / Level of Evidence |
 |---|---|---|
@@ -78,7 +76,7 @@ Section 13 references the importance of TLC adherence. For the full TLC recommen
 | **Smoking** | Smoking should be discouraged and individuals referred to smoking cessation programme. | I, B |
 | **Alcohol** | Advise abstinence whenever possible. If necessary, limit to 1 drink/day (10gm/day) in females and 2 drinks/day (20 gm/day) in males. | I, B |
 
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -96,8 +94,7 @@ Section 13 references the importance of TLC adherence. For the full TLC recommen
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | BMI | Body Mass Index |

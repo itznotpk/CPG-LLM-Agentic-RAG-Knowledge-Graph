@@ -1,5 +1,4 @@
-# SECTION 5: ETIOLOGY
-
+# Section 5: Etiology
 <!-- METADATA
 category: Epidemiology, Diagnosis
 use_case: HF Aetiology and Cause Identification — ischaemic, non_ischaemic, decompensation_triggers, CHAMPION_mnemonic, reversible_causes, cardiotoxins
@@ -7,8 +6,7 @@ patient_input: patient_history, risk_factors, echocardiography, medication_histo
 output: HF_aetiology, decompensation_factors, reversible_causes, underlying_cause_identification
 -->
 
-## 5. ETIOLOGY
-
+## 5: Etiology
 HF is not a complete diagnosis. **It is important to identify the underlying disease and the precipitating cause(s), if present**, so that disease-specific treatment can be initiated early.
 
 The common underlying causes of HF in adults are:
@@ -60,7 +58,7 @@ Other causes of HF include:
 
 ---
 
-## Key message #5: Etiology
+## Key Message #5: Etiology
 * The common underlying causes of HF in adults are:
     * Coronary artery disease (CAD) - accounting for almost 60-66% of HF in Malaysia
     * Hypertension
@@ -71,7 +69,7 @@ Other causes of HF include:
 
 ---
 
-### Table 11: Factors Contributing to Decompensation in a Patient with Stable HF
+Table 11: Factors Contributing To Decompensation In A Patient With Stable HF
 
 | Category | Factors |
 |---|---|
@@ -83,7 +81,7 @@ Other causes of HF include:
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -92,8 +90,7 @@ Other causes of HF include:
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -101,12 +98,12 @@ Other causes of HF include:
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -116,8 +113,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 | **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial Fibrillation |

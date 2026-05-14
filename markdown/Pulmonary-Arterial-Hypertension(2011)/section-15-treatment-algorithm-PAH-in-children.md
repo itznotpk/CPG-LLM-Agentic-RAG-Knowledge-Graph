@@ -1,5 +1,4 @@
-# SECTION 15: TREATMENT ALGORITHM FOR PAH IN CHILDREN
-
+# Section 15: Treatment Algorithm For PAH In Children
 <!-- METADATA
 category: Treatment, Reference
 use_case: Paediatric Treatment Algorithm — vasoreactive_pathway, non_vasoreactive_pathway, sequential_combination, WHO_class_based_therapy, paediatric_algorithm
@@ -14,13 +13,12 @@ treatment_type: CCB, bosentan, sildenafil, iloprost, combination_therapy, transp
 
 ---
 
-## 15. Treatment Algorithm for PAH in Children
-
+## 15: Treatment Algorithm For PAH In Children
 The optimal therapy for patients with PAH is a highly individualised decision, taking into account many factors including: drug availability, severity of illness, route of administration, side effects, treatment goals, and clinician preference (refer to Figure 2: PAH Evidence Treatment Algorithm Based on Availability of Agents (Malaysia)).
 
 <!-- OVERLAP CONTENT -->
 
-### Figure 2: PAH Evidence Treatment Algorithm Based on Availability of Agents (Malaysia)
+Figure 2: PAH Evidence Treatment Algorithm Based On Availability Of Agents (Malaysia)
 
 **Step 1: Supportive Therapy and General Measures**
 
@@ -66,7 +64,7 @@ The acute vasoreactivity test divides patients into two distinct pathways:
     - ERA + Prostanoids
 3. Last-Resort Interventions: If combination therapy fails → **[Grade I, Level C]** Atrial septostomy and/or lung transplant
 
-## Grades of Recommendation
+## Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -75,14 +73,14 @@ The acute vasoreactivity test divides patients into two distinct pathways:
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-## Levels of Evidence
+## Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
 | **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
-## Table 2: WHO Classification of Functional Status in Patients with PHT
+Table 2: WHO Classification Of Functional Status In Patients With Pht
 
 | Class | Definition |
 |---|---|
@@ -92,7 +90,6 @@ The acute vasoreactivity test divides patients into two distinct pathways:
 | **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **CCB** | Calcium Channel Blocker |

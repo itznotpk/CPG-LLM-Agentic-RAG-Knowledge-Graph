@@ -1,5 +1,4 @@
-# SECTION 14.1-14.3: HF AND DIABETES, VALVULAR HEART DISEASE, CARDIOMYOPATHY
-
+# Section 14: .1-14.3: HF And Diabetes, Valvular Heart Disease, Cardiomyopathy
 <!-- METADATA
 category: Special Populations
 use_case: HF with Diabetes, VHD and Cardiomyopathy — SGLT2i_in_diabetes, valve_intervention_criteria, DCM, HCM, RCM
@@ -8,18 +7,15 @@ output: SGLT2i_in_diabetes, valve_intervention_criteria, DCM_HCM_RCM_management
 treatment_type: SGLT2i, valve_surgery, cardiomyopathy_specific_therapy
 -->
 
-## Section 14. SPECIAL GROUPS
-
+## Section 14: . Special Groups
 ---
 
-## Section 14.1. DIABETES AND HEART FAILURE
-
+## Section 14: .1. Diabetes And Heart Failure
 HF and diabetes mellitus (DM) often co-exist, each increasing the likelihood of developing the other. Diabetes is one of the risk factors for the development of HF and similarly among patients with HF there is a high prevalence of often unrecognized dysglycemia.
 
 In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comorbidity. Almost all the epidemiological and clinical trial data on DM and HF have been based on trials done on patients with type 2 DM.
 
-### 14.1.1 Risk of Developing Dysglycemia in Patients with HF
-
+### 14.1.1: Risk Of Developing Dysglycemia In Patients With HF
 *   Patients with HF irrespective of ejection fraction phenotype, were shown to be at an increased risk of developing dysglycemia - both prediabetes and DM.
 *   The prevalence of DM varies:
     *   6-25% in patients with left ventricular systolic dysfunction (LVSD).
@@ -35,8 +31,7 @@ In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comor
 *   The presence of DM has been shown to be linked to adverse outcomes in HF of both ischemic and non-ischemic etiologies, irrespective of LVEF. Thus the diagnosis of dysglycemia is important.
 *   [Grade I, Level A] All patients at Risk (Stage A) and who already have HF (Stage B-D) should be screened for dysglycemia and this should be treated appropriately according to guidelines.
 
-### 14.1.2 Risk of Developing HF Among Patients with Dysglycemia
-
+### 14.1.2: Risk Of Developing HF Among Patients With Dysglycemia
 *   Diabetic patients have between 2-5x risk of developing HF. Whether this indicates a causal effect or just a comorbidity is still unclear. It is an important CV complication and the prognosis of diabetic patients admitted to hospital for HF were worse than those admitted with MI.
 *   The prevalence of HF ranges between 4-30% in various diabetic drug trials, with almost a third of patients being undiagnosed.
 *   Even pre-diabetics (depending on the definition used) have a 9-58% risk of developing HF. It is often the first manifestation of a CV event.
@@ -49,8 +44,7 @@ In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comor
     *   Insulin use
     *   Renal impairment
 
-### 14.1.3. Prognosis of Patients with Dysglycemia and HF
-
+### 14.1.3: Prognosis Of Patients With Dysglycemia And HF
 *   HF per se is associated with a high morbidity and mortality and concomitant DM compounds this risk.
 *   This is particularly so in patients with HFpEF who have co-existing microvascular complications. Both poor glycemic control (HbA1c >9.5%) and tight glycemic control (HbA1c <5.5%) are associated with increased all-cause mortality in this group of patients.
 *   In Acute HF, incidence of hospitalization (adjusted for age and sex) is 2x higher in patients with DM compared with those without. It is an independent predictor for overall mortality in acute HF.
@@ -60,21 +54,17 @@ In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comor
 *   Advanced age, duration of the disease, insulin use, the presence of CAD and an elevated serum creatinine are all independent risk factors for the development of HF.
 *   However, despite having five risk factor variables within the target range i.e. glycated hemoglobin level, low-density lipoprotein cholesterol level, blood pressure, absence of albuminuria and smoking, the risk for hospitalizations for HF was increased by almost 45% over a 5.7-year period.
 
-### 14.1.4. Pathophysiology of HF in DM
-
+### 14.1.4: Pathophysiology Of HF In DM
 *   The development of HF in DM involves a complex interconnected process between systemic, myocardial, and cellular mechanisms that lead to coronary atherosclerosis, myocardial ischemia and infarction, with co-existing hypertension and dyslipidemia.
 *   Diabetic cardiomyopathy is defined as the presence of diastolic or systolic dysfunction in a patient with DM without other obvious causes for cardiomyopathy, such as CAD, hypertension, or valvular heart disease. However, whether diabetes directly causes a cardiomyopathy is uncertain.
 
-### 14.1.5. Diagnosis of HF in Diabetes
-
+### 14.1.5: Diagnosis Of HF In Diabetes
 *   The diagnosis of HF in patients with diabetes is like those without diabetes (refer to Section 6: Diagnosis & Essential Investigations).
 *   In those patients suspected of having HF, appropriate investigations as outlined in Section 6: Diagnosis & Essential Investigations should be performed.
 
+### 14.1.6: Management
 
-### 14.1.6. Management
-
-#### 14.1.6.1. Prevention of HF
-
+#### 14.1.6.1: Prevention Of HF
 *    Diabetes is a CVD defining disease, and patients should have their other CV risk factors treated aggressively and closely monitored.
 *   [Grade I, Level B] Lifestyle measures are important and have been shown to lower risk for HF, particularly in patients with HFpEF. These include:
     *  [Grade I, Level A] Weight reduction,
@@ -86,12 +76,10 @@ In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comor
 *   Ambulatory or home BP monitoring should be encouraged as undetected hypertension and masked hypertension is highly prevalent among patients with DM.
 *   In asymptomatic patients, routine screening for CAD is not recommended. Routine screening does not improve outcomes if CV risk factors are not treated to target.
 
-#### 14.1.6.2. Treatment of HF
-
+#### 14.1.6.2: Treatment Of HF
 *   The treatment of both Acute and Chronic HF in patients with DM is similar to those without DM with the use of the Foundational HF medications.
 
-#### 14.1.6.3. Treatment of Diabetes - Glucose Lowering Agents
-
+#### 14.1.6.3: Treatment Of Diabetes - Glucose Lowering Agents
 * [Grade IIb, Level B]  Intensive glucose lowering is not associated with any significant reduction in CV risk. In fact, tight control of DM especially with the occurrence of hypoglycemia is associated with increased mortality.
 * [Grade I, Level A]  In addition, HbA1c variability, has been shown to be an independent risk factor for CVD in T2DM patients, even when the HbA1c is within the target range.
 *   Glycemic targets for patients with DM and HF should be individualized to include considerations of comorbidities, severity of HF, and to balance benefits versus potential risks.
@@ -112,7 +100,7 @@ In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comor
 *   [Grade III, Level A] Saxagliptin and Alogliptin are not recommended in patients with DM and HF.
 
 **D) Biguanides (Metformin)**
-*  [Grade IIb, Level B] Observational studies indicate that metformin can be safely used in HF with no increased mortality even in those with NYHA class III and IV. 
+*  [Grade IIb, Level B] Observational studies indicate that metformin can be safely used in HF with no increased mortality even in those with NYHA class III and IV.
 *   It also reduced the risk of hospitalization due to HF and all-cause hospitalization. Lactic acidosis during hospitalization was uncommon.
 *   Metformin should be discontinued when the eGFR is <30ml/min/1.73m².
 *   In older patients with DM who were hospitalized for HF, metformin initiation was independently associated with a significant reduction in HF hospitalization particularly in patients with LVEF > 40%. Conversely, sulfonylurea initiation was associated with excess risk of death and HF hospitalization, regardless of LVEF.
@@ -132,13 +120,13 @@ In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comor
 
 ---
 
-### Key Messages #14: HF and Diabetes
+### Key Messages #14: HF And Diabetes
 *   HF and diabetes mellitus (DM) often co-exist, each increasing the likelihood of developing the other. Whether this indicates a causal effect or just a comorbidity is still unclear.
     *   Patients with HF irrespective of ejection fraction phenotype, have been shown to be at an increased risk of developing dysglycemia.
     *   Also, diabetic patients have between 2-5x risk of developing HF.
 *   HF per se is associated with a high morbidity and mortality and concomitant DM compounds this risk. This is particularly so in patients with HF*p*EF.
 
-### Key Recommendations #12: HF and Diabetes
+### Key Recommendations #12: HF And Diabetes
 *   **Prevention of HF**:
     *   Lifestyle measures are important. They have been shown to lower the risk for HF, particularly HF*p*EF. These measures include:
         *   Attainment of appropriate weight,
@@ -167,10 +155,9 @@ In Malaysia, about 60-65% of patients admitted with HF, have diabetes as a comor
 
 ---
 
-## Section 14.2. VALVULAR HEART DISEASE (VHD) AND HF
+## Section 14: .2. Valvular Heart Disease (Vhd) And HF
 
-### 14.2.1. Etiology
-
+### 14.2.1: Etiology
 Common etiological factors are:
 *   **Rheumatic Carditis and Rheumatic Heart disease (RHD)**
     *   In a patient with acute rheumatic carditis, the early detection and appropriate treatment of beta-hemolytic streptococcal infections of the pharynx (positive throat swab and raised ASOT) during the infection and with subsequent appropriate penicillin prophylaxis against recurrent infection will help prevent the development of RHD in later life.
@@ -185,8 +172,7 @@ Common etiological factors are:
     *   Commonest cause in the elderly.
     *   This includes calcific aortic stenosis, aortic regurgitation secondary to aortic root dilatation from any cause, and degenerative mitral regurgitation.
 
-### 14.2.2. Valve Pathology
-
+### 14.2.2: Valve Pathology
 *   **Mitral Valve Disease**
     *   Mitral stenosis (MS)
         *   This is almost always due to RHD.
@@ -204,15 +190,13 @@ Common etiological factors are:
         *   Bicuspid aortic valve is the commonest congenital cause.
         *   Other causes include infective endocarditis or secondary to dilatation of the ascending aorta due to Marfan's or idiopathic aortic dilatation etc.
 
-### 14.2.3. History and Physical Examination
-
+### 14.2.3: History And Physical Examination
 *   Common presenting symptoms are dyspnea, reduced effort tolerance and palpitations.
 *   The presence of symptoms of HF in a stenotic lesion is a strong indication for intervention.
 *   In regurgitant lesions, particularly with aortic regurgitation, it is usually a late presentation.
 *   The presence of valvular AF indicates significant valve pathology - usually due to mitral valve disease.
 
-### 14.2.4. Investigations
-
+### 14.2.4: Investigations
 Essential investigations include:
 *   ECG
 *   Chest Radiograph - Chest X-rays
@@ -220,8 +204,7 @@ Essential investigations include:
     *   Transthoracic echocardiography is usually adequate to make the diagnosis and plan management.
     *   Transesophageal echocardiography may be required if the transthoracic echocardiography is of suboptimal quality or occasionally for prosthetic valve dysfunction, prosthetic valve endocarditis or left atrial thrombi. It is also necessary preoperatively when detailed valve anatomy is required to assess valve repairability.
 
-### 14.2.5. Management
-
+### 14.2.5: Management
 [Grade I, Level C] All patients with VHD should be assessed periodically on the need for early intervention before they begin to develop symptoms of reduced effort tolerance and decompensate. This can be achieved by:
 *   Serial Chest X-rays to look for progressive cardiac enlargement.
 *   Serial echocardiograms are more sensitive to look for progressive deterioration. It can assess valve severity, chamber dilatation, pulmonary artery pressures and cardiac (both LV and RV) function.
@@ -241,8 +224,7 @@ In addition,
         *   Digoxin for rate control
     *   [Grade I, Level A] Anticoagulation with DOAC or vitamin K antagonists to prevent thrombo-embolism.
 
-#### 14.2.5.1. Valve Intervention in Patients with HF
-
+#### 14.2.5.1: Valve Intervention In Patients With HF
 The indications for valve intervention are listed in Appendix V: Indications for Valve Intervention*.
 *   **Mitral valve intervention**
     *   Mitral stenosis:
@@ -253,7 +235,7 @@ The indications for valve intervention are listed in Appendix V: Indications for
         *   In patients with functional moderate to severe MR and who are not surgical candidates, the use of a MitraClip on a background of Foundational HF medications is superior to medical therapy alone. At 2 years, there was a reduction in HF hospitalization and mortality in symptomatic HF patients with grade 3-4+ MR.
         *   Compared to surgery, MitraClip demonstrated a similar safety profile and shorter length of stay in high-risk patients, at the expense of increased residual mitral regurgitation and higher reoperation rate.
         *   The other landmark transcatheter mitral valve intervention study, however, did not meet its primary end point although there was a trend towards benefit in the cumulative rate of HF hospitalization between 12 and 24 months among the treated patients.
-        *   In view of the conflicting results, additional studies are needed to identify patients who will benefit the most from transcatheter mitral valve interventions. 
+        *   In view of the conflicting results, additional studies are needed to identify patients who will benefit the most from transcatheter mitral valve interventions.
         * [Grade IIa, Level B] At present, it may be considered in patients with moderate to severe MR and who are not surgical candidates and in high volume centers where this is done routinely.
 
 
@@ -281,20 +263,19 @@ The indications for valve intervention are listed in Appendix V: Indications for
 
 ---
 
-### Key Messages #15: HF and Valvular Heart Disease (VHD)
+### Key Messages #15: HF And Valvular Heart Disease (Vhd)
 *   VHD is an important cause of HF.
 *   In the young, RHD is an important cause. The incidence of RHD in rural and urban poor is high.
 *   In the older population, degenerative valve disease is more common.
 
-### Key Recommendations #8: HF and Valvular Heart Disease
+### Key Recommendations #8: HF And Valvular Heart Disease
 *   All patients with VHD should be assessed periodically on the need for early intervention before they begin to develop symptoms of reduced effort tolerance and decompensate.
 *   Patients who are assessed to require intervention should be seen by a heart team to help decide the timing and type of intervention.
 *   The indications for valve intervention are as in the Appendix V: Indications for Valve Intervention*.
 
 ---
 
-## Section 14.3. CARDIOMYOPATHY AND HEART FAILURE
-
+## Section 14: .3. Cardiomyopathy And Heart Failure
 Cardiomyopathies are a heterogenous group of myocardial disorders which frequently present as HF. They can be inherited (familial/genetic) or acquired and may be accelerated by disease modifiers such as infection, immunological diseases, drugs, and comorbidities such as hypertension and diabetes mellitus.
 
 In clinical practice they are usually classified according to anatomic and physiologic features into:
@@ -310,8 +291,7 @@ It is worthwhile noting that specific etiologies of cardiomyopathy can have over
 
 Where applicable, genetic testing and family screening should be considered.
 
-### 14.3.1 Dilated Cardiomyopathy (DCM)
-
+### 14.3.1: Dilated Cardiomyopathy (Dcm)
 *   DCM is one of the leading causes of HFrEF globally.
 *   It is characterized by systolic dysfunction and ventricular dilatation in the absence of abnormal loading conditions (e.g., hypertension, valvular stenosis) or CAD. Other morphological changes include atrial dilatation, reduction in ventricular wall thickness, and functional mitral and tricuspid regurgitation.
 *   The etiologies are myriad but can generally be classified into genetic or non-genetic causes (refer to Appendix VIII: Etiology of Cardiomyopathies). In some circumstances these causes can overlap and interact with one another e.g., cardiotoxicity from chemotherapeutic agents in a patient predisposed genetically to DCM.
@@ -322,12 +302,10 @@ Where applicable, genetic testing and family screening should be considered.
     *   Progression to advanced HF and death.
 *   Reverse remodeling is usually observed in DCM resulting from potentially reversible causes such as alcohol-related cardiomyopathy, peripartum cardiomyopathy and tachycardia-induced cardiomyopathy.
 
-#### 14.3.1.1. Management
-
+#### 14.3.1.1: Management
 *   Management of dilated cardiomyopathy is as outlined in the earlier sections with the Foundational HF Medications.
 
-### 14.3.2. Hypertrophic Cardiomyopathy (HCM)
-
+### 14.3.2: Hypertrophic Cardiomyopathy (Hcm)
 *   HCM accounts for 2-3% of HF.
 *   Etiologies of HCM are shown in (refer to Appendix VIII: Etiology of Cardiomyopathies).
 *   It is characterized by an increase in LV wall thickness (commonly defined as >15 mm, or >13 mm in adult first degree relatives of HCM patients) in one or more myocardial segments which cannot be explained by abnormal loading conditions.
@@ -340,8 +318,7 @@ Where applicable, genetic testing and family screening should be considered.
 *   Surgical myomectomy has been shown to reduce mortality in these patients.
 *   About 3.5-17% of HCM patients progress to advanced HF. The pathophysiologic processes leading to progression of HF include severe LV obstruction, hypertrophy and adverse remodeling.
 
-#### 14.3.2.1 Management
-
+#### 14.3.2.1: Management
 *   Referral to multidisciplinary HCM centers can help optimize care for patients with HCM.
 *   Genetic counseling of the patient and family is important.
 *   In patients with:
@@ -355,8 +332,7 @@ Where applicable, genetic testing and family screening should be considered.
         *   Pharmacotherapy - drugs that have negative inotropic effects such as β-blockers, verapamil or disopyramide. Emerging novel agents for obstructive HCM include agents such as mavacamten - a first-in-class cardiac myosin inhibitor. This has been shown to improve symptoms, physical and social function, and quality of life in a phase 3 study. It has been approved for the treatment of symptomatic NYHA class II-III obstructive HCM.
     *   **HF** - to treat accordingly as per clinical presentation as HFpEF or HFrEF.
 
-### 14.3.3. Restrictive Cardiomyopathy (RCM)
-
+### 14.3.3: Restrictive Cardiomyopathy (Rcm)
 *   RCM is characterized by restrictive physiology with normal or reduced diastolic volumes, and normal or reduced systolic volumes (in LV, RV or both).
 *   There is typically no LVH, but some forms of infiltrative or storage diseases such as amyloidosis or Fabry-Anderson disease can cause an increase in LV wall thickness.
 *   The etiology of RCM is heterogenous. It comprises infiltrative or non-infiltrative myocardial disorders, storage diseases and endomyocardial disorders that are either idiopathic, hereditary, or acquired (refer to Appendix VIII: Etiology of Cardiomyopathies).
@@ -364,15 +340,14 @@ Where applicable, genetic testing and family screening should be considered.
 *   The pathophysiology of HF in RCM is increased myocardial wall stiffness, resulting in diastolic dysfunction with subsequent predisposition to AF. The LV systolic function is usually preserved but may be reduced at late stages of the disease, such as in cardiac amyloidosis.
 *   The prognosis of RCM is generally poor, regardless of the underlying etiology.
 
-#### 14.3.3.1 Management
-
+#### 14.3.3.1: Management
 *   Management includes:
     *   The Foundational HF medications are generally used but caution should be exercised as these patients tolerate over diuresis and hypotension poorly.
     *   Consider disease-specific therapy if available e.g., amyloidosis and Fabry's disease.
 
 ---
 
-### Key Messages #16: HF and Cardiomyopathies
+### Key Messages #16: HF And Cardiomyopathies
 *   Cardiomyopathies are a heterogenous group of myocardial disorders which frequently present as HF.
 *   They can be inherited (familial/genetic) or acquired.
 *   They are usually classified according to anatomic and physiologic features into:
@@ -387,8 +362,7 @@ Where applicable, genetic testing and family screening should be considered.
 
 ## Contextual Anchors (Overlapping)
 
-### Overlapped from Section 6: Diagnosis & Essential Investigations
-
+### Overlapped From Section 6: Diagnosis & Essential Investigations
 **Diagnosis:**
 *   In making a diagnosis of HF, a detailed history and a thorough physical examination are important.
 *   The clinical suspicion of HF should be supported objectively by either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
@@ -402,8 +376,7 @@ Where applicable, genetic testing and family screening should be considered.
 
 ---
 
-## Appendix V: Indications for Valve Intervention*
-
+## Appendix V: Indications For Valve Intervention*
 | Valve | Pathology | Recommendations |
 |-------|-----------|-----------------|
 | Mitral | Stenosis | **Intervention** is indicated in patients with MVA < 1.0 cm² and who are:<br>• Symptomatic<br>• Asymptomatic but have new onset AF, Pulmonary Hypertension or planning a pregnancy. |
@@ -415,32 +388,27 @@ Where applicable, genetic testing and family screening should be considered.
 
 ---
 
-## Appendix VIII: Etiology of Cardiomyopathies
-
+## Appendix VIII: Etiology Of Cardiomyopathies
 Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart Failure Association of the European Society of Cardiology"
 
 ### Dilated Cardiomyopathy
-
 | Genetic | Infection | Systemic Immune-mediated Disease | Toxic and Overload | Drugs | Endocrine/Metabolic | Peripartum |
 |---|---|---|---|---|---|---|
 | **Cardiac Phenotype:**<br>• Titin (TTN)<br>• Lamin A/C (LMNA)<br>• Myosin Heavy Chain (MYH7)<br>• Troponin T (TNT2)<br>• Myosin Binding Protein C (MYBPC3)<br>• Phospholamban (PLN)<br><br>**Neuromuscular Disorders:**<br>• Duchenne Muscular Dystrophy<br>• Becker Muscular Dystrophy | **Post-Myocarditis:**<br>• Enteroviruses (e.g., Coxsackieviruses)<br>• Parvovirus B19<br>• Adenoviruses<br>• Herpes Viruses (Human Cytomegalovirus, Epstein-Barr Virus, Human Herpesvirus 6)<br>• Echoviruses<br>• Hepatitis C Virus<br>• Influenza A Virus<br><br>**Other:**<br>[e.g. HIV, Chagas] | **Autoimmune:**<br>• Rheumatoid Arthritis<br>• Coeliac Disease<br>• Systemic Lupus Erythematosus<br>• Dermatomyositis, Polymyositis<br>• Systemic Sclerosis<br>• Primary Biliary Cirrhosis<br>• Vasculitis (some)<br>• Mysthenia Gravis<br>• Pemphigus, Pemphigoid<br><br>**Autoinflammatory:**<br>[e.g. Crohn disease, ulcerative colitis, gout, reactive arthritis, rare monogenic disorders] | • Alcohol (Ethanol)<br>• Cocaine<br>• Amphetamines<br>• Ecstasy<br>• Anabolic Steroids<br>• Arsenic<br>• Cobalt<br>• Carbonmonoxide<br>• Lead<br>• Iron-overload/haem ochromatosis<br>• Amyloidosis | **Chemotherapy:**<br>[Anthracycline, trastuzumab, antimetabolites, monoclonal antibodies, tyrosine kinase inhibitors, immunomodulating agents]<br><br>**Other:**<br>[Clozapine, olzapine, chlorpromazine, risperidone, lithium, tricyclic antidepressants, ephedrine, all-trans retinoic acid, phenothiazines] | • Diabetes Mellitus<br>• Acromegaly<br>• Pheochromocytoma<br>• Thyroid gland dysfunction | Idiopathic cardiomyopathy presenting with HFrEF towards the end of pregnancy, or in the months following delivery, where no other cause of HF is found. |
 
 ### Hypertrophic Cardiomyopathy
-
 | Genetic | Storage Diseases | Neuromuscular and Mitochondrial Disorders | Malformation Syndromes |
 |---|---|---|---|
 | • Beta-Mysin Heavy Chain (MYH7)<br>• Myosin-Binding Protein C (MYBPC3)<br>• Troponin I and T (TNNI3, TNNT2)<br>• Tropomyosin alpha-1 Chain (TPM1)<br>• Myosin Light Chain 3 (MYL3) | • Anderson-Fabry Disease<br>• Danon Disease<br>• Pompe Disease<br>• Gaucher Disease | • Friedreich's ataxia<br>• MELAS (Mitochondrial Encephalomyopathy, Lactic Acidosis, and Stroke-Like Episodes)<br>• MERFF (Myoclonic Epilepsy with Ragged Red Fibres) | • LEOPARD (Lentigines; ECG Abnormalities; Ocular hypertelorism; Pulmonary Stenosis; Abnoral Genitalia; Retarded Growth; Deafness)<br>• Noonan<br>• Costello |
 
 ### Restrictive Cardiomyopathy
-
 | Noninfiltrative Disorders | Infiltrative Disorders | Storage Diseases | Endomyocardial Disorders |
 |---|---|---|---|
 | • Idiopathic<br>• Hereditary (Sarcomere Protein Disorders, Myofibrillar Myopathies, Werner Syndrome)<br>• Systemic Sclerosis | • Amyloidosis:<br>&nbsp;&nbsp;&nbsp;&nbsp;° Immunoglobulin Light Chain (AL)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Hereditary (ATTR-m)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Wild-Type (ATTR-wt)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Other<br>• Sarcoidosis<br>• Hereditary Hyperoxaluria | • Anderson-Fabry Disease<br>• Danon Disease<br>• Pompe Disease<br>• Gaucher Disease<br>• Iron Overload<br>• Hereditary Haemochromatosis | • Carcinoid<br>• Endomyocardial Fibrosis (Idiopathic, Hypereosinophilic Syndrome, Drug-Related)<br>• Endocardial Fibroelastosis<br>• Metastatic Tumor<br>• Chemotherapy<br>• Radiation Therapy |
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -514,8 +482,7 @@ Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.

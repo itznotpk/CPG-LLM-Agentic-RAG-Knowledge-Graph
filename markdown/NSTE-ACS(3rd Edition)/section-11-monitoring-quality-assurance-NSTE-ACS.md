@@ -1,5 +1,4 @@
-# SECTION 11: MONITORING OF ACTIVITY AND QUALITY ASSURANCE
-
+# Section 11: Monitoring Of Activity And Quality Assurance
 <!-- METADATA
 category: Reference, Assessment
 use_case: Quality Assurance and Performance Measures - hs_cTn_access, HEART_score_documentation, angiogram_timing, discharge_medications, cardiac_rehabilitation_referral
@@ -8,19 +7,16 @@ output: performance_indicators, outcome_measures, audit_targets, quality_improve
 -->
 
 Implementation of the recommendations listed in this CPG can be accomplished by:
-
 - Continuous medical education via regular seminars, lectures and roadshows particularly at the district hospital and family medicine clinics. Education and training is the most important aspect of the implementation of this CPG.
 - Widespread availability of this CPG to healthcare providers via printed copies, electronic websites, etc.
 
 ## Key Recommendations 13:
-
 - Regular audit of performance and outcome measures (refer to Table 7: Performance and Outcome Measures) should be performed periodically to monitor and improve quality of care.
 
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 7: Performance and Outcome Measures
+Table 7: Performance And Outcome Measures
 
 | Documentation of the Following | Targets |
 | :--- | :---: |
@@ -36,8 +32,7 @@ Implementation of the recommendations listed in this CPG can be accomplished by:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

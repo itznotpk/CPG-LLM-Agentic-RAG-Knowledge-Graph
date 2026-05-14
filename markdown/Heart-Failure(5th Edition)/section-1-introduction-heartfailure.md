@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION & EPIDEMIOLOGY
-
+# Section 1: Introduction & Epidemiology
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: HF Epidemiology and Disease Burden — prevalence_data, mortality_statistics, incidence_trends, socioeconomic_impact, Malaysian_context, global_burden
@@ -7,10 +6,9 @@ patient_input: demographics, region
 output: HF_epidemiology, prevalence_statistics, socioeconomic_burden, guideline_objectives, Malaysian_HF_context
 -->
 
-## 1. INTRODUCTION
+## 1: Introduction
 
-## 1.1 Epidemiology of Heart Failure
-
+## 1.1: Epidemiology Of Heart Failure
 Heart failure (HF) is a clinical syndrome and is the end stage of most heart diseases. Globally, it affects more than 60 million individuals and in Asia, the prevalence is estimated to be between 1.3% and 6.7%.
 
 In general, the incidence of HF has stabilized but the prevalence appears to be increasing due to the ageing of the population and increasing number of survivors post myocardial infarction.
@@ -31,8 +29,7 @@ In general, in addition to hospitalizations due to HF, all-cause hospitalization
 
 The prognosis of HF has improved over time, but mortality remains high. In the European Society of Cardiology (ESC) HF-Long term (LT) registry, 1-year mortality was 23.6% for acute HF and 6.4% for chronic HF between 2011 and 2013. In ambulatory patients with HF, pooled analysis of cohorts from three North-western European countries, showed that outcomes have significantly improved during the last two decades. (Period 1:1995-2005 vs period 2: 2006-2015). Improvement in all-cause mortality can be explained partly by demographic differences and also by better utilization of Optimal Medical Therapy.
 
-## 1.2 Socio-Economic Consequences of Heart Failure
-
+## 1.2: Socio-Economic Consequences Of Heart Failure
 The socio-economic burden of HF is huge. In high-income countries, 1-2% of the total healthcare expenditure is spent on HF. In the US, total cost for HF was estimated to be
 $30.7 billion in 2012, with 68% attributable to direct medical costs. A more contemporary review estimated annual healthcare costs for HF patients in the western world, to amount to 25,000 Euro. Most of the costs was linked to inpatient care and re-hospitalizations. In
 Malaysia, in 2014, it was estimated that 3.6% of the GDP is being spent on total healthcare with only 1.8% spent on HF. This cost is expected to rise with an ageing and rapidly expanding population.
@@ -57,8 +54,7 @@ In another cost analysis done in 3 public hospitals in Sabah, Kelantan and Pulau
 
 Thus, an important goal in management of HF is to prevent readmissions, reducing both direct and indirect costs.
 
-## 1.3 Humanistic Burden of Heart Failure
-
+## 1.3: Humanistic Burden Of Heart Failure
 A diagnosis of HF also has a huge humanistic burden.21,27 This refers to the impact of an illness on the patient's health-related quality of life (HRQoL), activities of daily living, caregiver(s) 's health, caregiver(s)'s quality of life, patients' treatment satisfaction and compliance with their specific treatment regimens.21,28 In general, most patients prefer improved HRQoL to length of survival.
 
 The goals of management of HF include:
@@ -143,8 +139,7 @@ Improvement in all-cause mortality can be explained partly by demographic differ
 Medical Therapy.
 11
 
-## 1.2 Socio-Economic Consequences of Heart Failure
-
+## 1.2: Socio-Economic Consequences Of Heart Failure
 The socio-economic burden of HF is huge. In high-income countries, 1-2% of the total healthcare expenditure is spent on HF. 21 In the US, total cost for HF was estimated to be $30.7 billion in 2012, with 68% attributable to direct medical costs. 26 A more contemporary review estimated annual healthcare costs for HF patients in the western world, to amount to 25,000 Euro. 1 Most of the costs was linked to inpatient care and re-hospitalizations. In Malaysia, in 2014, it was estimated that 3.6% of the GDP is being spent on total healthcare with only 1.8% spent on HF. 27 This cost is expected to rise with an ageing and rapidly expanding population.
 
 The overall global economic cost of HF is highly variable from country to country.21,28 In general, the costs of treatment of a HF patient is higher: 28-30
@@ -165,8 +160,7 @@ In another cost analysis done in 3 public hospitals in Sabah, Kelantan and Pulau
 
 Thus, an important goal in management of HF is to prevent readmissions, reducing both direct and indirect costs.
 
-## 1.3 Humanistic Burden of Heart Failure
-
+## 1.3: Humanistic Burden Of Heart Failure
 A diagnosis of HF also has a huge humanistic burden.21,27 This refers to the impact of an illness on the patient's health-related quality of life (HRQoL), activities of daily living, caregiver(s) 's health, caregiver(s)'s quality of life, patients' treatment satisfaction and compliance with their specific treatment regimens.21,28 In general, most patients prefer improved HRQoL to length of survival.
 
 The goals of management of HF include:
@@ -180,8 +174,7 @@ Sound clinical judgment plays an important role in formulating appropriate patie
 
 ---
 
-## Key Message # 1: Epidemiology and Goals of Management
-
+## Key Message # 1: Epidemiology And Goals Of Management
 * In Malaysia, patients with HF are almost 10-15 years younger than those in Western Countries. Comorbidities such as hypertension, diabetes and chronic kidney disease are common.
 * HF is associated with a huge socio-economic and humanistic burden.
 * Most of the costs related to HF are related to inpatient hospital care and re-hospitalizations.
@@ -193,8 +186,7 @@ Sound clinical judgment plays an important role in formulating appropriate patie
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 7: Epidemiology of HF in Asia & Malaysia
+Table 7: Epidemiology Of HF In Asia & Malaysia
 
 | | Asian HF registry11 | Lim YMF et al12 | MYHF13,14 | Sharif RER et al14 | Ling HS et al15 | Azmee et al16 |
 |---|---|---|---|---|---|---|
@@ -213,7 +205,7 @@ Sound clinical judgment plays an important role in formulating appropriate patie
 
 ---
 
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -222,8 +214,7 @@ Sound clinical judgment plays an important role in formulating appropriate patie
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -231,12 +222,12 @@ Sound clinical judgment plays an important role in formulating appropriate patie
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -248,8 +239,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CAD | Coronary Artery Disease |

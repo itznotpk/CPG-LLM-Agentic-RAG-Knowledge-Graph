@@ -1,5 +1,4 @@
-# SECTION 9: RESUSCITATION FACILITIES
-
+# Section 9: Resuscitation Facilities
 <!-- METADATA
 category: Treatment, Reference
 use_case: Resuscitation Facilities — emergency_drugs, resuscitation_equipment, malignant_hyperthermia, LAST
@@ -14,11 +13,9 @@ treatment_type: dantrolene, intralipid, adrenaline, amiodarone, CPR
 ---
 
 ## General Resuscitation Preparedness
-
 It is recognized that there should be adequate resuscitation facilities provided for the patient being managed in critical care areas outside the operating room and intensive care. These include the recovery area / bays, areas where procedures are carried out under monitored sedation anywhere in the hospital and clinic procedures done under local anaesthesia. These facilities should include a range of emergency drugs and resuscitation equipment. The list given is only a guide and may be modified according to local circumstances.
 
-## 9.1 Emergency Drugs List
-
+## 9.1: Emergency Drugs List
 1. Adenosine
 2. Adrenaline
 3. Amiodarone
@@ -45,8 +42,7 @@ It is recognized that there should be adequate resuscitation facilities provided
 
 > **Note:** Dantrolene sodium should be readily available for immediate use when required. However in smaller hospitals where it is impractical to keep the stock of dantrolene in the facility, the management must ensure that provisions have been made to obtain the dantrolene immediately from another facility.
 
-## 9.2 Equipment List
-
+## 9.2: Equipment List
 1. Syringes and needles of various sizes
 2. Intravenous cannulae of various sizes
 3. Chest tubes and drainage sets of various sizes
@@ -59,4 +55,3 @@ It is recognized that there should be adequate resuscitation facilities provided
 10. Suction facilities
 11. Access to monitoring equipment such as pulse oximeter and ECG
 12. Access to a defibrillator.
-

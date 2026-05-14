@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: Epidemiology and Guideline Scope - disease_burden, registry_data, NSTE_ACS_definition, guideline_objectives
@@ -11,19 +10,15 @@ Ischaemic heart disease (IHD) remains the principal cause of death in Malaysia. 
 
 Patients with IHD may present with stable coronary artery disease (CAD) — now called Chronic Coronary Syndromes — or acute coronary syndrome (ACS). ACS is a clinical spectrum from NSTE-ACS (combination of unstable angina (UA) and non-ST elevation myocardial infarction (NSTEMI)) to ST elevation myocardial infarction (STEMI).
 
-### NCVD-ACS Registry 2016–2017
-
+### Ncvd-ACS Registry 2016–2017
 From the Malaysian National Cardiovascular Disease Database Acute Coronary Syndrome (NCVD-ACS) Registry 2016–2017:
-
 - 44.6% of ACS patients were STEMI.
 - 55.4% of ACS patients were NSTE-ACS (28.0% were NSTEMI and 27.4% were UA).
 
 Patients with NSTE-ACS were older (60.5 vs 56.3 years), more likely females (27.2% vs 14.2%) and had more CVD risk factors (comorbidities) compared to those who presented with STEMI.
 
 ### NSTE-ACS Presenting Risk Profile
-
 Of those presenting with NSTE-ACS:
-
 - 42.2% were in the intermediate-high TIMI risk score
   - 35.1% were in the intermediate risk group (TIMI 3 & 4)
   - 7.1% were in the high-risk group (TIMI 5, 6 & 7)
@@ -33,7 +28,6 @@ Compared to the previous registry data, our patients are now receiving more Guid
 
 ### Mortality Data
 The in-hospital, 30-day and 1-year mortality were:
-
 - 7.5%, 11.5% and 23.6% for NSTEMI respectively
 - 1.0%, 2.2% and 9.6% for UA respectively.
 
@@ -48,9 +42,9 @@ The Malaysian Clinical Practice Guidelines (CPGs) on Stable Coronary Artery Dise
 - Our NCVD-ACS registry shows that our in-hospital, 30-day and 1-year mortality is still high despite being lower than in previous years. Our figures are higher than those in other international registries. (Table 4: In-hospital, 30-day and 1-year mortalities in the NCVD 2014–2015, NCVD 2016–2017, GRACE, CZECH-2 and FAST MI Registries)
 
 ---
-## Contextual Anchors (Overlapping)
 
-### Table 4: In hospital, 30-day and 1-year mortalities in the NCVD 2014–2015, NCVD 2016–2017, GRACE, CZECH-2 and FAST MI Registries
+## Contextual Anchors (Overlapping)
+Table 4: In Hospital, 30-Day And 1-Year Mortalities In The Ncvd 2014–2015, Ncvd 2016–2017, Grace, Czech-2 And Fast MI Registries
 
 | | NCVD 2014–2015 (UA) | NCVD 2014–2015 (NSTEMI) | NCVD 2016–2017 (UA) | NCVD 2016–2017 (NSTEMI) | GRACE (NSTEMI) | CZECH-2 (NSTEMI) | FAST MI (NSTEMI) |
 |---|---|---|---|---|---|---|---|
@@ -60,8 +54,7 @@ The Malaysian Clinical Practice Guidelines (CPGs) on Stable Coronary Artery Dise
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

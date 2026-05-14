@@ -1,5 +1,4 @@
-# SECTION 12: TRADITIONAL AND COMPLEMENTARY MEDICINE
-
+# Section 12: Traditional And Complementary Medicine
 <!-- METADATA
 category: Supportive Treatment, Reference
 use_case: Traditional and complementary medicine safety in CVD context — safety_counselling, interaction_screening, patient_education, herbal_medicine, acupuncture
@@ -11,10 +10,9 @@ output: safety_guidance, interaction_warnings, referral_criteria
 
 ---
 
-## 12. Traditional and Complementary Medicine
+## 12: Traditional And Complementary Medicine
 
-### 12.1 Definition of Terms and Concepts
-
+## 12.1: Definition Of Terms And Concepts
 Traditional medicine, by WHO definition, is the sum total of the knowledge, skills, and practices based on the theories, beliefs, and experiences indigenous to different cultures, whether explicable or not, used in the maintenance of health as well as in the prevention, diagnosis, improvement or treatment of physical and mental illness. In Malaysia, it identifies strongly with the respective ethnic cultures and is often considered as an important part of their cultural heritage.
 
 Complementary medicine refers to a broad set of healthcare practices that are not part of that country's own traditional or conventional medicine and are not fully integrated into the dominant healthcare system. It is often used together with conventional medicine.
@@ -35,8 +33,7 @@ It excludes medical and dental practices used by medical and dental practitioner
 
 TCM stands for Traditional Chinese Medicine whereas T&CM is abbreviation for Traditional and Complementary Medicine. There are many more abbreviations and terms which appear frequently in many T&CM related literatures and documents which at time may cause confusion without knowing the context of source document. Visit web site Globinmed for further detail. (http://www.globinmed.com/)
 
-### 12.2 Utilisation of T&CM
-
+## 12.2: Utilisation Of T&CM
 According to data from NHMS 2015, about 29.25% of the population had ever used any form of T&CM with consultation. For use within the last 12 months, females showed significantly higher usage (23.98%) compared to males (19.33%). A higher percentage of the urban population (22.64%) were more likely to use T&CM compared to the rural population (18.23%).
 
 The survey showed that T&CM practices were mainly used to maintain wellness. When T&CM was used as treatment, the intended use was for primary healthcare and complementary treatment. About 18.3% of those surveyed intended to use of T&CM as an alternative treatment.
@@ -54,12 +51,10 @@ The areas of concern mentioned above require long term efforts in education and 
 
 In short term, frequent interaction, exchange of idea as well as information with credible T&CM practitioners specialised in CVD through periodic seminar, workshop and conference may be helpful in promoting mutual understanding. Malaysia Medical Association organises evidence based T&CM seminars on a yearly basis. Other available information may be obtained at Globinmed (http://www.globinmed.com/). This is a website administered by the Institute of Medical Research, MOH Malaysia.
 
-### 12.3 T&CM and CVD
-
+## 12.3: T&CM And CVD
 Many forms of T&CM base their information on traditional philosophy or belief system rather than relying on existing scientific research.
 
-#### 12.3.1 Acupuncture & Qi Gong for Hypertension
-
+### 12.3.1: Acupuncture & Qi Gong For Hypertension
 Two randomized controlled trials have produced conflicting results on the effectiveness of acupuncture in reducing BP.
 
 Meta-analysis have found that it does not reduce BP on its own. However it is a useful adjunct to drug therapy.
@@ -70,15 +65,14 @@ Acupuncture, although generally safe, has been associated with a small risk of i
 
 There is some evidence that qi gong lowers diastolic BP, but the conclusiveness of these findings is limited.
 
-#### 12.3.2 Mind Body Practices 
+### 12.3.2: Mind Body Practices
 Refer to Appendix 13: CATEGORIES OF COMPLEMENTARY AND TRADITIONAL MEDICINE*
 
 Meditation and spiritual healing are mind based therapies that are relatively safe and influence physical health through psychosocial and behavioural pathways. They help to cope with stress, improve emotional health and general well-being.
 
 - [Grade IIa, Level B] Mind body practices have a positive impact on CV health.
 
-#### 12.3.3 Herbal Medicine
-
+### 12.3.3: Herbal Medicine
 Herbal medicine does not belong to the traditional system of medicine. The National Pharmaceutical Regulatory Agency has categorised natural products into:
 - traditional products
 - herbal products and
@@ -113,8 +107,7 @@ Some examples include but not limited to the following:
 
 - [Grade IIb, Level C] Herbal medicine should be used with caution in the prevention and treatment of CVD.
 
-### 12.4 Role of T&CM in the prevention of CVD
-
+## 12.4: Role Of T&CM In The Prevention Of CVD
 There are unique features of T&CM as practised in Malaysia that can be harnessed to contribute to the nationwide CVD prevention strategy.
 - The practice is strongly identified with the respective ethnic cultures and is considered as important cultural heritages.
 - Almost all the 14,000 or so T&CM practitioners establish their practice at the primary health care level. They stay close to the grass roots and establish symbiotic relationships with local cultural institutions such as temples, mosques, schools and other NGOs. They can become strong opinion leaders among the grass roots that can influence individual and community behavior and participation in health strategies.
@@ -137,11 +130,9 @@ Currently, only TCM offers professionalized and specialized services to patients
 - Herbal medicine, acupuncture and other forms of T&CM should be used with caution in the prevention and treatment of CVD.
 - TCM practitioners should not replace conventional mainstream health professionals as sources of medical advice for the prevention of CVD.
 
-
-
 ---
-### Appendix 12: FORMS OF TRADITIONAL MEDICINE
 
+### Appendix 12: Forms Of Traditional Medicine
 **Traditional Malay Medicine (TMM):**
 - Is based on knowledge inherited from generation to generation among the Malay community.
 - Has the largest user group.
@@ -189,8 +180,7 @@ Islamic medical practice is used in the treatment of physical and spiritual ailm
 <!-- OVERLAP CONTENT                                              -->
 <!-- ============================================================ -->
 
-### Appendix 13: CATEGORIES OF COMPLEMENTARY AND TRADITIONAL MEDICINE*
-
+### Appendix 13: Categories Of Complementary And Traditional Medicine*
 The National Centre for Complementary and Alternative Medicine (NCCAM) has identified 5 major domains of Complementary and Alternative Medicines:
 - Whole medical systems -This includes Traditional Oriental medicine, Ayurvedic medicine, Homeopathy, Naturopathy and other culturally based or indigenous healing practices.
 - Mind-body Medicine- This includes clinical hypnosis, guided imagery, biofeedback, meditation, dance, music and art therapies, prayer, and spiritual healing.
@@ -208,8 +198,7 @@ The National Centre for Complementary and Alternative Medicine (NCCAM) has ident
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -218,8 +207,7 @@ The National Centre for Complementary and Alternative Medicine (NCCAM) has ident
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -236,7 +224,6 @@ The National Centre for Complementary and Alternative Medicine (NCCAM) has ident
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | BP | Blood Pressure |

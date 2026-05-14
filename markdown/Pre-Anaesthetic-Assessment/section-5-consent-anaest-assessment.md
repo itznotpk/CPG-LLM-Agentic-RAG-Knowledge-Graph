@@ -1,5 +1,4 @@
-# 5 CONSENT
-
+## 5: Consent
 <!-- METADATA
 category: Consent, Legal Requirements
 use_case: Informed consent for anaesthesia — separate_anaesthesia_consent, Malaysian_Medical_Council_2013_guidelines, consent_form_requirements, under-aged_patients, unconscious_patients, emergency_consent, two_consultant_consent, risk_information_disclosure, alternative_anaesthetic_options, validity_of_consent, 7_day_validity_period, delayed_procedure_consent

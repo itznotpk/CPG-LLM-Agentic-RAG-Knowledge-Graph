@@ -1,5 +1,4 @@
-# 6 PRE-OPERATIVE MEDICATION
-
+## 6: Pre-Operative Medication
 <!-- METADATA
 category: Pre-operative Medication, Pharmacology
 use_case: Pre-operative medication management — medication_review, drug_interaction_with_anaesthetic_agents, adverse_drug_interactions, anaesthetic_technique_modification, sedative_premedication, benzodiazepines, opioids, acid_aspiration_prophylaxis, anaesthetic_record_documentation

@@ -1,5 +1,4 @@
-# SECTION 0: FLOWCHART
-
+# Section 0: Flowchart
 <!-- METADATA
 category: Reference, Assessment, Prevention, Special Populations
 use_case: Cardiac Disease in Pregnancy Flowcharts — preconception_counselling, antenatal_care_plan, intrapartum_care, postpartum_care, WHO_risk, NYHA_class
@@ -7,8 +6,7 @@ patient_input: cardiac_disease_status, pregnancy_intent, gestational_age, WHO_cl
 output: flowchart_pathway, counselling_plan, referral_plan, pregnancy_care_plan, delivery_plan, postpartum_plan
 -->
 
-### Flowchart 1: Preconception Counselling and Contraceptive Advice
-
+### Flowchart 1: Preconception Counselling And Contraceptive Advice
 **Step 1: Known Cardiac Disease**
 
 **Step 2: Choose Pathway based on Intent**
@@ -16,8 +14,8 @@ output: flowchart_pathway, counselling_plan, referral_plan, pregnancy_care_plan,
 - **Pathway B:** Seeking Contraceptive Advice
 
 ---
-### PATHWAY A: Planning Pregnancy
 
+### Pathway A: Planning Pregnancy
 **Step 3A: Preconception Clinical Assessment**
 - Counselling should be initiated at puberty and re-emphasised at age 16-18 and prior to marriage. It should continue until they have completed their family.
 - A thorough history particularly focusing on current physical activity, past cardiac events and any planned cardiac intervention.
@@ -45,38 +43,33 @@ output: flowchart_pathway, counselling_plan, referral_plan, pregnancy_care_plan,
 - Early referral for cardiac assessment and risk stratification.
 
 ---
-### PATHWAY B: Seeking Contraceptive Advice
+
+### Pathway B: Seeking Contraceptive Advice
 *(Also applies to High Risk patients from Pathway A)*
 
 **Step 3B: Appropriate Contraceptive Advice (End)**
 
 ---
 
-### Flowchart 2: Antenatal Care Plan for Women with Cardiac Disease
-
+### Flowchart 2: Antenatal Care Plan For Women With Cardiac Disease
 *(no later than end of 1st trimester)*
 
 #### Step 1: Initial Actions
-
 - To do antenatal booking at the nearest healthcare facility as soon as pregnancy is suspected.
 - The patient should be referred as soon as possible for cardiac assessment and risk stratification.
 
 #### Step 2: Clinical Assessment
-
 Perform clinical assessment including:
-
 - History and physical examination
 - Drug history
 - Baseline investigations (if necessary)
 
 #### Step 3: Risk Stratification
-
 Perform risk stratification using **WHO & NYHA** classifications (refer to Table 1 & 2).
 
 This risk is cumulative depending on obstetric and cardiac risk factors.
 
 #### Step 4: Risk Pathways
-
 **Low risk**
 
 - WHO risk I-II
@@ -95,19 +88,16 @@ This risk is cumulative depending on obstetric and cardiac risk factors.
 - NYHA III & IV
 
 If pregnant:
-
 - Early termination of pregnancy to be discussed.
 - Termination considered up to 22 weeks.
 
 If patient chooses to continue pregnancy:
-
 - Detailed medical counselling advised.
 - Careful documentation in the medical records is mandatory.
 - Close monitoring and ± early hospitalisation (manage as per moderate risk).
 - Develop a pregnancy care plan.
 
 #### Step 5: Develop Pregnancy Care Plan
-
 **Antepartum:**
 
 - Follow up in a tertiary centre at least one visit per trimester (frequency of follow up dependent on maternal risk).
@@ -131,7 +121,6 @@ This care plan should be widely disseminated and there should be close communica
 - Proceed to step 6.
 
 #### Step 6: Identify Additional Care Needs
-
 - Close maternal-fetal surveillance:
   - Nuchal translucency scan 11 to < 14 weeks, if indicated
   - Genetic karyotyping, if indicated
@@ -142,8 +131,7 @@ This care plan should be widely disseminated and there should be close communica
 
 ---
 
-### Flowchart 3: Intrapartum and Early (< 24 Hours) Postpartum Care Plan
-
+### Flowchart 3: Intrapartum And Early (< 24 Hours) Postpartum Care Plan
 **Step 1: Risk Stratification Pathways**
 *Divide into 3 risk groups:*
 - **Low Risk:** WHO risk I - II, NYHA I & II
@@ -188,7 +176,6 @@ This care plan should be widely disseminated and there should be close communica
 ---
 
 ### Flowchart 4: Postpartum Care Plan
-
 **Step 1: Risk Stratification Pathways**
 *Divide into 3 risk groups:*
 - **Low Risk:** WHO risk I - II, NYHA I & II *(Proceed to Step 3: Discharge Planning & Postpartum Care)*
@@ -220,8 +207,7 @@ This care plan should be widely disseminated and there should be close communica
 
 ---
 
-### Flowchart 5: Management of Anticoagulation in Pregnancy
-
+### Flowchart 5: Management Of Anticoagulation In Pregnancy
 **Step 1: Indication for Anticoagulation**
 - Mechanical Heart Valves
 - Other Indications (e.g., VTE, Atrial Fibrillation)
@@ -246,7 +232,6 @@ This care plan should be widely disseminated and there should be close communica
 ---
 
 ## Overall Abbreviations
-
 | Abbreviation | Description |
 |---|---|
 | ABPM | Ambulatory Blood Pressure Monitoring |
@@ -330,4 +315,3 @@ This care plan should be widely disseminated and there should be close communica
 | VT | Ventricular Tachycardia |
 | VTE | Venous Thromboembolism |
 | WHO | World Health Organisation |
-

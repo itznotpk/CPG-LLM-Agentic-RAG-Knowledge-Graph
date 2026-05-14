@@ -1,5 +1,4 @@
-# SECTION 7: REPERFUSION STRATEGIES
-
+# Section 7: Reperfusion Strategies
 <!-- METADATA
 category: Treatment
 use_case: Reperfusion Strategy Selection — primary_PCI, fibrinolytic_therapy, pharmaco_invasive_strategy, rescue_PCI, door_to_balloon_time, door_to_needle_time
@@ -9,8 +8,7 @@ critical: true
 treatment_type: primary_PCI, fibrinolysis, rescue_PCI, pharmaco_invasive
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 A patient's immediate and long-term prognosis following STEMI can be predicted by using the:
 - Thrombolysis in Myocardial Infarction (TIMI) STEMI risk score (Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality) - This was specifically developed for patients with STEMI **or**
 - GRACE risk score (refer to Appendix IV: GRACE ACS Risk Model). -this predicts in-hospital and 6-month mortality in patients with ACS.
@@ -105,8 +103,7 @@ Primary PCI is more cost-effective than thrombolysis-based care and should becom
 
 [Grade III, Level C] These patients should not be given fibrinolysis.
 
-## 7.1 Fibrinolytic therapy
-
+## 7.1: Fibrinolytic Therapy
 [Grade I, Level A] Fibrinolytic therapy (FT) has been shown to reduce mortality when given within the appropriate time frame. When given within 2 hours from time of onset of symptoms (the "golden hour"), it is most beneficial and has been shown to be able to abort the infarction and reduce mortality by up to 50%.
 
 In the **golden hour**, when symptom duration is within 1 to 2 hours, **prompt FT** may provide clinical benefit compared with primary PCI and should be considered as a potentially preferable option.
@@ -117,17 +114,15 @@ The DNT should be within 30 minutes. Strategies should be put in place to achiev
 
 [Grade I, Level A] Pre-hospital fibrinolytic therapy has been shown to achieve faster reperfusion.
 
-### 7.1.1 Indications
-
+### 7.1.1: Indications
 Fibrinolytic therapy should only be given to patients with STEMI. (refer to Section 3.1: History and Section 3.2: Electrocardiographic Changes)
 
 [Grade III, Level A] It has no role and may even be detrimental in patients with NSTEMI.
 
-### 7.1.2 Contraindications
+### 7.1.2: Contraindications
 Refer to **section 7 (B): Contraindications to Fibrinolytic Therapy**
 
-### 7.1.3 Choice of fibrinolytic agent
-
+### 7.1.3: Choice Of Fibrinolytic Agent
 Presently the agents available in Malaysia are:
 
 **Streptokinase**
@@ -166,20 +161,17 @@ Either one of these agents should be given immediately after the completion of f
 
 [Grade IIa, Level B] Subcutaneous (s.c.) fondaparinux 2.5 mg daily may be given as an alternative for 8 days or until discharge.
 
-### 7.1.4 Fibrinolysis in Unstable Patients
-
+### 7.1.4: Fibrinolysis In Unstable Patients
 Ideally, these patients should be transferred for primary PCI. If this cannot be done in a timely manner or the patient is too unstable for transfer, they should be considered for fibrinolysis and then transferred for early PCI when stable.
 
 **7.1.4.1 Presence of Hypotension at Presentation (SBP < 90 mmHg)**
 
 Hypotension may be due to:
-
 - Relative hypovolaemia.
 - RV infarction.
 - Acute LV failure.
 
 These patients should be:
-
 - Given IV fluids as necessary.
 - Started on inotropes, preferably noradrenaline.
 
@@ -197,10 +189,8 @@ These patients should be treated with oxygen, non-invasive positive pressure ven
 
 If the ECG shows STEMI, fibrinolysis with a fibrin specific agent may be considered.
 
-### 7.1.5 Indicators of Successful Reperfusion
-
+### 7.1.5: Indicators Of Successful Reperfusion
 There is no sensitive bedside clinical method to reliably detect successful reperfusion. Some useful guides are:
-
 - Resolution of chest pain (may be confounded by the use of narcotic analgesics).
 - Early return of ST segment elevation to isoelectric line or a decrease in the height of the ST elevation by 50% (in the lead that records the highest ST elevation) within 60–90 minutes of initiation of fibrinolytic therapy.
 - Early peaking of CK and CK-MB levels.
@@ -208,84 +198,72 @@ There is no sensitive bedside clinical method to reliably detect successful repe
 
 The occurrence of 'reperfusion arrhythmias' is not a reliable indicator of successful reperfusion. An exception is accelerated idioventricular rhythm and sudden sinus bradycardia which have been correlated with a patent infarct-related coronary artery after fibrinolytic therapy or primary PCI.
 
-### 7.1.6 Failed Fibrinolysis
-
+### 7.1.6: Failed Fibrinolysis
 Failure of fibrinolytic agents to open the occluded IRA is manifested as continuing chest pain, persistent ST segment elevation and haemodynamic instability. These patients are more likely to develop complications such as heart failure and arrhythmias.
 
 - [Grade I, Level A] The treatment of choice for these patients is rescue PCI.
 - [Grade III, Level B] They should not be given a second dose of a fibrinolytic agent. This is because there has been no difference in event-free survival demonstrated whether these patients are given a repeat dose of a fibrinolytic agent or are treated conservatively.
 
-## 7.2 Percutaneous Coronary Intervention (PCI)
+## 7.2: Percutaneous Coronary Intervention (PCI)
 
-### 7.2.1 Primary PCI
-
+### 7.2.1: Primary PCI
 - [Grade I, Level A] Primary PCI is the preferred reperfusion strategy in patients with ischaemic symptoms < 12 hours when it can be performed in a timely manner and promptly by experienced operators in centres performing a sufficient number of primary PCI procedures.
 
 **7.2.1.1 Transfer of Patient**
 
 Transfer of patients with STEMI to PCI-capable centres should be considered in the following situations:
-
-- [Grade I, Level A] Onset of ischaemic symptoms < 12 hours and fibrinolytic therapy is contraindicated irrespective of time delay from FMC. 
-- [Grade I, Level A] Cardiogenic shock irrespective of time delay. 
+- [Grade I, Level A] Onset of ischaemic symptoms < 12 hours and fibrinolytic therapy is contraindicated irrespective of time delay from FMC.
+- [Grade I, Level A] Cardiogenic shock irrespective of time delay.
 - [Grade I, Level A] STEMI presenting with acute HF. These patients should be stabilised rapidly and ventilated if necessary. Options include:
   - [Grade I, Level C] Transfer for primary PCI, or
-  - [Grade I, Level A] Give fibrinolytic therapy and transfer the patient within 24 hours for a pharmaco-invasive strategy. 
-- [Grade I, Level A] When symptoms have been present between 3 and 12 hours and PCI can be performed within 120 minutes (preferably 90 minutes). 
+  - [Grade I, Level A] Give fibrinolytic therapy and transfer the patient within 24 hours for a pharmaco-invasive strategy.
+- [Grade I, Level A] When symptoms have been present between 3 and 12 hours and PCI can be performed within 120 minutes (preferably 90 minutes).
 - [Grade I, Level C] When transferred from a non-PCI-capable hospital to a PCI-capable hospital, the DIDO time should be < 30 minutes and transfer time should be < 60 minutes.
-- [Grade I, Level A] Failed fibrinolytic therapy or re-occlusion post-fibrinolysis (refer to **Section 7.1.6: Failed fibrinolysis**). 
+- [Grade I, Level A] Failed fibrinolytic therapy or re-occlusion post-fibrinolysis (refer to **Section 7.1.6: Failed fibrinolysis**).
 - [Grade I, Level A] As part of a pharmaco-invasive strategy in stable patients who have been given fibrinolytics and an elective PCI can be performed within 3 and 24 hours.
 
-### 7.2.2 PCI Post-Fibrinolysis or Patients Who Did Not Receive Fibrinolysis
-
+### 7.2.2: PCI Post-Fibrinolysis Or Patients WHO Did Not Receive Fibrinolysis
 Following fibrinolysis, or in patients who did not receive fibrinolysis, early PCI, preferably during the index hospitalisation, should be considered in the following situations:
-
-- [Grade I, Level A] Failed reperfusion or re-occlusion after fibrinolytic therapy. 
-- [Grade I, Level A] Cardiogenic shock or acute pulmonary oedema that develops after initial presentation. 
-- [Grade I, Level A] Stable patients within 3–24 hours post-fibrinolysis as part of a pharmaco-invasive strategy. 
-- [Grade I, Level C] STEMI TIMI risk score of ≥ 6.0 at admission (refer to Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality). 
+- [Grade I, Level A] Failed reperfusion or re-occlusion after fibrinolytic therapy.
+- [Grade I, Level A] Cardiogenic shock or acute pulmonary oedema that develops after initial presentation.
+- [Grade I, Level A] Stable patients within 3–24 hours post-fibrinolysis as part of a pharmaco-invasive strategy.
+- [Grade I, Level C] STEMI TIMI risk score of ≥ 6.0 at admission (refer to Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality).
 - [Grade I, Level C] Spontaneous or easily provoked myocardial ischaemia such as recurrence of chest pains and/or dynamic ECG changes.
 - [Grade I, Level C] If symptoms are completely relieved and ST segment completely normalises either spontaneously or after GTN or antiplatelet therapy.
 
 Failed fibrinolytic therapy is manifested as one or more of the following:
-
 - Ongoing chest pains.
 - Persistent hyper-acute ECG changes (< 50% resolution of ST elevation in the lead showing the greatest degree of ST elevation at presentation).
 - Haemodynamic and electrical instability.
 
 Rescue PCI is initiated very early (1 to 2 hours) after failed fibrinolytic therapy. It is associated with a reduction in HF, reinfarction and a trend towards reduction in mortality but with increased risk of bleeding and stroke. Hence, these patients should be individually evaluated.
 
-### 7.2.3 Facilitated PCI
-
+### 7.2.3: Facilitated PCI
 This refers to a strategy of planned immediate PCI (< 1 hour) after an initial pharmacologic regimen consisting of a reduced dose of a fibrinolytic agent, GP IIb/IIIa inhibitor or a combination of these agents. The purpose of facilitated PCI was to achieve earlier reperfusion but retain the benefits of primary PCI.
 
 - [Grade III, Level A] This strategy was associated with increased mortality and major bleeding. It is thus not recommended.
 
-### 7.2.4 Routine Angiography and PCI After Thrombolysis (Pharmaco-Invasive Therapy)
-
+### 7.2.4: Routine Angiography And PCI After Thrombolysis (Pharmaco-Invasive Therapy)
 This refers to stable patients routinely undergoing angiography and PCI between 3–24 hours after fibrinolysis, irrespective of the absence or presence of ongoing myocardial ischaemia and reperfusion status.
 
 - [Grade I, Level A] Given the advances in PCI and antithrombotic therapy, recent studies show that routine angiography with the intent to perform PCI with stenting between 3 and 24 hours after fibrinolysis improved patient outcomes as compared to symptom or ischaemia guided delayed intervention. This strategy has resulted in a significant reduction in mortality and reinfarction rates without an increase in adverse events.
 - [Grade I, Level A] All patients who have been given fibrinolytic therapy should be considered for a strategy of early PCI between 3–24 hours after fibrinolysis wherever possible.
 
-### 7.2.5 Delayed Angiography and PCI — Symptom Onset > 12 hours
-
+### 7.2.5: Delayed Angiography And PCI — Symptom Onset > 12 Hours
 - [Grade I, Level B] A primary PCI strategy is indicated in the presence of ongoing symptoms suggestive of ischaemia, haemodynamic instability, or life-threatening arrhythmias.
 - [Grade III, Level A] In asymptomatic patients, routine PCI of an occluded IRA > 48 hours after onset of STEMI is not indicated.
 
-### 7.2.6 Delayed Selective Angiography and PCI
-
+### 7.2.6: Delayed Selective Angiography And PCI
 Patients with STEMI who have not had coronary angiography within 24 hours should be considered for delayed selective angiography. This refers to a strategy of doing angiography and PCI only if there is spontaneous or inducible ischaemia.
 
 Stable patients who are not at high risk (refer to Section 7 (C)) and who did not undergo early (< 24 hours) angiography should undergo non-invasive ischaemia testing.
 
 [Grade I, Level A] If spontaneous or inducible ischaemia is present, then angiography and appropriate revascularization should be performed.
 
-## 7.3 Technical Considerations and Pharmacotherapy During Primary PCI
-
+## 7.3: Technical Considerations And Pharmacotherapy During Primary PCI
 For a favourable outcome, it is important to obtain good TIMI 3 epicardial flow as well as optimum reperfusion of the myocardial microvasculature (TIMI myocardial perfusion grade — TMP).
 
-### 7.3.1 Antiplatelet Therapy to Support Primary PCI for STEMI
-
+### 7.3.1: Antiplatelet Therapy To Support Primary PCI For STEMI
 - [Grade I, Level A] Oral aspirin 300 mg should be given before primary PCI.
 - In addition, a P2Y₁₂ receptor inhibitor should also be given:
   - [Grade I, Level A] Clopidogrel 300–600 mg loading dose to be given as early as possible, or
@@ -295,31 +273,26 @@ For a favourable outcome, it is important to obtain good TIMI 3 epicardial flow 
   - [Grade IIa, Level B] Abciximab.
   - [Grade IIa, Level B] Tirofiban.
 
-### 7.3.2 Antithrombotic Therapy to Support Primary PCI for STEMI
-
+### 7.3.2: Antithrombotic Therapy To Support Primary PCI For STEMI
 - IV UFH with additional bolus to maintain ACT above 275 seconds.
 - IV LMWH — enoxaparin.
 - IV fondaparinux is not recommended because of the risk of catheter thrombosis.
 - Bivalirudin infusion.
 
-### 7.3.3 PCI Access Site
-
+### 7.3.3: PCI Access Site
 - [Grade I, Level A] Radial access is recommended over femoral access if performed by an experienced radial operator.
 - Radial access has the advantage of reducing bleeding complications. However, when larger devices are necessary and the use of IABP is anticipated, femoral access may be preferable.
 - A recent study showed that bleeding rates and 30-day mortality following PCI for STEMI were no different between radial and femoral approaches.
 
-### 7.3.4 Technical Tips During Procedure
-
+### 7.3.4: Technical Tips During Procedure
 - [Grade I, Level A] Primary PCI should be performed on the IRA.
 - [Grade IIb, Level B] Complete revascularization should not be routinely attempted on critical lesions in non-culprit vessels in the same procedure when patient is in cardiogenic shock.
 - [Grade I, Level A] PCI is indicated in a non-infarct artery at a later time when there is evidence of myocardial ischaemia or FFR < 0.8.
 - [Grade I, Level A] Stenting is recommended (over balloon angioplasty) for primary PCI.
 - [Grade I, Level A] Stenting with new-generation DES is recommended over BMS for primary PCI. Despite higher total costs relative to BMS, DES appeared to be a cost-effective strategy.
 
-### 7.3.5 Distal Embolisation and the Use of Adjunctive Devices and Pharmacotherapy
-
+### 7.3.5: Distal Embolisation And The Use Of Adjunctive Devices And Pharmacotherapy
 Thrombus burden is usually large if the patient presents late or the IRA is ectatic. Predictors of slow flow and no-reflow (TIMI 0) of the IRA are:
-
 - Vessel diameter ≥ 3.5 mm.
 - Treatment of the right coronary artery.
 - Higher TIMI thrombus score.
@@ -331,17 +304,14 @@ Thrombus burden is usually large if the patient presents late or the IRA is ecta
   - Floating thrombus.
 
 The following steps can be taken to prevent distal embolization:
-
 - [Grade III, Level A] Aspiration catheter — routine use of thrombus aspiration is not recommended.
 - Distal embolic protection — meta-analysis showed that these devices had a neutral effect on mortality.
 - GP IIb/IIIa inhibitors — abciximab and tirofiban therapy during primary PCI showed short-term benefit especially in high-risk patients. The data on its effect on long-term survival is however conflicting.
 
-### 7.3.6 Management of No Reflow
-
+### 7.3.6: Management Of No Reflow
 No reflow (TIMI 0) or slow reflow (TIMI 1 and 2) may occur transiently or may persist after primary PCI.
 
 No-reflow may occur as a consequence of:
-
 - Microvascular dysfunction from vasospasm.
 - Distal embolisation.
 - Intimal dissection/intramural haematoma.
@@ -349,7 +319,6 @@ No-reflow may occur as a consequence of:
 It is associated with poor recovery of LV function and a higher incidence of post-MI complications.
 
 Management includes:
-
 - IC GTN 100–200 µg boluses.
 - IC verapamil 100–200 µg boluses.
 - IC adenosine 100–200 µg boluses.
@@ -357,16 +326,13 @@ Management includes:
 - IV nicardipine 100–200 µg boluses.
 
 ## Key Recommendation 5:
-
 - Primary PCI is superior to fibrinolysis for STEMI and should be performed in a timely manner at experienced centres. (refer to Flow Chart 2: Time intervals to determine choice of reperfusion strategy)
 
 ## Key Recommendation 6:
-
 - When fibrinolytic therapy is administered, the DNT should be ≤ 30 minutes.
 - Whenever possible, patients given fibrinolytic therapy should be considered for a pharmaco-invasive approach (elective angiogram within 3–24 hours post fibrinolysis).
 
 ## Key Message #7:
-
 Primary PCI is superior to fibrinolysis for STEMI when performed in a timely manner at experienced centres. (refer to Flow Chart 1: Management of patients presenting with STEMI & Flow Chart 2: Time intervals to determine choice of reperfusion strategy)
 - If the patient **presents at a PCI centre**, then the time from FMC (First Medical Contact) to wire crossing should be **≤ 90 minutes.**
 - If transferred from **a centre with no PCI facilities**, the time from FMC to wire crossing should be **≤120 minutes** (including transfer delay). This is made up of:
@@ -380,7 +346,6 @@ Primary PCI is superior to fibrinolysis for STEMI when performed in a timely man
 ## Contextual Anchors (Overlapping)
 
 ### Section 5: STEMI Network (Overlapping)
-
 The objective of a STEMI network is to link non-PCI-capable centres to PCI-capable centres with the aim of providing PCI services in a timely manner for patients:
 - With STEMI
 - Who have been given fibrinolytic therapy and:
@@ -405,8 +370,7 @@ Essentials of STEMI systems of care include:
 - A prospective registry to assess progress and need for change.
 - Quality Improvement Measures and Quality Improvement Programs.
 
-#### 5.1 Total Ischaemic Time
-
+## 5.1: Total Ischaemic Time
 **For Primary PCI:**
 - Target from FMC to "wire crossing" (Door to Balloon (Device) Time):
   - FMC in PCI capable hospital ("Hub"): ≤ 90 minutes
@@ -435,8 +399,7 @@ Essentials of STEMI systems of care include:
     - Has high risk features requiring early intervention.
   - Managed at the spoke hospital if the patient has low risk features.
 
-#### Key Messages #5 (from Section 5):
-
+#### Key Messages #5 (From Section 5):
 The objective of a STEMI network is to link non PCI-capable centres to PCI-capable centres with the aim of providing PCI services in a timely manner for patients:
 - With STEMI
 - Who have been given fibrinolytic therapy and:
@@ -446,15 +409,14 @@ The objective of a STEMI network is to link non PCI-capable centres to PCI-capab
 - The optimal treatment of these patients should be based on the implementation of networks between hospitals ('hub' and 'spoke') with various levels of technology, linked by an efficient ambulance service.
 
 ---
-### Section 6: In-Hospital Management (Overlapping)
 
+### Section 6: In-Hospital Management (Overlapping)
 Early management of STEMI is directed at:
 - Pain relief.
 - Establishing early reperfusion.
 - Treatment of complications.
 
-#### 6.1 Initial recognition and management
-
+## 6.1: Initial Recognition And Management
 - [Grade I, Level A] When the patient with suspected STEMI reaches the emergency department, evaluation and initial management should be prompt (**FAST TRACK - RED ZONE**) because the benefits of reperfusion therapy are greater the earlier it is instituted.
 - [Grade I, Level C] A quick targeted history should be taken, and vital signs noted. The diagnosis should be confirmed with an ECG, which should be done as soon as possible, within 10 minutes of the patient's arrival in the emergency department.
 - [Grade I, Level C] In patients suspected of having a STEMI in view of the prolonged ischaemic-type chest pain of > 30 minutes but without obvious ST elevation seen in the resting ECG, the following steps may be taken:
@@ -481,27 +443,24 @@ Early management of STEMI is directed at:
     - [Grade I, Level B] 180 mg of ticagrelor
   - [Grade I, Level B] Oxygen is administered in patients with hypoxaemia (SpO₂ < 95% or PaO₂ < 60 mmHg). Routine oxygen is not recommended in patients with SpO₂ ≥ 95%.
 
-#### Key Message #6 (from Section 6):
-
+#### Key Message #6 (From Section 6):
 - Early management of STEMI is directed at:
   - Pain relief.
   - Establishing early reperfusion.
   - Treatment of complications.
 
-#### Key Recommendation 4 (from Section 6):
-
+#### Key Recommendation 4 (From Section 6):
 - "Time is muscle" - Every patient with STEMI should have the occluded artery reopened (reperfusion therapy) as soon as possible after the onset of symptoms.
 - Reperfusion therapy is indicated in all patients with symptoms of ischaemia of <12 hours duration and persistent ST-segment elevation.
 
 ---
-### Section 8: CCU Management (Overlapping)
 
-#### 8.1 General measures
+### Section 8: Ccu Management (Overlapping)
 
+## 8.1: General Measures
 All STEMI patients should be admitted to a CCU or equivalent unit equipped with adequate monitoring facilities. Following successful reperfusion, uncomplicated cases may be kept for a minimum of 24 hours before transfer to a step-down unit.
 
-#### 8.3 Concomitant therapy
-
+## 8.3: Concomitant Therapy
 **8.3.2 Antiplatelet agents**
 
 In STEMI, DAPT is indicated. This includes:
@@ -550,8 +509,7 @@ In STEMI, DAPT is indicated. This includes:
 - [Grade I, Level A] High-intensity statin therapy (atorvastatin 40-80 mg daily or rosuvastatin 20-40 mg daily) should be initiated as early as possible.
 - [Grade I, Level A] Target LDL-C should be < 1.8 mmol/L or a reduction of at least 50% from baseline, the lower the better.
 
-#### Key Recommendation 7 (from Section 8):
-
+#### Key Recommendation 7 (From Section 8):
 - All patients with STEMI receiving **fibrinolytic therapy** should receive:
   - 300 mg aspirin + loading dose of 75 mg clopidogrel (> 75 years) or 300 mg clopidogrel (≤ 75 years)
   - Followed by maintenance aspirin 75-150 mg daily and clopidogrel 75 mg daily. DAPT 1 month to 1 year.
@@ -559,8 +517,7 @@ In STEMI, DAPT is indicated. This includes:
   - 300 mg aspirin + 300-600 mg clopidogrel or 180 mg ticagrelor or 60 mg prasugrel (after coronary angiogram)
   - DAPT for up to a year. In high bleeding risk, shorter DAPT of 6 months may be considered.
 
-#### Key Recommendation 8 (from Section 8):
-
+#### Key Recommendation 8 (From Section 8):
 - All patients with STEMI should receive medications that have been shown to improve survival if given early:
   - ACE-Is (ARBs if ACE-I intolerant)
   - ß-blockers
@@ -569,8 +526,7 @@ In STEMI, DAPT is indicated. This includes:
 
 ---
 
-### Overlapping Content from Section 3.1: History
-
+### Overlapping Content From Section 3.1: History
 A thorough, targeted history is important in making the diagnosis of STEMI. Chest pain in STEMI begins abruptly and lasts for more than thirty minutes. It is usually located in the centre of the chest and may radiate to the jaw or down the left arm. It may occur at rest or with activity. The pain may just be a tightness or heaviness in the chest, but it is usually described as a pressure, squeezing or a severe crushing pain with a sense of impending doom, and is associated with sweating, nausea, vomiting and shortness of breath.
 
 In the elderly, females and patients with diabetes, the index of suspicion should be high because they may present with atypical symptoms such as unexplained fatigue, shortness of breath, dizziness, light-headedness, unexplained sweating and syncope. They may not necessarily have chest pain.
@@ -579,8 +535,7 @@ In the elderly, females and patients with diabetes, the index of suspicion shoul
 - A quick targeted history should be taken and is essential in raising the suspicion that the chest pain or chest pain equivalent is ischaemic in origin.
 - Upon clinical suspicion of ACS, a 12-lead ECG should be performed and interpreted immediately within 10 minutes of FMC.
 
-### Overlapping Content from Section 3.2: Electrocardiographic Changes
-
+### Overlapping Content From Section 3.2: Electrocardiographic Changes
 The diagnosis of STEMI depends upon the presence of characteristic ECG changes. The presence of ST elevation in two contiguous leads in a patient with symptoms of ischaemia is the cardinal feature of STEMI.
 
 The cut-off points for new or presumed new ST segment elevation at the J point (in the absence of LVH and LBBB) is:
@@ -602,7 +557,7 @@ Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB a
 
 ---
 
-### Table 4: Indications for PCI in STEMI (Summary)
+Table 4: Indications For PCI In STEMI (Summary)
 
 | Intervention | Grade/Level |
 |---|---|
@@ -616,8 +571,7 @@ Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB a
 
 ---
 
-### Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality
-
+### Appendix III: STEMI Timi Risk Score For Predicting 30-Day Mortality
 | Categories | Options | Points |
 |---|---|---|
 | Age (years) | < 65 | 0 |
@@ -638,10 +592,9 @@ Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB a
 
 ---
 
-### Appendix IV: GRACE ACS Risk Model
+### Appendix IV: Grace ACS Risk Model
 
 ### At Admission (In-Hospital/to 6 Months)
-
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -653,8 +606,7 @@ Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB a
 | ST segment deviation | Yes / No |
 | Elevated cardiac enzymes/markers | Yes / No |
 
-### At Discharge (to 6 Months)
-
+### At Discharge (To 6 Months)
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -671,8 +623,7 @@ Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB a
 
 ---
 
-### Flow Chart 1: Management of patients presenting with STEMI
-
+### Flow Chart 1: Management Of Patients Presenting With STEMI
 **1. Initial Presentation**
 *   **Electrocardiography & Cardiac Biomarkers**
     *   **CHEST PAIN / CHEST PAIN EQUIVALENT**
@@ -681,7 +632,7 @@ Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB a
 *   **Concomitant initial management includes:**
     *   Continuous ECG monitoring
     *   Sublingual glyceryl trinitrate (GTN) (if no contraindication)
-    *   Aspirin + 
+    *   Aspirin +
     *   Clopidogrel <sup>#</sup>
     *   Analgesia
     *   Oxygen [if oxygen saturation (SpO₂) < 95%]
@@ -718,8 +669,7 @@ Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB a
 
 ---
 
-### Flow Chart 2: Time intervals to determine choice of reperfusion strategy
-
+### Flow Chart 2: Time Intervals To Determine Choice Of Reperfusion Strategy
 **Starting point:** ONSET OF CHEST PAIN → Patient contacts emergency services / Ambulance (FMC)
 
 There are three possible pathways from onset of chest pain to wire crossing:
@@ -753,7 +703,7 @@ There are three possible pathways from onset of chest pain to wire crossing:
 > **Important:** If time intervals/transfer times are anticipated to be longer than stated, initiate fibrinolysis first and then consider same day transfer for PCI as part of pharmaco-invasive strategy (3-24 hours post lysis) or for transfer later depending on the clinical condition of the patient and the available resources.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -771,8 +721,7 @@ There are three possible pathways from onset of chest pain to wire crossing:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

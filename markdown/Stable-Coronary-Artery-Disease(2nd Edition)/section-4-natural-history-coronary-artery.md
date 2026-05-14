@@ -1,5 +1,4 @@
-# NATURAL HISTORY AND PROGNOSIS
-
+# Natural History And Prognosis
 <!-- METADATA
 category: Epidemiology, Assessment
 use_case: Natural history and prognosis of stable CAD — MI_risk, mortality, predictors
@@ -7,8 +6,7 @@ patient_input: risk_factors, LV_function, ischemic_burden
 output: prognosis_risk_context
 -->
 
-## Natural History and Prognosis of Stable CAD
-
+## Natural History And Prognosis Of Stable Cad
 The natural history of Stable CAD is marked by episodes of sudden deterioration due to plaque fissuring, ulceration or erosion with superimposed thrombosis resulting in an acute decrease in myocardial oxygen supply and the clinical picture of ACS. The episodes of chest pain become more frequent, occurring at rest or with minimal exertion and with no obvious trigger. Accelerated chest pain may also occur due to an episode of increased myocardial oxygen demand as in periods of emotional or strenuous physical stress/exertion.
 
 Earlier studies reported that the annual rate of MI in persons with stable angina was 3.0-3.5%.42,43 Generally, the annual mortality has been estimated to be in the range of 1.2-2.4% per annum, cardiac death 0.6-1.4% per annum and non-fatal MI 0.6-2.7%.44
@@ -31,8 +29,7 @@ A significant proportion of CV events (CV death and non-fatal MI) occurred in in
 
 This highlights the importance of optimal medical therapy in all patients with CAD irrespective of the presence of symptoms.
 
-## Key messages:
-
+## Key Messages:
 - The natural history of Stable CAD is marked by episodes of sudden deterioration due to plaque fissuring, ulceration or erosion with superimposed thrombosis resulting in ACS.
 - In patients with Stable CAD on OMT, the incidence of MI occurs at a rate of 0.8% per year.
 - Predictors of MI are CV risk factors such as active smoking, poorly controlled diabetes and/or lipids, persistent angina and multivessel disease.
@@ -43,8 +40,7 @@ This highlights the importance of optimal medical therapy in all patients with C
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -53,8 +49,7 @@ This highlights the importance of optimal medical therapy in all patients with C
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -70,7 +65,6 @@ This highlights the importance of optimal medical therapy in all patients with C
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |

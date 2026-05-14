@@ -1,5 +1,4 @@
-# SECTION 10: CARDIAC REHABILITATION
-
+# Section 10: Cardiac Rehabilitation
 <!-- METADATA
 category: Supportive Treatment, Prevention
 use_case: Cardiac Rehabilitation and Risk Factor Modification - CRP, exercise_training, smoking_cessation, lifestyle_modification, return_to_activity
@@ -24,10 +23,8 @@ Smoking is an independent risk factor for CVD that accelerates atherosclerosis a
 
 [Grade I, Level B] Stopping smoking is an important and effective preventive measure. There is significant reduction on morbidity within the first 6 months of quitting and the risks of CVD almost equals the risk of never smokers after 10 - 15 years of cessation. For smoking interventions please refer to the Malaysian CPG on Prevention of Cardiovascular Disease, 1st Ed, 2017 and the Recommendations of the Steering Committee on Tobacco control in Malaysia (Appendix XV: SMOKING AND CHRONIC NON COMMUNICABLE DISEASES).
 
-## 10.1 Cardiac Rehabilitation Programs (CRP)
-
+## 10.1: Cardiac Rehabilitation Programs (Crp)
 These include:
-
 - Counselling and educating the patient and family members on CAD and medications used to treat the conditions.
 - Beginning an exercise program.
 - Helping the patient modify risk factors such as high blood pressure, smoking, high blood cholesterol, physical inactivity, obesity and diabetes.
@@ -37,7 +34,6 @@ These include:
 - Providing emotional support.
 
 There are 4 Phases using the Wenger Model:
-
 - Acute phase (Phase I):
   - This is the in-hospital period immediately following the MI and leading up to discharge.
   - It involves early mobilisation of the patient.
@@ -51,13 +47,11 @@ There are 4 Phases using the Wenger Model:
   - This is home-based regular exercise to maintain aerobic conditioning gains made in phase III.
 
 Exercise training programs should include warm-up, resistance training, endurance training, and cool-down. Examples:
-
 - Warm-up: stretching, warm-up exercise, low-intensity (slow) walking.
 - Main exercises: aerobic exercise and resistance training at prescribed intensity.
 - Cool-down: low-intensity (slow) walking, stretching, cooling-down exercise.
 
-## 10.2 Return to Physical Activity
-
+## 10.2: Return To Physical Activity
 Physical activity can be resumed at 50% of maximal exercise capacity in a patient with preserved LV function without inducible ischemia within 1 week post-discharge. This should be gradually increased over time preferably guided by treadmill stress test.
 
 Exercise begins with low-level aerobic exercises of the upper and lower limbs at an intensity that is below his/her angina threshold.
@@ -66,8 +60,7 @@ Daily walking can be encouraged soon after discharge for most patients.
 
 [Grade I, Level B] It is strongly recommended that post-ACS patients achieve >=30 minutes of low-moderate aerobic activity such as brisk walking on at least 5 days per week within 2 weeks of discharge.
 
-## 10.3 Risk Factor Modification:
-
+## 10.3: Risk Factor Modification:
 - Smoking cessation - Patients who quit smoking can reduce the rate of reinfarction and death as early as 1 year.
 - Weight - Achieve or maintain optimal body weight.
 - Exercise - Encourage a minimum of 30 - 60 minutes of moderate activity 5 times weekly (walking, cycling, swimming or other equivalent aerobic activities).
@@ -76,18 +69,17 @@ Daily walking can be encouraged soon after discharge for most patients.
 - Hypertension - Aim for a blood pressure of <140/85mmHg. In diabetics the target is < 130/80mmHg. In elderly patients, a higher BP target may be acceptable.
 - Diabetes mellitus - Optimal glycemic control in diabetes. (Refer CPG on Diabetes)
 
-## 10.4 Return to Sexual Activity and Fitness for Commercial Air Travel
-
+## 10.4: Return To Sexual Activity And Fitness For Commercial Air Travel
 Refer to Malaysian CPG on the Management of ST Elevation Myocardial Infarction, 2019, 4th Ed.
 
 ### Key Messages 10#:
-
 - All eligible patients with NSTE-ACS should be referred to a comprehensive cardiovascular rehabilitation program either as in-patient or during the first outpatient visit where available.
 
 ---
-## Contextual Anchors (Overlapping)
-### APPENDIX XV: SMOKING AND CHRONIC NON COMMUNICABLE DISEASES
 
+## Contextual Anchors (Overlapping)
+
+### Appendix XV: Smoking And Chronic Non Communicable Diseases
 *Recommendations of the Steering Committee on Tobacco control in Malaysia*
 
 Smoking of tobacco and tobacco products (cigarette, electronic cigarette/vape, shisha, pipe, cigar etc.) can lead to various complications of chronic non communicable diseases (NCD) such as coronary heart disease, cancers and chronic lung disease. It is the main cause of death worldwide whereby 6 million people die every year as a consequence of this habit (WHO Tobacco Fact Sheet, 2016).
@@ -105,7 +97,7 @@ Hence, the decision for treatment of smoking to be integrated with other chronic
 The treatment for smoking is based on Clinical Practice Guideline: Treatment for Tobacco Use Disorder 2016-(refer to Tables A-D)
 
 ---
-### Table A: Assessment And Treatment Tobacco Use Disorder
+Table A: Assessment And Treatment Tobacco Use Disorder
 
 | ASSESSMENT & TREATMENT |
 | :--- |
@@ -118,7 +110,7 @@ The treatment for smoking is based on Clinical Practice Guideline: Treatment for
 | Use smoking cessation medications with caution in special populations (e.g., children and adolescents, pregnant, breastfeeding women, psychiatric and substance abuse disorder patients). |
 | Arrange a minimum of six to eight face to face follow-up sessions for smoking cessation interventions in six months through counselling support team (Health education officer, pharmacists or any officer trained for quit smoking services). |
 
-### Table B: Modified Fagerstrom Test For Cigarette Dependence Questionnaire
+Table B: Modified Fagerstrom Test For Cigarette Dependence Questionnaire
 
 | Question | Option | Point |
 | :--- | :--- | :---: |
@@ -144,7 +136,7 @@ The treatment for smoking is based on Clinical Practice Guideline: Treatment for
 - 4 to 6 points = Moderately Dependent
 - Less than 4 points = Minimally Dependent
 
-### Table C: Pharmacological Intervention - Nicotine Based Smoking Cessation Drugs
+Table C: Pharmacological Intervention - Nicotine Based Smoking Cessation Drugs
 
 | Drug | Dosage | Prescribing Instructions | Precautions | Side Effects |
 | :--- | :--- | :--- | :--- | :--- |
@@ -154,20 +146,20 @@ The treatment for smoking is based on Clinical Practice Guideline: Treatment for
 
 **References:**
 
-Nicotine gum:  
-https://www.mims.com/malaysia/drug/info/nicotine (Accessed 27/11/2020)  
-https://www.mims.com/malaysia/drug/info/nicorette%20icy%20mint%20gum (Accessed 27/11/2020)  
+Nicotine gum:
+https://www.mims.com/malaysia/drug/info/nicotine (Accessed 27/11/2020)
+https://www.mims.com/malaysia/drug/info/nicorette%20icy%20mint%20gum (Accessed 27/11/2020)
 https://www.uptodate.com/contents/nicotine-drug-information?search=nicorette+gum&source=search_result&selectedTitle=1%7E150&usage_type=default&display_rank=1 (Accessed 27/11/2020)
 
-Nicotine Patch:  
-Niquitin® : 21, 14 and 7 mg - https://quest3plus.bpfk.gov.my/front-end/attachment/66/pharma/223639/V_888_20170714_074615_D4.pdf (Accessed 27/11/2020)  
-Nicorette®: https://www.mims.com/malaysia/drug/info/nicorette%20invisi%20transdermal%20patch (Accessed 27/11/2020)  
+Nicotine Patch:
+Niquitin® : 21, 14 and 7 mg - https://quest3plus.bpfk.gov.my/front-end/attachment/66/pharma/223639/V_888_20170714_074615_D4.pdf (Accessed 27/11/2020)
+Nicorette®: https://www.mims.com/malaysia/drug/info/nicorette%20invisi%20transdermal%20patch (Accessed 27/11/2020)
 https://www.mims.com/malaysia/drug/info/nicotine (Accessed 27/11/2020)
 
-Nicotine Lozenge:  
+Nicotine Lozenge:
 NiQuitin Mint Lozenges PIL Booklet - https://quest3plus.bpfk.gov.my/front-end/attachment/66/pharma/211166/V_3818_20170714_084514_D3.pdf (Accessed 27/11/2020)
 
-### Table D: Pharmacological Intervention - Non-Nicotine Based Smoking Cessation Drugs
+Table D: Pharmacological Intervention - Non-Nicotine Based Smoking Cessation Drugs
 
 | Drug | Dosage | Prescribing Instructions | Precautions | Side Effects |
 | :--- | :--- | :--- | :--- | :--- |
@@ -176,16 +168,16 @@ NiQuitin Mint Lozenges PIL Booklet - https://quest3plus.bpfk.gov.my/front-end/at
 
 *(not registered in Malaysia)*
 
-Varenicline:  
-https://quest3plus.bpfk.gov.my/front-end/attachment/286/pharma/211119/V_27277_20190409_142806_D3.pdf (Accessed 27/11/2020)  
+Varenicline:
+https://quest3plus.bpfk.gov.my/front-end/attachment/286/pharma/211119/V_27277_20190409_142806_D3.pdf (Accessed 27/11/2020)
 https://www.uptodate.com/contents/varenicline-drug-information?search=varenicline%20drug%20information&source=panel_search_result&selectedTitle=1~32&usage_type=panel&kp_tab=drug_general&display_rank=1#F2975297 (Accessed 27/11/2020)
 
-Bupropion* (Not available and not registered in Malaysia):  
+Bupropion* (Not available and not registered in Malaysia):
 https://www.gsksource.com/pharma/content/dam/GlaxoSmithKline/US/en/Prescribing_Information/Zyban/pdf/ZYBAN-PI-MG.PDF (Accessed 27/11/2020)
 
 ---
 
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -203,8 +195,7 @@ https://www.gsksource.com/pharma/content/dam/GlaxoSmithKline/US/en/Prescribing_I
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

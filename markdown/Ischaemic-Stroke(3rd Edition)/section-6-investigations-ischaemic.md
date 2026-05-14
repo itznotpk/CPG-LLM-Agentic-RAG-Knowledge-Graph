@@ -1,5 +1,4 @@
-# SECTION 6: INVESTIGATIONS
-
+# Section 6: Investigations
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Stroke Diagnostic Workup — CT_brain, MRI, CT_angiography, carotid_duplex, echocardiography, laboratory_testing, haematological_investigations
@@ -7,8 +6,8 @@ patient_input: clinical_presentation, stroke_type, suspected_mechanism
 output: investigation_plan, imaging_pathway, aetiological_workup
 critical: true
 -->
-## 6.1 Investigational Objectives
 
+## 6.1: Investigational Objectives
 Investigations carried out for stroke patients are aimed to:
 
 I. Confirm the diagnosis <br>
@@ -16,13 +15,12 @@ II. Determine the mechanism of stroke <br>
 III. Stratify risks and determine prognosis <br>
 IV. Identify potential treatable large obstructive lesions of the cerebrovascular circulation
 
-## 6.2 Types of Investigations
+## 6.2: Types Of Investigations
 
-### 6.2.1 Haematological Investigations
-
+### 6.2.1: Haematological Investigations
 The required haematological investigations are displayed in Table 6.1: Haematological Investigations Required.
 
-### Table 6.1: Haematological Investigations Required
+Table 6.1: Haematological Investigations Required
 
 | Investigation | Indication |
 | --- | --- |
@@ -43,22 +41,20 @@ The required haematological investigations are displayed in Table 6.1: Haematolo
 
 *\* If thrombolysis considered*
 
-### 6.2.2 Other Baseline Investigations
-
+### 6.2.2: Other Baseline Investigations
 Other baseline investigations that are crucial for the management of stroke are listed in Table 6.2: Other Investigations.
 
-### Table 6.2: Other Investigations
+Table 6.2: Other Investigations
 
 | Investigation | Indication |
 | --- | --- |
 | 12 lead ECG | - Mandatory |
 | Ambulatory ECG | - For suspected arrhythmias or sinoatrial node disease |
 
-### 6.2.3 Imaging
-
+### 6.2.3: Imaging
 Important imaging investigations for suspected stroke patients are shown in Table 6.3: Imaging for Stroke Patients.
 
-### Table 6.3: Imaging for Stroke Patients
+Table 6.3: Imaging For Stroke Patients
 
 | Investigation | Findings / Indication |
 | --- | --- |
@@ -77,14 +73,12 @@ Important imaging investigations for suspected stroke patients are shown in Tabl
 | Contrast Angiogram | - Gold standard assessment of cerebral vasculature<br>- Reserved for patients planned for intervention |
 
 ## Key Recommendations:
-
 1. Investigations carried out in stroke are aimed to confirm the diagnosis, determine the mechanism of stroke, stratify risk, and to identify potential treatable vascular lesions.
 2. Computed tomography (CT) brain is mandatory and is the preferred imaging investigation in the emergency setting to differentiates haemorrhage, determine the site, cause, and extent of the lesion.
 3. Advance imaging may be required in selected cases in the emergency settings, e.g., ruling out stroke mimics, reperfusion therapy in extended hours and determining potential re-vascularisation procedure.
 4. Selected blood investigations and imaging will be required in certain patients to determine the aetiology of stroke.
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 | --- | --- |
 | CT | Computerized Tomography |

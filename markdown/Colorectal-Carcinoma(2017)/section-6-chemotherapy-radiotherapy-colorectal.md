@@ -1,5 +1,4 @@
-# SECTION 6: CHEMOTHERAPY AND RADIOTHERAPY
-
+# Section 6: Chemotherapy And Radiotherapy
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Chemotherapy and Radiotherapy — adjuvant_chemotherapy, neoadjuvant_CCRT, palliative_chemotherapy, targeted_therapy, palliative_RT
@@ -11,10 +10,9 @@ treatment_type: 5-FU, leucovorin, oxaliplatin, capecitabine, irinotecan, bevaciz
 
 While surgery remained the primary treatment for CRC, the roles of chemotherapy and RT are mainly as neoadjuvant, adjuvant and palliative options. The treatments for colon and rectal carcinoma are outlined in **Algorithm C: Treatment for Colon Carcinoma** and **Algorithm D: Treatment for Rectal Carcinoma**.
 
-## 6.1 Colon Carcinoma
+## 6.1: Colon Carcinoma
 
-### a. Stage I and II Colon Carcinoma
-
+### A. Stage I And Ii Colon Carcinoma
 [Level I] In colon carcinoma without lymph node involvement (stage I and II), the prognosis is good with surgical intervention alone. Stage II colon carcinoma patients have a relatively favourable prognosis. However, some patients with high risk stage II disease have a relapse rate approaching that of stage III colon carcinoma patients.
 
 [Level I] In a Cochrane systematic review of adjuvant therapy for completely resected stage II colon carcinoma, there was no improvement in OS (RRR=0.96, 95% CI 0.88 to 1.05). However, the DFS in patients who received adjuvant therapy was significantly better than without adjuvant therapy (RRR=0.83, 95% CI 0.75 to 0.92). Most trials included in the review used the combination of fluorouracil (5-FU) plus folinic acid, with or without levamisole.
@@ -33,8 +31,7 @@ The addition of oxaliplatin to 5-FU based chemotherapy also failed to show benef
 >     - lymphovascular invasion
 >     - inadequate lymph node sampling (<12)
 
-### b. Stage III Colon Carcinoma
-
+### B. Stage Iii Colon Carcinoma
 For stage III disease, the recurrence rate can exceed 50% and adjuvant chemotherapy may have a role to reduce the risk of recurrence.
 
 The role of 5-FU based chemotherapy in stage III colon carcinoma is well established in improving OS. Several 5-FU regimens are available either as infusion or bolus regimens, with different side effect profile but similar efficacy.
@@ -48,12 +45,10 @@ Oral chemotherapy using capecitabine have been shown to be equivalent to 5-FU wi
 In a Cochrane systematic review of adjuvant chemotherapy, there was no significant difference in relapse-free survival and OS between shorter (three to six months) and longer (nine to 12 months) duration of radiotherapy. This finding confirmed that adjuvant chemotherapy for CRC should not last for more than six months. [Level I] Prolonged duration would result in lower benefit-to-risk ratio.
 
 ### Recommendation 11
-
 - Adjuvant chemotherapy may be considered for stage II colon carcinoma with high risk features. Patient should be carefully selected and counselled.
 - Fluorouracil/leucovorin (5-FU/LV) with oxaliplatin should be given in stage III colon carcinoma.
 
-## 6.2 Rectal Carcinoma
-
+## 6.2: Rectal Carcinoma
 Adjuvant treatment for low risk rectal cancer (T1-T2 N0) is not indicated unless surgical margin is compromised. Locoregional recurrence after resection of rectal carcinoma is difficult to treat and associated with severe debilitating symptoms. [Level III] Local recurrence rates were reported to be as high as 50% for patients with T3-T4 and/or node positive rectal carcinoma before the advent of standard CCRT and TME.
 
 RT to pelvis with or without chemotherapy plays an important role in the management of rectal carcinoma. It may be given as short or long course schedule.
@@ -96,11 +91,9 @@ The European Society for Medical Oncology guidelines 2017 recommend post-operati
 > - incomplete mesorectum
 
 ### Recommendation 12
-
 - Neoadjuvant chemoradiotherapy should be offered to T3-T4 or node positive rectal carcinoma.
 
-## 6.3 Metastatic or Locally Advanced Colorectal Carcinoma
-
+## 6.3: Metastatic Or Locally Advanced Colorectal Carcinoma
 Stage IV CRC accounts for a third of total CRC cases in Malaysia. The optimal treatment strategy for metastatic colorectal carcinoma (mCRC) involves a multidisciplinary team approach. Management centres around palliation and control of symptoms, lengthening progression-free survival (PFS) and OS. Patients with good performance status, marrow reserve and organ functions have a potential for benefits from chemotherapy. [Level III] Patients with poor performance status and significant co-morbidities should be considered for supportive care only.
 
 [Level I] Palliative chemotherapy to mCRC patients is effective in prolonging time to disease progression (TTP) at 12 months (RR=0.86, 95% CI 0.77 to 0.96) and OS at 18 months (RR=0.88, 95% CI 0.82 to 0.96).
@@ -117,8 +110,7 @@ There is no statistical difference in PFS and OS between FOLFOX6 and FOLFIRI as 
 
 > - In potentially resectable liver metastatasis, peri-operative chemotherapy with FOLFOX (six cycles before and six cycles after surgery) improves PFS.
 
-### a. Targeted Therapy
-
+### A. Targeted Therapy
 Monoclonal antibodies against vascular endothelial growth factor (bevacizumab) and against epidermal growth factor receptor (EGFR) (cetuximab) have been used in combination with chemotherapy for mCRC.
 
 [Level I] Adding bevacizumab to FOLFIRI compared with FOLFIRI alone resulted in a significant difference in median PFS (10.6 months vs 6.2 months) and OS (20.3 months vs 15.6 months). [Level I] The survival advantage was not evident when bevacizumab was combined with oxaliplatin-based chemotherapy. Bevacizumab plus oxaliplatin-based chemotherapy as first-line treatment in mCRC resulted in modest improvement of PFS compared with chemotherapy alone (9.4 months vs 8 months, p=0.0023). There was no significant difference in OS.
@@ -127,26 +119,24 @@ KRAS is a protein which involved in cell signalling pathways that control cell g
 
 [Level I] A HTA report in 2007 concluded that the use of bevacizumab in first-line setting and cetuximab in second-line setting mCRC was not cost-effective. [Level I] This is supported by an economic evaluation published in USA whereby bevacizumab in addition to chemotherapy was not cost-effective in both the first- and second-line treatment in mCRC.
 
-### b. Palliative Pelvic Radiotherapy
-
+### B. Palliative Pelvic Radiotherapy
 Palliative pelvic RT for symptomatic rectal carcinoma appears to provide relief for a variety of pelvic symptoms. [Level I] A systematic review has shown that palliative RT has 75% pooled overall symptom response rate among 1084 cases and positive responses were reported for pain (78%), bleeding and discharge (81%), mass effect (71%) and other pelvic symptoms (72%).
 
 ### Recommendation 13
-
 - Palliative chemotherapy may be considered in metastatic colorectal carcinoma.
     - Combination chemotherapy is the preferred regime.
     - Oral chemotherapy may be considered as an alternative.
 
 ## Contextual Anchors (Overlapping)
-### ALGORITHM C: TREATMENT FOR COLON CARCINOMA
+
+### Algorithm C: Treatment For Colon Carcinoma
 
 #### Step 1: Initial Assessment
 **Determine disease stage**
 
 ↓
 
-#### Step 2: Treatment Pathways based on Staging
-
+#### Step 2: Treatment Pathways Based On Staging
 **Pathway 1: T1-T2 N0 M0**
 * **Primary Treatment:** Surgery
 * **Follow-up:** → **SURVEILLANCE**
@@ -182,15 +172,14 @@ Palliative pelvic RT for symptomatic rectal carcinoma appears to provide relief 
 
 ---
 
-### ALGORITHM D: TREATMENT FOR RECTAL CARCINOMA
+### Algorithm D: Treatment For Rectal Carcinoma
 
 #### Step 1: Initial Assessment
 **Determine disease stage**
 
 ↓
 
-#### Step 2: Treatment Pathways based on Staging
-
+#### Step 2: Treatment Pathways Based On Staging
 **Pathway 1: T1-T2 N0 M0**
 * **Primary Treatment:** Surgery
 * **Follow-up:** → **SURVEILLANCE**
@@ -210,7 +199,6 @@ Palliative pelvic RT for symptomatic rectal carcinoma appears to provide relief 
 ---
 
 #### 📝 Clinical Notes & Abbreviations
-
 > **\*High risk features for stage II rectal carcinoma are presence of any of the following:**
 > * obstruction
 > * perforation
@@ -223,8 +211,8 @@ Palliative pelvic RT for symptomatic rectal carcinoma appears to provide relief 
 > * incomplete mesorectum
 
 ---
-### Appendix 7: Potential Indications for Post-Operative CCRT if Pre-Operative CCRT Not Given
 
+### Appendix 7: Potential Indications For Post-Operative Ccrt If Pre-Operative Ccrt Not Given
 | Category | Potential indications |
 |---|---|
 | Sufficient and necessary | - CRM <=1 mm |
@@ -248,8 +236,7 @@ CRM = circumferential resection margin; LPLN = lateral pelvic lymph node; MRF = 
 
 **Source:** Glynne-Jones R, Wyrwicz L, Tiret E, et al. Rectal cancer: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up. Ann Oncol. 2017;28(suppl_4):iv22-iv40.
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -258,8 +245,7 @@ CRM = circumferential resection margin; LPLN = lateral pelvic lymph node; MRF = 
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | 5-FU | Fluorouracil |

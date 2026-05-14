@@ -1,5 +1,4 @@
-# SECTION 10.0: APPENDICES
-
+# Section 10: .0: Appendices
 <!-- METADATA
 category: Reference, Classification, Diagnosis
 use_case: Reference Appendices — diagnostic criteria, definitions, classification
@@ -7,10 +6,9 @@ patient_input: clinical_findings, imaging_data
 output: classification, diagnostic_criteria_reference
 -->
 
-## Appendix 1: Classification and definition of infective endocarditis
+## Appendix 1: Classification And Definition Of Infective Endocarditis
 
-### IE according to localisation of infection and presence or absence of intracardiac material
-
+### IE According To Localisation Of Infection And Presence Or Absence Of Intracardiac Material
 - Left-sided native valve IE
 - Left-sided PVE
   - Early PVE < 1 year after valve surgery
@@ -18,23 +16,20 @@ output: classification, diagnostic_criteria_reference
 - Right-sided native valve IE
 - Device related IE
 
-### IE according to the mode of acquisition
-
+### IE According To The Mode Of Acquisition
 | Healthcare associated IE                        | Nosocomial                                                                                                                                 | Non-nosocomial                                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                 | IE developing in a patient  hospitalised > 48 hours prior to  onset of signs and symptoms  consistent with IE                              | Signs and symptoms of IE  starting < 48 hours after  admission in a patient with  healthcare contact defined as: •  Home-based nursing  or intravenous therapy,  haemodialysis, or intravenous  chemotherapy < 30 days  before the onset of IE •  Hospitalisation in an acute  care facility  < 90 days before the onset of  IE •  Resident in a nursing home or  long-term care facility |
 | Community acquired IE                           | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection |
 | Intravenous drug abuse associated IE            | IE in an active injection drug user with no alternative source of infection                                                               | IE in an active injection drug user with no alternative source of infection                                                               |
 
-### Active IE (at least one of the below)
-
+### Active IE (At Least One Of The Below)
 - Persistent fever and positive blood cultures
 - Inflammatory morphology findings during surgery
 - On antimicrobial therapy
 - Evidence of active infection on HPE
 
 ### Recurrence
-
 | Recurrence | |
 |---|---|
 | **Relapse** | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
@@ -45,11 +40,9 @@ Adapted from European Society of Cardiology infective endocarditis guidelines. 2
 ---
 
 ## Appendix 2: Enterobacteriaceae
-
 The family Enterobacteriaceae includes many genera that are Gram-negative rods. They are also known as enteric Gram-negative rods or enteric bacteria (enteric means pertaining to the intestines).
 
-### Enterobacteriaceae have the following characteristics:
-
+### Enterobacteriaceae Have The Following Characteristics:
 - Gram-negative rods.
 - Grow well on MacConkey agar and can be divided into lactose-fermenter or non-lactose fermenters.
 - Grow aerobically and anaerobically (are facultative anaerobes).
@@ -57,7 +50,6 @@ The family Enterobacteriaceae includes many genera that are Gram-negative rods. 
 - Catalase-positive, oxidase-negative and reduce nitrate to nitrite.
 
 The following are some of the Enterobacteriaceae microorganisms that can cause IE:
-
 - Enterobacter aerogenes.
 - Enterobacter cloacae.
 - Escherichia coli.
@@ -72,8 +64,7 @@ Jawetz, Melnick and Adelberg's Medical Microbiology. In: GF Brooks, JS Butel and
 
 ---
 
-## Appendix 3: Blood culture collection
-
+## Appendix 3: Blood Culture Collection
 Strict aseptic technique should be used throughout the procedure.
 
 1. Identify the site of venepuncture where blood is to be drawn.
@@ -97,7 +88,6 @@ Strict aseptic technique should be used throughout the procedure.
 17. Send the blood culture bottles to the laboratory within 2-4 hours of collection.
 
 ### Note:
-
 1. Blood cultures should not be obtained from indwelling intravascular access devices, e.g. intravascular catheters or ports, as it is associated with higher contamination rates. When blood is obtained from a port or line, blood drawn via a peripheral vein should also be taken for meaningful interpretation.
 2. Blood culture bottles should not be refrigerated after they have been inoculated.
 3. Do not leave the blood cultures at room temperature for more than 4 hours, as it will delay or impede the detection of growth by the continuous-monitoring blood culture instrument.
@@ -110,8 +100,8 @@ Strict aseptic technique should be used throughout the procedure.
 
 ---
 
-## Appendix 4: Directory of laboratories*
-### Table: Directory of main laboratories that provide serological testing of rare aetiological agents of infective endocarditis
+## Appendix 4: Directory Of Laboratories*
+Table: Directory Of Main Laboratories That Provide Serological Testing Of Rare Aetiological Agents Of Infective Endocarditis
 
 | Microorganisms    | Serology IgG/IgM     |
 |-------------------|----------------------|
@@ -128,7 +118,6 @@ IMR: Institute of Medical Research; HSB: Hospital Sungai Buloh; HKL: Hospital Ku
 *This list is not exhaustive and only include public institutions with the available facilities. For a full list of accredited laboratories, please refer to Standards Malaysia website (www.jsm. gov.my).
 
 #### Note:
-
 1. Interpretation of serological results in these rare aetiological agents of IE can be difficult. Please consult an ID physician to guide treatment in these cases.
 2. PCR amplification of 16SrDNA gene and sequencing for the identification of bacterial pathogen from bacterial isolate is provided at the Department of Medical Microbiology PPUM.
 
@@ -147,25 +136,20 @@ The main laboratories and the contact details are as follows:*
 
 ---
 
-## Appendix 5: Guidelines on specimen collection
-
+## Appendix 5: Guidelines On Specimen Collection
 Instructions for specimen collection and transport for HPE of cardiac valvular/ tissue/emboli in the diagnosis of infective endocarditis.
 
-### A. Specimen collection
-
+### A. Specimen Collection
 1. Place the cardiac specimen in a container containing 10% formalin with a volume of approximately 3-4 times tissue volume (30 ml minimum).
 2. Do not remove or scrape any tissue (e.g. clots and fibrins) attached to the cardiac specimen.
 3. Secure the sample container properly to avoid spillage.
 
 #### Note:
-
 If a cardiac specimen is also being collected for:
-
 - Microbiological culture, place the specimen in a container with normal saline.
 - HPE, place another specimen in a different container with formalin.
 
-### B. Labelling of specimen container(s)
-
+### B. Labelling Of Specimen container(s)
 1. Label the specimen container(s) with the patient's full name, a second patient identifier, and the source/anatomical site and type of the specimen.
 2. The label should be placed/written on the container and not on the cap.
 3. If there is more than one sample, place multiple specimens in separate containers.
@@ -173,8 +157,7 @@ If a cardiac specimen is also being collected for:
 
 ---
 
-## Appendix 6: Centres with PET and SPECT/CT WBC scan services*
-
+## Appendix 6: Centres With Pet And SPECT/CT WBC Scan Services*
 | PET scan                                                                                            | WBC SPECT/CT scan                                                                                   |
 |-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Institut Kanser Negara                                                                              | Hospital Kuala Lumpur                                                                               |
@@ -182,12 +165,11 @@ If a cardiac specimen is also being collected for:
 | Jabatan Pengimejan Molekul dan Perubatan  Nuklear, Pusat Perubatan Universiti  Kebangsaaan Malaysia | Medical Physics Unit, University Malaya Medical  Centre                                             |
 | Medical Physics Unit, University Malaya Medical  Centre                                             |                                                                                                     |
 | Penang General Hospital                                                                             |                                                                                                     |
-*This list is not exhaustive and only includes public institutions with the available facilities. 
+*This list is not exhaustive and only includes public institutions with the available facilities.
 
 ---
 
-## Appendix 7: Centres with available cardiothoracic surgery services*
-
+## Appendix 7: Centres With Available Cardiothoracic Surgery Services*
 | Centres |
 |---|
 | **Johor** |
@@ -212,22 +194,19 @@ If a cardiac specimen is also being collected for:
 
 ---
 
-## Appendix 8: Antimicrobial dosing in adults with renal impairment
+## Appendix 8: Antimicrobial Dosing In Adults With Renal Impairment
 
-### Loading dose
-
+### Loading Dose
 The size of a loading dose (LD) is the product of the desired drug concentration in the blood and the volume of distribution. It is independent of drug clearance. Therefore, provided the desired drug concentration and volume of distribution are unchanged, the size of the loading dose does not require modification in patients with renal impairment. In cases where there is slight alteration in the volume of distribution, e.g. those with low serum protein or fluid overload, some clinicians may alter the loading dose of some drugs with narrow therapeutic index.<sup>1</sup>
 
-### Methods of dose reduction in renal impairment
-
+### Methods Of Dose Reduction In Renal Impairment
 Three common methods are used to maintain drug doses in patients with renal impairment:<sup>1</sup>
 
 - **Interval method (I)**:<br>Maintain the size of the individual dose and increase the dose interval – used where the size of the dose and the attainment of peak blood concentrations are critical for drug efficacy.
 - **Dose method (D)**:<br>Reduce the size of individual dose and maintain the same dose interval – used where the size of a dose and peak concentrations are not critical for drug activity.
 - **Combination method (D & I)**:<br>Uses a combination of the 'Dose' and 'Interval' methods – used for narrow therapeutic index drugs where close control over blood concentrations should be maintained.
 
-### Estimating creatinine clearance in adults
-
+### Estimating Creatinine Clearance In Adults
 Check renal function before prescribing any drug that requires dose modification in renal impairment, even if only mild impairment is likely.
 
 Renal function and muscle mass both decline with age, hence elderly people may have normal serum creatinine despite reduced renal function. Calculation of creatinine clearance (CrCl) may be necessary to estimate renal function in this population especially when prescribing renally excreted drugs with a narrow therapeutic index.
@@ -242,8 +221,7 @@ Modified Cockcroft-Gault equation:
   <strong>CrCl (ml/min) = [ (140 – Age) x IBW (kg)* / Serum Creatinine (µmol/l) ] x (1.04 for females) or (1.23 for males)</strong>
 </p>
 
-### Ideal body weight table for adults
-
+### Ideal Body Weight Table For Adults
 | Height (inches) | Height (cm) | Female IBW (kg) | Male IBW (kg) | Height (inches) | Height (cm) | Female IBW (kg) | Male IBW (kg) |
 |---|---|---|---|---|---|---|---|
 | 5' 0" | 152 – 154 | 45.5 – 47.3 | 50.0 – 51.8 | 6' 0" | 183 – 184 | 73.4 – 74.3 | 77.9 – 78.8 |
@@ -261,8 +239,7 @@ Modified Cockcroft-Gault equation:
 
 Note: All doses recommended are for the treatment of infective endocarditis only.
 
-### Antimicrobial doses in adults with renal impairment
-
+### Antimicrobial Doses In Adults With Renal Impairment
 | Drug | Dose for normal renal function | Method | Adjustment for renal failure Estimated CrCl (ml/min) > 50-90 | Adjustment for renal failure Estimated CrCl (ml/min) 10-50 | Adjustment for renal failure Estimated CrCl (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
 |---|---|---|---|---|---|---|---|
 | **AMINOGLYCOSIDES** | | | | | | | |
@@ -294,14 +271,12 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 
 ---
 
-## Appendix 9: Antimicrobial dosing in children with renal impairment
+## Appendix 9: Antimicrobial Dosing In Children With Renal Impairment
 
-### Estimating creatinine clearance in paediatrics
-
+### Estimating Creatinine Clearance In Paediatrics
 There are 2 methods to calculate CrCl in children. Available data suggest that the bias of Schwartz calculated glomerular filtration rate (eGFR) increases at lower levels of GFR. The Schwartz and Counahan-Barratt formulae can provide rapid and convenient estimates of GFR, although clinicians should be aware of their imprecision in this setting.
 
 ### Schwartz Method:
-
 <p align="center">
   <strong>CrCl (ml/min) = k* x Height in cm / Serum Creatinine (µmol/l)</strong>
 </p>
@@ -315,13 +290,11 @@ There are 2 methods to calculate CrCl in children. Available data suggest that t
 | Adolescent males 13-21 years old | 61.9 |
 
 ### Counahan-Barratt:
-
 <p align="center">
   <strong>GFR (ml/min/1.73m<sup>2</sup>) = 38 x Height in cm / Serum Creatinine (µmol/l)</strong>
 </p>
 
-### Ideal body weight table for paediatric and young adults
-
+### Ideal Body Weight Table For Paediatric And Young Adults
 | Infants aged 0-24 months old (mo) | 0-6 mo | 6-12 mo | 12-24 mo |
 |---|---|---|---|
 | Infant boys | WTi = 0.733 Amo + 3.6 | WTi = 0.433 Amo + 5.4 | WTi = 0.183 Amo + 8.4 |
@@ -334,8 +307,7 @@ There are 2 methods to calculate CrCl in children. Available data suggest that t
 
 Note: All doses recommended are for the treatment of infective endocarditis only. *WTi : ideal body weight (kg); Amo : age in months; Ayr : age in years.
 
-### Antimicrobial doses in paediatrics with renal impairment
-
+### Antimicrobial Doses In Paediatrics With Renal Impairment
 | Drug | Age | Dose for normal renal function | Method | Adjustment for renal failure Estimated GFR (ml/min) > 50-90 | Adjustment for renal failure Estimated GFR (ml/min) 10-50 | Adjustment for renal failure Estimated GFR (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
 |---|---|---|---|---|---|---|---|---|
 | **AMINOGLYCOSIDES** | | | | | | | | |
@@ -361,8 +333,7 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 
 ---
 
-## Appendix 10: Weekly OPAT review checklist (for doctors)
-
+## Appendix 10: Weekly Opat Review Checklist (For Doctors)
 | General review of the patient and clinical examination (specifically look for) |
 |---|
 | Heart failure |
@@ -384,13 +355,10 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 
 ---
 
-## Appendix 11: Clinical indicators
-
+## Appendix 11: Clinical Indicators
 Performance measures for this CPG is to monitor the implementation of these guidelines with the aim of achieving the following within 5 years.
 
 | Performance indicators | Yes | No | Target to achieve in 5 years |
 |---|---|---|---|
 | Decrease in the mortality caused by IE:<br><br>(Number of deaths of IE patients due to IE or its complications over a given time frame)/(Total number of patients diagnosed with IE over the same time frame) x 100% | | | By 50% |
 | Surgery performed within 24 hours for patients with emergency indication (as per the guidelines):<br><br>(Number of IE patients requiring emergency surgery receiving surgery within 24 hours)/(Total number of IE patients requiring emergency surgery) x 100% | | | 50% |
-
-

@@ -1,5 +1,4 @@
-# SECTION 7: ADHERENCE, COMPLIANCE AND QUALITY ASSURANCE
-
+# Section 7: Adherence, Compliance And Quality Assurance
 <!-- METADATA
 category: Supportive Treatment, Reference
 use_case: Adherence strategies, compliance improvement, and clinical quality assurance audit parameters for CVD prevention — adherence_barriers, patient_compliance, MTAC, clinical_audit, quality_assurance, NCD_audit
@@ -11,10 +10,8 @@ output: adherence_strategies, regimen_simplification, audit_numerator_denominato
 
 ---
 
-## 7.1 Barriers to Adherence
-
+## 7.1: Barriers To Adherence
 It has been well documented that there is a lack of adherence to cardiovascular preventive therapy. This is due to:
-
 - Healthcare providers not:
   - Counselling patients on healthy dietary practices, weight management and regular exercise
   - Risk stratifying patients
@@ -27,17 +24,16 @@ Lack of adherence threatens the success of the guideline recommendation and impl
 
 ---
 
-## 7.2 Strategies to Improve Adherence and Compliance
-
+## 7.2: Strategies To Improve Adherence And Compliance
 To improve adherence and compliance the following are recommended:
 
-### 7.2.1 Patient
+### 7.2.1: Patient
 - Simplify medication regimens using wherever possible drugs with a single daily or twice daily dosing
 - Give clear instructions
 - Encourage the support of the family
 - Involve patients in their care through self-monitoring
 
-### 7.2.2 Healthcare Providers
+### 7.2.2: Healthcare Providers
 - Practise effective preventive strategies in accordance with clinical guidelines
 - Educate patients to participate in their preventive care
 - Use mass media for patient education
@@ -46,8 +42,7 @@ To improve adherence and compliance the following are recommended:
 
 ---
 
-## 7.3 Clinical Quality Assurance Audit Parameters
-
+## 7.3: Clinical Quality Assurance Audit Parameters
 Adherence to therapy should be checked periodically. Some suggested audit parameters are as in the Audit of Clinical Diabetes (Green Book) by the *Unit Penyakit Kardiovaskular dan Diabetes* (refer Appendix 6: Audit of Clinical Diabetes). In addition documentation of the following:
 
 **Target:** More than 70% of the medical records should have these data documented.
@@ -55,7 +50,6 @@ Adherence to therapy should be checked periodically. Some suggested audit parame
 ---
 
 ### Measure 1: CVD Risk Documentation
-
 CVD risk of the women (any CV risk score but the Framingham general CVD risk score tool for primary care is encouraged).
 
 - **Numerator:** Number of women with CVD risk score documented
@@ -64,7 +58,6 @@ CVD risk of the women (any CV risk score but the Framingham general CVD risk sco
 ---
 
 ### Measure 2: Anthropometric Assessments
-
 Patient's weight, waist circumference and BMI and the desirable values.
 
 - **Numerator:** Number of women with these values documented
@@ -73,28 +66,24 @@ Patient's weight, waist circumference and BMI and the desirable values.
 ---
 
 ### Measure 3: Blood Pressure Control
-
 - **Numerator:** Number of women with BP target achieved
 - **Denominator:** Number of women with hypertension seen at that clinic session
 
 ---
 
 ### Measure 4: Lipid Target Achievement
-
 - **Numerator:** Number of women with LDL-C (or total cholesterol) target achieved
 - **Denominator:** Number of women seen at that clinic session whose LDL-C (or total cholesterol) were measured
 
 ---
 
 ### Measure 5: Glycaemic Control
-
 - **Numerator:** Number of women with HbA1c (or fasting glucose) target achieved
 - **Denominator:** Number of women with diabetes seen at that clinic session
 
 ---
 
-### Appendix 6: Audit of Clinical Diabetes
-
+### Appendix 6: Audit Of Clinical Diabetes
 **Buku Rekod Rawatan NCD\***
 
 #### Patient Demographics
@@ -108,7 +97,6 @@ Patient's weight, waist circumference and BMI and the desirable values.
 - **Ethnic group:**
 
 #### Clinical Audit Criteria
-
 | Criteria | Result of the most recent examination | Date of the most recent examination | Not done |
 |---|---|---|---|
 | **Height** | ______ cm | | [ ] |
@@ -141,7 +129,6 @@ Patient's weight, waist circumference and BMI and the desirable values.
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | 2HPP | 2-Hour postprandial |

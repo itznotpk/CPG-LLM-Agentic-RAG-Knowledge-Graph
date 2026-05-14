@@ -1,5 +1,4 @@
-# SECTION 4.4: MARFAN AND AORTIC SYNDROMES
-
+# Section 4: .4: Marfan And Aortic Syndromes
 <!-- METADATA
 category: Assessment, Treatment, Prevention, Special Populations
 use_case: Marfan and Thoracic Aortic Aneurysmal Syndromes in Pregnancy — aortic_root_diameter, aortic_dissection_risk, beta_blockade, echocardiography_surveillance, delivery_planning
@@ -9,13 +8,10 @@ critical: true
 treatment_type: beta_blockade, caesarean_delivery, aortic_root_replacement
 -->
 
-
-## 4.4 Marfan syndrome and other thoracic aortic aneurysmal syndromes
-
+## 4.4: Marfan Syndrome And Other Thoracic Aortic Aneurysmal Syndromes
 Patients with Marfan syndrome are almost always asymptomatic pre-pregnancy and may be diagnosed for the first time after complications occur. They have an increased risk of aortic dissection during pregnancy.
 
 In a report of unselected pregnancies, it was suggested that the expected rate of aortic dissection of ≈ 3% - an estimated 1% in women with aortic diameter < 40 mm and 10% in high-risk patients. High risk patients for aortic dissection are those with:
-
 - aortic root diameter:
   - more than 40 mm and/or an increase in aortic root diameter during pregnancy
   - more than 45 mm
@@ -43,10 +39,8 @@ Other complications include worsening mitral regurgitation leading to supraventr
 
 Following elective aortic root replacement, patients remain at risk for dissection in the residual aorta.
 
-### 4.4.1 Preconception counselling
-
+### 4.4.1: Preconception Counselling
 [Grade I, Level C] Pregnancy is contraindicated (WHO Class IV) in the following:
-
 - Marfan syndrome with aorta dilated > 45 mm
 - Bicuspid aortic valve with aorta dilated > 50 mm
 - Previous history of aortic dissection
@@ -55,16 +49,14 @@ Following elective aortic root replacement, patients remain at risk for dissecti
 
 The risk of Marfan syndrome in the offspring is 50%.
 
-### 4.4.2 Antenatal care
-
+### 4.4.2: Antenatal Care
 [Grade II-a, Level C] Patients with aortic pathology should be monitored by serial echocardiography. The initial echocardiogram should be done at antenatal booking and repeated at 4-6 week intervals from the 24th week of pregnancy.
 
 [Grade II-a, Level C] Treatment with β-blocking agents may reduce the rate of aortic dilatation and may improve survival.
 
 Higher doses of β-blockers may be required to achieve adequate heart rate control because of the increased sympathetic activity seen in pregnancy. Fetal growth needs to be monitored more frequently in patients on β-blockers.
 
-### 4.4.3 Labour and delivery
-
+### 4.4.3: Labour And Delivery
 The aim of intrapartum management in patients with ascending aorta enlargement is to reduce the cardiovascular stress of labour and delivery.
 
 - [Grade I, Level C] If the woman is taking β-blockers during pregnancy, they should be continued in the peripartum period.
@@ -75,12 +67,10 @@ The aim of intrapartum management in patients with ascending aorta enlargement i
 - [Grade I, Level C] In all other patients, the mode of delivery should be individualised.
 - Regional anaesthesia techniques can be difficult in patients with Marfan syndrome depending on the presence and severity of scoliosis and the presence of dural ectasia.
 
-### 4.4.4 Postpartum care
-
+### 4.4.4: Postpartum Care
 Patients should be monitored haemodynamically for 24 hours postpartum. They should have a cardiac review at 6 weeks. Echocardiography should be performed 3-6 months post-delivery.
 
-## Key message:
-
+## Key Message:
 - Pregnancy in the following patients are High Risk (WHO Class IV):
   - Marfan syndrome with aorta dilated > 45 mm
   - Bicuspid aortic valve with aorta dilated > 50 mm
@@ -88,10 +78,9 @@ Patients should be monitored haemodynamically for 24 hours postpartum. They shou
 - They should be advised aortic root replacement prior to pregnancy.
 - Even in women with normal sized aorta dissections may still occur.
 
-## Grades of Recommendation and Level of Evidence
+## Grades Of Recommendation And Level Of Evidence
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -100,16 +89,14 @@ Patients should be monitored haemodynamically for 24 hours postpartum. They shou
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | mm | millimetre |

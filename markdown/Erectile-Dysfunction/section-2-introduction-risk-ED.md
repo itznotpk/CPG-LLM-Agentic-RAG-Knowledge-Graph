@@ -1,12 +1,10 @@
-# SECTION 2: INTRODUCTION AND RISK FACTORS
-
+# Section 2: Introduction And Risk Factors
 <!-- METADATA
 category: background_knowledge
 topics: introduction, risk_factors, epidemiology, etiology
 -->
 
-## 1. INTRODUCTION
-
+## 1: Introduction
 Erectile dysfunction (ED) is a prevalent and multifaceted medical condition characterised by the persistent inability to achieve or maintain an erection sufficient for satisfactory sexual performance. As a widespread health concern, ED substantially impacts the quality of life of affected individuals and their partners, leading to emotional distress, strained relationships and diminished overall well-being.
 
 ED can manifest in various forms:
@@ -25,15 +23,13 @@ ED is associated with co-morbidities (e.g., DM, CVD, depression) and is an **ear
 
 ---
 
-## 2. RISK FACTORS
-
+## 2: Risk Factors
 There are various risk factors associated with ED. A person may have more than one risk factor at a time.
 
-### 2.1 Age
+## 2.1: Age
 Prevalence increases significantly with age. Men aged ≥60 years are strongly associated with moderate-to-severe ED (OR=3.04).
 
-### 2.2 Lifestyle Behaviours
-
+## 2.2: Lifestyle Behaviours
 | Factor | Association with ED | Evidence |
 | :--- | :--- | :--- |
 | **Diet** | High fruit/vegetable/flavonoid intake and Mediterranean diet reduce risk. | Level II-2 |
@@ -47,8 +43,7 @@ Prevalence increases significantly with age. Men aged ≥60 years are strongly a
 
 > **Note on Cycling:** Some studies suggest cyclists may have higher odds of ED, but primary studies were of fair/poor quality.
 
-### 2.3 Co-morbidities
-
+## 2.3: Co-Morbidities
 | Condition | Risk/Association | Evidence |
 | :--- | :--- | :--- |
 | **Diabetes Mellitus** | 59.1% prevalence among diabetics; OR=3.62 vs healthy controls. | Level III |
@@ -63,10 +58,8 @@ Prevalence increases significantly with age. Men aged ≥60 years are strongly a
 | **Hypogonadism** | Higher risk in secondary hypogonadism. | Level III |
 | **Traumatic Brain Injuries** | Higher rate and risk of ED, often dose-dependent on severity. | Level II-2 |
 
-### 2.4 Medications
-
+## 2.4: Medications
 Certain medications are associated with drug-induced ED:
-
 *   **Antihypertensives:** Thiazide diuretics and beta-blockers. (Nebivolol may have beneficial effects compared to non-vasodilatory beta-blockers).
 *   **Finasteride:** 1mg/day associated with increased risk compared to placebo.
 *   **Psychotropic Agents:** Serotogenic antidepressants (SSRIs, tricyclics) and antipsychotics associated with increased risk.

@@ -1,5 +1,4 @@
-# SECTION 3: ADJUNCTIVE THERAPIES FOR PCI
-
+# Section 3: Adjunctive Therapies For PCI
 <!-- METADATA
 category: Treatment
 use_case: adjunctive_therapies_for_pci — antiplatelet_agents, aspirin, clopidogrel, ticlopidine, prasugrel, gp_iib_iiia_inhibitors, antithrombotic_therapy, ufh, lmwh, bivalirudin, fondaparinux, cilostazol, statins
@@ -12,14 +11,13 @@ critical: true
 
 ---
 
-## 3. Adjunctive Therapies for PCI
+## 3: Adjunctive Therapies For PCI
 
-## 3.1. Antiplatelet Agents
+## 3.1: Antiplatelet Agents
 
-### 3.1.1. Oral Antiplatelet Therapy
+### 3.1.1: Oral Antiplatelet Therapy
 
-#### 3.1.1.1. Aspirin
-
+#### 3.1.1.1: Aspirin
 [Grade I, Level C] Patients on long term aspirin therapy undergoing elective PCI should continue taking their usual dose before the PCI procedure.
 
 [Grade I, Level C] Patients not on aspirin therapy should be given 300 mg of aspirin at least 2 hours and preferably 24 hours before the PCI procedure. Enteric coated aspirin should not be given because of the slow onset of action.
@@ -30,10 +28,9 @@ critical: true
 
 The optimal loading dose and maintenance dose of aspirin following PCI is being addressed in an ongoing study (CURRENT/OASIS-7).
 
-#### 3.1.1.2. Thienopyridines
+#### 3.1.1.2: Thienopyridines
 
 ##### a) Clopidogrel
-
 [Grade I, Level A] A loading dose of clopidogrel 300–600 mg should be administered before PCI. This loading dose is important in patients admitted with STEMI and ACS.
 
 [Grade IIa, Level B] However, in patients with chronic stable angina undergoing PCI, a recent study found no benefit in pretreating with clopidogrel. Giving clopidogrel in the catheterisation lab just prior to ad-hoc PCI did not result in an increase in ischaemic complications.
@@ -49,7 +46,6 @@ The optimal loading dose and maintenance dose of aspirin following PCI is being 
 [Grade IIa, Level C] Patients at high risk of very late stent thrombosis (e.g. multiple overlapping stents, long stents, small vessels, ostial or bifurcation lesions, LMS, sub-optimal stent result) may be considered for long term dual antiplatelet therapy (beyond a year).
 
 ##### b) Ticlopidine
-
 [Grade I, Level A] Ticlopidine may be considered as an alternative to clopidogrel following POBA or BMS implantation. It has not been investigated following implantation of DES.
 
 It is associated with neutropenia in 1% of patients. Due to this safety concern, it is not commonly used following PCI. Patients on ticlopidine should have their total white cell count monitored regularly for the initial 3 months.
@@ -63,13 +59,11 @@ Patients not on maintenance dose of ticlopidine may be given a loading dose of 5
 In patients who have undergone PCI, ticlopidine 250 mg b.i.d. should be given together with aspirin for at least 1 month after BMS implantation (unless the patient is at increased risk of bleeding; then it should be given for a minimum of 2 weeks).
 
 ##### c) Prasugrel
-
 Prasugrel has been shown to be more effective than clopidogrel in reducing ischaemic events but is associated with increased bleeding.
 
 In a recent study, prasugrel was found to be more effective than clopidogrel in reducing cardiovascular death, non-fatal MI and non-fatal stroke in patients with STEMI. Only patients who subsequently went on to CABG had increased bleeding with prasugrel.
 
-### 3.1.2. Intravenous Antiplatelet Therapy — Glycoprotein (GP) IIb/IIIa Inhibitors
-
+### 3.1.2: Intravenous Antiplatelet Therapy — Glycoprotein (GP) IIb/IIIa Inhibitors
 [Grade IIa, Level B] If clopidogrel is given at the time of an ad-hoc procedure, supplementation with GP IIb/IIIa inhibitors can be beneficial to facilitate earlier platelet inhibition than with clopidogrel alone.
 
 [Grade IIa, Level C] In STEMI, GP IIb/IIIa inhibitors may be given in the presence of intra-coronary thrombus.
@@ -88,10 +82,8 @@ Refer to Table 4: Recommended Dosages of GP IIb/IIIa Receptor Antagonists in UA/
 
 ---
 
-## 3.2. Antithrombotic Therapy
-
+## 3.2: Antithrombotic Therapy
 These include:
-
 - Unfractionated Heparin (UFH)
 - Low Molecular Weight Heparin (LMWH)
 - Bivalirudin
@@ -121,7 +113,7 @@ For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 
 
 ---
 
-### Table 4: Recommended Dosages of GP IIb/IIIa Receptor Antagonists in UA/NSTEMI and During PCI\*
+Table 4: Recommended Dosages Of GP IIb/IIIa Receptor Antagonists In UA/NSTEMI And During PCI\*
 
 | Drug | Setting | Recommended Dosage |
 |---|---|---|
@@ -135,23 +127,21 @@ For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 
 
 ---
 
-## 3.3. Other Agents
+## 3.3: Other Agents
 
-### 3.3.1. Cilostazol
-
+### 3.3.1: Cilostazol
 [Grade IIb, Level B] Cilostazol, a phosphodiesterase inhibitor, was shown to result in reduced rates of stent thrombosis when given as part of a triple antiplatelet regimen in patients with BMS.
 
 [Grade IIb, Level B] Studies have also shown that cilostazol at a dose of 100 mg bid resulted in significantly reduced rates of restenosis and TVR at 6 months without an increase in the rate of bleeding or stent thrombosis.
 
-### 3.3.2. Statins
-
+### 3.3.2: Statins
 [Grade IIa, Level B] Pre-treatment with statins 7 days prior to elective PCI has been shown to reduce post-procedure MI.
 
 [Grade IIa, Level B] A loading dose of statin pre-procedure has also been shown to reduce post-procedure MI in statin-naive patients and in patients already on regular statins.
 
 ---
 
-### Table 5: Doses of Anti-Thrombotic Agents in UA/NSTEMI and During PCI\*
+Table 5: Doses Of Anti-Thrombotic Agents In UA/NSTEMI And During PCI\*
 
 | Agent | Setting | Dosing Regimen |
 |---|---|---|
@@ -172,8 +162,7 @@ For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 
 
 ### Overlapped Reference Tables
 
-#### Grades of Recommendation
-
+#### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -182,15 +171,14 @@ For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-#### Levels of Evidence
-
+#### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
 | **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
-#### Table 8: Dosages of Antithrombotic Agents in CKD
+Table 8: Dosages Of Antithrombotic Agents In CKD
 
 | Agent | Loading Dose | Maintenance Dose |
 |---|---|---|
@@ -204,8 +192,7 @@ For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 
 
 ---
 
-### Abbreviations Used in this Section
-
+### Abbreviations Used In This Section
 - **ACS**: Acute Coronary Syndrome
 - **ACT**: Activated Clotting Time
 - **aPTT**: Activated Partial Thromboplastin Time

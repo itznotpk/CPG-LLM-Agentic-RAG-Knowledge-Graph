@@ -1,5 +1,4 @@
-# SECTION 10: POST HOSPITAL DISCHARGE
-
+# Section 10: Post Hospital Discharge
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Post-Discharge Pharmacotherapy and Follow-Up — antiplatelet_duration, beta_blocker_continuation, statin_therapy, ACEi_ARB_titration, discharge_instructions, DES_DAPT_duration
@@ -21,10 +20,10 @@ Important discharge instructions should include:
 - scheduling of timely follow-up appointment and dates for further investigations
 - referral to a cardiac rehabilitation program where appropriate
 
-## 10.1 Medications post-discharge
+## 10.1: Medications Post-Discharge
  (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 
-### 10.1.1 Antiplatelet agents
+### 10.1.1: Antiplatelet Agents
 - **[Grade I, Level A]** ASA should be prescribed at 75-150 mg daily unless contraindicated.
 - **[Grade I, Level A]** In patients who cannot tolerate ASA, clopidogrel is an alternative. It has better risk reduction. When clopidopgrel is not available, ticlopidine can be given.
 - **[Grade I, Level A]** The combination of ASA and clopidogrel 75 mg daily should be continued for at least one month and ideally up to 9 to 12 months after UA/NSTEMI treated medically and in patients who have undergone PCI with bare metal stents.
@@ -32,13 +31,13 @@ Important discharge instructions should include:
 **[Grade I, Level C]** The duration of dual antiplatelet therapy following DES implantation is for 6 to 12 months or longer.
 - There are no recent clinical trial data on the use of triflusal in ACS.
 
-### 10.1.2 β-blockers
+### 10.1.2: Β-Blockers
 (refer Section 7.2.4.2: β-blockers)
 - β-blockers should be continued for patients with ischemia unless contraindicated.
 - **[Grade I, Level B]** Long term treatment following UA/NSTEMI may lead to significant mortality reduction.
 - **[Grade I, Level A]** β-blockers should be continued indefinitely in patients with reduced LV function, with or without symptoms of heart failure.
 
-### 10.1.3 Lipid Modifying Therapy
+### 10.1.3: Lipid Modifying Therapy
 - **[Grade I, Level A]** There is a large body of evidence that early initiation of statin therapy improves outcome regardless of baseline LDL-C levels in patient with ACS.
 - **[Grade I, Level A]** More aggressive lipid lowering further lowers cardiovascular event rates.
 
@@ -48,13 +47,13 @@ Lipid management includes:
 - **[Grade I, Level A]** LDL-C level should be targeted <2.0 mmol/L for most patients.
 - **[Grade II-a, Level B]** Patients with low HDL-C may benefit from fibrates or nicotinic acid.
 
-### 10.1.4 Angiotensin-converting enzymes inhibitors (ACE-Is)
+### 10.1.4: Angiotensin-Converting Enzymes Inhibitors (Ace-Is)
 (refer Table 7: Recommended dosages of ACE-I in UA/NSTEMI)
 - **[Grade I, Level A]** ACE-Is have shown long term benefit in all patients with evidence of LV dysfunction (LVEF ≤40%) and in patients with diabetes, hypertension or CKD unless contraindicated.
 - **[Grade II-a, Level A]** For all other patients ACE-Is should be considered to prevent recurrence of ischaemic events.
 - **[Grade II-a, Level A]** For patients with reduced LV systolic function, ACE-I should be initiated early, during the course of hospitalization. Agents and doses of proven efficacy are recommended.
 
-## Table 7: Recommended dosages of ACE-I in UA/NSTEMI
+Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
 
 | Type | Initiation dose | Target dose |
 |---|---|---|
@@ -64,24 +63,24 @@ Lipid management includes:
 | Lisinopril | 5 mg od | 40 mg od |
 | Perindopril | 2-2.5 mg od | 8-10 mg od |
 
-### 10.1.5 Angiotensin-Receptor Blockers (ARBs)
+### 10.1.5: Angiotensin-Receptor Blockers (ARBs)
 *(refer Table 8: Recommended dosages of ARB in UA/NSTEMI)*
 
 **[Grade I, Level A]** ARBs should be substituted for patients with ACE-I intolerance.
 
-## Table 8: Recommended dosages of ARB in UA/NSTEMI
+Table 8: Recommended Dosages Of ARB In UA/NSTEMI
 
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Valsartan | 40-80 mg od | 160 mg od |
 
-### 10.1.6 Aldosterone receptor antagonist
+### 10.1.6: Aldosterone Receptor Antagonist
 **[Grade I, Level B]** Long-term aldosterone receptor blockade should be considered in patients who are in heart failure and already treated with ACE-I and β-blockers (e.g. spironolactone and epleronone). Care should be taken in patients with renal dysfunction and hyperkalaemia.
 
-### 10.1.7 Anti Anginal Therapy
+### 10.1.7: Anti Anginal Therapy
 **[Grade I, Level C]** Anti anginals are not required for patients with successful revascularization and no residual ischaemia.
 
-## 10.2 Follow-up investigations
+## 10.2: Follow-Up Investigations
 *(refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)*
 In the outpatient evaluation of low risk UA/NSTEMI patients, the following investigations maybe considered:
 - Treadmill stress test
@@ -92,14 +91,14 @@ In the outpatient evaluation of low risk UA/NSTEMI patients, the following inves
 
 Low risk patients with significant demonstrable ischaemia and all intermediate/high risk patients should be considered for revascularization.
 
-## Key messages
+## Key Messages
 - Patients should be on optimal medical therapy at discharge. This includes **[Grade I, Level A]** ASA, **[Grade I, Level B]** clopidogrel (for at least a month and ideally for at least a year), **[Grade I, Level B]** &beta;-blockers &plusmn; **[Grade I, Level B]** CCBs, **[Grade I, Level C]** ACE-I or **[Grade I, Level B]** ARB and **[Grade I, Level A]** statins. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 - **[Grade I, Level C]** These drugs should be uptitrated during outpatient visits to the recommended tolerated doses.
 - **[Grade I, Level C]** Low risk patients should be assessed non-invasively for ischaemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 
 <!-- OVERLAP CONTENT -->
 
-## Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI
+Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
@@ -121,7 +120,7 @@ Low risk patients with significant demonstrable ischaemia and all intermediate/h
 | or ARB | **[Grade I, Level B]** | **[Grade I, Level B]** | As an alternative to ACE-I in intolerant patients |
 | + Statins | **[Grade I, Level A]** | **[Grade I, Level A]** | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
 
-## Figure 1: Non-Invasive Investigation of Low Risk Patients with UA/NSTEMI*
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 
 **[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
 
@@ -159,10 +158,9 @@ Low risk patients with significant demonstrable ischaemia and all intermediate/h
 * younger age group
 * normal LV function
 
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. 
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
 
-## Grades of Recommendation and Levels of Evidence
-
+## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -178,7 +176,6 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACE-I** | Angiotensin-converting enzymes inhibitor |

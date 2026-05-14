@@ -1,5 +1,4 @@
-# APPENDICES
-
+# Appendices
 <!-- METADATA
 category: Reference, Classification
 use_case: Appendices and Reference Tables — search_strategy, clinical_questions, WHO_classification, TNM_staging, AJCC_staging, chemotherapy_drugs, ECOG_performance_status, radiotherapy_toxicities
@@ -7,8 +6,7 @@ patient_input: tumour_characteristics, histopathology_findings, TNM_stage, perfo
 output: staging_classification, chemotherapy_protocol, toxicity_reference, performance_status_grading
 -->
 
-## Appendix 1: Example of Search Strategy
-
+## Appendix 1: Example Of Search Strategy
 1. Nasopharyngeal Neoplasms/
 2. ((neoplasm* or cancer* or carcinoma*) adj1 (nasopharynx or nasopharyngeal)).tw.
 3. 1 or 2
@@ -28,7 +26,6 @@ output: staging_classification, chemotherapy_protocol, toxicity_reference, perfo
 ---
 
 ## Appendix 2: Clinical Questions
-
 1. What is the epidemiology of nasopharyngeal carcinoma?
 2. What are the risk factors of nasopharyngeal carcinoma?
 3. What are the clinical presentations of patient with nasopharyngeal carcinoma?
@@ -43,34 +40,32 @@ output: staging_classification, chemotherapy_protocol, toxicity_reference, perfo
 ---
 
 ## Appendix 3: Clinical Presentations
-
 Visual signs and presentations of nasopharyngeal carcinoma include various physical abnormalities, often related to tumour growth and cranial nerve involvement.
 
-- **Figure 1: Painless neck lumps**
+- Figure 1: Painless neck lumps
   - *Description:* Clinical presentations showing visible, unilateral painless swelling or lumps on the side of the neck.
-- **Figure 2: Recurrent NPC with lymph node metastasis**
+- Figure 2: Recurrent NPC with lymph node metastasis
   - *Description:* Clinical presentation showing a large, prominent, discoloured lump located on the side of the neck behind and below the ear.
-- **Figure 3: NPC with neck lump and trismus**
+- Figure 3: NPC with neck lump and trismus
   - *Description:* Clinical presentation showing a patient with a visible neck lump and restricted ability to open the mouth fully (trismus).
-- **Figure 4: NPC with ptosis**
+- Figure 4: NPC with ptosis
   - *Description:* Clinical presentation showing a patient with drooping of the upper eyelid (ptosis) on one side, indicating cranial nerve involvement.
-- **Figure 5: NPC with ophthalmoplegia**
+- Figure 5: NPC with ophthalmoplegia
   - *Description:* Clinical presentation showing a patient with an abnormal eye position (eye turned outward), demonstrating paralysis or weakness of eye muscles (ophthalmoplegia) due to cranial nerve involvement.
-- **Figure 6: NPC with neck lump and cranial nerve 12 palsy (tongue deviation)**
+- Figure 6: NPC with neck lump and cranial nerve 12 palsy (tongue deviation)
   - *Description:* Clinical presentation showing a patient with a large neck lump and their tongue deviating to one side when protruded, indicating hypoglossal nerve (cranial nerve 12) palsy.
-- **Figure 7: Normal nasopharynx on endoscopy**
+- Figure 7: Normal nasopharynx on endoscopy
   - *Description:* Endoscopic view of a normal nasopharynx, illustrating the location of the Eustachian tube and the commonest site of tumour development.
-- **Figure 8: Nasopharyngeal carcinoma on endoscopy**
+- Figure 8: Nasopharyngeal carcinoma on endoscopy
   - *Description:* Endoscopic view showing a visible nasopharyngeal carcinoma tumour growing in the nasopharynx near the Eustachian tube.
-- **Figure 9: Recurrent NPC pre- and post-endoscopic nasopharyngectomy**
+- Figure 9: Recurrent NPC pre- and post-endoscopic nasopharyngectomy
   - *Description:* A comparison of endoscopic pictures. The pre-operative images show the recurrent tumour mass under standard white light and its corresponding appearance under auto-fluorescence (green). The post-operative images show the cleared cavity under both standard white light and auto-fluorescence.
 
 ---
 
-## Appendix 4: TNM Staging Diagram
+## Appendix 4: Tnm Staging Diagram
 
-### NASOPHARYNX STAGING FORM
-
+### Nasopharynx Staging Form
 **PRIMARY TUMOR (T)**
 - **TX:** Primary tumor cannot be assessed
 - **T0:** No evidence of primary tumor
@@ -121,8 +116,7 @@ The distribution and the prognostic impact of regional lymph node spread from na
 
 *Note: Group definitions are identical for Clinical and Pathologic staging.*
 
-### NASOPHARYNX STAGING FORM (ADDITIONAL DESCRIPTORS)
-
+### Nasopharynx Staging Form (Additional Descriptors)
 - **General Notes:** For identification of special cases of TNM or pTNM classifications, the "m" suffix and "y," "r," and "a" prefixes are used. Although they do not affect the stage grouping, they indicate cases needing separate analysis.
   - **m suffix:** indicates the presence of multiple primary tumors in a single site and is recorded in parentheses: pT(m)NM.
   - **y prefix:** indicates those cases in which classification is performed during or following initial multimodality therapy. The cTNM or pTNM category is identified by a "y" prefix. The ycTNM or ypTNM categorizes the extent of tumor actually present at the time of that examination. The "y" categorization is not an estimate of tumor prior to multimodality therapy.
@@ -138,8 +132,7 @@ The distribution and the prognostic impact of regional lymph node spread from na
   - **R1:** Microscopic residual tumor
   - **R2:** Macroscopic residual tumor
 
-### NASOPHARYNX STAGING FORM ILLUSTRATIONS
-
+### Nasopharynx Staging Form Illustrations
 *Description of staging diagrams:*
 Five anatomical diagrams illustrate the regions involved in primary tumor and regional node staging:
 1. Sagittal view of the head and neck highlighting the Nasopharynx, Oropharynx, and Hypopharynx, along with the thyroid cartilage and cricoid cartilage landmarks.
@@ -153,34 +146,31 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 
 ## Appendix 5: Radiological Staging
 
-### Primary Tumour (T staging)
-
-- **Figure 1: T1**
+### Primary Tumour (T Staging)
+- Figure 1: T1
   - *Description:* MRI scan showing a left nasopharyngeal mass confined within the nasopharyngeal mucosal space.
-- **Figure 2: T2**
+- Figure 2: T2
   - *Description:* MRI scan showing the extension of the left nasopharyngeal mass into the parapharyngeal space. *(Source: King AD, Bhatia KS. Magnetic resonance imaging staging of nasopharyngeal carcinoma in the head and neck. World J Radiol. 2010 May 28;2(5):159-65.)*
-- **Figure 3: T3**
+- Figure 3: T3
   - *Description:* MRI scan demonstrating the extension of the mass into the floor of the left sphenoid sinus.
-- **Figure 4: T4**
+- Figure 4: T4
   - *Description:* MRI scan demonstrating left masticator space involvement.
 
-### Nodal staging (N staging)
-
-- **Figure 5: N1**
+### Nodal Staging (N Staging)
+- Figure 5: N1
   - *Description:* MRI scan showing unilateral left cervical lymph nodes involvement.
-- **Figure 4: N1**
+- Figure 4: N1
   - *Description:* MRI scan showing bilateral retropharyngeal lymph nodes involvement.
-- **Figure 7: N2**
+- Figure 7: N2
   - *Description:* MRI scan showing bilateral enlarged cervical and right submandibular lymph nodes. *(Source: King AD, Bhatia KS. Magnetic resonance imaging staging of nasopharyngeal carcinoma in the head and neck. World J Radiol. 2010 May 28;2(5):159-65.)*
-- **Figure 8: N3a**
+- Figure 8: N3a
   - *Description:* MRI scan showing left cervical lymph nodes measuring more than 6 cm.
-- **Figure 9: N3b**
+- Figure 9: N3b
   - *Description:* MRI scan showing left supraclavicular lymph nodes involvement.
 
 ---
 
-## Appendix 6: Chemotherapy Drugs and Side Effects
-
+## Appendix 6: Chemotherapy Drugs And Side Effects
 | CHEMOTHERAPY DRUGS | SIDE EFFECTS | REMARKS |
 |---|---|---|
 | **Cisplatin** | • Gastrointestinal (nausea and vomiting).<br>• Blood (anaemia, thrombocytopaenia).<br>• Renal toxicity.<br>• Electrolyte imbalance (hypomagnesaemia, hypocalcaemia, hypokalaemia).<br>• Auditory (tinnitus; with or without hearing loss).<br>• Neurology (peripheral neuropathy, paraesthesia, seizure).<br>• Hypersensitivity reaction (shortness of breath, hypotension, facial oedema, flushing). | • Observe for cumulative renal toxicity. It may be minimised by adequate hydration and urinary output at least 24 hours after administration.<br>• Prophylactic anti-emetics and corticosteroids should be given.<br>• Observe for anaphylactic-like reactions during infusion. |
@@ -196,8 +186,7 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 
 ---
 
-## Appendix 7: Eastern Cooperative Oncology Group (ECOG) Performance Status
-
+## Appendix 7: Eastern Cooperative Oncology Group (Ecog) Performance Status
 | Grade | Description |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -211,9 +200,9 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 
 ---
 
-## Appendix 8: Toxicities of Radiotherapy on Head and Neck
+## Appendix 8: Toxicities Of Radiotherapy On Head And Neck
 
-### ACUTE TOXICITIES
+### Acute Toxicities
 - Lethargy
 - Radiation dermatitis
 - Mucositis
@@ -222,8 +211,7 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 - Nausea and vomiting
 - Haematological toxicities (neutropaenia)
 
-### LATE TOXICITIES
-
+### Late Toxicities
 **Neurological Complications**
 - Temporal lobe injuries
 - Cranial nerve palsies

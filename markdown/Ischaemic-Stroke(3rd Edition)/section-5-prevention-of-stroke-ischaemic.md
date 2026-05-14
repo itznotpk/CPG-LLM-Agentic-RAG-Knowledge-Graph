@@ -1,5 +1,4 @@
-# SECTION 5: PREVENTION OF STROKE
-
+# Section 5: Prevention Of Stroke
 <!-- METADATA
 category: Prevention, Treatment
 use_case: Stroke Primary and Secondary Prevention — risk_factor_management, antiplatelet_selection, statin_therapy, BP_targets, carotid_revascularisation, cardioembolism_prevention
@@ -9,33 +8,28 @@ critical: true
 treatment_type: aspirin, clopidogrel, ticlopidine, cilostazol, triflusal, statin, ACE_inhibitor, ARB, carotid_endarterectomy, carotid_stenting, warfarin, DOAC
 -->
 
-## PREVENTION OF STROKE
+## Prevention Of Stroke
 
-## 5.1 Primary Prevention
+## 5.1: Primary Prevention
 
-### 5.1.1 Epidemiology and Risk Factors of Stroke in Malaysia
-
+### 5.1.1: Epidemiology And Risk Factors Of Stroke In Malaysia
 Stroke incidence and prevalence in Malaysia has increased steadily over the last 2 decades. Stroke is the third cause of mortality and the second leading cause of Disability Adjusted Life Years (DALY) in Malaysia. The incidence and prevalence rate for both ischaemic and haemorrhagic stroke in Malaysia had increased steadily from 2010 to 2014. Without effective interventions, stroke incidence will continue to rise, thus increasing the healthcare burden.
 
 Data from the National Stroke Registry showed that first ever strokes contributed to about 79.2% of all stroke cases in Malaysia, while 20.8% were due to recurrent strokes. Therefore, primary prevention is the key to any national strategy to reduce the burden of stroke. Top modifiable risk factors associated with first ever strokes among Malaysians were hypertension (69.9%), diabetes mellitus (41.4%), smoking (26.3%), hyperlipidaemia (24.4%), family history of stroke (5.8%), ischaemic heart disease (IHD) and atrial fibrillation (3.4%). However, geographical and gender differences are observed. Hypertension and diabetes were significantly higher in women compared to men, while smoking and IHD were higher in men. Within Peninsular Malaysia, the East Coast had the highest number of hypertensive patients, while the Southern regions had the highest number of patients with diabetes. East Malaysia reported the highest number of smokers.
 
 The INTERSTROKE study, which involved 32 countries including Malaysia, identified ten modifiable risk factors (hypertension, diabetes, hyperlipidaemia, waist-hip-ratio, poor diet, smoking, alcohol, cardiac cause, apo-lipoprotein levels and psychosocial factors) which accounted for 90% of population-adjustable risk (PAR) of stroke. The Global Burden of Diseases 2013 study identified three clusters of modifiable risk factors associated with highest stroke burden in LMIC:
-
 - Lifestyle risk factors – smoking, physical inactivity, and unhealthy eating (74.1%)
 - Metabolic risk factors – high systolic BP, high cholesterol, high fasting blood glucose, low eGFR and high BMI (72%)
 - Environmental - air pollution and lead exposure (33.9%)
 
 The National Health Morbidity Survey (NHMS) 2011 and 2015 highlighted an alarming trend in the prevalence of cardiovascular risk factors among Malaysians, with 63% of Malaysian adults (>18 years) having at least one CV risk factor (overweight/obesity, high blood pressure, high blood glucose and high blood cholesterol). Based on NHMS 2015, the prevalence for the three major CV risk factors among Malaysian adults were:
-
 - Hypertension (known and undiagnosed) – 30.3%
 - Diabetes mellitus (known and undiagnosed) - 17.5%
 - Hypercholesterolaemia (known and undiagnosed) – 47.7%
 
+## 5.2: Modifiable And Non-Modifiable Risk Factors
 
-## 5.2 Modifiable and Non-modifiable Risk Factors
-
-### 5.2.1 Non-modifiable Risk Factors
-
+### 5.2.1: Non-Modifiable Risk Factors
 Understanding the epidemiology of risk factors for stroke among Malaysians allows prioritization of primary prevention strategies specific to the needs of the population. Stroke risk factors can be categorized into modifiable and non-modifiable risk factors. Non-modifiable risk factors include age, sex, and family history.
 
 Age: The cumulative effect of aging on the cardiovascular system and the progressive nature of stroke risk factors over a prolonged period of time substantially increase stroke risk. The risk of stroke doubles in each successive decade after 55 years of age.
@@ -44,9 +38,8 @@ Sex: Stroke is more prevalent in men than women. Overall, men have higher age-sp
 
 [New recommendation]Family History: Both paternal and maternal history of stroke may be associated with an increased risk. This may be mediated through genetic and shared environmental factors. Patients with a strong family history of recurrent subcortical infarcts and leucoencephalopathy should be investigated for CADASIL, Fabry's disease or mitochondrial diseases.
 
-### 5.2.2 Modifiable Risk Factors
+### 5.2.2: Modifiable Risk Factors
 The National Stroke Registry has identified the following as the top modifiable risk factors for the first-ever stroke among Malaysians:
-
 - Hypertension
 - Diabetes mellitus
 - Hypercholesterolaemia
@@ -54,8 +47,9 @@ The National Stroke Registry has identified the following as the top modifiable 
 - IHD
 - Atrial fibrillation
 
-## 5.3 Risk Stratification and Monitoring
-### 5.3.1 Cardiovascular Risk Estimates
+## 5.3: Risk Stratification And Monitoring
+
+### 5.3.1: Cardiovascular Risk Estimates
 For primary prevention strategies to be effective, understanding risk estimates is crucial for both the population at large and healthcare providers. Individualized risk estimation scores that takes into account both modifiable and non-modifiable risk factors, validated across multi populations such as the Framingham Stroke Risk Score Calculator, ASCVD and QRISK2 is helpful to create awareness and stratifying individuals according to cardiovascular risk categories. The Revised FSRS is shown to be better than the conventional FRS as it adjusts for temporal trends in stroke risk factors and has better discriminatory index for detecting stroke in various populations. These risk estimations allow stratifying of individuals into risk categories for better preventive strategies.
 
 The 2017 Malaysian Primary and Secondary Prevention of Cardiovascular Disease Clinical Practice Guideline (CPG) has advocated the use of FRS to stratify individuals into low risk, intermediate, high and very high risk based on their 10-year risks of developing cardiovascular events.
@@ -67,28 +61,26 @@ The 2017 Malaysian Primary and Secondary Prevention of Cardiovascular Disease Cl
 
 [Level II, Grade B] Patients with low risk should be counselled to maintain their status of health and to have regular reviews, while those with intermediate to high risks should be followed-up, and maintained on lifestyle interventions and pharmacotherapy for their specific risk factors, e.g. treatment of hypertension, LDL-C, smoking cessation, effective diabetes control, and encouraging physical activity and healthy eating.
 
-### 5.3.2 Stroke Risk Estimates
+### 5.3.2: Stroke Risk Estimates
 The Stroke Riskometer App, a smart phone-based application available in various languages (including the Malay language) allows for individualized stroke risk calculation, using 20 modifiable and non-modifiable risk factors. It contains educational videos for self-management of risk factors. The app calculates individualized 5- and 10-year risks of stroke and is an effective tool for monitoring risk reductions associated with lifestyle and medical interventions. The Malay version has been validated for language and content (unpublished data). Two interventional studies using Stroke Riskometer as a tool to reduce stroke risk have been completed among Malaysians with high risk (diabetics and stroke carers), with positive outcomes.
 
 [Level II, Grade B] The use of Stroke Riskometer and R-FRS Calculator may be beneficial in the community and in clinics for individualizing stroke risk and its management.
 
-## 5.4 Prevention and Management of Risk Factors
-### 5.4.1 Lifestyle Changes
+## 5.4: Prevention And Management Of Risk Factors
 
+### 5.4.1: Lifestyle Changes
 The US Health Professionals and Nurses study showed that participants who achieved all five healthy lifestyle choices (not smoking, moderate intake of alcohol, BMI <25 kg/m² , daily exercise for 30 minutes and a healthy diet score in the top 40%), had their incidence of stroke reduced by 80% as compared to those who achieved none.
 
 A study among 11450 Swedish men with high cardiovascular risk (hypertensive, high cholesterol, diabetes, heart failure or atrial fibrillation) showed that adopting all five healthy lifestyle choices [(≥5 servings of fruits and vegetables and <30g/day of processed meat; not smoking; ≥150min of physical activity /week; BMI 18.5-25 kg/m² ; low to moderate alcohol consumption (>0 to <30g/day)] had a 72% reduction of stroke incidence over 9 years as compared to those who were adherent to none or only one healthy behaviour.
 
 **Recommendation:** [New recommendation, Level I, Grade A] Adopting a healthy lifestyle (diets rich in fruits and vegetables, no smoking, daily exercise of >30 minutes or 150 minutes/week, low to moderate alcohol intake and maintaining a normal BMI of 18.5-25 kg/m²) reduces stroke incidence in normal and high-risk populations.
 
-### 5.4.2 Hypertension
-
+### 5.4.2: Hypertension
 Hypertension is the commonest and major risk factor for both ischaemic and haemorrhagic strokes in Malaysia, affecting 69.9% of patients with the first ever stroke. The incidence of stroke increases in proportion to both systolic and diastolic blood pressures. Isolated systolic hypertension is an important risk factor for stroke in the elderly (systolic blood pressure >140mmHg and diastolic blood pressure <90mmHg).
 
 [Level I, Grade A] Population specific and individualized strategies should be conducted to prevent the development of hypertension. Adopting healthy lifestyle such as smoking cessation, Dietary Action to Stop Hypertension (DASH) diet, increased physical activity and reducing salt consumption are shown to reduce the risk of developing hypertension.
 
-#### 5.4.2.1 Primary Stroke Prevention in Specific High-risk Group with Hypertension
-
+#### 5.4.2.1: Primary Stroke Prevention In Specific High-Risk Group With Hypertension
 The ACCORD BP trial showed that a lower target systolic value of 120 mmHg was superior to a target value of 140 mmHg in preventing any stroke and non-fatal stroke in diabetics, as secondary endpoint, but did not prevent other cardiovascular events. The SPRINT (Systolic Blood Pressure Intervention Trial) study showed that intensive BP lowering regime to a target of ≤120 mmHg in high-risk non-diabetic hypertensive patients aged 50 years or older led to a reduction in all cardiovascular events and mortality but with an excess of adverse events in the intensive group. However, there was no significant reduction in stroke event in these patients compared to the non-intensive group.
 
 [Level I] Large randomized controlled trials and meta-analyses have confirmed that reduction in blood pressure reduces first ever and recurrent stroke by 40%.
@@ -99,25 +91,23 @@ For diabetics with hypertension, lowering systolic blood pressure to a target of
 
 **Recommendation:** [New recommendation, Level I, Grade A] Target BP for diabetics is <130mmHg systolic and <80mmHg diastolic, preferably <120mmHg if tolerated.
 
-[New recommendation, Level I, Grade B] For high-risk non-diabetic hypertensive patients, intensive systolic BP lowering to below 120mmHg led to excess adverse events without reduction in stroke incidence. 
+[New recommendation, Level I, Grade B] For high-risk non-diabetic hypertensive patients, intensive systolic BP lowering to below 120mmHg led to excess adverse events without reduction in stroke incidence.
 
 **Recommendation:** [New recommendation, Level I, Grade B] Newly diagnosed hypertension in the very elderly (>80 years of age) should be treated.
 
-### 5.4.3 Smoking
-
+### 5.4.3: Smoking
 [Level III] The Malaysian National Stroke Registry data showed that 51% of all patients with the first ever stroke were smokers. All forms of smoking, both active and passive, are a major risk factor for stroke. Smokers who stopped for more than 5 years have the same risk as non-smokers.
 
 **Recommendation:** [Level III, Grade C] Cessation of smoking is strongly recommended.
 
-#### 5.4.3.1 Smoking And Non Communicable Diseases
-
+#### 5.4.3.1: Smoking And Non Communicable Diseases
 Smoking of tobacco and tobacco products (cigarette, electronic cigarette/vape, shisha, pipe, cigar etc.) can lead to various non-communicable diseases (NCDs). Worldwide, more than eight million people die every year because of this habit (WHO Tobacco Fact Sheet, 2020).
 
 Hence, the decision to integrate smoking treatment with NCDs is important to reduce the prevalence of NCDs and their complications. This decision was made during the World Health Organization Framework Convention on Tobacco Control (WHO FCTC) Steering Committee Meeting in December 2019 chaired by the Honourable Health Minister of Malaysia.
 
 The treatment for smoking should be initiated by the treating doctor based on the assessment and treatment of tobacco use disorder as in Table 5.1: Assessment and treatment of tobacco use disorder. Details on this can be found in the CPG on Treatment of Tobacco Use Disorder, available at: https://www. moh. gov. my/moh/resources/Penerbitan/CPG/Respiratory/CPG \_ TobacoDisorder. pdf
 
-### Table 5.1: Assessment and treatment of tobacco use disorder
+Table 5.1: Assessment And Treatment Of Tobacco Use Disorder
 
 | | ASSESSMENT AND TREATMENT |
 | --- | --- |
@@ -130,20 +120,17 @@ The treatment for smoking should be initiated by the treating doctor based on th
 | **7.** | Use smoking cessation medications with caution in special populations (e.g. children and adolescents, pregnant, breastfeeding women, psychiatric and substance abuse disorder patients). |
 | **8.** | Arrange a minimum of six to eight face to face follow-up sessions for smoking cessation interventions in six months through counselling support team (health education officer, pharmacists or any officer trained for quit smoking services). |
 
-### 5.4.4 Alcohol
-
+### 5.4.4: Alcohol
 Alcohol consumption has been identified as one of the risk factors for global stroke burden. Heavy alcohol drinking, of more than 4 units/day (1unit = 1glass wine = 1 pack of hard liquor), increases the risk of stroke.
 
 **Recommendation:** [New recommendation, Level II -2, Grade B] Avoid heavy alcohol consumption or limit to <1 drink per day.
 
-### 5.4.5 Post-menopausal Hormone Replacement Therapy
-
+### 5.4.5: Post-Menopausal Hormone Replacement Therapy
 Stroke rates rapidly rise in women once they become menopausal. The Nurses' Health Study (6-year follow-up of, 337 postmenopausal women) showed only a weak association between stroke and oestrogen replacement therapy. However, the Women's Health Initiative Estrogen Plus Progestin Study (E+P Study) showed a 31% increase in the risk of stroke due to E+ P.
 
 **Recommendation:** [Level II, Grade B] Post-menopausal hormonal therapy may increase the risk of stroke and is not recommended for primary stroke prevention.
 
-### 5.4.6 Diabetes
-
+### 5.4.6: Diabetes
 [Level II-2] Case-control studies of stroke patients and prospective epidemiological studies have confirmed an independent effect of diabetes on ischaemic stroke, with an increased relative risk in diabetics ranging from 1.8 -to nearly 6-folds.
 
 **Recommendation:** [Level I, Grade A] Tight control of hypertension in diabetics is recommended to reduce stroke incidence.
@@ -152,9 +139,7 @@ A systematic review and meta-analysis of observational cohort and nested case-co
 
 **Recommendation:** [Level I, Grade A] More intensive glycaemic control targets (HbA1c <6.5%) may be required for optimal ischemic stroke prevention.
 
-
-### 5.4.7 Hyperlipidaemia
-
+### 5.4.7: Hyperlipidaemia
 Although the relationship between high cholesterol and increased risk of coronary heart disease is stronger, epidemiological studies have also shown an association between raised serum lipids and risk of ischaemic stroke.
 
 The MRC/BHF, a RCT involving, 536 high risk individuals showed that statin therapy significantly reduced the incidence of fatal and non -fatal strokes by 28%. A meta -analysis of trials on statin therapy versus control in individuals with a 5-year risk of major vascular events lower than 10%, showed that each 1 mmol/L reduction in LDL cholesterol levels produced an absolute reduction in major vascular events of about 11 per 1000 over 5 years.
@@ -171,8 +156,7 @@ A prospective study involving 7484 elderly population (>65 years) with no histor
 
 [New recommendation, Level II, Grade B] Low dose statin is beneficial in reducing stroke risk in elderly patients with no vascular events.
 
-### 5.4.8 Dietary Factors
-
+### 5.4.8: Dietary Factors
 The PREDIMED study showed that a Mediterranean diet enriched with either olive oil or mixed nuts, reduced the incidence of stroke by 47% in 5 years as compared to a low fat diet. A meta -analysis involving 20 prospective studies showed that diet rich in fruits and vegetables reduced stroke incidence with a linear inverse relationship between fruits and vegetables consumption and stroke incidence.
 
 **Recommendation:** [New recommendation, Level II, Grade B] A Mediterranean diet rich in olive oil and canola oil, with less meat and increased vegetables is beneficial for stroke prevention.
@@ -183,9 +167,7 @@ The PREDIMED study showed that a Mediterranean diet enriched with either olive o
 
 **Recommendation:** [New recommendation, Level I, Grade A] DASH diet that is high in vegetables and fruits and low in saturated fats is beneficial in reducing BP.
 
-
-### 5.4.9 Physical Activity
-
+### 5.4.9: Physical Activity
 Physical activity is defined as any bodily movements involving skeletal muscles that results in energy expenditure and may involve occupational and leisure time activities such as walking, commuting and housework. However, meta -analyses of observational studies on physical activity and stroke showed that increased physical activity in healthy adults reduced stroke incidence by 20-25% 46 and stroke mortality by 17% irrespective of gender. Analysis from the Japanese Diabetes Complications study showed that increased physical activity (30 minutes of walking daily) reduced stroke incidence in diabetics by 45%.
 
 **Recommendation:** [New recommendation, Level I, Grade A] Increased physical activity is recommended for stroke prevention in healthy adults and high-risk patients.
@@ -195,10 +177,9 @@ Physical activity is defined as any bodily movements involving skeletal muscles 
 |---------------------------------|------------------------------------|
 | Atrial fibrillation             | See Cardio - embolism & Stroke     |
 
-### 5.4.10 Medical Therapy
+### 5.4.10: Medical Therapy
 
-#### 5.4.10.1 Aspirin
-
+#### 5.4.10.1: Aspirin
 The ARRIVE trial which involved 12500 participants with moderate cardiovascular risk and low risk of bleeding, showed that Aspirin did not prevent the first occurrence of cardiovascular events and stroke as compared to placebo.
 
 Similarly, the Japanese Primary Prevention Project, a randomized controlled trial which involved elderly patients (60-85 years of age) with hypertension, diabetes and hyperlipidaemia did not show the net benefit of Aspirin in stroke prevention. There were concerns that Aspirin use may lead to increased incidence of intracranial bleeding in Asian patients.
@@ -207,9 +188,8 @@ The ASCEND Aspirin study, a RCT which involved 15480 diabetic patients did not s
 
 **Recommendation:** [New recommendation, Level I, Grade A] Daily Aspirin is not recommended for primary prevention of stroke in diabetics, moderate risk individuals or elderly patients in view of the high risk of bleeding which outweighs any benefits.
 
-
 ## Recommendations Summary:
-### Table 5.2: Primary Prevention and Management of Risk Factors
+Table 5.2: Primary Prevention And Management Of Risk Factors
 
 | Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -236,14 +216,12 @@ The ASCEND Aspirin study, a RCT which involved 15480 diabetic patients did not s
 | Diet | Mediterranean diet – (low glycaemic and high in vegetables) supplemented with nuts and olive oil is beneficial.<br>*New recommendation* | II | B |
 | Diet | Diet high in fruits and leafy green vegetables is beneficial.<br>*New recommendation* | II | B |
 
-## 5.5 Secondary Prevention of Stroke
-
+## 5.5: Secondary Prevention Of Stroke
 Secondary prevention strategies are aimed at preventing recurrent stroke. This should be tailored according to the individual ' s stroke pathogenesis based on neuroimaging and investigations (see Investigations).
 
 The risk for recurrent vascular events after stroke or transient ischaemic attack is approximately 5% per year for stroke, 3% per year for myocardial infarction and 7% per year for any one of stroke, myocardial infarction or vascular death. This figure is even higher in certain populations, especially in those with high cerebrovascular atherosclerotic burden and for patients with ipsilateral high grade (70%) extracranial carotid stenosis.
 
-### 5.5.1 Anti-platelet Therapy
-
+### 5.5.1: Anti-Platelet Therapy
 Aspirin: There is substantial evidence to support the use of Aspirin. A 25% risk reduction of stroke was seen in all patients with stroke who received Aspirin. Aspirin given within 48 hours had shown to be beneficial in reducing recurrent stroke and deaths. Studies comparing the effects of different dosages of Aspirin had failed to show any differences in stroke recurrences.
 
 **Recommendation:** [Level I, Grade A] The recommended dose of oral Aspirin post-stroke is 75mg to 325mg daily.
@@ -276,8 +254,7 @@ Aspirin and Ticagrelor: A recent trial examining the use of ticagrelor as combin
 
 [Level I, Grade A] Warfarin is not indicated for secondary stroke prevention for patients with sinus rhythm in the absence of other conditions predisposing to cardioembolic risk.
 
-### 5.5.2 Antiihypertensive Treatment
-
+### 5.5.2: Antiihypertensive Treatment
 Reduction of blood pressure after the acute phase of a cerebrovascular event results in further reduction of vascular events. This benefit was noted in both ischaemic and haemorrhagic stroke in hypertensive and normotensive subjects. Meta-analyses of randomized controlled trials confirmed an approximate 30 – 40% reduction of stroke risk with blood pressure lowering.
 
 In one study, the combination of an ACE-inhibitor and thiazide diuretic was beneficial in both hypertensive and normotensive stroke patients when initiated two weeks after the event.
@@ -292,9 +269,9 @@ Another study proved the superiority of an angiotensin receptor blocker (ARB), L
 
 [Level II-1, Grade B] The choice of antihypertensive drug therapy (single or in combination) should also be individualized based on current evidence and specific patient characteristics.
 
-## Carotid Endarterectomy (CEA) See Revascularization Procedures
-### 5.5.3 Lipid Lowering
+## Carotid Endarterectomy (Cea) See Revascularization Procedures
 
+### 5.5.3: Lipid Lowering
 Statins were proven to reduce vascular events among high risk patients including subjects with previous stroke.
 
 **Recommendation:** [Level I, Grade A] Lipid reduction should be considered in all patients with previous ischaemic strokes.
@@ -303,8 +280,7 @@ The Treat Stroke to Target trial that involved 2860 patients with a history of i
 
 **Recommendation:** [New recommendation, Level I, Grade A] LDL target of 1.8 mmol/L is recommended.
 
-## 5.6 Other Risk Factors
-
+## 5.6: Other Risk Factors
 The control of risk factors such as better glycaemic control in diabetes and smoking cessation has not been the subject of major randomized secondary prevention clinical trials. Although diabetes is recognized as an independent risk factor for ischaemic stroke, better diabetes control resulted only in the reduction of microvascular but not macrovascular complications. Inferences can also be drawn from positive results of primary prevention trials (see primary prevention section). Nevertheless, better control of these risk factors should be advocated for better overall health after an ischaemic stroke.
 
 **Recommendation:** [Level III, Grade C] All diabetic patients with a previous stroke should maintain a good glycaemic control.
@@ -312,7 +288,7 @@ The control of risk factors such as better glycaemic control in diabetes and smo
 **Recommendation:** [Level III, Grade C] All smokers should stop smoking.
 
 ## Recommendations Summary:
-### Table 5.3: Secondary Prevention of Stroke
+Table 5.3: Secondary Prevention Of Stroke
 
 | Factors/Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -331,8 +307,7 @@ The control of risk factors such as better glycaemic control in diabetes and smo
 | Diabetic control | All diabetic patients with a previous stroke should maintain a good glycaemic control. | III | C |
 | Cigarette smoking | All smokers should stop smoking. | III | C |
 
-## 5.7 Cardioembolism
-
+## 5.7: Cardioembolism
 Cardioembolic stroke accounts for about 20% of all ischaemic strokes. Generally, they are severe, prone to early recurrence, and more likely when there is documented source of embolism and involvement of different cerebrovascular territories or multiple infarctions. The predominant pathogenic process for stroke associated with cardiac disease is embolism due to formation of intra -atrial and intra -ventricular thrombus.
 
 Atrial fibrillation (AF) whether chronic or paroxysmal, is the most common cause of cardioembolism and accounts for 50% of all cardiogenic emboli. Other high-risk conditions are having prosthetic heart valves, rheumatic mitral valvular disease, acute myocardial infarction, and severe left ventricular dysfunction. Non -thrombotic embolism may result from atrial myxoma and endocarditis. Investigations are directed at demonstrating cardiac sources of embolism in the absence of significant atherosclerosis or other vascular disease. All patients with stroke/TIA require a 12-lead electrocardiogram. A 72 -hour Holter monitor is required to detect paroxysmal AF. In addition, all patients under 45 years of age and those in whom baseline investigations did not reveal an apparent cause for stroke will require a transthoracic echocardiogram (TTE). Patients in whom there is high suspicion of cardioembolism but have a normal TTE may undergo a trans-oesophageal echocardiogram (TOE). Conditions in which this method is superior to TTE include thrombi in the left atrium and left atrial appendage, patent foramen ovale, atrial septal aneurysm and aortic arch atheroma.
@@ -350,7 +325,7 @@ Anticoagulation is not indicated for non-thrombotic causes of cardiac emboli and
 Further details on stroke and cardioembolism in Section 13: Stroke and Cardioembolism.
 
 ## Recommendations Summary:
-### Table 5.4: Cardiac Conditions Predisposing to Ischaemic stroke
+Table 5.4: Cardiac Conditions Predisposing To Ischaemic Stroke
 
 | Major Risk Conditions | Additional Risk Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- | --- |
@@ -372,7 +347,7 @@ Further details on stroke and cardioembolism in Section 13: Stroke and Cardioemb
 | MI and LV dysfunction | *High risk:*<br>Acute/recent MI (<6 months); extensive infarct with anterior wall involvement; previous stroke/TIA.<br><br>*Very high risk:*<br>Severe LV dysfunction (EF < 28%); LV aneurysm; spontaneous echo contrast; LV thrombus; dilated non-ischaemic cardiomyopathies. | For dilated cardiomyopathies including peripartum, consider lifelong Warfarin | III | C |
 | *Recommended Warfarin dose INR target 2.5 [range 2.0 to 3.0] unless stated otherwise* | | | | |
 
-### Table 5.5: Anticoagulation for the Patient with Acute Cardioembolic Stroke
+Table 5.5: Anticoagulation For The Patient With Acute Cardioembolic Stroke
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -393,20 +368,17 @@ Risk of bleeding is as following (see chart):
 | 2 | 744 | 14 | 1.88 |
 | 3 | 187 | 7 | 3.74 |
 
-## 5.8 Revascularisation Procedures
-
+## 5.8: Revascularisation Procedures
 Surgical procedures in stroke management may be classified to procedures performed to prevent first stroke occurrence (primary prevention in asymptomatic patients) or following a stroke event (secondary prevention).
 
-### 5.8.1 Primary Prevention
-
+### 5.8.1: Primary Prevention
 Carotid endarterectomy (CEA) has been compared to conservative medical therapy for asymptomatic patients without prior history of TIA or stroke for whom imaging of the carotid arteries reveals a definite stenosis. Of the 5 published randomized studies, only 2 were sufficiently powered to compare the outcomes between surgery and medical therapy. The absolute 5 -year risk reduction for patients with 70-99% carotid artery stenosis (by ultrasound) was 5.4% in the recent follow -up of the ACST trial, which was consistent with the ACAS study from North America (5-year absolute risk reduction of 5.9%). This translates into a 1% annual stroke rate reduction. Patients who are asymptomatic and receiving appropriate medical therapy face an annual stroke rate of 2% without CEA. Surgical morbidity and mortality often exceed this beneficial risk reduction. In the ACST and ACAS trials, surgery -related events were 3.1% and 2.3%, respectively. In an unselected patient group undergoing CEA in a centre without proper auditing of the surgeon or the centre's operative records, the complications are likely to outweigh the benefits of CEA. Furthermore, asymptomatic patients should not be offered CEA if their 5-year probability of dying from unrelated causes is high. Finally, in the NASCET study, nearly 45% of all strokes occurring in patients with asymptomatic stenosis may be attributable to lacunar infarcts or cardioembolism.
 
 **Recommendation:** [Level I, Grade A] Endarterectomy may be considered in patients with high-grade asymptomatic carotid stenosis (70-99%) when performed by a surgeon with less than 3% morbidity/ mortality rate.
 
 Careful patient selection, guided by comorbid conditions, life expectancy, and patient preference, followed by a thorough discussion of the risks and benefits of the procedure is required. It is important that asymptomatic patients receive appropriate medical treatment and be fully evaluated for other treatable causes of stroke.
 
-### 5.8.2 Secondary Prevention
-
+### 5.8.2: Secondary Prevention
 Two large randomized trials (NASCET and ECST) have compared the outcomes of patients with recent cerebrovascular symptoms treated conservatively or with carotid endarterectomy. Long-term follow-up and a meta-analysis is available for these trials. Standardizing the same measurements and definitions yielded highly consistent results among the 3 trials. In general, CEA is highly beneficial for patients with carotid stenosis (70-99%), producing a 16% absolute 5-year risk reduction (ARR). For patients with 50-69% stenosis, the 5 -year ARR was 4.6%. No benefit was observed for patients with milder degrees of stenosis. Subgroup analyses revealed that benefits in surgery was the greatest in men, aged 75 years or older, and those randomized within 2 weeks of their stroke event. These studies excluded patients with medical co-morbidities, previous neck irradiation and recurrent stenosis following previous endarterectomy.
 
 Extracranial -intracranial anastomosis between the superficial temporal and middle cerebral arteries (EC-IC Bypass) has not been shown to be beneficial for secondary stroke prevention by the EC/IC Bypass Study Group.
@@ -425,8 +397,7 @@ Extracranial -intracranial anastomosis between the superficial temporal and midd
 
 **Recommendation:** [Level I, Grade A] External/internal carotid bypass is not recommended for secondary stroke prevention.
 
-## 5.9 Angioplasty or Stenting
-
+## 5.9: Angioplasty Or Stenting
 This is a rapidly evolving field in stroke treatment and prevention. Several randomized trials have compared extra-cranial carotid angioplasty and stenting (CAS) to carotid endarterectomy (CEA).
 
 **Recommendation:** [Level II-2] CAS represents a feasible alternative to carotid endarterectomy for secondary stroke prevention when surgery is undesirable, technically difficult, or inaccessible.
@@ -451,7 +422,7 @@ Therefore, careful selection with extensive multidisciplinary discussions by cen
 
 **Recommendation:** [Level II-2, Grade C] Role of IAS in intra -cranial stenoses, asymptomatic stenoses and acute stroke is unclear and may be recommended.
 
-### Table 5.6: Revascularisation Procedures
+Table 5.6: Revascularisation Procedures
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -468,9 +439,7 @@ Therefore, careful selection with extensive multidisciplinary discussions by cen
 | Carotid angioplasty and stenting (CAS) | Complex configuration of the aortic arch and internal carotid artery tortuosity increase the risk of cerebral ischemia in CAS | II-2 | B |
 | Intracranial angioplasty & stenting (IAS) | Role of IAS in intra-cranial stenoses, asymptomatic stenoses and acute stroke is unclear and may be recommended. | II-2 | C |
 
-
 ## Key Recommendations:
-
 - Stroke is a preventable disease and may be attributed to modifiable and non-modifiable risk factors.
 - Modifiable risk factors are the focus of primary prevention and can be clustered into three main groups i.e.
 - a) Lifestyle risk factors, i.e., smoking, physical inactivity, and unhealthy eating
@@ -478,8 +447,7 @@ Therefore, careful selection with extensive multidisciplinary discussions by cen
 - c) Environmental factors, i.e., air pollution and lead exposure.
 - Secondary prevention of stroke involves the prevention of recurrent stroke, and this may involve medical interventions includes antiplatelet therapy, anti -hypertensive treatment, lipid-lowering agents, glycaemic control, prevention of cardio-embolism and re-vascularisation procedures in selected cases.
 
-### Contextual Anchor: Section 13 — Stroke and Cardioembolism
-
+### Contextual Anchor: Section 13 — Stroke And Cardioembolism
 **Stroke Prevention in Atrial Fibrillation Patients:**
 
 - [Level I, Grade A] Antiplatelet monotherapy is not indicated for stroke prevention in non-valvular atrial fibrillation (NVAF) patients.
@@ -510,10 +478,9 @@ Therefore, careful selection with extensive multidisciplinary discussions by cen
 - [New recommendation, Level I, Grade A] DOACs are preferred as compared to VKA or Aspirin in AF patients with a previous stroke.
 - [Level III, Grade C] Aspirin could be considered before the initiation of OAC after an AF patient suffers from an ischaemic stroke.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -524,8 +491,7 @@ Therefore, careful selection with extensive multidisciplinary discussions by cen
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -534,8 +500,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 | --- | --- |
 | ABCD2 | Age, Blood pressure, Clinical features, Duration of TIA, Diabetes score |
@@ -599,4 +564,3 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | VISSIT | Vitesse Intracranial Stent Study for Ischemic Therapy |
 | WEAVE | Wingspan Stent System Post Market Surveillance |
 | WHO FCTC | World Health Organization Framework Convention on Tobacco Control |
-

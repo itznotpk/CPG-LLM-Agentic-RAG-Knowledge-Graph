@@ -1,5 +1,4 @@
-# SECTION 4: RECOVERY FROM ANAESTHESIA
-
+# Section 4: Recovery From Anaesthesia
 <!-- METADATA
 category: Supportive Treatment, Assessment, Prevention
 use_case: Recovery Area Guidelines — monitoring_standards, handover_protocols, discharge_criteria, patient_transport
@@ -12,14 +11,12 @@ critical: true
 
 ---
 
-## 4.1 Recovery Area Requirements
-
+## 4.1: Recovery Area Requirements
 a. **Designated Area:** Recovery of the patient from anaesthesia should be carried out in a designated area (i.e., the recovery area / bay) which is appropriately staffed and equipped.
 
 b. **Staffing Ratio:** The minimum staffing ratio should be appropriate for the planned number of beds that are operational.
 
-### 4.2 Minimum Facilities for Recovery Area
-
+## 4.2: Minimum Facilities For Recovery Area
 | Facility Type | Description |
 |---------------|-------------|
 | Beds / Trolleys | Suitable beds or trolleys capable of a head-down tilt |
@@ -36,12 +33,10 @@ b. **Staffing Ratio:** The minimum staffing ratio should be appropriate for the 
 
 ---
 
-## 4.3 Monitoring in Recovery
-
+## 4.3: Monitoring In Recovery
 All patients in the recovery area / bay must be **appropriately monitored** according to the patient's condition.
 
-### Applicable Intraoperative Monitoring Standards (from Section 3)
-
+### Applicable Intraoperative Monitoring Standards (From Section 3)
 | Parameter | Monitoring Method |
 |-----------|-------------------|
 | **Oxygenation** | Clinical observation (mucous membranes, operative site) + **Pulse oximetry (mandatory)** with audible variable pulse tone and low alarm limit. |
@@ -51,8 +46,7 @@ All patients in the recovery area / bay must be **appropriately monitored** acco
 
 ---
 
-## 4.4 Handover and Discharge
-
+## 4.4: Handover And Discharge
 a. **Proper Handover:** There should be a proper handover for the transfer of the patient's care:
    - From operating room staff to recovery area / bay staff
    - From the recovery area / bay staff to the ward staff
@@ -67,14 +61,12 @@ c. **Discharge from Recovery:**
 
 ---
 
-## 4.5 Emergency Medical Assistance
-
+## 4.5: Emergency Medical Assistance
 **Medical assistance** should be immediately available in case of an emergency in the recovery area.
 
 ---
 
-## 4.6 Transport of Patient
-
+## 4.6: Transport Of Patient
 a. **From the Operation Theatre to the Recovery Area:**
    - **Supervision:** Transfer of the patient from theatre to recovery should be under the supervision of the anaesthetist.
    - **Oxygen:** Supplemental oxygen should be provided, if necessary.
@@ -83,4 +75,3 @@ a. **From the Operation Theatre to the Recovery Area:**
 b. **From the Recovery Area to the Ward or Intensive Care Unit:**
    - **Checklist:** A checklist should be established to document that the patient is fit to be discharged from the recovery area safely.
    - **Handover:** The patient should be received by a qualified nurse during the handover and with documentation.
-

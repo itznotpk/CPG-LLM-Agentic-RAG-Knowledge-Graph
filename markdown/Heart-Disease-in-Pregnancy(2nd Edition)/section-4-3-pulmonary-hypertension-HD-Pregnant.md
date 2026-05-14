@@ -1,5 +1,4 @@
-# SECTION 4.3: PULMONARY HYPERTENSION AND EISENMENGER
-
+# Section 4: .3: Pulmonary Hypertension And Eisenmenger
 <!-- METADATA
 category: Classification, Assessment, Treatment, Special Populations
 use_case: Pulmonary Hypertension and Eisenmenger Syndrome in Pregnancy — PH_classification, haemodynamic_risk, preconception_counselling, antenatal_care, labour_delivery, postpartum_care, contraception
@@ -9,8 +8,7 @@ critical: true
 treatment_type: sildenafil, iloprost, bosentan, low_molecular_weight_heparin, warfarin, oxytocin, nitric_oxide, epoprostenol, Nexplanon
 -->
 
-## 4.3 Pulmonary hypertension and Eisenmenger syndrome
-
+## 4.3: Pulmonary Hypertension And Eisenmenger Syndrome
 Pulmonary hypertension (PH) is defined as mean pulmonary artery pressure of > 25 mmHg at rest, measured by cardiac catheterization. PH is classified into 5 different groups based on the aetiology, mechanism of vasculopathy and response to treatment. (Table 13: Clinical Classification of Pulmonary Hypertension)
 
 In group 1, 3, 4 and 5, pulmonary arterial hypertension (PAH) reflects pre capillary PH (Table 12: Specific Considerations and WHO Risk Stratification for Specific Congenital Heart Disease) where the pulmonary capillary wedge pressure (PCWP) is ≤ 15 mmHg and pulmonary vascular resistance is > 3 Wood units (WU).
@@ -23,8 +21,7 @@ Eisenmenger syndrome is defined as the reversal of shunt (pulmonary to systemic)
 
 Pulmonary hypertension may be diagnosed for the first time during pregnancy as the haemodynamic effects of pregnancy may worsen the pulmonary vascular disease and precipitate symptoms of right heart failure.
 
-### 4.3.1 Haemodynamic considerations in PH
-
+### 4.3.1: Haemodynamic Considerations In Ph
 Pregnancy has the following adverse effects in patients with PH.
 
 - The increase in cardiac output during late second trimester and delivery worsens the pulmonary hypertension and may cause right ventricular failure and syncope.
@@ -36,8 +33,7 @@ Pregnancy has the following adverse effects in patients with PH.
 - Women with cyanosis also have abnormal coagulopathy and bleeding tendencies.
 - Hypovolemia, anaemia and acidosis during delivery further aggravates the pulmonary hypertension.
 
-### 4.3.2 Maternal and fetal outcomes
-
+### 4.3.2: Maternal And Fetal Outcomes
 With improvement in care and the availability of PAH targeted therapy, maternal mortality has decreased. (Table 14: Comparison of Maternal Mortality in Women with Pulmonary Hypertension)
 
 Most morbidity and mortality occurs in the late second, third trimester and in the postpartum period. Most deaths occurred within the first month post-delivery and were due to right heart failure. Deaths however may occur up to 2 years post-delivery. Thus regular cardiac follow up and review of these patients are important.
@@ -46,8 +42,7 @@ Most of the women who died had severe PH. However even women with mild or modera
 
 Fetal and neonatal mortality was also high ranging from 7-13%. Risk for FGR and prematurity were also more common compared to the normal population.
 
-### 4.3.3 Preconception counselling
-
+### 4.3.3: Preconception Counselling
 [Grade I, Level C] In patients suspected of having PH by echocardiography, the diagnosis should be confirmed by cardiac catheterization prior to pregnancy.
 
 [Grade III, Level C] Pregnancy in the presence of severe PH, irrespective of cause, is high risk (WHO risk IV). Women with severe PH should be advised of the high mortality rates associated with pregnancy. As such, pregnancy is contraindicated.
@@ -58,8 +53,7 @@ However pregnancy remains the choice of the woman and her partner, and if she de
 
 For those patients with mild PH, pregnancy may be considered. These patients should be well informed about the potential worsening of symptoms as pregnancy advances.
 
-### 4.3.4 Antenatal Care
-
+### 4.3.4: Antenatal Care
 For those patients with known PH who present pregnant, early referral to a tertiary centre is crucial for assessment of the severity of the PH and whether pregnancy can be continued.
 
 [Grade III, Level C] Termination of pregnancy is recommended for those with severe PH and appropriate contraception should be encouraged.
@@ -152,23 +146,19 @@ The patients should be referred to a combined clinic with multidisciplinary team
 
 Close fetal surveillance is recommended as there is increased fetal morbidity and mortality.
 
-### 4.3.5 Labour and delivery
-
+### 4.3.5: Labour And Delivery
 The intra and postpartum care plan should be decided by the multidisciplinary team consisting of cardiologist, obstetrician, cardiac and obstetric anaesthetist, intensivist and neonatologist.
 
 This is done between 30 to 32 weeks gestation or earlier if indicated.
 
 The mode, timing and place of delivery are based on:
-
 - The safest option for the patient taking into consideration the clinical status, functional class and fetal status.
 - The expertise and facilities available in the chosen hospital.
 
-#### 4.3.5.1 Mode of delivery
+#### 4.3.5.1: Mode Of Delivery
 
-##### 4.3.5.1.1 Elective lower segment caesarean section (LSCS)
-
+##### 4.3.5.1.1: Elective Lower Segment Caesarean Section (Lscs)
 [Grade II-a, Level C] This is the preferred mode of delivery in our local setting for the following reasons:
-
 - This procedure can be planned in advance with the advantage that it can be done:
   - when the patient is still haemodynamically stable
   - the haemodynamic complications associated with labour and autotransfusion associated with vaginal delivery are avoided
@@ -181,10 +171,8 @@ Blood loss should be minimal with meticulous attention to haemostasis and postpa
 
 [Grade I, Level C] Oxytocin should be given at the smallest effective infusion rate.
 
-##### 4.3.5.1.2 Vaginal delivery
-
+##### 4.3.5.1.2: Vaginal Delivery
 If the patient presents in labour, the following precautions should be taken:
-
 - good analgesia for pain control (low dose epidural anaesthesia)
 - low threshold for assisted second stage of labour (forceps/ vacuum)
 - left lateral decubitus position is preferred in labour to avoid IVC compression
@@ -193,8 +181,7 @@ If the patient presents in labour, the following precautions should be taken:
 
 [Grade I, Level C] The mode of delivery should however be individualised and efforts should be taken to avoid an unplanned delivery.
 
-#### 4.3.5.2 Type of anaesthesia
-
+#### 4.3.5.2: Type Of Anaesthesia
 The type of anaesthesia for LSCS is to be determined during the multidisciplinary meeting.
 
 [Grade II-b, Level C] General anaesthesia carries a higher risk and is not routinely recommended.
@@ -204,12 +191,10 @@ The type of anaesthesia for LSCS is to be determined during the multidisciplinar
 It should be administered by an experienced anaesthetist.
 
 The choice of anaesthesia will need to take into consideration the following:
-
 - The clinical and functional status of the patient
 - The expertise and experience of the respective centres
 
-#### 4.3.5.3 Monitoring during labour and delivery
-
+#### 4.3.5.3: Monitoring During Labour And Delivery
 Close monitoring of the mother and fetus is crucial during labour, delivery and in the postpartum.
 
 - [Grade I, Level C] Continuous intra-arterial pressure, central venous pressure, pulse oximetry and electrocardiogram monitoring during delivery is indicated.
@@ -223,18 +208,15 @@ Close monitoring of the mother and fetus is crucial during labour, delivery and 
 - Close monitoring of coagulation profile and early correction with blood products to prevent excessive bleeding.
 - All patients should be monitored in the HDU/ICU/CCU for 3-5 days post-delivery.
 
-#### 4.3.5.4 Anticoagulation
-
+#### 4.3.5.4: Anticoagulation
 [Grade I, Level C] In patients with Eisenmenger syndrome, elastic stockings, early mobilisation and antithrombotic prophylaxis with low molecular weight heparin is recommended to prevent deep vein thrombosis and potential pulmonary and paradoxical embolism.
 
 [Grade I, Level C] For those with idiopathic PH and others who are at risk for thromboembolic events (e.g. past history of thromboembolic event, atrial fibrillation) oral anticoagulation should be instituted after 24 hours if there are no bleeding complications.
 
-#### 4.3.5.5 Extracorporeal membrane support (ECMO)
-
+#### 4.3.5.5: Extracorporeal Membrane Support (Ecmo)
 [Grade II-a, Level C] ECMO has been used in pregnant patients with respiratory or haemodynamic compromise. There may be a role in patients with PH who have severe haemodynamic decompensation.
 
-### 4.3.6 Postpartum
-
+### 4.3.6: Postpartum
 The morbidity and mortality is highest in the postpartum period especially in the first 2 weeks to 1 month post-delivery.
 
 [Grade II-a, Level C] All patients should remain in hospital for at least 2 weeks post-delivery.
@@ -242,15 +224,13 @@ The morbidity and mortality is highest in the postpartum period especially in th
 In the event of acute PH crisis or haemodynamic decompensation, nitric oxide or prostanoids (intravenous epoprostenol or inhaled iloprost if epoprostenol is not available) can be administered to stabilise the patient.
 
 Patients should be monitored closely up to 6 months postpartum as late deaths and decompensation can still occur. These patients should be seen at least once more in the combined clinic to:
-
 - review the patient's clinical status
 - decide on the further management plan
 - ensure appropriate contraception
 
 Patients who were newly diagnosed with PH during delivery, should be referred to a PH expert for further investigation and management.
 
-### 4.3.7 Contraception
-
+### 4.3.7: Contraception
 [Grade I, Level C] Appropriate contraception is important as pregnancy is contraindicated in patients with PH (section 5: Contraception) Appendix N: Safety of Progesterone Only Contraceptive Methods in Women with Cardiac Disease and Appendix O: Risk of Combined Contraceptive Pills for the Different Cardiac Conditions WHOMEC Risk Classification for the Use of Combined Hormonal Contraceptives*.
 
 [Grade I, Level C] The contraception of choice in these patients are implants (Nexplanon® previously known as Implanon®).
@@ -265,8 +245,7 @@ Depo medroxyprogesterone however has no interaction with Bosentan and can be use
 
 As subsequent pregnancies increases the maternal mortality risk, it is important to ensure that this is avoided by appropriate contraception.
 
-## Key messages:
-
+## Key Messages:
 - Pre-pregnancy counselling and appropriate contraception is important.
 - Should pregnancy occur, termination should be considered as these patients are high risk.
 - Should pregnancy continue, these patients should be managed by a multidisciplinary team with expertise in the management of patients with pulmonary hypertension.
@@ -274,7 +253,7 @@ As subsequent pregnancies increases the maternal mortality risk, it is important
 - Permanent sterilisation (including male sterilisation) should be considered.
 
 ## Contextual Anchors (Overlapping)
-### Table 12: Specific Considerations and WHO Risk Stratification for Specific Congenital Heart Disease
+Table 12: Specific Considerations And WHO Risk Stratification For Specific Congenital Heart Disease
 
 | Congenital Heart Disease | WHO Risk Class | Specific Considerations | Pregnancy Management |
 |---|---|---|---|
@@ -311,7 +290,7 @@ Table 12 classifies the maternal risk of pregnancy based on specific cardiac les
 
 ---
 
-### Table 13: Clinical Classification of Pulmonary Hypertension
+Table 13: Clinical Classification Of Pulmonary Hypertension
 
 | Group | Definition | Selected aetiologies |
 |---|---|---|
@@ -325,7 +304,7 @@ Adapted from Simonneau et al.
 
 ---
 
-### Table 14: Comparison of Maternal Mortality in Women with Pulmonary Hypertension
+Table 14: Comparison Of Maternal Mortality In Women With Pulmonary Hypertension
 
 |  | Weiss et al (1978-1996) | Bedard et al (1997-2007) | Pieper et al (1998-2013) |
 |---|---|---|---|
@@ -338,12 +317,10 @@ iPAH: idiopathic pulmonary arterial hypertension, CHD-PAH: pulmonary arterial hy
 
 ---
 
-### Section 4.9: Anticoagulation in Pregnancy
-
+### Section 4: .9: Anticoagulation In Pregnancy
 This content supports the antenatal care anticoagulation subsection in pulmonary hypertension and Eisenmenger syndrome.
 
 The general indications for anticoagulation include:
-
 - Mechanical heart valves
 - Atrial fibrillation
 - Eisenmenger syndrome - use with caution as bleeding diathesis may occur
@@ -354,10 +331,8 @@ The general indications for anticoagulation include:
 
 Management of these patients will vary depending upon the indication.
 
-#### Anticoagulation for other indications
-
+#### Anticoagulation For Other Indications
 The choice of therapeutic anticoagulation for other indications would depend upon the risk of thrombosis, patients' preference and the consensus of the multidisciplinary team. Either:
-
 - [Grade II-b, Level C] Regime A - warfarin throughout pregnancy till 36 weeks
 - [Grade II-b, Level C] Regime B - UFH/LMWH therapy in the first trimester
 
@@ -371,8 +346,7 @@ If AF should occur for the first time in patients with valvular heart disease, i
 
 Both warfarin and heparin based therapy are safe during breast feeding.
 
-#### Management from 36 weeks gestation till delivery
-
+#### Management From 36 Weeks Gestation Till Delivery
 - [Grade II-a, Level C] At 36 weeks, the patient and warfarin should be switched to LMWH or IV UFH.
 - [Grade II-a, Level C] Women on LMWH should be switched to IV UFH at least 36 hours before induction of labour or caesarean section.
 - [Grade II-a, Level C] IV UFH should be discontinued 4-6 hours before planned delivery and restarted 4-6 hours after vaginal delivery and 6-12 hours after LSCS if there are no bleeding complications.
@@ -381,11 +355,9 @@ Both warfarin and heparin based therapy are safe during breast feeding.
 ---
 
 ### Section 5: Contraception
-
 This content supports the contraception subsection in pulmonary hypertension and Eisenmenger syndrome.
 
 When considering contraception in patients with heart disease, the following factors are important:
-
 - Efficacy of the method
 - Potential complications of the contraceptive method which include:
   - Risk of thrombosis
@@ -397,7 +369,6 @@ When considering contraception in patients with heart disease, the following fac
 - Cost
 
 There are many types of contraceptive methods such as:
-
 - Combined hormonal contraception
 - Progestogen only contraception
 - Depo provera
@@ -408,7 +379,6 @@ There are many types of contraceptive methods such as:
 - Barrier methods
 
 In advising contraception to cardiac patients, the following should be considered:
-
 - Efficacy - preferable those with pearl Index > 1
 - Interaction with medications:
   - Bosentan may antagonise the efficacy of the hormonal contraceptives. Thus a second method of contraception may be necessary.
@@ -424,7 +394,6 @@ In advising contraception to cardiac patients, the following should be considere
   - [Grade III, Level C] Hysteroscopic sterilisation and insertion of intrauterine devices may give rise to vasavagal reaction due to manipulation of the cervix. This is poorly tolerated in patients with PAH and Eisenmenger syndrome.
 
 For emergency contraception, the following are available:
-
 - the emergency contraceptive pill (Ella®, Escapelle®) - the preparation containing high dose Levonogestrel may interact with warfarin
 - copper IUD
 
@@ -435,14 +404,13 @@ For emergency contraception, the following are available:
 In patients with PH and Eisenmenger syndrome who are not on Bosentan, progestin only implants (Nexplanon® previously known as Implanon®) are recommended. This is an effective contraceptive method that is easy and safe to implant.
 
 Key messages:
-
 - Contraception plays a key role in stabilising the maternal heart condition by the prevention of an unwanted pregnancy.
 - A planned pregnancy brings the best outcomes.
 - If pregnancy is contraindicated, then appropriate contraceptive advice is paramount for the safety of the patient.
 
 ---
-### Appendix N: Safety of Progesterone Only Contraceptive Methods in Women with Cardiac Disease
 
+### Appendix N: Safety Of Progesterone Only Contraceptive Methods In Women With Cardiac Disease
 | Progesterone only contraceptive method | Cardiac condition | WHOMEC# Class |
 |---|---|---|
 | Progesterone only pill^a^; - Noriday^®^; - Cerazette^®b^ | All cardiac conditions; *(should not normally be advised where pregnancy poses a high or unacceptable risk - WHOMEC Class 3 and 4 conditions)* | 1 |
@@ -458,18 +426,17 @@ Key messages:
 
 #WHOMEC: World Heart Organization Medical Eligibility Criteria
 
-^a^Although safe, the standard progestogen-only pill is less effective than all the other progestogen-only methods.; 
-^b^Efficacy reduced by Bosentan; 
-^c^Risk of haematoma at injection site; 
-^d^The INR may be altered after initiation of any progesterone hormone therapy. It needs to be monitored.; 
+^a^Although safe, the standard progestogen-only pill is less effective than all the other progestogen-only methods.;
+^b^Efficacy reduced by Bosentan;
+^c^Risk of haematoma at injection site;
+^d^The INR may be altered after initiation of any progesterone hormone therapy. It needs to be monitored.;
 ^e^Risk of Infective Endocarditis
 
 From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
 
 ---
 
-### Appendix O: Risk of Combined Contraceptive Pills for the Different Cardiac Conditions WHOMEC Risk Classification for the Use of Combined Hormonal Contraceptives*
-
+### Appendix O: Risk Of Combined Contraceptive Pills For The Different Cardiac Conditions Whomec Risk Classification For The Use Of Combined Hormonal Contraceptives*
 | MEC CLASS | WHOMEC 1 | WHOMEC 2 | WHOMEC 3 | WHOMEC 4 |
 |---|---|---|---|---|
 | Category of Use | Condition with no restriction for the use of contraceptive method | Condition where the advantages of the method generally outweigh the risks | Condition where the risks of the method usually outweigh the advantages and to consider all alternatives first | Conditions where the method represents an unacceptable health risk |
@@ -490,10 +457,10 @@ From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in hea
 From: Thorne S et al. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
 
 ---
-## Grades of Recommendation and Level of Evidence
 
-### Grades of Recommendation
+## Grades Of Recommendation And Level Of Evidence
 
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -502,16 +469,14 @@ From: Thorne S et al. Pregnancy and contraception in heart disease and pulmonary
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial fibrillation |

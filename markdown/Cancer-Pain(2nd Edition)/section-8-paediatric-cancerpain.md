@@ -1,5 +1,4 @@
-# SECTION 8: PAEDIATRIC CANCER PAIN
-
+# Section 8: Paediatric Cancer Pain
 <!-- METADATA
 category: Special Populations, Treatment
 use_case: Paediatric Cancer Pain Management — pain_assessment_children, FLACC, Wong_Baker_faces, paediatric_opioids, paediatric_non_opioids, paediatric_adjuvants, neonatal_dosing, opioid_titration_children
@@ -21,8 +20,7 @@ Tumour-related pain can present:
 
 The following table shows examples of cancer-related pain in children.
 
-## 8.1 Principles of Pain Assessment
-
+## 8.1: Principles Of Pain Assessment
 Pain assessment in children can be quite different than adults. The following are principles to guide pain assessment in children using the acronym **A.B.C.D.E**:
 
 Assessment and management of pain in children and infants are different from adults due to:
@@ -33,16 +31,14 @@ Assessment and management of pain in children and infants are different from adu
 * Parental involvement: Caregivers input is an essential component and part of the assessment.
 * Ethical consideration: Children are not able to give consent for any intervention and medical management. Consent must be taken from legal caregivers or parents.
 
-## 8.2 Pain Assessment Tools
-
+## 8.2: Pain Assessment Tools
 The choice of a pain assessment tool should take into consideration:
 * the child's developmental age
 * verbal ability
 
-These are shown in **Table 8: Pain Assessment Tools Based on Child's Developmental Age** and **Table 9: Pain Assessment Tools Based on Verbal Ability**.
+These are shown in Table 8: Pain Assessment Tools Based on Child's Developmental Age and Table 9: Pain Assessment Tools Based on Verbal Ability.
 
-## 8.3 Treatment
-
+## 8.3: Treatment
 Cancer pain in children can be effectively managed by using drugs e.g. opioids, non-opioids and adjuvant analgesics with the biopsychosocial or multi-modality approach covering physical, psychosocial and spiritual entities.
 
 ---
@@ -76,8 +72,7 @@ Tramadol is a synthetic analgesic with unpredictable effects due to its wide var
 - **b. Morphine**
 Oral morphine is the first-line therapy for severe cancer pain in children. Its effectiveness in pain relief has been extrapolated from the treatment of adult with chronic cancer pain. Oral morphine is available as either IR or SR preparations. [Level III] IV morphine is used for rapid onset analgesia and when the patients are unable to tolerate oral morphine. If the opioid requirement goes beyond 1 mg/kg/day, it is likely that the patient will require regular morphine. Morphine dose should be monitored after 24 - 48 hours of morphine use. Alternative routes of administration should be based on clinical judgement, drug availability and patient's preference. The initial dose of morphine and its frequency is shown in **Appendix 5b: Suggested Medication Dosages in Paediatrics**.
 
-### Case Example for Opioid Titration in Paediatric Cancer Pain
-
+### Case Example For Opioid Titration In Paediatric Cancer Pain
 Aiman is a 10-year-old boy with relapsed Acute Lymphoblastic Leukemia with bone metastasis. He complains of generalised pain with pain score of 6/10. He is opioid naïve with normal renal and liver function. His weight is 20kg and he is currently at home.
 
 **Method of dose calculation:**
@@ -89,10 +84,10 @@ Breakthrough dose: 1/10 to 1/6 of daily dose (2.5 - 4 mg), can be served 1-2 hou
 > - Oral morphine is the preferred choice for children with moderate to severe cancer pain.
 
 - **c. Fentanyl**
-Transdermal fentanyl is an effective alternative to oral morphine in children with difficulty in swallowing or those having intractable nausea and vomiting whose opioid requirements are stable. IV fentanyl can be used in children with specific circumstances e.g. renal failure but preferably this is done under specialist care. Refer to **Table 4: Suggested Dose Conversion Ratio in The Direction Specified** on suggested dose conversion ratio for conversion of oral morphine to fentanyl patch.
+Transdermal fentanyl is an effective alternative to oral morphine in children with difficulty in swallowing or those having intractable nausea and vomiting whose opioid requirements are stable. IV fentanyl can be used in children with specific circumstances e.g. renal failure but preferably this is done under specialist care. Refer to Table 4: Suggested Dose Conversion Ratio in The Direction Specified on suggested dose conversion ratio for conversion of oral morphine to fentanyl patch.
 
 - **d. Oxycodone**
-Oxycodone is an alternative strong opioid which is as effective as oral morphine. Refer to **Table 4: Suggested Dose Conversion Ratio in The Direction Specified** on suggested dose conversion ratio for conversion of oral morphine to oxycodone.
+Oxycodone is an alternative strong opioid which is as effective as oral morphine. Refer to Table 4: Suggested Dose Conversion Ratio in The Direction Specified on suggested dose conversion ratio for conversion of oral morphine to oxycodone.
 
 > **Recommendation 19**
 > - Fentanyl or oxycodone may be used as alternative analgesics in children with moderate to severe cancer pain.
@@ -103,7 +98,7 @@ Oxycodone is an alternative strong opioid which is as effective as oral morphine
 For opioid AEs and their management, refer to **Section 4.4.8: Opioid side effects**.
 
 - **Adjuvant drugs**
-Adjuvant analgesics may be used with other analgesics including strong opioids in children with cancer pain. Combining drugs with different mechanisms of action improve analgesia and decrease AEs in the patients. This can be used at any stage of pain severity as per **Figure 3: Modified Analgesic Ladder**. However, there is insufficient evidence on the use of adjuvant analgesics in the paediatric age group.
+Adjuvant analgesics may be used with other analgesics including strong opioids in children with cancer pain. Combining drugs with different mechanisms of action improve analgesia and decrease AEs in the patients. This can be used at any stage of pain severity as per Figure 3: Modified Analgesic Ladder. However, there is insufficient evidence on the use of adjuvant analgesics in the paediatric age group.
 
 The use of antidepressants in children has been associated with an increased risk of suicidal ideation and behaviour. [Level III] However, amitriptyline has been used in the management of pain especially bone pain and neuropathic pain in children.
 
@@ -121,8 +116,9 @@ Refer to **Appendix 5b: Suggested Medication Dosages in Paediatrics** on Dosage 
 > - Adjuvant analgesics may be considered in cancer pain management in children.
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### Table 4: Suggested Dose Conversion Ratio in The Direction Specified
+Table 4: Suggested Dose Conversion Ratio In The Direction Specified
 
 | FROM \ TO | Oral morphine mg/day | SC morphine mg/day | Oral oxycodone mg/day | SC oxycodone mg/day | TD fentanyl mcg/h |
 |---|:---:|:---:|:---:|:---:|:---:|
@@ -150,8 +146,8 @@ Refer to **Appendix 5b: Suggested Medication Dosages in Paediatrics** on Dosage 
     - TD fentanyl 25 mcg/hour = continuous SC/IV infusion fentanyl 25 mcg/hour
     - SC morphine = IV morphine
 
---- 
-### Table 6: Examples of Cancer-related Pain in Children
+---
+Table 6: Examples Of Cancer-Related Pain In Children
 | Category | Examples |
 |---|---|
 | **Tumour-related pain** | • before or at diagnosis\n• during initial treatment\n• when tumour is resistant to treatment\n• at disease recurrence |
@@ -159,7 +155,7 @@ Refer to **Appendix 5b: Suggested Medication Dosages in Paediatrics** on Dosage 
 | **Treatment-related pain** | • mucositis (post-chemotherapy or radiotherapy)\n• acute pancreatitis (SE of chemotherapy e.g. asparaginase)\n• neutropenic enterocolitis\n• haemorrhagic cystitis (e.g. with cyclophosphamide, ifosfamide, radiotherapy)\n• intracranial haemorrhage (thrombocytopenia from bone marrow suppression)\n• peripheral neuropathic pain (e.g. with vincristine, cisplatin)\n• post-operative pain\n• phantom limb pain\n• procedural pain (on treatment protocol) |
 
 ---
-### Table 7: ABC of Pain Assessment in Children
+Table 7: Abc Of Pain Assessment In Children
 
 | Letter | Principle |
 |---|---|
@@ -170,7 +166,7 @@ Refer to **Appendix 5b: Suggested Medication Dosages in Paediatrics** on Dosage 
 | **E** | **E**valuate outcome |
 
 ---
-### Table 8: Pain Assessment Tools Based on Child's Developmental Age
+Table 8: Pain Assessment Tools Based On Child's Developmental Age
 
 | Age | Pain rating scale |
 |---|---|
@@ -180,7 +176,7 @@ Refer to **Appendix 5b: Suggested Medication Dosages in Paediatrics** on Dosage 
 
 ---
 
-### Table 9: Pain Assessment Tools Based on Verbal Ability
+Table 9: Pain Assessment Tools Based On Verbal Ability
 
 | Special population | Pain rating scale |
 |---|---|
@@ -189,7 +185,7 @@ Refer to **Appendix 5b: Suggested Medication Dosages in Paediatrics** on Dosage 
 | Neonates | **Neonatal/Infant Pain Scale (NIPS)** |
 
 ---
-### Figure 3: Modified Analgesic Ladder
+Figure 3: Modified Analgesic Ladder
 
 The modified analgesic ladder is a three-step model based on pain severity:
 - **Step 1: Mild Pain (Pain score 1-3)**: Use non-opioid analgesics (paracetamol, NSAIDs, COX-2 inhibitors) ± adjuvants.
@@ -205,8 +201,8 @@ The modified analgesic ladder is a three-step model based on pain severity:
 **Note on Adjuvants**: Adjuvants (e.g. ketamine, clonidine and gabapentinoids) can be considered at any stage of pain severity for severe acute pain or neuropathic pain.
 
 ---
-### Appendix 5b: Suggested Medication Dosages in Paediatrics
 
+### Appendix 5b: Suggested Medication Dosages In Paediatrics
 | Drug | Route | 1 month-2 years (Dose and frequency) | 2 - 12 years (Dose and frequency) | 12 - 18 years (Dose and frequency) |
 |---|---|---|---|---|
 | **Paracetamol** | Oral | **0-3 months:** 15 mg/kg 6-8H (Max: 60 mg/kg/day; if preterm 28-32 CGA, max 30 mg/kg/day)<br>**>3 months-12 years:** 15 mg/kg 4-6H (Max: 75 mg/kg/day or 4 g/day) | ^ | 500 mg - 1 g 4-6H (if non-obese ≥50 kg: 1 g 4-6H) (Max: 4 g/day) |
@@ -247,8 +243,8 @@ CGA: corrected gestational age; IR: immediate release; IV: intravenous; LA: loca
 - Paracetamol and NSAID: Adjusted Body Weight = IBW + 0.4 x (Actual BW - IBW)
 
 ---
-### Section 4.4.8: Opioid side effects
 
+### Section 4: .4.8: Opioid Side Effects
 Opioids are generally well-tolerated and safe in cancer pain management. [Level I] In a large systematic review of 25 studies, nausea and constipation were most common, whilst vomiting, drowsiness and dry mouth were less frequent.
 
 [Level I] There was a dose-effect relationship, where higher rates of AEs were seen with higher opioid starting doses and higher doses after titration, particularly in morphine. Awareness of these AEs is vital to ensure compliance and optimal pain control.
@@ -289,12 +285,11 @@ Management strategies include awareness and recognition of the AEs, symptomatic 
         - It is characterised by a paradoxical response whereby a patient receiving opioids for the treatment of pain could become more sensitive to certain painful stimuli.
         - Refer to pain or palliative care physicians for further management.
 
-The management of opioid side effects is shown in **Table 5: Management of Opioid Side Effects** below. Refer to **Appendix 5a: Suggested Medication Dosages and Adverse Effects in Adults**
+The management of opioid side effects is shown in Table 5: Management of Opioid Side Effects below. Refer to **Appendix 5a: Suggested Medication Dosages and Adverse Effects in Adults**
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -303,8 +298,7 @@ The management of opioid side effects is shown in **Table 5: Management of Opioi
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used in This Section
-
+### Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse events |

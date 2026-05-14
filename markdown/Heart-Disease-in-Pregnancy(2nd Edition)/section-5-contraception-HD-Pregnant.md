@@ -1,5 +1,4 @@
-# SECTION 5: CONTRACEPTION
-
+# Section 5: Contraception
 <!-- METADATA
 category: Treatment, Prevention, Special Populations
 use_case: Contraception in Cardiac Disease — contraceptive_method_selection, thrombotic_risk, infective_endocarditis_risk, drug_interactions, emergency_contraception, sterilisation
@@ -8,11 +7,8 @@ output: contraceptive_method_recommendation, risk_benefit_counselling, drug_inte
 treatment_type: Nexplanon, Implanon, Depo_Provera, Mirena, levonorgestrel, copper_IUD, Ella, Escapelle
 -->
 
-
-## 5. CONTRACEPTION
-
+## 5: Contraception
 When considering contraception in patients with heart disease, the following factors are important:
-
 - Efficacy of the method
 - Potential complications of the contraceptive method which include:
   - Risk of thrombosis
@@ -35,7 +31,6 @@ There are many types of contraceptive methods such as: (Table 20: Contraceptive 
 - Barrier methods
 
 In advising contraception to cardiac patients, the following should be considered:
-
 - Efficacy-preferable those with pearl Index > 1
 - Interaction with medications:
   - Bosentan may antagonise the efficacy of the hormonal contraceptives. Thus a second method of contraception may be necessary.
@@ -51,7 +46,6 @@ In advising contraception to cardiac patients, the following should be considere
   - [Grade III, Level C] Hysteroscopic sterilisation and insertion of intrauterine devices may give rise to vasavagal reaction due to manipulation of the cervix. This is poorly tolerated in patients with PAH and Eisenmenger syndrome.
 
 For emergency contraception, the following are available:
-
 - the emergency contraceptive pill (Ella®, Escapelle®) - the preparation containing high dose Levonogestrel may interact with warfarin
 - copper IUD
 
@@ -61,14 +55,13 @@ For emergency contraception, the following are available:
 
 In patients with PH and Eisenmenger syndrome who are not on Bosentan, progestin only implants (Nexplanon® previously known as Implanon®) are recommended. This is an effective contraceptive method that is easy and safe to implant.
 
-## Key messages:
-
+## Key Messages:
 - Contraception plays a key role in stabilising the maternal heart condition by the prevention of an unwanted pregnancy.
 - A planned pregnancy brings the best outcomes.
 - If pregnancy is contraindicated, then appropriate contraceptive advice is paramount for the safety of the patient.
 
 ## Contextual Anchors (Overlapping)
-### Table 20: Contraceptive Methods
+Table 20: Contraceptive Methods
 
 | Contraceptive Method | Route of Use/ Administration | Pearl Index* Typical Use** | Pearl Index* Perfect Use | General Considerations |
 |---|---|---|---|---|
@@ -89,8 +82,8 @@ In patients with PH and Eisenmenger syndrome who are not on Bosentan, progestin 
 **Typical use refers to the fact that most women may only occasionally use the method incorrectly
 
 ---
-### Appendix I: Risk Factors for VTE in Pregnancy
 
+### Appendix I: Risk Factors For VTE In Pregnancy
 | Risk factor category | Risk factor | Details |
 |---|---|---|
 | Pre-existing | Previous VTE |  |
@@ -118,42 +111,33 @@ From: RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the
 
 ---
 
-### Appendix J: Diagnostic Algorithm for Suspected DVT in Pregnancy*
+### Appendix J: Diagnostic Algorithm For Suspected DVT In Pregnancy*
 
-### Initial assessment
-
+### Initial Assessment
 Start with **clinical suspicion of DVT in pregnancy**.
 
-### First-line investigation
-
+### First-Line Investigation
 Perform **CUS**.
 
-### If CUS is positive
-
+### If Cus Is Positive
 - Diagnose DVT.
 - Treat DVT.
 
-### If CUS is negative
-
+### If Cus Is Negative
 Assess whether **DVT is still likely or iliac vein thrombosis is suspected**.
 
 If **No**:
-
 - Exclude DVT.
 
 If **Yes**:
-
 - Repeat CUS in 1 week or perform MRV.
 
-### Repeat CUS or MRV result
-
+### Repeat Cus Or Mrv Result
 If repeat CUS or MRV is **positive**:
-
 - Diagnose DVT.
 - Treat DVT.
 
 If repeat CUS or MRV is **negative**:
-
 - Exclude DVT.
 
 CUS: Compression Ultrasonography; DVT: Deep Vein Thrombosis MRV: Magnetic Resonance Venography
@@ -162,8 +146,7 @@ CUS: Compression Ultrasonography; DVT: Deep Vein Thrombosis MRV: Magnetic Resona
 
 ---
 
-### Appendix N: Safety of Progesterone Only Contraceptive Methods in Women with Cardiac Disease
-
+### Appendix N: Safety Of Progesterone Only Contraceptive Methods In Women With Cardiac Disease
 | Progesterone only contraceptive method | Cardiac condition | WHOMEC# Class |
 |---|---|---|
 | Progesterone only pill^a^; - Noriday^®^; - Cerazette^®b^ | All cardiac conditions; *(should not normally be advised where pregnancy poses a high or unacceptable risk - WHOMEC Class 3 and 4 conditions)* | 1 |
@@ -179,18 +162,17 @@ CUS: Compression Ultrasonography; DVT: Deep Vein Thrombosis MRV: Magnetic Resona
 
 #WHOMEC: World Heart Organization Medical Eligibility Criteria
 
-^a^Although safe, the standard progestogen-only pill is less effective than all the other progestogen-only methods.; 
-^b^Efficacy reduced by Bosentan; 
-^c^Risk of haematoma at injection site; 
-^d^The INR may be altered after initiation of any progesterone hormone therapy. It needs to be monitored.; 
+^a^Although safe, the standard progestogen-only pill is less effective than all the other progestogen-only methods.;
+^b^Efficacy reduced by Bosentan;
+^c^Risk of haematoma at injection site;
+^d^The INR may be altered after initiation of any progesterone hormone therapy. It needs to be monitored.;
 ^e^Risk of Infective Endocarditis
 
 From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
 
 ---
 
-### Appendix O: Risk of Combined Contraceptive Pills for the Different Cardiac Conditions WHOMEC Risk Classification for the Use of Combined Hormonal Contraceptives*
-
+### Appendix O: Risk Of Combined Contraceptive Pills For The Different Cardiac Conditions Whomec Risk Classification For The Use Of Combined Hormonal Contraceptives*
 | MEC CLASS | WHOMEC 1 | WHOMEC 2 | WHOMEC 3 | WHOMEC 4 |
 |---|---|---|---|---|
 | Category of Use | Condition with no restriction for the use of contraceptive method | Condition where the advantages of the method generally outweigh the risks | Condition where the risks of the method usually outweigh the advantages and to consider all alternatives first | Conditions where the method represents an unacceptable health risk |
@@ -210,9 +192,9 @@ From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in hea
 
 From: Thorne S et al. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
 
-## Grades of Recommendation and Level of Evidence
-### Grades of Recommendation
+## Grades Of Recommendation And Level Of Evidence
 
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -221,16 +203,14 @@ From: Thorne S et al. Pregnancy and contraception in heart disease and pulmonary
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ASD | Atrial septal defect |

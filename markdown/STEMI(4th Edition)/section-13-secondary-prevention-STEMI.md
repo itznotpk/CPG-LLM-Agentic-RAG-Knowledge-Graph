@@ -1,5 +1,4 @@
-# SECTION 13: SECONDARY PREVENTION
-
+# Section 13: Secondary Prevention
 <!-- METADATA
 category: Prevention, Treatment
 use_case: Secondary Prevention Post STEMI — lifestyle_modification, smoking_cessation, lipid_management, blood_pressure_control, diabetes_management, antiplatelet_duration, cardiac_medication_optimisation
@@ -8,12 +7,10 @@ output: target_LDL, target_blood_pressure, DAPT_duration, statin_dose, lifestyle
 treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, atorvastatin, rosuvastatin, ezetimibe, PCSK9_inhibitor, ACEi, ARB, beta_blocker, eplerenone, rivaroxaban, ivabradine, trimetazidine
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 
-## 13.1 Non-Pharmacological Measures
-
+## 13.1: Non-Pharmacological Measures
 Important lifestyle interventions include:
-
 - Cessation of smoking
 - Dietary modification
 - Weight control
@@ -21,34 +18,29 @@ Important lifestyle interventions include:
 
 Often, lifetime habits are not easily changed and team work between cardiologists and general practitioners, rehabilitative physicians, pharmacists, dieticians, physiotherapists and occupational therapists is needed for implementation and follow-up.
 
-### 13.1.1 Cessation of Smoking
-
+### 13.1.1: Cessation Of Smoking
 [Grade I, Level A] Smoking cessation has been consistently associated with a mortality benefit and it is one of the cornerstones of secondary prevention.
 
 In a cohort of patients with ACS on optimal secondary prevention therapy, those who continued to smoke had an 80% risk of lower survival at a mean follow-up of 3.9 years while those who quit had comparable survival to lifelong non-smokers. Persistent smokers at 30 days post-PCI experienced an almost twofold increase in long-term mortality.
 
 This underscores the importance of smoking cessation in secondary prevention despite the improvement in management of ACS with PCI and pharmacotherapy. This also emphasises the malignant pathophysiological effects of smoking, namely endothelial dysfunction, thrombogenicity and coronary vasoconstriction, which predispose to ACS.
 
-#### 13.1.1.1 Smoking Cessation Interventions
-
+#### 13.1.1.1: Smoking Cessation Interventions
 Smoking cessation is difficult, even after life-threatening ACS. The Melbourne Registry showed that only 54% of patients stopped smoking by 30 days. Almost 23% of those who quit smoking at 30 days had relapsed at 12 months highlighting the difficulty of long-term abstinence.
 
 Hospitalisation for an acute cardiovascular event provides a unique window of opportunity to encourage patients to quit smoking. A study has shown that the majority of successful quitters at 1 year stopped immediately after their ACS.
 
 However, smoking-cessation therapy in hospitalised patients offers challenges. The duration of hospitalisation for acute myocardial infarction is usually brief and hospital stay is busy, making it difficult to gain the patient's full attention for smoking-cessation counselling. Nevertheless, effective counselling in the hospital should be provided for all smokers, and not just the minority who are ready to quit. Effective transition from inpatient to outpatient smoking cessation treatment should take place, with a minimum of 1-month follow-up. MQuit (Quit smoking) Services is currently available in all health clinics (Klinik Kesihatan) throughout the country.
 
-#### 13.1.1.2 Pharmacotherapy for Smoking Cessation
-
+#### 13.1.1.2: Pharmacotherapy For Smoking Cessation
 Post-STEMI patients usually have been chronic smokers and most of them would have a high degree of nicotine dependency. Thus, they should be given personalised smoking cessation medication intended to relieve withdrawal symptoms and to support long-term cessation.
 
 However, very low rates of these medications are prescribed post-MI, and this rate has declined over time. Some clinicians are hesitant to add a smoking-cessation medication on top of a number of other medications that have been initiated or continued. All smoking cessation interventions (nicotine replacement therapy, varenicline and bupropion) have been shown to be safe in cardiac patients.
 
 For further details of smoking cessation, please refer to the Malaysian Clinical Practice Guidelines on Primary and Secondary Prevention of Cardiovascular Disease, 1st Ed, 2017.
 
-### 13.1.2 Diet and Weight Control
-
+### 13.1.2: Diet And Weight Control
 Current guidelines on secondary CV prevention recommend:
-
 - A diet similar to the Mediterranean diet, which includes a maximum of 10% of total energy intake from saturated fat, replacing it wherever possible with polyunsaturated fatty acids and to consume as little as possible of trans fatty acids.
 - Salt intake of < 5 g per day.
 - 30–45 g fibre per day.
@@ -62,8 +54,7 @@ Overweight and obesity is associated with higher all-cause mortality compared wi
 
 Thus, maintaining a healthy weight or losing weight is recommended for all subjects including patients with STEMI. However, it has not been established that weight reduction per se reduces mortality. [I, B]
 
-### 13.1.3 Regular Exercise
-
+### 13.1.3: Regular Exercise
 [Grade I, Level A] There is increasing evidence that, when adequately prescribed and supervised, regular exercise after an MI can prevent future complications and increase the quality of life and longevity of these patients.
 
 Any amount of physical activity (PA) is better than none; adults engaging in any form and amount of PA gain some form of health benefits in both primary and secondary prevention.
@@ -72,10 +63,9 @@ Following an acute cardiac event or post cardiac surgery, patients should be ref
 
 For a more detailed discussion on physical activity and exercise prescription, refer to the Malaysian Clinical Practice Guidelines on Primary and Secondary Prevention of Cardiovascular Disease, 1st Ed, 2017.
 
-## 13.2 Control of CV Risk Factors
+## 13.2: Control Of CV Risk Factors
 
-### 13.2.1 Control of Hypertension
-
+### 13.2.1: Control Of Hypertension
 The prognosis is affected by both the pre-existing and the subsequent BP. The higher the pre-existing BP, the higher the fatality rate.
 
 After ACS, the target BP is 110 to < 140/< 90 mmHg (using standard, routine clinician office measurements).
@@ -84,18 +74,15 @@ After ACS, the target BP is 110 to < 140/< 90 mmHg (using standard, routine clin
 
 Please refer to Malaysian CPG on Primary and Secondary Prevention of Cardiovascular Disease, 1st Ed, 2017 and Malaysian CPG on Hypertension, 4th Ed, 2018.
 
-### 13.2.2 Good Glycaemic Control (see also Section 14.2)
-
+### 13.2.2: Good Glycaemic Control (See Also Section 14.2)
 [Grade IIa, Level B] After STEMI, diabetic patients have a high risk of subsequent CVD events, including another MI, stroke, and death. While it is imperative to achieve good blood glucose control, glycaemic control should be individualised.
 
 Those with long duration of diabetes, known history of severe hypoglycaemia, advanced atherosclerosis, or advanced age/frailty may benefit from less aggressive targets. However, in type 2 diabetes, there is evidence that more intensive treatment of glycaemia (without causing hypoglycaemia) in newly diagnosed patients may reduce long-term CVD rates.
 
-## 13.3 Pharmacotherapy for Secondary Prevention
-
+## 13.3: Pharmacotherapy For Secondary Prevention
 Medications that have been proven to improve CV outcomes long term post STEMI include:
 
-### A. Anti-platelet agents:
-
+### A. Anti-Platelet Agents:
 - [Grade I, Level A] Aspirin - low dose aspirin 75-100 mg daily indefinitely
 - [Grade I, Level A] A P2Y₁₂ inhibitor –
   - Clopidogrel
@@ -111,40 +98,33 @@ Medications that have been proven to improve CV outcomes long term post STEMI in
   - [Grade I, Level B] Prasugrel- A component of DAPT in patients who underwent a primary PCI strategy.
 
 ### B. Statins
-
 - [Grade I, Level A] Statins have been shown to improve prognosis in patients with stable CAD, the lower the low-density lipoprotein cholesterol (LDL-C) achieved, the better the CV outcome.
 - [Grade I, Level A] There appears to be a dose-dependent reduction in CVD with LDL-C lowering; the greater the LDL-C reduction, the greater the CV risk reduction.
 - The target LDL-C < 1.8 mmol/l - the lower the better.
 - [Grade I, Level A] If LDL-C levels cannot be achieved, the additional use of other non-statin therapy (e.g. ezetimibe, PCSK-9 inhibitors) may be considered.
 - [Grade IIa, Level B] In patients who have achieved LDL-C but the TG remains elevated (1.52-5.63mmol/l) the use of a TG lowering agent, icosapent ethyl 2 g twice daily, was superior to placebo in reducing TGs, CV events, and CV death.
 
-### C. ß-blockers
-
+### C. Ss-Blockers
 - [Grade I, Level A] Oral treatment with ß-blockers is indicated in all patients post STEMI especially in those with HF or LV dysfunction.
 - Evidence supporting the use of ß-blockers > 1- year post STEMI for the treatment of stable CAD is less well established.
 
-### D. ACE-Is and ARBs
-
+### D. Ace-Is And ARBs
 - [Grade I, Level A] ACE-Is/ARBs are indicated starting within the first 24 hours of STEMI in high-risk patients (LVEF ≤ 40% or who have experienced HF in the early phase, DM or an anterior infarct) and should be continued indefinitely if there are no contraindications.
 - ACEi/ARB do not have any additional benefits in reducing CV events and death in patients with Stable CAD and preserved LV function.
 - [Grade IIb, Level B] Thus routine use of ACEi/ARB > 1 year post-STEMI is not recommended.
 
 ### E. MRA
-
 - [Grade I, Level B] Mineralocorticoid antagonists, e.g. eplerenone should be considered in patients with LVEF ≤ 40% and HF in the absence of renal failure or renal impairment.
 
-### F. DOAC
-
+### F. Doac
 - [Grade IIa, Level B] The use of rivaroxaban 2.5 mg twice daily in combination with aspirin 100 mg daily in high risk post-MI patients, significantly reduced the risk of major CV events at a mean follow up of 2 years (the composite of CV death, stroke, or MI) compared to aspirin alone but the risk of major bleeding was also significantly higher.
 
-### G. Anti-ischaemic Therapy
-
+### G. Anti-Ischaemic Therapy
 In patients who continue to have angina post revascularization, the following may be considered:
 - [Grade IIa, Level B] ß-blockers and/or CCBs should be prescribed as first-line treatment to reduce angina because it is widely available.
 - [Grade IIa, Level B] Ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
 
 ## Key Recommendation 10:
-
 - Post STEMI, all patients should receive secondary prevention interventions that have been shown to reduce mortality and cardiovascular event rate. These include:
   - smoking cessation and other lifestyle changes
   - regular exercise
@@ -162,7 +142,7 @@ In patients who continue to have angina post revascularization, the following ma
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 14: Individualised A1c Targets and Patients' Profile*
+Table 14: Individualised A1c Targets And Patients' Profile*
 
 | A1c TARGETS | PATIENT'S PROFILE |
 |---|---|
@@ -174,9 +154,7 @@ In patients who continue to have angina post revascularization, the following ma
 
 ---
 
-
-### Section 8.3: CCU Concomitant Therapy — Detailed Dosing (Overlapping)
-
+### Section 8: .3: Ccu Concomitant Therapy — Detailed Dosing (Overlapping)
 **8.3.2 Antiplatelet agents (Dosing details):**
 - [Grade I, Level A] Aspirin 300 mg loading → 75–100 mg daily indefinitely.
 - P2Y₁₂ inhibitor options:
@@ -228,8 +206,7 @@ In patients who continue to have angina post revascularization, the following ma
 
 ---
 
-### Section 14.2: STEMI in Diabetics (Overlapping)
-
+### Section 14: .2: STEMI In Diabetics (Overlapping)
 In patients with STEMI, the blood glucose level is associated with adverse outcomes independent of prior diabetic status. Diabetics have a worse prognosis and require almost 50% more time to achieve satisfactory ST-segment elevation recovery compared to non-diabetics. They may also have atypical presentations and more diffuse atherosclerotic disease.
 
 **Management in Diabetics:**
@@ -251,7 +228,6 @@ Diabetic patients should be treated in a similar manner as non-diabetics.
 ---
 
 ### Section 15: Cardiac Rehabilitation (Overlapping)
-
 Cardiac Rehabilitation Programme (CRP) consists of coordinated, multifaceted interventions designed to optimise a cardiac patient's physical, psychological, and social functioning. It is a comprehensive, long-term program involving medical evaluation, exercise prescriptions, cardiac risk-factor modification, education and counselling.
 
 **15.1 Core Components of CRP:**
@@ -282,7 +258,7 @@ Sexual activity may be resumed one week after uncomplicated STEMI in the absence
 - **Private drivers:** After one month if no complications and LVEF > 35%. Longer if LVEF < 35%, acute decompensated HF, or arrhythmias.
 - **Commercial drivers:** Assessed at 3 months post-STEMI. Criteria: exercise tolerance > 9 min (Stage 3 Bruce), < 2 mm ST depression on stress test, LVEF > 40%.
 
-#### Table 16: Fitness for Commercial Air Travel Post STEMI
+Table 16: Fitness For Commercial Air Travel Post STEMI
 
 | Functional Status | Guidance |
 |---|---|
@@ -290,13 +266,13 @@ Sexual activity may be resumed one week after uncomplicated STEMI in the absence
 | Medium risk: EF > 40%, no symptoms of HF, no inducible ischaemia or arrhythmia | Fly after 10 days |
 | High risk: EF < 40%, signs/symptoms of HF, pending investigation/revascularization/device therapy | Defer until condition is stable |
 
-#### Table 17: Patients at High Risk During Cardiac Rehabilitation
+Table 17: Patients At High Risk During Cardiac Rehabilitation
 
 **Ischaemic Risk:** Postoperative angina, LVEF < 35%, CHF (NYHA grade III/IV), ventricular tachycardia/fibrillation postoperative, SBP drop ≥ 10 with exercise, excessive ventricular ectopy, incapable of self-monitoring, myocardial ischaemia with exercise.
 
 **Arrhythmic Risk:** Acute infarction within 6 weeks, active ischaemia, significant LV dysfunction (LVEF < 30%), history of sustained VT, history of sustained life-threatening SVT, history of sudden death not yet stabilised, initial ICD or rate-adaptive pacemaker therapy.
 
-#### Table 18: Contraindications to Exercise Training
+Table 18: Contraindications To Exercise Training
 
 - Unstable angina
 - Uncontrolled hypertension (resting SBP > 180 mmHg or DBP > 110 mmHg)
@@ -315,7 +291,7 @@ Sexual activity may be resumed one week after uncomplicated STEMI in the absence
 - Other metabolic conditions (thyroiditis, hypokalaemia, hyperkalaemia, hypovolaemia)
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -333,8 +309,7 @@ Sexual activity may be resumed one week after uncomplicated STEMI in the absence
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

@@ -1,5 +1,4 @@
-# APPENDICES
-
+# Appendices
 <!-- METADATA
 category: Reference
 use_case: Reference tables for CV risk score comparison, food classification, and fatty acid composition — FRS, SCORE2, PCE, NOVA_classification, fatty_acid_composition, Malaysian_food
@@ -7,8 +6,7 @@ patient_input: risk_score_type, food_item
 output: risk_score_comparison, food_classification, fatty_acid_profile
 -->
 
-## APPENDIX 1: COMPARISON OF CARDIOVASCULAR RISK SCORES
-
+## Appendix 1: Comparison Of Cardiovascular Risk Scores
 The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Malaysia. Other scores (SCORE2, PCE, WHO) are compared below:
 
 | | FRS (Framingham Risk Score) | SCORE2 (Systematic Coronary Risk Evaluation 2) | RPCE (Revised Pooled Cohort Equations) | WHO CVD SCORE (World Health Organization Cardiovascular Disease) | SCORE (Systematic Coronary Risk Evaluation) | PCE (Pooled Cohort Equations) |
@@ -25,8 +23,7 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 ---
 
-## APPENDIX 2: NOVA FOOD CLASSIFICATION SYSTEM
-
+## Appendix 2: Nova Food Classification System
 | GROUP | CATEGORY | DESCRIPTION & EXAMPLES |
 |---|---|---|
 | **1** | **Unprocessed or minimally processed foods** | **Unprocessed Foods:** These are obtained directly from plants or animals and do not undergo any alteration following their removal from nature.<br><br>**Minimally processed foods:** These are natural foods that have been submitted to cleaning, removal of inedible or unwanted parts, fractioning, grinding, drying, fermentation, pasteurization, cooling, freezing, or other processes that may subtract part of the food, but which do not add oils, fats, sugar, salt or other substances to the original food.<br><br>*e.g., fresh fruits, vegetables such as carrots, whole grains, brown rice, granola, roasted nuts, chopped vegetables, vegetable or fruit juices with no added sugar or other substances, eggs.* |
@@ -36,8 +33,7 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 ---
 
-## APPENDIX 3: Fatty acid composition of selected dietary fats and oils
-
+## Appendix 3: Fatty Acid Composition Of Selected Dietary Fats And Oils
 | Type of Fats and Oils | SFA (%) | MUFA (%) | PUFA (%) | P/S Ratio | <12:0 | 12:0 | 14:0 | 16:0 | 16:1 | 18:0 | 18:1 | 18:2 | 18:3 | Others |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **Coconut Oil** | 91.9 | 6.5 | 1.5 | 0.02 | 14.9 | 48.5 | 17.6 | 8.4 | - | 2.5 | 6.5 | 1.5 | - | 0.1 |
@@ -62,8 +58,7 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 ---
 
-## APPENDIX 4: Fatty acid composition of selected Malaysian Food
-
+## Appendix 4: Fatty Acid Composition Of Selected Malaysian Food
 | Food Item | Total Fat (g) | SFA (%) | MUFA (%) | PUFA (%) | TFA* (%) |
 |---|---|---|---|---|---|
 | **Fishes** | | | | | |
@@ -139,8 +134,7 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 10: Individuals Who are at High Risk of Developing CVD
+Table 10: Individuals WHO Are At High Risk Of Developing CVD
 
 *   Clinical evidence of atherosclerosis (CHD, CVA, atherosclerotic aortic aneurysm, peripheral vascular disease)
 *   A family history of premature CVD:
@@ -161,7 +155,7 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 *   A history of hypertensive disorders of pregnancy
 *   Chronic Obstructive Airway Disease
 
-### Table 15: Dosing modifications for lipid-lowering drugs in CKD
+Table 15: Dosing Modifications For Lipid-Lowering Drugs In CKD
 
 | Agent | Stage 3A - 5 (mg/day) |
 |---|---|
@@ -177,8 +171,7 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACR | Albumin-to-Creatinine Ratio |

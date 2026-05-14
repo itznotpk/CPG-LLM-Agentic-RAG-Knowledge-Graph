@@ -1,5 +1,4 @@
-# SECTION 2: DEFINITION
-
+# Section 2: Definition
 <!-- METADATA
 category: Introduction, Classification
 use_case: Heart Failure Definition and Classification Framework — haemodynamic_criteria, clinical_syndrome, structural_functional_abnormality, LVEF_classification, NYHA_staging, ACC_AHA_stages
@@ -7,8 +6,7 @@ patient_input: LVEF, symptoms, functional_status
 output: HF_definition, diagnostic_framework, LVEF_classification, NYHA_class, HF_stage_assignment
 -->
 
-## 2. Definition
-
+## 2: Definition
 **HF is a clinical syndrome** due to any structural or physiological abnormality of the heart resulting in its inability to meet the metabolic demands of the body or its ability to do so only at higher-than-normal filling pressures. This is supported by either an elevation of natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 
 This may be accompanied by signs and symptoms of systemic hypoperfusion and/or volume overload. Patients may have typical symptoms (e.g., breathlessness, ankle swelling and fatigue) and signs (e.g., elevated jugular venous pressure, ankle edema, pulmonary crackles and displaced apex beat). Occasionally, some patients may present without signs or symptoms of volume overload. Older patients, often, present with atypical symptoms such as delirium, reduced appetite, immobility, incontinence, and falls.
@@ -20,15 +18,13 @@ Occasionally, non-cardiac disease, e.g., anemia, pulmonary, renal, thyroid, or h
 ---
 
 ## Key Message #2: Definition
-
 * HF is a clinical syndrome due to any structural or physiological abnormality of the heart resulting in its inability to meet the metabolic demands of the body or its ability to do so only at higher-than-normal filling pressures.
 * This is supported objectively by either an elevation of natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -37,8 +33,7 @@ Occasionally, non-cardiac disease, e.g., anemia, pulmonary, renal, thyroid, or h
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -46,12 +41,12 @@ Occasionally, non-cardiac disease, e.g., anemia, pulmonary, renal, thyroid, or h
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -62,8 +57,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | HF | Heart Failure |

@@ -1,5 +1,4 @@
-# SECTION 10: ENDOVASCULAR THROMBECTOMY
-
+# Section 10: Endovascular Thrombectomy
 <!-- METADATA
 category: Treatment
 use_case: Endovascular Thrombectomy — EVT_eligibility, device_selection, sedation_decision, workflow_coordination, large_vessel_occlusion
@@ -8,8 +7,8 @@ output: EVT_eligibility, treatment_pathway, bridging_therapy_decision
 critical: true
 treatment_type: mechanical_thrombectomy, stent_retriever, aspiration_catheter
 -->
-## 10.1 Acute Endovascular Thrombectomy Treatment
 
+## 10.1: Acute Endovascular Thrombectomy Treatment
 Acute Endovascular Thrombectomy treatment (EVT) is considered as the standard of care since 2015 following the publications of 5 RCTs which have led to a major guideline revamp around the world. EVT is indicated in acute ischaemic stroke that presents within 6-8 hours, and is equally beneficial in selected patients of up to 24 hours from the time last seen well (TLSW) with evidence of large vessel occlusion (LVO).
 
 EVT should be offered at the comprehensive stroke centre if the following are available and in coordination with the EMS:
@@ -19,16 +18,15 @@ II. A stroke team consisting of neuro-interventional experts (interventional neu
 
 [New recommendation, Level I, Grade A] **Recommendation:** All AIS patients who are a candidate for EVT must at least undergo NCCT and CT angiography from arch of aorta-vertex with or without multiphase CTA or CT perfusion. MRI with MRA can be considered in selected cases if necessary and not as a routine modality to avoid any delays.
 
-## 10.2 Indication for Acute Endovascular Thrombectomy
-
+## 10.2: Indication For Acute Endovascular Thrombectomy
 I. Baseline functional status mRS of 0-2 or generally ADL independent. <br>
 II. EVT is indicated in patients who have received intravenous Alteplase, but do not wait to assess response, and those who are not eligible for intravenous Alteplase with evidence of LVO. <br>
 III. Patients who fulfil the imaging criteria via assessment of CT cerebral angiography prior to EVT as following:
-    
+
     a. Patients should have a LVO of the middle cerebral artery or/and internal carotid artery or proximal M2 occlusion.
-    
+
     b. For large artery occlusion of posterior circulation (e.g., basilar artery), the decision to treat should be based on the potential benefits and risks of treatment for the individual treatment.
-    
+
     c. For patients who arrive between 6 and 24 hours of stroke onset or since the time last seen well, multimodal imaging is indicated (CT perfusion software which is capable to reproduce similar objective assessments for penumbra and infarct core) and may be subjected to EVT
 
     > NIHSS ≥ 10 and infarct core volume 0-21 mls, age ≥ 80 years old
@@ -46,8 +44,7 @@ III. Patients who fulfil the imaging criteria via assessment of CT cerebral angi
 
 [New recommendation, Level I, Grade A] **Recommendation:** EVT is indicated in selected patients who arrive after 6 hours and up to 24 hours of stroke onset with evidence of large vessel occlusion.
 
-## 10.3 Early Revascularization
-
+## 10.3: Early Revascularization
 Revascularization needs to be organized immediately. The majority of the EVT studies emphasise the importance of the early timing of recanalization through a properly organized stroke workflow, which was lacking in the previous neutral study. It is very important to understand that the treatment benefit declines over time; and despite recent evidence for extended hours for reperfusion therapy via EVT, there is no reason to delay recanalization in order to maximize the possible best outcome.
 
 [New recommendation, Level I, Grade A] **Recommendation:** AIS patients who arrive within 4.5 hours of stroke onset and are eligible for rtPA treatment should be considered for thrombolytic treatment prior to EVT.
@@ -58,20 +55,17 @@ Revascularization needs to be organized immediately. The majority of the EVT stu
 
 [New recommendation, Level II, Grade B] **Recommendation:** Transfer to high-volume centres has been associated with reduced mortality rates after endovascular treatment of acute stroke. This is likely to be achieved when high-volume centres have a well-organized acute stroke pathway.
 
-## 10.4 Endovascular Thrombectomy Devices
-
+## 10.4: Endovascular Thrombectomy Devices
 [New recommendation, Level II, Grade B] **Recommendation:** Aspiration devices and Stent retriever are used widely for EVT, and these devices have been used almost exclusively in clinical trials within the past 5 years.
 
-## 10.5 Sedation vs General Anaesthesia
-
+## 10.5: Sedation Vs General Anaesthesia
 [New recommendation, Level II, Grade B] **Recommendation:** Procedural sedation is generally preferred over general anaesthesia and intubation in most patients undergoing EVT. General anaesthesia and intubation is however, appropriate, if medically indicated (e.g., for airway compromise, respiratory distress, depressed level of consciousness, severe agitation, or any other indication as determined by the treating physician) and in such cases, excessive and prolonged hypotension and time delays should be avoided.
 
-## 10.6 Endovascular Thrombectomy Work Flow
-
+## 10.6: Endovascular Thrombectomy Work Flow
 EVT should be offered at the comprehensive stroke centre when the following are available and in coordination with the EMS as following:
 
 ## Recommendations Summary:
-### Table 10.1: Acute Endovascular Thrombectomy Treatment
+Table 10.1: Acute Endovascular Thrombectomy Treatment
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -82,20 +76,19 @@ EVT should be offered at the comprehensive stroke centre when the following are 
 | EVT bridging with Tenecteplase | AIS patients who arrive within 4.5 hours of stroke onset and are eligible for thrombolytic treatment can be considered for intravenous Tenecteplase prior to EVT. *New recommendation* | II | B |
 
 ## Key Recommendations:
-
 1. Hyperacute endovascular thrombectomy is recommended for definite onset stroke with evidence of large vessel occlusion which is within 6 hours from the onset or the treatment window can be extended via CT/MR perfusion (penumbra-core mismatch) or MRI (clinical-imaging mismatch) with current evidences showed significant benefit up to 24 hours from onset/time last known to be well. However, treatment pathway should not be delayed, as the treatment outcome can be influenced by the imaging-to-recanalization time.
 2. Drip & Ship (IVT prior to EVT) as per Section 9 is recommended for the eligible patients.
 
 ## Contextual Anchors (Overlapping)
-### Figure 10.1: Endovascular Thrombectomy Work Flow
+Figure 10.1: Endovascular Thrombectomy Work Flow
 
 Staff receive notification from the primary triage nurse or medical assistant. Suspected stroke cases receive priority, and the next CT slot should be booked. The ED should transfer the patient immediately and inform the radiologist, interventional radiologist, or neuroradiologist on call. The patient should be prepared immediately upon arrival; a renal profile is not required for plain CT brain or CT angiography.
 
-Plain CT brain must be performed as per protocol, with or without CT angiography and a perfusion scan. The CT imaging is then reviewed to confirm the patient's eligibility for thrombolytic therapy as specified by the Malaysian Clinical Practice Guideline. A stroke physician or neurologist should confirm the eligibility and make the final decision. 
+Plain CT brain must be performed as per protocol, with or without CT angiography and a perfusion scan. The CT imaging is then reviewed to confirm the patient's eligibility for thrombolytic therapy as specified by the Malaysian Clinical Practice Guideline. A stroke physician or neurologist should confirm the eligibility and make the final decision.
 
 If eligible, administer IV rtPA as soon as possible and proceed with Drip and Ship or Direct-thrombectomy. If not eligible, the reason(s) must be documented.
 
-### Section 9: Reperfusion of Ischaemic Brain
+### Section 9: Reperfusion Of Ischaemic Brain
 *(Referenced regarding Drip & Ship (IVT prior to EVT) recommendations for eligible patients undergoing acute endovascular thrombectomy.)*
 
 IVT is indicated for patients with onset of symptoms within 4.5 hours of presentation, while EVT for large vessel occlusion (LVO) could be offered up to 24 hours using advanced imaging such as CT/MR perfusion scan.
@@ -106,10 +99,9 @@ IVT is indicated for patients with onset of symptoms within 4.5 hours of present
 
 For patients undergoing "Drip & Ship" (IVT prior to EVT), IVT can be initiated at the primary stroke centre prior to the transfer to a comprehensive stroke centre for EVT. Hospitals within the stroke care system should adhere to the protocol to provide the best standard of care available. There should be no delay in proceeding to EVT to determine the clinical effectiveness of Alteplase.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -120,8 +112,7 @@ For patients undergoing "Drip & Ship" (IVT prior to EVT), IVT can be initiated a
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -130,8 +121,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 | --- | --- |
 | ADL | Activities of Daily Living |

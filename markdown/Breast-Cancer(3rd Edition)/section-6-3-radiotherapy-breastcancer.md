@@ -1,26 +1,22 @@
-# SECTION 6.3: RADIOTHERAPY
-
+# Section 6: .3: Radiotherapy
 <!-- METADATA
 category: Treatment
 use_case: Radiotherapy Guidelines
-patient_input: 
+patient_input:
 output:
 -->
 
 ## Overview
-
 Radiotherapy plays a crucial role in breast cancer management, both after breast conserving surgery (BCS) and post-mastectomy. Adjuvant radiotherapy reduces local recurrence and improves survival in selected patient groups.
 
 ---
 
-## 6.4.1 Radiotherapy Post-Breast Conserving Surgery
-
+### 6.4.1: Radiotherapy Post-Breast Conserving Surgery
 Adjuvant radiotherapy following BCS reduces risk of local recurrence in the affected breast by **half** and risk of death by a **sixth**.ˡᵉᵛᵉˡ ᴵ
 
 All patients with invasive breast cancer who have BCS with clear margin should be offered adjuvant whole breast irradiation (WBI).
 
-### Partial Breast Irradiation (PBI) vs Whole Breast Irradiation (WBI)
-
+### Partial Breast Irradiation (Pbi) Vs Whole Breast Irradiation (Wbi)
 | Study | Finding | Evidence |
 |---|---|---|
 | Cochrane SR — PBI vs WBI (local control) | PBI **worse:** HR=1.62 (1.11 to 2.35) | level I |
@@ -30,8 +26,7 @@ All patients with invasive breast cancer who have BCS with clear margin should b
 | **UK IMPORT LOW** (RCT) — PBI with IMRT | **Non-inferior** to WBI in early breast cancer | level I |
 | — Late adverse events | Less change in breast appearance (p=0.007) and breast hardening (p<0.0001) with partial breast IMRT | level I |
 
-### Intraoperative Radiotherapy (IORT)
-
+### Intraoperative Radiotherapy (Iort)
 IORT delivers radiotherapy during surgery in a single session, compared with conventional radiotherapy requiring ≥15 fractions over 3–5 weeks.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 | Finding | Result | Evidence |
@@ -49,12 +44,10 @@ IORT delivers radiotherapy during surgery in a single session, compared with con
 
 ---
 
-## 6.4.2 Radiotherapy Post-Mastectomy
-
+### 6.4.2: Radiotherapy Post-Mastectomy
 Adjuvant radiotherapy is recommended for post-mastectomy patients with **≥4 lymph nodes** and **positive margin**.⁴˒²⁵
 
-### EBCTCG Meta-Analysis Update — 1 to 3 Positive Nodes
-
+### Ebctcg Meta-Analysis Update — 1 To 3 Positive Nodes
 Post-mastectomy radiotherapy also benefits those with 1 to 3 positive lymph nodes:ˡᵉᵛᵉˡ ᴵ
 
 | Metric | Result |

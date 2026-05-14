@@ -1,5 +1,4 @@
-# SECTION 4: TYPES OF CVD
-
+# Section 4: Types Of CVD
 <!-- METADATA
 category: Classification
 use_case: CVD disease type taxonomy and spectrum overview — condition_overview, disease_classification, differential_diagnosis
@@ -11,8 +10,7 @@ output: cvd_types_reference, disease_classification
 
 ---
 
-## 4. Types of CVD
-
+## 4: Types Of CVD
 **CVD includes:**
 - **Coronary Heart Disease (CHD)** — This includes:
   - Stable angina
@@ -37,7 +35,6 @@ output: cvd_types_reference, disease_classification
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |

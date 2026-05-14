@@ -1,5 +1,4 @@
-# SECTION 14: STROKE IN SPECIAL CIRCUMSTANCES
-
+# Section 14: Stroke In Special Circumstances
 <!-- METADATA
 category: Special Populations, Diagnosis, Treatment
 use_case: Stroke in Special Circumstances — young_stroke_evaluation, PFO_management, cerebral_venous_thrombosis, cryptogenic_stroke, ESUS, thrombophilia, arterial_dissection
@@ -8,19 +7,18 @@ output: aetiological_diagnosis, treatment_pathway, PFO_closure_decision, CVT_ant
 critical: true
 treatment_type: aspirin, DOAC, LMWH, UFH, PFO_closure_device, CPAP, anticoagulant
 -->
-## 14.1 Stroke in Young Adults
 
+## 14.1: Stroke In Young Adults
 The incidence of stroke in young adults (18 to 45 years) is increasing and the prevalence is reported to be approximately 10-15% of all stroke patients. The causes and risk factors of stroke in young adults is distinct from those in older patients, in which cardiac embolism and other aetiologies are more common, notably non-atherosclerotic arteriopathies and haematological disorders. Therefore, the diagnostic evaluation and management strategy are usually more comprehensive and challenging. This section will cover the aetiology and risk factors in young adults with stroke, in addition to the diagnosis and management of specific causes of stroke in young adults.
 
-## 14.2 Young Stroke Aetiology
-
+## 14.2: Young Stroke Aetiology
 The causes of ischaemic stroke in young adults are diverse and vary by age, gender, and geographic region. The causes may be classified according to the TOAST classification.
 
 Non-atherosclerotic arteriopathies such as arterial dissection as well as premature atherosclerosis due to hypertension, cigarette smoking and hyperlipidaemia are collectively the most common causes of ischaemic stroke in young individuals. But often, the cause of the stroke is unknown.
 
 Cryptogenic stroke is defined as stroke without any probable cause identified after adequate diagnostic evaluation. Cryptogenic stroke has been reported in up to 40% of young stroke cases. In 2014, the clinical construct of "embolic stroke of undetermined source" (ESUS) was introduced to identify patients with non-lacunar cryptogenic ischaemic strokes in whom embolism was the likely stroke mechanism. About 1/6 of stroke patients are labelled as ESUS and they are generally younger patients with milder stroke but are associated with a higher risk of stroke recurrence. To date, there is no evidence to suggest the role of anticoagulants in the management of ESUS.
 
-### Table 14.1: Aetiology of Young Stroke
+Table 14.1: Aetiology Of Young Stroke
 
 **Large artery atherosclerosis**
 * Uncommon before the age of 40 but incidence increases with age
@@ -99,8 +97,7 @@ Cryptogenic stroke is defined as stroke without any probable cause identified af
 * Criteria: (1) non-lacunar stroke detected by CT or MRI; (2) absence of extracranial or intracranial atherosclerosis causing 50% luminal stenosis in arteries supplying the ischaemic area; (3) absence of a major-risk cardiac source of embolism; and (4) absence of any other specific cause of index stroke. Lacunar stroke is defined as a subcortical infarct ≤1.5 cm in its largest dimension and in the distribution of the small, penetrating arteries.
 * Management is long-term antiplatelet with no evidence for oral anticoagulants. One RCT showed direct oral anticoagulants (Rivaroxaban) is not superior to aspirin in prevention of recurrent stroke and associated with higher risk of bleeding. Prolonged ambulatory ECG monitoring to detect AF is more important as occult AF occurs in about 25% of all ESUS.
 
-## 14.3 Stroke Patients with Patent Foramen Ovale (PFO)
-
+## 14.3: Stroke Patients With Patent Foramen Ovale (Pfo)
 [New recommendation, Level I, Grade A] **Recommendation:** PFO closure devices have moderate benefit to young and middle-aged patients with cryptogenic ischaemic stroke. PFO closure devices combined with antiplatelet therapy is also recommended.
 
 [New recommendation, Level II-1, Grade B] **Recommendation:** In patients with ischaemic stroke or transient ischaemic attack (TIA) and a patent foramen ovale (PFO) who are not treated with anticoagulation treatment, antiplatelet therapy is recommended.
@@ -115,13 +112,12 @@ PFO closure during pregnancy is not recommended. Low-dose oral Aspirin is the fi
 
 In one study, in patients who had a recent cryptogenic stroke due to PFO with an associated atrial septal aneurysm or large interatrial shunt, the rate of stroke recurrence was lower in patients with combined PFO closure/antiplatelet therapy compared to patients with antiplatelet therapy alone. However, the closure of PFO was associated with a higher frequency of atrial fibrillation.
 
-## 14.4 Investigation of Young Stroke
-
+## 14.4: Investigation Of Young Stroke
 Identify the cause / predisposing factor:
 
-### A. Search for the classical vascular risk factors
+### A. Search For The Classical Vascular Risk Factors
 
-### B. Special diagnostic tests (see section on Investigations)
+### B. Special Diagnostic Tests (See Section On Investigations)
 1. ESR, CRP and fasting homocysteine
 2. FBC, RP, PT/aPTT, pregnancy test
 3. Serum and urine toxicology screen
@@ -138,8 +134,7 @@ Identify the cause / predisposing factor:
     * Factor V-Leiden
     * Prothrombin gene mutation
 
-### C. Radiological investigations - standard and specialised
-
+### C. Radiological Investigations - Standard And Specialised
 1. MRI/MRA brain and intra and extracranial carotids / Carotid Doppler ultrasounds
 2. Transthoracic Echocardiography (to detect atrial myxoma or any lesion in the heart)
 3. Trans-oesophageal echocardiography (TOE), Lower extremity ultrasound, pelvic CT, or MR venography (in patients with PFO)
@@ -150,7 +145,7 @@ Identify the cause / predisposing factor:
 
 Recommendations:
 
-### Table 14.2: Investigation of Young Stroke
+Table 14.2: Investigation Of Young Stroke
 
 | Investigation | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -159,7 +154,7 @@ Recommendations:
 | Anti-phospholipid antibodies | Routine testing for anti-phospholipid antibodies is not recommended for patients with ischaemic stroke or TIA who have no other manifestations of the anti-phospholipid antibody syndrome and who have an alternative explanation for their ischaemic event, such as atherosclerosis, carotid stenosis or AF. | III | C |
 | Sleep study | A sleep study might be considered for patients with an ischaemic stroke or TIA. | II-2 | B |
 
-### Table 14.3: Treatment of Stroke in Certain Circumstances
+Table 14.3: Treatment Of Stroke In Certain Circumstances
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -176,13 +171,11 @@ Recommendations:
 | Blood transfusion | For patients with sickle cell disease and prior ischaemic stroke or TIA, long-term blood transfusions to reduce haemoglobin S to <30% of total haemoglobin composition are recommended.<br>*New recommendation* | I | B |
 | Supplements | *Supplementation with folate, vitamin B6 and vitamin B1*<br><br>In adults with a recent ischaemic stroke or TIA who are known to have mild to moderate hyperhomocysteinaemia, supplementation with folate, vitamin B6 and vitamin B12 safely reduces the levels of homocysteine but has not been shown to prevent stroke.<br>*New recommendation* | III | B |
 
-
-## 14.5 Cerebral Venous Thrombosis
-
+## 14.5: Cerebral Venous Thrombosis
 Cerebral Venous Thrombosis (CVT) is a type of stroke where the thrombosis occurs in the venous side of the brain circulation, leading to occlusion of one or more cerebral veins and dural venous sinus. The age and gender distribution of CVT is different from that of ischaemic stroke, CVT being more frequent in young adults and women. The incidence is higher in developing countries. CVT is associated with prothrombotic conditions either due to transient causes or permanent primary causes. In around 13% of adult with CVT, no risk factors are identified. The European Stroke Organization guideline addresses both diagnostic and therapeutic topics in CVT. CVT in pregnancy is outlined in the section of stroke in pregnancy.
 
 Recommendations:
-### Table 14.4: Investigation of Cerebral Venous Thrombosis
+Table 14.4: Investigation Of Cerebral Venous Thrombosis
 
 | Investigation | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -192,7 +185,7 @@ Recommendations:
 | Thrombophilia screening | Thrombophilia screening may be performed in patients with high pre-test probability of having severe thrombophilia (i.e. a personal and/or family history of venous thrombosis, young age at CVT, CVT without a transient or a permanent risk factor) to prevent recurrent venous thrombotic events. However, routine thrombophilia screening is not recommended to reduce deaths, improve functional outcome, or prevent recurrent venous thrombosis in patients with CVT. | II-3 | B |
 | Occult malignancy screening | Routine screening for occult malignancy in patients with CVT is not recommended to improve outcomes. | II-3 | B |
 
-### Table 14.5: Treatment of Central Venous Thrombosis
+Table 14.5: Treatment Of Central Venous Thrombosis
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -210,16 +203,14 @@ Recommendations:
 | Antiepileptic drugs (AEDs) | Antiepileptic drugs in patients with acute CVT with supratentorial lesions and seizures are recommended to prevent early recurrent seizures. | II-3 | C |
 
 ## Key Recommendations:
-
 1. Young onset stroke requires more comprehensive investigation to determine the stroke aetiology.
 2. Diagnosis of cryptogenic stroke and embolic stroke of undetermined source (ESUS) is made after standard evaluation to rule out possible cause of stroke.
 3. Further specialized investigations needed in the cryptogenic or ESUS stroke for example prolonged Holter monitoring to look for atrial fibrillation or to look for evidence of patent foramen ovale (PFO).
 4. Cerebral venous thrombosis is one of the major cause of venous infarct and would require investigations to determine the cause of thrombosis. Treatment mainly directed at anticoagulation with adjunctive therapy to prevent associated complications.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -230,8 +221,7 @@ Recommendations:
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -240,8 +230,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviations | Descriptions |
 | --- | --- |
 | AED | Antiepileptic Drug |

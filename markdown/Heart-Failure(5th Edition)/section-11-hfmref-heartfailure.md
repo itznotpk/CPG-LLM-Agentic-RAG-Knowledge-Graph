@@ -1,5 +1,4 @@
-# SECTION 11: HFmrEF (LVEF 41-49%)
-
+# Section 11: HFmrEF (Lvef 41-49%)
 <!-- METADATA
 category: Treatment, Classification
 use_case: HFmrEF Management — mildly_reduced_EF_classification, pharmacotherapy_extrapolation, SGLT2i
@@ -8,7 +7,7 @@ output: HFmrEF_management_approach, medication_recommendations
 treatment_type: SGLT2i, ACEi_ARB, beta_blocker, MRA
 -->
 
-## 11. HEART FAILURE WITH MILDLY REDUCED LV EJECTION FRACTION (HFmrEF)
+## 11: Heart Failure With Mildly Reduced Lv Ejection Fraction (HFmrEF)
 Symptomatic HF patients with LVEF between 41-49% are now classified under this category (previously known as heart failure with mid-range ejection fraction). HFmrEF makes up about 10-20% of patients with HF.
 
 There are limited number of randomized control trials focusing on this category of patients specifically. Hence, the evidence for treatment of this group of patients are derived from post-hoc or sub-group analysis of previous HF trials conducted in patients with HFrEF and HFpEF.
@@ -27,11 +26,12 @@ In the management of these patients:
 *   CV risk factors must be optimized.
 
 ---
-### Key Message # 11: Chronic HF due to HFmrEF
+
+### Key Message # 11: Chronic HF Due To HFmrEF
 *   HFmrEF includes symptomatic HF patients with LVEF between 41-49% and is a clinical entity between HFrEF and HFpEF.
 *   There are limited number of randomized control trials focusing on this category of patients - most of the evidence is derived from post-hoc or sub-group analysis of previous HF trials.
 
-### Key Recommendation #9: Chronic HF due to HFmrEF
+### Key Recommendation #9: Chronic HF Due To HFmrEF
 *   The management of these patients include:
     *   Optimal treatment of CV risk factors.
     *   SGLT2-i.
@@ -41,8 +41,7 @@ In the management of these patients:
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -51,8 +50,7 @@ In the management of these patients:
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -64,7 +62,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -75,8 +73,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I / ACEI | Angiotensin Converting Enzyme Inhibitor |
@@ -97,8 +94,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.

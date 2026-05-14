@@ -1,5 +1,4 @@
-# SECTION 2: PREVENTION OF CVD
-
+# Section 2: Prevention Of CVD
 <!-- METADATA
 category: Prevention
 use_case: Prevention principles and risk reduction framework — primary_prevention, secondary_prevention, population_strategy, high_risk_strategy
@@ -11,10 +10,8 @@ output: prevention_framework, strategy_guidance
 
 ---
 
-## 2. Prevention of CVD
-
+## 2: Prevention Of CVD
 Prevention of CVD includes:
-
 - **Primary Prevention Strategies** — directed at:
   - The healthy general population. (Refer to Section 3: Estimation of Global CVD Risk)
   - Individuals with multiple CV risk factors. (Refer to Section 4: Types of CVD)
@@ -41,7 +38,6 @@ In the prevention of CVD, population preventative strategies are more cost effec
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |

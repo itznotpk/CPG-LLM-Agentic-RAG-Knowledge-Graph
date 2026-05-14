@@ -1,14 +1,13 @@
-# SECTION 16: STROKE THERAPIES WITH LIMITED EVIDENCE
-
+# Section 16: Stroke Therapies With Limited Evidence
 <!-- METADATA
 category: Treatment
 use_case: Limited Evidence Stroke Therapies — neuroprotection, alternative_therapies, investigational_agents, evidence_review
-patient_input: 
+patient_input:
 output: evidence_summary, therapy_status
 -->
 A variety of medicines and treatment modalities have been used for stroke. Although yet to be proven effective, they may be considered for treatment in acute stroke (refer to Table 16.1: Stroke Therapy Modalities).
 
-### Table 16.1: Stroke Therapy Modalities
+Table 16.1: Stroke Therapy Modalities
 
 | Therapy | Description |
 | --- | --- |
@@ -27,11 +26,9 @@ A variety of medicines and treatment modalities have been used for stroke. Altho
 | Piracetam | Piracetam played a limited role in the rehabilitation of the overall language impairment and only showed benefit as regards to the written language ability based on a meta-analysis. Its effect on the overall linguistic level and written language tends to emerge within a short period and declines thereafter. Piracetam also did not significantly improve neurologic or functional outcome in acute stroke patients. |
 
 ## Key Recommendations:
-
 1. There are a variety of stroke medications and treatment modalities, but the evidence is very limited.
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviations | Descriptions |
 | --- | --- |
 | TMS | Transcranial Magnetic Stimulation |

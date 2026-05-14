@@ -1,5 +1,4 @@
-# SECTION 0: SUMMARY AND KEY GENERAL RECOMMENDATIONS
-
+# Section 0: Summary And Key General Recommendations
 <!-- METADATA
 category: Methodology, Reference
 use_case: Executive summary of CVD prevention in women with key recommendations, risk classification, and treatment targets — risk_classification, FRS, CHA2DS2-VASc, treatment_targets, evidence_grading, abbreviations
@@ -11,8 +10,7 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
 
 ---
 
-## 0.1 Summary of Key Points
-
+## 0.1: Summary Of Key Points
 - Cardiovascular disease (CVD), heart disease and strokes, is the main cause of death among women in Malaysia. It is 2 ½ times more common as a cause of death than all cancers combined.
 - The pathophysiological mechanisms contributing to myocardial ischemia in women are varied and maybe multiple. Women with angina may have:
   - Atherosclerotic obstructive Coronary Heart Disease (CHD) (coronary lesions > 50% luminal narrowing)
@@ -31,7 +29,7 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
 - Increased awareness, early detection with appropriate investigations and management is important.
 - All women above the age of 40 years should know their CVD risk.
 
-### Assessment of CVD risk involves:
+### Assessment Of CVD Risk Involves:
 - **History:** Looking for symptoms suggestive of CHD or CHD Equivalents, family history of premature CHD, smoking status, physical activity
 - **Physical Examination:** Height, weight, body mass index (BMI), waist circumference, pulses, blood pressure (BP)
 - **Investigations:** Blood glucose, lipid profile
@@ -44,7 +42,7 @@ Risk Classification helps to identify High Risk women and to guide intensity of 
 
 Risk classification can also be done using the The Framingham Risk Score (FRS). The AHA/ACC pooled Risk Equations may also be used although in 2 retrospective studies, the FRS was a better estimate of CV risk in our local population.
 
-### Prevention of CVD
+### Prevention Of CVD
 Prevention of CVD involves a healthy lifestyle and risk factor reduction – the targets of risk factor reduction will depend on the individual's CVD risk.
 - **High Risk:** Intensive risk factor reduction with lifestyle and pharmacological measures to achieve target levels.
 - **At Risk:** Non pharmacological intervention with diet and physical activity. If targets not achieved, pharmacological therapy is indicated.
@@ -60,14 +58,13 @@ To ensure compliance to the guidelines, periodic audit of simple parameters shou
 
 ---
 
-## 0.2 Critical Reference Tables
-
+## 0.2: Critical Reference Tables
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SUMMARY TABLES                        -->
 <!-- Purpose: Key risk tables required across multiple sections   -->
 <!-- ============================================================ -->
 
-### Table 1: Classification of CVD Risk in Women
+Table 1: Classification Of CVD Risk In Women
 
 | Risk Category | Criteria |
 |---|---|
@@ -97,9 +94,9 @@ To ensure compliance to the guidelines, periodic audit of simple parameters shou
 | | • Abstinence from smoking |
 | | • Physical activity at goal for adults > 20 years of age:<br>&nbsp;&nbsp; ≥ 150 min/week moderate intensity,<br>&nbsp;&nbsp; ≥ 75 min/week vigorous intensity, or combination |
 
-### Table 2: Framingham Risk Score for Asessment of CVD Risk
+Table 2: Framingham Risk Score For Asessment Of CVD Risk
 
-#### Table 2A: CVD Points for Women
+Table 2a: CVD Points For Women
 
 | Points | Age, y | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
@@ -120,7 +117,7 @@ To ensure compliance to the guidelines, periodic audit of simple parameters shou
 | 11 | 70 - 74 | | | | | | |
 | 12 | 75+ | | | | | | |
 
-#### Table 2B: CVD Risk for Women
+Table 2b: CVD Risk For Women
 
 | Total Points | 10 year Risk % | Total Points | 10 year Risk % |
 |---|---|---|---|
@@ -137,7 +134,7 @@ To ensure compliance to the guidelines, periodic audit of simple parameters shou
 | 8 | 4.5 | 20 | 28.5 |
 | 9 | 5.3 | 21+ | > 30 |
 
-#### Table 2C: Heart Age/ Vascular Age for Women
+Table 2c: Heart Age/ Vascular Age For Women
 
 | Points | Heart age, y |
 |---|---|
@@ -163,7 +160,7 @@ To determine a women's 10 year CVD risk, calculate in order:
 - 10 year Risk of CVD (Table 2B)
 - Heart Age/ Vascular Age for Women (Table 2C)
 
-### Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
+Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
 
 | Risk Factor | Units | Patient’s Value | Acceptable range of values | Optimal Values |
 |---|---|---|---|---|
@@ -177,7 +174,7 @@ To determine a women's 10 year CVD risk, calculate in order:
 | Diabetes | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
 | Smoker | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
 
-### Table 4: General Recommendations for Prevention of CVD in Women
+Table 4: General Recommendations For Prevention Of CVD In Women
 *Note: Refer to Section 0.3 (Clinical Evidence Grading) for definitions of Grades (I, II, III) and Levels (A, B, C).*
 
 | Category | Recommendations | Grade of Rec / Level of Evidence |
@@ -196,8 +193,7 @@ To determine a women's 10 year CVD risk, calculate in order:
 | | • < 65 years of age with lone AF and those with CHA2DS2-VASc of 0, anti thrombotics may be omitted | II-a, B |
 | | • Valvular AF: anticoagulate with warfarin to maintain INR 2.0-3.0 | I, B |
 
-### CHA2DS2-VASc score
-
+### Cha2ds2-Vasc Score
 | Risk Factor | CHA2DS2-VASc SCORE |
 |---|---|
 | Congestive Heart Failure | 1 |
@@ -209,7 +205,7 @@ To determine a women's 10 year CVD risk, calculate in order:
 | Age 64-74 years | 1 |
 | Female gender | 1 |
 
-### Table 5: Targets of Treatment
+Table 5: Targets Of Treatment
 *Note: Refer to Section 0.3 (Clinical Evidence Grading) for definitions of Grades (I, II, III) and Levels (A, B, C).*
 
 | Risk Factor/Category | Target | Grade of Rec / Level of Evidence |
@@ -239,15 +235,13 @@ To determine a women's 10 year CVD risk, calculate in order:
 
 ---
 
-## 0.3 Clinical Evidence Grading
-
+## 0.3: Clinical Evidence Grading
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -256,8 +250,7 @@ To determine a women's 10 year CVD risk, calculate in order:
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -268,8 +261,7 @@ To determine a women's 10 year CVD risk, calculate in order:
 
 ---
 
-## 0.4 Abbreviations
-
+## 0.4: Abbreviations
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Master list of clinical abbreviations used in CPG   -->

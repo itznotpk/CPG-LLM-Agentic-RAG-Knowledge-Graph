@@ -1,5 +1,4 @@
-# SECTION 4.0: MANAGEMENT
-
+# Section 4: .0: Management
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Clinical Management of IE — antimicrobial therapy, complications management, heart failure
@@ -9,15 +8,12 @@ critical: true
 treatment_type: penicillin, benzylpenicillin, gentamicin, rifampicin, ampicillin, ceftriaxone, ciprofloxacin
 -->
 
-## 4.1 Clinical management
-
+## 4.1: Clinical Management
 The major goals of management of IE are:
-
 - To eradicate the infectious agent from the endocardium.
 - To address the complications of the infection, both intra and extracardiac.
 
 The mainstay of treatment for IE is appropriate antimicrobial therapy. Factors which maximise treatment success include:
-
 - Early diagnosis.
 - Accurate microorganism identification.
 - Reliable susceptibility testing.
@@ -25,10 +21,8 @@ The mainstay of treatment for IE is appropriate antimicrobial therapy. Factors w
 - Proper monitoring of potentially toxic regimens.
 - Aggressive surgical management of correctable mechanical complications.
 
-### 4.1.1 Monitoring
-
+### 4.1.1: Monitoring
 Whilst in the ward, general management steps include the monitoring of:
-
 - Clinical condition:
   - Fever:
     - Fever usually resolves in a few days after commencement of appropriate antimicrobials.
@@ -66,10 +60,8 @@ Whilst in the ward, general management steps include the monitoring of:
   - In uncomplicated cases, a baseline, pre-discharge TTE should be performed.
 - Antimicrobial peak and trough levels should be done as appropriate. Patients should be assessed for clinical features of antimicrobial toxicity.
 
-### 4.1.2 Complications
-
+### 4.1.2: Complications
 It is important to recognise the common and serious complications of IE, as cardiac surgery should be considered in circumstances involving such complications. The main complications of IE are:
-
 - Heart failure.
 - Persistent infection and perivalvular extension.
 - Systemic embolism.
@@ -77,15 +69,13 @@ It is important to recognise the common and serious complications of IE, as card
 
 All IE patients who develop cardiac complications should be referred to a SC (a centre with cardiology and cardiothoracic surgery services; refer Section 4.1.4: Referral for specialist care) as most would need more advanced imaging, surgical intervention and cardiac intensive services.
 
-#### 4.1.2.1 Heart failure
-
+#### 4.1.2.1: Heart Failure
 Heart failure is the most common complication of IE, which occurs in up to half of all cases.62 It is the most important predictor of mortality. In most cases of IE, heart failure is usually caused by valvular dysfunction and not myocardial failure. 63 Heart failure is more commonly associated with aortic valve dysfunction compared to mitral valve dysfunction. 64 Less commonly, intracardiac fistulae may also cause heart failure. 65 The clinical presentation of heart failure includes dyspnoea, pulmonary oedema and cardiogenic shock.
 
-##### The management of heart failure in infective endocarditis
-##### A. Imaging and monitoring in heart failure
+##### The Management Of Heart Failure In Infective Endocarditis
 
+##### a. Imaging And Monitoring In Heart Failure
 Echocardiography (TTE or TEE) is important in the evaluation of:
-
 - Acute valve regurgitation: if symptoms or signs of heart failure occur, an echocardiogram should be performed immediately to diagnose possible acute valve regurgitation, which carries a very high mortality. In acute regurgitation, the size of the chamber may be normal or only slightly enlarged. Ejection fraction may be normal. There may be findings of:
   - Extensive destruction of the valve leaflets.
   - Massive regurgitation.
@@ -101,12 +91,10 @@ However in cases of chronic valve regurgitation with superimposed IE, the size o
   - Detection of pericardial effusion.
   - Assessment and monitoring of left ventricular systolic function.
 
-##### B. Heart failure marker
-
+##### b. Heart Failure Marker
 - N-terminal pro brain-type natriuretic peptide (NT-proBNP) is useful in diagnosing heart failure and effectiveness of medical therapy.
 
-##### C. Medical management (refer to 3 rd edition of Management of Heart Failure CPG 2014, Section 7.1 available at http://www.moh.gov.my/ penerbitan/CPG)
-
+##### c. Medical Management (Refer To 3 Rd Edition Of Management Of Heart Failure Cpg 2014, Section 7.1 Available At Http://www.moh.gov.my/ penerbitan/CPG)
 - Pharmacotherapy:
   - Diuretics (e.g. furosemide).
   - Intravenous diuretics are indicated for patients with symptoms of acute pulmonary oedema or fluid overload (raised jugular venous pressure; JVP and ankle oedema).
@@ -114,33 +102,27 @@ However in cases of chronic valve regurgitation with superimposed IE, the size o
   - Beta-blockers:
     - Although beta-blockade in acute heart failure may cause harm and beta-blockers should also not be used in aortic regurgitation as this will increase diastolic time and regurgitation volume.
 
-#### D. Surgical management (refer Section 5.0: Surgical intervention)
-
+#### d. Surgical Management (Refer Section 5.0: Surgical Intervention)
 - Indication and timing:
 - All cases of IE with acute heart failure should be stabilised with medical management and referred for consideration of surgery.
 - Although surgery is urgent, the timing should be agreed with the surgical team in order to optimise the patient's condition to minimise surgical risk.
 
-#### 4.1.2.2 Persistent infection and perivalvular extension
-
+#### 4.1.2.2: Persistent Infection And Perivalvular Extension
 If after 7-10 days of antimicrobial therapy, there is persistent fever and positive blood cultures, assess for the following possibilities and manage accordingly:
-
 - Inadequate or inappropriate antimicrobial therapy.
 - Resistant microorganisms.
 - Complications: perivalvular extensions and extracardiac septic embolisation.
 - Thrombophlebitis/infected intravenous lines.
 
 In cases of both suspected persistent infection and perivalvular extension, the following should be considered:
-
 - Regular (e.g. daily) ECG to monitor for conduction abnormalities e.g. AV block.
 - Perform a TEE in cases of persistent fever especially in those with prosthetic valves, aortic valve IE and S. aureus infection, or new AV block.
 - Perform an ECG-gated cardiac CT scan to assess for aortic root abscess or perivalvular extension in cases when TEE facilities are not available.
 
-#### 4.1.2.3 Systemic embolism
-
+#### 4.1.2.3: Systemic Embolism
 The risk of systemic embolism is very high in IE (20-50%) and life-threatening complications are often related to the migration of cardiac vegetations. The risk is highest during the first days following the initiation of antimicrobial therapy and rapidly decreases subsequent to that.61,67 Frequent sites for embolisation in left-sided IE are the brain and spleen whilst pulmonary embolism frequently occurs in native right-sided and pacemaker lead IE. 68 Stroke is a major complication and is associated with increased morbidity and mortality.
 
 Factors associated with an increased risk of embolism are:
-
 - Vegetation size > 10 mm (higher risk if > 15 mm).
 - Mobility of vegetations.
 - Location of the vegetation on the anterior mitral valve leaflet.
@@ -155,8 +137,7 @@ Embolisation may occur before diagnosis, usually within the first 2-4 weeks of t
 
 Distal emboli may lead to metastatic infection or abscesses. Emboli may also involve other systemic organs such as the liver, kidneys and abdominal mesenteric vessels. Osteomyelitis is estimated to occur in 2-6% of cases of IE and is more common in intravenous (IV) drug abusers. F-FDG PET/CT imaging in IE has been useful in detecting peripheral embolic and metastatic infectious events in some cases where other diagnostic imaging has not identified foci.
 
-#### 4.1.2.4 Neurological complications
-
+#### 4.1.2.4: Neurological Complications
 IE can have profound and devastating neurological consequences. Neurological complications can occur before or during the diagnosis of IE, but they can also occur later in the clinical course of IE. Symptomatic neurological events develop in 25-40% of patients with IE.
 
 Most neurological complications occur early in the course of IE and they are most common in left-sided IE. The most common complications are ischaemic and haemorrhagic complications.
@@ -164,7 +145,6 @@ Most neurological complications occur early in the course of IE and they are mos
 **Diagnosis of neurological complications**
 
 It is important to make the diagnosis of neurological complications early, as well as to assess the severity of the complication. Intracerebral events are diagnosed by history-taking, clinical examination, and by imaging modalities. Imaging modalities commonly used for the assessment of intracerebral events include:
-
 - CT scan, with or without contrast agents (most commonly performed).
 - MRI, with or without gadolinium enhancement (better detection in patients with focal neurological lesions and may also detect lesions in patients without symptoms e.g. microbleeds). In addition to normal sequences, diffusion-weighted magnetic resonance imaging (DWI)/T2weighted (T2W) gradient-echo (GRE) sequences are important to show asymptomatic infarcts or small microbleeds respectively.
 - Cerebral angiography is advisable when there is strong clinical suspicion of mycotic aneurysm despite negative findings on non-invasive imaging modalities.
@@ -180,7 +160,6 @@ Imaging investigations should be done as soon as clinical features appear, prefe
 **A. General Principles**
 
 Some general measures in the management of neurological complications:
-
 - Antimicrobial therapy should be started as soon as diagnosis is made to reduce the development of complications in the first week.
 - The duration of antimicrobial therapy will depend on the type of complication and microorganism involved (refer Section 4.2: Antimicrobial therapy: principles and methods).
 - In the event of any neurological complication, it is advisable to refer to a neurologist for consultation and further management.
@@ -220,26 +199,22 @@ In the event of these complications, consultation from a neurologist and ID spec
 3. [Grade I, Level C] A multidisciplinary team inclusive of a neurologist with or without a neurosurgeon is recommended in the management of patients with IE and neurological complications.
 4. [Grade IIb, Level C] If cardiac surgery is indicated in the presence of cerebral mycotic aneurysm, pre-operative endovascular or neurosurgical intervention may be considered.
 
-### 4.1.3 Issues with anticoagulation
-
+### 4.1.3: Issues With Anticoagulation
 Cerebral injuries occur in 20-40% of patients during the active course of IE. These include ischaemic stroke, TIA or intracerebral haemorrhage. The management of ischaemic stroke due to IE is different to ischaemic strokes from non-infective causes with regards to anticoagulation.
 
 Anticoagulation in the setting of IE raises concerns of intracerebral haemorrhage, an often fatal event. Cerebral haemorrhage in endocarditis occurs through one of three mechanisms:
-
 - Acute pyogenic arteritis secondary to uncontrolled infection.
 - Haemorrhagic transformation of embolic infarcts.
 - Rupture of dilated mycotic aneurysms.
 
-#### Antiplatelet therapy
-
+#### Antiplatelet Therapy
 The potential role of antiplatelet therapy such as aspirin to reduce cerebrovascular events in IE has been investigated.
 
 - Aspirin has not been shown to be of clear benefit as an adjunctive treatment in reducing mortality or morbidity in IE and initiation of aspirin as treatment for IE is not recommended.
 - In patients who were on aspirin long-term prior to the diagnosis of IE, it may be continued if there are no bleeding complications.
 - The role of other antiplatelet agents such as clopidogrel has not yet been extensively investigated.
 
-#### Anticoagulation with warfarin
-
+#### Anticoagulation With Warfarin
 Cerebral haemorrhage is a major determinant of poor clinical outcome in IE.
 
 **A. Native valve infective endocarditis**
@@ -256,7 +231,6 @@ Cerebral haemorrhage is a major determinant of poor clinical outcome in IE.
 Patients with mechanical prosthetic valves require anticoagulation with warfarin because of the risk of thromboembolic complications. Mechanical prosthetic valve IE (MPVIE) carries a higher mortality and poorer prognosis compared to native valve IE (NVE). In MPVIE, the risks of cerebral haemorrhage with continued anticoagulation need to be weighed against the risk of thromboembolic complications from the mechanical prosthesis if anticoagulation is stopped.
 
 The thromboembolic risk is higher with certain features such as:
-
 - Prosthetic mitral valves rather than aortic valves.
 - Non-bileaflet valves.
 - Early post-operative period (&lt; 3 months) rather than late post-operative period.
@@ -267,13 +241,11 @@ The thromboembolic risk is higher with certain features such as:
 - Hypercoagulable conditions (e.g. pregnancy).
 
 In the event that a major ischaemic cerebral event occurs in MPVIE, it is reasonable to:
-
 - Stop warfarin for at least 2-3 weeks during the period of highest risk for haemorrhagic transformation.
 - Unfractionated heparin may be used from the 2 nd week after stopping warfarin under close monitoring to reduce the thromboembolic complications from the mechanical valve prosthesis.
 - Patients with MPVIE due to *S. aureus* have been shown to be at much higher risk for cerebral haemorrhage. In these cases, even if there is no neurological complication, once diagnosis of IE is made warfarin can be stopped and substituted with unfractionated heparin for 2 weeks.
 
 In the event of intracranial bleeding occurring in MPVIE:
-
 - Anticoagulation should be stopped.
 - Anticoagulation should be avoided during the first 2 weeks as the risk of further bleeding and expansion of the intracerebral haemorrhage is highest during this period.
 - It is reasonable in most cases to restart anticoagulation with caution using unfractionated heparin after 2 weeks as the risk of further intracranial bleeding is low after 2 weeks, while the risk of thromboembolic complications in mechanical prosthetic valves without anticoagulation increases.
@@ -291,10 +263,8 @@ Restarting anticoagulation should be done very cautiously starting with intraven
 3. [Grade IIa, Level C] In MPVIE due to S. aureus, it may be reasonable to stop warfarin and substitute with unfractionated heparin for 2 weeks, even with no neurological complication.
 4. [Grade IIa, Level C] In the event of intracranial bleeding, it is reasonable to stop warfarin for 2 weeks and anticoagulate with unfractionated heparin after 2 weeks in most cases.
 
-### 4.1.4 Referral for specialist care
-
+### 4.1.4: Referral For Specialist Care
 IE is an unusual disease for a few reasons:
-
 - The clinical manifestation, predisposing risk factors and epidemiology of IE can be very variable.
 - Despite being relatively rare, it has significant morbidity and mortality.
 - Ideal management of IE requires multiple, highly specialised expertise in one centre which is often not widely available. These include but are not limited to: echocardiologists, ID specialists, cardiac surgeons, interventional radiologists, neurologists, neurosurgeons and microbiologists.
@@ -302,7 +272,6 @@ IE is an unusual disease for a few reasons:
 To ensure a good outcome and to prevent complications, it is important to establish an accurate diagnosis early and institute appropriate treatment. It is recommended to have a multidisciplinary team approach in the management of patients with IE especially those with high-risk features. Where indicated, these patients may need additional subspecialty consultation or referral to a specialist centre. A Specialist Centre (SC) is defined here as a hospital with cardiothoracic, cardiac imaging and specialised cardiology services (refer Appendix 7: Centres with available cardiothoracic surgery services*).
 
 Referral to a SC is recommended in the following situations (refer Table 4.2: Specific clinical situations needing referrals/specialised consultation):
-
 - Strong clinical suspicion of IE but TTE negative.
     - Requires TEE and/or other imaging modalities to diagnose IE and to monitor for complications.
 - Patients with high predisposing risks.
@@ -327,7 +296,6 @@ Specific situations that may need other non-cardiac consultations:
   - Patients who are on anticoagulation with coagulopathies and haemorrhagic complications.
 
 Patients with non-complicated IE can be managed in a centre with internal medicine specialists. These are patients with:
-
 - Mild-moderate abnormality of cardiac valvular function with no heart failure.
 - Native valves only.
 - Not more than mild ischaemic neurological complications (involving < 30% of a lobe).
@@ -339,18 +307,15 @@ A Specialist Centre (SC) is defined as a centre with cardiothoracic, cardiac ima
 Patients with high predisposing risk for complications, with indications for cardiac surgery and with cardiac complications should ideally be referred to a SC.
 
 #### Recommendations
-
 **For referral of IE patients for specialist care:**
 
 1. [Grade IIa, Level B] IE should be preferably managed by a multidisciplinary team with the necessary expertise in endocarditis management.
 2. [Grade IIa, Level C] Patients with complicated IE should be considered for referral to a SC.
 
-### 4.1.5 Pre-discharge management
-
+### 4.1.5: Pre-Discharge Management
 All patients who have experienced an episode of IE remain at high-risk for recurrent infection indefinitely (refer Appendix 1: Classification and definition of infective endocarditis). Those with significant valvular regurgitation and/or cardiac lesions who have completed successful antimicrobial therapy may require eventual cardiac surgery. The assessment for timing of surgical intervention can be guided by the clinical status and serial echocardiographic evaluation.
 
 Therefore, prior to discharge, patients who have had appropriate and effective medical treatment and surgery (if necessary) should undergo the following:
-
 - Detailed physical assessment to document the clinical status (blood pressure, heart rate and rhythm should be documented).
 - Laboratory investigations e.g. inflammatory markers, FBC and serology (improving trend/resolution of infection).
 - Echocardiography to establish a new baseline (most often TTE is adequate).
@@ -362,36 +327,32 @@ Therefore, prior to discharge, patients who have had appropriate and effective m
     - Good oral hygiene and when indicated, antimicrobial prophylaxis prior to dental procedures (refer Section 8.0: Antimicrobial prophylaxis for infective endocarditis).
 
 #### Recommendations
-
 **For pre-discharge assessment of IE patients:**
 
 1. [Grade IIa, Level C] Pre-discharge echocardiogram is recommended to establish a new baseline.
 2. [Grade IIa, Level C] Education to patients on recognising relapses, complications and oral hygiene is recommended.
 
-## 4.2 Antimicrobial therapy: principles and methods
-### 4.2.1 General principles
+## 4.2: Antimicrobial Therapy: Principles And Methods
 
+### 4.2.1: General Principles
 General principles for the treatment of IE include:
-
 - Parenteral antimicrobials in high dose to sustain antibacterial concentrations for treatment success.
 - Bactericidal antimicrobials are necessary for effective treatment.
 - Adequate duration is required to prevent relapses.
 
-### 4.2.2 Suggested regimes for treatment of native or prosthetic valve infective endocarditis
-
+### 4.2.2: Suggested Regimes For Treatment Of Native Or Prosthetic Valve Infective Endocarditis
 The choice of antimicrobials will depend on the type of microorganism isolated and whether it is a native or a prosthetic valve IE. These are presented in the tables below. All doses quoted are for patients with normal renal function. For dosing adjustment in patients with renal impairment refer to Appendices 8 and 9.
 
-#### 4.2.2.1 Streptococcus viridans
+#### 4.2.2.1: Streptococcus Viridans
 Refer to Table 4.3:Endocarditis due to penicillin-susceptible viridans group streptococci (VGS) and S. gallolyticus (bovis)
 
 ##### Recommendations
-
 **For antimicrobials in Streptococcus viridans infection:**
 
 1. [Grade IIa, Level C] For penicillin susceptible (MIC ≤ 0.125 µg/ml) streptococcus viridans, monotherapy with benzyl penicillin, ampicillin or ceftriaxone is adequate. Duration of therapy is for 4 weeks for NVE and 6 weeks for prosthetic valve endocarditis (PVE).
 2. [Grade IIa, Level C] For penicillin relatively resistant (MIC > 0.125 to 2 µg/ml) streptococcus viridans, gentamicin has to be added to the regime. Duration of gentamicin is for 2 weeks for NVE and 6 weeks for PVE.
 
-#### 4.2.2.2 Nutritionally variant streptococci
+#### 4.2.2.2: Nutritionally Variant Streptococci
 Refer to Table 4.4: Abiotrophia defective and Granulicatella species (both formerly known as nutritionally variant streptococci; NVS)
 
 ##### Recommendations
@@ -399,7 +360,7 @@ Refer to Table 4.4: Abiotrophia defective and Granulicatella species (both forme
 
 [GRade II,, Level B] NVS are fastidious and slow growing making it technically difficult to determine antimicrobial susceptibility. Combination treatment of penicillin, ampicillin or ceftriaxone with gentamicin for at least the first 2 weeks, followed by continuation of chosen antimicrobial without gentamicin for 6 weeks is recommended.
 
-#### 4.2.2.3 Staphylococcus aureus and Coagulase-negative staphylococcus (CoNS)
+#### 4.2.2.3: Staphylococcus Aureus And Coagulase-Negative Staphylococcus (CoNS)
 Refer to Table 4.5: Native valve endocarditis due to S. aureus (rightsided) and Table 4.6: Staphylococcal endocarditis in the presence of a prosthetic valve or other prosthetic material.
 
 ##### Recommendations
@@ -408,34 +369,33 @@ Refer to Table 4.5: Native valve endocarditis due to S. aureus (rightsided) and 
 1. [Grade III, Level B] Addition of gentamicin for native valve staphylococcus endocarditis is not recommended.
 2. [Grade I, Level C] Addition of gentamicin and rifampicin is recommended for PVE.
 
-#### 4.2.2.4 Enterococcus species
+#### 4.2.2.4: Enterococcus Species
 Refer to Table 4.7: Endocarditis due to enterococcus-native and prosthetic valve
 
 ##### Recommendations
 **For antimicrobials in enterococcus infection:**
 
-1. [Grade IIa, Level C] In native valve enterococcus endocarditis, the duration of ampicillin and gentamicin is dependent on the duration of symptoms before treatment initiation. 
+1. [Grade IIa, Level C] In native valve enterococcus endocarditis, the duration of ampicillin and gentamicin is dependent on the duration of symptoms before treatment initiation.
 2. [Grade IIa, Level B] Combination therapy with ceftriaxone and ampicillin is recommended for patients with gentamicin high-level resistance, the elderly and those with renal impairment.
 
-#### 4.2.2.5 HACEK microorganisms
+#### 4.2.2.5: Hacek Microorganisms
 Refer to Table 4.8: Therapy for endocarditis due to HACEK microorganisms (Haemophilus parainfluenza, Aggregatibacter aphrophilus, Aggregatibacter actinomycetemcomitans, Cardiobacterium hominis, Eikenella corrodens and Kingella kingae) both native and prosthetic valve.
 
 ##### Recommendations
 **For antimicrobials in HACEK group of microorganism infection:**
 
 1. [Grade IIa, Level B] Ceftriaxone monotherapy is recommended for endocarditis due to HACEK microorganisms.
-2. [Grade IIa, Level C] Alternative drugs such as ampicillin/sulbactam or ciprofloxacin may be used provided the isolate is susceptible. 
+2. [Grade IIa, Level C] Alternative drugs such as ampicillin/sulbactam or ciprofloxacin may be used provided the isolate is susceptible.
 
-#### 4.2.2.6 Candida
+#### 4.2.2.6: Candida
 Refer to Table 4.9: Therapy for Candida endocarditis (native and prosthetic valve).
 
 ## Recommendations
 **For management of Candida infection:**
 
-[Grade I, Level B] Valve surgery combined with antifungal therapy is required for adequate treatment of Candida endocarditis. 
+[Grade I, Level B] Valve surgery combined with antifungal therapy is required for adequate treatment of Candida endocarditis.
 
-#### 4.2.2.7 Non-HACEK Gram-negative microorganisms
-
+#### 4.2.2.7: Non-Hacek Gram-Negative Microorganisms
 This includes microorganisms such as Pseudomonas aeruginosa, Escherichia coli and Salmonella. The choice of antimicrobials for these microorganisms depends on antimicrobial susceptibility pattern. Commonly combination therapy with β-lactam (column A) and aminoglycosides or fluoroquinolones (column B) are used (refer Table 4.10: Antimicrobial choices for pseudomonas endocarditis (6 weeks duration) in adults^). Medical therapy often needs to be combined with cardiac surgery. The duration of therapy is 6 weeks.
 
 ##### Recommendations
@@ -443,13 +403,11 @@ This includes microorganisms such as Pseudomonas aeruginosa, Escherichia coli an
 
 [Grade IIa, Level C] In non-HACEK Gram-negative IE a combination therapy with a β-lactam and aminoglycoside or fluoroquinolone are used.
 
-#### 4.2.2.8 Other microorganisms
+#### 4.2.2.8: Other Microorganisms
 Refer to Table 4.11: Therapy for other microorganisms (adults)**
 
-### 4.2.3 Empirical therapy
-
+### 4.2.3: Empirical Therapy
 The initial empirical regime for endocarditis will depend on the following factors (refer Figure 4a: Antimicrobial coverage required for initial empirical treatment):
-
 - Involvement of native or prosthetic valves.
 - Duration following prosthetic surgery; early vs. late PVE (refer Appendix 1: Classification and definition of infective endocarditis).
 - Community acquired or healthcare associated (refer Appendix 1: Classification and definition of infective endocarditis).
@@ -460,19 +418,16 @@ The initial empirical regime for endocarditis will depend on the following facto
 Patients with subacute presentation are more likely to be infected with less virulent microorganisms such as VGS, enterococci, HACEK Gram-negative or NVS.
 
 Patients may present acutely due to:
-
 - Infection with more virulent microorganisms such S. aureus and non-HACEK Gram-negatives.
 - Infection with less-virulent microorganisms such as VGS, enterococci and HACEK Gram-negatives due to prolonged illness or immunocompromised status.
 
 Proposed antimicrobial regimens for initial empirical treatment of infective endocarditis (before pathogen identification) are presented in the table below. Refer to Table 4.12: Therapy for initial empirical treatment of IE in acute severely ill patients.
 
-#### 4.2.3.1 Empirical antimicrobial therapy for infective endocarditis in intravenous drug users
-
+#### 4.2.3.1: Empirical Antimicrobial Therapy For Infective Endocarditis In Intravenous Drug Users
 S. aureus is the most common cause of IE among IVDUs. However fungal and Gram-negative bacilli such as Pseudomonas aeruginosa can also cause IE in this population. Tricuspid valve involvement is the most common. Septic pulmonary emboli and pneumonia are common complications of tricuspid valve involvement and does not alter the duration of treatment (refer Section 4.2.2.3: Staphylococcus aureus and CoNS endocarditis; Table 4.5: Native valve endocarditis due to S. aureus (right-sided) and Table 4.6: Staphylococcal endocarditis in the presence of a prosthetic valve or other prosthetic material).
 
-### 4.2.4 Outpatient parenteral antimicrobial therapy for infective endocarditis
+### 4.2.4: Outpatient Parenteral Antimicrobial Therapy For Infective Endocarditis
 In carefully selected patients, outpatient parenteral antimicrobial therapy (OPAT) can be a safe and effective means of completing therapy for IE. Patients require minimum 2 weeks of inpatient therapy before being considered for OPAT. Beyond 2 weeks of treatment consider OPAT service if patient is:
-
 - Medically stable.
 - Has no heart failure.
 - Has no neurological signs.
@@ -483,10 +438,9 @@ The hospital must have established OPAT services with trained staff and protocol
 
 ## Contextual Anchors (Overlapping)
 
-### Section 3.3.1: Echocardiography
+### Section 3: .3.1: Echocardiography
 
-#### 3.3.1.1 Echocardiography in diagnosis of infective endocarditis
-
+#### 3.3.1.1: Echocardiography In Diagnosis Of Infective Endocarditis
 Echocardiography plays a key role in the diagnosis of IE. The first line imaging investigation in suspected IE is usually transthoracic echocardiography (TTE) as it is non-invasive and widely available. TEE should be performed subsequently if indicated.
 
 - In native valves, the sensitivity of TTE in diagnosing vegetations is 44-63%.
@@ -495,7 +449,6 @@ Echocardiography plays a key role in the diagnosis of IE. The first line imaging
 - The specificity of TTE and TEE exceeds 90% for both native and prosthetic valves whilst the specificity of TEE for vegetation on prosthetic valves is 88-100%.
 
 Indications for TEE in patients with IE or those with pre-existing risk factors include:
-
 - Poor or suboptimal transthoracic window (e.g. morbid obesity, chronic obstructive pulmonary disease; COPD and previous sternotomy).
 - High clinical suspicion of IE but negative TTE (e.g. typical microorganism of IE found on blood cultures).
 - Staphylococcal bacteraemia if community acquired without an obvious focus of infection (e.g. cellulitis).
@@ -504,7 +457,6 @@ Indications for TEE in patients with IE or those with pre-existing risk factors 
 - Perioperative TEE to assess mechanism and severity of valve dysfunction, perivalvular extensions and the success of surgery/ presence of residual lesions.
 
 Echocardiographic findings suggestive of IE include (refer Table 3.4: Findings suggestive of IE and their anatomical and echocardiographic definitions):
-
 - Vegetation.**
 - Abscess.**
 - > Abscess formation is a dynamic process, which starts with aortic root thickening that can be seen on TEE. If this finding is noted, a TEE should be repeated at a later time to confirm the diagnosis as the lesion progresses with formation of a cavity with no flow within.
@@ -517,7 +469,6 @@ Echocardiographic findings suggestive of IE include (refer Table 3.4: Findings s
 ** Documentation of vegetation or abscess sizes should be made by measuring their largest diameters in at least 2 dimensions rather than measuring the circumference. The view in which the measurement was made should also be documented.
 
 Other important information to gather from an echocardiogram include:
-
 - Haemodynamic and ventricular functional assessments:
   - Transthoracic Doppler echocardiogram is used to assess haemodynamic dysfunction as it is more reliable and reproducible compared to TEE.
   - For left ventricular systolic dysfunction, assessment of ejection fraction by using modified Simpson's method and others such as tissue Doppler imaging is recommended.
@@ -531,27 +482,25 @@ Other important information to gather from an echocardiogram include:
 - Assessment and quantification of valve regurgitation.
 - Presence and quantification of pericardial effusion.
 
-#### 3.3.1.2 Interpretation of echocardiography
-
+#### 3.3.1.2: Interpretation Of Echocardiography
 Echocardiography in IE can be challenging. This may be due to the absence of vegetations despite a high index of clinical suspicion or the presence of masses on the endocardial surface that are not due to infective vegetation. Therefore the results of the echocardiographic study must be interpreted with caution, taking into account the patient's clinical presentation and the likelihood of IE. The limitations of echocardiography in the diagnosis of IE should be noted as follows:
-
 - The sensitivity and specificity of TTE and TEE are not 100%.
 - A negative echocardiogram does not rule out IE.
 - In some situations, a repeat TTE or repeat TEE may be necessary.
 - Results of an echocardiogram must be interpreted with caution, as it is possible to have a false positive study (refer Table 3.5: Challenges in echocardiography interpretation in the context of IE).
 
 **Recommendations — The use of echocardiography in diagnosing IE:**
-1. [Grade I, Level B] Echocardiography should be performed as soon as possible in all patients suspected of having IE. 
+1. [Grade I, Level B] Echocardiography should be performed as soon as possible in all patients suspected of having IE.
 2. [Grade I, Level C] If there is a high suspicion of IE despite an initial negative TTE/TEE, then a repeat TTE/TEE is recommended within a week or if clinical findings change.
 3. [Grade I, Level B] TEE should be done if initial TTE images are negative or inadequate in patients for whom there is a persistent suspicion for IE.
-4. [Grade I, Level B] TEE is advised in cases with prosthetic valves, prosthetic cardiac material or cases with high-risk features. 
+4. [Grade I, Level B] TEE is advised in cases with prosthetic valves, prosthetic cardiac material or cases with high-risk features.
 5. [Grade IIa, Level C] The echocardiographic measurement of the size of the vegetation at its longest diameter is preferable rather than its circumference. Documentation of the window in which the measurement was done will be useful.
 6. [Grade I, Level B] Intraoperative TEE recommended for all cases of IE undergoing surgery.
 7. [Grade IIa, Level C] It may be reasonable to perform TTE at the time of antimicrobial therapy completion to record baseline features.
 
 ---
 
-### Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations
+Table 3.2: Fastidious And Intracellular Microorganisms, Epidemiology And Investigations
 
 | Microorganism                             | Predisposing risk factors,  epidemiology and exposure  risks                                                                                      | Laboratory investigation                                                                                                                                                                       |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -563,7 +512,6 @@ Echocardiography in IE can be challenging. This may be due to the absence of veg
 | Nutritionally variant  streptococci       | Slow indolent course                                                                                                                              | Culture: Blood culture (culture on  supplemented media or growth as  satellite colonies around S. aureus streak)                                                                               |
 
 **HPE consists of:
-
 - Haematoxylin and Eosin (H&amp;E) stain for basic morphology.
 - Special stains which aid in the identification of the causative microorganisms of IE (refer Table 3.3: Special stains which aid in the identification of the causative microorganisms of IE from cardiac tissue specimens).
 
@@ -573,7 +521,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 3.4: Findings suggestive of IE and their anatomical and echocardiographic definitions
+Table 3.4: Findings Suggestive Of IE And Their Anatomical And Echocardiographic Definitions
 
 |                                   | Surgical or autopsy findings                                                                              | Echocardiography findings                                                                                                           |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -587,7 +535,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 3.5: Challenges in echocardiography interpretation in the context of IE
+Table 3.5: Challenges In Echocardiography Interpretation In The Context Of IE
 
 | False positive echocardiogram ("vegetation" seen but diagnosis is NOT IE) | False negative echocardiogram ("vegetation" not seen but diagnosis IS IE) |
 |---|---|
@@ -595,7 +543,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.1: Description of neurological complications
+Table 4.1: Description Of Neurological Complications
 
 | Neurologic complication | Epidemiology | Clinical manifestation in IE | Management | Implications for cardiac surgery if indicated |
 |---|---|---|---|---|
@@ -607,7 +555,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.2: Specific clinical situations needing referrals/specialised consultation
+Table 4.2: Specific Clinical Situations Needing referrals/specialised Consultation
 
 | Complicated IE (requires transfer to a SC if possible or constant consultation with a SC) | Non-complicated IE (manage in centre with internal medicine specialists but refer to SC in the event complications arise) |
 |---|---|
@@ -617,7 +565,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.3: Endocarditis due to penicillin-susceptible viridans group streptococci (VGS) and S. gallolyticus (bovis)
+Table 4.3: Endocarditis Due To Penicillin-Susceptible Viridans Group Streptococci (Vgs) And S. Gallolyticus (Bovis)
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric)<sup>a</sup> | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -640,7 +588,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.4: Abiotrophia defective and Granulicatella species (both formerly known as nutritionally variant streptococci; NVS)
+Table 4.4: Abiotrophia Defective And Granulicatella Species (Both Formerly Known As Nutritionally Variant Streptococci; Nvs)
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric)<sup>a</sup> | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -658,7 +606,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.5: Native valve endocarditis due to S. aureus (right-sided)
+Table 4.5: Native Valve Endocarditis Due To S. Aureus (Right-Sided)
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric<sup>a</sup>) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -675,7 +623,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.6: Staphylococcal endocarditis in the presence of a prosthetic valve or other prosthetic material
+Table 4.6: Staphylococcal Endocarditis In The Presence Of A Prosthetic Valve Or Other Prosthetic Material
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric)<sup>a</sup> | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -694,7 +642,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.7: Endocarditis due to *enterococcus*-native and prosthetic valve
+Table 4.7: Endocarditis Due To *enterococcus*-native And Prosthetic Valve
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric<sup>a</sup>) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -716,7 +664,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.8: Therapy for endocarditis due to HACEK microorganisms (*Haemophilus parainfluenza*, *Aggregatibacter aphrophilus*, *Aggregatibacter actinomycetemcomitans*, *Cardiobacterium hominis*, *Eikenella corrodens* and *Kingella kingae*) both native and prosthetic valve
+Table 4.8: Therapy For Endocarditis Due To Hacek Microorganisms (*Haemophilus Parainfluenza*, *Aggregatibacter Aphrophilus*, *Aggregatibacter Actinomycetemcomitans*, *Cardiobacterium Hominis*, *Eikenella Corrodens* And *Kingella Kingae*) Both Native And Prosthetic Valve
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -728,7 +676,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.9: Therapy for *Candida* endocarditis (native and prosthetic valve)
+Table 4.9: Therapy For *Candida* Endocarditis (Native And Prosthetic Valve)
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -745,7 +693,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.10: Antimicrobial choices for pseudomonas endocarditis (6 weeks duration) in adults^
+Table 4.10: Antimicrobial Choices For Pseudomonas Endocarditis (6 Weeks Duration) In Adults^
 
 | Column A | Column B |
 |---|---|
@@ -763,7 +711,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.11: Therapy for other microorganisms (adults)\*\*
+Table 4.11: Therapy For Other Microorganisms (Adults)\*\*
 
 | Pathogen | Antimicrobial | Dosage and route | Duration of therapy |
 |---|---|---|---|
@@ -775,7 +723,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Figure 4a: Antimicrobial coverage required for initial empirical treatment
+Figure 4a: Antimicrobial Coverage Required For Initial Empirical Treatment
 
 **Step 1: Suspected or confirmed IE**
 * ↓
@@ -808,7 +756,7 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ---
 
-### Table 4.12: Therapy for initial empirical treatment of IE in acute severely ill patients
+Table 4.12: Therapy For Initial Empirical Treatment Of IE In Acute Severely Ill Patients
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
@@ -830,12 +778,10 @@ The directory of laboratories that perform the serological and PCR tests of the 
 
 ## Contextual Anchors (Overlapping)
 
-### Section 5.0: Surgical intervention
+### Section 5: .0: Surgical Intervention
 
-#### 5.1 Indications
-
+## 5.1: Indications
 Surgical intervention is indicated in the following cases of IE:
-
 - Severe valvular incompetence, haemodynamic instability or heart failure.
 - Uncontrolled sepsis and paravalvular extension of infection.
 - Fungal or multiresistant endocarditis.
@@ -844,7 +790,6 @@ Surgical intervention is indicated in the following cases of IE:
 **A. Severe valvular incompetence, heart failure or haemodynamic instability**
 
 Valvular regurgitation in NVE occurs as a result of:
-
 - Leaflet perforation.
 - Rupture of the leaflet supporting apparatus.
 - Interference of the vegetative mass with leaflet closure.
@@ -856,7 +801,6 @@ When acute and severe, heart failure and haemodynamic instability ensues. Surger
 **B. Persistent infection, uncontrolled sepsis and paravalvular extension of infection**
 
 Surgery is indicated when:
-
 - Fever or positive blood cultures persist despite appropriate antimicrobial treatment after 5-7 days.
 - Extracardiac causes have been excluded.
 
@@ -872,7 +816,6 @@ Abscesses are more common in native aortic valve endocarditis compared to mitral
 **C. Fungal or multiresistant endocarditis**
 
 Surgery is indicated in IE caused by the following microorganisms/infection:
-
 - Fungal IE:
     - Responds poorly to medical treatment.
     - Reported mortality of up to 70%.
@@ -884,7 +827,6 @@ Surgery is indicated in IE caused by the following microorganisms/infection:
 **D. Very large vegetations (>10 mm) or previous systemic embolism**
 
 Surgery should be considered for vegetations > 10 mm in size particularly when other risk factors for embolisation are present. These include:
-
 - Mobile vegetation.
 - Increase in vegetation size despite treatment.
 - Vegetation on the mitral valve (particularly the anterior leaflet).
@@ -894,15 +836,13 @@ Surgery should be considered for vegetations > 10 mm in size particularly when o
 **Recommendations — Surgical intervention in IE is indicated for:**
 1. [Grade I, Level B] Severe valvular incompetence, heart failure or haemodynamic instability.
 2. [Grade I, Level B] Persistent infection, uncontrolled sepsis or paravalvular extension of infection.
-3. [Grade I, Level B] Fungal or multiresistant endocarditis. 
+3. [Grade I, Level B] Fungal or multiresistant endocarditis.
 4. [Grade I, Level B] Very large vegetations (> 10 mm) or previous systemic embolism.
 
-#### 5.2 Timing of surgery
-
+## 5.2: Timing Of Surgery
 In general, when there is an established indication for surgery as discussed in Section 5.1: Indications above, surgical intervention should be undertaken as soon as practically possible after completion of surgical workup.
 
 Early surgical intervention in these patients:
-
 - Improves survival.
 - Prevents the risk of progressive heart failure, cardiogenic shock and multiorgan failure.
 - Decreases the progression of infection causing further structural damage with abscess formation.
@@ -910,14 +850,12 @@ Early surgical intervention in these patients:
 - Increases the likelihood of valve repair rather than replacement due to lesser destruction of the native valve.
 
 The improved results with early surgery is seen in those with heart failure or paravalvular complications. However in practice, surgery is often delayed in endocarditis due to:
-
 - High operative risk.
 - Possible risk of the newly implanted prosthetic valve getting infected.
 
 A recent meta-analysis involving 8,141 patients demonstrated that early surgery within 2 weeks of diagnosis improved both early mortality and long-term survival compared with non-early surgery. In patients with cardiogenic shock, surgery should be undertaken much earlier, within 24 hours of diagnosis. However, it may be reasonable to delay surgery for 48 hours in a patient with septic shock to allow a period of stabilisation and better control of the sepsis with intravenous antimicrobials as cardiac surgery with cardiopulmonary bypass in the presence of septic shock carries an excessively high operative mortality.
 
 In selected patients, surgery can be carried out on an elective or semi-elective basis in the subacute or healed phase of endocarditis where the operative risk and the risk of infection of the implanted valve prosthesis is lower. This is applicable for the following patients:
-
 - Pre-existing chronic valvular regurgitation who are haemodynamically stable.
 - Vegetation is < 10 mm in size.
 - Well-controlled sepsis.
@@ -940,14 +878,12 @@ A randomised controlled trial of 76 patients with left-sided NVE comparing early
 | Semi-elective (after 2 weeks of antimicrobial cover) | [Grade I, Level B] PVE and relapsing infection. |
 | Elective (after 6 weeks of antimicrobial therapy) | [Grade I, Level C] Well-tolerated chronic severe valvular regurgitation with controlled infection. |
 
-#### 5.3 Surgery in specific conditions
-
+## 5.3: Surgery In Specific Conditions
 **5.3.1 Cerebral infarction or haemorrhage**
 
 Up to 80% of patients with left-sided endocarditis have cerebral embolism detected by MRI. However, the majority of these are subclinical and clinical stroke is diagnosed in only 25-29%.
 
 The risk of significant neurologic complications occurring as a result of cardiac surgery performed early after a significant cerebral infarction is high:
-
 - Approximately 20% in the first 3 days.
 - 20-50% between 4 and 14 days.
 - 6-10% between 15 and 28 days.
@@ -956,7 +892,6 @@ The risk of significant neurologic complications occurring as a result of cardia
 Hospital mortality is also dependent on the time of cardiac surgical intervention after a cerebral infarction; 66% when surgery is performed within 24 hours of a stroke, and gradually decreasing every week to 7% when surgery is performed more than 4 weeks after a stroke. The risk of clinical deterioration is independently associated with stroke severity.
 
 The recommended timing for valve surgery if indicated, following a cerebrovascular event is as follows:
-
 - Without delay:
     - In the presence of subclinical cerebral emboli or small cerebral infarcts without severe neurological damage.
     - Absence of cerebral haemorrhage.
@@ -982,7 +917,6 @@ Right-sided IE accounts for 5-10% of all cases of IE mostly involving the tricus
 **5.3.2.1 Indications for surgery**
 
 Surgery is indicated in the following situations:
-
 - Persistent infection due to difficult to eradicate microorganisms not responding to antimicrobial therapy beyond 2 weeks.
 - Persistent vegetation size > 20 mm and recurrent septic pulmonary emboli despite appropriate antimicrobials.
 - Massive or worsening tricuspid regurgitation causing right heart failure unresponsive to medical therapy.
@@ -993,13 +927,12 @@ Surgery is indicated in the following situations:
 **Recommendations — Surgical indication for right-sided IE:**
 1. [Grade IIa, Level C] Persistent infection despite 2 weeks of appropriate antimicrobial therapy.
 2. [Grade IIa, Level C] Persistent vegetation size > 20 mm and recurrent septic pulmonary emboli despite appropriate antimicrobials.
-3. [Grade IIa, Level C] Massive or worsening tricuspid regurgitation causing right heart failure unresponsive to medical therapy. 
+3. [Grade IIa, Level C] Massive or worsening tricuspid regurgitation causing right heart failure unresponsive to medical therapy.
 4. [Grade IIa, Level C] Failure or complications of percutaneous removal of infected pacing wires.
 
 **5.3.3 Prosthetic valve endocarditis**
 
 In addition to the indications for surgery in NVE mentioned above, surgery in PVE is also recommended for:
-
 - Staphylococcal endocarditis.
 - Severe prosthetic valve dysfunction or dehiscence.
 
@@ -1012,12 +945,10 @@ Most patients treated conservatively have uncomplicated non-staphylococcal and n
 2. [Grade I, Level C] Staphylococcal endocarditis.
 3. [Grade I, Level C] Severe prosthetic valve dysfunction or dehiscence.
 
-#### 5.4 Principles of surgery
-
+## 5.4: Principles Of Surgery
 The surgical principles in IE are well established.
 
 Pre-operative assessment and management would include:
-
 - Investigating and treating the primary source responsible for the endocarditis.
 - Treatment of extracardiac sepsis such as splenic and paravertebral abscesses either by splenectomy or percutaneous drainage to avoid infection of the new valve.
 - Investigating and managing cerebrovascular events for those at risk.
@@ -1026,7 +957,6 @@ Pre-operative assessment and management would include:
 Pre-operative workup should therefore include imaging of the brain, chest, abdomen and pelvis, and maxillofacial area.
 
 Some important surgical strategies are:
-
 - Wherever possible valve repair rather than replacement is preferred. Valve repair:
     - Improves in-hospital and long-term survival.
     - Has better preservation of ventricular function.
@@ -1068,11 +998,10 @@ Where abscess cavities are present, these must be drained, necrotic tissue excis
 
 **Recommendations — Surgical principles in IE:**
 1. [Grade I, Level C] Complete removal and radical debridement of all infected and necrotic material, leaving only healthy tissue, which will hold suture, is recommended.
-2. [Grade IIa, Level C] Valve repair when possible is preferred rather than replacement. 
+2. [Grade IIa, Level C] Valve repair when possible is preferred rather than replacement.
 3. [Grade I, Level C] The choice of valve prosthesis type should be based on the standard considerations when deciding between a mechanical or bioprosthetic valve (e.g. age and childbearing females).
 
-#### 5.5 Surgery for infective endocarditis in congenital heart disease
-
+## 5.5: Surgery For Infective Endocarditis In Congenital Heart Disease
 **5.5.1 Indications for surgery**
 
 Although no paediatric specific surgical guidelines for acute IE exist, established American Heart Association (AHA) adult guidelines have been endorsed by the American Academy of Paediatrics (AAP).
@@ -1111,66 +1040,56 @@ The surgical mortality for IE in the group of CHD has been reported between 10-1
 
 ---
 
-### Section 8.0: Antimicrobial prophylaxis for infective endocarditis
+### Section 8: .0: Antimicrobial Prophylaxis For Infective Endocarditis
 
-#### 8.1 Introduction
-
+## 8.1: Introduction
 IE after interventional dental or other procedures is uncommon. For this reason, the use of antimicrobial prophylaxis is only recommended for cardiac patients associated with the highest risk of IE (the European Society of Cardiology; ESC, AHA and National Antibiotic Guidelines). Many bacterial species are known to cause IE, but in recent years staphylococci, commonly associated with healthcare contact and invasive procedures, have overtaken streptococci as the most common cause of IE. As for antimicrobial prophylaxis, the National Institute of Clinical Excellence (NICE) issued the CG64 in 2008 that effectively did not recommend antimicrobial prophylaxis against IE for people undergoing dental procedures (or other non-dental procedures) in the United Kingdom (UK). In the ensuing years, whilst there was a very significant fall in antimicrobial prophylaxis prescribing, there was also a significant increase in the incidence of IE. In 2016, NICE reviewed the evidence and concluded that there was no requirement to change the existing CG64 guidance and emphasised that antimicrobial prophylaxis against IE is not recommended routinely for people undergoing dental, gastrointestinal tract, genitourinary and respiratory tract procedures. Additionally, these guidelines emphasised prevention rather than prophylaxis to reduce the incidence of IE.
 
 It is however, the consensus view of this writing committee that antimicrobial prophylaxis is administered to all patients at high-risk for IE including those with established rheumatic heart disease who are undergoing invasive dental and surgical procedures.
 
-#### 8.2 Cardiac conditions associated with the highest risk of infective endocarditis
-
+## 8.2: Cardiac Conditions Associated With The Highest Risk Of Infective Endocarditis
 Patients with cardiac conditions listed in Table 8.1: Cardiac conditions with increased risk of IE are considered as being at increased risk of developing IE and are indicated for antimicrobial prophylaxis.
 
 **Recommendations — Patients who require antimicrobial prophylaxis:**
 1. [Grade IIa, Level B] Antimicrobial prophylaxis must be indicated for patients with the highest risk of IE and/or highest risk of adverse outcome from IE.
 
-#### 8.3 Antimicrobial prophylaxis for specific procedures
-
+## 8.3: Antimicrobial Prophylaxis For Specific Procedures
 Antimicrobial prophylaxis to prevent IE is indicated in high-risk cardiac patients prior to selected dental and non-dental procedures.
 
 Any procedure where antimicrobial prophylaxis is indicated for surgical reasons, the pre-procedural antimicrobial prophylaxis is normally adequate as IE prophylaxis in high-risk cardiac cases. In procedures where pre-procedural antimicrobial prophylaxis is not routinely given, cardiac patients considered as high-risk should receive antimicrobial prophylaxis prior to procedures expected to produce bacteraemia as discussed in Section 8.3.2: Non-dental procedures.
 
-##### 8.3.1 Dental procedures
+### 8.3.1: Dental Procedures
 The estimated incidence of IE is about 1 per 150,000 dental procedures with antimicrobials prophylaxis and 1 per 46,000 for procedures unprotected by antimicrobials. For patients considered as high-risk (Table 8.1: Cardiac conditions with increased risk of IE), antimicrobial prophylaxis is recommended for invasive dental procedures that involve manipulation of the gingival or periapical region of the teeth or oral mucosa. Routine antimicrobial prophylaxis is not recommended for all patients undergoing dental procedures. Table 8.2: Dental procedures and recommendations for prophylaxis of endocarditis provides a list of dental procedures where antimicrobial prophylaxis for endocarditis may or may not be required for cardiac patients.
 
-##### 8.3.2 Non-dental procedures
-###### 8.3.2.1 Respiratory tract procedures
+### 8.3.2: Non-Dental Procedures
 
+#### 8.3.2.1: Respiratory Tract Procedures
 Antimicrobial prophylaxis is recommended for patients with increased risk of IE (Table 8.1: Cardiac conditions with increased risk of IE) who undergo an invasive respiratory tract procedure that involve incision or biopsy of the respiratory mucosa. For procedures involving an established respiratory tract infection, the antimicrobial must be active against the causative microorganisms in addition to VGS.
 
-###### 8.3.2.2 Gastrointestinal and genitourinary procedures
-
+#### 8.3.2.2: Gastrointestinal And Genitourinary Procedures
 Routine pre-procedural antimicrobial prophylaxis is no longer recommended for patients undergoing genitourinary or gastrointestinal tract procedures. However, for high-risk cardiac patients who have an established gastrointestinal or genitourinary infection, or for those who receive antimicrobial therapy for surgical reasons, the antimicrobial regimen should include an agent active against enterococci, such as ampicillin or vancomycin.
 
-###### 8.3.2.3 Other procedures
-
+#### 8.3.2.3: Other Procedures
 Antimicrobial prophylaxis is required for high-risk cardiac patients undergoing these procedures:
-
 - Incision and drainage of local abscess in the brain, skin and subcutaneous tissue (e.g. boils and carbuncles), eye (e.g. dacryocystitis), epidura, lung, orbital area, perirectal area, liver (e.g. pyogenic liver), tooth and surgical procedures through infected skin.
 - Percutaneous endoscopic gastrostomy.
 
 **Recommendations — The indications for antimicrobial prophylaxis in high-risk patients:**
-1. [Grade IIa, Level C] High-risk procedures are usually those that cause bleeding or tissue damage. VGS is the most common cause of endocarditis after dental or upper respiratory procedures. 
+1. [Grade IIa, Level C] High-risk procedures are usually those that cause bleeding or tissue damage. VGS is the most common cause of endocarditis after dental or upper respiratory procedures.
 
-#### 8.4 Antimicrobial regimes for infective endocarditis prophylaxis
-
+## 8.4: Antimicrobial Regimes For Infective Endocarditis Prophylaxis
 The most common pathogen for oral and respiratory tract procedures related endocarditis is alpha-haemolytic streptococci. Antimicrobial regimens for endocarditis prophylaxis are generally directed towards VGS.
 
 **Recommendations — Timing of antimicrobial prophylaxis in high-risk patients:**
-1. [Grade IIa, Level B] IE antimicrobial prophylaxis (when indicated) is administered as a single dose 30-60 minutes before the procedure. 
+1. [Grade IIa, Level B] IE antimicrobial prophylaxis (when indicated) is administered as a single dose 30-60 minutes before the procedure.
 
-#### 8.5 Preventive measures
+## 8.5: Preventive Measures
 
-##### 8.5.1 Periodontal and dental disease
-
+### 8.5.1: Periodontal And Dental Disease
 Periodontal and dental diseases can increase the risk of bacteraemia. Maintenance of optimal oral hygiene may reduce the incidence of bacteraemia with daily activities such as tooth brushing, flossing or use of oral irrigators, and is considered more important than prophylactic antimicrobials for a dental procedure to reduce the risk of IE. Cardiac patients should be reminded to practise good oral hygiene and have a dental evaluation twice a year. Patients must be informed about the hazards of tongue piercing as this procedure may increase the risk of IE and should be discouraged.
 
-##### 8.5.2 Cardiac implantable devices or prosthesis implantation
-
+### 8.5.2: Cardiac Implantable Devices Or Prosthesis Implantation
 IE risk is high in patients undergoing procedures that involve implanting prosthetic material/valves, CIED and transcatheter occluder devices/implantable valves. Maintenance, and good oral and skin hygiene (this includes discouraging body piercing and tattooing) are two of the most important aspects in the preventive measures of IE. As it has been shown that the highest risk of developing IE in these patients is during the periprocedure stage, the following measures are recommended:
-
 - Pre-operative screening and eradication of nasal and skin carriage of MRSA using local mupirocin and chlorhexidine, is recommended before elective cardiac surgery in order to treat carrier.
 - Treat and eliminate potential sources of sepsis at least 2 weeks prior to procedure/surgery.
 - Pre-procedure antimicrobial prophylaxis before cardiac surgery or transcatheter intervention.
@@ -1178,7 +1097,7 @@ IE risk is high in patients undergoing procedures that involve implanting prosth
 **Recommendations — Preventive measures by high-risk patients are:**
 1. [Grade IIa, Level B] Cardiac patients must be advised on the importance of dental and cutaneous hygiene.
 
-#### Table 8.1: Cardiac conditions with increased risk of IE
+Table 8.1: Cardiac Conditions With Increased Risk Of IE
 
 - Prosthetic cardiac valves or prosthetic material used for cardiac valve repair
 - Native valvular heart disease including established rheumatic heart disease
@@ -1192,7 +1111,7 @@ Adapted from European Society of Cardiology, American Heart Association and Card
 
 ---
 
-#### Table 8.2: Dental procedures and recommendations for prophylaxis of endocarditis
+Table 8.2: Dental Procedures And Recommendations For Prophylaxis Of Endocarditis
 
 | Prophylaxis always required | Prophylaxis required in some circumstances | Prophylaxis not required |
 |---|---|---|
@@ -1202,7 +1121,7 @@ Adapted from European Society of Cardiology, American Heart Association and Card
 
 ---
 
-#### Table 8.3: Antimicrobial prophylaxis for invasive dental procedures
+Table 8.3: Antimicrobial Prophylaxis For Invasive Dental Procedures
 
 **Single dose administered 30 to 60 minutes before the procedure**
 
@@ -1217,7 +1136,7 @@ Adapted from European Society of Cardiology, American Heart Association and Card
 
 ---
 
-### Figure 3a: Approach to microbiological diagnosis of IE
+Figure 3a: Approach To Microbiological Diagnosis Of IE
 
 **Step 1: Suspect IE**
 * *Note: Elicit risk factors for fastidious/intracellular pathogens\*\* and send for appropriate serological tests as indicated (refer Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations
@@ -1253,7 +1172,7 @@ Adapted from European Society of Cardiology, American Heart Association and Card
 
 ---
 
-### Figure 3b: Use of echocardiography in the diagnosis and management of IE
+Figure 3b: Use Of Echocardiography In The Diagnosis And Management Of IE
 
 **Step 1: Suspect IE**
 * ↓
@@ -1301,7 +1220,7 @@ Refer Section 3.3.1 for positive and negative findings.
 *Adapted from Baddour LM, et al. Circulation. 2015.*
 
 ---
-### Figure 3c: The use of modified Duke criteria in diagnosing IE
+Figure 3c: The Use Of Modified Duke Criteria In Diagnosing IE
 
 **Step 1: Clinical suspicion of IE**
 * ↓
@@ -1350,10 +1269,9 @@ F-FDG: fluorine-18 (F-18) fluorodeoxyglucose (FDG); CT: computed tomography; CTP
 
 ---
 
-## Appendix 1: Classification and definition of infective endocarditis
+## Appendix 1: Classification And Definition Of Infective Endocarditis
 
-### IE according to localisation of infection and presence or absence of intracardiac material
-
+### IE According To Localisation Of Infection And Presence Or Absence Of Intracardiac Material
 - Left-sided native valve IE
 - Left-sided PVE
   - Early PVE < 1 year after valve surgery
@@ -1361,23 +1279,20 @@ F-FDG: fluorine-18 (F-18) fluorodeoxyglucose (FDG); CT: computed tomography; CTP
 - Right-sided native valve IE
 - Device related IE
 
-### IE according to the mode of acquisition
-
+### IE According To The Mode Of Acquisition
 | Healthcare associated IE                        | Nosocomial                                                                                                                                 | Non-nosocomial                                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                 | IE developing in a patient  hospitalised > 48 hours prior to  onset of signs and symptoms  consistent with IE                              | Signs and symptoms of IE  starting < 48 hours after  admission in a patient with  healthcare contact defined as: •  Home-based nursing  or intravenous therapy,  haemodialysis, or intravenous  chemotherapy < 30 days  before the onset of IE •  Hospitalisation in an acute  care facility  < 90 days before the onset of  IE •  Resident in a nursing home or  long-term care facility |
 | Community acquired IE                           | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection |
 | Intravenous drug abuse associated IE            | IE in an active injection drug user with no alternative source of infection                                                               | IE in an active injection drug user with no alternative source of infection                                                               |
 
-### Active IE (at least one of the below)
-
+### Active IE (At Least One Of The Below)
 - Persistent fever and positive blood cultures
 - Inflammatory morphology findings during surgery
 - On antimicrobial therapy
 - Evidence of active infection on HPE
 
 ### Recurrence
-
 | Recurrence | |
 |---|---|
 | **Relapse** | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
@@ -1387,8 +1302,8 @@ Adapted from European Society of Cardiology infective endocarditis guidelines. 2
 
 ---
 
-## Appendix 4: Directory of laboratories*
-### Table: Directory of main laboratories that provide serological testing of rare aetiological agents of infective endocarditis
+## Appendix 4: Directory Of Laboratories*
+Table: Directory Of Main Laboratories That Provide Serological Testing Of Rare Aetiological Agents Of Infective Endocarditis
 
 | Microorganisms    | Serology IgG/IgM     |
 |-------------------|----------------------|
@@ -1405,7 +1320,6 @@ IMR: Institute of Medical Research; HSB: Hospital Sungai Buloh; HKL: Hospital Ku
 *This list is not exhaustive and only include public institutions with the available facilities. For a full list of accredited laboratories, please refer to Standards Malaysia website (www.jsm. gov.my).
 
 #### Note:
-
 1. Interpretation of serological results in these rare aetiological agents of IE can be difficult. Please consult an ID physician to guide treatment in these cases.
 2. PCR amplification of 16SrDNA gene and sequencing for the identification of bacterial pathogen from bacterial isolate is provided at the Department of Medical Microbiology PPUM.
 
@@ -1424,8 +1338,7 @@ The main laboratories and the contact details are as follows:*
 
 ---
 
-## Appendix 7: Centres with available cardiothoracic surgery services*
-
+## Appendix 7: Centres With Available Cardiothoracic Surgery Services*
 | Centres |
 |---|
 | **Johor** |
@@ -1450,8 +1363,7 @@ The main laboratories and the contact details are as follows:*
 
 ---
 
-## Appendix 10: Weekly OPAT review checklist (for doctors)
-
+## Appendix 10: Weekly Opat Review Checklist (For Doctors)
 | General review of the patient and clinical examination (specifically look for) |
 |---|
 | Heart failure |
@@ -1473,8 +1385,7 @@ The main laboratories and the contact details are as follows:*
 
 ---
 
-### GRADES OF RECOMMENDATION
-
+### Grades Of Recommendation
 | Grade | Description |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -1483,8 +1394,7 @@ The main laboratories and the contact details are as follows:*
 | **IIb** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### LEVEL OF EVIDENCE
-
+### Level Of Evidence
 | Level | Description |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -1497,8 +1407,7 @@ The main laboratories and the contact details are as follows:*
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 |---|---|
 | AAP | American Academy of Paediatrics |

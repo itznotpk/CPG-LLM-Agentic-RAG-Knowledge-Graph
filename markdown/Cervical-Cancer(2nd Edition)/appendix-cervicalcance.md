@@ -1,5 +1,4 @@
-# APPENDIX
-
+# Appendix
 <!-- METADATA
 category: Reference, Classification
 use_case: Appendices and Reference Tables — search_strategy, clinical_questions, WHO_classification, FIGO_staging, reporting_proforma, chemotherapy_protocols, hospice_directory, distress_thermometer, medication_list
@@ -7,8 +6,7 @@ patient_input: tumour_characteristics, histopathology_findings, FIGO_stage
 output: staging_classification, reporting_proforma, chemotherapy_protocol, referral_directory
 -->
 
-## Appendix 1: Examples of Search Strategy
-
+## Appendix 1: Examples Of Search Strategy
 The following MeSH terms or free text terms were used either singly or in combination, search was limit to English, human and last 10 years:-
 
 1. Uterine Cervical Neoplasms/
@@ -36,8 +34,7 @@ The following MeSH terms or free text terms were used either singly or in combin
 23. 10 and 22
 24. limit 23 to (english and humans and last 10 years)
 
-## Appendix 2: Clinical Questions 
-
+## Appendix 2: Clinical Questions
 1. Epidemiology/Risk factors/Clinical presentation
 - 1.1 What is the epidemiology of cervical cancer?
 - 1.2 What are the risk factors of cervical cancer?
@@ -75,11 +72,9 @@ The following MeSH terms or free text terms were used either singly or in combin
 - 4.7 What are the effective and safe palliative care following treatment of cervical cancer?
 - 4.8 What are the effective psychosexual care and social support for patients and carers?
 
+## Appendix 3: WHO Histological Classification Of Tumours Of The Uterine Cervix
 
-## Appendix 3: WHO histological classification of tumours of the uterine cervix
-
-### Epithelial tumours
-
+### Epithelial Tumours
 **Squamous tumours and precursors**
 
 | Tumour type | ICD-O Code |
@@ -143,8 +138,7 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Large cell neuroendocrine carcinoma | 8013/3 |
 | Undifferentiated carcinoma | 8020/3 |
 
-### Mesenchymal tumours and tumour-like conditions
-
+### Mesenchymal Tumours And Tumour-Like Conditions
 | Tumour type | ICD-O Code |
 |---|---|
 | Leiomyosarcoma | 8890/3 |
@@ -158,8 +152,7 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Genital rhabdomyoma | 8905/0 |
 | Postoperative spindle cell nodule | |
 
-### Mixed epithelial and mesenchymal tumours
-
+### Mixed Epithelial And Mesenchymal Tumours
 | Tumour type | ICD-O Code |
 |---|---|
 | Carcinosarcoma (malignant mullerian mixed tumour; metaplastic carcinoma) | 8980/3 |
@@ -168,26 +161,24 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Adenofibroma | 9013/0 |
 | Adenomyoma | 8932/0 |
 
-### Melanocytic tumours
-
+### Melanocytic Tumours
 | Tumour type | ICD-O Code |
 |---|---|
 | Malignant melanoma | 8720/3 |
 | Blue naevus | 8780/0 |
 
-### Miscellaneous tumours - Tumours of germ cell type
-
+### Miscellaneous Tumours - Tumours Of Germ Cell Type
 | Tumour type | ICD-O Code |
 |---|---|
 | Yolk sac tumour | 9071/3 |
 | Dermoid cyst | 9084/0 |
 | Mature cystic teratoma | 9080/0 |
 
-### Lymphoid and haematopoetic tumours
+### Lymphoid And Haematopoetic Tumours
 - Malignant lymphoma (specify type)
 - Leukaemia (specify type)
 
-### Secondary tumours
+### Secondary Tumours
 1. Morphology code of the International Classification of Diseases for Oncology (ICD-O) {921} and the Systematized Nomenclature of Medicine (http://snomed.org). Behaviour is coded /0 for benign tumours, /2 for in situ carcinomas and grade 3 intraepithelial neoplasia, /3 for malignant tumours, and /1 for borderline or uncertain behaviour.
 2. Intraepithelial neoplasia does not have a generic code in ICD-O. ICD-O codes are only available for lesions categorized as squamous intraepithelial neoplasia grade 3 (e.g. cervical intraepithelial neoplasia 3) = 8077/2, squamous cell carcinoma in situ = 8070/2, glandular ntraepithelial neoplasia grade 3 = 8148/2 and adenocarcinoma in situ = 8140/2.
 
@@ -195,9 +186,9 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 
 ---
 
-## Appendix 4: Reporting Proforma for Cervical Cancer Excisional Cervical Biopsies/Hysterectomy Specimens
+## Appendix 4: Reporting Proforma For Cervical Cancer Excisional Cervical Biopsies/Hysterectomy Specimens
 
-### MACROSCOPIC
+### Macroscopic
 *   **Specimen labelled as:** ____________________
 *   **Type of procedure/specimen:**
     *   [ ] LLETZ
@@ -209,7 +200,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Orientation markers:** [ ]
 *   **Specimen gross/external appearance:** ____________________
 
-### SPECIMEN MEASUREMENTS
+### Specimen Measurements
 | Parameter | Value |
 |---|---|
 | Length of specimen | ______ mm |
@@ -217,14 +208,14 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Ectocervix diameter (3-9 o’clock) | ______ mm |
 | Ectocervix diameter (6-12 o’clock) | ______ mm |
 
-### UTERINE DIMENSION
+### Uterine Dimension
 | Parameter | Value |
 |---|---|
 | Cervix-fundus | ______ mm |
 | Anterior-posterior | ______ mm |
 | Distance between cornu | ______ mm |
 
-### ADNEXA
+### Adnexa
 | Parameter | Status |
 |---|---|
 | Presence | [ ] Present [ ] Absent |
@@ -249,7 +240,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Macroscopic involvement of paracervix:** [ ] Yes [ ] No
 *   **Lymph nodes:** ____________________
 
-### MICROSCOPIC
+### Microscopic
 *   **Tumour:**
     *   Multiple tumours: [ ] Present [ ] Absent
     *   Histological tumour type:
@@ -275,7 +266,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Associated CIN:** [ ] Absent [ ] Present (If present, describe grade and extension: ________)
 *   **Associated SMILE:** [ ] Absent [ ] Present (If present, describe extension: ________)
 
-### EXTENT
+### Extent
 | Parameter | Finding |
 |---|---|
 | Lymphovascular invasion | [ ] Present [ ] Absent |
@@ -284,7 +275,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Vagina cuff | [ ] Involved [ ] Not Involved<br>(distance from excision margin: ______ mm) |
 | Involvement of other organs | [ ] Not Applicable [ ] No [ ] Yes<br>(Please specify: ________) |
 
-### MARGIN STATUS
+### Margin Status
 | Parameter | Finding |
 |---|---|
 | Invasive tumour | |
@@ -292,7 +283,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Ectocervical margin | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 | Radial margin | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 
-### NON-INVASIVE COMPONENT
+### Non-Invasive Component
 | Parameter | Finding |
 |---|---|
 | Margin status of AIS | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
@@ -303,8 +294,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 
 ---
 
-## Appendix 5: Revised FIGO Cervical Cancer Staging 2009
-
+## Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | Stage | Description |
 |---|---|
 | I | The carcinoma is strictly confined to the cervix (extension to the uterus corpus should be disregarded). |
@@ -327,7 +317,6 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 ---
 
 ## Appendix 6: Modified Delgado's Prognostic Risk Scoring System
-
 | Variable | Relative risk |
 |---|---|
 | **Depth of tumour penetration (mm) - Superficial** | |
@@ -371,8 +360,7 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 
 ---
 
-## Appendix 7: ECOG Performance Status
-
+## Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -386,11 +374,13 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 ---
 
-## Appendix 8: Systemic Therapy Cancer Protocol 
+## Appendix 8: Systemic Therapy Cancer Protocol
 
-### CERVICAL CANCER CHEMOTHERAPY
-### Concurrent chemo-radiotherapy
-#### Single agent cisplatin
+### Cervical Cancer Chemotherapy
+
+### Concurrent Chemo-Radiotherapy
+
+#### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
@@ -398,28 +388,29 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 *N.B. In practice, 50 mg total dose per week of cisplatin could be used*
 
-### Palliative chemotherapy
-#### Single agent cisplatin
+### Palliative Chemotherapy
+
+#### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 
-#### Cisplatin-5FU
+#### Cisplatin-5fu
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 - 75 | IV | 1 hour | 1 |
 | 5Fluorouracil | 750 - 1000 | IV | 24 hour | 1 - 5 |
 
-#### Cisplatin-MTX
+#### Cisplatin-Mtx
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 | Methotrexate | 100 | IV | Bolus | 1 - 5 |
 
-#### Paclitaxel-cisplatin
+#### Paclitaxel-Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
@@ -434,9 +425,9 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 ## Appendix 9: Malaysian Hospice Directory
 
-### Pain Management and Palliative Care Service Providers
+### Pain Management And Palliative Care Service Providers
 
-#### PAIN CLINICS
+#### Pain Clinics
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -449,7 +440,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 | Pusat Perubatan Universiti Kebangsaan Malaysia, Kuala Lumpur | 603-91455555 | http://www.ppukm.ukm.my |
 | Hospital Universiti Sains Malaysia, Kelantan | 609-7663000 | http://www.hselayang.moh.gov.my |
 
-#### PALLIATIVE CARE UNITS
+#### Palliative Care Units
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -475,7 +466,6 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 ---
 
 ### Malaysian Hospice Directory
-
 **PERSATUAN HOSPICE ARK**
 No. 2, 2A, 2B Jalan Sutera Merah 3
 Taman Sutera, 81200, Johor Bahru, Johor
@@ -652,8 +642,7 @@ www.hospismalaysia.org
 
 ---
 
-## Appendix 10: International Society of Lymphology (ISL) Lymphoedema Staging
-
+## Appendix 10: International Society Of Lymphology (Isl) Lymphoedema Staging
 | Stage | Description |
 |---|---|
 | ISL Stage 0 | A subclinical state where swelling is not evident despite impaired lymph transport. This stage may exist for months or years before oedema becomes evident |
@@ -665,10 +654,10 @@ www.hospismalaysia.org
 Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. International Consensus. London: MEP Ltd; 2006
 
 ---
+
 ## Appendix 11: Distress Thermometer Screening Tool
 
-### SCREENING TOOLS FOR MEASURING DISTRESS
-
+### Screening Tools For Measuring Distress
 **Instructions:** First please circle the number (0-10) that best describes how much distress you have been experiencing in the past week including today.
 
 **Distress Thermometer**
@@ -717,7 +706,6 @@ Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. I
 ---
 
 ## Appendix 12: Medication List
-
 | Chemotherapy Drug | Common side effects | Comments |
 |---|---|---|
 | **Cisplatin** | • Peripheral neuropathy<br>• Nausea, vomiting<br>• Myelosuppression<br>• Nephrotoxicity<br>• Ototoxicity | • Adequate hydration and urinary output at least 24 hours after administration<br>• Obtain baseline renal function, then monitor renal function (SCr, CrCl) at every cycle. Observe for cumulative renal toxicity.<br>• Recommend to perform baseline audiography and prior to each subsequent dose<br>• Observe for anaphylactic-like reactions during infusion<br>• Monitor renal function (SCr, CrCl)<br>• Observe for anaphylactic-like reactions during infusion |

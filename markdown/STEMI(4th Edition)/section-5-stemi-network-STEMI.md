@@ -1,5 +1,4 @@
-# SECTION 5: STEMI NETWORK
-
+# Section 5: STEMI Network
 <!-- METADATA
 category: Treatment, Reference
 use_case: STEMI Network and Systems of Care — hub_and_spoke_network, inter_hospital_transfer, total_ischaemic_time, PCI_capable_facility_routing, ambulance_bypass
@@ -8,8 +7,7 @@ output: transfer_protocol, optimal_reperfusion_pathway, door_to_balloon_time_tar
 critical: true
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 The objective of a STEMI network is to link non-PCI-capable centres to PCI-capable centres with the aim of providing PCI services in a timely manner for patients:
 - With STEMI
 - Who have been given fibrinolytic therapy and:
@@ -42,8 +40,7 @@ Essentials of STEMI systems of care include:
 - A prospective registry to assess progress and need for change.
 - Quality Improvement Measures and Quality Improvement Programs.
 
-## 5.1 Total Ischaemic Time
-
+## 5.1: Total Ischaemic Time
 Recommendations to reduce total ischaemic time in a STEMI network:
 
 **For Primary PCI:**
@@ -77,7 +74,6 @@ Recommendations to reduce total ischaemic time in a STEMI network:
   - Managed at the spoke hospital if the patient has low risk features.
 
 ## Key Messages #5:
-
 The objective of a STEMI network is to link non PCI-capable centres to PCI-capable centres with the aim of providing PCI services in a timely manner for patients:
 - With STEMI
 - Who have been given fibrinolytic therapy and:
@@ -92,17 +88,14 @@ The objective of a STEMI network is to link non PCI-capable centres to PCI-capab
 
 ### Section 4: Pre-Hospital Management (Overlapping)
 
-#### 4.4 Pre-Hospital Care (PHC)
-
+## 4.4: Pre-Hospital Care (Phc)
 When a patient presents with chest pain, it is of paramount importance to determine if:
-
 - The pain is cardiac in origin.
 - If cardiac in origin, is it due to:
   - STEMI — requires immediate treatment preferably by Primary PCI if this can be done in a timely manner.
   - UA/NSTEMI.
 
 In STEMI there is:
-
 - Prolonged duration of ischaemic-type chest pain of > 30 minutes and
 - ECG changes showing ST elevation of > 1 mm in 2 contiguous leads or a new (or presumed new) onset LBBB.
 
@@ -127,8 +120,7 @@ The pre-hospital management of STEMI patients should ideally be based on regiona
 - [Grade I, Level C] It is recommended that primary PCI-capable centres deliver a 24/7 service and be able to perform primary PCI without delay.
 - [Grade I, Level A] *If the anticipated time from FMC to PCI-mediated reperfusion (wire-crossing the lesion) is > 120 minutes, then pre-hospital or nearest in-hospital fibrinolysis is an option.
 
-#### 4.5 Pre-Hospital Care Personnel
-
+## 4.5: Pre-Hospital Care Personnel
 Pre-hospital care personnel should be trained to:
 * Identify patients at high risk of developing ACS.
 * Interpret the ECG, identify and treat common arrhythmias.
@@ -136,16 +128,15 @@ Pre-hospital care personnel should be trained to:
 * Assess, stabilise and monitor the patient's haemodynamics continuously prior to and during transfer.
 * [Grade I, Level A] Administer fibrinolysis out of hospital after excluding the contraindications in patients who cannot be transferred to a PCI-capable centre in a timely manner.
 
-#### Key Message 4 (from Section 4):
+#### Key Message 4 (From Section 4):
 * The public and PHC personnel should be educated on the importance of early diagnosis and the benefits of early treatment.
 
-#### Key Recommendation 3 (from Section 4):
+#### Key Recommendation 3 (From Section 4):
 * Patients with suspected STEMI should be given soluble or chewable 300 mg aspirin and 300 mg clopidogrel.
 * These patients should be rapidly transported to the hospital for early institution of reperfusion strategies.
   - If the anticipated time from FMC to PCI-mediated reperfusion (wire crossing the lesion) is > 120 minutes, then pre-hospital or nearest in-hospital fibrinolysis is an option.
 
 ### Section 7: Reperfusion Strategies (Overlapping)
-
 **The appropriate and timely use of some form of reperfusion therapy is more important than the choice of therapy.**
 
 [Grade I, Level A] Early and prompt reperfusion is crucial as **TIME LOST** is equivalent to **MYOCARDIUM LOST**.
@@ -217,17 +208,14 @@ _* The BP should be reduced prior to institution of fibrinolytic therapy_
 
 [Grade I, Level A] Primary PCI is the preferred strategy in patients in Category B who have contraindications to fibrinolytic therapy and those in Category C, the high risk patients.
 
-#### Key Recommendation 5 (from Section 7):
-
+#### Key Recommendation 5 (From Section 7):
 - Primary PCI is superior to fibrinolysis for STEMI and should be performed in a timely manner at experienced centres.
 
-#### Key Recommendation 6 (from Section 7):
-
+#### Key Recommendation 6 (From Section 7):
 - When fibrinolytic therapy is administered, the DNT should be ≤ 30 minutes.
 - Whenever possible, patients given fibrinolytic therapy should be considered for a pharmaco-invasive approach (elective angiogram within 3–24 hours post fibrinolysis).
 
-#### Key Message #7 (from Section 7):
-
+#### Key Message #7 (From Section 7):
 Primary PCI is superior to fibrinolysis for STEMI when performed in a timely manner at experienced centres.
 - If the patient **presents at a PCI centre**, then the time from FMC (First Medical Contact) to wire crossing should be **≤ 90 minutes.**
 - If transferred from **a centre with no PCI facilities**, the time from FMC to wire crossing should be **≤120 minutes** (including transfer delay). This is made up of:
@@ -239,12 +227,11 @@ Primary PCI is superior to fibrinolysis for STEMI when performed in a timely man
 ---
 
 ### Section 17: Performance Measures (Overlapping)
-
 Performance measures should be used with the goal of improving the quality of care.
 
 Process performance measures focus on the aspects of care that are delivered to a patient, while outcome measures focus on the end-points such as mortality or repeat hospitalisation.
 
-#### Table 19: Performance Measures
+Table 19: Performance Measures
 
 **Process Indicators for STEMI at Presentation**
 
@@ -270,12 +257,11 @@ Process performance measures focus on the aspects of care that are delivered to 
 - 30-day mortality < 14%
 - 1-year mortality < 18%
 
-#### Key Recommendation 11 (from Section 17):
-
+#### Key Recommendation 11 (From Section 17):
 - Regular audit of performance measures and outcomes measures are important to monitor and improve quality of care.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -293,8 +279,7 @@ Process performance measures focus on the aspects of care that are delivered to 
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

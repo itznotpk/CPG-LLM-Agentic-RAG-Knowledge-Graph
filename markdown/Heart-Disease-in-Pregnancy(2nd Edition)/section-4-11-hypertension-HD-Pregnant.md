@@ -1,5 +1,4 @@
-# SECTION 4.11: HYPERTENSION IN PREGNANCY
-
+# Section 4: .11: Hypertension In Pregnancy
 <!-- METADATA
 category: Diagnosis, Assessment, Treatment, Prevention, Special Populations
 use_case: Hypertension in Pregnancy — HDP_classification, preeclampsia_definition, aspirin_prevention, antihypertensive_selection, hypertensive_crisis, postpartum_care
@@ -9,15 +8,12 @@ critical: true
 treatment_type: aspirin, calcium, methyldopa, labetalol, nifedipine, hydralazine, nitroglycerine, nicardipine, sodium_nitroprusside, enalapril, captopril
 -->
 
+## 4.11: Hypertension In Pregnancy
 
-## 4.11 Hypertension in pregnancy
-
-### 4.11.1 Definition
-
+### 4.11.1: Definition
 Definition of Hypertension:
 
 Hypertension in pregnancy is defined as:
-
 - BP of ≥ 140/ ≥ 90 mmHg taken after a period of rest on two occasions.
 
 A rise of systolic blood pressure (SBP) of 30 mmHg and/or a rise in diastolic blood pressure (DBP) of 15 mmHg compared to pre-pregnancy levels should raise concerns for careful follow-up.
@@ -25,7 +21,6 @@ A rise of systolic blood pressure (SBP) of 30 mmHg and/or a rise in diastolic bl
 [Grade I, Level C] The Korotkov phase V (disappearance of the blood flow murmur) is the correct means of measuring DBP in pregnancy. If the DBP according to this means is zero (up to 15%), then the Korotkov sound IV (the quietening of the blood flow murmur) should be used. If phase IV is used, this should be carefully noted in the clinical records to avoid confusion in future.
 
 Classification of HDP:
-
 - Pregnancy Induced Hypertension (PIH) - Hypertension after the 20th week of pregnancy in a previously normotensive woman in the absence of multiple pregnancy or molar pregnancy. It may be associated with proteinuria. The condition is expected to return to normal after the puerperium.
   - Gestational Hypertension (GH) - PIH without proteinuria
   - Pre-eclampsia (PE) - PIH with proteinuria
@@ -35,7 +30,6 @@ Classification of HDP:
 - Chronic Hypertension with superimposed pre-eclampsia.
 
 Proteinuria is defined as:
-
 - more than 300 mg of protein in a 24-hour period
 - 1 gm/L or more in two randomly collected urine samples 6 hours apart or
 - a spot urine protein/ creatinine ratio of > 30 mg/mmol
@@ -43,7 +37,6 @@ Proteinuria is defined as:
 Semiquantitative assessment of proteinuria using dipstix is convenient and has collaborated well with maternal outcome. If a result of 1+ or more is obtained, use a spot urinary protein: creatinine ratio or 24-hour urine collection to quantify proteinuria.
 
 Recently the International Society for Study of Hypertension in Pregnancy (ISSHP) have come up with a revised classification for hypertensive disorders in pregnancy as follows:
-
 1. Chronic hypertension.
 2. Gestational hypertension (GH)
    - This can progress to pre-eclampsia in about 25% of cases, especially when the hypertension presents before 32 weeks.
@@ -58,7 +51,6 @@ Recently the International Society for Study of Hypertension in Pregnancy (ISSHP
 The revised definition of preeclampsia is as follows:
 
 Hypertension developing after 20 weeks gestation and the coexistence of one or more of the following new onset conditions:
-
 1. Proteinuria
 2. Other maternal organ dysfunction:
    - renal insufficiency (creatinine > 90 umol/L)
@@ -67,14 +59,12 @@ Hypertension developing after 20 weeks gestation and the coexistence of one or m
    - haematological complications (thrombocytopenia, DIC, haemolysis)
 3. Uteroplacental dysfunction fetal growth restriction
 
-### 4.11.2 Antepartum care
-
+### 4.11.2: Antepartum Care
 For a detailed account please refer to the Training Manual on Hypertensive Disorders in Pregnancy, 2014 produced by the Family Health Division, Ministry of Health, Malaysia.
 
 [Grade I, Level A] Pregnant women who are at increased risk of pre-eclampsia should be offered aspirin 75 mg daily from 12 weeks gestation till delivery. Women are at increased risk of pre-eclampsia if they have 1 high risk factor or ≥ 1 moderate risk factor.
 
 **High Risk Factors** include:
-
 - Hypertensive disease in a previous pregnancy
 - Chronic kidney disease
 - Auto-immune disease such as systemic lupus syndrome or anti-phospholipid syndrome
@@ -82,7 +72,6 @@ For a detailed account please refer to the Training Manual on Hypertensive Disor
 - Chronic hypertension
 
 **Moderate Risk Factors** include:
-
 - First pregnancy
 - Age ≥ 40 years
 - Pregnancy interval of > 10 years
@@ -97,7 +86,6 @@ For a detailed account please refer to the Training Manual on Hypertensive Disor
 Commonly used oral and parenteral anti-hypertensive drugs in pregnancy are as listed in Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy* and Table 16: Parenteral Anti-hypertensive Drugs Commonly Used in Pregnancy*.
 
 [Grade I, Level B] In patients already on anti-hypertensive medications pre-pregnancy, the following drugs need to be changed to the recommended drugs listed in Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy* and Table 16: Parenteral Anti-hypertensive Drugs Commonly Used in Pregnancy*.:
-
 - atenolol
 - angiotensin converting enzyme inhibitors (ACE-I)
 - angiotensin receptor blockers (ARB)
@@ -115,16 +103,13 @@ Acute onset severe hypertension (systolic BP ≥ 160 mmHg and diastolic BP ≥ 1
 
 In these patients, the goal is not to normalise the BP, but to achieve a range of 140-150/90-100 mmHg.
 
-### 4.11.3 Labour and delivery
-
+### 4.11.3: Labour And Delivery
 [Grade I, Level B] Women with chronic hypertension, gestational hypertension or white-coat hypertension should be delivered no later than 40 weeks and earlier if there is inability to control maternal blood pressure or if pre-eclampsia develops.
 
 [Grade I, Level B] Women with pre-eclampsia > 37 weeks gestation should be delivered.
 
-### 4.11.4 Postpartum care
-
+### 4.11.4: Postpartum Care
 Following delivery:
-
 - Continue the same antenatal anti-hypertensive medications.
 - Methyldopa should be stopped within 2 days following delivery to avoid the risk of depression.
 - Consider reducing the dose of medications if BP < 140/< 90 mmHg.
@@ -136,29 +121,26 @@ Following delivery:
   - have their BP monitored regularly as there is an increased risk of developing hypertension in the future.
 
 [Grade I, Level B] The following drugs are safe during breast feeding:
-
 - Labetolol
 - ACE-I: enalapril, captopril
 - β-blockers: atenolol, metoprolol
 - Nifedipine
 
 The safety of the following drugs has not as yet been established during breast feeding:
-
 - ACE-I other than enalapril and captopril
 - ARBs
 - Amlodipine
 
 [Grade II-a, Level C] Diuretic therapy for the treatment of hypertension should be avoided during breast feeding and milk expression.
 
-## Key messages:
-
+## Key Messages:
 - Hypertension in pregnancy is defined as BP of ≥ 140/ ≥ 90 mmHg taken after a period of rest on two occasions.
 - The aim is to keep the Systolic BP < 150 mmHg and the diastolic BP 80-100 mmHg.
 - The definition of preeclampsia has been revised in the latest International Society for Study of Hypertension in Pregnancy (ISSHP) 2014.
 - Women with pre-eclampsia > 37 weeks gestation should be delivered.
 
 ## Contextual Anchors (Overlapping)
-### Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy*
+Table 15: Oral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 
 | Drug | Mode of Action | Daily Dosage (mg/day) | Max. Dosage (mg/day) | Half-life T1/2 (hours) | Adverse Effects |
 |---|---|---|---|---|---|
@@ -168,11 +150,11 @@ The safety of the following drugs has not as yet been established during breast 
 
 *Adapted from:
 - Training Manual on Hypertensives Disorders in Pregnancy, 2014, Division of Family Health Division, Ministry of Health, Malaysia.*
-- Hypertensive Disorders in Pregnancy. Guideline Summary. New York State Department of Health, May 2013. ; 
+- Hypertensive Disorders in Pregnancy. Guideline Summary. New York State Department of Health, May 2013. ;
 
 **Short acting nifedipine is not recommended for maintenance therapy due to the risk of hypotension.
 
-### Table 16: Parenteral Anti-hypertensive Drugs Commonly Used in Pregnancy*
+Table 16: Parenteral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 
 | Drug | Dosages |
 |---|---|
@@ -184,13 +166,13 @@ The safety of the following drugs has not as yet been established during breast 
 
 *Adapted from:
 - Training Manual on Hypertensives Disorders in Pregnancy, 2014, Division of Family Health Division, Ministry of Health, Malaysia*
-- *4th Ed Malaysian CPG on Hypertension. ; 
+- *4th Ed Malaysian CPG on Hypertension. ;
 
 **Limited data on the use of IV nitroglycerin in pregnancy.
 
-## Grades of Recommendation and Level of Evidence
-### Grades of Recommendation
+## Grades Of Recommendation And Level Of Evidence
 
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -199,16 +181,14 @@ The safety of the following drugs has not as yet been established during breast 
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ABPM | Ambulatory blood pressure monitoring |

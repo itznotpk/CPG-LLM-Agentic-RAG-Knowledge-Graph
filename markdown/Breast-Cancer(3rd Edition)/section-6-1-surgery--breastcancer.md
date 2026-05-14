@@ -1,5 +1,4 @@
-# SECTION 6.1: SURGERY
-
+# Section 6: .1: Surgery
 <!-- METADATA
 category: Treatment
 use_case: Surgical Management — mastectomy, breast_conserving_surgery, sentinel_node_biopsy, axillary_clearance, reconstruction
@@ -10,17 +9,14 @@ treatment_type: mastectomy, BCS, SLNB, ALND, reconstruction
 -->
 
 ## Overview
-
 Surgical management of breast cancer depends on the stage and clinical presentation. This section covers the multidisciplinary team approach, surgical margins in breast-conserving surgery (BCS), sentinel lymph node management, surgery for locally advanced and metastatic disease, breast reconstruction, and loco-regional recurrence.
 
 ---
 
-## 6.1 Multi-Disciplinary Team (MDT)
-
+## 6.1: Multi-Disciplinary Team (Mdt)
 Multidisciplinary team (MDT) meetings provide an opportunity for multiple specialties to collaboratively integrate diagnoses and treatment decisions for breast cancer patients.
 
-### Core MDT Members
-
+### Core Mdt Members
 | Discipline |
 |---|
 | Breast surgeon |
@@ -31,8 +27,8 @@ Multidisciplinary team (MDT) meetings provide an opportunity for multiple specia
 
 **Other relevant healthcare providers** (e.g. anaesthetist, plastic surgeon, radiotherapist, geneticist, gynaecologist, social worker) may be involved when required.
 
-The objective of MDT meetings is to improve patient care and treatment 
-outcomes by achieving consensus among all participating specialists 
+The objective of MDT meetings is to improve patient care and treatment
+outcomes by achieving consensus among all participating specialists
 after considering all data and findings from those involved.
 **MDT impact on survival:** HR=**0.82** (95% CI 0.74 to 0.91) — an **18% reduction** in mortality.ˡᵉᵛᵉˡ ᴵᴵ⁻²
 
@@ -42,12 +38,11 @@ after considering all data and findings from those involved.
 
 ---
 
-## 6.2 Surgery for Early Breast Cancer
+## 6.2: Surgery For Early Breast Cancer
 
-### a. Adequate Tumour-Free Margin in Breast Conserving Surgery
+### A. Adequate Tumour-Free Margin In Breast Conserving Surgery
 
 #### i. Invasive Carcinoma
-
 BCS with negative margin followed by adjuvant RT is an effective local treatment in treating early breast cancer.
 
 | Finding | Result | Evidence |
@@ -57,8 +52,7 @@ BCS with negative margin followed by adjuvant RT is an effective local treatment
 
 > **Key Insight:** "No tumour at ink margin" on histopathological examination is adequate for BCS in invasive breast carcinoma. Wider margins do NOT further reduce recurrence risk.
 
-#### ii. Ductal Carcinoma In Situ (DCIS)
-
+#### ii. Ductal Carcinoma In Situ (Dcis)
 There is variation in the definition of adequate margin for DCIS following BCS in the range of 0–2 mm.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 | Study | Finding | Evidence |
@@ -76,8 +70,7 @@ There is variation in the definition of adequate margin for DCIS following BCS i
 
 ---
 
-### b. Treatment After Sentinel Lymph Node Biopsy
-
+### B. Treatment After Sentinel Lymph Node Biopsy
 Axillary lymph nodes dissection (ALND) in early breast cancer with clinically node-negative patients has largely been abandoned due to upper limb lymphoedema, paraesthesia, seroma and motor nerve injury risks. Completion of axillary surgery is no longer standard practice for up to two positive sentinel lymph nodes (SLNs) based on two major phase III non-inferiority randomised clinical trials (RCTs).
 
 #### Key Trials
@@ -102,14 +95,14 @@ The American College of Surgeons Oncology Group Z0011 study was on cT1-T2N0 brea
 >     *   With clinically lymph nodes negative who have **BCS** and SLN biopsy — **no further axillary surgery** is needed in ≤2 positive SLNs, but axillary radiotherapy may be considered
 >     *   With clinically lymph nodes negative who have **mastectomy** and SLN biopsy with ≤2 positive SLNs — axillary treatment (either RT or surgery) should be offered
 
-### 6.2.2 Locally advanced breast cancer
+### 6.2.2: Locally Advanced Breast Cancer
 According to NCCN guidelines, neoadjuvant systemic therapy is indicated in women with inoperable breast cancer. It can render inoperable cancer to resectable cancer.²⁶
 
 > [!IMPORTANT]
 > **Recommendation 13**
 > *   Inoperable breast cancer should be referred for neoadjuvant systemic therapy prior to surgical intervention.
 
-#### a. Breast conserving surgery following neoadjuvant systemic therapy
+#### a. Breast Conserving Surgery Following Neoadjuvant Systemic Therapy
 Neoadjuvant systemic therapy can increase rate of BCS and benefits in operable breast cancer with BCS intention.
 
 A meta-analysis showed no difference in LR and regional recurrence between BCS and mastectomy in LABC with good response to neo-adjuvant chemotherapy (NACT). However the DFS (OR=2.35 95% CI 1.84 to 3.01) and OS (OR=2.12 95% CI 1.51 to 2.98) were shown to be higher in BCS.ˡᵉᵛᵉˡ ᴵᴵ⁻²
@@ -118,7 +111,7 @@ A meta-analysis showed no difference in LR and regional recurrence between BCS a
 
 ---
 
-### 6.2.3 Timing for breast reconstruction (with or without prosthesis) in breast cancer requiring post-operative radiotherapy
+### 6.2.3: Timing For Breast Reconstruction (With Or Without Prosthesis) In Breast Cancer Requiring Post-Operative Radiotherapy
 Post-mastectomy radiation therapy (PMRT) has detrimental effect on the aesthetic outcome and associated with a higher complication rate following breast reconstruction (BR). In cases where PMRT is anticipated, the optimum timing and methods of BR need to be considered before the surgery.
 
 When an immediate BR is intended, a two-stage implant-based reconstruction is recommended.ˡᵉᵛᵉˡ ᴵᴵᴵ;ˡᵉᵛᵉˡ ᴵᴵᴵ The first stage involves placement of tissue expander (TE) followed by expansion of the expander within 1 - 6 months. In the second stage, the TE can be exchanged with a permanent implant either prior or after radiation therapy.ˡᵉᵛᵉˡ ᴵᴵᴵ
@@ -131,8 +124,9 @@ Delayed reconstruction is associated with significantly lower risks of overall (
 
 ---
 
-### 6.2.4 Metastatic breast cancer
-#### a. Surgery on primary tumour
+### 6.2.4: Metastatic Breast Cancer
+
+#### a. Surgery On Primary Tumour
 Patients with stage IV breast cancer has poor prognosis with 5-year survival rate of 27%.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 In a RCT, no benefits were observed between surgical resection and non-surgical intervention for primary tumour in metastatic breast carcinoma in terms of:ˡᵉᵛᵉˡ ᴵ
@@ -147,7 +141,7 @@ Surgery after initial systemic therapy may be considered in patients requiring p
 
 > *   There is insufficient evidence to recommend surgical resection for primary tumour to improve survival in MBC. However, the decision for surgery is individualised for palliative intent.
 
-#### b. Local treatment
+#### b. Local Treatment
 **i. Bone**
 Bone metastases in MBC have a more indolent behaviour compared to visceral metastases. Nevertheless, it may lead to debilitating skeletal-related events (SREs) e.g. bone pain, pathological fractures, cord compression and hypercalcemia.
 
@@ -182,11 +176,10 @@ A retrospective cohort study which included breast carcinoma found that gross to
 
 ---
 
-### 6.2.5 Loco-Regional Recurrence
-
+### 6.2.5: Loco-Regional Recurrence
 All patients with loco-regional recurrence (LRR) should be managed by an MDT to discuss all suitable treatment options.
 
-**Figure 3. Treatment of local and regional recurrence**
+Figure 3. Treatment of local and regional recurrence
 
 *   **Local only recurrence**
     *   *Initial treatment with BCS + radiotherapy* ➔ Total mastectomy + axillary lymph node staging if level I/II axillary dissection not previously done

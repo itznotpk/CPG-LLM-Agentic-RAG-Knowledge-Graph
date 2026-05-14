@@ -1,5 +1,6 @@
-# SECTION 7: MANAGEMENT OF DYSLIPIDAEMIA
-# SECTION 7.1: THERAPEUTIC LIFESTYLE CHANGES (TLC) (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#)
+# Section 7: Management Of Dyslipidaemia
+
+# Section 7: .1: Therapeutic Lifestyle Changes (Tlc) (Refer To Table 5: Recommendations For Therapeutic Lifestyle Changes#)
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Therapeutic lifestyle changes for dyslipidaemia management — diet, exercise, weight_loss, smoking_cessation, alcohol, MNT, TLC
@@ -8,27 +9,25 @@ output: TLC_recommendations, dietary_pattern, exercise_target, weight_goal
 -->
 
 ## Introduction
-
 * [Grade I, Level C] Therapeutic lifestyle changes (TLC) are a critical component of health promotion and CV risk reduction efforts, both prior to and after commencement of lipid-lowering therapies.
-*   These measures should be promoted as a population-based strategy for the primary  
-prevention of CVD.   
+*   These measures should be promoted as a population-based strategy for the primary
+prevention of CVD.
 *   TLC refers to:
     *   Adhering to healthy dietary patterns,
     *   Regular exercise - ≥ 150 minutes of moderate intensity exercise per week or 75 minutes a week of vigorous-intensity exercise or an equivalent combination,
     *   Avoidance of tobacco smoking,
-    *   Alcohol restriction and 
+    *   Alcohol restriction and
     *   Maintenance of an ideal weight - BMI 20 - 23.5 kg/m² and waist circumference < 90 cm (men), < 80 cm (women).
 
 ---
 
-## 7.1.1. Medical Nutrition Therapy (MNT)
-
+### 7.1.1: Medical Nutrition Therapy (Mnt)
 [Grade I, Level C]  MNT aims at optimizing lipid levels while maintaining a balanced diet, weight management (5-10% weight loss for overweight individuals), and empowering behavioral changes. (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#)
 
 *   All patients with CVD and individuals with elevated lipids should be referred, where available, to a dietitian for MNT. Motivational interviews, usually conducted by the dietitian, are important and have been shown to optimize outcomes.
 *   Studies have shown that MNT by a trained dietitian with multiple visits over six to twelve weeks can result in reduction in TC by 7% to 21%, LDL-C by 7% to 22% and TG by 11% to 31%. The challenge, however, is long term adherence to the dietary advice.
 *   The current emphasis is on dietary patterns rather than on individual nutrients. Dietary patterns refer to the balance, variety, and combination of foods and beverages habitually consumed.
-*   Poor diet quality is strongly associated with an elevated risk of CVD morbidity and mortality. 
+*   Poor diet quality is strongly associated with an elevated risk of CVD morbidity and mortality.
 *   In general, heart-healthy dietary patterns which are associated with low CV risk, should be encouraged in all individuals. Energy intake and expenditure should be adjusted to achieve and maintain a healthy body weight. A healthy diet consists of:
     *   Primarily fruits and vegetables.
     *   Foods made with whole grains such as brown rice rather than refined rice.
@@ -37,8 +36,8 @@ prevention of CVD.
         *   Fish, and seafood. Eating ≥2 fish meals per week is beneficial. However, preparing fish by deep frying is not associated with CV benefits. It is healthier to pan fry, bake or boil rather than deep fry the fish.
         *   Low-fat or fat-free dairy products.
         *   If meat or poultry are desired, use lean cuts and avoid processed meats such as burgers and sausages.
-    *   Liquid plant oils such as sunflower oil, rapeseed oil, corn oil etc. 
-    *   Minimally processed foods                                                   
+    *   Liquid plant oils such as sunflower oil, rapeseed oil, corn oil etc.
+    *   Minimally processed foods
     *   Low added sugar and salt in beverages and foods.
     *   Nuts - Consuming ½ to 1 cup of nuts per day as part of a heart healthy diet, lowers TC by 4% to 21% and LDL-C by 6% to 29%. This, however, contributes significant calories to the diet. A higher nut intake has been associated with lower risk of incidence and mortality from CVD, CHD, and strokes.
 
@@ -51,61 +50,65 @@ prevention of CVD.
     *   Drinking plain water
 
 ---
-## 7.1.1.1. Dietary Cholesterol
+
+#### 7.1.1.1: Dietary Cholesterol
 *    The role of serum cholesterol (especially LDL-C) in the pathogenesis of atherosclerosisand CVD is consistent and robust. (refer to section 4: Dyslipidemia as a CV Risk Factor)
-*   The contribution of dietary cholesterols to blood cholesterol levels is, however, more  complex, and controversial. The question is whether eating food high in cholesterol leads to high serum cholesterol and LDL-C, and whether limiting dietary cholesterol intake  
+*   The contribution of dietary cholesterols to blood cholesterol levels is, however, more  complex, and controversial. The question is whether eating food high in cholesterol leads to high serum cholesterol and LDL-C, and whether limiting dietary cholesterol intake
  lowers serum LDL-C.
 *   Blood cholesterol is mainly synthesized by the body especially in the liver. Dietary  sources only contribute about 15-20% and there is, under normal circumstances, a  balance between the 2 sources to maintain cholesterol homeostasis.
-*   Data indicates that the impact of dietary cholesterol on serum cholesterol levels is  weak. However, many high-cholesterol foods also contain high levels of saturated  fats (SFA). This includes dairy products, meat, and most processed foods. 
+*   Data indicates that the impact of dietary cholesterol on serum cholesterol levels is  weak. However, many high-cholesterol foods also contain high levels of saturated  fats (SFA). This includes dairy products, meat, and most processed foods.
 *   Dietary guidance, at present, tend to focus on healthy dietary patterns rather than specific  dietary cholesterol targets.
 
 ---
-## 7.1.1.2. Total Fats - Saturated and Unsaturated Fats
+
+#### 7.1.1.2: Total Fats - Saturated And Unsaturated Fats
 *   Fats in the diet consist of TG which is made up of three fatty acids and a glycerol backbone.
-*   Fatty acids differ in the length of their aliphatic tails, ranging from short chain (≤ 5) to very long chain (≥ 22) fatty acids. Depending on the number of double bonds, fatty acids can be further categorized as: 
-  * Saturated fatty acids (SFA)                 : no double bonds 
-  * Unsaturated fats which may occur as either: 
-    * polyunsaturated fats (PUFA)               : 2 or more double bonds 
+*   Fatty acids differ in the length of their aliphatic tails, ranging from short chain (≤ 5) to very long chain (≥ 22) fatty acids. Depending on the number of double bonds, fatty acids can be further categorized as:
+  * Saturated fatty acids (SFA)                 : no double bonds
+  * Unsaturated fats which may occur as either:
+    * polyunsaturated fats (PUFA)               : 2 or more double bonds
     * monounsaturated fatty acids (MUFA)        : 1 double bond
-*   Oils are mixtures of fatty acids. For fatty acid composition of common dietary oils and selected Malaysian food. 
-*   Omega fatty acids are PUFA and include: 
+*   Oils are mixtures of fatty acids. For fatty acid composition of common dietary oils and selected Malaysian food.
+*   Omega fatty acids are PUFA and include:
   * Omega-6 fatty acids - linoleic acid found in vegetable oils such as sunflower, safflower, soybean, corn, grapeseed, peanut, and canola oils as well as nuts and seeds.
-  * Omega-3 fatty acids which consist of: 
+  * Omega-3 fatty acids which consist of:
     * α-linolenic acid (ALA) - found in plant oils, canola oil, flaxseed oil, soybean, chia seed, linseed and rapeseed oils, walnuts, and leafy green vegetables.
     * Eicosapentaenoic acid (EPA) - present in marine oils such as fish oils.
-    * Docosahexaenoic acid (DHA) - present in marine oils such as fish oils.  
+    * Docosahexaenoic acid (DHA) - present in marine oils such as fish oils.
 *   The rate of conversion of omega-6 fatty acids to omega-3 fatty acids in the body is low. Thus it is important to increase the intake of omega-3 fatty acids in the diet. Sources of omega-3 fatty acids (DHA and EPA) are fatty fish (e.g., salmon, ikan kembung, ikan jelawat, siakap, keli, patin, senangin, white pomfret). For prescription omega-3-fatty acid supplements and its effect on lipids and CVD, refer to Section 7.2.6.3: Omega-3 Fatty Acids supplements
 *   The body can produce all the required fatty acids except for the essential fatty acids -linoleic acid and alpha-linolenic acid. These must come from the diet e.g., corn, sunflower, and soybean, flaxseed walnuts, and dark leafy vegetables (e.g., spinach, kailan).
 *   Excess intake of SFA has been implicated with an increased risk of CVD in several epidemiological studies. Increasingly however, there has been controversy about associations between total SFA and CV risk. It is also being recognized that the health effects of foods cannot be predicted by their content of any nutrient group without considering the overall macronutrient composition.
 * [Grade I, Level A] Older guidelines recommend that the intake of SFA should not exceed 10% of energy intake. (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#) The current 2020-2025 Dietary Guidelines for Americans, however, recommends a dietary pattern low in SFA without specifying targets.
-*   A central issue in the relationship between SFA and CVD is the specific macronutrients that are used to replace it in the diet. When SFA is replaced with: 
+*   A central issue in the relationship between SFA and CVD is the specific macronutrients that are used to replace it in the diet. When SFA is replaced with:
     * [Grade I, Level B] PUFA - results in a reduction in TC and CV events. However, there was no significant effect on all-cause, CVD, or CV mortality.
     * [Grade IIb, Level B] MUFA or Carbohydrates - will not have any effect on blood lipids.
 *  Taking PUFA or MUFA (e.g.,1 teaspoon of olive oil) without cutting down SFA intake will not confer CV benefit. Virgin coconut oil is rich in SFA.
 
 ---
-## 7.1.1.3. Trans Fat
+
+#### 7.1.1.3: Trans Fat
 *    Trans fat (TFA) may be:
-    * "Industrially produced" TFA- these are man-made fats added to foods such as shortening and baked goods. 
+    * "Industrially produced" TFA- these are man-made fats added to foods such as shortening and baked goods.
     * "Ruminant" TFA- these occur naturally in small amounts in foods such as butter and beef.
 *   Trans fats are created through a process of partial hydrogenation. The presence of TFA makes oils more solid and extends their shelf life. Major sources of TFA are deep-fried fast foods, margarine, commercially baked cookies, cakes, crackers, and some bread. Repeated / prolonged heating of MUFA and PUFA may convert them to trans-fat.
 *   Intake of TFA raises levels of LDL-C, reduces HDL-C, and increases the ratio of TC to HDL-C. Prospective cohort studies showed that TFA was also associated with an increase in the incidence of diabetes.
 *   TFA appears to increase the risk of CVD more than any other macronutrient on a per-calorie basis. Even at low levels of consumption of 1-3% of total energy intake, CV risk is substantially increased.
 *   Total TFA fat intake was associated with all-cause mortality, CHD mortality, and total CHD. Industrial, but not ruminant, TFA fats were associated with CHD mortality and CHD.
 *   A 2 percent increase in energy intake from trans fats was associated with a 23 percent increase in the incidence of CHD. It was estimated that substituting 2% of energy from trans fats with SFA, MUFA and PUFA would reduce CV risk by 17%, 21% and 24% respectively.
-*   There has been no consistent scientific evidence of a relationship between TFA with BP or cancer. 
+*   There has been no consistent scientific evidence of a relationship between TFA with BP or cancer.
 * [Grade I, Level A] TFA intake should be kept at <1% of total energy. (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#)
 *   The TFA content in commonly available commercial food sold in Malaysian supermarkets is generally very low (<1mg/100gm of weight of the food).
 
 ---
-## 7.1.1.4. Carbohydrates
+
+#### 7.1.1.4: Carbohydrates
 *    There are many types of diet. Some of these are:
     * Low carbohydrate diet where the proportion of calories from carbohydrates are reduced and replaced with protein and/or fats. The calories in these diets may be reduced or be maintained.
-    * Low fat diet where the proportion of calories from fats are reduced and replaced with either carbohydrates and/or protein. Again, the total calorie intake may be maintained or reduced. 
+    * Low fat diet where the proportion of calories from fats are reduced and replaced with either carbohydrates and/or protein. Again, the total calorie intake may be maintained or reduced.
     * Low calorie diet where total calorie intake is reduced and the proportion of carbohydrates, fats and protein may be maintained or reduced e.g., low-fat, low-calorie diet or low carbohydrate, low calorie diet.
 *   A low-quality carbohydrate diet has been associated with an increased risk of CVD and death. This consists of:
     * Low amounts of fibre,
-    * High amounts of refined grains and 
+    * High amounts of refined grains and
     * A high glycemic index (a measure of how much a given carbohydrate raises blood glucose levels).
 *   Carbohydrate restriction has been shown to:
     * Improve glycemic control and reverse Type 2 diabetes and the metabolic syndrome even without significant weight loss.
@@ -126,20 +129,23 @@ prevention of CVD.
     * A keto diet has substantially lower intakes of carbohydrate (eg, <10% of daily calories). This has been shown to induce nutritional ketosis. The body uses fat as its main fuel source instead of carbohydrates. This results in significant weight loss but the diet itself is usually non sustainable. There is inadequate data on long-term safety of keto diets. For most individuals, the risks of ketogenic diets may outweigh the benefits.
 
 ---
-## 7.1.1.5. Atherogenic Dyslipidemia
+
+#### 7.1.1.5: Atherogenic Dyslipidemia
 *    In patients with an atherogenic dyslipidemia, a low carbohydrate diet (< 26% of total energy intake) results in a significant reduction in TG levels, an increase in HDL-C levels, and a shift from small dense LDL-C to the larger buoyant LDL-C even in the absence of weight loss.
 *    A meta - analysis found that compared with participants on low-fat diets, persons on low-carbohydrate diets experienced a slightly but statistically significant lower reduction in TC and LDL-C but a greater increase in HDL-C and a greater decrease in TG.
 *    There were no significant differences in weight loss between the low-fat vs the low carbohydrate diet.
 * [Grade I, Level B] In patients with atherogenic dyslipidemia, a low carbohydrate diet emphasizing plant based and high-quality carbohydrates together with weight loss and regular exercise should be encouraged.
 
 ---
-## 7.1.1.6. Sodium
+
+#### 7.1.1.6: Sodium
 * [Grade IIa, Level B] Dietary sodium reduction has been shown to reduce BP and CV events.
 *   Reducing salt to 2.5 g/day (1/2 teaspoon of salt/day) results in a 20% reduction of CV events.
 *   High consumption of sodium (>2000 mg daily equivalent to 5 g of salt or 1 leveled teaspoon), red meat (>14g a day), sugar-sweetened beverages and processed red meat consumption were all associated with increased CV mortality.
 
 ---
-## 7.1.1.7. Alcohol
+
+#### 7.1.1.7: Alcohol
 *   Alcohol has diverse effects on the CV system depending on the amount and type of alcohol consumed, patterns of drinking (e.g., binge drinking), age, sex, and ethnicity of the individual.
 *   There is J shaped curve between alcohol intake and a variety of adverse health outcomes.
 *   Low levels of alcohol intake have been shown to reduce all-cause mortality in both men and women.
@@ -147,7 +153,7 @@ prevention of CVD.
 * [Grade I, Level C] The recommendation is one should not start drinking alcohol for health benefits.
 * [Grade I, Level C] Those individuals who do drink, should not exceed 1 drink/day (10gm/day) in non-pregnant females or 2 drinks/day (20gm/day) in males. Binge drinking should be avoided.
 
-## 7.1.2. Exercise
+### 7.1.2: Exercise
 *   Regular exercise reduces the risk of CVD mortality by 20–30%.
 *   However, there is still a lack of data on how much and type of exercise that is required to improve the lipid profile and reduce CV risk.
 *   In general, the effect of exercise on lipids will depend on:
@@ -158,21 +164,23 @@ prevention of CVD.
     *   Increase HDL-C by 3–13% -up to 0.16 mmol/L.
     *   Reduce TG by about 11% (up to 0.34 mmol/L).
 *   Vigorous aerobic and resistance exercises improve HDL-C more than less-intense exercise.
-*   The decrease in TG with exercise is acute and short-lived, becomes evident 12-18 hours after a single bout of exercise and lasts for 2-3 days. It requires that a certain amount of energy (a threshold) be expended during exercise, independent of duration or intensity.  
+*   The decrease in TG with exercise is acute and short-lived, becomes evident 12-18 hours after a single bout of exercise and lasts for 2-3 days. It requires that a certain amount of energy (a threshold) be expended during exercise, independent of duration or intensity.
 *   More exercise above that threshold does not seem to result in greater reductions in plasma TG concentrations.
 *   A meta-analysis showed that pharmacotherapy (statins) and exercise interventions showed similar reductions in post prandial TG but statins lowered fasting TG levels more than exercise.
 * [Grade I, Level A] The recommended duration of exercise for CVD prevention in healthy adults, regardless of age is:
     *   At least 150-300 minutes a week of moderate-intensity or
     *   75-150 minutes a week of vigorous-intensity aerobic physical activity exercise or an equivalent combination
-* [Grade I, Level B] For weight loss, increased exercise of approximately 250 to 450 minutes of moderate-intensity exercise per week, including strength training 2 to 3 times per week is required. This should be accompanied by a calorie-restricted diet. 
+* [Grade I, Level B] For weight loss, increased exercise of approximately 250 to 450 minutes of moderate-intensity exercise per week, including strength training 2 to 3 times per week is required. This should be accompanied by a calorie-restricted diet.
 
 ---
-## 7.1.3. Weight Loss
+
+### 7.1.3: Weight Loss
 *   A 5% weight loss improves the entire lipid profile (reduces TC, LDL-C, TG and increases HDL-C).
 *   In most patients, however, the changes in lipid levels with weight loss are small and proportional to the change in weight. A meta-analysis showed that for every 10 kg weight loss, TC decreases by 0.23 mmol/L during long term follow-up in persons suffering from obesity or who are grossly overweight.
 
 ---
-## 7.1.4. Smoking Cessation
+
+### 7.1.4: Smoking Cessation
 *   Smoking is a strong, independent risk factor that accelerates plaque development and rupture.
 *   Smoking has:
     *   An adverse effect on TG - heavy smokers had a significantly higher concentration.
@@ -186,8 +194,7 @@ prevention of CVD.
 
 ## Contextual Anchors (Overlapping)
 
-### Section 4: Dyslipidemia as a CV Risk Factor
-
+### Section 4: Dyslipidemia As A CV Risk Factor
 **4.1. Low Density Lipoprotein Cholesterol (LDL-C):**
 *   LDL-C plays a major causal role in the development of CVD. This role has been demonstrated in many epidemiological and mendelian studies and in randomized controlled trials of LDL-C lowering.
 *   The risk of CVD is also determined by the duration of exposure to high levels of LDL-C. Studies have shown that young adults with elevated LDL-C have significant long-term risk for CVD.
@@ -220,7 +227,8 @@ prevention of CVD.
 *   Challenges remain: no standardized assay, unknown "normal levels" across populations, and lack of effective targeted therapy.
 
 ---
-### Section 7.2.6.3. Omega-3 Fatty Acids supplements
+
+### Section 7: .2.6.3. Omega-3 Fatty Acids Supplements
 *   Omega-3 fatty acids supplements are present as:
     *   Mixtures of EPA and DHA - as omega-3 ethyl esters and as carboxylic acids.
     *   Purified EPA- as icosapent ethyl (IPE).
@@ -228,8 +236,7 @@ prevention of CVD.
     *   Reducing TG usually in combination with other lipid lowering agents.
     *   Improving CV outcomes in individuals with residual CV risk. Only the preparation icosapent ethyl (IPE) at 4gms per day, has shown promising results. The other preparation of Omega-3 Fatty Acids, although having similar effects on lipids, did not demonstrate the same clinical benefits.
 
-## APPENDIX 2: NOVA FOOD CLASSIFICATION SYSTEM
-
+## Appendix 2: Nova Food Classification System
 | GROUP | CATEGORY | DESCRIPTION & EXAMPLES |
 |---|---|---|
 | **1** | **Unprocessed or minimally processed foods** | **Unprocessed Foods:** These are obtained directly from plants or animals and do not undergo any alteration following their removal from nature.<br><br>**Minimally processed foods:** These are natural foods that have been submitted to cleaning, removal of inedible or unwanted parts, fractioning, grinding, drying, fermentation, pasteurization, cooling, freezing, or other processes that may subtract part of the food, but which do not add oils, fats, sugar, salt or other substances to the original food.<br><br>*e.g., fresh fruits, vegetables such as carrots, whole grains, brown rice, granola, roasted nuts, chopped vegetables, vegetable or fruit juices with no added sugar or other substances, eggs.* |
@@ -239,8 +246,7 @@ prevention of CVD.
 
 ---
 
-## APPENDIX 3: Fatty acid composition of selected dietary fats and oils
-
+## Appendix 3: Fatty Acid Composition Of Selected Dietary Fats And Oils
 | Type of Fats and Oils | SFA (%) | MUFA (%) | PUFA (%) | P/S Ratio | <12:0 | 12:0 | 14:0 | 16:0 | 16:1 | 18:0 | 18:1 | 18:2 | 18:3 | Others |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **Coconut Oil** | 91.9 | 6.5 | 1.5 | 0.02 | 14.9 | 48.5 | 17.6 | 8.4 | - | 2.5 | 6.5 | 1.5 | - | 0.1 |
@@ -265,8 +271,7 @@ prevention of CVD.
 
 ---
 
-## APPENDIX 4: Fatty acid composition of selected Malaysian Food
-
+## Appendix 4: Fatty Acid Composition Of Selected Malaysian Food
 | Food Item | Total Fat (g) | SFA (%) | MUFA (%) | PUFA (%) | TFA* (%) |
 |---|---|---|---|---|---|
 | **Fishes** | | | | | |
@@ -340,7 +345,7 @@ prevention of CVD.
 *\*TFA: Trans Fatty Acids (Values represent %/100g edible fat)*
 *Sources: Tee et al. (1997), Karupaiah et al. (2014), Abd. Aziz et al. (2013)*
 
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -356,7 +361,7 @@ prevention of CVD.
 ***All other CV risk factors should be treated to target.  <br>
 **** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
 
-### Table 5: Recommendations for Therapeutic Lifestyle Changes#
+Table 5: Recommendations For Therapeutic Lifestyle Changes#
 
 | Nutrition / Intervention | Comments | Grades of Recommendation / Level of Evidence |
 |---|---|---|
@@ -380,9 +385,9 @@ prevention of CVD.
 *   Therapeutic lifestyle changes (TLC) remain a critical component of CVD risk reduction efforts both prior to and after commencement of lipid lowering therapies in all individuals.
 
 ---
-## Key Recommendations #6
 
-*   The current emphasis is on healthy dietary patterns rather than on individual nutrients. 
+## Key Recommendations #6
+*   The current emphasis is on healthy dietary patterns rather than on individual nutrients.
 *   A heart healthy diet consists of:
     *   Primarily fruits and vegetables,
     *   Whole grains,
@@ -399,8 +404,7 @@ prevention of CVD.
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ALA | Alpha-Linolenic Acid |
@@ -442,8 +446,7 @@ prevention of CVD.
 
 ---
 
-## Grades of Recommendation and Level of Evidence
-
+## Grades Of Recommendation And Level Of Evidence
 *   **Grade I**: Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade IIa**: Weight of evidence/opinion is in favour of usefulness/efficacy. The specific treatment or procedure *should be considered*.
 *   **Grade IIb**: Usefulness/efficacy is less well established by evidence/opinion. The specific treatment or procedure *may be considered*.

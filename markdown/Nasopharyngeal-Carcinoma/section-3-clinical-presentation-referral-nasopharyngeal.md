@@ -1,5 +1,4 @@
-# SECTION 3: CLINICAL PRESENTATION AND REFERRAL
-
+# Section 3: Clinical Presentation And Referral
 <!-- METADATA
 category: Diagnosis
 use_case: NPC Clinical Presentation and Referral — presenting_symptoms, neck_mass, cranial_nerve_palsy, nasal_symptoms, ear_symptoms, referral_criteria
@@ -8,8 +7,7 @@ output: clinical_suspicion, referral_urgency, specialist_referral_pathway
 critical: true
 -->
 
-## 3.1 Clinical Presentation
-
+## 3.1: Clinical Presentation
 Healthcare providers need to be aware that NPC patients often present with nonspecific symptoms and signs in the head and neck region. A proper clinical workup which begins with a detailed history of the presenting complaints is pertinent in diagnosing NPC.
 
 [Level III] The most common presenting symptoms of NPC are:
@@ -22,8 +20,7 @@ The images of these symptoms can be viewed in **Appendix 3: Clinical Presentatio
 
 [Level III] Majority of NPC patients in Malaysia present with advanced stage (Stages III/IV) at the time of diagnosis (75 - 85%). This is due to lack of awareness of NPC symptoms and signs among patients and doctors.
 
-## 3.2 Referral
-
+## 3.2: Referral
 There is no evidence retrieved on referral criteria for patients with NPC. In view of delayed in diagnosis of NPC, the CPG DG uses consensus method to address the importance of referral to Otorhinolaryngology services as soon as possible. Early referral is crucial in establishing diagnosis of NPC so that the patients could receive definitive treatment.
 
 ---
@@ -40,33 +37,32 @@ There is no evidence retrieved on referral criteria for patients with NPC. In vi
 ---
 
 ## Contextual Anchors (Overlapping)
-### Appendix 3: Clinical Presentations
 
+### Appendix 3: Clinical Presentations
 Visual signs and presentations of nasopharyngeal carcinoma include various physical abnormalities, often related to tumour growth and cranial nerve involvement.
 
-- **Figure 1: Painless neck lumps**
+- Figure 1: Painless neck lumps
   - *Description:* Clinical presentations showing visible, unilateral painless swelling or lumps on the side of the neck.
-- **Figure 2: Recurrent NPC with lymph node metastasis**
+- Figure 2: Recurrent NPC with lymph node metastasis
   - *Description:* Clinical presentation showing a large, prominent, discoloured lump located on the side of the neck behind and below the ear.
-- **Figure 3: NPC with neck lump and trismus**
+- Figure 3: NPC with neck lump and trismus
   - *Description:* Clinical presentation showing a patient with a visible neck lump and restricted ability to open the mouth fully (trismus).
-- **Figure 4: NPC with ptosis**
+- Figure 4: NPC with ptosis
   - *Description:* Clinical presentation showing a patient with drooping of the upper eyelid (ptosis) on one side, indicating cranial nerve involvement.
-- **Figure 5: NPC with ophthalmoplegia**
+- Figure 5: NPC with ophthalmoplegia
   - *Description:* Clinical presentation showing a patient with an abnormal eye position (eye turned outward), demonstrating paralysis or weakness of eye muscles (ophthalmoplegia) due to cranial nerve involvement.
-- **Figure 6: NPC with neck lump and cranial nerve 12 palsy (tongue deviation)**
+- Figure 6: NPC with neck lump and cranial nerve 12 palsy (tongue deviation)
   - *Description:* Clinical presentation showing a patient with a large neck lump and their tongue deviating to one side when protruded, indicating hypoglossal nerve (cranial nerve 12) palsy.
-- **Figure 7: Normal nasopharynx on endoscopy**
+- Figure 7: Normal nasopharynx on endoscopy
   - *Description:* Endoscopic view of a normal nasopharynx, illustrating the location of the Eustachian tube and the commonest site of tumour development.
-- **Figure 8: Nasopharyngeal carcinoma on endoscopy**
+- Figure 8: Nasopharyngeal carcinoma on endoscopy
   - *Description:* Endoscopic view showing a visible nasopharyngeal carcinoma tumour growing in the nasopharynx near the Eustachian tube.
-- **Figure 9: Recurrent NPC pre- and post-endoscopic nasopharyngectomy**
+- Figure 9: Recurrent NPC pre- and post-endoscopic nasopharyngectomy
   - *Description:* A comparison of endoscopic pictures. The pre-operative images show the recurrent tumour mass under standard white light and its corresponding appearance under auto-fluorescence (green). The post-operative images show the cleared cavity under both standard white light and auto-fluorescence.
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -79,8 +75,7 @@ Visual signs and presentations of nasopharyngeal carcinoma include various physi
 
 ---
 
-## Abbreviations used in this section
-
+## Abbreviations Used In This Section
 | Abbreviation | Full Term |
 |---|---|
 | CPG DG | Clinical Practice Guidelines Development Group |

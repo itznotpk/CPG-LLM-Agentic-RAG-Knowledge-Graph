@@ -1,5 +1,4 @@
-# SECTION 5: RISK STRATIFICATION
-
+# Section 5: Risk Stratification
 <!-- METADATA
 category: Assessment, Diagnosis
 use_case: Risk Stratification for Adverse Outcomes — TIMI_risk_score, GRACE_score, bleeding_risk, ACUITY_HORIZONS, CRUSADE_score, ACS_likelihood_assessment
@@ -10,16 +9,14 @@ critical: true
 
 > **Context:** This section provides the clinical framework for risk stratification of UA/NSTEMI patients to predict adverse outcomes (e.g., death, recurrent MI, heart failure) using established prognostic logic and scoring systems like the TIMI and GRACE scales. It outlines the rationale for utilizing these metrics to guide site-of-care selection and therapeutic interventions, while incorporating bleeding risk assessments via the ACUITY HORIZONS-AMI and CRUSADE systems.
 
-## 5.1 Assessment of Risk
-
+## 5.1: Assessment Of Risk
 The initial evaluation should be used to provide information about the diagnosis and prognosis. An attempt should be made to simultaneously answer 2 questions:
 - What is the likelihood that the signs and symptoms represent ACS? (refer Appendix III: Likelihood That Signs and Symptoms Represent an ACS Secondary to CAD)
 - What is the likelihood of an adverse clinical outcome – death, MI (or recurrent MI), stroke, HF, recurrent symptomatic ischemia, and serious arrhythmia?
 
 In making a diagnosis of ACS one should consider the symptoms, ECG abnormalities and cardiac biomarkers. The absence of risk factors does not exclude a diagnosis of ACS.
 
-## 5.2 Rationale for Risk Stratification
-
+## 5.2: Rationale For Risk Stratification
 Patients with UA/NSTEMI have an increased risk of death, recurrent MI, recurrent symptomatic ischemia, serious arrhythmias, heart failure and stroke.
 Early assessment would help in determining the:
 - prognosis of the patient
@@ -27,29 +24,26 @@ Early assessment would help in determining the:
   - selection of the site of care (coronary care unit, monitored step-down ward or outpatient setting)
   - selection of appropriate therapy and the need for coronary angiogram and revascularization
 
-## 5.3 Risk Scores for prognosis of UA/NSTEMI
-
+## 5.3: Risk Scores For Prognosis Of UA/NSTEMI
 Several risk stratification scores have been developed and validated in large patient populations. In clinical practice, 2 risk scores that are commonly used are:
 - TIMI Risk Score - it is less accurate in predicting events, but is simple and widely accepted. (refer Appendix IV: TIMI Risk Score for UA/NSTEMI)
 - GRACE risk scores (refer Appendix V: GRACE Prediction Score Card and Nomogram for All Cause Mortality From Discharge to 6 Months)
 
 Both risk scores confer additional important prognostic value beyond global risk assessment by physicians. These validated risk scores may refine risk stratification, thereby improving patient care in routine clinical practice. We have proposed a simplified risk stratification model as outlined in (refer Flowchart 1: Risk Stratification of UA/NSTEMI).
 
-## 5.4 Risk Assessment for Bleeding
-
+## 5.4: Risk Assessment For Bleeding
 Hemorrhagic complications are an independent risk factor for subsequent mortality in ACS patients and in those undergoing PCI. These patients can be identified by:
 - ACUITY HORIZONS-AMI Bleeding Risk Score
 - CRUSADE Bleeding Risk Score
 
 These scores are calculated based on age, clinical status and hemodynamics at presentation, serum creatinine and hematocrit level and the use and combinations of antiplatelets and anticoagulants.
 
-## Key messages
+## Key Messages
 **[Grade I, Level A]** Risk stratification is important for prognosis and to guide management.
 
 <!-- OVERLAP CONTENT -->
 
-## Flowchart 1: Risk Stratification of UA/NSTEMI
-
+## Flowchart 1: Risk Stratification Of UA/NSTEMI
 **[ PATHWAY A: LOW RISK ]**
 
 **1. Clinical Profile Assessment:**
@@ -101,8 +95,7 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 * Coronary Angiography and Revascularization*
   *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
 
-## Appendix III: Likelihood That Signs and Symptoms Represent an ACS Secondary to CAD
-
+## Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
 | Category | Greater Likelihood | Lower Likelihood |
 |---|---|---|
 | **History** | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
@@ -117,8 +110,7 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 | | | Normal ECG |
 | **Cardiac Biomarkers** | Elevated cardiac TnI, TnT, or CK-MB markers | Normal |
 
-## Appendix IV: TIMI Risk Score for UA/NSTEMI
-
+## Appendix IV: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 |---|---|
 | 0-1 | 4.7 |
@@ -142,8 +134,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * **Moderate Risk:** 3-4 points
 * **High Risk:** &ge; 5 points
 
-## Appendix V: GRACE Prediction Score Card and Nomogram for All Cause Mortality From Discharge to 6 Months
-
+## Appendix V: Grace Prediction Score Card And Nomogram For All Cause Mortality From Discharge To 6 Months
 *To use the GRACE Prediction Score Card: Record the points for each variable and sum the points to calculate the total risk score. The corresponding probability on the y-axis of the risk calculator nomogram is the estimated probability of all-cause mortality from hospital discharge to 6 months.*
 
 | Category | Variable | Condition | Points |
@@ -183,7 +174,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | 8. Elevated Cardiac Enzymes | Yes | 15 |
 | | 9. No In-Hospital Percutaneous Coronary Intervention | Yes | 14 |
 
-### GRACE Nomogram Plot Reference (Predicted All-Cause Mortality from Hospital Discharge to 6 Months)
+### Grace Nomogram Plot Reference (Predicted All-Cause Mortality From Hospital Discharge To 6 Months)
 *Note: The following values approximate the probability curve from the GRACE nomogram plot.*
 
 | Total Risk Score | Estimated Probability |
@@ -197,8 +188,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | 190 | ~0.33 (33%) |
 | 210 | ~0.50 (50%) |
 
-## Grades of Recommendation and Levels of Evidence
-
+## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -214,7 +204,6 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACE-I** | Angiotensin-Converting Enzyme Inhibitor |

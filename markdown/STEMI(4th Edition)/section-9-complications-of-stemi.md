@@ -1,5 +1,4 @@
-# SECTION 9: COMPLICATIONS OF STEMI
-
+# Section 9: Complications Of STEMI
 <!-- METADATA
 category: Treatment, Supportive Treatment, Diagnosis
 use_case: STEMI Complications Management — arrhythmia_management, cardiogenic_shock, mechanical_complications, LV_dysfunction, pericarditis, RV_infarction, LV_thrombus, DVT_prophylaxis, reinfarction
@@ -9,20 +8,17 @@ critical: true
 treatment_type: amiodarone, noradrenaline, IABP, ECMO, temporary_pacing, defibrillation, surgical_repair, aspirin, colchicine, heparin
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Complications of STEMI include:
-
 - Arrhythmias.
 - LV dysfunction and shock.
 - Mechanical complications.
 - RV infarction.
 - Others e.g., pericarditis.
 
-## 9.1 Arrhythmias
+## 9.1: Arrhythmias
 
 ### A. Tachyarrhythmias
-
 **Pulseless Ventricular Tachyarrhythmias**
 
 This is either pulseless ventricular tachycardia (VT) or ventricular fibrillation (VF). Defibrillate immediately. Early VF occurs within the first 48 hours and is due to electrical instability. Late VF is associated with large infarcts and poor pump function and carries a poor prognosis (refer to Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm).
@@ -44,7 +40,6 @@ These do not require any treatment. This is a sign suggestive of successful repe
 This is more commonly seen in the elderly and is associated with large infarcts. It denotes a poorer prognosis and carries an increased risk of thromboembolism (refer to Algorithm 3: Atrial Fibrillation).
 
 ### B. Bradyarrhythmias
-
 **Sinus Bradycardia**
 
 This does not require treatment unless associated with symptoms and/or hypotension.
@@ -59,34 +54,28 @@ This does not require treatment unless associated with symptoms and/or hypotensi
 
 Rhythms which require defibrillation (pulseless VT/VF) are called shockable rhythms while asystole and PEA are non-shockable rhythms. For the management of asystole and PEA, refer to Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update).
 
-## 9.2 LV Dysfunction and Cardiogenic Shock
-
+## 9.2: Lv Dysfunction And Cardiogenic Shock
 LV dysfunction is the single strongest predictor of mortality following STEMI. The mechanisms responsible for acute LV dysfunction include myocardial necrosis, myocardial stunning, atrial and ventricular arrhythmias or mechanical causes such as acute septal rupture and valvular dysfunction (pre-existing and/or new).
 
 Co-morbidities such as infection, pulmonary disease, renal dysfunction, diabetes, anaemia and drugs may aggravate HF.
 
-### 9.2.1 Presentation
-
+### 9.2.1: Presentation
 The clinical manifestation of LV dysfunction varies from asymptomatic to cardiogenic shock. An important prognostic indicator is LVEF which can be assessed objectively using echocardiography.
 
 A useful clinical classification of LV dysfunction is the Killip Classification.
 
-### 9.2.2 Investigations
-
+### 9.2.2: Investigations
 Echocardiography is an essential tool and needs to be performed early to assess LV function and volumes, valvular function, extent of myocardial damage and to detect mechanical complications.
 
 Other investigations that may be helpful include:
-
 - Chest radiograph (to assess extent of pulmonary congestion).
 - ECG (for the detection of arrhythmias, ischaemia or reinfarction).
 - Arterial blood gases.
 
-### 9.2.3 Management
-
+### 9.2.3: Management
 **A. Acute Heart Failure**
 
 Acute management includes the following:
-
 - Oxygen — by nasal prongs/face mask to maintain oxygen saturation above 95%. Consider non-invasive ventilation (BiPAP or CPAP) early if oxygen saturation cannot be maintained with high flow face mask or high nasal cannula.
 - Diuretics — IV frusemide.
 - IV nitrates.
@@ -101,7 +90,6 @@ Acute management includes the following:
 This condition occurs in 6–10% of all cases of STEMI and remains a leading cause of death, with hospital mortality rates approaching 70%. With timely reperfusion using primary PCI, mortality rates have decreased to about 50%.
 
 Criteria for the diagnosis of cardiogenic shock includes:
-
 - Systolic blood pressure less than 90 mmHg for 30 minutes or mean arterial pressure less than 65 mmHg for 30 minutes or vasopressors required to achieve a SBP ≥ 90 mmHg;
 - Pulmonary congestion or elevated left-ventricular filling pressures;
 - Signs of impaired organ perfusion with at least one of the following criteria:
@@ -115,7 +103,6 @@ Cardiogenic shock may not be present at admission but may develop in the first 4
 Emergency PCI may be life-saving and should be considered early irrespective of the time delay from onset of MI. If primary PCI cannot be performed within 2 hours, a pharmaco-invasive strategy with immediate fibrinolysis and transfer to a PCI-capable centre is advised.
 
 Management includes:
-
 - A. Inotropes — the inotrope of choice is noradrenaline titrated to maintain a mean arterial pressure of at least 65 mmHg.
 - B. Insertion of a pulmonary artery catheter may be helpful in the diagnosis and management of these patients.
 - C. The use of IABP has not shown a definite benefit and its use should be individualised.
@@ -123,10 +110,8 @@ Management includes:
 
 When cardiogenic shock is due to a mechanical defect, urgent surgical repair is indicated. Concomitant CABG surgery in these patients remains an issue of debate. The decision must be individualised.
 
-## 9.3 Mechanical Complications
-
+## 9.3: Mechanical Complications
 These include the following:
-
 - Free wall rupture — usually fatal and presents with sudden cardiovascular collapse and haemopericardium.
 - Ventricular septal rupture.
 - Mitral regurgitation.
@@ -135,31 +120,26 @@ The diagnosis should be suspected in patients with sudden clinical deterioration
 
 Ventricular septal rupture requires urgent surgical or percutaneous closure, but there is no agreement on the optimal timing for surgery.
 
-## 9.4 Right Ventricular (RV) Infarct
-
+## 9.4: Right Ventricular (Rv) Infarct
 Patients with RV infarct may have varying clinical presentation, from asymptomatic to cardiogenic shock. Haemodynamically significant RV infarct complicates approximately 5–10% of all STEMI. It occurs in 30–50% of patients with inferobasal MI and is associated with a significantly higher mortality. RV infarct can also occur in patients with anterior STEMI.
 
-### 9.4.1 Clinical Diagnosis
-
+### 9.4.1: Clinical Diagnosis
 The presence of RVI should be sought in all patients with inferior STEMI. The clinical triad of hypotension, clear lung fields and elevated jugular venous pressure in the setting of inferior STEMI is suggestive of RV infarct.
 
 ST elevation in the right precordial leads (V4R) is the most specific finding in diagnosing RV infarct. However, this ECG finding may be transient, often resolving within 8–10 hours.
 
-### 9.4.2 Management
-
+### 9.4.2: Management
 Treatment strategies depend on the severity of peripheral hypoperfusion and the degree of co-existing LV dysfunction. Drugs that reduce the preload, such as nitrates and diuretics should be avoided.
 
 Management includes:
-
 - Optimisation of IV fluids (saline or colloids) is the key therapy to correct the hypotension.
 - Inotropes.
 
 Failure to respond to these measures usually indicates concomitant LV dysfunction. These patients require more aggressive management with afterload reducing agents such as nitroprusside and IABP.
 
-## 9.5 Others
+## 9.5: Others
 
-### 9.5.1 Chest Pain Post-STEMI
-
+### 9.5.1: Chest Pain Post-STEMI
 Chest pain post-STEMI may be due to reinfarction, recurrent MI, ischaemia or pericarditis. Non-cardiac causes must also be considered.
 
 **9.5.1.1 Reinfarction/Recurrent MI**
@@ -167,7 +147,6 @@ Chest pain post-STEMI may be due to reinfarction, recurrent MI, ischaemia or per
 In-hospital reinfarction occurred in about 3–4% of patients who had undergone fibrinolytic therapy and received aspirin. Even in contemporary practice, with primary PCI and DAPT, the incidence of reinfarction/recurrent MI is not infrequent — 1.8% at 30 days and 4% at 1 year. Reinfarction/Recurrent MI is associated with a poor prognosis especially if it is due to stent thrombosis.
 
 Reinfarction may be diagnosed by:
-
 - Recurrence of ischaemic type chest pain.
 - Recurrence of ST segment elevation of at least 1 mm in at least two contiguous leads and/or
 - Re-elevation of serum cardiac biomarkers — CK-MB or troponins (≥ 20% increase in the value from the last sample).
@@ -179,7 +158,6 @@ Death, severe HF and arrhythmias are more common in these patients. They should 
 After successful reperfusion with fibrinolytic therapy, early recurrent angina may occur in up to 20% of patients at 30 days. Among patients undergoing primary PCI, 30% of patients reported angina at 6 weeks and about 10–20% continued to have angina at 12 months.
 
 These patients have a higher risk of recurrent MI and mortality especially when accompanied by ECG and haemodynamic changes. These patients should be:
-
 - Sent for early coronary angiography with a view to revascularization.
 - Treated optimally medically with anti-platelets, statins and anti-anginal medications.
 
@@ -192,7 +170,6 @@ Pericarditis may produce pain as early as the first day and as late as 6 weeks. 
 Dressler's syndrome (post-MI syndrome) usually occurs 2–10 weeks after STEMI. This is immunologically mediated and used to occur in 3% to 4% of patients post STEMI. In the contemporary era, it is seen in much fewer patients.
 
 Management includes:
-
 - Aspirin 600 mg 3–4 times a day.
 - Acetaminophen or narcotic analgesics may be reasonable if aspirin, even in higher doses, is not effective.
 - Colchicine has been shown to reduce recurrences. However, there is insufficient data on its use in the treatment of Dressler's syndrome.
@@ -200,20 +177,17 @@ Management includes:
 
 Only after stable remission with symptom resolution and normalisation of CRP should the doses be tapered down slowly.
 
-### 9.5.2 LV Thrombus and Arterial Embolism
-
+### 9.5.2: Lv Thrombus And Arterial Embolism
 The prevalence of LV mural thrombus has reduced from 20% to 2.7% in the era of primary PCI. The majority of these occur following anterior or large infarcts where the prevalence can be as high as 15%.
 
 The timing of LV thrombus assessment is important as too early an assessment after the MI may not be able to detect the thrombus. Although two-thirds of the LV thrombi were detected within the first week, an additional third were seen within the first 3 months.
 
 Anti-coagulation therapy is recommended for 3–6 months or until the LV thrombus disappears or organises on echocardiography.
 
-### 9.5.3 Deep Venous Thrombosis (DVT)
-
+### 9.5.3: Deep Venous Thrombosis (DVT)
 In high-risk patients (prolonged bed rest, HF, unable to mobilise), prophylactic anticoagulation therapy (s.c. heparin 5000 units twice daily, LMWH — e.g., enoxaparin 40 mg once daily) may be considered until the patient is ambulant.
 
 ## Key Message 9:
-
 - Important complications following STEMI are arrhythmias and HF.
 - HF may be due to extensive myocardial damage or mechanical complications.
 - Chest pain post-STEMI may be due to:
@@ -224,8 +198,7 @@ In high-risk patients (prolonged bed rest, HF, unable to mobilise), prophylactic
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 13: Prognosis Post Fibrinolysis and Post Primary PCI According to Killip Classification
+Table 13: Prognosis Post Fibrinolysis And Post Primary PCI According To Killip Classification
 
 | Killip Class | Clinical Features | Post Fibrinolytics (21-day mortality) | Post Primary PCI (In-hospital) | Post Primary PCI (6 months) | Post Primary PCI (5 years) |
 |---|---|---|---|---|---|
@@ -236,18 +209,15 @@ In high-risk patients (prolonged bed rest, HF, unable to mobilise), prophylactic
 
 ---
 
-### Section 8: CCU Management (Overlapping)
+### Section 8: Ccu Management (Overlapping)
 
-#### 8.1 General measures
-
+## 8.1: General Measures
 All STEMI patients should be admitted to a CCU or equivalent unit equipped with adequate monitoring facilities. Following successful reperfusion, uncomplicated cases may be kept for a minimum of 24 hours before transfer to a step-down unit. Sedatives may be useful. Titrated IV opioids may be administered to relieve pain. Early referral for cardiac rehabilitation is advisable.
 
-#### 8.2 Monitoring
-
+## 8.2: Monitoring
 The general condition of the patient, vital signs, pulse oximetry and the cardiac rhythm should be continuously monitored following STEMI. SBP should be > 90 mmHg prior to starting ACE-I or ß-blockers.
 
-#### 8.3 Concomitant therapy
-
+## 8.3: Concomitant Therapy
 **8.3.1 Oxygen:**
 - [Grade I, Level B] Oxygen via nasal prongs at 2-4 litres/minute. Aim to maintain oxygen saturation > 95%.
 
@@ -279,20 +249,17 @@ The general condition of the patient, vital signs, pulse oximetry and the cardia
 - [Grade IIb, Level B] No data for routine use post-STEMI.
 - [Grade IIa, Level B] CCBs + ß-blockers more effective than monotherapy for persistent angina.
 
-#### Key Recommendation 7 (from Section 8):
-
+#### Key Recommendation 7 (From Section 8):
 - All patients with STEMI receiving **fibrinolytic therapy** should receive aspirin 300 mg + clopidogrel (75 mg if > 75 years, 300 mg if ≤ 75 years). DAPT 1 month to 1 year.
 - All patients undergoing **Primary PCI** should receive aspirin 300 mg + clopidogrel 300-600 mg or ticagrelor 180 mg or prasugrel 60 mg. DAPT up to 1 year.
 
-#### Key Recommendation 8 (from Section 8):
-
+#### Key Recommendation 8 (From Section 8):
 - All patients with STEMI should receive medications shown to improve survival: ACE-Is (ARBs if intolerant), ß-blockers, MRA, high dose statins.
 
 ---
-### Section 10: Urgent/Emergent CABG Surgery (Overlapping)
 
+### Section 10: Urgent/Emergent Cabg Surgery (Overlapping)
 Urgent/emergent CABG surgery should be considered in the following situations:
-
 - Patients with a patent IRA but with unsuitable anatomy for PCI and either a large myocardial area at jeopardy or with cardiogenic shock.
 - At the time of surgical repair of post-infarction ventricular septal rupture or mitral valve regurgitation.
 - Patients with failed reperfusion whose coronary anatomy and clinical profile are suitable.
@@ -302,8 +269,8 @@ In general, CABG surgery in this group of patients carries a very high in-hospit
 ---
 
 ---
-## Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update)
 
+## Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update)
 *(Adapted from Guidelines for Resuscitation Training for Ministry of Health Malaysia, March 2016)*
 
 **Step 1: Start CPR**
@@ -315,8 +282,7 @@ In general, CABG surgery in this group of patients carries a very high in-hospit
 - **No →** Go to Non-Shockable Pathway (Asystole / PEA)
 ---
 
-### Shockable Pathway (VF / Pulseless VT)
-
+### Shockable Pathway (Vf / Pulseless Vt)
 **Step 2:** Identify VF/pVT on monitor.
 
 **Step 3:** Deliver shock.
@@ -345,8 +311,7 @@ In general, CABG surgery in this group of patients carries a very high in-hospit
 
 ---
 
-### Non-Shockable Pathway (Asystole / PEA)
-
+### Non-Shockable Pathway (Asystole / Pea)
 **Step 9:** Identify Asystole/PEA on monitor.
 
 **Step 10:** CPR for 2 minutes.
@@ -366,8 +331,7 @@ In general, CABG surgery in this group of patients carries a very high in-hospit
 
 ---
 
-### CPR Quality Standards
-
+### Cpr Quality Standards
 - Push hard: at least 2 inches (5 cm) depth, at a rate of 100–120/min. Allow complete chest recoil.
 - Minimise interruptions in compressions.
 - Avoid excessive ventilation.
@@ -376,38 +340,32 @@ In general, CABG surgery in this group of patients carries a very high in-hospit
 - Quantitative waveform capnography: if PETCO₂ < 10 mmHg, attempt to improve CPR quality.
 - Intra-arterial pressure: if relaxation phase (diastolic) pressure < 20 mmHg, attempt to improve CPR quality.
 
-### Shock Energy for Defibrillation
-
+### Shock Energy For Defibrillation
 - **Biphasic:** Manufacturer recommendation (e.g. initial dose of 120–200 J); if unknown, use maximum available. Second and subsequent doses should be equivalent, and higher doses may be considered.
 - **Monophasic:** 360 J.
 
 ### Drug Therapy
-
 - **Epinephrine IV/IO dose:** 1 mg every 3–5 minutes.
 - **Amiodarone IV/IO dose:** First dose: 300 mg bolus. Second dose: 150 mg.
 
 ### Advanced Airway
-
 - Endotracheal intubation or supraglottic advanced airway.
 - Waveform capnography or capnometry to confirm and monitor ET tube placement.
 - Once advanced airway in place, give 1 breath every 6 seconds (10 breaths/min) with continuous chest compressions.
 
-### Return of Spontaneous Circulation (ROSC)
-
+### Return Of Spontaneous Circulation (Rosc)
 Signs of ROSC include:
 - Pulse and blood pressure.
 - Abrupt sustained increase in PETCO₂ (typically > 40 mmHg).
 - Spontaneous arterial pressure waves with intra-arterial monitoring.
 
-### Reversible Causes (5 H's and 5 T's)
-
+### Reversible Causes (5 H's And 5 T's)
 - **H:** Hypovolaemia, Hypoxia, Hydrogen ion (acidosis), Hypo-/Hyperkalaemia, Hypothermia.
 - **T:** Tension pneumothorax, Tamponade (cardiac), Toxins, Thrombosis (pulmonary), Thrombosis (coronary).
 
 ---
 
-## Algorithm 2: Stable Ventricular Tachycardia (VT)
-
+## Algorithm 2: Stable Ventricular Tachycardia (Vt)
 *(If unstable → immediate synchronised cardioversion)*
 
 **Step 1: Initial Assessment**
@@ -442,7 +400,6 @@ Signs of ROSC include:
 ---
 
 ## Algorithm 3: Atrial Fibrillation
-
 **Step 1: Search and treat identifiable underlying causes.**
 
 **Step 2: Preparation**
@@ -481,7 +438,6 @@ Assess LV function:
 ---
 
 ## Algorithm 4: Bradycardia
-
 **Step 1: Identify Bradycardia**
 - Slow: absolute bradycardia ≤ 50 bpm, **or**
 - Relatively slow: rate less than expected relative to the underlying condition/cause.
@@ -516,7 +472,7 @@ Assess LV function:
 - *ABC: Airway, Breathing, Circulation*
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -534,8 +490,7 @@ Assess LV function:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ABC | Airway, Breathing, Circulation |

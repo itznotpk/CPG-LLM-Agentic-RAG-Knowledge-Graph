@@ -1,5 +1,4 @@
-# MONITORING AND QUALITY ASSURANCE
-
+# Monitoring And Quality Assurance
 <!-- METADATA
 category: Prevention, Assessment
 use_case: Monitoring and quality assurance for stable CAD — audit_metrics, performance_indicators
@@ -7,18 +6,7 @@ patient_input: clinical_audit_data, outcomes
 output: quality_indicators, improvement_actions
 -->
 
-
-
-
-
-
-
-
-
-
-
-## 13. MONITORINGANDQUALITYASSURANCE
-
+## 13: Monitoringandqualityassurance
 RecommendedPerformanceIndicatorsforManagementofStableCAD-tobe auditedonhospitaldischargesandatreviewattheoutpatientclinicsonanannual basis.
 
 PercentageofpatientswithCADonantiplatelettherapy:
@@ -35,9 +23,7 @@ No. of patients with CAD seen on that clinic day (Target &gt; 70%)
 
 X100%
 
-
-## REFERENCES
-
+## References
 1. outpatientswithsuspected coronaryartery disease.N Engl JMed.1991;325:849-853.
 3. MetzLD,Beattie M,Hom R,RedbergRF,GradyD,et al.Theprognostic value of normal exercise 49:227-237.
 2. ShawLJ,Peterson ED,Shaw LK,Kesler KL,DeLong ER,et al.Use of a Prognostic Treadmill Score in IdentifyingDiagnosticCoronaryDiseaseSubgroups.Circulation.1998;98:1622-1630.
@@ -675,21 +661,16 @@ report of theAmericanCollegeofCardiology/AmericanHeartAssociationTaskForceonprac
 
 JAmCollCardiol.2014;64:e77-137.
 
-
-## ACKNOWLEDGMENTS
-
+## Acknowledgments
 to the following for their contribution:
-
 - &gt;Technical Advisory Committee, Clinical Practice Guidelines, Ministry of Healthfortheirvaluableinputandfeedback
 - Panel ofexternal reviewers whoreviewed the draft
 - Secretariat-Azmi Burhani Consulting
 
-## DISCLOSURESTATEMENT
-
+## Disclosurestatement
 The panel members have nopotential conflict of interest todisclose.
 
-## SOURCESOFFUNDING
-
+## Sourcesoffunding
 The development of the CPG was funded through education grants from Menarini andServierprovidedtotheNationalHeartAssociationofMalaysia.Theviewsand interestsofthefundingbodydidnotinfluencethecontentoftheguideline.
 
 <!-- image -->
@@ -701,8 +682,7 @@ The development of the CPG was funded through education grants from Menarini and
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -711,8 +691,7 @@ The development of the CPG was funded through education grants from Menarini and
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -727,7 +706,6 @@ The development of the CPG was funded through education grants from Menarini and
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |

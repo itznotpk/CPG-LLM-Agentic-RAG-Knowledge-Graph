@@ -1,5 +1,4 @@
-# SECTION 3: DIAGNOSIS AND ASSESSMENT
-
+# Section 3: Diagnosis And Assessment
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Cancer Pain Diagnosis and Assessment — pathophysiological_classification, pain_history, unidimensional_tools, multidimensional_tools, psychological_screening, pain_syndromes, ESAS, distress_thermometer
@@ -20,9 +19,8 @@ Assessment of pain is a vital step in cancer pain management and is the responsi
 
 Like other clinical assessments, a complete pain assessment requires a detailed history, physical examination and relevant investigations.
 
-## 3.1 Clinical Presentation
-
-Cancer pain can be classified by various methods according to aetiology, pathophysiology, anatomical location of pain syndrome, temporal pattern and severity. In the clinical context, cancer pain is often described using a combination of these classifications. Clinical characteristics of the pathophysiological classes of cancer pain are shown in the following **Table 1: Classification of Cancer Pain Based on Pathophysiology**.
+## 3.1: Clinical Presentation
+Cancer pain can be classified by various methods according to aetiology, pathophysiology, anatomical location of pain syndrome, temporal pattern and severity. In the clinical context, cancer pain is often described using a combination of these classifications. Clinical characteristics of the pathophysiological classes of cancer pain are shown in the following Table 1: Classification of Cancer Pain Based on Pathophysiology.
 
 Knowledge about pain characteristics, syndromes and pathophysiology provides a useful background to understand cancer pain and helps to determine appropriate interventions. Cancer patients experience pain due to the underlying cancer or from its treatment. However, not all pain experienced is from the cancer itself, it could sometimes be due to pre-existing conditions. This emphasises the need to assess and differentiate benign causes of pain (e.g. osteoarthritis, migraine and osteoporosis) which may be managed differently from cancer pain.
 
@@ -42,19 +40,18 @@ Knowledge about pain characteristics, syndromes and pathophysiology provides a u
     - Post-radiation syndromes
     - Post-chemotherapy syndromes such as peripheral neuropathy
 
-## 3.2 Clinical Assessment
+## 3.2: Clinical Assessment
 
-### 3.2.1 History Taking
+### 3.2.1: History Taking
 Taking a good pain history is important for accurate clinical assessment as most pain diagnoses can be made based on history alone.
 
-### 3.2.2 Physical Examination
+### 3.2.2: Physical Examination
 After taking a full history, physical examination serves to confirm the clinical diagnosis. This helps to provide a comprehensive understanding of the patient’s condition and extent of problems.
 
-### 3.2.3 Investigations
+### 3.2.3: Investigations
 Investigations may be necessary to support the diagnosis and/or assist clinical decision-making in certain conditions. These may include radiological investigations such as plain X-rays, bone scans, computerised tomography (CT) scans and magnetic resonance imaging (MRI), and blood investigations e.g., liver and renal function tests. Investigations should be ordered only if the results could potentially influence clinical management.
 
-## 3.3 Pain Assessment Tools
-
+## 3.3: Pain Assessment Tools
 Effective pain management requires careful assessment and documentation of the pain. Pain assessment tools incorporate unidimensional and multidimensional measures. The most commonly used unidimensional assessment tools which are validated and adequately reliable are:
 - Visual Analogue Scale (VAS)
 - Numerical Rating Scale (NRS)
@@ -88,7 +85,7 @@ The other four recommended tools were Brief Pain Inventory (BPI), BPI-Short Form
 
 ---
 
-### 3.3.1 Assessment tools for neuropathic pain
+### 3.3.1: Assessment Tools For Neuropathic Pain
 Neuropathic pain is defined by the International Association for the Study of Pain (IASP) as "pain caused by a lesion or disease of the somatosensory nervous system". It is a frequent consequence of cancer pain and poses considerable suffering to the patients and their families.
 
 Neuropathic pain is a notable clinical challenge in relation to diagnosis and thus can be overlooked in cancer pain. [Level III] A cross-sectional study looked into the predictors and common symptoms of neuropathic cancer pain and showed:
@@ -98,8 +95,8 @@ Neuropathic pain is a notable clinical challenge in relation to diagnosis and th
 It is important to identify neuropathic pain using appropriate tools. Two diagnostic studies looked into the accuracy of such tools. [Level I] The first study on The Leeds Assessment of Neuropathic Symptoms and Signs (LANSS) scale compared pain of predominantly neuropathic or nociceptive origin in patients with refractory cancer-related pain. Based on the reference test of clinician assessment, the AUC was 0.96 and a specificity of 100% at a cut-off value of 12 points in detecting neuropathic pain.
 
 [Level III] In another diagnostic study on neuropathic pain in oncology patients using pain specialist’s diagnosis as the gold standard, the findings were:
-- AUC of PainDETECT and Doeleur Neuropathique en 4 (DN4) 
-were 0.870 (95% CI 0.813 to 0.926) and 0.857 (95% CI 0.799 to 0.914) respectively 
+- AUC of PainDETECT and Doeleur Neuropathique en 4 (DN4)
+were 0.870 (95% CI 0.813 to 0.926) and 0.857 (95% CI 0.799 to 0.914) respectively
 - PainDETECT had a specificity of 100% at cut-off value of ≥19, while DN4 had 88.7% with a cut-off value of ≥4
 
 ---
@@ -112,8 +109,7 @@ were 0.870 (95% CI 0.813 to 0.926) and 0.857 (95% CI 0.799 to 0.914) respectivel
 
 ---
 
-### 3.3.2 Comprehensive Assessment
-
+### 3.3.2: Comprehensive Assessment
 A comprehensive assessment is essential to achieve successful cancer pain management. It includes the elements of history taking, physical examination, psychological and spiritual assessment. The use of assessment tools during clinical encounters has the potential to shape the individual patient's care in terms of experience, compliance, satisfaction and improve rapport with healthcare providers. There are a number of available tools for comprehensive assessment e.g. Integrated Palliative Care Outcome Scale (IPOS), Edmonton Symptom Assessment System (ESAS) and Memorial Symptom Assessment Scale (MSAS).
 
 [Level III] The IPOS is valid (good internal consistency with Cronbach α of 0.77) and reliable (good test-retest reliability with 60% of items having Kw >0.60) for outcome measures, both in patient self-report and staff proxy-report versions.
@@ -135,8 +131,7 @@ The foundation for spiritual evaluation models is a collection of interpretive f
 
 ---
 
-### 3.3.3 Pain assessment tools in cognitive impairment/learning disability
-
+### 3.3.3: Pain Assessment Tools In Cognitive impairment/learning Disability
 Pain assessment in patients with cognitive impairment is challenging as self-reported assessment tools are inaccurate. Hence, observational tools e.g. the Face Legs Activity Cry Consolability (FLACC) scale and The Pain Assessment in Advanced Dementia tool (PAINAD) may be helpful.
 
 [Level III] The PAINAD is one of the tools mentioned in WHO guidelines to assess pain in patients with advanced dementia. A study evaluating the psychometric properties of the PAINAD scale in medical inpatients with dementia showed good inter-rater reliability (ICC of 0.92 at rest and 0.98 in movement) and internal consistency (Cronbach's α of 0.76 at rest and 0.80 in movement).
@@ -150,7 +145,7 @@ Pain assessment in patients with cognitive impairment is challenging as self-rep
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 1: Classification of Cancer Pain Based on Pathophysiology
+Table 1: Classification Of Cancer Pain Based On Pathophysiology
 
 | Category | Description |
 |---|---|
@@ -161,7 +156,7 @@ Pain assessment in patients with cognitive impairment is challenging as self-rep
 
 ---
 
-### Table 2. Points for History Taking
+Table 2. Points For History Taking
 
 | Category | Points |
 |---|---|
@@ -172,10 +167,10 @@ Pain assessment in patients with cognitive impairment is challenging as self-rep
 | Psychosocial-spiritual | • Emotional/psychological - depression/anxiety/stress, etc.\n• Meaning of pain to the patient\n• Effects on activities of daily living/appetite/sleep\n• Effects on socio-economic functioning\n• Perception of pain and pain medications |
 
 ---
+
 ## Appendix 4: Assessment Tools
 
-### Appendix 4a. Ministry of Health (MoH) Pain Scale
-
+### Appendix 4a: . Ministry Of Health (MoH) Pain Scale
 The MOH pain scale is a scale that combines NRS, the VAS and faces scale. The patient is asked to indicate his/ her level of pain intensity by pointing along a scale. The scale has numbers and the pain score is recorded as a number from 0 to 10.
 
 In children less than 7 years old and cognitively impaired adults, other scales like IASP Faces Pain Scale or FLACC scale can be used. In patients who are sedated and intubated, pain assessment will rely on observations and behavioral assessment.
@@ -196,8 +191,7 @@ In children less than 7 years old and cognitively impaired adults, other scales 
 
 ---
 
-### Appendix 4c. Verbal Rating Scale (VRS)
-
+### Appendix 4c: . Verbal Rating Scale (Vrs)
 | Description | Score |
 |---|---|
 | No pain | 0 |
@@ -211,8 +205,8 @@ The VRS consists of a list of adjectives describing different levels of pain int
 **Adapted:** Outcome measures. The Faculty of Pain Medicine of the Royal College of Anaesthetists. 2019.
 
 ---
-### Appendix 4h. NCCN Distress Thermometer (English Version)
 
+### Appendix 4h: . Nccn Distress Thermometer (English Version)
 Distress is an unpleasant experience of a mental, physical, social, or spiritual nature. It can affect the way you think, feel, or act. Distress may make it harder to cope with having cancer, its symptoms or its treatment.
 
 **Distress Thermometer Visual:**
@@ -232,8 +226,7 @@ Distress is an unpleasant experience of a mental, physical, social, or spiritual
 
 ---
 
-### Appendix 4i. NCCN Distress Thermometer (Malay Version)
-
+### Appendix 4i: . Nccn Distress Thermometer (Malay Version)
 **TERMOMETER DISTRES NCCN**
 Distres merupakan satu pengalaman yang tidak menyenangkan, yang bersifat mental, fizikal, sosial atau spiritual.
 
@@ -251,8 +244,7 @@ Distres merupakan satu pengalaman yang tidak menyenangkan, yang bersifat mental,
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -261,8 +253,7 @@ Distres merupakan satu pengalaman yang tidak menyenangkan, yang bersifat mental,
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AUC | Area under the curve |
@@ -292,4 +283,3 @@ Distres merupakan satu pengalaman yang tidak menyenangkan, yang bersifat mental,
 | VAS | Visual Analogue Scale |
 | VDS | Verbal Descriptor Scale |
 | VRS | Verbal Rating Scale |
-

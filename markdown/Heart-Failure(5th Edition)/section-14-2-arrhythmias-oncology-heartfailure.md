@@ -1,5 +1,4 @@
-# SECTION 14.4-14.5: HF AND ARRHYTHMIAS, CARDIO-ONCOLOGY
-
+# Section 14: .4-14.5: HF And Arrhythmias, Cardio-Oncology
 <!-- METADATA
 category: Special Populations
 use_case: HF with Arrhythmias and Cardio-Oncology — arrhythmia_induced_cardiomyopathy, AF_management, cardiotoxicity_protocols
@@ -8,10 +7,9 @@ output: arrhythmia_induced_cardiomyopathy_management, AF_management, cardiotoxic
 treatment_type: antiarrhythmic, ablation, cardioprotective_therapy
 -->
 
-## Section 14.4: CARDIOMYOPATHY DUE TO ARRHYTHMIAS OR CONDUCTION ABNORMALITIES
+## Section 14: .4: Cardiomyopathy Due To Arrhythmias Or Conduction Abnormalities
 
-### 14.4.1 Arrhythmia Induced Cardiomyopathy
-
+### 14.4.1: Arrhythmia Induced Cardiomyopathy
 Arrhythmia-induced cardiomyopathy (AiCM) includes:
 *   Tachycardia-induced cardiomyopathy.
 *   Atrial Fibrillation (AF) induced cardiomyopathy.
@@ -26,15 +24,13 @@ In managing arrhythmias in patients with HF:
 *   [Grade I, Level C] Identify and treat arrhythmias accordingly. Arrhythmia recognition and suppression should be considered as part of the holistic evaluation and management of HF.
 *   [Grade I, Level C] Treat non cardiovascular comorbidities particularly, lung disease, obstructive sleep apnea and obesity.
 
-#### 14.4.1.1. Detection of Arrhythmias
-
+#### 14.4.1.1: Detection Of Arrhythmias
 Arrhythmias are sometimes difficult to detect, especially if they are paroxysmal and infrequent. In any person who presents with a deterioration in cardiac function, paroxysmal palpitations, near faints or syncope and the clinical suspicion that these could possibly be due to arrhythmias are high, the following modalities may be considered to aid in the diagnosis:
 *   Prolonged ECG rhythm monitoring using 3-day, 7-day or even 1-month rhythm monitors.
 *   Using a watch that can monitor ECG heart rhythm or
 *   An implantable loop recorder.
 
-#### 14.4.1.2. Supraventricular Arrhythmias
-
+#### 14.4.1.2: Supraventricular Arrhythmias
 Any supraventricular tachycardia (SVT) with a rapid ventricular response may induce HF. Commonly encountered SVTs in clinical practice include:
 *   Incessant atrial tachycardia (AT),
 *   Very frequent episodes of atrioventricular nodal re-entrant tachycardia (AVNRT), and
@@ -44,16 +40,14 @@ Arrhythmia-induced Cardiomyopathy has been reported in 10% of patients with AT, 
 
 [Grade I, Level A] Successful treatment, usually via electrophysiological study and radiofrequency ablation, could potentially restore LV function.
 
-#### 14.4.1.3. Atrial Fibrillation
-
+#### 14.4.1.3: Atrial Fibrillation
 AF is the commonest cardiac arrhythmia encountered in clinical practice. AF and atrial flutter with rapid ventricular response is the most common cause of tachycardia induced cardiomyopathy. AF induced cardiomyopathy may be suspected if LV function improves after rhythm control has been achieved and no other underlying cause has been identified.
 
 Management of AF in patients with HF would include the use of:
 *   [Grade IIa, Level B] Anti-arrhythmic drugs for either rate control or rhythm control. Most anti-arrhythmic drugs are however contraindicated in the presence of HF.
 *   [Grade IIa, Level A] Catheter ablation - This has a higher chance of achieving rhythm control in patients with AF than anti-arrhythmic drugs. Catheter ablation has been shown to reduce the risk of death and HF hospitalization in patients with AF and HF when compared to standard therapy with anti-arrhythmic drugs. The success of the procedure and benefits seen were more likely in patients who underwent the procedure within 1 year of diagnosing AF.
 
-#### 14.4.1.4. Ventricular Arrhythmias
-
+#### 14.4.1.4: Ventricular Arrhythmias
 Ventricular arrhythmias, including frequent PVCs or VT, may also induce HF. It is however, sometimes difficult to ascertain whether the PVCs caused LV dysfunction or whether progressive LV dysfunction caused the frequent PVCs. Even if the PVCs are the result of LV dysfunction, if frequent, may contribute to and increase the risk of HF and mortality even after adjusting for age and other ECG abnormalities.
 
 [Grade I, Level B] Thus, maintenance of sinus rhythm and/or control of ventricular rate is important in treating patients with HF.
@@ -70,12 +64,10 @@ Curative or suppressive therapies with either radiofrequency ablation or anti-ar
 
 [Grade I, Level B] Radiofrequency ablation is preferred, since most anti-arrhythmic drug therapy are contraindicated and may be pro-arrhythmic in the presence of HF.
 
-### 14.4.2. Cardiomyopathy due to Conduction Abnormalities
-
+### 14.4.2: Cardiomyopathy Due To Conduction Abnormalities
 This will include cardiomyopathy due to conduction abnormalities/dyssynchrony, such as chronic RV pacing and left bundle branch block.
 
-#### 14.4.2.1. Pacing Induced Cardiomyopathy
-
+#### 14.4.2.1: Pacing Induced Cardiomyopathy
 Pacing induced cardiomyopathy is defined as a reduction in LVEF of > 10% after pacemaker placement.
 
 Paced QRS durations ≥ 150 milliseconds was associated with an increased risk.
@@ -86,26 +78,24 @@ A high RV pacing percentage of > 40% and long-term pacing may exacerbate HF symp
 
 [Grade I, Level A] In patients with HF who have bradyarrhythmias and where pacing is indicated, biventricular pacing (Cardiac Resynchronisation Therapy - CRT) is the pacing mode of choice.
 
-#### 14.4.2.2. Others
-
+#### 14.4.2.2: Others
 This would include left bundle branch block (LBBB) - induced cardiomyopathy and other dyssynchronopathies.
 
 ---
 
-### Key Messages #17: HF due to Arrhythmias and Conduction Abnormalities
+### Key Messages #17: HF Due To Arrhythmias And Conduction Abnormalities
 *   Cardiomyopathy due to arrhythmias and conduction abnormalities are potentially reversible causes of HF.
 *   Successful treatment of the arrhythmia by drug therapy or catheter ablation can result in normalization of LV function.
 
 ---
 
-### Key Recommendations #13: HF Due to Arrhythmias and Conduction Abnormalities
+### Key Recommendations #13: HF Due To Arrhythmias And Conduction Abnormalities
 *   In managing cardiomyopathy due to arrhythmias, radiofrequency ablation is the preferred therapy, since most antiarrhythmic drugs are contraindicated in the presence of HF.
 *   In patients with HF who have bradyarrhythmias and where pacing is indicated, biventricular pacing (Cardiac Resynchronisation Therapy) is the pacing mode of choice.
 
 ---
 
-## 14.5 CARDIO-ONCOLOGY AND HEART FAILURE
-
+## 14.5: Cardio-Oncology And Heart Failure
 Heart disease and cancer are often linked due to:
 *   Common risk factors (e.g., increasing age and cigarette smoking)
 *   Treatment strategies:
@@ -146,8 +136,7 @@ One must consider both drug efficacy and toxicity in choosing chemotherapeutic a
 
 An increase in cardiac biomarkers such as troponins during and after administration is an indication of toxicity.
 
-### 14.5.1 Management
-
+### 14.5.1: Management
 *   [Grade I, Level C] Patients undergoing chemotherapy should have a careful clinical evaluation and assessment and treatment of CV risk factors.
 *   [Grade I, Level C] Blood pressure control is important in all patients especially in those being considered for Vascular endothelial growth factor signaling pathway (VSP) inhibitors.
 *   [Grade I, Level C] All patients with potentially cardiotoxic chemotherapy should have an echocardiogram prior to treatment. An important parameter is the LVEF determined using the biplane method of discs (Simpson's method) or three-dimensional echocardiography (preferred) where available. Newer techniques to detect and quantitate regional and global myocardial dysfunction (strain assessment with global longitudinal strain) can be used to detect pre-clinical and subtle changes in function. A 15% change from the baseline global longitudinal strain measure indicates an abnormality.
@@ -207,34 +196,29 @@ Close collaboration between the oncologist and the cardiologist is important.
 
 ## Contextual Anchors (Overlapping)
 
-### Cross-Referenced Sections in This Chapter
+### Cross-Referenced Sections In This Chapter
 
-## Appendix VIII: Etiology of Cardiomyopathies
-
+## Appendix VIII: Etiology Of Cardiomyopathies
 Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart Failure Association of the European Society of Cardiology"
 
 ### Dilated Cardiomyopathy
-
 | Genetic | Infection | Systemic Immune-mediated Disease | Toxic and Overload | Drugs | Endocrine/Metabolic | Peripartum |
 |---|---|---|---|---|---|---|
 | **Cardiac Phenotype:**<br>• Titin (TTN)<br>• Lamin A/C (LMNA)<br>• Myosin Heavy Chain (MYH7)<br>• Troponin T (TNT2)<br>• Myosin Binding Protein C (MYBPC3)<br>• Phospholamban (PLN)<br><br>**Neuromuscular Disorders:**<br>• Duchenne Muscular Dystrophy<br>• Becker Muscular Dystrophy | **Post-Myocarditis:**<br>• Enteroviruses (e.g., Coxsackieviruses)<br>• Parvovirus B19<br>• Adenoviruses<br>• Herpes Viruses (Human Cytomegalovirus, Epstein-Barr Virus, Human Herpesvirus 6)<br>• Echoviruses<br>• Hepatitis C Virus<br>• Influenza A Virus<br><br>**Other:**<br>[e.g. HIV, Chagas] | **Autoimmune:**<br>• Rheumatoid Arthritis<br>• Coeliac Disease<br>• Systemic Lupus Erythematosus<br>• Dermatomyositis, Polymyositis<br>• Systemic Sclerosis<br>• Primary Biliary Cirrhosis<br>• Vasculitis (some)<br>• Mysthenia Gravis<br>• Pemphigus, Pemphigoid<br><br>**Autoinflammatory:**<br>[e.g. Crohn disease, ulcerative colitis, gout, reactive arthritis, rare monogenic disorders] | • Alcohol (Ethanol)<br>• Cocaine<br>• Amphetamines<br>• Ecstasy<br>• Anabolic Steroids<br>• Arsenic<br>• Cobalt<br>• Carbonmonoxide<br>• Lead<br>• Iron-overload/haem ochromatosis<br>• Amyloidosis | **Chemotherapy:**<br>[Anthracycline, trastuzumab, antimetabolites, monoclonal antibodies, tyrosine kinase inhibitors, immunomodulating agents]<br><br>**Other:**<br>[Clozapine, olzapine, chlorpromazine, risperidone, lithium, tricyclic antidepressants, ephedrine, all-trans retinoic acid, phenothiazines] | • Diabetes Mellitus<br>• Acromegaly<br>• Pheochromocytoma<br>• Thyroid gland dysfunction | Idiopathic cardiomyopathy presenting with HFrEF towards the end of pregnancy, or in the months following delivery, where no other cause of HF is found. |
 
 ### Hypertrophic Cardiomyopathy
-
 | Genetic | Storage Diseases | Neuromuscular and Mitochondrial Disorders | Malformation Syndromes |
 |---|---|---|---|
 | • Beta-Mysin Heavy Chain (MYH7)<br>• Myosin-Binding Protein C (MYBPC3)<br>• Troponin I and T (TNNI3, TNNT2)<br>• Tropomyosin alpha-1 Chain (TPM1)<br>• Myosin Light Chain 3 (MYL3) | • Anderson-Fabry Disease<br>• Danon Disease<br>• Pompe Disease<br>• Gaucher Disease | • Friedreich's ataxia<br>• MELAS (Mitochondrial Encephalomyopathy, Lactic Acidosis, and Stroke-Like Episodes)<br>• MERFF (Myoclonic Epilepsy with Ragged Red Fibres) | • LEOPARD (Lentigines; ECG Abnormalities; Ocular hypertelorism; Pulmonary Stenosis; Abnoral Genitalia; Retarded Growth; Deafness)<br>• Noonan<br>• Costello |
 
 ### Restrictive Cardiomyopathy
-
 | Noninfiltrative Disorders | Infiltrative Disorders | Storage Diseases | Endomyocardial Disorders |
 |---|---|---|---|
 | • Idiopathic<br>• Hereditary (Sarcomere Protein Disorders, Myofibrillar Myopathies, Werner Syndrome)<br>• Systemic Sclerosis | • Amyloidosis:<br>&nbsp;&nbsp;&nbsp;&nbsp;° Immunoglobulin Light Chain (AL)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Hereditary (ATTR-m)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Wild-Type (ATTR-wt)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Other<br>• Sarcoidosis<br>• Hereditary Hyperoxaluria | • Anderson-Fabry Disease<br>• Danon Disease<br>• Pompe Disease<br>• Gaucher Disease<br>• Iron Overload<br>• Hereditary Haemochromatosis | • Carcinoid<br>• Endomyocardial Fibrosis (Idiopathic, Hypereosinophilic Syndrome, Drug-Related)<br>• Endocardial Fibroelastosis<br>• Metastatic Tumor<br>• Chemotherapy<br>• Radiation Therapy |
 
 ---
 
-## Appendix IX: Anticancer Agents Associated with Heart Failure / LV Dysfunction
-
+## Appendix IX: Anticancer Agents Associated With Heart Failure / Lv Dysfunction
 | Chemotherapy Agents | Prevention/Treatment |
 |---|---|
 | **Anthracyclines**<br>Doxorubicin<br>Epirubicin<br>Idarubicin | Monitor LVEF, strain assessment with global longitudinal strain.<br>Measure troponins.<br>Consider use of dexrazoxane, continuous infusion, liposomal preparations, β-blockers, ACE-I. |
@@ -247,8 +231,7 @@ Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart
 
 ---
 
-## Appendix X: Chemotherapy drugs that have been associated with HF
-
+## Appendix X: Chemotherapy Drugs That Have Been Associated With HF
 | Class of Drugs               | Examples                               |
 |------------------------------|----------------------------------------|
 | Anthracyclines               | Doxorubicin, daunorubicin, epirubicin, |
@@ -261,8 +244,7 @@ Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -313,8 +295,7 @@ Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.

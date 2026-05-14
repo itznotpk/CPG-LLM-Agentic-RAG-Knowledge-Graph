@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: Cancer Pain Epidemiology and Context — prevalence, opioid_consumption, barriers, physician_attitudes, patient_attitudes, Malaysia_context
@@ -7,8 +6,7 @@ patient_input: cancer_diagnosis, pain_prevalence, opioid_usage
 output: epidemiology_overview, opioid_consumption_data, barrier_identification, CPG_rationale
 -->
 
-## 1.1. EPIDEMIOLOGY
-
+## 1.1: Epidemiology
 World Health Organization (WHO) reported that there were 48,639 new cancer cases in Malaysia in 2020. Cancer accounted for over 10% of all medically-certified deaths in the country in 2021. For those living with cancer, pain is a common and distressing symptom that affects their quality of life.
 
 Pain is defined as "an unpleasant sensory and emotional experience associated with, or resembling that associated with, actual or potential tissue damage". Cancer pain or cancer-related pain is pain experienced by patients with cancer due to cancer itself or its treatment. A large meta-analysis showed prevalence rates of cancer pain at 39.3% after curative treatment, 55.0% during anticancer treatment and 66.4% in advanced, metastatic or terminal disease. [Level III] Moderate to severe pain (numerical rating scale score ≥5) was reported by 38.0% of all patients. This indicates that cancer pain is still prevalent despite treatment and about a third of the patients suffer from more than just mild pain. There is no local data on the prevalence of cancer pain. [Level III] However, a local study found that recognition of cancer symptoms which included pain was relatively low across Malaysia.
@@ -21,8 +19,7 @@ The first edition of CPG in cancer pain management in Malaysia has helped to spe
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -33,8 +30,7 @@ The first edition of CPG in cancer pain management in Malaysia has helped to spe
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse effects |

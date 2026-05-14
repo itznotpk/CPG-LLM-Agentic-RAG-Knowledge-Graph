@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION AND EPIDEMIOLOGY
-
+# Section 1: Introduction And Epidemiology
 <!-- METADATA
 category: Introduction, Epidemiology, Special Populations
 use_case: Overview of Heart Disease in Pregnancy — disease_burden, maternal_mortality, cardiac_disease_prevalence, guideline_scope
@@ -25,16 +24,16 @@ The objective of this clinical practice guideline is to highlight to the healthc
 This guideline provides evidence-based recommendations on how best to manage pregnant patients with cardiac disease. Patient care should be individualised and sound clinical judgement plays an important role in decision making.
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### Table 7: Cardiovascular Disease as a Cause of Maternal Deaths in Malaysia (Based on data from Confidential Enquiries into Maternal Deaths)
+Table 7: Cardiovascular Disease As A Cause Of Maternal Deaths In Malaysia (Based On Data From Confidential Enquiries Into Maternal Deaths)
 
 | CVD | 2009-2011 | 2012 | 2013 | 2014 |
 |---|---|---|---|---|
 | **% of total maternal deaths (Refers to Indirect and Direct (obstetric) deaths)** | 15.3%; (66/430) | 16.1%; (18/112) | 13.9%; (15/108) | 12.1%; (14/116) |
 | **% of indirect deaths** | 51.2%; (66/129) | 50.0%; (18/36) | 50.0%; (15/30) | 53.8%; (14/26) |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CEMD | Confidential Enquiries into Maternal Death |

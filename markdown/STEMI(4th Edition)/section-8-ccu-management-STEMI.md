@@ -1,5 +1,4 @@
-# SECTION 8: CARDIAC CARE UNIT (CCU) MANAGEMENT
-
+# Section 8: Cardiac Care Unit (Ccu) Management
 <!-- METADATA
 category: Treatment, Prevention
 use_case: CCU Management and Pharmacotherapy — CCU_monitoring, DAPT_regimen, beta_blocker_therapy, ACE_inhibitor_initiation, statin_therapy, glycaemic_control, haemodynamic_monitoring, early_secondary_prevention
@@ -9,10 +8,9 @@ critical: true
 treatment_type: aspirin, clopidogrel, prasugrel, ticagrelor, DAPT, beta_blocker, ACEi, ARB, eplerenone, statin, heparin, enoxaparin
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 
-## 8.1 General measures
-
+## 8.1: General Measures
 All STEMI patients should be admitted to a CCU or equivalent unit equipped with adequate monitoring facilities.
 
 Following successful reperfusion, uncomplicated cases may be kept for a minimum of 24 hours before transfer to a step-down unit. They can sit out of bed and undertake self-care the next day. Patients with STEMI complicated by significant myocardial damage and arrhythmias need longer bed rest and may need to be kept in the CCU longer.
@@ -25,22 +23,18 @@ The Valsalva manoeuvre has been shown to precipitate dangerous haemodynamic and 
 
 Early referral for cardiac rehabilitation is advisable.
 
-## 8.2 Monitoring
-
+## 8.2: Monitoring
 The general condition of the patient, vital signs, pulse oximetry and the cardiac rhythm should be continuously monitored following STEMI.
 
 In general, systolic blood pressure should be > 90mmHg prior to starting ACE-I or ß-blockers.
 
-## 8.3 Concomitant therapy
+## 8.3: Concomitant Therapy
 
-### 8.3.1 Oxygen
-
+### 8.3.1: Oxygen
 - [Grade I, Level B] Oxygen, via nasal prongs, at 2-4 litres/minute is usually adequate. One should aim to maintain the oxygen saturation > 95%.
 
-### 8.3.2 Antiplatelet agents
-
+### 8.3.2: Antiplatelet Agents
 In STEMI, DAPT is indicated. This includes:
-
 - [Grade I, Level A] A loading dose of aspirin 300 mg followed by low dose aspirin 75-100 mg daily which is indicated indefinitely after STEMI unless contraindicated. +
 - A P2Y₁₂ inhibitor which could be:
   - [Grade I, Level A]  Clopidogrel - **OR**
@@ -70,8 +64,7 @@ In STEMI, DAPT is indicated. This includes:
     - [Grade IIa, Level B] In patients with high bleeding risks, a shorter period of DAPT of 6 months may be considered.
 - [Grade IIb, Level B] Aspirin and ticagrelor 60 mg twice a day for >12 months may be considered for up to 3 years, in high risk patients who have tolerated DAPT without a bleeding complication.
 
-### 8.3.3 Antithrombotic therapy
-
+### 8.3.3: Antithrombotic Therapy
 These agents are administered to patients who received fibrinolytic therapy and did not undergo PCI. They include: (Table 9: Recommended dosages of anti-thrombotics in STEMI)
 
 **A) Heparin**
@@ -91,11 +84,12 @@ These include:
 - Non-Vitamin K antagonists - Direct Oral Anticoagulants (DOAC)
 
 OACs are prescribed for the following indications:
-#### 8.3.3.1 Atrial Fibrillation
-#### 8.3.3.2 LV thrombus
 
-#### 8.3.3.1 Atrial Fibrillation (refer to Appendix V: CHA₂DS₂-VASc SCORE)
+#### 8.3.3.1: Atrial Fibrillation
 
+#### 8.3.3.2: Lv Thrombus
+
+#### 8.3.3.1: Atrial Fibrillation (Refer To Appendix V: Cha₂ds₂-Vasc Score)
 [Grade IIa, Level B] In STEMI patients with AF who had undergone PCI, the use of DOAC with anti-platelet therapy is associated with a lower risk of bleeding than the standard triple therapy (DAPT + warfarin).
 
 The following **regimens** may be considered:
@@ -119,8 +113,7 @@ In patients with a low risk of thrombotic events or a high risk of bleeding, ear
 
 [Grade IIb, Level B] Combination of OAC plus single anti-platelet therapy (preferably clopidogrel 75 mg once a day, or as an alternative, aspirin 75–100 mg once a day) may be sometimes continued in very selected cases, e.g. stenting of the left main, proximal left anterior descending, proximal bifurcation, recurrent MIs, etc.
 
-#### 8.3.3.2 LV Thrombus
-
+#### 8.3.3.2: Lv Thrombus
 In patients with LV thrombus demonstrated by echocardiography following a recent MI:
 - Warfarin may be considered in addition to DAPT for at least 3 months in patients:
   - [Grade I, Level C] With non-ischaemic stroke or TIA
@@ -128,8 +121,7 @@ In patients with LV thrombus demonstrated by echocardiography following a recent
 - [Grade IIb, Level C] In patients with high risk of bleeding, warfarin plus anti-platelet monotherapy may be considered.
 - [Grade III, Level C] In patients with haemorrhagic stroke, warfarin and antiplatelet therapy are contraindicated.
 
-### 8.3.4 ß-blockers (refer to Table 10: Recommended dosages of ß-blockers in STEMI)
-
+### 8.3.4: Ss-Blockers (Refer To Table 10: Recommended Dosages Of Ss-Blockers In STEMI)
 - The benefit of long-term treatment with ß-blockers after STEMI is well established from clinical trials conducted in the pre-thrombolytic era.
 - [Grade I, Level A] Initiation of a ß-blocker immediately after STEMI, especially when it is associated with LV systolic dysfunction, reduces the rate of hospitalisation for HF and mortality.
 - [Grade I, Level A] Oral treatment with ß-blockers is recommended in patients with heart failure and/or LV systolic dysfunction, unless contraindicated. ß-blockers may be initiated when patients are haemodynamically stable.
@@ -143,8 +135,7 @@ In patients with LV thrombus demonstrated by echocardiography following a recent
 - Signs of peripheral hypoperfusion.
 - Second or third degree AV block.
 
-### 8.3.5 ACE-Is and ARBs (refer to Table 11: Recommended dosages of ACE-Is and ARBs in STEMI)
-
+### 8.3.5: Ace-Is And ARBs (Refer To Table 11: Recommended Dosages Of Ace-Is And ARBs In STEMI)
 - [Grade I, Level A] ACE-Is are indicated starting within the first 24 hours of STEMI in all patients especially the high-risk patients (LVEF ≤ 40% or with evidence of heart failure, diabetes or an anterior infarct). In these high-risk patients, it should be continued indefinitely if there are no contraindications.
 
 **Contraindications to ACE-I and ARB therapy:**
@@ -157,13 +148,11 @@ The dose of ACE-I/ARB should be reduced or stopped if there is:
 
 [Grade I, Level B] In ACE-I intolerant patients, an ARB may be used, preferably valsartan.
 
-### 8.3.6 Mineralocorticoid Receptor Antagonists (MRA)
-
+### 8.3.6: Mineralocorticoid Receptor Antagonists (MRA)
 - [Grade I, Level B] Mineralocorticoid antagonists e.g. eplerenone should be considered in patients post-MI with LVEF ≤ 40% and HF in the absence of renal failure or hyperkalaemia.
 - Spironolactone has been mainly studied in patients with heart failure although there has been a small study in STEMI. In this study in post-STEMI patients, early spironolactone administration failed to show benefit.
 
-### 8.3.7 Statins
-
+### 8.3.7: Statins
 - [Grade I, Level A] High-intensity statin therapy (atorvastatin 40-80 mg daily or rosuvastatin 20-40 mg daily) should be initiated as early as possible in patients with STEMI who do not have contraindications or history of intolerance, regardless of initial cholesterol values and continued indefinitely.
 - [Grade I, Level A] Target LDL-C should be < 1.8 mmol/L or a reduction of at least 50% from the baseline, the lower the better.
 - [Grade I, Level A] Addition of non-statin therapy to reduce LDL-C should be considered in patients who remain at high risk with LDL-C ≥ 1.8 mmol/L despite the maximum tolerated statin dose.
@@ -171,8 +160,7 @@ The dose of ACE-I/ARB should be reduced or stopped if there is:
 
 Combination therapy consisting of aspirin, ACE-I, a ß-blocker, and a statin is cost-effective therapy even in the absence of a polypill.
 
-### 8.3.8 Nitrates (refer to Table 12: Recommended doses of nitrates)
-
+### 8.3.8: Nitrates (Refer To Table 12: Recommended Doses Of Nitrates)
 - [Grade III, Level B] Oral nitrates are not routinely recommended.
 - [Grade I, Level C] Nitrates can be considered in patients with:
   - Continuing chest pain and / or ischaemia.
@@ -187,15 +175,13 @@ Combination therapy consisting of aspirin, ACE-I, a ß-blocker, and a statin is 
 - [Grade IIa, Level B] Oral nitrates have a role in improving symptoms and exercise tolerance in patients who continue to have angina. Despite this, it has not been shown to improve long-term cardiac outcomes.
 - [Grade I, Level B] In patients who continue to have angina, sublingual GTN as tablet or spray may be used as prophylaxis before engaging in activities known to cause angina.
 
-### 8.3.9 Calcium channel blockers (CCB)
-
+### 8.3.9: Calcium Channel Blockers (CCB)
 - [Grade IIb, Level B] There is no data to support the routine use of calcium channel blockers post-STEMI.
 - [Grade IIa, Level B] In patients who continue to have angina, CCBs in combination with ß-blockers have been shown to be more effective than monotherapy in the relief of angina.
 - [Grade IIa, Level B] In those with contraindications to ß-blockers, particularly in the presence of obstructive airway disease, CCBs such as verapamil or diltiazem may be considered.
 - Despite providing symptom relief, CCBs have not been shown to improve long-term cardiac outcomes.
 
-### 8.3.10 Others
-
+### 8.3.10: Others
 - [Grade IIa, Level B] Trimetazidine (3-Ketoacyl CoA thiolase [KAT] inhibitor) and Ivabradine (If inhibitor) have been shown to be beneficial in patients post STEMI in registry data and in small studies.
 - Hormone replacement therapy (HRT) –
   - Registry data showed that the risk of MI was highest in women with continuous regimens and in younger ages with longer duration of use.
@@ -206,7 +192,6 @@ Combination therapy consisting of aspirin, ACE-I, a ß-blocker, and a statin is 
 - [Grade III, Level A] Omega-3 fatty acids – The initial open label study indicated that these were beneficial but subsequent studies have been negative.
 
 ## Key Recommendation 7:
-
 - All patients with STEMI receiving **fibrinolytic therapy** should receive:
   - 300 mg aspirin
   - **+ (Plus) loading dose**
@@ -223,7 +208,6 @@ Combination therapy consisting of aspirin, ACE-I, a ß-blocker, and a statin is 
   - Patients who underwent PCI require DAPT for up to a year depending on the thrombotic/ischaemic versus bleeding risks. In patients with high bleeding risks, a shorter period of DAPT of 6 months may be considered.
 
 ## Key Recommendation 8:
-
 - All patients with STEMI should receive medications that have been shown to improve survival if given early. These include:
   - ACE-Is
   - ARBs if ACE-I intolerant
@@ -234,8 +218,7 @@ Combination therapy consisting of aspirin, ACE-I, a ß-blocker, and a statin is 
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 9: Recommended dosages of anti-thrombotics in STEMI
+Table 9: Recommended Dosages Of Anti-Thrombotics In STEMI
 
 | Heparin | Dosage | Duration of therapy |
 |---|---|---|
@@ -247,7 +230,7 @@ _sc: subcutaneous_
 
 ---
 
-### Table 10: Recommended dosages of ß-blockers in STEMI
+Table 10: Recommended Dosages Of Ss-Blockers In STEMI
 
 | Type | Initiation dose | Target dose |
 |---|---|---|
@@ -259,7 +242,7 @@ _bd: twice a day, od: once daily_
 
 ---
 
-### Table 11: Recommended dosages of ACE-Is and ARBs in STEMI
+Table 11: Recommended Dosages Of Ace-Is And ARBs In STEMI
 
 | Type | Initiation dose | Target dose |
 |---|---|---|
@@ -272,9 +255,9 @@ _bd: twice a day, od: once daily_
 
 _bd: twice a day, tds: three times a day, od: once daily_
 
---- 
+---
 
-### Table 12: Recommended doses of nitrates
+Table 12: Recommended Doses Of Nitrates
 
 | COMPOUND | ROUTE | DOSAGE | Time of Onset |
 |---|---|---|---|
@@ -292,7 +275,6 @@ _\*The dose of IV nitrates should be titrated every 5 - 10 minutes until symptom
 ---
 
 ### Section 7: Reperfusion Strategies (Overlapping)
-
 **The appropriate and timely use of some form of reperfusion therapy is more important than the choice of therapy.**
 
 [Grade I, Level A] Early and prompt reperfusion is crucial as **TIME LOST** is equivalent to **MYOCARDIUM LOST**.
@@ -364,17 +346,14 @@ _* The BP should be reduced prior to institution of fibrinolytic therapy_
 
 [Grade I, Level A] Primary PCI is the preferred strategy in patients in Category B who have contraindications to fibrinolytic therapy and those in Category C, the high risk patients.
 
-#### Key Recommendation 5 (from Section 7):
-
+#### Key Recommendation 5 (From Section 7):
 - Primary PCI is superior to fibrinolysis for STEMI and should be performed in a timely manner at experienced centres.
 
-#### Key Recommendation 6 (from Section 7):
-
+#### Key Recommendation 6 (From Section 7):
 - When fibrinolytic therapy is administered, the DNT should be ≤ 30 minutes.
 - Whenever possible, patients given fibrinolytic therapy should be considered for a pharmaco-invasive approach (elective angiogram within 3–24 hours post fibrinolysis).
 
-#### Key Message #7 (from Section 7):
-
+#### Key Message #7 (From Section 7):
 Primary PCI is superior to fibrinolysis for STEMI when performed in a timely manner at experienced centres.
 - If the patient **presents at a PCI centre**, then the time from FMC (First Medical Contact) to wire crossing should be **≤ 90 minutes.**
 - If transferred from **a centre with no PCI facilities**, the time from FMC to wire crossing should be **≤120 minutes** (including transfer delay). This is made up of:
@@ -384,8 +363,8 @@ Primary PCI is superior to fibrinolysis for STEMI when performed in a timely man
   - If the time delay to primary PCI is >120 minutes, the best option is to give fibrinolytic therapy and make arrangements to transfer the patient to a PCI capable centre for a pharmaco-invasive strategy.
 
 ---
-### Section 9: Complications of STEMI (Overlapping)
 
+### Section 9: Complications Of STEMI (Overlapping)
 Complications of STEMI include:
 - Arrhythmias.
 - LV dysfunction and shock.
@@ -393,8 +372,7 @@ Complications of STEMI include:
 - RV infarction.
 - Others e.g., pericarditis.
 
-#### 9.1 Arrhythmias
-
+## 9.1: Arrhythmias
 **Tachyarrhythmias:**
 - Pulseless VT or VF — Defibrillate immediately. Early VF (within 48 hours) is due to electrical instability. Late VF is associated with large infarcts and poor pump function with poor prognosis.
 - VT — may arise from ischaemia (usually within 48 hours) or myocardial scar (late onset). Treatment of ischaemia may terminate the tachycardia.
@@ -407,8 +385,7 @@ Complications of STEMI include:
 - AV Block — First degree and Mobitz 1 do not need treatment. Mobitz 2 and complete AV block may require urgent temporary pacing if unstable. Atropine may be given in the interim (maximum 3 mg).
 - Patients with anterior infarcts who develop Mobitz 2 and complete AV block carry a worse prognosis and require temporary pacing even if stable.
 
-#### 9.2 LV Dysfunction and Cardiogenic Shock
-
+## 9.2: Lv Dysfunction And Cardiogenic Shock
 LV dysfunction is the single strongest predictor of mortality following STEMI.
 
 **Killip Classification (Table 13):**
@@ -431,15 +408,13 @@ LV dysfunction is the single strongest predictor of mortality following STEMI.
 - Emergency PCI may be life-saving and should be considered early irrespective of time delay from onset of MI.
 - Management: inotropes (noradrenaline), pulmonary artery catheter, IABP (individualised), ECMO/LV assist device for refractory cases.
 
-#### 9.3 Mechanical Complications
-
+## 9.3: Mechanical Complications
 - Free wall rupture — usually fatal, presents with sudden cardiovascular collapse and haemopericardium.
 - Ventricular septal rupture — requires urgent surgical or percutaneous closure.
 - Mitral regurgitation.
 - Diagnosis confirmed by echocardiography. Early surgery should be considered.
 
-#### 9.4 Right Ventricular (RV) Infarct
-
+## 9.4: Right Ventricular (Rv) Infarct
 Haemodynamically significant RV infarct complicates ~5–10% of all STEMI. Occurs in 30–50% of patients with inferobasal MI. Clinical triad: hypotension, clear lung fields, elevated JVP in the setting of inferior STEMI.
 
 Management:
@@ -447,23 +422,21 @@ Management:
 - Optimisation of IV fluids (saline or colloids) is the key therapy.
 - Inotropes if needed.
 
-#### 9.5 Post-STEMI Chest Pain
-
+## 9.5: Post-STEMI Chest Pain
 - **Reinfarction/Recurrent MI** — diagnosed by recurrence of chest pain, ST re-elevation ≥ 1 mm, re-elevation of cardiac biomarkers (≥ 20% increase). Consider rescue PCI.
 - **Post-Infarct Angina** — occurs in up to 20% post-fibrinolysis at 30 days. Consider early coronary angiography with revascularization.
 - **Pericarditis** — pain worse on deep inspiration, relieved sitting up. Treat with aspirin 600 mg 3–4 times/day. Colchicine may reduce recurrences.
 
-#### Key Message 9 (from Section 9):
-
+#### Key Message 9 (From Section 9):
 - Important complications following STEMI are arrhythmias and HF.
 - HF may be due to extensive myocardial damage or mechanical complications.
 - Chest pain post-STEMI may be due to: Reinfarction/Recurrent MI, Post-infarct angina, Pericarditis.
 
 ---
+
 ### Section 13: Secondary Prevention (Overlapping)
 
-#### 13.1 Non-Pharmacological Measures
-
+## 13.1: Non-Pharmacological Measures
 Important lifestyle interventions include:
 - Cessation of smoking
 - Dietary modification
@@ -482,8 +455,7 @@ Important lifestyle interventions include:
 - Fish 1–2 times per week (especially oily varieties).
 - 30 g unsalted nuts daily.
 
-#### 13.2 Control of CV Risk Factors
-
+## 13.2: Control Of CV Risk Factors
 **Hypertension:** After ACS, target BP is 110 to < 140/< 90 mmHg. [Grade I, Level A] Drugs of choice include ß-blockers, ACE-Is and ARB (if ACE-I intolerant).
 
 **Glycaemic control:** [Grade IIa, Level B] Glycaemic control should be individualised.
@@ -494,8 +466,7 @@ Important lifestyle interventions include:
 | 6.6-7.0% | All others |
 | Less tight (7.1-8.0%) | Comorbidities (coronary disease, HF, renal failure), short life expectancy, prone to hypoglycaemia |
 
-#### 13.3 Pharmacotherapy for Secondary Prevention
-
+## 13.3: Pharmacotherapy For Secondary Prevention
 **A. Anti-platelet agents:**
 - [Grade I, Level A] Aspirin — low dose 75-100 mg daily indefinitely.
 - [Grade I, Level A] A P2Y₁₂ inhibitor:
@@ -525,8 +496,7 @@ Important lifestyle interventions include:
 - [Grade IIa, Level B] ß-blockers and/or CCBs as first-line for angina.
 - [Grade IIa, Level B] Ivabradine, trimetazidine, long-acting nitrates and ranolazine as add-on therapy.
 
-#### Key Recommendation 10 (from Section 13):
-
+#### Key Recommendation 10 (From Section 13):
 - Post STEMI, all patients should receive secondary prevention interventions:
   - Smoking cessation and other lifestyle changes.
   - Regular exercise.
@@ -539,8 +509,7 @@ Important lifestyle interventions include:
 
 ---
 
-### Appendix V: CHA₂DS₂-VASc Score
-
+### Appendix V: Cha₂ds₂-Vasc Score
 | Categories | Options | Points |
 |---|---|---|
 | Age (years) | < 65 | 0 |
@@ -560,7 +529,7 @@ Important lifestyle interventions include:
 - CHA₂DS₂-VASc score ≥ 2 in men and ≥ 3 in women: **Moderate to high risk** — should be anti-coagulated.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -578,8 +547,7 @@ Important lifestyle interventions include:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

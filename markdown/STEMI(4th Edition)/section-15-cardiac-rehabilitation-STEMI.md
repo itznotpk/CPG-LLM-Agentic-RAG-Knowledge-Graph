@@ -1,5 +1,4 @@
-# SECTION 15: CARDIAC REHABILITATION
-
+# Section 15: Cardiac Rehabilitation
 <!-- METADATA
 category: Supportive Treatment
 use_case: Cardiac Rehabilitation Programme — cardiac_rehabilitation_phases, exercise_prescription, psychosocial_support, return_to_work, sexual_activity_resumption, driving_resumption
@@ -8,19 +7,15 @@ output: rehabilitation_phase_plan, exercise_programme, activity_clearance, psych
 treatment_type: exercise_rehabilitation, psychosocial_therapy
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Cardiac Rehabilitation Programme (CRP) consists of coordinated, multifaceted interventions designed to optimise a cardiac patient's physical, psychological, and social functioning. It is a comprehensive, long-term program involving:
-
 - Medical evaluation
 - Exercise prescriptions
 - Cardiac risk-factor modification
 - Education and counselling
 
-## 15.1 Core Components of CRP
-
+## 15.1: Core Components Of Crp
 The core components of CRP are:
-
 - Healthy behaviour changes and education
 - Lifestyle risk factor management
 - Physical activity and exercise
@@ -33,10 +28,8 @@ The core components of CRP are:
 
 CRP can be initiated once the patient is stable and out of the critical care unit and before discharge from hospital.
 
-## 15.2 Phases of Cardiac Rehabilitation (Wenger Model)
-
+## 15.2: Phases Of Cardiac Rehabilitation (Wenger Model)
 There are 4 Phases:
-
 - **Acute Phase (Phase I):**
   - This is the in-hospital period immediately following the MI and leading up to discharge.
   - It involves early mobilisation of the patient.
@@ -49,24 +42,19 @@ There are 4 Phases:
 - **Maintenance (Phase IV):**
   - This is home-based regular exercise to maintain aerobic conditioning gains made in Phase III.
 
-## 15.3 Exercise Training Programs
-
+## 15.3: Exercise Training Programs
 Exercise training programs include warm-up, resistance training, endurance training, and cool-down. Examples:
-
 1. **Warm-up:** stretching, warm-up exercise, low-intensity (slow) walking
 2. **Main exercises:** aerobic exercise and resistance training at prescribed intensity
 3. **Cool-down:** low-intensity (slow) walking, stretching, cooling-down exercise
 
 For patients at High Risk during Cardiac Rehabilitation and contraindications to exercise training refer to Table 17: Patients at High Risk During Cardiac Rehabilitation and Table 18: Contraindications to Exercise Training.
 
-## 15.4 Sexual Counselling
-
+## 15.4: Sexual Counselling
 Sexual counselling is advisable. In general, sexual activity may be resumed one week after uncomplicated STEMI in the absence of cardiac symptoms after mild to moderate physical activity. In the presence of complications, it should be individualised.
 
-## 15.5 Resumption of Driving
-
+## 15.5: Resumption Of Driving
 There is no unanimous consensus as to when to resume driving after STEMI. In general, for:
-
 - **Private drivers:**
   - After one month if no complications and LVEF > 35%.
   - In those with complications such as LVEF < 35%, acute decompensated heart failure, arrhythmias — it may be longer.
@@ -79,7 +67,6 @@ There is no unanimous consensus as to when to resume driving after STEMI. In gen
 For fitness for commercial air travel, refer to Table 16: Fitness for Commercial Air Travel Post STEMI.
 
 ## Key Message 13:
-
 - There is no unanimous consensus as to when to resume driving after STEMI.
 - In general, for:
   - Private drivers: After one month if no complications and LVEF > 35%.
@@ -91,19 +78,16 @@ For fitness for commercial air travel, refer to Table 16: Fitness for Commercial
 
 ### Section 13: Secondary Prevention (Overlapping)
 
-#### 13.1 Non-Pharmacological Measures
-
+## 13.1: Non-Pharmacological Measures
 - **Smoking Cessation:** [Grade I, Level A] Consistently associated with mortality benefit; one of the cornerstones of secondary prevention. All smoking cessation interventions (nicotine replacement therapy, varenicline and bupropion) are safe in cardiac patients.
 - **Diet and Weight Control:** Mediterranean-style diet recommended. Max 10% energy from saturated fat, salt < 5 g/day, 30–45 g fibre/day, ≥ 200 g fruits and 200 g vegetables/day, fish 1–2 times/week, 30 g unsalted nuts daily. Limited alcohol. Discourage sugar-sweetened drinks.
 - **Regular Exercise:** [Grade I, Level A] When adequately prescribed and supervised, regular exercise post-MI prevents future complications and increases quality of life and longevity.
 
-#### 13.2 Control of CV Risk Factors
-
+## 13.2: Control Of CV Risk Factors
 - **Hypertension:** Target BP 110 to < 140/< 90 mmHg. [Grade I, Level A] Drugs of choice: ß-blockers, ACE-Is and ARB (if ACE-I intolerant). Lifestyle modification (reduced salt, increased PA, weight loss).
 - **Glycaemic Control:** [Grade IIa, Level B] Glycaemic control should be individualised. Tight A1c (6.0–6.5%) for newly diagnosed/younger/healthier; standard (6.6–7.0%) for all others; less tight (7.1–8.0%) for comorbidities/short life expectancy/prone to hypoglycaemia.
 
-#### 13.3 Pharmacotherapy for Secondary Prevention
-
+## 13.3: Pharmacotherapy For Secondary Prevention
 - **Anti-platelet agents:** [Grade I, Level A] Aspirin 75–100 mg daily indefinitely + P2Y₁₂ inhibitor (clopidogrel, ticagrelor, or prasugrel as DAPT).
 - **Statins:** [Grade I, Level A] Target LDL-C < 1.8 mmol/L, the lower the better. Non-statin add-on (ezetimibe, PCSK-9 inhibitors) if target not achieved.
 - **ß-blockers:** [Grade I, Level A] Indicated in all patients post-STEMI, especially with HF or LV dysfunction.
@@ -112,15 +96,13 @@ For fitness for commercial air travel, refer to Table 16: Fitness for Commercial
 - **DOAC:** [Grade IIa, Level B] Rivaroxaban 2.5 mg bd + aspirin 100 mg daily in high-risk post-MI patients.
 - **Anti-ischaemic therapy:** [Grade IIa, Level B] ß-blockers/CCBs as first-line; ivabradine, trimetazidine, long-acting nitrates, ranolazine as add-on.
 
-#### Key Recommendation 10 (from Section 13):
-
+#### Key Recommendation 10 (From Section 13):
 - All patients post-STEMI should receive secondary prevention: smoking cessation, lifestyle changes, regular exercise, control of CV risk factors (hypertension, diabetes, dyslipidaemia), and drug therapy (antiplatelets, statins, ß-blockers, ACE-I/ARB).
 
 ---
-### Section 16: Checklists for Follow-Up Visits (Overlapping)
 
+### Section 16: Checklists For Follow-Up Visits (Overlapping)
 The following should be assessed at each follow-up visit:
-
 - Assess the presence or absence of cardiac symptoms and determine the functional class of the patient.
 - Evaluate patients' psychosocial (anxiety & depression) status and the social integration and support network.
 - Review pre-discharge risk assessment and evaluate:
@@ -134,11 +116,11 @@ The following should be assessed at each follow-up visit:
   - Achieve and maintain ideal body weight and waist circumference.
 
 ---
-### Section 17: Performance Measures (Overlapping)
 
+### Section 17: Performance Measures (Overlapping)
 Performance measures should be used with the goal of improving the quality of care. Process performance measures focus on the aspects of care delivered to a patient, while outcome measures focus on end-points such as mortality or repeat hospitalisation.
 
-#### Table 19: Performance Measures
+Table 19: Performance Measures
 
 **Process Indicators for STEMI at Presentation:**
 
@@ -163,12 +145,11 @@ Performance measures should be used with the goal of improving the quality of ca
 - 30-day mortality < 14%
 - 1-year mortality < 18%
 
-#### Key Recommendation 11 (from Section 17):
-
+#### Key Recommendation 11 (From Section 17):
 - Regular audit of performance measures (Table 19) and outcomes measures are important to monitor and improve quality of care.
 
 ---
-### Table 16: Fitness for Commercial Air Travel Post STEMI
+Table 16: Fitness For Commercial Air Travel Post STEMI
 
 | Functional Status | Guidance |
 |---|---|
@@ -176,7 +157,7 @@ Performance measures should be used with the goal of improving the quality of ca
 | Medium risk: EF > 40%, no symptoms of heart failure, no evidence of inducible ischaemia or arrhythmia, no planned investigations or interventions | Fly after 10 days |
 | High risk: EF < 40%, signs and symptoms of heart failure, those pending further investigation, revascularization or device therapy | Defer until condition is stable |
 
-### Table 17: Patients at High Risk During Cardiac Rehabilitation
+Table 17: Patients At High Risk During Cardiac Rehabilitation
 
 **Ischaemic Risk:**
 - Postoperative angina
@@ -198,7 +179,7 @@ Performance measures should be used with the goal of improving the quality of ca
 - Initial therapy of patients with automatic implantable cardioverter defibrillator
 - Initial therapy of a patient with a rate adaptive cardiac pacemaker
 
-### Table 18: Contraindications to Exercise Training
+Table 18: Contraindications To Exercise Training
 
 - Unstable angina
 - Uncontrolled hypertension (resting SBP > 180 mmHg, or resting DBP > 110 mmHg)
@@ -218,7 +199,7 @@ Performance measures should be used with the goal of improving the quality of ca
 - Other metabolic conditions, such as acute thyroiditis, hypokalaemia, hyperkalaemia or hypovolaemia (until adequately treated)
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -236,8 +217,7 @@ Performance measures should be used with the goal of improving the quality of ca
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

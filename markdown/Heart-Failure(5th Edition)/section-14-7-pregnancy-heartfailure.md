@@ -1,5 +1,4 @@
-# SECTION 14.7: HF AND PREGNANCY
-
+# Section 14: .7: HF And Pregnancy
 <!-- METADATA
 category: Special Populations, Treatment, Assessment
 use_case: HF in Pregnancy — risk_stratification, safe_medications, PPCM_management, mWHO_classification
@@ -9,8 +8,7 @@ critical: true
 treatment_type: beta_blocker, diuretics, digoxin
 -->
 
-## 14.7 HEART FAILURE IN PREGNANCY
-
+## 14.7: Heart Failure In Pregnancy
 About 0.5-4% of pregnant women have cardiac disease. HF remains the most common complication among all pregnant women with heart disease regardless of the cause (valvular, congenital, cardiomyopathy or pulmonary hypertension).
 
 In Malaysia, in 2020, the maternal mortality ratio was at 24.9 maternal deaths per one hundred thousand live births. This refers to the annual number of female deaths caused by or related to pregnancy per one hundred thousand live births.
@@ -40,12 +38,10 @@ HF may develop in pregnancy:
     *   Peripartum cardiomyopathy.
     *   Takotsubo syndrome.
 
-### 14.7.1. Diagnosis
-
+### 14.7.1: Diagnosis
 Most forms of cardiac disease can be detected by physical examination, ECG and echocardiography. In cases of new HF or if there is diagnostic uncertainty, non-contrast CMR may be considered.
 
-### 14.7.2. Risk Stratification
-
+### 14.7.2: Risk Stratification
 *   Pregnant women with cardiac disease are at risk of adverse maternal and fetal outcomes.
 *  [Grade I, Level C] Their risk should be assessed before conception or early in the pregnancy to optimize the outcome of the pregnancy.
 *   Maternal cardiovascular risk can be assessed using the modified World Health Organization (WHO) or NYHA classification. (Appendix XI: Modified World Health Organization Maternal Cardiovascular Risk Assessment (cont'd)<sup>a-f</sup> & Appendix XII: New York Heart Association (NYHA) Functional Classification)
@@ -54,8 +50,7 @@ Most forms of cardiac disease can be detected by physical examination, ECG and e
     *   Moderate risk: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
     *   High risk: should be referred early to the tertiary center for assessment. If termination of pregnancy is considered, it can be performed up to 22 weeks.
 
-### 14.7.3. Management
-
+### 14.7.3: Management
 The management of HF in pregnancy is more difficult than in the non-pregnant state and should be managed by a multidisciplinary team consisting of physicians, obstetricians, and pediatricians.
 
 In the management of HF in pregnancy, the following issues need to be considered:
@@ -68,13 +63,11 @@ In the management of HF in pregnancy, the following issues need to be considered
 
 Predictors of maternal cardiac complications are as in Table 20: Predictors of Maternal Risk for Cardiac Complications.
 
-#### 14.7.3.1. Preconceptual Counselling
-
+#### 14.7.3.1: Preconceptual Counselling
 *   [Grade I, Level C] Patient-centered counselling regarding contraception and the risks of cardiovascular deterioration during pregnancy should be provided to all women in the childbearing age with known or suspected heart disease.
 *   Patients with LVEF < 30% and those in NYHA Class III and IV should be strongly advised not to get pregnant. If pregnant, termination should be considered.
 
-#### 14.7.3.2. Management of HF During Pregnancy
-
+#### 14.7.3.2: Management Of HF During Pregnancy
 This includes:
 
 **Non-pharmacological measures:**
@@ -106,11 +99,9 @@ This includes:
 *   In selected patients, Natriuretic peptide (BNP or NT-Pro BNP) monitoring may have some value for prediction of cardiovascular events.
 
 #### A. Antenatal Care
-
 The principles of management of HF in pregnancy are like that in the non-pregnant state. If the patient is in decompensated HF requiring inotropes, she should be transferred to a cardiac center.
 
-#### B. Labour and Delivery
-
+#### b. Labour And Delivery
 Timing and mode of delivery should be carefully planned by a multidisciplinary team. In the majority of patients, vaginal delivery with epidural anesthesia is the preferred mode of delivery.
 
 *   Cesarean section is indicated:
@@ -123,15 +114,13 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 *   Routine antibiotic prophylaxis is not recommended in patients with valvular heart disease undergoing uncomplicated vaginal delivery or Cesarean section.
 
 #### C. Post Partum Care
-
 *   After delivery, careful monitoring of hemodynamic status should be done for at least 24 hours, or longer in high-risk patients. In patients with severe cardiac lesions, hemodynamics may be abnormal up to 10 days after delivery.
 *   These patients should be evaluated post-partum to assess the need for corrective surgery.
 *   The risk of recurrence of HF in subsequent pregnancies should also be made known to the patient.
 *   Follow-up visit at 6 weeks post-partum should be attended by the multidisciplinary team, a full cardiac assessment should be done, and appropriate contraception should be advised.
 *   Postpartum women who breast feed can start ACE-I (enalapril or captopril preferred). Metoprolol remains the preferred β-blocker.
 
-### 14.7.4 Peripartum Cardiomyopathy (PPCM)
-
+### 14.7.4: Peripartum Cardiomyopathy (Ppcm)
 *   PPCM presents as HF secondary to LV systolic dysfunction, usually shown by an LVEF < 45% occurring during the third trimester or in the months following delivery without any other identifiable cause.
 *   The majority of PPCM cases are diagnosed in the post-partum period. PPCM frequently presents with Acute HF but may also present with ventricular arrhythmias and/or cardiac arrest.
 *   Cardiac recovery may occur in the first 3-6 months though it may be delayed up to 2 years. Recovery rates vary among regions, from 75% to less than 50%.
@@ -142,8 +131,7 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
     *   RV involvement.
 *   Prognosis is related to the initial LVEF, presence of LV thrombus, RV involvement, preeclampsia, geographical region, and race.
 
-#### 14.7.4.1. Management
-
+#### 14.7.4.1: Management
 *   This is as listed in Section 14.7.3.2: Management of HF During Pregnancy
 *   In addition:
     *   In those patients presenting with severe HF and cardiogenic shock requiring inotropic or vasopressor support, it is advisable to transfer them to an advanced HF center. Urgent delivery by cesarean section (irrespective of gestation) should be considered.
@@ -152,7 +140,7 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 
 ---
 
-### Key Message #20: HF and Pregnancy
+### Key Message #20: HF And Pregnancy
 *   About 0.5-4% of pregnant women have cardiac disease. HF remains the most common complication among all women with heart disease regardless of the cause.
 *   Women with cardiac disease should be assessed:
     *   Before conception to assess their risk and to be advised accordingly and
@@ -166,15 +154,16 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 
 ---
 
-### Key Recommendations #16: HF and Pregnancy
+### Key Recommendations #16: HF And Pregnancy
 *   HF in pregnancy should be managed by a multidisciplinary team consisting of physicians, obstetricians and pediatricians.
 *   HF that develops during pregnancy can be managed with the judicious use of diuretics, digoxin, nitrates, β-blockers (most commonly metoprolol) and/or hydralazine.
 *   For post-partum women with severe acute HF caused by Peripartum cardiomyopathy and LVEF < 35%, Foundational HF medications to improve LVEF recovery and prophylactic anticoagulation are recommended.
 
 ---
+
 ## Contextual Anchors (Overlapping)
 
-#### Section 14.7.3.2: Management of HF During Pregnancy (Cross-Referenced for 14.7.4.1)
+#### Section 14: .7.3.2: Management Of HF During Pregnancy (Cross-Referenced For 14.7.4.1)
 **Non-pharmacological measures:**
 *   [Grade I, Level B] The management of patients with mild symptoms consists mainly of non-pharmacological measures such as:
     *   Limiting strenuous exercise.
@@ -205,7 +194,7 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 
 ---
 
-#### Table 20: Predictors of Maternal Risk for Cardiac Complications
+Table 20: Predictors Of Maternal Risk For Cardiac Complications
 
 | Predictor |
 |---|
@@ -228,7 +217,6 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 | No prior cardiac intervention |
 
 ## Appendix XI: Modified World Health Organization Maternal Cardiovascular Risk Assessment (cont'd)<sup>a-f</sup>
-
 | Modified World Health Organization Maternal Cardiovascular Risk Assessment |
 |---|
 | **WHO CLASS I: No Increase or a Mild Increase in Morbidity**<br>• Uncomplicated, small, or mild<br>&nbsp;&nbsp;&nbsp;&nbsp;> Pulmonary stenosis.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Patent ductus arteriosus.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Ventricular septal defect.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Mitral valve prolapse (with no more than trivial mitral regurgitation).<br>• Successfully repaired simple lesions (secundum atrial or ventricular septal defect, patent ductus arteriosus, anomalous pulmonary venous drainage).<br>• Isolated Atrial ectopic beats or ventricular extrasystoles. |
@@ -238,7 +226,6 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 | **WHO CLASS IV: Maternal mortality is 25-50%<br>Pregnancy Is Not Recommended or Is Contraindicated.<br>If pregnancy occurs, termination should be discussed.<br>If pregnancy continues, care as for class III.**<br>• Severe pulmonary arterial hypertension of any cause (mortality 17-33%).<br>• Severe systemic ventricular dysfunction (LVEF < 30%, NYHA III-IV).<br>• Previous peripartum cardiomyopathy with any residual impairment of left ventricular function.<br>• Severe mitral stenosis (MVA < 1.0 cm²), severe symptomatic aortic stenosis (AVA < 1.0cm²).<br>• Marfan syndrome with aorta dilated > 45 mm.<br>• Aortic dilatation > 50 mm in aortic disease associated with bicuspid aortic valve.<br>• Uncorrected severe coarctation. |
 
 Modified from:
-
 - a) Thorne S, MacGregor A, NelsonPiercy C. Risks of contraception and pregnancy in heart disease. Heart 2006; 92:15205;
 - b) RegitzZagrosek V, Blomstrom Lundqvist C, Borghi C et al. European Society of Cardiology guidelines on the management of cardiovascular diseases during pregnancy. Eur Heart J 2011; 32:314797
 - c) Siu SC, Sermer M, Colman JM, Alvarez AN, Mercier LA et al. Prospective multicentre study of pregnancy outcomes in women with heart disease. Circulation 2001; 104: 515-521.
@@ -248,8 +235,7 @@ Modified from:
 
 ---
 
-## Appendix XII: New York Heart Association (NYHA) Functional Classification
-
+## Appendix XII: New York Heart Association (Nyha) Functional Classification
 | Functional  Class   | Symptoms                                                                                                                                                                                      | Maternal  Cardiovascular  Risk   |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
 | CLASS I             | No limitation. Ordinary physical activity does not  cause undue fatigue, dyspnea or palpitation.                                                                                              | Low                              |
@@ -261,8 +247,7 @@ Modified from:
 
 The Criteria Committee of the New York Heart Association. Nomenclature and Criteria for Diagnosis of Diseases of the Heart and Great Vessels. 9th ed. Boston, Mass: Little, Brown & Co; 1994:253-256.
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -292,8 +277,7 @@ The Criteria Committee of the New York Heart Association. Nomenclature and Crite
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.

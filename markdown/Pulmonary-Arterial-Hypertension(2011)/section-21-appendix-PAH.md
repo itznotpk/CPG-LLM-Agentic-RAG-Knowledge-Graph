@@ -1,9 +1,8 @@
-# SECTION 21: APPENDIX
-
+# Section 21: Appendix
 <!-- METADATA
 category: Reference, Assessment, Treatment
 use_case: Clinical Trial Evidence and Treatment Algorithms — bosentan_RCTs, iloprost_RCTs, sildenafil_RCTs, combination_trials, Dana_Point_grading, PAH_treatment_algorithm, BREATHE_studies
-patient_input: 
+patient_input:
 output: trial_evidence_reference, treatment_algorithm_reference, grading_comparison
 -->
 
@@ -12,8 +11,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 1: Patient Characteristics from RCTs with Bosentan vs. Placebo
-
+## Appendix 1: Patient Characteristics From RCTs With Bosentan Vs. Placebo
 | Parameter | Study 351 (Channick et al.) | BREATHE-1 (Rubin et al.) | BREATHE-5 (Galie et al.) | EARLY (Galie et al.) | BREATHE-3 (Barst et al.) |
 |---|---|---|---|---|---|
 | Drugs and daily doses | Placebo/bosentan 125–250 mg | Placebo/bosentan 250 mg/bosentan 500 mg | Placebo/bosentan 250 mg | Placebo/bosentan 150–250 mg | Bosentan 31.25 mg, 62.5 mg, 125 mg |
@@ -34,8 +32,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 2: Results from RCTs with Bosentan vs. Placebo
-
+## Appendix 2: Results From RCTs With Bosentan Vs. Placebo
 | Parameter | Study 351 (Channick et al.) | BREATHE-1 (Rubin et al.) | BREATHE-5 (Galie et al.) | EARLY (Galie et al.) |
 |---|---|---|---|---|
 | Drugs and daily doses | Placebo/bosentan 125–250 mg | Placebo/bosentan 250 mg/bosentan 500 mg | Placebo/bosentan 250 mg | Placebo/bosentan 150–250 mg |
@@ -55,8 +52,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 3: Patient Characteristics from Long-Term Extension Studies and Registries with Bosentan
-
+## Appendix 3: Patient Characteristics From Long-Term Extension Studies And Registries With Bosentan
 | Parameter | BREATHE-1 and 351 pooled\* (McLaughlin et al.) | Provencher et al. | Australian Patient Registry (Keogh et al.) | NIH Registry\* (McLaughlin et al.) |
 |---|---|---|---|---|
 | Study details | Subgroup analysis of 2 open-label extension trials | Retrospective analysis from 1 institution | Registry data (15 centres) | Registry data |
@@ -77,8 +73,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 4: Results from Long-Term Extension Studies and Registries with Bosentan
-
+## Appendix 4: Results From Long-Term Extension Studies And Registries With Bosentan
 | Parameter | BREATHE-1 and 351 pooled\* (McLaughlin et al.) | Provencher et al. | Australian Patient Registry (Keogh et al.) | NIH Registry\* (McLaughlin et al.) |
 |---|---|---|---|---|
 | Drugs and daily doses | bosentan 250 mg | bosentan 250 mg | bosentan 250 mg | BSC |
@@ -92,10 +87,9 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 5: Patient Characteristics and Results from RCTs with Inhaled Iloprost vs. Placebo
+## Appendix 5: Patient Characteristics And Results From RCTs With Inhaled Iloprost Vs. Placebo
 
-### AIR Study (Olschewski et al.)
-
+### Air Study (Olschewski Et Al.)
 **Patient Characteristics:**
 
 | Parameter | Value |
@@ -134,8 +128,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 6: Patient Characteristics and Results from Long-Term Extension Studies with Inhaled Iloprost
-
+## Appendix 6: Patient Characteristics And Results From Long-Term Extension Studies With Inhaled Iloprost
 | Parameter | Hoeper et al.⁸⁷ | Opitz et al.⁸⁸ |
 |---|---|---|
 | Study details | One-year, open-label study | Open-label study |
@@ -159,8 +152,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 7: Patient Characteristics from RCTs with Sildenafil vs. Placebo and Sildenafil vs. Bosentan
-
+## Appendix 7: Patient Characteristics From RCTs With Sildenafil Vs. Placebo And Sildenafil Vs. Bosentan
 | Parameter | Sastry et al.⁹⁰ | SUPER-1 — 20 mg tds (Galie et al.⁹¹) | SUPER-1 — 40 mg tds (Galie et al.⁹¹) | SUPER-1 — 80 mg tds (Galie et al.⁹¹) | Singh et al.⁹² | SERAPH (Wilkins et al.⁷¹) |
 |---|---|---|---|---|---|---|
 | Drugs and daily doses | Placebo/sildenafil 75–300 mg | Placebo/sildenafil 60, 120, 240 mg | Placebo/sildenafil 60, 120, 240 mg | Placebo/sildenafil 60, 120, 240 mg | Placebo/sildenafil 75–300 mg | Sildenafil 150 mg/bosentan 250 mg |
@@ -181,8 +173,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 8: Results from RCTs with Sildenafil vs. Placebo and Sildenafil vs. Bosentan
-
+## Appendix 8: Results From RCTs With Sildenafil Vs. Placebo And Sildenafil Vs. Bosentan
 | Parameter | Sastry et al.⁹⁰ | SUPER-1 — 20 mg tds (Galie et al.⁹¹) | SUPER-1 — 40 mg tds (Galie et al.⁹¹) | SUPER-1 — 80 mg tds (Galie et al.⁹¹) | Singh et al.⁹² | SERAPH (Wilkins et al.⁷¹) |
 |---|---|---|---|---|---|---|
 | Drugs and daily doses | Placebo/sildenafil 75–300 mg | Placebo/sildenafil 60, 120, 240 mg | Placebo/sildenafil 60, 120, 240 mg | Placebo/sildenafil 60, 120, 240 mg | Placebo/sildenafil 75–300 mg | Sildenafil 150 mg/bosentan 250 mg |
@@ -202,10 +193,9 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 9: Patient Characteristics and Results from Long-Term Extension Studies with Sildenafil
+## Appendix 9: Patient Characteristics And Results From Long-Term Extension Studies With Sildenafil
 
-### SUPER-1\* (Galie et al.⁹¹)
-
+### Super-1\* (Galie Et al.⁹¹)
 | Parameter | Value |
 |---|---|
 | Study details | Extension study of SUPER-1 |
@@ -223,8 +213,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 10: Clinical Trials in Progress with Combination Therapy
-
+## Appendix 10: Clinical Trials In Progress With Combination Therapy
 | Trial name | Intervention | Inclusion criteria | Duration | Recruitment target |
 |---|---|---|---|---|
 | VISION | Inhaled iloprost added to sildenafil | IPAH | 16 wks + extension | 180 |
@@ -235,8 +224,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-## Appendix 11: Strength of Recommendation as Outlined by the Dana Point Guidelines
-
+## Appendix 11: Strength Of Recommendation As Outlined By The Dana Point Guidelines
 | Variables | Description |
 |---|---|
 | **A** | Strong recommendation |
@@ -252,11 +240,9 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 ---
 
 ## Appendix 12: PAH Evidence-Based Treatment Algorithm – Dana Point 2008
-
 > **Note on Strength of Recommendation Codes:** Throughout this algorithm, parenthetical codes such as **(A)**, **(B)**, **(C)**, **(E/A)**, **(E/B)**, **(E/C)**, **(I)**, and **(D)** refer to the **Dana Point Strength of Recommendation** grading system as defined in **Appendix 11** of this document. For example, **(E/A)** = "Strong recommendation on the basis of expert opinion only" and **(B)** = "Moderate recommendation". These are **distinct** from the CPG's own Classes of Recommendations (I, II, III) and Levels of Evidence (A, B, C) defined in Section 0.
 
-### Supportive Therapy and General Measures
-
+### Supportive Therapy And General Measures
 **Conventional therapy** (Dana Point Strength of Recommendation in parentheses):
 - Oral anticoagulants **(E/B)** — iPAH/HPAH
 - Diuretics **(E/A)**
@@ -276,8 +262,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 
 ---
 
-### ACUTE RESPONDER Pathway
-
+### Acute Responder Pathway
 WHO Class I–IV → Amlodipine, diltiazem, nifedipine **(B)**
 
 → Sustained response (WHO I–II)?
@@ -286,8 +271,7 @@ WHO Class I–IV → Amlodipine, diltiazem, nifedipine **(B)**
 
 ---
 
-### NON-RESPONDER Pathway — Drug Recommendations by WHO Functional Class
-
+### Non-Responder Pathway — Drug Recommendations By WHO Functional Class
 > The **Strength of Recommendation** column below uses the Dana Point grading system defined in Appendix 11.
 
 | Strength of Recommendation (Appendix 11) | WHO Class II | WHO Class III | WHO Class IV |
@@ -304,7 +288,6 @@ WHO Class I–IV → Amlodipine, diltiazem, nifedipine **(B)**
 ---
 
 ### Sequential Combination Therapy
-
 > If initial monotherapy from the Non-Responder table above produces an inadequate clinical response, escalate to sequential combination therapy using two or three drug classes as shown below.
 
 **Combination pathways (all at Dana Point Strength of Recommendation B):**
@@ -335,7 +318,7 @@ The three PAH-specific drug classes form a triangular combination model — any 
 
 <!-- OVERLAP CONTENT -->
 
-## Table 2: WHO Classification of Functional Status in Patients with PHT (From Section 2)
+Table 2: WHO Classification Of Functional Status In Patients With Pht (From Section 2)
 
 | Class | Definition |
 |---|---|
@@ -345,7 +328,6 @@ The three PAH-specific drug classes form a triangular combination model — any 
 | **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **6MWD** | Six-Minute Walk Distance |
@@ -386,4 +368,3 @@ The three PAH-specific drug classes form a triangular combination model — any 
 | **WHO** | World Health Organisation |
 
 <!-- END OVERLAP CONTENT -->
-

@@ -1,5 +1,4 @@
-# SECTION 20: SUPPORTIVE THERAPY FOR PAH IN CONGENITAL HEART DISEASES
-
+# Section 20: Supportive Therapy For PAH In Congenital Heart Diseases
 <!-- METADATA
 category: Treatment, Supportive Treatment, Special Populations
 use_case: Eisenmenger Supportive Therapy and Disease-Targeted Management — phlebotomy, iron_deficiency, bleeding, thrombosis, arrhythmias, perioperative_management, nephropathy, contraception, bosentan, sildenafil, prostanoids, transplantation, haemoptysis_management
@@ -14,10 +13,9 @@ treatment_type: phlebotomy, iron_supplementation, bosentan, sildenafil, iloprost
 
 ---
 
-## 20. Supportive Therapy for PAH in Congenital Heart Diseases
+## 20: Supportive Therapy For PAH In Congenital Heart Diseases
 
-### 20.1 Hyperviscosity and Phlebotomy
-
+## 20.1: Hyperviscosity And Phlebotomy
 Routine phlebotomy (venesection) is **NOT recommended**.
 
 Secondary erythrocytosis is a physiologically desirable response to chronic hypoxia in Eisenmenger syndrome. Inappropriate and repeated phlebotomy to maintain a predetermined level of haematocrit can cause iron deficiency anaemia which worsens hyperviscosity symptoms and predisposes the patient to stroke.
@@ -33,14 +31,12 @@ Secondary erythrocytosis is a physiologically desirable response to chronic hypo
 
 **Recommendation:** Routine phlebotomy (venesection) is NOT recommended other than when indicated as above.
 
-### 20.2 Iron Deficiency
-
+## 20.2: Iron Deficiency
 Due to secondary erythrocytosis, signs of iron deficiency can be masked clinically. Iron-deficient red blood cells have less oxygen-carrying capacity and poor deformability that may lead to increased risk of strokes and vascular complications. Serum iron profile (Hb, MCV, MCH, serum iron, ferritin, transferrin saturation) should be monitored at least annually or whenever indicated. If present, it should be corrected with iron supplementation to replete body iron store.
 
 **Recommendation:** Monitor iron profile and correct iron deficiency if present.
 
-### 20.3 Bleeding Complications
-
+## 20.3: Bleeding Complications
 Eisenmenger syndrome is associated with a paradoxical state of increased risk of thrombosis and bleeding diathesis. Haemoptysis is common and is the main cause of death in 11–30% of patients. Thrombocytopenia is often seen due to reduced platelet release from megakaryocytes, increased peripheral consumption, thrombasthenia and decreased platelet life. Primary fibrinolysis and coagulation factor deficiencies also contribute to high bleeding risk.
 
 Anticoagulants and antiplatelets are generally avoided in Eisenmengers patients due to increased risk of bleeding.
@@ -59,7 +55,7 @@ The underlying causes of haemoptysis include pulmonary infarct from in-situ thro
 
 Every hemoptysis episode should be regarded as potentially life threatening and warrants meticulous evaluation, identification of underlying cause and appropriate management (Table 18).
 
-## Table 18: Management of haemoptysis in Eisenmenger patients
+Table 18: Management Of Haemoptysis In Eisenmenger Patients
 
 **General Management:**
 Bed rest, oxygen, cough suppression, tranexamic acid
@@ -74,14 +70,12 @@ Bed rest, oxygen, cough suppression, tranexamic acid
 | Rupture of aortopulmonary collaterals | Transcatheter embolization |
 | Pulmonary artery rupture | Surgery, transcatheter embolization |
 
-### 20.4 Thrombosis and Thromboembolic Complications
-
+## 20.4: Thrombosis And Thromboembolic Complications
 Prevalence of pulmonary artery thrombosis in Eisenmenger syndrome is estimated to be 20%. Risk factors are increasing age, biventricular dysfunction, degree of pulmonary artery dilatation, female sex and lower systemic arterial saturation.
 
 Patients with cyanotic congenital heart diseases are also at increased risk of stroke (13.6%). Atrial fibrillation, systemic hypertension and iron deficiency are among the risk factors.
 
 However, the role of long term anticoagulation in Eisenmenger patients is controversial because of the risk of bleeding and difficulty in controlling INR within targeted range in cyanotic patients. Therefore, the indication for anticoagulation should be individualized and limited to specific indications:
-
 - Atrial flutter and fibrillation
 - Recurrent thromboembolic events
 - Mechanical heart valve
@@ -90,18 +84,15 @@ Using air filter in all intravenous lines may prevent paradoxical air embolism a
 
 **Recommendation:** Patients with Eisenmenger syndrome have a higher risk of bleeding. Avoid routine anticoagulation unless risk of thromboembolism outweighs risk of bleeding.
 
-### 20.5 Arrhythmias & Heart Failure
-
+## 20.5: Arrhythmias & Heart Failure
 Supraventricular arrhythmias (atrial flutter, atrial fibrillation) and occasionally ventricular arrhythmias are significant cause of morbidity and mortality. Pharmacological treatment of arrhythmias in Eisenmenger patients is limited by haemodynamic side effects and must be used with caution.
 
 Sudden death is a common mode of death in Eisenmenger patients. It is precipitated by arrhythmias, massive haemoptysis and cerebrovascular events.
 
 Right heart failure is a potential complication of Eisenmenger syndrome. Role of digoxin is controversial. Diuretics may be indicated to relieve symptoms of congestion but care must be taken to avoid dehydration which may precipitate hyperviscosity and hypotension.
 
-### 20.6 Perioperative Management of Non-cardiac Surgery
-
+## 20.6: Perioperative Management Of Non-Cardiac Surgery
 Any non-cardiac surgery can be potentially life threatening in Eisenmenger patients (perioperative mortality as high as 19%). They are very vulnerable to alteration in haemodynamics induced by anaesthesia and surgery:
-
 - Drop in systemic vascular resistance increases right-to-left shunting and possibly cardiovascular collapse
 - Bleeding diasthesis
 - Thromboembolic complications
@@ -122,19 +113,17 @@ Any non-essential surgery should be avoided if possible. When surgery is necessa
 
 **Recommendation:** Measures to reduce peri-operative risk should be taken during non cardiac surgery for patients with ES.
 
-### 20.7 Nephropathy, Hyperuricaemia and Rheumatological Complications
-
+## 20.7: Nephropathy, Hyperuricaemia And Rheumatological Complications
 Increased blood viscosity can lead to renal hypoperfusion with progressive glomerulosclerosis. Renal dysfunction involves proteinuria and hyperuricaemia. Hyperuricaemia is an independent poor prognostic marker for patients with Eisenmenger syndrome. Renal profile and serum uric acid level should be measured regularly. Nephrotoxic drugs should be avoided.
 
 Rheumatological complications include gout secondary to hyperuricaemia and hypertrophic osteoarthropathy. Gouty arthritis can be treated with colchicine or oral corticosteroid. Non-steroidal anti-inflammatory drugs should be avoided.
 
-### 20.8 Infections
+## 20.8: Infections
 - Intercurrent infections must be treated aggressively
 - Immunization against influenza and pneumococcal disease is recommended
 - Antibiotic prophylaxis against infective endocarditis prior to dental/surgical procedures is mandatory
 
-### 20.9 Pregnancy and Contraception
-
+## 20.9: Pregnancy And Contraception
 **PREGNANCY IS ABSOLUTELY CONTRAINDICATED.**
 
 Pregnancy carries high maternal and fetal mortality. Mothers may be particularly at risk in the first few days after delivery. All patients and their partners should be counseled regarding avoidance of pregnancy and appropriate contraception.
@@ -144,7 +133,7 @@ Women with Eisenmenger syndrome who become pregnant should:
 - Termination in the 2nd and 3rd trimesters poses a high risk to the mother. The risks of termination should be balanced against the risks of continuation of pregnancy.
 - If a patient chooses to continue with the pregnancy, she should be managed by a multidisciplinary team (obstetricians, cardiologist, anaesthetist and intensivist) with expertise in managing patients with pulmonary hypertension.
 
-#### 20.9.1 Contraception
+### 20.9.1: Contraception
 - Contraception counseling is strongly advised and the method should be discussed with the obstetrician
 - Tubal ligation carries some operative risk and endoscopic technique is preferred
 - Single-barrier contraception alone is NOT recommended (high failure rate)
@@ -154,8 +143,7 @@ Women with Eisenmenger syndrome who become pregnant should:
 
 **Recommendation:** Pregnancy is contraindicated and should be avoided with appropriate contraception.
 
-### 20.10 Specific Disease Targeted Treatment
-
+## 20.10: Specific Disease Targeted Treatment
 There is evidence to suggest that current available therapies for IPAH may have some beneficial effect in patients with Eisenmengers syndrome. However caution is required when using vasodilators as this may cause reduction in systemic vascular resistance and blood pressure which increases the right to left shunting and hypoxaemia.
 
 The use of these specific disease targeted therapies in Eisenmenger patients should be limited to centers with experience managing these patients.
@@ -168,8 +156,7 @@ Similarly, data on prostanoid therapy in patients with Eisenmenger syndrome are 
 
 **Recommendation:** PAH specific drug therapies can be considered in patients with symptomatic Eisenmenger's Syndrome.
 
-### 20.11 Transplantation
-
+## 20.11: Transplantation
 Lung transplantation with repair of the underlying cardiac lesion or heart and lung transplantation can be performed as the last option for patients with Eisenmenger syndrome. It improves symptoms and quality of life. However, it is currently not practical due to shortage of organs. The current 5-year survival rate following transplantation is only 45%. Most Eisenmenger patients tend to have better survival prospect without transplantation (10-year survival between 58% and 80%).
 
 Study described an actuarial survival in patients with Eisenmenger syndrome who did not receive transplantation of 97%, 89%, and 77% at 1, 2, and 3 years, respectively, compared with 77%, 69%, and 35% at 1, 2, and 3 years for patients with IPAH.
@@ -178,8 +165,7 @@ Study described an actuarial survival in patients with Eisenmenger syndrome who 
 
 ---
 
-## Algorithm 1: Management Algorithm for Eisenmenger Syndrome
-
+## Algorithm 1: Management Algorithm For Eisenmenger Syndrome
 **Step 1 — Diagnosis:**
 History, physical examination, chest X-ray, pulse oxymeter, ECG, echocardiography → Referral to specialized center
 
@@ -201,7 +187,6 @@ Lung/heart-lung transplantation for selected Class 4 patients failing medical th
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **CT** | Computed Tomography |

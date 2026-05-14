@@ -1,5 +1,4 @@
-# SECTION 7: IMPLEMENTATION THE GUIDELINES, RESOURCE IMPLICATION AND PERFORMANCE MEASURES
-
+# Section 7: Implementation The Guidelines, Resource Implication And Performance Measures
 <!-- METADATA
 category: Methodology, Reference
 use_case: Guideline Implementation and Performance Measures — resource_implication, training, referral_linkage, documentation_audit, maternal_mortality_reduction
@@ -9,14 +8,12 @@ output: implementation_plan, performance_measure_tracking, audit_targets, referr
 
 
 The objective of this CPG is to improve the care of pregnant women with cardiac disease. It works within the existing framework of perinatal care, emphasising:
-
 - Clinical signs that should raise suspicion of the presence of cardiac disease and the early signs of cardiac decompensation
 - Clear guidelines on the flow pattern of perinatal care and referral of these patients starting from preconception counselling till postpartum.
 
 There are no additional cost implications. Drugs, if any, are easily available at all the government health clinics.
 
 For the success of any CPG, it should be successfully implemented. This involves:
-
 - Continuous medical education via regular seminars, lectures and roadshows particularly at the district hospital and family medicine clinics. Education and training is the most important aspect of the implementation of this CPG.
 - Coordinated linkages between primary healthcare personnel and tertiary centres to allow easy and appropriate referrals. Guidelines for referral are in Table 6: Specialist Referral and Pregnancy Care Plan.
 - Widespread availability of this CPG to healthcare providers via printed copies, electronic websites, etc.
@@ -41,9 +38,8 @@ Percentage of pregnant cardiac patients who have documentation in their medical 
 | Labour and delivery in appropriate setting with availability of HDU/CCU/ICU bed if necessary | | | > 95% |
 | Discharge summary provided to all caregivers and patient | | | > 95% |
 
-
 ## Contextual Anchors (Overlapping)
-### Table 6: Specialist Referral and Pregnancy Care Plan
+Table 6: Specialist Referral And Pregnancy Care Plan
 
 | Maternal Risk | Timing of Specialist Referral | Special Considerations |
 |---|---|---|
@@ -57,8 +53,7 @@ Percentage of pregnant cardiac patients who have documentation in their medical 
 *Critical congenital heart disease/defects (CCHD) are serious congenital heart defects that present with symptoms soon after birth and need early intervention. They are usually duct dependant lesions and may have hypoxaemia. (E.g. coarctation of aorta, transposition of the great arteries, hypoplastic left heart syndrome, pulmonary atresia with intact ventricular septum)
 *Definition from: Frank LH, Bradshaw E, Beekman R, Mahle WT, Martin GR. Critical congenital heart disease screening using pulse oximetry. Journal of Pediatrics. 2013; 162(3): 445-453*
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CCU | Coronary care unit |

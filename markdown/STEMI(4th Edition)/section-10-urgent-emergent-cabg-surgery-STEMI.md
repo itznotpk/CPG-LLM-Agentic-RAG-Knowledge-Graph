@@ -1,5 +1,4 @@
-# SECTION 10: URGENT/EMERGENT CABG SURGERY
-
+# Section 10: URGENT/EMERGENT Cabg Surgery
 <!-- METADATA
 category: Treatment
 use_case: Urgent/Emergent CABG Surgery — CABG_indications, failed_PCI, multivessel_disease, mechanical_complications_requiring_surgery, antiplatelet_washout_timing
@@ -9,10 +8,8 @@ critical: true
 treatment_type: CABG
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Urgent/emergent CABG surgery should be considered in the following situations:
-
 - Patients with a patent IRA but with unsuitable anatomy for PCI and either a large myocardial area at jeopardy or with cardiogenic shock.
 - At the time of surgical repair of post-infarction ventricular septal rupture or mitral valve regurgitation.
 - Patients with failed reperfusion whose coronary anatomy and clinical profile are suitable.
@@ -23,10 +20,8 @@ In general, CABG surgery in this group of patients carries a very high in-hospit
 
 ## Contextual Anchors (Overlapping)
 
-### Section 9.3: Mechanical Complications (Overlapping)
-
+### Section 9: .3: Mechanical Complications (Overlapping)
 Mechanical complications include the following:
-
 - **Free wall rupture** — usually fatal and presents with sudden cardiovascular collapse and haemopericardium.
 - **Ventricular septal rupture** — requires urgent surgical or percutaneous closure. There is no agreement on the optimal timing for surgery.
 - **Mitral regurgitation.**
@@ -36,8 +31,8 @@ The diagnosis should be suspected in patients with sudden clinical deterioration
 When cardiogenic shock is due to a mechanical defect, urgent surgical repair is indicated. Concomitant CABG surgery in these patients remains an issue of debate. The decision must be individualised.
 
 ---
-### Section 7: Reperfusion Strategies (Overlapping)
 
+### Section 7: Reperfusion Strategies (Overlapping)
 [Grade I, Level A] Early and prompt reperfusion is crucial as **TIME LOST** is equivalent to **MYOCARDIUM LOST**.
 
 [Grade I, Level A] Primary PCI is superior to fibrinolytic therapy as a reperfusion strategy.
@@ -66,18 +61,16 @@ The best reperfusion strategy depends upon:
 - [Grade I, Level A] Cardiogenic shock, irrespective of time delay.
 - [Grade I, Level A] Failed fibrinolytic therapy or re-occlusion post-fibrinolysis.
 
-#### Key Recommendation 5 (from Section 7):
-
+#### Key Recommendation 5 (From Section 7):
 - Primary PCI is the preferred reperfusion strategy in patients with STEMI.
 - For hospitals without PCI capability, fibrinolysis should be available with a Door-to-Needle Time (DNT) of ≤ 30 minutes.
 
 ---
-### Section 11: Risk Stratification Post STEMI (Overlapping)
 
+### Section 11: Risk Stratification Post STEMI (Overlapping)
 Risk stratification of patients post-STEMI serves to prognosticate and identify appropriate treatment strategies. It starts from admission and is a continuing process. It is especially important in patients treated medically and those with multivessel disease who underwent PCI of the IRA only.
 
-#### 11.1 Short-Term Risk
-
+## 11.1: Short-Term Risk
 All patients with STEMI should have an early assessment of short-term risk using the STEMI TIMI or GRACE risk scores.
 
 Important considerations:
@@ -87,8 +80,7 @@ Important considerations:
 
 Assessment factors: older age, tachycardia, hypotension, Killip class > I, anterior MI, previous MI, elevated initial serum creatinine, history of HF, peripheral arterial disease.
 
-#### 11.2 Long-Term Risk
-
+## 11.2: Long-Term Risk
 All patients should have evaluation of long-term risk:
 - **LVEF** — usually by echocardiography.
 - **Residual ischaemia** — usually by stress-testing.
@@ -104,8 +96,7 @@ All patients should have evaluation of long-term risk:
 - Depressed LV function (LVEF < 35%) with significant regional wall motion abnormalities
 - STEMI TIMI risk score > 6.0
 
-#### 11.3 Sudden Cardiac Death
-
+## 11.3: Sudden Cardiac Death
 Patients with palpitations, near faints and syncope require comprehensive evaluation including serum electrolytes, resting ECG, 24-hour ambulatory ECG, evaluation of LV function, assessment for reversible ischaemia, and coronary angiography.
 
 In patients with ischaemic cardiomyopathy, CABG has been shown to reduce CV death and in particular sudden death.
@@ -120,13 +111,12 @@ In patients with ischaemic cardiomyopathy, CABG has been shown to reduce CV deat
 - [Grade I, Level A] Secondary prevention — resuscitated sudden cardiac death.
 - [Grade IIa, Level A] Primary prevention — LV dysfunction (EF < 30%). ICD may be considered 40 days post-STEMI and 3 months post-revascularization.
 
-#### Key Recommendation 9 (from Section 11):
-
+#### Key Recommendation 9 (From Section 11):
 - All patients post-STEMI should be risk-stratified clinically or by using the STEMI TIMI and/or GRACE risk scores.
 - STEMI patients at non-PCI-capable hospitals should be referred for early coronary angiography with revascularization if: post-infarct angina, inducible ischaemia, late ventricular arrhythmias, depressed LV function (LVEF ≤ 35%), or STEMI TIMI risk score ≥ 6.0.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -144,8 +134,7 @@ In patients with ischaemic cardiomyopathy, CABG has been shown to reduce CV deat
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

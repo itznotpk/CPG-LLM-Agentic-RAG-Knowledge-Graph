@@ -1,5 +1,4 @@
-# SECTION 9.3: ACUTE HEART FAILURE — PHASE 3: DISCHARGE AND POST-DISCHARGE
-
+# Section 9: .3: Acute Heart Failure — Phase 3: Discharge And Post-Discharge
 <!-- METADATA
 category: Treatment, Discharge Planning
 use_case: Acute Heart Failure Phase 3 — discharge_planning, oral_medication_conversion, foundational_HF_medications, post_discharge_followup, diet_nutrition, exercise, DVT_prophylaxis
@@ -9,17 +8,15 @@ critical: true
 treatment_type: oral_diuretics, RAS_blockers, beta_blockers, MRA, SGLT2i
 -->
 
-## 9.3 PHASE 3: Discharge and Post discharge "vulnerable" period
+## 9.3: Phase 3: Discharge And Post Discharge "Vulnerable" Period
 
-### 9.3.1. Pre - Discharge
-
+### 9.3.1: Pre - Discharge
 Following "decongestion", the challenges are to:
 *   Provide guidance on how to start OMT,
 *   How to perform up titration at discharge and
 *   Correctly prioritize or select the most appropriate titration schedule according to the patient profile. (refer to Section 10.2: Patient profiling and titration of Foundational HF Medications)
 
-#### 9.3.1.1 Conversion to oral therapy
-
+#### 9.3.1.1: Conversion To Oral Therapy
 Following adequate response to intravenous therapy, the patient should be converted to optimal oral medications. If the LVEF < 40%, they should be initiated on Foundational HF medications (RAS blockers, β-blockers, MRA and SGLT2-i) as outlined below.
 
 *   **Diuretics**
@@ -59,20 +56,17 @@ Following adequate response to intravenous therapy, the patient should be conver
         *   Vasodilators have been stopped for at least 6 hours.
     *   The diuretic dose may need adjustment taking into consideration the degree of diuresis induced by this drug.
 
-#### 9.3.1.2 Worsening renal function
-
+#### 9.3.1.2: Worsening Renal Function
 *   Worsening Renal Function may occur during treatment. Refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)
 *   Following conversion to oral therapy, the patient should be observed for at least 24 hours for the stability of symptoms, weight and hemodynamics prior to discharge. The follow-up plans must be tailored according to the availability of facilities and expertise to manage the patient on an outpatient basis.
 
-#### 9.3.1.3. Deep vein thrombosis (DVT) prophylaxis
-
+#### 9.3.1.3: Deep Vein Thrombosis (DVT) Prophylaxis
 *   [Grade IIa, Level B] HF patients especially if they are bed-bound for protracted periods are at risk for DVT. Prophylactic measures include:
     *   TED stockings
     *   Direct oral anticoagulants (DOAC)
     *   Unfractionated or low molecular weight heparin.
 
-#### 9.3.1.4 Comorbidities
-
+#### 9.3.1.4: Comorbidities
 *   Other comorbidities should be identified, and treatment optimized according to guidelines. This includes:
     *   Diabetes
     *   Hypertension
@@ -87,8 +81,7 @@ Following adequate response to intravenous therapy, the patient should be conver
     *   [Grade I, Level C] A summary of the care plan must be made available to the doctor in the out-patient clinic. (Appendix III: Discharge Care Plan & Appendix IV: Discharge Care Summary)
 *   **Hospitalization is a key opportunity to initiate Foundational HF medications.** A large trial showed that starting and optimizing Foundational HF medications as in-patient, followed by regular check-ups and monitoring after hospital discharge, cuts the rate of all-cause death and HF readmissions within 6 months.
 
-### 9.3.2 Post-discharge phase (vulnerable period)
-
+### 9.3.2: Post-Discharge Phase (Vulnerable Period)
 At the time of hospital discharge, the patient should be:
 *   On all the foundational HF medications as tolerated.
 *   Given a discharge summary and discharge care plan. (Appendix III: Discharge Care Plan & Appendix IV: Discharge Care Summary)
@@ -110,8 +103,7 @@ At the Follow up visit:
 
 ---
 
-### Flowchart II: Management of Acute Heart Failure
-
+### Flowchart Ii: Management Of Acute Heart Failure
 ![Flowchart II](file:///c:/Users/zhchua/Documents/Project%20(Comp)/CPG-LLM-Agentic-RAG-Knowledge-Graph/markdown/Heart-Failure(5th%20Edition)/flowchart-2.png)
 
 ***Footnote for Flowchart II***
@@ -121,8 +113,7 @@ At the Follow up visit:
 *   [Grade I, Level C] Identify and stabilize life-threatening hemodynamics (heart rate and rhythm, blood pressure and organ/tissue perfusion).
 *   [Grade I, Level C] Relieve clinical symptoms, signs and preventing end organ damage.
 
-### Flowchart III: Management of Patients with Acute Heart Failure (Wet)
-
+### Flowchart Iii: Management Of Patients With Acute Heart Failure (Wet)
 ![Flowchart III](file:///c:/Users/zhchua/Documents/Project%20(Comp)/CPG-LLM-Agentic-RAG-Knowledge-Graph/markdown/Heart-Failure(5th%20Edition)/flowchart-3.png)
 
 ***Footnote for Flow Chart III***
@@ -137,8 +128,7 @@ At the Follow up visit:
 *   [Grade I, Level C] If systolic BP < 90mmHg, avoid vasodilators (nitrates) and morphine until the blood pressure has stabilized. Correct over-diuresis or hypovolemia accordingly.
 *   In cases of refractory symptoms despite medical therapy, Mechanical Circulatory Support (Refer to Section 9.2.2: Mechanical Circulatory Support) should be considered.
 
-### Flowchart IV: Management of Patients with Acute Heart Failure (Dry)
-
+### Flowchart IV: Management Of Patients With Acute Heart Failure (Dry)
 ![Flowchart IV](file:///c:/Users/zhchua/Documents/Project%20(Comp)/CPG-LLM-Agentic-RAG-Knowledge-Graph/markdown/Heart-Failure(5th%20Edition)/flowchart-4.png)
 
 ***Footnote for Flowchart IV***
@@ -151,8 +141,7 @@ At the Follow up visit:
 
 ---
 
-### Overlapping Content from Section 8.3: Diet and Nutrition (Non-Pharmacological Measures)
-
+### Overlapping Content From Section 8.3: Diet And Nutrition (Non-Pharmacological Measures)
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 8.3                             -->
 <!-- Purpose: Provides dietary guidance referenced in Phase 3       -->
@@ -170,8 +159,7 @@ At the Follow up visit:
 
 ---
 
-## Appendix II: Salt Content of Common Malaysian Foods
-
+## Appendix II: Salt Content Of Common Malaysian Foods
 | Food Item | Serving Size | Sodium (mg) |
 |---|---|---|
 | **CEREAL & CEREAL PRODUCTS** | | |
@@ -201,7 +189,6 @@ At the Follow up visit:
 ---
 
 ## Appendix III: Discharge Care Plan
-
 | Item | Recommendation |
 |---|---|
 | **Weight monitoring** | Weigh daily, at same time, same clothes. Report weight gain of > 2kg in 2 days. |
@@ -213,7 +200,6 @@ At the Follow up visit:
 | **Follow-up** | Early follow-up within 1-2 weeks of discharge. |
 
 ## Appendix IV: Discharge Care Summary
-
 *This summary should be provided to the patient and the follow-up physician.*
 
 *   **Diagnosis:** (e.g., HFrEF secondary to Ischemic Heart Disease)
@@ -225,8 +211,7 @@ At the Follow up visit:
 
 ---
 
-### Overlapping Content from Section 10.2: Patient profiling and titration of Foundational HF Medications
-
+### Overlapping Content From Section 10.2: Patient Profiling And Titration Of Foundational HF Medications
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 10.2                            -->
 <!-- Purpose: Provides titration strategies referenced in Phase 3   -->
@@ -251,8 +236,7 @@ At the Follow up visit:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -327,8 +311,7 @@ At the Follow up visit:
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement.
 *   **Grade II-a:** Weight of evidence/opinion is in favor of its usefulness/efficacy.

@@ -1,5 +1,4 @@
-# SECTION 15: MANAGEMENT OF STROKE IN PREGNANCY
-
+# Section 15: Management Of Stroke In Pregnancy
 <!-- METADATA
 category: Special Populations, Treatment
 use_case: Stroke in Pregnancy — pregnancy_stroke_management, anticoagulation_in_pregnancy, labour_management, CVT_in_pregnancy, BP_control_in_preeclampsia
@@ -8,18 +7,16 @@ output: treatment_pathway, anticoagulation_regimen, labour_drug_management
 critical: true
 treatment_type: aspirin, LMWH, UFH, warfarin, methyldopa, labetalol, nifedipine
 -->
-## 15.1 Burden and Aetiology
 
+## 15.1: Burden And Aetiology
 The incidence of pregnancy-associated stroke is 10.2 per 100 000 deliveries. The incidence rate of stroke in pregnancy is higher in the peripartum and postpartum period, especially in the first six to twelve weeks after delivery. In a Japanese study, most pregnancy-associated strokes were haemorrhagic strokes (73.5%), less than a quarter (24.5%) were ischaemic strokes and rarely, there were mixed strokes (2%).
 
 In a previous study, 75.7% of the patients with ischaemic stroke were arterial infarcts and 24.3% were venous infarctions. Main causes of ischaemic stroke in pregnancy were congenital heart diseases, valvular heart diseases, atrial fibrillation (AF) and inheritable coagulation abnormalities. Most common aetiologies of cerebral haemorrhage were aneurysm (19.8%), arteriovenous malformation (17.1%), pregnancy-induced hypertension (11.7%) and HELLP syndrome.
 
-## 15.2 Investigations
-
+## 15.2: Investigations
 Magnetic resonance imaging (MRI) of the brain (without gadolinium contrast) is the radiological modality of choice for investigating strokes in pregnancy. MRI of the brain in the antenatal period is not associated with increased adverse events to the foetus. However, MRI of the brain should be used carefully. MRI of the brain should only be used when the test can answer the patient's clinical question and provides medical benefits to the pregnant patient. However, antenatal exposure to gadolinium contrast was reported to increase the risk of stillbirth, neonatal death, rheumatological, inflammatory and infiltrative skin conditions in one study.
 
-## 15.3 Management
-
+## 15.3: Management
 Blood pressure should be reduced to less than 160/110 mmHg. In cases of preeclampsia or severe hypertension with neurological symptoms, the aim is to achieve an urgent and sustained reduction of blood pressure to less than 160/110 mmHg to reduce the risk of maternal stroke. In acute haemorrhagic stroke in pregnancy, blood pressure can be controlled with Methyldopa, Labetalol and long acting Nifedipine. The goal is to correct the blood pressure to <160/110 mmHg, followed by titration of the anti-hypertensive medications to reduce the blood pressure consistently to <140/90 mmHg. The coagulopathies should also be corrected.
 
 [Level II, Grade B] **Recommendation:** In ischaemic arterial strokes, Aspirin up to 150mg daily is well tolerated during pregnancy. Pregnant patients with a well-defined low risk conditions may be given UFH or LMWH in the first trimester, followed by a low dose of aspirin in the second and third trimesters.
@@ -45,8 +42,7 @@ Patients with cerebral venous thrombosis (CVT) can be administered with either u
 There is lack of evidence regarding the safety of statins in pregnancy. Statins should be stopped during preconception and throughout pregnancy. In general, stroke management decisions are based on symptom severity, maternal medical conditions, and wishes of the patient and her family. Rehabilitation should be started early. Rehabilitation is based on a multidisciplinary team discussions and decisions.
 
 ## Recommendations Summary:
-
-### Table 15.1: Management of Stroke in Pregnancy
+Table 15.1: Management Of Stroke In Pregnancy
 
 | Management | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -61,14 +57,12 @@ There is lack of evidence regarding the safety of statins in pregnancy. Statins 
 | Labour induction | Vitamin K antagonists (without a loading dose) may be restarted after 24 hours of delivery if there are no contraindications. | III | C |
 
 ## Key Recommendations:
-
 1. MRI of the brain (without gadolinium contrast) is the radiological modality of choice for investigating strokes in pregnancy.
 2. Aspirin is the only choice of antiplatelet for pregnant patients with a well-defined low risk condition.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -79,8 +73,7 @@ There is lack of evidence regarding the safety of statins in pregnancy. Statins 
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -89,8 +82,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviations | Descriptions |
 | --- | --- |
 | AF | Atrial Fibrillation |

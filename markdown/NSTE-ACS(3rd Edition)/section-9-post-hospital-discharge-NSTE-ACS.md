@@ -1,5 +1,4 @@
-# SECTION 9: POST-HOSPITAL DISCHARGE
-
+# Section 9: Post-Hospital Discharge
 <!-- METADATA
 category: Treatment, Prevention, Assessment
 use_case: Post-Discharge NSTE-ACS Care - discharge_medications, secondary_prevention, DAPT_duration, LDL_C_target, follow_up_investigations
@@ -13,7 +12,6 @@ The acute phase of NSTE-ACS is usually 1 to 3 months. The risk of recurrence of 
 Several lifestyle modification measures and drug therapies have been shown to be effective in improving long-term outcome. However, they are underutilized. Therefore, health care providers should ensure that patients with NSTE-ACS receive appropriate treatment post-hospital discharge and ensure that patients remain compliant to treatment.
 
 Important discharge instructions (both verbal and written instructions) should include:
-
 - Symptoms indicating worsening myocardial ischemia (chest pain/equivalent and/or dyspnea) and how to seek emergency care.
 - Education on the benefits and potential side effects of the prescribed medications.
 - Instructions on the proper and safe use of sublingual nitrates.
@@ -28,12 +26,10 @@ Important discharge instructions (both verbal and written instructions) should i
 
 Refer to Malaysian CPG on Primary and Secondary Prevention of Cardiovascular Disease 2017, 1st Ed for further details.
 
-## 9.1 Medications Post-Discharge (Table 5: Level of evidence and grade of recommendation for Pharmacotherapy in NSTE-ACS)
-
+## 9.1: Medications Post-Discharge (Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS)
 These should include:
 
 ### A. Antiplatelet Agents
-
 - DAPT consisting of a combination of:
   - 75-100mg daily aspirin. Currently, studies are still being conducted to look at the optimal dose of aspirin in secondary prevention.
   - **+ (Plus) a P2Y12 Inhibitor either**
@@ -44,15 +40,12 @@ These should include:
 - However, in patients with high bleeding risks, a shorter period of DAPT of 3 to 6 months may be considered.
 
 ### B. Lipid Modifying Therapy
-
 - **[Grade I, Level A]** There is a large body of evidence that early initiation of high dose statin therapy improves outcome regardless of baseline LDL-C levels in patient with ACS.
 - **[Grade I, Level A]** More aggressive lipid lowering further lowers cardiovascular event rates.
 - If target LDL-C levels are not attained on maximally tolerated statin therapy and especially if it still remains > 2.6 mmol/l, consider the addition of ezetimibe and/or PCSK-9 inhibitors.
 
-### C. In the presence of LVEF < 40% and /or Heart Failure
-
+### C. In The Presence Of Lvef < 40% And /Or Heart Failure
 These should include:
-
 - **[Grade I, Level A]** beta-blockers
 - **[Grade I, Level A]** Renin Angiotensin Blockers (ACEIs/ARBs)
 - **[Grade I, Level A]** Aldosterone Receptor Antagonists - spironolactone, eplerenone
@@ -63,16 +56,13 @@ These should include:
 - **[Grade I, Level A]** Sodium-glucose co-transporter-2 (SGLT2) inhibitors - these agents have been shown to reduce cardiovascular events in both diabetic and non-diabetic patients. In the large trials, they have been instituted when the patient is stable.
 - **[Grade IIa, Level A]** Angiotensin Receptor-Neprilysin Inhibitor (ARNi) has been shown to cause a greater reduction in NT-Pro BNP levels than ACEI in patients with acute decompensated heart failure. However when instituted early in patients post ACS (STEMI and NSTE-ACS), it did not outperform ACEI in cardiovascular event reduction.
 
-### D. In the presence of Angina and/or myocardial ischemia
-
+### D. In The Presence Of Angina and/or Myocardial Ischemia
 Anti-ischaemic therapy includes:
-
 - Sublingual nitroglycerin should be administered and patients instructed on its use.
 - beta-blockers and/or CCBs should be prescribed as first-line treatment to reduce angina because it is widely available.
 - Ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
 
-### E. Other co-existing Clinical conditions:
-
+### E. Other Co-Existing Clinical Conditions:
 - **[Grade IIa, Level B]** Atrial Fibrillation
 
 In NSTE-ACS patients with AF who had undergone PCI, the use of DOAC with antiplatelet therapy is associated with a lower risk of bleeding than the standard triple therapy (DAPT + warfarin).
@@ -99,10 +89,8 @@ The following **regimens** may be considered:
 
 **[Grade IIb, Level B]** Evidence supporting the routine use of beta-blockers and ACEI/ARB > 1-year post NSTE-ACS for the treatment of stable CAD only is less well established.
 
-## 9.2 Investigations During Follow Up (Flowchart 2: Non-invasive investigation of Low Risk Patients with NSTE-ACS*)
-
+## 9.2: Investigations During Follow Up (Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*)
 In the outpatient evaluation of low risk NSTE-ACS patients, the following investigations maybe considered:
-
 - Echocardiogram to assess LV function
 - Treadmill stress test
 - Stress echocardiogram - treadmill or pharmacological stress
@@ -112,7 +100,6 @@ In the outpatient evaluation of low risk NSTE-ACS patients, the following invest
 Patients with significant demonstrable ischemia should be considered for revascularization.
 
 ### Key Recommendations 11:
-
 - Patients should be on optimal medical therapy at discharge. This includes:
   - DAPT with aspirin + clopidogrel (or ticagrelor or prasugrel)
   - **And** high intensity statins to achieve LDL-C target of < 1.8 mmol/l (preferably < 1.4 mmol/l), the lower the better.
@@ -120,13 +107,13 @@ Patients with significant demonstrable ischemia should be considered for revascu
   - **And** in the presence of LVEF < 40% and heart failure, beta-blockers, Renin Angiotensin Blockers (ACEIs/ARBs) and Aldosterone Receptor Antagonists - spironolactone, eplerenone should be given. SGLT2-inhibitors can be instituted in both stable diabetic and non-diabetic patients.
 
 ### Key Recommendations 12:
-
 - Low risk patients should be assessed non-invasively for ischemia. (Flowchart 2: Non-invasive investigation of Low Risk Patients with NSTE-ACS*)
 - If they have troubling symptoms and/or significant myocardial ischemia, they should be referred for coronary angiography with view to revascularization.
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### Table 5: Level of evidence and grade of recommendation for Pharmacotherapy in NSTE-ACS
+Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS
 
 | Intervention | Grade of Recommendation | Level of Evidence | Comments |
 | :--- | :---: | :---: | :--- |
@@ -149,14 +136,12 @@ Patients with significant demonstrable ischemia should be considered for revascu
 
 ---
 
-### Flowchart 2: Non-invasive investigation of Low Risk Patients with NSTE-ACS*
-
+### Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*
 The flowchart describes the non-invasive investigation pathway for **low risk patients with NSTE-ACS**.
 
 **1. Identify low risk patients**
 
 Low risk patients have:
-
 - No angina in the past.
 - No ongoing angina.
 - No prior use of antianginal therapy.
@@ -198,7 +183,7 @@ Low risk patients have:
 
 ---
 
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -216,8 +201,7 @@ Low risk patients have:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

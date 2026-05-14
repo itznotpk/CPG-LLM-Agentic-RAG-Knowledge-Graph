@@ -1,5 +1,4 @@
-# SECTION 2: INDICATIONS FOR PCI
-
+# Section 2: Indications For PCI
 <!-- METADATA
 category: Assessment, Treatment
 use_case: Patient Selection for PCI — indications_stemi, indications_ua_nstemi, indications_stable_cad, primary_pci, rescue_pci, facilitated_pci, cardiogenic_shock, non_cardiac_surgery, reperfusion_strategy
@@ -12,16 +11,14 @@ critical: true
 
 ---
 
-## 2. Indications for PCI
+## 2: Indications For PCI
 
-## 2.1. ST Elevation Myocardial Infarction (STEMI)
-
+## 2.1: ST Elevation Myocardial Infarction (STEMI)
 **Definition:** Myocardial infarction is myocardial necrosis due to acute total occlusion of the coronary artery.
 
 The culprit vessel should be reopened as early as possible for myocardial salvage. Reperfusion may be achieved by primary PCI or fibrinolytic therapy. Primary PCI is defined as intervention in the culprit vessel without prior thrombolytic therapy. (refer to Flow Chart 1: Management of Patients Presenting with STEMI)
 
 [Grade I, Level A] Compared to fibrinolysis, patients with STEMI treated by primary PCI have consistently been shown to have:
-
 - lower short term mortality
 - fewer non-fatal reinfarctions
 - fewer intracranial hemorrhages and strokes
@@ -34,47 +31,39 @@ The mortality benefit of primary PCI is seen when the incremental delay (door-to
 
 **"TIME IS MYOCARDIUM"** — Primary PCI should be performed promptly by experienced operators in centers performing a sufficient number of primary PCI procedures.
 
-## 2.1.1. Indications for Primary PCI
+### 2.1.1: Indications For Primary PCI
 Refer to Table 1: Indications for PCI in STEMI.
 
 The following factors guide the choice of reperfusion strategy:
-
 - Time from symptom onset to first medical contact
 - Time to hospital fibrinolysis ("door-to-needle time")
 - PCI time delay ("door-to-balloon time" minus "door-to-needle time")
 - Contraindications to fibrinolytic therapy (refer to Appendix I: Contraindications to Fibrinolytic Therapy)
 - Presence of high risk features (Large/Anterior infarcts, LV failure, hemodynamic/electrical instability, cardiogenic shock, elderly, post revascularisation, post infarct angina, previous MI - refer to Section 2.1.1.B)
 
-### A) Time from onset of symptoms
+### A) Time From Onset Of Symptoms
 
-### Early presentation (within 3 hours)
-
+### Early Presentation (Within 3 Hours)
 [Grade I, Level A] If both PCI and fibrinolytic options are readily available, they are equally effective except where primary PCI is preferred:
-
 - [Grade I, Level C] Fibrinolytic therapy is contraindicated (refer to Appendix I: Contraindications to Fibrinolytic Therapy)
 - [Grade I, Level A] Presence of high-risk features (Large/Anterior infarcts, LV failure, hemodynamic/electrical instability, cardiogenic shock, elderly, post revascularisation, post infarct angina, previous MI - refer to Section 2.1.1.B)
 - [Grade I, Level B] PCI time delay [(door-to-balloon time) minus (door-to-needle time)] is less than 60 minutes
 
-### Late presentation (3 to 12 hours)
-
+### Late Presentation (3 To 12 Hours)
 [Grade I, Level A] Primary PCI is preferred. Door-to-balloon time should be within 90 min at a PCI capable facility.
 
 [Grade IIa, Level A] If transferred from a non-PCI center, total time should be less than 2 hours including transfer delay.
 
 If the time delay to primary PCI exceeds these windows, fibrinolytic therapy should be given.
 
-### Very late presentation (> 12 hours)
-
+### Very Late Presentation (> 12 Hours)
 Both primary PCI and fibrinolytic therapy are not routinely recommended except for patients with:
-
 - [Grade IIa, Level C] Severe heart failure
 - [Grade IIa, Level C] Hemodynamic or electrical instability
 - [Grade IIa, Level C] Evidence of persistent ischaemia
 
-### B) Presence of High Risk Features
-
+### B) Presence Of High Risk Features
 These include:
-
 - Large infarcts
 - Anterior infarcts
 - LV failure
@@ -89,28 +78,22 @@ These include:
 
 The fibrinolytic agents available in Malaysia are streptokinase, tissue plasminogen activator and tenecteplase.
 
-## 2.1.2. Transfer of Patient
-
+### 2.1.2: Transfer Of Patient
 Transfer of patients with STEMI to PCI capable centers should be considered when:
-
 - [Grade I, Level A] Fibrinolytic therapy is contraindicated or unsuccessful
 - [Grade II-a, Level A] Cardiogenic shock occurs
 - [Grade II-a, Level A] Symptoms have been present for more than 3 hours and PCI can be performed within 2 hours
 - [Grade II-a, Level A] High risk patients (Large/Anterior infarcts, LV failure, hemodynamic/electrical instability, cardiogenic shock, elderly, post revascularisation, post infarct angina, previous MI - refer to Section 2.1.1.B) given thrombolysis within 6 hours at a non-PCI centre
 
-## 2.1.3. PCI Post Fibrinolysis
-
+### 2.1.3: PCI Post Fibrinolysis
 Following fibrinolysis, PCI may be performed as:
-
 - **Rescue PCI** — for ongoing/recurrent ischemia
 - **Facilitated PCI** — performed routinely immediately after fibrinolysis
 - **Delayed routine PCI** — stable patients undergo angiography and PCI irrespective of ischaemia or viability
 - **Delayed selective PCI** — only patients with spontaneous or inducible ischaemia undergo angiography and PCI
 
-### 2.1.3.1. Rescue PCI
-
+#### 2.1.3.1: Rescue PCI
 [Grade I, Level A] Rescue PCI is initiated as soon as there are features indicating failed fibrinolytic therapy:
-
 - ongoing chest pains
 - persistent hyper-acute ECG changes (< 50% resolution of ST elevation in the lead with greatest ST elevation at presentation)
 - hemodynamic and electrical instability
@@ -118,18 +101,15 @@ Following fibrinolysis, PCI may be performed as:
 
 Rescue PCI reduces heart failure and reinfarction with a trend towards reduced mortality, but with increased risk of bleeding and stroke. Patients should be individually evaluated.
 
-### 2.1.3.2. Facilitated PCI
-
+#### 2.1.3.2: Facilitated PCI
 [Grade III, Level A] Facilitated PCI refers to planned immediate PCI after an initial pharmacologic regimen (fibrinolytic agent, GP IIb/IIIa inhibitors, or combination). This strategy has not been shown to reduce infarct size or improve outcomes and is associated with increased mortality, recurrent ischaemia, reinfarction and major bleeding. **It is not recommended.**
 
-### 2.1.3.3. Delayed Routine Angiography and PCI
-
+#### 2.1.3.3: Delayed Routine Angiography And PCI
 This refers to stable patients post fibrinolysis undergoing angiography and PCI irrespective of ischaemia or viability.
 
 [Grade IIa, Level A] Routine angiography and PCI with stent implantation in the early hours after fibrinolysis (< 24 hours) improved outcomes compared to symptom-guided delayed intervention, with significant reduction in mortality and reinfarction rates without increased adverse events. The optimal timing interval between fibrinolytic therapy and PCI remains unknown.
 
-### 2.1.3.4. Delayed Selective Angiography and PCI
-
+#### 2.1.3.4: Delayed Selective Angiography And PCI
 This strategy refers to patients undergoing angiography and PCI only if there is spontaneous or inducible ischaemia.
 
 [Grade I, Level A] Stable low-risk patients who did not undergo early (< 24 hours) angiography should undergo stress testing. If ischaemia is present, angiography and appropriate revascularisation should be performed.
@@ -138,12 +118,10 @@ This strategy refers to patients undergoing angiography and PCI only if there is
 
 [Grade I, Level A] If the patient is at a non-PCI center and is stable post fibrinolysis, an initial conservative approach with delayed selective angiography and PCI may be adopted guided by the attending physician's discretion.
 
-## 2.1.4. Technical Considerations During Primary PCI
-
+### 2.1.4: Technical Considerations During Primary PCI
 For a favourable outcome, it is important to obtain good TIMI 3 epicardial flow and optimum reperfusion of the myocardial microvasculature (TMP grade). (refer to Appendix II: Classification of TIMI Flow and Appendix III: Classification of TIMI MYOCARDIAL PERFUSION GRADE(TMP))
 
-### 2.1.4.1. Pre-procedure
-
+#### 2.1.4.1: Pre-Procedure
 - If breathless, treat the patient appropriately before catheterisation laboratory
 - Optimise haemodynamics and oxygen saturation
 - Oral aspirin 300 mg
@@ -151,8 +129,7 @@ For a favourable outcome, it is important to obtain good TIMI 3 epicardial flow 
 - Anti-thrombotic therapy: heparin or bivalirudin (refer to Table 5: Doses of Anti-Thrombotic Agents and Table 8: Dosages of Antithrombotic Agents in CKD)
 - Femoral access is usually preferred for larger devices and IABP when indicated
 
-### 2.1.4.2. Technical Tips During Procedure
-
+#### 2.1.4.2: Technical Tips During Procedure
 - [Grade I, Level C] Primary PCI should only be performed on the infarct related artery (IRA) — dilating a non-IRA at the same sitting may cause acute stress on too much myocardium
 - [Grade IIb, Level B] Occasionally, complete revascularisation may be attempted on significant non-culprit lesions when time and patient safety permit
 - Use a soft or floppy-tipped 0.014 inch steerable guide wire
@@ -162,39 +139,32 @@ For a favourable outcome, it is important to obtain good TIMI 3 epicardial flow 
 - Consider intra-coronary nitroglycerine to exclude vasospasm and for appropriate stent sizing
 - Bare metal stents (BMS) reduced restenosis and TVR compared to POBA but did not improve mortality. Stents are the strategy of choice for primary PCI.
 
-### 2.1.4.3. Drug Eluting Stents (DES) vs BMS for STEMI
-
+#### 2.1.4.3: Drug Eluting Stents (Des) Vs Bms For STEMI
 Both DES and BMS are effective in STEMI. Randomised trials have not shown mortality advantage of DES over BMS. However, DES is associated with lower TVR without increased all-cause mortality.
 
-### 2.1.4.4. Distal Embolisation and Use of Adjunctive Devices and Pharmacotherapy
-
+#### 2.1.4.4: Distal Embolisation And Use Of Adjunctive Devices And Pharmacotherapy
 Thrombus burden is usually large if the patient presents late or the IRA is ectatic. Predictors of slow flow (TIMI 1 and 2; refer to Appendix II: Classification of TIMI Flow) and no-reflow (TIMI 0) include:
-
 - vessel diameter ≥ 3.5 mm
 - treatment of the right coronary artery
 - higher TIMI thrombus score
 - angiographic findings: "cut-off" sign, persistent contrast stasis, longer lesions, accumulated thrombus > 5 mm proximal to occlusion, floating thrombus
 
 To prevent distal embolisation:
-
 - **Aspiration catheter** — improved tissue reperfusion (refer to Appendix III: Classification of TIMI MYOCARDIAL PERFUSION GRADE(TMP)) and medium term survival compared with conventional PCI
 - **Distal embolic protection** — meta-analysis showed neutral effect on mortality
 - **GP IIb/IIIa inhibitors** — Abciximab showed short term benefit in high risk patients; long term survival data are conflicting
 
-### 2.1.4.5. Management of No Reflow
-
+#### 2.1.4.5: Management Of No Reflow
 No reflow (TIMI 0) or slow reflow (TIMI 1 and 2) may occur transiently or persist after primary PCI due to microvascular dysfunction, distal embolisation, or endothelial injury. It is associated with poor LV recovery and higher post MI complications.
 
 Management includes:
-
 - Intracoronary (IC) Nitroglycerin
 - IC Verapamil 100–200 µg boluses
 - IC Adenosine 100–200 µg boluses
 - IC Nitroprusside 50–100 µg boluses
 - Others: IC Papaverine, IC Nicorandil
 
-## 2.1.5. Cardiogenic Shock
-
+### 2.1.5: Cardiogenic Shock
 **Definition:** Systolic BP < 90 mmHg with signs of tissue hypoperfusion, PCWP > 20 mmHg or cardiac index < 1.8 L/min/m².
 
 Cardiogenic shock may occur after STEMI or NSTEMI with very high mortality. It is usually due to LV pump failure, though occasionally from RV infarction or mechanical complications (acute valvular insufficiency, ventricular septal rupture). Mechanical complications should be considered for early surgical repair.
@@ -202,8 +172,7 @@ Cardiogenic shock may occur after STEMI or NSTEMI with very high mortality. It i
 - [Grade I, Level A] Emergency PCI or urgent CABG is the treatment of choice. Patients < 75 years should be considered for PCI regardless of time delay; earlier intervention improves outcomes.
 - [Grade I, Level B] Selected patients > 75 years may also benefit from early primary PCI.
 
-### 2.1.5.1. Technical Considerations in Cardiogenic Shock
-
+#### 2.1.5.1: Technical Considerations In Cardiogenic Shock
 Patients should receive early mechanical ventilation, inotropes and vasopressors. An IABP should be used early (preferably before the procedure) to maintain perfusion and augment LV performance.
 
 [Grade I, Level C] Patients in cardiogenic shock often have multivessel disease — all critical lesions besides the culprit should be dilated, considering contrast volume and procedure duration. This is in contrast to the usual recommendation to treat only the culprit vessel. If multivessel PCI is not possible, evaluate for urgent CABG.
@@ -216,8 +185,7 @@ KEY MESSAGES:
 
 ---
 
-### Flow Chart 1: Management of Patients Presenting with STEMI
-
+### Flow Chart 1: Management Of Patients Presenting With STEMI
 **Step 1: Presentation**
 - Patient presents with chest pain / chest pain equivalent
 - Perform ECG and cardiac biomarkers
@@ -276,50 +244,42 @@ KEY MESSAGES:
 
 ---
 
-## 2.2. Unstable Angina / Non ST Segment Elevation Myocardial Infarction (UA/NSTEMI)
-
+## 2.2: Unstable Angina / Non ST Segment Elevation Myocardial Infarction (UA/NSTEMI)
 **Definition:** Unstable angina may be defined as (refer to Appendix IV: Classification of Unstable Angina):
-
 1. New onset of severe angina or accelerated angina; no rest pain
 2. Angina at rest within past month but not within preceding 48 hours (subacute)
 3. Angina at rest within 48 hours (acute)
 
 It may be further classified as:
-
 - Primary — absence of extracardiac disease
 - Secondary — presence of extracardiac disease
 - Post-infarct — chest pains occurring within 2 weeks of an acute MI
 
 NSTEMI is defined as MI indicated by history and elevated cardiac biomarkers but without ST elevation on ECG.
 
-## 2.2.1. Risk Stratification
-
+### 2.2.1: Risk Stratification
 Patients with UA/NSTEMI should be risk stratified. The TIMI risk score can assist in decision making based on the patient's clinical condition at admission. (refer to Appendix V: TIMI Risk Score for UA/NSTEMI)
 
 Risk stratification helps decide:
-
 - site of care — general ward or critical care ward
 - intensity of medical therapy (e.g. need for GP IIb/IIIa inhibitors)
 - invasive versus conservative strategy
 
-## 2.2.2. Management Strategy
+### 2.2.2: Management Strategy
 Refer to Flow Chart 2: Management of Patients Presenting with UA/NSTEMI.
 
-### 2.2.2.1. Invasive Strategy
+#### 2.2.2.1: Invasive Strategy
 Refer to Table 2: Indications for PCI in UA/NSTEMI.
 Patients requiring early angiography with view to revascularisation include:
-
 - **Very high risk** — urgent angiography within 24 hours of admission
 - **High risk** — early angiography within hospital admission
 
 [Grade I, Level B] The following high risk patients should be considered for an invasive strategy:
-
 - Elevated cardiac biomarkers (troponins and/or CKMB)
 - Dynamic ST segment changes
 - Heart failure
 
 [Grade I, Level C] The following high risk patients should also be considered for an invasive strategy:
-
 - Recurrent resting chest pain despite optimum medical therapy
 - Worsening mitral regurgitation
 - Reduced LV systolic function (LVEF < 35%)
@@ -331,10 +291,8 @@ These high risk patients require early angiography following intensive antithrom
 
 In one study, patients randomised to immediate angiography (< 24 hours) had fewer deaths and MIs at 30 days compared to deferred angiography. However, two recent studies showed both early (< 24 hours) and delayed invasive strategies (> 24 hours but within hospital admission) were equally effective and safe.
 
-### 2.2.2.2. Conservative Strategy
-
+#### 2.2.2.2: Conservative Strategy
 A conservative strategy involves optimal medical therapy with selective coronary angiography in those with:
-
 - recurrent chest pains at rest or on minimal exertion
 - abnormal resting ECG, stress ECG or other tests for myocardial ischaemia
 
@@ -355,8 +313,7 @@ KEY MESSAGES:
 
 ---
 
-### Flow Chart 2: Management of Patients Presenting with UA/NSTEMI
-
+### Flow Chart 2: Management Of Patients Presenting With UA/NSTEMI
 **Step 1: Confirm UA/NSTEMI Diagnosis**
 
 **Step 2: Initial Medical Management**
@@ -372,8 +329,7 @@ KEY MESSAGES:
 
 ---
 
-### PATHWAY A: Medium or High Risk
-
+### Pathway A: Medium Or High Risk
 **Step 4: Invasive Strategy**
 - Consider initiating GP IIb/IIIa if high risk features\* are present
 - Coronary angiogram and revascularisation as appropriate
@@ -388,8 +344,7 @@ KEY MESSAGES:
 
 ---
 
-### PATHWAY B: Low Risk (Conservative Strategy)
-
+### Pathway B: Low Risk (Conservative Strategy)
 **Step 5: Assess for Myocardial Ischaemia**
 
 - **If myocardial ischaemia is present** — Coronary angiogram and revascularisation as appropriate
@@ -400,32 +355,26 @@ KEY MESSAGES:
 
 ---
 
-## 2.3. Stable Coronary Artery Disease (CAD)
-
+## 2.3: Stable Coronary Artery Disease (Cad)
 Stable CAD refers to stable angina, asymptomatic myocardial ischaemia and coronary atherosclerosis detected by coronary or CT angiogram. Stable angina is defined as a clinical syndrome characterized by discomfort in the chest, jaw, shoulder, back or arms, typically elicited by exertion or emotional stress and relieved by rest or nitroglycerine. (refer to Appendix VI: Classification of Angina Severity)
 
 Treatment objectives:
-
 - minimise or relieve symptoms
 - slow down / prevent disease progression
 - improve prognosis by preventing MI and death
 
 Treatment strategies include medical therapy, PCI, and CABG surgery. The choice depends on:
-
 - severity of symptoms (refer to Appendix VI: Classification of Angina Severity)
 - degree of myocardial ischaemia
 - coronary anatomy, severity and complexity of lesions
 
-## 2.3.1. PCI vs Medical Therapy
-
+### 2.3.1: PCI Vs Medical Therapy
 Meta-analysis of randomised trials comparing PCI vs medical therapy in stable CAD concluded that PCI:
-
 - was more effective than medical therapy alone in relieving angina
 - was associated with better exercise tolerance
 - did not reduce the risk of death or MI
 
 A recent large study comparing PCI plus optimal medical therapy (OMT) to OMT alone showed:
-
 - no reduction in death, MI, or major cardiovascular events
 - small but significant incremental benefits in quality of life (angina stability, angina frequency) that disappeared by 36 months
 - greater symptom relief in patients with more severe ischaemia and more frequent angina
@@ -436,15 +385,13 @@ Nitrates, calcium channel blockers and other anti-ischaemic agents (trimetazidin
 
 It is important to achieve risk factor treatment goals (refer to Appendix VII: Risk Factor Goals in Patients with CAD). These medications should be continued long term if no contraindications.
 
-### 2.3.1.1. Indications for Revascularisation
-
+#### 2.3.1.1: Indications For Revascularisation
 The following should be considered for revascularisation:
-
 - patients with significant and/or disabling angina especially within 3 months of a recent MI
 - patients with large areas of ischaemia on non-invasive testing
 - patients whose symptoms were initially well controlled but with recurrence of symptoms or objective evidence of worsening ischaemia
 
-[Grade I, Level C] In general, stable asymptomatic or minimally symptomatic patients should undergo testing for reversible ischaemia prior to coronary angiography. 
+[Grade I, Level C] In general, stable asymptomatic or minimally symptomatic patients should undergo testing for reversible ischaemia prior to coronary angiography.
 
 If this was not done, certain coronary angiographic features may help decide the need for revascularisation:
 - Subtotal occlusions supplying non-infarcted myocardium
@@ -453,8 +400,7 @@ If this was not done, certain coronary angiographic features may help decide the
 - Reduced fractional flow reserve (< 0.8)
 - Minimal Luminal Area (MLA) < 4.0 mm² in proximal 2/3 of epicardial vessels as assessed by IVUS
 
-## 2.3.2. PCI versus CABG
-
+### 2.3.2: PCI Versus Cabg
 Both strategies are equally effective for symptom treatment. No significant mortality difference in randomised trials at 1, 3, 8 and 10 years. Complete revascularisation during PCI is important to match the long term benefits of CABG. Repeat revascularisation is less common with CABG, though stents have reduced repeat PCI procedures by up to 50%.
 
 [Grade I, Level A] CABG has a survival benefit in high risk individuals with complex coronary anatomy (left main stem, triple vessel disease).
@@ -471,7 +417,7 @@ A recent large trial (SYNTAX) comparing PCI (with DES) and CABG for triple vesse
 
 Ideally, revascularisation strategy should be decided by a "heart team" of cardiologists and surgeons considering coronary anatomy, co-morbidities and patient preferences.
 
-### 2.3.2.1. Indications for PCI as a Revascularisation Strategy
+#### 2.3.2.1: Indications For PCI As A Revascularisation Strategy
 Refer to Table 3: Indications for PCI in Stable CAD.
 
 KEY MESSAGES:
@@ -480,8 +426,7 @@ KEY MESSAGES:
 
 ---
 
-## 2.4. Non-Cardiac Surgery in the Post PCI Patient
-
+## 2.4: Non-Cardiac Surgery In The Post PCI Patient
 Patients with significant cardiac disease (unstable CAD, significant arrhythmias, decompensated HF, severe valvular stenosis) should be evaluated and treated prior to non-cardiac surgery.
 
 [Grade I, Level A] In patients with CAD, routine prophylactic coronary angiography and PCI is not recommended in stable patients undergoing non-cardiac surgery.
@@ -489,7 +434,6 @@ Patients with significant cardiac disease (unstable CAD, significant arrhythmias
 [Grade IIa, Level C] Patients with UA/NSTEMI, recent MI and Class III–IV angina (refer to Appendix VI: Classification of Angina Severity) should undergo appropriate revascularisation prior to elective surgery. Where PCI is chosen, POBA or BMS should be used instead of DES.
 
 Patients post PCI with DES requiring surgery face risks of either:
-
 - life-threatening surgical bleeding due to continued antiplatelet therapy
 - acute MI and cardiac death due to stent thrombosis from premature discontinuation of antiplatelet therapy
 
@@ -500,7 +444,6 @@ Peri-operative physicians, anaesthesiologists and surgeons should contact the pa
 Low risk surgical procedures (routine dental, simple skin procedures) should not justify cessation of dual antiplatelet therapy.
 
 Wherever possible, elective surgery should be deferred:
-
 - at least 4–6 weeks after BMS implantation
 - at least 1 year after DES implantation
 
@@ -516,8 +459,7 @@ KEY MESSAGES:
 
 ### Overlapped Reference Tables
 
-#### Grades of Recommendation
-
+#### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -526,15 +468,14 @@ KEY MESSAGES:
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-#### Levels of Evidence
-
+#### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
 | **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
-#### Table 1: Indications for PCI in STEMI
+Table 1: Indications For PCI In STEMI
 
 | INDICATIONS | Recommendation Level |
 |---|---|
@@ -557,7 +498,7 @@ KEY MESSAGES:
 | • Age < 75 years | [Grade II-a, Level B] |
 | • Age > 75 years | [Grade II-b, Level B] |
 
-#### Table 2: Indications for PCI in UA/NSTEMI
+Table 2: Indications For PCI In UA/NSTEMI
 
 | INDICATIONS | Recommendation Level |
 |---|---|
@@ -571,7 +512,7 @@ KEY MESSAGES:
 
 \* Refer to Appendix V (TIMI Risk Score for UA/NSTEMI)
 
-#### Table 3: Indications for PCI in Stable CAD
+Table 3: Indications For PCI In Stable Cad
 
 | INDICATION FOR PCI | Recommendation Level |
 |---|---|
@@ -592,7 +533,7 @@ KEY MESSAGES:
 
 \* The treatment of choice for patients with significant left main stem disease and 3-vessel disease is CABG.
 
-#### Table 5: Doses of Anti-Thrombotic Agents in UA/NSTEMI and During PCI\*
+Table 5: Doses Of Anti-Thrombotic Agents In UA/NSTEMI And During PCI\*
 
 | Agent | Setting | Dosing Regimen |
 |---|---|---|
@@ -611,8 +552,7 @@ KEY MESSAGES:
 
 ---
 
-### Abbreviations Used in this Section
-
+### Abbreviations Used In This Section
 - **ACE-I**: Angiotensin Converting Enzyme Inhibitors
 - **ARB**: Angiotensin Receptor Blockers
 - **BMS**: Bare Metal Stents
@@ -641,4 +581,3 @@ KEY MESSAGES:
 - **TVR**: Target Vessel Revascularisation
 - **UA**: Unstable Angina
 - **UFH**: Unfractionated Heparin
-

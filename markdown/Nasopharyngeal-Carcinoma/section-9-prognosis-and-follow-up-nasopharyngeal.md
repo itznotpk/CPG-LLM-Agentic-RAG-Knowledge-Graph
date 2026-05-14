@@ -1,5 +1,4 @@
-# SECTION 9: PROGNOSIS AND FOLLOW-UP
-
+# Section 9: Prognosis And Follow-Up
 <!-- METADATA
 category: Prevention, Assessment
 use_case: NPC Prognosis and Follow-Up — survival_rates, stage_based_prognosis, follow_up_schedule, recurrence_surveillance, second_primary_cancer
@@ -7,16 +6,14 @@ patient_input: TNM_stage, treatment_completed, time_since_treatment, symptom_sta
 output: prognosis_estimation, follow_up_schedule, surveillance_investigation_plan
 -->
 
-## 9.1 Prognosis
-
-[Level II-3] [Level III] Different prognostic categories (based on the difference in failure patterns) can be defined across different stages, as shown in **Table 2: Prognosis of Different NPC Stages**. These prognostic groupings have important implications for the selection of appropriate treatment strategies.
+## 9.1: Prognosis
+[Level II-3] [Level III] Different prognostic categories (based on the difference in failure patterns) can be defined across different stages, as shown in Table 2: Prognosis of Different NPC Stages. These prognostic groupings have important implications for the selection of appropriate treatment strategies.
 
 Males (p<0.05) and tumour with lymph nodes involvement (p<0.05) have poorer prognosis as compared with females and tumour confined to the primary site in 5-year LRFS. [Level II-3] The 5-year LRFS for male is 33.3% and for N1 patients is 35.0%.
 
 Distant metastasis is the most common mode of failure in NPC, followed by local recurrence. While a small percentage of locally recurrent NPC can be salvaged, the vast majority of distant metastasis succumbs to the disease. [Level II-3] However, patients with non-disseminated NPC (6.88%) survive two years or more after distant metastasis is diagnosed.
 
-## 9.2 Follow-up
-
+## 9.2: Follow-Up
 Radiotherapy acute toxicities usually take about one to two months to resolve and tumour will regress maximally within two to three months. Hence, the patients need to be reviewed post-radiotherapy to assess acute toxicities and manage accordingly.
 
 The aims of following-up patients after NPC treatment are:
@@ -38,13 +35,13 @@ The CPG DG and RC suggest the following procedures to be conducted on NPC patien
 There is no standard local follow-up schedule for NPC patients. However, the CPG DG and RC suggest the following schedule on NPC.
 
 ---
-## Contextual Anchors (Overlapping)
-### Section 8: Management of Complications
 
+## Contextual Anchors (Overlapping)
+
+### Section 8: Management Of Complications
 Post-radiotherapy complications such as oral and aural complications, and cranial nerve palsies are common in the treatment of NPC. Other late toxicities post-radiotherapy are listed in **Appendix 8: Toxicities of Radiotherapy on Head and Neck**.
 
-#### 8.1 Oral Complications
-
+## 8.1: Oral Complications
 The common oral complications post-radiotherapy are:
 - [Level II-3] xerostomia (80% to 100%)
 - [Level II-3] mucositis (60% from third to fourth week after the beginning of radiotherapy)
@@ -59,23 +56,20 @@ At present, there is no retrievable evidence on specific dental management in NP
 
 Treatment for xerostomia is limited. Locally, symptomatic relief such as frequent sipping of plain water and the use of moisturising mouth gel or gargle has been offered to the affected patients. [Level I] Although there is limited evidence available, pilocarpine is an efficacious and safe option of treatment.
 
-#### 8.2 Osteoradionecrosis
-
+## 8.2: Osteoradionecrosis
 Dental diseases increase the risk of osteoradionecrosis (ORN). Therefore, dental assessment prior to radiotherapy is essential to reduce the risks of ORN.
 
 Osteoradionecrosis of the skull base post-radiotherapy can be controlled by sequestrectomy combined with hyperbaric oxygen in majority of NPC patients. [Level III] In extensive cases, radical sequestrectomy with microvascular free flap reconstruction are justified. Long-term antibiotics can be used but may not be sufficient to treat an extensive disease.
 
-#### 8.3 Cranial Nerve Palsy
-
+## 8.3: Cranial Nerve Palsy
 There is no definite treatment for cranial nerve palsy post-radiotherapy in NPC patients. Symptomatic treatments such as nasogastric tube or gastrostomy tube feeding for dysphagia or aspiration may be offered. [Level III] In intractable aspiration secondary to radiation encephalopathy or radiation damage of cranial nerve, closure of laryngotracheal cavity and tracheostomy is an option. [Level III] Strabismus as a result of sixth cranial nerve palsy can be treated temporarily by Botulinum Toxin A injection.
 
-#### 8.4 Otitis Media with Effusion
-
+## 8.4: Otitis Media With Effusion
 Refer to **Section 7.2** under **Supportive Care**.
 
 ---
 
-### Table 2: Prognosis of Different NPC Stages
+Table 2: Prognosis Of Different Npc Stages
 
 | Stage | Prognosis |
 |---|---|
@@ -85,7 +79,7 @@ Refer to **Section 7.2** under **Supportive Care**.
 | T3-4 N2-3 | Local, regional and distant failure |
 
 ---
-### Table 3 : Follow-up Schedule of NPC Without Recurrence
+Table 3 : Follow-Up Schedule Of Npc Without Recurrence
 
 | Year after completion of treatment | Frequency of follow-up |
 |---|---|
@@ -98,9 +92,10 @@ Refer to **Section 7.2** under **Supportive Care**.
 *\*interval of follow-up may be adjusted based on clinical judgement*
 
 ---
-### Appendix 8: Toxicities of Radiotherapy on Head and Neck
 
-### ACUTE TOXICITIES
+### Appendix 8: Toxicities Of Radiotherapy On Head And Neck
+
+### Acute Toxicities
 - Lethargy
 - Radiation dermatitis
 - Mucositis
@@ -109,8 +104,7 @@ Refer to **Section 7.2** under **Supportive Care**.
 - Nausea and vomiting
 - Haematological toxicities (neutropaenia)
 
-### LATE TOXICITIES
-
+### Late Toxicities
 **Neurological Complications**
 - Temporal lobe injuries
 - Cranial nerve palsies
@@ -129,8 +123,7 @@ Refer to **Section 7.2** under **Supportive Care**.
 - Xerostomia
 - Second cancer within radiotherapy fields
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -143,8 +136,7 @@ Refer to **Section 7.2** under **Supportive Care**.
 
 ---
 
-## Abbreviations used in this section
-
+## Abbreviations Used In This Section
 | Abbreviation | Full Term |
 |---|---|
 | CI | Confidence Interval |

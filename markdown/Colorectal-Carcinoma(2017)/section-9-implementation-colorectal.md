@@ -1,16 +1,14 @@
-# SECTION 9: IMPLEMENTING THE GUIDELINES
-
+# Section 9: Implementing The Guidelines
 <!-- METADATA
 category: Reference
 use_case: Guidelines Implementation — clinical_audit, quality_indicators, resource_allocation, training, CPG_distribution
-patient_input: 
+patient_input:
 output: implementation_framework, audit_criteria, quality_benchmarks
 -->
 
 Implementation of CPG is important as it helps in providing quality healthcare services based on best available evidence applied to local scenario and expertise. Various factors and resource implications should be considered for the success of the uptake in the CPG recommendations.
 
-## 9.1 Facilitating and Limiting Factors
-
+## 9.1: Facilitating And Limiting Factors
 The facilitating factors in implementing the CPG are:
 1. availability of CPG to healthcare providers (hardcopies and softcopies)
 2. conferences and updates on management of CRC involving professional societies or bodies (Malaysian Society of Colorectal Surgeons, Malaysian Society of Gastroenterology & Hepatology, Malaysian Oncological Society)
@@ -20,8 +18,7 @@ Limiting factors in the CPG implementation include:
 1. limited awareness and knowledge in management of CRC among healthcare providers
 2. different levels of CRC care due to expertise, facilities and financial constraints
 
-## 9.2 Potential Resource Implications
-
+## 9.2: Potential Resource Implications
 To implement the CPG, there must be strong commitments to:
 1. ensure widespread distribution of CPG to healthcare providers via printed copies and online accessibility
 2. reinforce training of healthcare providers via regular seminars and workshops
@@ -40,8 +37,7 @@ x 100%
 
 Implementation strategies will be developed following the approval of the CPG by MoH which include Quick Reference and Training Module.
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -50,8 +46,7 @@ Implementation strategies will be developed following the approval of the CPG by
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CPG | Clinical Practice Guidelines |

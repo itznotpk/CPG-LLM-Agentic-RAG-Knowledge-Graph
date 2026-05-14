@@ -1,5 +1,4 @@
-# SECTION 19: APPENDICES
-
+# Section 19: Appendices
 <!-- METADATA
 category: Reference
 use_case: Appendices and Reference Tables — Killip_classification, TIMI_risk_score, GRACE_score, Sgarbossa_criteria, drug_dosing_tables
@@ -7,12 +6,10 @@ patient_input: clinical_parameters, scoring_variables
 output: risk_score_calculation, diagnostic_criteria_reference, drug_dosing_reference
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 
-## Appendix I: Difficulties in ECG Diagnosis of MI
-
+## Appendix I: Difficulties In ECG Diagnosis Of MI
 The following conditions may cause ECG changes that may be confused with that of STEMI:
-
 - Prior MI with Q-waves and/or persistent ST elevation.
 - Early repolarisation.
 - LBBB.
@@ -29,10 +26,9 @@ The following conditions may cause ECG changes that may be confused with that of
 
 In these difficult situations where the ECG is non-diagnostic, cardiac imaging techniques such as echocardiogram looking for presumed new wall motion abnormalities or elevation of cardiac biomarkers will help in making the diagnosis.
 
-## Appendix II: Elevations of Cardiac Troponin in the Absence of Overt Ischaemic Heart Disease
+## Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischaemic Heart Disease
 
-### Damage Related to Secondary Myocardial Ischaemia (MI Type 2)
-
+### Damage Related To Secondary Myocardial Ischaemia (MI Type 2)
 - Tachy- or bradyarrhythmias
 - Aortic dissection and severe aortic valve disease
 - Hypo- or hypertension, e.g., haemorrhagic shock, hypertensive emergency
@@ -41,8 +37,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - Coronary vasculitis, e.g., systemic lupus erythematosus, Kawasaki syndrome
 - Coronary endothelial dysfunction without significant CAD, e.g., cocaine abuse
 
-### Damage Not Related to Myocardial Ischaemia
-
+### Damage Not Related To Myocardial Ischaemia
 - Cardiac contusion
 - Cardiac incisions with surgery
 - Radiofrequency or cryoablation therapy
@@ -51,8 +46,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - Cardiotoxic agents, e.g., anthracyclines, herceptin, carbon monoxide poisoning
 - Severe burns affecting > 30% of body surface
 
-### Indeterminant or Multifactorial Group
-
+### Indeterminant Or Multifactorial Group
 - Apical ballooning syndrome
 - Severe pulmonary embolism or pulmonary hypertension
 - Peripartum cardiomyopathy
@@ -64,8 +58,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - Acute respiratory failure
 - Frequent defibrillator shocks
 
-## Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality
-
+## Appendix III: STEMI Timi Risk Score For Predicting 30-Day Mortality
 | Categories | Options | Points |
 |---|---|---|
 | Age (years) | < 65 | 0 |
@@ -84,10 +77,9 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - **Low and moderate risk:** 5 points and below (< 12% mortality)
 - **High-risk:** 6 points and above (16–36.0% mortality)
 
-## Appendix IV: GRACE ACS Risk Model
+## Appendix IV: Grace ACS Risk Model
 
 ### At Admission (In-Hospital/to 6 Months)
-
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -99,8 +91,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 | ST segment deviation | Yes / No |
 | Elevated cardiac enzymes/markers | Yes / No |
 
-### At Discharge (to 6 Months)
-
+### At Discharge (To 6 Months)
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -115,8 +106,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 | ST segment depression | Yes / No |
 | Elevated cardiac enzymes/markers | Yes / No |
 
-## Appendix V: CHA₂DS₂-VASc Score
-
+## Appendix V: Cha₂ds₂-Vasc Score
 | Categories | Options | Points |
 |---|---|---|
 | Age (years) | < 65 | 0 |
@@ -135,14 +125,12 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - CHA₂DS₂-VASc score 1 in men or 2 in women: **Moderate risk** — antiplatelet or anti-coagulation.
 - CHA₂DS₂-VASc score ≥ 2 in men and ≥ 3 in women: **Moderate to high risk** — should be anti-coagulated.
 
-## Appendix VI: Calculation of Creatinine Clearance and GFR for Drug Dosing Adjustments
-
+## Appendix VI: Calculation Of Creatinine Clearance And GFR For Drug Dosing Adjustments
 Creatinine clearance (CrCL) is determined by the Cockcroft-Gault (CG) Equation whereas eGFR can be derived from various equations including most commonly, the CKD-EPI Creatinine (CKD-EPI) and Modification of Diet in Renal Disease Study (MDRD) Equations.
 
 In a local population, CKD-EPI performs just as well as CKD-MDRD for GFR 60–89 ml/min and better at the other GFR levels.
 
-### Equations for Estimation of Renal Function
-
+### Equations For Estimation Of Renal Function
 **i. 2009 CKD-EPI Creatinine Equation:**
 
 141 × min(Scr/κ, 1)^α × max(Scr/κ, 1)^(−1.209) × 0.993^Age [× 1.018 if female] [× 1.159 if black]
@@ -162,8 +150,7 @@ Where the constant is **1.23 in males** or **1.04 in females**.
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CABG | Coronary Artery Bypass Grafting |

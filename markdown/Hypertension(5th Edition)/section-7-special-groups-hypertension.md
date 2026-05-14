@@ -1,5 +1,4 @@
-# SECTION 7: HYPERTENSION IN SPECIAL GROUPS
-
+# Section 7: Hypertension In Special Groups
 <!-- METADATA
 category: Treatment, Special Populations
 use_case: Hypertension Management in Special Groups — diabetes, chronic_kidney_disease, coronary_artery_disease, heart_failure, stroke, pregnancy, elderly, compelling_indications
@@ -8,22 +7,19 @@ output: group_specific_targets, preferred_drug_classes, contraindications, monit
 treatment_type: ACEI, ARB, CCB, beta_blockers, diuretics, methyldopa, labetalol, hydralazine, magnesium_sulphate, spironolactone
 -->
 
-## Hypertension in Special Groups
+## Hypertension In Special Groups
 
-## 7.1 Hypertension and Diabetes Mellitus
-
+## 7.1: Hypertension And Diabetes Mellitus
 From the Malaysian National Health and Morbidity Survey (NHMS) 2015, the prevalence of diabetes in those 18 years and above was 17.5%, and in the 18-19 years age group the prevalence was 5.5%, indicating that diabetics in Malaysia are generally younger.
 
 Hypertension is common in patients with diabetes mellitus. Its presence increases the risk of morbidity and mortality. In 2016 the prevalence of hypertension in Malaysian diabetics was 76%. Hypertension should be treated early in diabetes to prevent both microvascular and macrovascular complications and CV death.
 
-## 7.1.1 Threshold for Treatment
-
+### 7.1.1: Threshold For Treatment
 Pharmacological treatment should be initiated in patients with diabetes when the BP is persistently ≥140 mmHg systolic and/or ≥90 mmHg diastolic.
 
 [Level I] The presence of microalbuminuria or overt proteinuria should be treated even if the BP is <140/90 mmHg. An ACEI or ARB is preferred. [Level I] In a proportion of patients, microalbuminuria may be normalised by high doses of ACEIs or ARBs even if the BP is already optimally controlled. Normalisation of microalbuminuria is associated with a reduction in the rate of decline in glomerular filtration rate.
 
-## 7.1.2 Target Blood Pressure
-
+### 7.1.2: Target Blood Pressure
 [Level I] Tight BP control should take precedence over the class of anti-hypertensive drug used. This will often require combination therapy.
 
 [Level I] Prior to the ACCORD study, it was generally accepted that for diabetics, the lower the BP the better the outcomes. However, in the ACCORD Study, diabetic patients at high risk of cardiovascular events who were randomised to a target systolic blood pressure (SBP) of <120 mmHg, did not show a reduction in the composite outcome of CV death, myocardial infarct and stroke, as compared with <140 mmHg. This could possibly be due to the J-curve phenomenon seen in this particular cohort of patients who had underlying cardiovascular disease at baseline. This is supported by a more recent population based analysis.
@@ -34,14 +30,11 @@ Other reports emphasise that major trials like ACCORD incorporate elderly patien
 
 The targets recommended by Malaysian CPG have been consistent over the years; and the studies above confirm that generally the target BP should be aimed at <140/80 mmHg, with a target of <130/80 mmHg in younger patients and those at higher risk of cardiovascular disease. However, in diabetics with established CAD further lowering of the BP beyond 120/80 mmHg does not confer additional cardiovascular benefit.
 
-## 7.1.3 Management
-
+### 7.1.3: Management
 The management of the hypertensive diabetic will involve healthy living changes as well as drug treatment.
 
-## 7.1.4 Principles of Pharmacological Management
-
+### 7.1.4: Principles Of Pharmacological Management
 The use of certain classes of anti-hypertensive drugs may be detrimental to the diabetic patient because of their modes of action or adverse effects. Diabetes control may be compromised and diabetic complications aggravated, for example:
-
 - decreased insulin responsiveness with higher doses of diuretics
 - masking of the early symptoms of hypoglycaemia with β-blockers and slower recovery from hypoglycaemia with non-selective β-blockers
 - aggravation of the symptoms of peripheral vascular disease with β-blockers
@@ -60,16 +53,14 @@ For type 1 diabetes with nephropathy, ACEIs are the recommended agent. For type 
 
 The SGLT2 inhibitors are a new class of oral anti-diabetic agents. In addition to lowering blood sugar levels, they lower the BP modestly but consistently. However, the mechanism by which BP is lowered is unknown. In the [Level I]  EMPA-REG trial and the [Level I] CANVAS Program, the SBP was lowered by a mean of 5.0 and 3.9 mmHg respectively. In the two trials, the composite endpoints of CV death, myocardial infarct and strokes was also reduced. The reduction in the composite endpoints may however, not be related to BP reduction and the underlying mechanism in improving CV outcome is also unknown.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade A] Initiate ACEIs in diabetes without proteinuria. Use ARB for ACEI intolerant patients.
 - [Grade A] Initiate ACEIs or ARBs in patients with diabetes and proteinuria.
 - [Grade B] Consider CCBs, diuretics or β-blockers if RAS blockers cannot be used.
 
-## 7.2 Hypertension and Renal Diseases
+## 7.2: Hypertension And Renal Diseases
 
-## 7.2.1 Hypertension and Non-Diabetic Chronic Kidney Disease
-
+### 7.2.1: Hypertension And Non-Diabetic Chronic Kidney Disease
 Hypertension may be a cause or consequence of chronic kidney disease (CKD). CKD is one of the commonest causes of secondary hypertension. Hypertension in CKD is often associated with an elevated serum creatinine, proteinuria and/or haematuria. The prevalence of hypertension increases with increasing levels of renal impairment, and approximately 50-75% of individuals with GFR <60 ml/min/1.73m² (CKD stages 3-5) have hypertension. Hypertension accelerates the progression of CKD and may lead to end stage renal disease (ESRD). In addition, CKD is associated with an increased risk of cardiovascular disease. [Level I] There are proven benefits of blood pressure lowering for prevention of cardiovascular events in patients with moderately reduced kidney function as well as those on dialysis.
 
 [Level I] Tight control of BP in patients with CKD is therefore important. BP goals depend on urinary protein excretion. [Level I] The target BP should be <140/90 mmHg for patients with CKD and <130/80 mmHg for those with proteinuria ≥1g/24hours. [Level II-2] Where well tolerated, aiming towards an Automated Office Systolic BP of 120mmHg in patients aged >50 years with nondiabetic nephropathy, GFR>20 ml/min/1.73m² and proteinuria <1g/day has shown cardiovascular benefits. When aiming towards <120 mmHg systolic, close monitoring is recommended to detect treatment-related adverse effects including hypotension, syncope, electrolyte abnormalities and acute kidney injury. All anti-hypertensive drug classes can be used to achieve this goal.
@@ -84,14 +75,12 @@ Hypertension may be a cause or consequence of chronic kidney disease (CKD). CKD 
 
 [Level I] Calcium channel blockers may be used in renal disease. In those with proteinuria, the non-dihydropyridine group of CCBs namely diltiazem or verapamil are preferred, as they have an additional anti-proteinuric effect. Dihydropyridine CCBs can be considered if optimal BP is not achieved but should not be used as monotherapy in patients with proteinuria. [Level II-2] The combination of an ACEI and a non-dihydropyridine CCB is more antiproteinuric than either drug alone.
 
-## SUMMARY
-
+## Summary
 - BP goals depend on urinary protein excretion.
 - Anti-hypertensive agents that reduce proteinuria have an advantage in patients with nondiabetic proteinuric nephropathy.
 - ACEI and ARBs confer an anti-proteinuric effect greater than other anti-hypertensive drugs.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade A] Patients with proteinuria of <1g/24 hours, lower BP to <140/90 mmHg.
 - [Grade A] In patients with proteinuria of >1g/24 hours, lower BP to <130/80 mmHg.
 - [Grade B] In patient >50 years, GFR >20 ml/min/1.73m² and proteinuria <1g/day lower SBP <120 mmHg using Automated Self-measured Office BP to reduce cardiovascular event.
@@ -100,10 +89,8 @@ Hypertension may be a cause or consequence of chronic kidney disease (CKD). CKD 
 - [Grade A] Add non-dihydropyridine CCBs if BP goal is still not achieved and there is persistent proteinuria.
 - [Grade A] Avoid dual RAS blockade in patients with CKD.
 
-## 7.2.2 Renovascular Hypertension
-
+### 7.2.2: Renovascular Hypertension
 Renovascular hypertension (RVH) is defined as a rise in arterial pressure attributable to reduced perfusion of the kidney(s). It is important to diagnose renovascular hypertension as it is potentially reversible. Treatment also has the potential to restore or preserve renal function. The aetiology of renovascular hypertension includes the following:
-
 - Atherosclerotic renovascular disease
 - Fibromuscular dysplasia
 - Takayasu's arteritis
@@ -112,7 +99,6 @@ Renovascular hypertension (RVH) is defined as a rise in arterial pressure attrib
 Atherosclerotic renal artery stenosis (ARAS) is an important cause as it can lead to ESRD. It is also associated with coronary heart disease, cerebrovascular disease and peripheral vascular disease. In patients with ARAS older than 60 years, the five-year-survival is 45% in patients with bilateral ARAS and 18% in those requiring dialysis therapy.
 
 The presence of a stenotic renal vessel in a patient with hypertension does not necessarily equate to RVH. Some clinical features suggestive of RVH include:
-
 - onset of hypertension before 30 years, especially without family history
 - recent onset of hypertension after 55 years or deterioration in BP control in a previously well-controlled patient
 - resistant hypertension
@@ -127,7 +113,6 @@ Renal angiography including measurement of the pressure gradient remains the gol
 All patients with ARAS require intensive medical therapy. ACEIs or ARBs are recommended to control blood pressure and reduce clinical events in those with known cardiovascular disease. Medical treatment includes statins, low dose aspirin, cessation of smoking and management of diabetes when present. This approach can be considered for patients with stenosis less than 70% or those with stable renal function and good BP control despite radiological evidence of stenosis >70%. These lesions should be monitored for progression using colour duplex sonography and the renal function of patients must be carefully monitored. A persistent rise in creatinine of >30% over 2 months warrants cessation of ACEI/ARB drug therapy. This is best done under specialist's supervision.
 
 If revascularisation is required, it is usually achieved by percutaneous angioplasty with stenting or surgical revascularisation in patents with complex anatomic lesions. Revascularisation should be considered under the following circumstances:
-
 - A short duration of blood pressure elevation prior to the diagnosis of RVH
 - Recurrent flash pulmonary oedema or refractory heart failure
 - Resistant hypertension
@@ -138,19 +123,16 @@ If revascularisation is required, it is usually achieved by percutaneous angiopl
 
 [Level II-2] Patients with fibromuscular dysplasia (FMD) rarely have excretory dysfunction, and hypertension in these patients generally responds to ACEIs. [Level III] Given the typical patient with FMD (young female with lower angioplasty-related risks, the need for many years of anti-hypertensive treatment plus limitations of RAS blockers during pregnancy), most clinicians would probably favour angioplasty for patients with FMD. However, the benefits of angioplasty may be limited. The chance of achieving normal BP without anti-hypertensive agents is less than 30%, although some improvement in BP may be expected in an additional 50% or more.
 
-## SUMMARY
-
+## Summary
 - Optimal medical management of ARAS includes ACEI or ARB for blood pressure control and reduction of CV events, statins, low dose aspirin and glycaemic control.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade B] Patients with RVH due to ARAS should be primarily medically managed because renal angioplasty and stenting has not shown any advantage over optimal medical therapy alone.
 - [Grade B] Patients with RVH due to FMD should be considered for revascularisation.
 
-## 7.3 Hypertension and Heart Disease
+## 7.3: Hypertension And Heart Disease
 
-## 7.3.1 Hypertension and Coronary Heart Disease
-
+### 7.3.1: Hypertension And Coronary Heart Disease
 Hypertension is the major risk factor for atherosclerosis, driving overall CV risk, thus sustained good control is important. This is especially important in the presence of other risk factors. Multiple CHD risk factors combine as multipliers, to increase CHD risk that is greater than the sum of its individual components. Management of patients with hypertension should consider the individual's absolute CHD risk. (Refer Table 3-D: Risk Stratification) The decision to initiate drug treatment should take this into consideration.
 
 [Level I] Although the recommended target is <140/90 mmHg, in those at high CV risk in whom it is deemed safe on clinical grounds, and in whom drug therapy is well tolerated, aiming for a lower blood pressure may be considered.
@@ -165,8 +147,7 @@ Combination therapies, with suitable drugs should be considered to reduce advers
 
 [Level I] The blood pressure target in patients with hypertension and CHD is <130 / <80 mmHg.
 
-## 7.3.2 Hypertension and Heart Failure
-
+### 7.3.2: Hypertension And Heart Failure
 Hypertension is the most frequent underlying cause of heart failure. Chronic, uncontrolled hypertension can cause heart failure with reduced ejection fraction (≤40%) (HFrEF).
 
 In hypertensive patients with HFrEF, hypertension aggravates heart failure by increasing left ventricular afterload, promoting left ventricular remodeling and progression of myocardial damage. Hypertension treatment is important for improving the long-term prognosis.
@@ -179,15 +160,13 @@ In patients with heart failure with preserved ejection fraction >50% (HFpEF), bl
 
 Should hypertension be persistent in spite of ACEI / ARB, aldosterone antagonist and/or β-blocker, CCBs which are not negatively inotropic, such as amlodipine and felodipine, can be added. These patients should also be on loop diuretics for symptomatic relief.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade A] Use β-blockers, ACEIs or ARBs in post myocardial infarction patients to reduce recurrent myocardial infarction and death.
 - [Grade A] Initiate β-blockers, ACEIs and Aldosterone antagonists in patients with systolic heart failure to reduce morbidity and mortality.
 - [Grade A] Use ARBs or ACEIs and aldosterone antagonist in heart failure patients with preserved ejection fraction to reduce morbidity including hospitalisation.
 - Treat blood pressure to <140 / <90 mmHg.
 
-## 7.3.3 Hypertension and Atrial Fibrillation
-
+### 7.3.3: Hypertension And Atrial Fibrillation
 Hypertension is the most important risk factor for new onset of atrial fibrillation (AF) of which it increases the risk of cardiogenic cerebral embolism. In the presence of AF, the incidence of cardiovascular events and mortality increases by 2.5-fold. In particular, left ventricular hypertrophy and left atrial enlargement are independent risk factors for new onset of atrial fibrillation. When antihypertensive treatment leads to the regression of left ventricular hypertrophy, the incidence of atrial fibrillation decreases.
 
 Hypertension further increases the risks of stroke and arterial embolism in patients with chronic atrial fibrillation.
@@ -202,16 +181,14 @@ For rate-control of permanent atrial fibrillation, β-blockers or non-dihydropyr
 
 The blood pressure target is <140/90 mmHg.
 
-## 7.3.4 Hypertension and Peripheral Arterial Disease
-
+### 7.3.4: Hypertension And Peripheral Arterial Disease
 Hypertension and peripheral arterial disease (PAD) can co-exist. The risk factors for PAD include hypertension, diabetes, current smoking and dyslipidaemia. As atherosclerosis is a systemic vascular disease; diffuse atherosclerosis, CAD, and renovascular disease often coexist in these patients. 2-5% of patients with hypertension have intermittent claudication and 25-55% of patients with peripheral arterial disease present with hypertension.
 
 Patients with PAD have almost three times the risk of a cardiovascular event and death. They should be screened for atherosclerotic disease of the other systems. Control of hypertension in patients with PAD is poor. The aim of treatment in PAD is both symptom relief and prevention of cardiovascular events. There is no consensus on the treatment of choice for hypertensive patients with PAD, although sub-analysis of major trials showed benefits of ACEI in patients with PAD. β-blockers may cause vasoconstriction and worsen frequency of intermittent claudication. They may be used with caution in patients with compelling indications (CHD and/or HF). Should patients present with Raynaud's phenomenon, consider CCBs which have vasodilating properties. Cilostazol has been shown to be useful especially in the elderly with disabling peripheral arterial disease. In addition to these medications, patients should stop smoking. Other therapies including LDL-cholesterol lowering and better control of diabetes are also recommended.
 
 [Level II-2] The blood pressure target is <140/90 mmHg.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade B] Treat blood pressure in hypertensives with peripheral arterial disease (PAD) to <140/90 mmHg.
 - [Grade C] Use any antihypertensive except β-blockers as first choice.
 - [Grade B] Give ACEI to patients with PAD to prevent vascular events.
@@ -220,47 +197,39 @@ Patients with PAD have almost three times the risk of a cardiovascular event and
 - Ensure other concurrent risk factors (especially diabetes, dyslipidaemia) are optimally managed.
 - [Grade A] Prescribe antiplatelet agent unless contraindicated.
 
-## 7.3.5 Hypertension and Left Ventricular Hypertrophy (LVH)
-
+### 7.3.5: Hypertension And Left Ventricular Hypertrophy (Lvh)
 Left Ventricular hypertrophy is caused by pressure load and often regresses through long-term antihypertensive treatment. Those with LVH are at risk of premature cardiovascular events or death.
 
 The most important factor in the regression of cardiac hypertrophy is good BP control. Hence all antihypertensives currently used can reduce cardiac hypertrophy through sustained control of blood pressure. Regression of LVH can also be achieved by weight reduction and salt restriction. Echocardiography is more sensitive than ECG for detection of LVH. Several studies have suggested that BP lowering leads to regression of LVH. [Level I] To reduce clinical outcome, ARBs are preferred in hypertension with LVH on ECG.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade A] Target BP <130/80 mmHg.
 - [Grade A] Use ARBs as treatment of choice in hypertensive patient with LVH on ECG.
 
-## 7.4 Hypertension and Stroke
-
+## 7.4: Hypertension And Stroke
 Hypertension is the most important modifiable risk factor for ischaemic stroke (IS) and haemorrhagic stroke (HS). Blood Pressure levels are consistently shown to be associated with the risk for stroke. Although both SBP and DBP are associated with stroke, SBP is more predictive. Data from the Malaysian National Stroke Registry (NSR) showed that more than 75% out of the 1018 patients included in the registry has hypertension as its major risk factor.
 
 Worldwide, 15 million people suffer from stroke annually. Of these, 5 million die and another 5 million are left permanently disabled. It is presently among the top four leading causes of death in ASEAN countries. In Malaysia, stroke is the leading cause of death and disability in adults. Its incidence has alarmingly increased annually by 29.5% (ischaemic stroke) and 18.7% (haemorrhagic stroke).
 
-## 7.4.1 Primary Prevention of Stroke
-
+### 7.4.1: Primary Prevention Of Stroke
 [Level I] Systematic reviews of 17 primary prevention trials involving a total of 47,000 participants showed that lowering SBP by 10-12 mmHg and DBP by 5-6 mmHg leads to a 38% reduction in the risk of stroke.
 
 [Level I] The benefits have been shown in both systolic-diastolic hypertension and in isolated systolic hypertension. All classes of antihypertensives have the potential to prevent stroke. [Level I] Calcium channel blockers in particular, provided significantly better protection against stroke compared with diuretics and/or β-blockers in [Level I] Asian and [Level I] Caucasian populations. In the [Level I] elderly and [Level I] very elderly hypertensives, diuretics has been shown to prevent stroke.
 
-## 7.4.2 Treatment of Hypertension in Acute Stroke
-
+### 7.4.2: Treatment Of Hypertension In Acute Stroke
 Treatment of elevated BP in acute stroke is controversial. Stress-related high BP values (>140/90 mmHg) are present in up to 80% of patients with acute stroke while almost 25% of patient presents with markedly raised SBP values >180 mmHg. In a majority of patients, a decline in blood pressure without any specific medical treatment will occur within days or weeks. A slightly higher systemic BP is required to maintain the cerebral perfusion in the situation of increased intracranial pressure, partial thrombosis and disturbed cerebral perfusion (refer to Figure 7.4-A: Treatment Algorithm for Acute Stroke).
 
-## 7.4.2.1 Ischaemic Stroke (IS)
-
+#### 7.4.2.1: Ischaemic Stroke (Is)
 [Level III] Current guidelines recommend that treatment of hypertension in acute IS should be delayed for several days or up to 2 weeks after an IS unless there is hypertensive encephalopathy, severe left ventricular failure, acute renal failure, acute myocardial infarction, aortic dissection, acute pulmonary oedema or repeated BP readings reveal SBP values >220 mmHg and DBP >120 mmHg. (Table 7.4-A: Current Guideline for the Management of Blood Pressure in Acute Phase of Ischaemic and Haemorrhagic Stroke*). Existing antihypertensive medications during the acute phase of stroke should be deferred until patients have suitable enteral access and are medically and neurologically stable.
 
 In cases where acute BP reduction is indicated, BP lowering should be done cautiously targeting BP reduction of 10 to 20% from the baseline BP over 24 hours. More profound BP reductions (>20%) have been associated with neurological and functional worsening. BP management in patients for thrombolysis/thrombectomy will not be discussed in this guideline (Discussed in the ischaemic stroke CPG).
 
-## 7.4.2.2 Haemorrhagic Stroke (HS)
-
+#### 7.4.2.2: Haemorrhagic Stroke (Hs)
 [Level III] Current recommendations for treatment of elevated BP levels in patients with acute HS are more aggressive than those with IS (Table 7.4-A: Current Guideline for the Management of Blood Pressure in Acute Phase of Ischaemic and Haemorrhagic Stroke*). [Level I] Both the Antihypertensive Treatment of Acute Cerebral Hemorrhage (ATACH) trial, a 4-tier dose-escalation study of intravenous nicardipine-based BP lowering in 80 patients within 3 hours of ICH, and the pilot phase Intensive Blood Pressure Reduction in Acute Cerebral Hemorrhage [Level I] (INTERACT1) trial in 404 mainly Chinese patients within 6 hours of ICH found rapid reduction of SBP to <140 mmHg to be safe. The [Level I] INTERACT2 trial has shown no increase in death or serious adverse events from early intensive BP lowering in eligible patients with elevated SBP. INTERACT2 trial and subsequent meta-analysis have suggested that acute aggressive lowering of SBP to ≤140 mmHg within 3-6 hours of onset provide some evidence to indicate improved functional recovery. The more recent ATACH-II trial enrolled patients within 4.5 hours of ICH onset. They were randomly assigned to blood pressure reduction with intravenous nicardipine to achieve systolic pressures in the range of 140 to 179 mmHg (standard care) or 110 to 139 mmHg (intensive blood pressure lowering). This trial took more aggressive and faster approach in BP lowering. Unfortunately, it did not show any significant outcome in mortality and functional recovery. There were significantly more renal adverse events within 7 days after randomisation in the intensive-treatment group.
 
 [Level III] Parenteral agents, such as labetalol or nicardipine that are easily titrated and have minimal vasodilatory effects on cerebral blood flow are preferred. Otherwise, easily titratable intravenous medications can also be used. The use of sublingual nifedipine should be avoided because of the risk of abrupt BP reduction and possible worsening ischaemia.
 
-## 7.4.3 Secondary Prevention of Stroke
-
+### 7.4.3: Secondary Prevention Of Stroke
 Patients who have had a stroke or a Transient Ischaemic Attack (TIA) are at increased risk of future stroke, especially in the following few months. Annual recurrence rate is 12.5% per year. Survival rates decreased from 63.7%, 42.8% and 24% at 1, 5 and 10 years respectively. Of those who survived at 10 years, almost a third had poor range of clinical outcomes.
 
 Lowering BP has been shown to reduce the risk of subsequent strokes. Meta analyses of randomised controlled trials confirm approximately 30-40% reduction in stroke risk with blood pressure lowering.
@@ -271,8 +240,7 @@ Lowering BP has been shown to reduce the risk of subsequent strokes. Meta analys
 
 [Level III] The target BP after a stroke is less clear. More recent guidelines suggested a target of <140/90 mmHg but [Level I] the most recent major outcome trial suggest that for patients with recent lacunar stroke, a target of <130/80 mmHg is [Level I] beneficial especially for prevention of intracranial haemorrhage.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade A] Treat blood pressure to prevent both primary and secondary stroke.
 - [Grade C] Do not lower SBP <180 mmHg in the first 2 weeks in acute ischaemic stroke patients unless hypertensive emergencies co-exist.
 - [Grade C] Do not lower SBP to <140 mmHg in patients presenting within 6 hours of haemorrhagic stroke (HS) and BP of <220 mmHg.
@@ -281,9 +249,7 @@ Lowering BP has been shown to reduce the risk of subsequent strokes. Meta analys
 - [Grade A] Lower BP to be <140/90 mmHg in both normotensive and hypertensive patients for secondary prevention.
 - [Grade A] Lower BP to <130/80 mmHg for secondary prevention in lacunar stroke.
 
-
-## 7.5 Hypertension in the Older Adults
-
+## 7.5: Hypertension In The Older Adults
 Hypertension is a very common modifiable risk factor for cardiovascular morbidity and mortality in older people. The definition of hypertension in the older adult (>65 years old) is the same as that of the general adult population. Hypertension is an increasingly important public health concern as our population ages. The prevalence of hypertension in adults >65 in Malaysia has been reported to be 71.7%, and the proportion of older adults in Malaysia is expected to increase from 9.0% in 2017 to 15% of the total population by 2030.
 
 Hypertension magnifies the risk for cardiovascular disease, with each 20 mmHg increase in systolic blood pressure and 10 mmHg increase in diastolic BP associated with a doubling in risk of death from stroke and coronary artery disease. In older adults, the risk of cardiovascular events and death is twice as that observed in younger individuals at same levels of BP. SBP increases linearly with age, leading to an increase in prevalence of isolated systolic hypertension in the older adult. SBP is a better predictor of cardiovascular events than DBP.
@@ -294,36 +260,29 @@ Despite the profusion of published data, there remains ongoing debate regarding 
 
 [Level I] Current evidence supports treating the older adult to a target SBP of <150 mmHg to improve all cardiovascular outcomes. [Level I] There is some evidence that targeting a SBP of <140 mmHg may be beneficial, especially in reducing risk of stroke, whilst a recent trial supports even stricter targets (SBP <130 mmHg).
 
-## 7.5.1 Considerations in the Older Adults
-
+### 7.5.1: Considerations In The Older Adults
 Hypertension management in older adults are often complicated by the various pathologies associated with aging. There are numerous challenges including multiple comorbidities, postural hypotension, falls, functional and cognitive impairment and frailty. These conditions frequently overlap. The absolute benefit of aggressive BP treatment in older adults with multiple comorbidities and frailty is not well known.
 
-## 7.5.1.1 Multiple Comorbidities
-
+#### 7.5.1.1: Multiple Comorbidities
 Multiple morbidity increases with age and its prevalence is estimated to be about 65% and 82% for those aged 65-84 and 85 years and above respectively. Multimorbidity is defined as the presence of 2 or more long term conditions. At least two-thirds of hypertensive patients have another chronic disease.
 
 There is limited evidence from randomised controlled trials to guide management of hypertension in this group of patients. [Level II-2] Observational studies imply that a SBP of 140-160 mmHg is associated with better mortality outcomes in older adults with impaired physical or cognitive functioning. [Level II-2] Observational data have also found that treating to lower targets (SBP <120 mmHg and DBP <70 mmHg) may increase the risk of death and cardiac events in older high-risk individuals (those with CAD, LVH and diabetes mellitus), supporting a J-curve association between both SBP and DBP and adverse outcomes in older persons.
 
-## 7.5.1.2 Polypharmacy and Adverse Drug Reactions
-
+#### 7.5.1.2: Polypharmacy And Adverse Drug Reactions
 Polypharmacy is another feature associated with older adults and has been shown to be related to poor outcomes including postural hypotension, falls, electrolyte disturbances, heart failure, hospitalisation and mortality. Antihypertensives commonly contribute to polypharmacy in older adults. Adverse drug reactions are more frequent and often more severe in older adults due to physiological changes affecting drug pharmacokinetics and pharmacodynamics, presence of multiple comorbidities, and polypharmacy. Therefore, it is important to critically evaluate the need for each medication.
 
-## 7.5.1.3 Postural Hypotension and Falls
-
+#### 7.5.1.3: Postural Hypotension And Falls
 Advancing age is associated with an independent increase in prevalence of postural hypotension. Postural hypotension is defined as a sustained reduction in SBP of at least 20 mmHg or DBP of 10 mmHg from lying to standing position. In symptomatic older adults it is recommended to check BP up to 3 minutes of standing. [Level II-1] Both uncontrolled hypertension, especially ISH, and aggressive BP treatment have been associated with postural hypotension. [Level II-2] Postural hypotension, symptomatic or not, is associated with falls in older adults. [Level III] Less strict BP targets may therefore be acceptable in the very elderly, the frail, those with multimorbidities and previous fallers.
 
-## 7.5.1.4 Cognition
-
+#### 7.5.1.4: Cognition
 In addition to cardiovascular disease, another pertinent health concern for the ageing Malaysian population is cognitive decline and dementia. Dementia has a devastating impact on quality of life, and is associated with significant escalation of healthcare expenditure. [Level II-2] Hypertension in midlife (40-65 years old) has been found in longitudinal studies to be a risk factor for developing cognitive decline in later life. Hypertension predisposes mainly to development of vascular cognitive impairment, but has also been found to be a risk factor for Alzheimer's pathology.
 
 Evidence from randomised controlled trials on the effect of antihypertensive treatment on incident cognitive decline and dementia in older adults has largely been negative, due to most trials being of insufficient duration, although observational studies of up to 20 years suggest a benefit. Conversely, observational data suggest that aggressive treatment of hypertension (to <130 mmHg SBP and <70 mmHg DBP) in older adults is associated with increased risk of new-onset cognitive impairment, and more rapid cognitive decline in individuals with established dementia.
 
-## 7.5.1.5 Frailty
-
+#### 7.5.1.5: Frailty
 Frailty increases in the older adult, especially in those over 80. It is defined as increased vulnerability to physical stressors as a result of reduced physiological reserve. The HYVET trial showed benefit of treating hypertension in adults >80 years of age and did not find any effect of frailty on the benefit of hypertensive treatment. However, it should be noted that HYVET excluded the very frail. [Level II-1] Post-hoc analysis of the SHEP trial found that the benefit of treatment on cardiovascular and all-cause mortality disappeared in those with functional impairment. [Level II-2] Observational studies have also demonstrated the importance of frailty status on hypertension and outcomes. Therefore, results from the HYVET and SPRINT trials which support treatment in the very elderly and intensive therapy respectively need to be interpreted with caution. Goals should be driven by patients' functional status and comorbidities.
 
-## 7.5.2 Assessment
-
+### 7.5.2: Assessment
 Recommendations for BP measurements in older adults are similar to those for the general population. If there is presence of postural hypotension, the standing BP is used to guide treatment decisions.
 
 It is very important to ascertain hypertension and the true level of BP before commencing or adding pharmacological therapy. We advocate multiple readings using an automated office blood pressure monitor after up to 3 minutes of quiet rest.
@@ -332,8 +291,7 @@ Evaluation of older patients with hypertension should not differ from that of yo
 
 [Level II] Where appropriate, one should consider a formal frailty assessment using one of the validated tools. At a minimum, one should observe for a reduction in mobility, decreased functional ability and impaired cognition.
 
-## 7.5.3 Treatment
-
+### 7.5.3: Treatment
 The >65's are the most medically heterogeneous population and a simple 'one size fits all' approach would not be appropriate. Individualised decision in the context of comorbidities and patient tolerance to medication(s) is important.
 
 Therapy should be started cautiously with monotherapy at a low dose and titrated upwards slowly. The patient should be reviewed frequently in the initial stage (2 - 4 weeks). Initiation with combination therapy is not encouraged and considered only after failure of initial therapy.
@@ -342,23 +300,19 @@ In the presence of ADRs such as postural hypotension and falls, de-prescribing s
 
 Treat the older adult when SBP is >160 mmHg. Treatment targets are as stated below:
 
-## Non-pharmacological Management (refer to Section 4)
-
+## Non-Pharmacological Management (Refer To Section 4)
 [Level I] Non-pharmacological interventions, particularly sodium restriction and weight loss, have been proven to be efficacious in the older adults. Refer to Section 4 for more on non-pharmacological methods.
 
-## 7.5.4 Conclusion
-
+### 7.5.4: Conclusion
 There are many challenges in treating hypertension in the older adult. Managing blood pressure in isolation is not conducive to achieving a patient-centered approach. BP targets depend on many factors unique to each patient. Healthcare providers must be mindful that in older adults, additional aspects must be considered before starting therapy. These include frailty, physical and cognitive functioning, and tolerance to treatment. Less strict BP targets may be considered in certain situations.
 
-## SUMMARY
-
+## Summary
 - Treatment of hypertension in the older adult, particularly of high SBP, significantly reduces the risk of all-cause mortality, cardiovascular mortality, and cardiovascular events (myocardial infarction, heart failure and stroke), even in the very elderly.
 - There is strong evidence of benefit for treating to target SBP <150 mmHg.
 - There is some evidence for treating to even lower target SBPs in certain subgroups of older adults.
 - Older patients with multimorbidities, cognitive or functional impairment and frailty are under represented in randomised control trials for hypertension. Observational studies suggest worse outcomes in these patients.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade C] Measure standing BP and use it to guide treatment decision.
 - [Grade C] Assess comprehensively to confirm hypertension.
 - [Grade C] Assess for frailty, mobility, function, cognition, nutrition, postural hypotension and falls.
@@ -368,18 +322,15 @@ There are many challenges in treating hypertension in the older adult. Managing 
 - [Grade A] Consider SBP <130 mmHg in fit 65-80 year olds.
 - [Grade C] Apply less strict targets for the frail, functionally and/or cognitively-impaired, those with multi-morbidities and those with adverse reactions from therapy. Consider de-prescribing in this group of patients.
 
-## 7.6 Hypertension in Women
+## 7.6: Hypertension In Women
 
-## 7.6.1 Hypertension in Pregnancy
-
+### 7.6.1: Hypertension In Pregnancy
 Hypertension in pregnancy is defined as systolic blood pressure (SBP) ≥140 mmHg and/or diastolic blood pressure (DBP) ≥90 mmHg. An increase of SBP of 30 mmHg and DBP of 15 mmHg above baseline BP is no longer recognised as hypertension if absolute values are below 140/90 mmHg. Nevertheless, this warrants close observation, especially if proteinuria and hyperuricaemia are also present. [Level III] Korotkoff V should be used as the cut-off point for DBP, and Korotkoff IV utilised only when Korotkoff V is absent. The gold standard tool to measure blood pressure in preeclampsia is still the mercury sphygmomanometer. In the absence of a mercury sphygmomanometer, an automated blood pressure measuring device can be used provided it is calibrated annually against the mercury sphygmomanometer. Automated devices are acceptable for BP measurement in pregnancy based on a prospective study, which showed that there was no difference in the maternal and fetal outcomes despite lower DBP reading using the automated device.
 
-## 7.6.1.1 Proteinuria
-
+#### 7.6.1.1: Proteinuria
 Significant proteinuria in pregnancy is defined as ≥300 mg protein in a 24-hour urine sample, or a spot urine protein-creatinine ratio ≥30 mg/mmol. If the dipstick is the only test available, 2+ is approximated to ≥300 mg/day proteinuria. Significant proteinuria reflects advanced disease and is associated with poorer prognosis.
 
-## 7.6.1.2 Classification
-
+#### 7.6.1.2: Classification
 There are various classifications for Hypertension in Pregnancy. The most recent is by the International Society for the Study of Hypertension in Pregnancy (ISSHP).
 
 1. **Preeclampsia (PE): de novo or superimposed on chronic hypertension**
@@ -416,8 +367,7 @@ There are various classifications for Hypertension in Pregnancy. The most recent
 
 4. **Chronic hypertension is hypertension diagnosed prior to 20 weeks gestation or presence of hypertension preconception, or de novo hypertension in late gestation that fails to resolve three months postpartum.**
 
-## 7.6.1.3 Key Points in Primary Care Practice
-
+#### 7.6.1.3: Key Points In Primary Care Practice
 The primary care physician plays an important role in the prevention and early detection of PE and its complications. An obstetrician should lead the joint management of women with hypertensive disorders in pregnancy.
 
 1. **Preconception counseling and adjustment of treatment in women with chronic hypertension.**
@@ -463,8 +413,7 @@ The primary care physician plays an important role in the prevention and early d
 
    [Level II-2] Patient and healthcare provider education on the importance of signs and symptoms of preeclampsia for early diagnosis and referral for further management may prevent progression to eclampsia.
 
-## 7.6.1.4 Severe Preeclampsia
-
+#### 7.6.1.4: Severe Preeclampsia
 Severe preeclampsia must be promptly identified so that the patient can be urgently admitted to hospital for close observation and timely delivery. The American College of Obstetricians and Gynecologists defines severe preeclampsia based on the following features:
 
 a. Systolic BP ≥160 mmHg or diastolic BP ≥110 mmHg on two occasions at least 4 hours apart while the patient is resting
@@ -481,28 +430,23 @@ Diagnosis of severe preeclampsia should not depend solely on the above criteria.
 
 [Level I] In the event of an acute hypertensive crisis, IV hydralazine, IV labetalol, or oral nifedipine, may be used to lower the BP. [Level III] Sublingual nifedipine is no longer recommended (Table 7.6-B: Anti-Hypertensive Drugs for Severe Preeclampsia with Acute Hypertensive Crisis). [Level III] Diuretics are generally contraindicated as they reduce plasma volume, may cause Intrauterine Growth Restriction (IUGR) and may possibly increase perinatal mortality. Their only use is in the treatment of acute pulmonary oedema. In order to reduce the risk of maternal stroke, the blood pressure should be reduced within 30-60 minutes.
 
-## 7.6.1.5 Anticonvulsants in Preeclampsia-Eclampsia
-
+#### 7.6.1.5: Anticonvulsants In Preeclampsia-Eclampsia
 [Level I] Parenteral magnesium sulphate is currently the drug of choice for the prevention of eclampsia and to abort an eclamptic fit (Table 7.6-C: Anti-Convulsant for Eclampsia (and Severe Preeclampsia)). The alternative is intravenous diazepam, bearing in mind that it is inferior in efficacy compared to magnesium sulphate. Magnesium sulphate also provides fetal neuroprotection following preterm birth with a significant reduction in the incidence of cerebral palsy.
 
-## 7.6.1.6 Postpartum Care
-
+#### 7.6.1.6: Postpartum Care
 Postpartum, women with hypertensive disorders in pregnancy are advised to have their BP checked regularly at local clinics if there is a significant delay in their scheduled hospital follow-up. In these patients, the dose of anti-hypertensive should be tailed down gradually and not stopped suddenly.
 
 On average, anti-hypertensive agents are required for longer in women with preeclampsia (approximately two weeks) compared with those with gestational hypertension (approximately one week) although there is substantial variability among women that cannot be predicted reliably.
 
 [Level III] De novo onset of hypertension or aggravation of BP levels during the postpartum period can occur. These patients should be promptly referred to hospital especially if there is significant proteinuria. Eclampsia may occur in the postpartum period. Chronic hypertension is diagnosed when the hypertension and/or proteinuria persist after three months postpartum.
 
-## 7.6.1.7 Long Term Follow-Up
-
+#### 7.6.1.7: Long Term Follow-Up
 Evidence suggests that up to 13% of women with preeclampsia will have underlying essential hypertension that was not suspected antenatally. In addition, following severe preeclampsia, there is an increased risk of ischaemic heart disease, thromboembolism and stroke. [Level III] Long-term follow-up of patients with a history of hypertension in pregnancy is therefore advisable.
 
-## 7.6.1.8 Reducing Mortality
-
+#### 7.6.1.8: Reducing Mortality
 A substantial reduction in preeclampsia/eclampsia related mortality could be achieved by widespread screening for hypertension and proteinuria. Early referral and delivery is indicated for severe PE.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade C] Use Korotkoff V to diagnose and monitor to treatment of hypertension in pregnant women.
 - [Grade A] Consider automated BP device instead of mercury sphygmomanometer to diagnose and monitor treatment.
 - [Grade C] Provide counselling and appropriate management to women with chronic hypertension and who are planning for pregnancy.
@@ -512,34 +456,29 @@ A substantial reduction in preeclampsia/eclampsia related mortality could be ach
 - [Grade A] Commence aspirin from 12-16 weeks and continue until delivery in pregnant women with one or more high risk factors or two or more moderate risk factors for PE.
 - [Grade C] Use oral nifedipine 10 mg stat dose to rapidly control BP in acute hypertensive crisis prior to transfer to hospital.
 
-## 7.6.2 Hypertension and Oral Contraceptives
-
+### 7.6.2: Hypertension And Oral Contraceptives
 Combined oral contraceptives (COC) can induce significant increases in BP with chronic use, which is nearly always reversible after 4 weeks of discontinuation. Hypertension has been reported even with low-dose-oestrogen monophasic pills. [Level III] A woman who develops hypertension while using COC should be advised to stop taking them and should be offered alternative forms of contraception. Low dose combined hormonal contraceptives should only be used if no other method is suitable, even for women with controlled hypertension.
 
 Drospirenone (a progestin), has anti-mineralocorticoid diuretic effects, and can lower BP when combined with oestrogen in COCs. It is a recommended alternative for patients with hypertension or who developed hypertension but wish to continue oral contraception. All progestogen-only methods are appropriate except in women whose BP is higher than 160/100 mmHg. In these patients, the injectable depot medroxyprogesterone acetate (DMPA) is contraindicated, along with all oestrogen-containing contraceptives.
 
 [Level III] Baseline BP must be assessed before initiating hormonal contraceptives. Blood pressure should then be measured at least every six months. The same applies to usage of the combined contraceptive patch and the vaginal ring.
 
-## 7.6.3 Hypertension and Menopausal Hormonal Therapy
-
+### 7.6.3: Hypertension And Menopausal Hormonal Therapy
 [Level III] The presence of hypertension is not a contraindication to oestrogen-based menopausal hormonal therapy (MHT). It is recommended that all women treated with MHT should have their BP monitored every six months. The decision to continue or discontinue hormonal therapy in these patients should be individualised.
 
 [Level I] Two large trials on women aged 50-79 years, concluded that the use of MHT increased cardiovascular events. Conjugated equine estrogen (CEE), alone or in combination with medroxyprogesterone acetate, was used in the study. In view of this, greater caution and closer monitoring is required for hypertensive patients on CEE. Drospirenone when used as progestin in HRT, showed improvement in BP control.
 
-## 7.7 Hypertension in Neonates, Children and Adolescents
+## 7.7: Hypertension In Neonates, Children And Adolescents
 
-## Hypertension in Neonates and Infants
-
+## Hypertension In Neonates And Infants
 The incidence of hypertension in neonates admitted to Neonatal Intensive Care Unit was 1.3%.
 
 It is more common in neonates and infants with antenatal steroids, maternal hypertension, postnatal acute renal failure, chronic lung disease, patent ductus arteriosus or in those with indwelling umbilical arterial catheters. Catheter related hypertension is related to thrombus formation at the time of line placement.
 
-## Measurement of BP
-
+## Measurement Of BP
 Healthy term neonates rarely have hypertension. Routine BP measurements are not advocated in this group. The gold standard of BP measurement in neonates is by direct measurement of arterial pulse pressure wave form.
 
-## Standardised Protocol for BP Measurement in Neonates:
-
+## Standardised Protocol For BP Measurement In Neonates:
 - measure by oscillometric device
 - lie prone or supine
 - use appropriate sized BP cuff
@@ -553,16 +492,14 @@ A reference table for BP values after two weeks of age in infants from 26 to 44 
 
 [Level III] There is concern over the use of ACEI in preterm neonates. It has been reported to cause an exaggerated fall in BP and may impair the final stages of nephron maturation and it use is best avoided until 44 weeks postconceptional age.
 
-## Hypertension in Children and Adolescents
-
+## Hypertension In Children And Adolescents
 In Malaysia, the prevalence of hypertension in primary school children in one study was 13.4%.
 
 Prevalence of hypertension in children and adolescents is increasing in tandem with the increasing prevalence of obesity in this group.
 
 The NHMS 2016 has shown that the prevalence of obesity among children below 5 years was 6% (Weight for Height >+2SD). In 2011, the prevalence of obesity among children below 10 years was 5.3%.
 
-## Measurement of BP: Who and when
-
+## Measurement Of BP: WHO And When
 1. Children ≥7 years old
 
    - Healthy children: Measure annually if obese
@@ -571,7 +508,6 @@ The NHMS 2016 has shown that the prevalence of obesity among children below 5 ye
 2. Children <7 years who are at risk of developing hypertension
 
    Measure at every medical encounter for those with:
-
    - history of complications requiring neonatal intensive care
    - congenital heart disease
    - recurrent urinary tract infections, hematuria or proteinuria
@@ -585,13 +521,11 @@ The NHMS 2016 has shown that the prevalence of obesity among children below 5 ye
 [Level III] Although the latest guidelines from the US Task force recommends the age cut off to be 3 years, we recommend 7 years taking into consideration the current state of resources in the primary health centre.
 
 ## BP Measurement Technique
-
 1. The initial BP measurement may be oscillometric. (On a calibrated machine that has been validated for use in the pediatric population.)
 2. If BP level >90th percentile on oscillometric devices, confirmatory measurement should be obtained by auscultation. Re-measure BP twice by using auscultatory technique and average these two.
 3. Measurement of BP in children follows the same principles as set out in the section on BP measurement. Special attention needs to be paid in selection of an appropriate cuff size in relation to the child's right upper arm.
 
-## SUMMARY
-
+## Summary
 - The diagnosis of hypertension in children and adolescents is made when the auscultated BP values on three repeated and different visits are greater than the 95th percentile for age, sex, and height of the patient, or is ≥130/90 mmHg (whichever is lower).
 
 Height and gender are important determinants of pediatric BP. BP levels are interpreted based on gender, age and height. In the 2017 American Academy of Pediatrics guidelines, normative table were revised by using data from-normal-weight children only. (Refer to Appendix 2: Blood Pressure Levels for Boys by Age and Height Percentile & Appendix 3: Blood Pressure Levels for Girls by Age and Height Percentile)
@@ -603,21 +537,17 @@ Once a child is diagnosed with hypertension, he should be referred to a paediatr
 The healthcare provider should obtain a perinatal, nutritional, physical activity, psychosocial and family history and perform a physical examination to identify finding suggestive of secondary causes of hypertension.
 
 ## Primary Hypertension
-
 Children and adolescents ≥6 years of age do not require an extensive evaluation for secondary causes of hypertension if they have a positive family history of hypertension, are overweight or obese, and/or do not have history or physical examination findings suggestive of a secondary cause of hypertension.
 
 ## Secondary Hypertension
-
 Causes of secondary hypertension in children:
-
 - Renal parenchymal disease and renal structure abnormality (most common)
 - Renovascular disease
 - Coarctation of the aorta
 - Endocrine hypertension
 - Drug induced (corticosteroids)
 
-## Screening test and relevant population
-
+## Screening Test And Relevant Population
 1. Routine investigations to be performed in all patients
 
    - Urinalysis
@@ -634,36 +564,29 @@ Causes of secondary hypertension in children:
 3. Optional tests to be obtained on the basis of history and initial study
 
 ## Isolated Office Hypertension
-
 A patient with BP levels >95th percentile in a doctor's office but who is normotensive outside a clinical setting has "Isolated Office Hypertension".
 
 Ambulatory blood pressure measurement is necessary to confirm hypertension in otherwise healthy children. ABPM levels should be interpreted with appropriate paediatric normative data for children >5 years of age or height of ≥120 cm. Isolated office hypertension is diagnosed by ABPM when the mean SBP and DBP <95th percentile and SBP and DBP load <25%.
 
 Isolated office hypertension does not require treatment but may need repeat ABPM in one- to two-year intervals to detect development of sustained hypertension.
 
-## Treatment of Paediatric Hypertension
-
+## Treatment Of Paediatric Hypertension
 Goals of therapy for children with hypertension:
-
 - To achieve a BP level that reduces the risk of target organ damage.
 - To reduce risk of premature atherosclerosis and early development of cardiovascular disease.
 - To reduce risk of developing adult hypertension and metabolic syndrome.
 
-## [Level III] Goals of Therapy
-
+## [Level Iii] Goals Of Therapy
 | Population | Goal |
 |---|---|
 | Children and adolescents with hypertension | BP (Systolic and Diastolic) to <90th percentile and <130/80 mmHg in adolescents ≥13 years old |
 | Children and adolescents with both chronic kidney disease and hypertension | BP <50th percentile |
 
-## Lifestyle and Non-Pharmacologic Treatment
-
+## Lifestyle And Non-Pharmacologic Treatment
 Non-pharmacologic management including dietary changes, exercise and weight reduction (if obese) is recommended in all children with hypertension.
 
 ## Pharmacologic Treatment
-
 Definite indications for initiating pharmacotherapy include:
-
 - hypertension with failed lifestyle modification
 - stage 2 hypertension without a clearly modifiable factor (e.g. obesity)
 - any stage of hypertension associated with chronic kidney disease or diabetes mellitus
@@ -672,11 +595,9 @@ Definite indications for initiating pharmacotherapy include:
 Clinicians should initiate pharmacologic treatment with an ACEI, ARB, long-acting calcium channel blocker, or thiazide diuretic.
 
 ## Stepped Care Approach
-
 An individualised stepped care approach to the use of anti-hypertensive drugs has been recommended by the Management of High Blood Pressure in Children Clinical Practice Guideline.
 
-## Stepped care approach:
-
+## Stepped Care Approach:
 **Text interpretation (stepped care approach):**
 
 1. **Step 1:** Begin with the recommended dose of desired drug as monotherapy, using once daily dosing.
@@ -687,15 +608,12 @@ An individualised stepped care approach to the use of anti-hypertensive drugs ha
 (Refer to Appendix 4: Dosing Recommendation for the Initial Prescription of Antihypertensive Drugs for Outpatient Management of Chronic Hypertension in Children and Neonates.)
 
 ## Proteinuric Chronic Kidney Diseases
-
 ACEI or ARBs are preferred in children with proteinuric CKD.
 
 ## Obese Hypertensive Children
-
 Diuretics and β-blockers are potentially diabetogenic and hence should be avoided as initial therapy in children who are obese and hypertensive.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - For children with risk factors: measure at every encounter.
 - For obese children >7 years old: measure annually.
 - Once a child is diagnosed with hypertension, he should be referred to a paediatrician for further evaluation and management.
@@ -704,8 +622,9 @@ Diuretics and β-blockers are potentially diabetogenic and hence should be avoid
 
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### Table 3-D: Risk Stratification
+Table 3-D: Risk Stratification
 
 | Co-Existing Condition / BP Levels (mmHg) | No RF, No TOD, No TOC | TOD or RF (1-2), No TOC | TOC or RF(≥3) or Clinical atherosclerosis or CKD | Previous MI / IHD, Previous stroke or Diabetes or CKD |
 |---|---|---|---|---|
@@ -728,7 +647,7 @@ Clinical atherosclerosis = CHD, carotid stenosis, peripheral vascular disease, t
 
 ---
 
-### Table 7.4-A: Current Guideline for the Management of Blood Pressure in Acute Phase of Ischaemic and Haemorrhagic Stroke*
+Table 7.4-A: Current Guideline For The Management Of Blood Pressure In Acute Phase Of Ischaemic And Haemorrhagic Stroke*
 
 | Acute phase of ischaemic stroke | |
 |---|---|
@@ -743,7 +662,7 @@ Clinical atherosclerosis = CHD, carotid stenosis, peripheral vascular disease, t
 
 ---
 
-### Table 7.5-A Treatment SBP Targets for Older Adults
+Table 7.5-A Treatment Sbp Targets For Older Adults
 
 | Older Adult Population | Target SBP (mmHg) |
 |---|---|
@@ -757,7 +676,7 @@ For fit* 65-80 years old patients consider target SBP <130 mmHg.
 
 ---
 
-### Table 7.6-A: Anti-Hypertensive Drugs Commonly Used in Pregnancy
+Table 7.6-A: Anti-Hypertensive Drugs Commonly Used In Pregnancy
 
 | Drug | Remarks |
 |---|---|
@@ -767,7 +686,7 @@ For fit* 65-80 years old patients consider target SBP <130 mmHg.
 
 ---
 
-### Table 7.6-B: Anti-Hypertensive Drugs for Severe Preeclampsia with Acute Hypertensive Crisis
+Table 7.6-B: Anti-Hypertensive Drugs For Severe Preeclampsia With Acute Hypertensive Crisis
 
 | Drug | Administration | Remarks |
 |---|---|---|
@@ -777,7 +696,7 @@ For fit* 65-80 years old patients consider target SBP <130 mmHg.
 
 ---
 
-### Table 7.6-C: Anti-Convulsant for Eclampsia (and Severe Preeclampsia)
+Table 7.6-C: Anti-Convulsant For Eclampsia (And Severe Preeclampsia)
 
 | Drug | Administration | Remarks |
 |---|---|---|
@@ -786,7 +705,7 @@ For fit* 65-80 years old patients consider target SBP <130 mmHg.
 
 ---
 
-### Table 7.6-D: COC and Hormonal Therapy Preparations Containing Drospirenone*
+Table 7.6-D: Coc And Hormonal Therapy Preparations Containing Drospirenone*
 
 | Hormonal Preparation | Trade Name | Active Ingredients | |
 |---|---|---|---|
@@ -799,7 +718,7 @@ For fit* 65-80 years old patients consider target SBP <130 mmHg.
 
 ---
 
-## Table 7.7-A: Definitions of BP Categories, Stages, Patient Evaluation and Management (0-18 years)
+Table 7.7-A: Definitions Of BP Categories, Stages, Patient Evaluation And Management (0-18 Years)
 
 | Category | Children Aged 1-13 years | Children Aged ≥13 years | Frequency of BP measurement | Patient Management |
 |---|---|---|---|---|
@@ -808,7 +727,7 @@ For fit* 65-80 years old patients consider target SBP <130 mmHg.
 | Stage 2 Hypertension | ≥95th percentile +12 mmHg or ≥140/90 mmHg (whichever is lower) | ≥140/90 mmHg | Initial<br>Check upper & lower extremity BP<br><br>Recheck within 1 week | Lifestyle counselling<br><br>Diagnostic evaluation<br>Initiate treatment<br>Specialist referral in 1 week |
 
 ---
-### Figure 7.4-A: Treatment Algorithm for Acute Stroke
+Figure 7.4-A: Treatment Algorithm For Acute Stroke
 
 **Text interpretation (treatment algorithm for acute stroke):**
 
@@ -823,7 +742,7 @@ For fit* 65-80 years old patients consider target SBP <130 mmHg.
 ---
 
 
-## Figure 7.6-A: ABPM to Diagnose and Manage Isolated Office Hypertension in Pregnancy.*
+Figure 7.6-A: Abpm To Diagnose And Manage Isolated Office Hypertension In Pregnancy.*
 
 **Text interpretation (ABPM/HBPM pathway before 20 weeks gestation):**
 
@@ -843,8 +762,8 @@ ABPM = Ambulatory Blood Pressure Monitoring
 HBPM = Home Blood Pressure Monitoring
 
 ---
-### Appendix 1: Estimated BP Values After 2 Weeks of Age in Infants from 26 to 44 Weeks Postconceptual Age
 
+### Appendix 1: Estimated BP Values After 2 Weeks Of Age In Infants From 26 To 44 Weeks Postconceptual Age
 | Postconceptual age   |   50th percentile |   95th percentile |   99th percentile |
 |----------------------|-------------------|-------------------|-------------------|
 | 44 Weeks             |                   |                   |                   |
@@ -890,8 +809,7 @@ HBPM = Home Blood Pressure Monitoring
 
 ---
 
-### Appendix 2: Blood Pressure Levels for Boys by Age and Height Percentile
-
+### Appendix 2: Blood Pressure Levels For Boys By Age And Height Percentile
 | Age  year   | BP  Percentile   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   |
 |-------------|------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 | Age  year   | BP  Percentile   | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     |
@@ -935,8 +853,7 @@ HBPM = Home Blood Pressure Monitoring
 
 ---
 
-### Appendix 3: Blood Pressure Levels for Girls by Age and Height Percentile
-
+### Appendix 3: Blood Pressure Levels For Girls By Age And Height Percentile
 | Age  year   | BP  Percentile   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   |
 |-------------|------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 | Age  year   | BP  Percentile   | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     |
@@ -980,8 +897,7 @@ HBPM = Home Blood Pressure Monitoring
 
 ---
 
-### Appendix 4: Dosing Recommendation for the Initial Prescription of Antihypertensive Drugs for Outpatient Management of Chronic Hypertension in Children and Neonates
-
+### Appendix 4: Dosing Recommendation For The Initial Prescription Of Antihypertensive Drugs For Outpatient Management Of Chronic Hypertension In Children And Neonates
 | Drugs                                      | Doses                                                                                                                            | Frequency        |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------------------|
 | Angiotensin-Converting Enzyme Inhibitors * | Angiotensin-Converting Enzyme Inhibitors *                                                                                       |                  |
@@ -1012,8 +928,7 @@ HBPM = Home Blood Pressure Monitoring
 
 ---
 
-## Level of Evidence
-
+## Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -1022,8 +937,7 @@ HBPM = Home Blood Pressure Monitoring
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Grades of Recommendation
-
+## Grades Of Recommendation
 | GRADE | STUDY DESIGN |
 |---|---|
 | A | At least one meta analysis, systematic review, or RCT, or evidence rated as good and directly applicable to the target population |

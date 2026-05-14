@@ -1,5 +1,4 @@
-# SECTION 6: DIAGNOSIS
-
+# Section 6: Diagnosis
 <!-- METADATA
 category: Diagnosis, Assessment, Classification
 use_case: Histopathological Diagnosis — histopathology, WHO_classification, prognostic_factors, LVSI, frozen_section, risk_stratification
@@ -8,8 +7,7 @@ output: histological_diagnosis, prognostic_risk_group, treatment_pathway
 critical: true
 -->
 
-## a. Histopathological Examination
-
+## A. Histopathological Examination
 A definitive diagnosis of cervical cancer is made by histopathological examination of cervical tissue. [Level III] Type of cervical tumour is diagnosed based on the World Health Organization (WHO) histological classification of tumours of the uterine cervix (refer to Appendix 3: WHO histological classification of tumours of the uterine cervix).
 
 Histological reports of cervical cancers in small resection (loop/cone biopsies) and hysterectomy specimens should follow the minimum Dataset for Histological reporting of cervical neoplasia (3rd edition) of the Royal College of Pathologists. Meticulous and accurate reporting of gross pathological and histological parameters determine treatment and prognosis of the patients. [Level III] Regular tumour board meetings are also advocated to optimise patient management decisions.
@@ -19,14 +17,13 @@ Histological reports of cervical cancers in small resection (loop/cone biopsies)
 [Level III] The presence of LVSI must be recorded for tumours of all types and stages. It is the only significant prognostic factor for cumulative 5-year survival rate in tumour confined to uterus (p=0.0078).
 
 [Level III] Based on survival analysis, patients can be stratified into three prognostic risk groups:
-
 - **Low risk:** Tumour confined to uterus not associated with LVSI (estimated 5-year survival rate of 100 ± 0%).
 - **Intermediate risk:** Tumour confined to uterus associated with positive LVSI or squamous/adenosquamous carcinoma associated with parametrial invasion or pelvic lymph node metastasis (estimated 5-year survival rate of 85.5 ± 3.9%).
 - **High risk:** Pure AC associated with parametrial invasion or pelvic lymph node metastasis with common iliac/paraaortic node metastasis (estimated 5-year survival rate 25.1 ± 9.7%).
 
 [Level III] All patients with lymph node micrometastasis (LNmM), regardless of its size, are considered LVSI positive. LVSI (RR=2.64, 95% CI 1.67 to 5.49) and lymph node micrometastasis (LNmM) <2 mm (RR=2.44, 95% CI 1.58 to 3.78) has double the risk of recurrence following surgical resection of early-stage cervical cancer.
 
-### Yellow box:
+### Yellow Box:
 > [Level III] Histopathological reports of cervical cancer should include core histological data, which are:
 > - tumour type (based on WHO classification)
 > - tumour grade (based on modified Broders grading)
@@ -47,8 +44,7 @@ Refer to Appendix 4: Reporting Proforma for Cervical Cancer Excisional Cervical 
 
 [Level III] Tumours should be staged according to the revised FIGO staging of 2009. The decision to use Tumour-Node-Metastases (TNM) as well as FIGO staging for cervical cancer is left to the discretion of the pathologist and the preference of their tumour board meetings.
 
-## b. Frozen Section Assessment
-
+## B. Frozen Section Assessment
 [Level III] In most institutions, frozen section assessment is not used routinely for the evaluation of resection margins. However it may be performed on clinically suspicious lymph nodes to look for metastasis before proceeding with or abandoning a radical surgery.
 
 [Level III] Intraoperative frozen examination of sentinel node (SN) accurately predicts the status of pelvic lymph nodes and is effective for selecting intraoperatively the group of patients who will benefit from radical hysterectomy.
@@ -61,15 +57,15 @@ Refer to Chapter 8 on Treatment (Sentinel Nodes).
 ## Recimmendation 1
 - In cervical cancer,
     - reporting of histopathological examination for surgical specimens of radical hysterectomy should be standardised and contained core histological data*.
-    - frozen section assessment of suspicious pelvic or para-aortic lymph nodes may be performed intra-operatively. 
+    - frozen section assessment of suspicious pelvic or para-aortic lymph nodes may be performed intra-operatively.
 
 *Refer to the yellow box above.
 
 ## Contextual Anchors (Overlapping)
-### Appendix 3: WHO histological classification of tumours of the uterine cervix
 
-### Epithelial tumours
+### Appendix 3: WHO Histological Classification Of Tumours Of The Uterine Cervix
 
+### Epithelial Tumours
 **Squamous tumours and precursors**
 
 | Tumour type | ICD-O Code |
@@ -133,8 +129,7 @@ Refer to Chapter 8 on Treatment (Sentinel Nodes).
 | Large cell neuroendocrine carcinoma | 8013/3 |
 | Undifferentiated carcinoma | 8020/3 |
 
-### Mesenchymal tumours and tumour-like conditions
-
+### Mesenchymal Tumours And Tumour-Like Conditions
 | Tumour type | ICD-O Code |
 |---|---|
 | Leiomyosarcoma | 8890/3 |
@@ -148,8 +143,7 @@ Refer to Chapter 8 on Treatment (Sentinel Nodes).
 | Genital rhabdomyoma | 8905/0 |
 | Postoperative spindle cell nodule | |
 
-### Mixed epithelial and mesenchymal tumours
-
+### Mixed Epithelial And Mesenchymal Tumours
 | Tumour type | ICD-O Code |
 |---|---|
 | Carcinosarcoma (malignant mullerian mixed tumour; metaplastic carcinoma) | 8980/3 |
@@ -158,26 +152,24 @@ Refer to Chapter 8 on Treatment (Sentinel Nodes).
 | Adenofibroma | 9013/0 |
 | Adenomyoma | 8932/0 |
 
-### Melanocytic tumours
-
+### Melanocytic Tumours
 | Tumour type | ICD-O Code |
 |---|---|
 | Malignant melanoma | 8720/3 |
 | Blue naevus | 8780/0 |
 
-### Miscellaneous tumours - Tumours of germ cell type
-
+### Miscellaneous Tumours - Tumours Of Germ Cell Type
 | Tumour type | ICD-O Code |
 |---|---|
 | Yolk sac tumour | 9071/3 |
 | Dermoid cyst | 9084/0 |
 | Mature cystic teratoma | 9080/0 |
 
-### Lymphoid and haematopoetic tumours
+### Lymphoid And Haematopoetic Tumours
 - Malignant lymphoma (specify type)
 - Leukaemia (specify type)
 
-### Secondary tumours
+### Secondary Tumours
 1. Morphology code of the International Classification of Diseases for Oncology (ICD-O) {921} and the Systematized Nomenclature of Medicine (http://snomed.org). Behaviour is coded /0 for benign tumours, /2 for in situ carcinomas and grade 3 intraepithelial neoplasia, /3 for malignant tumours, and /1 for borderline or uncertain behaviour.
 2. Intraepithelial neoplasia does not have a generic code in ICD-O. ICD-O codes are only available for lesions categorized as squamous intraepithelial neoplasia grade 3 (e.g. cervical intraepithelial neoplasia 3) = 8077/2, squamous cell carcinoma in situ = 8070/2, glandular ntraepithelial neoplasia grade 3 = 8148/2 and adenocarcinoma in situ = 8140/2.
 
@@ -185,9 +177,9 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 
 ---
 
-### Appendix 4: Reporting Proforma for Cervical Cancer Excisional Cervical Biopsies/Hysterectomy Specimens
+### Appendix 4: Reporting Proforma For Cervical Cancer Excisional Cervical Biopsies/Hysterectomy Specimens
 
-### MACROSCOPIC
+### Macroscopic
 *   **Specimen labelled as:** ____________________
 *   **Type of procedure/specimen:**
     *   [ ] LLETZ
@@ -199,7 +191,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Orientation markers:** [ ]
 *   **Specimen gross/external appearance:** ____________________
 
-### SPECIMEN MEASUREMENTS
+### Specimen Measurements
 | Parameter | Value |
 |---|---|
 | Length of specimen | ______ mm |
@@ -207,14 +199,14 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Ectocervix diameter (3-9 o’clock) | ______ mm |
 | Ectocervix diameter (6-12 o’clock) | ______ mm |
 
-### UTERINE DIMENSION
+### Uterine Dimension
 | Parameter | Value |
 |---|---|
 | Cervix-fundus | ______ mm |
 | Anterior-posterior | ______ mm |
 | Distance between cornu | ______ mm |
 
-### ADNEXA
+### Adnexa
 | Parameter | Status |
 |---|---|
 | Presence | [ ] Present [ ] Absent |
@@ -239,7 +231,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Macroscopic involvement of paracervix:** [ ] Yes [ ] No
 *   **Lymph nodes:** ____________________
 
-### MICROSCOPIC
+### Microscopic
 *   **Tumour:**
     *   Multiple tumours: [ ] Present [ ] Absent
     *   Histological tumour type:
@@ -265,7 +257,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Associated CIN:** [ ] Absent [ ] Present (If present, describe grade and extension: ________)
 *   **Associated SMILE:** [ ] Absent [ ] Present (If present, describe extension: ________)
 
-### EXTENT
+### Extent
 | Parameter | Finding |
 |---|---|
 | Lymphovascular invasion | [ ] Present [ ] Absent |
@@ -274,7 +266,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Vagina cuff | [ ] Involved [ ] Not Involved<br>(distance from excision margin: ______ mm) |
 | Involvement of other organs | [ ] Not Applicable [ ] No [ ] Yes<br>(Please specify: ________) |
 
-### MARGIN STATUS
+### Margin Status
 | Parameter | Finding |
 |---|---|
 | Invasive tumour | |
@@ -282,7 +274,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Ectocervical margin | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 | Radial margin | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 
-### NON-INVASIVE COMPONENT
+### Non-Invasive Component
 | Parameter | Finding |
 |---|---|
 | Margin status of AIS | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
@@ -293,8 +285,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 
 ---
 
-### Appendix 5: Revised FIGO Cervical Cancer Staging 2009
-
+### Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | Stage | Description |
 |---|---|
 | I | The carcinoma is strictly confined to the cervix (extension to the uterus corpus should be disregarded). |
@@ -316,8 +307,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 
 ---
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -326,8 +316,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AC | Adenocarcinoma |

@@ -1,5 +1,4 @@
-# SECTION 6: TERMINATION OF PREGNANCY
-
+# Section 6: Termination Of Pregnancy
 <!-- METADATA
 category: Treatment, Prevention, Special Populations
 use_case: Termination of Pregnancy in Cardiac Disease — TOP_counselling, high_risk_cardiac_patient, IE_prophylaxis, procedure_selection, prostaglandin_safety, post_TOP_contraception
@@ -18,7 +17,6 @@ The request for termination of pregnancy (TOP) may be made by;
 - The obstetrician
 
 Each of these requests must be based on the merits of the individual case within the provision of the law. It will depend upon:
-
 - Patient's current cardiac status
 - The risk to the patient as the pregnancy advances
 - Existing contraindications for pregnancy
@@ -26,7 +24,6 @@ Each of these requests must be based on the merits of the individual case within
 The safest time for elective TOP is early in the 1st trimester. This procedure must be performed within a facility equipped to manage the patient's cardiac disease as well as possible complications that may arise.
 
 Whenever TOP is being considered a detailed counselling session is a prerequisite. It should involve:
-
 - The patient
 - Partner
 - Other family members (deemed necessary)
@@ -35,7 +32,6 @@ Whenever TOP is being considered a detailed counselling session is a prerequisit
 - Anaesthetist
 
 The session has to address issues such as:
-
 - Timing
 - Methods
 - Place
@@ -59,20 +55,17 @@ For every patient the method and the need for anaesthesia should be individualis
 
 For more details, please refer to Ministry of Health, TOP guidelines 2012.
 
-## Key messages:
-
+## Key Messages:
 - Whenever TOP is being considered a detailed counselling session is a prerequisite.
 - Despite the TOP, maternal cardiac risks may persist until haemodynamic changes normalise.
 
 ## Contextual Anchors (Overlapping)
-### Section 4.10: Infective Endocarditis in Pregnancy
 
+### Section 4: .10: Infective Endocarditis In Pregnancy
 This supports Section 6 where prophylaxis against IE is advised in high risk patients undergoing termination of pregnancy.
 
-#### Section 4.10.3: Prophylaxis
-
+#### Section 4: .10.3: Prophylaxis
 [Grade II-a, Level C] International guidelines do not advocate the use of routine antibiotic prophylaxis for normal vaginal delivery. They advocate that antibiotic prophylaxis be restricted to high risk patients such as:
-
 - Prosthetic cardiac valves/ material
 - Previous history of bacterial endocarditis
 - Complex cyanotic congenital heart disease (operated or un-operated)
@@ -80,21 +73,18 @@ This supports Section 6 where prophylaxis against IE is advised in high risk pat
 [Grade I, Level C] In all other women with structural cardiac disease, the risk and benefits of antibiotic prophylaxis against IE should be discussed with the patient (serious nature of IE and the low risk of anaphylaxis).
 
 The antibiotic prophylaxis regimes against IE are as follows:
-
 - Ampicillin 2 g IV and gentamycin 1.5 mg/kg IV
 - Vancomycin 1 g IV over 1-2 hrs along with Gentamycin IV (if penicillin allergy)
 
 The first dose of antibiotic should be given at:
-
 - rupture of membranes for vaginal delivery or
 - 15 to 60 minutes prior to skin incision for caesarean section
 
 The second dose of antibiotics should be given 6 hours after the first dose.
 
-## Grades of Recommendation and Level of Evidence
+## Grades Of Recommendation And Level Of Evidence
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -103,16 +93,14 @@ The second dose of antibiotics should be given 6 hours after the first dose.
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | BP | Blood pressure |

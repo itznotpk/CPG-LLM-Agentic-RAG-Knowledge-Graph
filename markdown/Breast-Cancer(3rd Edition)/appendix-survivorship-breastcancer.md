@@ -1,5 +1,4 @@
-# APPENDIX: POST-TREATMENT CANCER SURVIVORSHIP
-
+# Appendix: Post-Treatment Cancer Survivorship
 <!-- METADATA
 category: Supportive Treatment, Prevention, Assessment
 use_case: Post-Treatment Cancer Survivorship — treatment_complications, long_term_effects, surveillance, quality_of_life, lymphoedema, cardiotoxicity, cognitive_impairment, fatigue, bone_health
@@ -8,24 +7,20 @@ output: survivorship_care_plan, complication_management, follow_up_schedule
 -->
 
 ## Overview
-
 Breast cancer patients may be at risk of developing treatment-related complications. Healthcare providers must recognise and manage the long-term sequelae of the constellation of therapeutic modalities. A systematic review concluded that multidisciplinary rehabilitation was not harmful and may improve functional ability and quality of life in the short-term.¹
 
 ---
 
-## Breast Cancer-Related Lymphoedema (BCRL)
-
+## Breast Cancer-Related Lymphoedema (Bcrl)
 BCRL is a common consequence of breast cancer treatment.
 
-### Prevention and Risk Reduction
-
+### Prevention And Risk Reduction
 | Strategy | Evidence |
 |---|---|
 | **Weight loss** for overweight/obese patients | May reduce BCRL risk²˒³ |
 | **Exercise** | No increased risk of BCRL; patients should NOT restrict physical activity⁴ |
 
 ### Management
-
 *   Patients should be routinely examined for clinical symptoms or swelling suggestive of lymphoedema
 *   Referral to therapists knowledgeable about diagnosis and treatment of lymphoedema
 *   **Physiotherapist** plays an important role in rehabilitation care and survivorship
@@ -33,14 +28,12 @@ BCRL is a common consequence of breast cancer treatment.
 ---
 
 ## Late-Onset Cardiotoxicity
-
 | Agent | Cardiotoxicity Profile |
 |---|---|
 | **Anthracycline** | Occurrence generally low except above cumulative dose limit; typically presents as reduced LVEF/heart failure; **irreversible** |
 | **Trastuzumab** | Usually occurs **during** treatment; does NOT carry risk of delayed cardiotoxicity⁵ |
 
 ### Management Strategies⁶˒⁷
-
 | Strategy |
 |---|
 | Identification of high-risk patients (pre-existing heart problems, CV risk factors, anthracycline/trastuzumab use) |
@@ -53,11 +46,9 @@ BCRL is a common consequence of breast cancer treatment.
 ---
 
 ## Cognitive Impairment
-
 Cognitive impairment is one of the frequent complications reported by patients with breast cancer.
 
 ### Management Approach
-
 | Step |
 |---|
 | Screen **all patients** for cognitive impairment |
@@ -67,16 +58,13 @@ Cognitive impairment is one of the frequent complications reported by patients w
 ---
 
 ## Fatigue
-
 Studies of long-term cancer survivors suggest approximately **one-quarter to one-third** experience persistent fatigue for **up to 10 years** after diagnosis.⁸
 
 ### Impact
-
 *   Negative impact on work, social relationships, mood and daily activities
 *   Impairment in overall quality of life during and after treatment
 
 ### Management
-
 | Step |
 |---|
 | Assess **all patients** for fatigue |
@@ -87,7 +75,6 @@ Studies of long-term cancer survivors suggest approximately **one-quarter to one
 ---
 
 ## Pain
-
 Approximately **20–50%** of patients complain of pain during the survivorship period.⁹˒¹⁰
 
 | Aspect | Details |
@@ -102,11 +89,9 @@ Approximately **20–50%** of patients complain of pain during the survivorship 
 ---
 
 ## Bone Health
-
 Survivors of breast cancer are at high risk of significant bone loss.
 
 ### Assessment Recommendations¹²
-
 | Population | Recommendation |
 |---|---|
 | Post-menopausal survivors | Baseline DEXA scan |
@@ -115,7 +100,6 @@ Survivors of breast cancer are at high risk of significant bone loss.
 | Women with chemotherapy-induced premature menopause | Repeat DEXA every 2 years |
 
 ### Non-Pharmacologic Interventions¹³
-
 | Intervention |
 |---|
 | Lifestyle changes |
@@ -125,7 +109,6 @@ Survivors of breast cancer are at high risk of significant bone loss.
 ---
 
 ## References (Appendix 9)
-
 1. Khan F, et al. Cochrane Database of Systematic Reviews 2012, Issue 12. Art. No.: CD009553
 2. Lawenda BD, et al. CA Cancer J Clin. 2009;59(1):8-24
 3. Mak SS, et al. Nurs Res. 2008;57(6):416-25

@@ -1,5 +1,4 @@
-# SECTION 11: SPECIFIC LIPID DISORDERS
-
+# Section 11: Specific Lipid Disorders
 <!-- METADATA
 category: Treatment
 use_case: Management of specific lipid disorders including hypertriglyceridaemia and low HDL-C — elevated_TG, low_HDL-C, atherogenic_dyslipidaemia, pancreatitis, severe_hypertriglyceridaemia
@@ -8,8 +7,7 @@ output: TG_management_strategy, Non-HDL-C_target, drug_escalation, pancreatitis_
 treatment_type: statins, fibrates, omega-3 fatty acids, niacin, IV insulin
 -->
 
-## 11.1 Elevated TG
-
+## 11.1: Elevated Tg
 *   Hypertriglyceridemia has a modest association as a CV risk factor, but the association is far weaker than for hypercholesterolaemia.
 *   In contrast to the established reduction in CV risk with LDL-C lowering, the efficacy of TG lowering in decreasing CV risk has not been established.
 *   Hypertriglyceridemia is associated with increased numbers of atherogenic small, dense LDL particles and apo B-100-associated TG-rich lipoprotein remnant cholesterol, which increase CV risk.
@@ -18,8 +16,7 @@ treatment_type: statins, fibrates, omega-3 fatty acids, niacin, IV insulin
 *   Unfortunately, the lack of standardization and reference ranges impedes the general implementation of non-fasting TG as a target for control.
 *   At present, fasting TG >1.7 mmol/L continues to be considered a marker of increased risk, but concentrations ≤1.7 mmol/L are not evidence-based target levels for therapy.
 
-### 11.1.1 Targets of therapy
-
+### 11.1.1: Targets Of Therapy
 *   In individuals with elevated TG, the primary target of therapy remains achieving LDL-C goal depending upon the individual's global CV risk.
 *   When TG levels are > 1.5mmol/L, reported LDL-C levels do not reliably indicate LDL particle number.
 *   Individuals with a TG > 4.5mmol/L should have a repeat lipid panel tested in the fasting state.
@@ -28,10 +25,8 @@ treatment_type: statins, fibrates, omega-3 fatty acids, niacin, IV insulin
 
 ---
 
-### A) Mild-to-moderate elevations in TG (> 1.7 – < 10.0 mmol/L)
-
+### A) Mild-To-Moderate Elevations In Tg (> 1.7 – < 10.0 mmol/L)
 Treatment should include:
-
 *   Lifestyle changes of weight reduction, low carbohydrate diet reducing intake of simple carbohydrates, eg. high-glycemic and high-fructose foods and beverages, control of diabetes or insulin resistance, exercise, reduction of alcohol intake and cessation of smoking. Dietary fat does not raise fasting plasma TG levels in most people. However, reducing SFA is recommended.
 *   After 4-12 weeks of lifestyle measures, assess need for further TG-lowering therapy with the goal to reduce CVD risk.
 *   Ensure diabetes, if present, is controlled.
@@ -61,14 +56,12 @@ Treatment should include:
 
 ---
 
-### B) Severe elevations in TG (>10mmol/L)
-
+### B) Severe Elevations In Tg (>10mmol/L)
 **In asymptomatic individuals:**
 
 *   Repeat fasting TG (after an interval of 5 days, but within 2 weeks) and review for potential secondary causes of dyslipidemia. Seek specialist advice if the TG remains above 10 mmol/L.
 
 In these individuals:
-
 *   **Dietary Modification**: Very low carbohydrate (<10%) and low-fat diets (≤10-15%, preferably < 5% of calorie intake), avoidance of alcohol and lifestyle changes. (refer to Section 7.1: Therapeutic Lifestyle Changes (TLC) — Relevant to TG/HDL Management).
 *   **Drug therapy**:
     *   **Statins**: These are drugs of choice.
@@ -94,8 +87,7 @@ In these individuals:
 
 ---
 
-## 11.2 Low HDL-C and High TG
-
+## 11.2: Low HDL-C And High Tg
 *   Low HDL-C and high TG are seen in insulin resistance states (e.g., Type 2 diabetes, abdominal obesity), physical inactivity and high carbohydrate intakes. This lipid pattern is associated with atherogenic dyslipidemia and small dense LDL-particles.
 *   HDL-C < 1.0mmol/L (men) and < 1.3mmol/L (women) is considered a marker of increased CV risk.
 *   Treatment of this dyslipidemia in individuals with high/very high CV risk is aimed at lowering LDL-C to target.
@@ -107,8 +99,7 @@ In these individuals:
 
 ---
 
-## 11.3 Low HDL-C
-
+## 11.3: Low HDL-C
 *   For increasing HDL-C levels, modifying lifestyle with increased exercise and dietary modification (reduction in simple carbohydrate, sucrose/fructose consumption), weight reduction, smoking cessation, rather than drug treatment, is recommended.
 
 ---
@@ -119,7 +110,7 @@ In these individuals:
 ---
 
  ## Contextual Anchors (Overlapping)
-#### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -135,7 +126,7 @@ In these individuals:
 ***All other CV risk factors should be treated to target.  <br>
 **** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
 
-### Table 11: Major Lipid Modifying Drug Classes
+Table 11: Major Lipid Modifying Drug Classes
 
 | Drug Class | Lipid Effects | Side Effects | Contraindications |
 |---|---|---|---|
@@ -157,15 +148,15 @@ In these individuals:
 
 These data are derived from short-term clinical trials meant for drug registration. In real-life long-term use, the amount of lipid change achieved may be less than this.
 
-### Section 7.1: Therapeutic Lifestyle Changes (TLC) — Relevant to TG/HDL Management
+### Section 7: .1: Therapeutic Lifestyle Changes (Tlc) — Relevant To TG/HDL Management
 
-#### 7.1.1.5. Atherogenic Dyslipidemia
+#### 7.1.1.5: Atherogenic Dyslipidemia
 *   In patients with an atherogenic dyslipidemia, a low carbohydrate diet (< 26% of total energy intake) results in a significant reduction in TG levels, an increase in HDL-C levels, and a shift from small dense LDL-C to the larger buoyant LDL-C even in the absence of weight loss.
 *   A meta-analysis found that compared with participants on low-fat diets, persons on low-carbohydrate diets experienced a slightly but statistically significant lower reduction in TC and LDL-C but a greater increase in HDL-C and a greater decrease in TG.
 *   There were no significant differences in weight loss between the low-fat vs the low carbohydrate diet.
 *   In patients with atherogenic dyslipidemia, a low carbohydrate diet emphasizing plant based and high-quality carbohydrates together with weight loss and regular exercise should be encouraged.
 
-#### 7.1.1.4. Carbohydrates (TG-Relevant Highlights)
+#### 7.1.1.4: Carbohydrates (Tg-Relevant Highlights)
 *   Carbohydrate restriction has been shown to:
     *   Significantly decrease TG and increase HDL-C.
     *   Result in minimal change in LDL-C levels. Studies seem to indicate that carbohydrate restriction results in decreased small, dense LDL particles and an increase in large particles with no significant change in total LDL particles or apo B-containing lipoproteins.
@@ -174,7 +165,7 @@ These data are derived from short-term clinical trials meant for drug registrati
     *   Most of these studies have been of short duration (< 2 years) and long-term data on safety and sustainability of these diets is lacking.
     *   A recent observational study showed that individuals on a low carbohydrate, high fat diet had significantly higher levels of LDL-C, apo B levels and higher new CV events (9.8% vs 4.3%) compared with participants on a standard diet after 11.8 years of follow up.
 
-#### 7.1.2. Exercise (TG/HDL Effects)
+### 7.1.2: Exercise (TG/HDL Effects)
 *   Regular exercise reduces the risk of CVD mortality by 20–30%.
 *   Studies show that regular aerobic exercise can:
     *   Increase HDL-C by 3–13% — up to 0.16 mmol/L.
@@ -188,23 +179,23 @@ These data are derived from short-term clinical trials meant for drug registrati
     *   75-150 minutes a week of vigorous-intensity aerobic physical activity exercise or an equivalent combination.
 *   For weight loss, increased exercise of approximately 250 to 450 minutes of moderate-intensity exercise per week, including strength training 2 to 3 times per week is required. This should be accompanied by a calorie-restricted diet.
 
-#### 7.1.3. Weight Loss
+### 7.1.3: Weight Loss
 *   A 5% weight loss improves the entire lipid profile (reduces TC, LDL-C, TG and increases HDL-C).
 *   In most patients, the changes in lipid levels with weight loss are small and proportional to the change in weight. A meta-analysis showed that for every 10 kg weight loss, TC decreases by 0.23 mmol/L during long term follow-up in persons suffering from obesity or who are grossly overweight.
 
-#### 7.1.4. Smoking Cessation (HDL/TG Effects)
+### 7.1.4: Smoking Cessation (HDL/TG Effects)
 *   Smoking has:
     *   An adverse effect on TG — heavy smokers had a significantly higher concentration.
     *   The concentration of HDL-C was inversely related to smoking, non-smokers having the highest concentration.
 *   Cigarette smoking cessation increases serum levels of HDL-C, especially in women, but has no effect on TC, LDL-C, and TG. This improvement in HDL-C levels may be offset by the weight increase that occurs after quitting.
 *   There is significant reduction in CV morbidity within the first 6 months of smoking cessation. The CV risk decreases gradually after smoking cessation and reaches that of non-smokers after 15 years.
 
-#### 7.1.1.7. Alcohol (HDL/TG Effects)
+#### 7.1.1.7: Alcohol (HDL/TG Effects)
 *   Moderate consumption of alcohol (30 gm ethanol/day) increases the concentration of HDL-C, apoA-I and TG.
 *   The recommendation is one should not start drinking alcohol for health benefits.
 *   Those individuals who do drink, should not exceed 1 drink/day (10gm/day) in non-pregnant females or 2 drinks/day (20gm/day) in males. Binge drinking should be avoided.
 
-#### Table 5: Recommendations for Therapeutic Lifestyle Changes
+Table 5: Recommendations For Therapeutic Lifestyle Changes
 
 | Nutrition / Intervention | Comments | Grades of Recommendation / Level of Evidence |
 |---|---|---|
@@ -219,8 +210,7 @@ These data are derived from short-term clinical trials meant for drug registrati
 | **Smoking** | Smoking should be discouraged and individuals referred to smoking cessation programme. | I, B |
 | **Alcohol** | Advise abstinence whenever possible. If necessary, limit to 1 drink/day (10gm/day) in females and 2 drinks/day (20 gm/day) in males. | I, B |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial Fibrillation |

@@ -1,20 +1,17 @@
-# SECTION 4: REFERRAL
-
+# Section 4: Referral
 <!-- METADATA
 category: Referral
 use_case: Referral Criteria
-patient_input: 
+patient_input:
 output:
 -->
 
 ## Overview
-
 There is no retrievable evidence on the referral criteria of patients with signs and symptoms to breast clinic.
 
 ---
 
 ## Referral Criteria
-
 The following conditions warrant **early referral (within two weeks)** to breast or surgical clinic for further evaluation:
 
 | Criteria | Description |
@@ -25,14 +22,12 @@ The following conditions warrant **early referral (within two weeks)** to breast
 
 ---
 
-### General Signs and Symptoms*
-
+### General Signs And Symptoms*
 *   Palpable mass
 *   Breast pain
 *   Nipple discharge
 
-### Signs of Malignancy**
-
+### Signs Of Malignancy**
 | Sign | Examples |
 |---|---|
 | Hard and fixed mass | — |

@@ -1,5 +1,4 @@
-# SECTION 8: SPECIAL POPULATIONS
-
+# Section 8: Special Populations
 <!-- METADATA
 category: special_populations
 use_case: treatment_modification, comorbidity_management
@@ -7,13 +6,11 @@ critical: true
 -->
 
 ## Overview
-
 Certain patient populations require special considerations in the management of ED due to underlying conditions or unique circumstances.
 
 ---
 
-## 8.1 Patients with Cardiac Disease
-
+## 8.1: Patients With Cardiac Disease
 Managing ED in patients with cardiac disease requires a comprehensive approach.
 
 ### Prevalence
@@ -21,14 +18,13 @@ Managing ED in patients with cardiac disease requires a comprehensive approach.
 - Patients with negative exercise stress test (EST) were less likely to have ED compared with those with positive EST (OR=0.18, p<0.001) (92, level II-2)
 
 ### Treatment Efficacy
-
 | Finding | Evidence |
 |---------|----------|
 | Sildenafil 50 mg was most effective (84% probability in SUCRA) in improving IIEF scores among patients with CV disorders | Level I |
 | Vardenafil and udenafil had the best benefit-risk profiles | Level I |
 | Tadalafil 10 mg on-demand improved IIEF scores in all risk groups (p<0.001) | Level II-3 |
 
-### Factors Associated with Tadalafil Treatment Failure
+### Factors Associated With Tadalafil Treatment Failure
 - Increased HDL level by every 1 mg/dL (OR=1.022)
 - Presence of hypertension (OR=2.217)
 - Higher Framingham score (OR=4.127)
@@ -45,8 +41,7 @@ An RCT comparing sexual rehabilitation (physical exercise, pelvic floor exercise
 
 ---
 
-## 8.2 Patients with Diabetes Mellitus
-
+## 8.2: Patients With Diabetes Mellitus
 The prevalence of ED among patients with DM is relatively high. They should be:
 - Regularly screened for ED and vice versa
 - Advocated for optimisation of glycaemic control and other risk factors
@@ -55,8 +50,7 @@ The prevalence of ED among patients with DM is relatively high. They should be:
 
 ---
 
-## 8.3 Patients with Pelvic Surgery or Prostate Cancer Treatment
-
+## 8.3: Patients With Pelvic Surgery Or Prostate Cancer Treatment
 ED is a well-known complication of pelvic surgery especially for cancers (e.g. rectal, prostate, bladder cancer). Potential mechanisms include direct injury to the neurovascular bundles that control the erectile response.
 
 ### Prevalence
@@ -66,7 +60,7 @@ ED is a well-known complication of pelvic surgery especially for cancers (e.g. r
 | Radiation | 33.8% | 346 days (median) |
 | Post-radical prostatectomy | 25-100% (review), 29-88% (narrative) | Up to 48 months recovery |
 
-### Factors Predicting EF Preservation Post-operatively
+### Factors Predicting Ef Preservation Post-Operatively
 - Patient's age
 - Baseline erectile function
 - Tumour size
@@ -79,12 +73,10 @@ ED is a well-known complication of pelvic surgery especially for cancers (e.g. r
 
 ---
 
-## 8.4 Spinal Cord Injury Survivors
-
+## 8.4: Spinal Cord Injury Survivors
 SCI may lead to sensory, motor and autonomic abnormalities below the spinal lesion and complex urologic conditions. Approximately 20-30% of SCI patients have either no erections or erection not sufficient for sexual intercourse.
 
 ### Treatment Options
-
 | Treatment | Effectiveness | Safety |
 |-----------|---------------|--------|
 | **PDE5i** | Improved erection, sexual intercourse frequency, satisfaction, enjoyment, desire, overall sex life, sexual relationship and self-confidence | Most common AEs: headache, dyspepsia, dizziness, rash |
@@ -98,7 +90,6 @@ SCI may lead to sensory, motor and autonomic abnormalities below the spinal lesi
 ---
 
 ## Related Reference
-
 For detailed prescribing information, contraindications, and dose adjustments for PDE5i and mechanical treatments, see [Appendix 6: Treatment in ED](appendix-6-treatment.md).
 
 ---

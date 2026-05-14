@@ -1,5 +1,4 @@
-# SECTION 6.0: OUTCOME AND FOLLOW-UP
-
+# Section 6: .0: Outcome And Follow-Up
 <!-- METADATA
 category: Prevention, Supportive Treatment
 use_case: Patient Outcome and Follow-up — monitoring, relapse prevention, reinfection
@@ -10,19 +9,16 @@ output: follow_up_schedule, monitoring_plan
 Following adequate antimicrobial therapy with/without surgery, resolution of the infection occurs in most patients with IE. However close monitoring with clinical examination and echocardiography is encouraged especially during the first year post-IE.
 
 The subsequent frequency of follow-up will depend on the following:
-
 - Clinical status of patient on discharge.
 - Residual valvular dysfunction (regurgitation).
 - Presence and severity of intra and extracardiac complications e.g. heart failure and neurological deficits.
 
 Patients post-IE that require referrals back to a cardiac centre during follow-up include those who:
-
 - Develop relapse and reinfection.
 - Require advanced imaging to further quantitate valvular and cardiac structural insult.
 - Require surgical intervention.
 
 Surveillance with clinical and echocardiogram evaluation is recommended to monitor for:
-
 - Relapses or reinfection of IE (refer Appendix 1: Classification and definition of infective endocarditis
 ):
     - If patient presents with febrile illness, it is crucial to take 3 sets of blood cultures before starting empirical antimicrobials.
@@ -34,21 +30,18 @@ Surveillance with clinical and echocardiogram evaluation is recommended to monit
 - In those with IE associated with CHD, referral for surgical repair of uncorrected CHD and residual lesions are recommended.
 
 Other important areas to re-emphasise during follow-up are:
-
 - Oral care and dental hygiene (refer Section 8.0).
 - Rehabilitation for high-risk behaviour (e.g. IVDU).
 - Good skin hygiene.
 - Body piercing and tattoos should be discouraged.
 
 Relapse and reinfection (refer Appendix 1: Classification and definition of infective endocarditis) are rare (2-6%). Patient education is important regarding subsequent febrile illness and prompt medical assessment should be emphasised. Physicians should have a high clinical suspicion regarding relapse or reinfection in such cases. A high rate of relapse is associated with:
-
 - S. aureus , enterococcus and Gram-negative microorganisms such as Pseudomonas aeruginosa .
 - IVDU especially with pre-treatment symptoms of more than three months duration.
 - Previous episode of IE.
 - Presence of prosthetic material and CHD.
 
 Factors associated with an increased rate of relapse include:
-
 - Inadequate antimicrobial treatment (duration, dose and resistant microorganism).
 - Polymicrobial infection in IVDU.
 - Empirical antimicrobial treatment in BCNIE.
@@ -59,18 +52,17 @@ Factors associated with an increased rate of relapse include:
 
 In the case of relapse or reinfection, appropriate antimicrobial therapy is given similar to patients with primary IE, which is up to 42 days.
 
-## KEY MESSAGE:
-
+## Key Message:
 1. On follow-up, patients should be monitored for recurrences of IE, evaluation of side effects from medical therapy and development of complications e.g. heart failure, and the timing and indication for elective surgery.
 2. For those patients with valve regurgitation, regular monitoring with echocardiography is needed, following the established guidelines for management of valvular heart disease.
 3. Education on preventive measures e.g. good oral and skin hygiene, and rehabilitation of high-risk behaviours should be provided.
 4. Risk of relapse is higher in those with inadequate initial antimicrobial therapy, previous history of IE, prosthetic valves, unrepaired CHD, IVDU and S. aureus IE.
 
 ## Contextual Anchors (Overlapping)
-### Appendix 1: Classification and definition of infective endocarditis
 
-#### IE according to localisation of infection and presence or absence of intracardiac material
+### Appendix 1: Classification And Definition Of Infective Endocarditis
 
+#### IE According To Localisation Of Infection And Presence Or Absence Of Intracardiac Material
 - Left-sided native valve IE
 - Left-sided PVE
   - Early PVE < 1 year after valve surgery
@@ -78,23 +70,20 @@ In the case of relapse or reinfection, appropriate antimicrobial therapy is give
 - Right-sided native valve IE
 - Device related IE
 
-#### IE according to the mode of acquisition
-
+#### IE According To The Mode Of Acquisition
 | Healthcare associated IE                        | Nosocomial                                                                                                                                 | Non-nosocomial                                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                 | IE developing in a patient  hospitalised > 48 hours prior to  onset of signs and symptoms  consistent with IE                              | Signs and symptoms of IE  starting < 48 hours after  admission in a patient with  healthcare contact defined as: •  Home-based nursing  or intravenous therapy,  haemodialysis, or intravenous  chemotherapy < 30 days  before the onset of IE •  Hospitalisation in an acute  care facility  < 90 days before the onset of  IE •  Resident in a nursing home or  long-term care facility |
 | Community acquired IE                           | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection |
 | Intravenous drug abuse associated IE            | IE in an active injection drug user with no alternative source of infection                                                               | IE in an active injection drug user with no alternative source of infection                                                               |
 
-### Active IE (at least one of the below)
-
+### Active IE (At Least One Of The Below)
 - Persistent fever and positive blood cultures
 - Inflammatory morphology findings during surgery
 - On antimicrobial therapy
 - Evidence of active infection on HPE
 
 ### Recurrence
-
 | Recurrence | |
 |---|---|
 | **Relapse** | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
@@ -104,18 +93,15 @@ Adapted from European Society of Cardiology infective endocarditis guidelines. 2
 
 ---
 
-### Section 4.2: Antimicrobial therapy: principles and methods
+### Section 4: .2: Antimicrobial Therapy: Principles And Methods
 
-#### 4.2.1 General principles
-
+### 4.2.1: General Principles
 General principles for the treatment of IE include:
-
 - Parenteral antimicrobials in high dose to sustain antibacterial concentrations for treatment success.
 - Bactericidal antimicrobials are necessary for effective treatment.
 - Adequate duration is required to prevent relapses.
 
-#### 4.2.2 Suggested regimes for treatment of native or prosthetic valve infective endocarditis
-
+### 4.2.2: Suggested Regimes For Treatment Of Native Or Prosthetic Valve Infective Endocarditis
 The choice of antimicrobials will depend on the type of microorganism isolated and whether it is a native or a prosthetic valve IE. All doses quoted are for patients with normal renal function. For dosing adjustment in patients with renal impairment refer to Appendices 8 and 9.
 
 **4.2.2.1 Streptococcus viridans**
@@ -175,10 +161,8 @@ This includes microorganisms such as *Pseudomonas aeruginosa*, *Escherichia coli
 **4.2.2.8 Other microorganisms**
 Refer to Table 4.11: Therapy for other microorganisms (adults)
 
-#### 4.2.3 Empirical therapy
-
+### 4.2.3: Empirical Therapy
 The initial empirical regime for endocarditis will depend on the following factors (refer Figure 4a: Antimicrobial coverage required for initial empirical treatment):
-
 - Involvement of native or prosthetic valves.
 - Duration following prosthetic surgery; early vs. late PVE (refer Appendix 1: Classification and definition of infective endocarditis).
 - Community acquired or healthcare associated (refer Appendix 1: Classification and definition of infective endocarditis).
@@ -189,7 +173,6 @@ The initial empirical regime for endocarditis will depend on the following facto
 Patients with subacute presentation are more likely to be infected with less virulent microorganisms such as VGS, enterococci, HACEK Gram-negative or NVS.
 
 Patients may present acutely due to:
-
 - Infection with more virulent microorganisms such S. aureus and non-HACEK Gram-negatives.
 - Infection with less-virulent microorganisms such as VGS, enterococci and HACEK Gram-negatives due to prolonged illness or immunocompromised status.
 
@@ -199,10 +182,8 @@ Proposed antimicrobial regimens for initial empirical treatment of infective end
 
 *S. aureus* is the most common cause of IE among IVDUs. However fungal and Gram-negative bacilli such as *Pseudomonas aeruginosa* can also cause IE in this population. Tricuspid valve involvement is the most common. Septic pulmonary emboli and pneumonia are common complications of tricuspid valve involvement and does not alter the duration of treatment (refer Section 4.2.2.3; Table 4.5 & 4.6).
 
-#### 4.2.4 Outpatient parenteral antimicrobial therapy for infective endocarditis
-
+### 4.2.4: Outpatient Parenteral Antimicrobial Therapy For Infective Endocarditis
 In carefully selected patients, outpatient parenteral antimicrobial therapy (OPAT) can be a safe and effective means of completing therapy for IE. Patients require minimum 2 weeks of inpatient therapy before being considered for OPAT. Beyond 2 weeks of treatment consider OPAT service if patient is:
-
 - Medically stable.
 - Has no heart failure.
 - Has no neurological signs.
@@ -212,8 +193,8 @@ In carefully selected patients, outpatient parenteral antimicrobial therapy (OPA
 The hospital must have established OPAT services with trained staff and protocols. Patients need to be reviewed daily by a trained nurse and by a doctor once/twice a week. Some important parameters that should be reviewed are presented in Appendix 10: Weekly OPAT review checklist (for doctors).
 
 ---
-### GRADES OF RECOMMENDATION
 
+### Grades Of Recommendation
 | Grade | Description |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -222,8 +203,7 @@ The hospital must have established OPAT services with trained staff and protocol
 | **IIb** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### LEVEL OF EVIDENCE
-
+### Level Of Evidence
 | Level | Description |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -236,8 +216,7 @@ The hospital must have established OPAT services with trained staff and protocol
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 |---|---|
 | BCNIE | Blood Culture Negative Infective Endocarditis |

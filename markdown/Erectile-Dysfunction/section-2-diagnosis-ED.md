@@ -1,5 +1,4 @@
-# SECTION 2: DIAGNOSIS AND ASSESSMENT
-
+# Section 2: Diagnosis And Assessment
 <!-- METADATA
 category: diagnosis
 use_case: initial_assessment, severity_determination
@@ -12,10 +11,9 @@ Assessment and diagnosis of ED should always begin with a detailed medical, sexu
 
 ---
 
-## 2.1 Medical History, Physical Examination and Laboratory Testing
+## 2.1: Medical History, Physical Examination And Laboratory Testing
 
-### 2.1.1 History Taking
-
+### 2.1.1: History Taking
 A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps to assess different sexual function domains:
 - Sexual desire
 - Erectile function
@@ -32,7 +30,6 @@ A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps t
 > **Clinical Note:** IIEF-5 and EHS assessment helps determine ED severity and guides treatment selection.
 
 #### Mandatory Screening
-
 | Screen For | Rationale |
 |------------|-----------|
 | Hypogonadism symptoms | Decreased energy, decreased libido |
@@ -41,7 +38,7 @@ A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps t
 
 ---
 
-### 2.1.2 Physical Examination
+### 2.1.2: Physical Examination
 Patients should undergo physical examination and vital parameters recording during clinical examination as part of cardiovascular risk assessment.
 
 **Focus areas for examination:**
@@ -63,19 +60,16 @@ Patients should undergo physical examination and vital parameters recording duri
 
 ---
 
-### 2.1.3 Laboratory Testing
-
+### 2.1.3: Laboratory Testing
 Laboratory testing must be tailored to patient's symptoms and risk factors to identify modifiable risk factors.
 
-#### Routine Tests (for CV Risk Assessment)
-
+#### Routine Tests (For CV Risk Assessment)
 | Test | Purpose |
 |------|---------|
 | Fasting blood glucose OR HbA1c | Screen for diabetes |
 | Lipid profile | Cardiovascular risk assessment |
 
-#### Additional Tests (Case-by-Case Basis)
-
+#### Additional Tests (Case-By-Case Basis)
 Additional laboratory tests may be considered on a case-by-case basis e.g. hormonal tests:
 - Early morning total testosterone
 - Total prostate-specific antigen (PSA)
@@ -84,12 +78,10 @@ Additional laboratory tests may be considered on a case-by-case basis e.g. hormo
 
 ---
 
-### 2.1.4 Advanced Work-Up
-
+### 2.1.4: Advanced Work-Up
 > Most patients with ED can be managed based on their medical and sexual history. specific diagnostic tests are reserved for specific indications.
 
-#### 2.1.4.1 Nocturnal Penile Tumescence and Rigidity Test (NPTR)
-
+#### 2.1.4.1: Nocturnal Penile Tumescence And Rigidity Test (Nptr)
 **Procedure:** Device worn overnight for at least 2 separate nights
 
 **Information Obtained:**
@@ -110,8 +102,7 @@ Additional laboratory tests may be considered on a case-by-case basis e.g. hormo
 
 ---
 
-#### 2.1.4.2 Intracavernous Injection Test
-
+#### 2.1.4.2: Intracavernous Injection Test
 Performed with or without dynamic duplex Doppler ultrasound to confirm vasculogenic aetiology.
 
 **Normal Parameters:**
@@ -124,8 +115,7 @@ Performed with or without dynamic duplex Doppler ultrasound to confirm vasculoge
 
 ---
 
-#### 2.1.4.3 Arteriography
-
+#### 2.1.4.3: Arteriography
 | Indication | Test Type |
 |------------|-----------|
 | Candidates for penile revascularisation | Penile pudendal arteriography |
@@ -133,8 +123,7 @@ Performed with or without dynamic duplex Doppler ultrasound to confirm vasculoge
 
 ---
 
-#### Indications for Advanced Diagnostic Tests
-
+#### Indications For Advanced Diagnostic Tests
 | Indication | Examples |
 |------------|----------|
 | Primary ED | Not caused by acquired organic disease or psychogenic disorder |
@@ -146,8 +135,7 @@ Performed with or without dynamic duplex Doppler ultrasound to confirm vasculoge
 
 ---
 
-## 2.2 Cardiovascular Risk Assessment
-
+## 2.2: Cardiovascular Risk Assessment
 <!-- METADATA
 category: cardiovascular_risk
 critical: true
@@ -158,8 +146,7 @@ use_case: safety_assessment, treatment_eligibility
 > - ED could be an initial manifestation leading to CAD and peripheral vascular disease
 > - Prevalence of ED is >70% among men with CVD
 
-### ED as Cardiovascular Risk Marker
-
+### ED As Cardiovascular Risk Marker
 | Association | Risk Ratio/HR | Evidence |
 |-------------|---------------|----------|
 | Severe ED predicts major adverse cardiac event (MACE) | HR 1.75 (95% CI 1.10-2.78) | Level II-2 |
@@ -167,15 +154,13 @@ use_case: safety_assessment, treatment_eligibility
 | ED associated with stroke | RR 1.35 (95% CI 1.19-1.54) | Level II-2 |
 | ED associated with all-cause mortality | RR 1.19 (95% CI 1.05-1.34) | Level II-2 |
 
-### Penile Blood Flow and MACE Risk
-
+### Penile Blood Flow And Mace Risk
 | Condition | PSV Threshold | HR for MACE |
 |-----------|---------------|-------------|
 | Flaccid conditions | <13 cm/s | 2.67 (95% CI 1.42-5.04) |
 | Dynamic conditions (post-prostaglandin-E1) | <25 cm/s | 1.57 (95% CI 1.01-2.47) |
 
 ### Risk Assessment Tools
-
 For patients with predominantly vasculogenic ED, assess using **2019 ACC/AHA ASCVD risk score** (Princeton IV consensus guidelines recommendation).
 
 **ASCVD Risk Calculator:** https://tools.acc.org/ascvd-risk-estimatorplus/#!/calculate/estimate/
@@ -185,7 +170,6 @@ For patients with predominantly vasculogenic ED, assess using **2019 ACC/AHA ASC
 ### Cardiac Risk Stratification (Princeton Consensus 2nd & 3rd)
 
 #### Low-Risk Category
-
 **Characteristics:**
 - Asymptomatic, <3 risk factors for CAD (excluding sex)
 - Mild, stable angina (evaluated and/or being treated)
@@ -202,7 +186,6 @@ For patients with predominantly vasculogenic ED, assess using **2019 ACC/AHA ASC
 ---
 
 #### Intermediate-Risk Category
-
 **Characteristics:**
 - ≥3 risk factors for CAD (excluding sex)
 - Moderate, stable angina
@@ -217,7 +200,6 @@ For patients with predominantly vasculogenic ED, assess using **2019 ACC/AHA ASC
 ---
 
 #### High-Risk Category
-
 **Characteristics:**
 - High-risk arrhythmias
 - Unstable or refractory angina
@@ -237,15 +219,13 @@ For patients with predominantly vasculogenic ED, assess using **2019 ACC/AHA ASC
 
 ---
 
-## 2.3 Psychological and Sexual Assessment
-
+## 2.3: Psychological And Sexual Assessment
 <!-- METADATA
 category: psychological_assessment
 use_case: psychogenic_ED_evaluation
 -->
 
 Psychosocial and sexual history is important for thorough and comprehensive assessment. These can be assessed through clinical interviews and objective measurements on specific areas of history which include:
-
 - **Current psychological state** and co-morbid psychiatry conditions (e.g. anxiety, depression)
 - **Relationship history** - issues, dynamics, durations and partner history
 - **Partner's sexual functioning** (e.g. FSD)
@@ -263,8 +243,7 @@ Psychosocial and sexual history is important for thorough and comprehensive asse
 
 ---
 
-### Recommendation 1: Diagnosis and Assessment
-
+### Recommendation 1: Diagnosis And Assessment
 - A comprehensive medical, psychosocial and sexual history should be taken in every patient presenting with erectile dysfunction (ED).
 - A validated questionnaire related to ED should be used to assess all sexual function domains (e.g. International Index of Erectile Function).
 - A focused physical examination in the initial assessment of men with ED should be done to identify underlying medical conditions and co-morbid genital disorders that may be associated with ED.

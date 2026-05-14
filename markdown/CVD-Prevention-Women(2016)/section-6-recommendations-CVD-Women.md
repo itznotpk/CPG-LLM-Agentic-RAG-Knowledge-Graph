@@ -1,5 +1,4 @@
-# SECTION 6: RECOMMENDATIONS FOR PREVENTION OF CVD IN WOMEN
-
+# Section 6: Recommendations For Prevention Of CVD In Women
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Evidence-based recommendations for CVD prevention in women including lifestyle and pharmacotherapy — nutrition, physical_activity, weight_management, smoking_cessation, aspirin, dyslipidaemia, hypertension, diabetes, anticoagulation, AF, CHA2DS2-VASc
@@ -23,12 +22,10 @@ Thus it is important to assess the global CVD risk since mildly raised levels of
 
 ---
 
-## 6.1 General Recommendations
-
+## 6.1: General Recommendations
 The following healthy lifestyle measures are important in all women. By adopting a healthy lifestyle, women can reduce their CVD risk by as much as 55%. A healthy life style has been shown to reduce the risk of heart failure in post-menopausal women even in the absence of antecedent CAD, hypertension and diabetes.
 
-### 6.1.1 Nutrition
-
+### 6.1.1: Nutrition
 **[Grade II-a, Level C]** Knowing how much calories one needs a day is a good start for healthy living. This depends on several factors such as age, gender, BMI and level of physical activity. Home cooked meals are preferable to eating out.
 
 A diet encompassing food from all the food groups is recommended. Healthy food choices that reduce CVD risk should be encouraged. General recommendations should fit in with the local culture. Energy intake should be adjusted to avoid overweight/obesity.
@@ -63,8 +60,7 @@ Nutritional recommendations should be individualized depending on risk factors �
 - ¼ the plate with lean protein prepared with healthy cooking methods
 - The remaining ¼ with grains and starches preferably whole grains
 
-### 6.1.2 Physical Activity
-
+### 6.1.2: Physical Activity
 **[Grade I, Level B]** Women should be encouraged to exercise for at least 30 minutes on most days of the week. Women who need to lose weight or sustain weight loss should exercise more.
 
 Before engaging on an exercise program, women should be assessed by qualified trainers/healthcare providers. However even small increases in physical activity is beneficial. This will include activities such as:
@@ -72,18 +68,15 @@ Before engaging on an exercise program, women should be assessed by qualified tr
 - Using stairs instead of the lift or escalator
 - Parking some distance away and walking
 
-### 6.1.3 Weight Maintenance / Reduction
-
+### 6.1.3: Weight Maintenance / Reduction
 **[Grade I, Level B]** Ideal BMI for Asian women is 18.5 - < 23 kg/m² and ideal waist circumference is ≤ 80 cm (31.5 inches).
 
 Weight control can be achieved by restriction of total calorie intake and regular physical activity.
 
-### 6.1.4 Cigarette Smoking
-
+### 6.1.4: Cigarette Smoking
 **[Grade I, Level B]** Women should not smoke and should avoid secondhand smoke. There is no data at present on the secondhand effects of e-cigarettes.
 
-### 6.1.5 Aspirin
-
+### 6.1.5: Aspirin
 **[Grade I, Level A]** Aspirin (75 mg-150 mg OD) is indicated for secondary prevention in all women with CVD.
 
 For primary prevention, in a large study, aspirin was found to be beneficial in women > 65 years. Aspirin lowered the risk of stroke without affecting the risk of non-fatal MI and CV death.
@@ -91,24 +84,20 @@ For primary prevention, in a large study, aspirin was found to be beneficial in 
 **[Grade I, Level A]** However a more recent meta-analysis found that aspirin was of uncertain net value in primary prevention in both gender. The reduction in occlusive events needs to be weighed against the risk of major bleeding.
 
 **[Grade I, Level A]** For patients with diabetes, the recommendations of the AHA/ACC are:
-
 - Low-dose (75–162 mg/d) aspirin use for prevention is reasonable for adults with diabetes and no previous history of vascular disease who are at increased CVD risk (10 year risk of CVD events over 10%) and who are not at increased risk for bleeding. These include women over age 60 years who have 1 or more of the following additional major risk factors: smoking, hypertension, dyslipidaemia, family history of premature CVD, and albuminuria.
 - Aspirin should not be recommended for CVD prevention for adults with diabetes at low CVD risk (women < 60 years with no major additional CVD risk factors; 10-year CVD risk < 5%) as the potential adverse effects from bleeding offset the potential benefits.
 - Low-dose (75–162 mg/d) aspirin use for prevention might be considered for those with diabetes at intermediate CVD risk (younger patients with 1 or more risk factors, or older patients with no risk factors, or patients with 10-year CVD risk of 5–10%) until further research is available.
 
 ---
 
-## 6.2 Treatment of Specific Risk Factors
-
+## 6.2: Treatment Of Specific Risk Factors
 Aggressive risk factor reduction should be instituted in all High Risk patients.
 
-### 6.2.1 Dyslipidaemia
-
+### 6.2.1: Dyslipidaemia
 The primary target of therapy is LDL-C. In women especially in diabetics, low HDL-C and high TG are also important risk factors and are the secondary targets of therapy.
 
-#### 6.2.1.1 Targets of Therapy
-
-**Table 12: Targets of Therapy in Dyslipidaemia**
+#### 6.2.1.1: Targets Of Therapy
+Table 12: Targets of Therapy in Dyslipidaemia
 
 | | High Risk | At Risk & Optimal Risk |
 |---|---|---|
@@ -116,8 +105,7 @@ The primary target of therapy is LDL-C. In women especially in diabetics, low HD
 
 *\*\*the lower the better*
 
-#### 6.2.1.2 Management of Dyslipidaemia: Primary Prevention
-
+#### 6.2.1.2: Management Of Dyslipidaemia: Primary Prevention
 - **[Grade I, Level C]** The cornerstone of management of women At Risk and Optimal Risk is lifestyle modification with advice on a healthy diet and physical activity.
 - **[Grade I, Level C]** Women at risk who do not achieve their target levels should be considered for pharmacological intervention.
 
@@ -125,23 +113,21 @@ Meta-analysis consistently show that primary prevention with statin therapy impr
 
 Women with genetic dyslipidaemias such as familial hypercholesterolemia with very high levels of TC or LDL-C may be considered for lipid lowering therapy from the outset.
 
-#### 6.2.1.3 Management of Dyslipidaemia: Secondary Prevention
-
+#### 6.2.1.3: Management Of Dyslipidaemia: Secondary Prevention
 - **[Grade I, Level A]** Numerous studies on secondary prevention have shown that women have similar benefits on CVD outcomes as men.
 - **[Grade I, Level A]** These High Risk women should have statin therapy.
 - **[Grade I, Level C]** Statins should not be used in women who are pregnant, intend to become pregnant or who are breast feeding.
 
-### 6.2.2 Hypertension
+### 6.2.2: Hypertension
 
-#### 6.2.2.1 Targets of Therapy
-
+#### 6.2.2.1: Targets Of Therapy
 - **[Grade I, Level A]** The target BP in most patients < 80 years of age should be < 140/90 mmHg. In patients > 80 years, the target should be < 150/90 mmHg. In the presence of target organ damage, a lower BP may be considered especially in younger patients.(refer Table 13: Blood Pressure Targets in the Different Risk Groups)
 - **[Grade I, Level B]** In diabetics, the target BP is < 135/75 mmHg.
 - **[Grade I, Level A]** In the presence of microalbuminuria/proteinuria, ACEI/ARBs are the first choice.
 
 The guidelines recognize that the risk of target organ damage extends to BP below this level and the true threshold for CVD risk should be flexible and dependent on the total risk of the individual. A recent study showed that in persons over the age of 50 years and without diabetes, a lower BP of 120/80 mmHg was associated with improved survival and cardiac outcomes. A lower BP target was however, associated with an increase in adverse effects (syncope, hypotension, electrolyte problems and acute kidney injury or failure).
 
-**Table 13: Blood Pressure Targets in the Different Risk Groups\***
+Table 13: Blood Pressure Targets in the Different Risk Groups\*
 
 | Patient Group | Target BP | Grade, Level |
 |---|---|---|
@@ -160,15 +146,12 @@ Blood pressure control in women may be challenging. In the Women's Health Initia
 
 For recommended pharmacotherapy (refer Appendix 4C: Choice of Anti-Hypertensive Drugs in Patients with Concomitant Conditions).
 
-
-#### 6.2.2.2 Gender Specific Issues
-
+#### 6.2.2.2: Gender Specific Issues
 The benefits of treating hypertension has been shown in both gender although some gender specific differences have been seen in the clinical trials. An earlier subgroup meta-analysis showed that in men, antihypertensive treatment reduced all categories of events while in women it was statistically significant only for stroke and major CV events. In absolute terms, the benefit in women was seen primarily for strokes; in men, treatment prevented as many coronary events as strokes.
 
 However, a more recent large meta-analysis found that there were no gender differences on the primary outcome of total major cardiovascular events. There was also no evidence that different anti-hypertensive regimens based on ACEI, calcium antagonists, ARBs, or diuretics/β-blockers were more effective in one gender than the other.
 
 Current guidelines for the treatment of hypertension are not gender specific. There are however some gender differences. Diuretics were associated with better blood pressure control than any of the other drug classes as monotherapy. Women are:
-
 - Less likely than men to have BP controlled with lifestyle interventions alone
 - Less successful in losing weight
 - More sensitive and more likely to respond to salt restriction
@@ -183,11 +166,10 @@ Current guidelines for the treatment of hypertension are not gender specific. Th
 - In pregnancy, the drugs of choice are methyldopa, nifedipine and labetolol
 - Weight loss and reduced sodium intake is beneficial in reducing blood pressure in older women
 
-### 6.2.3 Diabetes
+### 6.2.3: Diabetes
 
-#### 6.2.3.1 Targets of Therapy
-
-**Table 14: Targets of Therapy in Diabetes\***
+#### 6.2.3.1: Targets Of Therapy
+Table 14: Targets of Therapy in Diabetes\*
 
 | Category | Measure | Target | Grade, Level |
 |---|---|---|---|
@@ -206,8 +188,7 @@ Current guidelines for the treatment of hypertension are not gender specific. Th
 
 Specific local guidelines for the management of diabetic complications (CPGs on Diabetes Nephropathy 2006, Diabetes Retinopathy and Diabetic Foot 2004)
 
-### 6.2.4 Overweight and Obesity
-
+### 6.2.4: Overweight And Obesity
 Treatment of overweight and obesity can be achieved through a variety of modalities which include:
 - Changes in dietary composition
 - Low-calorie diet (LCD)
@@ -221,17 +202,15 @@ Certain weight loss therapies may be inappropriate in the following circumstance
 - Serious, acute psychiatric illness
 - Pregnancy or lactation
 
-#### 6.2.4.1 Overall Goals for Weight Loss Management
-
+#### 6.2.4.1: Overall Goals For Weight Loss Management
 - **[Grade I, Level B]** 10% loss of the initial body weight is associated with significant health benefits.
 - Overweight/obese women who lose weight intentionally over a year have been shown to have significantly reduced mortality rates.
 - Maintain lower weight over the long-term. It is better to maintain a moderate loss over the long-term than to achieve a greater weight loss that cannot be maintained.
 - Prevent weight regain.
 
-### 6.2.5 Others
+### 6.2.5: Others
 
-#### 6.2.5.1 Anticoagulant
-
+#### 6.2.5.1: Anticoagulant
 **[Grade I, Level A]** Patients with non-valvular AF irrespective of whether the pattern is paroxysmal, persistent or permanent should be considered for anticoagulation depending on their CHA₂DS₂-VASc score.
 
 The CHA₂DS₂-VASc score is calculated as in (refer Table 15: CHA₂DS₂-VASc Score).
@@ -248,7 +227,7 @@ The NOACs have been shown to be safer and more efficacious in women. The risk of
 
 **[Grade I, Level B]** In patients with AF secondary to valvular heart disease, warfarin is the agent of choice.
 
-**Table 15: CHA₂DS₂-VASc Score**
+Table 15: CHA₂DS₂-VASc Score
 
 | Risk Factor | Score |
 |---|---|
@@ -261,8 +240,7 @@ The NOACs have been shown to be safer and more efficacious in women. The risk of
 | Age 64-74 years | 1 |
 | Female gender | 1 |
 
-#### 6.2.5.2 Supplements
-
+#### 6.2.5.2: Supplements
 There is no evidence that the following supplements are useful in preventing CVD in women:
 1. **[Grade III, Level A]** Antioxidant vitamin supplements (e.g. vitamin E, C & beta carotene)
 2. **[Grade III, Level A]** Folic acid
@@ -271,8 +249,7 @@ There is no evidence that the following supplements are useful in preventing CVD
 
 ---
 
-### Appendix 4C: Choice of Anti-Hypertensive Drugs in Patients with Concomitant Conditions*
-
+### Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions*
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|---|---|---|---|---|---|
 | **Diabetes mellitus (without nephropathy)** | + | +/- | +++ | + | +/- | ++ |
@@ -305,8 +282,7 @@ There is no evidence that the following supplements are useful in preventing CVD
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -315,8 +291,7 @@ There is no evidence that the following supplements are useful in preventing CVD
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -333,7 +308,6 @@ There is no evidence that the following supplements are useful in preventing CVD
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AAA | Abdominal aortic aneurysm |

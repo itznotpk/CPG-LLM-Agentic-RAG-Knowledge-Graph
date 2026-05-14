@@ -1,5 +1,4 @@
-# CHRONIC REFRACTORY ANGINA
-
+# Chronic Refractory Angina
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Management of chronic refractory angina — antianginal_therapy, adjunctive_options, referral
@@ -8,12 +7,10 @@ output: refractory_treatment_plan
 treatment_type: antianginal_agents, EECP, ESMR, neuromodulation, transplantation
 -->
 
-## 9. Chronic Refractory Angina
-
+## 9: Chronic Refractory Angina
 Chronic refractory angina is a clinical diagnosis based on the symptoms of ischaemic chest pain of >3 months duration which is not controlled by a combination of maximal medical therapy and/or revascularization.
 
 Most common reasons why revascularisation (or repeat revascularization) is not undertaken:
-
 - unsuitable anatomy - e.g. diffuse small vessels disease, calcified aorta
 - one or several previous CABG and/or PCI have been performed
 - severely depressed LV function
@@ -23,7 +20,6 @@ Most common reasons why revascularisation (or repeat revascularization) is not u
 Medical management of these patients requires optimisation of risk factors and the use of combination antianginal drugs in maximal tolerated doses.
 
 Options available to these symptomatic patients who are not amenable to conventional therapy include:
-
 - enhanced external counter pulsation (EECP)393-396
 - extracorporeal shockwave myocardial revascularisation (ESMR) 397-400
 - acupuncture401
@@ -31,7 +27,6 @@ Options available to these symptomatic patients who are not amenable to conventi
 - chelation therapy410
 
 ## Other Investigational Therapies Include:
-
 - neuromodulation techniques (transcutaneous electric nerve stimulation and spinal cord stimulation)411-413
 - thoracic epidural anaesthesia
 - endoscopic thoracic sympathectomy
@@ -47,7 +42,6 @@ In small clinical trials, these alternative therapies have been shown to relieve
 - These therapies should only be considered in patients who continue to have **[Grade II-b, Level B]** troubling angina despite conventional therapy or when conventional therapy is not feasible. 393-425
 
 ## Key Messages:
-
 - ischaemic chest pain of >3 months duration which is not controlled by a combination of maximal medical therapy and/or revascularization
 - Alternative and investigational therapies have been shown to relieve angina and improve quality of life to a variable degree in some of these patients.
 - They should only be considered in patients who continue to have troubling angina despite adequate conventional treatments.
@@ -57,8 +51,7 @@ In small clinical trials, these alternative therapies have been shown to relieve
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -67,8 +60,7 @@ In small clinical trials, these alternative therapies have been shown to relieve
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -83,7 +75,6 @@ In small clinical trials, these alternative therapies have been shown to relieve
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | EECP | Enhanced External Counterpulsation |

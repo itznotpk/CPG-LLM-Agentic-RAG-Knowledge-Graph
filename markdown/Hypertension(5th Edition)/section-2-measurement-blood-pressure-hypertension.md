@@ -1,5 +1,4 @@
-# SECTION 2: MEASUREMENT OF BLOOD PRESSURE
-
+# Section 2: Measurement Of Blood Pressure
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: BP Measurement Protocols (Clinic, HBPM, ABPM) — clinic_technique, device_validation, cuff_selection, HBPM, ABPM, interpretation, white_coat_detection, masked_hypertension_detection
@@ -7,8 +6,7 @@ patient_input: blood_pressure_readings, device_type, measurement_setting, arrhyt
 output: measurement_protocol, HBPM_plan, ABPM_indications, interpretation_rules
 -->
 
-## Measurement of Blood Pressure
-
+## Measurement Of Blood Pressure
 Blood pressure should be measured under standardised condition (see section 2.1). It can be measured directly or indirectly. There are four common devices used for the indirect measurement of BP namely:
 - electronic devices
 - aneroid sphygmomanometer
@@ -27,16 +25,14 @@ If the difference in BP between the two arms is >20/10 mmHg, further evaluation 
 
 A systolic drop of >20 mmHg after one minute of standing is considered a significant postural drop.
 
-### 2.1 Electronic BP Sets
-
+## 2.1: Electronic BP Sets
 As mentioned earlier, electronic BP sets are now preferred.
 
 A technical committee assessment by MOH concluded that if electronic BP set is used, it must be confirmed by mercury Sphygmomanometer in patients with cardiac illness, atherosclerosis, renal disease and in children. (Digital Blood Pressure Measurement sets, Health Technology Assessment Section, Medical division, Ministry of Health Malaysia. 014-2017 available at http://www.moh.gov.my.)
 
 These electronic machines are generally less accurate in patients with arrhythmias (e.g. atrial fibrillation).
 
-### 2.2 Home BP Measurement (HBPM) Using Electronic Devices
-
+## 2.2: Home BP Measurement (Hbpm) Using Electronic Devices
 Home BP measurement is a useful adjunct in the diagnosis and management of hypertension especially in selected patients. [Level II-2] If properly performed, it has good prognostic value.
 
 [Level I] Systematic reviews have shown that HBPM is superior compared to office measurements in diagnosing hypertension, in uncontrolled hypertension, assessing antihypertensive treatment, improving patient’s adherence (compliance) and provides potential cost saving.
@@ -55,7 +51,7 @@ Situations where HBPM is useful include:
 
 ---
 
-### RECOMMENDATIONS
+### Recommendations
 **BP Measuring Technique**
 
 **For Clinic BP, patients should:**
@@ -75,8 +71,7 @@ Situations where HBPM is useful include:
 * Average the remaining BP measurements (at least 3 days)
 * Mean home systolic BP >135 mmHg and/or diastolic BP >85 mmHg should be considered as elevated
 
-### 2.3 Ambulatory Blood Pressure Monitoring (ABPM)
-
+## 2.3: Ambulatory Blood Pressure Monitoring (Abpm)
 Most of the data upon which estimates of risk are based, as well as benefits of treatment have been accumulated from office BP readings and therefore ABPM is not essential for the diagnosis and management of most patients with hypertension.
 
 The data provided by ABPM does not influence therapeutic decisions in the vast majority of patients. The current cost of ABPM devices will also limit its widespread use.
@@ -90,8 +85,7 @@ The data provided by ABPM does not influence therapeutic decisions in the vast m
 - fluctuating office BP readings
 - confirmation of resistant hypertension
 
-## Level of Evidence
-
+## Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |

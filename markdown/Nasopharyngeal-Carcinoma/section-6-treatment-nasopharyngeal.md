@@ -1,5 +1,4 @@
-# SECTION 6: TREATMENT
-
+# Section 6: Treatment
 <!-- METADATA
 category: Treatment
 use_case: NPC Treatment — radiotherapy, IMRT, concurrent_chemoradiation, neoadjuvant_chemotherapy, adjuvant_chemotherapy, recurrent_disease, metastatic_disease, palliative_care
@@ -11,8 +10,7 @@ treatment_type: cisplatin, carboplatin, fluorouracil, docetaxel, IMRT, 3D-CRT, b
 
 Multidisciplinary team approach in the management of NPC cases is important to ensure optimum treatment planning. The main treatment for NPC is radiation therapy with or without chemotherapy.
 
-## 6.1 Primary Cancer (Newly Diagnosed NPC)
-
+## 6.1: Primary Cancer (Newly Diagnosed Npc)
 Radiation therapy (RT) is the main treatment modality for non-disseminated NPC. Chemotherapy plays a role as adjunct treatment to RT. It can be given as concurrent, adjuvant or neoadjuvant setting.
 
 NPC is radiosensitive and thus radiation therapy is the mainstay of treatment. Radical radiation therapy doses usually consist of 66 to 70Gy in 33-35 fractions, treated once daily over 6-7 weeks, usually 5 days a week with two rest days. Conventional 2-dimensional radiation therapy (2D-CRT) used to be the main technique. With the understanding about benefit of conformal radiation therapy and technological advancement, the therapy has evolved to 3-dimensional radiation therapy (3D-CRT) and more recently intensity modulated radiotherapy (IMRT).
@@ -44,8 +42,7 @@ Adjuvant chemotherapy (AC) is chemotherapy given after primary treatment of NPC.
 > - Concurrent chemoradiotherapy should be offered in Stage II, III, IVA and IVB NPC.
 > - Intensity modulated radiotherapy is the preferred radiation technique in NPC.
 
-## 6.2 Recurrent Cancer
-
+## 6.2: Recurrent Cancer
 NPC can recur at local, locoregional or distant metastatic sites. These conditions can be difficult to manage. Treatment for primary site recurrence depends on the T staging. [Level II-3] [Level II-2] Treatment for rT1 and rT2 can be endoscopic nasopharyngectomy or brachytherapy. For rT3, selected rT4 and nodal recurrence, conventional nasopharyngectomy, radical neck dissection or re-irradiation is the treatment option.
 
 [Level II-3] [Level II-2] Five-years overall survival rate post-nasopharyngectomy ranges from 42.1% to 52%. [Level II-3] [Level II-2] The survival rate is higher in rT1 (49.1% to 73%) and rT2 (24.7% to 40%) compared with higher T staging.
@@ -70,8 +67,7 @@ The choice of therapeutic approach depends upon local expertise and facilities, 
 > **Recommendation 5**
 > - In recurrent nasopharyngeal carcinoma, nasopharyngectomy or re-irradiation may be offered.
 
-## 6.3 Advanced Disease
-
+## 6.3: Advanced Disease
 In advanced disease with distant metastasis (M1) of NPC, options of treatment include chemotherapy, radiotherapy and palliative care. [Level III] NPC patients with distant metastasis (Stage IVC) receiving either chemotherapy or radiotherapy have better 1-year overall survival rate compared with those without treatment (p=0.0015). The radiation dose that might be given is 70.2-75.6 Gy.
 
 [Level III] Multimodality treatment which include chemotherapy, radiotherapy with or without surgery increase survival rate significantly compared with best supportive care or chemotherapy alone in metastatic NPC.
@@ -86,9 +82,10 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 > - Multimodality treatment including palliative care should be considered in advanced nasopharyngeal carcinoma.
 
 ---
-## Contextual Anchors (Overlapping)
-## Appendix 6: Chemotherapy Drugs and Side Effects
 
+## Contextual Anchors (Overlapping)
+
+## Appendix 6: Chemotherapy Drugs And Side Effects
 | CHEMOTHERAPY DRUGS | SIDE EFFECTS | REMARKS |
 |---|---|---|
 | **Cisplatin** | • Gastrointestinal (nausea and vomiting).<br>• Blood (anaemia, thrombocytopaenia).<br>• Renal toxicity.<br>• Electrolyte imbalance (hypomagnesaemia, hypocalcaemia, hypokalaemia).<br>• Auditory (tinnitus; with or without hearing loss).<br>• Neurology (peripheral neuropathy, paraesthesia, seizure).<br>• Hypersensitivity reaction (shortness of breath, hypotension, facial oedema, flushing). | • Observe for cumulative renal toxicity. It may be minimised by adequate hydration and urinary output at least 24 hours after administration.<br>• Prophylactic anti-emetics and corticosteroids should be given.<br>• Observe for anaphylactic-like reactions during infusion. |
@@ -104,8 +101,7 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 
 ---
 
-## Appendix 7: Eastern Cooperative Oncology Group (ECOG) Performance Status
-
+## Appendix 7: Eastern Cooperative Oncology Group (Ecog) Performance Status
 | Grade | Description |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -119,8 +115,7 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -133,8 +128,7 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 
 ---
 
-## Abbreviations used in this section
-
+## Abbreviations Used In This Section
 | Abbreviation | Full Term |
 |---|---|
 | 2D-CRT | 2-dimensional Radiation Therapy |

@@ -1,5 +1,4 @@
-# SECTION 2: RISK FACTORS
-
+# Section 2: Risk Factors
 <!-- METADATA
 category: Epidemiology, Prevention, Screening
 use_case: Breast Cancer Risk Assessment — modifiable_risk_factors, non_modifiable_risk_factors, hormonal_factors, genetic_predisposition, breast_density, lifestyle_modification
@@ -8,23 +7,19 @@ output: risk_category, risk_reduction_recommendations
 -->
 
 ## Overview
-
 The cause of the vast majority of breast cancers remains unknown. However, a number of risk factors have been established and can be divided into **non-modifiable** and **modifiable** groups.
 
 ---
 
-## 2.1 Non-Modifiable Risk Factors
+## 2.1: Non-Modifiable Risk Factors
 
 ### Age
-
 The risk of breast cancer increases with age. Based on the latest National Cancer Registry Report of Malaysia, the incidence starts to increase at age 25 and peaks at age 60–64 years.
 
 ### Gender
-
 Females have a much higher risk of breast cancer compared with males.
 
 ### Family History
-
 The risk for breast cancer increases in women with:
 *   Family history of breast cancer at young age
 *   Being a carrier of pathogenic or likely pathogenic variants in BRCA1, BRCA2, PALB2, ATM and CHEK2
@@ -32,7 +27,6 @@ The risk for breast cancer increases in women with:
 > **Cross-reference:** See Section 8 on Familial Breast Cancer for detailed genetic risk assessment.
 
 ### Reproductive Factors
-
 Early menarche and late menopause are risk factors for breast cancer.ˡᵉᵛᵉˡ ᴵᴵ⁻²
 
 | Factor | Tumour Type | Risk (OR, 95% CI) |
@@ -41,16 +35,12 @@ Early menarche and late menopause are risk factors for breast cancer.ˡᵉᵛᵉ
 | Late menopause (≥50 years) | Luminal tumour | OR=1.15 (1.0 to 1.32) |
 | Late menopause (≥50 years) **Refer to Table 2** | ER-/PR- tumour | OR=1.19 (1.00 to 1.43) |
 
-
-
-### History of Neoplastic Disease of the Breast
-
+### History Of Neoplastic Disease Of The Breast
 *   Patients with **previous breast cancer** carry an elevated risk of developing new primary breast cancer.
 *   Patients with **breast carcinoma in situ** are at high risk to develop invasive breast carcinoma.
 *   Patients with **atypical ductal hyperplasia** and **lobular hyperplasia** (atypical lobular hyperplasia and lobular carcinoma in-situ) have clinically significant increased risk of developing breast cancer.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 ### Breast Density
-
 | Breast Density Category | Risk of Breast Cancer |
 |---|---|
 | Scattered fibroglandular (BI-RADS® b) | **2× increased** risk |
@@ -62,10 +52,9 @@ Early menarche and late menopause are risk factors for breast cancer.ˡᵉᵛᵉ
 
 ---
 
-## 2.2 Modifiable Risk Factors
+## 2.2: Modifiable Risk Factors
 
 ### Reproductive Factors
-
 Nulliparity and lack of breastfeeding are risk factors for breast cancer.ˡᵉᵛᵉˡ ᴵᴵ⁻²
 
 | Factor | Tumour Subtype | Risk (OR, 95% CI) |
@@ -78,7 +67,6 @@ Nulliparity and lack of breastfeeding are risk factors for breast cancer.ˡᵉ�
 *   Older age at first live childbirth increases the risk of breast cancer.
 
 ### Hormonal Factors
-
 | Factor | Risk | Evidence |
 |---|---|---|
 | Oral contraceptives (OC) | Small risk: OR=1.521 (95% CI 1.25 to 1.85) | level II-2 |
@@ -90,11 +78,11 @@ Nulliparity and lack of breastfeeding are risk factors for breast cancer.ˡᵉ�
 | Unopposed oestrogen (hysterectomised) | Mildly increased after >15 years use | - |
 
 ### Lifestyle Factors
-* Being overweight or obese throughout adulthood increases 
+* Being overweight or obese throughout adulthood increases
 the risk of post-menopausal breast cancer.
-* Physical activity measured in metabolic equivalent of task 
-(MET) minutes/week shows dose-dependent effect on risk 
-of breast cancer. The higher the MET, the lower the risk as 
+* Physical activity measured in metabolic equivalent of task
+(MET) minutes/week shows dose-dependent effect on risk
+of breast cancer. The higher the MET, the lower the risk as
 shown below.
 
 | MET minutes/week | Pooled RR (95% CI) |
@@ -107,8 +95,7 @@ shown below.
 
 > **Key Insight:** WHO recommends at least 600 MET minutes/week (approximately 150 min/week brisk walking or 75 min/week running) for health benefits.
 
-#### Dietary and Other Lifestyle Factors
-
+#### Dietary And Other Lifestyle Factors
 | Factor | Effect on Risk | Evidence |
 |---|---|---|
 | Green tea ≥3 cups/day (Chinese females) | **Decreased** risk: OR=0.79 (0.65 to 0.95) | level II-2 |
@@ -120,7 +107,6 @@ shown below.
 | Overweight/obesity throughout adulthood | **Increased** risk of post-menopausal breast cancer | 163 |
 
 ### Radiation Exposure
-
 *   **Therapeutic radiation to chest** at an early age (e.g. Hodgkin's disease) — high risk of developing breast cancer.
 *   **Radiotherapy for breast cancer treatment** — increases risk of contralateral breast cancer.
 
@@ -128,9 +114,7 @@ shown below.
 <!-- OVERLAP CONTENT FROM: APPENDICES 4 & 5                       -->
 <!-- Purpose: Explicit details of TNM, WHO, and Reporting Proforma for RAG Context -->
 
-
-### Cross Reference of Section 8 on Familial Breast Cancer for detailed genetic risk assessment
-
+### Cross Reference Of Section 8 On Familial Breast Cancer For Detailed Genetic Risk Assessment
 Initial risk evaluation by the responsible doctor (surgeon or oncologist) should include:
 
 | Component | Details |
@@ -143,8 +127,7 @@ Initial risk evaluation by the responsible doctor (surgeon or oncologist) should
 *   Maternal and paternal family history should be considered independently
 *   Risk assessment is a dynamic process — can change if additional relatives are diagnosed
 
-#### Genetic Referral and Testing Criteria (NCCN)
-
+#### Genetic Referral And Testing Criteria (Nccn)
 Meeting **one or more** of these criteria warrants further personalised risk assessment, genetic counselling and often genetic testing:
 *   Individual from a family with a known BRCA1/2 pathogenic/likely pathogenic variant
 *   Personal history of breast cancer diagnosed **≤45 years** of age
@@ -165,7 +148,7 @@ Meeting **one or more** of these criteria warrants further personalised risk ass
 
 ---
 
-### Table 2. Histopathologic Features Suggestive of Possible HER2 Test Discordance
+Table 2. Histopathologic Features Suggestive Of Possible Her2 Test Discordance
 
 *Criteria to consider if there are concerns regarding discordance with apparent histopathologic findings and possible false-negative or false-positive HER2 test result.*
 

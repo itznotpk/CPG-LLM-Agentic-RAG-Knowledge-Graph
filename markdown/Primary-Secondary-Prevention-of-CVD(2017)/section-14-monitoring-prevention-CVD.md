@@ -1,5 +1,4 @@
-# SECTION 14: MONITORING OF ACTIVITY AND QUALITY ASSURANCE
-
+# Section 14: Monitoring Of Activity And Quality Assurance
 <!-- METADATA
 category: Reference
 use_case: NCD monitoring targets and CPG implementation quality assurance — monitoring, quality_assurance, ncd_targets, malaysia_2025, performance_measures
@@ -11,10 +10,8 @@ output: national_ncd_targets, performance_indicators, implementation_guidance
 
 ---
 
-## 14. Monitoring of Activity and Quality Assurance
-
+## 14: Monitoring Of Activity And Quality Assurance
 Implementation of the recommendations listed in this CPG can be accomplished by:
-
 - Continuous medical education via regular seminars, lectures and roadshows particularly at the district hospital and family medicine clinics. Education and training is the most important aspect of the implementation of this CPG.
 - Widespread availability of this CPG to healthcare providers via printed copies, electronic websites, etc.
 
@@ -25,7 +22,7 @@ The national NCD targets for Malaysia by year 2025 are shown in Table 29: NCD Ta
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT                                              -->
 <!-- ============================================================ -->
-### Table 29: NCD Targets for Malaysia 2025
+Table 29: Ncd Targets For Malaysia 2025
 
 |     |                                                                                                | Global target          | Malaysia           | Malaysia      |
 |-----|------------------------------------------------------------------------------------------------|------------------------|--------------------|---------------|
@@ -39,7 +36,6 @@ The national NCD targets for Malaysia by year 2025 are shown in Table 29: NCD Ta
 | 7   | Prevalence diabetes and obesity                                                                | Halt the rise          | ≤15%               | ≤15%          |
 
 In addition, other performance measures include:
-
 - Hospital admissions and discharges
 - Periodic national health surveys
 - Mortality statistics
@@ -53,7 +49,6 @@ In addition, other performance measures include:
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | CAD | Coronary Artery Disease |

@@ -1,5 +1,4 @@
-# OTHER NON-INVASIVE INVESTIGATIONS
-
+# Other Non-Invasive Investigations
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Non-invasive diagnostic testing strategy — PTP, stress_testing, imaging, CTA
@@ -7,14 +6,12 @@ patient_input: PTP, exercise_capacity, ECG_interpretability, comorbidities
 output: test_selection, diagnostic_accuracy_context
 -->
 
-## 6. Other Non-Invasive Investigations for the Diagnosis of CAD
+## 6: Other Non-Invasive Investigations For The Diagnosis Of Cad
 
-## 6.1 Principles of Diagnostic Testing
-
+## 6.1: Principles Of Diagnostic Testing
 Additional non-invasive investigations help in the diagnosis of CAD and its and the potential harm of any procedure including avoiding, wherever possible, false positive or false negative results. A false positive result can result in unnecessary, expensive further downstream investigations and anxiety while a false negative result can result in a missed diagnosis and opportunity for appropriate treatment.
 
 In addition to a resting ECG, chest radiograph and echocardiogram, other non-invasive tests may be:
-
 - Functional — for myocardial ischemia or
 - Anatomical — for visualization of the epicardial coronary arteries
 
@@ -23,7 +20,6 @@ In symptomatic patients with suspected CAD, functional testing as compared to an
 - **[Grade I, Level C]** test for myocardial ischemia is a more appropriate initial investigation.
 
 The interpretation of these diagnostic investigations will depend on:
-
 - the pre-test probability (PTP) i.e. the likelihood of CAD in that patient. The PTP can be estimated using different models based on the patient's age, sex and clinical history of chest pain.28,44,62-64
 - and specificity. (refer Table 6: Sensitivity and Specificity of Non-Invasive Diagnostic Tests for CAD) Sensitivity is the frequency of a true the positive predictive value is the frequency that a patient with a positive value of a test is dependent on the prevalence of CAD in the population the positive predictive value declines and the negative predictive value increases.
 
@@ -36,7 +32,7 @@ In patients presenting with stable chest pain of more than two months duration a
 <!-- Purpose: Pre-Test Probability (PTP) of CAD by age, sex, and chest pain type -->
 <!-- ============================================================ -->
 
-### Table 1: Pre-Test Probability (PTP) of CAD in Patients with Stable Chest Pain
+Table 1: Pre-Test Probability (Ptp) Of Cad In Patients With Stable Chest Pain
 
 | Age | Typical Angina — Men (%) | Typical Angina — Women (%) | Atypical Angina — Men (%) | Atypical Angina — Women (%) | Non-Anginal Pain — Men (%) | Non-Anginal Pain — Women (%) |
 |-----|--------------------------|---------------------------|--------------------------|-----------------------------|-----------------------------|------------------------------|
@@ -55,8 +51,7 @@ In patients presenting with stable chest pain of more than two months duration a
 
 <!-- END OVERLAP FROM: TABLE 1 -->
 
-## Patients with a:
-
+## Patients With A:
 - low PTP of <15% can be assumed to have no significant obstructive CAD. In these individuals, the presence of CV risk factors should be determined, and
 - intermediate PTP (≥15-≤85%) — require further non-invasive testing.
 - high PTP >85% can be assumed to have significant obstructive CAD and invasive coronary angiography maybe a more appropriate initial investigation.
@@ -68,7 +63,7 @@ In patients with intermediate PTP, the choice of non-invasive tests will depend 
 <!-- Purpose: Sensitivity and specificity of non-invasive diagnostic tests for CAD -->
 <!-- ============================================================ -->
 
-### Table 6: Sensitivity and Specificity of Non-Invasive Diagnostic Tests for CAD
+Table 6: Sensitivity And Specificity Of Non-Invasive Diagnostic Tests For Cad
 
 | Test | Sensitivity (%) | Specificity (%) |
 |------|-----------------|-----------------|
@@ -85,8 +80,7 @@ In patients with intermediate PTP, the choice of non-invasive tests will depend 
 
 <!-- END OVERLAP FROM: TABLE 6 -->
 
-## Key messages:
-
+## Key Messages:
 - In the diagnosis of CAD in patients presenting with stable chest pain, non-invasive tests may be:
   - Functional — for myocardial ischemia or
   - Anatomical — for visualization of the coronary arteries
@@ -95,29 +89,24 @@ In patients with intermediate PTP, the choice of non-invasive tests will depend 
   - Sensitivity and specificity of the different diagnostic modalities.
 
 ## Recommendation 2:
-
 In persons with suspected CAD and having stable chest pain/angina equivalent of more than 2 months and undergoing non-invasive cardiac testing, it is important to determine the:
-
 - Pre-Test Probability (PTP) of CAD of that individual. (refer Table 1: Pre-Test Probability of CAD) In the Euro model for assessing PTP, (refer Table 1: Pre-Test Probability of CAD) which this writing group has adopted, patients with a:
   - low PTP of <15% can be assumed to have no significant obstructive CAD. In these individuals, CV risk factors should be treated to target. Other causes of chest pain should be looked for.
   - high PTP >85% can be assumed to have significant obstructive CAD and invasive coronary angiography maybe a more appropriate investigation.
 - Sensitivity and specificity of the different diagnostic modalities. (refer Table 6: Sensitivity and Specificity of Non-Invasive Diagnostic Tests for CAD)
 
-## 6.2. Functional Tests for Myocardial Ischemia in the Diagnosis of CAD
+## 6.2: Functional Tests For Myocardial Ischemia In The Diagnosis Of Cad
 
-## 6.2.1 Diagnostic Accuracy of Exercise Stress ECG
-
+### 6.2.1: Diagnostic Accuracy Of Exercise Stress ECG
 Exercise stress ECG is an important investigative tool in the diagnosis of CAD and in risk stratification. The sensitivity and specificity vary from 70-77% lower in females.
 
 - Despite its pitfalls, exercise stress ECG is a useful first line strategy in both **[Grade I, Level A]** gender in the evaluation of individuals with chest pain.28.65-68 (Fig 1, pg 23) This recommendation differs from that of the NICE guidelines where CTA is recommended as a first line strategy in individuals with typical or atypical angina or if clinical assessment indicates non anginal pains, but the resting ECG is abnormal.24
 
 Patient selection for exercise stress ECG is important. The individual should be:
-
 - able to perform moderate physical activity (e.g. household chores, gardening or recreational work, activities of daily living). In these instances, will allow correlation with the patient's symptoms on exercise and the assessment of functional capacity.
 - without disabling comorbidities such as frailty, marked obesity, peripheral arterial disease, chronic obstructive airways disease or orthopaedic limitations.
 
 Before ordering an exercise stress ECG, the following should be evaluated:
-
 - most suitable candidates are those with an intermediate PTP of CAD.
 - The resting ECG — An interpretable ECG should not have any resting ST abnormalities, pre-excitation, paced rhythm or digoxin effect.
 
@@ -126,7 +115,6 @@ If the exercise stress ECG is being done for diagnostic reasons, it is best to s
 If it is being done for prognosis, then anti-anginal medications should be continued.
 
 A positive exercise stress ECG includes:
-
 - ms after the J point) in two contiguous leads.
 
 - ST segment elevation of ≥1mm (at 60-80ms after the J point) in leads that do not have Q wave(s) — This is an important marker of a high grade coronary stenosis and severe transmural ischemia.
@@ -136,7 +124,6 @@ A positive exercise stress ECG includes:
 The timing and magnitude of the ST segment changes/symptoms is an important prognostic indicator. The ST segment changes may sometimes only occur during recovery.
 
 enhance the interpretation and predictive value of the exercise stress ECG include:
-
 - Duke treadmill score — there is good correlation with mortality and the extent of CAD.1.2 (refer Table 7: Duke Treadmill Score)
 - (Fig 3, pg 45)
 - Presence of ventricular arrhythmias.
@@ -151,17 +138,14 @@ The Duke treadmill scoring system allows a method for risk stratification:1.2
 
 Achieving 85% of age-predicted maximal heart rate might not indicate sufficient stress.71 This should not be used as criteria to terminate an exercise stress ECG. Should the patient have inadequate levels of stress, use of
 
-## In the Diagnosis of Chest Pain:
-
+## In The Diagnosis Of Chest Pain:
 A negative stress test does not necessarily indicate absence of obstructive CAD.
 
-## If the exercise stress test is negative and there is:44
-
+## If The Exercise Stress Test Is Negative And There Is:44
 - be referred for further evaluation
 - low probability of CAD, (PTP 15-65%) appropriate risk reduction therapy (lifestyle modification) should be advised. These individuals, even if further by interventional strategies as compared to optimal medical therapy (OMT).72-76
 
-## If the exercise stress test is positive:
-
+## If The Exercise Stress Test Is Positive:
 - at low workloads, the patient should be referred for an invasive coronary angiogram (ICA).
 - at moderate to high workloads, depending on the clinical condition, the patient may be:
   - treated conservatively with OMT if the PTP is low
@@ -171,7 +155,6 @@ A negative stress test does not necessarily indicate absence of obstructive CAD.
 If the exercise stress test is inconclusive or equivocal, depending on the clinical condition, the patient may be referred for a non-invasive stress imaging test or CTA.
 
 Following the initiation of treatment, an exercise stress ECG may be repeated to:
-
 - assess the efficacy of OMT +/- revascularisation
 - guide an exercise regime
 - reassess the clinical condition if there is a change in symptoms
@@ -186,7 +169,7 @@ Following the initiation of treatment, an exercise stress ECG may be repeated to
 <!-- Purpose: Duke Treadmill Score formula and risk thresholds     -->
 <!-- ============================================================ -->
 
-### Table 7: Duke Treadmill Score (DTS)
+Table 7: Duke Treadmill Score (Dts)
 
 **Formula:** DTS = Exercise Time − (5 × Max ST deviation) − (4 × Angina Index)
 
@@ -218,16 +201,13 @@ Figure 3: Predicted Exercise Capacity (Data Mapping)
 Summary Figure 3:
 - A clinical nomogram used to determine a patient's percentage of predicted exercise capacity. By drawing a straight line from the patient's age to their achieved METs (exercise workload), the point where the line crosses their respective gender axis reveals their objective fitness level compared to peers.
 
-## 6.2.2 Stress Testing in Combination with Imaging in the Detection of Myocardial Ischemia and Diagnosis of CAD
-
+### 6.2.2: Stress Testing In Combination With Imaging In The Detection Of Myocardial Ischemia And Diagnosis Of Cad
 Stress testing may be performed in combination with:
-
 - echocardiography or
 - Myocardial perfusion imaging (MPI) via single photon emission computed
 - Cardiac magnetic resonance (CMR) imaging
 
 ## The Stressor Agent Is Either:
-
 - an exercise treadmill or
 - pharmacologic agents such as:
   - vasodilators like adenosine and dipyridamole for MPI and CMR imaging
@@ -239,16 +219,13 @@ initial strategy for the prediction of CAD in individuals presenting with chest 
 These imaging techniques have the advantage that they allow better localization of imaging modality or the other depends on local expertise and availability.3.81
 
 The choice of stress imaging technique will depend on:
-
 - the patient — ability to exercise, obesity, lung problems which may affect image quality.
 - local resources and expertise.
 
-## Prior to Performing the Test, the Following Should Be Considered:
-
+## Prior To Performing The Test, The Following Should Be Considered:
 - each modality of testing has its own inherent risk e.g. radiation, contrast the patient.
 
 In the diagnosis of CAD, these modalities are used in individuals who have intermediate PTP of CAD and who:
-
 - are unable to exercise adequately or
 - have exercise stress ECG with equivocal results or abnormal at moderate to high workloads, or
 - have un-interpretable ECG that makes interpretation of exercise stress ECG test difficult.
@@ -258,7 +235,6 @@ In the presence of LBBB and ventricular paced rhythms, stress imaging techniques
 In patients with multivessel disease, imaging tests especially Stress MPI can sometimes underestimate the amount of myocardial ischemia. This is because these tests are based on the principle of perfusion differences between different myocardial territories and therefore require at least one non-ischemic myocardial territory as a "normal" reference to be able to detect homogeneous tracer uptake and result in a false negative result.83-85
 
 ## Pharmacological Stress (Dobutamine)
-
 This is one of the least expensive and most widely available stress imaging techniques.
 
 - **[Grade I, Level B]** stress and is the stress of choice wherever possible.86.87
@@ -271,8 +247,7 @@ DSE has good sensitivity and specificity especially in the setting of multivesse
 
 DSE has also a long learning curve and is relatively subjective relying on the human image quality and diagnostic accuracy improved.94-96
 
-## 6.2.2.2. Diagnostic Accuracy of Myocardial Perfusion Imaging (MPI) via SPECT
-
+#### 6.2.2.2: Diagnostic Accuracy Of Myocardial Perfusion Imaging (Mpi) Via Spect
 MPI most commonly uses technetium-99m sestamibi as the radiotracer and SPECT adenosine, dipyridamole or dobutamine.
 
 with the uptake at rest. Transient ischaemic dilatation and reduced post-stress LV ejection fraction are important predictors of severe CAD.
@@ -281,16 +256,14 @@ SPECT detects a relative reduction in myocardial blood volume that occurs earlie
 
 In the diagnosis of CAD, MPI with SPECT has good sensitivity and specificity.98 The diagnostic image quality is affected in obese patients, as well as in women with large s cost.
 
-## 6.2.2.3 Diagnostic Accuracy of Stress Cardiac Magnetic Resonance (CMR)
-
+#### 6.2.2.3: Diagnostic Accuracy Of Stress Cardiac Magnetic Resonance (Cmr)
 Stress CMR with the use of dobutamine can be used to look at regional wall motion abnormalities similar to DSE and with a similar safety profile.100-102 In studies on patients with high disease prevalence, stress CMR demonstrated overall good patients where it is difficult to acquire good echocardiographic images due to poor acoustic windows.
 
 MPI (nuclear studies).101,105-107 It has also demonstrated good correlation with Pressure wire (Fractional Flow Reserve) measurements.108
 
-## 6.3. Anatomical Testing in the Diagnosis of CAD
+## 6.3: Anatomical Testing In The Diagnosis Of Cad
 
-## 6.3.1 Coronary Calcium Score (CAC)
-
+### 6.3.1: Coronary Calcium Score (Cac)
 Calcium accumulates in coronary arteries in an age-related manner. Thus, all scores like that of angiographic coronary artery stenosis, to the probability of plaque rupture is unknown. Vulnerable plaques are frequently present in the absence of calcification.109
 
 Coronary calcium score has been used to detect CAD. Most studies demonstrated a 70% in typical CAD patient populations.109 CAC was found not to be superior to other test (CAC =0):109
@@ -302,14 +275,12 @@ CAC score is more useful in CV risk assessment. (refer Section 7.5.1: Coronary C
 
 very high negative predictive value for CAD.110.111
 
-## 6.3.2 Diagnostic Accuracy of Computed Tomography Angiography (CTA)
-
+### 6.3.2: Diagnostic Accuracy Of Computed Tomography Angiography (Cta)
 CTA allows visualization of the coronary arteries non-invasively. It can also determine the extent of coronary calcification, degree of luminal stenosis, degree of luminal remodelling and plaque characteristics.
 
 It is usually done as a 2-stage procedure. The first being the quantification of coronary calcium (CAC) and the second is the CTA. The 64-slice detector is the minimum machine requirement. It has a negative predictive value of 93-99% and sensitivity and specificity of 90-94% and 95-97% respectively.112-120 It is most useful in the diagnostic assessment of individuals with low or intermediate PTP of CAD.112-115
 
 Careful patient selection and preparation is integral to obtaining good images. These include:
-
 - patients with adequate breath holding capabilities.
 - absence of severe obesity.
 - a favourable calcium score (<400 Agatston score) and distribution.
@@ -320,16 +291,14 @@ A high coronary calcium score reduces the accuracy of the test.112 However, per-
 
 It is highly accurate in the assessment of coronary artery bypass grafts.124 The interpretation of native coronary vessels in post bypass patients is however, more difficult.124
 
-## **[Grade I, Level A]** CTA May Be Considered In:
-
+## **[Grade I, Level A]** Cta May Be Considered In:
 - individuals with low to intermediate PTP of CAD and who have mild or good exercise capacity.112-115
 
 - CTA should not be used as a screening test for CAD in the asymptomatic **[Grade I, Level C]** individual.
 
 screening, there tends to be too many false-positive lesions. Also, many minor lesions not causing ischemia may be found, potentially resulting in
 
-## 6.3.3 Diagnostic Accuracy of Invasive Coronary Angiography (ICA)
-
+### 6.3.3: Diagnostic Accuracy Of Invasive Coronary Angiography (Ica)
 s , s ss diagnosis of CAD. It can detect obstructive lesions with negative remodelling accurately but unlike CTA, it may not be able to detect non-obstructive lesions with positive remodelling where the lumen diameter may be maintained.
 
 - **[Grade I, Level C]** ICA is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following revascularization.
@@ -337,7 +306,6 @@ s , s ss diagnosis of CAD. It can detect obstructive lesions with negative remod
 <!-- image -->
 
 ## Recommendation 1:
-
 - Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs. **[Grade I, Level A]**
 - Stress imaging tests are used in individuals who have intermediate PTP of CAD and who: **[Grade I, Level B]**
   - are unable to exercise adequately and/or
@@ -353,8 +321,7 @@ s , s ss diagnosis of CAD. It can detect obstructive lesions with negative remod
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -363,8 +330,7 @@ s , s ss diagnosis of CAD. It can detect obstructive lesions with negative remod
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -379,7 +345,6 @@ s , s ss diagnosis of CAD. It can detect obstructive lesions with negative remod
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | CAD | Coronary Artery Disease |

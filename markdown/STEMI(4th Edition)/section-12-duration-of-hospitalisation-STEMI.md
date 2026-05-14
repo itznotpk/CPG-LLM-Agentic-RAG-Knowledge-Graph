@@ -1,5 +1,4 @@
-# SECTION 12: DURATION OF HOSPITALISATION
-
+# Section 12: Duration Of Hospitalisation
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Discharge Planning and Duration of Hospitalisation — length_of_stay, early_discharge_criteria, risk_based_discharge, post_discharge_follow_up, uncomplicated_STEMI_discharge
@@ -7,8 +6,7 @@ patient_input: complication_status, LVEF, residual_ischaemia, social_support, sy
 output: discharge_timing, early_discharge_eligibility, follow_up_schedule
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 The duration of hospital stay following STEMI will depend on the patient's cardiac risk, extent of myocardial damage, presence of complications, comorbidities and social support.
 
 Early (same day) transfer to the referring centres may be considered in selected low-risk uncomplicated patients after successful primary PCI.
@@ -22,11 +20,9 @@ Patients with significant LV dysfunction or other complications may require a lo
 ## Contextual Anchors (Overlapping)
 
 ### Section 11: Risk Stratification Post STEMI (Overlapping)
-
 Risk stratification of patients post-STEMI serves to prognosticate and identify appropriate treatment strategies. It starts from admission and is a continuing process.
 
-#### 11.1 Short-Term Risk
-
+## 11.1: Short-Term Risk
 All patients with STEMI should have an early assessment of short-term risk using the STEMI TIMI or GRACE risk scores.
 
 Assessment factors: older age, tachycardia, hypotension, Killip class > I, anterior MI, previous MI, elevated initial serum creatinine, history of HF, peripheral arterial disease.
@@ -34,8 +30,7 @@ Assessment factors: older age, tachycardia, hypotension, Killip class > I, anter
 - **Low and moderate risk:** TIMI score ≤ 5 points (< 12% mortality)
 - **High-risk:** TIMI score ≥ 6 points (16–36% mortality)
 
-#### 11.2 Long-Term Risk
-
+## 11.2: Long-Term Risk
 All patients should have evaluation of long-term risk:
 - **LVEF** — usually by echocardiography.
 - **Residual ischaemia** — usually by stress-testing.
@@ -51,8 +46,7 @@ All patients should have evaluation of long-term risk:
 - Depressed LV function (LVEF < 35%) with significant regional wall motion abnormalities
 - STEMI TIMI risk score > 6.0
 
-#### 11.3 Sudden Cardiac Death
-
+## 11.3: Sudden Cardiac Death
 Patients with palpitations, near faints and syncope require comprehensive evaluation including serum electrolytes, resting ECG, 24-hour ambulatory ECG, evaluation of LV function, assessment for reversible ischaemia, and coronary angiography.
 
 **Medications shown to reduce incidence of sudden death:**
@@ -65,16 +59,14 @@ Patients with palpitations, near faints and syncope require comprehensive evalua
 - [Grade I, Level A] Secondary prevention — resuscitated sudden cardiac death.
 - [Grade IIa, Level A] Primary prevention — LV dysfunction (EF < 30%). ICD may be considered 40 days post-STEMI and 3 months post-revascularization.
 
-#### Key Recommendation 9 (from Section 11):
-
+#### Key Recommendation 9 (From Section 11):
 - All patients post-STEMI should be risk-stratified clinically or by using the STEMI TIMI and/or GRACE risk scores.
 - STEMI patients at non-PCI-capable hospitals should be referred for early coronary angiography with revascularization if: post-infarct angina, inducible ischaemia, late ventricular arrhythmias, depressed LV function (LVEF ≤ 35%), or STEMI TIMI risk score ≥ 6.0.
 
 ---
-### Section 16: Checklists for Follow-Up Visits (Overlapping)
 
+### Section 16: Checklists For Follow-Up Visits (Overlapping)
 The following should be assessed at each follow-up visit:
-
 - Assess the presence or absence of cardiac symptoms and determine the functional class of the patient.
 - Evaluate patients' psychosocial (anxiety & depression) status and the social integration and support network.
 - Review pre-discharge risk assessment and evaluate:
@@ -88,7 +80,7 @@ The following should be assessed at each follow-up visit:
   - Achieve and maintain ideal body weight and waist circumference.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -106,8 +98,7 @@ The following should be assessed at each follow-up visit:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

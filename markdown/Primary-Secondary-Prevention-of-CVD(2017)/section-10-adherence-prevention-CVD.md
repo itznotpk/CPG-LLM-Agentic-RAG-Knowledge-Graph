@@ -1,5 +1,4 @@
-# SECTION 10: ADHERENCE TO THERAPY
-
+# Section 10: Adherence To Therapy
 <!-- METADATA
 category: Supportive Treatment
 use_case: Medication adherence assessment and intervention strategies — adherence_support, care_continuity, patient_engagement, polypill
@@ -11,18 +10,15 @@ output: adherence_assessment, intervention_strategies, adherence_plan
 
 ---
 
-## 10. Adherence to Therapy
-
+## 10: Adherence To Therapy
 The WHO defines adherence as the extent to which a person’s behavior – taking medication, following a diet, and/or executing lifestyle changes – corresponds with agreed recommendations from a health care provider.
 
 Full adherence to medication that have been proven to prevent CVD (aspirin, BP and cholesterol lowering drugs) has been estimated to reduce the risk of a first or second CVD event by approximately 80%. However, even among high risk post-MI patients, only 43% were fully adherent to treatment after six months and this declined to 34% after one year. Low adherence rate leads to adverse outcomes, higher hospitalization rates and increased costs.
 
-### 10.1 Prevalence
-
+## 10.1: Prevalence
 Locally, only approximately 44-53% of patients on long-term therapy adhere to their medication. This varies from 48.7% in a hospital based practice to 53.4% among hypertensive patients treated in primary care clinics. In another study conducted in primary care, 56% were non-compliant towards antihypertensive, anti-diabetic and anti-asthmatic medication. These rates are similar to studies done elsewhere. Generally, adherence rates to secondary prevention (66%) are better than for primary prevention (50%).
 
-### 10.2 Management
-
+## 10.2: Management
 The reasons for decreased adherence are often multi-factorial and include the following (Table 23: Reasons for Non-adherence to Medications*):
 - Patient factors- especially depression
 - Healthcare system
@@ -30,8 +26,7 @@ The reasons for decreased adherence are often multi-factorial and include the fo
 - Therapy
 - Socioeconomic factors
 
-#### 10.2.1 Interventions to Promote Adherence
-
+### 10.2.1: Interventions To Promote Adherence
 Interventions to improve medication adherence are only modestly effective. Fixed-dose combination therapy (polypill) is associated with reductions in BP and lipid parameters and improved adherence. However, there was modest increases in adverse events compared with placebo, single drug active component, or usual care.
 
 Other helpful clinical practice points include (Table 24: Strategies to Improve Medication Adherence):
@@ -49,7 +44,6 @@ To promote adherence:
 - Involve allied health care providers, such as pharmacists and nurses
 - Refer to medication therapy adherence clinics and for cardiac rehabilitation
 
-
 #### Key Message:
 - Full adherence to therapy that reduces CVD (aspirin, blood pressure and cholesterol lowering drugs) has been estimated to reduce the risk of a first or second CVD event by approximately 80%.
 
@@ -62,7 +56,7 @@ To promote adherence:
 <!-- OVERLAP CONTENT                                              -->
 <!-- ============================================================ -->
 ---
-### Table 23: Reasons for Non-adherence to Medications*
+Table 23: Reasons For Non-Adherence To Medications*
 
 | Categories of non-adherence | Examples |
 |---|---|
@@ -75,7 +69,7 @@ To promote adherence:
 *\*Sabate E. Adherence to Long-Term Therapies: Evidence for action. Geneva, Switzerland: 2003*
 
 ---
-### Table 24: Strategies to Improve Medication Adherence
+Table 24: Strategies To Improve Medication Adherence
 
 | Categories | Strategies | Example |
 |---|---|---|
@@ -109,8 +103,7 @@ To promote adherence:
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -119,8 +112,7 @@ To promote adherence:
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -137,7 +129,6 @@ To promote adherence:
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | BP | Blood Pressure |

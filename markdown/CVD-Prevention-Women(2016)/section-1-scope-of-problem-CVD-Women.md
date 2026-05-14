@@ -1,5 +1,4 @@
-# SECTION 1: THE SCOPE OF THE PROBLEM
-
+# Section 1: The Scope Of The Problem
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: Scope and epidemiology of CVD in women including gender disparities in presentation, treatment, and outcomes — CVD_mortality, gender_differences, NCVD-ACS_registry, MI_prognosis, stroke, awareness
@@ -11,12 +10,11 @@ output: CVD_burden_in_women, gender_specific_risk_context, awareness_gaps
 
 ---
 
-## 1.1 Epidemiology and Impact
-
+## 1.1: Epidemiology And Impact
 CVD is the main cause of death among women worldwide including South East Asia and Malaysia. It is 2 ½ times more common as a cause of death in Malaysian women than all cancers combined.
 
 The Malaysian National Cardiovascular Disease Database—Acute Coronary Syndrome (NCVD-ACS) Registry showed that Malaysian women presenting with Acute Coronary Syndrome (ACS) were:
-- Older  
+- Older
 - More likely to have co-morbidities such as diabetes, hypertension, previous heart failure, and strokes than men.
 - Less likely to receive evidence-based medications (aspirin, β-blockers, ACEI, or ARB)
 - Less likely to undergo coronary angiography and percutaneous coronary intervention.
@@ -27,8 +25,7 @@ Similarly, following a stroke, women are more likely to die than men. Those who 
 
 ---
 
-## 1.2 Lack of Awareness and Its Consequences
-
+## 1.2: Lack Of Awareness And Its Consequences
 These facts are not well appreciated by both the general public and health care professionals who often regard CVD as a problem that only affect men. In surveys, more than two thirds of women surveyed said that cancer was the main cause of death among women. A contemporary study found that only 35% and 55% of women below the age of 55 years perceived themselves at risk of heart disease before their index MI.
 
 This lack of awareness has contributed to:
@@ -40,8 +37,7 @@ This lack of awareness has contributed to:
 
 ---
 
-## 1.3 Clinical Differences in Women
-
+## 1.3: Clinical Differences In Women
 Women with heart disease often present atypically and tend to have less chest pain. Typical symptoms of an ACS however, are as important in women as in men. General feelings of illness, fearfulness and nausea were more common in women. Other atypical presentations include breathlessness and fatigue. Due to their atypical presentations, women are often not appropriately triaged in the emergency room resulting in a delay in the diagnosis and treatment. This has adverse consequences on their prognosis.
 
 > **Clinical Note:** There are important gender differences in CVD. There are differences in the clinical presentation, predisposing risk factors and the presence of co-morbidity in women. The accuracy of diagnostic tests and physiologic responses to exercise differ. Cultural norms, socioeconomic and psychological factors all affect the way women respond to their illness. All these factors have an impact on the management of CVD in women.
@@ -50,8 +46,7 @@ Women with heart disease often present atypically and tend to have less chest pa
 
 ---
 
-## 1.4 Abbreviations
-
+## 1.4: Abbreviations
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Master list of clinical abbreviations used in CPG   -->

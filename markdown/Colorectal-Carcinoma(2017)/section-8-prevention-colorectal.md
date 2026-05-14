@@ -1,5 +1,4 @@
-# SECTION 8: PREVENTION OF COLORECTAL CARCINOMA IN GENERAL POPULATION
-
+# Section 8: Prevention Of Colorectal Carcinoma In General Population
 <!-- METADATA
 category: Prevention
 use_case: Chemoprevention — aspirin, NSAIDs, calcium, flavanoids, dietary_fibre, risk_reduction
@@ -17,8 +16,7 @@ Even though aspirin and NSAIDs have shown some benefits in the prevention of CRC
 
 [Level I] There was no significant benefit from daily consumption of calcium, flavanoids or increased dietary fiber in prevention of CRC in general population.
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -27,11 +25,9 @@ Even though aspirin and NSAIDs have shown some benefits in the prevention of CRC
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ASA | Acetylsalicylic acid |
 | CRC | Colorectal carcinoma |
 | NSAIDs | Non-steroidal anti-inflammatory drugs |
-

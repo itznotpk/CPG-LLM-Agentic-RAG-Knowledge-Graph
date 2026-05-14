@@ -1,5 +1,4 @@
-# SECTION 3: CLASSIFICATION OF DYSLIPIDEMIA
-
+# Section 3: Classification Of Dyslipidemia
 <!-- METADATA
 category: Classification, Diagnosis
 use_case: Classification of primary and secondary dyslipidaemias — genetic_dyslipidaemia, familial_hypercholesterolaemia, secondary_causes, hypothyroidism, diabetes
@@ -11,27 +10,26 @@ Dyslipidemias may be classified as primary (genetic) or secondary to other condi
 
 ---
 
-## 3.1. Primary Dyslipidemia
-
+## 3.1: Primary Dyslipidemia
 *   Primary dyslipidemia is due to genetic disorders resulting in an isolated increase in LDL-C levels or a combination of elevation of LDL-C and TG.
-*   It is usually due to the complex interaction of multiple genes although occasionally it may be due to single gene defects. e.g., Familial Hypercholesterolemia. 
+*   It is usually due to the complex interaction of multiple genes although occasionally it may be due to single gene defects. e.g., Familial Hypercholesterolemia.
 *   The commonest genetic disorder is Common Polygenic Hypercholesterolemia which is caused by a combination of multiple gene defects and environmental factors such as an atherogenic diet, sedentary lifestyle, and obesity.
 
-## 3.2. Secondary Dyslipidemia
+## 3.2: Secondary Dyslipidemia
 In the following situations, secondary causes of dyslipidemia should be considered. For management of these patients, refer to section 10.3: Diabetes Mellitus (DM), 10.6: Other Endocrine Disorders and 11: Specific Lipid Disorders.
 
 *   When TC exceeds 7.0 mmol/L, exclude conditions such as primary hypothyroidism, nephrosis, and cholestatic liver disease. Hypothyroidism is more prevalent in the elderly in whom a high index of suspicion may be necessary for diagnosis.
-*   Cushing’s syndrome (including subclinical disease) can lead to lipid abnormalities in 40-70% of patients. Patients on exogenous steroids may also develop secondary dyslipidemias. 
+*   Cushing’s syndrome (including subclinical disease) can lead to lipid abnormalities in 40-70% of patients. Patients on exogenous steroids may also develop secondary dyslipidemias.
 *   When TG exceeds 4.5 mmol/L, exclude secondary causes such as alcoholism.
 *   When there is high TG with low HDL-C, insulin resistance states such as type 2 diabetes and metabolic syndrome should be considered.
 *   Failure to respond to anti-lipid therapy.
 *   In patients with a family history of Type 2 diabetes or a previous history of thyroid disease.
-*   The effect of drugs on lipid levels is generally small and insignificant except for anabolic steroids that can cause almost a 50% reduction in levels of HDL-C and Lp (a). 
+*   The effect of drugs on lipid levels is generally small and insignificant except for anabolic steroids that can cause almost a 50% reduction in levels of HDL-C and Lp (a).
 
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 8: Primary (Genetic) Dyslipidemias
+Table 8: Primary (Genetic) Dyslipidemias
 
 | Condition | Risk of CHD | Risk of Pancreatitis | Plasma Cholesterol | Plasma Triglyceride | Physical Signs (if present) |
 |---|---|---|---|---|---|
@@ -46,7 +44,7 @@ In the following situations, secondary causes of dyslipidemia should be consider
 
 *Key*: ↑ = Increased &emsp;&emsp;&emsp;&emsp; ↔ = No change &emsp;&emsp;&emsp;&emsp; ↓ = Decreased
 
-### Table 9: Effects of Secondary Causes of Dyslipidemias
+Table 9: Effects Of Secondary Causes Of Dyslipidemias
 
 | Cause | Cholesterol | Triglycerides | HDL-Cholesterol |
 |---|---|---|---|
@@ -63,8 +61,7 @@ Choi HK, Seegar JD. Glucocorticoid Use and Serum Lipid Levels in US Adults: The 
 
 *Key*: ↑ = Increased &emsp;&emsp;&emsp;&emsp; ↔ = No change &emsp;&emsp;&emsp;&emsp; ↓ = Decreased
 
-### Section 10.3: Diabetes Mellitus (DM)
-
+### Section 10: .3: Diabetes Mellitus (DM)
 *   Patients with diabetes and impaired glucose tolerance (IGT) are at high risk of CVD. These patients have higher mortality and a higher incidence of recurrent CV events. This is especially in individuals with diabetes of more than 10 years duration.
 *   Dyslipidemia is one of the key risk factors contributing to CVD in patients with diabetes.
 *   Lipid abnormalities differ in type 1 diabetes (T1DM) and Type 2 diabetes (T2DM):
@@ -94,8 +91,7 @@ Choi HK, Seegar JD. Glucocorticoid Use and Serum Lipid Levels in US Adults: The 
 *   Consider pharmacological therapy with fibrate and/or fish oil (2-4 g/day) to reduce the risk of pancreatitis.
 *   In patients with established diabetic retinopathy, fenofibrate reduces progression of diabetic retinopathy, irrespective of baseline TG/HDL-C level.
 
-### Section 10.6: Other Endocrine Disorders
-
+### Section 10: .6: Other Endocrine Disorders
 **10.6.1 Thyroid Disease:**
 *   Thyroid hormones have profound effects on lipoprotein metabolism.
 *   **Hypothyroidism** is associated with elevation in total cholesterol, TG, LDL-C, apo-B, and elevated Lp(a). In patients with dyslipidemia, hypothyroidism is an important secondary cause that needs to be excluded before treatment with lipid-lowering medications.
@@ -110,7 +106,6 @@ Choi HK, Seegar JD. Glucocorticoid Use and Serum Lipid Levels in US Adults: The 
 *   Ketoconazole can reduce apoB and LDL-C by ~25% but is a potent CYP3A4 inhibitor — use statins not metabolized by CYP3A4 (fluvastatin, pravastatin, rosuvastatin).
 
 ### Section 11: Specific Lipid Disorders
-
 **11.1 Elevated TG:**
 *   Hypertriglyceridemia has a modest association as a CV risk factor, but the association is far weaker than for hypercholesterolaemia.
 *   In individuals with elevated TG, the primary target of therapy remains achieving LDL-C goal depending upon the individual's global CV risk.
@@ -126,7 +121,6 @@ Choi HK, Seegar JD. Glucocorticoid Use and Serum Lipid Levels in US Adults: The 
 *   For increasing HDL-C levels, modifying lifestyle with increased exercise and dietary modification (reduction in simple carbohydrate, sucrose/fructose consumption), weight reduction, smoking cessation, rather than drug treatment, is recommended.
 
 ## Key Messages #3
-
 *   Dyslipidemias may be primary due to genetic disorders or secondary to nephrotic syndrome, cholestatic liver disease, hypothyroidism, Cushing’s syndrome, drugs, alcoholism and insulin resistance states such as Type 2 diabetes and metabolic syndrome.
 
 ## Recommendations #2
@@ -134,8 +128,7 @@ Choi HK, Seegar JD. Glucocorticoid Use and Serum Lipid Levels in US Adults: The 
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | apo-B | Apolipoprotein B |

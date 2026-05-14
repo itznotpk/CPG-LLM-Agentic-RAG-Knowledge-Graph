@@ -1,5 +1,4 @@
-# SECTION 8: APPENDICES
-
+# Section 8: Appendices
 <!-- METADATA
 category: Reference, Classification, Diagnosis, Assessment, Treatment, Special Populations
 use_case: Appendices and Reference Tables — pregnancy_drug_safety, radiation_exposure, thrombosis_risk_assessment, contraception_risk_classification, diagnostic_algorithms, anaesthetic_preparation
@@ -8,9 +7,7 @@ output: reference_lookup, drug_safety_classification, fetal_radiation_dose, risk
 treatment_type: aspirin, adenosine, amiodarone, labetalol, lidocaine, methyldopa, nifedipine, warfarin, heparin, enoxaparin, tinzaparin, oxytocin
 -->
 
-
-## Appendix A: US FDA Pregnancy Risk Classification and Suggested Manegemnet Strategies
-
+## Appendix A: US Fda Pregnancy Risk Classification And Suggested Manegemnet Strategies
 | CATEGORY                          | DEFINITION                                                                                                                                                                                                                                                                                              | MANAGEMENT STRATEGY                                                                                                                                                                                                                       | EXAMPLE DRUGS                                                            |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
 | A (controlled studies show no risk) | Adequate and well-controlled studies in pregnant women have failed to demonstrate a risk to the fetus in the first trimester of pregnancy (there is no evidence of risk in later trimesters) .                                                                                                          | Because studies are not able to rule out the possibility of harm; the drug should be used during pregnancy only if clearly indicated.                                                                                                     | levothyroxine; folic acid, magnesium sulfate liothyronine                |
@@ -19,13 +16,11 @@ treatment_type: aspirin, adenosine, amiodarone, labetalol, lidocaine, methyldopa
 | D (positive evidence of risk)       | There is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience or studies of humans but the potential benefits from the use of the drug in pregnant women might be acceptable despite its potential risks                                   | If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be apprised of the potential hazard to the fetus                                                                     | lisinopril , alprazolam, losartan; clonazepam, lorazepam                 |
 | X (contraindicated in pregnancy)    | Studies in animals or humans have demonstrated fetal abnormalities or there is positive evidence of fetal risk based on adverse reaction reports from investigational or marketing experience both. The risk involved in the use of the drug in pregnant women clearly outweighs any possible benefits. | This is contraindicated in women who are might become pregnant. If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be advised of the potential hazard to the fetus drug | atorvastatin, simvastatin; warfarin; methotrexate_ finasteride           |
 
-## Adapted from:
-
+## Adapted From:
 - Boothby LA, Doering PL. FDA labeling system for drugs in pregnancy. Ann Pharmacother. 2001; 35(11):1485-9
 - PDR Staff. Drug Information for the Health Care Professional USDPI vol. (23d Edition) . Micromedex; NY; USA (2003).
 
-## Appendix B: Recommendations for Cardiovascular Drug Use during Pregnancy
-
+## Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Aspirin (low dose) | B | Yes | Well tolerated | No teratogenic effects known (large data sets) |
@@ -60,8 +55,7 @@ treatment_type: aspirin, adenosine, amiodarone, labetalol, lidocaine, methyldopa
 *MERCK manual grading
 http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
 
-## Appendix C: Recommendations for Antibiotic Use during Pregnancy
-
+## Appendix C: Recommendations For Antibiotic Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Ampicillin, amoxicillin, cephalosporins, erythromycin, mezlocillin, penicillin | B | Yes | Yes | No fetal adverse effects reported |
@@ -78,8 +72,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 *MERCK manual grading
 http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
 
-## Appendix D: Recommendations for Drug Use during Pregnancy
-
+## Appendix D: Recommendations For Drug Use During Pregnancy
 | Drug | FDA Category | Adverse Effects |
 |---|---|---|
 | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
@@ -104,8 +97,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 | Pseudoephedrine | C | Placental vasoconstriction and possible risk of gastroschisis |
 | Vitamin K | C | In women or fetuses with G6PD deficiency- haemolysis |
 
-## Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures
-
+## Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
 | Conventional X-Ray examinations | Fetal dose | Fetal dose | Maternal Exposure* |
 |---|---|---|---|
 |  | Mean (mGy) | Maximum (mGy) | mGy |
@@ -132,13 +124,11 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 | Percutaneous Coronary intervention or Radiofrequency Catheter Ablation | 3 |  | 15 |
 
 When considering fetal risk from radiation exposure and termination of pregnancy:
-
 - at fetal doses of less than 100 mGy (10,000 mrad) termination is **NOT** justified based upon radiation risk
 - at fetal doses between 100 and 500 mGy, decisions should be based upon individual circumstances
 - at fetal doses in excess of 500 mGy, there can be significant fetal damage, the magnitude and type of which is a function of dose and stage of pregnancy
 
-## Appendix F: Sistem Kod Warna dan Senarai Semak Penjagaan Antenatal*
-
+## Appendix F: Sistem Kod Warna Dan Senarai Semak Penjagaan Antenatal*
 | KOD WARNA   | TAHAP PENJAGAAN                                                                                                                                                                                                      |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MERAH       | Rujukan segera ke Hospital dan pengendalian selanjutnya adalah bersama (shared care) Pakar O&G dan Pakar Perubatan Keluarga                                                                                          |
@@ -146,10 +136,9 @@ When considering fetal risk from radiation exposure and termination of pregnancy
 | HIJAU       | Pengendalian di Klinik Kesihatan oleh Pegawai Perubatan dan Kesihatan dan pengendalian selanjutnya boleh dilakukan bersama Jururawat KesihatanlJururawat Masyarakat di bawah pengawasan Pegawai Perubatan            |
 | PUTIH       | Penjagaan oleh Jururawat KesihatanlJururawat Masyarakat di Klinik Kesihatan dan Klinik Desa (sekiranya tiada terdapat faktor risiko yang disenaraikan dalam kod merah, kuning dan hijau; ibu diberi kod warna putih) |
 
-## Appendix G: Suggested Anaesthetic Techniquesl Regimes for Pregnant Patients with Heart Disease*
+## Appendix G: Suggested Anaesthetic Techniquesl Regimes For Pregnant Patients With Heart Disease*
 
-### Anaesthetic preparation
-
+### Anaesthetic Preparation
 Preparation for anaesthesia should be the same like any other case but extra monitoring and more cardio stable drugs should be chosen.
 
 **Haemodynamic goals for both GA and regional anaesthesia:**
@@ -160,15 +149,15 @@ Preparation for anaesthesia should be the same like any other case but extra mon
 
 **GA technique for heart case**
 
-1.1 Invasive line i.e. arterial line and CVP monitoring (via Internal jugular preferably under ultrasound guidance) should be done whilst patient still widely awake.  
+1.1 Invasive line i.e. arterial line and CVP monitoring (via Internal jugular preferably under ultrasound guidance) should be done whilst patient still widely awake.
 **Some centres consider central line monitoring as an optional especially in mild to moderate risk case.**
 
 1.2 Induction agent of choice-Etomidate 0.2 mg/kg, Titration midazolam up to 5 mg
 
-1.3 IV fentanyl (2-3 mcg/kg) during induction.  
+1.3 IV fentanyl (2-3 mcg/kg) during induction.
 (Need to warn paediatrician on the risk of fetal apnoea).
 
-1.4 Muscle relaxant-Suxamethonium can induce bradyarrthmias. Rocuronium can be used instead (0.6-1 mg/kg of lean body weight). Normally 50 mg is enough for average weight.  
+1.4 Muscle relaxant-Suxamethonium can induce bradyarrthmias. Rocuronium can be used instead (0.6-1 mg/kg of lean body weight). Normally 50 mg is enough for average weight.
 **Please ensure the availability of Sugammadex before using high dose Rocuronium for intubation.**
 
 1.5 To maintain MAP as recorded during baseline monitoring or (above 70 mmHg) especially in Pulmonary HPT, any congenital heart defect and hypertensive patient.
@@ -189,89 +178,71 @@ Low dose sequential Combined Spinal Epidural (CSE) is recommended whenever regio
 
 **2.1 Dosage of (CSE) in Heart Case**
 
-- **Spinal dose**  
-(0.5-1 ml of heavy 0.5% bupivacaine) + 25 mcg fentanyl.  
+- **Spinal dose**
+(0.5-1 ml of heavy 0.5% bupivacaine) + 25 mcg fentanyl.
 To check the level of sensory loss to pin prick after 5 minutes. If still below T5-T6 level, to slowly increase the level with titration of epidural.
 
-- **Epidural drug**  
+- **Epidural drug**
 (2% of lignocaine in 1:200 000 Adrenaline), 3-5 mls every 5 minutes until T5-T6 is reached.
 
-## Appendix H: Management of Tachyarrhythmias During Pregnancy*
+## Appendix H: Management Of Tachyarrhythmias During Pregnancy*
 
-### Initial rhythm
-
+### Initial Rhythm
 The tachyarrhythmia is identified as **SVT/VT**.
 
-### Step 1: Determine haemodynamic stability
-
+### Step 1: Determine Haemodynamic Stability
 Assess whether the patient is **haemodynamically stable**.
 
 If **No**:
-
 - Perform **cardioversion regardless of SVT/VT**.
 
 If **Yes**:
-
 - Determine whether the rhythm is **VT** or **SVT**.
 
-### Step 2A: Haemodynamically stable VT
-
+### Step 2A: Haemodynamically Stable Vt
 For **VT**, use pharmacological cardioversion:
-
 - IV amiodarone
 - IV procainamide
 - IV lignocaine
 
 For prophylaxis:
-
 - cardioselective beta-blockers
 - Amiodarone
 - Or both
 
-### Step 2B: Haemodynamically stable SVT
-
+### Step 2B: Haemodynamically Stable Svt
 For **SVT**, determine if the rhythm is:
-
 - Atrial ectopics
 - Paroxysmal SVT
 - Focal atrial tachycardia
 - Atrial Fibrillation/Atrial Flutter
 
-### Atrial ectopics
-
+### Atrial Ectopics
 Management:
-
 - Reassure
 - Avoid precipitating factors
 - Cardioselective beta-blockers
 
-### Paroxysmal SVT
-
+### Paroxysmal Svt
 Termination:
-
 - Vagal maneuvers
 - IV adenosine
 - IV verapamil
 - IV propranolol
 
 Prophylaxis:
-
 - Digoxin
 - beta-blockers
 - Verapamil/diltiazem
 
-### Focal atrial tachycardia
-
+### Focal Atrial Tachycardia
 Control heart rate with:
-
 - Digoxin
 - beta-blockers
 - Verapamil/diltiazem
 
 ### Atrial Fibrillation/Atrial Flutter
-
 Control heart rate with:
-
 - Digoxin
 - beta-blockers
 - Verapamil/diltiazem
@@ -279,9 +250,7 @@ Control heart rate with:
 
 *Adapted from: Baig M. Arrhythmia-centered treatment review of tachyarrhythmia during pregnancy. An article from the e-journal of the ESC Council for Cardiology Practice 2014; 12: NÂ° 13*
 
-
-## Appendix I: Risk Factors for VTE in Pregnancy
-
+## Appendix I: Risk Factors For VTE In Pregnancy
 | Risk factor category | Risk factor | Details |
 |---|---|---|
 | Pre-existing | Previous VTE |  |
@@ -307,84 +276,67 @@ Control heart rate with:
 
 From: RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the Puerperium. Green-top Guideline No. 37a April 2015
 
-## Appendix J: Diagnostic Algorithm for Suspected DVT in Pregnancy*
+## Appendix J: Diagnostic Algorithm For Suspected DVT In Pregnancy*
 
-### Initial assessment
-
+### Initial Assessment
 Start with **clinical suspicion of DVT in pregnancy**.
 
-### First-line investigation
-
+### First-Line Investigation
 Perform **CUS**.
 
-### If CUS is positive
-
+### If Cus Is Positive
 - Diagnose DVT.
 - Treat DVT.
 
-### If CUS is negative
-
+### If Cus Is Negative
 Assess whether **DVT is still likely or iliac vein thrombosis is suspected**.
 
 If **No**:
-
 - Exclude DVT.
 
 If **Yes**:
-
 - Repeat CUS in 1 week or perform MRV.
 
-### Repeat CUS or MRV result
-
+### Repeat Cus Or Mrv Result
 If repeat CUS or MRV is **positive**:
-
 - Diagnose DVT.
 - Treat DVT.
 
 If repeat CUS or MRV is **negative**:
-
 - Exclude DVT.
 
 CUS: Compression Ultrasonography; DVT: Deep Vein Thrombosis MRV: Magnetic Resonance Venography
 
 *Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
 
-## Appendix K: Diagnostic Algorithm for Suspected PE in Pregnancy*
+## Appendix K: Diagnostic Algorithm For Suspected PE In Pregnancy*
 
-### Initial assessment
-
+### Initial Assessment
 Start with **clinical suspicion of PE in pregnancy**.
 
-### First-line investigation
-
+### First-Line Investigation
 Perform **CTPA or V/Q scan**.
 
-### If CTPA or V/Q scan is positive
-
+### If Ctpa Or V/Q Scan Is Positive
 - Diagnose PE.
 - Treat PE.
 
-### If CTPA or V/Q scan is negative
-
+### If Ctpa Or V/Q Scan Is Negative
 Perform **CUS**.
 
-### CUS result
-
+### Cus Result
 If CUS is **positive**:
-
 - Diagnose PE.
 - Treat PE.
 
 If CUS is **negative**:
-
 - Exclude PE.
 
 CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiography; V/Q Scan: Ventilation/Perfusion Scan
 
 *Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
 
-## Appendix L: Antenatal Risk Assessment and Indications for Antenatal Thrombophylaxis*
-
+## Appendix L: Antenatal Risk Assessment And Indications For Antenatal Thrombophylaxis*
 | Risk Factors | Requirements | Management | When to Initiate Treatment |
 |---|---|---|---|
 | **High Risk** |  |  |  |
@@ -405,8 +357,7 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 - Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013
 - RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the Puerperium. Green-top Guideline No. 37a April 2015
 
-## Appendix M: Postnatal Risk Assessment and Indications for Postnatal Thrombophylaxis*
-
+## Appendix M: Postnatal Risk Assessment And Indications For Postnatal Thrombophylaxis*
 | Risk Factors | Requirements | Management |
 |---|---|---|
 | **High Risk** |  |  |
@@ -418,8 +369,7 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 
 *Adapted from Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
 
-## Appendix N: Safety of Progesterone Only Contraceptive Methods in Women with Cardiac Disease
-
+## Appendix N: Safety Of Progesterone Only Contraceptive Methods In Women With Cardiac Disease
 | Progesterone only contraceptive method | Cardiac condition | WHOMEC# Class |
 |---|---|---|
 | Progesterone only pill<sup>a</sup><br>- Noriday<sup>®</sup><br>- Cerazette<sup>®b</sup> | All cardiac conditions<br><em>(should not normally be advised where pregnancy poses a high or unacceptable risk - WHOMEC Class 3 and 4 conditions)</em> | 1 |
@@ -443,8 +393,7 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 
 From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
 
-## Appendix O: Risk of Combined Contraceptive Pills for the Different Cardiac Conditions WHOMEC Risk Classification for the Use of Combined Hormonal Contraceptives*
-
+## Appendix O: Risk Of Combined Contraceptive Pills For The Different Cardiac Conditions Whomec Risk Classification For The Use Of Combined Hormonal Contraceptives*
 | MEC CLASS | WHOMEC 1 | WHOMEC 2 | WHOMEC 3 | WHOMEC 4 |
 |---|---|---|---|---|
 | Category of Use | Condition with no restriction for the use of contraceptive method | Condition where the advantages of the method generally outweigh the risks | Condition where the risks of the method usually outweigh the advantages and to consider all alternatives first | Conditions where the method represents an unacceptable health risk |
@@ -463,4 +412,3 @@ From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in hea
 *World Health Organization. Medical Eligibility Criteria (MEC) for Contraceptive use. (5th ed) 2015. Available at: www.who.int/reproductivehealth/publication/family_planning/Ex-SummMec-5/en/*
 
 From: Thorne S et al. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
-

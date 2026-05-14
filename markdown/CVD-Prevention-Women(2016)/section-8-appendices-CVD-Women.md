@@ -1,5 +1,4 @@
-# SECTION 8: APPENDICES
-
+# Section 8: Appendices
 <!-- METADATA
 category: Reference
 use_case: Supplementary reference tables and treatment algorithms for CVD prevention — cardiotoxicity_risk, COC_classification, alcohol_content, BP_risk_stratification, anti-hypertensive_selection, T2DM_algorithm, NCD_audit
@@ -11,10 +10,9 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 ---
 
-## Appendix 1: Cancer and the Heart
+## Appendix 1: Cancer And The Heart
 
 ### Appendix 1A: Cardiotoxicity Risk Assessment
-
 | Risk Origin | Risk Value | Factors |
 |---|---|---|
 | **Medication Related Risk** | High Risk (Score = 4) | Anthracyclines, Cyclophosphamide, Ifosfamide, Clofarabine, Herceptin |
@@ -24,7 +22,6 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 | **Patient Related Risk** | 1 point each | • Heart failure or cardiomyopathy <br>• CHD or equivalent (PAD) <br>• Hypertension <br>• Diabetes Mellitus <br>• Prior or recurrent anthracyclines <br>• Prior or recurrent chest radiation <br>• Age < 15 or > 65 years <br>• Female gender |
 
 ### Appendix 1B: Cardiotoxicity Risk Categories
-
 | Cardiotoxicity Risk Score | Category |
 |---|---|
 | > 6 | Very High |
@@ -33,8 +30,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 | 1-2 | Low |
 | 0 | Very Low |
 
-### Appendix 1C: Monitoring recommendations during/after chemotherapy
-
+### Appendix 1C: Monitoring Recommendations during/after Chemotherapy
 | Risk Category | Recommendation |
 |---|---|
 | **Very high risk** | TTE with strain before every (other) cycle, end, 3-6 months and 1 year, optional ECG, cTn with TTE during chemotherapy |
@@ -43,11 +39,10 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 | **Low risk**| None, monitoring only |
 | **Very low risk**| None, monitoring only |
 
-> **Notes:** 
+> **Notes:**
 > - **TTE**: trans-thoracic echocardiography, **cTn**: cardiac troponins
 
-### Appendix 1D: Treatment recommendations
-
+### Appendix 1D: Treatment Recommendations
 | Risk Category | Management |
 |---|---|
 | **Very high cardiotoxicity risk** | Initiate ACEI/ARB, carvedilol and statins, one week prior to chemotherapy and up-titre as tolerated |
@@ -58,10 +53,9 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 ---
 
-## Appendix 2: Combined Oral Contraceptive (COC) 
+## Appendix 2: Combined Oral Contraceptive (Coc)
 
-### Appendix 2A: Combined Oral Contraceptive (COC)
-
+### Appendix 2A: Combined Oral Contraceptive (Coc)
 | Class of COC | Progesterone content | Estrogen content |
 |---|---|---|
 | **First-generation** | Norethynodrel, norethindrone (also known as norethisterone), norethindrone acetate, or ethynodiol diacetate | containing ≥ 50 µg ethinyl estradiol |
@@ -74,8 +68,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 > - timing of the market introduction of the progestin
 > - structure of the carbon ring from which the progestin is derived (estrane or gonane)
 
-### Appendix 2B: Age-Specific Estimates of the Excess Rates of Myocardial Infarction, Ischemic Stroke, and Venous Thromboembolism Attributable to the Use of Low-Estrogen Oral Contraceptive and Pregnancy-Related Mortality
-
+### Appendix 2B: Age-Specific Estimates Of The Excess Rates Of Myocardial Infarction, Ischemic Stroke, And Venous Thromboembolism Attributable To The Use Of Low-Estrogen Oral Contraceptive And Pregnancy-Related Mortality
 *(Note: Low estrogen is defined as less than 50 µg)*
 
 | Variable | Age 20-24 Yr | Age 30-34 Yr | Age 40-44 Yr |
@@ -91,7 +84,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 ---
 
-## Appendix 3: Alcohol Content of Common Spirits
+## Appendix 3: Alcohol Content Of Common Spirits
 
 ### Wine
 | Strength | 125ml (small glass) | 175ml (standard glass) |
@@ -112,10 +105,9 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 ---
 
-## Appendix 4: Management of Hypertension
+## Appendix 4: Management Of Hypertension
 
 ### Appendix 4A: Risk Stratification*
-
 **X-Axis (Columns):** Co-existing Condition
 **Y-Axis (Rows):** BP Levels (mmHg)
 
@@ -133,8 +125,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 > - **Clinical atherosclerosis** (CHD, carotid stenosis, peripheral vascular disease, transient ischaemic attack, stroke)
 > - *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
 
-### Appendix 4B: Recommendation for Follow-up Visit based on Initial Blood Pressure Measurements for Adults*
-
+### Appendix 4B: Recommendation For Follow-Up Visit Based On Initial Blood Pressure Measurements For Adults*
 | Initial BP (mmHg) Systolic | | Initial BP (mmHg) Diastolic | Follow-up recommendation to confirm diagnosis |
 |---|---|---|---|
 | < 130 | and | < 85 | Recheck in one year |
@@ -146,8 +137,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 > *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
 
-### Appendix 4C: Choice of Anti-Hypertensive Drugs in Patients with Concomitant Conditions*
-
+### Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions*
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|---|---|---|---|---|---|
 | **Diabetes mellitus (without nephropathy)** | + | +/- | +++ | + | +/- | ++ |
@@ -173,8 +163,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 > - **$** : Contraindicated in bilateral renal artery stenosis
 > - *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
 
-### Appendix 4D: Effective Anti-Hypertensive Combinations Used in Outcome Trials*
-
+### Appendix 4D: Effective Anti-Hypertensive Combinations Used In Outcome Trials*
 | Effective combination | Patients studied |
 |---|---|
 | ACEI + thiazide-like diuretics | Post stroke |
@@ -190,10 +179,9 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 ---
 
-## Appendix 5: MANAGEMENT OF TYPE 2 DIABETES MELLITUS
+## Appendix 5: Management Of Type 2 Diabetes Mellitus
 
-### Appendix 5A: Treatment Algorithm for Newly Diagnosed T2DM*
-
+### Appendix 5A: Treatment Algorithm For Newly Diagnosed T2dm*
 **Upon Diagnosis of Type 2 Diabetes: LIFESTYLE Modification**
 
 | HbA1c & FPG Levels | Target Recommendation | Options / Escalation | Follow-up |
@@ -205,7 +193,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 | **A1c > 10.0% OR FPG > 13 mmol/L** | COMBINATION THERAPY + BASAL/ PREMIXED INSULIN THERAPY <br><br>**OR**<br><br> INTENSIVE INSULIN THERAPY + OAD | | |
 
 > **+ The agents above are based on historical order**
-> 
+>
 > **Footnote:**
 > | Pharmacotherapy | Efficacy / Risk Profile |
 > |---|---|
@@ -218,8 +206,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 >
 > *Source: Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th ed, 2015*
 
-### Appendix 5B: Treatment Recommendations for Patients on Clinic Follow-up
-
+### Appendix 5B: Treatment Recommendations For Patients On Clinic Follow-Up
 **X-Axis (Columns):** Glycaemic Control
 **Y-Axis (Rows):** Current Treatment
 
@@ -235,13 +222,12 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 > 2. Glycaemic target should be individualized however try to achieve as near normal glycaemia without causing hypoglycaemia
 > 3. May consider 4th agent (OAD or GLP-1 RA) if A1c ≤ 10%.
 >
-> **+** intensify involve changing the regimen  
+> **+** intensify involve changing the regimen
 > **+** optimise involve increasing the dose
 >
 > *Source: Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th ed, 2015*
 
-### Appendix 5C: Recommended Algorithm for Specific Patient Profiles*
-
+### Appendix 5C: Recommended Algorithm For Specific Patient Profiles*
 **If not to target (generally A1c < 6.5%)**
 
 | Treatment Escalation | Normal weight | Overweight | Obese | Increased Risk of Hypoglycaemia | CKD stage 3 onwards |
@@ -256,8 +242,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 ---
 
-## Appendix 6: AUDIT OF CLINICAL DIABETES
-
+## Appendix 6: Audit Of Clinical Diabetes
 **Buku Rekod Rawatan NCD\***
 
 ### Patient Demographics
@@ -271,7 +256,6 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 - **Ethnic group:**
 
 ### Clinical Audit Criteria
-
 | Criteria | Result of the most recent examination | Date of the most recent examination | Not done |
 |---|---|---|---|
 | **Height** | ______ cm | | [ ] |
@@ -299,7 +283,6 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ---
 
 ## Appendix 7: Abbreviations
-
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Localized list of clinical abbreviations used in Section 8 -->

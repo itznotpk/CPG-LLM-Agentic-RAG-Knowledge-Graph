@@ -1,5 +1,4 @@
-# SECTION 9: REPERFUSION OF ISCHAEMIC BRAIN
-
+# Section 9: Reperfusion Of Ischaemic Brain
 <!-- METADATA
 category: Treatment
 use_case: IV Thrombolysis and Reperfusion — IVT_eligibility, alteplase, tenecteplase, contraindications, door_to_needle_time, complication_management
@@ -8,8 +7,8 @@ output: IVT_eligibility, thrombolytic_selection, dose_regimen, complication_prot
 critical: true
 treatment_type: alteplase, tenecteplase, IV_thrombolysis
 -->
-## 9.1 Introduction
 
+## 9.1: Introduction
 In cerebral infarcts, restoration of perfusion to the ischaemic brain tissues is the key therapeutic strategy. The concept of existence of an ischaemic penumbra is fundamental to the current approach in the treatment of ischaemic stroke. Although the core infarcted tissues might not be salvageable, adjacent dysfunctional tissue might be saved if the circulation is restored and metabolism is normalized.
 
 Reperfusion therapy is the single most important and beneficial treatment for acute ischaemic stroke. It would be considered unethical if no attempt at reperfusion is made. Reperfusion therapy can be achieved via intravenous thrombolysis (IVT) or/and endovascular thrombectomy (EVT).
@@ -18,8 +17,7 @@ Reperfusion therapy is the single most important and beneficial treatment for ac
 
 Stroke treatment protocol and an organized stroke pathway is essential and should be established to achieve the recommended response time for IVT and EVT, in order to improve the clinical outcomes. Stroke organizations should incorporate the emergency department (ED) including their pre-hospital care team, radiology department and stroke team. The management of acute ischaemic stroke at the pre-hospital care phase and emergency department phase were explained in Section 7: Emergency Medicine Services.
 
-## 9.2 Recommended NIH Emergency Response Time for AIS
-
+## 9.2: Recommended Nih Emergency Response Time For Ais
 | Action | Time (Minutes) |
 | --- | --- |
 | Door to MD consult and initial work up | ≤ 10 min |
@@ -29,7 +27,6 @@ Stroke treatment protocol and an organized stroke pathway is essential and shoul
 | Door to groin | ≤ 120 min |
 
 Stroke teams may be composed of neurologists/physicians, medical officers with/without stroke nurses, neuro-interventional experts (interventional neuroradiologist or interventional neurologist/neurosurgeon), rehabilitation physicians, physiotherapists, occupational therapists, speech therapists, pharmacists, social workers, and psychologists. The composition of the stroke team depends on whether the hospital is a primary stroke centre or a comprehensive stroke centre. Roles of the stroke team during the acute presentation of ischaemic stroke include:
-
 * to ascertain history and findings that are compatible with AIS
 * perform NIHSS and mRS scoring
 * exclude contraindications
@@ -47,18 +44,15 @@ In a situation where a radiologist/stroke-trained physician is not available, te
 
 [New recommendation, Level III, Grade C] **Recommendation:** Telephone consultation for physician is feasible, safe and may be considered if an in-house stroke team and tele-stroke are not available.
 
-## 9.3 Intravenous Thrombolysis
-
+## 9.3: Intravenous Thrombolysis
 For patients that are found to be eligible for IVT, the benefit of therapy is time dependent, and treatment should be initiated as quickly as possible. Thus, early detection and activation of the thrombolysis pathway is paramount and concerted effort should be made to deliver the treatment as soon as possible.
 
-### 9.3.1 Requirement for Thrombolysis (IVT)
-
+### 9.3.1: Requirement For Thrombolysis (Ivt)
 I. Physicians with experience in treating hyperacute stroke <br>
 II. Neuroimaging availability; NCCT ± CTA; MRI; perfusion scan <br>
-III. Capability to manage complications of thrombolysis, particularly intracranial haemorrhage, and access to neurosurgical support 
+III. Capability to manage complications of thrombolysis, particularly intracranial haemorrhage, and access to neurosurgical support
 
-### 9.3.2 Patient Eligibility for IVT
-
+### 9.3.2: Patient Eligibility For Ivt
 I. Clinical diagnosis of acute stroke at presentation.<br>
 II. Acute disabling stroke within 4.5 hours of presentation or last known/seen to be well.<br>
 III. For patients who present with a wake-up stroke or stroke of unknown onset and are not eligible for EVT, IVT may be considered if the MRI shows stroke with DWI and FLAIR mismatch, and the lesion is not larger than 1/3 MCA territory.<br>
@@ -68,10 +62,9 @@ VI. No contraindications.<br>
 VII. Use of sono-thrombolysis as adjuvant therapy with IVT is not recommended.<br>
 VIII. Thrombolysis shall not be withheld for aphasic patients who cannot give consent and/or without any family members.
 
-## 9.4 Contraindications for Intravenous Thrombolytic Therapy
+## 9.4: Contraindications For Intravenous Thrombolytic Therapy
 
-### 9.4.1 Absolute Contraindication
-
+### 9.4.1: Absolute Contraindication
 I. Pre-treatment systolic BP is >185mmHg or diastolic BP is >110mmHg.<br>
 II. A blood glucose <2.7mmol/l. IVT in patients with AIS who presents with initial glucose levels <2.7 mmol/l, and that is subsequently normalized and who are otherwise eligible, may be reasonable.<br>
 III. Current use of treatment dose of LMWH within 24 hours.<br>
@@ -81,8 +74,7 @@ VI. For patients on Dabigatran, reversing its anticoagulant effect with Idaruciz
 VII. Prothrombin time (PT) >15 seconds, aPTT >40s or INR >1.7<br>
 VIII. A platelet count <100,000/microliter
 
-### 9.4.2 Relative Contraindication
-
+### 9.4.2: Relative Contraindication
 I. Serious head injury in the previous 3 months <br>
 II. Recent stroke within 3 months <br>
 III. Recent myocardial infarction within 8 weeks <br>
@@ -95,8 +87,7 @@ IX. Premorbid mRS ≥4 <br>
 X. Peritoneal dialysis or haemodialysis <br>
 XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding tendency
 
-## 9.5 Regimen for Treatment of Acute Ischaemic Stroke with Intravenous Thrombolysis
-
+## 9.5: Regimen For Treatment Of Acute Ischaemic Stroke With Intravenous Thrombolysis
 1. Infuse 0.9mg/kg (maximum of 90 mg) over 60 minutes with 10% of the dose given as a bolus dose over 1 minute. A lower dose of IV Alteplase (0.6 mg/kg) was not shown to be of equivalent to standard-dose IV Alteplase for the reduction of disability at 90 days but had a reduced mortality rate.
 
 [Level I, Grade A] **Recommendation:** (Onset within 4.5 hours) Alteplase dose: 0.9 mg/kg, max 90 mg, 10% given as bolus and remaining dose infused over 1 hour.
@@ -113,10 +104,9 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 11. [New recommendation, Level II, Grade B] **Recommendation:** AIS patients who arrive within 4.5 hours of symptoms onset and are eligible for thrombolytic treatment can be considered for intravenous Tenecteplase prior to EVT. (Tenecteplase dose of 0.25mg/kg; maximum dose of 25mg)
 12. Streptokinase is contraindicated.
 
-## 9.6 General Care
+## 9.6: General Care
 
-### 9.6.1 BP Control
-
+### 9.6.1: BP Control
 [New recommendation, Level I, Grade A] Blood pressure should be kept ≤180/105 mmHg during and post thrombolysis.
 
 [New recommendation, Level I, Grade A] Hypotension and hypovolaemia should be corrected and avoided.
@@ -138,20 +128,17 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 * IV Nitroprusside. If BP not controlled, consider IV Nitroprusside in ICU setting if available. IV Nitroprusside should be administered at 0.5mcg/kg/minimum infusion (maximum of 8mcg/kg/min)
 * Maximum dose of IV Labetalol bolus is 300 mg
 
-### 9.6.2 Blood Glucose Control
-
+### 9.6.2: Blood Glucose Control
 [Level I, Grade A] Keep blood glucose level between 7.8-10.0 mmol/L. Avoid hypoglycaemia.
 
 [Level III, Grade C] Hyperglycaemia within the first 24 hours of thrombolysis is associated with poorer outcomes and higher haemorrhage transformation.
 
-### 9.6.3 Temperature
-
+### 9.6.3: Temperature
 [Level I, Grade A] Fever (temperature >38°C) should be identified and treated.
 
 [Level II, Grade B] Hypothermia (temperature <37°C) and hyperthermia are associated with poorer outcome.
 
-### 9.6.4 Others
-
+### 9.6.4: Others
 * Keep NBM and put on an IV drip to ensure adequate hydration. Avoid hypotonic solution.
 * No nasogastric (NG) tube insertion, catheterization, and invasive procedure for 24 hours.
 * Minimise physical handling and movement to avoid bruises and injury.
@@ -159,10 +146,9 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 * No antiplatelet or anticoagulation for the initial 24 hours.
 * Repeat CT brain at 24 hours post thrombolysis.
 
-## 9.7 Management of Complications
+## 9.7: Management Of Complications
 
-### 9.7.1 Bleeding
-
+### 9.7.1: Bleeding
 1. Stop IV Alteplase
 2. Urgent CT brain if there is neurology deterioration
 3. Send FBC, PT/PTT, GXM, fibrinogen. Repeat 2 hourly until bleeding is controlled.
@@ -175,10 +161,9 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 10. Refer haematology team if coagulation still abnormal despite performing all the above measures
 11. For severe life-threatening bleeding, consider the following treatment after weighing the risk of recurrent thrombotic stroke: <br>
    a) IV Tranexamic Acid 1g over 15 minutes, repeated every 8 hours as necessary <br>
-   b) Recombinant Factor VIIa 40-160 μg/kg BW as a single bolus over 1-2 minutes 
+   b) Recombinant Factor VIIa 40-160 μg/kg BW as a single bolus over 1-2 minutes
 
-### 9.7.2 Angioedema
-
+### 9.7.2: Angioedema
 1. Stop IV Alteplase
 2. Maintenance of airway, breathing, and circulation
 3. IV Diphenhydramine 50 mg
@@ -188,13 +173,11 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 7. Call ENT/Anaesthesia team
 8. Icatibant if available and indicated
 
-## 9.8 Administration of Intravenous Thrombolysis
-
+## 9.8: Administration Of Intravenous Thrombolysis
 We recommend administering intravenous thrombolysis in a hospital with trained general physicians, neurologists, geriatricians or emergency physicians experienced in administrating, monitoring post-procedure, and managing the associated complications.
 
 ## Recommendations Summary:
-
-### Table 9.1: Treatment of Acute Ischaemic Stroke with Intravenous Thrombolysis
+Table 9.1: Treatment Of Acute Ischaemic Stroke With Intravenous Thrombolysis
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -204,12 +187,11 @@ We recommend administering intravenous thrombolysis in a hospital with trained g
 | Tenecteplase | Onset within 4.5 hours and eligible for thrombolytic treatment can be considered for intravenous Tenecteplase prior to EVT. Dose: 0.25mg/kg; maximum dose of 25mg *New recommendation* | II | B |
 
 ## Key Recommendations:
-
 1. Intravenous alteplase (0.9 mg/kg; maximum dose of 90mg) is recommended for definite onset stroke for up to 4.5 hours from the onset or the treatment window can be extended via CT perfusion with evidence of penumbra-core mismatch up to 9 hours from the time of last known to be well/midpoint of sleep or via MRI (DWI-FLAIR mismatch) to identify possible stroke onset within 4.5 hours.
 2. Intravenous tenecteplase (0.25 mg/kg; maximum dose of 25mg) is a possible treatment agent in acute stroke presented within 4.5 hours with evidence of large vessel occlusion.
 
 ## Contextual Anchors (Overlapping)
-### Figure 9.1: Acute Ischaemic Stroke Pathway
+Figure 9.1: Acute Ischaemic Stroke Pathway
 
 1. **Pre-Hospital Management**
    - High priority ambulance dispatch
@@ -232,7 +214,7 @@ We recommend administering intravenous thrombolysis in a hospital with trained g
 5. **Imaging**
    - NCCT Brain +/- CTA/MRI +/- Perfusion Scan
 
-### Figure 9.2: Regional Stroke Referral System Concept for Acute Ischaemic Stroke Management
+Figure 9.2: Regional Stroke Referral System Concept For Acute Ischaemic Stroke Management
 
 - **Primary Referral**: Non-stroke ready hospitals refer suspected AIS patients to a centralized **Stroke Ready Hospital**.
 - **Secondary Referral**: Multiple autonomous Stroke Ready Hospitals refer patients requiring advanced care (e.g., EVT) to a centralized **Comprehensive Stroke Centre**.
@@ -250,10 +232,9 @@ PHC responders should rapidly evaluate airway, breathing and circulation in pati
 **Emergency Department Management:**
 All patients presenting to an ED with suspected acute stroke must have immediate clinical evaluation and investigations to establish the diagnosis and to determine the eligibility for intravenous thrombolytic therapy and/or EVT. A standardized stroke severity scale such as the NIHSS should be used to assess stroke severity in the ED. All patients with suspected stroke who are candidates for intravenous thrombolysis and/or EVT should undergo at least a CT scan immediately. Patients with acute stroke should have their swallowing ability screened as early as possible after arrival at the hospital and before being given any oral food, fluid, or medication.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -264,8 +245,7 @@ All patients presenting to an ED with suspected acute stroke must have immediate
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -274,8 +254,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 | --- | --- |
 | ACA | Anterior Cerebral Artery |

@@ -1,5 +1,4 @@
-# SECTION 18: ALGORITHMS
-
+# Section 18: Algorithms
 <!-- METADATA
 category: Reference, Treatment
 use_case: Clinical Decision Algorithms — STEMI_management_algorithm, cardiac_arrest_algorithm, tachycardia_algorithm, bradycardia_algorithm, reperfusion_decision_pathway
@@ -9,12 +8,10 @@ critical: true
 treatment_type: defibrillation, amiodarone, epinephrine, atropine, cardioversion, transcutaneous_pacing
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 The following clinical algorithms are adapted from the Guidelines for Resuscitation Training for the Ministry of Health Malaysia, March 2016.
 
 ## Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update)
-
 *(Adapted from Guidelines for Resuscitation Training for Ministry of Health Malaysia, March 2016)*
 
 **Step 1: Start CPR**
@@ -26,8 +23,7 @@ The following clinical algorithms are adapted from the Guidelines for Resuscitat
 - **No →** Go to Non-Shockable Pathway (Asystole / PEA)
 ---
 
-### Shockable Pathway (VF / Pulseless VT)
-
+### Shockable Pathway (Vf / Pulseless Vt)
 **Step 2:** Identify VF/pVT on monitor.
 
 **Step 3:** Deliver shock.
@@ -56,8 +52,7 @@ The following clinical algorithms are adapted from the Guidelines for Resuscitat
 
 ---
 
-### Non-Shockable Pathway (Asystole / PEA)
-
+### Non-Shockable Pathway (Asystole / Pea)
 **Step 9:** Identify Asystole/PEA on monitor.
 
 **Step 10:** CPR for 2 minutes.
@@ -77,8 +72,7 @@ The following clinical algorithms are adapted from the Guidelines for Resuscitat
 
 ---
 
-### CPR Quality Standards
-
+### Cpr Quality Standards
 - Push hard: at least 2 inches (5 cm) depth, at a rate of 100–120/min. Allow complete chest recoil.
 - Minimise interruptions in compressions.
 - Avoid excessive ventilation.
@@ -87,38 +81,32 @@ The following clinical algorithms are adapted from the Guidelines for Resuscitat
 - Quantitative waveform capnography: if PETCO₂ < 10 mmHg, attempt to improve CPR quality.
 - Intra-arterial pressure: if relaxation phase (diastolic) pressure < 20 mmHg, attempt to improve CPR quality.
 
-### Shock Energy for Defibrillation
-
+### Shock Energy For Defibrillation
 - **Biphasic:** Manufacturer recommendation (e.g. initial dose of 120–200 J); if unknown, use maximum available. Second and subsequent doses should be equivalent, and higher doses may be considered.
 - **Monophasic:** 360 J.
 
 ### Drug Therapy
-
 - **Epinephrine IV/IO dose:** 1 mg every 3–5 minutes.
 - **Amiodarone IV/IO dose:** First dose: 300 mg bolus. Second dose: 150 mg.
 
 ### Advanced Airway
-
 - Endotracheal intubation or supraglottic advanced airway.
 - Waveform capnography or capnometry to confirm and monitor ET tube placement.
 - Once advanced airway in place, give 1 breath every 6 seconds (10 breaths/min) with continuous chest compressions.
 
-### Return of Spontaneous Circulation (ROSC)
-
+### Return Of Spontaneous Circulation (Rosc)
 Signs of ROSC include:
 - Pulse and blood pressure.
 - Abrupt sustained increase in PETCO₂ (typically > 40 mmHg).
 - Spontaneous arterial pressure waves with intra-arterial monitoring.
 
-### Reversible Causes (5 H's and 5 T's)
-
+### Reversible Causes (5 H's And 5 T's)
 - **H:** Hypovolaemia, Hypoxia, Hydrogen ion (acidosis), Hypo-/Hyperkalaemia, Hypothermia.
 - **T:** Tension pneumothorax, Tamponade (cardiac), Toxins, Thrombosis (pulmonary), Thrombosis (coronary).
 
 ---
 
-## Algorithm 2: Stable Ventricular Tachycardia (VT)
-
+## Algorithm 2: Stable Ventricular Tachycardia (Vt)
 *(If unstable → immediate synchronised cardioversion)*
 
 **Step 1: Initial Assessment**
@@ -153,7 +141,6 @@ Signs of ROSC include:
 ---
 
 ## Algorithm 3: Atrial Fibrillation
-
 **Step 1: Search and treat identifiable underlying causes.**
 
 **Step 2: Preparation**
@@ -192,7 +179,6 @@ Assess LV function:
 ---
 
 ## Algorithm 4: Bradycardia
-
 **Step 1: Identify Bradycardia**
 - Slow: absolute bradycardia ≤ 50 bpm, **or**
 - Relatively slow: rate less than expected relative to the underlying condition/cause.
@@ -228,8 +214,7 @@ Assess LV function:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ABC | Airway, Breathing, Circulation |

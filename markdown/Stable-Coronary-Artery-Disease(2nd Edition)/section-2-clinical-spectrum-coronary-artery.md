@@ -1,5 +1,4 @@
-# CLINICAL SPECTRUM OF STABLE CAD
-
+# Clinical Spectrum Of Stable Cad
 <!-- METADATA
 category: Diagnosis
 use_case: Clinical presentation patterns of stable CAD — chest_pain, dyspnoea, palpitations, syncope, angina_typing
@@ -7,20 +6,17 @@ patient_input: symptoms, duration, triggers, risk_factors
 output: presentation_classification, angina_type
 -->
 
-## 2. Clinical Spectrum of Stable CAD
+## 2: Clinical Spectrum Of Stable Cad
 
-## Stable CAD May Present As:
-
+## Stable Cad May Present As:
 - chest pain
 - dyspnoea
 - palpitations, near syncope and syncope
 
-## 2.1 Chest Pain
-
+## 2.1: Chest Pain
 Stable CAD often manifests as chest pain. Occasionally the individual may be asymptomatic or may have atypical symptoms e.g. pain in the jaw, shoulder or epigastrium precipitated by stress - physical and/or emotional (angina equivalent).
 
 Chest pain may be categorized into:
-
 - **Stable angina (typical/definite angina)** — retrosternal chest discomfort fulfilling all 3 criteria (refer Table 3: Definition of Typical/Definite Angina):
   1. Predictable, with possible radiation to jaw, shoulders, arms and/or back.
   2. Provoked by physical exertion and/or emotional stress.
@@ -33,7 +29,7 @@ Chest pain may be categorized into:
 <!-- Purpose: Definition of Typical/Definite Angina criteria       -->
 <!-- ============================================================ -->
 
-### Table 3: Definition of Typical/Definite Angina
+Table 3: Definition Of Typical/Definite Angina
 
 Typical/definite angina is retrosternal chest discomfort characterised by fulfilling **all 3** of the following criteria:
 
@@ -51,7 +47,6 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 Chest pain is more likely to be due to CAD in the older individual, in males, and in those with a previous cardiac event.
 
 Chest pain may also occur at rest due to:
-
 - coronary vasospasm (de novo or superimposed on a fixed stenosis) of an epicardial vessel (variant/Printzmetal angina) and/or
 - microvascular dysfunction.
 
@@ -69,16 +64,15 @@ Management of these individuals are in the CPGs on ST Elevation Myocardial Infar
 <!-- Purpose: Clinical assessment criteria distinguishing stable CAD from ACS -->
 <!-- ============================================================ -->
 
-### Section 5.1: Clinical Assessment — Key Diagnostic Criteria
-
+### Section 5: .1: Clinical Assessment — Key Diagnostic Criteria
 **[Grade I, Level C]** In making a diagnosis of stable angina, a detailed history and physical examination are of paramount importance. Clinical investigations are necessary for confirmation of diagnosis, detection of myocardial ischaemia and for prognostication.
 
-#### Features suggesting ACS (not stable CAD):
+#### Features Suggesting ACS (Not Stable Cad):
 - Chest pain of **recent onset (<2 months)**
 - Chest pain **occurring at rest**
 - Changing or escalating pattern of angina
 
-#### Features consistent with Stable Angina:
+#### Features Consistent With Stable Angina:
 - Chest pain reproducible on exertion, relieved by rest or GTN
 - Stable pattern for >2 months
 - Absence of rest pain
@@ -93,23 +87,19 @@ In the United States, the prevalence of angina in adults ≥20 years was 3.4% an
 
 In the Malaysian National Cardiovascular Disease Registry (NCVD) ACS 2014-15 report, 9.2% of patients admitted with ACS had a history of chronic angina.30 In this registry, this was defined as onset of chest pain more than 2 weeks prior to admission.30
 
-## 2.2 Dyspnoea / LV Dysfunction
-
+## 2.2: Dyspnoea / Lv Dysfunction
 Individuals with stable CAD may also present with dyspnoea. This may be due to either:
-
 - myocardial ischemia (angina equivalent) and/or
 - LV dysfunction from a hibernating but viable myocardium or from previously infarcted muscle (scar tissue).
 
-## 2.3 Palpitations / Near Syncope / Syncope
-
+## 2.3: Palpitations / Near Syncope / Syncope
 A less common presentation is palpitations due to arrhythmia. The presence of syncope/near syncope may be due to:
-
 - tachyarrhythmia — atrial fibrillation, ventricular tachycardia
 - bradyarrhythmia from drug therapy, conduction disturbances and/or co-existing sick sinus syndrome and/or
 - hypotension from drug therapy particularly diuretic use.
 
 
-## Table 3: Definition of Typical/Definite Angina
+Table 3: Definition Of Typical/Definite Angina
 
 Typical/definite angina is retrosternal chest discomfort characterised by fulfilling **all 3** of the following criteria:
 
@@ -121,8 +111,7 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 
 ## Key Messages:
 
-## Stable CAD May Present As:
-
+## Stable Cad May Present As:
 - Chest pain — This may be categorized into:
   - Stable angina (typical/definite angina) — This is a clinical syndrome of retrosternal chest discomfort with the following characteristics and fulfilling the 3 criteria listed in (refer Table 3: Definition of Typical/Definite Angina):
   - Atypical angina (probable) — chest pain or discomfort which meets 2 out of the above 3 criteria.
@@ -137,8 +126,7 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -147,8 +135,7 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -164,7 +151,6 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |

@@ -1,7 +1,6 @@
-# SECTION 1: CLINICAL DECISION ALGORITHMS
+# Section 1: Clinical Decision Algorithms
 
-## ALGORITHM 1: DIAGNOSIS AND TREATMENT OF ED
-
+## Algorithm 1: Diagnosis And Treatment Of ED
 <!-- METADATA
 category: algorithm
 use_case: treatment_decision
@@ -15,7 +14,6 @@ This algorithm outlines the clinical decision pathway for diagnosing and treatin
 ---
 
 ### 📖 Glossary
-
 | Term | Definition |
 |------|------------|
 | **ASCVD** | Atherosclerotic Cardiovascular Disease |
@@ -27,7 +25,6 @@ This algorithm outlines the clinical decision pathway for diagnosing and treatin
 ---
 
 ### Step 1: Initial Assessment
-
 **Patient presents with symptoms of ED**
 
 ↓
@@ -43,8 +40,7 @@ This algorithm outlines the clinical decision pathway for diagnosing and treatin
 
 ↓
 
-### Step 2: Diagnosis of ED
-
+### Step 2: Diagnosis Of ED
 After assessment, classify the **Type of ED**:
 
 | Type | Description |
@@ -57,8 +53,7 @@ After assessment, classify the **Type of ED**:
 
 ---
 
-### Step 3: Severity Assessment (for Organic ED)
-
+### Step 3: Severity Assessment (For Organic ED)
 **Based on IIEF-5 Score:**
 
 | Score | Severity |
@@ -90,8 +85,7 @@ After assessment, classify the **Type of ED**:
 
 ---
 
-## ALGORITHM 2: CLASSIFICATION FOR ED PATIENTS WITH CARDIOVASCULAR DISEASE
-
+## Algorithm 2: Classification For ED Patients With Cardiovascular Disease
 <!-- METADATA
 category: algorithm
 use_case: cardiac_risk_stratification
@@ -101,7 +95,6 @@ critical: true
 -->
 
 ### Overview
-
 This algorithm classifies ED patients with cardiovascular disease for safe treatment selection.
 
 > **Note:** If vasculogenic ED, perform ASCVD risk score assessment.
@@ -109,19 +102,16 @@ This algorithm classifies ED patients with cardiovascular disease for safe treat
 ---
 
 ### Step 1: Starting Point
-
 **Patients with confirmed ED**
 
 ↓
 
 ### Step 2: Exercise Ability Assessment<sup>a</sup>
-
 Assess the patient's exercise ability to estimate cardiovascular risk.
 
 ↓
 
 ### Step 3: Cardiac Risk Stratification
-
 **Cardiac risk stratification according to Princeton Consensus***
 
 > *Refer to Table 1 for cardiac risk stratification for patients with ED based on 2nd and 3rd Princeton Consensus.
@@ -135,7 +125,6 @@ Classify into one of three risk categories:
 ### Step 4: Risk-Based Pathways
 
 #### Low Risk Pathway
-
 **Low Risk** → Elective risk assessment (optional)
 
 ↓ (or optionally → **Stress test<sup>b</sup>** → if Pass → proceed below)
@@ -149,7 +138,6 @@ Continue to Step 5 (Nitrate Assessment)
 ---
 
 #### Intermediate Risk Pathway
-
 **Intermediate Risk** → **Stress test<sup>b</sup>**
 
 ↓
@@ -162,7 +150,6 @@ Continue to Step 5 (Nitrate Assessment)
 ---
 
 #### High Risk Pathway
-
 **High Risk** → **For further cardiac assessment**
 
 (Treatment deferred until cardiac condition stabilized)
@@ -170,18 +157,15 @@ Continue to Step 5 (Nitrate Assessment)
 ---
 
 ### Step 5: Nitrate Assessment (After Risk Classification)
-
 For patients cleared for treatment (Low Risk):
 
-#### Decision: Is the patient prescribed nitrate/riociguat?
-
+#### Decision: Is The Patient Prescribed nitrate/riociguat?
 | Patient Status | Treatment Path |
 |----------------|----------------|
 | **No** (not on nitrates) | → **PDE5i** (phosphodiesterase-5 inhibitors) |
 | **Yes** (on nitrates) | → Check: Is nitrate necessary? |
 
-#### If on nitrates, is nitrate necessary?
-
+#### If On Nitrates, Is Nitrate Necessary?
 | Answer | Treatment Path |
 |--------|----------------|
 | **Yes** (nitrate essential) | → **Non-PDE5i treatment** |
@@ -190,7 +174,6 @@ For patients cleared for treatment (Low Risk):
 ---
 
 ### Key Abbreviations
-
 | Abbreviation | Meaning |
 |--------------|---------|
 | ASCVD | Atherosclerotic Cardiovascular Disease |
@@ -200,7 +183,6 @@ For patients cleared for treatment (Low Risk):
 ---
 
 ### Footnotes
-
 <sup>a</sup> **Exercise ability** is used to guide physician estimating cardiovascular risk associated with sexual activity and should be established before the initiation of ED treatment. Sexual activity is equivalent to:
 - Walking 1.6 km (1 mile) on the flat in 20 minutes
 - Briskly climbing two flights of stairs in 10 seconds

@@ -1,5 +1,4 @@
-# SECTION 6: DIAGNOSIS
-
+# Section 6: Diagnosis
 <!-- METADATA
 category: Diagnosis
 use_case: HF Clinical Assessment — symptoms, signs, ECG, BNP_NT_proBNP, echocardiogram, Framingham_criteria
@@ -8,10 +7,10 @@ output: HF_diagnosis, Framingham_criteria, investigation_plan
 critical: true
 -->
 
-## 6. DIAGNOSIS
+## 6: Diagnosis
 [Grade I, Level C] **The diagnosis of HF depends on a detailed history focusing on symptoms, risk factors and a thorough physical examination.** Patients with HF may present differently but tend to be consistent in their presentation whenever they develop a recurrent episode.
 
-### 6.1. Symptoms and Signs
+## 6.1: Symptoms And Signs
 [Grade I, Level C] **The clinical suspicion of HF should be supported by objective evidence of cardiac dysfunction.** Breathlessness with orthopnea, paroxysmal nocturnal dyspnea (PND), reduced exercise tolerance and ankle swelling are the characteristic symptoms of HF. Orthopnea and paroxysmal nocturnal dyspnea are markers of high filling pressures and contribute to sleep-disordered breathing.
 
 Signs which are more specific for HF are an elevated jugular venous pulse (JVP), and a third heart sound. These signs are associated with adverse outcomes in patients with HF and asymptomatic LV dysfunction. The presence of a raised JVP, a positive jugulo-venous reflux and hepatomegaly generally indicate a raised right atrial pressure of > 8 mmHg. A raised JVP has a good sensitivity (70%) and specificity (79%) of left sided congestion.
@@ -34,16 +33,16 @@ Objective evidence of cardiac dysfunction by diagnostic tests will further suppo
 
 ---
 
-## Key message # 5:
+## Key Message # 5:
 * In making a diagnosis of HF, a detailed history and a thorough physical examination is important.
 * The clinical suspicion of HF should be supported objectively with either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 
 ---
 
-### 6.2 Investigations
+## 6.2: Investigations
 (refer to Flowchart 1: Algorithm for the Diagnosis of Heart Failure*)
 
-**Table: Basic and Important Investigations**
+Table: Basic and Important Investigations
 
 | | BASIC INVESTIGATIONS |
 |---|---|
@@ -61,16 +60,15 @@ Objective evidence of cardiac dysfunction by diagnostic tests will further suppo
 | **Others** | * Holter electrocardiography, loop recorders<br>* Pulmonary function test |
 
 ---
-### Flowchart 1: Algorithm for the Diagnosis of Heart Failure*
+
+### Flowchart 1: Algorithm For The Diagnosis Of Heart Failure*
 
 ##### Step 1: Initial Presentation
-
 **Suspected HF Because of Symptoms and/or Signs**
 
 ↓
 
 ##### Step 2: Initial Investigations
-
 Perform the following:
 *   ECG
 *   Chest Radiograph
@@ -90,7 +88,6 @@ Perform the following:
 ---
 
 ##### Step 3: Echocardiography
-
 Perform echocardiography to assess cardiac structure and function.
 
 **Outcome Evaluation:**
@@ -112,7 +109,7 @@ Perform echocardiography to assess cardiac structure and function.
 
 > *\*refer to Section 6.2 Investigations for the full list of Basic, Important and Additional Investigations.*
 
-### Table 12: Optimal Natriuretic Peptide Cut Points for Diagnosis or Exclusion of Heart Failure among Patients with Dyspnea
+Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of Heart Failure Among Patients With Dyspnea
 
 | | BNP (ng/L) | NT-Pro BNP (ng/L) |
 |---|---|---|
@@ -140,8 +137,7 @@ Perform echocardiography to assess cardiac structure and function.
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -150,8 +146,7 @@ Perform echocardiography to assess cardiac structure and function.
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -159,12 +154,12 @@ Perform echocardiography to assess cardiac structure and function.
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -174,8 +169,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 | **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial Fibrillation |
@@ -205,8 +199,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement.
 

@@ -1,5 +1,4 @@
-# SECTION 6: REGIONAL ANAESTHESIA
-
+# Section 6: Regional Anaesthesia
 <!-- METADATA
 category: Treatment, Assessment, Prevention
 use_case: Regional Anaesthesia — pre_operative_assessment, absolute_contraindications, ultrasound_guidance, nerve_stimulator
@@ -13,15 +12,11 @@ treatment_type: regional_anaesthesia
 
 ---
 
-## 6.1 Equivalent Standard of Care
-
+## 6.1: Equivalent Standard Of Care
 Patients who undergo regional anaesthesia must receive the equivalent standard of care and monitoring as for those undergoing general anaesthesia throughout the perioperative period.
 
-## 6.2 Pre-operative assessment
-
+## 6.2: Pre-Operative Assessment
 Apart from the routine preoperative assessment, enquiry into any possible contraindications to regional anaesthesia should be undertaken. Patient's refusal is an absolute contraindication for regional anaesthesia.
 
-## 6.3 Safe Conduct of Regional Blocks
-
+## 6.3: Safe Conduct Of Regional Blocks
 Ultrasound guidance with or without nerve stimulator is encouraged for the safe conduct of regional blocks when necessary.
-

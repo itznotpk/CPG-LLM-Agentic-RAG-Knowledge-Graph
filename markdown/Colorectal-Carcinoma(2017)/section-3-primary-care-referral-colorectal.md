@@ -1,5 +1,4 @@
-# SECTION 3: PRIMARY CARE AND REFERRAL
-
+# Section 3: Primary Care And Referral
 <!-- METADATA
 category: Diagnosis, Screening
 use_case: Primary Care Referral Pathway — symptom_assessment, urgent_referral, elective_referral, risk_stratification
@@ -8,13 +7,14 @@ output: referral_urgency, referral_pathway, colonoscopy_indication
 critical: true
 -->
 
-In Malaysia, CRC screening is done mainly in primary care. Most of the patients with symptomatic CRC often present at later stages of the disease. In an attempt to improve early detection of CRC, various 
-efforts have been done to establish CRC screening programme in primary care setting. 
+In Malaysia, CRC screening is done mainly in primary care. Most of the patients with symptomatic CRC often present at later stages of the disease. In an attempt to improve early detection of CRC, various
+efforts have been done to establish CRC screening programme in primary care setting.
 
 Therefore, one of the objectives of this CPG is to assist Family Medicine Specialists and other primary care providers in providing structured screening and referral programme according to the symptoms and risk stratification (refer to Algorithm A: Screening for colorectal carcinoma and Algorithm B: Primary Care Referral for Symptoms of Colorectal Carcinoma ).
 
 ## Contextual Anchors (Overlapping)
-### ALGORITHM A: SCREENING FOR COLORECTAL CARCINOMA
+
+### Algorithm A: Screening For Colorectal Carcinoma
 
 #### Step 1: Initial Assessment
 **ASSESS PATIENT FOR SYMPTOMS OF CRC\***
@@ -45,7 +45,7 @@ Categorize the patient into one of the following groups:
 
 ---
 
-### Algorithm B: Primary Care Referral for Symptoms of Colorectal Carcinoma
+### Algorithm B: Primary Care Referral For Symptoms Of Colorectal Carcinoma
 
 #### Step 1: Initial Presentation
 **Presence of any of the following signs or symptoms:**
@@ -64,7 +64,6 @@ Categorize the patient into one of the following groups:
 ↓
 
 #### Step 2: Clinical Assessment
-
 **Focused history**
 * Age and sex
 * Rectal bleeding (colour)
@@ -83,7 +82,6 @@ Categorize the patient into one of the following groups:
 ↓
 
 #### Step 3: Referral Pathways
-
 **Pathway A: Urgent**
 **Criteria:**
 Unexplained rectal bleeding with ≥1 of the following:
@@ -103,9 +101,7 @@ All other unexplained signs and symptoms that do not meet criteria for urgent re
 * **Initial Action:** → Treat signs or symptoms accordingly
 * **Follow-up:** If signs and symptoms not resolved in 4-6 weeks → **REFER FOR ELECTIVE COLONOSCOPY**
 
-
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CPG | Clinical practice guideline |

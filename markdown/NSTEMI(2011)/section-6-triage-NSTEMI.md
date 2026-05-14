@@ -1,5 +1,4 @@
-# SECTION 6: TRIAGE
-
+# Section 6: Triage
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Emergency Triage and Risk Categorisation — rapid_assessment, high_risk_identification, invasive_vs_conservative_decision, low_risk_workup
@@ -45,12 +44,12 @@ The TIMI Risk Score and the Grace Risk Score (refer Section 5.3 Risk Scores for 
 The appropriate management, which includes the rapidity and the degree of invasiveness, is generally guided by the risk status of the patient. There is evidence that high risk patients have increasing benefit from therapies (like low molecular weight heparin (LMWH) , glycoprotein (GP) IIb/IIIa inhibitors) and an invasive strategy.
 The recommended therapy based on risk-stratification is as in (refer Flowchart 1: Risk Stratification of UA/NSTEMI).
 
-## Key messages
+## Key Messages
 **[Grade I, Level A]** Intermediate/high risk patients benefit from early angiography and revascularization.
 
 <!-- OVERLAP CONTENT -->
-## Flowchart 1: Risk Stratification of UA/NSTEMI
 
+## Flowchart 1: Risk Stratification Of UA/NSTEMI
 **[ PATHWAY A: LOW RISK ]**
 
 **1. Clinical Profile Assessment:**
@@ -102,7 +101,7 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 * Coronary Angiography and Revascularization*
   *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
 
-## Figure 1: Non-Invasive Investigation of Low Risk Patients with UA/NSTEMI*
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 
 **[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
 
@@ -140,10 +139,9 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 * younger age group
 * normal LV function
 
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. 
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
 
-## Grades of Recommendation and Levels of Evidence
-
+## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -159,7 +157,6 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACE-I** | Angiotensin Converting Enzyme Inhibitor |

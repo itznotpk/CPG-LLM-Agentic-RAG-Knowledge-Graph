@@ -1,5 +1,4 @@
-# SPECIAL GROUPS
-
+# Special Groups
 <!-- METADATA
 category: Special Populations, Treatment
 use_case: Management considerations in special populations — diabetes, women, elderly, CKD
@@ -7,17 +6,9 @@ patient_input: population_type, comorbidities, renal_function, sex, age
 output: tailored_management, diagnostic_adjustments
 -->
 
+## 10: Special Groups
 
-
-
-
-
-
-
-## 10. Special Groups
-
-## 10.1 Diabetes
-
+## 10.1: Diabetes
 Diabetes is associated with an increased risk of CVD. CAD mortality is increased by 3-fold in diabetic men and 2-5 fold in diabetic women.426-429 Diabetics have a higher prevalence of asymptomatic myocardial ischemia.430 Symptoms occur at an earlier age. Diabetics may also have subclinical ventricular dysfunction which may reduce their exercise capacity.431
 
 In patients with diabetes, the poorer the glycaemic control the greater the incidence of CVD.432.433 Diabetics tend to have extensive CAD with high rates of multi-vessel disease and restenosis, post-PCI. This is due to the chronic metabolic disturbances.434.435
@@ -25,7 +16,6 @@ In patients with diabetes, the poorer the glycaemic control the greater the inci
 Conventional therapies for CAD and indications for coronary revascularisation are similar in diabetic and non-diabetic patients.436
 
 ## DM Management Should Include:
-
 - HbA1c437
 - Long-term maintenance of near-normal blood glucose levels substantially reduces complications and mortality. **[Grade I, Level A]** 438-441 However, this should be individualized based on the patient's age and comorbidities.
 - In the pharmacotherapy of diabetic patients with CAD:
@@ -37,8 +27,7 @@ Conventional therapies for CAD and indications for coronary revascularisation ar
 
 In general, in diabetic patients with multivessel disease, CABG is the preferred revascularization strategy.153.381
 
-## 10.2. Women
-
+## 10.2: Women
 CVD is the main cause of death among women both worldwide and in Malaysia.451 It is 2½ times more common as a cause of death than all cancers combined.10
 
 There are numerous gender differences in the epidemiology of CAD. There is likelihood of survival of women to advanced age, produces nearly equal numbers of actual deaths due to CAD in both gender.451-454
@@ -54,7 +43,6 @@ Women with angina may have:455
 <!-- image -->
 
 ## Other Unique Gender Specific Cardiac Issues Include:455
-
 - Takotsubo Cardiomyopathy
 - spontaneous coronary artery dissections
 
@@ -84,10 +72,8 @@ postulated that this could be due to abnormal coronary vasomotor reactivity, mic
 
 Data seems to suggest that the adverse outcomes seen in women could be due to factors or to bias in therapies.471
 
-## 10.2.1. Diagnosis of CAD in Women
-
+### 10.2.1: Diagnosis Of Cad In Women
 The diagnosis of angina in women is more difficult for the following reasons:
-
 - more common in women.
 - Correlation between symptoms and 'significant' luminal obstruction at coronary angiography is weaker in women.
 - Angina with demonstrable myocardial ischaemia may be present in the presence of normal coronaries or minor atherosclerotic disease.
@@ -100,18 +86,15 @@ Due to the limitations of exercise ECG stress testing, stress echocardiography (
 
 Cardiac Magnetic Resonance (CMR) is a newer imaging tool to investigate CAD in and MI.474
 
-## 10.2.2. Management
-
+### 10.2.2: Management
 age and therefore have higher morbidity and mortality after an MI, PCI and CABG.455 For more details please refer to CPG Prevention of Cardiovascular Disease in Women, 2nd Ed.455
 
-## 10.3. Elderly
-
+## 10.3: Elderly
 in both gender.475
 
 In this age group, complaints of chest discomfort, weakness and dyspnoea are common, and evaluation of chest pain can be difficult. This may be further compounded when some of the elderly have difficulties expressing their symptoms due to dysphasia or cognition issues. Comorbidities that can mimic stable CAD are common (e.g. gastroesophageal reflux disease, musculoskeletal pain). The elderly are usually undertreated and under-represented in clinical trials and most of the studies.
 
-## 10.3.1. Diagnostic Testing in the Elderly
-
+### 10.3.1: Diagnostic Testing In The Elderly
 difficult due to muscle weakness and deconditioning and osteoarthritis of the knees. as DSE may be appropriate.476
 
 The specificity of test results is often reduced because of a higher rate of false positive results due to abnormal resting ECG and a higher prevalence of confounders including prior MI, conduction disturbances, hypertension and left a population with high prevalence of disease. Arrhythmias are also more common at higher exercise workloads.477
@@ -124,8 +107,7 @@ group.478-480 Age > 75 years is an important predictor of contrast-induced nephr
 
 The elderly are more likely to have extensive disease and impaired LV function.
 
-## 10.3.2. Management
-
+### 10.3.2: Management
 younger patients.482-487 Management should be individualised taking into consideration comorbidities and should not be based on age alone. **[Grade I, Level C]**
 
 interactions, polypharmacy and compliance.48.489
@@ -136,18 +118,14 @@ Frailty is an important confounding factor when one looks at CV outcomes followi
 
 The choice of revascularization in the elderly should be discussed by the Heart
 
-## 10.4. Chronic Kidney Disease
-
+## 10.4: Chronic Kidney Disease
 impact on outcomes and therapeutic decisions. The incidence and severity of obstructive CAD increases as glomerular filtration rate (GFR) declines. 496.497 Patients with CKD have diffuse multi-vessel disease with coronary calcification.497.498 Cardiovascular morbidity and mortality are inversely and independently associated
-
-
 
 with kidney function, particularly in patients with advanced CKD (GFR <15 ml/min per 1.73 m²). 139,499-502
 
 Emerging evidence indicates that the pathology and manifestation of CVD differs in the presence of CKD.It is being increasingly recognized that mineralocorticoid excess, mineral and bone metabolism abnormalities play a role in the pathogenesis of CAD and its complications in CKD patients.503-5
 
-## 10.4.1. Diagnostic Testing in CKD
-
+### 10.4.1: Diagnostic Testing In CKD
 The increased prevalence of CAD among CKD patients reduces the negative predictive value of diagnostic studies.
 
 Exercise ECG stress testing is limited by an abnormal baseline resting ECG, lack of specificity of the ST-segment response and by the inability of many CKD patients to exercise to a diagnostic workload.506.507
@@ -156,13 +134,10 @@ with elevated LV mass index.508.509 Sensitivity and specificity for pharmacologi
 
 MPI is more sensitive but less specific than stress echocardiography. The accuracy sensitivities and specificities are <80%.512
 
-## 10.4.2. Management
-
+### 10.4.2: Management
 modification has not been widely studied in CKD patients.
 
 Data regarding the efficacy of prophylactic aspirin is also limited. Subgroup analyses of randomized trials have demonstrated CV risk reduction with aspirin in individuals with eGFR <45 mL/min per 1.73 m2, despite a higher incidence of bleeding.246.516 Several antiplatelet and anticoagulant agents are metabolized through the kidneys and require dose adjustment in CKD patients.
-
-
 
 Subgroup analysis of several randomized clinical trials suggests benefit with the use of statins in patients with moderate CKD. **[Grade I, Level B]** 517 However, two large trials comparing statins with placebo in haemodialysis patients did not demonstrate benefit.518,519 In the SHARP trial, the combination of simvastatin and ezetimibe in CKD patients (including stage V) reduced major atherosclerotic events by 17%, but did not reduce overall mortality.520 As no significant harm from statin use was demonstrated in any of the trials, this reduction in non-fatal events provides a rationale for the use of statins in CKD patients despite the apparent lack of efficacy in reducing the risk of death.
 
@@ -172,9 +147,7 @@ Complications in CKD patients.523-525 Incidence of operative death after CABG is
 
 The ISCHEMIA-CKD (International Study of Comparative Health Effectiveness With Medical and Invasive Approaches-Chronic Kidney Disease) trial is a randomized ongoing trial with a target of 1,000 patients with eGFRs <30 mL/min/1.73 m² (or on dialysis therapy) and moderate ischemia to determine whether a routine invasive strategy (cardiac catheterization and then revascularization together with OMT) is available as indicated). 526
 
-
 ## Key Messages:
-
 - Diabetes is associated with an increased risk of CVD
   - Conventional therapies for CAD and indications for coronary revascularisation are similar in diabetic and non-diabetic patients.
   - Long-term maintenance of near-normal blood glucose levels substantially reduces complications and mortality.
@@ -189,8 +162,7 @@ The ISCHEMIA-CKD (International Study of Comparative Health Effectiveness With M
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -199,8 +171,7 @@ The ISCHEMIA-CKD (International Study of Comparative Health Effectiveness With M
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -216,7 +187,6 @@ The ISCHEMIA-CKD (International Study of Comparative Health Effectiveness With M
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |

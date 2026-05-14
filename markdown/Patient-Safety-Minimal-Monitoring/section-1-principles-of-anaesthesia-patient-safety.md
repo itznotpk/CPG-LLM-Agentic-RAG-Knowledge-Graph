@@ -1,5 +1,4 @@
-# SECTION 1: PRINCIPLES OF ANAESTHESIA CARE
-
+# Section 1: Principles Of Anaesthesia Care
 <!-- METADATA
 category: Assessment, Treatment, Prevention
 use_case: Principles of Anaesthesia Care — personnel_qualifications, direct_care, delegation, preoperative_consultation, record_keeping
@@ -12,18 +11,16 @@ critical: true
 
 ---
 
-## 1.1 Qualifications and Personnel
-
+## 1.1: Qualifications And Personnel
 a. **Anaesthesiologist** in this document refers to a registered medical practitioner who is either a qualified specialist anaesthesiologist or a medical officer/trainee who administers an anaesthetic.
 
-b. All anaesthetics should be administered by a registered medical practitioner with recognized certified training in anaesthesia and resuscitation or by medical officers under adequate supervision of a qualified specialist anaesthesiologist. 
+b. All anaesthetics should be administered by a registered medical practitioner with recognized certified training in anaesthesia and resuscitation or by medical officers under adequate supervision of a qualified specialist anaesthesiologist.
 
 c. The **specialist anaesthesiologist shall be responsible** for the overall anaesthetic care / monitored anaesthesia care of the patient.
 
 ---
 
-## 1.2 Direct Care and Supervision
-
+## 1.2: Direct Care And Supervision
 a. The anaesthesiologist **cannot provide direct care for more than one patient** receiving anaesthesia or sedation.
 
 b. The anaesthesiologist should be present with the patient from induction until safe transfer to the recovery room or the intensive care unit has been accomplished.
@@ -39,9 +36,8 @@ e. There must be adequate manpower assistance for transfer and positioning of th
 
 ---
 
-## 1.3 Pre-Anaesthetic Consultation and Consent
-
-a. Every patient presenting for anaesthesia should have a **pre-anaesthetic consultation** by a registered medical practitioner who has appropriate training in anaesthesia. 
+## 1.3: Pre-Anaesthetic Consultation And Consent
+a. Every patient presenting for anaesthesia should have a **pre-anaesthetic consultation** by a registered medical practitioner who has appropriate training in anaesthesia.
    - It is an integral part of safe anaesthetic practice.
    - Essential for medical assessment to identify associated medical illness and anaesthetic risks.
    - Ultimate aim is reducing morbidity and mortality associated with anaesthesia and surgery.
@@ -52,10 +48,8 @@ b. It is the duty of the anaesthesiologist to obtain **informed consent** from t
 
 ---
 
-## 1.4 Documentation and Equipment Check
-
+## 1.4: Documentation And Equipment Check
 a. The anaesthesiologist must provide an **adequate and legible record** of the anaesthesia, and this must be part of the patient's medical records.
 
-b. The anaesthesiologist must ensure that **all equipment used for the administration of anaesthesia is functioning properly before the start of each anaesthetic**. 
+b. The anaesthesiologist must ensure that **all equipment used for the administration of anaesthesia is functioning properly before the start of each anaesthetic**.
    - However, the health facility shall be responsible for maintenance and servicing of anaesthetic equipment used.
-

@@ -1,10 +1,9 @@
-# SECTION 6: LESION / DEVICE SPECIFIC CONDITIONS
-
+# Section 6: Lesion / Device Specific Conditions
 <!-- METADATA
 category: Treatment
 use_case: general_principles_of_management_in_pci
-patient_input: 
-output: 
+patient_input:
+output:
 critical: true
 -->
 
@@ -12,22 +11,19 @@ critical: true
 
 ---
 
-## 6. Lesion / Device Specific Conditions
+## 6: Lesion / Device Specific Conditions
 
-### 6.1. Left Main Stem (LMS) Disease
-
+## 6.1: Left Main Stem (Lms) Disease
 The conventional treatment for unprotected LMS (>50%) is CABG. PCI of unprotected LMS is feasible, but has historically been associated with high morbidity and mortality rates.
 
 With the use of DES, the results have improved and the incidence of adverse events has decreased. DES and CABG have similar rates of death and MI at 1 year.
 
 When undertaking PCI for unprotected LMS disease the following are important considerations:
-
 - anatomical location of the lesion – the results of PCI with DES for ostial and body lesions are better as compared to distal lesions involving the bifurcation
 - LV function – in the presence of depressed LV function, CABG is the preferred strategy
 - associated multi vessel disease – CABG is a better option (refer to Table 3: Indications for PCI in Stable CAD for recommendations and grading)
 
-#### 6.1.1. Technical Considerations
-
+### 6.1.1: Technical Considerations
 PCI of the unprotected LMS should be done by skillful operators in high volume centers with surgical back-up.
 
 - [Grade I, Level C] PCI should be performed preferably with DES. If a DES is used for a vessel that is >4.0 mm then it should be upsized appropriately. The stent must be well deployed and apposed. An IVUS is highly recommended to ensure optimal stent deployment.
@@ -35,14 +31,11 @@ PCI of the unprotected LMS should be done by skillful operators in high volume c
 - [Grade IIa, Level C] Close surveillance either by coronary or CT angiogram is recommended at about 3 to 9 months after the procedure.
 - [Grade I, Level C] Long term dual antiplatelet therapy is recommended.
 
-### 6.2. Multi-vessel disease
-
+## 6.2: Multi-Vessel Disease
 An important factor determining treatment strategies in a patient with multi-vessel disease is the clinical status of the patient i.e. elective versus an urgent procedure.
 
-#### 6.2.1. Stable Coronary Artery Disease
-
+### 6.2.1: Stable Coronary Artery Disease
 The choice of strategy would depend upon:
-
 - lesion characteristics – discrete lesions in multi vessels do well with PCI while long calcified lesions are better treated with CABG
 - LV function – in the presence of depressed LV function, CABG is the preferred option
 - diabetes – generally diabetics have higher restenosis rates with PCI (refer to Section 4.1: Diabetes)
@@ -57,24 +50,20 @@ It is important that patients treated with PCI have complete revascularisation t
 
 All lesions may be dealt with at the same time or it may be staged depending upon the duration of the procedure, amount of contrast used and patient comfort and safety.
 
-#### 6.2.2. UA/NSTEMI
-
+### 6.2.2: UA/NSTEMI
 In the setting of ACS, it is recommended to treat the culprit lesion and stage the procedure. However in certain situations where the patient is stable and the anticipated procedure is uncomplicated, complete revascularisation may be attempted at the same sitting.
 
-#### 6.2.3. STEMI
-
+### 6.2.3: STEMI
 In STEMI, where the patient is noted to require CABG as a definitive procedure, PCI of the infarct related vessel may serve as a bridge to stabilise the patient. Wherever possible, use of a BMS is advocated in this setting to avoid the risk of peri-operative (CABG) stent thrombosis.
 
 The culprit lesion is usually identified by the site of the MI on the resting ECG and the presence of an ulcerated plaque with thrombus. Occasionally it may be difficult to identify the culprit lesion angiographically.
 
-### 6.3. Chronic Total Occlusions (CTO)
-
+## 6.3: Chronic Total Occlusions (Cto)
 CTO is defined as coronary occlusion of >3 months duration.
 
 Patients with CTO and having significant ischemia should be revascularised. This improves symptoms and exercise tolerance, enhances LV function, and improves survival.
 
 The indications for PCI in CTO include:
-
 - presence of symptoms (angina or heart failure) and/or
 - objective evidence of ischemia in CTO territory with other vessels suitable for PCI
 - absence of significant LMS disease
@@ -84,12 +73,10 @@ PCI for CTO has a steep learning curve with the use of additional hardware and d
 
 Certain lesion characteristics favor successful recanalisation with PCI. (refer to Appendix X: Patient and Lesion Characteristics for Recanalisation Success)
 
-#### 6.3.1. Technical Considerations
-
+### 6.3.1: Technical Considerations
 Generally an antegrade approach is utilised aided with contra-lateral injections of contrast to delineate the distal segment. Retrograde and Control Antegrade and Retrograde Techniques (CART) techniques should be performed only by experienced operators.
 
 Challenges in CTO intervention include:
-
 - good guide support – sometimes "mother and child" technique (2 guiding catheters – 1 bigger and 1 smaller) is utilised for better support
 - wires for crossing the lesion – these include 0.010 inch tip, intermediate wire, stiff hydrophilic or polymer coated wire (from the Miracle and Conquest series). These special wires are used for penetration of CTO lesion with innovative techniques which include parallel wire and anchor balloon.
 - devices for crossing the lesion – these include OTW and small balloons, microcatheter, Tornus, rotablation
@@ -98,33 +85,27 @@ Challenges in CTO intervention include:
 Radiation dose to the operator can be reduced by lower dose (kV) setting, extra shield, pulsed fluoroscopy and extra collimation. Radiation dose to the patient can be reduced by lower dose (kV) setting and avoiding extreme angulations.
 
 Indications for stopping the attempted procedure:
-
 - Excessive contrast (> 600 ml in non-diabetic with normal renal function)
 - Complications (false lumen, excessive staining)
 - Long procedure
 
 DES is preferred for CTO.
 
-### 6.4. Bifurcation Lesions
-
+## 6.4: Bifurcation Lesions
 About 15-20% of PCIs involve a bifurcation lesion. Generally, these are technically more challenging with greater complication rates and poorer long term outcomes.
 
-#### 6.4.1. Classification
-
+### 6.4.1: Classification
 There are many different classifications for bifurcation lesions. The preferred is the Medina classification. It however does not provide details of the angle of bifurcation and the size of the proximal healthy segment which are important determinants of success and long term outcome. (refer to Appendix XI: Medina Classification of Bifurcation Lesions)
 
 It is important to make the distinction of whether it is a 'true' bifurcation or a 'non-true' bifurcation lesion.
 
-#### 6.4.2. Technical Considerations
-
+### 6.4.2: Technical Considerations
 A number of strategies have been described and used to treat bifurcation disease. These include:
-
 - simple strategy – one that involves a single-stent.
 - complex strategies – involve double (or multiple) stents for bi-/trifurcation lesions
 - dedicated bifurcation stent – still in development
 
 Different techniques which are often utilized are:
-
 - V stenting
 - T stenting
 - Culotte
@@ -139,14 +120,12 @@ If the 2-stent strategy is utilised, DESs are preferred. In post stent deploymen
 
 An IVUS is generally recommended when a large area of myocardium is at risk e.g. LMS bifurcation disease.
 
-### 6.5. Ostial Lesions
-
+## 6.5: Ostial Lesions
 Ostial lesions are usually defined as lesions within 3mm of the takeoff of a major coronary artery. Native aorto-ostial, aorto-graft-ostial and branch-ostial lesions can be distinguished.
 
 Treating ostial lesions is technically difficult and is associated with a higher risk of complication and re-stensosis rates.
 
-#### 6.5.1. Technical Considerations
-
+### 6.5.1: Technical Considerations
 - Precise placement of the stent is important to ensure that the ostium is well covered and to avoid excessive jutting of the stent struts into the main vessel.
 - Ideally the ostium needs to be 'well prepared' prior to stent deployment.
 - The vessel needs to be dilated appropriately (balloon sized to the vessel size) before stent deployment to allow for good stent expansion. This will reduce the risk of re-stenosis.
@@ -154,14 +133,11 @@ Treating ostial lesions is technically difficult and is associated with a higher
 - DES is preferred.
 
 Problems that may occur include:
-
 - fall in BP when engaging the vessels – a smaller size guiding catheter or the use of side holes may help alleviate this.
 - risk of dissection – the dissection may spiral down the vessel and occasionally it can occur retrogradely into the aortic root. This complication may be due to guiding catheter manipulation.
 
-### 6.6. Saphenous Vein Grafts (SVG)
-
+## 6.6: Saphenous Vein Grafts (Svg)
 Following CABG:
-
 - between one and six years, the annual graft attrition rate is 1% to 2% and becomes 4% to 6% per year after that, so that about half of SVGs have significant stenosis or are occluded after 10 years.
 - up to 15% of SVGs are closed within 1 year and by 10 years, nearly a third of patients require repeat revascularisation.
 
@@ -184,36 +160,31 @@ Treatment options for Saphenous Vein Graft Disease include:
 
 PCI demonstrates less in-hospital death and MI compared to repeat CABG, but repeat CABG offers more complete revascularisation and less target lesion revascularisation (TLR) at 4 years.
 
-#### 6.6.1. Technical Considerations during SVG Percutaneous Intervention
-
+### 6.6.1: Technical Considerations During Svg Percutaneous Intervention
 Degenerated SVGs are characterised by friable plaques with overlying thrombus which increases the procedural risks of distal embolisation manifesting as slow or no-reflow phenomenon. [Grade IIa, Level B] As such the use of protection devices is strongly recommended (refer to Section 5.8: Protection Devices). Thrombectomy devices may be considered when a significant thrombus burden is present.
 
 GP IIb/IIIa inhibitors have not been found to be helpful in SVG intervention. Vasodilators e.g. adenosine, verapamil, sodium nitroprusside may be used for situations of slow-flow or no-reflow.
 
-#### 6.6.2. Arterial Conduit – Internal Mammary Artery (IMA)
-
+### 6.6.2: Arterial Conduit – Internal Mammary Artery (Ima)
 Angioplasty and stenting procedure to the IMA has high success rates with less acute complications of abrupt closure, distal embolisation, acute myocardial infarction or need for emergency surgery.
 
 Technical issues related to IMA percutaneous intervention include:
-
 - good guiding catheter support
 - IMA tortuosity
 - danger of dissecting the ostia of the IMA
 - may require shorter guiding catheters and longer wires and balloon catheters to reach a distal lesion
 
-### 6.7. Coronary Artery Aneurysm
-
+## 6.7: Coronary Artery Aneurysm
 The optimal treatment of coronary aneurysms remains controversial. Coronary aneurysm may lead to ischemia and MI. Surgical therapy is the treatment of choice.
 
 Percutaneous intervention is an emerging strategy using autologous vein graft–coated stents and PTFE-coated stents with a good short-term angiographic result. It is associated with stent thrombosis and these patients should be on long term dual antiplatelet therapy.
 
-### 6.8. Stent Related Complications
+## 6.8: Stent Related Complications
 
-#### 6.8.1. Stent Thrombosis
-
+### 6.8.1: Stent Thrombosis
 Stent thrombosis is a serious complication as it may result in MI and death. The mortality rate can be as high as 45%. It can be classified as definite, possible or probable according to the Academic Research Consortium (ARC) classification. (refer to Table 9: Definition of Stent Thrombosis)
 
-**Table 9: Definition of Stent Thrombosis as proposed by the Academic Research Consortium (ARC)**
+Table 9: Definition of Stent Thrombosis as proposed by the Academic Research Consortium (ARC)
 
 | Category | Definition |
 |---|---|
@@ -224,7 +195,6 @@ Stent thrombosis is a serious complication as it may result in MI and death. The
 *\* The incidental angiographic documentation of stent occlusion in the absence of clinical signs or symptoms (silent occlusion) is (for this purpose) not considered a confirmed stent thrombosis.*
 
 It may occur as:
-
 - acute (occurring within 24 hrs) – this is mainly due to mechanical causes e.g. stent not well deployed or not well apposed or undetected edge dissection. The incidence is less than 1%.
 - Sub-acute (1 to 30 days) – this may be due to mechanical causes, platelet resistance or premature discontinuation of dual antiplatelet agents. The incidence is less than 1%.
 - Late stent thrombosis (LST) - 30 days to 1 year
@@ -233,15 +203,13 @@ It may occur as:
 Acute and subacute stent thrombosis may occur with both BMS and DES.
 
 LST and VLST may be due to various factors:
-
 - discontinuation of antiplatelet agents
 - stent factors (late stent malapposition, aneurysm formation, hypersensitivity to polymer)
 - vessel (non-healing with poor endothelisation)
 
 The annualized risk for VLST is 0.6% per year. It is more common with DES than BMS.
 
-##### 6.8.1.1. Management of Stent Thrombosis
-
+#### 6.8.1.1: Management Of Stent Thrombosis
 Urgent re-PCI is the treatment of choice. Most thrombotic stent occlusions can be treated with balloon angioplasty alone, aided by thrombus aspiration. Glycoprotein IIb/IIIa antagonists may be administered to improve microvascular reperfusion and to overcome increased platelet aggregation.
 
 Systemic fibrinolysis should be considered in the presence of ongoing significant ischemia and unavailability of prompt PCI. If platelet aggregation studies reveal insufficient (<50%) inhibition of platelet aggregation with standard dual antiplatelet therapy, a higher dose clopidogrel - 150 mg/day - should be considered.
@@ -251,19 +219,16 @@ Additional stent implantation should be limited to bail out significant residual
 PCI for stent thrombosis due to either BMS or DES have similar poor outcomes with low rates of reperfusion and high rates of death and adverse cardiac events. This further highlights the importance of preventing stent thrombosis and choosing the appropriate revascularisation strategy for the individual patient.
 
 In preventing stent thrombosis, it is important to consider:
-
 - Patient factors: Patient compliance and absence of contraindication to dual antiplatelet therapy is pivotal during the decision making process for stent selection.
 - Technique: The stent must be well deployed and fully expanded throughout its entire length. This can be done using a short non compliant balloon at high pressure. Care should be taken to avoid dissections. If it occurs, it should be treated appropriately. It is important to avoid excessive stent length and usage of multiple overlapping stents since this correlates with stent thrombosis.
 - Anti platelet therapy: It is crucial that dual antiplatelet therapy not be discontinued prematurely. It should be continued for at least a year and in some complex cases, long term.
 
-#### 6.8.2. In-stent Restenosis (ISR)
-
+### 6.8.2: In-Stent Restenosis (Isr)
 Balloon angioplasty is associated with up to 40% risk of restenosis. BMS have reduced the risk of restenosis but the rates of ISR remains considerable (17-32%).
 
 With DES, the rates of restenosis have been further reduced (0-9.1%) depending on the complexity of the lesion and the type of stent used.
 
 Restenosis may be due to elastic recoil, vascular remodelling and neointimal hyperplasia. It may be:
-
 - focal
 - diffuse
 - proliferative
@@ -271,7 +236,6 @@ Restenosis may be due to elastic recoil, vascular remodelling and neointimal hyp
 (refer to Appendix XII: Classification of Instent Restenosis (ISR))
 
 Some predictors of ISR are:
-
 - diabetes mellitus
 - acute coronary syndromes
 - Small vessel
@@ -282,14 +246,12 @@ Some predictors of ISR are:
 - Bifurcation lesion
 
 Prevention of ISR involves using DES and optimal stent implantation techniques. These include:
-
 - adequate stent coverage of all segments pre-treated with balloon dilatation
 - high pressure balloon dilatation to ensure adequate stent wall apposition
 - prevention of stent edge injury with careful balloon post-dilatation within stent margins using shorter post-dilatation balloon
 - using IVUS to optimise results
 
 In managing ISR it is important to use IVUS to ascertain if the stent is well deployed. It will also allow the assessment of plaque volume which will help determine management strategy. Management includes using:
-
 - POBA – may be adequate for treating focal ISR
 - cutting balloon – results are variable and is useful to prevent "watermelon seeding" (balloon slippage).
 - rotational atherectomy – results are variable.
@@ -304,8 +266,7 @@ In managing ISR it is important to use IVUS to ascertain if the stent is well de
 
 ### Overlapped Reference Tables
 
-#### Grades of Recommendation
-
+#### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -314,15 +275,14 @@ In managing ISR it is important to use IVUS to ascertain if the stent is well de
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-#### Levels of Evidence
-
+#### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
 | **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
-#### Table 3: Indications for PCI in Stable CAD
+Table 3: Indications For PCI In Stable Cad
 
 | INDICATION FOR PCI | Recommendation Level |
 |---|---|
@@ -347,8 +307,7 @@ In managing ISR it is important to use IVUS to ascertain if the stent is well de
 
 ---
 
-### Abbreviations Used in this Section
-
+### Abbreviations Used In This Section
 - **ACS**: Acute Coronary Syndrome
 - **ARC**: Academic Research Consortium
 - **AV**: Arterio-venous

@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: CPG Overview and Disease Burden — coronary_artery_disease, pci_rationale, revascularisation, guideline_objectives
@@ -11,19 +10,16 @@ output: guideline_scope
 
 ---
 
-## 1. Introduction
-
+## 1: Introduction
 Cardiovascular disease (CVD) accounted for 24.2% of total deaths in Malaysian government hospitals (2006), with coronary artery disease (CAD) and cerebrovascular disease comprising 50% and 32% of the cardiovascular burden respectively. Management of CAD includes risk factor modification, medical therapy, and revascularisation via percutaneous coronary intervention (PCI) or coronary artery bypass graft (CABG) surgery.
 
 With increasing PCI volumes and advances in devices and operator skills, this CPG critically evaluates the role of PCI in CAD management. It aims to:
-
 - assist health care providers in clinical decision making regarding coronary revascularisation
 - improve patient outcomes and standard of care following PCI
 
 ---
 
-### Abbreviations Used in this Section
-
+### Abbreviations Used In This Section
 - **CABG**: Coronary Artery Bypass Graft Surgery
 - **CAD**: Coronary Artery Disease
 - **CPG**: Clinical Practice Guideline

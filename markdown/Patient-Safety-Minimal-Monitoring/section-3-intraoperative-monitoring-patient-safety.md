@@ -1,5 +1,4 @@
-# SECTION 3: INTRAOPERATIVE MONITORING OF THE PATIENT
-
+# Section 3: Intraoperative Monitoring Of The Patient
 <!-- METADATA
 category: Assessment, Prevention
 use_case: Intraoperative Patient Monitoring — oxygenation_monitoring, circulation_monitoring, capnography, temperature_monitoring, neuromuscular_monitoring, depth_of_anaesthesia
@@ -12,8 +11,7 @@ critical: true
 
 ---
 
-## 3.1 General Monitoring Principles
-
+## 3.1: General Monitoring Principles
 a. The anaesthesiologist should ensure proper functioning of anaesthetic equipment, monitor the **depth of anaesthesia, oxygenation, adequacy of ventilation, and circulation** from induction of anaesthesia until transfer to the recovery room or post-anaesthesia care unit.
 
 b. **Clinical observations** of essential vital signs must be supplemented by appropriate monitoring equipment wherever possible.
@@ -25,8 +23,7 @@ c. The following parameters in the patient are essential and **must be monitored
 
 ---
 
-## 3.2 Oxygenation
-
+## 3.2: Oxygenation
 a. Oxygenation may be monitored by noting the colour of the patient's mucous membranes and the colour of the operative site.
 
 b. **Pulse Oximetry:** The use of a pulse oximeter to supplement clinical observations is **mandatory**.
@@ -37,8 +34,7 @@ c. **Oxygen Concentration:** The oxygen concentration of the anaesthetic gas mix
 
 ---
 
-## 3.3 Circulation
-
+## 3.3: Circulation
 a. The circulation must be monitored by observation of the **pulse, heart rate, and blood pressure**.
 
 b. The **blood pressure and heart rate** must be measured and recorded regularly at a frequency appropriate to the clinical condition of the patient.
@@ -48,8 +44,7 @@ c. **Electrocardiogram (ECG):** The ECG should be continuously displayed through
 
 ---
 
-## 3.4 Ventilation
-
+## 3.4: Ventilation
 a. The adequacy of ventilation must be monitored at all times by noting:
    - Excursion of the chest wall
    - Movement of the reservoir bag
@@ -64,8 +59,7 @@ b. **Capnography:** The use of capnography / capnometer is **mandatory** when a 
 
 ---
 
-## 3.5 Temperature
-
+## 3.5: Temperature
 a. The means to measure body temperature should be readily available.
 
 b. Body temperature **must be monitored** in situations where a change of temperature is intended, anticipated, or suspected.
@@ -76,14 +70,12 @@ c. Body temperature **must be continually monitored** in:
 
 ---
 
-## 3.6 Neuromuscular Function
-
+## 3.6: Neuromuscular Function
 Where muscle relaxants are used, a device to monitor neuromuscular function such as a **peripheral nerve stimulator** should be available.
 
 ---
 
-## 3.7 Anaesthetic Effect on the Brain
-
+## 3.7: Anaesthetic Effect On The Brain
 a. Equipment to monitor the anaesthetic effect on the brain should be available for use on all patients when clinically indicated.
 
 b. **Minimum Alveolar Concentration (MAC) Indicator:** Anaesthetic gas concentration monitoring with a MAC indicator must be available to detect depletion of inhalational anaesthetic agents.
@@ -94,14 +86,13 @@ c. **Depth of Anaesthesia Monitoring:** Modalities such as BiSpectral Index, Aud
 
 ---
 
-## 3.8 Specialised Monitors
-
+## 3.8: Specialised Monitors
 Specialised monitoring may be required under certain circumstances, such as:
 - In complicated operations or specialised procedures
 - During special techniques such as induced hypotension or one-lung ventilation
 - In patients with coexisting medical diseases
 
-### Types of Specialised Monitoring
+### Types Of Specialised Monitoring
 - Invasive arterial and central venous pressure monitoring
 - Neurological function monitoring (e.g., somato-sensory evoked potential monitoring in spine surgery)
 - Transoesophageal echocardiography (e.g., in cardiac surgery, or patients with severe cardiac disease)
@@ -109,11 +100,9 @@ Specialised monitoring may be required under certain circumstances, such as:
 
 ---
 
-## 3.9 Caveats
-
+## 3.9: Caveats
 a. **Brief Interruptions:** It is recognised that brief interruptions of continuous monitoring may be unavoidable. When this occurs, appropriate documentation must be made in the patient's anaesthetic record.
 
 b. **Impracticality:** In certain rare or unusual circumstances, some methods of monitoring may be clinically impractical. Appropriate notations must be made in the patient's anaesthetic record to reflect this.
 
 c. **Limitation of Guarantees:** Observing monitoring parameters is to encourage quality patient care. Even when appropriately used, monitors may fail to detect untoward clinical developments and observing them cannot guarantee any specific outcome.
-

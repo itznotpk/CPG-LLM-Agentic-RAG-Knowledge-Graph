@@ -1,16 +1,14 @@
-# SECTION 10: IMPLEMENTING THE GUIDELINES
-
+# Section 10: Implementing The Guidelines
 <!-- METADATA
 category: Reference
 use_case: CPG Implementation — facilitating_factors, limiting_factors, resource_implications, clinical_audit, quality_management
-patient_input: 
+patient_input:
 output: implementation_strategy, clinical_audit_indicators, resource_plan
 -->
 
 Implementation of CPG is important as it helps in providing quality healthcare services based on best available evidence applied to local scenario and expertise. Various factors and resource implications should be considered for the success of the uptake in the CPG recommendations.
 
-## 10.1 Facilitating and Limiting Factors
-
+## 10.1: Facilitating And Limiting Factors
 The facilitating factors in implementing the CPG are:
 - availability of CPG to healthcare providers (hardcopies and softcopies)
 - conferences and updates on management of NPC
@@ -20,8 +18,7 @@ Limiting factors in the CPG implementation include:
 - inadequate NPC training at all levels of healthcare providers
 - variation in NPC treatment at different levels of care due to administrative and financial constraints
 
-## 10.2 Potential Resource Implications
-
+## 10.2: Potential Resource Implications
 To implement the CPG, there must be strong commitments to:
 - ensure widespread distribution of CPG to healthcare providers via printed copies and online accessibility
 - reinforce training of healthcare providers via regular seminars and workshops
@@ -37,8 +34,7 @@ Implementation strategies will be developed following the approval of the CPG by
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -51,8 +47,7 @@ Implementation strategies will be developed following the approval of the CPG by
 
 ---
 
-## Abbreviations used in this section
-
+## Abbreviations Used In This Section
 | Abbreviation | Full Term |
 |---|---|
 | CPG | Clinical Practice Guidelines |

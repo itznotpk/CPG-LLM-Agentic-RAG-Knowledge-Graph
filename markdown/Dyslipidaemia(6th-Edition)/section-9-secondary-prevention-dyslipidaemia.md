@@ -1,5 +1,4 @@
-# SECTION 9: SECONDARY PREVENTION
-
+# Section 9: Secondary Prevention
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Secondary prevention lipid-lowering in established CVD — ACS, PCI, ischaemic_stroke, statin_initiation, recurrent_events
@@ -10,7 +9,6 @@ treatment_type: high-intensity statins, ezetimibe, PCSK9 inhibitors
 -->
 
 ## Introduction
-
 [Grade I, Level A] Lipid-lowering therapy has been shown to improve CV outcomes in individuals with established Cardiovascular Disease (CVD), including:
 *   **Coronary Heart Disease**: Stable CAD, Acute Coronary Syndromes (ACS), and  Peri procedure - Percutaneous Coronary Intervention (PCI).
 *   [Grade I, Level A] **Ischemic Strokes** and Transient Ischemic Attacks (TIA).
@@ -18,7 +16,7 @@ treatment_type: high-intensity statins, ezetimibe, PCSK9 inhibitors
 
 ---
 
-## 9.1. Timing of Initiation
+## 9.1: Timing Of Initiation
 
 ### [Grade I, Level A] Acute Coronary Syndrome (ACS)
 *   **Rapid Initiation**: High-dose statin therapy should be initiated **< 24 hours after admission**.
@@ -31,7 +29,7 @@ treatment_type: high-intensity statins, ezetimibe, PCSK9 inhibitors
 
 ---
 
-## [Grade I, Level A] 9.2. Target LDL-C in Secondary Prevention
+## [Grade I, Level A] 9.2. Target LDL-C In Secondary Prevention
 The goal for established CVD is aggressive lowering to stabilize plaques and prevent recurrent events:
 *   [Grade IIa, Level B] **Standard Goal**: LDL-C **< 1.4 mmol/L** and a **50% reduction** from baseline.
 *   **Recurrent Events**: For individuals with recurrent events within 2 years while on maximally tolerated statin therapy, the target is **< 1.0 mmol/L**.
@@ -39,8 +37,7 @@ The goal for established CVD is aggressive lowering to stabilize plaques and pre
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -59,18 +56,16 @@ The goal for established CVD is aggressive lowering to stabilize plaques and pre
 ---
 
 ## Key Recommendations #9
-
 *    All patients with CVD should receive lipid lowering therapy, the target LDL-C:
     *   Target LDL-C < 1.4mmo/l and a 50% reduction in LDL-C levels.
 *   High intensity statins should be started (irrespective of their baseline cholesterol):
     *   On admission in all individuals with ACS.
-    *   Prior to PCI and CABG and continued indefinitely. 
+    *   Prior to PCI and CABG and continued indefinitely.
 *   Lipid lowering therapy with statins should be considered in all individuals with previous non cardioembolic ischemic stroke or transient ischemic attack.
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndromes |
@@ -91,11 +86,9 @@ The goal for established CVD is aggressive lowering to stabilize plaques and pre
 
 ---
 
-## Grades of Recommendation and Level of Evidence
-
+## Grades Of Recommendation And Level Of Evidence
 *   **Grade I**: Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade IIa**: Weight of evidence/opinion is in favour of usefulness/efficacy. The specific treatment or procedure *should be considered*.
 *   **Grade IIb**: Usefulness/efficacy is less well established by evidence/opinion. The specific treatment or procedure *may be considered*.
 *   **Level A**: Data derived from multiple randomized clinical trials or meta-analyses.
 *   **Level B**: Data derived from a single randomized clinical trial or large non-randomized studies.
-

@@ -1,5 +1,4 @@
-# SECTION 9: BARRIERS AND EDUCATION
-
+# Section 9: Barriers And Education
 <!-- METADATA
 category: Prevention, Supportive Treatment
 use_case: Barriers and Education in Cancer Pain Management — patient_barriers, healthcare_provider_barriers, caregiver_barriers, opioid_misconceptions, pain_education, BQ_II_questionnaire
@@ -42,8 +41,7 @@ Educational strategies should focus on addressing the following issues:
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -52,8 +50,7 @@ Educational strategies should focus on addressing the following issues:
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used in This Section
-
+### Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse events |

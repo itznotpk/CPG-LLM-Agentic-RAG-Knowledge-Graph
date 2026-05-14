@@ -1,5 +1,4 @@
-# SECTION 7: FOLLOW-UP AND SURVEILLANCE
-
+# Section 7: Follow-Up And Surveillance
 <!-- METADATA
 category: Prevention, Assessment
 use_case: Post-Treatment Surveillance — follow_up_schedule, CEA_monitoring, colonoscopy_surveillance, CT_imaging, survivorship
@@ -25,8 +24,7 @@ Surveillance should be guided by presumed risk of recurrence and functional stat
 
 > - CRC survivors are encouraged to maintain an ideal body weight, participate in regular physical activity and consume a well-balanced diet.
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -35,8 +33,7 @@ Surveillance should be guided by presumed risk of recurrence and functional stat
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CEA | Carcinoembryonic antigen |

@@ -1,5 +1,4 @@
-# SECTION 6.2: SYSTEMIC THERAPY
-
+# Section 6: .2: Systemic Therapy
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Systemic Therapy Guidelines — chemotherapy, endocrine_therapy, targeted_therapy, neoadjuvant, adjuvant, metastatic, bone_modifying_agents
@@ -10,17 +9,14 @@ treatment_type: chemotherapy, tamoxifen, aromatase_inhibitor, trastuzumab, pertu
 -->
 
 ## Overview
-
 Systemic therapy for breast cancer includes neoadjuvant therapy, adjuvant therapy, and therapy for metastatic disease. It encompasses chemotherapy, endocrine therapy, anti-HER2 therapy, and bone-modifying agents.
 
 ---
 
-## 6.3.1 Neoadjuvant Therapy
-
+### 6.3.1: Neoadjuvant Therapy
 Neoadjuvant therapy refers to the administration of treatment with the intent of downstaging the tumour and improving operability and surgical outcomes.
 
-### a. Chemotherapy
-
+### A. Chemotherapy
 | Finding | Result | Evidence |
 |---|---|---|
 | NACT vs adjuvant chemo — BCS rate | **Higher** with NACT: 64.8% vs 49.0% (RR=1.28, 1.22 to 1.34) | level I |
@@ -36,14 +32,13 @@ Neoadjuvant therapy refers to the administration of treatment with the intent of
 
 ---
 
-### b. Endocrine Therapy
-
+### B. Endocrine Therapy
 The role of neoadjuvant endocrine therapy (NET) is generally reserved for candidates unsuitable for chemotherapy or surgery.
 
 A meta-analysis showed no significant differences between NET and neoadjuvant chemotherapy (NACT) in clinical response rate, radiological response rate, pathological response rate and BCS rate in ER+ breast cancer. The toxicity profile was significantly lower in the NET arm. However, these findings are based on two phase II RCTs and one phase III RCT which was terminated earlier due to poor accrual.66, level I
 In a subgroup analysis of seven RCTs in the meta-analysis, increased clinical response rate (OR=1.69, 95% CI 1.36 to 2.10), radiological response rate (OR=1.49, 95% CI 1.18 to 1.89) and BCS rate (OR=1.62, 95% CI 1.24 to 2.12) were seen in aromatase inhibitors (AIs) compared with tamoxifen. **[level I]**
 
-NICE recommends to consider NET for post-menopausal women with ER+ invasive breast cancer as an option to reduce tumour size if there 
+NICE recommends to consider NET for post-menopausal women with ER+ invasive breast cancer as an option to reduce tumour size if there
 is no definite indication for chemotherapy.
 
 > [!IMPORTANT]
@@ -52,7 +47,7 @@ is no definite indication for chemotherapy.
 
 ---
 
-### c. Anti-HER2 therapy
+### C. Anti-Her2 Therapy
 HER2 is overexpressed in 15 - 20% of breast cancer and is associated with an aggressive clinical course of the disease. It is well-known that patients diagnosed with HER2-positive breast cancer need to be treated with a combination of anti-HER2-directed therapy and chemotherapy in adjuvant setting. Evidence is emerging on its use in neoadjuvant setting as discussed below.
 
 In 2011, a pooled analysis of two RCTs in patients with pathologically confirmed and untreated HER2-positive early breast cancer in neoadjuvant setting showed that the probability to achieve pCR was higher in the combined trastuzumab and chemotherapy group than in chemotherapy alone (RR=2.07, 95% CI 1.39 to 2.46). The relapse free rate was also in favour of the combination arm (RR=0.67, 95% CI 0.48 to 0.94). The addition of trastuzumab did not increase the incidence of neutropenia, neutropenic fever or cardiac adverse events.**[level I]**
@@ -71,29 +66,25 @@ NCCN recommends chemotherapy and trastuzumab-based treatment for patients with H
 > *   Addition of **pertuzumab** as dual HER2 blockade may be considered in high risk patients (i.e. ≥T2 or ≥N1 early stage breast cancer).
 
 #### Subcutaneous Trastuzumab
-
 In a large multicentre RCT, SC trastuzumab was non-inferior to IV formulation in both neoadjuvant and adjuvant setting:ˡᵉᵛᵉˡ ᴵ
 *   pCR: **42.2%** (SC) vs **37.4%** (IV) — difference 4.7% (95% CI -4.0 to 13.4)
 *   Adverse events of any grade: comparable between groups
 
 ---
 
-## 6.3.2 Adjuvant Therapy
+### 6.3.2: Adjuvant Therapy
+Adjuvant therapy is used after surgery to reduce the rate of cancer recurrence. It may include chemotherapy, endocrine therapy, targeted therapy or RT.
 
-Adjuvant therapy is used after surgery to reduce the rate of cancer recurrence. It may include chemotherapy, endocrine therapy, targeted therapy or RT. 
+St. Gallen international consensus panel of experts developed a series of guidelines and recommendations for selection of adjuvant systemic therapy for breast cancer patients based on risk categories. These are widely used by many oncologists and adapted in various CPG worldwide, including the previous edition of Malaysian CPG on Management of Breast Cancer.
 
-St. Gallen international consensus panel of experts developed a series of guidelines and recommendations for selection of adjuvant systemic therapy for breast cancer patients based on risk categories. These are widely used by many oncologists and adapted in various CPG worldwide, including the previous edition of Malaysian CPG on Management of Breast Cancer. 
-
-### Risk Categories for Adjuvant Systemic Therapy (St. Gallen)
-
+### Risk Categories For Adjuvant Systemic Therapy (St. Gallen)
 | Low Risk | Intermediate Risk | High Risk |
 |---|---|---|
 | pN0 AND all of: tumour ≤2 cm, Grade 1, no vessel invasion, ER/PR+, HER2-, age ≥35 | pN0 AND at least one of: tumour >2 cm, Grade 2/3, vessel invasion, HER2 overexpression, age <35; OR pN+ (N1-3) and HER2- | pN+ (N1-3) and HER2 overexpression; OR pN+ (N≥4) |
 
 ---
 
-### a. Adjuvant Chemotherapy
-
+### A. Adjuvant Chemotherapy
 Adjuvant chemotherapy has an established role in eradicating micrometastasis, thus improving survival. Generally, adjuvant chemotherapy is recommended for intermediate or high risk patients. In assessing absolute benefit of systemic adjuvant therapy, NICE recommends the use of PREDICT tool, an online calculator, that is available from the UK NHS website. However, in local setting, a validation study of the tool concludes that while the tool is generally accurate, it needs to be used with caution in patients who are <40 years old and those who have received neoadjuvant chemotherapy.
 
 Taxane-based chemotherapy are incorporated into the management of early and locally advanced breast cancer. Three meta-analyses addressed the effectiveness and safety of taxanes.
@@ -112,12 +103,10 @@ There was no mention on quality assessment in the three meta-analyses.
 
 ---
 
-### b. Adjuvant Endocrine Therapy
-
+### B. Adjuvant Endocrine Therapy
 Five years of adjuvant endocrine therapy is the standard of care for hormone receptor-positive breast cancer.
 
 #### Extended Endocrine Therapy Evidence
-
 | Regimen | Key Outcome | Evidence |
 |---|---|---|
 | 10 years tamoxifen vs 5 years | Recurrence reduced: RR=0.84 (0.76 to 0.94) | level I |
@@ -126,8 +115,7 @@ Five years of adjuvant endocrine therapy is the standard of care for hormone rec
 | 5yr tamoxifen + 5yr letrozole vs 5yr tamoxifen | DFS improved: HR=0.57 (0.43 to 0.75); no OS benefit | level I |
 | 10 years AI vs 5 years AI | No significant DFS or OS benefit | level I |
 
-#### Current Options for Adjuvant Endocrine Therapy
-
+#### Current Options For Adjuvant Endocrine Therapy
 | Option |
 |---|
 | Tamoxifen alone for 5 years |
@@ -142,11 +130,10 @@ Five years of adjuvant endocrine therapy is the standard of care for hormone rec
 
 ---
 
-### Monitoring Bone Health on Aromatase Inhibitors
-
+### Monitoring Bone Health On Aromatase Inhibitors
 AIs are associated with risk of fracture due to bone loss.
 
-#### When to Start Bisphosphonates
+#### When To Start Bisphosphonates
 Risk of fracture can be predicted by measuring patient’s bone mineral density using dual-energy X-ray absorptiometry (DEXA) scan. NICE and NCCN recommend all patients on AI to have DEXA scan done at baseline and periodically thereafter.
 
 Start if DEXA scan shows **osteoporosis** or **moderate-severe osteopenia (T score < -2.0)** or accelerated bone loss (≥4%/year). Also consider if **any 2** of these risk factors are present:ˡᵉᵛᵉˡ ᴵᴵᴵ
@@ -167,8 +154,7 @@ Start if DEXA scan shows **osteoporosis** or **moderate-severe osteopenia (T sco
 
 ---
 
-### c. Ovarian Suppression/Ablation
-
+### C. Ovarian Suppression/Ablation
 For pre-menopausal women, ovarian function can be permanently suppressed by ovarian ablation, accomplished by surgical oophorectomy or ovarian irradiation. Ovarian suppression on the other hand induces temporary amenorrhea by utilising luteinising hormone-releasing hormone agonists. This results in suppression of luteinising hormone and release of follicle stimulating hormone from the pituitary leading to reduced ovarian oestrogen production.
 
 In pre-menopausal patients with high risk early breast cancer of luminal types (ER and/or PR positive) who also received adjuvant chemotherapy, adding ovarian suppression with gonadotropin-releasing hormone agonists (GnRH) to tamoxifen improved DFS and OS compared with tamoxifen alone as evident from the joint analysis of the SOFT and TEXT trials. **[level I]**
@@ -181,7 +167,7 @@ In a meta-analysis of 29 RCTs which also included the landmark SOFT study, subgr
 
 ---
 
-### d. Anti-HER2 therapy
+### D. Anti-Her2 Therapy
 Trastuzumab is recommended in women with HER2-positive breast cancer having adjuvant chemotherapy.
 
 This is supported by a Cochrane systematic review of moderate quality primary papers which showed that adjuvant trastuzumab improved both OS (HR=0.66, 95% CI 0.57 to 0.77) and DFS (HR=0.60, 95% CI 0.50 to 0.71) in early and locally advanced HER2-positive breast cancer patients. **[level I]**
@@ -201,11 +187,10 @@ Aphinity trial reported a small improvement in invasive DFS (HR=0.81, 95% CI 0.6
 
 ---
 
-## 6.3.3 Systemic Therapy for Metastatic Disease
-
+### 6.3.3: Systemic Therapy For Metastatic Disease
 Treatment choice in MBC is influenced by: patient factors (age, co-morbidities, performance status, preferences, menopausal status), tumour biology (HR and HER2 status), previous therapies, disease-free interval, tumour load, visceral crisis, and resource availability.
 
-### a. Chemotherapy
+### A. Chemotherapy
 Combination chemotherapy had been shown to be effective first-line treatment in MBC:
 *   A Cochrane systematic review showed that combination chemotherapy regimens were superior in OS compared with single agent (HR=0.82, 95% CI 0.75 to 0.89) in newly diagnosed or recurrent MBC. The combination regimens were also associated with better time to progression (HR=0.78, 95% CI 0.74 to 0.82) and overall tumour response (RR=1.29, 95% CI 1.14 to 1.45). However, there were more detrimental effect on white cell count, increased alopecia and, nausea and vomiting. **[level I]**
 *   A later meta-analysis showed similar findings even in MBC patients who have received anthracycline and taxane in adjuvant setting based on OS (HR=0.90, 95% CI 0.84 to 0.96), PFS (HR=0.81, 95% CI 0.76 to 0.88) and overall response rate (RR=1.72, 95% CI 1.34 to 2.21). **[level I]**
@@ -217,7 +202,7 @@ Combination chemotherapy had been shown to be effective first-line treatment in 
 
 ---
 
-### b. Endocrine therapy
+### B. Endocrine Therapy
 Endocrine therapy is the preferred option for hormone receptor-positive MBC, even in the presence of visceral disease, unless there is visceral crisis or concern/proof of endocrine resistance.
 
 > **Clinical Note:**
@@ -238,8 +223,7 @@ The options of combination treatment include the pairing of an endocrine agent w
 
 A significant improvement in PFS is seen in the combination treatment of CDK 4/6 inhibitor and an endocrine partner. This benefit is seen in both the pre- and post-menopausal population as stated below.
 
-#### CDK 4/6 Inhibitors — First-Line Evidence
-
+#### Cdk 4/6 Inhibitors — First-Line Evidence
 | Trial | Combination | Median PFS vs Control | Evidence |
 |---|---|---|---|
 | **PALOMA-2** | Palbociclib + letrozole | **24.8 vs 14.5 months** (HR=0.58, 95% CI 0.46 to 0.72) | level I |
@@ -261,7 +245,7 @@ In post-menopausal MBC patients who had failed on anastrazole or letrozole, the 
 
 ---
 
-### c. Anti-HER2 therapy
+### C. Anti-Her2 Therapy
 Therapies that target HER2 have become important agents in the treatment of MBC. A Cochrane systematic review showed that trastuzumab in women with HER2-positive MBC improved both OS (HR=0.82, 95% CI 0.71 to 0.94) and PFS (HR=0.61, 95% CI 0.54 to 0.70). However, the treatment increased the risk of cardiac toxicities e.g. congestive heart failure (RR=3.49, 90% CI 1.88 to 6.47) and left ventricular ejection fraction decline (RR=2.65, 90% CI 1.48 to 4.74). **[level I]**
 
 Clinical Evaluation of Pertuzumab and Trastuzumab (CLEOPATRA), a double-blind RCT, compared the effectiveness and safety of pertuzumab in combination with trastuzumab and docetaxel vs trastuzumab and docetaxel as first-line treatment for HER2-positive MBC. It showed improvement favouring the dual HER2-blockade regimen. The median PFS was prolonged by 6.3 months (HR for progression or death=0.68, 95% CI 0.58 to 0.80) and median OS by 15.7 months (HR=0.68, 95% CI 0.56 to 0.84). The addition of pertuzumab did not increase cardiac toxicity. This study also included 10% of patient who had received trastuzumab in the adjuvant setting but with a treatment-free interval of at least six months or longer. **[level I]**
@@ -274,7 +258,7 @@ In patients who relapse during adjuvant trastuzumab within six months of complet
 
 ---
 
-## 6.3.4 Supportive Therapy
+### 6.3.4: Supportive Therapy
 *   **Bone-modifying agents in adjuvant and metastatic breast cancer**
 
 Treatment targeting osteoclast activity is important for breast cancer with bone metastases to prevent SREs. Bisphosphonates have been used for this purpose.

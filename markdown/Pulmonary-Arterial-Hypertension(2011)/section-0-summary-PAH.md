@@ -1,9 +1,8 @@
-# SECTION 0: SUMMARY, OBJECTIVES AND GRADING SYSTEM
-
+# Section 0: Summary, Objectives And Grading System
 <!-- METADATA
 category: Methodology
 use_case: Executive Summary and Evidence Framework — key_recommendations, evidence_grading, classes_of_recommendation, levels_of_evidence, quality_indicators
-patient_input: 
+patient_input:
 output: guideline_summary, grading_system, abbreviation_reference
 -->
 
@@ -12,19 +11,16 @@ output: guideline_summary, grading_system, abbreviation_reference
 ---
 
 ## Preface
-
 Pulmonary arterial hypertension (PAH) is defined as a group of diseases characterised by a progressive increase of pulmonary vascular resistance (PVR) leading to right ventricular failure and premature death. Untreated, it is a potentially devastating disease. However, the past decade has seen remarkable improvements in our understanding of the pathology associated with the condition and the development of PAH-specific therapies with the ability to alter the natural history of the disease. Indeed, the diagnosis, assessment and treatment of PAH is a rapidly evolving area, with changes occurring in the definition of the disease, screening and diagnostic techniques, staging and follow-up assessment, and a growing armamentarium of PAH-specific therapies. These new advances provide a significant opportunity for practitioners to detect and treat patients with PAH in a timely and effective manner, thereby improving overall mortality, morbidity, and quality of life associated with this disease. Our intention is to provide clear and concise descriptions of the new pathological classification and of the recent pathogenetic insights. The diagnostic process will be discussed in order to propose a logical sequence of investigations for aetiology identification, disease assessment and follow-up. Special emphasis will be devoted to an evidence-based treatment algorithm that is unique to Malaysia, yet in-line with internationally accepted guidelines.
 
 ---
 
-## Summary of Guidelines
-
+## Summary Of Guidelines
 - **SECTION A:** PAH in adults
 - **SECTION B:** PAH in children
 - **SECTION C:** PAH in congenital heart disease
 
 ## Specific Objectives
-
 - To guide early diagnosis of PAH in adults and pediatric patients so as to enable referral of PAH cases for prompt specialist care
 - To guide in assessment of patients with suspected PAH
 - To provide guidance on appropriate and timely PAH management
@@ -32,42 +28,35 @@ Pulmonary arterial hypertension (PAH) is defined as a group of diseases characte
 - To guide on specific aspects of managing PAH in congenital heart disease
 
 ## Target Population
-
 Adult and paediatric patients with PAH as defined in the updated clinical classification of Pulmonary Hypertension (PHT) from Dana Point, 2008. The inclusion criteria are idiopathic PAH, heritable PAH, Connective Tissue Disease associated PAH and Congenital Heart Disease associated PAH. The other types of PAH are excluded.
 
 ## Target Group/User
-
 These guidelines are applicable to physicians, cardiologists (paediatric and adult), pulmonologists, rheumatologists, critical care providers and primary care doctors involved in treating patients with PAH.
 
 ## Healthcare Settings
-
 Both outpatient and inpatient settings, in secondary and tertiary healthcare.
 
 ---
 
-## Proposed Clinical Indicators for Quality Management
+## Proposed Clinical Indicators For Quality Management
 
-### i. Exercise Capacity – 6 Minute Walk Distance
-
+### I. Exercise Capacity – 6 Minute Walk Distance
 Percentage of PAH patients who show improvement in serial 6MWD:
 
 > **(Number of PAH patients who show improvement in 6MWD / Total number of PAH patients tested with 6MWD) × 100%**
 
 *Serial 6MWD at baseline and after 3 to 6 months post treatment
 
-### ii. Survival Rate
-
+### Ii. Survival Rate
 2 year survival rate on therapy:
 
 > **(Number of PAH patients on therapy alive / Total number of PAH patients initiated on therapy) × 100%**
 
 *Therapy for PAH initiated at least 2 years earlier
 
+## Grades Of Recommendation And Levels Of Evidence
 
-## Grades of Recommendation and Levels of Evidence
-
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -76,8 +65,7 @@ Percentage of PAH patients who show improvement in serial 6MWD:
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -86,8 +74,7 @@ Percentage of PAH patients who show improvement in serial 6MWD:
 
 <!-- OVERLAP CONTENT -->
 
-## Abbreviations and Acronyms
-
+## Abbreviations And Acronyms
 | Abbreviation | Full Term |
 |---|---|
 | **6MWD** | Six-Minute Walk Distance |

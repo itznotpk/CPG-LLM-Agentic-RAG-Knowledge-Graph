@@ -1,5 +1,4 @@
-# SECTION 4: DIAGNOSIS
-
+# Section 4: Diagnosis
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Diagnosis of NSTE-ACS - history, physical_examination, ECG, cardiac_troponin, hs_cTn, rule_in_rule_out
@@ -8,8 +7,7 @@ output: diagnostic_probability, myocardial_injury_interpretation, ACS_rule_in, A
 critical: true
 -->
 
-## 4.1 History
-
+## 4.1: History
 The symptoms of NSTE-ACS may be indistinguishable from that of STEMI. These include:
 
 ### Chest Pain
@@ -40,10 +38,8 @@ These patients had higher mortality than those who have received appropriate GDT
 
 ---
 
-## 4.2 Physical Examination
-
+## 4.2: Physical Examination
 The physical examination in ACS is generally unremarkable. The objective of the physical examination is to identify:
-
 - Possible aetiologies such as aortic stenosis, hypertrophic cardiomyopathy, signs of hypercholesterolaemia (xanthomas, xanthelasmas).
 - Precipitating causes such as uncontrolled hypertension, anaemia, thyrotoxicosis, infection.
 - Consequences of NSTE-ACS such as hypotension, heart failure and arrhythmias.
@@ -55,15 +51,14 @@ In addition, the physical examination may help identify other causes for the che
 
 ---
 
-## 4.3 Electrocardiography (ECG)
-
+## 4.3: Electrocardiography (ECG)
 The ECG adds support to the diagnosis and provides prognostic information. A recording made during an episode of chest pain is particularly valuable.
 
 [Grade I, Level C] Wherever possible, an ECG should be performed at the First Medical Contact (FMC) as this increases the likelihood of recognising transient changes. It should be performed within 10 minutes of FMC.
 
 In a small prospective study, 12.5% of pre-hospital ECGs in patients who were alert and experiencing chest pain or other symptoms consistent with those caused by myocardial ischaemia had clinically significant abnormalities that were transient and not seen on the initial ECG done in the Emergency Department.
 
-[Grade I, Level C] All ambulances, government and private clinics should be equipped with 12-lead ECG-capable devices. 
+[Grade I, Level C] All ambulances, government and private clinics should be equipped with 12-lead ECG-capable devices.
 
 [Grade I, Level C] These should have computer-generated interpretations and wherever possible, this should be reviewed by trained personnel. These computer-generated ECG reports have a wide variation in the proportion of false-positive (0% to 42%) and false-negative (22% to 42%) results. Thus, it should not be used as the sole means to diagnose ACS.
 
@@ -85,8 +80,7 @@ A missed diagnosis of ACS carries a worse prognosis.
 
 ---
 
-## 4.4 Cardiac Biomarkers
-
+## 4.4: Cardiac Biomarkers
 [Grade I, Level A] Cardiac troponins (cTn) T and I are the most sensitive and specific biomarkers for myocardial injury and necrosis.
 
 Where there is access to cTn testing, other biomarkers (AST, LDH, CK, CKMB and myoglobin) are not useful for the initial diagnosis of acute MI. This is due to their lower sensitivity and specificity. CKMB may be used to monitor for reinfarction.
@@ -97,10 +91,8 @@ After acute MI, cTn becomes detectable at 6 hours using the conventional older c
 
 cTn are markers of myocardial necrosis and not specific markers for MI. The rise and/or fall of cTn with at least one value greater than the 99th percentile URL is a key criterion in addition to other clinical features for the diagnosis of MI. (refer to Section 2.2.1.1: Cardiac Biomarkers in the Diagnosis of Myocardial Injury and Myocardial Infarction)
 
-### High-Sensitivity Cardiac Troponin (hs-cTn)
-
+### High-Sensitivity Cardiac Troponin (Hs-Ctn)
 The hs-cTn assay is currently replacing the conventional cTn assay in the market. The term "high sensitivity (hs)" reflects the assay's characteristics and not a different type of cTn. A "high sensitivity" assay must meet 2 criteria:
-
 1. Have a coefficient of variation (CoV) or imprecision of ≤ 10% at the 99th URL and
 2. Have measurable concentrations below the 99th percentile that are attainable with an assay at a concentration value above the assay's limit of detection for at least 50% (ideally >95%) of healthy individuals.
 
@@ -145,11 +137,10 @@ Rule in strategies help commence appropriate GDT earlier for NSTE-ACS.
 
 ---
 
-## 4.5 Other Diagnostic Modalities
-
+## 4.5: Other Diagnostic Modalities
 These include:
 
-### Echocardiography / Point of Care Ultrasound (POCUS):
+### Echocardiography / Point Of Care Ultrasound (Pocus):
 - Echocardiography is a safe modality that assists in the rapid diagnosis and management of MI.
 - It helps detect:
   - LV systolic function — This is an important prognostic indicator.
@@ -162,18 +153,15 @@ These include:
 ---
 
 ### Key Messages 5#:
-
 - The combination of history, physical examination and ECG is important but may be insufficient to reliably rule in or rule out NSTE-ACS.
 - Cardiac troponins (cTn), preferably hs-cTn, both T and I are the most sensitive and specific biomarkers for myocardial injury and necrosis.
 - Elevations of cTn should be correlated with the clinical condition of the patient and the ECG. (See definition of MI, Section 2: Definition of Terms and Table 2: Interpreting Cardiac Troponins)
 
 ### Key Recommendations 1:
-
 - An ECG should be performed within 10 minutes of the First Medical Contact (FMC).
 - All ambulances, government and private clinics should be equipped with ECG-capable devices. These should have computer-generated interpretation and wherever possible, reviewed by trained personnel.
 
 ### Key Recommendations 2:
-
 - All hospitals providing care for patients with acute chest pain or suspected MI should have access to cTn (subtypes T or I) testing, preferably hs-cTn.
 - Clinicians must be familiar with their local cTn assays-point of care (POC) kits or laboratory based, the 99th percentile URL and the lower limit of detection (LoD) of the assay used in their respective hospitals.
 - The exact value of the cTn result should be stated and not as positive or negative.
@@ -182,14 +170,12 @@ These include:
 
 ## Contextual Anchors (Overlapping)
 
-### Section 2: Definition of Terms
-
+### Section 2: Definition Of Terms
 The related definition content from Section 2 helps interpret raised hs-cTn in patients who ultimately do not have MI:
 
 **ACS spectrum**
 
 ACS is a clinical spectrum of ischemic heart disease (**IHD**) that develops because of an imbalance between myocardial oxygen demand and supply. It is usually due to a reduction in supply. Depending upon the acuteness of onset and the degree of coronary occlusion, it can range from:
-
 - **Non-ST Elevation Acute Coronary Syndrome (NSTE-ACS)**, which includes:
   - Unstable angina (**UA**)
   - Non-ST elevation myocardial infarction (**NSTEMI**)
@@ -204,7 +190,6 @@ In UA, myocardial injury is absent and cardiac biomarkers, including cTn, are no
 **Myocardial injury and myocardial infarction**
 
 It is important to distinguish between myocardial injury and myocardial infarction (**MI**). Myocardial injury may be due to:
-
 - Ischemia - MI and/or
 - Non-ischemic causes, such as myocarditis or renal failure
 
@@ -214,10 +199,8 @@ This distinction explains why raised hs-cTn and chest pain may still reflect myo
 
 ---
 
-### Section 2.2.1.1: Cardiac Biomarkers in the Diagnosis of Myocardial Injury and Myocardial Infarction
-
+### Section 2: .2.1.1: Cardiac Biomarkers In The Diagnosis Of Myocardial Injury And Myocardial Infarction
 The related definition content from Section 2.2.1.1 clarifies how cTn is used to define myocardial injury and myocardial infarction:
-
 - The cardiac biomarkers of choice for diagnosis are the cardiac troponins - **cTn** (both I and T), preferably high-sensitivity cardiac troponin (**hs-cTn**).
 - Elevation of cTn indicates myocardial necrosis.
 - A cTn level above the 99th percentile upper reference limit (**URL**) is abnormal and indicates myocardial injury.
@@ -229,14 +212,12 @@ The related definition content from Section 2.2.1.1 clarifies how cTn is used to
 - Persistently elevated cTn levels, such as those present in patients with pre-existing CAD, impaired renal function, and persons older than 75 years, appear predictive of higher long-term mortality.
 
 According to the 4th Universal definition, **MI** is diagnosed when there is a significant rise and/or fall in cTn, with at least one value above the 99th percentile URL, and accompanied by at least one of the following:
-
 - Clinical history consistent with chest pain of ischemic origin of > 30 minutes.
 - ECG changes of ischemia/infarction and/or the development of pathological Q waves.
 - Imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 - Identification of an intracoronary (**IC**) thrombus by angiography or autopsy.
 
 The exact value for rise and fall is not addressed in most guidelines. The criteria for determining a pathological rise between two serial cTn values are assay-dependent. The National Academy of Clinical Biochemistry Guidelines and an expert consensus committee suggest that in patients with possible ACS and baseline cTn or hs-cTn results:
-
 - If baseline values are markedly above the 99th percentile URL, changes in concentrations of >20% from baseline should be used to define an MI.
 - If baseline values are <99th percentile URL, especially with hs-cTn assays, a change of 50-60% from baseline has been suggested to overcome biological and analytical variations.
 
@@ -244,8 +225,7 @@ The assays used should have a coefficient of variation (**CoV**) of <10% at the 
 
 ---
 
-### Section 5.1: Risk Scores to "Rule out ACS"
-
+### Section 5: .1: Risk Scores To "Rule Out ACS"
 The related content from Section 5.1 explains how hs-cTn can be used to **rule out MI/ACS** and why rule-out does not automatically mean discharge.
 
 The initial history, physical examination, and ECG alone are not always reliable in predicting the presence of CAD and myocardial ischemia. Even in patients presenting with acute chest pain, clinical evaluation alone does not confirm or exclude ACS.
@@ -253,7 +233,6 @@ The initial history, physical examination, and ECG alone are not always reliable
 Cardiac biomarkers, especially assays measuring hs-cTn, are very sensitive and can detect myocardial injury earlier than conventional older assays. However, they are not specific and must be interpreted in clinical context because other conditions besides MI can cause raised cTn.
 
 Patients presenting with chest pain or chest pain equivalents may, based on clinical history and ECG, have:
-
 - **Very low likelihood of NSTE-ACS** or an alternative cause for symptoms. These patients can be treated accordingly and discharged from ED.
 - **Definite NSTE-ACS or STEMI.** These patients should be admitted and managed accordingly.
 - **Possible or suspected NSTE-ACS.** These patients have normal or non-diagnostic ECGs and need to be evaluated using a rule-out protocol for ACS.
@@ -263,7 +242,6 @@ Patients presenting with chest pain or chest pain equivalents may, based on clin
 **Rule-out ACS pathways**
 
 Following targeted clinical evaluation and ECG, blood is taken for cTn measurement, preferably hs-cTn. Several algorithms based on cTn or hs-cTn are used to rule out ACS:
-
 1. **HEART pathway** - uses HEART score and cTn <99th percentile at 0 and 3 hours.
 2. **ESC 3-hour pathway** - if onset of pain is >6 hours and baseline hs-cTn at presentation is <99th percentile; if symptom onset is <6 hours, repeat testing at 3 hours is used with clinical assessment.
 3. **ESC 1-hour pathway** - measures baseline and absolute changes in hs-cTn levels within the first hour; cut-off levels are assay specific.
@@ -277,14 +255,12 @@ The cut-off levels for different hs-cTn assays vary. Some have sex-specific cut-
 The committee advocates Flowchart 1 using cTn, preferably hs-cTn, as a rule-out pathway.
 
 When using POC kits:
-
 - If the reading is elevated, admit the patient for further evaluation.
 - If the reading is normal or non-detectable and clinical suspicion is high, repeat after 6 hours.
 
 cTn must be interpreted in the clinical context of the patient. Other key clinical data, including chest pain features, past medical history, and ECG, must be considered, particularly when contemporary hs-cTn assays are used.
 
 The common rule-out risk scores are:
-
 - **HEART** score
 - **TIMI** risk score
 - ADAPT-ADP
@@ -304,7 +280,6 @@ Clinical judgement remains important before discharging the patient from ED. Per
 The high sensitivity and negative predictive value (**NPV**) of hs-cTn algorithms obviate the need for further testing to rule out MI.
 
 The rule-out and rule-in ACS protocols identify an indeterminate group that warrants further observation and/or investigation, including:
-
 - Ongoing or recurrent chest symptoms without significant ECG or cTn elevations.
 - Elevated cTn/hs-cTn levels without a significant rise and fall.
 - Mildly raised cTn levels, equivocal results, or patients who cannot be confidently ruled out or ruled in for MI.
@@ -316,7 +291,7 @@ Other diagnostic modalities in this group include repeat ECG, echocardiography o
 
 ---
 
-### Table 2: Interpreting Cardiac Troponins
+Table 2: Interpreting Cardiac Troponins
 
 This table can be read as a clinical pathway for patients with **elevated cardiac troponins (>99th percentile)**.
 
@@ -340,27 +315,26 @@ A repeat cTn may be necessary depending on the patient's clinical condition and 
 **2. Consider analytical errors**
 
 Elevated troponins may occasionally be due to analytical issues, including:
-
 - Assay-based errors
 - Sample-based errors, such as a hemolysed specimen
 
 *A repeat cTn may be necessary depending on the clinical condition of the patient and the physician’s judgement. <br>
 ** Ischemic thresholds vary substantially in relation to the magnitude of the stressor and the extent of underlying cardiac disease. <br>
 *** Requires a rise and/or fall of troponins above the 99th percentile URL together with evidence of ischemia with at least one of the following:
-1)  Ischemic type chest pain of >30 mins or, 
-2)  electrocardiography (ECG) changes of new ischemia or, 
-3)  development of pathologic Q-waves in the ECG or 
+1)  Ischemic type chest pain of >30 mins or,
+2)  electrocardiography (ECG) changes of new ischemia or,
+3)  development of pathologic Q-waves in the ECG or
 4)  imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 
-#Stable denotes ≤20% variation of troponin values in the appropriate clinical context. 
+#Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
 *Adapted from:*
 - *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
 - *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
 
 ---
-### Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE.
 
+### Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
 | Damage related to secondary myocardial ischemia (MI type 2) |
 | :--- |
 | Tachy - or bradyarrhythmias |
@@ -394,7 +368,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -412,8 +386,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACCF | American College of Cardiology Foundation |

@@ -1,5 +1,4 @@
-# SECTION 18-19: OTHER THERAPIES & PERFORMANCE MEASURES
-
+# Section 18: -19: Other Therapies & Performance Measures
 <!-- METADATA
 category: Reference, Treatment
 use_case: Complementary Therapies and Quality Indicators — EECP, stem_cell_therapy, supplements, performance_measures
@@ -7,40 +6,32 @@ patient_input: quality_indicators
 output: EECP_evidence, stem_cell_therapy_status, supplement_guidance, performance_measures, quality_metrics
 -->
 
-## 18. OTHER THERAPIES FOR HEART FAILURE
-
+## 18: Other Therapies For Heart Failure
 Despite taking conventional HF therapy, patients may seek alternative therapy and healing approaches that are not considered as allopathic medicine. The National Center for Complementary and Alternative Medicine (NCCAM) defines complementary and alternative medicine (CAM) as a group of diverse medical and healthcare interventions, practices, products, or disciplines that are not generally considered part of conventional medicine.
 
-### 18.1. Enhanced External Counter Pulsation (EECP)
-
+## 18.1: Enhanced External Counter Pulsation (Eecp)
 There is inadequate evidence of clinical effectiveness of EECP in HF. Data seem to indicate that there is improved functional status, walk distance, and symptoms and NYHA Functional class. There is however, concern that it could precipitate or exacerbate symptoms in those with a history of HF.
 
-### 18.2. Stem Cell Therapy
-
+## 18.2: Stem Cell Therapy
 Stem cells, which are derived from bone marrow or umbilical cord blood, have been infused into the coronary arteries or injected directly into the myocardium. The original hypothesis was that stem cells would engraft in the myocardium and replace damaged cardiomyocytes. Subsequent research has suggested that stem cells probably do not differentiate into functional cardiomyocytes, but as an alternative hypothesis, it was hoped that they might have paracrine effects that would benefit myocardial function.
 
 There is still limited knowledge on the optimal cell type, dosing, route of administration, patient parameters, patient safety, and other important variables that contribute to successful stem cell therapy. There is, however, still a lot of research left to do into the effectiveness and safety of these interventions.
 
-### 18.3. Omega 3 Fatty Acids
-
+## 18.3: Omega 3 Fatty Acids
 This may be considered as an adjunctive therapy to standard HF therapy, based on observations and clinical trials which showed a small benefit in CV death and/or hospitalizations especially among diabetics.
 
-### 18.4. Coenzyme Q10
-
+## 18.4: Coenzyme Q10
 There is some evidence that coenzyme Q10 probably reduces all-cause mortality and hospitalization for HF. However there still needs to be further research to determine the role of Coenzyme Q10 in patients with HF, the optimal dose, and the duration of Coenzyme Q10 supplementation.
 
-### 18.5. Tai Chi
-
+## 18.5: Tai Chi
 Tai Chi may improve 6 minute walk test distance, quality of life and LVEF in patients with HF. Its effect on hard CV outcomes such as rehospitalization, MI and mortality is not known.
 
-### 18.6. Yoga
-
+## 18.6: Yoga
 Yoga improves peak VO2 (exercise capacity) and quality of life in chronic HF patients. In addition, it has been reported to reduce cardiovascular events, morbidity, and mortality although the evidence supporting these conclusions is somewhat limited.
 
 ---
 
-## 19. PERFORMANCE MEASURES
-
+## 19: Performance Measures
 Performance measures should be used with the goal of improving quality of care for HF and conversion of scientific evidence into clinical practice. It has been shown that higher hospital performance measures were inversely associated with HF readmissions.
 
 Process performance measures focus on the aspects of care that are delivered to a patient, while outcome measures focus on the endpoints such as mortality or hospitalization.
@@ -71,9 +62,10 @@ Refer to Appendix XVI: Calculation of Performance and Outcome Measures for calcu
 *   For the Quality indicators in HF, refer to section 19: Performance Measures & Appendix XVI: Calculation of Performance and Outcome Measures.
 
 ---
-## Contextual Anchors (Overlapping)
-## APPENDIX XVI Calculation of Performance and Outcome Measures
 
+## Contextual Anchors (Overlapping)
+
+## Appendix XVI: Calculation Of Performance And Outcome Measures
 | Measure | | Formula | |
 |---|---|---|---|
 | **% of patients who had documentation of NYHA Functional Class** | = | (Number of patients who had documentation of NYHA Functional Class) / (Number of HF patients who were seen during that time period) | x 100 |
@@ -87,8 +79,7 @@ Refer to Appendix XVI: Calculation of Performance and Outcome Measures for calcu
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -106,4 +97,3 @@ Refer to Appendix XVI: Calculation of Performance and Outcome Measures for calcu
 | NYHA | New York Heart Association |
 | OAC | Oral Anticoagulant |
 | VO2 | Oxygen Consumption |
-

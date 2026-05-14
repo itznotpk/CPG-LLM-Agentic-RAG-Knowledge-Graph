@@ -1,5 +1,4 @@
-# SECTION 4.12: DIABETES MELLITUS
-
+# Section 4: .12: Diabetes Mellitus
 <!-- METADATA
 category: Screening, Diagnosis, Treatment, Prevention, Special Populations
 use_case: Diabetes Mellitus in Pregnancy — preconception_glycaemic_control, GDM_screening, OGTT, blood_glucose_targets, postpartum_diabetes_screening
@@ -8,18 +7,14 @@ output: preconception_diabetes_plan, medication_substitution_plan, screening_pla
 treatment_type: insulin, methyldopa, labetalol, nifedipine
 -->
 
-
-## 4.12 Diabetes mellitus in pregnancy
-
+## 4.12: Diabetes Mellitus In Pregnancy
 Pregnant patient with diabetes may have:
-
 - diabetes prior to conception
 - gestational diabetes (GDM) - defined as any degree of glucose intolerance which is first recognised during pregnancy, whether or not the condition persisted after pregnancy.
 
 This topic is covered in depth in the Malaysian CPG Management of Diabetes Mellitus 2015, 5th Ed.
 
-### 4.12.1 Preconception counselling
-
+### 4.12.1: Preconception Counselling
 - [Grade I, Level C] Women with diabetes who receive preconception counselling have better preconception glycaemic control and are more likely to have favourable pregnancy outcomes.
 - Pregnancy has to be planned and to occur only when the woman has a good glycaemic control, has had appropriate assessment and management of comorbidities and diabetic complications (such as retinopathy and nephropathy).
 
@@ -32,8 +27,7 @@ This topic is covered in depth in the Malaysian CPG Management of Diabetes Melli
 - [Grade I, Level B] Women on oral hypoglycaemic can be switched to insulin for a better glycaemic control before planning pregnancy.
 - Insulin treated women should be on multiple daily doses (basal-bolus) of insulin.
 
-### 4.12.2 Antepartum
-
+### 4.12.2: Antepartum
 - Women who are at risk, should be screened for GDM at booking (Table 17: Diagnostic Criteria for Overt Diabetes and GDM by OGTT at 24 to 28 Weeks Gestation*).
 - "Universal screening" for GDM is being advocated for all other pregnant women at 24-28 weeks.
 
@@ -41,32 +35,28 @@ This topic is covered in depth in the Malaysian CPG Management of Diabetes Melli
 - A repeat OGTT, 4-6 weeks later, should be performed in those whose initial OGTT results are normal.
 - The blood glucose targets in pregnancy are in Table 18: Blood Glucose Targets in Pregnancy. The treatment targets are lower than those used for diagnosis of GDM.
 
-### 4.12.3 Postpartum
-
+### 4.12.3: Postpartum
 - Insulin requirement drops immediately after delivery by 60-75%.
 - If glycaemic control is inadequate with diet therapy alone, consider appropriate therapy.
 - Those whose blood sugar normalised immediately after delivery should have a modified OGTT performed 6 weeks later.
 
 - [Grade I, Level C] Women with a history of GDM should have annual screening for diabetes.
 
-## Key messages:
-
+## Key Messages:
 - Women at risk should be screened for GDM.
 - Women with a history of GDM should have annual screening for diabetes.
 
 ## Contextual Anchors (Overlapping)
-### Section 4.11: Hypertension in Pregnancy
 
+### Section 4: .11: Hypertension In Pregnancy
 This supports Section 4.12.1 where BP control should be < 130/80 mmHg before pregnancy, and medications that are unsafe in pregnancy - statins, ACE-I, ARB - should be withdrawn and substituted with anti-hypertensives that are safe in pregnancy.
 
-#### Antepartum care and pre-pregnancy medication substitution
-
+#### Antepartum Care And Pre-Pregnancy Medication Substitution
 [Grade I, Level B] In the treatment of hypertension in pregnancy, the aim is to keep the Systolic BP < 150 mmHg and the diastolic BP 80-100 mmHg. It is important not to lower BP below the stated lower limits as this may be associated with poor placental perfusion.
 
 Commonly used oral and parenteral anti-hypertensive drugs in pregnancy are as listed in Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy* and Table 16: Parenteral Anti-hypertensive Drugs Commonly Used in Pregnancy*.
 
 [Grade I, Level B] In patients already on anti-hypertensive medications pre-pregnancy, the following drugs need to be changed to the recommended drugs listed in Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy* and Table 16: Parenteral Anti-hypertensive Drugs Commonly Used in Pregnancy*:
-
 - atenolol
 - angiotensin converting enzyme inhibitors (ACE-I)
 - angiotensin receptor blockers (ARB)
@@ -74,7 +64,7 @@ Commonly used oral and parenteral anti-hypertensive drugs in pregnancy are as li
 
 These drugs have been associated with impaired fetal growth and fetal anomaly and therefore contraindicated in pregnancy. The data on diltiazem, verapamil and amlodipine are inadequate to provide reliable information on their efficacy and safety in the treatment of hypertension in pregnancy.
 
-### Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy*
+Table 15: Oral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 
 | Drug | Mode of Action | Daily Dosage (mg/day) | Max. Dosage (mg/day) | Half-life T1/2 (hours) | Adverse Effects |
 |---|---|---|---|---|---|
@@ -88,7 +78,7 @@ These drugs have been associated with impaired fetal growth and fetal anomaly an
 
 **Short acting nifedipine is not recommended for maintenance therapy due to the risk of hypotension.
 
-### Table 17: Diagnostic Criteria for Overt Diabetes and GDM by OGTT at 24 to 28 Weeks Gestation*
+Table 17: Diagnostic Criteria For Overt Diabetes And Gdm By Ogtt At 24 To 28 Weeks Gestation*
 
 | Diagnosis | FBG (mmol/L) | 2 Hour Value (mmol/L) |
 |---|---|---|
@@ -98,7 +88,7 @@ These drugs have been associated with impaired fetal growth and fetal anomaly an
 
 ---
 
-### Table 18: Blood Glucose Targets in Pregnancy
+Table 18: Blood Glucose Targets In Pregnancy
 
 |  | Target Value (mmol/L) |
 |---|---|
@@ -108,9 +98,9 @@ These drugs have been associated with impaired fetal growth and fetal anomaly an
 
 ---
 
-## Grades of Recommendation and Level of Evidence
-### Grades of Recommendation
+## Grades Of Recommendation And Level Of Evidence
 
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -119,16 +109,14 @@ These drugs have been associated with impaired fetal growth and fetal anomaly an
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | A1c | Glycated haemoglobin |

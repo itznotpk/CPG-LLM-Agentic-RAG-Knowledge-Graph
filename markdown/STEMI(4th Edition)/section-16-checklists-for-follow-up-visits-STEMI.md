@@ -1,5 +1,4 @@
-# SECTION 16: CHECKLISTS FOR FOLLOW-UP VISITS
-
+# Section 16: Checklists For Follow-Up Visits
 <!-- METADATA
 category: Prevention, Assessment
 use_case: Post-Discharge Follow-Up Checklists — post_discharge_checklist, medication_review, risk_factor_monitoring, symptom_reassessment, investigation_scheduling
@@ -7,10 +6,8 @@ patient_input: symptom_status, medication_adherence, blood_pressure, lipid_profi
 output: follow_up_action_plan, medication_adjustment, investigation_requests, referral_decisions
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 The following should be assessed at each follow-up visit:
-
 - Assess the presence or absence of cardiac symptoms and determine the functional class of the patient.
 - Evaluate patients' psychosocial (anxiety & depression) status and the social integration and support network.
 - Review pre-discharge risk assessment and evaluate:
@@ -29,19 +26,16 @@ The following should be assessed at each follow-up visit:
 
 ### Section 13: Secondary Prevention (Overlapping)
 
-#### 13.1 Non-Pharmacological Measures
-
+## 13.1: Non-Pharmacological Measures
 - **Smoking Cessation:** [Grade I, Level A] Consistently associated with mortality benefit; one of the cornerstones of secondary prevention. All smoking cessation interventions (nicotine replacement therapy, varenicline and bupropion) are safe in cardiac patients.
 - **Diet and Weight Control:** Mediterranean-style diet recommended. Max 10% energy from saturated fat, salt < 5 g/day, 30–45 g fibre/day, ≥ 200 g fruits and 200 g vegetables/day, fish 1–2 times/week, 30 g unsalted nuts daily. Limited alcohol. Discourage sugar-sweetened drinks.
 - **Regular Exercise:** [Grade I, Level A] When adequately prescribed and supervised, regular exercise post-MI prevents future complications and increases quality of life and longevity.
 
-#### 13.2 Control of CV Risk Factors
-
+## 13.2: Control Of CV Risk Factors
 - **Hypertension:** Target BP 110 to < 140/< 90 mmHg. [Grade I, Level A] Drugs of choice: ß-blockers, ACE-Is and ARB (if ACE-I intolerant). Lifestyle modification (reduced salt, increased PA, weight loss).
 - **Glycaemic Control:** [Grade IIa, Level B] Glycaemic control should be individualised. Tight A1c (6.0–6.5%) for newly diagnosed/younger/healthier; standard (6.6–7.0%) for all others; less tight (7.1–8.0%) for comorbidities/short life expectancy/prone to hypoglycaemia.
 
-#### 13.3 Pharmacotherapy for Secondary Prevention
-
+## 13.3: Pharmacotherapy For Secondary Prevention
 - **Anti-platelet agents:** [Grade I, Level A] Aspirin 75–100 mg daily indefinitely + P2Y₁₂ inhibitor (clopidogrel, ticagrelor, or prasugrel as DAPT).
 - **Statins:** [Grade I, Level A] Target LDL-C < 1.8 mmol/L, the lower the better. Non-statin add-on (ezetimibe, PCSK-9 inhibitors) if target not achieved.
 - **ß-blockers:** [Grade I, Level A] Indicated in all patients post-STEMI, especially with HF or LV dysfunction.
@@ -50,13 +44,12 @@ The following should be assessed at each follow-up visit:
 - **DOAC:** [Grade IIa, Level B] Rivaroxaban 2.5 mg bd + aspirin 100 mg daily in high-risk post-MI patients.
 - **Anti-ischaemic therapy:** [Grade IIa, Level B] ß-blockers/CCBs as first-line; ivabradine, trimetazidine, long-acting nitrates, ranolazine as add-on.
 
-#### Key Recommendation 10 (from Section 13):
-
+#### Key Recommendation 10 (From Section 13):
 - All patients post-STEMI should receive secondary prevention: smoking cessation, lifestyle changes, regular exercise, control of CV risk factors (hypertension, diabetes, dyslipidaemia), and drug therapy (antiplatelets, statins, ß-blockers, ACE-I/ARB).
 
 ---
-### Section 11: Risk Stratification Post STEMI (Overlapping)
 
+### Section 11: Risk Stratification Post STEMI (Overlapping)
 Risk stratification post-STEMI serves to prognosticate and identify appropriate treatment strategies. It starts from admission and is a continuing process.
 
 **11.1 Short-Term Risk:**
@@ -85,16 +78,16 @@ Patients with palpitations, near faints, syncope require: serum electrolytes, re
 - Medications to reduce sudden death: [Grade I, Level A] ß-blockers, ACE-I; [Grade I, Level B] MRA; [Grade IIb, Level B] Statins.
 - ICD indications: [Grade I, Level A] Secondary prevention (resuscitated sudden death); [Grade IIa, Level A] Primary prevention (EF < 30%), 40 days post-STEMI and 3 months post-revascularization.
 
-#### Key Recommendation 9 (from Section 11):
+#### Key Recommendation 9 (From Section 11):
 - All patients post-STEMI should be risk-stratified clinically or using STEMI TIMI and/or GRACE risk scores.
 - Refer for early coronary angiography if: post-infarct angina, inducible ischaemia, late ventricular arrhythmias, LVEF ≤ 35% with wall motion abnormalities, TIMI risk score ≥ 6.0.
 
 ---
-### Section 17: Performance Measures (Overlapping)
 
+### Section 17: Performance Measures (Overlapping)
 Performance measures should be used with the goal of improving the quality of care. Process performance measures focus on the aspects of care delivered to a patient, while outcome measures focus on end-points such as mortality or repeat hospitalisation.
 
-#### Table 19: Performance Measures
+Table 19: Performance Measures
 
 **Process Indicators for STEMI at Presentation:**
 
@@ -119,12 +112,11 @@ Performance measures should be used with the goal of improving the quality of ca
 - 30-day mortality < 14%
 - 1-year mortality < 18%
 
-#### Key Recommendation 11 (from Section 17):
-
+#### Key Recommendation 11 (From Section 17):
 - Regular audit of performance measures (Table 19) and outcomes measures are important to monitor and improve quality of care.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -142,8 +134,7 @@ Performance measures should be used with the goal of improving the quality of ca
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

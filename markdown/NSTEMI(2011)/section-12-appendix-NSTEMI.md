@@ -1,5 +1,4 @@
-# SECTION 12: APPENDICES
-
+# Section 12: Appendices
 <!-- METADATA
 category: Reference, Diagnosis, Assessment
 use_case: Appendices and Classification Tables — Braunwald_classification, troponin_differential, ACS_likelihood_criteria, TIMI_score, GRACE_score, creatinine_clearance, contrast_nephropathy
@@ -9,8 +8,7 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 
 > **Context:** This section consolidates supplementary clinical classification tables and diagnostic criteria, including Appendix I (Braunwald's Classification of Unstable Angina), Appendix II (differential diagnoses for cardiac troponin elevations), Appendix III (clinical likelihood assessment matrix for ACS secondary to CAD), Appendix IV (TIMI Risk Score), Appendix V (GRACE Prediction Score nomogram), Appendix VI (Creatinine Clearance Calculation), Appendix VII and VIII (Contrast Induced Nephropathy Prevention guidelines and dosing).
 
-## Appendix I: Braunwald's Classification of Unstable Angina
-
+## Appendix I: Braunwald's Classification Of Unstable Angina
 | Severity | CLINICAL CIRCUMSTANCES: A (Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia / Secondary UA) | CLINICAL CIRCUMSTANCES: B (Develops in Absence of Extracardiac Condition / Primary UA) | CLINICAL CIRCUMSTANCES: C (Develops Within 2 weeks of MI / Postinfarction UA) |
 |---|---|---|---|
 | **I — New onset of severe angina or accelerated angina; no rest pain** | **[Grade I, Level A]** | **[Grade I, Level B]** | **[Grade I, Level C]** |
@@ -19,9 +17,9 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 
 *UA: Unstable angina; T: Troponins*
 
-## Appendix II: Elevations of Cardiac Troponin in the Absence of Overt Ischaemic Heart Disease
+## Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischaemic Heart Disease
 
-### Damage related to secondary myocardial ischaemia (MI type 2)
+### Damage Related To Secondary Myocardial Ischaemia (MI Type 2)
 * Tachy- or bradyarrhythmias
 * Aortic dissection and severe aortic valve disease
 * Hypo- or hypertension, e.g. haemorrhagic shock, hypertensive emergency
@@ -30,7 +28,7 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 * Coronary vasculitis, e.g. systemic lupus erythematosus, Kawasaki syndrome
 * Coronary endothelial dysfunction without significant CAD, e.g. cocaine abuse
 
-### Damage not related to myocardial ischaemia
+### Damage Not Related To Myocardial Ischaemia
 * Cardiac contusion
 * Cardiac incisions with surgery
 * Radiofrequency or cryoablation therapy
@@ -39,7 +37,7 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 * Cardiotoxic agents, e.g. anthracyclines, herceptin, carbon monoxide poisoning
 * Severe burns affecting >30% of body surface
 
-### Indeterminant or multifactorial group
+### Indeterminant Or Multifactorial Group
 * Apical ballooning syndrome
 * Severe pulmonary embolism or pulmonary hypertension
 * Peripartum cardiomyopathy
@@ -51,8 +49,7 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 * Acute respiratory failure
 * Frequent defibrillator shocks
 
-## Appendix III: Likelihood That Signs and Symptoms Represent an ACS Secondary to CAD
-
+## Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
 | Category | Greater Likelihood | Lower Likelihood |
 |---|---|---|
 | **History** | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
@@ -69,8 +66,7 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 
 *Modified from Braunwald E, et al. Unstable Angina: Diagnosis and Management. 1994;3-1-AHCPR Publication No 94-0602:1-154.*
 
-## Appendix IV: TIMI Risk Score for UA/NSTEMI
-
+## Appendix IV: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 |---|---|
 | 0-1 | 4.7 |
@@ -94,8 +90,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * **Moderate Risk:** 3-4 points
 * **High Risk:** &ge; 5 points
 
-## Appendix V: GRACE Prediction Score Card and Nomogram for All Cause Mortality From Discharge to 6 Months
-
+## Appendix V: Grace Prediction Score Card And Nomogram For All Cause Mortality From Discharge To 6 Months
 *To use the GRACE Prediction Score Card: Record the points for each variable and sum the points to calculate the total risk score. The corresponding probability on the y-axis of the risk calculator nomogram is the estimated probability of all-cause mortality from hospital discharge to 6 months.*
 
 | Category | Variable | Condition | Points |
@@ -135,7 +130,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | 8. Elevated Cardiac Enzymes | Yes | 15 |
 | | 9. No In-Hospital Percutaneous Coronary Intervention | Yes | 14 |
 
-### GRACE Nomogram Plot Reference (Predicted All-Cause Mortality from Hospital Discharge to 6 Months)
+### Grace Nomogram Plot Reference (Predicted All-Cause Mortality From Hospital Discharge To 6 Months)
 *Note: The following values approximate the probability curve from the GRACE nomogram plot.*
 
 | Total Risk Score | Estimated Probability |
@@ -149,25 +144,22 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | 190 | ~0.33 (33%) |
 | 210 | ~0.50 (50%) |
 
-## Appendix VI: Calculation of Creatinine Clearance
-
+## Appendix VI: Calculation Of Creatinine Clearance
 Estimated GFR (ml/min) =  ((140 - age) x weight) / (0.814 x S~Cr~ [&mu;mol/L])
-*or* 
+*or*
 Estimated GFR (ml/min) = (1.2 (140 - age)) / (S~Cr~ [&mu;mol/L])
 
 S~Cr~ : serum creatinine
 (*For women multiply by 0.85*)
 
-### Severity of CKD
-
+### Severity Of CKD
 | SEVERITY OF CKD | CREATININE CLEARANCE |
 |---|---|
 | Normal to mild | >60 ml/min |
 | Moderate | 30-59 ml/min |
 | Severe | <30 ml/min |
 
-## Appendix VII: Prevention of Contrast Induced Nephropathy (ACC/ESC Classification)
-
+## Appendix VII: Prevention Of Contrast Induced Nephropathy (ACC/ESC Classification)
 | Intervention | ACC/ESC Classification |
 |---|---|
 | **Contrast Agent** | |
@@ -179,16 +171,14 @@ S~Cr~ : serum creatinine
 | **Sodium Bicarbonate** | **[Grade IIa, Level B]** |
 | **Acetylcysteine** | **[Grade II-b, Level B]** |
 
-## Appendix VIII: Prevention of Contrast Induced Nephropathy (Dosing)
-
+## Appendix VIII: Prevention Of Contrast Induced Nephropathy (Dosing)
 | AGENT | CONCENTRATION | DOSE / FLOW RATE |
 |---|---|---|
 | **Sodium Chloride** | 0.9% solution | Rate of 1.0-1.5 ml/kg/hr for 3h-12h before and 6h-24h after the procedure ensuring a urine flow rate of 150 ml/hour.<br>Reduce rate to 0.5 ml/kg/hr if LVEF<40% |
 | **Sodium Bicarbonate** | 154 mEq/L in 5% dextrose in water (154 ml of 1000 mEq/I of sodium bicarbonate + 850 ml of 5% Dextrose) | 3 ml/kg/hr for 1 hour before the contrast followed by an infusion of 1 ml/kg/hr for 6 hours after the procedure |
 | **N-acetylcysteine** | | 1200 mg twice daily, one day before and one day after the contrast |
 
-## Grades of Recommendation and Levels of Evidence
-
+## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -204,7 +194,6 @@ S~Cr~ : serum creatinine
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACC** | American College of Cardiology |

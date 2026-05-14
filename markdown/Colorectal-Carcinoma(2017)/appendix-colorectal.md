@@ -1,5 +1,4 @@
-# APPENDIX
-
+# Appendix
 <!-- METADATA
 category: Reference, Classification
 use_case: Appendices and Reference Tables — search_strategy, clinical_questions, TNM_staging, histopathology_proforma, algorithms, ESMO_guidelines
@@ -7,10 +6,8 @@ patient_input: tumour_characteristics, histopathology_findings
 output: staging_classification, reporting_proforma, evidence_search_strategy
 -->
 
-## Appendix 1: Example of Search Strategy
-
+## Appendix 1: Example Of Search Strategy
 The following search strategy was used (e.g., Medline via Ovid) to identify relevant literature:
-
 1. COLORECTAL CANCER/
 2. (colorectal or colon* or rect*) adj1 (carcinoma* or tumo?r* or cancer* or neoplasm*)).tw.
 3. 1 or 2
@@ -40,9 +37,7 @@ The following search strategy was used (e.g., Medline via Ovid) to identify rele
 ---
 
 ## Appendix 2: Clinical Questions
-
 The following 14 clinical questions were developed to guide the evidence search and recommendations for these guidelines:
-
 1. What is the appropriate age to start screening for CRC in healthy/general population?
 2. What is the appropriate interval for screening for CRC in healthy/general population?
 3. What are the effective and safe screening modalities for CRC in general population and risk group?
@@ -60,36 +55,34 @@ The following 14 clinical questions were developed to guide the evidence search 
 
 ---
 
-## Appendix 3: Radiological Images of Colorectal Carcinoma
-
-### Figure 1: Normal anatomy of rectum on MRI
+## Appendix 3: Radiological Images Of Colorectal Carcinoma
+Figure 1: Normal Anatomy Of Rectum On MRI
 
 Normal anatomy of rectum on MRI. The mesorectal fat has high signal intensity on both T1- and T2-weighted images. The mesorectal fat is surrounded by the mesorectal fascia, which is seen as a fine line of low signal intensity (arrows). High resolution T2-images are needed to clearly identify the mesorectal fat. (Source: Rectal Cancer - MR staging 2.0, available at http://www.radiologyassistant.nl/en/p56195b237699d/rectal-cancer-mr-staging-20.html)
 
-**Figure explanation:** The MRI demonstrates the normal pelvic anatomy used for rectal cancer staging. The bladder, prostate, seminal vesicles, rectum, mesorectal fat and mesorectal fascia are identified. The key teaching point is that the mesorectal fascia appears as a thin low-signal line surrounding the high-signal mesorectal fat, and its relationship to tumour is important for assessing the potential circumferential resection margin.
+Figure explanation: The MRI demonstrates the normal pelvic anatomy used for rectal cancer staging. The bladder, prostate, seminal vesicles, rectum, mesorectal fat and mesorectal fascia are identified. The key teaching point is that the mesorectal fascia appears as a thin low-signal line surrounding the high-signal mesorectal fat, and its relationship to tumour is important for assessing the potential circumferential resection margin.
 
-### Figure 2: PET/CT findings at initial diagnosis of CRC
+Figure 2: PET/CT Findings At Initial Diagnosis Of Crc
 
 At initial diagnosis of CRC, sagittal (A) and coronal (B) PET/CT images indicate increased metabolic activity of malignant primary (arrows); transaxial CT (C) and PET/CT (D) images indicate synchronous bone and liver metastases (arrows), leading to change from curative resection to systemic chemotherapy; and transaxial CT (E) and PET/CT (F) images at another level indicate primary tumour. (Source: Buck AK, Herrmann K, Stargardt T, et al. Economic evaluation of PET and PET/CT in oncology: evidence and methodologic approaches. J Nucl Med Technol. 2010;38(1):6-17)
 
-**Figure explanation:** The PET/CT panels show how functional imaging can reveal both the metabolically active primary colorectal tumour and unsuspected metastatic disease. The sagittal and coronal views localise the primary lesion, while the transaxial CT and fused PET/CT views demonstrate bone and liver metastases. This changes management from potentially curative resection to systemic chemotherapy.
+Figure explanation: The PET/CT panels show how functional imaging can reveal both the metabolically active primary colorectal tumour and unsuspected metastatic disease. The sagittal and coronal views localise the primary lesion, while the transaxial CT and fused PET/CT views demonstrate bone and liver metastases. This changes management from potentially curative resection to systemic chemotherapy.
 
-### Figure 3: Carcinoma rectum post APR with suspected recurrence
+Figure 3: Carcinoma Rectum Post Apr With Suspected Recurrence
 
 A case of carcinoma rectum post APR, nine months post-surgery with increasing CEA. (A) MIP image of the PET scan shows a hypermetabolic focus in the pelvis (arrow) (B) Fused PET/CT image shows FDG-avid pre-sacral mass (arrow) suspicious for recurrent disease (C) CT image shows a pre-sacral mass. Indeterminate whether it is benign fibrosis or disease recurrence. Biopsy confirmed recurrence of adenocarcinoma. (Source: Agrawal A, Rangarajan V. Appropriateness criteria of FDG PET/CT in oncology. Indian J Radiol Imaging. 2015;25(2):88.)
 
-**Figure explanation:** This figure illustrates the role of FDG PET/CT in suspected recurrent rectal cancer after abdominoperineal resection. CT alone shows a pre-sacral mass but cannot confidently distinguish post-operative fibrosis from recurrent tumour. PET and fused PET/CT demonstrate FDG avidity in the mass, supporting recurrent disease, which was later confirmed by biopsy.
+Figure explanation: This figure illustrates the role of FDG PET/CT in suspected recurrent rectal cancer after abdominoperineal resection. CT alone shows a pre-sacral mass but cannot confidently distinguish post-operative fibrosis from recurrent tumour. PET and fused PET/CT demonstrate FDG avidity in the mass, supporting recurrent disease, which was later confirmed by biopsy.
 
-### Figure 4: CT virtual colonoscopy and optical colonoscopy of a caecal polyp
+Figure 4: CT Virtual Colonoscopy And Optical Colonoscopy Of A Caecal Polyp
 
 Solitary 16 mm pedunculated caecal polyp in a 55-year-old man at average risk for colorectal neoplasia. Panel A shows a schematic map of the air-filled colon generated from the computed tomographic (CT) scan obtained with the patient in the prone position. The green line is the center line that is automatically generated for virtual navigation; the red dot is a "bookmark" indicating the location of the polyp within the caecum. Panel B, a 3D view from the endoluminal "fly-through" generated from the same CT scan, shows the caecal polyp (P) and the appendiceal orifice (arrow) in the background. This display was used for the primary detection of polyps. Panel C is an axial, twodimensional CT image obtained with the patient in the prone position; it shows the polyp (arrow) on a stalk within the air-filled caecum. The residual luminal fluid is opacified by oral contrast agent, which enables the software program to "cleanse" the 3D image. This 2D display was used for the confirmation of suspected findings on the 3D view. Panel D is a digital photograph from optical colonoscopy performed immediately after CT virtual colonoscopy; it shows the caecal polyp (P) and the appendiceal orifice (arrow). Histologic examination revealed that the polyp was adenomatous. (Source: Pickhardt PJ, Choi JR, Hwang I, et al. Computed tomographic virtual colonoscopy to screen for colorectal neoplasia in asymptomatic adults. N Engl J Med. 2003;349(23):2191-200)
 
-**Figure explanation:** This figure compares CT virtual colonoscopy with optical colonoscopy for detection and confirmation of a caecal polyp. The CT-generated colon map marks the lesion location, the endoluminal fly-through view shows the polyp within the caecum, and the axial CT confirms the polyp on a stalk. Optical colonoscopy then directly visualises the same lesion, and histology confirms it is adenomatous.
+Figure explanation: This figure compares CT virtual colonoscopy with optical colonoscopy for detection and confirmation of a caecal polyp. The CT-generated colon map marks the lesion location, the endoluminal fly-through view shows the polyp within the caecum, and the axial CT confirms the polyp on a stalk. Optical colonoscopy then directly visualises the same lesion, and histology confirms it is adenomatous.
 
-## Appendix 4: WHO Classification of Colorectal Carcinoma 2010 and TNM Classification of Tumours of the Colon and Rectum (7th Edition)
+## Appendix 4: WHO Classification Of Colorectal Carcinoma 2010 And Tnm Classification Of Tumours Of The Colon And Rectum (7th Edition)
 
-### WHO Classification of Colorectal Carcinoma 2010
-
+### WHO Classification Of Colorectal Carcinoma 2010
 - **Adenocarcinoma**
   - Cribriform comedo-type adenocarcinoma
   - Medullary carcinoma
@@ -102,10 +95,9 @@ Solitary 16 mm pedunculated caecal polyp in a 55-year-old man at average risk fo
 - **Squamous cell carcinoma**
 - **Undifferentiated carcinoma**
 
-### TNM Classification of Tumours of the Colon and Rectum (7th Edition)
+### Tnm Classification Of Tumours Of The Colon And Rectum (7th Edition)
 
-#### T - Primary tumour
-
+#### T - Primary Tumour
 | T | Description |
 |---|---|
 | TX | Primary tumour cannot be assessed |
@@ -118,8 +110,7 @@ Solitary 16 mm pedunculated caecal polyp in a 55-year-old man at average risk fo
 | T4a | Tumour perforates visceral peritoneum |
 | T4b | Tumour directly invades other organ or structures |
 
-#### N - Regional lymph nodes
-
+#### N - Regional Lymph Nodes
 | N | Description |
 |---|---|
 | NX | Regional lymph nodes cannot be assessed |
@@ -132,8 +123,7 @@ Solitary 16 mm pedunculated caecal polyp in a 55-year-old man at average risk fo
 | N2a | Metastasis in 4-6 regional lymph nodes |
 | N2b | Metastasis in 7 or more regional lymph nodes |
 
-#### M - Distant metastasis
-
+#### M - Distant Metastasis
 | M | Description |
 |---|---|
 | M0 | No distant metastasis |
@@ -142,7 +132,6 @@ Solitary 16 mm pedunculated caecal polyp in a 55-year-old man at average risk fo
 | M1b | Metastasis in more than one organ or the peritoneum |
 
 #### Stage Grouping
-
 | Stage | T | N | M |
 |---|---|---|---|
 | Stage 0 | Tis | N0 | M0 |
@@ -163,8 +152,7 @@ Solitary 16 mm pedunculated caecal polyp in a 55-year-old man at average risk fo
 
 Source: Edge SB, Compton CC. The American Joint Committee on Cancer: the 7th edition of the AJCC cancer staging manual and the future of TNM. Ann Surg Oncol. 2010;17(6):1471-4.
 
-## Appendix 5: Histopathology Proforma for Colorectal Carcinoma
-
+## Appendix 5: Histopathology Proforma For Colorectal Carcinoma
 **PERKHIDMATAN PATOLOGI**
 
 **HOSPITAL** ________________________________
@@ -175,10 +163,9 @@ Source: Edge SB, Compton CC. The American Joint Committee on Cancer: the 7th edi
 
 Specimen container labelled as:
 
-### 1. Gross Description
+## 1: Gross Description
 
-#### 1.1 Type of specimen
-
+## 1.1: Type Of Specimen
 - [ ] Total colectomy
 - [ ] Subtotal colectomy
 - [ ] Right hemicolectomy
@@ -189,12 +176,10 @@ Specimen container labelled as:
 - [ ] Abdominoperineal excision (APE)
 - [ ] Other (specify): ________________________________
 
-#### 1.2 Bowel length
-
+## 1.2: Bowel Length
 ________________________________ mm
 
-#### 1.3 Site of tumour
-
+## 1.3: Site Of Tumour
 - [ ] Caecum
 - [ ] Asc. colon
 - [ ] Hepatic flexure
@@ -207,37 +192,30 @@ ________________________________ mm
 
 Other comment(s): ________________________________________________
 
-#### 1.4 Maximum tumour diameter
-
+## 1.4: Maximum Tumour Diameter
 ________________________________ mm
 
-#### 1.5 Gross subtype (optional)
-
+## 1.5: Gross Subtype (Optional)
 - [ ] Fungating
 - [ ] Ulcerative
 - [ ] Infiltrative
 - [ ] Ulcero-fungating
 
-#### 1.6 Margins
-
+## 1.6: Margins
 - Tumour to proximal / nearer (if untagged) longitudinal margin: ____________ mm.
 - Tumour to distal / opposite (if untagged) longitudinal margin: ____________ mm.
 
-#### 1.7 Tumour perforation (pT4)
-
+## 1.7: Tumour Perforation (pT4)
 - [ ] No
 - [ ] Yes
 
-#### 1.8 For rectal tumour
-
+## 1.8: For Rectal Tumour
 Relation to peritoneal reflection:
-
 - [ ] Above
 - [ ] Astride
 - [ ] Below
 
 Plane of surgical excision (Total mesorectal excision (TME) for AR and APE):
-
 - [ ] Mesorectal fascia (Complete)
 - [ ] Intramesorectal (Partially Complete)
 - [ ] Muscularis propria (Incomplete)
@@ -245,44 +223,36 @@ Plane of surgical excision (Total mesorectal excision (TME) for AR and APE):
 Distance from dentate line (APE specimens): ____________________ mm
 
 Plane of resection of the sphincters (APE specimens):
-
 - [ ] Extralevator
 - [ ] Sphincteric
 - [ ] Intrasphincteric
 
-#### 1.9 Polyps
-
+## 1.9: Polyps
 - [ ] No
 - [ ] Yes (specify number, site, sessile or pedunculated): ________________________________
 
-#### 1.10 No. of lymph nodes retrieved
-
+## 1.10: No. Of Lymph Nodes Retrieved
 ____________ (____________ mm to ____________ mm in diameter).
 
-#### 1.11 Additional comments
-
+## 1.11: Additional Comments
 ________________________________________________________________
 
-#### 1.12 Tissue sampling
-
+## 1.12: Tissue Sampling
 Grossed by: ________________________________
 
-### 2. Histology
+## 2: Histology
 
-#### 2.1 Microscopic description
-
+## 2.1: Microscopic Description
 ________________________________________________________________
 
-#### 2.2 Type
-
+## 2.2: Type
 - [ ] Adenocarcinoma (NOS/usual-type)
 - [ ] Well-differentiated
 - [ ] Mod-differentiated
 - [ ] Poorly-differentiated
 - [ ] Other (specify e.g. mucinous): ________________________________
 
-#### 2.3 Additional features (optional/non-core data items)
-
+## 2.3: Additional Features (optional/non-core Data Items)
 - Lymphatic invasion
   - [ ] No
   - [ ] Yes
@@ -308,29 +278,24 @@ ________________________________________________________________
 *Not applicable if tumour is mucinous carcinoma
 
 **Tumour-infiltrating lymphocytes:
-
 - Mild: 3-15/h.p.f (40x)
 - Marked: >15/h.p.f (40x)
 
 ***Peritumoural lymphoid aggregates:
-
 - Mild: Occasional lymphoid aggregates
 - Marked: >= 2 aggregates with germinal centers per tissue section
 
-#### 2.4 Local invasion (TNM 7th edition)
-
+## 2.4: Local Invasion (Tnm 7th Edition)
 - [ ] Submucosa (pT1)
 - [ ] Muscularis propria (pT2)
 - [ ] Beyond muscularis propria (pT3)
 - [ ] Tumour penetrates the visceral peritoneal surface (pT4a)
 - [ ] Tumour directly invades or is adherent to other organs/structures (pT4b)
 
-#### 2.5 Maximum distance of spread beyond muscularis propria (NA if intramural tumour)
-
+## 2.5: Maximum Distance Of Spread Beyond Muscularis Propria (Na If Intramural Tumour)
 ____________ mm
 
-#### 2.6 Response to pre-operative (neoadjuvant) therapy
-
+## 2.6: Response To Pre-Operative (Neoadjuvant) Therapy
 - [ ] Not applicable (pre-op therapy not given/not known to be given)
 - [ ] No viable tumour cells (fibrosis or mucus lakes only)
   - (Entire tumour site and/or scarred area had been submitted for histology)
@@ -338,8 +303,7 @@ ____________ mm
 - [ ] Residual cancer outgrown by fibrosis
 - [ ] Minimal or no regression (extensive residual tumour)
 
-#### 2.7 Tumour involvement of margins
-
+## 2.7: Tumour Involvement Of Margins
 - Proximal doughnut
   - [ ] No
   - [ ] Yes
@@ -365,8 +329,7 @@ Note: Circumferential margin of 1 mm is considered involved
 
 NS - Not submitted by pathologist
 
-#### 2.8 Metastatic spread
-
+## 2.8: Metastatic Spread
 No. of lymph nodes identified: ____________
 
 - No. of involved lymph nodes: ____________ (pN ____________)
@@ -384,27 +347,23 @@ No. of lymph nodes identified: ____________
   - [ ] Yes - Site(s): ________________________________
   - [pM1a: Single site; pM1b: Multiple sites or peritoneal surface]
 
-#### 2.9 Deepest level of venous invasion
-
+## 2.9: Deepest Level Of Venous Invasion
 - [ ] None
 - [ ] Submucosal
 - [ ] Intramural
 - [ ] Extramural
 
-#### 2.10 Separate abnormalities
-
+## 2.10: Separate Abnormalities
 - [ ] No
 - [ ] Yes: Polyps (types(s), number, size) / polyposis (specify type) / UC / CD / Diverticulosis
 - [ ] Synchronous carcinoma (separate proforma for each carcinoma)
 
-#### 2.11 Complete resection (by >1 mm) at all surgical margins
-
+## 2.11: Complete Resection (By >1 Mm) At All Surgical Margins
 - [ ] Yes (R0)
 - [ ] No (R1 - microscopic margin involvement)
 - [ ] No (R2 - macroscopic margin involvement)
 
-#### 2.12 TNM (7th Edition 2009)
-
+## 2.12: Tnm (7th Edition 2009)
 - [ ] pT ______
 - [ ] pN ______
 - [ ] pM ______
@@ -424,7 +383,6 @@ No. of lymph nodes identified: ____________
 For Malaysian National Cancer Patient Registry - Colorectal Cancer:
 
 TNM (5th Edition):
-
 - [ ] pT ______
 - [ ] pN ______
 - [ ] pM ______
@@ -435,8 +393,7 @@ TNM (5th Edition):
 - [ ] ypN ______
 - [ ] ypM ______
 
-#### 2.13 Modified Dukes stage
-
+## 2.13: Modified Dukes Stage
 - [ ] A (Growth limited to wall/muscularis propria, nodes negative)
 - [ ] B (Growth beyond muscularis propria, nodes negative)
 - [ ] C1 (Nodes positive, highest node negative)
@@ -444,41 +401,34 @@ TNM (5th Edition):
 - [ ] D (Histology-proven distant metastasis)
 - [ ] NA (No tumour or no lymph nodes identified)
 
-#### 2.14 Mismatch repair (MMR) immunohistochemistry (if applicable/available)
-
+## 2.14: Mismatch Repair (Mmr) Immunohistochemistry (If applicable/available)
 - [ ] Not performed
 - [ ] Performed:
 
 MLH1:
-
 - [ ] Normal
 - [ ] Equivocal
 - [ ] Loss of protein expression
 
 MSH2:
-
 - [ ] Normal
 - [ ] Equivocal
 - [ ] Loss of protein expression
 
 MSH6:
-
 - [ ] Normal
 - [ ] Equivocal
 - [ ] Loss of protein expression
 
 PMS2:
-
 - [ ] Normal
 - [ ] Equivocal
 - [ ] Loss of protein expression
 
-### 3. Diagnostic Summary
-
+## 3: Diagnostic Summary
 (Tumour type, differentiation, staging, margins and if present, venous invasion)
 
-## Appendix 6: Chemotherapy Drugs and Common/Important Side Effects
-
+## Appendix 6: Chemotherapy Drugs And Common/Important Side Effects
 | Medication | Common and important side effects | Comments |
 |---|---|---|
 | Capecitabine | - Diarrhoea, nausea, vomiting, mucositis, abdominal pain; - Hand-foot syndrome; - Fatigue/weakness; - Hyperbilirubinaemia; - Cardiotoxicity - uncommon but can be fatal | - Use cautiously in patients with history of heart disease; - Dose reduction is required in patients with moderate renal dysfunction; - Monitor for hand-foot syndrome |
@@ -497,8 +447,7 @@ PMS2:
 
 Hand-foot syndrome = the palms of the hands and soles of the feet become dry, red, numb, tingling, with/without swelling, blistering, moist desquamation or pain
 
-## Appendix 7: Potential Indications for Post-Operative CCRT if Pre-Operative CCRT Not Given
-
+## Appendix 7: Potential Indications For Post-Operative Ccrt If Pre-Operative Ccrt Not Given
 | Category | Potential indications |
 |---|---|
 | Sufficient and necessary | - CRM <=1 mm |

@@ -1,5 +1,4 @@
-# SECTION 3: ESTIMATION OF GLOBAL CARDIOVASCULAR RISK
-
+# Section 3: Estimation Of Global Cardiovascular Risk
 <!-- METADATA
 category: Assessment, Screening
 use_case: CV risk stratification using Framingham Risk Score — framingham_risk_score, cvd_risk_category, vascular_age, primary_prevention, secondary_prevention
@@ -11,14 +10,11 @@ output: 10_year_cvd_risk_percentage, cvd_risk_category, vascular_age, screening_
 
 ---
 
-## 3.1 Primary Prevention
-
+## 3.1: Primary Prevention
 [Grade I, Level B] Based on the prevalence of CV risk factors in our local population, the committee advocates **screening in adults >30 years of age.**
 
-### 3.1.1 Information Required for CV Risk Assessment
-
+### 3.1.1: Information Required For CV Risk Assessment
 The following should be obtained at every clinic encounter for CV risk screening:
-
 - History of smoking (and vaping)
 - BP (average of several readings)
 - BMI and waist circumference
@@ -29,8 +25,7 @@ The following should be obtained at every clinic encounter for CV risk screening
 
 ---
 
-### 3.1.2 CV Risk Stratification using the FRS General CVD Risk Score
-
+### 3.1.2: CV Risk Stratification Using The FRS General CVD Risk Score
 In primary prevention, the individual's global CV risk should be determined to help guide the intensity of risk factor reduction efforts. Individuals with established CVD are already at **High Risk** (Refer to Section 3.2: Secondary Prevention).
 
 [Grade I, Level A] The committee recommends the use of the **FRS General CVD Risk Score** for risk stratification. This risk score can be calculated using lipid levels or BMI, and both calculators have been validated in the local population.
@@ -46,8 +41,7 @@ In primary prevention, the individual's global CV risk should be determined to h
 
 ---
 
-### 3.1.3 CV Risk Categories (10-Year Risk Thresholds)
-
+### 3.1.3: CV Risk Categories (10-Year Risk Thresholds)
 Based on the 10-year CV risk, individuals are classified as:
 
 | Risk Category | 10-Year CVD Risk Threshold |
@@ -67,8 +61,7 @@ In these individuals, lifetime CV risk can be assessed using **vascular age** de
 
 ---
 
-### 3.1.4 Management Based on Risk Category
-
+### 3.1.4: Management Based On Risk Category
 [Grade I, Level C] Most individuals at **Low** and **Intermediate (Moderate) Risk** can be managed by **lifestyle changes alone.** Those at **High Risk** and with **High Lifetime Risk** may require pharmacotherapy in accordance with the respective CPGs.
 
 **Lifestyle changes include:**
@@ -83,8 +76,7 @@ These individuals should be assessed and counselled at regular intervals to ensu
 
 ---
 
-## 3.2 Secondary Prevention
-
+## 3.2: Secondary Prevention
 Individuals with established CVD are at **high risk** of a recurrent CV event.
 
 [Grade I, Level A] All CV risk factors in these patients **should be treated to target** via lifestyle modification and drug therapy as indicated, in accordance with the respective CPGs.
@@ -92,7 +84,6 @@ Individuals with established CVD are at **high risk** of a recurrent CV event.
 ---
 
 ## Recommendations
-
 - Screen adults >30 years of age; opportunistic rather than mass screening.
 - Use the FRS General CVD Risk Score to assess 10-year CVD risk and guide risk reduction efforts. (Refer to Table 1A: Estimation of 10-year CVD Points for MEN (Framingham Point Scores), Table 1B: CVD Risk for Men; Table 2A: CVD Points for Women, Table 2B: CVD Risk for Women; Table 3: Risk Stratification of Cardiovascular Risk)
 - Treatment intensity and goals depend on the individual's baseline CV risk. (Refer to Table 3: Risk Stratification of Cardiovascular Risk; Table 4: Targets of Individual Risk Factors)
@@ -118,9 +109,9 @@ Individuals with established CVD are at **high risk** of a recurrent CV event.
 <!-- Purpose: FRS scoring, Risk Stratification, and Targets       -->
 <!-- ============================================================ -->
 
-### Table 1 & 2: FRAMINGHAM RISK SCORE FOR ASSESSMENT OF CVD RISK*
+Table 1 & 2: Framingham Risk Score For Assessment Of CVD Risk*
 
-#### Table 1A: Estimation of 10-year CVD Points for MEN (Framingham Point Scores)
+Table 1a: Estimation Of 10-Year CVD Points For Men (Framingham Point Scores)
 
 | Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
@@ -146,7 +137,7 @@ Individuals with established CVD are at **high risk** of a recurrent CV event.
 
 Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
 
-#### Table 1B: CVD Risk for Men
+Table 1b: CVD Risk For Men
 
 | Total Points | 10-year Risk % | Total Points | 10-year Risk % |
 |---|---|---|---|
@@ -164,7 +155,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 
 ---
 
-#### Table 2A: CVD Points for Women
+Table 2a: CVD Points For Women
 
 | Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
@@ -188,7 +179,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 
 Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
 
-#### Table 2B: CVD Risk for Women
+Table 2b: CVD Risk For Women
 
 | Total Points | 10-year Risk % | Total Points | 10-year Risk % |
 |---|---|---|---|
@@ -207,7 +198,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 
 ---
 
-### Table 3: Risk Stratification of Cardiovascular Risk
+Table 3: Risk Stratification Of Cardiovascular Risk
 
 - **Very High Risk** individuals are those with:
   - A FRS-CVD score that confer a 10-year risk for CVD of >30%
@@ -226,7 +217,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 
 ---
 
-### Table 4: Targets of Individual Risk Factors
+Table 4: Targets Of Individual Risk Factors
 
 | Risk Factor | Target | Grade / Level of Evidence |
 |---|---|---|
@@ -250,7 +241,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 
 ---
 
-### Table 7: Prevalence of CV Risk Factors among Adults ≥18 years of age in Malaysia According to Age (NHMS 2015)
+Table 7: Prevalence Of CV Risk Factors Among Adults ≥18 Years Of Age In Malaysia According To Age (Nhms 2015)
 
 | Age Group | Hypercholesterolaemia (%) | Hypertension (%) | Diabetes (%) | Overweight BMI: 23–27.5 kg/m² (%) | Obesity BMI: >27.5 kg/m² (%) | Current Tobacco Smoking — Males only (%) |
 |---|---|---|---|---|---|---|
@@ -271,7 +262,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 
 ---
 
-### Table 8A: Heart Age / Vascular Age for Men
+Table 8a: Heart Age / Vascular Age For Men
 
 | FRS Points | Vascular Age (years) |
 |---|---|
@@ -295,7 +286,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 | 16 | 76 |
 | ≥17 | >80 |
 
-### Table 8B: Heart Age / Vascular Age for Women
+Table 8b: Heart Age / Vascular Age For Women
 
 | FRS Points | Vascular Age (years) |
 |---|---|
@@ -324,8 +315,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -334,8 +324,7 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -350,7 +339,6 @@ Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker p
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | A1c | Haemoglobin A1c |

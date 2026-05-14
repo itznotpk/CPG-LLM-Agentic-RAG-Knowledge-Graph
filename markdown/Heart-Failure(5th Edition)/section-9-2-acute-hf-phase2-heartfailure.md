@@ -1,5 +1,4 @@
-# SECTION 9.2: ACUTE HEART FAILURE — PHASE 2: IN-HOSPITAL MANAGEMENT
-
+# Section 9: .2: Acute Heart Failure — Phase 2: In-Hospital Management
 <!-- METADATA
 category: Treatment, In-Hospital Management
 use_case: Acute Heart Failure Phase 2 — in_hospital_management, diuretics, vasodilators, inotropes, mechanical_circulatory_support, precipitating_factor_treatment, comorbidity_management
@@ -9,14 +8,12 @@ critical: true
 treatment_type: diuretics, vasodilators, inotropes, mechanical_support
 -->
 
-## 9.2. PHASE 2: In - Hospital Management (refer to Flow Chart II: Management of Acute Heart Failure, Table 2: Grading of Recommendations in the Management of Acute HF, & Table 14: Drugs Commonly Used in Acute HF)
-
+## 9.2: Phase 2: In - Hospital Management (Refer To Flow Chart Ii: Management Of Acute Heart Failure, Table 2: Grading Of Recommendations In The Management Of Acute HF, & Table 14: Drugs Commonly Used In Acute HF)
 The management of patients with Acute HF is largely based on clinical judgement and experience rather than on randomized controlled trials. Most clinical trials have been small and of low quality.
 
-### 9.2.1. Pharmacotherapy
+### 9.2.1: Pharmacotherapy
 
-#### 9.2.1.1. Oxygen
-
+#### 9.2.1.1: Oxygen
 *   [Grade I, Level C] Measurement of oxygenation by pulse oximetry (SpO2) is recommended.
 *   [Grade I, Level B] **Supplemental oxygen therapy is recommended when the SpO2 < 94% and should be titrated to achieve SpO2 ≥ 95%.**
 *   [Grade III, Level B] Routine use in non-hypoxic patients is not recommended as it can cause deleterious effects such as vasoconstriction and a reduction in cardiac output.
@@ -26,7 +23,7 @@ The management of patients with Acute HF is largely based on clinical judgement 
     *   **Venturi Masks** - Gives concentrations of 24-60% FiO2. A 60% venturi mask gives approximately 50% FiO2.
     *   **Non-Rebreathing Reservoir Mask** - gives concentration of between 60-80% FiO2.
 * [Grade IIa, Level B] Non-Invasive ventilation (NIV) reduces respiratory distress and may decrease the need for intubation although data regarding mortality are less conclusive. It includes:
-    *   **High Flow Nasal Cannula (HFNC)** -This seems more effective and better tolerated than conventional oxygen therapy using nasal prongs or mask. 
+    *   **High Flow Nasal Cannula (HFNC)** -This seems more effective and better tolerated than conventional oxygen therapy using nasal prongs or mask.
     *   **Continuous Positive Airway Pressure (CPAP)** - can be used without a ventilator and does not require specialized training.
     *   **Non-Invasive Pressure Support Ventilation (NIPSV - Also Called Bilevel or BiPAP)**. This requires a ventilator and specialized training.
 *   CPAP and NIPSV should be considered early in patients with respiratory distress (respiratory rate > 25 breaths/min, SpO2 < 90%) despite high-flow oxygen administration. There are no significant differences in clinical outcomes when comparing CPAP with BiPAP and the choice will depend on the equipment and expertise that is available.
@@ -36,8 +33,7 @@ The management of patients with Acute HF is largely based on clinical judgement 
     *   Hypercapnia (PaCO2 > 50mmHg), and
     *   Acidosis (pH < 7.35)
 
-#### 9.2.1.2. Diuretics
-
+#### 9.2.1.2: Diuretics
 *   Diuretics is the cornerstone of therapy in patients who are fluid overloaded (wet).
 *   i.v. diuretics should be administered as early as possible to relieve congestion and provide symptomatic relief. Studies on the impact of early administration of i.v. diuretics on in-hospital mortality, however, have shown mixed results.
 * [Grade I, Level B] i.v. furosemide 40-100mg is the diuretic of choice. This initial dose should be individualized depending on the severity of the clinical condition.
@@ -54,12 +50,12 @@ The management of patients with Acute HF is largely based on clinical judgement 
         *   Changing to oral administration.
         *   If worsening renal function occurs after the 1st i.v. dose, then:
             *   Stop the diuretic and
-            *   Rehydrate the patient with i.v. fluids and 
+            *   Rehydrate the patient with i.v. fluids and
             *   Restart later after the renal function improves, at a much lower preferably oral dose.
     *   **Adequate** and patient is:
         *   Still congested - continue the same i.v. dose of diuretic at 12 hourly intervals.
         *   No longer congested but patient is still dyspneic - consider other causes of dyspnea e.g., pulmonary embolism, chest infection etc.
-    *   **Inadequate** (< 600ml in the first 6 hours) (rule out urinary retention as a cause) - 
+    *   **Inadequate** (< 600ml in the first 6 hours) (rule out urinary retention as a cause) -
         As HF progresses, diuretic resistance may develop and responsiveness to loop diuretics diminish. Diuretic resistance is defined as an impaired sensitivity to diuretics resulting in reduced natriuresis and diuresis limiting the possibility to achieve euvolemia. This can be overcome by:
         *   [Grade I, Level C] Uptitration of the dose of loop diuretics - this is the preferred strategy. This can be done by:
             *   Increasing the dose of i.v. furosemide and/or dosing intervals.
@@ -76,8 +72,7 @@ The management of patients with Acute HF is largely based on clinical judgement 
 
 *   [Grade IIa, Level B] Target 0.5 - 1kg decrease in body weight/day when the patient is volume overloaded. Less than 0.5kg of weight loss/day may indicate inadequate diuretic dose or diuretic resistance.
 
-#### 9.2.1.3. Vasodilators (refer to Table 14: Drugs Commonly Used in Acute HF)
-
+#### 9.2.1.3: Vasodilators (Refer To Table 14: Drugs Commonly Used In Acute HF)
 *   Vasodilators can confer symptomatic relief and an improvement in hemodynamics but there is, however, a lack of data to draw any firm conclusions concerning their effects on CV outcomes.
 *   In patients with pulmonary congestion who are normotensive, emphasis should be placed on adequate diuresis, with vasodilators reserved for patients who fail to show clinical improvement or have poor perfusion and cool extremities.
 *   **Nitrates**
@@ -90,8 +85,7 @@ The management of patients with Acute HF is largely based on clinical judgement 
     *   [Grade IIb, Level C] Extreme caution should be exercised in patients with aortic and mitral stenosis.
     *   [Grade III, Level C] Nitrates are contraindicated in severe valvular stenosis.
 
-#### 9.2.1.4. Inotropes (refer to Table 14: Drugs Commonly Used in Acute HF)
-
+#### 9.2.1.4: Inotropes (Refer To Table 14: Drugs Commonly Used In Acute HF)
 *   Inotropes are not routinely administered to patients with an adequate BP.
 *   They are indicated in the presence of persistent signs of hypoperfusion (hypotension and low cardiac output - "cold patients") despite an adequate filling status.
 *   These patients are best managed in specialized tertiary centers.
@@ -107,8 +101,7 @@ The management of patients with Acute HF is largely based on clinical judgement 
     *   Started at 2-5mcg/kg/minute and titrated by 1-2mcg/kg/minute increments at 30-minute intervals until the desired clinical and hemodynamic response is attained.
     *   [Grade IIb, Level B] Dobutamine, when used alone, improved cardiac output but there was a trend towards an increase in mortality.
 
-#### 9.2.1.5 Morphine
-
+#### 9.2.1.5: Morphine
 *   i.v. 1-3mg bolus (repeated, if necessary, up to a maximum of 10mg) reduces pulmonary venous congestion although its effect on venodilation has been shown to be minimal.
 *   [Grade IIb, Level B] May reduce anxiety and dyspnea however due to paucity of data, routine use cannot be recommended.
 *   Dose-dependent side effects include nausea, hypotension, bradycardia, and respiratory depression.
@@ -128,8 +121,7 @@ If the blood pressure is low at initial presentation (SBP < 90 mmHg) or drops du
 
 If the patient is still unwell with poor perfusion "cool" and/or congested "wet", **Mechanical Circulatory Support** may need to be considered:
 
-### 9.2.2 Mechanical Circulatory Support
-
+### 9.2.2: Mechanical Circulatory Support
 This includes:
 *   **Intra-aortic balloon pump (IABP):**
     *   [Grade IIa, Level B] This would be useful in patients with ADHF and cardiogenic shock who are not responding optimally to medical therapy and as a bridge to definitive treatment. IABP would be particularly useful in patients with intractable myocardial ischemia or acute moderate to severe mitral regurgitation.
@@ -139,8 +131,7 @@ This includes:
 *   **Ventricular Assist Devices (VAD)** - refer to Section 15.2: Mechanical Circulatory Support
     *   These would be useful as a bridge in patients for whom recovery from Acute HF is expected or for whom heart transplant is an option. It may also be used as a destination therapy in selected patients.
 
-### 9.2.3 Treat precipitating factors for the Acute HF - "C H A M P I O N"
-
+### 9.2.3: Treat Precipitating Factors For The Acute HF - "C H A M P I O N"
 *   **C - Coronary Artery Disease - Myocardial Ischemia / Infarction:**
     *   Reversible myocardial ischemia causing Acute HF needs early recognition, rapid stabilization and referral for urgent coronary angiography.
     *   In STEMI, reperfusion therapy by fibrinolytic or primary Percutaneous Coronary Intervention (PCI) may significantly improve or prevent Acute HF.
@@ -172,8 +163,7 @@ This includes:
     *   The reasons for this may be multifactorial and some reasons include poor patient understanding of the disease, financial or transport constraints in getting refills, fears of polypharmacy and the effects of the medications on the kidney etc.
     *   Patient and family education is important prior to discharge.
 
-### 9.2.4 Comorbidities
-
+### 9.2.4: Comorbidities
 Other comorbidities should be identified, and treatment optimized. This includes:
 *   Diabetes
 *   Hypertension
@@ -190,7 +180,7 @@ Other comorbidities should be identified, and treatment optimized. This includes
 
 ---
 
-### Table 2: Grading of Recommendations in the Management of Acute HF
+Table 2: Grading Of Recommendations In The Management Of Acute HF
 
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|---|---|
@@ -216,7 +206,7 @@ Other comorbidities should be identified, and treatment optimized. This includes
 
 ---
 
-### Table 14: Drugs Commonly Used in Acute HF
+Table 14: Drugs Commonly Used In Acute HF
 
 | | Route of Admin | Dosages |
 |---|---|---|
@@ -226,8 +216,7 @@ Other comorbidities should be identified, and treatment optimized. This includes
 
 ---
 
-### Overlapping Content from Section 15.2: Mechanical Circulatory Support (VADs)
-
+### Overlapping Content From Section 15.2: Mechanical Circulatory Support (VADs)
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 15.2                            -->
 <!-- Purpose: Provides guidelines on Ventricular Assist Devices     -->
@@ -243,7 +232,7 @@ The use of a mechanical circulatory support may be considered as a:
 **Benefits and Risks:**
 *   Patients have improvement in their symptoms when compared to Optimal Medical Therapy (OMT).
 *   However, the rate of rehospitalizations due to complications of bleeding, thrombosis and infections are high.
-*   Many patients also go into major depression. 
+*   Many patients also go into major depression.
 *   Extensive discussion with the patient and family is necessary prior to LVAD implantation.
 
 ---
@@ -259,8 +248,7 @@ The use of a mechanical circulatory support may be considered as a:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -335,8 +323,7 @@ The use of a mechanical circulatory support may be considered as a:
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement.
 *   **Grade II-a:** Weight of evidence/opinion is in favor of its usefulness/efficacy.

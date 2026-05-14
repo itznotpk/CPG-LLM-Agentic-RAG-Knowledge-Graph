@@ -1,20 +1,17 @@
-# SECTION 9: IMPLEMENTING THE GUIDELINES
-
+# Section 9: Implementing The Guidelines
 <!-- METADATA
 category: implementation
 use_case: quality_improvement, clinical_audit
 -->
 
 ## Overview
-
 Implementation of this CPG is important as it helps in providing quality healthcare services based on the best and most recent available evidence applied to local scenario and expertise. Various factors and resource implications should be considered for the successful uptake of the CPG recommendations.
 
 ---
 
-## 9.1 Facilitating and Limiting Factors
+## 9.1: Facilitating And Limiting Factors
 
 ### Facilitating Factors
-
 | Factor | Description |
 |--------|-------------|
 | Online availability | CPG available on multiple websites for healthcare providers |
@@ -22,7 +19,6 @@ Implementation of this CPG is important as it helps in providing quality healthc
 | Public awareness campaigns | Men's Health Day and other initiatives |
 
 ### Limiting Factors
-
 | Factor | Description |
 |--------|-------------|
 | Resource constraints | Different levels of expertise and wide variation in practice |
@@ -32,8 +28,7 @@ Implementation of this CPG is important as it helps in providing quality healthc
 
 ---
 
-## 9.2 Potential Resource Implications
-
+## 9.2: Potential Resource Implications
 The prevalence of ED is increasing, making it an emerging public health concern. Challenges include:
 - Public and healthcare providers shying away from discussing the matter
 - Need for expertise (knowledge and skills) to elicit the problem
@@ -45,8 +40,7 @@ The prevalence of ED is increasing, making it an emerging public health concern.
 
 ## Clinical Audit Indicators
 
-### Indicator 1: IIEF-5 Assessment
-
+### Indicator 1: Iief-5 Assessment
 **Measure:** Percentage of patients newly diagnosed with ED assessed using IIEF-5
 
 **Formula:**
@@ -59,7 +53,6 @@ The prevalence of ED is increasing, making it an emerging public health concern.
 ---
 
 ### Indicator 2: Cardiac Risk Referral
-
 **Measure:** Percentage of ED patients with high cardiac risk based on Princeton Consensus referred to the cardiologist
 
 **Formula:**
@@ -72,7 +65,6 @@ The prevalence of ED is increasing, making it an emerging public health concern.
 ---
 
 ## Implementation Strategies
-
 Implementation strategies developed following CPG approval by MoH include:
 - Quick Reference
 - Training Module

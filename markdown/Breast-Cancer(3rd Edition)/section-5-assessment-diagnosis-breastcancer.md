@@ -1,5 +1,4 @@
-# SECTION 5: ASSESSMENT AND DIAGNOSIS
-
+# Section 5: Assessment And Diagnosis
 <!-- METADATA
 category: Diagnosis, Classification, Assessment
 use_case: Assessment and Diagnosis — triple_assessment, imaging, biopsy, histopathology, receptor_status, staging, prognostic_markers, molecular_subtyping
@@ -9,31 +8,26 @@ critical: true
 -->
 
 ## Overview
-
 Triple assessment — consisting of clinical assessment, imaging (ultrasound and/or mammography) and pathology (histology and/or cytology) — is an established method for the diagnosis of breast cancer.⁴
 
 ---
 
-## 5.1 Triple Assessment
+## 5.1: Triple Assessment
 
-### 5.1.1 Clinical Assessment
-
+### 5.1.1: Clinical Assessment
 Adequate history taking to assess risk and thorough clinical breast examination (CBE) are mandatory in breast cancer diagnosis. The degree of suspicion based on CBE is variable.
 
 ---
 
-### 5.1.2 Imaging
+### 5.1.2: Imaging
 
 #### a. Mammography + Ultrasonography
-
 Combined mammography and ultrasound (US) assessment improve breast cancer detection in symptomatic women above 35 years old. In women **younger than 35**, US should be used as the initial imaging modality.⁴
 
 #### b. Digital Breast Tomosynthesis (DBT)
-
 DBT (3D mammography) is a screening and diagnostic imaging tool. Strong evidence supports its value:
 
-##### DBT + FFDM vs FFDM Alone (Meta-analysis)ˡᵉᵛᵉˡ ᴵᴵᴵ
-
+##### DBT + FFDM Vs FFDM Alone (Meta-analysis)ˡᵉᵛᵉˡ ᴵᴵᴵ
 | Metric | DBT + FFDM | FFDM Alone |
 |---|---|---|
 | Sensitivity | **90.77%** (80.70 to 96.51) | 60.00% (47.10 to 71.96) |
@@ -51,8 +45,7 @@ DBT (3D mammography) is a screening and diagnostic imaging tool. Strong evidence
 
 ---
 
-#### c. BI-RADS® Reporting System
-
+#### c. Bi-Rads® Reporting System
 BI-RADS® (Breast Imaging Reporting and Data System) was established by ACR in 1993 to standardise breast imaging reporting and reduce variations in interpretation.ˡᵉᵛᵉˡ ᴵᴵᴵ. BI-RADS® contains standardised terminology (descriptors) for mammography, breast US and MRI for use in daily practice. The ACR BI-RADS® Atlas 2013 is the updated version of the 2003 Atlas. level III Refer to Appendix 3. ‘Borang Permohonan Pemeriksaan Radiologi’ (Breast Imaging Survey Form) has been developed by MoH to be used in mammography reporting. Refer to Appendix 4
 
 > [!IMPORTANT]
@@ -62,17 +55,15 @@ BI-RADS® (Breast Imaging Reporting and Data System) was established by ACR in 1
 ---
 
 #### d. Image-Guided Biopsy
-
-MIBT is the standard of care for diagnosing most breast lesions. Image-guided MIBT is recommended for both palpable and non-palpable lesions to increase accuracy of sampling.ˡᵉᵛᵉˡ ᴵᴵᴵ 
+MIBT is the standard of care for diagnosing most breast lesions. Image-guided MIBT is recommended for both palpable and non-palpable lesions to increase accuracy of sampling.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 Minimally invasive biopsy technique (MIBT) is the standard of care for diagnosing most breast lesions. Image-guided MIBT is recommended for both palpable and non-palpable lesions to increase accuracy of sampling. US, if available, is recommended in patients with palpable masses. If the lesion is non-palpable but visible sonographically, US
-guidance optimises patient’s comfort.ˡᵉᵛᵉˡ ᴵᴵᴵ 
+guidance optimises patient’s comfort.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 *   **Core needle biopsy** or vacuum-assisted technique is preferable to FNAC (fine needle aspiration cytology) for better tumour characterisation, marker analysis and immunohistochemistry.ˡᵉᵛᵉˡ ᴵᴵᴵ
 *   Pathology and imaging concordance by MIBT shows a **success rate of ≥90%**.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
-#### e. Management of Discordant Lesions
-
+#### e. Management Of Discordant Lesions
 Repeat image-guided percutaneous core or vacuum-assisted needle biopsy is an alternative when initial core biopsy results are non-diagnostic or discordant. Another alternative is surgical excision.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 > [!IMPORTANT]
@@ -82,8 +73,7 @@ Repeat image-guided percutaneous core or vacuum-assisted needle biopsy is an alt
 
 ---
 
-#### f. Role of MRI
-
+#### f. Role Of MRI
 MRI may be considered in the following clinical situations:⁴˒¹⁸˒²⁵˒²⁶
 
 | Clinical Situation |
@@ -104,16 +94,14 @@ MRI may be considered in the following clinical situations:⁴˒¹⁸˒²⁵˒²
 
 ---
 
-## 5.1.3 Laboratory Investigation
+### 5.1.3: Laboratory Investigation
 
-### a. Histopathological Examination
-
+### A. Histopathological Examination
 Core needle biopsy is a well-established tool for diagnosing both palpable and non-palpable breast lesions, as part of the triple assessment.
 
 *   If core needle biopsy is not available, **FNAC** may be considered for palpable breast lumps. In equivocal FNAC, core biopsy should be performed.
 
-#### Minimum Dataset for Surgical Pathology Report
-
+#### Minimum Dataset For Surgical Pathology Report
 | Element |
 |---|
 | Maximum diameter of invasive tumour |
@@ -128,12 +116,10 @@ Core needle biopsy is a well-established tool for diagnosing both palpable and n
 | HER2/c-erbB2 assessment |
 
 #### ER/PR Receptor Status
-
 *   **Positive interpretation:** ≥1% of tumour cells showing positive nuclear staining of any intensity
 *   **Negative:** <1% of tumour cells show staining of any intensityˡᵉᵛᵉˡ ᴵᴵᴵ
 
-### b. Human Epidermal Growth Factor Receptor 2 Test
-
+### B. Human Epidermal Growth Factor Receptor 2 Test
 HER2 is a trans-membrane epidermal growth factor receptor that plays an important role in tumour growth signalling pathway of breast cancer. Assessment of HER2 status is essential to establish prognosis and to determine patient eligibility for HER2 targeted therapy.
 
 HER2 testing may be performed by various methods including immunohistochemistry (IHC), fluorescent in-situ hybridisation (FISH), chromogenic in-situ hybridisation (CISH) and silver-enhanced in-situ hybridisation (SISH).⁴ The quality of HER2 testing encompasses tissue handling process from the operating theatre to the laboratory, testing protocols, scoring and interpretation of results.
@@ -154,7 +140,7 @@ In equivocal HER2 (IHC 2+, weak to moderate complete membrane staining observed 
 
 Histopathologic features suggestive of possible HER2 test discordance and actions to be taken are shown in the table below.
 
-#### Table 2. Histopathologic Features Suggestive of Possible HER2 Test Discordance
+Table 2. Histopathologic Features Suggestive Of Possible Her2 Test Discordance
 
 | Criteria to consider if there are concerns regarding discordance with apparent histopathologic findings and possible false-negative or false-positive HER2 test result. |
 |---|
@@ -166,12 +152,10 @@ Histopathologic features suggestive of possible HER2 test discordance and action
 
 ---
 
-### c. Ki67 as Predictor and Prognostic Marker
-
+### C. Ki67 As Predictor And Prognostic Marker
 Ki67 (anti-MIB-1) detects the proliferative index of tumours.
 
-#### Evidence on Ki67 Predictive Value
-
+#### Evidence On Ki67 Predictive Value
 | Study | Finding | HR (95% CI) |
 |---|---|---|
 | Cohort (early Breast Cancer) — IBTR | High Ki67 predicted IBTR | 3.126 (1.390 to 7.029) |
@@ -190,8 +174,7 @@ A more recent cohort study on LB node negative breast cancer showed that low Ki6
 
 ---
 
-### Molecular Subtypes of Breast Cancer (St. Gallen 2011)
-
+### Molecular Subtypes Of Breast Cancer (St. Gallen 2011)
 | Molecular Subtype | ER and PR (IHC) | HER2 (IHC/ISH) | Ki67 (IHC) |
 |---|---|---|---|
 | **Luminal A** | ER+ and/or PR+ | HER2- | Ki67 <14% |
@@ -202,18 +185,14 @@ A more recent cohort study on LB node negative breast cancer showed that low Ki6
 
 *\*May be CK5/6+ and/or EGFR+*
 
-
-
 ---
 
-## 5.2 Staging
-
+## 5.2: Staging
 Staging is based on the current AJCC Cancer Staging Manual (8th Edition).ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 > **Cross-reference:** See Appendix 5: TNM Classification for detailed staging tables.
 
-### 5.2.1 Early Breast Cancer
-
+### 5.2.1: Early Breast Cancer
 In patients with asymptomatic early breast cancer (including ductal carcinoma in situ, stage I, stage IIA and stage IIB), imaging screening [chest radiograph, bone scan, liver ultrasonography and computerised tomography (CT) scan] for metastasis should not routinely be performed.There is no latest update on imaging investigations in this group of patients.
 
 However, in patients with signs and symptoms of lung, liver and bone diseases, or abnormal related laboratory tests, the above imaging investigations should be performed. A bone scan is indicated in patients presenting with localised bone pain or elevated alkaline phosphatase if sites are not imaged or visualised by plain radiograph or CT scan.4 NCCN and NICE give similar recommendations as above.
@@ -225,8 +204,7 @@ However, in patients with signs and symptoms of lung, liver and bone diseases, o
 >     *   With signs/symptoms of lung, liver, bone metastases or abnormal labs — routine imaging **should** be performed
 >     *   With localised bone pain, elevated ALP or suggestive symptoms — bone scintigraphy if plain radiography or CT staging is negative
 
-### 5.2.2 Locally Advanced Breast Cancer (Stage III)
-
+### 5.2.2: Locally Advanced Breast Cancer (Stage Iii)
 More imaging is needed for staging: CT scan, bone scintigraphy, MRI and PET/CT.
 
 LABC includes:ˡᵉᵛᵉˡ ᴵᴵᴵ
@@ -235,8 +213,7 @@ LABC includes:ˡᵉᵛᵉˡ ᴵᴵᴵ
 *   Cancers involving multiple ipsilateral axillary, internal mammary or infra/supra-clavicular lymph nodes
 *   Inflammatory breast cancer
 
-### 5.2.3 Advanced (Metastatic) Breast Cancer (Stage IV)
-
+### 5.2.3: Advanced (Metastatic) Breast Cancer (Stage IV)
 Similar imaging as LABC for assessment of bony and visceral metastases.²⁵˒²⁶
 
 > [!IMPORTANT]
@@ -246,9 +223,7 @@ Similar imaging as LABC for assessment of bony and visceral metastases.²⁵˒²
 ---
 Most malignant tumours have a higher glucose metabolism than normal tissue and thus take up more (18F)-fluorodeoxyglucose PET  (18FDG PET). With computed tomography (CT), functional information can be assessed anatomically.
 
-
-### Role of ¹⁸FDG PET/CT
-
+### Role Of ¹⁸fdg PET/CT
 PET/CT scanning is **NOT indicated** for staging of clinical stage I, II or operable III (T3N1) breast cancer due to:
 *   High false-negative rate for small (<1 cm) and/or low-grade lesions
 *   Low sensitivity for axillary nodal metastases
@@ -258,7 +233,6 @@ PET/CT scanning is **NOT indicated** for staging of clinical stage I, II or oper
 FDG PET/CT is most helpful in situations where standard staging studies are equivocal or suspicious, especially in the setting of locally advanced or metastatic disease.
 
 #### Diagnostic Performance Comparison
-
 | Modality | Sensitivity | Specificity | Evidence |
 |---|---|---|---|
 | ¹⁸FDG PET/CT (distant metastases) | **0.97** (0.84 to 0.99) | **0.95** (0.93 to 0.97) | level III |
@@ -272,15 +246,13 @@ FDG PET/CT is most helpful in situations where standard staging studies are equi
 
 ---
 
-## Appendix 3: RECOMMENDED REPORTING SYSTEM
-
+## Appendix 3: Recommended Reporting System
 **INTRODUCTION**
 The ACR BI-RADS Atlas 2013 is the updated version of the 2003 Atlas. BI-RADS® is designed to standardise breast imaging reporting and to reduce confusion in breast imaging interpretations. It also facilitates outcome monitoring and quality assessment.
 
 It contains a lexicon for standardised terminology (descriptors) for mammography, breast US and MRI, as well as chapters on Report Organisation and Guidance for use in daily practice.
 
-### A. REPORT ORGANISATION
-
+### A. Report Organisation
 A good reporting system should be concise and organised using the following structure.
 
 **THE STANDARD REPORTING SYSTEM:**
@@ -300,18 +272,18 @@ Use BI-RADS categories 0 - 6 and the phrase associated with them. If mammography
 
 ---
 
-#### 1. Describe the indication for the study
+## 1: Describe The Indication For The Study
 The examination is for screening, diagnostic or follow-up. Mention patient's history.
 If US is performed, mention if it is targeted to a specific location or supplementary screening. If an implant is present, both standard and implant-displaced views should be performed and, this should be stated in the mammography report.
 
-#### 2. Describe the breast composition
+## 2: Describe The Breast Composition
 In the BI-RADS edition 2013, the assignment of the breast composition is changed into a, b, c and d-categories followed by a description:
 *   **a.** The breasts are almost entirely fatty. Mammography is highly sensitive in this setting.
 *   **b.** There are scattered areas of fibroglandular density. (The term density describes the degree of x-ray attenuation of breast tissue but not discrete mammographic findings.)
 *   **c.** The breasts are heterogeneously dense, which may obscure small masses. Some areas in the breasts are sufficiently dense to obscure small masses.
 *   **d.** The breasts are extremely dense, which lowers the sensitivity of mammography.
 
-#### 3. Describe any significant finding using standardized terminology
+## 3: Describe Any Significant Finding Using Standardized Terminology
 Use the morphological descriptors: mass, asymmetry, architectural distortion and calcifications.
 These findings may have associated features, like for instance a mass can be accompanied with skin thickening, nipple retraction, calcifications, etc.
 Correlate these findings with the clinical information, mammography, US or MRI. Integrate mammography and US findings in a single report.
@@ -324,8 +296,7 @@ Correlate these findings with the clinical information, mammography, US or MRI. 
 *   **f. Skin lesion:** Location
 *   **g. Solitary dilated duct:** Location
 
-##### Mammography and US Lexicon
-
+##### Mammography And US Lexicon
 | Feature | Mammography Lexicon | Ultrasound Lexicon |
 |---|---|---|
 | **Breast composition** | a. entirely fatty<br>b. scattered areas of fibroglandular density<br>c. heterogeneously dense, which may obscure masses<br>d. extremely dense, which lowers sensitivity | a. homogenous - fat<br>b. homogenous - fibroglandular<br>c. heterogenous |
@@ -336,18 +307,18 @@ Correlate these findings with the clinical information, mammography, US or MRI. 
 | **Associated features** | skin retraction, nipple retraction, skin thickening, trabecular thickening, axillary adenopathy, architectural distortion, calcifications | architectural distortion, duct changes, skin thickening, skin retraction, edema, vascularity (absent, internal, rim), elasticity |
 | **Special cases** | | simple cyst, clustered microcysts, complicated cyst, mass in or on skin, foreign body (including implants), intramammary lymph node, AVM, Mondor disease, postsurgical fluid collection, fat necrosis |
 
-##### US-Breast Imaging Lexicon (Specifics for US)
+##### US-Breast Imaging Lexicon (Specifics For US)
 *   **Breast composition:** Homogeneous echotexture-fat, Homogeneous echotexture-fibroglandular, Heterogeneous echotexture
-*   **Mass:** 
+*   **Mass:**
     *   **Orientation:** unique to US-imaging (parallel or not parallel to the skin).
     *   **Echo pattern:** anechoic, hypoechoic, complex cystic and solid, isoechoic, hyperechoic, heterogeneous. (Alone it has little specificity).
     *   **Posterior features:** enhancement, shadowing. (Represents attenuation characteristics, alone has little specificity).
 *   **Calcifications:** On US poorly characterised compared with mammography, but can be recognised as echogenic foci, particularly when in a mass.
 
-#### 4. Comparison to previous examination(s)
+## 4: Comparison To Previous examination(s)
 Awaiting to compare with previous examination may assume importance if the finding of concern requires an evaluation of change or stability. Comparison is not important when a finding has unequivocally benign features. Comparison may be irrelevant when the finding is inherently suspicious for malignancy.
 
-#### 5. Conclude to final assessment category
+## 5: Conclude To Final Assessment Category
 The BI-RADS® assessment categories are designed to be concordant with specific management recommendations. The linking of assessment categories with concordant management recommendations further enhances sound medical practice.
 
 | Category | Assessment | Management | Likelihood of Cancer |
@@ -360,19 +331,18 @@ The BI-RADS® assessment categories are designed to be concordant with specific 
 | **5** | Highly suggestive of malignancy | Tissue diagnosis | ≥95% |
 | **6** | Known biopsy-proven | Surgical excision when clinically appropriate | Not applicable |
 
-#### 6. Give management recommendations
+## 6: Give Management Recommendations
 
-#### 7. Communicate unexpected findings with referring clinician
+## 7: Communicate Unexpected Findings With Referring Clinician
 The verbal discussions between radiologist, patient and referring clinician should be documented in the clinical notes/report.
 
 ---
 
 ## Appendix 5
 
-### TNM CLASSIFICATION OF BREAST CANCER
+### Tnm Classification Of Breast Cancer
 
-#### Definition of Primary Tumor (T) – Clinical and Pathological
-
+#### Definition Of Primary Tumor (T) – Clinical And Pathological
 | T Category | T Criteria |
 |---|---|
 | **TX** | Primary tumor cannot be assessed |
@@ -394,8 +364,7 @@ The verbal discussions between radiologist, patient and referring clinician shou
 
 *\*Note: Lobular carcinoma in situ (LCIS) is a benign entity and is removed from TNM staging in the AJCC Cancer Staging Manual, 8th Edition.*
 
-#### Definition of Regional Lymph Nodes - Clinical (cN)
-
+#### Definition Of Regional Lymph Nodes - Clinical (cN)
 | cN Category | cN Criteria |
 |---|---|
 | **cNX\*** | Regional lymph nodes cannot be assessed (e.g., previously removed) |
@@ -414,8 +383,7 @@ The verbal discussions between radiologist, patient and referring clinician shou
 *\*The cNX category is used sparingly in cases where regional lymph nodes have previously been surgically removed or where there is no documentation of physical examination of the axilla.*<br>
 *"cN1mi is rarely used but may be appropriate in cases where sentinel node biopsy is performed before tumor resection, most likely to occur in cases treated with neoadjuvant therapy.*
 
-#### Definition of Regional Lymph Nodes - Pathological (pN)
-
+#### Definition Of Regional Lymph Nodes - Pathological (pN)
 | pN Category | pN Criteria |
 |---|---|
 | **pNX** | Regional lymph nodes cannot be assessed (e.g., not removed for pathological study or previously removed) |
@@ -437,8 +405,7 @@ The verbal discussions between radiologist, patient and referring clinician shou
 
 *Note: (sn) and (f) suffixes should be added to the N category to denote confirmation of metastasis by sentinel node biopsy or FNA/core needle biopsy respectively, with NO further resection of nodes.*
 
-#### Definition of Distant Metastasis (M)
-
+#### Definition Of Distant Metastasis (M)
 | M Category | M Criteria |
 |---|---|
 | **M0** | No clinical or radiographic evidence of distant metastases* |
@@ -447,8 +414,7 @@ The verbal discussions between radiologist, patient and referring clinician shou
 
 *\*Note that imaging studies are not required to assign the cM0 category*
 
-#### AJCC Anatomic Stage Groups
-
+#### Ajcc Anatomic Stage Groups
 The Anatomic Stage Group table should only be used in global regions where biomarker tests are not routinely available. Cancer registries in the U.S. must use the Prognostic Stage Group table for case reporting.
 
 | When T is... | And N is... | And M is... | Then the stage group is... |

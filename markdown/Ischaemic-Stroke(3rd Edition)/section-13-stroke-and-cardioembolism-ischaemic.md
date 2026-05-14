@@ -1,5 +1,4 @@
-# SECTION 13: STROKE AND CARDIOEMBOLISM
-
+# Section 13: Stroke And Cardioembolism
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Cardioembolic Stroke and AF Management — AF_stroke_prevention, OAC_selection, DOAC_initiation, bleeding_management, CHA2DS2_VASc, HAS_BLED, 1_3_6_12_day_rule
@@ -8,16 +7,15 @@ output: OAC_recommendation, DOAC_initiation_timing, bleeding_reversal_protocol
 critical: true
 treatment_type: warfarin, dabigatran, rivaroxaban, apixaban, edoxaban, idarucizumab, andexanet_alfa, LAA_occlusion
 -->
-## 13.1 Cardioembolic Stroke
 
+## 13.1: Cardioembolic Stroke
 Cardioembolic stroke accounts for about 20% of all ischaemic strokes. They are generally severe, prone to early recurrence, more likely to happen when there is documented source of embolism and involve different cerebrovascular territories or multiple infarctions. The predominant pathogenic process for stroke associated with cardiac disease is embolism due to the formation of intra-atrial and intra-ventricular thrombi.
 
 Atrial fibrillation (AF) whether chronic or paroxysmal, is the most common cause of cardioembolism and accounts for 50% of all cardiogenic emboli. Other high-risk conditions are prosthetic heart valves, rheumatic mitral valvular disease, acute myocardial infarction, and severe left ventricular dysfunction. Non-thrombotic embolism may result from atrial myxoma and endocarditis.
 
 Investigations are directed at demonstrating cardiac sources of embolism in the absence of significant atherosclerosis or other vascular disease. All patients with stroke/TIA require a 12-lead electrocardiogram. A 72-hour Holter monitor is required to detect paroxysmal AF. In addition, all patients under 45 years of age and those in whom baseline investigations do not reveal an apparent cause for stroke will require a transthoracic echocardiogram (TTE). Patients in whom there is high suspicion of cardioembolism not found on TTE may undergo a trans-oesophageal echocardiogram (TOE). Conditions in which this method is superior to TTE include identifying thrombi in the left atrium and left atrial appendage, patent foramen ovale, atrial septal aneurysm and aortic arch atheroma.
 
-## 13.2 Stroke Prevention in Atrial Fibrillation Patients
-
+## 13.2: Stroke Prevention In Atrial Fibrillation Patients
 [Level I, Grade A] **Recommendation:** Antiplatelet monotherapy is not indicated for stroke prevention in non-valvular atrial fibrillation (NVAF) patients.
 
 [Level I, Grade A] **Recommendation:** Oral anticoagulant (OAC) has been proven to be superior to no treatment or Aspirin in patients with NVAF.
@@ -26,23 +24,19 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 
 [Level I, Grade A] **Recommendation:** The choice of OAC for valvular AF (moderate-to-severe mitral stenosis) and mechanical heart valves patients is a Vitamin K Antagonist (Warfarin).
 
-### Recommendation of treatment according to CHA2DS2-VASc Score:
-
+### Recommendation Of Treatment According To Cha2ds2-Vasc Score:
 | Male Score | Recommendation | Female Score | Recommendation |
 | :---: | --- | :---: | --- |
 | **≥2** | OAC | **≥3** | OAC |
 | **1** | Consider OAC | **2** | Consider OAC |
 | **0** | No treatment | **0-1** | No treatment |
 
-
-## 13.3 Secondary Stroke Prevention in Atrial Fibrillation Patients
-
+## 13.3: Secondary Stroke Prevention In Atrial Fibrillation Patients
 [Level I, Grade A] **Recommendation:** After a cardioembolic stroke, parenteral anticoagulant therapy (heparin or low molecular weight heparin) is not recommended to prevent secondary stroke.
 
 [New recommendation, Level II, Grade B] **Recommendation:** For the secondary stroke prevention in an AF patient, the initiation of direct oral anticoagulants (DOACs) is recommended as below after excluding haemorrhagic transformation:
 
 ### 1-3-6-12 Day Rule
-
 | Type of stroke | NIHSS score | Day to start OAC |
 | :---: | :---: | :---: |
 | **TIA** | | 1 |
@@ -58,8 +52,7 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 
 [New recommendation, Level II, Grade B] **Recommendation:** After intracranial haemorrhage, OAC could be re-initiated after 4-8 weeks in a NVAF patient with high CHA2DS2-VASc score if the underlying cause and risk factors of the bleeding have been treated.
 
-## 13.4 General Measures for DOACs in Bleeding and Emergency Intervention
-
+## 13.4: General Measures For DOACs In Bleeding And Emergency Intervention
 * Mechanical compression if possible
 * IV access at 2 sites
 * Determine timing of last DOAC dose
@@ -80,8 +73,7 @@ The following chart refers to specific measures of intervention:
 *\*Not available at the time of writing, boxed warning (FDA) for thromboembolic risks, ischaemic risks, cardiac arrest, and sudden death*
 
 ## Recommendations Summary:
-
-### Table 13.1: Prevention of Stroke in Atrial Fibrillation Patients
+Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -99,7 +91,6 @@ The following chart refers to specific measures of intervention:
 | OAC | After intracranial haemorrhage, OAC could be re-initiated after 4-8 weeks in a NVAF patient with high CHA2DS2-VASc score if the underlying cause and risk factors of the bleeding have been treated.<br>*New recommendation* | II | B |
 
 ## Key Recommendations:
-
 1. Cardioembolism is a common cause of stroke. Stroke patient must have cardiac assessment to look for cardioemboli.
 2. It causes more severe stroke and carry a higher morbidity and mortality rates.
 3. Effective treatment to prevent cardioembolism is available and should be offered to patient at risk.
@@ -107,10 +98,9 @@ The following chart refers to specific measures of intervention:
 5. Patient on VKA should have regular INR monitoring and aim time in the therapeutic range (TTR) > 70%.
 6. Antiplatelet is not recommended for NVAF for the prevention of stroke.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -121,8 +111,7 @@ The following chart refers to specific measures of intervention:
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -131,8 +120,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 | --- | --- |
 | AF | Atrial Fibrillation |

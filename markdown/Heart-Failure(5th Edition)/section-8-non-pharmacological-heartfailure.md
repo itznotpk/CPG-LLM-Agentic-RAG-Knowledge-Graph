@@ -1,5 +1,4 @@
-# SECTION 8: NON-PHARMACOLOGICAL MEASURES
-
+# Section 8: Non-Pharmacological Measures
 <!-- METADATA
 category: Treatment, Supportive Treatment, Prevention
 use_case: Non-Pharmacological Lifestyle Intervention — education, exercise, diet, fluid_restriction, weight_monitoring
@@ -7,10 +6,9 @@ patient_input: lifestyle, diet, fluid_intake, exercise_capacity
 output: education_plan, exercise_prescription, dietary_guidance, fluid_restriction_plan
 -->
 
-## 8. NON-PHARMACOLOGICAL MEASURES
+## 8: Non-Pharmacological Measures
 
-### 8.1 Education
-
+## 8.1: Education
 *   [Grade I, Level B] HF patients and their family members should be educated on the definition, causes, signs, symptoms, and the progressive and relapsing nature of the disease, emphasizing self-care wherever possible. Increased awareness helps patients adhere to therapeutic instructions whereas knowledge leads to reduced anxiety and better sense of control. Self-care is important and improves long term adherence to management strategies.
 
 Patients and their family should:
@@ -41,8 +39,7 @@ They are however barriers for the widespread implementation of telemedicine. The
     *   The HF sub-populations who may gain from telehealth interventions (e.g., older patients with more comorbidities).
     *   In which specific healthcare subsets these interventions should be implemented e.g., immediate post discharge.
 
-### 8.2. Exercise training (refer also to Section 16: HF Rehabilitation)
-
+## 8.2: Exercise Training (Refer Also To Section 16: HF Rehabilitation)
 *   [Grade I, Level B] Several systematic reviews and meta-analyses support exercise training as an integral part of the non-pharmacological treatment of HF. Exercise also leads to an improvement in the patient's Health Related Quality of Life (HRQoL) - symptoms, a greater sense of wellbeing, and better functional capacity.
 
 **Exercise training:**
@@ -61,8 +58,7 @@ Regular aerobic exercises are encouraged in NYHA I - III patients. These include
 *   Interval training and high intensity interval training (HIIT) - This has been shown to be safe and results in greater improvements in exercise tolerance in selected patients with HF. In a trial on patients with HFpEF, however, HIIT did not confer any advantage compared to guideline based physical exercise.
 *   Inspiratory muscle training (IMT) - the addition of IMT has been shown to reduce dyspnea, improve exercise time and HRQoL.
 
-### 8.3 Diet and nutrition
-
+## 8.3: Diet And Nutrition
 *   [Grade I, Level B] It has been widely accepted that sodium intake should be restricted in patients with HF especially in those with symptoms. However, there is little clinical evidence to support this. Sodium restriction to < 100gm/day did not reduce clinical events.
 *   [Grade IIa, Level C] The current recommendation is to avoid adding salt and flavouring sauces such as soya sauce, tomato ketchup and chilli sauce while cooking or at the table. Refer to Appendix II, Page 162-163 on salt content of common Malaysian food.
 *   [Grade IIa, Level B] A good balanced diet plays an important role in preventing energy depletion which can lead to cardiac cachexia and malnutrition. Cachexia is associated with increased mortality.
@@ -71,8 +67,7 @@ A review found that the combination of personalized nutrition intervention with 
 
 There are at present, however, few existing dietary strategies proven to improve clinical outcomes in HF. The role of routine supplementation of micronutrients as a component of HF management is unclear.
 
-### 8.4 Fluid restriction
-
+## 8.4: Fluid Restriction
 *   [Grade IIa, Level C] The current evidence on fluid restriction is mixed. As with salt, excessive fluid restriction can also lead to worse outcomes. This may also be due to reverse causality - sicker patients tend to take less salt and water.
 *   [Grade I, Level C] Fluid intake should be individualized. A general recommendation is 1-1.5 liters per day in patients with normal renal function.
 
@@ -80,15 +75,13 @@ In older persons, particularly those living with dementia and at the end of life
 
 Temporary fluid restriction can be considered in decompensated heart failure and/or patients with hyponatremia.
 
-### 8.2.1.5 Lifestyle measures
-
+#### 8.2.1.5: Lifestyle Measures
 These include:
 *   [Grade I, Level B] **Weight Monitoring** - Patients should be encouraged to monitor their own weight. In obese patients, weight loss should be encouraged.
 *   [Grade IIa, Level B] **Alcohol** - Heavy binge drinking should be avoided in patients with HF as it can predispose to supraventricular arrhythmias especially atrial fibrillation and lead to acute cardiac decompensation. Patients with alcoholic cardiomyopathy should abstain from alcohol.
 *   [Grade I, Level B] **Smoking** should be stopped.
 
-### 8.2.1.6 Sexual activity, pregnancy, and contraception
-
+#### 8.2.1.6: Sexual Activity, Pregnancy, And Contraception
 As many as 60% to 87% of HF patients have sexual problems. Erectile dysfunction (ED) is common and many have misconceptions that their symptoms (20%) or medications (10%) is the cause. Proper counselling is necessary to address these concerns, to allay anxiety, avoid skipping medications and prevent the use of traditional potency enhancing drugs or herbs.
 
 *   [Grade IIa, Level B] It is imperative that enquiries on sexual activities or dysfunction be addressed to provide a holistic approach to patient care. The physician must take over the initial approach since patients are often embarrassed to initiate the topic. Some helpful tools to initiate the conversation include:
@@ -112,8 +105,7 @@ HF patients need to be told that certain cardiac medications have important side
 
 Generally, Tier I methods which includes permanent sterilization and long-acting reversible contraceptives such as intrauterine devices [IUDs] and implants, have typical-use 1-year failure rates of < 1%. Given their excellent safety and efficacy profile, they should be recommended for women with underlying CVD. The risk of infective endocarditis with IUD is low.
 
-### 8.2.1.7 Sleep disorders
-
+#### 8.2.1.7: Sleep Disorders
 Sleep disorders are common in HF with prevalence rates of 50-75%, the prevalence increasing with age, obesity, male sex, Atrial Fibrillation, and poorer LV systolic function. These sleep disorders include short sleep time, low sleep quality, and sleep-disordered breathing. Sleep disordered breathing (SDB) includes either:
 *   Central Sleep Apnea (CSA) or
 *   Obstructive Sleep Apnea (OSA) or
@@ -132,8 +124,7 @@ In patients with HF and CSA, the use of Adaptive Servo Ventilation (ASV) was ass
 *   [Grade III, Level B] ASV is contraindicated in patients with HF and CSA.
 *   [Grade I, Level C] As CSA tends to worsen when HF worsens, optimizing medical therapy remains the main strategy in CSA.
 
-### 8.2.1.8 Psychosocial support
-
+#### 8.2.1.8: Psychosocial Support
 About 35% patients with HF have clinical depression and about 40% have severe anxiety. There is an association between HRQoL scores and survival. Most patients prefer improved HRQoL to longevity.
 
 Patients with HF who have psychological problems have been shown to have increased morbidity and hospital readmission rates, to be less adherent to their medical regimen, and to have an overall increase in cost of care. Effective, homebased HF management, has been shown to improve HRQoL, reduce expenditure and re-hospitalization rate.
@@ -143,7 +134,6 @@ Patients with HF who have psychological problems have been shown to have increas
 ---
 
 ## Key Recommendation # 3: Non-Pharmacological Measures
-
 *   In managing HF, non-pharmacological measures play a vital role. It is important to:
     *   Educate patient and family about the disease, treatment options and prognosis. There should be frank end-of-life discussions and advanced care planning with the patient and family. This is important as there is a potential risk of sudden death, and they should put their affairs in order.
     *   Encourage lifestyle measures:
@@ -159,8 +149,7 @@ Patients with HF who have psychological problems have been shown to have increas
 
 ## Contextual Anchors (Overlapping)
 
-#### Section 17.4: Telemedicine/Telehealth (Cross-Referenced for 8.1)
-
+#### Section 17: .4: Telemedicine/Telehealth (Cross-Referenced For 8.1)
 Telemedicine services may improve healthcare accessibility and geographical limitations. In the unforeseen circumstances of a future pandemic, telemedicine may provide uninterrupted patient consultation when community lockdowns or social distancing is required.
 
 Early escalation of HF care with a multidisciplinary team is possible without the need for face-to-face consultation.
@@ -193,8 +182,7 @@ Telemedicine can allow:
 
 ---
 
-#### Section 16: Heart Failure Rehabilitation (Cross-Referenced for 8.2)
-
+#### Section 16: Heart Failure Rehabilitation (Cross-Referenced For 8.2)
 *   [Grade IIa, Level B] CR should be recommended to all stable HF patients, in NYHA II-III. This includes patients with no recent (≤ 6 weeks) or planned (≤ 6 months) major CV hospitalizations or procedures.
 *   There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
 
@@ -217,7 +205,7 @@ Telemedicine can allow:
 
 ---
 
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -226,8 +214,7 @@ Telemedicine can allow:
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -235,12 +222,12 @@ Telemedicine can allow:
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -249,8 +236,8 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 | **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
 | **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 ---
-## Appendix II: Salt Content of Common Malaysian Foods Daily Reference Intake (DRI) for salt: 5 g per day (1 teaspoon)
 
+## Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon)
 **SALT CONTENT IN FOOD**
 
 | LOW (< 5% of DRI) | MODERATE (5% - 20% of DRI) | HIGH (> 20% of DRI) |
@@ -299,8 +286,7 @@ Source: Malaysian Food Composition Database
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial Fibrillation |
@@ -331,8 +317,7 @@ Source: Malaysian Food Composition Database
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement.
 *   **Grade II-a:** Weight of evidence/opinion is in favor of its usefulness/efficacy.

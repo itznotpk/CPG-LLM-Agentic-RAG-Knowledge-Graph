@@ -1,5 +1,4 @@
-# SECTION 8: ACUTE GENERAL MANAGEMENT
-
+# Section 8: Acute General Management
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Acute General Stroke Management — supportive_care, BP_control, glycaemic_management, fever_management, DVT_prophylaxis, dysphagia_screening, nutrition, infection
@@ -8,22 +7,19 @@ output: acute_treatment_plan, complication_prevention
 critical: true
 treatment_type: labetalol, captopril, insulin, heparin, aspirin, enoxaparin
 -->
-## 8.1 General Management
 
+## 8.1: General Management
 The primary aim of acute stroke management is for early reperfusion therapy which will be covered in Section 9: Reperfusion of Ischaemic Brain and Section 10: Endovascular Thrombectomy. This section will cover the general management of acute stroke that includes supportive care and treatment of acute complications. This is important to improve the mortality rates and reduce the functional disability.
 
-### 8.1.1 Oxygen and Airway Support
-
+### 8.1.1: Oxygen And Airway Support
 [Level II-3 to III] Adequate tissue oxygenation is imperative to prevent hypoxia and potential worsening of the neurological injury.
 
 [New recommendation, Level II-3, Grade B] **Recommendation:** Patients with acute stroke should only receive supplemental oxygen if their oxygen saturation is below 95% and be titrated to achieve above 95%.
 
-### 8.1.2 Observation
-
+### 8.1.2: Observation
 [Level III, Grade C] **Recommendation:** Regular observation is mandatory to recognise impaired pulmonary function (pulse oxymeter), circulatory function (pulse rate, blood pressure), NIHSS score, head chart, GCS, and complications from mass effect.
 
-### 8.1.3 Mobilisation
-
+### 8.1.3: Mobilisation
 Most patients are first treated with bed rest, but mobilisation should begin as soon as the patient's condition is judged to be stable.
 
 [Level II-3, Grade C] **Recommendation:** Mobilise early to prevent complications.
@@ -32,8 +28,7 @@ Although two small RCTs showed that very early mobilisation (beginning within 24
 
 [New recommendation, Level I] **Recommendation:** High-dose, very early mobilisation within 24 hours of stroke onset should not be recommended.
 
-### 8.1.4 Blood Pressure
-
+### 8.1.4: Blood Pressure
 In patients with AIS, early treatment of hypertension is indicated when required by comorbid conditions (e.g. concomitant acute coronary event, acute heart failure, aortic dissection, post-thrombolysis sICH, or preeclampsia/eclampsia). In patients with a BP of ≥220/120 mm Hg who have not received IV alteplase or EVT and have no comorbid conditions requiring acute antihypertensive treatment, the benefit of initiating or reinitiating treatment of hypertension within the first 48 to 72 hours is uncertain. It might be reasonable to lower BP by 15% during the first 24 hours after the onset of stroke.
 
 [New recommendation, Level III, Grade C] **Recommendation:** Lowering BP initially by 15% is probably safe. Very high blood pressure should be reduced gradually.
@@ -42,8 +37,7 @@ In patients with AIS, early treatment of hypertension is indicated when required
 
 [Level II-3, Grade C] **Recommendation:** Proposed drugs: Labetalol 10-20mg boluses at 10 minute intervals up to 150-300mg or 1mg/ml infusion, with the rate of infusion of 1-3mg/min or oral Captopril 6.25-12.5mg. Sublingual use of a calcium antagonist, such as Nifedipine, should be avoided because of the risk of rapid decline in blood pressure.
 
-### 8.1.5 Blood Glucose
-
+### 8.1.5: Blood Glucose
 [Level II-3, Grade C] Hyperglycaemia following acute stroke is strongly associated with subsequent mortality and impaired neurological recovery. This applies to both diabetics and non-diabetics.
 
 The International Diabetes Federation published a comprehensive guideline on managing older people with type 2 diabetes which included a section on management of hyperglycaemia post-acute stroke.
@@ -54,8 +48,7 @@ At present, the optimal level of blood glucose after a stroke is unclear. A syst
 
 [New recommendation, Level I, Grade A] **Recommendation:** Avoid very tight targets of glucose control (4.0-7.5 mmol/L) in the first few hours of acute ischaemic stroke.
 
-### 8.1.6 Nutrition
-
+### 8.1.6: Nutrition
 Sustaining nutrition is important as malnutrition after stroke might interfere with recovery. Persons with infarctions of the brain stem, multiple strokes, large hemispheric lesions, or depressed consciousness are at the greatest risk for aspiration. Swallowing impairments are associated with an increased mortality.
 
 The FOOD RCT's showed that supplemented diet was associated with an absolute reduction in risk of death of 0.7% and that early tube feeding (within 7 days of admission) was associated with an absolute reduction in risk of death by 5.8% and a reduction in death or poor outcomes by 1.2%.
@@ -72,8 +65,7 @@ If the patient fails the swallowing test, a nasogastric tube should be inserted 
 
 [Level II-1, Grade B] **Recommendation:** PEG is superior to nasogastric feeding only if prolonged enteral feeding is required.
 
-### 8.1.7 Infection
-
+### 8.1.7: Infection
 Infection is the commonest complication after an acute stroke especially pneumonia and urinary tract infection.
 
 The appearance of fever should prompt a search for infection and appropriate antibiotic therapy should be administered early. Bladder catheters should be avoided if possible.
@@ -82,8 +74,7 @@ The appearance of fever should prompt a search for infection and appropriate ant
 
 [New recommendation, Level I, Grade A] **Recommendation:** Routine use of prophylactic antibiotics has not been shown to be beneficial.
 
-### 8.1.8 Fever
-
+### 8.1.8: Fever
 A meta-analysis suggested that fever after the onset of stroke was associated with marked increase in mortality and morbidity.
 
 [Level II-1, Grade B] **Recommendation:** Antipyretics should be used to control elevated temperatures in acute stroke patients.
@@ -92,16 +83,14 @@ The benefit of induced hypothermia for treating patients with ischaemic stroke i
 
 [New recommendation, Level I, Grade A] Hypothermia should be offered only in the context of on-going clinical trials.
 
-### 8.1.9 Continence
-
+### 8.1.9: Continence
 The application of indwelling catheter should be treated cautiously due to the risk of urinary tract infection.
 
 [New recommendation, Level I, Grade A] **Recommendation:** If being used, daily assessment (with excellent perineum care) needs to be carried out and should be removed as soon as possible.
 
 [New recommendation, Level III, Grade C] **Recommendation:** All stroke patients should be screened for urinary retention or incontinence, faecal incontinence, and constipation. The use of portable ultrasound machine (non-invasive) is recommended for assessing the post-void residual volume. A bladder training program should be implemented in patient who have urinary incontinence, including the use of intermittent catheterization based on post-void residual urine volume and bowel management procedures should be taught to patients/carers of patients with constipation and faecal incontinence.
 
-### 8.1.10 Raised Intracranial Pressure
-
+### 8.1.10: Raised Intracranial Pressure
 Cerebral oedema and increased intracranial pressure largely occur with large cerebral infarctions.
 
 [Level II-2, Grade B] Hyperventilation is an emergency measure that acts almost immediately; a reduction of the PCO2 by 5 to 10 mmHg can lower intracranial pressure by 25% to 30%.
@@ -122,8 +111,7 @@ There is evidence that patients aged >60 years can benefit from decompressive cr
 
 [Level II-2, Grade B] **Recommendation:** Ventriculostomy and sub-occipital craniectomy are effective in relieving hydrocephalus and brain stem compression caused by large cerebellar infarctions.
 
-### 8.1.11 Deep Vein Thrombosis
-
+### 8.1.11: Deep Vein Thrombosis
 Venous thromboembolism is a common, potentially avoidable cause of death and morbidity in patients, including those with stroke. Up to 50% of patients have thrombus in either the calf or thigh of the paretic limb.
 
 Intermittent pneumatic compression (IPC) is an effective method of reducing the risk of DVT and to possibly improve survival in a variety of patients who are immobile after stroke.
@@ -138,8 +126,7 @@ The CLOTS 1 and 2 trials showed that graduated compression stockings were ineffe
 
 [New recommendation, Level I, Grade A] **Recommendation:** In ischaemic stroke, elastic compression stockings should not be used.
 
-### 8.1.12 Seizure
-
+### 8.1.12: Seizure
 Early seizures after stroke are relatively uncommon, however if they do occur, it is associated with a poor outcome. Risk factors includes a more severe stroke severity and cortical involvement.
 
 [New recommendation, Level III, Grade C] **Recommendation:** New-onset seizures in admitted patients with acute stroke should be treated using appropriate short-acting medications if they are not self-limiting.
@@ -149,8 +136,7 @@ Early seizures after stroke are relatively uncommon, however if they do occur, i
 [New recommendation, Level III, Grade C] **Recommendation:** Patients that have an immediate post-stroke seizure should be monitored for recurrent seizure activity and should be treated as per treatment recommendations for seizures in other neurological conditions and treatment should be individualised.
 
 ## Recommendations Summary:
-
-### Table 8.1: Acute General Management
+Table 8.1: Acute General Management
 
 | Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -185,14 +171,14 @@ Early seizures after stroke are relatively uncommon, however if they do occur, i
 | Seizure | Patients that have an immediate post-stroke seizure should be monitored for recurrent seizure activity and should be treated as per treatment recommendations for seizures in other neurological conditions and treatment should be individualised. *New recommendation* | III | C |
 
 ## Key Recommendations:
-
 1. Acute general management in stroke includes supportive care and treatment of acute complications in order to improve mortality and functional disability.
 2. General management includes the management of blood pressure, glycaemic control, nutritional support, prevention of infection and DVT and also to treat potential sequelae, e.g. raised intracranial pressure and seizure.
 
 ## Contextual Anchors (Overlapping)
-### Appendix D: Types of Swallowing Test
-### Types of Swallowing Tests
 
+### Appendix D: Types Of Swallowing Test
+
+### Types Of Swallowing Tests
 **Kidd Water Test**
 *Description:* Clinical examination includes pharyngeal sensation assessed by orange stick, tongue and facial movement, speech, sensory and perceptual function and muscle strength also assessed. Ability to swallow also assessed by patient swallowing 50 ml of water in 5 ml allotments.
 *Source:* Kidd D, Lawson J, Nesbitt R, MacMahon J. Aspiration in acute stroke: a clinical study with video fluroscopy. *Quarterly Journal of Medicine.* 1993; 86:825-829.
@@ -209,8 +195,7 @@ Early seizures after stroke are relatively uncommon, however if they do occur, i
 *Description:* The test is divided into three sections. First section is oral exam (3 items), followed by section on water swallowing. The third section is examination of voice after swallow. The TOR-BSST has been validated in stroke survivors and is a simple accurate tool to identify stroke patients with dysphagia regardless of severity and setting.
 *Source:* Martino R, Silver F, Teasell R, Bayley M, Nicholson G, et al. The Toronto Bedside swallowing Screening Test (TOR-BSST). *Stroke.* 2009; 40: 555-561.
 
-### Contextual Anchor: Section 9 — Reperfusion of Ischaemic Brain
-
+### Contextual Anchor: Section 9 — Reperfusion Of Ischaemic Brain
 Reperfusion therapy is the single most important and beneficial treatment for acute ischaemic stroke. It can be achieved via intravenous thrombolysis (IVT) or/and endovascular thrombectomy (EVT).
 
 **Recommended NIH Emergency Response Time for AIS:**
@@ -236,7 +221,6 @@ Reperfusion therapy is the single most important and beneficial treatment for ac
 - [New recommendation, Level I, Grade A] Tenecteplase 0.25 mg/kg (max 25 mg) IV bolus is an alternative for AIS within 4.5 hours.
 
 ### Contextual Anchor: Section 10 — Endovascular Thrombectomy
-
 EVT is the standard of care since 2015. EVT is indicated in acute ischaemic stroke that presents within 6-8 hours, and is equally beneficial in selected patients of up to 24 hours from the time last seen well (TLSW) with evidence of large vessel occlusion (LVO).
 
 **Indication for EVT:**
@@ -252,10 +236,9 @@ EVT is the standard of care since 2015. EVT is indicated in acute ischaemic stro
 - [New recommendation, Level II, Grade B] Tenecteplase can be considered as bridging therapy prior to EVT.
 - [New recommendation, Level II, Grade B] Procedural sedation is generally preferred over general anaesthesia in most patients undergoing EVT.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -266,8 +249,7 @@ EVT is the standard of care since 2015. EVT is indicated in acute ischaemic stro
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -276,8 +258,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 | --- | --- |
 | AIS | Acute Ischaemic Stroke |

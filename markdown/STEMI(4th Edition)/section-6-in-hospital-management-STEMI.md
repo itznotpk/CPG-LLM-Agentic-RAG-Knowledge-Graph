@@ -1,5 +1,4 @@
-# SECTION 6: IN-HOSPITAL MANAGEMENT
-
+# Section 6: In-Hospital Management
 <!-- METADATA
 category: Treatment
 use_case: In-Hospital Acute Management — ED_triage, pain_management, initial_stabilisation, oxygen_therapy, antiplatelet_loading, anticoagulation
@@ -9,15 +8,13 @@ critical: true
 treatment_type: antiplatelet_loading, analgesia, oxygen_therapy, reperfusion
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Early management of STEMI is directed at:
 - Pain relief.
 - Establishing early reperfusion.
 - Treatment of complications.
 
-## 6.1 Initial recognition and management
-
+## 6.1: Initial Recognition And Management
 - [Grade I, Level A] When the patient with suspected STEMI reaches the emergency department, evaluation and initial management should be prompt (**FAST TRACK - RED ZONE**) because the benefits of reperfusion therapy are greater the earlier it is instituted.
 - [Grade I, Level C] A quick targeted history should be taken, and vital signs noted. The diagnosis should be confirmed with an ECG, which should be done as soon as possible, within 10 minutes of the patient's arrival in the emergency department.
 - [Grade I, Level C] In patients suspected of having a STEMI in view of the prolonged ischaemic-type chest pain of > 30 minutes but without obvious ST elevation seen in the resting ECG, the following steps may be taken: (Section 3.1: History and Section 3.2: Electrocardiographic Changes, and Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB))
@@ -45,21 +42,19 @@ Early management of STEMI is directed at:
   - [Grade I, Level B] Oxygen is administered in patients with hypoxaemia (SpO₂ < 95% or PaO₂ < 60 mmHg). Routine oxygen is not recommended in patients with SpO₂ ≥ 95%.
 
 ## Key Message #6:
-
 - Early management of STEMI is directed at:
   - Pain relief.
   - Establishing early reperfusion.
   - Treatment of complications.
 
 ## Key Recommendation 4:
-
 - "Time is muscle" - Every patient with STEMI should have the occluded artery reopened (reperfusion therapy) as soon as possible after the onset of symptoms.
 - Reperfusion therapy is indicated in all patients with symptoms of ischaemia of <12 hours duration and persistent ST-segment elevation.
 
 ---
 
 ## Contextual Anchors (Overlapping)\
-### Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB)
+Table 6: ECG Patterns Of Various STEMI Locations And The Diagnostic Cut Off Points (In The Absence Of Lvh Or Lbbb)
 
 | LOCATION | LEADS | ECG FINDINGS |
 |---|---|---|
@@ -73,38 +68,32 @@ Early management of STEMI is directed at:
 
 ---
 
-### Section 3.1: History (Overlapping)
-
+### Section 3: .1: History (Overlapping)
 A thorough, targeted history is important in making the diagnosis of STEMI. Chest pain in STEMI begins abruptly and lasts for more than thirty minutes. It is usually located in the centre of the chest and may radiate to the jaw or down the left arm. It may occur at rest or with activity. The pain may just be a tightness or heaviness in the chest, but it is usually described as a pressure, squeezing or a severe crushing pain with a sense of impending doom, and is associated with sweating, nausea, vomiting and shortness of breath. The pain may be of a burning quality and localised to the epigastria or interscapular region resulting in a misdiagnosis.
 
 In the elderly, females and patients with diabetes, the index of suspicion should be high because they may present with atypical symptoms such as unexplained fatigue, shortness of breath, dizziness, light-headedness, unexplained sweating and syncope. They may not necessarily have chest pain.
 
 Other important points to note in the history are the presence of:
-
 - Previous history of ischaemic heart disease, PCI or CABG.
 - Risk factors for atherosclerosis.
 - Symptoms suggestive of previous transient ischaemic attack (TIA) or other forms of vascular disease.
 
-#### Key Recommendation 1 (from Section 3):
-
+#### Key Recommendation 1 (From Section 3):
 - A quick targeted history should be taken and is essential in raising the suspicion that the chest pain or chest pain equivalent is ischaemic in origin.
 - Upon clinical suspicion of ACS, a 12-lead ECG should be performed and interpreted immediately within 10 minutes of FMC.
 
 ---
 
-### Section 3.2: Electrocardiographic Changes (Overlapping)
-
+### Section 3: .2: Electrocardiographic Changes (Overlapping)
 The diagnosis of STEMI depends upon the presence of characteristic ECG changes. The presence of ST elevation in two contiguous leads in a patient with symptoms of ischaemia is the cardinal feature of STEMI.
 
 The cut-off points for new or presumed new ST segment elevation at the J point (in the absence of LVH and LBBB) is:
-
 - The presence of ≥ 0.1 mV ST segment elevation in all leads except leads V2-V3
 - A cut-off point of ≥ 0.25 mV (in males < 40 years), ≥ 0.2 mV (in males ≥ 40 years) and ≥ 0.15 mV in females is used in leads V2-V3
 
 In patients with BBB (new or presumed new), comparison with a previous ECG may be helpful in determining if the changes are pre-existent. The presence of a new onset or presumed new LBBB in a patient with typical chest pain of ischaemic origin may indicate an infarct and should be treated as STEMI.
 
 Patients with ischaemic type chest pain > 30 minutes and new presumed new RBBB accompanied with:
-
 - ST segment elevation ≥ 1 mm — should be managed as STEMI
 - ST-segment depression or T wave abnormalities (excluding those in leads V1–V4) — should be managed as NSTEMI. If pain persists, they should be considered for an early PCI strategy.
 
@@ -122,8 +111,7 @@ ST elevation of > 1 mm in lead aVR may accompany anterior or inferior STEMI. Thi
 
 Occasionally patients with ongoing chest pains and myocardial ischaemia may have a normal or un-interpretable ECG. If the clinical suspicion of ongoing MI is high, imaging techniques such as bedside echocardiogram may be helpful.
 
-#### Key Recommendation 2 (from Section 3):
-
+#### Key Recommendation 2 (From Section 3):
 - In all patients presenting with chest pain or chest pain equivalent, a 12-lead ECG should be done and interpreted < 10 min of the First Medical Contact (FMC).
 - If the initial ECG is non-diagnostic and the index of suspicion of STEMI is high:
   - The ECG should be repeated at close intervals of at least 15 minutes to look for progressive ST changes.
@@ -132,8 +120,7 @@ Occasionally patients with ongoing chest pains and myocardial ischaemia may have
 
 ---
 
-### Flow Chart 1: Management of patients presenting with STEMI
-
+### Flow Chart 1: Management Of Patients Presenting With STEMI
 **1. Initial Presentation**
 *   **Electrocardiography & Cardiac Biomarkers**
     *   **CHEST PAIN / CHEST PAIN EQUIVALENT**
@@ -142,7 +129,7 @@ Occasionally patients with ongoing chest pains and myocardial ischaemia may have
 *   **Concomitant initial management includes:**
     *   Continuous ECG monitoring
     *   Sublingual glyceryl trinitrate (GTN) (if no contraindication)
-    *   Aspirin + 
+    *   Aspirin +
     *   Clopidogrel <sup>#</sup>
     *   Analgesia
     *   Oxygen [if oxygen saturation (SpO₂) < 95%]
@@ -180,7 +167,6 @@ Occasionally patients with ongoing chest pains and myocardial ischaemia may have
 ---
 
 ### Section 7: Reperfusion Strategies (Overlapping)
-
 **The appropriate and timely use of some form of reperfusion therapy is more important than the choice of therapy.**
 
 [Grade I, Level A] Early and prompt reperfusion is crucial as **TIME LOST** is equivalent to **MYOCARDIUM LOST**.
@@ -252,17 +238,14 @@ _* The BP should be reduced prior to institution of fibrinolytic therapy_
 
 [Grade I, Level A] Primary PCI is the preferred strategy in patients in Category B who have contraindications to fibrinolytic therapy and those in Category C, the high risk patients.
 
-#### Key Recommendation 5 (from Section 7):
-
+#### Key Recommendation 5 (From Section 7):
 - Primary PCI is superior to fibrinolysis for STEMI and should be performed in a timely manner at experienced centres.
 
-#### Key Recommendation 6 (from Section 7):
-
+#### Key Recommendation 6 (From Section 7):
 - When fibrinolytic therapy is administered, the DNT should be ≤ 30 minutes.
 - Whenever possible, patients given fibrinolytic therapy should be considered for a pharmaco-invasive approach (elective angiogram within 3–24 hours post fibrinolysis).
 
-#### Key Message #7 (from Section 7):
-
+#### Key Message #7 (From Section 7):
 Primary PCI is superior to fibrinolysis for STEMI when performed in a timely manner at experienced centres.
 - If the patient **presents at a PCI centre**, then the time from FMC (First Medical Contact) to wire crossing should be **≤ 90 minutes.**
 - If transferred from **a centre with no PCI facilities**, the time from FMC to wire crossing should be **≤120 minutes** (including transfer delay). This is made up of:
@@ -272,7 +255,7 @@ Primary PCI is superior to fibrinolysis for STEMI when performed in a timely man
   - If the time delay to primary PCI is >120 minutes, the best option is to give fibrinolytic therapy and make arrangements to transfer the patient to a PCI capable centre for a pharmaco-invasive strategy.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -290,8 +273,7 @@ Primary PCI is superior to fibrinolysis for STEMI when performed in a timely man
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

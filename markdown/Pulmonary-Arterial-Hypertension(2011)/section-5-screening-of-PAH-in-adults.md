@@ -1,5 +1,4 @@
-# SECTION 5: SCREENING OF PAH IN ADULTS
-
+# Section 5: Screening Of PAH In Adults
 <!-- METADATA
 category: Screening, Prevention
 use_case: High-Risk Population Screening — scleroderma, familial_PAH, congenital_heart_disease, portal_hypertension, at_risk_prevalence, BMPR2_genetic_testing
@@ -12,15 +11,14 @@ output: screening_indication, at_risk_identification, referral_for_investigation
 
 ---
 
-## 5. Screening of PAH in Adults
-
+## 5: Screening Of PAH In Adults
 The availability of new therapies that have been shown to slow or prevent progression of PAH has caused a growing interest among physicians to diagnose PAH at an early stage. High risk conditions are shown in Table 3: Patients at Risk of Developing PAH. The ACCP Consensus Statement recommends periodic Doppler echocardiography as part of a screening programme in patients with scleroderma because of the relatively high detection rates in this cohort.
 
 Patients with more than one family member with PAH related to a mutation in the BMPR2 might be considered for genetic testing, since a negative test would imply that there is no higher than normal risk of developing PAH. However, any test should be preceded by extensive family and genetic counselling.
 
 Other potential causes of PAH (e.g., previous use of appetite suppressants, HIV infection, other CTDs), do not warrant routine screening.
 
-## Table 3: Patients at Risk of Developing PAH
+Table 3: Patients At Risk Of Developing PAH
 
 | Patient Characteristics | Risk Profile |
 |---|---|
@@ -36,7 +34,6 @@ Other potential causes of PAH (e.g., previous use of appetite suppressants, HIV 
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACCP** | American College of Chest Physicians |

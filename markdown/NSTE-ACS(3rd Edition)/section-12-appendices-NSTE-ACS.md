@@ -1,5 +1,4 @@
-# SECTION 12: APPENDICES
-
+# Section 12: Appendices
 <!-- METADATA
 category: Reference, Classification, Treatment
 use_case: NSTE-ACS Appendices - Braunwald_classification, TIMI_GRACE_PRECISE_DAPT, drug_dosage_tables, renal_dose_adjustment, smoking_cessation
@@ -8,21 +7,19 @@ output: reference_classification, score_interpretation, dosage_guidance, renal_a
 treatment_type: antiplatelets, anticoagulants, beta_blockers, ACEI, ARB, nitrates, CCB, smoking_cessation
 -->
 
-## Appendix I: BRAUNWALD’S CLASSIFICATION OF UNSTABLE ANGINA*
-
+## Appendix I: BRAUNWALD’S Classification Of Unstable Angina*
 | Severity | CLINICAL CIRCUMSTANCES<br><br>A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES<br><br>B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES<br><br>C<br>Develops Within 2 weeks of MI (Postinfarction UA) |
 | :--- | :--- | :--- | :--- |
 | **I-New onset of severe angina or accelerated angina; no rest pain** | I A | IB | IC |
 | **II-Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute)** | IIA | IIB | IIC |
 | **III-Angina at rest within 48 hours (angina at rest, acute)** | IIIA | IIIB-T<sub>neg</sub> IIIB-T<sub>pos</sub> | IIIC |
 
-UA : Unstable angina; T : Troponins  
+UA : Unstable angina; T : Troponins
 *\*Hamm CW, Braunwald E. A classification of unstable angina revisited. Circulation. 2000 ;102 :118-22.*
 
 ---
 
-## Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE.
-
+## Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
 | Damage related to secondary myocardial ischemia (MI type 2) |
 | :--- |
 | Tachy - or bradyarrhythmias |
@@ -56,8 +53,7 @@ UA : Unstable angina; T : Troponins
 
 ---
 
-## Appendix III : HEART SCORE# ++
-
+## Appendix III: Heart Score# ++
 | HEART SCORE | | |
 | :--- | :--- | :--- |
 | **History** | Highly suspicious | 2 |
@@ -76,7 +72,7 @@ UA : Unstable angina; T : Troponins
 | | > 1 - < 3 x normal | 1 |
 | | ≤ normal limit | 0 |
 
-*\* Risk factors include: currently treated diabetes mellitus, current or recent smoker, diagnosed and/or treated hypertension, diagnosed hypercholesterolemia, family history of coronary artery disease, obesity (body mass index >30).*  
+*\* Risk factors include: currently treated diabetes mellitus, current or recent smoker, diagnosed and/or treated hypertension, diagnosed hypercholesterolemia, family history of coronary artery disease, obesity (body mass index >30).*
 *\*\* History of atherosclerotic disease include: coronary revascularization, myocardial infarction, stroke, or peripheral arterial disease, irrespective of the risk factors for coronary artery disease.*
 
 *#Six AJ, Backus BE, Kelder JC. Chest pain in the emergency room: value of the HEART score. Neth Heart J. 2008;16(6):191-196.*
@@ -87,8 +83,7 @@ UA : Unstable angina; T : Troponins
 
 ---
 
-## APPENDIX IV: TIMI RISK SCORE FOR UA/NSTEMI*
-
+## Appendix IV: Timi Risk Score For UA/NSTEMI*
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 | :---: | :---: |
 | 0-1 | 4.7 |
@@ -100,29 +95,28 @@ UA : Unstable angina; T : Troponins
 
 *\* Derived from clinical trial data*
 
-The TIMI risk score is determined by the sum of the presence of 7 variables at admission:  
-1 point is given for each of the following variables:  
-* Age 65 y or older  
-* At least 3 risk factors for CAD (family history of premature CAD, hypertension > 140/90 or on antihypertensives, Low HDL cholesterol (< 40 mg/dL), current cigarette smoker, diabetes mellitus)  
-* Known CAD (coronary stenosis of ≥ 50%)  
-* Use of aspirin in prior 7 days  
-* ST-segment deviation (≥ 0.5mm) on ECG  
-* At least 2 anginal episodes in prior 24 h  
-* Elevated serum cardiac biomarkers  
+The TIMI risk score is determined by the sum of the presence of 7 variables at admission:
+1 point is given for each of the following variables:
+* Age 65 y or older
+* At least 3 risk factors for CAD (family history of premature CAD, hypertension > 140/90 or on antihypertensives, Low HDL cholesterol (< 40 mg/dL), current cigarette smoker, diabetes mellitus)
+* Known CAD (coronary stenosis of ≥ 50%)
+* Use of aspirin in prior 7 days
+* ST-segment deviation (≥ 0.5mm) on ECG
+* At least 2 anginal episodes in prior 24 h
+* Elevated serum cardiac biomarkers
 
 **Total Score = 7 points**
 
-**Low Risk : ≤ 2 point**  
-**Moderate Risk : 3 - 4 points**  
-**High Risk : ≥ 5 points**  
+**Low Risk : ≤ 2 point**
+**Moderate Risk : 3 - 4 points**
+**High Risk : ≥ 5 points**
 
-*Adapted from :*  
+*Adapted from :*
 *Antman EM, Cohen M, Bernink PJ, et al. The TIMI risk score for unstable angina/non-ST elevation MI: a method for prognostication and therapeutic decision making. JAMA 2000; 284 : 835-42 .*
 
 ---
 
-## Appendix V: GRACE PREDICTION SCORE CARD AND NOMOGRAM FOR ALL CAUSE MORTALITY FROM DISCHARGE TO 6 MONTHS*
-
+## Appendix V: Grace Prediction Score Card And Nomogram For All Cause Mortality From Discharge To 6 Months*
 **Risk Calculator for 6-Month Postdischarge Mortality After Hospitalization for Acute Coronary Syndrome**
 
 Record the points for each variable at the bottom left and sum the points to calculate the total risk score. Find the total score on the x-axis of the nomogram plot. The corresponding probability on the y-axis is the estimated probability of all-cause mortality from hospital discharge to 6 monts
@@ -177,8 +171,7 @@ The nomogram plot demonstrates an exponential relationship between the Total Ris
 
 ---
 
-## Appendix VI: PRECISE-DAPT SCORE *
-
+## Appendix VI: Precise-Dapt Score *
 **1-Year Bleeding Risk Based on PRECISE-DAPT Score**
 
 The graph correlates the total bleeding score with the estimated 1-year bleeding risk (%).
@@ -212,8 +205,7 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 ---
 
-## Appendix VII: P2Y12 INHIBITORS*
-
+## Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
 | :--- | :--- | :--- | :--- |
 | **Chemical class** | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
@@ -236,8 +228,7 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 ---
 
-## Appendix VIII: GLYCOPROTEIN (GP) IIb/IIIa INHIBITORS*
-
+## Appendix VIII: Glycoprotein (GP) IIb/IIIa Inhibitors*
 | | Abciximab | Tirofiban | Eptifibatide |
 | :--- | :--- | :--- | :--- |
 | **Type** | Antibody | Nonpeptide | Cyclic peptide |
@@ -259,8 +250,7 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 ---
 
-## Appendix IX: ANTICOAGULANT AGENTS*
-
+## Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
 | **Dose** | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
@@ -276,8 +266,7 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 ---
 
-## Appendix X: β-blockers in NSTE-ACS*
-
+## Appendix X: Β-Blockers In NSTE-ACS*
 | β-blockers | Bisoprolol | Carvedilol | Metoprolol |
 | :--- | :--- | :--- | :--- |
 | **Initiation dose** | 1.25mg od | 3.125mg bd | 25mg bd |
@@ -294,8 +283,7 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 ---
 
-## Appendix XI: ACEI/ARB in NSTE-ACS*
-
+## Appendix XI: ACEI/ARB In NSTE-ACS*
 | ACE/ARB | Captopril | Ramipril | Enalapril | Perindopril |
 | :--- | :--- | :--- | :--- | :--- |
 | **Initiation dose** | 6.25mg bd-tds | 2.5mg bd | 2.5-5mg od | 2mg od<br>(perindopril erbumine) /<br>-2.5mg od<br>(perindopril arginine) |
@@ -314,8 +302,7 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 ---
 
-## Appendix XII: Recommended dosages of Nitrates*
-
+## Appendix XII: Recommended Dosages Of Nitrates*
 | | Glyceryl trinitrate (GTN) | | | | | Isosorbide dinitrate | | | Isosorbide mononitrate |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Route** | Sublingual | Intra-venous | Spray | Patch | Buccal | Topical (2% ointment) | Intra-venous | Oral | Oral (long-acting) |
@@ -326,13 +313,12 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 | **Metabolism** | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver |
 | **Elimination** | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 80 - 90% | Renal: 80 - 90% | Renal: 78% |
 
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*  
+*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 *<sup>†</sup>Initially, 10 mcg/min, increase in increment of 10 mcg/min at approximately 30-minute intervals, according to patient requirement.*
 
 ---
 
 ## Appendix XIII: CCBs*
-
 | CCB | Diltiazem | Verapamil | Amlodipine | Nifedipine ER |
 | :--- | :--- | :--- | :--- | :--- |
 | **Dose** | Immediate release, 30 - 90mg tds;<br>Slow release, 100 - 200mg od | Immediate release, 40 - 80mg tds;<br>Slow release, 120 - 240mg od | 2.5 -10mg od | Slow release, 30 - 90mg od |
@@ -347,24 +333,22 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 ---
 
-## APPENDIX XIV: CALCULATION OF eGFR FOR DRUG DOSING ADJUSTMENTS
-
+## Appendix XIV: Calculation Of eGFR For Drug Dosing Adjustments
 Estimated GFR (eGFR) can be derived from various equations including:
 - CKD-EPI Creatinine (CKD -EPI) Equation- (most commonly used)
 - Modification of Diet in Renal Disease Study (MDRD) Equation.
 
 In a local population, the CKD-EPI Equation performs just as well as CKD-MDRD for GFR 60-89ml/min and better at the other GFR levels.
 
-In practice, there are number of simple calculators that may be accessed to calculate eGFR, for example:  
-https://qxmd.com/calculate/calculator_251/egfr-using-ckd-epi  
+In practice, there are number of simple calculators that may be accessed to calculate eGFR, for example:
+https://qxmd.com/calculate/calculator_251/egfr-using-ckd-epi
 https://www.mdcalc.com/mdrd-gfr-equation
 
 Creatinine clearance (Cr Cl) is determined by the Cockcroft-Gault (CG) Equation. In the past, this equation was used for drug dosing adjustments based on creatinine clearance. However, in more recent practice, the CKD-EPI equation tends to be used for drug dosing based on eGFR, especially for newer generation drugs. However, drug dosing adjustment should be done according to the United States Food and Drug Administrative - or European Medicines Agency-approved product labelling.
 
 ---
 
-## APPENDIX XV: SMOKING AND CHRONIC NON COMMUNICABLE DISEASES
-
+## Appendix XV: Smoking And Chronic Non Communicable Diseases
 *Recommendations of the Steering Committee on Tobacco control in Malaysia*
 
 Smoking of tobacco and tobacco products (cigarette, electronic cigarette/vape, shisha, pipe, cigar etc.) can lead to various complications of chronic non communicable diseases (NCD) such as coronary heart disease, cancers and chronic lung disease. It is the main cause of death worldwide whereby 6 million people die every year as a consequence of this habit (WHO Tobacco Fact Sheet, 2016).
@@ -381,7 +365,7 @@ Hence, the decision for treatment of smoking to be integrated with other chronic
 
 The treatment for smoking is based on Clinical Practice Guideline: Treatment for Tobacco Use Disorder 2016-(Tables A-D)
 
-### Table A: Assessment And Treatment Tobacco Use Disorder
+Table A: Assessment And Treatment Tobacco Use Disorder
 
 | ASSESSMENT & TREATMENT |
 | :--- |
@@ -394,7 +378,7 @@ The treatment for smoking is based on Clinical Practice Guideline: Treatment for
 | Use smoking cessation medications with caution in special populations (e.g., children and adolescents, pregnant, breastfeeding women, psychiatric and substance abuse disorder patients). |
 | Arrange a minimum of six to eight face to face follow-up sessions for smoking cessation interventions in six months through counselling support team (Health education officer, pharmacists or any officer trained for quit smoking services). |
 
-### Table B: Modified Fagerstrom Test For Cigarette Dependence Questionnaire
+Table B: Modified Fagerstrom Test For Cigarette Dependence Questionnaire
 
 | Question | Option | Point |
 | :--- | :--- | :---: |
@@ -420,7 +404,7 @@ The treatment for smoking is based on Clinical Practice Guideline: Treatment for
 - 4 to 6 points = Moderately Dependent
 - Less than 4 points = Minimally Dependent
 
-### Table C: Pharmacological Intervention - Nicotine Based Smoking Cessation Drugs
+Table C: Pharmacological Intervention - Nicotine Based Smoking Cessation Drugs
 
 | Drug | Dosage | Prescribing Instructions | Precautions | Side Effects |
 | :--- | :--- | :--- | :--- | :--- |
@@ -430,20 +414,20 @@ The treatment for smoking is based on Clinical Practice Guideline: Treatment for
 
 **References:**
 
-Nicotine gum:  
-https://www.mims.com/malaysia/drug/info/nicotine (Accessed 27/11/2020)  
-https://www.mims.com/malaysia/drug/info/nicorette%20icy%20mint%20gum (Accessed 27/11/2020)  
+Nicotine gum:
+https://www.mims.com/malaysia/drug/info/nicotine (Accessed 27/11/2020)
+https://www.mims.com/malaysia/drug/info/nicorette%20icy%20mint%20gum (Accessed 27/11/2020)
 https://www.uptodate.com/contents/nicotine-drug-information?search=nicorette+gum&source=search_result&selectedTitle=1%7E150&usage_type=default&display_rank=1 (Accessed 27/11/2020)
 
-Nicotine Patch:  
-Niquitin® : 21, 14 and 7 mg - https://quest3plus.bpfk.gov.my/front-end/attachment/66/pharma/223639/V_888_20170714_074615_D4.pdf (Accessed 27/11/2020)  
-Nicorette®: https://www.mims.com/malaysia/drug/info/nicorette%20invisi%20transdermal%20patch (Accessed 27/11/2020)  
+Nicotine Patch:
+Niquitin® : 21, 14 and 7 mg - https://quest3plus.bpfk.gov.my/front-end/attachment/66/pharma/223639/V_888_20170714_074615_D4.pdf (Accessed 27/11/2020)
+Nicorette®: https://www.mims.com/malaysia/drug/info/nicorette%20invisi%20transdermal%20patch (Accessed 27/11/2020)
 https://www.mims.com/malaysia/drug/info/nicotine (Accessed 27/11/2020)
 
-Nicotine Lozenge:  
+Nicotine Lozenge:
 NiQuitin Mint Lozenges PIL Booklet - https://quest3plus.bpfk.gov.my/front-end/attachment/66/pharma/211166/V_3818_20170714_084514_D3.pdf (Accessed 27/11/2020)
 
-### Table D: Pharmacological Intervention - Non-Nicotine Based Smoking Cessation Drugs
+Table D: Pharmacological Intervention - Non-Nicotine Based Smoking Cessation Drugs
 
 | Drug | Dosage | Prescribing Instructions | Precautions | Side Effects |
 | :--- | :--- | :--- | :--- | :--- |
@@ -452,16 +436,16 @@ NiQuitin Mint Lozenges PIL Booklet - https://quest3plus.bpfk.gov.my/front-end/at
 
 *(not registered in Malaysia)*
 
-Varenicline:  
-https://quest3plus.bpfk.gov.my/front-end/attachment/286/pharma/211119/V_27277_20190409_142806_D3.pdf (Accessed 27/11/2020)  
+Varenicline:
+https://quest3plus.bpfk.gov.my/front-end/attachment/286/pharma/211119/V_27277_20190409_142806_D3.pdf (Accessed 27/11/2020)
 https://www.uptodate.com/contents/varenicline-drug-information?search=varenicline%20drug%20information&source=panel_search_result&selectedTitle=1~32&usage_type=panel&kp_tab=drug_general&display_rank=1#F2975297 (Accessed 27/11/2020)
 
-Bupropion* (Not available and not registered in Malaysia):  
+Bupropion* (Not available and not registered in Malaysia):
 https://www.gsksource.com/pharma/content/dam/GlaxoSmithKline/US/en/Prescribing_Information/Zyban/pdf/ZYBAN-PI-MG.PDF (Accessed 27/11/2020)
 
 ---
 
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -479,8 +463,7 @@ https://www.gsksource.com/pharma/content/dam/GlaxoSmithKline/US/en/Prescribing_I
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ASA | Acetylsalicylic Acid (Aspirin) |

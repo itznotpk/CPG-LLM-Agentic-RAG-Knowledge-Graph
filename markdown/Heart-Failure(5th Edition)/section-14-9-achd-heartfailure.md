@@ -1,5 +1,4 @@
-# SECTION 14.9: HEART FAILURE IN ADULT CONGENITAL HEART DISEASE (ACHD)
-
+# Section 14: .9: Heart Failure In Adult Congenital Heart Disease (Achd)
 <!-- METADATA
 category: Special Populations, Treatment, Assessment
 use_case: HF in Adult Congenital Heart Disease — ACHD_HF_management, pharmacotherapy_by_subgroup, advanced_therapies
@@ -7,18 +6,15 @@ patient_input: congenital_heart_disease_type, surgical_history
 output: ACHD_HF_management_plan, pharmacotherapy_selection, advanced_therapy_referral
 -->
 
-## 14.9. HEART FAILURE IN ADULT CONGENITAL HEART DISEASE (ACHD)
-
+## 14.9: Heart Failure In Adult Congenital Heart Disease (Achd)
 Majority of pediatric patients with congenital heart disease are now surviving into adulthood due to advances in medical and surgical treatment. However many of these adults with congenital heart disease (ACHD) are at risk of long term sequalae with increased morbidity and mortality.
 
-### 14.9.1. Definition
-
+### 14.9.1: Definition
 Definition of HF in the ACHD in patients with biventricular circulation is like that of those with acquired heart disease.
 
 However, defining HF in patients with Fontan circulation, may be more complicated.
 
-### 14.9.2. Burden of Disease
-
+### 14.9.2: Burden Of Disease
 *   Prevalence of HF in ACHD ranges from 3.3% (median follow up of 27.5 years) to 6.4% at a mean age of 35 years.
 *   HF is the most common cause of death in ACHD patients, accounting for 17-42% of all deaths.
 *   The median age of death from HF was 48.4 years (range 20.2-91.2 years) and varied based on the complexity of the underlying lesions and interventions.
@@ -26,19 +22,16 @@ However, defining HF in patients with Fontan circulation, may be more complicate
 *   Hospitalization related to ACHD associated HF has increased significantly over the recent years accounting for 11.8%-20% of all ACHD admissions.
 *   ACHD patients with HF had longer length of stay, higher burden of arrhythmias and were more likely to die. One-year mortality after HF admission was 24% and 3-year mortality was 35%. Male gender, pacemaker implantation, admission duration, non-cardiac medication use, and high serum creatinine were identified as independent risk factors for 3-year mortality.
 
-### 14.9.3. Predisposing Risk Factors
-
+### 14.9.3: Predisposing Risk Factors
 *   The risk factors for developing HF and related mortality in ACHD patients includes advancing age, worsening NYHA functional class, complexity of the underlying congenital heart defect(s), pulmonary hypertension/Eisenmenger syndrome, endocarditis, atrial arrhythmias, ventricular dysfunction, end organ dysfunction and previous interventions e.g., Fontan surgery.
 
-### 14.9.4. Pathophysiology of HF in ACHD
-
+### 14.9.4: Pathophysiology Of HF In Achd
 *   Unlike acquired heart disease, the underlying mechanism for HF is more heterogenous and complex.
 *   It is highly dependent on the underlying anatomy, presence of pulmonary arterial hypertension, timing and type of intervention, myocardial protection during surgery, presence of residual hemodynamic lesions and acquired comorbidities.
 *   The most common reasons for ACHD-HF include presence of native, new, or residual hemodynamic lesions, myocardial failure and arrhythmias.
 *   For the different causes of ACHD-HF based on the underlying pathophysiology, related congenital heart disease and etiology tailored management refer to Appendix XIII: The different causes of ACHD-HF based on the underlying pathophysiology, related CHD and etiology tailored management.
 
-### 14.9.5. Diagnosis of HF in ACHD
-
+### 14.9.5: Diagnosis Of HF In Achd
 *   Diagnosing HF is challenging as typical clinical findings may not be present and most patients do not report symptoms of decreased functional capacity due to chronic adaptation since childhood.
 *   Interpreting the routine investigations also poses a challenge as many are abnormal even at baseline.
 *   Assessment of HF in these ACHD patients should include a comprehensive review of clinical history, underlying congenital heart defect, previous interventions, signs, symptoms, and relevant investigations.
@@ -52,8 +45,7 @@ However, defining HF in patients with Fontan circulation, may be more complicate
 *   Arrhythmias may be the cause or the first manifestation of HF in these patients.
 *   Identifying the cause of HF is important as it may be reversible (e.g., new or residual hemodynamic lesions, acute arrhythmias, compounding medical conditions like iron deficiency anemia or thyrotoxicosis.)
 
-### 14.9.6. Investigations
-
+### 14.9.6: Investigations
 *   Investigations are like that of acquired heart disease as outlined earlier in **Section 6**. In addition, the following investigations are important to assess both structural and hemodynamic anomalies: (refer to Appendix XIV: Investigations in ACHD)
     *   Transthoracic and transesophageal echocardiogram
     *   Cardiac magnetic resonance (CMR)
@@ -62,8 +54,7 @@ However, defining HF in patients with Fontan circulation, may be more complicate
     *   Rhythm monitoring and analysis.
 *   Patients with ACHD are usually well adapted to their functional limitations. Thus, objective assessment of their functional capacity and response to therapy is important. This can be done by exercise tests (Cardiopulmonary exercise test (CPET) or a six-minute walk test). The CPET predictive values of poor prognosis may, however, be different in ACHD compared to acquired heart disease especially in single ventricle physiology and in patients with cyanotic heart disease.
 
-### 14.9.7. Management (refer to Appendix XV: Flow Chart of the Management of ACHD-HF)
-
+### 14.9.7: Management (Refer To Appendix Xv: Flow Chart Of The Management Of Achd-HF)
 *   The aim of treatment is to alleviate symptoms, improve quality of life and to improve survival. These patients are preferably managed by a multidisciplinary team that includes both the ACHD and HF cardiologist.
 *   The principles of managing HF in ACHD HF are:
     *   First to access and address all reversible causes.
@@ -79,7 +70,6 @@ However, defining HF in patients with Fontan circulation, may be more complicate
 *   Other medical problems such as sepsis, thyrotoxicosis, anemia, uncontrolled hypertension.
 
 #### Pharmacotherapy
-
 In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired HF. The medical treatment is based on the varying subgroups of ACHD-HF.
 
 **A) Impaired Systolic Function**
@@ -148,14 +138,14 @@ In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired H
 
 ---
 
-### Key Message # 22: HF and ACHD
+### Key Message # 22: HF And Achd
 *   HF is the most common cause of death in ACHD patients, accounting for 17- 42% of all deaths.
 *   Patients with isolated simple defects generally do well with mortality rates like those in the general population.
 *   Patients with complex heart defects such as systemic RV, single ventricle palliated with Fontan circulation, and unrepaired cyanotic CHD with Eisenmenger physiology comprise the majority of HF-related deaths.
 
 ---
 
-### Key Recommendations #17: HF and ACHD
+### Key Recommendations #17: HF And Achd
 *   The principals of managing HF in ACHD HF are: (refer to Appendix XV: Flow Chart of the Management of ACHD-HF)
     *   First to access and address all reversible causes.
     *   To initiate pharmacotherapy if HF control is still not optimal.
@@ -165,7 +155,7 @@ In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired H
 
 ## Contextual Anchors (Overlapping)
 
-#### Section 6.1: Symptoms and Signs of HF (Cross-Referenced)
+#### Section 6: .1: Symptoms And Signs Of HF (Cross-Referenced)
 [Grade I, Level C] **The clinical suspicion of HF should be supported by objective evidence of cardiac dysfunction.** Breathlessness with orthopnea, paroxysmal nocturnal dyspnea (PND), reduced exercise tolerance and ankle swelling are the characteristic symptoms of HF. Orthopnea and paroxysmal nocturnal dyspnea are markers of high filling pressures and contribute to sleep-disordered breathing.
 
 Signs which are more specific for HF are an elevated jugular venous pulse (JVP), and a third heart sound. These signs are associated with adverse outcomes in patients with HF and asymptomatic LV dysfunction. The presence of a raised JVP, a positive jugulo-venous reflux and hepatomegaly generally indicate a raised right atrial pressure of > 8 mmHg. A raised JVP has a good sensitivity (70%) and specificity (79%) of left sided congestion.
@@ -186,9 +176,8 @@ Exercise capacity in a patient with heart disease is assessed by the New York He
 
 ---
 
-#### Section 6.2: Investigations (Cross-Referenced)
-
-**Table: Basic and Important Investigations**
+#### Section 6: .2: Investigations (Cross-Referenced)
+Table: Basic and Important Investigations
 
 | | BASIC INVESTIGATIONS |
 |---|---|
@@ -207,8 +196,7 @@ Exercise capacity in a patient with heart disease is assessed by the New York He
 
 ---
 
-#### Section 14.7: HF and Pregnancy (Cross-Referenced)
-
+#### Section 14: .7: HF And Pregnancy (Cross-Referenced)
 **Key Message #20: HF and Pregnancy**
 *   About 0.5-4% of pregnant women have cardiac disease. HF remains the most common complication among all women with heart disease regardless of the cause.
 *   Women with cardiac disease should be assessed:
@@ -226,8 +214,7 @@ Exercise capacity in a patient with heart disease is assessed by the New York He
 *   HF that develops during pregnancy can be managed with the judicious use of diuretics, digoxin, nitrates, β-blockers (most commonly metoprolol) and/or hydralazine.
 *   For post-partum women with severe acute HF caused by Peripartum cardiomyopathy and LVEF < 35%, Foundational HF medications to improve LVEF recovery and prophylactic anticoagulation are recommended.
 
-#### Appendix XI: Modified World Health Organization Maternal Cardiovascular Risk Assessment (Cross-Referenced from 14.7)
-
+#### Appendix XI: Modified World Health Organization Maternal Cardiovascular Risk Assessment (Cross-Referenced From 14.7)
 | Modified World Health Organization Maternal Cardiovascular Risk Assessment |
 |---|
 | **WHO CLASS I: No Increase or a Mild Increase in Morbidity**<br>• Uncomplicated, small, or mild<br>&nbsp;&nbsp;&nbsp;&nbsp;> Pulmonary stenosis.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Patent ductus arteriosus.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Ventricular septal defect.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Mitral valve prolapse (with no more than trivial mitral regurgitation).<br>• Successfully repaired simple lesions (secundum atrial or ventricular septal defect, patent ductus arteriosus, anomalous pulmonary venous drainage).<br>• Isolated Atrial ectopic beats or ventricular extrasystoles. |
@@ -238,8 +225,7 @@ Exercise capacity in a patient with heart disease is assessed by the New York He
 
 ---
 
-#### Section 16: HF Rehabilitation (Cross-Referenced for 14.9.E)
-
+#### Section 16: HF Rehabilitation (Cross-Referenced For 14.9.E)
 **Key Message #24: HF Rehabilitation**
 *   Fatigue and breathlessness lead to individuals restricting their physical activities and this in turn, leads to deconditioning.
 *   Exercise training in patients with HF is safe and leads to an improvement in functional capacity, exercise duration, and health related quality of life.
@@ -250,8 +236,7 @@ Exercise capacity in a patient with heart disease is assessed by the New York He
 
 ---
 
-#### Section 15.3: Palliative and End of Life Care (Cross-Referenced for 14.9.F)
-
+#### Section 15: .3: Palliative And End Of Life Care (Cross-Referenced For 14.9.F)
 Despite recent advances in therapy, for some patients, HF remains a progressive disease and carries a poor prognosis. Patients with refractory symptoms despite guideline-directed medical therapy, should be considered for cardiac transplantation or LVAD implantation if deemed eligible. This includes:
 *   Those with < 50% survival at 1 year (using established scoring tools)
 *   Persistently elevated natriuretic peptide levels and/or
@@ -287,8 +272,7 @@ A recent international consensus referral criterion for specialist palliative ca
 
 ---
 
-## Appendix XIII: The different causes of ACHD-HF based on the underlying pathophysiology, related CHD and etiology tailored management
-
+## Appendix XIII: The Different Causes Of Achd-HF Based On The Underlying Pathophysiology, Related Chd And Etiology Tailored Management
 | Etiology | Pathophysiology | Congenital heart defect | Management |
 |---|---|---|---|
 | **Systemic left ventricle failure** | **Pressure overload** | Sub, supravalvular or valvular aortic stenosis, coarctation of the aorta, congenital MS, Shone syndrome | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
@@ -311,8 +295,7 @@ A recent international consensus referral criterion for specialist palliative ca
 
 ---
 
-## Appendix XIV: Investigations in ACHD<sup>a</sup>
-
+## Appendix XIV: Investigations In ACHD<sup>a</sup>
 | Investigations | Important | Values/Parameter |
 |---|---|---|
 | **Electrocardiogram (ECG)** | To identify new onset/change in baseline ECG e.g., right/left ventricular hypertrophy, Conduction abnormalities. | Baseline ECG is abnormal to begin with in many ACHD.<br>New or recent change in baseline ECG should trigger further review. |
@@ -335,17 +318,15 @@ A recent international consensus referral criterion for specialist palliative ca
 
 ---
 
-## Appendix XV: Flow Chart of the Management of ACHD-HF
+## Appendix XV: Flow Chart Of The Management Of Achd-HF
 
 ##### Step 1: Initial Assessment
-
 **Detail History Physical Examination**
 **Basic Investigation - TTE, CXR, ECG, Routine Bloods**
 
 ↓
 
-##### Step 2: Identify Signs and Symptoms of Heart Failure
-
+##### Step 2: Identify Signs And Symptoms Of Heart Failure
 **Signs and Symptom of Heart Failure**
 
 Determine the pathway based on symptom status:
@@ -359,7 +340,6 @@ Determine the pathway based on symptom status:
 ---
 
 ##### Step 3A: Symptomatic Pathway
-
 Perform **Biomarkers / CPET**
 
 **Outcome Evaluation:**
@@ -371,7 +351,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 3B: Asymptomatic Pathway
-
 Perform **Biomarkers / CPET**
 
 **Outcome Evaluation:**
@@ -380,8 +359,7 @@ Perform **Biomarkers / CPET**
 
 ---
 
-##### Step 4: Evaluation for Underlying Cause
-
+##### Step 4: Evaluation For Underlying Cause
 **Advance Diagnostic Testing:**
 *   TEE
 *   Advance Imaging: CT/CMR
@@ -391,7 +369,6 @@ Perform **Biomarkers / CPET**
 ↓
 
 ##### Step 5: Hemodynamic Significant Structural / Shunt / Valvular Lesion?
-
 **Outcome Evaluation:**
 *   **If Yes:** → **Transcatheter / Surgical Intervention** → Proceed to Step 6 (Appropriate Treatment)
 *   **If No:** → Proceed to Step 5A (Arrhythmia?)
@@ -399,7 +376,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 5A: Arrhythmia?
-
 **Outcome Evaluation:**
 *   **If Yes:** → **Antiarrhythmic Medical Therapy, EPS + Catheter Ablation, Pacemaker**
 *   **If No:** → Proceed to Step 5B (Other causes?)
@@ -407,7 +383,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 5B: Others – Bleeding (Anaemia, Infective Endocarditis / Thyroid Disease, Systemic Pulmonary Hypertension)?
-
 **Outcome Evaluation:**
 *   **If Yes:** → **Appropriate Treatment**
     *   If **Pulmonary Hypertension:** → **PAH Targeted Therapy**
@@ -415,8 +390,7 @@ Perform **Biomarkers / CPET**
 
 ---
 
-##### Step 6: Response to Treatment?
-
+##### Step 6: Response To Treatment?
 **Outcome Evaluation:**
 *   **If Yes:** → Proceed to Step 8 (Follow Up)
 *   **If No:** → Proceed to Step 7 (Ventricular Dysfunction)
@@ -424,7 +398,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 7: Ventricular Dysfunction
-
 **Heart Failure Pharmacotherapy (GDMT)**
 **Consider CRT**
 
@@ -444,15 +417,13 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 8: Follow Up
-
 **Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification**
 
 ↓ *(Surveillance / Reassessance – Loop back to Step 1 if worsening symptoms)*
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -516,8 +487,7 @@ Perform **Biomarkers / CPET**
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.

@@ -1,5 +1,4 @@
-# APPENDIX 6: TREATMENT IN ED
-
+# Appendix 6: Treatment In ED
 <!-- METADATA
 category: treatment_reference
 use_case: prescribing_guidance, contraindications
@@ -8,7 +7,6 @@ critical: true
 -->
 
 ## Mechanical Treatment
-
 | Device | When/How to Apply | Precautions | Adverse Events |
 |--------|-------------------|-------------|----------------|
 | **Vacuum Erectile Devices (VED)** | 5-10 minutes before intercourse | Antiplatelets and anticoagulants - may cause bleeding and bruising | Issues with lack of spontaneity, uncomfortable, sensation of cold penis |
@@ -16,10 +14,9 @@ critical: true
 
 ---
 
-## Pharmacological Treatment (PDE5 Inhibitors)
+## Pharmacological Treatment (Pde5 Inhibitors)
 
 ### Sildenafil
-
 | Parameter | Details |
 |-----------|---------|
 | **Initial Dose** | 50 mg taken approximately 1 hour before sexual activity |
@@ -35,7 +32,6 @@ critical: true
 | - CYP3A4 inhibitors | Starting dose 25 mg |
 
 ### Tadalafil
-
 | Parameter | Details |
 |-----------|---------|
 | **As Needed Dose** | 10 mg taken at least 30 minutes before sexual activity |
@@ -51,7 +47,6 @@ critical: true
 | - Alpha-blockers | Stable dose prior to initiation; start tadalafil at lowest dose |
 
 ### Avanafil
-
 | Parameter | Details |
 |-----------|---------|
 | **Initial Dose** | 100 mg taken approximately 30 minutes before sexual activity |
@@ -66,7 +61,6 @@ critical: true
 | **Time to Nitrate** | 12 hours |
 
 ### Vardenafil
-
 | Parameter | Details |
 |-----------|---------|
 | **Initial Dose** | 10 mg taken approximately 60 minutes before sexual activity |
@@ -84,8 +78,7 @@ critical: true
 
 ---
 
-## Contraindications (ALL PDE5i)
-
+## Contraindications (All PDE5i)
 | Contraindication | Details |
 |------------------|---------|
 | Known hypersensitivity | To PDE5i or any component of tablet |
@@ -96,7 +89,6 @@ critical: true
 ---
 
 ## Adverse Events
-
 | Category | Events |
 |----------|--------|
 | **Common** | Headache, flushing, dyspepsia, nasal congestion, nasopharyngitis, back pain, myalgia, visual abnormalities |
@@ -104,7 +96,6 @@ critical: true
 | **Serious (Vardenafil)** | QT prolongation |
 
 ### Warnings
-
 > **Emergency:** Patients should seek emergency treatment if an erection lasts >4 hours. Use PDE5i with caution in patients predisposed to priapism.
 
 > **Hearing Loss:** Patients to stop taking PDE5i and seek prompt medical attention in the event of sudden decrease or loss of hearing.
@@ -112,7 +103,6 @@ critical: true
 ---
 
 ## Abbreviations
-
 | Abbreviation | Meaning |
 |--------------|---------|
 | CrCl | Creatinine clearance |

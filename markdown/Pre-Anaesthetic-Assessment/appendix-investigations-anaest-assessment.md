@@ -1,5 +1,4 @@
-# APPENDIX: RECOMMENDED PRE-ANAESTHETIC INVESTIGATIONS
-
+# Appendix: Recommended Pre-Anaesthetic Investigations
 <!-- METADATA
 category: Investigations, Appendix
 use_case: Recommended pre-anaesthetic investigations — routine_investigations_by_age, investigations_by_clinical_indication, FBC, renal_profile, ECG, CXR, liver_function_test, blood_glucose, ABG, coagulation_screen, lung_function_test, thyroid_function_test, cardiac_function_tests, major_surgery_definition, investigation_validity_periods, 1_week_validity, 1_month_validity, 6_month_validity, repeat_investigation_criteria
@@ -11,9 +10,9 @@ output: investigation_selection, routine_test_orders, indicated_test_orders, val
 
 The nature and extent of pre-anaesthetic investigations depend on the patient's age, presence of any co-morbid condition, as well as the nature and extent of the planned surgical procedure.
 
-Routine investigations, listed in **Table I: Routine Investigations for Patients Undergoing Anaesthesia**, are solely based on age and nature of surgery, for asymptomatic patients without abnormal clinical findings. For healthy patients undergoing short, minimally invasive procedures, investigations may not be necessary. Investigations listed in **Table II: List of pre-anaesthetic investigations and their indications** are for patients with abnormal clinical findings.
+Routine investigations, listed in Table I: Routine Investigations for Patients Undergoing Anaesthesia, are solely based on age and nature of surgery, for asymptomatic patients without abnormal clinical findings. For healthy patients undergoing short, minimally invasive procedures, investigations may not be necessary. Investigations listed in Table II: List of pre-anaesthetic investigations and their indications are for patients with abnormal clinical findings.
 
-## TABLE I: Routine Investigations for Patients Undergoing Anaesthesia
+Table I: Routine Investigations For Patients Undergoing Anaesthesia
 
 | Routine Investigation | Indication |
 |---|---|
@@ -25,7 +24,7 @@ Routine investigations, listed in **Table I: Routine Investigations for Patients
 
 *\*Major surgery is empirically defined as one in which the cranium, thorax or abdomen is opened or when the anticipated blood loss is significant and exceeds 15% of total blood volume.*
 
-## TABLE II: List of pre-anaesthetic investigations and their indications
+Table Ii: List Of Pre-Anaesthetic Investigations And Their Indications
 
 | Investigation | Indication |
 |---|---|

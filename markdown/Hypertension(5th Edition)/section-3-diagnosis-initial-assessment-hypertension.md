@@ -1,5 +1,4 @@
-# SECTION 3: DIAGNOSIS AND INITIAL ASSESSMENT
-
+# Section 3: Diagnosis And Initial Assessment
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Hypertension Diagnosis & Initial Assessment — history, physical_exam, investigations, secondary_cause_screening, TOD_assessment, risk_stratification, follow_up_scheduling
@@ -7,8 +6,7 @@ patient_input: blood_pressure_readings, symptoms, family_history, medication_his
 output: secondary_cause_evaluation, TOD_status, cardiovascular_risk_level, follow_up_schedule, referral_indications
 -->
 
-## Diagnosis and Initial Assessment
-
+## Diagnosis And Initial Assessment
 Evaluation of patients with documented hypertension has three objectives:
 1. To exclude secondary causes of hypertension. (Table 3-A:  Secondary Causes of Hypertension)
 2. To ascertain the presence of target organ damage or complication. (Table 3-B: Manifestations of Target Organ Damage (TOD) / Target Organ Complication (TOC))
@@ -52,8 +50,9 @@ Physical examination should include the following:
 If the examination or investigations suggest the presence of a secondary causes, the patient should be referred for specialist evaluation. If there is evidence of TOD or TOC (Table 3-B: Manifestations of Target Organ Damage (TOD) / Target Organ Complication (TOC)), further tests should be considered.
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### Table 3-A: Secondary Causes of Hypertension
+Table 3-A: Secondary Causes Of Hypertension
 
 - Parenchymal kidney disease
 - Renovascular disease
@@ -74,7 +73,7 @@ If the examination or investigations suggest the presence of a secondary causes,
 
 ---
 
-### Table 3-B: Manifestations of Target Organ Damage (TOD) / Target Organ Complication (TOC)
+Table 3-B: Manifestations Of Target Organ Damage (Tod) / Target Organ Complication (Toc)
 
 | Organ | Manifestations |
 |---|---|
@@ -90,7 +89,7 @@ TOC = Target organ complication (heart failure, renal failure)
 
 ---
 
-### Table 3-C: Co-existing Cardiovascular Risk Factors for Risk Stratification
+Table 3-C: Co-Existing Cardiovascular Risk Factors For Risk Stratification
 
 - Diabetes mellitus
 - Dyslipidaemia
@@ -104,7 +103,7 @@ Following initial clinical evaluation and investigations, the patient should be 
 
 ---
 
-### Table 3-D: Risk Stratification
+Table 3-D: Risk Stratification
 
 | Co-Existing Condition / BP Levels (mmHg) | No RF, No TOD, No TOC | TOD or RF (1-2), No TOC | TOC or RF(≥3) or Clinical atherosclerosis or CKD | Previous MI / IHD, Previous stroke or Diabetes or CKD |
 |---|---|---|---|---|
@@ -127,7 +126,7 @@ Clinical atherosclerosis = CHD, carotid stenosis, peripheral vascular disease, t
 
 ---
 
-### Table 3-E: Recommendations for Follow-Up Visit Based on Initial Blood Pressure Measurements for Adults
+Table 3-E: Recommendations For Follow-Up Visit Based On Initial Blood Pressure Measurements For Adults
 
 | Initial BP (mmHg) Systolic | | Initial BP (mmHg) Diastolic | Recommended follow-up |
 |---|---|---|---|
@@ -141,8 +140,8 @@ Clinical atherosclerosis = CHD, carotid stenosis, peripheral vascular disease, t
 [Level III] Modified from JNC-VII
 
 ---
-## Level of Evidence
 
+## Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |

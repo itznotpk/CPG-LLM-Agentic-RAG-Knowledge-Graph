@@ -1,5 +1,4 @@
-# SECTION 8: TREATMENT
-
+# Section 8: Treatment
 <!-- METADATA
 category: Treatment
 use_case: Primary and Adjuvant Treatment — surgery, fertility_preservation, trachelectomy, hysterectomy, CCRT, brachytherapy, adjuvant_RT, NAC, sentinel_nodes, laparoscopic_surgery
@@ -11,14 +10,12 @@ treatment_type: conisation, trachelectomy, hysterectomy, radical_hysterectomy, P
 
 - Patients' involvement in decision-making is essential in the management of cervical cancer.
 
-## a. Primary Treatment
-
+## A. Primary Treatment
 Surgery is the preferred modality of treatment for early stage cervical cancer, if it is not contraindicated. [Level I] Similar survival outcomes have been reported in surgically treated early stage cervical cancer compared with RT. It also has the advantage of preserving coital and ovarian function in young patients.
 
-### i. Surgery
+### I. Surgery
 
-#### Fertility-preserving surgery
-
+#### Fertility-Preserving Surgery
 [Level III] Cervical cancer is the third most common cancer in women younger than 40 years. Up to 42% of all cervical cancers are diagnosed in women before the age of 45 years, and up to 40% of early cervical cancers are diagnosed in young women who are potentially interested in a fertility-preserving surgery. [Level III] Therefore, simple and radical trachelectomy has been increasingly used.
 
 Fertility-preserving surgery may be considered in young patients with early stage cervical cancer. The surgical options include cervical conisation, large loop excision of transformation zone (LLETZ), simple and radical trachelectomy via vaginal or abdominal approaches. These procedures may be combined with pelvic lymph nodes dissection (PLND).
@@ -64,15 +61,13 @@ The following criteria can be used as a guide for choosing modality of surgery w
 - Intra-operative frozen section is preferred to assess surgical margins and suspicious nodes during simple and radical trachelectomy with pelvic lymph nodes dissection in fertility-preserving cervical cancer surgery.
 
 ## Recommendation 3
-
 - Women with early stage cervical cancer desiring fertility preservation is preferably managed by gynae-oncologists and the following may be offered:
   - FIGO stage IA1: cervical conisation without pelvic lymph node dissection (PLND)
   - FIGO stage IA2: cold knife cervical conisation with PLND
   - Microscopic FIGO stage IB1: simple trachelectomy with PLND
   - FIGO stage IB1: radical trachelectomy with PLND
 
-#### Non-fertility-preserving surgery
-
+#### Non-Fertility-Preserving Surgery
 Simple hysterectomy is the standard treatment for FIGO stage IA1 cervical cancer, while simple hysterectomy and PLND is the treatment of choice for FIGO stage IA2.
 
 [Level II-2] RH and PLND is the preferred treatment for FIGO stage IB1 cervical cancer, if there are no contraindications to surgery. Simple hysterectomy and PLND may be an alternative for small volume (microscopic) FIGO stage IB1 cervical cancer with excellent prognosis.
@@ -92,7 +87,6 @@ Controversy arises over the best primary management options for bulky tumour >4 
 [Level II-2] There is no significant difference in survival rate between SCC and AC in patients with confirmed metastasis on the removed ovaries (p>0.05).
 
 ## Recommendation 4
-
 - In women with early stage cervical cancer who do not require fertility preservation,
   - simple/extrafascial hysterectomy should be performed for FIGO stage IA1 cervical cancer.
   - simple/extrafascial hysterectomy with pelvic lymphadenectomy may be performed for FIGO stage IA2.
@@ -100,7 +94,7 @@ Controversy arises over the best primary management options for bulky tumour >4 
   - concurrent chemoradiotherapy is the preferred treatment for bulky cervical cancer (FIGO stage IB2 and IIA2).
   - ovarian preservation during radical surgery may be offered in young patients with early stage squamous cell carcinoma of cervix. However in adenocarcinoma, bilateral salphingo-oophorectomy should be performed.
 
-#### Laparoscopic and Robotic Surgery
+#### Laparoscopic And Robotic Surgery
 Laparoscopic and robotic surgeries in oncology are getting more attention with the advancement in the field of minimally invasive surgery.
 
 [Level I] In a Cochrane systematic review, there was no reliable evidence in the efficacy, safety and long term outcomes of laparoscopic-assisted vaginal radical hysterectomy in the treatment of early stage cervical cancer.
@@ -112,8 +106,7 @@ Laparoscopic and robotic surgeries in oncology are getting more attention with t
 - Laparoscopic and robotic radical hysterectomy has short-term benefits but require further evidence on long term outcomes before any recommendation can be made.
 - Laparoscopic and robotic radical hysterectomy should be performed by trained personnel in the presence of a gynae-oncologist.
 
-#### Sentinel Nodes (SN)
-
+#### Sentinel Nodes (Sn)
 Systematic lymphadenectomy followed by histological assessment is the standard technique currently used to detect nodal spread. In histologically proven nodal metastases, CCRT is the primary treatment. According to the SN hypothesis, histologically tumour-negative SN predicts that the remaining lymph nodes will be tumour-free.
 
 [Level III] There is a higher probability in determining lymph node status in cervical cancer by SN biopsy compared with imaging methods such as CT scan, MRI and PET scan (OR=18.49, 95% CI 3.59 to 95.17). [Level III] In a meta-analysis of 21 studies, the pooled sensitivity of positive SN in detecting nodal metastasis was 89% (95% CI 83 to 94) with no significant difference in detection techniques used (p=0.17).
@@ -121,11 +114,9 @@ Systematic lymphadenectomy followed by histological assessment is the standard t
 [Level III] There is no significant difference in the detection rate of SN using either 99mTc or blue dye and also in the methods in identifying and retrieving SN (laparotomy versus laparoscopy). [Level III] Combined 99mTc and blue dye has a significantly higher SN detection rate compared to 99mTc or blue dye alone (97%, 88% and 84% respectively).
 
 ## Recommendation 5
-
 - Sentinel nodes detection may be considered to detect nodal metastasis in early stage cervical cancer where facilities are available.
 
-### ii. Definitive Chemoradiotherapy/Radiotherapy
-
+### Ii. Definitive Chemoradiotherapy/Radiotherapy
 The role of definitive chemoradiotherapy in FIGO stage IB2 and above is well established. The treatment consists of external beam radiotherapy (EBRT) 45-50.4 Gray (Gy) in 25-28 fractions over five to six weeks concurrent with weekly cisplatin-based chemotherapy and brachytherapy. The recommended total tumour dose in 2 Gy per fraction radiobiologic equivalence to Point A is 80 to 90 Gy, depending on the initial stage of the disease.
 
 Earlier RCTs have shown that CCRT is superior to RT alone for LACC. This treatment has been the standard of care for LACC since 1999.
@@ -141,19 +132,17 @@ Intracavitary brachytherapy (ICBT) is an essential part of RT for cervical cance
 The treatment time (from first fraction of RT to the last fraction of RT or brachytherapy) should not be more than 56 days as this would adversely affect the local control rate. [Level II-1] However, this is not associated with distant failure or disease-specific mortality.
 
 ## Recommendation 6
-
 - Concurrent chemoradiotherapy should be given as the primary treatment in FIGO stage IB2 to IVA (locally advanced cervical cancer). The treatment time should not exceed eight weeks.
 - Intracavitary high dose rate or low dose rate brachytherapy should be given in locally advanced cervical cancer.
 
-## b. Adjuvant Treatment
+## B. Adjuvant Treatment
 
-### i. Surgery
-The role of adjuvant post-radiation hysterectomy for patients with FIGO stage IB2 cervical cancer has been a source of controversy since this  combined approach was first advocated. It is suggested that these bulky  tumours and the associated tumour hypoxia was better addressed by  hysterectomy than by additional intra-cavitary radiation. 
+### I. Surgery
+The role of adjuvant post-radiation hysterectomy for patients with FIGO stage IB2 cervical cancer has been a source of controversy since this  combined approach was first advocated. It is suggested that these bulky  tumours and the associated tumour hypoxia was better addressed by  hysterectomy than by additional intra-cavitary radiation.
 
 In a large RCT, adjuvant surgery with extrafascial hysterectomy after radiation in FIGO stage IB cervical cancer had no clinical benefit compared with no adjuvant surgery. Even though there was a trend towards reduction in progression of disease and death but it was non-significant (RR for progression=0.77, p=0.07; RR for death=0.89, p=0.26). This may be due to lower cumulative incidence of local relapse (14% vs 27%) but higher distant progression (20% vs 16%) in the adjuvant surgery group at five years. Further analysis showed a significant 28% reduction in progression of disease in bigger tumours (4 to 6 cm) in the adjuvant surgery group. [Level I] The rates of grade 3 and 4 adverse events were similar at 10% in both groups.
 
 [Level II-2] In cervical cancer patients with localised residual disease after primary radiation therapy, adjuvant hysterectomy is an effective salvage procedure even in patients with FIGO stage III disease and in those with non-SCC. The 5-year survival rate in the adjuvant surgery group is significantly higher than the group without adjuvant surgery (68.6% vs 14.5%). Apart from that:
-
 - there is no difference in survival between SCC and non-SCC (p=0.6862).
 - there is a trend for better survival of smaller tumours compared with larger tumours, although non-significant (p=0.053).
 
@@ -164,18 +153,15 @@ In a large RCT, adjuvant surgery with extrafascial hysterectomy after radiation 
 - No patients develop late toxicity such as fistulae, wound dehiscence or bowel stenosis.
 
 ## Recommendation 7
-
 - Adjuvant surgery should not be routinely offered in cervical cancer.
 - Hysterectomy after primary radiation therapy may be offered as a salvage procedure in cervical cancer with bulky primary tumour >4 cm or post-treatment localised residual tumour.
 
-### ii. Chemotherapy
-
+### Ii. Chemotherapy
 Adjuvant chemotherapy is chemotherapy given after primary treatment. In a multi-centered open label RCT, the addition of gemcitabine to standard CCRT, followed by adjuvant chemotherapy with gemcitabine and cisplatin improved OS (HR=0.68, 95%CI 0.49 to 0.95) and PFS (HR=0.68, 95% CI 0.49 to 0.95). The addition of gemcitabine increased grade 3/4 acute haematological (neutropenia) and non-haematological toxicities (vomiting and diarrhoea). When further analysed, the gemcitabine-related toxicities occurred mostly during the pre-adjuvant phase. [Level I] There was no difference in the incidence of late toxicities with or without gemcitabine.
 
 In view of the different regime used as primary treatment in the RCT, further studies are warranted before any recommendation can be made on adjuvant chemotherapy in cervical cancer.
 
-### iii. Chemoradiotherapy/Radiotherapy
-
+### Iii. Chemoradiotherapy/Radiotherapy
 - [Level I] Pathological factors that increase the risk of recurrence for early cervical cancer following radical surgery:
   - positive lymph nodes
   - parametrial or vaginal margin involvement
@@ -196,14 +182,12 @@ Two meta-analyses have shown that chemoradiotherapy is more efficacious than RT 
 [Level I] Adjuvant RT alone reduces risk of local recurrence (HR=0.6, 95% CI 0.4 to 0.9) without improvement of OS in FIGO stage IB cervical cancer compared to no further treatment. Adverse events are not significantly increased.
 
 ## Recommendation 8
-
 - Adjuvant chemoradiotherapy should be considered in cervical cancer patients with high risk of recurrence* after radical surgery.
 - Patients with cervical cancer who are medically unfit for chemoradiotherapy may be offered adjuvant radiotherapy alone.
 
 *Refer to Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 
-### iv. Neoadjuvant Chemotherapy (NAC)
-
+### IV. Neoadjuvant Chemotherapy (Nac)
 CCRT is the standard treatment for early stage cervical cancer with bulky disease and locally advanced cervical cancer. NAC is used to downstage the tumour prior to surgery.
 
 [Level I] In a Cochrane systematic review, NAC followed by surgery, with or without RT, improved OS (OR=0.65, 95% CI 0.53 to 0.80) compared to RT alone in FIGO stage IB - IVA cervical cancer.
@@ -221,8 +205,8 @@ In one of the reviews, there was insufficient data for quantitative analysis on 
 - Neoadjuvant chemotherapy is not routinely recommended for patients in cervical cancer due to debatable evidence and the decision should be made at the discretion of treating gynae-oncologist/oncologist.
 
 ## Contextual Anchors (Overlapping)
-### Appendix 5: Revised FIGO Cervical Cancer Staging 2009
 
+### Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | Stage | Description |
 |---|---|
 | I | The carcinoma is strictly confined to the cervix (extension to the uterus corpus should be disregarded). |
@@ -245,7 +229,6 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 ---
 
 ### Appendix 6: Modified Delgado's Prognostic Risk Scoring System
-
 | Variable | Relative risk |
 |---|---|
 | **Depth of tumour penetration (mm) - Superficial** | |
@@ -289,8 +272,7 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 
 ---
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -299,8 +281,7 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AC | Adenocarcinoma |

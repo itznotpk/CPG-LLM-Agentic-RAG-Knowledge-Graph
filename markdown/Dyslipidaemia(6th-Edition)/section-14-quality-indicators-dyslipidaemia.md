@@ -1,5 +1,4 @@
-# SECTION 14: QUALITY INDICATORS & PERFORMANCE MEASURES
-
+# Section 14: Quality Indicators & Performance Measures
 <!-- METADATA
 category: Reference
 use_case: Clinical audit parameters and quality indicators for guideline implementation — performance_measures, clinical_audit, primary_care, secondary_prevention_audit
@@ -9,8 +8,7 @@ output: quality_metrics, audit_numerator_denominator, performance_targets
 
 This CPG recommends the following audit parameters:
 
-## Primary Prevention — At Klinik Kesihatan (for follow up patients only)
-
+## Primary Prevention — At Klinik Kesihatan (For Follow Up Patients Only)
 *   **Was a CV risk stratification performed?**
     *   Numerator: number of adults > 30 years who were risk stratified.
     *   Denominator: number of adults > 30 years seen at that clinic session.
@@ -27,8 +25,7 @@ This CPG recommends the following audit parameters:
     *   Numerator: number of adults > 30 years who achieved the LDL-C target.
     *   Denominator: number of adults > 30 years seen at that clinic session who had a lipid target stated < 6 months prior to current visit.
 
-## Secondary Prevention — At follow up in cardiac clinic/general medical clinic (within 3 months of discharge after an admission for ACS/Stable CHD)
-
+## Secondary Prevention — At Follow Up In Cardiac clinic/general Medical Clinic (Within 3 Months Of Discharge After An Admission For ACS/Stable Chd)
 *   **Is the patient on a statin?**
     *   Numerator: number of patients who were discharged on statins.
     *   Denominator: number of patients seen at that clinic session who had ACS/Stable CHD.
@@ -55,8 +52,7 @@ This CPG recommends the following audit parameters:
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -74,8 +70,7 @@ This CPG recommends the following audit parameters:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

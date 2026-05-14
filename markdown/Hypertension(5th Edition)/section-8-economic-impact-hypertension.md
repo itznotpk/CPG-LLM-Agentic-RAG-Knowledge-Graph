@@ -1,5 +1,4 @@
-# SECTION 8: ECONOMIC IMPACT OF HYPERTENSION
-
+# Section 8: Economic Impact Of Hypertension
 <!-- METADATA
 category: Introduction, Reference
 use_case: Economic Impact of Hypertension — healthcare_cost, cost_effectiveness, direct_indirect_cost, generic_drugs, community_interventions, QALY, renal_replacement_therapy
@@ -7,8 +6,7 @@ patient_input: none
 output: cost_analysis, cost_effectiveness_evidence, policy_recommendations
 -->
 
-## Economic Impact of Hypertension
-
+## Economic Impact Of Hypertension
 Hypertension and its sequelae results in a huge healthcare burden. It is the major risk factor for stroke, MI, HF and end-stage renal disease. More than half of hypertensives are unaware and almost two thirds of patients on treatment are not controlled.
 
 The cost of treating hypertension consists of direct and indirect cost. Direct cost includes the cost of treatment (drugs, investigations, healthcare providers time and transportation) whereas indirect cost measures the income lost due to hypertension and its complications. A difficult to measure indirect cost would be the cost to society in managing patients with sequelae of hypertension (e.g. managing patients with a hypertensive bleed, hypertensive heart and renal failure).
@@ -27,14 +25,8 @@ The vast majority of antihypertensive drugs are now off patent, making generics 
 
 Hypertension is responsible for at least 45% and 51% of deaths from heart disease and stroke respectively. A more concerted effort should be taken for the early diagnosis and better control of hypertension. This will reduce the direct and indirect cost of treating hypertension and its complications to the patients, family, society and the government as a whole.
 
-## SUMMARY
-
+## Summary
 - Treating hypertension is cost effective especially with the widespread availability of generic drugs.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - Conduct more awareness programmes on clinical and economic benefits in prevention and early treatment of hypertension.
-
-
-
-

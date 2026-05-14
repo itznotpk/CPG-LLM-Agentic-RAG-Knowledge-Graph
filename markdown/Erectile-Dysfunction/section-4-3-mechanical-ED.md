@@ -1,5 +1,4 @@
-# SECTION 4.3: Mechanical Treatment
-
+# Section 4: .3: Mechanical Treatment
 <!-- METADATA
 parent_section: SECTION 4: TREATMENT
 category: treatment
@@ -18,8 +17,7 @@ output: device_selection, treatment_protocol
 <!-- Purpose: When to consider mechanical as alternative          -->
 <!-- ============================================================ -->
 
-## When to Consider Mechanical Treatment
-
+## When To Consider Mechanical Treatment
 | Indication | Recommended Device |
 |------------|-------------------|
 | PDE5i contraindicated (nitrates, high CV risk) | VED (safe, no systemic effects) |
@@ -31,10 +29,9 @@ output: device_selection, treatment_protocol
 
 ---
 
-## 4.3.1 Vacuum Erection Device (VED)
+### 4.3.1: Vacuum Erection Device (Ved)
 
 ### Effectiveness
-
 | Outcome | Success Rate |
 |---------|--------------|
 | Ability to maintain an erection | 96.0% |
@@ -44,12 +41,10 @@ output: device_selection, treatment_protocol
 | Female partners rated sex as better | 83.8% |
 
 ### Patient Experience
-
 - **Physical discomfort:** 23% (difficulties placing bands, sliding on penis, removing after sex, pain)
 - **Psychological discomfort:** 9.1% (frustration, lack of spontaneity)
 
-### Combination with PDE5i
-
+### Combination With PDE5i
 **VED + Sildenafil 100 mg** vs sildenafil alone showed:
 - Significantly higher IIEF scores at one month and three months
 - Significantly higher rates of successful penetration and successful intercourse at three months
@@ -57,11 +52,9 @@ output: device_selection, treatment_protocol
 > **For partial PDE5i responders:** Consider adding VED to improve outcomes.
 
 ### Adverse Events
-
 - Penile bruising and numbness (mostly mild)
 
 ### Application Steps (Summary)
-
 1. Lubricate constricting band and place around chamber
 2. Apply lubricant to base of penis
 3. Insert penis into chamber
@@ -73,10 +66,9 @@ output: device_selection, treatment_protocol
 
 ---
 
-## 4.3.2 Low-Intensity Extracorporeal Shockwave Therapy (Li-ESWT)
+### 4.3.2: Low-Intensity Extracorporeal Shockwave Therapy (Li-Eswt)
 
 ### Effectiveness
-
 | Outcome | Finding |
 |---------|---------|
 | Target population | Young patients with vasculogenic mild ED |
@@ -85,13 +77,11 @@ output: device_selection, treatment_protocol
 | PDE5i non-responders | Enhanced medication responses |
 
 ### Best Candidates
-
 - Younger men with mild to moderate ED
 - Those with fewer co-morbidities
 - Vasculogenic etiology
 
 ### Treatment Protocol
-
 | Parameter | Recommendation |
 |-----------|----------------|
 | Frequency | Once or twice a week |
@@ -99,7 +89,6 @@ output: device_selection, treatment_protocol
 | Progress expected | After 3-4 sessions |
 
 ### Safety
-
 - No pain or external scarring
 - Resume daily regular activity after procedure
 - Side effects (if any) usually mild and temporary
@@ -109,7 +98,6 @@ output: device_selection, treatment_protocol
 ---
 
 ## Recommendation 4
-
 - Mechanical devices (e.g. vacuum erection device or shockwave therapy) may be offered in erectile dysfunction (ED).
 - Low-intensity extracorporeal shockwave therapy should be performed by urologists for mild to moderate ED.
 
@@ -122,16 +110,14 @@ output: device_selection, treatment_protocol
 
 ## If Mechanical Treatment Fails
 
-### Next Options (from Section 4.4)
-
+### Next Options (From Section 4.4)
 | If Failed | Consider |
 |-----------|----------|
 | VED alone | Add PDE5i (if not contraindicated) |
 | Li-ESWT | Continue with daily PDE5i regimen |
 | Both VED and Li-ESWT | Penile Prosthesis (surgical) |
 
-### Penile Prosthesis Overview (from Section 4.4)
-
+### Penile Prosthesis Overview (From Section 4.4)
 Used when other types of treatment modalities have failed:
 
 | Type | Description | Best For |

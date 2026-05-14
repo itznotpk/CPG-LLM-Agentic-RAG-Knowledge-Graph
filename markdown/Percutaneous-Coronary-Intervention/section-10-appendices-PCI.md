@@ -1,10 +1,9 @@
-# SECTION 10: APPENDICES
-
+# Section 10: Appendices
 <!-- METADATA
 category: Reference, Classification
 use_case: general_principles_of_management_in_pci
-patient_input: 
-output: 
+patient_input:
+output:
 critical: false
 -->
 
@@ -12,10 +11,9 @@ critical: false
 
 ---
 
-## 10. Appendices
+## 10: Appendices
 
-### APPENDIX I: CONTRAINDICATIONS TO FIBRINOLYTIC THERAPY
-
+### Appendix I: Contraindications To Fibrinolytic Therapy
 **Absolute contraindications**
 *   **Risk of Intracranial haemorrhage**
     *   Any history of intracranial haemorrhage
@@ -47,8 +45,7 @@ critical: false
 
 ---
 
-### APPENDIX II: CLASSIFICATION OF TIMI FLOW
-
+### Appendix II: Classification Of Timi Flow
 | GRADE | DESCRIPTION |
 |---|---|
 | 0 | Complete occlusion of the infarct related artery |
@@ -58,8 +55,7 @@ critical: false
 
 ---
 
-### APPENDIX III: CLASSIFICATION OF TIMI MYOCARDIAL PERFUSION GRADE(TMP)
-
+### Appendix III: Classification Of Timi Myocardial Perfusion GRADE(TMP)
 | TMP GRADE | DESCRIPTION |
 |---|---|
 | 0 | Failure of dye to enter the microvasculature. Either minimal or no ground-glass appearance ("blush") or opacification of the myocardium in the distribution of the culprit artery, indicating lack of tissue-level perfusion. |
@@ -69,8 +65,7 @@ critical: false
 
 ---
 
-### APPENDIX IV: CLASSIFICATION OF UNSTABLE ANGINA*
-
+### Appendix IV: Classification Of Unstable Angina*
 | Severity | CLINICAL CIRCUMSTANCES: A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES: B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES: C<br>Develops Within 2 wk of MI (Postinfarction UA) |
 |---|---|---|---|
 | **I** — New onset of severe angina or accelerated angina; no rest pain | [Grade I, Level A] | [Grade I, Level B] | [Grade I, Level C] |
@@ -79,8 +74,7 @@ critical: false
 
 ---
 
-### APPENDIX V: TIMI RISK SCORE FOR UA/NSTEMI
-
+### Appendix V: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 |---|---|
 | 0-1 | 4.7 |
@@ -108,8 +102,7 @@ Total Score = 7 points
 
 ---
 
-### APPENDIX VI: CLASSIFICATION OF ANGINA SEVERITY
-
+### Appendix VI: Classification Of Angina Severity
 Classification of angina severity according to the Canadian Cardiovascular Society
 
 | Class | Level of symptoms |
@@ -121,8 +114,7 @@ Classification of angina severity according to the Canadian Cardiovascular Socie
 
 ---
 
-### APPENDIX VII: RISK FACTOR GOALS IN PATIENTS WITH CAD
-
+### Appendix VII: Risk Factor Goals In Patients With Cad
 | | RISK FACTOR GOALS IN PATIENTS WITH CAD |
 |---|---|
 | **Smoking** | Quit |
@@ -132,8 +124,7 @@ Classification of angina severity according to the Canadian Cardiovascular Socie
 
 ---
 
-### APPENDIX VIII: CALCULATION OF CREATININE CLEARANCE
-
+### Appendix VIII: Calculation Of Creatinine Clearance
 Estimated GFR (ml/min) = ((140 - age) x weight) / (0.814 x S~Cr~ [µmol/L])  or  1.2 (140 - age) / S~Cr~ [µmol/L]
 
 S~Cr~: serum creatinine
@@ -142,8 +133,7 @@ Women: multiplication with 0.85
 
 ---
 
-### APPENDIX IX: COMMONLY USED IODINATED CONTRAST AGENTS
-
+### Appendix IX: Commonly Used Iodinated Contrast Agents
 | Compound | Name | Type | Iodine Content | Osmolality | Level |
 |---|---|---|---|---|---|
 | Ionic | Ioxaglate (Hexabrix) | Ionic Dimer | 320 | 580 | Low osmolar |
@@ -154,8 +144,7 @@ Women: multiplication with 0.85
 
 ---
 
-### APPENDIX XI: MEDINA CLASSIFICATION OF BIFURCATION LESIONS
-
+### Appendix XI: Medina Classification Of Bifurcation Lesions
 In the Medina classification, a binary value (1, 0) is given to each of the 3 components of a bifurcation according to whether each of these segments is compromised (lesion > 50%) or not (0).
 
 The classification format is **(Main Branch Proximal, Main Branch Distal, Side Branch)**:
@@ -169,8 +158,7 @@ The classification format is **(Main Branch Proximal, Main Branch Distal, Side B
 
 ---
 
-### APPENDIX XII: CLASSIFICATION OF INSTENT RESTENOSIS (ISR)
-
+### Appendix XII: Classification Of Instent Restenosis (Isr)
 **Class I: Focal ISR group (ISR Pattern I: Focal)**
 Lesions are ≤10 mm in length and are positioned at the unscaffolded segment (ie, articulation or gap), the body of the stent, the proximal or distal margin (but not both), or a combination of these sites (multifocal ISR).
 Subtypes include:
@@ -190,8 +178,7 @@ Lesions have a TIMI flow grade of 0.
 
 ---
 
-### APPENDIX XIII: GRADE OF RECOMMENDATION AND LEVEL OF EVIDENCE (ACC/AHA and ESC Classification) FOR SECONDARY PREVENTION OF CAD
-
+### Appendix XIII: Grade Of Recommendation And Level Of Evidence (ACC/AHA And Esc Classification) For Secondary Prevention Of Cad
 | STRATEGY | RECOMMENDATION | COMMENTS |
 |---|---|---|
 | Smoking Cessation | [Grade I, Level C] | |
@@ -209,8 +196,7 @@ Lesions have a TIMI flow grade of 0.
 
 ### Overlapped Reference Tables
 
-#### Grades of Recommendation
-
+#### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -219,8 +205,7 @@ Lesions have a TIMI flow grade of 0.
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-#### Levels of Evidence
-
+#### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -229,8 +214,7 @@ Lesions have a TIMI flow grade of 0.
 
 <!-- END OVERLAPPED CONTENT -->
 
-### Abbreviations Used in this Section
-
+### Abbreviations Used In This Section
 - **ACC**: American College of Cardiology
 - **ACEI**: Angiotensin Converting Enzyme Inhibitors
 - **AF**: Atrial Fibrillation

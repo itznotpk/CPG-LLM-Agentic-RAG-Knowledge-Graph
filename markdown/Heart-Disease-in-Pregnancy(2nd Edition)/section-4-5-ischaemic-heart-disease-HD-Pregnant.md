@@ -1,5 +1,4 @@
-# SECTION 4.5: ISCHAEMIC HEART DISEASE AND ACS
-
+# Section 4: .5: Ischaemic Heart Disease And ACS
 <!-- METADATA
 category: Diagnosis, Treatment, Prevention, Special Populations
 use_case: Ischaemic Heart Disease and Acute Coronary Syndromes in Pregnancy — ACS_diagnosis, STEMI_management, PCI, fibrinolysis, secondary_prevention, intrapartum_postpartum_care
@@ -9,21 +8,17 @@ critical: true
 treatment_type: aspirin, low_molecular_weight_heparin, nifedipine, clopidogrel, PCI, fibrinolysis
 -->
 
-
-## 4.5 Ischaemic heart disease and acute coronary syndromes
-
+## 4.5: Ischaemic Heart Disease And Acute Coronary Syndromes
 Ischaemic heart disease (IHD) is uncommon during pregnancy. Pregnancy however, increases the risk of an acute myocardial infarction (MI) by 3-4 fold. However with the changing lifestyle that includes cigarette smoking, diabetes and stress, the prevalence of IHD in women is increasing. With more women delaying childbearing until older age, the incidence of acute coronary syndrome (ACS) during pregnancy may occur more frequently.
 
 Although rare, ACS during pregnancy may have devastating consequences. The incidence of acute MI is estimated at 6 to 10 per 100,000 pregnancies with maternal mortality being 5.1% to 37%. Fetal death occurs in 12% to 34% of cases. Pregnant women with pre-existing CAD or ACS/MI before pregnancy are at increased risk of adverse events during pregnancy.
 
 Most maternal deaths occur:
-
 - at index MI
 - within two weeks of MI
 - usually in association with labour and delivery
 
 Acute MI may occur at any stage of the pregnancy. It is more common in:
-
 - women older than 30 years of age
 - multigravida
 - smokers
@@ -35,12 +30,10 @@ ACS in pregnancy also constitutes an important problem for the patient and the t
 
 With the application of PCI, maternal mortality rate has dropped from 20% to 5%.
 
-### 4.5.1 Pathophysiology, symptoms and diagnosis
-
+### 4.5.1: Pathophysiology, Symptoms And Diagnosis
 Atherosclerosis appears to be the most common cause, although coronary spasm, coronary dissection and thrombus have also been reported. Coronary atherosclerosis was the primary cause of MI in the antepartum group, while in the postpartum period, coronary dissection was the primary cause of ACS.
 
 Symptoms of ACS include:
-
 - severe or progressive dyspnoea
 - syncope with exertion
 - chest pain related to effort or emotion
@@ -48,7 +41,6 @@ Symptoms of ACS include:
 These can mimic common symptoms of pregnancy and hence the diagnosis of ACS is often missed. Chest discomfort is rarely attributed to heart problems in, otherwise healthy, pregnant women.
 
 The diagnostic tests for ACS in the pregnant women can be challenging. Investigations include:
-
 - ECG
   - In normal pregnant patients, the ECG may show non-specific changes such as left- or right-axis deviation, small Q wave in lead III, T wave inversion, or an increased R/S ratio in leads V1 and V2. This may cause confusion in the diagnosis of MI.
 - Cardiac biomarkers
@@ -56,12 +48,10 @@ The diagnostic tests for ACS in the pregnant women can be challenging. Investiga
 - Coronary angiography
   - Where indicated, coronary angiography should be performed ensuring that radiation is kept to a minimum. (refer to section 3.6: Intervention and Surgery in Pregnancy and Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures)
 
-### 4.5.2 Management of ACS in pregnancy
-
+### 4.5.2: Management Of ACS In Pregnancy
 Treatment of ACS is not based on randomised trials, but on limited data from case reports, observational studies and clinical individual experience.
 
 Treatment of STEMI involves:
-
 - [Grade II-a, Level C] Primary percutaneous coronary intervention (PCI) -
   - Treatment of choice if facilities are available and it can be performed in a timely manner.
   - Main concerns are radiation and the need for dual antiplatelet agents (DAPT). The latter may predispose to bleeding complications and preclude the use of epidural analgesia/ anaesthesia during labour. For these reasons, bare metal stents are generally preferred in pregnancy.
@@ -72,13 +62,11 @@ Treatment of STEMI involves:
   - [Grade III, Level C] Fibrinolysis is contraindicated in MI's due to coronary dissections. It may cause propagation of the dissection and expansion of the intramural hematoma.
 
 If the STEMI is due to coronary dissection:
-
 - Fibrinolytic therapy is contraindicated.
 - A conservative approach is the treatment of choice if the patient is stable, without chest pains and the coronary vessel is open with TIMI 3 flow.
 - Primary Percutaneous Coronary Intervention (PCI) should be considered if the patient has ongoing pain, hemodynamic instability and/or flow limitation in a large epicardial vessel with a large area of myocardium at risk. The technical success of PCI and the long term results in these patients are much lower than in patients with atherosclerotic disease.
 
 Following acute MI, several drugs have been proven beneficial in secondary prevention. There is however, limited data in pregnancy of the safety of many of the drugs used for treatment of ACS. The following drugs are safe:
-
 - [Grade II-a, Level B] Low dose aspirin < 150 mg/day
 - [Grade II-a, Level B] Low molecular weight heparins
 - [Grade II-a, Level B] β-blockers
@@ -86,46 +74,38 @@ Following acute MI, several drugs have been proven beneficial in secondary preve
 - [Grade II-b, Level C] Long acting nitrates - at high dose nitrates may cause hypotension
 
 The following drugs must be used with caution or not at all:
-
 - [Grade II-b, Level C] Clopidogrel - Based on limited animal data this is categorised B by FDA. (Appendix B: Recommendations for Cardiovascular Drug Use during Pregnancy, Appendix C: Recommendations for Antibiotic Use during Pregnancy, Appendix D: Recommendations for Drug Use during Pregnancy) Should stop this 7 days prior to planned delivery.
 - [Grade III, Level C] Statins are contraindicated.
 
-### 4.5.3 Intrapartum
-
+### 4.5.3: Intrapartum
 [Grade II-a, Level C] Delivery should be postponed, if possible, for at least 2-3 weeks after MI as it may cause aggravation of heart failure and a theoretical risk of myocardial rupture.
 
 The mode of delivery should be individualised and determined by obstetric reasons and the clinical status of the mother.
 
-### 4.5.4 Postpartum
-
+### 4.5.4: Postpartum
 In the puerperium, patients with ACS are still at risk for new events - reinfarction, heart failure and arrhythmias. Therefore, clinical observation for at least 3 days after delivery is recommended.
 
 Patients should be followed-up by the cardiologist for risk assessment 6 weeks post-delivery.
 
-### 4.5.5 Prognosis
-
+### 4.5.5: Prognosis
 This would depend upon:
-
 - LV function - Impairment of left ventricular function is one of the main determinants of poor maternal and fetal outcome. If the LVEF is below 40%, patients should be counselled appropriately.
 - Arrhythmias
 - Presence of residual ischaemia
 
 The above indicators would determine the risk of future pregnancies in these patients. Wherever possible, residual coronary lesions should be treated appropriately. In patients who are already taking cardiovascular medications, the discontinuation or the switch to a 'safer' drug should be discussed before the next pregnancy.
 
-## Key messages:
-
+## Key Messages:
 - Ischaemic heart disease in pregnancy is uncommon but is increasing in prevalence due to the older age of mothers and higher prevalence of traditional risk factors (such as hypertension, diabetes mellitus, dyslipidaemia and obesity).
 - Management needs to be individualised and the risk : benefit ratio of therapeutic options (cardiac interventions e.g. PCI) and medications need to be considered.
 - Often, cardiac medications have to be continued despite the potential fetal risks.
 
 ## Contextual Anchors (Overlapping)
 
-### Section 3.6: Intervention and Surgery in Pregnancy
-
+### Section 3: .6: Intervention And Surgery In Pregnancy
 This content supports the Section 4.5.1: Pathophysiology, symptoms and diagnosis diagnostic recommendation that coronary angiography should be performed where indicated while keeping radiation to a minimum, and the Section 4.5.2: Management of ACS in pregnancy management recommendation for primary PCI in STEMI.
 
-#### Section 3.6.1: Percutaneous Therapy
-
+#### Section 3: .6.1: Percutaneous Therapy
 Wherever possible, cardiac intervention is preferably done after delivery. However, if an intervention is absolutely necessary, the best time to intervene is considered to be after the 4th month in the second trimester. By this time organogenesis is complete, the fetal thyroid gland is still inactive, and the volume of the uterus is still small, so there is a greater distance between the fetus and the chest than in later months. The disadvantage however, is that if there are any inadvertent maternal complications and the baby needs to be delivered, it will be very premature.
 
 The effect of radiation on the fetus depends on the radiation dose and the gestational age at which exposure occurs. If possible, procedures should be delayed until the completion of the period of major organogenesis (first trimester). There is no evidence of an increased fetal risk of congenital malformations, intellectual disability, FGR, or pregnancy loss at doses of radiation to the pregnant woman of < 50 mGy.
@@ -135,7 +115,6 @@ The effect of radiation on the fetus depends on the radiation dose and the gesta
 [Grade II-a, Level C] Heparin has to be given at 40-70 IU/kg, targeting an activated clotting time of 200-300 seconds.
 
 The following are safe in pregnancy when indicated:
-
 - [Grade II-a, Level C] Percutaneous mitral commisurotomy (PTMC) in patients with symptomatic mitral stenosis refractory to medical therapy.
 - [Grade I, Level C] Pregnant women with ST Elevation Myocardial Infarction (STEMI) - Primary Percutaneous Coronary Intervention (PCI) is preferred over thrombolysis due to the lower risk of haemorrhage. Spontaneous coronary dissection is an important cause of MI in the pregnant population. These patients should be treated conservatively unless there is ongoing ischemia or hemodynamic changes.
 - In general:
@@ -146,8 +125,7 @@ The following are safe in pregnancy when indicated:
 
 Invasive treatments during pregnancy (with the exception of primary PCI for STEMI) should only be used if the mother is symptomatic despite being on optimal medical therapy.
 
-#### Section 3.6.2: Cardiac Surgery with Cardiopulmonary Bypass
-
+#### Section 3: .6.2: Cardiac Surgery With Cardiopulmonary Bypass
 Maternal mortality during cardiopulmonary bypass is now similar to that in non-pregnant women who undergo comparable cardiac procedures. It is generally low but may be as high as 13.3% depending on the preoperative maternal cardiac status.
 
 However, fetal mortality rate is 14.3% to 38.5% and there is significant morbidity. For this reason cardiac surgery is recommended only when medical therapy or interventional procedures fail and the mother's life is threatened.
@@ -155,21 +133,18 @@ However, fetal mortality rate is 14.3% to 38.5% and there is significant morbidi
 Determining the optimal timing for cardiac surgery is critical and needs to be individualised. Early surgery will decrease maternal risk but increase fetal loss. Delaying cardiac surgery after delivery may be detrimental to the mother.
 
 Important strategies are as listed below:
-
 - Optimal timing of surgery - gestational age has an impact on fetal outcome.
   - [Grade II-a, Level C] The best period for surgery is in the second trimester. Surgery during the first trimester carries a higher risk of fetal loss, and during the third trimester there is a higher incidence of pre-term delivery and maternal complications.
   - [Grade II-a, Level C] After 28 weeks gestation, if cardiac surgery is indicated, the decision to deliver the baby before or after the surgery should be made in consultation with the multidisciplinary team, patient and family.
 - Patients should preferably be placed in the left lateral position to avoid aortocaval compression and impairment of uteroplacental blood flow.
 
 Key Message:
-
 - Invasive treatments during pregnancy (with the exception of primary PCI for STEMI) should only be used if the mother is symptomatic despite being on optimal medical therapy.
 - If cardiac surgery is indicated, determining the optimal timing is critical and needs to be individualised.
 
 ---
 
-### Appendix B: Recommendations for Cardiovascular Drug Use during Pregnancy
-
+### Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Aspirin (low dose) | B | Yes | Well tolerated | No teratogenic effects known (large data sets) |
@@ -206,8 +181,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 
 ---
 
-### Appendix C: Recommendations for Antibiotic Use during Pregnancy
-
+### Appendix C: Recommendations For Antibiotic Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Ampicillin, amoxicillin, cephalosporins, erythromycin, mezlocillin, penicillin | B | Yes | Yes | No fetal adverse effects reported |
@@ -226,8 +200,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 
 ---
 
-### Appendix D: Recommendations for Drug Use during Pregnancy
-
+### Appendix D: Recommendations For Drug Use During Pregnancy
 | Drug | FDA Category | Adverse Effects |
 |---|---|---|
 | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
@@ -254,8 +227,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 
 ---
 
-### Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures
-
+### Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
 | Conventional X-Ray examinations | Fetal dose | Fetal dose | Maternal Exposure* |
 |---|---|---|---|
 |  | Mean (mGy) | Maximum (mGy) | mGy |
@@ -282,15 +254,15 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 | Percutaneous Coronary intervention or Radiofrequency Catheter Ablation | 3 |  | 15 |
 
 When considering fetal risk from radiation exposure and termination of pregnancy:
-
 - at fetal doses of less than 100 mGy (10,000 mrad) termination is **NOT** justified based upon radiation risk
 - at fetal doses between 100 and 500 mGy, decisions should be based upon individual circumstances
 - at fetal doses in excess of 500 mGy, there can be significant fetal damage, the magnitude and type of which is a function of dose and stage of pregnancy
 
 ---
-## Grades of Recommendation and Level of Evidenc
-### Grades of Recommendation
 
+## Grades Of Recommendation And Level Of Evidenc
+
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -299,16 +271,14 @@ When considering fetal risk from radiation exposure and termination of pregnancy
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE | Angiotensin-converting enzyme |

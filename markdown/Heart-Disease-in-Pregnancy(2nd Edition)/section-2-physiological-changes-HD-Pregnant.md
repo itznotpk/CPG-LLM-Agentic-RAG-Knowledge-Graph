@@ -1,13 +1,10 @@
-# SECTION 2: PHYSIOLOGICAL CHANGES IN THE CARDIOVASCULAR SYSTEM IN PREGNANCY
-
+# Section 2: Physiological Changes In The Cardiovascular System In Pregnancy
 <!-- METADATA
 category: Pathophysiology, Special Populations
 use_case: Cardiovascular Physiology in Pregnancy — haemodynamic_changes, cardiac_output, plasma_volume, systemic_vascular_resistance, labour_postpartum_changes
 patient_input: gestational_stage, cardiac_condition, symptoms, haemodynamic_status
 output: physiological_risk_context, monitoring_focus, decompensation_risk
 -->
-
-
 
 The impact of the physiological changes of pregnancy in women with cardiac disease will vary according to the type and severity of the cardiac lesion. Women with the least ability to increase cardiac output are at risk of decompensation earlier on in the pregnancy, while those who tolerate the increase during pregnancy will be at risk at the time of delivery and immediate postpartum.
 
@@ -32,7 +29,7 @@ The haemodynamic changes return to pre-pregnant levels within 2-4 weeks followin
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 8: Summary of Hemodynamic Changes During Pregnancy
+Table 8: Summary Of Hemodynamic Changes During Pregnancy
 
 | Haemodynamic parameter | Changes during normal pregnancy | Changes during labour and delivery | Changes during postpartum |
 |---|---|---|---|
@@ -45,7 +42,7 @@ The haemodynamic changes return to pre-pregnant levels within 2-4 weeks followin
 
 ---
 
-### Figure 1: Physiological Changes in Pregnancy
+Figure 1: Physiological Changes In Pregnancy
 - **Plasma volume:** Rises steadily from ~2500 ml (non-pregnant) to approximately 3750 ml by 32-36 weeks gestation, then declines sharply post-delivery.
 - **Heart rate:** Increases gradually from ~70 bpm (non-pregnant) to approximately 85-90 bpm by 32-36 weeks, then drops post-delivery.
 - **Cardiac output:** Increases from ~4.5 L/min (non-pregnant) to approximately 6.5-7 L/min by 28-32 weeks, plateaus until 36 weeks, then declines post-delivery.
@@ -53,7 +50,7 @@ The haemodynamic changes return to pre-pregnant levels within 2-4 weeks followin
 - **Overall pattern:** All parameters show a sharp return toward baseline values in the post-delivery period.
 
 ---
-### Table 9: Physical Findings and Changes Seen in Common Cardiac Investigations in Normal Pregnancy
+Table 9: Physical Findings And Changes Seen In Common Cardiac Investigations In Normal Pregnancy
 
 | Investigation | Findings |
 |---|---|
@@ -65,10 +62,8 @@ The haemodynamic changes return to pre-pregnant levels within 2-4 weeks followin
 *\*Diastolic murmurs almost always indicate pathological cardiac disease*
 
 ## Abbreviations
-
 | Abbreviation | Description |
 |---|---|
 | CXR | Chest X-Ray |
 | DBP | Diastolic Blood Pressure |
 | ECG | Electrocardiogram |
-

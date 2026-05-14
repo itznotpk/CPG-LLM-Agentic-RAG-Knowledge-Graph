@@ -1,5 +1,4 @@
-# SECTION 13: PALLIATIVE CARE
-
+# Section 13: Palliative Care
 <!-- METADATA
 category: Supportive Treatment
 use_case: Palliative Care — pain_management, malodorous_wounds, fistulae, thrombosis, haemorrhage, lymphoedema, ureteric_obstruction, bowel_obstruction, end_of_life
@@ -14,7 +13,6 @@ There is an increasing trend of integration of modern cancer care with palliativ
 All healthcare providers should be trained to deliver basic palliative care. Specialist palliative care providers may be required for management of complex symptoms and end of life issues. Inpatient specialised palliative care units and community hospices nationwide are listed in Appendix 9: Malaysian Hospice Directory.
 
 This chapter aims to address some common issues experienced by patients with advanced disease which include:
-
 - pain
 - malignant/malodorous wounds
 - thrombosis and haemorrhage
@@ -25,8 +23,7 @@ This chapter aims to address some common issues experienced by patients with adv
 
 - Appropriate symptom management in advanced cervical cancer can be complex and a clear understanding of prognosis is essential to guide assessment and subsequent management.
 
-## a. Pain
-
+## A. Pain
 Principles of pain management are described in the Clinical Practice Guidelines for the Management of Cancer Pain by MoH.
 
 [Level III] Patients with advanced cervical cancer may experience complex neuropathic pain as a complication of RT or chemotherapy, or develop lumbar plexopathy from nerve infiltration.
@@ -35,8 +32,7 @@ Management of selected pain syndromes may benefit from specialist consultations 
 
 Malignant psoas syndrome refers to proximal lumbosacral plexopathy by painful fixed flexion of the ipsilateral hip, with radiological or pathological evidences of ipsilateral psoas major muscle malignant involvement. [Level III] Treatment options include opioids, agents for neuropathic pain, muscle relaxants to counter psoas muscle spasm, agents to reduce peritumoural oedema and anti-tumoural agents if suitable.
 
-## b. Malignant/Malodorous Wounds
-
+## B. Malignant/Malodorous Wounds
 [Level III] Patients with malodorous malignant wounds often associate the condition with advance, progressing disease. This not only causes physical discomfort, but also significant psychological and social impact, and negatively affects the woman's body image and sense of worth.
 
 Malodorous discharges are generally caused by tissue breakdown from ulcerating necrotic tissue, erosion into a hollow viscous such as the bowel or urinary tract, and/or an added infection of the fluid. [Level III] Benign lesions such as pressure-related breakdown can also contribute to the malodour.
@@ -46,7 +42,6 @@ Management involves treating infection, containing or removing fluid loss, reduc
 Surgical methods to manage malodour may include removal or debridement of necrotic tissue, and nephrostomies or defunctioning colostomies for fistula-related urinary or faecal incontinence. [Level III] Tumour burden may also be reduced by interventional radiology techniques to reduce tumour circulation, palliative RT or chemotherapy.
 
 [Level II-3] Patients using topical metronidazole, mesalt dressing, activated carbon dressing and curcumin ointment can control the odour of malignant fungating wounds. [Level III] Other suggested methods include:
-
 - systemic metronidazole
 - aromatherapy
 - pads and tampons
@@ -58,12 +53,10 @@ Surgical methods to manage malodour may include removal or debridement of necrot
 - octreotide and hyoscine butylbromide to reduce faecal loss from enterovaginal fistulae
 - suprapubic catheterisation for vesicovaginal fistulae
 
-## c. Fistulae
-
+## C. Fistulae
 [Level III] The risk to develop vesicovaginal and/or rectovaginal fistulae is high (22 - 48%) after curative RT with or without chemotherapy in patients with FIGO stage IVA cervical cancer. [Level III] Fistula formation occurs between six and 48 months after RT, with possible serious complications occurring even after five years. [Level III] The routine use of EUA, cystoscopy and proctoscopy at the time of initial diagnosis helps in counseling women about the likelihood of this complication.
 
 [Level III] Appropriate radiological investigations are often needed to establish the fistula site and its complexity. Surgical interventions may include:
-
 - fistula repair
 - formation of ileal conduit
 - stoma formation for enterovaginal fistulae
@@ -73,7 +66,6 @@ Surgical methods to manage malodour may include removal or debridement of necrot
 [Level III] Primary exenteration surgery for selected patients in FIGO stage IVA have been suggested to avoid morbidity associated with fistula formation.
 
 Patients with advance disease where non-surgical measures are more appropriate may benefit from:
-
 - octreotide, hyoscine butylbromide or glycopyrronium to reduce discharge volume
 - codeine phosphate or loperamide to reduce motility and increase stool consistency
 - barrier creams to prevent local irritation and excoriation
@@ -81,22 +73,19 @@ Patients with advance disease where non-surgical measures are more appropriate m
 - tampons and pads
 - low residue diet
 
-## d. Thrombosis and Haemorrhage
-
+## D. Thrombosis And Haemorrhage
 [Level III] Venous thromboembolism (VTE) causes high mortality and morbidity in patients with cancer, and is the second most common cause of death after cancer progression.
 
 [Level III] The risk of thromboembolic events is up to seven times higher in cancer patients, with the incidence being highest in the first few months of diagnosis. Others at high risk are those with metastatic disease at the time of diagnosis and after tumour recurrence. [Level I] Cancer patients receiving anticoagulant treatment for VTE also showed a two to threefold increased risk of developing recurrent VTE.
 
 The mechanisms of VTE in cancer patients can be summarised in the  following Table 2: Mechanism of VTE in Cancer Patients.
 
-### Initial management of VTE
-
+### Initial Management Of VTE
 [Level I] For the initial management of VTE in cancer patients, low molecular weight heparin (LMWH) is superior to unfractionated heparin (UFH), with reduced risk of mortality (RR=0.71, 95% CI 0.52 to 0.98) and no significant difference in recurrent VTE events. [Level I] Among various LMWH regimes, once daily treatment is as safe and efficacious as twice daily treatment, and is more convenient for the patient.
 
 [Level I] A Cochrane systematic review showed fondaparinux was as safe and efficacious as UFH, and dalteparin as safe and efficacious as tinzaparin in the initial management of VTE in cancer patients.
 
-### Long-term management of VTE
-
+### Long-Term Management Of VTE
 [Level I] For the long-term treatment of VTE in cancer patients, LMWH reduces recurrent VTE events (HR=0.47, 95% CI 0.32 to 0.71) but not death when compared with vitamin K antagonists (VKA).
 
 If VKA is the choice of long-term treatment, current Malaysian VTE guidelines recommend starting warfarin within 24 hours of diagnosis in combination with LMWH or fondaparinux. Treatment with LMWH is to be continued for five days or until International Normalised Ratio (INR) is above 2 for at least 24 hours, whichever is longer. Anticoagulation should be continued indefinitely or until cancer is resolved.
@@ -110,19 +99,16 @@ If VKA is the choice of long-term treatment, current Malaysian VTE guidelines re
 [Level I] Vena caval filter (VCF) usage for the prevention of pulmonary embolism increases risk of long-term lower limb DVT (HR=1.52, 95% CI 1.02 to 2.27) with no significant improvement in mortality or reduction in the rate of pulmonary embolism or DVT. Current Malaysian VTE guidelines list only two indications for the insertion of a VCF which are contraindication to anticoagulation and the presence of large free floating iliocaval thrombus.
 
 ### Haemorrhage
-
 [Level III] Patients with cervical cancer may suffer from bleeding problems due to advanced or metastatic disease. Chemotherapy causing thrombocytopaenia and myelosuppression, vitamin K deficiency and adverse drug effects are factors contributing to clotting and bleeding problems.
 
 [Level III] Palliative RT for cervical carcinoma results in complete cessation of vaginal bleeding in up to 45% of patients after the first radiation fraction. Other methods suggested to treat minor haemorrhage include fibrinolytic inhibitors such as oral or intravenous tranexamic acid.
 
-## e. Lymphoedema
-
+## E. Lymphoedema
 [Level III] In patients with cervical cancer, 12.2% of them have a clinical diagnosis of lower limb lymphoedema. They are 3.5 times more likely to develop lower limb lymphoedema if they receive pelvic RT and have 3.3 times higher risk if pelvic lymph nodes are surgically removed. Lymph node metastases, infiltrative carcinoma and pressure from large tumours also contribute to secondary lymphoedema.
 
 Patients report a poor QOL due to pain, changes in lower limb sensation, appearance, restriction in activities and distress. [Level III] Those at risk of lymphoedema should be identified early, monitored and taught of self-care. Patients and carers should be offered information about lymphoedema, its prevention and management.
 
 [Level III] General approaches to minimise the risk of developing lymphoedema are:
-
 - good care of skin and nails
 - maintain optimal body weight
 - eat a balanced diet
@@ -135,7 +121,6 @@ Patients report a poor QOL due to pain, changes in lower limb sensation, appeara
 - wear comfortable, supportive shoes
 
 Diagnosis criteria for lymphoedema have been identified as:
-
 - increase in limb circumference
 - changes in sensation: fullness, tightness, heaviness, throbbing and shooting pains
 - reduce in limb flexibility
@@ -146,7 +131,6 @@ Severity of disease is classified into stages as described by the International 
 [Level I] The evidence for treatment of lymphoedema is poor with no clear conclusions on the efficacy of benzo-pyrones, and [Level I] weak evidence supportingq usage of multi-layer bandaging over hosiery.
 
 [Level III] A consensus report outlines the approach to managing lymphoedema:
-
 - exercise and movement
 - swelling reduction and maintenance by compression garments, multi-layer bandaging, exercise and lymphatic massage
 - skin care
@@ -155,12 +139,10 @@ Severity of disease is classified into stages as described by the International 
 
 [Level III] Lymphoedema is best managed by specialist lymphoedema practitioners, usually physiotherapists, who are available at some healthcare settings.
 
-## f. Malignant Ureteric Obstruction
-
+## F. Malignant Ureteric Obstruction
 [Level II-2] Obstructive renal failure occurs due to locally advanced cervical cancer. Patients may be asymptomatic, but may complain of pelvic pain or uraemic symptoms due to renal failure.
 
 [Level II-2] Treatment options are:
-
 - retrograde stenting
 - percutaneous nephrostomy (PN) with/without antegrade stenting
 - conservative management
@@ -171,8 +153,7 @@ PN can be of clinical benefit for patients with performance status 1 - 3 (refer 
 
 Malignant ureteric obstruction indicates poor prognosis. Palliative surgical interventions may be inappropriate if patients are terminally ill with irreversible renal failure. The high morbidity associated with palliative diversion may impair QOL. [Level II-2] Treatment decisions should be based on clear discussions of options, prognosis, cost, complications and QOL, between patients and a multidisciplinary team.
 
-## g. Malignant Bowel Obstruction
-
+## G. Malignant Bowel Obstruction
 [Level II-3] The incidence of malignant bowel obstruction (MBO) in gynaecologic cancer appears to be commonest in ovarian cancer (54.5%), followed by cervical or endometrial cancer (27.3%). Patients often have high morbidity due to symptoms such as abdominal pain, colic, nausea and vomiting, as well as from treatment such as surgery, nasogastric tube insertion and intravenous therapy.
 
 [Level III] Management of MBO should be tailored to the underlying aetiology, stage of disease and goals of care. Treatment options may include surgical management with corrective or non-corrective laparotomies, venting tubes and stent insertions, or medical management such as symptomatic relief with opioids, anti-emetics, anti-spasmodics, anti-secretory drugs and steroids.
@@ -181,18 +162,16 @@ Malignant ureteric obstruction indicates poor prognosis. Palliative surgical int
 
 [Level I] There are no clear recommendations for surgery in resolving symptoms of MBO in advanced gynaecologic cancer. [Level III] Consider medical management for patients with advanced stage cancer and a shorter time interval between cancer diagnosis and bowel obstructions.
 
-## h. End of Life Care
-
+## H. End Of Life Care
 [Level III] The final phase of terminal illness can be the most challenging time for the patient, their carers and healthcare providers. Increased clinical vigilance on symptom control, psychosocial and spiritual distress is needed, along with sensitive communication and decision making. Those closely affected by a death should be offered bereavement, emotional and spiritual support appropriate to their needs and preferences.
 
 ## Recommendation 18
-
 - Patients with advanced cervical cancer should receive palliative care and be referred to a specialised palliative team if necessary.
 - Low molecular weight heparin should be used for the initial and long-term treatment of venous thromboembolism in cervical cancer, where available.
 
 ## Contextual Anchors (Overlapping)
-### Appendix 7: ECOG Performance Status
 
+### Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -208,9 +187,9 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 ### Appendix 9: Malaysian Hospice Directory
 
-### Pain Management and Palliative Care Service Providers
+### Pain Management And Palliative Care Service Providers
 
-#### PAIN CLINICS
+#### Pain Clinics
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -223,7 +202,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 | Pusat Perubatan Universiti Kebangsaan Malaysia, Kuala Lumpur | 603-91455555 | http://www.ppukm.ukm.my |
 | Hospital Universiti Sains Malaysia, Kelantan | 609-7663000 | http://www.hselayang.moh.gov.my |
 
-#### PALLIATIVE CARE UNITS
+#### Palliative Care Units
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -249,7 +228,6 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 ---
 
 ### Malaysian Hospice Directory
-
 **PERSATUAN HOSPICE ARK**
 No. 2, 2A, 2B Jalan Sutera Merah 3
 Taman Sutera, 81200, Johor Bahru, Johor
@@ -426,8 +404,7 @@ www.hospismalaysia.org
 
 ---
 
-### Appendix 10: International Society of Lymphology (ISL) Lymphoedema Staging
-
+### Appendix 10: International Society Of Lymphology (Isl) Lymphoedema Staging
 | Stage | Description |
 |---|---|
 | ISL Stage 0 | A subclinical state where swelling is not evident despite impaired lymph transport. This stage may exist for months or years before oedema becomes evident |
@@ -440,7 +417,7 @@ Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. I
 
 ---
 
-### Table 2: Mechanism of VTE in Cancer Patients
+Table 2: Mechanism Of VTE In Cancer Patients
 
 | Tumour-associated | Non-tumour associated |
 |---|---|
@@ -454,8 +431,7 @@ Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. I
 
 ---
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -464,8 +440,7 @@ Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. I
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CI | Confidence interval |

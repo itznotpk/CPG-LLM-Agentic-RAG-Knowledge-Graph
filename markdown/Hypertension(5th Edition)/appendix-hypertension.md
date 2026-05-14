@@ -1,5 +1,4 @@
-# APPENDICES
-
+# Appendices
 <!-- METADATA
 category: Reference, Special Populations
 use_case: Hypertension Appendices — neonatal_BP_reference, paediatric_BP_percentiles, antihypertensive_dosing_children, clinical_questions
@@ -7,8 +6,7 @@ patient_input: age, gender, height_percentile, postconceptual_age, weight
 output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 -->
 
-## Appendix 1: Estimated BP Values After 2 Weeks of Age in Infants from 26 to 44 Weeks Postconceptual Age
-
+## Appendix 1: Estimated BP Values After 2 Weeks Of Age In Infants From 26 To 44 Weeks Postconceptual Age
 | Postconceptual age   |   50th percentile |   95th percentile |   99th percentile |
 |----------------------|-------------------|-------------------|-------------------|
 | 44 Weeks             |                   |                   |                   |
@@ -54,8 +52,7 @@ output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 
 ---
 
-## Appendix 2: Blood Pressure Levels for Boys by Age and Height Percentile
-
+## Appendix 2: Blood Pressure Levels For Boys By Age And Height Percentile
 | Age  year   | BP  Percentile   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   |
 |-------------|------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 | Age  year   | BP  Percentile   | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     |
@@ -99,8 +96,7 @@ output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 
 ---
 
-## Appendix 3: Blood Pressure Levels for Girls by Age and Height Percentile
-
+## Appendix 3: Blood Pressure Levels For Girls By Age And Height Percentile
 | Age  year   | BP  Percentile   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   |
 |-------------|------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 | Age  year   | BP  Percentile   | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile    | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     | Height Percentile     |
@@ -144,8 +140,7 @@ output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 
 ---
 
-## Appendix 4: Dosing Recommendation for the Initial Prescription of Antihypertensive Drugs for Outpatient Management of Chronic Hypertension in Children and Neonates
-
+## Appendix 4: Dosing Recommendation For The Initial Prescription Of Antihypertensive Drugs For Outpatient Management Of Chronic Hypertension In Children And Neonates
 | Drugs                                      | Doses                                                                                                                            | Frequency        |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------------------|
 | Angiotensin-Converting Enzyme Inhibitors * | Angiotensin-Converting Enzyme Inhibitors *                                                                                       |                  |
@@ -177,7 +172,6 @@ output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 ---
 
 ## Appendix 5: Clinical Questions
-
 1. What is the prevalence of hypertension in adults?
 2. What are the causes of hypertension in adults?
 3. What are the diagnostic criteria of hypertension in adults, pregnant women and neonates/children/adolescents?

@@ -1,5 +1,4 @@
-# SECTION 8: NSTE-ACS IN SPECIAL GROUPS
-
+# Section 8: NSTE-ACS In Special Groups
 <!-- METADATA
 category: Special Populations, Treatment, Assessment
 use_case: NSTE-ACS in Special Groups - older_persons, women, chronic_kidney_disease, frailty, renal_dosing
@@ -8,18 +7,15 @@ output: population_specific_risk_assessment, medication_adjustment, invasive_str
 treatment_type: antiplatelets, anticoagulants, statins, revascularization, cardiac_rehabilitation
 -->
 
-## 8.1 NSTE-ACS in Older Persons
-
+## 8.1: NSTE-ACS In Older Persons
 Age is a powerful risk factor for CVD and also an independent risk factor for adverse outcomes after CVD events, for complications after cardiovascular procedures and interventions, and for side effects of pharmacotherapy. International registries show that 32% to 43% of NSTE-ACS, and about 24% - 28% of STEMI admissions were for patients aged ≥ 75 years.
 
 These older persons with NSTE-ACS are more likely to be women, have lower body mass indices, higher prevalence of such comorbidities as hypertension, heart failure, atrial fibrillation, Transient Ischemic Attack/stroke, anemia and renal insufficiency.
 
 The mortality rate after a first non-STEMI in the oldest old patients is highest: with respect to 1-year outcomes, among patients who were 65 - 79, 80 - 84, 85 - 89, and at least 90 years old, mortality increased progressively from 13.3% to 23.6%, 33.6%, and 45.5%, respectively.
 
-### 8.1.1 Clinical Presentation
-
+### 8.1.1: Clinical Presentation
 A high index of suspicion is necessary to make a diagnosis of NSTE-ACS in older patients. Only 40% of those aged >85 years had chest pain on presentation compared with 77% of those aged <65 years. Older patients were more likely to present with:
-
 - Dyspnea (49%)
 - Diaphoresis (26%)
 - Nausea and vomiting (24%)
@@ -35,8 +31,7 @@ Cardiac troponins are commonly elevated > 99th percentile URL in older patients 
 
 The observed increased hs-cTn levels is associated with the presence of pre-existing comorbidities which are independent of the effects of age. Mild elevations of hs-cTnT levels are common in older patients, and increased hs-cTn levels are an independent prognostic marker in this population. Elevations in cTn were independently associated with future cardiac events in older women without apparent clinical manifestations. A different hs-cTnT cut-off may be required for patients older than 70 years but this is currently undefined.
 
-### 8.1.2. Management
-
+### 8.1.2: Management
 Comparatively fewer studies have been conducted in older adults - specifically older persons are under-represented in many studies on CAD. Therefore, the strength of recommendations for this age group is somewhat lower than that supporting recommendations in younger adults, highlighting the dire need to conduct more research studies in this patient population.
 
 There is limited trial data to guide management in the older person especially in the setting of advanced age (more than 75 years) or significant comorbidity (e.g. prior stroke, renal impairment). One should consider the biological age rather than the chronological age of the patient when making management decisions. This is almost always based on physician judgement rather than on biological age predictors. There are several existing age predictors which are still in the research stage - the most plausible candidates being the epigenetic clock and telomere length.
@@ -45,8 +40,7 @@ Older patients are a heterogenous group and the risk benefit ratio of each inter
 
 Pharmacotherapy should also take into account the older person's pill burden, potential drug-drug interactions and the older person's life expectancy. Cooperation with experienced pharmacists is therefore desirable to optimise pharmacotherapy.
 
-#### 8.1.2.1 Pharmacotherapy
-
+#### 8.1.2.1: Pharmacotherapy
 - Antiplatelet Agents
   - [Grade I, Level A] Both aspirin and clopidogrel (especially in those undergoing PCI) confer greater benefits in older adults.
   - [Grade I, Level B] Clopidogrel is the P2Y12 inhibitor of choice in older persons > 75 years.
@@ -57,40 +51,32 @@ Pharmacotherapy should also take into account the older person's pill burden, po
 - Others:
   - [Grade I, Level A] A high-dose statin regimen provides greater protection against death or MACE than a low-or moderate-dose statin regimen in older persons.
 
-#### 8.1.2.2 Revascularization
-
+#### 8.1.2.2: Revascularization
 - [Grade IIa, Level B] Older patients have greater in-hospital and long-term benefits with an early invasive strategy. However, there is an increased risk of major bleeding.
 - [Grade I, Level C] When selecting patients for an early invasive strategy, the risk benefit ratio must be considered. Most older patients with NSTE-ACS have multivessel disease for which CABG is more suitable than PCI. Patient preferences and frailty are important considerations in decision making. In addition, duration of hospitalization and post-surgery convalescence may be prolonged in older patients after CABG and, therefore, should be considered in counselling the patient.
 - For patients with multi vessel disease and not suitable for CABG, partial revascularization of the culprit lesion may be a consideration.
 
-#### 8.1.2.3 Cardiac Rehabilitation
-
+#### 8.1.2.3: Cardiac Rehabilitation
 - [Grade IIa, Level B] Observational studies show that older patients have as much benefit as younger patients with cardiac rehabilitation after an ACS.
 
-## 8.2 NSTE-ACS in Women
-
+## 8.2: NSTE-ACS In Women
 Women develop CAD about a decade later than men (after menopause) and at that age have more comorbidities such as obesity, diabetes, hypertension and osteoarthritis. However, with the use of evidence-based treatment, women have the same survival as men.
 
 Premenopausal women who develop NSTE-ACS however, have a higher in-hospital mortality and worse long term outcomes than men of the same age.
 
-### 8.2.1 Clinical Presentation
-
+### 8.2.1: Clinical Presentation
 Women presenting with ACS often have atypical symptoms such as neck and shoulder ache and dyspnea. Often, women have non-specific ECG changes such as T wave changes even in the absence of heart disease, thus making the diagnosis of CAD difficult.
 
-### 8.2.2 Management
-
+### 8.2.2: Management
 Women with NSTE-ACS:
-
 - [Grade I, Level B] should be managed with the same pharmacological therapy as that for men for acute care and for secondary prevention, with attention to weight and/or renally calculated doses of antiplatelet and anticoagulant agents to reduce bleeding risk.
 - [Grade I, Level A] and high-risk features (ie, troponin positive) should undergo an early invasive strategy.
 - [Grade III, Level B] and low-risk features and troponin negative should not undergo early invasive treatment because of the lack of benefit and the possibility of harm.
 
-## 8.3 NSTE-ACS in Chronic Kidney Disease (CKD)
-
+## 8.3: NSTE-ACS In Chronic Kidney Disease (CKD)
 In patients with ACS, the presence of CKD is an additional high-risk feature associated with increased mortality. The more severe the CKD, the higher the mortality.
 
-### 8.3.1 Diagnosis
-
+### 8.3.1: Diagnosis
 The diagnosis of ACS in patients with CKD is often difficult though essential.
 
 - Traditional diagnostic tools such as symptoms and ECG's are not always helpful.
@@ -101,10 +87,8 @@ The diagnosis of ACS in patients with CKD is often difficult though essential.
   - A distinct rise and fall in the levels over baseline correlated with clinical suspicion of an ACS (new ischemic ECG changes or new regional wall motion abnormalities on echocardiography), strongly support the diagnosis of MI. A rise and/or fall in cTn may also occur in acute volume overload and congestive heart failure.
   - Studies have shown that chronically elevated cTn levels is predictive of increased risk of mortality and cardiovascular events.
 
-### 8.3.2 Management
-
+### 8.3.2: Management
 Patients with renal impairment were excluded from most clinical trials. In general, the management of patients with CKD is similar to those with normal renal function except for the following differences:
-
 - Patients with CKD have more co-morbidity and are usually older.
 - They are at increased bleeding risks. The doses of antithrombotic agents need to be adjusted accordingly to avoid excessive bleeding (Appendix VII: P2Y12 INHIBITORS*).
 - Medications:
@@ -127,7 +111,6 @@ Patients with renal impairment were excluded from most clinical trials. In gener
     - the procedure - These patients often have calcified, tortuous vessels which increases the risk and complexity of PCI.
 
 ### Key Messages 9#:
-
 - When managing older patients, one should consider the biological age rather than the chronological age.
 - Older persons have greater in-hospital and long term benefits with an early invasive strategy. However, there is an increased risk of major bleeding.
 - Women should be managed with the same pharmacological therapy as that for men for acute care and for secondary prevention.
@@ -136,9 +119,10 @@ Patients with renal impairment were excluded from most clinical trials. In gener
 - In patients with CKD, an early invasive strategy is superior to a delayed invasive strategy. The benefit, however, declines with lower renal function, and is less certain in those with renal failure or on dialysis.
 
 ---
-## Contextual Anchors (Overlapping)
-### Appendix VII: P2Y12 INHIBITORS*
 
+## Contextual Anchors (Overlapping)
+
+### Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
 | :--- | :--- | :--- | :--- |
 | **Chemical class** | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
@@ -161,23 +145,22 @@ Patients with renal impairment were excluded from most clinical trials. In gener
 
 ---
 
-### APPENDIX XIV: CALCULATION OF eGFR FOR DRUG DOSING ADJUSTMENTS
-
+### Appendix XIV: Calculation Of eGFR For Drug Dosing Adjustments
 Estimated GFR (eGFR) can be derived from various equations including:
 - CKD-EPI Creatinine (CKD -EPI) Equation- (most commonly used)
 - Modification of Diet in Renal Disease Study (MDRD) Equation.
 
 In a local population, the CKD-EPI Equation performs just as well as CKD-MDRD for GFR 60-89ml/min and better at the other GFR levels.
 
-In practice, there are number of simple calculators that may be accessed to calculate eGFR, for example:  
-https://qxmd.com/calculate/calculator_251/egfr-using-ckd-epi  
+In practice, there are number of simple calculators that may be accessed to calculate eGFR, for example:
+https://qxmd.com/calculate/calculator_251/egfr-using-ckd-epi
 https://www.mdcalc.com/mdrd-gfr-equation
 
 Creatinine clearance (Cr Cl) is determined by the Cockcroft-Gault (CG) Equation. In the past, this equation was used for drug dosing adjustments based on creatinine clearance. However, in more recent practice, the CKD-EPI equation tends to be used for drug dosing based on eGFR, especially for newer generation drugs. However, drug dosing adjustment should be done according to the United States Food and Drug Administrative - or European Medicines Agency-approved product labelling.
 
 ---
-### Appendix IX: ANTICOAGULANT AGENTS*
 
+### Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
 | **Dose** | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
@@ -193,7 +176,7 @@ Creatinine clearance (Cr Cl) is determined by the Cockcroft-Gault (CG) Equation.
 
 ---
 
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -211,8 +194,7 @@ Creatinine clearance (Cr Cl) is determined by the Cockcroft-Gault (CG) Equation.
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE | Angiotensin Converting Enzyme |

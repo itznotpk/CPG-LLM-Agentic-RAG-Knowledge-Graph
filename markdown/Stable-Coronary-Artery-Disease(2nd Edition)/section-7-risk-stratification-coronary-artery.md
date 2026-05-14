@@ -1,5 +1,4 @@
-# RISK STRATIFICATION
-
+# Risk Stratification
 <!-- METADATA
 category: Assessment
 use_case: Risk stratification and prognostication in stable CAD — clinical_eval, ECG, LV_function, imaging, anatomic_testing
@@ -7,10 +6,8 @@ patient_input: symptoms, ECG, echocardiography, stress_test, imaging
 output: risk_category, referral_thresholds
 -->
 
-## 7. Risk Stratification in Stable CAD
-
+## 7: Risk Stratification In Stable Cad
 The objectives of risk stratification in stable CAD are for:
-
 - prognosis
 - groups)
 
@@ -23,15 +20,13 @@ The ESC guidelines define risk as:44
 - low risk — annual mortality of <1%
 
 Patients with stable CAD should be risk stratified using the following parameters:
-
 - clinical evaluation
 - resting ECG
 - assessment of left ventricular function
 - non-invasive assessment of myocardial ischemia
 - where indicated, evaluation of coronary anatomy and physiological assessment of the significance of the coronary lesion
 
-## 7.1 Risk Stratification of Stable CAD by Clinical Evaluation
-
+## 7.1: Risk Stratification Of Stable Cad By Clinical Evaluation
 **[Grade I, Level B]** Important predictors of adverse outcomes in patients with stable CAD are:28,63,129-142
 
 - increasing age
@@ -56,8 +51,7 @@ Patients with stable CAD should be risk stratified using the following parameter
 
 The above adverse clinical predictors especially the severity of angina help modulate decisions made based on non-invasive tests of ischemia and where indicated, physiological testing by Fractional Flow Reserve (FFR).
 
-## 7.2 Risk Stratification of Stable CAD by Resting ECG
-
+## 7.2: Risk Stratification Of Stable Cad By Resting ECG
 - **[Grade I, Level B]** Resting ECG abnormalities can predict patients at greater risk of future CV includ,,1
 - evidence of prior MI
 - LBBB
@@ -66,14 +60,12 @@ The above adverse clinical predictors especially the severity of angina help mod
 - second or third-degree AV block
 - atrial fibrillation (AF)
 
-## 7.3 Risk Stratification of Stable CAD by Left Ventricular Function
-
+## 7.3: Risk Stratification Of Stable Cad By Left Ventricular Function
 LV function is the strongest predictor of survival. Patients with an LVEF of <50% are already at high risk of CV death (annual mortality rate of >3%) without incorporating other risk factors.45,46,133,134,146,147
 
 - **[Grade I, Level B]** In the presence of a depressed LV function, it is important to determine if this is due to infarcted (scar) tissue or viable but stunned ischemic myocardium. This can be done by stress imaging techniques. In the presence of ischemic but viable myocardium, coronary revascularisation can result in an improvement in LV function and survival.148
 
-## 7.4 Risk Stratification of Stable CAD by Non-Invasive Testing
-
+## 7.4: Risk Stratification Of Stable Cad By Non-Invasive Testing
 Non-invasive tests provide useful information for prognostication.(refer Table 2: Prognostic Indicators for Adverse CV Outcomes on Non-Invasive Testing) A negative test carries a good prognosis but the clinical evaluation (e.g. age, ability to exercise, exercise duration, co-morbidity such as **[Grade I, Level C]** diabetes, CKD etc) and LV function should also be considered when assessing CV risk.
 
 <!-- ============================================================ -->
@@ -81,7 +73,7 @@ Non-invasive tests provide useful information for prognostication.(refer Table 2
 <!-- Purpose: Prognostic indicators for adverse CV outcomes on non-invasive testing -->
 <!-- ============================================================ -->
 
-### Table 2: Prognostic Indicators for Adverse CV Outcomes on Non-Invasive Testing
+Table 2: Prognostic Indicators For Adverse CV Outcomes On Non-Invasive Testing
 
 | Modality | Risk Definition | Annual Risk / Outcome |
 |----------|----------------|----------------------|
@@ -108,10 +100,9 @@ Small imaging substudies have shown mixed results when looking at CV outcomes in
 
 In patients with unprotected Left Main stem stenosis of >50%, revascularisation medical treatment in patients with significant LMS stenosis (greater than 50%) is little argued." 157
 
-## 7.5 Risk Stratification of Stable CAD by Anatomic Testing
+## 7.5: Risk Stratification Of Stable Cad By Anatomic Testing
 
-## 7.5.1 Coronary Calcium (CAC) Score
-
+### 7.5.1: Coronary Calcium (Cac) Score
 - CAC scores help with CV risk stratification.158-163 (refer Table 8: Coronary Calcium Score and CV Risk) It guides risk **[Grade II-a, Level B]** reduction strategy, OMT and the need for further evaluation.
 
 CAC score alone was able to predict CHD risk independently of the Framingham Risk Score.156.157 When used together with the traditional CV risk factors, it had incremental value in CV risk prediction.164,165 There is a significant correlation between CAC score and overall coronary artery atherosclerotic plaque, with a high sensitivity >95% and a high negative predictive value of >95%.109,166,167 The CAC score was found to be highly predictive of CV risk in 4 ethnic groups - white, black, Hispanic, and Chinese.168
@@ -127,7 +118,7 @@ Persons both asymptomatic and symptomatic, with a calcium score = 0 have a low C
 <!-- Purpose: Coronary Calcium Score risk stratification thresholds -->
 <!-- ============================================================ -->
 
-### Table 8: Coronary Calcium Score and CV Risk
+Table 8: Coronary Calcium Score And CV Risk
 
 | Calcium Score | HR for Incident MI and CHD Mortality | CV Risk (Risk of Death at 10 years) |
 |---------------|--------------------------------------|--------------------------------------|
@@ -140,12 +131,10 @@ Persons both asymptomatic and symptomatic, with a calcium score = 0 have a low C
 
 <!-- END OVERLAP FROM: TABLE 8 -->
 
-## 7.5.2 Computed Tomography Angiography (CTA)
-
+### 7.5.2: Computed Tomography Angiography (Cta)
 - CTA may also be used for prognostication. There is a strong predictive value **[Grade II-a, Level A]** for   mortality and major  CV  events independent of  traditional  risk factors.7-9,172-174
 
 In assessing prognosis, in patients with:
-
 - absence of any plaque the CV event rate is low — 0.24% for CV death/non-fatal MI and an annual mortality of 0.28%.7.8
 - coronary plaque but without stenosis, the mortality rate is higher but remains below 0.5%.9
 - left main stenosis or proximal triple vessel disease — the hazard ratio for all-cause mortality is 3.70.7
@@ -154,8 +143,7 @@ Despite its excellent predictive value, in a randomized controlled trial compari
 
 - Due to the potential overestimation of obstructive coronary disease by CTA, **[Grade I, Level A]** it may be advisable to perform additional testing for the presence of ischemia prior to revascularization in the asymptomatic individual.175.176
 
-## 7.5.3 Risk Stratification by Invasive Coronary Angiography (ICA)
-
+### 7.5.3: Risk Stratification By Invasive Coronary Angiography (Ica)
 ICA continues to be the "gold standard" in assessing coronary anatomy although it has its limitations. It cannot detect vulnerable plaques which are in most cases not severe (<50% stenosis) but have a rich lipid core.
 
 Despite these limitations, the extent and site of coronary lesions provide good prognostic indicators. The prognosis is worse if: 46,146,147
@@ -169,19 +157,16 @@ coronary revascularization was compared to intensive OMT.76,153.154
 In patients who have unprotected left main stem stenosis, CABG has been shown to improve survival when compared to medical therapy in the large intensive OMT, it is considered unethical to repeat it.
 
 Coronary arteriography should NOT be performed in patients:
-
 - with angina who refuse invasive diagnostic procedures.
 - who are not candidates for PCI or CABG.
 - in whom PCI/CABG will not improve quality-of-life.
 
-## 7.5.4 Risk Assessment by Physiological Assessment of the Functional Severity of Coronary Lesions
-
+### 7.5.4: Risk Assessment By Physiological Assessment Of The Functional Severity Of Coronary Lesions
 Coronary angiography is of limited value in defining the functional significance of coronary stenosis. Yet the most important factor related to outcome is the presence and extent of inducible ischemia.177 If a stenosis is not flow-limiting, it will not cause angina and the prognosis without coronary intervention is excellent, with a "hard" event rate (cardiac death or non-fatal MI) of <1% per year.175 This event rate was not reduced with PCI and stenting.175
 
 **[Grade I, Level A]**
 
-## 7.5.4.1 Fractional Flow Reserve (FFR)
-
+#### 7.5.4.1: Fractional Flow Reserve (Ffr)
 Fractional Flow Reserve (FFR). FFR is more accurate than visual the presence of angiographically insignificant stenosis, lesions with low FFR showed significantly higher event rates than those with high FFR.178
 
 FFR is presently considered as the 'gold standard' for invasive assessment need for coronary revascularization. This:84
@@ -209,14 +194,12 @@ with the administration of a vasodilator such as adenosine.186-188 The cut-off i
 
 FFR may also be assessed using CT. A recent meta-analysis showed that FFRct achieves a moderate diagnostic performance for non-invasive identification of ischemic lesions in stable patients with suspected or known CAD in comparison to invasive FFR measurement.189 This tool is not yet widely available.
 
-## 7.5.4.2 Intravascular Ultrasound / Optical Coherence Tomography
-
+#### 7.5.4.2: Intravascular Ultrasound / Optical Coherence Tomography
 FFR provides physiological assessment of the severity of a coronary lesion, while intravascular ultrasound (IVUS) and optical coherence tomography (OCT) allow visual assessment of the lesion. IVUS makes use of the minimum lumen area (MLA) as the marker for significance of coronary stenosis. Overall, IVUS studies showed a relatively high negative predictive value but a low positive predictive value for ischemia.190
 
 Both IVUS and OCT should not be performed to determine the functional **[Grade II-a, Level B]** significance of a coronary lesion before intervention.191 These are useful in optimizing stent deployment and determining the size of the vessel undergoing stent implantation.
 
-## 7.6 Guidelines for Referral to a Tertiary Cardiac Center
-
+## 7.6: Guidelines For Referral To A Tertiary Cardiac Center
 Following risk stratification:
 
 Low risk individuals should be managed with risk factor reduction and/or
@@ -228,14 +211,12 @@ High risk individuals in addition to risk reduction strategies, should be consid
 Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated.
 
 ## Key Messages:
-
 - Risk may be defined as:
   - high risk — annual mortality of >3%
   - intermediate risk — annual mortality of 1-3%
   - low risk — annual mortality of <1%
 
 ## Recommendation 4:
-
 - All patients with suspected or known CAD should be risk stratified. **[Grade I, Level B]**
 - This is done by:
   - Clinical evaluation **[Grade I, Level B]**
@@ -248,7 +229,6 @@ Low risk individuals can be managed in the general outpatient clinics with Famil
 - High risk individuals, (annual mortality >3%) in addition to risk reduction strategies, should be considered for invasive coronary angiography with view to revascularization. **[Grade I, Level C]**
 
 ## Recommendation 5:
-
 - Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. **[Grade I, Level C]**
 - Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated. **[Grade I, Level C]**
 
@@ -257,8 +237,7 @@ Low risk individuals can be managed in the general outpatient clinics with Famil
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -267,8 +246,7 @@ Low risk individuals can be managed in the general outpatient clinics with Famil
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -283,7 +261,6 @@ Low risk individuals can be managed in the general outpatient clinics with Famil
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |

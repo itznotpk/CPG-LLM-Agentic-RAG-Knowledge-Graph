@@ -1,5 +1,4 @@
-# SECTION 4: MANAGEMENT OF PREGNANCY IN SPECIFIC CARDIAC DISEASE
-
+# Section 4: Management Of Pregnancy In Specific Cardiac Disease
 <!-- METADATA
 category: Assessment, Treatment, Special Populations
 use_case: Valvular Heart Disease in Pregnancy — mitral_stenosis, aortic_stenosis, regurgitant_lesions, prosthetic_valves, valve_repair, anticoagulation
@@ -9,21 +8,17 @@ critical: true
 treatment_type: bisoprolol, digoxin, warfarin, heparin, balloon_valvuloplasty
 -->
 
-
-## 4.1 Valvular heart disease
-
+## 4.1: Valvular Heart Disease
 Improved survival of patients with congenital and acquired valvular heart disease has increased the number of women with these conditions reaching the age of childbearing potential.
 
 [Grade I, Level C] All patients with valvular heart disease should be counselled about their reproductive health prior to surgical correction of their condition or their plans to start a family.
 
 This will help decide the timing of the operation, the type of surgery (valve repair or valve replacement) and the type of valve if valve replacement is carried out.
 
-### 4.1.1 Mitral stenosis
-
+### 4.1.1: Mitral Stenosis
 Mitral stenosis is a significant cause of maternal morbidity and mortality. It is often missed in pregnancy as clinical signs may be subtle.
 
 Predictors of adverse outcome:
-
 - Mitral valve area < 1.0 cm²
 - NYHA functional class III & IV
 - Pulmonary hypertension
@@ -38,12 +33,10 @@ Potential complications include acute pulmonary oedema, progressive heart failur
 In asymptomatic patients with moderate to severe mitral stenosis (MVA 1.0 - 1.5 cm²), close maternal surveillance is important as these patients may become symptomatic as the pregnancy progresses.
 
 [Grade II-a, Level B] Heart rate control with β-blockers may be considered in patients who are in sinus rhythm and have:
-
 - a resting tachycardia but are otherwise asymptomatic
 - symptoms associated with exercise
 
 If atrial fibrillation develops, the following drugs are safe to use in pregnancy:
-
 - [Grade I, Level C] Selective β-blocker (e.g. bisoprolol)
 - [Grade I, Level C] Digoxin
 - [Grade I, Level C] Anticoagulation is also indicated (section 4.9: Anticoagulation in Pregnancy)
@@ -54,10 +47,8 @@ If atrial fibrillation develops, the following drugs are safe to use in pregnanc
 
 If the left atrium is severely dilated however, cardioversion may likely fail to restore sinus rhythm.
 
-### 4.1.2 Aortic stenosis
-
+### 4.1.2: Aortic Stenosis
 Patients with severe aortic stenosis may be asymptomatic until they become pregnant. Important points in the management of these patients include:
-
 - The main aetiology is congenital aortic stenosis or bicuspid aortic valve.
 - Symptoms of severe aortic stenosis include dyspnoea, chest pain and syncope.
 - Features of severe aortic stenosis:
@@ -71,12 +62,10 @@ Patients with severe aortic stenosis may be asymptomatic until they become pregn
 - [Grade II-a, Level C] Balloon aortic valvuloplasty may be considered should the pregnant patient become symptomatic and decompensates.
 - [Grade III, Level C] Vasodilators (such as nitrates) are contraindicated in severe aortic stenosis.
 
-### 4.1.3 Mitral or aortic regurgitation
-
+### 4.1.3: Mitral Or Aortic Regurgitation
 Patients with regurgitant lesions are at lower risk compared to those with stenotic lesions as the decreased peripheral resistance will reduce the regurgitant volume. Patients with severe regurgitant lesions who are asymptomatic and have normal LV function usually tolerate pregnancy well.
 
 Patient with regurgitant lesions may decompensate in the following situations:
-
 - Impaired LV function (LVEF < 50% for aortic regurgitation; LVEF < 60% for mitral regurgitation)
 - Acute onset regurgitation
 - Development of atrial tachyarrhythmias
@@ -87,8 +76,7 @@ Patient with regurgitant lesions may decompensate in the following situations:
 
 [Grade I, Level C] Patients with mixed stenotic and regurgitant valvular lesions (e.g. mitral stenosis/mitral regurgitation) require referral to a tertiary care centre.
 
-### 4.1.4 Selection of prosthetic heart valves in women of child-bearing age
-
+### 4.1.4: Selection Of Prosthetic Heart Valves In Women Of Child-Bearing Age
 The counselling and decision regarding which type of prosthetic implant to be used in women of current or future childbearing potential should be made well in advance. The advantages and disadvantages of each surgical intervention is as in Table 11: Selection of Prosthetic Heart Valves in Women of Child-bearing Age.
 
 [Grade I, Level B] In women of childbearing age, valve repair if possible and in centres with good surgical outcome, is the surgery of choice.
@@ -97,14 +85,13 @@ Where prosthetic valves are indicated, a bioprosthetic valve is the valve of cho
 
 [Grade I, Level C] The final decision however should be an informed choice by the patient and family.
 
-## Key messages:
-
+## Key Messages:
 - All patients with valvular heart disease should have pre-pregnancy counselling.
 - Patients with severe obstructive lesions should have corrective intervention or surgery prior to pregnancy.
 - When valve surgery is indicated, valve repair is superior to valve replacement if done in an experienced centre.
 
 ## Contextual Anchors (Overlapping)
-### Table 11: Selection of Prosthetic Heart Valves in Women of Child-bearing Age
+Table 11: Selection Of Prosthetic Heart Valves In Women Of Child-Bearing Age
 
 | Surgical intervention | Advantages | Disadvantages |
 |---|---|---|
@@ -114,8 +101,7 @@ Where prosthetic valves are indicated, a bioprosthetic valve is the valve of cho
 | **Valve repair** | **Valve repair** | **Valve repair** |
 | Valve repair | Does not require anticoagulation with warfarin if in sinus rhythm | Dependant on surgical expertise/ valve pathology |
 
-### Section 3.6.2: Cardiac Surgery with Cardiopulmonary Bypass
-
+### Section 3: .6.2: Cardiac Surgery With Cardiopulmonary Bypass
 This content supports the recommendation in mitral or aortic regurgitation that patients who develop acute valve regurgitation often require surgical intervention, which carries a high maternal and fetal risk.
 
 Maternal mortality during cardiopulmonary bypass is now similar to that in non-pregnant women who undergo comparable cardiac procedures. It is generally low but may be as high as 13.3% depending on the preoperative maternal cardiac status.
@@ -125,14 +111,12 @@ However, fetal mortality rate is 14.3% to 38.5% and there is significant morbidi
 Determining the optimal timing for cardiac surgery is critical and needs to be individualised. Early surgery will decrease maternal risk but increase fetal loss. Delaying cardiac surgery after delivery may be detrimental to the mother.
 
 Important strategies are as listed below:
-
 - Optimal timing of surgery - Gestational age has an impact on fetal outcome.
   - [Grade II-a, Level C] The best period for surgery is in the second trimester. Surgery during the first trimester carries a higher risk of fetal loss, and during the third trimester there is a higher incidence of pre-term delivery and maternal complications.
   - [Grade II-a, Level C] After 28 weeks gestation, if cardiac surgery is indicated, the decision to deliver the baby before or after the surgery should be made in consultation with the multidisciplinary team, patient and family.
 - Patients should preferably be placed in the left lateral position to avoid aortocaval compression and impairment of uteroplacental blood flow.
 
 [Grade II-a, Level C] Important technical considerations for better maternal and fetal outcomes include:
-
 - Fetal heart rate monitoring performed during cardiopulmonary bypass (CPB) and in the post-operative period.
 - Pump flow rate should be maintained > 2.5 L/m²/min and higher mean arterial pressures, > 70 mmHg recommended.
 - Using an alpha-stat as against a PH-stat management.
@@ -142,12 +126,10 @@ Important strategies are as listed below:
 - Optimise maternal oxygen saturation, glycaemic and electrolyte control and fluid management.
 
 Key Message:
-
 - Invasive treatments during pregnancy (with the exception of primary PCI for STEMI) should only be used if the mother is symptomatic despite being on optimal medical therapy.
 - If cardiac surgery is indicated, determining the optimal timing is critical and needs to be individualised.
 
-### Section 4.9: Anticoagulation in Pregnancy
-
+### Section 4: .9: Anticoagulation In Pregnancy
 This content supports the mitral stenosis recommendation that anticoagulation is indicated if atrial fibrillation develops.
 
 **General indications for anticoagulation include:**
@@ -162,10 +144,8 @@ This content supports the mitral stenosis recommendation that anticoagulation is
 
 Management of these patients will vary depending upon the indication.
 
-#### Anticoagulation for other indications
-
+#### Anticoagulation For Other Indications
 The choice of therapeutic anticoagulation for other indications would depend upon the risk of thrombosis, patients' preference and the consensus of the multidisciplinary team. Either:
-
 - [Grade II-b, Level C] Regime A - warfarin throughout pregnancy till 36 weeks
 - [Grade II-b, Level C] Regime B - UFH/LMWH therapy in the first trimester
 
@@ -179,17 +159,15 @@ If AF should occur for the first time in patients with valvular heart disease, i
 
 Both warfarin and heparin based therapy are safe during breast feeding.
 
-#### Management from 36 weeks gestation till delivery
-
+#### Management From 36 Weeks Gestation Till Delivery
 - [Grade II-a, Level C] At 36 weeks, the patient and warfarin should be switched to LMWH or IV UFH.
 - [Grade II-a, Level C] Women on LMWH should be switched to IV UFH at least 36 hours before induction of labour or caesarean section.
 - [Grade II-a, Level C] IV UFH should be discontinued 4-6 hours before planned delivery and restarted 4-6 hours after vaginal delivery and 6-12 hours after LSCS if there are no bleeding complications.
 - [Grade I, Level C] Oral anticoagulation can be resumed after 24 hours if there are no bleeding concerns.
 
-## Grades of Recommendation and Level of Evidence
+## Grades Of Recommendation And Level Of Evidence
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -198,16 +176,14 @@ Both warfarin and heparin based therapy are safe during breast feeding.
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial fibrillation |

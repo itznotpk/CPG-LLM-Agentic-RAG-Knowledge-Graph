@@ -1,5 +1,4 @@
-# SECTION 2: EPIDEMIOLOGY
-
+# Section 2: Epidemiology
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: Epidemiology — incidence, mortality, age_distribution, ethnic_distribution, histological_trends
@@ -13,8 +12,7 @@ There is an increasing trend of cancer worldwide. A total of 14.1 million new ca
 
 In the United States, a declining overall incidence of cervical cancer has been reported; largely attributed to the decrease in the incidence of squamous cell carcinoma. [Level II-2] However, there is an unexplained rise of adenocarcinoma (AC). There is no published local data on the trend of cervical cancer.
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -23,8 +21,7 @@ In the United States, a declining overall incidence of cervical cancer has been 
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AC | Adenocarcinoma |

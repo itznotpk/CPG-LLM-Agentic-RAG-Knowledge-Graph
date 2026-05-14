@@ -1,5 +1,4 @@
-# SECTION 3.1: Medical History, Physical Examination and Laboratory Testing
-
+# Section 3: .1: Medical History, Physical Examination And Laboratory Testing
 <!-- METADATA
 parent_section: SECTION 3: DIAGNOSIS AND ASSESSMENT
 category: diagnosis
@@ -12,8 +11,7 @@ output: baseline_assessment, risk_factors_identified
 
 ---
 
-## 3.1.1 History Taking
-
+### 3.1.1: History Taking
 A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps to assess different sexual function domains:
 - Sexual desire
 - Erectile function
@@ -30,7 +28,6 @@ A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps t
 > **Clinical Note:** IIEF-5 and EHS assessment helps determine ED severity and guides treatment selection.
 
 ### Mandatory Screening
-
 | Screen For | Rationale |
 |------------|-----------|
 | Hypogonadism symptoms | Decreased energy, decreased libido |
@@ -39,8 +36,7 @@ A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps t
 
 ---
 
-## 3.1.2 Physical Examination
-
+### 3.1.2: Physical Examination
 Patients should undergo physical examination and vital parameters recording during clinical examination as part of cardiovascular risk assessment.
 
 **Focus areas for examination:**
@@ -61,19 +57,16 @@ Patients should undergo physical examination and vital parameters recording duri
 
 ---
 
-## 3.1.3 Laboratory Testing
-
+### 3.1.3: Laboratory Testing
 Laboratory testing must be tailored to patient's symptoms and risk factors to identify modifiable risk factors.
 
-### Routine Tests (for CV Risk Assessment)
-
+### Routine Tests (For CV Risk Assessment)
 | Test | Purpose |
 |------|---------|
 | Fasting blood glucose OR HbA1c | Screen for diabetes |
 | Lipid profile | Cardiovascular risk assessment |
 
-### Additional Tests (Case-by-Case Basis)
-
+### Additional Tests (Case-By-Case Basis)
 Additional laboratory tests may be considered on a case-by-case basis e.g. hormonal tests:
 - Early morning total testosterone
 - Total prostate-specific antigen (PSA)
@@ -82,12 +75,10 @@ Additional laboratory tests may be considered on a case-by-case basis e.g. hormo
 
 ---
 
-## 3.1.4 Advanced Work-Up
-
+### 3.1.4: Advanced Work-Up
 > Most patients with ED can be managed based on their medical and sexual history. Specific diagnostic tests are reserved for specific indications.
 
-### 3.1.4.1 Nocturnal Penile Tumescence and Rigidity Test (NPTR)
-
+#### 3.1.4.1: Nocturnal Penile Tumescence And Rigidity Test (Nptr)
 **Procedure:** Device worn overnight for at least 2 separate nights
 
 **Information Obtained:**
@@ -108,8 +99,7 @@ Additional laboratory tests may be considered on a case-by-case basis e.g. hormo
 
 ---
 
-### 3.1.4.2 Intracavernosal Injection Test
-
+#### 3.1.4.2: Intracavernosal Injection Test
 Performed with or without dynamic duplex Doppler ultrasound to confirm vasculogenic aetiology.
 
 **Normal Parameters:**
@@ -122,8 +112,7 @@ Performed with or without dynamic duplex Doppler ultrasound to confirm vasculoge
 
 ---
 
-### 3.1.4.3 Arteriography
-
+#### 3.1.4.3: Arteriography
 | Indication | Test Type |
 |------------|-----------|
 | Candidates for penile revascularisation | Penile pudendal arteriography |
@@ -131,8 +120,7 @@ Performed with or without dynamic duplex Doppler ultrasound to confirm vasculoge
 
 ---
 
-### Indications for Advanced Diagnostic Tests
-
+### Indications For Advanced Diagnostic Tests
 | Indication | Examples |
 |------------|----------|
 | Primary ED | Not caused by acquired organic disease or psychogenic disorder |
@@ -149,8 +137,7 @@ Performed with or without dynamic duplex Doppler ultrasound to confirm vasculoge
 <!-- Purpose: Ensure CV risk is assessed before treatment         -->
 <!-- ============================================================ -->
 
-## CRITICAL: Cardiovascular Risk Assessment Required
-
+## Critical: Cardiovascular Risk Assessment Required
 After completing medical history and labs, ALL patients must undergo **Cardiac Risk Stratification** before treatment:
 
 | Risk Category | Characteristics | Treatment Eligibility |
@@ -172,8 +159,7 @@ After completing medical history and labs, ALL patients must undergo **Cardiac R
 <!-- Purpose: Link risk factors to treatment options              -->
 <!-- ============================================================ -->
 
-## Treatment-Related Risk Factors to Address
-
+## Treatment-Related Risk Factors To Address
 Risk factors identified here are addressed through lifestyle modifications:
 
 | Risk Factor | Treatment Impact |

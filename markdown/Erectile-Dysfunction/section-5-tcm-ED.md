@@ -1,5 +1,4 @@
-# SECTION 5: TRADITIONAL AND COMPLEMENTARY MEDICINE
-
+# Section 5: Traditional And Complementary Medicine
 <!-- METADATA
 category: treatment
 treatment_type: traditional_complementary
@@ -7,7 +6,6 @@ use_case: alternative_therapy
 -->
 
 ## Overview
-
 Traditional and complementary medicine (TCM) has been used for the prevention and treatment of ED for many years. The mechanisms of action remain unclear and warrant further clinical investigations.
 
 ---
@@ -15,14 +13,12 @@ Traditional and complementary medicine (TCM) has been used for the prevention an
 ## Evidence Summary
 
 ### Combination Therapy: PDE5i + Antioxidants
-
 A meta-analysis on nine RCTs comparing combination therapy of PDE5i and antioxidants (e.g. propionyl-L-carnitine or L-arginine) with PDE5i monotherapy in patients mainly with ED showed:
 - Combination therapy was more effective based on IIEF score (WMD=1.99, 95% CI 1.34 to 2.63)
 - No increase in adverse events
 - Nine RCTs were mainly of low-risk of bias category (67, level I)
 
 ### Red Ginseng
-
 A systematic review assessed various TCMs in the management of ED. A meta-analysis of seven RCTs demonstrated the effectiveness of red ginseng in the treatment of ED compared with placebo:
 
 | Outcome | Effect | Evidence |
@@ -33,8 +29,7 @@ A systematic review assessed various TCMs in the management of ED. A meta-analys
 
 > **Note:** The methodological quality of the included RCTs was averagely low.
 
-### Other TCM Findings
-
+### Other Tcm Findings
 | Treatment | Finding | Evidence |
 |-----------|---------|----------|
 | **Yohimbine** | Reasonable therapeutic option compared with placebo; infrequent and reversible AEs | Level I |

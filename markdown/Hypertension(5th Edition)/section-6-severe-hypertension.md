@@ -1,5 +1,4 @@
-# SECTION 6: MANAGEMENT OF SEVERE HYPERTENSION
-
+# Section 6: Management Of Severe Hypertension
 <!-- METADATA
 category: Treatment, Assessment
 use_case: Hypertensive Urgency/Emergency Management — crisis_classification, end_organ_damage_assessment, BP_reduction_targets, oral_agents, IV_agents, monitoring, disposition
@@ -9,8 +8,7 @@ critical: true
 treatment_type: captopril, nifedipine, labetalol, nicardipine, esmolol, hydralazine, nitroglycerine, sodium_nitroprusside
 -->
 
-## Management of Severe Hypertension
-
+## Management Of Severe Hypertension
 Severe hypertension is defined as persistent elevated SBP >180 mmHg and/or DBP >110 mmHg.
 
 These patients may present with:
@@ -31,12 +29,10 @@ Management of these patients depends on the clinical presentation and laboratory
 
 The commonest reason of severe hypertension is long-standing poorly controlled essential hypertension. Other causes are as listed in Table 6-A: Common Causes of Severe Hypertension.
 
-### 6.1 Specific Management
-
+## 6.1: Specific Management
 The aim of management is to reduce BP in a controlled, predictable and safe manner, to avoid provoking or aggravating acute coronary syndrome, cerebral or renal ischaemia.
 
-#### 6.1.1 Hypertensive Urgency
-
+### 6.1.1: Hypertensive Urgency
 Hypertensive urgency is defined as severe increase in BP which is not associated with acute end organ damage/complication and these include patients with grade III or IV retinal changes (also known as accelerated and malignant hypertension), but no overt symptoms and signs of acute target organ damage/complication. These patients may be admitted.
 
 [Level II] Blood pressure measurement should be repeated after 30 minutes of bed rest. [Level II] Initial treatment should aim for about 25% reduction in BP over 24 hours but not lower than 160/100 mmHg. Oral drugs proven to be effective are outlined in Table 6-B: Oral Treatment for Hypertensive Urgencies. Combination therapy may be necessary. Importantly, there is no role for intravenous BP lowering drugs. Many of these patients have withdrawn from or are not adhering to antihypertensive therapy and do not have clinical or laboratory evidence of acute target organ damage. Possible precipitating factors for hypertensive urgency include non-adherence to anti-hypertensive medications, less effective outpatient blood pressure control, acute pain, herbal supplement and emotional stress.
@@ -46,8 +42,7 @@ Therapeutic strategies for previously undiagnosed patients include (Figure 6-A: 
 2. Initiate oral anti-hypertensive agents if BP remains >180/110 mmHg
 3. Hypertensive urgency discharge plan (Figure 6-B: Hypertensive Urgency Discharge Plan)
 
-#### 6.1.2 Hypertensive Emergency
-
+### 6.1.2: Hypertensive Emergency
 Hypertensive emergency is defined as severe elevation of blood pressure associated with new or progressive end organ damage/complication such as acute heart failure, dissecting aneurysm, acute coronary syndromes, hypertensive encephalopathy, acute renal failure, subarachnoid haemorrhage and/or intracranial haemorrhage. These may occur in patients with BP <180/110 mmHg, particularly if the BP has risen rapidly.
 
 These patients:
@@ -63,9 +58,7 @@ Specific clinical scenarios requiring rapid lowering of SBP, usually to at least
 
 In summary, the selection of an antihypertensive agent should be based on the drug's pharmacology, pathophysiological factors underlying the patient's hypertension, degree of progression of target organ damage, the desirable rate of BP decline, and the presence of comorbidities. The therapeutic goal is to minimise target organ damage safely by rapid recognition of the problem and early initiation of appropriate antihypertensive treatment.
 
-
-### 6.2 Dangers of Rapid Reduction in Blood Pressure
-
+## 6.2: Dangers Of Rapid Reduction In Blood Pressure
 Rapid reduction of BP (within minutes to hours) in hypertensive urgencies should be avoided as it may precipitate ischaemic events.
 
 [Level III] Oral or sublingual drugs with rapid onset of action can result in an uncontrolled BP reduction. Several serious side effects have been reported with the administration of sublingual fast-acting nifedipine and therefore this is no longer recommended. [Level III] However oral nifedipine retard can be used and has been recommended as first line therapy for hypertensive urgencies.
@@ -74,8 +67,7 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 
 ---
 
-### RECOMMENDATIONS
-
+### Recommendations
 * [Grade B] In hypertensive urgencies, aim for 10-20 mmHg SBP reduction after 2 hours of rest. Failing this, pharmacotherapy should be initiated.
 * [Grade C] Do not reduce BP rapidly (within minutes to hours) in hypertensive urgencies as it may precipitate ischaemic events.
 * [Grade B] For patients whose BP responded with adequate rest (after 2 hours), discharge them with Hypertensive Urgency Discharge Plan.
@@ -85,8 +77,9 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 * [Grade C] Reduce BP by no more than 25% within the first hour; then, if stable, to 160/100 mmHg within the next 2 to 6 hours; and then cautiously to normal during the following 24 to 48 hours in all other situations.
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### Table 6-A: Common Causes of Severe Hypertension
+Table 6-A: Common Causes Of Severe Hypertension
 
 | Causes | Example |
 |---|---|
@@ -100,7 +93,7 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 
 ---
 
-### Table 6-B: Oral Treatment for Hypertensive Urgencies
+Table 6-B: Oral Treatment For Hypertensive Urgencies
 
 | Drug | Starting Dose (mg) | Onset of action (hr) | Duration (hr) | Frequency (prn) |
 |---|:---:|:---:|:---:|:---:|
@@ -111,7 +104,7 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 
 ---
 
-### Table 6-C: Common Clinical Scenario of Hypertensive Emergencies with Treatment Goals
+Table 6-C: Common Clinical Scenario Of Hypertensive Emergencies With Treatment Goals
 
 | Clinical scenario | BP reduction | Additional consideration |
 |---|---|---|
@@ -128,7 +121,7 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 
 ---
 
-### Table 6-D: Treatment Options for Hypertensive Emergencies
+Table 6-D: Treatment Options For Hypertensive Emergencies
 
 | Drugs | Dose | Onset of action | Duration | Remarks |
 |---|---|:---:|:---:|---|
@@ -146,7 +139,7 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 
 ---
 
-### Table 6-E: Differences Between Hypertensive Emergency and Urgency
+Table 6-E: Differences Between Hypertensive Emergency And Urgency
 
 | Variable | Emergencies | Urgencies |
 |---|:---:|:---:|
@@ -156,9 +149,9 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 | Evaluation for secondary hypertension | Yes | Yes |
 
 ---
-### Figure 6-A: Flowchart in Management of Hypertensive Urgency
+Figure 6-A: Flowchart In Management Of Hypertensive Urgency
 
-**Figure 6-A** provides a step-by-step algorithm for managing patients presenting with hypertensive urgency (BP ≥180/110 mmHg).
+Figure 6-A provides a step-by-step algorithm for managing patients presenting with hypertensive urgency (BP ≥180/110 mmHg).
 
 1.  **Initial Assessment & Rest:**
     *   The patient is first placed in a quiet room for rest (with instructions of no talking or active listening).
@@ -174,7 +167,7 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 
 ---
 
-### Figure 6-B: Hypertensive Urgency Discharge Plan
+Figure 6-B: Hypertensive Urgency Discharge Plan
 
 *   **Blood pressure monitoring**
     *   Home BP monitoring **OR** check by healthcare provider at least 3 times per week
@@ -188,9 +181,9 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 
 ---
 
-### Figure 6-C: Flowchart in Management of Hypertensive Emergency
+Figure 6-C: Flowchart In Management Of Hypertensive Emergency
 
-**Figure 6-C** describes the clinical pathway for managing a hypertensive emergency.
+Figure 6-C describes the clinical pathway for managing a hypertensive emergency.
 1.  **Entry Criteria:** SBP ≥180 mmHg and/or DBP ≥110 mmHg.
 2.  **Assessment:** Evaluate for acute target organ damage or complications.
     *   If **No**: Manage as hypertensive urgency.
@@ -201,8 +194,8 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
     *   **All Other Situations:** Reduce BP by 10-25% within the first hour, then toward 160/100 mmHg within the next 6 hours, and then cautiously to normal over 24-48 hours.
 
 ---
-## Level of Evidence
 
+## Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -211,8 +204,7 @@ Following stabilisation of patient's BP, subsequent management is tailored towar
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Grades of Recommendation
-
+## Grades Of Recommendation
 | GRADE | STUDY DESIGN |
 |---|---|
 | A | At least one meta analysis, systematic review, or RCT, or evidence rated as good and directly applicable to the target population |

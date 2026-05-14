@@ -1,5 +1,4 @@
-# SECTION 7: SUPPORTIVE CARE
-
+# Section 7: Supportive Care
 <!-- METADATA
 category: Supportive Treatment
 use_case: NPC Supportive Care — dental_care, otitis_media, contraception, nutritional_support, pre_radiotherapy_dental_assessment, enteral_feeding
@@ -7,14 +6,12 @@ patient_input: dental_status, nutritional_status, reproductive_status, treatment
 output: dental_management_plan, nutritional_support_plan, contraception_advice, OME_treatment
 -->
 
-## 7.1 Dental Care
-
+## 7.1: Dental Care
 Dental assessment prior to radiotherapy should be addressed early to allow sufficient healing time for any dental procedures. [Level III] A comprehensive dental assessment should include medical and dental history, extra- and intra-oral examination, necessary radiographs and any investigations required.
 
 Dental management in NPC emphasis on the importance of oral or denture hygiene care, and use of ultra-soft toothbrush. [Level III] Referral for dental assessment is required and treated accordingly.
 
-## 7.2 Treatment of Otitis Media with Effusion
-
+## 7.2: Treatment Of Otitis Media With Effusion
 Otitis media with effusion (OME) is common in NPC patients. [Level I] The treatment options for post-irradiation OME are:
 - Myringotomy plus grommet insertion
 - Simple aspiration (auripuncture)
@@ -22,12 +19,10 @@ Otitis media with effusion (OME) is common in NPC patients. [Level I] The treatm
 
 [Level I] Myringotomy and grommet insertion has higher cure rate at the end of 2-year follow-up compared with simple auripuncture plus aspiration (51% vs 38%, p=0.011) despite higher incidence of complications (28.9% vs 15.6%).
 
-## 7.3 Contraception
-
+## 7.3: Contraception
 Ideally, highly effective reversible contraceptives, such as intrauterine or implantable contraceptives, are recommended for women treated for cancer including NPC. However, combined hormonal contraceptive methods (containing oestrogen and progestin) should be avoided by women with active cancer or who have been treated for cancer in the last six months due to the increased risk of venous thromboembolism (VTE). [Level III] For women who are cancer-free for at least six months and have no history of hormone-mediated cancers, chest wall irradiation, anaemia, osteoporosis or VTE, the use of any method of contraception can be recommended.
 
-## 7.4 Nutritional Support
-
+## 7.4: Nutritional Support
 NPC patients are at risk for malnutrition due to disease process or complications of the treatment. Adequate nutrition is important for supportive or palliative care to ease the treatment process and improve quality of life. Nutritional intake for NPC patients can be in the form of oral, enteral and parenteral feed depending on patients’ ability to tolerate the food and their requirements. Nutritional supplements may be used to maintain adequate calorie and nutrient intake which includes:
 - Nutritionally complete supplements
 - Energy and protein supplements
@@ -37,8 +32,7 @@ NPC patients are at risk for malnutrition due to disease process or complication
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -51,8 +45,7 @@ NPC patients are at risk for malnutrition due to disease process or complication
 
 ---
 
-## Abbreviations used in this section
-
+## Abbreviations Used In This Section
 | Abbreviation | Full Term |
 |---|---|
 | NPC | Nasopharyngeal Carcinoma |

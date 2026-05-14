@@ -1,5 +1,4 @@
-# SECTION 6: OTHER CONDITIONS ASSOCIATED WITH INCREASED CV RISK
-
+# Section 6: Other Conditions Associated With Increased CV Risk
 <!-- METADATA
 category: Assessment, Special Populations
 use_case: Risk modifier assessment for conditions amplifying CVD risk — risk_modifier_assessment, comorbidity_screening, ckd, sleep_apnea, depression, gender_specific
@@ -12,10 +11,9 @@ treatment_type: CPAP, sildenafil, tadalafil, SSRI, menopausal_hormone_therapy, t
 
 ---
 
-## 6. Other Conditions Associated with Increased CV Risk
+## 6: Other Conditions Associated With Increased CV Risk
 
-## 6.1 Chronic Kidney Disease
-
+## 6.1: Chronic Kidney Disease
 The prevalence of CKD in Malaysian adults is approximately 9.1% based on estimated glomerular filtration rate (eGFR). Risk factors for CVD and CKD overlap significantly (age, diabetes, hypertension, dyslipidaemia, smoking, obesity). In CKD patients, non-traditional risk factors—such as albuminuria, hyperuricaemia, anaemia, inflammation, and endothelial dysfunction—further elevate CVD risk.
 
 CV mortality increases linearly as eGFR drops below <75 mL/min/1.73m². CV mortality is twice as high in stage 3 CKD and three times higher in stage 4 CKD compared to normal kidney function. Albuminuria is an independent risk factor with no threshold effect. Older adults with CKD have a much higher CVD prevalence (68.8%) than those without (34.1%). Death from CVD is far more common than progression to end-stage renal disease (ESRD). In Malaysia, CVD accounts for ~35% of dialysis patient deaths, and two-year post-AMI survival worsens significantly with CKD severity (80% without CKD vs. 53% in stage 4-5 CKD).
@@ -24,17 +22,16 @@ MI in CKD patients stems from premature atherosclerosis and arteriosclerosis. Up
 
 Standard risk equations like the FRS are less accurate in CKD patients as they do not incorporate CKD parameters. Patients >50 years old with CKD (eGFR <60 mL/min/1.73m² and/or albuminuria >30 mg/day) are regarded as High CV Risk.
 
-## 6.2 Infections and the Heart
+## 6.2: Infections And The Heart
 
-### 6.2.1 Influenza
+### 6.2.1: Influenza
 Recent influenza or respiratory tract infections are associated with acute myocardial infarction (AMI) in non-tropical regions. While some evidence suggests influenza vaccination may reduce CV mortality in CVD patients, there is insufficient evidence for primary prevention. Despite CDC/ACC advocacy for vaccination in CVD patients, there are no supportive data for its benefits in tropical regions.
 [Grade IIa, Level C] Routine influenza vaccination is not recommended.
 
-### 6.2.2 Periodontal Disease
+### 6.2.2: Periodontal Disease
 Epidemiological studies show an association between periodontal disease (PD) and CVD events (CHD, MI, strokes, PAD). While treating PD improves surrogate markers of inflammation and endothelial function, there are no interventional studies proving it prevents CVD.
 
-### 6.2.3 Human Immunodeficiency Virus (HIV)
-
+### 6.2.3: Human Immunodeficiency Virus (Hiv)
 With the use of new and effective anti-viral therapy, the life expectancy of patients infected with HIV is almost approaching that of the general population. CVD is becoming an important cause of mortality accounting for 6-11% of deaths.
 
 HIV infected individuals of both gender, are at increased risk of:
@@ -49,20 +46,17 @@ HIV infected individuals of both gender, are at increased risk of:
 
 [Grade I, Level C] Patients infected with the HIV should be screened and counselled about their CV risk factors. They should be encouraged to adopt a healthy lifestyle with smoking cessation and regular exercise. The traditional risk factors (hypertension, diabetes, dyslipidaemia, obesity) should be treated appropriately.
 
-## 6.3 Cancer and the Heart
-
+## 6.3: Cancer And The Heart
 Cancer may involve the heart via direct tumour extension, co-existing hypercoagulable states (acute thrombosis), or treatment toxicity (chemotherapy/radiotherapy).
 - **Chemotherapeutic Agents:** Can cause depression of LV function, vascular toxicity, hypertension, and arrhythmias.
 - **Radiation Therapy:** Thoracic/mediastinal/neck radiation increases the risk of CAD (5-10%), heart failure, acute/late pericarditis, valvular disease (20%), conduction abnormalities, sudden death, and ischaemic strokes/TIAs. CAD risk increases if the patient was irradiated young (≤21 years) or has other CV risk factors. Radiation-induced heart disease has a long latent period (especially >30 Gy) and tends to be progressive. Left-sided radiation for breast cancer poses a higher risk of coronary abnormalities than right-sided radiation.
 
-## 6.4 Connective Tissue Disease
-
+## 6.4: Connective Tissue Disease
 CVD is the leading cause of death in connective tissue diseases. The chronic systemic inflammatory state increases susceptibility to ischaemic heart disease (IHD).
 - **Rheumatoid Arthritis (RA):** CV events account for 40-50% of deaths. RA patients have 1.5-2x the risk of myocardial ischaemia. Risk correlates with disease duration, CRP levels, and rheumatoid factor positivity. Lipid profiles often show a 'lipid paradox' (low HDL-C/LDL-C with elevated VLDL-C/triglycerides), where lower lipids associate with more severe inflammation. Congestive cardiac failure (CCF) is a major contributor to excess mortality, independent of traditional risk factors. RA drugs (NSAIDs, COX-2 inhibitors, glucocorticoids) can exacerbate CCF, whereas TNF-alpha antagonists and methotrexate may offer some CV protection.
 - **Systemic Lupus Erythematosus (SLE):** SLE carries a 7.5 to 17-fold excess risk of CVD, unexplainable by traditional risk factors alone. Inflammation and steroid use are implicated.
 
-## 6.5 Sleep Disorders
-
+## 6.5: Sleep Disorders
 The most common sleep disorders are insomnia and sleep apnoea. Based on epidemiological data, both short sleep duration (<7 hours per night) and long sleep duration (>9 hours per night) disorders as well as obstructive sleep apnea (OSA) and insomnia are associated with poor cardiometabolic risk and outcomes.
 
 Insomnia is characterized by 3 primary symptoms:
@@ -105,8 +99,7 @@ Management of OSA includes:
   - Custom made oral appliances such as mandibular repositioning appliances and tongue retaining devices.
   - [Grade IIb, Level B] Surgery - There is insufficient evidence at present that surgery improves OSA.
 
-## 6.6 Psychosocial Factors/ Depression
-
+## 6.6: Psychosocial Factors/ Depression
 Clinical depression and depressive symptoms predict incident CHD and worsen its prognosis. Both acute stress (e.g. natural catastrophic disasters, acute outbursts of anger or grief, death of a spouse) as well as chronic stress (e.g. at work or within the family) increase the risk of a CV event. The INTERHEART study has shown that a cluster of psychosocial risk factors (i.e. social deprivation, stress at work or in family life, financial stress and depression) is associated with increased risk for MI.
 
 In a local study carried out among cardiac patients admitted to an urban hospital, the presence of significant levels of depression and or life events were ten times more likely to be associated with a recurrent cardiac event.
@@ -119,10 +112,9 @@ Coronary patients with clinically significant depression can be safely and effec
 
 [Grade IIa, Level B] A prudent approach at present is to offer patients with clinically significant depression or anxiety treatment with psychotherapy and antidepressant/ anxiolytic medication. Those not accepting treatment should be followed closely, and treatment offered again if symptoms persist for 4–6 weeks
 
-## 6.7 Gender Specific Issues
+## 6.7: Gender Specific Issues
 
-### 6.7.1 Erectile Dysfunction
-
+### 6.7.1: Erectile Dysfunction
 Erectile dysfunction (ED) is defined as persistent or recurrent inability to achieve and maintain a penile erection of sufficient rigidity to permit satisfactory sexual activity for at least 3 months duration. It is the commonest sexual problem affecting men. The prevalence of moderate to severe ED in a multi-ethnic Malaysian male population aged between 50-65 years old, was about 20%.
 
 The presence of ED is a reflection of the generalized vasculopathy present in these men rather than indicating a cause and effect relationship with CVD.
@@ -139,16 +131,14 @@ It is important to make the public and healthcare providers aware that ED is not
 
 [Grade III, Level C] However, the use of drug therapy to improve ED (e.g. sildenafil, tadalafil) does not result in a reduction in CV risk.
 
-### 6.7.2 Pre-eclampsia/Pregnancy
-
+### 6.7.2: Pre-eclampsia/Pregnancy
 Women with preeclampsia have an increased future risk of developing CHD, stroke and venous thromboembolic events. It is not known if this association is due to a common cause for pre-eclampsia and CVD, an effect of pre-eclampsia on disease development, or both.
 
 As there is a long latent period before these women develop CVD, it gives them an opportunity and ample time to improve their CV health.
 
 [Grade I, Level C] It is important that they be referred for CV risk factor monitoring and control in the years after pregnancy.
 
-### 6.7.3 Hormonal Female Contraceptives
-
+### 6.7.3: Hormonal Female Contraceptives
 Current or prior use of low-dose COC is associated with a small (2-3 fold) increased risk of MI in healthy non-smokers who are younger than 35 years. The risk of MI in this population is however very low and thus the CV risk is also small. This risk is increased, however, if the women is diabetic, obese, smokes, or has hypertension.
 
 It is the estrogen component of COC that increases a woman's CVD risk especially at doses of 50 mcg or higher. The risk of thrombotic stroke, venous thromboembolism (VTE), and MI increases as the dose of estrogen increases. The risk for stroke and MI from the progestin component of COC is relatively small. Progesterone-only pills do not increase the risk of CV events. A recent review showed that third- and fourth-generation progestin products containing desogestrel or drospirenone however, almost doubles a woman's risk for VTE compared with taking levonorgestrel-containing pills.
@@ -157,8 +147,7 @@ There are conflicting data regarding non-oral contraceptives (i.e. transdermal s
 
 [Grade I, Level C] Before prescribing COCs, it is important to screen for CV risk factors and have them optimally controlled. WHO has published a medical eligibility criteria for COC use depending on the individual's medical history.
 
-### 6.7.4 Menopausal Hormone Therapy– (Oestrogen Therapy/ Oestrogen Progesterone Therapy – ET/EPT)
-
+### 6.7.4: Menopausal Hormone Therapy– (Oestrogen Therapy/ Oestrogen Progesterone Therapy – ET/EPT)
 Menopausal hormone therapy (MHT) is widely used for controlling menopausal symptoms.
 
 The link between MHT and CVD can be summarised as follows:
@@ -182,8 +171,7 @@ The link between MHT and CVD can be summarised as follows:
 - Treatment preference
 - Overall CVD risk profile
 
-### 6.7.5 Testosterone Replacement Therapy (TRT)
-
+### 6.7.5: Testosterone Replacement Therapy (Trt)
 Male hypogonadism is defined as symptoms and signs of testosterone deficiency in the presence of low testosterone levels measured by at least two early-morning blood samples of free testosterone or total testosterone obtained before 10:00 a.m.
 
 The goal of TRT is to restore testosterone to physiologic ranges and reverse symptoms of hypogonadism.
@@ -194,8 +182,7 @@ The goal of TRT is to restore testosterone to physiologic ranges and reverse sym
 - The prescription of testosterone in men who have ED (but not hypogonadism) in the presence of low total testosterone levels
 - The concern about increased CVD risk among those taking testosterone.
 
-#### 6.7.5.1 Testosterone and CVD
-
+#### 6.7.5.1: Testosterone And CVD
 Testosterone decreases with age and age itself is associated with an increase in CV risk. It is not clear whether the association of CVD with low testosterone is causal or simply a reflection of poor health.
 
 The issue of increased risk of CVD with the use of testosterone is still unresolved.
@@ -231,8 +218,7 @@ In these patients who are at increased CV risk, all CV risk factors should be tr
 <!-- OVERLAP CONTENT                                              -->
 <!-- ============================================================ -->
 
-### Appendix 3: STOP-BANG SLEEP APNEA QUESTIONNAIRE
-
+### Appendix 3: Stop-Bang Sleep Apnea Questionnaire
 | STOP | | |
 |---|---|---|
 | Do you SNORE loudly (louder than talking or loud enough to be heard through closed doors)? | Yes | No |
@@ -267,8 +253,7 @@ Low Risk of OSA: Yes 0-2
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -277,8 +262,7 @@ Low Risk of OSA: Yes 0-2
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -295,7 +279,6 @@ Low Risk of OSA: Yes 0-2
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Definition |
 |---|---|
 | ACC | American College of Cardiology |

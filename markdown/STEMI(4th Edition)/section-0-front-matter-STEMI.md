@@ -1,28 +1,25 @@
-# SECTION 0: FRONT MATTER
-
+# Section 0: Front Matter
 <!-- METADATA
 category: Methodology
 use_case: Guideline Overview and Development Process — guideline_overview, expert_panel, methodology, evidence_grading
-patient_input: 
+patient_input:
 output: guideline_scope, development_process, grading_system
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 
-## Statement of Intent
-
+## Statement Of Intent
 This guideline was developed to be a guide for best clinical practice, based on the best available evidence at the time of development. Specific attempts were made to use local data and publications to ensure local relevance. Adherence to this guideline does not necessarily lead to the best clinical outcome in individual patient care. Every healthcare provider is responsible for the management of his/her unique patient based on the clinical presentation and management options available locally.
 
-## Review of the Guideline
-
+## Review Of The Guideline
 This guideline is issued in 2019 and will be reviewed in 2024 or earlier if important new evidence becomes available.
 
-## Members of the Expert Panel
+## Members Of The Expert Panel
 
 ### Chairperson:
 - Dr Jeyamalar Rajadurai – Consultant Cardiologist, Subang Jaya Medical Centre
 
-### Members (in alphabetical order):
+### Members (In Alphabetical Order):
 - Dr Abdul Kahar Abdul Ghapar – Consultant Cardiologist, Head of Cardiology, Hospital Serdang
 - Dr Ahmad Tajuddin Mohamad Nor – Consultant Emergency Physician, Hospital Tengku Ampuan Rahimah, Klang
 - Dr Amin Ariff Nuruddin – Consultant Cardiologist, Head of Cardiology, Institut Jantung Negara
@@ -42,7 +39,7 @@ This guideline is issued in 2019 and will be reviewed in 2024 or earlier if impo
 - Dr Wan Azman Wan Ahmad – Consultant Cardiologist, University Malaya Medical Centre
 - Dr Wardati Mazlan Kepli – Clinical Pharmacist, Hospital Serdang
 
-### External Reviewers (in alphabetical order):
+### External Reviewers (In Alphabetical Order):
 - Dr Pearl Leong Yuet Mae – President, Private Medical Practitioners Association of Selangor and KL
 - Dr Rashidi Ahmad – Consultant Emergency Physician, Universiti Malaya Medical Centre
 - Dr Ridzuan Mohd Isa – Consultant Emergency Physician, Hospital Ampang
@@ -50,18 +47,15 @@ This guideline is issued in 2019 and will be reviewed in 2024 or earlier if impo
 - Dr Shahrul Bahaya Kamaruzzaman – Head and Consultant Geriatrician, Department of Medicine, University Malaya Medical Centre
 - Dr Sunita Bavanandan – Consultant Nephrologist, Hospital Kuala Lumpur
 
-## Rationale and Process of Guideline Development
+## Rationale And Process Of Guideline Development
 
 ### Rationale
-
 Acute Myocardial Infarction (AMI) continues to be a major cause of morbidity and mortality in Malaysia. With timely intervention and early reperfusion, the cardiovascular outcomes have improved. The biggest challenge has been to reduce the total ischaemic time, which is the time from onset of chest pain till the time when the infarct related artery is opened. A large portion of this delay has been the late presentation of the patient with AMI to medical attention (onset of chest pain to First Medical Contact – FMC).
 
 The 1st CPG on STEMI was published in 2001 with a 2nd and 3rd update in 2007 and 2014 respectively. Rapid further developments have taken place especially in the area of pre-hospital care. This 4th edition was developed to provide a clear and concise approach based on current evidence with the focus being on efforts to reduce time to FMC and improve pre-hospital care.
 
 ### Objectives
-
 These guidelines are intended to provide awareness and education in order to reduce the morbidity and mortality associated with STEMI by:
-
 - Reducing total ischaemic time
 - Developing a network for early referral and treatment of STEMI patients
 - Updating the management of STEMI with respect to:
@@ -70,20 +64,16 @@ These guidelines are intended to provide awareness and education in order to red
   - Secondary prevention
 
 ### Process
-
 Literature search was performed using PubMed and Cochrane Database of Systematic Reviews from 1st September 2013 till 31st August 2018. International guidelines (AHA/ACC and ESC) were used as main references. All literature retrieved were appraised by members of the Expert Panel and all statements and recommendations made were collectively agreed by the group.
 
 ### Target Group
-
 These guidelines are developed for all healthcare providers involved in the management of STEMI in adults.
 
 ### Target Population
-
 These guidelines are developed to treat all adults with STEMI.
 
-## Grades of Recommendation and Levels of Evidence
-
-### Table 1: Levels of Evidence and Grades of Recommendation
+## Grades Of Recommendation And Levels Of Evidence
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | Grade | Description |
 |---|---|
@@ -93,8 +83,7 @@ These guidelines are developed to treat all adults with STEMI.
 | IIb | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Description |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -103,8 +92,7 @@ These guidelines are developed to treat all adults with STEMI.
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACC | American College of Cardiology |

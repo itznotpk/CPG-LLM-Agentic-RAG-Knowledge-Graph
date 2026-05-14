@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Epidemiology
 use_case: Disease burden and epidemiology of dyslipidaemia in Malaysia — epidemiology, prevalence, CVD_burden, risk_factors, definition
@@ -7,8 +6,7 @@ patient_input: population_data, NHMS_survey, NCVD_registry
 output: disease_prevalence, CVD_risk_context, dyslipidaemia_definition, LDL-C_cutoffs
 -->
 
-## 1.1. Epidemiology
-
+## 1.1: Epidemiology
 In 2019, pre pandemic, non-communicable diseases accounted for 7 of the 10 leading causes of deaths globally. This was about 74% of all deaths and the leading cause was cardiovascular deaths—Ischemic heart disease (IHD) and strokes.
 
 In Malaysia, in 2020, ischemic heart disease remained the principal cause of medically certified deaths accounting for 17.0% of all deaths. It had been the leading cause of deaths for more than 2 decades and for the first time in 2021, it was overtaken by Covid-19 infections, and it dropped to second place, accounting for 13.7% of all deaths.
@@ -22,17 +20,16 @@ Data from the most recent National Cardiovascular Disease Darabase - Acute Coron
 
 ---
 
-## 1.2. Prevention of Cardiovascular Disease
-
+## 1.2: Prevention Of Cardiovascular Disease
 In the prevention of CVD, efforts should be aimed at reducing global CV risk. This guideline emphasizes:
-*   A multifactorial approach that addresses all CV risk factors. This is because the benefits of modifying several risk factors simultaneously are synergistic. 
+*   A multifactorial approach that addresses all CV risk factors. This is because the benefits of modifying several risk factors simultaneously are synergistic.
 *   That preventing CVD should be directed at global CVD burden rather than heart disease alone.
 
 There already exist clinical practice guidelines addressing specific CV risk factors. The objectives of this CPG on the Management of Dyslipidemia are to:
 *   Critically review the role of dyslipidemia as a CV risk factor.
-*   Provide treatment strategies for managing dyslipidemia, in the following situations: 
+*   Provide treatment strategies for managing dyslipidemia, in the following situations:
     *  High-risk individuals - these include those who have:
-        * Established CVD (i.e., secondary prevention) 
+        * Established CVD (i.e., secondary prevention)
         * Diabetes, multiple CV risk factors and/or chronic kidney disease (CKD) (i.e., primary prevention in high-risk individuals).
         * Individuals who are otherwise healthy (i.e., primary prevention)
 *   Provide strategies for the successful implementation and dissemination of the recommendations, utilizing and optimizing existing health resources.
@@ -41,8 +38,7 @@ Decision making however, should be individualized, and based on sound clinical j
 
 ---
 
-## 1.3. Definition of Dyslipidemia
-
+## 1.3: Definition Of Dyslipidemia
 Lipid levels are continuous and there is no cut-off between "normal" and "abnormal" levels. Arbitrary definitions of dyslipidemia refer to levels which:
 *   Have been shown in epidemiological studies to be associated with increased CV risk and/or
 *   Treatment has been shown to reduce CV risk.
@@ -56,8 +52,7 @@ Commonly used cut off values for dyslipidemia and which has been adopted in this
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -77,8 +72,7 @@ Commonly used cut off values for dyslipidemia and which has been adopted in this
 ---
 
 ## Baseline Data
-
-### Table 7: Prevalence of Cardiovascular Risk Factors among Adults > 18 years of age in Malaysia
+Table 7: Prevalence Of Cardiovascular Risk Factors Among Adults > 18 Years Of Age In Malaysia
 
 | Risk Factor | NHMS III (2006) | NHMS IV (2011) | NHMS V (2015) | NHMS VI (2019) |
 |---|---|---|---|---|
@@ -97,16 +91,14 @@ Commonly used cut off values for dyslipidemia and which has been adopted in this
 ---
 
 ## Key Messages #1
-
 *   Cardiovascular disease (CVD) has been an important cause of morbidity and mortality in both Malaysian men and women for more than a decade.
 *   Malaysians developed ACS at a mean age of 58.7 years and almost a quarter are below the age of 50 years. This is almost 10 years younger than that seen in Singapore.
 *   The prevalence of the common cardiovascular (CV) risk factors among adults ≥ 18 years has been on an increasing trend.
-*   About 40% of patients presenting with ACS have ≥ 3 CV risk factors. 
+*   About 40% of patients presenting with ACS have ≥ 3 CV risk factors.
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

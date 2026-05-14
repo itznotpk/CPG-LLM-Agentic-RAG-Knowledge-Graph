@@ -1,5 +1,4 @@
-# APPENDICES
-
+# Appendices
 <!-- METADATA
 category: Reference, Classification
 use_case: Reference Tables and Flowcharts — drug_dosing, WHO_risk_classification, NYHA_classification, clinical_flowcharts, diagnostic_algorithms
@@ -7,7 +6,7 @@ patient_input: lab_results, symptoms
 output: drug_dosing_tables, flowcharts, WHO_risk_classification, NYHA_classification
 -->
 
-## Appendix I: Causes of Elevated Natriuretic Peptide Levels*
+## Appendix I: Causes Of Elevated Natriuretic Peptide Levels*
 
 ## Cardiac
 * Heart Failure, including RV syndromes
@@ -22,7 +21,7 @@ output: drug_dosing_tables, flowcharts, WHO_risk_classification, NYHA_classifica
 * Cardioversion
 * Toxic-metabolic myocardial insults, including cancer chemotherapy
 
-## Non-cardiac
+## Non-Cardiac
 * Advancing age (refer to Table 12: Optimal Natriuretic Peptide Cut Points for Diagnosis or Exclusion of Heart Failure among Patients with Dyspnea.)
 * Anemia
 * Renal failure:
@@ -46,8 +45,7 @@ output: drug_dosing_tables, flowcharts, WHO_risk_classification, NYHA_classifica
 * Tagore R, Ling LH, Yang H, Daw HY, Chan YH, Sethi SK. Natriuretic peptides in chronic kidney disease. Clin J Am Soc Nephrol 2008;3:1644-51.
 * Tsai SH, Lin YY, Chu SJ, Hsu CW, Cheng SM. Interpretation, and use of natriuretic peptides in non-congestive heart failure settings. Yonsei Med J. 2010:51(2):151-63
 
-## Appendix II: Salt Content of Common Malaysian Foods Daily Reference Intake (DRI) for salt: 5 g per day (1 teaspoon)
-
+## Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon)
 **SALT CONTENT IN FOOD**
 
 | LOW (< 5% of DRI) | MODERATE (5% - 20% of DRI) | HIGH (> 20% of DRI) |
@@ -95,7 +93,6 @@ output: drug_dosing_tables, flowcharts, WHO_risk_classification, NYHA_classifica
 Source: Malaysian Food Composition Database
 
 ## Appendix III: Discharge Care Plan
-
 The following discharge care plans should be discussed and agreed upon by the patient and treating physician.
 
 | NO | PARAMETER | TICK |
@@ -109,7 +106,6 @@ The following discharge care plans should be discussed and agreed upon by the pa
 | 7 | Referral for cardiac rehabilitation as soon as possible. | |
 
 ## Appendix IV: Discharge Care Summary
-
 A summary of the discharge care plan should be made available to the physician at the outpatient clinic upon follow up.
 
 | NO | PARAMETER | TICK |
@@ -124,8 +120,7 @@ A summary of the discharge care plan should be made available to the physician a
 | 8 | Additional services needed like rehabilitation, device therapy, palliative care and destination therapy discussed. | |
 | 9 | List of patient’s and family expectations | |
 
-## Appendix V: Indications for Valve Intervention*
-
+## Appendix V: Indications For Valve Intervention*
 | Valve | Pathology | Recommendations |
 |-------|-----------|-----------------|
 | Mitral | Stenosis | **Intervention** is indicated in patients with MVA < 1.0 cm² and who are:<br>• Symptomatic<br>• Asymptomatic but have new onset AF, Pulmonary Hypertension or planning a pregnancy. |
@@ -135,8 +130,7 @@ A summary of the discharge care plan should be made available to the physician a
 
 *Adapted from: Vahanian, A., Beyersdorf, F., Praz, F., Milojevic, M., Baldus, S.et al. 2021 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J 2022; 43(7), 561-632.*
 
-## Appendix VI: ESC Heart Failure Association algorithm (HFA–PEFF)
-
+## Appendix VI: Esc Heart Failure Association Algorithm (HFA–PEFF)
 |  |
 |----------------------------------------------------|
 | **P - Pretest Assessment**<br>This includes a detailed clinical evaluation, electrocardiogram, laboratory tests, and basic echocardiogram. HF*p*EF is suggested by:<br>• Normal LVEF *and*<br>• Nondilated left ventricle with concentric remodelling, or left ventricular hypertrophy *and*<br>• Left atrial enlargement. |
@@ -148,8 +142,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 * Cases where the diagnosis is unclear.
 * Non responders to treatment especially those with multiple comorbidities.
 
-## Appendix VII: H2FPEF score
-
+## Appendix VII: H2fpef Score
 | | Characteristic | Measurement | Score |
 |---|---|---|:---:|
 | **H** | Heavy | Body mass index > 30 kg/m² | 2 |
@@ -165,30 +158,25 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 | 0-1 | ≤ 23% |
 | 2-5 | Intermediate probability and require additional testing to determine the cause of dyspnea. |
 
-## Appendix VIII: Etiology of Cardiomyopathies
-
+## Appendix VIII: Etiology Of Cardiomyopathies
 Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart Failure Association of the European Society of Cardiology"
 
 ### Dilated Cardiomyopathy
-
 | Genetic | Infection | Systemic Immune-mediated Disease | Toxic and Overload | Drugs | Endocrine/Metabolic | Peripartum |
 |---|---|---|---|---|---|---|
 | **Cardiac Phenotype:**<br>• Titin (TTN)<br>• Lamin A/C (LMNA)<br>• Myosin Heavy Chain (MYH7)<br>• Troponin T (TNT2)<br>• Myosin Binding Protein C (MYBPC3)<br>• Phospholamban (PLN)<br><br>**Neuromuscular Disorders:**<br>• Duchenne Muscular Dystrophy<br>• Becker Muscular Dystrophy | **Post-Myocarditis:**<br>• Enteroviruses (e.g., Coxsackieviruses)<br>• Parvovirus B19<br>• Adenoviruses<br>• Herpes Viruses (Human Cytomegalovirus, Epstein-Barr Virus, Human Herpesvirus 6)<br>• Echoviruses<br>• Hepatitis C Virus<br>• Influenza A Virus<br><br>**Other:**<br>[e.g. HIV, Chagas] | **Autoimmune:**<br>• Rheumatoid Arthritis<br>• Coeliac Disease<br>• Systemic Lupus Erythematosus<br>• Dermatomyositis, Polymyositis<br>• Systemic Sclerosis<br>• Primary Biliary Cirrhosis<br>• Vasculitis (some)<br>• Mysthenia Gravis<br>• Pemphigus, Pemphigoid<br><br>**Autoinflammatory:**<br>[e.g. Crohn disease, ulcerative colitis, gout, reactive arthritis, rare monogenic disorders] | • Alcohol (Ethanol)<br>• Cocaine<br>• Amphetamines<br>• Ecstasy<br>• Anabolic Steroids<br>• Arsenic<br>• Cobalt<br>• Carbonmonoxide<br>• Lead<br>• Iron-overload/haem ochromatosis<br>• Amyloidosis | **Chemotherapy:**<br>[Anthracycline, trastuzumab, antimetabolites, monoclonal antibodies, tyrosine kinase inhibitors, immunomodulating agents]<br><br>**Other:**<br>[Clozapine, olzapine, chlorpromazine, risperidone, lithium, tricyclic antidepressants, ephedrine, all-trans retinoic acid, phenothiazines] | • Diabetes Mellitus<br>• Acromegaly<br>• Pheochromocytoma<br>• Thyroid gland dysfunction | Idiopathic cardiomyopathy presenting with HFrEF towards the end of pregnancy, or in the months following delivery, where no other cause of HF is found. |
 
 ### Hypertrophic Cardiomyopathy
-
 | Genetic | Storage Diseases | Neuromuscular and Mitochondrial Disorders | Malformation Syndromes |
 |---|---|---|---|
 | • Beta-Mysin Heavy Chain (MYH7)<br>• Myosin-Binding Protein C (MYBPC3)<br>• Troponin I and T (TNNI3, TNNT2)<br>• Tropomyosin alpha-1 Chain (TPM1)<br>• Myosin Light Chain 3 (MYL3) | • Anderson-Fabry Disease<br>• Danon Disease<br>• Pompe Disease<br>• Gaucher Disease | • Friedreich's ataxia<br>• MELAS (Mitochondrial Encephalomyopathy, Lactic Acidosis, and Stroke-Like Episodes)<br>• MERFF (Myoclonic Epilepsy with Ragged Red Fibres) | • LEOPARD (Lentigines; ECG Abnormalities; Ocular hypertelorism; Pulmonary Stenosis; Abnoral Genitalia; Retarded Growth; Deafness)<br>• Noonan<br>• Costello |
 
 ### Restrictive Cardiomyopathy
-
 | Noninfiltrative Disorders | Infiltrative Disorders | Storage Diseases | Endomyocardial Disorders |
 |---|---|---|---|
 | • Idiopathic<br>• Hereditary (Sarcomere Protein Disorders, Myofibrillar Myopathies, Werner Syndrome)<br>• Systemic Sclerosis | • Amyloidosis:<br>&nbsp;&nbsp;&nbsp;&nbsp;° Immunoglobulin Light Chain (AL)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Hereditary (ATTR-m)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Wild-Type (ATTR-wt)<br>&nbsp;&nbsp;&nbsp;&nbsp;° Other<br>• Sarcoidosis<br>• Hereditary Hyperoxaluria | • Anderson-Fabry Disease<br>• Danon Disease<br>• Pompe Disease<br>• Gaucher Disease<br>• Iron Overload<br>• Hereditary Haemochromatosis | • Carcinoid<br>• Endomyocardial Fibrosis (Idiopathic, Hypereosinophilic Syndrome, Drug-Related)<br>• Endocardial Fibroelastosis<br>• Metastatic Tumor<br>• Chemotherapy<br>• Radiation Therapy |
 
-## Appendix IX: Anticancer Agents Associated with Heart Failure / LV Dysfunction
-
+## Appendix IX: Anticancer Agents Associated With Heart Failure / Lv Dysfunction
 | Chemotherapy Agents | Prevention/Treatment |
 |---|---|
 | **Anthracyclines**<br>Doxorubicin<br>Epirubicin<br>Idarubicin | Monitor LVEF, strain assessment with global longitudinal strain.<br>Measure troponins.<br>Consider use of dexrazoxane, continuous infusion, liposomal preparations, β-blockers, ACE-I. |
@@ -199,8 +187,7 @@ Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart
 | **Small Molecule Tyrosine Kinase Inhibitors**<br>Pazopanib<br>Sorafenib<br>Sunitinib<br>Lapatinib | Treat hypertension aggressively |
 | **Proteasome Inhibitor**<br>Carfilzomib<br>Bortezomib | |
 
-## Appendix X: Chemotherapy drugs that have been associated with HF
-
+## Appendix X: Chemotherapy Drugs That Have Been Associated With HF
 | Class of Drugs               | Examples                               |
 |------------------------------|----------------------------------------|
 | Anthracyclines               | Doxorubicin, daunorubicin, epirubicin, |
@@ -212,7 +199,6 @@ Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart
 | Targeted Therapies           | Herceptin, imatinib, bevacizumab       |
 
 ## Appendix XI: Modified World Health Organization Maternal Cardiovascular Risk Assessment (cont'd)<sup>a-f</sup>
-
 | Modified World Health Organization Maternal Cardiovascular Risk Assessment |
 |---|
 | **WHO CLASS I: No Increase or a Mild Increase in Morbidity**<br>• Uncomplicated, small, or mild<br>&nbsp;&nbsp;&nbsp;&nbsp;> Pulmonary stenosis.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Patent ductus arteriosus.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Ventricular septal defect.<br>&nbsp;&nbsp;&nbsp;&nbsp;> Mitral valve prolapse (with no more than trivial mitral regurgitation).<br>• Successfully repaired simple lesions (secundum atrial or ventricular septal defect, patent ductus arteriosus, anomalous pulmonary venous drainage).<br>• Isolated Atrial ectopic beats or ventricular extrasystoles. |
@@ -222,7 +208,6 @@ Adapted from "Heart failure in cardiomyopathies: a position paper from the Heart
 | **WHO CLASS IV: Maternal mortality is 25-50%<br>Pregnancy Is Not Recommended or Is Contraindicated.<br>If pregnancy occurs, termination should be discussed.<br>If pregnancy continues, care as for class III.**<br>• Severe pulmonary arterial hypertension of any cause (mortality 17-33%).<br>• Severe systemic ventricular dysfunction (LVEF < 30%, NYHA III-IV).<br>• Previous peripartum cardiomyopathy with any residual impairment of left ventricular function.<br>• Severe mitral stenosis (MVA < 1.0 cm²), severe symptomatic aortic stenosis (AVA < 1.0cm²).<br>• Marfan syndrome with aorta dilated > 45 mm.<br>• Aortic dilatation > 50 mm in aortic disease associated with bicuspid aortic valve.<br>• Uncorrected severe coarctation. |
 
 Modified from:
-
 - a) Thorne S, MacGregor A, NelsonPiercy C. Risks of contraception and pregnancy in heart disease. Heart 2006; 92:15205;
 - b) RegitzZagrosek V, Blomstrom Lundqvist C, Borghi C et al. European Society of Cardiology guidelines on the management of cardiovascular diseases during pregnancy. Eur Heart J 2011; 32:314797
 - c) Siu SC, Sermer M, Colman JM, Alvarez AN, Mercier LA et al. Prospective multicentre study of pregnancy outcomes in women with heart disease. Circulation 2001; 104: 515-521.
@@ -230,8 +215,7 @@ Modified from:
 - e) Khairy P, Ouyang DW, Fernandes SM, Lee-Parritz A, Economy KE, Landzberg MJ. Pregnancy outcomes in women with congenital heart disease. Circulation 2006; 113:517-524
 - f) Nishimura RA, Otto CM, Bonow RO, Carabello BA, Erwin JP 3rd,Guyton RA, O'Gara PT, Ruiz CE, Skubas NJ, Sorajja P, Sundt TM 3rd, Thomas JD; ACC/AHA Task Force Members. 2014 AHA/ACC Guideline for the Management of Patients with Valvular Heart Disease: executive summary: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines. Circulation. 2014;129:2440-2492
 
-## Appendix XII: New York Heart Association (NYHA) Functional Classification
-
+## Appendix XII: New York Heart Association (Nyha) Functional Classification
 | Functional  Class   | Symptoms                                                                                                                                                                                      | Maternal  Cardiovascular  Risk   |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
 | CLASS I             | No limitation. Ordinary physical activity does not  cause undue fatigue, dyspnea or palpitation.                                                                                              | Low                              |
@@ -243,8 +227,7 @@ Modified from:
 
 The Criteria Committee of the New York Heart Association. Nomenclature and Criteria for Diagnosis of Diseases of the Heart and Great Vessels. 9th ed. Boston, Mass: Little, Brown & Co; 1994:253-256.
 
-## Appendix XIII: The different causes of ACHD-HF based on the underlying pathophysiology, related CHD and etiology tailored management
-
+## Appendix XIII: The Different Causes Of Achd-HF Based On The Underlying Pathophysiology, Related Chd And Etiology Tailored Management
 | Etiology | Pathophysiology | Congenital heart defect | Management |
 |---|---|---|---|
 | **Systemic left ventricle failure** | **Pressure overload** | Sub, supravalvular or valvular aortic stenosis, coarctation of the aorta, congenital MS, Shone syndrome | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
@@ -265,8 +248,7 @@ The Criteria Committee of the New York Heart Association. Nomenclature and Crite
 - l) Egbe AC, Connolly HM, Khan AR, et al. Outcomes in adult Fontan patients with atrial tachyarrhythmias. Am Heart J 2017;186:12-20.
 - m) Fedchenko M, Z. Mandalenakis, K.W. Giang, A. Rosengren, P. Eriksson, M. Dellborg, Long-term outcomes after myocardial infarction in middle-aged and older patients with congenital heart disease-a nationwide study, Eur. Heart J. 2021: 42 (26): 2577-2586.
 
-## Appendix XIV: Investigations in ACHD<sup>a</sup>
-
+## Appendix XIV: Investigations In ACHD<sup>a</sup>
 | Investigations | Important | Values/Parameter |
 |---|---|---|
 | **Electrocardiogram (ECG)** | To identify new onset/change in baseline ECG e.g., right/left ventricular hypertrophy, Conduction abnormalities. | Baseline ECG is abnormal to begin with in many ACHD.<br>New or recent change in baseline ECG should trigger further review. |
@@ -287,17 +269,15 @@ The Criteria Committee of the New York Heart Association. Nomenclature and Crite
 - e) Inuzuka R, Diller GP, Borgia F, Benson L, Tay EL, Alonso-Gonzalez R, Silva M, Charalambides M, Swan L, Dimopoulos K, Gatzoulis MA. Comprehensive use of cardiopulmonary exercise testing identifies adults with congenital heart disease at increased mortality risk in the
 - f) Kempny A, Dimopoulos K, Uebing A, Moceri P, Swan L, Gatzoulis MA, Diller GP. Reference values for exercise limitations among adults with congenital heart dis- ease. Relation to activities of daily life-single centre experience and review of published data. Eur Heart J 2012;33:1386 -1396.
 
-## Appendix XV: Flow Chart of the Management of ACHD-HF
+## Appendix XV: Flow Chart Of The Management Of Achd-HF
 
 ##### Step 1: Initial Assessment
-
 **Detail History Physical Examination**
 **Basic Investigation - TTE, CXR, ECG, Routine Bloods**
 
 ↓
 
-##### Step 2: Identify Signs and Symptoms of Heart Failure
-
+##### Step 2: Identify Signs And Symptoms Of Heart Failure
 **Signs and Symptom of Heart Failure**
 
 Determine the pathway based on symptom status:
@@ -311,7 +291,6 @@ Determine the pathway based on symptom status:
 ---
 
 ##### Step 3A: Symptomatic Pathway
-
 Perform **Biomarkers / CPET**
 
 **Outcome Evaluation:**
@@ -323,7 +302,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 3B: Asymptomatic Pathway
-
 Perform **Biomarkers / CPET**
 
 **Outcome Evaluation:**
@@ -332,8 +310,7 @@ Perform **Biomarkers / CPET**
 
 ---
 
-##### Step 4: Evaluation for Underlying Cause
-
+##### Step 4: Evaluation For Underlying Cause
 **Advance Diagnostic Testing:**
 *   TEE
 *   Advance Imaging: CT/CMR
@@ -343,7 +320,6 @@ Perform **Biomarkers / CPET**
 ↓
 
 ##### Step 5: Hemodynamic Significant Structural / Shunt / Valvular Lesion?
-
 **Outcome Evaluation:**
 *   **If Yes:** → **Transcatheter / Surgical Intervention** → Proceed to Step 6 (Appropriate Treatment)
 *   **If No:** → Proceed to Step 5A (Arrhythmia?)
@@ -351,7 +327,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 5A: Arrhythmia?
-
 **Outcome Evaluation:**
 *   **If Yes:** → **Antiarrhythmic Medical Therapy, EPS + Catheter Ablation, Pacemaker**
 *   **If No:** → Proceed to Step 5B (Other causes?)
@@ -359,7 +334,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 5B: Others – Bleeding (Anaemia, Infective Endocarditis / Thyroid Disease, Systemic Pulmonary Hypertension)?
-
 **Outcome Evaluation:**
 *   **If Yes:** → **Appropriate Treatment**
     *   If **Pulmonary Hypertension:** → **PAH Targeted Therapy**
@@ -367,8 +341,7 @@ Perform **Biomarkers / CPET**
 
 ---
 
-##### Step 6: Response to Treatment?
-
+##### Step 6: Response To Treatment?
 **Outcome Evaluation:**
 *   **If Yes:** → Proceed to Step 8 (Follow Up)
 *   **If No:** → Proceed to Step 7 (Ventricular Dysfunction)
@@ -376,7 +349,6 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 7: Ventricular Dysfunction
-
 **Heart Failure Pharmacotherapy (GDMT)**
 **Consider CRT**
 
@@ -396,15 +368,13 @@ Perform **Biomarkers / CPET**
 ---
 
 ##### Step 8: Follow Up
-
 **Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification**
 
 ↓ *(Surveillance / Reassessance – Loop back to Step 1 if worsening symptoms)*
 
 ---
 
-## APPENDIX XVI Calculation of Performance and Outcome Measures
-
+## Appendix XVI: Calculation Of Performance And Outcome Measures
 | Measure | | Formula | |
 |---|---|---|---|
 | **% of patients who had documentation of NYHA Functional Class** | = | (Number of patients who had documentation of NYHA Functional Class) / (Number of HF patients who were seen during that time period) | x 100 |
@@ -419,8 +389,7 @@ Perform **Biomarkers / CPET**
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -429,8 +398,7 @@ Perform **Biomarkers / CPET**
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -438,12 +406,12 @@ Perform **Biomarkers / CPET**
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -454,7 +422,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-### Table 12: Optimal Natriuretic Peptide Cut Points for Diagnosis or Exclusion of Heart Failure among Patients with Dyspnea.
+Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of Heart Failure Among Patients With Dyspnea.
 
 | | BNP (ng/L) | NT-Pro BNP (ng/L) |
 |---|---|---|
@@ -466,8 +434,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 | **Community Setting (Primary Care)** | | |
 | Heart Failure Rule Out | < 35 | < 125 |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

@@ -1,5 +1,4 @@
-# SECTION 18: ASSESSMENT OF PAH IN CONGENITAL HEART DISEASES
-
+# Section 18: Assessment Of PAH In Congenital Heart Diseases
 <!-- METADATA
 category: Assessment, Diagnosis, Treatment
 use_case: CHD-PAH Operability Evaluation — PVR_assessment, vasodilator_testing, Heath_Edwards_grading, echocardiography, catheterisation, lung_biopsy, surgical_vs_medical_decision
@@ -13,12 +12,10 @@ critical: true
 
 ---
 
-## 18. Assessment of PAH in Congenital Heart Diseases
-
+## 18: Assessment Of PAH In Congenital Heart Diseases
 The development of PAH in patients with CHD is very variable with some developing irreversible pulmonary vascular obstructive disease early in life while others with similar lesions remain operable even in the second decade and beyond. Approximately 50% of patients with large VSDs and large PDAs will develop Eisenmenger syndrome by early childhood whereas only 10% of patients with large ASDs will develop it towards second or third decade of life. This is in contrast to almost all the patients with unrepaired truncus arteriosus, complete atrioventricular septal defect and transposition of great arteries with large VSD will develop irreversible PAH by the end of 1st year.
 
 The determination of whether a patient with CHD is still operable or has irreversible PAH is difficult. The decision on surgical operability requires an accurate determination of the degree of pulmonary vasoreactivity or reversibility. This requires careful clinical assessment including:
-
 - a. History and clinical findings (presence of cyanosis, heart failure, intensity of second heart sound and heart murmur)
 - b. Pulse oximetry
 - c. Chest X-ray (dilatation of central pulmonary artery, peripheral pruning of pulmonary vasculature)
@@ -42,7 +39,6 @@ However, it is rarely performed nowadays as it is invasive and has limitations o
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **6MWT** | Six-Minute Walk Test |

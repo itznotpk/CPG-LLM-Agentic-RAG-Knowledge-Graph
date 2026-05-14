@@ -1,20 +1,17 @@
-# SECTION 0: KEY RECOMMENDATIONS & EVIDENCE GRADING
-
+# Section 0: Key Recommendations & Evidence Grading
 <!-- METADATA
 category: Methodology
 use_case: Key Recommendations and Evidence Grading — evidence_summary, grading_system, recommendation_strength
-patient_input: 
+patient_input:
 output: guideline_summary, key_recommendations, grading_reference
 -->
 
 ## Overview
-
 The following key recommendations are highlighted by the CPG Development Group as the priority recommendations that answer the main clinical questions addressed in the CPG on Management of Breast Cancer (Third Edition, 2019). These should be prioritised for implementation.
 
 ---
 
-## A. Screening and Referral
-
+## A. Screening And Referral
 *   Screening mammography may be performed **biennially** in women aged **50–74 years** in the general population.
 *   For women of **high risk** of breast cancer (no genetic variant identified), screening mammography may be considered from **30–39 years** of age, performed **annually from 40–59** and **biennially from 60 onwards**.
 *   For carriers of pathogenic or likely pathogenic variants in **BRCA1, BRCA2 and PALB2**:
@@ -28,8 +25,7 @@ The following key recommendations are highlighted by the CPG Development Group a
 
 ---
 
-## B. Assessment and Diagnosis
-
+## B. Assessment And Diagnosis
 *   **BI-RADS®** is the preferred reporting method in breast cancer management.
 *   **Minimally invasive biopsy technique (MIBT)** with core needle is the preferred diagnostic technique for both palpable and non-palpable breast lesions.
 *   Repeat image-guided MIBT or consider surgical excision when the initial core biopsy results are **non-diagnostic or discordant** with imaging findings.
@@ -45,7 +41,6 @@ The following key recommendations are highlighted by the CPG Development Group a
 ---
 
 ## C. Treatment
-
 *   **Multidisciplinary team** approach should be considered in the management of breast cancer to improve clinical outcomes.
 *   In women treated with **breast conserving surgery** for **ductal carcinoma in situ** of <2 mm margin, the benefits and risks of further treatment (surgery or radiotherapy) should be discussed to reduce the risk of local recurrence.
 *   In **early breast cancer** patients with clinically lymph nodes negative:
@@ -67,20 +62,17 @@ The following key recommendations are highlighted by the CPG Development Group a
 ---
 
 ## D. Fertility Preservation
-
 *   Fertility preservation should be **discussed with all breast cancer patients** in the reproductive age group; suitable patients should be referred to fertility specialist.
 
 ---
 
 ## E. Familial Breast Cancer
-
 *   Intensive screening of **BRCA carriers and high-risk individuals** should be vigilantly performed and adhered to.
 *   **Risk-reducing surgeries** should be discussed and offered to women with pathogenic/likely pathogenic variants in BRCA1 and BRCA2 genes.
 
 ---
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study Design |
 |---|---|
 | **I** | Evidence from at least one properly randomised controlled trial |
@@ -93,10 +85,8 @@ The following key recommendations are highlighted by the CPG Development Group a
 
 ---
 
-## Formulation of Recommendations (GRADE)
-
+## Formulation Of Recommendations (Grade)
 The CPG Unit of MaHTAS adapts GRADE (Grading Recommendations, Assessment, Development and Evaluation) in its process. In formulating recommendations, the following aspects are considered:
-
 *   Overall quality of evidence
 *   Balance of benefits versus harms
 *   Values and preferences
@@ -107,7 +97,7 @@ The CPG Unit of MaHTAS adapts GRADE (Grading Recommendations, Assessment, Develo
 
 ## F. Algorithms
 
-### ALGORITHM 1: MANAGEMENT OF EARLY BREAST CANCER
+### Algorithm 1: Management Of Early Breast Cancer
 
 #### Step 1: Initial Presentation & Systemic Therapy
 **Early breast cancer**
@@ -151,7 +141,7 @@ The CPG Unit of MaHTAS adapts GRADE (Grading Recommendations, Assessment, Develo
 
 ---
 
-### ALGORITHM 2: MANAGEMENT OF LOCALLY ADVANCED BREAST CANCER
+### Algorithm 2: Management Of Locally Advanced Breast Cancer
 
 #### Step 1: Initial Assessment
 **Locally advanced breast cancer**
@@ -174,7 +164,7 @@ Categorize based on operability:
 
 ---
 
-### ALGORITHM 3: MANAGEMENT OF METASTATIC BREAST CANCER
+### Algorithm 3: Management Of Metastatic Breast Cancer
 
 #### Step 1: Initial Assessment
 **Metastatic breast cancer**
@@ -183,7 +173,6 @@ Categorize based on the presence of visceral crisis:
 
 #### Pathway A: No Visceral Crisis
 Determine hormone receptor (ER/PR) status:
-
 * **ER/PR Positive (+):**
   * **HER2-Negative:**
     * Pre-menopausal: → Endocrine therapy ± Ovarian ablation/suppression
@@ -195,7 +184,6 @@ Determine hormone receptor (ER/PR) status:
 
 #### Pathway B: Visceral Crisis
 Determine HER2 status:
-
 * **HER2-Negative:** → Chemotherapy
 * **HER2-Positive:** → Chemotherapy ± Anti-HER2
 

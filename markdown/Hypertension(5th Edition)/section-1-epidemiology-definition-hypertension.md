@@ -1,5 +1,4 @@
-# SECTION 1: EPIDEMIOLOGY, DEFINITION AND CLASSIFICATION OF HYPERTENSION
-
+# Section 1: Epidemiology, Definition And Classification Of Hypertension
 <!-- METADATA
 category: Introduction, Epidemiology, Classification
 use_case: Hypertension Epidemiology, Definition & Classification — prevalence, NHMS_survey, risk_factors, BP_definition, staging, isolated_systolic, white_coat, masked_hypertension
@@ -7,8 +6,7 @@ patient_input: blood_pressure_readings, age, gender, ethnicity, measurement_sett
 output: hypertension_classification, BP_staging, epidemiological_context, screening_recommendations
 -->
 
-## Epidemiology, Definition and Classification of Hypertension
-
+## Epidemiology, Definition And Classification Of Hypertension
 Hypertension is defined as persistent elevation of systolic blood pressure (BP) of 140 mmHg or greater and/or diastolic BP of 90 mmHg or greater, taken at least twice on two separate occasions.
 
 Although there is an attempt to redefine hypertension as >130 and/or 80 mmHg, this Committee recommends that the old recommendation remains. The Committee is of the opinion the proposed lower definition will not change the way we treat our patients, particularly those with cardiovascular complications with BP equal to or more than 130/80 mmHg needs treatment to lower BP regardless.
@@ -23,44 +21,39 @@ Hypertension was more prevalent in the rural area in all three NHMS: 36.9% versu
 
 The relationship between BP and risk of cardiovascular events is continuous, consistent and independent of other risk factors. The higher the BP, the greater the chance of myocardial infarction, heart failure, stroke and kidney diseases. The presence of each additional risk factor, such as dyslipidaemia, diabetes mellitus or smoking status, compounds the risk. Therefore, the main aim of identifying and treating high BP is to reduce these risks of end organ damage or end organ complications. The classification of clinic BP levels in adults is shown in Table 1-A: Classification of Clinic Blood Pressure Levels in Adults.
 
-### 1.1 Isolated Systolic Hypertension
-
+## 1.1: Isolated Systolic Hypertension
 Isolated systolic hypertension (ISH) is defined as SBP of ≥140 mmHg and DBP <90 mmHg. It is common after the age of 50, and carries with it a poor prognosis. Clinical trials have demonstrated that control of ISH reduces total mortality, cardiovascular mortality, stroke and heart failure events.
 
 Changing patterns of BP occur with increasing age. The rise in SBP continues throughout life in contrast to DBP, which rises until approximately age 50, tends to level off over the next decade, and may remain the same or fall later in life. Diastolic hypertension predominates before age 50, either alone or in combination with SBP elevation. The prevalence of systolic hypertension increases with age, and above 50 years of age, systolic hypertension represents the most common form of hypertension. DBP is a more potent cardiovascular risk factor than SBP until age 50; thereafter, SBP is more important.
 
-### 1.2 Isolated Office (“White-Coat”) Hypertension
-
+## 1.2: Isolated Office (“White-Coat”) Hypertension
 Isolated office hypertension is characterised by an elevation in clinic blood pressure but normal home or ambulatory blood-pressure values. In these subjects the clinic BP is persistently above 140/90 mmHg but the home or daytime ambulatory systolic/diastolic BP measurements are lower than 135/85 mmHg.
 
-### 1.3 Masked Hypertension
-
+## 1.3: Masked Hypertension
 Patients with masked hypertension have normal clinic blood pressure but elevated daytime ambulatory or home blood-pressure level (≥135/85 mmHg). Prognosis of masked hypertension is worse than isolated office hypertension.
 
 For both isolated office and masked hypertension, once diagnosed, initial therapeutic interventions should be non-pharmacological and aim for adoption of healthy living. However, drug treatment is indicated, particularly when the patient’s cardiovascular risk profile is elevated or when target-organ damage (TOD) is detected. (Refer to chapter 3 on Diagnosis and Initial Assessment).
 
-### SUMMARY
-
+### Summary
 * Hypertension is defined as persistent elevation of systolic BP of 140 mmHg or greater and/or diastolic blood pressure of 90 mmHg or greater, taken at least twice on two separate occasions.
 
-### RECOMMENDATIONS
-
+### Recommendations
 * Measure BP at every opportunity as a high number of Malaysians are undiagnosed.
 * Check BP for every adult above age 18 years at least once as part of their annual health screening, and more frequently for those who are at risk (family history, obese and those at-risk of high blood pressure).
 
 ## Contextual Anchors (Overlapping)
-### Figure 1-A: Mortality Attributable to Risk Factors, Malaysia 2008
+Figure 1-A: Mortality Attributable To Risk Factors, Malaysia 2008
 
-**Figure 1-A** illustrates the percentage of mortality attributable to various risk factors in Malaysia for the year 2008, comparing males and females. High blood pressure is the leading risk factor for both genders, accounting for 19.4% of deaths in males and 22.8% in females. Tobacco use is the second most significant factor for males at 15.7%, while it is much lower for females at 1.2%. Other major contributors include Diabetes Mellitus (8.5% male, 9.1% female), High BMI (7.3% male, 8.1% female), and High Cholesterol (7.0% male, 8.2% female). Alcohol consumption contributes to 5.0% of male and 7.1% of female mortality. Physical inactivity, being underweight, and poor water/sanitation have relatively low contributions, all below 3%.
-
----
-
-### Figure 1-B: DALYs Attributable to Risk Factors, Malaysia 2008
-
-**Figure 1-B** shows the disability-adjusted life years (DALYs) attributable to risk factors in Malaysia in 2008. High blood pressure remains a top contributor, accounting for 10.8% for both males and females. High BMI is another significant factor, particularly for females at 12.1% compared to 8.3% for males. Tobacco use is high for males at 10.7% but very low for females (0.7%). Diabetes Mellitus accounts for 9.0% of DALYs in males and 11.4% in females. Other factors include physical inactivity (3.1% male, 4.3% female), high cholesterol (5.2% male, 5.1% female), and alcohol (4.3% male, 0.9% female). Underweight and poor water/sanitation contribute minimally, with underweight at 0.7% and poor water/sanitation at 0.1% for both genders.
+Figure 1-A illustrates the percentage of mortality attributable to various risk factors in Malaysia for the year 2008, comparing males and females. High blood pressure is the leading risk factor for both genders, accounting for 19.4% of deaths in males and 22.8% in females. Tobacco use is the second most significant factor for males at 15.7%, while it is much lower for females at 1.2%. Other major contributors include Diabetes Mellitus (8.5% male, 9.1% female), High BMI (7.3% male, 8.1% female), and High Cholesterol (7.0% male, 8.2% female). Alcohol consumption contributes to 5.0% of male and 7.1% of female mortality. Physical inactivity, being underweight, and poor water/sanitation have relatively low contributions, all below 3%.
 
 ---
-### Table 1-A: Classification of Clinic Blood Pressure Levels in Adults
+
+Figure 1-B: DALYs Attributable To Risk Factors, Malaysia 2008
+
+Figure 1-B shows the disability-adjusted life years (DALYs) attributable to risk factors in Malaysia in 2008. High blood pressure remains a top contributor, accounting for 10.8% for both males and females. High BMI is another significant factor, particularly for females at 12.1% compared to 8.3% for males. Tobacco use is high for males at 10.7% but very low for females (0.7%). Diabetes Mellitus accounts for 9.0% of DALYs in males and 11.4% in females. Other factors include physical inactivity (3.1% male, 4.3% female), high cholesterol (5.2% male, 5.1% female), and alcohol (4.3% male, 0.9% female). Underweight and poor water/sanitation contribute minimally, with underweight at 0.7% and poor water/sanitation at 0.1% for both genders.
+
+---
+Table 1-A: Classification Of Clinic Blood Pressure Levels In Adults
 
 | Classification* | Systolic (mmHg) | | Diastolic (mmHg) | Prevalence in Malaysia |
 |---|---|---|---|---|
@@ -77,7 +70,7 @@ Home and Ambulatory BP may be used to diagnose and classify elevated blood press
 
 ---
 
-### Table 1-B: Criteria for Staging Hypertension Based on Clinic, Home and Ambulatory Blood Pressure Monitoring
+Table 1-B: Criteria For Staging Hypertension Based On Clinic, Home And Ambulatory Blood Pressure Monitoring
 
 | Category | Clinic BP (mmHg) | Home BP Monitoring Average or Ambulatory BP Daytime Average (mmHg) |
 |---|---|---|
@@ -86,4 +79,3 @@ Home and Ambulatory BP may be used to diagnose and classify elevated blood press
 | Severe Hypertension | SBP ≥180 or DBP ≥110 | - |
 
 Note: Adapted from National Institute for Health and Clinical Excellence (NICE) Hypertension, 2011.
-

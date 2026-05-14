@@ -1,5 +1,4 @@
-# SECTION 9: TYPES OF ANTIHYPERTENSIVE AGENTS
-
+# Section 9: Types Of Antihypertensive Agents
 <!-- METADATA
 category: Treatment, Reference
 use_case: Antihypertensive Drug Class Reference — dosing, contraindications, adverse_effects, interactions, class_selection, combination_considerations
@@ -8,10 +7,9 @@ output: drug_reference, dosing_guidance, contraindications, adverse_effects_summ
 treatment_type: hydrochlorothiazide, indapamide, atenolol, bisoprolol, metoprolol, amlodipine, nifedipine, verapamil, diltiazem, captopril, enalapril, perindopril, ramipril, losartan, valsartan, telmisartan, carvedilol, labetalol, methyldopa, moxonidine, hydralazine, minoxidil
 -->
 
-## Types of Antihypertensive Agents
+## Types Of Antihypertensive Agents
 
-## 9.1 DIURETICS
-
+## 9.1: Diuretics
 [Level I] Diuretics, specifically thiazide diuretics, have been the mainstay of hypertension treatment, alone or in combination with other anti-hypertensive agents. Diuretics work via inducing natriuresis which alter long term sodium balance, leading to reduced peripheral vascular resistance and sustained blood pressure reduction. Diuretics provide synergistic effect to almost all anti-hypertensive agents, particularly renin-angiotensin system (RAS) blockers. There were also outcome data that supported the potential cardiovascular benefits of thiazide diuretics, particularly in those with preserved renal function.
 
 Thiazide diuretics are classified into thiazide (e.g. hydrochlorothiazide) and thiazide-like diuretics, e.g. chlorthalidone (CTD) and indapamide. Locally, hydrochlorothiazide (HCTZ) is the most commonly used thiazide diuretic. Most positive outcome studies used thiazide-like diuretics, i.e. chlorthalidone and indapamide. [Level II-1] Even though there were no head to head trials comparing HCTZ and CTD, a systematic review and network meta-analyses reported superiority of CTD to HCTZ in preventing cardiovascular events. This difference might be attributed to the pleomorphic effects of CTD or to the shorter duration of action of HCTZ.
@@ -20,9 +18,7 @@ Thiazide diuretics are classified into thiazide (e.g. hydrochlorothiazide) and t
 
 [Level II-2] A recent case-control study highlighted a significant increase in the risk of skin and lip squamous cell carcinoma among thiazide diuretics users. There was a clear dose-response effect with the highest cumulative dose of HCTZ having the highest risk. There was more than 7-fold increased risk of squamous cell carcinoma for a cumulative use of ≥200,000 mg HCTZ (equivalent to 50mg daily for a duration of more than 11 years). Even though this is an observational study, the risk is not negligible.
 
-
-## 9.2 Beta-Blockers (β-Blockers)
-
+## 9.2: Beta-Blockers (Β-Blockers)
 Beta-blockers have long been used in the treatment of hypertension. They are particularly useful in hypertensive patients with effort angina, tachyarrhythmias or previous myocardial infarction where they have been shown to reduce cardiovascular morbidity and mortality. Certain β-blockers have been shown to be beneficial in patients with heart failure. (Table 5-C: Choice of Anti-Hypertensive Drugs in Patients with Concomitant Conditions)
 
 Beta-blockers are absolutely contraindicated in patients with uncontrolled asthma and relatively contraindicated in other forms of obstructive airways disease (including controlled bronchial asthma). It is also absolutely contraindicated in patients with severe peripheral vascular disease and heart block (2nd and 3rd degree).
@@ -32,38 +28,31 @@ Beta-blockers are absolutely contraindicated in patients with uncontrolled asthm
 [Level I] In a major landmark study, an ARB was shown to be superior than β-blocker in patients with high risk hypertension and ECG LVH. This prompted a meta-analysis on the use of β-blockers in the treatment of hypertension. Beta-blocker therapy did not reduce the risk for first myocardial infarction compared to other drugs but was associated with a significant 16% higher risk for stroke when compared to non-β-blocker therapy and that atenolol in particular was associated with a significant 26% increase in the risk of stroke when compared to other anti-hypertensive agents. [Level II-1] Beta-blockers lower brachial systolic blood pressure but not the aortic pressure compared to other drugs. Heart rate is reduced but peripheral resistance is increased, thus increasing the arterial wave reflection during systole rather than diastole. Similarly, another meta-analysis and a systematic review also showed that β-blockers were associated with a significant increase in their withdrawal due to side effects.
 
 Caution is necessary in the interpretations of negative findings from earlier analysis on β-blocker as:
-
 - most of the studies involved atenolol (hence the comparative outcomes of other newer vasodilatating β-blockers are not well established as there has been no comparative studies between the β-blocker sub-classes.
 - almost all the studies were carried out in the West, hence the comparative outcomes of other ethnic groups are not well established.
 
 However, more recent meta analysis showed that β-blocker is as effective as other drugs in improving clinical outcome. The latest Cochrane Review however indicates that as first line treatment, they are:
-
 - inferior to CCB for total mortality outcomes.
 - better than placebo for total CVD (primarily driven by decrease strokes) but no better than other classes of anti-hypertensive agents.
 - better than placebo for strokes but worse than CCB and no better than other classes of anti-hypertensive agents for total coronary heart disease outcome.
 
 It is thus reasonable for β-blockers to be used as single first line therapy to initiate anti-hypertensive therapy for patients with hypertension especially if there are specific compelling needs for its use such as those with post-MI or heart failure. Some guidelines like The National Institute for Clinical Excellence (NICE) UK Guideline, JNC VIII and the ACC/AHA did not recommend β-blockers as first line anti-hypertensive agent. It is however still recommended as first line by other guidelines including guidelines from this region.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - [Grade A] Consider β-blocker as single first-line anti-hypertensive agent especially when there are compelling indications for their use.
 - [Grade C] Choose vasodilating over non-vasodilating β-blockers as a preference. However there had not been extensive head-to-head comparison between β-blockers.
 
-## 9.3 Calcium Channel Blockers
-
+## 9.3: Calcium Channel Blockers
 Calcium channel blockers (CCBs) are a structurally and functionally heterogenous class of drug. The main mechanism of action is vasodilation, which decreases peripheral resistance. Certain subtypes of dihydropyridine (DHP) CCBs, e.g. T-type CCBs have been shown to dilate both the afferent and efferent arterioles, reduce glomerular capillary pressure and proteinuria. This may play a role in prevention of kidney damage and preservation of renal function.
 
 [Level I] In view of the effective BP lowering property and excellent safety profile, CCBs especially dihydropyridine (DHP) type have been recommended as first-line anti-hypertensive agents. A metanalysis showed that CCBs reduced stroke in hypertensive patients more than placebo and β-blockers but were not different than ACE inhibitors and diuretics. [Level I] However, there is no evidence that dihydropyridine CCBs are superior to other antihypertensive agents in Asian populations for the treatment of hypertension in reducing cardiovascular death, major cardiovascular events, stroke, congestive heart failure, and coronary revascularisation.
 
 [Level I] Metanalyses have shown that RAS blockers and CCBs combinations are superior to other combinations in lowering cardiovascular events, in addition to a better safety profile.
 
-
-## 9.4 Renin-Angiotensin-System (RAS) Blockers
-
+## 9.4: Renin-Angiotensin-System (Ras) Blockers
 The RAS is implicated at all stages of the “CV continuum” that links hypertension with other risk factors and major CV events. Therefore, it represents a rational and established therapeutic target when lowering blood pressure.
 
-## 9.4.1 Ace Inhibitors (ACEIs)
-
+### 9.4.1: Ace Inhibitors (ACEIs)
 [Level I] ACEIs are effective antihypertensive agents which can lower cardiovascular risk, reducing mortality and morbidity in hypertensives and those at high cardiovascular risk. [Level I] They are more effective in preventing coronary artery disease in patients with hypertension. ACEIs are generally well tolerated and do not have adverse effects on lipid and glucose metabolism. Their safety profile is good. [Level I] ACEIs have also been shown to reduce mortality and morbidity in patients with congestive heart failure and in post myocardial infarction patients with reduced left ventricular ejection fraction.
 
 In patients with established vascular disease but normal left ventricular function, ACEIs reduce mortality, myocardial infarction, stroke and new-onset congestive heart failure.
@@ -74,13 +63,10 @@ Adverse effects include cough and, rarely, angioedema. In patients with renovasc
 
 This class of drug may increase foetal and neonatal mortality and therefore are contraindicated in pregnancy and breast feeding. Counselling should be given to women of child bearing age before initiation of RAS blockers. Pregnant patients should seek immediate medical advice.
 
-
-## Combination Therapy with ACEI
-
+## Combination Therapy With Acei
 [Level I] The combination of an ACEI and a dihydropyridine CCB is preferred over the combination of an ACEI and a thiazide diuretic in patients with hypertension and high CV risk.
 
-## 9.4.2 Angiotensin Receptor Blockers (ARBs)
-
+### 9.4.2: Angiotensin Receptor Blockers (ARBs)
 [Level I] ARBs are drugs which specifically block angiotensin II receptors. Unlike ACEIs, persistent dry cough is less and as such ARBs are recommended for risk reduction in ACEI intolerant patients.
 
 [Level I] ARBs are effective in preventing progression of diabetic [Level I] nephropathy and may reduce the incidence of major cardiac events in patients with [Level I] heart failure, hypertensive [Level I] LVH and diastolic heart failure. [Level I] In patients with LV dysfunction post MI, ARBs have also been shown to be non-inferior to ACEIs.
@@ -89,10 +75,9 @@ This class of drug may increase foetal and neonatal mortality and therefore are 
 
 [Level I] Despite conflicting findings from various meta analyses, it is important to look at the original studies, especially “head to head” trials on these drugs. In high risk CV patients with or without hypertension, the evidence showed that ARB is non-inferior to ACEI for CV protection. [Level I] However in patients with left ventricular dysfunction, ACEI have more evidence including reducing mortality and ARB is used for ACEI intolerant patients. [Level I] As for diabetics patients with or without hypertension, ACEI improves CV outcome including total mortality especially in combination with thiazide-like diuretics. [Level I] The same is true for non-diabetic nephropathy and type 1 diabetes mellitus with nephropathy. [Level I] However for type 2 diabetic nephropathy, both [Level I] ACEI and [Level I] ARB improve renal outcome although only ACEI has the added advantage in improving CV and renal outcomes. [Level I] In hypertensives with ECG left ventricular hypertrophy, CV protection (especially stroke reduction) have been demonstrated with ARB. [Level I] On the other hand for secondary stroke prevention, the evidence favour ACEI especially in combination with thiazide-like diuretics. Table 9.4-C: RAS Blockers Use in Co-Morbidities summarises the available evidence on the therapeutics of RAS blockers in patients with various comorbidities.
 
-## 9.5 Miscellaneous Drugs
+## 9.5: Miscellaneous Drugs
 
-## 9.5.1 The ∂-Blockers and the Combined ∂, β-Blockers
-
+### 9.5.1: The ∂-Blockers And The Combined ∂, Β-Blockers
 The peripheral ∂1-adrenergic blockers lower BP by reducing peripheral resistance. They also reduce prostatic and urethral smooth muscle tone and provide symptomatic relief for patients with early benign prostatic hyperplasia (BPH). Unless there are other compelling reasons, they should be the treatment of choice for hypertensive patients with BPH. The use of non-specific ∂-blockers like phentolamine and phenoxybenzamine has been restricted to the treatment of phaeochromocytoma.
 
 In addition, ∂-blockers have favourable effects on lipid metabolism. However postural hypotension is a known side effect, especially at initiation of therapy. They should be used with care in the elderly.
@@ -101,9 +86,7 @@ Combined ∂ and β-blockers offer enhanced neurohormonal blockade. Labetalol ha
 
 [Level I] Carvedilol has been shown to be effective in hypertension and also to improve mortality and morbidity in patients with heart failure. In addition, it has no adverse effects on insulin resistance and lipid metabolism. However, its safety in pregnancy has not been established.
 
-
-## 9.5.2 Centrally Acting Agents
-
+### 9.5.2: Centrally Acting Agents
 The centrally acting agents available in this country are alpha-methyldopa, clonidine and moxonidine. The common side effects of the centrally acting agents include drowsiness, dry mouth, headache, dizziness and mood change. Moxonidine is less likely to cause these reactions. The side-effects may decrease after a few weeks of continued treatment. In general, treatment should begin with the lowest possible dose to minimise the side-effects.
 
 Alpha-methyldopa has been in use for many years. It is the drug of choice for hypertension in pregnancy. It may be considered for resistant hypertension in combination with other classes of anti-hypertensive agents.
@@ -112,17 +95,13 @@ Clonidine should **NOT** be withdrawn suddenly because rebound hypertension may 
 
 Moxonidine is an orally administered imidazoline compound with selective agonist activity at imidazoline II receptors. It can be used as monotherapy in patients with mild to moderate hypertension or in combination with other anti-hypertensive agents. Studies have suggested that it may improve the metabolic profile of patients with impaired glucose tolerance or diabetes. Rebound hypertension on cessation of the drug is less likely compared to clonidine but abrupt withdrawal is not recommended. It has been shown to increase mortality in patients with heart failure and is therefore contraindicated in patients with heart failure or at risk of heart failure.
 
-
-## 9.5.3 Direct Vasodilators
-
+### 9.5.3: Direct Vasodilators
 The only direct vasodilators available in Malaysia are hydralazine and minoxidil. Hydralazine is only available in parenteral formulation for hypertensive emergencies. Minoxidil may be considered for refractory hypertension. The usefulness of this class of drugs is limited by their side-effects, including headache, compensatory tachycardia, salt and water retention. Hirsutism is a troublesome side-effect with long-term use of minoxidil. These drugs should only be prescribed by physicians familiar with their usage.
 
-## 9.5.4 Drugs In Development
-
+### 9.5.4: Drugs In Development
 As the pathophysiology of hypertension becomes clearer, compounds are being developed to interrupt the pathways leading to an elevated blood pressure and to normalise it.
 
 Among the compounds being tested are:
-
 1. Those targeting aldosterone (anti-aldosterone agents). The strategy is to either block aldosterone production (aldosterone synthase inhibitors) or to block its receptor (mineralocorticoid receptor antagonists).
 
    The prototypes of mineralocorticoid receptor antagonists would be spironolactone and eplerenone. Finerenone is the latest in this class and is currently undergoing phase III trials, not only for hypertension but also for diabetic nephropathy and heart failure. Because it has low affinity for steroid receptors, there is a lower incidence of gynaecomastia, erectile dysfunction, and reduced libido.
@@ -137,46 +116,36 @@ Among the compounds being tested are:
 9. Intestinal Na+/H+ Exchanger 3 Inhibitor
 10. Dopamine β-hydroxylase (DβH) Inhibitor
 
+## 9.6: Traditional Herbal Medicine And Hypertension
 
-## 9.6 Traditional Herbal Medicine and Hypertension
-
-## 9.6.1 Traditional Medicine for Hypertension
-
+### 9.6.1: Traditional Medicine For Hypertension
 In 2000, the WHO in a key paper, (http://who.int/medicines/areas/traditional/definitions/en/) clearly outlined the definition and scope of traditional medicine as follows:
 
-## Traditional medicine
-
+## Traditional Medicine
 Traditional medicine is the sum total of the knowledge, skills, and practices based on the theories, beliefs, and experiences indigenous to different cultures, whether explicable or not, used in the maintenance of health as well as in the prevention, diagnosis, improvement or treatment of physical and mental illness.
 
-## Complementary/alternative medicine (CAM)
-
+## Complementary/alternative Medicine (Cam)
 The terms “complementary medicine” or “alternative medicine” are used interchangeably with traditional medicine in some countries. They refer to a broad set of health care practices that are not part of that country's own tradition and are not integrated into the dominant health care system.
 
-## Herbal medicines
-
+## Herbal Medicines
 Herbal medicines include herbs, herbal materials, herbal preparations and finished herbal products, that contain as active ingredients parts of plants, or other plant materials, or combinations.
 
 In most countries including Malaysia, the traditional treatment of hypertension will consist of:
-
 - oral, usually herbal medication
 - various forms of relaxation exercises, including yoga and qigong
 
-## Herbs used in hypertension
-
+## Herbs Used In Hypertension
 There are few publications in the English literature on the treatment of hypertension with herbs. The most quoted is by Tabassum and Ahmad, the “Role of Natural Herbs in the Treatment of Hypertension”. They comprehensively describe almost 50 herbal remedies for hypertension, including garlic, ginger, roselle, black plum, mistletoe, wheat bran, cocoa, wild tomato, sesame, radish, pomegranate, basil, cork wood, tomato, linseed, flaxseed, black mangrove, French lavender, pima cotton, soybean, carrot, swamp or river lily, Chinese hawthorn, black bean, coffee weed, tea, green oat, breadfruit, celery and prickly custard apple.
 
 An extensive online review on Medscape showed that herbal medicines for hypertension have not undergone the rigorous testing for efficacy and safety that is expected of modern drugs. None have undergone the gold standard of randomised placebo controlled trials. On top of that, there are reports that various herbal preparations (usually in capsule form) have been adulterated with modern drugs. For example, glibenclamide has been found in anti-diabetic preparations, and sildenafil has been found in compounds to increase male virility. Corticosteroids have also been added to traditional herbal medicine, with prolonged usage causing Cushing's Syndrome and hypertension. Hence, anecdotal reports on the efficacy of certain herbs cannot be relied on.
 
-## SUMMARY
-
+## Summary
 - There is no conclusive evidence that traditional medicine produces sustained reductions in BP with good clinical outcomes.
 
-## RECOMMENDATIONS
-
+## Recommendations
 - Traditional medicines are not recommended for the treatment of hypertension.
 
-## 9.6.2 Relaxation Exercises for Hypertension
-
+### 9.6.2: Relaxation Exercises For Hypertension
 Since the 1970s there have been reports on the efficacy of yoga in the treatment of hypertension (SBP -17 mmHg and DBP -10 mmHg). These trials, albeit small, have been compared against a control group and are credible. Qigong has also been demonstrated to lower the BP (SBP -17 mmHg and DBP -10 mmHg). But when compared against conventional exercise there was no significant difference.
 
 The American Heart Association, in their Scientific Statement on Meditation and Cardiovascular Risk Reduction, noted that BP may be lowered but the results were variable and inconsistent.
@@ -185,13 +154,13 @@ The regimes are postulated to work by reducing excessive sympathetic outflow fro
 
 Relaxation regimes as part of a healthy living regime can be useful in the holistic management of hypertension. Yoga and qigong or any other form of relaxation exercises may usefully complement drug treatment.
 
-## SUMMARY
-
+## Summary
 - Relaxation therapy may complement non-pharmacological and pharmacological treatment of hypertension however it is not recommended as primary treatment for hypertension.
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### TABLE 5-C: Choice of Anti-Hypertensive Drugs in Patients with Concomitant Conditions
+Table 5-C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions
 
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -219,7 +188,7 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 
 ---
 
-### Table 9.1-A Recommended Dosing for Diuretics
+Table 9.1-A Recommended Dosing For Diuretics
 
 | Diuretics | Starting Dose* | Recommended Maximum Daily Dose* |
 |---|---|---|
@@ -231,7 +200,7 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 
 ---
 
-### Table 9.2-A Recommended Dosing for β-blockers
+Table 9.2-A Recommended Dosing For Β-Blockers
 
 | β-blockers | Starting Dose* | Recommended Maximum Daily Dose* |
 |---|---|---|
@@ -247,7 +216,7 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 
 ---
 
-### Table 9.3-A Recommended Dosing for CCBs
+Table 9.3-A Recommended Dosing For CCBs
 
 | Dihydropridines | Starting Dose* | Recommended Maximum Daily Dose* |
 |---|---|---|
@@ -265,7 +234,7 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 * Referenced from 153rd Edition, MIMS, 2018
 
 ---
-### Table 9.4-A Recommended Dosing for ACEIs
+Table 9.4-A Recommended Dosing For ACEIs
 
 | ACEIs | Starting Daily Dose* | Recommended Maximum Daily Dose* |
 |---|---|---|
@@ -280,7 +249,7 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 
 ---
 
-### Table 9.4-B Recommended Dosing for ARBs
+Table 9.4-B Recommended Dosing For ARBs
 
 | ARBs | Starting Dose* | Recommended Maximum Daily Dose* |
 |---|---|---|
@@ -295,11 +264,10 @@ Relaxation regimes as part of a healthy living regime can be useful in the holis
 
 The safety profile of ARB is very similar to ACEI except for a lower incidence of cough.
 
-## Combination of ACEI and ARB
-
+## Combination Of Acei And ARB
 The combination of ACEI and ARB is not recommended and is to be avoided.
 
-### Table 9.4-C RAS Blockers Use in Co-Morbidities
+Table 9.4-C Ras Blockers Use In Co-Morbidities
 
 | Condition | ACEIs | ARBs |
 |---|---|---|
@@ -316,7 +284,7 @@ The combination of ACEI and ARB is not recommended and is to be avoided.
 
 ---
 
-### Table 9.5-A Recommended Dosing for ∂-blockers
+Table 9.5-A Recommended Dosing For ∂-Blockers
 
 | ∂-blockers | Starting Dose* | Recommended Maximum Daily Dose* |
 |---|---|---|
@@ -327,7 +295,7 @@ The combination of ACEI and ARB is not recommended and is to be avoided.
 * Referenced from 153rd Edition, MIMS, 2018.
 
 ---
-### Table 9.5-B Recommended Dosing for ∂, β-blockers
+Table 9.5-B Recommended Dosing For ∂, Β-Blockers
 
 | ∂, β-blockers | Starting Dose* | Maximum Dose* |
 |---|---|---|
@@ -340,7 +308,7 @@ The combination of ACEI and ARB is not recommended and is to be avoided.
 
 ---
 
-### Table 9.5-C Recommended Dosing for Centrally Acting Agents
+Table 9.5-C Recommended Dosing For Centrally Acting Agents
 
 | Drug | Starting dose | Maximum dose |
 |---|---|---|
@@ -354,7 +322,7 @@ The combination of ACEI and ARB is not recommended and is to be avoided.
 
 ---
 
-### Table 9.5-D Recommended Dosing for Minoxidil
+Table 9.5-D Recommended Dosing For Minoxidil
 
 | Drug | Starting Dose | Maximum dose |
 |---|---|---|
@@ -364,7 +332,7 @@ The combination of ACEI and ARB is not recommended and is to be avoided.
 
 ---
 
-### Table 9.5-E New Drugs for Hypertension (adapted from Oparil S. and Schmieder RE. 2015)
+Table 9.5-E New Drugs For Hypertension (Adapted From Oparil S. And Schmieder Re. 2015)
 
 | Drug | Mechanism of action | Status |
 |---|---|---|
@@ -379,8 +347,7 @@ The combination of ACEI and ARB is not recommended and is to be avoided.
 
 DIF = Digoxin-immune Fab.
 
-## Level of Evidence
-
+## Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -389,8 +356,7 @@ DIF = Digoxin-immune Fab.
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Grades of Recommendation
-
+## Grades Of Recommendation
 | GRADE | STUDY DESIGN |
 |---|---|
 | A | At least one meta analysis, systematic review, or RCT, or evidence rated as good and directly applicable to the target population |

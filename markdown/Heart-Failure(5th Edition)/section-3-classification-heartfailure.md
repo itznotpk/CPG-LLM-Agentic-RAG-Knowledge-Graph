@@ -1,5 +1,4 @@
-# SECTION 3: CLASSIFICATION
-
+# Section 3: Classification
 <!-- METADATA
 category: Classification
 use_case: HF Staging and Classification — LVEF_based, NYHA_functional_class, ACC_AHA_stages, HFrEF, HFmrEF, HFpEF, HFimpEF
@@ -7,8 +6,7 @@ patient_input: LVEF, symptoms, functional_status
 output: HF_classification, NYHA_staging, HF_stage_assignment
 -->
 
-## 3. Classification
-
+## 3: Classification
 **HF can be classified by phenotypes**. These descriptions may reflect the:
 * Temporal characteristics (e.g., acuteness, chronicity)
 * Affected circulatory systems (e.g., left vs right)
@@ -18,7 +16,7 @@ output: HF_classification, NYHA_staging, HF_stage_assignment
 
 ---
 
-## Key Message #3: Classification & Stages of HF
+## Key Message #3: Classification & Stages Of HF
 * HF can be classified according to:
     * Clinical Presentation:
         * Acute heart failure (Acute HF)
@@ -38,8 +36,7 @@ output: HF_classification, NYHA_staging, HF_stage_assignment
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -48,8 +45,7 @@ output: HF_classification, NYHA_staging, HF_stage_assignment
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -57,12 +53,12 @@ output: HF_classification, NYHA_staging, HF_stage_assignment
 | **C - "HF"** | Symptomatic HF, either previous or current symptoms |
 | **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association 
+The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -74,8 +70,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | HF | Heart Failure |

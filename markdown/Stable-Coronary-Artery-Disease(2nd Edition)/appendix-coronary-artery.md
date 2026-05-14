@@ -1,5 +1,4 @@
-# ACKNOWLEDGMENTS AND APPENDICES
-
+# Acknowledgments And Appendices
 <!-- METADATA
 category: Reference
 use_case: Supporting reference material and acknowledgments — expert_panel, appendices
@@ -7,34 +6,19 @@ patient_input: reference_lookup
 output: appendix_content
 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-## MEMBERS OF THE EXPERT PANEL
+## Members Of The Expert Panel
 
 ## Chairperson:
-
 Dr Jeyamalar Rajadurai
 
 Consultant Cardiologist Subang Jaya Medical Centre, Selangor
 
 ## Secretary:
-
 Dr Robaayah Zambahari
 
 Senior Consultant Cardiologist Institut Jantung Negara, KL
 
-## Expert Panel Members (in alphabetical order):
-
+## Expert Panel Members (In Alphabetical Order):
 Dr Alan Fong
 
 Consultant Cardiologist Sarawak General Hospital
@@ -349,8 +333,7 @@ SOURCES OF FUNDING
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 <!-- image -->
 
 MEMBERS OF THE EXPERT PANEL
@@ -631,10 +614,9 @@ SOURCES OF FUNDING
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
+## (2 Nd D Edition)
 
-## CONTENTS
-
+## Contents
 | MEMBERS OF THE EXPERT PANEL                                   | MEMBERS OF THE EXPERT PANEL                                                                                    |   3 |
 |---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----|
 | CONTENTS                                                      | CONTENTS                                                                                                       |   5 |
@@ -671,7 +653,6 @@ SOURCES OF FUNDING
 |                                                               | 7.4 Risk Stratification of Stable CAD by Non-invasive Testing                                                  |  55 |
 
 ## Stable Coronary Artery Disease 2018
-
 (2 nd d Edition)
 
 |                      | 7.5 Risk Stratification of Stable CAD by Anatomic testing                                         |   56 |
@@ -1305,11 +1286,9 @@ P: Population- Persons:
  women
 
 ## Stable Coronary Artery Disease 2018
-
 <!-- image -->
 
-## ABBREVIATIONS
-
+## Abbreviations
 3-KAT
 
 3-ketoacyl CoA Thiolase
@@ -2357,11 +2336,9 @@ Type of Study:
 Fractional Flow Reserve
 
 ## Stable Coronary Artery Disease 2018
-
 <!-- image -->
 
-## ABBREVIATIONS
-
+## Abbreviations
 GFR
 
 Glomerular Filtration Rate
@@ -3397,11 +3374,9 @@ This guideline was developed taking into consideration our local health resource
 Almost all the investigations and most of the medications recommended are available in public hospitals or at the cardiac centres in Malaysia.
 
 ## Stable Coronary Artery Disease 2018
-
 <!-- image -->
 
-## ABBREVIATIONS
-
+## Abbreviations
 SCAD
 
 Stable Coronary Artery Disease
@@ -4070,14 +4045,12 @@ SUMMARY
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
+## (2 Nd D Edition)
 
-## RATIONALE AND PROCESS OF GUIDELINE DEVELOPMENT
+## Rationale And Process Of Guideline Development
 
 ## Rationale:
-
 Coronary Artery Disease (CAD) covers a wide spectrum from asymptomatic individuals to patients with stable CAD, Acute Coronary Syndromes (ACS) and Sudden Cardiac Death (SCD). This Clinical Practice Guidelines (CPG) on Stable CAD is directed at individuals:
-
 - with stable chest pain or other symptoms (e.g. dyspnea) which are known or suspected to be due to CAD.
 - who had a previous episode of ACS but who are now stable and need regular follow up and monitoring.
 - post revascularization by Coronary Artery Bypass Surgery (CABG) or Percutaneous Coronary Intervention (PCI) who are at present asymptomatic or have stable symptoms due to CAD.
@@ -4086,16 +4059,13 @@ Coronary Artery Disease (CAD) covers a wide spectrum from asymptomatic individua
 This CPG on Stable CAD has been drawn up by a committee appointed by the National Heart Association of Malaysia, Ministry of Health (MOH) and the Academy of Medicine. It comprises cardiologists, endocrinologists, general and family physicians and consultant internal medicine physicians and pharmacists from the Public Health Division, government and private hospitals and the universities. This is the 2nd edition of the CPG, the first being published in 2010.
 
 ## Objectives:
-
 The objectives of this CPG are to provide guidance on:
-
 -  the diagnosis of CAD in individuals presenting with stable chest symptoms.
 -  the risk stratification of individuals who are diagnosed with CAD. This helps determine the need for revascularization guided by the patient's preferences.
 -  optimal medical therapy (OMT) in all individuals with CAD.
 -  revascularization strategies.
 
 ## Process:
-
 A review of current medical literature on Stable CAD for the last 10 years was performed. Literature search was carried out using the following electronic databases - PubMed and Cochrane Database of Systematic Reviews.The search was conducted for the period January 2006 till 31st August 2016. The following MeSH terms or free text terms were used either singly or in combination:
 
 1"angina", "stable angina", "stable coronary artery disease", "stable ischemic heart
@@ -4168,8 +4138,7 @@ A review of current medical literature on Stable CAD for the last 10 years was p
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 disease", "refractory angina", "epidemiology of CAD", "pathophysiology of CAD", "diagnostic testing of CAD", "exercise stress ECG", "stress echocardiogram", "magnetic perfusion imaging", "cardiac magnetic resonance imaging", "coronary calcium score", "CT coronary angiogram", "Invasive coronary angiogram", "fractional flow reserve", "iFR", "coronary revascularization", "optimal medical therapy", "percutaneous coronary intervention in stable CAD", "coronary artery bypass grafting in Stable CAD".
 
 The search was filtered to clinical trials and reviews, involving humans and published in the English language. The relevant articles were carefully selected from this huge list. In addition, the reference lists of all relevant articles retrieved were searched to identify further studies. Local CPGs were also studied. Experts in the field were also contacted to obtain further information. International guidelines mainly that from the American Heart Association/ American College of Cardiology (AHA/ACC) and the European Society of Cardiology (ESC) were used as main references.
@@ -4179,13 +4148,11 @@ All literature retrieved were appraised by members of the Expert Panel and all s
 After much discussion, the draft was then drawn up and submitted to the Technical Advisory Committee for Clinical Practice Guidelines, MOH Malaysia and key health personnel in the major hospitals of the MOH and the private sector for review and feedback.
 
 ## Clinical Questions Addressed:
-
 There were several topics and subtopics that were formulated using the patient, intervention, comparison, outcome (PICO) method, addressing diagnosis, prognosis and management of Stable CAD.
 
 The topics and subtopics were as follows:
 
 ## P: Population- Persons:
-
 -  who are asymptomatic with no previous history of CAD
 -  with chest pain suspected to be due to CAD
 -  with known CAD
@@ -4459,13 +4426,11 @@ P: Population- Persons:
  women
 
 ## Stable Coronary Artery Disease 2018
-
 <!-- image -->
 
 ## I: Intervention:
 
-## For diagnosis and Prognosis:
-
+## For Diagnosis And Prognosis:
 -  Resting electrocardiogram (ECG)
 -  Chest X-Ray
 -  2D echocardiogram
@@ -4478,33 +4443,28 @@ P: Population- Persons:
 -  Invasive coronary angiogram
 -  Fractional Flow Reserve (FFR) and iFR
 
-## For management:
-
+## For Management:
 -  Optimal medical therapy - including diet, exercise
 -  Percutaneous coronary intervention (PCI)
 -  Coronary Artery Bypass Grafting (CABG)
 
 ## C: Comparison:
-
 -  Different diagnostic modalities
 -  Optimal medical therapy vs PCI vs CABG in Stable CAD
 
 ## O: Outcome:
-
 -  Accuracy of the test in making a diagnosis of CAD - i.e. its validity, reliability
 -  Reduction in Cardiovascular (CV) Disease- CV Events, vascular mortality
 -  Reduction in All cause mortality
 
-## Type of Question- Involves:
-
+## Type Of Question- Involves:
 -  Diagnosis - Diagnosis of CAD
 -  Therapy - optimal medical therapy, PCI, CABG
 -  Harm - Increase in CV Event Rate, mortality
 -  Prognosis - Reduction in CV events and mortality
 -  Prevention of CV Disease
 
-## Type of Study:
-
+## Type Of Study:
 -  Systematic review and meta analysis
 -  Randomised Controlled Studies
 -  Cohort studies
@@ -4775,12 +4735,10 @@ Type of Study:
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 Thus, there were numerous clinical questions formulated.
 
 E.g. of some of these Clinical Questions:
-
 - What is the validity (sensitivity, specificity and predictive value) of an Exercise ECG in an asymptomatic individual with no previous medical illness, in the diagnosis of CAD?
 - What is the validity (sensitivity, specificity and predictive value) of an Exercise ECG in diagnosing CAD in an individual with chest pain suspected to be due to CAD?
 - What is the validity (sensitivity, specificity and predictive value) of an Exercise ECG when compared to a stress echocardiogram in diagnosing CAD in an individual with chest pain suspected to be due to CAD?
@@ -4788,27 +4746,21 @@ E.g. of some of these Clinical Questions:
 - In an individual with known stable CAD, does optimal medical therapy as compared to PCI, lead to a reduction in CV events and all cause mortality?
 
 ## Target Group:
-
 These guidelines are directed at all healthcare providers - all medical practitioners, and allied health personnel.
 
 ## Target Population:
-
 These guidelines are directed at individuals with stable CAD.
 
-## Period of Validity of the Guidelines:
-
+## Period Of Validity Of The Guidelines:
 These guidelines need to be revised at least every 5 years to keep abreast with new developments and knowledge.
 
-## Implementation of the Guidelines:
-
+## Implementation Of The Guidelines:
 The implementation of the recommendations of a CPG is part of good clinical governance. To ensure successful implementation of this CPG we suggest:
-
 - Continuous medical education and training of healthcare providers on diagnosis and management of Stable CAD. This can be done by road shows, electronic media, and in-house training sessions.
 - Performance measures that include:
 -  Percentage of patients with Stable CAD on optimal medical therapy with aspirin (or clopidogrel or ticlid if aspirin intolerance) and statin therapy?
 
-## Applicability of the Guidelines and Resource Implications:
-
+## Applicability Of The Guidelines And Resource Implications:
 This guideline was developed taking into consideration our local health resources. Almost all the investigations and most of the medications recommended are available in public hospitals or at the cardiac centres in Malaysia.
 
 This guideline aims to educate health care professionals on strategies to optimize existing resources in the diagnosis and management of stable CAD.
@@ -5077,14 +5029,11 @@ Almost all the investigations and most of the medications recommended are availa
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 This guideline aims to educate health care professionals on strategies to optimize existing resources in the diagnosis and management of stable CAD.
 
-## Facilitators and Barriers:
-
+## Facilitators And Barriers:
 The main barrier for the successful implementation of this CPG is the lack of knowledge of the public and healthcare providers on the:
-
 - role/limitations of the available non-invasive investigations in the diagnosis and risk stratification of individuals with CAD.
 - benefits of optimal medical therapy in the management of persons with stable CAD.
 - role/limitations of PCI in the management of individuals with stable CAD-the fallacies of the "oculostenotic reflex".
@@ -5414,10 +5363,9 @@ text terms were used either singly or in combination:
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
+## (2 Nd D Edition)
 
-## GRADES OF RECOMMENDATION AND LEVEL OF EVIDENCE
-
+## Grades Of Recommendation And Level Of Evidence
 | I Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective.                 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | II Conditions for which there is conflicting evidence and/or divergence of  opinion about the usefulness/efficacy of a proce dure/therapy.               |
@@ -5425,8 +5373,7 @@ text terms were used either singly or in combination:
 | II-b Usefulness/efficacy is less well established by evidence/opinion.                                                                                   |
 | III Conditions for which there is evidence and/or general agreement that a  procedure/therapy is not useful/effective and in some cases may be  harmful. |
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 - A Data derived from multiple randomized clinical trials or meta analyses.
 - B Data derived from a single randomized clinical trial or large non randomized studies.
 - C Only consensus of opinions of experts, case studies or standard of care.
@@ -5436,11 +5383,9 @@ Adapted from the American College of Cardiology Foundation / American Heart Asso
 (Available at: http://assets.cardiosource.com/Methodology\_Manual\_for\_ACC\_AHA\_Writing-\_Committees and at http://www.escardio.org/guidelines-surveys/escguidelines/about/Pages /rules-writing.aspx).
 
 ## Stable Coronary Artery Disease 2018
-
 (2 nd d Edition)
 
-## SUMMARY
-
+## Summary
 - Coronary Artery Disease (CAD) covers a wide spectrum - from persons who are asymptomatic to those presenting with acute coronary syndromes (ACS) and sudden cardiac death (SCD).
 - Stable CAD includes individuals:
 -  with stable chest pain or other symptoms (e.g. dyspnoea) which are known to be due to CAD.
@@ -5668,22 +5613,19 @@ Stress imaging tests are useful in individuals who have intermediate Pre-test pr
 Coronary Calcium (CAC) Score - This is more important in risk stratification than in the diagnosis of CAD.
 
 ## Stable Coronary Artery Disease 2018
-
 (2 nd d Edition)
 
 - Computerised Tomographic Coronary Angiogram (CTA) - may be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity.
 - Invasive Coronary Angiogram (ICA) - This is not commonly used for the diagnosis of CAD. It is important in risk stratification and in determining the optimal mode of revascularization.
 
 The RISK STRATIFICATION of patients with CAD who have stable symptoms of at least 2 months duration involves:
-
 - Clinical evaluation
 - Resting ECG
 - Assessment of LV function by echocardiography
 - Non-invasive assessment for myocardial ischemia - (Table 2, pg 24)
 - Where indicated, evaluation of coronary anatomy and physiological assessment of the significance of the coronary lesion by Fractional Flow Reserve (FFR).
 
-## Risk may be defined as:
-
+## Risk May Be Defined As:
 - high risk - annual mortality of &gt;3%
 - intermediate risk - annual mortality of 1-3%
 - low risk - annual mortality of &lt;1%
@@ -5898,8 +5840,7 @@ individuals who:
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 -  continue to have troubling angina/angina equivalents despite OMT.
 -  Have significant ischemia on non-invasive testing. (Table 2, pg 24)
 
@@ -5928,19 +5869,15 @@ Management (Fig 2, pg 25) should be multifaceted and involves OMT which includes
 - Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy - PCI or CABG.
 
 ## Stable Coronary Artery Disease 2018
-
 <!-- image -->
 
-## KEY RECOMMENDATIONS
+## Key Recommendations
 
-## A) Diagnosis of CAD in persons having stable chest pain/angina equivalent of more than 2 months' duration
-
+## A) Diagnosis Of Cad In Persons Having Stable Chest pain/angina Equivalent Of More Than 2 Months' Duration
 <!-- image -->
 
 ## Recommendation 2:
-
 In persons with suspected CAD and undergoing non-invasive cardiac testing, it is important to determine the:
-
 - Pre-Test Probability (PTP) of CAD of that individual. (Table 1, pg 22). In the Euro model for assessing PTP, which this writing group has adopted, (Table 1, pg 22) patients with a:
 -  low PTP of <15% can be assumed to have no significant obstructive CAD. In these individuals, CV risk factors should be treated to target. Other causes of chest pain should be looked for. **[Grade I, Level C]** (Table 5, pg 35)
 -  intermediate PTP (≥15-≤ 85%) require further non-invasive evaluation. **[Grade I, Level B]**
@@ -5950,11 +5887,9 @@ In persons with suspected CAD and undergoing non-invasive cardiac testing, it is
 (Table 6, pg 39)
 
 ## Stable Coronary Artery Disease 2018
-
 (2 nd d Edition)
 
 ## Recommendation 3:
-
 In non-invasive cardiac testing: (Fig 1, pg 23)
 
 - Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs. **[Grade I, Level B]**
@@ -5966,10 +5901,9 @@ In non-invasive cardiac testing: (Fig 1, pg 23)
 - CTA may be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity. **[Grade II-a, Level B]**
 - Invasive Coronary Angiogram (ICA) is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization. **[Grade I, Level C]**
 
-## B) Risk Stratification of patients with suspected or known CAD
+## B) Risk Stratification Of Patients With Suspected Or Known Cad
 
 ## Recommendation 4:
-
 - This is done by: (section 7, pg 53-61)
   -  Clinical evaluation **[Grade I, Level B]**
   -  Resting ECG **[Grade I, Level B]**
@@ -5982,17 +5916,15 @@ In non-invasive cardiac testing: (Fig 1, pg 23)
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
+## (2 Nd D Edition)
 
 ## Recommendation 5
-
 - Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. **[Grade I, Level C]**
 - Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated. **[Grade I, Level C]**
 
-## C) Management of Stable CAD
+## C) Management Of Stable Cad
 
 ## Recommendation 6:
-
 - All patients should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy). **[Grade I, Level A]** (Fig 2, pg 25)
 - Appropriate pharmacotherapy includes:
   -  aspirin (or clopidogrel/ticlopidine if aspirin intolerant) **[Grade I, Level A]** and
@@ -6004,7 +5936,6 @@ In non-invasive cardiac testing: (Fig 1, pg 23)
 - Optimal medical therapy should be instituted prior to revascularization procedures. **[Grade I, Level C]**
 
 ## Recommendation 7:
-
 - ·
 - The decision to revascularize patients with stable CAD on OMT will depend on:
   -  Symptoms **[Grade I, Level C]**
@@ -6013,14 +5944,12 @@ In non-invasive cardiac testing: (Fig 1, pg 23)
 - Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy. **[Grade I, Level C]**
 
 ## Recommendation 8:
-
 - All patients with Stable CAD with no change in symptoms and medications over a period of 1-2 years, can be discharged from the speciality cardiac clinics. **[Grade II-a, Level C]**
 - When there is a change in the patient's clinical condition, they should be referred to tertiary cardiac centres for optimization of management. **[Grade I, Level C]**
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 Table 1: Pre-Test Probability (PTP) of CAD in patients with stable Chest Pain*
 
 | Pre-test Probability of CAD                         | Pre-test Probability of CAD                         | Pre-test Probability of CAD   | Pre-test Probability of CAD   | Pre-test Probability of CAD   | Pre-test Probability of CAD   |
@@ -6040,8 +5969,7 @@ Red boxes: High PTP &gt;85%; Yellow boxes: Intermediate PTP &gt;15-&lt;85%; Gree
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 Figure 1: Algorithm for the investigation of individuals with stable chest symptoms suspected to be due to CAD
 
 - Entry point: Symptomatic individuals with intermediate pre-test likelihood of CAD (PTP $15\% - 85\%$).
@@ -6059,8 +5987,7 @@ Figure 1: Algorithm for the investigation of individuals with stable chest sympt
 Summary Figure1:
 - Investigation summary: This protocol filters symptomatic patients into diagnostic pathways based on physical fitness and ECG baseline. It prioritizes non-invasive stress testing and imaging to confirm CAD, reserving invasive coronary angiography for high-risk profiles or unclear results.
 
-## Stable Coronary Artery Disease 2018 (2 nd d Edition)
-
+## Stable Coronary Artery Disease 2018 (2 Nd D Edition)
 Table 2: Prognostic indicators for Adverse CV outcomes on Non-Invasive testing 1–9
 
 | Modality                                                                      | Definition of Risk                                                                       | Risk                                                                               |
@@ -6080,8 +6007,7 @@ Table 2: Prognostic indicators for Adverse CV outcomes on Non-Invasive testing 1
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 Figure 2: Management of Stable CAD
 
 - Goal A: Symptom control
@@ -6099,15 +6025,13 @@ Summary Figure2:
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
 <!-- Purpose: Localized list of clinical abbreviations used in this section -->
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | 3-KAT | 3-ketoacyl CoAThiolase |

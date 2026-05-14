@@ -1,5 +1,4 @@
-# SUMMARY AND TABLE OF CONTENTS
-
+# Summary And Table Of Contents
 <!-- METADATA
 category: Methodology, Reference
 use_case: Executive summary and table of contents for stable CAD — key_points, toc, evidence_grades
@@ -7,18 +6,6 @@ patient_input: symptoms, risk_profile
 output: summary, table_of_contents
 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- image -->
 
 <!-- image -->
@@ -27,18 +14,15 @@ output: summary, table_of_contents
 
 <!-- image -->
 
-## PUBLISHED BY:
-
+## Published By:
 National Heart Association of Malaysia D-13A-06, Menara SUEZCAP 1, KL Gateway No.2 Jalan Kerinchi, Gerbang Kerinchi Lestari 59200 Kuala Lumpur eISBN 978-967-11794-3-7
 
-## COPYRIGHT
-
+## Copyright
 The owners of this publication are the National Heart Association of Malaysia (NHAM) and the Academy of Medicine Malaysia. The content in this document may be produced in any number of copies and in any format or medium provided that a copyright acknowledgement to the owners is included and the content is not changed in any form or method, not sold and not used to promote or endorse any product or service. In addition, the content is not to be used in any inappropriate or misleading context.
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 <!-- image -->
 
 7.5 Risk Stratification of Stable CAD by Anatomic testing
@@ -463,10 +447,9 @@ SOURCES OF FUNDING
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
+## (2 Nd D Edition)
 
-## MESSAGE FROM THE DIRECTOR GENERAL OF HEALTH
-
+## Message From The Director General Of Health
 <!-- image -->
 
 The previous clinical practice guidelines for the management of stable angina were issued in 2010. Since then, there have been advances in both diagnostic and therapeutic strategies in the management of this progressive disease. Therefore, it is timely for the publication of this CPG, with a title that is now evolved from stable angina to that of stable coronary artery disease (SCAD).
@@ -763,15 +746,13 @@ SOURCES OF FUNDING
 
 ## Stable Coronary Artery Disease 2018
 
-## (2 nd d Edition)
-
+## (2 Nd D Edition)
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -780,8 +761,7 @@ SOURCES OF FUNDING
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -797,7 +777,6 @@ SOURCES OF FUNDING
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | BMT | Behavioural ModificationTherapy |

@@ -1,9 +1,8 @@
-# SECTION 1: INTRODUCTION TO PAH IN ADULTS
-
+# Section 1: Introduction To PAH In Adults
 <!-- METADATA
 category: Introduction
 use_case: PAH Disease Overview and Malaysian Context — disease_overview, mortality_statistics, available_therapies, healthcare_context
-patient_input: 
+patient_input:
 output: disease_burden_context, therapy_landscape, guideline_objectives
 -->
 
@@ -12,8 +11,7 @@ output: disease_burden_context, therapy_landscape, guideline_objectives
 
 ---
 
-## 1. Introduction to PAH in Adults
-
+## 1: Introduction To PAH In Adults
 Pulmonary arterial hypertension (PAH) is a group of diseases that affect the small pulmonary arteries, and which form a subset of those with pulmonary hypertension (PHT). PAH can be idiopathic, heritable, or associated with a number of conditions, such as connective tissue disease (CTD); congenital heart disease (CHD); portal hypertension; HIV infection, and exposure to toxins and drugs, including appetite suppressants. All of these conditions are characterised by sustained elevations in pulmonary arterial pressure (PAP), increased pulmonary vascular resistance (PVR) with progression to right-sided heart failure and ultimately death.
 
 Mortality rates in patients with PAH are high: historically, the median life expectancy of idiopathic PAH (IPAH) without specific therapy is 2.8 years from diagnosis, with 1-year, 3-year, and 5-year survival rates of 68%, 48% and 34%, respectively. In addition, most patients with PAH have a compromised quality of life (QoL) with limited physical activity and social function.
@@ -30,7 +28,6 @@ These guidelines aim to highlight the challenges of diagnosing and managing PAH 
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **CHD** | Congenital Heart Disease |

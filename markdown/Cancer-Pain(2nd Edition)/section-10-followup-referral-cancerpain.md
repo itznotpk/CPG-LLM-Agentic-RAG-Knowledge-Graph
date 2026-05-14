@@ -1,5 +1,4 @@
-# SECTION 10: FOLLOW-UP AND REFERRAL
-
+# Section 10: Follow-Up And Referral
 <!-- METADATA
 category: Prevention, Assessment
 use_case: Cancer Pain Follow-up and Referral — outpatient_follow_up, home_care, telehealth, mHealth, palliative_care_referral, pain_clinic_referral, multidisciplinary_referral
@@ -36,8 +35,7 @@ A list of community palliative care providers available in Malaysia can be downl
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -46,8 +44,7 @@ A list of community palliative care providers available in Malaysia can be downl
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used in This Section
-
+### Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | BPI | Brief Pain Inventory |

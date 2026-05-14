@@ -1,5 +1,4 @@
-# SECTION 7: FERTILITY PRESERVATION
-
+# Section 7: Fertility Preservation
 <!-- METADATA
 category: Special Populations, Treatment
 use_case: Fertility Preservation — oocyte_cryopreservation, embryo_freezing, ovarian_suppression, counselling_timing, GnRHa, letrozole_COH
@@ -7,8 +6,6 @@ patient_input: age, reproductive_status, treatment_plan, partner_status
 output: fertility_preservation_option, referral_timing, contraception_advice
 treatment_type: GnRHa, letrozole, gonadotropins
 -->
-
-## 7. FERTILITY PRESERVATION
 
 All oncologic healthcare providers should discuss infertility as a potential risk of treatment when cancer diagnosis is made. Patients who express an interest in fertility and those who are ambivalent or uncertain should be referred to fertility specialist as soon as possible. **[level II-2]** The 'gold standard' for fertility preservation (FP) are embryo and oocytes cryopreservation. Both techniques involve controlled ovarian hyperstimulation (COH) with gonadotropins and will take about 2 - 4 weeks to complete. The mature oocytes retrieved will either be fertilised or cryopreserved for utilisation later.
 

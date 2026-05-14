@@ -1,5 +1,4 @@
-# SECTION 8-9: TREATMENT ALGORITHM AND FUTURE DIRECTIONS FOR PAH IN ADULTS
-
+# Section 8: -9: Treatment Algorithm And Future Directions For PAH In Adults
 <!-- METADATA
 category: Treatment, Reference
 use_case: Treatment Algorithm and Future Therapies — vasoreactivity_testing, CCB_pathway, non_vasoreactive_pathway, sequential_combination, pharmacogenomics, anti_angiogenesis, Malaysia_specific_algorithm
@@ -14,13 +13,12 @@ treatment_type: CCB, bosentan, ambrisentan, sildenafil, tadalafil, iloprost, com
 
 ---
 
-## 8. Evidence-Based Treatment Algorithm for Malaysia for PAH in Adults
-
+## 8: Evidence-Based Treatment Algorithm For Malaysia For PAH In Adults
 The optimal therapy for patients with PAH is a highly individualised decision, taking into account many factors including: drug availability, severity of illness, route of administration, side effects, treatment goals, and clinician preference.
 
 The algorithm is focused on **[WHO Class II]**, **[WHO Class III]**, and **[WHO Class IV]** patients, and on therapies that have been evaluated in IPAH and available locally, and in PAH associated with scleroderma or due to anorexigens. Extrapolation of trial results to other PAH subgroups should be done with caution.
 
-### Figure 2: PAH Evidence Treatment Algorithm Based on Availability of Agents (Malaysia)
+Figure 2: PAH Evidence Treatment Algorithm Based On Availability Of Agents (Malaysia)
 
 **Step 1: Supportive Therapy and General Measures**
 
@@ -70,8 +68,7 @@ International guidelines for management of PAH include drugs like epoprostenol w
 
 ---
 
-## 9. Future Therapies for PAH in Adults
-
+## 9: Future Therapies For PAH In Adults
 Despite the fact that a cure for PAH remains elusive, we have witnessed great advances in early diagnosis, and a dramatic increase in the availability of therapeutic options over the past 20 years. Looking forward, several new areas of research hold promise, including:
 - Pharmacogenomics and pharmacogenetics
 - Anti-angiogenesis strategies
@@ -81,7 +78,7 @@ Despite the fact that a cure for PAH remains elusive, we have witnessed great ad
 
 <!-- OVERLAP CONTENT -->
 
-## Grades of Recommendation
+## Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -90,14 +87,14 @@ Despite the fact that a cure for PAH remains elusive, we have witnessed great ad
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-## Levels of Evidence
+## Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
 | **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
-## Table 2: WHO Classification of Functional Status in Patients with PHT
+Table 2: WHO Classification Of Functional Status In Patients With Pht
 
 | Class | Definition |
 |---|---|
@@ -107,7 +104,6 @@ Despite the fact that a cure for PAH remains elusive, we have witnessed great ad
 | **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **CCB** | Calcium Channel Blocker |

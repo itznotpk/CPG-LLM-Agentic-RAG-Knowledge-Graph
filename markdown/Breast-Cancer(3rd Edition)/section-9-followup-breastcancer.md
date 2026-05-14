@@ -1,5 +1,4 @@
-# SECTION 9: FOLLOW-UP
-
+# Section 9: Follow-Up
 <!-- METADATA
 category: Prevention, Assessment
 use_case: Post-Treatment Surveillance — follow_up_schedule, recurrence_monitoring, imaging_frequency, symptom_assessment, bone_density, contralateral_screening
@@ -8,13 +7,11 @@ output: follow_up_schedule, investigation_plan, recurrence_screening
 -->
 
 ## Overview
-
 Regular follow-up visits are essential for early detection of recurrence and monitoring treatment-related complications.
 
 ---
 
 ## Follow-Up Schedule
-
 | Period | Visit Frequency |
 |---|---|
 | **First 2 years** | Every 3–4 months |
@@ -26,7 +23,6 @@ Regular follow-up visits are essential for early detection of recurrence and mon
 ---
 
 ## Recommended Surveillance
-
 | Recommendation | Details |
 |---|---|
 | **Mammography** | Annual ipsilateral (after BCS) and/or contralateral mammography (after mastectomy), with US and breast MRI when needed |
@@ -35,12 +31,10 @@ Regular follow-up visits are essential for early detection of recurrence and mon
 
 ---
 
-## Risk of New Primary Cancer
-
+## Risk Of New Primary Cancer
 *   Approximately **5%** of breast cancer patients will have a risk to develop a new ipsilateral or contralateral cancer, and this risk persists over time.
 
-### Screening Mammography in Older Survivors
-
+### Screening Mammography In Older Survivors
 | Organisation | Recommendation |
 |---|---|
 | **American Cancer Society** | Screening mammography should be continued **beyond 75 years** as long as a woman is in good health and expected to live ≥10 more years |

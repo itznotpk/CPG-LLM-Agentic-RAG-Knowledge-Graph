@@ -1,22 +1,19 @@
-# SECTION 3: SCREENING
-
+# Section 3: Screening
 <!-- METADATA
 category: Screening
 use_case: Screening Guidelines
-patient_input: 
+patient_input:
 output:
 -->
 
 ## Overview
-
 Screening for breast cancer is performed in individuals without any signs or symptoms of the disease for early detection and best chance of survival.
 
 Although breast self-examination (BSE) is not a screening method, it is advocated to raise awareness of breast cancer and empower women to take responsibility of their own health.⁴ Clinical breast examination (CBE) is an important component of clinical encounter to maximise the earliest detection of palpable cancers. As the incidence of breast cancer in Malaysia increases at age 35, CBE is advocated from this age.¹
 
 ---
 
-## Risk Stratification for Screening
-
+## Risk Stratification For Screening
 In women of European descent, a number of risk assessment tools (e.g. BOADICEA, Gail, Tyrer-Cuzick) have been built using predominantly lifestyle factors and family history. NICE recommends stratification into four categories using BOADICEA:⁵
 
 | Risk Category | Lifetime Risk |
@@ -29,17 +26,14 @@ In women of European descent, a number of risk assessment tools (e.g. BOADICEA, 
 > **Clinical Note:** These tools generally **overestimate** risk in the Asian population. Ongoing efforts seek to improve risk assessment for Asian populations by including genetic factors and/or mammographic density.
 
 ### Local Validation
-
 In a local HTA, the Gail model showed good calibration and moderate discriminative ability but was **not yet suitable** for the Malaysian National Cancer Control Programme. It needs further validation for better predictive ability tailored to the Malaysian population.ˡᵉᵛᵉˡ ᴵ
 
 ---
 
-## 3.1 Screening of Unaffected Women
-
+## 3.1: Screening Of Unaffected Women
 Digital breast tomosynthesis (DBT) + full-field digital mammography (FFDM) yields higher detection rates of breast cancer lesion compared with FFDM alone in asymptomatic women.¹⁷˒ ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 The following have been recommended for screening by the existing guidelines:
-
 *   For women with **average risk**, screening mammography may be performed **every two years** in those aged **50–74 years**. Although not recommended, women aged 40–49 years may be considered for annual screening mammography after potential benefits and harms of the screening have been discussed, as well as on their preference and breast cancer risk profile. Screening should be continued for those women aged 70–74 years as long as they are in good health, expected to live 10 more years or longer and do not have severe co-morbid conditions that could limit their life expectancy.¹³⁸
 *   For women of **moderate risk**, screening mammography may be performed **annually** from 40–49 years of age, **annually or biennially** from 50–59 and **3-yearly** from 60 onwards.⁵
 *   For women of **high risk**, where no genetic variant has been identified, screening mammography may be considered from **30–39 years** of age, performed **annually** from 40–59 and **3-yearly** from 60 years onwards.⁵
@@ -49,14 +43,12 @@ The following have been recommended for screening by the existing guidelines:
 
 ---
 
-## 3.2 Surveillance of Affected Women
-
+## 3.2: Surveillance Of Affected Women
 For women with personal history of breast cancer and increased risk for recurrence or a second breast cancer:⁵
 
 *   **Yearly mammography** of the remnant breast and the contralateral breast for five years should be offered.
 
-### Cost-Effective Surveillance Strategy (NICE)
-
+### Cost-Effective Surveillance Strategy (Nice)
 | Age Group | Condition | Recommendation |
 |---|---|---|
 | 50–74 years | Remain at high risk (including BRCA1/2, no TP53 mutation) | Annual mammographic surveillance |
@@ -64,12 +56,10 @@ For women with personal history of breast cancer and increased risk for recurren
 | 20–69 years | Known TP53 mutation or >30% probability of being TP53 carrier | Consider annual MRI |
 
 ### Additional Recommendations
-
 *   **Dense breast tissue or diagnosed before age 50** — annual surveillance with breast MRI is recommended.ˡᵉᵛᵉˡ ᴵᴵᴵ
 *   **Chest radiation before age 30** (e.g. Hodgkin lymphoma) — annual breast MRI + mammography or DBT screening beginning at age 25 or 8 years after radiation, whichever is later.ˡᵉᵛᵉˡ ᴵᴵᴵ
 
 ### Local Setting Risk Categories
-
 For local setting, breast cancer screening is based on the risk of developing cancer:
 
 | Risk Level | Description |
@@ -85,7 +75,7 @@ For local setting, breast cancer screening is based on the risk of developing ca
 > *   For **carriers of pathogenic or likely pathogenic variants** in BRCA1, BRCA2 and PALB2, annual MRI should be offered from 30–49 years of age, annual mammography from 40–69 and biennial mammography from 70 onwards.
 ---
 
-## Table 7. Summary of Recommendations on Screening for Women with No Personal History of Breast Cancer
+Table 7. Summary Of Recommendations On Screening For Women With No Personal History Of Breast Cancer
 
 | Age (years) | Average risk of breast cancer¹ | Moderate risk of breast cancer² | High risk of breast cancer (≥30% or lower probability of being a BRCA or TP53 carrier)³ | Known BRCA1 or BRCA2 carrier |
 |---|---|---|---|---|

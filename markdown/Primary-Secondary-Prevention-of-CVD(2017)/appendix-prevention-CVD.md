@@ -1,5 +1,4 @@
 # Appendix
-
 <!-- METADATA
 category: Reference
 use_case: Clinical reference tables and supplementary data for CVD prevention — risk_score_comparison, dietary_tables, sodium_content, fibre_content, glycaemic_index, traditional_medicine, alcohol_guidelines
@@ -9,8 +8,7 @@ output: reference_tables, dietary_data, clinical_scores
 
 > **Context:** This file contains Appendices 1–13 for the CPG, including FRS comparison tables, dietary nutrient data (fat, carbohydrate, fibre, sodium content of Malaysian foods), glycaemic index references, STOP-BANG questionnaire, alcohol guidelines, weight management tips, and descriptions of traditional medicine forms.
 
-## Appendix 1: COMPARISON OF GLOBAL CORONARY AND CV RISK SCORES
-
+## Appendix 1: Comparison Of Global Coronary And CV Risk Scores
 | | Framingham CHD Risk Score | Framingham General CVD Risk Score | SCORE | ACC/AHA Pooled Cohort | Q-Risk2 Score |
 |---|---|---|---|---|---|
 | Sample size | 5,345 | 8,491 | 205,178 (12 cohorts -Europe) | Based on 13 systematic reviews and meta analysis (includes CARDIA, Framing-ham, ARIC, CHS,USA) | 2.3 million patients (QRESEARCH database) |
@@ -20,24 +18,22 @@ output: reference_tables, dietary_data, clinical_scores
 | Endpoints | CHD (MI and CHD death) | CVD events (CHD, stroke, peripheral artery disease, or heart failure | Fatal CHD | First ASCVD event (nonfatal MI or CHD, death, or fatal or nonfatal stroke | First CVD event (CHD,stroke, TIA) |
 | URLs for risk calculators | http://hp2010.nhl-bihin.net/atpiii/cal-culator.asp?user-type=prof | https://www.framingham-heart-study.org/risk-functions/cardi-ovas-cular-disease/10-year-risk.php type=prof | http://ww-w.heartscore.org/pages/wel-come.aspx | www.cvriskcal-culator.com. | https://qrisk.org/2016/ |
 
-## Appendix 2: HOW TO USE THE FRAMINGHAM CARDIOVASCULAR RISK PREDICTION MODELS ONLINE?
+## Appendix 2: How To Use The Framingham Cardiovascular Risk Prediction Models Online?
 
-### For men and women
-
+### For Men And Women
 *Example of the Framingham Cardiovascular Disease 10-year risk prediction model (cholesterol model)*
 
 If the patient is female, aged 30 years, has a systolic blood pressure of 125 mmHg, HDL cholesterol levels of 45 mg/dL and a total cholesterol level of 180 mg/dL, her 10-year cardiovascular risk is 1.3%. She falls into the low cardiovascular risk category.
 
-> **Figure Description:** A screenshot of the Framingham General CVD Risk Prediction calculator. It shows an input table with risk factors and corresponding unit values. The inputs are: Sex: f (female), Age: 30 years, Systolic Blood Pressure: 125.0 mmHg, Treatment for Hypertension: n (no), Smoking: n (no), Diabetes: n (no), HDL: 45 mg/dL, Total Cholesterol: 180 mg/dL. Below the inputs, the calculated "Your 10-Year Risk" is shown as 1.3%. "Your Heart/Vascular Age" is 30. A bar chart visually compares the 1.3% risk against optimal and normal risk levels, showing it is well within the low risk range (green bar).
+> Figure Description: A screenshot of the Framingham General CVD Risk Prediction calculator. It shows an input table with risk factors and corresponding unit values. The inputs are: Sex: f (female), Age: 30 years, Systolic Blood Pressure: 125.0 mmHg, Treatment for Hypertension: n (no), Smoking: n (no), Diabetes: n (no), HDL: 45 mg/dL, Total Cholesterol: 180 mg/dL. Below the inputs, the calculated "Your 10-Year Risk" is shown as 1.3%. "Your Heart/Vascular Age" is 30. A bar chart visually compares the 1.3% risk against optimal and normal risk levels, showing it is well within the low risk range (green bar).
 
 *Example of the Framingham Cardiovascular Disease 10-year risk prediction model (BMI model)*
 
 If the patient is female, aged 30 years, has a systolic blood pressure of 125 mmHg, with a BMI of 22.5, kg/m², her 10-year cardiovascular risk is 1.1%. She falls into the low cardiovascular risk category.
 
-> **Figure Description:** A screenshot of the Framingham General CVD Risk Prediction calculator (BMI model). It shows an input table with risk factors and corresponding unit values. The inputs are: Sex: f (female), Age: 30 years, Systolic Blood Pressure: 125.0 mmHg, Treatment for Hypertension: n (no), Smoking: n (no), Diabetes: n (no), Body Mass Index: 22.5 kg/m². Below the inputs, the calculated "Your 10-Year Risk" is shown as 1.1%. "Your Heart/Vascular Age" is 30. A bar chart visually compares the 1.1% risk against optimal and normal risk levels, showing it is well within the low risk range (green bar).
+> Figure Description: A screenshot of the Framingham General CVD Risk Prediction calculator (BMI model). It shows an input table with risk factors and corresponding unit values. The inputs are: Sex: f (female), Age: 30 years, Systolic Blood Pressure: 125.0 mmHg, Treatment for Hypertension: n (no), Smoking: n (no), Diabetes: n (no), Body Mass Index: 22.5 kg/m². Below the inputs, the calculated "Your 10-Year Risk" is shown as 1.1%. "Your Heart/Vascular Age" is 30. A bar chart visually compares the 1.1% risk against optimal and normal risk levels, showing it is well within the low risk range (green bar).
 
-## Appendix 3: STOP-BANG SLEEP APNEA QUESTIONNAIRE
-
+## Appendix 3: Stop-Bang Sleep Apnea Questionnaire
 | STOP | | |
 |---|---|---|
 | Do you SNORE loudly (louder than talking or loud enough to be heard through closed doors)? | Yes | No |
@@ -63,8 +59,7 @@ Low Risk of OSA: Yes 0-2
 
 *From: Chung F, Abdullah HR, Liao P. STOP-Bang Questionnaire: A Practical Approach to Screen for Obstructive Sleep Apnea. Chest. 2016 Mar;149(3):631-8*
 
-## Appendix 4: FAT CONTENT OF COMMON MALAYSIAN FOOD*
-
+## Appendix 4: Fat Content Of Common Malaysian Food*
 | Food | Portion | Calorie content |
 |---|---|---|
 | *Nasi lemak* with fried chicken | 1 plate | 640 kcal |
@@ -86,8 +81,7 @@ Low Risk of OSA: Yes 0-2
 
 *\*Nutrition Month Malaysia. Eat right. Move More. Fight Obesity. Available at http://nutritionmonthmalaysia.org.my/wp-content /uploads/ 2015/08 /nmm _ 2014_fight_obesity_ guidebook.pdf. Accessed April, 2016. & Bahagian Pemakanan Kementerian Kesihatan Malaysia. Panduan Nilai Kalori 200 Jenis Makanan.*
 
-## Appendix 5: CARBOHYDRATE CONTENT OF COMMON MALAYSIAN FOOD*
-
+## Appendix 5: Carbohydrate Content Of Common Malaysian Food*
 | Food | Serving | Calories (kcal) | CHO content (g) | Glycaemic Index(GI)** |
 |---|---|---|---|---|
 | Added sugar | 6 teaspoonfuls | 100 | | High GI (>70) |
@@ -118,8 +112,7 @@ Low Risk of OSA: Yes 0-2
 *\* Adapted from:Tee ES, Mohd Ismail N, Mohd Nasir A, et al. Nutrient Composition of Malaysian Foods. Institute for Medical Research (IMR). Kuala Lumpur, 1997*
 *\*\*Food with Low GI is preferred.*
 
-## Appendix 6: GLYCAEMIC INDEX OF FOODS*
-
+## Appendix 6: Glycaemic Index Of Foods*
 | Food category | Low GI (<55) | Intermediate GI (56-70) | High GI (>70) |
 |---|---|---|---|
 | Rice | Barley | Basmati Rice<br>Brown rice<br>Parboiled rice<br>Red rice | Glutinous rice<br>Jasmine rice<br>Instant porridge<br>White rice<br>Sago |
@@ -134,8 +127,7 @@ Low Risk of OSA: Yes 0-2
 *\*\*It is important to consider both GL and GI:*
 *GL = GI x CHO (g)/100*
 
-## Appendix 7: DIETARY FIBRE CONTENT OF COMMON FOOD*
-
+## Appendix 7: Dietary Fibre Content Of Common Food*
 | | High Fibre (5+ g) | Medium Fibre (2-4 g) | Low Fibre (< 2 g) |
 |---|---|---|---|
 | Grains | Barley, cooked,1/2 cup | Bran, natural 1 tbsp<br>Brown rice, cooked, ½ cup<br>Wheat germ. 1 tbsp<br>Basmathi rice uncooked ¼ cup | White rice, cooked, ½ cup |
@@ -149,8 +141,7 @@ Low Risk of OSA: Yes 0-2
 
 *\*Medical Nutrition Therapy Guideline for Type 2 Diabetes Mellitus 2nd Edition, adapted from American Dietetic Association, 2000*
 
-## Appendix 8: SERVING SIZE AND WEIGHT OF SELECTED FRUITS AND VEGETABLES*
-
+## Appendix 8: Serving Size And Weight Of Selected Fruits And Vegetables*
 | Fruits | One serving | Weight (g) |
 |---|---|---|
 | Apple (red) | 1 medium | 128 |
@@ -195,8 +186,7 @@ Low Risk of OSA: Yes 0-2
 *\*Adapted from Malaysian Dietary Guideline (MDG), NCCFN, MOH, 2010*
 *\*\*1 cup= 200ml*
 
-## Appendix 9: SODIUM CONTENT OF COMMON FOOD
-
+## Appendix 9: Sodium Content Of Common Food
 | No. | Foods | Serving size | Sodium/ Na (mg) |
 |---|---|---|---|
 | 1. | Chicken curry | 1 can (405g) | 2036 |
@@ -222,8 +212,7 @@ Low Risk of OSA: Yes 0-2
 *1. CCHRC. 2007. Sodium (Na+) Content of Seasoning and Common Foods.USA: Chinese Community Health Resource Center*
 *2. CFS. 2012. Risk Assessment Studies, Report No. 49: Study on Sodium Content in Local Foods. Center for Food Safety Food and Environmental Hygiene Department. The Government of the Hong Kong Special Administrative Region.*
 
-## Appendix 10: ALCOHOL CONTENT OF COMMON DRINKS*
-
+## Appendix 10: Alcohol Content Of Common Drinks*
 | Low Alcohol Beer, Lager & Cider | Bottle (330ml) | Can (440ml) | Pint (568ml) | Litre |
 |---|---|---|---|---|
 | 2% | 0.7 units | 0.9 units | 1.1 units | 2 units |
@@ -248,8 +237,7 @@ Low Risk of OSA: Yes 0-2
 
 *\*Department of Health. Alcohol know your limits. Alcohol units: A brief guide, National Health Service. Crown Copyright 2008. Accessed from www.nhs.uk/units)*
 
-## Appendix 11: TIPS ON LOSING WEIGHT
-
+## Appendix 11: Tips On Losing Weight
 **Good Eating Habits**
 - Eat slowly.
 - Eat when only feel hungry
@@ -280,8 +268,7 @@ Low Risk of OSA: Yes 0-2
 
 See Physical Activity Tips – Table 10, pg 73
 
-## Appendix 12: FORMS OF TRADITIONAL MEDICINE
-
+## Appendix 12: Forms Of Traditional Medicine
 **Traditional Malay Medicine (TMM):**
 - Is based on knowledge inherited from generation to generation among the Malay community.
 - Has the largest user group.
@@ -322,8 +309,7 @@ This is a system based on Samuel Hahneman's doctrine of "like cures like", accor
 
 Islamic medical practice is used in the treatment of physical and spiritual ailments. It is performed by a Muslim who is knowledgeable and skilled in treatment methods or materials permitted by the Islamic law. The practitioner uses Quranic verses, Hadith, the practices of the pious and righteous scholars and venerated religious teachers.
 
-## Appendix 13: CATEGORIES OF COMPLEMENTARY AND TRADITIONAL MEDICINE*
-
+## Appendix 13: Categories Of Complementary And Traditional Medicine*
 The National Centre for Complementary and Alternative Medicine (NCCAM) has identified 5 major domains of Complementary and Alternative Medicines:
 - Whole medical systems -This includes Traditional Oriental medicine, Ayurvedic medicine, Homeopathy, Naturopathy and other culturally based or indigenous healing practices.
 - Mind-body Medicine- This includes clinical hypnosis, guided imagery, biofeedback, meditation, dance, music and art therapies, prayer, and spiritual healing.

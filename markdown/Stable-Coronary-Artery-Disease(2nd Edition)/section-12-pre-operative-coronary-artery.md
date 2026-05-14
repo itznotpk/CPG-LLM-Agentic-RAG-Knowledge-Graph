@@ -1,5 +1,4 @@
-# PRE-OPERATIVE ASSESSMENT
-
+# Pre-Operative Assessment
 <!-- METADATA
 category: Assessment, Diagnosis
 use_case: Pre-operative cardiac risk assessment for elective non-cardiac surgery — functional_capacity, risk_scoring, testing
@@ -7,26 +6,13 @@ patient_input: surgery_type, functional_capacity, CAD_status, risk_factors
 output: perioperative_risk, clearance_plan
 -->
 
-
-
-
-
-
-
-
-
-
-
-## 12.PRE-OPERATIVEASSESSMENTFORELECTIVENON-CARDIAC SURGERY
-
+## 12.PRE-OPERATIVEASSESSMENTFORELECTIVENON-CARDIAC Surgery
 The extent of investigation in the pre-operative assessment of patients with stable CAD going for elective non-cardiac surgery will depend on the risk of the surgery:
-
 - surgery)
 - intermediate risk and High-Risk surgery (risk of death or MI &gt; 1%528 e.g. intra peritoneal, intra thoracic surgery)
 - vascular surgery/liverandkidneytransplant
 
-## In addition,otherfactors that need tobe considered include thepresence of:
-
+## In addition,otherfactors That Need Tobe Considered Include Thepresence Of:
 - ·diabetes
 - ·CKD
 - ·LV dysfunction
@@ -62,7 +48,6 @@ In patients who have undergone PCl and stenting and are on DAPT, a consultation 
 *4METSis equivalent to doing housework,sweeping floors and climbing1flight of stairs.
 
 ## Key Messages:
-
 - The extent of investigation in thepre-operative assessment of patientswith stableCADgoingforelectivenon-cardiacsurgerywill dependontheriskof the surgery:
 - &gt; intermediate risk and High-Risk surgery (risk of death or Ml &gt; 1% e.g. intra peritoneal, intra thoracic surgery)
 - &gt; low risk surgery (risk of death or Ml &lt;1% e.g. cataract, simple plastic surgery)
@@ -80,8 +65,7 @@ In patients who have undergone PCl and stenting and are on DAPT, a consultation 
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -90,8 +74,7 @@ In patients who have undergone PCl and stenting and are on DAPT, a consultation 
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -106,7 +89,6 @@ In patients who have undergone PCl and stenting and are on DAPT, a consultation 
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | CAD | CoronaryArteryDisease |

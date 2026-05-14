@@ -1,5 +1,4 @@
-# SECTION 6: INTERVENTIONAL TECHNIQUES/SURGERY
-
+# Section 6: Interventional TECHNIQUES/SURGERY
 <!-- METADATA
 category: Treatment
 use_case: Interventional Cancer Pain Management — neurolysis, coeliac_plexus_block, intrathecal_drug_delivery, vertebroplasty, kyphoplasty, radiotherapy, radionuclide_therapy, surgery
@@ -9,8 +8,7 @@ critical: true
 treatment_type: coeliac_plexus_neurolysis, superior_hypogastric_plexus_block, intrathecal_morphine, vertebroplasty, kyphoplasty, palliative_radiotherapy, radionuclide_therapy
 -->
 
-## 6.1 Neurolysis
-
+## 6.1: Neurolysis
 Neurolysis which is performed by specialists trained in interventional pain management, requires instilling a chemical ablative solution (e.g. alcohol or phenol with local anaesthetics) or physical ablation (e.g. surgical resection and radiofrequency denervation) into the nerve plexus resulting in nerve destruction or degeneration. Commonly, neurolysis involves ablation of sympathetic ganglia e.g. coeliac plexus or ganglia, splanchnic plexus, superior hypogastric plexus (SHG) and Walther's ganglia or ganglion impar.
 
 [Level I] A Cochrane systematic review of six RCTs on advanced pancreatic cancer pain in adults showed that coeliac plexus neurolysis (CPN) was more effective for reducing pain than standard analgesic therapy at 4- and 8-weeks follow-up [MD= -0.42 (95% CI -0.70 to -0.13) and MD= -0.44 (95% CI -0.89 to -0.01) respectively]. The risk of bias based on only three domains showed moderate quality of primary papers.
@@ -27,8 +25,7 @@ Neurolysis which is performed by specialists trained in interventional pain mana
 
 Evidence on somatic plexus neurolysis (e.g. brachial or lumbosacral plexus) was confined to case reports.
 
-## 6.2 Neuraxial Opioids
-
+## 6.2: Neuraxial Opioids
 Neuraxial opioids involve the delivery of drugs via epidural, intrathecal or intracerebroventricular routes. A catheter drug delivery system with the aid of either a subcutaneous implanted device or spinal port with an external syringe pump, provides an effective therapeutic option for refractory cancer pain.
 
 [Level II-2] In a cohort of refractory pancreatic cancer pain, 64.3% of patients with intrathecal drug delivery systems experienced >50% pain reduction from baseline after three months of treatment initiation (p<0.01).
@@ -39,14 +36,12 @@ Neuraxial opioids involve the delivery of drugs via epidural, intrathecal or int
 
 [Level II-2] A prospective product surveillance registry reported severe AEs (SAEs) from intrathecal implantable device comprised of infection (3.2%), post-dural puncture headaches/cerebrospinal fluid leaks (1.27%), pump pocket haematoma (0.28%) and pneumonia (0.14%). Other AEs of systemic opioids may occur in neuraxial opioid therapy e.g. nausea, pruritus, urinary retention, constipation, respiratory depression, sedation and confusion.
 
-## 6.3 Vertebroplasty
-
+## 6.3: Vertebroplasty
 Vertebroplasty is a percutaneous vertebral augmentation procedure that requires an injection of cement into cancellous bone of the vertebral body to relieve pain due to spinal compression fractures caused by osteoporosis or malignant infiltration. The procedure is minimally invasive and relatively safe. It increases stability of the spine by preventing vertebral body collapse. Patients who do not respond to conservative therapy or are poor candidates for open surgery may benefit from vertebroplasty.
 
 [Level I] A systematic review of seven RCTs with low risk of bias concluded that percutaneous cement vertebroplasty or balloon kyphoplasty, either alone or in combination with other local therapies e.g. iodine-125 seeds, chemotherapy, radiofrequency ablation or corticosteroids, were significantly effective for cancer pain due to malignant spinal compression fractures. The most common procedure-related AEs was cement leakage which occurred at a rate of 24% (95% CI 11 to 44). Nevertheless, there was no significant morbidity or mortality reported.
 
-## 6.4 Surgical intervention
-
+## 6.4: Surgical Intervention
 Surgery has a role in the management of cancer pain. Ablative surgery for large painful tumours e.g. fungating breast lesions or sarcomas may improve pain control where analgesics and other interventions provide suboptimal relief. Palliative surgical operations e.g. colostomy and bypass operations may also relieve pain due to malignant bowel obstruction. The decision for surgical intervention should be made by a multidisciplinary team taking into consideration of other treatment options, risks to the patient and, expectations of patient and family members.
 
 [Level I] A systematic review found that cordotomy might be effective and safe in mesothelioma-related pain. However, the available evidence was limited in quantity and quality which warranted more reliable evidence to aid decision-making on continued provision of this intervention.
@@ -62,8 +57,7 @@ Surgery has a role in the management of cancer pain. Ablative surgery for large 
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -72,8 +66,7 @@ Surgery has a role in the management of cancer pain. Ablative surgery for large 
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used in This Section
-
+### Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse events |

@@ -1,5 +1,4 @@
-# SECTION 17: CLINICAL MANIFESTATIONS OF PAH IN CONGENITAL HEART DISEASES
-
+# Section 17: Clinical Manifestations Of PAH In Congenital Heart Diseases
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: CHD-PAH Clinical Presentation and Complications — IPAH_vs_Eisenmenger, cyanosis, erythrocytosis, hyperviscosity, bleeding, thromboembolism, arrhythmias, complication_surveillance
@@ -12,11 +11,10 @@ output: Eisenmenger_diagnosis, complication_identification, differential_from_IP
 
 ---
 
-## 17. Clinical Manifestations of PAH in Congenital Heart Diseases
-
+## 17: Clinical Manifestations Of PAH In Congenital Heart Diseases
 In the Dana Point Classification of PAH, PAH associated with congenital heart disease is classified together with IPAH and PAH associated with systemic diseases. Despite significant similarities in the pulmonary vascular changes between Eisenmenger syndrome and PAH due to other causes, there are important differences which affect clinical presentation and outcome. The important differences are listed in Table 16.
 
-## Table 16: Differences between IPAH and Eisenmenger syndrome
+Table 16: Differences Between Ipah And Eisenmenger Syndrome
 
 | Feature | IPAH | Eisenmenger |
 |---|---|---|
@@ -34,7 +32,7 @@ In patients with Eisenmenger syndrome, exercise limitation is present from child
 
 Another major difference between patients with Eisenmenger and IPAH is the presence and extent of cyanosis which is severe and occurs at rest in Eisenmenger syndrome. Cyanosis and chronic hypoxia causes secondary erythrocytosis. Iron deficiency is not uncommon and may cause hyperviscosity symptoms such as headache, visual disturbances, and paresthesias. Cyanosis and chronic hypoxia also contributes to other systemic complications associated with Eisenmenger syndrome such as nephropathy.
 
-## Table 17: Clinical manifestations and complications of Eisenmengers syndrome
+Table 17: Clinical Manifestations And Complications Of Eisenmengers Syndrome
 
 1. **Hyperviscosity syndrome**
     - Headache/dizziness
@@ -76,7 +74,6 @@ Another major difference between patients with Eisenmenger and IPAH is the prese
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **IPAH** | Idiopathic Pulmonary Arterial Hypertension |

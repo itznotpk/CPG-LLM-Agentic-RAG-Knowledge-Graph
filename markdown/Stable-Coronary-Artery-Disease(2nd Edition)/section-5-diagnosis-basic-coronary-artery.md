@@ -1,5 +1,4 @@
-# DIAGNOSIS OF CAD - BASIC ASSESSMENT
-
+# Diagnosis Of Cad - Basic Assessment
 <!-- METADATA
 category: Diagnosis, Assessment
 use_case: Basic clinical assessment and initial investigations for suspected CAD — history, examination, labs, ECG, echocardiography, chest_xray
@@ -7,26 +6,21 @@ patient_input: symptoms, history, physical_exam, labs, ECG, echocardiography
 output: diagnostic_assessment, initial_investigation_plan
 -->
 
-## 5. Diagnosis of CAD — Basic Assessment
-
+## 5: Diagnosis Of Cad — Basic Assessment
 In the management of individuals with suspected or known CAD, the following need to be performed concurrently:
-
 - Establishing a diagnosis of stable CAD by clinical assessment and appropriate investigations.
 - Risk stratification and prognostication.
 - Initiating Optimal Medical Therapy (OMT).
 - Determining if the patient would benefit from revascularization.
 
 Clinical assessment and relevant investigations are necessary for:
-
 - diagnosis and
 - prognosis
 
-## 5.1 Clinical Assessment
-
+## 5.1: Clinical Assessment
 In making a diagnosis of stable angina, a detailed history and physical **[Grade I, Level C]** examination are of paramount importance. Clinical investigations are and for prognostication.
 
 ## History
-
 - Detailed history of angina i.e. character of the pain, location, radiation and severity (refer Table 3: Definition of Typical/Definite Angina)
 - Character — heaviness, pressure, tightness, constricting or burning.
 - Location — typically present in the retrosternal area but may also be felt in the epigastrium with radiation to neck/jaw, shoulders, back and arm.
@@ -38,7 +32,7 @@ In making a diagnosis of stable angina, a detailed history and physical **[Grade
 <!-- Purpose: Definition of Typical/Definite Angina criteria       -->
 <!-- ============================================================ -->
 
-### Table 3: Definition of Typical/Definite Angina
+Table 3: Definition Of Typical/Definite Angina
 
 Typical/definite angina is retrosternal chest discomfort characterised by fulfilling **all 3** of the following criteria:
 
@@ -61,9 +55,7 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 Angina of less than 2 months duration is classified as recent onset or unstable angina (UA).58 In the presence of a good effort tolerance, normal cardiac biomarkers and LV function and absence of ischemia at low to moderate workloads, these individuals (low risk UA) can be managed as stable CAD. All other individuals should be managed as in the Clinical Practice Guidelines (CPG) on UA/NSTEMI.26
 
 ## Physical Examination
-
 This involves:
-
   - Inspection of the general habitus of the patient, looking for signs of anaemia, polycythaemia and stigmata of hyperlipidaemia.
   - Examination of the peripheral pulses.
   - Measurement of the blood pressure.
@@ -77,7 +69,7 @@ If the history of chest pain is not suggestive of angina, then other causes shou
 <!-- Purpose: CCS Classification of Angina severity               -->
 <!-- ============================================================ -->
 
-### Table 4: Canadian Cardiovascular Society (CCS) Classification of Angina
+Table 4: Canadian Cardiovascular Society (Ccs) Classification Of Angina
 
 | Class   | Severity of Exertional Stress Inducing Angina                                                                                                                                         | Limitation of Ordinary Activity      |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
@@ -93,7 +85,7 @@ If the history of chest pain is not suggestive of angina, then other causes shou
 <!-- Purpose: Other causes of non-ischaemic chest pain            -->
 <!-- ============================================================ -->
 
-### Table 5: Other Causes of Non-Ischaemic Chest Pain
+Table 5: Other Causes Of Non-Ischaemic Chest Pain
 
 | System Involvement       | Condition                                                                                            |
 |--------------------------|------------------------------------------------------------------------------------------------------|
@@ -106,10 +98,8 @@ If the history of chest pain is not suggestive of angina, then other causes shou
 
 <!-- END OVERLAP FROM: TABLE 5 -->
 
-## 5.2 Biochemistry
-
+## 5.2: Biochemistry
 Relevant laboratory investigations are performed to assess the general health status of the individual and to look for co-morbidities. These include:
-
 - Full Blood Count
 - **[Grade I, Level C]** Fasting glucose and/or A1c
 - **[Grade I, Level C]** Lipid profile - fasting or non-fasting
@@ -126,29 +116,24 @@ Relevant laboratory investigations are performed to assess the general health st
 
 <!-- image -->
 
-## 5.3 Resting ECG
-
+## 5.3: Resting ECG
 - All patients with chest pain/angina equivalent should have a baseline resting **[Grade I, Level C]** 12-lead ECG performed.
 - Preferably, the ECG should be done during an episode of chest pain. **[Grade I, Level B]**
 
 ## The Resting 12-Lead ECG:
-
 - is usually normal — a normal resting ECG does not rule out CAD or myocardial ischemia.
 - may show evidence of CAD such as pathological Q waves, left bundle branch block (LBBB), ST-T abnormalities.
 - may help to identify other causes of chest discomfort such as pericardial disease, dynamic ST-T changes of coronary vasospasm, hypertrophic obstructive cardiomyopathy (HOCM).
 
-## 5.4 Echocardiography (at Rest)
-
+## 5.4: Echocardiography (At Rest)
 Echocardiography is not a routine investigation in individuals suspected of having CAD. In most of these individuals, the study is normal. The echocardiogram, however, provides valuable information on LV function which is important in risk stratification.
 
-## It is indicated in the:
-
+## It Is Indicated In The:
 - Presence of abnormal auscultatory findings and/or
 - Presence of abnormal resting ECG and/or
 - Assessment of LV function/regional wall motion abnormalities in patients with shortness of breath and/or known CAD.
 
 It is a useful test to assess LV function in individuals with:
-
 - hypertension and/or diabetes.
 - chest pain suspected to be due to CAD
 
@@ -158,8 +143,7 @@ It is a useful test to assess LV function in individuals with:
 **[Grade III, Level C]**
 **[Grade II-a, Level C]**
 
-## 5.5 Chest Radiography
-
+## 5.5: Chest Radiography
 The diagnostic yield of a chest radiograph in individuals with stable CAD is low.
 
 <!-- image -->
@@ -170,8 +154,7 @@ Where indicated, it may be helpful in assessing cardiac size, pulmonary vasculat
 
 **[Grade II-b, Level C]** It is not a routine investigation in individuals with suspected or known stable CAD.
 
-## Key messages:
-
+## Key Messages:
 - In the management of individuals with suspected or known CAD, the following need to be performed concurrently:
   - Establishing a diagnosis of stable CAD by clinical assessment and appropriate investigations.
   - Risk stratification and prognostication.
@@ -182,8 +165,7 @@ Where indicated, it may be helpful in assessing cardiac size, pulmonary vasculat
 
 ## Recommendation 1:
 
-## In making a diagnosis of CAD:
-
+## In Making A Diagnosis Of Cad:
 - A detailed history and a thorough physical examination are important. **[Grade I, Level C]**
 - Relevant laboratory investigations to assess the general health status of the individual and to look for co-morbidities. **[Grade I, Level C]**
 - An echocardiogram is not a routine investigation but is indicated in the: **[Grade I, Level C]**
@@ -197,8 +179,7 @@ Where indicated, it may be helpful in assessing cardiac size, pulmonary vasculat
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -207,8 +188,7 @@ Where indicated, it may be helpful in assessing cardiac size, pulmonary vasculat
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -223,7 +203,6 @@ Where indicated, it may be helpful in assessing cardiac size, pulmonary vasculat
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | CAD | Coronary Artery Disease |

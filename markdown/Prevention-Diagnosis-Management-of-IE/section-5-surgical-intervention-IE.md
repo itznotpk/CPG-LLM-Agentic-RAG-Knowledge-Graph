@@ -1,5 +1,4 @@
-# SECTION 5.0: SURGICAL INTERVENTION
-
+# Section 5: .0: Surgical Intervention
 <!-- METADATA
 category: Treatment
 use_case: Surgical Intervention — surgical indications, timing of surgery, postoperative care
@@ -9,19 +8,15 @@ critical: true
 treatment_type: valve replacement, valve repair
 -->
 
-## 5.1 Indications
-
+## 5.1: Indications
 Surgical intervention is indicated in the following cases of IE:
-
 - Severe valvular incompetence, haemodynamic instability or heart failure.
 - Uncontrolled sepsis and paravalvular extension of infection.
 - Fungal or multiresistant endocarditis.
 - Large vegetations (> 10 mm for left-sided IE) and recurrent systemic embolisation.
 
-### A. Severe valvular incompetence, heart failure or haemodynamic instability
-
+### A. Severe Valvular Incompetence, Heart Failure Or Haemodynamic Instability
 Valvular regurgitation in NVE occurs as a result of:
-
 - Leaflet perforation.
 - Rupture of the leaflet supporting apparatus.
 - Interference of the vegetative mass with leaflet closure.
@@ -30,10 +25,8 @@ Valvular regurgitation in NVE occurs as a result of:
 
 When acute and severe, heart failure and haemodynamic instability ensues. Surgery in these situations is life saving and has been shown to improve survival.
 
-### B. Persistent infection, uncontrolled sepsis and paravalvular extension of infection
-
+### B. Persistent Infection, Uncontrolled Sepsis And Paravalvular Extension Of Infection
 Surgery is indicated when:
-
 - Fever or positive blood cultures persist despite appropriate antimicrobial treatment after 5-7 days.
 - Extracardiac causes have been excluded.
 
@@ -46,10 +39,8 @@ Abscesses are more common in native aortic valve endocarditis compared to mitral
 - Abscesses are more common in PVE as the annulus rather than the prosthetic valve is usually the primary source of the infection.
 - These abscesses may progress to fistulous tracts creating intracardiac or pericardial shunts.
 
-### C. Fungal or multiresistant endocarditis
-
+### C. Fungal Or Multiresistant Endocarditis
 Surgery is indicated in IE caused by the following microorganisms/infection:
-
 - Fungal IE:
     - Responds poorly to medical treatment.
     - Reported mortality of up to 70%.
@@ -58,10 +49,8 @@ Surgery is indicated in IE caused by the following microorganisms/infection:
 - Non-HACEK Gram-negative bacteria.
 - S. aureus infection, if a favourable early response to antimicrobials is not achieved.
 
-### D. Very large vegetations (>10 mm) or previous systemic embolism
-
+### D. Very Large Vegetations (>10 Mm) Or Previous Systemic Embolism
 Surgery should be considered for vegetations > 10 mm in size particularly when other risk factors for embolisation are present. These include:
-
 - Mobile vegetation.
 - Increase in vegetation size despite treatment.
 - Vegetation on the mitral valve (particularly the anterior leaflet).
@@ -70,18 +59,16 @@ Surgery should be considered for vegetations > 10 mm in size particularly when o
 
 ## Recommendations
 
-### Surgical intervention in IE is indicated for:
+### Surgical Intervention In IE Is Indicated For:
 1. [Grade I, Level B] Severe valvular incompetence, heart failure or haemodynamic instability.
 2. [Grade I, Level B] Persistent infection, uncontrolled sepsis or paravalvular extension of infection.
-3. [Grade I, Level B] Fungal or multiresistant endocarditis. 
+3. [Grade I, Level B] Fungal or multiresistant endocarditis.
 4. [Grade I, Level B] Very large vegetations (> 10 mm) or previous systemic embolism.
 
-## 5.2 Timing of surgery
-
+## 5.2: Timing Of Surgery
 In general, when there is an established indication for surgery as discussed in Section 5.1: Indications above, surgical intervention should be undertaken as soon as practically possible after completion of surgical workup.
 
 Early surgical intervention in these patients:
-
 - Improves survival.
 - Prevents the risk of progressive heart failure, cardiogenic shock and multiorgan failure.
 - Decreases the progression of infection causing further structural damage with abscess formation.
@@ -89,28 +76,24 @@ Early surgical intervention in these patients:
 - Increases the likelihood of valve repair rather than replacement due to lesser destruction of the native valve.
 
 The improved results with early surgery is seen in those with heart failure or paravalvular complications. However in practice, surgery is often delayed in endocarditis due to:
-
 - High operative risk.
 - Possible risk of the newly implanted prosthetic valve getting infected.
 
 A recent meta-analysis involving 8,141 patients demonstrated that early surgery within 2 weeks of diagnosis improved both early mortality and long-term survival compared with non-early surgery. In patients with cardiogenic shock, surgery should be undertaken much earlier, within 24 hours of diagnosis. 127 However, it may be reasonable to delay surgery for 48 hours in a patient with septic shock to allow a period of stabilisation and better control of the sepsis with intravenous antimicrobials as cardiac surgery with cardiopulmonary bypass in the presence of septic shock carries an excessively high operative mortality.
 
 In selected patients, surgery can be carried out on an elective or semi-elective basis in the subacute or healed phase of endocarditis where the operative risk and the risk of infection of the implanted valve prosthesis is lower.68,128 This is applicable for the following patients:
-
 - Pre-existing chronic valvular regurgitation who are haemodynamically stable.
 - Vegetation is < 10 mm in size.
 - Well-controlled sepsis.
 
 A multidisciplinary team approach, comprising cardiologists, cardiac surgeons and ID specialists is recommended when deciding on the indication and optimal timing for surgical intervention. This approach has lowered overall morbidity and mortality for IE. Patients with an indication for surgical intervention should be transferred to a SC at the earliest opportunity where such a multidisciplinary approach can be offered.
 
-### 5.2.1 Preventing systemic embolism
-
+### 5.2.1: Preventing Systemic Embolism
 Most emboli occur before the diagnosis of endocarditis and in the first 2 weeks thereafter; the embolic rate decreases significantly after 2-3 weeks of antimicrobial therapy. There is emerging evidence for urgent surgery in preventing embolic events in those with large vegetations > 10 mm.
 
 A randomised controlled trial of 76 patients with left-sided NVE comparing early versus late surgery in IE with large vegetations (> 10 mm) reported a lower composite rate of hospital deaths, embolic events and recurrent endocarditis at 6 months with early surgery within 48 hours (3% versus 23%). The difference was largely due to a reduction in embolic events with early surgery. 116 Surgery undertaken for the prevention of systemic embolism should be performed urgently during the first few days following initiation of antimicrobial therapy, as the risk of embolism is highest at this time.
 
 ## Recommendations
-
 | Timing of surgery                                                                                     | Clinical condition                                                                                                                                                                          |
 |-------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | The timing of surgical intervention in IE patients depends on the clinical condition of  the patient. | The timing of surgical intervention in IE patients depends on the clinical condition of  the patient.                                                                                       |
@@ -120,15 +103,12 @@ A randomised controlled trial of 76 patients with left-sided NVE comparing early
 | Semi-elective (after 2 weeks of  antimicrobial cover)                                                 | [Grade I, Level B] PVE and relapsing infection.                                                                                                                                                          |
 | Elective  (after 6 weeks of  antimicrobial therapy)                                                   | [Grade I, Level C] Well-tolerated chronic severe valvular regurgitation with  controlled infection.                                                                                                      |
 
+## 5.3: Surgery In Specific Conditions
 
-## 5.3 Surgery in specific conditions
-
-### 5.3.1 Cerebral infarction or haemorrhage
-
+### 5.3.1: Cerebral Infarction Or Haemorrhage
 Up to 80% of patients with left-sided endocarditis have cerebral embolism detected by MRI. However, the majority of these are subclinical and clinical stroke is diagnosed in only 25-29%.
 
 The risk of significant neurologic complications occurring as a result of cardiac surgery performed early after a significant cerebral infarction is high:
-
 - Approximately 20% in the first 3 days.
 - 20-50% between 4 and 14 days.
 - 6-10% between 15 and 28 days.
@@ -137,7 +117,6 @@ The risk of significant neurologic complications occurring as a result of cardia
 Hospital mortality is also dependent on the time of cardiac surgical intervention after a cerebral infarction; 66% when surgery is performed within 24 hours of a stroke, and gradually decreasing every week to 7% when surgery is performed more than 4 weeks after a stroke. The risk of clinical deterioration is independently associated with stroke severity.
 
 The recommended timing for valve surgery if indicated, following a cerebrovascular event is as follows:
-
 - Without delay:
     - In the presence of subclinical cerebral emboli or small cerebral infarcts without severe neurological damage.
     - Absence of cerebral haemorrhage.
@@ -154,20 +133,16 @@ The recommended timing for valve surgery if indicated, following a cerebrovascul
 
 ## Recommendations
 
-### Surgical indication for patients with cerebral infarction or haemorrhage:
-
+### Surgical Indication For Patients With Cerebral Infarction Or Haemorrhage:
 1. [Grade IIb, Level B] In the presence of subclinical cerebral emboli or infarcts without haemorrhage, surgery can be undertaken without delay when indicated.
 2. [Grade IIa, Level B] In the presence of major ischaemic strokes or intracranial haemorrhage, surgery may be delayed for at least 4 weeks.
 3. [Grade IIa, Level B] In the presence of major ischaemic strokes without coma or intracranial haemorrhage, surgery can be performed after 2 weeks if urgent surgery is indicated e.g. due to congestive heart failure, deteriorating cardiac function or uncontrolled infection.
 
-### 5.3.2 Right-sided endocarditis
-
+### 5.3.2: Right-Sided Endocarditis
 Right-sided IE accounts for 5-10% of all cases of IE mostly involving the tricuspid valve, while isolated pulmonary valve involvement is rare. Right-sided IE resolves with conservative treatment in most cases and surgery is not commonly performed. The insertion of a prosthetic valve is generally avoided as much as possible in these cases as the majority of these patients are IVDUs and the risk of subsequent infection of an implanted valve prosthesis is high with continued intravenous drug use.
 
-#### 5.3.2.1 Indications for surgery
-
+#### 5.3.2.1: Indications For Surgery
 Surgery is indicated in the following situations:
-
 - Persistent infection due to difficult to eradicate microorganisms not responding to antimicrobial therapy beyond 2 weeks.
 - Persistent vegetation size > 20 mm and recurrent septic pulmonary emboli despite appropriate antimicrobials.
 - Massive or worsening tricuspid regurgitation causing right heart failure unresponsive to medical therapy.
@@ -177,17 +152,14 @@ S.aureus infections are often complicated with large vegetations, aggressive val
 
 ## Recommendations
 
-### Surgical indication for right-sided IE:
-
+### Surgical Indication For Right-Sided IE:
 1. [Grade IIa, Level C] Persistent infection despite 2 weeks of appropriate antimicrobial therapy.
 2. [Grade IIa, Level C] Persistent vegetation size > 20 mm and recurrent septic pulmonary emboli despite appropriate antimicrobials.
-3. [Grade IIa, Level C] Massive or worsening tricuspid regurgitation causing right heart failure unresponsive to medical therapy. 
+3. [Grade IIa, Level C] Massive or worsening tricuspid regurgitation causing right heart failure unresponsive to medical therapy.
 4. [Grade IIa, Level C] Failure or complications of percutaneous removal of infected pacing wires.
 
-### 5.3.3 Prosthetic valve endocarditis
-
+### 5.3.3: Prosthetic Valve Endocarditis
 In addition to the indications for surgery in NVE mentioned above, surgery in PVE is also recommended for:
-
 - Staphylococcal endocarditis.
 - Severe prosthetic valve dysfunction or dehiscence.
 
@@ -197,18 +169,15 @@ Most patients treated conservatively have uncomplicated non-staphylococcal and n
 
 ## Recommendations
 
-### Indications for surgery are:
-
+### Indications For Surgery Are:
 1. As in NVE (refer Section 5.1: Indications).
 2. [Grade I, Level C] Staphylococcal endocarditis.
 3. [Grade I, Level C] Severe prosthetic valve dysfunction or dehiscence.
 
-## 5.4 Principles of surgery
-
+## 5.4: Principles Of Surgery
 The surgical principles in IE are well established.
 
 Pre-operative assessment and management would include:
-
 - Investigating and treating the primary source responsible for the endocarditis.
 - Treatment of extracardiac sepsis such as splenic and paravertebral abscesses either by splenectomy or percutaneous drainage to avoid infection of the new valve.
 - Investigating and managing cerebrovascular events for those at risk.
@@ -217,7 +186,6 @@ Pre-operative assessment and management would include:
 Pre-operative workup should therefore include imaging of the brain, chest, abdomen and pelvis, and maxillofacial area.
 
 Some important surgical strategies are:
-
 - Wherever possible valve repair rather than replacement is preferred. Valve repair:
     - Improves in-hospital and long-term survival.
     - Has better preservation of ventricular function.
@@ -232,61 +200,52 @@ Some important surgical strategies are:
 - Post-operative anticoagulation management should be reviewed and managed accordingly in those with cerebrovascular complications.
 - Antimicrobials should be continued to complete a total course of 6 weeks in most cases.
 
-## KEY MESSAGE:
-
+## Key Message:
 MRA of the brain may be considered before cardiac surgery in patients without neurological complications who are at high-risk of developing mycotic aneurysm to aid with the surgical strategy.
 
-### 5.4.1 Aortic valve
-
+### 5.4.1: Aortic Valve
 Due to the increased risk of embolisation, CT guided coronary angiography instead of conventional catheter based coronary angiography is recommended to assess for the presence of perivalvular extensions.
 
 In the presence of periannular abscess, it may be necessary to reconstruct the aortic annulus using autologous or bovine pericardium, or dacron. In most cases, it is possible to suture a valve prosthesis onto the reconstructed annulus.
 
 An aortic root replacement with a homograft or stentless root is a good option when aortic root replacement is necessary.
 
-### 5.4.2 Mitral valve
-
+### 5.4.2: Mitral Valve
 Whenever possible, repair rather than replacement of destroyed mitral valves should be undertaken. Successful repair of the mitral valve in IE is often possible with the right expertise, which may require repair of the leaflet perforation or augmentation with pericardial patch and use of artificial neochordae.
 
 However, complete and radical debridement of all infected tissue remains the key principle and should not be compromised to repair the mitral valve. If mitral valve replacement is necessary, complete preservation of the subvalvular apparatus should be performed.
 
-### 5.4.3 Tricuspid valve
-
+### 5.4.3: Tricuspid Valve
 Whenever possible, repair rather than replacement of destroyed tricuspid valves is preferable. When valve repair is not possible and replacement is necessary, the choice of prosthesis should follow the same algorithm as in patients without endocarditis. In IVDUs, it may be reasonable to use a bioprosthetic valve if there is concern about compliance with anticoagulation medication.
 
-### 5.4.4 Periannular extension
-
+### 5.4.4: Periannular Extension
 Where abscess cavities are present, these must be drained, necrotic tissue excised and any fistulous tracts closed where appropriate. These patients often require temporary or permanent pacing.
 
 ## Recommendations
 
-### Surgical principles in IE:
-
+### Surgical Principles In IE:
 1. [Grade I, Level C] Complete removal and radical debridement of all infected and necrotic material, leaving only healthy tissue, which will hold suture, is recommended.
-2. [Grade IIa, Level C] Valve repair when possible is preferred rather than replacement. 
+2. [Grade IIa, Level C] Valve repair when possible is preferred rather than replacement.
 3. [Grade I, Level C] The choice of valve prosthesis type should be based on the standard considerations when deciding between a mechanical or bioprosthetic valve (e.g. age and childbearing females).
 
-## 5.5 Surgery for infective endocarditis in congenital heart disease
+## 5.5: Surgery For Infective Endocarditis In Congenital Heart Disease
 
-### 5.5.1 Indications for surgery
-
+### 5.5.1: Indications For Surgery
 Although no paediatric specific surgical guidelines for acute IE exist, established American Heart Association (AHA) adult guidelines have been endorsed by the American Academy of Paediatrics (AAP).
 
 The determinant factors of surgical therapy for active IE in the paediatric population are mentioned in Table 5.1: Determinant factors for surgical therapy
 
-### 5.5.2 Timing of surgery
-
+### 5.5.2: Timing Of Surgery
 Early intervention in children with heart failure or S.aureus infection can be safely performed in children with low post-operative mortality and accepted medium to long-term outcome. Nomura and colleagues demonstrated that surgical intervention during the active phase of infection might be a necessary adjunct to antimicrobial therapy in certain subgroups. Cardiac surgery performed within 1 week of diagnosis of a cerebrovascular accident (CVA) due to septic embolisation was safe.147 Early surgical involvement in children with staphylococcal infection might have an advantageous role in their treatment by minimising the risk of embolisation and abscess formation, achieve native valve repair and potentially reverse the cause of ventricular dysfunction.
 
-## KEY MESSAGE:
+## Key Message:
 | Timing of surgery | Preferable clinical condition |
 |---|---|
 | Early (within 1-2 weeks) | • Unrepaired congenital heart lesions with haemodynamic instability<br>• Infected pacemakers/CIED<br>• Infected conduits with conduit failure causing haemodynamic instability<br>• Infected conduit or intracardiac patches with enlarging vegetations despite antimicrobial therapy and recurrent embolisation<br>• Infected intracardiac patches with dehiscence<br>• Heart block secondary to IE |
 | Semi-elective (after 2 weeks of antimicrobial cover) | • Unrepaired CHD with persistent infection<br>• Infected conduit, devices, stents and intracardiac patches with persistent infection<br>• Fungal, *S. aureus* or other highly resistant microorganisms |
 | Elective surgery (after 6 weeks of antimicrobial therapy) | • Infected conduit, devices, stents and intracardiac patches with controlled infection and haemodynamic stability<br>• Unrepaired CHD with controlled infection and haemodynamic stability |
 
-### 5.5.3 Surgical techniques
-
+### 5.5.3: Surgical Techniques
 Surgical techniques are similar as in the adult patients with IE (refer Sections 5.1-5.4). However there are some important principles to consider in the paediatric or CHD population.
 
 - Preserving the native valve is important in children.
@@ -301,13 +260,12 @@ The surgical mortality for IE in the group of CHD has been reported between 10-1
 
 ## Recommendations
 
-### Principles of surgical intervention in the paediatric CHD patients:
-
+### Principles Of Surgical Intervention In The Paediatric Chd Patients:
 1. [Grade I, Level B] Degree of illness not be considered a limitation to surgical intervention, because the alternative, to delay or defer surgery, can have dire consequences.
 2. [Grade II, Level B] Surgery may be considered for patients with relapsing PVE even if valvular function remains intact after prolonged medical therapy.
 
 ## Contextual Anchors (Overlapping)
-### Table 5.1: Determinant factors for surgical therapy
+Table 5.1: Determinant Factors For Surgical Therapy
 
 | During active IE | |
 |---|---|
@@ -318,15 +276,12 @@ The surgical mortality for IE in the group of CHD has been reported between 10-1
 
 ---
 
-### Section 3.2.2: Microbiological diagnosis
-
+### Section 3: .2.2: Microbiological Diagnosis
 The microbiological diagnosis of IE can be divided into:
-
 - Blood culture positive IE.
 - Blood culture negative IE.
 
-#### 3.2.2.1 Blood culture positive infective endocarditis
-
+#### 3.2.2.1: Blood Culture Positive Infective Endocarditis
 Blood cultures should be taken before the commencement of empiric antimicrobial agents as it is critical to the diagnosis and treatment of patients with IE. In order to obtain high yield of positive blood cultures, the following considerations are crucial:
 
 **A. Timing of blood cultures**
@@ -374,8 +329,7 @@ These microorganisms may be considered as significant pathogens when they are cu
 - A newly available state-of-the-art technology in rapid bacterial identification is based on peptide spectra by matrix-assisted laser desorption ionisation time-of-flight mass spectrometry (MALDI-TOF) which is able to provide direct identification of bacteria in the blood culture supernatant. This has improved the turnaround time of bacterial identification tremendously.
 - For decisions on optimal therapy in IE, especially for infections involving streptococci spp. and multidrug resistant microorganisms, it is recommended to test for susceptibility of antimicrobials by determining the minimal inhibitory concentration (MIC) of the drug.
 
-#### 3.2.2.2 Blood culture-negative infective endocarditis
-
+#### 3.2.2.2: Blood Culture-Negative Infective Endocarditis
 In general, BCNIE indicates IE which has no microorganism grown following inoculation of at least 3 independent blood samples when using the usual currently available culture methods in clinical laboratories after 5 days of incubation.
 
 - BCNIE can be due to 3 main reasons:
@@ -386,25 +340,21 @@ In general, BCNIE indicates IE which has no microorganism grown following inocul
   - Serological testing and molecular techniques such as polymerase chain reaction (PCR) assay aid in establishing the causative agent in BCNIE.
 
 However limitations when using such assays are as follows:
-
 - Serology:
   - Cross reaction of serological assays (e.g. IE caused by *Bartonella* and *Chlamydia* spp. are often indistinguishable).
 - PCR:
   - Low sensitivity of PCR when using blood specimens. It is however more sensitive when performed directly on cardiac valvular tissue or surgical material.
   - PCR findings should not be used to guide duration of therapy and should be interpreted in the context of other clinical information. This is due to persistence of bacterial deoxyribonucleic acid (DNA) even after eradication of viable microorganisms, causing false positive results.
 
-### Section 3.2.3: Histopathological diagnosis
-
+### Section 3: .2.3: Histopathological Diagnosis
 Patients with IE often undergo surgery to repair or replace their heart valve. Histopathology when available is of diagnostic value. If excised tissue is obtained during cardiac surgery, it must be sent for HPE and culture.
 
 Tissue specimens that can be sent are:
-
 - Resected valvular tissue.
 - Endocardial vegetation.
 - Excised intracardiac abscess wall.
 
 A diagnosis can be made from the pathological specimens if:
-
 - Microorganisms are demonstrated by culture or on HPE.
 - HPE shows active endocarditis.
 
@@ -412,7 +362,7 @@ The various special stains that are used to detect the infectious agents of inte
 
 ---
 
-### Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations
+Table 3.2: Fastidious And Intracellular Microorganisms, Epidemiology And Investigations
 
 | Microorganism                             | Predisposing risk factors,  epidemiology and exposure  risks                                                                                      | Laboratory investigation                                                                                                                                                                       |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -424,7 +374,6 @@ The various special stains that are used to detect the infectious agents of inte
 | Nutritionally variant  streptococci       | Slow indolent course                                                                                                                              | Culture: Blood culture (culture on  supplemented media or growth as  satellite colonies around S. aureus streak)                                                                               |
 
 **HPE consists of:
-
 - Haematoxylin and Eosin (H&amp;E) stain for basic morphology.
 - Special stains which aid in the identification of the causative microorganisms of IE (refer Table 3.3: Special stains which aid in the identification of the causative microorganisms of IE from cardiac tissue specimens).
 
@@ -433,7 +382,7 @@ IgG: immunglobulin G; IgM: immunoglobulin M; HPE: histopathological examination.
 The directory of laboratories that perform the serological and PCR tests of the rare aetiological agents of IE is given in Appendix 4: Directory of laboratories*.
 
 ---
-### Table 3.3: Special stains which aid in the identification of the causative microorganisms of IE from cardiac tissue specimens
+Table 3.3: Special Stains Which Aid In The Identification Of The Causative Microorganisms Of IE From Cardiac Tissue Specimens
 
 | Tissue stain         | Detected microorganism            |
 |----------------------|-----------------------------------|
@@ -450,12 +399,11 @@ The directory of laboratories that perform the serological and PCR tests of the 
 | Gomori-Grocott       | Fungi                             |
 
 ---
-## Appendix 2: Enterobacteriaceae
 
+## Appendix 2: Enterobacteriaceae
 The family Enterobacteriaceae includes many genera that are Gram-negative rods. They are also known as enteric Gram-negative rods or enteric bacteria (enteric means pertaining to the intestines).
 
-### Enterobacteriaceae have the following characteristics:
-
+### Enterobacteriaceae Have The Following Characteristics:
 - Gram-negative rods.
 - Grow well on MacConkey agar and can be divided into lactose-fermenter or non-lactose fermenters.
 - Grow aerobically and anaerobically (are facultative anaerobes).
@@ -463,7 +411,6 @@ The family Enterobacteriaceae includes many genera that are Gram-negative rods. 
 - Catalase-positive, oxidase-negative and reduce nitrate to nitrite.
 
 The following are some of the Enterobacteriaceae microorganisms that can cause IE:
-
 - Enterobacter aerogenes.
 - Enterobacter cloacae.
 - Escherichia coli.
@@ -478,8 +425,7 @@ Jawetz, Melnick and Adelberg's Medical Microbiology. In: GF Brooks, JS Butel and
 
 ---
 
-## Appendix 3: Blood culture collection
-
+## Appendix 3: Blood Culture Collection
 Strict aseptic technique should be used throughout the procedure.
 
 1. Identify the site of venepuncture where blood is to be drawn.
@@ -503,7 +449,6 @@ Strict aseptic technique should be used throughout the procedure.
 17. Send the blood culture bottles to the laboratory within 2-4 hours of collection.
 
 ### Note:
-
 1. Blood cultures should not be obtained from indwelling intravascular access devices, e.g. intravascular catheters or ports, as it is associated with higher contamination rates. When blood is obtained from a port or line, blood drawn via a peripheral vein should also be taken for meaningful interpretation.
 2. Blood culture bottles should not be refrigerated after they have been inoculated.
 3. Do not leave the blood cultures at room temperature for more than 4 hours, as it will delay or impede the detection of growth by the continuous-monitoring blood culture instrument.
@@ -516,8 +461,8 @@ Strict aseptic technique should be used throughout the procedure.
 
 ---
 
-## Appendix 4: Directory of laboratories*
-### Table: Directory of main laboratories that provide serological testing of rare aetiological agents of infective endocarditis
+## Appendix 4: Directory Of Laboratories*
+Table: Directory Of Main Laboratories That Provide Serological Testing Of Rare Aetiological Agents Of Infective Endocarditis
 
 | Microorganisms    | Serology IgG/IgM     |
 |-------------------|----------------------|
@@ -534,7 +479,6 @@ IMR: Institute of Medical Research; HSB: Hospital Sungai Buloh; HKL: Hospital Ku
 *This list is not exhaustive and only include public institutions with the available facilities. For a full list of accredited laboratories, please refer to Standards Malaysia website (www.jsm. gov.my).
 
 #### Note:
-
 1. Interpretation of serological results in these rare aetiological agents of IE can be difficult. Please consult an ID physician to guide treatment in these cases.
 2. PCR amplification of 16SrDNA gene and sequencing for the identification of bacterial pathogen from bacterial isolate is provided at the Department of Medical Microbiology PPUM.
 
@@ -553,25 +497,20 @@ The main laboratories and the contact details are as follows:*
 
 ---
 
-## Appendix 5: Guidelines on specimen collection
-
+## Appendix 5: Guidelines On Specimen Collection
 Instructions for specimen collection and transport for HPE of cardiac valvular/ tissue/emboli in the diagnosis of infective endocarditis.
 
-### A. Specimen collection
-
+### A. Specimen Collection
 1. Place the cardiac specimen in a container containing 10% formalin with a volume of approximately 3-4 times tissue volume (30 ml minimum).
 2. Do not remove or scrape any tissue (e.g. clots and fibrins) attached to the cardiac specimen.
 3. Secure the sample container properly to avoid spillage.
 
 #### Note:
-
 If a cardiac specimen is also being collected for:
-
 - Microbiological culture, place the specimen in a container with normal saline.
 - HPE, place another specimen in a different container with formalin.
 
-### B. Labelling of specimen container(s)
-
+### B. Labelling Of Specimen container(s)
 1. Label the specimen container(s) with the patient's full name, a second patient identifier, and the source/anatomical site and type of the specimen.
 2. The label should be placed/written on the container and not on the cap.
 3. If there is more than one sample, place multiple specimens in separate containers.
@@ -579,8 +518,7 @@ If a cardiac specimen is also being collected for:
 
 ---
 
-### GRADES OF RECOMMENDATION
-
+### Grades Of Recommendation
 | Grade | Description |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -589,8 +527,7 @@ If a cardiac specimen is also being collected for:
 | **IIb** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### LEVEL OF EVIDENCE
-
+### Level Of Evidence
 | Level | Description |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -603,8 +540,7 @@ If a cardiac specimen is also being collected for:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 |---|---|
 | AAP | American Academy of Paediatrics |

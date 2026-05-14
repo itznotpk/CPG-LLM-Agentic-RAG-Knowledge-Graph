@@ -1,10 +1,9 @@
-# SECTION 9: RADIATION PROTECTION
-
+# Section 9: Radiation Protection
 <!-- METADATA
 category: Prevention
 use_case: general_principles_of_management_in_pci
-patient_input: 
-output: 
+patient_input:
+output:
 critical: false
 -->
 
@@ -12,8 +11,7 @@ critical: false
 
 ---
 
-## 9. Radiation Protection
-
+## 9: Radiation Protection
 The largest source of radiation comes from medical radiation and the largest users of medical radiation are interventional cardiologists. It is important to be know the biohazards of radiation.
 
 Interventional cardiologists should be aware of radiation protection. This entails reducing the radiation exposure to as low a level as reasonably achievable to patients, medical staff and themselves.

@@ -1,18 +1,17 @@
-# SECTION 11: STROKE UNIT
-
+# Section 11: Stroke Unit
 <!-- METADATA
 category: Reference
 use_case: Stroke Unit Organisation — stroke_unit_setup, multidisciplinary_team, quality_indicators, KPI_benchmarks
 patient_input: stroke_severity, rehabilitation_needs
 output: care_pathway, KPI_benchmarks
 -->
-## 11.1 Stroke Unit
 
+## 11.1: Stroke Unit
 All patients with acute stroke should ideally have access to stroke units. There is clear evidence that the treatment of patients with stroke in stroke units significantly reduces death, dependency, institutionalisation, and length of hospital stay as compared to treatment in the general medical ward.
 
 [Level I, Grade A] **Recommendation:** Every hospital should set up a stroke unit as it can significantly reduce deaths, dependency, institutionalisation, and the length of hospital stay.
 
-[Level I] This benefit is independent of the patients' age, gender, co-morbidities, and stroke severity. 
+[Level I] This benefit is independent of the patients' age, gender, co-morbidities, and stroke severity.
 
 [Level III] The benefits from treatment in a stroke unit are comparable to the effects achieved with intravenous administration of rtPA.
 
@@ -29,13 +28,12 @@ VII. The use of comprehensive specialized stroke care (stroke units) that incorp
 
 [Level I, Grade A] **Recommendation:** The use of comprehensive specialized stroke care (stroke units) that incorporates rehabilitation services is recommended.
 
-[Level I] Possible benefits of having stroke units include early treatment, reduced incidence of infection and systemic complications as well as early and more intense rehabilitation. 
+[Level I] Possible benefits of having stroke units include early treatment, reduced incidence of infection and systemic complications as well as early and more intense rehabilitation.
 
-## 11.2 Multidisciplinary Team in Stroke Unit
+## 11.2: Multidisciplinary Team In Stroke Unit
+[Level I, Grade A] The core multidisciplinary team on a stroke unit should consist of healthcare professionals with stroke expertise including physicians, nurses, occupational therapists, physiotherapists, speech therapists, social workers, and dietitians.
 
-[Level I, Grade A] The core multidisciplinary team on a stroke unit should consist of healthcare professionals with stroke expertise including physicians, nurses, occupational therapists, physiotherapists, speech therapists, social workers, and dietitians. 
-
-[Level II, Grade B] Additional members of multidisciplinary team may include clinical pharmacists, discharge planner or case managers, psychologists, palliative care specialists, spiritual care providers and peer support groups. 
+[Level II, Grade B] Additional members of multidisciplinary team may include clinical pharmacists, discharge planner or case managers, psychologists, palliative care specialists, spiritual care providers and peer support groups.
 
 Role of multidisciplinary team: <br>
 I. Should assess patients within 48 hours and formulate management plan. <br>
@@ -52,7 +50,7 @@ Standardized stroke orders or integrated stroke pathways improve adherence towar
 
 Nine KPI are used as the measurement index for the effectiveness of a stroke unit as shown below:
 
-### The 9 KPI's Recommended by the Stroke Council Malaysian Society of Neurosciences (MSN) 2011
+### The 9 KPI's Recommended By The Stroke Council Malaysian Society Of Neurosciences (Msn) 2011
 *(Used in Malaysian National Stroke Registry)*
 
 1. Thrombolytic Therapy Administered
@@ -66,8 +64,7 @@ Nine KPI are used as the measurement index for the effectiveness of a stroke uni
 9. Discharged on Cholesterol Reducing Medication
 
 ## Recommendations Summary:
-
-### Table 11.1: Stroke Unit
+Table 11.1: Stroke Unit
 
 | Factor | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -76,13 +73,11 @@ Nine KPI are used as the measurement index for the effectiveness of a stroke uni
 | Stroke Unit | A stroke unit should be managed by a multidisciplinary stroke team. | I | A |
 
 ## Key Recommendations:
-
 The use of comprehensive specialized stroke care (stroke units) that incorporates rehabilitation services are able to reduce mortality and disabilities among stroke patients.
 
-## KEY TO EVIDENCE STATEMENTS AND GRADES OF RECOMMENDATIONS
+## Key To Evidence Statements And Grades Of Recommendations
 
-### LEVELS OF EVIDENCE SCALE
-
+### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | **I** | Evidence obtained from at least one properly randomized controlled trial |
@@ -93,8 +88,7 @@ The use of comprehensive specialized stroke care (stroke units) that incorporate
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
-### GRADES OF RECOMMENDATIONS
-
+### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
@@ -103,8 +97,7 @@ Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 | --- | --- |
 | DVT | Deep Vein Thrombosis |

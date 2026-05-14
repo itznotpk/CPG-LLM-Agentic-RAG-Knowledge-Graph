@@ -1,5 +1,4 @@
-# SECTION 6: TARGET LIPID LEVELS
-
+# Section 6: Target Lipid Levels
 <!-- METADATA
 category: Treatment
 use_case: LDL-C and Non-HDL-C treatment target determination — target_LDL-C, target_Non-HDL-C, risk-based_goals, treatment_thresholds
@@ -7,25 +6,22 @@ patient_input: CV_risk_category, baseline_LDL-C
 output: target_LDL-C, target_Non-HDL-C, drug_initiation_threshold
 -->
 
-## 6.1. LDL-C Goals
-
+## 6.1: LDL-C Goals
 [Grade I, Level A] LDL-C is the **primary target** of therapy. The target level depends on the individual's global CV risk category.(refer to Table 4: Target LDL-C levels)
 * [Grade I, Level A] Correlation: Both the absolute on-treatment LDL-C level and the percentage reduction achieved correlate with CV benefits.
 
 ---
 
-## 6.2. Non-HDL-C Goals
-
+## 6.2: Non-HDL-C Goals
 * [Grade IIa, Level B] **Secondary Target**: Consider non-HDL-C as a secondary target in patients with combined hyperlipidemias, diabetes, cardiometabolic risk, or Chronic kidney disease (CKD).
 *   **Target Calculation**: Non-HDL-C targets are **0.8 mmol/L higher** than the corresponding LDL-C goal.
-*   Adjusting lipid lowering therapy to achieve these secondary goals may be considered after achieving LDL-C targets in patients with Very High and High CV risk. 
+*   Adjusting lipid lowering therapy to achieve these secondary goals may be considered after achieving LDL-C targets in patients with Very High and High CV risk.
 *   Although increases in HDL-C predict atherosclerosis regression and low HDL-C is associated with excess events in CHD patients, clinical trial evidence using pharmacotherapy to increase HDL-C has not shown any CV benefits.
 
 ---
 
 ## Contextual Anchors (Overlapping)
-
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -44,7 +40,6 @@ output: target_LDL-C, target_Non-HDL-C, drug_initiation_threshold
 ---
 
 ## Key Recommendations #5
-
 *   **Primary Target**: LDL-C.
 *   **Risk-Based**: Targets are determined by global risk stratification. (refer to Table 4: Target LDL-C levels)
 *   **Secondary Target**: Non-HDL-C (especially in combined hyperlipidemias, diabetes, cardio metabolic risk or chronic kidney disease).
@@ -52,8 +47,7 @@ output: target_LDL-C, target_Non-HDL-C, drug_initiation_threshold
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | CHD | Coronary Heart Disease |
@@ -72,8 +66,7 @@ output: target_LDL-C, target_Non-HDL-C, drug_initiation_threshold
 
 ---
 
-## Grades of Recommendation and Level of Evidence
-
+## Grades Of Recommendation And Level Of Evidence
 *   **Grade I**: Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade IIa**: Weight of evidence/opinion is in favour of usefulness/efficacy. The specific treatment or procedure *should be considered*.
 *   **Level A**: Data derived from multiple randomized clinical trials or meta-analyses.

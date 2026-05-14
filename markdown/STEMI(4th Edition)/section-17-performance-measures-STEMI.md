@@ -1,5 +1,4 @@
-# SECTION 17: PERFORMANCE MEASURES
-
+# Section 17: Performance Measures
 <!-- METADATA
 category: Reference
 use_case: Performance Measures and Quality Benchmarking — KPI_benchmarking, door_to_balloon_time_audit, reperfusion_rate_monitoring, mortality_tracking, aspirin_on_arrival_compliance
@@ -7,8 +6,7 @@ patient_input: institutional_data, registry_data, time_metrics
 output: performance_indicators, quality_improvement_targets, benchmarking_report
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Performance measures should be used with the goal of improving the quality of care.
 
 Process performance measures focus on the aspects of care that are delivered to a patient, while outcome measures focus on the end-points such as mortality or repeat hospitalisation.
@@ -19,17 +17,14 @@ Outcome Measures indicators include:
 - 1-year mortality < 18%
 
 ## Key Recommendation 11:
-
 - Regular audit of performance measures (refer to Table 19) and outcomes measures are important to monitor and improve quality of care.
 
 ---
 
 ## Contextual Anchors (Overlapping)
+Table 19: Performance Measures
 
-### Table 19: Performance Measures
-
-### Process Indicators for STEMI at Presentation
-
+### Process Indicators For STEMI At Presentation
 | Indicators for STEMI at Presentation | Targets |
 |---|---|
 | ECG done within 10 minutes of FMC | 90% |
@@ -49,7 +44,6 @@ Outcome Measures indicators include:
 ---
 
 ### Section 5: STEMI Network — Total Ischaemic Time (Overlapping)
-
 **For Primary PCI:**
 - Target from FMC to "wire crossing" (Door to Balloon/Device Time):
   - FMC in PCI-capable hospital ("Hub"): **≤ 90 minutes**
@@ -65,19 +59,18 @@ Outcome Measures indicators include:
 - If reperfusion not successful → transfer for rescue PCI.
 - If reperfusion successful → pharmaco-invasive strategy or manage at spoke if low risk.
 
-#### Key Message 5 (from Section 5):
+#### Key Message 5 (From Section 5):
 - The objective of a STEMI network is to link non-PCI-capable centres to PCI-capable centres with the aim of providing PCI services in a timely manner.
 
-#### Key Message 7 (from Section 5):
+#### Key Message 7 (From Section 5):
 - If the patient presents at a PCI centre: FMC to wire crossing **≤ 90 minutes**.
 - If transferred from a non-PCI centre: FMC to wire crossing **≤ 120 minutes** (DIDO ≤ 30 min + travel ≤ 60 min + door-to-wire ≤ 30 min).
 - If time delay to primary PCI > 120 minutes: give fibrinolytic therapy + transfer for pharmaco-invasive strategy.
 
 ---
-### Section 16: Checklists for Follow-Up Visits (Overlapping)
 
+### Section 16: Checklists For Follow-Up Visits (Overlapping)
 The following should be assessed at each follow-up visit:
-
 - Assess the presence or absence of cardiac symptoms and determine the functional class of the patient.
 - Evaluate patients' psychosocial (anxiety & depression) status and the social integration and support network.
 - Review pre-discharge risk assessment and evaluate:
@@ -91,8 +84,8 @@ The following should be assessed at each follow-up visit:
   - Achieve and maintain ideal body weight and waist circumference.
 
 ---
-### Section 8.3: CCU Concomitant Therapy — Medication Dosing at Discharge (Overlapping)
 
+### Section 8: .3: Ccu Concomitant Therapy — Medication Dosing At Discharge (Overlapping)
 **Antiplatelets (DAPT):**
 - [Grade I, Level A] Aspirin 75–150 mg daily indefinitely.
 - [Grade I, Level A] Clopidogrel 75 mg daily (loading 300 mg; 75 mg if > 75 years).
@@ -118,7 +111,7 @@ The following should be assessed at each follow-up visit:
 - [Grade I, Level A] Add non-statin therapy (ezetimibe, PCSK-9 inhibitors) if LDL-C ≥ 1.8 despite maximum tolerated statin.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -136,8 +129,7 @@ The following should be assessed at each follow-up visit:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |

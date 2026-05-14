@@ -1,5 +1,4 @@
-# SECTION 12: DIAGNOSIS OF PAH IN CHILDREN
-
+# Section 12: Diagnosis Of PAH In Children
 <!-- METADATA
 category: Diagnosis
 use_case: Paediatric Diagnostic Pathway — clinical_suspicion_by_age, ECG, CXR, echocardiography, TOE, laboratory_workup, RHC, vasoreactivity_testing
@@ -13,13 +12,12 @@ critical: true
 
 ---
 
-## 12. Diagnosis of PAH in Children
+## 12: Diagnosis Of PAH In Children
 
-### 12.1 Clinical Suspicion of PHT
-
+## 12.1: Clinical Suspicion Of Pht
 The presenting symptoms in children with pulmonary hypertension may differ from adults. Pulmonary hypertension should be suspected in any child who presents with signs and symptoms as listed in Table 6 when there is no other explanation.
 
-## Table 6: Signs and Symptoms of Pulmonary Hypertension in Paediatric Patients
+Table 6: Signs And Symptoms Of Pulmonary Hypertension In Paediatric Patients
 
 | Age Group | Signs and Symptoms |
 |---|---|
@@ -27,11 +25,10 @@ The presenting symptoms in children with pulmonary hypertension may differ from 
 | **Children** | Poor effort tolerance. Cyanosis with exertion (right to left shunt through a patent foramen ovale). Syncope (effort-related). Seizures (early morning hours). Nausea and vomiting |
 | **Older children** | Exertional dyspnoea. Chest pain or angina. Clinical signs of right heart failure (hepatomegaly, peripheral oedema) |
 
-### 12.2 Detection of PHT
-
+## 12.2: Detection Of Pht
 The initial tests to assist in detection of pulmonary hypertension are listed in Table 7.
 
-## Table 7: Initial Tests to Detect Pulmonary Hypertension
+Table 7: Initial Tests To Detect Pulmonary Hypertension
 
 | Test | Findings |
 |---|---|
@@ -42,11 +39,10 @@ The initial tests to assist in detection of pulmonary hypertension are listed in
 
 Once pulmonary hypertension is detected, all paediatric patients should be referred to the specialized centres for further investigations. Invasive right heart catheterization for confirmation of PAH, assessment of severity of PAH and vasoreactivity test should only be performed in the specialized centres.
 
-### 12.3 PHT Clinical Class Identification
-
+## 12.3: Pht Clinical Class Identification
 Detailed history taking and further investigations should be made to determine the underlying cause for pulmonary hypertension. Diagnosis of idiopathic pulmonary arterial hypertension (IPAH) is made when no secondary cause is found.
 
-## Table 8: Important Aspects of History Taking in Determining Underlying Cause for Pulmonary Hypertension
+Table 8: Important Aspects Of History Taking In Determining Underlying Cause For Pulmonary Hypertension
 
 | History | Diagnosis |
 |---|---|
@@ -57,12 +53,12 @@ Detailed history taking and further investigations should be made to determine t
 | **Drug history** (psychotropics and appetite suppressants — aminorex, fenfluramine, amphetamines, cocaine etc) | Drug and toxin-induced PAH |
 | **Underlying medical illnesses** (connective tissue diseases, HIV infection, haemoglobinopathies, portal hypertension, thyroid diseases, glycogen storage disease, myeloproliferative disorders, splenectomy) | PAH associated with various medical disorders or pulmonary hypertension with multifactorial mechanisms |
 
-## Table 9a: General Tests to be Done in All PAH Patients
+Table 9a: General Tests To Be Done In All PAH Patients
 
 | General Tests | Full blood count, renal profile, thyroid function test, liver function test, HIV screen, ESR, C-reactive protein, anti-nuclear factor, arterial blood gas |
 |---|---|
 
-## Table 9b: Specific Tests to be Considered When Specific Underlying Cause is Suspected
+Table 9b: Specific Tests To Be Considered When Specific Underlying Cause Is Suspected
 
 | Causes | Test |
 |---|---|
@@ -74,7 +70,6 @@ Detailed history taking and further investigations should be made to determine t
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **BPD** | Bronchopulmonary Dysplasia |

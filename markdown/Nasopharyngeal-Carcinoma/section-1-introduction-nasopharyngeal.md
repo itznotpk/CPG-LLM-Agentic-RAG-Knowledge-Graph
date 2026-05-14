@@ -1,9 +1,8 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Methodology
 use_case: NPC Introduction and CPG Development — nasopharyngeal_carcinoma, CPG_rationale, disease_burden, search_strategy, evidence_grading, clinical_questions
-patient_input: 
+patient_input:
 output: CPG_rationale, disease_burden_context, evidence_grading_framework
 -->
 
@@ -16,8 +15,8 @@ In view of high disease burden of NPC in Malaysia, variation in practice, resour
 ---
 
 ## Contextual Anchors (Overlapping)
-### Appendix 1: Example of Search Strategy
 
+### Appendix 1: Example Of Search Strategy
 1. Nasopharyngeal Neoplasms/
 2. ((neoplasm* or cancer* or carcinoma*) adj1 (nasopharynx or nasopharyngeal)).tw.
 3. 1 or 2
@@ -37,7 +36,6 @@ In view of high disease burden of NPC in Malaysia, variation in practice, resour
 ---
 
 ### Appendix 2: Clinical Questions
-
 1. What is the epidemiology of nasopharyngeal carcinoma?
 2. What are the risk factors of nasopharyngeal carcinoma?
 3. What are the clinical presentations of patient with nasopharyngeal carcinoma?
@@ -51,8 +49,7 @@ In view of high disease burden of NPC in Malaysia, variation in practice, resour
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -65,10 +62,8 @@ In view of high disease burden of NPC in Malaysia, variation in practice, resour
 
 ---
 
-## Abbreviations used in this section
-
+## Abbreviations Used In This Section
 | Abbreviation | Full Term |
 |---|---|
 | CPG | Clinical practice guidelines |
 | NPC | Nasopharyngeal carcinoma |
-

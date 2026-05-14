@@ -1,5 +1,4 @@
-# SECTION 2: DEFINITION OF TERMS
-
+# Section 2: Definition Of Terms
 <!-- METADATA
 category: Classification, Diagnosis
 use_case: NSTE-ACS Definitions - ACS_spectrum, unstable_angina, myocardial_infarction, cardiac_biomarkers
@@ -8,7 +7,6 @@ output: diagnostic_classification, myocardial_injury_definition, MI_definition, 
 -->
 
 ACS is a clinical spectrum of IHD that develops because of an imbalance between myocardial oxygen demand and supply. It is usually due to a reduction in supply. Depending upon the acuteness of onset and the degree of coronary occlusion, it can range from (refer to Flowchart 3: Pathogenesis of ACS):
-
 - **Non-ST Elevation Acute Coronary Syndrome (NSTE-ACS).** This is a combination of:
   - Unstable angina (UA) and
   - Non-ST elevation myocardial infarction (NSTEMI)
@@ -18,16 +16,13 @@ The pathology is dynamic. A patient presenting with UA may progress to NSTEMI or
 
 ---
 
-## 2.1 Unstable Angina
-
+## 2.1: Unstable Angina
 Patients with UA are a heterogenous group. According to Braunwald's classification, updated in 2000, UA may be classified as (refer to Appendix I: BRAUNWALD’S CLASSIFICATION OF UNSTABLE ANGINA*):
-
 - **I.** New onset of severe angina or accelerated angina; no rest pain
 - **II.** Angina at rest, subacute — Angina at rest within past month but not within preceding 48 hours.
 - **III.** Angina at rest, acute — Angina at rest within 48 hours
 
 It may be further classified according to clinical circumstances into either:
-
 - **A)** Secondary — develops in the presence of extracardiac disease
 - **B)** Primary — develops in the absence of extracardiac disease
 - **C)** Post-infarct — develops within 2 weeks of an acute MI
@@ -36,19 +31,16 @@ In UA, myocardial injury is absent and cardiac biomarkers (troponins-cTn) are no
 
 ---
 
-## 2.2 Myocardial Infarction
+## 2.2: Myocardial Infarction
 
-### 2.2.1 Definition of Myocardial Injury and Myocardial Infarction
-
+### 2.2.1: Definition Of Myocardial Injury And Myocardial Infarction
 It is important to distinguish between myocardial injury and Myocardial Infarction (MI). Myocardial injury may be due to:
-
 - Ischaemia — MI and/or
 - Non-ischaemic causes (e.g. myocarditis, renal failure)
 
 MI is myocardial injury due to ischaemia and is defined pathologically as myocardial cell death due to prolonged ischaemia.
 
-### 2.2.1.1 Cardiac Biomarkers in the Diagnosis of Myocardial Injury and Myocardial Infarction
-
+#### 2.2.1.1: Cardiac Biomarkers In The Diagnosis Of Myocardial Injury And Myocardial Infarction
 The cardiac biomarkers of choice for the diagnosis are the cardiac troponins — cTn (both I and T), preferably high-sensitivity (hs-cTn). Elevation of cTn indicates myocardial necrosis. A level above the 99th percentile Upper Reference Limit (URL) is abnormal and indicative of myocardial injury.
 
 All locally available commercial laboratory-based assays indicate this level, the exact value varying depending on the reagents and assays used. The point of care (POC) kits, however, although giving a more rapid result, are not sensitive enough to detect this low level.
@@ -60,21 +52,18 @@ cTn should always be interpreted in the clinical setting. Many cTn elevations, e
 A rise and/or fall in the cTn level is indicative of acute injury, while a persistently elevated level is indicative of chronic injury (Table 2: Interpreting Cardiac Troponins). Persistently elevated cTn levels such as that present in those with pre-existing CAD, impaired renal function, and persons older than 75 years appear predictive of a higher long-term mortality.
 
 According to the 4th Universal definition, MI is diagnosed when there is a significant rise and/or fall in cTn, with at least one value above the 99th percentile URL, and accompanied with at least one of the following:
-
 - Clinical history consistent with chest pain of ischaemic origin of > 30 minutes.
 - ECG changes of ischaemia/infarction and/or the development of pathological Q waves.
 - Imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 - Identification of an intracoronary (IC) thrombus by angiography or autopsy.
 
 The exact value for the rise and fall is not addressed in most guidelines. The criteria for determining a pathological rise between two serial cTn values are assay-dependent. The National Academy of Clinical Biochemistry Guidelines and an expert consensus committee have suggested that in patients with possible ACS and baseline (initial result) cTn (or hs-cTn) results:
-
 - Markedly above > 99th percentile URL, changes in concentrations of >20% from baseline should be used to define an MI.
 - < 99th percentile URL and especially with hs-cTn assays, a change of 50–60% from baseline has been suggested to overcome biological and analytical variations.
 
 The assays used should have a coefficient of variation (CoV) of < 10% at the 99th percentile URL. (refer to section 4.4: Cardiac Biomarkers)
 
-### 2.2.1.2 ECG in the Diagnosis of Myocardial Injury and Myocardial Infarction
-
+#### 2.2.1.2: ECG In The Diagnosis Of Myocardial Injury And Myocardial Infarction
 In myocardial injury, the ECG is either normal or showing non-specific changes and without the typical features of ischaemia/infarction.
 
 MI may be STEMI or NSTE-ACS based on the ECG. (Flowchart 3: Pathogenesis of ACS)
@@ -96,7 +85,6 @@ In NSTE-ACS, ST elevation is absent on the resting ECG.
 ---
 
 ### Key Messages 2#:
-
 - Acute Coronary Syndrome is a clinical spectrum of IHD that develops because of an imbalance between myocardial oxygen demand and supply.
 - Depending upon the acuteness of onset and the degree of coronary occlusion, it can range from (Flowchart 3: Pathogenesis of ACS):
   - Non-ST Elevation Acute Coronary Syndrome (**NSTE-ACS**). This is a combination of:
@@ -108,7 +96,6 @@ In NSTE-ACS, ST elevation is absent on the resting ECG.
 - Myocardial Infarction (MI) is myocardial injury due to ischemia.
 
 ### Key Messages 3#:
-
 - According to the 4th Universal definition, **MI** is diagnosed when there is a significant rise and/or fall in cTn, with at **least one** value above the 99th percentile URL, and accompanied with at least one of the following:
   - Clinical history consistent with chest pain of ischemic origin of > 30 minutes.
   - ECG changes of ischemia/infarction and/or the development of pathological Q waves.
@@ -117,11 +104,11 @@ In NSTE-ACS, ST elevation is absent on the resting ECG.
 - **MI** may be **STEMI** or **NSTE-ACS** based on the ECG.
 
 ---
+
 ## Contextual Anchors (Overlapping)
 
-### Section 4.4: Cardiac Biomarkers
+### Section 4: .4: Cardiac Biomarkers
 The related diagnostic content from Section 4.4 clarifies how cardiac biomarkers should be used and interpreted:
-
 - **[Grade I, Level A]** Cardiac troponins (**cTn**) T and I are the most sensitive and specific biomarkers for myocardial injury and necrosis.
 - Where there is access to cTn testing, other biomarkers such as AST, LDH, CK, CKMB and myoglobin are not useful for the initial diagnosis of acute MI because of lower sensitivity and specificity. CKMB may be used to monitor for reinfarction.
 - **[Grade IIb, Level B]** In settings where cTns are not available, CKMB is the alternate but less preferred option.
@@ -131,7 +118,6 @@ The related diagnostic content from Section 4.4 clarifies how cardiac biomarkers
 **High-Sensitivity Cardiac Troponin (hs-cTn)**
 
 The hs-cTn assay is currently replacing the conventional cTn assay. The term "high sensitivity (hs)" reflects the assay characteristics and does not refer to a different type of cTn. A high-sensitivity assay must meet two criteria:
-
 1. Have a coefficient of variation (**CoV**) or imprecision of <=10% at the 99th percentile URL.
 2. Have measurable concentrations below the 99th percentile that are attainable with an assay at a concentration value above the assay's limit of detection (**LoD**) for at least 50% of healthy individuals, ideally >95%.
 
@@ -152,7 +138,6 @@ False positive cTn results without myocardial injury are very rare, but may occu
 **[Grade I, Level A]** All hospitals providing care for patients with acute chest pain or suspected MI should have access to cTn testing, preferably hs-cTn subtypes T or I.
 
 **[Grade I, Level C]** Clinicians must be familiar with their local cTn assays, whether point-of-care (**POC**) kits or laboratory based. In general:
-
 - POC kits have lower analytical sensitivity and too wide a CoV to detect cTn at the 99th percentile URL.
 - Use of POC kits in areas without access to central laboratories could reduce unnecessary referrals or transfers and may result in overall cost savings.
 - Almost all locally available laboratory-based assays can measure hs-cTn at the 99th percentile URL.
@@ -162,7 +147,6 @@ False positive cTn results without myocardial injury are very rare, but may occu
 **[Grade I, Level C]** It is inappropriate to label cTn results as positive or negative. The exact cTn value should be stated.
 
 Hs-cTn can be used to:
-
 - **Rule in MI** - significant rise and/or fall of cTn, with at least one value greater than the 99th percentile URL, in combination with other clinical criteria.
 - **Rule out MI** - according to the appropriate rule-out protocol.
 
@@ -172,8 +156,7 @@ Rule-in strategies help commence appropriate guideline-directed therapy earlier 
 
 ---
 
-### Flowchart 3: Pathogenesis of ACS
-
+### Flowchart 3: Pathogenesis Of ACS
 The flowchart describes the diagnostic pathway from presentation to final ACS subtype:
 
 **1. Presentation**
@@ -187,7 +170,6 @@ The initial working diagnosis is **acute coronary syndrome (ACS)**.
 **3. ECG assessment**
 
 The ECG separates patients into two pathways:
-
 - **No ST elevation**
   - Proceed to cardiac biomarker assessment.
   - If cardiac biomarkers are **normal**, the final diagnosis is **unstable angina (UA)**.
@@ -206,21 +188,19 @@ The ECG separates patients into two pathways:
 
 ---
 
-### Appendix I: BRAUNWALD’S CLASSIFICATION OF UNSTABLE ANGINA*
-
+### Appendix I: BRAUNWALD’S Classification Of Unstable Angina*
 | Severity | CLINICAL CIRCUMSTANCES<br><br>A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES<br><br>B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES<br><br>C<br>Develops Within 2 weeks of MI (Postinfarction UA) |
 | :--- | :--- | :--- | :--- |
 | **I-New onset of severe angina or accelerated angina; no rest pain** | I A | IB | IC |
 | **II-Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute)** | IIA | IIB | IIC |
 | **III-Angina at rest within 48 hours (angina at rest, acute)** | IIIA | IIIB-T<sub>neg</sub> IIIB-T<sub>pos</sub> | IIIC |
 
-UA : Unstable angina; T : Troponins  
+UA : Unstable angina; T : Troponins
 *\*Hamm CW, Braunwald E. A classification of unstable angina revisited. Circulation. 2000 ;102 :118-22.*
 
 ---
 
-### Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE.
-
+### Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
 | Damage related to secondary myocardial ischemia (MI type 2) |
 | :--- |
 | Tachy - or bradyarrhythmias |
@@ -254,7 +234,7 @@ UA : Unstable angina; T : Troponins
 
 ---
 
-### Table 2: Interpreting Cardiac Troponins
+Table 2: Interpreting Cardiac Troponins
 
 This table can be read as a clinical pathway for patients with **elevated cardiac troponins (>99th percentile)**.
 
@@ -278,27 +258,26 @@ A repeat cTn may be necessary depending on the patient's clinical condition and 
 **2. Consider analytical errors**
 
 Elevated troponins may occasionally be due to analytical issues, including:
-
 - Assay-based errors
 - Sample-based errors, such as a hemolysed specimen
 
 *A repeat cTn may be necessary depending on the clinical condition of the patient and the physician’s judgement. <br>
 ** Ischemic thresholds vary substantially in relation to the magnitude of the stressor and the extent of underlying cardiac disease. <br>
 *** Requires a rise and/or fall of troponins above the 99th percentile URL together with evidence of ischemia with at least one of the following:
-1)  Ischemic type chest pain of >30 mins or, 
-2)  electrocardiography (ECG) changes of new ischemia or, 
-3)  development of pathologic Q-waves in the ECG or 
+1)  Ischemic type chest pain of >30 mins or,
+2)  electrocardiography (ECG) changes of new ischemia or,
+3)  development of pathologic Q-waves in the ECG or
 4)  imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 
-#Stable denotes ≤20% variation of troponin values in the appropriate clinical context. 
+#Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
 *Adapted from:*
 - *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
 - *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
 
 ---
-## Abbreviations Used in This Section
 
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACC | American College of Cardiology |

@@ -1,5 +1,4 @@
-# SECTION 7: MANAGEMENT OF UA/NSTEMI
-
+# Section 7: Management Of UA/NSTEMI
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Pharmacological Management of UA/NSTEMI — antiplatelet_therapy, anticoagulant_therapy, anti_ischaemic_therapy, lipid_therapy, pre_hospital_care, GPIIbIIIa_inhibitors
@@ -16,8 +15,7 @@ The goals of management are:
 - Prevention of recurrent ischemia and angina
 - Prevention of serious adverse cardiac events
 
-## 7.1 Pre-hospital Management
-
+## 7.1: Pre-Hospital Management
 Based on the triage:
 - If the history is suggestive of ACS :
   - Give soluble aspirin 300 mg crushed stat.
@@ -30,7 +28,7 @@ Based on the triage:
   - Low risk patients: they can be referred as outpatient for cardiac assessment. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
   - Intermediate / High Risk patients: should be admitted.
 
-## Figure 1: Non-Invasive Investigation of Low Risk Patients with UA/NSTEMI*
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 
 **[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
 
@@ -68,13 +66,12 @@ Based on the triage:
 * younger age group
 * normal LV function
 
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. 
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
 
-## 7.2 In-Hospital Management
-
+## 7.2: In-Hospital Management
 *(refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)*
 
-## Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI
+Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
@@ -96,26 +93,23 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 | or ARB | **[Grade I, Level B]** | **[Grade I, Level B]** | As an alternative to ACE-I in intolerant patients |
 | + Statins | **[Grade I, Level A]** | **[Grade I, Level A]** | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
 
-### 7.2.1 Initial management – General Measures
-
+### 7.2.1: Initial Management – General Measures
 Following risk stratification:
 - Low risk patients may be treated as outpatient.
 - **[Grade I, Level C]** High risk patients preferably should be admitted to CCU/HDU with continuous ECG monitoring.
 - **[Grade I, Level B]** Supplemental oxygen should be given to maintain SpO2 >90%, in patients with left ventricular failure, respiratory distress or having high risk features for hypoxemia.
 - **[Grade II-a, Level B]** For pain relief, morphine (intravenous 2 mg to 5 mg) together with concomitant intravenous anti-emetic may be given.
 
-### 7.2.2 Medications - Antiplatelet agents
+### 7.2.2: Medications - Antiplatelet Agents
 
-#### 7.2.2.1 Oral antiplatelet agents
+#### 7.2.2.1: Oral Antiplatelet Agents
 
-##### 7.2.2.1.1 Acetylsalicylic acid (ASA)
-
+##### 7.2.2.1.1: Acetylsalicylic Acid (Asa)
 - **[Grade I, Level A]** Recommended loading dose: 300 mg of soluble/chewable aspirin. Enteric coated aspirin is not recommended for initial loading dose because of its slow onset of action.
 - **[Grade I, Level A]** Maintenance dose: 75 -150 mg daily of soluble or enteric coated aspirin.
 - Aspirin in excess of 300-325 mg per day is associated with increased risk of minor bleeding without greater efficacy.
 
-##### 7.2.2.1.2 Adenosine Diphosphate (ADP) Receptor Antagonists
-
+##### 7.2.2.1.2: Adenosine Diphosphate (Adp) Receptor Antagonists
 These include:
 - **[Grade I, Level A]** **Clopidogrel** – loading dose: 300 to 600 mg, maintenance dose: 75 mg/day.
 - **[Grade II-a, Level B]** **Ticlopidine** – dose: 250 mg b.i.d. It is associated with neutropenia in 1% of patients. Due to this safety reason, it is not preferred. Patients on ticlopidine should have their total white cell count monitored regularly for the initial 3 months.
@@ -128,7 +122,7 @@ These include:
   - This agent is short acting and thus can be used in patients who may need surgery without increasing the risk of bleeding.
   - Potential drawback is dyspnoea and transient ventricular pauses during the first week. This was rarely associated with symptoms or need for a pacemaker. There was also a small increase in non CABG related major bleeding.
 
-#### 7.2.2.2 Intravenous Antiplatelet Therapy – Glycoprotein (GP) IIb/IIIa Inhibitors
+#### 7.2.2.2: Intravenous Antiplatelet Therapy – Glycoprotein (GP) IIb/IIIa Inhibitors
 These include:
 - Abciximab
 - Tirofiban
@@ -136,8 +130,7 @@ These include:
 
 These agents may be used in high risk patients awaiting transfer to a PCI facility for an early invasive strategy. Its routine use as "upstream therapy" prior to PCI is now no longer practiced.
 
-### 7.2.3 Anticoagulant Therapy
-
+### 7.2.3: Anticoagulant Therapy
 These include: *(refer Table 2: Doses of Anticoagulant Agents in UA/NSTEMI and during PCI)*
 
 - **Unfractionated heparin (UFH)**
@@ -148,16 +141,16 @@ These include: *(refer Table 2: Doses of Anticoagulant Agents in UA/NSTEMI and d
   - If used in UA/NSTEMI and the patient requires an invasive strategy, UFH should be given during the procedure. When used in PCI, it is associated with lower bleeding rates than LMWH.
 - **Anti IIa inhibitors – Bivalirudin**
   - **[Grade I, Level B]** It may be used as a substitute for heparin in patients with heparin-induced thrombocytopenia (HIT).
-  - **[Grade I, Level A]** It is reasonable to use bivalirudin as an alternative to UFH and GP IIb/IIIa inhibitors in patients undergoing PCI. 
-  - It is associated with less bleeding. 
+  - **[Grade I, Level A]** It is reasonable to use bivalirudin as an alternative to UFH and GP IIb/IIIa inhibitors in patients undergoing PCI.
+  - It is associated with less bleeding.
   - (To date it is not yet available in Malaysia).
 
-## Key messages
+## Key Messages
 - **[Grade I, Level C]** High risk patients preferably should be continuously monitored in CCU/HDU.
 - Intermediate/high risk patients should be given **[Grade I, Level A]** ASA, **[Grade I, Level A]** clopidogrel (or **[Grade I, Level B]** prasugrel or **[Grade I, Level B]** ticagrelor) and **[Grade I, Level A]** UFH or **[Grade I, Level A]** LMWH or **[Grade I, Level A]** fondaparinux. **[Grade I, Level B]** Prasugrel may be given after coronary angiography in high risk patients undergoing **[Grade I, Level B]** PCI. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 - Low risk patients should be given **[Grade I, Level A]** aspirin and risk stratified as outpatient with non invasive tests for reversible ischemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 
-## Table 2: Doses of Anticoagulant Agents in UA/NSTEMI and during PCI
+Table 2: Doses Of Anticoagulant Agents In UA/NSTEMI And During PCI
 
 | AGENT | DOSING REGIMEN |
 |---|---|
@@ -172,11 +165,10 @@ These include: *(refer Table 2: Doses of Anticoagulant Agents in UA/NSTEMI and d
 
 *For doses in renal impairment refer Section 9: UA/NSTEMI IN SPECIAL GROUPS*
 
-### 7.2.4 Anti-Ischemic Drug Therapy
-
+### 7.2.4: Anti-Ischemic Drug Therapy
 These agents may be given either for relief of ischemia (symptoms) or for prognosis.
 
-#### 7.2.4.1 Nitrates (refer Table 3: Recommended dosages of Nitrates in UA/NSTEMI)
+#### 7.2.4.1: Nitrates (Refer Table 3: Recommended Dosages Of Nitrates In UA/NSTEMI)
 **[Grade I, Level C]** **Sublingual glyceryl trinitrate (GTN 0.5 mg)** – Patients with UA/NSTEMI with ongoing chest pain should receive sublingual GTN 0.5 mg every 5 minutes for a total of 3 doses. If symptoms still persist, intravenous GTN should be considered.
 
 **[Grade I, Level C]** **Intravenous nitrates** – may be administered in the following situations:
@@ -192,7 +184,7 @@ Contraindications to nitrate therapy:
 - RV infarction
 - History of phospho-diesterase 5 inhibitors ingestion (depending upon the half-life of the agent)
 
-## Table 3: Recommended dosages of Nitrates in UA/NSTEMI*
+Table 3: Recommended Dosages Of Nitrates In UA/NSTEMI*
 
 | Compound | Route | Dosage | Time of Onset |
 |---|---|---|---|
@@ -206,7 +198,7 @@ Contraindications to nitrate therapy:
 
 *\*The dose of IV nitrates should be titrated every 5 – 10 minutes until symptoms and/or ischaemia is relieved and the desired haemodynamic response is obtained*
 
-#### 7.2.4.2 β-blockers
+#### 7.2.4.2: Β-Blockers
 (refer Table 4: Recommended dosages of β-blockers in UA/NSTEMI)
 
 **[Grade I, Level B]** In the absence of contraindications , β-blockers should be administered early.
@@ -219,7 +211,7 @@ Contraindications for β-blockers in UA/NSTEMI:
 - Acute decompensated LV dysfunction
 - Cardiogenic shock.
 
-## Table 4: Recommended dosages of β -blockers in UA/NSTEMI*
+Table 4: Recommended Dosages Of Β -Blockers In UA/NSTEMI*
 
 | Type | Initiation dose | Target dose |
 |---|---|---|
@@ -228,7 +220,7 @@ Contraindications for β-blockers in UA/NSTEMI:
 | Bisoprolol | 1.25 mg od | 10 mg od |
 | Carvedilol | 3.125 mg bd | 25 mg bd |
 
-#### 7.2.4.3 Calcium Channel Blockers
+#### 7.2.4.3: Calcium Channel Blockers
 (refer Table 5: Recommended dosages of Calcium Channel Blockers in UA/NSTEMI)
 
 Calcium channel blockers (CCB) may be used in UA/NSTEMI in the following situations:
@@ -238,7 +230,7 @@ Calcium channel blockers (CCB) may be used in UA/NSTEMI in the following situati
 
 **[Grade III, Level A]** Short-acting dihydropyridine CCB should be avoided
 
-## Table 5: Recommended dosages of Calcium Channel Blockers in UA/NSTEMI*
+Table 5: Recommended Dosages Of Calcium Channel Blockers In UA/NSTEMI*
 
 | Drug | Dose |
 |---|---|
@@ -247,22 +239,20 @@ Calcium channel blockers (CCB) may be used in UA/NSTEMI in the following situati
 | Amlodipine | 2.5-10 mg od |
 | Nifedipine | Slow release 30-90 mg od |
 
-### 7.2.5 Lipid Modifying Drugs
-
+### 7.2.5: Lipid Modifying Drugs
 **[Grade I, Level A]** Current data indicate that early initiation of high dose statin therapy soon after admission for UA/NSTEMI can reduce major adverse cardiac events due to its pleotropic effects. Patients with ACS undergoing PCI, have also been found to benefit with the administration of high dose statins before and within 10 days of the procedure.
 
 The statins that have been studied in UA/NSTEMI to date are:
 - Atorvastatin – 80 mg od
 - Simvastatin – 40 mg od
 
-### 7.2.6 Angiotensin Converting Enzyme Inhibitor (ACE-I)/ARB (refer Table 7: Recommended dosages of ACE-I/ARB in UA/NSTEMI)
-
+### 7.2.6: Angiotensin Converting Enzyme Inhibitor (ACE-I)/ARB (Refer Table 7: Recommended Dosages Of ACE-I/ARB In UA/NSTEMI)
 **[Grade I, Level A]** These should be considered early for patients with LV dysfunction and diabetes.
 - Patients should be treated with optimal medical therapy. (refer Table 1: Recommended dosages of antiplatelet agents in UA/NSTEMI)
 - **[Grade I, Level C]** Nitrates, **[Grade I, Level B]** β-blockers ± **[Grade I, Level C]** CCBs are given for relief of ischemia.
 - **[Grade I, Level A]** Statins and **[Grade I, Level A]** ACE-I (for LV dysfunction, LVEF < 40%) are given for prognosis.
 
-## Table 7: Recommended dosages of ACE-I in UA/NSTEMI
+Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
 
 | Type | Initiation dose | Target dose |
 |---|---|---|
@@ -272,15 +262,15 @@ The statins that have been studied in UA/NSTEMI to date are:
 | Lisinopril | 5 mg od | 40 mg od |
 | Perindopril | 2-2.5 mg od | 8-10 mg od |
 
-## Table 8: Recommended dosages of ARB in UA/NSTEMI
+Table 8: Recommended Dosages Of ARB In UA/NSTEMI
 
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Valsartan | 40-80 mg od | 160 mg od |
 
 <!-- OVERLAP CONTENT -->
-## Grades of Recommendation and Levels of Evidence
 
+## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -296,7 +286,6 @@ The statins that have been studied in UA/NSTEMI to date are:
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACE-I** | Angiotensin Converting Enzyme Inhibitor |

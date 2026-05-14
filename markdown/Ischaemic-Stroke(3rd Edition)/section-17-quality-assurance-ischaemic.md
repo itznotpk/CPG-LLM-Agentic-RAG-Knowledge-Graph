@@ -1,13 +1,12 @@
-# SECTION 17: QUALITY ASSURANCE
-
+# Section 17: Quality Assurance
 <!-- METADATA
 category: Reference
 use_case: Stroke Quality Assurance — clinical_audit, performance_monitoring, benchmarking, door_to_needle_KPI
-patient_input: 
+patient_input:
 output: quality_metrics, compliance_targets
 -->
-## Stroke Care Quality Measures to Monitor for Hospitals providing Thrombolysis and/or Thrombectomy Services in Malaysia
 
+## Stroke Care Quality Measures To Monitor For Hospitals Providing Thrombolysis and/or Thrombectomy Services In Malaysia
 | | Stroke Care Quality | Minimal measures |
 | --- | --- | --- |
 | 1 | Percentage of Ischemic Stroke (IS) patients receiving IV Thrombolytic therapy (IV rt-PA), &le; 35 minutes of CT Brain initiation (CT Brain initiation to needle time) | &ge; 65% |
@@ -17,8 +16,7 @@ output: quality_metrics, compliance_targets
 | 5 | Percentage of AF-related stroke patients given anticoagulants before discharge or planned for eventual anticoagulation (if there were no contraindications) | &ge; 80% |
 | 6. | Percentage of admitted post-stroke patients were discharged with proper discharge plan:<br>- Cardiovascular risk factors addressed<br>- Rehabilitation team referral<br>- Stroke education<br>- Smoking cessation education | > 90% |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviations | Descriptions |
 | --- | --- |
 | AF | Atrial Fibrillation |

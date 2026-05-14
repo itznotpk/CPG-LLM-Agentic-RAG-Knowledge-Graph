@@ -1,9 +1,8 @@
-# SECTION 18: APPENDICES
-
+# Section 18: Appendices
 <!-- METADATA
 category: Reference
 use_case: Appendices and Reference Tools — search_terms, screening_tools, operational_definitions, swallowing_assessment, NIHSS
-patient_input: 
+patient_input:
 output: reference_tools, screening_instruments, operational_definitions
 -->
 
@@ -69,8 +68,7 @@ output: reference_tools, screening_instruments, operational_definitions
 **Appendix D.** *Types of Swallowing Test*
 *(Reference Chapter: Chapter 8)*
 
-### Types of Swallowing Tests
-
+### Types Of Swallowing Tests
 **Kidd Water Test**
 *Description:* Clinical examination includes pharyngeal sensation assessed by orange stick, tongue and facial movement, speech, sensory and perceptual function and muscle strength also assessed. Ability to swallow also assessed by patient swallowing 50 ml of water in 5 ml allotments.
 *Source:* Kidd D, Lawson J, Nesbitt R, MacMahon J. Aspiration in acute stroke: a clinical study with video fluroscopy. *Quarterly Journal of Medicine.* 1993; 86:825-829.
@@ -87,8 +85,7 @@ output: reference_tools, screening_instruments, operational_definitions
 *Description:* The test is divided into three sections. First section is oral exam (3 items), followed by section on water swallowing. The third section is examination of voice after swallow. The TOR-BSST has been validated in stroke survivors and is a simple accurate tool to identify stroke patients with dysphagia regardless of severity and setting.
 *Source:* Martino R, Silver F, Teasell R, Bayley M, Nicholson G, et al. The Toronto Bedside swallowing Screening Test (TOR-BSST). *Stroke.* 2009; 40: 555-561.
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviations | Descriptions |
 | --- | --- |
 | BEFAST | Balance, Eye, Face Arm Speech Test |

@@ -1,5 +1,4 @@
-# SECTION 5: GLOBAL CARDIOVASCULAR RISK ASSESSMENT
-
+# Section 5: Global Cardiovascular Risk Assessment
 <!-- METADATA
 category: Screening, Assessment
 use_case: Lipid screening and global cardiovascular risk stratification — FRS_General_CVD, risk_score, Framingham, lipid_screening, risk_classification
@@ -7,28 +6,27 @@ patient_input: age, sex, TC, HDL-C, SBP, smoking_status, diabetes_status, BP_tre
 output: CV_risk_category, 10-year_CVD_risk, vascular_age
 -->
 
-## 5.1. Lipid Screening
-
+## 5.1: Lipid Screening
 According to NHMS VI, about 1 in 7 young adults aged 18-19 years (13.6%) have TC > 5.2 mmol/L. All the CV risk factors- diabetes, hypertension, hypercholesterolemia, overweight/obesity and smoking- stratified by age, showed a sharp increase in prevalence from the age group 25-29 years.
 
-[Grade I, Level C] As such, the committee advocates screening all adults > 30 years of age. These individuals should have a complete lipid profile - TC, LDL-C, HDL-C, non-HDL-C and TG. The presence of other CV risk factors (blood sugar, blood pressure (BP), weight, smoking status, physical inactivity) should also be determined and the individual counselled appropriately. 
+[Grade I, Level C] As such, the committee advocates screening all adults > 30 years of age. These individuals should have a complete lipid profile - TC, LDL-C, HDL-C, non-HDL-C and TG. The presence of other CV risk factors (blood sugar, blood pressure (BP), weight, smoking status, physical inactivity) should also be determined and the individual counselled appropriately.
 
 If available, in patients with recurrent CV events, Lp(a) levels should be measured.
 
 [Grade I, Level C] Individuals who are at high risk of developing CVD should have a lipid profile earlier in life. (refer to Table 10: Individuals at High Risk of Developing CVD)
 
-#### Table 10: Individuals at High Risk of Developing CVD
-*   Clinical evidence of atherosclerosis - CHD, CVA, atherosclerotic aortic aneurysm, peripheral vascular disease 
+Table 10: Individuals At High Risk Of Developing CVD
+*   Clinical evidence of atherosclerosis - CHD, CVA, atherosclerotic aortic aneurysm, peripheral vascular disease
 *   A family history of premature CVD - males (father and/or brother(s)) < 55 years of age and females (mothers and/or sister(s)) < 65 years of age
 *   A family history of genetic dyslipidemias
 *   Stigmata of dyslipidemia (corneal arcus, xanthelasma, xanthoma)
 *   CV Risk factors such as:
     * Metabolic syndrome
-    * Diabetes mellitus 
+    * Diabetes mellitus
     * Abdominal obesity
     * Hypertension
-    * Current cigarette smokers 
-*   Inflammatory diseases such as Rheumatoid Arthritis, Systemic Lupus Erythematosus, Polyarteritis nodosa 
+    * Current cigarette smokers
+*   Inflammatory diseases such as Rheumatoid Arthritis, Systemic Lupus Erythematosus, Polyarteritis nodosa
 *   Chronic Kidney Disease (eGFR ≤ 60 mL/min/1.73 m2 or ACR ≥ 3 mg/mmol)
 *   Human Immunodeficiency Viral infection
 *   Erectile Dysfunction
@@ -37,40 +35,39 @@ If available, in patients with recurrent CV events, Lp(a) levels should be measu
 
 ---
 
-## 5.2. Assessment of CV Risk
+## 5.2: Assessment Of CV Risk
 CV risk refers to the likelihood of developing a CV event (fatal or non-fatal) over a defined period.
 
-### 5.2.1. CV Risk Equations
-*   There are several risk equations that may be used to determine CV risk. The cut-off points that are used in these risk models to define risk categories are in part arbitrary. They are based on the risk levels at which the stipulated CV end points was seen in the population studied and the levels at which benefit was demonstrated in clinical trials. 
+### 5.2.1: CV Risk Equations
+*   There are several risk equations that may be used to determine CV risk. The cut-off points that are used in these risk models to define risk categories are in part arbitrary. They are based on the risk levels at which the stipulated CV end points was seen in the population studied and the levels at which benefit was demonstrated in clinical trials.
 *   All risk models have limitations and difficulty when extrapolated to our local population. Ideally, the CV risk model used should be based on data derived from our local population. Currently, we do not have such a CV risk score. Both Thailand and Singapore have their own CV risk score which is based on the older Framingham Risk Score (10-year risk of CHD deaths, Non-fatal MI only) adapted to the local populations.
 *   The risk score that is widely used in Malaysia is the Framingham General CVD risk score tool (FRS-General CVD) for primary care that assesses the 10-year risk of developing CVD (heart disease, strokes, PAD and Heart Failure). (refer to Table 1 and Table 2) It can also be calculated online at https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php
 *   The earlier version of the Framingham Risk Score CHD (2002) provided a risk estimate of “hard” CHD events only i.e. cardiac death and nonfatal myocardial infarction unlike the FRS-General CVD Risk Score.
 *   The FRS - General CVD has the advantage of being derived from a population that had received no or little treatment at the start and during the study. It is also simple and easy to use - an important feature if healthcare providers are to use it routinely.
-*   In 2 local studies, the FRS-General CVD risk model was a better discriminator of CV risk in our local multi-ethnic population. 
+*   In 2 local studies, the FRS-General CVD risk model was a better discriminator of CV risk in our local multi-ethnic population.
 *   The 2013 ACC / AHA risk calculator overestimated CV risk in the Malaysian population.
 *   Based on a dataset from a longitudinal Malaysian community-based study of 12, 573 participants aged ≥18 years, it was shown, in a recent study, that both the FRS-General CVD and the Revised Pooled Cohort Equations (RPCE) showed good discrimination in CVD risk prediction. Based on calibration however, the authors felt that RPCE would be the most clinically useful model to predict CVD risk in the Malaysian population. Discrimination is the ability to accurately rank individuals from low to high risk and calibration is the ability to accurately predict the absolute risk level.
 [Grade I, Level C] *   Currently, the committee still recommends the FRS-General CVD risk score for primary prevention since it has been well validated.
 
-### 5.2.2. Calculation Parameters
+### 5.2.2: Calculation Parameters
 *   All apparently healthy individuals should be risk stratified using the FRS-General CVD Risk Score110 (refer to Table 1 and Table 2) or online at: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php
 *   The 10-year risk calculation is to be performed at the outset to help guide the intensity of lipid lowering therapy. It cannot be used to track changes in risk over time as risk factors are modified.
 *   Risk assessment is not a one-time event; it should be repeated, for example, every 5 years, although there are no empirical data to guide intervals.
 *   In calculating the risk scores:
-    *   the TC and HDL-C should be the average of at least 2 measurements. 
-    *   The average baseline blood pressure should be obtained from an average of several readings. 
+    *   the TC and HDL-C should be the average of at least 2 measurements.
+    *   The average baseline blood pressure should be obtained from an average of several readings.
     *   A “smoker” means any cigarette smoking in the past month.
-*   Based on the 10-year CV risk, individuals may be: 
+*   Based on the 10-year CV risk, individuals may be:
     *   ≥ 20%           - High CV Risk
     *   ≥ 10 - <20 %    - Intermediate (Moderate) CV Risk
     *   <10 %           - Low CV Risk
 
 ---
 
-## 5.2.3. Classification of CV Risk
-
+### 5.2.3: Classification Of CV Risk
 Individuals are classified into four risk categories:
 
-### 1. Very High Risk
+## 1: Very High Risk
 *   **Established CVD**: - Patients who already had a CV event are at highest risk for a recurrent event.
     *   In the contemporary era, pooled results from phase III trials of high‐risk ACS patients show that 4.1% and 8.3% of patients developed a recurrent major adverse CV event (MACE) - i.e., CV death, MI, or stroke - at 90 days and 360 days, respectively.
     *   Registry data, however, indicate that these figures are higher - 1-year post index MI rate for MACE was 18.3%, and the 5-year event rate was 33.4%.
@@ -81,17 +78,17 @@ Individuals are classified into four risk categories:
 *   **Diabetes with proteinuria** or with a major risk factor such as smoking, hypertension or dyslipidemia.
 *   **Chronic kidney disease (CKD)**: -  Estimated Glomerular Filtration Rate (eGFR) <30 ml/min-1 /1.73 m² (Stage 4 & 5) - There is an independent, graded association between reduced eGFR and the risk of death, CV events, and hospitalization. The risk begins to increase with eGFR <60 ml / min−1 / 1.73 m² and escalates as the eGFR drops below <30 ml/min-1 / 1.73 m².
 
-### 2. High Risk
+## 2: High Risk
 High risk individuals include those with (refer Table 4: Target LDL-C levels)
 *   **Stage 3 CKD**: eGFR ≥30 - <60 ml/min/1.73 m².
 *   **Diabetes**: Diabetes without target organ damage.
 *   **Very high levels of individual risk factors**: LDL-C > 4.9 mmol/L or BP ≥ 180/110 mmHg.
 *   **Calculated Risk**: FRS-General CVD 10-year risk **≥ 20%**.
 
-Individuals who belong to the above Very High Risk and High-Risk categories, do not need to be risk stratified using the FRS-General CVD Risk Score. 
+Individuals who belong to the above Very High Risk and High-Risk categories, do not need to be risk stratified using the FRS-General CVD Risk Score.
 They should be encouraged to have:
 *   a healthy lifestyle (stop smoking, regular exercise, and a healthy diet) in addition to
-*   pharmacotherapy, to ensure that all their CV risk factors are treated to targets.  
+*   pharmacotherapy, to ensure that all their CV risk factors are treated to targets.
 
 [Grade I, Level A] These individuals derive the greatest benefit from risk factor reduction and lipid lowering therapy.
 
@@ -99,10 +96,10 @@ The risk of recurrent events in stable CVD patients is influenced mainly by the 
 *   Secondary Manifestations of Arterial Disease (SMART) risk score for estimating 10-year residual CVD risk.
 *   European Action on Secondary and Primary Prevention by Intervention to Reduce Events (EUROASPIRE) risk model which estimates 2-year risk of recurrent CVD.
 
-In all otherwise healthy individuals, their global CV risk should first be determined to help guide the intensity of risk factor reduction efforts. Based on their CV risk, they may be 
+In all otherwise healthy individuals, their global CV risk should first be determined to help guide the intensity of risk factor reduction efforts. Based on their CV risk, they may be
 categorized as:
 
-### 3. Intermediate (Moderate) Risk
+## 3: Intermediate (Moderate) Risk
 *   Calculated FRS-General CVD 10-year risk **≥ 10% to < 20%**.
 *   In these individuals, other risk factors not included in the FRS-General CVD Risk Score may influence treatment targets and the decision to initiate pharmacotherapy.
 *   Additional factors that may support upgrading of CV risk include:
@@ -113,7 +110,7 @@ categorized as:
         *   can be low or even zero in patients with soft plaques.
         *   does not provide information on plaque burden or stenosis.
 
-### 4. Low Risk
+## 4: Low Risk
 *   Calculated FRS-General CVD 10-year risk **< 10%**.
 *   Low-risk individuals should be given advice to help them maintain this status.
 *   The relative risk reduction of lipid lowering therapy is similar in all individuals irrespective of their CV risk status. However, in low-risk individuals the absolute benefit may be less.
@@ -124,19 +121,18 @@ categorized as:
 
 ---
 * [Grade III, Level B] Routine measurement of carotid intima media thickness (CIMT) for risk assessment is not recommended due to the lack of methodological standardization, and the absence of added value of IMT in predicting future CVD events, even in the intermediate-risk group.
-*   It has not yet been demonstrated that with upgrading of the risk category of patients at Intermediate (Moderate) Risk and subjecting them to aggressive risk factor reduction, it would lead to reduction in CV risk and improvement in CV outcomes. 
+*   It has not yet been demonstrated that with upgrading of the risk category of patients at Intermediate (Moderate) Risk and subjecting them to aggressive risk factor reduction, it would lead to reduction in CV risk and improvement in CV outcomes.
 
 *   These risk models help guide risk assessment and management. They do not replace sound clinical judgement in the assessment of global risk and management strategies. They also do not consider risk modifiers such as:
     *   Psycho-social stressors such as work or family stress, depression, anxiety etc. These can increase CV risk and mortality.
     *   Frailty - This, by itself, has been associated with both high CV and non-CV morbidity and mortality.
 
-[Grade I, Level C] The intensity of preventive actions should be tailored to the patient’s total CV risk. The risks (side effects, costs etc.) should be weighed against the benefits of each intervention. 
+[Grade I, Level C] The intensity of preventive actions should be tailored to the patient’s total CV risk. The risks (side effects, costs etc.) should be weighed against the benefits of each intervention.
 
 In subjects who are at Low or Intermediate (Moderate) risk, the decision to initiate pharmacotherapy should be individualized following a mutual discussion with the patient.
 
 ## Contextual Anchors (Overlapping)
-
-### Table 1A: Estimation of 10-year Framingham General CVD Risk Score for MEN (FRS General CVD Risk Score for Men)
+Table 1a: Estimation Of 10-Year Framingham General CVD Risk Score For Men (FRS General CVD Risk Score For Men)
 
 | Points | Age (y) | HDL (mmol/L) | TC (mmol/L) | SBP (Untreated) | SBP (Treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
@@ -161,7 +157,7 @@ In subjects who are at Low or Intermediate (Moderate) risk, the decision to init
 
 *Note: Add points for each category and refer to the Risk Percentage table to determine 10-year risk.*
 
-### Table 1B: FRS-General CVD Risk Score for Men
+Table 1b: FRS-General CVD Risk Score For Men
 
 | Total Points | 10-year Risk (%) | Total Points | 10-year Risk (%) |
 |---|---|---|---|
@@ -177,7 +173,7 @@ In subjects who are at Low or Intermediate (Moderate) risk, the decision to init
 | 6 | 4.7 | 17 | 29.4 |
 | 7 | 5.6 | ≥ 18 | > 30 |
 
-### Table 2A: Estimation of 10-year Framingham General CVD Risk Score for WOMEN (FRS-General CVD Risk Scores for Women)
+Table 2a: Estimation Of 10-Year Framingham General CVD Risk Score For Women (FRS-General CVD Risk Scores For Women)
 
 | Points | Age (y) | HDL (mmol/L) | TC (mmol/L) | SBP (Untreated) | SBP (Treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
@@ -200,7 +196,7 @@ In subjects who are at Low or Intermediate (Moderate) risk, the decision to init
 
 *Note: Add points for each category and refer to the Risk Percentage table to determine 10-year risk.*
 
-### Table 2B: FRS-General CVD Risk Score for Women
+Table 2b: FRS-General CVD Risk Score For Women
 
 | Total Points | 10-year Risk (%) | Total Points | 10-year Risk (%) |
 |---|---|---|---|
@@ -217,7 +213,7 @@ In subjects who are at Low or Intermediate (Moderate) risk, the decision to init
 | 8 | 4.5 | 20 | 28.5 |
 | 9 | 5.3 | ≥ 21 | > 30 |
 
-### Table 3A: Heart Age/ Vascular Age for Men
+Table 3a: Heart Age/ Vascular Age For Men
 
 | Points | Heart age, y |
 |---|---|
@@ -241,7 +237,7 @@ In subjects who are at Low or Intermediate (Moderate) risk, the decision to init
 | 16 | 76 |
 | ≥17 | >80 |
 
-### Table 3B: Heart Age/ Vascular Age for Women
+Table 3b: Heart Age/ Vascular Age For Women
 
 | Points | Heart age, y |
 |---|---|
@@ -262,7 +258,7 @@ In subjects who are at Low or Intermediate (Moderate) risk, the decision to init
 | 14 | 79 |
 | ≥15 | >80 |
 
-### Table 4: Target LDL-C levels
+Table 4: Target LDL-C Levels
 
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
@@ -278,8 +274,7 @@ In subjects who are at Low or Intermediate (Moderate) risk, the decision to init
 ***All other CV risk factors should be treated to target.  <br>
 **** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
 
-## APPENDIX 1: COMPARISON OF CARDIOVASCULAR RISK SCORES
-
+## Appendix 1: Comparison Of Cardiovascular Risk Scores
 The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Malaysia. Other scores (SCORE2, PCE, WHO) are compared below:
 
 | | FRS (Framingham Risk Score) | SCORE2 (Systematic Coronary Risk Evaluation 2) | RPCE (Revised Pooled Cohort Equations) | WHO CVD SCORE (World Health Organization Cardiovascular Disease) | SCORE (Systematic Coronary Risk Evaluation) | PCE (Pooled Cohort Equations) |
@@ -294,19 +289,17 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 *Adapted from: Kassim SS et al. Validation of the general Framingham Risk Score (FRS), SCORE2, revised PCE and WHO CVD risk scores in an Asian population. The Lancet. Regional Health Western Pacific. DOI: https://doi.org/10.1016/j.lanwpc.2023.100742*
 
-
-## Section 10.1. Asymptomatic Atherosclerotic Disease
-
+## Section 10: .1. Asymptomatic Atherosclerotic Disease
 Asymptomatic atherosclerotic disease may be detected by:
-*   Ankle Brachial Index. 
-*   Exercise stress tests/stress imaging. 
-*   Calcium score. 
-*   Computed Tomographic (CT) coronary angiography. 
+*   Ankle Brachial Index.
+*   Exercise stress tests/stress imaging.
+*   Calcium score.
+*   Computed Tomographic (CT) coronary angiography.
 *   Carotid ultrasonography (excluding carotid intimal medial thickness)
 
 Patients with abnormal exercise stress tests, calcified and non-calcified plaques detected by imaging modalities should have:
 *   All their CV risk factors treated to target.
-*   Their LDL-C treated to a target dependent on their CV risk. In patients at Intermediate Risk, the presence of any of of the features listed below may support upgrading of CV risk, the decision to initiate pharmacotherapy and treatment targets. 
+*   Their LDL-C treated to a target dependent on their CV risk. In patients at Intermediate Risk, the presence of any of of the features listed below may support upgrading of CV risk, the decision to initiate pharmacotherapy and treatment targets.
 
 The following high-risk features is indicative of the presence of significant atherosclerotic disease. These include:
 *   Ankle Brachial Index: < 0.9 or > 1.40
@@ -323,23 +316,20 @@ Patients with these high-risk features have subclinical established CVD. In thes
 ---
 
 ## Key Messages #5
-
 *   The committee advocates lipid screening all adults > 30 years of age. Individuals who are at high risk of developing CVD should have a lipid profile earlier in life (> 18 years of age).
 *   The intensity of LDL-C lowering should be tailored to the individual’s global CV risk.
-*   In 2 local studies, the FRS-General CVD risk model was a better discriminator of CV risk in our local multi-ethnic population. 
+*   In 2 local studies, the FRS-General CVD risk model was a better discriminator of CV risk in our local multi-ethnic population.
 
 ---
 
 ## Key Recommendations #4
-
 *   All individuals should be risk stratified. (refer to Table 4: Target LDL-C levels)
-*   Patients with established CVD, CKD and diabetes fall into the Very High - and High-Risk Categories. 
+*   Patients with established CVD, CKD and diabetes fall into the Very High - and High-Risk Categories.
 *   All other individuals should be risk stratified at the outset using the FRS-General CVD risk score to determine if they are at High, Intermediate (Moderate) or Low Risk. (refer to Tables 1 & 2)
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ABI | Ankle Brachial Index |
@@ -382,8 +372,7 @@ Patients with these high-risk features have subclinical established CVD. In thes
 
 ---
 
-## Grades of Recommendation and Level of Evidence
-
+## Grades Of Recommendation And Level Of Evidence
 *   **Grade I**: Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade III**: Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful.
 *   **Level A**: Data derived from multiple randomized clinical trials or meta-analyses.

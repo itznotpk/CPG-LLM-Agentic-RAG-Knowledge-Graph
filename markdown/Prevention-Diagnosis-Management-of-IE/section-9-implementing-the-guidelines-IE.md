@@ -1,5 +1,4 @@
-# SECTION 9.0: IMPLEMENTING THE GUIDELINES AND RESOURCE IMPLICATIONS
-
+# Section 9: .0: Implementing The Guidelines And Resource Implications
 <!-- METADATA
 category: Methodology
 use_case: Guideline Implementation — resource implications, training, auditing
@@ -12,7 +11,6 @@ The objective of this CPG is to enable the healthcare professionals who encounte
 Wide dissemination via soft copy (available from http://www.moh.gov.my , http://www. acadmed.org.my , h http://www.malaysianheart.org/) will facilitate the implementation of this CPG. However, the limited knowledge in the effective management of the disease and the varied treatment practice among HCP may be its main barriers.
 
 The successful implementation of this CPG would require:
-
 - Continuous medical education (CME) and training on the most effective means of diagnosing IE in patients via regular seminars, lectures, CME meetings and case sharing. These would include:
   - How to recognise findings in patients that should trigger high clinical suspicion of IE.
   - How to effectively confirm the diagnosis of IE.
@@ -26,10 +24,8 @@ The measurement of specific performance measures (refer Appendix 11: Clinical in
 
 ## Contextual Anchors (Overlapping)
 
-### Section 4.1.4: Referral for specialist care
-
+### Section 4: .1.4: Referral For Specialist Care
 IE is an unusual disease for a few reasons:
-
 - The clinical manifestation, predisposing risk factors and epidemiology of IE can be very variable.
 - Despite being relatively rare, it has significant morbidity and mortality.
 - Ideal management of IE requires multiple, highly specialised expertise in one centre which is often not widely available. These include but are not limited to: echocardiologists, ID specialists, cardiac surgeons, interventional radiologists, neurologists, neurosurgeons and microbiologists.
@@ -37,7 +33,6 @@ IE is an unusual disease for a few reasons:
 To ensure a good outcome and to prevent complications, it is important to establish an accurate diagnosis early and institute appropriate treatment. It is recommended to have a multidisciplinary team approach in the management of patients with IE especially those with high-risk features. Where indicated, these patients may need additional subspecialty consultation or referral to a specialist centre. A Specialist Centre (SC) is defined here as a hospital with cardiothoracic, cardiac imaging and specialised cardiology services.
 
 Referral to a SC is recommended in the following situations:
-
 - Strong clinical suspicion of IE but TTE negative.
     - Requires TEE and/or other imaging modalities to diagnose IE and to monitor for complications.
 - Patients with high predisposing risks.
@@ -53,7 +48,6 @@ Referral to a SC is recommended in the following situations:
 - Metastatic infection.
 
 Specific situations that may need other non-cardiac consultations:
-
 - ID and microbiology:
   - BCNIE.
   - Persistent infection that is not responding to treatment.
@@ -63,7 +57,6 @@ Specific situations that may need other non-cardiac consultations:
   - Patients who are on anticoagulation with coagulopathies and haemorrhagic complications.
 
 Patients with non-complicated IE can be managed in a centre with internal medicine specialists. These are patients with:
-
 - Mild-moderate abnormality of cardiac valvular function with no heart failure.
 - Native valves only.
 - Not more than mild ischaemic neurological complications (involving < 30% of a lobe).
@@ -81,8 +74,7 @@ However, in the event that complications arise they should be referred to a SC.
 
 ---
 
-### Appendix 11: Clinical indicators
-
+### Appendix 11: Clinical Indicators
 Performance measures for this CPG is to monitor the implementation of these guidelines with the aim of achieving the following within 5 years.
 
 | Performance indicators | Yes | No | Target to achieve in 5 years |
@@ -92,8 +84,7 @@ Performance measures for this CPG is to monitor the implementation of these guid
 
 ---
 
-### GRADES OF RECOMMENDATION
-
+### Grades Of Recommendation
 | Grade | Description |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -102,8 +93,7 @@ Performance measures for this CPG is to monitor the implementation of these guid
 | **IIb** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### LEVEL OF EVIDENCE
-
+### Level Of Evidence
 | Level | Description |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -116,8 +106,7 @@ Performance measures for this CPG is to monitor the implementation of these guid
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 |---|---|
 | **BCNIE** | Blood Culture-Negative Infective Endocarditis |

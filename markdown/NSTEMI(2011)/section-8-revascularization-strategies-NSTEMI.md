@@ -1,5 +1,4 @@
-# SECTION 8: REVASCULARIZATION STRATEGIES
-
+# Section 8: Revascularization Strategies
 <!-- METADATA
 category: Treatment
 use_case: Revascularisation Strategy Selection — early_invasive_vs_conservative, PCI_indications, CABG_indications, coronary_angiography_timing
@@ -13,8 +12,7 @@ treatment_type: PCI, CABG, medical_therapy
 
 There is a strong rationale for early revascularization in intermediate/high risk patients with UA/NSTEMI. (refer Flowchart 1: Risk Stratification of UA/NSTEMI), (refer Appendix IV: TIMI Risk Score for UA/NSTEMI). Contemporary antiplatelet and anticoagulant therapies have reduced the early hazard of PCI. With increasing procedure experience, technological improvements in PCI and the development of new antiplatelet and anticoagulant regimens there is a general trend for early revascularization in these patients following optimal medical therapy.
 
-## 8.1 Routine early invasive management
-
+## 8.1: Routine Early Invasive Management
 **[Grade I, Level B]** Urgent (as soon as possible after hospital presentation) coronary angiography/revascularization for patients with refractory or recurrent angina associated with dynamic ST deviation, heart failure, life threatening arrhythmias and/or hemodynamic instability
 
 **[Grade I, Level A]** Early (<72 hours) coronary angiography/revascularization in patients with high-risk features as predicted by a positive biomarker assay, ST segment changes or a high risk score according to the TIMI scale or equivalent.
@@ -23,8 +21,7 @@ There is a strong rationale for early revascularization in intermediate/high ris
 
 However these patients are recommended to have non-invasive assessment for inducible or silent ischemia.
 
-## 8.2 Routine early conservative management (selective invasive therapy)
-
+## 8.2: Routine Early Conservative Management (Selective Invasive Therapy)
 **[Grade I, Level A]** The use of aggressive anticoagulant and antiplatelet agents has also reduced the incidence of adverse outcomes in patients managed conservatively. Selective coronary angiography/revascularization is indicated for those who cannot be stabilized medically or in whom objective evidence of significant ischemia is provoked in the sub acute phase.
 
 **[Grade II-a, Level A]** A conservative strategy is recommended for women who are stabilized and remain biomarker negative.
@@ -39,8 +36,8 @@ Patients with UA/NSTEMI treated conservatively are at risk of developing recurre
 - All patients should receive optimal medical therapy. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 
 <!-- OVERLAP CONTENT -->
-## Flowchart 1: Risk Stratification of UA/NSTEMI
 
+## Flowchart 1: Risk Stratification Of UA/NSTEMI
 **[ PATHWAY A: LOW RISK ]**
 
 **1. Clinical Profile Assessment:**
@@ -92,8 +89,7 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 * Coronary Angiography and Revascularization*
   *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
 
-## Appendix IV: TIMI Risk Score for UA/NSTEMI
-
+## Appendix IV: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 |---|---|
 | 0-1 | 4.7 |
@@ -117,7 +113,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * **Moderate Risk:** 3-4 points
 * **High Risk:** &ge; 5 points
 
-## Figure 1: Non-Invasive Investigation of Low Risk Patients with UA/NSTEMI*
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 
 **[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
 
@@ -155,9 +151,9 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * younger age group
 * normal LV function
 
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. 
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
 
-## Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI
+Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
@@ -179,8 +175,7 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 | or ARB | **[Grade I, Level B]** | **[Grade I, Level B]** | As an alternative to ACE-I in intolerant patients |
 | + Statins | **[Grade I, Level A]** | **[Grade I, Level A]** | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
 
-## Grades of Recommendation and Levels of Evidence
-
+## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -196,7 +191,6 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACE-I** | Angiotensin Converting Enzyme Inhibitor |

@@ -1,5 +1,4 @@
-# SECTION 4: PHARMACOLOGICAL INTERVENTION
-
+# Section 4: Pharmacological Intervention
 <!-- METADATA
 category: Treatment
 use_case: Pharmacological Cancer Pain Management — WHO_analgesic_ladder, non_opioids, opioids, adjuvants, opioid_titration, opioid_switching, opioid_side_effects, breakthrough_pain, bone_targeting_agents, medical_cannabis
@@ -11,8 +10,7 @@ treatment_type: paracetamol, NSAIDs, celecoxib, etoricoxib, tramadol, dihydrocod
 
 The cornerstone of cancer pain management is using pharmacological agents to provide pain relief and improve the quality of life for the patients. The analgesics used can be divided into three main classes, namely opioids, non-opioids and adjuvant medications. The choice of analgesic as well as the dose and route of administration would depend on the type and severity of pain. Other factors to be considered include age, co-morbidities and patient's adherence. A combination of medications may be used. It is essential to monitor the patient's response to the medication while minimising any AEs in achieving optimal pain control.
 
-## 4.1 Principles of Analgesic Medicine
-
+## 4.1: Principles Of Analgesic Medicine
 WHO recommends the use of analgesic medicine should follow these principles:
 * **By mouth**
   * Analgesic medication should be given by mouth whenever possible.
@@ -26,13 +24,12 @@ WHO recommends the use of analgesic medicine should follow these principles:
   * Prescription timing should consider the patient's day and sleep schedule.
   * Education on the use of these medications should be given including effects and AEs.
 
-## 4.2 World Health Organization Analgesic Ladder
-
+## 4.2: World Health Organization Analgesic Ladder
 The 3-step World Health Organization (WHO) analgesic ladder, which was introduced in 1986, remains useful as an educational tool but not as a strict protocol for cancer pain treatment.
 
 The WHO analgesic ladder as shown in Figure 2 consists of three steps: Step 1 for a pain score of 1 - 3 (mild), step 2 for a pain score of 4 - 6 (moderate) and Step 3 for a pain score of 7 - 10 (severe). The choice of analgesia is based on the intensity of pain.
 
-### Figure 2. WHO Analgesic Ladder
+Figure 2. WHO Analgesic Ladder
 
 #### Step 1: Mild Pain
 *   **Pain Score:** 1 - 3
@@ -74,8 +71,7 @@ In a recent pragmatic clinical trial, there was some evidence that a 2-step appr
 > **Recommendation 2**
 > * The treatment of cancer pain should be based on the World Health Organization (WHO) analgesic ladder.
 
-## 4.3 Non-opioids
-
+## 4.3: Non-Opioids
 [Level I] A systematic review of 12 clinical trials comparing non-steroidal anti-inflammatory drugs (NSAIDs) or paracetamol added to WHO Step III opioids and opioids alone in moderate to severe cancer pain showed the following findings:
 - NSAIDs added to opioids
     - Five of seven studies showed a positive impact where three demonstrated improved analgesia and two showed a reduction in opioid consumption.
@@ -107,11 +103,10 @@ While the previous edition of CPG on Management of Cancer Pain, paracetamol or N
 
 ---
 
-## 4.4 Opioids
-
+## 4.4: Opioids
 Opioid analgesics are essential for the treatment of moderate to severe cancer pain. Constipation, nausea, vomiting, drowsiness and pruritus are common AEs of opioids.
 
-### 4.4.1 Weak opioids
+### 4.4.1: Weak Opioids
 Weak opioids which include tramadol, dihydrocodeine and codeine are also classified as WHO step-2 ladder opioids and mainly used for mild to moderate cancer pain.
 
 Tramadol acts both as a central opiate agonist and central nervous system reuptake inhibitor of norepinephrine and serotonin. Liver or renal impairment may require dose adjustments because of tramadol hepatic metabolism and renal clearance. [Level III] Serotonin syndrome has been reported with the use of tramadol especially with concurrent use of other serotonergic drugs e.g. antidepressants.
@@ -131,7 +126,7 @@ Weak opioids are generally more accessible compared with strong opioids. In situ
 
 ---
 
-### 4.4.2 Strong opioids
+### 4.4.2: Strong Opioids
 Strong opioids commonly used in Malaysia include morphine, fentanyl and oxycodone. They are recommended for use in moderate to severe cancer pain. There is no maximum dose for this group of opioids and the appropriate dose is the dose which provides pain relief without causing major or intolerable AEs. In most settings, morphine remains the first choice for reasons of familiarity, availability and cost. It is also listed in the WHO essential medic- **Morphine**
 [Level I] A large Cochrane systematic review of 62 studies compared the effectiveness and safety of oral morphine with various controls in relieving cancer pain. The range of oral morphine doses used varied from 25 mg/day to 300 mg/day and titrated to effect. Mean daily doses ranged from 100 mg/day to 250 mg/day with the maximum dose recorded at 2000 mg/day. The findings were:
 - morphine was an effective analgesic for moderate to severe cancer pain and >90% of participants had ‘no worse than mild pain’
@@ -166,7 +161,7 @@ The Tmax of transdermal fentanyl is 12 - 24 hours and the duration of action is 
 
 [Level I] Fentanyl is generally considered a safer opioid in renal impairment as its metabolites have minimal effect.
 
-The approximate pharmacokinetic parameters of morphine, oxycodone and fentanyl are shown in **Table 3: Pharmacokinetic Parameters of Morphine, Oxycodone and Fentanyl**.
+The approximate pharmacokinetic parameters of morphine, oxycodone and fentanyl are shown in Table 3: Pharmacokinetic Parameters of Morphine, Oxycodone and Fentanyl.
 
 > **Recommendation 5**
 > - Oral morphine is the preferred choice in moderate to severe cancer pain.
@@ -174,12 +169,11 @@ The approximate pharmacokinetic parameters of morphine, oxycodone and fentanyl a
 > - Oxycodone and fentanyl can be used as alternatives to morphine.
 > - Transdermal fentanyl should only be used when opioid requirements are stable.
 
-### 4.4.3 Opioid initiation, titration and maintenance
-
+### 4.4.3: Opioid Initiation, Titration And Maintenance
 - **Initiation**
 Strong opioids should be initiated at the lowest effective dose. For persistent pain, an IR formulation should be given every four hours to control background pain and with similar doses given up to every hour as needed for breakthrough pain. Patients who have been taking other analgesics, such as NSAIDs, may continue these analgesics after opioid initiation if these agents provide additional analgesia and are not contraindicated.
 
-Oral morphine is the first-line therapy for moderate to severe cancer pain. A dose of 5 mg 4-hourly of IR oral morphine in opioid-naive patients has been shown to be a safe and effective starting dose (p<0.01). Opioid-naive patients are those not chronically receiving opioid analgesic on a daily basis and therefore have not developed significant tolerance. Patients already on regular weak opioids (tramadol or dihydrocodeine) may have morphine initiated at a dose equivalent to that of the weak opioid (refer to **Table 4: Suggested Dose Conversion Ratio in The Direction Specified**). A lower starting dose of 2.5 mg 4 - 6 hourly of IR oral morphine has been shown to be effective (p<0.01) and safe in elderly or frail patients.
+Oral morphine is the first-line therapy for moderate to severe cancer pain. A dose of 5 mg 4-hourly of IR oral morphine in opioid-naive patients has been shown to be a safe and effective starting dose (p<0.01). Opioid-naive patients are those not chronically receiving opioid analgesic on a daily basis and therefore have not developed significant tolerance. Patients already on regular weak opioids (tramadol or dihydrocodeine) may have morphine initiated at a dose equivalent to that of the weak opioid (refer to Table 4: Suggested Dose Conversion Ratio in The Direction Specified). A lower starting dose of 2.5 mg 4 - 6 hourly of IR oral morphine has been shown to be effective (p<0.01) and safe in elderly or frail patients.
 
 - **Titration**
 Early assessment and dose titration must be carried out in all patients initiated on opioids. Dose titration can be done as early as 24 hours after initiation. A dose increment may be necessary when a patient reports persistent pain, or needs to take multiple doses for breakthrough pain (>3 doses) throughout the day, while a dose reduction may be warranted if there are intolerable side effects.
@@ -242,8 +236,7 @@ In patients presenting with severe cancer pain, rapid titration using parenteral
 
 ---
 
-### 4.4.4 Breakthrough pain management
-
+### 4.4.4: Breakthrough Pain Management
 - Breakthrough pain in cancer refers to an exacerbation of pain in the setting of chronic pain managed with analgesics around-the-clock.
 - **Breakthrough pain:**
     - typically, is of rapid onset, severe in intensity and self-limiting, with an average duration of 30 min
@@ -273,8 +266,7 @@ Oral transmucosal fentanyl citrate (OTFC) which is available in Malaysia as subl
 > - All patients with cancer pain who are on opioids should be prescribed with rescue analgesia if required to ensure optimal pain control.
 > - Opioids (morphine or oxycodone) for breakthrough cancer pain should be prescribed at 1/6 to 1/12 of the 24-hour dose.
 
-### 4.4.5 Opioid rotation
-
+### 4.4.5: Opioid Rotation
 Opioid rotation is a strategy of switching from one opioid to another to improve pain relief or reduce AEs.
 
 This strategy may be indicated in up to 44% of patients with cancer-related pain. Improvement in pain as well as reduced AEs after rotation were seen in 50 - 90% of these patients. [Level III] Uncontrolled pain was the main reason for opioid rotation in the outpatient setting while AEs were the reason in the inpatient setting where patients were often more debilitated.
@@ -302,7 +294,7 @@ A systematic review that specifically looked at equianalgesic opioid doses repor
 
 The conversion ratio from different opioids to methadone was highly variable, ranging from 5:1 to 10:1.
 
-The suggested conversion ratio is shown in **Table 4: Suggested Dose Conversion Ratio in The Direction Specified**.
+The suggested conversion ratio is shown in Table 4: Suggested Dose Conversion Ratio in The Direction Specified.
 
 **Example 1:**
 *Conversion of oral morphine to oral oxycodone*
@@ -325,8 +317,7 @@ The suggested conversion ratio is shown in **Table 4: Suggested Dose Conversion 
 
 ---
 
-### 4.4.6 Opioids requiring special attention
-
+### 4.4.6: Opioids Requiring Special Attention
 - **Methadone**
 Methadone is an alternative treatment in specialist services for special circumstances e.g. difficult pain, renal impairment, neuropathic pain syndrome and hyperalgesic states. Its use in cancer pain management needs careful consideration and expertise due to its complex pharmacology. In Malaysia, methadone is mainly used for harm reduction in Methadone Replacement Therapy. However, its method of use is different in treating cancer pain.
 
@@ -358,8 +349,7 @@ Pethidine should not be used in chronic cancer pain management. Long-term pethid
 
 ---
 
-### 4.4.7 Opioid use in special populations
-
+### 4.4.7: Opioid Use In Special Populations
 - **Renal and liver impairment**
 Renal and liver impairment alter the pharmacokinetics of many medications including opioids by changing opioid metabolism and reducing its clearance, resulting in accumulation of the opioid metabolites. These generally result in more AEs and an increased risk of toxicity. There is limited evidence examining the use of opioids in cancer patients with renal and liver impairment.
 
@@ -399,8 +389,7 @@ Effective and safe cancer pain management in older adults requires careful asses
 >
 >*\*Fentanyl is a safer opioid in renal impairment.*
 
-### 4.4.8 Opioid side effects
-
+### 4.4.8: Opioid Side Effects
 Opioids are generally well-tolerated and safe in cancer pain management. [Level I] In a large systematic review of 25 studies, nausea and constipation were most common, whilst vomiting, drowsiness and dry mouth were less frequent.
 
 [Level I] There was a dose-effect relationship, where higher rates of AEs were seen with higher opioid starting doses and higher doses after titration, particularly in morphine. Awareness of these AEs is vital to ensure compliance and optimal pain control.
@@ -441,10 +430,9 @@ Management strategies include awareness and recognition of the AEs, symptomatic 
         - It is characterised by a paradoxical response whereby a patient receiving opioids for the treatment of pain could become more sensitive to certain painful stimuli.
         - Refer to pain or palliative care physicians for further management.
 
-The management of opioid side effects is shown in **Table 5: Management of Opioid Side Effects** below. Refer to **Appendix 5a: Suggested Medication Dosages and Adverse Effects in Adults**
+The management of opioid side effects is shown in Table 5: Management of Opioid Side Effects below. Refer to **Appendix 5a: Suggested Medication Dosages and Adverse Effects in Adults**
 
-### 4.4.9 Opioid toxicity
-
+### 4.4.9: Opioid Toxicity
 - **Respiratory depression**
 Respiratory depression is a result of opioid toxicity. It is a very rare event that may occur during rapid titration. It is uncommon during chronic administration. When appropriately titrated against the patient’s pain, strong opioids do not cause clinically important respiratory depression.
 
@@ -460,8 +448,7 @@ Refer to **Appendix 7: Guide for Naloxone Use**
 
 ---
 
-### 4.4.10 Tolerance and addiction to opioids
-
+### 4.4.10: Tolerance And Addiction To Opioids
 - **Tolerance to opioids**
 Opioid tolerance is defined as a long-term body adaptation to opioids resulting in reduced clinical effectiveness of opioids with repeated use at the same dose.
 
@@ -486,8 +473,7 @@ Tools for recognising and predicting opioid misuse are available for clinical us
 - It is important to identify patients at risk of opioid misuse so that they can be closely monitored.
 - Fear of opioid misuse or tolerance should not preclude the start of opioid therapy for cancer patients experiencing pain.
 
-### 4.5 Adjuvants
-
+## 4.5: Adjuvants
 Adjuvant analgesics are medications with primary indications other than pain. However, they are useful in managing certain painful conditions, particularly neuropathic pain. The most common classes of adjuvant analgesics used in cancer pain management are anticonvulsants, antidepressants and corticosteroids. Evidence for the use of these medications was largely extrapolated from studies on non-cancer pain.
 
 - **Anticonvulsants**
@@ -549,8 +535,7 @@ In the previous guidelines, ketamine was recommended to be considered in patient
 > - Corticosteroids may be used cautiously as an adjuvant in patients with specific cancer pain syndromes.
 > - Bone targeting agents may be used in cancer patients with painful bone metastasis.
 
-### 4.6 Medical Cannabis
-
+## 4.6: Medical Cannabis
 Medical cannabis is a term used to describe cannabis used for medical purposes. In recent years, there has been increasing interest in the potential therapeutic use of cannabis for various medical conditions including chronic pain. However, there is still much debate surrounding the issue due to concerns about its safety and effectiveness.
 
 [Level I] Evidence mapping of systematic reviews on the therapeutic effects of medicinal cannabis reported that the evidence was broad, highly heterogeneous in methodology and with conflicting conclusions. In fact, there was a limited number of studies that investigated cancer pain relief by medicinal cannabis.
@@ -566,8 +551,7 @@ A Malaysian health technology assessment reported that current evidence was inad
 
 - There is insufficient evidence to formulate a recommendation for medical cannabis use in cancer pain.
 
-### 4.7 Anticancer Therapy
-
+## 4.7: Anticancer Therapy
 Radiotherapy, chemotherapy and hormonal therapy are important components of anticancer therapy. These therapies especially radiotherapy may be a strategy for multidisciplinary management of cancer pain.
 
 - **Radiotherapy** <br>
@@ -623,8 +607,9 @@ The use of radionuclide therapy for metastatic bone pain, especially in diffuse 
 [Level II-1] There was limited data on the use of radionuclide seeds in metastatic bone pain. In view of high cost, limited data and availability, radionuclide and radiation seeds therapy are not a routine option for cancer-related bone pain in this country. Thus, no recommendation can be formulated on its use.
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### Table 3: Pharmacokinetic Parameters of Morphine, Oxycodone and Fentanyl
+Table 3: Pharmacokinetic Parameters Of Morphine, Oxycodone And Fentanyl
 
 | Pharmacokinetic parameters | Morphine | Oxycodone | Fentanyl |
 |---|---|---|---|
@@ -636,7 +621,7 @@ The use of radionuclide therapy for metastatic bone pain, especially in diffuse 
 *\*Following the application of the first patch*
 
 ---
-### Table 4: Suggested Dose Conversion Ratio in The Direction Specified
+Table 4: Suggested Dose Conversion Ratio In The Direction Specified
 
 | FROM \ TO | Oral morphine mg/day | SC morphine mg/day | Oral oxycodone mg/day | SC oxycodone mg/day | TD fentanyl mcg/h |
 |---|:---:|:---:|:---:|:---:|:---:|
@@ -666,7 +651,7 @@ The use of radionuclide therapy for metastatic bone pain, especially in diffuse 
 
 ---
 
-### Table 5: Management of Opioid Side Effects
+Table 5: Management Of Opioid Side Effects
 
 | Side Effects | Management |
 |---|---|
@@ -678,10 +663,10 @@ The use of radionuclide therapy for metastatic bone pain, especially in diffuse 
 | Pruritus | - May consider antihistamines; - Opioid switching may be necessary if the symptoms are severe |
 
 ---
-## Appendix 5: Pharmacological Treatment in Cancer Pain  
 
-### Appendix 5a. Suggested Medication Dosages and Adverse Effects in Adults
+## Appendix 5: Pharmacological Treatment In Cancer Pain
 
+### Appendix 5a: . Suggested Medication Dosages And Adverse Effects In Adults
 | Drug | Recommended Dosages | Side Effects | Remarks |
 |---|---|---|---|
 | **Paracetamol** | 0.5 - 1 g, 6-8-hourly. Max: 4 g/day | Rare | Consider dose reduction in hepatic impairment. |
@@ -726,22 +711,23 @@ The use of radionuclide therapy for metastatic bone pain, especially in diffuse 
 | Haloperidol | 0.5 - 3 mg single dose nocte | • Extrapyramidal symptoms<br>• Prolonged QT interval | |
 
 ---
-### Appendix 7: Guide for Naloxone Use
 
-### GENERAL PRINCIPLES:
+### Appendix 7: Guide For Naloxone Use
+
+### General Principles:
 - Naloxone, a specific opioid antagonist, is seldom necessary in the palliative care setting when opioids are appropriately titrated against the patient’s pain.
 - It is indicated for the reversal of opioid-induced respiratory depression and not for treating drowsiness and/or delirium associated with opioids.
 - The dose administered should be carefully titrated against level of consciousness and satisfactory respiratory function (≥8 breaths/minute and no cyanosis).
 - Titration is important to avoid acute withdrawal syndrome and severe pain.
 
-### PHARMACOKINETICS & AVAILABILITY:
+### Pharmacokinetics & Availability:
 - **Route of administration:** IV is preferable, but SC or IM can also be used.
 - **Onset of action:** 1 - 2 minutes (IV) and 2 - 5 minutes (SC/IM).
 - **Half-life:** approximately 1 hour.
 - **Pack size:** 1 ampoule = 400 mcg/1 ml.
 - **Adverse effects (usually with large bolus doses):** abdominal cramps, nausea and vomiting, flushing, arrhythmias and erythema at injection site.
 
-### TREATMENT:
+### Treatment:
 - Respiratory depression is usually preceded by a progressive reduction in consciousness.
 - If the respiratory rate ≥8 breaths/minute and patient can be easily aroused (e.g. opens eyes to verbal command), monitor patient closely and consider omitting or reducing the dose of the regular opioid.
 - If respiratory rate is ≤8 breaths/min and patient is unresponsive, discontinue the ongoing opioid (e.g. stop CSCI/CIVI, remove TD patch) and naloxone should be administered.
@@ -752,30 +738,29 @@ The use of radionuclide therapy for metastatic bone pain, especially in diffuse 
     - A naloxone infusion may be considered if recovery is not satisfactory with multiple bolus doses.
 - After patient recovers, the regular opioid regimen must be reviewed to consider possible causes for the respiratory depression (e.g. drug interactions, drug accumulation due to renal impairment, medication errors) and necessary modifications made to the regimen.
 
-### ADDITIONAL CAUTIONS:
+### Additional Cautions:
 - Do not use large bolus doses e.g. “1 ampoule stat” in patients who are receiving opioids for chronic pain relief.
 - Pupil size is an unreliable indicator of opioid overdose in patients taking regular opioids.
 - Naloxone should not be given to patients on opioids when death is expected and imminent; a slow respiratory rate is a normal occurrence.
 
 ---
-## Algorithm 2: Titration of Morphine for Rapid Pain Relief in Adults with Severe Pain and Distress
+
+## Algorithm 2: Titration Of Morphine For Rapid Pain Relief In Adults With Severe Pain And Distress
 
 ### Step 1: Initial Presentation
-
 **Adult patient with severe pain (Pain Score 7 - 10) and distress**
 
 ↓
 
-### Step 2: Route of Administration (Based on IV Access)
-
+### Step 2: Route Of Administration (Based On IV Access)
 Determine the availability of intravenous (IV) access:
 
-#### Option A: Intravenous access available (Yes)
+#### Option A: Intravenous Access Available (Yes)
 *   Administer Intravenous morphine 1 - 2 mg*
 *   **Reassess:** after 5 - 10 minutes
 *   → Proceed to Step 3
 
-#### Option B: Intravenous access NOT available (No)
+#### Option B: Intravenous Access Not Available (No)
 *   Administer Subcutaneous morphine 2.5 - 5 mg*
 *   **Reassess:** after 15 - 30 minutes
 *   → Proceed to Step 3
@@ -783,7 +768,6 @@ Determine the availability of intravenous (IV) access:
 ---
 
 ### Step 3: Clinical Reassessment
-
 Assess the following parameters:
 *   Pain score
 *   Respiratory rate
@@ -791,8 +775,7 @@ Assess the following parameters:
 
 ↓
 
-### Step 4: Check for Adverse Events
-
+### Step 4: Check For Adverse Events
 **Criteria for Adverse Events:** Respiratory rate < 8/min **OR** Sedation score > 2**
 
 *   **If YES (Adverse events present):**
@@ -804,7 +787,6 @@ Assess the following parameters:
 ---
 
 ### Step 5: Evaluate Pain Relief
-
 **Criteria for Success:** Pain relief acceptable to patient **OR** Reduction of pain score by 2 points
 
 *   **If YES (Goal achieved):**
@@ -816,13 +798,12 @@ Assess the following parameters:
 ---
 
 ### 📝 Notes & References
-
 > ***\*** For patients already on opioids, the bolus dose of morphine should be 10% of the total 24-hour morphine requirement converted to intravenous/subcutaneous equivalent. For elderly, frail or renal impaired patients, use lower dose of the given range.* <br>
 > ***\*\*** For details on sedation score, refer to Appendix 3 in the CPG
 
 ---
-### LEVELS OF EVIDENCE
 
+### Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -833,8 +814,7 @@ Assess the following parameters:
 
 ---
 
-### Abbreviations Used in This Section
-
+### Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse events |

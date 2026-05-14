@@ -1,5 +1,4 @@
-# SECTION 2: DEFINITION OF TERMS
-
+# Section 2: Definition Of Terms
 <!-- METADATA
 category: Pathophysiology, Classification, Diagnosis
 use_case: ACS Classification and Definition — UA_definition, NSTEMI_definition, STEMI_differentiation, cardiac_biomarker_criteria, ACS_spectrum
@@ -23,8 +22,7 @@ Unstable angina may be classified as (refer Appendix I: Braunwald's Classificati
 - II. Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute)
 - III. Angina at rest within 48 hours (angina at rest, acute)
 
-## Appendix I: Braunwald's Classification of Unstable Angina
-
+## Appendix I: Braunwald's Classification Of Unstable Angina
 | Severity | CLINICAL CIRCUMSTANCES: A (Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia / Secondary UA) | CLINICAL CIRCUMSTANCES: B (Develops in Absence of Extracardiac Condition / Primary UA) | CLINICAL CIRCUMSTANCES: C (Develops Within 2 weeks of MI / Postinfarction UA) |
 |---|---|---|---|
 | **I — New onset of severe angina or accelerated angina; no rest pain** | **[Grade I, Level A]** | **[Grade I, Level B]** | **[Grade I, Level C]** |
@@ -38,7 +36,7 @@ It may be further classified according to clinical circumstances into either:
 
 The diagnosis of NSTEMI is established if a cardiac biomarker is detected. In NSTEMI, ST/T changes may be present in the ECG, whereas in UA they are usually absent and even if they are present, are usually transient.
 
-## Figure 2: Pathogenesis of ACS (Diagnostic Flow)
+Figure 2: Pathogenesis Of ACS (Diagnostic Flow)
 
 **[ INITIAL ASSESSMENT ]**
 
@@ -76,7 +74,6 @@ The diagnosis of NSTEMI is established if a cardiac biomarker is detected. In NS
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACS** | Acute Coronary Syndrome |

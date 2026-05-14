@@ -1,5 +1,4 @@
-# 3 DETECTING DISEASE AND ASSESSING SEVERITY
-
+## 3: Detecting Disease And Assessing Severity
 <!-- METADATA
 category: Clinical Assessment, Investigations
 use_case: Detecting disease and assessing severity for pre-anaesthetic evaluation — history_taking, physical_examination, preoperative_investigations, preoperative_preparation, cardiovascular_assessment, respiratory_assessment, airway_assessment, renal_hepatic_endocrine_CNS, smoking_cessation, DVT_prevention, pain_management, fasting_instructions, blood_bank_arrangements, ICU_HDU_admission
@@ -9,8 +8,7 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 
 > **Context:** This section covers detecting disease and assessing severity through history, physical examination, investigations, and preoperative preparation.
 
-# 3.1 History
-
+## 3.1: History
 3.1.1 A patient's medical history provides vital information to identify disease that may affect peri-operative outcome.
 
 3.1.2 Medical history should include concomitant medical conditions, past and current medication (including herbal supplements), alleged compliance to treatment, drug and food allergies, previous anaesthesia and family history of anaesthetic complications.
@@ -21,16 +19,14 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 
 3.1.5 Useful information may be obtained from the patient's family doctor, relatives or previous medical records.
 
-## 3.2 Physical examination
-
+## 3.2: Physical Examination
 3.2.1 Examination of the patient is an essential part of the pre-anaesthetic assessment.
 
 3.2.2 Although the cardiovascular and respiratory systems (including the airway) are important in the assessment of the patient, other systems i.e. the renal, hepatic, endocrine and central nervous systems may also require detailed attention as guided by the history.
 
 3.2.3 The pathology relevant to surgery is a pertinent part of physical examination. Examples include the site, size and vascularity of tumour mass, features of airway compression/obstruction or endocrine abnormalities.
 
-## 3.3 Investigations
-
+## 3.3: Investigations
 3.3.1 Investigations complement pre-anaesthetic history and physical examination. They should be selectively performed for purposes of guiding or optimizing peri-operative management.
 
 3.3.2 Pre-anaesthetic investigations may be indicated for their impact on peri-operative anaesthetic care, such as:
@@ -44,8 +40,7 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 
 3.3.5 In an era where cost containment is important, factors like cost-benefit and benefit-risk ratios will have to be taken into consideration. Only appropriate investigations deemed to have an influence on the patient's management strategies and outcome should be carried out.
 
-## 3.4 Others
-
+## 3.4: Others
 3.4.1 Multi-disciplinary management, subspecialty referral and medical record retrieval may be helpful in the overall assessment of the patient.
 
 3.4.2 Consideration should also be made with regards to the nature, extent and anticipated duration of surgery. If in doubt, it is essential to communicate with the surgeon to seek further clarification.
@@ -63,8 +58,9 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 - Arrangement for post-operative Intensive Care Unit (ICU) or High Dependency Unit (HDU) admission if indicated
 
 ---
+
 ## Contextual Anchors (Overlapping)
-### TABLE I: Routine Investigations for Patients Undergoing Anaesthesia
+Table I: Routine Investigations For Patients Undergoing Anaesthesia
 
 | Routine Investigation | Indication |
 |---|---|
@@ -76,7 +72,7 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 
 *\*Major surgery is empirically defined as one in which the cranium, thorax or abdomen is opened or when the anticipated blood loss is significant and exceeds 15% of total blood volume.*
 
-### TABLE II: List of pre-anaesthetic investigations and their indications
+Table Ii: List Of Pre-Anaesthetic Investigations And Their Indications
 
 | Investigation | Indication |
 |---|---|

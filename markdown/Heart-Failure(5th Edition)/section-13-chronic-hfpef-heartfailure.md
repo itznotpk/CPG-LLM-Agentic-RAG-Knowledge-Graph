@@ -1,5 +1,4 @@
-# SECTION 13: CHRONIC HF - HFpEF (LVEF ≥50%)
-
+# Section 13: Chronic HF - HFpEF (Lvef ≥50%)
 <!-- METADATA
 category: Treatment, Classification
 use_case: Chronic HFpEF Management — preserved_EF_classification, diuretics, SGLT2i, comorbidity_management, preserved_EF_pharmacotherapy
@@ -8,8 +7,7 @@ output: HFpEF_management_plan, diuretic_selection, SGLT2i_indication, comorbidit
 treatment_type: diuretics, SGLT2i, comorbidity_specific_therapy
 -->
 
-## 13. CHRONIC HEART FAILURE - HF DUE TO PRESERVED LV SYSTOLIC FUNCTION, LVEF ≥50% (HFpEF)
-
+## 13: Chronic Heart Failure - HF Due To Preserved Lv Systolic Function, Lvef ≥50% (HFpEF)
 HFpEF is a heterogenous disease with various phenotypes and comorbidities. It is highly prevalent, accounting for up to 50% of all patients with HF and is becoming the dominant form of HF in aging populations worldwide.
 
 In this guideline HFpEF refers to LVEF ≥ 50%. Importantly, clinicians should be aware that LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
@@ -18,8 +16,7 @@ HFpEF differs from HFrEF in that HFpEF patients are older and more often female.
 
 In the ASIAN-HF registry, patients with HFpEF were younger and leaner. They, however, carried a high comorbidity burden, with 70% of patients having at least two comorbidities - most commonly hypertension, followed by anemia, CKD, diabetes, ischemic heart disease (IHD), AF, and obesity. Similarly in the MyHF registry, patients with HFpEF had a high comorbidity burden, commonly hypertension, diabetes, IHD and CKD.
 
-### 13.1. Diagnosis
-
+## 13.1: Diagnosis
 The diagnosis of HFpEF is challenging as symptoms and signs can be attributable to other co-existing conditions and LVEF is normal. Chronic obstructive pulmonary disease and obesity per se can also contribute to dyspnea in these patients.
 
 The main hemodynamic finding in HFpEF is an elevation in LV filling pressures i.e. end diastolic LV pressure (LVEDP). In the early stages of the disease, these become elevated only during exercise or exertion giving rise to exertional shortness of breath. As the disease progresses, it becomes elevated even at rest.
@@ -57,8 +54,7 @@ The following patients who continue to have dyspnea may be referred to these cen
 *   Cases where the diagnosis is unclear.
 *   Non responders to treatment especially those with multiple comorbidities.
 
-### 13.2. Etiology and Associated Comorbidities
-
+## 13.2: Etiology And Associated Comorbidities
 *   HFpEF may also share similar clinical characteristics with valvular heart disease, pericardial disease, and high-output HF. In all these conditions, patients present with HF and have normal LVEF and even normal LV dimensions. In HFpEF however, the HF is due to myocardial disease resulting in abnormal myocardial relaxation, decreased compliance, and increased filling pressure. For this reason, a basic echocardiogram is essential in the initial work up of these patients.
 *   The etiological factors affecting HFpEF and HFrEF seem to be different. When compared to patients with HFrEF, patients with HFpEF are more likely to have hypertension, valvular heart disease (e.g., aortic stenosis) and AF and are less likely to have a MI or left bundle branch block.
 *   Comorbidities play an important role in the pathophysiology of HFpEF. These contribute to systemic and endomyocardial inflammation with fibrosis which are important in the pathogenesis of the disease. It is these comorbidities that primarily correlate with outcome in patients with HFpEF rather than NP levels or echocardiographic parameters.
@@ -74,14 +70,12 @@ The following patients who continue to have dyspnea may be referred to these cen
     *   The presence of diabetes, a lower systolic BP, lower hemoglobin and a lower eGFR were associated with a poorer outcome.
     *   AF is common in HFpEF and increases the risk of adverse outcomes.
 
-### 13.3 Management (refer to Table 6: Grading of Recommendations and Levels of Evidence in the Management of HFpEF (LVEF > 50%))
-
+## 13.3: Management (Refer To Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (Lvef > 50%))
 Compared with HFrEF patients, hospitalizations, and deaths in patients with HFpEF are more likely to be due to non-cardiovascular causes. As LVEF increases, the proportional contribution of non-cardiac and non-HF events to death or hospitalization increases, highlighting the importance of managing comorbidities.
 
 The important aim of therapy is to alleviate symptoms, improve well-being and reduce hospitalizations. Screening for comorbidities and treating these appropriately is important.
 
-#### 13.3.1 Lifestyle measures
-
+### 13.3.1: Lifestyle Measures
 *   Overweight or obesity are important comorbidities in HFpEF.
     *   [Grade I, Level B] A caloric restriction diet is feasible and safe in older, obese patients with HFpEF. It has been shown to significantly improve patient's dyspnea, peak oxygen consumption, and quality of life.
     *   Caloric restriction should ideally be combined with exercise, such as walking exercise for one hour three or more times per week.
@@ -91,8 +85,7 @@ The important aim of therapy is to alleviate symptoms, improve well-being and re
     *   Combined endurance/resistance training appears safe for patients with HFpEF and improves exercise capacity (as reflected by an increase in peak oxygen consumption), physical functioning score and diastolic function. It should consist of dynamic isotonic (e.g., walking or cycling) and not static exercise.
     *   High-intensity interval training or moderate continuous training has not proved to be better than guideline-based physical activity for patients with HFpEF.
 
-#### 13.3.2 Identifying and treating the underlying cause(s) and comorbidities
-
+### 13.3.2: Identifying And Treating The Underlying cause(s) And Comorbidities
 *  [Grade I Level A] Hypertension should be treated to target goals. Improved BP control has been shown to reduce morbidity and hospitalizations for HF. More intensive BP control in patients with high CV risk including those > 75 years of age, significantly reduces HF and other cardiovascular outcomes.
 *   CAD is common in patients with HFpEF and this should be treated appropriately.
 *   Diabetes - refer to section 14.1: Diabetes and Heart Failure
@@ -102,10 +95,8 @@ The important aim of therapy is to alleviate symptoms, improve well-being and re
     * [Grade IIa, Level A] In patients with recent onset AF < 1 year duration or paroxysmal AF who received early rhythm-control, there was a significantly decreased primary end point of a composite of CV death, stroke, or hospitalization due to HF than those who received rate control.
 *   [Grade I, Level A] Anticoagulation - Patients with paroxysmal or persistent AF should be anticoagulated to reduce the risk of thromboembolic events.
 
-#### 13.3.3 Pharmacological options
-
+### 13.3.3: Pharmacological Options
 Pharmacotherapy has not been shown to reduce total or CV mortality. These include:
-
 * [Grade I, Level C] **Diuretics:** These are necessary to control pulmonary congestion and peripheral edema but should be used cautiously so as not to lower preload excessively and thereby reduce stroke volume and cardiac output. One should aim to use the lowest dose of a diuretic necessary to maintain euvolemia.
 *   **β-blockers:** β-blockers are often prescribed for the management of comorbidities such as coronary artery disease or atrial fibrillation. At present, however, there is no good data to show that β-blockers are beneficial in the treatment of HFpEF. Furthermore, the type of β-blockers (non-selective and vasodilating, such as nebivolol and carvedilol, vs. rate controlling only) may have differential effects in different HFpEF phenotypes. β-blocker withdrawal was shown to improve maximal functional capacity and chronotropic incompetence in patients with HFpEF. Further studies are warranted on the use of β-blockers in these patients.
 *   **RAS blockers:**
@@ -119,14 +110,13 @@ Pharmacotherapy has not been shown to reduce total or CV mortality. These includ
 
 ---
 
-
-### Key Message # 13: Chronic HF due to HFpEF
+### Key Message # 13: Chronic HF Due To HFpEF
 *   HFpEF is a heterogenous disease with various phenotypes and comorbidities, accounting for up to 50% of all patients with HF.
 *   In this guideline HFpEF refer to LVEF ≥ 50%. LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
 *   HFpEF differs from HFrEF in that HFpEF patients are older, more often female with AF, CKD and non-CV comorbidities being more common.
 *   The main hemodynamic finding in HFpEF is an elevation in LV filling pressures i.e. end diastolic LV pressure (LVEDP), initially only on exertion and later even at rest
 
-### Key Recommendation #11: Chronic HF due to HFpEF
+### Key Recommendation #11: Chronic HF Due To HFpEF
 *   Timely and early diagnosis of HFpEF leads to a better outcome.
 *   The management of patients with HFpEF includes:
     *   Lifestyle measures:
@@ -143,7 +133,7 @@ Pharmacotherapy has not been shown to reduce total or CV mortality. These includ
 ---
 
 ## Contextual Anchors (Overlapping)
-### Table 6: Grading of Recommendations and Levels of Evidence in the Management of HFpEF (LVEF > 50%)
+Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (Lvef > 50%)
 
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|---|---|
@@ -164,7 +154,7 @@ Pharmacotherapy has not been shown to reduce total or CV mortality. These includ
 | β-Blockers | | | <ul><li>No good data to show that β-blockers are beneficial in the treatment of HFpEF.</li><li>Often prescribed for treatment of co-morbidities.</li></ul> |
 
 ---
-### Table 8: Classification Of Heart Failure According To LVEF
+Table 8: Classification Of Heart Failure According To Lvef
 
 | Ejection Fraction Terminology | LVEF |
 |---|---|
@@ -173,8 +163,7 @@ Pharmacotherapy has not been shown to reduce total or CV mortality. These includ
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-### Stages of Heart Failure
-
+### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -186,7 +175,7 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 
 ---
 
-### Table 9: New York Heart Association Functional Classification
+Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
@@ -196,8 +185,8 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 | **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 
 ---
-## Appendix VI: ESC Heart Failure Association algorithm (HFA–PEFF)
 
+## Appendix VI: Esc Heart Failure Association Algorithm (HFA–PEFF)
 |  |
 |----------------------------------------------------|
 | **P - Pretest Assessment**<br>This includes a detailed clinical evaluation, electrocardiogram, laboratory tests, and basic echocardiogram. HF*p*EF is suggested by:<br>• Normal LVEF *and*<br>• Nondilated left ventricle with concentric remodelling, or left ventricular hypertrophy *and*<br>• Left atrial enlargement. |
@@ -209,8 +198,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 * Cases where the diagnosis is unclear.
 * Non responders to treatment especially those with multiple comorbidities.
 
-## Appendix VII: H2FPEF score
-
+## Appendix VII: H2fpef Score
 | | Characteristic | Measurement | Score |
 |---|---|---|:---:|
 | **H** | Heavy | Body mass index > 30 kg/m² | 2 |
@@ -227,10 +215,10 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 | 2-5 | Intermediate probability and require additional testing to determine the cause of dyspnea. |
 
 ---
+
 ## Contextual Anchors (Overlapping)
 
-### Overlapping Content from Section 14.1: Diabetes and Heart Failure
-
+### Overlapping Content From Section 14.1: Diabetes And Heart Failure
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 14.1                            -->
 <!-- Purpose: Provides management rules for Diabetes comorbidity   -->
@@ -251,8 +239,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 
 ---
 
-### Overlapping Content from Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)
-
+### Overlapping Content From Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: SECTION 14.6                            -->
 <!-- Purpose: Provides comorbidity management for CKD               -->
@@ -275,8 +262,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -324,8 +310,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 
 ---
 
-## Grades of Recommendation and Levels of Evidence Used in This Section
-
+## Grades Of Recommendation And Levels Of Evidence Used In This Section
 **Grades of Recommendation:**
 *   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
 *   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.

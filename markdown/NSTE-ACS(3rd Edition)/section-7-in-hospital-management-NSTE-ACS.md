@@ -1,5 +1,4 @@
-# SECTION 7: IN-HOSPITAL MANAGEMENT
-
+# Section 7: In-Hospital Management
 <!-- METADATA
 category: Treatment, Diagnosis, Assessment
 use_case: In-Hospital NSTE-ACS Management - emergency_department, level_of_care, pharmacotherapy, revascularization, invasive_strategy
@@ -9,8 +8,7 @@ critical: true
 treatment_type: aspirin, oxygen, GTN, morphine, LMWH, fondaparinux, DAPT, statins, beta_blockers, ACEI, ARB, nitrates, CCB, PCI
 -->
 
-## 7.1 Emergency Department
-
+## 7.1: Emergency Department
 When the patient with suspected ACS reaches the emergency department, evaluation and initial management should be prompt. Patients can be either triaged to the red or yellow zone according to the Malaysian Triage Scale.
 
 A quick targeted history should be taken, and vital signs noted.
@@ -18,7 +16,6 @@ A quick targeted history should be taken, and vital signs noted.
 - A 12 lead ECG should be taken within 10 minutes of the patient's arrival in the emergency department. This should be compared with prehospital ECGs or that taken earlier if available.
 
 Based on the initial clinical evaluation, the patient may have:
-
 - Definite STEMI
 - NSTE-ACS with ongoing chest pain. If the initial ECG does not show ST elevation but the patient is suspected of having a STEMI in view of the prolonged ischaemic-type chest pain of > 30 minutes and recurrent/ongoing chest pains, the following steps may be taken:
   - Repeating the ECG at 15-minute intervals to detect evolving changes of ischemia/infarction.
@@ -31,7 +28,6 @@ Based on the initial clinical evaluation, the patient may have:
   - **Possible or suspected NSTE-ACS** - In these individuals the HEART Score (or modified HEART score) or TIMI score should be calculated, the cTn, preferably hs-cTn measured and the "rule out protocol" Flowchart 1: “Rule out” Protocol for patients suspected to have ACS using cardiac troponin (preferably hs-cTn) and 0/3 hour# protocol be used.
 
 In patients with **NSTE-ACS**, the following should be done:
-
 - Venous access established and blood taken for measurement of cardiac biomarkers (cTn-preferably hs cTn).
 - The following are instituted:
   - **[Grade I, Level A]** Aspirin (300mg) if not taken prior to arrival.
@@ -62,7 +58,6 @@ In patients with chest pain not due to ACS, other important clinical conditions 
 - Other etiologies (e.g. herpes zoster, panic attack)
 
 ### Key Recommendations 7:
-
 - Patients with NSTE-ACS should be given:
   - Aspirin 300 mg stat (if not given earlier)
   - **And** Oxygen if oxygen saturation < 95%
@@ -72,26 +67,22 @@ In patients with chest pain not due to ACS, other important clinical conditions 
 - In the presence of ongoing chest pains and/or hemodynamic instability, urgent coronary angiography with view to revascularization should be considered.
 - In patients with recurrent/ongoing chest pain not due to ACS, other important clinical conditions should also be considered.
 
-## 7.2 Level of Care
-
+## 7.2: Level Of Care
 Following risk stratification as outlined in section 5.2: Risk Scores for Prognostication in NSTE-ACS, the patient may be admitted to:
-
 - Coronary care unit (CCU) - Very high risk and High-risk individuals
 - High dependency Unit - Moderate risk individuals
 - General ward - Low risk individuals
 
 Stable, low-risk NSTE-ACS may be managed appropriately on telemetry wards and result in a reduction in hospital costs and critical care capacity.
 
-## 7.3 Pharmacotherapy
-
+## 7.3: Pharmacotherapy
 In NSTE-ACS the commonest pathophysiology (Type 1 MI) is a ruptured or fissured plaque with superadded thrombosis leading to varying degrees of occlusion of the vessel. Thus, anti-thrombotic therapy (both antiplatelet and anticoagulant) plays a more important role in management than anti-ischemic agents.
 
 In Type 2 MI, the underlying etiology needs to be addressed. Anti-ischemic agents play a more important role than antiplatelets and antithrombotic agents.
 
-### 7.3.1 Antiplatelet therapy
+### 7.3.1: Antiplatelet Therapy
 
-### 7.3.1.1 Acetylsalicylic acid (ASA/Aspirin)
-
+#### 7.3.1.1: Acetylsalicylic Acid (ASA/Aspirin)
 - **[Grade I, Level A]** Recommended loading dose: 300mg. This should be chewed or crushed. Enteric-coated aspirin is not recommended as an initial loading dose because of its slow onset of action.
 - Maintenance dose: 75-100mg daily lifelong regardless of treatment strategy.
 - **[Grade III, Level B]** An aspirin dose of 300-325mg daily is associated with an increased risk of gastrointestinal bleeding without greater efficacy. This was seen when aspirin was used alone and in combination with a P2Y12 inhibitor such a clopidogrel.
@@ -103,10 +94,8 @@ In Type 2 MI, the underlying etiology needs to be addressed. Anti-ischemic agent
   - Triflusal with clopidogrel
   - Aspirin desensitisation
 
-### 7.3.1.2 P2Y12 inhibitors (Appendix VII: P2Y12 INHIBITORS*)
-
+#### 7.3.1.2: P2y12 Inhibitors (Appendix Vii: P2y12 Inhibitors*)
 These may be given as:
-
 - **[Grade I, Level A]** A substitute to patients who are intolerant or allergic to aspirin.
 - **[Grade I, Level A]** As part of DAPT
 
@@ -114,8 +103,7 @@ The different P2Y12 inhibitors each have their own special characteristics that 
 
 Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used as part of DAPT at 7 days, 1 month and 1 year. A recent study found prasugrel to be superior to ticagrelor in reduction of death, MI or stroke without an increase in major bleeding.
 
-### 7.3.1.2.1 Clopidogrel
-
+##### 7.3.1.2.1: Clopidogrel
 - **[Grade I, Level A]** Loading dose: 300 to 600mg, maintenance dose: 75mg daily.
 - **[Grade I, Level A]** The benefits of long term clopidogrel when added to aspirin was seen in NSTE-ACS patients treated medically, those undergoing PCI or coronary artery bypass grafting.
 - Clopidogrel versus prasugrel. In ACS patients:
@@ -125,8 +113,7 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
   - with or without PCI, ticagrelor significantly reduced MACE compared to clopidogrel and severe bleeding rates were similar.
 - **[Grade IIa, Level B]** The use of clopidogrel for up to a year as part of a strategy of DAPT was found to be cost effective.
 
-### 7.3.1.2.2 Prasugrel
-
+##### 7.3.1.2.2: Prasugrel
 - **[Grade I, Level B]** Prasugrel may be considered as a second antiplatelet agent after the coronary angiogram has been performed. (No pre-treatment)
 - Loading dose: 60mg, maintenance dose: 10mg/day.
 - **[Grade III, Level A]** It is not recommended due to a higher risk of major bleeding in patients who are:
@@ -135,27 +122,23 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
   - have prior history of transient ischemic attack or stroke.
 - **[Grade IIa, Level B]** It should be considered in patients who present with stent thrombosis despite compliance with clopidogrel therapy.
 
-### 7.3.1.2.3 Ticagrelor
-
+##### 7.3.1.2.3: Ticagrelor
 - **[Grade I, Level B]** Loading dose: 180mg, maintenance dose: 90mg twice daily.
 - When compared to clopidogrel, ticagrelor resulted in a significant reduction in cardiac end points in patients undergoing an early invasive or medically treated strategy.
 - Potential drawback is dyspnoea and transient ventricular pauses during the first week. This was rarely associated with symptoms or need for a pacemaker. Caution should be exercised in patients with heart block.
 
-### 7.3.1.3 Timing of Initiation of DAPT
-
+#### 7.3.1.3: Timing Of Initiation Of Dapt
 - When given as part of DAPT, the timing of initiation of the second antiplatelet agent is not clear. There are a few randomised trials directly comparing pre-treatment with initiation at the time of angiography.
 - Unlike in STEMI, NSTE-ACS patients are a heterogenous group and include patients with multivessel disease who may be more suitable for coronary artery bypass surgery or maybe even have normal coronaries.
 - Although most Guidelines advocate pre-treatment, no recommendation for or against pre-treatment with these agents can be formulated because of the lack of trial data.
 - **[Grade I, Level C]** The exact timing is left to the clinical judgement of the attending physician.
 
-### 7.3.1.4 Duration of DAPT
-
+#### 7.3.1.4: Duration Of Dapt
 - **[Grade I, Level A]** In NSTE-ACS patients, with or without PCI, DAPT is recommended for up to 12 months unless there are contraindications such as excessive risk of bleeds.
 - **[Grade I, Level B]** In ACS patients who underwent PCI and at high risk of bleeding, DAPT maybe continued for 3 to 6 months.
 - **[Grade IIb, Level B]** Continuing DAPT for more than 12 months significantly reduces MACE at the expense of an increase in major bleeding.
 
-### 7.3.1.5 Switching a potent P2Y12 to clopidogrel
-
+#### 7.3.1.5: Switching A Potent P2y12 To Clopidogrel
 - In patients with NSTE-ACS undergoing PCI, ticagrelor or prasugrel is usually preferred to clopidogrel.
 - However, many patients may need to be switched to clopidogrel due to an increased risk of bleeding, other side effects (eg dyspnoea with ticagrelor) and costs.
 - The following approaches maybe considered:
@@ -164,8 +147,7 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
   - Those on prasugrel:
     - De-escalate directly to clopidogrel 75mg (without a loading dose) at the time of the next scheduled prasugrel dose.
 
-### 7.3.1.6 Glycoprotein (GP) IIb/IIIa Inhibitors (Appendix VIII: GLYCOPROTEIN (GP) IIb/IIIa INHIBITORS*)
-
+#### 7.3.1.6: Glycoprotein (GP) IIb/IIIa Inhibitors (Appendix Viii: Glycoprotein (GP) IIb/IIIa Inhibitors*)
 - **[Grade IIb, Level B]** These agents are no longer used pre-procedure/ "upstream" because studies have not found this practice to be superior to the provisional selective use after angiography. It is also associated with an increased risk of bleeding.
 - Their main use is in patients who have been found to have a large thrombus burden at the time of coronary angiography.
 - These agents include:
@@ -173,26 +155,21 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
   - Tirofiban
   - Eptifibatide
 
-### 7.3.2 Anticoagulant Therapy (Appendix IX: ANTICOAGULANT AGENTS*)
-
+### 7.3.2: Anticoagulant Therapy (Appendix Ix: Anticoagulant Agents*)
 - **[Grade I, Level A]** In NSTE-ACS patients managed medically, parenteral anticoagulation is recommended as soon as possible after the diagnosis.
 - The type of agent used may vary depending on whether the patient is managed by an early invasive or a conservative approach, issues of cost and local practice.
 - The duration of anticoagulant therapy in patients treated medically would vary between 2-8 days.
 
-### 7.3.2.1 Heparin
-
+#### 7.3.2.1: Heparin
 This includes:
-
 - **[Grade I, Level B]** Unfractionated heparin (UFH)
   - For high risk NSTE-ACS patients undergoing an early invasive approach, UFH had similar efficacy to enoxaparin.
 - **[Grade I, Level A]** Low Molecular Weight Heparin (LMWH) - Enoxaparin
   - It is best used in NSTE-ACS patients treated conservatively.
 - **[Grade I, Level B]** In patients > 75 years of age and with renal impairment (serum creatinine (Scr) > 200 µmol/L in women and > 250 µmol/L in men), UFH is preferable to LMWH.
 
-### 7.3.2.2 Anti-Xa inhibitors
-
+#### 7.3.2.2: Anti-Xa Inhibitors
 This includes:
-
 - **[Grade I, Level B]** Fondaparinux
   - It is best used in NSTE-ACS patients treated conservatively.
   - **[Grade III, Level A]** It is associated with an increase in catheter-related thrombus and coronary angiographic complications. Thus, it is not recommended as the sole anticoagulant during PCI.
@@ -201,12 +178,10 @@ This includes:
 
 **[Grade IIb, Level B]** Presently newer oral anti-Xa inhibitors are undergoing evaluation for ACS. A meta-analysis showed that the addition of Direct Oral Ant-Coagulants (DOAC) to DAPT in patients with NSTE-ACS did not show any significant treatment effect at the risk of increased bleeding.
 
-### 7.3.3 Anti-ischemic Drug Therapy
-
+### 7.3.3: Anti-Ischemic Drug Therapy
 These agents may be given either for relief of ischemia (symptoms) or for improvement of prognosis.
 
-### 7.3.3.1 β-blockers (Appendix X: β-blockers in NSTE-ACS*)
-
+#### 7.3.3.1: Β-Blockers (Appendix X: Β-Blockers In NSTE-ACS*)
 - There is limited randomised trials addressing the efficacy of β-blockers in NSTE-ACS.
 - **[Grade I, Level A]** β-blockers should be given to patients with heart failure and/or LV dysfunction (LVEF < 40%), continuing angina and/or ischemia.
 - **[Grade IIb, Level A]** There is limited evidence to administer it routinely in all patients.
@@ -221,13 +196,11 @@ These agents may be given either for relief of ischemia (symptoms) or for improv
 - **[Grade I, Level A]** For patients who have LVEF <40% and those who subsequently develop left ventricular systolic dysfunction consider bisoprolol, carvedilol, long acting metoprolol or nebivolol.
 - A lower starting dose of 1.25mg daily for bisoprolol/nebivolol or carvedilol 3.125mg twice daily should be initiated. This should be slowly up-titrated till the target dose or the maximally tolerated dose is achieved.
 
-### 7.3.3.2 Inhibitors of the Renin Angiotensin System-Angiotensin Converting Enzyme Inhibitors (ACEI) / Renin Angiotensin Receptor Blockers (ARB) (Appendix XI: ACEI/ARB in NSTE-ACS*)
-
+#### 7.3.3.2: Inhibitors Of The Renin Angiotensin System-Angiotensin Converting Enzyme Inhibitors (Acei) / Renin Angiotensin Receptor Blockers (ARB) (Appendix Xi: ACEI/ARB In NSTE-ACS*)
 - **[Grade I, Level A]** Once clinically and haemodynamically stable, ACEI may be initiated and continued for life in all patients with LVEF <40% and in those with hypertension, diabetes mellitus, or CKD, unless contraindicated.
 - **[Grade I, Level A]** For those who are ACEI intolerant, ARBs are recommended in patients with HF and/or LVEF <40%.
 
-### 7.3.3.3 Lipid Modifying Drugs
-
+#### 7.3.3.3: Lipid Modifying Drugs
 - **[Grade I, Level A]** High dose statin therapy (atorvastatin 40-80 mg or rosuvastatin 20-40mg daily) should be initiated as soon as possible after the diagnosis of ACS.
 - It is safe and has been shown to improve outcomes regardless of baseline LDL-C levels.
 - **[Grade I, Level A]** For patients who are already taking low or moderate-intensity statins, statin therapy should be intensified.
@@ -236,8 +209,7 @@ These agents may be given either for relief of ischemia (symptoms) or for improv
 - **[Grade I, Level A]** Patients with LDL-C > 2.6 months on maximally tolerated statins following an ACS and had a greater benefit with further lowering of the LDL-C with the addition of PCSK-9 inhibitors.
 - Refer to 2017 Malaysian Clinical Practice Guidelines on Dyslipidemia, 4th Ed.
 
-### 7.3.3.4 Nitrates (Appendix XII: Recommended dosages of Nitrates*)
-
+#### 7.3.3.4: Nitrates (Appendix Xii: Recommended Dosages Of Nitrates*)
 - **[Grade I, Level C]** Nitrates help with symptom relief only. They should be used cautiously in the presence of a low BP.
 - Intravenous nitrates may be administered in the following situations:
   - No symptom relief after 3 doses of sublingual GTN
@@ -252,20 +224,16 @@ These agents may be given either for relief of ischemia (symptoms) or for improv
   - RV infarction
   - History of ingestion of phosphodiesterase-5 inhibitors in the preceding 24 to 48 hours (depending upon the half-life of the agent).
 
-### 7.3.3.5 Calcium Channel Blockers (CCBs) (Appendix XIII: CCBs*)
-
+#### 7.3.3.5: Calcium Channel Blockers (CCBs) (Appendix Xiii: CCBs*)
 CCBs may be used in the following situations:
-
 - **[Grade IIa, Level B]** A non-dihydropyridine CCB (e.g. verapamil or diltiazem) may be used as an alternative to β-blockers in patients who are not able to tolerate or who have contraindications.
 - **[Grade IIa, Level B]** Verapamil, diltiazem, slow release nifedipine or amlodipine can be administered in patients with continuing or recurring angina despite adequate doses of nitrates and β-blockers.
 - Prinzmetal's angina (variant angina)
 - Long-acting CCBs and nitrates maybe used for patients with coronary artery spasm.
 - **[Grade III, Level A]** Immediate-release nifedipine is contraindicated.
 
-### 7.3.3.6 Other Anti-ischemic agents
-
+#### 7.3.3.6: Other Anti-Ischemic Agents
 These include:
-
 - Ivabradine
   - **[Grade I, Level B]** Ivabradine has been shown to improve symptoms and reduce cardiovascular hospitalisation, fatal and non-fatal MI and the need for coronary revascularization in patients with stable CAD, moderate LV dysfunction and HR >70 bpm.
   - **[Grade IIa, Level B]** Ivabradine may be considered for symptomatic treatment of stable CAD in patients with normal sinus rhythm, especially in those who have a contraindication to or intolerance to β-blockers and if the resting HR is above 70/min.
@@ -275,7 +243,6 @@ These include:
   - **[Grade IIa, Level B]** In small clinical studies, trimetazidine has been shown to be effective in providing angina symptom relief, reduction in the need for nitrates, time to onset of ST depression and improving functional capacity. It is useful as monotherapy and in combination with other anti-ischaemic agents.
 
 ### Key Recommendations 8:
-
 - Patients with NSTE-ACS should be on DAPT.
   - Aspirin should be given at the time of diagnosis.
   - The timing of the second antiplatelet agent will depend on the agent used. No firm recommendations can be made about pre-treatment.
@@ -285,13 +252,11 @@ These include:
 - Patients with NSTE-ACS treated medically (without an invasive strategy) should be on s.c. LMWH or s.c. fondaparinux for 2-8 days or until hospital discharge.
 
 ### Key Recommendations 9:
-
 - High dose statins should be initiated soon after diagnosis.
 - In patients who have angina/ischaemia, β-blockers and/or non-dihydropyridine CCBs should be prescribed as first-line treatment to reduce angina because it is widely available.
 - Long-acting nitrates, trimetazidine and ranolazine are recommended as add-on therapy in patients who remain symptomatic. Ivabradine may also be considered for in patients with normal sinus rhythm, especially in those who have a contraindication to or intolerance to β-blockers and if the resting HR is above 70/min.
 
-## 7.4 Revascularization Strategies
-
+## 7.4: Revascularization Strategies
 There is a strong rationale for early revascularization in patients with NSTE-ACS who are at intermediate/high risk and very high risk for MACE post NSTE-ACS. (section 5.2: Risk Scores for Prognostication in NSTE-ACS)
 
 Contemporary pharmacotherapy (availability of more potent antiplatelet agents, the use of high intensity statin), percutaneous coronary intervention (PCI) techniques and newer devices have reduced the hazards of the procedure especially among experienced operators performing these in high-risk patients during the index hospital admission.
@@ -299,7 +264,6 @@ Contemporary pharmacotherapy (availability of more potent antiplatelet agents, t
 The decision for coronary angiography with view to revascularization should be weighed against the benefits and harm of the procedure, patient preferences, ischaemic and bleeding risks, and the impact of other major co-morbidities.
 
 The indication for coronary angiography and the timing for myocardial revascularization depends on:
-
 - Clinical presentation
 - Risk scores (as outlined in section 5.2: Risk Scores for Prognostication in NSTE-ACS)
 - Comorbidities
@@ -310,7 +274,6 @@ The indication for coronary angiography and the timing for myocardial revascular
 - Functional and anatomic severity of the underlying CAD
 
 Potential benefits of early coronary angiography and revascularization are:
-
 - Diagnostic accuracy
 - Better risk stratification
 - Faster symptom relief
@@ -319,10 +282,8 @@ Potential benefits of early coronary angiography and revascularization are:
 
 Patients with features indicating that they are very high risk/high risk and presenting to non-PCI capable centres should be considered for immediate transfer to a PCI capable centre after initial stabilization.
 
-### 7.4.1 Routine early invasive management
-
+### 7.4.1: Routine Early Invasive Management
 The rationale for this strategy is to:
-
 - Confirm the diagnosis and identify the culprit lesion
 - Rapidly risk stratify patients by assessing their coronary anatomy
 - Allow for earlier revascularization and preventing MACE
@@ -332,8 +293,7 @@ The rationale for this strategy is to:
 
 Thus, an early invasive strategy in high-risk NSTE-ACS patients predominantly reduces recurrent ischemia (rather than the hard outcome of recurrent MI or death). This strategy reduces length of stay and cost but it creates a logistical burden on cardiac catheterisation labs, especially during weekends. Also, the cost-effectiveness of this approach in those with substantial co-morbidities or in the setting of rural or remote patients has not been studied.
 
-### 7.4.2 Urgent vs early invasive management
-
+### 7.4.2: Urgent Vs Early Invasive Management
 - **[Grade I, Level B]** Urgent invasive strategy - (Immediate, as soon as possible)
   - Ideally the management should be similar to STEMI in terms of the rapidness to revascularization.
   - Patients with very high risk NSTE-ACS have a poor short and long-term prognosis if left untreated.
@@ -348,8 +308,7 @@ Thus, an early invasive strategy in high-risk NSTE-ACS patients predominantly re
 
 **[Grade III, Level C]** In patients with extensive comorbidities, an invasive strategy should only considered after evaluating the risk-benefit ratio (e.g., hepatic, renal, pulmonary failure, cancer).
 
-### 7.4.3 Routine early conservative management (selective invasive therapy)
-
+### 7.4.3: Routine Early Conservative Management (Selective Invasive Therapy)
 **[Grade I, Level C]** This strategy can be advocated at non-PCI capable centres, where there are barriers to PCI, in the elderly or in frail patients and patients with comorbidities such as dementia, severe chronic renal insufficiency or cancer.
 
 The use of aggressive anticoagulant and antiplatelet agents has also reduced the incidence of adverse outcomes in patients managed conservatively. Selective coronary angiography/ revascularization is indicated for those who cannot be stabilised medically or in whom objective evidence of significant ischemia is provoked in the sub-acute phase.
@@ -365,16 +324,13 @@ In initially stabilised patients, an ischemia-guided strategy may be considered 
 The main advantage offered by this selective ischemia-guided strategy is that some patients' conditions stabilise during medical therapy and will not require coronary angiography and revascularization. Consequently, it may potentially avoid costly and possibly unnecessary invasive procedures.
 
 Wherever possible, patients who have undergone intervention should undergo complete revascularization either at the same sitting or as a staged procedure. The PCI of non-culprit lesions especially if they are between 50-70%, should be guided by Fractional Flow Reserve measurement:
-
 - FFR < 0.8 - intervene
 - FFR > 0.8 - medical therapy
 
 ### Key Messages 8#:
-
 - An early as opposed to a delayed invasive strategy is safe and associated with a lower risk of refractory ischemia and a shorter duration of hospital stay.
 
 ### Key Recommendations 10:
-
 - The selection of the optimal timing of invasive coronary angiography and revascularization should be guided by the individual's risk for a MACE. (refer to Table 2: Interpreting Cardiac Troponins) Patients at:
   - Very high risk should undergo an immediate invasive strategy (<2 h).
   - High risk should be recommended for an early invasive strategy (<24 h).
@@ -383,9 +339,10 @@ Wherever possible, patients who have undergone intervention should undergo compl
 - All patients should receive optimal medical therapy consisting of DAPT, statins and where necessary, anti-ischemic agents.
 
 ---
-## Contextual Anchors (Overlapping)
-### Section 5.1: Risk Scores to "Rule out ACS"
 
+## Contextual Anchors (Overlapping)
+
+### Section 5: .1: Risk Scores To "Rule Out ACS"
 This related content supports the Emergency Department pathway in Section 7.1 when STEMI has been excluded and the patient needs to be classified as very low likelihood, definite NSTE-ACS, or possible/suspected NSTE-ACS.
 
 The initial history, physical examination, and ECG alone are not always reliable in predicting the presence of CAD and myocardial ischaemia. Even in patients presenting with acute chest pain, clinical evaluation alone does not confirm or exclude ACS.
@@ -393,7 +350,6 @@ The initial history, physical examination, and ECG alone are not always reliable
 Cardiac biomarkers, especially assays measuring hs-cTn, are very sensitive and can detect myocardial injury earlier than conventional older assays. However, they are not specific and must be interpreted in the clinical context because other conditions besides MI can cause raised cTn.
 
 Patients presenting with chest pain or chest pain equivalents may, based on clinical history and ECG, have:
-
 - **Very low likelihood of NSTE-ACS** or an alternative cause for their symptoms. These patients can be treated accordingly and discharged from ED.
 - **Definite NSTE-ACS or STEMI.** These patients should be admitted and managed accordingly.
 - **Possible or suspected NSTE-ACS.** These patients have normal or non-diagnostic ECGs and need to be evaluated using a rule-out protocol for ACS.
@@ -403,7 +359,6 @@ Patients presenting with chest pain or chest pain equivalents may, based on clin
 **Rule-out ACS pathways**
 
 Following targeted clinical evaluation and ECG, blood is taken for cTn measurement, preferably hs-cTn. Several algorithms based on cTn or hs-cTn are used to rule out ACS:
-
 1. **HEART pathway** - uses HEART score and cTn <99th percentile at 0 and 3 hours.
 2. **ESC 3-hour pathway** - if onset of pain is >6 hours and baseline hs-cTn at presentation is <99th percentile; if symptom onset is <6 hours, repeat testing at 3 hours is used with clinical assessment.
 3. **ESC 1-hour pathway** - measures baseline and absolute changes in hs-cTn levels within the first hour; cut-off levels are assay specific.
@@ -417,14 +372,12 @@ The cut-off levels for different hs-cTn assays vary. Some have sex-specific cut-
 The committee advocates Flowchart 1: "Rule out" Protocol for Patients Suspected to Have ACS Using Cardiac Troponin (Preferably hs-cTn) and 0/3 Hour# Protocol using cTn, preferably hs-cTn, as a rule-out pathway.
 
 When using POC kits:
-
 - **[Grade IIb, Level C]** If the reading is elevated, admit the patient for further evaluation.
 - **[Grade IIb, Level C]** If the reading is normal or non-detectable and clinical suspicion is high, repeat after 6 hours.
 
 cTn must be interpreted in the clinical context of the patient. Other key clinical data, including chest pain features, past medical history, and ECG, must be considered, particularly when contemporary hs-cTn assays are used.
 
 The common rule-out risk scores are:
-
 - **HEART** score
 - **TIMI** risk score
 - ADAPT-ADP
@@ -450,7 +403,6 @@ Measurement of clinical risk scores for ACS - HEART score, modified HEART score 
 Clinical judgement remains important before discharging the patient from ED. Persistent or recurrent symptoms during the ED stay should prompt re-evaluation.
 
 The rule-out and rule-in ACS protocols identify an indeterminate group that warrants further observation and/or investigation, including:
-
 - Ongoing or recurrent chest symptoms without significant ECG or cTn elevations.
 - Elevated cTn/hs-cTn levels without a significant rise and fall.
 - Mildly raised cTn levels, equivocal results, or patients who cannot be confidently ruled out or ruled in for MI.
@@ -461,14 +413,13 @@ Depending on available facilities and clinical status, these patients may be adm
 Other diagnostic modalities in this group include repeat ECG, echocardiography or POCUS, functional stress testing with or without imaging, and coronary angiography including CTCA or conventional invasive coronary angiography.
 
 ---
-### Section 5.2: Risk Scores for Prognostication in NSTE-ACS
 
+### Section 5: .2: Risk Scores For Prognostication In NSTE-ACS
 This related content supports Section 7.2 on level of care and Section 7.4 on revascularization strategy, where admission location and timing of coronary angiography are guided by the patient's risk category.
 
 Patients with NSTE-ACS have an increased risk of death, recurrent MI, recurrent symptomatic ischaemia, serious arrhythmias, heart failure and stroke.
 
 Early assessment helps determine:
-
 - Prognosis of the patient
 - Management strategies
 - Selection of the site of care, including coronary care unit, monitored step-down ward or outpatient setting
@@ -477,7 +428,6 @@ Early assessment helps determine:
 Risk is highest at the time of presentation but remains elevated past the acute phase. By 6 months, NSTE-ACS mortality rates may equal or exceed those of STEMI.
 
 Risk stratification in NSTE-ACS may be performed using:
-
 - **Clinical features**, as in Table 3: Risk Stratification for NSTE-ACS
 - **Risk scores**, including:
   - HEART Score - predicts 30-day MACE.
@@ -492,7 +442,7 @@ These risk scores help dictate the appropriate strategy, invasive versus ischaem
 
 Very-high-risk and high-risk patients should be considered for transfer to a PCI-capable centre as soon as possible.
 
-**Table 3: Risk Stratification for NSTE-ACS**
+Table 3: Risk Stratification for NSTE-ACS
 
 **Very-High-Risk Criteria**
 
@@ -524,7 +474,7 @@ Very-high-risk and high-risk patients should be considered for transfer to a PCI
 - Any characteristics not mentioned above
 
 ---
-### Table 2: Interpreting Cardiac Troponins
+Table 2: Interpreting Cardiac Troponins
 
 This table can be read as a clinical pathway for patients with **elevated cardiac troponins (>99th percentile)**.
 
@@ -548,27 +498,26 @@ A repeat cTn may be necessary depending on the patient's clinical condition and 
 **2. Consider analytical errors**
 
 Elevated troponins may occasionally be due to analytical issues, including:
-
 - Assay-based errors
 - Sample-based errors, such as a hemolysed specimen
 
 *A repeat cTn may be necessary depending on the clinical condition of the patient and the physician’s judgement. <br>
 ** Ischemic thresholds vary substantially in relation to the magnitude of the stressor and the extent of underlying cardiac disease. <br>
 *** Requires a rise and/or fall of troponins above the 99th percentile URL together with evidence of ischemia with at least one of the following:
-1)  Ischemic type chest pain of >30 mins or, 
-2)  electrocardiography (ECG) changes of new ischemia or, 
-3)  development of pathologic Q-waves in the ECG or 
+1)  Ischemic type chest pain of >30 mins or,
+2)  electrocardiography (ECG) changes of new ischemia or,
+3)  development of pathologic Q-waves in the ECG or
 4)  imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 
-#Stable denotes ≤20% variation of troponin values in the appropriate clinical context. 
+#Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
 *Adapted from:*
 - *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
 - *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
 
 ---
-### Appendix VII: P2Y12 INHIBITORS*
 
+### Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
 | :--- | :--- | :--- | :--- |
 | **Chemical class** | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
@@ -591,8 +540,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-### Appendix VIII: GLYCOPROTEIN (GP) IIb/IIIa INHIBITORS*
-
+### Appendix VIII: Glycoprotein (GP) IIb/IIIa Inhibitors*
 | | Abciximab | Tirofiban | Eptifibatide |
 | :--- | :--- | :--- | :--- |
 | **Type** | Antibody | Nonpeptide | Cyclic peptide |
@@ -613,8 +561,8 @@ Elevated troponins may occasionally be due to analytical issues, including:
 * *De Luca G. Glycoprotein IIb-IIIa inhibitors. Cardiovasc Ther. 2012;30(5): e242-54.*
 
 ---
-### Appendix IX: ANTICOAGULANT AGENTS*
 
+### Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
 | **Dose** | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
@@ -630,8 +578,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-### Appendix X: β-blockers in NSTE-ACS*
-
+### Appendix X: Β-Blockers In NSTE-ACS*
 | β-blockers | Bisoprolol | Carvedilol | Metoprolol |
 | :--- | :--- | :--- | :--- |
 | **Initiation dose** | 1.25mg od | 3.125mg bd | 25mg bd |
@@ -648,8 +595,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-### Appendix XI: ACEI/ARB in NSTE-ACS*
-
+### Appendix XI: ACEI/ARB In NSTE-ACS*
 | ACE/ARB | Captopril | Ramipril | Enalapril | Perindopril |
 | :--- | :--- | :--- | :--- | :--- |
 | **Initiation dose** | 6.25mg bd-tds | 2.5mg bd | 2.5-5mg od | 2mg od<br>(perindopril erbumine) /<br>-2.5mg od<br>(perindopril arginine) |
@@ -667,8 +613,8 @@ Elevated troponins may occasionally be due to analytical issues, including:
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 28th July 2019.*
 
 ---
-### Appendix XII: Recommended dosages of Nitrates*
 
+### Appendix XII: Recommended Dosages Of Nitrates*
 | | Glyceryl trinitrate (GTN) | | | | | Isosorbide dinitrate | | | Isosorbide mononitrate |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Route** | Sublingual | Intra-venous | Spray | Patch | Buccal | Topical (2% ointment) | Intra-venous | Oral | Oral (long-acting) |
@@ -679,13 +625,12 @@ Elevated troponins may occasionally be due to analytical issues, including:
 | **Metabolism** | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver |
 | **Elimination** | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 80 - 90% | Renal: 80 - 90% | Renal: 78% |
 
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*  
+*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 *<sup>†</sup>Initially, 10 mcg/min, increase in increment of 10 mcg/min at approximately 30-minute intervals, according to patient requirement.*
 
 ---
 
 ### Appendix XIII: CCBs*
-
 | CCB | Diltiazem | Verapamil | Amlodipine | Nifedipine ER |
 | :--- | :--- | :--- | :--- | :--- |
 | **Dose** | Immediate release, 30 - 90mg tds;<br>Slow release, 100 - 200mg od | Immediate release, 40 - 80mg tds;<br>Slow release, 120 - 240mg od | 2.5 -10mg od | Slow release, 30 - 90mg od |
@@ -700,8 +645,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 ---
 
-### Flowchart 1: "Rule out" Protocol for Patients Suspected to Have ACS Using Cardiac Troponin (Preferably hs-cTn) and 0/3 Hour# Protocol
-
+### Flowchart 1: "Rule Out" Protocol For Patients Suspected To Have ACS Using Cardiac Troponin (Preferably Hs-Ctn) And 0/3 Hour# Protocol
 The flowchart describes the rule-out pathway for patients with acute chest pain after history and physical examination:
 
 **1. Initial assessment**
@@ -711,7 +655,6 @@ Patients presenting with acute chest pain should have cardiac troponins (cTn)* m
 **2. Initial cTn or hs-cTn result**
 
 The first troponin result separates patients into two pathways:
-
 - **cTn or hs-cTn > 99th percentile*****
   - The patient should be **admitted**.
 - **cTn or hs-cTn < 99th percentile**
@@ -728,7 +671,6 @@ The first troponin result separates patients into two pathways:
 **4. Repeat cTn or hs-cTn result**
 
 After repeat testing:
-
 - If the repeat result is < 99th percentile and there is < 50% change in levels within a 3-hour period***:
   - If the patient is pain free and has HEART score < 3** or TIMI score 0 or 1**, the patient may be discharged from ED with an early outpatient cardiology consult, or internal medicine consult if cardiology is unavailable.
   - If the patient is still having pain, has HEART score > 3** or TIMI score ≥ 2**, and other diagnoses have been excluded, the patient should be admitted.
@@ -737,7 +679,6 @@ After repeat testing:
 **5. Discharge care plan after "Rule out ACS"**
 
 Patients discharged after rule-out should:
-
 - Keep the scheduled appointment for further cardiac assessment.
 - Go to the nearest hospital if chest pain or chest discomfort recurs before the appointment.
 
@@ -750,7 +691,7 @@ Patients discharged after rule-out should:
 
 ---
 
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -768,8 +709,7 @@ Patients discharged after rule-out should:
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACEI | Angiotensin Converting Enzyme Inhibitor |

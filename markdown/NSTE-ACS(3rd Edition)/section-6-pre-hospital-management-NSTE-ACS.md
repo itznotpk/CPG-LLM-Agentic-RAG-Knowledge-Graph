@@ -1,5 +1,4 @@
-# SECTION 6: PRE-HOSPITAL MANAGEMENT
-
+# Section 6: Pre-Hospital Management
 <!-- METADATA
 category: Treatment, Diagnosis
 use_case: Pre-Hospital NSTE-ACS Management - public_awareness, aspirin_loading, ECG_acquisition, ambulance_triage, early_transfer
@@ -9,8 +8,7 @@ critical: true
 treatment_type: aspirin, ECG, ambulance_transfer
 -->
 
-## 6.1 For the General Public
-
+## 6.1: For The General Public
 Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC.
 
 The public should be educated about:
@@ -30,7 +28,6 @@ A meta-analysis indicated that only around half of the studied interventions rep
 It was, however, not possible to establish which particular BCT was more effective.
 
 Immediate measures to be taken by the individual in suspected cases of ACS:
-
 - Seek immediate medical attention at the nearest clinic or hospital.
 - Call for an ambulance (dial 999) or get someone to take you immediately.
 - Do not drive yourself.
@@ -42,18 +39,15 @@ Immediate measures to be taken by the individual in suspected cases of ACS:
 
 ---
 
-## 6.2 Primary Care Clinics
-
+## 6.2: Primary Care Clinics
 Chest pain is one of the more common presentations in primary care facilities. In less urban areas, it may be the most accessible healthcare facility to the patient.
 
 Management will begin with assessment of the patient by:
-
 -  [Level I, Grade C] Taking history and physical examination. It is important to look for haemodynamic instability.
 -  [Level I, Grade C] Performing an ECG — This is an essential investigation and should be made routinely available in all primary care settings. A patient with a non-interpretable ECG may have NSTE-ACS. Also, a normal ECG does not exclude NSTE-ACS.
 - Measuring cardiac biomarkers (cTn) — Presently, this is usually done at the hospital level where definitive treatment can also be given.
 
 In suspected NSTE-ACS:
-
 - If the primary care facility does not have ambulance facilities, call 999 to assist in patient transfer to hospital.
 - Ask patient to chew and swallow aspirin 300 mg (non-enteric coated) if not already done so.
 - Serve sublingual GTN, if SBP is more than 90 mmHg and patient has recurrent or ongoing chest pains.
@@ -64,16 +58,14 @@ In suspected NSTE-ACS:
 
 ---
 
-## 6.3 Medical Emergency Coordination Centre (MECC) and Ambulance Responders
-
+## 6.3: Medical Emergency Coordination Centre (Mecc) And Ambulance Responders
 When a patient presents with chest pain, it is of paramount importance to determine if:
 - The pain is cardiac in origin.
 - If cardiac in origin, is it due to:
   - **STEMI** — requires immediate treatment to reopen the occluded infarct related artery preferably by Primary PCI if this can be done in a timely manner.
   - **NSTE-ACS** — UA or NSTEMI. The initial management is medical.
 
-### 999 Call Process
-
+## 999: Call Process
 When there is a 999 call, the caller is first directed to Telekoms who will verify the authenticity of the caller. It is then directed to a Medical Emergency Coordination Centre (MECC), who will then:
 
 **A. Identify the chief complaint**
@@ -88,7 +80,6 @@ If the complaint is chest pain or a chest pain equivalent (e.g., chest heaviness
 Pre-arrival instructions will be given and this includes immediate self-care or bystander care while waiting for ambulance arrival.
 
 ### Ambulance Teams
-
 Ambulance teams dispatched to the scene should be trained and equipped to perform an ECG (with the use of Advanced Cardiac Care Device which is capable of ECG recording, transmission, and real-time ECG monitoring and telemetry).
 
 - If the ECG (after interpretation by trained personnel) shows features of **STEMI**, the patient should be transported to the nearest hospital preferably with PCI-capable services.
@@ -100,7 +91,7 @@ Ambulance teams dispatched to the scene should be trained and equipped to perfor
 -  [Level I, Grade A] Give 300 mg of chewable aspirin (if not taken earlier).
 -  [Level I, Grade C] GTN either as a sublingual tablet or spray if there are no contraindications.
 
-### Pre-hospital care personnel should be trained to:
+### Pre-Hospital Care Personnel Should Be Trained To:
 - Identify patients at high risk of developing ACS such as those with prior heart disease, the elderly, presence of multiple cardiovascular risk factors — diabetes, smoking, hypertension, dyslipidaemia, and a family history of premature heart disease.
 - Interpret the ECG, identify and treat common arrhythmias. There should be periodic feedback reports and other quality improvement measures in the interpretation of ECGs.
 - Identify patients with NSTE-ACS and STEMI based on history and characteristic ECG changes after consultation with the ED physician/medical officer.
@@ -109,18 +100,16 @@ Ambulance teams dispatched to the scene should be trained and equipped to perfor
 ---
 
 ### Key Recommendations 5:
-
 - Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC.
 - If the person is suspected to have an ACS and is not on regular aspirin with no history of allergy, 300mg aspirin should be administered. Soluble and chewable aspirin formulations are preferable to solid aspirin either chewed or swallowed.
 
 ### Key Recommendations 6:
-
 - Ambulance responders should be trained and equipped to perform an ECG.
 - If the ECG shows STEMI or the patient with NSTE-ACS has ongoing/recurrent chest pain, they should be considered for immediate transfer to a PCI-capable hospital. High-risk unstable patients should be taken to the nearest hospital for stabilization first.
 
 ---
 
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -138,8 +127,7 @@ Ambulance teams dispatched to the scene should be trained and equipped to perfor
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

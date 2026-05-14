@@ -1,5 +1,4 @@
-# SECTION 4: PRE-HOSPITAL MANAGEMENT
-
+# Section 4: Pre-Hospital Management
 <!-- METADATA
 category: Treatment
 use_case: Pre-Hospital Management and Emergency Transport — public_education, symptom_recognition, emergency_transport, pre_hospital_ECG, first_medical_contact
@@ -9,14 +8,12 @@ critical: true
 treatment_type: pre_hospital_fibrinolysis, antiplatelet_loading
 -->
 
-## CPG MANAGEMENT OF ACUTE ST ELEVATION MYOCARDIAL INFARCTION (STEMI), 4TH EDITION, 2019
-
+## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC. Most deaths following STEMI occur in the pre-hospital phase.
 
 Patients with ischaemic-type chest pain should go to the nearest hospital rather than a clinic.
 
 In STEMI, it is important to reduce total ischaemic time — the time from symptom onset to the time of institution of reperfusion strategies. Total ischaemic time is a combination of:
-
 1. Time from arterial occlusion to symptom onset.
 2. Time from symptom onset to FMC.
 3. FMC to initiation of reperfusion strategies (Primary PCI or fibrinolysis).
@@ -29,35 +26,29 @@ The public should be educated about:
 **"TIME IS MYOCARDIUM."**
 Immediate measures to be taken in suspected cases of ACS.
 
-## 4.1 For the General Public
-
+## 4.1: For The General Public
 - Seek immediate medical attention at the nearest hospital.
 - Call for an ambulance (dial 999) or get someone to take you immediately and directly to the nearest hospital.
 - Do not drive yourself.
 - If not on regular aspirin and with no history of allergy, chew 300 mg aspirin immediately. Soluble and chewable aspirin formulations are preferable to solid aspirin either chewed or swallowed. Regular aspirin is preferred over enteric coated aspirin in this situation because of its faster onset of action.
 - The 999 despatchers will provide additional care instructions before the arrival of the PHC providers.
 
-## 4.2 For Patients with Known Coronary Heart Disease (CHD)
-
+## 4.2: For Patients With Known Coronary Heart Disease (Chd)
 - If the chest pain is suggestive of ACS (refer to Section 3.1: History), take one dose of sublingual GTN by tablet or spray, and be rapidly transported to the nearest hospital.
 - Patients should be educated that taking GTN with certain drugs can cause complications such as vasodilatation and hypotension; this includes taking it within 48 hours of drugs such as phosphodiesterase inhibitors [sildenafil (Viagra), tadalafil (Cialis), vardenafil (Levitra)].
 
-## 4.3 For Patients with Known CHD and History of Previous PCI and/or CABG
-
+## 4.3: For Patients With Known Chd And History Of Previous PCI and/or Cabg
 - If the chest pain is suggestive of ACS(refer to Section 3.1: History), take one dose of sublingual GTN by tablet or spray, and be rapidly transported to the nearest hospital.
 - Go as soon as possible preferably to a PCI-capable hospital.
 
-## 4.4 Pre-Hospital Care (PHC)
-
+## 4.4: Pre-Hospital Care (Phc)
 When a patient presents with chest pain, it is of paramount importance to determine if:
-
 - The pain is cardiac in origin.
 - If cardiac in origin, is it due to:
   - STEMI — requires immediate treatment preferably by Primary PCI if this can be done in a timely manner.
   - UA/NSTEMI.
 
 In STEMI there is:
-
 - Prolonged duration of ischaemic-type chest pain of > 30 minutes and
 - ECG changes showing ST elevation of > 1 mm in 2 contiguous leads or a new (or presumed new) onset LBBB.
 
@@ -67,12 +58,10 @@ In UA/NSTEMI, the initial management is medical in accordance with the CPG on UA
 
 The pre-hospital management of STEMI patients should ideally be based on regional networks designed to deliver reperfusion therapy rapidly and effectively, with efforts made to make primary PCI available to as many patients as possible.
 
-### When There Is a 999 Call
-
+### When There Is A 999 Call
 When there is a 999 call, the caller is first directed to Telekoms who will verify the authenticity of the caller. It is then directed to a Medical Emergency Coordination Centre (MECC), who will then:
 
 **A. Identify the chief complaint** — If the complaint is chest pain or a chest pain equivalent (e.g., chest heaviness, discomfort which may be associated with sweating and/or shortness of breath), use a validated protocol addressing:
-
 - Nature of complaint and severity including level of alertness.
 - Difficulty breathing.
 - Changing of skin colour (pallor/blue).
@@ -104,7 +93,7 @@ Ambulance teams dispatched to the scene should be trained and equipped to identi
 **C. If the ECG does not show STEMI:**
 * The patient should be transported to the nearest hospital preferably with cardiology services.
 
-## 4.5 Pre-Hospital Care Personnel
+## 4.5: Pre-Hospital Care Personnel
 Pre-hospital care personnel should be trained to:
 * Identify patients at high risk of developing ACS such as those with prior heart disease, the elderly, presence of multiple cardiovascular risk factors — diabetes, smoking, hypertension, dyslipidaemia, and a family history of premature heart disease.
 * Interpret the ECG, identify and treat common arrhythmias.
@@ -124,14 +113,12 @@ Pre-hospital care personnel should be trained to:
 
 ## Contextual Anchors (Overlapping)
 
-### Section 3.1: History
-
+### Section 3: .1: History
 A thorough, targeted history is important in making the diagnosis of STEMI. Chest pain in STEMI begins abruptly and lasts for more than thirty minutes. It is usually located in the centre of the chest and may radiate to the jaw or down the left arm. It may occur at rest or with activity. The pain may just be a tightness or heaviness in the chest, but it is usually described as a pressure, squeezing or a severe crushing pain with a sense of impending doom, and is associated with sweating, nausea, vomiting and shortness of breath. The pain may be of a burning quality and localised to the epigastria or interscapular region resulting in a misdiagnosis.
 
 In the elderly, females and patients with diabetes, the index of suspicion should be high because they may present with atypical symptoms such as unexplained fatigue, shortness of breath, dizziness, light-headedness, unexplained sweating and syncope. They may not necessarily have chest pain.
 
 Other important points to note in the history are the presence of:
-
 - Previous history of ischaemic heart disease, PCI or CABG.
 - Risk factors for atherosclerosis.
 - Symptoms suggestive of previous transient ischaemic attack (TIA) or other forms of vascular disease.
@@ -139,7 +126,6 @@ Other important points to note in the history are the presence of:
 ---
 
 ### Section 5: STEMI Network (Overlapping)
-
 The objective of a STEMI network is to link non-PCI-capable centres to PCI-capable centres with the aim of providing PCI services in a timely manner for patients:
 - With STEMI
 - Who have been given fibrinolytic therapy and:
@@ -170,8 +156,7 @@ Essentials of STEMI systems of care include:
 - A prospective registry to assess progress and need for change.
 - Quality Improvement Measures and Quality Improvement Programs.
 
-#### 5.1 Total Ischaemic Time
-
+## 5.1: Total Ischaemic Time
 Recommendations to reduce total ischaemic time in a STEMI network:
 
 **For Primary PCI:**
@@ -207,7 +192,6 @@ Recommendations to reduce total ischaemic time in a STEMI network:
 ---
 
 ### Section 7: Reperfusion Strategies (Overlapping)
-
 **The appropriate and timely use of some form of reperfusion therapy is more important than the choice of therapy.**
 
 [Grade I, Level A] Early and prompt reperfusion is crucial as **TIME LOST** is equivalent to **MYOCARDIUM LOST**.
@@ -279,17 +263,14 @@ _* The BP should be reduced prior to institution of fibrinolytic therapy_
 
 [Grade I, Level A] Primary PCI is the preferred strategy in patients in Category B who have contraindications to fibrinolytic therapy and those in Category C, the high risk patients.
 
-#### Key Recommendation 5 (from Section 7):
-
+#### Key Recommendation 5 (From Section 7):
 - Primary PCI is superior to fibrinolysis for STEMI and should be performed in a timely manner at experienced centres.
 
-#### Key Recommendation 6 (from Section 7):
-
+#### Key Recommendation 6 (From Section 7):
 - When fibrinolytic therapy is administered, the DNT should be ≤ 30 minutes.
 - Whenever possible, patients given fibrinolytic therapy should be considered for a pharmaco-invasive approach (elective angiogram within 3–24 hours post fibrinolysis).
 
-#### Key Message #7 (from Section 7):
-
+#### Key Message #7 (From Section 7):
 Primary PCI is superior to fibrinolysis for STEMI when performed in a timely manner at experienced centres.
 - If the patient **presents at a PCI centre**, then the time from FMC (First Medical Contact) to wire crossing should be **≤ 90 minutes.**
 - If transferred from **a centre with no PCI facilities**, the time from FMC to wire crossing should be **≤120 minutes** (including transfer delay). This is made up of:
@@ -299,7 +280,7 @@ Primary PCI is superior to fibrinolysis for STEMI when performed in a timely man
   - If the time delay to primary PCI is >120 minutes, the best option is to give fibrinolytic therapy and make arrangements to transfer the patient to a PCI capable centre for a pharmaco-invasive strategy.
 
 ---
-## Table 1: Levels of evidence and grades of recommendation
+Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
@@ -316,8 +297,8 @@ Primary PCI is superior to fibrinolysis for STEMI when performed in a timely man
 | **C** | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
-## Abbreviations Used in This Section
 
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |

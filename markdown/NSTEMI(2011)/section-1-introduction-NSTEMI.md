@@ -1,9 +1,8 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction
 use_case: Epidemiology and CPG Rationale — cardiovascular_disease_malaysia, ACS_prevalence, guideline_update_rationale
-patient_input: 
+patient_input:
 output: disease_burden_context, guideline_objectives
 -->
 
@@ -16,7 +15,6 @@ The last CPG on UA/NSTEMI was published in 2002. Since then, there have been sig
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACS** | Acute Coronary Syndrome |

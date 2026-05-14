@@ -1,5 +1,4 @@
-# SECTION 11: RECURRENT DISEASE
-
+# Section 11: Recurrent Disease
 <!-- METADATA
 category: Treatment
 use_case: Recurrent Disease — pelvic_exenteration, palliative_chemotherapy, salvage_radiotherapy, combination_chemotherapy
@@ -9,12 +8,10 @@ critical: true
 treatment_type: pelvic_exenteration, cisplatin, paclitaxel, 5FU, methotrexate, salvage_RT, CCRT
 -->
 
-## a. Pelvic Exenteration
-
+## A. Pelvic Exenteration
 In advanced and recurrent cervical cancer, the role of surgery is limited. In this situation, pelvic exenteration may be an option in selected group of patients.
 
 Primary or secondary pelvic exenteration with curative or palliative intention is an effective option with high percentage of long-term survival in LACC FIGO stage IVA:
-
 - [Level II-1; Level II-2] Median survival between 29 - 30 months
 - [Level II-1; Level II-2] 5-years OS ranging from 36.8% to 52%
 
@@ -23,14 +20,12 @@ Patients who have undergone pelvic exenteration of curative intent have higher O
 [Level II-2] In a mixed population that includes cervical cancer, 61% 5-year OS is achieved when resection margin is negative.
 
 For cervical cancer patients who have undergone pelvic exenteration, the following factors are significantly associated with lower OS:
-
 - [Level II-1; Level II-2] positive pelvic lymph node
 - [Level II-1; Level II-2] positive resection margin
 - [Level II-2] shorter time between primary treatment and recurrence
 - [Level II-2] surgery of palliative intent
 
 In pelvic exenteration:
-
 - [Level II-1; Level II-2] the overall complication rates range between 51.6% and 66%.
 - [Level II-2] the early complication rates (≤30 days) range between 44.8% and 50%.
 - [Level II-2] the late complication rates (>30 days) range between 48.5% and 74%.
@@ -45,11 +40,9 @@ In pelvic exenteration:
 - Common complications for pelvic exenteration are infectious morbidity, intestinal obstruction, fistula formation, anastomotic leak and prolonged hospital stay.
 
 ## Recommendation 15
-
 - In patients with cervical cancer, pelvic exenteration may be considered in locally advanced disease or in pelvic recurrence, after thorough counselling on its benefits and risks.
 
-## b. Chemotherapy
-
+## B. Chemotherapy
 Chemotherapy with palliative intent may be an option in patients with recurrent or metastatic cervical cancer with Eastern Cooperative Oncology Group (ECOG) Performance Status grades 0 to 2 (refer to Appendix 7: ECOG Performance Status).
 
 In recurrent or metastatic cervical cancer,
@@ -61,22 +54,19 @@ In recurrent or metastatic cervical cancer,
 - [Level I] combination chemotherapy has more toxicities compared to single agent chemotherapy.
 
 ## Recommendation 16
-
 - Combination chemotherapy* may be offered to patients with recurrent or metastatic cervical cancer with good performance status.
 
 *Refer to Appendix 8: Systemic Therapy Cancer Protocol for suggested chemotherapy regime.
 
-## c. Salvage Radiotherapy/Chemoradiotherapy
-
+## C. Salvage Radiotherapy/Chemoradiotherapy
 [Level II-2] The treatment for recurrent cervical cancer depends on the mode of primary treatment and the site and extent of recurrent disease. Salvage RT or CCRT may be a feasible treatment option for locally recurrent cervical cancer following surgery with high salvage rate (41 - 45%) and acceptable late complication rate.
 
 ## Recommendation 17
-
 - In radiotherapy naïve cervical cancer patients with local recurrence, salvage radiotherapy to the pelvis may be offered.
 
 ## Contextual Anchors (Overlapping)
-### Appendix 7: ECOG Performance Status
 
+### Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -90,11 +80,13 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 ---
 
-### Appendix 8: Systemic Therapy Cancer Protocol 
+### Appendix 8: Systemic Therapy Cancer Protocol
 
-### CERVICAL CANCER CHEMOTHERAPY
-### Concurrent chemo-radiotherapy
-#### Single agent cisplatin
+### Cervical Cancer Chemotherapy
+
+### Concurrent Chemo-Radiotherapy
+
+#### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
@@ -102,28 +94,29 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 *N.B. In practice, 50 mg total dose per week of cisplatin could be used*
 
-### Palliative chemotherapy
-#### Single agent cisplatin
+### Palliative Chemotherapy
+
+#### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 
-#### Cisplatin-5FU
+#### Cisplatin-5fu
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 - 75 | IV | 1 hour | 1 |
 | 5Fluorouracil | 750 - 1000 | IV | 24 hour | 1 - 5 |
 
-#### Cisplatin-MTX
+#### Cisplatin-Mtx
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 | Methotrexate | 100 | IV | Bolus | 1 - 5 |
 
-#### Paclitaxel-cisplatin
+#### Paclitaxel-Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
@@ -136,8 +129,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 ---
 
-## Levels of Evidence
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -146,8 +138,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AC | Adenocarcinoma |

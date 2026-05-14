@@ -1,5 +1,4 @@
-# SECTION 2: PRINCIPLES OF MANAGEMENT
-
+# Section 2: Principles Of Management
 <!-- METADATA
 category: Treatment, Assessment
 use_case: Principles of Cancer Pain Management — total_pain_concept, multidisciplinary_team, patient_family_centred_care, individualised_pain_response, WHO_analgesic_ladder
@@ -32,11 +31,10 @@ Comprehensive cancer pain assessment remains the first and foremost principle in
 [Level I] Healthcare providers should be aware that the patient’s experience and response to pain is highly individualised. There are many factors that influence an individual’s response to pain e.g. age, cognitive abilities, cultural background and previous experience of pain. Recognising this may help in providing individualised care and alleviating pain more effectively.
 
 ## Contextual Anchors (Overlapping)
-### Figure 1: Concept of Total Pain
+Figure 1: Concept Of Total Pain
 
 **Visual Description:**
 The concept of Total Pain is presented as a circular model centered on "Total Pain," divided into four interconnected quadrants that illustrate the complexity of the patient experience:
-
 1.  **Physical:** Includes pain caused by cancer, pain caused by treatment, and other co-morbidities.
 2.  **Psychological:** Encompasses anxiety, depression, fear of suffering, and the impact of past experiences of illness.
 3.  **Social:** Includes dependency, worries about the future of the family, financial concerns, loss of job, and loss of role & social status.
@@ -44,8 +42,7 @@ The concept of Total Pain is presented as a circular model centered on "Total Pa
 
 ---
 
-## LEVELS OF EVIDENCE
-
+## Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -56,8 +53,7 @@ The concept of Total Pain is presented as a circular model centered on "Total Pa
 
 ---
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse effects |

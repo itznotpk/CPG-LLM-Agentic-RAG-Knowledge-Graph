@@ -1,5 +1,4 @@
-# 8 PRE-ANAESTHETIC ASSESSMENT OF PAEDIATRIC PATIENTS
-
+## 8: Pre-Anaesthetic Assessment Of Paediatric Patients
 <!-- METADATA
 category: Paediatric Assessment, Paediatric Anaesthesia
 use_case: Pre-anaesthetic assessment of paediatric patients — birth_history, gestational_age, Apgar_scores, neonatal_hospitalization, developmental_milestones, feeding_pattern, RTI_management, laryngospasm, bronchospasm, airway_obstruction, mild_RTI_criteria, active_RTI_postponement, paediatric_fasting_guidelines, clear_fluids_2hrs, breast_milk_4hrs, formula_milk_solids_6hrs, paediatric_premedication, midazolam, diazepam, EMLA_application, non-drug_anxiolysis, parental_presence
@@ -12,7 +11,7 @@ treatment_type: midazolam, diazepam, EMLA
 
 A pre-anaesthetic visit is important for the anesthesiologist to get acquainted with the patient and his/her family and to gain their confidence. This will go a long way towards reassuring the frightened child and anxious parents. It also gives the anaesthesiologist an opportunity to explain to the parents/patient regarding the planned anaesthetic procedure - the pre-operative fasting, method of induction and post-operative pain management
 
-## 8.1 Pre-anaesthetic assessment
+## 8.1: Pre-Anaesthetic Assessment
 Pre-anaesthetic evaluation of infants and children is similar to that of adults with the following additional features to look for:
 
 8.1.1 History
@@ -35,8 +34,7 @@ Pre-anaesthetic evaluation of infants and children is similar to that of adults 
 - Value of routine tests is questionable when the surgical procedures do not involve significant blood loss. Minor surgery in a healthy child usually does not require any investigation.
 - Group and cross match blood and plasma if indicated
 
-## 8.2 A child with RTI
-
+## 8.2: A Child With Rti
 8.2.1 Peri-operative problems include laryngospasm, bronchospasm, airway obstruction by secretion
 
 8.2.2 Incidence is greater in infants less than 1 year old.
@@ -47,8 +45,7 @@ Pre-anaesthetic evaluation of infants and children is similar to that of adults 
 
 8.2.5 Surgery for the child with active RTI (fever, recent onset of purulent nasal discharge, cough) should be postponed for at least 2 weeks.
 
-## 8.3 Pre-operative fasting
-
+## 8.3: Pre-Operative Fasting
 8.3.1 It has been shown that drinking clear fluid up to 2 hours before surgery does not increase residual gastric volume. More liberal use of clear fluid in the immediate preoperative period may
 - Decrease the incidence of preoperative dehydration and possible hypotension during induction
 - Prevent hypoglycaemia
@@ -64,8 +61,7 @@ Pre-anaesthetic evaluation of infants and children is similar to that of adults 
 
 *Clear fluids include water, glucose drink, cordial drink, clear fruit juice
 
-## 8.4 Premedication
-
+## 8.4: Premedication
 8.4.1 Purpose of premedication is to relieve patient's anxiety and provide tranquility before the operation.
 
 8.4.2 Premedication must be individualized. The appropriate drug is selected on the basis of child's age, weight, expectation, emotional maturity, personality, anxiety level, co-operation and physiological and psychological status.

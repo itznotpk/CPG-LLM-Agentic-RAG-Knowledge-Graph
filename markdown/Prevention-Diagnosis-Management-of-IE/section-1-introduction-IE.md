@@ -1,5 +1,4 @@
-# SECTION 1.0: INTRODUCTION
-
+# Section 1: .0: Introduction
 <!-- METADATA
 category: Introduction
 use_case: Guideline Scope and Objectives — overview, rationale, objectives
@@ -7,8 +6,7 @@ patient_input: none
 output: guideline_scope
 -->
 
-## 1.0 INTRODUCTION
-
+## 1.0: Introduction
 Infective endocarditis (IE) is defined as an infection of the endocardial surface of the heart (heart valves and mural endocardium) by microorganisms (mainly bacteria).
 
 IE has evolved over the years as the prevalence of rheumatic heart disease declined. Advances in the treatment of congenital heart disease (CHD) and structural heart disease with the introduction of conduits, prosthetic materials and intracardiac devices has led to many patients surviving well into adulthood, hence making them more susceptible to infection in view of the presence of these foreign materials. Incidence of IE in patients with adult CHD is 3 times higher than that in the paediatric population. Increase in the ageing population has also led to older patients with multiple co-morbidities and no known structural heart disease being at risk of this disease too.
@@ -20,7 +18,6 @@ IE still remains a therapeutic challenge with a high morbidity and mortality des
 The aim of these clinical practice guidelines (CPG) is to enable medical personnel at all levels of care to diagnose IE early and effectively manage these patients. It also stresses the importance of preventing IE in those with predisposing risk factors.
 
 In keeping to this aim, this CPG attempts to highlight some of the more crucial areas in the diagnosis and management of IE:
-
 * To enable early and accurate diagnosis:
     * The section on diagnosis (refer section 3.0: Diagnosis) incorporates important information and recommendations pertaining to clinical, microbiological and imaging assessments to guide physicians in making an early diagnosis of IE.
     * Included in this section is a comprehensive section (refer Section 3.2.2: Microbiological diagnosis) on microbiological investigations focusing on increasing the yield in blood culture negative infective endocarditis (BCNIE).
@@ -41,12 +38,10 @@ The recommendations developed in this CPG were based on the latest available dat
 
 ## Contextual Anchors (Overlapping)
 
-### Section 3.0: Diagnosis
-
+### Section 3: .0: Diagnosis
 As this disease affects multiple organ systems, patients with IE can present with very diverse clinical presentations making its diagnosis challenging. The clinical course of the disease can vary from subacute to acute infection, and each will manifest differently. Patients often visit multiple health practitioners before a correct diagnosis is made.
 
 Making a clinical diagnosis of IE requires:
-
 - Careful and thorough clinical history taking and physical examination.
 - Laboratory investigations.
 - Microbiological investigations.
@@ -57,15 +52,12 @@ In difficult cases, consultation with other experts such as ID specialists, card
 
 ---
 
-### Section 3.2.2: Microbiological diagnosis
-
+### Section 3: .2.2: Microbiological Diagnosis
 The microbiological diagnosis of IE can be divided into:
-
 - Blood culture positive IE.
 - Blood culture negative IE.
 
-#### 3.2.2.1 Blood culture positive infective endocarditis
-
+#### 3.2.2.1: Blood Culture Positive Infective Endocarditis
 Blood cultures should be taken before the commencement of empiric antimicrobial agents as it is critical to the diagnosis and treatment of patients with IE. In order to obtain high yield of positive blood cultures, the following considerations are crucial:
 
 **A. Timing of blood cultures**
@@ -113,8 +105,7 @@ These microorganisms may be considered as significant pathogens when they are cu
 - A newly available state-of-the-art technology in rapid bacterial identification is based on peptide spectra by matrix-assisted laser desorption ionisation time-of-flight mass spectrometry (MALDI-TOF) which is able to provide direct identification of bacteria in the blood culture supernatant. This has improved the turnaround time of bacterial identification tremendously.
 - For decisions on optimal therapy in IE, especially for infections involving streptococci spp. and multidrug resistant microorganisms, it is recommended to test for susceptibility of antimicrobials by determining the minimal inhibitory concentration (MIC) of the drug.
 
-#### 3.2.2.2 Blood culture-negative infective endocarditis
-
+#### 3.2.2.2: Blood Culture-Negative Infective Endocarditis
 In general, BCNIE indicates IE which has no microorganism grown following inoculation of at least 3 independent blood samples when using the usual currently available culture methods in clinical laboratories after 5 days of incubation.
 
 - BCNIE can be due to 3 main reasons:
@@ -125,7 +116,6 @@ In general, BCNIE indicates IE which has no microorganism grown following inocul
   - Serological testing and molecular techniques such as polymerase chain reaction (PCR) assay aid in establishing the causative agent in BCNIE.
 
 However limitations when using such assays are as follows:
-
 - Serology:
   - Cross reaction of serological assays (e.g. IE caused by *Bartonella* and *Chlamydia* spp. are often indistinguishable).
 - PCR:
@@ -134,12 +124,11 @@ However limitations when using such assays are as follows:
 
 ---
 
-### Section 3.3: Imaging
+### Section 3: .3: Imaging
 
-#### 3.3.1 Echocardiography
+### 3.3.1: Echocardiography
 
-##### 3.3.1.1 Echocardiography in diagnosis of infective endocarditis
-
+#### 3.3.1.1: Echocardiography In Diagnosis Of Infective Endocarditis
 Echocardiography plays a key role in the diagnosis of IE. The first line imaging investigation in suspected IE is usually transthoracic echocardiography (TTE) as it is non-invasive and widely available. TEE should be performed subsequently if indicated.
 
 - In native valves, the sensitivity of TTE in diagnosing vegetations is 44-63%.
@@ -148,7 +137,6 @@ Echocardiography plays a key role in the diagnosis of IE. The first line imaging
 - The specificity of TTE and TEE exceeds 90% for both native and prosthetic valves whilst the specificity of TEE for vegetation on prosthetic valves is 88-100%.
 
 Indications for TEE in patients with IE or those with pre-existing risk factors include:
-
 - Poor or suboptimal transthoracic window (e.g. morbid obesity, chronic obstructive pulmonary disease; COPD and previous sternotomy).
 - High clinical suspicion of IE but negative TTE (e.g. typical microorganism of IE found on blood cultures).
 - Staphylococcal bacteraemia if community acquired without an obvious focus of infection (e.g. cellulitis).
@@ -157,7 +145,6 @@ Indications for TEE in patients with IE or those with pre-existing risk factors 
 - Perioperative TEE to assess mechanism and severity of valve dysfunction, perivalvular extensions and the success of surgery/ presence of residual lesions.
 
 Echocardiographic findings suggestive of IE include (refer Table 3.4: Findings suggestive of IE and their anatomical and echocardiographic definitions):
-
 - Vegetation.**
 - Abscess.**
   - Abscess formation is a dynamic process, which starts with aortic root thickening that can be seen on TEE. If this finding is noted, a TEE should be repeated at a later time to confirm the diagnosis as the lesion progresses with formation of a cavity with no flow within.
@@ -170,7 +157,6 @@ Echocardiographic findings suggestive of IE include (refer Table 3.4: Findings s
 ** Documentation of vegetation or abscess sizes should be made by measuring their largest diameters in at least 2 dimensions rather than measuring the circumference. The view in which the measurement was made should also be documented.
 
 Other important information to gather from an echocardiogram include:
-
 - Haemodynamic and ventricular functional assessments:
   - Transthoracic Doppler echocardiogram is used to assess haemodynamic dysfunction as it is more reliable and reproducible compared to TEE.
   - For left ventricular systolic dysfunction, assessment of ejection fraction by using modified Simpson's method and others such as tissue Doppler imaging is recommended.
@@ -184,10 +170,8 @@ Other important information to gather from an echocardiogram include:
 - Assessment and quantification of valve regurgitation.
 - Presence and quantification of pericardial effusion.
 
-##### 3.3.1.2 Interpretation of echocardiography
-
+#### 3.3.1.2: Interpretation Of Echocardiography
 Echocardiography in IE can be challenging. This may be due to the absence of vegetations despite a high index of clinical suspicion or the presence of masses on the endocardial surface that are not due to infective vegetation. Therefore the results of the echocardiographic study must be interpreted with caution, taking into account the patient's clinical presentation and the likelihood of IE. The limitations of echocardiography in the diagnosis of IE should be noted as follows:
-
 - The sensitivity and specificity of TTE and TEE are not 100%.
 - A negative echocardiogram does not rule out IE.
 - In some situations, a repeat TTE or repeat TEE may be necessary.
@@ -195,20 +179,18 @@ Echocardiography in IE can be challenging. This may be due to the absence of veg
 
 **Recommendations — The use of echocardiography in diagnosing IE:**
 
-1. [Grade I, Level B] Echocardiography should be performed as soon as possible in all patients suspected of having IE. 
+1. [Grade I, Level B] Echocardiography should be performed as soon as possible in all patients suspected of having IE.
 2. [Grade I, Level C] If there is a high suspicion of IE despite an initial negative TTE/TEE, then a repeat TTE/TEE is recommended within a week or if clinical findings change.
 3. [Grade I, Level B] TEE should be done if initial TTE images are negative or inadequate in patients for whom there is a persistent suspicion for IE.
-4. [Grade I, Level B] TEE is advised in cases with prosthetic valves, prosthetic cardiac material or cases with high-risk features. 
+4. [Grade I, Level B] TEE is advised in cases with prosthetic valves, prosthetic cardiac material or cases with high-risk features.
 5. [Grade IIa, Level C] The echocardiographic measurement of the size of the vegetation at its longest diameter is preferable rather than its circumference. Documentation of the window in which the measurement was done will be useful.
 6. [Grade I, Level B] Intraoperative TEE recommended for all cases of IE undergoing surgery.
 7. [Grade IIa, Level C] It may be reasonable to perform TTE at the time of antimicrobial therapy completion to record baseline features.
 
-#### 3.3.2 Other imaging modalities
-
+### 3.3.2: Other Imaging Modalities
 **A. Multislice computed tomography**
 
 Multislice computed tomography (MSCT) in the context of IE maybe useful in the following situations:
-
 - To:
     - Detect abscesses/pseudoaneurysms in the heart.
     - Assess the extent and consequences of any perivalvular extension, including the anatomy of pseudoaneurysms, abscesses and fistulae.
@@ -228,7 +210,7 @@ Limitations of MSCT:
 
 **B. Magnetic resonance imaging**
 
-Magnetic resonance imaging (MRI) has a higher sensitivity than computed tomography (CT) in detecting cerebral embolic events, majority of which are clinically silent. Studies have shown that systematic cerebral MRI during acute IE has consistently reported frequent cerebral embolic lesions, in 60-80% of patients. 
+Magnetic resonance imaging (MRI) has a higher sensitivity than computed tomography (CT) in detecting cerebral embolic events, majority of which are clinically silent. Studies have shown that systematic cerebral MRI during acute IE has consistently reported frequent cerebral embolic lesions, in 60-80% of patients.
 
 Most commonly seen abnormalities are:
 - Ischaemic lesions (50-80%).
@@ -263,10 +245,8 @@ New modalities in nuclear imaging like single-photon emission computed tomograph
 
 ---
 
-### Section 4.1.4: Referral for specialist care
-
+### Section 4: .1.4: Referral For Specialist Care
 IE is an unusual disease for a few reasons:
-
 - The clinical manifestation, predisposing risk factors and epidemiology of IE can be very variable.
 - Despite being relatively rare, it has significant morbidity and mortality.
 - Ideal management of IE requires multiple, highly specialised expertise in one centre which is often not widely available. These include but are not limited to: echocardiologists, ID specialists, cardiac surgeons, interventional radiologists, neurologists, neurosurgeons and microbiologists.
@@ -274,7 +254,6 @@ IE is an unusual disease for a few reasons:
 To ensure a good outcome and to prevent complications, it is important to establish an accurate diagnosis early and institute appropriate treatment. It is recommended to have a multidisciplinary team approach in the management of patients with IE especially those with high-risk features. Where indicated, these patients may need additional subspecialty consultation or referral to a specialist centre. A Specialist Centre (SC) is defined here as a hospital with cardiothoracic, cardiac imaging and specialised cardiology services.
 
 Referral to a SC is recommended in the following situations:
-
 - Strong clinical suspicion of IE but TTE negative.
     - Requires TEE and/or other imaging modalities to diagnose IE and to monitor for complications.
 - Patients with high predisposing risks.
@@ -290,7 +269,6 @@ Referral to a SC is recommended in the following situations:
 - Metastatic infection.
 
 Specific situations that may need other non-cardiac consultations:
-
 - ID and microbiology:
   - BCNIE.
   - Persistent infection that is not responding to treatment.
@@ -300,7 +278,6 @@ Specific situations that may need other non-cardiac consultations:
   - Patients who are on anticoagulation with coagulopathies and haemorrhagic complications.
 
 Patients with non-complicated IE can be managed in a centre with internal medicine specialists. These are patients with:
-
 - Mild-moderate abnormality of cardiac valvular function with no heart failure.
 - Native valves only.
 - Not more than mild ischaemic neurological complications (involving < 30% of a lobe).
@@ -318,18 +295,15 @@ However, in the event that complications arise they should be referred to a SC.
 
 ---
 
-### Section 4.2: Antimicrobial therapy: principles and methods
+### Section 4: .2: Antimicrobial Therapy: Principles And Methods
 
-#### 4.2.1 General principles
-
+### 4.2.1: General Principles
 General principles for the treatment of IE include:
-
 - Parenteral antimicrobials in high dose to sustain antibacterial concentrations for treatment success.
 - Bactericidal antimicrobials are necessary for effective treatment.
 - Adequate duration is required to prevent relapses.
 
-#### 4.2.2 Suggested regimes for treatment of native or prosthetic valve infective endocarditis
-
+### 4.2.2: Suggested Regimes For Treatment Of Native Or Prosthetic Valve Infective Endocarditis
 The choice of antimicrobials will depend on the type of microorganism isolated and whether it is a native or a prosthetic valve IE. All doses quoted are for patients with normal renal function.
 
 **4.2.2.1 Streptococcus viridans**
@@ -364,10 +338,8 @@ The choice of antimicrobials will depend on the type of microorganism isolated a
 
 This includes microorganisms such as *Pseudomonas aeruginosa*, *Escherichia coli* and *Salmonella*. [Grade IIa, Level C] A combination therapy with a β-lactam and aminoglycoside or fluoroquinolone are used. Duration: 6 weeks.
 
-#### 4.2.3 Empirical therapy
-
+### 4.2.3: Empirical Therapy
 The initial empirical regime for endocarditis will depend on:
-
 - Involvement of native or prosthetic valves.
 - Duration following prosthetic surgery; early vs. late PVE.
 - Community acquired or healthcare associated.
@@ -379,10 +351,8 @@ Patients with subacute presentation are more likely to be infected with less vir
 
 **4.2.3.1 Empirical antimicrobial therapy for IE in intravenous drug users** — *S. aureus* is the most common cause of IE among IVDUs. However fungal and Gram-negative bacilli such as *Pseudomonas aeruginosa* can also cause IE. Tricuspid valve involvement is the most common.
 
-#### 4.2.4 Outpatient parenteral antimicrobial therapy (OPAT)
-
+### 4.2.4: Outpatient Parenteral Antimicrobial Therapy (Opat)
 In carefully selected patients, OPAT can be a safe and effective means of completing therapy for IE. Patients require minimum 2 weeks of inpatient therapy before being considered for OPAT. Beyond 2 weeks of treatment consider OPAT service if patient is:
-
 - Medically stable.
 - Has no heart failure.
 - Has no neurological signs.
@@ -393,12 +363,10 @@ The hospital must have established OPAT services with trained staff and protocol
 
 ---
 
-### Section 5.0: Surgical intervention
+### Section 5: .0: Surgical Intervention
 
-#### 5.1 Indications
-
+## 5.1: Indications
 Surgical intervention is indicated in the following cases of IE:
-
 - Severe valvular incompetence, haemodynamic instability or heart failure.
 - Uncontrolled sepsis and paravalvular extension of infection.
 - Fungal or multiresistant endocarditis.
@@ -407,7 +375,6 @@ Surgical intervention is indicated in the following cases of IE:
 **A. Severe valvular incompetence, heart failure or haemodynamic instability**
 
 Valvular regurgitation in NVE occurs as a result of:
-
 - Leaflet perforation.
 - Rupture of the leaflet supporting apparatus.
 - Interference of the vegetative mass with leaflet closure.
@@ -419,7 +386,6 @@ When acute and severe, heart failure and haemodynamic instability ensues. Surger
 **B. Persistent infection, uncontrolled sepsis and paravalvular extension of infection**
 
 Surgery is indicated when:
-
 - Fever or positive blood cultures persist despite appropriate antimicrobial treatment after 5-7 days.
 - Extracardiac causes have been excluded.
 
@@ -435,7 +401,6 @@ Abscesses are more common in native aortic valve endocarditis compared to mitral
 **C. Fungal or multiresistant endocarditis**
 
 Surgery is indicated in IE caused by the following microorganisms/infection:
-
 - Fungal IE:
     - Responds poorly to medical treatment.
     - Reported mortality of up to 70%.
@@ -447,7 +412,6 @@ Surgery is indicated in IE caused by the following microorganisms/infection:
 **D. Very large vegetations (>10 mm) or previous systemic embolism**
 
 Surgery should be considered for vegetations > 10 mm in size particularly when other risk factors for embolisation are present. These include:
-
 - Mobile vegetation.
 - Increase in vegetation size despite treatment.
 - Vegetation on the mitral valve (particularly the anterior leaflet).
@@ -457,15 +421,13 @@ Surgery should be considered for vegetations > 10 mm in size particularly when o
 **Recommendations — Surgical intervention in IE is indicated for:**
 1. [Grade I, Level B] Severe valvular incompetence, heart failure or haemodynamic instability.
 2. [Grade I, Level B] Persistent infection, uncontrolled sepsis or paravalvular extension of infection.
-3. [Grade I, Level B] Fungal or multiresistant endocarditis. 
+3. [Grade I, Level B] Fungal or multiresistant endocarditis.
 4. [Grade I, Level B] Very large vegetations (> 10 mm) or previous systemic embolism.
 
-#### 5.2 Timing of surgery
-
+## 5.2: Timing Of Surgery
 In general, when there is an established indication for surgery as discussed in Section 5.1: Indications above, surgical intervention should be undertaken as soon as practically possible after completion of surgical workup.
 
 Early surgical intervention in these patients:
-
 - Improves survival.
 - Prevents the risk of progressive heart failure, cardiogenic shock and multiorgan failure.
 - Decreases the progression of infection causing further structural damage with abscess formation.
@@ -473,22 +435,19 @@ Early surgical intervention in these patients:
 - Increases the likelihood of valve repair rather than replacement due to lesser destruction of the native valve.
 
 The improved results with early surgery is seen in those with heart failure or paravalvular complications. However in practice, surgery is often delayed in endocarditis due to:
-
 - High operative risk.
 - Possible risk of the newly implanted prosthetic valve getting infected.
 
 A recent meta-analysis involving 8,141 patients demonstrated that early surgery within 2 weeks of diagnosis improved both early mortality and long-term survival compared with non-early surgery. In patients with cardiogenic shock, surgery should be undertaken much earlier, within 24 hours of diagnosis. However, it may be reasonable to delay surgery for 48 hours in a patient with septic shock to allow a period of stabilisation and better control of the sepsis with intravenous antimicrobials as cardiac surgery with cardiopulmonary bypass in the presence of septic shock carries an excessively high operative mortality.
 
 In selected patients, surgery can be carried out on an elective or semi-elective basis in the subacute or healed phase of endocarditis where the operative risk and the risk of infection of the implanted valve prosthesis is lower. This is applicable for the following patients:
-
 - Pre-existing chronic valvular regurgitation who are haemodynamically stable.
 - Vegetation is < 10 mm in size.
 - Well-controlled sepsis.
 
 A multidisciplinary team approach, comprising cardiologists, cardiac surgeons and ID specialists is recommended when deciding on the indication and optimal timing for surgical intervention. This approach has lowered overall morbidity and mortality for IE. Patients with an indication for surgical intervention should be transferred to a SC at the earliest opportunity where such a multidisciplinary approach can be offered.
 
-##### 5.2.1 Preventing systemic embolism
-
+### 5.2.1: Preventing Systemic Embolism
 Most emboli occur before the diagnosis of endocarditis and in the first 2 weeks thereafter; the embolic rate decreases significantly after 2-3 weeks of antimicrobial therapy. There is emerging evidence for urgent surgery in preventing embolic events in those with large vegetations > 10 mm.
 
 A randomised controlled trial of 76 patients with left-sided NVE comparing early versus late surgery in IE with large vegetations (> 10 mm) reported a lower composite rate of hospital deaths, embolic events and recurrent endocarditis at 6 months with early surgery within 48 hours (3% versus 23%). The difference was largely due to a reduction in embolic events with early surgery. Surgery undertaken for the prevention of systemic embolism should be performed urgently during the first few days following initiation of antimicrobial therapy, as the risk of embolism is highest at this time.
@@ -503,8 +462,7 @@ A randomised controlled trial of 76 patients with left-sided NVE comparing early
 | **Semi-elective** (after 2 weeks of antimicrobial cover) | [Grade I, Level B] PVE and relapsing infection. |
 | **Elective** (after 6 weeks of antimicrobial therapy) | [Grade I, Level C] Well-tolerated chronic severe valvular regurgitation with controlled infection. |
 
-## Abbreviations Used in This Section
-
+## Abbreviations Used In This Section
 | Abbreviation | Definition |
 |---|---|
 | **AV** | Atrioventricular |

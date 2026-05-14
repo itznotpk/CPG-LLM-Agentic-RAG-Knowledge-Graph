@@ -1,5 +1,4 @@
-# SECTION 8: FAMILIAL BREAST CANCER
-
+# Section 8: Familial Breast Cancer
 <!-- METADATA
 category: Special Populations, Prevention, Screening, Treatment
 use_case: Familial and Genetic Risk Assessment — BRCA1_BRCA2, genetic_counselling, risk_reducing_surgery, enhanced_surveillance, chemoprevention, PARP_inhibitors, PALB2_ATM_CHEK2
@@ -10,19 +9,16 @@ treatment_type: tamoxifen, anastrozole, olaparib, talazoparib, bilateral_mastect
 -->
 
 ## Overview
-
 Identifying individuals and relatives with inherited predisposition to breast and other cancers has important clinical implications in improving long-term health, including enabling preventive and risk-reducing strategies, early detection and increasingly, treatment options targeted towards carriers.
 
 Over the past 10 years, advances in molecular genetics and therapeutics have greatly influenced the practice of genetic counselling and testing for familial breast and ovarian cancers in three key areas:
-
 1.  **Cost reduction** — making genetic testing more accessible
 2.  **Multi-gene panel testing** — beyond just BRCA genes
 3.  **Treatment-focussed genetic testing** — expanding utility to somatic tumour testing
 
 ---
 
-## 8.1 Cancer Genetic Risk Assessment
-
+## 8.1: Cancer Genetic Risk Assessment
 For patients concerned about or suspected of having hereditary breast and/or ovarian cancers, initial risk evaluation by the doctor responsible for their care (surgeon or oncologist) should be performed in order to determine if formal risk assessment in a cancer genetics clinic should be undertaken. This initial risk evaluation includes a thorough evaluation of:
 i. personal history (including medical and surgical history, patient's needs and concerns)
 ii. family history (first- and second-degree relatives on both the maternal and paternal sides) of breast, ovarian and other cancers
@@ -33,9 +29,9 @@ Patients should be advised that:
 *   risk assessment is a dynamic process and can change if additional relatives are diagnosed with cancer
 
 *   **Genetic Referral and Testing Guidelines**
-NCCN provides comprehensive guidelines on recommended criteria for genetic testing for hereditary breast and ovarian cancer (refer to **Appendix 8**).¹¹⁸ However, if this broad criteria is applied to all breast cancer patients in Malaysia, a substantial number of breast cancer patients would need formal risk assessment and counselling, which is neither practical nor cost-effective in today's healthcare service. As such, efforts to simplify and streamline criteria for identifying at-risk individuals for testing while maintaining similar variant detection rate may be necessary. An example that may be used has been evaluated in a Malaysian breast cancer cohort and yielded an approximately 10% mutation detection rate (refer to **Table 5**).¹¹⁹˒ **[level III]**
+NCCN provides comprehensive guidelines on recommended criteria for genetic testing for hereditary breast and ovarian cancer (refer to **Appendix 8**).¹¹⁸ However, if this broad criteria is applied to all breast cancer patients in Malaysia, a substantial number of breast cancer patients would need formal risk assessment and counselling, which is neither practical nor cost-effective in today's healthcare service. As such, efforts to simplify and streamline criteria for identifying at-risk individuals for testing while maintaining similar variant detection rate may be necessary. An example that may be used has been evaluated in a Malaysian breast cancer cohort and yielded an approximately 10% mutation detection rate (refer to Table 5).¹¹⁹˒ **[level III]**
 
-**Table 5. Mainstreaming cancer genetics cancer-based criteria**
+Table 5. Mainstreaming cancer genetics cancer-based criteria
 1. Ovarian cancer (epithelial non-mucinous ovarian cancer)
 2. Breast cancer in patient diagnosed ≤45 years old
 3. Two primary breast cancers, both diagnosed ≤60 years old
@@ -49,8 +45,7 @@ In more well-resourced settings, a number of risk assessment tools have been bui
 
 ---
 
-## 8.2 Genetic Counselling and Genetic Testing
-
+## 8.2: Genetic Counselling And Genetic Testing
 For individuals meeting established criteria for one or more hereditary cancer syndromes, genetic testing should be considered along with appropriate pre-test counselling. Such counselling can be provided by a genetic counsellor, medical geneticist, oncologist, surgeon, oncology nurse or other healthcare professional with expertise and experience in cancer genetics. Regardless of who provides the counselling, pre- and post-test counselling should include discussion on the test indications, limitations, potential benefits, possible outcomes and implications.
 
 Genetic testing aims to detect variants in cancer predisposition genes. Previously, single-gene tests were performed, but advances in molecular genetics using parallel testing has enabled the testing of multiple genes simultaneously (multi-gene panel testing). Testing must be comprehensive (including full sequencing and large genomic rearrangements), for clinically actionable genes and usually offered to an affected family member first. Should a clinically relevant variant be found, testing may then be offered to other adult at-risk relatives.
@@ -59,10 +54,9 @@ Individuals eligible for genetic testing may be referred during initial manageme
 
 ---
 
-## 8.3 Genetic Predisposition to Breast Cancer
+## 8.3: Genetic Predisposition To Breast Cancer
 
-### Genes and Associated Breast Cancer Risk
-
+### Genes And Associated Breast Cancer Risk
 | Gene | Estimated Relative Risk (90% CI) | Absolute Risk by 80 Years (%) | Other Associated Cancers |
 |---|---|---|---|
 | **BRCA1** | 11.4 | 75 | Ovary |
@@ -83,8 +77,7 @@ Individuals eligible for genetic testing may be referred during initial manageme
 
 ---
 
-## 8.4 Clinical Management for Carriers of Pathogenic/Likely Pathogenic Variants in BRCA1, BRCA2 and Other Genes
-
+## 8.4: Clinical Management For Carriers Of Pathogenic/Likely Pathogenic Variants In Brca1, Brca2 And Other Genes
 BRCA1 and BRCA2 are highly penetrant genes and pathogenic/likely pathogenic variants are associated with early-onset breast cancers and increased risk of contralateral breast cancer, ovarian cancer, prostate and pancreatic cancer (BRCA2 only).¹²²
 
 > **Clinical Note:**
@@ -96,11 +89,10 @@ In the last 10 years, carriers of variants in PALB2, ATM and CHEK2 genes have al
 
 Individuals with strong family history of cancer but with no pathogenic/likely pathogenic variants or whom do not undergo genetic testing, may benefit from further risk assessment using calibrated tools, such as BOADICEA, and offered screening according to their estimated lifetime risk of cancers. The CanRisk tool is a web interface to BOADICEA and can be accessed at https://canrisk.org/about/
 
-### 8.4.1 Intensive screening
-
+### 8.4.1: Intensive Screening
 Intensive screening for breast cancer in BRCA carriers and high risk individuals starts considerably earlier than standard recommendations.¹²³ Breast awareness education with monthly breast self-examination should begin at 18 years of age and biannual CBE should begin at 25 years of age.¹¹⁸ Other screening strategies, based on age and risk group are summarised in the table below.
 
-**Table 7. Summary of recommendations on screening for women with no personal history of breast cancer**
+Table 7. Summary of recommendations on screening for women with no personal history of breast cancer
 
 | Age (years) | Average risk of breast cancer¹ | Moderate risk of breast cancer² | High risk of breast cancer (but with a 30% or lower probability of being a BRCA or TP53 carrier)³ | Known BRCA1 or BRCA2 carrier |
 |---|---|---|---|---|
@@ -125,12 +117,11 @@ Intensive screening for breast cancer in BRCA carriers and high risk individuals
 
 ---
 
-### 8.4.2 Risk-Reducing Strategies
+### 8.4.2: Risk-Reducing Strategies
 
 #### i. Risk-Reducing Surgery
 
 ##### Bilateral Risk-Reducing Mastectomy (RRM)
-
 | Finding | Result | Evidence |
 |---|---|---|
 | Prophylactic bilateral mastectomy — breast cancer risk | Reduced: RR=**0.11** (0.04 to 0.32) | level II-2 |
@@ -140,7 +131,6 @@ Intensive screening for breast cancer in BRCA carriers and high risk individuals
 > **Clinical Note:** For carriers of PALB2, ATM and CHEK2 — insufficient evidence for RRM; managed based on family history.²⁵
 
 ##### Contralateral Risk-Reducing Mastectomy
-
 | Metric | BRCA1 | BRCA2 | Evidence |
 |---|---|---|---|
 | Cumulative risk of contralateral BC by age 70 | **83%** (69 to 94) | **62%** (44 to 79.5) | level II-2 |
@@ -148,7 +138,6 @@ Intensive screening for breast cancer in BRCA carriers and high risk individuals
 | Survival advantage | **48–63%** | **48–63%** | 129–level II-2 |
 
 ##### Risk-Reducing Bilateral Salpingo-Oophorectomy (RRSO)
-
 *   Most effective risk reduction strategy for prevention of BRCA1/2-associated ovarian, fallopian tube and peritoneal cancersˡᵉᵛᵉˡ ᴵᴵ⁻²
 *   RRSO is advised **after completion of childbearing** and from age **35–40 years**
 *   Recent evidence suggests RRSO may provide **no or minimal** protective effect on breast cancer risk (earlier studies may have been subject to ascertainment bias)¹³²⁻ˡᵉᵛᵉˡ ᴵᴵ⁻²
@@ -161,8 +150,7 @@ Intensive screening for breast cancer in BRCA carriers and high risk individuals
 
 #### ii. Chemoprevention
 
-##### Selective estrogen receptor modulators
-
+##### Selective Estrogen Receptor Modulators
 | Finding | Result | Evidence |
 |---|---|---|
 | 20-year follow-up — all breast cancers | Reduced: HR=0.71 (0.60 to 0.83) | 134, **[level I]** |
@@ -173,14 +161,12 @@ A higher incidence of deep vein thrombosis in women receiving tamoxifen compared
 
 Women on tamoxifen should stop tamoxifen two months before trying to conceive or six weeks before elective surgery.⁵
 
-##### Aromatase inhibitors
-
+##### Aromatase Inhibitors
 In an RCT of anastrozole as chemoprevention in post-menopausal high risk women (as determined using the Tyrer Cuzick Model), after a median follow-up of five years, fewer women in the anastrozole group developed breast cancer compared with placebo group (HR=0.47, 95% CI 0.32 to 0.68). The predicted cumulative incidence of all breast cancers after seven years was 5.6% in the placebo group and 2.8% in the anastrozole group, suggesting that 36 women (95% CI 33 to 44) would need to be treated with anastrozole to prevent one cancer in seven years of follow-up.¹³⁵˒ **[level I]**
 
 Anastrozole was not associated with an increased risk of other cancers particularly gynaecological cancers, nor any thromboembolic or vascular events. A contraindication for anastrozole use was severe osteoporosis.¹³⁵˒ **[level I]**
 
-##### Oral contraceptives
-
+##### Oral Contraceptives
 For female carriers of pathogenic/likely pathogenic variants in BRCA1 or BRCA2, use of oral contraceptive could reduce the risk of ovarian cancer, with no significant increase in risk to breast cancer.¹¹⁸
 
 > **Clinical Note:**
@@ -188,8 +174,7 @@ For female carriers of pathogenic/likely pathogenic variants in BRCA1 or BRCA2, 
 
 ---
 
-### 8.4.3 Role of PARP Inhibitors for BRCA Carriers
-
+### 8.4.3: Role Of Parp Inhibitors For Brca Carriers
 Poly (ADP-ribose) polymerase (PARP) inhibitors (olaparib or talazoparib) can be considered as a treatment option for patients with:⁶³
 *   BRCA-associated advanced **triple-negative** breast cancer
 *   **Luminal metastatic** breast cancer, after failure of chemotherapy and endocrine therapy

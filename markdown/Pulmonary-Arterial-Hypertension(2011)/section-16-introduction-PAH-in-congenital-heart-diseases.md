@@ -1,5 +1,4 @@
-# SECTION 16: INTRODUCTION TO PAH IN CONGENITAL HEART DISEASES
-
+# Section 16: Introduction To PAH In Congenital Heart Diseases
 <!-- METADATA
 category: Introduction, Pathophysiology
 use_case: CHD-PAH Pathophysiology Overview — high_volume_shunts, Eisenmenger_progression, post_closure_PAH, reversible_vs_irreversible, VSD, ASD, PDA
@@ -12,10 +11,8 @@ output: CHD_PAH_classification, Eisenmenger_risk_assessment
 
 ---
 
-## 16. Introduction to PAH in Congenital Heart Diseases
-
+## 16: Introduction To PAH In Congenital Heart Diseases
 Many different congenital heart defects are associated with an increased risk for the development of pulmonary arterial hypertension. They can be classified into 3 categories according to the pathophysiologic mechanisms:
-
 - **a. High volume high pressure shunts:** Large VSD, large PDA, complete AVSD, aortopulmonary window, truncus arteriosus, transposition of great arteries with large VSD
 - **b. High volume low pressure shunts:** Large ASD, total or partial anomalous pulmonary venous drainage
 - **c. High pulmonary venous pressure:** Obstructed total anomalous pulmonary venous drainage, cortriatrium, pulmonary vein stenosis, supramitral ring
@@ -27,7 +24,6 @@ Occasionally, progressive pulmonary arterial hypertension still develops followi
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ASD** | Atrial Septal Defect |

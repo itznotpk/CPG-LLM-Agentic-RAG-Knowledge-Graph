@@ -1,5 +1,4 @@
-# INTRODUCTION
-
+# Introduction
 <!-- METADATA
 category: Introduction
 use_case: Overview of stable CAD scope and target population — disease_overview, target_population, care_scope
@@ -7,21 +6,18 @@ patient_input: symptoms, history, prior_ACS, revascularization_status
 output: scope_definition, care_objectives
 -->
 
-## 1. Introduction
-
+## 1: Introduction
 Coronary Artery Disease (CAD) is an important cause of morbidity and mortality, although in recent years, the mortality trend has shown a small decrease.10-12 In most Western countries however, mortality due to CAD has been on a significant downward trend due to appropriate primary prevention strategies, improved diagnosis and early treatment.13-15
 
 CAD covers a wide spectrum — from persons who are asymptomatic to those presenting with ACS and sudden cardiac death (SCD).
 
 This CPG on Stable CAD is directed at individuals:
-
 - suspected to be due to CAD.
 - who had a previous episode of ACS but who are now stable and need regular follow up and monitoring.
 - post revascularization (by CABG or PCl) who are at present asymptomatic or have stable symptoms due to CAD.
 - those with findings on non-invasive testing. This may occur in the absence or presence of ischemia and/or Left Ventricular (LV) dysfunction.
 
 ## It Provides Guidance On:
-
 - diagnosis of CAD in individuals presenting with stable chest symptoms.
 - risk stratification of individuals who are diagnosed with CAD.
 - optimal medical therapy in all individuals with CAD.
@@ -33,9 +29,7 @@ In a more recent registry of patients with stable CAD who were enrolled 1-year p
 
 This CPG does not address individuals who do not have CAD but who are at risk for CAD. This is covered in the CPG Primary and Secondary Prevention of CVD, 2017.22
 
-
 ## Key Messages:
-
 - CAD covers a wide spectrum — from individuals who are asymptomatic to those presenting with ACS and SCD.
 - Individuals with CAD, even with minimal or absent symptoms, including those post-revascularization, are at high risk for recurrent CV events.
 
@@ -44,8 +38,7 @@ This CPG does not address individuals who do not have CAD but who are at risk fo
 <!-- Purpose: Defines clinical evidence codes used in this CPG    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -54,8 +47,7 @@ This CPG does not address individuals who do not have CAD but who are at risk fo
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -71,7 +63,6 @@ This CPG does not address individuals who do not have CAD but who are at risk fo
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |
