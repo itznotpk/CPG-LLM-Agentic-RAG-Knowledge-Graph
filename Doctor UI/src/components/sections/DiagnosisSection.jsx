@@ -60,13 +60,36 @@ export function DiagnosisSection() {
 
   return (
     <div className="space-y-6 animate-fadeIn">
-      <div className="text-center mb-6">
-        <h2 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-          AI Risk Assessment & Diagnosis
-        </h2>
-        <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>
-          Review and select the diagnosis to proceed with care plan generation
-        </p>
+      <div className="flex items-center justify-between gap-6 mb-6">
+        <div>
+          <span className="ds-eyebrow">STEP 2 OF 4</span>
+          <h2 className={`text-2xl font-bold mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            Diagnosis
+          </h2>
+          <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>
+            Confirm the AI's working diagnosis, or pick differentials to re-route.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center justify-end gap-3 flex-shrink-0">
+          <Button
+            variant="secondary"
+            size="sm"
+            icon={ArrowLeft}
+            onClick={handleBack}
+          >
+            Back
+          </Button>
+          <Button
+            variant="primary"
+            size="sm"
+            icon={isGeneratingPlan ? null : CheckCircle}
+            loading={isGeneratingPlan}
+            onClick={handleConfirm}
+            glow={!isGeneratingPlan}
+          >
+            {isGeneratingPlan ? 'Generating…' : 'Confirm'}
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -88,50 +111,13 @@ export function DiagnosisSection() {
         {/* RIGHT PANEL: Decision & DDx */}
         <div className="lg:col-span-7 space-y-6">
 
-      {/* AI Suggested Diagnosis - Shows selected diagnoses */}
-      <GlassCard className="p-6 border-[var(--accent-primary)]/50 border-2">
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-[var(--accent-primary)]/20 rounded-xl">
-              <Brain className="w-6 h-6 text-[var(--accent-primary)]" strokeWidth={1.5} />
-            </div>
-            <div>
-              <span className={`text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Selected Diagnos{selectedDiagnoses.length === 1 ? 'is' : 'es'} ({selectedDiagnoses.length})
-              </span>
-              <div className="space-y-1">
-                {selectedDiagnoses.map((diag, idx) => (
-                  <h3 key={diag.id} className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                    {idx + 1}. {diag.name}
-                  </h3>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          {selectedDiagnoses.map((diag) => (
-            <React.Fragment key={diag.id}>
-              <CodeBadge code={`ICD-11: ${diag.icdCode}`} />
-              <RiskBadge risk={diag.risk || 'medium'} />
-            </React.Fragment>
-          ))}
-        </div>
-
-        <div className={`p-4 border rounded-xl ${isDark ? 'bg-amber-900/30 border-amber-500/30' : 'bg-amber-50/50 border-amber-200/50'}`}>
-          <div className="flex items-start gap-3">
-            <AlertCircle className={`w-5 h-5 mt-0.5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} strokeWidth={1.5} />
-            <div>
-              <p className={`font-medium ${isDark ? 'text-amber-300' : 'text-amber-800'}`}>Clinical Correlation Required</p>
-              <p className={`text-sm mt-1 ${isDark ? 'text-amber-200/80' : 'text-amber-700'}`}>
-                This AI-generated diagnosis should be reviewed and confirmed by the treating clinician.
-                You may select multiple diagnoses from the list below by clicking on them.
-              </p>
-            </div>
-          </div>
-        </div>
-      </GlassCard>
+      {/* Clinical Correlation note — single line */}
+      <div className={`flex items-center gap-2 text-sm px-4 py-3 rounded-lg
+        ${isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20'
+                 : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
+        <AlertCircle className="w-4 h-4 shrink-0" strokeWidth={1.5} />
+        <span>Clinical correlation required. You may select multiple diagnoses from the list below.</span>
+      </div>
 
       {/* Differential Diagnosis - Selectable */}
       <GlassCard className="p-6">
@@ -151,64 +137,54 @@ export function DiagnosisSection() {
           </div>
         )}
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {sortedDifferentials.map((diff, idx) => {
             const isSelected = selectedIds.includes(diff.id);
             const isTopSuggestion = idx === 0;
+            const riskColors = {
+              low: 'bg-emerald-500',
+              medium: 'bg-amber-500',
+              high: 'bg-rose-500',
+            };
 
             return (
               <button
                 key={diff.id}
                 onClick={() => handleSelectDiagnosis(diff.id)}
-                className={`w-full text-left p-4 rounded-xl transition-all duration-200 border-2 ${isSelected
-                  ? isDark
-                    ? 'bg-[var(--accent-primary)]/20 border-[var(--accent-primary)] shadow-md'
-                    : 'bg-[var(--accent-primary)]/10 border-[var(--accent-primary)] shadow-md'
-                  : isDark
-                    ? 'bg-white/5 border-transparent hover:bg-white/10 hover:border-[var(--accent-primary)]/50'
-                    : 'bg-white/30 border-transparent hover:bg-white/50 hover:border-[var(--accent-primary)]/50'
-                  }`}
+                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center justify-between border-l-3 ${
+                  isSelected
+                    ? `border-l-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/10'}`
+                    : `border-l-transparent ${isDark ? 'hover:bg-white/5' : 'hover:bg-white/20'}`
+                }`}
               >
-                <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-6 h-6 flex items-center justify-center rounded-full text-sm font-bold ${isSelected
-                        ? 'bg-[var(--accent-primary)] text-white'
-                        : isDark ? 'bg-[var(--accent-primary)]/30 text-slate-300' : 'bg-[var(--accent-primary)]/20 text-slate-700'
-                        }`}
-                    >
-                      {isSelected ? <Check className="w-4 h-4" strokeWidth={1.5} /> : idx + 1}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{diff.name}</span>
-                        {isTopSuggestion && (
-                          <Badge variant="primary" size="sm">
-                            AI Recommended
-                          </Badge>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-2 mt-1">
-                        <CodeBadge code={`ICD-11: ${diff.icdCode}`} />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RiskBadge risk={diff.risk} />
-                  </div>
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <span className={`ds-numeric text-sm font-mono font-semibold shrink-0 ${
+                    isSelected ? 'text-[var(--accent-primary)]' : isDark ? 'text-slate-400' : 'text-slate-600'
+                  }`}>
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <span className={`font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                    {diff.name}
+                  </span>
+                  <span className={`text-xs font-mono shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
+                    ICD-11 · {diff.icdCode}
+                  </span>
+                  <span className="text-slate-400 text-sm shrink-0">•</span>
+                  <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${riskColors[diff.risk] || riskColors.medium}`} />
+                  <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                    {diff.risk}
+                  </span>
+                  {isTopSuggestion && (
+                    <span className={`text-xs font-medium shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                      · AI top pick
+                    </span>
+                  )}
+                  {diff.probability != null && (
+                    <span className={`text-xs font-mono shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                      · {Math.round(diff.probability * 100)}%
+                    </span>
+                  )}
                 </div>
-                {diff.reasoning && diff.reasoning.length > 0 && (
-                  <details className={`mt-2 text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                    <summary className={`cursor-pointer ${isDark ? 'hover:text-slate-200' : 'hover:text-slate-700'}`}>
-                      View reasoning ({diff.reasoning.length})
-                    </summary>
-                    <ul className="mt-1 space-y-0.5 pl-3">
-                      {diff.reasoning.map((r, i) => (
-                        <li key={i} className="list-disc">{r}</li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
               </button>
             );
           })}
@@ -227,34 +203,6 @@ export function DiagnosisSection() {
         </div>
       )}
 
-      {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-        <Button
-          variant="secondary"
-          size="lg"
-          icon={ArrowLeft}
-          onClick={handleBack}
-        >
-          Back
-        </Button>
-        <Button
-          variant="primary"
-          size="lg"
-          icon={isGeneratingPlan ? null : CheckCircle}
-          iconPosition="left"
-          loading={isGeneratingPlan}
-          onClick={handleConfirm}
-          glow={!isGeneratingPlan}
-          className="min-w-[280px]"
-        >
-          {isGeneratingPlan
-            ? (willResynth ? 'Re-generating Care Plan…' : 'Generating Care Plan…')
-            : willResynth
-              ? `Re-generate Care Plan for ${selectedDiagnoses.map(d => d.icdCode).join(', ')}`
-              : `Generate Care Plan${selectedDiagnoses.length > 1 ? ` (${selectedDiagnoses.length} diagnoses)` : ''}`
-          }
-        </Button>
-      </div>
 
       {isGeneratingPlan && (
         <div className="flex flex-col items-center gap-4 py-6 animate-fadeIn">

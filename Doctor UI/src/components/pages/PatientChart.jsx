@@ -12,8 +12,8 @@ const vitalsTabs = [
         label: 'Blood Pressure',
         icon: Heart,
         metrics: [
-            { key: 'bpSystolic', label: 'Systolic', unit: 'mmHg', color: '#ef4444' },
-            { key: 'bpDiastolic', label: 'Diastolic', unit: 'mmHg', color: '#f97316' },
+            { key: 'bpSystolic', label: 'Systolic', unit: 'mmHg', color: 'var(--accent-primary)' },
+            { key: 'bpDiastolic', label: 'Diastolic', unit: 'mmHg', color: '#94a3b8', dashed: true },
         ]
     },
     {
@@ -21,7 +21,7 @@ const vitalsTabs = [
         label: 'Heart Rate',
         icon: Activity,
         metrics: [
-            { key: 'hr', label: 'Heart Rate', unit: 'bpm', color: '#8b5cf6' },
+            { key: 'hr', label: 'Heart Rate', unit: 'bpm', color: 'var(--accent-primary)' },
         ]
     },
     {
@@ -29,7 +29,7 @@ const vitalsTabs = [
         label: 'SpO2',
         icon: Wind,
         metrics: [
-            { key: 'spo2', label: 'Oxygen Saturation', unit: '%', color: '#3b82f6' },
+            { key: 'spo2', label: 'Oxygen Saturation', unit: '%', color: 'var(--accent-primary)' },
         ]
     },
     {
@@ -37,7 +37,7 @@ const vitalsTabs = [
         label: 'Weight',
         icon: Scale,
         metrics: [
-            { key: 'weight', label: 'Weight', unit: 'kg', color: '#10b981' },
+            { key: 'weight', label: 'Weight', unit: 'kg', color: 'var(--accent-primary)' },
         ]
     },
     {
@@ -45,7 +45,7 @@ const vitalsTabs = [
         label: 'Temperature',
         icon: Thermometer,
         metrics: [
-            { key: 'temp', label: 'Temperature', unit: '°C', color: '#f59e0b' },
+            { key: 'temp', label: 'Temperature', unit: '°C', color: 'var(--accent-primary)' },
         ]
     },
 ];

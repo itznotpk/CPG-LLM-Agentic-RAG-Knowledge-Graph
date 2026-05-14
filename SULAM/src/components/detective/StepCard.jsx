@@ -17,11 +17,11 @@ export default function StepCard({ stepNumber, title, caption, status, detail, c
       background: cfg.bg,
       border: `1px solid ${status === 'running' ? 'var(--primary)' : status === 'complete' ? '#b7e5d2' : 'var(--line)'}`,
       borderRadius: 'var(--r-lg)',
-      padding: '16px 18px',
+      padding: '20px 22px',
       transition: 'all 0.3s ease',
       opacity: status === 'pending' ? 0.55 : 1,
     }}>
-      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
         {/* Step number + icon */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, flexShrink: 0, paddingTop: 2 }}>
           <div style={{
@@ -41,12 +41,19 @@ export default function StepCard({ stepNumber, title, caption, status, detail, c
 
         <div style={{ flex: 1 }}>
           {/* Header row */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-            <span style={{ fontWeight: 600, fontSize: 15, color: 'var(--ink)' }}>{title}</span>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginBottom: 6 }}>
+            <span style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 700,
+              fontSize: 20,
+              color: 'var(--ink)',
+              lineHeight: 1.2,
+              flex: 1,
+            }}>{title}</span>
             <Icon
-              size={15}
+              size={16}
               color={cfg.color}
-              style={{ animation: isRunning ? 'spin 1.2s linear infinite' : 'none', flexShrink: 0 }}
+              style={{ animation: isRunning ? 'spin 1.2s linear infinite' : 'none', flexShrink: 0, marginTop: 2 }}
             />
             <span className="chip" style={{
               marginLeft: 'auto',
@@ -54,6 +61,7 @@ export default function StepCard({ stepNumber, title, caption, status, detail, c
               color: cfg.color,
               border: `1px solid ${cfg.color}`,
               fontSize: 10,
+              flexShrink: 0,
             }}>
               {cfg.label}
             </span>
@@ -61,7 +69,16 @@ export default function StepCard({ stepNumber, title, caption, status, detail, c
 
           {/* Caption / agentic label */}
           {caption && (
-            <div className="mono-label" style={{ marginBottom: 8, color: 'var(--heath)' }}>
+            <div style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 13,
+              fontWeight: 500,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: 'var(--heath)',
+              marginBottom: 10,
+              lineHeight: 1.4,
+            }}>
               {caption}
             </div>
           )}

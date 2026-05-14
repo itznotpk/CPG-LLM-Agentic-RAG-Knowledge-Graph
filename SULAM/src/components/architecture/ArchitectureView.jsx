@@ -1,12 +1,12 @@
 /* ─────────────────────────────────────────────────────────────────────────────
    Tab B — "How It Works"
-   Pure-SVG architecture diagram so nodes + connectors share one coordinate
-   system and never mis-align.  Everything (rects, text, arrows) lives inside
-   a single <svg> element.
+   Pure-SVG architecture diagram with new safety agents added.
 ───────────────────────────────────────────────────────────────────────────── */
 
-const W = 1000;
-const H  = 480;
+import { User, Brain, Database, Shield, GitBranch, FileText, AlertTriangle, TrendingUp } from 'lucide-react';
+
+const W = 1200;
+const H = 600;
 
 /* Arrowhead marker */
 function Defs() {
@@ -18,6 +18,9 @@ function Defs() {
       <marker id="arrow-faint" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
         <path d="M0,0 L0,6 L8,3 z" fill="rgba(139,134,168,0.6)" />
       </marker>
+      <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="rgba(192,67,63,0.8)" />
+      </marker>
       <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
         <feGaussianBlur stdDeviation="6" result="blur" />
         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -27,12 +30,20 @@ function Defs() {
 }
 
 /* Animated dashed connector with optional arrowhead */
-function Arrow({ d, faint, delay = 0 }) {
-  const stroke = faint ? 'rgba(139,134,168,0.55)' : 'rgba(47,95,208,0.85)';
-  const marker = faint ? 'url(#arrow-faint)' : 'url(#arrow)';
+function Arrow({ d, faint, delay = 0, color = 'blue' }) {
+  const stroke = faint ? 'rgba(139,134,168,0.55)' :
+                 color === 'red' ? 'rgba(192,67,63,0.85)' :
+                 'rgba(47,95,208,0.85)';
+  const bgStroke = faint ? 'rgba(139,134,168,0.18)' :
+                   color === 'red' ? 'rgba(192,67,63,0.15)' :
+                   'rgba(47,95,208,0.15)';
+  const marker = faint ? 'url(#arrow-faint)' :
+                 color === 'red' ? 'url(#arrow-red)' :
+                 'url(#arrow)';
+
   return (
     <g>
-      <path d={d} fill="none" stroke={faint ? 'rgba(139,134,168,0.18)' : 'rgba(47,95,208,0.15)'} strokeWidth="2.5" />
+      <path d={d} fill="none" stroke={bgStroke} strokeWidth="2.5" />
       <path
         d={d} fill="none" stroke={stroke} strokeWidth="2.5"
         strokeDasharray="7 5" strokeLinecap="round"
@@ -43,8 +54,8 @@ function Arrow({ d, faint, delay = 0 }) {
   );
 }
 
-/* Glassmorphism node rendered entirely in SVG */
-function Node({ cx, cy, w, h, title, sub, emoji, highlight, tag }) {
+/* Glassmorphism node */
+function Node({ cx, cy, w, h, title, sub, Icon, highlight, tag }) {
   const x = cx - w / 2;
   const y = cy - h / 2;
   const fill   = highlight ? 'rgba(47,95,208,0.22)'  : 'rgba(255,255,255,0.62)';
@@ -65,13 +76,13 @@ function Node({ cx, cy, w, h, title, sub, emoji, highlight, tag }) {
         />
       )}
 
-      {/* emoji */}
-      <text x={cx} y={cy - (sub ? 16 : 10)} textAnchor="middle" fontSize={highlight ? 26 : 22} dominantBaseline="middle">
-        {emoji}
-      </text>
+      {/* icon */}
+      <foreignObject x={cx - 10} y={cy - (sub ? 20 : 12)} width={20} height={20}>
+        <Icon size={20} color={highlight ? '#c8d8ff' : '#161a23'} strokeWidth={1.5} />
+      </foreignObject>
 
       {/* title */}
-      <text x={cx} y={cy + (sub ? 4 : 10)} textAnchor="middle" dominantBaseline="middle"
+      <text x={cx} y={cy + (sub ? 6 : 12)} textAnchor="middle" dominantBaseline="middle"
         fontFamily="var(--font-mono)" fontSize={highlight ? 12 : 11} fontWeight="700"
         letterSpacing="0.04em" fill={highlight ? '#c8d8ff' : '#161a23'} textTransform="uppercase">
         {title}
@@ -79,7 +90,7 @@ function Node({ cx, cy, w, h, title, sub, emoji, highlight, tag }) {
 
       {/* subtitle */}
       {sub && (
-        <text x={cx} y={cy + 20} textAnchor="middle" dominantBaseline="middle"
+        <text x={cx} y={cy + 22} textAnchor="middle" dominantBaseline="middle"
           fontFamily="var(--font-mono)" fontSize={9} fill={highlight ? 'rgba(200,216,255,0.7)' : '#5b6273'}>
           {sub}
         </text>
@@ -95,6 +106,40 @@ function Node({ cx, cy, w, h, title, sub, emoji, highlight, tag }) {
             {tag}
           </text>
         </>
+      )}
+    </g>
+  );
+}
+
+/* Safety agent node (red highlight) */
+function SafetyNode({ cx, cy, w, h, title, sub, Icon }) {
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+  const fill   = 'rgba(192,67,63,0.15)';
+  const stroke = 'rgba(192,67,63,0.65)';
+
+  return (
+    <g>
+      <rect x={x} y={y} width={w} height={h} rx={12} fill={fill} stroke={stroke} strokeWidth={2} />
+
+      {/* icon */}
+      <foreignObject x={cx - 10} y={cy - 20} width={20} height={20}>
+        <Icon size={20} color="#c0433f" strokeWidth={1.5} />
+      </foreignObject>
+
+      {/* title */}
+      <text x={cx} y={cy + 6} textAnchor="middle" dominantBaseline="middle"
+        fontFamily="var(--font-mono)" fontSize={11} fontWeight="700"
+        letterSpacing="0.04em" fill="#c0433f" textTransform="uppercase">
+        {title}
+      </text>
+
+      {/* subtitle */}
+      {sub && (
+        <text x={cx} y={cy + 22} textAnchor="middle" dominantBaseline="middle"
+          fontFamily="var(--font-mono)" fontSize={9} fill="#a03935">
+          {sub}
+        </text>
       )}
     </g>
   );
@@ -148,12 +193,14 @@ function InsightCard({ number, title, body, color }) {
 
 export default function ArchitectureView() {
   /* ── node centres ── */
-  const patient  = { cx: 90,  cy: 220 };
-  const agent    = { cx: 280, cy: 220 };
-  const vectorDb = { cx: 490, cy: 120 };
-  const kgDb     = { cx: 490, cy: 320 };
-  const pipeline = { cx: 710, cy: 220 };
-  const output   = { cx: 915, cy: 220 };
+  const patient  = { cx: 100,  cy: 300 };
+  const agent    = { cx: 280,  cy: 300 };
+  const vectorDb = { cx: 500,  cy: 150 };
+  const kgDb     = { cx: 500,  cy: 450 };
+  const pipeline = { cx: 750,  cy: 300 };
+  const safetyCritic = { cx: 950, cy: 200 };
+  const graphNav = { cx: 950, cy: 400 };
+  const output   = { cx: 1100, cy: 300 };
 
   /* ── connector paths ── */
   const arrows = [
@@ -164,13 +211,19 @@ export default function ArchitectureView() {
     // agent → KG DB
     { d: `M${agent.cx+50},${agent.cy+20} Q${agent.cx+130},${kgDb.cy} ${kgDb.cx-80},${kgDb.cy}`, delay: 0.6 },
     // vector DB → pipeline (return)
-    { d: `M${vectorDb.cx+75},${vectorDb.cy} Q${vectorDb.cx+140},${pipeline.cy-60} ${pipeline.cx-95},${pipeline.cy-40}`, faint: true, delay: 0.9 },
+    { d: `M${vectorDb.cx+75},${vectorDb.cy} Q${vectorDb.cx+130},${pipeline.cy-50} ${pipeline.cx-95},${pipeline.cy-40}`, faint: true, delay: 0.9 },
     // KG DB → pipeline (return)
-    { d: `M${kgDb.cx+75},${kgDb.cy} Q${kgDb.cx+140},${pipeline.cy+60} ${pipeline.cx-95},${pipeline.cy+40}`, faint: true, delay: 1.1 },
+    { d: `M${kgDb.cx+75},${kgDb.cy} Q${kgDb.cx+130},${pipeline.cy+50} ${pipeline.cx-95},${pipeline.cy+40}`, faint: true, delay: 1.1 },
     // agent → pipeline (main)
     { d: `M${agent.cx+80},${agent.cy} L${pipeline.cx-100},${pipeline.cy}`, delay: 1.4 },
-    // pipeline → output
-    { d: `M${pipeline.cx+100},${pipeline.cy} L${output.cx-65},${output.cy}`, delay: 1.7 },
+    // pipeline → safety critic
+    { d: `M${pipeline.cx+100},${pipeline.cy-40} L${safetyCritic.cx-70},${safetyCritic.cy}`, delay: 1.7, color: 'red' },
+    // pipeline → graph navigator
+    { d: `M${pipeline.cx+100},${pipeline.cy+40} L${graphNav.cx-70},${graphNav.cy}`, delay: 1.7, color: 'red' },
+    // safety critic → output
+    { d: `M${safetyCritic.cx+70},${safetyCritic.cy} Q${safetyCritic.cx+50},${output.cy} ${output.cx-65},${output.cy}`, delay: 2.0, color: 'red' },
+    // graph navigator → output
+    { d: `M${graphNav.cx+70},${graphNav.cy} Q${graphNav.cx+50},${output.cy} ${output.cx-65},${output.cy}`, delay: 2.0, color: 'red' },
   ];
 
   const edgeLabels = [
@@ -180,19 +233,20 @@ export default function ArchitectureView() {
     { x: vectorDb.cx+110, y: (vectorDb.cy + pipeline.cy-40)/2, label: 'chunks' },
     { x: kgDb.cx+110,    y: (kgDb.cy + pipeline.cy+40)/2,    label: 'relations' },
     { x: (agent.cx+80 + pipeline.cx-100)/2, y: agent.cy - 13, label: 'orchestrate' },
-    { x: (pipeline.cx+100 + output.cx-65)/2, y: output.cy - 13, label: 'care plan' },
+    { x: (pipeline.cx+100 + safetyCritic.cx-70)/2, y: safetyCritic.cy - 15, label: 'plan' },
+    { x: (pipeline.cx+100 + graphNav.cx-70)/2, y: graphNav.cy + 15, label: 'evidence' },
   ];
 
-  const stages = ['DDx', 'CPG\nRouting', 'Evidence\nRetrieval', 'Plan\nSynthesis', 'Safety\nCritic'];
+  const stages = ['DDx', 'CPG\nRouting', 'Evidence\nRetrieval', 'Plan\nSynthesis', 'Safety\nReview'];
 
   return (
     <div>
       {/* Header */}
       <div style={{ marginBottom: 24 }}>
         <h1 className="display-heading" style={{ fontSize: 30, marginBottom: 6 }}>How It Works</h1>
-        <p style={{ color: 'var(--ink-soft)', fontSize: 15, maxWidth: 620 }}>
+        <p style={{ color: 'var(--ink-soft)', fontSize: 15, maxWidth: 700 }}>
           Our system is more than a chatbot — it's an AI <strong>agent</strong> that decides what to look up,
-          searches two databases, and grounds every answer in real clinical guidelines.
+          searches multiple databases, and grounds every answer in real clinical guidelines. Safety agents run in parallel to verify recommendations.
         </p>
       </div>
 
@@ -223,15 +277,16 @@ export default function ArchitectureView() {
           {edgeLabels.map((l, i) => <EdgeLabel key={i} {...l} />)}
 
           {/* ── Nodes ── */}
-          <Node {...patient}  w={130} h={80} emoji="👤" title="Patient Case"    sub="chief complaint · vitals" />
+          <Node {...patient}  w={130} h={80} title="Patient Case"    sub="chief complaint · vitals" Icon={User} />
 
           {/* Agent — the star */}
-          <Node {...agent} w={150} h={105} emoji="🤖" title="AI Orchestrator"
+          <Node {...agent} w={150} h={105} title="AI Orchestrator"
             sub="decides · routes · retrieves · synthesises"
+            Icon={Brain}
             highlight tag="⚡ The Agent" />
 
-          <Node {...vectorDb} w={155} h={78} emoji="📐" title="Vector DB"       sub="guideline chunks · embeddings" />
-          <Node {...kgDb}     w={155} h={78} emoji="🕸" title="Knowledge Graph" sub="ICD-11 ↔ CPG ↔ Drug relations" />
+          <Node {...vectorDb} w={155} h={78} title="Vector DB"       sub="guideline chunks · embeddings" Icon={Database} />
+          <Node {...kgDb}     w={155} h={78} title="Knowledge Graph" sub="ICD-11 ↔ CPG ↔ Drug relations" Icon={GitBranch} />
 
           {/* Pipeline — tall card with stage pills */}
           <g>
@@ -266,7 +321,11 @@ export default function ArchitectureView() {
             })}
           </g>
 
-          <Node {...output} w={130} h={80} emoji="📋" title="Cited Care Plan" sub="every rec cites a CPG" />
+          {/* Safety agents (red) */}
+          <SafetyNode {...safetyCritic} w={140} h={90} title="Safety Critic" sub="pharmacovigilance" Icon={Shield} />
+          <SafetyNode {...graphNav} w={140} h={90} title="Graph Navigator" sub="multi-morbidity" Icon={TrendingUp} />
+
+          <Node {...output} w={130} h={80} title="Cited Care Plan" sub="every rec cites a CPG" Icon={FileText} />
         </svg>
 
         <style>{`
@@ -285,10 +344,10 @@ export default function ArchitectureView() {
           color="var(--primary)"
         />
         <InsightCard
-          number="02 — Two Databases"
-          title="Vector DB + Knowledge Graph"
-          body="The Vector DB finds relevant guideline passages. The Knowledge Graph understands relationships — e.g. which drugs treat which conditions."
-          color="var(--heath)"
+          number="02 — Parallel Safety"
+          title="Independent verification"
+          body="Safety Critic checks for drug interactions & allergies. Graph Navigator evaluates multi-morbidity constraints. Both run while the pipeline synthesizes."
+          color="var(--err)"
         />
         <InsightCard
           number="03 — Cited Answers"

@@ -242,6 +242,7 @@ export function VitalsLineChart({ data, metrics, height = 300 }) {
                                     strokeWidth={2.5}
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
+                                    strokeDasharray={metric.dashed ? '4 4' : undefined}
                                     className="transition-opacity duration-300"
                                 />
 

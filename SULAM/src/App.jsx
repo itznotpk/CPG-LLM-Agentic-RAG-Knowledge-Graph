@@ -17,7 +17,11 @@ export default function App() {
     <div className="app-shell">
       <Sidebar tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
       <main className="main-content">
-        {activeTab === 'detective'    && <DetectiveView />}
+        {/* DetectiveView stays mounted so its in-flight SSE stream and stage
+            state survive tab switches. Other tabs unmount as usual. */}
+        <div style={{ display: activeTab === 'detective' ? 'contents' : 'none' }}>
+          <DetectiveView />
+        </div>
         {activeTab === 'architecture' && <ArchitectureView />}
         {activeTab === 'graph'        && <GraphView />}
       </main>

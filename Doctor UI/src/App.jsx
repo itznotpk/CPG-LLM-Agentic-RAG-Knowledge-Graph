@@ -10,7 +10,7 @@ import {
   OutputSection,
   DashboardSection,
 } from './components/sections';
-import { StepIndicator, GlassPanel, PatientBanner } from './components/shared';
+import { StepIndicator, PatientBanner } from './components/shared';
 import Home from './components/pages/Home';
 import MyPatients from './components/pages/MyPatients';
 import Settings from './components/pages/Settings';
@@ -142,10 +142,8 @@ function AppContent() {
             </div>
 
             {/* Main Content Area */}
-            <div className="transition-all duration-300">
-              <GlassPanel className="min-h-[600px]">
-                {renderCurrentSection()}
-              </GlassPanel>
+            <div className="transition-all duration-300 min-h-[600px]">
+              {renderCurrentSection()}
             </div>
           </>
         );

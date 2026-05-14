@@ -56,5 +56,7 @@ export function mapTreatmentPlanToCarePlan(plan) {
     })),
     redFlags:   plan.red_flags ?? [],
     followUp:   plan.follow_up ?? [],
+    unresolvedQuestions: plan.unresolved_questions ?? [],
+    confidence: plan.confidence ?? null,
   };
 }

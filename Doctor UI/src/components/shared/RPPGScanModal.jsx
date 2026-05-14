@@ -5,27 +5,22 @@ import { useTheme } from '../../context/ThemeContext';
 import { useRPPGStream } from '../../hooks/useRPPGStream';
 import { supabase } from '../../lib/supabase';
 
-function VitalCard({ icon: Icon, label, value, unit, color = 'emerald' }) {
-  const { isDark } = useTheme();
-  const colors = {
-    emerald: 'text-emerald-400 bg-emerald-500/20',
-    blue:    'text-blue-400 bg-blue-500/20',
-    purple:  'text-purple-400 bg-purple-500/20',
-    amber:   'text-amber-400 bg-amber-500/20',
-    rose:    'text-rose-400 bg-rose-500/20',
-  };
+function VitalRow({ label, value, unit }) {
   const hasValue = value != null && Number(value) !== 0;
+  const { isDark } = useTheme();
 
   return (
-    <div className={`flex flex-col items-center justify-center p-4 rounded-2xl ${isDark ? 'bg-white/5 border border-white/10' : 'bg-white/60 border border-slate-200'}`}>
-      <div className={`p-2 rounded-xl mb-2 ${colors[color]}`}>
-        <Icon className="w-5 h-5" />
+    <div className={`flex items-center justify-between px-3 py-2 border-b ${isDark ? 'border-white/10' : 'border-slate-100'} last:border-0`}>
+      <div className="flex items-center gap-2">
+        <span className={`w-1.5 h-1.5 rounded-full ${hasValue ? 'bg-teal-600' : 'bg-slate-300'}`} />
+        <span className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{label}</span>
       </div>
-      <span className={`text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{label}</span>
-      <span className={`text-2xl font-bold ${hasValue ? (isDark ? 'text-white' : 'text-slate-800') : (isDark ? 'text-slate-600' : 'text-slate-300')}`}>
-        {hasValue ? (Number.isInteger(Number(value)) ? value : Number(value).toFixed(1)) : '--'}
-      </span>
-      <span className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{unit}</span>
+      <div>
+        <span className={`font-mono font-semibold ${hasValue ? (isDark ? 'text-white' : 'text-slate-900') : (isDark ? 'text-slate-500' : 'text-slate-300')}`}>
+          {hasValue ? (Number.isInteger(Number(value)) ? value : Number(value).toFixed(1)) : '—'}
+        </span>
+        <span className={`ml-1 text-[10px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{unit}</span>
+      </div>
     </div>
   );
 }
@@ -57,6 +52,10 @@ export function RPPGScanModal({ onClose }) {
   const faceFound  = vitals?.face_detected ?? false;
   // Allow apply if face detected (camera) OR if ESP32 has real values (no face needed)
   const hasVitals  = (faceFound || esp32.hr > 0) && (hr > 0 || spo2 > 0);
+
+  // Count how many vitals are ready
+  const readyCount = [hr, spo2, vitals?.sbp, vitals?.dbp, vitals?.rr, temp]
+    .filter(v => v != null && Number(v) !== 0).length;
 
   const handleApply = async () => {
     if (!vitals) return;
@@ -105,7 +104,7 @@ export function RPPGScanModal({ onClose }) {
     : `Signal quality ${quality.toFixed(0)}%`;
 
   return (
-    <div className="fixed inset-0 z-[80] flex flex-col" style={{ background: isDark ? '#0a0f1e' : '#f0f4ff' }}>
+    <div className="fixed inset-0 z-[100] flex flex-col isolation-isolate" style={{ background: 'var(--bg-primary)' }}>
 
       {/* Header */}
       <div className={`flex items-center justify-between px-6 py-4 border-b ${isDark ? 'border-white/10 bg-slate-900/80' : 'border-slate-200 bg-white/80'} backdrop-blur-sm`}>
@@ -151,6 +150,51 @@ export function RPPGScanModal({ onClose }) {
               <div className="absolute inset-0 border-4 border-emerald-400/40 rounded-2xl pointer-events-none" />
             )}
 
+            {/* Face positioning guide — when not detected but connected */}
+            {!faceFound && connected && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 pointer-events-none">
+                {/* Dashed oval guide */}
+                <svg width="110" height="145" viewBox="0 0 110 145" className="drop-shadow">
+                  <ellipse cx="55" cy="72.5" rx="55" ry="72.5" fill="none" stroke="#14b8a6" strokeWidth="2" strokeDasharray="8 6" opacity="0.5" />
+                  {/* Corner brackets */}
+                  <g stroke="#14b8a6" strokeWidth="2" fill="none" opacity="0.8">
+                    {/* Top-left */}
+                    <line x1="0" y1="15" x2="0" y2="0" />
+                    <line x1="0" y1="0" x2="15" y2="0" />
+                    {/* Top-right */}
+                    <line x1="110" y1="15" x2="110" y2="0" />
+                    <line x1="110" y1="0" x2="95" y2="0" />
+                    {/* Bottom-left */}
+                    <line x1="0" y1="130" x2="0" y2="145" />
+                    <line x1="0" y1="145" x2="15" y2="145" />
+                    {/* Bottom-right */}
+                    <line x1="110" y1="130" x2="110" y2="145" />
+                    <line x1="110" y1="145" x2="95" y2="145" />
+                  </g>
+                </svg>
+                {/* Guide text */}
+                <span className="text-xs font-mono text-teal-600 tracking-wider uppercase">Position Face Inside the Guide</span>
+                {/* Prep steps */}
+                <div className="flex gap-4 text-xs font-mono text-slate-500">
+                  <span>● Good Light</span>
+                  <span>● No Glasses</span>
+                  <span>● Look Straight</span>
+                  <span>● ~15 SEC</span>
+                </div>
+              </div>
+            )}
+
+            {/* Signal quality pill — top-right */}
+            {connected && (
+              <div className="absolute top-4 right-4">
+                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-sm text-xs font-mono font-semibold ${
+                  isDark ? 'bg-white/10 text-slate-300' : 'bg-black/30 text-white'
+                }`}>
+                  Signal · {quality.toFixed(0)}%
+                </div>
+              </div>
+            )}
+
             {/* Status overlay */}
             <div className="absolute bottom-4 left-0 right-0 flex justify-center">
               <div className={`flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm text-sm font-medium ${
@@ -191,13 +235,13 @@ export function RPPGScanModal({ onClose }) {
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-3 flex-1">
-            <VitalCard icon={Heart}       label="Heart Rate"  value={hr}          unit="bpm"   color="rose"    />
-            <VitalCard icon={Droplets}    label="SpO₂"        value={spo2}        unit="%"     color="blue"    />
-            <VitalCard icon={Activity}    label="Systolic"    value={vitals?.sbp} unit="mmHg"  color="purple"  />
-            <VitalCard icon={Activity}    label="Diastolic"   value={vitals?.dbp} unit="mmHg"  color="purple"  />
-            <VitalCard icon={Wind}        label="Resp. Rate"  value={vitals?.rr}  unit="/min"  color="emerald" />
-            <VitalCard icon={Thermometer} label="Temperature" value={temp}        unit="°C"    color="amber"   />
+          <div className={`border rounded-xl overflow-hidden ${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-slate-200'}`}>
+            <VitalRow label="Heart Rate"  value={hr}          unit="bpm" />
+            <VitalRow label="SpO₂"        value={spo2}        unit="%" />
+            <VitalRow label="Systolic"    value={vitals?.sbp} unit="mmHg" />
+            <VitalRow label="Diastolic"   value={vitals?.dbp} unit="mmHg" />
+            <VitalRow label="Resp. Rate"  value={vitals?.rr}  unit="/min" />
+            <VitalRow label="Temperature" value={temp}        unit="°C" />
           </div>
 
           {/* Quality bar */}
@@ -234,7 +278,7 @@ export function RPPGScanModal({ onClose }) {
               ? <><CheckCircle className="w-5 h-5" /> Applied! Returning…</>
               : applying
                 ? 'Saving…'
-                : <><Zap className="w-5 h-5" /> Apply to Consultation</>
+                : <><Zap className="w-5 h-5" /> Apply {readyCount} of 6 vitals</>
             }
           </button>
 
