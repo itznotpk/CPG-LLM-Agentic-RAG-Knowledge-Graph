@@ -1,5 +1,4 @@
-# SECTION 0: SUMMARY & KEY MESSAGES
-
+# Section 0: Summary & Key Messages
 <!-- METADATA
 category: Methodology, Reference
 use_case: Executive summary of AF management with key messages, four-stage management cascade, and evidence grading — AF_management_cascade, key_messages, CHADS2, CHA2DS2-VASc, HAS-BLED, rate_control, rhythm_control, upstream_therapy, evidence_grading, abbreviations
@@ -11,8 +10,7 @@ output: management_cascade_algorithm, key_clinical_messages, grades_of_recommend
 
 ---
 
-## 0.1 Key Messages
-
+## 0.1: Key Messages
 1. An electrocardiogram (ECG) should be performed in all patients, whether symptomatic or not, in whom AF is suspected because an irregular pulse has been detected.
 2. The stroke risk stratification algorithms, CHADS₂ and CHA₂DS₂-VASc, should be used in patients with AF to assess their risk of stroke and thrombo-embolism, while the HAS-BLED score should be used to assess their risk of bleeding.
 3. Antithrombotic therapy should be based upon the absolute risks of stroke/thrombo-embolism and bleeding, and the relative risk and benefit for a given patient.
@@ -22,7 +20,7 @@ output: management_cascade_algorithm, key_clinical_messages, grades_of_recommend
 
 ---
 
-#### Figure 1: Algorithm for the Management Cascade for Patients with AF
+Figure 1: Algorithm for the Management Cascade for Patients with AF
 
 ##### Stage 1: Initial Assessment
 **Atrial Fibrillation**
@@ -41,7 +39,7 @@ output: management_cascade_algorithm, key_clinical_messages, grades_of_recommend
 *   Aspirin
 *   None
 
-##### Stage 3: Rate and Rhythm Control
+##### Stage 3: Rate And Rhythm Control
 **Assess AF type and Symptoms**
 &darr;
 **Determine control strategy:**
@@ -49,7 +47,7 @@ output: management_cascade_algorithm, key_clinical_messages, grades_of_recommend
 *   Antiarrhythmic drugs
 *   Ablation
 
-##### Stage 4: Treatment of Underlying Disease ('Upstream' Therapy)
+##### Stage 4: Treatment Of Underlying Disease ('Upstream' Therapy)
 **Consider referral**
 &darr;
 **Determine upstream therapy:**
@@ -63,15 +61,9 @@ output: management_cascade_algorithm, key_clinical_messages, grades_of_recommend
 
 ---
 
-## 0.2 Critical Reference Tables
+## 0.2: Critical Reference Tables
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -80,25 +72,14 @@ output: management_cascade_algorithm, key_clinical_messages, grades_of_recommend
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
 | **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | **C** | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Master list of clinical abbreviations used in CPG   -->
-<!-- ============================================================ -->
-
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACEI | Angiotensin-Converting Enzyme Inhibitors |
@@ -113,5 +94,3 @@ output: management_cascade_algorithm, key_clinical_messages, grades_of_recommend
 | HAS-BLED | Hypertension, Abnormal renal/liver function, Stroke, Bleeding, Labile INR, Elderly, Drugs/alcohol |
 | PUFA | Polyunsaturated Fatty Acids |
 | TE | Thrombo-embolism |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->

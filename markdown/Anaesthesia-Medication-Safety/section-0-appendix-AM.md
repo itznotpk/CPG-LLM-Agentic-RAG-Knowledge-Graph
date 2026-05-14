@@ -1,5 +1,4 @@
 # Section 0: Appendix
-
 <!-- METADATA
 category: Reference, Assessment, Treatment
 use_case: Anaesthesia Medication Safety Appendices - IMR_allergy_request, HKLAAC_referral, malignant_hyperthermia_reporting, malignant_hyperthermia_cart, LAST_management_protocol
@@ -10,6 +9,7 @@ treatment_type: adrenaline, dantrolene, lipid_emulsion, local_anaesthetics, vaso
 -->
 
 ## Appendix 1: IMR Allergy Request Form
+
 ### Patient and Request Details
 | No. | Field | Details |
 |---|---|---|
@@ -79,9 +79,10 @@ Please tick **ONLY** the appropriate test(s) required.
 ---
 
 ## Appendix 2: HKLAAC Referral Form
+
 ### Form Header
-**Referral Form for Perioperative Anaphylaxis**  
-Anaesthetic Allergy Clinic  
+**Referral Form for Perioperative Anaphylaxis**
+Anaesthetic Allergy Clinic
 Hospital Kuala Lumpur
 
 ### Patient Details
@@ -199,6 +200,7 @@ Please specify the grade of allergic reaction from the categories below.
 - [ ] **Grade IV:** Cardiac arrest
 
 ### Details of Treatment
+
 #### Airway Management
 | Treatment | Response / Details |
 |---|---|
@@ -258,7 +260,7 @@ Please specify the grade of allergic reaction from the categories below.
 - [ ] Anxiety/PTSD
 - [ ] Others (specify): ____________________
 
-**Comments / summary of events:**  
+**Comments / summary of events:**
 
 ### Referral Submission Notes
 - [ ] Please forward this referral and supporting documents to Anaesthetic Allergy Clinic, Hospital Kuala Lumpur. Contact 03-26155555 ext 1133/1134, email hklaac@gmail.com.

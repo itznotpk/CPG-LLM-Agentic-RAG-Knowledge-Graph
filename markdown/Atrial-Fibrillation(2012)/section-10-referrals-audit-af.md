@@ -1,5 +1,4 @@
-# SECTION 10: REFERRALS & AUDIT
-
+# Section 10: Referrals & Audit
 <!-- METADATA
 category: Supportive Treatment, Reference
 use_case: Referral pathways and clinical audit criteria for AF management quality assurance — acute_hospitalisation, outpatient_specialist, cardiac_electrophysiologist, referral_criteria, clinical_audit, quality_assurance, WPW_referral
@@ -11,21 +10,15 @@ output: referral_pathway, audit_criteria, quality_metrics, guideline_compliance_
 
 ---
 
-## 10. Referrals
-
-### 10.1 Acute Hospitalisation/Referral
-
+## 10.1: Acute Hospitalisation/Referral
 This is required for patients with:
-
 - AF/AFL with haemodynamic compromise, acute dyspnoea, acute heart failure, chest pain, ischaemia, near syncope, hypotension
 - AF/AFL with rapid uncontrolled heart rate, e.g., over 140 bpm at rest
 - AF/AFL with acute systemic illness requiring acute management
 - first/new onset of AF/AFL symptoms, no contraindications to cardioversion, with the possibility of cardioversion within 48 hours of onset.
 
-### 10.2 Outpatient Specialist Physician/Cardiologist
-
+## 10.2: Outpatient Specialist Physician/Cardiologist
 Outpatient specialist referral is recommended for those who:
-
 - Need further investigation/echocardiography
 - Have suspected structural heart disease (e.g., hypertensive, valvular, ischaemic)
 - Are to be considered for cardioversion
@@ -34,10 +27,8 @@ Outpatient specialist referral is recommended for those who:
 - Require a second opinion of the risk/benefit ratio of anticoagulation
 - Are having syncopal attacks
 
-### 10.3 Cardiac Electrophysiologist (Heart-Rhythm Specialist)
-
+## 10.3: Cardiac Electrophysiologist (Heart-Rhythm Specialist)
 Tertiary referral is recommended for patients who have:
-
 - AF with WPW syndrome (pre-excited AF)
 - Highly-symptomatic AF unresponsive to first-line antiarrhythmic treatment
 - Uncontrolled ventricular rate with maximally tolerated atrioventricular-blocking therapy
@@ -45,14 +36,12 @@ Tertiary referral is recommended for patients who have:
 - Tachycardia-bradycardia syndrome (sinus node dysfunction)
 - Suspicion or documentation of a regular tachycardia triggering AF (e.g., SVT).
 
-### 10.4 No Referral
-
+## 10.4: No Referral
 Referral is not needed for patients who have rate-controlled AF with mild or occasional symptoms, for whom echocardiography is not required (e.g., previously obtained), and for whom the decision regarding stroke prevention management is clear cut.
 
 ---
 
-## 11. Audit & Evaluation
-
+## 11: Audit & Evaluation
 The Table below lists the audit criteria identified to evaluate the impact of the implementation of the six key priority areas detailed above on clinical practice and health outcomes.
 
 | Criterion | Exception | Definition of terms |
@@ -70,7 +59,6 @@ The Table below lists the audit criteria identified to evaluate the impact of th
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AF | Atrial Fibrillation |

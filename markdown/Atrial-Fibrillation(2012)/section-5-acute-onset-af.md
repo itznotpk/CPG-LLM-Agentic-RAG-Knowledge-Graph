@@ -1,5 +1,4 @@
-# SECTION 5: MANAGEMENT — ACUTE-ONSET AF
-
+# Section 5: Management — Acute-Onset AF
 <!-- METADATA
 category: Treatment
 use_case: Acute-onset AF management including haemodynamic stabilisation, IV rate control, pharmacological and electrical cardioversion, and pill-in-the-pocket approach — acute_rate_control, DCCV, pharmacological_cardioversion, pill-in-the-pocket, TOE-guided_cardioversion, pre-excitation, WPW
@@ -13,22 +12,17 @@ treatment_type: esmolol, metoprolol, propranolol, verapamil, diltiazem, digoxin,
 
 ---
 
-## 5. Management — Acute-Onset AF
-
-### 5.1 Acute AF in Haemodynamically Unstable Patients
-
+## 5.1: Acute AF In Haemodynamically Unstable Patients
 The majority of patients who present with AF are haemodynamically stable but there is a small group of patients who are significantly compromised by the onset of AF. These patients require immediate hospitalization and urgent intervention to prevent further deterioration.
 
 Those considered in this group are:
-
 - Those with a ventricular rate greater than 150 bpm
 - With ongoing chest pains, or
 - Critical perfusion
 
 In these circumstances, the concerns regarding intervention in the absence of anticoagulation and echocardiography are counterbalanced by the need for urgent treatment.
 
-### 5.1.1 Acute Rate Control
-
+### 5.1.1: Acute Rate Control
 It is important to understand that in these circumstances the slow onset of digoxin makes it inappropriate for use in this situation. Patients whose AF is associated with thyrotoxicosis will not respond to any measures until the underlying thyroid disease is first treated. Patients with accessory pathway such as the Wolff-Parkinson-White (WPW) syndrome are particularly at risk following the onset of AF because they can present with very rapid ventricular rates (greater than 200 bpm) and may need specific management.
 
 When patients present with unacceptably high ventricular rate the primary aim is one of rate control.
@@ -45,7 +39,7 @@ Acute initiation of rate control therapy should usually be followed by a long-te
 
 **[Grade III, Level C]** When pre-excited AF is present, ß-blockers, non-dihydropyridine calcium channel antagonists, digoxin, and adenosine are contraindicated.
 
-**Table 9: Intravenous Pharmacological Agents for Acute Control of Ventricular Rate in AF/AFL**
+Table 9: Intravenous Pharmacological Agents for Acute Control of Ventricular Rate in AF/AFL
 
 | Drug | Loading Dose (IV) | Onset of Action | Maintenance Dose (IV) | Adverse Effects | Limitations | Oral Maintenance Dose |
 |---|---|---|---|---|---|---|
@@ -62,8 +56,7 @@ Acute initiation of rate control therapy should usually be followed by a long-te
 
 *Note: Administration of beta-blockers together with IV verapamil is contraindicated. N/A = not available.*
 
-### 5.1.2 Pharmacological Cardioversion
-
+### 5.1.2: Pharmacological Cardioversion
 In the presence of other cardiac abnormalities (e.g. hypertensive heart disease, valvular heart disease), onset of AF with acceptable ventricular rates may still compromise cardiac function. While rate control is unlikely to bring about clinical improvement in these circumstances, there is a need for the restoration of sinus rhythm.
 
 Pharmacological cardioversion of AF may be initiated by a bolus administration of an antiarrhythmic drug. Although the conversion rate with antiarrhythmic drugs is lower than with direct current cardioversion (DCCV), it does not require conscious sedation or anaesthesia, and may facilitate the choice of antiarrhythmic drug therapy to prevent recurrent AF.
@@ -72,7 +65,7 @@ Most patients who undergo pharmacological cardioversion require continuous medic
 
 Several agents are available for pharmacological cardioversion (refer Table 10: Drug and Doses for Pharmacological Conversion of Recent-Onset AF).
 
-**Table 10: Drug and Doses for Pharmacological Conversion of Recent-Onset AF**
+Table 10: Drug and Doses for Pharmacological Conversion of Recent-Onset AF
 
 | Drug | Dose | Follow-up Dose | Risk |
 |---|---|---|---|
@@ -82,7 +75,7 @@ Several agents are available for pharmacological cardioversion (refer Table 10: 
 
 In clinical practice, amiodarone is the most common agent used in the management of patients presenting in AF with haemodynamic compromise, as it appears to have a hybrid effect of rapid reduction in ventricular rate in most patients with a proportion of these reverting to sinus rhythm over a longer period.
 
-**Figure 4: Direct Current Conversion and Pharmacological Cardioversion of Recent-Onset AF**
+Figure 4: Direct Current Conversion and Pharmacological Cardioversion of Recent-Onset AF
 
 **Algorithm:**
 *   **Recent Onset AF (<48 h)**
@@ -110,8 +103,7 @@ In suitable patients with recent-onset AF (generally < 48 hours duration), a tri
 
 **[Grade I, Level C]** In patients with a life-threatening deterioration in haemodynamic stability following the onset of AF, emergency electrical cardioversion should be performed, irrespective of the duration of the AF.
 
-### 5.1.2.1 Pill-in-the-pocket approach
-
+#### 5.1.2.1: Pill-in-the-pocket Approach
 The pill-in-the-pocket approach refers to outpatient administration of oral flecainide (200 to 300 mg) or propafenone (450 to 600 mg) to **carefully selected patients whose initial therapy in hospital was effective and well tolerated.**
 
 **[Grade II-a, Level B]** This approach could be considered in appropriately selected patients who have infrequent but prolonged symptoms of paroxysmal AF (PAF). There is an uncommon probability of AF reverting to AFL with this approach and before antiarrhythmic medication is initiated, a beta-blocker, diltiazem or verapamil should be given to prevent rapid AV conduction.
@@ -132,12 +124,10 @@ With such an approach emergency room visits and hospitalization could markedly b
 
 **[Grade II-a, Level B]** In selected patients with recent-onset AF and no significant structural heart disease, a single high oral dose of flecainide or propafenone (the 'pill-in-the-pocket' approach) should be considered, provided this treatment has proven safe during previous testing in a medically secure environment.
 
-### 5.1.3 Direct Current Cardioversion (DCCV)
-
+### 5.1.3: Direct Current Cardioversion (Dccv)
 DCCV is an effective method of converting AF to sinus rhythm. Successful DCCV is usually defined as termination of AF, documented as the presence of two or more consecutive P waves after shock delivery.
 
-#### 5.1.3.1 Procedure
-
+#### 5.1.3.1: Procedure
 Unless adequate anticoagulation has been documented for 4 weeks or AF is <48 h from a definite onset, a TOE should be performed to rule out atrial thrombi (refer Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy).
 
 A pacing catheter or external pacing pads may be needed if asystole or bradycardia occurs.
@@ -146,8 +136,8 @@ Evidence favours the use of biphasic external defibrillators because of their lo
 
 Currently, two conventional positions are commonly used for electrode placement (refer Figure 5: Patch/paddle placement for DCCV). Several studies have shown that anteroposterior electrode placement is more effective than anterolateral placement. If initial shocks are unsuccessful for terminating the arrhythmia, the electrodes should be repositioned and cardioversion repeated.
 
-> **Figure 5: Patch/paddle placement for DCCV**
-> 
+> Figure 5: Patch/paddle placement for DCCV
+>
 > * **Antero-lateral placement (Front view only):**
 >   * **Sternal patch/paddle:** Positioned on the anatomical right upper chest (infraclavicular area).
 >   * **Apex patch/paddle:** Positioned on the anatomical left lateral lower chest (midaxillary line).
@@ -156,34 +146,29 @@ Currently, two conventional positions are commonly used for electrode placement 
 >   * **Apex patch (Rear view):** Positioned posteriorly on the left back, directly behind the heart (infrascapular region).
 
 The recommended initial energy for synchronised cardioversion (refer Figure 6: ECG strip showing synchronized cardioversion) is:
-
 *   200J or greater with monophasic waveform
 *   100J or greater with biphasic waveform
 *   10–50J biphasic waveform for AFL
 
-> **Figure 6: ECG strip showing synchronized cardioversion**
+> Figure 6: ECG strip showing synchronized cardioversion
 > *The ECG strip demonstrates a disorganized, irregular atrial fibrillation rhythm. A synchronized direct current shock (100J in this example) is delivered, followed by a brief pause, resulting in the successful restoration of a regular normal sinus rhythm with visible P waves on the subsequent complexes.*
 
 Outpatient/day care DCCV can be undertaken in patients who are haemodynamically stable and do not have severe underlying heart disease. At least 3 h of ECG and haemodynamic monitoring are needed after the procedure, before the patient is allowed to leave the hospital.
 
 Internal cardioversion may be helpful in special situations, e.g. when a patient undergoes invasive procedures and cardioversion catheters can be placed without further vascular access and when implanted defibrillation devices are present.
 
-#### 5.1.3.2 Complications
-
+#### 5.1.3.2: Complications
 The risks and complications of cardioversion are associated primarily with:
-
 *   Thrombo-embolic events,
 *   Post-cardioversion arrhythmias, and
 *   The risks of general anesthesia.
 
 The procedure is associated with 1 – 2% risk of thromboembolism, which can be reduced by adequate anticoagulation in the weeks prior to cardioversion or by exclusion of left atrium thrombi before the procedure. Skin burns are a common complication. In patients with sinus node dysfunction, especially in elderly patients with structural heart disease, prolonged sinus arrest without an adequate escape rhythm may occur. Dangerous arrhythmias, such as ventricular tachycardia and fibrillation, may arise in the presence of hypokalaemia, digitalis intoxication, or improper synchronization. The patient may become hypoxic or hypoventilate from sedation, but hypotension and pulmonary oedema are rare.
 
-#### 5.1.3.3 Cardioversion in patients with implanted pacemakers and defibrillators
-
+#### 5.1.3.3: Cardioversion In Patients With Implanted Pacemakers And Defibrillators
 The electrode paddle should be at least 8 cm from the pacemaker battery, and the antero-posterior paddle positioning is recommended. Biphasic shocks are preferred because they require less energy for AF termination. In pacemaker-dependent patients, an increase in pacing threshold should be anticipated. In the absence of a pacemaker programmer, a pacing magnet may be placed over the pacemaker generator pocket to provide temporary pacing support. These patients should be monitored carefully. After cardioversion, the device should be interrogated and evaluated to ensure normal function.
 
-#### 5.1.3.4 Recurrence after cardioversion
-
+#### 5.1.3.4: Recurrence After Cardioversion
 Recurrences after DCCV can be divided into three phases:
 1.  Immediate recurrences, which occur within the first few minutes after DCCV.
 2.  Early recurrences, which occur during the first 5 days after DCCV.
@@ -205,8 +190,7 @@ Factors that predispose to AF recurrence are age, AF duration before cardioversi
 
 **[Grade III, Level C]** DCCV is contraindicated in patients with digitalis toxicity.
 
-### 5.1.4 Antithrombotic therapy for acute-onset AF
-
+### 5.1.4: Antithrombotic Therapy For Acute-onset AF
 Refer Section 6: Management — Prevention of Thromboembolism.
 
 ---
@@ -216,8 +200,8 @@ Refer Section 6: Management — Prevention of Thromboembolism.
 <!-- Purpose: Explicitly cited for TOE cardioversion routing      -->
 <!-- ============================================================ -->
 
-> **Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy**
-> 
+> Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy
+>
 > 1.  **AF onset < 48 h?**
 >     *   **Yes (Recent-onset AF):**
 >         *   &rarr; Heparin &rarr; **Cardioversion**
@@ -251,8 +235,7 @@ Refer Section 6: Management — Prevention of Thromboembolism.
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -261,8 +244,7 @@ Refer Section 6: Management — Prevention of Thromboembolism.
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -276,8 +258,7 @@ Refer Section 6: Management — Prevention of Thromboembolism.
 <!-- Purpose: Classification data required for drug selection     -->
 <!-- ============================================================ -->
 
-### Appendix D: Vaughan Williams Classification of Antiarrhythmic Drugs
-
+### Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
 **Type IA**
 - Disopyramide
 - Procainamide
@@ -315,7 +296,6 @@ Refer Section 6: Management — Prevention of Thromboembolism.
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AF | Atrial Fibrillation |

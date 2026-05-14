@@ -1,5 +1,4 @@
-# SECTION 4: MANAGEMENT PRINCIPLES
-
+# Section 4: Management Principles
 <!-- METADATA
 category: Treatment, Assessment
 use_case: Management principles of AF including five treatment objectives, rate vs rhythm control strategy, thromboembolic prophylaxis, and clinical trial evidence — rate_control, rhythm_control, AFFIRM, RACE, PIAF, STAF, HOT_CAFE, AF-CHF, J-RHYTHM, VKA, aspirin, LMWH, LAA_occlusion, EHRA_score
@@ -11,12 +10,8 @@ output: rate_vs_rhythm_decision, thromboembolic_strategy, treatment_objectives, 
 
 ---
 
-## 4. Management Principles
-
-### 4.1 General Principles
-
+## 4.1: General Principles
 In patients with AF or AFL, the aims of treatment involve the following five objectives:
-
 1. **Relief of symptoms** — such as palpitations, dizziness, fatigue and dyspnoea, is paramount to the patient.
 2. **Prevention of serious complications** — such as thromboembolism (particularly ischaemic stroke) and heart failure, is equally important.
 3. **Optimal management of concomitant cardiovascular disease.**
@@ -37,10 +32,8 @@ Early cardioversion may be necessary if AF causes hypotension or worsening heart
 
 For rate and rhythm control, drugs remain the first choice. Radiofrequency ablation may be considered in symptomatic AF and in lone AF to avoid long-term drug therapy. In selected individuals undergoing cardiac surgery, surgical maze procedure may be a therapeutic option.
 
-### 4.2 Thromboembolic Prophylaxis
-
+## 4.2: Thromboembolic Prophylaxis
 Antithrombotic therapy must be considered in all patients with AF. Strategies that may reduce thromboembolic risk include the following treatments:
-
 - **Anticoagulants** such as Vitamin K Antagonist (VKA)
 - **Antiplatelet agents**, such as aspirin and clopidogrel
 - **Intravenous (IV) heparin or low molecular weight heparin (LMWH)**
@@ -50,15 +43,14 @@ The decision regarding the method of reduction in the risk of stroke should take
 
 It is important to remember that vitamin K antagonist such as warfarin is very effective and reduces the risk of stroke overall by two-thirds. (refer Section 6: Management — Prevention of Thromboembolism)
 
-### 4.3 Heart Rate Control Versus Rhythm Control
-
+## 4.3: Heart Rate Control Versus Rhythm Control
 **Rate control** involves the use of chronotropic drugs or electrophysiological or surgical interventions to reduce the rapid heart rate (ventricular rate) often found in patients with AF. Although the atria continue to fibrillate with this strategy, it is nonetheless thought to be an effective treatment as it improves symptoms and reduces the risk of associated morbidity. However, the persistence of the arrhythmia continues the risk of stroke and thromboembolic events occurring. Administering antithrombotic drugs reduces this risk. (refer Figure 3: Choice of Rate and Rhythm Control Strategies)
 
 **Rhythm control** involves the use of electrical or pharmacological cardioversion or electrophysiological or surgical interventions to convert the arrhythmia associated with AF to normal sinus rhythm. Patients who have been successfully cardioverted are generally administered antiarrhythmic drugs for the long term to help prevent the recurrence of AF. The rhythm control strategies also require the appropriate administration of antithrombotic therapy to reduce the risk of stroke and thromboembolic events occurring.
 
 Randomized trials comparing outcomes of rhythm versus rate control strategies in patients with AF are summarized in Tables 7 and 8.
 
-**Table 7: General Characteristics of Rhythm Control and Rate Control Trials in Patients with AF**
+Table 7: General Characteristics of Rhythm Control and Rate Control Trials in Patients with AF
 
 | Trial | Ref | Patients (n) | Mean Age (years) | Mean Follow-up (years) | Inclusion Criteria | Primary Outcome Parameter | Rate Control Outcome | Rhythm Control Outcome | P-value |
 |---|---|---|---|---|---|---|---|---|---|
@@ -72,7 +64,7 @@ Randomized trials comparing outcomes of rhythm versus rate control strategies in
 
 > *AF = atrial fibrillation; AFFIRM = Atrial Fibrillation Follow-up Investigation of Rhythm Management; CHF = congestive heart failure; CPR = cardiopulmonary resuscitation; DCC = direct current cardioversion; HOT CAFÉ = How to Treat Chronic Atrial Fibrillation; J-RHYTHM = Japanese Rhythm Management Trial for Atrial Fibrillation; LVEF = left ventricular ejection fraction; NYHA = New York Heart Association; PIAF = Pharmacological Intervention in Atrial Fibrillation; RACE = Rate Control versus Electrical cardioversion for persistent atrial fibrillation; STAF = Strategies of Treatment of Atrial Fibrillation.*
 
-**Table 8: Comparison of Adverse Outcomes in Rhythm Control and Rate Control Trials in Patients with AF**
+Table 8: Comparison of Adverse Outcomes in Rhythm Control and Rate Control Trials in Patients with AF
 
 | Trial | Ref | Death from all causes (in rate/rhythm) | Deaths from cardiovascular causes | Deaths from non-cardiovascular causes | Stroke | Thrombo-embolic events | Bleeding |
 |---|---|---|---|---|---|---|---|
@@ -106,8 +98,7 @@ The decision to add rhythm control therapy to the management of AF requires an i
 - Those presenting for the first time with lone AF
 - Those with AF secondary to a treated/corrected precipitant
 
-### 4.4 Rate vs Rhythm Control
-
+## 4.4: Rate Vs Rhythm Control
 | Recommendation | Grade |
 |---|---|
 | Rate control should be the initial approach in elderly patients with AF and minor symptoms (EHRA class 1). | **[Grade I, Level A]** |
@@ -124,8 +115,7 @@ The decision to add rhythm control therapy to the management of AF requires an i
 <!-- Purpose: Referenced by rate vs rhythm decision criteria       -->
 <!-- ============================================================ -->
 
-### EHRA Score
-
+### Ehra Score
 | EHRA Class | Explanation |
 |---|---|
 | **EHRA I** | 'No symptoms' |
@@ -139,8 +129,7 @@ The decision to add rhythm control therapy to the management of AF requires an i
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -149,8 +138,7 @@ The decision to add rhythm control therapy to the management of AF requires an i
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -164,7 +152,7 @@ The decision to add rhythm control therapy to the management of AF requires an i
 <!-- Purpose: Explicit algorithmic context for rate vs rhythm      -->
 <!-- ============================================================ -->
 
-### Figure 3: Choice of Rate and Rhythm Control Strategies
+Figure 3: Choice of Rate and Rhythm Control Strategies
 
 **1. Baseline Management (All Patients)**
 *   **Appropriate antithrombotic therapy**
@@ -200,7 +188,6 @@ The decision to add rhythm control therapy to the management of AF requires an i
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AF | Atrial Fibrillation |

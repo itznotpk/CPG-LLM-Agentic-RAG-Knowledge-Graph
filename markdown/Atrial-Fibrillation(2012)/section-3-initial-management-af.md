@@ -1,5 +1,4 @@
-# SECTION 3: INITIAL MANAGEMENT
-
+# Section 3: Initial Management
 <!-- METADATA
 category: Diagnosis, Screening, Assessment
 use_case: Initial management of AF including clinical assessment, ECG confirmation, EHRA symptom scoring, echocardiography, and structured follow-up — EHRA_score, ECG, Holter_monitoring, TTE, TOE, pulse_palpation, diagnostic_evaluation, clinical_follow-up
@@ -11,12 +10,8 @@ output: AF_diagnosis_confirmation, EHRA_classification, echocardiography_indicat
 
 ---
 
-# 3. Initial Management
-
-## 3.1 Clinical History, Physical Examination and Investigations
-
+## 3.1: Clinical History, Physical Examination And Investigations
 The acute management of AF patients should concentrate on:
-
 - Relief of symptoms
 - Assessment of AF-associated risk
 - Determination of the European Heart Rhythm Association (EHRA) score (refer Table 5: EHRA Score of AF-Related Symptoms)
@@ -26,7 +21,7 @@ The acute management of AF patients should concentrate on:
 
 With the above in mind, a thorough medical history should be obtained from the patient with suspected or known AF (refer Table 4: Relevant questions to be put to a patient with suspected or known AF).
 
-**Table 4: Relevant questions to be put to a patient with suspected or known AF**
+Table 4: Relevant questions to be put to a patient with suspected or known AF
 
 | Questions |
 |---|
@@ -42,7 +37,7 @@ With the above in mind, a thorough medical history should be obtained from the p
 
 The EHRA symptom score (refer Table 5: EHRA Score of AF-Related Symptoms) provides a simple clinical tool for assessing symptoms during AF. The score only considers symptoms that are attributable to AF and reverse or reduce upon restoration of sinus rhythm or with effective rate control.
 
-**Table 5: EHRA Score of AF-Related Symptoms**
+Table 5: EHRA Score of AF-Related Symptoms
 
 | EHRA Class | Explanation |
 |---|---|
@@ -53,12 +48,10 @@ The EHRA symptom score (refer Table 5: EHRA Score of AF-Related Symptoms) provid
 
 > *AF = atrial fibrillation; EHRA = European Heart Rhythm Association.*
 
-### 3.1.1 Detection
-
+### 3.1.1: Detection
 Those with undiagnosed AF can receive treatment sooner if an opportunistic case finding is undertaken. Routine palpation of the radial pulse (not less than 20 seconds) during screening of blood pressure will be a good opportunity to pick up undiagnosed atrial fibrillation.
 
 In patients presenting with any of the following:
-
 - Breathlessness/dyspnoea
 - Palpitations
 - Syncope/dizziness
@@ -66,22 +59,19 @@ In patients presenting with any of the following:
 
 manual pulse palpation should be performed to assess for the presence of an irregular pulse that may indicate AF.
 
-#### 3.1.1.1 Electrocardiogram
-
+#### 3.1.1.1: Electrocardiogram
 The diagnosis of AF requires confirmation by ECG, sometimes in the form of bedside telemetry, ambulatory Holter recordings and event loop recordings.
 
 If AF is present at the time of recording, a standard 12-lead ECG is sufficient to confirm the diagnosis. In paroxysmal AF, 7-day Holter ECG recording or daily and symptom-activated event recordings may document the arrhythmia in 70% of AF patients.
 
 The search for AF should be intensified, including prolonged monitoring, when patients:
-
 - Are highly symptomatic (EHRA III & IV)
 - Present with recurrent syncope
 - After a cryptogenic stroke
 
 In stroke survivors, a step-wise addition of five daily short-term ECGs, one 24-h Holter ECG, and another 7-day Holter ECG will each increase the detection rate of AF by a similar extent.
 
-### 3.2 Diagnostic Evaluation
-
+## 3.2: Diagnostic Evaluation
 The initial diagnostic work-up is driven by the initial presentation.
 
 The time of onset of AF should be established to define the type of AF (refer Figure 2: Therapeutic Timeline in AF Disease Progression).
@@ -96,7 +86,7 @@ After the initial management of symptoms and complications, underlying causes of
 
 Table 6 lists the clinical evaluation that may be necessary in patients with AF.
 
-**Table 6: Clinical Evaluation in Patients With AF**
+Table 6: Clinical Evaluation in Patients With AF
 
 **Minimum evaluation**
 1. *Electrocardiogram, to identify*
@@ -143,8 +133,7 @@ Table 6 lists the clinical evaluation that may be necessary in patients with AF.
 
 > *Type IC refers to the Vaughan Williams classification of antiarrhythmic drugs (refer Appendix D: Vaughan Williams Classification of Antiarrhythmic Drugs). AF = atrial fibrillation; AV = atrioventricular; LA = left atrial; LV = left ventricular; MI = myocardial infarction; RA = right atrial; RV = right ventricular.*
 
-### 3.3 Echocardiography
-
+## 3.3: Echocardiography
 TTE should be performed in patients with AF:
 - For whom a baseline echocardiogram is important for long-term management.
 - For whom a rhythm-control strategy that includes cardioversion (electrical or pharmacological) is being considered.
@@ -157,8 +146,7 @@ TOE should be performed in patients with AF:
 - Where TTE is technically difficult and/or of questionable quality and where there is a need to exclude cardiac abnormalities.
 - For whom TOE-guided cardioversion is being considered. (refer Section 6.4.5: Cardioversion)
 
-### 3.4 Clinical Follow-Up
-
+## 3.4: Clinical Follow-Up
 The specialist caring for the AF patient should not only perform the baseline assessment and institute the appropriate treatment, but also suggest a structured plan for follow-up.
 
 Important considerations during follow-up of the AF patient are listed below:
@@ -169,8 +157,7 @@ Important considerations during follow-up of the AF patient are listed below:
 - Has paroxysmal AF progressed to a persistent/permanent form, in spite of antiarrhythmic drugs; in such a case, should another therapy be considered?
 - Is the rate control approach working properly; has the target for heart rate at rest and during exercise been reached?
 
-### 3.5 Initial Management
-
+## 3.5: Initial Management
 | Recommendation | Grade |
 |---|---|
 | The diagnosis of AF requires documentation by ECG. | **[Grade I, Level B]** |
@@ -189,7 +176,7 @@ Important considerations during follow-up of the AF patient are listed below:
 | In patients treated with rhythm control, repeated ECG monitoring may be considered to assess the efficacy of treatment. | **[Grade II-b, Level B]** |
 | Most patients with AF may benefit from specialist follow-up at regular intervals. | **[Grade II-b, Level C]** |
 
-**Figure 3: Choice of Rate and Rhythm Control Strategies**
+Figure 3: Choice of Rate and Rhythm Control Strategies
 
 **1. Baseline Management (All Patients)**
 *   **Appropriate antithrombotic therapy**
@@ -216,7 +203,7 @@ Important considerations during follow-up of the AF patient are listed below:
 *   *If on Rhythm control:* &rarr; **Failure of rhythm control** &rarr; Switch to **Rate control**
 
 > Rate control is needed for most patients with AF unless the heart rate during AF is naturally slow. Rhythm control may be added to rate control if the patient is symptomatic despite adequate rate control, or if a rhythm control strategy is selected because of factors such as the degree of symptoms, younger age, or higher activity levels. Permanent AF is managed by rate control unless it is deemed possible to restore sinus rhythm when the AF category is re-designated as 'long-standing persistent'. Paroxysmal AF is more often managed with a rhythm control strategy, especially if it is symptomatic and there is little or no associated underlying heart disease. Solid lines indicate the first-line management strategy; Dashed lines represent fall-back objectives and dotted lines indicate alternative approaches which may be used in selected patients.
-> 
+>
 ---
 
 <!-- ============================================================ -->
@@ -230,8 +217,7 @@ Important considerations during follow-up of the AF patient are listed below:
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -240,8 +226,7 @@ Important considerations during follow-up of the AF patient are listed below:
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -255,8 +240,7 @@ Important considerations during follow-up of the AF patient are listed below:
 <!-- Purpose: Defines Vaughan Williams Classification of AADs       -->
 <!-- ============================================================ -->
 
-### Appendix D: Vaughan Williams Classification of Antiarrhythmic Drugs
-
+### Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
 **Type IA**
 - Disopyramide
 - Procainamide
@@ -292,7 +276,6 @@ Important considerations during follow-up of the AF patient are listed below:
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AAD | Antiarrhythmic Drug |

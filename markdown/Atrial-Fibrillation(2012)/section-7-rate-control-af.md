@@ -1,5 +1,4 @@
-# SECTION 7: MANAGEMENT — LONG-TERM RATE CONTROL
-
+# Section 7: Management — Long-Term Rate Control
 <!-- METADATA
 category: Treatment
 use_case: Long-term pharmacological and non-pharmacological rate control in AF including lenient vs strict targets, comorbidity-based drug selection, combination therapy, and AV nodal ablation with pacing — lenient_rate_control, strict_rate_control, beta-blockers, CCB, digoxin, amiodarone, dronedarone, AV_node_ablation, CRT, permanent_pacing
@@ -12,18 +11,14 @@ treatment_type: atenolol, carvedilol, metoprolol, nadolol, propranolol, diltiaze
 
 ---
 
-## 7. Management — Long-Term Rate Control
-
-### 7.1 Pharmacological Rate Control
-
+## 7.1: Pharmacological Rate Control
 Criteria for rate control vary with patient age but usually involve achieving ventricular rates of:
-
 - 60–80 beats per minute at rest, and
 - 90–115 beats per minute during moderate exercise
 
 However, maintaining **lenient control** of heart rate (a resting rate of less than 100 bpm) is easier to achieve and is comparable to **strict control** (resting heart rate <80 bpm and heart rate during moderate exercise <110 bpm) on long-term composite outcomes. For patients without severe symptoms due to high ventricular rate, a lenient rate control approach is reasonable (refer Figure 10: Optimal level of heart rate control).
 
-> **Figure 10: Optimal level of heart rate control**
+> Figure 10: Optimal level of heart rate control
 >
 > **Rate control**
 > *   **No or tolerable symptoms:**
@@ -42,7 +37,7 @@ When a strict rate control policy is adopted (resting heart rate <80 bpm and tar
 
 Selection of the most effective and appropriate rate-control agent, or combination of agents, is vital. Table 15 lists rate-control treatments in order of preference, taking into account other conditions that may be present. Table 16 lists the drugs and their doses for rate control.
 
-**Table 15: Choice of a Rate-Control Agent**
+Table 15: Choice of a Rate-Control Agent
 
 | Comorbidity | First-Line | Second-Line | Less Effective or Desirable |
 |---|---|---|---|
@@ -57,7 +52,7 @@ Selection of the most effective and appropriate rate-control agent, or combinati
 > † *diltiazem or verapamil*
 > ‡ *as monotherapy (can be used in combination with other rate-control agents)*
 
-**Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL**
+Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
 
 | Drug | Oral Loading Dose | Onset of Action | Commonly Used Maintenance Doses | Adverse Effects | Comments |
 |---|---|---|---|---|---|
@@ -96,13 +91,12 @@ Selection of the most effective and appropriate rate-control agent, or combinati
 
 **[Grade II-a, Level C]** Intravenous amiodarone can be useful to control the heart rate in patients with AF when other measures are unsuccessful or contraindicated.
 
-### 7.1.2 Combination Therapy
-
+### 7.1.2: Combination Therapy
 Combination of drugs may be required to control heart rate. Care should be taken to avoid severe bradycardia. The combination of digoxin and ß-blocker appears more effective than the combination of digoxin with a CCB.
 
 **[Grade II-a, Level B]** A combination of digoxin and either a ß-blocker, diltiazem, or verapamil is reasonable to control the heart rate both at rest and during exercise in patients with AF.
 
-> **Figure 11: The choice of drugs depends on life-style and underlying disease**
+> Figure 11: The choice of drugs depends on life-style and underlying disease
 >
 > **Atrial fibrillation**
 > *   **Inactive lifestyle:**
@@ -118,10 +112,9 @@ Combination of drugs may be required to control heart rate. Care should be taken
 >
 > *\*Small doses of ß1-selective blockers may be used in COPD if rate control is not adequate with non-dihydropyridine calcium channel antagonists and digoxin. Amiodarone is also used for rate control in patients who do not respond to glycosides, ß-blockers or non-dihydropyridine calcium antagonists. Dronedarone may also be used for rate control in patient with recurrent episodes of atrial fibrillation.*
 
-### 7.2 Non-Pharmacological Rate Control
+## 7.2: Non-Pharmacological Rate Control
 
-#### 7.2.1 AV Nodal Ablation and Pacing
-
+### 7.2.1: Av Nodal Ablation And Pacing
 AV nodal ablation in conjunction with permanent pacemaker implantation provides highly effective control of the heart rate and improves symptoms, quality of life, exercise capacity, ventricular function and healthcare utilization in selected patients with AF.
 
 Ablation of the atrioventricular node is a palliative but irreversible procedure and is therefore reasonable in patients in whom pharmacological rate control (including combination of drugs) has failed, or rhythm control with drugs and/or LA ablation has failed.
@@ -156,8 +149,7 @@ It is suggested that programming the pacemaker initially for the first month pos
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -166,8 +158,7 @@ It is suggested that programming the pacemaker initially for the first month pos
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
@@ -182,7 +173,6 @@ It is suggested that programming the pacemaker initially for the first month pos
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AF | Atrial Fibrillation |

@@ -1,5 +1,4 @@
 # Section 4: Safe Use of Medication in Anaesthesia for Specific Populations
-
 <!-- METADATA
 category: Special Populations, Treatment, Assessment
 use_case: Anaesthesia Medication Safety for Specific Populations - paediatric_patients, elderly_patients, obstetric_patients, extreme_body_weight, obesity, underweight, sarcopenia, dose_adjustment
@@ -31,6 +30,7 @@ treatment_type: local_anaesthetics, opioids, neuraxial_anaesthesia, epidural_lab
 4.2.6 Use perioperative benzodiazepines and gabapentinoids judiciously. Multimodal opioid-sparing techniques for postoperative pain management is recommended to minimise total opioids doses. Dexmedetomidine is recognised to have neuroprotective effects and is considered to reduce delirium perioperatively
 
 ## 4.3: Obstetric Patients
+
 ### 4.3.1: Epidural Labour Analgesia
 a. Only anaesthesia healthcare professionals are allowed to titrate the dosage of epidural labour analgesia.
 
@@ -46,6 +46,7 @@ b. Do not administer morphine either intrathecal or epidural to patients with ob
 c. No other sedative or parenteral opioids in the first 24 hours after receiving intrathecal or epidural morphine.
 
 ## 4.4: Extreme Body Weight Patients
+
 ### 4.4.1: General Principles
 a. Extreme body weight, either obese or underweight, is associated with pharmacokinetic and pharmacodynamic changes.
 

@@ -1,5 +1,4 @@
-# SECTION 9: MANAGEMENT — SPECIAL POPULATIONS
-
+# Section 9: Management — Special Populations
 <!-- METADATA
 category: Special Populations, Treatment
 use_case: AF management in special populations with tailored rate/rhythm control and anticoagulation — post-operative_AF, ACS, WPW, hyperthyroidism, pregnancy, HCM, COPD, heart_failure, athletes, valvular_heart_disease, mitral_stenosis, accessory_pathway, amiodarone-induced_thyrotoxicosis
@@ -12,16 +11,12 @@ treatment_type: beta-blockers, amiodarone, sotalol, digoxin, verapamil, diltiaze
 
 ---
 
-## 9. Management — Special Populations
-
-## 9.1 POST-OPERATIVE AF
-
+## 9.1: POST-OPERATIVE AF
 Although AF may occur after noncardiac surgery, the incidence of atrial arrhythmias including AF after open-heart surgery is between 20% and 50%. Post-operative AF usually occurs within 5 d of open-heart surgery, with a peak incidence on the second day. The arrhythmia is usually self-correcting, and sinus rhythm resumes in more than 90% of patients by 6 to 8 wk after surgery.
 
 A systematic review of 58 studies in 8565 patients has shown that interventions to prevent and/or treat post-operative AF with ß-blockers, sotalol, or amiodarone and, less convincingly, atrial pacing, are favoured with respect to outcome.
 
-### 9.1.1 PREVENTION OF POST-OPERATIVE ATRIAL FIBRILLATION
-
+### 9.1.1: Prevention Of POST-OPERATIVE Atrial Fibrillation
 ß-Blocker therapy is most effective when provided both before and after cardiac surgery compared with only before or after surgery. Withdrawal of ß-blockers is a significant risk factor for the development of post-operative AF and should be avoided. Treatment should be started at least 1 week before surgery with a ß-blocker without intrinsic sympathomimetic activity.
 
 Prophylactic amiodarone decreased the incidence of post-operative AF. The beneficial effect of amiodarone has been consistently demonstrated in a systematic review. The adverse effects of perioperative prophylactic i.v. amiodarone include an increased probability of post-operative bradycardia and hypotension.
@@ -32,8 +27,7 @@ Meta-analyses demonstrated that corticosteroid therapy was associated with a 26 
 
 One meta-analysis of eight trials has shown that prophylactic atrial pacing reduced the incidence of post-operative AF regardless of the atrial pacing site or pacing algorithm used.
 
-### 9.1.2 TREATMENT OF POST-OPERATIVE ATRIAL FIBRILLATION
-
+### 9.1.2: Treatment Of POST-OPERATIVE Atrial Fibrillation
 In haemodynamically stable patients, the majority will convert spontaneously to sinus rhythm within 24 h. Initial management includes correction of predisposing factors (such as pain management, haemodynamic optimization, weaning of i.v. inotropes, correcting electrolytes and metabolic abnormalities, and addressing anaemia or hypoxia) where possible.
 
 In the highly symptomatic patient or when rate control is difficult to achieve, cardioversion may be performed. DCCV is 95% successful but pharmacological cardioversion is more commonly used. Amiodarone was shown to be more effective than placebo in converting post-operative AF to sinus rhythm.
@@ -66,8 +60,7 @@ A number of studies have shown an increased risk of stroke in patients after car
 
 Atrial flutter is less common than AF after cardiac surgery, but pharmacological therapy is similar. Prevention of postoperative atrial flutter is as difficult as prevention of AF, but atrial overdrive pacing is generally useful for termination of atrial flutter when epicardial electrodes are in place.
 
-## 9.2 ACUTE CORONARY SYNDROME
-
+## 9.2: Acute Coronary Syndrome
 AF occurs with an incidence between 2 to 21% in patients with ACS and is more commonly associated with ACS in older patients and those with higher heart rate and LV dysfunction.
 
 AF is associated with increased in-hospital mortality in the setting of ACS. Stroke rates are also increased in patients with ACS and AF.
@@ -86,12 +79,10 @@ Specific recommendations for management of patients with AF in the setting of AC
 
 **[Grade III, Level B]** Administration of flecainide or propafenone is not recommended in patients with AF in the setting of ACS.
 
-## 9.3 WOLFF-PARKINSON-WHITE (WPW) PRE-EXCITATION SYNDROMES
-
+## 9.3: WOLFF-PARKINSON-WHITE (Wpw) PRE-EXCITATION Syndromes
 Since accessory pathways (AP) lack the decremental conduction properties of the AV node, patients with overt pre-excitation and AF are at risk of rapid conduction across the AP, resulting in fast ventricular rates and possible sudden cardiac death (SCD) because of degeneration into ventricular fibrillation. This makes AF in this patient cohort a potentially life-threatening arrhythmia. For information relating to acute and long-term pharmacological rate control in patients with an AP, (refer Section 5.1.1: Acute Rate Control).
 
-### 9.3.1 SUDDEN DEATH AND RISK STRATIFICATION
-
+### 9.3.1: Sudden Death And Risk Stratification
 The incidence of SCD in patients with the Wolff – Parkinson – White syndrome has ranged from 0.15 to 0.39% over 3- to 22-year follow-up.
 
 The markers of increased risk are:
@@ -118,8 +109,7 @@ The positive predictive value of invasive electrophysiological testing is consid
 
 **[Grade II-a, Level B]** Asymptomatic patients with evidence of an overt AP should be considered for catheter ablation of the AP only after a full explanation and careful counseling.
 
-## 9.4 HYPERTHYROIDISM
-
+## 9.4: Hyperthyroidism
 AF occurs in 10% to 25% of patients with hyperthyroidism, more commonly in men and elderly patients.
 
 Treatment is directed primarily toward restoring a euthyroid state, which is usually associated with a spontaneous reversion to sinus rhythm. Antiarrhythmic drugs and direct-current cardioversion are generally unsuccessful while the thyrotoxicosis persists.
@@ -140,8 +130,7 @@ Although amiodarone may be continued when hypothyroidism has been successfully t
 
 **[Grade I, Level C]** Once a euthyroid state is restored, recommendations for antithrombotic prophylaxis are the same as for patients without hyperthyroidism.
 
-## 9.5 PREGNANCY
-
+## 9.5: Pregnancy
 AF is rare during pregnancy and usually has an identifiable underlying cause, such as:
 *   Mitral stenosis,
 *   congenital heart disease,
@@ -169,8 +158,7 @@ The following are guiding principles for the use of drugs in pregnancy:
 *   Low dose combination therapy preferable to higher dose single drug therapy.
 *   Use older agents with longest tract record.
 
-## 9.6 HYPERTROPHIC CARDIOMYOPATHY
-
+## 9.6: Hypertrophic Cardiomyopathy
 Patients with hypertrophic cardiomyopathy (HCM) are at greater risk of developing AF compared with the general population, and around 20 – 25% develop AF with an annual incidence of 2%.
 
 AF is the major determinant of hemodynamic deterioration in patients with HCM and symptoms can be ameliorated by restoration of sinus rhythm. Amiodarone may be the most effective agent for reducing the occurrence of paroxysmal AF and for preventing recurrence. In chronic AF, rate control can usually be achieved with ß-blockers and verapamil. AV nodal ablation with permanent ventricular pacing (to promote late septal activation) may be helpful in selected patients.
@@ -191,8 +179,7 @@ The small series of surgical ablation (Maze-III procedure) in combination with m
 
 **[Grade II-a, Level C]** Ablation procedures (with concomitant septal myomectomy if indicated) may be considered in patients with HCM and refractory AF.
 
-## 9.7 PULMONARY DISEASES
-
+## 9.7: Pulmonary Diseases
 Supraventricular arrhythmias, including AF, are common in patients with COPD and have adverse prognostic implications in patients with acute exacerbations of COPD.
 
 **[Grade I, Level C]** For patients who develop AF during an acute pulmonary illness or exacerbation of chronic pulmonary disease, treatment of the underlying lung disease and correction of hypoxemia and acidosis are the primary therapeutic measures.
@@ -207,8 +194,7 @@ Supraventricular arrhythmias, including AF, are common in patients with COPD and
 
 **[Grade I, Level C]** Direct-current cardioversion should be attempted in patients with pulmonary disease who become hemodynamically unstable as a consequence of AF. In patients refractory to drug therapy, AV nodal ablation and ventricular pacing may be necessary to control the ventricular rate. In patients with AF and pulmonary disease, the general recommendations for antithrombotic therapy apply.
 
-## 9.8 HEART FAILURE
-
+## 9.8: Heart Failure
 AF is a strong and independent risk factor for the development of heart failure, and both conditions frequently co-exist. The onset of AF in a patient with heart failure often leads to symptomatic deterioration, predisposes to episodes of worsening heart failure, increases the risk of thrombo-embolic episodes, and worsens long-term outcome.
 
 In the initial approach to heart failure patients with AF, the following issues need to be considered:
@@ -237,8 +223,7 @@ The prevention of thrombo-embolism is covered in Section 6:MANAGEMENT — PREVEN
 
 **[Grade II-b, Level B]** Catheter ablation (pulmonary vein isolation) may be considered in heart failure patients with refractory symptomatic AF.
 
-## 9.9 ATHLETES
-
+## 9.9: Athletes
 In population-based studies, the intensity of physical activity showed a U-shaped relationship with incident AF, which may indicate that the positive antiarrhythmic effects of physical activity are partially negated when exercise is too strenuous. AF is 2 – 10 times more prevalent in active or former competitive athletes and those performing intense recreational endurance sports. The reasons for this association are probably both functional (increased sympathetic activity, volume load during exercise, vagotonia at rest) and structural (atrial hypertrophy and dilatation).
 
 Rate control is difficult to achieve in athletes. ß-blockers are not well tolerated and may even be prohibited in some competitive sports, and digoxin or non-dihydropyridine calcium antagonists will not be potent enough to slow heart rate during exertional AF.
@@ -263,8 +248,7 @@ Anticoagulation may be necessary depending on the presence of risk factors for t
 
 **[Grade III, Level C]** It is not recommended to allow physical sports activity when symptoms due to haemodynamic impairment (such as dizziness) are present.
 
-## 9.10 VALVULAR HEART DISEASE
-
+## 9.10: Valvular Heart Disease
 AF frequently accompanies valvular heart disease. LA distension is an early manifestation of progressive mitral valve disease, and the presence of paroxysmal or permanent AF is an accepted indication for early percutaneous or surgical mitral intervention. AF is also frequently seen in later stages of aortic valve disease when LV dilatation and elevated end-diastolic pressure exert secondary effects on LA function.
 
 Management of AF follows conventional recommendations in the setting of valvular heart disease, although a rate control strategy is usually adopted because of the low likelihood of maintaining sinus rhythm in the long term.
@@ -279,7 +263,7 @@ Principal concerns surround the high risk of thrombo-embolism in subjects with v
 
 **[Grade II-a, Level C]** Early mitral valve surgery should be considered in severe mitral regurgitation, preserved LV function, and new-onset AF, even in the absence of symptoms, particularly when valve repair is feasible.
 <!-- OVERLAP CONTENT FROM: section-7-rate-control.md -->
-## TABLE 15: Choice of a Rate-Control Agent
+Table 15: Choice of a Rate-Control Agent
 
 | Comorbidity | First-Line | Second-Line | Less Effective or Desirable |
 |---|---|---|---|
@@ -296,7 +280,8 @@ Principal concerns surround the high risk of thrombo-embolism in subjects with v
 <!-- END OVERLAP CONTENT -->
 
 <!-- OVERLAP CONTENT FROM: section-0-summary.md -->
-## GRADES OF RECOMMENDATION 
+
+## Grades Of Recommendation
 | Grade | Description |
 |-------|-------------|
 | **I** | Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective. |
@@ -305,14 +290,14 @@ Principal concerns surround the high risk of thrombo-embolism in subjects with v
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful. |
 
-## LEVELS OF EVIDENCE
+## Levels Of Evidence
 | Level | Description |
 |-------|-------------|
 | A | Data derived from multiple randomized clinical trials or meta analyses. |
 | B | Data derived from a single randomized clinical trial or large non randomized studies. |
 | C | Consensus of opinion of the experts and/or small studies, retrospective studies, registries. |
 
-## ABBREVIATIONS
+## Abbreviations
 | Abbreviation | Description |
 |--------------|-------------|
 | ACS | Acute Coronary Syndrome |

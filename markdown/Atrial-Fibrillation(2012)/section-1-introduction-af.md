@@ -1,5 +1,4 @@
-# SECTION 1: INTRODUCTION
-
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction, Classification, Epidemiology
 use_case: Definition, classification, natural history, and epidemiology of atrial fibrillation — AF_definition, AFL_definition, paroxysmal, persistent, long-standing_persistent, permanent, lone_AF, silent_AF, AF_progression, prevalence, mortality, stroke_risk
@@ -11,19 +10,15 @@ output: AF_subtype_classification, disease_stage, stroke_risk_context, mortality
 
 ---
 
-## 1. Introduction
-
-### 1.1 Definition
-
+## 1.1: Definition
 Atrial fibrillation (AF) is an atrial tachyarrhythmia characterized by uncoordinated atrial activation with consequent deterioration of atrial mechanical function. The surface ECG is characterized by 'absolutely' irregular RR intervals and the absence of any distinct P waves. The P waves are replaced by fibrillary (F) waves.
 
 Atrial Flutter (AFL) in the typical form is characterized by a saw-tooth pattern of regular atrial activation called flutter (F) waves on the ECG. AFL commonly occurs with 2:1 AV block, resulting in a regular or irregular ventricular rate of 120 to 160 beats per minute (most characteristically about 150 beats per minute).
 
-### 1.2 Types of Atrial Fibrillation
-
+## 1.2: Types Of Atrial Fibrillation
 Clinically, five types of AF are recognized based on the presentation and the duration of the episode. These categories are set out below (refer Table 1: Classification of AF Subtypes).
 
-**Table 1: Classification of AF Subtypes**
+Table 1: Classification of AF Subtypes
 
 | Terminology | Clinical Features | Pattern |
 |---|---|---|
@@ -39,7 +34,7 @@ Clinically, five types of AF are recognized based on the presentation and the du
 
 This classification is useful for clinical management of AF patients (refer Figure 1: Different types of AF), especially when AF-related symptoms are also considered.
 
-**Figure 1: Different types of AF**
+Figure 1: Different types of AF
 
 **1. Initial Presentation**
 *   **First diagnosed episode of atrial fibrillation**
@@ -62,15 +57,14 @@ This classification is useful for clinical management of AF patients (refer Figu
 
 > The arrhythmia tends to progress from paroxysmal (self-terminating, usually < 48 h) to persistent (non-self-terminating or requiring cardioversion), long-standing persistent (lasting longer than 1 year) and eventually to permanent (accepted) AF. First-onset AF may be the first of recurrent attacks or already be deemed permanent.
 
-### 1.3 AF Natural Time Course
-
-AF is a naturally progressive disease except for a small proportion of patients (2–3%), who are free of AF-promoting conditions (see Section 2.1.1: Causes and Associated Conditions), may remain in paroxysmal AF over several decades.
+## 1.3: AF Natural Time Course
+AF is a naturally progressive disease except for a small proportion of patients (2–3%), who are free of AF-promoting conditions (see Section 2.1.1: Causes and Associated Conditions), may remain in paroxysmal AF over several decades.<!-- cross_ref target_file="<CPG LLM\markdown\Atrial-Fibrillation(2012)\section-2-pathophysiology-af.md" target_heading="2.1: Clinical Aspects" target_kind="h2_section" -->
 
 AF progresses from short rare episodes, to longer and more frequent attacks. With time, often years, many patients will develop sustained forms of AF. Paroxysms of AF episodes also occur in clusters and "AF burden" can vary markedly over months or years.
 
 Asymptomatic AF is common even in symptomatic patients, irrespective of whether the initial presentation was persistent or paroxysmal. This has important implications for strategies aimed at preventing AF-related complications.
 
-**Figure 2: Therapeutic Timeline in AF Disease Progression**
+Figure 2: Therapeutic Timeline in AF Disease Progression
 
 *Timeline of AF Progression:* Silent &rarr; Paroxysmal &rarr; Persistent &rarr; Long-standing Persistent &rarr; Permanent
 
@@ -88,8 +82,7 @@ Asymptomatic AF is common even in symptomatic patients, irrespective of whether 
 
 > The sequence of progression runs from silent and undiagnosed to paroxysmal and chronic forms, at times symptomatic. The upper bars indicate therapeutic measures pursued against this timeline. Light blue indicates therapies with proven effects on 'hard outcomes' in AF (stroke/heart failure). Red indicates therapies currently used for symptom relief, but may in the future contribute to reduction of AF-related complications. Rate control (grey) is valuable for symptom relief and improves cardiovascular outcomes.
 
-### 1.4 Epidemiology and Prognosis
-
+## 1.4: Epidemiology And Prognosis
 AF is the commonest sustained cardiac arrhythmia. Information on AF in Malaysia is scarce. Hospital practice data may give a biased view of the clinical epidemiology of AF, since only one-third of patients with AF may actually have been admitted to hospital.
 
 Data from predominantly western populations suggest the estimated prevalence of AF is 0.4% to 1% in the general population. The prevalence of AF doubles with each decade of age, from 0.5% at age 50–59 years to almost 9% at age 80–89 years.
@@ -98,7 +91,7 @@ The mortality rate of patients with AF is about double that of patients in sinus
 
 AF is associated with a prothrombotic state, intra-atrial stasis, structural heart disease or blood vessel abnormalities and abnormal platelet haemostasis, leading to a predisposition to thrombus formation. This prothrombotic state leads to stroke and thromboembolism in AF. Only antithrombotic therapy has been shown to reduce AF-related deaths.
 
-**Table 2: Clinical Events (Outcomes) Affected by AF**
+Table 2: Clinical Events (Outcomes) Affected by AF
 
 | Outcome Parameter | Relative Change in AF Patients |
 |---|---|
@@ -122,7 +115,6 @@ Quality of life and exercise capacity are degraded in patients with AF. This may
 <!-- ============================================================ -->
 
 ### Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | **ACS** | Acute Coronary Syndrome |

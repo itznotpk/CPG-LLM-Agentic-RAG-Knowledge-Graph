@@ -1,5 +1,4 @@
 # Section 5: Safe Medication Practice
-
 <!-- METADATA
 category: Treatment, Assessment, Special Populations, Reference
 use_case: Safe Medication Practice and Critical Events - perioperative_anaphylaxis, serum_tryptase, allergy_referral, beta_lactam_allergy, malignant_hyperthermia, anticoagulants_regional_anaesthesia, nerve_injury, LAST_prevention
@@ -10,6 +9,7 @@ treatment_type: adrenaline, hydrocortisone, antihistamines, dantrolene, local_an
 -->
 
 ## 5.1: Perioperative Hypersensitivity and Anaphylaxis
+
 ### 5.1.1: Introduction
 a. Perioperative hypersensitivity (POH) reactions are unexpected, unpredictable and potentially life-threatening critical events during surgery and anaesthesia.
 
@@ -68,7 +68,6 @@ ii. Referral should be made via phone and email consultation to the Anaesthetic 
 iii. Initial consultation is via a telephone call to the anaesthesiologist in charge of the clinic to ascertain indication of the referral. Tel: 03-26155555 (ext.1133/1153).
 
 iv. This is followed by an email communication (hklaac@gmail.com) providing information and documentation as below:
-
 - completed HKLAAC referral form (refer to Appendix 2: HKLAAC Referral Form), this includes <!-- cross_ref target_file="section-0-appendix-AM.md" target_heading="Appendix 2: HKLAAC Referral Form" target_kind="appendix" -->
   - description of the reaction and time of onset in relation to induction of anaesthesia and various drug administration.
   - Details of blood tests sent and timing in relation to reaction.
@@ -174,6 +173,7 @@ vii. Resuscitation drugs and equipment must be readily available to treat anaphy
 viii. Pre-treatment with steroids and antihistamines may be considered although there is still no strong evidence that this will prevent anaphylaxis.
 
 ## 5.2: Malignant Hyperthermia
+
 ### 5.2.1: Introduction
 a. Malignant hyperthermia (MH) is a rare but potentially fatal anaesthetic emergency.
 
@@ -234,6 +234,7 @@ g. All anaesthesia healthcare professionals should be familiar with trigger-free
 5.3.4 As a guide to minimise risk of spinal hematoma with neuraxial procedures refer to https://med.stanford.edu/content/dam/sm/pain/documents/neuraxial-procedure-v2-3.26.19.pdf
 
 ## 5.4: Local Anaesthesia and Nerve Injury in Regional Anaesthesia
+
 ### 5.4.1: Introduction
 a. The incidence of postoperative prolonged neurological deficit is generally very low.
 
@@ -253,6 +254,7 @@ b. The least concentrated LA solution to achieve an efficient block should be ad
 c. The use of Epinephrine in peripheral nerve blocks is associated with increased risk of ischaemic axonal injury. Although its use is suggested as an adjunct to reduce rapid absorption in the administration of large doses of LA and as an intravascular marker to aid early detection of local anaesthetic systemic toxicity (LAST), such use should be cautioned.
 
 ## 5.5: Local Anaesthetic Systemic Toxicity
+
 ### 5.5.1: Introduction
 a. Local anaesthetic systemic toxicity is a rare but potentially fatal complication.
 
@@ -344,7 +346,7 @@ Figure 7: Management of the patient with a suspected perioperative allergic reac
   * → Identify drugs and other exposures before reaction.
   * ↓
   * **Review Findings:**
-    * **If information is available:** 
+    * **If information is available:**
       * → Avoid all drugs and exposures before the reaction; use alternative drugs where possible.
       * **If allergy is ruled out:** Proceed with routine anaesthesia.
     * **If no information is available:**
@@ -361,7 +363,7 @@ Figure 7: Management of the patient with a suspected perioperative allergic reac
   * → Identify drugs and other exposures before reaction.
   * ↓
   * **Review Findings:**
-    * **If information is available:** 
+    * **If information is available:**
       * → Avoid all drugs and exposures before the reaction; use alternative drugs where possible.
       * **If allergy is ruled out:** Proceed with routine anaesthesia.
     * **If no information is available:**

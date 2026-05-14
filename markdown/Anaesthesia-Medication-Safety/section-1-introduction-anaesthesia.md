@@ -1,5 +1,4 @@
 # Section 1: Introduction
-
 <!-- METADATA
 category: Introduction
 use_case: Anaesthesia Medication Safety Overview - medication_error_prevention, anaesthesia_workflow, critical_care_medication_safety, guideline_scope

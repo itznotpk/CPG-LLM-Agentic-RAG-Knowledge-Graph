@@ -1,5 +1,4 @@
-# SECTION 6: MANAGEMENT — PREVENTION OF THROMBOEMBOLISM
-
+# Section 6: Management — Prevention Of Thromboembolism
 <!-- METADATA
 category: Treatment, Prevention
 use_case: Stroke prevention and antithrombotic therapy in AF including risk stratification, anticoagulation protocols, bleeding risk assessment, and cardioversion anticoagulation — CHADS2, CHA2DS2-VASc, HAS-BLED, VKA, warfarin, dabigatran, aspirin, clopidogrel, INR_target, perioperative_bridging, PCI_triple_therapy, LAA_occlusion, TOE-guided_cardioversion
@@ -13,10 +12,7 @@ treatment_type: warfarin, dabigatran, aspirin, clopidogrel, heparin, LMWH, LAA_o
 
 ---
 
-## 6. Management — Prevention of Thromboembolism
-
-### 6.1 Risk Stratification for Stroke
-
+## 6.1: Risk Stratification For Stroke
 Assessment of thromboembolic risk (risk stratification) allows the clinician to consider anticoagulant treatment for those people who are at an increased risk of stroke.
 
 Two recent systematic reviews have addressed the evidence base for stroke risk factors in AF, and concluded that prior stroke/TIA/thrombo-embolism, age, hypertension, diabetes, and structural heart disease are important risk factors. The presence of moderate to severe LV systolic dysfunction on TTE is the only independent echocardiographic risk factor for stroke on multivariable analysis. On TOE, the presence of LA thrombus, complex aortic plaques, spontaneous echo-contrast and low LAA velocities are independent predictors of stroke and thrombo-embolism.
@@ -29,7 +25,7 @@ The various stroke clinical risk factors has led to publication of various strok
 
 The CHADS₂ stroke risk stratification scheme should be used as an initial, rapid, and easy-to-remember means of assessing stroke risk. In patients with a CHADS₂ score ≥2, chronic OAC therapy with a VKA is recommended in a dose-adjusted approach to achieve an international normalized ratio (INR) target of 2.5 (range, 2.0–3.0), unless contraindicated.
 
-**Table 11: CHADS₂ Score and Stroke Rate**
+Table 11: CHADS₂ Score and Stroke Rate
 
 | CHADS₂ Score | Patients (n=1,733) | Adjusted Stroke Rate (%/year) (95% CI) |
 |---|---|---|
@@ -52,14 +48,12 @@ Also, the CHADS₂ score does not include many stroke risk factors, and other 's
 Rather than the use of the 'low', 'moderate', and 'high' risk characterization that only showed a modest predictive value, this guideline has adopted and recognized that risk is a continuum. A risk factor-based approach for a more detailed stroke risk assessment is encouraged for recommending the use of antithrombotic therapy.
 
 The CHA₂DS₂-VASc schema is based on two groups of risk factors:
-
 - **Major risk factors** — prior history of stroke, TIA or thromboembolism and/or age ≥75 years
 - **Clinically relevant 'non-major' risk factors** — hypertension, heart failure (EF ≤40%), diabetes, age 65–74 years, female gender, and vascular disease (myocardial infarction, complex aortic plaques and PAD)
 
 The risk may be calculated based on a point system in which 2 points are allocated for each 'Major risk factor'; and 1 point each is assigned for 'Clinically relevant non-major risk factors' (refer Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis in patients with AF).
 
-### 6.2 Strategies for Thromboembolic Prophylaxis
-
+## 6.2: Strategies For Thromboembolic Prophylaxis
 The CHADS₂ stroke risk stratification scheme should be used as a simple initial (and easily remembered) means of assessing stroke risk, particularly suited to primary care doctors and non-specialists.
 
 In patients with a CHADS₂ score of ≥2, chronic OAC therapy, e.g. with a VKA, is recommended in a dose adjusted to achieve an INR value in the range of 2.0–3.0, unless contraindicated.
@@ -68,7 +62,7 @@ In patients with a CHADS₂ score of 0–1, or where a more detailed stroke risk
 
 In all cases where OAC is considered, a discussion of the pros and cons with the patient, and an evaluation of the risk of bleeding complications, ability to safely sustain adjusted chronic anticoagulation, and patient preferences are necessary. In some patients, for example, women aged less than 65 years with no other risk factors (i.e. a CHA₂DS₂-VASc score of 1), aspirin rather than OAC therapy may be considered.
 
-**Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis in patients with AF**
+Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis in patients with AF
 
 **a) Risk Factors for Stroke and thrombo-embolism in non-valvular AF:**
 
@@ -124,8 +118,8 @@ In all cases where OAC is considered, a discussion of the pros and cons with the
 *(b) In patients with one 'clinically relevant non-major' stroke risk factor, dabigatran 110 mg b.i.d. may be considered, in view of a similar efficacy with VKA in the prevention of stroke and systemic embolism but lower rates of intracranial haemorrhage and major bleeding compared with the VKA and (probably) aspirin.*
 *(c) Patients with no stroke risk factors (e.g. CHA₂DS₂-VASc = 0) are clearly at so low risk, either aspirin 75–325 mg daily or no antithrombotic therapy is recommended. Where possible, no antithrombotic therapy should be considered for such patients, rather than aspirin, given the limited data on the benefits of aspirin in this patient group (i.e., lone AF) and the potential for adverse effects, especially bleeding.*
 
-> **Figure 7: Clinical flowchart for the use of oral anticoagulant for stroke prevention in AF**
-> 
+> Figure 7: Clinical flowchart for the use of oral anticoagulant for stroke prevention in AF
+>
 > *   **CHADS₂ score ≥ 2?** *(Score ≥ 2 indicates high risk)*
 >     *   &rarr; **Yes:** &rarr; **OAC**
 >     *   &rarr; **No:**
@@ -141,7 +135,7 @@ In all cases where OAC is considered, a discussion of the pros and cons with the
 >                             *   &rarr; **No:** &rarr; **Nothing (or aspirin)**
 >
 > **⁺CHADS₂ Score**
-> 
+>
 > | Risk Factors | Score |
 > |---|---|
 > | Congestive heart failure | 1 |
@@ -149,14 +143,13 @@ In all cases where OAC is considered, a discussion of the pros and cons with the
 > | Age ≥ 75 | 1 |
 > | Diabetes | 1 |
 > | Stroke/TIA | 2 |
-> 
+>
 > *\*Other clinically relevant non-major risk factor: Age 65-74, female sex, vascular disease*
 > *(Adapted from the ESC Guidelines for the Management of Atrial Fibrillation 2010 Version. AF = atrial fibrillation; OAC = oral anticoagulant; TIA = transient ischaemic attack.)*
 
-### 6.3 Antithrombotic Therapy
+## 6.3: Antithrombotic Therapy
 
-#### 6.3.1 Anticoagulation with Vitamin K Antagonists (VKA)
-
+### 6.3.1: Anticoagulation With Vitamin K Antagonists (Vka)
 There were 6 large randomized trials, both primary and secondary prevention, that provided an extensive and robust evidence base for VKA therapy in AF.
 
 In a meta-analysis, adjusted-dose VKA (international normalized ratio [INR] 2-3) showed a significant 64% risk reduction of stroke and 26% risk reduction of all cause mortality in patients with non valvular AF.
@@ -178,19 +171,18 @@ Patients with one 'clinically relevant non-major' risk factor are at intermediat
 - **[Grade II-a, Level A]** Most patients with one 'clinically relevant non-major' risk factor should be considered for OAC therapy (e.g. with a VKA) rather than aspirin, based upon an assessment of the risk of bleeding complications, the ability to safely sustain adjusted chronic anticoagulation, and patient preferences.
 - **[Grade I, Level A]** Anticoagulation with VKA is also recommended for patients with more than 1 moderate risk factor (female gender, age between 65-74, hypertension, diabetes mellitus, vascular disease, HF, or impaired LV systolic function [ejection fraction 35% or less or fractional shortening less than 25%]).
 
-#### 6.3.2 Optimal International Normalized Ratio (INR)
-
+### 6.3.2: Optimal International Normalized Ratio (INR)
 The level of anticoagulation is expressed as the INR and is derived from the ratio between the actual prothrombin time and that of a standardized control serum.
 
 - **[Grade I, Level A]** For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0–3.0 (target 2.5).
 - **[Grade I, Level B]** For patients with AF who have mechanical heart valves, it is recommended that the target intensity of anticoagulation with a VKA should be based on the type and position of the prosthesis, maintaining an INR of at least 2.5 in the mitral position and at least 2.0 for an aortic valve.
 
-> **Figure 8: Adjusted odds ratios for ischaemic stroke and intracranial bleeding in relation to intensity of anticoagulation**
-> 
+> Figure 8: Adjusted odds ratios for ischaemic stroke and intracranial bleeding in relation to intensity of anticoagulation
+>
 > *   **INR < 2.0:** High risk of ischaemic stroke (Odds ratio sharply increases as INR drops towards 1.5).
 > *   **INR 2.0 – 3.0:** Optimal therapeutic window. Both ischaemic stroke risk and intracranial bleeding risk are at their baseline lowest (~1.0 Odds Ratio).
 > *   **INR > 3.0:** Ischaemic stroke risk remains low and flat, but the risk of intracranial bleeding begins to rise exponentially (reaching an Odds Ratio of >4.5 by INR 5.5 and >9.0 by INR 7.0).
-> 
+>
 > *(Reproduced with permission from Ann Intern Med. Hylek E, Singer D. Risk factors for intracranial hemorrhage in outpatients taking warfarin. Ann Intern Med 1994;120:897-902.)*
 
 **[Grade I, Level A]** A target INR of 2.5 (target range of 2.0 to 3.0) is safe for primary prevention in older patients more than 75 years, unless contraindicated.
@@ -199,12 +191,10 @@ The major bleeding rate for 5 randomized clinical trials was 1.2% per year. In t
 
 For a guide on using VKA in daily practice, (refer Appendix C: Warfarin in Practice).
 
-#### 6.3.2.1 Point-of-care testing and self-monitoring of anticoagulation
-
+#### 6.3.2.1: Point-of-care Testing And Self-monitoring Of Anticoagulation
 Self-monitoring may be considered if preferred by a patient who is both physically and cognitively able to perform the self-monitoring test, and, if not, a designated carer could help. Appropriate training by a competent healthcare professional is important, and the patient should remain in contact with a named clinician. These point-of-care devices may also be useful in remote places and allow patients easy access to testing. Point-of-care devices also require adequate quality assurance and calibration.
 
-#### 6.3.3 Anticoagulation with Direct Thrombin Inhibitors
-
+### 6.3.3: Anticoagulation With Direct Thrombin Inhibitors
 Dabigatran etexilate is an oral prodrug that is rapidly converted by a serum esterase to dabigatran, a potent, direct, competitive inhibitor of thrombin. It does not require regular monitoring and has a serum half-life of 12 to 17 hours.
 
 The Randomized Evaluation of Long-term Anticoagulation Therapy (RE-LY) was a randomized trial comparing two fixed doses of dabigatran, given in a blinded manner, with open-label use of VKA in patients with atrial fibrillation. Dabigatran 110 mg b.i.d. was non-inferior to VKA for the prevention of stroke and systemic embolism with lower rates of major bleeding, whilst dabigatran 150 mg b.i.d. was associated with lower rates of stroke and systemic embolism with similar rates of major haemorrhage, compared with VKA.
@@ -219,12 +209,10 @@ There was however an increase in the rate of gastrointestinal bleeding with the 
 
 **[Grade I, Level A]** Antithrombotic agent should be chosen based upon the absolute risks of stroke and bleeding and the relative risk and benefit for a given patient.
 
-#### 6.3.4 Investigational Agents
-
+### 6.3.4: Investigational Agents
 Several new anticoagulant drugs-broadly in two classes, another oral direct thrombin inhibitors (e.g. AZD0837) and the oral factor Xa inhibitors (rivaroxaban, apixaban, edoxaban, betrixaban, YM150, etc.)-are being developed for stroke prevention in AF.
 
-#### 6.3.5 Antiplatelet Agent Aspirin
-
+### 6.3.5: Antiplatelet Agent Aspirin
 Aspirin has been perceived to be safer than VKA in AF patients, but recent trials have shown that VKA are substantially more effective than aspirin for stroke prevention, with no difference in major bleeding event rates between VKA and aspirin treated patients.
 
 In seven primary prevention trials, treatment with aspirin was associated with a non-significant 19% reduction in the incidence of stroke. There was an absolute risk reduction of 0.8% per year for primary prevention trials and 2.5% per year for secondary prevention by using aspirin. When data from all comparisons of antiplatelet agents and placebo or control groups were included in the meta-analysis, antiplatelet therapy reduced stroke by 22%.
@@ -235,8 +223,7 @@ In the Japan Atrial Fibrillation Stroke Trial, patients with lone AF were random
 
 The Birmingham Atrial Fibrillation Treatment of the Aged (BAFTA) study also showed that VKA (target INR 2 – 3) was superior to aspirin 75 mg daily in reducing the primary endpoint of fatal or disabling stroke, intracranial hemorrhage, or thromboembolism by 52%, with no difference in the risk of major hemorrhage between VKA and aspirin.
 
-#### 6.3.6 Aspirin and Clopidogrel Combination
-
+### 6.3.6: Aspirin And Clopidogrel Combination
 In patients with non valvular AF, adjusted dose VKA was found to be superior to the combination of clopidogrel (75mg daily) plus aspirin (75-100 mg daily) for the prevention of first occurrence of stroke, non-CNS systemic embolism, myocardial infarction and vascular death.
 
 However, clopidogrel (75mg daily) plus aspirin (75-100 mg daily) conferred a relative risk reduction of 11% compared to aspirin.
@@ -247,10 +234,9 @@ There was an increased risk of major bleeding in patients receiving clopidogrel 
 
 **[Grade II-b, Level C]** In some patients with one 'clinically relevant non-major' risk factor, e.g., female patients aged <65 years with no other risk factors, aspirin may be considered rather than OAC therapy.
 
-### 6.4 Anticoagulation in Special Circumstances
+## 6.4: Anticoagulation In Special Circumstances
 
-#### 6.4.1 Perioperative Anticoagulation
-
+### 6.4.1: Perioperative Anticoagulation
 Patients with AF who are anticoagulated will require temporary interruption of VKA treatment before surgery or an invasive procedure. Many surgeons require an INR less than 1.5 or even INR normalization before undertaking surgery. The risk of clinically significant bleeding, even among outpatients undergoing minor procedures, should be weighed against the risk of stroke and thrombo-embolism in an individual patient before the administration of bridging anticoagulant therapy. (refer Appendix C.1.9: Perioperative Anticoagulation)
 
 If the VKA used is warfarin, which has a half-life of 36 – 42 h, treatment should be interrupted for about 5 days before surgery (corresponding approximately to five half-lives of warfarin).
@@ -288,8 +274,7 @@ In cases of major surgery, consideration should be given to the risk of thromboe
 
 **[Grade II-b, Level C]** When surgical procedures require interruption of OAC therapy for longer than 48h in high-risk patients, unfractionated heparin or subcutaneous LMWH may be considered.
 
-#### 6.4.2 Acute Stroke
-
+### 6.4.2: Acute Stroke
 **[Grade II-a, Level C]** In all patients with AF who have had an acute stroke, any uncontrolled hypertension should be appropriately managed before antithrombotic therapy is started.
 
 **[Grade II-a, Level C]** Patients with AF and an acute stroke should have imaging done to exclude cerebral haemorrhage. In the presence of cerebral infarction, the decision on the timing of anticoagulation should be weighed between the risk of haemorrhagic transformation and the risk of recurrent thromboembolism.
@@ -302,8 +287,7 @@ In cases of major surgery, consideration should be given to the risk of thromboe
 
 **[Grade II-b, Level C]** In patients with AF who sustain ischaemic stroke or systemic embolism during treatment with usual intensity anticoagulation with VKA (INR 2.0–3.0), raising the intensity of the anticoagulation to a maximum target INR of 3.0–3.5 may be considered, rather than adding an antiplatelet agent.
 
-#### 6.4.3 Anticoagulant and Antiplatelet Therapy Use in Patients With Atrial Fibrillation Undergoing Percutaneous Coronary Intervention
-
+### 6.4.3: Anticoagulant And Antiplatelet Therapy Use In Patients With Atrial Fibrillation Undergoing Percutaneous Coronary Intervention
 There is a lack of published evidence on what is the optimal management strategy in anticoagulated patients with nonvalvular atrial fibrillation (AF) who undergo percutaneous coronary intervention (PCI) and, hence, need antiplatelet therapy.
 
 Based on consensus, the post-PCI strategy should be tailored to the individual patient and their risk of thromboembolism and stent thrombosis weighed against their risk of bleeding while receiving triple therapy (refer Table 13: Antithrombotic strategies following coronary artery stenting in patients with AF at moderate to high thrombo-embolic risk (in whom oral anticoagulation therapy is required))ntithrombotic strategies following coronary artery stenting).
@@ -314,15 +298,14 @@ Based on consensus, the post-PCI strategy should be tailored to the individual p
 
 **[Grade II-a, Level C]** Following elective PCI, clopidogrel should be considered in combination with VKA plus aspirin for a minimum of 1 month after implantation of a BMS, but longer with a drug-eluting stent (at least 3 months for a sirolimus-eluting stent and at least 6 months for a paclitaxel-eluting stent); following which VKA and clopidogrel 75 mg daily (or, alternatively, aspirin 75–100 mg daily).
 
-#### 6.4.4 Non-ST Elevation Myocardial Infarction
-
+### 6.4.4: Non-ST Elevation Myocardial Infarction
 In patients with non-ST elevation myocardial infarction, dual antiplatelet therapy with aspirin plus clopidogrel is recommended, but in AF patients at moderate to high risk of stroke, OAC should also be given.
 
 In the acute setting, patients are often given aspirin, clopidogrel, UFH, or LMWH (e.g. enoxaparin) or bivalirudin and/or a glycoprotein IIb/IIIa inhibitor (GPI). Drug-eluting stents should be limited to clinical situations, as described above (refer Table 13: Antithrombotic strategies following coronary artery stenting in patients with AF at moderate to high thrombo-embolic risk (in whom oral anticoagulation therapy is required))ntithrombotic strategies following coronary artery stenting). An uninterrupted strategy of OAC is preferred, and radial access should be used as the first choice.
 
 For medium to long-term management, triple therapy (VKA, aspirin, and clopidogrel) should be used in the initial period (3 – 6 months), or for longer in selected patients at low bleeding risk. In patients with a high risk of cardiovascular thrombotic complications [e.g. high Global Registry of Acute Coronary Events (GRACE) or TIMI risk score], long-term therapy with VKA may be combined with clopidogrel 75 mg daily (or, alternatively, aspirin 75 – 100 mg daily).
 
-**Table 13: Antithrombotic strategies following coronary artery stenting in patients with AF at moderate to high thrombo-embolic risk (in whom oral anticoagulation therapy is required)**
+Table 13: Antithrombotic strategies following coronary artery stenting in patients with AF at moderate to high thrombo-embolic risk (in whom oral anticoagulation therapy is required)
 
 | Haemorrhagic risk | Clinical setting | Stent implanted | Anticoagulation regimen |
 |---|---|---|---|
@@ -349,8 +332,7 @@ For medium to long-term management, triple therapy (VKA, aspirin, and clopidogre
 
 **[Grade II-b, Level C]** In patients with stable vascular disease (e.g. >1 year, with no acute events), VKA monotherapy may be considered, and concomitant antiplatelet therapy should not be prescribed in the absence of a subsequent cardiovascular event.
 
-#### 6.4.5 Cardioversion
-
+### 6.4.5: Cardioversion
 Conversion of AF to sinus rhythm results in transient mechanical dysfunction of the LA and LAA ("stunning"), which can occur after spontaneous, pharmacological, or electrical conversion of AF. Thrombus may form during the period of stunning and is expelled after the return of mechanical function, explaining the clustering of thromboembolic events during the first 10 d after cardioversion. Recovery of mechanical function may be delayed, depending partially on the duration of AF before conversion.
 
 The risk of thromboembolism after cardioversion is between 1% and 5% and is reduced when anticoagulation (INR 2.0 to 3.0) is given for 4 wk before and after conversion (refer Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy).
@@ -368,8 +350,8 @@ It is important to stress that in following cardioversion of all patients at hig
 
 **[Grade I, Level B]** In patients at high risk of stroke, OAC therapy with a VKA (INR 2.0–3.0) is recommended to be continued long-term.
 
-> **Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy**
-> 
+> Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided cardioversion, and subsequent anticoagulation strategy
+>
 > 1.  **AF onset < 48 h?**
 >     *   **Yes (Recent-onset AF):**
 >         *   &rarr; Heparin &rarr; **Cardioversion**
@@ -411,16 +393,14 @@ It is important to stress that in following cardioversion of all patients at hig
 
 This strategy may be useful to allow early cardioversion of patients with AF > 48 hours or where a minimal period of anticoagulation is preferred.
 
-#### 6.5 Non-Pharmacological Methods to Prevent Stroke
-
+## 6.5: Non-Pharmacological Methods To Prevent Stroke
 The left atrial appendage (LAA) is considered the main site of atrial thrombogenesis and thus, occlusion of the LAA orifice may reduce the development of atrial thrombi and stroke in patients with AF.
 
 The PROTECT AF trial randomized 707 eligible patients to percutaneous closure of the LAA using a WATCHMAN device and subsequent discontinuation of warfarin (intervention, n = 463), or to VKA treatment (INR range 2 – 3; control, n = 244). The primary efficacy event rate (a composite endpoint of stroke, cardiovascular death, and systemic embolism) of the WATCHMAN device was considered non-inferior to that of VKA. There was a higher rate of adverse safety events in the intervention group than in the control group, due mainly to periprocedural complications.
 
-### 6.6 Risk of Long-term Anticoagulation
+## 6.6: Risk Of Long-term Anticoagulation
 
-#### 6.6.1 Assessment of Risk of Bleeding
-
+### 6.6.1: Assessment Of Risk Of Bleeding
 An assessment of bleeding risk should be part of the clinical assessment of patients before starting anticoagulation therapy.
 
 In order to provide adequate thromboprophylaxis with minimal risk of bleeding, current clinical practice aims for a target INR of between 2.0 and 3.0; INRs of more than 3.0 are associated with increases in bleeding and INRs of less than 2.0 are associated with increases in stroke risk.
@@ -431,13 +411,12 @@ Even low-dose aspirin increases the risk of major haemorrhage by two-fold, espec
 
 The fear of falls may be overstated, as a patient may need to fall 300 times per year for the risk of intracranial haemorrhage to outweigh the benefit of OAC in stroke prevention. While these factors are often cited as reasons for non-prescription of VKA in the elderly, the absolute benefit is likely to be greatest in this same group in view of their high risk.
 
-#### 6.6.2 Risk Score for Bleeding
-
+### 6.6.2: Risk Score For Bleeding
 The bleeding risk score **HAS-BLED** was formulated by incorporating risk factors from a derivation cohort of a large population database of the prospective Euro Heart Survey on AF. The clinical characteristic comprising the HAS-BLED bleeding risk score is shown in Table 14.
 
 It is reasonable to use the HAS-BLED score to assess bleeding risk in AF patients, whereby a score of ≥3 indicates 'high risk', and some caution and regular review of the patient is needed following the initiation of antithrombotic therapy, whether with VKA or aspirin. A schema such as HAS-BLED is a user-friendly method of predicting bleeding risk and is easy to remember.
 
-**Table 14: Clinical characteristics comprising the HAS-BLED bleeding risk score**
+Table 14: Clinical characteristics comprising the HAS-BLED bleeding risk score
 
 | Letter | Clinical characteristicᵃ | Points awarded |
 |---|---|---|
@@ -463,8 +442,7 @@ It is reasonable to use the HAS-BLED score to assess bleeding risk in AF patient
 <!-- Purpose: Referenced for warfarin targeting and perioperative bridging  -->
 <!-- ============================================================ -->
 
-### Appendix C.1.9 Interruption of Warfarin Therapy for Surgery
-
+### Appendix C: .1.9 Interruption Of Warfarin Therapy For Surgery
 | Condition | Recommendation |
 |---|---|
 | **Low risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
@@ -490,8 +468,7 @@ It is reasonable to use the HAS-BLED score to assess bleeding risk in AF patient
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
 <!-- ============================================================ -->
 
-### Grades of Recommendation
-
+### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | **I** | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -500,8 +477,7 @@ It is reasonable to use the HAS-BLED score to assess bleeding risk in AF patient
 | **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
 | **III** | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels of Evidence
-
+### Levels Of Evidence
 | Level | Definition |
 |---|---|
 | **A** | Data derived from multiple randomised clinical trials or meta-analyses. |

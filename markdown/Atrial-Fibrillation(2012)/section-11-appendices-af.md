@@ -1,5 +1,4 @@
-# SECTION 11: APPENDICES, GLOSSARY & REFERENCES
-
+# Section 11: Appendices, Glossary & References
 <!-- METADATA
 category: Reference
 use_case: Supplementary appendices including warfarin initiation protocols, INR monitoring, ethnic dosing, dose adjustments, perioperative bridging, AAD classification, glossary, and clinical questions — warfarin_initiation, INR_monitoring, Pacific-Asian_dosing, dose_adjustment, elevated_INR_management, perioperative_bridging, Vaughan_Williams_classification, search_terms, clinical_questions, abbreviations
@@ -13,10 +12,8 @@ output: warfarin_initiation_protocol, INR_dose_adjustment_table, elevated_INR_ma
 
 ## Appendix A: Search Terms
 
-### Scope of Search
-
+### Scope Of Search
 A literature search was conducted for guidelines, systematic reviews and randomized controlled trials on the primary care management of Atrial fibrillation, with additional searches in the following areas:
-
 - Outpatient therapy
 - Rhythm versus rate control
 - Anti-arrhythmics for cardioversion
@@ -27,7 +24,6 @@ A literature search was conducted for guidelines, systematic reviews and randomi
 - Referral criteria
 
 ### Key Search Terms
-
 Various combinations of searches were carried out. The terms listed below are the core search terms that were used for Medline and these were adapted for other databases.
 
 - exp Atrial Fibrillation/, atrial fibrillation.tw
@@ -86,12 +82,10 @@ Various combinations of searches were carried out. The terms listed below are th
 ## Appendix B: Clinical Questions
 
 ### A. Introduction
-
 1. What is the best way to classify atrial fibrillation?
 2. What is the epidemiological characteristic of atrial fibrillation?
 
 ### B. Initial Management
-
 1. What are the frequencies of the presenting symptoms?
 2. In patients with suspected AF based on an irregular pulse, how accurate is an ECG in diagnosing AF?
 3. Should echocardiography be performed to identify underlying structural heart disease?
@@ -99,12 +93,10 @@ Various combinations of searches were carried out. The terms listed below are th
 5. Which patients with AF would benefit from referral to specialist?
 
 ### C. Management Principles
-
 1. In which patients with persistent AF does rate control result in improved mortality/morbidity/quality of life over rhythm control?
 2. In which patients with persistent AF does rhythm control result in improved mortality/morbidity/quality of life over rate control?
 
 ### D. Acute-Onset AF
-
 1. In haemodynamically unstable patients presenting with acute AF, what is the best treatment strategy?
 2. In which patients should pill-in-the-pocket therapy be recommended?
 3. Does electrical cardioversion versus pharmacological cardioversion affect rates of thromboembolism, quality of life, success rates?
@@ -113,8 +105,7 @@ Various combinations of searches were carried out. The terms listed below are th
 6. What is the safety and efficacy of the adjunctive administration of antiarrhythmic drugs for use in electrical cardioversion in comparison to electrical cardioversion without adjunctive antiarrhythmic drugs?
 7. Is a conventional anticoagulation strategy for elective cardioversion as effective as a transoesophageal echocardiogram plus anticoagulation?
 
-### E. Prevention of Thromboembolism
-
+### E. Prevention Of Thromboembolism
 1. In patients with AF, what are the risk factors associated with stroke/TIA and thromboembolism?
 2. What is the efficacy of anticoagulation therapy versus placebo for stroke prevention in: a) paroxysmal AF b) permanent AF c) peri/post cardioversion to sinus rhythm d) acute/post-op AF e) peri/post stroke f) asymptomatic AF?
 3. What is the efficacy of anticoagulation therapy versus antiplatelet therapy for stroke prevention in: a) paroxysmal AF b) permanent AF c) peri/post cardioversion to sinus rhythm d) acute/post-op AF e) peri/post stroke f) asymptomatic AF?
@@ -126,7 +117,6 @@ Various combinations of searches were carried out. The terms listed below are th
 9. In patients with AF and vitamin K antagonist, what are the risk factors associated with bleeding?
 
 ### F. Long-term Rate Control
-
 1. In patients with permanent AF, what is the efficacy of rate-limiting calcium antagonists compared with digoxin in rate control?
 2. In patients with permanent AF, what is the efficacy of beta-blockers compared with digoxin in rate control?
 3. In patients with permanent AF, what is the efficacy of beta-blockers compared with rate-limiting calcium antagonists in rate control?
@@ -135,7 +125,6 @@ Various combinations of searches were carried out. The terms listed below are th
 6. In patients with permanent AF, what is the efficacy of AV node ablation with permanent pacemaker therapy in rate control?
 
 ### G. Long-term Rhythm Control
-
 1. In patients with paroxysmal AF, is flecainide/propafenone better than beta-blockers in reducing the frequency of paroxysms?
 2. In patients with paroxysmal AF, is amiodarone or sotalol better than beta-blockers in reducing the frequency of paroxysms?
 3. In patients with paroxysmal AF, is flecainide/propafenone better than amiodarone or sotalol in reducing the frequency of paroxysms?
@@ -148,14 +137,12 @@ Various combinations of searches were carried out. The terms listed below are th
 10. What is the efficacy of cardiac pacing therapy for rhythm control in patients with paroxysmal AF?
 
 ### H. Referrals
-
 1. Which patients with AF benefit from referral to specialist services for assessment and management?
 2. Which patients with AF benefit from referral to specialist services for non-pharmacological treatment or electrophysiological studies?
 
 ---
 
-## Appendix C: Warfarin in Practice
-
+## Appendix C: Warfarin In Practice
 Barriers that may prevent people accessing medication and INR testing include:
 *   Financial barriers (including the ability to take time off work)
 *   Travel difficulties
@@ -169,16 +156,14 @@ Possible solutions include the following:
 *   Domiciliary testing, either at home or the work place
 *   Testing people in groups at a public health centre using a point-of-care monitor
 
-### C.1 Initiation of Warfarin Therapy
-
+### C.1 Initiation Of Warfarin Therapy
 - Loading doses are **not** recommended because they may increase the risk of bleeding.
 - Initiation of warfarin should be **5 mg daily** in most patients (usually achieves INR ≥ 2 in 4–5 days).
 - A starting dose **< 5 mg** should be considered for patients >65 years, liver disease, malnourished, severe heart failure, or concomitant drugs affecting warfarin metabolism.
 - If overlapping LMWH or heparin with warfarin, overlap for at least 5 days.
 - Discontinue LMWH or heparin when INR is therapeutic on two consecutive measurements 24 hours apart.
 
-### C.1.2 Frequency of INR Monitoring
-
+### C.1.2 Frequency Of INR Monitoring
 - Check baseline INR prior to ordering warfarin.
 - Check INR daily (AM lab) until therapeutic for two consecutive days then two-three times weekly during initiation.
 
@@ -198,19 +183,15 @@ Possible solutions include the following:
   - Can increase INR testing frequency and decrease complications associated with oral anticoagulation therapy.
 
 ### C.1.3 Therapeutic INR Ranges
-
 - **AF alone:** INR 2–3
 - **Prosthetic Heart Valve:** INR 2.5–3.5
 
 ### C.1.4 Average Daily Dose
-
 There are differences among various ethnic groups:
-
 - About **4–5 mg/day** or 28–35 mg/week for Caucasians for target INR of 2.5 (2.0–3.0).
 - About **3–4 mg/day** or 21–28 mg/week for Pacific-Asian (excluding Caucasians in this region). This dose will be less if target INR is recommended at < 2.0.
 
-### C.1.5 Factors Affecting the Daily Dose
-
+### C.1.5 Factors Affecting The Daily Dose
 - **Age (for Caucasians):**
   - < 35 yr → 8.1 mg/day
   - 35–49 yr → 6.4 mg/day
@@ -227,7 +208,6 @@ There are differences among various ethnic groups:
 - During heparin and direct thrombin inhibitor treatment.
 
 ### C.1.6 Warfarin Initiation Protocol
-
 **Day 1:**
 
 If there is an active or acute thromboembolic condition, warfarin should be started along with heparin, unless there is a contraindication or patient cannot take medicine orally. Following warfarin initiation, heparin should be continued until INR reaches therapeutic level for 2 days.
@@ -273,15 +253,13 @@ If there is no need for heparin therapy, the patient may have been discharged, a
 - Start with 5 mg daily. See more detail for dose variation in "Inpatient guideline".
 - Check INR 2 times a week, or more often if necessary, during the first week or so. Adjust warfarin dose and timing for INR check as outline in "Inpatient" guidelines.
 
-### C.1.7 Ethnic Difference for Pacific-Asian Populations
-
+### C.1.7 Ethnic Difference For Pacific-Asian Populations
 - Average daily dose of warfarin for Pacific-Asian or Chinese-Asian is about **3 mg**. Weekly dose is about 21–28 mg, or lower if target INR is about 0.4–0.5 lower than Caucasian-American-European level.
 - Target INR for Pacific-Asian or Chinese-Asian should be lower than those of Caucasian-American-European. The suggested level for nonvalvular atrial fibrillation is **1.6–2.6**, to achieve less combined thromboembolic and major bleeding events (needs more database for confirmation).
 - Difference in polymorphism of CYP 2C9 and VKORC1 which will influence warfarin dosage.
 
 ### C.1.7.1 Warfarin Initiation Tables
-
-**Table: Warfarin Initiation — Average Daily Dose of 5 mg**
+Table: Warfarin Initiation — Average Daily Dose of 5 mg
 
 | DAY | INR | INPATIENT (Usually with daily INR) | OUTPATIENT |
 |---|---|---|---|
@@ -312,7 +290,7 @@ If there is no need for heparin therapy, the patient may have been discharged, a
 
 > *Note: Frequent INR measurement during warfarin initiation helps prevent bleeding from over anticoagulation and helps reaching target INR sooner.*
 
-**Table: Warfarin Initiation — Average Daily Dose of 3 mg (Pacific-Asian)**
+Table: Warfarin Initiation — Average Daily Dose of 3 mg (Pacific-Asian)
 
 | DAY | INR | INPATIENT (Usually with daily INR) | OUTPATIENT |
 |---|---|---|---|
@@ -338,8 +316,7 @@ If there is no need for heparin therapy, the patient may have been discharged, a
 
 > *Note: Frequent INR measurement during warfarin initiation helps prevent bleeding from over anticoagulation and helps reaching target INR sooner.*
 
-### C.1.8 Dose Adjustments for Warfarin Maintenance Therapy (Target INR 2.0-3.0)
-
+### C.1.8 Dose Adjustments For Warfarin Maintenance Therapy (Target INR 2.0-3.0)
 | INR | Dose Adjustments |
 |---|---|
 | <1.5 | Increase weekly dose by 20% |
@@ -349,8 +326,7 @@ If there is no need for heparin therapy, the patient may have been discharged, a
 | 4.0-5.0 | Omit 1 dose; decrease weekly dose by 10-20% |
 | >5.0 | See recommendations for managing elevated INR<br>When resume decrease weekly dose 20-50% |
 
-### C.1.8.1 Recommendations for Managing Elevated INRs or Bleeding in Patients Receiving Warfarin:
-
+### C.1.8.1 Recommendations For Managing Elevated INRs Or Bleeding In Patients Receiving Warfarin:
 | Condition | Recommendation |
 |---|---|
 | **INR above therapeutic range but < 5; no significant bleeding** | Lower the dose or omit a dose and resume with lower dose when INR therapeutic; if only minimally above therapeutic range, no dose reduction may be required. |
@@ -359,8 +335,7 @@ If there is no need for heparin therapy, the patient may have been discharged, a
 | **Serious bleeding at any elevation of INR** | Hold warfarin and give vitamin K 10 mg slow IV infusion, supplemented with FFP, prothrombin complex concentrate or rVIIa, depending on urgency of situation. Vitamin K can be repeated q12hr |
 | **Life threatening bleeding** | Hold warfarin and give FFP, prothrombin complex concentrate, or rVIIa supplemented with vitamin K 10 mg slow IV infusion. Repeat, if necessary, depending on INR. |
 
-### C.1.9 Interruption of Warfarin Therapy for Surgery
-
+### C.1.9 Interruption Of Warfarin Therapy For Surgery
 | Condition | Recommendation |
 |---|---|
 | **Low risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
@@ -384,8 +359,7 @@ Mech heart valve: any mitral valve prosthesis, older aortic valve prosthesis (ca
 
 ---
 
-## Appendix D: Vaughn Williams Classification of Antiarrhythmic Drugs
-
+## Appendix D: Vaughn Williams Classification Of Antiarrhythmic Drugs
 **Type IA**
 - Disopyramide
 - Procainamide
@@ -417,8 +391,7 @@ Mech heart valve: any mitral valve prosthesis, older aortic valve prosthesis (ca
 
 ---
 
-## Glossary of Abbreviations
-
+## Glossary Of Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | AAD | Antiarrhythmic Drug |

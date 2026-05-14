@@ -1,5 +1,4 @@
 # Section 2: Key Principles of Safe Use of Medication in Anaesthesia
-
 <!-- METADATA
 category: Prevention, Assessment, Reference
 use_case: Key Medication Safety Principles - medication_reconciliation, medication_storage, drug_preparation, syringe_labelling, high_alert_medications, IV_delivery, extravasation_management, infection_control, documentation
@@ -96,6 +95,7 @@ The figure shows two recommended syringe label formats:
 10) Using distinguishable labels on tubing sets is mandatory for continuous neuraxial and peripheral nerve infusions to reduce medication errors. Many commercially prepared regional block infusion sets provide coloured labels to be used for this purpose.
 
 ## 2.9: Medication administration
+
 ### 2.9.1: Introduction
 - Good medication administration practice requires independent double-checks to verify medications before administration.
 - This should be practised whenever possible. However, operation theatre workflow makes this process impractical. Hence, vigilance must be practised.
@@ -136,7 +136,7 @@ The figure shows two recommended syringe label formats:
 1) Extravasation injuries and inadvertent intra-arterial drug injection may be seen during anaesthesia practice due to higher number of intravenous drugs administered during anaesthesia and some of the drugs used are vesicants, irritants and hyperosmolar solutions.
 2) Table 3: Complications of extravasation and intra-arterial injection of anaesthesia drugs shows examples of anaesthesia drugs and the side effects that were previously reported.
 
-**Table 3: Complications of extravasation and intra-arterial injection of anaesthesia drugs**
+Table 3: Complications of extravasation and intra-arterial injection of anaesthesia drugs
 | Drugs | Possible complications following extravasation | Possible complications following intra-arterial injection |
 |---|---|---|
 | **Atracurium** | Tissue ischaemia and necrosis | Tissue ischaemia |

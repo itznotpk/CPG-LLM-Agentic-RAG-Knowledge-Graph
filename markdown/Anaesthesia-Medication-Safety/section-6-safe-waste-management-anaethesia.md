@@ -1,5 +1,4 @@
 # Section 6: Safe Waste Management
-
 <!-- METADATA
 category: Prevention, Reference
 use_case: Safe Anaesthesia Waste Management - vial_disposal, ampoule_disposal, syringe_disposal, controlled_substance_disposal, propofol_disposal, waste_anaesthetic_gases, scavenging, carbon_dioxide_absorber_disposal
