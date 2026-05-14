@@ -1,4 +1,13 @@
 # Section 11: Audit and Evaluation
+
+<!-- METADATA
+category: Reference, Methodology
+use_case: Evaluating the impact of clinical guideline implementation — audit criteria, clinical practice evaluation, health outcomes
+patient_input: patient records, documented risk assessments, documented treatment rationale
+output: audit compliance percentage, implementation effectiveness
+critical: false
+-->
+
 The Table below lists the audit criteria identified to evaluate the impact of the implementation of the six key priority areas detailed above on clinical practice and health outcomes.
 
 | Criterion | Exception | Definition of terms |
