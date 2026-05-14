@@ -1,4 +1,4 @@
-# Section 8: .0: Antimicrobial Prophylaxis For Infective Endocarditis
+# Section 8: Antimicrobial Prophylaxis For Infective Endocarditis
 <!-- METADATA
 category: Prevention
 use_case: Antimicrobial Prophylaxis — high-risk conditions, dental procedures, prophylaxis regimens
@@ -15,9 +15,8 @@ It is however, the consensus view of this writing committee that antimicrobial p
 ## 8.2: Cardiac Conditions Associated With The Highest Risk Of Infective Endocarditis
 Patients with cardiac conditions listed in Table 8.1: Cardiac conditions with increased risk of IE are considered as being at increased risk of developing IE and are indicated for antimicrobial prophylaxis.
 
-## Recommendation
-
-### Patients WHO Require Antimicrobial Prophylaxis:
+**Recommendation:**
+**Patients WHO Require Antimicrobial Prophylaxis:**
 [Grade IIa, Level B] Antimicrobial prophylaxis must be indicated for patients with the highest risk of IE and/or highest risk of adverse outcome from IE.
 
 ## 8.3: Antimicrobial Prophylaxis For Specific Procedures
@@ -41,17 +40,28 @@ Antimicrobial prophylaxis is required for high-risk cardiac patients undergoing 
 - Incision and drainage of local abscess in the brain, skin and subcutaneous tissue (e.g. boils and carbuncles), eye (e.g. dacryocystitis), epidura, lung, orbital area, perirectal area, liver (e.g. pyogenic liver), tooth and surgical procedures through infected skin.
 - Percutaneous endoscopic gastrostomy.
 
-## Recommendation
-
-### The Indications For Antimicrobial Prophylaxis In High-Risk Patients:
+**Recommendation:**
+**The Indications For Antimicrobial Prophylaxis In High-Risk Patients:**
 [Grade IIa, Level C] High-risk procedures are usually those that cause bleeding or tissue damage. VGS is the most common cause of endocarditis after dental or upper respiratory procedures.
 
 ## 8.4: Antimicrobial Regimes For Infective Endocarditis Prophylaxis
 The most common pathogen for oral and respiratory tract procedures related endocarditis is alpha-haemolytic streptococci. Antimicrobial regimens for endocarditis prophylaxis are generally directed towards VGS.
 
-## Recommendation
+Table 8.3: Antimicrobial Prophylaxis For Invasive Dental Procedures
 
-### Timing Of Antimicrobial Prophylaxis In High-Risk Patients:
+**Single dose administered 30 to 60 minutes before the procedure**
+
+| Situation | Antimicrobial | Adults | Children | Reference |
+|---|---|---|---|---|
+| **No allergy to penicillin or ampicillin** | Amoxicillin or ampicillin | 2 g orally or IV | 50 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
+| **Allergic to penicillin or ampicillin** | Clindamycin | 600 mg orally or IV | 20 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
+
+- Alternatively, cephalexin 2 g IV for adults or 50 mg/kg IV for children, cefazolin or ceftriaxone 1 g IV for adults or 50 mg/kg IV for children.
+- Cephalosporins should not be used in patients with anaphylaxis, angioedema or urticaria after intake of penicillin or ampicillin due to cross-sensitivity.
+- For genitourinary and gastrointestinal procedures antimicrobials should include an agent active against enterococci, such as ampicillin or vancomycin.
+
+**Recommendation:**
+**Timing Of Antimicrobial Prophylaxis In High-Risk Patients:**
 [Grade IIa, Level B] IE antimicrobial prophylaxis (when indicated) is administered as a single dose 30-60 minutes before the procedure.
 
 ## 8.5: Preventive Measures
@@ -65,13 +75,12 @@ IE risk is high in patients undergoing procedures that involve implanting prosth
 - Treat and eliminate potential sources of sepsis at least 2 weeks prior to procedure/surgery.
 - Pre-procedure antimicrobial prophylaxis before cardiac surgery or transcatheter intervention.
 
-## Recommendation
-
-### Preventive Measures By High-Risk Patients Are:
+**Recommendation**
+**Preventive Measures By High-Risk Patients:**
 [Grade IIa, Level B] Cardiac patients must be advised on the importance of dental and cutaneous hygiene.
 
-<!-- OVERLAP CONTENT -->
-## Contextual Anchors (Overlapping)
+---
+<!-- parent_only_reference_start -->
 Table 8.1: Cardiac Conditions With Increased Risk Of IE
 
 - Prosthetic cardiac valves or prosthetic material used for cardiac valve repair
@@ -94,48 +103,27 @@ Table 8.2: Dental Procedures And Recommendations For Prophylaxis Of Endocarditis
 
 *Adapted from Therapeutic Guidelines: antibiotic version 13 and Therapeutic Guidelines: oral and dental version 1. 2008.*
 
----
-
-Table 8.3: Antimicrobial Prophylaxis For Invasive Dental Procedures
-
-**Single dose administered 30 to 60 minutes before the procedure**
-
-| Situation | Antimicrobial | Adults | Children | Reference |
-|---|---|---|---|---|
-| **No allergy to penicillin or ampicillin** | Amoxicillin or ampicillin | 2 g orally or IV | 50 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
-| **Allergic to penicillin or ampicillin** | Clindamycin | 600 mg orally or IV | 20 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
-
-- Alternatively, cephalexin 2 g IV for adults or 50 mg/kg IV for children, cefazolin or ceftriaxone 1 g IV for adults or 50 mg/kg IV for children.
-- Cephalosporins should not be used in patients with anaphylaxis, angioedema or urticaria after intake of penicillin or ampicillin due to cross-sensitivity.
-- For genitourinary and gastrointestinal procedures antimicrobials should include an agent active against enterococci, such as ampicillin or vancomycin.
-
----
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Description |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy. |
-| **IIa** | Weight of evidence/opinion is in favour of its usefulness/efficacy. |
-| **IIb** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy. |
+| IIa | Weight of evidence/opinion is in favour of its usefulness/efficacy. |
+| IIb | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Level Of Evidence
+Level Of Evidence
 | Level | Description |
 |---|---|
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 *Adapted from the American College of Cardiology Foundation/American Heart Association and the European Society of Cardiology. 2015.*
 
 *Note: The grades of recommendations denoted throughout these guidelines reflect the strength of the evidence that each recommendation is based upon. It may not refer to the clinical significance of the recommendation. All patients with infective endocarditis should be managed together with the best clinical judgment of the healthcare provider.*
 
----
-
-<!-- END OVERLAP CONTENT -->
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | AHA | American Heart Association |
@@ -148,3 +136,4 @@ Table 8.3: Antimicrobial Prophylaxis For Invasive Dental Procedures
 | NICE | National Institute of Clinical Excellence |
 | UK | United Kingdom |
 | VGS | *Viridans* group streptococci |
+<!-- parent_only_reference_end -->

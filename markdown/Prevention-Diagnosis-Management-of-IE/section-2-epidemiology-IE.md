@@ -1,4 +1,4 @@
-# Section 2: .0: Epidemiology
+# Section 2: Epidemiology
 <!-- METADATA
 category: Epidemiology
 use_case: Disease Epidemiology and Risk Context — incidence, prevalence, demographics, mortality
@@ -6,7 +6,6 @@ patient_input: demographic_data, risk_factors
 output: epidemiological_context
 -->
 
-## 2.0: Epidemiology
 The annual incidence of IE in the adult population ranges between 3-9 per 100,000 subjects per year. 2-4 However, as most of the available data come from developed countries, its true incidence in developing countries is unknown. Variability in the epidemiology of IE also exists between countries and continents with regards to patient profile, microbiological aetiology, treatment and outcomes.
 
 In the developed countries, IE tends to affect patients between the ages of 50-60 years, in contrast to developing countries where it is commonly seen in the 20-40 years old age group. This is primarily due to a more ageing society in developed countries that relies on increasing invasive medical care, the presence of degenerative valve disease and co-morbidities. In developing countries, rheumatic heart disease is still the most common predisposing cause of IE. 6-9 About 50% of IE in developing countries occur in patients with no known history of valve disease.4,8 Healthcare associated IE (refer to Appendix 1: Classification and definition of infective endocarditis) is increasing with some studies reporting incidence of up to 25%. The gender distribution of IE is male to female case ratio of more than 2:1.
@@ -27,15 +26,11 @@ A recent local study done in Hospital Kuala Lumpur (a tertiary inner city hospit
 
 Methicillin-sensitive Staphylococcus aureus (MSSA) was the predominant microorganism grown from blood cultures (30%). All patients were treated with antimicrobials; with 91% on antimicrobial therapy for a duration of 42 days or less. Five patients died (13.9%) primarily due to overwhelming sepsis. Fifty-three percent of patients had indications for surgical intervention, however none had surgery within the index hospitalisation.
 
-<!-- OVERLAP CONTENT -->
-## Contextual Anchors (Overlapping)
-The following content is duplicated from other sections/appendices referenced in this section so the file is standalone.
-
 ---
+<!-- parent_only_reference_start -->
+Appendix 1: Classification And Definition Of Infective Endocarditis
 
-## Appendix 1: Classification And Definition Of Infective Endocarditis
-
-### IE According To Localisation Of Infection And Presence Or Absence Of Intracardiac Material
+**IE According To Localisation Of Infection And Presence Or Absence Of Intracardiac Material**
 - Left-sided native valve IE
 - Left-sided PVE
   - Early PVE < 1 year after valve surgery
@@ -43,20 +38,20 @@ The following content is duplicated from other sections/appendices referenced in
 - Right-sided native valve IE
 - Device related IE
 
-### IE According To The Mode Of Acquisition
+**IE According To The Mode Of Acquisition**
 | Healthcare associated IE                        | Nosocomial                                                                                                                                 | Non-nosocomial                                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                 | IE developing in a patient  hospitalised > 48 hours prior to  onset of signs and symptoms  consistent with IE                              | Signs and symptoms of IE  starting < 48 hours after  admission in a patient with  healthcare contact defined as: •  Home-based nursing  or intravenous therapy,  haemodialysis, or intravenous  chemotherapy < 30 days  before the onset of IE •  Hospitalisation in an acute  care facility  < 90 days before the onset of  IE •  Resident in a nursing home or  long-term care facility |
 | Community acquired IE                           | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection | Signs and symptoms of IE starting < 48 hours after admission in a patient not fulfilling the criteria for healthcare associated infection |
 | Intravenous drug abuse associated IE            | IE in an active injection drug user with no alternative source of infection                                                               | IE in an active injection drug user with no alternative source of infection                                                               |
 
-### Active IE (At Least One Of The Below)
+**Active IE (At Least One Of The Below)**
 - Persistent fever and positive blood cultures
 - Inflammatory morphology findings during surgery
 - On antimicrobial therapy
 - Evidence of active infection on HPE
 
-### Recurrence
+**Recurrence**
 | Recurrence | |
 |---|---|
 | **Relapse** | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
@@ -64,18 +59,17 @@ The following content is duplicated from other sections/appendices referenced in
 
 Adapted from European Society of Cardiology infective endocarditis guidelines. 2009.
 
-<!-- END OVERLAP CONTENT -->
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
-| **HPE** | histopathological examination |
-| **HR** | hazard ratio |
-| **IE** | infective endocarditis |
-| **IQR** | interquartile range |
-| **IVDU** | intravenous drug use |
-| **MSSA** | Methicillin-sensitive *Staphylococcus aureus* |
-| **OR** | odds ratio |
-| **PVE** | prosthetic valve endocarditis |
-| ***S. aureus*** | *Staphylococcus aureus* |
-| **spp.** | species |
+| HPE | histopathological examination |
+| HR | hazard ratio |
+| IE | infective endocarditis |
+| IQR | interquartile range |
+| IVDU | intravenous drug use |
+| MSSA | Methicillin-sensitive *Staphylococcus aureus* |
+| OR | odds ratio |
+| PVE | prosthetic valve endocarditis |
+| S. aureus | *Staphylococcus aureus* |
+| spp. | species |
+<!-- parent_only_reference_end -->
