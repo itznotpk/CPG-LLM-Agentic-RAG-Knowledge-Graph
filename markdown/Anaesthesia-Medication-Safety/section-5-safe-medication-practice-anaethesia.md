@@ -316,10 +316,10 @@ Table 4: Australian and New Zealand Anaesthetic Allergy Group grading of periope
 
 | Grade | Description |
 |---|---|
-| **Grade 1** | Mucocutaneous signs only (e.g., erythema, urticaria, peripheral angioedema). |
-| **Grade 2** | Multi-organ manifestations, typically mucocutaneous signs combined with hypotension, brady- or tachyarrhythmia, and/or bronchospasm. |
-| **Grade 3** | Life-threatening hypotension and/or high airway pressure requiring immediate and specific treatment to avoid progression from inadequate tissue perfusion to cardiac arrest or significant hypoxia. |
-| **Grade 4** | Cardiac arrest. |
+| Grade 1 | Mucocutaneous signs only (e.g., erythema, urticaria, peripheral angioedema). |
+| Grade 2 | Multi-organ manifestations, typically mucocutaneous signs combined with hypotension, brady- or tachyarrhythmia, and/or bronchospasm. |
+| Grade 3 | Life-threatening hypotension and/or high airway pressure requiring immediate and specific treatment to avoid progression from inadequate tissue perfusion to cardiac arrest or significant hypoxia. |
+| Grade 4 | Cardiac arrest. |
 
 Table 5: β-lactam cross reactivity in penicillin-allergic patients.
 | Drug Class and Available Formulary Agents | Estimated Cross-Reactivity |

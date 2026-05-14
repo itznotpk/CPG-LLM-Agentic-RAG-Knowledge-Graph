@@ -7,8 +7,6 @@ output: AAD_selection, rhythm_control_algorithm, ablation_indication, upstream_t
 treatment_type: amiodarone, dronedarone, flecainide, propafenone, sotalol, catheter_ablation, PVI, surgical_ablation, ACEI, ARB, statins
 -->
 
-> **Context:** This section establishes long-term rhythm control algorithms, detailing pharmacological selection derived from pathology (Figures 12 and 13). It comprehensively defines decision hierarchies for left atrial catheter ablation (Figure 14), surgical ablation, and pacing requirements. Furthermore, it outlines secondary 'upstream' therapies including ACEI, ARB, and statins.
-
 The term 'rhythm control' encompasses the processes of conversion of atrial fibrillation (AF) or atrial flutter (AFL) to normal sinus rhythm, as well as the maintenance of sinus rhythm.
 
 Maintenance of sinus rhythm may also be referred to as prevention of AF/AFL relapse or recurrence, and may be achieved by pharmacological or non-pharmacological means, or both (hybrid therapy).
@@ -40,47 +38,8 @@ Antiarrhythmic therapy for recurrent AF is recommended on the basis of choosing 
 ### 8.2.1: Patients With Lone Atrial Fibrillation
 In patients with no or minimal heart disease, ß-blockers represent a logical first attempt to prevent recurrent AF when the arrhythmia is clearly related to mental or physical stress (adrenergic AF). Flecainide, propafenone, sotalol, or dronedarone is usually prescribed as second line agents (refer Figure 12: Choice of antiarrhythmic medication for the patient with AF and no or minimal structural heart disease).
 
-> Figure 12: Choice of antiarrhythmic medication for the patient with AF and no or minimal structural heart disease
->
-> **No or minimal structural heart disease**
-> *   **Adrenergically mediated:**
->     *   &rarr; ß-Blocker
->     *   &rarr; Sotalol
->     *   &rarr; Dronedarone
->     *   &rarr; **Amiodarone**
-> *   **Undetermined:**
->     *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
->     *   &rarr; **Amiodarone**
->
-> *Medication may be initially based on the pattern of arrhythmia onset. Antiarrhythmic agents are listed in alphabetical order within each treatment box.*
-
 ### 8.2.2: Patients With Underlying Heart Disease
-Cardiovascular disease has conventionally been divided into a variety of pathophysiological substrates: hypertrophy, ischaemia, and congestive heart failure (refer Figure 13: Choice of antiarrhythmic drug according to underlying pathology). For each of these it has been recommended that specific drugs be avoided. Individual drugs and their main disadvantages are listed in Table 17.
-
-> Figure 13: Choice of antiarrhythmic drug according to underlying pathology
->
-> *   **Minimal or no structural heart disease:**
->     *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
->         *   &rarr; **Amiodarone**
->
-> *   **Significant structural heart disease:**
->     *   &rarr; *Treatment of underlying condition and prevention of remodelling — ACEI/ARB/statin*
->         *   &darr; Assess defined pathology
->         *   **Hypertensive heart disease (HHD):**
->             *   *No LVH:*
->                 *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
->                     *   &rarr; **Amiodarone**
->             *   *LVH:*
->                 *   &rarr; Dronedarone
->                     *   &rarr; **Amiodarone**
->         *   **Coronary heart disease (CHD):**
->             *   &rarr; Sotalol
->                 *   &rarr; Dronedarone
->                     *   &rarr; **Amiodarone**
->         *   **Heart failure (HF):**
->             *   &rarr; **Amiodarone**
->
-> *ACEI = angiotensin-converting enzyme inhibitor; ARB = angiotensin receptor blocker; CAD = coronary artery disease; CHF = congestive heart failure; HT = hypertension; LVH = left ventricular hypertrophy; NYHA = New York Heart Association; unstable = cardiac decompensation within the prior 4 weeks. Antiarrhythmic agents are listed in alphabetical order within each treatment box. ? = evidence for 'upstream' therapy for prevention of atrial remodelling still remains controversial.*
+Cardiovascular disease has conventionally been divided into a variety of pathophysiological substrates: hypertrophy, ischaemia, and congestive heart failure (refer Figure 13: Choice of antiarrhythmic drug according to underlying pathology). For each of these it has been recommended that specific drugs be avoided.
 
 Amiodarone is the most efficacious antiarrhythmic drug for the prevention of recurrent AF. However, several meta-analyses have failed to identify a beneficial effect of amiodarone on cardiovascular outcomes. In view of the better safety and potential outcome benefit, dronedarone may be preferable as the first antiarrhythmic option, at least in patients with symptomatic AF and underlying cardiovascular disease. Should dronedarone fail to control symptoms, amiodarone might then be necessary.
 
@@ -97,23 +56,23 @@ Patients who have coronary artery disease should not receive flecainide or propa
 #### 8.2.2.3: Patients With Heart Failure
 Amiodarone is the only agents available in Malaysia that can be safely administered in patients with heart failure. Dronedarone is contraindicated in patients with all classes of heart failure. In such patients, amiodarone should be used.
 
-- **[Grade I, Level A]** The following antiarrhythmic drugs are recommended for rhythm control in patients with AF, depending on underlying heart disease:
+- [Grade I, Level A] The following antiarrhythmic drugs are recommended for rhythm control in patients with AF, depending on underlying heart disease:
     - amiodarone
     - dronedarone
     - flecainide
     - propafenone
     - d,l-sotalol
-- **[Grade I, Level A/C]** Amiodarone is more effective in maintaining sinus rhythm than sotalol, propafenone, flecainide (by analogy), or dronedarone (Level of Evidence A), but because of its toxicity profile should generally be used when other agents have failed or are contraindicated (Level of Evidence C).
-- **[Grade I, Level B]** In patients with severe heart failure, NYHA class III and IV or recently unstable (decompensation within the prior month) NYHA class II, amiodarone should be the drug of choice.
-- **[Grade I, Level A]** In patients without significant structural heart disease, initial antiarrhythmic therapy should be chosen from dronedarone, flecainide, propafenone, and sotalol.
-- **[Grade I, Level C]** ß-Blockers are recommended for prevention of adrenergic AF.
-- **[Grade II-a, Level C]** If one antiarrhythmic drug fails to reduce the recurrence of AF to a clinically acceptable level, the use of another antiarrhythmic drug should be considered.
-- **[Grade II-a, Level B]** Dronedarone should be considered in order to reduce cardiovascular hospitalizations in patients with non-permanent AF and cardiovascular risk factors.
-- **[Grade II-a, Level C]** ß-blockers should be considered for rhythm (plus rate) control in patients with a first episode of AF.
-- **[Grade III, Level B]** Dronedarone is not recommended for treatment of permanent AF and all classes of heart failure.
-- **[Grade III, Level C]** Antiarrhythmic drug therapy is not recommended for maintenance of sinus rhythm in patients with advanced sinus node disease or AV node dysfunction unless they have a functioning permanent pacemaker.
+- [Grade I, Level A/C] Amiodarone is more effective in maintaining sinus rhythm than sotalol, propafenone, flecainide (by analogy), or dronedarone (Level of Evidence A), but because of its toxicity profile should generally be used when other agents have failed or are contraindicated (Level of Evidence C).
+- [Grade I, Level B] In patients with severe heart failure, NYHA class III and IV or recently unstable (decompensation within the prior month) NYHA class II, amiodarone should be the drug of choice.
+- [Grade I, Level A] In patients without significant structural heart disease, initial antiarrhythmic therapy should be chosen from dronedarone, flecainide, propafenone, and sotalol.
+- [Grade I, Level C] ß-Blockers are recommended for prevention of adrenergic AF.
+- [Grade II-a, Level C] If one antiarrhythmic drug fails to reduce the recurrence of AF to a clinically acceptable level, the use of another antiarrhythmic drug should be considered.
+- [Grade II-a, Level B] Dronedarone should be considered in order to reduce cardiovascular hospitalizations in patients with non-permanent AF and cardiovascular risk factors.
+- [Grade II-a, Level C] ß-blockers should be considered for rhythm (plus rate) control in patients with a first episode of AF.
+- [Grade III, Level B] Dronedarone is not recommended for treatment of permanent AF and all classes of heart failure.
+- [Grade III, Level C] Antiarrhythmic drug therapy is not recommended for maintenance of sinus rhythm in patients with advanced sinus node disease or AV node dysfunction unless they have a functioning permanent pacemaker.
 
-## 8.3: NON-PHARMACOLOGICAL Therapy
+## 8.3: Non-Pharmacological Therapy
 There is a variety of alternative non-pharmacological therapies for the prevention and control of AF.
 
 ### 8.3.1: Left Atrial Catheter Ablation
@@ -125,82 +84,54 @@ Ablation may particularly benefit younger patients with lone AF who are frequent
 
 For patients with either persistent AF or long-standing persistent AF, and no or minimal organic heart disease, the treatment strategies and the benefit-risk ratio of catheter ablation are less well established. Extensive and frequently repeated ablation procedures may be necessary in these patients, and it seems reasonable to recommend that they should be refractory to antiarrhythmic drug treatment before ablation is considered (refer Figure 14: Choice between ablation and antiarrhythmic drug therapy for patients with and without structural heart disease).
 
-> Figure 14: Choice between ablation and antiarrhythmic drug therapy for patients with and without structural heart disease
->
-> **Branch A: Relevant underlying heart disease**
-> *   **CHF (Congestive Heart Failure):**
->     *   *NYHA III/IV or unstable NYHA II:* &rarr; Amiodarone &harr; Catheter ablation for AF&dagger;
->     *   *Stable NYHA I/II:* &rarr; Amiodarone &harr; Catheter ablation for AF&dagger;
-> *   **CAD (Coronary Artery Disease):**
->     *   &rarr; Dronedarone / Sotalol
->         *   *Fallback options:* &rarr; **[Amiodarone] &harr; [Catheter ablation for AF&dagger;]** (Two-way fallback)
-> *   **Hypertension with LVH:**
->     *   &rarr; Dronedarone
->         *   *Fallback options:* &rarr; **[Amiodarone] &harr; [Catheter ablation for AF&dagger;]** (Two-way fallback)
->
-> **Branch B: No or minimal heart disease (including HT without LVH)**
-> *   **First-line routing based on AF pattern:**
->     *   **Paroxysmal AF:**
->         *   *Standard path:* &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
->         *   *Alternative path (Class IIb dashed line):* &rarr; Catheter ablation for AF\*
->             *   *If ablation fails:* &rarr; Amiodarone
->     *   **Persistent AF:**
->         *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
->
-> *   **From Dronedarone / Flecainide / Propafenone / Sotalol (if failed/rejected):**
->     *   *Option 1:* &rarr; Catheter ablation for AF\* &rarr; Amiodarone
->     *   *Option 2:* &rarr; Amiodarone
->
-> *Proposed integration of antiarrhythmic drug and catheter ablation for AF in patients with relevant underlying heart disease and for those with no or minimal heart disease, including hypertension (HT) without left ventricular hypertrophy (LVH). &dagger;More extensive LA ablation may be needed; \*usually PVI is appropriate. AF = atrial fibrillation; CAD = coronary artery disease; CHF = congestive heart failure; HT = hypertension; LVH = left ventricular hypertrophy; NYHA = New York Heart Association; PVI = pulmonary vein isolation. Antiarrhythmic agents are listed in alphabetical order within each treatment box. Please note that left atrium (LA) ablation as first-line therapy (dashed line) is a Class II-b recommendation for patients with paroxysmal AF and no or minimal heart disease, who remain highly symptomatic, despite rate control, and who reject antiarrhythmic drug therapy.*
-
 For symptomatic paroxysmal and persistent AF in patients with relevant organic heart disease, antiarrhythmic drug treatment is recommended before catheter ablation. In such patients, successful ablation is more difficult to achieve. Major symptoms should be associated with the arrhythmia to justify the procedure.
 
 Ablation of persistent and long-standing persistent AF is associated with variable but encouraging success rates, but very often requires several attempts.
 
-**[Grade I, Level B]** Ablation of common atrial flutter is recommended as part of an AF ablation procedure if documented prior to the ablation procedure or occurring during the AF ablation.
+[Grade I, Level B] Ablation of common atrial flutter is recommended as part of an AF ablation procedure if documented prior to the ablation procedure or occurring during the AF ablation.
 
-**[Grade II-a, Level A]** Catheter ablation for paroxysmal AF should be considered in symptomatic patients who have previously failed a trial of antiarrhythmic medication.
+[Grade II-a, Level A] Catheter ablation for paroxysmal AF should be considered in symptomatic patients who have previously failed a trial of antiarrhythmic medication.
 
-**[Grade II-a, Level B]** Ablation of persistent symptomatic AF that is refractory to antiarrhythmic therapy should be considered a treatment option.
+[Grade II-a, Level B] Ablation of persistent symptomatic AF that is refractory to antiarrhythmic therapy should be considered a treatment option.
 
-**[Grade II-a, Level C]** In patients post-ablation, LMWH or i.v. UFH should be considered as 'bridging therapy' prior to resumption of systemic OAC, which should be continued for a minimum of 3 months. Thereafter, the individual stroke risk factors of the patient should be considered when determining if OAC therapy should be continued.
+[Grade II-a, Level C] In patients post-ablation, LMWH or i.v. UFH should be considered as 'bridging therapy' prior to resumption of systemic OAC, which should be continued for a minimum of 3 months. Thereafter, the individual stroke risk factors of the patient should be considered when determining if OAC therapy should be continued.
 
-**[Grade II-a, Level B]** Continuation of OAC therapy post-ablation is recommended in patients with 1 'major' ('definitive') or >2 'clinically relevant non-major' risk factors (i.e. CHA2DS2-VASc score >2).
+[Grade II-a, Level B] Continuation of OAC therapy post-ablation is recommended in patients with 1 'major' ('definitive') or >2 'clinically relevant non-major' risk factors (i.e. CHA2DS2-VASc score >2).
 
-**[Grade II-b, Level C]** Catheter ablation of AF may be considered in patients with symptomatic long-standing persistent AF refractory to antiarrhythmic drugs.
+[Grade II-b, Level C] Catheter ablation of AF may be considered in patients with symptomatic long-standing persistent AF refractory to antiarrhythmic drugs.
 
-**[Grade II-b, Level B]** Catheter ablation of AF in patients with heart failure may be considered when antiarrhythmic medication, including amiodarone, fails to control symptoms.
+[Grade II-b, Level B] Catheter ablation of AF in patients with heart failure may be considered when antiarrhythmic medication, including amiodarone, fails to control symptoms.
 
-**[Grade II-b, Level B]** Catheter ablation of AF may be considered prior to antiarrhythmic drug therapy in symptomatic patients despite adequate rate control with paroxysmal symptomatic AF and no significant underlying heart disease.
+[Grade II-b, Level B] Catheter ablation of AF may be considered prior to antiarrhythmic drug therapy in symptomatic patients despite adequate rate control with paroxysmal symptomatic AF and no significant underlying heart disease.
 
 ### 8.3.2: Surgical Ablation
 The major indication for surgical ablation of AF is the presence of both AF and the requirement for cardiac surgery for structural heart disease. Stand-alone surgery for AF should be considered for symptomatic AF patients who prefer a surgical approach, have failed one or more attempts at catheter ablation, or who are not candidates for catheter ablation.
 
-**[Grade II-a, Level A]** Surgical ablation of AF should be considered in patients with symptomatic AF undergoing cardiac surgery.
+[Grade II-a, Level A] Surgical ablation of AF should be considered in patients with symptomatic AF undergoing cardiac surgery.
 
-**[Grade II-b, Level C]** Surgical ablation of AF may be performed in patients with asymptomatic AF undergoing cardiac surgery if feasible with minimal risk.
+[Grade II-b, Level C] Surgical ablation of AF may be performed in patients with asymptomatic AF undergoing cardiac surgery if feasible with minimal risk.
 
-**[Grade II-b, Level C]** Minimally invasive surgical ablation of AF without concomitant cardiac surgery is feasible and may be performed in patients with symptomatic AF after failure of catheter ablation.
+[Grade II-b, Level C] Minimally invasive surgical ablation of AF without concomitant cardiac surgery is feasible and may be performed in patients with symptomatic AF after failure of catheter ablation.
 
 ### 8.3.3: Suppression Of AF Through Pacing
 Several studies have examined the role of atrial pacing to prevent recurrent paroxysmal AF. In patients with symptomatic bradycardia, the risk of AF is lower with atrial than with ventricular pacing. In patients with sinus node dysfunction and normal AV conduction, data from several randomized trials support atrial or dual-chamber rather than ventricular pacing for prevention of AF. Patients with paroxysmal AF and symptomatic bradycardia should be referred for electrophysiological review for consideration of atrial based pacing.
 
-**[Grade II-a, Level B]** When ventricular pacing with dual-chamber devices is unavoidable because of concomitant disease of the AV conduction system, the evidence is less clear that atrial-based pacing is superior. Although atrial-based pacing is associated with a lower burden of AF and stroke risk compared to ventricular-based pacing in patients requiring pacemakers for bradyarrhythmias, the value of pacing as a primary therapy for prevention of recurrent AF has not been proven.
+[Grade II-a, Level B] When ventricular pacing with dual-chamber devices is unavoidable because of concomitant disease of the AV conduction system, the evidence is less clear that atrial-based pacing is superior. Although atrial-based pacing is associated with a lower burden of AF and stroke risk compared to ventricular-based pacing in patients requiring pacemakers for bradyarrhythmias, the value of pacing as a primary therapy for prevention of recurrent AF has not been proven.
 
 ## 8.4: Upstream Therapy
 Upstream therapy is a term used that relates to prevention or delaying of myocardial remodelling associated with hypertension, heart failure, or inflammation (e.g. after cardiac surgery) and therefore may deter the development of new AF (primary prevention) or, once established, its rate of recurrence or progression to permanent AF (secondary prevention).
 
 Treatments with angiotensin-converting enzyme inhibitors (ACEIs), angiotensin receptor blockers (ARBs), aldosterone antagonists, statins, and omega-3 polyunsaturated fatty acids (PUFAs) are usually referred to as 'upstream' therapies for AF.
 
-### 8.4.1: ANGIOTENSIN-CONVERTING Enzyme Inhibitors And Angiotensin Receptor Blockers
+### 8.4.1: Angiotensin-Converting Enzyme Inhibitors And Angiotensin Receptor Blockers
 **Primary prevention**
 In patients with congestive cardiac failure, several meta-analyses have shown a significant 30 – 48% reduction in risk of AF associated with ACEI and ARB therapies. While in patients with hypertension, in meta-analyses, the overall trend was in favour of ACEI- or ARB-based therapy, but only one meta-analysis has shown a statistically significant 25% reduction in RR of incident AF.
 
-**[Grade II-a, Level A]** ACEIs and ARBs should be considered for prevention of new-onset AF in patients with heart failure and reduced ejection fraction.
+[Grade II-a, Level A] ACEIs and ARBs should be considered for prevention of new-onset AF in patients with heart failure and reduced ejection fraction.
 
-**[Grade II-a, Level B]** ACEIs and ARBs should be considered for prevention of new-onset AF in patients with hypertension, particularly with left ventricular hypertrophy.
+[Grade II-a, Level B] ACEIs and ARBs should be considered for prevention of new-onset AF in patients with hypertension, particularly with left ventricular hypertrophy.
 
-**[Grade III, Level C]** Upstream therapies with ACEIs, ARBs, and statins are not recommended for primary prevention of AF in patients without cardiovascular disease.
+[Grade III, Level C] Upstream therapies with ACEIs, ARBs, and statins are not recommended for primary prevention of AF in patients without cardiovascular disease.
 
 **Secondary prevention**
 
@@ -208,62 +139,125 @@ Several relatively small prospective randomized controlled trials have demonstra
 
 Evidence to support the use of ACEI/ARB in patients with paroxysmal or persistent AF who are not undergoing electrical cardioversion remains controversial.
 
-**[Grade II-b, Level B]** Pre-treatment with ACEIs and ARBs may be considered in patients with recurrent AF and receiving antiarrhythmic drug therapy.
+[Grade II-b, Level B] Pre-treatment with ACEIs and ARBs may be considered in patients with recurrent AF and receiving antiarrhythmic drug therapy.
 
-**[Grade II-b, Level B]** ARBs or ACEIs may be useful for prevention of recurrent paroxysmal AF or in patients with persistent AF undergoing electrical cardioversion in the absence of significant structural heart disease if these agents are indicated for other reasons (e.g. hypertension).
+[Grade II-b, Level B] ARBs or ACEIs may be useful for prevention of recurrent paroxysmal AF or in patients with persistent AF undergoing electrical cardioversion in the absence of significant structural heart disease if these agents are indicated for other reasons (e.g. hypertension).
 
 ### 8.4.3: Statins
 For post-operative AF, a recent systematic review, have reported a lower incidence of new onset AF favouring statins. Some studies, particularly in patients with LV dysfunction and heart failure, have shown a 20 &ndash; 50% reduction in the incidence of new-onset AF.
 
-**[Grade II-a, Level B]** Statins should be considered for prevention of new-onset AF after coronary artery bypass grafting, isolated or in combination with valvular interventions.
+[Grade II-a, Level B] Statins should be considered for prevention of new-onset AF after coronary artery bypass grafting, isolated or in combination with valvular interventions.
 
-**[Grade II-b, Level B]** Statins may be considered for prevention of new-onset AF in patients with underlying heart disease, particularly heart failure.
+[Grade II-b, Level B] Statins may be considered for prevention of new-onset AF in patients with underlying heart disease, particularly heart failure.
 
 ### 8.4.4: Polyunsaturated Fatty Acids And Aldosterone Antagonist
 At present, there is no robust evidence to make any recommendation for the use of PUFAs or aldosterone antagonist for primary or secondary prevention of AF.
 
-<!-- OVERLAP CONTENT FROM: section-7-rate-control.md -->
+<!-- parent_only_reference_start -->
 Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
 
 | Drug | Oral Loading Dose | Onset of Action | Commonly Used Maintenance Doses | Adverse Effects | Comments |
 |---|---|---|---|---|---|
-| **Beta-blockers** | | | | | |
+| Beta-blockers | | | | | |
 | Atenolol | N/A | 2–3 hr | 25–50 mg daily | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF (negative inotropic effect) |
 | Carvedilol | N/A | 60–90 min | 6.25–25 mg b.d. | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
 | Metoprolol | N/A | 4–6 hr | 23.75–200 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
 | Nadolol | N/A | 3–4 hr | 20–80 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
 | Propranolol | N/A | 60–90 min | 80–240 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
-| **Calcium channel blockers** | | | | | |
+| Calcium channel blockers | | | | | |
 | Diltiazem | N/A | 1–4 hr | 120–360 mg/day | Hypotension, heart block, heart failure | Lower doses in HF |
 | Verapamil | N/A | 1–2 hr | 120–360 mg/day | Hypotension, heart block, heart failure, digoxin interaction | Lower doses in HF (negative inotropic effect) |
-| **Other** | | | | | |
+| Other | | | | | |
 | Digoxin | 0.5–1.0 mg | 2 hr | 0.0625–0.375 mg/day | Digoxin toxicity, heart block, bradycardia | First-line therapy only for people unlikely to be active (e.g., older people or infirm) and for people with heart failure. Less effective in hyperadrenergic states. |
 | Amiodarone | 400–800 mg/day for 1 week | 1–3 wk | 200 mg/day | Photosensitivity and other skin reactions, pulmonary toxicity, polyneuropathy, gastrointestinal upset, bradycardia, hepatic toxicity, thyroid dysfunction, torsades de pointes (rare) | Although there is fairly good evidence of efficacy, this is an agent of last resort in this indication, due to its long-term toxicity. |
 
 *N/A = Not applicable*
-<!-- END OVERLAP CONTENT -->
 
-<!-- OVERLAP CONTENT FROM: section-0-summary.md -->
+Figure 12: Choice of antiarrhythmic medication for the patient with AF and no or minimal structural heart disease
 
-## Grades Of Recommendation
+ **No or minimal structural heart disease**
+ *   **Adrenergically mediated:**
+     *   &rarr; ß-Blocker
+     *   &rarr; Sotalol
+     *   &rarr; Dronedarone
+     *   &rarr; **Amiodarone**
+ *   **Undetermined:**
+     *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
+     *   &rarr; **Amiodarone**
+
+ *Medication may be initially based on the pattern of arrhythmia onset. Antiarrhythmic agents are listed in alphabetical order within each treatment box.*
+
+ Figure 13: Choice of antiarrhythmic drug according to underlying pathology
+ *   **Minimal or no structural heart disease:**
+     *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
+         *   &rarr; **Amiodarone**
+
+ *   **Significant structural heart disease:**
+     *   &rarr; *Treatment of underlying condition and prevention of remodelling — ACEI/ARB/statin*
+         *   &darr; Assess defined pathology
+         *   **Hypertensive heart disease (HHD):**
+             *   *No LVH:*
+                 *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
+                     *   &rarr; **Amiodarone**
+             *   *LVH:*
+                 *   &rarr; Dronedarone
+                     *   &rarr; **Amiodarone**
+         *   **Coronary heart disease (CHD):**
+             *   &rarr; Sotalol
+                 *   &rarr; Dronedarone
+                     *   &rarr; **Amiodarone**
+         *   **Heart failure (HF):**
+             *   &rarr; **Amiodarone**
+
+*ACEI = angiotensin-converting enzyme inhibitor; ARB = angiotensin receptor blocker; CAD = coronary artery disease; CHF = congestive heart failure; HT = hypertension; LVH = left ventricular hypertrophy; NYHA = New York Heart Association; unstable = cardiac decompensation within the prior 4 weeks. Antiarrhythmic agents are listed in alphabetical order within each treatment box. ? = evidence for 'upstream' therapy for prevention of atrial remodelling still remains controversial.*
+
+
+Figure 14: Choice between ablation and antiarrhythmic drug therapy for patients with and without structural heart disease
+ **Branch A: Relevant underlying heart disease**
+     **CHF (Congestive Heart Failure):**
+         *NYHA III/IV or unstable NYHA II:* &rarr; Amiodarone &harr; Catheter ablation for AF&dagger;
+         *Stable NYHA I/II:* &rarr; Amiodarone &harr; Catheter ablation for AF&dagger;
+     **CAD (Coronary Artery Disease):**
+         &rarr; Dronedarone / Sotalol
+         *Fallback options:* &rarr; **[Amiodarone] &harr; [Catheter ablation for AF&dagger;]** (Two-way fallback)
+ *   **Hypertension with LVH:**
+     *   &rarr; Dronedarone
+     *   *Fallback options:* &rarr; **[Amiodarone] &harr; [Catheter ablation for AF&dagger;]** (Two-way fallback)
+
+ **Branch B: No or minimal heart disease (including HT without LVH)**
+     **First-line routing based on AF pattern:**
+         **Paroxysmal AF:**
+             *   *Standard path:* &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
+             *   *Alternative path (Class IIb dashed line):* &rarr; Catheter ablation for AF\*
+             *   *If ablation fails:* &rarr; Amiodarone
+     *   **Persistent AF:**
+         *   &rarr; Dronedarone / Flecainide / Propafenone / Sotalol
+
+ *   **From Dronedarone / Flecainide / Propafenone / Sotalol (if failed/rejected):**
+     *   *Option 1:* &rarr; Catheter ablation for AF\* &rarr; Amiodarone
+     *   *Option 2:* &rarr; Amiodarone
+
+*Proposed integration of antiarrhythmic drug and catheter ablation for AF in patients with relevant underlying heart disease and for those with no or minimal heart disease, including hypertension (HT) without left ventricular hypertrophy (LVH). &dagger;More extensive LA ablation may be needed; \*usually PVI is appropriate. AF = atrial fibrillation; CAD = coronary artery disease; CHF = congestive heart failure; HT = hypertension; LVH = left ventricular hypertrophy; NYHA = New York Heart Association; PVI = pulmonary vein isolation. Antiarrhythmic agents are listed in alphabetical order within each treatment box. Please note that left atrium (LA) ablation as first-line therapy (dashed line) is a Class II-b recommendation for patients with paroxysmal AF and no or minimal heart disease, who remain highly symptomatic, despite rate control, and who reject antiarrhythmic drug therapy.*
+
+### Grades Of Recommendation
 | Grade | Description |
-|-------|-------------|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a procedure or treatment. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful. |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a procedure or treatment. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful. |
 
-## Levels Of Evidence
+### Levels Of Evidence
 | Level | Description |
-|-------|-------------|
+|---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses. |
 | B | Data derived from a single randomized clinical trial or large non randomized studies. |
 | C | Consensus of opinion of the experts and/or small studies, retrospective studies, registries. |
 
-## Abbreviations
+### Abbreviations
 | Abbreviation | Description |
-|--------------|-------------|
+|---|---|
 | ACEI | Angiotensin-Converting Enzyme Inhibitors |
 | ACS | Acute Coronary Syndrome |
 | AF | Atrial Fibrillation |
@@ -285,7 +279,7 @@ Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
 | HT | Hypertension |
 | i.v. | Intravenous |
 | LMWH | Low Molecular Weight Heparin |
-| LV | Left Ventricular |
+| LV | Left Ventricle / Left Ventricular |
 | LVEF | Left Ventricular Ejection Fraction |
 | LVH | Left Ventricular Hypertrophy |
 | NYHA | New York Heart Association |
@@ -298,4 +292,4 @@ Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
 | SVT | Supraventricular Tachycardia |
 | UFH | Unfractionated Heparin |
 | WPW | Wolff-Parkinson-White |
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

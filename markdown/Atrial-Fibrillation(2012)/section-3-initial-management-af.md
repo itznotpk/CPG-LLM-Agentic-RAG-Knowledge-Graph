@@ -6,18 +6,14 @@ patient_input: symptoms, pulse_regularity, ECG, EHRA_class, exercise_tolerance, 
 output: AF_diagnosis_confirmation, EHRA_classification, echocardiography_indication, diagnostic_work-up, follow-up_plan, rate_vs_rhythm_strategy
 -->
 
-> **Context:** This section covers clinical history, physical examination, investigations, AF detection strategies (ECG confirmation, Holter monitoring), the EHRA symptom score classification, echocardiography indications (TTE and TOE), diagnostic evaluation, and structured clinical follow-up for patients with suspected or confirmed AF.
-
----
-
 ## 3.1: Clinical History, Physical Examination And Investigations
 The acute management of AF patients should concentrate on:
 - Relief of symptoms
 - Assessment of AF-associated risk
 - Determination of the European Heart Rhythm Association (EHRA) score (refer Table 5: EHRA Score of AF-Related Symptoms)
-- Estimation of stroke risk (refer Section 6.1: Risk Stratification for Stroke)
-- Search for conditions that predispose to AF (refer Section 2.1.1: Causes and Associated Conditions)
-- Search for complications of the arrhythmia (refer Section 1.4: Epidemiology and Prognosis)
+- Estimation of stroke risk (refer to Section 6.1: Risk Stratification For Stroke) <!-- cross_ref target_file="<CPG LLM\markdown\Atrial-Fibrillation(2012)\section-6-thromboembolism-prevention-af.md" target_heading="6.1: Risk Stratification For Stroke" target_kind="h2_section" -->
+- Search for conditions that predispose to AF (refer to Section 2.1.1: Causes and Associated Conditions) <!-- cross_ref target_file="<CPG LLM\markdown\Atrial-Fibrillation(2012)\section-2-pathophysiology-af.md" target_heading="2.1.1: Causes And Associated Conditions" target_kind="h3_section" -->
+- Search for complications of the arrhythmia (refer tp Section 1.4: Epidemiology and Prognosis) <!-- cross_ref target_file="<CPG LLM\markdown\Atrial-Fibrillation(2012)\section-1-introduction-af.md" target_heading="1.4: Epidemiology And Prognosis" target_kind="h2_section" -->
 
 With the above in mind, a thorough medical history should be obtained from the patient with suspected or known AF (refer Table 4: Relevant questions to be put to a patient with suspected or known AF).
 
@@ -27,7 +23,7 @@ Table 4: Relevant questions to be put to a patient with suspected or known AF
 |---|
 | Does the heart rhythm during the episode feel regular or irregular? |
 | Is there any precipitating factor such as exercise, emotion, or alcohol intake? |
-| Are symptoms during the episodes moderate or severe—the severity may be expressed using the **EHRA score**, which is similar to the CCS-SAF score. |
+| Are symptoms during the episodes moderate or severe—the severity may be expressed using the EHRA score, which is similar to the CCS-SAF score. |
 | Are the episodes frequent or infrequent, and are they long or short lasting? |
 | Is there a history of concomitant disease such as hypertension, coronary heart disease, heart failure, peripheral vascular disease, cerebrovascular disease, stroke, diabetes, or chronic pulmonary disease? |
 | Is there an alcohol abuse habit? |
@@ -38,7 +34,6 @@ Table 4: Relevant questions to be put to a patient with suspected or known AF
 The EHRA symptom score (refer Table 5: EHRA Score of AF-Related Symptoms) provides a simple clinical tool for assessing symptoms during AF. The score only considers symptoms that are attributable to AF and reverse or reduce upon restoration of sinus rhythm or with effective rate control.
 
 Table 5: EHRA Score of AF-Related Symptoms
-
 | EHRA Class | Explanation |
 |---|---|
 | **EHRA I** | 'No symptoms' |
@@ -144,7 +139,7 @@ In patients with AF who require anticoagulation therapy based on relevant clinic
 
 TOE should be performed in patients with AF:
 - Where TTE is technically difficult and/or of questionable quality and where there is a need to exclude cardiac abnormalities.
-- For whom TOE-guided cardioversion is being considered. (refer Section 6.4.5: Cardioversion)
+- For whom TOE-guided cardioversion is being considered. (refer Section 6.4.5: Cardioversion) <!-- cross_ref target_file="section-6-thromboembolism-prevention-af.md" target_heading="6.4.5: Cardioversion" target_kind="h3_section" -->
 
 ## 3.4: Clinical Follow-Up
 The specialist caring for the AF patient should not only perform the baseline assessment and institute the appropriate treatment, but also suggest a structured plan for follow-up.
@@ -160,21 +155,21 @@ Important considerations during follow-up of the AF patient are listed below:
 ## 3.5: Initial Management
 | Recommendation | Grade |
 |---|---|
-| The diagnosis of AF requires documentation by ECG. | **[Grade I, Level B]** |
-| In patients with suspected AF, an attempt to record an ECG should be made when symptoms suggestive of AF occur. | **[Grade I, Level B]** |
-| A simple symptom score (EHRA class) is recommended to quantify AF-related symptoms. | **[Grade I, Level B]** |
-| All patients with AF should undergo a thorough physical examination, and a cardiac- and arrhythmia-related history should be taken. | **[Grade I, Level C]** |
-| In patients with severe symptoms, documented or suspected heart disease, or risk factors, an echocardiogram is recommended. | **[Grade I, Level B]** |
-| In patients treated with antiarrhythmic drugs, a 12-lead ECG should be recorded at regular intervals during follow-up. | **[Grade I, Level C]** |
-| In patients with suspected symptomatic AF, additional ECG monitoring should be considered in order to document the arrhythmia. | **[Grade II-a, Level B]** |
-| Additional ECG monitoring should be considered for detection of 'silent' AF in patients who may have sustained an AF-related complication. | **[Grade II-a, Level B]** |
-| In patients with AF treated with rate control, Holter ECG monitoring should be considered for assessment of rate control or bradycardia. | **[Grade II-a, Level C]** |
-| In young active patients with AF treated with rate control, exercise testing should be considered in order to assess ventricular rate control. | **[Grade II-a, Level C]** |
-| In patients with documented or suspected AF, an echocardiogram should be considered. | **[Grade II-a, Level C]** |
-| Patients with symptomatic AF or AF-related complications should be considered for referral to a cardiologist. | **[Grade II-a, Level C]** |
-| A structured follow-up plan prepared by a specialist is useful for follow-up by a general or primary care physician. | **[Grade II-a, Level C]** |
-| In patients treated with rhythm control, repeated ECG monitoring may be considered to assess the efficacy of treatment. | **[Grade II-b, Level B]** |
-| Most patients with AF may benefit from specialist follow-up at regular intervals. | **[Grade II-b, Level C]** |
+| The diagnosis of AF requires documentation by ECG. | [Grade I, Level B] |
+| In patients with suspected AF, an attempt to record an ECG should be made when symptoms suggestive of AF occur. | [Grade I, Level B] |
+| A simple symptom score (EHRA class) is recommended to quantify AF-related symptoms. | [Grade I, Level B] |
+| All patients with AF should undergo a thorough physical examination, and a cardiac- and arrhythmia-related history should be taken. | [Grade I, Level C] |
+| In patients with severe symptoms, documented or suspected heart disease, or risk factors, an echocardiogram is recommended. | [Grade I, Level B] |
+| In patients treated with antiarrhythmic drugs, a 12-lead ECG should be recorded at regular intervals during follow-up. | [Grade I, Level C] |
+| In patients with suspected symptomatic AF, additional ECG monitoring should be considered in order to document the arrhythmia. | [Grade II-a, Level B] |
+| Additional ECG monitoring should be considered for detection of 'silent' AF in patients who may have sustained an AF-related complication. | [Grade II-a, Level B] |
+| In patients with AF treated with rate control, Holter ECG monitoring should be considered for assessment of rate control or bradycardia. | [Grade II-a, Level C] |
+| In young active patients with AF treated with rate control, exercise testing should be considered in order to assess ventricular rate control. | [Grade II-a, Level C] |
+| In patients with documented or suspected AF, an echocardiogram should be considered. | [Grade II-a, Level C] |
+| Patients with symptomatic AF or AF-related complications should be considered for referral to a cardiologist. | [Grade II-a, Level C] |
+| A structured follow-up plan prepared by a specialist is useful for follow-up by a general or primary care physician. | [Grade II-a, Level C] |
+| In patients treated with rhythm control, repeated ECG monitoring may be considered to assess the efficacy of treatment. | [Grade II-b, Level B] |
+| Most patients with AF may benefit from specialist follow-up at regular intervals. | [Grade II-b, Level C] |
 
 Figure 3: Choice of Rate and Rhythm Control Strategies
 
@@ -203,44 +198,26 @@ Figure 3: Choice of Rate and Rhythm Control Strategies
 *   *If on Rhythm control:* &rarr; **Failure of rhythm control** &rarr; Switch to **Rate control**
 
 > Rate control is needed for most patients with AF unless the heart rate during AF is naturally slow. Rhythm control may be added to rate control if the patient is symptomatic despite adequate rate control, or if a rhythm control strategy is selected because of factors such as the degree of symptoms, younger age, or higher activity levels. Permanent AF is managed by rate control unless it is deemed possible to restore sinus rhythm when the AF category is re-designated as 'long-standing persistent'. Paroxysmal AF is more often managed with a rhythm control strategy, especially if it is symptomatic and there is little or no associated underlying heart disease. Solid lines indicate the first-line management strategy; Dashed lines represent fall-back objectives and dotted lines indicate alternative approaches which may be used in selected patients.
->
+
 ---
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: TABLE 5 — EHRA SCORE                   -->
-<!-- Purpose: Inline reference for EHRA classification             -->
-<!-- ============================================================ -->
-
-<!-- Table 5 is already defined inline above as it is a core component of this section -->
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conflicting evidence and/or divergence of opinion about usefulness/efficacy. |
-| **II-a** | Weight of evidence/opinion is in favor of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conflicting evidence and/or divergence of opinion about usefulness/efficacy. |
+| II-a | Weight of evidence/opinion is in favor of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: APPENDIX D                             -->
-<!-- Purpose: Defines Vaughan Williams Classification of AADs       -->
-<!-- ============================================================ -->
-
-### Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
+Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
 **Type IA**
 - Disopyramide
 - Procainamide
@@ -270,12 +247,7 @@ Figure 3: Choice of Rate and Rhythm Control Strategies
 
 > *Note: Table includes compounds introduced after publication of the original classification.*
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GLOSSARY OF ABBREVIATIONS              -->
-<!-- Purpose: Defines acronyms used in this section               -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | AAD | Antiarrhythmic Drug |
@@ -294,3 +266,4 @@ Figure 3: Choice of Rate and Rhythm Control Strategies
 | TIA | Transient Ischemic Attack |
 | TOE | Transesophageal Echocardiogram |
 | TTE | Transthoracic Echocardiogram |
+<!-- parent_only_reference_end -->

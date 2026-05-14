@@ -1,14 +1,10 @@
-# Section 11: Appendices, Glossary & References
+# Section 12: Appendices
 <!-- METADATA
 category: Reference
 use_case: Supplementary appendices including warfarin initiation protocols, INR monitoring, ethnic dosing, dose adjustments, perioperative bridging, AAD classification, glossary, and clinical questions — warfarin_initiation, INR_monitoring, Pacific-Asian_dosing, dose_adjustment, elevated_INR_management, perioperative_bridging, Vaughan_Williams_classification, search_terms, clinical_questions, abbreviations
 patient_input: INR, warfarin_dose, age, ethnicity, surgical_status, bleeding_status
 output: warfarin_initiation_protocol, INR_dose_adjustment_table, elevated_INR_management, perioperative_bridging_plan, AAD_classification, glossary
 -->
-
-> **Context:** This section consolidates supplementary appendices: Appendix A (search terms), Appendix B (clinical questions by topic), Appendix C: Warfarin in Practice (initiation protocols, INR monitoring, therapeutic ranges, ethnic dosing for Pacific-Asian populations, dose adjustment tables, elevated INR management, and Appendix C.1.9: perioperative warfarin interruption and bridging therapy), Appendix D: Vaughan Williams Classification of Antiarrhythmic Drugs, the master glossary of abbreviations, and all references cited in the CPG Management of Atrial Fibrillation (2012).
-
----
 
 ## Appendix A: Search Terms
 
@@ -116,7 +112,7 @@ Various combinations of searches were carried out. The terms listed below are th
 8. In patients with AF what are the risks of long-term oral anticoagulation therapy?
 9. In patients with AF and vitamin K antagonist, what are the risk factors associated with bleeding?
 
-### F. Long-term Rate Control
+### F. Long-Term Rate Control
 1. In patients with permanent AF, what is the efficacy of rate-limiting calcium antagonists compared with digoxin in rate control?
 2. In patients with permanent AF, what is the efficacy of beta-blockers compared with digoxin in rate control?
 3. In patients with permanent AF, what is the efficacy of beta-blockers compared with rate-limiting calcium antagonists in rate control?
@@ -124,7 +120,7 @@ Various combinations of searches were carried out. The terms listed below are th
 5. In patients with permanent AF, what is the efficacy of beta-blockers in combination with digoxin compared with beta-blocker monotherapy in rate control?
 6. In patients with permanent AF, what is the efficacy of AV node ablation with permanent pacemaker therapy in rate control?
 
-### G. Long-term Rhythm Control
+### G. Long-Term Rhythm Control
 1. In patients with paroxysmal AF, is flecainide/propafenone better than beta-blockers in reducing the frequency of paroxysms?
 2. In patients with paroxysmal AF, is amiodarone or sotalol better than beta-blockers in reducing the frequency of paroxysms?
 3. In patients with paroxysmal AF, is flecainide/propafenone better than amiodarone or sotalol in reducing the frequency of paroxysms?
@@ -388,87 +384,3 @@ Mech heart valve: any mitral valve prosthesis, older aortic valve prosthesis (ca
 - Nondihydropyridine calcium channel antagonist (verapamil and diltiazem)
 
 > *Note: Table includes compounds introduced after publication of the original classification.*
-
----
-
-## Glossary Of Abbreviations
-| Abbreviation | Full Term |
-|---|---|
-| AAD | Antiarrhythmic Drug |
-| ACC | American College of Cardiology |
-| ACE | Angiotensin-converting Enzyme |
-| ACEI | Angiotensin-converting Enzyme Inhibitor |
-| ACS | Acute Coronary Syndrome |
-| AF | Atrial Fibrillation |
-| AFL | Atrial Flutter |
-| AFFIRM | Atrial Fibrillation Follow-up Investigation of Rhythm Management |
-| AHA | American Heart Association |
-| AMI | Acute Myocardial Infarction |
-| AP | Accessory Pathway |
-| APB | Atrial Premature Beat |
-| ARB | Angiotensin Receptor Blocker |
-| AV | Atrioventricular |
-| BB | Beta-blocker |
-| BMI | Body Mass Index |
-| BNP | Brain Natriuretic Peptide |
-| BP | Blood Pressure |
-| bpm | Beats per Minute |
-| CABG | Coronary Artery Bypass Graft |
-| CCB | Calcium Channel Blocker |
-| CHF | Congestive Heart Failure |
-| COPD | Chronic Obstructive Pulmonary Disease |
-| CRT | Cardiac Resynchronization Therapy |
-| CVD | Cardiovascular Disease |
-| DCCV | Direct Current Cardioversion |
-| DM | Diabetes Mellitus |
-| DVT | Deep Vein Thrombosis |
-| ECG | Electrocardiogram |
-| Echo | Echocardiogram |
-| EF | Ejection Fraction |
-| ESC | European Society of Cardiology |
-| FFP | Fresh Frozen Plasma |
-| FRS | Framingham Risk Score |
-| HCM | Hypertrophic Cardiomyopathy |
-| HF | Heart Failure |
-| HR | Heart Rate |
-| HTN | Hypertension |
-| ICD | Implantable Cardioverter-Defibrillator |
-| ICH | Intracranial Hemorrhage |
-| INR | International Normalized Ratio |
-| IV | Intravenous |
-| LA | Left Atrium/Left Atrial |
-| LAA | Left Atrial Appendage |
-| LMWH | Low Molecular Weight Heparin |
-| LV | Left Ventricle/Left Ventricular |
-| LVH | Left Ventricular Hypertrophy |
-| MI | Myocardial Infarction |
-| MRI | Magnetic Resonance Imaging |
-| NHAM | National Heart Association of Malaysia |
-| NSTEMI | Non-ST Elevation Myocardial Infarction |
-| NYHA | New York Heart Association |
-| OAC | Oral Anticoagulant/Oral Anticoagulation |
-| PAD | Peripheral Artery Disease |
-| PAF | Paroxysmal Atrial Fibrillation |
-| PCI | Percutaneous Coronary Intervention |
-| PIAF | Pharmacological Intervention in Atrial Fibrillation |
-| PO | Per Os (by mouth) |
-| PUFA | Polyunsaturated Fatty Acids |
-| PVI | Pulmonary Vein Isolation |
-| RACE | Rate Control versus Electrical Cardioversion for Persistent AF |
-| RE-LY | Randomised Evaluation of Long-Term Anticoagulation Therapy |
-| rVIIa | Recombinant Factor VIIa |
-| SCD | Sudden Cardiac Death |
-| SR | Sinus Rhythm |
-| STAF | Strategies of Treatment of Atrial Fibrillation |
-| SVT | Supraventricular Tachycardia |
-| TE | Thromboembolism |
-| TIA | Transient Ischemic Attack |
-| TOE | Transesophageal Echocardiogram |
-| TTE | Transthoracic Echocardiogram |
-| UFH | Unfractionated Heparin |
-| VHD | Valvular Heart Disease |
-| VKA | Vitamin K Antagonist |
-| VTE | Venous Thromboembolism |
-| WPW | Wolff-Parkinson-White Syndrome |
-
----
