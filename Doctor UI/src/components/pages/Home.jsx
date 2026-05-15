@@ -20,6 +20,7 @@ import { getAllPatients } from '../../lib/supabase';
 import { GlassCard } from '../shared/GlassCard';
 import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../shared/Notification';
+import { useAuth } from '../../context/AuthContext';
 import PatientQuickView from '../shared/PatientQuickView';
 
 const sampleNotifications = [
@@ -67,6 +68,7 @@ const TrendBadge = ({ current, previous, suffix = '' }) => {
 
 const Home = ({ onStartConsult, onViewChart }) => {
   const { isDark, accent } = useTheme();
+  const { profile } = useAuth();
   const toast = useToast();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [schedule, setSchedule] = useState(todaySchedule);
@@ -216,7 +218,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
         <div>
           <h1 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
             {getGreeting()},{' '}
-            <span className={accent.text}>Dr. Tay</span>
+            <span className={accent.text}>{profile?.full_name || profile?.name || 'Doctor'}</span>
           </h1>
           <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
             {formatDate()} &nbsp;·&nbsp; <span className="ds-numeric font-medium">{formatTime()}</span>

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import Login from './pages/Login';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { AppProvider, useApp } from './context/AppContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { ToastProvider } from './components/shared/Notification';
+import SplashScreen from './components/shared/SplashScreen';
 import Sidebar from './components/layout/Sidebar';
 import {
   DataInputSection,
@@ -26,22 +29,23 @@ const steps = [
 function AppContent() {
   const { state, dispatch } = useApp();
   const { isDark } = useTheme();
+  const { profile: authProfile, signOut, refreshProfile } = useAuth();
   const { currentStep } = state;
   const [currentView, setCurrentView] = useState('dashboard');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [chartPatient, setChartPatient] = useState(null);
 
-
-  // Shared profile state
-  const [profile, setProfile] = useState({
-    name: 'Dr. Tay',
-    email: 'dr.tay@mhnexus.com',
-    phone: '+60 12-345 6789',
-    specialty: 'Family Medicine',
-    license: 'MMC-12345',
-    facility: 'Hospital Kuala Lumpur',
-    department: 'Primary Care Unit'
-  });
+  const profile = authProfile ? {
+    name:       authProfile.full_name      || 'Clinician',
+    email:      authProfile.email          || '',
+    phone:      authProfile.phone          || '',
+    specialty:  authProfile.specialty      || '',
+    license:    authProfile.license_number || '',
+    facility:   authProfile.facility       || '',
+    department: authProfile.department     || '',
+    avatarUrl:  authProfile.avatar_url     || null,
+    role:       authProfile.role           || 'doctor',
+  } : null;
 
   const handleNavigate = (view) => {
     // Reset state when manually navigating to consultation (not via Start Consult)
@@ -148,7 +152,7 @@ function AppContent() {
           </>
         );
       case 'settings':
-        return <Settings profile={profile} setProfile={setProfile} />;
+        return <Settings profile={profile} setProfile={refreshProfile} />;
       case 'analytics':
         return <DashboardSection />;
       case 'chart':
@@ -185,7 +189,17 @@ function AppContent() {
   );
 }
 
-function App() {
+function Gate() {
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return <SplashScreen />;
+  }
+
+  if (!session) {
+    return <Login />;
+  }
+
   return (
     <ThemeProvider>
       <AppProvider>
@@ -194,6 +208,14 @@ function App() {
         </ToastProvider>
       </AppProvider>
     </ThemeProvider>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <Gate />
+    </AuthProvider>
   );
 }
 

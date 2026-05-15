@@ -6,9 +6,11 @@ import {
   Settings,
   BarChart3,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  LogOut
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { useAuth } from '../../context/AuthContext';
 
 const navItems = [
   { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
@@ -20,6 +22,7 @@ const navItems = [
 
 const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profile }) => {
   const { isDark, accent } = useTheme();
+  const { signOut } = useAuth();
 
   // Get initials from name
   const getInitials = (name) => {
@@ -115,11 +118,33 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
               flex items-center justify-center text-teal-400 font-semibold text-sm`}>
               {getInitials(profile?.name)}
             </div>
-            <div className="flex flex-col">
-              <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{profile?.name || 'User'}</span>
-              <span className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{profile?.specialty || 'Medical Professional'}</span>
+            <div className="flex flex-col min-w-0 flex-1">
+              <span className={`text-sm font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{profile?.name || 'User'}</span>
+              <span className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{profile?.specialty || 'Medical Professional'}</span>
             </div>
+            <button
+              onClick={signOut}
+              title="Sign out"
+              className={`flex-shrink-0 p-1.5 rounded-lg transition-colors
+                ${isDark ? 'text-slate-400 hover:bg-white/10 hover:text-white' : 'text-slate-400 hover:bg-slate-100 hover:text-slate-700'}`}
+            >
+              <LogOut className="w-4 h-4" strokeWidth={1.5} />
+            </button>
           </div>
+        </div>
+      )}
+
+      {/* Collapsed sign-out */}
+      {isCollapsed && (
+        <div className={`p-3 ${isDark ? 'border-t border-white/10' : 'border-t border-slate-200'}`}>
+          <button
+            onClick={signOut}
+            title="Sign out"
+            className={`w-full flex items-center justify-center p-2 rounded-lg transition-colors
+              ${isDark ? 'text-slate-400 hover:bg-white/10 hover:text-white' : 'text-slate-400 hover:bg-slate-100 hover:text-slate-700'}`}
+          >
+            <LogOut className="w-4 h-4" strokeWidth={1.5} />
+          </button>
         </div>
       )}
     </aside>
