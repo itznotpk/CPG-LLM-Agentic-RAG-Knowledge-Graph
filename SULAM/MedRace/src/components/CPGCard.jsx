@@ -95,7 +95,7 @@ export default function CPGCard({ card, index, isFlipped, onFlip, disabled }) {
             {card.section}
           </div>
           <p style={{ fontSize: 11.5, color: 'var(--ink)', lineHeight: 1.65 }}>
-            {card.paragraph}
+            {card.summary ?? card.paragraph}
           </p>
         </div>
       </div>
