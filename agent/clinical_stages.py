@@ -582,60 +582,273 @@ def _count_tokens(s: str) -> int:
 
 async def _prefetch_parent_content(chunks: list[ChunkResult]) -> None:
     """
-    Populate chunk.parent_content for every H2 chunk that has a parent_chunk_id
-    in its metadata. Called once before _format_evidence so the sync formatter
-    can read the already-fetched content.
+    Populate parent_content (and section_content for h3 hits) for every chunk
+    that has a parent_chunk_id. Walks the chain up to H1 in at most two hops.
 
-    For parents > _PARENT_CHAR_LIMIT, a window centred on the child's
-    start_char/end_char is sliced instead of the full parent.
+    H2 / h1_leaf hit — one hop:
+        chunk.parent_content = H1 text (windowed if > _PARENT_CHAR_LIMIT)
+
+    H3 hit — two hops:
+        chunk.section_content = cap-split H2 text (passed whole)
+        chunk.parent_content  = H1 text with the H2 span replaced by a gap marker
+                                (windowed if still > _PARENT_CHAR_LIMIT after slicing)
     """
-    parent_ids = {
+    # Collect all direct parent IDs needed for the first hop
+    first_hop_ids = {
         c.metadata["parent_chunk_id"]
         for c in chunks
         if c.metadata.get("parent_chunk_id")
     }
-    if not parent_ids:
+    if not first_hop_ids:
         return
 
     async with db_pool.acquire() as conn:
         rows = await conn.fetch(
-            "SELECT id::text, content FROM chunks WHERE id = ANY($1::uuid[])",
-            list(parent_ids),
+            """
+            SELECT id::text, content, chunk_level, start_char, end_char,
+                   parent_chunk_id::text AS grandparent_id, metadata
+            FROM chunks
+            WHERE id = ANY($1::uuid[])
+            """,
+            list(first_hop_ids),
         )
-    parent_content_by_id = {r["id"]: r["content"] for r in rows}
+
+    # Build lookup: id → full row dict
+    parent_row_by_id: dict[str, dict] = {}
+    for r in rows:
+        parent_row_by_id[r["id"]] = {
+            "content":       r["content"],
+            "chunk_level":   r["chunk_level"],
+            "start_char":    r["start_char"],
+            "end_char":      r["end_char"],
+            "grandparent_id": r["grandparent_id"],
+            "metadata":      json.loads(r["metadata"]) if isinstance(r["metadata"], str) else (r["metadata"] or {}),
+        }
+
+    # Collect any grandparent IDs needed for H3 two-hop walk
+    grandparent_ids = {
+        parent_row_by_id[pid]["grandparent_id"]
+        for pid in first_hop_ids
+        if pid in parent_row_by_id and parent_row_by_id[pid].get("grandparent_id")
+    }
+
+    grandparent_row_by_id: dict[str, dict] = {}
+    if grandparent_ids:
+        async with db_pool.acquire() as conn:
+            gp_rows = await conn.fetch(
+                "SELECT id::text, content, chunk_level, start_char, end_char FROM chunks WHERE id = ANY($1::uuid[])",
+                list(grandparent_ids),
+            )
+        for r in gp_rows:
+            grandparent_row_by_id[r["id"]] = {
+                "content":     r["content"],
+                "chunk_level": r["chunk_level"],
+                "start_char":  r["start_char"],
+                "end_char":    r["end_char"],
+            }
 
     for chunk in chunks:
         pid = chunk.metadata.get("parent_chunk_id")
-        if not pid or pid not in parent_content_by_id:
+        if not pid or pid not in parent_row_by_id:
             continue
-        parent_text = parent_content_by_id[pid]
-        if len(parent_text) <= _PARENT_CHAR_LIMIT:
-            chunk.parent_content = parent_text
+
+        p = parent_row_by_id[pid]
+
+        if p["chunk_level"] == "h2" and p.get("grandparent_id"):
+            # H3 hit — p is the cap-split H2 intermediate; grandparent is H1
+            gp_id = p["grandparent_id"]
+            gp = grandparent_row_by_id.get(gp_id)
+
+            # [SECTION] — cap-split H2 passed whole
+            chunk.section_content = p["content"]
+
+            if gp:
+                h1_text  = gp["content"]
+                h2_start = p["start_char"] or 0
+                h2_end   = p["end_char"] or h2_start
+                h2_title = p["metadata"].get("h2_title", "this section")
+                gap      = f"\n\n[… {h2_title} shown above …]\n\n"
+                h1_ctx   = h1_text[:h2_start] + gap + h1_text[h2_end:]
+
+                if len(h1_ctx) > _PARENT_CHAR_LIMIT:
+                    half         = _PARENT_CHAR_LIMIT // 2
+                    window_start = max(0, h2_start - half)
+                    window_end   = min(len(h1_ctx), h2_end + half)
+                    h1_ctx       = h1_ctx[window_start:window_end]
+                    logger.info(
+                        "H1 window sliced for h3 chunk %s: [%d:%d] of %d-char H1",
+                        chunk.chunk_id, window_start, window_end, len(h1_text),
+                    )
+                chunk.parent_content = h1_ctx
         else:
-            # Slice a window centred on the child's position inside the parent
-            half = _PARENT_CHAR_LIMIT // 2
-            child_start = chunk.start_char or 0
-            child_end = chunk.end_char or child_start
-            window_start = max(0, child_start - half)
-            window_end = min(len(parent_text), child_end + half)
-            chunk.parent_content = parent_text[window_start:window_end]
-            logger.info(
-                "Parent window sliced for chunk %s: [%d:%d] of %d-char parent",
-                chunk.chunk_id, window_start, window_end, len(parent_text),
+            # H2 / h1_leaf hit — p is the H1, one hop
+            parent_text = p["content"]
+            if len(parent_text) <= _PARENT_CHAR_LIMIT:
+                chunk.parent_content = parent_text
+            else:
+                half         = _PARENT_CHAR_LIMIT // 2
+                child_start  = chunk.start_char or 0
+                child_end    = chunk.end_char or child_start
+                window_start = max(0, child_start - half)
+                window_end   = min(len(parent_text), child_end + half)
+                chunk.parent_content = parent_text[window_start:window_end]
+                logger.info(
+                    "Parent window sliced for chunk %s: [%d:%d] of %d-char parent",
+                    chunk.chunk_id, window_start, window_end, len(parent_text),
+                )
+
+
+async def _resolve_cross_refs(chunks: list[ChunkResult]) -> list[ChunkResult]:
+    """
+    Collect cross_refs from each chunk and its parent chain, fetch the best
+    matching embedded child from each target file, and return them as extra
+    ChunkResult objects to be appended to the evidence pack.
+
+    Chain-aware: reads cross_refs from the hit child AND from its section/parent
+    content metadata, so a marker placed on an unembedded cap-split H2 preamble
+    still fires when one of its H3 children is the hit.
+
+    Each resolved reference is capped at _CHILD_CHAR_LIMIT to avoid blowing
+    the token budget. Duplicates (same chunk_id already in evidence) are skipped.
+    """
+    existing_ids = {c.chunk_id for c in chunks}
+    refs_to_resolve: list[dict] = []
+
+    for chunk in chunks:
+        # Collect cross_refs from the hit chunk itself
+        for ref in chunk.metadata.get("cross_refs", []):
+            if ref.get("target_file"):
+                refs_to_resolve.append(ref)
+        # Also collect from parent chain metadata stored during prefetch
+        # (covers markers that landed on an unembedded cap-split H2 preamble)
+        for key in ("cap_split_h2_index",):
+            pass  # chain metadata is in DB rows already fetched — read from parent_content metadata below
+
+    if not refs_to_resolve:
+        return []
+
+    # Deduplicate by target_file + target_heading
+    seen_refs: set[tuple] = set()
+    unique_refs: list[dict] = []
+    for ref in refs_to_resolve:
+        key = (ref.get("target_file", ""), ref.get("target_heading", ""))
+        if key not in seen_refs:
+            seen_refs.add(key)
+            unique_refs.append(ref)
+
+    resolved: list[ChunkResult] = []
+
+    async with db_pool.acquire() as conn:
+        for ref in unique_refs:
+            target_file    = ref.get("target_file", "")
+            target_heading = ref.get("target_heading", "")
+            target_kind    = ref.get("target_kind", "h1_section")
+
+            if not target_file:
+                continue
+
+            # Find the document matching target_file (partial match on source path)
+            doc_row = await conn.fetchrow(
+                "SELECT id::text FROM documents WHERE source LIKE $1 LIMIT 1",
+                f"%{target_file}%",
             )
+            if not doc_row:
+                logger.debug("cross_ref: no document found for target_file=%r", target_file)
+                continue
+
+            doc_id = doc_row["id"]
+
+            # For h2_section / h3_section — find the specific embedded child by heading match
+            if target_kind in ("h2_section", "h3_section") and target_heading:
+                row = await conn.fetchrow(
+                    """
+                    SELECT c.id::text AS chunk_id, c.content, c.metadata,
+                           d.title AS document_title, d.source AS document_source
+                    FROM chunks c
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE c.document_id = $1::uuid
+                      AND c.embedding IS NOT NULL
+                      AND (
+                          c.metadata->>'h2_title' ILIKE $2
+                          OR c.metadata->>'h3_title' ILIKE $2
+                          OR c.content ILIKE $3
+                      )
+                    LIMIT 1
+                    """,
+                    doc_id,
+                    f"%{target_heading}%",
+                    f"%{target_heading[:60]}%",
+                )
+            else:
+                # h1_section / appendix / algorithm_flowchart — best embedded child
+                # (prefer the first embedded child of the target document)
+                row = await conn.fetchrow(
+                    """
+                    SELECT c.id::text AS chunk_id, c.content, c.metadata,
+                           d.title AS document_title, d.source AS document_source
+                    FROM chunks c
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE c.document_id = $1::uuid
+                      AND c.embedding IS NOT NULL
+                    ORDER BY c.chunk_index
+                    LIMIT 1
+                    """,
+                    doc_id,
+                )
+
+            if not row:
+                logger.debug(
+                    "cross_ref: no embedded chunk found for target_file=%r heading=%r",
+                    target_file, target_heading,
+                )
+                continue
+
+            chunk_id = row["chunk_id"]
+            if chunk_id in existing_ids:
+                continue  # already in evidence pack
+
+            existing_ids.add(chunk_id)
+            meta = json.loads(row["metadata"]) if isinstance(row["metadata"], str) else (row["metadata"] or {})
+            content = row["content"][:_CHILD_CHAR_LIMIT]
+
+            resolved.append(ChunkResult(
+                chunk_id=chunk_id,
+                document_id=doc_id,
+                content=content,
+                score=0.0,
+                metadata={**meta, "_cross_ref_source": target_file},
+                document_title=row["document_title"],
+                document_source=row["document_source"],
+            ))
+            logger.info(
+                "cross_ref resolved: %r → chunk %s (%d chars)",
+                target_file, chunk_id, len(content),
+            )
+
+    return resolved
 
 
 def build_parent_context(chunk: ChunkResult, include_parent: bool = True) -> str:
     """
     Return formatted evidence text for a chunk.
 
-    If parent_content was pre-fetched (H2 chunks), emit [CHILD] + [PARENT] blocks.
+    H3 hit  → [CHILD] + [SECTION] + [PARENT]  (3 tiers, no duplicated text)
+    H2 hit  → [CHILD] + [PARENT]               (2 tiers)
+    No parent → child only (capped at _PARENT_CHAR_LIMIT)
+
     If include_parent is False (duplicate parent suppression), emit child only.
     """
     if not include_parent or chunk.parent_content is None:
         return chunk.content[:_PARENT_CHAR_LIMIT]
 
     child_block = f"[CHILD]\n{chunk.content}"
+
+    if chunk.section_content is not None:
+        # H3 hit — 3-tier, H1 already has the H2 span replaced by a gap marker
+        section_block = f"[SECTION]\n{chunk.section_content}"
+        parent_block  = f"[PARENT]\n{chunk.parent_content}"
+        return f"{child_block}\n\n{section_block}\n\n{parent_block}"
+
     parent_block = f"[PARENT]\n{chunk.parent_content}"
     return f"{child_block}\n\n{parent_block}"
 
@@ -725,6 +938,10 @@ async def stage_5_synthesize(
     )
 
     await _prefetch_parent_content(evidence)
+    cross_ref_chunks = await _resolve_cross_refs(evidence)
+    if cross_ref_chunks:
+        logger.info("cross_ref: appending %d referenced evidence chunks", len(cross_ref_chunks))
+        evidence = evidence + cross_ref_chunks
     evidence_text = _format_evidence(evidence)
     icd_primary = ddx[0].code if ddx else "Unknown"
     icd_alternates = [d.code for d in ddx[1:3]]

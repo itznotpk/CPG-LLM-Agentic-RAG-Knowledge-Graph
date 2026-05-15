@@ -1,11 +1,13 @@
 """
 Markdown document chunker for RAG systems.
 
-Two-pass strategy:
+Three-tier chain model:
   Pass 1 — split at # (H1) → one H1 parent row per section (no embedding).
-  Pass 2 — split each H1 at ## (H2) → embedded child chunks.
+  Pass 2 — split each H1 at ## (H2) → embedded child chunks (chunk_level='h2').
+  Cap     — H2 > 8 000 chars becomes an unembedded intermediate (chunk_level='h2',
+            cap_split=True); its ### subsections become embedded chunk_level='h3' rows
+            that point at the cap-split H2 via parent_chunk_id (H3 → H2 → H1 chain).
   Fallback — if no ## exists, the whole H1 becomes chunk_level='h1_leaf' (embedded).
-  Cap — H2 children > 8 000 chars are sub-split at ### with the same parent.
 """
 
 import re
@@ -46,7 +48,7 @@ class DocumentChunk:
     start_char: int
     end_char: int
     metadata: Dict[str, Any]
-    chunk_level: str = 'h1_leaf'   # 'h1' | 'h2' | 'h1_leaf'
+    chunk_level: str = 'h1_leaf'   # 'h1' | 'h2' | 'h3' | 'h1_leaf'
     token_count: Optional[int] = None
 
     def __post_init__(self):
@@ -93,7 +95,7 @@ CROSS_REF_PATTERN = re.compile(
     re.IGNORECASE
 )
 
-_VALID_TARGET_KINDS = {'h1_section', 'h2_section', 'algorithm_flowchart', 'appendix'}
+_VALID_TARGET_KINDS = {'h1_section', 'h2_section', 'h3_section', 'algorithm_flowchart', 'appendix'}
 
 # Evidence tag patterns (kept from original)
 _GRADE_TOKEN = r'(?:I{1,3}[-]?[a-c]?|A|B|C)'
@@ -321,7 +323,19 @@ class MarkdownChunker:
                     ))
                     global_index += 1
                 else:
-                    # Cap: H2 > 8 000 chars — sub-split at ###
+                    # Cap: H2 > 8 000 chars — store as unembedded intermediate,
+                    # then sub-split at ### into embedded h3 children.
+                    cap_h2_index = global_index
+                    child_chunks.append(DocumentChunk(
+                        content=h2_clean.strip(),
+                        index=cap_h2_index,
+                        start_char=h2_start_in_parent,
+                        end_char=h2_end_in_parent,
+                        metadata={**h2_meta, "total_chunks": 0, "cap_split": True},
+                        chunk_level="h2",  # unembedded — ingest skips embedding for cap_split=True
+                    ))
+                    global_index += 1
+
                     h3_docs = self._h3_splitter.split_text(h2_clean)
                     h3_pos = 0
                     for h3_doc in h3_docs:
@@ -334,19 +348,17 @@ class MarkdownChunker:
                         h3_end = h3_start + len(h3_text)
                         h3_pos = max(0, h3_end - h2_start_in_parent)
                         h3_clean, h3_refs = _strip_cross_refs(h3_text)
-                        h3_meta = {
-                            **h2_meta,
-                            **h3_doc.metadata,
-                        }
+                        h3_meta = {**h2_meta, **h3_doc.metadata}
                         if h3_refs:
                             h3_meta["cross_refs"] = h3_meta.get("cross_refs", []) + h3_refs
+                        h3_meta["cap_split_h2_index"] = cap_h2_index  # ingest resolves H2 UUID from this
                         child_chunks.append(DocumentChunk(
                             content=h3_clean.strip(),
                             index=global_index,
                             start_char=h3_start,
                             end_char=h3_end,
                             metadata={**h3_meta, "total_chunks": 0},
-                            chunk_level="h2",
+                            chunk_level="h3",
                         ))
                         global_index += 1
 
@@ -359,15 +371,23 @@ class MarkdownChunker:
             c.metadata["total_chunks"] = total
 
         if all_chunks:
-            embedded = [c for c in all_chunks if c.chunk_level != "h1"]
+            # Embedded = normal h2 + h3 + h1_leaf; excludes h1 and cap-split h2 intermediates
+            embedded = [
+                c for c in all_chunks
+                if c.chunk_level not in ("h1",)
+                and not (c.chunk_level == "h2" and c.metadata.get("cap_split"))
+            ]
             sizes = [len(c.content) for c in embedded]
             if sizes:
                 logger.info(
-                    "Chunk stats for '%s': h1=%d, h2/leaf=%d, "
+                    "Chunk stats for '%s': h1=%d, h2=%d, h3=%d, h1_leaf=%d, cap_split_h2=%d, "
                     "min=%d, max=%d, avg=%d",
                     title,
                     sum(1 for c in all_chunks if c.chunk_level == "h1"),
-                    len(embedded),
+                    sum(1 for c in all_chunks if c.chunk_level == "h2" and not c.metadata.get("cap_split")),
+                    sum(1 for c in all_chunks if c.chunk_level == "h3"),
+                    sum(1 for c in all_chunks if c.chunk_level == "h1_leaf"),
+                    sum(1 for c in all_chunks if c.chunk_level == "h2" and c.metadata.get("cap_split")),
                     min(sizes), max(sizes), sum(sizes) // len(sizes),
                 )
 

@@ -370,7 +370,6 @@ async def vector_search(
     embedding: List[float],
     limit: int = 10,
     document_id_filter: Optional[List[str]] = None,
-    # chunk_level: str = 'h2',  # disabled: chunks.chunk_level column not yet deployed
 ) -> List[Dict[str, Any]]:
     """
     Perform vector similarity search.
@@ -401,6 +400,7 @@ async def vector_search(
                 FROM chunks c
                 JOIN documents d ON d.id = c.document_id
                 WHERE c.document_id = ANY($3::uuid[])
+                  AND c.embedding IS NOT NULL
                 ORDER BY c.embedding <=> $1::vector
                 LIMIT $2
                 """,
@@ -443,7 +443,6 @@ async def hybrid_search(
     limit: int = 10,
     text_weight: float = 0.3,
     document_id_filter: Optional[List[str]] = None,
-    # chunk_level: str = 'h2',  # disabled: chunks.chunk_level column not yet deployed
 ) -> List[Dict[str, Any]]:
     """
     Perform hybrid search (vector + keyword).
@@ -482,6 +481,7 @@ async def hybrid_search(
                 FROM chunks c
                 JOIN documents d ON d.id = c.document_id
                 WHERE c.document_id = ANY($6::uuid[])
+                  AND c.embedding IS NOT NULL
                 ORDER BY combined_score DESC
                 LIMIT $3
                 """,

@@ -875,14 +875,24 @@ class DocumentIngestionPipeline:
                     document_id
                 )
 
-                # Two-pass insert: H1 parents first so their UUIDs exist when
-                # H2 children reference them via parent_chunk_id.
+                # Three-pass insert to satisfy FK ordering:
+                #   Pass 1 — H1 parents (no embedding)
+                #   Pass 2 — cap-split H2 intermediates (no embedding, parent → H1)
+                #   Pass 3 — normal H2 + H3 + h1_leaf (embedded, parent → H1 or cap-split H2)
+
                 h1_chunks = [c for c in chunks if c.chunk_level == "h1"]
-                child_chunks = [c for c in chunks if c.chunk_level != "h1"]
+                cap_h2_chunks = [
+                    c for c in chunks
+                    if c.chunk_level == "h2" and c.metadata.get("cap_split")
+                ]
+                leaf_chunks = [
+                    c for c in chunks
+                    if c.chunk_level in ("h2", "h3", "h1_leaf")
+                    and not c.metadata.get("cap_split")
+                ]
 
-                # Map chunk.index → DB UUID for H1 parents
+                # Pass 1: H1 parents → build index→UUID map
                 parent_uuid_by_index: Dict[int, str] = {}
-
                 for chunk in h1_chunks:
                     row = await conn.fetchrow(
                         """
@@ -907,19 +917,63 @@ class DocumentIngestionPipeline:
                     )
                     parent_uuid_by_index[chunk.index] = row["id"]
 
-                for chunk in child_chunks:
+                # Pass 2: cap-split H2 intermediates → build index→UUID map for H3 children
+                h2_uuid_by_index: Dict[int, str] = {}
+                for chunk in cap_h2_chunks:
+                    # Resolve H1 parent by nearest preceding H1 index
+                    h1_parent_id = chunk.metadata.get("parent_chunk_id")
+                    if h1_parent_id is None:
+                        for idx in sorted(parent_uuid_by_index.keys(), reverse=True):
+                            if idx < chunk.index:
+                                h1_parent_id = parent_uuid_by_index[idx]
+                                break
+                    cap_meta = {**chunk.metadata}
+                    if h1_parent_id:
+                        cap_meta["parent_chunk_id"] = h1_parent_id
+                    row = await conn.fetchrow(
+                        """
+                        INSERT INTO chunks (
+                            document_id, content, embedding, chunk_index, metadata,
+                            token_count, chunk_level, start_char, end_char, parent_chunk_id
+                        )
+                        VALUES (
+                            $1::uuid, $2, NULL, $3, $4,
+                            $5, $6, $7, $8, $9::uuid
+                        )
+                        RETURNING id::text
+                        """,
+                        document_id,
+                        chunk.content,
+                        chunk.index,
+                        json.dumps(cap_meta),
+                        chunk.token_count,
+                        chunk.chunk_level,
+                        chunk.start_char,
+                        chunk.end_char,
+                        h1_parent_id,
+                    )
+                    h2_uuid_by_index[chunk.index] = row["id"]
+                    chunk.metadata["chunk_id"] = row["id"]
+                    chunk.metadata["parent_chunk_id"] = h1_parent_id
+
+                # Pass 3: normal H2 + H3 + h1_leaf (all embedded)
+                for chunk in leaf_chunks:
                     embedding_data = None
                     if hasattr(chunk, 'embedding') and chunk.embedding:
                         embedding_data = '[' + ','.join(map(str, chunk.embedding)) + ']'
 
-                    # Resolve parent UUID — stored in metadata by the chunker
-                    parent_chunk_id = chunk.metadata.get("parent_chunk_id")
-                    if parent_chunk_id is None:
-                        # Fall back: find the nearest preceding H1 by index
-                        for idx in sorted(parent_uuid_by_index.keys(), reverse=True):
-                            if idx < chunk.index:
-                                parent_chunk_id = parent_uuid_by_index[idx]
-                                break
+                    if chunk.chunk_level == "h3":
+                        # H3 parent is the cap-split H2, keyed by cap_split_h2_index
+                        cap_idx = chunk.metadata.get("cap_split_h2_index")
+                        parent_chunk_id = h2_uuid_by_index.get(cap_idx) if cap_idx is not None else None
+                    else:
+                        # Normal H2 / h1_leaf — parent is the nearest preceding H1
+                        parent_chunk_id = chunk.metadata.get("parent_chunk_id")
+                        if parent_chunk_id is None:
+                            for idx in sorted(parent_uuid_by_index.keys(), reverse=True):
+                                if idx < chunk.index:
+                                    parent_chunk_id = parent_uuid_by_index[idx]
+                                    break
 
                     child_meta = {**chunk.metadata}
                     if parent_chunk_id:

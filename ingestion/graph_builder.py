@@ -609,9 +609,9 @@ Return format:
         rel_counts: Dict[str, int] = {}
         processed_triples_keys: Set[Tuple[str, str, str]] = set() # For deduping
         
-        embedded_chunks = [c for c in chunks if c.chunk_level in ("h2", "h1_leaf")]
+        embedded_chunks = [c for c in chunks if c.chunk_level in ("h2", "h3", "h1_leaf")]
         logger.info(
-            "Extracting LLM triples from %d H2/h1_leaf chunks (skipping %d H1 parents) for '%s'",
+            "Extracting LLM triples from %d embedded chunks (h2/h3/h1_leaf), skipping %d unembedded, for '%s'",
             len(embedded_chunks), len(chunks) - len(embedded_chunks), document_title,
         )
 

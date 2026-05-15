@@ -65,8 +65,9 @@ class ChunkResult(BaseModel):
     metadata: Dict[str, Any] = Field(default_factory=dict)
     document_title: str
     document_source: str
-    # Populated by build_parent_context() in Stage 5
-    parent_content: Optional[str] = None
+    # Populated by _prefetch_parent_content() in Stage 5
+    parent_content: Optional[str] = None   # H1 context (always the top-level parent)
+    section_content: Optional[str] = None  # cap-split H2 context (h3 hits only)
     chunk_level: Optional[str] = None
     start_char: Optional[int] = None
     end_char: Optional[int] = None
