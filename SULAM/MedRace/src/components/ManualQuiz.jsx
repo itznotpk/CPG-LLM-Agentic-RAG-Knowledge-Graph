@@ -99,7 +99,7 @@ export default function ManualQuiz({ questionId, onAnswer, onBack }) {
           <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink-soft)', marginBottom: 12, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
             📖 CPG Summary Cards — flip to reveal
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
             {q.cards.map((card, i) => (
               <CPGCard
                 key={card.id}
