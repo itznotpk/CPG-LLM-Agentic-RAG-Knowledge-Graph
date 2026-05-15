@@ -53,7 +53,7 @@ Figure 1: Different types of AF
 > The arrhythmia tends to progress from paroxysmal (self-terminating, usually < 48 h) to persistent (non-self-terminating or requiring cardioversion), long-standing persistent (lasting longer than 1 year) and eventually to permanent (accepted) AF. First-onset AF may be the first of recurrent attacks or already be deemed permanent.
 
 ## 1.3: AF Natural Time Course
-AF is a naturally progressive disease except for a small proportion of patients (2–3%), who are free of AF-promoting conditions (refer to Section 2.1.1: Causes and Associated Conditions), may remain in paroxysmal AF over several decades.<!-- cross_ref target_file="section-2-pathophysiology-af.md" target_heading="2.1.1: Causes And Associated Conditions" target_kind="h3_section" -->
+AF is a naturally progressive disease except for a small proportion of patients (2–3%), who are free of AF-promoting conditions (refer to Section 2.1.1: Causes and Associated Conditions), may remain in paroxysmal AF over several decades. <!-- cross_ref target_file="section-2-pathophysiology-af.md" target_heading="2.1.1: Causes And Associated Conditions" target_kind="h3_section" -->
 
 AF progresses from short rare episodes, to longer and more frequent attacks. With time, often years, many patients will develop sustained forms of AF. Paroxysms of AF episodes also occur in clusters and "AF burden" can vary markedly over months or years.
 

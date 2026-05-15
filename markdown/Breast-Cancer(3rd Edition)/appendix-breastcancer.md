@@ -85,7 +85,7 @@ The ACR BI-RADS Atlas 2013 (4) is the updated version of the 2003 Atlas. BI-RADS
 
 It contains a lexicon for standardised terminology (descriptors) for mammography, breast US and MRI, as well as chapters on Report Organisation and Guidance for use in daily practice.
 
-**A. Report Organisation**
+**A. Report Organisation:**
 A good reporting system should be concise and organised using the following structure.
 
 **The Standard Reporting System:**
@@ -102,19 +102,20 @@ Below are the components of standard reporting system:
 6. Give management recommendations.
 7. Communicate unexpected findings with the referring clinician.
 
-**Standard Reporting Flowchart**
+**Standard Reporting Flowchart:**
 The standard reporting process follows a systematic workflow:
 * The process begins with the **Indication** for the study and a description of the **Breast composition** (categorized as a-b-c-d).
 * **Important findings** are then documented, including analysis of Mass, Asymmetry, Architectural distortion, Calcifications, and Associated features.
 * These elements are compared against **previous studies** to reach a **Final assessment category**.
 * The reporting concludes with providing **management recommendations** and **communicating any unexpected findings** to the referring clinician.
 
-**1. Describe the indication for the study**
+**1. Describe the indication for the study:**
 The examination is for screening, diagnostic or follow-up. Mention patient’s history.
 If US is performed, mention if it is targeted to a specific location or supplementary screening. If an implant is present, both standard and implant-displaced views should be performed and, this should be stated in the mammography report.
 
-**2. Describe the breast composition**
+**2. Describe the breast composition:**
 In the BI-RADS 2003 edition, the assignment of the breast composition was based on the overall density resulting in ACR category 1 (<25% fibroglandular tissue), category 2 (25 - 50%), category 3 (50 - 75%) and category 4 (>75%).
+In BI-RADS 2013, the use of percentages is discouraged because in individual cases, it is more important to take into account the chance that a mass can be obscured by fibroglandular tissue than the percentage of breast density as an indicator for breast cancer risk.
 
 In the BI-RADS edition 2013, the assignment of the breast composition is changed into a, b, c and d-categories followed by a description:
 * **a-** The breasts are almost entirely fatty. Mammography is highly sensitive in this setting.
@@ -189,11 +190,14 @@ Many descriptors for US are the same as for mammography (e.g., shape or margin o
 * Post-surgical fluid collection
 * Fat necrosis
 
-**4. Comparison to previous examination(s)**
-Comparison is important if the finding requires evaluation of change or stability. It is not important for unequivocally benign findings and may be irrelevant for inherently suspicious findings.
+**4. Comparison to previous examination(s):**
+Awaiting to compare with previous examination may assume importance if the finding of concern requires an evaluation of change or stability. Comparison is not important when a finding has unequivocally benign features. Comparison may be irrelevant when the finding is inherently suspicious for malignancy.
 
-**5. Conclude to final assessment category**
-The BI-RADS® assessment categories are concordant with management recommendations. If both mammography and US are performed, the overall assessment is based on the most abnormal finding.
+**5. Conclude to final assessment category:**
+The BI-RADS® assessment categories are designed to be concordant with specific management recommendations. The linking of assessment categories with concordant management recommendations further enhances sound medical practice. If mammography and US are performed; the overall assessment should be based on the most abnormal of the two breasts, based on the highest likelihood of a malignancy.
+
+An incomplete (category 0) assessment is usually given for screening examinations when additional imaging evaluation is recommended before it is appropriate to render a final assessment. In category 0 assessment should include specific suggestions for the 
+next course of action (spot-compression magnification views, US etc)
 
 **Final Assessment Categories**
 | Category | Assessment | Management | Likelihood of Cancer |
@@ -208,8 +212,9 @@ The BI-RADS® assessment categories are concordant with management recommendatio
 
 > **Note:** Category 0 is usually for screening when additional imaging (e.g., spot-compression, US) is needed before a final assessment.
 
-**6. Give management recommendations**
-**7. Communicate unexpected findings with referring clinician**
+**6. Give management recommendations.**
+
+**7. Communicate unexpected findings with referring clinician:**
 Verbal discussions between radiologist, patient, and clinician should be documented in the clinical notes.
 
 *Adapted from: Radiology Assistant (https://radiologyassistant.nl/breast/bi-rads-for-mammography-and-ultrasound-2013)*
@@ -586,34 +591,33 @@ Meeting one or more of these criteria warrants further personalised risk assessm
 
 ## Appendix 9: Post-Treatment Cancer Survivorship (Management Of Treatment Complications)
 
-Breast cancer patients may be at risk of developing treatment-related complications. Thus, healthcare providers must recognise and manage the long-term sequelae of the constellation of therapeutic modalities. There is limited evidence for multidisciplinary rehabilitation among these populations. A systematic review concluded that multidisciplinary rehabilitation was not harmful and may improve functional ability and quality of life in the short-term.<sup>1</sup>
+Breast cancer patients may be at risk of developing treatment-related complications. Thus, healthcare providers must recognise and manage the long-term sequelae of the constellation of therapeutic modalities. There is limited evidence for multidisciplinary rehabilitation among these populations. A systematic review concluded that multidisciplinary rehabilitation was not harmful and may improve functional ability and quality of life in the short-term.
 
-**Breast cancer-related lymphoedema**
-Breast cancer-related lymphoedema (BCRL) is a common consequence of breast cancer treatment. Patient should be counselled on ways to prevent or reduce risk of lymphedema. Weight loss for those who are overweight or obese may reduce this risk.<sup>2,3</sup> Good evidence showed that there was no increased risk of BRCL with exercise; thus patient should not restrict or avoid physical activity.<sup>4</sup> Patients should be routinely examined for clinical symptoms or swelling suggestive of lymphoedema. They should be referred to therapists knowledgeable about the diagnosis and treatment of it.
+**Breast cancer-related lymphoedema:**
+Breast cancer-related lymphoedema (BCRL) is a common consequence of breast cancer treatment. Patient should be counselled on ways to prevent or reduce risk of lymphedema. Weight loss for those who are overweight or obese may reduce this risk. Good evidence showed that there was no increased risk of BRCL with exercise; thus patient should not restrict or avoid physical activity. Patients should be routinely examined for clinical symptoms or swelling suggestive of lymphoedema. They should be referred to therapists knowledgeable about the diagnosis and treatment of it.
 
-> [!NOTE]
-> Physiotherapist plays an important role in the rehabilitation care of women with breast cancer as well as the care of the survivors.
+Physiotherapist plays an important role in the rehabilitation care of women with breast cancer as well as the care of the survivors.
 
-**Late onset cardiotoxicity**
-Occurrence of late onset cardiotoxicity associated with chemotherapy is generally low except for anthracycline especially if dose given is above the limit. If occur, it typically presents as reduced left ventricular function failure. In contrast, trastuzumab cardiotoxicity usually occur during treatment and does not have risk of delayed cardiotoxicity.<sup>5</sup>
+**Late onset cardiotoxicity:**
+Occurrence of late onset cardiotoxicity associated with chemotherapy is generally low except for anthracycline especially if dose given is above the limit. If occur, it typically presents as reduced left ventricular function failure. In contrast, trastuzumab cardiotoxicity usually occur during treatment and does not have risk of delayed cardiotoxicity.
 
-Identification of high-risk patients including patients with pre-existing heart problems, cardiovascular (CV) risk factors and treatments like trastuzumab and anthracyclines,<sup>6</sup> education of patients on healthy lifestyle modifications, aggressive management of underlying CV risk factors, consideration of cardioprotective strategies and, routine surveillance of left ventricular function before and after therapies are recommended to reduce breast cancer treatment-associated cardiotoxicities.<sup>7</sup> Aerobic exercise is considered a promising non-pharmacological strategy to prevent and/or treat chemotherapy-induced cardiotoxicity.<sup>5</sup>
+Identification of high-risk patients including patients with pre-existing heart problems, cardiovascular (CV) risk factors and treatments like trastuzumab and anthracyclines, education of patients on healthy lifestyle modifications, aggressive management of underlying CV risk factors, consideration of cardioprotective strategies and, routine surveillance of left ventricular function before and after therapies are recommended to reduce breast cancer treatment-associated cardiotoxicities. Aerobic exercise is considered a promising non-pharmacological strategy to prevent and/or treat chemotherapy-induced cardiotoxicity.
 
-**Cognitive impairment**
+**Cognitive impairment:**
 Cognitive impairment is one of the frequent complications reported by patients with breast cancer. All patients need to be screened for cognitive impairment and to identify reversible contributing factors e.g. organic brain disease, mood disorder, endocrine problem, dehydration, infections or medication-related and optimally treat when possible.
 
-**Fatigue**
-Studies of long-term cancer survivors suggested that approximately one-quarter to one-third experienced persistent fatigue for up to 10 years after cancer diagnosis.<sup>8</sup> Fatigue has a negative impact on work, social relationship, mood and daily activities. It causes impairment in overall quality of life during and after treatment. All patients should be assessed for fatigue and treated for any causative factors including anaemia, cardiac dysfunction, depression, sleep disturbance, etc. Patients without otherwise identifiable cause are encouraged to engage in regular physical activity and cognitive behavioural therapy as appropriate.
+**Fatigue:**
+Studies of long-term cancer survivors suggested that approximately one-quarter to one-third experienced persistent fatigue for up to 10 years after cancer diagnosis. Fatigue has a negative impact on work, social relationship, mood and daily activities. It causes impairment in overall quality of life during and after treatment. All patients should be assessed for fatigue and treated for any causative factors including anaemia, cardiac dysfunction, depression, sleep disturbance, etc. Patients without otherwise identifiable cause are encouraged to engage in regular physical activity and cognitive behavioural therapy as appropriate.
 
-**Pain**
-Approximately 20 - 50% of patients complain of pain during the survivorship period. Types of pain may be nociceptive, neuropathic or mixed pattern.<sup>9,10</sup> Pain will lead to physical, emotional, spiritual and functional discomfort. Pain can be assessed with a comprehensive history taking and simple pain scales e.g. visual analog scale. Aetiology of the pain needs to be identified before initiation of treatment. Refer to CPG on Management of Cancer Pain.<sup>11</sup>
+**Pain:**
+Approximately 20 - 50% of patients complain of pain during the survivorship period. Types of pain may be nociceptive, neuropathic or mixed pattern. Pain will lead to physical, emotional, spiritual and functional discomfort. Pain can be assessed with a comprehensive history taking and simple pain scales e.g. visual analog scale. Aetiology of the pain needs to be identified before initiation of treatment. Refer to CPG on Management of Cancer Pain.
 
-**Bone health**
-Survivors of breast cancer are at high risk of significant bone loss. Assessment of bone mineral density in high risk patients as detailed below are:<sup>12</sup>
+**Bone health:**
+Survivors of breast cancer are at high risk of significant bone loss. Assessment of bone mineral density in high risk patients as detailed below are:
 - post-menopausal survivors should have a baseline DEXA scan
 - a repeat DEXA scans every two years should be done for:
     - women taking AIs
     - pre-menopausal women on GnRHa
     - women who have chemotherapy-induced premature menopause
 
-Non-pharmacologic interventions including lifestyle changes, vitamin D and calcium supplements are extremely important.<sup>13</sup>
+Non-pharmacologic interventions including lifestyle changes, vitamin D and calcium supplements are extremely important.
