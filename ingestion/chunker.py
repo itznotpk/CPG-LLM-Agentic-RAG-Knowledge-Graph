@@ -339,7 +339,21 @@ class MarkdownChunker:
                     h3_docs = self._h3_splitter.split_text(h2_clean)
                     h3_pos = 0
                     for h3_doc in h3_docs:
-                        h3_text = h3_doc.page_content.strip()
+                        # Skip preamble before the first ### — splitter returns
+                        # it without an h3_title tag, and it duplicates content
+                        # already stored in the cap-split H2 parent row.
+                        if not h3_doc.metadata.get("h3_title"):
+                            continue
+                        h3_text = h3_doc.page_content
+                        # Splitter quirk: when ### immediately follows ## with no
+                        # preamble, the first piece carries the parent ## heading
+                        # line. Strip everything before the first ### so the h3
+                        # row does not duplicate the cap-split H2's heading.
+                        if h3_text.lstrip().startswith("##") and not h3_text.lstrip().startswith("###"):
+                            idx = h3_text.find("###")
+                            if idx >= 0:
+                                h3_text = h3_text[idx:]
+                        h3_text = h3_text.strip()
                         if not h3_text:
                             continue
                         h3_start = h2_start_in_parent + h2_clean.find(
