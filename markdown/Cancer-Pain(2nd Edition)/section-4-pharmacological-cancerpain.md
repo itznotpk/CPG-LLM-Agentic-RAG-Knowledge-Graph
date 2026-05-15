@@ -27,9 +27,9 @@ WHO recommends the use of analgesic medicine should follow these principles:
 ## 4.2: World Health Organization Analgesic Ladder
 The 3-step World Health Organization (WHO) analgesic ladder, which was introduced in 1986, remains useful as an educational tool but not as a strict protocol for cancer pain treatment.
 
-The WHO analgesic ladder as shown in Figure 2 consists of three steps: Step 1 for a pain score of 1 - 3 (mild), step 2 for a pain score of 4 - 6 (moderate) and Step 3 for a pain score of 7 - 10 (severe). The choice of analgesia is based on the intensity of pain.
+The WHO analgesic ladder as shown in Figure 2: WHO Analgesic Ladder consists of three steps: Step 1 for a pain score of 1 - 3 (mild), step 2 for a pain score of 4 - 6 (moderate) and Step 3 for a pain score of 7 - 10 (severe). The choice of analgesia is based on the intensity of pain.
 
-Figure 2. WHO Analgesic Ladder
+Figure 2: WHO Analgesic Ladder
 
 #### Step 1: Mild Pain
 *   **Pain Score:** 1 - 3
@@ -146,7 +146,7 @@ WHO recommends oral morphine, i.e. regular dosing of IR or SR formulation, shoul
 The time to peak plasma concentration (Tmax) of IR and SR oral morphine is 1 hour and 2 - 6 hours respectively. The Tmax for intravenous (IV) and subcutaneous (SC) morphine is 5 - 10 minutes and 15 minutes respectively. The duration of action of IR and SR morphine is 3 - 6 hours and 12 hours respectively.
 
 - **Oxycodone**
-Oxycodone is an alternative strong opioid which is available in IR and CR oral formulations. [Level I] A recent Cochrane review on adult cancer pain found that there was little to no difference in pain intensity, pain relief and AEs between oxycodone and other strong opioids including morphine. [Level I] The review also found that constipation and hallucinations occurred less often with CR oxycodone than with CR morphine ([RR of 0.75 (95% CI 0.66 to 0.86) and 0.52 (95% CI 0.28 to 0.97 respectively)]. However, these two findings should be treated with caution as the certainty of the evidence was either very low or unstable with sensitivity analysis.
+Oxycodone is an alternative strong opioid which is available in IR and CR oral formulations. [Level I] A recent Cochrane review on adult cancer pain found that there was little to no difference in pain intensity, pain relief and AEs between oxycodone and other strong opioids including morphine. [Level I] The review also found that constipation and hallucinations occurred less often with CR oxycodone than with CR morphine ([RR of 0.75 (95% CI 0.66 to 0.86) and 0.52 (95% CI 0.28 to 0.97 respectively)]). However, these two findings should be treated with caution as the certainty of the evidence was either very low or unstable with sensitivity analysis.
 
 IR oxycodone has a Tmax of 1 - 1.5 hours and a plasma half-life of 2 - 4 hours. The CR oxycodone is absorbed in a bi-exponential fashion with a rapid phase half-life of 37 minutes (accounting for 38% of the dose) and a slow phase half-life of 6.2 hours (which accounts for the residual 62%). [Level III] This allows the onset of analgesia using CR oxycodone within one hour of ingestion and an analgesic duration of 12 hours.
 
@@ -162,6 +162,17 @@ The Tmax of transdermal fentanyl is 12 - 24 hours and the duration of action is 
 [Level I] Fentanyl is generally considered a safer opioid in renal impairment as its metabolites have minimal effect.
 
 The approximate pharmacokinetic parameters of morphine, oxycodone and fentanyl are shown in Table 3: Pharmacokinetic Parameters of Morphine, Oxycodone and Fentanyl.
+
+Table 3: Pharmacokinetic Parameters Of Morphine, Oxycodone And Fentanyl
+
+| Pharmacokinetic parameters | Morphine | Oxycodone | Fentanyl |
+|---|---|---|---|
+| Onset of action | Oral IR: 30 mins; IV: 5 mins; SC: 15 mins; SR: 3 hours | | TD: 12 hours*; IV: 1.5 mins; SC: 15 mins |
+| Time to peak concentration (Tmax) | Oral IR: 1 hour; IV: 15 mins; SC: 30 mins; SR: 6 hours | | TD: 12 - 24 hours; IV: 5 mins; SC: 5 - 30 mins |
+| Half-life (t1/2) | IR oral/IV/SC: 2 - 4 hours; SR: 4 - 5 hours | | TD: 13 - 22 hours; IV/SC bolus: <1 hour |
+| Duration of action | IR oral/IV/SC: 4 - 6 hours; SR: 12 hours | | TD: 72 hours; IV/SC: 1 hour |
+
+*\*Following the application of the first patch*
 
 > **Recommendation 5**
 > - Oral morphine is the preferred choice in moderate to severe cancer pain.
@@ -394,7 +405,7 @@ Opioids are generally well-tolerated and safe in cancer pain management. [Level 
 
 [Level I] There was a dose-effect relationship, where higher rates of AEs were seen with higher opioid starting doses and higher doses after titration, particularly in morphine. Awareness of these AEs is vital to ensure compliance and optimal pain control.
 
-Management strategies include awareness and recognition of the AEs, symptomatic management of individual AEs and adjustment of opioid dosages, including dose reduction and opioid switching. Refer to **Appendix 5a: Suggested Medication Dosages and Adverse Effects in Adults** The management of the side effects is discussed below.
+Management strategies include awareness and recognition of the AEs, symptomatic management of individual AEs and adjustment of opioid dosages, including dose reduction and opioid switching. Refer to Appendix 5A: Suggested Medication Dosages And Adverse Effects In Adults. The management of the side effects is discussed below.
 
 - **Constipation**
     - [Level I] Constipation is the commonest reported AE with a 25% incidence rate.
@@ -430,7 +441,18 @@ Management strategies include awareness and recognition of the AEs, symptomatic 
         - It is characterised by a paradoxical response whereby a patient receiving opioids for the treatment of pain could become more sensitive to certain painful stimuli.
         - Refer to pain or palliative care physicians for further management.
 
-The management of opioid side effects is shown in Table 5: Management of Opioid Side Effects below. Refer to **Appendix 5a: Suggested Medication Dosages and Adverse Effects in Adults**
+The management of opioid side effects is shown in Table 5: Management of Opioid Side Effects below. Refer to Appendix 5A: Suggested Medication Dosages And Adverse Effects In Adults.
+
+Table 5: Management Of Opioid Side Effects
+
+| Side Effects | Management |
+|---|---|
+| Constipation | Faecal softeners: lactulose, macrogol; Stimulant laxatives: bisacodyl, senna |
+| Nausea and Vomiting | Anti-emetics: Metoclopramide, Haloperidol, Prochlorperazine |
+| Dry Mouth | Non-pharmacological treatment: Good oral hygiene, Sugar-free chewing gum and candies/sweets, Saliva stimulants (e.g. mouth spray/gel) |
+| Sedation and drowsiness | - Opioid dose reduction, titrate to the lowest effective dose, and consider opioid switching; - Methylphenidate and other psychostimulant drugs can be considered if necessary |
+| Delirium and neurotoxicity (e.g. confusion and myoclonus) | - Can be managed by dose reduction and opioid switching; - Can consider using clonazepam, sodium valproate and baclofen for myoclonus; - Can consider antipsychotics for delirium |
+| Pruritus | - May consider antihistamines; - Opioid switching may be necessary if the symptoms are severe |
 
 ### 4.4.9: Opioid Toxicity
 - **Respiratory depression**
@@ -440,7 +462,7 @@ Sedation almost always precedes respiratory depression. Therefore, sedation asse
 
 If severe respiratory depression occurs (respiratory rate <8/minute), very low doses of naloxone at 40 mcg (0.04 mg) can be used and titrated every 1 - 3 minutes against the patient’s respiratory rate. Large bolus doses of naloxone should not be given as it reverses the analgesic effects and causes major physical withdrawal syndromes. Severe hypertension, pulmonary oedema, cardiac arrhythmia and cardiac arrest have been reported with naloxone use.
 
-Refer to **Appendix 7: Guide for Naloxone Use**
+Refer to Appendix 7: Guide For Naloxone Use.
 
 > **Recommendation 12**
 > - Opioid-induced side effects should be proactively identified and treated adequately to ensure optimum cancer pain management.
@@ -607,20 +629,7 @@ The use of radionuclide therapy for metastatic bone pain, especially in diffuse 
 [Level II-1] There was limited data on the use of radionuclide seeds in metastatic bone pain. In view of high cost, limited data and availability, radionuclide and radiation seeds therapy are not a routine option for cancer-related bone pain in this country. Thus, no recommendation can be formulated on its use.
 
 ---
-
-## Contextual Anchors (Overlapping)
-Table 3: Pharmacokinetic Parameters Of Morphine, Oxycodone And Fentanyl
-
-| Pharmacokinetic parameters | Morphine | Oxycodone | Fentanyl |
-|---|---|---|---|
-| Onset of action | Oral IR: 30 mins; IV: 5 mins; SC: 15 mins; SR: 3 hours | | TD: 12 hours*; IV: 1.5 mins; SC: 15 mins |
-| Time to peak concentration (Tmax) | Oral IR: 1 hour; IV: 15 mins; SC: 30 mins; SR: 6 hours | | TD: 12 - 24 hours; IV: 5 mins; SC: 5 - 30 mins |
-| Half-life (t1/2) | IR oral/IV/SC: 2 - 4 hours; SR: 4 - 5 hours | | TD: 13 - 22 hours; IV/SC bolus: <1 hour |
-| Duration of action | IR oral/IV/SC: 4 - 6 hours; SR: 12 hours | | TD: 72 hours; IV/SC: 1 hour |
-
-*\*Following the application of the first patch*
-
----
+<!-- parent_only_reference_start -->
 Table 4: Suggested Dose Conversion Ratio In The Direction Specified
 
 | FROM \ TO | Oral morphine mg/day | SC morphine mg/day | Oral oxycodone mg/day | SC oxycodone mg/day | TD fentanyl mcg/h |
@@ -649,24 +658,7 @@ Table 4: Suggested Dose Conversion Ratio In The Direction Specified
     - TD fentanyl 25 mcg/hour = continuous SC/IV infusion fentanyl 25 mcg/hour
     - SC morphine = IV morphine
 
----
-
-Table 5: Management Of Opioid Side Effects
-
-| Side Effects | Management |
-|---|---|
-| Constipation | Faecal softeners: lactulose, macrogol; Stimulant laxatives: bisacodyl, senna |
-| Nausea and Vomiting | Anti-emetics: Metoclopramide, Haloperidol, Prochlorperazine |
-| Dry Mouth | Non-pharmacological treatment: Good oral hygiene, Sugar-free chewing gum and candies/sweets, Saliva stimulants (e.g. mouth spray/gel) |
-| Sedation and drowsiness | - Opioid dose reduction, titrate to the lowest effective dose, and consider opioid switching; - Methylphenidate and other psychostimulant drugs can be considered if necessary |
-| Delirium and neurotoxicity (e.g. confusion and myoclonus) | - Can be managed by dose reduction and opioid switching; - Can consider using clonazepam, sodium valproate and baclofen for myoclonus; - Can consider antipsychotics for delirium |
-| Pruritus | - May consider antihistamines; - Opioid switching may be necessary if the symptoms are severe |
-
----
-
-## Appendix 5: Pharmacological Treatment In Cancer Pain
-
-### Appendix 5a: . Suggested Medication Dosages And Adverse Effects In Adults
+Appendix 5A: Suggested Medication Dosages And Adverse Effects In Adults
 | Drug | Recommended Dosages | Side Effects | Remarks |
 |---|---|---|---|
 | **Paracetamol** | 0.5 - 1 g, 6-8-hourly. Max: 4 g/day | Rare | Consider dose reduction in hepatic impairment. |
@@ -710,24 +702,21 @@ Table 5: Management Of Opioid Side Effects
 | Prochlorperazine | 10 - 30 mg daily in divided doses | ^ | |
 | Haloperidol | 0.5 - 3 mg single dose nocte | • Extrapyramidal symptoms<br>• Prolonged QT interval | |
 
----
-
-### Appendix 7: Guide For Naloxone Use
-
-### General Principles:
+Appendix 7: Guide For Naloxone Use
+**General Principles:**
 - Naloxone, a specific opioid antagonist, is seldom necessary in the palliative care setting when opioids are appropriately titrated against the patient’s pain.
 - It is indicated for the reversal of opioid-induced respiratory depression and not for treating drowsiness and/or delirium associated with opioids.
 - The dose administered should be carefully titrated against level of consciousness and satisfactory respiratory function (≥8 breaths/minute and no cyanosis).
 - Titration is important to avoid acute withdrawal syndrome and severe pain.
 
-### Pharmacokinetics & Availability:
+**Pharmacokinetics & Availability:**
 - **Route of administration:** IV is preferable, but SC or IM can also be used.
 - **Onset of action:** 1 - 2 minutes (IV) and 2 - 5 minutes (SC/IM).
 - **Half-life:** approximately 1 hour.
 - **Pack size:** 1 ampoule = 400 mcg/1 ml.
 - **Adverse effects (usually with large bolus doses):** abdominal cramps, nausea and vomiting, flushing, arrhythmias and erythema at injection site.
 
-### Treatment:
+**Treatment:**
 - Respiratory depression is usually preceded by a progressive reduction in consciousness.
 - If the respiratory rate ≥8 breaths/minute and patient can be easily aroused (e.g. opens eyes to verbal command), monitor patient closely and consider omitting or reducing the dose of the regular opioid.
 - If respiratory rate is ≤8 breaths/min and patient is unresponsive, discontinue the ongoing opioid (e.g. stop CSCI/CIVI, remove TD patch) and naloxone should be administered.
@@ -738,44 +727,37 @@ Table 5: Management Of Opioid Side Effects
     - A naloxone infusion may be considered if recovery is not satisfactory with multiple bolus doses.
 - After patient recovers, the regular opioid regimen must be reviewed to consider possible causes for the respiratory depression (e.g. drug interactions, drug accumulation due to renal impairment, medication errors) and necessary modifications made to the regimen.
 
-### Additional Cautions:
+**Additional Cautions:**
 - Do not use large bolus doses e.g. “1 ampoule stat” in patients who are receiving opioids for chronic pain relief.
 - Pupil size is an unreliable indicator of opioid overdose in patients taking regular opioids.
 - Naloxone should not be given to patients on opioids when death is expected and imminent; a slow respiratory rate is a normal occurrence.
 
----
+Algorithm 2: Titration Of Morphine For Rapid Pain Relief In Adults With Severe Pain And Distress
 
-## Algorithm 2: Titration Of Morphine For Rapid Pain Relief In Adults With Severe Pain And Distress
-
-### Step 1: Initial Presentation
+**Step 1: Initial Presentation**
 **Adult patient with severe pain (Pain Score 7 - 10) and distress**
-
 ↓
-
-### Step 2: Route Of Administration (Based On IV Access)
+**Step 2: Route Of Administration (Based On IV Access)**
 Determine the availability of intravenous (IV) access:
 
-#### Option A: Intravenous Access Available (Yes)
+**Option A: Intravenous Access Available (Yes)**
 *   Administer Intravenous morphine 1 - 2 mg*
 *   **Reassess:** after 5 - 10 minutes
 *   → Proceed to Step 3
 
-#### Option B: Intravenous Access Not Available (No)
+**Option B: Intravenous Access Not Available (No)**
 *   Administer Subcutaneous morphine 2.5 - 5 mg*
 *   **Reassess:** after 15 - 30 minutes
 *   → Proceed to Step 3
 
----
-
-### Step 3: Clinical Reassessment
+**Step 3: Clinical Reassessment**
 Assess the following parameters:
 *   Pain score
 *   Respiratory rate
 *   Sedation score
-
 ↓
 
-### Step 4: Check For Adverse Events
+**Step 4: Check For Adverse Events**
 **Criteria for Adverse Events:** Respiratory rate < 8/min **OR** Sedation score > 2**
 
 *   **If YES (Adverse events present):**
@@ -784,9 +766,7 @@ Assess the following parameters:
 *   **If NO (No adverse events):**
     *   → Proceed to Step 5
 
----
-
-### Step 5: Evaluate Pain Relief
+**Step 5: Evaluate Pain Relief**
 **Criteria for Success:** Pain relief acceptable to patient **OR** Reduction of pain score by 2 points
 
 *   **If YES (Goal achieved):**
@@ -795,15 +775,11 @@ Assess the following parameters:
 *   **If NO (Goal not achieved):**
     *   Loop back to **Step 2: Route of Administration** (Repeat titration process)
 
----
-
-### 📝 Notes & References
+📝 Notes & References
 > ***\*** For patients already on opioids, the bolus dose of morphine should be 10% of the total 24-hour morphine requirement converted to intravenous/subcutaneous equivalent. For elderly, frail or renal impaired patients, use lower dose of the given range.* <br>
-> ***\*\*** For details on sedation score, refer to Appendix 3 in the CPG
+> ***\*\*** For details on sedation score, refer to Appendix 3: Sedation Score in the CPG
 
----
-
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -812,9 +788,7 @@ Assess the following parameters:
 | II - 3 | Evidence from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
----
-
-### Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse events |
@@ -871,3 +845,4 @@ Assess the following parameters:
 | VAS | Visual Analogue Scale |
 | WHO | World Health Organization |
 | WMD | Weighted mean difference |
+<!-- parent_only_reference_end -->

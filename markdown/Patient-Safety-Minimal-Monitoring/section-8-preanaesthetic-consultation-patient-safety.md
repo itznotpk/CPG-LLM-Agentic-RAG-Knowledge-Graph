@@ -9,8 +9,6 @@ critical: true
 
 > **Context:** This section covers pre-anaesthetic consultation requirements, including timing, elements of consultation (history, examination, investigations, anaesthetic plan), informed consent, and documentation.
 
----
-
 While the main purpose of the consultation is to assess and ensure that the patient is optimised before surgery, it also includes other aspects of care listed in this section. The skills and judgment required are different and additional to those involved in the administration of anaesthesia.
 
 ## 8.1: Consultation Objectives And Qualifications

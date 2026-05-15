@@ -24,7 +24,7 @@ Table I: Routine Investigations For Patients Undergoing Anaesthesia
 
 *\*Major surgery is empirically defined as one in which the cranium, thorax or abdomen is opened or when the anticipated blood loss is significant and exceeds 15% of total blood volume.*
 
-Table Ii: List Of Pre-Anaesthetic Investigations And Their Indications
+Table II: List Of Pre-Anaesthetic Investigations And Their Indications
 
 | Investigation | Indication |
 |---|---|

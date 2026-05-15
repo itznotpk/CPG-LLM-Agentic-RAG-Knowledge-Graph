@@ -26,7 +26,7 @@ Appropriate assessment and treatment of cancer pain is crucial for the successfu
 
 In line with the key recommendations of the CPG and the National Key Performance Index of Palliative Medicine, the following is proposed as clinical audit indicator for quality management of cancer pain:
 
-### Clinical Audit Indicator
+**Clinical Audit Indicator**
 **Percentage of patients with cancer pain score of 7 - 10 who are prescribed with strong opioids:**
 
 (Number of patients with cancer pain score of 7 - 10 who are prescribed with strong opioids in a period) / (Total number of patients with cancer pain score of 7 - 10 in the same period) x 100%
@@ -34,8 +34,8 @@ In line with the key recommendations of the CPG and the National Key Performance
 Implementation strategies will be developed following the approval of the CPG by MoH which include launching of the CPG, Quick Reference and Training Module.
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_end -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -44,10 +44,11 @@ Implementation strategies will be developed following the approval of the CPG by
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CPG | Clinical Practice Guideline |
 | IR | Immediate-release |
 | MoH | Ministry of Health |
 | NGOs | Non-governmental organisations |
+<!-- parent_only_reference_end -->

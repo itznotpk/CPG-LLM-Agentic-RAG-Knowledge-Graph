@@ -27,15 +27,15 @@ According to the Cochrane Risk of Bias, the risk of bias in most studies was con
 
 A list of community palliative care providers available in Malaysia can be downloaded from the Malaysian Hospice & Palliative Care Council website (https://www.malaysianhospicecouncil.com/).
 
-> **Recommendation 21**
+> Recommendation 21:
 > - Cancer patients should be followed-up for pain management either in the specialist outpatient clinic, primary care clinic or at home.
 >   - Teleconsultations and digital applications may be used for this purpose.
 
 [Level III] Although most pain experienced by the patients can be managed by the primary team, there might be pain which does not respond well to initial treatment and requires specialised care. Thus, patients with severe pain and inadequate pain management should be considered for referral to pain or palliative specialist services.
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -44,7 +44,7 @@ A list of community palliative care providers available in Malaysia can be downl
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | BPI | Brief Pain Inventory |
@@ -53,3 +53,4 @@ A list of community palliative care providers available in Malaysia can be downl
 | ESAS | Edmonton Symptom Assessment System |
 | RoB | Risk of bias |
 | SMD | Standardised mean difference |
+<!-- parent_only_reference_end -->

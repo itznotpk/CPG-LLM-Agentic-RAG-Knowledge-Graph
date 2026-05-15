@@ -48,7 +48,7 @@ Surgery has a role in the management of cancer pain. Ablative surgery for large 
 
 [Level II-2] A multicentre cohort study had shown that orthopaedic oncology surgery on metastatic long bone disease significantly improved patients' functional outcome and pain as early as two weeks post-operatively and should be considered for impending or pathologic fracture in patients with expected short-term survival. However, this study also found that the QoL of the patients did not improve. The overall complication rate was 35% with deep vein thrombosis being the most common.
 
-> **Recommendation 16**
+> Recommendation 16:
 > - Patients whose pain control is poor despite optimal pharmacological therapy should be referred to specialists trained in interventional pain management for consideration of the following interventions:
 >   - coeliac plexus neurolysis for advanced pancreatic cancer pain
 >   - superior hypogastric plexus or ganglion impar neurolysis for advanced pelvic and perineal cancer pain
@@ -56,8 +56,8 @@ Surgery has a role in the management of cancer pain. Ablative surgery for large 
 >   - vertebroplasty for malignant spinal compression fractures
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -66,7 +66,7 @@ Surgery has a role in the management of cancer pain. Ablative surgery for large 
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse events |
@@ -78,3 +78,4 @@ Surgery has a role in the management of cancer pain. Ablative surgery for large 
 | RCT | Randomised controlled trial |
 | SAEs | Severe adverse events |
 | SHG | Superior hypogastric plexus |
+<!-- parent_only_reference_end -->

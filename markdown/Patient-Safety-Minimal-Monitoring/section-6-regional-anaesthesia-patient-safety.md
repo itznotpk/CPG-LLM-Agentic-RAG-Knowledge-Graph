@@ -10,8 +10,6 @@ treatment_type: regional_anaesthesia
 
 > **Context:** This section covers regional anaesthesia requirements, including equivalent monitoring standards, contraindications (patient refusal is absolute), and ultrasound/nerve stimulator guidance.
 
----
-
 ## 6.1: Equivalent Standard Of Care
 Patients who undergo regional anaesthesia must receive the equivalent standard of care and monitoring as for those undergoing general anaesthesia throughout the perioperative period.
 

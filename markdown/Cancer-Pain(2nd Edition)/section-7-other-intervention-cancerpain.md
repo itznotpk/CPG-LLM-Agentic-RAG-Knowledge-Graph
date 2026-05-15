@@ -12,7 +12,6 @@ Physical and complementary therapies have gained widespread recognition as valua
 [Level I] A systematic review on the effect of complementary and alternative medicine (CAM) interventions on breast cancer-related pain suggested that CAM should be used cautiously along with other medical treatments to ease cancer-related pain.
 
 - appeared to be a safe treatment for pain management
-
 However, there was no quality assessment reported.
 
 [Level I] Another systematic review of 14 systematic reviews concluded that clinicians may consider acupuncture as an adjunctive therapy for cancer-related pain management, in particular when pain control was unsatisfactory using analgesics alone. It found that:
@@ -23,8 +22,8 @@ However, there was no quality assessment reported.
 - Physical and complementary therapies can be useful as an adjunct in cancer pain management.
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -33,7 +32,7 @@ However, there was no quality assessment reported.
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CAM | Complementary and alternative medicine |
@@ -44,3 +43,4 @@ However, there was no quality assessment reported.
 | RR | Relative risk |
 | SMD | Standardised mean difference |
 | TENS | Transcutaneous Electrical Nerve Stimulation |
+<!-- parent_only_reference_end -->

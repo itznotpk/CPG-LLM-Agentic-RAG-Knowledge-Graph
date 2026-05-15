@@ -40,8 +40,8 @@ Educational strategies should focus on addressing the following issues:
 - accessing help and support (when, where and who)
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -50,8 +50,9 @@ Educational strategies should focus on addressing the following issues:
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse events |
 | BQ-II | Barriers Questionnaire II |
+<!-- parent_only_reference_end -->

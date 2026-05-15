@@ -11,7 +11,7 @@ output: assessment_purpose, assessment_scope, patient_optimisation, anaesthetic_
 ---
 
 ## 1.1: Background
-Adequate pre-anaesthetic assessment has been identified as an important factor in patient safety and is an **integral part** of anaesthetic practice. It serves to identify associated medical illness and anaesthetic risks, with the ultimate aim of reducing morbidity and mortality associated with anaesthesia and surgery.
+Adequate pre-anaesthetic assessment has been identified as an important factor in patient safety and is an integral part of anaesthetic practice. It serves to identify associated medical illness and anaesthetic risks, with the ultimate aim of reducing morbidity and mortality associated with anaesthesia and surgery.
 
 Information from multiple sources should be considered during pre-anaesthetic assessment:
 - Patient's medical records
@@ -19,22 +19,18 @@ Information from multiple sources should be considered during pre-anaesthetic as
 - Physical examination
 - Findings from medical tests and evaluations
 
----
-
 ## 1.2: Objectives Of Pre-Anaesthetic Assessment
 The objectives of the pre-anaesthetic assessment are to:
 
 | # | Objective |
 |---|-----------|
-| i | Evaluate the patient's medical condition to ensure that it has been **optimised** |
+| i | Evaluate the patient's medical condition to ensure that it has been optimised |
 | ii | Plan anaesthetic technique and peri-operative care |
 | iii | Develop a rapport with the patient to allay anxiety and facilitate conduct of anaesthesia |
 | iv | Allow appropriate discussion with the patient and/or guardian regarding anaesthesia, peri-operative care and pain management |
-| v | Obtain **informed consent** for anaesthesia and related procedures |
-
----
+| v | Obtain informed consent for anaesthesia and related procedures |
 
 ## 1.3: Scope
-The term "pre-anaesthetic assessment" in this document refers not only to situations pertinent to the administration of **general anaesthesia** but also includes those related to:
+The term "pre-anaesthetic assessment" in this document refers not only to situations pertinent to the administration of general anaesthesia but also includes those related to:
 - Regional anaesthesia/analgesia
 - Sedation

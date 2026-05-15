@@ -9,7 +9,7 @@ output: psychosocial_intervention_plan, psychological_strategy_selection, spirit
 Psychoeducation, psychological and spiritual interventions are important in the management of cancer pain. Patients with cancer pain may perceive the pain as the most feared physical consequence. The consequences may be related to losing hope for cure or as a punishment for previous wrongdoings. It can also affect mood and cause anxiety and other psychological symptoms.
 
 ## 5.1: Psychoeducation Intervention
-[Level I] A systematic review of four RCTs reported that educational interventions given by healthcare providers (e.g. provision of educational information, behavioural instructions and advice) showed mixed results in the improvement of pain intensity and interference. Jadad Score of the included studies ranged from 2 - 4.
+[Level I] A systematic review of four RCTs reported that educational interventions given by healthcare providers (e.g. provision of educational information, behavioural instructions and advice) showed mixed results in the improvement of pain intensity and interference. Jadad Score of the included studies ranged from 2-4.
 
 [Level I] In a meta-analysis of 12 RCTs, pain education (through interviews ± phone calls) led to a small reduction in pain intensity of cancer patients (SMD= -0.11, 95 % CI -0.20 to -0.02) compared with control. The quality of the primary studies was mixed based on Jadad Score.
 
@@ -29,12 +29,12 @@ Spiritual intervention is a part of holistic care in alleviating cancer pain whi
 
 [Level I] A systematic review of 11 studies that investigated the effectiveness of spiritual intervention (Dignity Therapy, focused narrative intervention and mindfulness-based stress reduction) found paucity and heterogeneity of evidence on cancer pain. Some of the evidence suggested spiritual care may aid in coping with pain rather than altering pain intensity. However, spiritual interventions were well received by the patients and do not appear to cause harm.
 
-> **Recommendation 15**
+> Recommendation 15:
 > - Psychoeducation, psychological and spiritual interventions should be considered in the management of cancer pain.
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -43,10 +43,11 @@ Spiritual intervention is a part of holistic care in alleviating cancer pain whi
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
-### Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CI | Confidence interval |
 | RCT | Randomised controlled trial |
 | SMD | Standardised mean difference |
 | SR | Systematic review |
+<!-- parent_only_reference_end -->

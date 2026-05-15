@@ -19,6 +19,15 @@ Comprehensive cancer pain assessment remains the first and foremost principle in
 
 [Level I] Cancer pain assessment is further enhanced by the concept of Total Pain (refer to Figure 1: Concept of Total Pain) which guides healthcare providers to view the multidimensionality of pain. A holistic review of the physical, psychological, social and spiritual aspects would provide a better understanding of the individual’s experience of pain.
 
+Figure 1: Concept Of Total Pain
+
+**Visual Description:**
+The concept of Total Pain is presented as a circular model centered on "Total Pain," divided into four interconnected quadrants that illustrate the complexity of the patient experience:
+1.  **Physical:** Includes pain caused by cancer, pain caused by treatment, and other co-morbidities.
+2.  **Psychological:** Encompasses anxiety, depression, fear of suffering, and the impact of past experiences of illness.
+3.  **Social:** Includes dependency, worries about the future of the family, financial concerns, loss of job, and loss of role & social status.
+4.  **Spiritual:** Covers fear of the unknown, finding meaning, loss of faith, and anger at fate or anger with God.
+
 [Level I] A multidisciplinary team is often required to address the many needs of a patient. A team comprising healthcare professionals of different expertise may be able to provide effective and comprehensive pain relief through various treatment methods. The core team should consist of a physician, nurse, pharmacist, clinical psychologist, social worker, physiotherapist, occupational therapist and spiritual care provider. Other healthcare providers may be included based on the patient’s needs. High-intensity interprofessional collaboration in managing cancer pain has shown:
 - improvement in mean patient satisfaction
 - less uncertainty and concerns among patients
@@ -30,19 +39,8 @@ Comprehensive cancer pain assessment remains the first and foremost principle in
 
 [Level I] Healthcare providers should be aware that the patient’s experience and response to pain is highly individualised. There are many factors that influence an individual’s response to pain e.g. age, cognitive abilities, cultural background and previous experience of pain. Recognising this may help in providing individualised care and alleviating pain more effectively.
 
-## Contextual Anchors (Overlapping)
-Figure 1: Concept Of Total Pain
-
-**Visual Description:**
-The concept of Total Pain is presented as a circular model centered on "Total Pain," divided into four interconnected quadrants that illustrate the complexity of the patient experience:
-1.  **Physical:** Includes pain caused by cancer, pain caused by treatment, and other co-morbidities.
-2.  **Psychological:** Encompasses anxiety, depression, fear of suffering, and the impact of past experiences of illness.
-3.  **Social:** Includes dependency, worries about the future of the family, financial concerns, loss of job, and loss of role & social status.
-4.  **Spiritual:** Covers fear of the unknown, finding meaning, loss of faith, and anger at fate or anger with God.
-
----
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -51,11 +49,10 @@ The concept of Total Pain is presented as a circular model centered on "Total Pa
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse effects |
 | CPG | Clinical Practice Guideline |
 | GI | Gastrointestinal |
+<!-- parent_only_reference_end -->

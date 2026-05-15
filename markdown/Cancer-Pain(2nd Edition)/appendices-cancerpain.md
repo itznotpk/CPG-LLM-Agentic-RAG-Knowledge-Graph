@@ -81,8 +81,6 @@ output: search_results, clinical_questions_alignment, sedation_score_grading, pa
 70. 5 and 69
 71. limit 70 to (english language and humans and yr="2010-Current")
 
----
-
 ## Appendix 2: Clinical Questions
 1. What are the principles of management of pain in patients with cancer?
 2. What are the accuracy and reliability of clinical assessment tools of patients with cancer pain?
@@ -108,8 +106,6 @@ output: search_results, clinical_questions_alignment, sedation_score_grading, pa
 22. How should patients with cancer pain be followed-up?
 23. What are the referral criteria of patients with cancer pain to be referred to specialist care in primary/secondary/tertiary care?
 
----
-
 ## Appendix 3: Sedation Score
 | Score | Sedation level | Clinical findings |
 |---|---|---|
@@ -120,11 +116,8 @@ output: search_results, clinical_questions_alignment, sedation_score_grading, pa
 
 **Source:** Macintyre PE & Schug SA. Acute Pain Management: A Practical Guide. Saunders Elsevier: London; 2007.
 
----
-
 ## Appendix 4: Assessment Tools
-
-### A. Ministry Of Health (MoH) Pain Scale
+### Appendix 4A: Ministry Of Health (MoH) Pain Scale
 The MOH pain scale is a scale that combines NRS, the VAS and faces scale. The patient is asked to indicate his/ her level of pain intensity by pointing along a scale. The scale has numbers and the pain score is recorded as a number from 0 to 10.
 
 In children less than 7 years old and cognitively impaired adults, other scales like IASP Faces Pain Scale or FLACC scale can be used. In patients who are sedated and intubated, pain assessment will rely on observations and behavioral assessment.
@@ -143,7 +136,7 @@ In children less than 7 years old and cognitively impaired adults, other scales 
 
 **Source:** Ministry of Health, Malaysia. Pain as the 5th Vital Sign Guideline: 3rd Edition. Putrajaya: MoH; 2018.
 
-### B. Flacc Scale
+### Appendix 4B: Flacc Scale
 This is an observational score, and is used for paediatric patients aged >1 month to 3 years. It may also be used in adult patients who are unable to communicate verbally, e.g. very elderly patients, cognitively impaired patients.
 
 1. Observe behaviour
@@ -162,7 +155,7 @@ Each of the five categories (F) face, (L) legs, (A) activity, (C) cry and (C) co
 
 **Source:** Ministry of Health, Malaysia. Pain as the 5th Vital Sign Guideline: 3rd Edition. Putrajaya: MoH; 2018.
 
-### C. Verbal Rating Scale (Vrs)
+### Appendix 4C: Verbal Rating Scale (VRS)
 | Description | Score |
 |---|---|
 | No pain | 0 |
@@ -175,7 +168,7 @@ The VRS consists of a list of adjectives describing different levels of pain int
 
 **Adapted:** Outcome measures. The Faculty of Pain Medicine of the Royal College of Anaesthetists. 2019.
 
-### D. Short-Form McGill Pain Questionnaire (Sf-Mpq-2)
+### Appendix 4D: Short-Form McGill Pain Questionnaire (Sf-Mpq-2)
 The SF-MPQ-2 consists of 24 different descriptors of pain of which each item is rated on a scale of 0-10. The scale of 0 equals to no pain and the scale of 10 equals to the worst ever pain experience during last week. The total score is calculated by summing all 24 scores.
 
 **Pain Descriptors (Rated 0-10, where 0 is 'none' and 10 is 'worst possible'):**
@@ -206,7 +199,7 @@ The SF-MPQ-2 consists of 24 different descriptors of pain of which each item is 
 
 **Adapted:** Melzack, Ronal. The short-form McGill pain questionnaire. Pain. 1987; 30 (2) :191-197.
 
-### E. Leeds Assessment Of Neuropathic Symptoms And Signs (Lanss) Scale
+### Appendix 4E: Leeds Assessment Of Neuropathic Symptoms And Signs (Lanss) Scale
 The LANSS identifies patients with neuropathic pain by combining the score of a patient’s verbal description of pain and the results of neurological examination.
 
 **A. PAIN QUESTIONNAIRE**
@@ -227,7 +220,7 @@ The LANSS identifies patients with neuropathic pain by combining the score of a 
 
 **Adapted:** The LANSS Pain Scale
 
-### F. PainDETECT Questionnaire
+### Appendix 4F: PainDETECT Questionnaire
 This tool assesses the course and quality of pain to identify neuropathic components.
 
 **Visual and Structural Components:**
@@ -263,9 +256,7 @@ To calculate the likelihood of a neuropathic pain component, the scores from the
 
 **Adapted:** painDETECT Questionnaire.
 
----
-
-### G. Doeleur Neuropathique En 4 (Dn4) Scale
+### Appendix 4G: Doeleur Neuropathique En 4 (Dn4) Scale
 To estimate the probability of neuropathic pain, please answer yes or no for each item of the following four questions.
 
 **INTERVIEW OF THE PATIENT**
@@ -280,9 +271,7 @@ To estimate the probability of neuropathic pain, please answer yes or no for eac
 - **YES = 1 point, NO = 0 point**
 - A total score of **4 or more out of 10** is suggestive of neuropathic pain.
 
----
-
-### H. Nccn Distress Thermometer (English Version)
+### Appendix 4H: Nccn Distress Thermometer (English Version)
 Distress is an unpleasant experience of a mental, physical, social, or spiritual nature. It can affect the way you think, feel, or act. Distress may make it harder to cope with having cancer, its symptoms or its treatment.
 
 **Distress Thermometer Visual:**
@@ -300,9 +289,7 @@ Distress is an unpleasant experience of a mental, physical, social, or spiritual
 
 **Source:** Reproduced with permission from the NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines®) for Distress Management V.1.2024. © 2024 National Comprehensive Cancer Network, Inc.
 
----
-
-### I. Nccn Distress Thermometer (Malay Version)
+### Appendix 4I: Nccn Distress Thermometer (Malay Version)
 **TERMOMETER DISTRES NCCN**
 Distres merupakan satu pengalaman yang tidak menyenangkan, yang bersifat mental, fizikal, sosial atau spiritual.
 
@@ -318,9 +305,7 @@ Distres merupakan satu pengalaman yang tidak menyenangkan, yang bersifat mental,
 
 **Source:** NCCN Guidelines Version 2.2022 / © 2024 National Comprehensive Cancer Network, Inc.
 
----
-
-### J. Integrated Palliative Care Outcome Scale (Ipos)
+### Appendix 4J: Integrated Palliative Care Outcome Scale (Ipos)
 The IPOS is used to monitor symptoms and concerns in palliative care patients over the past week.
 
 **Patient Questionnaire Components:**
@@ -340,9 +325,7 @@ The IPOS is used to monitor symptoms and concerns in palliative care patients ov
 
 **Adapted:** IPOS Patient Version.
 
----
-
-### K. The Edmonton Symptom Assessment System (Esas) Tool
+### Appendix 4K: The Edmonton Symptom Assessment System (Esas) Tool
 The ESAS is a comprehensive, yet brief and practical self-reporting tool of symptom severity (intensity) for nine common symptoms of advanced cancer.
 
 **Symptoms (Rated 0-10, where 0 is 'None' and 10 is 'Worst Possible'):**
@@ -362,9 +345,7 @@ The ESAS is a comprehensive, yet brief and practical self-reporting tool of symp
 
 **Adapted:** The Edmonton Symptom Assessment System (ESAS) Tool.
 
----
-
-### L. Pain Assessment In Advanced Dementia (Painad) Scale
+### Appendix 4L: Pain Assessment In Advanced Dementia (Painad) Scale
 The PAINAD scale is a reliable pain assessment tool for patients with advanced dementia. It assesses five behaviors, each scored from 0-2 based on direct observation.
 
 | Item | 0 | 1 | 2 |
@@ -381,11 +362,9 @@ The PAINAD scale is a reliable pain assessment tool for patients with advanced d
 The PAINAD scale is a reliable pain assessment tool for patients with advanced dementia. It assesses five behaviors: breathing, negative vocalisation, facial
 expression, body language, and the ability to be consoled. Each of the five indicators is scored on a range from 0 (not present) to 2 (completely present) based on direct  observation for a total score that ranges from 0 to 10.
 
----
-
 ## Appendix 5: Pharmacological Treatment In Cancer Pain
 
-### A. Suggested Medication Dosages And Adverse Effects In Adults
+### Appendix 5A: Suggested Medication Dosages And Adverse Effects In Adults
 | Drug | Recommended Dosages | Side Effects | Remarks |
 |---|---|---|---|
 | **Paracetamol** | 0.5 - 1 g, 6-8-hourly. Max: 4 g/day | Rare | Consider dose reduction in hepatic impairment. |
@@ -428,9 +407,8 @@ expression, body language, and the ability to be consoled. Each of the five indi
 | Metoclopramide | 10 - 20 mg, 6 - 8 hourly | • Extrapyramidal reactions<br>• Dizziness<br>• Drowsiness | Consider dose reduction in renal impairment. |
 | Prochlorperazine | 10 - 30 mg daily in divided doses | ^ | |
 | Haloperidol | 0.5 - 3 mg single dose nocte | • Extrapyramidal symptoms<br>• Prolonged QT interval | |
----
 
-### B. Suggested Medication Dosages In Paediatrics
+### Appendix 5B: Suggested Medication Dosages In Paediatrics
 | Drug | Route | 1 month-2 years (Dose and frequency) | 2 - 12 years (Dose and frequency) | 12 - 18 years (Dose and frequency) |
 |---|---|---|---|---|
 | **Paracetamol** | Oral | **0-3 months:** 15 mg/kg 6-8H (Max: 60 mg/kg/day; if preterm 28-32 CGA, max 30 mg/kg/day)<br>**>3 months-12 years:** 15 mg/kg 4-6H (Max: 75 mg/kg/day or 4 g/day) | ^ | 500 mg - 1 g 4-6H (if non-obese ≥50 kg: 1 g 4-6H) (Max: 4 g/day) |
@@ -470,19 +448,17 @@ CGA: corrected gestational age; IR: immediate release; IV: intravenous; LA: loca
 - Opioids: Ideal Body weight (IBW);
 - Paracetamol and NSAID: Adjusted Body Weight = IBW + 0.4 x (Actual BW - IBW)
 
----
-
 ## Appendix 6: Guide For Transdermal Fentanyl Use
 
-### Step 1: Preparation Of The Skin
+**Step 1: Preparation Of The Skin**
 - Ensure that the skin is completely dry and clean before applying the patch. Use only water to wash the skin. Do not apply soap, cream, oil or ointment on the area.
 - Do NOT apply the patch over your Totally Implantable Venous Catheter (e.g. chemoport)/over a joint area/on irradiated skin.
 - Body hair should be clipped with scissors IF necessary and NOT shaved.
 
-### Step 2: Preparation Of Patch
+**Step 2: Preparation Of Patch**
 - Each patch is sealed in its own sachet. Tear or cut open the sachet at the notch/arrow. Do NOT cut across the middle of the sachet.
 
-### Step 3: Method Of Administration
+**Step 3: Method Of Administration**
 - Peel one half of the plastic backing away from the centre of the patch. Try not to touch the sticky side of the patch. Press the sticky part of the patch onto the skin.
 - Remove the other half of the plastic backing and press the whole patch onto the skin. Hold for 30 seconds. Make sure it sticks well, especially the edges.
 - Change the patch every 72 hours. Remove the old patch before applying a new one. The date and time of patch due change should be written on the patch.
@@ -490,30 +466,27 @@ CGA: corrected gestational age; IR: immediate release; IV: intravenous; LA: loca
 - If you need to apply more than one patch at a time, place the patches adequately apart so that the edges do not touch or overlap each other.
 - If the patch falls off/peels off before the date and time of due change, apply a new patch on a new area of skin.
 
-### Step 3: Disposal Of Used Patch
+**Step 4: Disposal Of Used Patch**
 - Fold used patch in half with the adhesive side inwards.
 - Discard in clinical waste bin (in the hospital) or in a waste bin at home and wash your hands.
 
 **Adapted:** HKL Counseling Checklist (Oct 2020) and Hosp Selayang Palliative Unit Information Leaflet (Administration of Transdermal Fentanyl Patch).
 
----
-
 ## Appendix 7: Guide For Naloxone Use
-
-### General Principles:
+**General Principles:**
 - Naloxone, a specific opioid antagonist, is seldom necessary in the palliative care setting when opioids are appropriately titrated against the patient’s pain.
 - It is indicated for the reversal of opioid-induced respiratory depression and not for treating drowsiness and/or delirium associated with opioids.
 - The dose administered should be carefully titrated against level of consciousness and satisfactory respiratory function (≥8 breaths/minute and no cyanosis).
 - Titration is important to avoid acute withdrawal syndrome and severe pain.
 
-### Pharmacokinetics & Availability:
+**Pharmacokinetics & Availability:**
 - **Route of administration:** IV is preferable, but SC or IM can also be used.
 - **Onset of action:** 1 - 2 minutes (IV) and 2 - 5 minutes (SC/IM).
 - **Half-life:** approximately 1 hour.
 - **Pack size:** 1 ampoule = 400 mcg/1 ml.
 - **Adverse effects (usually with large bolus doses):** abdominal cramps, nausea and vomiting, flushing, arrhythmias and erythema at injection site.
 
-### Treatment:
+**Treatment:**
 - Respiratory depression is usually preceded by a progressive reduction in consciousness.
 - If the respiratory rate ≥8 breaths/minute and patient can be easily aroused (e.g. opens eyes to verbal command), monitor patient closely and consider omitting or reducing the dose of the regular opioid.
 - If respiratory rate is ≤8 breaths/min and patient is unresponsive, discontinue the ongoing opioid (e.g. stop CSCI/CIVI, remove TD patch) and naloxone should be administered.
@@ -524,7 +497,7 @@ CGA: corrected gestational age; IR: immediate release; IV: intravenous; LA: loca
     - A naloxone infusion may be considered if recovery is not satisfactory with multiple bolus doses.
 - After patient recovers, the regular opioid regimen must be reviewed to consider possible causes for the respiratory depression (e.g. drug interactions, drug accumulation due to renal impairment, medication errors) and necessary modifications made to the regimen.
 
-### Additional Cautions:
+**Additional Cautions:**
 - Do not use large bolus doses e.g. “1 ampoule stat” in patients who are receiving opioids for chronic pain relief.
 - Pupil size is an unreliable indicator of opioid overdose in patients taking regular opioids.
 - Naloxone should not be given to patients on opioids when death is expected and imminent; a slow respiratory rate is a normal occurrence.

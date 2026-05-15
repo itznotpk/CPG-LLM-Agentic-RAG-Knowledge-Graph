@@ -1,4 +1,4 @@
-## 3: Detecting Disease And Assessing Severity
+# Section 3: Detecting Disease And Assessing Severity
 <!-- METADATA
 category: Clinical Assessment, Investigations
 use_case: Detecting disease and assessing severity for pre-anaesthetic evaluation — history_taking, physical_examination, preoperative_investigations, preoperative_preparation, cardiovascular_assessment, respiratory_assessment, airway_assessment, renal_hepatic_endocrine_CNS, smoking_cessation, DVT_prevention, pain_management, fasting_instructions, blood_bank_arrangements, ICU_HDU_admission
@@ -36,7 +36,7 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 
 3.3.3 The nature and extent of pre-anaesthetic investigations depend on the patient's age, presence of any co-morbid condition, as well as the nature and extent of the planned surgical procedure.
 
-3.3.4 Routine investigations (refer to TABLE I: Routine Investigations for Patients Undergoing Anaesthesia and Table II: List of pre-anaesthetic investigations and their indications) are solely based on age and nature of surgery, for asymptomatic patients without abnormal clinical findings. If a medical condition is present, relevant investigations irrespective of age and type of surgery should be ordered.
+3.3.4 Routine investigations (refer to Table I: Routine Investigations for Patients Undergoing Anaesthesia and Table II: List of pre-anaesthetic investigations and their indications) are solely based on age and nature of surgery, for asymptomatic patients without abnormal clinical findings. If a medical condition is present, relevant investigations irrespective of age and type of surgery should be ordered.
 
 3.3.5 In an era where cost containment is important, factors like cost-benefit and benefit-risk ratios will have to be taken into consideration. Only appropriate investigations deemed to have an influence on the patient's management strategies and outcome should be carried out.
 
@@ -57,9 +57,9 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 - Arrangement with Blood Bank regarding blood and blood products - Group and cross-match (GXM), group and screen as appropriate
 - Arrangement for post-operative Intensive Care Unit (ICU) or High Dependency Unit (HDU) admission if indicated
 
----
 
-## Contextual Anchors (Overlapping)
+---
+<!-- parent_only_reference_start -->
 Table I: Routine Investigations For Patients Undergoing Anaesthesia
 
 | Routine Investigation | Indication |
@@ -72,7 +72,7 @@ Table I: Routine Investigations For Patients Undergoing Anaesthesia
 
 *\*Major surgery is empirically defined as one in which the cranium, thorax or abdomen is opened or when the anticipated blood loss is significant and exceeds 15% of total blood volume.*
 
-Table Ii: List Of Pre-Anaesthetic Investigations And Their Indications
+Table II: List Of Pre-Anaesthetic Investigations And Their Indications
 
 | Investigation | Indication |
 |---|---|
@@ -93,3 +93,4 @@ Normal investigation results are valid for varying periods of time, ranging from
 Investigations should be repeated under the following circumstances:
 - Appearance of fresh symptoms, such as chest pains, diarrhoea, vomiting
 - Assessment for effectiveness of therapy, such as potassium supplement for hypokalaemia, insulin therapy for hyperglycaemia, dialysis for patients with renal failure, blood products for correction of coagulopathy
+<!-- parent_only_reference_end -->

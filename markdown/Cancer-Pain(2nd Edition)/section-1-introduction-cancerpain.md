@@ -18,8 +18,8 @@ The main barriers to effective pain control in Malaysia relate to physicians’ 
 The first edition of CPG in cancer pain management in Malaysia has helped to spearhead the improvement in this field. Since then, services that provide cancer pain management increased at hospital, primary care and community hospice levels. This updated CPG aims to expand the information and incorporate new and current evidence of pharmacological/non-pharmacological management in cancer pain.
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Properly powered and conducted randomised controlled trial; well-conducted systematic review or meta-analysis of homogeneous randomised controlled trials |
@@ -28,12 +28,11 @@ The first edition of CPG in cancer pain management in Malaysia has helped to spe
 | II-3 | Multiple time series, with or without the intervention; results from uncontrolled studies that yield results of large magnitude |
 | III | Opinions of respected authorities, based on clinical experience; descriptive studies or case reports; reports of expert committees |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AEs | Adverse effects |
 | CPG | Clinical Practice Guideline |
 | DDD | Defined daily dose |
 | WHO | World Health Organization |
+<!-- parent_only_reference_end -->

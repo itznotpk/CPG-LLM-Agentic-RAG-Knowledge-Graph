@@ -10,9 +10,7 @@ treatment_type: dantrolene, intralipid, adrenaline, amiodarone, CPR
 
 > **Context:** This section covers resuscitation facilities required in critical care areas outside the operating room, including the complete emergency drugs list (with Dantrolene for MH and Intralipid for LAST) and equipment list.
 
----
-
-## General Resuscitation Preparedness
+**General Resuscitation Preparedness**
 It is recognized that there should be adequate resuscitation facilities provided for the patient being managed in critical care areas outside the operating room and intensive care. These include the recovery area / bays, areas where procedures are carried out under monitored sedation anywhere in the hospital and clinic procedures done under local anaesthesia. These facilities should include a range of emergency drugs and resuscitation equipment. The list given is only a guide and may be modified according to local circumstances.
 
 ## 9.1: Emergency Drugs List
