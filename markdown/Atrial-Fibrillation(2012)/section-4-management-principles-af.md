@@ -36,6 +36,7 @@ The decision regarding the method of reduction in the risk of stroke should take
 It is important to remember that vitamin K antagonist such as warfarin is very effective and reduces the risk of stroke overall by two-thirds. (refer Section 6: Management: Prevention Of Thromboembolism) <!-- cross_ref target_file="section-6-thromboembolism-prevention-af.md" target_heading="Section 6: Management: Prevention Of Thromboembolism" target_kind="h1_section" -->
 
 ## 4.3: Heart Rate Control Versus Rhythm Control
+### 4.3.1: Rate Control
 Rate control involves the use of chronotropic drugs or electrophysiological or surgical interventions to reduce the rapid heart rate (ventricular rate) often found in patients with AF. Although the atria continue to fibrillate with this strategy, it is nonetheless thought to be an effective treatment as it improves symptoms and reduces the risk of associated morbidity. However, the persistence of the arrhythmia continues the risk of stroke and thromboembolic events occurring. Administering antithrombotic drugs reduces this risk. (refer to Figure 3: Choice of Rate and Rhythm Control Strategies)
 
 Figure 3: Choice of Rate and Rhythm Control Strategies
@@ -66,8 +67,10 @@ Figure 3: Choice of Rate and Rhythm Control Strategies
 
 > Rate control is needed for most patients with AF unless the heart rate during AF is naturally slow. Rhythm control may be added to rate control if the patient is symptomatic despite adequate rate control, or if a rhythm control strategy is selected because of factors such as the degree of symptoms, younger age, or higher activity levels. Permanent AF is managed by rate control unless it is deemed possible to restore sinus rhythm when the AF category is re-designated as 'long-standing persistent'. Paroxysmal AF is more often managed with a rhythm control strategy, especially if it is symptomatic and there is little or no associated underlying heart disease. Solid lines indicate the first-line management strategy; Dashed lines represent fall-back objectives and dotted lines indicate alternative approaches which may be used in selected patients.
 
+### 4.3.2: Rhythm Control
 **Rhythm control** involves the use of electrical or pharmacological cardioversion or electrophysiological or surgical interventions to convert the arrhythmia associated with AF to normal sinus rhythm. Patients who have been successfully cardioverted are generally administered antiarrhythmic drugs for the long term to help prevent the recurrence of AF. The rhythm control strategies also require the appropriate administration of antithrombotic therapy to reduce the risk of stroke and thromboembolic events occurring.
 
+### 4.3.3: Trial Evidence: Rhythm vs Rate Control
 Randomized trials comparing outcomes of rhythm versus rate control strategies in patients with AF are summarized in Tables 7: General Characteristics of Rhythm Control and Rate Control Trials in Patients with AF and Table 8: Comparison of Adverse Outcomes in Rhythm Control and Rate Control Trials in Patients with AF.
 
 Table 7: General Characteristics of Rhythm Control and Rate Control Trials in Patients with AF
@@ -100,6 +103,7 @@ Table 8: Comparison of Adverse Outcomes in Rhythm Control and Rate Control Trial
 
 The consistent finding in all five studies was that rhythm control offered no survival advantage and, in most cases, had little effect on morbidity and quality of life. However, it should be emphasised that these conclusions are not necessarily applicable to all groups of patients. The five recent studies enrolled mostly older patients with additional risk factors for stroke, many of whom also had heart failure. Younger patients with normal hearts and primarily paroxysmal AF were not well represented. Importantly, in a predefined subgroup of AFFIRM participants aged less than 65 years, hazard ratios for death showed a paradoxical trend towards superiority of the rhythm-control strategy.
 
+### 4.3.4: Choosing Between Rate and Rhythm Control
 The initial therapy after onset of AF should always include adequate antithrombotic treatment and control of the ventricular rate. If the ultimate goal is restoration and maintenance of sinus rhythm, rate control medication should be continued throughout follow-up, unless continuous sinus rhythm is present. The goal is to control the ventricular rate adequately whenever recurrent AF occurs.
 
 The decision to add rhythm control therapy to the management of AF requires an individual decision and should therefore be discussed at the beginning of AF management. Before choosing rate control alone as a long-term strategy, the clinician should consider how permanent AF is likely to affect the individual patient in the future and how successful rhythm control is expected to be. Symptoms related to AF are an important determinant in making the decision to opt for rate or rhythm control (e.g. globally assessed by the EHRA score, refer Table 5: EHRA Score of AF-Related Symptoms), in addition to factors that may influence the success of rhythm control. The latter include a long history of AF, older age, more severe associated cardiovascular diseases, other associated medical conditions, and enlarged LA size.
