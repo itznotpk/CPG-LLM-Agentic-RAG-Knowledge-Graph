@@ -125,17 +125,17 @@ Patients with renal impairment were excluded from most clinical trials. In gener
 ### Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
 | :--- | :--- | :--- | :--- |
-| **Chemical class** | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
-| **Administration** | Oral | Oral | Oral |
-| **Dose** | 300 - 600mg orally then 75mg a day | 60mg orally then 10mg a day | 180mg orally then 90mg twice a day |
-| **Dosing in CKD** | | | |
+| Chemical class | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
+| Administration | Oral | Oral | Oral |
+| Dose | 300 - 600mg orally then 75mg a day | 60mg orally then 10mg a day | 180mg orally then 90mg twice a day |
+| Dosing in CKD | | | |
 | **Stage 3**<br>(eGFR 30–59 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>(eGFR 15–29 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 5**<br>(eGFR <15 mL/min/1.73m2)<br>(e.g., stent thrombosis prevention) | Use only for selected indications (e.g., stent thrombosis prevention) | Not recommended | Not recommended |
-| **Withdrawal before surgery** | 5 days<sup>c</sup> | 7 days<sup>c</sup> | 5 days<sup>c</sup> |
-| **Nonbleeding significant side effects** | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
-| **Plasma half-life of active P2Y12 inhibitor<sup>d</sup>** | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
-| **Inhibition of adenosine reuptake** | No | No | Yes |
+| Withdrawal before surgery | 5 days<sup>c</sup> | 7 days<sup>c</sup> | 5 days<sup>c</sup> |
+| Nonbleeding significant side effects | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
+| Plasma half-life of active P2Y12 inhibitor<sup>d</sup> | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
+| Inhibition of adenosine reuptake | No | No | Yes |
 
 *\*Adapted from Roffi M, Patrono C, Collet J-P, et.al. 2015 ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation: Task Force for the Management of Acute Coronary Syndromes in Patients Presenting without Persistent ST-Segment Elevation of the European Society of Cardiology (ESC). Eur Heart J. 2016;37(3): 267-315*
 
@@ -163,9 +163,9 @@ Creatinine clearance (Cr Cl) is determined by the Cockcroft-Gault (CG) Equation.
 ### Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
-| **Dose** | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
-| **Duration of therapy** | 8 days or duration of hospitalisation | 2 - 8 days | 2 - 8 days |
-| **Dosing in CKD** | | | |
+| Dose | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
+| Duration of therapy | 8 days or duration of hospitalisation | 2 - 8 days | 2 - 8 days |
+| Dosing in CKD | | | |
 | **Stage 3**<br>CrCl 30 - 59 ml/min | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>CrCl 15 - 29 mL/min | Not recommended if CrCl < 20 ml/min** | SC 1 mg/kg OD | No dose adjustment |
 | **Stage 5**<br>CrCl < 15 mL/min | Not recommended | SC 1 mg/kg OD | No dose adjustment |
@@ -180,17 +180,17 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 <br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 

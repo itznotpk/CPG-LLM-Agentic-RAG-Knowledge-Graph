@@ -36,10 +36,10 @@ The EHRA symptom score (refer Table 5: EHRA Score of AF-Related Symptoms) provid
 Table 5: EHRA Score of AF-Related Symptoms
 | EHRA Class | Explanation |
 |---|---|
-| **EHRA I** | 'No symptoms' |
-| **EHRA II** | 'Mild symptoms'; normal daily activity not affected |
-| **EHRA III** | 'Severe symptoms'; normal daily activity affected |
-| **EHRA IV** | 'Disabling symptoms'; normal daily activity discontinued |
+| EHRA I | 'No symptoms' |
+| EHRA II | 'Mild symptoms'; normal daily activity not affected |
+| EHRA III | 'Severe symptoms'; normal daily activity affected |
+| EHRA IV | 'Disabling symptoms'; normal daily activity discontinued |
 
 > *AF = atrial fibrillation; EHRA = European Heart Rhythm Association.*
 

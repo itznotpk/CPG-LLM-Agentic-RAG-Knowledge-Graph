@@ -33,12 +33,12 @@ Table 8: Summary Of Hemodynamic Changes During Pregnancy
 
 | Haemodynamic parameter | Changes during normal pregnancy | Changes during labour and delivery | Changes during postpartum |
 |---|---|---|---|
-| **Systemic vascular resistance** | Decreases 15-20%; (lowest at 20-24th week) | Increases | Decreases |
-| **Stroke volume** | Increases 1st & 2nd trimester; (maximum at 20th week); Decreases 3rd trimester | Increases (300-500 ml/contraction) | Decreases |
-| **Plasma volume** | Increases 40-50%; (starts at 4th week and peaks at 24th week) | Increases | Decreases |
-| **Cardiac output** | Increases 35-50%; (75% of increase occurs by end of 1st trimester. Plateaus by 28th-32nd week) | Increases additional 50% | Decreases |
-| **Heart rate** | Increases 10-15 beats/min; Peaks in 3rd trimester | Increases | Decreases |
-| **Blood pressure** | Decreases 10 mmHg in DBP; in 2nd trimester | Increases | Decreases |
+| Systemic vascular resistance | Decreases 15-20%; (lowest at 20-24th week) | Increases | Decreases |
+| Stroke volume | Increases 1st & 2nd trimester; (maximum at 20th week); Decreases 3rd trimester | Increases (300-500 ml/contraction) | Decreases |
+| Plasma volume | Increases 40-50%; (starts at 4th week and peaks at 24th week) | Increases | Decreases |
+| Cardiac output | Increases 35-50%; (75% of increase occurs by end of 1st trimester. Plateaus by 28th-32nd week) | Increases additional 50% | Decreases |
+| Heart rate | Increases 10-15 beats/min; Peaks in 3rd trimester | Increases | Decreases |
+| Blood pressure | Decreases 10 mmHg in DBP; in 2nd trimester | Increases | Decreases |
 
 ---
 
@@ -54,10 +54,10 @@ Table 9: Physical Findings And Changes Seen In Common Cardiac Investigations In 
 
 | Investigation | Findings |
 |---|---|
-| **Clinical examination** | - Peripheral oedema is a common finding; - Pulse rate may be increased; - Pulse may be bounding; - Occasional ectopics are common and are often benign; - Apex beat may be shifted more laterally; - Ejection systolic murmurs and continuous flow murmurs due to mammary souffle and venous hum are common*; - Splitting of the first heart sound is common; - The intensity of the pulmonary second sound (P2) may be accentuated; - Physiological third heart sound may be present; - A fourth heart sound is seldom heard |
-| **ECG** | - Heart rate may be increased; - Occasional atrial or ventricular ectopics may be present; - There may be a shift of the QRS plane axis to the left; - Minor T wave changes |
-| **CXR** | - Heart size is normal; - The heart may be shifted to a more horizontal position late in pregnancy; - Pulmonary blood vessels may become more prominent due to the increased blood flow |
-| **Echocardiogram** | - There may be an increase in the left and right ventricular end-diastolic dimensions compared with a previous echo done in the non-pregnant state; - The left ventricular mass may be increased |
+| Clinical examination | - Peripheral oedema is a common finding; - Pulse rate may be increased; - Pulse may be bounding; - Occasional ectopics are common and are often benign; - Apex beat may be shifted more laterally; - Ejection systolic murmurs and continuous flow murmurs due to mammary souffle and venous hum are common*; - Splitting of the first heart sound is common; - The intensity of the pulmonary second sound (P2) may be accentuated; - Physiological third heart sound may be present; - A fourth heart sound is seldom heard |
+| ECG | - Heart rate may be increased; - Occasional atrial or ventricular ectopics may be present; - There may be a shift of the QRS plane axis to the left; - Minor T wave changes |
+| CXR | - Heart size is normal; - The heart may be shifted to a more horizontal position late in pregnancy; - Pulmonary blood vessels may become more prominent due to the increased blood flow |
+| Echocardiogram | - There may be an increase in the left and right ventricular end-diastolic dimensions compared with a previous echo done in the non-pregnant state; - The left ventricular mass may be increased |
 
 *\*Diastolic murmurs almost always indicate pathological cardiac disease*
 

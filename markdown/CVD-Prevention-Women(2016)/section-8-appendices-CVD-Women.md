@@ -15,11 +15,11 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ### Appendix 1A: Cardiotoxicity Risk Assessment
 | Risk Origin | Risk Value | Factors |
 |---|---|---|
-| **Medication Related Risk** | High Risk (Score = 4) | Anthracyclines, Cyclophosphamide, Ifosfamide, Clofarabine, Herceptin |
+| Medication Related Risk | High Risk (Score = 4) | Anthracyclines, Cyclophosphamide, Ifosfamide, Clofarabine, Herceptin |
 | | Intermediate Risk (Score = 2) | Docetaxel, Pertuzumab, Sunitinib, Sorafenib |
 | | Low Risk (Score = 1) | Bevacizumab, Dasatinib, Imatinib, Lapatinib |
 | | Rare Risk (Score = 0) | Etoposide, Rituximab, Thalidomide |
-| **Patient Related Risk** | 1 point each | • Heart failure or cardiomyopathy <br>• CHD or equivalent (PAD) <br>• Hypertension <br>• Diabetes Mellitus <br>• Prior or recurrent anthracyclines <br>• Prior or recurrent chest radiation <br>• Age < 15 or > 65 years <br>• Female gender |
+| Patient Related Risk | 1 point each | • Heart failure or cardiomyopathy <br>• CHD or equivalent (PAD) <br>• Hypertension <br>• Diabetes Mellitus <br>• Prior or recurrent anthracyclines <br>• Prior or recurrent chest radiation <br>• Age < 15 or > 65 years <br>• Female gender |
 
 ### Appendix 1B: Cardiotoxicity Risk Categories
 | Cardiotoxicity Risk Score | Category |
@@ -33,11 +33,11 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ### Appendix 1C: Monitoring Recommendations during/after Chemotherapy
 | Risk Category | Recommendation |
 |---|---|
-| **Very high risk** | TTE with strain before every (other) cycle, end, 3-6 months and 1 year, optional ECG, cTn with TTE during chemotherapy |
-| **High risk** | TTE with strain every 3 cycles, end, 3-6 months and 1 year after chemotherapy, optional ECG, cTn with TTE during chemotherapy |
-| **Intermediate risk** | Discuss risk and benefit of medication |
-| **Low risk**| None, monitoring only |
-| **Very low risk**| None, monitoring only |
+| Very high risk | TTE with strain before every (other) cycle, end, 3-6 months and 1 year, optional ECG, cTn with TTE during chemotherapy |
+| High risk | TTE with strain every 3 cycles, end, 3-6 months and 1 year after chemotherapy, optional ECG, cTn with TTE during chemotherapy |
+| Intermediate risk | Discuss risk and benefit of medication |
+| Low risk | None, monitoring only |
+| Very low risk | None, monitoring only |
 
 > **Notes:**
 > - **TTE**: trans-thoracic echocardiography, **cTn**: cardiac troponins
@@ -45,11 +45,11 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ### Appendix 1D: Treatment Recommendations
 | Risk Category | Management |
 |---|---|
-| **Very high cardiotoxicity risk** | Initiate ACEI/ARB, carvedilol and statins, one week prior to chemotherapy and up-titre as tolerated |
-| **High cardiotoxicity risk** | Initiate ACEI/ARB, carvedilol/nebivolol and statins |
-| **Intermediate cardiotoxicity risk** | Discuss risk and benefit of medication |
-| **Low cardiotoxicity risk** | None, monitoring only |
-| **Very low cardiotoxicity** | None, monitoring only |
+| Very high cardiotoxicity risk | Initiate ACEI/ARB, carvedilol and statins, one week prior to chemotherapy and up-titre as tolerated |
+| High cardiotoxicity risk | Initiate ACEI/ARB, carvedilol/nebivolol and statins |
+| Intermediate cardiotoxicity risk | Discuss risk and benefit of medication |
+| Low cardiotoxicity risk | None, monitoring only |
+| Very low cardiotoxicity | None, monitoring only |
 
 ---
 
@@ -58,10 +58,10 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ### Appendix 2A: Combined Oral Contraceptive (Coc)
 | Class of COC | Progesterone content | Estrogen content |
 |---|---|---|
-| **First-generation** | Norethynodrel, norethindrone (also known as norethisterone), norethindrone acetate, or ethynodiol diacetate | containing ≥ 50 µg ethinyl estradiol |
-| **Second-generation**| Norgestrel or levonorgestrel, norethindrone, norethindrone acetate, ethynodiol diacetate, norgestrel, levonorgestrel, or norgestimate | < 50 µg ethinyl estradiol |
-| **Third-generation** | Desogestrel, gestodene, or norgestimate | < 50 µg ethinyl estradiol |
-| **Fourth-generation**| Drospirenone, dienogest, or nomegestrol acetate | < 50 µg ethinyl estradiol |
+| First-generation | Norethynodrel, norethindrone (also known as norethisterone), norethindrone acetate, or ethynodiol diacetate | containing ≥ 50 µg ethinyl estradiol |
+| Second-generation | Norgestrel or levonorgestrel, norethindrone, norethindrone acetate, ethynodiol diacetate, norgestrel, levonorgestrel, or norgestimate | < 50 µg ethinyl estradiol |
+| Third-generation | Desogestrel, gestodene, or norgestimate | < 50 µg ethinyl estradiol |
+| Fourth-generation | Drospirenone, dienogest, or nomegestrol acetate | < 50 µg ethinyl estradiol |
 
 > **Note on "Class of COC":** These terms sometimes refer to the:
 > - timing of the introduction of a product (given both the dose of estrogen and the type of progestin)
@@ -73,12 +73,12 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 | Variable | Age 20-24 Yr | Age 30-34 Yr | Age 40-44 Yr |
 |---|---|---|---|
-| **No. of excess cases of myocardial infarction and ischemic stroke attributable to oral-contraceptive use (per 100,000 woman-yr of use)** | | | |
+| No. of excess cases of myocardial infarction and ischemic stroke attributable to oral-contraceptive use (per 100,000 woman-yr of use) | | | |
 | Among non-smokers | 0.4 | 0.6 | 2 |
 | Among smokers | 1 | 2 | 20 |
 | Among women with hypertension | 4 | 7 | 29 |
-| **No. of pregnancy-related death (per 100,000 live births)** | 10 | 12 | 45 |
-| **No of excess cases of venous thromboembolism attributable to oral-contraceptive use (per 100,000 woman-yr of use)** | | | |
+| No. of pregnancy-related death (per 100,000 live births) | 10 | 12 | 45 |
+| No of excess cases of venous thromboembolism attributable to oral-contraceptive use (per 100,000 woman-yr of use) | | | |
 | With norethindrone, norethindrone acetate, levonorgestrel, or ethynodiol diacetate | 6 | 9 | 12 |
 | With desogestrel or gestodene | 16 | 23 | 30 |
 
@@ -89,19 +89,19 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ### Wine
 | Strength | 125ml (small glass) | 175ml (standard glass) |
 |---|---|---|
-| **12%** | 2.1 units | 1.5 units |
-| **14%** | 1.75 units | 2.45 units |
+| 12% | 2.1 units | 1.5 units |
+| 14% | 1.75 units | 2.45 units |
 
 ### Beer
 | Strength | Half Pint | 330ml bottle | Pint |
 |---|---|---|---|
-| **4%** | 1.1 units | - | 2.2 units |
-| **5%** | 1.4 units | 1.7 units | 2.8 units |
+| 4% | 1.1 units | - | 2.2 units |
+| 5% | 1.4 units | 1.7 units | 2.8 units |
 
 ### Spirits
 | Strength | 25ml (single) | 50ml (double) |
 |---|---|---|
-| **40%** | 1 unit | 2 units |
+| 40% | 1 unit | 2 units |
 
 ---
 
@@ -113,10 +113,10 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 | Co-existing Condition \ BP Levels (mmHg) | No RF, No TOD, No TOC | TOD or RF (1-2), No TOC | TOC or RF (≥ 3) or Clinical atherosclerosis | Previous MI or Previous stroke or Diabetes |
 |---|---|---|---|---|
-| **SBP 130-139 and/or DBP 80-89** | Low | Medium | High | Very high |
-| **SBP 140-159 and/or DBP 90-99** | Low | Medium | High | Very high |
-| **SBP 160-179 and/or DBP 100-109**| Medium | High | Very high | Very high |
-| **SBP > 180 and/or DBP > 110** | High | Very high | Very high | Very high |
+| SBP 130-139 and/or DBP 80-89 | Low | Medium | High | Very high |
+| SBP 140-159 and/or DBP 90-99 | Low | Medium | High | Very high |
+| SBP 160-179 and/or DBP 100-109 | Medium | High | Very high | Very high |
+| SBP > 180 and/or DBP > 110 | High | Very high | Very high | Very high |
 
 > **Notes:**
 > - **TOD** = Target organ damage (LVH, retinopathy, proteinuria)
@@ -140,18 +140,18 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ### Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions*
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|---|---|---|---|---|---|
-| **Diabetes mellitus (without nephropathy)** | + | +/- | +++ | + | +/- | ++ |
-| **Diabetes mellitus (with nephropathy)** | ++ | +/- | +++ | ++* | +/- | +++ |
-| **Gout** | +/- | + | + | + | + | ++ |
-| **Dyslipidaemia** | +/- | +/- | + | + | + | + |
-| **Coronary heart disease** | + | +++ | +++ | ++ | + | +++ |
-| **Heart failure** | +++ | +++ | +++# | +@ | + | +++ |
-| **Asthma** | + | - | + | + | + | + |
-| **Peripheral vascular disease** | + | +/- | + | + | + | + |
-| **Non-diabetic renal impairment** | ++ | + | +++ | +* | + | ++ |
-| **Renal artery stenosis** | + | + | ++$ | + | + | ++$ |
-| **Elderly with no co-morbid conditions** | +++ | + | + | +++ | +/- | + |
-| **Very elderly (>80 yrs) with no co-morbid conditions** | +++ | + | +++ | ++ | +/- | ++ |
+| Diabetes mellitus (without nephropathy) | + | +/- | +++ | + | +/- | ++ |
+| Diabetes mellitus (with nephropathy) | ++ | +/- | +++ | ++* | +/- | +++ |
+| Gout | +/- | + | + | + | + | ++ |
+| Dyslipidaemia | +/- | +/- | + | + | + | + |
+| Coronary heart disease | + | +++ | +++ | ++ | + | +++ |
+| Heart failure | +++ | +++ | +++# | +@ | + | +++ |
+| Asthma | + | - | + | + | + | + |
+| Peripheral vascular disease | + | +/- | + | + | + | + |
+| Non-diabetic renal impairment | ++ | + | +++ | +* | + | ++ |
+| Renal artery stenosis | + | + | ++$ | + | + | ++$ |
+| Elderly with no co-morbid conditions | +++ | + | + | +++ | +/- | + |
+| Very elderly (>80 yrs) with no co-morbid conditions | +++ | + | +++ | ++ | +/- | ++ |
 
 > **Grading Recommendation & Notes:**
 > - The grading recommendation from (+) to (+++) is based on increasing levels of evidence and/or current widely accepted practice
@@ -186,11 +186,11 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 | HbA1c & FPG Levels | Target Recommendation | Options / Escalation | Follow-up |
 |---|---|---|---|
-| **A1c < 6.5% AND FPG < 6 mmol/L** | LIFESTYLE APPROACH | If postprandial is > 11.0 mmol/L, consider one of the following: <br>• Metformin <br>• Glinides <br>• AGI <br>• DPP-4i | Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5% continue with Lifestyle Approach. <br> If A1c > 6.5% refer to table 21 |
-| **A1c 6.5% - < 7.5% OR FPG 6 - < 8 mmol/L** | OAD MONOTHERAPY | • Metformin OR <br>• SU <br>• Glinides <br>• AGI <br>• TZD <br>• DPP-4i <br>• GLP-1 RA <br>• SGLT-2i | Optimise dose of OAD agent in the subsequent 3 months. <br> Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5%, continue therapy |
-| **A1c 7.5% - < 8.5% OR FPG 8 - < 10 mmol/L** | DUAL COMBINATION THERAPY | Any two combination of: <br>• Metformin <br>• SU <br>• Glinides <br>• AGI <br>• TZD <br>• DPP-4i <br>• GLP-1 RA <br>• SGLT-2i <br>• Insulin | Optimise dose of OAD agents in the subsequent 3 months. <br> Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5%, continue therapy |
-| **A1c 8.5% - 10% OR FPG 10 - 13 mmol/L** | TRIPLE COMBINATION THERAPY | Any three combination of: <br>• Metformin <br>• SU <br>• Glinides <br>• AGI <br>• TZD <br>• DPP-4i <br>• GLP-1 RA <br>• SGLT-2i <br>• Insulin | Optimise dose of OAD agents in the subsequent 3 months. <br> Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5%, continue therapy |
-| **A1c > 10.0% OR FPG > 13 mmol/L** | COMBINATION THERAPY + BASAL/ PREMIXED INSULIN THERAPY <br><br>**OR**<br><br> INTENSIVE INSULIN THERAPY + OAD | | |
+| A1c < 6.5% AND FPG < 6 mmol/L | LIFESTYLE APPROACH | If postprandial is > 11.0 mmol/L, consider one of the following: <br>• Metformin <br>• Glinides <br>• AGI <br>• DPP-4i | Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5% continue with Lifestyle Approach. <br> If A1c > 6.5% refer to table 21 |
+| A1c 6.5% - < 7.5% OR FPG 6 - < 8 mmol/L | OAD MONOTHERAPY | • Metformin OR <br>• SU <br>• Glinides <br>• AGI <br>• TZD <br>• DPP-4i <br>• GLP-1 RA <br>• SGLT-2i | Optimise dose of OAD agent in the subsequent 3 months. <br> Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5%, continue therapy |
+| A1c 7.5% - < 8.5% OR FPG 8 - < 10 mmol/L | DUAL COMBINATION THERAPY | Any two combination of: <br>• Metformin <br>• SU <br>• Glinides <br>• AGI <br>• TZD <br>• DPP-4i <br>• GLP-1 RA <br>• SGLT-2i <br>• Insulin | Optimise dose of OAD agents in the subsequent 3 months. <br> Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5%, continue therapy |
+| A1c 8.5% - 10% OR FPG 10 - 13 mmol/L | TRIPLE COMBINATION THERAPY | Any three combination of: <br>• Metformin <br>• SU <br>• Glinides <br>• AGI <br>• TZD <br>• DPP-4i <br>• GLP-1 RA <br>• SGLT-2i <br>• Insulin | Optimise dose of OAD agents in the subsequent 3 months. <br> Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5%, continue therapy |
+| A1c > 10.0% OR FPG > 13 mmol/L | COMBINATION THERAPY + BASAL/ PREMIXED INSULIN THERAPY <br><br>**OR**<br><br> INTENSIVE INSULIN THERAPY + OAD | | |
 
 > **+ The agents above are based on historical order**
 >
@@ -212,10 +212,10 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 | Current Treatment \ Glycaemic Control | A1c 6.5 - < 7.5% or FPG 6 - < 8 mmol/L | A1c 7.5 - < 8.5% or FPG 8 - < 10 mmol/L | A1c 8.5 - 10.0% or FPG 10 - 13 mmol/L | A1c > 10.0% or FPG > 13 mmol/L |
 |---|---|---|---|---|
-| **Lifestyle Treatment** | Add Metformin (or if metformin cannot be tolerated add either SU / Glinides / AGI / TZD / DPP-4i / GLP-1 RA / SGLT2i) | Add Metformin and another agent (Dual therapy) | Add Metformin and another 2 agents not used for the dual therapy (Triple therapy) | Dual or Triple therapy + insulin (basal or premixed) |
-| **Monotherapy (Metformin preferred)** | Add another agent (Dual therapy) | Add 2 agents not used for the dual therapy (Triple therapy) | Dual or Triple therapy + insulin (basal or premixed) | Optimise insulin (basal plus/ multiple premixed) ± OAD |
-| **Dual Therapy** | Add another agent not used for the dual therapy (Triple therapy) | Dual or Triple therapy + insulin (basal or premixed) | Optimise insulin (basal plus/ multiple premixed) ± OAD | Intensify insulin (basal bolus/ multiple premixed) ± OAD |
-| **Triple Therapy** | Dual or Triple therapy + insulin (basal or premixed) | Optimise insulin (basal plus/ multiple premixed) ± OAD | Intensify insulin (basal bolus/ multiple premixed) ± OAD | Intensify insulin (basal bolus/ multiple premixed) ± OAD |
+| Lifestyle Treatment | Add Metformin (or if metformin cannot be tolerated add either SU / Glinides / AGI / TZD / DPP-4i / GLP-1 RA / SGLT2i) | Add Metformin and another agent (Dual therapy) | Add Metformin and another 2 agents not used for the dual therapy (Triple therapy) | Dual or Triple therapy + insulin (basal or premixed) |
+| Monotherapy (Metformin preferred) | Add another agent (Dual therapy) | Add 2 agents not used for the dual therapy (Triple therapy) | Dual or Triple therapy + insulin (basal or premixed) | Optimise insulin (basal plus/ multiple premixed) ± OAD |
+| Dual Therapy | Add another agent not used for the dual therapy (Triple therapy) | Dual or Triple therapy + insulin (basal or premixed) | Optimise insulin (basal plus/ multiple premixed) ± OAD | Intensify insulin (basal bolus/ multiple premixed) ± OAD |
+| Triple Therapy | Dual or Triple therapy + insulin (basal or premixed) | Optimise insulin (basal plus/ multiple premixed) ± OAD | Intensify insulin (basal bolus/ multiple premixed) ± OAD | Intensify insulin (basal bolus/ multiple premixed) ± OAD |
 
 > **Footnote:**
 > 1. If symptomatic (weight loss, polyuria, etc) at any A1c and FPG level, consider insulin therapy
@@ -232,11 +232,11 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 | Treatment Escalation | Normal weight | Overweight | Obese | Increased Risk of Hypoglycaemia | CKD stage 3 onwards |
 |---|---|---|---|---|---|
-| **First Line** | Metformin | Metformin | Metformin | Metformin | Half Dose Metformin* (Contraindicated in stage 4&5) |
-| **Second Line** | DPP-4 inhibitor | SGLT2 inhibitor | GLP-1 Receptor Agonist (RA) | DPP-4 inhibitor | DPP-4 inhibitor |
-| **Third Line** | SGLT2 inhibitor | DPP-4 inhibitor | SGLT2 inhibitor | SGLT2 inhibitor | 3rd Gen Sulfonylurea (Not advisable stages 4&5) |
-| **Fourth Line** | Sulfonylurea | GLP-1 agonist (stop DPP-4 Inhibitor) <br><br>**OR**<br><br> Basal insulin or Pre-mix insulin | Basal insulin | Thiazolidinedione | Prandial Insulin |
-| **Further Consideration** | GLP-1 RA (stop DPP-4 inhibitor) <br><br>**OR**<br><br> Basal insulin or Pre-mix insulin | Insulin intensification | Insulin intensification | GLP-1 RA (stop DPPIV inhibitor) <br><br>**OR**<br><br> Basal insulin analogue | Basal insulin |
+| First Line | Metformin | Metformin | Metformin | Metformin | Half Dose Metformin* (Contraindicated in stage 4&5) |
+| Second Line | DPP-4 inhibitor | SGLT2 inhibitor | GLP-1 Receptor Agonist (RA) | DPP-4 inhibitor | DPP-4 inhibitor |
+| Third Line | SGLT2 inhibitor | DPP-4 inhibitor | SGLT2 inhibitor | SGLT2 inhibitor | 3rd Gen Sulfonylurea (Not advisable stages 4&5) |
+| Fourth Line | Sulfonylurea | GLP-1 agonist (stop DPP-4 Inhibitor) <br><br>**OR**<br><br> Basal insulin or Pre-mix insulin | Basal insulin | Thiazolidinedione | Prandial Insulin |
+| Further Consideration | GLP-1 RA (stop DPP-4 inhibitor) <br><br>**OR**<br><br> Basal insulin or Pre-mix insulin | Insulin intensification | Insulin intensification | GLP-1 RA (stop DPPIV inhibitor) <br><br>**OR**<br><br> Basal insulin analogue | Basal insulin |
 
 > *Source: Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th ed, 2015*
 
@@ -258,23 +258,23 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ### Clinical Audit Criteria
 | Criteria | Result of the most recent examination | Date of the most recent examination | Not done |
 |---|---|---|---|
-| **Height** | ______ cm | | [ ] |
-| **Weight** | ______ kg | | [ ] |
-| **Waist circumference** | ______ cm | | [ ] |
-| **Body Mass Index (BMI)** | ______ kg/m² | | [ ] |
-| **Blood Pressure** | ______ mmHg | | [ ] |
-| **FBS, RBS or 2HPP** | ______ mmol/L | | [ ] |
-| **HbA1c** | ______ % | | [ ] |
-| **Lipid profile: TC**| ______ mmol/L | | [ ] |
-| **Lipid profile: TG**| ______ mmol/L | | [ ] |
-| **Lipid profile: HDL**| ______ mmol/L | | [ ] |
-| **Lipid profile: LDL**| ______ mmol/L | | [ ] |
-| **Creatinine** | ______ µmol/L | | [ ] |
-| **Urine microalbumin** | Normal / Abnormal | | [ ] |
-| **Urine protein** | Present / Absent | | [ ] |
-| **Fundoscopy** | Normal / Abnormal | | [ ] |
-| **Examination of feet** | Normal / Abnormal | | [ ] |
-| **ECG** | Normal / Abnormal | | [ ] |
+| Height | ______ cm | | [ ] |
+| Weight | ______ kg | | [ ] |
+| Waist circumference | ______ cm | | [ ] |
+| Body Mass Index (BMI) | ______ kg/m² | | [ ] |
+| Blood Pressure | ______ mmHg | | [ ] |
+| FBS, RBS or 2HPP | ______ mmol/L | | [ ] |
+| HbA1c | ______ % | | [ ] |
+| Lipid profile: TC | ______ mmol/L | | [ ] |
+| Lipid profile: TG | ______ mmol/L | | [ ] |
+| Lipid profile: HDL | ______ mmol/L | | [ ] |
+| Lipid profile: LDL | ______ mmol/L | | [ ] |
+| Creatinine | ______ µmol/L | | [ ] |
+| Urine microalbumin | Normal / Abnormal | | [ ] |
+| Urine protein | Present / Absent | | [ ] |
+| Fundoscopy | Normal / Abnormal | | [ ] |
+| Examination of feet | Normal / Abnormal | | [ ] |
+| ECG | Normal / Abnormal | | [ ] |
 
 > **Notes:**
 > - ***This audit form contains only some of the parameters recorded in the Buku Rawatan NCD**

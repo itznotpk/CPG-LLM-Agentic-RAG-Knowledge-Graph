@@ -233,9 +233,9 @@ The determinant factors of surgical therapy for active IE in the paediatric popu
 Table 5.1: Determinant Factors For Surgical Therapy
 | During active IE | |
 |---|---|
-| **Complications of IE** | **Vegetation** |
+| Complications of IE | **Vegetation** |
 | • Congestive cardiac failure<br>• Valvular complications such as progressive valve dysfunction, perivalvular extension (fistula and abscess) and valve perforations/rupture<br>• Persistent infection despite optimal antimicrobial therapy<br>• Unstable prosthesis<br>• History of embolisation depending on size and site of vegetation (refer Section 5.1: Indications & Section 5.2: Timing of Surgery)<br>&nbsp;&nbsp;&nbsp;&gt; ≥ 1 embolic event during 1st 2 weeks of antimicrobial therapy<br>&nbsp;&nbsp;&nbsp;&gt; &gt; 2 embolic events during or after the antimicrobial therapy<br>• New heart block | • Anterior valve vegetation<br>• Vegetation size &gt; 10 mm<br>• Increasing vegetation size despite 4 weeks of antimicrobials<br>• Persistent vegetation after systemic embolisation<br>• Microorganisms<br>&nbsp;&nbsp;&nbsp;&gt; Fungal IE<br>&nbsp;&nbsp;&nbsp;&gt; Staphylococcal infection |
-| **Following completion of treatment in uncomplicated and haemodynamically stable patients** | |
+| Following completion of treatment in uncomplicated and haemodynamically stable patients | |
 | • In the presence of prosthetic material/conduits<br>• In unrepaired left-to-right shunts (e.g. ventricular septal defect; VSD and patent ductus arteriosus; PDA) or obstructive lesions (e.g. infundibular stenosis and coarctation of aorta; CoA) | |
 
 ### 5.5.2: Timing Of Surgery

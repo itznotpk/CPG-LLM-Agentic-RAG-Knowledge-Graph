@@ -66,28 +66,28 @@ Table 2: WHO Classification Of Functional Status In Patients With Pht
 
 | Class | Definition |
 |---|---|
-| **Class I** | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class II** | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class III** | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
+| Class I | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class II | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class III | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class IV | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 <!-- OVERLAP CONTENT -->
 
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ALK-1** | Activin Receptor-Like Kinase 1 |
-| **BMPR2** | Bone Morphogenetic Protein Receptor Type II |
-| **CTEPH** | Chronic Thromboembolic Pulmonary Hypertension |
-| **HIV** | Human Immunodeficiency Virus |
-| **mPAP** | Mean Pulmonary Arterial Pressure |
-| **NYHA** | New York Heart Association |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PAP** | Pulmonary Arterial Pressure |
-| **PCH** | Pulmonary Capillary Hemangiomatosis |
-| **PCWP** | Pulmonary Capillary Wedge Pressure |
-| **PHT** | Pulmonary Hypertension |
-| **PVOD** | Pulmonary Veno-Occlusive Disease |
-| **WHO** | World Health Organisation |
+| ALK-1 | Activin Receptor-Like Kinase 1 |
+| BMPR2 | Bone Morphogenetic Protein Receptor Type II |
+| CTEPH | Chronic Thromboembolic Pulmonary Hypertension |
+| HIV | Human Immunodeficiency Virus |
+| mPAP | Mean Pulmonary Arterial Pressure |
+| NYHA | New York Heart Association |
+| PAH | Pulmonary Arterial Hypertension |
+| PAP | Pulmonary Arterial Pressure |
+| PCH | Pulmonary Capillary Hemangiomatosis |
+| PCWP | Pulmonary Capillary Wedge Pressure |
+| PHT | Pulmonary Hypertension |
+| PVOD | Pulmonary Veno-Occlusive Disease |
+| WHO | World Health Organisation |
 
 <!-- END OVERLAP CONTENT -->

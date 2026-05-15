@@ -170,8 +170,8 @@ Table 8: Diagnosis of Pre-Diabetes and T2DM\*
 
 | | Normal | Pre-diabetes (ADA/WHO) | T2DM (ADA/WHO) | T2DM (Malaysian CPG 2015) |
 | :--- | :--- | :--- | :--- | :--- |
-| **HbA1c%** | < 5.6 | 5.6-6.4\*\* | ≥ 6.5 | ≥ 6.3 |
-| **mmol/mol** | < 38 | 38-48\*\*\* | ≥ 48 | ≥ 45 |
+| HbA1c% | < 5.6 | 5.6-6.4\*\* | ≥ 6.5 | ≥ 6.3 |
+| mmol/mol | < 38 | 38-48\*\*\* | ≥ 48 | ≥ 45 |
 
 *\*Diagnosis of DM: for symptomatic patients, a single abnormal value is adequate; for asymptomatic individuals, 2 abnormal values are required*
 *\*\*< 6.3% according to Malaysian CPG for Management of Type 2 Diabetes Mellitus 5th Ed, 2015*
@@ -206,9 +206,9 @@ Table 10: Prevalence of Overweight/Obesity in NHMS III (2006) and NHMS V (2015)
 
 | Adults | Overweight (BMI 25 – 29.9 kg/m²) NHMS III | Overweight (BMI 25 – 29.9 kg/m²) NHMS V | Obese (BMI > 30kg/m²) NHMS III | Obese (BMI > 30kg/m²) NHMS V |
 | :--- | :--- | :--- | :--- | :--- |
-| **Males** | 29.7% | 31.6% | 10.0% | 15.0% |
-| **Females** | 28.6% | 28.3% | 17.4% | 20.6% |
-| **Overall** | 29.1% | 30.0% | 14.0% | 17.7% |
+| Males | 29.7% | 31.6% | 10.0% | 15.0% |
+| Females | 28.6% | 28.3% | 17.4% | 20.6% |
+| Overall | 29.1% | 30.0% | 14.0% | 17.7% |
 
 *The prevalence shown above uses the international definition of overweight/obesity. The Asia Pacific definition uses lower cut-off points (overweight > 23 to < 25 kg/m²; obese > 25 kg/m²) because Asians have a higher CVD risk at lower BMI and higher abdominal adiposity.*
 
@@ -218,10 +218,10 @@ Table 11: Beneficial effects of a 10% weight loss in the obese individual
 
 | Parameter | Effects |
 | :--- | :--- |
-| **Mortality** | >20% ↓ total<br>>30% ↓ diabetes related<br>>40% ↓ obesity related cancer |
-| **Blood Pressure** | 10 mmHg ↓ systolic<br>20 mmHg ↓ diastolic |
-| **Diabetes** | 30-50% ↓ in fasting glucose<br>50% ↓ in developing diabetes<br>15% ↓ in HBA1c |
-| **Lipids** | 10% ↓ total cholesterol<br>15% ↓ LDL-cholesterol<br>30% ↓ triglycerides<br>8% ↑ HDL-cholesterol |
+| Mortality | >20% ↓ total<br>>30% ↓ diabetes related<br>>40% ↓ obesity related cancer |
+| Blood Pressure | 10 mmHg ↓ systolic<br>20 mmHg ↓ diastolic |
+| Diabetes | 30-50% ↓ in fasting glucose<br>50% ↓ in developing diabetes<br>15% ↓ in HBA1c |
+| Lipids | 10% ↓ total cholesterol<br>15% ↓ LDL-cholesterol<br>30% ↓ triglycerides<br>8% ↑ HDL-cholesterol |
 
 ## 4.9: Polycystic Ovarian Syndrome
 Polycystic Ovarian Syndrome (PCOS) is a common hormonal disorder affecting women in the reproductive age. This condition is often associated with insulin resistance and CV risk factors such as central adiposity, glucose intolerance, hypertension and dyslipidaemia.
@@ -297,7 +297,7 @@ Table 12: Relative Risk of CHD by BMI and Physical Activity
 
 | BMI & Activity Level | Relative Risk (RR) of CHD |
 | :--- | :--- |
-| **Healthy weight + Active (exercise ≥ 3.5 hrs/wk)** | **1.00 (Reference)** |
+| Healthy weight + Active (exercise ≥ 3.5 hrs/wk) | **1.00 (Reference)** |
 | Healthy weight (BMI 18.5 – 24.9) + Sedentary (< 1 hr/wk) | 1.48 |
 | Obese (BMI ≥ 30) + Active (exercise ≥ 3.5 hrs/wk) | 2.48 |
 | Obese (BMI ≥ 30) + Sedentary (< 1 hr/wk) | 3.44 |
@@ -333,8 +333,8 @@ Table 14: Associated Risks of Menopausal Hormone Therapy
 
 | Therapy Type | Absolute risk per 10,000 women/year |
 | :--- | :--- |
-| **ET/EPT Combination** | • 7 more CHD events<br>• 8 more strokes<br>• 8 more pulmonary emboli<br>• 8 more invasive breast cancers<br>• 5 fewer hip fractures<br>• 6 fewer colorectal cancers |
-| **ET Only** | • 12 additional strokes (excess risk)<br>• 6 fewer hip fractures (risk reduction) |
+| ET/EPT Combination | • 7 more CHD events<br>• 8 more strokes<br>• 8 more pulmonary emboli<br>• 8 more invasive breast cancers<br>• 5 fewer hip fractures<br>• 6 fewer colorectal cancers |
+| ET Only | • 12 additional strokes (excess risk)<br>• 6 fewer hip fractures (risk reduction) |
 
 *There is some evidence that initiating hormone therapy within the first 10 years of menopause may provide small protection against death/MI without increased stroke risk, but deep vein thrombosis (DVT) risk still remains elevated.*
 
@@ -369,19 +369,19 @@ The benefits of alcohol appear to be related to its antithrombotic properties an
 *Wine*
 | Strength | 125ml (small glass) | 175ml (standard glass) |
 | :--- | :--- | :--- |
-| **12%** | 2.1 units | 1.5 units |
-| **14%** | 1.75 units | 2.45 units |
+| 12% | 2.1 units | 1.5 units |
+| 14% | 1.75 units | 2.45 units |
 
 *Beer*
 | Strength | Half Pint | 330ml bottle | Pint |
 | :--- | :--- | :--- | :--- |
-| **4%** | 1.1 units | - | 2.2 units |
-| **5%** | 1.4 units | 1.7 units | 2.8 units |
+| 4% | 1.1 units | - | 2.2 units |
+| 5% | 1.4 units | 1.7 units | 2.8 units |
 
 *Spirits*
 | Strength | 25ml (single) | 50ml (double) |
 | :--- | :--- | :--- |
-| **40%** | 1 unit | 2 units |
+| 40% | 1 unit | 2 units |
 
 <!-- ============================================================ -->
 

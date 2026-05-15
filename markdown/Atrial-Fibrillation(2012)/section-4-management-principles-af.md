@@ -77,13 +77,13 @@ Table 7: General Characteristics of Rhythm Control and Rate Control Trials in Pa
 
 | Trial | Ref | Patients (n) | Mean Age (years) | Mean Follow-up (years) | Inclusion Criteria | Primary Outcome Parameter | Rate Control Outcome | Rhythm Control Outcome | P-value |
 |---|---|---|---|---|---|---|---|---|---|
-| **PIAF (2000)** | 22 | 252 | 61.0 | 1.0 | Persistent AF (7–360 days) | Symptomatic improvement | 76/125 (60.8%) | 70/127 (55.1%) | 0.32 |
-| **AFFIRM (2002)** | 23 | 4060 | 69.7 | 3.5 | Paroxysmal AF or persistent AF, age >65 years, or risk of stroke or death | All-cause mortality | 310/2027 (25.9%) | 356/2033 (26.7%) | 0.08 |
-| **RACE (2002)** | 24 | 522 | 68.0 | 2.3 | Persistent AF or flutter for <1 years and 1–2 cardioversions over 2 years and oral anticoagulation | Composite: cardiovascular death, CHF, severe bleeding, pacemaker implantation, thrombo-embolic events, severe adverse effects of antiarrhythmic drugs | 44/256 (17.2%) | 60/266 (22.6%) | 0.11 |
-| **STAF (2003)** | 25 | 200 | 66.0 | 1.6 | Persistent AF (>4 weeks and <2 years), LA size >45 mm, CHF NYHA II–IV, LVEF <45% | Composite: overall mortality, cerebrovascular complications, CPR, embolic events | 10/100 (10.0%) | 9/100 (9.0%) | 0.99 |
-| **HOT CAFÉ (2004)** | 26 | 205 | 60.8 | 1.7 | First clinically overt persistent AF (≥7 days and <2 years), age 50–75 years | Composite: death, thrombo-embolic events; intracranial/major haemorrhage | 1/101 (1.0%) | 4/104 (3.9%) | > 0.71 |
-| **AF-CHF (2008)** | 27 | 1376 | 66 | 3.1 | LVEF ≤35%, symptoms of CHF, history of AF (≥6 h or DCC <last 6 months) | Cardiovascular death | 175/1376 (25%) | 182/1376 (27%) | 0.59 |
-| **J-RHYTHM (2009)** | 28 | 823 | 64.7 | 1.6 | Paroxysmal AF | Composite of total mortality, symptomatic cerebral infarction, systemic embolism, major bleeding, hospitalization for heart failure, or physical/psychological disability | 89/405 (22.0%) | 64/418 (15.3%) | 0.012 |
+| PIAF (2000) | 22 | 252 | 61.0 | 1.0 | Persistent AF (7–360 days) | Symptomatic improvement | 76/125 (60.8%) | 70/127 (55.1%) | 0.32 |
+| AFFIRM (2002) | 23 | 4060 | 69.7 | 3.5 | Paroxysmal AF or persistent AF, age >65 years, or risk of stroke or death | All-cause mortality | 310/2027 (25.9%) | 356/2033 (26.7%) | 0.08 |
+| RACE (2002) | 24 | 522 | 68.0 | 2.3 | Persistent AF or flutter for <1 years and 1–2 cardioversions over 2 years and oral anticoagulation | Composite: cardiovascular death, CHF, severe bleeding, pacemaker implantation, thrombo-embolic events, severe adverse effects of antiarrhythmic drugs | 44/256 (17.2%) | 60/266 (22.6%) | 0.11 |
+| STAF (2003) | 25 | 200 | 66.0 | 1.6 | Persistent AF (>4 weeks and <2 years), LA size >45 mm, CHF NYHA II–IV, LVEF <45% | Composite: overall mortality, cerebrovascular complications, CPR, embolic events | 10/100 (10.0%) | 9/100 (9.0%) | 0.99 |
+| HOT CAFÉ (2004) | 26 | 205 | 60.8 | 1.7 | First clinically overt persistent AF (≥7 days and <2 years), age 50–75 years | Composite: death, thrombo-embolic events; intracranial/major haemorrhage | 1/101 (1.0%) | 4/104 (3.9%) | > 0.71 |
+| AF-CHF (2008) | 27 | 1376 | 66 | 3.1 | LVEF ≤35%, symptoms of CHF, history of AF (≥6 h or DCC <last 6 months) | Cardiovascular death | 175/1376 (25%) | 182/1376 (27%) | 0.59 |
+| J-RHYTHM (2009) | 28 | 823 | 64.7 | 1.6 | Paroxysmal AF | Composite of total mortality, symptomatic cerebral infarction, systemic embolism, major bleeding, hospitalization for heart failure, or physical/psychological disability | 89/405 (22.0%) | 64/418 (15.3%) | 0.012 |
 
 > *AF = atrial fibrillation; AFFIRM = Atrial Fibrillation Follow-up Investigation of Rhythm Management; CHF = congestive heart failure; CPR = cardiopulmonary resuscitation; DCC = direct current cardioversion; HOT CAFÉ = How to Treat Chronic Atrial Fibrillation; J-RHYTHM = Japanese Rhythm Management Trial for Atrial Fibrillation; LVEF = left ventricular ejection fraction; NYHA = New York Heart Association; PIAF = Pharmacological Intervention in Atrial Fibrillation; RACE = Rate Control versus Electrical cardioversion for persistent atrial fibrillation; STAF = Strategies of Treatment of Atrial Fibrillation.*
 
@@ -91,12 +91,12 @@ Table 8: Comparison of Adverse Outcomes in Rhythm Control and Rate Control Trial
 
 | Trial | Ref | Death from all causes (in rate/rhythm) | Deaths from cardiovascular causes | Deaths from non-cardiovascular causes | Stroke | Thrombo-embolic events | Bleeding |
 |---|---|---|---|---|---|---|---|
-| **PIAF (2000)** | 22 | 4 | 1/1 | 1^a | ND | ND | ND |
-| **AFFIRM (2002)** | 23 | 666 (310/356) | 167/164 | 113/165 | 77/80 | ND | 107/96 |
-| **RACE (2002)** | 24 | 36 | 18/18 | ND | ND | 14/21 | 12/9 |
-| **STAF (2003)** | 25 | 12 (8/4) | 8/3 | 0/1 | 1/5 | ND | 8/1 |
-| **HOT CAFÉ (2004)** | 26 | 4 (1/3) | 0/2 | 1/1 | 0/3 | ND | 5/8 |
-| **AF-CHF (2008)** | 27 | 228/217 | 175/182 | 53/35 | 11/9 | ND | ND |
+| PIAF (2000) | 22 | 4 | 1/1 | 1^a | ND | ND | ND |
+| AFFIRM (2002) | 23 | 666 (310/356) | 167/164 | 113/165 | 77/80 | ND | 107/96 |
+| RACE (2002) | 24 | 36 | 18/18 | ND | ND | 14/21 | 12/9 |
+| STAF (2003) | 25 | 12 (8/4) | 8/3 | 0/1 | 1/5 | ND | 8/1 |
+| HOT CAFÉ (2004) | 26 | 4 (1/3) | 0/2 | 1/1 | 0/3 | ND | 5/8 |
+| AF-CHF (2008) | 27 | 228/217 | 175/182 | 53/35 | 11/9 | ND | ND |
 
 > *^a Total number of patients not reported.*
 > *AF = atrial fibrillation; AFFIRM = Atrial Fibrillation Follow-up Investigation of Rhythm Management; HOT CAFÉ = HOw to Treat Chronic Atrial Fibrillation; ND = not determined; PIAF = Pharmacological Intervention in Atrial Fibrillation; RACE = RAte Control versus Electrical cardioversion for persistent atrial fibrillation; STAF = Strategies of Treatment of Atrial Fibrillation.*
@@ -111,10 +111,10 @@ The decision to add rhythm control therapy to the management of AF requires an i
 Table 5: EHRA Score of AF-Related Symptoms
 | EHRA Class | Explanation |
 |---|---|
-| **EHRA I** | 'No symptoms' |
-| **EHRA II** | 'Mild symptoms'; normal daily activity not affected |
-| **EHRA III** | 'Severe symptoms'; normal daily activity affected |
-| **EHRA IV** | 'Disabling symptoms'; normal daily activity discontinued |
+| EHRA I | 'No symptoms' |
+| EHRA II | 'Mild symptoms'; normal daily activity not affected |
+| EHRA III | 'Severe symptoms'; normal daily activity affected |
+| EHRA IV | 'Disabling symptoms'; normal daily activity discontinued |
 
 A rate-control strategy should be the preferred initial option in the following patients with persistent AF:
 - Over 65 years old

@@ -496,9 +496,9 @@ Table 9: Classification Of Physical Activity
 
 | PA Intensity | Leisure time & sports | Occupational | Commuting | Exercises |
 | :--- | :--- | :--- | :--- | :--- |
-| **Low** | • Walk with pet<br>• Push stroller with child<br>• Bowling, recreational<br>• Golf, recreational<br>• Slow ballroom dancing | • Sweeping floor, mopping, vacuuming<br>• Washing car<br>• Doing laundry, washing dishes, cooking<br>• Childcare & elderly care<br>• General plumbing & light gardening<br>• Commercial driving, moderate machinery operation<br>• Typing, deskjob, light officework | • Driving automobile/ light trucks<br>• Pushing wheelchair on flat surface<br>• Walking from house to car/bus to places/ worksite | **Aerobic exercise:**<br>• Walking (4.0 - 4.8 kmh)<br>• Yoga<br>• Stretching<br>• Pilates<br>• Rowing machine, moderate pace<br>**Resistance training (moderate effort):**<br>• Circuit training |
-| **Moderate** | • Vigorously playing with children<br>• Non-competitive sports:<br>  - Cricket<br>  - Ping-pong<br>  - Badminton<br>  - Basketball<br>  - Kayaking/ paddle boat<br>  - Snorkelling<br>  - Backpacking | • Scrubbing bathroom<br>• Carrying/ moving boxes<br>• Using a hoe & spade, mowing lawn, shovelling 10-15 minutes vigorously<br>• Moderate yard work, using power tools | • Cycling<br>• Walking and carrying approx. 7 kg load<br>• Walking uphill<br>• Using crutches | **Aerobic exercise:**<br>• Fast walking (5-8 kmh)<br>• Combination of jog & walk (<10 minutes jogging)<br>• Stationary bicycle<br>• Elliptical machine<br>• Slow - moderate swimming<br>• Water-based aerobics<br>**Resistance training, (vigorous effort):**<br>• Weight training |
-| **High** | • Rope skipping<br>• Marathon, mountain biking<br>• Football, hockey, martial arts, rugby, rollerblading, volleyball<br>• Track & field | • Carrying load up stairs<br>• Heavy carpentry/ farming<br>• Farming vigorously<br>• Fire fighting<br>• Commercial fishing<br>• Factory work | • Fast stair climbing<br>• Hiking cross country | **Aerobic exercise:**<br>• Jog/ run >8 km/hr<br>• Vigorous swimming or calisthenics<br>• Stair-treadmill |
+| Low | • Walk with pet<br>• Push stroller with child<br>• Bowling, recreational<br>• Golf, recreational<br>• Slow ballroom dancing | • Sweeping floor, mopping, vacuuming<br>• Washing car<br>• Doing laundry, washing dishes, cooking<br>• Childcare & elderly care<br>• General plumbing & light gardening<br>• Commercial driving, moderate machinery operation<br>• Typing, deskjob, light officework | • Driving automobile/ light trucks<br>• Pushing wheelchair on flat surface<br>• Walking from house to car/bus to places/ worksite | **Aerobic exercise:**<br>• Walking (4.0 - 4.8 kmh)<br>• Yoga<br>• Stretching<br>• Pilates<br>• Rowing machine, moderate pace<br>**Resistance training (moderate effort):**<br>• Circuit training |
+| Moderate | • Vigorously playing with children<br>• Non-competitive sports:<br>  - Cricket<br>  - Ping-pong<br>  - Badminton<br>  - Basketball<br>  - Kayaking/ paddle boat<br>  - Snorkelling<br>  - Backpacking | • Scrubbing bathroom<br>• Carrying/ moving boxes<br>• Using a hoe & spade, mowing lawn, shovelling 10-15 minutes vigorously<br>• Moderate yard work, using power tools | • Cycling<br>• Walking and carrying approx. 7 kg load<br>• Walking uphill<br>• Using crutches | **Aerobic exercise:**<br>• Fast walking (5-8 kmh)<br>• Combination of jog & walk (<10 minutes jogging)<br>• Stationary bicycle<br>• Elliptical machine<br>• Slow - moderate swimming<br>• Water-based aerobics<br>**Resistance training, (vigorous effort):**<br>• Weight training |
+| High | • Rope skipping<br>• Marathon, mountain biking<br>• Football, hockey, martial arts, rugby, rollerblading, volleyball<br>• Track & field | • Carrying load up stairs<br>• Heavy carpentry/ farming<br>• Farming vigorously<br>• Fire fighting<br>• Commercial fishing<br>• Factory work | • Fast stair climbing<br>• Hiking cross country | **Aerobic exercise:**<br>• Jog/ run >8 km/hr<br>• Vigorous swimming or calisthenics<br>• Stair-treadmill |
 
 *\*Adapted from Ainsworth BE, Haskell WL, Hermann SD et al. The Compendium Of Physical Activities Tracking Guide. Healthy Lifestyles Research Centre, College of Nursing & Health Innovation, Arizona State University.*
 
@@ -506,9 +506,9 @@ Table 10: Recommendation Of Pa In Adult For CVD Prevention
 
 | PA type | Starting point | PA Goal | Additional Benefits |
 | :--- | :--- | :--- | :--- |
-| **Aerobic activity** | 1. Identify current aerobic PA & its intensities (refer to table 9: Classification of Physical Activity).<br>2. Total up weekly duration of PA engagement.<br>3. Start with 60 min/ week of PA time, this can be broken down to daily, 3 days/ week or once-a week commitment (i.e. 10 minutes daily; 20 minutes every other day).<br>4. In unfit or inactive individuals it is recommended to start with low intensity PA, 60 min/ week at a time commitment they can. | **Aim for:**<br>Frequency: 3 or more days/ week<br>Intensity: moderate intensity aerobic PA<br>Duration: 150 min/ week | Additional benefits for weight loss and lipid control can be gained by increasing aerobic PA to 250 - 450min/ week moderate intensity or 150min/ week high intensity PA. |
-| **Strength training** | 1. Identify any ongoing orthopaedic or musculoskeletal (MSK) issues.<br>2. Identify contraindications for strength training:<br>• Unstable angina<br>• Uncontrolled hypertension (systolic blood pressure ≥160 mm Hg and/or diastolic blood pressure ≥100 mmHg)<br>• Uncontrolled dysrhythmias<br>• Unevaluated/ symptomatic congestive heart failure<br>• Severe stenotic or regurgitant valvular disease<br>• Hypertrophic cardiomyopathy<br>3. Candidates for strength training should be involving in moderate intensity aerobic PA for at least 4 weeks. | **Aim for:**<br>2 - 3 sets<br>8 – 12 repetitions<br>60 – 80% individual’s 1 repetition maximum<br>2 days/week or more<br>Whenever possible, refer to physiotherapist or in cases of established CVD to cardiac rehabilitation (CR) team for assessment & prescription of exercises. Indicate concomitant orthopaedic/ MSK conditions. | Strength training helps in lipid and BP control plus increase insulin sensitivity in combination with aerobic exercise. It stimulates bone formation, reduces bone loss, preserves and enhances muscle mass, strength, power and functional ability. |
-| **Flexibility exercises** | 1. Identify any ongoing orthopaedic or MSK issues.<br>2. Flexibility training complements aerobic exercises and should be done during cool down phase after aerobic activities.<br>3. Start at 3 sets of 15 seconds stretch of key muscles as tolerable. | **Aim for:**<br>5 sets<br>30 seconds stretch<br>Full joint ROM<br>2 - 3 days/ week<br>Breathe normally<br>Refer to physiotherapist or CR team for exercise prescription. | Lack of flexibility in the elderly contributes to reduce ability to perform activities of daily living. Adequate joint ROM is required for optimal musculoskeletal function. |
+| Aerobic activity | 1. Identify current aerobic PA & its intensities (refer to table 9: Classification of Physical Activity).<br>2. Total up weekly duration of PA engagement.<br>3. Start with 60 min/ week of PA time, this can be broken down to daily, 3 days/ week or once-a week commitment (i.e. 10 minutes daily; 20 minutes every other day).<br>4. In unfit or inactive individuals it is recommended to start with low intensity PA, 60 min/ week at a time commitment they can. | **Aim for:**<br>Frequency: 3 or more days/ week<br>Intensity: moderate intensity aerobic PA<br>Duration: 150 min/ week | Additional benefits for weight loss and lipid control can be gained by increasing aerobic PA to 250 - 450min/ week moderate intensity or 150min/ week high intensity PA. |
+| Strength training | 1. Identify any ongoing orthopaedic or musculoskeletal (MSK) issues.<br>2. Identify contraindications for strength training:<br>• Unstable angina<br>• Uncontrolled hypertension (systolic blood pressure ≥160 mm Hg and/or diastolic blood pressure ≥100 mmHg)<br>• Uncontrolled dysrhythmias<br>• Unevaluated/ symptomatic congestive heart failure<br>• Severe stenotic or regurgitant valvular disease<br>• Hypertrophic cardiomyopathy<br>3. Candidates for strength training should be involving in moderate intensity aerobic PA for at least 4 weeks. | **Aim for:**<br>2 - 3 sets<br>8 – 12 repetitions<br>60 – 80% individual’s 1 repetition maximum<br>2 days/week or more<br>Whenever possible, refer to physiotherapist or in cases of established CVD to cardiac rehabilitation (CR) team for assessment & prescription of exercises. Indicate concomitant orthopaedic/ MSK conditions. | Strength training helps in lipid and BP control plus increase insulin sensitivity in combination with aerobic exercise. It stimulates bone formation, reduces bone loss, preserves and enhances muscle mass, strength, power and functional ability. |
+| Flexibility exercises | 1. Identify any ongoing orthopaedic or MSK issues.<br>2. Flexibility training complements aerobic exercises and should be done during cool down phase after aerobic activities.<br>3. Start at 3 sets of 15 seconds stretch of key muscles as tolerable. | **Aim for:**<br>5 sets<br>30 seconds stretch<br>Full joint ROM<br>2 - 3 days/ week<br>Breathe normally<br>Refer to physiotherapist or CR team for exercise prescription. | Lack of flexibility in the elderly contributes to reduce ability to perform activities of daily living. Adequate joint ROM is required for optimal musculoskeletal function. |
 
 ---
 
@@ -529,11 +529,11 @@ Table 12: Classification Of Weight By BMI*
 
 | Classification | BMI (kg/m²) | Risk of co-morbidities |
 | :--- | :--- | :--- |
-| **Underweight** | < 18.5 | Low (but increased risk of other clinical problem) |
-| **Normal range** | 18.5 - 22.9 | Optimal |
-| **Overweight** | ≥ 23.0 | - |
+| Underweight | < 18.5 | Low (but increased risk of other clinical problem) |
+| Normal range | 18.5 - 22.9 | Optimal |
+| Overweight | ≥ 23.0 | - |
 | • Pre Obese | 23.0 – 27.4 | Increased |
-| **Obesity** | > 27.4 | - |
+| Obesity | > 27.4 | - |
 | • Obese I | 27.5 - 34.9 | High |
 | • Obese II | 35.0 - 39.9 | Very High |
 | • Obese III | ≥ 40.0 | Extremely high |
@@ -749,18 +749,18 @@ See Physical Activity Tips – Table 10: Recommendation of PA in Adult for CVD P
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

@@ -222,46 +222,46 @@ Table 1: Updated Clinical Classification Of Pht (Dana Point 2008)
 Table 2: WHO Classification Of Functional Status In Patients With Pht
 | Class | Definition |
 |---|---|
-| **Class I** | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class II** | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class III** | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
+| Class I | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class II | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class III | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class IV | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **6MWT** | Six-Minute Walk Test |
-| **ANA** | Antinuclear Antibodies |
-| **CCB** | Calcium Channel Blocker |
-| **CHD** | Congenital Heart Disease |
-| **CO** | Cardiac Output |
-| **CT** | Computerised Tomography |
-| **CTD** | Connective Tissue Disease |
-| **CTEPH** | Chronic Thromboembolic Pulmonary Hypertension |
-| **CXR** | Chest X-Ray |
-| **DLCO** | Diffusion Capacity for Carbon Monoxide |
-| **dsDNA** | Double-Stranded DNA |
-| **ECG** | Electrocardiogram |
-| **HIV** | Human Immunodeficiency Virus |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **mPAP** | Mean Pulmonary Arterial Pressure |
-| **mRAP** | Mean Right Atrial Pressure |
-| **PA** | Pulmonary Artery |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PASP** | Pulmonary Artery Systolic Pressure |
-| **PCWP** | Pulmonary Capillary Wedge Pressure |
-| **PFTs** | Pulmonary Function Tests |
-| **PHT** | Pulmonary Hypertension |
-| **RA** | Right Atrium |
-| **RAE** | Right Atrial Enlargement |
-| **RAP** | Right Atrial Pressure |
-| **RHC** | Right Heart Catheterisation |
-| **RNP** | Ribonucleoprotein |
-| **RV** | Right Ventricle |
-| **RVE** | Right Ventricular Enlargement |
-| **RVSP** | Right Ventricular Systolic Pressure |
-| **SCL70** | Scleroderma 70 |
-| **V/Q** | Ventilation/Perfusion |
-| **WHO** | World Health Organisation |
+| 6MWT | Six-Minute Walk Test |
+| ANA | Antinuclear Antibodies |
+| CCB | Calcium Channel Blocker |
+| CHD | Congenital Heart Disease |
+| CO | Cardiac Output |
+| CT | Computerised Tomography |
+| CTD | Connective Tissue Disease |
+| CTEPH | Chronic Thromboembolic Pulmonary Hypertension |
+| CXR | Chest X-Ray |
+| DLCO | Diffusion Capacity for Carbon Monoxide |
+| dsDNA | Double-Stranded DNA |
+| ECG | Electrocardiogram |
+| HIV | Human Immunodeficiency Virus |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| mPAP | Mean Pulmonary Arterial Pressure |
+| mRAP | Mean Right Atrial Pressure |
+| PA | Pulmonary Artery |
+| PAH | Pulmonary Arterial Hypertension |
+| PASP | Pulmonary Artery Systolic Pressure |
+| PCWP | Pulmonary Capillary Wedge Pressure |
+| PFTs | Pulmonary Function Tests |
+| PHT | Pulmonary Hypertension |
+| RA | Right Atrium |
+| RAE | Right Atrial Enlargement |
+| RAP | Right Atrial Pressure |
+| RHC | Right Heart Catheterisation |
+| RNP | Ribonucleoprotein |
+| RV | Right Ventricle |
+| RVE | Right Ventricular Enlargement |
+| RVSP | Right Ventricular Systolic Pressure |
+| SCL70 | Scleroderma 70 |
+| V/Q | Ventilation/Perfusion |
+| WHO | World Health Organisation |
 
 <!-- END OVERLAP CONTENT -->

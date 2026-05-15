@@ -25,9 +25,9 @@ Unstable angina may be classified as (refer Appendix I: Braunwald's Classificati
 ## Appendix I: Braunwald's Classification Of Unstable Angina
 | Severity | CLINICAL CIRCUMSTANCES: A (Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia / Secondary UA) | CLINICAL CIRCUMSTANCES: B (Develops in Absence of Extracardiac Condition / Primary UA) | CLINICAL CIRCUMSTANCES: C (Develops Within 2 weeks of MI / Postinfarction UA) |
 |---|---|---|---|
-| **I — New onset of severe angina or accelerated angina; no rest pain** | **[Grade I, Level A]** | **[Grade I, Level B]** | **[Grade I, Level C]** |
-| **II — Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute)** | **[Grade II, Level A]** | **[Grade II, Level B]** | **[Grade II, Level C]** |
-| **III — Angina at rest within 48 hours (angina at rest, acute)** | **[Grade III, Level A]** | **[Grade III, Level B-Tneg]** / **[Grade III, Level B-Tpos]** | **[Grade III, Level C]** |
+| I — New onset of severe angina or accelerated angina; no rest pain | [Grade I, Level A] | [Grade I, Level B] | [Grade I, Level C] |
+| II — Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute) | [Grade II, Level A] | [Grade II, Level B] | [Grade II, Level C] |
+| III — Angina at rest within 48 hours (angina at rest, acute) | [Grade III, Level A] | [Grade III, Level B-Tneg] / [Grade III, Level B-Tpos] | [Grade III, Level C] |
 
 It may be further classified according to clinical circumstances into either:
 - A) Secondary – develops in the presence of extracardiac disease
@@ -76,14 +76,14 @@ Figure 2: Pathogenesis Of ACS (Diagnostic Flow)
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACS** | Acute Coronary Syndrome |
-| **ECG** | Electrocardiogram |
-| **MI** | Myocardial Infarction |
-| **NQMI** | Non-Q wave Myocardial Infarction |
-| **NSTEMI** | Non ST Elevation Myocardial Infarction |
-| **QwMI** | Q-wave Myocardial Infarction |
-| **STEMI** | ST Elevation Myocardial Infarction |
-| **T** | Troponins |
-| **UA** | Unstable Angina |
+| ACS | Acute Coronary Syndrome |
+| ECG | Electrocardiogram |
+| MI | Myocardial Infarction |
+| NQMI | Non-Q wave Myocardial Infarction |
+| NSTEMI | Non ST Elevation Myocardial Infarction |
+| QwMI | Q-wave Myocardial Infarction |
+| STEMI | ST Elevation Myocardial Infarction |
+| T | Troponins |
+| UA | Unstable Angina |
 
 <!-- END OVERLAP CONTENT -->

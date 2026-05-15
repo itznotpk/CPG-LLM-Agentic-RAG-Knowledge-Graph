@@ -23,9 +23,9 @@ A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps t
 
 | Assessment Tool | Use Case | Evidence |
 |-----------------|----------|----------|
-| **IIEF-15** | Comprehensive assessment of all sexual function domains | Level III |
-| **IIEF-5** | Quick screening, severity classification | Level III |
-| **EHS (Erection Hardness Score)** | Penile rigidity assessment (correlation 0.63-0.86 with IIEF)  except the sexual desire domain. | Level III |
+| IIEF-15 | Comprehensive assessment of all sexual function domains | Level III |
+| IIEF-5 | Quick screening, severity classification | Level III |
+| EHS (Erection Hardness Score) | Penile rigidity assessment (correlation 0.63-0.86 with IIEF)  except the sexual desire domain. | Level III |
 
 > **Clinical Note:** IIEF-5 and EHS assessment helps determine ED severity and guides treatment selection.
 
@@ -45,10 +45,10 @@ Patients should undergo physical examination and vital parameters recording duri
 
 | System | Examination Focus | Looking For |
 |--------|-------------------|-------------|
-| **Genitourinary** | Penis, testes, prostate | Peyronie's disease, pre-malignant/malignant lesions, prostatic enlargement |
-| **Endocrine** | Secondary sexual characteristics | Small testes, alterations suggesting hypogonadism |
-| **Vascular** | Peripheral pulses, BP | Vascular insufficiency markers |
-| **Neurological** | Sensation, reflexes | Neurogenic causes |
+| Genitourinary | Penis, testes, prostate | Peyronie's disease, pre-malignant/malignant lesions, prostatic enlargement |
+| Endocrine | Secondary sexual characteristics | Small testes, alterations suggesting hypogonadism |
+| Vascular | Peripheral pulses, BP | Vascular insufficiency markers |
+| Neurological | Sensation, reflexes | Neurogenic causes |
 
 **Vital Parameters to Record:**
 - Blood pressure

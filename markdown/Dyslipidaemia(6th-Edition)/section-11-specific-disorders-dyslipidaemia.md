@@ -130,14 +130,14 @@ Table 11: Major Lipid Modifying Drug Classes
 
 | Drug Class | Lipid Effects | Side Effects | Contraindications |
 |---|---|---|---|
-| **HMG-CoA Reductase Inhibitors (Statins)** | LDL-C ↓ 21-55% <br> HDL-C ↑ 2-10% <br> TG ↓ 6-30% | • Myopathy <br> • Increased liver enzymes | **Absolute:** <br> • Active or chronic liver disease <br> **Relative:** <br> • Concomitant use of certain drugs* |
-| **Fibric-Acid Derivatives (Fibrates)** | LDL-C ↓ 20-35% (fenofibrate) <br> HDL-C ↑ 6-18% <br> Primarily TG ↓ 20-35%+ | • Dyspepsia <br> • Cholelithiasis <br> • Myopathy | **Absolute:** <br> • Severe hepatic disease <br> • Severe kidney disease <br> **Relative:** <br> • Concomitant use of certain drugs** |
-| **PCSK9 inhibitors** | LDL-C ↓ 48-71% <br> Non-HDL-C ↓ 49-58% <br> TC ↓ 36-42% | • Injection site swelling or rash <br> • Nasopharyngitis <br> • Limb pain <br> • Fatigue | **Absolute:** <br> • Hypersensitivity |
-| **Bile-Acid Sequestrants (Anion exchange resins)** | LDL-C ↓ 15-25% <br> HDL-C ↑ 3-5% <br> TG ↔ / ↑ | • GIT distress <br> • Constipation <br> • Reduce absorption of folic acid and fat-soluble vitamins (A, D & K) <br> • Decreased absorption of certain drugs*** | **Absolute:** <br> • Dysbetalipoproteinemia <br> • TG > 4.5 mmol/L <br> **Relative:** <br> • TG > 2.3 mmol/L |
-| **Nicotinic Acid (Niacin)** | LDL-C ↓ 10-25% <br> HDL-C ↑ 10-35% <br> TG ↓ 20-30% | • Flushing <br> • Hyperglycaemia <br> • Hyperuricemia (or gout) <br> • Upper-GIT distress <br> • Hepatotoxicity (rare but may be severe) | **Absolute:** <br> • Chronic-liver disease <br> • Severe gout <br> **Relative:** <br> • Diabetes (high doses only) <br> • Peptic Ulcer Disease |
-| **Cholesterol Absorption Inhibitors** | Primarily LDL-C ↓ 10-18% (monotherapy) <br> In combination with the following an additional: <br> (a) statins: ↓ 25% <br> (b) fenofibrate: ↓ 20-22% | • Headache <br> • Diarrhoea | **Absolute:** <br> • Abdominal pain Hypersensitivity <br> **Relative:** <br> • Active liver disease or unexplained persistent elevations in hepatic transaminase levels |
-| **Inclisiran** | LDL-C ↓ 50% | • Injection site reaction <br> • Arthralgia <br> • Urinary tract infection <br> • Headache | |
-| **Bempedoic Acid** | LDL-C ↓ 25-30% (monotherapy) <br> In combination with <br> (a) statins: ↓ 20% <br> (b) ezetimibe: ↓ 40% | • Hyperuricemia | **Absolute:** <br> • Concurrent use with simvastatin >20mg and pravastatin >40mg <br> **Relative:** <br> • Tendon rupture |
+| HMG-CoA Reductase Inhibitors (Statins) | LDL-C ↓ 21-55% <br> HDL-C ↑ 2-10% <br> TG ↓ 6-30% | • Myopathy <br> • Increased liver enzymes | **Absolute:** <br> • Active or chronic liver disease <br> **Relative:** <br> • Concomitant use of certain drugs* |
+| Fibric-Acid Derivatives (Fibrates) | LDL-C ↓ 20-35% (fenofibrate) <br> HDL-C ↑ 6-18% <br> Primarily TG ↓ 20-35%+ | • Dyspepsia <br> • Cholelithiasis <br> • Myopathy | **Absolute:** <br> • Severe hepatic disease <br> • Severe kidney disease <br> **Relative:** <br> • Concomitant use of certain drugs** |
+| PCSK9 inhibitors | LDL-C ↓ 48-71% <br> Non-HDL-C ↓ 49-58% <br> TC ↓ 36-42% | • Injection site swelling or rash <br> • Nasopharyngitis <br> • Limb pain <br> • Fatigue | **Absolute:** <br> • Hypersensitivity |
+| Bile-Acid Sequestrants (Anion exchange resins) | LDL-C ↓ 15-25% <br> HDL-C ↑ 3-5% <br> TG ↔ / ↑ | • GIT distress <br> • Constipation <br> • Reduce absorption of folic acid and fat-soluble vitamins (A, D & K) <br> • Decreased absorption of certain drugs*** | **Absolute:** <br> • Dysbetalipoproteinemia <br> • TG > 4.5 mmol/L <br> **Relative:** <br> • TG > 2.3 mmol/L |
+| Nicotinic Acid (Niacin) | LDL-C ↓ 10-25% <br> HDL-C ↑ 10-35% <br> TG ↓ 20-30% | • Flushing <br> • Hyperglycaemia <br> • Hyperuricemia (or gout) <br> • Upper-GIT distress <br> • Hepatotoxicity (rare but may be severe) | **Absolute:** <br> • Chronic-liver disease <br> • Severe gout <br> **Relative:** <br> • Diabetes (high doses only) <br> • Peptic Ulcer Disease |
+| Cholesterol Absorption Inhibitors | Primarily LDL-C ↓ 10-18% (monotherapy) <br> In combination with the following an additional: <br> (a) statins: ↓ 25% <br> (b) fenofibrate: ↓ 20-22% | • Headache <br> • Diarrhoea | **Absolute:** <br> • Abdominal pain Hypersensitivity <br> **Relative:** <br> • Active liver disease or unexplained persistent elevations in hepatic transaminase levels |
+| Inclisiran | LDL-C ↓ 50% | • Injection site reaction <br> • Arthralgia <br> • Urinary tract infection <br> • Headache | |
+| Bempedoic Acid | LDL-C ↓ 25-30% (monotherapy) <br> In combination with <br> (a) statins: ↓ 20% <br> (b) ezetimibe: ↓ 40% | • Hyperuricemia | **Absolute:** <br> • Concurrent use with simvastatin >20mg and pravastatin >40mg <br> **Relative:** <br> • Tendon rupture |
 
 #Adapted from American Association of Clinical Endocrinologists 2017 <br>
 *cyclosporin, macrolide antibiotics, antifungal agents, protease inhibitors and cytochrome P-450 inhibitors (fibrates and nicotinic acid should be used with appropriate caution) <br>
@@ -199,16 +199,16 @@ Table 5: Recommendations For Therapeutic Lifestyle Changes
 
 | Nutrition / Intervention | Comments | Grades of Recommendation / Level of Evidence |
 |---|---|---|
-| **Saturated Fat** | <10% of total calories. SFA should be replaced by PUFA. | I, B |
-| **Trans Fat** | <1% of total calories. | I, A |
-| **Dietary Sodium** | A diet containing reduced amounts of sodium (<2000mg daily equivalent to 5 gm of salt = 1 level teaspoon) can be beneficial to decrease CVD risk. | IIa, B |
-| **Carbohydrates (CHO)** | Reduced intake of carbohydrates with emphasis on whole grains such as brown rice and to reduce intake of refined carbohydrates and sweetened beverages. In the presence of high TG and low HDL-C, (atherogenic dyslipidemia) carbohydrate intake should be lower. | I, B |
-| **Protein** | Emphasis on plant-based protein such as tofu, legumes, beans. A diet emphasizing the intake of legumes, nuts, and fish is recommended to decrease CVD risk factors. | I, B |
-| **Dietary Fibre** | Incorporate fibre-rich foods that contribute at least 20 to 30 g of fibre per day. Emphasis should be on soluble fibre sources (7 to 13 g) such as fruits, vegetables, whole grains, high-fibre cereals, oatmeal, legumes, and beans. | I, B |
-| **Weight Reduction** | Achieve BMI <23 kg/m² or at least a 5-10% reduction in body weight. Maintain waist circumference at: <90 cm for men, <80 cm for women. | I, B |
-| **Exercise** | 150-300 minutes a week of moderate-intensity or 75-150 minutes a week of vigorous-intensity aerobic physical activity, or an equivalent combination. | I, A |
-| **Smoking** | Smoking should be discouraged and individuals referred to smoking cessation programme. | I, B |
-| **Alcohol** | Advise abstinence whenever possible. If necessary, limit to 1 drink/day (10gm/day) in females and 2 drinks/day (20 gm/day) in males. | I, B |
+| Saturated Fat | <10% of total calories. SFA should be replaced by PUFA. | I, B |
+| Trans Fat | <1% of total calories. | I, A |
+| Dietary Sodium | A diet containing reduced amounts of sodium (<2000mg daily equivalent to 5 gm of salt = 1 level teaspoon) can be beneficial to decrease CVD risk. | IIa, B |
+| Carbohydrates (CHO) | Reduced intake of carbohydrates with emphasis on whole grains such as brown rice and to reduce intake of refined carbohydrates and sweetened beverages. In the presence of high TG and low HDL-C, (atherogenic dyslipidemia) carbohydrate intake should be lower. | I, B |
+| Protein | Emphasis on plant-based protein such as tofu, legumes, beans. A diet emphasizing the intake of legumes, nuts, and fish is recommended to decrease CVD risk factors. | I, B |
+| Dietary Fibre | Incorporate fibre-rich foods that contribute at least 20 to 30 g of fibre per day. Emphasis should be on soluble fibre sources (7 to 13 g) such as fruits, vegetables, whole grains, high-fibre cereals, oatmeal, legumes, and beans. | I, B |
+| Weight Reduction | Achieve BMI <23 kg/m² or at least a 5-10% reduction in body weight. Maintain waist circumference at: <90 cm for men, <80 cm for women. | I, B |
+| Exercise | 150-300 minutes a week of moderate-intensity or 75-150 minutes a week of vigorous-intensity aerobic physical activity, or an equivalent combination. | I, A |
+| Smoking | Smoking should be discouraged and individuals referred to smoking cessation programme. | I, B |
+| Alcohol | Advise abstinence whenever possible. If necessary, limit to 1 drink/day (10gm/day) in females and 2 drinks/day (20 gm/day) in males. | I, B |
 
 ## Abbreviations Used In This Section
 | Abbreviation | Description |

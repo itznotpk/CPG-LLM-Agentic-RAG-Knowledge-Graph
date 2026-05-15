@@ -23,9 +23,9 @@ The following Table 6: Examples Of Cancer-Related Pain In Children shows example
 Table 6: Examples Of Cancer-Related Pain In Children
 | Category | Examples |
 |---|---|
-| **Tumour-related pain** | • before or at diagnosis\n• during initial treatment\n• when tumour is resistant to treatment\n• at disease recurrence |
-| **Procedural related pain** | **a. diagnostic procedures**\n• venepuncture\n• lumbar puncture\n• bone marrow aspirate and biopsy\n• tissue biopsy\n**b. Procedures**\n• central venous line insertion\n• pleural or peritoneal drainage\n• external ventricular drainage\n• ventricular-peritoneal shunt\n• surgeries\n• wound dressing/debridement |
-| **Treatment-related pain** | • mucositis (post-chemotherapy or radiotherapy)\n• acute pancreatitis (SE of chemotherapy e.g. asparaginase)\n• neutropenic enterocolitis\n• haemorrhagic cystitis (e.g. with cyclophosphamide, ifosfamide, radiotherapy)\n• intracranial haemorrhage (thrombocytopenia from bone marrow suppression)\n• peripheral neuropathic pain (e.g. with vincristine, cisplatin)\n• post-operative pain\n• phantom limb pain\n• procedural pain (on treatment protocol) |
+| Tumour-related pain | • before or at diagnosis\n• during initial treatment\n• when tumour is resistant to treatment\n• at disease recurrence |
+| Procedural related pain | **a. diagnostic procedures**\n• venepuncture\n• lumbar puncture\n• bone marrow aspirate and biopsy\n• tissue biopsy\n**b. Procedures**\n• central venous line insertion\n• pleural or peritoneal drainage\n• external ventricular drainage\n• ventricular-peritoneal shunt\n• surgeries\n• wound dressing/debridement |
+| Treatment-related pain | • mucositis (post-chemotherapy or radiotherapy)\n• acute pancreatitis (SE of chemotherapy e.g. asparaginase)\n• neutropenic enterocolitis\n• haemorrhagic cystitis (e.g. with cyclophosphamide, ifosfamide, radiotherapy)\n• intracranial haemorrhage (thrombocytopenia from bone marrow suppression)\n• peripheral neuropathic pain (e.g. with vincristine, cisplatin)\n• post-operative pain\n• phantom limb pain\n• procedural pain (on treatment protocol) |
 
 ## 8.1: Principles Of Pain Assessment
 Pain assessment in children can be quite different than adults. The following are principles to guide pain assessment in children using the acronym **A.B.C.D.E**:
@@ -34,11 +34,11 @@ Table 7: Abc Of Pain Assessment In Children
 
 | Letter | Principle |
 |---|---|
-| **A** | **A**sk the child and **A**ssess pain score |
-| **B** | Use **B**ehavioural and **B**iological measures |
-| **C** | Find the **C**ause |
-| **D** | **D**ecide and **D**eliver treatment in a timely manner |
-| **E** | **E**valuate outcome |
+| A | **A**sk the child and **A**ssess pain score |
+| B | Use **B**ehavioural and **B**iological measures |
+| C | Find the **C**ause |
+| D | **D**ecide and **D**eliver treatment in a timely manner |
+| E | **E**valuate outcome |
 
 Assessment and management of pain in children and infants are different from adults due to:
 * Communication: Children have limited verbal and cognitive abilities. Non-verbal cues and observation are essential approaches to assessment.
@@ -165,11 +165,11 @@ Table 4: Suggested Dose Conversion Ratio In The Direction Specified
 
 | FROM \ TO | Oral morphine mg/day | SC morphine mg/day | Oral oxycodone mg/day | SC oxycodone mg/day | TD fentanyl mcg/h |
 |---|:---:|:---:|:---:|:---:|:---:|
-| **Oral morphine mg/day** | - | 2 (D) | 1.5 (D) | 3 (D) | 3 (D) |
-| **SC morphine mg/day** | 2 (M) | - | 0.7 (D) | 1.5 (D) | 1.5 (D) |
-| **Oral oxycodone mg/day** | 1.5 (M) | 0.7 (M) | - | 2 (D) | 2 (D) |
-| **SC oxycodone mg/day** | 3 (M) | 1.5 (M) | 2 (M) | - | 1 (D) |
-| **TD fentanyl mcg/h** | 3 (M) | 1.5 (M) | 2 (M) | 1 (M) | - |
+| Oral morphine mg/day | - | 2 (D) | 1.5 (D) | 3 (D) | 3 (D) |
+| SC morphine mg/day | 2 (M) | - | 0.7 (D) | 1.5 (D) | 1.5 (D) |
+| Oral oxycodone mg/day | 1.5 (M) | 0.7 (M) | - | 2 (D) | 2 (D) |
+| SC oxycodone mg/day | 3 (M) | 1.5 (M) | 2 (M) | - | 1 (D) |
+| TD fentanyl mcg/h | 3 (M) | 1.5 (M) | 2 (M) | 1 (M) | - |
 
 *(M) = MULTIPLY | (D) = DIVIDE*
 
@@ -192,30 +192,30 @@ Table 4: Suggested Dose Conversion Ratio In The Direction Specified
 Appendix 5B: Suggested Medication Dosages In Paediatrics
 | Drug | Route | 1 month-2 years (Dose and frequency) | 2 - 12 years (Dose and frequency) | 12 - 18 years (Dose and frequency) |
 |---|---|---|---|---|
-| **Paracetamol** | Oral | **0-3 months:** 15 mg/kg 6-8H (Max: 60 mg/kg/day; if preterm 28-32 CGA, max 30 mg/kg/day)<br>**>3 months-12 years:** 15 mg/kg 4-6H (Max: 75 mg/kg/day or 4 g/day) | ^ | 500 mg - 1 g 4-6H (if non-obese ≥50 kg: 1 g 4-6H) (Max: 4 g/day) |
+| Paracetamol | Oral | **0-3 months:** 15 mg/kg 6-8H (Max: 60 mg/kg/day; if preterm 28-32 CGA, max 30 mg/kg/day)<br>**>3 months-12 years:** 15 mg/kg 4-6H (Max: 75 mg/kg/day or 4 g/day) | ^ | 500 mg - 1 g 4-6H (if non-obese ≥50 kg: 1 g 4-6H) (Max: 4 g/day) |
 | | Per rectal | **0-3 months:** LD: 30 mg/kg; MD: 20 mg/kg 8H (Max: 60 mg/kg/day)<br>**>3 months-12 years:** LD: 40 mg/kg; MD: 15-20 mg/kg 6H (Max: 75 mg/kg/day) | ^ | |
 | | IV | **Preterm neonate over 32/52 CGA:** 7.5 mg/kg 8H (Max 25 mg/kg/day)<br>**Term neonate & until 10 kg:** 7.5 mg/kg 6-8H (Max: 30 mg/kg/day)<br>**>10 kg or child up to 50 kg:** 15 mg/kg 4-6H (Max: 60 mg/kg/day, not exceeding 2 g/day if <33 kg, or 3 g/day for 33-50 kg) | ^ | **If non-obese >50 kg:** 1 g 4-6H (Max: 4 g/day)<br>**Obese Children:** 15 mg/kg adjusted body weight (Max: 4 g/day) |
-| **Ibuprofen (NSAID)** | Oral | **<3 months:** not recommended<br>**>3 months:** 5 mg/kg 6-8H (Max: 20 mg/kg/day)<br>**6 months-12 years:** 5-10 mg/kg 6-8H (Max: 30-40 mg/kg/day or 1.2 g/day, whichever is less) | ^ | 200 mg - 400 mg 4-6H (Max: 2.4 g/day) |
-| **Diclofenac (NSAID)** | Oral | **<6 months:** not recommended<br>**>6 months or >10 kg:** 0.3-1 mg/kg 8H (Max: 3 mg/kg/day up to 150 mg/day, whichever is less for 2 days) | ^ | Oral 25-50 mg 8H (Max: 3 doses/day) |
+| Ibuprofen (NSAID) | Oral | **<3 months:** not recommended<br>**>3 months:** 5 mg/kg 6-8H (Max: 20 mg/kg/day)<br>**6 months-12 years:** 5-10 mg/kg 6-8H (Max: 30-40 mg/kg/day or 1.2 g/day, whichever is less) | ^ | 200 mg - 400 mg 4-6H (Max: 2.4 g/day) |
+| Diclofenac (NSAID) | Oral | **<6 months:** not recommended<br>**>6 months or >10 kg:** 0.3-1 mg/kg 8H (Max: 3 mg/kg/day up to 150 mg/day, whichever is less for 2 days) | ^ | Oral 25-50 mg 8H (Max: 3 doses/day) |
 | | Per rectal | **>1 year:** 1 mg/kg 8-12H (Max: 3 mg/kg/day up to 150 mg/day, whichever is less) | ^ | 50 mg - 100 mg (oral to be started 18H after initial 100 mg suppository) |
-| **Celecoxib (COX-2)** | Oral | **<2 years:** not recommended | **>2 years:** weigh risks and benefits<br>**10-25 kg:** 50 mg 12H<br>**>25 kg:** 100 mg 12H | |
-| **Parecoxib (COX-2)** | IV | **<2 years:** not recommended | **>2 years:** weigh risks and benefits. Single dose of 0.5-1 mg/kg (Max: 40 mg). | |
-| **Fentanyl (Opioid)** | IV | **Specialist use only:** Bolus 1-2 mcg/kg/dose. Infusion 0.5-2 ml/H (Max 4 ml/H) (0.2-0.8 mcg/kg/H). | ^ | ^ |
+| Celecoxib (COX-2) | Oral | **<2 years:** not recommended | **>2 years:** weigh risks and benefits<br>**10-25 kg:** 50 mg 12H<br>**>25 kg:** 100 mg 12H | |
+| Parecoxib (COX-2) | IV | **<2 years:** not recommended | **>2 years:** weigh risks and benefits. Single dose of 0.5-1 mg/kg (Max: 40 mg). | |
+| Fentanyl (Opioid) | IV | **Specialist use only:** Bolus 1-2 mcg/kg/dose. Infusion 0.5-2 ml/H (Max 4 ml/H) (0.2-0.8 mcg/kg/H). | ^ | ^ |
 | | PCA | (Restricted to Pain Service) Initial PCA dosing: 0.4 mcg/kg; Lockout 5-7 mins. | ^ | ^ |
-| **Tramadol (Opioid)** | Oral/IV | **>1 year:** 0.5-1 mg/kg 4-6H. **NB:** for tonsillectomy max 1 mg/kg/dose 6-8H. | ^ | **>12 years:** 1 mg/kg 4-6H (Max: 100 mg/dose or 400 mg/day) |
-| **Oxycodone (Opioid)** | Oral | **>1 month:** IR 0.1-0.2 mg/kg (Max 5 mg) PRN or 4-6H. | ^ | |
-| **Morphine (Opioid)** | Oral | **>1 month-1 year:** 0.1 mg/kg 4-6H (for moderate-severe pain). | ^ | **>12 years:** 0.1-0.3 mg/kg 4-6H (Max 10-15mg/dose, up to 6 times/24H) |
+| Tramadol (Opioid) | Oral/IV | **>1 year:** 0.5-1 mg/kg 4-6H. **NB:** for tonsillectomy max 1 mg/kg/dose 6-8H. | ^ | **>12 years:** 1 mg/kg 4-6H (Max: 100 mg/dose or 400 mg/day) |
+| Oxycodone (Opioid) | Oral | **>1 month:** IR 0.1-0.2 mg/kg (Max 5 mg) PRN or 4-6H. | ^ | |
+| Morphine (Opioid) | Oral | **>1 month-1 year:** 0.1 mg/kg 4-6H (for moderate-severe pain). | ^ | **>12 years:** 0.1-0.3 mg/kg 4-6H (Max 10-15mg/dose, up to 6 times/24H) |
 | | SC | 0.1-0.2 mg/kg. **<6 months:** up to 4 times/24H. **>6 months:** up to 6 times/24H. | 0.2 mg/kg (up to 6 times/24H) | **>12 years:** 5-10 mg (up to 6 times/24H) |
 | | IV | **Bolus:** 0.1 mg/kg (up to 4 times/24H). **Infusion:** Neonates 0.5-0.7 ml/H; 1-3 months 0.5-1 ml/H; >3 months 1-2 ml/H. | ^ | **Bolus:** 2.5-10 mg (up to 6 times/24H) |
 | | PCA | (Restricted to APS team) Initial PCA dosing: 10-20 mcg/kg; Bolus dose 10-20 mcg/kg. | ^ | ^ |
-| **Naloxone** | IV | 0.01 mg/kg IV (Max: 0.4 mg) may repeat every 2 minutes | ^ | |
-| **Adjuvants** | | | | |
+| Naloxone | IV | 0.01 mg/kg IV (Max: 0.4 mg) may repeat every 2 minutes | ^ | |
+| Adjuvants | | | | |
 | Ketamine | Oral | Oral: 2 - 10 mg/kg (sedation pre-medication) | ^ | |
 | | IV | **BOLUS for analgesia:** 0.2 - 0.5 mg/kg; **for sedation:** 1 - 1.5 mg/kg (use restricted to trained personnel only)<br>**INFUSION in an independent line:** (use restricted to trained personnel only)<br>**Preparation:** Dilute 5 mg/kg of ketamine (Max: 250 mg) in 50 ml normal saline. 1 ml of solution= 100 mcg/kg of ketamine<br>**Suggested rate:** 0.2 - 2 ml/H (Max: 4 ml/H) (20 - 400 mcg/kg/H) | ^ | |
 | Clonidine | Oral | **Analgesic adjunct:** 1 - 2 mcg/kg PRN or 8 H<br>**sedation premedication:** 2 - 4 mcg/kg<br>**NB:** antihypertensive - do not give if hypotensive | ^ | |
 | | IV | 1 - 2 mcg/kg PRN or 8H (**with caution**)<br>**NB:** antihypertensive - do not give if hypotensive | ^ | |
 | Gabapentin | Oral | Initial dose: 5 mg/kg ON, increase if required to 5 mg/kg 12H (Day 2), then 5 mg/kg 8H (Day 3) | ^ | |
-| **Local Anaesthetics** | | | | |
+| Local Anaesthetics | | | | |
 | Lignocaine | LA/RA | Max dose: 4 - 5mg/kg | ^ | |
 | Levobupivacaine/ Bupivacaine | LA/RA | Max dose: **Neonates - <6 months:** 1.5 - 2 mg/kg; **>6 months:** 2 - 2.5 mg/kg<br>**NB:** bupivacaine is particularly cardiotoxic | ^ | |
 | | Epidural | **Levobupivacaine 0.1% ± fentanyl infusion:** (restricted to APS team)<br>**Preparation:** Dilute 10 ml of levobupivacaine/bupivacaine 0.5% (i.e., 50 mg) in 50 ml normal saline + fentanyl (<1 months: Nil; 1 months - 1 year: fentanyl 1 mcg/ml; >1 year: fentanyl 2 mcg/ml)<br>**Suggested rate: Neonates:** levobupivacaine 0.1%: 0.1 - 0.2 ml/kg/H<br>**1 months - 1 year:** levobupivacaine 0.1% + fentanyl 1 mcg/ml: 0.2 - 0.4 ml/kg/H<br>**>1 year:** levobupivacaine 0.1% + fentanyl 2 mcg/ml: 0.2 - 0.4 ml/kg/H | ^ | |

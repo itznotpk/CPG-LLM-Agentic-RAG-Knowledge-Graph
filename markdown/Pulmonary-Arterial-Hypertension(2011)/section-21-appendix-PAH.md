@@ -227,15 +227,15 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 ## Appendix 11: Strength Of Recommendation As Outlined By The Dana Point Guidelines
 | Variables | Description |
 |---|---|
-| **A** | Strong recommendation |
-| **B** | Moderate recommendation |
-| **C** | Weak recommendation |
-| **D** | Negative recommendation |
-| **I** | No recommendation possible (inconclusive) |
-| **E/A** | Strong recommendation on the basis of expert opinion only |
-| **E/B** | Moderate recommendation on the basis of expert opinion only |
-| **E/C** | Weak recommendation on the basis of expert opinion only |
-| **E/D** | Negative recommendation on the basis of expert opinion only |
+| A | Strong recommendation |
+| B | Moderate recommendation |
+| C | Weak recommendation |
+| D | Negative recommendation |
+| I | No recommendation possible (inconclusive) |
+| E/A | Strong recommendation on the basis of expert opinion only |
+| E/B | Moderate recommendation on the basis of expert opinion only |
+| E/C | Weak recommendation on the basis of expert opinion only |
+| E/D | Negative recommendation on the basis of expert opinion only |
 
 ---
 
@@ -276,12 +276,12 @@ WHO Class I–IV → Amlodipine, diltiazem, nifedipine **(B)**
 
 | Strength of Recommendation (Appendix 11) | WHO Class II | WHO Class III | WHO Class IV |
 |---|---|---|---|
-| **A** | Bosentan, ambrisentan, sildenafil | Bosentan, ambrisentan, epoprostenol IV, iloprost inh, sildenafil | Epoprostenol IV |
-| **B** | Sitaxsentan, tadalafil | Sitaxsentan, tadalafil, treprostinil SC | Iloprost inh |
-| **C** | — | Beraprost | Treprostinil SC |
-| **E/B** | — | Iloprost IV, treprostinil IV | Iloprost IV, treprostinil IV, initial combination therapy (see below) |
-| **E/C** | — | — | Bosentan, ambrisentan, sildenafil, sitaxsentan, tadalafil |
-| **Not approved** | — | Treprostinil inh+ | Treprostinil inh+ |
+| A | Bosentan, ambrisentan, sildenafil | Bosentan, ambrisentan, epoprostenol IV, iloprost inh, sildenafil | Epoprostenol IV |
+| B | Sitaxsentan, tadalafil | Sitaxsentan, tadalafil, treprostinil SC | Iloprost inh |
+| C | — | Beraprost | Treprostinil SC |
+| E/B | — | Iloprost IV, treprostinil IV | Iloprost IV, treprostinil IV, initial combination therapy (see below) |
+| E/C | — | — | Bosentan, ambrisentan, sildenafil, sitaxsentan, tadalafil |
+| Not approved | — | Treprostinil inh+ | Treprostinil inh+ |
 
 ↓ **INADEQUATE CLINICAL RESPONSE**
 
@@ -322,49 +322,49 @@ Table 2: WHO Classification Of Functional Status In Patients With Pht (From Sect
 
 | Class | Definition |
 |---|---|
-| **Class I** | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class II** | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class III** | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
+| Class I | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class II | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class III | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class IV | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **6MWD** | Six-Minute Walk Distance |
-| **APAH** | Associated Pulmonary Arterial Hypertension |
-| **AUS** | Australia |
-| **bd** | Twice-Daily |
-| **BSC** | Best Supportive Care |
-| **CHD** | Congenital Heart Disease |
-| **CI** | Confidence Interval |
-| **CTD** | Connective Tissue Disease |
-| **CTEPH** | Chronic Thromboembolic Pulmonary Hypertension |
-| **ERA** | Endothelin Receptor Antagonist |
-| **EUR** | Europe |
-| **FC** | Functional Class |
-| **HIV** | Human Immunodeficiency Virus |
-| **HPAH** | Heritable Pulmonary Arterial Hypertension |
-| **inh** | Inhaled |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **IV** | Intravenous |
-| **LFT** | Liver Function Test |
-| **mPAP** | Mean Pulmonary Artery Pressure |
-| **mRAP** | Mean Right Atrial Pressure |
-| **NIH** | National Institutes of Health |
-| **nr** | Not Reported |
-| **ns** | Not Significant |
-| **NYHA** | New York Heart Association |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PASP** | Pulmonary Artery Systolic Pressure |
-| **PDE-5** | Phosphodiesterase Type 5 |
-| **PVR** | Pulmonary Vascular Resistance |
-| **RCT** | Randomised Controlled Trial |
-| **SC** | Subcutaneous |
-| **SSc** | Scleroderma |
-| **tds** | Three-Times Daily |
-| **ULN** | Upper Limit of Normal |
-| **UK** | United Kingdom |
-| **US** | United States |
-| **WHO** | World Health Organisation |
+| 6MWD | Six-Minute Walk Distance |
+| APAH | Associated Pulmonary Arterial Hypertension |
+| AUS | Australia |
+| bd | Twice-Daily |
+| BSC | Best Supportive Care |
+| CHD | Congenital Heart Disease |
+| CI | Confidence Interval |
+| CTD | Connective Tissue Disease |
+| CTEPH | Chronic Thromboembolic Pulmonary Hypertension |
+| ERA | Endothelin Receptor Antagonist |
+| EUR | Europe |
+| FC | Functional Class |
+| HIV | Human Immunodeficiency Virus |
+| HPAH | Heritable Pulmonary Arterial Hypertension |
+| inh | Inhaled |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| IV | Intravenous |
+| LFT | Liver Function Test |
+| mPAP | Mean Pulmonary Artery Pressure |
+| mRAP | Mean Right Atrial Pressure |
+| NIH | National Institutes of Health |
+| nr | Not Reported |
+| ns | Not Significant |
+| NYHA | New York Heart Association |
+| PAH | Pulmonary Arterial Hypertension |
+| PASP | Pulmonary Artery Systolic Pressure |
+| PDE-5 | Phosphodiesterase Type 5 |
+| PVR | Pulmonary Vascular Resistance |
+| RCT | Randomised Controlled Trial |
+| SC | Subcutaneous |
+| SSc | Scleroderma |
+| tds | Three-Times Daily |
+| ULN | Upper Limit of Normal |
+| UK | United Kingdom |
+| US | United States |
+| WHO | World Health Organisation |
 
 <!-- END OVERLAP CONTENT -->

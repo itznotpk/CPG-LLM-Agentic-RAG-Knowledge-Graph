@@ -244,17 +244,17 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 <br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 

@@ -60,7 +60,7 @@ Table 1-A: Classification Of Clinic Blood Pressure Levels In Adults
 | Optimal | <120 | and | <80 | 30.7 |
 | Normal | 120-129 | and/or | 80-84 | 25.3 |
 | At Risk | 130-139 | and/or | 85-89 | 18.6 |
-| **Hypertension** | | | | |
+| Hypertension | | | | |
 | Stage 1 (Mild) | 140-159 | and/or | 90-99 | 17.3 |
 | Stage 2 (Moderate) | 160-179 | and/or | 100-109 | 5.7 |
 | Stage 3 (Severe) | ≥180 | and/or | ≥110 | 2.4 |

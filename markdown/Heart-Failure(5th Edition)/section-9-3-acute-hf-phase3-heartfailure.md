@@ -162,7 +162,7 @@ At the Follow up visit:
 ## Appendix II: Salt Content Of Common Malaysian Foods
 | Food Item | Serving Size | Sodium (mg) |
 |---|---|---|
-| **CEREAL & CEREAL PRODUCTS** | | |
+| CEREAL & CEREAL PRODUCTS | | |
 | Nasi lemak | 1 plate (230g) | 500 |
 | Nasi goreng | 1 plate (330g) | 1200 |
 | Mee goreng | 1 plate (300g) | 1300 |
@@ -170,14 +170,14 @@ At the Follow up visit:
 | Instant noodles | 1 pack (80g) | 1200-1500 |
 | Plain white bread | 2 slices (60g) | 300 |
 | Roti canai | 1 piece (95g) | 400 |
-| **PROTEIN SOURCES** | | |
+| PROTEIN SOURCES | | |
 | Fried chicken | 1 piece (120g) | 500 |
 | Curry chicken | 1 bowl (150g) | 600 |
 | Beef rendang | 1 bowl (100g) | 500 |
 | Salted fish | 1 piece (40g) | 1500 |
 | Salted egg | 1 egg (50g) | 800 |
 | Canned sardines in tomato sauce | 1 small can (155g) | 700 |
-| **OTHERS** | | |
+| OTHERS | | |
 | Anchovies (ikan bilis) | 1 small bowl (30g) | 800 |
 | Belacan | 1 tsp (5g) | 400 |
 | Soy sauce | 1 tbsp (15ml) | 800-1000 |
@@ -191,13 +191,13 @@ At the Follow up visit:
 ## Appendix III: Discharge Care Plan
 | Item | Recommendation |
 |---|---|
-| **Weight monitoring** | Weigh daily, at same time, same clothes. Report weight gain of > 2kg in 2 days. |
-| **Fluid intake** | Limit to 1.5 - 2.0 Liters per day (if indicated). |
-| **Salt intake** | < 2g (1 tsp) of salt per day. Avoid processed foods, canned foods, and sauces. |
-| **Medication adherence** | Take all medications as prescribed. Do not stop without consulting a doctor. |
-| **Activity/Exercise** | Regular low-intensity walking as tolerated. Stop if short of breath, dizzy, or chest pain. |
-| **Symptom monitoring** | Report worsening shortness of breath, leg swelling, or increased fatigue. |
-| **Follow-up** | Early follow-up within 1-2 weeks of discharge. |
+| Weight monitoring | Weigh daily, at same time, same clothes. Report weight gain of > 2kg in 2 days. |
+| Fluid intake | Limit to 1.5 - 2.0 Liters per day (if indicated). |
+| Salt intake | < 2g (1 tsp) of salt per day. Avoid processed foods, canned foods, and sauces. |
+| Medication adherence | Take all medications as prescribed. Do not stop without consulting a doctor. |
+| Activity/Exercise | Regular low-intensity walking as tolerated. Stop if short of breath, dizzy, or chest pain. |
+| Symptom monitoring | Report worsening shortness of breath, leg swelling, or increased fatigue. |
+| Follow-up | Early follow-up within 1-2 weeks of discharge. |
 
 ## Appendix IV: Discharge Care Summary
 *This summary should be provided to the patient and the follow-up physician.*

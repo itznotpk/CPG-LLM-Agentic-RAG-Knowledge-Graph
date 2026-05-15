@@ -40,21 +40,21 @@ These should include:
 - However, in patients with high bleeding risks, a shorter period of DAPT of 3 to 6 months may be considered.
 
 ### B. Lipid Modifying Therapy
-- **[Grade I, Level A]** There is a large body of evidence that early initiation of high dose statin therapy improves outcome regardless of baseline LDL-C levels in patient with ACS.
-- **[Grade I, Level A]** More aggressive lipid lowering further lowers cardiovascular event rates.
+- [Grade I, Level A] There is a large body of evidence that early initiation of high dose statin therapy improves outcome regardless of baseline LDL-C levels in patient with ACS.
+- [Grade I, Level A] More aggressive lipid lowering further lowers cardiovascular event rates.
 - If target LDL-C levels are not attained on maximally tolerated statin therapy and especially if it still remains > 2.6 mmol/l, consider the addition of ezetimibe and/or PCSK-9 inhibitors.
 
 ### C. In The Presence Of Lvef < 40% And /Or Heart Failure
 These should include:
-- **[Grade I, Level A]** beta-blockers
-- **[Grade I, Level A]** Renin Angiotensin Blockers (ACEIs/ARBs)
-- **[Grade I, Level A]** Aldosterone Receptor Antagonists - spironolactone, eplerenone
-- **[Grade IIa, Level B]** Ivabradine - may be considered in patients on optimal medical therapy with diuretics, ACE-I, MRA and beta-blockers, and:
+- [Grade I, Level A] beta-blockers
+- [Grade I, Level A] Renin Angiotensin Blockers (ACEIs/ARBs)
+- [Grade I, Level A] Aldosterone Receptor Antagonists - spironolactone, eplerenone
+- [Grade IIa, Level B] Ivabradine - may be considered in patients on optimal medical therapy with diuretics, ACE-I, MRA and beta-blockers, and:
   - Still symptomatic (NYHA class II-III), and
   - Having a LVEF ≤ 35%, and
   - Having a resting heart rate of ≥ 70 beats/min.
-- **[Grade I, Level A]** Sodium-glucose co-transporter-2 (SGLT2) inhibitors - these agents have been shown to reduce cardiovascular events in both diabetic and non-diabetic patients. In the large trials, they have been instituted when the patient is stable.
-- **[Grade IIa, Level A]** Angiotensin Receptor-Neprilysin Inhibitor (ARNi) has been shown to cause a greater reduction in NT-Pro BNP levels than ACEI in patients with acute decompensated heart failure. However when instituted early in patients post ACS (STEMI and NSTE-ACS), it did not outperform ACEI in cardiovascular event reduction.
+- [Grade I, Level A] Sodium-glucose co-transporter-2 (SGLT2) inhibitors - these agents have been shown to reduce cardiovascular events in both diabetic and non-diabetic patients. In the large trials, they have been instituted when the patient is stable.
+- [Grade IIa, Level A] Angiotensin Receptor-Neprilysin Inhibitor (ARNi) has been shown to cause a greater reduction in NT-Pro BNP levels than ACEI in patients with acute decompensated heart failure. However when instituted early in patients post ACS (STEMI and NSTE-ACS), it did not outperform ACEI in cardiovascular event reduction.
 
 ### D. In The Presence Of Angina and/or Myocardial Ischemia
 Anti-ischaemic therapy includes:
@@ -63,7 +63,7 @@ Anti-ischaemic therapy includes:
 - Ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
 
 ### E. Other Co-Existing Clinical Conditions:
-- **[Grade IIa, Level B]** Atrial Fibrillation
+- [Grade IIa, Level B] Atrial Fibrillation
 
 In NSTE-ACS patients with AF who had undergone PCI, the use of DOAC with antiplatelet therapy is associated with a lower risk of bleeding than the standard triple therapy (DAPT + warfarin).
 
@@ -71,15 +71,15 @@ The following **regimens** may be considered:
 
 **1. Warfarin + DAPT**
 
-- **[Grade IIa, Level B]** Target INR in the lower part of the recommended target range (INR: 2).
+- [Grade IIa, Level B] Target INR in the lower part of the recommended target range (INR: 2).
 - The use of ticagrelor or prasugrel is not recommended as part of triple antithrombotic therapy with aspirin and OAC.
 
 **2. DOAC + DAPT**
 
-- **[Grade IIa, Level B]** Dabigatran 110 or 150mg twice daily + aspirin <100mg daily + clopidogrel 75mg once daily for one to six months depending on bleeding risks followed by antiplatelet monotherapy and dabigatran 110 or 150mg twice daily. **or**
-- **[Grade IIa, Level B]** Rivaroxaban 15mg once daily (10mg if CrCl 30-50ml/min) + aspirin + clopidogrel 75mg once daily for one to six months depending on bleeding risks followed by antiplatelet monotherapy and rivaroxaban 15mg once daily. **or**
-- **[Grade IIa, Level B]** Rivaroxaban 2.5mg twice daily and aspirin 75-100mg once daily and clopidogrel 75mg once daily for one to 12 months. The duration of DAPT with this combination will depend on the risk of stent thrombosis versus bleeding risk.
-- **[Grade IIa, Level B]** Apixaban 5mg bid and clopidogrel 75mg once daily for 6 months resulted in less bleeding and fewer hospitalizations without significant differences in the incidence of ischemic events when compared to regimens that included warfarin, aspirin, or both.
+- [Grade IIa, Level B] Dabigatran 110 or 150mg twice daily + aspirin <100mg daily + clopidogrel 75mg once daily for one to six months depending on bleeding risks followed by antiplatelet monotherapy and dabigatran 110 or 150mg twice daily. **or**
+- [Grade IIa, Level B] Rivaroxaban 15mg once daily (10mg if CrCl 30-50ml/min) + aspirin + clopidogrel 75mg once daily for one to six months depending on bleeding risks followed by antiplatelet monotherapy and rivaroxaban 15mg once daily. **or**
+- [Grade IIa, Level B] Rivaroxaban 2.5mg twice daily and aspirin 75-100mg once daily and clopidogrel 75mg once daily for one to 12 months. The duration of DAPT with this combination will depend on the risk of stent thrombosis versus bleeding risk.
+- [Grade IIa, Level B] Apixaban 5mg bid and clopidogrel 75mg once daily for 6 months resulted in less bleeding and fewer hospitalizations without significant differences in the incidence of ischemic events when compared to regimens that included warfarin, aspirin, or both.
 - Diabetes and/or proteinuria and/or CKD
   - Renin Angiotensin Blockers (ACEIs/ARBs)
 - Hypertension
@@ -87,7 +87,7 @@ The following **regimens** may be considered:
   - Renin Angiotensin Blockers,
   - Calcium channel blockers
 
-**[Grade IIb, Level B]** Evidence supporting the routine use of beta-blockers and ACEI/ARB > 1-year post NSTE-ACS for the treatment of stable CAD only is less well established.
+[Grade IIb, Level B] Evidence supporting the routine use of beta-blockers and ACEI/ARB > 1-year post NSTE-ACS for the treatment of stable CAD only is less well established.
 
 ## 9.2: Investigations During Follow Up (Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*)
 In the outpatient evaluation of low risk NSTE-ACS patients, the following investigations maybe considered:
@@ -117,7 +117,7 @@ Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NS
 
 | Intervention | Grade of Recommendation | Level of Evidence | Comments |
 | :--- | :---: | :---: | :--- |
-| **Concomitant Pharmacotherapy** | | | |
+| Concomitant Pharmacotherapy | | | |
 | Aspirin | I | A | Maintenance dose: 75-150 mg daily. |
 | + Clopidogrel<br>**OR** | I | A | Maintenance dose 75 mg daily to be given as part of DAPT for at least 1 year. |
 | + Ticagrelor<br>**OR** | I | B | Maintenance dose 90 mg twice daily to be given as part of DAPT for at least 1 year. |
@@ -187,17 +187,17 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 <br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 

@@ -64,8 +64,8 @@ For local setting, breast cancer screening is based on the risk of developing ca
 
 | Risk Level | Description |
 |---|---|
-| **General population** | Women with no personal history of breast cancer and no strong family history |
-| **High risk** | BRCA mutation carriers; first-degree relatives of BRCA carriers (untested); history of chest irradiation at young age; personal history of breast cancer; strong family history of breast or ovarian cancer |
+| General population | Women with no personal history of breast cancer and no strong family history |
+| High risk | BRCA mutation carriers; first-degree relatives of BRCA carriers (untested); history of chest irradiation at young age; personal history of breast cancer; strong family history of breast or ovarian cancer |
 
 > [!IMPORTANT]
 > **Recommendation 1**
@@ -79,12 +79,12 @@ Table 7. Summary Of Recommendations On Screening For Women With No Personal Hist
 
 | Age (years) | Average risk of breast cancer¹ | Moderate risk of breast cancer² | High risk of breast cancer (≥30% or lower probability of being a BRCA or TP53 carrier)³ | Known BRCA1 or BRCA2 carrier |
 |---|---|---|---|---|
-| **20–29** | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI |
-| **30–39** | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI | Consider annual mammography; Do not offer MRI | Annual MRI and consider annual mammography |
-| **40–49** | Do not offer mammography; Do not offer MRI | Annual mammography; Do not offer MRI | Annual mammography; Do not offer MRI | Annual mammography and annual MRI |
-| **50–59** | Mammography as part of population screening; Do not offer MRI | Consider annual mammography; Do not offer MRI | Annual mammography; Do not offer MRI | Annual mammography; Do not offer MRI unless dense breast |
-| **60–69** | Mammography as part of population screening; Do not offer MRI | Mammography as part of population screening; Do not offer MRI | Mammography as part of population screening; Do not offer MRI | Annual mammography; Do not offer MRI unless dense breast |
-| **70+** | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening |
+| 20–29 | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI |
+| 30–39 | Do not offer mammography; Do not offer MRI | Do not offer mammography; Do not offer MRI | Consider annual mammography; Do not offer MRI | Annual MRI and consider annual mammography |
+| 40–49 | Do not offer mammography; Do not offer MRI | Annual mammography; Do not offer MRI | Annual mammography; Do not offer MRI | Annual mammography and annual MRI |
+| 50–59 | Mammography as part of population screening; Do not offer MRI | Consider annual mammography; Do not offer MRI | Annual mammography; Do not offer MRI | Annual mammography; Do not offer MRI unless dense breast |
+| 60–69 | Mammography as part of population screening; Do not offer MRI | Mammography as part of population screening; Do not offer MRI | Mammography as part of population screening; Do not offer MRI | Annual mammography; Do not offer MRI unless dense breast |
+| 70+ | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening |
 
 ¹ Lifetime risk of developing breast cancer is <17%.
 ² Lifetime risk of developing breast cancer is at least 17% but <30%. This is likely to include individuals with pathogenic/likely pathogenic variants in PALB2 regardless of family history of breast cancer and, individuals with pathogenic/likely pathogenic variants in ATM and CHEK2 and at least one first-degree relative affected by breast cancer.

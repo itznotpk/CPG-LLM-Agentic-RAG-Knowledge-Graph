@@ -53,8 +53,8 @@ Table 8.3: Antimicrobial Prophylaxis For Invasive Dental Procedures
 
 | Situation | Antimicrobial | Adults | Children | Reference |
 |---|---|---|---|---|
-| **No allergy to penicillin or ampicillin** | Amoxicillin or ampicillin | 2 g orally or IV | 50 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
-| **Allergic to penicillin or ampicillin** | Clindamycin | 600 mg orally or IV | 20 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
+| No allergy to penicillin or ampicillin | Amoxicillin or ampicillin | 2 g orally or IV | 50 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
+| Allergic to penicillin or ampicillin | Clindamycin | 600 mg orally or IV | 20 mg/kg orally or IV | ESC 2015<br>AHA 2007 |
 
 - Alternatively, cephalexin 2 g IV for adults or 50 mg/kg IV for children, cefazolin or ceftriaxone 1 g IV for adults or 50 mg/kg IV for children.
 - Cephalosporins should not be used in patients with anaphylaxis, angioedema or urticaria after intake of penicillin or ampicillin due to cross-sensitivity.

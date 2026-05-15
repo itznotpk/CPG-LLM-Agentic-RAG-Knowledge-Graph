@@ -27,9 +27,9 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 ### Recommendation Of Treatment According To Cha2ds2-Vasc Score:
 | Male Score | Recommendation | Female Score | Recommendation |
 | :---: | --- | :---: | --- |
-| **≥2** | OAC | **≥3** | OAC |
-| **1** | Consider OAC | **2** | Consider OAC |
-| **0** | No treatment | **0-1** | No treatment |
+| ≥2 | OAC | **≥3** | OAC |
+| 1 | Consider OAC | **2** | Consider OAC |
+| 0 | No treatment | **0-1** | No treatment |
 
 ## 13.3: Secondary Stroke Prevention In Atrial Fibrillation Patients
 [Level I, Grade A] **Recommendation:** After a cardioembolic stroke, parenteral anticoagulant therapy (heparin or low molecular weight heparin) is not recommended to prevent secondary stroke.
@@ -39,10 +39,10 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 ### 1-3-6-12 Day Rule
 | Type of stroke | NIHSS score | Day to start OAC |
 | :---: | :---: | :---: |
-| **TIA** | | 1 |
-| **Mild** | <8 | 3 |
-| **Moderate** | 8-15 | 6 |
-| **Severe** | ≥16 | 12 |
+| TIA | | 1 |
+| Mild | <8 | 3 |
+| Moderate | 8-15 | 6 |
+| Severe | ≥16 | 12 |
 
 [New recommendation, Level I, Grade A] **Recommendation:** DOACs are preferred as compared to VKA or Aspirin in AF patients with a previous stroke.
 
@@ -77,12 +77,12 @@ Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
-| **Stroke Prevention** | | | |
+| Stroke Prevention | | | |
 | Antiplatelet monotherapy | Antiplatelet monotherapy is not indicated for stroke prevention in non-valvular atrial fibrillation (NVAF) patients. | I | A |
 | Oral anticoagulant (OAC) | OAC has been proven to be superior to no treatment or Aspirin in patients with NVAF. | I | A |
 | Oral anticoagulant (OAC) | OAC to prevent cardioembolic stroke is recommended for all NVAF male patients with CHA2DS2-VASc score of 2 or more and female patients with a CHA2DS2-VASc score of 3 or more.<br>*New recommendation* | I | A |
 | Oral anticoagulant (OAC) | The choice of OAC for valvular AF (moderate-to-severe mitral stenosis) and mechanical heart valves patients is Vitamin K Antagonist (Warfarin). | I | A |
-| **Secondary Stroke Prevention** | | | |
+| Secondary Stroke Prevention | | | |
 | Parenteral anticoagulant (heparin or low molecular weight heparin) | After a cardioembolic stroke, parenteral anticoagulant therapy (heparin or low molecular weight heparin) is not recommended to prevent secondary stroke. | I | A |
 | DOACs | For secondary stroke prevention in an AF patient, the initiation of DOACs is recommended after excluding haemorrhagic transformation<br>*New recommendation* | II | B |
 | DOACs | DOACs are preferred over VKA and Aspirin in AF patients with a previous stroke.<br>*New recommendation* | I | A |
@@ -103,20 +103,20 @@ Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 ### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
-| **I** | Evidence obtained from at least one properly randomized controlled trial |
-| **II-1** | Evidence obtained from well-designed controlled trials without randomization |
-| **II-2** | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
-| **II-3** | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
-| **III** | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
+| I | Evidence obtained from at least one properly randomized controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomization |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
+| II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 ### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
-| **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
-| **B** | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
-| **C** | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
+| A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
+| B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
+| C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 

@@ -89,7 +89,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 #### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 30 - 40 | IV | 1 hour | 1 |
 
 *N.B. In practice, 50 mg total dose per week of cisplatin could be used*
@@ -99,27 +99,27 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 #### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 
 #### Cisplatin-5fu
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 - 75 | IV | 1 hour | 1 |
 | 5Fluorouracil | 750 - 1000 | IV | 24 hour | 1 - 5 |
 
 #### Cisplatin-Mtx
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 | Methotrexate | 100 | IV | Bolus | 1 - 5 |
 
 #### Paclitaxel-Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Paclitaxel | 175 | IV | 1 hour | 1 |
 | Cisplatin | 75 | IV | Bolus | 1 - 5 |
 

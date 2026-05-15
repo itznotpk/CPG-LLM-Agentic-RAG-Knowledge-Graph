@@ -65,11 +65,11 @@ Table 10: Prevalence Of HFrEF, HFpEF And HFmrEF In Registries
 
 | | ESCHF-LT HF | GWTG-HF | Swedish Registry | ASIAN HF | MYHF |
 |---|---|---|---|---|---|
-| **Source of Data** | Prospective Observational study of Outpatients and hospitalized patients April 2011 to Jan 2015 | Prospective Observational study of hospitalized between Jan 2005 and Sept 2013 | Prospective Observational study of Outpatients and hospitalized patients between 2000 - 2018 | Prospective longitudinal study of outpatient (at least 1 episode of decompensated HF in the previous 6 months) and hospitalized patients 1st Oct 2012- 31st Oct 2016 | Prospective observational study on hospitalized patients from Aug 2019 - Dec 2020 |
-| **No** | 16,354 | 99,825 | 75,518 | 6,480 | 2,673 |
-| **HFrEF** | 59.8% | 49.0% | 52.5% | 81.0% | 64.6% |
-| **HFmrEF** | 24.2% | 12.8% | 23.5% | NA | 11.3% |
-| **HFpEF** | 16.0% | 38.1% | 24.1% | 19.0% | 21.6% |
+| Source of Data | Prospective Observational study of Outpatients and hospitalized patients April 2011 to Jan 2015 | Prospective Observational study of hospitalized between Jan 2005 and Sept 2013 | Prospective Observational study of Outpatients and hospitalized patients between 2000 - 2018 | Prospective longitudinal study of outpatient (at least 1 episode of decompensated HF in the previous 6 months) and hospitalized patients 1st Oct 2012- 31st Oct 2016 | Prospective observational study on hospitalized patients from Aug 2019 - Dec 2020 |
+| No | 16,354 | 99,825 | 75,518 | 6,480 | 2,673 |
+| HFrEF | 59.8% | 49.0% | 52.5% | 81.0% | 64.6% |
+| HFmrEF | 24.2% | 12.8% | 23.5% | NA | 11.3% |
+| HFpEF | 16.0% | 38.1% | 24.1% | 19.0% | 21.6% |
 
 ---
 
@@ -86,10 +86,10 @@ Table 8: Classification Of Heart Failure According To Lvef
 ### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
-| **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| **B - "Pre HF"** | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| **C - "HF"** | Symptomatic HF, either previous or current symptoms |
-| **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
+| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
+| C - "HF" | Symptomatic HF, either previous or current symptoms |
+| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
 The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)

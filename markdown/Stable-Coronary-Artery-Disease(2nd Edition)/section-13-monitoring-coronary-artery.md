@@ -435,7 +435,7 @@ theSwedishMultimorbidityStudy.JInternMed.2000;248:245-254.
 - meta-analysisofrandomizedclinicaltrials.IntJCardiol.2014;177:780-785.
 - 354.Rosano GMC,MarazziG,PatriziR,Cerquetani E,Vitale C,et al.Comparisonof trimetazidine plus sildenafil arterydisease.AmJCardiol.2005;95:327-331.
 - answersonthereviewofmedicinescontainingtrimetazidine(20mgtablets,35mgmodifiedreleasetablet 3September2012.EMA/608974/2012Rev1.EMEA/H/A-31/1305[lnternet].2018[cited2018Jan18]; Availablefrom:http://www.ema.europa.eu/docs/en\_GB/document\_library/Referrals\_document/Trimetazidine 31/WC500129195.pdf
-356. Marti Mass6 J-F,Marti **[Grade I, Level C]**arrera N,Poza J-J,Lopez de Munain A.Trimetazidine induces parkinsonism, gait disorders and tremor.Therapie.2005;60:419-422.
+356. Marti Mass6 J-F,Marti [Grade I, Level C]arrera N,Poza J-J,Lopez de Munain A.Trimetazidine induces parkinsonism, gait disorders and tremor.Therapie.2005;60:419-422.
 - 357.ChaitmanBR,Pepine CJ,ParkerJO,SkopalJ,Chumakova G,et al.Effectsofranolazinewithatenolol, a randomizedcontrolled trial.JAMA.2004;291:309-316.
 
 
@@ -685,18 +685,18 @@ The development of the CPG was funded through education grants from Menarini and
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

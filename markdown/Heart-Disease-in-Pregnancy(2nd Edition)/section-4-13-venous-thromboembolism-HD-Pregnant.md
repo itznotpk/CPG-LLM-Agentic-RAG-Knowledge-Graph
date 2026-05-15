@@ -179,9 +179,9 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 ### Appendix L: Antenatal Risk Assessment And Indications For Antenatal Thrombophylaxis*
 | Risk Factors | Requirements | Management | When to Initiate Treatment |
 |---|---|---|---|
-| **High Risk** |  |  |  |
+| High Risk |  |  |  |
 | Single previous VTE with:<br>- Family history or<br>- Unprovoked/ estrogen related<br>Previous recurrent VTE > 1 | Any 1 Risk Factor | **Requires** antenatal prophylaxis with LMWH<br>- Enoxaparin 1 mg/kg daily or<br>- Tinzaparin 4500 units daily (if BW > 90 kg, to dose at 75 units/kg daily) | Recommend from as early as possible in pregnancy |
-| **Intermediate Risk** |  |  |  |
+| Intermediate Risk |  |  |  |
 | Single previous VTE with no family history<br>Medical comorbidities e.g.<br>- Heart/lung disease<br>- SLE<br>- Cancer<br>- Inflammatory conditions<br>- Nephrotic syndrome<br>- Sickle cell disease<br>- Thalassaemia<br>- Intravenous drug user<br>Surgical procedures e.g.<br>- Appendicectomy | Any 1 Risk Factor (if admitted into hospital) | **Consider** (not routinely recommended) antenatal prophylaxis with LMWH<br>- Enoxaparin 1 mg/kg daily or<br>- Tinzaparin 4500 units daily (if BW > 90 kg, to dose at 75 units/kg daily) | Timing of initiation has to be individualised. Consider:<br>- from early in pregnancy (not routinely recommended) or<br>- from 28 weeks (recommended)<br>- when admitted to hospital (recommended) |
 | Age > 35 years<br>Obesity BMI > 30 kg/m²<br>Parity ≥ 3<br>Smoker<br>Gross varicose veins<br>Current systemic infection<br>Immobility e.g. paraplegia, long haul travel > 4 hours<br>Preeclampsia<br>Dehydration/ hyperemesis/ Ovarian hyperstimulation syndrome<br>Multiple pregnancy<br>Assisted reproductive treatment | Any ≥ 3 Risk Factors or Any ≥ 2 Risk Factors (if admitted into hospital) | **Consider** antenatal prophylaxis with LMWH<br>- Enoxaparin 1 mg/kg daily or<br>- Tinzaparin 4500 units daily (if BW > 90 kg, to dose at 75 units/kg daily) | Consider:<br>- from 28 weeks<br>- when admitted to hospital |
 | Age > 35 years<br>Obesity BMI > 30 kg/m²<br>Parity ≥ 3<br>Smoker<br>Gross varicose veins<br>Current systemic infection<br>Immobility e.g. paraplegia, long haul travel > 4 hours<br>Preeclampsia<br>Dehydration/ hyperemesis/ Ovarian hyperstimulation syndrome<br>Multiple pregnancy<br>Assisted reproductive treatment | Any ≤ 2 Risk Factors or less (not admitted into hospital) | - Mobilisation<br>- Avoid dehydration |  |
@@ -200,9 +200,9 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 ### Appendix M: Postnatal Risk Assessment And Indications For Postnatal Thrombophylaxis*
 | Risk Factors | Requirements | Management |
 |---|---|---|
-| **High Risk** |  |  |
+| High Risk |  |  |
 | - Any previous VTE<br>- Anyone requiring antenatal prophylactic LMWH | Any 1 Risk Factor | At least 6 weeks postnatal prophylactic LMWH |
-| **Intermediate Risk** |  |  |
+| Intermediate Risk |  |  |
 | - Caesarean section in labour<br>- BMI > 40 kg/m²<br>- Prolonged hospital admission<br>- Medical comorbidities e.g.<br>&nbsp;&nbsp;- Heart/ lung disease<br>&nbsp;&nbsp;- SLE<br>&nbsp;&nbsp;- Cancer<br>&nbsp;&nbsp;- Inflammatory conditions<br>&nbsp;&nbsp;- Nephrotic syndrome<br>&nbsp;&nbsp;- Sickle cell disease<br>&nbsp;&nbsp;- Thalassaemia<br>- Intravenous drug abuser | Any 1 Risk Factor | - At least 7 days postnatal prophylactic LMWH<br>- If persisting or > 3 risk factors, consider extending thromboprophylaxis with LMWH |
 | - Age > 35 years<br>- Obesity BMI > 30 kg/m²<br>- Parity ≥ 3<br>- Smoker<br>- Elective caesarean section<br>- Any surgical procedure in the puerperium<br>- Gross varicose veins<br>- Current systemic infection<br>- Immobility e.g. paraplegia, long haul travel > 4 hours<br>- Preeclampsia<br>- Midcavity rotational operative delivery<br>- Prolonged labour > 24 hours<br>- Assisted reproductive treatment<br>- Postpartum hemorrhage > 1 litre or blood transfusion | Any ≥ 2 Risk Factors | - At least 7 days postnatal prophylactic LMWH<br>- If persisting or > 3 risk factors, consider extending thromboprophylaxis with LMWH |
 | - Age > 35 years<br>- Obesity BMI > 30 kg/m²<br>- Parity ≥ 3<br>- Smoker<br>- Elective caesarean section<br>- Any surgical procedure in the puerperium<br>- Gross varicose veins<br>- Current systemic infection<br>- Immobility e.g. paraplegia, long haul travel > 4 hours<br>- Preeclampsia<br>- Midcavity rotational operative delivery<br>- Prolonged labour > 24 hours<br>- Assisted reproductive treatment<br>- Postpartum hemorrhage > 1 litre or blood transfusion | Any ≤ 2 Risk Factors or less (not admitted into hospital) | - Mobilisation<br>- Avoid dehydration |

@@ -65,20 +65,20 @@ Table 15.1: Management Of Stroke In Pregnancy
 ### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
-| **I** | Evidence obtained from at least one properly randomized controlled trial |
-| **II-1** | Evidence obtained from well-designed controlled trials without randomization |
-| **II-2** | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
-| **II-3** | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
-| **III** | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
+| I | Evidence obtained from at least one properly randomized controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomization |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
+| II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 ### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
-| **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
-| **B** | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
-| **C** | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
+| A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
+| B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
+| C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 

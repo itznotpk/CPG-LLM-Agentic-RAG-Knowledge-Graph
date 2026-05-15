@@ -18,7 +18,7 @@ Table 16: Differences Between Ipah And Eisenmenger Syndrome
 
 | Feature | IPAH | Eisenmenger |
 |---|---|---|
-| **Right ventricular response** | | |
+| Right ventricular response | | |
 | Right ventricular dimension | Dilatation | Typically hypertrophied |
 | Right ventricular function | Rapid deterioration | Usually preserved until late |
 | Cardiac output | Reduced | Maintained by R to L shunt |
@@ -76,9 +76,9 @@ Table 17: Clinical Manifestations And Complications Of Eisenmengers Syndrome
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PFO** | Patent Foramen Ovale |
-| **RV** | Right Ventricular |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| PAH | Pulmonary Arterial Hypertension |
+| PFO | Patent Foramen Ovale |
+| RV | Right Ventricular |
 
 <!-- END OVERLAP CONTENT -->

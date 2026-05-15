@@ -221,19 +221,19 @@ Table 7.1: Cumulative Incidence Of Post-Operative IE Based On Chd Lesions
 
 | Type of repaired CHD | Cumulative incidence of IE at years post-intervention |
 |---|---|
-| **High to moderate risk** | |
-| **Valvular AS** | 13.3% at 25 years<br>20.6%* at 30 years |
-| **Pulmonary atresia and VSD** | 6.4%⁺ at 15 years |
-| **VSD** | 4.1%⁕ at 30 years |
-| **d-TGA** | 4.0% at 20 years |
-| **Primum ASD** | 2.8% at 20 years |
-| **CoA** | 3.5% at 30 years |
-| **Complete AVSD** | 1.1% at 15 years |
-| **TOF repair** | 1.3% at 30 years |
-| **Low risk** | |
-| **Secundum ASD** | 0.0%⁍ |
-| **PS** | 0.0% |
-| **PDA** | 0.0% |
+| High to moderate risk | |
+| Valvular AS | 13.3% at 25 years<br>20.6%* at 30 years |
+| Pulmonary atresia and VSD | 6.4%⁺ at 15 years |
+| VSD | 4.1%⁕ at 30 years |
+| d-TGA | 4.0% at 20 years |
+| Primum ASD | 2.8% at 20 years |
+| CoA | 3.5% at 30 years |
+| Complete AVSD | 1.1% at 15 years |
+| TOF repair | 1.3% at 30 years |
+| Low risk | |
+| Secundum ASD | 0.0%⁍ |
+| PS | 0.0% |
+| PDA | 0.0% |
 
 * *The risk of IE in the aortic valve was noted to be higher in post-interventional or prosthetic valve compared to native valve with a 10-year incidence of 26% and 5% respectively. In the cohort with aortic valve stenosis, risk of IE increased over time after surgery, with a cumulative incidence of 13.3% at 25 years.
 * ⁺ For patients with pulmonary atresia and VSD the risk depended on the residual right ventricle to pulmonary artery conduit stenosis.
@@ -250,9 +250,9 @@ Table 7.2: Common Symptoms And Signs In Paediatric IE
 
 | | |
 |---|---|
-| **Non-specific symptoms of sepsis** | • Fever<br>• Poor feeding<br>• Reduced activity<br>• Vomiting and/or diarrhoea<br>• Weakness<br>• Weight loss<br>• Arthralgia<br>• Recurrent fever for > 4 weeks |
-| **Signs** | • General:<br>&nbsp;&nbsp;&nbsp;&gt; Tachypnoea<br>&nbsp;&nbsp;&nbsp;&gt; Tachycardia<br>&nbsp;&nbsp;&nbsp;&gt; Respiratory distress<br>&nbsp;&nbsp;&nbsp;&gt; Pallor<br>• Cardiac:<br>&nbsp;&nbsp;&nbsp;&gt; Signs of congestive heart failure<br>&nbsp;&nbsp;&nbsp;&gt; New or changing murmur<br>• Septic emboli:<br>&nbsp;&nbsp;&nbsp;&gt; Abdomen: splenomegaly<br>&nbsp;&nbsp;&nbsp;&gt; Neurological: seizure, hemiparesis and meningitis<br>&nbsp;&nbsp;&nbsp;&gt; Bone: osteomyelitis<br>&nbsp;&nbsp;&nbsp;&gt; Lungs: pneumonia |
-| **Laboratory parameters** | • Thrombocytopenia<br>• Neutrophilia/neutropenia<br>• Raised CRP and ESR |
+| Non-specific symptoms of sepsis | • Fever<br>• Poor feeding<br>• Reduced activity<br>• Vomiting and/or diarrhoea<br>• Weakness<br>• Weight loss<br>• Arthralgia<br>• Recurrent fever for > 4 weeks |
+| Signs | • General:<br>&nbsp;&nbsp;&nbsp;&gt; Tachypnoea<br>&nbsp;&nbsp;&nbsp;&gt; Tachycardia<br>&nbsp;&nbsp;&nbsp;&gt; Respiratory distress<br>&nbsp;&nbsp;&nbsp;&gt; Pallor<br>• Cardiac:<br>&nbsp;&nbsp;&nbsp;&gt; Signs of congestive heart failure<br>&nbsp;&nbsp;&nbsp;&gt; New or changing murmur<br>• Septic emboli:<br>&nbsp;&nbsp;&nbsp;&gt; Abdomen: splenomegaly<br>&nbsp;&nbsp;&nbsp;&gt; Neurological: seizure, hemiparesis and meningitis<br>&nbsp;&nbsp;&nbsp;&gt; Bone: osteomyelitis<br>&nbsp;&nbsp;&nbsp;&gt; Lungs: pneumonia |
+| Laboratory parameters | • Thrombocytopenia<br>• Neutrophilia/neutropenia<br>• Raised CRP and ESR |
 
 Grades Of Recommendation
 | Grade | Description |

@@ -30,17 +30,17 @@ Based on the initial clinical evaluation, the patient may have:
 In patients with **NSTE-ACS**, the following should be done:
 - Venous access established and blood taken for measurement of cardiac biomarkers (cTn-preferably hs cTn).
 - The following are instituted:
-  - **[Grade I, Level A]** Aspirin (300mg) if not taken prior to arrival.
+  - [Grade I, Level A] Aspirin (300mg) if not taken prior to arrival.
   - Oxygen is administered in patients with hypoxemia.
-    - **[Grade I, Level A]** SpO2 ≤ 90%
-    - **[Grade IIa, Level B]** SpO2 > 90 - ≤ 95%
-  - **[Grade I, Level C]** In the presence of ongoing chest pain, GTN sublingual tablet (0.3-0.6 mg) or spray (0.4-0.8 mg) should be administered every 5 minutes for up to three doses if no contraindications exists (such as hypotension). Nitrates only help with symptom relief.
+    - [Grade I, Level A] SpO2 ≤ 90%
+    - [Grade IIa, Level B] SpO2 > 90 - ≤ 95%
+  - [Grade I, Level C] In the presence of ongoing chest pain, GTN sublingual tablet (0.3-0.6 mg) or spray (0.4-0.8 mg) should be administered every 5 minutes for up to three doses if no contraindications exists (such as hypotension). Nitrates only help with symptom relief.
   - If symptoms are unrelieved:
     - Serial ECGs should be taken every 10-15minutes until the patient is pain free and compared with pre-existing ECGs to look for changes of STEMI.
     - Assess the need for i.v. GTN and/or
     - i.v. morphine at 2-5 mg by slow bolus injection every 5-15 minutes as necessary. Watch for adverse events - hypotension and respiratory depression. Antiemetic (i.v. metoclopramide 10 mg or promethazine 25mg) should be given with morphine and 8-hourly as necessary. Morphine should be used cautiously. i.v. fentanyl 50mcg in titrated doses may also be considered.
-  - **[Grade I, Level A]** s.c. LMWH or s.c. fondaparinux should be given.
-  - **[Grade I, Level B]** In the presence of ongoing chest pains and/or hemodynamic instability, urgent coronary angiography with view to revascularization should be considered if facilities are available.
+  - [Grade I, Level A] s.c. LMWH or s.c. fondaparinux should be given.
+  - [Grade I, Level B] In the presence of ongoing chest pains and/or hemodynamic instability, urgent coronary angiography with view to revascularization should be considered if facilities are available.
 
 In patients with chest pain not due to ACS, other important clinical conditions should also be considered. Some of these can be life threatening.
 
@@ -83,11 +83,11 @@ In Type 2 MI, the underlying etiology needs to be addressed. Anti-ischemic agent
 ### 7.3.1: Antiplatelet Therapy
 
 #### 7.3.1.1: Acetylsalicylic Acid (ASA/Aspirin)
-- **[Grade I, Level A]** Recommended loading dose: 300mg. This should be chewed or crushed. Enteric-coated aspirin is not recommended as an initial loading dose because of its slow onset of action.
+- [Grade I, Level A] Recommended loading dose: 300mg. This should be chewed or crushed. Enteric-coated aspirin is not recommended as an initial loading dose because of its slow onset of action.
 - Maintenance dose: 75-100mg daily lifelong regardless of treatment strategy.
-- **[Grade III, Level B]** An aspirin dose of 300-325mg daily is associated with an increased risk of gastrointestinal bleeding without greater efficacy. This was seen when aspirin was used alone and in combination with a P2Y12 inhibitor such a clopidogrel.
+- [Grade III, Level B] An aspirin dose of 300-325mg daily is associated with an increased risk of gastrointestinal bleeding without greater efficacy. This was seen when aspirin was used alone and in combination with a P2Y12 inhibitor such a clopidogrel.
 - For patients taking ticagrelor, the aspirin maintenance dose should be ≤ 100mg daily.
-- **[Grade IIa, Level A]** Proton pump inhibitors (PPI) in combination with DAPT should be considered for patients who are at high risk of gastrointestinal bleeds (i.e. history of gastrointestinal ulcer/haemorrhage, anticoagulant therapy, chronic NSAID/corticosteroid use or two or more of the following: age ≥ 65 years, dyspepsia, gastro-esophageal reflux disease, Helicobacter pylori infection, chronic alcohol use)
+- [Grade IIa, Level A] Proton pump inhibitors (PPI) in combination with DAPT should be considered for patients who are at high risk of gastrointestinal bleeds (i.e. history of gastrointestinal ulcer/haemorrhage, anticoagulant therapy, chronic NSAID/corticosteroid use or two or more of the following: age ≥ 65 years, dyspepsia, gastro-esophageal reflux disease, Helicobacter pylori infection, chronic alcohol use)
 - In those patients allergic to aspirin, the available options include:
   - More potent P2Y12 inhibitors (ticagrelor or prasugrel) alone
   - Cilostazol with clopidogrel
@@ -96,34 +96,34 @@ In Type 2 MI, the underlying etiology needs to be addressed. Anti-ischemic agent
 
 #### 7.3.1.2: P2y12 Inhibitors (Appendix Vii: P2y12 Inhibitors*)
 These may be given as:
-- **[Grade I, Level A]** A substitute to patients who are intolerant or allergic to aspirin.
-- **[Grade I, Level A]** As part of DAPT
+- [Grade I, Level A] A substitute to patients who are intolerant or allergic to aspirin.
+- [Grade I, Level A] As part of DAPT
 
 The different P2Y12 inhibitors each have their own special characteristics that may prompt one being favoured over another in various circumstances. Recognising the characteristic differences in the agents can help with the choice of the best agent for individual patients. (Appendix VII: P2Y12 INHIBITORS*)
 
 Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used as part of DAPT at 7 days, 1 month and 1 year. A recent study found prasugrel to be superior to ticagrelor in reduction of death, MI or stroke without an increase in major bleeding.
 
 ##### 7.3.1.2.1: Clopidogrel
-- **[Grade I, Level A]** Loading dose: 300 to 600mg, maintenance dose: 75mg daily.
-- **[Grade I, Level A]** The benefits of long term clopidogrel when added to aspirin was seen in NSTE-ACS patients treated medically, those undergoing PCI or coronary artery bypass grafting.
+- [Grade I, Level A] Loading dose: 300 to 600mg, maintenance dose: 75mg daily.
+- [Grade I, Level A] The benefits of long term clopidogrel when added to aspirin was seen in NSTE-ACS patients treated medically, those undergoing PCI or coronary artery bypass grafting.
 - Clopidogrel versus prasugrel. In ACS patients:
   - undergoing PCI, prasugrel significantly reduced MACE but there was an increase in severe bleeding complications when compared to clopidogrel.
   - who are medically managed, MACE and severe bleeding rates were similar between prasugrel and clopidogrel groups.
 - Clopidogrel versus ticagrelor. In ACS patients:
   - with or without PCI, ticagrelor significantly reduced MACE compared to clopidogrel and severe bleeding rates were similar.
-- **[Grade IIa, Level B]** The use of clopidogrel for up to a year as part of a strategy of DAPT was found to be cost effective.
+- [Grade IIa, Level B] The use of clopidogrel for up to a year as part of a strategy of DAPT was found to be cost effective.
 
 ##### 7.3.1.2.2: Prasugrel
-- **[Grade I, Level B]** Prasugrel may be considered as a second antiplatelet agent after the coronary angiogram has been performed. (No pre-treatment)
+- [Grade I, Level B] Prasugrel may be considered as a second antiplatelet agent after the coronary angiogram has been performed. (No pre-treatment)
 - Loading dose: 60mg, maintenance dose: 10mg/day.
-- **[Grade III, Level A]** It is not recommended due to a higher risk of major bleeding in patients who are:
+- [Grade III, Level A] It is not recommended due to a higher risk of major bleeding in patients who are:
   - >75 years old, or
   - < 60kg weight or,
   - have prior history of transient ischemic attack or stroke.
-- **[Grade IIa, Level B]** It should be considered in patients who present with stent thrombosis despite compliance with clopidogrel therapy.
+- [Grade IIa, Level B] It should be considered in patients who present with stent thrombosis despite compliance with clopidogrel therapy.
 
 ##### 7.3.1.2.3: Ticagrelor
-- **[Grade I, Level B]** Loading dose: 180mg, maintenance dose: 90mg twice daily.
+- [Grade I, Level B] Loading dose: 180mg, maintenance dose: 90mg twice daily.
 - When compared to clopidogrel, ticagrelor resulted in a significant reduction in cardiac end points in patients undergoing an early invasive or medically treated strategy.
 - Potential drawback is dyspnoea and transient ventricular pauses during the first week. This was rarely associated with symptoms or need for a pacemaker. Caution should be exercised in patients with heart block.
 
@@ -131,12 +131,12 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
 - When given as part of DAPT, the timing of initiation of the second antiplatelet agent is not clear. There are a few randomised trials directly comparing pre-treatment with initiation at the time of angiography.
 - Unlike in STEMI, NSTE-ACS patients are a heterogenous group and include patients with multivessel disease who may be more suitable for coronary artery bypass surgery or maybe even have normal coronaries.
 - Although most Guidelines advocate pre-treatment, no recommendation for or against pre-treatment with these agents can be formulated because of the lack of trial data.
-- **[Grade I, Level C]** The exact timing is left to the clinical judgement of the attending physician.
+- [Grade I, Level C] The exact timing is left to the clinical judgement of the attending physician.
 
 #### 7.3.1.4: Duration Of Dapt
-- **[Grade I, Level A]** In NSTE-ACS patients, with or without PCI, DAPT is recommended for up to 12 months unless there are contraindications such as excessive risk of bleeds.
-- **[Grade I, Level B]** In ACS patients who underwent PCI and at high risk of bleeding, DAPT maybe continued for 3 to 6 months.
-- **[Grade IIb, Level B]** Continuing DAPT for more than 12 months significantly reduces MACE at the expense of an increase in major bleeding.
+- [Grade I, Level A] In NSTE-ACS patients, with or without PCI, DAPT is recommended for up to 12 months unless there are contraindications such as excessive risk of bleeds.
+- [Grade I, Level B] In ACS patients who underwent PCI and at high risk of bleeding, DAPT maybe continued for 3 to 6 months.
+- [Grade IIb, Level B] Continuing DAPT for more than 12 months significantly reduces MACE at the expense of an increase in major bleeding.
 
 #### 7.3.1.5: Switching A Potent P2y12 To Clopidogrel
 - In patients with NSTE-ACS undergoing PCI, ticagrelor or prasugrel is usually preferred to clopidogrel.
@@ -148,7 +148,7 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
     - De-escalate directly to clopidogrel 75mg (without a loading dose) at the time of the next scheduled prasugrel dose.
 
 #### 7.3.1.6: Glycoprotein (GP) IIb/IIIa Inhibitors (Appendix Viii: Glycoprotein (GP) IIb/IIIa Inhibitors*)
-- **[Grade IIb, Level B]** These agents are no longer used pre-procedure/ "upstream" because studies have not found this practice to be superior to the provisional selective use after angiography. It is also associated with an increased risk of bleeding.
+- [Grade IIb, Level B] These agents are no longer used pre-procedure/ "upstream" because studies have not found this practice to be superior to the provisional selective use after angiography. It is also associated with an increased risk of bleeding.
 - Their main use is in patients who have been found to have a large thrombus burden at the time of coronary angiography.
 - These agents include:
   - Abciximab
@@ -156,35 +156,35 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
   - Eptifibatide
 
 ### 7.3.2: Anticoagulant Therapy (Appendix Ix: Anticoagulant Agents*)
-- **[Grade I, Level A]** In NSTE-ACS patients managed medically, parenteral anticoagulation is recommended as soon as possible after the diagnosis.
+- [Grade I, Level A] In NSTE-ACS patients managed medically, parenteral anticoagulation is recommended as soon as possible after the diagnosis.
 - The type of agent used may vary depending on whether the patient is managed by an early invasive or a conservative approach, issues of cost and local practice.
 - The duration of anticoagulant therapy in patients treated medically would vary between 2-8 days.
 
 #### 7.3.2.1: Heparin
 This includes:
-- **[Grade I, Level B]** Unfractionated heparin (UFH)
+- [Grade I, Level B] Unfractionated heparin (UFH)
   - For high risk NSTE-ACS patients undergoing an early invasive approach, UFH had similar efficacy to enoxaparin.
-- **[Grade I, Level A]** Low Molecular Weight Heparin (LMWH) - Enoxaparin
+- [Grade I, Level A] Low Molecular Weight Heparin (LMWH) - Enoxaparin
   - It is best used in NSTE-ACS patients treated conservatively.
-- **[Grade I, Level B]** In patients > 75 years of age and with renal impairment (serum creatinine (Scr) > 200 µmol/L in women and > 250 µmol/L in men), UFH is preferable to LMWH.
+- [Grade I, Level B] In patients > 75 years of age and with renal impairment (serum creatinine (Scr) > 200 µmol/L in women and > 250 µmol/L in men), UFH is preferable to LMWH.
 
 #### 7.3.2.2: Anti-Xa Inhibitors
 This includes:
-- **[Grade I, Level B]** Fondaparinux
+- [Grade I, Level B] Fondaparinux
   - It is best used in NSTE-ACS patients treated conservatively.
-  - **[Grade III, Level A]** It is associated with an increase in catheter-related thrombus and coronary angiographic complications. Thus, it is not recommended as the sole anticoagulant during PCI.
+  - [Grade III, Level A] It is associated with an increase in catheter-related thrombus and coronary angiographic complications. Thus, it is not recommended as the sole anticoagulant during PCI.
 - If used in patients with NSTE-ACS and the patient requires an invasive strategy, UFH should be given during the procedure.
 - In patients with NSTE-ACS, fondaparinux was found to be more cost effective and associated with less short and midterm bleeding events compared with enoxaparin.
 
-**[Grade IIb, Level B]** Presently newer oral anti-Xa inhibitors are undergoing evaluation for ACS. A meta-analysis showed that the addition of Direct Oral Ant-Coagulants (DOAC) to DAPT in patients with NSTE-ACS did not show any significant treatment effect at the risk of increased bleeding.
+[Grade IIb, Level B] Presently newer oral anti-Xa inhibitors are undergoing evaluation for ACS. A meta-analysis showed that the addition of Direct Oral Ant-Coagulants (DOAC) to DAPT in patients with NSTE-ACS did not show any significant treatment effect at the risk of increased bleeding.
 
 ### 7.3.3: Anti-Ischemic Drug Therapy
 These agents may be given either for relief of ischemia (symptoms) or for improvement of prognosis.
 
 #### 7.3.3.1: Β-Blockers (Appendix X: Β-Blockers In NSTE-ACS*)
 - There is limited randomised trials addressing the efficacy of β-blockers in NSTE-ACS.
-- **[Grade I, Level A]** β-blockers should be given to patients with heart failure and/or LV dysfunction (LVEF < 40%), continuing angina and/or ischemia.
-- **[Grade IIb, Level A]** There is limited evidence to administer it routinely in all patients.
+- [Grade I, Level A] β-blockers should be given to patients with heart failure and/or LV dysfunction (LVEF < 40%), continuing angina and/or ischemia.
+- [Grade IIb, Level A] There is limited evidence to administer it routinely in all patients.
 - In the absence of contraindications, β-blockers may be administered after the patient has been stabilized and prior to hospital discharge.
 - Relative contraindications for β-blockers include:
   - Patients with marked first-degree AV block (PR interval > 0.24s).
@@ -193,24 +193,24 @@ These agents may be given either for relief of ischemia (symptoms) or for improv
   - Severe peripheral arterial disease
   - Acute decompensated LV dysfunction
   - Cardiogenic shock.
-- **[Grade I, Level A]** For patients who have LVEF <40% and those who subsequently develop left ventricular systolic dysfunction consider bisoprolol, carvedilol, long acting metoprolol or nebivolol.
+- [Grade I, Level A] For patients who have LVEF <40% and those who subsequently develop left ventricular systolic dysfunction consider bisoprolol, carvedilol, long acting metoprolol or nebivolol.
 - A lower starting dose of 1.25mg daily for bisoprolol/nebivolol or carvedilol 3.125mg twice daily should be initiated. This should be slowly up-titrated till the target dose or the maximally tolerated dose is achieved.
 
 #### 7.3.3.2: Inhibitors Of The Renin Angiotensin System-Angiotensin Converting Enzyme Inhibitors (Acei) / Renin Angiotensin Receptor Blockers (ARB) (Appendix Xi: ACEI/ARB In NSTE-ACS*)
-- **[Grade I, Level A]** Once clinically and haemodynamically stable, ACEI may be initiated and continued for life in all patients with LVEF <40% and in those with hypertension, diabetes mellitus, or CKD, unless contraindicated.
-- **[Grade I, Level A]** For those who are ACEI intolerant, ARBs are recommended in patients with HF and/or LVEF <40%.
+- [Grade I, Level A] Once clinically and haemodynamically stable, ACEI may be initiated and continued for life in all patients with LVEF <40% and in those with hypertension, diabetes mellitus, or CKD, unless contraindicated.
+- [Grade I, Level A] For those who are ACEI intolerant, ARBs are recommended in patients with HF and/or LVEF <40%.
 
 #### 7.3.3.3: Lipid Modifying Drugs
-- **[Grade I, Level A]** High dose statin therapy (atorvastatin 40-80 mg or rosuvastatin 20-40mg daily) should be initiated as soon as possible after the diagnosis of ACS.
+- [Grade I, Level A] High dose statin therapy (atorvastatin 40-80 mg or rosuvastatin 20-40mg daily) should be initiated as soon as possible after the diagnosis of ACS.
 - It is safe and has been shown to improve outcomes regardless of baseline LDL-C levels.
-- **[Grade I, Level A]** For patients who are already taking low or moderate-intensity statins, statin therapy should be intensified.
+- [Grade I, Level A] For patients who are already taking low or moderate-intensity statins, statin therapy should be intensified.
 - Target LDL-C should be < 1.8mmol/L (preferably < 1.4mmol/L) or a reduction of at least 50% from the baseline, the lower the better.
-- **[Grade I, Level A]** In patients whose LDL-C ≥ 1.8mmol/L despite maximally tolerated therapy, the addition of non-statin therapy (ezetimibe and PCSK-9 Inhibitors) should be considered.
-- **[Grade I, Level A]** Patients with LDL-C > 2.6 months on maximally tolerated statins following an ACS and had a greater benefit with further lowering of the LDL-C with the addition of PCSK-9 inhibitors.
+- [Grade I, Level A] In patients whose LDL-C ≥ 1.8mmol/L despite maximally tolerated therapy, the addition of non-statin therapy (ezetimibe and PCSK-9 Inhibitors) should be considered.
+- [Grade I, Level A] Patients with LDL-C > 2.6 months on maximally tolerated statins following an ACS and had a greater benefit with further lowering of the LDL-C with the addition of PCSK-9 inhibitors.
 - Refer to 2017 Malaysian Clinical Practice Guidelines on Dyslipidemia, 4th Ed.
 
 #### 7.3.3.4: Nitrates (Appendix Xii: Recommended Dosages Of Nitrates*)
-- **[Grade I, Level C]** Nitrates help with symptom relief only. They should be used cautiously in the presence of a low BP.
+- [Grade I, Level C] Nitrates help with symptom relief only. They should be used cautiously in the presence of a low BP.
 - Intravenous nitrates may be administered in the following situations:
   - No symptom relief after 3 doses of sublingual GTN
   - Presence of dynamic ECG changes
@@ -226,21 +226,21 @@ These agents may be given either for relief of ischemia (symptoms) or for improv
 
 #### 7.3.3.5: Calcium Channel Blockers (CCBs) (Appendix Xiii: CCBs*)
 CCBs may be used in the following situations:
-- **[Grade IIa, Level B]** A non-dihydropyridine CCB (e.g. verapamil or diltiazem) may be used as an alternative to β-blockers in patients who are not able to tolerate or who have contraindications.
-- **[Grade IIa, Level B]** Verapamil, diltiazem, slow release nifedipine or amlodipine can be administered in patients with continuing or recurring angina despite adequate doses of nitrates and β-blockers.
+- [Grade IIa, Level B] A non-dihydropyridine CCB (e.g. verapamil or diltiazem) may be used as an alternative to β-blockers in patients who are not able to tolerate or who have contraindications.
+- [Grade IIa, Level B] Verapamil, diltiazem, slow release nifedipine or amlodipine can be administered in patients with continuing or recurring angina despite adequate doses of nitrates and β-blockers.
 - Prinzmetal's angina (variant angina)
 - Long-acting CCBs and nitrates maybe used for patients with coronary artery spasm.
-- **[Grade III, Level A]** Immediate-release nifedipine is contraindicated.
+- [Grade III, Level A] Immediate-release nifedipine is contraindicated.
 
 #### 7.3.3.6: Other Anti-Ischemic Agents
 These include:
 - Ivabradine
-  - **[Grade I, Level B]** Ivabradine has been shown to improve symptoms and reduce cardiovascular hospitalisation, fatal and non-fatal MI and the need for coronary revascularization in patients with stable CAD, moderate LV dysfunction and HR >70 bpm.
-  - **[Grade IIa, Level B]** Ivabradine may be considered for symptomatic treatment of stable CAD in patients with normal sinus rhythm, especially in those who have a contraindication to or intolerance to β-blockers and if the resting HR is above 70/min.
+  - [Grade I, Level B] Ivabradine has been shown to improve symptoms and reduce cardiovascular hospitalisation, fatal and non-fatal MI and the need for coronary revascularization in patients with stable CAD, moderate LV dysfunction and HR >70 bpm.
+  - [Grade IIa, Level B] Ivabradine may be considered for symptomatic treatment of stable CAD in patients with normal sinus rhythm, especially in those who have a contraindication to or intolerance to β-blockers and if the resting HR is above 70/min.
 - Ranolazine
-  - **[Grade IIa, Level B]** Compared to placebo, or as additional to current anti-anginal therapy, ranolazine improved angina symptoms, exercise tolerance, and decreased angina attacks and GTN consumption.
+  - [Grade IIa, Level B] Compared to placebo, or as additional to current anti-anginal therapy, ranolazine improved angina symptoms, exercise tolerance, and decreased angina attacks and GTN consumption.
 - Trimetazidine
-  - **[Grade IIa, Level B]** In small clinical studies, trimetazidine has been shown to be effective in providing angina symptom relief, reduction in the need for nitrates, time to onset of ST depression and improving functional capacity. It is useful as monotherapy and in combination with other anti-ischaemic agents.
+  - [Grade IIa, Level B] In small clinical studies, trimetazidine has been shown to be effective in providing angina symptom relief, reduction in the need for nitrates, time to onset of ST depression and improving functional capacity. It is useful as monotherapy and in combination with other anti-ischaemic agents.
 
 ### Key Recommendations 8:
 - Patients with NSTE-ACS should be on DAPT.
@@ -289,37 +289,37 @@ The rationale for this strategy is to:
 - Allow for earlier revascularization and preventing MACE
 - Facilitate early discharge
 
-**[Grade I, Level B]** It has been shown to improve clinical outcomes, reduce recurrent ACS events, subsequent rehospitalisation and revascularization. However, no reduction in mortality has been observed.
+[Grade I, Level B] It has been shown to improve clinical outcomes, reduce recurrent ACS events, subsequent rehospitalisation and revascularization. However, no reduction in mortality has been observed.
 
 Thus, an early invasive strategy in high-risk NSTE-ACS patients predominantly reduces recurrent ischemia (rather than the hard outcome of recurrent MI or death). This strategy reduces length of stay and cost but it creates a logistical burden on cardiac catheterisation labs, especially during weekends. Also, the cost-effectiveness of this approach in those with substantial co-morbidities or in the setting of rural or remote patients has not been studied.
 
 ### 7.4.2: Urgent Vs Early Invasive Management
-- **[Grade I, Level B]** Urgent invasive strategy - (Immediate, as soon as possible)
+- [Grade I, Level B] Urgent invasive strategy - (Immediate, as soon as possible)
   - Ideally the management should be similar to STEMI in terms of the rapidness to revascularization.
   - Patients with very high risk NSTE-ACS have a poor short and long-term prognosis if left untreated.
-- **[Grade I, Level A]** Early invasive strategy (within 24 h of hospital admission)
+- [Grade I, Level A] Early invasive strategy (within 24 h of hospital admission)
   - It is recommended in patients with at least one high-risk criteria.
   - This implies timely transfer of patients from non-PCI centres to PCI capable hospitals.
-- **[Grade I, Level A]** Invasive strategy (within 72 h of hospital admission)
+- [Grade I, Level A] Invasive strategy (within 72 h of hospital admission)
   - This is the recommended maximal delay for angiography in patients with at least one intermediate risk criteria, recurrent symptoms or known ischemia on non-invasive testing.
-- **[Grade III, Level B]** Routine invasive coronary angiogram is not recommended in low risk patients. Patients with no recurrence of symptoms and none of the criteria as listed in Table 2: Interpreting Cardiac Troponins are to be considered at low risk of ischaemic events.
+- [Grade III, Level B] Routine invasive coronary angiogram is not recommended in low risk patients. Patients with no recurrence of symptoms and none of the criteria as listed in Table 2: Interpreting Cardiac Troponins are to be considered at low risk of ischaemic events.
 
-**[Grade I, Level A]** These patients are recommended to have non-invasive assessment for inducible or silent ischemia.
+[Grade I, Level A] These patients are recommended to have non-invasive assessment for inducible or silent ischemia.
 
-**[Grade III, Level C]** In patients with extensive comorbidities, an invasive strategy should only considered after evaluating the risk-benefit ratio (e.g., hepatic, renal, pulmonary failure, cancer).
+[Grade III, Level C] In patients with extensive comorbidities, an invasive strategy should only considered after evaluating the risk-benefit ratio (e.g., hepatic, renal, pulmonary failure, cancer).
 
 ### 7.4.3: Routine Early Conservative Management (Selective Invasive Therapy)
-**[Grade I, Level C]** This strategy can be advocated at non-PCI capable centres, where there are barriers to PCI, in the elderly or in frail patients and patients with comorbidities such as dementia, severe chronic renal insufficiency or cancer.
+[Grade I, Level C] This strategy can be advocated at non-PCI capable centres, where there are barriers to PCI, in the elderly or in frail patients and patients with comorbidities such as dementia, severe chronic renal insufficiency or cancer.
 
 The use of aggressive anticoagulant and antiplatelet agents has also reduced the incidence of adverse outcomes in patients managed conservatively. Selective coronary angiography/ revascularization is indicated for those who cannot be stabilised medically or in whom objective evidence of significant ischemia is provoked in the sub-acute phase.
 
-**[Grade IIa, Level A]** A conservative strategy is recommended for women who are stabilised and remain biomarker negative.
+[Grade IIa, Level A] A conservative strategy is recommended for women who are stabilised and remain biomarker negative.
 
-**[Grade IIa, Level A]** An early invasive or conservative strategy are both reasonable options for men who are stabilised and remain biomarker negative.
+[Grade IIa, Level A] An early invasive or conservative strategy are both reasonable options for men who are stabilised and remain biomarker negative.
 
 In initially stabilised patients, an ischemia-guided strategy may be considered for patients with NSTE-ACS (without serious comorbidities or contraindications to this approach) who have an elevated risk for clinical events.
 
-**[Grade I, Level C]** Patients with NSTE-ACS treated conservatively are at risk of developing recurrent adverse cardiac events. Thus, these patients need to be evaluated periodically for reversible ischemia using non-invasive tests. If there is a change in symptoms or clinical condition or if ischemia is present, they should be considered for coronary angiography and revascularization.
+[Grade I, Level C] Patients with NSTE-ACS treated conservatively are at risk of developing recurrent adverse cardiac events. Thus, these patients need to be evaluated periodically for reversible ischemia using non-invasive tests. If there is a change in symptoms or clinical condition or if ischemia is present, they should be considered for coronary angiography and revascularization.
 
 The main advantage offered by this selective ischemia-guided strategy is that some patients' conditions stabilise during medical therapy and will not require coronary angiography and revascularization. Consequently, it may potentially avoid costly and possibly unnecessary invasive procedures.
 
@@ -354,7 +354,7 @@ Patients presenting with chest pain or chest pain equivalents may, based on clin
 - **Definite NSTE-ACS or STEMI.** These patients should be admitted and managed accordingly.
 - **Possible or suspected NSTE-ACS.** These patients have normal or non-diagnostic ECGs and need to be evaluated using a rule-out protocol for ACS.
 
-**[Grade I, Level C]** Evaluation is a continuous process and a patient may move from very low likelihood of ACS to definite NSTE-ACS as new information becomes available or as the clinical condition changes.
+[Grade I, Level C] Evaluation is a continuous process and a patient may move from very low likelihood of ACS to definite NSTE-ACS as new information becomes available or as the clinical condition changes.
 
 **Rule-out ACS pathways**
 
@@ -367,13 +367,13 @@ The time of the blood test is time 0, and the second blood test is either 1 hour
 
 The cut-off levels for different hs-cTn assays vary. Some have sex-specific cut-off points. Clinicians should check the local vendor's respective values.
 
-**[Grade I, Level A]** Accelerated hs-cTn diagnostic rule-out protocols using early serial troponin testing with either the 1-hour algorithm or the 0- and 2-hour algorithm are cost effective, reduce ED length of stay, reduce overall hospital costs, and are safe.
+[Grade I, Level A] Accelerated hs-cTn diagnostic rule-out protocols using early serial troponin testing with either the 1-hour algorithm or the 0- and 2-hour algorithm are cost effective, reduce ED length of stay, reduce overall hospital costs, and are safe.
 
 The committee advocates Flowchart 1: "Rule out" Protocol for Patients Suspected to Have ACS Using Cardiac Troponin (Preferably hs-cTn) and 0/3 Hour# Protocol using cTn, preferably hs-cTn, as a rule-out pathway.
 
 When using POC kits:
-- **[Grade IIb, Level C]** If the reading is elevated, admit the patient for further evaluation.
-- **[Grade IIb, Level C]** If the reading is normal or non-detectable and clinical suspicion is high, repeat after 6 hours.
+- [Grade IIb, Level C] If the reading is elevated, admit the patient for further evaluation.
+- [Grade IIb, Level C] If the reading is normal or non-detectable and clinical suspicion is high, repeat after 6 hours.
 
 cTn must be interpreted in the clinical context of the patient. Other key clinical data, including chest pain features, past medical history, and ECG, must be considered, particularly when contemporary hs-cTn assays are used.
 
@@ -434,9 +434,9 @@ Risk stratification in NSTE-ACS may be performed using:
   - TIMI Risk Score - predicts 14-day outcomes.
   - GRACE Risk Score - predicts in-hospital and 6-month death or recurrent MI.
 
-**[Grade I, Level C]** TIMI or GRACE risk scoring is advocated in patients with definite NSTE-ACS.
+[Grade I, Level C] TIMI or GRACE risk scoring is advocated in patients with definite NSTE-ACS.
 
-**[Grade I, Level C]** Clinical parameters remain important in assessing prognosis. Validated risk scores refine risk stratification and improve patient care in routine clinical practice.
+[Grade I, Level C] Clinical parameters remain important in assessing prognosis. Validated risk scores refine risk stratification and improve patient care in routine clinical practice.
 
 These risk scores help dictate the appropriate strategy, invasive versus ischaemia-guided, and the timing of the strategy, early versus late invasive, in patients with NSTE-ACS.
 
@@ -520,17 +520,17 @@ Elevated troponins may occasionally be due to analytical issues, including:
 ### Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
 | :--- | :--- | :--- | :--- |
-| **Chemical class** | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
-| **Administration** | Oral | Oral | Oral |
-| **Dose** | 300 - 600mg orally then 75mg a day | 60mg orally then 10mg a day | 180mg orally then 90mg twice a day |
-| **Dosing in CKD** | | | |
+| Chemical class | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
+| Administration | Oral | Oral | Oral |
+| Dose | 300 - 600mg orally then 75mg a day | 60mg orally then 10mg a day | 180mg orally then 90mg twice a day |
+| Dosing in CKD | | | |
 | **Stage 3**<br>(eGFR 30–59 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>(eGFR 15–29 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 5**<br>(eGFR <15 mL/min/1.73m2)<br>(e.g., stent thrombosis prevention) | Use only for selected indications (e.g., stent thrombosis prevention) | Not recommended | Not recommended |
-| **Withdrawal before surgery** | 5 days<sup>c</sup> | 7 days<sup>c</sup> | 5 days<sup>c</sup> |
-| **Nonbleeding significant side effects** | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
-| **Plasma half-life of active P2Y12 inhibitor<sup>d</sup>** | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
-| **Inhibition of adenosine reuptake** | No | No | Yes |
+| Withdrawal before surgery | 5 days<sup>c</sup> | 7 days<sup>c</sup> | 5 days<sup>c</sup> |
+| Nonbleeding significant side effects | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
+| Plasma half-life of active P2Y12 inhibitor<sup>d</sup> | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
+| Inhibition of adenosine reuptake | No | No | Yes |
 
 *\*Adapted from Roffi M, Patrono C, Collet J-P, et.al. 2015 ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation: Task Force for the Management of Acute Coronary Syndromes in Patients Presenting without Persistent ST-Segment Elevation of the European Society of Cardiology (ESC). Eur Heart J. 2016;37(3): 267-315*
 
@@ -543,14 +543,14 @@ Elevated troponins may occasionally be due to analytical issues, including:
 ### Appendix VIII: Glycoprotein (GP) IIb/IIIa Inhibitors*
 | | Abciximab | Tirofiban | Eptifibatide |
 | :--- | :--- | :--- | :--- |
-| **Type** | Antibody | Nonpeptide | Cyclic peptide |
-| **Inhibition** | Non-competitive | Competitive | Competitive |
-| **Plasma half-life** | 10 - 30 min | 2 hours | 2.5 hours |
-| **Recovery of platelet function** | Slow (24-48h) | Fast (4-8h) | Fast (<4h) |
-| **Antigenicity** | Present | Absent | Absent |
-| **Clearance** | Platelet binding, **unbound substance via proteolytic cleavage** | Renal (98%) | Renal (60-70%)<br>Biliar (20-30%) |
-| **Recommended dose** | IV bolus 0.25 mg/kg, infusion 0.125 µg/kg/min (max.10 µg/min) | IV bolus 25 µg/kg or 10 µg/kg, infusion 0.15 µg/kg/min | IV bolus 180 µg/kg, infusion 2 µg/kg/min |
-| **Dosing in CKD** | | | |
+| Type | Antibody | Nonpeptide | Cyclic peptide |
+| Inhibition | Non-competitive | Competitive | Competitive |
+| Plasma half-life | 10 - 30 min | 2 hours | 2.5 hours |
+| Recovery of platelet function | Slow (24-48h) | Fast (4-8h) | Fast (<4h) |
+| Antigenicity | Present | Absent | Absent |
+| Clearance | Platelet binding, **unbound substance via proteolytic cleavage** | Renal (98%) | Renal (60-70%)<br>Biliar (20-30%) |
+| Recommended dose | IV bolus 0.25 mg/kg, infusion 0.125 µg/kg/min (max.10 µg/min) | IV bolus 25 µg/kg or 10 µg/kg, infusion 0.15 µg/kg/min | IV bolus 180 µg/kg, infusion 2 µg/kg/min |
+| Dosing in CKD | | | |
 | **Stage 3**<br>(eGFR 30 - 59 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No adjustment of bolus, reduce infusion rate to 1 µg/kg/min i eGFR <50 mL/min/1.73m2 |
 | **Stage 4**<br>(eGFR 15 - 29 mL/min/1.73m2) | No dose adjustment | No adjustment of bolus, reduce infusion to 0.05 µg/kg/min | Not Recommended |
 | **Stage 5**<br>(eGFR <15 mL/min/1.73m2) | No dose adjustment | Not recommended | Not recommended |
@@ -565,9 +565,9 @@ Elevated troponins may occasionally be due to analytical issues, including:
 ### Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
-| **Dose** | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
-| **Duration of therapy** | 8 days or duration of hospitalisation | 2 - 8 days | 2 - 8 days |
-| **Dosing in CKD** | | | |
+| Dose | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
+| Duration of therapy | 8 days or duration of hospitalisation | 2 - 8 days | 2 - 8 days |
+| Dosing in CKD | | | |
 | **Stage 3**<br>CrCl 30 - 59 ml/min | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>CrCl 15 - 29 mL/min | Not recommended if CrCl < 20 ml/min** | SC 1 mg/kg OD | No dose adjustment |
 | **Stage 5**<br>CrCl < 15 mL/min | Not recommended | SC 1 mg/kg OD | No dose adjustment |
@@ -581,15 +581,15 @@ Elevated troponins may occasionally be due to analytical issues, including:
 ### Appendix X: Β-Blockers In NSTE-ACS*
 | β-blockers | Bisoprolol | Carvedilol | Metoprolol |
 | :--- | :--- | :--- | :--- |
-| **Initiation dose** | 1.25mg od | 3.125mg bd | 25mg bd |
-| **Target dose** | 10mg od | 25mg bd | 100mg bd |
-| **Dose equivalence [80]** | 5mg | 25mg | 100mg |
-| **Hepatic impairment** | Used with caution | Severe liver disease: avoid | Used with caution |
-| **Renal impairment** | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
+| Initiation dose | 1.25mg od | 3.125mg bd | 25mg bd |
+| Target dose | 10mg od | 25mg bd | 100mg bd |
+| Dose equivalence [80] | 5mg | 25mg | 100mg |
+| Hepatic impairment | Used with caution | Severe liver disease: avoid | Used with caution |
+| Renal impairment | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
 | **Stage 4:**<br>CrCl 15-30mL/min | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
 | **Stage 5:**<br>CrCl < 15mL/min | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
-| **Metabolism** | Liver: 50% | Liver | Liver |
-| **Elimination** | Renal: 50 - 60% unchanged | Fecal / biliary | Renal: 95% |
+| Metabolism | Liver: 50% | Liver | Liver |
+| Elimination | Renal: 50 - 60% unchanged | Fecal / biliary | Renal: 95% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia) and IBM Micromedex drug Reference. Retrieved 27th July 2019.*
 
@@ -598,17 +598,17 @@ Elevated troponins may occasionally be due to analytical issues, including:
 ### Appendix XI: ACEI/ARB In NSTE-ACS*
 | ACE/ARB | Captopril | Ramipril | Enalapril | Perindopril |
 | :--- | :--- | :--- | :--- | :--- |
-| **Initiation dose** | 6.25mg bd-tds | 2.5mg bd | 2.5-5mg od | 2mg od<br>(perindopril erbumine) /<br>-2.5mg od<br>(perindopril arginine) |
-| **Target dose** | 25 - 50mg tds | 10mg od | 20mg bd | 8 - 10mg od |
-| **Dose equivalence [107]** | 50mg | 2.5mg | 5mg | 4mg |
-| **Dose adjustment** | | | | |
-| **Hepatic impairment** | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
-| **Renal impairment** | | | | |
+| Initiation dose | 6.25mg bd-tds | 2.5mg bd | 2.5-5mg od | 2mg od<br>(perindopril erbumine) /<br>-2.5mg od<br>(perindopril arginine) |
+| Target dose | 25 - 50mg tds | 10mg od | 20mg bd | 8 - 10mg od |
+| Dose equivalence [107] | 50mg | 2.5mg | 5mg | 4mg |
+| Dose adjustment | | | | |
+| Hepatic impairment | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
+| Renal impairment | | | | |
 | **Stage 3:**<br>CrCl 30-59mL/min | > 40ml/min<br>25-50mg daily.<br>Max: 150mg daily. | Not necessary to adjust the initial dose.<br>Max: 5mg/day. | No dose adjustment | 2mg or 2.5mg od |
 | **Stage 4:**<br>CrCl 15-29mL/min | 21-40mL/min<br>25mg daily.<br>Max: 100mg daily.<br>10-20mL/min<br>12.5mg daily.<br>Max: 75mg daily. | 10-30mL/min<br>Initially, 1.25mg/day.<br>Max: 5mg/day. | ≤ 30 mL/min<br>Initially, 2.5mg/day. | 2mg or 2.5mg every other day |
 | **Stage 5:**<br>CrCl < 15mL/min | < 10mL/min<br>6.25mg daily.<br>Max: 37.5mg daily. | - | ≤ 30 mL/min<br>Initially, 2.5mg/day. | 2mg or 2.5mg on dialysis days |
-| **Metabolism** | Liver | Liver | Liver | Liver |
-| **Elimination** | Renal: >95% | Renal: 60%<br>Fecal: 40% | Renal: 61%<br>Fecal: 33% | Renal: 75% |
+| Metabolism | Liver | Liver | Liver | Liver |
+| Elimination | Renal: >95% | Renal: 60%<br>Fecal: 40% | Renal: 61%<br>Fecal: 33% | Renal: 75% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 28th July 2019.*
 
@@ -617,13 +617,13 @@ Elevated troponins may occasionally be due to analytical issues, including:
 ### Appendix XII: Recommended Dosages Of Nitrates*
 | | Glyceryl trinitrate (GTN) | | | | | Isosorbide dinitrate | | | Isosorbide mononitrate |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Route** | Sublingual | Intra-venous | Spray | Patch | Buccal | Topical (2% ointment) | Intra-venous | Oral | Oral (long-acting) |
-| **Dose** | 0.3 - 0.6 mg, can repeat up to 3 times at 5 minute intervals | 5 - 200 µg/min<sup>†</sup> | 0.4 - 0.8 mg per metered dose, no >3 sprays at 5 minute intervals | 2.5 - 20 mg over 12 hours on, then 12 hours off | 2 mg, placed between the gum and upper lip, increase to 3 mg if necessary. Severe angina: 5 mg may be given | Apply 0.5 - 2 inches on a convenient area of the skin bd or every 3-4 hours if necessary; cover the area after application | 2 - 12mg/hr | 10-20mg, 2-3 times daily | 30 - 60mg daily |
-| **Time of Onset** | 1 - 3 min | 1 - 2 min | 2 min | 40 - 60 min | 1 - 3 min | 20 - 60 min | 1 min | 30 - 60 min | 1 - 2 hours |
-| **Maximum dose** | 3 doses within 15 min | 400 µg/min | 3 sprays within 15 min | 20mg/day | 15mg/day | 6 applications/day | 20mg/hr | 240mg/day | 240mg/day |
-| **Dose adjustment** | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment |
-| **Metabolism** | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver |
-| **Elimination** | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 80 - 90% | Renal: 80 - 90% | Renal: 78% |
+| Route | Sublingual | Intra-venous | Spray | Patch | Buccal | Topical (2% ointment) | Intra-venous | Oral | Oral (long-acting) |
+| Dose | 0.3 - 0.6 mg, can repeat up to 3 times at 5 minute intervals | 5 - 200 µg/min<sup>†</sup> | 0.4 - 0.8 mg per metered dose, no >3 sprays at 5 minute intervals | 2.5 - 20 mg over 12 hours on, then 12 hours off | 2 mg, placed between the gum and upper lip, increase to 3 mg if necessary. Severe angina: 5 mg may be given | Apply 0.5 - 2 inches on a convenient area of the skin bd or every 3-4 hours if necessary; cover the area after application | 2 - 12mg/hr | 10-20mg, 2-3 times daily | 30 - 60mg daily |
+| Time of Onset | 1 - 3 min | 1 - 2 min | 2 min | 40 - 60 min | 1 - 3 min | 20 - 60 min | 1 min | 30 - 60 min | 1 - 2 hours |
+| Maximum dose | 3 doses within 15 min | 400 µg/min | 3 sprays within 15 min | 20mg/day | 15mg/day | 6 applications/day | 20mg/hr | 240mg/day | 240mg/day |
+| Dose adjustment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment |
+| Metabolism | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver |
+| Elimination | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 80 - 90% | Renal: 80 - 90% | Renal: 78% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 *<sup>†</sup>Initially, 10 mcg/min, increase in increment of 10 mcg/min at approximately 30-minute intervals, according to patient requirement.*
@@ -633,13 +633,13 @@ Elevated troponins may occasionally be due to analytical issues, including:
 ### Appendix XIII: CCBs*
 | CCB | Diltiazem | Verapamil | Amlodipine | Nifedipine ER |
 | :--- | :--- | :--- | :--- | :--- |
-| **Dose** | Immediate release, 30 - 90mg tds;<br>Slow release, 100 - 200mg od | Immediate release, 40 - 80mg tds;<br>Slow release, 120 - 240mg od | 2.5 -10mg od | Slow release, 30 - 90mg od |
-| **Dose Equivalence [86]** | - | - | 2.5mg | 20mg |
-| **Maximum Dose** | 360mg/day | 480mg/day | 10mg/day | 120mg/day |
-| **Hepatic Impairment** | Used with caution/consider dose reduction | Used with caution/low dose | Initial dose: 2.5mg od | Caution: may need to reduce dose |
-| **Renal Impairment** | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
-| **Metabolism** | Liver | Liver | Liver | Liver |
-| **Elimination** | Renal: 35%<br>Fecal: 60 - 65% | Renal: 70% | Renal: 60%<br>Fecal: 20 - 25% | Renal: 70 - 80%<br>Fecal: 20% |
+| Dose | Immediate release, 30 - 90mg tds;<br>Slow release, 100 - 200mg od | Immediate release, 40 - 80mg tds;<br>Slow release, 120 - 240mg od | 2.5 -10mg od | Slow release, 30 - 90mg od |
+| Dose Equivalence [86] | - | - | 2.5mg | 20mg |
+| Maximum Dose | 360mg/day | 480mg/day | 10mg/day | 120mg/day |
+| Hepatic Impairment | Used with caution/consider dose reduction | Used with caution/low dose | Initial dose: 2.5mg od | Caution: may need to reduce dose |
+| Renal Impairment | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
+| Metabolism | Liver | Liver | Liver | Liver |
+| Elimination | Renal: 35%<br>Fecal: 60 - 65% | Renal: 70% | Renal: 60%<br>Fecal: 20 - 25% | Renal: 70 - 80%<br>Fecal: 20% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 
@@ -695,17 +695,17 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 <br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 

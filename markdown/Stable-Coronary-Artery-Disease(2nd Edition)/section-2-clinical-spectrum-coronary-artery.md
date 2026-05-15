@@ -35,9 +35,9 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 
 | Criterion | Description |
 |-----------|-------------|
-| **1** | Retrosternal chest discomfort — predictable, with possible radiation to jaw, shoulders, arms and/or back |
-| **2** | Provoked by physical exertion and/or emotional stress |
-| **3** | Relieved by rest and/or with glyceryl trinitrate (GTN) |
+| 1 | Retrosternal chest discomfort — predictable, with possible radiation to jaw, shoulders, arms and/or back |
+| 2 | Provoked by physical exertion and/or emotional stress |
+| 3 | Relieved by rest and/or with glyceryl trinitrate (GTN) |
 
 > - **Atypical angina (probable):** meets 2 out of 3 criteria
 > - **Non-anginal chest pain:** meets 1 or none of the criteria
@@ -65,7 +65,7 @@ Management of these individuals are in the CPGs on ST Elevation Myocardial Infar
 <!-- ============================================================ -->
 
 ### Section 5: .1: Clinical Assessment — Key Diagnostic Criteria
-**[Grade I, Level C]** In making a diagnosis of stable angina, a detailed history and physical examination are of paramount importance. Clinical investigations are necessary for confirmation of diagnosis, detection of myocardial ischaemia and for prognostication.
+[Grade I, Level C] In making a diagnosis of stable angina, a detailed history and physical examination are of paramount importance. Clinical investigations are necessary for confirmation of diagnosis, detection of myocardial ischaemia and for prognostication.
 
 #### Features Suggesting ACS (Not Stable Cad):
 - Chest pain of **recent onset (<2 months)**
@@ -105,9 +105,9 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 
 | Criterion | Description |
 |-----------|-------------|
-| **1** | Retrosternal chest discomfort — predictable, with possible radiation to jaw, shoulders, arms and/or back |
-| **2** | Provoked by physical exertion and/or emotional stress |
-| **3** | Relieved by rest and/or with glyceryl trinitrate (GTN) |
+| 1 | Retrosternal chest discomfort — predictable, with possible radiation to jaw, shoulders, arms and/or back |
+| 2 | Provoked by physical exertion and/or emotional stress |
+| 3 | Relieved by rest and/or with glyceryl trinitrate (GTN) |
 
 ## Key Messages:
 
@@ -129,18 +129,18 @@ Typical/definite angina is retrosternal chest discomfort characterised by fulfil
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

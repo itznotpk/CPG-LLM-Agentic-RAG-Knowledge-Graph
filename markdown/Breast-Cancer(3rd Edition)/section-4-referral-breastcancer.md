@@ -16,9 +16,9 @@ The following conditions warrant **early referral (within two weeks)** to breast
 
 | Criteria | Description |
 |---|---|
-| **Women aged >35 years** | With general signs and symptoms* |
-| **High risk group** | With general signs and symptoms* |
-| **Patients with clinical signs of malignancy** | With signs of malignancy** |
+| Women aged >35 years | With general signs and symptoms* |
+| High risk group | With general signs and symptoms* |
+| Patients with clinical signs of malignancy | With signs of malignancy** |
 
 ---
 

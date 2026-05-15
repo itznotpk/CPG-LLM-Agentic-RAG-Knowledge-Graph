@@ -88,17 +88,17 @@ Table 3-D: Risk Stratification
 
 | Co-Existing Condition / BP Levels (mmHg) | No RF, No TOD, No TOC | TOD or RF (1-2), No TOC | TOC or RF(≥3) or Clinical atherosclerosis or CKD | Previous MI / IHD, Previous stroke or Diabetes or CKD |
 |---|---|---|---|---|
-| **SBP 130 - 139 and/or DBP 80 - 89** | Low | Intermediate | High | Very High |
-| **SBP 140 - 159 and/or DBP 90 - 99** | Low | Medium | High | Very High |
-| **SBP 160 - 179 and/or DBP 100 - 109** | Medium | High | Very High | Very High |
-| **SBP >180 and/or DBP >110** | High | Very High | Very High | Very High |
+| SBP 130 - 139 and/or DBP 80 - 89 | Low | Intermediate | High | Very High |
+| SBP 140 - 159 and/or DBP 90 - 99 | Low | Medium | High | Very High |
+| SBP 160 - 179 and/or DBP 100 - 109 | Medium | High | Very High | Very High |
+| SBP >180 and/or DBP >110 | High | Very High | Very High | Very High |
 
 | Risk Level | Risk of Major CV Event in 10 years | Management |
 |---|---|---|
-| **Low-Intermediate** | <10% | Healthy living |
-| **Medium** | 10 - 20% | Drug treatment and healthy living |
-| **High** | 20 - 30% | Drug treatment and healthy living |
-| **Very high** | >30% | Drug treatment and healthy living |
+| Low-Intermediate | <10% | Healthy living |
+| Medium | 10 - 20% | Drug treatment and healthy living |
+| High | 20 - 30% | Drug treatment and healthy living |
+| Very high | >30% | Drug treatment and healthy living |
 
 TOD = Target organ damage (LVH, retinopathy, proteinuria). <br>
 TOC = Target organ complication (heart failure, renal failure). <br>

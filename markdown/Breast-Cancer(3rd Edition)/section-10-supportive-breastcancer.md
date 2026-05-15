@@ -44,8 +44,8 @@ Most breast cancer patients experience at least some psychosocial distress durin
 #### Recommended Screening Tools
 | Tool | Notes |
 |---|---|
-| **Patient Health Questionnaire (PHQ)** | Recommended |
-| **Emotion Thermometer (ET)** | Recommended |
+| Patient Health Questionnaire (PHQ) | Recommended |
+| Emotion Thermometer (ET) | Recommended |
 | Hospital Anxiety and Depression Scale (HADS) | Previously widely used; now copyrighted and requires payment |
 
 ### Psychosocial Interventions

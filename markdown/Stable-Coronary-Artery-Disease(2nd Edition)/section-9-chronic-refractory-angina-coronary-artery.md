@@ -39,7 +39,7 @@ Options available to these symptomatic patients who are not amenable to conventi
 
 In small clinical trials, these alternative therapies have been shown to relieve angina and improve quality of life to a variable degree in some patients with refractory angina.393-425
 
-- These therapies should only be considered in patients who continue to have **[Grade II-b, Level B]** troubling angina despite conventional therapy or when conventional therapy is not feasible. 393-425
+- These therapies should only be considered in patients who continue to have [Grade II-b, Level B] troubling angina despite conventional therapy or when conventional therapy is not feasible. 393-425
 
 ## Key Messages:
 - ischaemic chest pain of >3 months duration which is not controlled by a combination of maximal medical therapy and/or revascularization
@@ -54,18 +54,18 @@ In small clinical trials, these alternative therapies have been shown to relieve
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

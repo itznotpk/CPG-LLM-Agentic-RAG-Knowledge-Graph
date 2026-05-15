@@ -89,14 +89,14 @@ Patients with symptoms due to recurrent arrhythmias should be referred for cathe
 | Lumbar spine | 1.7 | 10 |  |
 | Pelvis | 1.1 | 4 |  |
 | Intravenous Urogram | 1.7 | 10 |  |
-| **Computed Tomography** | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
+| Computed Tomography | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
 |  | Mean (mGy) | Maximum (mGy) | mGy |
 | Head | <0.005 | <0.005 |  |
 | Chest | 0.06 | 0.96 | 7 |
 | Abdomen | 8.0 | 49 |  |
 | Lumbar spine | 2.4 | 8.6 |  |
 | Pelvis | 25 | 79 |  |
-| **Fluoroscopic Examinations** | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
+| Fluoroscopic Examinations | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
 |  | Mean (mGy) | Maximum (mGy) | mGy |
 | Barium meal (Upper GI) | 1.1 | 5.8 |  |
 | Barium meal (lower GI) | 6.8 | 24 |  |

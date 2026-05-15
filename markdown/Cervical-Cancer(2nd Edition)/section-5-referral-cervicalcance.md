@@ -13,9 +13,9 @@ Table 1: Time Frame For Referral Of Abnormal Cytology To Gynaecology Clinic
 
 | Time frame for referral | Criteria |
 |---|---|
-| **Within 8 weeks** | • After three consecutive inadequate samples<br>• After three tests reported as inflammatory smear in a series<br>• One test reported as AGC-US or AGC-H<br>• After two tests reported as LSIL or ASCUS*<br>* HPV DNA testing should be considered if available. If positive for high risk HPV, to refer for colposcopy. |
-| **Within 4 weeks** | • One test reported as HSIL |
-| **Within 2 weeks** | • One test reported as possible invasion<br>• One test reported as possible glandular neoplasia<br>• Women with symptoms of postcoital bleeding particularly >40 years, intermenstrual bleeding and persistent vaginal discharge |
+| Within 8 weeks | • After three consecutive inadequate samples<br>• After three tests reported as inflammatory smear in a series<br>• One test reported as AGC-US or AGC-H<br>• After two tests reported as LSIL or ASCUS*<br>* HPV DNA testing should be considered if available. If positive for high risk HPV, to refer for colposcopy. |
+| Within 4 weeks | • One test reported as HSIL |
+| Within 2 weeks | • One test reported as possible invasion<br>• One test reported as possible glandular neoplasia<br>• Women with symptoms of postcoital bleeding particularly >40 years, intermenstrual bleeding and persistent vaginal discharge |
 
 [Level III] Once diagnosed with cervical cancer, patients should receive definitive treatment within 31 days of agreeing to their care plan or within 62 days on the referral pathway.
 

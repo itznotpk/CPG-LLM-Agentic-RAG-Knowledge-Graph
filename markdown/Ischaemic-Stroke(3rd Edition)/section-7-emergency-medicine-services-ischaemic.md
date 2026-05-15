@@ -93,7 +93,7 @@ Table 7.1: Emergency Medicine Services
 
 | Management | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
-| **Pre-Hospital Management** | | | |
+| Pre-Hospital Management | | | |
 | Public education | Educational programmes should be designed to create awareness and knowledge of stroke warning signs.<br>*New recommendation* | II-1 | A |
 | Public education | Educational programmes should include the timely recognition and need to seek emergency care by calling 999 promptly.<br>*New recommendation* | II-1 | A |
 | Emergency dispatch system | ADC should be familiar with common descriptors used by the public for stroke. Whenever the descriptors are used, EMD are trained to use the stroke protocols to identify suspected stroke patients.<br>*New recommendation* | II-1 | A |
@@ -108,7 +108,7 @@ Table 7.1: Emergency Medicine Services
 | Initial on-scene management | Titrated dose of oxygen should be delivered to stroke patients with an oxygen saturation level of below 95%.<br>*New recommendation* | II-3 | B |
 | Pre-arrival communication | PHC Responders should be trained to provide pre-arrival notification of stroke patients to receiving hospitals.<br>*New recommendation* | II-1 | A |
 | Pre-arrival communication | MECC and associated stroke ready hospital(s) are recommended to have local regional stroke referral system/ network and agreement with the ED to facilitate the transport decision from PHC to ensure the treatment window of 4.5 hours is achieved.<br>*New recommendation* | I | A |
-| **Emergency Department Management** | | | |
+| Emergency Department Management | | | |
 | ED Evaluation | All patients presenting to an ED with suspected acute stroke must have immediate clinical evaluation and investigations to establish the diagnosis and to determine the eligibility for intravenous thrombolytic therapy and/or EVT.<br>*New recommendation* | I | A |
 | ED Evaluation | The use of clinical screening tools such as FAST or BE-FAST to identify stroke by ED staff can be beneficial.<br>*New recommendation* | II-2 | B |
 | Initial Assessment in ED | ED staff should rapidly evaluate airway, breathing and circulation in patients with suspected acute stroke and manage them accordingly.<br>*New recommendation* | I | A |
@@ -154,32 +154,32 @@ Table 7.1: Emergency Medicine Services
 ## Appendix C: Operational Definition - Terms And Descriptions
 | Terms | Descriptions |
 | --- | --- |
-| **Bypass** | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
-| **Call taker** | A trained person in MECC who receives calls from the public through 999 and manages the call. |
-| **Dispatch priority** | Level of priority assigned to each case according to the clinical urgency. There are 4 levels of priority: Priority 1, priority 2, priority 3 and priority 4. Priority 1 is the highest priority level in the dispatch system. |
-| **Dispatching system** | A computerized system in MECC manned by the call taker to manage all incoming 999 calls from the public and dispatches the appropriate response team to the scene. |
-| **PHC responder** | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
-| **Pre-arrival alert** | Providing notification of an incoming case prior to the patient's arrival. |
+| Bypass | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
+| Call taker | A trained person in MECC who receives calls from the public through 999 and manages the call. |
+| Dispatch priority | Level of priority assigned to each case according to the clinical urgency. There are 4 levels of priority: Priority 1, priority 2, priority 3 and priority 4. Priority 1 is the highest priority level in the dispatch system. |
+| Dispatching system | A computerized system in MECC manned by the call taker to manage all incoming 999 calls from the public and dispatches the appropriate response team to the scene. |
+| PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
+| Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
 ## Key To Evidence Statements And Grades Of Recommendations
 
 ### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
-| **I** | Evidence obtained from at least one properly randomized controlled trial |
-| **II-1** | Evidence obtained from well-designed controlled trials without randomization |
-| **II-2** | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
-| **II-3** | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
-| **III** | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
+| I | Evidence obtained from at least one properly randomized controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomization |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
+| II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 ### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
-| **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
-| **B** | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
-| **C** | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
+| A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
+| B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
+| C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 

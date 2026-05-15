@@ -21,9 +21,9 @@ A detailed history aided by validated questionnaires (IIEF-15 or IIEF-5) helps t
 
 | Assessment Tool | Use Case | Evidence |
 |-----------------|----------|----------|
-| **IIEF-15** | Comprehensive assessment of all sexual function domains | Level III |
-| **IIEF-5** | Quick screening, severity classification | Level III |
-| **EHS (Erection Hardness Score)** | Penile rigidity assessment (correlation 0.63-0.86 with IIEF) except the sexual desire domain. | Level III |
+| IIEF-15 | Comprehensive assessment of all sexual function domains | Level III |
+| IIEF-5 | Quick screening, severity classification | Level III |
+| EHS (Erection Hardness Score) | Penile rigidity assessment (correlation 0.63-0.86 with IIEF) except the sexual desire domain. | Level III |
 
 > **Clinical Note:** IIEF-5 and EHS assessment helps determine ED severity and guides treatment selection.
 
@@ -43,10 +43,10 @@ Patients should undergo physical examination and vital parameters recording duri
 
 | System | Examination Focus | Looking For |
 |--------|-------------------|-------------|
-| **Genitourinary** | Penis, testes, prostate | Peyronie's disease, pre-malignant/malignant lesions, prostatic enlargement |
-| **Endocrine** | Secondary sexual characteristics | Small testes, alterations suggesting hypogonadism |
-| **Vascular** | Peripheral pulses, BP | Vascular insufficiency markers |
-| **Neurological** | Sensation, reflexes | Neurogenic causes |
+| Genitourinary | Penis, testes, prostate | Peyronie's disease, pre-malignant/malignant lesions, prostatic enlargement |
+| Endocrine | Secondary sexual characteristics | Small testes, alterations suggesting hypogonadism |
+| Vascular | Peripheral pulses, BP | Vascular insufficiency markers |
+| Neurological | Sensation, reflexes | Neurogenic causes |
 
 **Vital Parameters to Record:**
 - Blood pressure
@@ -142,9 +142,9 @@ After completing medical history and labs, ALL patients must undergo **Cardiac R
 
 | Risk Category | Characteristics | Treatment Eligibility |
 |--------------|-----------------|----------------------|
-| **LOW RISK** | Asymptomatic, <3 CAD risk factors, controlled hypertension, NYHA I-II | ELIGIBLE for PDE5i - manage in primary care |
-| **INTERMEDIATE RISK** | ≥3 CAD risk factors, moderate stable angina, recent MI (2-6 weeks), NYHA III | Requires cardiac evaluation FIRST |
-| **HIGH RISK** | Unstable angina, recent MI (<2 weeks), NYHA IV, uncontrolled hypertension | DEFER treatment until stabilised |
+| LOW RISK | Asymptomatic, <3 CAD risk factors, controlled hypertension, NYHA I-II | ELIGIBLE for PDE5i - manage in primary care |
+| INTERMEDIATE RISK | ≥3 CAD risk factors, moderate stable angina, recent MI (2-6 weeks), NYHA III | Requires cardiac evaluation FIRST |
+| HIGH RISK | Unstable angina, recent MI (<2 weeks), NYHA IV, uncontrolled hypertension | DEFER treatment until stabilised |
 
 **CAD Risk Factors:** High BP, high LDL, diabetes, smoking, obesity, physical inactivity, unhealthy diet.
 
@@ -164,12 +164,12 @@ Risk factors identified here are addressed through lifestyle modifications:
 
 | Risk Factor | Treatment Impact |
 |-------------|-----------------|
-| **Obesity** | Weight loss improves IIEF (MD=1.99) |
-| **Physical inactivity** | Aerobic exercise improves arterial ED |
-| **Smoking** | Cessation improves ED regardless of pack-years |
-| **Alcohol excess** | 3 months abstinence improves IIEF-5 (p<0.001) |
-| **Diabetes** | Major risk factor - control essential |
-| **Hypertension** | Controlled: low CV risk; Uncontrolled: high CV risk |
+| Obesity | Weight loss improves IIEF (MD=1.99) |
+| Physical inactivity | Aerobic exercise improves arterial ED |
+| Smoking | Cessation improves ED regardless of pack-years |
+| Alcohol excess | 3 months abstinence improves IIEF-5 (p<0.001) |
+| Diabetes | Major risk factor - control essential |
+| Hypertension | Controlled: low CV risk; Uncontrolled: high CV risk |
 
 > **EAU Guidelines 2023:** Modify risk factors and commence lifestyle changes prior to or concurrently with ED treatments.
 

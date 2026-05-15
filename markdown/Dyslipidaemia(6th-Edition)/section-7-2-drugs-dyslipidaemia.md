@@ -360,16 +360,16 @@ Table 6: Lipid Modifying Therapy For Dyslipidemia
 
 | Pharmacotherapy | Indication | Grade of Recommendation, Level Of Evidence |
 |---|---|---|
-| **Statins** | Very High and High CV Risk <br> Intermediate (Moderate) and Low CV risk* | I, A <br> I, A |
-| **Statins + Ezetimibe** | Failure to achieve LDL-C goals | I, A |
-| **Statins + PCSK-9 inhibitors** | Familial hypercholesterolemia <br> Failure to achieve LDL-C goals | I, A <br> I, A |
-| **Statins + PCSK-9 inhibitors + Ezetimibe** | Failure to achieve LDL-C goals | I, A |
-| **Statins + SiRNA PCSK-9 inhibitors** | Failure to achieve LDL-C goals | IIa, B |
-| **Statins + SiRNA PCSK-9 inhibitors + Ezetimibe** | Failure to achieve LDL-C goals | IIa, B |
-| **Statins + Fibrates** | Diabetic patients on maximally tolerated statins who have achieved the LDL-C target but have low HDL-C and high TG | IIb, B |
-| **Ezetimibe** | Statin intolerance | IIa, B |
-| **PCSK-9 inhibitors** | Very High and High CV risk with statin intolerance | I, A |
-| **Fibrates** | Very High TG despite therapeutic lifestyle changes | IIa, C |
+| Statins | Very High and High CV Risk <br> Intermediate (Moderate) and Low CV risk* | I, A <br> I, A |
+| Statins + Ezetimibe | Failure to achieve LDL-C goals | I, A |
+| Statins + PCSK-9 inhibitors | Familial hypercholesterolemia <br> Failure to achieve LDL-C goals | I, A <br> I, A |
+| Statins + PCSK-9 inhibitors + Ezetimibe | Failure to achieve LDL-C goals | I, A |
+| Statins + SiRNA PCSK-9 inhibitors | Failure to achieve LDL-C goals | IIa, B |
+| Statins + SiRNA PCSK-9 inhibitors + Ezetimibe | Failure to achieve LDL-C goals | IIa, B |
+| Statins + Fibrates | Diabetic patients on maximally tolerated statins who have achieved the LDL-C target but have low HDL-C and high TG | IIb, B |
+| Ezetimibe | Statin intolerance | IIa, B |
+| PCSK-9 inhibitors | Very High and High CV risk with statin intolerance | I, A |
+| Fibrates | Very High TG despite therapeutic lifestyle changes | IIa, C |
 
 *After Therapeutic Lifestyle changes
 
@@ -377,14 +377,14 @@ Table 11: Major Lipid Modifying Drug Classes
 
 | Drug Class | Lipid Effects | Side Effects | Contraindications |
 |---|---|---|---|
-| **HMG-CoA Reductase Inhibitors (Statins)** | LDL-C ↓ 21-55% <br> HDL-C ↑ 2-10% <br> TG ↓ 6-30% | • Myopathy <br> • Increased liver enzymes | **Absolute:** <br> • Active or chronic liver disease <br> **Relative:** <br> • Concomitant use of certain drugs* |
-| **Fibric-Acid Derivatives (Fibrates)** | LDL-C ↓ 20-35% (fenofibrate) <br> HDL-C ↑ 6-18% <br> Primarily TG ↓ 20-35%+ | • Dyspepsia <br> • Cholelithiasis <br> • Myopathy | **Absolute:** <br> • Severe hepatic disease <br> • Severe kidney disease <br> **Relative:** <br> • Concomitant use of certain drugs** |
-| **PCSK9 inhibitors** | LDL-C ↓ 48-71% <br> Non-HDL-C ↓ 49-58% <br> TC ↓ 36-42% | • Injection site swelling or rash <br> • Nasopharyngitis <br> • Limb pain <br> • Fatigue | **Absolute:** <br> • Hypersensitivity |
-| **Bile-Acid Sequestrants (Anion exchange resins)** | LDL-C ↓ 15-25% <br> HDL-C ↑ 3-5% <br> TG ↔ / ↑ | • GIT distress <br> • Constipation <br> • Reduce absorption of folic acid and fat-soluble vitamins (A, D & K) <br> • Decreased absorption of certain drugs*** | **Absolute:** <br> • Dysbetalipoproteinemia <br> • TG > 4.5 mmol/L <br> **Relative:** <br> • TG > 2.3 mmol/L |
-| **Nicotinic Acid (Niacin)** | LDL-C ↓ 10-25% <br> HDL-C ↑ 10-35% <br> TG ↓ 20-30% | • Flushing <br> • Hyperglycaemia <br> • Hyperuricemia (or gout) <br> • Upper-GIT distress <br> • Hepatotoxicity (rare but may be severe) | **Absolute:** <br> • Chronic-liver disease <br> • Severe gout <br> **Relative:** <br> • Diabetes (high doses only) <br> • Peptic Ulcer Disease |
-| **Cholesterol Absorption Inhibitors** | Primarily LDL-C ↓ 10-18% (monotherapy) <br> In combination with the following an additional: <br> (a) statins: ↓ 25% <br> (b) fenofibrate: ↓ 20-22% | • Headache <br> • Diarrhoea | **Absolute:** <br> • Abdominal pain Hypersensitivity <br> **Relative:** <br> • Active liver disease or unexplained persistent elevations in hepatic transaminase levels |
-| **Inclisiran** | LDL-C ↓ 50% | • Injection site reaction <br> • Arthralgia <br> • Urinary tract infection <br> • Headache | |
-| **Bempedoic Acid** | LDL-C ↓ 25-30% (monotherapy) <br> In combination with <br> (a) statins: ↓ 20% <br> (b) ezetimibe: ↓ 40% | • Hyperuricemia | **Absolute:** <br> • Concurrent use with simvastatin >20mg and pravastatin >40mg <br> **Relative:** <br> • Tendon rupture |
+| HMG-CoA Reductase Inhibitors (Statins) | LDL-C ↓ 21-55% <br> HDL-C ↑ 2-10% <br> TG ↓ 6-30% | • Myopathy <br> • Increased liver enzymes | **Absolute:** <br> • Active or chronic liver disease <br> **Relative:** <br> • Concomitant use of certain drugs* |
+| Fibric-Acid Derivatives (Fibrates) | LDL-C ↓ 20-35% (fenofibrate) <br> HDL-C ↑ 6-18% <br> Primarily TG ↓ 20-35%+ | • Dyspepsia <br> • Cholelithiasis <br> • Myopathy | **Absolute:** <br> • Severe hepatic disease <br> • Severe kidney disease <br> **Relative:** <br> • Concomitant use of certain drugs** |
+| PCSK9 inhibitors | LDL-C ↓ 48-71% <br> Non-HDL-C ↓ 49-58% <br> TC ↓ 36-42% | • Injection site swelling or rash <br> • Nasopharyngitis <br> • Limb pain <br> • Fatigue | **Absolute:** <br> • Hypersensitivity |
+| Bile-Acid Sequestrants (Anion exchange resins) | LDL-C ↓ 15-25% <br> HDL-C ↑ 3-5% <br> TG ↔ / ↑ | • GIT distress <br> • Constipation <br> • Reduce absorption of folic acid and fat-soluble vitamins (A, D & K) <br> • Decreased absorption of certain drugs*** | **Absolute:** <br> • Dysbetalipoproteinemia <br> • TG > 4.5 mmol/L <br> **Relative:** <br> • TG > 2.3 mmol/L |
+| Nicotinic Acid (Niacin) | LDL-C ↓ 10-25% <br> HDL-C ↑ 10-35% <br> TG ↓ 20-30% | • Flushing <br> • Hyperglycaemia <br> • Hyperuricemia (or gout) <br> • Upper-GIT distress <br> • Hepatotoxicity (rare but may be severe) | **Absolute:** <br> • Chronic-liver disease <br> • Severe gout <br> **Relative:** <br> • Diabetes (high doses only) <br> • Peptic Ulcer Disease |
+| Cholesterol Absorption Inhibitors | Primarily LDL-C ↓ 10-18% (monotherapy) <br> In combination with the following an additional: <br> (a) statins: ↓ 25% <br> (b) fenofibrate: ↓ 20-22% | • Headache <br> • Diarrhoea | **Absolute:** <br> • Abdominal pain Hypersensitivity <br> **Relative:** <br> • Active liver disease or unexplained persistent elevations in hepatic transaminase levels |
+| Inclisiran | LDL-C ↓ 50% | • Injection site reaction <br> • Arthralgia <br> • Urinary tract infection <br> • Headache | |
+| Bempedoic Acid | LDL-C ↓ 25-30% (monotherapy) <br> In combination with <br> (a) statins: ↓ 20% <br> (b) ezetimibe: ↓ 40% | • Hyperuricemia | **Absolute:** <br> • Concurrent use with simvastatin >20mg and pravastatin >40mg <br> **Relative:** <br> • Tendon rupture |
 
 #Adapted from American Association of Clinical Endocrinologists 2017 <br>
 *cyclosporin, macrolide antibiotics, antifungal agents, protease inhibitors and cytochrome P-450 inhibitors (fibrates and nicotinic acid should be used with appropriate caution) <br>
@@ -417,10 +417,10 @@ Table 13: Recommended Dosages For Fibrates*#
 
 | Drug | Recommended Dosage |
 |---|---|
-| **Fenofibrate** | 100mg TDS, 145mg daily (nanoparticles), 160mg daily (micronized) |
+| Fenofibrate | 100mg TDS, 145mg daily (nanoparticles), 160mg daily (micronized) |
 | **Gemfibrozil\*\*** | 600-1200mg daily in divided doses 30 minutes before meal (Max: 1.5g/day) |
-| **Bezafibrate** | 200mg daily increasing (gradually over 5-7 days) to a maximum dose of 200 mg TDS (regular) or 400mg daily (sustained release) |
-| **Ciprofibrate** | 100mg daily |
+| Bezafibrate | 200mg daily increasing (gradually over 5-7 days) to a maximum dose of 200 mg TDS (regular) or 400mg daily (sustained release) |
+| Ciprofibrate | 100mg daily |
 
 *As stated in MIMS, (2016-2017) Malaysia <br>
 **not recommended for use in combination with statins <br>

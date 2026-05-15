@@ -17,7 +17,7 @@ Barium enema (BE) is the established radiological method to investigate patients
 Recent advent of virtual colonoscopy (VC) has shown to have a higher sensitivity than BE and patients prefer VC to BE. Detection rate of CRC or large polyps is significantly higher with VC than BE group (RR=1.31, 95% CI 1.01 to 1.68). [Level I] The rate is higher in large polyps (p=0.0098).
 
 ### C. Computed Tomographic Colonography/Virtual Colonoscopy
-An evidence showed that CTC or VC is effective and safe in identifying carcinoma and polyps >10 mm when compared with CC with high sensitivity and specificity. **[Level II-2]**
+An evidence showed that CTC or VC is effective and safe in identifying carcinoma and polyps >10 mm when compared with CC with high sensitivity and specificity. [Level II-2]
 
 However, a more recent and larger evidence showed that CTC required additional colonic investigation compared with colonoscopy (RR=3.65, 95% CI 2.87 to 4.65). Almost half of the referrals after CTC were for small (<10 mm) polyps or clinical uncertainty. Detection rates of CRC or large polyps were 11% for both procedures. CTC missed 1 of 29 CRC and colonoscopy missed none (of 55). [Level I] Serious adverse events were rare.
 

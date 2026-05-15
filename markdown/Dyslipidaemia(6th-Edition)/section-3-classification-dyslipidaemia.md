@@ -33,14 +33,14 @@ Table 8: Primary (Genetic) Dyslipidemias
 
 | Condition | Risk of CHD | Risk of Pancreatitis | Plasma Cholesterol | Plasma Triglyceride | Physical Signs (if present) |
 |---|---|---|---|---|---|
-| **Common ("Polygenic") Hypercholesterolemia** | ↑ | ↔ | ↑↑ | N | Corneal Arcus, Xanthelasma Familial |
-| **Combined Hyperlipidemia** | ↑↑ | ↔ | ↑ or ↔ | ↑ or ↔ | Corneal Arcus, Xanthelasma |
-| **Familial Hypercholesterolemia** | ↑↑↑ | ↔ | ↑↑↑ | ↑ | Tendon Xanthomata (Achilles’ tendons), Corneal Arcus, Xanthelasma, Aortic stenosis|
-| **Remnant Hypercholesterolemia** | ↑↑↑ | ↔ | ↑↑↑ | ↑↑ | Tuberous Xanthomata (elbows), striae xanthomata (palm creases), tendon xanthomata |
-| **Chylomicronemia Syndrome** | ↔ or ↑ | ↑↑↑ | ↑ | ↑↑↑ | Eruptive xanthomata, (buttocks, elbows), retinal lipemia, hepatosplenomegaly |
-| **Familial Hypertriglyceridemia** | ↑ | ↑↑ | ↑ | ↑↑ | Eruptive xanthomata, (buttocks, elbows), retinal lipemia, hepatosplenomegaly |
-| **High HDL-C** | ↓↓ | ↔ | ↑ |  ↔ | - |
-| **Low HDL-C** | ↑↑ | ↔ | ↔ | ↔ or ↑ | - |
+| Common ("Polygenic") Hypercholesterolemia | ↑ | ↔ | ↑↑ | N | Corneal Arcus, Xanthelasma Familial |
+| Combined Hyperlipidemia | ↑↑ | ↔ | ↑ or ↔ | ↑ or ↔ | Corneal Arcus, Xanthelasma |
+| Familial Hypercholesterolemia | ↑↑↑ | ↔ | ↑↑↑ | ↑ | Tendon Xanthomata (Achilles’ tendons), Corneal Arcus, Xanthelasma, Aortic stenosis|
+| Remnant Hypercholesterolemia | ↑↑↑ | ↔ | ↑↑↑ | ↑↑ | Tuberous Xanthomata (elbows), striae xanthomata (palm creases), tendon xanthomata |
+| Chylomicronemia Syndrome | ↔ or ↑ | ↑↑↑ | ↑ | ↑↑↑ | Eruptive xanthomata, (buttocks, elbows), retinal lipemia, hepatosplenomegaly |
+| Familial Hypertriglyceridemia | ↑ | ↑↑ | ↑ | ↑↑ | Eruptive xanthomata, (buttocks, elbows), retinal lipemia, hepatosplenomegaly |
+| High HDL-C | ↓↓ | ↔ | ↑ |  ↔ | - |
+| Low HDL-C | ↑↑ | ↔ | ↔ | ↔ or ↑ | - |
 
 *Key*: ↑ = Increased &emsp;&emsp;&emsp;&emsp; ↔ = No change &emsp;&emsp;&emsp;&emsp; ↓ = Decreased
 

@@ -31,7 +31,7 @@ The management of these patients with Stable CAD should be multifaceted and incl
 
 All patients should be educated on behavioural modification therapy and receive OMT for survival benefit. Treatment of CV risk factors to target and adherence to treatment recommendations should also be addressed.
 
-**[Grade I, Level A]**
+[Grade I, Level A]
 
 ## 8.1: Behavioural Modification Therapy (Bmt)
 
@@ -64,14 +64,14 @@ Aerobic exercise should be offered to patients with stable CAD, usually as part 
 In addition, a cardiac rehabilitation program:
 - helps the identification and management of comorbid conditions and psychosocial disorder (anxiety and depression).209.210
 - ensures patient adherence to medical and lifestyle therapies to achieve cardiovascular (CVD) prevention goals.211
-- **[Grade I, Level B]** is:22,212,213
+- [Grade I, Level B] is:22,212,213
 - at least 150 minutes a week of moderate intensity or
 - 75 minutes a week of vigorous intensity PA or an equivalent combination
-- **[Grade I, Level B]** Sedentary patients should be strongly encouraged to start light-intensity exercise programmes after an adequate exercise-related risk stratification.214
+- [Grade I, Level B] Sedentary patients should be strongly encouraged to start light-intensity exercise programmes after an adequate exercise-related risk stratification.214
 
 In patients with significant CAD who are not candidates for revascularization, exercise training may offer an alternative means of symptom alleviation and improved prognosis.
 
-- All individuals should be encouraged to exercise. Any amount of PA is better **[Grade I, Level B]** than none.203-208
+- All individuals should be encouraged to exercise. Any amount of PA is better [Grade I, Level B] than none.203-208
 
 Wherever possible, individuals should be referred to physiotherapists/ exercise physiologists for exercise prescription.
 
@@ -84,20 +84,20 @@ Table 9: Nutritional Recommendations
 
 | A   | Recommended NutrientIntake;DietaryPatterns                                                                                                                                                                                                                                                                                                                                                                                                                                                         | GradeofRecommendation and LevelofEvidence   |
 |-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
-|     | Fatrequirements 20-25%withanuppersafelimitof30%ofenergyfromfat 7-10%saturatedfattyacid (SFA) SubstituteSFAwithmonounsaturatedfattyacid (MUFA)/polyunsaturatedfattyacid(PUFA) PUFA/MuFA'shouldrepresenttherestofthecalorieintake fromfat                                                                                                                                                                                                                                                            | **[Grade I, Level B]**                                     |
-|     | <1% trans fatty Acid (TFA) Minimiseconsumptionof highfatprocessedmeat (sausages,cornedmeat,nuggets,salami,burger,eroni, ham,serunding etc)andbakeryproductsincluding cakes, biscuits,frozenpizza,cookies,crackers,andhard margarinesandotherspreads Reduceconsumptionofpartiallyhydrogenatedfats                                                                                                                                                                                                   | **[Grade I, Level A]**                                         |
-|     | Cholesterolrichfoods/eggs Noevidenceforrestriction.*However,itmustbecautioned that dietarycholesterol-richfoodssuchasbeefandporkalsocarry significantcontentofSFAwhichareknowntoincreaseTCand LDL-C levels.                                                                                                                                                                                                                                                                                        | **[Grade II-a, Level B]**                                       |
-|     | Protein                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **[Grade I, Level B]**                                         |
-|     | 10-20%ofenergyintake Carbohydrate(CHO) 50-60 % of energy intake Encouragehighfibre,complexCHO,wholegrains,fruits, vegetables                                                                                                                                                                                                                                                                                                                                                                       | **[Grade I, Level B]**                                         |
-|     | Limit intake of sugar to5-10%of energy intake.This includes sugarsweetenedbeverages,kuihsetc #Malaysian HealthyPlate and Current Healthy Eating Recommendation                                                                                                                                                                                                                                                                                                                                     | **[Grade I, Level A]**                                         |
-|     | Increaseplant-based foods suchasnuts,legumes,beans, fruits andvegetables.(taufu,tempe,'ulam') Consumewholegrainfoods(oats,barley,bran,brownrice) Eat fish more often(oily/marine fishes-e.g.oily'kembong/ pelaling',patin,keli,terubuk) Consumelow-fatdairyproducts Consumelesssweetfoods(noaddedsugar,limit canned and carbonateddrinks,fruitjuices and3in1beverages) Healthy oils(useblendedoils,peanut oil,sunfloweroil,oliveoil, canolaoil and cornoil) Reduce intake of processed/saltyfoods. | **[Grade I, Level B]**                                         |
-| B   | IndividualDietaryPattern Dietaryfibre of 20-30gfibre perday(vegetables,fruits, legumesandwholegraincerealsareencouraged)                                                                                                                                                                                                                                                                                                                                                                           | **[Grade I, Level B]**                                         |
-|     | Wholegrainshouldform50%ofthetotalgrainintake                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **[Grade I, Level B]**                                         |
-|     | 5servingsoffruitsandvegetablesperday                                                                                                                                                                                                                                                                                                                                                                                                                                                               | **[Grade I, Level B]**                                         |
-|     | 30gramunsaltednutsperday                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **[Grade II-a, Level B]**                                       |
-|     | <10%oftotalenergyintakefromaddedsugar.Thisisequivalent to50g(oraround12levelteaspoons)foranadultofhealthy bodyweightconsumingapproximately2oo0caloriesperday                                                                                                                                                                                                                                                                                                                                       | **[Grade I, Level A]**                                         |
-|     | <5gsalt or1levelteaspoonperday or(2000mgsodiumper day)                                                                                                                                                                                                                                                                                                                                                                                                                                             | **[Grade I, Level A]**                                         |
-|     | Abstinenceornotmorethan1-2standardservingsofalcohol intake per day.                                                                                                                                                                                                                                                                                                                                                                                                                                | **[Grade II-a, Level B]**                                       |
+|     | Fatrequirements 20-25%withanuppersafelimitof30%ofenergyfromfat 7-10%saturatedfattyacid (SFA) SubstituteSFAwithmonounsaturatedfattyacid (MUFA)/polyunsaturatedfattyacid(PUFA) PUFA/MuFA'shouldrepresenttherestofthecalorieintake fromfat                                                                                                                                                                                                                                                            | [Grade I, Level B]                                     |
+|     | <1% trans fatty Acid (TFA) Minimiseconsumptionof highfatprocessedmeat (sausages,cornedmeat,nuggets,salami,burger,eroni, ham,serunding etc)andbakeryproductsincluding cakes, biscuits,frozenpizza,cookies,crackers,andhard margarinesandotherspreads Reduceconsumptionofpartiallyhydrogenatedfats                                                                                                                                                                                                   | [Grade I, Level A]                                         |
+|     | Cholesterolrichfoods/eggs Noevidenceforrestriction.*However,itmustbecautioned that dietarycholesterol-richfoodssuchasbeefandporkalsocarry significantcontentofSFAwhichareknowntoincreaseTCand LDL-C levels.                                                                                                                                                                                                                                                                                        | [Grade II-a, Level B]                                       |
+|     | Protein                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | [Grade I, Level B]                                         |
+|     | 10-20%ofenergyintake Carbohydrate(CHO) 50-60 % of energy intake Encouragehighfibre,complexCHO,wholegrains,fruits, vegetables                                                                                                                                                                                                                                                                                                                                                                       | [Grade I, Level B]                                         |
+|     | Limit intake of sugar to5-10%of energy intake.This includes sugarsweetenedbeverages,kuihsetc #Malaysian HealthyPlate and Current Healthy Eating Recommendation                                                                                                                                                                                                                                                                                                                                     | [Grade I, Level A]                                         |
+|     | Increaseplant-based foods suchasnuts,legumes,beans, fruits andvegetables.(taufu,tempe,'ulam') Consumewholegrainfoods(oats,barley,bran,brownrice) Eat fish more often(oily/marine fishes-e.g.oily'kembong/ pelaling',patin,keli,terubuk) Consumelow-fatdairyproducts Consumelesssweetfoods(noaddedsugar,limit canned and carbonateddrinks,fruitjuices and3in1beverages) Healthy oils(useblendedoils,peanut oil,sunfloweroil,oliveoil, canolaoil and cornoil) Reduce intake of processed/saltyfoods. | [Grade I, Level B]                                         |
+| B   | IndividualDietaryPattern Dietaryfibre of 20-30gfibre perday(vegetables,fruits, legumesandwholegraincerealsareencouraged)                                                                                                                                                                                                                                                                                                                                                                           | [Grade I, Level B]                                         |
+|     | Wholegrainshouldform50%ofthetotalgrainintake                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [Grade I, Level B]                                         |
+|     | 5servingsoffruitsandvegetablesperday                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [Grade I, Level B]                                         |
+|     | 30gramunsaltednutsperday                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [Grade II-a, Level B]                                       |
+|     | <10%oftotalenergyintakefromaddedsugar.Thisisequivalent to50g(oraround12levelteaspoons)foranadultofhealthy bodyweightconsumingapproximately2oo0caloriesperday                                                                                                                                                                                                                                                                                                                                       | [Grade I, Level A]                                         |
+|     | <5gsalt or1levelteaspoonperday or(2000mgsodiumper day)                                                                                                                                                                                                                                                                                                                                                                                                                                             | [Grade I, Level A]                                         |
+|     | Abstinenceornotmorethan1-2standardservingsofalcohol intake per day.                                                                                                                                                                                                                                                                                                                                                                                                                                | [Grade II-a, Level B]                                       |
 
 <!-- END OVERLAP FROM: TABLE 9 -->
 
@@ -124,7 +124,7 @@ Smoking is an independent risk factor for CVD.215
 It also interacts with other CV risk factors, such as glucose intolerance and low serum levels of HDL-C in a multiplicative manner215-217 Examples:
 - the presence of smoking alone is reported to double the level of risk, but the simultaneous presence of another major risk factor is estimated to quadruple the risk (2 × 2).215
 - imately eight times the risk (2 × 2 × 2) of persons with no risk factors.215
-- **[Grade I, Level B]** Smoking is an important cause of plaque rupture leading to ACS.218 Data from smokers.30 In the INTERHEART study, a dose response relationship was demonstrated between the number of cigarettes smoked and MI, where smokers who smoked >40 cig/day were found to have a 9-fold relative risk of MI compared with non-smokers.2i9
+- [Grade I, Level B] Smoking is an important cause of plaque rupture leading to ACS.218 Data from smokers.30 In the INTERHEART study, a dose response relationship was demonstrated between the number of cigarettes smoked and MI, where smokers who smoked >40 cig/day were found to have a 9-fold relative risk of MI compared with non-smokers.2i9
 
 Changing cigarette designs such as filtered, low-tar, and "light" variations, have not reduced overall disease risk among smokers.215
 
@@ -161,7 +161,7 @@ Obesity increases the risk of:223-225
 
 Weight loss is a challenge and preventing weight regain after weight loss may be even more difficult. Modest weight loss of between 5 to 10%, can reduce blood pressure (BP), improve glycaemic control, lipid profile, and quality of life.229
 
-- The goals of weight management are to achieve 5 to 10% weight loss 229-234 **[Grade I, Level B]** and to maintain this over a period of 1-2 years before attempting further weight loss.
+- The goals of weight management are to achieve 5 to 10% weight loss 229-234 [Grade I, Level B] and to maintain this over a period of 1-2 years before attempting further weight loss.
 
 Methods of weight loss include dietary intervention, increased physical activity, behavioural modifications (e.g. self-monitoring of eating habits), pharmacological agents and bariatric surgery.
 
@@ -172,12 +172,12 @@ Anti-obesity drugs that are available locally are:
 
 These drugs may be considered for overweight and obese people with: 22
 
-**[Grade II-a, Level B]**
+[Grade II-a, Level B]
 
 - BMI >25.0 kg/m² plus 2 CV risk factors or
 - BMI ≥27.0 kg/m2 after failing to lose weight despite 6 months of lifestyle modification
 
-**[Grade II-a, Level B]** In patients with morbid obesity, bariatric surgery may be considered.2241. 245
+[Grade II-a, Level B] In patients with morbid obesity, bariatric surgery may be considered.2241. 245
 
 ## 8.2: Pharmacological Therapy
 The aims of pharmacological therapy in patients with both obstructive and non-obstructive CAD are to:
@@ -196,14 +196,14 @@ The aims of pharmacological therapy in patients with both obstructive and non-ob
 ### A) Antiplatelet Agents
 In patients with stable CAD, aspirin reduces the risk of non-fatal MI, non-fatal stroke and vascular death by 22%.246-248
 
-**[Grade I, Level A]** Aspirin monotherapy at a dosing of 75-150mg daily remains the initial antiplatelet agent of choice.246-248
+[Grade I, Level A] Aspirin monotherapy at a dosing of 75-150mg daily remains the initial antiplatelet agent of choice.246-248
 
 <!-- image -->
 
 In patients who cannot tolerate aspirin, alternatives include:
-- **[Grade I, Level A]** Clopidogrel249
-- **[Grade II-b, Level B]** Ticlopidine — its use is limited by the scarcity of evidence on cardiac outcomes and the associated risk of blood dyscrasias.250
-- **[Grade II-b, Level B]** Triflusal — Triflusal is an antiaggregant related to the salicylate group. A prevention of stroke or MI.251
+- [Grade I, Level A] Clopidogrel249
+- [Grade II-b, Level B] Ticlopidine — its use is limited by the scarcity of evidence on cardiac outcomes and the associated risk of blood dyscrasias.250
+- [Grade II-b, Level B] Triflusal — Triflusal is an antiaggregant related to the salicylate group. A prevention of stroke or MI.251
 
 Ticagrelor and prasugrel as monotherapy have not been studied in patients with stable CAD.
 
@@ -213,11 +213,11 @@ Following an ACS, the risk of a recurrent cardiac event remains high.17-19.254 T
 
 to reduce additional ischemic events but the risk of bleeding is also increased.255-257 Similarly, in an extended >one year study of patients post ACS, the use of aspirin in combination with ticagrelor was also associated with a reduction in ischemic events but at the cost of an increased risk of bleeding.258
 
-- The use of DAPT beyond one year, in patients with stable CAD who have **[Grade II-a, Level A]** undergone PCI and stenting, has to be individualized weighing the risk of a recurrent ischemic event versus bleeding risks.22.253
+- The use of DAPT beyond one year, in patients with stable CAD who have [Grade II-a, Level A] undergone PCI and stenting, has to be individualized weighing the risk of a recurrent ischemic event versus bleeding risks.22.253
 
 <!-- image -->
 
-**[Grade II-a, Level B]** In high bleeding risk patients, the duration of DAPT may be shortened.259,260
+[Grade II-a, Level B] In high bleeding risk patients, the duration of DAPT may be shortened.259,260
 
 ### B) Newer Oral Anticoagulants (NOACs) / Anticoagulant Therapy (Refer Table 11: Indications For Warfarin And NOACs In Stable Cad)
 <!-- image -->
@@ -247,20 +247,20 @@ Table 11: Indications For Warfarin And NOACs In Patients With Stable Cad
 <!-- END OVERLAP FROM: TABLE 11 -->
 
 #### 8.2.1.2: Lipid Modifying Agents
-- Lipid modifying agents have been shown to improve prognosis in patients **[Grade I, Level A]** with stable CAD, the lower the Low-Density Lipoprotein Cholesterol (LDL-C) achieved, the better the CV outcome.269-277
-- In addition to behavioural modification therapy, statins should be initiated to **[Grade I, Level A]** achieve LDL-C targets, the lower the level of LDL-C achieved, the better the outcome.278.279
+- Lipid modifying agents have been shown to improve prognosis in patients [Grade I, Level A] with stable CAD, the lower the Low-Density Lipoprotein Cholesterol (LDL-C) achieved, the better the CV outcome.269-277
+- In addition to behavioural modification therapy, statins should be initiated to [Grade I, Level A] achieve LDL-C targets, the lower the level of LDL-C achieved, the better the outcome.278.279
 
 There appears to be a dose-dependent reduction in CVD with LDL-C lowering; the greater the LDL-C reduction, the greater the CV risk reduction.269,270 Levels of LDL-C <1.8 mmol/L has been associated with less progression of atherosclerotic plaques.280 At levels of LDL-C <1.6 mmol/L, regression of atherosclerotic plaques has been demonstrated.281-283
 
-- **[Grade II-a, Level B]** A meta-analyses showed that more intensive compared with less intensive LDL-C lowering was associated with a greater reduction in total and CV mortality in individuals with higher baseline LDL-C levels of > 2.6 mmol/l.284 If LDL-C levels cannot be achieved, the additional use of other non-statin therapy (e.g. ezetimibe, PCSK-9 inhibitors) may be considered.276-278
-- **[Grade II-a, Level B]** Reloading with high intensity statin before PCI may be considered in patients with stable CAD. This has been shown to reduce peri-procedural MI in both statin-naive and patients receiving chronic statin therapy.285-290
+- [Grade II-a, Level B] A meta-analyses showed that more intensive compared with less intensive LDL-C lowering was associated with a greater reduction in total and CV mortality in individuals with higher baseline LDL-C levels of > 2.6 mmol/l.284 If LDL-C levels cannot be achieved, the additional use of other non-statin therapy (e.g. ezetimibe, PCSK-9 inhibitors) may be considered.276-278
+- [Grade II-a, Level B] Reloading with high intensity statin before PCI may be considered in patients with stable CAD. This has been shown to reduce peri-procedural MI in both statin-naive and patients receiving chronic statin therapy.285-290
 
 #### 8.2.1.3: Renin-Angiotensin-Aldosterone System Blockers
 Renin-angiotensin-aldosterone system blockers consist of angiotensin converting enzyme inhibitors (ACEi), angiotensin receptor blockers (ARBs) and mineralocorticoid receptor antagonists.
 
 Early trials indicated improved CV outcomes with ACEi in patients with stable CAD and preserved LV function.291,292 Recent data however show that ACEi/ARB do not have any additional benefits in reducing CV events and death in this group of patients.293-296
 
-- **[Grade II-b, Level B]** The routine use of ACEi/ARB in patients with Stable CAD without hypertension and normal LV function is not recommended. 293-296
+- [Grade II-b, Level B] The routine use of ACEi/ARB in patients with Stable CAD without hypertension and normal LV function is not recommended. 293-296
 
 #### 8.2.1.4: Depressed Lv Function (Lvef <40%)
 In patient with stable CAD and reduced LV function, the following drugs should be given to improve survival and other CV outcomes:297
@@ -291,13 +291,13 @@ The choice of anti-ischemic therapy should be individualised depending upon:
 
 Combination of anti-ischemic therapy may be necessary to control symptoms.
 
-**[Grade I, Level A]**
+[Grade I, Level A]
 
-**[Grade I, Level A]**
+[Grade I, Level A]
 
-**[Grade I, Level A]**
+[Grade I, Level A]
 
-**[Grade I, Level B]**
+[Grade I, Level B]
 
 #### 8.2.2.1: Β-Blockers
 thus reducing heart rate, myocardial contractility and blood pressure. This results in results in improved coronary arterial filling.32 All these result in an improvement in symptoms and exercise tolerance.
@@ -390,15 +390,15 @@ obstructive and non-obstructive CAD.
 - Optimal medical therapy should be instituted prior to revascularization procedures.
 
 ## Recommendation 6:
-- All patients with suspected or known CAD should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy). **[Grade I, Level A]**
+- All patients with suspected or known CAD should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy). [Grade I, Level A]
 - Appropriate pharmacotherapy includes:
-  - aspirin (or ticlopidine/clopidogrel if aspirin intolerant) **[Grade I, Level A]** and
-  - statin (+/- non-statin therapy) with the aim of achieving LDL-C targets **[Grade I, Level A]** and
-  - at least 2 anti-anginal agents. **[Grade I, Level A]**
+  - aspirin (or ticlopidine/clopidogrel if aspirin intolerant) [Grade I, Level A] and
+  - statin (+/- non-statin therapy) with the aim of achieving LDL-C targets [Grade I, Level A] and
+  - at least 2 anti-anginal agents. [Grade I, Level A]
 - In addition:
-  - All CV risk factors should be treated to target. **[Grade I, Level A]**
-  - Patients with depressed LV function (LVEF <40%) should receive ACEi/ARB, β-blockers and mineralocorticoid antagonists. Angiotensin-receptor-neprilysin inhibitors may also be considered. **[Grade I, Level A]**
-- Optimal medical therapy should be instituted prior to revascularization procedures. **[Grade I, Level C]**
+  - All CV risk factors should be treated to target. [Grade I, Level A]
+  - Patients with depressed LV function (LVEF <40%) should receive ACEi/ARB, β-blockers and mineralocorticoid antagonists. Angiotensin-receptor-neprilysin inhibitors may also be considered. [Grade I, Level A]
+- Optimal medical therapy should be instituted prior to revascularization procedures. [Grade I, Level C]
 
 ## 8.3: Myocardial Revascularization
 combination with OMT to be superior to OMT alone in reducing death, MI or repeat revascularization during short term and long term follow up.72-76,153,154,381 In a small randomised controlled trial, PCI did not improve exercise time or angina frequency at 6 weeks when compared to a sham procedure.382
@@ -408,9 +408,9 @@ OMT in patients with LM or three-vessel stable CAD, particularly when the proxim
 The decision to revascularize patients with stable CAD on OMT will depend on:
 - Symptoms — presence of angina affecting quality of life
 
-**[Grade I, Level C]**
+[Grade I, Level C]
 
-**[Grade II-a, Level B]**
+[Grade II-a, Level B]
 
 - Extent of ischemia as determined by non-invasive testing — mild vs moderate do better with OMT.1.384-387 (refer Table 2: Prognostic Indicators for Adverse CV Outcomes on Non-Invasive Testing)
 
@@ -423,15 +423,15 @@ Table 2: Prognostic Indicators For Adverse CV Outcomes On Non-Invasive Testing
 
 | Modality | High Risk (>3% annual mortality) | Intermediate Risk (1–3% annual mortality) | Low Risk (<1% annual mortality) |
 |---|---|---|---|
-| **Exercise ECG (Duke Treadmill Score)** | Score ≤ −11 | Score −10 to 4 | Score ≥ 5 |
-| **Stress Echocardiography** | ≥ 3 of 17 segments with new wall motion abnormality | 1–2 segments with new wall motion abnormality | Normal wall motion; or stress EF > 45% |
-| **Myocardial Perfusion Imaging (MPI)** | ≥ 10% ischaemic myocardium | 1–9% ischaemic myocardium | Normal perfusion; or summed stress score < 4 |
-| **Cardiac MRI (CMR)** | ≥ 2 of 17 segments with new wall motion abnormality; or ≥ 6 segments with perfusion deficit | 1 segment with new wall motion abnormality; or 1–5 segments perfusion deficit | No new wall motion abnormality; stress EF > 45% |
-| **CT Coronary Angiography (CTA)** | Three-vessel disease or left main disease | Two-vessel disease with proximal LAD involvement | Normal; non-obstructive CAD |
+| Exercise ECG (Duke Treadmill Score) | Score ≤ −11 | Score −10 to 4 | Score ≥ 5 |
+| Stress Echocardiography | ≥ 3 of 17 segments with new wall motion abnormality | 1–2 segments with new wall motion abnormality | Normal wall motion; or stress EF > 45% |
+| Myocardial Perfusion Imaging (MPI) | ≥ 10% ischaemic myocardium | 1–9% ischaemic myocardium | Normal perfusion; or summed stress score < 4 |
+| Cardiac MRI (CMR) | ≥ 2 of 17 segments with new wall motion abnormality; or ≥ 6 segments with perfusion deficit | 1 segment with new wall motion abnormality; or 1–5 segments perfusion deficit | No new wall motion abnormality; stress EF > 45% |
+| CT Coronary Angiography (CTA) | Three-vessel disease or left main disease | Two-vessel disease with proximal LAD involvement | Normal; non-obstructive CAD |
 
 <!-- END OVERLAP FROM: TABLE 2 -->
 
-- Extent and severity of coronary disease and where applicable physiological **[Grade I, Level A]** functional testing using FFR:84
+- Extent and severity of coronary disease and where applicable physiological [Grade I, Level A] functional testing using FFR:84
   - FFR <0.75 — benefit from revascularisation as compared to OMT.
   - FFR between >0.75 but <0.8 — have intermediate benefit with revascularisation and management should be based on clinical judgement.
   - FFR >0.8 — no benefit from revascularisation.
@@ -476,10 +476,10 @@ Wherever possible, a discussion with the patient and Heart Team should be encour
 
 ## Recommendation 7:
 - The decision to revascularize patients with stable CAD on OMT will depend on:
-  - Symptoms **[Grade I, Level C]**
-  - Extent of ischemia **[Grade II-a, Level B]**
-  - Extent of coronary disease and where applicable physiological functional testing using FFR. **[Grade I, Level A]**
-- Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy. **[Grade I, Level C]**
+  - Symptoms [Grade I, Level C]
+  - Extent of ischemia [Grade II-a, Level B]
+  - Extent of coronary disease and where applicable physiological functional testing using FFR. [Grade I, Level A]
+- Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy. [Grade I, Level C]
 
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
@@ -489,18 +489,18 @@ Wherever possible, a discussion with the patient and Heart Team should be encour
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

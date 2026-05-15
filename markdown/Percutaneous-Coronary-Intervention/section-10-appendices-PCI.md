@@ -117,8 +117,8 @@ Classification of angina severity according to the Canadian Cardiovascular Socie
 ### Appendix VII: Risk Factor Goals In Patients With Cad
 | | RISK FACTOR GOALS IN PATIENTS WITH CAD |
 |---|---|
-| **Smoking** | Quit |
-| **Blood pressure** | <130/80mmHg |
+| Smoking | Quit |
+| Blood pressure | <130/80mmHg |
 | **Lipids**<br>LDL-C<br>HDL-C<br>TG | <br>< 2.6mmol/l (the lower the better. In clinical trials, plaque regression was seen when LDL-C was <1.8mmol/l. In patients with progressive disease, one should aim for LDL-C <1.8mmol/l.)<br>> 1.1 mmol/l (male), > 1.3 mmol/l (female)<br>< 1.7 mmol/l |
 | **Diabetes**<br>Fasting blood sugar<br>2hr PP<br>HbA1c | <br>< 6.1mmol/l<br>< 7.8 mmol/l<br>< 6.5% (in patients with significant co-morbidities and complex CAD, an alternative target of < 7% is acceptable) |
 
@@ -183,7 +183,7 @@ Lesions have a TIMI flow grade of 0.
 |---|---|---|
 | Smoking Cessation | [Grade I, Level C] | |
 | Exercise | [Grade I, Level C] | At least 30-60 min most days of the week |
-| **CONCOMITANT PHARMACOTHERAPY** | | |
+| CONCOMITANT PHARMACOTHERAPY | | |
 | Aspirin | [Grade I, Level A] | Maintenance dose: 75-150 mg daily |
 | Clopidogrel | [Grade I, Level A] | Maintenance dose 75 mg daily to be given for 1 month following PCI with BMS and for 1 year after DES implantation |
 | Anti-coagulants (warfarin) | [Grade I, Level C] | Long term therapy for patients in AF; 3-6 months for pts with mural thrombus |
@@ -199,18 +199,18 @@ Lesions have a TIMI flow grade of 0.
 #### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
 #### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
 <!-- END OVERLAPPED CONTENT -->
 

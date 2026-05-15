@@ -197,49 +197,49 @@ In Type 2 MI, the underlying etiology needs to be addressed. Anti-ischemic agent
 
 **Antiplatelet therapy**
 
-- **[Grade I, Level A]** Aspirin recommended loading dose: 300mg. This should be chewed or crushed. Enteric-coated aspirin is not recommended as an initial loading dose because of its slow onset of action.
+- [Grade I, Level A] Aspirin recommended loading dose: 300mg. This should be chewed or crushed. Enteric-coated aspirin is not recommended as an initial loading dose because of its slow onset of action.
 - Aspirin maintenance dose: 75-100mg daily lifelong regardless of treatment strategy.
-- **[Grade III, Level B]** An aspirin dose of 300-325mg daily is associated with an increased risk of gastrointestinal bleeding without greater efficacy.
-- **[Grade IIa, Level A]** Proton pump inhibitors in combination with DAPT should be considered for patients who are at high risk of gastrointestinal bleeds.
-- **[Grade I, Level A]** P2Y12 inhibitors may be given as a substitute to patients who are intolerant or allergic to aspirin, or as part of DAPT.
-- **[Grade I, Level A]** Clopidogrel loading dose: 300 to 600mg, maintenance dose: 75mg daily.
-- **[Grade I, Level B]** Prasugrel may be considered as a second antiplatelet agent after the coronary angiogram has been performed. No pre-treatment is recommended.
-- **[Grade I, Level B]** Ticagrelor loading dose: 180mg, maintenance dose: 90mg twice daily.
-- **[Grade I, Level C]** The exact timing for initiation of the second antiplatelet agent is left to the clinical judgement of the attending physician.
-- **[Grade I, Level A]** In NSTE-ACS patients, with or without PCI, DAPT is recommended for up to 12 months unless there are contraindications such as excessive risk of bleeds.
-- **[Grade I, Level B]** In ACS patients who underwent PCI and are at high risk of bleeding, DAPT may be continued for 3 to 6 months.
+- [Grade III, Level B] An aspirin dose of 300-325mg daily is associated with an increased risk of gastrointestinal bleeding without greater efficacy.
+- [Grade IIa, Level A] Proton pump inhibitors in combination with DAPT should be considered for patients who are at high risk of gastrointestinal bleeds.
+- [Grade I, Level A] P2Y12 inhibitors may be given as a substitute to patients who are intolerant or allergic to aspirin, or as part of DAPT.
+- [Grade I, Level A] Clopidogrel loading dose: 300 to 600mg, maintenance dose: 75mg daily.
+- [Grade I, Level B] Prasugrel may be considered as a second antiplatelet agent after the coronary angiogram has been performed. No pre-treatment is recommended.
+- [Grade I, Level B] Ticagrelor loading dose: 180mg, maintenance dose: 90mg twice daily.
+- [Grade I, Level C] The exact timing for initiation of the second antiplatelet agent is left to the clinical judgement of the attending physician.
+- [Grade I, Level A] In NSTE-ACS patients, with or without PCI, DAPT is recommended for up to 12 months unless there are contraindications such as excessive risk of bleeds.
+- [Grade I, Level B] In ACS patients who underwent PCI and are at high risk of bleeding, DAPT may be continued for 3 to 6 months.
 
 **Anticoagulant therapy**
 
-- **[Grade I, Level A]** In NSTE-ACS patients managed medically, parenteral anticoagulation is recommended as soon as possible after the diagnosis.
+- [Grade I, Level A] In NSTE-ACS patients managed medically, parenteral anticoagulation is recommended as soon as possible after the diagnosis.
 - The duration of anticoagulant therapy in patients treated medically would vary between 2-8 days.
-- **[Grade I, Level B]** Unfractionated heparin may be used in high risk NSTE-ACS patients undergoing an early invasive approach.
-- **[Grade I, Level A]** Low molecular weight heparin, specifically enoxaparin, is best used in NSTE-ACS patients treated conservatively.
-- **[Grade I, Level B]** In patients >75 years of age and with renal impairment, UFH is preferable to LMWH.
-- **[Grade I, Level B]** Fondaparinux is best used in NSTE-ACS patients treated conservatively.
-- **[Grade III, Level A]** Fondaparinux is not recommended as the sole anticoagulant during PCI.
+- [Grade I, Level B] Unfractionated heparin may be used in high risk NSTE-ACS patients undergoing an early invasive approach.
+- [Grade I, Level A] Low molecular weight heparin, specifically enoxaparin, is best used in NSTE-ACS patients treated conservatively.
+- [Grade I, Level B] In patients >75 years of age and with renal impairment, UFH is preferable to LMWH.
+- [Grade I, Level B] Fondaparinux is best used in NSTE-ACS patients treated conservatively.
+- [Grade III, Level A] Fondaparinux is not recommended as the sole anticoagulant during PCI.
 
 **Lipid modifying drugs**
 
-- **[Grade I, Level A]** High dose statin therapy, atorvastatin 40-80mg or rosuvastatin 20-40mg daily, should be initiated as soon as possible after the diagnosis of ACS.
+- [Grade I, Level A] High dose statin therapy, atorvastatin 40-80mg or rosuvastatin 20-40mg daily, should be initiated as soon as possible after the diagnosis of ACS.
 - It is safe and has been shown to improve outcomes regardless of baseline LDL-C levels.
-- **[Grade I, Level A]** For patients who are already taking low or moderate-intensity statins, statin therapy should be intensified.
+- [Grade I, Level A] For patients who are already taking low or moderate-intensity statins, statin therapy should be intensified.
 - Target LDL-C should be <1.8mmol/L, preferably <1.4mmol/L, or a reduction of at least 50% from the baseline, the lower the better.
-- **[Grade I, Level A]** In patients whose LDL-C remains elevated despite maximally tolerated therapy, the addition of non-statin therapy such as ezetimibe and PCSK-9 inhibitors should be considered.
+- [Grade I, Level A] In patients whose LDL-C remains elevated despite maximally tolerated therapy, the addition of non-statin therapy such as ezetimibe and PCSK-9 inhibitors should be considered.
 
 **Anti-ischemic drug therapy**
 
 These agents may be given either for relief of ischemia symptoms or for improvement of prognosis.
 
-- **[Grade I, Level A]** Beta-blockers should be given to patients with heart failure and/or LV dysfunction (LVEF <40%), continuing angina and/or ischemia.
-- **[Grade IIb, Level A]** There is limited evidence to administer beta-blockers routinely in all patients.
-- **[Grade I, Level A]** Once clinically and haemodynamically stable, ACEI may be initiated and continued for life in all patients with LVEF <40% and in those with hypertension, diabetes mellitus, or CKD, unless contraindicated.
-- **[Grade I, Level A]** For those who are ACEI intolerant, ARBs are recommended in patients with HF and/or LVEF <40%.
-- **[Grade I, Level C]** Nitrates help with symptom relief only. They should be used cautiously in the presence of a low BP.
-- **[Grade IIa, Level B]** A non-dihydropyridine CCB may be used as an alternative to beta-blockers in patients who are not able to tolerate or who have contraindications.
-- **[Grade IIa, Level B]** Verapamil, diltiazem, slow release nifedipine or amlodipine can be administered in patients with continuing or recurring angina despite adequate doses of nitrates and beta-blockers.
+- [Grade I, Level A] Beta-blockers should be given to patients with heart failure and/or LV dysfunction (LVEF <40%), continuing angina and/or ischemia.
+- [Grade IIb, Level A] There is limited evidence to administer beta-blockers routinely in all patients.
+- [Grade I, Level A] Once clinically and haemodynamically stable, ACEI may be initiated and continued for life in all patients with LVEF <40% and in those with hypertension, diabetes mellitus, or CKD, unless contraindicated.
+- [Grade I, Level A] For those who are ACEI intolerant, ARBs are recommended in patients with HF and/or LVEF <40%.
+- [Grade I, Level C] Nitrates help with symptom relief only. They should be used cautiously in the presence of a low BP.
+- [Grade IIa, Level B] A non-dihydropyridine CCB may be used as an alternative to beta-blockers in patients who are not able to tolerate or who have contraindications.
+- [Grade IIa, Level B] Verapamil, diltiazem, slow release nifedipine or amlodipine can be administered in patients with continuing or recurring angina despite adequate doses of nitrates and beta-blockers.
 - Long-acting CCBs and nitrates may be used for patients with coronary artery spasm.
-- **[Grade III, Level A]** Immediate-release nifedipine is contraindicated.
+- [Grade III, Level A] Immediate-release nifedipine is contraindicated.
 - Ivabradine, ranolazine and trimetazidine may be considered as other anti-ischemic agents in selected patients who remain symptomatic.
 
 **Key pharmacotherapy recommendations**
@@ -339,7 +339,7 @@ Table 3: Risk Stratification For NSTE-ACS
 | Hypertrophic cardiomyopathy |
 | Coronary vasculitis, e.g. systemic lupus erythaematosus, Kawasaki syndrome |
 | Coronary endothelial dysfunction without significant CAD e.g., cocaine abuse |
-| **Damage not related to myocardial ischemia** |
+| Damage not related to myocardial ischemia |
 | Cardiac contusion |
 | Cardiac incisions with surgery |
 | Radiofrequency or cryoablation therapy |
@@ -347,7 +347,7 @@ Table 3: Risk Stratification For NSTE-ACS
 | Myocarditis |
 | Cardiotoxic agents, e.g. anthracyclines, Herceptin, carbon monoxide poisoning |
 | Severe burns affecting > 30% of body surface |
-| **Indeterminant or multifactorial group** |
+| Indeterminant or multifactorial group |
 | Apical ballooning syndrome |
 | Severe pulmonary embolism or pulmonary hypertension |
 | Peripartum cardiomyopathy |
@@ -366,19 +366,19 @@ Table 3: Risk Stratification For NSTE-ACS
 ## Appendix III: Heart Score# ++
 | HEART SCORE | | |
 | :--- | :--- | :--- |
-| **History** | Highly suspicious | 2 |
+| History | Highly suspicious | 2 |
 | | Moderately suspicious | 1 |
 | | Slightly suspicious | 0 |
-| **ECG** | Significant ST segment depression | 2 |
+| ECG | Significant ST segment depression | 2 |
 | | Non-specific repolarization disturbances | 1 |
 | | Normal | 0 |
-| **Age** | ≥ 65 years | 2 |
+| Age | ≥ 65 years | 2 |
 | | > 45 - < 65 years | 1 |
 | | ≤ 45 years | 0 |
-| **Risk Factors** | ≥ 3 risk factors* or history of atherosclerotic disease** | 2 |
+| Risk Factors | ≥ 3 risk factors* or history of atherosclerotic disease** | 2 |
 | | 1 or 2 risk factors | 1 |
 | | No known risk factors | 0 |
-| **Troponins** | ≥ 3 x normal | 2 |
+| Troponins | ≥ 3 x normal | 2 |
 | | > 1 - < 3 x normal | 1 |
 | | ≤ normal limit | 0 |
 
@@ -433,7 +433,7 @@ Record the points for each variable at the bottom left and sum the points to cal
 
 | Medical History | Points | Findings at Initial Hospital Presentation | Points | Findings During Hospitalization | Points |
 | :--- | :---: | :--- | :---: | :--- | :---: |
-| **① Age in Years** | | **④ Resting Heart Rate, Beats/min** | | **⑦ Initial Serum Creatinine, mg/dL** | |
+| ① Age in Years | | **④ Resting Heart Rate, Beats/min** | | **⑦ Initial Serum Creatinine, mg/dL** | |
 | ≤ 29 | 0 | ≤ 49.9 | 0 | 0 - 0.39 | 1 |
 | 30 - 39 | 0 | 50 - 69.9 | 3 | 0.4 - 0.79 | 3 |
 | 40 - 49 | 18 | 70 - 89.9 | 9 | 0.8 - 1.19 | 5 |
@@ -442,9 +442,9 @@ Record the points for each variable at the bottom left and sum the points to cal
 | 70 - 79 | 73 | 150 - 199.9 | 35 | 2 - 3.99 | 15 |
 | 80 - 90 | 91 | ≥ 200 | 43 | ≥ 4 | 20 |
 | ≥ 90 | 100 | **⑤ Systolic Blood Pressure, mm Hg** | | | |
-| **② History of Congestive Heart Failure** | 24 | ≤ 79.9 | 24 | **⑧ Elevated Cardiac Enzymes** | 15 |
+| ② History of Congestive Heart Failure | 24 | ≤ 79.9 | 24 | **⑧ Elevated Cardiac Enzymes** | 15 |
 | | | 80 - 99.9 | 22 | | |
-| **③ History of Myocardial Infarction** | 12 | 100 - 139.9 | 18 | **⑨ No In Hospital Percutaneous Coronary Invervention** | 14 |
+| ③ History of Myocardial Infarction | 12 | 100 - 139.9 | 18 | **⑨ No In Hospital Percutaneous Coronary Invervention** | 14 |
 | | | 120 - 139.9 | 14 | | |
 | | | 140 - 159.9 | 10 | | |
 | | | 160 - 199.9 | 4 | | |
@@ -488,14 +488,14 @@ The graph correlates the total bleeding score with the estimated 1-year bleeding
 
 | Bleeding Score | TIMI Major Bleeding (%) | TIMI Major or Minor Bleeding (%) |
 | :---: | :---: | :---: |
-| **5** | 0.26 | 0.42 |
-| **10** | 0.37 | 0.60 |
-| **15** | 0.51 | 0.88 |
-| **20** | 0.71 | 1.27 |
-| **25** | 0.99 | 1.84 |
-| **30** | 1.38 | 2.67 |
-| **35** | 1.93 | 3.85 |
-| **≥ 36** | >2.05 | >4.15 |
+| 5 | 0.26 | 0.42 |
+| 10 | 0.37 | 0.60 |
+| 15 | 0.51 | 0.88 |
+| 20 | 0.71 | 1.27 |
+| 25 | 0.99 | 1.84 |
+| 30 | 1.38 | 2.67 |
+| 35 | 1.93 | 3.85 |
+| ≥ 36 | >2.05 | >4.15 |
 
 **Scoring Nomogram Variables:**
 Points are derived based on the following continuous and categorical variables:
@@ -612,17 +612,17 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 <br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 

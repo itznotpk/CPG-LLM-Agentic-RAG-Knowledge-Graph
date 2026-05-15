@@ -17,11 +17,11 @@ Conventional therapies for CAD and indications for coronary revascularisation ar
 
 ## DM Management Should Include:
 - HbA1c437
-- Long-term maintenance of near-normal blood glucose levels substantially reduces complications and mortality. **[Grade I, Level A]** 438-441 However, this should be individualized based on the patient's age and comorbidities.
+- Long-term maintenance of near-normal blood glucose levels substantially reduces complications and mortality. [Grade I, Level A] 438-441 However, this should be individualized based on the patient's age and comorbidities.
 - In the pharmacotherapy of diabetic patients with CAD:
-  - both the SGLT2i and the GLP-1 agonists have been shown to be associated with a reduction in the risk of CV composite end-points. **[Grade I, Level A]** 442-445
-  - the SGLT2i have been shown to reduce the risk of heart failure. **[Grade I, Level A]** 442
-  - In a meta-analysis, the SGLT2i and GLP-1 agonists have been associated with a reduction in all cause mortality. **[Grade I, Level A]** 446
+  - both the SGLT2i and the GLP-1 agonists have been shown to be associated with a reduction in the risk of CV composite end-points. [Grade I, Level A] 442-445
+  - the SGLT2i have been shown to reduce the risk of heart failure. [Grade I, Level A] 442
+  - In a meta-analysis, the SGLT2i and GLP-1 agonists have been associated with a reduction in all cause mortality. [Grade I, Level A] 446
   - thiazolidinediones are associated with an increase in the incidence of heart failure and should be avoided in those in NYHA Functional class 3 & 4.447,448
   - Saxagliptin, a DPP-4i, was also shown to be associated with an increase in hospitalization for heart failure.449 However this is not seen with the other agents of the same class.450
 
@@ -108,7 +108,7 @@ group.478-480 Age > 75 years is an important predictor of contrast-induced nephr
 The elderly are more likely to have extensive disease and impaired LV function.
 
 ### 10.3.2: Management
-younger patients.482-487 Management should be individualised taking into consideration comorbidities and should not be based on age alone. **[Grade I, Level C]**
+younger patients.482-487 Management should be individualised taking into consideration comorbidities and should not be based on age alone. [Grade I, Level C]
 
 interactions, polypharmacy and compliance.48.489
 
@@ -139,7 +139,7 @@ modification has not been widely studied in CKD patients.
 
 Data regarding the efficacy of prophylactic aspirin is also limited. Subgroup analyses of randomized trials have demonstrated CV risk reduction with aspirin in individuals with eGFR <45 mL/min per 1.73 m2, despite a higher incidence of bleeding.246.516 Several antiplatelet and anticoagulant agents are metabolized through the kidneys and require dose adjustment in CKD patients.
 
-Subgroup analysis of several randomized clinical trials suggests benefit with the use of statins in patients with moderate CKD. **[Grade I, Level B]** 517 However, two large trials comparing statins with placebo in haemodialysis patients did not demonstrate benefit.518,519 In the SHARP trial, the combination of simvastatin and ezetimibe in CKD patients (including stage V) reduced major atherosclerotic events by 17%, but did not reduce overall mortality.520 As no significant harm from statin use was demonstrated in any of the trials, this reduction in non-fatal events provides a rationale for the use of statins in CKD patients despite the apparent lack of efficacy in reducing the risk of death.
+Subgroup analysis of several randomized clinical trials suggests benefit with the use of statins in patients with moderate CKD. [Grade I, Level B] 517 However, two large trials comparing statins with placebo in haemodialysis patients did not demonstrate benefit.518,519 In the SHARP trial, the combination of simvastatin and ezetimibe in CKD patients (including stage V) reduced major atherosclerotic events by 17%, but did not reduce overall mortality.520 As no significant harm from statin use was demonstrated in any of the trials, this reduction in non-fatal events provides a rationale for the use of statins in CKD patients despite the apparent lack of efficacy in reducing the risk of death.
 
 There is a paucity of data regarding revascularization in CKD patients with stable revascularization strategies in advanced CKD patients. A subgroup analysis of the COURAGE trial did not find a benefit from PCI compared with OMT in ~320 patients with CKD Stage III-IV who had predominantly low-risk, multivessel disease.521 The stroke) between PCI and CABG surgery in 290 patients with creatinine clearance <60 ml/min.522
 
@@ -165,18 +165,18 @@ The ISCHEMIA-CKD (International Study of Comparative Health Effectiveness With M
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

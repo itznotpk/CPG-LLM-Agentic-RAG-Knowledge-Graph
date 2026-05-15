@@ -165,13 +165,13 @@ Table 19: Initiation Of HF Drugs In Relation To Baseline CKD Status*
 
 | Medications | eGFR > 60 mls/min/1.73m² | eGFR 30-60 mls/min/1.73m² | eGFR 15-30 mls/min/1.73m² | ESRD |
 |---|---|---|---|---|
-| **ACE-i/ARB** | Strong evidence | Strong evidence | Moderate evidence | Moderate evidence if on dialysis, weak if not on dialysis |
-| **ARNI** | Strong evidence | Strong evidence | Weak evidence<br>Small study only for eGFR > 25 mls/min/1.73m² | Not recommended |
-| **β-blockers** | Strong evidence | Strong evidence | Moderate evidence | Moderate evidence |
-| **MRA** | Strong evidence | Strong evidence | Only finerenone at eGFR > 25 mls/min/1.73m² | Not recommended |
-| **SGLT2-i** | Strong evidence<br>(From eGFR > 20 mls/min/1.73m²) | Strong evidence<br>(From eGFR > 20 mls/min/1.73m²) | Strong evidence<br>(From eGFR > 20 mls/min/1.73m²) | No Evidence |
-| **Ivabradine** | Strong evidence | Strong evidence | No Evidence | No Evidence |
-| **Vericiguat** | Strong evidence | Strong evidence | Strong evidence | No Evidence |
+| ACE-i/ARB | Strong evidence | Strong evidence | Moderate evidence | Moderate evidence if on dialysis, weak if not on dialysis |
+| ARNI | Strong evidence | Strong evidence | Weak evidence<br>Small study only for eGFR > 25 mls/min/1.73m² | Not recommended |
+| β-blockers | Strong evidence | Strong evidence | Moderate evidence | Moderate evidence |
+| MRA | Strong evidence | Strong evidence | Only finerenone at eGFR > 25 mls/min/1.73m² | Not recommended |
+| SGLT2-i | Strong evidence<br>(From eGFR > 20 mls/min/1.73m²) | Strong evidence<br>(From eGFR > 20 mls/min/1.73m²) | Strong evidence<br>(From eGFR > 20 mls/min/1.73m²) | No Evidence |
+| Ivabradine | Strong evidence | Strong evidence | No Evidence | No Evidence |
+| Vericiguat | Strong evidence | Strong evidence | Strong evidence | No Evidence |
 
 *\*Adapted from Mullens W, Martens P, Testani JM, et al. Renal effects of guideline-directed medical therapies in heart failure: a consensus document from the Heart Failure Association of the European Society of Cardiology. Eur J of Heart Fail 2022;24: 603-619*
 

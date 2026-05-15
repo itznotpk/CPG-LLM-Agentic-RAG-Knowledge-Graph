@@ -462,18 +462,18 @@ KEY MESSAGES:
 #### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
 #### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
 Table 1: Indications For PCI In STEMI
 
@@ -489,7 +489,7 @@ Table 1: Indications For PCI In STEMI
 | • Contraindications to fibrinolytics | [Grade I, Level C] |
 | **Rescue PCI** in patients with failed fibrinolysis and have continuing signs of: | |
 | • Chest pain, LVF, hemodynamic instability and/or persistent hyperacute changes in the ECG | [Grade I, Level A] |
-| **Facilitated PCI** | [Grade III, Level A] |
+| Facilitated PCI | [Grade III, Level A] |
 | **Post fibrinolysis** and: | |
 | • Routine invasive angiography with view to PCI and stenting < in 24 hours in all patients | [Grade II-a, Level A] |
 | • Delayed selective angiography depending on presence of hemodynamic instability or residual ischemia | [Grade I, Level A] |
@@ -516,7 +516,7 @@ Table 3: Indications For PCI In Stable Cad
 
 | INDICATION FOR PCI | Recommendation Level |
 |---|---|
-| **In patients requiring revascularization, PCI may be considered in:** | |
+| In patients requiring revascularization, PCI may be considered in: | |
 | 1 or 2 vessel disease with lesion(s) amenable to PCI and a high likelihood of success | [Grade I, Level A] |
 | 3 vessel disease and: | |
 | • discrete lesions suitable for PCI | [Grade II-a, Level B] |

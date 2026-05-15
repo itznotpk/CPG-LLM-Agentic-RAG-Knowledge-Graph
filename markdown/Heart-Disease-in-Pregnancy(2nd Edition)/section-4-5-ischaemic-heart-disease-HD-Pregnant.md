@@ -203,22 +203,22 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 ### Appendix D: Recommendations For Drug Use During Pregnancy
 | Drug | FDA Category | Adverse Effects |
 |---|---|---|
-| **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
+| ORAL HYPOGLYCAEMICS | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
 | Chlorpropamide | C | Neonatal hypoglycaemia |
 | Glyburide | C | Neonatal hypoglycaemia |
 | Metformin | B | Neonatal hypoglycaemia |
-| **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** |
+| ANTI INFLAMMATORY AGENTS | **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** |
 | Aspirin and other salicylates | D | Fetal kernicterus; With high doses, possibly 1st- trimester spontaneous abortions, delayed onset of labour, premature closing of the fetal ductus arteriosus, jaundice, occasionally maternal (intrapartum and postpartum) and/or neonatal haemorrhage, necrotising enterocolitis, and oligohydramnios; With low doses (81 mg) of aspirin, no significant teratogenic risk |
 | NSAIDs | C; D - for some drugs if given after 30 weeks | Same as those for salicylate; Contraindicated in the 3rd trimester |
-| **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** |
+| ANTI THYROID MEDICATIONS | **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** |
 | Methimazole | D | Fetal goitre and neonatal scalp defects (aplasia cutis) |
 | Propylthiouracil | D | Fetal goitre and maternal hepatotoxicity and agranulocytosis |
 | Radioactive iodine (^131^I) | D | Destruction of the fetal thyroid gland or, when the drug is given near the end of the 1st trimester, severe fetal hyperthyroidism |
 | Saturated solution of K iodide |  | Large fetal goitre, which may obstruct breathing in neonates |
 | Triiodothyronine | D | Fetal goitre |
-| **VACCINES** | **VACCINES** | **VACCINES** |
+| VACCINES | **VACCINES** | **VACCINES** |
 | Live-virus vaccines such as those for measles, mumps, rubella, polio, chickenpox, and yellow fever |  | With rubella and varicella vaccines, potential infection of the placenta and developing fetus; With other vaccines, potential but unknown risks |
-| **OTHERS** | **OTHERS** | **OTHERS** |
+| OTHERS | **OTHERS** | **OTHERS** |
 | Corticosteroids | B | When these drugs are used during the 1st trimester, possibly orofacial clefts |
 | Loratadine | B | Possible hypospadias |
 | Ondansetron | B | No significant teratogenic risk |
@@ -238,14 +238,14 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 | Lumbar spine | 1.7 | 10 |  |
 | Pelvis | 1.1 | 4 |  |
 | Intravenous Urogram | 1.7 | 10 |  |
-| **Computed Tomography** | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
+| Computed Tomography | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
 |  | Mean (mGy) | Maximum (mGy) | mGy |
 | Head | <0.005 | <0.005 |  |
 | Chest | 0.06 | 0.96 | 7 |
 | Abdomen | 8.0 | 49 |  |
 | Lumbar spine | 2.4 | 8.6 |  |
 | Pelvis | 25 | 79 |  |
-| **Fluoroscopic Examinations** | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
+| Fluoroscopic Examinations | **Fetal dose** | **Fetal dose** | **Maternal Exposure*** |
 |  | Mean (mGy) | Maximum (mGy) | mGy |
 | Barium meal (Upper GI) | 1.1 | 5.8 |  |
 | Barium meal (lower GI) | 6.8 | 24 |  |

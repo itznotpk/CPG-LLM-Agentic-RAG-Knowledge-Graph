@@ -184,16 +184,16 @@ Table 2: Grading Of Recommendations In The Management Of Acute HF
 
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|---|---|
-| **INITIAL MANAGEMENT CONSISTS OF:** | | | |
+| INITIAL MANAGEMENT CONSISTS OF: | | | |
 | Oxygen | I | C | Maintain the oxygen saturation ≥ 95%. |
 | Diuretics | I | B | To be given preferably when SBP ≥ 90mmHg. |
 | MRA | I | A | To be given if eGFR ≥ 30 mLs/min/1.73m² and serum potassium levels < 5.0mmol/l.<br>May be initiated within 24-48 hours of admission. |
-| **NOT RESPONSIVE TO INITIAL TREATMENT AND SBP ≥ 90mmHg** | | | |
+| NOT RESPONSIVE TO INITIAL TREATMENT AND SBP ≥ 90mmHg | | | |
 | Diuretics | IIa | B | Continuous infusion +/- combination with thiazides. |
 | Nitrates | I | B | Most useful if there is concomitant myocardial ischemia, severe hypertension or aortic or mitral regurgitation. |
 | Noradrenaline | IIa | B | Indicated for peripheral hypoperfusion despite an adequate filling status. |
 | Dopamine | IIb | B | Indicated for peripheral hypoperfusion despite an adequate filling status. |
-| **NOT RESPONSIVE TO INITIAL TREATMENT AND SBP < 90mmHg** | | | |
+| NOT RESPONSIVE TO INITIAL TREATMENT AND SBP < 90mmHg | | | |
 | Noradrenaline | IIa | B | Indicated to increase the BP. |
 | Dopamine | IIb | B | Indicated to increase the BP. |
 | IABP | IIa | B | Indicated as a bridge till myocardial recovery or heart transplant. |

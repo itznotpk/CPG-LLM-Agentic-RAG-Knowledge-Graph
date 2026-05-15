@@ -15,19 +15,19 @@ output: guideline_summary, key_recommendations, triage_pathways
 3. In UA cardiac biomarkers are normal while in NSTEMI it is elevated.
 4. Risk stratification is important for prognosis and to guide management (refer Flowchart 1: Algorithm for Risk Stratification of UA/NSTEMI).
 
-5. **[Grade I, Level A]** Initial management of intermediate/high risk patients includes optimal medical therapy with **[Grade I, Level A]** aspirin and **[Grade I, Level A]** clopidogrel (or **[Grade I, Level B]** ticagelor), **[Grade I, Level A]** UFH or **[Grade I, Level A]** LMWH or **[Grade I, Level A]** fondaprinux. **[Grade I, Level B]** Prasugrel may be considered as an alternative to clopidogrel in high risk patients after coronary angiography if PCI is planned. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
+5. [Grade I, Level A] Initial management of intermediate/high risk patients includes optimal medical therapy with [Grade I, Level A] aspirin and [Grade I, Level A] clopidogrel (or [Grade I, Level B] ticagelor), [Grade I, Level A] UFH or [Grade I, Level A] LMWH or [Grade I, Level A] fondaprinux. [Grade I, Level B] Prasugrel may be considered as an alternative to clopidogrel in high risk patients after coronary angiography if PCI is planned. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 
-6. **[Grade I, Level C]** Patients with refractory angina and/or hemodynamically unstable should be considered for urgent coronary angiography and revascularization.
+6. [Grade I, Level C] Patients with refractory angina and/or hemodynamically unstable should be considered for urgent coronary angiography and revascularization.
 
-7. **[Grade I, Level A]** Intermediate/high risk patients should be considered for early invasive strategy (<72 hours). If admitted to a non-PCI centre, they should be considered for transfer to a PCI centre.
+7. [Grade I, Level A] Intermediate/high risk patients should be considered for early invasive strategy (<72 hours). If admitted to a non-PCI centre, they should be considered for transfer to a PCI centre.
 
-8. **[Grade I, Level A]** Low risk patients should be assessed non-invasively for ischemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
+8. [Grade I, Level A] Low risk patients should be assessed non-invasively for ischemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 
-9. **[Grade I, Level A]** All patients should receive optimal medical therapy at discharge. This includes **[Grade I, Level A]** aspirin, **[Grade I, Level B]** clopidogrel (or **[Grade I, Level B]** ticagrelor or **[Grade I, Level B]** prasugrel if given during PCI), **[Grade I, Level B]** ß-blockers, **[Grade I, Level A]** ACE-I or **[Grade I, Level B]** ARB (if ACE-I intolerant) and **[Grade I, Level A]** statins. **[Grade I, Level C]** If recurrent or residual ischemia is present, then anti anginal therapy should also be given. These include **[Grade I, Level C]** nitrates, **[Grade II-a, Level C]** calcium channel blockers and/or **[Grade II-a, Level C]** metabolic agents (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
+9. [Grade I, Level A] All patients should receive optimal medical therapy at discharge. This includes [Grade I, Level A] aspirin, [Grade I, Level B] clopidogrel (or [Grade I, Level B] ticagrelor or [Grade I, Level B] prasugrel if given during PCI), [Grade I, Level B] ß-blockers, [Grade I, Level A] ACE-I or [Grade I, Level B] ARB (if ACE-I intolerant) and [Grade I, Level A] statins. [Grade I, Level C] If recurrent or residual ischemia is present, then anti anginal therapy should also be given. These include [Grade I, Level C] nitrates, [Grade II-a, Level C] calcium channel blockers and/or [Grade II-a, Level C] metabolic agents (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 
-10. **[Grade I, Level C]** These drugs should be uptitrated as outpatient to the recommended tolerated doses.
+10. [Grade I, Level C] These drugs should be uptitrated as outpatient to the recommended tolerated doses.
 
-11. **[Grade I, Level A]** Cardiac rehabilitation and secondary prevention programs which includes lifestyle modification is an integral component of management.
+11. [Grade I, Level A] Cardiac rehabilitation and secondary prevention programs which includes lifestyle modification is an integral component of management.
 
 #### Flowchart 1: Risk Stratification Of UA/NSTEMI
 **[ PATHWAY A: LOW RISK ]**
@@ -85,26 +85,26 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
-| Aspirin | **[Grade I, Level A]** | **[Grade I, Level A]** | Continued long term if tolerating |
-| + Clopidogrel | **[Grade I, Level A]** | **[Grade I, Level A]** | Used in addition to aspirin as part of dual antiplatelet therapy. |
-| | | **[Grade I, Level B]** | To be continued at least 1 month and ideally for at least a year post UA/NSTEMI and, |
-| | | **[Grade I, Level C]** | 6-12months or longer post DES implantation |
-| or, Ticlopidine | **[Grade II-a, Level B]** | **[Grade II-a, Level B]** | Used in addition to aspirin as part of dual antiplatelet therapy. This is a less preferred alternative to clopidogrel. |
-| or, prasugrel | **[Grade I, Level B]** | **[Grade I, Level B]** | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel in high risk patients undergoing PCI. |
-| or, ticagrelor | **[Grade I, Level B]** | **[Grade I, Level B]** | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel. |
-| + UFH | **[Grade I, Level A]** | - | Given for 2-8 days |
-| or, LMWH | **[Grade I, Level A]** | - | Given for 2-8 days |
-| or, fondaprinux | **[Grade I, Level A]** | - | Used in patients treated conservatively. Given for 8 days or duration of hospitalization. |
-| or, Bivalirudin | **[Grade I, Level A]** | - | Used as an alternative to UFH and GPII-b/III-a inhibitors during PCI |
-| + β-blockers | **[Grade I, Level B]** | **[Grade I, Level B]** | Should be administered early if no contraindications and continued indefinitely if ischemia is present. |
-| | | **[Grade I, Level A]** | Continued indefinitely in the presence of LV dysfunction (LVEF<40%) |
-| + ACE - I | **[Grade I, Level A]** | **[Grade I, Level A]** | Should be administered early in patients with LV dysfunction (LVEF< 40%), heart failure, diabetes, hypertension or CKD. |
-| | | **[Grade II-a, Level A]** | Should be considered long term to prevent recurrent ischemia |
-| or ARB | **[Grade I, Level B]** | **[Grade I, Level B]** | As an alternative to ACE-I in intolerant patients |
-| + Statins | **[Grade I, Level A]** | **[Grade I, Level A]** | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
-| +/- calcium channel blockers | **[Grade I, Level B]** | **[Grade I, Level B]** | If intolerant to β-blockers |
-| | **[Grade II-a, Level C]** | **[Grade II-a, Level C]** | Indicated for residual/ recurrent ischemia. |
-| +/- nitrates | **[Grade I, Level C]** | **[Grade I, Level C]** | Indicated for residual/ recurrent ischemia. |
+| Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
+| + Clopidogrel | [Grade I, Level A] | [Grade I, Level A] | Used in addition to aspirin as part of dual antiplatelet therapy. |
+| | | [Grade I, Level B] | To be continued at least 1 month and ideally for at least a year post UA/NSTEMI and, |
+| | | [Grade I, Level C] | 6-12months or longer post DES implantation |
+| or, Ticlopidine | [Grade II-a, Level B] | [Grade II-a, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. This is a less preferred alternative to clopidogrel. |
+| or, prasugrel | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel in high risk patients undergoing PCI. |
+| or, ticagrelor | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel. |
+| + UFH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, LMWH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, fondaprinux | [Grade I, Level A] | - | Used in patients treated conservatively. Given for 8 days or duration of hospitalization. |
+| or, Bivalirudin | [Grade I, Level A] | - | Used as an alternative to UFH and GPII-b/III-a inhibitors during PCI |
+| + β-blockers | [Grade I, Level B] | [Grade I, Level B] | Should be administered early if no contraindications and continued indefinitely if ischemia is present. |
+| | | [Grade I, Level A] | Continued indefinitely in the presence of LV dysfunction (LVEF<40%) |
+| + ACE - I | [Grade I, Level A] | [Grade I, Level A] | Should be administered early in patients with LV dysfunction (LVEF< 40%), heart failure, diabetes, hypertension or CKD. |
+| | | [Grade II-a, Level A] | Should be considered long term to prevent recurrent ischemia |
+| or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
+| + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
+| +/- calcium channel blockers | [Grade I, Level B] | [Grade I, Level B] | If intolerant to β-blockers |
+| | [Grade II-a, Level C] | [Grade II-a, Level C] | Indicated for residual/ recurrent ischemia. |
+| +/- nitrates | [Grade I, Level C] | [Grade I, Level C] | Indicated for residual/ recurrent ischemia. |
 
 Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 

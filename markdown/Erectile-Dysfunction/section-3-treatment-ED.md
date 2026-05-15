@@ -22,7 +22,7 @@ ED is strongly associated with lifestyle risk factors. Addressing these factors 
 | **Weight loss** (low-energy diet + physical exercises) | Improved erectile function (MD of IIEF=1.99, 95% CI 0.85-3.13) | Level I |
 | **Bariatric surgery** (BMI ≥40 or ≥35 with co-morbidities) | Significantly improved IIEF scores | Level II-3 |
 | **Pelvic floor muscle training** (5-20 therapist-supervised sessions, 3-4 months) | 35-47% cure rate in ED | Level II-3 |
-| **Smoking cessation** | Improved ED irrespective of pack-years and severity | Level II-3 |
+| Smoking cessation | Improved ED irrespective of pack-years and severity | Level II-3 |
 | **Alcohol abstinence** (3 months) | Improved IIEF-5 scores (p<0.001) | Level II-2 |
 
 ### Stress Management And Psychotherapy
@@ -47,10 +47,10 @@ The main pharmacological agents for ED are phosphodiesterase-5 inhibitors (PDE5i
 #### PDE5i Comparison Table
 | Drug | Onset | Duration | Initial Dose | Max Dose | Notes |
 |------|-------|----------|--------------|----------|-------|
-| **Sildenafil** | 30-60 min | Up to 12h | 50 mg | 100 mg | First PDE5i available in market |
-| **Tadalafil** | - | - | 10 mg (on-demand) or 2.5 mg (daily) | 20 mg (on-demand) or 5 mg (daily) | 5 mg daily more effective than placebo for LUTS/BPH/ED |
-| **Avanafil** | ≤15 min | >6 hours | - | - | Onset/duration from RCT in DM patients |
-| **Vardenafil** | - | - | - | - | *Not registered in Malaysia* |
+| Sildenafil | 30-60 min | Up to 12h | 50 mg | 100 mg | First PDE5i available in market |
+| Tadalafil | - | - | 10 mg (on-demand) or 2.5 mg (daily) | 20 mg (on-demand) or 5 mg (daily) | 5 mg daily more effective than placebo for LUTS/BPH/ED |
+| Avanafil | ≤15 min | >6 hours | - | - | Onset/duration from RCT in DM patients |
+| Vardenafil | - | - | - | - | *Not registered in Malaysia* |
 
 #### Sildenafil
 - First available PDE5i; recommended initial dose 50 mg
@@ -220,10 +220,10 @@ Psychosocial intervention plays a vital role in ED treatment as psychological an
 ### Evidence Summary
 | Intervention | Outcome | Evidence |
 |--------------|---------|----------|
-| **Focused sex-group therapy** | Reduced persistence of ED vs control (RR=0.13) | Level I |
-| **Group therapy + Sildenafil** | Better reduction of persistent ED vs Sildenafil alone (RR=0.46) | Level I |
+| Focused sex-group therapy | Reduced persistence of ED vs control (RR=0.13) | Level I |
+| Group therapy + Sildenafil | Better reduction of persistent ED vs Sildenafil alone (RR=0.46) | Level I |
 | **Combined Treatment** (Psych + PDE5i) | Superior to PDE5i or Psych intervention alone (Cohen's d=0.45, RR=2.26) | Level I |
-| **Internet-based interventions (IMIs)** | Small effect size (g=0.18) in improving sexual function | Level I |
+| Internet-based interventions (IMIs) | Small effect size (g=0.18) in improving sexual function | Level I |
 
 > **Note:** Combined treatment (PDE5i + Psychological intervention) consistently shows better efficacy than monotherapy for psychogenic or PDE5i alone.
 
@@ -243,7 +243,7 @@ use_case: medication_safety_check
 | Contraindication | Reason | Alternative |
 |------------------|--------|-------------|
 | **Nitrates** (any form) | Severe hypotension risk | ICI, VED, or surgical |
-| **Riociguat** | Severe hypotension risk | ICI, VED, or surgical |
+| Riociguat | Severe hypotension risk | ICI, VED, or surgical |
 | **Hypersensitivity** to PDE5i | Allergic reaction | Different PDE5i or alternative class |
 
 ### Cautions (Use With Care)

@@ -30,18 +30,18 @@ These guidelines aim to highlight the challenges of diagnosing and managing PAH 
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **CHD** | Congenital Heart Disease |
-| **CTD** | Connective Tissue Disease |
-| **ERA** | Endothelin Receptor Antagonist |
-| **ET** | Endothelin |
-| **HIV** | Human Immunodeficiency Virus |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PAP** | Pulmonary Arterial Pressure |
-| **PDE-5** | Phosphodiesterase-5 |
-| **PHT** | Pulmonary Hypertension |
-| **PVR** | Pulmonary Vascular Resistance |
-| **QoL** | Quality of Life |
-| **RCT** | Randomised Controlled Trial |
+| CHD | Congenital Heart Disease |
+| CTD | Connective Tissue Disease |
+| ERA | Endothelin Receptor Antagonist |
+| ET | Endothelin |
+| HIV | Human Immunodeficiency Virus |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| PAH | Pulmonary Arterial Hypertension |
+| PAP | Pulmonary Arterial Pressure |
+| PDE-5 | Phosphodiesterase-5 |
+| PHT | Pulmonary Hypertension |
+| PVR | Pulmonary Vascular Resistance |
+| QoL | Quality of Life |
+| RCT | Randomised Controlled Trial |
 
 <!-- END OVERLAP CONTENT -->

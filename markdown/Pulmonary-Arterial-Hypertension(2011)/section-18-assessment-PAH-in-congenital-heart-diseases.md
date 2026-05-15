@@ -41,16 +41,16 @@ However, it is rarely performed nowadays as it is invasive and has limitations o
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **6MWT** | Six-Minute Walk Test |
-| **ASD** | Atrial Septal Defect |
-| **AVSD** | Atrioventricular Septal Defect |
-| **CHD** | Congenital Heart Disease |
-| **ECG** | Electrocardiogram |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PDA** | Patent Ductus Arteriosus |
-| **Qp:Qs** | Pulmonary to Systemic Blood Flow Ratio |
-| **RVH** | Right Ventricular Hypertrophy |
-| **TGA** | Transposition of the Great Arteries |
-| **VSD** | Ventricular Septal Defect |
+| 6MWT | Six-Minute Walk Test |
+| ASD | Atrial Septal Defect |
+| AVSD | Atrioventricular Septal Defect |
+| CHD | Congenital Heart Disease |
+| ECG | Electrocardiogram |
+| PAH | Pulmonary Arterial Hypertension |
+| PDA | Patent Ductus Arteriosus |
+| Qp:Qs | Pulmonary to Systemic Blood Flow Ratio |
+| RVH | Right Ventricular Hypertrophy |
+| TGA | Transposition of the Great Arteries |
+| VSD | Ventricular Septal Defect |
 
 <!-- END OVERLAP CONTENT -->

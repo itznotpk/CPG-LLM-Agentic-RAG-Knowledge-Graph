@@ -231,7 +231,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 ### Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 | Variable | Relative risk |
 |---|---|
-| **Depth of tumour penetration (mm) - Superficial** | |
+| Depth of tumour penetration (mm) - Superficial | |
 | 3 | 1.0 |
 | 4 | 3.0 |
 | 5 | 7.2 |
@@ -239,7 +239,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 7 | 21 |
 | 8 | 26 |
 | 10 | 21 |
-| **Middle** | |
+| Middle | |
 | 5 | 20 |
 | 6 | 22 |
 | 7 | 23 |
@@ -247,7 +247,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 10 | 28 |
 | 12 | 32 |
 | 14 | 36 |
-| **Deep** | |
+| Deep | |
 | 7 | 28 |
 | 8 | 30 |
 | 10 | 34 |
@@ -256,7 +256,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 16 | 45 |
 | 18 | 49 |
 | 19 | 54 |
-| **Clinical tumour size (cm)** | |
+| Clinical tumour size (cm) | |
 | Occult tumour | 1.0 |
 | 1 | 1.6 |
 | 2 | 1.9 |
@@ -264,7 +264,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 4 | 2.9 |
 | 6 | 4.4 |
 | 8 | 6.6 |
-| **Capillary/lymphatic space involvement** | |
+| Capillary/lymphatic space involvement | |
 | No | 1.0 |
 | Yes | 1.7 |
 

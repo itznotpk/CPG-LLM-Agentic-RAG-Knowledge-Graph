@@ -68,14 +68,14 @@ Refer to Appendix XVI: Calculation of Performance and Outcome Measures for calcu
 ## Appendix XVI: Calculation Of Performance And Outcome Measures
 | Measure | | Formula | |
 |---|---|---|---|
-| **% of patients who had documentation of NYHA Functional Class** | = | (Number of patients who had documentation of NYHA Functional Class) / (Number of HF patients who were seen during that time period) | x 100 |
-| **% of patients who had LVEF measurement** | = | (Number of patients who had LVEF measurement) / (Number of HF patients who were seen during that time period) | x 100 |
-| **% of patients discharged with ACE-I / ARB** | = | (Number of patients who were on ACE-I / ARB at discharge) / (Number of HF patients who were discharged during this time period who had no contraindications to ACE-I/ARB) | x 100 |
-| **% of patients discharged on β-blockers** | = | (Number of patients who were on β-blockers at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to β-blockers) | x 100 |
-| **% of patients discharged on MRA** | = | (Number of patients who were on MRA at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to MRA) | x 100 |
-| **% of patients with chronic or paroxysmal AF/Atrial Flutter on anticoagulant therapy (OAC) at discharge.** | = | (Number of patients who had AF/Atrial Flutter who were on OAC at discharge) / (Number of HF patients who had AF/Atrial Flutter during that time period who had no contraindications to OAC at discharge) | x 100 |
-| **% of patients given a post discharge appointment within 14 days** | = | (Number of patients who were given a post discharge appointment) / (Number of HF patients who were seen during that time period) | x 100 |
-| **% of patients who had their Foundational HF medications up titrated to maximally tolerated doses by 3 months post discharge** | = | (Number of patients who Had the HF medications up titrated within 3 months) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients who had documentation of NYHA Functional Class | = | (Number of patients who had documentation of NYHA Functional Class) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients who had LVEF measurement | = | (Number of patients who had LVEF measurement) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients discharged with ACE-I / ARB | = | (Number of patients who were on ACE-I / ARB at discharge) / (Number of HF patients who were discharged during this time period who had no contraindications to ACE-I/ARB) | x 100 |
+| % of patients discharged on β-blockers | = | (Number of patients who were on β-blockers at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to β-blockers) | x 100 |
+| % of patients discharged on MRA | = | (Number of patients who were on MRA at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to MRA) | x 100 |
+| % of patients with chronic or paroxysmal AF/Atrial Flutter on anticoagulant therapy (OAC) at discharge. | = | (Number of patients who had AF/Atrial Flutter who were on OAC at discharge) / (Number of HF patients who had AF/Atrial Flutter during that time period who had no contraindications to OAC at discharge) | x 100 |
+| % of patients given a post discharge appointment within 14 days | = | (Number of patients who were given a post discharge appointment) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients who had their Foundational HF medications up titrated to maximally tolerated doses by 3 months post discharge | = | (Number of patients who Had the HF medications up titrated within 3 months) / (Number of HF patients who were seen during that time period) | x 100 |
 
 ---
 

@@ -53,19 +53,19 @@ The following indicators are proposed for quality management of breast cancer:
 
 | Component | Description |
 |---|---|
-| **Numerator** | Number of patients with suspected breast cancer referred within two weeks to the breast clinic in a period |
-| **Denominator** | Total number of patients with suspected breast cancer in the same period |
-| **Target** | **80%** |
-| **Population** | Women aged >35 years with signs and symptoms, high-risk group with signs and symptoms, patients with clinical signs of malignancy |
+| Numerator | Number of patients with suspected breast cancer referred within two weeks to the breast clinic in a period |
+| Denominator | Total number of patients with suspected breast cancer in the same period |
+| Target | **80%** |
+| Population | Women aged >35 years with signs and symptoms, high-risk group with signs and symptoms, patients with clinical signs of malignancy |
 
 ### Indicator 2: Surgical Margin Adequacy
 **Percentage of breast cancer patients with clear surgical margins in BCS**
 
 | Component | Description |
 |---|---|
-| **Numerator** | Number of breast cancer patients with clear surgical margins in BCS in a period |
-| **Denominator** | Total number of breast cancer patients with BCS in the same period |
-| **Target** | **85%** |
+| Numerator | Number of breast cancer patients with clear surgical margins in BCS in a period |
+| Denominator | Total number of breast cancer patients with BCS in the same period |
+| Target | **85%** |
 
 ---
 

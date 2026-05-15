@@ -474,10 +474,10 @@ Classify the patient into one of four hemodynamic profiles:
 
 | Profile | Congestion* | Perfusion** |
 |---|---|---|
-| **Cold, Wet** | Congested | Perfusion Inadequate |
-| **Cold, Dry** | Not Congested | Perfusion Inadequate |
-| **Warm, Wet** | Congested | Perfusion Adequate |
-| **Warm, Dry** | Not Congested | Perfusion Adequate |
+| Cold, Wet | Congested | Perfusion Inadequate |
+| Cold, Dry | Not Congested | Perfusion Inadequate |
+| Warm, Wet | Congested | Perfusion Adequate |
+| Warm, Dry | Not Congested | Perfusion Adequate |
 
 **Outcome Evaluation:**
 *   **If Cold/Wet, Cold/Dry, or Warm/Wet:** → Proceed to Step 4 (Blood Pressure Assessment)
@@ -699,28 +699,28 @@ Table 3: Doses Of Foundational HF Medications
 
 | Drug | Initial Daily Dose(s) | Target Dose(s) | 1/8 Target Dose | 1/4 Target Dose | 1/2 Target Dose | Tablet Strength Available | Available (MOH) | Renal Dose For CrCl < 30ml/min |
 |---|---|---|---|---|---|---|---|---|
-| **ACE-I** | | | | | | | | |
+| ACE-I | | | | | | | | |
 | Captopril | 6.25mg BD | 50mg TDS | 6.25mg | 12.5mg | 25mg | 12.5mg, 25mg | Yes | 6.25mg-12.5mg bd/tds |
 | Enalapril | 2.5mg OD | 10-20mg BD | | 2.5-5mg | 5-10mg | 5mg, 10mg, 20mg | Yes | 2.5mg OD |
 | Lisinopril | 2.5–5mg OD | 20-40mg OD | 2.5mg | 5-10mg | 10-20mg | 5mg, 10mg, 20mg | Yes | 2.5mg OD<br>CrCl 10-30: 5mg OD<br>CrCl<10: 2.5mg OD |
 | Perindopril | 2mg OD | 8-16mg OD | | 2-4mg | 4-8mg | 2mg, 4mg, 8mg | Yes | CrCl 15-30: 2mg eod<br>CrCl <15 & HD: 2mg on dialysis day** |
 | Ramipril | 2.5mg OD | 10mg OD | 1.25mg | 2.5mg | 5mg | 2.5mg, 5mg, 10mg | Yes | 1.25mg OD<br>CrCl <40: 25% normal dose |
-| **ARBs** | | | | | | | | |
+| ARBs | | | | | | | | |
 | Candesartan | 4-8mg OD | 32mg | 4mg OD | 8mg | 16mg | 8mg, 16mg | Yes | 4mg OD |
 | Losartan | 25-50mg OD | 50-150mg OD | | 12.5-37.5mg | 25-75mg | 25mg, 50mg, 100mg | Yes | No adjustment |
 | Valsartan | 40mg OD | 160mg BD | | 40mg | 80mg | 40mg, 80mg, 160mg | Yes | Use with caution |
-| **ARNI** | | | | | | | | |
+| ARNI | | | | | | | | |
 | Sacubitril/ valsartan | 100mg (49/51mg) BD* | 200mg (97/103mg) BD | 25mg | 50mg | 100mg | 50mg, 100mg, 200mg | Yes | 50mg BD |
-| **β-Blocker** | | | | | | | | |
+| β-Blocker | | | | | | | | |
 | Bisoprolol | 1.25mg OD | 10 mg OD | 1.25mg | 2.5mg | 5mg | 2.5mg, 5mg, 10mg | Yes | No adjustment |
 | Carvedilol | 3.125mg BD | 25 mg BD | 3.125mg | 6.25mg | 12.5mg | 6.25mg, 12.5mg, 25mg | Yes | No adjustment |
 | Metoprolol Tartrate* | 12.5-25mg BD | 100 mg BD | 12.5mg | 25mg | 50mg | 50mg, 100mg | Yes | No adjustment |
 | Nebivolol+ | 1.25mg OD | 10 mg OD | 1.25mg | 2.5mg | 5mg | 5mg | Yes | No adjustment |
-| **MRA** | | | | | | | | |
+| MRA | | | | | | | | |
 | Spironolactone | 12.5-25mg OD | 50 mg OD | | 12.5mg | 25mg | 25mg | Yes | Contraindicated |
 | Eplerenone | 25 mg OD | 50 mg BD | | 12.5mg | 25mg | 25mg, 50mg | Yes | Contraindicated |
 | Finerenone | 20mg OD | 20mg OD | | | | 10mg, 20mg | Yes | eGFR 25-60: 10mg OD<br>eGFR <25: contraindicated |
-| **SGLT2-i** | | | | | | | | |
+| SGLT2-i | | | | | | | | |
 | Dapagliflozin | 10mg OD | 10mg OD | | | | | | CrCl <25: limited experience |
 | Empagliflozin | 10mg OD | 10mg OD | | | | | | CrCl <20: not recommended |
 
@@ -735,16 +735,16 @@ Table 4: Grading Of Recommendations And Levels Of Evidence In The Management Of 
 
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|---|---|
-| **INDICATED FOR FLUID RETENTION IN NYHA II - IV** | | | |
+| INDICATED FOR FLUID RETENTION IN NYHA II - IV | | | |
 | Diuretics | I | B | No randomized trial to show improvement in survival. |
-| **INDICATED IN ALL PATIENTS** | | | |
+| INDICATED IN ALL PATIENTS | | | |
 | ACE-I | I | A | Improves survival and delays progression in all classes of HF. |
 | ARB | I | A | In ACE-I intolerant patients. |
 | ARNI (Instead of ACE-I) | I | B | Improves survival and delays progression in all classes of HF when compared to ACE-I. |
 | β-Blockers | I | A | Improves survival and delays progression in all classes of HF. |
 | SGLT2-i | I | A | Improves survival and delays progression in all classes of HF. |
 | Mineralocorticoid Receptor Antagonists | I | A | Improves survival and reduces hospitalizations in moderate to severe HF and in post MI patients with mild HF. |
-| **IN ADDITION TO THE ABOVE, THE FOLLOWING ARE INDICATED IN SELECTED PATIENTS** | | | |
+| IN ADDITION TO THE ABOVE, THE FOLLOWING ARE INDICATED IN SELECTED PATIENTS | | | |
 | ARB (instead of ACE-I) | I | B | In patients post MI and LVEF < 40%, Valsartan was shown to be comparable to captopril. |
 | Digoxin | I | B | In patients with HF and AF |
 | | IIa | B | No effect on survival. Reduces hospitalizations when added to optimal medical therapy. |
@@ -762,13 +762,13 @@ Table 5: Patient Profiling And Titration Of “Foundational HF Medications”
 
 | Category | Parameter | Action / Considerations |
 |---|---|---|
-| **Blood Pressure** | **Systolic BP < 90 mmHg** | <ul><li>Detect and treat causes of hypotension, such as hypovolemia from over diuresis, bleeding, infection etc.</li><li>If the patient is euvolemic, reduce the dose of diuretics to the lowest maintenance. Occasionally it may be possible to remove the diuretic completely especially if the LVEF > 40-45%.</li><li>Remove all non "Foundational HF" Medications that may also cause hypotension e.g., - nitrates, calcium channel blockers, alpha blockers.</li><li>The dose of "Foundational HF" Medications only needs to be reduced or temporarily stopped if there is symptomatic hypotension.</li><li>SGLT2-i and low-dose MRA have minimal effects on BP and may be continued.</li></ul> |
+| Blood Pressure | **Systolic BP < 90 mmHg** | <ul><li>Detect and treat causes of hypotension, such as hypovolemia from over diuresis, bleeding, infection etc.</li><li>If the patient is euvolemic, reduce the dose of diuretics to the lowest maintenance. Occasionally it may be possible to remove the diuretic completely especially if the LVEF > 40-45%.</li><li>Remove all non "Foundational HF" Medications that may also cause hypotension e.g., - nitrates, calcium channel blockers, alpha blockers.</li><li>The dose of "Foundational HF" Medications only needs to be reduced or temporarily stopped if there is symptomatic hypotension.</li><li>SGLT2-i and low-dose MRA have minimal effects on BP and may be continued.</li></ul> |
 | | **Systolic BP > 110 mmHg** | <ul><li>The dose of RAS blockers and β-blockers should be up titrated in turn till the target or maximally tolerated dose.</li><li>Whether the RAS blocker or the β-blocker should be up titrated first will depend on the patient's heart rate, renal function, and potassium levels.</li></ul> |
-| **Heart rate (Sinus Rhythm)** | **HR > 70/bpm** | <ul><li>The dose of β-blocker should first be up titrated to the target or maximally tolerated dose.</li><li>Ivabradine may be added to the β-blocker to achieve the target HR.</li></ul> |
+| Heart rate (Sinus Rhythm) | **HR > 70/bpm** | <ul><li>The dose of β-blocker should first be up titrated to the target or maximally tolerated dose.</li><li>Ivabradine may be added to the β-blocker to achieve the target HR.</li></ul> |
 | | **HR < 50/bpm** | <ul><li>Discontinue non-dihydropyridine calcium channel blockers e.g., diltiazem and verapamil, digoxin, or other antiarrhythmic drugs such as amiodarone.</li><li>If the HR is still < 50/bpm, the dose of ivabradine should first be reduced.</li><li>If the HR is still < 50/bpm or the patient has symptomatic bradycardia, then the dose of β-blocker should be reduced or temporarily discontinued.</li></ul> |
-| **Atrial Fibrillation** | **Heart Rate (HR)** | <ul><li>The optimal resting ventricular rate in patients with AF and HF is unknown. It is not unreasonable to aim for a HR < 110bpm.</li><li>If the patient is troubled by palpitations or there is deterioration of LV function, then a more strict rate control of 80bpm may be targeted.</li><li>The ventricular rate should however, be maintained > 70 bpm. Lower HR have been associated with worse outcomes.</li><li>Excessive rate control, which may be associated with an increase in pauses, carries a risk.</li><li>The optimal ventricular rate during exercise is also uncertain, but may be < 110bpm during light exercise.</li></ul> |
+| Atrial Fibrillation | **Heart Rate (HR)** | <ul><li>The optimal resting ventricular rate in patients with AF and HF is unknown. It is not unreasonable to aim for a HR < 110bpm.</li><li>If the patient is troubled by palpitations or there is deterioration of LV function, then a more strict rate control of 80bpm may be targeted.</li><li>The ventricular rate should however, be maintained > 70 bpm. Lower HR have been associated with worse outcomes.</li><li>Excessive rate control, which may be associated with an increase in pauses, carries a risk.</li><li>The optimal ventricular rate during exercise is also uncertain, but may be < 110bpm during light exercise.</li></ul> |
 | | **Systolic BP < 90mmHg** | <ul><li>β-blockers may be stopped and replaced with digoxin for rate control.</li><li>This action may allow for the up titration of RAS blockers as the SBP improves to ≥ 90mmHG.</li></ul> |
-| **Renal Function** | **Potassium** | <ul><li>RAS blockers and MRA to be sequentially initiated if serum potassium is < 5.5 mmol/l.</li><li>Consider reducing or discontinuing the dose of RAS Blockers and MRA if serum potassium is persistently > 5.5 mmol/l despite other measures to reduce hyperkalemia.</li></ul> |
+| Renal Function | **Potassium** | <ul><li>RAS blockers and MRA to be sequentially initiated if serum potassium is < 5.5 mmol/l.</li><li>Consider reducing or discontinuing the dose of RAS Blockers and MRA if serum potassium is persistently > 5.5 mmol/l despite other measures to reduce hyperkalemia.</li></ul> |
 | | **Serum Creatinine** | <ul><li>Consider reducing or discontinuing RAS Blockers (after excluding other precipitating factors) when SCr levels remain ≥ 30% from the baseline (or eGFR reduces ≥ 25%) and if these occur within two months from commencement or dose increase.</li></ul> |
 
 ---
@@ -784,10 +784,10 @@ Table 8: Classification Of Heart Failure According To Lvef
 ### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
-| **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| **B - "Pre HF"** | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| **C - "HF"** | Symptomatic HF, either previous or current symptoms |
-| **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
+| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
+| C - "HF" | Symptomatic HF, either previous or current symptoms |
+| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
 The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
@@ -797,10 +797,10 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 Table 9: New York Heart Association Functional Classification
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
-| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
+| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
+| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
+| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
+| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 
 ---
 
@@ -808,8 +808,8 @@ Table 15: Diuretics Used In Heart Failure
 
 | Category | Drug | Route of Administration | Starting Dose | Usual Daily Dose |
 |---|---|---|---|---|
-| **LOOP DIURETICS** | Furosemide<br>Bumetanide | i.v. / Oral<br>i.v. / Oral | 20 - 40mg<br>0.5 - 1mg | 20 - 80mg<br>0.5 - 2mg |
-| **THIAZIDES** | Hydrochlorothiazide<br>Metolazone | Oral<br>Oral | 25mg<br>2.5mg | 12.5 - 50mg<br>2.5 - 10mg |
+| LOOP DIURETICS | Furosemide<br>Bumetanide | i.v. / Oral<br>i.v. / Oral | 20 - 40mg<br>0.5 - 1mg | 20 - 80mg<br>0.5 - 2mg |
+| THIAZIDES | Hydrochlorothiazide<br>Metolazone | Oral<br>Oral | 25mg<br>2.5mg | 12.5 - 50mg<br>2.5 - 10mg |
 
 ---
 
@@ -819,7 +819,7 @@ Table 16: Other Drugs Recommended For HF Management And Their Dose Regime
 |---|---|---|
 | **I*f* channel inhibitor** | | |
 | Ivabradine | 5mg bd† | 7.5mg bd |
-| **Others** | | |
+| Others | | |
 | Isosorbide dinitrate‡ | 10mg tds | 40mg tds |
 | Digoxin | 0.0625mg od | 0.25mg od |
 | Vericiguat | 2.5mg od | 10mg od |
@@ -928,17 +928,17 @@ Table 16: Other Drugs Recommended For HF Management And Their Dose Regime
 **Pharmacotherapy Safety & Initiation Thresholds:**
 | Medication | eGFR Initiation Threshold (mL/min/1.73m²) | Comments |
 |---|---|---|
-| **ACE-i/ARB** | > 15 | Strong evidence down to 30. |
-| **ARNI** | > 25 | Strong evidence > 30. |
-| **MRA** | > 30 | **Finerenone** demonstrated safety down to **25**. |
-| **SGLT2-i** | > 20 | Strong evidence for HFrEF and renal protection. |
+| ACE-i/ARB | > 15 | Strong evidence down to 30. |
+| ARNI | > 25 | Strong evidence > 30. |
+| MRA | > 30 | **Finerenone** demonstrated safety down to **25**. |
+| SGLT2-i | > 20 | Strong evidence for HFrEF and renal protection. |
 
 **Management of RAS Blockers based on Serum Creatinine (SCr) Increase:**
 | SCr Increase from Baseline | HFrEF Management |
 |---|---|
-| **< 30%** | Continue unless there is symptomatic hypotension. |
-| **30 - 50%** | Consider reducing the dose and/or temporary withdrawal. |
-| **> 50%** | Temporarily stop RAS blocker. Exclude other causes; consider re-challenge. |
+| < 30% | Continue unless there is symptomatic hypotension. |
+| 30 - 50% | Consider reducing the dose and/or temporary withdrawal. |
+| > 50% | Temporarily stop RAS blocker. Exclude other causes; consider re-challenge. |
 
 **Monitoring & RRT Criteria:**
 *   **Monitoring:** Target potassium: 4 - 5.5 mmol/L. Check K+ 7 days after MRA initiation.

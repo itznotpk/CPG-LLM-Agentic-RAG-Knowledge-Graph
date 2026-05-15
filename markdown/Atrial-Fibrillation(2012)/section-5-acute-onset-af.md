@@ -39,14 +39,14 @@ Table 9: Intravenous Pharmacological Agents for Acute Control of Ventricular Rat
 
 | Drug | Loading Dose (IV) | Onset of Action | Maintenance Dose (IV) | Adverse Effects | Limitations | Oral Maintenance Dose |
 |---|---|---|---|---|---|---|
-| **Beta-blockers** | | | | | | |
+| Beta-blockers | | | | | | |
 | Esmolol (very short-acting) | 0.5 mg/kg over 1 min | 5 min | 0.05–0.2 mg/kg/min infusion | Hypotension, heart block, bradycardia, asthma, heart failure | Negative inotropic effect | Oral preparation not available |
 | Metoprolol | — | — | — | Hypotension, heart block, bradycardia, asthma, heart failure | In people with heart failure, lower doses may be advisable. Negative inotropic effect | 23.75–200 mg/day (divided doses) |
 | Propranolol | 0.15 mg/kg over 5 min | 5 min | N/A | Hypotension, heart block, bradycardia, asthma, heart failure | In people with heart failure, lower doses may be advisable. Negative inotropic effect | 80–240 mg/day (divided doses) |
-| **Calcium channel blockers** | | | | | | |
+| Calcium channel blockers | | | | | | |
 | Diltiazem | — | — | — | Hypotension, heart block, heart failure | In people with heart failure, lower doses may be advisable. Negative inotropic effect | 120–360 mg/day (once daily long-acting) |
 | Verapamil | 0.075–0.15 mg/kg over 2 min | 3–5 min | N/A | Hypotension, heart block, heart failure | In people with heart failure, lower doses may be advisable. Negative inotropic effect | 120–360 mg/day (divided doses or once daily long-acting) |
-| **Other** | | | | | | |
+| Other | | | | | | |
 | Digoxin | 0.25–1.0 mg | 2 hr | 0.125–0.25 mg/day | Digoxin toxicity, heart block, bradycardia | N/A | 0.0625–0.375 mg/day (individualise dosage) |
 | Amiodarone | 5 mg/kg over 20 min | Variable (10 min to 4 hours) | 50 mg/hour infusion | Hypotension, back pain, heart block, phlebitis | N/A | 100–200 mg/day |
 
@@ -65,9 +65,9 @@ Table 10: Drug and Doses for Pharmacological Conversion of Recent-Onset AF
 
 | Drug | Dose | Follow-up Dose | Risk |
 |---|---|---|---|
-| **Amiodarone** | 5 mg/kg i.v. over 1 h | 50 mg/h | Phlebitis, hypotension. Will slow the ventricular rate. Delayed AF conversion to sinus rhythm. |
-| **Flecainide** | 200–300 mg p.o. | N/A | Not suitable for patients with marked structural heart disease; may prolong QRS duration, and hence the QT interval; and may inadvertently increase the ventricular rate due to conversion to atrial flutter and 1:1 conduction to the ventricles. |
-| **Propafenone** | 450–600 mg p.o. | N/A | Not suitable for patients with marked structural heart disease; may prolong QRS duration; will slightly slow the ventricular rate, but may inadvertently increase the ventricular rate due to conversion to atrial flutter and 1:1 conduction to the ventricles. |
+| Amiodarone | 5 mg/kg i.v. over 1 h | 50 mg/h | Phlebitis, hypotension. Will slow the ventricular rate. Delayed AF conversion to sinus rhythm. |
+| Flecainide | 200–300 mg p.o. | N/A | Not suitable for patients with marked structural heart disease; may prolong QRS duration, and hence the QT interval; and may inadvertently increase the ventricular rate due to conversion to atrial flutter and 1:1 conduction to the ventricles. |
+| Propafenone | 450–600 mg p.o. | N/A | Not suitable for patients with marked structural heart disease; may prolong QRS duration; will slightly slow the ventricular rate, but may inadvertently increase the ventricular rate due to conversion to atrial flutter and 1:1 conduction to the ventricles. |
 
 In clinical practice, amiodarone is the most common agent used in the management of patients presenting in AF with haemodynamic compromise, as it appears to have a hybrid effect of rapid reduction in ventricular rate in most patients with a proportion of these reverting to sinus rhythm over a longer period.
 

@@ -145,12 +145,12 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 ## Appendix VII: H2fpef Score
 | | Characteristic | Measurement | Score |
 |---|---|---|:---:|
-| **H** | Heavy | Body mass index > 30 kg/m² | 2 |
-| **H** | Hypertension | Two or more hypertensive medications | 1 |
-| **F** | Atrial Fibrillation | Paroxysmal or persistent | 3 |
-| **P** | Pulmonary Artery Pressure | Pulmonary artery systolic pressure > 35 mmHg | 1 |
-| **E** | Elderly | Age > 60 years | 1 |
-| **F** | LV filling pressure by echocardiogram | Echocardiographic E/e' > 9 | 1 |
+| H | Heavy | Body mass index > 30 kg/m² | 2 |
+| H | Hypertension | Two or more hypertensive medications | 1 |
+| F | Atrial Fibrillation | Paroxysmal or persistent | 3 |
+| P | Pulmonary Artery Pressure | Pulmonary artery systolic pressure > 35 mmHg | 1 |
+| E | Elderly | Age > 60 years | 1 |
+| F | LV filling pressure by echocardiogram | Echocardiographic E/e' > 9 | 1 |
 
 | Score | Probability of HF*p*EF |
 |:---:|---|
@@ -230,20 +230,20 @@ The Criteria Committee of the New York Heart Association. Nomenclature and Crite
 ## Appendix XIII: The Different Causes Of Achd-HF Based On The Underlying Pathophysiology, Related Chd And Etiology Tailored Management
 | Etiology | Pathophysiology | Congenital heart defect | Management |
 |---|---|---|---|
-| **Systemic left ventricle failure** | **Pressure overload** | Sub, supravalvular or valvular aortic stenosis, coarctation of the aorta, congenital MS, Shone syndrome | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
-| **Systemic left ventricle failure** | **Volume overload** | Aortic/mitral valve regurgitation, persistent shunts: VSD, ASD, PDA<br>atrioventricular valve regurgitation (post AVSD repair)<br>Aorto-pulmonary collaterals | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
-| **Systemic left ventricle failure** | **Myocardial injury /ischemia** | Inadequate myocardial protection during surgery, supply-demand mismatch, ventriculotomy, myocardial hypertrophy, cyanosis, coronary anomalies (ALCAPA) | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
-| **Systemic left ventricle failure** | **Sub-pulmonary Ventricle - systemic ventricle interaction** | Severe pulmonary regurgitation in TOF, Chronic right ventricular pacing | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
+| Systemic left ventricle failure | **Pressure overload** | Sub, supravalvular or valvular aortic stenosis, coarctation of the aorta, congenital MS, Shone syndrome | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
+| Systemic left ventricle failure | **Volume overload** | Aortic/mitral valve regurgitation, persistent shunts: VSD, ASD, PDA<br>atrioventricular valve regurgitation (post AVSD repair)<br>Aorto-pulmonary collaterals | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
+| Systemic left ventricle failure | **Myocardial injury /ischemia** | Inadequate myocardial protection during surgery, supply-demand mismatch, ventriculotomy, myocardial hypertrophy, cyanosis, coronary anomalies (ALCAPA) | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
+| Systemic left ventricle failure | **Sub-pulmonary Ventricle - systemic ventricle interaction** | Severe pulmonary regurgitation in TOF, Chronic right ventricular pacing | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
 | **Sub-pulmonary morphological right ventricle failure**<sup>a,b</sup> | **Volume overload** | Severe pulmonary regurgitation in TOF, atrial septal defect with large left-to-right shunt<br>Ebsteins with severe tricuspid regurgitation | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, conduit stenosis<br>**Medical therapy**<br>PAH targeted therapy if RV failure due to PAH<br>Loop diuretics for symptom relieve |
 | **Sub-pulmonary morphological right ventricle failure**<sup>a,b</sup> | **Pressure overload** | Severe RV outflow tract obstruction, RV to PA conduit stenosis, double chambered RV<br>Pulmonary arterial hypertension | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, conduit stenosis<br>**Medical therapy**<br>PAH targeted therapy if RV failure due to PAH<br>Loop diuretics for symptom relieve |
 | **Morphological systemic right ventricle failure**<sup>c</sup> | **Pressure Overload**<br>**Volume Overload**<br>**Myocardial architecture - RV morphology, Tricuspid systemic atrioventricular valve/ Ebsteinoid** | Congenitally corrected transposition of the great arteries, transposition of the great arteries after atrial switch repair (Mustard or Senning)<sup>d,e</sup><br>systemic atrioventricular valve regurgitation - Tricuspid Regurgitation | **No standard guidelines for medical therapy**<sup>f,g</sup><br>**Medical therapy if symptomatic**<br>**Treat arrhythmias, correct residual hemodynamic lesions**<br>E.g,baffle stenting / systemic TV replacement where appropriate<br>CRT may have a role |
 | **Systemic single ventricle failure**<sup>h</sup> | **Complicated multifactor etiology**<br>**Volume overload (valve regurgitation, collaterals)**<br>**Decrease in preload - post Fontan**<br>**Myocardial injury / underlying morphology**<br>**Elevated systemic venous pressure**<br>**Diastolic dysfunction (impaired relaxation and ventricular filling)**<sup>i</sup>,<br>**Tachy & bradyarrhythmias** | Single ventricle physiology (unrepaired)<br>Heterotaxy<br>Single ventricle physiology palliated (BTshunt, Glenn, PDA stenting)<br>Post Fontan - PLE, valve regurgitations, arterial desaturation fenestration. | **Transcatheter Intervention** eg fenestration closure or creation of fenestration, coil occlusion of aorto - pulmonary collaterals pulmonary artery stenting<br>**surgical Fontan conversion**<br>**Manage arrhythmias** - EPS ±RFA, pacemaker implantation<br>**No standard guidelines for medical therapy**<br>Judicious use of Loop Diuretics for symptom relief<br>**PDE5 inhibitors & ERA** to decrease PA pressures and to improve cardiac output |
-| **Cyanotic systemic and/or sub-pulmonary ventricle failure with or without pulmonary hypertension (PH)** | **Myocardial injury by chronic hypoxia**<br><br>**Pulmonary to systemic shunts** | Uncorrected or palliated cyanotic congenital heart disease (TOF, TOF with pulmonary atresia, single ventricle)<br>Baffle leak (post atrial switch)<br><br>Veno-veno collateral, pulmonary AVM | **Surgical Correction/repair** all hemodynamic lesions<br>**Transcatheter intervention** to occlude any veno-veno collateral, occlude baffle leaks<br>**Treat iron deficiency anemia**<br>Routine **phlebotomy not recommended**<br>**PAH targeted therapy** |
-| **Cyanotic systemic and/or sub-pulmonary ventricle failure with or without pulmonary hypertension (PH)** | **Pressure overload** | **Eisenmenger syndrome** | **Surgical Correction/repair** all hemodynamic lesions<br>**Transcatheter intervention** to occlude any veno-veno collateral, occlude baffle leaks<br>**Treat iron deficiency anemia**<br>Routine **phlebotomy not recommended**<br>**PAH targeted therapy** |
+| Cyanotic systemic and/or sub-pulmonary ventricle failure with or without pulmonary hypertension (PH) | **Myocardial injury by chronic hypoxia**<br><br>**Pulmonary to systemic shunts** | Uncorrected or palliated cyanotic congenital heart disease (TOF, TOF with pulmonary atresia, single ventricle)<br>Baffle leak (post atrial switch)<br><br>Veno-veno collateral, pulmonary AVM | **Surgical Correction/repair** all hemodynamic lesions<br>**Transcatheter intervention** to occlude any veno-veno collateral, occlude baffle leaks<br>**Treat iron deficiency anemia**<br>Routine **phlebotomy not recommended**<br>**PAH targeted therapy** |
+| Cyanotic systemic and/or sub-pulmonary ventricle failure with or without pulmonary hypertension (PH) | **Pressure overload** | **Eisenmenger syndrome** | **Surgical Correction/repair** all hemodynamic lesions<br>**Transcatheter intervention** to occlude any veno-veno collateral, occlude baffle leaks<br>**Treat iron deficiency anemia**<br>Routine **phlebotomy not recommended**<br>**PAH targeted therapy** |
 | **Systolic dysfunction of the systemic ventricle due to arrhythmias**<sup>k</sup> | **Atrial or ventricular tachyarrhythmias**<br>**Sinus node dysfunction/AV node dysfunction**<br>**Interatrial re-entrant tachycardia** | Post TOF repair, Senning/Mustard (Atrial switch)<br>cCTGA, Ebstein Anomaly, post Fontan<sup>l</sup> | **Antiarrhythmic medication**<br>Electrophysiology study and **catheter or surgical ablation**<br>**Devices:** Pacemaker, ICD, CRT |
-| **Acquired ischemic heart disease and ventricular dysfunction** | **Coronary artery disease & Cardiovascular risk factors**<sup>m</sup> | Systemic hypertension, hyperlipidemia, diabetes mellitus, smoking | **Treat appropriately** |
-| **Acquired ischemic heart disease and ventricular dysfunction** | **Congenital coronary artery abnormalities** | Anomalous origin and/or course, extrinsic compression by a dilated pulmonary artery, coronary kinking after re-implantation of coronary arteries | **Treat appropriately** |
-| **Non cardiac cause of ventricular dysfunction** | **Anemia, Thyroid diseases, renal failure, Liver failure** | Can affect any CHD<br>Fontan associated liver disease<br>Iron deficiency anemia more common in cyanotic heart disease | **Treat appropriately** |
+| Acquired ischemic heart disease and ventricular dysfunction | **Coronary artery disease & Cardiovascular risk factors**<sup>m</sup> | Systemic hypertension, hyperlipidemia, diabetes mellitus, smoking | **Treat appropriately** |
+| Acquired ischemic heart disease and ventricular dysfunction | **Congenital coronary artery abnormalities** | Anomalous origin and/or course, extrinsic compression by a dilated pulmonary artery, coronary kinking after re-implantation of coronary arteries | **Treat appropriately** |
+| Non cardiac cause of ventricular dysfunction | **Anemia, Thyroid diseases, renal failure, Liver failure** | Can affect any CHD<br>Fontan associated liver disease<br>Iron deficiency anemia more common in cyanotic heart disease | **Treat appropriately** |
 
 - l) Egbe AC, Connolly HM, Khan AR, et al. Outcomes in adult Fontan patients with atrial tachyarrhythmias. Am Heart J 2017;186:12-20.
 - m) Fedchenko M, Z. Mandalenakis, K.W. Giang, A. Rosengren, P. Eriksson, M. Dellborg, Long-term outcomes after myocardial infarction in middle-aged and older patients with congenital heart disease-a nationwide study, Eur. Heart J. 2021: 42 (26): 2577-2586.
@@ -251,16 +251,16 @@ The Criteria Committee of the New York Heart Association. Nomenclature and Crite
 ## Appendix XIV: Investigations In ACHD<sup>a</sup>
 | Investigations | Important | Values/Parameter |
 |---|---|---|
-| **Electrocardiogram (ECG)** | To identify new onset/change in baseline ECG e.g., right/left ventricular hypertrophy, Conduction abnormalities. | Baseline ECG is abnormal to begin with in many ACHD.<br>New or recent change in baseline ECG should trigger further review. |
-| **Chest X-ray (CXR)** | Abnormalities in pulmonary artery and cardiac size, lungs(oligemic/plethoric) and thorax/skeletal | Baseline CXR may be abnormal. |
-| **Transthoracic echo** | Anatomical diagnosis, identify residual or new lesions and sequelae, assess ventricular function, screening for pulmonary hypertension (PH). | Poor echo window (obesity, multiple scars, skeletal anomalies, lung pathology.)<br>Echo parameters for left ventricular assessment are not suitable for single/Right Ventricle (RV) function.<br>Extracardiac lesions may not be clearly visualised. |
-| **Transesophageal echo** | Anatomical diagnosis, conduits, valvular lesions | Useful to assess intracardiac shunts (especially ASD), valvular lesion, anomalous venous return.<br>Used to assist in transcatheter interventions |
-| **CMR** | Ventricular volumes and function especially RV<br>Flow and regurgitation fractions.<br>Perfusion defects/fibrosis.<br>Cardiac and extracardiac anatomy. | Excellent tool for assessment of RV and to study flow in Fontan and calculate shunts.<br>Artifacts if patients have coils/ pacemakers that are not MRI compatible.<br>Not optimal for coronary anatomy. |
-| **Cardiac CT** | Assessment of extracardiac anomalies.<br>pulmonary artery anatomy.<br>stents, conduit and aorto- pulmonary collateral arteries & shunts, aortic anomalies, coronary arteries | 3D reconstruction is invaluable in planning surgical intervention and assessing surrounding non cardiac structures.<br>Risk of radiation and contrast induced nephropathy.<br>Tachycardia impairs resolution. |
-| **Cardiac catheterisation** | Hemodynamic assessment of shunts.<br>Pressure gradients across stenotic lesions, extracardiac shunts<br>severity of PH and vasoreactivity. | Allows for transcatheter interventions for appropriate lesions. |
+| Electrocardiogram (ECG) | To identify new onset/change in baseline ECG e.g., right/left ventricular hypertrophy, Conduction abnormalities. | Baseline ECG is abnormal to begin with in many ACHD.<br>New or recent change in baseline ECG should trigger further review. |
+| Chest X-ray (CXR) | Abnormalities in pulmonary artery and cardiac size, lungs(oligemic/plethoric) and thorax/skeletal | Baseline CXR may be abnormal. |
+| Transthoracic echo | Anatomical diagnosis, identify residual or new lesions and sequelae, assess ventricular function, screening for pulmonary hypertension (PH). | Poor echo window (obesity, multiple scars, skeletal anomalies, lung pathology.)<br>Echo parameters for left ventricular assessment are not suitable for single/Right Ventricle (RV) function.<br>Extracardiac lesions may not be clearly visualised. |
+| Transesophageal echo | Anatomical diagnosis, conduits, valvular lesions | Useful to assess intracardiac shunts (especially ASD), valvular lesion, anomalous venous return.<br>Used to assist in transcatheter interventions |
+| CMR | Ventricular volumes and function especially RV<br>Flow and regurgitation fractions.<br>Perfusion defects/fibrosis.<br>Cardiac and extracardiac anatomy. | Excellent tool for assessment of RV and to study flow in Fontan and calculate shunts.<br>Artifacts if patients have coils/ pacemakers that are not MRI compatible.<br>Not optimal for coronary anatomy. |
+| Cardiac CT | Assessment of extracardiac anomalies.<br>pulmonary artery anatomy.<br>stents, conduit and aorto- pulmonary collateral arteries & shunts, aortic anomalies, coronary arteries | 3D reconstruction is invaluable in planning surgical intervention and assessing surrounding non cardiac structures.<br>Risk of radiation and contrast induced nephropathy.<br>Tachycardia impairs resolution. |
+| Cardiac catheterisation | Hemodynamic assessment of shunts.<br>Pressure gradients across stenotic lesions, extracardiac shunts<br>severity of PH and vasoreactivity. | Allows for transcatheter interventions for appropriate lesions. |
 | **Biomarkers (BNP/NT ProBNP)**<sup>b,c,d</sup> | Reflects hemodynamic significant lesions, ventricular dysfunction. | Levels may be raised at baseline - increasing trends/acute rise may suggest HF.<br>Assess response to treatment. |
 | **Cardiopulmonary exercise test**<sup>e</sup> | Objective exercise capacity-peak Vo2, chronotropic competence, exercise induced arrhythmias, desaturation on exercise. | Heterogenous population<sup>f</sup><br>(Trending may be more important than absolute values)<br>Prognostic values not standardized.<br>Assess response to treatment. |
-| **Rhythm Analysis (24 hours & up to 7 days ECG monitoring, loop recorders)** | Identifies baseline and new onset conduction abnormalities (atrial/ventricular premature contractions, tachy/bradyarrhythmias, pauses, heart rate variabilities) | May miss paroxysmal arrhythmias. |
+| Rhythm Analysis (24 hours & up to 7 days ECG monitoring, loop recorders) | Identifies baseline and new onset conduction abnormalities (atrial/ventricular premature contractions, tachy/bradyarrhythmias, pauses, heart rate variabilities) | May miss paroxysmal arrhythmias. |
 
 - a) Burchill LJ, Mertens L, Broberg CS. Imaging for the assessment of heart failure in congenital heart disease: ventricular function and beyond. Heart Fail Clin. 2014 Jan;10(1):9-22
 - b) J.A. Eindhoven, A.E. van den Bosch, P.R. Jansen, E. Boersma, J.W. Roos-Hesselink, The usefulness of brain natriuretic peptide in complex congenital heart disease: a systematic review, J. Am. Coll. Cardiol. 60 (21) (2012) 2140-2149.
@@ -377,14 +377,14 @@ Perform **Biomarkers / CPET**
 ## Appendix XVI: Calculation Of Performance And Outcome Measures
 | Measure | | Formula | |
 |---|---|---|---|
-| **% of patients who had documentation of NYHA Functional Class** | = | (Number of patients who had documentation of NYHA Functional Class) / (Number of HF patients who were seen during that time period) | x 100 |
-| **% of patients who had LVEF measurement** | = | (Number of patients who had LVEF measurement) / (Number of HF patients who were seen during that time period) | x 100 |
-| **% of patients discharged with ACE-I / ARB** | = | (Number of patients who were on ACE-I / ARB at discharge) / (Number of HF patients who were discharged during this time period who had no contraindications to ACE-I/ARB) | x 100 |
-| **% of patients discharged on β-blockers** | = | (Number of patients who were on β-blockers at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to β-blockers) | x 100 |
-| **% of patients discharged on MRA** | = | (Number of patients who were on MRA at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to MRA) | x 100 |
-| **% of patients with chronic or paroxysmal AF/Atrial Flutter on anticoagulant therapy (OAC) at discharge.** | = | (Number of patients who had AF/Atrial Flutter who were on OAC at discharge) / (Number of HF patients who had AF/Atrial Flutter during that time period who had no contraindications to OAC at discharge) | x 100 |
-| **% of patients given a post discharge appointment within 14 days** | = | (Number of patients who were given a post discharge appointment) / (Number of HF patients who were seen during that time period) | x 100 |
-| **% of patients who had their Foundational HF medications up titrated to maximally tolerated doses by 3 months post discharge** | = | (Number of patients who Had the HF medications up titrated within 3 months) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients who had documentation of NYHA Functional Class | = | (Number of patients who had documentation of NYHA Functional Class) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients who had LVEF measurement | = | (Number of patients who had LVEF measurement) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients discharged with ACE-I / ARB | = | (Number of patients who were on ACE-I / ARB at discharge) / (Number of HF patients who were discharged during this time period who had no contraindications to ACE-I/ARB) | x 100 |
+| % of patients discharged on β-blockers | = | (Number of patients who were on β-blockers at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to β-blockers) | x 100 |
+| % of patients discharged on MRA | = | (Number of patients who were on MRA at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to MRA) | x 100 |
+| % of patients with chronic or paroxysmal AF/Atrial Flutter on anticoagulant therapy (OAC) at discharge. | = | (Number of patients who had AF/Atrial Flutter who were on OAC at discharge) / (Number of HF patients who had AF/Atrial Flutter during that time period who had no contraindications to OAC at discharge) | x 100 |
+| % of patients given a post discharge appointment within 14 days | = | (Number of patients who were given a post discharge appointment) / (Number of HF patients who were seen during that time period) | x 100 |
+| % of patients who had their Foundational HF medications up titrated to maximally tolerated doses by 3 months post discharge | = | (Number of patients who Had the HF medications up titrated within 3 months) / (Number of HF patients who were seen during that time period) | x 100 |
 
 ---
 
@@ -401,10 +401,10 @@ Table 8: Classification Of Heart Failure According To Lvef
 ### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
-| **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| **B - "Pre HF"** | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| **C - "HF"** | Symptomatic HF, either previous or current symptoms |
-| **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
+| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
+| C - "HF" | Symptomatic HF, either previous or current symptoms |
+| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
 The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
@@ -415,10 +415,10 @@ Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
-| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
+| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
+| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
+| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
+| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 
 ---
 
@@ -426,12 +426,12 @@ Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of H
 
 | | BNP (ng/L) | NT-Pro BNP (ng/L) |
 |---|---|---|
-| **Emergency Setting** | | |
+| Emergency Setting | | |
 | Heart Failure Rule Out | < 100 | < 300 |
 | Heart Failure Possible | > 400 | Age < 50 y: > 450 |
 | | | Age 50 - 75: > 900 |
 | | | Age > 75: > 1800 |
-| **Community Setting (Primary Care)** | | |
+| Community Setting (Primary Care) | | |
 | Heart Failure Rule Out | < 35 | < 125 |
 
 ## Abbreviations Used In This Section

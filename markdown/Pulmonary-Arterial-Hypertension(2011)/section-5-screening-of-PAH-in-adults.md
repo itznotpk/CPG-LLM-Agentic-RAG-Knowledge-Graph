@@ -36,16 +36,16 @@ Table 3: Patients At Risk Of Developing PAH
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACCP** | American College of Chest Physicians |
-| **BMPR2** | Bone Morphogenetic Protein Receptor Type II |
-| **CTD** | Connective Tissue Disease |
-| **FPAH** | Familial Pulmonary Arterial Hypertension |
-| **HIV** | Human Immunodeficiency Virus |
-| **L-R** | Left-to-Right |
-| **mPAP** | Mean Pulmonary Arterial Pressure |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PVR** | Pulmonary Vascular Resistance |
-| **RVSP** | Right Ventricular Systolic Pressure |
-| **TRV** | Tricuspid Regurgitation Velocity |
+| ACCP | American College of Chest Physicians |
+| BMPR2 | Bone Morphogenetic Protein Receptor Type II |
+| CTD | Connective Tissue Disease |
+| FPAH | Familial Pulmonary Arterial Hypertension |
+| HIV | Human Immunodeficiency Virus |
+| L-R | Left-to-Right |
+| mPAP | Mean Pulmonary Arterial Pressure |
+| PAH | Pulmonary Arterial Hypertension |
+| PVR | Pulmonary Vascular Resistance |
+| RVSP | Right Ventricular Systolic Pressure |
+| TRV | Tricuspid Regurgitation Velocity |
 
 <!-- END OVERLAP CONTENT -->

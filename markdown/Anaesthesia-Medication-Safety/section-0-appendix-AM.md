@@ -276,7 +276,7 @@ Please specify the grade of allergic reaction from the categories below.
 | MALIGNANT HYPERTHERMIA |
 |---|
 | Malignant hyperthermia (MH) is an uncommon pharmacogenetic disorder of muscle induced by exposure to suxamethonium and all the volatile anaesthetic agents. It is characterized by hypermetabolism, muscle rigidity and muscle injury. |
-| **SIGN AND SYMPTOMS** |
+| SIGN AND SYMPTOMS |
 | The clinical features are a direct consequence of loss of skeletal muscle calcium homeostasis, resulting in increased intracellular calcium ion concentration, which causes **muscle rigidity, hypermetabolism, and rhabdomyolysis**. The diagnosis may be difficult as there is no one sign that is unique to MH, and the onset may be rapid or insidious. |
 | 1. Unexplained **increased CO2 production and tachycardia**. The rise in CO2 production results in **tachypnoea** in the spontaneously breathing patient or a rise in end-tidal CO2 in a ventilated patient.<br><br>**Elevation of the end-tidal CO2** - earliest, most sensitive and specific signs of MH. |
 | 2. **BP** is often unstable, with a tendency for decreasing SpO2. |
@@ -284,10 +284,10 @@ Please specify the grade of allergic reaction from the categories below.
 | 4. **Generalised muscle rigidity, raised plasma CK and myoglobinuria** are late signs. |
 | 5. **Cardiac arrhythmias, hyperkalaemia and disseminated intravascular coagulation may develop**. |
 | 6. **Arterial blood gas analysis** - hypercarbia with respiratory and metabolic acidosis. |
-| **Masseter muscle spasm** |
+| Masseter muscle spasm |
 | Rigidity of the jaw muscles after administration of suxamethonium, referred to as masseter muscle spasm (MMS) may be the first sign of possible susceptibility to MH. It is defined as impeding intubation and lasting for 2 minutes. It is more common in children and young adults. |
-| **Sudden or unexpected cardiac arrest in young patient** |
-| **ACUTE PHASE TREATMENT** |
+| Sudden or unexpected cardiac arrest in young patient |
+| ACUTE PHASE TREATMENT |
 
 | No. | Acute Phase Treatment |
 |---|---|
@@ -357,43 +357,43 @@ Report for suspected Malignant Hyperthermia Reaction
 
 | Reaction(s) : | |
 |---|---|
-| **Muscle Rigidity** | |
+| Muscle Rigidity | |
 
 | Generalized Rigidity | | Masseter Rigidity shortly following Succinyl choline administration | |
 |---|---|---|---|
 | | | | |
 
-| **Myonecrosis** | | | |
+| Myonecrosis | | | |
 |---|---|---|---|
 | Elevated Creatinine Kinase > 10,000 IU (no sux) | | Myoglobin in Urine (> 60mcg/L) | |
 | Elevated Creatinine Kinase > 20,000 IU (with sux) | | Blood /plasma/serum K+ >6 mEq/L in the absence of renal failure | |
 | Cola Coloured Urine | | Myoglobin in serum > 170 mcg/L | |
 
-| **Respiratory Acidosis** | | | |
+| Respiratory Acidosis | | | |
 |---|---|---|---|
 | ET CO2 > 55 mmHg with appropriately controlled ventilation | | Inappropriate hypercarbia | |
 | ET CO2 > 60 mmHg with spontaneous ventilation | | Inappropriate tachypnoea | |
 | PaCO2 > 60 mmHg with controlled ventilation | | PaCO2 > 65 mmHg with spontaneous ventilation | |
 
-| **Temperature Increase** | | | |
+| Temperature Increase | | | |
 |---|---|---|---|
 | Rapid increase in temperature | | Inappropriate temperature > 38.8°C in the perioperative period | |
 
-| **Cardiac Involvement** | | | |
+| Cardiac Involvement | | | |
 |---|---|---|---|
 | Inappropriate tachycardia | | VT or VF | |
 
-| **Other** | | |
+| Other | | |
 |---|---|---|
 | Rapid reversal of MH signs with Dantrolene | | Base excess > -8meq/L or pH < 7.25 |
 | Positive MH family history together with another indicator from the patients own anaesthetic experience other than elevated resting serum creatine kinase | | |
 | Resting elevated serum creatine kinase (in patient with a family history of MH) | | |
 
-| **Family History ( Used to determine MH susceptibility only )** | |
+| Family History ( Used to determine MH susceptibility only ) | |
 |---|---|
 | Positive MH family history in relative of first degree | |
 | Positive MH family history in relative not of first degree | |
-| **Please send the completed form to Anaesthetic Department, Hospital Kuala Lumpur.** | |
+| Please send the completed form to Anaesthetic Department, Hospital Kuala Lumpur. | |
 
 ---
 
@@ -401,16 +401,16 @@ Report for suspected Malignant Hyperthermia Reaction
 | LOCAL ANAESTHETIC SYSTEMIC TOXICITY |
 |---|
 | Local Anaesthetic Systemic Toxicity (LAST) is a rare but potentially fatal adverse drug reaction resulting from circulating levels of local anaesthetics (LA) reaching toxic levels |
-| **MONITORING** |
+| MONITORING |
 | 1. Patients receiving LA administration during regional anaesthesia procedures shall be continuously monitored in accordance with the College recommendation. Minimal monitoring in the perioperative period includes electrocardiography, non-invasive blood pressure and pulse oximetry. Labour analgesia and acute pain management in the ward using LA should follow institutional protocols. |
 | 2. Clinical monitoring and observation for signs and symptoms of LAST should be performed at appropriate intervals. |
 | 3. All anaesthesia healthcare professionals should be able to recognise signs and symptoms of LAST. |
-| **CLINICAL PRESENTATION** |
+| CLINICAL PRESENTATION |
 | a. Central Nervous System (CNS) toxicity is the most common feature (68%-77%). |
 | b. Prodromal symptoms are perioral numbness, tinnitus, and agitation. CNS manifestations may progress to generalized seizure. |
 | c. As toxicity progresses, full inhibition of CNS occurs which may lead to loss of consciousness and depression of the respiratory centre. |
 | d. A third of patients (1/3) will progress from CNS to cardiovascular system (CVS) signs. |
 | e. Approximately 20% of patients may present with isolated CVS disturbances. |
 | f. CVS manifestations are hypotension and cardiac dysrhythmias which may progress to cardiac arrest. |
-| **MANAGEMENT OF LAST** |
+| MANAGEMENT OF LAST |
 | https://resources.wfsahq.org/wp-content/uploads/uai25-2-Management-of-severe-local-anaesthetic-toxicity.pdf<br><br>Link to Safety Guideline produced by Association of Anaesthetists of Great Britain and Ireland<br><br>**Immediate management**<br>- Stop LA administration and call for help.<br>- Lipid Emulsion Therapy<br>- 20% lipid emulsion 1.5 ml/kg (bolus over 2-3 min)<br>- Infusion 0.25 ml / kg / min over 15-20 min<br>- Repeat bolus or Increase infusion rates to 0.5 ml / kg / min<br>- Total dose maximum ~ 12 ml / kg<br>- Cardio-Pulmonary Bypass in lipid emulsion failure<br><br>**Subsequent management**<br>- It is advisable to monitor LAST patients who have experienced a significant cardio-vascular event for at least 4 to 6 hours after treatment.<br>- If the event is limited to CNS symptoms, it may be prudent to monitor for at least 2 hours.<br>- Prolonged vigilance remains essential, given that the time to peak plasma concentrations can vary from 2 to 6 hours. |

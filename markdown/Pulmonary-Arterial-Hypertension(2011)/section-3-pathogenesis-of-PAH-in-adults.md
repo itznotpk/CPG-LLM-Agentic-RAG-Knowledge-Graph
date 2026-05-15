@@ -40,21 +40,21 @@ Despite the multitude of perturbations, the end result includes increased vasoco
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **BMPR2** | Bone Morphogenetic Protein Receptor Type II |
-| **EGF** | Epidermal Growth Factor |
-| **ET** | Endothelin |
-| **ET-1** | Endothelin-1 |
-| **FGF** | Fibroblast Growth Factor |
-| **HIF-1α** | Hypoxia Inducible Factor-1 Alpha |
-| **IGF-1** | Insulin Growth Factor 1 |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **mPAP** | Mean Pulmonary Arterial Pressure |
-| **NFAT** | Nuclear Factor Activating T Lymphocytes |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PAP** | Pulmonary Arterial Pressure |
-| **PDGF** | Platelet-Derived Growth Factor |
-| **PgI₂** | Prostacyclin |
-| **PVR** | Pulmonary Vascular Resistance |
-| **TxA₂** | Thromboxane A₂ |
+| BMPR2 | Bone Morphogenetic Protein Receptor Type II |
+| EGF | Epidermal Growth Factor |
+| ET | Endothelin |
+| ET-1 | Endothelin-1 |
+| FGF | Fibroblast Growth Factor |
+| HIF-1α | Hypoxia Inducible Factor-1 Alpha |
+| IGF-1 | Insulin Growth Factor 1 |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| mPAP | Mean Pulmonary Arterial Pressure |
+| NFAT | Nuclear Factor Activating T Lymphocytes |
+| PAH | Pulmonary Arterial Hypertension |
+| PAP | Pulmonary Arterial Pressure |
+| PDGF | Platelet-Derived Growth Factor |
+| PgI₂ | Prostacyclin |
+| PVR | Pulmonary Vascular Resistance |
+| TxA₂ | Thromboxane A₂ |
 
 <!-- END OVERLAP CONTENT -->

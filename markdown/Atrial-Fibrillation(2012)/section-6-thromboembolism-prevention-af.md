@@ -217,12 +217,12 @@ In cases of major surgery, consideration should be given to the risk of thromboe
 Appendix C.1.9: Interruption Of Warfarin Therapy For Surgery
 | Condition | Recommendation |
 |---|---|
-| **Low risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
-| **Moderate risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
-| **High risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
-| **Low risk of bleeding** | Lower warfarin dose and operate at an INR of 1.3-1.5; the dose may be lowered 4-5 days before surgery; warfarin can be restarted post-op, supplement with LMWH if necessary. |
-| **Urgent surgical or other invasive procedure (within 12 hours)** | For immediate reversal give FFP, prothrombin complex concentrate in addition to vitamin K 2.5-5 mg po or by slow IV infusion. |
-| **Urgent surgical or other invasive procedure (within 18-24 hours)** | If surgery is urgent but can be delayed for 18-24 hrs give vitamin K 2.5- 5 mg po or by slow IV infusion. If INR is still high, additional vitamin K 1-2 mg po can be given. |
+| Low risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
+| Moderate risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
+| High risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
+| Low risk of bleeding | Lower warfarin dose and operate at an INR of 1.3-1.5; the dose may be lowered 4-5 days before surgery; warfarin can be restarted post-op, supplement with LMWH if necessary. |
+| Urgent surgical or other invasive procedure (within 12 hours) | For immediate reversal give FFP, prothrombin complex concentrate in addition to vitamin K 2.5-5 mg po or by slow IV infusion. |
+| Urgent surgical or other invasive procedure (within 18-24 hours) | If surgery is urgent but can be delayed for 18-24 hrs give vitamin K 2.5- 5 mg po or by slow IV infusion. If INR is still high, additional vitamin K 1-2 mg po can be given. |
 
 > **Risk Stratification Definitions:**
 > - **Low risk:** VTE: Single VTE occurred >12 months ago and no other risk factors. AF: (CHADS2 score 0-2) without a history of stroke or other risk factors. Mech heart valve: bileaflet aortic valve without AF and no other risk factors for stroke.
@@ -385,7 +385,7 @@ Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis
 | Vascular disease | 1 |
 | Age 65–74 | 1 |
 | Sex category (i.e. female sex) | 1 |
-| **Maximum score** | **9** |
+| Maximum score | **9** |
 
 **c) Adjusted stroke rate according to CHA₂DS₂-VASc score:**
 
@@ -439,13 +439,13 @@ Table 13: Antithrombotic strategies following coronary artery stenting in patien
 Table 14: Clinical characteristics comprising the HAS-BLED bleeding risk score
 | Letter | Clinical characteristicᵃ | Points awarded |
 |---|---|---|
-| **H** | Hypertension | 1 |
-| **A** | Abnormal renal and liver function (1 point each) | 1 or 2 |
-| **S** | Stroke | 1 |
-| **B** | Bleeding | 1 |
-| **L** | Labile INRs | 1 |
-| **E** | Elderly (e.g. age >65 years) | 1 |
-| **D** | Drugs or alcohol (1 point each) | 1 or 2 |
+| H | Hypertension | 1 |
+| A | Abnormal renal and liver function (1 point each) | 1 or 2 |
+| S | Stroke | 1 |
+| B | Bleeding | 1 |
+| L | Labile INRs | 1 |
+| E | Elderly (e.g. age >65 years) | 1 |
+| D | Drugs or alcohol (1 point each) | 1 or 2 |
 | | | **Maximum 9 points** |
 
 *ᵃ 'Hypertension' is defined as systolic blood pressure >160 mmHg. 'Abnormal kidney function' is defined as the presence of chronic dialysis or renal transplantation or serum creatinine ≥200 mmol/L. 'Abnormal liver function' is defined as chronic hepatic disease (e.g. cirrhosis) or biochemical evidence of significant hepatic derangement (e.g. bilirubin >2 x upper limit of normal, in association with aspartate aminotransferase/alanine aminotransferase/alkaline phosphatase >3 x upper limit normal, etc.). 'Bleeding' refers to previous bleeding history and/or predisposition to bleeding, e.g. bleeding diathesis, anaemia, etc. 'Labile INRs' refers to unstable/high INRs or poor time in therapeutic range (e.g.<60%). Drugs/alcohol use refers to concomitant use of drugs, such as antiplatelet agents, non-steroidal anti-inflammatory drugs, or alcohol abuse, etc. INR = international normalized ratio.*

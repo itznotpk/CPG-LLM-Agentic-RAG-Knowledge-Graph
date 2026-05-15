@@ -10,9 +10,9 @@ treatment_type: antiplatelets, anticoagulants, beta_blockers, ACEI, ARB, nitrate
 ## Appendix I: BRAUNWALD’S Classification Of Unstable Angina*
 | Severity | CLINICAL CIRCUMSTANCES<br><br>A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES<br><br>B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES<br><br>C<br>Develops Within 2 weeks of MI (Postinfarction UA) |
 | :--- | :--- | :--- | :--- |
-| **I-New onset of severe angina or accelerated angina; no rest pain** | I A | IB | IC |
-| **II-Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute)** | IIA | IIB | IIC |
-| **III-Angina at rest within 48 hours (angina at rest, acute)** | IIIA | IIIB-T<sub>neg</sub> IIIB-T<sub>pos</sub> | IIIC |
+| I-New onset of severe angina or accelerated angina; no rest pain | I A | IB | IC |
+| II-Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute) | IIA | IIB | IIC |
+| III-Angina at rest within 48 hours (angina at rest, acute) | IIIA | IIIB-T<sub>neg</sub> IIIB-T<sub>pos</sub> | IIIC |
 
 UA : Unstable angina; T : Troponins
 *\*Hamm CW, Braunwald E. A classification of unstable angina revisited. Circulation. 2000 ;102 :118-22.*
@@ -29,7 +29,7 @@ UA : Unstable angina; T : Troponins
 | Hypertrophic cardiomyopathy |
 | Coronary vasculitis, e.g. systemic lupus erythaematosus, Kawasaki syndrome |
 | Coronary endothelial dysfunction without significant CAD e.g., cocaine abuse |
-| **Damage not related to myocardial ischemia** |
+| Damage not related to myocardial ischemia |
 | Cardiac contusion |
 | Cardiac incisions with surgery |
 | Radiofrequency or cryoablation therapy |
@@ -37,7 +37,7 @@ UA : Unstable angina; T : Troponins
 | Myocarditis |
 | Cardiotoxic agents, e.g. anthracyclines, Herceptin, carbon monoxide poisoning |
 | Severe burns affecting > 30% of body surface |
-| **Indeterminant or multifactorial group** |
+| Indeterminant or multifactorial group |
 | Apical ballooning syndrome |
 | Severe pulmonary embolism or pulmonary hypertension |
 | Peripartum cardiomyopathy |
@@ -56,19 +56,19 @@ UA : Unstable angina; T : Troponins
 ## Appendix III: Heart Score# ++
 | HEART SCORE | | |
 | :--- | :--- | :--- |
-| **History** | Highly suspicious | 2 |
+| History | Highly suspicious | 2 |
 | | Moderately suspicious | 1 |
 | | Slightly suspicious | 0 |
-| **ECG** | Significant ST segment depression | 2 |
+| ECG | Significant ST segment depression | 2 |
 | | Non-specific repolarization disturbances | 1 |
 | | Normal | 0 |
-| **Age** | ≥ 65 years | 2 |
+| Age | ≥ 65 years | 2 |
 | | > 45 - < 65 years | 1 |
 | | ≤ 45 years | 0 |
-| **Risk Factors** | ≥ 3 risk factors* or history of atherosclerotic disease** | 2 |
+| Risk Factors | ≥ 3 risk factors* or history of atherosclerotic disease** | 2 |
 | | 1 or 2 risk factors | 1 |
 | | No known risk factors | 0 |
-| **Troponins** | ≥ 3 x normal | 2 |
+| Troponins | ≥ 3 x normal | 2 |
 | | > 1 - < 3 x normal | 1 |
 | | ≤ normal limit | 0 |
 
@@ -123,7 +123,7 @@ Record the points for each variable at the bottom left and sum the points to cal
 
 | Medical History | Points | Findings at Initial Hospital Presentation | Points | Findings During Hospitalization | Points |
 | :--- | :---: | :--- | :---: | :--- | :---: |
-| **① Age in Years** | | **④ Resting Heart Rate, Beats/min** | | **⑦ Initial Serum Creatinine, mg/dL** | |
+| ① Age in Years | | **④ Resting Heart Rate, Beats/min** | | **⑦ Initial Serum Creatinine, mg/dL** | |
 | ≤ 29 | 0 | ≤ 49.9 | 0 | 0 - 0.39 | 1 |
 | 30 - 39 | 0 | 50 - 69.9 | 3 | 0.4 - 0.79 | 3 |
 | 40 - 49 | 18 | 70 - 89.9 | 9 | 0.8 - 1.19 | 5 |
@@ -132,9 +132,9 @@ Record the points for each variable at the bottom left and sum the points to cal
 | 70 - 79 | 73 | 150 - 199.9 | 35 | 2 - 3.99 | 15 |
 | 80 - 90 | 91 | ≥ 200 | 43 | ≥ 4 | 20 |
 | ≥ 90 | 100 | **⑤ Systolic Blood Pressure, mm Hg** | | | |
-| **② History of Congestive Heart Failure** | 24 | ≤ 79.9 | 24 | **⑧ Elevated Cardiac Enzymes** | 15 |
+| ② History of Congestive Heart Failure | 24 | ≤ 79.9 | 24 | **⑧ Elevated Cardiac Enzymes** | 15 |
 | | | 80 - 99.9 | 22 | | |
-| **③ History of Myocardial Infarction** | 12 | 100 - 139.9 | 18 | **⑨ No In Hospital Percutaneous Coronary Invervention** | 14 |
+| ③ History of Myocardial Infarction | 12 | 100 - 139.9 | 18 | **⑨ No In Hospital Percutaneous Coronary Invervention** | 14 |
 | | | 120 - 139.9 | 14 | | |
 | | | 140 - 159.9 | 10 | | |
 | | | 160 - 199.9 | 4 | | |
@@ -178,14 +178,14 @@ The graph correlates the total bleeding score with the estimated 1-year bleeding
 
 | Bleeding Score | TIMI Major Bleeding (%) | TIMI Major or Minor Bleeding (%) |
 | :---: | :---: | :---: |
-| **5** | 0.26 | 0.42 |
-| **10** | 0.37 | 0.60 |
-| **15** | 0.51 | 0.88 |
-| **20** | 0.71 | 1.27 |
-| **25** | 0.99 | 1.84 |
-| **30** | 1.38 | 2.67 |
-| **35** | 1.93 | 3.85 |
-| **≥ 36** | >2.05 | >4.15 |
+| 5 | 0.26 | 0.42 |
+| 10 | 0.37 | 0.60 |
+| 15 | 0.51 | 0.88 |
+| 20 | 0.71 | 1.27 |
+| 25 | 0.99 | 1.84 |
+| 30 | 1.38 | 2.67 |
+| 35 | 1.93 | 3.85 |
+| ≥ 36 | >2.05 | >4.15 |
 
 **Scoring Nomogram Variables:**
 Points are derived based on the following continuous and categorical variables:
@@ -208,17 +208,17 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 ## Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
 | :--- | :--- | :--- | :--- |
-| **Chemical class** | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
-| **Administration** | Oral | Oral | Oral |
-| **Dose** | 300 - 600mg orally then 75mg a day | 60mg orally then 10mg a day | 180mg orally then 90mg twice a day |
-| **Dosing in CKD** | | | |
+| Chemical class | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
+| Administration | Oral | Oral | Oral |
+| Dose | 300 - 600mg orally then 75mg a day | 60mg orally then 10mg a day | 180mg orally then 90mg twice a day |
+| Dosing in CKD | | | |
 | **Stage 3**<br>(eGFR 30–59 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>(eGFR 15–29 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 5**<br>(eGFR <15 mL/min/1.73m2)<br>(e.g., stent thrombosis prevention) | Use only for selected indications (e.g., stent thrombosis prevention) | Not recommended | Not recommended |
-| **Withdrawal before surgery** | 5 days<sup>c</sup> | 7 days<sup>c</sup> | 5 days<sup>c</sup> |
-| **Nonbleeding significant side effects** | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
-| **Plasma half-life of active P2Y12 inhibitor<sup>d</sup>** | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
-| **Inhibition of adenosine reuptake** | No | No | Yes |
+| Withdrawal before surgery | 5 days<sup>c</sup> | 7 days<sup>c</sup> | 5 days<sup>c</sup> |
+| Nonbleeding significant side effects | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
+| Plasma half-life of active P2Y12 inhibitor<sup>d</sup> | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
+| Inhibition of adenosine reuptake | No | No | Yes |
 
 *\*Adapted from Roffi M, Patrono C, Collet J-P, et.al. 2015 ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation: Task Force for the Management of Acute Coronary Syndromes in Patients Presenting without Persistent ST-Segment Elevation of the European Society of Cardiology (ESC). Eur Heart J. 2016;37(3): 267-315*
 
@@ -231,14 +231,14 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 ## Appendix VIII: Glycoprotein (GP) IIb/IIIa Inhibitors*
 | | Abciximab | Tirofiban | Eptifibatide |
 | :--- | :--- | :--- | :--- |
-| **Type** | Antibody | Nonpeptide | Cyclic peptide |
-| **Inhibition** | Non-competitive | Competitive | Competitive |
-| **Plasma half-life** | 10 - 30 min | 2 hours | 2.5 hours |
-| **Recovery of platelet function** | Slow (24-48h) | Fast (4-8h) | Fast (<4h) |
-| **Antigenicity** | Present | Absent | Absent |
-| **Clearance** | Platelet binding, **unbound substance via proteolytic cleavage** | Renal (98%) | Renal (60-70%)<br>Biliar (20-30%) |
-| **Recommended dose** | IV bolus 0.25 mg/kg, infusion 0.125 µg/kg/min (max.10 µg/min) | IV bolus 25 µg/kg or 10 µg/kg, infusion 0.15 µg/kg/min | IV bolus 180 µg/kg, infusion 2 µg/kg/min |
-| **Dosing in CKD** | | | |
+| Type | Antibody | Nonpeptide | Cyclic peptide |
+| Inhibition | Non-competitive | Competitive | Competitive |
+| Plasma half-life | 10 - 30 min | 2 hours | 2.5 hours |
+| Recovery of platelet function | Slow (24-48h) | Fast (4-8h) | Fast (<4h) |
+| Antigenicity | Present | Absent | Absent |
+| Clearance | Platelet binding, **unbound substance via proteolytic cleavage** | Renal (98%) | Renal (60-70%)<br>Biliar (20-30%) |
+| Recommended dose | IV bolus 0.25 mg/kg, infusion 0.125 µg/kg/min (max.10 µg/min) | IV bolus 25 µg/kg or 10 µg/kg, infusion 0.15 µg/kg/min | IV bolus 180 µg/kg, infusion 2 µg/kg/min |
+| Dosing in CKD | | | |
 | **Stage 3**<br>(eGFR 30 - 59 mL/min/1.73m2) | No dose adjustment | No dose adjustment | No adjustment of bolus, reduce infusion rate to 1 µg/kg/min i eGFR <50 mL/min/1.73m2 |
 | **Stage 4**<br>(eGFR 15 - 29 mL/min/1.73m2) | No dose adjustment | No adjustment of bolus, reduce infusion to 0.05 µg/kg/min | Not Recommended |
 | **Stage 5**<br>(eGFR <15 mL/min/1.73m2) | No dose adjustment | Not recommended | Not recommended |
@@ -253,9 +253,9 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 ## Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
-| **Dose** | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
-| **Duration of therapy** | 8 days or duration of hospitalisation | 2 - 8 days | 2 - 8 days |
-| **Dosing in CKD** | | | |
+| Dose | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
+| Duration of therapy | 8 days or duration of hospitalisation | 2 - 8 days | 2 - 8 days |
+| Dosing in CKD | | | |
 | **Stage 3**<br>CrCl 30 - 59 ml/min | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>CrCl 15 - 29 mL/min | Not recommended if CrCl < 20 ml/min** | SC 1 mg/kg OD | No dose adjustment |
 | **Stage 5**<br>CrCl < 15 mL/min | Not recommended | SC 1 mg/kg OD | No dose adjustment |
@@ -269,15 +269,15 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 ## Appendix X: Β-Blockers In NSTE-ACS*
 | β-blockers | Bisoprolol | Carvedilol | Metoprolol |
 | :--- | :--- | :--- | :--- |
-| **Initiation dose** | 1.25mg od | 3.125mg bd | 25mg bd |
-| **Target dose** | 10mg od | 25mg bd | 100mg bd |
-| **Dose equivalence [80]** | 5mg | 25mg | 100mg |
-| **Hepatic impairment** | Used with caution | Severe liver disease: avoid | Used with caution |
-| **Renal impairment** | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
+| Initiation dose | 1.25mg od | 3.125mg bd | 25mg bd |
+| Target dose | 10mg od | 25mg bd | 100mg bd |
+| Dose equivalence [80] | 5mg | 25mg | 100mg |
+| Hepatic impairment | Used with caution | Severe liver disease: avoid | Used with caution |
+| Renal impairment | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
 | **Stage 4:**<br>CrCl 15-30mL/min | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
 | **Stage 5:**<br>CrCl < 15mL/min | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
-| **Metabolism** | Liver: 50% | Liver | Liver |
-| **Elimination** | Renal: 50 - 60% unchanged | Fecal / biliary | Renal: 95% |
+| Metabolism | Liver: 50% | Liver | Liver |
+| Elimination | Renal: 50 - 60% unchanged | Fecal / biliary | Renal: 95% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia) and IBM Micromedex drug Reference. Retrieved 27th July 2019.*
 
@@ -286,17 +286,17 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 ## Appendix XI: ACEI/ARB In NSTE-ACS*
 | ACE/ARB | Captopril | Ramipril | Enalapril | Perindopril |
 | :--- | :--- | :--- | :--- | :--- |
-| **Initiation dose** | 6.25mg bd-tds | 2.5mg bd | 2.5-5mg od | 2mg od<br>(perindopril erbumine) /<br>-2.5mg od<br>(perindopril arginine) |
-| **Target dose** | 25 - 50mg tds | 10mg od | 20mg bd | 8 - 10mg od |
-| **Dose equivalence [107]** | 50mg | 2.5mg | 5mg | 4mg |
-| **Dose adjustment** | | | | |
-| **Hepatic impairment** | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
-| **Renal impairment** | | | | |
+| Initiation dose | 6.25mg bd-tds | 2.5mg bd | 2.5-5mg od | 2mg od<br>(perindopril erbumine) /<br>-2.5mg od<br>(perindopril arginine) |
+| Target dose | 25 - 50mg tds | 10mg od | 20mg bd | 8 - 10mg od |
+| Dose equivalence [107] | 50mg | 2.5mg | 5mg | 4mg |
+| Dose adjustment | | | | |
+| Hepatic impairment | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
+| Renal impairment | | | | |
 | **Stage 3:**<br>CrCl 30-59mL/min | > 40ml/min<br>25-50mg daily.<br>Max: 150mg daily. | Not necessary to adjust the initial dose.<br>Max: 5mg/day. | No dose adjustment | 2mg or 2.5mg od |
 | **Stage 4:**<br>CrCl 15-29mL/min | 21-40mL/min<br>25mg daily.<br>Max: 100mg daily.<br>10-20mL/min<br>12.5mg daily.<br>Max: 75mg daily. | 10-30mL/min<br>Initially, 1.25mg/day.<br>Max: 5mg/day. | ≤ 30 mL/min<br>Initially, 2.5mg/day. | 2mg or 2.5mg every other day |
 | **Stage 5:**<br>CrCl < 15mL/min | < 10mL/min<br>6.25mg daily.<br>Max: 37.5mg daily. | - | ≤ 30 mL/min<br>Initially, 2.5mg/day. | 2mg or 2.5mg on dialysis days |
-| **Metabolism** | Liver | Liver | Liver | Liver |
-| **Elimination** | Renal: >95% | Renal: 60%<br>Fecal: 40% | Renal: 61%<br>Fecal: 33% | Renal: 75% |
+| Metabolism | Liver | Liver | Liver | Liver |
+| Elimination | Renal: >95% | Renal: 60%<br>Fecal: 40% | Renal: 61%<br>Fecal: 33% | Renal: 75% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 28th July 2019.*
 
@@ -305,13 +305,13 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 ## Appendix XII: Recommended Dosages Of Nitrates*
 | | Glyceryl trinitrate (GTN) | | | | | Isosorbide dinitrate | | | Isosorbide mononitrate |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Route** | Sublingual | Intra-venous | Spray | Patch | Buccal | Topical (2% ointment) | Intra-venous | Oral | Oral (long-acting) |
-| **Dose** | 0.3 - 0.6 mg, can repeat up to 3 times at 5 minute intervals | 5 - 200 µg/min<sup>†</sup> | 0.4 - 0.8 mg per metered dose, no >3 sprays at 5 minute intervals | 2.5 - 20 mg over 12 hours on, then 12 hours off | 2 mg, placed between the gum and upper lip, increase to 3 mg if necessary. Severe angina: 5 mg may be given | Apply 0.5 - 2 inches on a convenient area of the skin bd or every 3-4 hours if necessary; cover the area after application | 2 - 12mg/hr | 10-20mg, 2-3 times daily | 30 - 60mg daily |
-| **Time of Onset** | 1 - 3 min | 1 - 2 min | 2 min | 40 - 60 min | 1 - 3 min | 20 - 60 min | 1 min | 30 - 60 min | 1 - 2 hours |
-| **Maximum dose** | 3 doses within 15 min | 400 µg/min | 3 sprays within 15 min | 20mg/day | 15mg/day | 6 applications/day | 20mg/hr | 240mg/day | 240mg/day |
-| **Dose adjustment** | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment |
-| **Metabolism** | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver |
-| **Elimination** | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 80 - 90% | Renal: 80 - 90% | Renal: 78% |
+| Route | Sublingual | Intra-venous | Spray | Patch | Buccal | Topical (2% ointment) | Intra-venous | Oral | Oral (long-acting) |
+| Dose | 0.3 - 0.6 mg, can repeat up to 3 times at 5 minute intervals | 5 - 200 µg/min<sup>†</sup> | 0.4 - 0.8 mg per metered dose, no >3 sprays at 5 minute intervals | 2.5 - 20 mg over 12 hours on, then 12 hours off | 2 mg, placed between the gum and upper lip, increase to 3 mg if necessary. Severe angina: 5 mg may be given | Apply 0.5 - 2 inches on a convenient area of the skin bd or every 3-4 hours if necessary; cover the area after application | 2 - 12mg/hr | 10-20mg, 2-3 times daily | 30 - 60mg daily |
+| Time of Onset | 1 - 3 min | 1 - 2 min | 2 min | 40 - 60 min | 1 - 3 min | 20 - 60 min | 1 min | 30 - 60 min | 1 - 2 hours |
+| Maximum dose | 3 doses within 15 min | 400 µg/min | 3 sprays within 15 min | 20mg/day | 15mg/day | 6 applications/day | 20mg/hr | 240mg/day | 240mg/day |
+| Dose adjustment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment | No dose adjustment in renal/hepatic impairment |
+| Metabolism | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver |
+| Elimination | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 80 - 90% | Renal: 80 - 90% | Renal: 78% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 *<sup>†</sup>Initially, 10 mcg/min, increase in increment of 10 mcg/min at approximately 30-minute intervals, according to patient requirement.*
@@ -321,13 +321,13 @@ Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 ## Appendix XIII: CCBs*
 | CCB | Diltiazem | Verapamil | Amlodipine | Nifedipine ER |
 | :--- | :--- | :--- | :--- | :--- |
-| **Dose** | Immediate release, 30 - 90mg tds;<br>Slow release, 100 - 200mg od | Immediate release, 40 - 80mg tds;<br>Slow release, 120 - 240mg od | 2.5 -10mg od | Slow release, 30 - 90mg od |
-| **Dose Equivalence [86]** | - | - | 2.5mg | 20mg |
-| **Maximum Dose** | 360mg/day | 480mg/day | 10mg/day | 120mg/day |
-| **Hepatic Impairment** | Used with caution/consider dose reduction | Used with caution/low dose | Initial dose: 2.5mg od | Caution: may need to reduce dose |
-| **Renal Impairment** | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
-| **Metabolism** | Liver | Liver | Liver | Liver |
-| **Elimination** | Renal: 35%<br>Fecal: 60 - 65% | Renal: 70% | Renal: 60%<br>Fecal: 20 - 25% | Renal: 70 - 80%<br>Fecal: 20% |
+| Dose | Immediate release, 30 - 90mg tds;<br>Slow release, 100 - 200mg od | Immediate release, 40 - 80mg tds;<br>Slow release, 120 - 240mg od | 2.5 -10mg od | Slow release, 30 - 90mg od |
+| Dose Equivalence [86] | - | - | 2.5mg | 20mg |
+| Maximum Dose | 360mg/day | 480mg/day | 10mg/day | 120mg/day |
+| Hepatic Impairment | Used with caution/consider dose reduction | Used with caution/low dose | Initial dose: 2.5mg od | Caution: may need to reduce dose |
+| Renal Impairment | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
+| Metabolism | Liver | Liver | Liver | Liver |
+| Elimination | Renal: 35%<br>Fecal: 60 - 65% | Renal: 70% | Renal: 60%<br>Fecal: 20 - 25% | Renal: 70 - 80%<br>Fecal: 20% |
 
 *\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 
@@ -449,17 +449,17 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 <br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 

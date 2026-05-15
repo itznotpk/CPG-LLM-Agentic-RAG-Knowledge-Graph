@@ -26,12 +26,12 @@ Occasionally, progressive pulmonary arterial hypertension still develops followi
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ASD** | Atrial Septal Defect |
-| **AVSD** | Atrioventricular Septal Defect |
-| **CHD** | Congenital Heart Disease |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PDA** | Patent Ductus Arteriosus |
-| **VSD** | Ventricular Septal Defect |
+| ASD | Atrial Septal Defect |
+| AVSD | Atrioventricular Septal Defect |
+| CHD | Congenital Heart Disease |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| PAH | Pulmonary Arterial Hypertension |
+| PDA | Patent Ductus Arteriosus |
+| VSD | Ventricular Septal Defect |
 
 <!-- END OVERLAP CONTENT -->

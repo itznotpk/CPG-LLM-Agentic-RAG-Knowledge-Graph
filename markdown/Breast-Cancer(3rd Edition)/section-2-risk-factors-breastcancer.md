@@ -119,8 +119,8 @@ Initial risk evaluation by the responsible doctor (surgeon or oncologist) should
 
 | Component | Details |
 |---|---|
-| **Personal history** | Medical and surgical history, patient's needs and concerns |
-| **Family history** | First- and second-degree relatives on both maternal and paternal sides for breast, ovarian and other cancers |
+| Personal history | Medical and surgical history, patient's needs and concerns |
+| Family history | First- and second-degree relatives on both maternal and paternal sides for breast, ovarian and other cancers |
 
 **Key Counselling Points:**
 *   Risk of being a carrier increases with increasing number of affected relatives, closeness of relationship, and age at which they were diagnosed

@@ -12,9 +12,9 @@ The metadata system consists of **three layers** that progressively enrich each 
 
 | Layer | Name | Source | When Applied | Storage |
 |---|---|---|---|---|
-| **Layer 1** | Document Metadata | `<!-- METADATA -->` block in `.md` files | **Author-time** (manual) | PostgreSQL `documents.metadata` JSONB |
-| **Layer 2** | Chunk Metadata | `chunker.py` + `ingest.py` parsing | **Ingestion-time** (automatic) | PostgreSQL `chunks.metadata` JSONB |
-| **Layer 3** | Entity & Relationship Metadata | `graph_builder.py` LLM extraction | **Ingestion-time** (automatic) | Neo4j nodes + PostgreSQL `chunks.metadata.entities` |
+| Layer 1 | Document Metadata | `<!-- METADATA -->` block in `.md` files | **Author-time** (manual) | PostgreSQL `documents.metadata` JSONB |
+| Layer 2 | Chunk Metadata | `chunker.py` + `ingest.py` parsing | **Ingestion-time** (automatic) | PostgreSQL `chunks.metadata` JSONB |
+| Layer 3 | Entity & Relationship Metadata | `graph_builder.py` LLM extraction | **Ingestion-time** (automatic) | Neo4j nodes + PostgreSQL `chunks.metadata.entities` |
 
 ```mermaid
 flowchart LR
@@ -219,7 +219,7 @@ Stored in Neo4j as typed edges between entity nodes:
 │  treatment_type: drug1, drug2                            │
 │  -->                                                     │
 │                                                          │
-│  ## Content with **[Grade I, Level A]** tags              │
+│  ## Content with [Grade I, Level A] tags              │
 │  ...                              ◄── Layer 2 source     │
 │                                       (inline tags)      │
 │  Bosentan improved 6MWT in...     ◄── Layer 3 source     │

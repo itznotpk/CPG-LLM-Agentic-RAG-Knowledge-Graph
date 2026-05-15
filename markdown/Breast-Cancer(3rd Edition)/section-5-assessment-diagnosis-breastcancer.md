@@ -177,10 +177,10 @@ A more recent cohort study on LB node negative breast cancer showed that low Ki6
 ### Molecular Subtypes Of Breast Cancer (St. Gallen 2011)
 | Molecular Subtype | ER and PR (IHC) | HER2 (IHC/ISH) | Ki67 (IHC) |
 |---|---|---|---|
-| **Luminal A** | ER+ and/or PR+ | HER2- | Ki67 <14% |
-| **Luminal B (HER2-)** | ER+ and/or PR+ | HER2- | Ki67 ≥14% |
-| **Luminal B (HER2+)** | ER+ and/or PR+ | HER2+ | Any Ki67 |
-| **HER2 enriched** | ER-, PR- | HER2+ | Any Ki67 |
+| Luminal A | ER+ and/or PR+ | HER2- | Ki67 <14% |
+| Luminal B (HER2-) | ER+ and/or PR+ | HER2- | Ki67 ≥14% |
+| Luminal B (HER2+) | ER+ and/or PR+ | HER2+ | Any Ki67 |
+| HER2 enriched | ER-, PR- | HER2+ | Any Ki67 |
 | **Basal-like (triple negative)*** | ER-, PR- | HER2- | Any Ki67 |
 
 *\*May be CK5/6+ and/or EGFR+*
@@ -299,13 +299,13 @@ Correlate these findings with the clinical information, mammography, US or MRI. 
 ##### Mammography And US Lexicon
 | Feature | Mammography Lexicon | Ultrasound Lexicon |
 |---|---|---|
-| **Breast composition** | a. entirely fatty<br>b. scattered areas of fibroglandular density<br>c. heterogeneously dense, which may obscure masses<br>d. extremely dense, which lowers sensitivity | a. homogenous - fat<br>b. homogenous - fibroglandular<br>c. heterogenous |
-| **Mass** | **Shape:** oval, round, irregular<br>**Margin:** circumscribed, obscured, microlobulated, indistinct, spiculated<br>**Density:** fat, low, equal, high | **Shape:** oval, round, irregular<br>**Margin:** circumscribed or not circumscribed (indistinct, angular, microlobulated, spiculated)<br>**Orientation:** parallel, not parallel<br>**Echo pattern:** anechoic, hyperechoic, complex cystic/solid, hypoechoic, isoechoic, heterogenous<br>**Posterior features:** no features, enhancement, shadowing, combined pattern |
-| **Asymmetry** | asymmetry, global, focal, developing | |
-| **Architectural distortion** | distorted parenchyma with no visible mass | |
-| **Calcifications** | **Morphology:** typically benign, suspicious (amorphous, coarse heterogenous, fine pleiomorphic, fine linear or fine linear branching)<br>**Distribution:** diffuse, regional, grouped, linear, segmental | in mass, outside mass, intraductal |
-| **Associated features** | skin retraction, nipple retraction, skin thickening, trabecular thickening, axillary adenopathy, architectural distortion, calcifications | architectural distortion, duct changes, skin thickening, skin retraction, edema, vascularity (absent, internal, rim), elasticity |
-| **Special cases** | | simple cyst, clustered microcysts, complicated cyst, mass in or on skin, foreign body (including implants), intramammary lymph node, AVM, Mondor disease, postsurgical fluid collection, fat necrosis |
+| Breast composition | a. entirely fatty<br>b. scattered areas of fibroglandular density<br>c. heterogeneously dense, which may obscure masses<br>d. extremely dense, which lowers sensitivity | a. homogenous - fat<br>b. homogenous - fibroglandular<br>c. heterogenous |
+| Mass | **Shape:** oval, round, irregular<br>**Margin:** circumscribed, obscured, microlobulated, indistinct, spiculated<br>**Density:** fat, low, equal, high | **Shape:** oval, round, irregular<br>**Margin:** circumscribed or not circumscribed (indistinct, angular, microlobulated, spiculated)<br>**Orientation:** parallel, not parallel<br>**Echo pattern:** anechoic, hyperechoic, complex cystic/solid, hypoechoic, isoechoic, heterogenous<br>**Posterior features:** no features, enhancement, shadowing, combined pattern |
+| Asymmetry | asymmetry, global, focal, developing | |
+| Architectural distortion | distorted parenchyma with no visible mass | |
+| Calcifications | **Morphology:** typically benign, suspicious (amorphous, coarse heterogenous, fine pleiomorphic, fine linear or fine linear branching)<br>**Distribution:** diffuse, regional, grouped, linear, segmental | in mass, outside mass, intraductal |
+| Associated features | skin retraction, nipple retraction, skin thickening, trabecular thickening, axillary adenopathy, architectural distortion, calcifications | architectural distortion, duct changes, skin thickening, skin retraction, edema, vascularity (absent, internal, rim), elasticity |
+| Special cases | | simple cyst, clustered microcysts, complicated cyst, mass in or on skin, foreign body (including implants), intramammary lymph node, AVM, Mondor disease, postsurgical fluid collection, fat necrosis |
 
 ##### US-Breast Imaging Lexicon (Specifics For US)
 *   **Breast composition:** Homogeneous echotexture-fat, Homogeneous echotexture-fibroglandular, Heterogeneous echotexture
@@ -323,13 +323,13 @@ The BI-RADS® assessment categories are designed to be concordant with specific 
 
 | Category | Assessment | Management | Likelihood of Cancer |
 |---|---|---|---|
-| **0** | Need additional imaging or prior examinations | Recall for additional imaging and/or await prior examinations | Not applicable |
-| **1** | Negative | Routine screening | Essentially 0% |
-| **2** | Benign | Routine screening | Essentially 0% |
-| **3** | Probably benign | Short interval follow-up (six months) or continued surveillance | >0% but ≤2% |
-| **4** | Suspicious | Tissue diagnosis | **4a.** low suspicion of malignancy (>2% to ≤10%)<br>**4b.** moderate suspicion of malignancy (>10% to ≤50%)<br>**4c.** high suspicion of malignancy (>50% to <95%) |
-| **5** | Highly suggestive of malignancy | Tissue diagnosis | ≥95% |
-| **6** | Known biopsy-proven | Surgical excision when clinically appropriate | Not applicable |
+| 0 | Need additional imaging or prior examinations | Recall for additional imaging and/or await prior examinations | Not applicable |
+| 1 | Negative | Routine screening | Essentially 0% |
+| 2 | Benign | Routine screening | Essentially 0% |
+| 3 | Probably benign | Short interval follow-up (six months) or continued surveillance | >0% but ≤2% |
+| 4 | Suspicious | Tissue diagnosis | **4a.** low suspicion of malignancy (>2% to ≤10%)<br>**4b.** moderate suspicion of malignancy (>10% to ≤50%)<br>**4c.** high suspicion of malignancy (>50% to <95%) |
+| 5 | Highly suggestive of malignancy | Tissue diagnosis | ≥95% |
+| 6 | Known biopsy-proven | Surgical excision when clinically appropriate | Not applicable |
 
 ## 6: Give Management Recommendations
 
@@ -345,22 +345,22 @@ The verbal discussions between radiologist, patient and referring clinician shou
 #### Definition Of Primary Tumor (T) – Clinical And Pathological
 | T Category | T Criteria |
 |---|---|
-| **TX** | Primary tumor cannot be assessed |
-| **T0** | No evidence of primary tumor |
+| TX | Primary tumor cannot be assessed |
+| T0 | No evidence of primary tumor |
 | **Tis (DCIS)\*** | Ductal carcinoma in situ |
-| **Tis (Paget)** | Paget disease of the nipple NOT associated with invasive carcinoma and/or carcinoma in situ (DCIS) in the underlying breast parenchyma. Carcinomas in the breast parenchyma associated with Paget disease are categorized based on the size and characteristics of the parenchymal disease, although the presence of Paget disease should still be noted. |
-| **T1** | Tumor ≤20 mm in greatest dimension |
-| **&nbsp;&nbsp;T1mi** | Tumor ≤1 mm in greatest dimension |
-| **&nbsp;&nbsp;T1a** | Tumor >1 mm but ≤5 mm in greatest dimension (round any measurement 1.0-1.9 mm to 2 mm). |
-| **&nbsp;&nbsp;T1b** | Tumor >5 mm but ≤10 mm in greatest dimension |
-| **&nbsp;&nbsp;T1c** | Tumor >10 mm but ≤20 mm in greatest dimension |
-| **T2** | Tumor >20 mm but ≤50 mm in greatest dimension |
-| **T3** | Tumor >50 mm in greatest dimension |
-| **T4** | Tumor of any size with direct extension to the chest wall and/or to the skin (ulceration or macroscopic nodules); invasion of the dermis alone does not qualify as T4 |
-| **&nbsp;&nbsp;T4a** | Extension to the chest wall; invasion or adherence to pectoralis muscle in the absence of invasion of chest wall structures does not qualify as T4 |
-| **&nbsp;&nbsp;T4b** | Ulceration and/or ipsilateral macroscopic satellite nodules and/or edema (including peau d'orange) of the skin that does not meet the criteria for inflammatory carcinoma |
-| **&nbsp;&nbsp;T4c** | Both T4a and T4b are present |
-| **&nbsp;&nbsp;T4d** | Inflammatory carcinoma (see "Rules for Classification") |
+| Tis (Paget) | Paget disease of the nipple NOT associated with invasive carcinoma and/or carcinoma in situ (DCIS) in the underlying breast parenchyma. Carcinomas in the breast parenchyma associated with Paget disease are categorized based on the size and characteristics of the parenchymal disease, although the presence of Paget disease should still be noted. |
+| T1 | Tumor ≤20 mm in greatest dimension |
+| &nbsp;&nbsp;T1mi | Tumor ≤1 mm in greatest dimension |
+| &nbsp;&nbsp;T1a | Tumor >1 mm but ≤5 mm in greatest dimension (round any measurement 1.0-1.9 mm to 2 mm). |
+| &nbsp;&nbsp;T1b | Tumor >5 mm but ≤10 mm in greatest dimension |
+| &nbsp;&nbsp;T1c | Tumor >10 mm but ≤20 mm in greatest dimension |
+| T2 | Tumor >20 mm but ≤50 mm in greatest dimension |
+| T3 | Tumor >50 mm in greatest dimension |
+| T4 | Tumor of any size with direct extension to the chest wall and/or to the skin (ulceration or macroscopic nodules); invasion of the dermis alone does not qualify as T4 |
+| &nbsp;&nbsp;T4a | Extension to the chest wall; invasion or adherence to pectoralis muscle in the absence of invasion of chest wall structures does not qualify as T4 |
+| &nbsp;&nbsp;T4b | Ulceration and/or ipsilateral macroscopic satellite nodules and/or edema (including peau d'orange) of the skin that does not meet the criteria for inflammatory carcinoma |
+| &nbsp;&nbsp;T4c | Both T4a and T4b are present |
+| &nbsp;&nbsp;T4d | Inflammatory carcinoma (see "Rules for Classification") |
 
 *\*Note: Lobular carcinoma in situ (LCIS) is a benign entity and is removed from TNM staging in the AJCC Cancer Staging Manual, 8th Edition.*
 
@@ -368,16 +368,16 @@ The verbal discussions between radiologist, patient and referring clinician shou
 | cN Category | cN Criteria |
 |---|---|
 | **cNX\*** | Regional lymph nodes cannot be assessed (e.g., previously removed) |
-| **cN0** | No regional lymph node metastases (by imaging or clinical examination) |
-| **cN1** | Metastases to movable ipsilateral Level I, II axillary lymph node(s) |
-| **&nbsp;&nbsp;cN1mi"** | Micrometastases (approximately 200 cells, larger than 0.2 mm, but none larger than 2.0 mm) |
-| **cN2** | Metastases in ipsilateral Level I, II axillary lymph nodes that are clinically fixed or matted; or in ipsilateral internal mammary nodes in the absence of axillary lymph node metastases |
-| **&nbsp;&nbsp;cN2a** | Metastases in ipsilateral Level I, II axillary lymph nodes fixed to one another (matted) or to other structures |
-| **&nbsp;&nbsp;cN2b** | Metastases only in ipsilateral internal mammary nodes in the absence of axillary lymph node metastases |
-| **cN3** | Metastases in ipsilateral infraclavicular (Level III axillary) lymph node(s) with or without Level I, II axillary lymph node involvement; or in ipsilateral internal mammary lymph node(s) with Level I, II axillary lymph node metastases; or metastases in ipsilateral supraclavicular lymph node(s) with or without axillary or internal mammary lymph node involvement |
-| **&nbsp;&nbsp;cN3a** | Metastases in ipsilateral infraclavicular lymph node(s) |
-| **&nbsp;&nbsp;cN3b** | Metastases in ipsilateral internal mammary lymph node(s) and axillary lymph node(s) |
-| **&nbsp;&nbsp;cN3c** | Metastases in ipsilateral supraclavicular lymph node(s) |
+| cN0 | No regional lymph node metastases (by imaging or clinical examination) |
+| cN1 | Metastases to movable ipsilateral Level I, II axillary lymph node(s) |
+| &nbsp;&nbsp;cN1mi" | Micrometastases (approximately 200 cells, larger than 0.2 mm, but none larger than 2.0 mm) |
+| cN2 | Metastases in ipsilateral Level I, II axillary lymph nodes that are clinically fixed or matted; or in ipsilateral internal mammary nodes in the absence of axillary lymph node metastases |
+| &nbsp;&nbsp;cN2a | Metastases in ipsilateral Level I, II axillary lymph nodes fixed to one another (matted) or to other structures |
+| &nbsp;&nbsp;cN2b | Metastases only in ipsilateral internal mammary nodes in the absence of axillary lymph node metastases |
+| cN3 | Metastases in ipsilateral infraclavicular (Level III axillary) lymph node(s) with or without Level I, II axillary lymph node involvement; or in ipsilateral internal mammary lymph node(s) with Level I, II axillary lymph node metastases; or metastases in ipsilateral supraclavicular lymph node(s) with or without axillary or internal mammary lymph node involvement |
+| &nbsp;&nbsp;cN3a | Metastases in ipsilateral infraclavicular lymph node(s) |
+| &nbsp;&nbsp;cN3b | Metastases in ipsilateral internal mammary lymph node(s) and axillary lymph node(s) |
+| &nbsp;&nbsp;cN3c | Metastases in ipsilateral supraclavicular lymph node(s) |
 
 *Note: (sn) and (f) suffixes should be added to the N category to denote confirmation of metastasis by sentinel node biopsy or fine needle aspiration/core needle biopsy respectively.*<br>
 *\*The cNX category is used sparingly in cases where regional lymph nodes have previously been surgically removed or where there is no documentation of physical examination of the axilla.*<br>
@@ -386,31 +386,31 @@ The verbal discussions between radiologist, patient and referring clinician shou
 #### Definition Of Regional Lymph Nodes - Pathological (pN)
 | pN Category | pN Criteria |
 |---|---|
-| **pNX** | Regional lymph nodes cannot be assessed (e.g., not removed for pathological study or previously removed) |
-| **pN0** | No regional lymph node metastasis identified or ITCs only |
-| **&nbsp;&nbsp;pN0(i+)** | ITCs only (malignant cell clusters no larger than 0.2 mm) in regional lymph node(s) |
-| **&nbsp;&nbsp;pN0(mol+)** | Positive molecular findings by reverse transcriptase polymerase chain reaction (RT-PCR); no ITCs detected |
-| **pN1** | Micrometastases; or metastases in 1 - 3 axillary lymph nodes; and/or clinically negative internal mammary nodes with micrometastases or macrometastases by sentinel lymph node biopsy |
-| **&nbsp;&nbsp;pN1mi** | Micrometastases (approximately 200 cells, larger than 0.2 mm, but none larger than 2.0 mm) |
-| **&nbsp;&nbsp;pN1a** | Metastases in 1 - 3 axillary lymph nodes, at least one metastasis larger than 2.0 mm |
-| **&nbsp;&nbsp;pN1b** | Metastases in ipsilateral internal mammary sentinel nodes, excluding ITCs |
-| **&nbsp;&nbsp;pN1c** | pN1a and pN1b combined |
-| **pN2** | Metastases in 4 - 9 axillary lymph nodes; or positive ipsilateral internal mammary lymph nodes by imaging in the absence of axillary lymph node metastases |
-| **&nbsp;&nbsp;pN2a** | Metastases in 4 - 9 axillary lymph nodes (at least one tumor deposit larger than 2.0 mm) |
-| **&nbsp;&nbsp;pN2b** | Metastases in clinically detected internal mammary lymph nodes with or without microscopic confirmation; with pathologically negative axillary nodes |
-| **pN3** | Metastases in 10 or more axillary lymph nodes; or in infraclavicular (Level III axillary) lymph nodes; or positive ipsilateral internal mammary lymph nodes by imaging in the presence of one or more positive Level I, II axillary lymph nodes; or in more than three axillary lymph nodes and micrometastases or macrometastases by sentinel lymph node biopsy in clinically negative ipsilateral internal mammary lymph nodes; or in ipsilateral supraclavicular lymph nodes |
-| **&nbsp;&nbsp;pN3a** | Metastases in 10 or more axillary lymph nodes (at least one tumor deposit larger than 2.0 mm); or metastases to the infraclavicular (Level III axillary lymph) nodes |
-| **&nbsp;&nbsp;pN3b** | pN1a or pN2a in the presence of cN2b (positive internal mammary nodes by imaging); or pN2a in the presence of pN1b |
-| **&nbsp;&nbsp;pN3c** | Metastases in ipsilateral supraclavicular lymph nodes |
+| pNX | Regional lymph nodes cannot be assessed (e.g., not removed for pathological study or previously removed) |
+| pN0 | No regional lymph node metastasis identified or ITCs only |
+| &nbsp;&nbsp;pN0(i+) | ITCs only (malignant cell clusters no larger than 0.2 mm) in regional lymph node(s) |
+| &nbsp;&nbsp;pN0(mol+) | Positive molecular findings by reverse transcriptase polymerase chain reaction (RT-PCR); no ITCs detected |
+| pN1 | Micrometastases; or metastases in 1 - 3 axillary lymph nodes; and/or clinically negative internal mammary nodes with micrometastases or macrometastases by sentinel lymph node biopsy |
+| &nbsp;&nbsp;pN1mi | Micrometastases (approximately 200 cells, larger than 0.2 mm, but none larger than 2.0 mm) |
+| &nbsp;&nbsp;pN1a | Metastases in 1 - 3 axillary lymph nodes, at least one metastasis larger than 2.0 mm |
+| &nbsp;&nbsp;pN1b | Metastases in ipsilateral internal mammary sentinel nodes, excluding ITCs |
+| &nbsp;&nbsp;pN1c | pN1a and pN1b combined |
+| pN2 | Metastases in 4 - 9 axillary lymph nodes; or positive ipsilateral internal mammary lymph nodes by imaging in the absence of axillary lymph node metastases |
+| &nbsp;&nbsp;pN2a | Metastases in 4 - 9 axillary lymph nodes (at least one tumor deposit larger than 2.0 mm) |
+| &nbsp;&nbsp;pN2b | Metastases in clinically detected internal mammary lymph nodes with or without microscopic confirmation; with pathologically negative axillary nodes |
+| pN3 | Metastases in 10 or more axillary lymph nodes; or in infraclavicular (Level III axillary) lymph nodes; or positive ipsilateral internal mammary lymph nodes by imaging in the presence of one or more positive Level I, II axillary lymph nodes; or in more than three axillary lymph nodes and micrometastases or macrometastases by sentinel lymph node biopsy in clinically negative ipsilateral internal mammary lymph nodes; or in ipsilateral supraclavicular lymph nodes |
+| &nbsp;&nbsp;pN3a | Metastases in 10 or more axillary lymph nodes (at least one tumor deposit larger than 2.0 mm); or metastases to the infraclavicular (Level III axillary lymph) nodes |
+| &nbsp;&nbsp;pN3b | pN1a or pN2a in the presence of cN2b (positive internal mammary nodes by imaging); or pN2a in the presence of pN1b |
+| &nbsp;&nbsp;pN3c | Metastases in ipsilateral supraclavicular lymph nodes |
 
 *Note: (sn) and (f) suffixes should be added to the N category to denote confirmation of metastasis by sentinel node biopsy or FNA/core needle biopsy respectively, with NO further resection of nodes.*
 
 #### Definition Of Distant Metastasis (M)
 | M Category | M Criteria |
 |---|---|
-| **M0** | No clinical or radiographic evidence of distant metastases* |
-| **&nbsp;&nbsp;cM0(i+)** | No clinical or radiographic evidence of distant metastases in the presence of tumor cells or deposits no larger than 0.2 mm detected microscopically or by molecular techniques in circulating blood, bone marrow, or other nonregional nodal tissue in a patient without symptoms or signs of metastases |
-| **M1** | Distant metastases detected by clinical and radiographic means (cM) and/or histologically proven metastases larger than 0.2 mm (pM) |
+| M0 | No clinical or radiographic evidence of distant metastases* |
+| &nbsp;&nbsp;cM0(i+) | No clinical or radiographic evidence of distant metastases in the presence of tumor cells or deposits no larger than 0.2 mm detected microscopically or by molecular techniques in circulating blood, bone marrow, or other nonregional nodal tissue in a patient without symptoms or signs of metastases |
+| M1 | Distant metastases detected by clinical and radiographic means (cM) and/or histologically proven metastases larger than 0.2 mm (pM) |
 
 *\*Note that imaging studies are not required to assign the cM0 category*
 

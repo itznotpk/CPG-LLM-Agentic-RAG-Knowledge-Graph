@@ -30,8 +30,8 @@ Table 7: Cardiovascular Disease As A Cause Of Maternal Deaths In Malaysia (Based
 
 | CVD | 2009-2011 | 2012 | 2013 | 2014 |
 |---|---|---|---|---|
-| **% of total maternal deaths (Refers to Indirect and Direct (obstetric) deaths)** | 15.3%; (66/430) | 16.1%; (18/112) | 13.9%; (15/108) | 12.1%; (14/116) |
-| **% of indirect deaths** | 51.2%; (66/129) | 50.0%; (18/36) | 50.0%; (15/30) | 53.8%; (14/26) |
+| % of total maternal deaths (Refers to Indirect and Direct (obstetric) deaths) | 15.3%; (66/430) | 16.1%; (18/112) | 13.9%; (15/108) | 12.1%; (14/116) |
+| % of indirect deaths | 51.2%; (66/129) | 50.0%; (18/36) | 50.0%; (15/30) | 53.8%; (14/26) |
 
 ## Abbreviations Used In This Section
 | Abbreviation | Description |

@@ -29,7 +29,7 @@ Patients should be advised that:
 *   risk assessment is a dynamic process and can change if additional relatives are diagnosed with cancer
 
 *   **Genetic Referral and Testing Guidelines**
-NCCN provides comprehensive guidelines on recommended criteria for genetic testing for hereditary breast and ovarian cancer (refer to **Appendix 8**).¹¹⁸ However, if this broad criteria is applied to all breast cancer patients in Malaysia, a substantial number of breast cancer patients would need formal risk assessment and counselling, which is neither practical nor cost-effective in today's healthcare service. As such, efforts to simplify and streamline criteria for identifying at-risk individuals for testing while maintaining similar variant detection rate may be necessary. An example that may be used has been evaluated in a Malaysian breast cancer cohort and yielded an approximately 10% mutation detection rate (refer to Table 5).¹¹⁹˒ **[level III]**
+NCCN provides comprehensive guidelines on recommended criteria for genetic testing for hereditary breast and ovarian cancer (refer to **Appendix 8**).¹¹⁸ However, if this broad criteria is applied to all breast cancer patients in Malaysia, a substantial number of breast cancer patients would need formal risk assessment and counselling, which is neither practical nor cost-effective in today's healthcare service. As such, efforts to simplify and streamline criteria for identifying at-risk individuals for testing while maintaining similar variant detection rate may be necessary. An example that may be used has been evaluated in a Malaysian breast cancer cohort and yielded an approximately 10% mutation detection rate (refer to Table 5).¹¹⁹˒ [level III]
 
 Table 5. Mainstreaming cancer genetics cancer-based criteria
 1. Ovarian cancer (epithelial non-mucinous ovarian cancer)
@@ -50,7 +50,7 @@ For individuals meeting established criteria for one or more hereditary cancer s
 
 Genetic testing aims to detect variants in cancer predisposition genes. Previously, single-gene tests were performed, but advances in molecular genetics using parallel testing has enabled the testing of multiple genes simultaneously (multi-gene panel testing). Testing must be comprehensive (including full sequencing and large genomic rearrangements), for clinically actionable genes and usually offered to an affected family member first. Should a clinically relevant variant be found, testing may then be offered to other adult at-risk relatives.
 
-Individuals eligible for genetic testing may be referred during initial management or at any time thereafter.⁵ Rapid genetic counselling and testing (RGCT) may be offered based on individual case needs, after discussion with the genetics team. An RCT reported that female breast cancer patients who received RGCT and subsequently received DNA test results before surgery were more likely to undergo direct bilateral mastectomy compared with women who received the usual care (OR=3.09, 95% CI 1.15 to 8.31).¹²⁰˒ **[level I]** NICE recommends fast-track genetic testing (within four weeks of diagnosis of breast cancer) only as part of a clinical trial.⁵
+Individuals eligible for genetic testing may be referred during initial management or at any time thereafter.⁵ Rapid genetic counselling and testing (RGCT) may be offered based on individual case needs, after discussion with the genetics team. An RCT reported that female breast cancer patients who received RGCT and subsequently received DNA test results before surgery were more likely to undergo direct bilateral mastectomy compared with women who received the usual care (OR=3.09, 95% CI 1.15 to 8.31).¹²⁰˒ [level I] NICE recommends fast-track genetic testing (within four weeks of diagnosis of breast cancer) only as part of a clinical trial.⁵
 
 ---
 
@@ -59,17 +59,17 @@ Individuals eligible for genetic testing may be referred during initial manageme
 ### Genes And Associated Breast Cancer Risk
 | Gene | Estimated Relative Risk (90% CI) | Absolute Risk by 80 Years (%) | Other Associated Cancers |
 |---|---|---|---|
-| **BRCA1** | 11.4 | 75 | Ovary |
-| **BRCA2** | 11.7 | 76 | Ovary, prostate, pancreas |
-| **TP53** | 105 (62 to 165) | — | Childhood sarcoma, adrenocortical carcinoma, brain tumours |
-| **PTEN** | No reliable estimate | — | Thyroid, endometrial cancer |
-| **CDH1** | 6.6 (2.2 to 19.9) | 53 | Diffuse gastric cancer |
-| **STK11** | No reliable estimate | — | Colon, pancreas, ovarian sex cord-stromal tumours |
-| **PALB2** | 5.5 (3.0 to 9.4) | 45 | Pancreas |
-| **CHEK2** | 3.0 (2.6 to 3.5) | 29 | Lung |
-| **ATM** | 2.8 (2.2 to 3.7) | 27 | Pancreas |
-| **NF1** | 2.6 (2.1 to 3.2) | 26 | Malignant peripheral nerve sheath tumours, brain/CNS |
-| **NBN** | 2.7 (1.9 to 3.7) | 23 | Unknown |
+| BRCA1 | 11.4 | 75 | Ovary |
+| BRCA2 | 11.7 | 76 | Ovary, prostate, pancreas |
+| TP53 | 105 (62 to 165) | — | Childhood sarcoma, adrenocortical carcinoma, brain tumours |
+| PTEN | No reliable estimate | — | Thyroid, endometrial cancer |
+| CDH1 | 6.6 (2.2 to 19.9) | 53 | Diffuse gastric cancer |
+| STK11 | No reliable estimate | — | Colon, pancreas, ovarian sex cord-stromal tumours |
+| PALB2 | 5.5 (3.0 to 9.4) | 45 | Pancreas |
+| CHEK2 | 3.0 (2.6 to 3.5) | 29 | Lung |
+| ATM | 2.8 (2.2 to 3.7) | 27 | Pancreas |
+| NF1 | 2.6 (2.1 to 3.2) | 26 | Malignant peripheral nerve sheath tumours, brain/CNS |
+| NBN | 2.7 (1.9 to 3.7) | 23 | Unknown |
 
 *Adapted: Easton DF, et al. N Engl J Med. 2015.*¹²¹
 
@@ -96,12 +96,12 @@ Table 7. Summary of recommendations on screening for women with no personal hist
 
 | Age (years) | Average risk of breast cancer¹ | Moderate risk of breast cancer² | High risk of breast cancer (but with a 30% or lower probability of being a BRCA or TP53 carrier)³ | Known BRCA1 or BRCA2 carrier |
 |---|---|---|---|---|
-| **20 - 29** | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI |
-| **30 - 39** | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI | Consider annual mammography<br>Do not offer MRI | Annual MRI and consider annual mammography |
-| **40 - 49** | Do not offer mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI | Annual mammography and annual MRI |
-| **50 - 59** | Mammography as part of population screening<br>Do not offer MRI | Consider annual mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI unless dense breast |
-| **60 - 69** | Mammography as part of population screening<br>Do not offer MRI | Mammography as part of population screening<br>Do not offer MRI | Mammography as part of population screening<br>Do not offer MRI | Annual mammography<br>Do not offer MRI unless dense breast |
-| **70+** | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening |
+| 20 - 29 | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI |
+| 30 - 39 | Do not offer mammography<br>Do not offer MRI | Do not offer mammography<br>Do not offer MRI | Consider annual mammography<br>Do not offer MRI | Annual MRI and consider annual mammography |
+| 40 - 49 | Do not offer mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI | Annual mammography and annual MRI |
+| 50 - 59 | Mammography as part of population screening<br>Do not offer MRI | Consider annual mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI | Annual mammography<br>Do not offer MRI unless dense breast |
+| 60 - 69 | Mammography as part of population screening<br>Do not offer MRI | Mammography as part of population screening<br>Do not offer MRI | Mammography as part of population screening<br>Do not offer MRI | Annual mammography<br>Do not offer MRI unless dense breast |
+| 70+ | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening | Mammography as part of population screening |
 
 > **Clinical Note:**
 > * ¹Lifetime risk of developing breast cancer is <17%.
@@ -153,18 +153,18 @@ Table 7. Summary of recommendations on screening for women with no personal hist
 ##### Selective Estrogen Receptor Modulators
 | Finding | Result | Evidence |
 |---|---|---|
-| 20-year follow-up — all breast cancers | Reduced: HR=0.71 (0.60 to 0.83) | 134, **[level I]** |
-| NNT (5yr treatment to prevent 1 BC in 20yr) | **22** (95% CI 19 to 26) | 134, **[level I]** |
-| Deep vein thrombosis (first 10 years) | Increased: OR=1.87 (1.11 to 3.18) | 134, **[level I]** |
+| 20-year follow-up — all breast cancers | Reduced: HR=0.71 (0.60 to 0.83) | 134, [level I] |
+| NNT (5yr treatment to prevent 1 BC in 20yr) | **22** (95% CI 19 to 26) | 134, [level I] |
+| Deep vein thrombosis (first 10 years) | Increased: OR=1.87 (1.11 to 3.18) | 134, [level I] |
 
-A higher incidence of deep vein thrombosis in women receiving tamoxifen compared with placebo was seen in the first 10 years of follow-up (OR=1.87, 95% CI 1.11 to 3.18). Although not significant, there were more endometrial cancers in the tamoxifen group, but only for the first five years of active treatment.¹³⁴˒ **[level I]**
+A higher incidence of deep vein thrombosis in women receiving tamoxifen compared with placebo was seen in the first 10 years of follow-up (OR=1.87, 95% CI 1.11 to 3.18). Although not significant, there were more endometrial cancers in the tamoxifen group, but only for the first five years of active treatment.¹³⁴˒ [level I]
 
 Women on tamoxifen should stop tamoxifen two months before trying to conceive or six weeks before elective surgery.⁵
 
 ##### Aromatase Inhibitors
-In an RCT of anastrozole as chemoprevention in post-menopausal high risk women (as determined using the Tyrer Cuzick Model), after a median follow-up of five years, fewer women in the anastrozole group developed breast cancer compared with placebo group (HR=0.47, 95% CI 0.32 to 0.68). The predicted cumulative incidence of all breast cancers after seven years was 5.6% in the placebo group and 2.8% in the anastrozole group, suggesting that 36 women (95% CI 33 to 44) would need to be treated with anastrozole to prevent one cancer in seven years of follow-up.¹³⁵˒ **[level I]**
+In an RCT of anastrozole as chemoprevention in post-menopausal high risk women (as determined using the Tyrer Cuzick Model), after a median follow-up of five years, fewer women in the anastrozole group developed breast cancer compared with placebo group (HR=0.47, 95% CI 0.32 to 0.68). The predicted cumulative incidence of all breast cancers after seven years was 5.6% in the placebo group and 2.8% in the anastrozole group, suggesting that 36 women (95% CI 33 to 44) would need to be treated with anastrozole to prevent one cancer in seven years of follow-up.¹³⁵˒ [level I]
 
-Anastrozole was not associated with an increased risk of other cancers particularly gynaecological cancers, nor any thromboembolic or vascular events. A contraindication for anastrozole use was severe osteoporosis.¹³⁵˒ **[level I]**
+Anastrozole was not associated with an increased risk of other cancers particularly gynaecological cancers, nor any thromboembolic or vascular events. A contraindication for anastrozole use was severe osteoporosis.¹³⁵˒ [level I]
 
 ##### Oral Contraceptives
 For female carriers of pathogenic/likely pathogenic variants in BRCA1 or BRCA2, use of oral contraceptive could reduce the risk of ovarian cancer, with no significant increase in risk to breast cancer.¹¹⁸

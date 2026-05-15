@@ -189,19 +189,19 @@ Lung/heart-lung transplantation for selected Class 4 patients failing medical th
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **CT** | Computed Tomography |
-| **ECG** | Electrocardiogram |
-| **ES** | Eisenmenger Syndrome |
-| **FFP** | Fresh Frozen Plasma |
-| **Hb** | Haemoglobin |
-| **INR** | International Normalised Ratio |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **IVC** | Inferior Vena Cava |
-| **MCH** | Mean Corpuscular Haemoglobin |
-| **MCV** | Mean Corpuscular Volume |
-| **MR** | Magnetic Resonance |
-| **NSAIDs** | Non-Steroidal Anti-Inflammatory Drugs |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PCV** | Packed Cell Volume |
+| CT | Computed Tomography |
+| ECG | Electrocardiogram |
+| ES | Eisenmenger Syndrome |
+| FFP | Fresh Frozen Plasma |
+| Hb | Haemoglobin |
+| INR | International Normalised Ratio |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| IVC | Inferior Vena Cava |
+| MCH | Mean Corpuscular Haemoglobin |
+| MCV | Mean Corpuscular Volume |
+| MR | Magnetic Resonance |
+| NSAIDs | Non-Steroidal Anti-Inflammatory Drugs |
+| PAH | Pulmonary Arterial Hypertension |
+| PCV | Packed Cell Volume |
 
 <!-- END OVERLAP CONTENT -->

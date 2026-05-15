@@ -47,16 +47,16 @@ Table 15: Choice of a Rate-Control Agent
 Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
 | Drug | Oral Loading Dose | Onset of Action | Commonly Used Maintenance Doses | Adverse Effects | Comments |
 |---|---|---|---|---|---|
-| **Beta-blockers** | | | | | |
+| Beta-blockers | | | | | |
 | Atenolol | N/A | 2–3 hr | 25–50 mg daily | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF (negative inotropic effect) |
 | Carvedilol | N/A | 60–90 min | 6.25–25 mg b.d. | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
 | Metoprolol | N/A | 4–6 hr | 23.75–200 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
 | Nadolol | N/A | 3–4 hr | 20–80 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
 | Propranolol | N/A | 60–90 min | 80–240 mg/day | Hypotension, heart block, bradycardia, asthma, heart failure | Lower doses in HF |
-| **Calcium channel blockers** | | | | | |
+| Calcium channel blockers | | | | | |
 | Diltiazem | N/A | 1–4 hr | 120–360 mg/day | Hypotension, heart block, heart failure | Lower doses in HF |
 | Verapamil | N/A | 1–2 hr | 120–360 mg/day | Hypotension, heart block, heart failure, digoxin interaction | Lower doses in HF (negative inotropic effect) |
-| **Other** | | | | | |
+| Other | | | | | |
 | Digoxin | 0.5–1.0 mg | 2 hr | 0.0625–0.375 mg/day | Digoxin toxicity, heart block, bradycardia | First-line therapy only for people unlikely to be active (e.g., older people or infirm) and for people with heart failure. Less effective in hyperadrenergic states. |
 | Amiodarone | 400–800 mg/day for 1 week | 1–3 wk | 200 mg/day | Photosensitivity and other skin reactions, pulmonary toxicity, polyneuropathy, gastrointestinal upset, bradycardia, hepatic toxicity, thyroid dysfunction, torsades de pointes (rare) | Although there is fairly good evidence of efficacy, this is an agent of last resort in this indication, due to its long-term toxicity. |
 *N/A = No

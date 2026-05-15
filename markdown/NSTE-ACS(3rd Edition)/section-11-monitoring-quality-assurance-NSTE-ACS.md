@@ -20,13 +20,13 @@ Table 7: Performance And Outcome Measures
 
 | Documentation of the Following | Targets |
 | :--- | :---: |
-| **Performance Measures** | |
+| Performance Measures | |
 | **Access to hs Troponin Testing in all EDs =**<br><br>Total number of EDs using hs-cTn / Total number of EDs x 100% | 50% |
 | **Measurement and Documentation of HEART Score at Emergency Department =**<br><br>Total number of patients with suspected ACS for which HEART score is documented / Total Number of patients with suspected ACS seen in ED x 100% | 70% |
 | **Percentage of High-Risk Patients Admitted to PCI Capable Hospitals and Undergoing Angiogram Within 48 hours =**<br><br>Total number of high-risk patients undergoing coronary angiogram within 48 hours / Total Number of high-risk patients admitted x 100% | 50% |
 | **Medications at Discharge:**<br>- Aspirin<br>- P2Y12 inhibitors<br>- High intensity statins<br><br>Total number of patients with NSTE-ACS who were discharged with aspirin (or P2Y12 inhibitors) or (high intensity statins) / Total Number of patients with NSTE-ACS who were discharged x 100% | 90%<br>90%<br>90% |
 | **Cardiac Rehabilitation =**<br><br>Total number of patients with NSTE-ACS who were referred for cardiac rehabilitation / Total Number of patients with NSTE-ACS who were discharged x 100% | 50% |
-| **Outcome Measures** | |
+| Outcome Measures | |
 | In-hospital mortality and morbidity in patients admitted with ACS (NCVD registry). | |
 | Readmission rates for a cardiac related event in patients discharged with a diagnosis of ACS. Elective admissions for cardiac procedure are excluded. | |
 

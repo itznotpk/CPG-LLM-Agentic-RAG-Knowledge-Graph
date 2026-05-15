@@ -17,7 +17,7 @@ In addition to a resting ECG, chest radiograph and echocardiogram, other non-inv
 
 In symptomatic patients with suspected CAD, functional testing as compared to an initial strategy of anatomical testing with CTA did not result in decrease in the incidence of MI but no improvement in mortality or cardiac death at the cost of greater downstream invasive procedures.6 CTA, however, patients at risk due to non-obstructive CAD.61
 
-- **[Grade I, Level C]** test for myocardial ischemia is a more appropriate initial investigation.
+- [Grade I, Level C] test for myocardial ischemia is a more appropriate initial investigation.
 
 The interpretation of these diagnostic investigations will depend on:
 - the pre-test probability (PTP) i.e. the likelihood of CAD in that patient. The PTP can be estimated using different models based on the patient's age, sex and clinical history of chest pain.28,44,62-64
@@ -100,7 +100,7 @@ In persons with suspected CAD and having stable chest pain/angina equivalent of 
 ### 6.2.1: Diagnostic Accuracy Of Exercise Stress ECG
 Exercise stress ECG is an important investigative tool in the diagnosis of CAD and in risk stratification. The sensitivity and specificity vary from 70-77% lower in females.
 
-- Despite its pitfalls, exercise stress ECG is a useful first line strategy in both **[Grade I, Level A]** gender in the evaluation of individuals with chest pain.28.65-68 (Fig 1, pg 23) This recommendation differs from that of the NICE guidelines where CTA is recommended as a first line strategy in individuals with typical or atypical angina or if clinical assessment indicates non anginal pains, but the resting ECG is abnormal.24
+- Despite its pitfalls, exercise stress ECG is a useful first line strategy in both [Grade I, Level A] gender in the evaluation of individuals with chest pain.28.65-68 (Fig 1, pg 23) This recommendation differs from that of the NICE guidelines where CTA is recommended as a first line strategy in individuals with typical or atypical angina or if clinical assessment indicates non anginal pains, but the resting ECG is abnormal.24
 
 Patient selection for exercise stress ECG is important. The individual should be:
 - able to perform moderate physical activity (e.g. household chores, gardening or recreational work, activities of daily living). In these instances, will allow correlation with the patient's symptoms on exercise and the assessment of functional capacity.
@@ -134,7 +134,7 @@ The Duke treadmill scoring system allows a method for risk stratification:1.2
 - Low-risk — the predicted 4-year survival was 99%, annual mortality 0.25%. Thus, in this group, no further testing is required.
 - High-risk — the predicted 4-year survival was 79%, annual mortality: 5%. This group should be considered for invasive coronary angiography.
 - Intermediate-risk — these patients require further evaluation using stress imaging techniques and/or CTA
-- **[Grade I, Level C]** The patient should be made to attain maximal symptom limited exercise level.
+- [Grade I, Level C] The patient should be made to attain maximal symptom limited exercise level.
 
 Achieving 85% of age-predicted maximal heart rate might not indicate sufficient stress.71 This should not be used as criteria to terminate an exercise stress ECG. Should the patient have inadequate levels of stress, use of
 
@@ -158,11 +158,11 @@ Following the initiation of treatment, an exercise stress ECG may be repeated to
 - assess the efficacy of OMT +/- revascularisation
 - guide an exercise regime
 - reassess the clinical condition if there is a change in symptoms
-- The benefits of routine periodic exercise stress testing in the asymptomatic **[Grade I, Level C]** individual with stable CAD is unknown.
+- The benefits of routine periodic exercise stress testing in the asymptomatic [Grade I, Level C] individual with stable CAD is unknown.
 
-**[Grade I, Level C]**
-**[Grade I, Level C]**
-**[Grade I, Level C]**
+[Grade I, Level C]
+[Grade I, Level C]
+[Grade I, Level C]
 
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: TABLE 7 (pg 44)                        -->
@@ -175,9 +175,9 @@ Table 7: Duke Treadmill Score (Dts)
 
 | Component | Definition |
 |-----------|------------|
-| **Exercise Time** | Treadmill exercise time (minutes) by Bruce protocol |
-| **Maximum ST** | Maximum net ST deviation in mm (excluding aVR) |
-| **Angina Index** | 0 = no angina; 1 = non-limiting angina; 2 = exercise-induced limiting angina |
+| Exercise Time | Treadmill exercise time (minutes) by Bruce protocol |
+| Maximum ST | Maximum net ST deviation in mm (excluding aVR) |
+| Angina Index | 0 = no angina; 1 = non-limiting angina; 2 = exercise-induced limiting angina |
 
 | DTS Score | Risk Category | Annual Mortality |
 |-----------|--------------|-----------------|
@@ -237,7 +237,7 @@ In patients with multivessel disease, imaging tests especially Stress MPI can so
 ## Pharmacological Stress (Dobutamine)
 This is one of the least expensive and most widely available stress imaging techniques.
 
-- **[Grade I, Level B]** stress and is the stress of choice wherever possible.86.87
+- [Grade I, Level B] stress and is the stress of choice wherever possible.86.87
 
 Pharmacological stress is preferred if the patient is unable to exercise or if there are wall motion abnormalities seen at rest. The pharmacological stressor most often used is dobutamine. The increase in cardiac workload seen with dobutamine is less than that with exercise. The addition of atropine augments the sensitivity of the dobutamine stress echocardiogram (DSE).86.88 With the use of dobutamine, viability can also be assessed.89
 
@@ -291,30 +291,30 @@ A high coronary calcium score reduces the accuracy of the test.112 However, per-
 
 It is highly accurate in the assessment of coronary artery bypass grafts.124 The interpretation of native coronary vessels in post bypass patients is however, more difficult.124
 
-## **[Grade I, Level A]** Cta May Be Considered In:
+## [Grade I, Level A] Cta May Be Considered In:
 - individuals with low to intermediate PTP of CAD and who have mild or good exercise capacity.112-115
 
-- CTA should not be used as a screening test for CAD in the asymptomatic **[Grade I, Level C]** individual.
+- CTA should not be used as a screening test for CAD in the asymptomatic [Grade I, Level C] individual.
 
 screening, there tends to be too many false-positive lesions. Also, many minor lesions not causing ischemia may be found, potentially resulting in
 
 ### 6.3.3: Diagnostic Accuracy Of Invasive Coronary Angiography (Ica)
 s , s ss diagnosis of CAD. It can detect obstructive lesions with negative remodelling accurately but unlike CTA, it may not be able to detect non-obstructive lesions with positive remodelling where the lumen diameter may be maintained.
 
-- **[Grade I, Level C]** ICA is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following revascularization.
+- [Grade I, Level C] ICA is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following revascularization.
 
 <!-- image -->
 
 ## Recommendation 1:
-- Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs. **[Grade I, Level A]**
-- Stress imaging tests are used in individuals who have intermediate PTP of CAD and who: **[Grade I, Level B]**
+- Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs. [Grade I, Level A]
+- Stress imaging tests are used in individuals who have intermediate PTP of CAD and who: [Grade I, Level B]
   - are unable to exercise adequately and/or
   - have uninterpretable resting ECG and/or
   - have exercise stress ECG with equivocal results or which are abnormal at moderate to high workloads depending upon the clinical condition.
-- Coronary Calcium has been used to detect CAD but is more useful for CV risk assessment. **[Grade II-a, Level B]**
+- Coronary Calcium has been used to detect CAD but is more useful for CV risk assessment. [Grade II-a, Level B]
 - CTA:
-  - May be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity. **[Grade I, Level A]**
-- ICA is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization. **[Grade I, Level C]**
+  - May be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity. [Grade I, Level A]
+- ICA is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization. [Grade I, Level C]
 
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
@@ -324,18 +324,18 @@ s , s ss diagnosis of CAD. It can detect obstructive lesions with negative remod
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

@@ -120,10 +120,10 @@ Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
-| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
+| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
+| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
+| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
+| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 
 ---
 

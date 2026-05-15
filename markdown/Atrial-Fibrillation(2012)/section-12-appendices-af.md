@@ -257,21 +257,21 @@ Table: Warfarin Initiation — Average Daily Dose of 5 mg
 
 | DAY | INR | INPATIENT (Usually with daily INR) | OUTPATIENT |
 |---|---|---|---|
-| **1** | Normal | 5.0 mg (2.5 or 7.5-10.0 mg in patients listed in the text) | 5.0 mg (2.5 or 7.5-10.0 mg in patients listed in the text) |
-| **2** | < 1.5 | 5.0 mg | 5.0 mg |
+| 1 | Normal | 5.0 mg (2.5 or 7.5-10.0 mg in patients listed in the text) | 5.0 mg (2.5 or 7.5-10.0 mg in patients listed in the text) |
+| 2 | < 1.5 | 5.0 mg | 5.0 mg |
 | | > 1.5 | 0.0 - 2.5 mg | 0.0 - 2.5 mg |
 | | | | *[If INR is not measured 5.0 mg]* |
-| **3** | < 1.5 | 5.0 - 10.0 mg | 5.0 - 10.0 mg |
+| 3 | < 1.5 | 5.0 - 10.0 mg | 5.0 - 10.0 mg |
 | | 1.5 - 1.9 | 2.5 - 5.0 mg | 2.5 - 5.0 mg |
 | | 2.0 - 3.0 | 0.0 - 2.5 mg | 0.0 - 2.5 mg |
 | | > 3.0 | 0.0 mg | 0.0 mg |
 | | | | *INR should be measured today. If INR is not measured, may use the same dose as day 2, and should not > 5 mg* |
-| **4** | < 1.5 | 10.0 mg | 10.0 mg |
+| 4 | < 1.5 | 10.0 mg | 10.0 mg |
 | | 1.5 - 1.9 | 5.0 - 7.5 mg | 5.0 - 7.5 mg |
 | | 2.0 - 3.0 | 0.0 - 5.0 mg | 0.0 - 5.0 mg |
 | | > 3.0 | 0.0 mg | 0.0 mg |
 | | | | *INR measurement should be done, if INR on day 3 is < 1.5 or > 3.0* |
-| **5** | < 1.5 | 10.0 mg | 10.0 mg |
+| 5 | < 1.5 | 10.0 mg | 10.0 mg |
 | | 1.5 - 1.9 | 7.5 - 10.0 mg | 7.5 - 10.0 mg |
 | | 2.0 - 3.0 | 0.0 - 5.0 mg | 0.0 - 5.0 mg |
 | | > 3.0 | 0.0 mg | 0.0 mg |
@@ -288,21 +288,21 @@ Table: Warfarin Initiation — Average Daily Dose of 3 mg (Pacific-Asian)
 
 | DAY | INR | INPATIENT (Usually with daily INR) | OUTPATIENT |
 |---|---|---|---|
-| **1** | Normal | 3.0 mg (1.5 or 3.0-6.0 mg as listed) | 3.0 mg (1.5 or 3.0-6.0 mg as listed) |
-| **2** | < 1.3 | 3.0 mg | 3.0 mg |
+| 1 | Normal | 3.0 mg (1.5 or 3.0-6.0 mg as listed) | 3.0 mg (1.5 or 3.0-6.0 mg as listed) |
+| 2 | < 1.3 | 3.0 mg | 3.0 mg |
 | | > 1.3 | 0.0 - 1.5 mg | 0.0 - 1.5 mg |
 | | | | *[If INR is not measured 3.0 mg]* |
-| **3** | < 1.3 | 3.0 - 6.0 mg | 3.0 - 6.0 mg |
+| 3 | < 1.3 | 3.0 - 6.0 mg | 3.0 - 6.0 mg |
 | | 1.3 - 1.6 | 1.5 - 3.0 mg | 1.5 - 3.0 mg |
 | | 1.6 - 2.6 | 0.0 - 1.5 mg | 0.0 - 1.5 mg |
 | | > 2.6 | 0.0 mg | 0.0 mg |
 | | | | *INR should be measured today. If INR is not measured, may use the same dose as day 2, and should not > 3.0 mg* |
-| **4** | < 1.3 | 4.5 - 6.0 mg | 4.5 - 6.0 mg |
+| 4 | < 1.3 | 4.5 - 6.0 mg | 4.5 - 6.0 mg |
 | | 1.3 - 1.6 | 3.0 - 4.5 mg | 3.0 - 4.5 mg |
 | | 1.6 - 2.6 | 1.5 - 3.0 mg | 0.0 - 3.0 mg |
 | | > 2.6 | 0.0 mg | 0.0 mg |
 | | | | *INR measurement should be done, if INR on day 3 is < 1.3 or > 2.6* |
-| **5** | < 1.3 | 6.0 - 7.5 mg | 6.0 - 7.5 mg |
+| 5 | < 1.3 | 6.0 - 7.5 mg | 6.0 - 7.5 mg |
 | | 1.3 - 1.6 | 3.0 - 4.5 mg | 3.0 - 4.5 mg |
 | | 1.6 - 2.6 | 1.5 - 3.0 mg | 1.5 - 3.0 mg |
 | | > 2.6 | 0.0 mg | 0.0 mg |
@@ -323,21 +323,21 @@ Table: Warfarin Initiation — Average Daily Dose of 3 mg (Pacific-Asian)
 ### C.1.8.1 Recommendations For Managing Elevated INRs Or Bleeding In Patients Receiving Warfarin:
 | Condition | Recommendation |
 |---|---|
-| **INR above therapeutic range but < 5; no significant bleeding** | Lower the dose or omit a dose and resume with lower dose when INR therapeutic; if only minimally above therapeutic range, no dose reduction may be required. |
-| **INR ≥ 5 but < 9; no significant bleeding** | Omit next one or two doses, monitor INR more frequently, and resume with lower dose when INR therapeutic. If risk of bleeding, omit the next dose and give vitamin K 1-2.5 mg PO. |
-| **INR ≥ 9; no significant bleeding** | Hold warfarin and give Vitamin K 2.5-5 mg orally; expect substantial INR reduction in 24-48hr. Monitor INR more frequently and repeat vitamin K if necessary. Resume warfarin at an adjusted dose when INR therapeutic. |
-| **Serious bleeding at any elevation of INR** | Hold warfarin and give vitamin K 10 mg slow IV infusion, supplemented with FFP, prothrombin complex concentrate or rVIIa, depending on urgency of situation. Vitamin K can be repeated q12hr |
-| **Life threatening bleeding** | Hold warfarin and give FFP, prothrombin complex concentrate, or rVIIa supplemented with vitamin K 10 mg slow IV infusion. Repeat, if necessary, depending on INR. |
+| INR above therapeutic range but < 5; no significant bleeding | Lower the dose or omit a dose and resume with lower dose when INR therapeutic; if only minimally above therapeutic range, no dose reduction may be required. |
+| INR ≥ 5 but < 9; no significant bleeding | Omit next one or two doses, monitor INR more frequently, and resume with lower dose when INR therapeutic. If risk of bleeding, omit the next dose and give vitamin K 1-2.5 mg PO. |
+| INR ≥ 9; no significant bleeding | Hold warfarin and give Vitamin K 2.5-5 mg orally; expect substantial INR reduction in 24-48hr. Monitor INR more frequently and repeat vitamin K if necessary. Resume warfarin at an adjusted dose when INR therapeutic. |
+| Serious bleeding at any elevation of INR | Hold warfarin and give vitamin K 10 mg slow IV infusion, supplemented with FFP, prothrombin complex concentrate or rVIIa, depending on urgency of situation. Vitamin K can be repeated q12hr |
+| Life threatening bleeding | Hold warfarin and give FFP, prothrombin complex concentrate, or rVIIa supplemented with vitamin K 10 mg slow IV infusion. Repeat, if necessary, depending on INR. |
 
 ### C.1.9 Interruption Of Warfarin Therapy For Surgery
 | Condition | Recommendation |
 |---|---|
-| **Low risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
-| **Moderate risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
-| **High risk of thromboembolism** | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
-| **Low risk of bleeding** | Lower warfarin dose and operate at an INR of 1.3-1.5; the dose may be lowered 4-5 days before surgery; warfarin can be restarted post-op, supplement with LMWH if necessary. |
-| **Urgent surgical or other invasive procedure (within 12 hours)** | For immediate reversal give FFP, prothrombin complex concentrate in addition to vitamin K 2.5-5 mg po or by slow IV infusion. |
-| **Urgent surgical or other invasive procedure (within 18-24 hours)** | If surgery is urgent but can be delayed for 18-24 hrs give vitamin K 2.5- 5 mg po or by slow IV infusion. If INR is still high, additional vitamin K 1-2 mg po can be given. |
+| Low risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
+| Moderate risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
+| High risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to fall; start bridge therapy with therapeutic dose LMWH 2–3 days prior to surgery (or when INR is sub-therapeutic). Administer last dose of LMWH 24 hrs before surgery. |
+| Low risk of bleeding | Lower warfarin dose and operate at an INR of 1.3-1.5; the dose may be lowered 4-5 days before surgery; warfarin can be restarted post-op, supplement with LMWH if necessary. |
+| Urgent surgical or other invasive procedure (within 12 hours) | For immediate reversal give FFP, prothrombin complex concentrate in addition to vitamin K 2.5-5 mg po or by slow IV infusion. |
+| Urgent surgical or other invasive procedure (within 18-24 hours) | If surgery is urgent but can be delayed for 18-24 hrs give vitamin K 2.5- 5 mg po or by slow IV infusion. If INR is still high, additional vitamin K 1-2 mg po can be given. |
 
 Low risk: VTE: Single VTE occurred >12 months ago and no other risk factors, AF: (CHADS2 score 0-2) without a history of stroke or other risk factors, Mech heart valve: bileaflet aortic valve without AF and no other risk factors for stroke.
 

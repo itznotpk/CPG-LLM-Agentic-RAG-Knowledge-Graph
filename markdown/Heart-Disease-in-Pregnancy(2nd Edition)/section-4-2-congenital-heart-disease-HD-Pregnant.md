@@ -137,10 +137,10 @@ Table 2: New York Heart Association Functional Classification
 
 | Functional Class | Symptoms | Maternal Cardiovascular Risk |
 |---|---|---|
-| **Class I** | No limitation: Ordinary physical activity does not cause undue fatigue, dyspnoea or palpitation. | Low |
-| **Class II** | Slight limitation of physical activity. Such patients are comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnoea or angina. | Low |
-| **Class III** | Marked limitation of physical activity. Although patients are comfortable at rest, less than ordinary activity will lead to fatigue, palpitation, dyspnoea or angina. | High |
-| **Class IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive heart failure are present at rest. With any physical activity, increased discomfort is experienced. | High |
+| Class I | No limitation: Ordinary physical activity does not cause undue fatigue, dyspnoea or palpitation. | Low |
+| Class II | Slight limitation of physical activity. Such patients are comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnoea or angina. | Low |
+| Class III | Marked limitation of physical activity. Although patients are comfortable at rest, less than ordinary activity will lead to fatigue, palpitation, dyspnoea or angina. | High |
+| Class IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive heart failure are present at rest. With any physical activity, increased discomfort is experienced. | High |
 
 ---
 
@@ -148,15 +148,15 @@ Table 3: Maternal Cardiovascular Risk Assessment And Level Of Care*
 
 | Maternal Cardiovascular Risk Assessment |  |
 |---|---|
-| **Risk Assessment** | - WHO Risk Classification; - NYHA Functional Classification |
-| **Laboratory investigation and physical examination** | - BP; - Fasting blood glucose; - ECG; - CXR (if indicated); - Echocardiography; - Renal profile |
+| Risk Assessment | - WHO Risk Classification; - NYHA Functional Classification |
+| Laboratory investigation and physical examination | - BP; - Fasting blood glucose; - ECG; - CXR (if indicated); - Echocardiography; - Renal profile |
 
 | Level of Care Depending on Maternal Cardiovascular Risk |  |  |
 |---|---|---|
-| **Classification** | **WHO/ NHYA; Class I & II** | **WHO/ NHYA; Class II-III, III & IV** |
-| **Level of Personnel** | - **Primary care:**; MO & FMS | - **Tertiary care:**; Physician/ Cardiologist/ Obstetrician/ MFM |
-| **Level of Care** | - **Primary care:**; Health Clinic | - **Tertiary care:**; Hospital with multidisciplinary team |
-| **Frequency of visits:; Primary care by MO/FMS** | - 1 visit for 1st trimester (if indicated, to refer to a centre which provides nuchal translucency scan); - 3 visits for 2nd trimester; - 6 visits for 3rd trimester (weekly > 36 weeks) | - |
+| Classification | **WHO/ NHYA; Class I & II** | **WHO/ NHYA; Class II-III, III & IV** |
+| Level of Personnel | - **Primary care:**; MO & FMS | - **Tertiary care:**; Physician/ Cardiologist/ Obstetrician/ MFM |
+| Level of Care | - **Primary care:**; Health Clinic | - **Tertiary care:**; Hospital with multidisciplinary team |
+| Frequency of visits:; Primary care by MO/FMS | - 1 visit for 1st trimester (if indicated, to refer to a centre which provides nuchal translucency scan); - 3 visits for 2nd trimester; - 6 visits for 3rd trimester (weekly > 36 weeks) | - |
 | **Tertiary care by:**; ➢ **obstetrician/MFM**; ➢ **cardiologist/ multidisciplinary team** | - Once, at 18-22 weeks for fetal anomaly scan; - Once, preferably within the 1st trimester and <18 weeks (to formulate individualised pregnancy care plan) | - 1 for 1st trimester; - 3 for 2nd trimester; - 6 for 3rd trimester (weekly > 36 weeks) |
 
 *frequency of visits and level of care will depend upon the individualised pregnancy care plan
@@ -172,12 +172,12 @@ Table 4: Antenatal Visits Depending On Maternal Cardiovascular Risk (WHO & Nyha 
 
 | Frequency of visit at primary care by MO/FMS | Frequency of visit at tertiary centre by obstetrician/ MFM | Frequency of visit by cardiologist/ multidisciplinary team |
 |---|---|---|
-| **Once confirmed pregnancy** | - Confirm viability and gestational age of pregnancy; - For risk stratification | - |
-| **By week 12** | - For nuchal translucency scan, if indicated | - To determine individualised pregnancy care plan |
-| **Week 18 - 22** | - For detailed anomaly scan; - In mothers with congenital heart disease, a detailed fetal echocardiogram should be offered | - |
-| **Week 22 - 28** | 2 visits |  |
-| **Week 28 - 32** | - | - For assessment and to establish a plan of management for delivery and postpartum care |
-| **Week 36 - 40** | - Weekly visits; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease; - Some appointments may be with the family medicine specialist / Medical officer at primary care. | - |
+| Once confirmed pregnancy | - Confirm viability and gestational age of pregnancy; - For risk stratification | - |
+| By week 12 | - For nuchal translucency scan, if indicated | - To determine individualised pregnancy care plan |
+| Week 18 - 22 | - For detailed anomaly scan; - In mothers with congenital heart disease, a detailed fetal echocardiogram should be offered | - |
+| Week 22 - 28 | 2 visits |  |
+| Week 28 - 32 | - | - For assessment and to establish a plan of management for delivery and postpartum care |
+| Week 36 - 40 | - Weekly visits; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease; - Some appointments may be with the family medicine specialist / Medical officer at primary care. | - |
 
 ---
 
@@ -185,12 +185,12 @@ Table 5: Antenatal Visits Depending On Maternal Cardiovascular Risk (WHO & Nyha 
 
 | Frequency of visit at primary care by MO/FMS | Frequency of visit at tertiary centre by obstetrician/ MFM | Frequency of visit by cardiologist/ multidisciplinary team |
 |---|---|---|
-| **Once confirmed pregnancy** | - | *Advice TOP |
-| **By week 12** | - If pregnancy continues, for a nuchal translucency scan if indicated | - For individualised pregnancy care plan if pregnancy continues |
-| **Week 18 - 22** | - For a detailed fetal anomaly scan; - In mothers with congenital heart disease, a detailed fetal echocardiogram should be offered | - |
-| **Week 22 - 28** | - Once in 2 weeks; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease |  |
-| **Week 28 - 32** | - Weekly visits; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease | - For assessment and to establish timing, mode of delivery and postpartum care |
-| **Week 32 - 40** | - Weekly visits; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease | - Consider admission; - Anaesthetic review |
+| Once confirmed pregnancy | - | *Advice TOP |
+| By week 12 | - If pregnancy continues, for a nuchal translucency scan if indicated | - For individualised pregnancy care plan if pregnancy continues |
+| Week 18 - 22 | - For a detailed fetal anomaly scan; - In mothers with congenital heart disease, a detailed fetal echocardiogram should be offered | - |
+| Week 22 - 28 | - Once in 2 weeks; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease |  |
+| Week 28 - 32 | - Weekly visits; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease | - For assessment and to establish timing, mode of delivery and postpartum care |
+| Week 32 - 40 | - Weekly visits; - Number and timing of further appointments will be dependent on the nature and severity of cardiac disease | - Consider admission; - Anaesthetic review |
 
 *The following High Risk patients should be offered TOP: Severe pulmonary hypertension, Eisenmenger syndrome, Marfan syndrome with aortic root dilatation > 45 cm, previous peripartum cardiomyopathy with residual impairment of left ventricular function, LVEF < 30%, NYHA III-IV, severe mitral stenosis (MVA < 1.0 cm²), severe symptomatic aortic stenosis (AVA < 1.0 cm²)
 
@@ -220,20 +220,20 @@ Table 12: Specific Considerations And WHO Risk Stratification For Specific Conge
 
 | Congenital Heart Disease | WHO Risk Class | Specific Considerations | Pregnancy Management |
 |---|---|---|---|
-| **Left to Shunt Shunts** | **Left to Shunt Shunts** | **Left to Shunt Shunts** | **Left to Shunt Shunts** |
+| Left to Shunt Shunts | **Left to Shunt Shunts** | **Left to Shunt Shunts** | **Left to Shunt Shunts** |
 | Small defects with insignificant shunt & no pulmonary hypertension (PH) (VSD, ASD, PDA) | I | Nil | Low risk |
 | Haemodynamic significant shunts without PH | II | Risk of heart failure Arrhythmias (ASD) | Low to moderate risk depending on the individual |
 | Atrial septal defect | II | Low risk of paradoxical embolus | Caution with line management |
 | Atrioventricular septal defect (partial/complete) Repaired lesions with no PH or significant residual lesions | I-II | Arrhythmia and heart failure if significant valve regurgitation, residual shunt | Low to moderate risk depending on the individual |
 | Any shunts with pulmonary hypertension or Eisenmenger syndrome | IV | Pregnancy contraindicated | High risk |
-| **Cyanotic Heart Disease** | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** |
+| Cyanotic Heart Disease | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** |
 | Palliated cyanotic CHD; Uncorrected cyanotic CHD | III-IV | - Paradoxical emboli from right to left shunt; - Thromboembolic events/thrombosis; - Risk of FGR and fetal loss in severe cyanosis (Maternal SaO2 < 85% at rest +/- Hb: > 20 g/dl - poorer fetal outcome) | Moderate to high risk dependent on the:; - severity of the lesion; - degree of cyanosis; - presence of other compounding risk |
 | Ebstein anomaly - Uncomplicated | II-III | Absence of cyanosis and tachyarrhythmia | Pregnancy well tolerated; New onset arrhythmias and heart failure may develop with advancing pregnancy |
 | Ebstein anomaly - Complicated (Severe TR, RV dysfunction, cyanosis, arrhythmias) | III | - Risk of right heart failure; - Arrhythmias; If cyanosed - paradoxical embolus | Moderate to high risk.; Surgical repair pre-pregnancy preferable where indicated |
 | Tetralogy of Fallot (TOF) - Uncorrected/ palliated | III | As per cyanotic heart disease; Risk of CHD in offspring | Moderate to high risk; Surgical repair pre-pregnancy preferable |
 | Tetralogy of Fallot (TOF) - Repaired TOF (No significant residual lesion) | II |  | Pregnancy well tolerated |
 | Tetralogy of Fallot (TOF) - Free flow pulmonary regurgitation | III | - Risk of right ventricular dysfunction & failure; - Arrhythmias | Moderate risk; Pre-pregnancy assessment to decide if pregnancy can be advocated or pulmonary valve replacement should be done first prior to pregnancy |
-| **Obstructive lesion** | **Obstructive lesion** | **Obstructive lesion** | **Obstructive lesion** |
+| Obstructive lesion | **Obstructive lesion** | **Obstructive lesion** | **Obstructive lesion** |
 | Congenital Aortic stenosis (AS) (Bicuspid Aortic valve) - Mild to moderate | I-II | Usually well tolerated | Low risk |
 | Congenital Aortic stenosis (AS) (Bicuspid Aortic valve) - Severe AS (asymptomatic) | III | If asymptomatic; Pre-pregnancy assessment of:; - Functional capacity and blood pressure response to exercise; - Symptoms; - Ventricular function; - Risk of arrhythmias; Need to decide if intervention necessary before conception.; Risk of:; - Maternal hypertension, HF; - Fetal: preterm labour, FGR, low birth weight | Moderate risk; If stable, may proceed with pregnancy but risk of heart failure and arrhythmias with advancing pregnancy; - Bed rest, diuretics and β-blockers as necessary; - If symptomatic despite optimal medical treatment, percutaneous balloon valvuloplasty considered where indicated; - Cardiac surgery is high risk |
 | Congenital Aortic stenosis (AS) (Bicuspid Aortic valve) - Severe AS (symptomatic) | IV | If symptomatic, poor ventricular function and decrease exercise capacity | Pregnancy contraindicated; Consider surgery to correct lesion prior to conception |

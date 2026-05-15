@@ -257,20 +257,20 @@ Table 12: Specific Considerations And WHO Risk Stratification For Specific Conge
 
 | Congenital Heart Disease | WHO Risk Class | Specific Considerations | Pregnancy Management |
 |---|---|---|---|
-| **Left to Shunt Shunts** | **Left to Shunt Shunts** | **Left to Shunt Shunts** | **Left to Shunt Shunts** |
+| Left to Shunt Shunts | **Left to Shunt Shunts** | **Left to Shunt Shunts** | **Left to Shunt Shunts** |
 | Small defects with insignificant shunt & no pulmonary hypertension (PH) (VSD, ASD, PDA) | I | Nil | Low risk |
 | Haemodynamic significant shunts without PH | II | Risk of heart failure Arrhythmias (ASD) | Low to moderate risk depending on the individual |
 | Atrial septal defect | II | Low risk of paradoxical embolus | Caution with line management |
 | Atrioventricular septal defect (partial/complete) Repaired lesions with no PH or significant residual lesions | I-II | Arrhythmia and heart failure if significant valve regurgitation, residual shunt | Low to moderate risk depending on the individual |
 | Any shunts with pulmonary hypertension or Eisenmenger syndrome | IV | Pregnancy contraindicated | High risk |
-| **Cyanotic Heart Disease** | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** |
+| Cyanotic Heart Disease | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** | **Cyanotic Heart Disease** |
 | Palliated cyanotic CHD; Uncorrected cyanotic CHD | III-IV | - Paradoxical emboli from right to left shunt; - Thromboembolic events/thrombosis; - Risk of FGR and fetal loss in severe cyanosis (Maternal SaO2 < 85% at rest +/- Hb: > 20 g/dl - poorer fetal outcome) | Moderate to high risk dependent on the:; - severity of the lesion; - degree of cyanosis; - presence of other compounding risk |
 | Ebstein anomaly - Uncomplicated | II-III | Absence of cyanosis and tachyarrhythmia | Pregnancy well tolerated; New onset arrhythmias and heart failure may develop with advancing pregnancy |
 | Ebstein anomaly - Complicated (Severe TR, RV dysfunction, cyanosis, arrhythmias) | III | - Risk of right heart failure; - Arrhythmias; If cyanosed - paradoxical embolus | Moderate to high risk.; Surgical repair pre-pregnancy preferable where indicated |
 | Tetralogy of Fallot (TOF) - Uncorrected/ palliated | III | As per cyanotic heart disease; Risk of CHD in offspring | Moderate to high risk; Surgical repair pre-pregnancy preferable |
 | Tetralogy of Fallot (TOF) - Repaired TOF (No significant residual lesion) | II |  | Pregnancy well tolerated |
 | Tetralogy of Fallot (TOF) - Free flow pulmonary regurgitation | III | - Risk of right ventricular dysfunction & failure; - Arrhythmias | Moderate risk; Pre-pregnancy assessment to decide if pregnancy can be advocated or pulmonary valve replacement should be done first prior to pregnancy |
-| **Obstructive lesion** | **Obstructive lesion** | **Obstructive lesion** | **Obstructive lesion** |
+| Obstructive lesion | **Obstructive lesion** | **Obstructive lesion** | **Obstructive lesion** |
 | Congenital Aortic stenosis (AS) (Bicuspid Aortic valve) - Mild to moderate | I-II | Usually well tolerated | Low risk |
 | Congenital Aortic stenosis (AS) (Bicuspid Aortic valve) - Severe AS (asymptomatic) | III | If asymptomatic; Pre-pregnancy assessment of:; - Functional capacity and blood pressure response to exercise; - Symptoms; - Ventricular function; - Risk of arrhythmias; Need to decide if intervention necessary before conception.; Risk of:; - Maternal hypertension, HF; - Fetal: preterm labour, FGR, low birth weight | Moderate risk; If stable, may proceed with pregnancy but risk of heart failure and arrhythmias with advancing pregnancy; - Bed rest, diuretics and β-blockers as necessary; - If symptomatic despite optimal medical treatment, percutaneous balloon valvuloplasty considered where indicated; - Cardiac surgery is high risk |
 | Congenital Aortic stenosis (AS) (Bicuspid Aortic valve) - Severe AS (symptomatic) | IV | If symptomatic, poor ventricular function and decrease exercise capacity | Pregnancy contraindicated; Consider surgery to correct lesion prior to conception |

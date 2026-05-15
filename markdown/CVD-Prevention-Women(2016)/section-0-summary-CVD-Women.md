@@ -68,14 +68,14 @@ Table 1: Classification Of CVD Risk In Women
 
 | Risk Category | Criteria |
 |---|---|
-| **High Risk** | Established CHD and/or CHD Equivalents which are: |
+| High Risk | Established CHD and/or CHD Equivalents which are: |
 | | • Cerebrovascular disease |
 | | • Peripheral arterial disease (PAD) |
 | | • Abdominal aortic aneurysm (AAA) |
 | | • Diabetes mellitus (DM) |
 | | • End stage or chronic kidney disease |
 | | • Multiple risk factors that confer a 10 year CVD risk of > 20% using FRS (refer Table 2: Framingham Risk Score) |
-| **At Risk** | 1 major risk factor for CVD including: |
+| At Risk | 1 major risk factor for CVD including: |
 | | • Family history of premature CVD (CVD at age < 55 years in male relative and < 65 years in female relative) |
 | | • Total cholesterol ≥ 5.2 mmol/L, HDL-C < 1.2 mmol/l, or treated for dyslipidaemia |
 | | • Systolic blood pressure (SBP) ≥ 120 mmHg, diastolic blood pressure (DBP) ≥ 80 mmHg, or treated hypertension |
@@ -86,7 +86,7 @@ Table 1: Classification Of CVD Risk In Women
 | | • Evidence of advanced subclinical atherosclerosis (e.g. coronary calcification, carotid plaque, or thickened Intima Medial Thickness (IMT)) |
 | | • History of preeclampsia, gestational diabetes, or pregnancy-induced hypertension |
 | | • Systemic autoimmune collagen-vascular disease (e.g. lupus or rheumatoid arthritis) |
-| **Optimal Risk** | 10 year CVD risk of < 10% using FRS. Having a healthy lifestyle with no risk factors: |
+| Optimal Risk | 10 year CVD risk of < 10% using FRS. Having a healthy lifestyle with no risk factors: |
 | | • Total cholesterol (TC) < 5.2 mmol/L (untreated) |
 | | • BP < 120/< 80 mmHg (untreated) |
 | | • Fasting blood glucose < 6.1 mmol/L (untreated) |
@@ -179,15 +179,15 @@ Table 4: General Recommendations For Prevention Of CVD In Women
 
 | Category | Recommendations | Grade of Rec / Level of Evidence |
 |---|---|---|
-| **Nutrition** | • Know one’s daily calorie requirements.<br>• Home cooked meals are preferable.<br>• Diet should encompass all food groups. Eat more fruits, vegetables, whole grain cereals and bread, fish especially oily fish rich in omega-3 fatty acids (such as *ikan tenggiri*, *carp*), lean meat, nuts and legumes, low fat milk and cheese, skinless poultry, non-tropical vegetable oils.<br>• A high fiber diet: 20-30 gm/day<br>• Eat more complex carbohydrates-whole grains, peas, beans, lentils. Whole grains should form 50% of total grain intake.<br>• Naturally occurring sugars are preferred. Avoid sweets and sucrose-sweetened beverages.<br>• Reduce daily salt intake to approximately 1-1¼ teaspoon salt.<br>• Replace saturated and *trans*-fats with monounsaturated and polyunsaturated fats. | I, B |
-| **Physical Activity** | • Exercise for at least 30 - 45 minutes, 5 times a week. Women who need to lose weight or sustain weight loss should exercise more. | I, B |
-| **Weight maintenance/reduction** | • Ideal BMI for Asian women is 18.5 - < 23 kg/m² and ideal waist circumference is ≤ 80 cm (31.5 inches). | - |
+| Nutrition | • Know one’s daily calorie requirements.<br>• Home cooked meals are preferable.<br>• Diet should encompass all food groups. Eat more fruits, vegetables, whole grain cereals and bread, fish especially oily fish rich in omega-3 fatty acids (such as *ikan tenggiri*, *carp*), lean meat, nuts and legumes, low fat milk and cheese, skinless poultry, non-tropical vegetable oils.<br>• A high fiber diet: 20-30 gm/day<br>• Eat more complex carbohydrates-whole grains, peas, beans, lentils. Whole grains should form 50% of total grain intake.<br>• Naturally occurring sugars are preferred. Avoid sweets and sucrose-sweetened beverages.<br>• Reduce daily salt intake to approximately 1-1¼ teaspoon salt.<br>• Replace saturated and *trans*-fats with monounsaturated and polyunsaturated fats. | I, B |
+| Physical Activity | • Exercise for at least 30 - 45 minutes, 5 times a week. Women who need to lose weight or sustain weight loss should exercise more. | I, B |
+| Weight maintenance/reduction | • Ideal BMI for Asian women is 18.5 - < 23 kg/m² and ideal waist circumference is ≤ 80 cm (31.5 inches). | - |
 | | • Assess BMI and waist circumference at each visit. | I, C |
 | | • Encourage a weight reduction of 0.5 - 1 kg/week in the overweight and obese. The initial goal should be to reduce body weight to < 10% of baseline within 6 months. | I, B |
-| **Cigarette Smoking** | • Women should abstain/stop smoking | I, B |
-| **Aspirin (75-100mg daily)** | • For secondary prevention | I, A |
+| Cigarette Smoking | • Women should abstain/stop smoking | I, B |
+| Aspirin (75-100mg daily) | • For secondary prevention | I, A |
 | | • For primary prevention, aspirin use should be individualized weighing the benefit versus the risk of bleeding | I, A |
-| **Anticoagulation for Atrial Fibrillation (AF)** | • Non valvular AF and CHA2DS2-VASc score*:<br>&nbsp;&nbsp;• ≥ 2 - anticoagulate with:<br>&nbsp;&nbsp;&nbsp;&nbsp;- **warfarin or** | I, A |
+| Anticoagulation for Atrial Fibrillation (AF) | • Non valvular AF and CHA2DS2-VASc score*:<br>&nbsp;&nbsp;• ≥ 2 - anticoagulate with:<br>&nbsp;&nbsp;&nbsp;&nbsp;- **warfarin or** | I, A |
 | | &nbsp;&nbsp;&nbsp;&nbsp;- **Novel Oral Anti-Coagulants (NOAC)** | I, B |
 | | &nbsp;&nbsp;• 1 - consideration for anticoagulation should be individualized (either no anti thrombotics, oral anticoagulants or aspirin alone) | II-a, C |
 | | • < 65 years of age with lone AF and those with CHA2DS2-VASc of 0, anti thrombotics may be omitted | II-a, B |
@@ -210,7 +210,7 @@ Table 5: Targets Of Treatment
 
 | Risk Factor/Category | Target | Grade of Rec / Level of Evidence |
 |---|---|---|
-| **Dyslipidemia** | **Low density lipoprotein cholesterol (LDL-C):** | |
+| Dyslipidemia | **Low density lipoprotein cholesterol (LDL-C):** | |
 | | **High Risk:** Patients with established CHD or CHD Equivalents:<br>• < 2.6 mmol/L (the lower the better) (or a reduction of at least 50% if the baseline LDL-C is between 2.6-5.1 mmol/L) | I, A |
 | | • < 1.8 mmol/L in diabetics with CVD (or a reduction of at least 50% if the baseline LDL-C is between 1.8 and 3.5 mmol/L) | I, A |
 | **Blood Pressure*** | **At Risk & Optimal Risk:** < 3.0 mmol/L | - |
@@ -244,18 +244,18 @@ Table 5: Targets Of Treatment
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

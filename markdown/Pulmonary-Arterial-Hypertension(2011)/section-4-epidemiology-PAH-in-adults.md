@@ -34,23 +34,23 @@ Table 2: WHO Classification Of Functional Status In Patients With Pht
 
 | Class | Definition |
 |---|---|
-| **Class I** | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class II** | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class III** | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
+| Class I | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class II | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class III | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class IV | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **6MWT** | Six-Minute Walk Test |
-| **BNP** | Brain Natriuretic Peptide |
-| **CI** | Cardiac Index |
-| **CTD** | Connective Tissue Disease |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **mPAP** | Mean Pulmonary Arterial Pressure |
-| **mRAP** | Mean Right Atrial Pressure |
-| **NIH** | National Institutes of Health |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **RV** | Right Ventricular |
+| 6MWT | Six-Minute Walk Test |
+| BNP | Brain Natriuretic Peptide |
+| CI | Cardiac Index |
+| CTD | Connective Tissue Disease |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| mPAP | Mean Pulmonary Arterial Pressure |
+| mRAP | Mean Right Atrial Pressure |
+| NIH | National Institutes of Health |
+| PAH | Pulmonary Arterial Hypertension |
+| RV | Right Ventricular |
 
 <!-- END OVERLAP CONTENT -->

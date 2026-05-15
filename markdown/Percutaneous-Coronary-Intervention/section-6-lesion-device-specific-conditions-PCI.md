@@ -188,9 +188,9 @@ Table 9: Definition of Stent Thrombosis as proposed by the Academic Research Con
 
 | Category | Definition |
 |---|---|
-| **Definite stent thrombosis** | It is diagnosed when either angiographic or pathological confirmation is present<br>- Angiographic confirmation of ST*:<br>The presence of a thrombus originating in the stent or in the segment 5 mm proximal or distal to the stented region and at least one of the following criteria within a 48-h time window:<br>• Acute onset of ischemic symptoms at rest (typical chest pain of 20 min)<br>• New ischemic ECG changes suggestive of acute ischemia<br>• Typical rise and fall in cardiac biomarkers<br>- Pathological confirmation of stent thrombosis:<br>Evidence of recent thrombus within the stent determined at autopsy |
-| **Probable stent thrombosis** | It is diagnosed after intracoronary stenting in the following cases:<br>• Any unexplained death within the first 30 days, regardless of the time after the index procedure<br>• any MI that is related to documented acute ischemia in the territory of the implanted stent without angiographic confirmation of ST and in the absence of any other obvious cause |
-| **Possible stent thrombosis** | It is diagnosed with any unexplained death from 30 days after intracoronary stenting until the end of trial follow-up |
+| Definite stent thrombosis | It is diagnosed when either angiographic or pathological confirmation is present<br>- Angiographic confirmation of ST*:<br>The presence of a thrombus originating in the stent or in the segment 5 mm proximal or distal to the stented region and at least one of the following criteria within a 48-h time window:<br>• Acute onset of ischemic symptoms at rest (typical chest pain of 20 min)<br>• New ischemic ECG changes suggestive of acute ischemia<br>• Typical rise and fall in cardiac biomarkers<br>- Pathological confirmation of stent thrombosis:<br>Evidence of recent thrombus within the stent determined at autopsy |
+| Probable stent thrombosis | It is diagnosed after intracoronary stenting in the following cases:<br>• Any unexplained death within the first 30 days, regardless of the time after the index procedure<br>• any MI that is related to documented acute ischemia in the territory of the implanted stent without angiographic confirmation of ST and in the absence of any other obvious cause |
+| Possible stent thrombosis | It is diagnosed with any unexplained death from 30 days after intracoronary stenting until the end of trial follow-up |
 
 *\* The incidental angiographic documentation of stent occlusion in the absence of clinical signs or symptoms (silent occlusion) is (for this purpose) not considered a confirmed stent thrombosis.*
 
@@ -269,24 +269,24 @@ In managing ISR it is important to use IVUS to ascertain if the stent is well de
 #### Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
 #### Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
 Table 3: Indications For PCI In Stable Cad
 
 | INDICATION FOR PCI | Recommendation Level |
 |---|---|
-| **In patients requiring revascularization, PCI may be considered in:** | |
+| In patients requiring revascularization, PCI may be considered in: | |
 | 1 or 2 vessel disease with lesion(s) amenable to PCI and a high likelihood of success | [Grade I, Level A] |
 | 3 vessel disease and: | |
 | • discrete lesions suitable for PCI | [Grade II-a, Level B] |

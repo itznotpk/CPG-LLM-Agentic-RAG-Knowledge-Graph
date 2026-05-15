@@ -73,10 +73,10 @@ Table 11: Factors Contributing To Decompensation In A Patient With Stable HF
 
 | Category | Factors |
 |---|---|
-| **Patient factors** | * Non-compliance to medications<br>* Dietary indiscretion especially salt and fluid intake<br>* Inappropriate medications e.g., NSAIDs and COX-2 inhibitors<br>* Alcohol consumption |
-| **Cardiac causes** | * Superimposed myocardial ischemia or infarction (often asymptomatic)<br>* Hypertensive emergencies<br>* Arrhythmias<br>* Pulmonary embolism<br>* Secondary mitral or tricuspid regurgitation |
-| **Systemic conditions** | * Superimposed infections<br>* Anemia<br>* Thyroid disease<br>* Electrolyte disturbances<br>* Worsening renal disease |
-| **Others** | * Urinary retention<br>* Severe emotional or physical stress<br>* Medications with negative ionotropic effect, e.g., Verapamil |
+| Patient factors | * Non-compliance to medications<br>* Dietary indiscretion especially salt and fluid intake<br>* Inappropriate medications e.g., NSAIDs and COX-2 inhibitors<br>* Alcohol consumption |
+| Cardiac causes | * Superimposed myocardial ischemia or infarction (often asymptomatic)<br>* Hypertensive emergencies<br>* Arrhythmias<br>* Pulmonary embolism<br>* Secondary mitral or tricuspid regurgitation |
+| Systemic conditions | * Superimposed infections<br>* Anemia<br>* Thyroid disease<br>* Electrolyte disturbances<br>* Worsening renal disease |
+| Others | * Urinary retention<br>* Severe emotional or physical stress<br>* Medications with negative ionotropic effect, e.g., Verapamil |
 
 ---
 
@@ -93,10 +93,10 @@ Table 8: Classification Of Heart Failure According To Lvef
 ### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
-| **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| **B - "Pre HF"** | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| **C - "HF"** | Symptomatic HF, either previous or current symptoms |
-| **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
+| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
+| C - "HF" | Symptomatic HF, either previous or current symptoms |
+| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
 The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
@@ -107,10 +107,10 @@ Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
-| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
+| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
+| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
+| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
+| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 ---
 
 ## Abbreviations Used In This Section

@@ -27,21 +27,21 @@ An echocardiogram may be considered in:528
 - &gt;stroke/TIA
 - &gt;renal dysfunction (serum creatinine &gt;170umol/l or Cr Cl &lt;60 mL/min)
 - &gt;diabetes
-- If aprevious echocardiogram had beendonewithin thelast 12months and it **[Grade I, Level C]** wasnormal and thepatient has no change inhis symptoms, then a repeat examinationisnotwarranted.
+- If aprevious echocardiogram had beendonewithin thelast 12months and it [Grade I, Level C] wasnormal and thepatient has no change inhis symptoms, then a repeat examinationisnotwarranted.
 
-**[Grade II-a, Level B]**
+[Grade II-a, Level B]
 
 
-If the patient is asymptomatic with good effort tolerance (&gt;4 METS*), no **[Grade II-a, Level B]** further investigations is necessary.68.528
+If the patient is asymptomatic with good effort tolerance (&gt;4 METS*), no [Grade II-a, Level B] further investigations is necessary.68.528
 
-**[Grade II-b, Level C]**
+[Grade II-b, Level C]
 
 Non-invasive stress testing may be considered if the patient has:68
 
 - &gt;poorfunctionalcapacity(&lt;4METS)and
 - &gt;≥1clinical riskfactors and
 - &gt; undergoing intermediate and high-risk surgery or vascular surgery/liver and kidney transplant.
-- Weadvocatethattheseconsiderationsshouldbedonepriortolistingthe **[Grade I, Level C]** patient for surgery, for proper evaluation, planning of investigations and appropriate ethical informed consent process to be offered.
+- Weadvocatethattheseconsiderationsshouldbedonepriortolistingthe [Grade I, Level C] patient for surgery, for proper evaluation, planning of investigations and appropriate ethical informed consent process to be offered.
 
 In patients who have undergone PCl and stenting and are on DAPT, a consultation with the cardiologist is necessary.
 
@@ -68,18 +68,18 @@ In patients who have undergone PCl and stenting and are on DAPT, a consultation 
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

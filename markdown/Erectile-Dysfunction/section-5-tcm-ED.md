@@ -32,8 +32,8 @@ A systematic review assessed various TCMs in the management of ED. A meta-analys
 ### Other Tcm Findings
 | Treatment | Finding | Evidence |
 |-----------|---------|----------|
-| **Yohimbine** | Reasonable therapeutic option compared with placebo; infrequent and reversible AEs | Level I |
-| **Acupuncture** | Inconclusive due to scarce evidence | Level I |
-| **Tongkat Ali** | Insufficient evidence to recommend use in ED treatment | Level I |
+| Yohimbine | Reasonable therapeutic option compared with placebo; infrequent and reversible AEs | Level I |
+| Acupuncture | Inconclusive due to scarce evidence | Level I |
+| Tongkat Ali | Insufficient evidence to recommend use in ED treatment | Level I |
 
 ---

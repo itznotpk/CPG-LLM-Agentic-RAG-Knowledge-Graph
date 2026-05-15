@@ -38,11 +38,11 @@ For the management of patients on potentially cardiotoxic chemotherapeutic agent
 #### Cardiotoxicity Risk Assessment
 | Risk Origin | Risk Value | Factors |
 |---|---|---|
-| **Medication Related Risk** | High Risk (Score = 4) | Anthracyclines, Cyclophosphamide, Ifosfamide, Clofarabine, Herceptin |
+| Medication Related Risk | High Risk (Score = 4) | Anthracyclines, Cyclophosphamide, Ifosfamide, Clofarabine, Herceptin |
 | | Intermediate Risk (Score = 2) | Docetaxel, Pertuzumab, Sunitinib, Sorafenib |
 | | Low Risk (Score = 1) | Bevacizumab, Dasatinib, Imatinib, Lapatinib |
 | | Rare Risk (Score = 0) | Etoposide, Rituximab, Thalidomide |
-| **Patient Related Risk** | 1 point each | • Heart failure or cardiomyopathy <br>• CHD or equivalent (PAD) <br>• Hypertension <br>• Diabetes Mellitus <br>• Prior or recurrent anthracyclines <br>• Prior or recurrent chest radiation <br>• Age < 15 or > 65 years <br>• Female gender |
+| Patient Related Risk | 1 point each | • Heart failure or cardiomyopathy <br>• CHD or equivalent (PAD) <br>• Hypertension <br>• Diabetes Mellitus <br>• Prior or recurrent anthracyclines <br>• Prior or recurrent chest radiation <br>• Age < 15 or > 65 years <br>• Female gender |
 
 #### Cardiotoxicity Risk Categories
 | Cardiotoxicity Risk Score | Category |
@@ -56,11 +56,11 @@ For the management of patients on potentially cardiotoxic chemotherapeutic agent
 #### Monitoring Recommendations during/after Chemotherapy
 | Risk Category | Recommendation |
 |---|---|
-| **Very high risk** | TTE with strain before every (other) cycle, end, 3-6 months and 1 year, optional ECG, cTn with TTE during chemotherapy |
-| **High risk** | TTE with strain every 3 cycles, end, 3-6 months and 1 year after chemotherapy, optional ECG, cTn with TTE during chemotherapy |
-| **Intermediate risk** | Discuss risk and benefit of medication |
-| **Low risk**| None, monitoring only |
-| **Very low risk**| None, monitoring only |
+| Very high risk | TTE with strain before every (other) cycle, end, 3-6 months and 1 year, optional ECG, cTn with TTE during chemotherapy |
+| High risk | TTE with strain every 3 cycles, end, 3-6 months and 1 year after chemotherapy, optional ECG, cTn with TTE during chemotherapy |
+| Intermediate risk | Discuss risk and benefit of medication |
+| Low risk | None, monitoring only |
+| Very low risk | None, monitoring only |
 
 > **Notes:**
 > - **TTE**: trans-thoracic echocardiography, **cTn**: cardiac troponins
@@ -68,11 +68,11 @@ For the management of patients on potentially cardiotoxic chemotherapeutic agent
 #### Treatment Recommendations
 | Risk Category | Management |
 |---|---|
-| **Very high cardiotoxicity risk** | Initiate ACEI/ARB, carvedilol and statins, one week prior to chemotherapy and up-titre as tolerated |
-| **High cardiotoxicity risk** | Initiate ACEI/ARB, carvedilol/nebivolol and statins |
-| **Intermediate cardiotoxicity risk** | Discuss risk and benefit of medication |
-| **Low cardiotoxicity risk** | None, monitoring only |
-| **Very low cardiotoxicity** | None, monitoring only |
+| Very high cardiotoxicity risk | Initiate ACEI/ARB, carvedilol and statins, one week prior to chemotherapy and up-titre as tolerated |
+| High cardiotoxicity risk | Initiate ACEI/ARB, carvedilol/nebivolol and statins |
+| Intermediate cardiotoxicity risk | Discuss risk and benefit of medication |
+| Low cardiotoxicity risk | None, monitoring only |
+| Very low cardiotoxicity | None, monitoring only |
 
 Women who had chemotherapy or radiation therapy in the past and who are now pregnant or planning to get pregnant should be evaluated by a cardiologist, as the pregnancy can unmask a cardiomyopathy.
 

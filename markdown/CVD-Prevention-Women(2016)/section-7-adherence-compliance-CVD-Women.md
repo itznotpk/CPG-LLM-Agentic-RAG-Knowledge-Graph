@@ -99,23 +99,23 @@ Patient's weight, waist circumference and BMI and the desirable values.
 #### Clinical Audit Criteria
 | Criteria | Result of the most recent examination | Date of the most recent examination | Not done |
 |---|---|---|---|
-| **Height** | ______ cm | | [ ] |
-| **Weight** | ______ kg | | [ ] |
-| **Waist circumference** | ______ cm | | [ ] |
-| **Body Mass Index (BMI)** | ______ kg/m² | | [ ] |
-| **Blood Pressure** | ______ mmHg | | [ ] |
-| **FBS, RBS or 2HPP** | ______ mmol/L | | [ ] |
-| **HbA1c** | ______ % | | [ ] |
-| **Lipid profile: TC** | ______ mmol/L | | [ ] |
-| **Lipid profile: TG** | ______ mmol/L | | [ ] |
-| **Lipid profile: HDL** | ______ mmol/L | | [ ] |
-| **Lipid profile: LDL** | ______ mmol/L | | [ ] |
-| **Creatinine** | ______ µmol/L | | [ ] |
-| **Urine microalbumin** | Normal / Abnormal | | [ ] |
-| **Urine protein** | Present / Absent | | [ ] |
-| **Fundoscopy** | Normal / Abnormal | | [ ] |
-| **Examination of feet** | Normal / Abnormal | | [ ] |
-| **ECG** | Normal / Abnormal | | [ ] |
+| Height | ______ cm | | [ ] |
+| Weight | ______ kg | | [ ] |
+| Waist circumference | ______ cm | | [ ] |
+| Body Mass Index (BMI) | ______ kg/m² | | [ ] |
+| Blood Pressure | ______ mmHg | | [ ] |
+| FBS, RBS or 2HPP | ______ mmol/L | | [ ] |
+| HbA1c | ______ % | | [ ] |
+| Lipid profile: TC | ______ mmol/L | | [ ] |
+| Lipid profile: TG | ______ mmol/L | | [ ] |
+| Lipid profile: HDL | ______ mmol/L | | [ ] |
+| Lipid profile: LDL | ______ mmol/L | | [ ] |
+| Creatinine | ______ µmol/L | | [ ] |
+| Urine microalbumin | Normal / Abnormal | | [ ] |
+| Urine protein | Present / Absent | | [ ] |
+| Fundoscopy | Normal / Abnormal | | [ ] |
+| Examination of feet | Normal / Abnormal | | [ ] |
+| ECG | Normal / Abnormal | | [ ] |
 
 > **Notes:**
 > - *\*This audit form contains only some of the parameters recorded in the Buku Rawatan NCD*

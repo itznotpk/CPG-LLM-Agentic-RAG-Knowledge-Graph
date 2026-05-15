@@ -27,7 +27,7 @@ Patients with stable CAD should be risk stratified using the following parameter
 - where indicated, evaluation of coronary anatomy and physiological assessment of the significance of the coronary lesion
 
 ## 7.1: Risk Stratification Of Stable Cad By Clinical Evaluation
-**[Grade I, Level B]** Important predictors of adverse outcomes in patients with stable CAD are:28,63,129-142
+[Grade I, Level B] Important predictors of adverse outcomes in patients with stable CAD are:28,63,129-142
 
 - increasing age
 - prior MI
@@ -52,7 +52,7 @@ Patients with stable CAD should be risk stratified using the following parameter
 The above adverse clinical predictors especially the severity of angina help modulate decisions made based on non-invasive tests of ischemia and where indicated, physiological testing by Fractional Flow Reserve (FFR).
 
 ## 7.2: Risk Stratification Of Stable Cad By Resting ECG
-- **[Grade I, Level B]** Resting ECG abnormalities can predict patients at greater risk of future CV includ,,1
+- [Grade I, Level B] Resting ECG abnormalities can predict patients at greater risk of future CV includ,,1
 - evidence of prior MI
 - LBBB
 - left anterior hemiblock,
@@ -63,10 +63,10 @@ The above adverse clinical predictors especially the severity of angina help mod
 ## 7.3: Risk Stratification Of Stable Cad By Left Ventricular Function
 LV function is the strongest predictor of survival. Patients with an LVEF of <50% are already at high risk of CV death (annual mortality rate of >3%) without incorporating other risk factors.45,46,133,134,146,147
 
-- **[Grade I, Level B]** In the presence of a depressed LV function, it is important to determine if this is due to infarcted (scar) tissue or viable but stunned ischemic myocardium. This can be done by stress imaging techniques. In the presence of ischemic but viable myocardium, coronary revascularisation can result in an improvement in LV function and survival.148
+- [Grade I, Level B] In the presence of a depressed LV function, it is important to determine if this is due to infarcted (scar) tissue or viable but stunned ischemic myocardium. This can be done by stress imaging techniques. In the presence of ischemic but viable myocardium, coronary revascularisation can result in an improvement in LV function and survival.148
 
 ## 7.4: Risk Stratification Of Stable Cad By Non-Invasive Testing
-Non-invasive tests provide useful information for prognostication.(refer Table 2: Prognostic Indicators for Adverse CV Outcomes on Non-Invasive Testing) A negative test carries a good prognosis but the clinical evaluation (e.g. age, ability to exercise, exercise duration, co-morbidity such as **[Grade I, Level C]** diabetes, CKD etc) and LV function should also be considered when assessing CV risk.
+Non-invasive tests provide useful information for prognostication.(refer Table 2: Prognostic Indicators for Adverse CV Outcomes on Non-Invasive Testing) A negative test carries a good prognosis but the clinical evaluation (e.g. age, ability to exercise, exercise duration, co-morbidity such as [Grade I, Level C] diabetes, CKD etc) and LV function should also be considered when assessing CV risk.
 
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: TABLE 2 (pg 24)                        -->
@@ -94,16 +94,16 @@ Table 2: Prognostic Indicators For Adverse CV Outcomes On Non-Invasive Testing
 
 <!-- END OVERLAP FROM: TABLE 2 -->
 
-**[Grade I, Level C]**
+[Grade I, Level C]
 
-Small imaging substudies have shown mixed results when looking at CV outcomes in individuals with moderate to severe ischemia treated with **[Grade II-a, Level C]** revascularization as compared to OMT.149-152 Two large clinical trials have not patients.76.153 In individuals with depressed LV function (LVEF ≤35%) CABG did not reduce all-cause mortality but resulted in a reduction in CV mortality and hospitalizations.154 The ISCHEMIA trial is a large randomized clinical trial
+Small imaging substudies have shown mixed results when looking at CV outcomes in individuals with moderate to severe ischemia treated with [Grade II-a, Level C] revascularization as compared to OMT.149-152 Two large clinical trials have not patients.76.153 In individuals with depressed LV function (LVEF ≤35%) CABG did not reduce all-cause mortality but resulted in a reduction in CV mortality and hospitalizations.154 The ISCHEMIA trial is a large randomized clinical trial
 
 In patients with unprotected Left Main stem stenosis of >50%, revascularisation medical treatment in patients with significant LMS stenosis (greater than 50%) is little argued." 157
 
 ## 7.5: Risk Stratification Of Stable Cad By Anatomic Testing
 
 ### 7.5.1: Coronary Calcium (Cac) Score
-- CAC scores help with CV risk stratification.158-163 (refer Table 8: Coronary Calcium Score and CV Risk) It guides risk **[Grade II-a, Level B]** reduction strategy, OMT and the need for further evaluation.
+- CAC scores help with CV risk stratification.158-163 (refer Table 8: Coronary Calcium Score and CV Risk) It guides risk [Grade II-a, Level B] reduction strategy, OMT and the need for further evaluation.
 
 CAC score alone was able to predict CHD risk independently of the Framingham Risk Score.156.157 When used together with the traditional CV risk factors, it had incremental value in CV risk prediction.164,165 There is a significant correlation between CAC score and overall coronary artery atherosclerotic plaque, with a high sensitivity >95% and a high negative predictive value of >95%.109,166,167 The CAC score was found to be highly predictive of CV risk in 4 ethnic groups - white, black, Hispanic, and Chinese.168
 
@@ -132,7 +132,7 @@ Table 8: Coronary Calcium Score And CV Risk
 <!-- END OVERLAP FROM: TABLE 8 -->
 
 ### 7.5.2: Computed Tomography Angiography (Cta)
-- CTA may also be used for prognostication. There is a strong predictive value **[Grade II-a, Level A]** for   mortality and major  CV  events independent of  traditional  risk factors.7-9,172-174
+- CTA may also be used for prognostication. There is a strong predictive value [Grade II-a, Level A] for   mortality and major  CV  events independent of  traditional  risk factors.7-9,172-174
 
 In assessing prognosis, in patients with:
 - absence of any plaque the CV event rate is low — 0.24% for CV death/non-fatal MI and an annual mortality of 0.28%.7.8
@@ -141,7 +141,7 @@ In assessing prognosis, in patients with:
 
 Despite its excellent predictive value, in a randomized controlled trial comparing functional testing with MPI using SPECT and CTA as initial diagnostic strategies in patients with suspected CAD, there were no differences in clinical outcomes.59
 
-- Due to the potential overestimation of obstructive coronary disease by CTA, **[Grade I, Level A]** it may be advisable to perform additional testing for the presence of ischemia prior to revascularization in the asymptomatic individual.175.176
+- Due to the potential overestimation of obstructive coronary disease by CTA, [Grade I, Level A] it may be advisable to perform additional testing for the presence of ischemia prior to revascularization in the asymptomatic individual.175.176
 
 ### 7.5.3: Risk Stratification By Invasive Coronary Angiography (Ica)
 ICA continues to be the "gold standard" in assessing coronary anatomy although it has its limitations. It cannot detect vulnerable plaques which are in most cases not severe (<50% stenosis) but have a rich lipid core.
@@ -164,7 +164,7 @@ Coronary arteriography should NOT be performed in patients:
 ### 7.5.4: Risk Assessment By Physiological Assessment Of The Functional Severity Of Coronary Lesions
 Coronary angiography is of limited value in defining the functional significance of coronary stenosis. Yet the most important factor related to outcome is the presence and extent of inducible ischemia.177 If a stenosis is not flow-limiting, it will not cause angina and the prognosis without coronary intervention is excellent, with a "hard" event rate (cardiac death or non-fatal MI) of <1% per year.175 This event rate was not reduced with PCI and stenting.175
 
-**[Grade I, Level A]**
+[Grade I, Level A]
 
 #### 7.5.4.1: Fractional Flow Reserve (Ffr)
 Fractional Flow Reserve (FFR). FFR is more accurate than visual the presence of angiographically insignificant stenosis, lesions with low FFR showed significantly higher event rates than those with high FFR.178
@@ -186,7 +186,7 @@ FFR is calculated as the ratio of distal coronary pressure to aortic pressure in
 
 Use of FFR accurately identifies which coronary lesions should be revascularized and improves outcome.
 
-- It is recommended that in individuals with stable CAD, FFR be used to guide **[Grade I, Level A]** revascularization of lesions of intermediate severity.182-185
+- It is recommended that in individuals with stable CAD, FFR be used to guide [Grade I, Level A] revascularization of lesions of intermediate severity.182-185
 
 At present, there are ongoing studies on the use of instantaneous wave-free ratio (iFR), a pressure-derived index of stenosis severity that is not obtained
 
@@ -197,7 +197,7 @@ FFR may also be assessed using CT. A recent meta-analysis showed that FFRct achi
 #### 7.5.4.2: Intravascular Ultrasound / Optical Coherence Tomography
 FFR provides physiological assessment of the severity of a coronary lesion, while intravascular ultrasound (IVUS) and optical coherence tomography (OCT) allow visual assessment of the lesion. IVUS makes use of the minimum lumen area (MLA) as the marker for significance of coronary stenosis. Overall, IVUS studies showed a relatively high negative predictive value but a low positive predictive value for ischemia.190
 
-Both IVUS and OCT should not be performed to determine the functional **[Grade II-a, Level B]** significance of a coronary lesion before intervention.191 These are useful in optimizing stent deployment and determining the size of the vessel undergoing stent implantation.
+Both IVUS and OCT should not be performed to determine the functional [Grade II-a, Level B] significance of a coronary lesion before intervention.191 These are useful in optimizing stent deployment and determining the size of the vessel undergoing stent implantation.
 
 ## 7.6: Guidelines For Referral To A Tertiary Cardiac Center
 Following risk stratification:
@@ -217,20 +217,20 @@ Low risk individuals can be managed in the general outpatient clinics with Famil
   - low risk — annual mortality of <1%
 
 ## Recommendation 4:
-- All patients with suspected or known CAD should be risk stratified. **[Grade I, Level B]**
+- All patients with suspected or known CAD should be risk stratified. [Grade I, Level B]
 - This is done by:
-  - Clinical evaluation **[Grade I, Level B]**
-  - Resting ECG **[Grade I, Level B]**
-  - Non-invasive assessment of myocardial ischaemia **[Grade I, Level C]**
-  - Assessment of Left ventricular function **[Grade I, Level B]**
-  - Where indicated, evaluation of coronary anatomy (non-invasively by CT or by invasively) and physiological assessment of the significance of the coronary lesion by Fractional Flow Reserve (FFR) **[Grade I, Level A]**
-- Low risk individuals (annual mortality <1%) should be managed with risk factor reduction and/or anti-anginal medications as necessary. No further intervention is required. **[Grade I, Level C]**
-- Intermediate risk individuals (annual mortality 1-3%) may be managed with risk reduction strategies +/- anti-anginal therapy or considered for invasive coronary angiogram and revascularization depending on the clinical condition and patient preferences. **[Grade I, Level C]**
-- High risk individuals, (annual mortality >3%) in addition to risk reduction strategies, should be considered for invasive coronary angiography with view to revascularization. **[Grade I, Level C]**
+  - Clinical evaluation [Grade I, Level B]
+  - Resting ECG [Grade I, Level B]
+  - Non-invasive assessment of myocardial ischaemia [Grade I, Level C]
+  - Assessment of Left ventricular function [Grade I, Level B]
+  - Where indicated, evaluation of coronary anatomy (non-invasively by CT or by invasively) and physiological assessment of the significance of the coronary lesion by Fractional Flow Reserve (FFR) [Grade I, Level A]
+- Low risk individuals (annual mortality <1%) should be managed with risk factor reduction and/or anti-anginal medications as necessary. No further intervention is required. [Grade I, Level C]
+- Intermediate risk individuals (annual mortality 1-3%) may be managed with risk reduction strategies +/- anti-anginal therapy or considered for invasive coronary angiogram and revascularization depending on the clinical condition and patient preferences. [Grade I, Level C]
+- High risk individuals, (annual mortality >3%) in addition to risk reduction strategies, should be considered for invasive coronary angiography with view to revascularization. [Grade I, Level C]
 
 ## Recommendation 5:
-- Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. **[Grade I, Level C]**
-- Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated. **[Grade I, Level C]**
+- Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. [Grade I, Level C]
+- Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated. [Grade I, Level C]
 
 <!-- ============================================================ -->
 <!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
@@ -240,18 +240,18 @@ Low risk individuals can be managed in the general outpatient clinics with Famil
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

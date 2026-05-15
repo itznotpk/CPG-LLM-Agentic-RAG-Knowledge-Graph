@@ -45,7 +45,7 @@ The appropriate management, which includes the rapidity and the degree of invasi
 The recommended therapy based on risk-stratification is as in (refer Flowchart 1: Risk Stratification of UA/NSTEMI).
 
 ## Key Messages
-**[Grade I, Level A]** Intermediate/high risk patients benefit from early angiography and revascularization.
+[Grade I, Level A] Intermediate/high risk patients benefit from early angiography and revascularization.
 
 <!-- OVERLAP CONTENT -->
 
@@ -159,24 +159,24 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACE-I** | Angiotensin Converting Enzyme Inhibitor |
-| **ACS** | Acute Coronary Syndrome |
-| **ARB** | Angiotensin Receptor Blocker |
-| **CAD** | Coronary Artery Disease |
-| **CCB** | Calcium Channel Blocker |
-| **CK-MB** | Creatine Kinase-MB |
-| **ECG** | Electrocardiogram |
-| **GP** | Glycoprotein |
-| **GRACE** | Global Registry of Acute Coronary Events |
-| **GTN** | Glyceryl trinitrate |
-| **LMWH** | Low Molecular Weight Heparin |
-| **LV** | Left Ventricular |
-| **LVEF** | Left Ventricular Ejection Fraction |
-| **PCI** | Percutaneous Coronary Intervention |
-| **TIMI** | Thrombolysis in Myocardial Infarction |
-| **UA/NSTEMI** | Unstable Angina/Non-ST-Elevation Myocardial Infarction |
-| **UFH** | Unfractionated Heparin |
-| **VF** | Ventricular Fibrillation |
-| **VT** | Ventricular Tachycardia |
+| ACE-I | Angiotensin Converting Enzyme Inhibitor |
+| ACS | Acute Coronary Syndrome |
+| ARB | Angiotensin Receptor Blocker |
+| CAD | Coronary Artery Disease |
+| CCB | Calcium Channel Blocker |
+| CK-MB | Creatine Kinase-MB |
+| ECG | Electrocardiogram |
+| GP | Glycoprotein |
+| GRACE | Global Registry of Acute Coronary Events |
+| GTN | Glyceryl trinitrate |
+| LMWH | Low Molecular Weight Heparin |
+| LV | Left Ventricular |
+| LVEF | Left Ventricular Ejection Fraction |
+| PCI | Percutaneous Coronary Intervention |
+| TIMI | Thrombolysis in Myocardial Infarction |
+| UA/NSTEMI | Unstable Angina/Non-ST-Elevation Myocardial Infarction |
+| UFH | Unfractionated Heparin |
+| VF | Ventricular Fibrillation |
+| VT | Ventricular Tachycardia |
 
 <!-- END OVERLAP CONTENT -->

@@ -11,9 +11,9 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 ## Appendix I: Braunwald's Classification Of Unstable Angina
 | Severity | CLINICAL CIRCUMSTANCES: A (Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia / Secondary UA) | CLINICAL CIRCUMSTANCES: B (Develops in Absence of Extracardiac Condition / Primary UA) | CLINICAL CIRCUMSTANCES: C (Develops Within 2 weeks of MI / Postinfarction UA) |
 |---|---|---|---|
-| **I — New onset of severe angina or accelerated angina; no rest pain** | **[Grade I, Level A]** | **[Grade I, Level B]** | **[Grade I, Level C]** |
-| **II — Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute)** | **[Grade II, Level A]** | **[Grade II, Level B]** | **[Grade II, Level C]** |
-| **III — Angina at rest within 48 hours (angina at rest, acute)** | **[Grade III, Level A]** | **[Grade III, Level B-Tneg]** / **[Grade III, Level B-Tpos]** | **[Grade III, Level C]** |
+| I — New onset of severe angina or accelerated angina; no rest pain | [Grade I, Level A] | [Grade I, Level B] | [Grade I, Level C] |
+| II — Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute) | [Grade II, Level A] | [Grade II, Level B] | [Grade II, Level C] |
+| III — Angina at rest within 48 hours (angina at rest, acute) | [Grade III, Level A] | [Grade III, Level B-Tneg] / [Grade III, Level B-Tpos] | [Grade III, Level C] |
 
 *UA: Unstable angina; T: Troponins*
 
@@ -52,17 +52,17 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 ## Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
 | Category | Greater Likelihood | Lower Likelihood |
 |---|---|---|
-| **History** | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
+| History | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
 | | Known history of CAD, including MI | Recent cocaine use |
 | | New chest or left arm pain or discomfort as chief symptom | |
 | | Age greater than 70 years | |
 | | Male sex | |
 | | Diabetes mellitus | |
-| **Examination** | Transient MR murmur, hypotension, diaphoresis, pulmonary edema, or rales | Chest discomfort reproduced by palpation |
+| Examination | Transient MR murmur, hypotension, diaphoresis, pulmonary edema, or rales | Chest discomfort reproduced by palpation |
 | | Extracardiac vascular disease | |
-| **ECG** | New, or presumably new, transient ST-segment deviation (1 mm or greater) or T-wave inversion in multiple pre-cordial leads | T-wave flattening or inversion less than 1 mm in leads with dominant R waves |
+| ECG | New, or presumably new, transient ST-segment deviation (1 mm or greater) or T-wave inversion in multiple pre-cordial leads | T-wave flattening or inversion less than 1 mm in leads with dominant R waves |
 | | | Normal ECG |
-| **Cardiac Biomarkers** | Elevated cardiac TnI, TnT, or CK-MB markers | Normal |
+| Cardiac Biomarkers | Elevated cardiac TnI, TnT, or CK-MB markers | Normal |
 
 *Modified from Braunwald E, et al. Unstable Angina: Diagnosis and Management. 1994;3-1-AHCPR Publication No 94-0602:1-154.*
 
@@ -95,7 +95,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 
 | Category | Variable | Condition | Points |
 |---|---|---|---|
-| **Medical History** | 1. Age in Years | &le;29 | 0 |
+| Medical History | 1. Age in Years | &le;29 | 0 |
 | | | 30-39 | 0 |
 | | | 40-49 | 18 |
 | | | 50-59 | 36 |
@@ -105,7 +105,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | | &ge;90 | 100 |
 | | 2. History of Congestive Heart Failure | Yes | 24 |
 | | 3. History of Myocardial Infarction | Yes | 12 |
-| **Findings at Initial Hospital Presentation** | 4. Resting Heart Rate (beats/min) | &le;49.9 | 0 |
+| Findings at Initial Hospital Presentation | 4. Resting Heart Rate (beats/min) | &le;49.9 | 0 |
 | | | 50-69.9 | 3 |
 | | | 70-89.9 | 9 |
 | | | 90-109.9 | 14 |
@@ -120,7 +120,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | | 160-199.9 | 4 |
 | | | &ge;200 | 0 |
 | | 6. ST-Segment Depression | Yes | 11 |
-| **Findings During Hospitalization** | 7. Initial Serum Creatinine (mg/dL) | 0-0.39 | 1 |
+| Findings During Hospitalization | 7. Initial Serum Creatinine (mg/dL) | 0-0.39 | 1 |
 | | | 0.4-0.79 | 3 |
 | | | 0.8-1.19 | 5 |
 | | | 1.2-1.59 | 7 |
@@ -162,21 +162,21 @@ S~Cr~ : serum creatinine
 ## Appendix VII: Prevention Of Contrast Induced Nephropathy (ACC/ESC Classification)
 | Intervention | ACC/ESC Classification |
 |---|---|
-| **Contrast Agent** | |
-| - Isomolar agent | **[Grade I, Level A]** |
-| - Low osmolar agents | **[Grade II-a, Level B]** |
-| - use minimal volume | **[Grade I, Level C]** |
-| **Avoid nephrotoxic agents** eg NSAIDS, metformin | **[Grade I, Level C]** |
-| **Saline Infusion** | **[Grade I, Level C]** |
-| **Sodium Bicarbonate** | **[Grade IIa, Level B]** |
-| **Acetylcysteine** | **[Grade II-b, Level B]** |
+| Contrast Agent | |
+| - Isomolar agent | [Grade I, Level A] |
+| - Low osmolar agents | [Grade II-a, Level B] |
+| - use minimal volume | [Grade I, Level C] |
+| **Avoid nephrotoxic agents** eg NSAIDS, metformin | [Grade I, Level C] |
+| Saline Infusion | [Grade I, Level C] |
+| Sodium Bicarbonate | [Grade IIa, Level B] |
+| Acetylcysteine | [Grade II-b, Level B] |
 
 ## Appendix VIII: Prevention Of Contrast Induced Nephropathy (Dosing)
 | AGENT | CONCENTRATION | DOSE / FLOW RATE |
 |---|---|---|
-| **Sodium Chloride** | 0.9% solution | Rate of 1.0-1.5 ml/kg/hr for 3h-12h before and 6h-24h after the procedure ensuring a urine flow rate of 150 ml/hour.<br>Reduce rate to 0.5 ml/kg/hr if LVEF<40% |
-| **Sodium Bicarbonate** | 154 mEq/L in 5% dextrose in water (154 ml of 1000 mEq/I of sodium bicarbonate + 850 ml of 5% Dextrose) | 3 ml/kg/hr for 1 hour before the contrast followed by an infusion of 1 ml/kg/hr for 6 hours after the procedure |
-| **N-acetylcysteine** | | 1200 mg twice daily, one day before and one day after the contrast |
+| Sodium Chloride | 0.9% solution | Rate of 1.0-1.5 ml/kg/hr for 3h-12h before and 6h-24h after the procedure ensuring a urine flow rate of 150 ml/hour.<br>Reduce rate to 0.5 ml/kg/hr if LVEF<40% |
+| Sodium Bicarbonate | 154 mEq/L in 5% dextrose in water (154 ml of 1000 mEq/I of sodium bicarbonate + 850 ml of 5% Dextrose) | 3 ml/kg/hr for 1 hour before the contrast followed by an infusion of 1 ml/kg/hr for 6 hours after the procedure |
+| N-acetylcysteine | | 1200 mg twice daily, one day before and one day after the contrast |
 
 ## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
@@ -196,22 +196,22 @@ S~Cr~ : serum creatinine
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACC** | American College of Cardiology |
-| **ACS** | Acute Coronary Syndrome |
-| **CAD** | Coronary Artery Disease |
-| **CKD** | Chronic Kidney Disease |
-| **CK-MB** | Creatine Kinase-MB |
-| **ECG** | Electrocardiogram |
-| **ESC** | European Society of Cardiology |
-| **GFR** | Glomerular Filtration Rate |
-| **GRACE** | Global Registry of Acute Coronary Events |
-| **LVEF** | Left Ventricular Ejection Fraction |
-| **MI** | Myocardial Infarction |
-| **MR** | Mitral Regurgitation |
-| **NSAIDs** | Non-Steroidal Anti-Inflammatory Drugs |
-| **NSTEMI** | Non-ST Elevation Myocardial Infarction |
-| **SCr** | Serum Creatinine |
-| **TIMI** | Thrombolysis In Myocardial Infarction |
-| **TnI** | Troponin I |
-| **TnT** | Troponin T |
-| **UA** | Unstable Angina |
+| ACC | American College of Cardiology |
+| ACS | Acute Coronary Syndrome |
+| CAD | Coronary Artery Disease |
+| CKD | Chronic Kidney Disease |
+| CK-MB | Creatine Kinase-MB |
+| ECG | Electrocardiogram |
+| ESC | European Society of Cardiology |
+| GFR | Glomerular Filtration Rate |
+| GRACE | Global Registry of Acute Coronary Events |
+| LVEF | Left Ventricular Ejection Fraction |
+| MI | Myocardial Infarction |
+| MR | Mitral Regurgitation |
+| NSAIDs | Non-Steroidal Anti-Inflammatory Drugs |
+| NSTEMI | Non-ST Elevation Myocardial Infarction |
+| SCr | Serum Creatinine |
+| TIMI | Thrombolysis In Myocardial Infarction |
+| TnI | Troponin I |
+| TnT | Troponin T |
+| UA | Unstable Angina |

@@ -21,9 +21,9 @@ critical: true
 After the initial assessment, classify the pain based on the following parameters:
 | Parameter | Classification |
 |---|---|
-| **Type** | Nociceptive / Neuropathic / Mixed |
-| **Source** | Cancer-related / Non-cancer-related |
-| **Severity** | Determined by Pain Score |
+| Type | Nociceptive / Neuropathic / Mixed |
+| Source | Cancer-related / Non-cancer-related |
+| Severity | Determined by Pain Score |
 
 **Step 3: Severity Assessment (Pain Score)**
 **Based on Pain Score:**
@@ -134,9 +134,9 @@ Assess the following parameters:
 After the initial assessment, classify the pain based on the following parameters:
 | Parameter | Classification |
 |---|---|
-| **Type** | Nociceptive / Neuropathic / Mixed |
-| **Source** | Cancer-related / Non-cancer-related |
-| **Severity** | Determined by Pain Score |
+| Type | Nociceptive / Neuropathic / Mixed |
+| Source | Cancer-related / Non-cancer-related |
+| Severity | Determined by Pain Score |
 
 **Step 3: Severity Assessment (Pain Score)**
 **Based on Pain Score:**

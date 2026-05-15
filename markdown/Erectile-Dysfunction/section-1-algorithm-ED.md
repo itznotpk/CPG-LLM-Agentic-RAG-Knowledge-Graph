@@ -16,11 +16,11 @@ This algorithm outlines the clinical decision pathway for diagnosing and treatin
 ### 📖 Glossary
 | Term | Definition |
 |------|------------|
-| **ASCVD** | Atherosclerotic Cardiovascular Disease |
-| **ED** | Erectile Dysfunction |
-| **IIEF-5** | 5-item version of International Index of Erectile Function |
-| **PDE5i** | Phosphodiesterase-5 inhibitors |
-| **VED** | Vacuum Erection Device |
+| ASCVD | Atherosclerotic Cardiovascular Disease |
+| ED | Erectile Dysfunction |
+| IIEF-5 | 5-item version of International Index of Erectile Function |
+| PDE5i | Phosphodiesterase-5 inhibitors |
+| VED | Vacuum Erection Device |
 
 ---
 
@@ -45,9 +45,9 @@ After assessment, classify the **Type of ED**:
 
 | Type | Description |
 |------|-------------|
-| **Organic ED** | Physical/medical cause (vascular, hormonal, neurogenic) |
-| **Psychogenic ED** | Psychological cause (anxiety, depression, relationship) |
-| **Mixed ED** | Combination of organic and psychogenic factors |
+| Organic ED | Physical/medical cause (vascular, hormonal, neurogenic) |
+| Psychogenic ED | Psychological cause (anxiety, depression, relationship) |
+| Mixed ED | Combination of organic and psychogenic factors |
 
 > *Some cases may present with mixed ED. Categorize severity according to IIEF-5.
 
@@ -144,8 +144,8 @@ Continue to Step 5 (Nitrate Assessment)
 
 | Test Result | Next Step |
 |-------------|-----------|
-| **Pass** | Reclassify as **Low Risk** → For advice and treatment by primary team |
-| **Fail** | Reclassify as **High Risk** → For further cardiac assessment |
+| Pass | Reclassify as **Low Risk** → For advice and treatment by primary team |
+| Fail | Reclassify as **High Risk** → For further cardiac assessment |
 
 ---
 

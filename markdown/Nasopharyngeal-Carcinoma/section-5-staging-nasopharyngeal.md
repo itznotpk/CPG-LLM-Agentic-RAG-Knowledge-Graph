@@ -47,21 +47,21 @@ TNM staging consist of clinical examination, and pathological and radiological i
 ### Anatomic Stage/Prognostic Groups
 | Stage | T | N | M |
 |---|---|---|---|
-| **Stage 0** | Tis | N0 | M0 |
-| **Stage I** | T1 | N0 | M0 |
-| **Stage II** | T1 | N1 | M0 |
+| Stage 0 | Tis | N0 | M0 |
+| Stage I | T1 | N0 | M0 |
+| Stage II | T1 | N1 | M0 |
 | | T2 | N0 | M0 |
 | | T2 | N1 | M0 |
-| **Stage III** | T1 | N2 | M0 |
+| Stage III | T1 | N2 | M0 |
 | | T2 | N2 | M0 |
 | | T3 | N0 | M0 |
 | | T3 | N1 | M0 |
 | | T3 | N2 | M0 |
-| **Stage IVA** | T4 | N0 | M0 |
+| Stage IVA | T4 | N0 | M0 |
 | | T4 | N1 | M0 |
 | | T4 | N2 | M0 |
-| **Stage IVB** | Any T | N3 | M0 |
-| **Stage IVC** | Any T | Any N | M1 |
+| Stage IVB | Any T | N3 | M0 |
+| Stage IVC | Any T | Any N | M1 |
 
 ---
 
@@ -128,21 +128,21 @@ The distribution and the prognostic impact of regional lymph node spread from na
 
 | GROUP | T | N | M |
 |---|---|---|---|
-| **0** | Tis | N0 | M0 |
-| **I** | T1 | N0 | M0 |
-| **II** | T1 | N1 | M0 |
+| 0 | Tis | N0 | M0 |
+| I | T1 | N0 | M0 |
+| II | T1 | N1 | M0 |
 | | T2 | N0 | M0 |
 | | T2 | N1 | M0 |
-| **III** | T1 | N2 | M0 |
+| III | T1 | N2 | M0 |
 | | T2 | N2 | M0 |
 | | T3 | N0 | M0 |
 | | T3 | N1 | M0 |
 | | T3 | N2 | M0 |
-| **IVA** | T4 | N0 | M0 |
+| IVA | T4 | N0 | M0 |
 | | T4 | N1 | M0 |
 | | T4 | N2 | M0 |
-| **IVB** | Any T | N3 | M0 |
-| **IVC** | Any T | Any N | M1 |
+| IVB | Any T | N3 | M0 |
+| IVC | Any T | Any N | M1 |
 | | Unknown Stage | | |
 
 *Note: Group definitions are identical for Clinical and Pathologic staging.*

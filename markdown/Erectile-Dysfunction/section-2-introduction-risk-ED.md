@@ -32,31 +32,31 @@ Prevalence increases significantly with age. Men aged ≥60 years are strongly a
 ## 2.2: Lifestyle Behaviours
 | Factor | Association with ED | Evidence |
 | :--- | :--- | :--- |
-| **Diet** | High fruit/vegetable/flavonoid intake and Mediterranean diet reduce risk. | Level II-2 |
-| **Physical Activity** | Moderate intensity activity (>1-2 days/week) reduces risk. | Level III |
-| **Obesity** | BMI ≥29 kg/m² increases risk (OR=1.78). | Level III |
-| **Smoking** | Independent risk factor (OR=1.41) with dose-response relationship. | Level III |
-| **Alcohol** | Light/moderate consumption may be beneficial; high consumption is not. | Level III |
-| **Recreational Drugs** | Amphetamine, cannabis, opioid, ecstasy increase risk. | Level II-2 |
-| **Pornography** | Problematic consumption and preference for masturbation with pornography increase risk. | Level III |
-| **Partner's Dysfunction** | Female Sexual Dysfunction (FSD) increases likelihood of ED (OR=3.80). | Level III |
+| Diet | High fruit/vegetable/flavonoid intake and Mediterranean diet reduce risk. | Level II-2 |
+| Physical Activity | Moderate intensity activity (>1-2 days/week) reduces risk. | Level III |
+| Obesity | BMI ≥29 kg/m² increases risk (OR=1.78). | Level III |
+| Smoking | Independent risk factor (OR=1.41) with dose-response relationship. | Level III |
+| Alcohol | Light/moderate consumption may be beneficial; high consumption is not. | Level III |
+| Recreational Drugs | Amphetamine, cannabis, opioid, ecstasy increase risk. | Level II-2 |
+| Pornography | Problematic consumption and preference for masturbation with pornography increase risk. | Level III |
+| Partner's Dysfunction | Female Sexual Dysfunction (FSD) increases likelihood of ED (OR=3.80). | Level III |
 
 > **Note on Cycling:** Some studies suggest cyclists may have higher odds of ED, but primary studies were of fair/poor quality.
 
 ## 2.3: Co-Morbidities
 | Condition | Risk/Association | Evidence |
 | :--- | :--- | :--- |
-| **Diabetes Mellitus** | 59.1% prevalence among diabetics; OR=3.62 vs healthy controls. | Level III |
-| **Hypertension** | Risk factor (OR=1.61). | Level III |
-| **Cardiovascular Diseases** | High prevalence in IHD (90.4%) and post-MI (62%). | Level III |
-| **End-Stage Renal Disease** | High prevalence (71%), highest in pre-dialysis. | Level II-2 |
-| **Hyperuricaemia** | Associated with increased risk. | Level II-2 |
-| **Obstructive Sleep Apnoea** | Prevalence of ED 40.9-80% in OSA patients. | Level II-2 |
-| **Chronic Prostatitis/CPPS** | Higher risk (OR=2.68). | Level II-2 |
-| **Depression** | Higher odds (OR=2.55). | Level II-2 |
-| **Anxiety** | Prevalence ~20%. | Level III |
-| **Hypogonadism** | Higher risk in secondary hypogonadism. | Level III |
-| **Traumatic Brain Injuries** | Higher rate and risk of ED, often dose-dependent on severity. | Level II-2 |
+| Diabetes Mellitus | 59.1% prevalence among diabetics; OR=3.62 vs healthy controls. | Level III |
+| Hypertension | Risk factor (OR=1.61). | Level III |
+| Cardiovascular Diseases | High prevalence in IHD (90.4%) and post-MI (62%). | Level III |
+| End-Stage Renal Disease | High prevalence (71%), highest in pre-dialysis. | Level II-2 |
+| Hyperuricaemia | Associated with increased risk. | Level II-2 |
+| Obstructive Sleep Apnoea | Prevalence of ED 40.9-80% in OSA patients. | Level II-2 |
+| Chronic Prostatitis/CPPS | Higher risk (OR=2.68). | Level II-2 |
+| Depression | Higher odds (OR=2.55). | Level II-2 |
+| Anxiety | Prevalence ~20%. | Level III |
+| Hypogonadism | Higher risk in secondary hypogonadism. | Level III |
+| Traumatic Brain Injuries | Higher rate and risk of ED, often dose-dependent on severity. | Level II-2 |
 
 ## 2.4: Medications
 Certain medications are associated with drug-induced ED:

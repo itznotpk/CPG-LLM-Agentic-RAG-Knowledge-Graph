@@ -62,18 +62,18 @@ Table 1: Updated Clinical Classification Of Pht (Dana Point 2008)
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ALK-1** | Activin receptor-like kinase 1 |
-| **BMPR2** | Bone Morphogenetic Protein Receptor Type 2 |
-| **CHD** | Congenital Heart Disease |
-| **CTEPH** | Chronic Thromboembolic Pulmonary Hypertension |
-| **HIV** | Human Immunodeficiency Virus |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **mPAP** | Mean Pulmonary Arterial Pressure |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PCH** | Pulmonary Capillary Hemangiomatosis |
-| **PCWP** | Pulmonary Capillary Wedge Pressure |
-| **PHT** | Pulmonary Hypertension |
-| **PVOD** | Pulmonary Veno-Occlusive Disease |
-| **WHO** | World Health Organisation |
+| ALK-1 | Activin receptor-like kinase 1 |
+| BMPR2 | Bone Morphogenetic Protein Receptor Type 2 |
+| CHD | Congenital Heart Disease |
+| CTEPH | Chronic Thromboembolic Pulmonary Hypertension |
+| HIV | Human Immunodeficiency Virus |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| mPAP | Mean Pulmonary Arterial Pressure |
+| PAH | Pulmonary Arterial Hypertension |
+| PCH | Pulmonary Capillary Hemangiomatosis |
+| PCWP | Pulmonary Capillary Wedge Pressure |
+| PHT | Pulmonary Hypertension |
+| PVOD | Pulmonary Veno-Occlusive Disease |
+| WHO | World Health Organisation |
 
 <!-- END OVERLAP CONTENT -->

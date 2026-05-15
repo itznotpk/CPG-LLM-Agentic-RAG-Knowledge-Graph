@@ -171,11 +171,11 @@ Table 2: Medications to be administered via central venous catheter
 Table 3: Complications of extravasation and intra-arterial injection of anaesthesia drugs
 | Drugs | Possible complications following extravasation | Possible complications following intra-arterial injection |
 |---|---|---|
-| **Atracurium** | Tissue ischaemia and necrosis | Tissue ischaemia |
-| **Ketamine** | Tissue ischaemia and necrosis | Tissue necrosis |
-| **Propofol** | Tissue ischaemia | ‘Distal’ blanching and hyperaemia |
-| **Rocuronium** | Local irritation | Tissue ischaemia |
-| **Thiopental** | Tissue ischaemia and necrosis | Tissue ischaemia and necrosis |
+| Atracurium | Tissue ischaemia and necrosis | Tissue ischaemia |
+| Ketamine | Tissue ischaemia and necrosis | Tissue necrosis |
+| Propofol | Tissue ischaemia | ‘Distal’ blanching and hyperaemia |
+| Rocuronium | Local irritation | Tissue ischaemia |
+| Thiopental | Tissue ischaemia and necrosis | Tissue ischaemia and necrosis |
 
 3) Other drugs with potential for tissue damage are hyperosmolar solutions such as calcium chloride and sodium bicarbonate, acidic or alkaline drugs such as amiodarone and phenytoin, and inotropes, for example, norepinephrine and vasopressin.
 4) The sequela of extravasation is minor. Major complications of extravasation are tissue necrosis, tissue loss and scarring. On the other hand, intra-arterial injection of high-risk drugs may lead to extremity ischaemia and gangrene.

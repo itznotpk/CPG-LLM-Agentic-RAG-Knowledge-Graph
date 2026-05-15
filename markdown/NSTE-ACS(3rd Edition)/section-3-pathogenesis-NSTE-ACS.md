@@ -72,12 +72,12 @@ Table 6: Clinical Classification Of MI
 
 | MI Type | Clinical Classification |
 | :--- | :--- |
-| **Type 1: Spontaneous MI due to coronary athero-thrombosis** | Spontaneous MI related to atherosclerotic plaque rupture, ulceration, fissuring, erosion, or dissection with resulting intraluminal thrombus in one or more of the coronary arteries leading to decreased myocardial blood flow or distal platelet emboli with ensuing myocyte necrosis. |
-| **Type 2: MI secondary to an imbalance between myocardial oxygen demand and supply unrelated to acute coronary athero-thrombosis** | MI that occurs due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis e.g., coronary endothelial dysfunction, coronary artery spasm, coronary embolism, coronary artery dissection, tachy/bradyarrhythmias, anemia, respiratory failure, sepsis, hypotension, and hypertension with or without left ventricular hypertrophy (LVH). |
-| **Type 3: MI resulting in death when biomarker values are unavailable** | Cardiac death with symptoms suggestive of myocardial ischemic and presumed new ischemic ECG changes or new LBBB, but death occurring before blood samples could be obtained, before cardiac biomarker could rise, or in rare cases cardiac biomarkers were not collected. |
-| **Type 4a: MI related to PCI** | MI associated with PCI is arbitrarily defined by elevation of cardiac troponin (cTn) values 5 x > 99th percentile URL in patients with normal baseline values (≤ 99th percentile URL) or a rise of cTn values > 20% if the baseline values are elevated but are stable or falling. In addition, either <br> (i) symptoms suggestive of myocardial ischemia, or <br> (ii) new ischemic ECG changes or new LBBB, or <br> (iii) angiographic loss of patency of a major coronary artery or a side branch or persistent slow-or no-flow or embolization, or <br> (iv) imaging demonstration of new loss of viable myocardium or new regional wall motion abnormality is required. |
-| **Type 4b: MI related to stent thrombosis** | MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischemia and with a rise and/or fall of cardiac biomarkers values with at least one value above the 99th percentile URL. |
-| **Type 5: MI related to coronary artery bypass surgery (CABG)** | MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 x 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either <br> (i) new pathological Q waves or new LBBB, or <br> (ii) angiographic documented new graft or new native coronary artery occlusion, or <br>  (iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality. |
+| Type 1: Spontaneous MI due to coronary athero-thrombosis | Spontaneous MI related to atherosclerotic plaque rupture, ulceration, fissuring, erosion, or dissection with resulting intraluminal thrombus in one or more of the coronary arteries leading to decreased myocardial blood flow or distal platelet emboli with ensuing myocyte necrosis. |
+| Type 2: MI secondary to an imbalance between myocardial oxygen demand and supply unrelated to acute coronary athero-thrombosis | MI that occurs due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis e.g., coronary endothelial dysfunction, coronary artery spasm, coronary embolism, coronary artery dissection, tachy/bradyarrhythmias, anemia, respiratory failure, sepsis, hypotension, and hypertension with or without left ventricular hypertrophy (LVH). |
+| Type 3: MI resulting in death when biomarker values are unavailable | Cardiac death with symptoms suggestive of myocardial ischemic and presumed new ischemic ECG changes or new LBBB, but death occurring before blood samples could be obtained, before cardiac biomarker could rise, or in rare cases cardiac biomarkers were not collected. |
+| Type 4a: MI related to PCI | MI associated with PCI is arbitrarily defined by elevation of cardiac troponin (cTn) values 5 x > 99th percentile URL in patients with normal baseline values (≤ 99th percentile URL) or a rise of cTn values > 20% if the baseline values are elevated but are stable or falling. In addition, either <br> (i) symptoms suggestive of myocardial ischemia, or <br> (ii) new ischemic ECG changes or new LBBB, or <br> (iii) angiographic loss of patency of a major coronary artery or a side branch or persistent slow-or no-flow or embolization, or <br> (iv) imaging demonstration of new loss of viable myocardium or new regional wall motion abnormality is required. |
+| Type 4b: MI related to stent thrombosis | MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischemia and with a rise and/or fall of cardiac biomarkers values with at least one value above the 99th percentile URL. |
+| Type 5: MI related to coronary artery bypass surgery (CABG) | MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 x 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either <br> (i) new pathological Q waves or new LBBB, or <br> (ii) angiographic documented new graft or new native coronary artery occlusion, or <br>  (iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality. |
 
 *Adapted from Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
 
@@ -93,7 +93,7 @@ Table 6: Clinical Classification Of MI
 | Hypertrophic cardiomyopathy |
 | Coronary vasculitis, e.g. systemic lupus erythaematosus, Kawasaki syndrome |
 | Coronary endothelial dysfunction without significant CAD e.g., cocaine abuse |
-| **Damage not related to myocardial ischemia** |
+| Damage not related to myocardial ischemia |
 | Cardiac contusion |
 | Cardiac incisions with surgery |
 | Radiofrequency or cryoablation therapy |
@@ -101,7 +101,7 @@ Table 6: Clinical Classification Of MI
 | Myocarditis |
 | Cardiotoxic agents, e.g. anthracyclines, Herceptin, carbon monoxide poisoning |
 | Severe burns affecting > 30% of body surface |
-| **Indeterminant or multifactorial group** |
+| Indeterminant or multifactorial group |
 | Apical ballooning syndrome |
 | Severe pulmonary embolism or pulmonary hypertension |
 | Peripartum cardiomyopathy |

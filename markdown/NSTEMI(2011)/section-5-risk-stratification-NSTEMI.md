@@ -39,7 +39,7 @@ Hemorrhagic complications are an independent risk factor for subsequent mortalit
 These scores are calculated based on age, clinical status and hemodynamics at presentation, serum creatinine and hematocrit level and the use and combinations of antiplatelets and anticoagulants.
 
 ## Key Messages
-**[Grade I, Level A]** Risk stratification is important for prognosis and to guide management.
+[Grade I, Level A] Risk stratification is important for prognosis and to guide management.
 
 <!-- OVERLAP CONTENT -->
 
@@ -98,17 +98,17 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 ## Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
 | Category | Greater Likelihood | Lower Likelihood |
 |---|---|---|
-| **History** | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
+| History | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
 | | Known history of CAD, including MI | Recent cocaine use |
 | | New chest or left arm pain or discomfort as chief symptom | |
 | | Age greater than 70 years | |
 | | Male sex | |
 | | Diabetes mellitus | |
-| **Examination** | Transient MR murmur, hypotension, diaphoresis, pulmonary edema, or rales | Chest discomfort reproduced by palpation |
+| Examination | Transient MR murmur, hypotension, diaphoresis, pulmonary edema, or rales | Chest discomfort reproduced by palpation |
 | | Extracardiac vascular disease | |
-| **ECG** | New, or presumably new, transient ST-segment deviation (1 mm or greater) or T-wave inversion in multiple pre-cordial leads | T-wave flattening or inversion less than 1 mm in leads with dominant R waves |
+| ECG | New, or presumably new, transient ST-segment deviation (1 mm or greater) or T-wave inversion in multiple pre-cordial leads | T-wave flattening or inversion less than 1 mm in leads with dominant R waves |
 | | | Normal ECG |
-| **Cardiac Biomarkers** | Elevated cardiac TnI, TnT, or CK-MB markers | Normal |
+| Cardiac Biomarkers | Elevated cardiac TnI, TnT, or CK-MB markers | Normal |
 
 ## Appendix IV: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
@@ -139,7 +139,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 
 | Category | Variable | Condition | Points |
 |---|---|---|---|
-| **Medical History** | 1. Age in Years | &le;29 | 0 |
+| Medical History | 1. Age in Years | &le;29 | 0 |
 | | | 30-39 | 0 |
 | | | 40-49 | 18 |
 | | | 50-59 | 36 |
@@ -149,7 +149,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | | &ge;90 | 100 |
 | | 2. History of Congestive Heart Failure | Yes | 24 |
 | | 3. History of Myocardial Infarction | Yes | 12 |
-| **Findings at Initial Hospital Presentation** | 4. Resting Heart Rate (beats/min) | &le;49.9 | 0 |
+| Findings at Initial Hospital Presentation | 4. Resting Heart Rate (beats/min) | &le;49.9 | 0 |
 | | | 50-69.9 | 3 |
 | | | 70-89.9 | 9 |
 | | | 90-109.9 | 14 |
@@ -164,7 +164,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | | 160-199.9 | 4 |
 | | | &ge;200 | 0 |
 | | 6. ST-Segment Depression | Yes | 11 |
-| **Findings During Hospitalization** | 7. Initial Serum Creatinine (mg/dL) | 0-0.39 | 1 |
+| Findings During Hospitalization | 7. Initial Serum Creatinine (mg/dL) | 0-0.39 | 1 |
 | | | 0.4-0.79 | 3 |
 | | | 0.8-1.19 | 5 |
 | | | 1.2-1.59 | 7 |
@@ -206,27 +206,27 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACE-I** | Angiotensin-Converting Enzyme Inhibitor |
-| **ACS** | Acute Coronary Syndrome |
-| **ARB** | Angiotensin Receptor Blocker |
-| **CAD** | Coronary Artery Disease |
-| **CCB** | Calcium Channel Blocker |
-| **CK-MB** | Creatine Kinase-MB |
-| **ECG** | Electrocardiogram |
-| **GRACE** | Global Registry of Acute Coronary Events |
-| **HF** | Heart Failure |
-| **LMWH** | Low Molecular Weight Heparin |
-| **LVEF** | Left Ventricular Ejection Fraction |
-| **MI** | Myocardial Infarction |
-| **MR** | Mitral Regurgitation |
-| **NSTEMI** | Non-ST Elevation Myocardial Infarction |
-| **PCI** | Percutaneous Coronary Intervention |
-| **TIMI** | Thrombolysis In Myocardial Infarction |
-| **TnI** | Troponin I |
-| **TnT** | Troponin T |
-| **UA** | Unstable Angina |
-| **UFH** | Unfractionated Heparin |
-| **VF** | Ventricular Fibrillation |
-| **VT** | Ventricular Tachycardia |
+| ACE-I | Angiotensin-Converting Enzyme Inhibitor |
+| ACS | Acute Coronary Syndrome |
+| ARB | Angiotensin Receptor Blocker |
+| CAD | Coronary Artery Disease |
+| CCB | Calcium Channel Blocker |
+| CK-MB | Creatine Kinase-MB |
+| ECG | Electrocardiogram |
+| GRACE | Global Registry of Acute Coronary Events |
+| HF | Heart Failure |
+| LMWH | Low Molecular Weight Heparin |
+| LVEF | Left Ventricular Ejection Fraction |
+| MI | Myocardial Infarction |
+| MR | Mitral Regurgitation |
+| NSTEMI | Non-ST Elevation Myocardial Infarction |
+| PCI | Percutaneous Coronary Intervention |
+| TIMI | Thrombolysis In Myocardial Infarction |
+| TnI | Troponin I |
+| TnT | Troponin T |
+| UA | Unstable Angina |
+| UFH | Unfractionated Heparin |
+| VF | Ventricular Fibrillation |
+| VT | Ventricular Tachycardia |
 
 <!-- END OVERLAP CONTENT -->

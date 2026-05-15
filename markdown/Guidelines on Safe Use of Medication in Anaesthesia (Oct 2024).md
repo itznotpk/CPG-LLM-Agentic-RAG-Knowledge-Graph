@@ -958,13 +958,13 @@ _Table 2. Medications to be administered via central venous catheter._
 
 |Medication|Recommendation|
 |---|---|
-|**_Adenosine_**|_Injection into the most proximal injection site or_<br>_central venous line._|
-|**_Amiodarone_**|_Administer centrally if central access is available._<br>_Central line is recommended for infusions greater_<br>_than 24 hours and for concentrations greater than_<br>_2mg/ml._|
+| _Adenosine_ |_Injection into the most proximal injection site or_<br>_central venous line._|
+| _Amiodarone_ |_Administer centrally if central access is available._<br>_Central line is recommended for infusions greater_<br>_than 24 hours and for concentrations greater than_<br>_2mg/ml._|
 |**_Calcium_**<br>**_Gluconate_**|_High risk for tissue necrosis._<br>_Administer slowly via central line or a large_<br>_peripheral vein._|
-|**_Dantrolene_**|_It is a vesicant. Ensure proper dilution as per_<br>_guideline._|
-|**_Dextrose in water_**|_Central line is preferred for infusion concentrations_<br>_≥ 10%._|
-|**_Dobutamine_**|_Central line is preferred._<br>_Peripheral administration may be used for less_<br>_than 4 hours while preparation for a central line is_<br>_underway._<br>_However, it should be administered via a large bore_<br>_intravenous line and the rate should be less than 2_<br>_mcg/kg/min._|
-|**_Dopamine_**|_Central line is preferred._<br>_May use concentrations of 1600 mcg/ml (400 mg /_<br>_250 mls) at doses less than or equal to 3 mcg/kg/_<br>_min peripherally._<br>_Central line recommended for higher concentrations_<br>_infusions >12 hours._|
+| _Dantrolene_ |_It is a vesicant. Ensure proper dilution as per_<br>_guideline._|
+| _Dextrose in water_ |_Central line is preferred for infusion concentrations_<br>_≥ 10%._|
+| _Dobutamine_ |_Central line is preferred._<br>_Peripheral administration may be used for less_<br>_than 4 hours while preparation for a central line is_<br>_underway._<br>_However, it should be administered via a large bore_<br>_intravenous line and the rate should be less than 2_<br>_mcg/kg/min._|
+| _Dopamine_ |_Central line is preferred._<br>_May use concentrations of 1600 mcg/ml (400 mg /_<br>_250 mls) at doses less than or equal to 3 mcg/kg/_<br>_min peripherally._<br>_Central line recommended for higher concentrations_<br>_infusions >12 hours._|
 
 
 27
@@ -984,12 +984,12 @@ _Guidelines on Safe Use of Medication in Anaesthesia_
 
 |Medication|Recommendation|
 |---|---|
-|**_Epinephrine_**|_Central line is preferred._<br>_Peripheral administration via a large bore IV may be_<br>_used for less than 4 hours while preparations for a_<br>_central line is underway._|
-|**_Esmolol_**|_Boluses can be administered via large bore IV._<br>_Central line is preferred for concentrations_<br>_> 10mg/ml._<br>_Central line is recommended for all concentrations if_<br>_administering greater than 72 hours._|
-|**_Mannitol_**|_Boluses can be administered via a large bore_<br>_peripheral IV line._<br>_Central line is still recommended if possible._<br>_Central line is preferred for infusion._|
-|**_Norepinephrine_**|_Central line is preferred._<br>_Peripheral administration via a large bore IV may be_<br>_used for less than 4 hours while preparations for a_<br>_central line is underway._|
-|**_Phenylephrine_**|_Peripheral administration via a large bore IV_<br>_for boluses._<br>_Central line is preferred for infusion._|
-|**_Phenytoin_**|_Avoid extravasation. Severe tissue necrosis may_<br>_occur._<br>_Administer through a large vein, at least as large as_<br>_the antecubital vein and preferably accessed with a_<br>_catheter size 20 gauge or larger._|
+| _Epinephrine_ |_Central line is preferred._<br>_Peripheral administration via a large bore IV may be_<br>_used for less than 4 hours while preparations for a_<br>_central line is underway._|
+| _Esmolol_ |_Boluses can be administered via large bore IV._<br>_Central line is preferred for concentrations_<br>_> 10mg/ml._<br>_Central line is recommended for all concentrations if_<br>_administering greater than 72 hours._|
+| _Mannitol_ |_Boluses can be administered via a large bore_<br>_peripheral IV line._<br>_Central line is still recommended if possible._<br>_Central line is preferred for infusion._|
+| _Norepinephrine_ |_Central line is preferred._<br>_Peripheral administration via a large bore IV may be_<br>_used for less than 4 hours while preparations for a_<br>_central line is underway._|
+| _Phenylephrine_ |_Peripheral administration via a large bore IV_<br>_for boluses._<br>_Central line is preferred for infusion._|
+| _Phenytoin_ |_Avoid extravasation. Severe tissue necrosis may_<br>_occur._<br>_Administer through a large vein, at least as large as_<br>_the antecubital vein and preferably accessed with a_<br>_catheter size 20 gauge or larger._|
 
 
 28
@@ -1011,8 +1011,8 @@ _Section 2: Key Principles of Safe Use of Medication in Anaesthesia_
 |---|---|
 |**_Dilutions of_**<br>**_concentrated_**<br>**_potassium salts_**|_Maximum rate of peripheral administration is 10_<br>_mEq potassium / hour._<br>_Central line requires concentrations greater than_<br>_0.1 mEq/ml of potassium._<br>_*Potassium Chloride, Potassium Phosphate,_<br>_Potassium Acetate._|
 |**_3% Sodium_**<br>**_Chloride infusions_**|_Administer hypertonic saline only through a large_<br>_bore IV or preferably via a central venous catheter._|
-|**_Thiopental_**|_Boluses can be given via a peripheral line._<br>_Infusion of 5 mg/kg and more should be given via a_<br>_central line._|
-|**_Vasopressin_**|_Central line is preferred._<br>_Peripheral administration via a large bore IV may be_<br>_used for less than 4 hours while preparations for a_<br>_central line is underway._|
+| _Thiopental_ |_Boluses can be given via a peripheral line._<br>_Infusion of 5 mg/kg and more should be given via a_<br>_central line._|
+| _Vasopressin_ |_Central line is preferred._<br>_Peripheral administration via a large bore IV may be_<br>_used for less than 4 hours while preparations for a_<br>_central line is underway._|
 |**_Commonly used_**<br>**_antibiotics_**|_Commonly used antibiotics that may be given via a_<br>_peripheral venous access device:_<br>_Ceftriaxone, Cefepime, Daptomycin, Ertapenem,_<br>_Levofoxacin, Imipenem._<br>_Vancomycin can be given peripherally if_<br>_concentration is 5 mg/ml or less._<br>_Commonly used antibiotics that may prompt_<br>_consideration of PCC or central line for prolonged_<br>_infusions:_<br>_Acyclovir, Caspofungin, Ciprofoxacin, Nafcilin,_<br>_Oxacillin, Tobramycin._<br>_Vancomycin at concentrations above 5 mg/ml._|
 
 
@@ -1131,11 +1131,11 @@ _anaesthesia drugs._
 
 |Drugs|Possible complications<br>following extravasation|Possible complications<br>following intra-arterial<br>injection|
 |---|---|---|
-|**_Atracurium_**|_Tissue ischaemia and_<br>_necrosis_|_Tissue ischaemia_|
-|**_Ketamine_**|_Tissue ischaemia and_<br>_necrosis_|_Tissue necrosis_|
-|**_Propofol_**|_Tissue ischaemia_|_‘Distal’ blanching and_<br>_hyperaemia_|
-|**_Rocuronium_**|_Local irritation_|_Tissue ischaemia_|
-|**_Thiopental_**|_Tissue ischaemia and_<br>_necrosis_|_Tissue ischaemia and_<br>_necrosis_|
+| _Atracurium_ |_Tissue ischaemia and_<br>_necrosis_|_Tissue ischaemia_|
+| _Ketamine_ |_Tissue ischaemia and_<br>_necrosis_|_Tissue necrosis_|
+| _Propofol_ |_Tissue ischaemia_|_‘Distal’ blanching and_<br>_hyperaemia_|
+| _Rocuronium_ |_Local irritation_|_Tissue ischaemia_|
+| _Thiopental_ |_Tissue ischaemia and_<br>_necrosis_|_Tissue ischaemia and_<br>_necrosis_|
 
 
 2.12.5. Anaesthesia healthcare professionals should adhere
@@ -3261,9 +3261,9 @@ _perioperative anaphylaxis._
 
 |Grade 1|Mucocutaneous signs only (e.g., erythema, urticaria,<br>peripheral angioedema).|
 |---|---|
-|**_Grade 2_**|_Multi-organ manifestations, typically mucocutaneous signs_<br>_combined with hypotension, brady- or tachyarrhythmia, and/_<br>_or bronchospasm._|
-|**_Grade 3_**|_Life-threatening hypotension and/or high airway pressure_<br>_requiring immediate and specifc treatment to avoid_<br>_progression from inadequate tissue perfusion to cardiac_<br>_arrest or signifcant hypoxia._|
-|**_Grade 4_**|_Cardiac arrest._|
+| _Grade 2_ |_Multi-organ manifestations, typically mucocutaneous signs_<br>_combined with hypotension, brady- or tachyarrhythmia, and/_<br>_or bronchospasm._|
+| _Grade 3_ |_Life-threatening hypotension and/or high airway pressure_<br>_requiring immediate and specifc treatment to avoid_<br>_progression from inadequate tissue perfusion to cardiac_<br>_arrest or signifcant hypoxia._|
+| _Grade 4_ |_Cardiac arrest._|
 
 
 

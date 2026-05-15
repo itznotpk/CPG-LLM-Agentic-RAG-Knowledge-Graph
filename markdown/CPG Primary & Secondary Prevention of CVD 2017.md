@@ -3169,9 +3169,9 @@ Figure 2: Recommendations for Glycaemic Control in Patients with Pre-Existing CV
 |---|---|
 | **Low risk** (chronic stable angina; normal kidney function) | Metformin → SGLT2i**** → GLP-1***** → DPP-4i / Gliclazide / TZD*** → Basal insulin → Basal bolus insulin |
 | **High risk** (Hx of AMI; Hx of CCF*) | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
-| **History of severe hypoglycaemia** | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide / TZD*** → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
+| History of severe hypoglycaemia | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide / TZD*** → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
 | **Obese** ** (BMI >27.5 kg/m²) | SGLT2i → GLP-1 → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
-| **GFR <45 mL/min/1.73m²** | Low-dose DPP-4i → TZD*** → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
+| GFR <45 mL/min/1.73m² | Low-dose DPP-4i → TZD*** → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
 
 **Notes (from figure footnotes):**
 

@@ -65,16 +65,16 @@ Table 5: Recommendations For Therapeutic Lifestyle Changes
 
 | Nutrition / Intervention | Comments | Grades of Recommendation / Level of Evidence |
 |---|---|---|
-| **Saturated Fat** | <10% of total calories. SFA should be replaced by PUFA. | I, B |
-| **Trans Fat** | <1% of total calories. | I, A |
-| **Dietary Sodium** | A diet containing reduced amounts of sodium (<2000mg daily equivalent to 5 gm of salt = 1 level teaspoon) can be beneficial to decrease CVD risk. | IIa, B |
-| **Carbohydrates (CHO)** | Reduced intake of carbohydrates with emphasis on whole grains such as brown rice and to reduce intake of refined carbohydrates and sweetened beverages. In the presence of high TG and low HDL-C, (atherogenic dyslipidemia) carbohydrate intake should be lower. | I, B |
-| **Protein** | Emphasis on plant-based protein such as tofu, legumes, beans. A diet emphasizing the intake of legumes, nuts, and fish is recommended to decrease CVD risk factors. | I, B |
-| **Dietary Fibre** | Incorporate fibre-rich foods that contribute at least 20 to 30 g of fibre per day. Emphasis should be on soluble fibre sources (7 to 13 g) such as fruits, vegetables, whole grains, high-fibre cereals, oatmeal, legumes, and beans. | I, B |
-| **Weight Reduction** | Achieve BMI <23 kg/m² or at least a 5-10% reduction in body weight. Maintain waist circumference at: <90 cm for men, <80 cm for women. | I, B |
-| **Exercise** | 150-300 minutes a week of moderate-intensity or 75-150 minutes a week of vigorous-intensity aerobic physical activity, or an equivalent combination. | I, A |
-| **Smoking** | Smoking should be discouraged and individuals referred to smoking cessation programme. | I, B |
-| **Alcohol** | Advise abstinence whenever possible. If necessary, limit to 1 drink/day (10gm/day) in females and 2 drinks/day (20 gm/day) in males. | I, B |
+| Saturated Fat | <10% of total calories. SFA should be replaced by PUFA. | I, B |
+| Trans Fat | <1% of total calories. | I, A |
+| Dietary Sodium | A diet containing reduced amounts of sodium (<2000mg daily equivalent to 5 gm of salt = 1 level teaspoon) can be beneficial to decrease CVD risk. | IIa, B |
+| Carbohydrates (CHO) | Reduced intake of carbohydrates with emphasis on whole grains such as brown rice and to reduce intake of refined carbohydrates and sweetened beverages. In the presence of high TG and low HDL-C, (atherogenic dyslipidemia) carbohydrate intake should be lower. | I, B |
+| Protein | Emphasis on plant-based protein such as tofu, legumes, beans. A diet emphasizing the intake of legumes, nuts, and fish is recommended to decrease CVD risk factors. | I, B |
+| Dietary Fibre | Incorporate fibre-rich foods that contribute at least 20 to 30 g of fibre per day. Emphasis should be on soluble fibre sources (7 to 13 g) such as fruits, vegetables, whole grains, high-fibre cereals, oatmeal, legumes, and beans. | I, B |
+| Weight Reduction | Achieve BMI <23 kg/m² or at least a 5-10% reduction in body weight. Maintain waist circumference at: <90 cm for men, <80 cm for women. | I, B |
+| Exercise | 150-300 minutes a week of moderate-intensity or 75-150 minutes a week of vigorous-intensity aerobic physical activity, or an equivalent combination. | I, A |
+| Smoking | Smoking should be discouraged and individuals referred to smoking cessation programme. | I, B |
+| Alcohol | Advise abstinence whenever possible. If necessary, limit to 1 drink/day (10gm/day) in females and 2 drinks/day (20 gm/day) in males. | I, B |
 
 Table 4: Target LDL-C Levels
 

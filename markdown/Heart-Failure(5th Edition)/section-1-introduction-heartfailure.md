@@ -190,16 +190,16 @@ Table 7: Epidemiology Of HF In Asia & Malaysia
 
 | | Asian HF registry11 | Lim YMF et al12 | MYHF13,14 | Sharif RER et al14 | Ling HS et al15 | Azmee et al16 |
 |---|---|---|---|---|---|---|
-| **Source of Data** | Prospective longitudinal study of outpatient (at least 1 episode of decompensated HF in the previous 6 months) and hospitalized patients 1st Oct 2012 - 31st Oct 2016 | 10 years retrospective data from 1st Jan 2007 to 31st Dec 2016 of pts hospitalized with HF | Prospective observational study on hospitalized patients from Aug 2019 - Dec 2020 | Single center Retrospective data Jan 2012 - Dec 2016 | Single center Prospective observational study on hospitalized pts Sept 2017 to Oct 2018 | Single center Retrospective on hospitalized pts 1st Jan 2009 to 31st Dec 2018 |
-| **Population** | 6480 patients aged > 18 years With symptomatic HF | 105,399 > 20 years incident HF hospitalizations in a MOH hospital | 2673 patients > 18 years | 1307 patients > 18 years Acute HF patients | 117 patients >18 years Acute HF patients | 3923 patients Adult HF pts |
-| **Mean Age** | 61.6 years | 64.1 years | 60.17 years | 63.4 years | 59 years | 62 years |
-| **% Women** | 27% | 44% | 33.2% | 53.6% | 41.1% | 37.7% |
-| **% HFrEF** | 81% | NA | 64.6% | 40.8% | 48.6% | 62.9% |
-| **Length of Hospital Stay** | NA | 3 days (median) | 7.3 days (mean), 3 - 4 (median) | 5.3 ± 3.4 days (mean). | 5 days (median) | 9.2 days (mean) |
+| Source of Data | Prospective longitudinal study of outpatient (at least 1 episode of decompensated HF in the previous 6 months) and hospitalized patients 1st Oct 2012 - 31st Oct 2016 | 10 years retrospective data from 1st Jan 2007 to 31st Dec 2016 of pts hospitalized with HF | Prospective observational study on hospitalized patients from Aug 2019 - Dec 2020 | Single center Retrospective data Jan 2012 - Dec 2016 | Single center Prospective observational study on hospitalized pts Sept 2017 to Oct 2018 | Single center Retrospective on hospitalized pts 1st Jan 2009 to 31st Dec 2018 |
+| Population | 6480 patients aged > 18 years With symptomatic HF | 105,399 > 20 years incident HF hospitalizations in a MOH hospital | 2673 patients > 18 years | 1307 patients > 18 years Acute HF patients | 117 patients >18 years Acute HF patients | 3923 patients Adult HF pts |
+| Mean Age | 61.6 years | 64.1 years | 60.17 years | 63.4 years | 59 years | 62 years |
+| % Women | 27% | 44% | 33.2% | 53.6% | 41.1% | 37.7% |
+| % HFrEF | 81% | NA | 64.6% | 40.8% | 48.6% | 62.9% |
+| Length of Hospital Stay | NA | 3 days (median) | 7.3 days (mean), 3 - 4 (median) | 5.3 ± 3.4 days (mean). | 5 days (median) | 9.2 days (mean) |
 | **All Cause Readmission**<br>30 days<br>1 year | NA<br>NA | 18.1%<br>NA | 12.9%<br>NA | 4.1%<br>76.1% | 11.2%<br>NA | 6.8%<br>24.7% |
-| **In Hospital Mortality** | | 5.3% | 2.8% | 1.7% | 7.5% | 7.2% |
-| **30 days Mortality** | | 11.2% | 7.8% | 15.7% | 13.1% | NA |
-| **1 year Mortality** | 9.6% (HFrEF:10.6%, HFpEF: 5.4%) | 33.1% | NA | 49.7% | NA | NA |
+| In Hospital Mortality | | 5.3% | 2.8% | 1.7% | 7.5% | 7.2% |
+| 30 days Mortality | | 11.2% | 7.8% | 15.7% | 13.1% | NA |
+| 1 year Mortality | 9.6% (HFrEF:10.6%, HFpEF: 5.4%) | 33.1% | NA | 49.7% | NA | NA |
 
 > **Note:** SE Asia refers to Southeast Asian cohorts within the ASIAN-HF registry (Malaysia, Indonesia, Singapore, Thailand, and Philippines).
 
@@ -217,10 +217,10 @@ Table 8: Classification Of Heart Failure According To Lvef
 ### Stages Of Heart Failure
 | Stage | Description |
 |---|---|
-| **A - "At Risk"** | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| **B - "Pre HF"** | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| **C - "HF"** | Symptomatic HF, either previous or current symptoms |
-| **D - "Advanced HF"** | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
+| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
+| C - "HF" | Symptomatic HF, either previous or current symptoms |
+| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
 
 The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
@@ -231,10 +231,10 @@ Table 9: New York Heart Association Functional Classification
 
 | Class | Functional Capacity | 1-Year Mortality |
 |---|---|---|
-| **CLASS I** | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| **CLASS II** | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| **CLASS III** | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| **CLASS IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
+| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
+| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
+| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
+| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
 
 
 ---

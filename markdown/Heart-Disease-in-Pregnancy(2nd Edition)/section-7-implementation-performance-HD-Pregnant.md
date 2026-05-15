@@ -43,11 +43,11 @@ Table 6: Specialist Referral And Pregnancy Care Plan
 
 | Maternal Risk | Timing of Specialist Referral | Special Considerations |
 |---|---|---|
-| **All women with known cardiac disease** | Preconception | Needs detailed assessment to determine the maternal cardiovascular risk. |
-| **All women with known cardiac disease** | Early in pregnancy | To do antenatal booking at the nearest healthcare facility as soon as pregnancy is suspected.<br>When pregnant, an individualised care plan should be developed. (pg. 29) |
+| All women with known cardiac disease | Preconception | Needs detailed assessment to determine the maternal cardiovascular risk. |
+| All women with known cardiac disease | Early in pregnancy | To do antenatal booking at the nearest healthcare facility as soon as pregnancy is suspected.<br>When pregnant, an individualised care plan should be developed. (pg. 29) |
 | **Women with suspected cardiac disease** (symptoms/ clinical findings or history of heart disease/ surgery) | As soon as pregnancy is confirmed. | To confirm the diagnosis and for risk stratification. |
-| **Women &/ spouses with congenital heart disease (CHD) and/or family history of CHD** | Preconception referral to obstetrician/ maternal fetal medicine (MFM) specialist recommended.<br>If pregnant, early referral to MFM recommended. | To determine risk of CHD in the fetus of parents with CHD. (section 3.2.1: Genetic counselling) |
-| **Women &/ spouses and/or family history of genetic diseases with cardiac lesions** | Preconception referral to MFM/ geneticist recommended.<br>If pregnant, early referral to MFM. | To determine risk of disease transmission to the fetus. (section 3.2: Preconception and genetic counselling) |
+| Women &/ spouses with congenital heart disease (CHD) and/or family history of CHD | Preconception referral to obstetrician/ maternal fetal medicine (MFM) specialist recommended.<br>If pregnant, early referral to MFM recommended. | To determine risk of CHD in the fetus of parents with CHD. (section 3.2.1: Genetic counselling) |
+| Women &/ spouses and/or family history of genetic diseases with cardiac lesions | Preconception referral to MFM/ geneticist recommended.<br>If pregnant, early referral to MFM. | To determine risk of disease transmission to the fetus. (section 3.2: Preconception and genetic counselling) |
 | **Fetuses with critical CHD*/ major congenital anomalies** | Once diagnosis has been made, to refer to a tertiary centre with the appropriate expertise.<br>(e.g. Paediatric cardiologist, paediatric surgeon with expertise in congenital malformations, neonatal intensive care with expertise to manage very low birth weight and severe prematurity). | Once diagnosis made, a tailored pregnancy care plan (pg. 29) by a multidisciplinary team. |
 
 *Critical congenital heart disease/defects (CCHD) are serious congenital heart defects that present with symptoms soon after birth and need early intervention. They are usually duct dependant lesions and may have hypoxaemia. (E.g. coarctation of aorta, transposition of the great arteries, hypoplastic left heart syndrome, pulmonary atresia with intact ventricular septum)

@@ -133,10 +133,10 @@ Table 2: New York Heart Association Functional Classification
 
 | Functional Class | Symptoms | Maternal Cardiovascular Risk |
 |---|---|---|
-| **Class I** | No limitation: Ordinary physical activity does not cause undue fatigue, dyspnoea or palpitation. | Low |
-| **Class II** | Slight limitation of physical activity. Such patients are comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnoea or angina. | Low |
-| **Class III** | Marked limitation of physical activity. Although patients are comfortable at rest, less than ordinary activity will lead to fatigue, palpitation, dyspnoea or angina. | High |
-| **Class IV** | Inability to carry on any physical activity without discomfort. Symptoms of congestive heart failure are present at rest. With any physical activity, increased discomfort is experienced. | High |
+| Class I | No limitation: Ordinary physical activity does not cause undue fatigue, dyspnoea or palpitation. | Low |
+| Class II | Slight limitation of physical activity. Such patients are comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnoea or angina. | Low |
+| Class III | Marked limitation of physical activity. Although patients are comfortable at rest, less than ordinary activity will lead to fatigue, palpitation, dyspnoea or angina. | High |
+| Class IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive heart failure are present at rest. With any physical activity, increased discomfort is experienced. | High |
 
 ---
 

@@ -111,14 +111,14 @@ Table 5.1: Assessment And Treatment Of Tobacco Use Disorder
 
 | | ASSESSMENT AND TREATMENT |
 | --- | --- |
-| **1.** | Ask and document smoking status for all patients. |
-| **2.** | Provide brief advice on quit smoking at every visit to all smokers. |
-| **3.** | Assess level of nicotine addiction using Modified Fagerström Test for Cigarette Dependence Questionnaire (**COMPULSORY**) and verify smoking status using carbon monoxide (CO) breath analyser (**IF AVAILABLE**). |
-| **4.** | Offer pharmacotherapy to **all smokers** who are attempting to quit, unless contraindicated. |
-| **5.** | If selected, use nicotine replacement therapy (NRT) for at least eight to twelve weeks, whereas varenicline should be used for at least twelve weeks. |
-| **6.** | Combination therapy (e.g. two NRTs, a non-NRT, e.g. bupropion with an NRT) is better than monotherapy in smoking cessation treatment and may be most useful for those smokers at highest risk of relapse. |
-| **7.** | Use smoking cessation medications with caution in special populations (e.g. children and adolescents, pregnant, breastfeeding women, psychiatric and substance abuse disorder patients). |
-| **8.** | Arrange a minimum of six to eight face to face follow-up sessions for smoking cessation interventions in six months through counselling support team (health education officer, pharmacists or any officer trained for quit smoking services). |
+| 1. | Ask and document smoking status for all patients. |
+| 2. | Provide brief advice on quit smoking at every visit to all smokers. |
+| 3. | Assess level of nicotine addiction using Modified Fagerström Test for Cigarette Dependence Questionnaire (**COMPULSORY**) and verify smoking status using carbon monoxide (CO) breath analyser (**IF AVAILABLE**). |
+| 4. | Offer pharmacotherapy to **all smokers** who are attempting to quit, unless contraindicated. |
+| 5. | If selected, use nicotine replacement therapy (NRT) for at least eight to twelve weeks, whereas varenicline should be used for at least twelve weeks. |
+| 6. | Combination therapy (e.g. two NRTs, a non-NRT, e.g. bupropion with an NRT) is better than monotherapy in smoking cessation treatment and may be most useful for those smokers at highest risk of relapse. |
+| 7. | Use smoking cessation medications with caution in special populations (e.g. children and adolescents, pregnant, breastfeeding women, psychiatric and substance abuse disorder patients). |
+| 8. | Arrange a minimum of six to eight face to face follow-up sessions for smoking cessation interventions in six months through counselling support team (health education officer, pharmacists or any officer trained for quit smoking services). |
 
 ### 5.4.4: Alcohol
 Alcohol consumption has been identified as one of the risk factors for global stroke burden. Heavy alcohol drinking, of more than 4 units/day (1unit = 1glass wine = 1 pack of hard liquor), increases the risk of stroke.
@@ -459,9 +459,9 @@ Table 5.6: Revascularisation Procedures
 
 | Male Score | Recommendation | Female Score | Recommendation |
 | :---: | --- | :---: | --- |
-| **≥2** | OAC | **≥3** | OAC |
-| **1** | Consider OAC | **2** | Consider OAC |
-| **0** | No treatment | **0-1** | No treatment |
+| ≥2 | OAC | **≥3** | OAC |
+| 1 | Consider OAC | **2** | Consider OAC |
+| 0 | No treatment | **0-1** | No treatment |
 
 **Secondary Stroke Prevention in AF Patients:**
 
@@ -470,10 +470,10 @@ Table 5.6: Revascularisation Procedures
 
 | Type of stroke | NIHSS score | Day to start OAC |
 | :---: | :---: | :---: |
-| **TIA** | | 1 |
-| **Mild** | <8 | 3 |
-| **Moderate** | 8-15 | 6 |
-| **Severe** | ≥16 | 12 |
+| TIA | | 1 |
+| Mild | <8 | 3 |
+| Moderate | 8-15 | 6 |
+| Severe | ≥16 | 12 |
 
 - [New recommendation, Level I, Grade A] DOACs are preferred as compared to VKA or Aspirin in AF patients with a previous stroke.
 - [Level III, Grade C] Aspirin could be considered before the initiation of OAC after an AF patient suffers from an ischaemic stroke.
@@ -483,20 +483,20 @@ Table 5.6: Revascularisation Procedures
 ### Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
-| **I** | Evidence obtained from at least one properly randomized controlled trial |
-| **II-1** | Evidence obtained from well-designed controlled trials without randomization |
-| **II-2** | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
-| **II-3** | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
-| **III** | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
+| I | Evidence obtained from at least one properly randomized controlled trial |
+| II-1 | Evidence obtained from well-designed controlled trials without randomization |
+| II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or research group |
+| II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
+| III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
 Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
 
 ### Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
-| **A** | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
-| **B** | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
-| **C** | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
+| A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
+| B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
+| C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
 Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
 

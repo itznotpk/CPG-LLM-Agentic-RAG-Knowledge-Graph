@@ -85,8 +85,8 @@ Appendix 1: Classification And Definition Of Infective Endocarditis
 **Recurrence**
 | Recurrence | |
 |---|---|
-| **Relapse** | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
-| **Reinfection** | • IE infection with a different microorganism<br>• A repeat episode of IE caused by the same microorganism > 6 months after the initial episode |
+| Relapse | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
+| Reinfection | • IE infection with a different microorganism<br>• A repeat episode of IE caused by the same microorganism > 6 months after the initial episode |
 
 Adapted from European Society of Cardiology infective endocarditis guidelines. 2009.
 

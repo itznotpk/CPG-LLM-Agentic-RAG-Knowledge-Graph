@@ -205,11 +205,11 @@ Table 4.1: Description Of Neurological Complications
 
 | Neurologic complication | Epidemiology | Clinical manifestation in IE | Management | Implications for cardiac surgery if indicated |
 |---|---|---|---|---|
-| **Ischaemic** | Clinically present in 20-40% of patients with IE. Asymptomatic ischaemia can be found in an additional 30-40% of patients with IE.<br><br>Can be divided into:<br>• Small ischaemic complications such as TIA or minor infarction affecting < 30% of a brain lobe or clinically silent infarcts.<br>• Moderate-severe ischaemic complication such as multiple cerebral embolisms or a single embolism affecting ≥ 30% of a brain lobe. | Focal deficits, encephalopathy and seizures. | Avoid IV tissue plasminogen activator (tPA) or streptokinase, antiplatelet agents and warfarin.<sup>75-77</sup><br><br>Decision to withhold anticoagulation should be individualised and dependent on the multidisciplinary team (IE team). | As the evidence is not yet strong enough to make a uniform recommendation, these decisions should be individualised in consultation with all members of the IE team.<br><br>Clinically silent or small lesions should not delay cardiac surgery.<br><br>Larger infarcts may warrant a delay (refer Section 5: Surgical Intervention). |
-| **Haemorrhagic** | Present in 4-27% of patients with IE.<br><br>These include:<br>• Primary intracerebral haemorrhage.<br>• Haemorrhagic infarction (transformation).<br>• Subarachnoid haemorrhage.<br>• Microhaemorrhage is present in up to 57% of patients with IE. | Focal deficits, headache, encephalopathy and seizure. | Native valve: avoid all antiplatelets and anticoagulants.<br><br>Prosthetic valves: stop anticoagulation with close monitoring and evaluation of the patient’s clinical condition for at least 2 weeks.<sup>78</sup><br><br>Consider magnetic resonance angiogram (MRA) in this group of patients and refer for Neurology consult (for best timing to recommence the anticoagulation).<br><br>Consider conversion to heparin in anticipation of surgical intervention.<br><br>As the evidence is not yet strong enough to make a uniform recommendation, these decisions should be individualised in consultation with all members of the specialist team. | Postpone cardiac surgery for 4 weeks following clinically significant haemorrhage.<sup>79,80</sup> |
-| **Mycotic aneurysms** | Present in at least 2-4% of patients with IE. | Headaches, seizures, focal deficits, encephalopathy, opthalmoplegia and rarely proptosis. | Antimicrobials and serial imaging for stable, small, unruptured aneurysms.<br><br>Endovascular repair of large or enlarging unruptured aneurysms, if suitable.<br><br>Open surgical clipping for large or enlarging unruptured aneurysms not amenable to endovascular repair or in areas where surgical anastomoses may spare function.<br><br>Any anticoagulation should be stopped and the decision to restart should be made in consultation with all members of the IE team. | Postpone cardiac surgery for 1-2 weeks following aneurysmal repair. |
-| **Cerebral abscess** | Present in 1-7% of patients with IE. | Focal deficits, headache, encephalopathy, unresolved sepsis and seizures. | Antimicrobials alone for small or multifocal abscesses.<br><br>Surgical drainage for abscesses that are large or do not respond to antimicrobials.<br><br>Neurosurgical intervention as appropriate for hydrocephalus or significant mass effect. | Typically will not interfere with surgical planning.<br><br>Prioritise neurosurgical intervention in the setting of hydrocephalus or significant mass effect. |
-| **Meningitis** | Present in 1-20% of patients with IE. | Headache, encephalopathy, seizures, neck/back pain, nuchal rigidity and photophobia. | At least 4 weeks of antimicrobials. | Typically will not interfere with surgical planning. |
+| Ischaemic | Clinically present in 20-40% of patients with IE. Asymptomatic ischaemia can be found in an additional 30-40% of patients with IE.<br><br>Can be divided into:<br>• Small ischaemic complications such as TIA or minor infarction affecting < 30% of a brain lobe or clinically silent infarcts.<br>• Moderate-severe ischaemic complication such as multiple cerebral embolisms or a single embolism affecting ≥ 30% of a brain lobe. | Focal deficits, encephalopathy and seizures. | Avoid IV tissue plasminogen activator (tPA) or streptokinase, antiplatelet agents and warfarin.<sup>75-77</sup><br><br>Decision to withhold anticoagulation should be individualised and dependent on the multidisciplinary team (IE team). | As the evidence is not yet strong enough to make a uniform recommendation, these decisions should be individualised in consultation with all members of the IE team.<br><br>Clinically silent or small lesions should not delay cardiac surgery.<br><br>Larger infarcts may warrant a delay (refer Section 5: Surgical Intervention). |
+| Haemorrhagic | Present in 4-27% of patients with IE.<br><br>These include:<br>• Primary intracerebral haemorrhage.<br>• Haemorrhagic infarction (transformation).<br>• Subarachnoid haemorrhage.<br>• Microhaemorrhage is present in up to 57% of patients with IE. | Focal deficits, headache, encephalopathy and seizure. | Native valve: avoid all antiplatelets and anticoagulants.<br><br>Prosthetic valves: stop anticoagulation with close monitoring and evaluation of the patient’s clinical condition for at least 2 weeks.<sup>78</sup><br><br>Consider magnetic resonance angiogram (MRA) in this group of patients and refer for Neurology consult (for best timing to recommence the anticoagulation).<br><br>Consider conversion to heparin in anticipation of surgical intervention.<br><br>As the evidence is not yet strong enough to make a uniform recommendation, these decisions should be individualised in consultation with all members of the specialist team. | Postpone cardiac surgery for 4 weeks following clinically significant haemorrhage.<sup>79,80</sup> |
+| Mycotic aneurysms | Present in at least 2-4% of patients with IE. | Headaches, seizures, focal deficits, encephalopathy, opthalmoplegia and rarely proptosis. | Antimicrobials and serial imaging for stable, small, unruptured aneurysms.<br><br>Endovascular repair of large or enlarging unruptured aneurysms, if suitable.<br><br>Open surgical clipping for large or enlarging unruptured aneurysms not amenable to endovascular repair or in areas where surgical anastomoses may spare function.<br><br>Any anticoagulation should be stopped and the decision to restart should be made in consultation with all members of the IE team. | Postpone cardiac surgery for 1-2 weeks following aneurysmal repair. |
+| Cerebral abscess | Present in 1-7% of patients with IE. | Focal deficits, headache, encephalopathy, unresolved sepsis and seizures. | Antimicrobials alone for small or multifocal abscesses.<br><br>Surgical drainage for abscesses that are large or do not respond to antimicrobials.<br><br>Neurosurgical intervention as appropriate for hydrocephalus or significant mass effect. | Typically will not interfere with surgical planning.<br><br>Prioritise neurosurgical intervention in the setting of hydrocephalus or significant mass effect. |
+| Meningitis | Present in 1-20% of patients with IE. | Headache, encephalopathy, seizures, neck/back pain, nuchal rigidity and photophobia. | At least 4 weeks of antimicrobials. | Typically will not interfere with surgical planning. |
 
 ### 4.1.3: Issues With Anticoagulation
 Cerebral injuries occur in 20-40% of patients during the active course of IE. These include ischaemic stroke, TIA or intracerebral haemorrhage. The management of ischaemic stroke due to IE is different to ischaemic strokes from non-infective causes with regards to anticoagulation.
@@ -368,12 +368,12 @@ Table 4.3: Endocarditis Due To Penicillin-Susceptible Viridans Group Streptococc
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric)<sup>a</sup> | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
-| **Penicillin-susceptible VGS and S. gallolyticus (bovis) (MIC ≤ 0.125 µg/ml) – native and prosthetic valve** | | | | |
+| Penicillin-susceptible VGS and S. gallolyticus (bovis) (MIC ≤ 0.125 µg/ml) – native and prosthetic valve | | | | |
 | Benzyl penicillin (Crystalline penicillin) | 3 MU\*\* every 4 to 6 hourly or 12-18 MU/day as a continuous infusion<br>*\*\*MU = mega unit; 600 mg = 1 MU* | 200,000 - 300,000 units/kg/day IV in 4-6 equally divided doses (up to 12-18 MU daily) | 4 (native)<br>6 (prosthetic) | |
 | Ampicillin | 2 g IV 4 hourly | 300 mg/kg/day IV in 4-6 equally divided doses | 4 (native)<br>6 (prosthetic) | |
 | Ceftriaxone | 2 g IV once daily | 100 mg/kg/day IV in 1-2 equally divided doses (maximum 4 g/day) | 4 (native)<br>6 (prosthetic) | |
 | Vancomycin<sup>b,c</sup> | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose | 40 mg/kg/day IV in 2-3 equally divided doses (maximum 2 g/day) | 4 (native)<br>6 (prosthetic) | Vancomycin therapy is recommended only for patients with immediate type penicillin hypersensitivity. |
-| **Relatively resistant to penicillin VGS and S. gallolyticus (bovis) (MIC > 0.125 to 2 µg/ml) – native valve endocarditis** | | | | |
+| Relatively resistant to penicillin VGS and S. gallolyticus (bovis) (MIC > 0.125 to 2 µg/ml) – native valve endocarditis | | | | |
 | Benzyl penicillin (Crystalline penicillin)<br><br>OR<br><br>Ceftriaxone<br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup> | 4 MU\*\* 4 hourly or 24 MU/day as continuous infusion<br>*\*\*MU = megaunit; 600 mg = 1 MU*<br><br>OR<br><br>2 g IV once daily<br><br>PLUS<br><br>3 mg/kg/day IV once daily | 200,000 - 300,000 units/kg/day IV in 4-6 equally divided doses (up to 12-18 MU daily)<br><br><br><br>100 mg/kg/day IV in 1-2 equally divided doses (maximum 4 g/day)<br><br><br><br>1 mg/kg IV 8 hourly | 4 (native)<br>6 (prosthetic)<br><br><br><br>2 (native)<br>6 (prosthetic)<br><br><br><br> | Cephalosporins may be substituted for penicillin in patients whose penicillin hypersensitivity is not of the immediate type.<br><br><br><br><br><br><br><br>See notes below on how to monitor for gentamicin toxicity. |
 | Vancomycin<sup>b,c</sup><br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup> | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose<br><br>PLUS<br><br>3 mg/kg/day IV once daily | 40 mg/kg/day IV in 3 equally divided doses (maximum 2 g/day)<br><br>PLUS<br><br>1 mg/kg IV 8 hourly | 4 (native)<br>6 (prosthetic)<br><br>PLUS<br><br>2 (native)<br>6 (prosthetic) | Vancomycin therapy is recommended only for patients with immediate-type penicillin hypersensitivity.<br><br><br><br>See notes below on how to monitor for gentamicin toxicity. |
 
@@ -427,12 +427,12 @@ Table 4.7: Endocarditis Due To *enterococcus*-native And Prosthetic Valve
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric<sup>a</sup>) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
-| **Fully penicillin-susceptible strains (penicillin MIC ≤ 8 mg/l)** | | | | |
+| Fully penicillin-susceptible strains (penicillin MIC ≤ 8 mg/l) | | | | |
 | Ampicillin<br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup> | 2 g IV 4 hourly<br><br><br><br>1 mg/kg IV 8 hourly | 200-300 mg/kg/day IV in 4-6 equally divided doses<br><br><br><br>1 mg/kg IV 8 hourly | 4 or 6 depending on duration of symptoms and type of valve; see comments<br><br>2 or 6 depending on duration of symptoms and type of valve; see comments | Duration of symptoms < 3 months and native valve:<br>Ampicillin duration - 4 weeks<br>Gentamicin duration - 2 weeks<br><br>Duration of symptoms > 3 months or prosthetic valves:<br>Ampicillin duration - 6 weeks<br>Gentamicin duration - 6 weeks<br><br>See notes below on how to monitor for gentamicin toxicity.<br>For patients who develop renal impairment or ototoxicity secondary to gentamicin switch to ampicillin/ceftriaxone regime. |
 | Ampicillin<br><br>PLUS<br><br>Ceftriaxone | 2 g IV 4 hourly<br><br><br><br>2 g IV 12 hourly | 200-300 mg/kg/day IV in 4-6 equally divided doses<br><br><br><br>100 mg/kg/day IV in 1-2 equally divided doses (maximum 4 g/day) | 6 | Preferred in patients with renal impairment (≤ 50 ml/min) or elderly<br><br>Ceftriaxone should not be used alone for *enterococcus* infection, as they are intrinsically resistant<br><br>This combination is not active against *E. faecium* |
-| **Sensitive to penicillin and vancomycin but high level resistance to gentamicin (MIC > 500 mg/l)** | | | | |
+| Sensitive to penicillin and vancomycin but high level resistance to gentamicin (MIC > 500 mg/l) | | | | |
 | Ampicillin<br><br>PLUS<br><br>Ceftriaxone | 2 g IV 4 hourly<br><br><br><br>2 g IV 12 hourly | 300 mg/kg/day IV in 4-6 equally divided doses<br><br><br><br>100 mg/kg/day IV in 1-2 equally divided doses (maximum 4 g/day) | 6 | Ceftriaxone should not be used alone for *enterococcus* infection, as they are intrinsically resistant<br><br>This combination is not active against *E. faecium* |
-| **Resistant to penicillin and susceptible to aminoglycosides and vancomycin** | | | | |
+| Resistant to penicillin and susceptible to aminoglycosides and vancomycin | | | | |
 | Vancomycin<sup>b,c</sup><br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup> | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose<br><br><br><br>1 mg/kg IV 8 hourly | 40 mg/kg/day IV in 3 divided doses (maximum 2 g/day unless unable to achieve therapeutic range)<br><br><br><br>1 mg/kg IV 8 hourly | 6<br><br><br><br><br><br><br><br>6 | |
 
 *a. Paediatric doses should not exceed the max of normal adult dose.*<br>
@@ -455,9 +455,9 @@ Table 4.8: Therapy For Endocarditis Due To Hacek Microorganisms (*Haemophilus Pa
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
 | Ceftriaxone | 2 g IV once daily | 100 mg/kg/day IV in 1-2 equally divided doses (maximum 4 g/day) | 4 (native)<br><br>6 (prosthetic) | HACEK-group bacilli produce beta-lactamases; definitive treatment should be adjusted based on the cultures |
-| **OR** | | | | |
+| OR | | | | |
 | Ampicillin + Sulbactam | 3 g IV 6 hourly | 200-300 mg/kg/day IV in 4-6 equally divided doses (ampicillin component) | 4 (native)<br><br>6 (prosthetic) | May be an option if isolate is susceptible<br><br>If unable to tolerate cephalosporin and ampicillin therapy fluoroquinolones generally not recommended for patients < 18 years old |
-| **OR** | | | | |
+| OR | | | | |
 | Ciprofloxacin | 400 mg IV 12 hourly or 500 mg PO 12 hourly | | 4 (native)<br><br>6 (prosthetic) | |
 
 **Recommendations**
@@ -472,7 +472,7 @@ Table 4.9: Therapy For *Candida* Endocarditis (Native And Prosthetic Valve)
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
 | Amphotericin B deoxycholate | 0.6-1.0 mg/kg IV once daily | 1.0 mg/kg IV once daily | At least 6 weeks after surgery | Step down therapy: fluconazole 400-800 mg (6-12 mg/kg) orally daily for susceptible microorganism in stable patients with negative blood cultures (clearance of *Candida* from blood stream) |
-| **OR** | | | | |
+| OR | | | | |
 | Lipid formulation Amphotericin B | 3-5 mg/kg IV once daily | 3-5 mg/kg IV once daily | | |
 | **with or without** Flucytosine | 25 mg/kg PO 6 hourly | 100-150 mg/kg PO in 4 equally divided doses | At least 6 weeks after surgery | For synergistic effect<br>Causes dose related marrow toxicity<br>Avoid using in patients with renal failure |
 | Micafungin<br><br>Caspofungin<br><br>Anidulafungin | 150 mg IV daily<br><br>150 mg IV daily<br><br>200 mg IV daily | | At least 6 weeks after surgery | Step down therapy: fluconazole 400-800 mg (6-12 mg/kg) orally daily for susceptible microorganism in stable patients with negative blood cultures (clearance of *Candida* from blood stream) |
@@ -494,7 +494,7 @@ Table 4.10: Antimicrobial Choices For Pseudomonas Endocarditis (6 Weeks Duration
 
 | Column A | Column B |
 |---|---|
-| **Anti Pseudomonal β-lactams** | **Aminoglycosides** |
+| Anti Pseudomonal β-lactams | **Aminoglycosides** |
 | Ceftazidime 2 g IV 8 hourly | Gentamicin 5-7 mg/kg IV daily |
 | Cefepime 2 g IV 8 hourly | Amikacin 15 mg/kg IV daily |
 | Piperacillin-tazobactam 4.5 g IV 6 hourly | OR |
@@ -543,10 +543,10 @@ Table 4.12: Therapy For Initial Empirical Treatment Of IE In Acute Severely Ill 
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
-| **Community-acquired native valves or late prosthetic valves (≥ 12 months post-surgery) endocarditis** | | | | |
+| Community-acquired native valves or late prosthetic valves (≥ 12 months post-surgery) endocarditis | | | | |
 | Ampicillin<br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup><br><br>PLUS/MINUS<br><br>Cloxacillin\*\* | 12 g/day IV in 4-6 equally divided doses<br><br><br><br>3 mg/kg/day IV once daily<br><br><br><br>12 g/day IV in 4-6 equally divided doses | 200-300 mg/kg/day IV in 4-6 equally divided doses<br><br><br><br>1 mg/kg IV 8 hourly<br><br><br><br>200 mg/kg/day IV in 4-6 equally divided doses | | \*\*For patients with suspected *S. aureus* infections (such as IVDU or patients with prosthesis) and acute presentation |
 | Vancomycin<br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup> | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose<br><br><br><br>3 mg/kg/day IV once daily | 40 mg/kg/day IV in 2-3 equally divided doses (maximum 2g/day unless unable to achieve therapeutic range)<br><br><br><br>1 mg/kg IV 8 hourly | | For patients who are allergic to β-lactam antimicrobials |
-| **Early PVE (< 12 months post-surgery) or nosocomial and non-nosocomial healthcare associated endocarditis** | | | | |
+| Early PVE (< 12 months post-surgery) or nosocomial and non-nosocomial healthcare associated endocarditis | | | | |
 | Vancomycin<br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup><br><br>PLUS/MINUS<br><br>Rifampicin\*\*<br><br>PLUS/MINUS<br><br>Cefepime^ | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose<br><br><br><br>3 mg/kg/day IV once daily<br><br><br><br>300-450 mg PO 12 hourly<br><br><br><br>2 g IV 8 hourly | 60 mg/kg/day IV in 2-3 equally divided doses (maximum 2g/day unless unable to achieve therapeutic range)<br><br><br><br>1 mg/kg IV 8 hourly<br><br><br><br>20 mg/kg/day divided every 8 hourly (maximum dose: 900 mg/day)<br><br><br><br>50 mg/kg IV 8 hourly | | \*\*Rifampicin is only recommended for PVE and it should be started 3-5 days later than vancomycin and gentamicin<br><br>^Cefepime is indicated if local epidemiology suggests for non-HACEK Gram-negative rod infections (such as *Pseudomonas*) |
 
 *a. Paediatric doses should not exceed the max of normal adult dose.*<br>
@@ -660,14 +660,14 @@ Table 4.5: Native Valve Endocarditis Due To S. Aureus (Right-Sided)
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric<sup>a</sup>) | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
-| **Methicillin-susceptible staphylococci (MSSA) – left-sided** | | | | |
+| Methicillin-susceptible staphylococci (MSSA) – left-sided | | | | |
 | Cloxacillin | 12 g/day IV in 4-6 equally divided doses | 200-300 mg/kg/day IV in 4-6 equally divided doses | 4-6 | |
-| **Methicillin-susceptible staphylococci (MSSA) – right-sided; tricuspid valve** | | | | |
+| Methicillin-susceptible staphylococci (MSSA) – right-sided; tricuspid valve | | | | |
 | Cloxacillin | 12 g/day IV in 4-6 equally divided doses | 200-300 mg/kg/day IV in 4-6 equally divided doses | 2-4; see comments | 2 weeks regime is sufficient provided the patient fulfils all the following criteria:<br>• MSSA<br>• Good response to treatment<br>• Absence of metastatic sites of infection or empyema<br>• Absence of cardiac and extracardiac complications<br>• Absence of associated prosthetic valve or left sided valve infection<br>• < 20 mm vegetation<br>• Absence of severe immuno-suppression (< 200 CD4 cells/ml) with or without acquired immune deficiency syndrome (AIDS) |
-| **Regimens for β-lactam allergic patients – both left-sided and right-sided** | | | | |
+| Regimens for β-lactam allergic patients – both left-sided and right-sided | | | | |
 | Cefazolin | 2 g IV 8 hourly | 100 mg/kg/day IV in 3 equally divided doses | 4-6 | Cephalosporins should be avoided in patients with immediate-type hypersensitivity to penicillin.<br><br>Cefazolin has inadequate blood-brain barrier penetrability. In cases of brain abscesses complicating MSSA IE, watch out for treatment failure. |
 | Vancomycin<sup>b,c</sup> | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose | 60 mg/kg/day IV in 2-3 equally divided doses (maximum 2 g/day unless unable to achieve therapeutic range) | 4-6 | Loading dose of 25-30 mg/kg (actual body weight) may be considered for seriously ill patients.<br><br>Vancomycin is inferior to cloxacillin for treatment of MSSA.<br><br>Vancomycin therapy is recommended only for patients with immediate-type penicillin hypersensitivity. |
-| **Methicillin-Resistant Staphylococci (MRSA) – left-sided and right-sided** | | | | |
+| Methicillin-Resistant Staphylococci (MRSA) – left-sided and right-sided | | | | |
 | Vancomycin<sup>b,c</sup> | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose | 60 mg/kg/day IV in 2-3 equally divided doses (maximum 2 g/day unless unable to achieve therapeutic range) | 4-6 | Loading dose of 25-30 mg/kg (actual body weight) may be considered for seriously ill patients. |
 | Daptomycin | 10 mg/kg IV daily | 10 mg/kg IV daily | 4-6 | Daptomycin is superior to vancomycin for MRSA bacteraemia with vancomycin MIC > 1 mg/l. |
 
@@ -677,9 +677,9 @@ Table 4.6: Staphylococcal Endocarditis In The Presence Of A Prosthetic Valve Or 
 
 | Antimicrobial | Dosage and route (Adult) | Dosage and route (Paediatric)<sup>a</sup> | Duration of therapy (weeks) | Comments |
 |---|---|---|---|---|
-| **Methicillin-susceptible staphylococci (MSSA)** | | | | |
+| Methicillin-susceptible staphylococci (MSSA) | | | | |
 | Cloxacillin<br><br>PLUS<br><br>Rifampicin<br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup> | 2 g IV 4 hourly<br><br>PLUS<br><br>300-450 mg PO 12 hourly\*\*<br><br>PLUS<br><br>1 mg/kg IV 8 hourly | 200-300 mg/kg/day IV in 4-6 equally divided doses<br><br>PLUS<br><br>20 mg/kg/day PO in 3 divided doses<br><br>PLUS<br><br>1 mg/kg IV 8 hourly | ≥ 6<br><br>PLUS<br><br>≥ 6<br><br>PLUS<br><br>2 | Allergy to penicillin but not immediate-type hypersensitivity use cefazolin or vancomycin.<br><br>Immediate-type hypersensitivity to penicillin use vancomycin.<br><br>*\*\*Rifampicin has better penetration. However to avoid the development of resistance, it should be started after 3-5 days of effective initial cloxacillin therapy and/or once the bacteraemia has been cleared.* |
-| **Methicillin-Resistant Staphylococci (MRSA)** | | | | |
+| Methicillin-Resistant Staphylococci (MRSA) | | | | |
 | Vancomycin<sup>b,c</sup><br><br>PLUS<br><br>Rifampicin<br><br>PLUS<br><br>(Low dose) Gentamicin<sup>d</sup> | 15-20 mg/kg/dose (actual body weight) IV every 8-12 hourly; not to exceed 2 g/dose<br><br>PLUS<br><br>300-450 mg PO 12 hourly\*\*<br><br>PLUS<br><br>1 mg/kg IV 8 hourly | 60 mg/kg/day IV in 2-3 equally divided doses (maximum 2 g/day unless unable to achieve therapeutic range)<br><br>PLUS<br><br>20 mg/kg/day PO in 3 divided doses<br><br>PLUS<br><br>1 mg/kg IV 8 hourly | ≥ 6<br><br>PLUS<br><br>≥ 6<br><br>PLUS<br><br>2 | For adults, loading dose of 25-30 mg/kg (actual body weight) may be considered for seriously ill patients.<br><br>*\*\*Rifampicin has better penetration. However to avoid the development of resistance, it should be started after 3-5 days of effective initial vancomycin therapy and/or once the bacteraemia has been cleared.* |
 
 *a. Paediatric doses should not exceed the max of normal adult dose.*<br>
@@ -716,8 +716,8 @@ Appendix 1: Classification And Definition Of Infective Endocarditis
 **Recurrence**
 | Recurrence | |
 |---|---|
-| **Relapse** | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
-| **Reinfection** | • IE infection with a different microorganism<br>• A repeat episode of IE caused by the same microorganism > 6 months after the initial episode |
+| Relapse | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
+| Reinfection | • IE infection with a different microorganism<br>• A repeat episode of IE caused by the same microorganism > 6 months after the initial episode |
 
 Adapted from European Society of Cardiology infective endocarditis guidelines. 2009.
 
@@ -728,7 +728,7 @@ Table: Directory Of Main Laboratories That Provide Serological Testing Of Rare A
 | Microorganisms    | Serology IgG/IgM     |
 |-------------------|----------------------|
 | **Brucella** spp.     | IMR<br>HSB           |
-| **Coxiella burnetti** | IMR<br>HSB           |
+| Coxiella burnetti | IMR<br>HSB           |
 | **Bartonella** spp.   | IMR                  |
 | **Legionella** spp.   | HKL<br>UMMC<br>PPUKM |
 
@@ -760,24 +760,24 @@ The main laboratories and the contact details are as follows:*
 Appendix 7: Centres With Available Cardiothoracic Surgery Services*
 | Centres |
 |---|
-| **Johor** |
+| Johor |
 | Hospital Sultanah Aminah, Johor Bahru |
-| **Kelantan** |
+| Kelantan |
 | Hospital Universiti Sains Malaysia, Kubang Kerian |
 | Hospital Raja Perempuan Zainab II, Kota Bahru |
-| **Lembah Klang (Klang Valley)** |
+| Lembah Klang (Klang Valley) |
 | Hospital Serdang |
 | Pusat Perubatan Pakar, Universiti Teknologi Mara (UiTM), Sungai Buloh |
 | Hospital Universiti Kebangsaan Malaysia, Cheras |
 | Pusat Perubatan Universiti Malaya, Kuala Lumpur |
 | National Heart Institute (IJN), Kuala Lumpur |
-| **Pahang** |
+| Pahang |
 | Hospital Tengku Ampuan Afzan, Kuantan |
-| **Penang** |
+| Penang |
 | Penang General Hospital |
-| **Sabah** |
+| Sabah |
 | Queen Elizabeth Hospital, Kota Kinabalu |
-| **Sarawak** |
+| Sarawak |
 | Heart Centre, Kota Samarahan |
 
 ---
@@ -795,7 +795,7 @@ Appendix 10: Weekly Opat Review Checklist (For Doctors)
 | Baselines blood investigations such as FBC, CRP, RP and LFT |
 | Review the planned duration of antimicrobials |
 | To ensure antimicrobials are ordered up to next hospital appointment |
-| **If required** |
+| If required |
 | ECG |
 | Therapeutic drug monitoring |
 | INR |

@@ -225,7 +225,7 @@ Table 9.3-A Recommended Dosing For CCBs
 | Isradipine | 2.5 mg bd | 10 mg bd |
 | Lercanidipine | 10 mg od | 20 mg od |
 | Nifedipine | 5 mg tid | 20 mg tid |
-| **Non-dihydropridines** |  |  |
+| Non-dihydropridines |  |  |
 | Diltiazem | 90 mg bd | 180 mg bd |
 | Diltiazem SR | 100 mg od | 200 mg od |
 | Verapamil | 80 mg tid | 160 mg tid |

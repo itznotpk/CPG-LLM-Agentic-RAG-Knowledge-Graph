@@ -147,11 +147,11 @@ Each of the five categories (F) face, (L) legs, (A) activity, (C) cry and (C) co
 
 | Category | Scoring: 0 | Scoring: 1 | Scoring: 2 |
 |---|---|---|---|
-| **Face** | No particular expression or smile | Occasional grimace or frown, withdrawn, disinterested | Frequent to constant quivering chin, clenched jaw |
-| **Legs** | Normal position or relaxed | Uneasy, restless, tense | Kicking or legs drawn up |
-| **Activity** | Lying quietly, normal position, moves easily | Squirming, shifting back and forth, tense | Arched, rigid or jerking |
-| **Cry** | No cry (awake or asleep) | Moans or whimpers; occasional complaint | Crying steadily, screams or sobs, frequent complaints |
-| **Consolability** | Content, relaxed | Reassured by occasional touching, hugging or being talked to, distractible | Difficult to console |
+| Face | No particular expression or smile | Occasional grimace or frown, withdrawn, disinterested | Frequent to constant quivering chin, clenched jaw |
+| Legs | Normal position or relaxed | Uneasy, restless, tense | Kicking or legs drawn up |
+| Activity | Lying quietly, normal position, moves easily | Squirming, shifting back and forth, tense | Arched, rigid or jerking |
+| Cry | No cry (awake or asleep) | Moans or whimpers; occasional complaint | Crying steadily, screams or sobs, frequent complaints |
+| Consolability | Content, relaxed | Reassured by occasional touching, hugging or being talked to, distractible | Difficult to console |
 
 **Source:** Ministry of Health, Malaysia. Pain as the 5th Vital Sign Guideline: 3rd Edition. Putrajaya: MoH; 2018.
 
@@ -350,11 +350,11 @@ The PAINAD scale is a reliable pain assessment tool for patients with advanced d
 
 | Item | 0 | 1 | 2 |
 |---|---|---|---|
-| **Breathing** | Normal | Occasional laboured breathing. Short period of hyperventilation. | Noisy laboured breathing. Long period of hyperventilation. Cheyne-Stokes respirations. |
-| **Negative Vocalization** | None | Occasional moan or groan. Low-level speech with a negative or disapproving quality. | Repeated troubled calling out. Loud moaning or groaning. Crying. |
-| **Facial Expression** | Smiling or inexpressive | Sad. Frightened. Frown. | Facial grimacing. |
-| **Body Language** | Relaxed | Tense. Distressed pacing. Fidgeting. | Rigid. Fists clenched. Knees pulled up. Pulling or pushing away. Striking out. |
-| **Consolability** | No need to console | Distracted or reassured by voice or touch. | Unable to console, distract or reassure. |
+| Breathing | Normal | Occasional laboured breathing. Short period of hyperventilation. | Noisy laboured breathing. Long period of hyperventilation. Cheyne-Stokes respirations. |
+| Negative Vocalization | None | Occasional moan or groan. Low-level speech with a negative or disapproving quality. | Repeated troubled calling out. Loud moaning or groaning. Crying. |
+| Facial Expression | Smiling or inexpressive | Sad. Frightened. Frown. | Facial grimacing. |
+| Body Language | Relaxed | Tense. Distressed pacing. Fidgeting. | Rigid. Fists clenched. Knees pulled up. Pulling or pushing away. Striking out. |
+| Consolability | No need to console | Distracted or reassured by voice or touch. | Unable to console, distract or reassure. |
 
 *Five-item observational tool (see the description of each item below). <br>
 **Total scores range from 0 to 10 (based on a scale of 0 to 2 for five items), with a higher score indicating more severe pain (0=“no pain”)  to 10=“severe pain”)
@@ -367,43 +367,43 @@ expression, body language, and the ability to be consoled. Each of the five indi
 ### Appendix 5A: Suggested Medication Dosages And Adverse Effects In Adults
 | Drug | Recommended Dosages | Side Effects | Remarks |
 |---|---|---|---|
-| **Paracetamol** | 0.5 - 1 g, 6-8-hourly. Max: 4 g/day | Rare | Consider dose reduction in hepatic impairment. |
-| **Non-Selective NSAIDs** | | | |
+| Paracetamol | 0.5 - 1 g, 6-8-hourly. Max: 4 g/day | Rare | Consider dose reduction in hepatic impairment. |
+| Non-Selective NSAIDs | | | |
 | Diclofenac Sodium | 50 - 150 mg daily, 8-12-hourly. Max: 150 mg/day | • Peptic ulcer<br>• GI bleed<br>• Platelet dysfunction<br>• Renal impairment<br>• Cardiac events | Use the lowest efficacious dose for the shortest possible duration. Consider dose reduction in renal impairment. Higher doses increase the risk of GI and cardiovascular complications. |
 | Mefenamic Acid | 250 - 500 mg, 8-hourly. Max: 1500 mg/day | ^ | ^ |
 | Ibuprofen | 200 - 400 mg daily, 8-hourly. Max: 2400 mg/day | ^ | ^ |
-| **Selective NSAIDs** | | | |
+| Selective NSAIDs | | | |
 | Celecoxib | 200 - 400 mg, 12 - 24-hourly. Max: 400 mg/day | • Renal impairment<br>• Cardiac events | Use the lowest efficacious dose for the shortest possible duration. Consider dose reduction in renal impairment and cardiovascular disease. Higher doses increase the risk of GI and cardiovascular complications. |
 | Etoricoxib | 60 - 90 mg daily. Max: 120 mg/day | ^ | ^ |
-| **Weak Opioids** | | | |
+| Weak Opioids | | | |
 | Tramadol | 50 - 100 mg, 6 - 8-hourly. Max: 400 mg/day | • Drowsiness<br>• Dizziness<br>• Nausea<br>• Vomiting<br>• Constipation | Consider dose reduction in renal impairment. |
 | Dihydrocodeine tartrate | 30 - 60 mg, 6 - 8-hourly. Max: 240/mg day | ^ | ^ |
-| **Combination Medications** | | | |
+| Combination Medications | | | |
 | Paracetamol 500 mg + codeine 8 mg | 1 - 2 tablets, 6 - 8-hourly. Max: 8 tablets/day | • Drowsiness<br>• Dizziness<br>• Nausea<br>• Vomiting<br>• Constipation | Consider dose reduction in renal impairment and hepatic impairment. |
 | Paracetamol 325 mg + tramadol 37.5 mg | 1 - 2 tablets, 6 - 8-hourly. Max: 8 tablets/day | ^ | ^ |
-| **Strong Opioids** | | | |
+| Strong Opioids | | | |
 | Morphine | Starting dose (oral): 3 - 5 mg 4-hourly of IR morphine. SR oral morphine: to be given in 12-hourly dosing. | • Drowsiness<br>• Dizziness<br>• Nausea<br>• Vomiting<br>• Constipation | No max dose in cancer pain. |
 | Oxycodone | Starting dose (oral): 5 mg of IR 4 - 6-hourly. CR oxycodone: to be given in 12-hourly dosing. | ^ | ^ |
 | Transderm fentanyl | Equianalgesic dose of total 24 hours opioid requirement (refer to Table 4 on conversion of opioids) | ^ | Transderm fentanyl can only be used when opioid requirements are stable, and never in an opioid naïve patient. |
 | Sublingual fentanyl | Starting dose: 100 mcg. May be titrated up to 800 mcg/ episode of breakthrough pain. Max: 2 doses/breakthrough pain episode; and 4 episodes of breakthrough pain within 24 hours. | ^ | Effectiveness and safety of doses above 800 mcg have not been evaluated. Oral mucositis or dry mouth may affect absorption. |
-| **Antidepressants** | | | |
+| Antidepressants | | | |
 | Amitriptyline | Start with 12.5 - 25 mg ON. Max: 150 mg/day | Anticholinergic effects e.g. dry mouth, drowsiness, urinary retention, arrhythmias, QT prolongation | Max dose seldom required. Usual effective dose 25 - 75 mg ON. Use with caution in the elderly and patients with cardiac disease, glaucoma, renal impairment and seizure risk. |
 | Duloxetine | 30 - 60 mg/day. Max: 120 mg/day | • Bleeding risk<br>• Hepatotoxicity (at higher doses)<br>• Gastrointestinal disorder | Usual effective dose 60mg/day. Use with caution in patients with renal impairment and seizure risk. |
-| **Anticonvulsants** | | | |
+| Anticonvulsants | | | |
 | Gabapentin | Start with 300 mg ON and increase by 300 mg/24 hrs every 2-3 days if necessary. Max: 3600 mg/day | • Drowsiness<br>• dizziness<br>• amnesia, dry mouth tremor | Dose adjustment is required in renal impairment. Usual effective dose ≥ 600mg TDS |
 | Pregabalin | 50 - 150 mg BD. Max dose: 300mg BD | ^ | Dose adjustment is required in renal impairment. |
-| **Bone Targeting Agents** | | | |
+| Bone Targeting Agents | | | |
 | Zoledronic Acid | 4 mg as a single IV infusion over 15 mins. Can only be repeated after 7 days if response is inadequate. | • Transient pyrexia & flu-like symptoms<br>• Fatigue<br>• Nausea<br>• Osteonecrosis of the jaw | Consider dose reduction in renal impairment. |
 | Pamidronate | 30 - 90 mg as a single IV infusion over 2 - 4 hours. Can only be repeated after 7 days if response is inadequate. | | |
 | Denosumab | 120 mg every 4 weeks | • Arthralgia<br>• Fatigue<br>• Hypocalcemia<br>• Osteonecrosis of the jaw | |
-| **Corticosteroid** | | | |
+| Corticosteroid | | | |
 | Dexamethasone | 8 - 16 mg/day (initial). Then reduce to lowest possible dose (usually 2mg/day) | • Bleeding<br>• Susceptibility to infections<br>• Impaired glycaemic control<br>• Delirium & sleep disturbances | Try to give earlier in the day to minimise insomnia. |
-| **Laxatives** | | | |
+| Laxatives | | | |
 | Lactulose | 15 - 20 ml orally, 6 - 8-hourly | • Bloating<br>• Epigastric pain<br>• Flatulence<br>• Nausea<br>• Vomiting<br>• Cramping | May be mixed with fruit juice, water or milk. Reasonable fluid intake is required for effectiveness. |
 | Macrogol | 1 - 4 sachets/day | • Abdominal distension<br>• Nausea<br>• Diarrhoea | Reasonable fluid intake is required for effectiveness. |
 | Bisacodyl | 5 - 10 mg orally, 1 - 2 times daily. Max: 20 mg/day | • Diarrhoea<br>• Nausea<br>• Vomiting<br>• Rectal irritation<br>• Abdominal cramps<br>• Bloating | Enteric coated tablet and should not be crushed. Exercise caution in GI obstruction, perforation or severe impaction. |
 | Senna | 2 tabs OD or 1 tab BD. Max: 8 tabs/day | • Diarrhoea<br>• Nausea<br>• Abdominal cramps | Exercise caution in GI obstruction, perforation or severe impaction. |
-| **Antiemetics** | | | |
+| Antiemetics | | | |
 | Metoclopramide | 10 - 20 mg, 6 - 8 hourly | • Extrapyramidal reactions<br>• Dizziness<br>• Drowsiness | Consider dose reduction in renal impairment. |
 | Prochlorperazine | 10 - 30 mg daily in divided doses | ^ | |
 | Haloperidol | 0.5 - 3 mg single dose nocte | • Extrapyramidal symptoms<br>• Prolonged QT interval | |
@@ -411,30 +411,30 @@ expression, body language, and the ability to be consoled. Each of the five indi
 ### Appendix 5B: Suggested Medication Dosages In Paediatrics
 | Drug | Route | 1 month-2 years (Dose and frequency) | 2 - 12 years (Dose and frequency) | 12 - 18 years (Dose and frequency) |
 |---|---|---|---|---|
-| **Paracetamol** | Oral | **0-3 months:** 15 mg/kg 6-8H (Max: 60 mg/kg/day; if preterm 28-32 CGA, max 30 mg/kg/day)<br>**>3 months-12 years:** 15 mg/kg 4-6H (Max: 75 mg/kg/day or 4 g/day) | ^ | 500 mg - 1 g 4-6H (if non-obese ≥50 kg: 1 g 4-6H) (Max: 4 g/day) |
+| Paracetamol | Oral | **0-3 months:** 15 mg/kg 6-8H (Max: 60 mg/kg/day; if preterm 28-32 CGA, max 30 mg/kg/day)<br>**>3 months-12 years:** 15 mg/kg 4-6H (Max: 75 mg/kg/day or 4 g/day) | ^ | 500 mg - 1 g 4-6H (if non-obese ≥50 kg: 1 g 4-6H) (Max: 4 g/day) |
 | | Per rectal | **0-3 months:** LD: 30 mg/kg; MD: 20 mg/kg 8H (Max: 60 mg/kg/day)<br>**>3 months-12 years:** LD: 40 mg/kg; MD: 15-20 mg/kg 6H (Max: 75 mg/kg/day) | ^ | |
 | | IV | **Preterm neonate over 32/52 CGA:** 7.5 mg/kg 8H (Max 25 mg/kg/day)<br>**Term neonate & until 10 kg:** 7.5 mg/kg 6-8H (Max: 30 mg/kg/day)<br>**>10 kg or child up to 50 kg:** 15 mg/kg 4-6H (Max: 60 mg/kg/day, not exceeding 2 g/day if <33 kg, or 3 g/day for 33-50 kg) | ^ | **If non-obese >50 kg:** 1 g 4-6H (Max: 4 g/day)<br>**Obese Children:** 15 mg/kg adjusted body weight (Max: 4 g/day) |
-| **Ibuprofen (NSAID)** | Oral | **<3 months:** not recommended<br>**>3 months:** 5 mg/kg 6-8H (Max: 20 mg/kg/day)<br>**6 months-12 years:** 5-10 mg/kg 6-8H (Max: 30-40 mg/kg/day or 1.2 g/day, whichever is less) | ^ | 200 mg - 400 mg 4-6H (Max: 2.4 g/day) |
-| **Diclofenac (NSAID)** | Oral | **<6 months:** not recommended<br>**>6 months or >10 kg:** 0.3-1 mg/kg 8H (Max: 3 mg/kg/day up to 150 mg/day, whichever is less for 2 days) | ^ | Oral 25-50 mg 8H (Max: 3 doses/day) |
+| Ibuprofen (NSAID) | Oral | **<3 months:** not recommended<br>**>3 months:** 5 mg/kg 6-8H (Max: 20 mg/kg/day)<br>**6 months-12 years:** 5-10 mg/kg 6-8H (Max: 30-40 mg/kg/day or 1.2 g/day, whichever is less) | ^ | 200 mg - 400 mg 4-6H (Max: 2.4 g/day) |
+| Diclofenac (NSAID) | Oral | **<6 months:** not recommended<br>**>6 months or >10 kg:** 0.3-1 mg/kg 8H (Max: 3 mg/kg/day up to 150 mg/day, whichever is less for 2 days) | ^ | Oral 25-50 mg 8H (Max: 3 doses/day) |
 | | Per rectal | **>1 year:** 1 mg/kg 8-12H (Max: 3 mg/kg/day up to 150 mg/day, whichever is less) | ^ | 50 mg - 100 mg (oral to be started 18H after initial 100 mg suppository) |
-| **Celecoxib (COX-2)** | Oral | **<2 years:** not recommended | **>2 years:** weigh risks and benefits<br>**10-25 kg:** 50 mg 12H<br>**>25 kg:** 100 mg 12H | |
-| **Parecoxib (COX-2)** | IV | **<2 years:** not recommended | **>2 years:** weigh risks and benefits. Single dose of 0.5-1 mg/kg (Max: 40 mg). | |
-| **Fentanyl (Opioid)** | IV | **Specialist use only:** Bolus 1-2 mcg/kg/dose. Infusion 0.5-2 ml/H (Max 4 ml/H) (0.2-0.8 mcg/kg/H). | ^ | ^ |
+| Celecoxib (COX-2) | Oral | **<2 years:** not recommended | **>2 years:** weigh risks and benefits<br>**10-25 kg:** 50 mg 12H<br>**>25 kg:** 100 mg 12H | |
+| Parecoxib (COX-2) | IV | **<2 years:** not recommended | **>2 years:** weigh risks and benefits. Single dose of 0.5-1 mg/kg (Max: 40 mg). | |
+| Fentanyl (Opioid) | IV | **Specialist use only:** Bolus 1-2 mcg/kg/dose. Infusion 0.5-2 ml/H (Max 4 ml/H) (0.2-0.8 mcg/kg/H). | ^ | ^ |
 | | PCA | (Restricted to Pain Service) Initial PCA dosing: 0.4 mcg/kg; Lockout 5-7 mins. | ^ | ^ |
-| **Tramadol (Opioid)** | Oral/IV | **>1 year:** 0.5-1 mg/kg 4-6H. **NB:** for tonsillectomy max 1 mg/kg/dose 6-8H. | ^ | **>12 years:** 1 mg/kg 4-6H (Max: 100 mg/dose or 400 mg/day) |
-| **Oxycodone (Opioid)** | Oral | **>1 month:** IR 0.1-0.2 mg/kg (Max 5 mg) PRN or 4-6H. | ^ | |
-| **Morphine (Opioid)** | Oral | **>1 month-1 year:** 0.1 mg/kg 4-6H (for moderate-severe pain). | ^ | **>12 years:** 0.1-0.3 mg/kg 4-6H (Max 10-15mg/dose, up to 6 times/24H) |
+| Tramadol (Opioid) | Oral/IV | **>1 year:** 0.5-1 mg/kg 4-6H. **NB:** for tonsillectomy max 1 mg/kg/dose 6-8H. | ^ | **>12 years:** 1 mg/kg 4-6H (Max: 100 mg/dose or 400 mg/day) |
+| Oxycodone (Opioid) | Oral | **>1 month:** IR 0.1-0.2 mg/kg (Max 5 mg) PRN or 4-6H. | ^ | |
+| Morphine (Opioid) | Oral | **>1 month-1 year:** 0.1 mg/kg 4-6H (for moderate-severe pain). | ^ | **>12 years:** 0.1-0.3 mg/kg 4-6H (Max 10-15mg/dose, up to 6 times/24H) |
 | | SC | 0.1-0.2 mg/kg. **<6 months:** up to 4 times/24H. **>6 months:** up to 6 times/24H. | 0.2 mg/kg (up to 6 times/24H) | **>12 years:** 5-10 mg (up to 6 times/24H) |
 | | IV | **Bolus:** 0.1 mg/kg (up to 4 times/24H). **Infusion:** Neonates 0.5-0.7 ml/H; 1-3 months 0.5-1 ml/H; >3 months 1-2 ml/H. | ^ | **Bolus:** 2.5-10 mg (up to 6 times/24H) |
 | | PCA | (Restricted to APS team) Initial PCA dosing: 10-20 mcg/kg; Bolus dose 10-20 mcg/kg. | ^ | ^ |
-| **Naloxone** | IV | 0.01 mg/kg IV (Max: 0.4 mg) may repeat every 2 minutes | ^ | |
-| **Adjuvants** | | | | |
+| Naloxone | IV | 0.01 mg/kg IV (Max: 0.4 mg) may repeat every 2 minutes | ^ | |
+| Adjuvants | | | | |
 | Ketamine | Oral | Oral: 2 - 10 mg/kg (sedation pre-medication) | ^ | |
 | | IV | **BOLUS for analgesia:** 0.2 - 0.5 mg/kg; **for sedation:** 1 - 1.5 mg/kg (use restricted to trained personnel only)<br>**INFUSION in an independent line:** (use restricted to trained personnel only)<br>**Preparation:** Dilute 5 mg/kg of ketamine (Max: 250 mg) in 50 ml normal saline. 1 ml of solution= 100 mcg/kg of ketamine<br>**Suggested rate:** 0.2 - 2 ml/H (Max: 4 ml/H) (20 - 400 mcg/kg/H) | ^ | |
 | Clonidine | Oral | **Analgesic adjunct:** 1 - 2 mcg/kg PRN or 8 H<br>**sedation premedication:** 2 - 4 mcg/kg<br>**NB:** antihypertensive - do not give if hypotensive | ^ | |
 | | IV | 1 - 2 mcg/kg PRN or 8H (**with caution**)<br>**NB:** antihypertensive - do not give if hypotensive | ^ | |
 | Gabapentin | Oral | Initial dose: 5 mg/kg ON, increase if required to 5 mg/kg 12H (Day 2), then 5 mg/kg 8H (Day 3) | ^ | |
-| **Local Anaesthetics** | | | | |
+| Local Anaesthetics | | | | |
 | Lignocaine | LA/RA | Max dose: 4 - 5mg/kg | ^ | |
 | Levobupivacaine/ Bupivacaine | LA/RA | Max dose: **Neonates - <6 months:** 1.5 - 2 mg/kg; **>6 months:** 2 - 2.5 mg/kg<br>**NB:** bupivacaine is particularly cardiotoxic | ^ | |
 | | Epidural | **Levobupivacaine 0.1% ± fentanyl infusion:** (restricted to APS team)<br>**Preparation:** Dilute 10 ml of levobupivacaine/bupivacaine 0.5% (i.e., 50 mg) in 50 ml normal saline + fentanyl (<1 months: Nil; 1 months - 1 year: fentanyl 1 mcg/ml; >1 year: fentanyl 2 mcg/ml)<br>**Suggested rate: Neonates:** levobupivacaine 0.1%: 0.1 - 0.2 ml/kg/H<br>**1 months - 1 year:** levobupivacaine 0.1% + fentanyl 1 mcg/ml: 0.2 - 0.4 ml/kg/H<br>**>1 year:** levobupivacaine 0.1% + fentanyl 2 mcg/ml: 0.2 - 0.4 ml/kg/H | ^ | |

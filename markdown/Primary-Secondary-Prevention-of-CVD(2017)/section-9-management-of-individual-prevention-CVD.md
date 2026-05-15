@@ -628,7 +628,7 @@ Table 14: Risk Stratification
 
 | Co-existing Condition | No RF No TOD No TOC | TOD or RF (1-2) No TOC | TOC or RF (≥3) or Clinical atherosclerosis | Previous MI or Previous stroke or Diabetes |
 | :--- | :--- | :--- | :--- | :--- |
-| **BP Levels (mmHg)** | | | | |
+| BP Levels (mmHg) | | | | |
 | SBP 130 – 139 and/or DBP 80 – 89 | Low | Medium | High | Very high |
 | SBP 140 – 159 and/or DBP 90 – 99 | Low | Medium | High | Very high |
 | SBP 160 – 179 and/or DBP 100 – 109 | Medium | High | Very high | Very high |
@@ -683,12 +683,12 @@ Table 17: Diagnosis Of Prediabetes And Diabetes
 
 | Category | 0 hour (fasting*) | 2 hour |
 |---|---|---|
-| **Based on OGTT** | | |
+| Based on OGTT | | |
 | Normal | <6.1 | <7.8 |
 | IFG | 6.1-6.9 | - |
 | IGT | - | 7.8-11.0 |
 | Diabetes | ≥7.0 | ≥11.1 |
-| **Based on A1c** | **Based on A1c** | **Based on blood glucose levels** |
+| Based on A1c | **Based on A1c** | **Based on blood glucose levels** |
 | Normal | < 5.6% | - |
 | Prediabetes | 5.6 to <6.3% | - |
 | Diabetes | ≥6.3% | ≥7.0 (fasting)<br>≥11.0 (random) |
@@ -757,11 +757,11 @@ Table 21: Antiplatelet Therapy For Primary And Secondary Prevention Of CVD
 
 | Prevention Type | Patient Group | Recommendation | Drug/Regimen | Grade/Level |
 |---|---|---|---|---|
-| **Primary** | Non-diabetics | Not routinely recommended | Aspirin | I,A |
+| Primary | Non-diabetics | Not routinely recommended | Aspirin | I,A |
 | | | May be considered in individuals with multiple CV risk factors if bleeding risks are low | Aspirin | IIa,B |
 | | Diabetes | Not routinely recommended | Aspirin | I,C |
 | | | May be considered in individuals who are more than 40 years old or have diabetes for more than 10 years if bleeding risks are low | Aspirin | IIa,C |
-| **Secondary** | Stable CHD (>1 year) | Established CHD >1 year: Antiplatelet monotherapy long term | Aspirin 75 to 100 mg daily | I,A |
+| Secondary | Stable CHD (>1 year) | Established CHD >1 year: Antiplatelet monotherapy long term | Aspirin 75 to 100 mg daily | I,A |
 | | | | Clopidogrel 75 mg if aspirin intolerant | I,A |
 | | | | DAPT in selected cases | IIb,C |
 | | | Elective PCI with Bare metal Stents: DAPT for 1 month and then antiplatelet monotherapy long term | Aspirin 75-100 mg + clopidogrel 75 mg daily | I,B |
@@ -922,9 +922,9 @@ Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CV
 |---|---|
 | **Low risk** (chronic stable angina; normal kidney function) | Metformin → SGLT2i**** → GLP-1***** → DPP-4i / Gliclazide / TZD*** → Basal insulin → Basal bolus insulin |
 | **High risk** (Hx of AMI; Hx of CCF*) | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
-| **History of severe hypoglycaemia** | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide / TZD*** → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
+| History of severe hypoglycaemia | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide / TZD*** → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
 | **Obese** ** (BMI >27.5 kg/m²) | SGLT2i → GLP-1 → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
-| **GFR <45 mL/min/1.73m²** | Low-dose DPP-4i → TZD*** → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
+| GFR <45 mL/min/1.73m² | Low-dose DPP-4i → TZD*** → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
 
 **Notes (from figure footnotes):**
 - \* Modify dose of diuretic if on SGLT2i.
@@ -982,18 +982,18 @@ Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CV
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

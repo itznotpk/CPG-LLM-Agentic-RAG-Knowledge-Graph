@@ -13,22 +13,22 @@ output: reference_tools, screening_instruments, operational_definitions
 | --- | --- | --- |
 | - | Stroke | Stroke<br>Brain infarct*<br>Brain ischemia<br>Brain isch?emi*<br>Cerebral infarct*<br>Cerebrovascular accident*<br>CVA<br>Cerebrovascular infarct*<br>Acute ischemi* stroke<br>Carotid artery thrombosis<br>Anterior cerebral artery infarction<br>Middle cerebral artery infarction<br>Posterior cerebral artery infarction<br>Anterior circulation occlusion |
 | - | **AND** | |
-| **OR** | Epidemiology, Definition and Classification of Stroke | Epidemiology<br>Prevalence<br>Definition<br>Description<br>Classification<br>Categorization |
-| **OR** | Causes and Pathophysiology | Causes<br>Aetiology<br>Pathophysiology<br>Mechanism |
-| **OR** | Diagnosis and Initial Assessment | Diagnosis<br>Differential diagnosis<br>Sign<br>Symptoms<br>Clinical features<br>Clinical presentation<br>initial assessment |
-| **OR** | Prognosis | Prognosis<br>Survival<br>Mortality<br>Disability<br>Recurrent<br>Progress |
-| **OR** | Prevention of Stroke | Prevention<br>Primary prevention<br>Secondary prevention<br>Predisposing factor<br>Risk factor<br>Modifiable risk factor<br>Non modifiable risk factor<br>Risk stratification<br>Risk estimate<br>Management of risk factor<br>Revascularisation<br>Carotid endarterectomy<br>CEA<br>Carotid angioplasty<br>Stenting<br>Intracranial angioplasty |
-| **OR** | Investigations | Investigations<br>Imaging<br>Assessment |
-| **OR** | Emergency Medicine Services | Emergency medicine services<br>EMS<br>Pre-hospital management<br>Pre arrival<br>Emergency department<br>Initial management/evaluation/assessment |
-| **OR** | Acute Management | Acute management<br>General management |
-| **OR** | Reperfusion of Ischaemic Brain | Reperfusion<br>Intravenous thrombolysis<br>IVT<br>Alteplase<br>Tenecteplase |
-| **OR** | Endovascular Thrombectomy | Endovascular thrombectomy<br>Thrombectomy<br>Percutaneous thrombectomy<br>Endovascular procedures<br>MechanicaVl thrombectomy<br>Neuro-thrombectomy<br>Embolectomy<br>Cerebral revascularization<br>Endovascular embolectomy<br>Intraarterial embolectomy<br>Intra-arterial thrombectomy<br>Balloon angioplasty<br>Stent<br>Mechanical thrombolysis<br>Endovascular therapy<br>Endovascular treatment |
-| **OR** | Stroke Unit | Stroke unit<br>Stroke team |
-| **OR** | Stroke in the Older Person | Older person<br>Elderly<br>Age above 60 |
-| **OR** | Stroke and Cardioembolism | Cardioembolism<br>Atrial fibrillation |
-| **OR** | Stroke in Special Circumstances | Young adult<br>Cryptogenic<br>Embolic stroke of undetermined source<br>ESUS<br>Patent foramen ovale<br>PFO<br>Cerebral venous thrombosis |
-| **OR** | Management of Stroke in Pregnancy | Pregnancy<br>During pregnancy<br>Labour induction |
-| **OR** | Stroke Therapies with Limited Evidence | Stroke therapy<br>Limited evidence<br>Treatment modalities |
+| OR | Epidemiology, Definition and Classification of Stroke | Epidemiology<br>Prevalence<br>Definition<br>Description<br>Classification<br>Categorization |
+| OR | Causes and Pathophysiology | Causes<br>Aetiology<br>Pathophysiology<br>Mechanism |
+| OR | Diagnosis and Initial Assessment | Diagnosis<br>Differential diagnosis<br>Sign<br>Symptoms<br>Clinical features<br>Clinical presentation<br>initial assessment |
+| OR | Prognosis | Prognosis<br>Survival<br>Mortality<br>Disability<br>Recurrent<br>Progress |
+| OR | Prevention of Stroke | Prevention<br>Primary prevention<br>Secondary prevention<br>Predisposing factor<br>Risk factor<br>Modifiable risk factor<br>Non modifiable risk factor<br>Risk stratification<br>Risk estimate<br>Management of risk factor<br>Revascularisation<br>Carotid endarterectomy<br>CEA<br>Carotid angioplasty<br>Stenting<br>Intracranial angioplasty |
+| OR | Investigations | Investigations<br>Imaging<br>Assessment |
+| OR | Emergency Medicine Services | Emergency medicine services<br>EMS<br>Pre-hospital management<br>Pre arrival<br>Emergency department<br>Initial management/evaluation/assessment |
+| OR | Acute Management | Acute management<br>General management |
+| OR | Reperfusion of Ischaemic Brain | Reperfusion<br>Intravenous thrombolysis<br>IVT<br>Alteplase<br>Tenecteplase |
+| OR | Endovascular Thrombectomy | Endovascular thrombectomy<br>Thrombectomy<br>Percutaneous thrombectomy<br>Endovascular procedures<br>MechanicaVl thrombectomy<br>Neuro-thrombectomy<br>Embolectomy<br>Cerebral revascularization<br>Endovascular embolectomy<br>Intraarterial embolectomy<br>Intra-arterial thrombectomy<br>Balloon angioplasty<br>Stent<br>Mechanical thrombolysis<br>Endovascular therapy<br>Endovascular treatment |
+| OR | Stroke Unit | Stroke unit<br>Stroke team |
+| OR | Stroke in the Older Person | Older person<br>Elderly<br>Age above 60 |
+| OR | Stroke and Cardioembolism | Cardioembolism<br>Atrial fibrillation |
+| OR | Stroke in Special Circumstances | Young adult<br>Cryptogenic<br>Embolic stroke of undetermined source<br>ESUS<br>Patent foramen ovale<br>PFO<br>Cerebral venous thrombosis |
+| OR | Management of Stroke in Pregnancy | Pregnancy<br>During pregnancy<br>Labour induction |
+| OR | Stroke Therapies with Limited Evidence | Stroke therapy<br>Limited evidence<br>Treatment modalities |
 
 **Appendix B.** *Prehospital Stroke Screening Tool*
 *(Reference Chapter: Chapter 7)*
@@ -58,12 +58,12 @@ output: reference_tools, screening_instruments, operational_definitions
 
 | Terms | Descriptions |
 | --- | --- |
-| **Bypass** | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
-| **Call taker** | A trained person in MECC who receives calls from the public through 999 and manages the call. |
-| **Dispatch priority** | Level of priority assigned to each case according to the clinical urgency. There are 4 levels of priority: Priority 1, priority 2, priority 3 and priority 4. Priority 1 is the highest priority level in the dispatch system. |
-| **Dispatching system** | A computerized system in MECC manned by the call taker to manage all incoming 999 calls from the public and dispatches the appropriate response team to the scene. |
-| **PHC responder** | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
-| **Pre-arrival alert** | Providing notification of an incoming case prior to the patient's arrival. |
+| Bypass | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
+| Call taker | A trained person in MECC who receives calls from the public through 999 and manages the call. |
+| Dispatch priority | Level of priority assigned to each case according to the clinical urgency. There are 4 levels of priority: Priority 1, priority 2, priority 3 and priority 4. Priority 1 is the highest priority level in the dispatch system. |
+| Dispatching system | A computerized system in MECC manned by the call taker to manage all incoming 999 calls from the public and dispatches the appropriate response team to the scene. |
+| PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
+| Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
 **Appendix D.** *Types of Swallowing Test*
 *(Reference Chapter: Chapter 8)*

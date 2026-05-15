@@ -24,34 +24,34 @@ Important discharge instructions should include:
  (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 
 ### 10.1.1: Antiplatelet Agents
-- **[Grade I, Level A]** ASA should be prescribed at 75-150 mg daily unless contraindicated.
-- **[Grade I, Level A]** In patients who cannot tolerate ASA, clopidogrel is an alternative. It has better risk reduction. When clopidopgrel is not available, ticlopidine can be given.
-- **[Grade I, Level A]** The combination of ASA and clopidogrel 75 mg daily should be continued for at least one month and ideally up to 9 to 12 months after UA/NSTEMI treated medically and in patients who have undergone PCI with bare metal stents.
-- **[Grade I, Level A]** If patients received drug eluting stents (DES) during PCI then dual antiplatelet treatment is recommended.
-**[Grade I, Level C]** The duration of dual antiplatelet therapy following DES implantation is for 6 to 12 months or longer.
+- [Grade I, Level A] ASA should be prescribed at 75-150 mg daily unless contraindicated.
+- [Grade I, Level A] In patients who cannot tolerate ASA, clopidogrel is an alternative. It has better risk reduction. When clopidopgrel is not available, ticlopidine can be given.
+- [Grade I, Level A] The combination of ASA and clopidogrel 75 mg daily should be continued for at least one month and ideally up to 9 to 12 months after UA/NSTEMI treated medically and in patients who have undergone PCI with bare metal stents.
+- [Grade I, Level A] If patients received drug eluting stents (DES) during PCI then dual antiplatelet treatment is recommended.
+[Grade I, Level C] The duration of dual antiplatelet therapy following DES implantation is for 6 to 12 months or longer.
 - There are no recent clinical trial data on the use of triflusal in ACS.
 
 ### 10.1.2: Β-Blockers
 (refer Section 7.2.4.2: β-blockers)
 - β-blockers should be continued for patients with ischemia unless contraindicated.
-- **[Grade I, Level B]** Long term treatment following UA/NSTEMI may lead to significant mortality reduction.
-- **[Grade I, Level A]** β-blockers should be continued indefinitely in patients with reduced LV function, with or without symptoms of heart failure.
+- [Grade I, Level B] Long term treatment following UA/NSTEMI may lead to significant mortality reduction.
+- [Grade I, Level A] β-blockers should be continued indefinitely in patients with reduced LV function, with or without symptoms of heart failure.
 
 ### 10.1.3: Lipid Modifying Therapy
-- **[Grade I, Level A]** There is a large body of evidence that early initiation of statin therapy improves outcome regardless of baseline LDL-C levels in patient with ACS.
-- **[Grade I, Level A]** More aggressive lipid lowering further lowers cardiovascular event rates.
+- [Grade I, Level A] There is a large body of evidence that early initiation of statin therapy improves outcome regardless of baseline LDL-C levels in patient with ACS.
+- [Grade I, Level A] More aggressive lipid lowering further lowers cardiovascular event rates.
 
 Lipid management includes:
-- **[Grade I, Level C]** Assessment of a fasting lipid profile for all patients, within 24 hours of hospitalization.
-- **[Grade I, Level A]** Statins, in the absence of contra-indications, regardless of baseline LDL-C and diet modifications, should be initiated soon after admission and continue indefinitely to provide life long benefits. This also applies to patients post PCI.
-- **[Grade I, Level A]** LDL-C level should be targeted <2.0 mmol/L for most patients.
-- **[Grade II-a, Level B]** Patients with low HDL-C may benefit from fibrates or nicotinic acid.
+- [Grade I, Level C] Assessment of a fasting lipid profile for all patients, within 24 hours of hospitalization.
+- [Grade I, Level A] Statins, in the absence of contra-indications, regardless of baseline LDL-C and diet modifications, should be initiated soon after admission and continue indefinitely to provide life long benefits. This also applies to patients post PCI.
+- [Grade I, Level A] LDL-C level should be targeted <2.0 mmol/L for most patients.
+- [Grade II-a, Level B] Patients with low HDL-C may benefit from fibrates or nicotinic acid.
 
 ### 10.1.4: Angiotensin-Converting Enzymes Inhibitors (Ace-Is)
 (refer Table 7: Recommended dosages of ACE-I in UA/NSTEMI)
-- **[Grade I, Level A]** ACE-Is have shown long term benefit in all patients with evidence of LV dysfunction (LVEF ≤40%) and in patients with diabetes, hypertension or CKD unless contraindicated.
-- **[Grade II-a, Level A]** For all other patients ACE-Is should be considered to prevent recurrence of ischaemic events.
-- **[Grade II-a, Level A]** For patients with reduced LV systolic function, ACE-I should be initiated early, during the course of hospitalization. Agents and doses of proven efficacy are recommended.
+- [Grade I, Level A] ACE-Is have shown long term benefit in all patients with evidence of LV dysfunction (LVEF ≤40%) and in patients with diabetes, hypertension or CKD unless contraindicated.
+- [Grade II-a, Level A] For all other patients ACE-Is should be considered to prevent recurrence of ischaemic events.
+- [Grade II-a, Level A] For patients with reduced LV systolic function, ACE-I should be initiated early, during the course of hospitalization. Agents and doses of proven efficacy are recommended.
 
 Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
 
@@ -66,7 +66,7 @@ Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
 ### 10.1.5: Angiotensin-Receptor Blockers (ARBs)
 *(refer Table 8: Recommended dosages of ARB in UA/NSTEMI)*
 
-**[Grade I, Level A]** ARBs should be substituted for patients with ACE-I intolerance.
+[Grade I, Level A] ARBs should be substituted for patients with ACE-I intolerance.
 
 Table 8: Recommended Dosages Of ARB In UA/NSTEMI
 
@@ -75,10 +75,10 @@ Table 8: Recommended Dosages Of ARB In UA/NSTEMI
 | Valsartan | 40-80 mg od | 160 mg od |
 
 ### 10.1.6: Aldosterone Receptor Antagonist
-**[Grade I, Level B]** Long-term aldosterone receptor blockade should be considered in patients who are in heart failure and already treated with ACE-I and β-blockers (e.g. spironolactone and epleronone). Care should be taken in patients with renal dysfunction and hyperkalaemia.
+[Grade I, Level B] Long-term aldosterone receptor blockade should be considered in patients who are in heart failure and already treated with ACE-I and β-blockers (e.g. spironolactone and epleronone). Care should be taken in patients with renal dysfunction and hyperkalaemia.
 
 ### 10.1.7: Anti Anginal Therapy
-**[Grade I, Level C]** Anti anginals are not required for patients with successful revascularization and no residual ischaemia.
+[Grade I, Level C] Anti anginals are not required for patients with successful revascularization and no residual ischaemia.
 
 ## 10.2: Follow-Up Investigations
 *(refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)*
@@ -92,9 +92,9 @@ In the outpatient evaluation of low risk UA/NSTEMI patients, the following inves
 Low risk patients with significant demonstrable ischaemia and all intermediate/high risk patients should be considered for revascularization.
 
 ## Key Messages
-- Patients should be on optimal medical therapy at discharge. This includes **[Grade I, Level A]** ASA, **[Grade I, Level B]** clopidogrel (for at least a month and ideally for at least a year), **[Grade I, Level B]** &beta;-blockers &plusmn; **[Grade I, Level B]** CCBs, **[Grade I, Level C]** ACE-I or **[Grade I, Level B]** ARB and **[Grade I, Level A]** statins. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
-- **[Grade I, Level C]** These drugs should be uptitrated during outpatient visits to the recommended tolerated doses.
-- **[Grade I, Level C]** Low risk patients should be assessed non-invasively for ischaemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
+- Patients should be on optimal medical therapy at discharge. This includes [Grade I, Level A] ASA, [Grade I, Level B] clopidogrel (for at least a month and ideally for at least a year), [Grade I, Level B] &beta;-blockers &plusmn; [Grade I, Level B] CCBs, [Grade I, Level C] ACE-I or [Grade I, Level B] ARB and [Grade I, Level A] statins. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
+- [Grade I, Level C] These drugs should be uptitrated during outpatient visits to the recommended tolerated doses.
+- [Grade I, Level C] Low risk patients should be assessed non-invasively for ischaemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 
 <!-- OVERLAP CONTENT -->
 
@@ -102,23 +102,23 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
-| Aspirin | **[Grade I, Level A]** | **[Grade I, Level A]** | Continued long term if tolerating |
-| + Clopidogrel | **[Grade I, Level A]** | **[Grade I, Level A]** | Used in addition to aspirin as part of dual antiplatelet therapy. |
-| | | **[Grade I, Level B]** | To be continued at least 1 month and ideally for at least a year post UA/NSTEMI and, |
-| | | **[Grade I, Level C]** | 6-12months or longer post DES implantation |
-| or, Ticlopidine | **[Grade II-a, Level B]** | **[Grade II-a, Level B]** | Used in addition to aspirin as part of dual antiplatelet therapy. This is a less preferred alternative to clopidogrel. |
-| or, prasugrel | **[Grade I, Level B]** | **[Grade I, Level B]** | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel in high risk patients undergoing PCI. |
-| or, ticagrelor | **[Grade I, Level B]** | **[Grade I, Level B]** | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel. |
-| + UFH | **[Grade I, Level A]** | - | Given for 2-8 days |
-| or, LMWH | **[Grade I, Level A]** | - | Given for 2-8 days |
-| or, fondaprinux | **[Grade I, Level A]** | - | Used in patients treated conservatively. Given for 8 days or duration of hospitalization. |
-| or, Bivalirudin | **[Grade I, Level A]** | - | Used as an alternative to UFH and GPII-b/III-a inhibitors during PCI |
-| + β-blockers | **[Grade I, Level B]** | **[Grade I, Level B]** | Should be administered early if no contraindications and continued indefinitely if ischemia is present. |
-| | | **[Grade I, Level A]** | Continued indefinitely in the presence of LV dysfunction (LVEF<40%) |
-| + ACE - I | **[Grade I, Level A]** | **[Grade I, Level A]** | Should be administered early in patients with LV dysfunction (LVEF< 40%), heart failure, diabetes, hypertension or CKD. |
-| | | **[Grade II-a, Level A]** | Should be considered long term to prevent recurrent ischemia |
-| or ARB | **[Grade I, Level B]** | **[Grade I, Level B]** | As an alternative to ACE-I in intolerant patients |
-| + Statins | **[Grade I, Level A]** | **[Grade I, Level A]** | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
+| Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
+| + Clopidogrel | [Grade I, Level A] | [Grade I, Level A] | Used in addition to aspirin as part of dual antiplatelet therapy. |
+| | | [Grade I, Level B] | To be continued at least 1 month and ideally for at least a year post UA/NSTEMI and, |
+| | | [Grade I, Level C] | 6-12months or longer post DES implantation |
+| or, Ticlopidine | [Grade II-a, Level B] | [Grade II-a, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. This is a less preferred alternative to clopidogrel. |
+| or, prasugrel | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel in high risk patients undergoing PCI. |
+| or, ticagrelor | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel. |
+| + UFH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, LMWH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, fondaprinux | [Grade I, Level A] | - | Used in patients treated conservatively. Given for 8 days or duration of hospitalization. |
+| or, Bivalirudin | [Grade I, Level A] | - | Used as an alternative to UFH and GPII-b/III-a inhibitors during PCI |
+| + β-blockers | [Grade I, Level B] | [Grade I, Level B] | Should be administered early if no contraindications and continued indefinitely if ischemia is present. |
+| | | [Grade I, Level A] | Continued indefinitely in the presence of LV dysfunction (LVEF<40%) |
+| + ACE - I | [Grade I, Level A] | [Grade I, Level A] | Should be administered early in patients with LV dysfunction (LVEF< 40%), heart failure, diabetes, hypertension or CKD. |
+| | | [Grade II-a, Level A] | Should be considered long term to prevent recurrent ischemia |
+| or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
+| + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
 
 Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 
@@ -178,24 +178,24 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACE-I** | Angiotensin-converting enzymes inhibitor |
-| **ACS** | Acute Coronary Syndrome |
-| **ARB** | Angiotensin-Receptor Blocker |
-| **ASA** | Acetylsalicylic acid (Aspirin) |
-| **CAD** | Coronary Artery Disease |
-| **CCB** | Calcium Channel Blocker |
-| **CKD** | Chronic Kidney Disease |
-| **DES** | Drug Eluting Stent |
-| **ECG** | Electrocardiogram |
-| **HDL-C** | High Density Lipoprotein Cholesterol |
-| **LDL-C** | Low Density Lipoprotein Cholesterol |
-| **LMWH** | Low Molecular Weight Heparin |
-| **LV** | Left Ventricular |
-| **LVEF** | Left Ventricular Ejection Fraction |
-| **MRI** | Magnetic Resonance Imaging |
-| **PCI** | Percutaneous Coronary Intervention |
-| **STEMI** | ST Elevation Myocardial Infarction |
-| **UA/NSTEMI** | Unstable Angina/Non ST Elevation Myocardial Infarction |
-| **UFH** | Unfractionated Heparin |
+| ACE-I | Angiotensin-converting enzymes inhibitor |
+| ACS | Acute Coronary Syndrome |
+| ARB | Angiotensin-Receptor Blocker |
+| ASA | Acetylsalicylic acid (Aspirin) |
+| CAD | Coronary Artery Disease |
+| CCB | Calcium Channel Blocker |
+| CKD | Chronic Kidney Disease |
+| DES | Drug Eluting Stent |
+| ECG | Electrocardiogram |
+| HDL-C | High Density Lipoprotein Cholesterol |
+| LDL-C | Low Density Lipoprotein Cholesterol |
+| LMWH | Low Molecular Weight Heparin |
+| LV | Left Ventricular |
+| LVEF | Left Ventricular Ejection Fraction |
+| MRI | Magnetic Resonance Imaging |
+| PCI | Percutaneous Coronary Intervention |
+| STEMI | ST Elevation Myocardial Infarction |
+| UA/NSTEMI | Unstable Angina/Non ST Elevation Myocardial Infarction |
+| UFH | Unfractionated Heparin |
 
 <!-- END OVERLAP CONTENT -->

@@ -52,10 +52,10 @@ Table 3.1: Symptoms And Signs Of IE
 
 | | Symptoms and signs | Site | Comments |
 |---|---|---|---|
-| **General** | • Night sweats and chills<br>• Weight loss<br>• Fatigue<br>• Body aches<br>• Poor appetite | | |
+| General | • Night sweats and chills<br>• Weight loss<br>• Fatigue<br>• Body aches<br>• Poor appetite | | |
 | | • Fever | | • Temperature may be normal or subnormal in:<br>> Subacute cases<br>> Elderly<br>> Immunocompromised patients<br>• Fever is usually very high in acute IE |
 | | • Anaemia | | • In subacute cases this may be anaemia of chronic disease or microcytic anaemia |
-| **Peripheral** | • Splinter haemorrhages | • Nail beds of the fingers or toes | • Examine all digits of upper and lower limbs<br>• Exclude workplace trauma |
+| Peripheral | • Splinter haemorrhages | • Nail beds of the fingers or toes | • Examine all digits of upper and lower limbs<br>• Exclude workplace trauma |
 | | • Osler's nodes<br>> Painful subcutaneous nodules (red-purple, slightly raised, tender lumps and with a pale centre) | • Pulps of the fingers or toes | • Pain precedes the development of the visible lesion by up to 24 hours<br>• Can occur at any time during the course of endocarditis (usually subacute)<br>• Lasts from hours to several days |
 | | • Janeway lesions<br>> Non-tender lesions<br>> 1-4 mm in diameter<br>> Often haemorrhagic | • On the palms and soles | • Lasts days to weeks<br>• Commonly seen in acute endocarditis<br>• The histology is usually consistent with septic microembolism |
 | | • Digital clubbing | | • Usually seen in patients who have an extended period of untreated IE<sup>23</sup> |
@@ -63,14 +63,14 @@ Table 3.1: Symptoms And Signs Of IE
 | | • Generalised petechiae | • Conjunctivae<br>• Dorsa of the hands and feet<br>• Anterior chest wall<br>• Abdominal wall<br>• Oral mucosa<br>• Soft palate | |
 | | • Embolic lesions | • Fingers and toes | |
 | | • Arthritis | | • Asymmetrical<br>• Single or multiple joints |
-| **Central** | • Roth spots (white-centred retinal haemorrhages) | • Retina | • Examine both eyes |
+| Central | • Roth spots (white-centred retinal haemorrhages) | • Retina | • Examine both eyes |
 | | • Splenomegaly | | • Occurs with long-standing subacute disease<br>• May not resolve after treatment |
 | | • Haematuria | | • Due to glomerulonephritis |
 | | • Septic embolisation | • Lung embolisation<br><br>• Abdominal embolisation | • Occurs in right-sided IE causing pneumonia or lung abscess<br><br>• Splenic abscesses or infarcts |
-| **Cardiac** | • Murmurs | | • Appearance of new murmur<br>• Usually regurgitant<br>• Right-sided IE may not have a murmur |
+| Cardiac | • Murmurs | | • Appearance of new murmur<br>• Usually regurgitant<br>• Right-sided IE may not have a murmur |
 | | • Heart failure | | • Usually due to valve dysfunction/regurgitant lesions |
 | | • Bradycardia | | • Indicates aortic root abscess interfering with cardiac conduction pathways |
-| **Neurological** | • Focal signs: hemiparesis, aphasia and others | • Cerebral septic embolisation | • May be due to ischaemic/haemorrhagic lesions or cerebral abscess |
+| Neurological | • Focal signs: hemiparesis, aphasia and others | • Cerebral septic embolisation | • May be due to ischaemic/haemorrhagic lesions or cerebral abscess |
 | | • Delirium in meningitis, meningoencephalitis and encephalopathy | | • Occurs from purulent meningitis especially with acute IE |
 | | • Intracranial bleeding<br>> Manifests as:<br>» Confusion<br>» Drowsiness<br>» Reduced consciousness<br>» Vomiting<br>» Seizures | | |
 
@@ -486,12 +486,12 @@ Table 3.7: Definition Of IE According To The Modified Duke Criteria
 
 | Category | Criteria Description |
 |---|---|
-| **Definite IE** | *Pathological criteria:*<br>Microorganisms demonstrated by culture or HPE of a vegetation, a vegetation that has embolised, or an intracardiac abscess specimen;<br>**or** pathological lesions; vegetation or intracardiac abscess confirmed by HPE showing active endocarditis<br><br>*Clinical criteria:*<br>2 major criteria<br>**or**<br>1 major criterion and 3 minor criteria<br>**or**<br>5 minor criteria |
-| **Possible IE** | 1 major criterion and 1 minor criterion<br>**or**<br>3 minor criteria |
-| **Rejected IE** | Firm alternative diagnosis explaining evidence of IE<br>**or** resolution of IE syndrome with antimicrobial therapy for ≤ 4 days<br>**or** no pathological evidence of IE at surgery or autopsy with antimicrobial therapy for ≤ 4 days<br>**or** does not meet criteria for possible IE as above |
-| **Major Criteria** | **Blood culture positive for IE**<br>Typical microorganisms consistent with IE from 2 separate blood cultures:<br>• VGS, *Streptococcus bovis*, HACEK group, ***S. aureus***<br>• **Or** community-acquired enterococci in the absence of a primary focus<br>• **Or** microorganisms consistent with IE from persistently positive blood cultures defined as follows:<br>&nbsp;&nbsp;&nbsp;> At least 2 positive cultures of blood samples drawn > 12 hours apart<br>&nbsp;&nbsp;&nbsp;> **Or** all of 3 or a majority of ≥ 4 separate cultures of blood (with first and last sample drawn at least 1 hour apart)<br>• Single positive blood culture from *Coxiella burnetii* or phase 1 IgG antibody titres > 1:800 |
+| Definite IE | *Pathological criteria:*<br>Microorganisms demonstrated by culture or HPE of a vegetation, a vegetation that has embolised, or an intracardiac abscess specimen;<br>**or** pathological lesions; vegetation or intracardiac abscess confirmed by HPE showing active endocarditis<br><br>*Clinical criteria:*<br>2 major criteria<br>**or**<br>1 major criterion and 3 minor criteria<br>**or**<br>5 minor criteria |
+| Possible IE | 1 major criterion and 1 minor criterion<br>**or**<br>3 minor criteria |
+| Rejected IE | Firm alternative diagnosis explaining evidence of IE<br>**or** resolution of IE syndrome with antimicrobial therapy for ≤ 4 days<br>**or** no pathological evidence of IE at surgery or autopsy with antimicrobial therapy for ≤ 4 days<br>**or** does not meet criteria for possible IE as above |
+| Major Criteria | **Blood culture positive for IE**<br>Typical microorganisms consistent with IE from 2 separate blood cultures:<br>• VGS, *Streptococcus bovis*, HACEK group, ***S. aureus***<br>• **Or** community-acquired enterococci in the absence of a primary focus<br>• **Or** microorganisms consistent with IE from persistently positive blood cultures defined as follows:<br>&nbsp;&nbsp;&nbsp;> At least 2 positive cultures of blood samples drawn > 12 hours apart<br>&nbsp;&nbsp;&nbsp;> **Or** all of 3 or a majority of ≥ 4 separate cultures of blood (with first and last sample drawn at least 1 hour apart)<br>• Single positive blood culture from *Coxiella burnetii* or phase 1 IgG antibody titres > 1:800 |
 | | **Evidence of endocardial involvement**<br>Echocardiogram positive for IE defined as follows:<br>• Oscillating intracardiac mass on valve or supporting structures, in the path of regurgitant jets, or on implanted material in the absence of an alternative anatomic explanation<br>• Abscess<br>• **Or** new partial dehiscence of prosthetic valve<br>• **Or** new valvular regurgitation (worsening or changing or pre-existing murmur not sufficient)<br>**(TEE is recommended for patients with prosthetic valves rated as at least possible IE by clinical criteria, or complicated IE (paravalvular abscess))** |
-| **Minor criteria** | **Predisposition:** predisposing heart condition or IVDU |
+| Minor criteria | **Predisposition:** predisposing heart condition or IVDU |
 | | **Fever:** temperature > 38°C |
 | | **Vascular phenomena:** major arterial emboli, septic pulmonary infarcts, mycotic aneurysm, intracranial haemorrhage, conjunctival haemorrhages and Janeway lesions |
 | | **Immunological phenomena:** glomerulonephritis, Osler nodes, Roth spots and rheumatoid factor |
@@ -611,7 +611,7 @@ Table: Directory Of Main Laboratories That Provide Serological Testing Of Rare A
 | Microorganisms    | Serology IgG/IgM     |
 |-------------------|----------------------|
 | **Brucella** spp.     | IMR<br>HSB           |
-| **Coxiella burnetti** | IMR<br>HSB           |
+| Coxiella burnetti | IMR<br>HSB           |
 | **Bartonella** spp.   | IMR                  |
 | **Legionella** spp.   | HKL<br>UMMC<br>PPUKM |
 

@@ -220,7 +220,7 @@ Low Risk of OSA: Yes 0-2
 | 4% | 1.3 units | 1.8 units | 2.3 units | 4 units |
 | 5% | 1.7 units | 2.2 units | 2.8 units | 5 unit |
 | 6% | 2 units | 2.6 units | 3.4 units | 6 units |
-| **Wine & Champagne (red, white, rose or sparkling)** | **Small Glass (125ml)** | **Standard Glass (175ml)** | **Large Glass (250ml)** | **Bottle (750ml)** |
+| Wine & Champagne (red, white, rose or sparkling) | **Small Glass (125ml)** | **Standard Glass (175ml)** | **Large Glass (250ml)** | **Bottle (750ml)** |
 | 10% | 1.25 units | 1.75 units | 2.5 units | 7.5 units |
 | 11% | 1.4 units | 1.9 units | 2.8 units | 8.3 units |
 | 12% | 1.5 units | 2.1 units | 3 units | 9 units |
@@ -228,11 +228,11 @@ Low Risk of OSA: Yes 0-2
 | 13% | 1.6 units | 2.3 units | 3.3 units | 9.8 units |
 | 13.5% | 1.7 units | 2.4 units | 3.4 units | 10.1 units |
 | 14% | 1.75 units | 2.5 units | 3.5 units | 10.5 units |
-| **Fortified Wine (Sherry & Port)** | **Standard measure (50ml)** | | | |
+| Fortified Wine (Sherry & Port) | **Standard measure (50ml)** | | | |
 | 17.5-20% | 0.9-1 unit | | | |
-| **Spirits (Gin, Rum, Vodka & Whisky)** | **Single Measure (25ml)** | **Large Single Measure (35ml)** | **Double Measure (50ml)** | **Large Double Measure (70ml)** |
+| Spirits (Gin, Rum, Vodka & Whisky) | **Single Measure (25ml)** | **Large Single Measure (35ml)** | **Double Measure (50ml)** | **Large Double Measure (70ml)** |
 | 38 - 40% | 1 unit | 1.4 units | 1.9-2 units | 2.7-2.8 units |
-| **Shots (Tequila, Sambuca)** | **Single Measure (25ml)** | **Large Single Measure (35ml)** | | |
+| Shots (Tequila, Sambuca) | **Single Measure (25ml)** | **Large Single Measure (35ml)** | | |
 | 38 – 40% | 1 unit | 1.3 units | | |
 
 *\*Department of Health. Alcohol know your limits. Alcohol units: A brief guide, National Health Service. Crown Copyright 2008. Accessed from www.nhs.uk/units)*

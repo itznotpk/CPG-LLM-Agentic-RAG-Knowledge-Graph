@@ -51,8 +51,8 @@ Assessment of CVD risk involves:
 
 ### 5.5.1: Additional Investigations For "At Risk" (Intermediate Risk) Women
 The following additional investigations may be reasonable in "At Risk" (intermediate risk) women to risk stratify them further:
-- **[Grade II-a, Level B]** Microalbuminuria in the presence of hypertension and diabetes
-- **[Grade II-a, Level C]** Resting ECG in the presence of hypertension and diabetes
+- [Grade II-a, Level B] Microalbuminuria in the presence of hypertension and diabetes
+- [Grade II-a, Level C] Resting ECG in the presence of hypertension and diabetes
 
 ## 5.6: Key Preventive Management By Risk Category
 Women with established CVD (CHD and CHD Equivalents) are at **High Risk** of a future vascular event. They have a risk of a recurrence of their angina or the occurrence of death that is 1.5 to 15 times that of the general population. These High Risk women should have the most intensive lifestyle intervention and appropriate drug therapies.
@@ -85,9 +85,9 @@ Table 1: Classification Of CVD Risk In Women
 
 | Risk Category | Criteria |
 |---|---|
-| **High Risk** | Established CHD and/or CHD Equivalents which are: <br>• Cerebrovascular disease <br>• Peripheral arterial disease (PAD) <br>• Abdominal aortic aneurysm (AAA) <br>• Diabetes mellitus (DM) <br>• End stage or chronic kidney disease <br>• Multiple risk factors that confer a 10 year CVD risk of > 20% using FRS |
-| **At Risk** | 1 major risk factor for CVD including: <br>• Family history of premature CVD (CVD at age < 55 years in male relative and < 65 years in female relative) <br>• Total cholesterol ≥ 5.2 mmol/L, HDL-C < 1.2 mmol/l, or treated for dyslipidaemia <br>• SBP ≥ 120 mmHg, DBP ≥ 80 mmHg, or treated hypertension <br>• Cigarette smoking <br>• Physical inactivity <br>• Obesity especially central obesity <br>• Metabolic syndrome <br>• Evidence of advanced subclinical atherosclerosis <br>• History of preeclampsia, gestational diabetes, or pregnancy-induced hypertension <br>• Systemic autoimmune collagen-vascular disease |
-| **Optimal Risk** | 10 year CVD risk of < 10% using FRS. Having a healthy lifestyle with no risk factors: <br>• TC < 5.2 mmol/L (untreated) <br>• BP < 120/< 80 mmHg (untreated) <br>• Fasting blood glucose < 6.1 mmol/L (untreated) <br>• BMI < 23 kg/m2 <br>• Abstinence from smoking <br>• Physical activity at goal for adults > 20 years |
+| High Risk | Established CHD and/or CHD Equivalents which are: <br>• Cerebrovascular disease <br>• Peripheral arterial disease (PAD) <br>• Abdominal aortic aneurysm (AAA) <br>• Diabetes mellitus (DM) <br>• End stage or chronic kidney disease <br>• Multiple risk factors that confer a 10 year CVD risk of > 20% using FRS |
+| At Risk | 1 major risk factor for CVD including: <br>• Family history of premature CVD (CVD at age < 55 years in male relative and < 65 years in female relative) <br>• Total cholesterol ≥ 5.2 mmol/L, HDL-C < 1.2 mmol/l, or treated for dyslipidaemia <br>• SBP ≥ 120 mmHg, DBP ≥ 80 mmHg, or treated hypertension <br>• Cigarette smoking <br>• Physical inactivity <br>• Obesity especially central obesity <br>• Metabolic syndrome <br>• Evidence of advanced subclinical atherosclerosis <br>• History of preeclampsia, gestational diabetes, or pregnancy-induced hypertension <br>• Systemic autoimmune collagen-vascular disease |
+| Optimal Risk | 10 year CVD risk of < 10% using FRS. Having a healthy lifestyle with no risk factors: <br>• TC < 5.2 mmol/L (untreated) <br>• BP < 120/< 80 mmHg (untreated) <br>• Fasting blood glucose < 6.1 mmol/L (untreated) <br>• BMI < 23 kg/m2 <br>• Abstinence from smoking <br>• Physical activity at goal for adults > 20 years |
 
 Table 2: Framingham Risk Score For Assessment Of CVD Risk
 
@@ -179,18 +179,18 @@ Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- ============================================================ -->
 

@@ -77,11 +77,11 @@ Table 3-B: Manifestations Of Target Organ Damage (Tod) / Target Organ Complicati
 
 | Organ | Manifestations |
 |---|---|
-| **Heart** | • Left Ventricular Hypertrophy<br>• Coronary Heart Disease<br>• Heart Failure |
-| **Brain** | • Transient Ischaemic Attack<br>• Stroke<br>• Dementia |
-| **Peripheral vasculature** | • Absence of one or more major pulses in extremities (except dorsalis pedis) with or without intermittent claudication<br>• Carotid bruit<br>• Abdominal aortic aneurysm |
-| **Kidney** | • GFR <60 ml/min/1.73m²<br>• Proteinuria (1+ or greater)<br>• Microalbuminuria* (2 out of 3 positive tests over a period of 4-6 months) |
-| **Retina** | • Haemorrhages or exudates<br>• Papilloedema |
+| Heart | • Left Ventricular Hypertrophy<br>• Coronary Heart Disease<br>• Heart Failure |
+| Brain | • Transient Ischaemic Attack<br>• Stroke<br>• Dementia |
+| Peripheral vasculature | • Absence of one or more major pulses in extremities (except dorsalis pedis) with or without intermittent claudication<br>• Carotid bruit<br>• Abdominal aortic aneurysm |
+| Kidney | • GFR <60 ml/min/1.73m²<br>• Proteinuria (1+ or greater)<br>• Microalbuminuria* (2 out of 3 positive tests over a period of 4-6 months) |
+| Retina | • Haemorrhages or exudates<br>• Papilloedema |
 
 TOD = Target organ damage (LVH, retinopathy, proteinuria) <br>
 TOC = Target organ complication (heart failure, renal failure)
@@ -107,17 +107,17 @@ Table 3-D: Risk Stratification
 
 | Co-Existing Condition / BP Levels (mmHg) | No RF, No TOD, No TOC | TOD or RF (1-2), No TOC | TOC or RF(≥3) or Clinical atherosclerosis or CKD | Previous MI / IHD, Previous stroke or Diabetes or CKD |
 |---|---|---|---|---|
-| **SBP 130 - 139 and/or DBP 80 - 89** | Low | Intermediate | High | Very High |
-| **SBP 140 - 159 and/or DBP 90 - 99** | Low | Medium | High | Very High |
-| **SBP 160 - 179 and/or DBP 100 - 109** | Medium | High | Very High | Very High |
-| **SBP >180 and/or DBP >110** | High | Very High | Very High | Very High |
+| SBP 130 - 139 and/or DBP 80 - 89 | Low | Intermediate | High | Very High |
+| SBP 140 - 159 and/or DBP 90 - 99 | Low | Medium | High | Very High |
+| SBP 160 - 179 and/or DBP 100 - 109 | Medium | High | Very High | Very High |
+| SBP >180 and/or DBP >110 | High | Very High | Very High | Very High |
 
 | Risk Level | Risk of Major CV Event in 10 years | Management |
 |---|---|---|
-| **Low-Intermediate** | <10% | Healthy living |
-| **Medium** | 10 - 20% | Drug treatment and healthy living |
-| **High** | 20 - 30% | Drug treatment and healthy living |
-| **Very high** | >30% | Drug treatment and healthy living |
+| Low-Intermediate | <10% | Healthy living |
+| Medium | 10 - 20% | Drug treatment and healthy living |
+| High | 20 - 30% | Drug treatment and healthy living |
+| Very high | >30% | Drug treatment and healthy living |
 
 TOD = Target organ damage (LVH, retinopathy, proteinuria). <br>
 TOC = Target organ complication (heart failure, renal failure). <br>

@@ -17,12 +17,12 @@ The last CPG on UA/NSTEMI was published in 2002. Since then, there have been sig
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACS** | Acute Coronary Syndrome |
-| **CPG** | Clinical Practice Guideline |
-| **CVD** | Cardiovascular Disease |
-| **NCVD** | National Cardiovascular Disease Database |
-| **NSTEMI** | Non ST Elevation Myocardial Infarction |
-| **UA** | Unstable Angina |
-| **UA/NSTEMI** | Unstable Angina/Non ST Elevation Myocardial Infarction |
+| ACS | Acute Coronary Syndrome |
+| CPG | Clinical Practice Guideline |
+| CVD | Cardiovascular Disease |
+| NCVD | National Cardiovascular Disease Database |
+| NSTEMI | Non ST Elevation Myocardial Infarction |
+| UA | Unstable Angina |
+| UA/NSTEMI | Unstable Angina/Non ST Elevation Myocardial Infarction |
 
 <!-- END OVERLAP CONTENT -->

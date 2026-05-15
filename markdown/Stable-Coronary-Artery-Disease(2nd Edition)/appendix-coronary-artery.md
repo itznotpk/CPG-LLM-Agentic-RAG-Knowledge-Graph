@@ -5879,9 +5879,9 @@ Management (Fig 2, pg 25) should be multifaceted and involves OMT which includes
 ## Recommendation 2:
 In persons with suspected CAD and undergoing non-invasive cardiac testing, it is important to determine the:
 - Pre-Test Probability (PTP) of CAD of that individual. (Table 1, pg 22). In the Euro model for assessing PTP, which this writing group has adopted, (Table 1, pg 22) patients with a:
--  low PTP of <15% can be assumed to have no significant obstructive CAD. In these individuals, CV risk factors should be treated to target. Other causes of chest pain should be looked for. **[Grade I, Level C]** (Table 5, pg 35)
--  intermediate PTP (≥15-≤ 85%) require further non-invasive evaluation. **[Grade I, Level B]**
--  high PTP >85% can be assumed to have significant obstructive CAD and invasive coronary angiography maybe a more appropriate investigation. **[Grade I, Level B]**
+-  low PTP of <15% can be assumed to have no significant obstructive CAD. In these individuals, CV risk factors should be treated to target. Other causes of chest pain should be looked for. [Grade I, Level C] (Table 5, pg 35)
+-  intermediate PTP (≥15-≤ 85%) require further non-invasive evaluation. [Grade I, Level B]
+-  high PTP >85% can be assumed to have significant obstructive CAD and invasive coronary angiography maybe a more appropriate investigation. [Grade I, Level B]
 - Sensitivity and specificity of the different diagnostic modalities.
 
 (Table 6, pg 39)
@@ -5892,60 +5892,60 @@ In persons with suspected CAD and undergoing non-invasive cardiac testing, it is
 ## Recommendation 3:
 In non-invasive cardiac testing: (Fig 1, pg 23)
 
-- Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs. **[Grade I, Level B]**
+- Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs. [Grade I, Level B]
 - Stress imaging tests are used in individuals who have intermediate PTP of CAD and who:
-  -  are unable to exercise adequately and/or **[Grade I, Level B]**
-  -  have uninterpretable resting ECG and/or **[Grade I, Level B]**
-  -  have exercise stress ECG with equivocal results or which are abnormal at moderate to high workloads depending upon the clinical condition. **[Grade I, Level B]**
-- Coronary Calcium has been used to detect CAD but is more useful for CV risk assessment. **[Grade II-b, Level B]**
-- CTA may be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity. **[Grade II-a, Level B]**
-- Invasive Coronary Angiogram (ICA) is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization. **[Grade I, Level C]**
+  -  are unable to exercise adequately and/or [Grade I, Level B]
+  -  have uninterpretable resting ECG and/or [Grade I, Level B]
+  -  have exercise stress ECG with equivocal results or which are abnormal at moderate to high workloads depending upon the clinical condition. [Grade I, Level B]
+- Coronary Calcium has been used to detect CAD but is more useful for CV risk assessment. [Grade II-b, Level B]
+- CTA may be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity. [Grade II-a, Level B]
+- Invasive Coronary Angiogram (ICA) is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization. [Grade I, Level C]
 
 ## B) Risk Stratification Of Patients With Suspected Or Known Cad
 
 ## Recommendation 4:
 - This is done by: (section 7, pg 53-61)
-  -  Clinical evaluation **[Grade I, Level B]**
-  -  Resting ECG **[Grade I, Level B]**
-  -  Non-invasive assessment of myocardial ischaemia **[Grade I, Level C]** (Table 2, pg 24)
-  -  Assessment of Left ventricular function **[Grade I, Level B]**
-  -  Where indicated, evaluation of coronary anatomy and physiological assessment of the significance of the coronary lesion by Fractional Flow Reserve (FFR). **[Grade I, Level A]**
-- Low risk individuals (annual mortality of <1%) should be managed with risk factor reduction and/or anti anginal medications as necessary. No further intervention is required. **[Grade I, Level C]**
-- Intermediate risk individuals (annual mortality of 1-3%) may be managed with risk reduction strategies +/- anti anginal therapy or considered for invasive coronary angiogram and revascularization depending on the clinical condition and patient preferences. **[Grade I, Level C]**
-- High risk individuals (annual mortality of >3%) in addition to risk reduction strategies, should be considered for invasive coronary angiography with view to revascularization. **[Grade I, Level C]**
+  -  Clinical evaluation [Grade I, Level B]
+  -  Resting ECG [Grade I, Level B]
+  -  Non-invasive assessment of myocardial ischaemia [Grade I, Level C] (Table 2, pg 24)
+  -  Assessment of Left ventricular function [Grade I, Level B]
+  -  Where indicated, evaluation of coronary anatomy and physiological assessment of the significance of the coronary lesion by Fractional Flow Reserve (FFR). [Grade I, Level A]
+- Low risk individuals (annual mortality of <1%) should be managed with risk factor reduction and/or anti anginal medications as necessary. No further intervention is required. [Grade I, Level C]
+- Intermediate risk individuals (annual mortality of 1-3%) may be managed with risk reduction strategies +/- anti anginal therapy or considered for invasive coronary angiogram and revascularization depending on the clinical condition and patient preferences. [Grade I, Level C]
+- High risk individuals (annual mortality of >3%) in addition to risk reduction strategies, should be considered for invasive coronary angiography with view to revascularization. [Grade I, Level C]
 
 ## Stable Coronary Artery Disease 2018
 
 ## (2 Nd D Edition)
 
 ## Recommendation 5
-- Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. **[Grade I, Level C]**
-- Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated. **[Grade I, Level C]**
+- Low risk individuals can be managed in the general outpatient clinics with Family Medicine Specialists. [Grade I, Level C]
+- Intermediate and high risk individuals should be referred to tertiary cardiac centers for further evaluation and revascularisation as indicated. [Grade I, Level C]
 
 ## C) Management Of Stable Cad
 
 ## Recommendation 6:
-- All patients should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy). **[Grade I, Level A]** (Fig 2, pg 25)
+- All patients should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy). [Grade I, Level A] (Fig 2, pg 25)
 - Appropriate pharmacotherapy includes:
-  -  aspirin (or clopidogrel/ticlopidine if aspirin intolerant) **[Grade I, Level A]** and
-  -  statin (+/- non-statin therapy) with the aim of achieving LDL-C targets **[Grade I, Level A]** and
-  -  at least 2 anti anginal agents. **[Grade I, Level A]**
+  -  aspirin (or clopidogrel/ticlopidine if aspirin intolerant) [Grade I, Level A] and
+  -  statin (+/- non-statin therapy) with the aim of achieving LDL-C targets [Grade I, Level A] and
+  -  at least 2 anti anginal agents. [Grade I, Level A]
 - In addition:
-  -  All CV risk factors should be treated to target. **[Grade I, Level A]**
-  -  Patients with depressed LV function (LVEF <40%) should receive ACEi/ARB, β-blockers and mineralocorticoid antagonists. **[Grade I, Level A]**
-- Optimal medical therapy should be instituted prior to revascularization procedures. **[Grade I, Level C]**
+  -  All CV risk factors should be treated to target. [Grade I, Level A]
+  -  Patients with depressed LV function (LVEF <40%) should receive ACEi/ARB, β-blockers and mineralocorticoid antagonists. [Grade I, Level A]
+- Optimal medical therapy should be instituted prior to revascularization procedures. [Grade I, Level C]
 
 ## Recommendation 7:
 - ·
 - The decision to revascularize patients with stable CAD on OMT will depend on:
-  -  Symptoms **[Grade I, Level C]**
-  -  Extent of ischemia **[Grade II-a, Level B]**
-  -  Extent of coronary disease and where applicable physiological functional testing using FFR. **[Grade I, Level A]**
-- Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy. **[Grade I, Level C]**
+  -  Symptoms [Grade I, Level C]
+  -  Extent of ischemia [Grade II-a, Level B]
+  -  Extent of coronary disease and where applicable physiological functional testing using FFR. [Grade I, Level A]
+- Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy. [Grade I, Level C]
 
 ## Recommendation 8:
-- All patients with Stable CAD with no change in symptoms and medications over a period of 1-2 years, can be discharged from the speciality cardiac clinics. **[Grade II-a, Level C]**
-- When there is a change in the patient's clinical condition, they should be referred to tertiary cardiac centres for optimization of management. **[Grade I, Level C]**
+- All patients with Stable CAD with no change in symptoms and medications over a period of 1-2 years, can be discharged from the speciality cardiac clinics. [Grade II-a, Level C]
+- When there is a change in the patient's clinical condition, they should be referred to tertiary cardiac centres for optimization of management. [Grade I, Level C]
 
 ## Stable Coronary Artery Disease 2018
 

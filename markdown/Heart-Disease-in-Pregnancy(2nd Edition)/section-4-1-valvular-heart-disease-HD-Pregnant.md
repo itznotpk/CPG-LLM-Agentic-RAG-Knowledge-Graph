@@ -95,10 +95,10 @@ Table 11: Selection Of Prosthetic Heart Valves In Women Of Child-Bearing Age
 
 | Surgical intervention | Advantages | Disadvantages |
 |---|---|---|
-| **Valve replacement** | **Valve replacement** | **Valve replacement** |
+| Valve replacement | **Valve replacement** | **Valve replacement** |
 | Mechanical valve | Durability | - Need for anticoagulation with warfarin; - Maternal risk - haemorrhage, valve thrombosis and thromboembolic events; - Fetal risk - warfarin embryopathy, fetal loss and miscarriage |
 | Bioprosthesis | Does not require anticoagulation with warfarin if in sinus rhythm | - Less durable necessitating repeat surgery at a later date; - High risk of structural degeneration occuring in 50% of women who are < 30 years of age within 10 years of implantation; - Pregnancy may accelerate valve degeneration |
-| **Valve repair** | **Valve repair** | **Valve repair** |
+| Valve repair | **Valve repair** | **Valve repair** |
 | Valve repair | Does not require anticoagulation with warfarin if in sinus rhythm | Dependant on surgical expertise/ valve pathology |
 
 ### Section 3: .6.2: Cardiac Surgery With Cardiopulmonary Bypass

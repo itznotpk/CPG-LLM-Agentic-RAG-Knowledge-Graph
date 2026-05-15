@@ -237,22 +237,22 @@ Both warfarin and heparin based therapy are safe during breast feeding.
 ### Appendix D: Recommendations For Drug Use During Pregnancy
 | Drug | FDA Category | Adverse Effects |
 |---|---|---|
-| **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
+| ORAL HYPOGLYCAEMICS | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
 | Chlorpropamide | C | Neonatal hypoglycaemia |
 | Glyburide | C | Neonatal hypoglycaemia |
 | Metformin | B | Neonatal hypoglycaemia |
-| **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** |
+| ANTI INFLAMMATORY AGENTS | **ANTI INFLAMMATORY AGENTS** | **ANTI INFLAMMATORY AGENTS** |
 | Aspirin and other salicylates | D | Fetal kernicterus; With high doses, possibly 1st- trimester spontaneous abortions, delayed onset of labour, premature closing of the fetal ductus arteriosus, jaundice, occasionally maternal (intrapartum and postpartum) and/or neonatal haemorrhage, necrotising enterocolitis, and oligohydramnios; With low doses (81 mg) of aspirin, no significant teratogenic risk |
 | NSAIDs | C; D - for some drugs if given after 30 weeks | Same as those for salicylate; Contraindicated in the 3rd trimester |
-| **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** |
+| ANTI THYROID MEDICATIONS | **ANTI THYROID MEDICATIONS** | **ANTI THYROID MEDICATIONS** |
 | Methimazole | D | Fetal goitre and neonatal scalp defects (aplasia cutis) |
 | Propylthiouracil | D | Fetal goitre and maternal hepatotoxicity and agranulocytosis |
 | Radioactive iodine (131I) | D | Destruction of the fetal thyroid gland or, when the drug is given near the end of the 1st trimester, severe fetal hyperthyroidism |
 | Saturated solution of K iodide |  | Large fetal goitre, which may obstruct breathing in neonates |
 | Triiodothyronine | D | Fetal goitre |
-| **VACCINES** | **VACCINES** | **VACCINES** |
+| VACCINES | **VACCINES** | **VACCINES** |
 | Live-virus vaccines such as those for measles, mumps, rubella, polio, chickenpox, and yellow fever |  | With rubella and varicella vaccines, potential infection of the placenta and developing fetus; With other vaccines, potential but unknown risks |
-| **OTHERS** | **OTHERS** | **OTHERS** |
+| OTHERS | **OTHERS** | **OTHERS** |
 | Corticosteroids | B | When these drugs are used during the 1st trimester, possibly orofacial clefts |
 | Loratadine | B | Possible hypospadias |
 | Ondansetron | B | No significant teratogenic risk |

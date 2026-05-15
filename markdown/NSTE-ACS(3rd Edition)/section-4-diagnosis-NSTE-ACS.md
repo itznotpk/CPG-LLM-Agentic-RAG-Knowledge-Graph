@@ -237,7 +237,7 @@ Patients presenting with chest pain or chest pain equivalents may, based on clin
 - **Definite NSTE-ACS or STEMI.** These patients should be admitted and managed accordingly.
 - **Possible or suspected NSTE-ACS.** These patients have normal or non-diagnostic ECGs and need to be evaluated using a rule-out protocol for ACS.
 
-**[Grade I, Level C]** Evaluation is a continuous process and a patient may move from very low likelihood of ACS to definite NSTE-ACS as new information becomes available or as the clinical condition changes.
+[Grade I, Level C] Evaluation is a continuous process and a patient may move from very low likelihood of ACS to definite NSTE-ACS as new information becomes available or as the clinical condition changes.
 
 **Rule-out ACS pathways**
 
@@ -250,7 +250,7 @@ The time of the blood test is time 0, and the second blood test is either 1 hour
 
 The cut-off levels for different hs-cTn assays vary. Some have sex-specific cut-off points. Clinicians should check the local vendor's respective values.
 
-**[Grade I, Level A]** Accelerated hs-cTn diagnostic rule-out protocols using early serial troponin testing with either the 1-hour algorithm or the 0- and 2-hour algorithm are cost effective, reduce ED length of stay, reduce overall hospital costs, and are safe.
+[Grade I, Level A] Accelerated hs-cTn diagnostic rule-out protocols using early serial troponin testing with either the 1-hour algorithm or the 0- and 2-hour algorithm are cost effective, reduce ED length of stay, reduce overall hospital costs, and are safe.
 
 The committee advocates Flowchart 1 using cTn, preferably hs-cTn, as a rule-out pathway.
 
@@ -344,7 +344,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 | Hypertrophic cardiomyopathy |
 | Coronary vasculitis, e.g. systemic lupus erythaematosus, Kawasaki syndrome |
 | Coronary endothelial dysfunction without significant CAD e.g., cocaine abuse |
-| **Damage not related to myocardial ischemia** |
+| Damage not related to myocardial ischemia |
 | Cardiac contusion |
 | Cardiac incisions with surgery |
 | Radiofrequency or cryoablation therapy |
@@ -352,7 +352,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 | Myocarditis |
 | Cardiotoxic agents, e.g. anthracyclines, Herceptin, carbon monoxide poisoning |
 | Severe burns affecting > 30% of body surface |
-| **Indeterminant or multifactorial group** |
+| Indeterminant or multifactorial group |
 | Apical ballooning syndrome |
 | Severe pulmonary embolism or pulmonary hypertension |
 | Peripartum cardiomyopathy |
@@ -372,17 +372,17 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 <br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ---
 

@@ -634,11 +634,11 @@ Table 4: Suggested Dose Conversion Ratio In The Direction Specified
 
 | FROM \ TO | Oral morphine mg/day | SC morphine mg/day | Oral oxycodone mg/day | SC oxycodone mg/day | TD fentanyl mcg/h |
 |---|:---:|:---:|:---:|:---:|:---:|
-| **Oral morphine mg/day** | - | 2 (D) | 1.5 (D) | 3 (D) | 3 (D) |
-| **SC morphine mg/day** | 2 (M) | - | 0.7 (D) | 1.5 (D) | 1.5 (D) |
-| **Oral oxycodone mg/day** | 1.5 (M) | 0.7 (M) | - | 2 (D) | 2 (D) |
-| **SC oxycodone mg/day** | 3 (M) | 1.5 (M) | 2 (M) | - | 1 (D) |
-| **TD fentanyl mcg/h** | 3 (M) | 1.5 (M) | 2 (M) | 1 (M) | - |
+| Oral morphine mg/day | - | 2 (D) | 1.5 (D) | 3 (D) | 3 (D) |
+| SC morphine mg/day | 2 (M) | - | 0.7 (D) | 1.5 (D) | 1.5 (D) |
+| Oral oxycodone mg/day | 1.5 (M) | 0.7 (M) | - | 2 (D) | 2 (D) |
+| SC oxycodone mg/day | 3 (M) | 1.5 (M) | 2 (M) | - | 1 (D) |
+| TD fentanyl mcg/h | 3 (M) | 1.5 (M) | 2 (M) | 1 (M) | - |
 
 *(M) = MULTIPLY | (D) = DIVIDE*
 
@@ -661,43 +661,43 @@ Table 4: Suggested Dose Conversion Ratio In The Direction Specified
 Appendix 5A: Suggested Medication Dosages And Adverse Effects In Adults
 | Drug | Recommended Dosages | Side Effects | Remarks |
 |---|---|---|---|
-| **Paracetamol** | 0.5 - 1 g, 6-8-hourly. Max: 4 g/day | Rare | Consider dose reduction in hepatic impairment. |
-| **Non-Selective NSAIDs** | | | |
+| Paracetamol | 0.5 - 1 g, 6-8-hourly. Max: 4 g/day | Rare | Consider dose reduction in hepatic impairment. |
+| Non-Selective NSAIDs | | | |
 | Diclofenac Sodium | 50 - 150 mg daily, 8-12-hourly. Max: 150 mg/day | • Peptic ulcer<br>• GI bleed<br>• Platelet dysfunction<br>• Renal impairment<br>• Cardiac events | Use the lowest efficacious dose for the shortest possible duration. Consider dose reduction in renal impairment. Higher doses increase the risk of GI and cardiovascular complications. |
 | Mefenamic Acid | 250 - 500 mg, 8-hourly. Max: 1500 mg/day | ^ | ^ |
 | Ibuprofen | 200 - 400 mg daily, 8-hourly. Max: 2400 mg/day | ^ | ^ |
-| **Selective NSAIDs** | | | |
+| Selective NSAIDs | | | |
 | Celecoxib | 200 - 400 mg, 12 - 24-hourly. Max: 400 mg/day | • Renal impairment<br>• Cardiac events | Use the lowest efficacious dose for the shortest possible duration. Consider dose reduction in renal impairment and cardiovascular disease. Higher doses increase the risk of GI and cardiovascular complications. |
 | Etoricoxib | 60 - 90 mg daily. Max: 120 mg/day | ^ | ^ |
-| **Weak Opioids** | | | |
+| Weak Opioids | | | |
 | Tramadol | 50 - 100 mg, 6 - 8-hourly. Max: 400 mg/day | • Drowsiness<br>• Dizziness<br>• Nausea<br>• Vomiting<br>• Constipation | Consider dose reduction in renal impairment. |
 | Dihydrocodeine tartrate | 30 - 60 mg, 6 - 8-hourly. Max: 240/mg day | ^ | ^ |
-| **Combination Medications** | | | |
+| Combination Medications | | | |
 | Paracetamol 500 mg + codeine 8 mg | 1 - 2 tablets, 6 - 8-hourly. Max: 8 tablets/day | • Drowsiness<br>• Dizziness<br>• Nausea<br>• Vomiting<br>• Constipation | Consider dose reduction in renal impairment and hepatic impairment. |
 | Paracetamol 325 mg + tramadol 37.5 mg | 1 - 2 tablets, 6 - 8-hourly. Max: 8 tablets/day | ^ | ^ |
-| **Strong Opioids** | | | |
+| Strong Opioids | | | |
 | Morphine | Starting dose (oral): 3 - 5 mg 4-hourly of IR morphine. SR oral morphine: to be given in 12-hourly dosing. | • Drowsiness<br>• Dizziness<br>• Nausea<br>• Vomiting<br>• Constipation | No max dose in cancer pain. |
 | Oxycodone | Starting dose (oral): 5 mg of IR 4 - 6-hourly. CR oxycodone: to be given in 12-hourly dosing. | ^ | ^ |
 | Transderm fentanyl | Equianalgesic dose of total 24 hours opioid requirement (refer to Table 4 on conversion of opioids) | ^ | Transderm fentanyl can only be used when opioid requirements are stable, and never in an opioid naïve patient. |
 | Sublingual fentanyl | Starting dose: 100 mcg. May be titrated up to 800 mcg/ episode of breakthrough pain. Max: 2 doses/breakthrough pain episode; and 4 episodes of breakthrough pain within 24 hours. | ^ | Effectiveness and safety of doses above 800 mcg have not been evaluated. Oral mucositis or dry mouth may affect absorption. |
-| **Antidepressants** | | | |
+| Antidepressants | | | |
 | Amitriptyline | Start with 12.5 - 25 mg ON. Max: 150 mg/day | Anticholinergic effects e.g. dry mouth, drowsiness, urinary retention, arrhythmias, QT prolongation | Max dose seldom required. Usual effective dose 25 - 75 mg ON. Use with caution in the elderly and patients with cardiac disease, glaucoma, renal impairment and seizure risk. |
 | Duloxetine | 30 - 60 mg/day. Max: 120 mg/day | • Bleeding risk<br>• Hepatotoxicity (at higher doses)<br>• Gastrointestinal disorder | Usual effective dose 60mg/day. Use with caution in patients with renal impairment and seizure risk. |
-| **Anticonvulsants** | | | |
+| Anticonvulsants | | | |
 | Gabapentin | Start with 300 mg ON and increase by 300 mg/24 hrs every 2-3 days if necessary. Max: 3600 mg/day | • Drowsiness<br>• dizziness<br>• amnesia, dry mouth tremor | Dose adjustment is required in renal impairment. Usual effective dose ≥ 600mg TDS |
 | Pregabalin | 50 - 150 mg BD. Max dose: 300mg BD | ^ | Dose adjustment is required in renal impairment. |
-| **Bone Targeting Agents** | | | |
+| Bone Targeting Agents | | | |
 | Zoledronic Acid | 4 mg as a single IV infusion over 15 mins. Can only be repeated after 7 days if response is inadequate. | • Transient pyrexia & flu-like symptoms<br>• Fatigue<br>• Nausea<br>• Osteonecrosis of the jaw | Consider dose reduction in renal impairment. |
 | Pamidronate | 30 - 90 mg as a single IV infusion over 2 - 4 hours. Can only be repeated after 7 days if response is inadequate. | | |
 | Denosumab | 120 mg every 4 weeks | • Arthralgia<br>• Fatigue<br>• Hypocalcemia<br>• Osteonecrosis of the jaw | |
-| **Corticosteroid** | | | |
+| Corticosteroid | | | |
 | Dexamethasone | 8 - 16 mg/day (initial). Then reduce to lowest possible dose (usually 2mg/day) | • Bleeding<br>• Susceptibility to infections<br>• Impaired glycaemic control<br>• Delirium & sleep disturbances | Try to give earlier in the day to minimise insomnia. |
-| **Laxatives** | | | |
+| Laxatives | | | |
 | Lactulose | 15 - 20 ml orally, 6 - 8-hourly | • Bloating<br>• Epigastric pain<br>• Flatulence<br>• Nausea<br>• Vomiting<br>• Cramping | May be mixed with fruit juice, water or milk. Reasonable fluid intake is required for effectiveness. |
 | Macrogol | 1 - 4 sachets/day | • Abdominal distension<br>• Nausea<br>• Diarrhoea | Reasonable fluid intake is required for effectiveness. |
 | Bisacodyl | 5 - 10 mg orally, 1 - 2 times daily. Max: 20 mg/day | • Diarrhoea<br>• Nausea<br>• Vomiting<br>• Rectal irritation<br>• Abdominal cramps<br>• Bloating | Enteric coated tablet and should not be crushed. Exercise caution in GI obstruction, perforation or severe impaction. |
 | Senna | 2 tabs OD or 1 tab BD. Max: 8 tabs/day | • Diarrhoea<br>• Nausea<br>• Abdominal cramps | Exercise caution in GI obstruction, perforation or severe impaction. |
-| **Antiemetics** | | | |
+| Antiemetics | | | |
 | Metoclopramide | 10 - 20 mg, 6 - 8 hourly | • Extrapyramidal reactions<br>• Dizziness<br>• Drowsiness | Consider dose reduction in renal impairment. |
 | Prochlorperazine | 10 - 30 mg daily in divided doses | ^ | |
 | Haloperidol | 0.5 - 3 mg single dose nocte | • Extrapyramidal symptoms<br>• Prolonged QT interval | |

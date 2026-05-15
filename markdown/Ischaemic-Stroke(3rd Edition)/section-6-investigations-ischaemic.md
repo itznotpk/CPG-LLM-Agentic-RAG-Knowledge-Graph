@@ -24,15 +24,15 @@ Table 6.1: Haematological Investigations Required
 
 | Investigation | Indication |
 | --- | --- |
-| **On Admission** | |
+| On Admission | |
 | Full blood count | Exclude anaemia, polycythaemia, thrombocytosis, thrombocytopenia, etc. |
 | Random blood glucose | Exclude hypoglycaemia or hyperglycaemia, new diagnosis of diabetes mellitus |
 | Urea & electrolytes | Hydration status, excludes electrolyte imbalances |
 | Clotting profile* | Baseline |
-| **Next Day** | |
+| Next Day | |
 | Lipid profile (fasting) | |
 | Glucose (fasting) | |
-| **Optional Tests (in selected patients)** | |
+| Optional Tests (in selected patients) | |
 | VDRL | |
 | Autoimmune screen | ESR, anti-nuclear antibody, rheumatoid factor, anti-double stranded DNA antibodies, C3 and C4 levels, etc. |
 | Thrombophilia screen & lupus anticoagulant | Serum fibrinogen, anti-thrombin III, protein C, protein S, factor V-Leiden, anti-phospholipid antibodies, etc. |
@@ -58,10 +58,10 @@ Table 6.3: Imaging For Stroke Patients
 
 | Investigation | Findings / Indication |
 | --- | --- |
-| **For all suspected stroke** | |
+| For all suspected stroke | |
 | Chest x-ray | - Mandatory |
 | CT brain | - The emergency neuroimaging scan of choice for all patients<br>- Differentiates haemorrhage from infarction and some stroke mimickers<br>- Confirms site of lesion, cause of lesion and extent of brain affected |
-| **In selected patients** | |
+| In selected patients | |
 | Echocardiography (ECHO) | - For suspected cardio-embolism, assess cardiac function |
 | Magnetic Resonance Imaging (MRI) | - Sensitive<br>- Available in very selected setting, limited by cost<br>- Useful tool to select patients for revascularization where available |
 | Carotid Duplex Ultrasound | - Allows identification of extracranial vessel disease |

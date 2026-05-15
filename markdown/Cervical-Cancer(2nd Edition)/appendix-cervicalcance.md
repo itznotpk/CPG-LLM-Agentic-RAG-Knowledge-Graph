@@ -319,7 +319,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 ## Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 | Variable | Relative risk |
 |---|---|
-| **Depth of tumour penetration (mm) - Superficial** | |
+| Depth of tumour penetration (mm) - Superficial | |
 | 3 | 1.0 |
 | 4 | 3.0 |
 | 5 | 7.2 |
@@ -327,7 +327,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 7 | 21 |
 | 8 | 26 |
 | 10 | 21 |
-| **Middle** | |
+| Middle | |
 | 5 | 20 |
 | 6 | 22 |
 | 7 | 23 |
@@ -335,7 +335,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 10 | 28 |
 | 12 | 32 |
 | 14 | 36 |
-| **Deep** | |
+| Deep | |
 | 7 | 28 |
 | 8 | 30 |
 | 10 | 34 |
@@ -344,7 +344,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 16 | 45 |
 | 18 | 49 |
 | 19 | 54 |
-| **Clinical tumour size (cm)** | |
+| Clinical tumour size (cm) | |
 | Occult tumour | 1.0 |
 | 1 | 1.6 |
 | 2 | 1.9 |
@@ -352,7 +352,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | 4 | 2.9 |
 | 6 | 4.4 |
 | 8 | 6.6 |
-| **Capillary/lymphatic space involvement** | |
+| Capillary/lymphatic space involvement | |
 | No | 1.0 |
 | Yes | 1.7 |
 
@@ -383,7 +383,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 #### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 30 - 40 | IV | 1 hour | 1 |
 
 *N.B. In practice, 50 mg total dose per week of cisplatin could be used*
@@ -393,27 +393,27 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 #### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 
 #### Cisplatin-5fu
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 - 75 | IV | 1 hour | 1 |
 | 5Fluorouracil | 750 - 1000 | IV | 24 hour | 1 - 5 |
 
 #### Cisplatin-Mtx
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 | Methotrexate | 100 | IV | Bolus | 1 - 5 |
 
 #### Paclitaxel-Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
-| **Drugs** | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
+| Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Paclitaxel | 175 | IV | 1 hour | 1 |
 | Cisplatin | 75 | IV | Bolus | 1 - 5 |
 
@@ -708,13 +708,13 @@ Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. I
 ## Appendix 12: Medication List
 | Chemotherapy Drug | Common side effects | Comments |
 |---|---|---|
-| **Cisplatin** | • Peripheral neuropathy<br>• Nausea, vomiting<br>• Myelosuppression<br>• Nephrotoxicity<br>• Ototoxicity | • Adequate hydration and urinary output at least 24 hours after administration<br>• Obtain baseline renal function, then monitor renal function (SCr, CrCl) at every cycle. Observe for cumulative renal toxicity.<br>• Recommend to perform baseline audiography and prior to each subsequent dose<br>• Observe for anaphylactic-like reactions during infusion<br>• Monitor renal function (SCr, CrCl)<br>• Observe for anaphylactic-like reactions during infusion |
-| **Carboplatin** | • Electrolyte imbalance (hyponatremia, hypomagnesemia, hypocalcaemia, hypokalaemia)<br>• Nausea, vomiting<br>• Myelosuppression | • Monitor renal function (SCr, CrCl)<br>• Observe for anaphylactic-like reactions during infusion |
-| **Paclitaxel** | • Alopecia<br>• Nausea, vomiting<br>• Myelosuppression<br>• Peripheral neuropathy<br>• Arthalgia/myalgia | • Monitor for hypersensitivity reaction during infusion |
-| **Gemcitabine** | • Fever<br>• Nausea, vomiting<br>• Myelosuppression<br>• Increased hepatic transaminases | • Monitor liver function |
-| **Topotecan** | • Myelosuppression<br>• Nausea, vomiting | • Monitor for interstitial lung disease |
-| **5-Fluorouracil** | • Diarrhoea | • Monitor for hand-foot syndrome |
-| **Mitomycin-C** | • Myelosuppression | • Observe for extravasation (vesicant)<br>• Monitor for haemolytic-uremic syndrome |
+| Cisplatin | • Peripheral neuropathy<br>• Nausea, vomiting<br>• Myelosuppression<br>• Nephrotoxicity<br>• Ototoxicity | • Adequate hydration and urinary output at least 24 hours after administration<br>• Obtain baseline renal function, then monitor renal function (SCr, CrCl) at every cycle. Observe for cumulative renal toxicity.<br>• Recommend to perform baseline audiography and prior to each subsequent dose<br>• Observe for anaphylactic-like reactions during infusion<br>• Monitor renal function (SCr, CrCl)<br>• Observe for anaphylactic-like reactions during infusion |
+| Carboplatin | • Electrolyte imbalance (hyponatremia, hypomagnesemia, hypocalcaemia, hypokalaemia)<br>• Nausea, vomiting<br>• Myelosuppression | • Monitor renal function (SCr, CrCl)<br>• Observe for anaphylactic-like reactions during infusion |
+| Paclitaxel | • Alopecia<br>• Nausea, vomiting<br>• Myelosuppression<br>• Peripheral neuropathy<br>• Arthalgia/myalgia | • Monitor for hypersensitivity reaction during infusion |
+| Gemcitabine | • Fever<br>• Nausea, vomiting<br>• Myelosuppression<br>• Increased hepatic transaminases | • Monitor liver function |
+| Topotecan | • Myelosuppression<br>• Nausea, vomiting | • Monitor for interstitial lung disease |
+| 5-Fluorouracil | • Diarrhoea | • Monitor for hand-foot syndrome |
+| Mitomycin-C | • Myelosuppression | • Observe for extravasation (vesicant)<br>• Monitor for haemolytic-uremic syndrome |
 
 - To monitor FBC and serum electrolytes prior to every cycle of chemotherapy.
 

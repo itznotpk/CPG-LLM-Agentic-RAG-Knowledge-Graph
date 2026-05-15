@@ -109,9 +109,9 @@ In NSTE-ACS, ST elevation is absent on the resting ECG.
 
 ### Section 4: .4: Cardiac Biomarkers
 The related diagnostic content from Section 4.4 clarifies how cardiac biomarkers should be used and interpreted:
-- **[Grade I, Level A]** Cardiac troponins (**cTn**) T and I are the most sensitive and specific biomarkers for myocardial injury and necrosis.
+- [Grade I, Level A] Cardiac troponins (**cTn**) T and I are the most sensitive and specific biomarkers for myocardial injury and necrosis.
 - Where there is access to cTn testing, other biomarkers such as AST, LDH, CK, CKMB and myoglobin are not useful for the initial diagnosis of acute MI because of lower sensitivity and specificity. CKMB may be used to monitor for reinfarction.
-- **[Grade IIb, Level B]** In settings where cTns are not available, CKMB is the alternate but less preferred option.
+- [Grade IIb, Level B] In settings where cTns are not available, CKMB is the alternate but less preferred option.
 - After acute MI, cTn becomes detectable at 6 hours using conventional older cTn assays and may remain elevated for up to 14 days. High-sensitivity cTn (**hs-cTn**) assays detect cTn release earlier than older cTn tests and improve early sensitivity for diagnosis of MI.
 - cTn are markers of myocardial necrosis and not specific markers for MI. A rise and/or fall of cTn, with at least one value greater than the 99th percentile URL, is a key criterion in addition to other clinical features for diagnosing MI.
 
@@ -121,7 +121,7 @@ The hs-cTn assay is currently replacing the conventional cTn assay. The term "hi
 1. Have a coefficient of variation (**CoV**) or imprecision of <=10% at the 99th percentile URL.
 2. Have measurable concentrations below the 99th percentile that are attainable with an assay at a concentration value above the assay's limit of detection (**LoD**) for at least 50% of healthy individuals, ideally >95%.
 
-**[Grade I, Level C]** At present, most commercially available hs-cTn assays attain a CoV of <10% at the 99th percentile URL, indicating that the result is less affected by analytical noise and has lower inter-test variability. Each laboratory should evaluate assay performance regularly in daily clinical practice.
+[Grade I, Level C] At present, most commercially available hs-cTn assays attain a CoV of <10% at the 99th percentile URL, indicating that the result is less affected by analytical noise and has lower inter-test variability. Each laboratory should evaluate assay performance regularly in daily clinical practice.
 
 Good preanalytical sampling is important because hs-cTn assays are very sensitive and poor sample quality, most commonly a haemolysed specimen, can be problematic.
 
@@ -135,16 +135,16 @@ A cTn elevation is not exclusive for ACS and may be present in a healthy referen
 
 False positive cTn results without myocardial injury are very rare, but may occur because of analytical issues such as cross reaction from other immuno-reactive proteins and some neuromuscular diseases.
 
-**[Grade I, Level A]** All hospitals providing care for patients with acute chest pain or suspected MI should have access to cTn testing, preferably hs-cTn subtypes T or I.
+[Grade I, Level A] All hospitals providing care for patients with acute chest pain or suspected MI should have access to cTn testing, preferably hs-cTn subtypes T or I.
 
-**[Grade I, Level C]** Clinicians must be familiar with their local cTn assays, whether point-of-care (**POC**) kits or laboratory based. In general:
+[Grade I, Level C] Clinicians must be familiar with their local cTn assays, whether point-of-care (**POC**) kits or laboratory based. In general:
 - POC kits have lower analytical sensitivity and too wide a CoV to detect cTn at the 99th percentile URL.
 - Use of POC kits in areas without access to central laboratories could reduce unnecessary referrals or transfers and may result in overall cost savings.
 - Almost all locally available laboratory-based assays can measure hs-cTn at the 99th percentile URL.
 
-**[Grade I, Level C]** Each clinician should be familiar with the 99th percentile URL and the lower limit of detection (LoD) of the cTn assay used in their hospital.
+[Grade I, Level C] Each clinician should be familiar with the 99th percentile URL and the lower limit of detection (LoD) of the cTn assay used in their hospital.
 
-**[Grade I, Level C]** It is inappropriate to label cTn results as positive or negative. The exact cTn value should be stated.
+[Grade I, Level C] It is inappropriate to label cTn results as positive or negative. The exact cTn value should be stated.
 
 Hs-cTn can be used to:
 - **Rule in MI** - significant rise and/or fall of cTn, with at least one value greater than the 99th percentile URL, in combination with other clinical criteria.
@@ -191,9 +191,9 @@ The ECG separates patients into two pathways:
 ### Appendix I: BRAUNWALD’S Classification Of Unstable Angina*
 | Severity | CLINICAL CIRCUMSTANCES<br><br>A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES<br><br>B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES<br><br>C<br>Develops Within 2 weeks of MI (Postinfarction UA) |
 | :--- | :--- | :--- | :--- |
-| **I-New onset of severe angina or accelerated angina; no rest pain** | I A | IB | IC |
-| **II-Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute)** | IIA | IIB | IIC |
-| **III-Angina at rest within 48 hours (angina at rest, acute)** | IIIA | IIIB-T<sub>neg</sub> IIIB-T<sub>pos</sub> | IIIC |
+| I-New onset of severe angina or accelerated angina; no rest pain | I A | IB | IC |
+| II-Angina at rest within past month but not within preceding 48 hours (angina at rest, subacute) | IIA | IIB | IIC |
+| III-Angina at rest within 48 hours (angina at rest, acute) | IIIA | IIIB-T<sub>neg</sub> IIIB-T<sub>pos</sub> | IIIC |
 
 UA : Unstable angina; T : Troponins
 *\*Hamm CW, Braunwald E. A classification of unstable angina revisited. Circulation. 2000 ;102 :118-22.*
@@ -210,7 +210,7 @@ UA : Unstable angina; T : Troponins
 | Hypertrophic cardiomyopathy |
 | Coronary vasculitis, e.g. systemic lupus erythaematosus, Kawasaki syndrome |
 | Coronary endothelial dysfunction without significant CAD e.g., cocaine abuse |
-| **Damage not related to myocardial ischemia** |
+| Damage not related to myocardial ischemia |
 | Cardiac contusion |
 | Cardiac incisions with surgery |
 | Radiofrequency or cryoablation therapy |
@@ -218,7 +218,7 @@ UA : Unstable angina; T : Troponins
 | Myocarditis |
 | Cardiotoxic agents, e.g. anthracyclines, Herceptin, carbon monoxide poisoning |
 | Severe burns affecting > 30% of body surface |
-| **Indeterminant or multifactorial group** |
+| Indeterminant or multifactorial group |
 | Apical ballooning syndrome |
 | Severe pulmonary embolism or pulmonary hypertension |
 | Peripartum cardiomyopathy |

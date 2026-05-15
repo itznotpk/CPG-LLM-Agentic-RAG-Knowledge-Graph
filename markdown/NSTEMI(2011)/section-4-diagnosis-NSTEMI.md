@@ -31,7 +31,7 @@ Presence of left ventricular failure (hypotension, respiratory crackles or S3 ga
 ## 4.3: Electrocardiography
 The ECG adds support to the diagnosis and provides prognostic information. A recording made during an episode of chest pain is particularly valuable.
 
-**[Grade I, Level C]** It should be performed within 10 minutes of the patient's arrival at the Emergency Department.
+[Grade I, Level C] It should be performed within 10 minutes of the patient's arrival at the Emergency Department.
 
 Features suggestive of UA/NSTEMI are:
 - Dynamic ST/T changes
@@ -40,12 +40,12 @@ Features suggestive of UA/NSTEMI are:
 
 Other ECG changes include new or presumed new onset bundle branch block (BBB)* and cardiac arrhythmias, especially sustained ventricular tachycardia. Evidence of previous infarctions such as Q waves may be present.
 
-**[Grade I, Level C]** However, a completely normal ECG does not exclude the diagnosis of UA/NSTEMI. Serial ECGs should be done as the ST changes may evolve.
+[Grade I, Level C] However, a completely normal ECG does not exclude the diagnosis of UA/NSTEMI. Serial ECGs should be done as the ST changes may evolve.
 
 *\* New LBBB should be treated as STEMI*
 
 ## 4.4: Cardiac Biomarkers
-**[Grade I, Level A]** Cardiac troponins (troponin T or I) are the recommended biomarkers. They are highly specific and sensitive for myocardial injury and/or necrosis (infarction), and also provide important prognostic information, there being a correlation between the level of troponin and cardiac mortality and other adverse cardiac events. The troponin level may not be elevated if the test is done early (<6 hours). To confidently exclude myocardial necrosis (infarction), a repeat test needs to be done 6–12 hours after admission. Troponin testing can be done in the laboratory (quantitative) or with a hand held rapid semi-quantitative assay. Blood levels may persist for 5–14 days after the acute event.
+[Grade I, Level A] Cardiac troponins (troponin T or I) are the recommended biomarkers. They are highly specific and sensitive for myocardial injury and/or necrosis (infarction), and also provide important prognostic information, there being a correlation between the level of troponin and cardiac mortality and other adverse cardiac events. The troponin level may not be elevated if the test is done early (<6 hours). To confidently exclude myocardial necrosis (infarction), a repeat test needs to be done 6–12 hours after admission. Troponin testing can be done in the laboratory (quantitative) or with a hand held rapid semi-quantitative assay. Blood levels may persist for 5–14 days after the acute event.
 
 Non-coronary causes for elevated troponins are extremely rare. It may occur in acute myocarditis, acute pulmonary embolism, a dissecting aortic aneurysm, acute heart failure and sometimes in septic shock. Severe renal dysfunction may also cause raised troponins in the absence of ACS. A raised level is however associated with an increase in all cause mortality in these patients.(refer Appendix II: Elevations of Cardiac Troponin in the Absence of Overt Ischaemic Heart Disease)
 
@@ -60,20 +60,20 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 
 | Biomarker | Initial Elevation | Peak Concentration | Duration of Elevation | Peak Magnitude (approx.) |
 |---|---|---|---|---|
-| **Myoglobin** | Rapid (1–4 h) | 12 hours (< 1 day) | 1–2 days | ~20x ULRR |
-| **CK-MB** | Rapid (3–12 h) | 12–24 hours (~ 1 day) | 2–3 days | ~25x ULRR |
-| **Troponin I** | Rapid (3–12 h) | 12–24 hours (~ 1 day) | 7–10 days | ~80x ULRR |
-| **Troponin T** | Rapid (3–12 h) | 12–24 hours (~ 1 day) | 10–14 days | ~80x ULRR |
-| **CK** | Moderate (3–12 h) | 12–24 hours (~ 1 day) | 3–4 days | ~10x ULRR |
-| **LDH** | Delayed (12–24 h) | 2–3 days | > 7 days | ~5x ULRR |
+| Myoglobin | Rapid (1–4 h) | 12 hours (< 1 day) | 1–2 days | ~20x ULRR |
+| CK-MB | Rapid (3–12 h) | 12–24 hours (~ 1 day) | 2–3 days | ~25x ULRR |
+| Troponin I | Rapid (3–12 h) | 12–24 hours (~ 1 day) | 7–10 days | ~80x ULRR |
+| Troponin T | Rapid (3–12 h) | 12–24 hours (~ 1 day) | 10–14 days | ~80x ULRR |
+| CK | Moderate (3–12 h) | 12–24 hours (~ 1 day) | 3–4 days | ~10x ULRR |
+| LDH | Delayed (12–24 h) | 2–3 days | > 7 days | ~5x ULRR |
 
 ## 4.5: Other Diagnostic Modalities
-**[Grade II-a, Level B]** Echocardiogram: LV systolic function is an important prognostic indicator in patients with UA/NSTEMI. Transient reversible regional wall motion abnormalities may be detected during ischemia.
+[Grade II-a, Level B] Echocardiogram: LV systolic function is an important prognostic indicator in patients with UA/NSTEMI. Transient reversible regional wall motion abnormalities may be detected during ischemia.
 
 ## Key Messages
 - The diagnosis of UA/NSTEMI is based on history + dynamic ECG changes (without persistent ST elevation), + raised cardiac biomarkers.
 - In UA cardiac biomarkers are normal while in NSTEMI it is elevated.
-- **[Grade I, Level A]** A raised troponin level has diagnostic and prognostic significance.
+- [Grade I, Level A] A raised troponin level has diagnostic and prognostic significance.
 
 ## Grades Of Recommendation And Levels Of Evidence
 | GRADE | DEFINITION |
@@ -93,21 +93,21 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **ACS** | Acute Coronary Syndrome |
-| **BBB** | Bundle Branch Block |
-| **CAD** | Coronary Artery Disease |
-| **CK** | Creatinine Kinase |
-| **CK-MB** | Creatinine Kinase-MB |
-| **CVD** | Cardiovascular Disease |
-| **ECG** | Electrocardiogram |
-| **LBBB** | Left Bundle Branch Block |
-| **LDH** | Lactate Dehydrogenase |
-| **LV** | Left Ventricular |
-| **MI** | Myocardial Infarction |
-| **NSTEMI** | Non-ST Elevation Myocardial Infarction |
-| **STEMI** | ST Elevation Myocardial Infarction |
-| **UA** | Unstable Angina |
-| **ULRR** | Upper Limit of Reference Range |
+| ACS | Acute Coronary Syndrome |
+| BBB | Bundle Branch Block |
+| CAD | Coronary Artery Disease |
+| CK | Creatinine Kinase |
+| CK-MB | Creatinine Kinase-MB |
+| CVD | Cardiovascular Disease |
+| ECG | Electrocardiogram |
+| LBBB | Left Bundle Branch Block |
+| LDH | Lactate Dehydrogenase |
+| LV | Left Ventricular |
+| MI | Myocardial Infarction |
+| NSTEMI | Non-ST Elevation Myocardial Infarction |
+| STEMI | ST Elevation Myocardial Infarction |
+| UA | Unstable Angina |
+| ULRR | Upper Limit of Reference Range |
 
 <!-- OVERLAP CONTENT -->
 

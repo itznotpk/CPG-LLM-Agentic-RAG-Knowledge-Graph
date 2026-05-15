@@ -23,17 +23,17 @@ Figure 2: PAH Evidence Treatment Algorithm Based On Availability Of Agents (Mala
 **Step 1: Supportive Therapy and General Measures**
 
 **Supportive therapy:**
-- **[Grade II, Level C]** Oral anticoagulants
-- **[Grade I, Level C]** Diuretics
-- **[Grade I, Level C]** Oxygen
-- **[Grade II-b, Level C]** Digoxin
-- **[Grade II-a, Level B]** Supervised rehabilitation
+- [Grade II, Level C] Oral anticoagulants
+- [Grade I, Level C] Diuretics
+- [Grade I, Level C] Oxygen
+- [Grade II-b, Level C] Digoxin
+- [Grade II-a, Level B] Supervised rehabilitation
 
 **General measures:**
-- **[Grade II-a, Level B]** Avoid excessive physical exertion
-- **[Grade I, Level C]** Birth control
-- **[Grade II-a, Level C]** Psychological and social support
-- **[Grade I, Level C]** Vaccination
+- [Grade II-a, Level B] Avoid excessive physical exertion
+- [Grade I, Level C] Birth control
+- [Grade II-a, Level C] Psychological and social support
+- [Grade I, Level C] Vaccination
 
 **Step 2: Expert Referral**
 
@@ -46,7 +46,7 @@ The acute vasoreactivity test divides patients into two distinct pathways:
 **Step 4A: Vasoreactive Pathway:**
 1. **[WHO Class I-IV]** Treat with calcium antagonists (CCBs).
 2. Assess for sustained response (achieving **[WHO Class I]** or **[WHO Class II]**).
-   - **YES** → **[Grade I, Level C]** Continue calcium antagonists.
+   - **YES** → [Grade I, Level C] Continue calcium antagonists.
    - **NO** → Proceed to Non-Vasoreactive Pathway (Step 4B).
 
 **Step 4B: Non-Vasoreactive Pathway**
@@ -54,49 +54,49 @@ The acute vasoreactivity test divides patients into two distinct pathways:
 
 | Strength of Recommendation | **[WHO Class II]** | **[WHO Class III]** | **[WHO Class IV]** |
 |---|---|---|---|
-| **[Grade I, Level A]** | Bosentan, Sildenafil | Bosentan, Sildenafil | — |
-| **[Grade I, Level B]** | Tadalafil, Ambrisentan | Iloprost inh., Ambrisentan, Tadalafil | Iloprost inh. |
-| **[Grade II-a, Level C]** | — | — | Bosentan, Sildenafil, Initial combination therapy |
+| [Grade I, Level A] | Bosentan, Sildenafil | Bosentan, Sildenafil | — |
+| [Grade I, Level B] | Tadalafil, Ambrisentan | Iloprost inh., Ambrisentan, Tadalafil | Iloprost inh. |
+| [Grade II-a, Level C] | — | — | Bosentan, Sildenafil, Initial combination therapy |
 
 2. **Sequential Combination Therapy**: If a patient has an inadequate response to monotherapy, sequential combination therapy should be considered:
     - ERA + PDE-5 inhibitor
     - PDE-5 inhibitor + Prostanoids
     - ERA + Prostanoids
-3. Last-Resort Interventions: If combination therapy fails → **[Grade I, Level C]** Atrial septostomy and/or lung transplant
+3. Last-Resort Interventions: If combination therapy fails → [Grade I, Level C] Atrial septostomy and/or lung transplant
 
 ## Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
 ## Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
-| **A** | Data derived from multiple randomised clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| **C** | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
 Table 2: WHO Classification Of Functional Status In Patients With Pht
 
 | Class | Definition |
 |---|---|
-| **Class I** | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class II** | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class III** | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
-| **Class IV** | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
+| Class I | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class II | Patients with PHT resulting in slight limitation of physical activity. They are comfortable at rest. Ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class III | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
+| Class IV | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
-| **CCB** | Calcium Channel Blocker |
-| **ERA** | Endothelin Receptor Antagonist |
-| **IPAH** | Idiopathic Pulmonary Arterial Hypertension |
-| **PAH** | Pulmonary Arterial Hypertension |
-| **PDE-5** | Phosphodiesterase-5 |
-| **WHO** | World Health Organisation |
+| CCB | Calcium Channel Blocker |
+| ERA | Endothelin Receptor Antagonist |
+| IPAH | Idiopathic Pulmonary Arterial Hypertension |
+| PAH | Pulmonary Arterial Hypertension |
+| PDE-5 | Phosphodiesterase-5 |
+| WHO | World Health Organisation |
 
 <!-- END OVERLAP CONTENT -->

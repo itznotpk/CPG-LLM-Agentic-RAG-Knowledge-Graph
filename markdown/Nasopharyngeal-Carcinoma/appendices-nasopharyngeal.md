@@ -97,21 +97,21 @@ The distribution and the prognostic impact of regional lymph node spread from na
 
 | GROUP | T | N | M |
 |---|---|---|---|
-| **0** | Tis | N0 | M0 |
-| **I** | T1 | N0 | M0 |
-| **II** | T1 | N1 | M0 |
+| 0 | Tis | N0 | M0 |
+| I | T1 | N0 | M0 |
+| II | T1 | N1 | M0 |
 | | T2 | N0 | M0 |
 | | T2 | N1 | M0 |
-| **III** | T1 | N2 | M0 |
+| III | T1 | N2 | M0 |
 | | T2 | N2 | M0 |
 | | T3 | N0 | M0 |
 | | T3 | N1 | M0 |
 | | T3 | N2 | M0 |
-| **IVA** | T4 | N0 | M0 |
+| IVA | T4 | N0 | M0 |
 | | T4 | N1 | M0 |
 | | T4 | N2 | M0 |
-| **IVB** | Any T | N3 | M0 |
-| **IVC** | Any T | Any N | M1 |
+| IVB | Any T | N3 | M0 |
+| IVC | Any T | Any N | M1 |
 | | Unknown Stage | | |
 
 *Note: Group definitions are identical for Clinical and Pathologic staging.*
@@ -173,10 +173,10 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 ## Appendix 6: Chemotherapy Drugs And Side Effects
 | CHEMOTHERAPY DRUGS | SIDE EFFECTS | REMARKS |
 |---|---|---|
-| **Cisplatin** | • Gastrointestinal (nausea and vomiting).<br>• Blood (anaemia, thrombocytopaenia).<br>• Renal toxicity.<br>• Electrolyte imbalance (hypomagnesaemia, hypocalcaemia, hypokalaemia).<br>• Auditory (tinnitus; with or without hearing loss).<br>• Neurology (peripheral neuropathy, paraesthesia, seizure).<br>• Hypersensitivity reaction (shortness of breath, hypotension, facial oedema, flushing). | • Observe for cumulative renal toxicity. It may be minimised by adequate hydration and urinary output at least 24 hours after administration.<br>• Prophylactic anti-emetics and corticosteroids should be given.<br>• Observe for anaphylactic-like reactions during infusion. |
-| **Carboplatin** | • Blood (anaemia, thrombocytopaenia, neutropaenia).<br>• Gastrointestinal (nausea and vomiting).<br>• Hypersensitivity reaction (rash, facial oedema).<br>• Electrolyte imbalance (hypomagnesaemia, hyponatraemia, hypokalaemia).<br>• Hepatotoxicity (elevated ALP, AST). | • Obtain baseline renal function, then monitor renal function at every cycle.<br>• Prophylactic anti-emetics and corticosteroids should be given.<br>• Observe for anaphylactic-like reactions during infusion; increased risk with prior platinum therapy. |
-| **Fluorouracil** | • Gastrointestinal (diarrhoea, stomatitis, oesophagitis, heart burn).<br>• Blood (anaemia, leucopenia, thrombocytopaenia).<br>• **Cardiovascular** (angina, myocardial infarction, arrhythmia, acute pulmonary oedema).<br>• Dermatological (alopecia, dermatitis, hand-foot syndrome). | • Prophylactic anti-emetics and corticosteroids should be given.<br>• Use with caution in patients who are receiving radiation or received high-dose pelvic radiation or previously treated with alkylating agents. These patients may have increased risk of toxicity.<br>• Use cautiously in patients with history of heart disease.<br>• Monitor for hand-foot syndrome. |
-| **Docetaxel** | • Blood (neutropaenia, anaemia, thrombocytopaenia).<br>• Cardiovascular (fluid retention).<br>• Dermatological (alopecia, cutaneous reaction, nail changes).<br>• Gastrointestinal (stomatitis, diarrhoea, nausea and vomiting).<br>• Hypersensitivity reaction (hypotension, bronchospasm, rash). | • Pre- and post-treatment with corticosteroid is recommended to decrease fluid retention and hypersensitivity reaction.<br>• Prophylactic anti-emetics should be given.<br>• Observe for anaphylactic-like reactions and extravasation during infusion. |
+| Cisplatin | • Gastrointestinal (nausea and vomiting).<br>• Blood (anaemia, thrombocytopaenia).<br>• Renal toxicity.<br>• Electrolyte imbalance (hypomagnesaemia, hypocalcaemia, hypokalaemia).<br>• Auditory (tinnitus; with or without hearing loss).<br>• Neurology (peripheral neuropathy, paraesthesia, seizure).<br>• Hypersensitivity reaction (shortness of breath, hypotension, facial oedema, flushing). | • Observe for cumulative renal toxicity. It may be minimised by adequate hydration and urinary output at least 24 hours after administration.<br>• Prophylactic anti-emetics and corticosteroids should be given.<br>• Observe for anaphylactic-like reactions during infusion. |
+| Carboplatin | • Blood (anaemia, thrombocytopaenia, neutropaenia).<br>• Gastrointestinal (nausea and vomiting).<br>• Hypersensitivity reaction (rash, facial oedema).<br>• Electrolyte imbalance (hypomagnesaemia, hyponatraemia, hypokalaemia).<br>• Hepatotoxicity (elevated ALP, AST). | • Obtain baseline renal function, then monitor renal function at every cycle.<br>• Prophylactic anti-emetics and corticosteroids should be given.<br>• Observe for anaphylactic-like reactions during infusion; increased risk with prior platinum therapy. |
+| Fluorouracil | • Gastrointestinal (diarrhoea, stomatitis, oesophagitis, heart burn).<br>• Blood (anaemia, leucopenia, thrombocytopaenia).<br>• **Cardiovascular** (angina, myocardial infarction, arrhythmia, acute pulmonary oedema).<br>• Dermatological (alopecia, dermatitis, hand-foot syndrome). | • Prophylactic anti-emetics and corticosteroids should be given.<br>• Use with caution in patients who are receiving radiation or received high-dose pelvic radiation or previously treated with alkylating agents. These patients may have increased risk of toxicity.<br>• Use cautiously in patients with history of heart disease.<br>• Monitor for hand-foot syndrome. |
+| Docetaxel | • Blood (neutropaenia, anaemia, thrombocytopaenia).<br>• Cardiovascular (fluid retention).<br>• Dermatological (alopecia, cutaneous reaction, nail changes).<br>• Gastrointestinal (stomatitis, diarrhoea, nausea and vomiting).<br>• Hypersensitivity reaction (hypotension, bronchospasm, rash). | • Pre- and post-treatment with corticosteroid is recommended to decrease fluid retention and hypersensitivity reaction.<br>• Prophylactic anti-emetics should be given.<br>• Observe for anaphylactic-like reactions and extravasation during infusion. |
 
 *\*To monitor FBC, LFT, RP and serum electrolytes prior to every cycle of chemotherapy.*
 

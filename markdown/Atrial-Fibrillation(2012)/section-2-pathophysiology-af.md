@@ -15,32 +15,32 @@ AF is often associated with co-existing medical conditions. The underlying condi
 Table 3: Common cardiac and non-cardiac risk factors of AF.
 | Category | Conditions |
 |---|---|
-| **Elevated Atrial Pressure** | Systemic Hypertension |
+| Elevated Atrial Pressure | Systemic Hypertension |
 | | Pulmonary Hypertension |
 | | Myocardial disease (cardiomyopathy with systolic and/or diastolic dysfunction) |
 | | Mitral or tricuspid valve disease |
 | | Aortic or pulmonary valve disease |
 | | Intracardiac tumours |
 | | Sleep apnoea |
-| **Atrial ischemia** | Coronary artery disease |
-| **Inflammatory or infiltrative atrial disease** | Myocarditis or pericarditis |
+| Atrial ischemia | Coronary artery disease |
+| Inflammatory or infiltrative atrial disease | Myocarditis or pericarditis |
 | | Amyloidosis |
 | | Age-induced atrial fibrosis |
 | | Primary or metastatic cancer in/or adjacent to the atrial wall |
-| **Drugs** | Alcohol |
+| Drugs | Alcohol |
 | | Caffeine |
-| **Endocrine disorders** | Hyperthyroidism |
+| Endocrine disorders | Hyperthyroidism |
 | | Phaeochromocytoma |
-| **Changes in autonomic tone** | Increased sympathetic tone |
+| Changes in autonomic tone | Increased sympathetic tone |
 | | Increased parasympathetic tone |
-| **Postoperative** | Cardiothoracic surgery |
+| Postoperative | Cardiothoracic surgery |
 | | Oesophageal surgery |
-| **Neurogenic** | Subarchnoid haemorrhage |
+| Neurogenic | Subarchnoid haemorrhage |
 | | Haemorrhagic stroke |
 | | Ischemic stroke |
-| **Idiopathic** | Lone AF |
+| Idiopathic | Lone AF |
 | | Familial AF |
-| **Other** | Congenital heart disease |
+| Other | Congenital heart disease |
 | | Chronic renal disease |
 | | Obesity |
 

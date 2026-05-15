@@ -60,11 +60,11 @@ Table 23: Reasons For Non-Adherence To Medications*
 
 | Categories of non-adherence | Examples |
 |---|---|
-| **Patient** | Lack of understanding, lack of involvement in decision making, health beliefs and attitudes concerning effectiveness of treatment, high medication cost, lack of transportation, long wait, poor social support, psychological stress, forgetfulness, anxiety about side effect, low motivation |
-| **Health-care system** | Failure to recognize non-adherence, complex regimen, lack of continuity of care, large volume of patients, poor communication, benefits and adverse outcomes not explained, short consultation, weak capacity to educate patients and provide follow up, lack of knowledge on adherence and of effective interventions to improve it |
-| **Social/economic factor** | Unemployment, low literacy, high cost of medication and transport, poor social support, unstable living conditions, family dysfunction |
-| **Condition-related** | Asymptomatic chronic disease, depression |
-| **Therapy-related** | Complexity of treatment regimen and duration, side effects, immediacy of beneficial effects |
+| Patient | Lack of understanding, lack of involvement in decision making, health beliefs and attitudes concerning effectiveness of treatment, high medication cost, lack of transportation, long wait, poor social support, psychological stress, forgetfulness, anxiety about side effect, low motivation |
+| Health-care system | Failure to recognize non-adherence, complex regimen, lack of continuity of care, large volume of patients, poor communication, benefits and adverse outcomes not explained, short consultation, weak capacity to educate patients and provide follow up, lack of knowledge on adherence and of effective interventions to improve it |
+| Social/economic factor | Unemployment, low literacy, high cost of medication and transport, poor social support, unstable living conditions, family dysfunction |
+| Condition-related | Asymptomatic chronic disease, depression |
+| Therapy-related | Complexity of treatment regimen and duration, side effects, immediacy of beneficial effects |
 
 *\*Sabate E. Adherence to Long-Term Therapies: Evidence for action. Geneva, Switzerland: 2003*
 
@@ -73,7 +73,7 @@ Table 24: Strategies To Improve Medication Adherence
 
 | Categories | Strategies | Example |
 |---|---|---|
-| **Patient-related factors** | Patient education | |
+| Patient-related factors | Patient education | |
 | | Involvement in treatment decision when possible | Ask what time of day they would prefer to take their medications |
 | | | How quickly they would like to achieve desired outcomes |
 | | | Avoid prescribing numerous medications and behavioural modifications at any one visit. If it is necessary, a rationale should be provided |
@@ -81,13 +81,13 @@ Table 24: Strategies To Improve Medication Adherence
 | | | Provide pictorial and audio-visual educational material instead of written instruction |
 | | Mental illness | Recognise and treat mental illness when treating for other chronic conditions |
 | | Economic status | |
-| **Physician-related factors** | Effective communication | Consider patients’ cultural beliefs and attitudes (eg. Preference for herbal remedies) |
+| Physician-related factors | Effective communication | Consider patients’ cultural beliefs and attitudes (eg. Preference for herbal remedies) |
 | | Create blame free environment | |
 | | Assess Adherence | Ask in a non-judgemental way. E.g.:<br>1) I know it must be difficult to take all your medications regularly. How often do you miss taking them?<br>2) Of the medications prescribed to you, which ones are you taking?<br>3) Have you had to stop any of your medications for any reasons? |
 | | Prescribing | Simplify regimen, use of pill boxes, cues to remind patients to take medications |
 | | | When prescribing new medication, provide all important information-name, purpose, rationale, frequency, duration, potential adverse effects |
 | | | Use Teach back approach |
-| **Health-care related factor** | Appointment visits | Reminder for patients to bring all their medications |
+| Health-care related factor | Appointment visits | Reminder for patients to bring all their medications |
 | | | Team-based approached, assessment of adherence by pharmacists/nurses |
 | | | Make follow up visits more convenient and efficient for the patients |
 | | Medication reconciliation | Review medication list at every visit |
@@ -106,18 +106,18 @@ Table 24: Strategies To Improve Medication Adherence
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| **I** | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| **II** | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| **II-a** | Weight of evidence/opinion is in favour of usefulness/efficacy. |
-| **II-b** | Usefulness/efficacy is less well established by evidence/opinion. |
-| **III** | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favour of usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 ### Levels Of Evidence
 | Level | Definition |
 |---|---|
-| **A** | Data derived from multiple randomized clinical trials or meta-analyses. |
-| **B** | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| **C** | Only consensus of opinions of experts, case studies or standard of care. |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
 <!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
 

@@ -79,11 +79,11 @@ SCI may lead to sensory, motor and autonomic abnormalities below the spinal lesi
 ### Treatment Options
 | Treatment | Effectiveness | Safety |
 |-----------|---------------|--------|
-| **PDE5i** | Improved erection, sexual intercourse frequency, satisfaction, enjoyment, desire, overall sex life, sexual relationship and self-confidence | Most common AEs: headache, dyspepsia, dizziness, rash |
-| **ICI** | 82-100% rate of adequate erection for intercourse | High incidence of AEs: priapism, pain, penile bruising/swelling |
-| **VED** | Successful vaginal penetration: 70-93% | Lack of spontaneity, uncomfortable, sensation of cold penis |
-| **Penile Prosthesis** | Satisfaction rate up to 79% | Infection, mechanical failures. Malleable implant NOT recommended due to erosion risk from lack of sensation |
-| **Sacral Neuromodulation** | <50% effectiveness | No AEs reported |
+| PDE5i | Improved erection, sexual intercourse frequency, satisfaction, enjoyment, desire, overall sex life, sexual relationship and self-confidence | Most common AEs: headache, dyspepsia, dizziness, rash |
+| ICI | 82-100% rate of adequate erection for intercourse | High incidence of AEs: priapism, pain, penile bruising/swelling |
+| VED | Successful vaginal penetration: 70-93% | Lack of spontaneity, uncomfortable, sensation of cold penis |
+| Penile Prosthesis | Satisfaction rate up to 79% | Infection, mechanical failures. Malleable implant NOT recommended due to erosion risk from lack of sensation |
+| Sacral Neuromodulation | <50% effectiveness | No AEs reported |
 
 > **Warning:** All treatments may trigger **autonomic dysreflexia** which can be life-threatening in SCI patients. This involves sudden and severe rise of blood pressure with symptoms including shortness of breath, chest tightness, flushing, throbbing headache and goosebumps.
 
