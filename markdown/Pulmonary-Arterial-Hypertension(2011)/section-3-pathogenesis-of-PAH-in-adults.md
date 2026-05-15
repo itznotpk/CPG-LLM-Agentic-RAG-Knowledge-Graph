@@ -6,12 +6,8 @@ patient_input:
 output: pathogenesis_cascade, genetic_risk_factors, disease_progression_model
 -->
 
-
 > **Context:** This section details the pathophysiology of PAH, covering the endothelial dysfunction cascade (ET-1 overexpression, nitric oxide/prostacyclin deficiency), genetic susceptibility (BMPR2 mutation), smooth muscle proliferation, and the progression to right ventricular failure and death.
 
----
-
-## 3: Pathogenesis Of PAH In Adults
 Under normal conditions, the pulmonary circulation is a low-pressure (mPAP 12-16 mmHg), high-capacity circuit. Healthy individuals can accommodate up to a four-fold rise from the resting cardiac output with little increase in PAP, due to distensibility of the thin-walled pulmonary vasculature and to recruitment of vessels that are normally closed when at rest. The excess capacity is such that approximately 70% of the vascular bed must be lost before there is an increase in resting PAP.
 
 Most forms of PAH share a common pathophysiology which includes:
@@ -35,8 +31,7 @@ Mutation of the Bone Morphogenetic Protein Receptor Type II (BMPR2) gene has bee
 ## 3.2: Disease Progression
 Despite the multitude of perturbations, the end result includes increased vasoconstriction, smooth muscle cell proliferation, decreased vasodilation, and fibrotic changes in medium- to small-sized pulmonary arteries. Both vasoconstrictive and hypertrophic changes lead to increased PVR, increasing the workload of the right ventricle. Initially, the right ventricle compensates to maintain adequate pulmonary flow, but as the increased workload causes the right ventricle to dilate, and eventually fails. Symptoms such as dyspnoea and fatigue appear, initially on exertion. Eventually and often suddenly, the right ventricle decompensates and right heart failure ensues. Death occurs as a result of end-stage right heart failure or arrhythmia.
 
-<!-- OVERLAP CONTENT -->
-
+<!-- parent_only_reference_start -->
 ## Abbreviations
 | Abbreviation | Full Term |
 |---|---|
@@ -56,5 +51,4 @@ Despite the multitude of perturbations, the end result includes increased vasoco
 | PgI₂ | Prostacyclin |
 | PVR | Pulmonary Vascular Resistance |
 | TxA₂ | Thromboxane A₂ |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

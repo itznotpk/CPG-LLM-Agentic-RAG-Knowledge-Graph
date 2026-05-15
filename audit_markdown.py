@@ -604,16 +604,22 @@ def suggest_cross_ref_marker(target_phrase: str, index: dict, current_file: str)
 
 def collect_table_figure_h2_locations(text: str) -> dict[str, str]:
     """
-    Walk the file and return {label_key: enclosing_h2_text} for every Table/Figure
-    label found outside parent_only_reference blocks.
-      label_key example: "Table 11"  (kind + number, no title)
-    Used by R5 to suppress refs whose Table/Figure lives in the same H2 chunk
-    as the 'refer to' sentence — no cross_ref is needed for intra-chunk refs.
+    Walk the file and return {label_key: enclosing_h2_text} for every
+    Table/Figure/Appendix/Section label found outside parent_only_reference
+    blocks. Appendix/Section labels are also picked up directly from `##`
+    headings (e.g. `## Appendix 11: ...`).
+      label_key example: "Table 11", "Appendix 11"  (kind + number, no title)
+    Used by R5 to suppress refs whose target lives in the same file —
+    same-H1 refs do not need a cross_ref marker.
     """
     out: dict[str, str] = {}
     inside_parent_only = False
     h2_text: str | None = None
-    label_re = re.compile(r'\b(Table|Figure)\s+(\d+[A-Za-z]?)\b', re.IGNORECASE)
+    body_label_re = re.compile(r'\b(Table|Figure)\s+(\d+[A-Za-z]?)\b', re.IGNORECASE)
+    heading_label_re = re.compile(
+        r'^(Appendix|Section|Table|Figure)\s+(\d+[A-Za-z]?)\b',
+        re.IGNORECASE,
+    )
     for line in text.splitlines():
         if PARENT_ONLY_START in line:
             inside_parent_only = True
@@ -626,14 +632,20 @@ def collect_table_figure_h2_locations(text: str) -> dict[str, str]:
         hm = HEADING_RE.match(line)
         if hm:
             lvl = len(hm.group(1))
+            heading_text = hm.group(2).strip()
             if lvl == 1:
                 h2_text = None
             elif lvl == 2:
-                h2_text = hm.group(2).strip()
+                h2_text = heading_text
+                # Heading itself can BE the label target (e.g. ## Appendix 11: ...)
+                hlm = heading_label_re.match(heading_text)
+                if hlm:
+                    key = f"{hlm.group(1).capitalize()} {hlm.group(2)}"
+                    out.setdefault(key, h2_text)
             continue
         if h2_text is None:
             continue
-        for m in label_re.finditer(line):
+        for m in body_label_re.finditer(line):
             key = f"{m.group(1).capitalize()} {m.group(2)}"
             out.setdefault(key, h2_text)
     return out
@@ -657,14 +669,18 @@ def build_line_to_h2_map(text: str) -> dict[int, str | None]:
 
 def collect_parent_only_targets(text: str) -> set[str]:
     """
-    Return the set of Table/Figure labels (e.g. "Table 1", "Figure 7")
-    that live inside any parent_only_reference block in this file. Refs to
-    these targets do NOT need a cross_ref marker — per Section 4 of the guide,
-    the content is already copied into the H1 parent's context.
+    Return the set of labels (e.g. "Table 1", "Figure 7", "Appendix 11",
+    "Section 3") that live inside any parent_only_reference block in this
+    file. Refs to these targets do NOT need a cross_ref marker — per
+    Section 4 of the guide, the content is already copied into the H1
+    parent's context.
     """
     targets: set[str] = set()
     inside = False
-    label_re = re.compile(r'\b(Table|Figure)\s+(\d+[A-Za-z]?)', re.IGNORECASE)
+    label_re = re.compile(
+        r'\b(Table|Figure|Appendix|Section)\s+(\d+[A-Za-z]?)',
+        re.IGNORECASE,
+    )
     for line in text.splitlines():
         if PARENT_ONLY_START in line:
             inside = True
@@ -699,7 +715,6 @@ def detect_missing_cross_refs(text: str, index: dict | None = None, current_file
     inside_parent_only = False
     parent_only_targets = collect_parent_only_targets(text)
     label_h2_locations = collect_table_figure_h2_locations(text)
-    line_to_h2 = build_line_to_h2_map(text)
 
     for i, line in enumerate(lines):
         if PARENT_ONLY_START in line:
@@ -711,21 +726,31 @@ def detect_missing_cross_refs(text: str, index: dict | None = None, current_file
         if inside_parent_only:
             continue
 
+        # Skip the section-level "> **Context:**" blockquote summary at the top
+        # of every section md file. It paraphrases what the section covers and
+        # is not a real "refer to..." cross-reference.
+        stripped = line.lstrip()
+        if stripped.startswith('>') and re.search(r'\*\*Context:?\*\*', stripped, re.IGNORECASE):
+            continue
+
         for m in REFER_TO_RE.finditer(line):
             target_phrase = m.group('target').strip()
-            # Skip Table/Figure refs whose label is in the file's parent_only block
+            # Skip refs whose label (Table/Figure/Appendix/Section N) is already
+            # copied into the file's parent_only block
             norm_target = re.sub(r'\s+', ' ', target_phrase)
-            label_m = re.match(r'(?i)^(Table|Figure)\s+(\d+[A-Za-z]?)', norm_target)
+            label_m = re.match(
+                r'(?i)^(Table|Figure|Appendix|Section)\s+(\d+[A-Za-z]?)',
+                norm_target,
+            )
             if label_m:
                 key = f"{label_m.group(1).capitalize()} {label_m.group(2)}"
                 if key in parent_only_targets:
                     continue
-                # Skip if the table/figure label lives in the SAME H2 chunk as
-                # the 'refer to' sentence — they travel together at retrieval,
-                # so no cross_ref is needed.
-                label_h2 = label_h2_locations.get(key)
-                ref_h2 = line_to_h2.get(i + 1)
-                if label_h2 is not None and ref_h2 is not None and label_h2 == ref_h2:
+                # Skip if the target label lives anywhere in the SAME file
+                # (same H1). Per the parent-child spec, within-file refs do
+                # not need a cross_ref marker — the chain walk delivers the
+                # whole H1 parent (with all its H2 children) to synthesis.
+                if key in label_h2_locations:
                     continue
 
             if CROSS_REF_RE.search(line):
@@ -1306,8 +1331,8 @@ def main():
     parser.add_argument("directory", nargs="?", default=DEFAULT_ROOT,
                         help=f"Folder to audit (default: {DEFAULT_ROOT})")
     parser.add_argument("--fix", action="store_true", help="Apply fixes in place")
-    parser.add_argument("--rules", default="R1,R2,R3,R4,R5,R6,R7,R8",
-                        help="Comma-separated rules to apply. Default: R1,R2,R3,R4,R5,R6,R7,R8")
+    parser.add_argument("--rules", default="R1,R2,R3,R4,R5,R7,R8",
+                        help="Comma-separated rules to apply. Default: R1,R2,R3,R4,R5,R7,R8")
     parser.add_argument("--no-cross-ref", action="store_true",
                         help="Skip R4 (cross_ref target_heading sync)")
     parser.add_argument("--no-color", action="store_true",

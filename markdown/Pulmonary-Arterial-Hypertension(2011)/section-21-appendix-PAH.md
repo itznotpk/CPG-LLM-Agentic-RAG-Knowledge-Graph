@@ -6,10 +6,7 @@ patient_input:
 output: trial_evidence_reference, treatment_algorithm_reference, grading_comparison
 -->
 
-
 > **Context:** This section consolidates supplementary appendices (Appendix 1–12) for the 2011 CPG on Management of Pulmonary Arterial Hypertension: patient characteristics and results from RCTs and long-term extension studies/registries for bosentan (Appendix 1–4), inhaled iloprost (Appendix 5–6), and sildenafil (Appendix 7–9), combination therapy trials in progress (Appendix 10), the Dana Point strength of recommendation grading system (Appendix 11, distinct from the CPG Classes of Recommendations/Levels of Evidence in Section 0), and the PAH evidence-based treatment algorithm (Appendix 12).
-
----
 
 ## Appendix 1: Patient Characteristics From RCTs With Bosentan Vs. Placebo
 | Parameter | Study 351 (Channick et al.) | BREATHE-1 (Rubin et al.) | BREATHE-5 (Galie et al.) | EARLY (Galie et al.) | BREATHE-3 (Barst et al.) |
@@ -27,10 +24,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | Mean age (years)‡ | 52 (33–73) | 49 (13–80) | 37 (±12) | 45 (±18) | 5.7, 10.0, 14.2 (3–15) |
 | Mean 6MWD at baseline (m)‡ | 360 (±86) | 330 (±74) | 332 (±83) | 438 (±86) | 492 (±86) |
 | mPAP (mmHg)‡ | 54 (±13) | 55 (±16) | 78 (±15) | 53 (±19) | 60 (±18) |
-
 > 6MWD, 6-minute walk distance; AUS, Australia; bd, twice-daily; CHD, congenital heart disease; CTD, connective tissue disease; EUR, Europe; IPAH, idiopathic pulmonary arterial hypertension; mean pulmonary artery pressure; SSc, scleroderma; US, United States; WHO, World Health Organisation. ‡ Data are for patients
-
----
 
 ## Appendix 2: Results From RCTs With Bosentan Vs. Placebo
 | Parameter | Study 351 (Channick et al.) | BREATHE-1 (Rubin et al.) | BREATHE-5 (Galie et al.) | EARLY (Galie et al.) |
@@ -47,10 +41,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | Incidence of clinical worsening (%) | 27/0\* | 14/5/4 | na | 13/3 |
 | LFT elevations >3x ULN (%) | 0/6.3 | 3/4/14 | 0/1† | 3/8 |
 | Peripheral oedema (%) | 5/8 | 5/8 | 6/19 | 8/6 |
-
 > 6MWD, 6-minute walk distance; FC, functional class; LFT, liver function test; mPAP, mean pulmonary artery pressure; mRAP, mean right atrial pressure; na, not available; ns, not significant; PVR, pulmonary vascular index; ULN, upper limit of normal; WHO, World Health Organisation.
-
----
 
 ## Appendix 3: Patient Characteristics From Long-Term Extension Studies And Registries With Bosentan
 | Parameter | BREATHE-1 and 351 pooled\* (McLaughlin et al.) | Provencher et al. | Australian Patient Registry (Keogh et al.) | NIH Registry\* (McLaughlin et al.) |
@@ -68,10 +59,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | Male:Female (%) | 21:79 | 27:73 | 23:77 | 37:63 |
 | Mean age (yrs) | 46 (13–80) | 54 (±16) | 59 (2–89) | 36 (1–81) |
 | Mean 6MWD at baseline | 345 (±87) | 319 (±105) | nr | - |
-
 > BSC, best supportive care; nr, not reported; ULN, upper limit of normal. \*IPAH only.
-
----
 
 ## Appendix 4: Results From Long-Term Extension Studies And Registries With Bosentan
 | Parameter | BREATHE-1 and 351 pooled\* (McLaughlin et al.) | Provencher et al. | Australian Patient Registry (Keogh et al.) | NIH Registry\* (McLaughlin et al.) |
@@ -82,16 +70,11 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | 3-year survival | nr | 79% | Nr | Nr |
 | LFT elevations >3x ULN (%) | 14.9 | nr | Nr | Nr |
 | Peripheral oedema (%) | 11.2 | nr | Nr | Nr |
-
 > BSC, best supportive care; CI, confidence interval; NIH, National Institute of Health; LFT, liver function test; nr, not reported; ULN, upper limit of normal. \*IPAH only.
 
----
-
 ## Appendix 5: Patient Characteristics And Results From RCTs With Inhaled Iloprost Vs. Placebo
-
 ### Air Study (Olschewski Et Al.)
-**Patient Characteristics:**
-
+Patient Characteristics:
 | Parameter | Value |
 |---|---|
 | Drugs and daily doses | Placebo/iloprost 2.5 – 5.0 μg |
@@ -107,8 +90,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | Mean age (years)‡ | 51 (±13) |
 | Mean 6MWD at baseline (m)‡ | 332 (±93) |
 
-**Results† (Placebo/Iloprost):**
-
+Results† (Placebo/Iloprost):
 | Parameter | Value |
 |---|---|
 | 6MWD | nr/59\*\* |
@@ -123,10 +105,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | Cough (%) | 26/39 |
 | Peripheral oedema (%) | 16/13 |
 | Headache (%) | 20/30 |
-
 > 6MWD, 6-minute walk distance; CTEPH, chronic thromboembolic pulmonary hypertension; CTD, connective tissue disease; EUR, Europe; IPAH, idiopathic pulmonary arterial hypertension; LFT, liver function test; mPAP, mean pulmonary artery pressure; mRAP, mean right atrial pressure; na, not available; nr, not reported; ns, not significant; NYHA, New York Heart Association; PVR, pulmonary vascular resistance; ULN, upper limit of normal; WHO, World Health Organisation. † Placebo/active treatment values. ‡ Data are for all randomised patients.
-
----
 
 ## Appendix 6: Patient Characteristics And Results From Long-Term Extension Studies With Inhaled Iloprost
 | Parameter | Hoeper et al.⁸⁷ | Opitz et al.⁸⁸ |
@@ -147,10 +126,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | 1-year survival | 100% | 79%† |
 | 2-year survival | nr | 70%† |
 | 3-year survival | nr | 59%† |
-
 > 6MWD, 6-minute walk distance; mPAP, IPAH, idiopathic pulmonary arterial hypertension; mPAP, mean pulmonary artery pressure; WHO, World Health Organisation. †Event-free survival = death, transplantation, switch to i.v. therapy, or addition of other active oral therapy. All values are pre-inhalation.
-
----
 
 ## Appendix 7: Patient Characteristics From RCTs With Sildenafil Vs. Placebo And Sildenafil Vs. Bosentan
 | Parameter | Sastry et al.⁹⁰ | SUPER-1 — 20 mg tds (Galie et al.⁹¹) | SUPER-1 — 40 mg tds (Galie et al.⁹¹) | SUPER-1 — 80 mg tds (Galie et al.⁹¹) | Singh et al.⁹² | SERAPH (Wilkins et al.⁷¹) |
@@ -168,10 +144,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | Mean age (years)‡ | Range 16–55 | 47 ± 14 | 51 ± 15 | 48 ± 5 | Range 3–35 | 44/41 |
 | Mean 6MWD at baseline (m) or walk time (s)‡ | 440 ± 172 s | 347 ± 90 m | 345 ± 77 m | 339 ± 79 m | 262 ± 99 m | 290/304 m |
 | mPAP (mmHg)‡ | nr | 54 ± 13 | 49 ± 13 | 52 ± 16 | 99 ± 21 (PASP) | nr |
-
 > 6MWD, 6-minute walk distance; bd, twice-daily; CHD, congenital heart disease; CTD, connective tissue disease; EUR, Europe; IPAH, idiopathic pulmonary arterial hypertension; mPAP, mean pulmonary artery pressure; nr, not reported; NYHA, New York Heart Association; PASP, pulmonary artery systolic pressure; SSc, scleroderma; tds, three-times daily; WHO, World Health Organisation. ‡ Data are for all randomised patients.
-
----
 
 ## Appendix 8: Results From RCTs With Sildenafil Vs. Placebo And Sildenafil Vs. Bosentan
 | Parameter | Sastry et al.⁹⁰ | SUPER-1 — 20 mg tds (Galie et al.⁹¹) | SUPER-1 — 40 mg tds (Galie et al.⁹¹) | SUPER-1 — 80 mg tds (Galie et al.⁹¹) | Singh et al.⁹² | SERAPH (Wilkins et al.⁷¹) |
@@ -188,13 +161,9 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | Incidence of clinical worsening | nr | 10/4 | 10/3 | 10/7 | Nr | nr |
 | Headache (%) | 5/14 | 39/46 | 39/42 | 39/49 | Nr | nr |
 | Flushing (%) | nr | 3/10 | 3/9 | 3/15 | Nr | nr |
-
 > 6MWD, 6-minute walk distance; mPAP, mean pulmonary artery pressure; mRAP, mean right atrial pressure; nr, not reported; PASP, pulmonary artery systolic pressure; PVR, pulmonary vascular resistance; WHO, World Health Organisation. \* p<0.05; \*\* p<0.01; \*\*\* p<0.001.
 
----
-
 ## Appendix 9: Patient Characteristics And Results From Long-Term Extension Studies With Sildenafil
-
 ### Super-1\* (Galie Et al.⁹¹)
 | Parameter | Value |
 |---|---|
@@ -208,10 +177,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | 1-year survival | 96% |
 | 2-year survival | nr |
 | 3-year survival | nr |
-
 > tds, three-times daily; nr, not reported. \*All extension study data based on 80 mg three-times daily.
-
----
 
 ## Appendix 10: Clinical Trials In Progress With Combination Therapy
 | Trial name | Intervention | Inclusion criteria | Duration | Recruitment target |
@@ -219,10 +185,7 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | VISION | Inhaled iloprost added to sildenafil | IPAH | 16 wks + extension | 180 |
 | COMPASS-2 | Bosentan added to sildenafil | IPAH, APAH, HIV, CHD on sildenafil | 16 wks + extension | 600 |
 | A1481243 | Sildenafil added to bosentan | PAH on bosentan | 12 wks + extension | 106 |
-
 > APAH, associated pulmonary arterial hypertension; CHD, congenital heart disease; HIV, human immunodeficiency virus; IPAH, idiopathic pulmonary arterial hypertension; PAH, pulmonary arterial hypertension.
-
----
 
 ## Appendix 11: Strength Of Recommendation As Outlined By The Dana Point Guidelines
 | Variables | Description |
@@ -237,42 +200,39 @@ output: trial_evidence_reference, treatment_algorithm_reference, grading_compari
 | E/C | Weak recommendation on the basis of expert opinion only |
 | E/D | Negative recommendation on the basis of expert opinion only |
 
----
-
 ## Appendix 12: PAH Evidence-Based Treatment Algorithm – Dana Point 2008
-> **Note on Strength of Recommendation Codes:** Throughout this algorithm, parenthetical codes such as **(A)**, **(B)**, **(C)**, **(E/A)**, **(E/B)**, **(E/C)**, **(I)**, and **(D)** refer to the **Dana Point Strength of Recommendation** grading system as defined in **Appendix 11** of this document. For example, **(E/A)** = "Strong recommendation on the basis of expert opinion only" and **(B)** = "Moderate recommendation". These are **distinct** from the CPG's own Classes of Recommendations (I, II, III) and Levels of Evidence (A, B, C) defined in Section 0.
+> Note on Strength of Recommendation Codes: Throughout this algorithm, parenthetical codes such as (A), (B), (C), (E/A), (E/B), (E/C), (I), and (D) refer to the Dana Point Strength of Recommendation grading system as defined in Appendix 11 of this document. For example, (E/A) = "Strong recommendation on the basis of expert opinion only" and (B) = "Moderate recommendation". These are distinct from the CPG's own Classes of Recommendations (I, II, III) and Levels of Evidence (A, B, C) defined in Section 0.
 
-### Supportive Therapy And General Measures
-**Conventional therapy** (Dana Point Strength of Recommendation in parentheses):
-- Oral anticoagulants **(E/B)** — iPAH/HPAH
-- Diuretics **(E/A)**
-- Oxygen\* **(E/A)**
-- Digoxin **(E/C)**
-- Supervised rehabilitation **(E/B)**
+Supportive Therapy And General Measures:
+Conventional therapy (Dana Point Strength of Recommendation in parentheses):
+- Oral anticoagulants (E/B) — iPAH/HPAH
+- Diuretics (E/A)
+- Oxygen\* (E/A)
+- Digoxin (E/C)
+- Supervised rehabilitation (E/B)
 
-**General measures** (Dana Point Strength of Recommendation in parentheses):
-- Avoid excessive physical exertion **(E/A)**
-- Birth control **(E/A)**
-- Psychological and social support **(E/C)**
-- Infection prevention **(I-C)**
+General measures (Dana Point Strength of Recommendation in parentheses):
+- Avoid excessive physical exertion (E/A)
+- Birth control (E/A)
+- Psychological and social support (E/C)
+- Infection prevention (I-C)
 
-→ **Expert referral (E/A)**
-
-→ **Acute Vasoreactivity Test (A for iPAH) (E/C for APAH)**
+→ Expert referral (E/A)
+→ Acute Vasoreactivity Test (A for iPAH) (E/C for APAH)
 
 ---
 
-### Acute Responder Pathway
-WHO Class I–IV → Amlodipine, diltiazem, nifedipine **(B)**
+Acute Responder Pathway:
+WHO Class I–IV → Amlodipine, diltiazem, nifedipine (B)
 
 → Sustained response (WHO I–II)?
-- **YES** → Continue amlodipine, diltiazem, nifedipine **(B)**
-- **NO** → End of acute responder pathway
+- YES → Continue amlodipine, diltiazem, nifedipine (B)
+- NO → End of acute responder pathway
 
 ---
 
-### Non-Responder Pathway — Drug Recommendations By WHO Functional Class
-> The **Strength of Recommendation** column below uses the Dana Point grading system defined in Appendix 11.
+Non-Responder Pathway — Drug Recommendations By WHO Functional Class:
+> The Strength of Recommendation column below uses the Dana Point grading system defined in Appendix 11.
 
 | Strength of Recommendation (Appendix 11) | WHO Class II | WHO Class III | WHO Class IV |
 |---|---|---|---|
@@ -283,14 +243,14 @@ WHO Class I–IV → Amlodipine, diltiazem, nifedipine **(B)**
 | E/C | — | — | Bosentan, ambrisentan, sildenafil, sitaxsentan, tadalafil |
 | Not approved | — | Treprostinil inh+ | Treprostinil inh+ |
 
-↓ **INADEQUATE CLINICAL RESPONSE**
+↓ INADEQUATE CLINICAL RESPONSE
 
 ---
 
-### Sequential Combination Therapy
+Sequential Combination Therapy:
 > If initial monotherapy from the Non-Responder table above produces an inadequate clinical response, escalate to sequential combination therapy using two or three drug classes as shown below.
 
-**Combination pathways (all at Dana Point Strength of Recommendation B):**
+Combination pathways (all at Dana Point Strength of Recommendation B):
 
 The three PAH-specific drug classes form a triangular combination model — any two classes may be combined:
 
@@ -302,24 +262,22 @@ The three PAH-specific drug classes form a triangular combination model — any 
       PDE-5  ——— + (B) ———  ERA
 ```
 
-- **PDE-5 inhibitor + Prostanoids** **(B)**
-- **Prostanoids + ERA** **(B)**
-- **PDE-5 inhibitor + ERA** **(B)**
+- PDE-5 inhibitor + Prostanoids (B)
+- Prostanoids + ERA (B)
+- PDE-5 inhibitor + ERA (B)
 
-↓ **INADEQUATE CLINICAL RESPONSE**
+↓ INADEQUATE CLINICAL RESPONSE
 
 ---
 
-### Surgical Interventions
-- Atrial septostomy **(E/B)**
-- and/or Lung transplant **(E/A)**
+Surgical Interventions:
+- Atrial septostomy (E/B)
+- and/or Lung transplant (E/A)
 
 > Drugs within the same grade of evidence are listed in alphabetical order and not order of preference. Not all agents listed are approved or available for use in all countries. Strengths of recommendations are defined in Appendix 11 (Dana Point guidelines). \*To maintain oxygen at 92%. + Investigational, under regulatory review. APAH, associated pulmonary arterial hypertension; ERA, endothelin receptor antagonist; HPAH, heritable pulmonary arterial hypertension; IPAH, idiopathic pulmonary arterial hypertension; IV, intravenous; PAH, pulmonary arterial hypertension; PDE-5, phosphodiesterase type 5; SC, subcutaneous; WHO, World Health Organization.
 
-<!-- OVERLAP CONTENT -->
-
-Table 2: WHO Classification Of Functional Status In Patients With Pht (From Section 2)
-
+<!-- parent_only_reference_start -->
+Table 2: WHO Classification Of Functional Status In Patients With PHT
 | Class | Definition |
 |---|---|
 | Class I | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
@@ -327,7 +285,7 @@ Table 2: WHO Classification Of Functional Status In Patients With Pht (From Sect
 | Class III | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
 | Class IV | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | 6MWD | Six-Minute Walk Distance |
@@ -366,5 +324,4 @@ Table 2: WHO Classification Of Functional Status In Patients With Pht (From Sect
 | UK | United Kingdom |
 | US | United States |
 | WHO | World Health Organisation |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

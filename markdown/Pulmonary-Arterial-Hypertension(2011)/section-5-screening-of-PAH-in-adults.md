@@ -6,12 +6,8 @@ patient_input: connective_tissue_disease_status, family_history, CHD_status, liv
 output: screening_indication, at_risk_identification, referral_for_investigation
 -->
 
-
 > **Context:** This section covers screening strategies for high-risk populations (scleroderma, familial PAH, congenital heart disease, portal hypertension). Table 3 defines the specific at-risk patient profiles and their prevalence.
 
----
-
-## 5: Screening Of PAH In Adults
 The availability of new therapies that have been shown to slow or prevent progression of PAH has caused a growing interest among physicians to diagnose PAH at an early stage. High risk conditions are shown in Table 3: Patients at Risk of Developing PAH. The ACCP Consensus Statement recommends periodic Doppler echocardiography as part of a screening programme in patients with scleroderma because of the relatively high detection rates in this cohort.
 
 Patients with more than one family member with PAH related to a mutation in the BMPR2 might be considered for genetic testing, since a negative test would imply that there is no higher than normal risk of developing PAH. However, any test should be preceded by extensive family and genetic counselling.
@@ -19,7 +15,6 @@ Patients with more than one family member with PAH related to a mutation in the 
 Other potential causes of PAH (e.g., previous use of appetite suppressants, HIV infection, other CTDs), do not warrant routine screening.
 
 Table 3: Patients At Risk Of Developing PAH
-
 | Patient Characteristics | Risk Profile |
 |---|---|
 | Patients with known genetic mutations predisposing to PAH | 20% chance of developing PAH |
@@ -31,9 +26,8 @@ Table 3: Patients At Risk Of Developing PAH
 | HIV infection | Prevalence 0.5/100 |
 | Sickle cell disease | Prevalence 9.0/100 (TRV >3.0) |
 
-<!-- OVERLAP CONTENT -->
-
-## Abbreviations
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACCP | American College of Chest Physicians |
@@ -47,5 +41,4 @@ Table 3: Patients At Risk Of Developing PAH
 | PVR | Pulmonary Vascular Resistance |
 | RVSP | Right Ventricular Systolic Pressure |
 | TRV | Tricuspid Regurgitation Velocity |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

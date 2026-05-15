@@ -7,19 +7,14 @@ output: severity_grading, treatment_response_assessment, vasoreactivity_result
 critical: true
 -->
 
+> **Context:** This section covers paediatric PAH severity assessment via symptom grading using the Ability Index (Table 10: 4-tier classification from normal activity to housebound) for younger children and the modified NYHA/WHO functional classification (overlapped Table 2) for older children, non-invasive monitoring tools (Table 11: BNP/NT-proBNP, hs-CRP, uric acid; 6MWT < 300 m threshold; echocardiographic RV Tei index, TAPSE, TR velocity, RA size, pericardial effusion) for baseline and treatment response tracking, and invasive RHC haemodynamic parameters (Table 12: mRAP, PAP, aortic:PA ratio, PCWP, cardiac output, PVR, Qp:Qs). Positive vasoreactivity response is defined as mPAP drop ≥ 10 mmHg to ≤ 40 mmHg with preserved cardiac output; testing is contraindicated in pulmonary venous obstruction.
 
-> **Context:** This section covers paediatric PAH severity assessment via symptom grading using the Ability Index (Table 10: 4-tier classification from normal activity to housebound) for younger children and the modified NYHA/WHO functional classification (overlapped Table 2) for older children, non-invasive monitoring tools (Table 11: BNP/NT-proBNP, hs-CRP, uric acid; 6MWT < 300 m threshold; echocardiographic RV Tei index, TAPSE, TR velocity, RA size, pericardial effusion) for baseline and treatment response tracking, and invasive RHC haemodynamic parameters (Table 12: mRAP, PAP, aortic:PA ratio, PCWP, cardiac output, PVR, Qp:Qs). Positive vasoreactivity response is defined as mPAP drop ≥ 10 mmHg to ≤ 40 mmHg with preserved cardiac output; testing is contraindicated in pulmonary venous obstruction. Vasodilator agents (overlapped Table 5: Epoprostenol, Adenosine, Nitric oxide) with dose ranges and half-lives are provided for reference.
-
----
-
-## 13: Assessment Of Severity Of PAH In Children
 Severity of PAH can be assessed by symptoms, non-invasive tests and invasive cardiac catheterization.
 
 ## 13.1: Symptoms
 Functional class can be categorized in older children using the modified New York Heart Association classification according to the World Health Organization 1998 (refer Table 2: WHO Classification of Functional Status in Patients with PHT). In younger children, the Ability Index (Table 10) may be more practical.
 
 Table 10: Ability Index
-
 | Index | Definition |
 |---|---|
 | Ability Index 1 | Patients with normal life, activity or school |
@@ -31,7 +26,6 @@ Table 10: Ability Index
 These tests are useful in assessing baseline functional status as well as monitoring disease progression and treatment response.
 
 Table 11: Non-Invasive Tests To Assess Severity Of PAH
-
 | Category | Tests |
 |---|---|
 | Blood tests | BNP or NT-proBNP, hs-CRP, uric acid |
@@ -48,7 +42,6 @@ Vasoreactivity test should be done in all cases of PAH with the exception of pul
 Positive vasoreactivity response is defined as a drop in mean PAP by 10 mmHg or more to an absolute mean pressure of 40 mmHg or less without a decrease in cardiac output. Vasodilator testing agents and regimens are similar to recommendations for adults (refer Table 5: Route of Administration, Half-Lives, Dose Ranges, Increments and Duration of Administration of the Most Used Substances on Pulmonary Vasoreactivity Tests).
 
 Table 12: Haemodynamic Parameters To Be Measured During Right Heart Catheterization
-
 - Mean right atrial pressure
 - Pulmonary arterial pressure (systolic, diastolic and mean)
 - Simultaneous mean aortic : pulmonary arterial pressure ratio
@@ -60,18 +53,15 @@ Table 12: Haemodynamic Parameters To Be Measured During Right Heart Catheterizat
 - Calculation of pulmonary vascular resistance
 - Qp:Qs ratio if systemic-to-pulmonary shunt present
 
-<!-- OVERLAP CONTENT -->
-
+<!-- parent_only_reference_start -->
 Table 5: Route Of Administration, Half-Lives, Dose Ranges, Increments And Duration Of Administration Of The Most Used Substances On Pulmonary Vasoreactivity Tests
-
 | Drug | Route | Half-life | Dose Range (Initial and maximal dose suggested) | Increments (Dose increments by each step) | Duration (Duration of administration on each step) |
 |---|---|---|---|---|---|
 | Epoprostenol | Intravenous | 3 min | 2-12 ng/kg/min | 2 ng/kg/min | 10 min |
 | Adenosine | Intravenous | 5-10 s | 50-350 μg/kg/min | 50 μg/kg/min | 2 min |
 | Nitric oxide | Inhaled | 15-30 s | 10-20 ppm | - | 5 min (A single step within the dose range is suggested) |
 
-Table 2: WHO Classification Of Functional Status In Patients With Pht
-
+Table 2: WHO Classification Of Functional Status In Patients With PHT
 | Class | Definition |
 |---|---|
 | Class I | Patients with PHT but without resulting limitation of physical activity. Ordinary physical activity does not cause undue dyspnoea or fatigue, chest pain, or near syncope. |
@@ -79,7 +69,7 @@ Table 2: WHO Classification Of Functional Status In Patients With Pht
 | Class III | Patients with PHT resulting in marked limitation of physical activity. They are comfortable at rest. Less-than-ordinary physical activity causes undue dyspnoea or fatigue, chest pain, or near syncope. |
 | Class IV | Patients with PHT with inability to carry out any physical activity without symptoms. These patients manifest signs of right heart failure. Dyspnoea and/or fatigue may even be present at rest. Discomfort is increased by any physical activity. |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | 6MWT | Six-Minute Walk Test |
@@ -103,5 +93,4 @@ Table 2: WHO Classification Of Functional Status In Patients With Pht
 | TAPSE | Tricuspid Annular Plane Systolic Excursion |
 | TR | Tricuspid Regurgitation |
 | WHO | World Health Organisation |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->
