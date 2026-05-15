@@ -7,8 +7,10 @@
    The product imports these via npm: @fontsource/geist-sans, @fontsource/geist-mono.
    For static HTML mocks we load the Google Fonts equivalents.            */
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
 :root {
+  --font-display: 'DM Serif Display', 'Times New Roman', serif;
   /* ============ ACCENT (default = Teal) ============
      The product ships 6 swappable accents: teal, blue, navy, emerald,
      amber, rose. Only --accent-primary / -hover / -secondary change

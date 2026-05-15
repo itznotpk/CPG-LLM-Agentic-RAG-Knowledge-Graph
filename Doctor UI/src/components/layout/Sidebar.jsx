@@ -48,12 +48,22 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
         <img
           src="/MHNexus.png"
           alt="MHNexus Logo"
-          className="w-14 h-14 object-contain flex-shrink-0"
+          className={`object-contain flex-shrink-0 ${isCollapsed ? 'w-12 h-12' : 'w-20 h-20'}`}
         />
         {!isCollapsed && (
           <div className="flex flex-col min-w-0">
-            <span className={`font-semibold text-base leading-tight tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>CPG LLM</span>
-            <span className={`text-[10px] leading-tight ${accent.text} whitespace-nowrap tracking-wide uppercase`}>MHNexus Healthcare</span>
+            <span
+              className="leading-none tracking-tight"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontStyle: 'italic',
+                fontSize: '28px',
+                color: 'var(--primary-700)',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              ClearPath<span style={{ color: 'var(--primary-500)' }}>.</span>
+            </span>
           </div>
         )}
       </div>
@@ -120,7 +130,9 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
             </div>
             <div className="flex flex-col min-w-0 flex-1">
               <span className={`text-sm font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{profile?.name || 'User'}</span>
-              <span className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{profile?.specialty || 'Medical Professional'}</span>
+              {profile?.specialty && (
+                <span className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{profile.specialty}</span>
+              )}
             </div>
             <button
               onClick={signOut}
