@@ -8,7 +8,7 @@ critical: true
 treatment_type: trachelectomy, caesarean_section, CCRT, NAC, cisplatin, etoposide, parametrectomy, lymphadenectomy
 -->
 
-## A. Pregnancy
+## 9.1: Pregnancy
 [Level III] Pregnancy does not worsen the prognosis of cervical cancer. Delaying treatment while awaiting foetal maturity in patients with early-stage disease diagnosed during first and second trimesters of pregnancy does not seem to have a major impact on patients' survival.
 
 - Factors to be considered in the management of cervical cancer in pregnancy:
@@ -25,7 +25,7 @@ Histological assessment of lymph node is the gold standard for nodal status. Lap
 
 [Level III] The following recommendations are modified from the French Recommendations on the Management of Invasive Cervical Cancer during Pregnancy. In the SCC and AC histological subtypes, treatment is based on gestational age and the stage/size of tumour:
 
-### I. For Figo Stage Ib1
+### 9.1.1: For FIGO Stage IB1
 - If tumour is diagnosed when foetal maturity is considered attained,
   - deliver foetus, optimally by caesarean section followed by cervical cancer treatment thereafter.
   - consider radical hysterectomy during caesarean section for women who are multiparous or completed family.
@@ -37,14 +37,14 @@ Histological assessment of lymph node is the gold standard for nodal status. Lap
   - consider laparoscopic pelvic lymphadenectomy for tumour size <2 cm. In the absence of nodal involvement, follow-up closely by clinical examination and imaging modality. If no disease progression, start cancer treatment as soon as foetal maturity is attained. In the presence of nodal involvement, consider termination of pregnancy (TOP) and start chemoradiation therapy thereafter.
   - consider TOP for tumour size 2 - 4 cm as there is a higher risk of nodal involvement.
 
-### II. For Figo Stage Ib2 And Above, Ccrt Is The Standard Treatment
+### 9.1.2: For FIGO Stage IB2 and Above, CCRT Is the Standard Treatment
 - If tumour is diagnosed when foetal maturity is considered attained,
   - deliver foetus, optimally by caesarean section followed by cervical cancer treatment thereafter.
   - nodal staging surgery (pelvic nodes with/without para-aortic nodes for tumour >4 cm or positive pelvic nodes) at the same sitting is recommended.
 - If tumour diagnosed >22 weeks gestation but before foetal maturity is attained, and without extracervical spread, offer CCRT after caesarean section once foetal maturity attained, and do not delay treatment for >6 - 8 weeks. Dissect pelvic ± para-aortic lymph nodes for tumour >4 cm or positive pelvic nodes during caesarean section.
 - For tumour diagnosed <20 - 22 weeks gestation, offer CCRT after uterus is evacuated (hysterotomy or other procedure) or with foetus in utero (if expulsion impossible and bulky cervical cancer).
 
-### III. For Non-Scc And Non-Ac
+### 9.1.3: For Non-SCC and Non-AC
 Such as the more aggressive SCC, diagnosed during first or second trimester of pregnancy, treatment is individualised and pregnancy preservation is not advisable.
 
 Recommendations on treatment of cervical cancer in pregnancy are based on expert opinion and discussion among the CPG DG members.
@@ -66,20 +66,18 @@ Recommendations on treatment of cervical cancer in pregnancy are based on expert
 
 Complete response (10%), partial response (63.4%) and stable disease (23.3%) were achieved after chemotherapy, whereas progression was observed in only 3.3% of cases. [Level II-2] Chemotherapy was well tolerated with no serious adverse outcomes to both mothers and babies.
 
-## **Recommendation 10**
-- Platinum-based chemotherapy may be considered after the first trimester in pregnant women with cervical cancer.
+Recommendation 10: Platinum-based chemotherapy may be considered after the first trimester in pregnant women with cervical cancer.
 
-## B. Tumour Arising From Cervical Stump
+## 9.2: Tumour Arising From Cervical Stump
 [Level II-3] The incidence of cancer arising from the cervical stump in patients with prior subtotal hysterectomy is approximately 2%.
 
 Cancer of the cervical stump should be managed in the same way as cervical cancer arising in an intact uterus. This is supported by:
 - [Level II-3] Good OS (68% for 5-year survival rate) and low treatment morbidity (10%) when treated with either surgery followed by tailored adjuvant RT in operable disease, RT or CCRT.
 - [Level II-3] Prognosis is similar when managed with the same treatment regimen.
 
-**Recommendation 11**
-- Cancer of the cervical stump should be managed in the same way as cervical cancer arising in an intact uterus.
+Recommendation 11: Cancer of the cervical stump should be managed in the same way as cervical cancer arising in an intact uterus.
 
-## C. Cervical Cancer Diagnosed After Hysterectomy For Benign Gynaecological Disorder
+## 9.3: Cervical Cancer Diagnosed After Hysterectomy For Benign Gynaecological Disorder
 Cervical cancer may be diagnosed incidentally after hysterectomy for benign gynaecological disease. Further management is based on clinical and pathological parameter. The choices include no further treatment, further surgery with parametriectomy and lymphadenectomy and chemoradiation therapy.
 
 [Level II-2] Cervical cancer of FIGO stage IA1 diagnosed after simple hysterectomy can be followed up safely without further treatment regardless of LVSI status.
@@ -103,7 +101,7 @@ Surgery (RP + PLND) alone is a safe option and achieves good OS rate in patients
   - followed up safely without further treatment in FIGO stage IA1.
   - adjuvant treatment (radiotherapy, concurrent chemoradiotherapy or surgery (radical parametrectomy + pelvic lymphadenectomy)) should be considered in FIGO stage IA2 - IIA.
 
-## D. Neuroendocrine Cancers
+## 9.4: Neuroendocrine Cancers
 [Level III; Level II-2] Most neuroendocrine cancers (NEC) of the cervix are small cell carcinomas, which account for up to 2% of cervical cancers. Median age of diagnosis is in the fifth decade. [Level III] The usual presenting symptom is vaginal bleeding and a cervical mass can often be identified on examination. Some patients have abnormal pap smears.
 
 [Level II] In rare cases, patients may present with clinical or biochemical evidence of ectopic hormone production including corticotropin (Cushing's syndrome), vasopressin (syndrome of inappropriate anti-diuretic hormone secretion), insulin (hypoglycemia), serotonin (carcinoid syndrome) and parathyroid hormone (hypercalcemia) or myasthenia gravis.
@@ -123,7 +121,6 @@ NAC or adjuvant radiation does not improve survival. Multimodality treatment app
 **Recommendation 13**
 - Neuroendocrine cancer of cervix should be managed by gynae-oncologists/oncologists.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

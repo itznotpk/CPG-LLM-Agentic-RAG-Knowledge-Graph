@@ -39,32 +39,27 @@ In pelvic exenteration:
   - poor performance status
 - Common complications for pelvic exenteration are infectious morbidity, intestinal obstruction, fistula formation, anastomotic leak and prolonged hospital stay.
 
-**Recommendation 15**
-- In patients with cervical cancer, pelvic exenteration may be considered in locally advanced disease or in pelvic recurrence, after thorough counselling on its benefits and risks.
+Recommendation 15: In patients with cervical cancer, pelvic exenteration may be considered in locally advanced disease or in pelvic recurrence, after thorough counselling on its benefits and risks.
 
 ## B. Chemotherapy
 Chemotherapy with palliative intent may be an option in patients with recurrent or metastatic cervical cancer with Eastern Cooperative Oncology Group (ECOG) Performance Status grades 0 to 2 (refer to Appendix 7: ECOG Performance Status).
 
 In recurrent or metastatic cervical cancer,
-
 - [Level I] there is no difference in response rates between platinum-containing regimens and non-platinum-containing regimens (RR=1.33, 95% CI 0.50 to 3.54).
 - [Level I] combination cisplatin-based chemotherapy has better response (complete and partial response) and improve survival compared to single-agent cisplatin chemotherapy.
 - [Level I] combination of paclitaxel and platinum chemotherapy has better response compared to non-paclitaxel-containing combination (RR=1.47, 95% CI 1.01 to 2.15).
 - [Level I] response rate towards platinum-containing chemotherapy is better in out-of-radiotherapy-field (non-irradiated site) recurrence compared to in-radiotherapy-field (irradiated site) recurrence (RR=0.62, 95% CI 0.46 to 0.83).
 - [Level I] combination chemotherapy has more toxicities compared to single agent chemotherapy.
 
-**Recommendation 16**
-- Combination chemotherapy* may be offered to patients with recurrent or metastatic cervical cancer with good performance status.
+Recommendation 16: Combination chemotherapy* may be offered to patients with recurrent or metastatic cervical cancer with good performance status.
 
 *Refer to Appendix 8: Systemic Therapy Cancer Protocol for suggested chemotherapy regime.
 
 ## C. Salvage Radiotherapy/Chemoradiotherapy
 [Level II-2] The treatment for recurrent cervical cancer depends on the mode of primary treatment and the site and extent of recurrent disease. Salvage RT or CCRT may be a feasible treatment option for locally recurrent cervical cancer following surgery with high salvage rate (41 - 45%) and acceptable late complication rate.
 
-**Recommendation 17**
-- In radiotherapy naïve cervical cancer patients with local recurrence, salvage radiotherapy to the pelvis may be offered.
+Recommendation 17: In radiotherapy naïve cervical cancer patients with local recurrence, salvage radiotherapy to the pelvis may be offered.
 
----
 <!-- parent_only_reference_start -->
 Appendix 7: Ecog Performance Status
 | Grade | ECOG |
@@ -76,7 +71,6 @@ Appendix 7: Ecog Performance Status
 | 4 | Completely disabled. Cannot carry on any self-care. Totally confined to bed or chair |
 | 5 | Dead |
 
-Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
 Appendix 8: Systemic Therapy Cancer Protocol
 **Cervical Cancer Chemotherapy**
 **Concurrent Chemo-Radiotherapy**

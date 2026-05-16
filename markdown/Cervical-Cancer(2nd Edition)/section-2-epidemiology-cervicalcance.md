@@ -12,7 +12,6 @@ There is an increasing trend of cancer worldwide. A total of 14.1 million new ca
 
 In the United States, a declining overall incidence of cervical cancer has been reported; largely attributed to the decrease in the incidence of squamous cell carcinoma. [Level II-2] However, there is an unexplained rise of adenocarcinoma (AC). There is no published local data on the trend of cervical cancer.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

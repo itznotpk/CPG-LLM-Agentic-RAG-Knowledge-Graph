@@ -22,10 +22,10 @@ At present, there is no recommended standard treatment for both late radiation p
 **B. Radiation Cystitis**
 [Level I] Late radiation cystitis is relatively uncommon treatment complication. The same Cochrane systematic review found no evidence from trials determining the effects of non-surgical treatments for late radiation cystitis. Therefore, there is no standard treatment in managing patients with radiation cystitis.
 
-- There is insufficient good quality evidence to recommend treatment for late radiation proctitis and cystitis in cervical cancer. Therefore, the treatment should be individualised according to the attending doctor.
+There is insufficient good quality evidence to recommend treatment for late radiation proctitis and cystitis in cervical cancer. Therefore, the treatment should be individualised according to the attending doctor.
 
 **C. Lymphoedema**
-Refer to Chapter on Palliative Care (Lymphoedema).
+Refer to Chapter on Palliative Care (Lymphoedema). <!-- cross_ref target_file="section-13-palliative-care-cervicalcance.md" target_heading="13.5: Lymphoedema" target_kind="h2_section" -->
 
 **D. Chronic Bladder Dysfunction**
 It is a common late complication of radical hysterectomy ranging from 0-44% and the most distressing one, requiring voiding by the clock with the help of abdominal muscles and in some cases, self-catheterisation.
@@ -34,8 +34,6 @@ Radicality of the surgery is closely related to post-operative bladder dysfuncti
 
 [Level III] Direct, nerve-sparing radical hysterectomy is a technique that spares the pelvic autonomic nerves without compromising radicality, providing another approach to improve quality of life and reduce bladder and bowel morbidity.
 
-
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

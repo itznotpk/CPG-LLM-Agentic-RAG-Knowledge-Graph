@@ -51,14 +51,13 @@ Refer to Appendix 4: Reporting Proforma for Cervical Cancer Excisional Cervical 
 - Sensitivity and negative predictive value (NPV) of frozen section pathological examination for the detection of macrometastatic disease are 100%.
 - Sensitivity for the detection for macrometastatic and micrometastatic disease, excluding isolated tumour cells, and NPV are 88.9% and 98.8% respectively.
 
-Refer to Chapter 8 on Treatment (Sentinel Nodes).
+Refer to Sectiom 8: Treatment (Sentinel Nodes). <!-- cross_ref target_file="section-8-treatment-cervicalcance.md" target_heading="8.2.4: Sentinel Nodes" target_kind="h3_section" -->
 
 **Recommendation 1**
 - In cervical cancer,
     - reporting of histopathological examination for surgical specimens of radical hysterectomy should be standardised and contained core histological data*.
     - frozen section assessment of suspicious pelvic or para-aortic lymph nodes may be performed intra-operatively.
 
----
 <!-- parent_only_reference_start -->
 Appendix 3: WHO Histological Classification Of Tumours Of The Uterine Cervix
 **Epithelial Tumours**

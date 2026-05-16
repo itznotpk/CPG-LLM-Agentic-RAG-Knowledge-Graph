@@ -9,36 +9,34 @@ critical: true
 
 > **Context:** Staging of cervical cancer (2nd Edition Malaysian CPG). Key rule: the **revised FIGO 2009** system is the standard used in Malaysia for all histological types (full criteria in Appendix 5: Revised FIGO Cervical Cancer Staging 2009); TNM is the alternative. Covers clinical and radiological (CT/MRI/PET-CT) staging.
 
-**A. Clinical Staging**
-
-Staging of cervical cancer plays an important role in determining further investigations and treatment as well as survival of patients. Hence, an adequate and appropriate staging is an integral part of management for these patients.
+## 7.1: Clinical Staging
+Staging of cervical cancer determines further investigations, treatment and survival, and is an integral part of management.
 
 [Level III] There are two commonly used staging systems for cervical cancer namely FIGO staging and TNM classification. The latest revised FIGO staging of 2009 is currently the standard staging system used in Malaysia for all histological types (refer to Appendix 5: Revised FIGO Cervical Cancer Staging 2009).
 
-FIGO staging is based on clinical examination. A thorough pelvic examination with/without anaesthesia is mandatory to provide information for the staging. [Level III] When there is doubt as to which stage a particular cancer should be allocated, the lower stage is assigned.
+FIGO staging is based on clinical examination; a thorough pelvic examination with/without anaesthesia is mandatory. [Level III] When in doubt as to which stage to allocate, the lower stage is assigned.
 
 The office pelvic examination has a weak but significant correlation with the actual extent of disease in determination of vaginal (r=0.255, p<0.01) and parametrial invasion (r=0.174, p<0.01). The overall accuracy is 70.4% for vaginal involvement and 74.5% for parametrial disease. [Level III] It also has high accuracy in early FIGO stage cervical cancer (85.4% for stage IB1 and 77.4% for stage IB2) but low accuracy in FIGO stage II (35.5% for stage IIA and 20.5% for stage IIB).
 
 The following examinations are permitted for the determination of FIGO staging, as indicated by presenting characteristics: palpation, inspection, colposcopy, endocervical curettage, hysteroscopy, cystoscopy, proctoscopy, intravenous urography, and X-ray examination of the lungs and skeleton. [Level III] Blood tests should include full blood count, renal and liver function tests. Syphilis and human immunodeficiency virus serology need to be considered based on discussion with the patient about risk factors.
 
-**Initial assessment of microinvasive disease**
-
-**Assessment Of Figo Stage Ia**
+### 7.1.1 Initial Assessment of Microinvasive Disease
+#### 7.1.1.1: Assessment of FIGO Stage IA
 Diagnosis of both Stage IA1 and IA2 should be based on microscopic examination of excised tissue, including cone biopsy with negative margins, trachelectomy or hysterectomy. [Level III] If the margins of the cone biopsy are positive for cervical intraepithelial neoplasia III or invasive cancer, a second cone biopsy should be performed or the patient treated as FIGO stage IB1 disease.
 
-**Assessment Of Figo Stage Ib And Above**
+#### 7.1.1.2: Assessment of FIGO Stage IB and Above
 Biopsy of the visible lesions is mandatory to confirm the diagnosis of cervical cancer.
 
 Chest X-ray and evaluation of hydronephrosis are mandatory in grossly invasive disease. Evaluation of hydronephrosis can be done using renal ultrasound, intravenous urography, computed tomography (CT) or magnetic resonance imaging (MRI). The bladder and rectum are evaluated by cystoscopy and sigmoidoscopy only if the patient is clinically symptomatic. The presence of bullous oedema alone on the bladder or rectal mucosa should not be assigned as FIGO stage IV. [Level III] Suspected bladder or rectal involvement should be confirmed histologically.
 
 [Level III] CT and/or MRI with/without positron emission tomography (PET) may provide information on nodal status or systemic spread but are not mandatory. Refer to section on B. Radiological Staging for further details.
 
-In our local context, as CT scan is widely available, the CPG DG suggests it is a preferred modality as part of the assessment of cervical cancer. In healthcare facilities where this modality is not readily available or if patients are not suitable for contrast studies, other modalities such as chest X-ray and ultrasound scan may be used.
+As CT is widely available locally, the CPG DG suggests it as a preferred modality for assessment. Where CT is unavailable or patients are unsuitable for contrast studies, chest X-ray and ultrasound may be used.
 
 - The staging of cervical cancer is determined at the time of the primary diagnosis and cannot be altered, even at recurrence.
 
-**B. Radiological Staging**
-It is important to assess prognostic factors based on radiological imaging such as tumour size, parametrial and pelvic side invasion, adjacent organ invasion and lymph node metastases to complement clinical assessment. Utilisation of different imaging modalities depends on accessibility, patients' clinical stage, clinicians' preference and cost, among others. Worldwide, CT and MRI are preferred over other modalities in cervical cancer staging. However, radiological imaging is not included in the revised FIGO staging.
+## 7.2: Radiological Staging
+Radiological imaging assesses prognostic factors (tumour size, parametrial and pelvic side invasion, adjacent organ invasion, lymph node metastases) to complement clinical assessment. Choice of modality depends on accessibility, clinical stage, clinician preference and cost. Worldwide, CT and MRI are preferred, though radiological imaging is not included in the revised FIGO staging.
 
 [Level III] In a meta-analysis of eight studies, MRI showed higher sensitivity compared to CT in locally advanced cervical cancer (LACC) in evaluating:
 - parametrial invasion: 74% (95% CI 68 to 79) vs 55% (95% CI 44 to 66), p=0.0027
@@ -63,7 +61,7 @@ In cervical cancer FIGO stage IB1, preoperative MRI-measured tumour diameter is 
 
 [Level I] Pre-treatment PAN assessment surgically (laparoscopy or laparotomy) in FIGO stage IIB - IVA cervical cancer planned for pelvic radiotherapy (RT) does not offer additional survival benefit compared with standard imaging techniques (CT scan or MRI).
 
-In grossly invasive disease, CT or MRI with/without PET may provide information on nodal status or systemic spread but such radiological modalities are not mandatory. Compared with CT and MRI, PET-CT is a more accurate imaging method for detecting nodal metastases that are >10 mm. [Level III] Isolated and unexpected areas of PET enhancement should be confirmed histologically if possible, to confirm or exclude the presence of distant metastatic disease.
+In grossly invasive disease, CT or MRI with/without PET may provide nodal or systemic spread information but is not mandatory. PET-CT is more accurate than CT or MRI for detecting nodal metastases >10 mm. [Level III] Isolated, unexpected areas of PET enhancement should be confirmed histologically where possible to confirm or exclude distant metastatic disease.
 
 - The use of positron emission tomography computed tomography requires further evidence before it can be recommended in early stage cervical cancer.
 
@@ -76,7 +74,6 @@ In grossly invasive disease, CT or MRI with/without PET may provide information 
 - In early stage cervical cancer, magnetic resonance imaging (MRI) may be used to complement examination under anesthesia for surgical decision-making.
 - Computed tomography scan or MRI, when available, may be offered to assess nodal status and systemic spread in grossly invasive cervical cancer.
 
----
 <!-- parent_only_reference_start -->
 Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | Stage | Description |
@@ -95,8 +92,6 @@ Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | IVB | Spread to distant organs. |
 
 The depth of invasion should not be more than 5mm taken from the base of epithelium, either surface or glandular, from which it originates. Vascular space invasion should not alter the staging.
-
-Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, and endometrium. Int J Gynaecol Obstet. 2009 May;105(2):103-4.
 
 Levels Of Evidence
 | Level | Study design |

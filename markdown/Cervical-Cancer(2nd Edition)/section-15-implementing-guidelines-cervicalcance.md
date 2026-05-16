@@ -6,8 +6,6 @@ patient_input:
 output: implementation_strategy, audit_indicators
 -->
 
-It is important to standardise the management of cervical cancer at all healthcare levels in Malaysia by using an evidence-based CPG. This aims to prevent long-term morbidity and mortality.
-
 **A. Facilitating And Limiting Factors**
 Existing facilitators for application of the recommendations in the CPG include:
 - dissemination of CPG
@@ -45,7 +43,6 @@ To assist in the implementation of the CPG, the following is proposed as clinica
 
 Implementation strategies will be developed following the approval of the CPG by MoH. These include a Quick Reference and a Training Module.
 
----
 <!-- parent_only_reference_start -->
 Abbreviations
 | Abbreviation | Description |

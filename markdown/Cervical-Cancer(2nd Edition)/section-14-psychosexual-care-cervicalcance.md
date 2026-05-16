@@ -47,7 +47,6 @@ Other psychological interventions with some positive effects:
   - Cognitive Behavioural Therapy can reduce psychosocial distress.
   - social support improves quality of life and reduces negative mood symptoms, including depression and anxiety.
 
----
 <!-- parent_only_reference_start -->
 Appendix 11: Distress Thermometer Screening Tool
 **Screening Tools For Measuring Distress**

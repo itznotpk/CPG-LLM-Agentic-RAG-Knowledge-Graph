@@ -10,7 +10,7 @@ The symptoms associated with cervical cancer are commonly encountered at primary
 
 [Level III] Common presenting symptoms in cervical cancer are postmenopausal bleeding (84.0%), vaginal discharge (72.0%), postcoital bleeding (PCB) (64.0%) and abdominal pain (56.0%). [Level III] The prevalence of PCB in cervical cancer ranges between 0.7% to 39%. [Level III] In patients with PCB, cervical cancer is found in 3.6% of women with no record of smear or with normal smear and 5% of women with abnormal smear.
 
-- Most patients are asymptomatic. However, common presenting symptoms that may suggest cervical cancer are:
+Most patients are asymptomatic. However, common presenting symptoms that may suggest cervical cancer are:
   - postmenopausal bleeding
   - vaginal discharge
   - post-coital bleeding
@@ -22,7 +22,6 @@ The symptoms associated with cervical cancer are commonly encountered at primary
 
 [Level III] Based on the Malaysian National Cancer Statistics 2007, 21% of cervical cancer patients presented at stage I, 34.7% at stage II, 25.6% at stage III and 18.7% at stage IV.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |
