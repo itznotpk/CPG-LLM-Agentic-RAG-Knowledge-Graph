@@ -8,6 +8,7 @@ treatment_type: statins, fibrates, omega-3 fatty acids, niacin, IV insulin
 -->
 
 ## 11.1: Elevated TG
+### 11.1.1: Overview and CV Risk of Elevated TG
 *   Hypertriglyceridemia has a modest association as a CV risk factor, but the association is far weaker than for hypercholesterolaemia.
 *   In contrast to the established reduction in CV risk with LDL-C lowering, the efficacy of TG lowering in decreasing CV risk has not been established.
 *   Hypertriglyceridemia is associated with increased numbers of atherogenic small, dense LDL particles and apo B-100-associated TG-rich lipoprotein remnant cholesterol, which increase CV risk.
@@ -16,7 +17,7 @@ treatment_type: statins, fibrates, omega-3 fatty acids, niacin, IV insulin
 *   Unfortunately, the lack of standardization and reference ranges impedes the general implementation of non-fasting TG as a target for control.
 *   At present, fasting TG >1.7 mmol/L continues to be considered a marker of increased risk, but concentrations ≤1.7 mmol/L are not evidence-based target levels for therapy.
 
-### 11.1.1: Targets Of Therapy
+### 11.1.2: Targets Of Therapy
 *   In individuals with elevated TG, the primary target of therapy remains achieving LDL-C goal depending upon the individual's global CV risk.
 *   When TG levels are > 1.5mmol/L, reported LDL-C levels do not reliably indicate LDL particle number.
 *   Individuals with a TG > 4.5mmol/L should have a repeat lipid panel tested in the fasting state.
@@ -24,7 +25,6 @@ treatment_type: statins, fibrates, omega-3 fatty acids, niacin, IV insulin
 *   In individuals where the TG > 4.5mmol/L, non-HDL-C is the primary target of therapy. (refer to Table 4: Target LDL-C levels)
 
 Table 4: Target LDL-C Levels
-
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
 | **Low CV Risk*** (<10% 10-year CVD risk) | Clinical judgement** | < 3.0 | < 3.8 |
@@ -33,12 +33,12 @@ Table 4: Target LDL-C Levels
 | **Very High CV Risk*** <br> * established CVD <br> * diabetes with CVD or other target organ damage or > 3 CV risk factors <br> * CKD with eGFR <30ml/min-1/1.73m²**** | > 1.4 | ≤ 1.4 and a reduction of > 50% from baseline | ≤ 2.2 and a reduction of >50% from baseline |
 | ***Those with recurrent CV events within 2 years despite achieving a LDL-C target of <1.4mmol/l | | < 1.0 | |
 
-*Low and Moderate CV risk is assessed using the FRS- General CVD Risk Score <br>
-**After a therapeutic trial of 8-12 weeks of TLC and following discussion of the risk: benefit ratio of drug therapy with the patient. <br>
-***All other CV risk factors should be treated to target.  <br>
+*Low and Moderate CV risk is assessed using the FRS- General CVD Risk Score
+**After a therapeutic trial of 8-12 weeks of TLC and following discussion of the risk: benefit ratio of drug therapy with the patient.
+***All other CV risk factors should be treated to target.
 **** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
 
-**A) Mild-To-Moderate Elevations In Tg (> 1.7 – < 10.0 mmol/L)**
+### 11.1.3: Mild-To-Moderate Elevations in TG (>1.7 – <10.0 mmol/L)
 Treatment should include:
 *   Lifestyle changes of weight reduction, low carbohydrate diet reducing intake of simple carbohydrates, eg. high-glycemic and high-fructose foods and beverages, control of diabetes or insulin resistance, exercise, reduction of alcohol intake and cessation of smoking. Dietary fat does not raise fasting plasma TG levels in most people. However, reducing SFA is recommended.
 *   After 4-12 weeks of lifestyle measures, assess need for further TG-lowering therapy with the goal to reduce CVD risk.
@@ -57,15 +57,13 @@ Table 11: Major Lipid Modifying Drug Classes
 | Inclisiran | LDL-C ↓ 50% | • Injection site reaction <br> • Arthralgia <br> • Urinary tract infection <br> • Headache | |
 | Bempedoic Acid | LDL-C ↓ 25-30% (monotherapy) <br> In combination with <br> (a) statins: ↓ 20% <br> (b) ezetimibe: ↓ 40% | • Hyperuricemia | **Absolute:** <br> • Concurrent use with simvastatin >20mg and pravastatin >40mg <br> **Relative:** <br> • Tendon rupture |
 
-#Adapted from American Association of Clinical Endocrinologists 2017 <br>
-*cyclosporin, macrolide antibiotics, antifungal agents, protease inhibitors and cytochrome P-450 inhibitors (fibrates and nicotinic acid should be used with appropriate caution) <br>
-**gemfibrozil and repaglinide <br>
-***Paracetamol, NSAIDs, anticoagulant, valproate, digitalis, thiazides, thyroxine, raloxifene, propranolol and tricyclic antidepressants. <br>
-****usually used in combination with statins. <br>
-+maybe upto 60% with fenofibrate <br>
+*cyclosporin, macrolide antibiotics, antifungal agents, protease inhibitors and cytochrome P-450 inhibitors (fibrates and nicotinic acid should be used with appropriate caution)
+**gemfibrozil and repaglinide
+***Paracetamol, NSAIDs, anticoagulant, valproate, digitalis, thiazides, thyroxine, raloxifene, propranolol and tricyclic antidepressants.
+****usually used in combination with statins.
++maybe upto 60% with fenofibrate
 
 These data are derived from short-term clinical trials meant for drug registration. In real-life long-term use, the amount of lipid change achieved may be less than this.
-
 
 **Statins:**
 *   Intensifying statin therapy, especially if LDL-C target is not achieved.
@@ -89,7 +87,7 @@ These data are derived from short-term clinical trials meant for drug registrati
     *   Patients who choose to take high doses of omega-3 fatty acids, should be informed of the risk of AF, and followed up for the possible development of this potentially hazardous arrhythmia.
 *   Currently, there is still no outcome data that show a reduction in CV events with the use of drug therapy to reduce TG.
 
-**B) Severe Elevations In Tg (>10mmol/L)**
+### 11.1.4: Severe Elevations in TG (>10 mmol/L)
 **In asymptomatic individuals:**
 
 *   Repeat fasting TG (after an interval of 5 days, but within 2 weeks) and review for potential secondary causes of dyslipidemia. Seek specialist advice if the TG remains above 10 mmol/L.
@@ -110,7 +108,6 @@ In these individuals:
         *   The TG level will improve within 2-5 days but may not normalize.
 
 **In patients who have suspected pancreatitis, treatment includes:**
-
 *   **Fibrate or nicotinic acid**:
     *   Gemfibrozil and Fenofibrate lower TG by about 20-35%.
     *   Nicotinic acid at doses of above 1.5gm per day can reduce TG by 40%. However, nicotinic acid is not routinely recommended given its limited benefit, and risk of adverse effects, including a worsening of insulin resistance.

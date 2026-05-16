@@ -8,7 +8,6 @@ critical: true
 treatment_type: primary_PCI, fibrinolysis, rescue_PCI, pharmaco_invasive
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 A patient's immediate and long-term prognosis following STEMI can be predicted by using the:
 - Thrombolysis in Myocardial Infarction (TIMI) STEMI risk score (Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality) - This was specifically developed for patients with STEMI **or**
 - GRACE risk score (refer to Appendix IV: GRACE ACS Risk Model). -this predicts in-hospital and 6-month mortality in patients with ACS.

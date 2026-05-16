@@ -1,13 +1,11 @@
 # Section 5: PCI Devices
 <!-- METADATA
 category: Treatment
-use_case: general_principles_of_management_in_pci
-patient_input:
-output:
+use_case: PCI Device Selection — balloon_catheters, cutting_balloon, drug_eluting_balloon, bare_metal_stent, drug_eluting_stent, biodegradable_stent, atherectomy, thrombectomy, aspiration_catheter, distal_protection, IVUS, OCT, virtual_histology
+patient_input: lesion_type, stent_type, coronary_anatomy, procedural_context
+output: device_selection, imaging_modality_recommendation
 critical: false
 -->
-
-> **Context:** This section details the technical armamentarium of Percutaneous Coronary Intervention (PCI). It provides comprehensive overviews and clinical use-cases for balloon catheters (including cutting and drug-eluting balloons), stents (Bare Metal, Drug-Eluting, and Biodegradable), atherectomy devices, thrombectomy/aspiration catheters, distal protection devices, and advanced intravascular imaging modalities (IVUS, OCT, Virtual Histology) to optimize procedural success.
 
 ## 5.1: Balloon Catheters
 Balloon catheters come in different sizes and lengths. The diameter sizes are between 1.25 to 5.0 mm and lengths of between 5 to 30 mm.

@@ -7,8 +7,6 @@ output: antiplatelet_regimen, antithrombotic_regimen, dosing_protocol, duration_
 critical: true
 -->
 
-> **Context:** This section details the pharmacological adjunctive therapies essential for Percutaneous Coronary Intervention (PCI). It provides critical dosing protocols and evidence-based recommendations for antiplatelet agents (e.g., aspirin, clopidogrel, GP IIb/IIIa inhibitors), antithrombotic therapies (e.g., UFH, LMWH, bivalirudin), and other adjunctive medications (cilostazol, statins) to optimize patient outcomes and minimize ischemic or bleeding risks during and after PCI.
-
 ## 3.1: Antiplatelet Agents
 ### 3.1.1: Oral Antiplatelet Therapy
 #### 3.1.1.1: Aspirin

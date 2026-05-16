@@ -8,7 +8,6 @@ critical: true
 treatment_type: CABG
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Urgent/emergent CABG surgery should be considered in the following situations:
 - Patients with a patent IRA but with unsuitable anatomy for PCI and either a large myocardial area at jeopardy or with cardiogenic shock.
 - At the time of surgical repair of post-infarction ventricular septal rupture or mitral valve regurgitation.

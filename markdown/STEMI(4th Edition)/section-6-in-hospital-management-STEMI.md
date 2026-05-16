@@ -8,7 +8,6 @@ critical: true
 treatment_type: antiplatelet_loading, analgesia, oxygen_therapy, reperfusion
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Early management of STEMI is directed at:
 - Pain relief.
 - Establishing early reperfusion.
@@ -118,53 +117,80 @@ Occasionally patients with ongoing chest pains and myocardial ischaemia may have
   - Compared with previous ECGs.
   - Additional chest leads (V7-9) and right ventricular leads should be done to identify posterior and right ventricular infarcts.
 
----
+## Flow Chart 1: Management Of Patients Presenting With STEMI
+1. Initial Presentation
+*   Electrocardiography & Cardiac Biomarkers
+    *   CHEST PAIN / CHEST PAIN EQUIVALENT
 
-### Flow Chart 1: Management Of Patients Presenting With STEMI
-**1. Initial Presentation**
-*   **Electrocardiography & Cardiac Biomarkers**
-    *   **CHEST PAIN / CHEST PAIN EQUIVALENT**
-
-**2. Immediate Evaluation & Initial Management**
-*   **Concomitant initial management includes:**
+2. Immediate Evaluation & Initial Management
+*   Concomitant initial management includes:
     *   Continuous ECG monitoring
     *   Sublingual glyceryl trinitrate (GTN) (if no contraindication)
     *   Aspirin +
-    *   Clopidogrel <sup>#</sup>
+    *   Clopidogrel #
     *   Analgesia
     *   Oxygen [if oxygen saturation (SpO₂) < 95%]
 
-**3. Assessment for Reperfusion based on Onset of symptoms:**
+3. Assessment for Reperfusion based on Onset of symptoms:
+*   < 3 hours
+    *   Preferred option: Primary PCI** or Fibrinolytic Therapy
 
-*   **< 3 hours**
-    *   **Preferred option:** Primary PCI <sup>**</sup> or Fibrinolytic Therapy
+*   3-12 hours
+    *   Preferred option: Primary PCI**
+    *   Second option: Fibrinolytics
+        *   Subsequent management: Consider PCI within 3-24 hours if fibrinolytics are administered as part of the pharmaco-invasive strategy
 
-*   **3-12 hours**
-    *   **Preferred option:** Primary PCI <sup>**</sup>
-    *   **Second option:** Fibrinolytics
-        *   *Subsequent management:* Consider PCI within 3-24 hours if fibrinolytics are administered as part of the pharmaco-invasive strategy
+*   > 12 hours
+    *   Preferred option: Medical Therapy ± Antithrombotics
+    *   Second option: Primary PCI*
+        *   Subsequent management: PCI if ongoing ischaemia or hemodynamic instability
 
-*   **> 12 hours**
-    *   **Preferred option:** Medical Therapy ± Antithrombotics
-    *   **Second option:** Primary PCI <sup>*</sup>
-        *   *Subsequent management:* PCI if ongoing ischaemia or hemodynamic instability
-
-**4. Concomitant Therapy:**
+4. Concomitant Therapy:
 *   Dual Anti-platelet Therapy (DAPT)
 *   High Dose Statins
 *   β-blockers
 *   ACE-Is/ ARBs
 *   MRA
 
-**Footnotes:**
-*   <sup>#</sup> or ticagrelor or prasugrel (after coronary angiogram)
-*   <sup>*</sup> When clinically indicated
-*   <sup>**</sup> Preferred option in:
+Footnotes:
+*   "#" or ticagrelor or prasugrel (after coronary angiogram)
+*   "*" When clinically indicated
+*   "**" Preferred option in:
     *   high-risk patients
     *   presence of contraindications to fibrinolytic therapy and/or
     *   if the anticipated time intervals/transport times are within that stated in Flow Chart 2.
 
----
+## Flow Chart 2: Time Intervals To Determine Choice Of Reperfusion Strategy
+Starting point: ONSET OF CHEST PAIN → Patient contacts emergency services / Ambulance (FMC)
+
+There are three possible pathways from onset of chest pain to wire crossing:
+Pathway A: Patient presents directly at a PCI-capable centre (Hub Hospital*)
+1. Onset of chest pain → Patient arrives at PCI-capable centre (Hub)
+2. DBT (Door to Balloon/Device Time): < 90 minutes
+3. → TIME TO WIRE CROSSING
+
+Pathway B: Patient is transported by ambulance directly to a PCI-capable centre (Hub Hospital*)
+1. Onset of chest pain → Ambulance (FMC)
+2. Travel time to PCI-capable centre: < 90 minutes
+3. Arrival at PCI-capable centre → DBT: < 30 minutes
+4. → TIME TO WIRE CROSSING
+
+Pathway C: Patient presents at a Non-PCI-capable centre (Spoke Hospital *)
+1. Onset of chest pain → Patient arrives at Non-PCI-capable centre (Spoke)
+2. DIDO (Door In, Door Out) at spoke hospital: < 30 minutes
+3. Ambulance transfer — Travel time to PCI-capable centre (Hub): < 60 minutes
+4. Arrival at PCI-capable centre → DBT: < 30 minutes
+5. → TIME TO WIRE CROSSING
+6. Total DBT for this pathway: < 120 minutes
+
+Footnotes:
+*   "*" = PCI capable centre: Hub Hospital
+*   "**" = Non-PCI capable centre: Spoke Hospital
+*   "***" = DIDO: Door In Door Out
+*   FMC: First Medical Contact
+*   DBT: Door to balloon (device) time
+
+Important: If time intervals/transfer times are anticipated to be longer than stated, initiate fibrinolysis first and then consider same day transfer for PCI as part of pharmaco-invasive strategy (3-24 hours post lysis) or for transfer later depending on the clinical condition of the patient and the available resources.
 
 ### Section 7: Reperfusion Strategies (Overlapping)
 **The appropriate and timely use of some form of reperfusion therapy is more important than the choice of therapy.**

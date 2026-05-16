@@ -8,7 +8,6 @@ critical: true
 treatment_type: amiodarone, noradrenaline, IABP, ECMO, temporary_pacing, defibrillation, surgical_repair, aspirin, colchicine, heparin
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Complications of STEMI include:
 - Arrhythmias.
 - LV dysfunction and shock.

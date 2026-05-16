@@ -8,7 +8,6 @@ critical: true
 treatment_type: ICD, beta_blocker, ACEi, MRA, statin
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Risk stratification of patients post-STEMI serves to prognosticate and identify appropriate treatment strategies. It starts from admission and is a continuing process. It is especially important in patients treated medically and those with multivessel disease who underwent PCI of the IRA only.
 
 ## 11.1: Short-Term Risk

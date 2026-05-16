@@ -115,8 +115,8 @@ categorized as:
     *   LDL-C > 4.9 mmol/L
     *   In these individuals using Vascular Age (refer to Table 3a: Heart Age/ Vascular Age For Men and Table 3b: Heart Age/ Vascular Age For Women), may be helpful in defining CV Risk and guiding management strategies. This risk model has not been validated in our local population.
 
+### 5.2.4: Heart Age / Vascular Age Reference Tables
 Table 3a: Heart Age/ Vascular Age For Men
-
 | Points | Heart age, y |
 |---|---|
 | <0 | <30 |
@@ -140,7 +140,6 @@ Table 3a: Heart Age/ Vascular Age For Men
 | ≥17 | >80 |
 
 Table 3b: Heart Age/ Vascular Age For Women
-
 | Points | Heart age, y |
 |---|---|
 | <1 | <30 |
@@ -268,19 +267,26 @@ Table 4: Target LDL-C Levels
 | **Very High CV Risk*** <br> * established CVD <br> * diabetes with CVD or other target organ damage or > 3 CV risk factors <br> * CKD with eGFR <30ml/min-1/1.73m²**** | > 1.4 | ≤ 1.4 and a reduction of > 50% from baseline | ≤ 2.2 and a reduction of >50% from baseline |
 | ***Those with recurrent CV events within 2 years despite achieving a LDL-C target of <1.4mmol/l | | < 1.0 | |
 
-*Low and Moderate CV risk is assessed using the FRS- General CVD Risk Score <br>
-**After a therapeutic trial of 8-12 weeks of TLC and following discussion of the risk: benefit ratio of drug therapy with the patient. <br>
-***All other CV risk factors should be treated to target.  <br>
+*Low and Moderate CV risk is assessed using the FRS- General CVD Risk Score
+**After a therapeutic trial of 8-12 weeks of TLC and following discussion of the risk: benefit ratio of drug therapy with the patient.
+***All other CV risk factors should be treated to target. 
 **** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
 
-Grades Of Recommendation And Level Of Evidence
-| Grade | Description |
-| --- | --- |
-| Grade I | Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective. |
-| Grade III | Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful. |
-| Level A | Data derived from multiple randomized clinical trials or meta-analyses. |
-| Level B | Data derived from a single randomized clinical trial or large non-randomized studies. |
-| Level C | Only consensus of opinion of experts, case studies, or standard-of-care. |
+Grades Of Recommendation
+| GRADE | DEFINITION |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
+
+Levels Of Evidence
+| LEVEL | DEFINITION |
+|---|---|
+| A | Data derived from multiple randomized clinical trials or meta analyses |
+| B | Data derived from a single randomized clinical trial or large non randomized studies |
+| C | Only consensus of opinions of experts, case studies or standard of care |
 
 Abbreviations
 | Abbreviation | Description |
@@ -323,4 +329,3 @@ Abbreviations
 | TG | Triglycerides |
 | TLC | Therapeutic Lifestyle Changes |
 <!-- parent_only_reference_end -->
-

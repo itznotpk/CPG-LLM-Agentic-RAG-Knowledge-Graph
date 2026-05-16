@@ -7,7 +7,6 @@ output: rehabilitation_phase_plan, exercise_programme, activity_clearance, psych
 treatment_type: exercise_rehabilitation, psychosocial_therapy
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 Cardiac Rehabilitation Programme (CRP) consists of coordinated, multifaceted interventions designed to optimise a cardiac patient's physical, psychological, and social functioning. It is a comprehensive, long-term program involving:
 - Medical evaluation
 - Exercise prescriptions
@@ -121,9 +120,6 @@ The following should be assessed at each follow-up visit:
 Performance measures should be used with the goal of improving the quality of care. Process performance measures focus on the aspects of care delivered to a patient, while outcome measures focus on end-points such as mortality or repeat hospitalisation.
 
 Table 19: Performance Measures
-
-**Process Indicators for STEMI at Presentation:**
-
 | Indicators for STEMI at Presentation | Targets |
 |---|---|
 | ECG done within 10 minutes of FMC | 90% |
@@ -139,7 +135,6 @@ Table 19: Performance Measures
 | ß-blocker | 70% |
 | MRA | 70% |
 | Cardiac rehabilitation | 50% |
-
 **Outcome Measures Indicators:**
 - In-hospital mortality < 10%
 - 30-day mortality < 14%
@@ -150,7 +145,6 @@ Table 19: Performance Measures
 
 ---
 Table 16: Fitness For Commercial Air Travel Post STEMI
-
 | Functional Status | Guidance |
 |---|---|
 | Low risk: age < 65 years, first event, successful reperfusion, LVEF > 45%, no complications, no planned investigations or interventions | Fly after 3 days |
@@ -158,7 +152,6 @@ Table 16: Fitness For Commercial Air Travel Post STEMI
 | High risk: EF < 40%, signs and symptoms of heart failure, those pending further investigation, revascularization or device therapy | Defer until condition is stable |
 
 Table 17: Patients At High Risk During Cardiac Rehabilitation
-
 **Ischaemic Risk:**
 - Postoperative angina
 - LVEF < 35%

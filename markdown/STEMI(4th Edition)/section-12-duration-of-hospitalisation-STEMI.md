@@ -6,7 +6,6 @@ patient_input: complication_status, LVEF, residual_ischaemia, social_support, sy
 output: discharge_timing, early_discharge_eligibility, follow_up_schedule
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 The duration of hospital stay following STEMI will depend on the patient's cardiac risk, extent of myocardial damage, presence of complications, comorbidities and social support.
 
 Early (same day) transfer to the referring centres may be considered in selected low-risk uncomplicated patients after successful primary PCI.

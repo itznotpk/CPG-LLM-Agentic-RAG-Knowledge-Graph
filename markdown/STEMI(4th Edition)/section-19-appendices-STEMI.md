@@ -6,8 +6,6 @@ patient_input: clinical_parameters, scoring_variables
 output: risk_score_calculation, diagnostic_criteria_reference, drug_dosing_reference
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
-
 ## Appendix I: Difficulties In ECG Diagnosis Of MI
 The following conditions may cause ECG changes that may be confused with that of STEMI:
 - Prior MI with Q-waves and/or persistent ST elevation.
@@ -58,7 +56,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - Acute respiratory failure
 - Frequent defibrillator shocks
 
-## Appendix III: STEMI Timi Risk Score For Predicting 30-Day Mortality
+## Appendix III: STEMI TIMI Risk Score For Predicting 30-Day Mortality
 | Categories | Options | Points |
 |---|---|---|
 | Age (years) | < 65 | 0 |
@@ -78,7 +76,6 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - **High-risk:** 6 points and above (16–36.0% mortality)
 
 ## Appendix IV: Grace ACS Risk Model
-
 ### At Admission (In-Hospital/to 6 Months)
 | Categories | Options |
 |---|---|

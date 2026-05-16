@@ -1,13 +1,11 @@
 # Section 6: Lesion / Device Specific Conditions
 <!-- METADATA
 category: Treatment
-use_case: general_principles_of_management_in_pci
-patient_input:
-output:
+use_case: Complex Lesion PCI Strategy — left_main_stem, multivessel_disease, chronic_total_occlusion, bifurcation_lesion, ostial_lesion, saphenous_vein_graft, stent_thrombosis, in_stent_restenosis
+patient_input: lesion_morphology, coronary_anatomy, stent_type, prior_revascularisation
+output: revascularisation_strategy, pci_vs_cabg_decision, stent_complication_management
 critical: true
 -->
-
-> **Context:** This section provides specific guidelines and technical considerations for performing Percutaneous Coronary Intervention (PCI) in complex lesion subsets. It covers detailed revascularisation strategies for Left Main Stem (LMS) disease, multi-vessel disease, Chronic Total Occlusions (CTO), bifurcation and ostial lesions, and Saphenous Vein Grafts (SVG). It also addresses the critical management of stent-related complications, specifically stent thrombosis and in-stent restenosis (ISR).
 
 ## 6.1: Left Main Stem (Lms) Disease
 The conventional treatment for unprotected LMS (>50%) is CABG. PCI of unprotected LMS is feasible, but has historically been associated with high morbidity and mortality rates.

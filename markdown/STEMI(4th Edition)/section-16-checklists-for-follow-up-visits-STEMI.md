@@ -6,7 +6,6 @@ patient_input: symptom_status, medication_adherence, blood_pressure, lipid_profi
 output: follow_up_action_plan, medication_adjustment, investigation_requests, referral_decisions
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
 The following should be assessed at each follow-up visit:
 - Assess the presence or absence of cardiac symptoms and determine the functional class of the patient.
 - Evaluate patients' psychosocial (anxiety & depression) status and the social integration and support network.

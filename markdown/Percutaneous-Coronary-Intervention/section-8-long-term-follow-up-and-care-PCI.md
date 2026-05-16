@@ -1,13 +1,11 @@
 # Section 8: Long Term Follow Up And Care
 <!-- METADATA
 category: Prevention, Supportive Treatment
-use_case: general_principles_of_management_in_pci
-patient_input:
-output:
+use_case: Post-PCI Long-Term Follow-Up — stress_imaging, secondary_prevention, ischaemia_surveillance, medication_adherence
+patient_input: post_pci_status, symptoms, stent_type
+output: follow_up_schedule, secondary_prevention_plan, ischaemia_evaluation
 critical: false
 -->
-
-> **Context:** This section outlines the principles of long-term follow-up care for patients post-Percutaneous Coronary Intervention (PCI). It provides recommendations on routine ischemia evaluation (stress imaging) and emphasizes the critical role of adherence to secondary prevention programs.
 
 The objectives of follow-up post-PCI patients are:
 - to look for recurrent symptoms

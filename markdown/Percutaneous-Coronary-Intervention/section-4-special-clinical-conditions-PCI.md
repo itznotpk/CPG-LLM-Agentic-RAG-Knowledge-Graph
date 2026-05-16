@@ -7,8 +7,6 @@ output: revascularisation_strategy, contrast_nephropathy_prevention, antithrombo
 critical: true
 -->
 
-> **Context:** This section details specialized considerations and modifications for Percutaneous Coronary Intervention (PCI) in high-risk patient populations. It provides targeted management strategies for patients with diabetes (focusing on restenosis risks and revascularisation choice) and chronic kidney disease (emphasizing contrast-induced nephropathy prevention and antithrombotic dose adjustment). It also outlines specific clinical and technical adjustments required for women, the elderly, and patients with a history of bleeding diathesis.
-
 ## 4.1: Diabetes
 Diabetics have higher cardiovascular morbidity and mortality following both CABG and PCI. CABG (with left internal mammary artery [LIMA] to left anterior descending artery) provides better long term survival than POBA. This is due to:
 - Accelerated atherosclerosis. New lesions (plaque progression) were more frequent among diabetics. This occurred more commonly in arteries that were dilated during the initial procedure. Accelerated disease progression has also been seen after surgical revascularisation.

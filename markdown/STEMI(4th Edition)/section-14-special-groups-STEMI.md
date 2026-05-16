@@ -7,8 +7,6 @@ output: age_adjusted_management, renal_dose_adjustment, gender_specific_consider
 treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, enoxaparin, fondaparinux, tenecteplase, PCI, CABG, SGLT2i, GLP1_agonist, statin
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
-
 ## 14.1: STEMI In Older Individuals
 Patients above the age of 75 years have much higher in-hospital as well as 1-year mortality. This may be explained by their atypical and delayed presentations, multiple co-morbidities and under-utilisation of reperfusion strategies. Diagnosis may be delayed because of:
 - Atypical symptoms such as dyspnoea, syncope and acute delirium and confusion in the presence of pre-existing cognitive impairment.

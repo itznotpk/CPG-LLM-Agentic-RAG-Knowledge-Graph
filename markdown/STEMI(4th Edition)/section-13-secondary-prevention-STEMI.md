@@ -7,8 +7,6 @@ output: target_LDL, target_blood_pressure, DAPT_duration, statin_dose, lifestyle
 treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, atorvastatin, rosuvastatin, ezetimibe, PCSK9_inhibitor, ACEi, ARB, beta_blocker, eplerenone, rivaroxaban, ivabradine, trimetazidine
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
-
 ## 13.1: Non-Pharmacological Measures
 Important lifestyle interventions include:
 - Cessation of smoking

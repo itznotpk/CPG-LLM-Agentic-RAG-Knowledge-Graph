@@ -7,9 +7,8 @@ output: reperfusion_strategy_selection, revascularisation_decision, timing_of_in
 critical: true
 -->
 
-> **Context:** This section details the indications for PCI in the management of ST Elevation Myocardial Infarction (STEMI), Unstable Angina / Non ST Elevation Myocardial Infarction (UA/NSTEMI), Stable Coronary Artery Disease (CAD), and considerations for patients requiring non-cardiac surgery post PCI.
-
 ## 2.1: ST Elevation Myocardial Infarction (STEMI)
+### 2.1.0: Overview and Rationale for Primary PCI in STEMI
 Definition: Myocardial infarction is myocardial necrosis due to acute total occlusion of the coronary artery.
 
 The culprit vessel should be reopened as early as possible for myocardial salvage. Reperfusion may be achieved by primary PCI or fibrinolytic therapy. Primary PCI is defined as intervention in the culprit vessel without prior thrombolytic therapy. (refer to Flow Chart 1: Management of Patients Presenting with STEMI)

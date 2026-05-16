@@ -1,13 +1,13 @@
 # Section 10: Appendices
 <!-- METADATA
 category: Reference, Classification
-use_case: general_principles_of_management_in_pci
-patient_input:
-output:
+use_case: PCI Reference Appendices — fibrinolytic_contraindications, TIMI_flow_grade, TMP_grade, unstable_angina_classification, TIMI_risk_score, CCS_angina_class, secondary_prevention_targets, creatinine_clearance, contrast_agents, Medina_bifurcation, ISR_classification, ACC_AHA_ESC_grades
+patient_input: clinical_scenario, renal_function, lesion_morphology
+output: risk_score, classification_grade, reference_threshold
 critical: false
 -->
 
-> **Context:** This section provides all supplementary reference materials for Percutaneous Coronary Intervention (PCI). It includes contraindications for fibrinolytic therapy, TIMI flow and myocardial perfusion grading, UA/NSTEMI risk scoring, angina severity classifications, secondary prevention risk factor goals, creatinine clearance calculation, contrast agent classifications, and morphological lesion schemas (Medina bifurcation and ISR classifications).
+> **Context:** Reference appendices for the 2009 Malaysian PCI CPG: fibrinolytic contraindications (Appendix I), TIMI flow and TMP grading (II–III), UA/NSTEMI risk score (V), angina severity — CCS classes (VI), secondary prevention risk factor targets (VII), creatinine clearance formula (VIII), contrast agent osmolality table (IX), Medina bifurcation classification (XI), ISR morphology classification (XII), ACC/AHA/ESC secondary prevention grades (XIII). Clinical rationale is in Sections 2–8.
 
 ## Appendix I: Contraindications To Fibrinolytic Therapy
 **Absolute contraindications**

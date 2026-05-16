@@ -8,8 +8,6 @@ critical: true
 treatment_type: aspirin, clopidogrel, prasugrel, ticagrelor, DAPT, beta_blocker, ACEi, ARB, eplerenone, statin, heparin, enoxaparin
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
-
 ## 8.1: General Measures
 All STEMI patients should be admitted to a CCU or equivalent unit equipped with adequate monitoring facilities.
 

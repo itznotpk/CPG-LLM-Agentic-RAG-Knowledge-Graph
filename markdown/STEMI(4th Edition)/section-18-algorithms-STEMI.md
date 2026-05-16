@@ -8,9 +8,6 @@ critical: true
 treatment_type: defibrillation, amiodarone, epinephrine, atropine, cardioversion, transcutaneous_pacing
 -->
 
-## Cpg Management Of Acute ST Elevation Myocardial Infarction (STEMI), 4th Edition, 2019
-The following clinical algorithms are adapted from the Guidelines for Resuscitation Training for the Ministry of Health Malaysia, March 2016.
-
 ## Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update)
 *(Adapted from Guidelines for Resuscitation Training for Ministry of Health Malaysia, March 2016)*
 
@@ -212,9 +209,8 @@ Assess LV function:
 **Footnote:**
 - *ABC: Airway, Breathing, Circulation*
 
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ABC | Airway, Breathing, Circulation |
@@ -242,3 +238,4 @@ Assess LV function:
 | STEMI | ST Segment Elevation Myocardial Infarction |
 | VF | Ventricular Fibrillation |
 | VT | Ventricular Tachycardia |
+<!-- parent_only_reference_end -->

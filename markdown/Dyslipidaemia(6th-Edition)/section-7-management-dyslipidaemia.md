@@ -8,6 +8,7 @@ treatment_type: atorvastatin, rosuvastatin, simvastatin, pravastatin, lovastatin
 -->
 
 ## 7.1: Therapeutic Lifestyle Changes (TLC)
+### 7.1.1: Overview of Therapeutic Lifestyle Changes
 Refer To Table 5: Recommendations For Therapeutic Lifestyle Changes#
 
 *Introduction*
@@ -21,7 +22,8 @@ prevention of CVD.
     *   Alcohol restriction and
     *   Maintenance of an ideal weight - BMI 20 - 23.5 kg/m² and waist circumference < 90 cm (men), < 80 cm (women).
 
-### 7.1.1: Medical Nutrition Therapy (MNT)
+## 7.2: Medical Nutrition Therapy (MNT)
+### 7.2.0: Principles of Medical Nutrition Therapy
 [Grade I, Level C]  MNT aims at optimizing lipid levels while maintaining a balanced diet, weight management (5-10% weight loss for overweight individuals), and empowering behavioral changes. (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#)
 
 *   All patients with CVD and individuals with elevated lipids should be referred, where available, to a dietitian for MNT. Motivational interviews, usually conducted by the dietitian, are important and have been shown to optimize outcomes.
@@ -49,7 +51,7 @@ prevention of CVD.
     *   Half of the plate being fruits and vegetables.
     *   Drinking plain water
 
-#### 7.1.1.1: Dietary Cholesterol
+### 7.2.1: Dietary Cholesterol
 *    The role of serum cholesterol (especially LDL-C) in the pathogenesis of atherosclerosisand CVD is consistent and robust. (refer to Section 4: Dyslipidemia As A CV Risk Factor). <!-- cross_ref target_file="section-4-cv-risk-factor-dyslipidaemia.md" target_heading="Section 4: Dyslipidemia As A CV Risk Factor" target_kind="h1_section" -->
 *   The contribution of dietary cholesterols to blood cholesterol levels is, however, more  complex, and controversial. The question is whether eating food high in cholesterol leads to high serum cholesterol and LDL-C, and whether limiting dietary cholesterol intake
  lowers serum LDL-C.
@@ -57,7 +59,7 @@ prevention of CVD.
 *   Data indicates that the impact of dietary cholesterol on serum cholesterol levels is  weak. However, many high-cholesterol foods also contain high levels of saturated  fats (SFA). This includes dairy products, meat, and most processed foods.
 *   Dietary guidance, at present, tend to focus on healthy dietary patterns rather than specific  dietary cholesterol targets.
 
-#### 7.1.1.2: Total Fats - Saturated And Unsaturated Fats
+### 7.2.2: Total Fats - Saturated And Unsaturated Fats
 *   Fats in the diet consist of TG which is made up of three fatty acids and a glycerol backbone.
 *   Fatty acids differ in the length of their aliphatic tails, ranging from short chain (≤ 5) to very long chain (≥ 22) fatty acids. Depending on the number of double bonds, fatty acids can be further categorized as:
   * Saturated fatty acids (SFA)                 : no double bonds
@@ -71,7 +73,7 @@ prevention of CVD.
     * α-linolenic acid (ALA) - found in plant oils, canola oil, flaxseed oil, soybean, chia seed, linseed and rapeseed oils, walnuts, and leafy green vegetables.
     * Eicosapentaenoic acid (EPA) - present in marine oils such as fish oils.
     * Docosahexaenoic acid (DHA) - present in marine oils such as fish oils.
-*   The rate of conversion of omega-6 fatty acids to omega-3 fatty acids in the body is low. Thus it is important to increase the intake of omega-3 fatty acids in the diet. Sources of omega-3 fatty acids (DHA and EPA) are fatty fish (e.g., salmon, ikan kembung, ikan jelawat, siakap, keli, patin, senangin, white pomfret). For prescription omega-3-fatty acid supplements and its effect on lipids and CVD, refer to Section 7.2.6: Other Lipid Lowering Agents.
+*   The rate of conversion of omega-6 fatty acids to omega-3 fatty acids in the body is low. Thus it is important to increase the intake of omega-3 fatty acids in the diet. Sources of omega-3 fatty acids (DHA and EPA) are fatty fish (e.g., salmon, ikan kembung, ikan jelawat, siakap, keli, patin, senangin, white pomfret). For prescription omega-3-fatty acid supplements and its effect on lipids and CVD, refer to Section 7.12: Other Lipid Lowering Agents.
 *   The body can produce all the required fatty acids except for the essential fatty acids -linoleic acid and alpha-linolenic acid. These must come from the diet e.g., corn, sunflower, and soybean, flaxseed walnuts, and dark leafy vegetables (e.g., spinach, kailan).
 *   Excess intake of SFA has been implicated with an increased risk of CVD in several epidemiological studies. Increasingly however, there has been controversy about associations between total SFA and CV risk. It is also being recognized that the health effects of foods cannot be predicted by their content of any nutrient group without considering the overall macronutrient composition.
 * [Grade I, Level A] Older guidelines recommend that the intake of SFA should not exceed 10% of energy intake. (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#) The current 2020-2025 Dietary Guidelines for Americans, however, recommends a dietary pattern low in SFA without specifying targets.
@@ -80,7 +82,7 @@ prevention of CVD.
     * [Grade IIb, Level B] MUFA or Carbohydrates - will not have any effect on blood lipids.
 *  Taking PUFA or MUFA (e.g.,1 teaspoon of olive oil) without cutting down SFA intake will not confer CV benefit. Virgin coconut oil is rich in SFA.
 
-#### 7.1.1.3: Trans Fat
+### 7.2.3: Trans Fat
 *    Trans fat (TFA) may be:
     * "Industrially produced" TFA- these are man-made fats added to foods such as shortening and baked goods.
     * "Ruminant" TFA- these occur naturally in small amounts in foods such as butter and beef.
@@ -93,7 +95,7 @@ prevention of CVD.
 * [Grade I, Level A] TFA intake should be kept at <1% of total energy. (refer to Table 5: Recommendations for Therapeutic Lifestyle Changes#)
 *   The TFA content in commonly available commercial food sold in Malaysian supermarkets is generally very low (<1mg/100gm of weight of the food).
 
-#### 7.1.1.4: Carbohydrates
+### 7.2.4: Carbohydrates
 *    There are many types of diet. Some of these are:
     * Low carbohydrate diet where the proportion of calories from carbohydrates are reduced and replaced with protein and/or fats. The calories in these diets may be reduced or be maintained.
     * Low fat diet where the proportion of calories from fats are reduced and replaced with either carbohydrates and/or protein. Again, the total calorie intake may be maintained or reduced.
@@ -120,18 +122,18 @@ prevention of CVD.
     * Very Low-Carbohydrate diets where carbohydrate content varies from <10% to <26% of daily caloric intake.
     * A keto diet has substantially lower intakes of carbohydrate (eg, <10% of daily calories). This has been shown to induce nutritional ketosis. The body uses fat as its main fuel source instead of carbohydrates. This results in significant weight loss but the diet itself is usually non sustainable. There is inadequate data on long-term safety of keto diets. For most individuals, the risks of ketogenic diets may outweigh the benefits.
 
-#### 7.1.1.5: Atherogenic Dyslipidemia
+### 7.2.5: Atherogenic Dyslipidemia
 *    In patients with an atherogenic dyslipidemia, a low carbohydrate diet (< 26% of total energy intake) results in a significant reduction in TG levels, an increase in HDL-C levels, and a shift from small dense LDL-C to the larger buoyant LDL-C even in the absence of weight loss.
 *    A meta - analysis found that compared with participants on low-fat diets, persons on low-carbohydrate diets experienced a slightly but statistically significant lower reduction in TC and LDL-C but a greater increase in HDL-C and a greater decrease in TG.
 *    There were no significant differences in weight loss between the low-fat vs the low carbohydrate diet.
 * [Grade I, Level B] In patients with atherogenic dyslipidemia, a low carbohydrate diet emphasizing plant based and high-quality carbohydrates together with weight loss and regular exercise should be encouraged.
 
-#### 7.1.1.6: Sodium
+### 7.2.6: Sodium
 * [Grade IIa, Level B] Dietary sodium reduction has been shown to reduce BP and CV events.
 *   Reducing salt to 2.5 g/day (1/2 teaspoon of salt/day) results in a 20% reduction of CV events.
 *   High consumption of sodium (>2000 mg daily equivalent to 5 g of salt or 1 leveled teaspoon), red meat (>14g a day), sugar-sweetened beverages and processed red meat consumption were all associated with increased CV mortality.
 
-#### 7.1.1.7: Alcohol
+### 7.2.7: Alcohol
 *   Alcohol has diverse effects on the CV system depending on the amount and type of alcohol consumed, patterns of drinking (e.g., binge drinking), age, sex, and ethnicity of the individual.
 *   There is J shaped curve between alcohol intake and a variety of adverse health outcomes.
 *   Low levels of alcohol intake have been shown to reduce all-cause mortality in both men and women.
@@ -139,7 +141,7 @@ prevention of CVD.
 * [Grade I, Level C] The recommendation is one should not start drinking alcohol for health benefits.
 * [Grade I, Level C] Those individuals who do drink, should not exceed 1 drink/day (10gm/day) in non-pregnant females or 2 drinks/day (20gm/day) in males. Binge drinking should be avoided.
 
-### 7.1.2: Exercise
+## 7.3: Exercise
 *   Regular exercise reduces the risk of CVD mortality by 20–30%.
 *   However, there is still a lack of data on how much and type of exercise that is required to improve the lipid profile and reduce CV risk.
 *   In general, the effect of exercise on lipids will depend on:
@@ -158,11 +160,11 @@ prevention of CVD.
     *   75-150 minutes a week of vigorous-intensity aerobic physical activity exercise or an equivalent combination
 * [Grade I, Level B] For weight loss, increased exercise of approximately 250 to 450 minutes of moderate-intensity exercise per week, including strength training 2 to 3 times per week is required. This should be accompanied by a calorie-restricted diet.
 
-### 7.1.3: Weight Loss
+## 7.4: Weight Loss
 *   A 5% weight loss improves the entire lipid profile (reduces TC, LDL-C, TG and increases HDL-C).
 *   In most patients, however, the changes in lipid levels with weight loss are small and proportional to the change in weight. A meta-analysis showed that for every 10 kg weight loss, TC decreases by 0.23 mmol/L during long term follow-up in persons suffering from obesity or who are grossly overweight.
 
-### 7.1.4: Smoking Cessation
+## 7.5: Smoking Cessation
 *   Smoking is a strong, independent risk factor that accelerates plaque development and rupture.
 *   Smoking has:
     *   An adverse effect on TG - heavy smokers had a significantly higher concentration.
@@ -191,7 +193,7 @@ prevention of CVD.
 *   Weight loss causes a small but significant decrease in TC, LDL-C and TG on long term follow up.
 *   Smoking should be discouraged, and individuals referred to smoking cessation programmes.
 
-## 7.2: Lipid Modifying Drugs (Pharmacotherapy)
+## 7.6: Lipid Modifying Drugs (Pharmacotherapy)
 **Introduction**
 * [Grade I, Level C] Most individuals at Low and Intermediate (Moderate) Risk can be managed by Therapeutic Lifestyle Changes. Occasionally, lipid modifying agents may be necessary to achieve target lipid levels. Only statins have been studied in primary prevention.
 *   In those at Very High and High CV Risk, it is recommended that drug treatment be initiated early, simultaneously with TLC. There are eight major groups of lipid modifying drugs. (refer to Table 11: Major Lipid Modifying Drug Classes)
@@ -217,7 +219,8 @@ Table 11: Major Lipid Modifying Drug Classes
 
 These data are derived from short-term clinical trials meant for drug registration. In real-life long-term use, the amount of lipid change achieved may be less than this.
 
-### 7.2.1: Hmg CoA Reductase Inhibitors (Statins)
+## 7.7: HMG CoA Reductase Inhibitors (Statins)
+### 7.7.0: Statins — Overview and Mechanism
 *   Statins are inhibitors of HMG CoA reductase, the rate limiting enzyme in hepatic cholesterol synthesis. This results in a reduction in intracellular cholesterol which leads to an increase in LDL receptor expression at the surface of the hepatocytes. This in turn, results in an increase in clearance of LDL- and other Apo B-containing lipoproteins, including TG-rich particles from the plasma.
 *  [Grade I, Level A] LDL-C reduction with statin treatment remains the cornerstone of lipid lowering therapy to reduce risk of CVD. They are the drugs of choice in reducing LDL-C because of the consistent results of numerous randomized primary and secondary prevention clinical trials.
 *   The amount of CV risk reduction seen will depend:
@@ -226,7 +229,7 @@ These data are derived from short-term clinical trials meant for drug registrati
 *   Depending on the treatment level of LDL-C level achieved, lipid modifying agents can slow the progression and even promote regression of coronary atherosclerotic plaques.
 *   An achieved on-treatment LDL-C level of < 1.6 mmol/L appears to significantly slow down progression of atherosclerosis.
 
-#### 7.2.1.1: Lipid Lowering Effects Of Statins
+### 7.7.1: Lipid Lowering Effects Of Statins
 *   The degree of LDL-C reduction seen with the different statins is dose-dependent. (refer to Table 12: Recommended Doses of Statin Therapy#++)
 *   A high intensity statin (i.e atorvastatin 40-80mg, rosuvastatin 20 mg) can, on average,
     reduce LDL-C by > 50%.
@@ -239,7 +242,7 @@ These data are derived from short-term clinical trials meant for drug registrati
 *   Statins also have other pleiotropic effects - anti-inflammatory and antioxidant effects - that
     are potentially relevant for the prevention of CVD.
 
-#### 7.2.1.2: Initiating Statin Therapy
+### 7.7.2: Initiating Statin Therapy
 *   Since cholesterol is biosynthesized in the early morning hours, statins with shorter half-lives (pravastatin 1-3 hours, lovastatin 2 hours, simvastatin < 5 hours, and fluvastatin < 3 hours) should be administered in the evening. In contrast, statins with longer half-lives (atorvastatin 14 hours, rosuvastatin 19 hours, and pitavastatin 22 hours) can be administered during the day.
 *   Treatment is initiated at the recommended starting dose with the evening meal or at bedtime especially with simvastatin. Small short term clinical studies indicated that the LDL-C fell significantly by 5-8% when simvastatin was taken in the evening rather than in the morning.
 *   In initiating statin therapy, the following steps are proposed:
@@ -255,12 +258,12 @@ These data are derived from short-term clinical trials meant for drug registrati
         *   Inclisiran
     * [Grade III, Level C] Statin therapy should be avoided in pregnancy and lactation unless there is strong clinical indication. It should not be prescribed to women of childbearing potential unless adequate contraception is taken.
 
-#### 7.2.1.3: Monitoring Statin Therapy
+### 7.7.3: Monitoring Statin Therapy
 *    It should be stressed that these individuals will be on lifelong therapy. It is therefore important to assess them on a regular basis to monitor for: <br>
     A)  Response to therapy and achievement of lipid targets. <br>
     B)  Safety/Adverse effects
 
-***A) Response To Therapy And Achievement Of Lipid Targets.***
+### 7.7.3.1: Response to Therapy and Achievement of Lipid Targets
 *   The degree of LDL-C reduction is dose dependent and varies between the different statins. There is considerable inter-individual variation in LDL-C reduction with the same dose of drug.
 *   Inadequate response to statin treatment may be due to poor compliance and/or genetic variations of cholesterol and statin metabolism in the liver.
 *   Lipid profile should be measured at 1 to 3 months following initiation and following a change in the dose of statin therapy.
@@ -270,13 +273,13 @@ These data are derived from short-term clinical trials meant for drug registrati
 *   If LDL-C target is not achieved, the dose of statin should be up titrated to the maximal tolerated dose. If target level is still not achieved, then a non-statin drug can be added.
 *   The frequency of repeat testing while on stable lipid therapy, will depend on individual adherence to therapy and lipid profile consistency. If adherence is a concern or the lipid profile is unstable, then more frequent assessments may be necessary.
 
-***B) Safety/Adverse Effects***
+### 7.7.3.2: Safety / Adverse Effects of Statins
 ***B.1. Liver Function***
 *   Hepatic transaminases should be measured at baseline and at 1 to 3 months after starting treatment and/or following a change in dose.
 *   If levels are elevated prior to therapy, other causes (e.g., fatty liver, hepatitis) should be excluded. If due to fatty liver, lipid lowering therapy is not contraindicated.
 *   Mild elevation of ALT occurs in < 3% of patients on statin treatment, more commonly with potent statins or at high doses.
-*   Mild elevation of ALT has not been shown to be associated with true hepatotoxicity or changes in liver function.
-*   When transaminase levels (especially ALT) are > 3 times the upper limit of normal (ULN) on 2 occasions, the drug should be stopped. The transaminase levels tend to decrease and may even normalize with reduction of the dose or cessation of the drug.
+*   Mild ALT elevation is not associated with true hepatotoxicity or changes in liver function.
+*   When transaminases (especially ALT) are > 3 times ULN on 2 occasions, stop the drug; levels tend to decrease or normalize with dose reduction or cessation.
 *   Cautious reintroduction of therapy may be considered under close monitoring after ALT values have returned to normal.
 *   Progression to liver failure is exceedingly rare. Routine monitoring of ALT during long term statin treatment is no longer recommended.
 *   Mild elevation of transaminases at baseline is not a contraindication for statin therapy.
@@ -330,13 +333,13 @@ These data are derived from short-term clinical trials meant for drug registrati
 *    There is no evidence that patients on statins have increased risk of non-CV mortality e.g., cancers, suicides or other conditions, such as hepatic steatosis, venous thromboembolism, atrial fibrillation, and cataracts.
 *   In patients with a history of prior stroke, statins clearly decreased the risk of ischemic stroke and major CV events. The benefit was not different among the LDL-C-low ering strategies. The risk of intracerebral hemorrhage in these individuals, however, appears to be increased.
 
-#### 7.2.1.4: Optimizing Statin Therapy
+### 7.7.4: Optimizing Statin Therapy
 *   The therapeutic doses of statins used in clinical practice should be similar between Asian and Caucasian populations. Studies conducted among Asian and Caucasian subjects concluded that systemic exposure to atorvastatin did not differ between the two groups.
 * [Grade I, Level A] High-intensity statin therapy produces a greater percentage LDL-C reduction and thus reduces CV events more than moderate-intensity statin therapy. (refer to Table 12: Recommended Doses of Statin Therapy#++)
 * [Grade I, Level A] Lower-intensity statin therapy has also been shown to reduce CV events, but to a lesser degree.
 * [Grade I, Level A] Very High Risk and High-Risk individuals should be treated with a maximally tolerated dose of statins.
 
-#### 7.2.1.5: Adhering To Statin Therapy
+### 7.7.5: Adhering To Statin Therapy
 *   The importance of LDL-C lowering to prevent CVD should be strongly emphasized. There appears to be a dose-dependent reduction in CVD with LDL-C lowering; the greater the LDL-C reduction, the greater the CV risk reduction.
 *   The benefits related to LDL-C reduction are not specific for statin therapy.
 *   The benefits of LDL-C lowering have been documented even in individuals whose baseline levels of LDL-C are low (e.g., <1 mmol/l).
@@ -344,12 +347,12 @@ These data are derived from short-term clinical trials meant for drug registrati
 *   If available, plasma levels of statins may be checked for compliance.
 * [Grade I, Level A] We advocate LDL-C treatment goals and percentage LDL-C reduction. (refer to Table 4: Target LDL-C levels)
 
-### 7.2.2: Cholesterol Absorption Inhibitors (Ezetimibe)
+## 7.8: Cholesterol Absorption Inhibitors (Ezetimibe)
 *    Cholesterol absorption inhibitors selectively block intestinal absorption of both dietary and  biliary cholesterols without altering the absorption of fat-soluble nutrients. This leads to a reduction in hepatic cholesterol delivery - a mechanism which complements the action of statins.
 *   It cab be used in combination with any dose of statin to further lower LDL-C if targets are not achieved with the maximum tolerated statin dose.
 * [Grade I, Level A] Ezetimibe-statin combination therapy was found to have CV benefits in individuals with  CKD and following vascular surgery and acute coronary syndromes.
 
-#### 7.2.2.1: Lipid Lowering Effects Of Cholesterol Absorption Inhibitors
+### 7.8.1: Lipid Lowering Effects Of Cholesterol Absorption Inhibitors
 *   Ezetimibe monotherapy can result in:
     *   Reduction of 18.58% in LDL-C
     *   Reduction of 13.46% in TC
@@ -363,12 +366,12 @@ These data are derived from short-term clinical trials meant for drug registrati
 *   Recommended Dose:
     * Ezetimibe 10 mg daily
 
-### 7.2.3: Proprotein Convertase Subtilisin Kexin Type 9 (Pcsk9)- Inhibitors
+## 7.9: Proprotein Convertase Subtilisin Kexin Type 9 (PCSK9) Inhibitors- Inhibitors
 *    This group of drugs work by inhibiting the binding of PCSK9 to the LDL-receptors. This interaction decreases the degradation of the LDL-receptors, resulting in higher LDL-receptor density at the cell surface. The higher expression of LDL-receptors at the cell surface leads to increased clearance with resulting decrease in LDL-C levels.
 *   Monoclonal antibodies (mAbs)have been developed against PCSK9 that have been shown to reduce LDL-C, irrespective of the background lipid-lowering therapy.
 *   The 2 mAbs that have been approved in Malaysia are alirocumab and evolocumab
 
-#### 7.2.3.1: Lipid Lowering Effects Of Pcsk9 Inhibitors
+### 7.9.1: Lipid Lowering Effects Of PCSK9 Inhibitors
 *   In clinical trials, alirocumab and evolocumab, either alone or in combination with statins, and/or other lipid-lowering therapies, have been shown to significantly reduce LDL-C levels on average by 60%, depending on the dose.
 *   Both alirocumab and evolocumab have been shown to effectively lower LDL-C levels in patients who are at high CV risk, including those with DM.
 *   PCSK9 inhibitors have also been shown to:
@@ -377,7 +380,7 @@ These data are derived from short-term clinical trials meant for drug registrati
     *   Reduce Lp(a) by 30-40%.
 *   In general, patients with more extensive atherosclerotic disease who were at higher risk of MACE, obtained greater risk reduction from a lower LDL-C level achieved with the PCSK9-inhibitors. This would include patients with recent MI< 1-year, diabetes and polyvascular disease.
 
-#### 7.2.3.2: Initiating Pcsk9-Inhibitor Therapy
+### 7.9.2: Initiating PCSK9-Inhibitor Therapy
 *   Currently, these agents are only available as an injection administered subcutaneously every other week or once a month, at different doses depending on the agent used.
 *   Recommended Dose:
     *   Dose of evolucumab: 140mg SC every two weeks or 420mg SC monthly.
@@ -388,7 +391,7 @@ These data are derived from short-term clinical trials meant for drug registrati
 * [Grade III, Level C] PCSK9 - inhibitors cross the placenta and should not be used in pregnancy and are not licensed for use in children.
 *   PCSK-9 inhibitors do not have adverse effects on the liver. Less than < 2% of individuals had elevation of liver function tests >3x the upper limit of normal. They are also safe in individuals with mild and moderate CKD. It has not been studied in patients with eGFR < 20ml/min/1.73m².
 
-### 7.2.4: Fibrates Acid Derivatives (Fibrates)
+## 7.10: Fibrates Acid Derivatives (Fibrates)
 *   Fibrates are Peroxisome Proliferator Activated Receptor (PPAR)  - α agonist which have an important role in fatty acid oxidation.  They reduce serum TG effectively and increase HDL-C modestly. The initial lipid level has a significant impact on the size of the effect.
 *   Fibrates reduce the risk of CV and coronary events in primary prevention, according to moderate-quality evidence, however the absolute treatment effect is limited with absolute risk reductions of about 1%.
 *   Fibrates have not been shown to reduce CVD events in the secondary prevention trials.
@@ -408,12 +411,12 @@ Table 13: Recommended Dosages For Fibrates*#
 **not recommended for use in combination with statins <br>
 #For patients with CKD, refer to Table14 for recommended doses according to KDIGO
 
-### 7.2.5: Newer Lipid Lowering Agents
-#### 7.2.5.1: Small Interfering Rna (siRNA) Pcsk-9 Inhibitors (Inclisiran)
+## 7.11: Newer Lipid Lowering Agents
+### 7.11.1: Small Interfering RNA (siRNA) PCSK-9 Inhibitors (Inclisiran)
 *   Small interfering RNA (siRNA) molecules also block the hepatic production of PCSK9. Inclisiran is a long-acting, synthetic siRNA molecule that binds to a RNA-induced silencing complex (RISC), thereby inhibiting the translation of PCSK9 messenger RNA (mRNA) causing a marked reduction in LDL-C levels.
 *   Inclisiran is a first in this class of therapeutic agents
 
-##### 7.2.5.1.1: Lipid Lowering Effects siRNA Pcsk-9 Inhibitors (Inclisiran)
+#### 7.11.1.1: Lipid Lowering Effects siRNA PCSK-9 Inhibitors (Inclisiran)
 *   Inclisiran can reduce LDL-C by ≈50%.
 * [Grade IIa, Level B] Current evidence suggests a good safety profile with total and serious adverse events approximating that of placebo.
 *   No serious hepatic or renal effects were seen. Elevation of liver enzymes to >3x the upper limit of normal was seen in about 1% of individuals. It was also found to be safe in patients with mild to moderate CKD.
@@ -423,7 +426,7 @@ Table 13: Recommended Dosages For Fibrates*#
     *   Dose of inclisiran: 284mg administered as a single SC injection, initially repeated at 3 months after the 1st dose and then followed by every 6 months.
 *   Inclisiran should not be used in combination with PCSK-9 inhibitors since there is no evidence of additive LDL lowering.
 
-#### 7.2.5.2: Bempedoic Acid
+### 7.11.2: Bempedoic Acid
 *   Bempedoic acid antagonizes ATP-citrate lyase, which is a rate-limiting component of the cholesterol synthesis pathway.
 *   It reduces LDL-C when given alone (by 20-24%) and in combination with a statin (an additional 18% reduction) or ezetimibe (by as much as 38-40%).
 * [Grade IIa, Level B] The combination of bempodoic acid and ezetimibe has been shown to significantly reduce major CV events in statin intolerant patients.
@@ -432,8 +435,8 @@ Table 13: Recommended Dosages For Fibrates*#
 *   Recommended dose: 180mg daily.
 *   It is not yet registered in Malaysia.
 
-### 7.2.6: Other Lipid Lowering Agents
-#### 7.2.6.1: Bile Acid Sequestrants (Anion Exchange Resins)
+## 7.12: Other Lipid Lowering Agents
+### 7.12.1: Bile Acid Sequestrants (Anion Exchange Resins)
 *   Bile acid sequestrants bind to bile acids to promote their secretion into the intestines. This leads to bile acid depletion resulting in the liver generating more hepatic cholesterol. This raises the hepatic demand for cholesterol and lowers the level of LDL in the blood.
 * [Grade IIb, Level B] Monotherapy has a modest effect on CHD in primary prevention trials done in the pre statin era.
 *   There is no significant impact on HDL-C. In some individuals who are susceptible however, TGs may rise. Its use is discouraged in patients with TG ≥ 3.4mmol/L.
@@ -443,7 +446,7 @@ Table 13: Recommended Dosages For Fibrates*#
 *   Recommended Dose:
     *   Cholestyramine: 4gm/d increased by 4gm at weekly intervals to 12-24gm/day in 1-4 divided doses, Max: 24gm/day
 
-#### 7.2.6.2: Nicotinic Acid (Niacin) And Its Derivatives
+### 7.12.2: Nicotinic Acid (Niacin) And Its Derivatives
 *   Nicotinic acid acts in the liver and decreases mobilization of free fatty acids from adipose tissues. It increases HDL-C and lowers TG levels. Its effect on TC reduction is modest.
 * [Grade IIb, Level B] An earlier trial showed mortality benefits with niacin during long term follow up. More contemporary clinical studies, however, have not shown any CV benefits.
 * [Grade IIa, Level B] It may be considered as an alternative therapy to fibrates in individuals with elevated TG not responsive to other pharmacological options.
@@ -451,7 +454,7 @@ Table 13: Recommended Dosages For Fibrates*#
     *   Nicotinic acid (Niacin) is available as tablets of 50mg, capsules of 100mg and 250mg.
     *   Starting dose: 150-300mg daily in divided doses, titration of dose up to 2g/day (usual dose). It should be taken with meals to reduce gastrointestinal side effects.
 
-#### 7.2.6.3: Omega-3 Fatty Acids Supplements
+### 7.12.3: Omega-3 Fatty Acids Supplements
 *   Omega-3 fatty acids supplements are present as:
     *   Mixtures of EPA and DHA - as omega-3 ethyl esters and as carboxylic acids.
     *   Purified EPA- as icosapent ethyl (IPE).
@@ -459,7 +462,7 @@ Table 13: Recommended Dosages For Fibrates*#
     *   Reducing TG usually in combination with other lipid lowering agents. (refer to Section 11: Specific Lipid Disorders)  <!-- cross_ref target_file="section-11-specific-disorders-dyslipidaemia.md" target_heading="Section 11: Specific Lipid Disorders" target_kind="h1_section" -->
     *   Improving CV outcomes in individuals with residual CV risk. Only the preparation icosapent ethyl (IPE) at 4gms per day, has shown promising results. The other preparation of Omega-3 Fatty Acids, although having similar effects on lipids, did not demonstrate the same clinical benefits.
 
-### 7.2.7: Combination Therapy
+## 7.13: Combination Therapy
 *   There is sufficient evidence to show that the addition of non-statin therapies to statins is both safe and effective in further lowering LDL-C and improving CV outcomes.
 *   Combination therapy is used when LDL-C targets are not achieved despite optimal statin dose or the use of maximally tolerated guideline-directed statin dose.
 

@@ -1,9 +1,9 @@
 # Section 7: Post Procedure Complications
 <!-- METADATA
 category: Supportive Treatment, Prevention
-use_case: general_principles_of_management_in_pci
-patient_input:
-output:
+use_case: Post-PCI Complication Management — vascular_access_complications, retroperitoneal_hematoma, pseudo_aneurysm, av_fistula, acute_renal_failure, sheath_removal_timing
+patient_input: access_site, anticoagulant_used, ACT, renal_function
+output: sheath_removal_timing, complication_management_protocol
 critical: false
 -->
 
