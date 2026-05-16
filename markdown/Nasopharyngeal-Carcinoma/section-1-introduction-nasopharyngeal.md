@@ -13,43 +13,8 @@ NPC is the fourth most common cancer among Malaysians (5.2% of all cancers). [Le
 In view of high disease burden of NPC in Malaysia, variation in practice, resource implications as well as lack of local guidelines, the development of an evidence-based CPG for NPC is timely and essential to assist the healthcare providers in managing the disease locally.
 
 ---
-
-## Contextual Anchors (Overlapping)
-
-### Appendix 1: Example Of Search Strategy
-1. Nasopharyngeal Neoplasms/
-2. ((neoplasm* or cancer* or carcinoma*) adj1 (nasopharynx or nasopharyngeal)).tw.
-3. 1 or 2
-4. RADIOTHERAPY/
-5. (radiotherap* adj1 targeted).tw.
-6. radiotherap*.tw.
-7. Chemoradiotherapy/
-8. ((concomitant or concurrent or synchronous) adj1 (chemoradiotherap* or radiochemotherap*)).tw.
-9. chemoradiotherap*.tw.
-10. radiochemotherap*.tw.
-11. CHEMORADIOTHERAPY, ADJUVANT/
-12. (adjuvant adj1 (radiochemotherap* or chemoradiotherap*)).tw.
-13. 4 or 5 or 6 or 7 or 8 or 9 or 10 or 11 or 12
-14. 3 and 13
-15. limit 14 to (english language and humans and last 20 years)
-
----
-
-### Appendix 2: Clinical Questions
-1. What is the epidemiology of nasopharyngeal carcinoma?
-2. What are the risk factors of nasopharyngeal carcinoma?
-3. What are the clinical presentations of patient with nasopharyngeal carcinoma?
-4. What are the investigations for nasopharyngeal carcinoma?
-5. What are the staging modalities in nasopharyngeal carcinoma?
-6. What are the effective and safe treatments for various stages of nasopharyngeal carcinoma?
-7. What are the effective and safe supportive cares for patients with nasopharyngeal carcinoma?
-8. What are the effective and safe management of complications following treatment of nasopharyngeal carcinoma?
-9. What are the effective follow-up plans for patients with nasopharyngeal carcinoma?
-10. What are the effective and safe management of advanced disease (distant metastases) of nasopharyngeal carcinoma?
-
----
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -60,10 +25,9 @@ In view of high disease burden of NPC in Malaysia, variation in practice, resour
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | CPG | Clinical practice guidelines |
 | NPC | Nasopharyngeal carcinoma |
+<!-- parent_only_reference_end -->

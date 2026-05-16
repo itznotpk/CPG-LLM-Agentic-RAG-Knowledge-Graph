@@ -31,8 +31,8 @@ NPC patients are at risk for malnutrition due to disease process or complication
 - Fat supplements
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -43,11 +43,10 @@ NPC patients are at risk for malnutrition due to disease process or complication
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | NPC | Nasopharyngeal Carcinoma |
 | OME | Otitis Media with Effusion |
 | VTE | Venous Thromboembolism |
+<!-- parent_only_reference_end -->

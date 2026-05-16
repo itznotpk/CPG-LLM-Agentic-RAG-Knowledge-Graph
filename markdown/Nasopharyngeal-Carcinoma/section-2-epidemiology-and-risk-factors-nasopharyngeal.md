@@ -13,26 +13,24 @@ The number of new cancer cases is increasing worldwide. In 2012, there was an es
 
 ## 2.2: Risk Factors
 Other risk factors for NPC are:
-- **Infection** – [Level II-2] increased risk of NPC in those tested positive for Epstein-Barr virus antibodies (RR of 3.5 to 32.8)
-- **Family** – [Level II-2] the risk of NPC among the first-degree relatives was 3.1 to 8.0 compared to those without family history
-- **Lifestyle and environment**
-  - **Tobacco smoking** [Level II-2] is one of the important risk factors for NPC (OR=2.41, 95% CI 1.61 to 3.60). [Level II-2] The risk rise by 1 - 2% with each pack-year of smoking.
-  - [Level II-2] Consumption of **salted fish** has higher risk of getting NPC in people who consume it since childhood (OR=2.45, 95% CI 2.03 to 2.94) and those who have it for three times or more in 1 month (OR=1.9, 95% CI 1.1 to 3.5).
-  - [Level II-2] Exposure to domestic **wood cooking fires** for more than 10 years (OR=5.8; 95% CI 2.5 to 13.6).
-  - [Level II-2] Exposure to **occupational solvents** for 10 or less years (OR=2.6; 95% CI 1.4 to 4.8).
-  - [Level II-2] Occupational exposure to **wood dust** (OR=1.63, 95% CI 1.02 to 2.61).
+- Infection – [Level II-2] increased risk of NPC in those tested positive for Epstein-Barr virus antibodies (RR of 3.5 to 32.8)
+- Family – [Level II-2] the risk of NPC among the first-degree relatives was 3.1 to 8.0 compared to those without family history
+- Lifestyle and environment
+  - Tobacco smoking [Level II-2] is one of the important risk factors for NPC (OR=2.41, 95% CI 1.61 to 3.60). [Level II-2] The risk rise by 1 - 2% with each pack-year of smoking.
+  - [Level II-2] Consumption of salted fish has higher risk of getting NPC in people who consume it since childhood (OR=2.45, 95% CI 2.03 to 2.94) and those who have it for three times or more in 1 month (OR=1.9, 95% CI 1.1 to 3.5).
+  - [Level II-2] Exposure to domestic wood cooking fires for more than 10 years (OR=5.8; 95% CI 2.5 to 13.6).
+  - [Level II-2] Exposure to occupational solvents for 10 or less years (OR=2.6; 95% CI 1.4 to 4.8).
+  - [Level II-2] Occupational exposure to wood dust (OR=1.63, 95% CI 1.02 to 2.61).
 
 ## 2.3: Screening
 Screening of NPC for general population in endemic area has been extensively studied. The methods used are Epstein-Barr virus (EBV) serology test and nasopharyngoscopy. [Level II-2] The Health Technology Assessment (HTA) report by the Ministry of Health (MoH) Malaysia published in 2011 concluded that there was insufficient evidence to recommend a population-based NPC screening programme as a public health policy. [Level I] The findings of a recent Cochrane systematic review on NPC screening published in 2015 were consistent with the HTA report.
-
----
 
 > **Recommendation:**
 > - Screening of NPC in general population could not be recommended due to insufficient evidence for its effectiveness and safety.
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -43,15 +41,14 @@ Screening of NPC for general population in endemic area has been extensively stu
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | CI | Confidence Interval |
-| EBV | Epstein-Barr virus |
+| EBV | Epstein-Barr Virus |
 | HTA | Health Technology Assessment |
 | MoH | Ministry of Health |
-| NPC | Nasopharyngeal carcinoma |
+| NPC | Nasopharyngeal Carcinoma |
 | OR | Odds Ratio |
 | RR | Relative Risk |
+<!-- parent_only_reference_end -->

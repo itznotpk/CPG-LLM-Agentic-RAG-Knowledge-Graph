@@ -23,8 +23,6 @@ output: staging_classification, chemotherapy_protocol, toxicity_reference, perfo
 14. 3 and 13
 15. limit 14 to (english language and humans and last 20 years)
 
----
-
 ## Appendix 2: Clinical Questions
 1. What is the epidemiology of nasopharyngeal carcinoma?
 2. What are the risk factors of nasopharyngeal carcinoma?
@@ -36,8 +34,6 @@ output: staging_classification, chemotherapy_protocol, toxicity_reference, perfo
 8. What are the effective and safe management of complications following treatment of nasopharyngeal carcinoma?
 9. What are the effective follow-up plans for patients with nasopharyngeal carcinoma?
 10. What are the effective and safe management of advanced disease (distant metastases) of nasopharyngeal carcinoma?
-
----
 
 ## Appendix 3: Clinical Presentations
 Visual signs and presentations of nasopharyngeal carcinoma include various physical abnormalities, often related to tumour growth and cranial nerve involvement.
@@ -61,11 +57,9 @@ Visual signs and presentations of nasopharyngeal carcinoma include various physi
 - Figure 9: Recurrent NPC pre- and post-endoscopic nasopharyngectomy
   - *Description:* A comparison of endoscopic pictures. The pre-operative images show the recurrent tumour mass under standard white light and its corresponding appearance under auto-fluorescence (green). The post-operative images show the cleared cavity under both standard white light and auto-fluorescence.
 
----
+## Appendix 4: TNM Staging Diagram
+**Nasopharynx Staging Form**
 
-## Appendix 4: Tnm Staging Diagram
-
-### Nasopharynx Staging Form
 **PRIMARY TUMOR (T)**
 - **TX:** Primary tumor cannot be assessed
 - **T0:** No evidence of primary tumor
@@ -116,7 +110,7 @@ The distribution and the prognostic impact of regional lymph node spread from na
 
 *Note: Group definitions are identical for Clinical and Pathologic staging.*
 
-### Nasopharynx Staging Form (Additional Descriptors)
+**Nasopharynx Staging Form (Additional Descriptors)**
 - **General Notes:** For identification of special cases of TNM or pTNM classifications, the "m" suffix and "y," "r," and "a" prefixes are used. Although they do not affect the stage grouping, they indicate cases needing separate analysis.
   - **m suffix:** indicates the presence of multiple primary tumors in a single site and is recorded in parentheses: pT(m)NM.
   - **y prefix:** indicates those cases in which classification is performed during or following initial multimodality therapy. The cTNM or pTNM category is identified by a "y" prefix. The ycTNM or ypTNM categorizes the extent of tumor actually present at the time of that examination. The "y" categorization is not an estimate of tumor prior to multimodality therapy.
@@ -132,7 +126,7 @@ The distribution and the prognostic impact of regional lymph node spread from na
   - **R1:** Microscopic residual tumor
   - **R2:** Macroscopic residual tumor
 
-### Nasopharynx Staging Form Illustrations
+**Nasopharynx Staging Form Illustrations**
 *Description of staging diagrams:*
 Five anatomical diagrams illustrate the regions involved in primary tumor and regional node staging:
 1. Sagittal view of the head and neck highlighting the Nasopharynx, Oropharynx, and Hypopharynx, along with the thyroid cartilage and cricoid cartilage landmarks.
@@ -142,11 +136,8 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 
 *Source: Edge SB, Byrd DR, Compton CC. American Joint Committee on Cancer, American Cancer Society: AJCC Cancer Staging Manual (7th edition). Springer, New York. 2009.*
 
----
-
 ## Appendix 5: Radiological Staging
-
-### Primary Tumour (T Staging)
+**Primary Tumour (T Staging)**
 - Figure 1: T1
   - *Description:* MRI scan showing a left nasopharyngeal mass confined within the nasopharyngeal mucosal space.
 - Figure 2: T2
@@ -156,7 +147,7 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 - Figure 4: T4
   - *Description:* MRI scan demonstrating left masticator space involvement.
 
-### Nodal Staging (N Staging)
+**Nodal Staging (N Staging)**
 - Figure 5: N1
   - *Description:* MRI scan showing unilateral left cervical lymph nodes involvement.
 - Figure 4: N1
@@ -167,8 +158,6 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
   - *Description:* MRI scan showing left cervical lymph nodes measuring more than 6 cm.
 - Figure 9: N3b
   - *Description:* MRI scan showing left supraclavicular lymph nodes involvement.
-
----
 
 ## Appendix 6: Chemotherapy Drugs And Side Effects
 | CHEMOTHERAPY DRUGS | SIDE EFFECTS | REMARKS |
@@ -184,8 +173,6 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 1. Ministry of Health & Ministry of Higher Education Malaysia. Systemic Therapy of Cancer 3rd Edition. Putrajaya: MoH & MoHE; 2011
 2. Micromedex Solutions, Truven Health Analytics Inc. MIMS Gateway Service Portal. Available at: http://www.mimsgateway.com/Malaysia/Online.aspx
 
----
-
 ## Appendix 7: Eastern Cooperative Oncology Group (Ecog) Performance Status
 | Grade | Description |
 |---|---|
@@ -198,11 +185,8 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 
 **Source:** Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
 
----
-
 ## Appendix 8: Toxicities Of Radiotherapy On Head And Neck
-
-### Acute Toxicities
+**Acute Toxicities**
 - Lethargy
 - Radiation dermatitis
 - Mucositis
@@ -211,7 +195,7 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 - Nausea and vomiting
 - Haematological toxicities (neutropaenia)
 
-### Late Toxicities
+**Late Toxicities**
 **Neurological Complications**
 - Temporal lobe injuries
 - Cranial nerve palsies

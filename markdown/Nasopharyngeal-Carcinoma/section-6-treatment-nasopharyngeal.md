@@ -25,7 +25,7 @@ There are strong evidences on chemotherapy added concurrently to RT in locoregio
 - [Level I] A later updated meta-analysis of 19 RCTs in 2015 supported the findings of the above Cochrane review.
 - [Level I] In a 2015 network meta-analysis, both CCRT + AC and CCRT alone benefited OS significantly when compared with RT alone [HR of 0.64 (95% CI 0.53 to 0.76) and HR of 0.66 (95% CI 0.49 to 0.88) respectively]. The primary studies were of moderate quality.
 
-The list of common chemotherapy drugs and the side effects is outlined in **Appendix 6: Chemotherapy Drugs and Side Effects**.
+The list of common chemotherapy drugs and the side effects is outlined in Appendix 6: Chemotherapy Drugs and Side Effects.
 
 Neoadjuvant chemotherapy (NACT) is the administration of chemotherapy agents before a primary treatment. The aim is to reduce the size or extent of cancer. [Level I] Based on three meta-analyses, NACT showed a benefit in disease free survival but not in OS and locoregional control. Strong evidence are required to establish the efficacy of NACT in locoregionally advanced NPC.
 
@@ -34,8 +34,6 @@ Adjuvant chemotherapy (AC) is chemotherapy given after primary treatment of NPC.
 [Level I] Common adverse events in chemotherapy include neutropaenia, mucositis, nausea and vomiting.
 
 > - Due to limited evidence, efficacy of neoadjuvant and adjuvant chemotherapy in NPC has yet to be established.
-
----
 
 > **Recommendation 4**
 > - Radiotherapy alone is the main treatment in Stage I nasopharyngeal carcinoma (NPC).
@@ -72,20 +70,16 @@ In advanced disease with distant metastasis (M1) of NPC, options of treatment in
 
 [Level III] Multimodality treatment which include chemotherapy, radiotherapy with or without surgery increase survival rate significantly compared with best supportive care or chemotherapy alone in metastatic NPC.
 
-Palliative care is very important in order to provide comfort and support to patients and families who are living with or dying from advanced NPC. These patients will have complex physical and psychosocial problems. A comprehensive approach of treatment such as surgery, radiotherapy, chemotherapy, psychological and social supports, pain control, nutritional and spiritual supports may alleviate some of the discomfort for a better quality of life. Palliative chemotherapy may be considered in patients with good Eastern Cooperative Oncology Group (ECOG) performance status of 0-2 as outlined in **Appendix 7: Eastern Cooperative Oncology Group (ECOG) Performance Status**.
+Palliative care is very important in order to provide comfort and support to patients and families who are living with or dying from advanced NPC. These patients will have complex physical and psychosocial problems. A comprehensive approach of treatment such as surgery, radiotherapy, chemotherapy, psychological and social supports, pain control, nutritional and spiritual supports may alleviate some of the discomfort for a better quality of life. Palliative chemotherapy may be considered in patients with good Eastern Cooperative Oncology Group (ECOG) performance status of 0-2 as outlined in Appendix 7: Eastern Cooperative Oncology Group (ECOG) Performance Status.
 
 For pain management in cancer patients, refer to CPG Management of Cancer Pain.
-
----
 
 > **Recommendation 6**
 > - Multimodality treatment including palliative care should be considered in advanced nasopharyngeal carcinoma.
 
 ---
-
-## Contextual Anchors (Overlapping)
-
-## Appendix 6: Chemotherapy Drugs And Side Effects
+<!-- parent_only_reference_start -->
+Appendix 6: Chemotherapy Drugs And Side Effects
 | CHEMOTHERAPY DRUGS | SIDE EFFECTS | REMARKS |
 |---|---|---|
 | Cisplatin | • Gastrointestinal (nausea and vomiting).<br>• Blood (anaemia, thrombocytopaenia).<br>• Renal toxicity.<br>• Electrolyte imbalance (hypomagnesaemia, hypocalcaemia, hypokalaemia).<br>• Auditory (tinnitus; with or without hearing loss).<br>• Neurology (peripheral neuropathy, paraesthesia, seizure).<br>• Hypersensitivity reaction (shortness of breath, hypotension, facial oedema, flushing). | • Observe for cumulative renal toxicity. It may be minimised by adequate hydration and urinary output at least 24 hours after administration.<br>• Prophylactic anti-emetics and corticosteroids should be given.<br>• Observe for anaphylactic-like reactions during infusion. |
@@ -99,9 +93,7 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 1. Ministry of Health & Ministry of Higher Education Malaysia. Systemic Therapy of Cancer 3rd Edition. Putrajaya: MoH & MoHE; 2011
 2. Micromedex Solutions, Truven Health Analytics Inc. MIMS Gateway Service Portal. Available at: http://www.mimsgateway.com/Malaysia/Online.aspx
 
----
-
-## Appendix 7: Eastern Cooperative Oncology Group (Ecog) Performance Status
+Appendix 7: Eastern Cooperative Oncology Group (Ecog) Performance Status
 | Grade | Description |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -113,9 +105,7 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 
 **Source:** Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
 
----
-
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -126,9 +116,7 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | 2D-CRT | 2-dimensional Radiation Therapy |
@@ -148,3 +136,4 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 | PFS | Progression Free Survival |
 | RCT | Randomised Controlled Trial |
 | RT | Radiation Therapy |
+<!-- parent_only_reference_end -->

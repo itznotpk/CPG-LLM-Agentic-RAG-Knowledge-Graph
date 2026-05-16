@@ -9,6 +9,15 @@ output: prognosis_estimation, follow_up_schedule, surveillance_investigation_pla
 ## 9.1: Prognosis
 [Level II-3] [Level III] Different prognostic categories (based on the difference in failure patterns) can be defined across different stages, as shown in Table 2: Prognosis of Different NPC Stages. These prognostic groupings have important implications for the selection of appropriate treatment strategies.
 
+Table 2: Prognosis Of Different Npc Stages
+
+| Stage | Prognosis |
+|---|---|
+| T1-2 N0-1 | Relatively good treatment outcome |
+| T3-4 N0-1 | Mainly local failure |
+| T1-2 N2-3 | Mainly regional and distant failure |
+| T3-4 N2-3 | Local, regional and distant failure |
+
 Males (p<0.05) and tumour with lymph nodes involvement (p<0.05) have poorer prognosis as compared with females and tumour confined to the primary site in 5-year LRFS. [Level II-3] The 5-year LRFS for male is 33.3% and for N1 patients is 35.0%.
 
 Distant metastasis is the most common mode of failure in NPC, followed by local recurrence. While a small percentage of locally recurrent NPC can be salvaged, the vast majority of distant metastasis succumbs to the disease. [Level II-3] However, patients with non-disseminated NPC (6.88%) survive two years or more after distant metastasis is diagnosed.
@@ -18,7 +27,7 @@ Radiotherapy acute toxicities usually take about one to two months to resolve an
 
 The aims of following-up patients after NPC treatment are:
 - to assess the response to treatments
-- [Level III] to manage side effects and complications which may arise due to the disease process or from the treatment (refer to **Section 8: Management of Complications**)
+- [Level III] to manage side effects and complications which may arise due to the disease process or from the treatment (refer to Section 8: Management of Complications) <!-- cross_ref target_file="section-8-management-of-complications-nasopharyngeal.md" target_heading="Section 8: Management Of Complications" target_kind="h1_section" -->
 - [Level III] to provide surveillance and early detection of locoregional relapses, which are amenable to radical salvage treatment to detect occurrence of second primary cancer
   - [Level III] There is a 24% increased risk in the development of a second cancer after NPC as compared with the general population (standardised incidence rate=1.24, 95% CI 1.15 to 1.33).
 
@@ -32,54 +41,9 @@ The CPG DG and RC suggest the following procedures to be conducted on NPC patien
 > - if post-radiotherapy cross sectional imaging is required, it should be offered no earlier than 3 months
 > - cross-sectional imaging, as needed, to detect deep infiltrating tumours not associated with mucosal lesion during the initial 3 - 5 years post-treatment
 
-There is no standard local follow-up schedule for NPC patients. However, the CPG DG and RC suggest the following schedule on NPC.
+There is no standard local follow-up schedule for NPC patients. However, the CPG DG and RC suggest the following schedule on NPC as shown in Table 3: Follow-Up Schedule Of Npc Without Recurrence.
 
----
-
-## Contextual Anchors (Overlapping)
-
-### Section 8: Management Of Complications
-Post-radiotherapy complications such as oral and aural complications, and cranial nerve palsies are common in the treatment of NPC. Other late toxicities post-radiotherapy are listed in **Appendix 8: Toxicities of Radiotherapy on Head and Neck**.
-
-## 8.1: Oral Complications
-The common oral complications post-radiotherapy are:
-- [Level II-3] xerostomia (80% to 100%)
-- [Level II-3] mucositis (60% from third to fourth week after the beginning of radiotherapy)
-- [Level II-3] candidiasis (16% to 67%)
-
-It is essential that NPC patients receive dental assessment prior to radiotherapy to minimise post-treatment oral complications. [Level II-3] The oral complications among NPC survivors causes significant negative impact in functional, physical, social and handicap in oral health-related quality of life (Oral Health Impact Profile-subscale).
-
-At present, there is no retrievable evidence on specific dental management in NPC patients due to lack of clinical trials for such treatment modality. However, some of the dental management for the head and neck cancer includes:
-- [Level I] fluoride therapy
-- [Level I] chlorhexidine rinse (preferably alcohol-free)
-- [Level II-3] dental extraction
-
-Treatment for xerostomia is limited. Locally, symptomatic relief such as frequent sipping of plain water and the use of moisturising mouth gel or gargle has been offered to the affected patients. [Level I] Although there is limited evidence available, pilocarpine is an efficacious and safe option of treatment.
-
-## 8.2: Osteoradionecrosis
-Dental diseases increase the risk of osteoradionecrosis (ORN). Therefore, dental assessment prior to radiotherapy is essential to reduce the risks of ORN.
-
-Osteoradionecrosis of the skull base post-radiotherapy can be controlled by sequestrectomy combined with hyperbaric oxygen in majority of NPC patients. [Level III] In extensive cases, radical sequestrectomy with microvascular free flap reconstruction are justified. Long-term antibiotics can be used but may not be sufficient to treat an extensive disease.
-
-## 8.3: Cranial Nerve Palsy
-There is no definite treatment for cranial nerve palsy post-radiotherapy in NPC patients. Symptomatic treatments such as nasogastric tube or gastrostomy tube feeding for dysphagia or aspiration may be offered. [Level III] In intractable aspiration secondary to radiation encephalopathy or radiation damage of cranial nerve, closure of laryngotracheal cavity and tracheostomy is an option. [Level III] Strabismus as a result of sixth cranial nerve palsy can be treated temporarily by Botulinum Toxin A injection.
-
-## 8.4: Otitis Media With Effusion
-Refer to **Section 7.2** under **Supportive Care**.
-
----
-
-Table 2: Prognosis Of Different Npc Stages
-
-| Stage | Prognosis |
-|---|---|
-| T1-2 N0-1 | Relatively good treatment outcome |
-| T3-4 N0-1 | Mainly local failure |
-| T1-2 N2-3 | Mainly regional and distant failure |
-| T3-4 N2-3 | Local, regional and distant failure |
-
----
-Table 3 : Follow-Up Schedule Of Npc Without Recurrence
+Table 3: Follow-Up Schedule Of Npc Without Recurrence
 
 | Year after completion of treatment | Frequency of follow-up |
 |---|---|
@@ -92,38 +56,8 @@ Table 3 : Follow-Up Schedule Of Npc Without Recurrence
 *\*interval of follow-up may be adjusted based on clinical judgement*
 
 ---
-
-### Appendix 8: Toxicities Of Radiotherapy On Head And Neck
-
-### Acute Toxicities
-- Lethargy
-- Radiation dermatitis
-- Mucositis
-- Dysphagia
-- Taste changes
-- Nausea and vomiting
-- Haematological toxicities (neutropaenia)
-
-### Late Toxicities
-**Neurological Complications**
-- Temporal lobe injuries
-- Cranial nerve palsies
-- Lhermitte’s syndrome
-
-**Non-neurological Complications**
-- Tinnitus
-- Hearing loss
-- Otorrhea
-- Trismus
-- Dysphagia
-- Subcutaneous fibrosis
-- Endocrinopathy
-  - primary hypothyroidism
-  - hypopituitarism
-- Xerostomia
-- Second cancer within radiotherapy fields
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -134,9 +68,7 @@ Table 3 : Follow-Up Schedule Of Npc Without Recurrence
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | CI | Confidence Interval |
@@ -144,3 +76,4 @@ Table 3 : Follow-Up Schedule Of Npc Without Recurrence
 | LRFS | Locoregional Free Survival |
 | NPC | Nasopharyngeal Carcinoma |
 | RC | Review Committee |
+<!-- parent_only_reference_end -->

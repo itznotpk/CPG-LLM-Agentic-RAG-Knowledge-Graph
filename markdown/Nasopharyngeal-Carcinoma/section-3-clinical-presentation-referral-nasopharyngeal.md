@@ -16,17 +16,15 @@ Healthcare providers need to be aware that NPC patients often present with nonsp
 - ear symptoms (11 - 48.4%) - ear block, deafness, tinnitus or pain; the symptoms are usually unilateral but can be bilateral as the disease progresses
 - ophthalmo-neurologic symptoms (11 - 14.6%) - unilateral headache, facial numbness, diplopia, ptosis, trismus, dysphagia or hoarseness of voice. The most common cranial nerve involvement is 5th followed by 6th, 3rd, 4th and others.
 
-The images of these symptoms can be viewed in **Appendix 3: Clinical Presentations**.
+The images of these symptoms can be viewed in Appendix 3: Clinical Presentations.
 
 [Level III] Majority of NPC patients in Malaysia present with advanced stage (Stages III/IV) at the time of diagnosis (75 - 85%). This is due to lack of awareness of NPC symptoms and signs among patients and doctors.
 
 ## 3.2: Referral
 There is no evidence retrieved on referral criteria for patients with NPC. In view of delayed in diagnosis of NPC, the CPG DG uses consensus method to address the importance of referral to Otorhinolaryngology services as soon as possible. Early referral is crucial in establishing diagnosis of NPC so that the patients could receive definitive treatment.
 
----
-
 > **Recommendation 1**
-> - Patients presenting with any of the following symptoms should be referred to Otorhinolaryngologists **as soon as possible** to rule out nasopharyngeal carcinoma:
+> - Patients presenting with any of the following symptoms should be referred to Otorhinolaryngologists as soon as possible to rule out nasopharyngeal carcinoma:
 >   - painless neck lump (unilateral/bilateral)
 >   - blood-stained nasal discharge/saliva
 >   - unilateral ear block or hearing loss
@@ -34,11 +32,10 @@ There is no evidence retrieved on referral criteria for patients with NPC. In vi
 >   - facial numbness
 >   - diplopia
 
+
 ---
-
-## Contextual Anchors (Overlapping)
-
-### Appendix 3: Clinical Presentations
+<!-- parent_only_reference_start -->
+Appendix 3: Clinical Presentations
 Visual signs and presentations of nasopharyngeal carcinoma include various physical abnormalities, often related to tumour growth and cranial nerve involvement.
 
 - Figure 1: Painless neck lumps
@@ -60,9 +57,7 @@ Visual signs and presentations of nasopharyngeal carcinoma include various physi
 - Figure 9: Recurrent NPC pre- and post-endoscopic nasopharyngectomy
   - *Description:* A comparison of endoscopic pictures. The pre-operative images show the recurrent tumour mass under standard white light and its corresponding appearance under auto-fluorescence (green). The post-operative images show the cleared cavity under both standard white light and auto-fluorescence.
 
----
-
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -73,10 +68,9 @@ Visual signs and presentations of nasopharyngeal carcinoma include various physi
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | CPG DG | Clinical Practice Guidelines Development Group |
 | NPC | Nasopharyngeal Carcinoma |
+<!-- parent_only_reference_end -->

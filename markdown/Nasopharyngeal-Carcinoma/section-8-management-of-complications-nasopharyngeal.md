@@ -7,7 +7,7 @@ output: complication_management_plan, symptom_relief, rehabilitation_referral
 treatment_type: pilocarpine, fluoride_therapy, chlorhexidine, hyperbaric_oxygen, botulinum_toxin_A
 -->
 
-Post-radiotherapy complications such as oral and aural complications, and cranial nerve palsies are common in the treatment of NPC. Other late toxicities post-radiotherapy are listed in **Appendix 8: Toxicities of Radiotherapy on Head and Neck**.
+Post-radiotherapy complications such as oral and aural complications, and cranial nerve palsies are common in the treatment of NPC. Other late toxicities post-radiotherapy are listed in Appendix 8: Toxicities of Radiotherapy on Head and Neck.
 
 ## 8.1: Oral Complications
 The common oral complications post-radiotherapy are:
@@ -29,37 +29,20 @@ Dental diseases increase the risk of osteoradionecrosis (ORN). Therefore, dental
 
 Osteoradionecrosis of the skull base post-radiotherapy can be controlled by sequestrectomy combined with hyperbaric oxygen in majority of NPC patients. [Level III] In extensive cases, radical sequestrectomy with microvascular free flap reconstruction are justified. Long-term antibiotics can be used but may not be sufficient to treat an extensive disease.
 
----
-
 > **Recommendation 7**
 > - All nasopharyngeal carcinoma (NPC) patients should have dental assessment prior to radiotherapy and treated accordingly by oral/dental specialists trained in dealing with patients receiving radiotherapy.
 > - Pilocarpine may be offered for treatment of post-radiotherapy xerostomia in NPC patients, if it is available.
-
----
 
 ## 8.3: Cranial Nerve Palsy
 There is no definite treatment for cranial nerve palsy post-radiotherapy in NPC patients. Symptomatic treatments such as nasogastric tube or gastrostomy tube feeding for dysphagia or aspiration may be offered. [Level III] In intractable aspiration secondary to radiation encephalopathy or radiation damage of cranial nerve, closure of laryngotracheal cavity and tracheostomy is an option. [Level III] Strabismus as a result of sixth cranial nerve palsy can be treated temporarily by Botulinum Toxin A injection.
 
 ## 8.4: Otitis Media With Effusion
-Refer to **Section 7.2** under **Supportive Care**.
+Refer to Section 7.2: Treatment Of Otitis Media With Effusion. <!-- cross_ref target_file="section-7-supportive-care-nasopharyngeal.md" target_heading="7.2: Treatment Of Otitis Media With Effusion" target_kind="h2_section" -->
 
 ---
-
-## Contextual Anchors (Overlapping)
-
-### Section 7: .2: Treatment Of Otitis Media With Effusion
-Otitis media with effusion (OME) is common in NPC patients. [Level I] The treatment options for post-irradiation OME are:
-- Myringotomy plus grommet insertion
-- Simple aspiration (auripuncture)
-- Tympanic membrane fenestration with cauterization
-
-[Level I] Myringotomy and grommet insertion has higher cure rate at the end of 2-year follow-up compared with simple auripuncture plus aspiration (51% vs 38%, p=0.011) despite higher incidence of complications (28.9% vs 15.6%).
-
----
-
-### Appendix 8: Toxicities Of Radiotherapy On Head And Neck
-
-### Acute Toxicities
+<!-- parent_only_reference_start -->
+Appendix 8: Toxicities Of Radiotherapy On Head And Neck
+**Acute Toxicities**
 - Lethargy
 - Radiation dermatitis
 - Mucositis
@@ -68,7 +51,7 @@ Otitis media with effusion (OME) is common in NPC patients. [Level I] The treatm
 - Nausea and vomiting
 - Haematological toxicities (neutropaenia)
 
-### Late Toxicities
+**Late Toxicities**
 **Neurological Complications**
 - Temporal lobe injuries
 - Cranial nerve palsies
@@ -87,9 +70,7 @@ Otitis media with effusion (OME) is common in NPC patients. [Level I] The treatm
 - Xerostomia
 - Second cancer within radiotherapy fields
 
----
-
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -100,11 +81,10 @@ Otitis media with effusion (OME) is common in NPC patients. [Level I] The treatm
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | NPC | Nasopharyngeal Carcinoma |
 | OME | Otitis Media with Effusion |
 | ORN | Osteoradionecrosis |
+<!-- parent_only_reference_end -->

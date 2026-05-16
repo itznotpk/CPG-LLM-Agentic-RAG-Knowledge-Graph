@@ -33,8 +33,8 @@ To assist in the implementation of the CPG, the following are proposed as clinic
 Implementation strategies will be developed following the approval of the CPG by MoH which include Quick Reference and Training Module.
 
 ---
-
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -45,12 +45,11 @@ Implementation strategies will be developed following the approval of the CPG by
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | CPG | Clinical Practice Guidelines |
 | IMRT | Intensity Modulated Radiotherapy |
 | MoH | Ministry of Health |
 | NPC | Nasopharyngeal Carcinoma |
+<!-- parent_only_reference_end -->

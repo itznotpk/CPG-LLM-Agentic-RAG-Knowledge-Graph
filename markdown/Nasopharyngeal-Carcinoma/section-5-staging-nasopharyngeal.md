@@ -9,9 +9,9 @@ critical: true
 
 Cancer staging plays an important role in determining the best treatment approach and prognosis of the disease. In this CPG, the latest edition of the American Joint Committee on Cancer or AJCC Cancer Staging Manual 2010 (7th Edition) is used to stage NPC. The most clinically useful staging system is the Tumour Node Metastasis (TNM) System.
 
-TNM staging consist of clinical examination, and pathological and radiological investigations. Clinical examination of nasopharynx, regional lymph nodes and distant metastatic sites (especially lung, liver and bone) is crucial for diagnosis and staging. Cranial nerves examination is vital as cranial nerve involvement may be the first and only presentation of NPC. Refer to **Appendix 4: TNM Staging Diagram** for TNM Staging Diagram.
+TNM staging consist of clinical examination, and pathological and radiological investigations. Clinical examination of nasopharynx, regional lymph nodes and distant metastatic sites (especially lung, liver and bone) is crucial for diagnosis and staging. Cranial nerves examination is vital as cranial nerve involvement may be the first and only presentation of NPC. Refer to Appendix 4: TNM Staging Diagram for TNM Staging Diagram.
 
-### Primary Tumour (T)
+**Primary Tumour (T)**
 **TX** Primary tumour cannot be assessed;
 **T0** No evidence of primary tumour;
 **Tis** Carcinoma in situ
@@ -25,7 +25,7 @@ TNM staging consist of clinical examination, and pathological and radiological i
 
 *\*Note: Parapharyngeal extension denotes posterolateral infiltration of tumour.*
 
-### Regional Lymph Nodes (N) Nasopharynx
+**Regional Lymph Nodes (N) Nasopharynx**
 **NX** Regional lymph nodes cannot be assessed;
 **N0** No regional lymph node metastasis
 
@@ -40,11 +40,11 @@ TNM staging consist of clinical examination, and pathological and radiological i
 *\*Note: Midline nodes are considered ipsilateral nodes.*
 *\*\*Note: Supraclavicular zone or fossa is defined by three points: (1) the superior margin of the sternal end of the clavicle, (2) the superior margin of the lateral end of the clavicle, (3) the point where the neck meets the shoulder. All cases with lymph nodes (whole or part) in the fossa are considered N3b.*
 
-### Distant Metastasis (M)
+**Distant Metastasis (M)**
 **M0** No distant metastasis;
 **M1** Distant metastasis;
 
-### Anatomic Stage/Prognostic Groups
+**Anatomic Stage/Prognostic Groups**
 | Stage | T | N | M |
 |---|---|---|---|
 | Stage 0 | Tis | N0 | M0 |
@@ -63,8 +63,6 @@ TNM staging consist of clinical examination, and pathological and radiological i
 | Stage IVB | Any T | N3 | M0 |
 | Stage IVC | Any T | Any N | M1 |
 
----
-
 ## 5.1: Radiological Staging
 Imaging studies are essential in clinical staging of the NPC as it identifies the deep tumour infiltration and locoregional cervical lymph nodes involvement. It is mandatory to complete the staging process for further management of the disease.
 
@@ -78,9 +76,7 @@ In two systematic reviews, whole-body FDG PET or PET-CT demonstrated a good diag
 
 In local setting, CT scan is widely used to stage the disease in view of limited availability of MRI and FDG PET-CT. CT scan is also offered when there is contraindication for MRI such as the use of pacemaker.
 
-Some of the radiological images of NPC staging can be seen on **Appendix 5: Radiological Staging**.
-
----
+Some of the radiological images of NPC staging can be seen on Appendix 5: Radiological Staging.
 
 > **Recommendation 3**
 > - All nasopharyngeal carcinoma (NPC) patients should be staged using the tumour node metastasis (TNM) system.
@@ -91,12 +87,9 @@ Some of the radiological images of NPC staging can be seen on **Appendix 5: Radi
 > - When MRI and FDG PET-CT are not feasible, CT scan is an alternative imaging modality in NPC staging.
 
 ---
-
-## Contextual Anchors (Overlapping)
-
-### Appendix 4: Tnm Staging Diagram
-
-### Nasopharynx Staging Form
+<!-- parent_only_reference_start -->
+Appendix 4: Tnm Staging Diagram
+**Nasopharynx Staging Form**
 **PRIMARY TUMOR (T)**
 - **TX:** Primary tumor cannot be assessed
 - **T0:** No evidence of primary tumor
@@ -147,7 +140,7 @@ The distribution and the prognostic impact of regional lymph node spread from na
 
 *Note: Group definitions are identical for Clinical and Pathologic staging.*
 
-### Nasopharynx Staging Form (Additional Descriptors)
+**Nasopharynx Staging Form (Additional Descriptors)**
 - **General Notes:** For identification of special cases of TNM or pTNM classifications, the "m" suffix and "y," "r," and "a" prefixes are used. Although they do not affect the stage grouping, they indicate cases needing separate analysis.
   - **m suffix:** indicates the presence of multiple primary tumors in a single site and is recorded in parentheses: pT(m)NM.
   - **y prefix:** indicates those cases in which classification is performed during or following initial multimodality therapy. The cTNM or pTNM category is identified by a "y" prefix. The ycTNM or ypTNM categorizes the extent of tumor actually present at the time of that examination. The "y" categorization is not an estimate of tumor prior to multimodality therapy.
@@ -163,7 +156,7 @@ The distribution and the prognostic impact of regional lymph node spread from na
   - **R1:** Microscopic residual tumor
   - **R2:** Macroscopic residual tumor
 
-### Nasopharynx Staging Form Illustrations
+**Nasopharynx Staging Form Illustrations**
 *Description of staging diagrams:*
 Five anatomical diagrams illustrate the regions involved in primary tumor and regional node staging:
 1. Sagittal view of the head and neck highlighting the Nasopharynx, Oropharynx, and Hypopharynx, along with the thyroid cartilage and cricoid cartilage landmarks.
@@ -173,11 +166,8 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 
 *Source: Edge SB, Byrd DR, Compton CC. American Joint Committee on Cancer, American Cancer Society: AJCC Cancer Staging Manual (7th edition). Springer, New York. 2009.*
 
----
-
-### Appendix 5: Radiological Staging
-
-### Primary Tumour (T Staging)
+Appendix 5: Radiological Staging
+**Primary Tumour (T Staging)**
 - Figure 1: T1
   - *Description:* MRI scan showing a left nasopharyngeal mass confined within the nasopharyngeal mucosal space.
 - Figure 2: T2
@@ -187,7 +177,7 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 - Figure 4: T4
   - *Description:* MRI scan demonstrating left masticator space involvement.
 
-### Nodal Staging (N Staging)
+**Nodal Staging (N Staging)**
 - Figure 5: N1
   - *Description:* MRI scan showing unilateral left cervical lymph nodes involvement.
 - Figure 4: N1
@@ -199,9 +189,7 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 - Figure 9: N3b
   - *Description:* MRI scan showing left supraclavicular lymph nodes involvement.
 
----
-
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -212,9 +200,7 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 
 *SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | AJCC | American Joint Committee on Cancer |
@@ -225,3 +211,4 @@ Five anatomical diagrams illustrate the regions involved in primary tumor and re
 | MRI | Magnetic Resonance Imaging |
 | NPC | Nasopharyngeal Carcinoma |
 | TNM | Tumour Node Metastasis |
+<!-- parent_only_reference_end -->
