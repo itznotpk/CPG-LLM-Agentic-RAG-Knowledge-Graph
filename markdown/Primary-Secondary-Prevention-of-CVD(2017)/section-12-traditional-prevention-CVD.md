@@ -8,10 +8,6 @@ output: safety_guidance, interaction_warnings, referral_criteria
 
 > **Context:** This section addresses Traditional and Complementary Medicine (T&CM) use in the context of CVD prevention in Malaysia. It covers utilisation rates, evidence and risks for specific practices (acupuncture, qi gong, mind-body therapies, herbal medicine), the role of the T&CM Act 775, and guidance for clinicians on monitoring patients who use T&CM concurrently with conventional medications.
 
----
-
-## 12: Traditional And Complementary Medicine
-
 ## 12.1: Definition Of Terms And Concepts
 Traditional medicine, by WHO definition, is the sum total of the knowledge, skills, and practices based on the theories, beliefs, and experiences indigenous to different cultures, whether explicable or not, used in the maintenance of health as well as in the prevention, diagnosis, improvement or treatment of physical and mental illness. In Malaysia, it identifies strongly with the respective ethnic cultures and is often considered as an important part of their cultural heritage.
 
@@ -29,7 +25,7 @@ According to the Act 775, T&CM practices include:
 - Homeopathy and
 - Complementary therapies
 
-It excludes medical and dental practices used by medical and dental practitioners respectively. (Appendix 12: FORMS OF TRADITIONAL MEDICINE)
+It excludes medical and dental practices used by medical and dental practitioners respectively. (Appendix 12: Forms Of Traditional Medicine)
 
 TCM stands for Traditional Chinese Medicine whereas T&CM is abbreviation for Traditional and Complementary Medicine. There are many more abbreviations and terms which appear frequently in many T&CM related literatures and documents which at time may cause confusion without knowing the context of source document. Visit web site Globinmed for further detail. (http://www.globinmed.com/)
 
@@ -66,7 +62,7 @@ Acupuncture, although generally safe, has been associated with a small risk of i
 There is some evidence that qi gong lowers diastolic BP, but the conclusiveness of these findings is limited.
 
 ### 12.3.2: Mind Body Practices
-Refer to Appendix 13: CATEGORIES OF COMPLEMENTARY AND TRADITIONAL MEDICINE*
+Refer to Appendix 13: Categories Of Complementary And Traditional Medicine*
 
 Meditation and spiritual healing are mind based therapies that are relatively safe and influence physical health through psychosocial and behavioural pathways. They help to cope with stress, improve emotional health and general well-being.
 
@@ -126,13 +122,12 @@ T&CM practices such as Traditional Indian Medicine and Homeopathy have claimed b
 
 Currently, only TCM offers professionalized and specialized services to patients with CVD. Patients are given outpatient consultations in the area of life style modification, Chinese medicine concoction for maintenance of health, dietary advice and management of CV risk factors. More information, may be obtained via Globinmed (http://www.globinmed.com/).
 
-#### Recommendations:
+**Recommendations:**
 - Herbal medicine, acupuncture and other forms of T&CM should be used with caution in the prevention and treatment of CVD.
 - TCM practitioners should not replace conventional mainstream health professionals as sources of medical advice for the prevention of CVD.
 
----
-
-### Appendix 12: Forms Of Traditional Medicine
+<!-- parent_only_reference_start -->
+Appendix 12: Forms Of Traditional Medicine
 **Traditional Malay Medicine (TMM):**
 - Is based on knowledge inherited from generation to generation among the Malay community.
 - Has the largest user group.
@@ -157,7 +152,6 @@ TCM uses many forms of treatment methods, the major methods being:
 - Qigong- This is a practice of aligning body, breath and mind to cultivate and balance qi or what has been translated as "life energy".
 
 **Traditional Indian medicine (TIM)**
-
 Has 5 major forms:
 - Ayurveda means "science of life". The principal objectives of Ayurveda are maintenance and promotion of health, prevention of disease and cure of sickness. It is a famous practice in North India. It is a system based on 5 elements-space, air, fire, water and earth; and treatment concept based on balance of the three elemental substances. These elemental substances combine in the human body to form three life forces or energies, the Doshas. The Doshas consist of Vata (kinetic energy), Pitta (thermal energy), Kapha (potential energy) that governs physiological and psychological functions of the body. An equal balance of the 3 doshas leads to health, while imbalance in them leads to disease. Ayurveda emphasizes on Dietary Principles (Ahara Niyma), Daily regimen (Ritucharya), Good conduct/social behaviour (Sadavritta), the use of plant based medicines and treatments.
 - Siddha came from the word siddhi, which means perfection of heavenly bliss. Siddha system gained popularity in South India especially in Tamil Nadu. Siddha medicine is a form of the TIM that uses a therapeutic concept. It is assumed that when the normal equilibrium of the three humors (Vaadham, Pittham and Kabam) is disturbed, disease is caused. The factors, assumed to affect this equilibrium, are environment, climatic condition, diet, physical activities, and stress. According to the siddha medical system, diet and life style play a major role, not only in health but also in curing disease.
@@ -166,21 +160,12 @@ Has 5 major forms:
 - Naturopathy- Practitioners often recommend the use of natural materials, such as sunlight, herbs and certain foods, as well as the activities that are supposed to be natural, such as exercise, meditation and relaxation. They claim that natural treatment helps restore the body's natural ability to heal itself without the adverse effects of conventional drugs. This treatment is offered through consultations.
 
 **Homeopathy**
-
 This is a system based on Samuel Hahneman's doctrine of "like cures like", according to which a substance that causes the symptoms of disease in healthy people will cure similar symptoms in sick people. Hahneman believed that the underlying causes of disease were phenomena that he termed miasms and homeopathic remedies addressed these. Homeopathy remedies are based on plant, mineral and animal substances.
 
 **Islamic medical practice**
-
 Islamic medical practice is used in the treatment of physical and spiritual ailments. It is performed by a Muslim who is knowledgeable and skilled in treatment methods or materials permitted by the Islamic law. The practitioner uses Quranic verses, Hadith, the practices of the pious and righteous scholars and venerated religious teachers.
 
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT                                              -->
-<!-- ============================================================ -->
-
-### Appendix 13: Categories Of Complementary And Traditional Medicine*
+Appendix 13: Categories Of Complementary And Traditional Medicine*
 The National Centre for Complementary and Alternative Medicine (NCCAM) has identified 5 major domains of Complementary and Alternative Medicines:
 - Whole medical systems -This includes Traditional Oriental medicine, Ayurvedic medicine, Homeopathy, Naturopathy and other culturally based or indigenous healing practices.
 - Mind-body Medicine- This includes clinical hypnosis, guided imagery, biofeedback, meditation, dance, music and art therapies, prayer, and spiritual healing.
@@ -190,15 +175,7 @@ The National Centre for Complementary and Alternative Medicine (NCCAM) has ident
 
 *\*National Centre for Complementary and Alternative Medicine (NCCAM),USA 2007*
 
----
-<!-- END OVERLAP -->
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -207,23 +184,14 @@ The National Centre for Complementary and Alternative Medicine (NCCAM) has ident
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Common abbreviations used throughout this CPG       -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | BP | Blood Pressure |
@@ -238,5 +206,4 @@ The National Centre for Complementary and Alternative Medicine (NCCAM) has ident
 | T&CM | Traditional and Complementary Medicine |
 | TCM | Traditional Chinese Medicine |
 | WHO | World Health Organization |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

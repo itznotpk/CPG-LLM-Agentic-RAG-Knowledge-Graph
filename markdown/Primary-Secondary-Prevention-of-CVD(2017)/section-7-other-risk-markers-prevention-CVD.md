@@ -8,10 +8,7 @@ output: risk_refinement_guidance, investigation_recommendations
 
 > **Context:** This section covers adjunct risk markers — ECG, echocardiography, hs-CRP, ABI, carotid ultrasound, CIMT, coronary artery calcium (CAC), and arterial stiffness — that can refine CV risk estimation beyond the FRS, particularly for individuals at Intermediate (Moderate) CV risk.
 
----
-
-## 7: Other Risk Markers Of CVD
-In addition to the conditions mentioned in Section 4, there are other markers that indicate an increased risk for CVD and are sometimes used to help refine CV risk assessment beyond the traditional risk factors found in the Framingham Risk Score. These may be useful in risk stratifying individuals at Intermediate (or moderate) CV risk.
+In addition to the conditions mentioned in Section 4: Types Of CVD, there are other markers that indicate an increased risk for CVD and are sometimes used to help refine CV risk assessment beyond the traditional risk factors found in the Framingham Risk Score. These may be useful in risk stratifying individuals at Intermediate (or moderate) CV risk. <!-- cross_ref target_file="section-4-types-of-cvd-prevention-CVD.md" target_heading="Section 4: Types Of CVD" target_kind="h1_section" -->
 
 ## 7.1: Electrocardiogram (ECG)
 After controlling for traditional risk factors, ECG abnormalities found at rest and during exercise are associated with an increased risk of CV events.
@@ -31,7 +28,7 @@ Echocardiography in patients with:
 
 [Grade III, Level C] The routine use of echocardiogram as a screening tool in the asymptomatic population has not been proven beneficial. It may increase costs and potential harm due to further downstream testing.
 
-## 7.3: Biochemical – Hs-Crp
+## 7.3: Biochemical – hs-CRP
 An elevated hs-CRP level (>3 ng/mL) predicts a higher risk of CV event independent of Framingham risk factors.
 
 [Grade IIa, Level B] It may be used in individuals at intermediate risk to reclassify them to high risk.
@@ -41,8 +38,7 @@ An elevated hs-CRP level (>3 ng/mL) predicts a higher risk of CV event independe
 However, there is insufficient evidence that reducing hs-CRP levels will prevent CV events.
 
 ## 7.4: Subclinical Vascular Damage
-
-### 7.4.1: Ankle-Branchial Index (Abi)
+### 7.4.1: Ankle-Branchial Index (ABI)
 The ABI is performed in a similar manner to a BP measurement. It is cheap and reproducible. A value of <0.9 is indicative of arterial stenosis and the presence of PAD.
 
 Amongst patients with pre-existing CVD and/ or diabetes in an urban local setting, the prevalence of PAD was estimated at 23%, of whom only a quarter were asymptomatic.
@@ -60,14 +56,14 @@ Screening with carotid ultrasound in the general population with a low prevalenc
 
 In the presence of carotid bruits, it is useful for quantification of stenosis.
 
-### 7.4.3: Carotid Intima-Media Thickness (Cimt)
+### 7.4.3: Carotid Intima-Media Thickness (CIMT)
 CIMT is a measure of early atherosclerosis in the carotid artery. Its extent is associated with increasing CV risk, being more predictive in women than in men. Many of the published studies were however performed in the research setting.
 
 A meta-analysis reported in 2012, found a lack of usefulness of CIMT as a screening tool, taking into account the variation in its measurement and the low reproducibility.
 
 [Grade III, Level B] It is therefore not recommended as a screening tool in the asymptomatic population.
 
-### 7.4.4: Coronary Artery Calcium (Cac)
+### 7.4.4: Coronary Artery Calcium (CAC)
 CAC score is measured via a multi-slice CT and quantified using the Agatston score. The presence of calcification within the coronary vessel indicates atherosclerosis. The higher the value, the more extensive is the plaque burden.
 
 It has a high negative predictive value. A score of 0 carries an almost 0% cardiac mortality risk for the next 5 years.
@@ -81,9 +77,7 @@ Arterial stiffening is measured using pulse wave velocity (PWV) either from the 
 
 [Grade III, Level C] It cannot be recommended as a screening tool for the asymptomatic population.
 
----
-
-## Recommendation
+**Recommendation**
 - Risk markers that may be used to refine CV risk assessment beyond the traditional risk factors found in the Framingham Risk Score include:
   - Resting ECG
   - Echocardiography- to look at LV function
@@ -93,14 +87,8 @@ Arterial stiffening is measured using pulse wave velocity (PWV) either from the 
     - Coronary Artery Calcium
 - They are most useful in further risk stratifying individuals at Intermediate (or moderate) CV risk.
 
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -109,23 +97,14 @@ Arterial stiffening is measured using pulse wave velocity (PWV) either from the 
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- ABBREVIATIONS USED IN THIS SECTION                           -->
-<!-- All entries are defined in the Master List in Section 0      -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | ABI | Ankle-Brachial Index |
@@ -144,5 +123,4 @@ Arterial stiffening is measured using pulse wave velocity (PWV) either from the 
 | LVH | Left Ventricular Hypertrophy |
 | PAD | Peripheral Arterial Disease |
 | PWV | Pulse Wave Velocity |
-
-<!-- END ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

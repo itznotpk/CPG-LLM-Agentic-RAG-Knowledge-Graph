@@ -8,11 +8,7 @@ output: risk_factor_list, modifiable_vs_nonmodifiable_classification
 
 > **Context:** This section catalogs non-modifiable (age, gender, family history, ethnicity) and modifiable (diet, smoking, inactivity, obesity, hypertension, dyslipidaemia, diabetes, cardiometabolic risk) CV risk factors, with evidence for how each contributes to CVD risk burden in the Malaysian population.
 
----
-
-## 5: Risk Factors For CVD
 **CV risk factors include:**
-
 - **Non-modifiable risk factors:**
   - Increasing age
   - Gender – females develop CVD about a decade later
@@ -28,10 +24,7 @@ output: risk_factor_list, modifiable_vs_nonmodifiable_classification
   - Diabetes mellitus
   - Cardio Metabolic Risk
 
----
-
 ## 5.1: Non-Modifiable CV Risk Factors
-
 ### 5.1.1: Increasing Age
 The incidence of CVD increases with age. This is due to the combined effects of age-related changes in the vascular system as well as the increased prevalence and duration of exposure to adverse CV risk factors.
 
@@ -54,8 +47,6 @@ Despite earlier referral and treatment of individuals with a positive family his
 South Asians (Indians) have a higher prevalence of CHD and CV mortality compared with Europeans. East Asians (Chinese and Japanese) exhibit consistently higher rates of stroke.
 
 While conventional CV risk factors such as smoking, BP and total cholesterol predict risk within these ethnic groups, they do not fully account for the differences in risk between ethnic groups, suggesting that alternative explanations might exist.
-
----
 
 ## 5.2: Modifiable CV Risk Factors
 In 2010, CVD, diabetes and CKD accounted for 33% of all deaths worldwide. The 4 modifiable CV risk factors – hypertension, hypercholesterolaemia, raised blood glucose and high BMI – together accounted for 63% of these deaths. Data from the United States showed that in persons >35 years of age, smoking alone accounted for 33% of all deaths from CVD and 20% of deaths from ischaemic heart disease. Even among individuals at high genetic risk, a favourable lifestyle was associated with a 46% lower relative risk of CV events than an unfavourable lifestyle.
@@ -102,27 +93,17 @@ In individuals who have diabetes of long duration (>10 years) the CV risk is sim
 ### 5.2.8: Cardio Metabolic Risk
 Cardio metabolic risk refers to a cluster of CV risk factors that predispose to diabetes and CVD. The common denominator is insulin resistance which is characterized by abdominal obesity. The previous terminology was metabolic syndrome. This term, however, is no longer in favour because only about 80% of individuals with the metabolic syndrome actually have biochemically confirmed insulin resistance. Furthermore, the syndrome does not necessarily predict a CVD risk that is beyond the sum of the individual components. It also does not provide better predictive power than the FRS.
 
----
-
-## Key Messages
+**Key Messages**
 - CV risk factors may be:
   - Non-modifiable – increasing age, gender, family history of premature CVD, ethnicity
   - Modifiable – hypertension, dyslipidemia, pre-diabetes/diabetes, smoking, physical inactivity, obesity/overweight
 - The CV risk in individuals with long standing diabetes (>10 years) is similar to those with a prior CVD.
 
----
-
-## Recommendation
+**Recommendation**
 In addition to therapeutic lifestyle changes, individuals with modifiable CV risk factors should be treated appropriately to target in accordance with the respective CPG's.
 
----
-
-<!-- ============================================================ -->
-<!-- ABBREVIATIONS USED IN THIS SECTION                           -->
-<!-- All entries are defined in the Master List in Section 0      -->
-<!-- ============================================================ -->
-
-### Abbreviations
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | BMI | Body Mass Index |
@@ -138,5 +119,4 @@ In addition to therapeutic lifestyle changes, individuals with modifiable CV ris
 | PA | Physical Activity |
 | PAD | Peripheral Arterial Disease |
 | TC | Total Cholesterol |
-
-<!-- END ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

@@ -8,9 +8,6 @@ output: cvd_types_reference, disease_classification
 
 > **Context:** This section defines the spectrum of cardiovascular disease (CVD) covered by this CPG, including CHD (stable angina, ACS, non-obstructive CAD), cerebrovascular accident (CVA), peripheral artery disease (PAD), and asymptomatic individuals with silent ischaemia or subclinical atherosclerosis.
 
----
-
-## 4: Types Of CVD
 **CVD includes:**
 - **Coronary Heart Disease (CHD)** — This includes:
   - Stable angina
@@ -27,14 +24,8 @@ output: cvd_types_reference, disease_classification
 
 > For a detailed account of the manifestations of CVD, please refer to the appropriate respective CPGs.
 
----
-
-<!-- ============================================================ -->
-<!-- ABBREVIATIONS USED IN THIS SECTION                           -->
-<!-- All entries are defined in the Master List in Section 0      -->
-<!-- ============================================================ -->
-
-### Abbreviations
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -44,5 +35,4 @@ output: cvd_types_reference, disease_classification
 | CVA | Cerebrovascular Accident |
 | CVD | Cardiovascular Disease |
 | PAD | Peripheral Arterial Disease |
-
-<!-- END ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

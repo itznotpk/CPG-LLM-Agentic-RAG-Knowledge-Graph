@@ -8,9 +8,6 @@ output: adherence_assessment, intervention_strategies, adherence_plan
 
 > **Context:** This section addresses medication non-adherence — a major contributor to poor CVD outcomes. It provides a structured approach to identifying causes of non-adherence (patient, system, therapy, socioeconomic factors) and interventions to improve it, including team-based care, polypill strategies, and motivational counselling techniques.
 
----
-
-## 10: Adherence To Therapy
 The WHO defines adherence as the extent to which a person’s behavior – taking medication, following a diet, and/or executing lifestyle changes – corresponds with agreed recommendations from a health care provider.
 
 Full adherence to medication that have been proven to prevent CVD (aspirin, BP and cholesterol lowering drugs) has been estimated to reduce the risk of a first or second CVD event by approximately 80%. However, even among high risk post-MI patients, only 43% were fully adherent to treatment after six months and this declined to 34% after one year. Low adherence rate leads to adverse outcomes, higher hospitalization rates and increased costs.
@@ -44,20 +41,14 @@ To promote adherence:
 - Involve allied health care providers, such as pharmacists and nurses
 - Refer to medication therapy adherence clinics and for cardiac rehabilitation
 
-#### Key Message:
+**Key Message:**
 - Full adherence to therapy that reduces CVD (aspirin, blood pressure and cholesterol lowering drugs) has been estimated to reduce the risk of a first or second CVD event by approximately 80%.
 
-#### Recommendations:
+**Recommendations:**
 - At every visit, attempts should be made to identify and manage non adherence to therapy. (Table 23: Reasons for Non-adherence to Medications*, Table 24: Strategies to Improve Medication Adherence)
 
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT                                              -->
-<!-- ============================================================ -->
----
+<!-- parent_only_reference_start -->
 Table 23: Reasons For Non-Adherence To Medications*
-
 | Categories of non-adherence | Examples |
 |---|---|
 | Patient | Lack of understanding, lack of involvement in decision making, health beliefs and attitudes concerning effectiveness of treatment, high medication cost, lack of transportation, long wait, poor social support, psychological stress, forgetfulness, anxiety about side effect, low motivation |
@@ -68,9 +59,7 @@ Table 23: Reasons For Non-Adherence To Medications*
 
 *\*Sabate E. Adherence to Long-Term Therapies: Evidence for action. Geneva, Switzerland: 2003*
 
----
 Table 24: Strategies To Improve Medication Adherence
-
 | Categories | Strategies | Example |
 |---|---|---|
 | Patient-related factors | Patient education | |
@@ -95,15 +84,7 @@ Table 24: Strategies To Improve Medication Adherence
 *Adapted from: Brown, Marie T. et al. Medication Adherence: WHO Cares Mayo Clinic Proceedings; 2011; Osterberg et al 2005 NEJM.*
 (5):487-97 607
 
----
-<!-- END OVERLAP -->
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -112,23 +93,14 @@ Table 24: Strategies To Improve Medication Adherence
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Common abbreviations used throughout this CPG       -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | BP | Blood Pressure |
@@ -136,5 +108,4 @@ Table 24: Strategies To Improve Medication Adherence
 | MI | Myocardial Infarction |
 | MOH | Ministry of Health |
 | WHO | World Health Organization |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

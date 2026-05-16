@@ -9,10 +9,6 @@ treatment_type: NRT, varenicline, bupropion, phentermine, orlistat, liraglutide
 
 > **Context:** This section provides evidence-based guidance on the four pillars of CVD prevention lifestyle intervention: Nutrition (dietary patterns, food groups, key nutrients), Physical Activity (prescriptions for primary and secondary prevention), Smoking Cessation (NRT, varenicline, bupropion, MQuit), and Obesity/Weight Management (pharmacotherapy and bariatric surgery thresholds).
 
----
-
-## 8: Interventions To Prevent CVD
-
 ## 8.1: Nutrition
 Dietary habits influence a variety of cardio-metabolic risk factors such as body weight, cholesterol, BP, glucose metabolism, oxidative stress and inflammation. It is being increasingly recognized that instead of focussing on specific nutrients, it is more important to look at specific foods and overall dietary patterns.
 
@@ -68,7 +64,7 @@ Trans fat appears to increase the risk of CVD more than any other macronutrient 
 The most recent analysis from the CDC USA showed a remarkable improvement in the lipoprotein profile of the American population. It was suggested that this was due to the reduction of TFA in the diet. This followed the FDA removing TFA from the Generally Recognized As Safe (GRAS) Status.
 
 #### 8.1.1.2: Dietary Cholesterol/Eggs
-The impact of dietary cholesterol on serum cholesterol level is weak when compared with the impact of the fatty acid composition of the diet (section 8.1.1.1). Lowering of SFA intake usually also leads to a reduction in dietary cholesterol.
+The impact of dietary cholesterol on serum cholesterol level is weak when compared with the impact of the fatty acid composition of the diet (Refer to section 8.1.1.1: Fats). Lowering of SFA intake usually also leads to a reduction in dietary cholesterol.
 
 Some nutrition guidelines do not give specific recommendation on the intake of dietary cholesterol. Although the evidence linking dietary cholesterol and CVD is weak, dietary cholesterol often co-exists with SFA (e.g. in meat, fried food). To avoid confusion and as practical advice, most international guidelines advise limiting the intake of dietary cholesterol to less than 300 mg/day.
 
@@ -112,7 +108,6 @@ Partially replacing dietary CHO with protein either from animal or vegetable sou
 High protein diets increase short-term weight loss and improve blood lipids, but high quality long-term data are lacking. The available data seem to suggest that in the long term, a low CHO high protein diet is associated with increased CV risk.
 
 ### 8.1.2: Individual Food Groups
-
 #### 8.1.2.1: Whole Grains And Dietary Fibre
 Whole grain can be found in whole wheat, whole rice, barley, corn rye, oats, millet, sorghum, canary seed and brown/red/wild rice ('padi huma').
 
@@ -287,6 +282,16 @@ PA is any bodily movement that substantially increases energy expenditure. This 
 - At least 150 minutes a week of moderate intensity or
 - 75 minutes a week of vigorous intensity PA or an equivalent combination
 
+Table 9: Classification Of Physical Activity
+
+| PA Intensity | Leisure time & sports | Occupational | Commuting | Exercises |
+| :--- | :--- | :--- | :--- | :--- |
+| Low | • Walk with pet<br>• Push stroller with child<br>• Bowling, recreational<br>• Golf, recreational<br>• Slow ballroom dancing | • Sweeping floor, mopping, vacuuming<br>• Washing car<br>• Doing laundry, washing dishes, cooking<br>• Childcare & elderly care<br>• General plumbing & light gardening<br>• Commercial driving, moderate machinery operation<br>• Typing, deskjob, light officework | • Driving automobile/ light trucks<br>• Pushing wheelchair on flat surface<br>• Walking from house to car/bus to places/ worksite | **Aerobic exercise:**<br>• Walking (4.0 - 4.8 kmh)<br>• Yoga<br>• Stretching<br>• Pilates<br>• Rowing machine, moderate pace<br>**Resistance training (moderate effort):**<br>• Circuit training |
+| Moderate | • Vigorously playing with children<br>• Non-competitive sports:<br>  - Cricket<br>  - Ping-pong<br>  - Badminton<br>  - Basketball<br>  - Kayaking/ paddle boat<br>  - Snorkelling<br>  - Backpacking | • Scrubbing bathroom<br>• Carrying/ moving boxes<br>• Using a hoe & spade, mowing lawn, shovelling 10-15 minutes vigorously<br>• Moderate yard work, using power tools | • Cycling<br>• Walking and carrying approx. 7 kg load<br>• Walking uphill<br>• Using crutches | **Aerobic exercise:**<br>• Fast walking (5-8 kmh)<br>• Combination of jog & walk (<10 minutes jogging)<br>• Stationary bicycle<br>• Elliptical machine<br>• Slow - moderate swimming<br>• Water-based aerobics<br>**Resistance training, (vigorous effort):**<br>• Weight training |
+| High | • Rope skipping<br>• Marathon, mountain biking<br>• Football, hockey, martial arts, rugby, rollerblading, volleyball<br>• Track & field | • Carrying load up stairs<br>• Heavy carpentry/ farming<br>• Farming vigorously<br>• Fire fighting<br>• Commercial fishing<br>• Factory work | • Fast stair climbing<br>• Hiking cross country | **Aerobic exercise:**<br>• Jog/ run >8 km/hr<br>• Vigorous swimming or calisthenics<br>• Stair-treadmill |
+
+*\*Adapted from Ainsworth BE, Haskell WL, Hermann SD et al. The Compendium Of Physical Activities Tracking Guide. Healthy Lifestyles Research Centre, College of Nursing & Health Innovation, Arizona State University.*
+
 In addition, individuals are encouraged to engage in resistance and flexibility exercises whenever possible or necessary. (Table 10: Recommendation of PA in Adult for CVD Prevention). A practical simplified approach to exercise is as in Table 11: Practical Physical Activity Tips.
 
 [Grade I, Level B] At each clinic visit, the importance of regular PA should be emphasized. The MOH Malaysia advocates walking 10,000 steps a day. This is a practical and easily achievable goal for most individuals.
@@ -418,7 +423,7 @@ Every 5 kg/m² higher BMI, was associated on the average with a 30% higher overa
 
 [Grade I, Level B] Modest weight loss of between 5 to 10%, can reduce BP, improve glycaemic control, lipid profile, and quality of life.
 
-#### Waist Circumference:
+**Waist Circumference:**
 - Is an indirect measure of visceral adiposity.
 - Is a stronger predictor of diabetes, CHD and all-cause mortality than BMI.
 - Should be used in conjunction with BMI to identify CV risk.
@@ -486,31 +491,14 @@ Risks of complication, reoperation and death post bariatric surgery is small but
 > **Recommendation:**
 > - For weight loss, in addition to dietary intervention, adults should engage in 150–420 minutes of moderate-intensity physical activity per week.
 
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT                                              -->
-<!-- ============================================================ -->
-
-Table 9: Classification Of Physical Activity
-
-| PA Intensity | Leisure time & sports | Occupational | Commuting | Exercises |
-| :--- | :--- | :--- | :--- | :--- |
-| Low | • Walk with pet<br>• Push stroller with child<br>• Bowling, recreational<br>• Golf, recreational<br>• Slow ballroom dancing | • Sweeping floor, mopping, vacuuming<br>• Washing car<br>• Doing laundry, washing dishes, cooking<br>• Childcare & elderly care<br>• General plumbing & light gardening<br>• Commercial driving, moderate machinery operation<br>• Typing, deskjob, light officework | • Driving automobile/ light trucks<br>• Pushing wheelchair on flat surface<br>• Walking from house to car/bus to places/ worksite | **Aerobic exercise:**<br>• Walking (4.0 - 4.8 kmh)<br>• Yoga<br>• Stretching<br>• Pilates<br>• Rowing machine, moderate pace<br>**Resistance training (moderate effort):**<br>• Circuit training |
-| Moderate | • Vigorously playing with children<br>• Non-competitive sports:<br>  - Cricket<br>  - Ping-pong<br>  - Badminton<br>  - Basketball<br>  - Kayaking/ paddle boat<br>  - Snorkelling<br>  - Backpacking | • Scrubbing bathroom<br>• Carrying/ moving boxes<br>• Using a hoe & spade, mowing lawn, shovelling 10-15 minutes vigorously<br>• Moderate yard work, using power tools | • Cycling<br>• Walking and carrying approx. 7 kg load<br>• Walking uphill<br>• Using crutches | **Aerobic exercise:**<br>• Fast walking (5-8 kmh)<br>• Combination of jog & walk (<10 minutes jogging)<br>• Stationary bicycle<br>• Elliptical machine<br>• Slow - moderate swimming<br>• Water-based aerobics<br>**Resistance training, (vigorous effort):**<br>• Weight training |
-| High | • Rope skipping<br>• Marathon, mountain biking<br>• Football, hockey, martial arts, rugby, rollerblading, volleyball<br>• Track & field | • Carrying load up stairs<br>• Heavy carpentry/ farming<br>• Farming vigorously<br>• Fire fighting<br>• Commercial fishing<br>• Factory work | • Fast stair climbing<br>• Hiking cross country | **Aerobic exercise:**<br>• Jog/ run >8 km/hr<br>• Vigorous swimming or calisthenics<br>• Stair-treadmill |
-
-*\*Adapted from Ainsworth BE, Haskell WL, Hermann SD et al. The Compendium Of Physical Activities Tracking Guide. Healthy Lifestyles Research Centre, College of Nursing & Health Innovation, Arizona State University.*
-
-Table 10: Recommendation Of Pa In Adult For CVD Prevention
+<!-- parent_only_reference_start -->
+Table 10: Recommendation Of PA In Adult For CVD Prevention
 
 | PA type | Starting point | PA Goal | Additional Benefits |
 | :--- | :--- | :--- | :--- |
 | Aerobic activity | 1. Identify current aerobic PA & its intensities (refer to table 9: Classification of Physical Activity).<br>2. Total up weekly duration of PA engagement.<br>3. Start with 60 min/ week of PA time, this can be broken down to daily, 3 days/ week or once-a week commitment (i.e. 10 minutes daily; 20 minutes every other day).<br>4. In unfit or inactive individuals it is recommended to start with low intensity PA, 60 min/ week at a time commitment they can. | **Aim for:**<br>Frequency: 3 or more days/ week<br>Intensity: moderate intensity aerobic PA<br>Duration: 150 min/ week | Additional benefits for weight loss and lipid control can be gained by increasing aerobic PA to 250 - 450min/ week moderate intensity or 150min/ week high intensity PA. |
 | Strength training | 1. Identify any ongoing orthopaedic or musculoskeletal (MSK) issues.<br>2. Identify contraindications for strength training:<br>• Unstable angina<br>• Uncontrolled hypertension (systolic blood pressure ≥160 mm Hg and/or diastolic blood pressure ≥100 mmHg)<br>• Uncontrolled dysrhythmias<br>• Unevaluated/ symptomatic congestive heart failure<br>• Severe stenotic or regurgitant valvular disease<br>• Hypertrophic cardiomyopathy<br>3. Candidates for strength training should be involving in moderate intensity aerobic PA for at least 4 weeks. | **Aim for:**<br>2 - 3 sets<br>8 – 12 repetitions<br>60 – 80% individual’s 1 repetition maximum<br>2 days/week or more<br>Whenever possible, refer to physiotherapist or in cases of established CVD to cardiac rehabilitation (CR) team for assessment & prescription of exercises. Indicate concomitant orthopaedic/ MSK conditions. | Strength training helps in lipid and BP control plus increase insulin sensitivity in combination with aerobic exercise. It stimulates bone formation, reduces bone loss, preserves and enhances muscle mass, strength, power and functional ability. |
 | Flexibility exercises | 1. Identify any ongoing orthopaedic or MSK issues.<br>2. Flexibility training complements aerobic exercises and should be done during cool down phase after aerobic activities.<br>3. Start at 3 sets of 15 seconds stretch of key muscles as tolerable. | **Aim for:**<br>5 sets<br>30 seconds stretch<br>Full joint ROM<br>2 - 3 days/ week<br>Breathe normally<br>Refer to physiotherapist or CR team for exercise prescription. | Lack of flexibility in the elderly contributes to reduce ability to perform activities of daily living. Adequate joint ROM is required for optimal musculoskeletal function. |
-
----
 
 Table 11: Practical Physical Activity Tips
 
@@ -522,8 +510,6 @@ Table 11: Practical Physical Activity Tips
 - Walk an extra mile. Park your car further away.
 - Walk while talking on a phone.
 - Reduce 1 hour of screen time (ipad/ tv/ video/or social media).
-
----
 
 Table 12: Classification Of Weight By BMI*
 
@@ -540,9 +526,7 @@ Table 12: Classification Of Weight By BMI*
 
 *\*Clinical Practice Guidelines on Management of Obesity. Malaysia: Ministry of Health Malaysia, Academy of Medicine of Malaysia, Malaysian Association for the Study of Obesity, Malaysian Endocrine and Metabolic Society; 2004.*
 
----
-
-### Appendix 4: Fat Content Of Common Malaysian Food*
+Appendix 4: Fat Content Of Common Malaysian Food*
 | Food | Portion | Calorie content |
 |---|---|---|
 | *Nasi lemak* with fried chicken | 1 plate | 640 kcal |
@@ -564,9 +548,7 @@ Table 12: Classification Of Weight By BMI*
 
 *\*Nutrition Month Malaysia. Eat right. Move More. Fight Obesity. Available at http://nutritionmonthmalaysia.org.my/wp-content /uploads/ 2015/08 /nmm _ 2014_fight_obesity_ guidebook.pdf. Accessed April, 2016. & Bahagian Pemakanan Kementerian Kesihatan Malaysia. Panduan Nilai Kalori 200 Jenis Makanan.*
 
----
-
-### Appendix 5: Carbohydrate Content Of Common Malaysian Food*
+Appendix 5: Carbohydrate Content Of Common Malaysian Food*
 | Food | Serving | Calories (kcal) | CHO content (g) | Glycaemic Index(GI)** |
 |---|---|---|---|---|
 | Added sugar | 6 teaspoonfuls | 100 | | High GI (>70) |
@@ -597,9 +579,7 @@ Table 12: Classification Of Weight By BMI*
 *\* Adapted from:Tee ES, Mohd Ismail N, Mohd Nasir A, et al. Nutrient Composition of Malaysian Foods. Institute for Medical Research (IMR). Kuala Lumpur, 1997*
 *\*\*Food with Low GI is preferred.*
 
----
-
-### Appendix 6: Glycaemic Index Of Foods*
+Appendix 6: Glycaemic Index Of Foods*
 | Food category | Low GI (<55) | Intermediate GI (56-70) | High GI (>70) |
 |---|---|---|---|
 | Rice | Barley | Basmati Rice<br>Brown rice<br>Parboiled rice<br>Red rice | Glutinous rice<br>Jasmine rice<br>Instant porridge<br>White rice<br>Sago |
@@ -614,9 +594,7 @@ Table 12: Classification Of Weight By BMI*
 *\*\*It is important to consider both GL and GI:*
 *GL = GI x CHO (g)/100*
 
----
-
-### Appendix 7: Dietary Fibre Content Of Common Food*
+Appendix 7: Dietary Fibre Content Of Common Food*
 | | High Fibre (5+ g) | Medium Fibre (2-4 g) | Low Fibre (< 2 g) |
 |---|---|---|---|
 | Grains | Barley, cooked,1/2 cup | Bran, natural 1 tbsp<br>Brown rice, cooked, ½ cup<br>Wheat germ. 1 tbsp<br>Basmathi rice uncooked ¼ cup | White rice, cooked, ½ cup |
@@ -630,9 +608,7 @@ Table 12: Classification Of Weight By BMI*
 
 *\*Medical Nutrition Therapy Guideline for Type 2 Diabetes Mellitus 2nd Edition, adapted from American Dietetic Association, 2000*
 
----
-
-### Appendix 8: Serving Size And Weight Of Selected Fruits And Vegetables*
+Appendix 8: Serving Size And Weight Of Selected Fruits And Vegetables*
 | Fruits | One serving | Weight (g) |
 |---|---|---|
 | Apple (red) | 1 medium | 128 |
@@ -677,9 +653,7 @@ Table 12: Classification Of Weight By BMI*
 *\*Adapted from Malaysian Dietary Guideline (MDG), NCCFN, MOH, 2010*
 *\*\*1 cup= 200ml*
 
----
-
-### Appendix 9: Sodium Content Of Common Food
+Appendix 9: Sodium Content Of Common Food
 | No. | Foods | Serving size | Sodium/ Na (mg) |
 |---|---|---|---|
 | 1. | Chicken curry | 1 can (405g) | 2036 |
@@ -705,9 +679,7 @@ Table 12: Classification Of Weight By BMI*
 *1. CCHRC. 2007. Sodium (Na+) Content of Seasoning and Common Foods.USA: Chinese Community Health Resource Center*
 *2. CFS. 2012. Risk Assessment Studies, Report No. 49: Study on Sodium Content in Local Foods. Center for Food Safety Food and Environmental Hygiene Department. The Government of the Hong Kong Special Administrative Region.*
 
----
-
-## Appendix 11: Tips On Losing Weight
+Appendix 11: Tips On Losing Weight
 **Good Eating Habits**
 - Eat slowly.
 - Eat when only feel hungry
@@ -738,15 +710,7 @@ Table 12: Classification Of Weight By BMI*
 
 See Physical Activity Tips – Table 10: Recommendation of PA in Adult for CVD Prevention.
 
----
-<!-- END OVERLAP -->
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -755,23 +719,14 @@ See Physical Activity Tips – Table 10: Recommendation of PA in Adult for CVD P
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Common abbreviations used throughout this CPG       -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -801,5 +756,4 @@ See Physical Activity Tips – Table 10: Recommendation of PA in Adult for CVD P
 | TC | Total Cholesterol |
 | TFA | Trans Fatty Acid |
 | TG | Triglycerides |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

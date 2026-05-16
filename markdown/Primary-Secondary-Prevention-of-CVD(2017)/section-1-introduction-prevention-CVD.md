@@ -8,16 +8,12 @@ output: guideline_context, epidemiological_background, key_messages
 
 > **Context:** This section establishes the epidemiological rationale for the 2017 CPG, documenting the high and rising burden of CVD and its modifiable risk factors in Malaysia. It is background context and is less directly used for care plan generation. The Key Message and Recommendation are the highest-yield content for RAG retrieval.
 
----
-
 ## 1.1: Epidemiology Of Cardiovascular Disease
 - CVD is the leading cause of morbidity and mortality in Malaysia for over a decade.
 - Data from the NCVD-ACS Registry (2011-2013) showed:
   - Malaysians developed ACS at a younger age than neighbouring countries.
-  - Mean age at ACS: **58.5 years**; peak incidence in the **51-60 year** age group.
+  - Mean age at ACS: 58.5 years; peak incidence in the 51-60 year age group.
   - Younger than Thailand (63.5 years) and Singapore (median: 68.3-69.2 years).
-
----
 
 ## 1.2: Prevalence Of Cardiovascular Risk Factors In Malaysia
 Based on the National Health and Morbidity Survey (NHMS), the Malaysian adult population (≥18 years) has high levels of CV risk factors:
@@ -38,31 +34,23 @@ Based on the National Health and Morbidity Survey (NHMS), the Malaysian adult po
     - 20.3% were at intermediate CV risk.
 - The INTERHEART study found these 5 modifiable risk factors (abnormal lipids, hypertension, smoking, diabetes, abdominal obesity) contributed to ~80% of MI; smoking and abnormal lipids alone accounted for 2/3 of MIs.
 
----
-
 ## 1.3: Impact Of Reducing / Modifying CV Risk Factors
 - Diet and lifestyle factors (smoking, physical inactivity, alcohol) may contribute up to 70% towards development of other CV risk factors (obesity, hypertension, diabetes, hypercholesterolaemia), which together account for >95% of acute coronary events.
 - Reducing CV risk factors has been shown to reduce CV morbidity and mortality in both primary and secondary prevention:
-  - Mortality risk reductions: **15-50%** in general population; **20-45%** in those with established CVD.
+  - Mortality risk reductions: 15-50% in general population; 20-45% in those with established CVD.
   - Scotland: 30% reduction in CV mortality over ~20 years.
   - Finland: CHD mortality decreased by 82% in men and 84% in women (1969-2012).
   - UK modelling: >5,000 fewer deaths/year if cholesterol reduced by 1 mmol/L, smoking prevalence reduced from 30% to 18%, and diastolic BP reduced by 3.2 mmHg.
 
----
-
-## Key Message
+**Key Message**
 - The prevalence of common CV risk factors (hypertension, smoking, hypercholesterolaemia, diabetes, overweight and obesity) in Malaysia is high and shows a rising trend.
 - A decrease in these CV risk factors has been shown to reduce CV morbidity and mortality in both people without (primary prevention) and with established CVD (secondary prevention).
 
-## Recommendation
+**Recommendation**
 To tackle the CV epidemic in Malaysia, efforts should be made to reduce global CV risk. Dietary and lifestyle changes in the general population should be emphasized.
 
-<!-- ============================================================ -->
-<!-- ABBREVIATIONS USED IN THIS SECTION                           -->
-<!-- All entries are defined in the Master List in Section 0      -->
-<!-- ============================================================ -->
-
-### Abbreviations
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -72,5 +60,4 @@ To tackle the CV epidemic in Malaysia, efforts should be made to reduce global C
 | FRS | Framingham Risk Score |
 | MI | Myocardial Infarction |
 | NHMS | National Health and Morbidity Survey |
-
-<!-- END ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

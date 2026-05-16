@@ -10,16 +10,94 @@ treatment_type: ACEi, ARB, CCB, thiazide, beta_blocker, statin, ezetimibe, PCSK9
 
 > **Context:** This is the core clinical management section. It covers pharmacological and non-pharmacological management of hypertension (staging, drug selection, resistant hypertension), dyslipidaemia (LDL-C targeting by risk tier, statin/ezetimibe/PCSK-9 use), prediabetes and T2DM (A1c targets, SGLT2i/GLP-1 sequencing, hypoglycaemia risk), antiplatelet therapy (primary and secondary prevention), and anticoagulation (AF, LV thrombus).
 
----
-
-## 9: Management Of Individual Risk Factors
 In the primary prevention of CVD, the emphasis should be on the assessment and management of the global risk of the individual and not solely concentrating on individual risk factors. The global CV risk can be calculated using many different CV risk calculators. The risk calculator that has been validated in our local population is the Framingham General CV Risk Calculator for primary care. (Refer to Table 1A: Estimation of 10-year CVD Points for Men; Table 1B: CVD Risk for Men; Table 2A: CVD Points for Women; Table 2B: CVD Risk for Women; Table 3: Risk Stratification of Cardiovascular Risk.
+
+Table 1 & 2: Framingham Risk Score For Assessment Of CVD Risk*
+Table 1A: Estimation Of 10-Year CVD Points For Men (Framingham Point Scores)
+
+| Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
+|---|---|---|---|---|---|---|---|
+| -2 | | 1.6+ | | <120 | | | |
+| -1 | | 1.3-1.6 | | | | | |
+| 0 | 30-34 | 1.2-<1.3 | <4.2 | 120-129 | <120 | No | No |
+| 1 | | 0.9-<1.2 | 4.2-<5.2 | 130-139 | | | |
+| 2 | 35-39 | <0.9 | 5.2-<6.3 | 140-159 | 120-129 | | |
+| 3 | | | 6.3-<7.4 | 160+ | 130-139 | | Yes |
+| 4 | | | >7.4 | | 140-159 | Yes | |
+| 5 | 40-44 | | | | 160+ | | |
+| 6 | 45-49 | | | | | | |
+| 7 | | | | | | | |
+| 8 | 50-54 | | | | | | |
+| 9 | | | | | | | |
+| 10 | 55-59 | | | | | | |
+| 11 | 60-64 | | | | | | |
+| 12 | 65-69 | | | | | | |
+| 13 | | | | | | | |
+| 14 | 70-74 | | | | | | |
+| 15 | 75+ | | | | | | |
+| Points allotted | | | | | | | |
+
+Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
+
+Table 1B: CVD Risk For Men
+
+| Total Points | 10-year Risk % | Total Points | 10-year Risk % |
+|---|---|---|---|
+| ≤-3 | <1 | 8 | 6.7 |
+| -2 | 1.1 | 9 | 7.9 |
+| -1 | 1.4 | 10 | 9.4 |
+| 0 | 1.6 | 11 | 11.2 |
+| 1 | 1.9 | 12 | 13.2 |
+| 2 | 2.3 | 13 | 15.6 |
+| 3 | 2.8 | 14 | 18.4 |
+| 4 | 3.3 | 15 | 21.6 |
+| 5 | 3.9 | 16 | 25.3 |
+| 6 | 4.7 | 17 | 29.4 |
+| 7 | 5.6 | 18+ | >30 |
+
+Table 2A: CVD Points For Women
+| Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
+|---|---|---|---|---|---|---|---|
+| -3 | | | | <120 | | | |
+| -2 | | 1.6+ | | | | | |
+| -1 | | 1.3-1.6 | | | <120 | | |
+| 0 | 30-34 | 1.2-<1.3 | <4.2 | 120-129 | | No | No |
+| 1 | | 0.9-<1.2 | 4.2-<5.2 | 130-139 | | | |
+| 2 | 35-39 | <0.9 | | 140-149 | 120-129 | | |
+| 3 | | | 5.2-<6.3 | | 130-139 | Yes | |
+| 4 | 40-44 | | 6.3-<7.4 | 150-159 | | | Yes |
+| 5 | 45-49 | | >7.4 | 160+ | 140-149 | | |
+| 6 | | | | | | 150-159 | | |
+| 7 | 50-54 | | | | | 160+ | | |
+| 8 | 55-59 | | | | | | |
+| 9 | 60-64 | | | | | | |
+| 10 | 65-69 | | | | | | |
+| 11 | 70-74 | | | | | | |
+| 12 | 75+ | | | | | | |
+| Points allotted | | | | | | | |
+
+Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
+
+Table 2B: CVD Risk For Women
+| Total Points | 10-year Risk % | Total Points | 10-year Risk % |
+|---|---|---|---|
+| ≤-2 | <1 | 10 | 6.3 |
+| -1 | 1.0 | 11 | 7.3 |
+| 0 | 1.2 | 12 | 8.6 |
+| 1 | 1.5 | 13 | 10.0 |
+| 2 | 1.7 | 14 | 11.7 |
+| 3 | 2.0 | 15 | 13.7 |
+| 4 | 2.4 | 16 | 15.9 |
+| 5 | 2.8 | 17 | 18.5 |
+| 6 | 3.3 | 18 | 21.5 |
+| 7 | 3.9 | 19 | 24.8 |
+| 8 | 4.5 | 20 | 28.5 |
+| 9 | 5.3 | 21+ | >30 |
 
 ## 9.1: Hypertension
 The NHMS 2015 showed that the prevalence of hypertension among adults 18 years old and above is 30.3%. It is now estimated that there are 6.4 million individuals with hypertension in Malaysia. According to NHMS 2011, almost two thirds (61%) of individuals with hypertension in Malaysia were unaware they were having hypertension. Of all patients with hypertension and on treatment, only 35% of them achieved target BP. With the anticipated doubling of CVD burden especially in the developing world in the next few decades, it is imperative that major risk factors like hypertension be optimally managed.
 
 ### 9.1.1: Preventing Hypertension
-
 #### 9.1.1.1: The Population Approach
 The objective is to prevent hypertension by lowering the average BP by a relatively small amount across a whole population. In a study done in UK, it was estimated that a reduction in SBP as low as 2 mmHg could prevent >14,000 deaths per year. By encouraging enough people to change their lifestyles sufficiently to lower their BP, large numbers are shifted to below the threshold for hypertension (140/90 mmHg).
 
@@ -71,6 +149,27 @@ Properly selected anti-hypertensive combinations may also mitigate the adverse e
 In patients presenting with stage 2 hypertension or beyond, combination therapy is recommended. Efforts should be made to reach target BP. (Table 4: Targets of Individual Risk Factors)
 
 In general, once the BP is controlled, most patients will require life-long treatment.
+
+Table 4: Targets Of Individual Risk Factors
+| Risk Factor | Target | Grade / Level of Evidence |
+|---|---|---|
+| Smoking | Complete Cessation | [Grade I, Level B] |
+| Physical Activity | Minimum 30 min/day, 5 days/week of moderate intensity PA (150 min/week) or 15 min/day, 5 days/week of vigorous intensity PA (75 min/week) or a combination of both | [Grade I, Level B] |
+| Dyslipidaemia | LDL-C: This should be the primary target of therapy. Treatment targets depend on CVD Risk Classification (Refer to Table 3: Risk Stratification of Cardiovascular Risk): **Very High Risk**: LDL-C goal <1.8 mmol/L (or ≥50% reduction from baseline). **High Risk**: LDL-C goal <2.6 mmol/L (or ≥50% reduction from baseline). | [Grade I, Level A] |
+| BP* | <140/90 mmHg in most individuals <80 years of age | [Grade I, Level A] |
+| BP* | <150/90 mmHg in individuals ≥80 years of age | [Grade I, Level A] |
+| Diabetes** — Pre-prandial / fasting blood sugar | 4.4 – 7.0 mmol/L *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level C] |
+| Diabetes** — Post-prandial blood sugar (90-120 min after meal) | 4.4 – 8.5 mmol/L *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level C] |
+| Diabetes** — HbA1c | ≤6.5% *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level A] |
+| Diabetes** — BP | ≤135/75 mmHg | [Grade I, Level B] |
+| Diabetes** — LDL-C | <2.6 mmol/L (the lower the better); <1.8 mmol/L in diabetics with CVD | [Grade I, Level A] |
+| Diabetes** — HDL-C | >1.0 mmol/L (males); >1.2 mmol/L (females) | — |
+| Diabetes** — Triglycerides | ≤1.7 mmol/L | — |
+| Overweight/Obesity** | Weight loss: aim for 5-10% in 6 months and maintain the weight in the next 1-2 years. | [Grade I, Level A] |
+
+> \* *Malaysian Clinical Practice Guidelines on Hypertension, 4th Ed 2013*
+>
+> \*\* *Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th Ed 2015*
 
 #### 9.1.2.3: Resistant Hypertension
 This is defined as BP still >140/90 mmHg with three drugs, inclusive of a diuretic, at near maximal doses. The possible causes of resistant hypertension include:
@@ -129,8 +228,7 @@ In measuring lipid levels:
 
 All individuals should be risk stratified using Table 3: Risk Stratification of Cardiovascular Risk. The target lipid levels will depend on their CV risk (Table 15: Target LDL-C Levels). In individuals who are **Very High** Risk and **High** Risk, drug therapy should be initiated at the same time as therapeutic lifestyle changes (Table 16: Lipid Modifying Therapy for Dyslipidemia). Statins are the drugs of choice because they have been the most well studied and have been consistently shown to be safe and effective.
 
-In patients at **Low** and **Intermediate (Moderate)** Risk, the emphasis should be on therapeutic lifestyle changes (Refer to Section 8: Interventions to prevent CVD). If target goals are not achieved, statins may be initiated after discussion with the patient.
-
+In patients at **Low** and **Intermediate (Moderate)** Risk, the emphasis should be on therapeutic lifestyle changes (Refer to Section 8: Interventions to prevent CVD). If target goals are not achieved, statins may be initiated after discussion with the patient. <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="Section 8: Interventions To Prevent CVD" target_kind="h1_section" -->
 
 > **Recommendation:**
 > - Both fasting and non-fasting samples may be used for lipid measurement.
@@ -138,12 +236,26 @@ In patients at **Low** and **Intermediate (Moderate)** Risk, the emphasis should
 > - All individuals should be risk stratified using Table 3: Risk Stratification of Cardiovascular Risk. The target lipid levels will depend on their CV risk (Table 15: Target LDL-C Levels).
 > - In individuals who are Very High Risk and High Risk, drug therapy should be initiated at the same time as therapeutic lifestyle changes (Table 16: Lipid Modifying Therapy for Dyslipidemia).
 > - Statins are the drugs of choice.
-> - In patients at Low and Intermediate (Moderate) Risk, the emphasis should be on therapeutic lifestyle changes (Refer to Section 8: Interventions to prevent CVD).
+> - In patients at Low and Intermediate (Moderate) Risk, the emphasis should be on therapeutic lifestyle changes (Refer to Section 8: Interventions to prevent CVD). <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="Section 8: Interventions To Prevent CVD" target_kind="h1_section" -->
+
+Table 16: Lipid Modifying Therapy For Dyslipidemia
+**The Primary Target of Therapy is LDL-C: The target will depend on the Individuals' CV Risk (Table 1 & 2, pg 18-19)**
+| Pharmacotherapy | Indication | Grade of Recommendation, Level Of Evidence |
+|---|---|:---:|
+| Statins | Very High and High CV Risk | I, A |
+| | Intermediate (Moderate) and Low CV risk* | I, A |
+| Statins + ezetimibe | Failure to achieve LDL-C goals | I, B |
+| Statins + PCSK-9 inhibitors | Familial hypercholesterolemia | I, A |
+| | Failure to achieve LDL-C goals | IIa, B |
+| Statins + fibrates | Diabetic patients on maximally tolerated statins who have achieved the LDL-C target but have low HDL-C and high TG | IIb, B |
+| Ezetimibe | Statin intolerance | IIa, C |
+| PCSK-9 inhibitors | Very High and High CV risk with statin intolerance | IIa, B |
+| Fibrates | Very High TG despite non-pharmacological measures | IIa, C |
+
+*\*After Therapeutic Lifestyle changes*
 
 ## 9.3: Prediabetes And Diabetes Mellitus (Type 2 And Type 1)
-
 ### 9.3.1: Prediabetes
-
 #### 9.3.1.1: Definition
 Prediabetes is a condition when blood glucose levels are higher than normal but below diabetic thresholds.
 
@@ -174,6 +286,34 @@ If A1c is used for the diagnosis of prediabetes, it is best that the test is fol
 
 #### 9.3.1.5: WHO Should Be Screened?
 Refer to Table 18: Who Should be Screened for Prediabetes
+
+Table 18: WHO Should Be Screened For Prediabetes
+- A. Women with a history of gestational diabetes mellitus (GDM)
+- B. Adults who are overweight or obese (BMI ≥23 kg/m² or waist circumference ≥80 cm for women and ≥90 cm for men) with ANY of the following:
+    - History of CVD
+    - First-degree relative with diabetes
+    - Hypertension (BP ≥140/90 mmHg or on therapy for hypertension)
+    - HDL-C <0.9 mmol/L or TG >2.8 mmol/L
+    - Women who delivered a baby weighing ≥4 kg
+    - Those who were born from mothers with GDM
+    - Other endocrine conditions associated with insulin resistance e.g:
+        - Polycystic ovarian syndrome (PCOS),
+        - Cushing's syndrome,
+        - Acromegaly,
+        - Phaeochromoytoma,
+        - Presence of acanthosis nigricans etc
+    - Physical inactivity & sedentary lifestyle
+    - Those who are receiving long-term treatment with any of the following medications:
+        - Antiretroviral therapy (Level II-1)
+        - Atypical antipsychotic drugs (Level II-2)
+        - Corticosteroids
+        - Thiazide diuretics
+        - β-blockers
+        - Statins
+
+In those without the above risk factors, testing should begin at the age of 30 years. If tests are normal, screening should be done annually (Refer to Section 9.3.1.4: Diagnosis).
+
+*\*Modified from American Diabetes Association (ADA) Position Statement on Standards of Medical Care in Diabetes– 2017*
 
 #### 9.3.1.6: Management
 With proper management of prediabetes, progression to diabetes can be delayed. However, this has not been shown to reduce CVD.
@@ -267,13 +407,19 @@ In view of the strong association between hypoglycaemia and CVD, the following p
 - High risk of hypoglycaemia or
 - Had repeated episodes of hypoglycaemia
 
+Table 19: A1c Targets For T2dm Without Pre-Existing CVD
+| Tight Control (≤6.5%) | Intermediate (6.6–7.4%) | Less Tight Control (7.5–8.0%) |
+|---|---|---|
+| 1. Newly diagnosed<br>2. On medications that do not cause hypoglycaemia<br>3. Low risk of hypoglycaemia<br>4. Proteinuria<br>5. Healthier (long life expectancy) | 1. High CV risk based on Framingham Risk Score<br>2. High risk of hypoglycaemia<br>3. Repeated episodes of hypoglycaemia | 1. Comorbidities e.g.<br>• Chronic Renal Failure (GFR < 60 units),<br>• Decompensated chronic liver disease,<br>• Chronic dementia,<br>• Bed-bound due to CVA etc.<br>2. Episode of severe hypoglycaemia<br>3. Limited life expectancy (metastatic malignancies etc) |
+
+*\*Modified from the Clinical Practice Guidelines for the Management of Type 2 Diabetes Mellitus. 2015.*
+
 ##### 9.3.2.4.3: Treatment Targets In Individuals With Pre-Existing CVD
 Refer to Table 20: A1c Targets for T2DM with Pre-Existing CVD ("The Dynamic A1c Target")
 
 The treatment targets in this group should be set initially at a modest level (HbA1c: 6.6-7.4%). If the patient can achieve this target without any risk of hypoglycaemia within 3-6 months, then a lower target should be aimed for. If however, the patient develops new or recurrent hypoglycaemia, the target should be revised.
 
 #### 9.3.2.5: Management
-
 ##### 9.3.2.5.1: Lifestyle Measures
 This is as outlined in Section 9.3.1.6: Management.
 
@@ -291,7 +437,6 @@ General guidelines on the use of anti-diabetic agents:
 For details of prescribing oral anti-diabetic agents, injectable GLP-1 RA and insulin please refer to the CPG on the Management of Type 2 Diabetes Mellitus 2015.
 
 ##### 9.3.2.5.3: Glycemic Control For The Prevention Of CVD
-
 ###### 9.3.2.5.3.1: Primary Prevention
 The trials of glycemic control in the prevention of CVD in diabetics have shown mixed results in the past.
 
@@ -341,9 +486,7 @@ However, in some situations, cost may preclude the available choices. Based on c
 - Patients aged 40 years and above with long standing diabetes (>10 years) who experienced an episode of severe hypoglycaemia that required hospitalisation are recommended to undergo screening for CVD and be referred to a cardiologist if indicated. Treatment of all other CV risk factors should also be intensified.
 
 ## 9.4: Antiplatelet/ Anticoagulant Therapy
-
 ### 9.4.1: Antiplatelet Agents
-
 #### 9.4.1.1: Primary Prevention Of CVD
 Refer to Table 21: Antiplatelet Therapy for Primary and Secondary Prevention of CVD.
 
@@ -368,7 +511,6 @@ Refer to Table 21: Antiplatelet Therapy for Primary and Secondary Prevention of 
 - [Grade IIa, Level C] It may be considered in patients with diabetes >10 years duration if the bleeding risk is low.
 
 #### 9.4.1.2: Secondary Prevention Of CVD
-
 ##### 9.4.1.2.1: Coronary Heart Disease
 Refer to Table 21: Antiplatelet Therapy for Primary and Secondary Prevention of CVD
 
@@ -409,12 +551,22 @@ In patients with a recent non-cardio-embolic ischemic stroke or TIA, antiplatele
     - [Grade III, Level A] Aspirin + clopidogrel – when initiated days to years after a stroke or TIA has no additional benefit compared to aspirin alone. This combination is associated with an increased risk of bleeding. It is not recommended in routine practice.
 
 ### 9.4.2: Anticoagulant Therapy
-
 #### 9.4.2.1: Non-Valvular Atrial Fibrillation
 Patients with non-valvular AF irrespective of whether the pattern is paroxysmal, persistent, permanent or achieved apparently successful rhythm control, should be considered for anticoagulation to reduce their stroke risk.
 
 The stroke risk is calculated using the CHA2DS2-VASc score as in Table 22: CHA2DS2-VASc Score.
 
+Table 22: Cha2ds2-Vasc Score
+| Risk Factor | CHA2DS2-VASc SCORE |
+|---|---|
+| Congestive Heart Failure | 1 |
+| Hypertension | 1 |
+| Age >75 years | 2 |
+| Diabetes Mellitus | 1 |
+| Prior Stroke or TIA or thromboembolism | 2 |
+| Vascular Disease | 1 |
+| Age 64-74 years | 1 |
+| Female gender | 1 |
 The rate of stroke is 0.2%, 1.3%, and 2.2% per year for CHA2DS2-VASc scores of 0, 1, and 2 respectively.
 
 **In patients with a CHA2DS2-VASc score of:**
@@ -455,103 +607,8 @@ In patients with LV thrombus demonstrated by echocardiography following a recent
     - Anticoagulation in these patients can be achieved using either warfarin or NOACs.
 - Patients with AF due to valve disease or prosthetic heart valves should be anticoagulated with warfarin.
 
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT                                              -->
-<!-- ============================================================ -->
-Table 1 & 2: Framingham Risk Score For Assessment Of CVD Risk*
-
-Table 1a: Estimation Of 10-Year CVD Points For Men (Framingham Point Scores)
-
-| Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
-|---|---|---|---|---|---|---|---|
-| -2 | | 1.6+ | | <120 | | | |
-| -1 | | 1.3-1.6 | | | | | |
-| 0 | 30-34 | 1.2-<1.3 | <4.2 | 120-129 | <120 | No | No |
-| 1 | | 0.9-<1.2 | 4.2-<5.2 | 130-139 | | | |
-| 2 | 35-39 | <0.9 | 5.2-<6.3 | 140-159 | 120-129 | | |
-| 3 | | | 6.3-<7.4 | 160+ | 130-139 | | Yes |
-| 4 | | | >7.4 | | 140-159 | Yes | |
-| 5 | 40-44 | | | | 160+ | | |
-| 6 | 45-49 | | | | | | |
-| 7 | | | | | | | |
-| 8 | 50-54 | | | | | | |
-| 9 | | | | | | | |
-| 10 | 55-59 | | | | | | |
-| 11 | 60-64 | | | | | | |
-| 12 | 65-69 | | | | | | |
-| 13 | | | | | | | |
-| 14 | 70-74 | | | | | | |
-| 15 | 75+ | | | | | | |
-| Points allotted | | | | | | | |
-
-Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
-
-Table 1b: CVD Risk For Men
-
-| Total Points | 10-year Risk % | Total Points | 10-year Risk % |
-|---|---|---|---|
-| ≤-3 | <1 | 8 | 6.7 |
-| -2 | 1.1 | 9 | 7.9 |
-| -1 | 1.4 | 10 | 9.4 |
-| 0 | 1.6 | 11 | 11.2 |
-| 1 | 1.9 | 12 | 13.2 |
-| 2 | 2.3 | 13 | 15.6 |
-| 3 | 2.8 | 14 | 18.4 |
-| 4 | 3.3 | 15 | 21.6 |
-| 5 | 3.9 | 16 | 25.3 |
-| 6 | 4.7 | 17 | 29.4 |
-| 7 | 5.6 | 18+ | >30 |
-
----
-
-Table 2a: CVD Points For Women
-
-| Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
-|---|---|---|---|---|---|---|---|
-| -3 | | | | <120 | | | |
-| -2 | | 1.6+ | | | | | |
-| -1 | | 1.3-1.6 | | | <120 | | |
-| 0 | 30-34 | 1.2-<1.3 | <4.2 | 120-129 | | No | No |
-| 1 | | 0.9-<1.2 | 4.2-<5.2 | 130-139 | | | |
-| 2 | 35-39 | <0.9 | | 140-149 | 120-129 | | |
-| 3 | | | 5.2-<6.3 | | 130-139 | Yes | |
-| 4 | 40-44 | | 6.3-<7.4 | 150-159 | | | Yes |
-| 5 | 45-49 | | >7.4 | 160+ | 140-149 | | |
-| 6 | | | | | | 150-159 | | |
-| 7 | 50-54 | | | | | 160+ | | |
-| 8 | 55-59 | | | | | | |
-| 9 | 60-64 | | | | | | |
-| 10 | 65-69 | | | | | | |
-| 11 | 70-74 | | | | | | |
-| 12 | 75+ | | | | | | |
-| Points allotted | | | | | | | |
-
-Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
-
-Table 2b: CVD Risk For Women
-
-| Total Points | 10-year Risk % | Total Points | 10-year Risk % |
-|---|---|---|---|
-| ≤-2 | <1 | 10 | 6.3 |
-| -1 | 1.0 | 11 | 7.3 |
-| 0 | 1.2 | 12 | 8.6 |
-| 1 | 1.5 | 13 | 10.0 |
-| 2 | 1.7 | 14 | 11.7 |
-| 3 | 2.0 | 15 | 13.7 |
-| 4 | 2.4 | 16 | 15.9 |
-| 5 | 2.8 | 17 | 18.5 |
-| 6 | 3.3 | 18 | 21.5 |
-| 7 | 3.9 | 19 | 24.8 |
-| 8 | 4.5 | 20 | 28.5 |
-| 9 | 5.3 | 21+ | >30 |
-
----
-
+<!-- parent_only_reference_start -->
 Table 3: Risk Stratification Of Cardiovascular Risk
-
 - **Very High Risk** individuals are those with:
   - A FRS-CVD score that confer a 10-year risk for CVD of >30%
   - Established CVD
@@ -567,33 +624,7 @@ Table 3: Risk Stratification Of Cardiovascular Risk
 - **Low Risk** Individuals:
   - Have a FRS-CVD score that confer a 10-year risk for CVD <10%
 
----
-
-Table 4: Targets Of Individual Risk Factors
-
-| Risk Factor | Target | Grade / Level of Evidence |
-|---|---|---|
-| Smoking | Complete Cessation | [Grade I, Level B] |
-| Physical Activity | Minimum 30 min/day, 5 days/week of moderate intensity PA (150 min/week) or 15 min/day, 5 days/week of vigorous intensity PA (75 min/week) or a combination of both | [Grade I, Level B] |
-| Dyslipidaemia | LDL-C: This should be the primary target of therapy. Treatment targets depend on CVD Risk Classification (Refer to Table 3: Risk Stratification of Cardiovascular Risk): **Very High Risk**: LDL-C goal <1.8 mmol/L (or ≥50% reduction from baseline). **High Risk**: LDL-C goal <2.6 mmol/L (or ≥50% reduction from baseline). | [Grade I, Level A] |
-| BP* | <140/90 mmHg in most individuals <80 years of age | [Grade I, Level A] |
-| BP* | <150/90 mmHg in individuals ≥80 years of age | [Grade I, Level A] |
-| Diabetes** — Pre-prandial / fasting blood sugar | 4.4 – 7.0 mmol/L *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level C] |
-| Diabetes** — Post-prandial blood sugar (90-120 min after meal) | 4.4 – 8.5 mmol/L *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level C] |
-| Diabetes** — HbA1c | ≤6.5% *(target should be individualised depending on the patient's profile to minimise risk of hypoglycaemia)* | [Grade I, Level A] |
-| Diabetes** — BP | ≤135/75 mmHg | [Grade I, Level B] |
-| Diabetes** — LDL-C | <2.6 mmol/L (the lower the better); <1.8 mmol/L in diabetics with CVD | [Grade I, Level A] |
-| Diabetes** — HDL-C | >1.0 mmol/L (males); >1.2 mmol/L (females) | — |
-| Diabetes** — Triglycerides | ≤1.7 mmol/L | — |
-| Overweight/Obesity** | Weight loss: aim for 5-10% in 6 months and maintain the weight in the next 1-2 years. | [Grade I, Level A] |
-
-> \* *Malaysian Clinical Practice Guidelines on Hypertension, 4th Ed 2013*
->
-> \*\* *Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th Ed 2015*
-
----
 Table 7: Prevalence Of CV Risk Factors Among Adults ≥18 Years Of Age In Malaysia According To Age (Nhms 2015)
-
 | Age Group | Hypercholesterolaemia (%) | Hypertension (%) | Diabetes (%) | Overweight BMI: 23–27.5 kg/m² (%) | Obesity BMI: >27.5 kg/m² (%) | Current Tobacco Smoking — Males only (%) |
 |---|---|---|---|---|---|---|
 | 18–19 | 22.0 | 6.7 | 5.5 | 20.8 | 20.2 | 49.6 |
@@ -610,9 +641,6 @@ Table 7: Prevalence Of CV Risk Factors Among Adults ≥18 Years Of Age In Malays
 | 70–74 | 62.7 | 75.4 | 39.1 | 39.2 | 26.0 | — |
 | 75+ | 58.3 | 73.4 | 37.0 | 37.3 | 15.1 | — |
 
-
----
-
 Table 13: Criteria For Staging Hypertension Based On Clinic, Home And Ambulatory Blood Pressure Monitoring
 
 | Category | Clinic BP (mmHg) | Home BP Monitoring Average or Ambulatory BP Daytime Average (mmHg) |
@@ -623,9 +651,7 @@ Table 13: Criteria For Staging Hypertension Based On Clinic, Home And Ambulatory
 
 *\*Adapted from National Institute for Health and Clinical Excellence (NICE) Hypertension, 2011 [Available at: www.nice.org.uk/guidance/CG127 (accepted 8th September 2013)]*
 
----
 Table 14: Risk Stratification
-
 | Co-existing Condition | No RF No TOD No TOC | TOD or RF (1-2) No TOC | TOC or RF (≥3) or Clinical atherosclerosis | Previous MI or Previous stroke or Diabetes |
 | :--- | :--- | :--- | :--- | :--- |
 | BP Levels (mmHg) | | | | |
@@ -644,8 +670,6 @@ Table 14: Risk Stratification
 
 *\* Malaysian Clinical Practice Guidelines on Hypertension, 4th ed, 2013*
 
----
-
 Table 15: Target LDL-C Levels
 
 | GLOBAL RISK | LDL-C Levels to initiate Drug therapy (mmol/L) | Target LDL-C levels (mmol/L) |
@@ -659,26 +683,6 @@ Table 15: Target LDL-C Levels
 *\*\*After a trial of 8-12 weeks of Therapeutic Lifestyle Changes (TLC) and following discussion of the risk: benefit ratio of drug therapy with the patient*
 *\*\*\*whichever results in a lower level of LDL-C*
 
----
-Table 16: Lipid Modifying Therapy For Dyslipidemia
-
-**The Primary Target of Therapy is LDL-C: The target will depend on the Individuals' CV Risk (Table 1 & 2, pg 18-19)**
-
-| Pharmacotherapy | Indication | Grade of Recommendation, Level Of Evidence |
-|---|---|:---:|
-| Statins | Very High and High CV Risk | I, A |
-| | Intermediate (Moderate) and Low CV risk* | I, A |
-| Statins + ezetimibe | Failure to achieve LDL-C goals | I, B |
-| Statins + PCSK-9 inhibitors | Familial hypercholesterolemia | I, A |
-| | Failure to achieve LDL-C goals | IIa, B |
-| Statins + fibrates | Diabetic patients on maximally tolerated statins who have achieved the LDL-C target but have low HDL-C and high TG | IIb, B |
-| Ezetimibe | Statin intolerance | IIa, C |
-| PCSK-9 inhibitors | Very High and High CV risk with statin intolerance | IIa, B |
-| Fibrates | Very High TG despite non-pharmacological measures | IIa, C |
-
-*\*After Therapeutic Lifestyle changes*
-
----
 Table 17: Diagnosis Of Prediabetes And Diabetes
 
 | Category | 0 hour (fasting*) | 2 hour |
@@ -695,50 +699,7 @@ Table 17: Diagnosis Of Prediabetes And Diabetes
 
 *\*fasting of at least 10 hours*
 
-
----
-Table 18: WHO Should Be Screened For Prediabetes
-
-- A. Women with a history of gestational diabetes mellitus (GDM)
-- B. Adults who are overweight or obese (BMI ≥23 kg/m² or waist circumference ≥80 cm for women and ≥90 cm for men) with ANY of the following:
-    - History of CVD
-    - First-degree relative with diabetes
-    - Hypertension (BP ≥140/90 mmHg or on therapy for hypertension)
-    - HDL-C <0.9 mmol/L or TG >2.8 mmol/L
-    - Women who delivered a baby weighing ≥4 kg
-    - Those who were born from mothers with GDM
-    - Other endocrine conditions associated with insulin resistance e.g:
-        - Polycystic ovarian syndrome (PCOS),
-        - Cushing's syndrome,
-        - Acromegaly,
-        - Phaeochromoytoma,
-        - Presence of acanthosis nigricans etc
-    - Physical inactivity & sedentary lifestyle
-    - Those who are receiving long-term treatment with any of the following medications:
-        - Antiretroviral therapy (Level II-1)
-        - Atypical antipsychotic drugs (Level II-2)
-        - Corticosteroids
-        - Thiazide diuretics
-        - β-blockers
-        - Statins
-
-In those without the above risk factors, testing should begin at the age of 30 years. If tests are normal, screening should be done annually (Refer to Section 9.3.1.4: Diagnosis).
-
-*\*Modified from American Diabetes Association (ADA) Position Statement on Standards of Medical Care in Diabetes– 2017*
-
----
-Table 19: A1c Targets For T2dm Without Pre-Existing CVD
-
-| Tight Control (≤6.5%) | Intermediate (6.6–7.4%) | Less Tight Control (7.5–8.0%) |
-|---|---|---|
-| 1. Newly diagnosed<br>2. On medications that do not cause hypoglycaemia<br>3. Low risk of hypoglycaemia<br>4. Proteinuria<br>5. Healthier (long life expectancy) | 1. High CV risk based on Framingham Risk Score<br>2. High risk of hypoglycaemia<br>3. Repeated episodes of hypoglycaemia | 1. Comorbidities e.g.<br>• Chronic Renal Failure (GFR < 60 units),<br>• Decompensated chronic liver disease,<br>• Chronic dementia,<br>• Bed-bound due to CVA etc.<br>2. Episode of severe hypoglycaemia<br>3. Limited life expectancy (metastatic malignancies etc) |
-
-*\*Modified from the Clinical Practice Guidelines for the Management of Type 2 Diabetes Mellitus. 2015.*
-
----
-
 Table 20: A1c Targets For T2dm With Pre-Existing CVD ("The Dynamic A1c Target")
-
 | Tight Control (≤6.5%) | Intermediate (6.6–7.4%) | Less Tight Control (7.5–8.0%) |
 |---|---|---|
 | 1. Able to achieve glycaemic targets without significant hypoglycaemia<br>2. Possesses good glycaemic control without much concern<br>3. On medications that do not cause hypoglycaemia | 1. Initiation of insulin therapy or oral agents that can cause hypoglycaemia<br>2. Intensification of insulin therapy or oral agents that can cause hypoglycaemia | 1. Frequent* + new episodes of hypoglycaemia<br>2. Severe hypoglycaemia**<br>3. Chronic Kidney Disease (GFR < 60 ml/min/1.73m² units)<br>4. Symptomatic IHD or incomplete revascularisation (Suboptimal therapy of CVD)<br>5. Limited life expectancy (metastatic malignancies etc) |
@@ -751,10 +712,7 @@ Table 20: A1c Targets For T2dm With Pre-Existing CVD ("The Dynamic A1c Target")
 
 *\*\*\* Caution should be exercised when intensifying treatment in diabetic patients with CVD whose baseline A1c is high (>8%) and who have never experienced an episode of hypoglycaemia. A higher initial A1c target of ≥ 7.5% is preferred with gradual introduction of therapy aimed at controlling blood glucose levels. If this is achieved without significant increase in hypoglycaemia a lower A1c target of 6.5%-7.0% may be considered.*
 
----
-
 Table 21: Antiplatelet Therapy For Primary And Secondary Prevention Of CVD
-
 | Prevention Type | Patient Group | Recommendation | Drug/Regimen | Grade/Level |
 |---|---|---|---|---|
 | Primary | Non-diabetics | Not routinely recommended | Aspirin | I,A |
@@ -772,42 +730,7 @@ Table 21: Antiplatelet Therapy For Primary And Secondary Prevention Of CVD
 | | | Who have not undergone PCI: DAPT for at least 1 year and then antiplatelet monotherapy long term | Aspirin 75-100 mg + clopidogrel 75 mg daily | I,B |
 | | | | Aspirin 75-100 mg + ticagrelor 90 mg BD | IIa,B |
 
----
-
-Table 22: Cha2ds2-Vasc Score
-
-| Risk Factor | CHA2DS2-VASc SCORE |
-|---|---|
-| Congestive Heart Failure | 1 |
-| Hypertension | 1 |
-| Age >75 years | 2 |
-| Diabetes Mellitus | 1 |
-| Prior Stroke or TIA or thromboembolism | 2 |
-| Vascular Disease | 1 |
-| Age 64-74 years | 1 |
-| Female gender | 1 |
-
----
-
-### Appendix 2: How To Use The Framingham Cardiovascular Risk Prediction Models Online?
-
-### For Men And Women
-*Example of the Framingham Cardiovascular Disease 10-year risk prediction model (cholesterol model)*
-
-If the patient is female, aged 30 years, has a systolic blood pressure of 125 mmHg, HDL cholesterol levels of 45 mg/dL and a total cholesterol level of 180 mg/dL, her 10-year cardiovascular risk is 1.3%. She falls into the low cardiovascular risk category.
-
-> Figure Description: A screenshot of the Framingham General CVD Risk Prediction calculator. It shows an input table with risk factors and corresponding unit values. The inputs are: Sex: f (female), Age: 30 years, Systolic Blood Pressure: 125.0 mmHg, Treatment for Hypertension: n (no), Smoking: n (no), Diabetes: n (no), HDL: 45 mg/dL, Total Cholesterol: 180 mg/dL. Below the inputs, the calculated "Your 10-Year Risk" is shown as 1.3%. "Your Heart/Vascular Age" is 30. A bar chart visually compares the 1.3% risk against optimal and normal risk levels, showing it is well within the low risk range (green bar).
-
-*Example of the Framingham Cardiovascular Disease 10-year risk prediction model (BMI model)*
-
-If the patient is female, aged 30 years, has a systolic blood pressure of 125 mmHg, with a BMI of 22.5, kg/m², her 10-year cardiovascular risk is 1.1%. She falls into the low cardiovascular risk category.
-
-> Figure Description: A screenshot of the Framingham General CVD Risk Prediction calculator (BMI model). It shows an input table with risk factors and corresponding unit values. The inputs are: Sex: f (female), Age: 30 years, Systolic Blood Pressure: 125.0 mmHg, Treatment for Hypertension: n (no), Smoking: n (no), Diabetes: n (no), Body Mass Index: 22.5 kg/m². Below the inputs, the calculated "Your 10-Year Risk" is shown as 1.1%. "Your Heart/Vascular Age" is 30. A bar chart visually compares the 1.1% risk against optimal and normal risk levels, showing it is well within the low risk range (green bar).
-
-
----
-
-### Appendix 5: Carbohydrate Content Of Common Malaysian Food*
+Appendix 5: Carbohydrate Content Of Common Malaysian Food*
 | Food | Serving | Calories (kcal) | CHO content (g) | Glycaemic Index(GI)** |
 |---|---|---|---|---|
 | Added sugar | 6 teaspoonfuls | 100 | | High GI (>70) |
@@ -838,9 +761,7 @@ If the patient is female, aged 30 years, has a systolic blood pressure of 125 mm
 *\* Adapted from:Tee ES, Mohd Ismail N, Mohd Nasir A, et al. Nutrient Composition of Malaysian Foods. Institute for Medical Research (IMR). Kuala Lumpur, 1997*
 *\*\*Food with Low GI is preferred.*
 
----
-
-### Appendix 6: Glycaemic Index Of Foods*
+Appendix 6: Glycaemic Index Of Foods*
 | Food category | Low GI (<55) | Intermediate GI (56-70) | High GI (>70) |
 |---|---|---|---|
 | Rice | Barley | Basmati Rice<br>Brown rice<br>Parboiled rice<br>Red rice | Glutinous rice<br>Jasmine rice<br>Instant porridge<br>White rice<br>Sago |
@@ -855,9 +776,7 @@ If the patient is female, aged 30 years, has a systolic blood pressure of 125 mm
 *\*\*It is important to consider both GL and GI:*
 *GL = GI x CHO (g)/100*
 
----
-
-### Appendix 7: Dietary Fibre Content Of Common Food*
+Appendix 7: Dietary Fibre Content Of Common Food*
 | | High Fibre (5+ g) | Medium Fibre (2-4 g) | Low Fibre (< 2 g) |
 |---|---|---|---|
 | Grains | Barley, cooked,1/2 cup | Bran, natural 1 tbsp<br>Brown rice, cooked, ½ cup<br>Wheat germ. 1 tbsp<br>Basmathi rice uncooked ¼ cup | White rice, cooked, ½ cup |
@@ -871,9 +790,7 @@ If the patient is female, aged 30 years, has a systolic blood pressure of 125 mm
 
 *\*Medical Nutrition Therapy Guideline for Type 2 Diabetes Mellitus 2nd Edition, adapted from American Dietetic Association, 2000*
 
----
-
-### Appendix 9: Sodium Content Of Common Food
+Appendix 9: Sodium Content Of Common Food
 | No. | Foods | Serving size | Sodium/ Na (mg) |
 |---|---|---|---|
 | 1. | Chicken curry | 1 can (405g) | 2036 |
@@ -899,8 +816,6 @@ If the patient is female, aged 30 years, has a systolic blood pressure of 125 mm
 *1. CCHRC. 2007. Sodium (Na+) Content of Seasoning and Common Foods.USA: Chinese Community Health Resource Center*
 *2. CFS. 2012. Risk Assessment Studies, Report No. 49: Study on Sodium Content in Local Foods. Center for Food Safety Food and Environmental Hygiene Department. The Government of the Hong Kong Special Administrative Region.*
 
----
-
 Figure 1: Algorithm For The Management Of Hypertension
 
 The algorithm for managing hypertension based on repeated blood pressure readings is as follows:
@@ -913,11 +828,9 @@ The algorithm for managing hypertension based on repeated blood pressure reading
 - For patients with **SBP ≥160 mmHg and/or DBP ≥100 mmHg**:
     - Initiate drug treatment immediately (combination therapy is preferred, either as free drugs or a single pill combination).
 
----
 Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CVD And Specific Disease Profiles.
 
 **Text interpretation (stepwise pharmacotherapy by profile; top → bottom):**
-
 | DM + CVD profile | Preferred escalation sequence (top → bottom) |
 |---|---|
 | **Low risk** (chronic stable angina; normal kidney function) | Metformin → SGLT2i**** → GLP-1***** → DPP-4i / Gliclazide / TZD*** → Basal insulin → Basal bolus insulin |
@@ -938,48 +851,7 @@ Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CV
 - **Renal function (GFR)** and **hypoglycaemia history** materially change the preferred escalation pathway.
 - In several higher-risk phenotypes, **SGLT2i/GLP-1** appear early in the sequence.
 
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 8 (INTERVENTIONS TO PREVENT CVD) -->
-<!-- Purpose: Provides therapeutic lifestyle changes referenced in Section 9 -->
-<!-- ============================================================ -->
-
-### Summary Of Therapeutic Lifestyle Changes (From Section 8)
-**1. Nutrition:**
-- **Dietary Patterns:** Adopt a healthy dietary pattern such as the Mediterranean Diet, DASH Diet, or the Malaysian Healthy Eating Recommendations (#QuarterQuarterHalf plate).
-- **Fats:** Total fats should contribute 20-25% of total calorie intake. Intake of saturated fatty acids (SFA) should be <10% of total calorie intake. Trans fatty acids (TFA) should contribute <1% of total energy intake.
-- **Carbohydrates:** Focus on whole grains, fruits, vegetables, and legumes. Carbohydrates with a low glycaemic index (GI ≤55) are preferred.
-- **Fibre:** Recommended intake is 20 to 30 g per day of dietary fibre.
-- **Sugar:** For adults, <10% of total energy intake should be from added sugar (equivalent to ~50g or 12 teaspoons for a 2000-calorie diet).
-- **Vegetables and Fruits:** Consume 5 servings of fruits and vegetables a day.
-- **Sodium:** Reduce sodium intake by approximately 1,000 mg/day; WHO recommends <2000 mg of sodium (5g of salt) per day.
-
-**2. Physical Activity:**
-- Aim for at least 150 minutes a week of moderate-intensity aerobic physical activity, or 75 minutes a week of vigorous-intensity aerobic physical activity, or an equivalent combination.
-- Engage in resistance and flexibility exercises.
-- For weight loss, aim for 250 to 450 minutes of moderate-intensity physical activity per week.
-
-**3. Smoking Cessation:**
-- Stopping smoking is the most effective prevention measure.
-- Utilize psychosocial counselling and pharmacotherapy (e.g., Nicotine Replacement Therapy, Varenicline, Bupropion) for smoking cessation.
-- Avoid exposure to second-hand tobacco smoke and avoid the use of electronic cigarettes/shisha.
-
-**4. Obesity and Body Weight Management:**
-- Aim to achieve 5 to 10% weight loss and maintain it over 1-2 years.
-- Maintain waist circumference <90 cm for men and <80 cm for women.
-- For a greater weight loss, a calorie restriction of 1200 to 1500 kcal/day is recommended.
-
-<!-- END OVERLAP FROM: SECTION 8 -->
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -988,23 +860,14 @@ Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CV
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Common abbreviations used throughout this CPG       -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -1049,5 +912,4 @@ Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CV
 | TIA | Transient Ischaemic Attack |
 | TML | Thiazolidinedione |
 | VLDL-C | Very Low Density Lipoprotein Cholesterol |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

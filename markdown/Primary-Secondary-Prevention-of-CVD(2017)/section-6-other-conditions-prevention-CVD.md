@@ -9,10 +9,6 @@ treatment_type: CPAP, sildenafil, tadalafil, SSRI, menopausal_hormone_therapy, t
 
 > **Context:** This section covers conditions that amplify CVD risk beyond the traditional Framingham factors: CKD, infections (influenza, periodontal disease, HIV), cancer therapies, connective tissue diseases, sleep disorders (OSA), psychosocial factors, and gender-specific issues.
 
----
-
-## 6: Other Conditions Associated With Increased CV Risk
-
 ## 6.1: Chronic Kidney Disease
 The prevalence of CKD in Malaysian adults is approximately 9.1% based on estimated glomerular filtration rate (eGFR). Risk factors for CVD and CKD overlap significantly (age, diabetes, hypertension, dyslipidaemia, smoking, obesity). In CKD patients, non-traditional risk factors—such as albuminuria, hyperuricaemia, anaemia, inflammation, and endothelial dysfunction—further elevate CVD risk.
 
@@ -23,7 +19,6 @@ MI in CKD patients stems from premature atherosclerosis and arteriosclerosis. Up
 Standard risk equations like the FRS are less accurate in CKD patients as they do not incorporate CKD parameters. Patients >50 years old with CKD (eGFR <60 mL/min/1.73m² and/or albuminuria >30 mg/day) are regarded as High CV Risk.
 
 ## 6.2: Infections And The Heart
-
 ### 6.2.1: Influenza
 Recent influenza or respiratory tract infections are associated with acute myocardial infarction (AMI) in non-tropical regions. While some evidence suggests influenza vaccination may reduce CV mortality in CVD patients, there is insufficient evidence for primary prevention. Despite CDC/ACC advocacy for vaccination in CVD patients, there are no supportive data for its benefits in tropical regions.
 [Grade IIa, Level C] Routine influenza vaccination is not recommended.
@@ -31,7 +26,7 @@ Recent influenza or respiratory tract infections are associated with acute myoca
 ### 6.2.2: Periodontal Disease
 Epidemiological studies show an association between periodontal disease (PD) and CVD events (CHD, MI, strokes, PAD). While treating PD improves surrogate markers of inflammation and endothelial function, there are no interventional studies proving it prevents CVD.
 
-### 6.2.3: Human Immunodeficiency Virus (Hiv)
+### 6.2.3: Human Immunodeficiency Virus (HIV)
 With the use of new and effective anti-viral therapy, the life expectancy of patients infected with HIV is almost approaching that of the general population. CVD is becoming an important cause of mortality accounting for 6-11% of deaths.
 
 HIV infected individuals of both gender, are at increased risk of:
@@ -113,7 +108,6 @@ Coronary patients with clinically significant depression can be safely and effec
 [Grade IIa, Level B] A prudent approach at present is to offer patients with clinically significant depression or anxiety treatment with psychotherapy and antidepressant/ anxiolytic medication. Those not accepting treatment should be followed closely, and treatment offered again if symptoms persist for 4–6 weeks
 
 ## 6.7: Gender Specific Issues
-
 ### 6.7.1: Erectile Dysfunction
 Erectile dysfunction (ED) is defined as persistent or recurrent inability to achieve and maintain a penile erection of sufficient rigidity to permit satisfactory sexual activity for at least 3 months duration. It is the commonest sexual problem affecting men. The prevalence of moderate to severe ED in a multi-ethnic Malaysian male population aged between 50-65 years old, was about 20%.
 
@@ -171,7 +165,7 @@ The link between MHT and CVD can be summarised as follows:
 - Treatment preference
 - Overall CVD risk profile
 
-### 6.7.5: Testosterone Replacement Therapy (Trt)
+### 6.7.5: Testosterone Replacement Therapy (TRT)
 Male hypogonadism is defined as symptoms and signs of testosterone deficiency in the presence of low testosterone levels measured by at least two early-morning blood samples of free testosterone or total testosterone obtained before 10:00 a.m.
 
 The goal of TRT is to restore testosterone to physiologic ranges and reverse symptoms of hypogonadism.
@@ -191,9 +185,7 @@ The issue of increased risk of CVD with the use of testosterone is still unresol
 
 [Grade III, Level B] It is not recommended for primary or secondary CV prevention.
 
----
-
-## Key Message
+**Key Message**
 Conditions that are associated with increased CV risk are:
 - Chronic kidney disease
 - Certain infections like HIV infection
@@ -207,18 +199,11 @@ Conditions that are associated with increased CV risk are:
   - Combined oral contraceptives
   - Sex hormone therapy – menopausal hormone therapy and testosterone replacement therapy
 
----
-
-## Recommendation
+**Recommendation**
 In these patients who are at increased CV risk, all CV risk factors should be treated to target in accordance with the respective CPG's.
 
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT                                              -->
-<!-- ============================================================ -->
-
-### Appendix 3: Stop-Bang Sleep Apnea Questionnaire
+<!-- parent_only_reference_start -->
+Appendix 3: Stop-Bang Sleep Apnea Questionnaire
 | STOP | | |
 |---|---|---|
 | Do you SNORE loudly (louder than talking or loud enough to be heard through closed doors)? | Yes | No |
@@ -244,16 +229,7 @@ Low Risk of OSA: Yes 0-2
 
 *From: Chung F, Abdullah HR, Liao P. STOP-Bang Questionnaire: A Practical Approach to Screen for Obstructive Sleep Apnea. Chest. 2016 Mar;149(3):631-8*
 
----
-<!-- END OVERLAP -->
-
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -262,23 +238,14 @@ Low Risk of OSA: Yes 0-2
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-<!-- ============================================================ -->
-<!-- ABBREVIATIONS USED IN THIS SECTION                           -->
-<!-- All entries are defined in the Master List in Section 0      -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | ACC | American College of Cardiology |
@@ -326,5 +293,4 @@ Low Risk of OSA: Yes 0-2
 | VLDL-C | Very Low Density Lipoprotein Cholesterol |
 | VTE | Venous Thromboembolism |
 | WHO | World Health Organization |
-
-<!-- END ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

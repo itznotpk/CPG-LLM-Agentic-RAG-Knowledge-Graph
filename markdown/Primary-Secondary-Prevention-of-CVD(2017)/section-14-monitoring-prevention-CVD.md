@@ -8,22 +8,13 @@ output: national_ncd_targets, performance_indicators, implementation_guidance
 
 > **Context:** This section covers the implementation framework for the CPG, including continuous medical education strategies and the national NCD targets for Malaysia by 2025, aligned with the WHO global monitoring framework.
 
----
-
-## 14: Monitoring Of Activity And Quality Assurance
 Implementation of the recommendations listed in this CPG can be accomplished by:
 - Continuous medical education via regular seminars, lectures and roadshows particularly at the district hospital and family medicine clinics. Education and training is the most important aspect of the implementation of this CPG.
 - Widespread availability of this CPG to healthcare providers via printed copies, electronic websites, etc.
 
 The national NCD targets for Malaysia by year 2025 are shown in Table 29: NCD Targets for Malaysia 2025. This was developed based on the comprehensive global monitoring framework, including 25 indicators, and a set of nine voluntary global targets for the prevention and control of NCDs.
 
-
----
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT                                              -->
-<!-- ============================================================ -->
 Table 29: Ncd Targets For Malaysia 2025
-
 |     |                                                                                                | Global target          | Malaysia           | Malaysia      |
 |-----|------------------------------------------------------------------------------------------------|------------------------|--------------------|---------------|
 |     | Indicator                                                                                      | Global target          | Baseline (2010 * ) | Target (2025) |
@@ -41,14 +32,8 @@ In addition, other performance measures include:
 - Mortality statistics
 - Burden of disease studies conducted every 10 years
 
----
-<!-- END OVERLAP -->
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Common abbreviations used throughout this CPG       -->
-<!-- ============================================================ -->
-
-### Abbreviations
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Definition |
 |---|---|
 | CAD | Coronary Artery Disease |
@@ -61,5 +46,4 @@ In addition, other performance measures include:
 | NCD | Non-Communicable Disease |
 | T&CM | Traditional and Complementary Medicine |
 | WHO | World Health Organization |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

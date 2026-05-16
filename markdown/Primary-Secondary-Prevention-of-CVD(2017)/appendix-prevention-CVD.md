@@ -19,8 +19,7 @@ output: reference_tables, dietary_data, clinical_scores
 | URLs for risk calculators | http://hp2010.nhl-bihin.net/atpiii/cal-culator.asp?user-type=prof | https://www.framingham-heart-study.org/risk-functions/cardi-ovas-cular-disease/10-year-risk.php type=prof | http://ww-w.heartscore.org/pages/wel-come.aspx | www.cvriskcal-culator.com. | https://qrisk.org/2016/ |
 
 ## Appendix 2: How To Use The Framingham Cardiovascular Risk Prediction Models Online?
-
-### For Men And Women
+**For Men And Women**
 *Example of the Framingham Cardiovascular Disease 10-year risk prediction model (cholesterol model)*
 
 If the patient is female, aged 30 years, has a systolic blood pressure of 125 mmHg, HDL cholesterol levels of 45 mg/dL and a total cholesterol level of 180 mg/dL, her 10-year cardiovascular risk is 1.3%. She falls into the low cardiovascular risk category.
@@ -293,7 +292,6 @@ TCM uses many forms of treatment methods, the major methods being:
 - Qigong- This is a practice of aligning body, breath and mind to cultivate and balance qi or what has been translated as "life energy".
 
 **Traditional Indian medicine (TIM)**
-
 Has 5 major forms:
 - Ayurveda means "science of life". The principal objectives of Ayurveda are maintenance and promotion of health, prevention of disease and cure of sickness. It is a famous practice in North India. It is a system based on 5 elements-space, air, fire, water and earth; and treatment concept based on balance of the three elemental substances. These elemental substances combine in the human body to form three life forces or energies, the Doshas. The Doshas consist of Vata (kinetic energy), Pitta (thermal energy), Kapha (potential energy) that governs physiological and psychological functions of the body. An equal balance of the 3 doshas leads to health, while imbalance in them leads to disease. Ayurveda emphasizes on Dietary Principles (Ahara Niyma), Daily regimen (Ritucharya), Good conduct/social behaviour (Sadavritta), the use of plant based medicines and treatments.
 - Siddha came from the word siddhi, which means perfection of heavenly bliss. Siddha system gained popularity in South India especially in Tamil Nadu. Siddha medicine is a form of the TIM that uses a therapeutic concept. It is assumed that when the normal equilibrium of the three humors (Vaadham, Pittham and Kabam) is disturbed, disease is caused. The factors, assumed to affect this equilibrium, are environment, climatic condition, diet, physical activities, and stress. According to the siddha medical system, diet and life style play a major role, not only in health but also in curing disease.
@@ -302,11 +300,9 @@ Has 5 major forms:
 - Naturopathy- Practitioners often recommend the use of natural materials, such as sunlight, herbs and certain foods, as well as the activities that are supposed to be natural, such as exercise, meditation and relaxation. They claim that natural treatment helps restore the body's natural ability to heal itself without the adverse effects of conventional drugs. This treatment is offered through consultations.
 
 **Homeopathy**
-
 This is a system based on Samuel Hahneman's doctrine of "like cures like", according to which a substance that causes the symptoms of disease in healthy people will cure similar symptoms in sick people. Hahneman believed that the underlying causes of disease were phenomena that he termed miasms and homeopathic remedies addressed these. Homeopathy remedies are based on plant, mineral and animal substances.
 
 **Islamic medical practice**
-
 Islamic medical practice is used in the treatment of physical and spiritual ailments. It is performed by a Muslim who is knowledgeable and skilled in treatment methods or materials permitted by the Islamic law. The practitioner uses Quranic verses, Hadith, the practices of the pious and righteous scholars and venerated religious teachers.
 
 ## Appendix 13: Categories Of Complementary And Traditional Medicine*
