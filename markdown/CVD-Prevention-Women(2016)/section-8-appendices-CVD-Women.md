@@ -6,7 +6,7 @@ patient_input: cardiotoxicity_risk_score, BP_level, comorbidities, HbA1c, FPG, C
 output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, audit_form
 -->
 
-> **Context:** This section houses supplementary tables, scoring systems, and specific management algorithms referred to throughout the main text, acting as a quick-reference guide for complex clinical decisions.
+> **Context:** Reference appendices for the 2016 Malaysian CVD Prevention in Women CPG: cancer-therapy cardiotoxicity (Appendix 1), combined oral contraceptive risk classification (Appendix 2), alcohol content of common spirits (Appendix 3), hypertension management (Appendix 4), type 2 diabetes management and clinical audit (Appendices 5–6), and abbreviations. Operational reference tables — clinical rationale is in Sections 2–6.
 
 ---
 

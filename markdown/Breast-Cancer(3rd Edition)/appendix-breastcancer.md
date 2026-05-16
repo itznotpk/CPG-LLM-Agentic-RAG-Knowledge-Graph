@@ -116,11 +116,11 @@ The standard reporting process follows a systematic workflow:
 * These elements are compared against **previous studies** to reach a **Final assessment category**.
 * The reporting concludes with providing **management recommendations** and **communicating any unexpected findings** to the referring clinician.
 
-**1. Describe the indication for the study:**
+### Appendix 3.1: Describe the Indication for the Study
 The examination is for screening, diagnostic or follow-up. Mention patient’s history.
 If US is performed, mention if it is targeted to a specific location or supplementary screening. If an implant is present, both standard and implant-displaced views should be performed and, this should be stated in the mammography report.
 
-**2. Describe the breast composition:**
+### Appendix 3.2: Describe the Breast Composition
 In the BI-RADS 2003 edition, the assignment of the breast composition was based on the overall density resulting in ACR category 1 (<25% fibroglandular tissue), category 2 (25 - 50%), category 3 (50 - 75%) and category 4 (>75%).
 In BI-RADS 2013, the use of percentages is discouraged because in individual cases, it is more important to take into account the chance that a mass can be obscured by fibroglandular tissue than the percentage of breast density as an indicator for breast cancer risk.
 
@@ -132,7 +132,7 @@ In the BI-RADS edition 2013, the assignment of the breast composition is changed
 
 > Note: In the 2013 edition, the use of percentages is discouraged because it is more important to take into account the chance that a mass can be obscured by fibroglandular tissue than the percentage of breast density as an indicator for breast cancer risk. For example, a breast with <50% volume of fibroglandular tissue may still be classified as composition c if the tissue is sufficiently dense in certain areas to obscure small masses.
 
-**3. Describe any significant finding using standardized terminology**
+### Appendix 3.3: Describe Any Significant Finding Using Standardized Terminology
 Use the morphological descriptors: mass, asymmetry, architectural distortion and calcifications. These findings may have associated features (e.g., skin thickening, nipple retraction, calcifications). Correlate these findings with clinical information and findings from mammography, US, or MRI. Integrate findings into a single report.
 
 **a. Mass:**
@@ -197,10 +197,10 @@ Many descriptors for US are the same as for mammography (e.g., shape or margin o
 * Post-surgical fluid collection
 * Fat necrosis
 
-**4. Comparison to previous examination(s):**
+### Appendix 3.4: Comparison to Previous Examination(s)
 Awaiting to compare with previous examination may assume importance if the finding of concern requires an evaluation of change or stability. Comparison is not important when a finding has unequivocally benign features. Comparison may be irrelevant when the finding is inherently suspicious for malignancy.
 
-**5. Conclude to final assessment category:**
+### Appendix 3.5: Conclude to Final Assessment Category
 The BI-RADS® assessment categories are designed to be concordant with specific management recommendations. The linking of assessment categories with concordant management recommendations further enhances sound medical practice. If mammography and US are performed; the overall assessment should be based on the most abnormal of the two breasts, based on the highest likelihood of a malignancy.
 
 An incomplete (category 0) assessment is usually given for screening examinations when additional imaging evaluation is recommended before it is appropriate to render a final assessment. In category 0 assessment should include specific suggestions for the 
@@ -305,6 +305,7 @@ Verbal discussions between radiologist, patient, and clinician should be documen
 **Recommendation:**
 **Signature & stamp of the Medical Officer/Specialist:** ____________________________
 
+<!-- parent_only_reference_start -->
 ## Appendix 5: Tnm Classification Of Breast Cancer
 **Definition Of Primary Tumour (T) — Clinical And Pathological**
 | T Category | T Criteria |
@@ -501,6 +502,7 @@ Superior: ______, Medial: ______, Inferior: ______, Lateral: ______, Deep: _____
 > [ ] Done on previous biopsy: Please refer to HPE report ________________
 
 **3. Final Interpretation**
+<!-- parent_only_reference_end -->
 
 ## Appendix 7: Medications In Systemic Therapy Of Breast Cancer And Their Common Side Effects
 | MEDICATION | COMMON SIDE EFFECTS | COMMENTS |

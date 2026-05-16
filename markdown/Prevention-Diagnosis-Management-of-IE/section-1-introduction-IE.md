@@ -37,7 +37,6 @@ In keeping to this aim, this CPG attempts to highlight some of the more crucial 
 
 The recommendations developed in this CPG were based on the latest available data and evidence, taking into account the local healthcare system structure and patients. Though there are certain areas that would require a shift from the norm, the committee hopes that these evidence-based recommendations will not only serve to effectively manage IE patients but to also improve their outcomes.
 
----
 <!-- parent_only_reference_start -->
 Abbreviations
 | Abbreviation | Definition |

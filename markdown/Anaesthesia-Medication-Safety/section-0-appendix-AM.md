@@ -77,10 +77,26 @@ Please tick **ONLY** the appropriate test(s) required.
 - Sample(s) from East Malaysia are suggested to be transported in ice.
 - Spin/separate serum from RBC immediately. Grossly haemolysed samples will be rejected.
 
----
+## Appendix 4: Local Anaesthetic Systemic Toxicity (LAST) Management Protocol
+| LOCAL ANAESTHETIC SYSTEMIC TOXICITY |
+|---|
+| Local Anaesthetic Systemic Toxicity (LAST) is a rare but potentially fatal adverse drug reaction resulting from circulating levels of local anaesthetics (LA) reaching toxic levels |
+| MONITORING |
+| 1. Patients receiving LA administration during regional anaesthesia procedures shall be continuously monitored in accordance with the College recommendation. Minimal monitoring in the perioperative period includes electrocardiography, non-invasive blood pressure and pulse oximetry. Labour analgesia and acute pain management in the ward using LA should follow institutional protocols. |
+| 2. Clinical monitoring and observation for signs and symptoms of LAST should be performed at appropriate intervals. |
+| 3. All anaesthesia healthcare professionals should be able to recognise signs and symptoms of LAST. |
+| CLINICAL PRESENTATION |
+| a. Central Nervous System (CNS) toxicity is the most common feature (68%-77%). |
+| b. Prodromal symptoms are perioral numbness, tinnitus, and agitation. CNS manifestations may progress to generalized seizure. |
+| c. As toxicity progresses, full inhibition of CNS occurs which may lead to loss of consciousness and depression of the respiratory centre. |
+| d. A third of patients (1/3) will progress from CNS to cardiovascular system (CVS) signs. |
+| e. Approximately 20% of patients may present with isolated CVS disturbances. |
+| f. CVS manifestations are hypotension and cardiac dysrhythmias which may progress to cardiac arrest. |
+| MANAGEMENT OF LAST |
+| https://resources.wfsahq.org/wp-content/uploads/uai25-2-Management-of-severe-local-anaesthetic-toxicity.pdf<br><br>Link to Safety Guideline produced by Association of Anaesthetists of Great Britain and Ireland<br><br>**Immediate management**<br>- Stop LA administration and call for help.<br>- Lipid Emulsion Therapy<br>- 20% lipid emulsion 1.5 ml/kg (bolus over 2-3 min)<br>- Infusion 0.25 ml / kg / min over 15-20 min<br>- Repeat bolus or Increase infusion rates to 0.5 ml / kg / min<br>- Total dose maximum ~ 12 ml / kg<br>- Cardio-Pulmonary Bypass in lipid emulsion failure<br><br>**Subsequent management**<br>- It is advisable to monitor LAST patients who have experienced a significant cardio-vascular event for at least 4 to 6 hours after treatment.<br>- If the event is limited to CNS symptoms, it may be prudent to monitor for at least 2 hours.<br>- Prolonged vigilance remains essential, given that the time to peak plasma concentrations can vary from 2 to 6 hours. |
 
+<!-- parent_only_reference_start -->
 ## Appendix 2: HKLAAC Referral Form
-
 **Form Header**
 **Referral Form for Perioperative Anaphylaxis**
 Anaesthetic Allergy Clinic
@@ -195,10 +211,10 @@ Please tick if the patient was exposed to the agents listed below and indicate t
 
 **Severity of Allergic Reaction**
 Please specify the grade of allergic reaction from the categories below.
-- [ ] **Grade I:** Cutaneous-mucous signs: erythema, urticaria +/- angioedema
-- [ ] **Grade II:** Moderate multisystemic signs: cutaneous-mucous signs +/- hypotension +/- tachycardia +/- dyspnoea +/- gastrointestinal disturbance
-- [ ] **Grade III:** Life-threatening single- or multisystemic signs: cardiovascular collapse, tachycardia or bradycardia +/- cardiac dysrhythmia +/- bronchospasm +/- cutaneous-mucous signs +/- gastrointestinal disturbance
-- [ ] **Grade IV:** Cardiac arrest
+- [ ] Grade I: Cutaneous-mucous signs: erythema, urticaria +/- angioedema
+- [ ] Grade II: Moderate multisystemic signs: cutaneous-mucous signs +/- hypotension +/- tachycardia +/- dyspnoea +/- gastrointestinal disturbance
+- [ ] Grade III: Life-threatening single- or multisystemic signs: cardiovascular collapse, tachycardia or bradycardia +/- cardiac dysrhythmia +/- bronchospasm +/- cutaneous-mucous signs +/- gastrointestinal disturbance
+- [ ] Grade IV: Cardiac arrest
 
 **Details of Treatment**
 
@@ -393,21 +409,4 @@ Report for suspected Malignant Hyperthermia Reaction
 | Positive MH family history in relative of first degree | |
 | Positive MH family history in relative not of first degree | |
 | Please send the completed form to Anaesthetic Department, Hospital Kuala Lumpur. | |
-
-## Appendix 4: Local Anaesthetic Systemic Toxicity (LAST) Management Protocol
-| LOCAL ANAESTHETIC SYSTEMIC TOXICITY |
-|---|
-| Local Anaesthetic Systemic Toxicity (LAST) is a rare but potentially fatal adverse drug reaction resulting from circulating levels of local anaesthetics (LA) reaching toxic levels |
-| MONITORING |
-| 1. Patients receiving LA administration during regional anaesthesia procedures shall be continuously monitored in accordance with the College recommendation. Minimal monitoring in the perioperative period includes electrocardiography, non-invasive blood pressure and pulse oximetry. Labour analgesia and acute pain management in the ward using LA should follow institutional protocols. |
-| 2. Clinical monitoring and observation for signs and symptoms of LAST should be performed at appropriate intervals. |
-| 3. All anaesthesia healthcare professionals should be able to recognise signs and symptoms of LAST. |
-| CLINICAL PRESENTATION |
-| a. Central Nervous System (CNS) toxicity is the most common feature (68%-77%). |
-| b. Prodromal symptoms are perioral numbness, tinnitus, and agitation. CNS manifestations may progress to generalized seizure. |
-| c. As toxicity progresses, full inhibition of CNS occurs which may lead to loss of consciousness and depression of the respiratory centre. |
-| d. A third of patients (1/3) will progress from CNS to cardiovascular system (CVS) signs. |
-| e. Approximately 20% of patients may present with isolated CVS disturbances. |
-| f. CVS manifestations are hypotension and cardiac dysrhythmias which may progress to cardiac arrest. |
-| MANAGEMENT OF LAST |
-| https://resources.wfsahq.org/wp-content/uploads/uai25-2-Management-of-severe-local-anaesthetic-toxicity.pdf<br><br>Link to Safety Guideline produced by Association of Anaesthetists of Great Britain and Ireland<br><br>**Immediate management**<br>- Stop LA administration and call for help.<br>- Lipid Emulsion Therapy<br>- 20% lipid emulsion 1.5 ml/kg (bolus over 2-3 min)<br>- Infusion 0.25 ml / kg / min over 15-20 min<br>- Repeat bolus or Increase infusion rates to 0.5 ml / kg / min<br>- Total dose maximum ~ 12 ml / kg<br>- Cardio-Pulmonary Bypass in lipid emulsion failure<br><br>**Subsequent management**<br>- It is advisable to monitor LAST patients who have experienced a significant cardio-vascular event for at least 4 to 6 hours after treatment.<br>- If the event is limited to CNS symptoms, it may be prudent to monitor for at least 2 hours.<br>- Prolonged vigilance remains essential, given that the time to peak plasma concentrations can vary from 2 to 6 hours. |
+<!-- parent_only_reference_end -->

@@ -6,7 +6,7 @@ patient_input: age, sex, TC, HDL-C, SBP, smoking_status, diabetes_status, BP_tre
 output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, evidence_grades
 -->
 
-> **Context:** This section provides a summary of the clinical practice guidelines for the prevention of cardiovascular disease in women in Malaysia.
+> **Context:** Key-recommendations summary and index for the 2016 Malaysian CVD Prevention in Women CPG: risk classification, treatment targets, and evidence grading. A consolidated quick-reference — full clinical detail and rationale are in Sections 2–6.
 
 ---
 

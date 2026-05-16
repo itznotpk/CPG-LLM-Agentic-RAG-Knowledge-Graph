@@ -1,6 +1,6 @@
 # Section 4: Risk Assessment, Stratification And Disclosure
 <!-- METADATA
-category: Risk Assessment, Patient Communication
+category: Assessment
 use_case: Risk assessment, stratification and disclosure — ASA_physical_status_classification, risk-benefit_analysis, patient_counselling, risk_disclosure, peri-operative_outcome_factors, surgical_complexity, urgency_of_surgery, surgical_skill, anaesthesia_factors, high-risk_patients, complication_severity, permanent_disability, mortality_risk
 patient_input: co-morbidities, surgical_complexity, surgery_urgency, patient_questions, patient_temperament, patient_health_status, medical_condition, occupation
 output: risk_stratification, ASA_classification, risk-benefit_judgment, informed_discussion, risk_disclosure_documentation, consent_form_documentation, case_notes_documentation

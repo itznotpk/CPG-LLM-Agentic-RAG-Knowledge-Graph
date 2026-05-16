@@ -6,7 +6,7 @@ patient_input: age, sex, TC, HDL-C, SBP, smoking_status, diabetes_status, BP_tre
 output: CVD_risk_category, 10-year_CVD_risk, vascular_age, risk-based_preventive_strategy
 -->
 
-> **Context:** This section dictates the methodologies for assessing total cardiovascular risk in women, outlining the process, metrics, and tools such as the Framingham Risk Score.
+> **Context:** Total CVD risk assessment in women (2016 Malaysian CPG). Key points: the Framingham Risk Score (10-year CVD risk) is the tool used in Malaysia but may underestimate risk in women; the 2013 ACC/AHA calculator overestimated risk locally. For women, the CPG advocates the dedicated risk classification in Table 1 rather than a raw FRS score.
 
 ---
 

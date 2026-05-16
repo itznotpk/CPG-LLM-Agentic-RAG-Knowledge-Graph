@@ -60,7 +60,6 @@ In the case of relapse or reinfection, appropriate antimicrobial therapy is give
 3. Education on preventive measures e.g. good oral and skin hygiene, and rehabilitation of high-risk behaviours should be provided.
 4. Risk of relapse is higher in those with inadequate initial antimicrobial therapy, previous history of IE, prosthetic valves, unrepaired CHD, IVDU and S. aureus IE.
 
----
 <!-- parent_only_reference_start -->
 Appendix 1: Classification And Definition Of Infective Endocarditis
 **IE According To Localisation Of Infection And Presence Or Absence Of Intracardiac Material**

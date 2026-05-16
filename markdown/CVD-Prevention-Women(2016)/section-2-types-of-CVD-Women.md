@@ -7,8 +7,6 @@ output: disease_classification, diagnostic_pathway, investigation_algorithm, man
 treatment_type: statins, ACEI, beta-blockers, CCB, nitrates, ranolazine, anticoagulants, warfarin, NOAC, PCI, CABG, ICD
 -->
 
-> **Context:** This section details the specific types of CVD (Coronary Heart Disease, Cerebrovascular Disease, Peripheral Arterial Disease, and Aortic Pathologies) with a focus on gender-specific presentations, diagnosis, investigations, and management in women.
-
 ---
 
 Men and women have similar lifetime risks of CVD at age 55 years. There are however, considerable differences in the first manifestation. Men are more likely to develop CHD as a first event, while women are more likely to have a stroke or heart failure (HF) as their first event, although these manifestations tend to appear when they are older.

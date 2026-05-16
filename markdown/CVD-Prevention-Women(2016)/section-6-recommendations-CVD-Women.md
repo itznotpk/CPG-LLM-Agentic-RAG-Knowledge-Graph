@@ -8,8 +8,6 @@ critical: true
 treatment_type: statins, aspirin, ACEI, ARB, beta-blockers, CCB, diuretics, warfarin, NOAC, metformin, omega-3 fatty acids
 -->
 
-> **Context:** This section covers general healthy lifestyle interventions and targeted recommendations for managing specific clinical risk factors (dyslipidaemia, hypertension, diabetes) in women to prevent cardiovascular disease.
-
 ---
 
 The INTERHEART study found that 9 potentially modifiable factors accounted for 96% of the population attributable risk of a first MI in women compared to 93% among men. These 9 modifiable risk factors include dyslipidaemia, hypertension, diabetes, smoking, abdominal obesity, psychosocial factors, regular physical exercise, daily consumption of fruits and vegetables and regular alcohol consumption. Hypertension, diabetes, alcohol intake, and physical activity were more strongly associated with MI in women compared to men. Generally risk factors were more strongly associated with acute MI in younger (< 60 years) compared to older (≥ 60 years) women and men.

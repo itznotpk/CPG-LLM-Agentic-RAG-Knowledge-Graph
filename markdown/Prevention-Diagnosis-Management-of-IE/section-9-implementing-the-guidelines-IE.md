@@ -10,7 +10,7 @@ output: implementation_strategy
 
 The objective of this CPG is to enable the healthcare professionals who encounter IE patients in the local setting to diagnose this disease early and manage it effectively.
 
-Wide dissemination via soft copy (available from http://www.moh.gov.my , http://www. acadmed.org.my , h http://www.malaysianheart.org/) will facilitate the implementation of this CPG. However, the limited knowledge in the effective management of the disease and the varied treatment practice among HCP may be its main barriers.
+Wide dissemination via soft copy will facilitate the implementation of this CPG. However, the limited knowledge in the effective management of the disease and the varied treatment practice among HCP may be its main barriers.
 
 The successful implementation of this CPG would require:
 - Continuous medical education (CME) and training on the most effective means of diagnosing IE in patients via regular seminars, lectures, CME meetings and case sharing. These would include:

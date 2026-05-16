@@ -6,8 +6,6 @@ patient_input: age, menopausal_status, family_history, lipid_profile, BP, fastin
 output: risk_factor_identification, sex-specific_risk_profile, NHMS_prevalence_data, metabolic_syndrome_criteria
 -->
 
-> **Context:** This section details traditional and sex-specific cardiovascular risk factors in women, explaining their distinct impact and thresholds compared to men.
-
 ---
 
 ## 4.1: Personal History Of Chd and/or Chd Equivalents

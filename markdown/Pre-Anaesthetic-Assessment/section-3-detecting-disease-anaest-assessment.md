@@ -1,6 +1,6 @@
 # Section 3: Detecting Disease And Assessing Severity
 <!-- METADATA
-category: Clinical Assessment, Investigations
+category: Assessment, Diagnosis
 use_case: Detecting disease and assessing severity for pre-anaesthetic evaluation — history_taking, physical_examination, preoperative_investigations, preoperative_preparation, cardiovascular_assessment, respiratory_assessment, airway_assessment, renal_hepatic_endocrine_CNS, smoking_cessation, DVT_prevention, pain_management, fasting_instructions, blood_bank_arrangements, ICU_HDU_admission
 patient_input: medical_history, current_medications, herbal_supplements, drug_allergies, food_allergies, previous_anaesthesia, family_history, menstrual_history, system_review, physical_examination_findings, co-morbid_conditions, surgical_procedure_details
 output: disease_identification, severity_assessment, investigation_orders, preoperative_preparation_plan, GXM_orders, physiotherapy_referral, nutritional_support, medication_instructions
@@ -57,8 +57,6 @@ output: disease_identification, severity_assessment, investigation_orders, preop
 - Arrangement with Blood Bank regarding blood and blood products - Group and cross-match (GXM), group and screen as appropriate
 - Arrangement for post-operative Intensive Care Unit (ICU) or High Dependency Unit (HDU) admission if indicated
 
-
----
 <!-- parent_only_reference_start -->
 Table I: Routine Investigations For Patients Undergoing Anaesthesia
 

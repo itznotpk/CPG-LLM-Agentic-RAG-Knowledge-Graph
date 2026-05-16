@@ -1,6 +1,6 @@
 # Section 7: Documentation
 <!-- METADATA
-category: Documentation, Record Keeping
+category: Reference
 use_case: Pre-anaesthetic assessment documentation — anaesthetic_record, ward_staff_instructions, preoperative_preparation, repeat_investigations, GXM_blood_products, fasting_instructions, medication_continuation_omission, premedicant_drugs_dose_route_timing, legibility_standards, anaesthesiologist_signature
 patient_input: assessment_findings, planned_interventions, investigation_results, blood_product_requirements, fasting_schedule, medication_orders
 output: written_summary_in_anaesthetic_record, clear_ward_instructions, legible_documentation, signed_documentation

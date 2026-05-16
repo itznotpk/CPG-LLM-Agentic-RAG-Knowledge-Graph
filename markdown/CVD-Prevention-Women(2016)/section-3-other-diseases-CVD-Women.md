@@ -6,8 +6,6 @@ patient_input: connective_tissue_disease_status, chemotherapy_regimen, radiation
 output: cardiotoxicity_risk_score, monitoring_recommendations, CV_risk_modification, CPAP_recommendation
 -->
 
-> **Context:** This section highlights non-traditional medical conditions and treatments that significantly elevate cardiovascular risks specifically in women, including rheumatological conditions, oncology therapies, overlapping infections, and sleep disorders.
-
 ---
 
 ## 3.1: Connective Tissue Disease And The Heart

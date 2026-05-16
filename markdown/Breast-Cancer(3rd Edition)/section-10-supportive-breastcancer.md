@@ -8,7 +8,7 @@ output: supportive_intervention, symptom_management_plan, palliative_referral
 
 * This chapter is written mainly based mainly on the previous edition of CPG Management of Breast Cancer (Second Edition) and not on new clinical questions. The CPG DG opines that for complete management of breast cancer, the supportive treatment is summarised and mentioned here. Some updates are done on Psychosocial Assessment and Intervention Section.
 
-**a. Psychosocial assessment and intervention**
+## 10.1: Psychosocial Assessment and Intervention
 Most breast cancer patients experience at least some psychosocial distress during the course of their diagnosis and treatment. A local study revealed that up to 47.1% of women with breast cancer experience psychological distress, depression (25.3%), anxiety (18.8%) and post-traumatic stress disorder (19.6%).
 
 Other common psychosocial concerns reported by women with breast cancer include:
@@ -33,7 +33,7 @@ The aim of a psychological intervention is to reduce emotional and mental burden
 
 Others include Managing Cancer and Living Meaningfully, Mindfulness Therapy, and Acceptance and Commitment Therapy.
 
-**b. Breast care nurse**
+## 10.2: Breast Care Nurse
 Breast care nurse (BCN) improves the continuity of care and provide important information, support and referral for a wide range of needs experienced by breast cancer patients. All patients should have access to a BCN for treatment of breast cancer. Improving BCN accessibility includes:
 *   clarification on the role focusing on psychosocial assessment and support of the patients
 *   appropriate training, accreditation and ongoing professional development
@@ -43,7 +43,7 @@ Breast care nurse (BCN) improves the continuity of care and provide important in
 
 A breast care nurse (BCN) should be assigned to all patients to provide information on management and psychosocial support throughout the diagnosis, treatment and follow-up.
 
-**c. Lifestyle modifications**
+## 10.3: Lifestyle Modifications
 Lifestyle changes can be recommended to patients as an adjunct to standard breast cancer treatment.
 
 The Malaysian breast cancer cohort study showed that there was a high proportion of breast cancer survivors being obese and overweight. Breast cancer survivors should have balance diet and maintain lean body mass. There is still no particular style of diet that has been found to be more beneficial for reducing the risk of breast cancer recurrence.
@@ -53,7 +53,7 @@ Healthy lifestyle is associated with a lower risk of recurrence and this should 
 *   limiting alcohol intake to below five units per week (3 or 4 alcoholic drinks per week or 6 g of alcohol per day)
 *   smoking cessation
 
-**d. Palliative care**
+## 10.4: Palliative Care
 Palliative care aims to improve quality of life of patients and their families in facing the life-threatening illness by effective pain management and other distressing symptoms. It also incorporates psychosocial and spiritual care according to patient/family needs, values, beliefs and cultures. Palliative care is the main focus of care when cure is not achievable.
 
 Palliative care begins at diagnosis of advanced breast cancer. It should be delivered concurrently with disease-directed therapies and facilitate patient's autonomy on the further management based on the medical information.
@@ -70,7 +70,7 @@ Essential components of palliative care include the following:
 *   coordination with other care providers
 *   provision of referrals to other care providers as indicated
 
-**e. Patient Navigation Programme**
+## 10.5: Patient Navigation Programme
 Patient navigation programme (PNP) is a community-based service delivery intervention designed to promote access to timely diagnosis and treatment of cancer and other chronic diseases by eliminating barriers to care. [Level III]
 
 Principles of PNP are:
@@ -89,7 +89,7 @@ Principles of PNP are:
 
 Studies in psychosocial factors show that fear, poor health education and lack of empowerment among Malaysians are major reasons causing delay and defaulting treatment. In order to address these challenges, Cancer Research Malaysia identifies the PNP as a potential community-based solution to improve the Malaysian survivorship of breast cancer.
 
-**f. Breast cancer patient support groups**
+## 10.6: Breast Cancer Patient Support Groups
 Breast cancer patient support groups are invaluable resources for support, services and information which include:
 *   provision of emotional, social and material support for individuals with breast cancer
 *   empowering breast cancer patients to self-care during and after treatment
@@ -163,5 +163,4 @@ Abbreviations
 | MDT | Multidisciplinary Team |
 | PHQ | Patient Health Questionnaire |
 | PNP | Patient Navigation Programme |
-
 <!-- parent_only_reference_end -->

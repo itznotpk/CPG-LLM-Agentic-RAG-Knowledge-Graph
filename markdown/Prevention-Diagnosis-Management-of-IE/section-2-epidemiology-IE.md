@@ -28,7 +28,6 @@ A recent local study done in Hospital Kuala Lumpur (a tertiary inner city hospit
 
 Methicillin-sensitive Staphylococcus aureus (MSSA) was the predominant microorganism grown from blood cultures (30%). All patients were treated with antimicrobials; with 91% on antimicrobial therapy for a duration of 42 days or less. Five patients died (13.9%) primarily due to overwhelming sepsis. Fifty-three percent of patients had indications for surgical intervention, however none had surgery within the index hospitalisation.
 
----
 <!-- parent_only_reference_start -->
 Appendix 1: Classification And Definition Of Infective Endocarditis
 
@@ -58,8 +57,6 @@ Appendix 1: Classification And Definition Of Infective Endocarditis
 |---|---|
 | Relapse | Repeat episodes of IE caused by the same microorganism < 6 months after the initial episode |
 | Reinfection | • IE infection with a different microorganism<br>• A repeat episode of IE caused by the same microorganism > 6 months after the initial episode |
-
-Adapted from European Society of Cardiology infective endocarditis guidelines. 2009.
 
 Abbreviations
 | Abbreviation | Definition |

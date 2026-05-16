@@ -1,6 +1,6 @@
 # Appendix: Recommended Pre-Anaesthetic Investigations
 <!-- METADATA
-category: Investigations, Appendix
+category: Reference, Assessment
 use_case: Recommended pre-anaesthetic investigations — routine_investigations_by_age, investigations_by_clinical_indication, FBC, renal_profile, ECG, CXR, liver_function_test, blood_glucose, ABG, coagulation_screen, lung_function_test, thyroid_function_test, cardiac_function_tests, major_surgery_definition, investigation_validity_periods, 1_week_validity, 1_month_validity, 6_month_validity, repeat_investigation_criteria
 patient_input: patient_age, co-morbidities, surgery_type, surgery_extent, clinical_findings, anaemia, haematological_disease, renal_disease, liver_disease, cardiovascular_disease, diabetes_mellitus, respiratory_disease, malignancy, anticoagulant_therapy
 output: investigation_selection, routine_test_orders, indicated_test_orders, validity_assessment, repeat_investigation_decision
@@ -13,7 +13,6 @@ The nature and extent of pre-anaesthetic investigations depend on the patient's 
 Routine investigations, listed in Table I: Routine Investigations for Patients Undergoing Anaesthesia, are solely based on age and nature of surgery, for asymptomatic patients without abnormal clinical findings. For healthy patients undergoing short, minimally invasive procedures, investigations may not be necessary. Investigations listed in Table II: List of pre-anaesthetic investigations and their indications are for patients with abnormal clinical findings.
 
 Table I: Routine Investigations For Patients Undergoing Anaesthesia
-
 | Routine Investigation | Indication |
 |---|---|
 | Full blood count | Age > 60 yr<br>Major surgery* |
@@ -25,7 +24,6 @@ Table I: Routine Investigations For Patients Undergoing Anaesthesia
 *\*Major surgery is empirically defined as one in which the cranium, thorax or abdomen is opened or when the anticipated blood loss is significant and exceeds 15% of total blood volume.*
 
 Table II: List Of Pre-Anaesthetic Investigations And Their Indications
-
 | Investigation | Indication |
 |---|---|
 | Full blood count (FBC) | 1. Anaemia<br>2. Other haematological disease<br>3. Renal disease<br>4. Patient on chemotherapy |

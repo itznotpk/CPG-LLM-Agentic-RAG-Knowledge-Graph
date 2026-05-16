@@ -120,7 +120,7 @@ With such an approach emergency room visits and hospitalization could markedly b
 
 [Grade II-a, Level B] In selected patients with recent-onset AF and no significant structural heart disease, a single high oral dose of flecainide or propafenone (the 'pill-in-the-pocket' approach) should be considered, provided this treatment has proven safe during previous testing in a medically secure environment.
 
-### 5.1.3: Direct Current Cardioversion (Dccv)
+### 5.1.3: Direct Current Cardioversion (DCCV)
 DCCV is an effective method of converting AF to sinus rhythm. Successful DCCV is usually defined as termination of AF, documented as the presence of two or more consecutive P waves after shock delivery.
 
 #### 5.1.3.1: Procedure
@@ -154,6 +154,69 @@ Figure 9: Cardioversion of haemodynamically stable AF, the role of TOE-guided ca
 \* *Anticoagulation should normally be continued for 4 weeks after a cardioversion attempt except when AF is recent onset and no risk factors are present.*
 † *Long-term OAC if stroke risk factors and/or risk of AF recurrence/presence of thrombus.*
 
+A pacing catheter or external pacing pads may be needed if asystole or bradycardia occurs.
+
+Evidence favours biphasic external defibrillators over monophasic ones: they require lower energy and trials show a significantly higher first-shock success rate for DCCV in AF.
+
+Two conventional electrode positions are commonly used (refer Figure 5: Patch/paddle placement for DCCV); anteroposterior placement is more effective than anterolateral. If initial shocks fail to terminate the arrhythmia, reposition the electrodes and repeat cardioversion.
+
+Figure 5: Patch/paddle placement for DCCV
+* **Antero-lateral placement (Front view only):**
+    * **Sternal patch/paddle:** Positioned on the anatomical right upper chest (infraclavicular area).
+    * **Apex patch/paddle:** Positioned on the anatomical left lateral lower chest (midaxillary line).
+* **Antero-posterior placement (Front and Rear views):**
+   * **Sternal patch (Front view):** Positioned anteriorly over the left precordium (central-left chest, directly over the heart).
+   * **Apex patch (Rear view):** Positioned posteriorly on the left back, directly behind the heart (infrascapular region).
+
+The recommended initial energy for synchronised cardioversion (refer Figure 6: ECG strip showing synchronized cardioversion) is:
+*   200J or greater with monophasic waveform
+*   100J or greater with biphasic waveform
+*   10–50J biphasic waveform for AFL
+
+Figure 6: ECG strip showing synchronized cardioversion
+*The ECG strip demonstrates a disorganized, irregular atrial fibrillation rhythm. A synchronized direct current shock (100J in this example) is delivered, followed by a brief pause, resulting in the successful restoration of a regular normal sinus rhythm with visible P waves on the subsequent complexes.*
+
+Outpatient/day-care DCCV may be undertaken in haemodynamically stable patients without severe underlying heart disease; at least 3 h of ECG and haemodynamic monitoring is required post-procedure before discharge.
+
+Internal cardioversion may help in special situations, e.g. during invasive procedures where cardioversion catheters can be placed without further vascular access, and when implanted defibrillation devices are present.
+
+#### 5.1.3.2: Complications
+The risks and complications of cardioversion are associated primarily with:
+*   Thrombo-embolic events,
+*   Post-cardioversion arrhythmias, and
+*   The risks of general anesthesia.
+
+Thromboembolism risk is 1–2%, reduced by adequate pre-cardioversion anticoagulation or exclusion of left atrial thrombi beforehand. Skin burns are common. Prolonged sinus arrest without an adequate escape rhythm may occur in sinus node dysfunction, especially in elderly patients with structural heart disease. Dangerous arrhythmias (ventricular tachycardia, fibrillation) may arise with hypokalaemia, digitalis intoxication, or improper synchronization. Sedation may cause hypoxia or hypoventilation; hypotension and pulmonary oedema are rare.
+
+#### 5.1.3.3: Cardioversion In Patients With Implanted Pacemakers And Defibrillators
+The electrode paddle should be at least 8 cm from the pacemaker battery, with antero-posterior positioning recommended. Biphasic shocks are preferred (less energy for AF termination). Anticipate an increased pacing threshold in pacemaker-dependent patients; without a programmer, a pacing magnet over the generator pocket can provide temporary pacing support. Monitor these patients carefully and, after cardioversion, interrogate the device to confirm normal function.
+
+#### 5.1.3.4: Recurrence After Cardioversion
+Recurrences after DCCV can be divided into three phases:
+1.  Immediate recurrences, which occur within the first few minutes after DCCV.
+2.  Early recurrences, which occur during the first 5 days after DCCV.
+3.  Late recurrence, which occur thereafter.
+
+Factors predisposing to AF recurrence: age, AF duration before cardioversion, number of previous recurrences, increased LA size or reduced LA function, and coronary heart disease or pulmonary/mitral valve disease. Atrial ectopic beats with a long–short sequence, faster heart rates, and variations in atrial conduction also increase recurrence risk. Pre-treatment with antiarrhythmic drugs (amiodarone, sotalol, flecainide, propafenone) increases the likelihood of restoring sinus rhythm. Some highly symptomatic patients with infrequent AF (e.g. once or twice a year) strongly prefer repeated cardioversions for long-term rhythm control over rate control or other modalities they may find uncomfortable.
+
+[Grade I, Level C] Immediate DCCV is recommended when a rapid ventricular rate does not respond promptly to pharmacological measures in patients with AF and ongoing myocardial ischaemia, symptomatic hypotension, angina, or heart failure.
+
+[Grade I, Level B] Immediate DCCV is recommended for patients with AF involving pre-excitation when rapid tachycardia or haemodynamic instability is present.
+
+[Grade II-a, Level B] Elective DCCV should be considered in order to initiate a long-term rhythm control management strategy for patients with AF.
+
+[Grade II-a, Level B] Pre-treatment with amiodarone, flecainide, propafenone or sotalol should be considered to enhance success of DCCV and prevent recurrent AF.
+
+[Grade II-b, Level C] Repeated DCCV may be considered in highly symptomatic patients refractory to other therapy.
+
+[Grade II-b, Level C] Pre-treatment with ß-blockers, diltiazem or verapamil may be considered for rate control, although the efficacy of these agents in enhancing success of DCCV or preventing early recurrence of AF is uncertain.
+
+[Grade III, Level C] DCCV is contraindicated in patients with digitalis toxicity.
+
+### 5.1.4: Antithrombotic Therapy For Acute-Onset AF
+Refer Section 6: Management: Prevention Of Thromboembolism. <!-- cross_ref target_file="section-6-thromboembolism-prevention-af.md" target_heading="Section 6: Management: Prevention Of Thromboembolism" target_kind="h1_section" -->
+
+<!-- parent_only_reference_start -->
 Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
 **Type IA**
 - Disopyramide
@@ -184,70 +247,6 @@ Appendix D: Vaughan Williams Classification Of Antiarrhythmic Drugs
 
 *Note: Table includes compounds introduced after publication of the original classification.*
 
-A pacing catheter or external pacing pads may be needed if asystole or bradycardia occurs.
-
-Evidence favours the use of biphasic external defibrillators because of their lower energy requirements and greater efficacy compared with monophasic defibrillators. Trials have demonstrated a significant increase in the first shock success rate of DCCV for AF when biphasic waveforms were used.
-
-Currently, two conventional positions are commonly used for electrode placement (refer Figure 5: Patch/paddle placement for DCCV). Several studies have shown that anteroposterior electrode placement is more effective than anterolateral placement. If initial shocks are unsuccessful for terminating the arrhythmia, the electrodes should be repositioned and cardioversion repeated.
-
-Figure 5: Patch/paddle placement for DCCV
-
-* **Antero-lateral placement (Front view only):**
-    * **Sternal patch/paddle:** Positioned on the anatomical right upper chest (infraclavicular area).
-    * **Apex patch/paddle:** Positioned on the anatomical left lateral lower chest (midaxillary line).
-* **Antero-posterior placement (Front and Rear views):**
-   * **Sternal patch (Front view):** Positioned anteriorly over the left precordium (central-left chest, directly over the heart).
-   * **Apex patch (Rear view):** Positioned posteriorly on the left back, directly behind the heart (infrascapular region).
-
-The recommended initial energy for synchronised cardioversion (refer Figure 6: ECG strip showing synchronized cardioversion) is:
-*   200J or greater with monophasic waveform
-*   100J or greater with biphasic waveform
-*   10–50J biphasic waveform for AFL
-
-Figure 6: ECG strip showing synchronized cardioversion
-*The ECG strip demonstrates a disorganized, irregular atrial fibrillation rhythm. A synchronized direct current shock (100J in this example) is delivered, followed by a brief pause, resulting in the successful restoration of a regular normal sinus rhythm with visible P waves on the subsequent complexes.*
-
-Outpatient/day care DCCV can be undertaken in patients who are haemodynamically stable and do not have severe underlying heart disease. At least 3 h of ECG and haemodynamic monitoring are needed after the procedure, before the patient is allowed to leave the hospital.
-
-Internal cardioversion may be helpful in special situations, e.g. when a patient undergoes invasive procedures and cardioversion catheters can be placed without further vascular access and when implanted defibrillation devices are present.
-
-#### 5.1.3.2: Complications
-The risks and complications of cardioversion are associated primarily with:
-*   Thrombo-embolic events,
-*   Post-cardioversion arrhythmias, and
-*   The risks of general anesthesia.
-
-The procedure is associated with 1 – 2% risk of thromboembolism, which can be reduced by adequate anticoagulation in the weeks prior to cardioversion or by exclusion of left atrium thrombi before the procedure. Skin burns are a common complication. In patients with sinus node dysfunction, especially in elderly patients with structural heart disease, prolonged sinus arrest without an adequate escape rhythm may occur. Dangerous arrhythmias, such as ventricular tachycardia and fibrillation, may arise in the presence of hypokalaemia, digitalis intoxication, or improper synchronization. The patient may become hypoxic or hypoventilate from sedation, but hypotension and pulmonary oedema are rare.
-
-#### 5.1.3.3: Cardioversion In Patients With Implanted Pacemakers And Defibrillators
-The electrode paddle should be at least 8 cm from the pacemaker battery, and the antero-posterior paddle positioning is recommended. Biphasic shocks are preferred because they require less energy for AF termination. In pacemaker-dependent patients, an increase in pacing threshold should be anticipated. In the absence of a pacemaker programmer, a pacing magnet may be placed over the pacemaker generator pocket to provide temporary pacing support. These patients should be monitored carefully. After cardioversion, the device should be interrogated and evaluated to ensure normal function.
-
-#### 5.1.3.4: Recurrence After Cardioversion
-Recurrences after DCCV can be divided into three phases:
-1.  Immediate recurrences, which occur within the first few minutes after DCCV.
-2.  Early recurrences, which occur during the first 5 days after DCCV.
-3.  Late recurrence, which occur thereafter.
-
-Factors that predispose to AF recurrence are age, AF duration before cardioversion, number of previous recurrences, an increased LA size or reduced LA function, and the presence of coronary heart disease or pulmonary or mitral valve disease. Atrial ectopic beats with a long – short sequence, faster heart rates, and variations in atrial conduction increase the risk of AF recurrence. Pre-treatment with antiarrhythmic drugs such as amiodarone, sotalol, flecainide, and propafenone increases the likelihood of restoration of sinus rhythm. Some highly symptomatic patients in whom AF occurs infrequently (e.g. once or twice a year) strongly prefer to undergo repeated cardioversions as a long-term rhythm control strategy, rather than opting for rate control or other rhythm control modalities which they may find uncomfortable.
-
-[Grade I, Level C] Immediate DCCV is recommended when a rapid ventricular rate does not respond promptly to pharmacological measures in patients with AF and ongoing myocardial ischaemia, symptomatic hypotension, angina, or heart failure.
-
-[Grade I, Level B] Immediate DCCV is recommended for patients with AF involving pre-excitation when rapid tachycardia or haemodynamic instability is present.
-
-[Grade II-a, Level B] Elective DCCV should be considered in order to initiate a long-term rhythm control management strategy for patients with AF.
-
-[Grade II-a, Level B] Pre-treatment with amiodarone, flecainide, propafenone or sotalol should be considered to enhance success of DCCV and prevent recurrent AF.
-
-[Grade II-b, Level C] Repeated DCCV may be considered in highly symptomatic patients refractory to other therapy.
-
-[Grade II-b, Level C] Pre-treatment with ß-blockers, diltiazem or verapamil may be considered for rate control, although the efficacy of these agents in enhancing success of DCCV or preventing early recurrence of AF is uncertain.
-
-[Grade III, Level C] DCCV is contraindicated in patients with digitalis toxicity.
-
-### 5.1.4: Antithrombotic Therapy For Acute-Onset AF
-Refer Section 6: Management: Prevention Of Thromboembolism. <!-- cross_ref target_file="section-6-thromboembolism-prevention-af.md" target_heading="Section 6: Management: Prevention Of Thromboembolism" target_kind="h1_section" -->
-
-<!-- parent_only_reference_start -->
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|

@@ -603,7 +603,6 @@ The hospital must have established OPAT services with trained staff and protocol
 
 ---
 <!-- parent_only_reference_start -->
-
 Table 3.2: Fastidious And Intracellular Microorganisms, Epidemiology And Investigations
 
 | Microorganism                             | Predisposing risk factors,  epidemiology and exposure  risks                                                                                      | Laboratory investigation                                                                                                                                                                       |

@@ -74,9 +74,7 @@ Table 3.1: Symptoms And Signs Of IE
 | | • Delirium in meningitis, meningoencephalitis and encephalopathy | | • Occurs from purulent meningitis especially with acute IE |
 | | • Intracranial bleeding<br>> Manifests as:<br>» Confusion<br>» Drowsiness<br>» Reduced consciousness<br>» Vomiting<br>» Seizures | | |
 
-
 ## 3.2: Investigations
-
 ### 3.2.1: Laboratory Investigations
 Laboratory tests for infection may aid the diagnosis of IE. These include:
 - Inflammatory markers:
@@ -188,7 +186,6 @@ IgG: immunglobulin G; IgM: immunoglobulin M; HPE: histopathological examination.
 
 The directory of laboratories that perform the serological and PCR tests of the rare aetiological agents of IE is given in Appendix 4: Directory of laboratories*.
 
-
 Table 3.3: Special Stains Which Aid In The Identification Of The Causative Microorganisms Of IE From Cardiac Tissue Specimens
 
 | Tissue stain         | Detected microorganism            |
@@ -220,7 +217,6 @@ A diagnosis can be made from the pathological specimens if:
 The various special stains that are used to detect the infectious agents of interest in valvular tissue are shown in Table 3.3: Special stains which aid in the identification of the causative microorganisms of IE from cardiac tissue specimens. For the preparation and transportation of cardiac tissue for HPE refer Appendix 5: Guidelines on specimen collection.
 
 **Recommendations**
-
 Processes To Ensure Successful Microbiological Diagnosis:
 1. [Grade IIa, Level C] At least 3 sets of blood cultures to be taken at least 30 minutes apart. In adult patients, each bottle should contain 10 ml of blood.
 2. [Grade IIa, Level C] For optimal recovery of diverse aetiological agents, each set of blood cultures should include paired aerobic and anaerobic blood culture bottles.
@@ -278,9 +274,7 @@ Figure 3a: Approach To Microbiological Diagnosis Of IE
 ^*Legionella*, *Brucella*, *Nocardia* spp., fungi and NVS e.g. *Gemella*, *Granulicatella* and *Abiotrophia* may require longer incubation periods.
 
 ## 3.3: Imaging
-
 ### 3.3.1: Echocardiography
-
 #### 3.3.1.1: Echocardiography In Diagnosis Of Infective Endocarditis
 Echocardiography plays a key role in the diagnosis of IE. The first line imaging investigation in suspected IE is usually transthoracic echocardiography (TTE) as it is non-invasive and widely available. TEE should be performed subsequently if indicated.
 
@@ -334,8 +328,6 @@ Table 3.4: Findings Suggestive Of IE And Their Anatomical And Echocardiographic 
 | Fistula                           | Communication between two  neighbouring cavities through a  perforation                                   | Colour-Doppler communication  between two neighbouring cavities  through a perforation                                              |
 | Valve aneurysm                    | Saccular outpouching of valvular  tissue                                                                  | Saccular bulging of valvular leaflet  tissue                                                                                        |
 | Dehiscence of a  prosthetic valve | Dehiscence of the prosthesis                                                                              | Paravalvular regurgitation identified  by TTE/TEE, with or without rocking  motion of the prosthesis                                |
-
-
 
 #### 3.3.1.2: Interpretation Of Echocardiography
 Echocardiography in IE can be challenging. This may be due to the absence of vegetations despite a high index of clinical suspicion or the presence of masses on the endocardial surface that are not due to infective vegetation. Therefore the results of the echocardiographic study must be interpreted with caution, taking into account the patient's clinical presentation and the likelihood of IE. The limitations of echocardiography in the diagnosis of IE should be noted as follows:
@@ -404,10 +396,7 @@ Refer Section 3.3.1 Echocardiography for positive and negative findings.
 \*\*E.g. a patient with fever and known heart murmur but with no other signs or symptoms of IE
 <sup>§</sup>Includes presence of prosthetic valves, various CHD, appearance of new murmur, presence of heart failure, or other signs and symptoms of IE
 
-*Adapted from Baddour LM, et al. Circulation. 2015.*
-
 ### 3.3.2: Other Imaging Modalities
-
 **A. Multislice Computed Tomography**
 Multislice computed tomography (MSCT) in the context of IE maybe useful in the following situations:
 - To:
@@ -460,7 +449,6 @@ New modalities in nuclear imaging like single-photon emission computed tomograph
 3. Radiolabelled WBC SPECT/CT and F-FDG PET/CT may have a supplementary role in detecting peripheral embolic or metastatic infectious lesions in those with high clinical suspicion of IE and diagnostic difficulties. They may also be useful in diagnosing prosthetic valve endocarditis.
 
 ## 3.4: Diagnostic Criteria
-
 ### 3.4.1: The Modified Duke Criteria And Its Limitations
 The Duke criteria was first proposed in 1994 by Durack et al. from the Duke University Medical Centre, North Carolina, United State of America (USA). This was a diagnostic schema that stratified patients with suspected IE into 3 categories; definite, possible and rejected. In the year 2000, taking into account further evidence, the Duke criteria was refined further into the modified Duke criteria (refer Table 3.7: Definition of IE according to the modified Duke criteria) which is currently widely used in clinical practice.
 
@@ -544,7 +532,6 @@ Figure 3c: The Use Of Modified Duke Criteria In Diagnosing IE
 
 F-FDG: fluorine-18 (F-18) fluorodeoxyglucose (FDG); CT: computed tomography; CTPA: CT pulmonary angiogram; IE: infective endocarditis; MRA: magnetic resonance angiogram; MRI: magnetic resonance imaging; PET: positron emission tomography; SPECT: single photon emission computerised tomography; TEE: transoesophageal echocardiography; TTE: transthoracic echocardiography.
 
----
 <!-- parent_only_reference_start -->
 Appendix 2: Enterobacteriaceae
 The family Enterobacteriaceae includes many genera that are Gram-negative rods. They are also known as enteric Gram-negative rods or enteric bacteria (enteric means pertaining to the intestines).
@@ -566,14 +553,10 @@ The following are some of the Enterobacteriaceae microorganisms that can cause I
 - Serratia marcescens.
 
 **Reference:**
-
 Jawetz, Melnick and Adelberg's Medical Microbiology. In: GF Brooks, JS Butel and AS Morse. New York; Lange Medical Books/Mc\_Graw Hill 27 th Ed.
-
----
 
 Appendix 3: Blood Culture Collection
 Strict aseptic technique should be used throughout the procedure.
-
 1. Identify the site of venepuncture where blood is to be drawn.
 2. Wash your hands using soap and water, then dry or apply an alcohol hand rub.
 3. Put on a pair of sterile gloves.
@@ -600,7 +583,6 @@ Strict aseptic technique should be used throughout the procedure.
 3. Do not leave the blood cultures at room temperature for more than 4 hours, as it will delay or impede the detection of growth by the continuous-monitoring blood culture instrument.
 
 **References:**
-
 1. Principles and Procedures for Blood Cultures; Approved Guideline; CLSI document M47-A Vol. 27. No. 17.
 2. BD BACTEC Package insert PP-105E 2001/01.
 3. Blood culture: A key innovation for diagnosis of bloodstream infections. Biomerieux 2016.

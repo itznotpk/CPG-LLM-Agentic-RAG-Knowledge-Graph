@@ -38,8 +38,6 @@ output: classification, diagnostic_criteria_reference
 
 Adapted from European Society of Cardiology infective endocarditis guidelines. 2009.
 
----
-
 ## Appendix 2: Enterobacteriaceae
 The family Enterobacteriaceae includes many genera that are Gram-negative rods. They are also known as enteric Gram-negative rods or enteric bacteria (enteric means pertaining to the intestines).
 
@@ -62,8 +60,6 @@ The following are some of the Enterobacteriaceae microorganisms that can cause I
 **Reference:**
 
 Jawetz, Melnick and Adelberg's Medical Microbiology. In: GF Brooks, JS Butel and AS Morse. New York; Lange Medical Books/Mc\_Graw Hill 27 th Ed.
-
----
 
 ## Appendix 3: Blood Culture Collection
 Strict aseptic technique should be used throughout the procedure.
@@ -99,8 +95,6 @@ Strict aseptic technique should be used throughout the procedure.
 2. BD BACTEC Package insert PP-105E 2001/01.
 3. Blood culture: A key innovation for diagnosis of bloodstream infections. Biomerieux 2016.
 
----
-
 ## Appendix 4: Directory Of Laboratories*
 Table: Directory Of Main Laboratories That Provide Serological Testing Of Rare Aetiological Agents Of Infective Endocarditis
 
@@ -135,8 +129,6 @@ The main laboratories and the contact details are as follows:*
 
 *This list is not exhaustive and only include public institutions with the available facilities. For a full list of accredited laboratories, please refer to Standards Malaysia website (www.jsm. gov.my).
 
----
-
 ## Appendix 5: Guidelines On Specimen Collection
 Instructions for specimen collection and transport for HPE of cardiac valvular/ tissue/emboli in the diagnosis of infective endocarditis.
 
@@ -156,8 +148,6 @@ If a cardiac specimen is also being collected for:
 3. If there is more than one sample, place multiple specimens in separate containers.
 4. Review the completeness and accuracy of the request form in comparison with the label on the specimen container, against the patient's ID prior to leaving the procedural site.
 
----
-
 ## Appendix 6: Centres With Pet And SPECT/CT WBC Scan Services*
 | PET scan                                                                                            | WBC SPECT/CT scan                                                                                   |
 |-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -167,8 +157,6 @@ If a cardiac specimen is also being collected for:
 | Medical Physics Unit, University Malaya Medical  Centre                                             |                                                                                                     |
 | Penang General Hospital                                                                             |                                                                                                     |
 *This list is not exhaustive and only includes public institutions with the available facilities.
-
----
 
 ## Appendix 7: Centres With Available Cardiothoracic Surgery Services*
 | Centres |
@@ -193,10 +181,7 @@ If a cardiac specimen is also being collected for:
 | Sarawak |
 | Heart Centre, Kota Samarahan |
 
----
-
 ## Appendix 8: Antimicrobial Dosing In Adults With Renal Impairment
-
 **Loading Dose**
 The size of a loading dose (LD) is the product of the desired drug concentration in the blood and the volume of distribution. It is independent of drug clearance. Therefore, provided the desired drug concentration and volume of distribution are unchanged, the size of the loading dose does not require modification in patients with renal impairment. In cases where there is slight alteration in the volume of distribution, e.g. those with low serum protein or fluid overload, some clinicians may alter the loading dose of some drugs with narrow therapeutic index.<sup>1</sup>
 
@@ -240,7 +225,7 @@ Modified Cockcroft-Gault equation:
 
 Note: All doses recommended are for the treatment of infective endocarditis only.
 
-**Antimicrobial Doses In Adults With Renal Impairment**
+### Antimicrobial Doses In Adults With Renal Impairment
 | Drug | Dose for normal renal function | Method | Adjustment for renal failure Estimated CrCl (ml/min) > 50-90 | Adjustment for renal failure Estimated CrCl (ml/min) 10-50 | Adjustment for renal failure Estimated CrCl (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
 |---|---|---|---|---|---|---|---|
 | AMINOGLYCOSIDES | | | | | | | |
@@ -270,11 +255,8 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 | Flucytosine | 25 mg/kg PO 6 hourly | I | 25 mg/kg PO 6 hourly | CrCl 20-40:<br>12.5 mg/kg PO 6 hourly | CrCl 10-20:<br>6.25 mg/kg PO 6 hourly | HD: 25 mg/kg 48 to 72 hourly | |
 | Micafungin | 150 mg IV daily | - | 150 mg IV daily | 150 mg IV daily | 150 mg IV daily | HD: No supplemental or dose adjustment necessary | |
 
----
-
 ## Appendix 9: Antimicrobial Dosing In Children With Renal Impairment
-
-**Estimating Creatinine Clearance In Paediatrics**
+### Estimating Creatinine Clearance In Paediatrics
 There are 2 methods to calculate CrCl in children. Available data suggest that the bias of Schwartz calculated glomerular filtration rate (eGFR) increases at lower levels of GFR. The Schwartz and Counahan-Barratt formulae can provide rapid and convenient estimates of GFR, although clinicians should be aware of their imprecision in this setting.
 
 **Schwartz Method:**
@@ -308,7 +290,7 @@ There are 2 methods to calculate CrCl in children. Available data suggest that t
 
 Note: All doses recommended are for the treatment of infective endocarditis only. *WTi : ideal body weight (kg); Amo : age in months; Ayr : age in years.
 
-**Antimicrobial Doses In Paediatrics With Renal Impairment
+### Antimicrobial Doses In Paediatrics With Renal Impairment
 | Drug | Age | Dose for normal renal function | Method | Adjustment for renal failure Estimated GFR (ml/min) > 50-90 | Adjustment for renal failure Estimated GFR (ml/min) 10-50 | Adjustment for renal failure Estimated GFR (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
 |---|---|---|---|---|---|---|---|---|
 | AMINOGLYCOSIDES | | | | | | | | |
@@ -332,8 +314,6 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 | Fluconazole | Infants, children and adolescents | 6-12 mg/kg PO/IV daily | D | Normal dose | Normal LD then 50% of normal dose daily | Normal LD then 50% of normal dose 48 hourly | HD: 100% of normal dose 3x/week after HD session or 50% of normal dose every 48 hours; administer after dialysis on dialysis days<br>PD: 50% of normal dose 48 hourly<br>CRRT: 6 mg/kg/dose daily | Refer to product information for more dosing details. |
 | Flucytosine | Infants, children and adolescents | 150 mg/kg/day PO in 4 equally divided doses | - | Normal dose | GFR 30-50:<br>25-37.5 mg/kg/dose 8 hourly<br>GFR 10-29:<br>25-37.5 mg/kg/dose 12 hourly | GFR < 10:<br>25-37.5 mg/kg/dose daily | HD/PD: 25-37.5 mg/kg/dose daily<br>CRRT: 25-37.5 mg/kg/dose 8 hourly | |
 
----
-
 ## Appendix 10: Weekly Opat Review Checklist (For Doctors)
 | General review of the patient and clinical examination (specifically look for) |
 |---|
@@ -353,8 +333,6 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 | Therapeutic drug monitoring |
 | INR |
 | Echocardiogram |
-
----
 
 ## Appendix 11: Clinical Indicators
 Performance measures for this CPG is to monitor the implementation of these guidelines with the aim of achieving the following within 5 years.

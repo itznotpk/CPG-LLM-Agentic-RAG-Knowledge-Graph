@@ -8,6 +8,7 @@ treatment_type: atenolol, carvedilol, metoprolol, nadolol, propranolol, diltiaze
 -->
 
 ## 7.1: Pharmacological Rate Control
+### 7.1.1: Rate Control Targets and Strategy
 Criteria for rate control vary with patient age but usually involve achieving ventricular rates of:
 - 60–80 beats per minute at rest, and
 - 90–115 beats per minute during moderate exercise
@@ -29,6 +30,7 @@ Combinations of drugs may be necessary. Dronedarone may also effectively reduce 
 
 When a strict rate control policy is adopted (resting heart rate <80 bpm and target heart rate <110 bpm during moderate exercise), a 24-h Holter monitor should be performed to assess pauses and bradycardia.
 
+### 7.1.2: Choice of Rate-Control Agent
 Selection of the most effective and appropriate rate-control agent, or combination of agents, is vital. Table 15: Choice of a Rate-Control Agent lists rate-control treatments in order of preference, taking into account other conditions that may be present. Figure 11: The choice of drugs depends on life-style and underlying disease provides an algorithm on how to make the drug choice. Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL lists the drugs and their doses for rate control.
 
 Table 15: Choice of a Rate-Control Agent
@@ -62,7 +64,6 @@ Table 16: Oral Pharmacological Agents for Rate Control in AF/AFL
 *N/A = No
 
 Figure 11: The choice of drugs depends on life-style and underlying disease
-
  **Atrial fibrillation**
  *   **Inactive lifestyle:**
      *   &rarr; **Digitalis**
@@ -77,6 +78,7 @@ Figure 11: The choice of drugs depends on life-style and underlying disease
 
  *\*Small doses of ß1-selective blockers may be used in COPD if rate control is not adequate with non-dihydropyridine calcium channel antagonists and digoxin. Amiodarone is also used for rate control in patients who do not respond to glycosides, ß-blockers or non-dihydropyridine calcium antagonists. Dronedarone may also be used for rate control in patient with recurrent episodes of atrial fibrillation.*
 
+### 7.1.3: Recommendations
 [Grade I, Level B] Rate control using pharmacological agents (ß-blockers, non-dihydropyridine CCBs, digitalis, or a combination) is recommended in patients with paroxysmal, persistent, or permanent AF. The choice should be individualized and dose modulated to avoid bradycardia.
 
 [Grade I, Level C] In patients who experience symptoms related to AF during activity, the adequacy of heart rate control should be assessed during exercise, adjusting pharmacological treatment as necessary to keep the rate in the physiological range.
@@ -97,13 +99,12 @@ Figure 11: The choice of drugs depends on life-style and underlying disease
 
 [Grade II-a, Level C] Intravenous amiodarone can be useful to control the heart rate in patients with AF when other measures are unsuccessful or contraindicated.
 
-### 7.1.2: Combination Therapy
+### 7.1.4: Combination Therapy
 Combination of drugs may be required to control heart rate. Care should be taken to avoid severe bradycardia. The combination of digoxin and ß-blocker appears more effective than the combination of digoxin with a CCB.
 
 [Grade II-a, Level B] A combination of digoxin and either a ß-blocker, diltiazem, or verapamil is reasonable to control the heart rate both at rest and during exercise in patients with AF.
 
 ## 7.2: Non-Pharmacological Rate Control
-
 ### 7.2.1: Av Nodal Ablation And Pacing
 AV nodal ablation in conjunction with permanent pacemaker implantation provides highly effective control of the heart rate and improves symptoms, quality of life, exercise capacity, ventricular function and healthcare utilization in selected patients with AF.
 

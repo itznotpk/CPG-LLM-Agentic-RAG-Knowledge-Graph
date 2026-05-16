@@ -6,8 +6,6 @@ patient_input: medication_regimen, adherence_barriers, clinical_audit_data, pati
 output: adherence_strategies, regimen_simplification, audit_numerator_denominator, quality_metrics
 -->
 
-> **Context:** This section covers strategies to ensure adherence to cardiovascular preventive guidelines, targeting both patients and healthcare providers, and defines audit parameters for clinical quality assurance.
-
 ---
 
 ## 7.1: Barriers To Adherence

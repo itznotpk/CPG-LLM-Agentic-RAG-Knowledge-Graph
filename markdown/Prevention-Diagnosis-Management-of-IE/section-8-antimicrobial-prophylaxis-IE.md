@@ -93,10 +93,7 @@ Table 8.1: Cardiac Conditions With Increased Risk Of IE
 
 Adapted from European Society of Cardiology, American Heart Association and Cardiac Society of Australia and New Zealand infective endocarditis guidelines.
 
----
-
 Table 8.2: Dental Procedures And Recommendations For Prophylaxis Of Endocarditis
-
 | Prophylaxis always required | Prophylaxis required in some circumstances | Prophylaxis not required |
 |---|---|---|
 | • Extractions<br>• Periodontal procedures including surgery, subgingival scaling and root planning<br>• Replanting avulsed teeth<br>• Other surgical procedures (e.g. implant placement and apicectomy) | Consider prophylaxis for the following procedures if multiple procedures are being conducted, the procedure is prolonged or periodontal disease is present:<br><br>• Full periodontal probing for patients with periodontitis<br>• Intraligamentary and intraosseous local anaesthetic injection<br>• Supragingival calculus removal or cleaning<br>• Rubber dam placement with clamps (where there is risk of damaging gingiva)<br>• Restorative matrix band/strip placement<br>• Endodontics beyond the apical foramen<br>• Placement of orthodontic bands or interdental wedges<br>• Subgingival placement of retraction cords, antimicrobial fibres or antimicrobial strips | • Oral examination<br>• Infiltration and block local anaesthetic injection<br>• Restorative dentistry<br>• Supragingival rubber dam clamping and placement of rubber dam<br>• Intracanal endodontic procedures<br>• Removal of sutures<br>• Impressions and construction of dentures<br>• Orthodontic bracket placement and adjustment of fixed appliances<br>• Application of gels<br>• Intraoral radiographs<br>• Supragingival plaque removal |

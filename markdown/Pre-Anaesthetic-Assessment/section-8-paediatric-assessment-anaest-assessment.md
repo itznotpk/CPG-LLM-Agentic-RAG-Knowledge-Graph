@@ -1,6 +1,6 @@
 # Section 8: Pre-Anaesthetic Assessment Of Paediatric Patients
 <!-- METADATA
-category: Paediatric Assessment, Paediatric Anaesthesia
+category: Special Populations, Assessment
 use_case: Pre-anaesthetic assessment of paediatric patients — birth_history, gestational_age, Apgar_scores, neonatal_hospitalization, developmental_milestones, feeding_pattern, RTI_management, laryngospasm, bronchospasm, airway_obstruction, mild_RTI_criteria, active_RTI_postponement, paediatric_fasting_guidelines, clear_fluids_2hrs, breast_milk_4hrs, formula_milk_solids_6hrs, paediatric_premedication, midazolam, diazepam, EMLA_application, non-drug_anxiolysis, parental_presence
 patient_input: birth_history, gestational_age_weight, maternal_health, Apgar_scores, developmental_milestones, feeding_pattern, RTI_history, croup_asthmatic_episodes, congenital_anomalies, airway_assessment, cardiac_murmurs, parental_anxiety
 output: paediatric_assessment_plan, RTI_postponement_criteria, fasting_orders, premedication_prescription, venepuncture_site_EMLA, induction_method, parental_accompaniment_plan

@@ -1,14 +1,12 @@
 # Section 1: Introduction
 <!-- METADATA
-category: Introduction, Patient Safety
+category: Introduction
 use_case: Pre-anaesthetic assessment fundamentals and objectives — patient_safety, morbidity_reduction, mortality_reduction, medical_illness_identification, anaesthetic_risk, general_anaesthesia, regional_anaesthesia, sedation
 patient_input: medical_records, patient_interview, physical_examination, medical_tests, evaluations
 output: assessment_purpose, assessment_scope, patient_optimisation, anaesthetic_planning, informed_consent, rapport_building, anxiety_reduction
 -->
 
 > **Context:** This section introduces the CPG Recommendations on Pre-Anaesthetic Assessment, covering background, objectives, and scope of pre-anaesthetic evaluation in Malaysia.
-
----
 
 ## 1.1: Background
 Adequate pre-anaesthetic assessment has been identified as an important factor in patient safety and is an integral part of anaesthetic practice. It serves to identify associated medical illness and anaesthetic risks, with the ultimate aim of reducing morbidity and mortality associated with anaesthesia and surgery.

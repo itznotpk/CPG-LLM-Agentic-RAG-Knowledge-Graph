@@ -18,7 +18,6 @@ treatment_type: propofol, remifentanil, local_anaesthetics, volatile_anaesthetic
 * f. Large spills of volatile agents require specific cleaning and containment procedures. Institutions need to provide protocols on spill management which must be complied with.
 
 ### 3.1.2: Medical Gases
-
 #### a. Storage of Medical Gas Cylinders
 i. It is important that medical gases in cylinders are stored safely and securely to mitigate the following health and safety and diversion risks:
 - cylinders are heavy and can cause severe injuries if mishandled.

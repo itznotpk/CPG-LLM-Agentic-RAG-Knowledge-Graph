@@ -10,6 +10,7 @@ Enhanced for Clinical Practice Guidelines (CPG) with:
 """
 
 import os
+import sys
 import asyncio
 import logging
 import json
@@ -18,6 +19,18 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 import argparse
+
+# Force UTF-8 on stdout/stderr so clinical content with non-cp1252 characters
+# (e.g. β, →, ₂) does not crash ingestion on Windows and silently drop a whole
+# section. Without this, a single Greek/arrow/subscript glyph raises
+# UnicodeEncodeError and the file's chunks are never persisted.
+for _stream in (sys.stdout, sys.stderr):
+    _reconfigure = getattr(_stream, "reconfigure", None)
+    if _reconfigure is not None:
+        try:
+            _reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
 
 import asyncpg
 from dotenv import load_dotenv

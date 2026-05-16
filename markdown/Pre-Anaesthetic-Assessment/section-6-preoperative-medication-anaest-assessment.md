@@ -1,6 +1,6 @@
 # Section 6: Pre-Operative Medication
 <!-- METADATA
-category: Pre-operative Medication, Pharmacology
+category: Treatment, Assessment
 use_case: Pre-operative medication management — medication_review, drug_interaction_with_anaesthetic_agents, adverse_drug_interactions, anaesthetic_technique_modification, sedative_premedication, benzodiazepines, opioids, acid_aspiration_prophylaxis, anaesthetic_record_documentation
 patient_input: current_medications, drug_allergies, medication_compliance, herbal_supplements
 output: medication_continuation_instructions, medication_discontinuation_instructions, premedication_orders, drug_interaction_alert, anaesthetic_technique_modification, patient_guardian_instructions, nursing_staff_instructions
