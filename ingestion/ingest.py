@@ -765,14 +765,12 @@ class DocumentIngestionPipeline:
                 logger.error(f"Failed to convert PDF {file_path}: {e}")
                 raise
         
-        # Handle text files (md, txt, markdown)
-        try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                return f.read()
-        except UnicodeDecodeError:
-            # Try with different encoding
-            with open(file_path, 'r', encoding='latin-1') as f:
-                return f.read()
+        # Handle text files (md, txt, markdown). Strict UTF-8 only: silent
+        # fallback to latin-1 / cp1252 produced mojibake (â, Ã, â¥) baked into
+        # both embedded text and KG triples. Fail loud so the offending file
+        # can be re-saved as UTF-8 before re-ingest.
+        with open(file_path, 'r', encoding='utf-8', errors='strict') as f:
+            return f.read()
     
     def _extract_title(self, content: str, file_path: str) -> str:
         """Extract title from document content or filename."""

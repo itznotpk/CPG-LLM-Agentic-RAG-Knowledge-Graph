@@ -305,6 +305,12 @@ TEXT:
         Returns:
             Chunks with entity metadata added
         """
+        if not use_llm:
+            logger.warning(
+                f"entity_extraction=disabled (use_llm=False) — {len(chunks)} chunks will receive "
+                f"empty entity stubs with extraction_method='skipped'. KG triple anchors will be missing. "
+                f"Check that --skip-graph was not passed unintentionally."
+            )
         logger.info(f"Extracting medical entities from {len(chunks)} chunks using {'LLM' if use_llm else 'pattern matching'}")
         
         enriched_chunks = []

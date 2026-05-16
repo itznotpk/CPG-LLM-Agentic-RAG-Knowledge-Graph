@@ -5,12 +5,18 @@ Document embedding generation for vector search.
 import os
 import asyncio
 import logging
+import random
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
 import json
 
 from openai import RateLimitError, APIError
 from dotenv import load_dotenv
+
+try:
+    from botocore.exceptions import ClientError as BotoClientError
+except ImportError:
+    BotoClientError = None
 
 from .chunker import DocumentChunk
 
@@ -46,11 +52,15 @@ class EmbeddingGenerator:
         retry_delay: float = 1.0
     ):
         self.model = model
+        self.provider = EMBEDDING_PROVIDER
+        # Bedrock has no native batch endpoint; concurrent invoke_model fan-out
+        # above ~5 reliably trips Titan v1 ThrottlingException in us-east-1.
+        if self.provider == "bedrock" and batch_size > 5:
+            batch_size = 5
         self.batch_size = batch_size
         self.max_retries = max_retries
         self.retry_delay = retry_delay
-        self.provider = EMBEDDING_PROVIDER
-        
+
         if self.provider == "bedrock":
             import boto3
             # Assumes AWS_ACCESS_KEY_ID etc. are available in environment
@@ -119,8 +129,22 @@ class EmbeddingGenerator:
                 delay = self.retry_delay * (2 ** attempt)
                 logger.warning(f"Rate limit hit, retrying in {delay}s")
                 await asyncio.sleep(delay)
-                
+
             except Exception as e:
+                # Bedrock ThrottlingException arrives as botocore ClientError —
+                # treat it like a rate limit with exp backoff + jitter.
+                is_throttle = False
+                if BotoClientError is not None and isinstance(e, BotoClientError):
+                    code = e.response.get("Error", {}).get("Code", "") if hasattr(e, "response") else ""
+                    if code in ("ThrottlingException", "TooManyRequestsException", "ServiceUnavailableException"):
+                        is_throttle = True
+                if is_throttle:
+                    if attempt == self.max_retries - 1:
+                        raise
+                    delay = min(60.0, self.retry_delay * (2 ** attempt) + random.random())
+                    logger.warning(f"Bedrock throttled, retrying in {delay:.1f}s (attempt {attempt + 1}/{self.max_retries})")
+                    await asyncio.sleep(delay)
+                    continue
                 logger.error(f"Unexpected error generating embedding: {e}")
                 if attempt == self.max_retries - 1:
                     raise
@@ -205,8 +229,9 @@ class EmbeddingGenerator:
                 
             except Exception as e:
                 logger.error(f"Failed to embed text: {e}")
-                # Use zero vector as fallback
-                embeddings.append([0.0] * self.config["dimensions"])
+                # Leave as None so persistence stores NULL — zero vectors
+                # pollute nearest-neighbour search with spurious hits.
+                embeddings.append(None)
         
         return embeddings
     
@@ -271,14 +296,15 @@ class EmbeddingGenerator:
                 
             except Exception as e:
                 logger.error(f"Failed to process batch {i//self.batch_size + 1}: {e}")
-                
-                # Add chunks without embeddings as fallback
+
+                # Mark chunks as failed-to-embed; leave embedding=None so
+                # persistence stores NULL and retrieval filters them out.
                 for chunk in batch_chunks:
                     chunk.metadata.update({
                         "embedding_error": str(e),
                         "embedding_generated_at": datetime.now().isoformat()
                     })
-                    chunk.embedding = [0.0] * self.config["dimensions"]
+                    chunk.embedding = None
                     embedded_chunks.append(chunk)
         
         logger.info(f"Generated embeddings for {len(embedded_chunks)} chunks")
