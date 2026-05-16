@@ -182,6 +182,20 @@ If these fail on a new CPG, the extraction prompt may need domain-specific tunin
 
 ---
 
+## Step 8 — Generate Ingestion Report
+
+Once all checks pass, document the results to maintain an audit trail of the Knowledge Graph's growth.
+
+**Action:** Prompt the AI assistant to summarize the terminal outputs from the previous steps into a Markdown report and save it to the `tasks/Ingestion-Reports/` directory.
+
+**The report must include:**
+1. **Document & Chunking Statistics:** Total chunks embedded and category distribution.
+2. **Knowledge Graph Extraction:** Total edges created, breakdown by relationship type, and severity coverage percentage.
+3. **Entity Normalisation Health:** Validation that `name_normalised` is populated, and confirmation of duplicate ratios (especially separating Safe cross-label duplicates from Bad same-label duplicates).
+4. **Spotlight Extractions:** 2-3 examples of high-value clinical triples (like contraindications or required monitoring) extracted from the run.
+
+---
+
 ## Recovery — when something fails
 
 ### "0 KG edges from this CPG" (KG-1 FAIL)
