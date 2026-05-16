@@ -23,6 +23,7 @@ from pydantic import BaseModel
 from pydantic import ValidationError
 
 from .db_utils import db_pool
+from .graph_clinical import ClinicalFlag, format_flags_for_prompt
 from .models import ChunkResult, PatientCase, TreatmentPlan
 from .routing import CPGDocRef, route_icd_to_cpgs
 from .tools import VectorSearchInput, vector_search_tool
@@ -925,6 +926,7 @@ async def stage_5_synthesize(
     ddx: list[DDxResult],
     _cpgs: list[CPGDocRef],
     evidence: list[ChunkResult],
+    flags: list[ClinicalFlag] | None = None,
 ) -> TreatmentPlan:
     """Synthesise a structured TreatmentPlan from patient context and CPG evidence."""
     # STAGE5_LLM_* vars override main LLM config (e.g. when primary API is blocked)
@@ -943,6 +945,11 @@ async def stage_5_synthesize(
         logger.info("cross_ref: appending %d referenced evidence chunks", len(cross_ref_chunks))
         evidence = evidence + cross_ref_chunks
     evidence_text = _format_evidence(evidence)
+
+    flags_block = format_flags_for_prompt(flags or [])
+    if flags:
+        logger.info("stage_5_synthesize: injecting %d KG flags into prompt", len(flags))
+
     icd_primary = ddx[0].code if ddx else "Unknown"
     icd_alternates = [d.code for d in ddx[1:3]]
 
@@ -958,6 +965,7 @@ async def stage_5_synthesize(
 Predicted ICD-11: {icd_primary} ({ddx[0].title if ddx else ""})
 Alternate codes: {", ".join(icd_alternates) or "none"}
 
+{flags_block}
 Retrieved Evidence ({len(evidence)} chunks):
 {evidence_text}
 

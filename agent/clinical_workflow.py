@@ -9,6 +9,7 @@ from dataclasses import dataclass, field
 
 from .models import PatientCase, TreatmentPlan, SafetyReport
 from .clinical_stages import DDxResult, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
+from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks
 from .routing import CPGDocRef, route_icd_to_cpgs
 
 logger = logging.getLogger(__name__)
@@ -128,8 +129,23 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         errors.append(f"Stage 4 Retrieval: {e}")
         evidence = []
 
+    # KG lookup — runs between Stage 4 and Stage 5, fail-open
+    try:
+        _chunk_ids = [c.chunk_id for c in evidence]
+        _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
+        kg_flags = await clinical_graph_lookup(
+            patient_meds=case.current_medications,
+            candidate_drugs=_candidate_drugs,
+            comorbidities=case.comorbidities,
+            allergies=case.allergies,
+        )
+        logger.info("KG lookup: %d flags", len(kg_flags))
+    except Exception as e:
+        logger.warning("KG lookup failed (non-fatal): %s", e)
+        kg_flags = []
+
     # Stage 5 — Synthesize (unrecoverable if it fails)
-    treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence)
+    treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
 
     # Stage 6 — Safety review (fail-open, never raises)
     from .safety_critic import run_safety_critic
@@ -232,12 +248,27 @@ async def run_clinical_workflow_streaming(
         })
         evidence = []
 
+    # KG lookup — runs between Stage 4 and Stage 5, fail-open
+    try:
+        _chunk_ids = [c.chunk_id for c in evidence]
+        _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
+        kg_flags = await clinical_graph_lookup(
+            patient_meds=case.current_medications,
+            candidate_drugs=_candidate_drugs,
+            comorbidities=case.comorbidities,
+            allergies=case.allergies,
+        )
+        logger.info("KG lookup: %d flags", len(kg_flags))
+    except Exception as e:
+        logger.warning("KG lookup failed (non-fatal): %s", e)
+        kg_flags = []
+
     # Stage 5 — Synthesize (unrecoverable if it fails)
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis",
         "status": "running", "detail": "Generating evidence-based care plan…"
     })
-    treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence)
+    treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis", "status": "complete",
@@ -321,12 +352,27 @@ async def run_resynthesize_streaming(
         await emit("stage_update", {"stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e)})
         evidence = []
 
+    # KG lookup — runs between Stage 4 and Stage 5, fail-open
+    try:
+        _chunk_ids = [c.chunk_id for c in evidence]
+        _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
+        kg_flags = await clinical_graph_lookup(
+            patient_meds=case.current_medications,
+            candidate_drugs=_candidate_drugs,
+            comorbidities=case.comorbidities,
+            allergies=case.allergies,
+        )
+        logger.info("KG lookup: %d flags", len(kg_flags))
+    except Exception as e:
+        logger.warning("KG lookup failed (non-fatal): %s", e)
+        kg_flags = []
+
     # Stage 5 — Synthesize (unrecoverable)
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis",
         "status": "running", "detail": "Generating evidence-based care plan for confirmed diagnosis…",
     })
-    treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence)
+    treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence, flags=kg_flags)
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis", "status": "complete",

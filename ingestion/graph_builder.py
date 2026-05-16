@@ -55,21 +55,28 @@ class GraphBuilder:
     # UNIVERSAL CLINICAL RELATION TYPES (for LLM triple extraction)
     # ==========================================================================
     
-    # Universal clinical relationship types â€” apply to ANY CPG domain
+    # Universal clinical relationship types - apply to ANY CPG domain.
+    # CONTRAINDICATED_WITH = absolute contraindication only (do not co-prescribe).
+    # INTERACTS_WITH       = pharmacokinetic/pharmacodynamic interaction (carries severity).
+    # CROSS_REACTS_WITH    = allergen cross-reactivity (carries risk_pct when stated).
+    # REQUIRES_DOSE_ADJUSTMENT = dose modification required (carries trigger, e.g. "eGFR<30").
     CLINICAL_RELATION_TYPES = [
-        "TREATS",               # Drug/procedure treats condition
-        "CONTRAINDICATED_WITH", # Drug/intervention is contraindicated
-        "INCREASES_RISK_OF",    # Factor increases risk of condition
-        "REDUCES_RISK_OF",      # Intervention reduces risk of condition
-        "INDICATED_FOR",        # Drug/procedure is indicated for profile
-        "ASSESSED_BY",          # Condition is assessed by tool
-        "CAUSES",               # Drug/procedure causes adverse event
-        "FIRST_LINE_FOR",       # Drug/procedure is first-line
-        "SECOND_LINE_FOR",      # Drug/procedure is second-line
-        "REQUIRES_MONITORING",  # Drug/procedure requires monitoring
-        "RECOMMENDED_FOR",      # Intervention is recommended for profile
-        "HAS_DOSAGE",           # Drug has specific dosage
-        "OTHER",                # Clinical relation not covered above
+        "TREATS",                   # Drug/procedure treats condition
+        "CONTRAINDICATED_WITH",     # Absolute contraindication (do not co-prescribe)
+        "INTERACTS_WITH",           # PK/PD interaction - use severity (MAJOR/MODERATE/MINOR)
+        "CROSS_REACTS_WITH",        # Allergen cross-reactivity - use risk_pct when stated
+        "REQUIRES_DOSE_ADJUSTMENT", # Dose change needed - use trigger (e.g. "eGFR<30")
+        "INCREASES_RISK_OF",        # Factor increases risk of condition
+        "REDUCES_RISK_OF",          # Intervention reduces risk of condition
+        "INDICATED_FOR",            # Drug/procedure is indicated for profile
+        "ASSESSED_BY",              # Condition is assessed by tool
+        "CAUSES",                   # Drug/procedure causes adverse event
+        "FIRST_LINE_FOR",           # Drug/procedure is first-line
+        "SECOND_LINE_FOR",          # Drug/procedure is second-line
+        "REQUIRES_MONITORING",      # Drug/procedure requires monitoring
+        "RECOMMENDED_FOR",          # Intervention is recommended for profile
+        "HAS_DOSAGE",               # Drug has specific dosage
+        "OTHER",                    # Clinical relation not covered above
     ]
 
     # Entity categories for LLM-based entity extraction
@@ -111,7 +118,7 @@ class GraphBuilder:
             return {"episodes_created": 0, "errors": []}
         
         logger.info(f"Adding {len(chunks)} chunks to knowledge graph for document: {document_title}")
-        logger.info("âš ï¸ Large chunks will be truncated to avoid Graphiti token limits.")
+        logger.info(" Large chunks will be truncated to avoid Graphiti token limits.")
         
         # Check for oversized chunks and warn (increased from 6000 to 10000)
         oversized_chunks = [i for i, chunk in enumerate(chunks) if len(chunk.content) > 10000]
@@ -153,7 +160,7 @@ class GraphBuilder:
                 )
                 
                 episodes_created += 1
-                logger.info(f"âœ“ Added episode {episode_id} to knowledge graph ({episodes_created}/{len(chunks)})")
+                logger.info(f"Added episode {episode_id} to knowledge graph ({episodes_created}/{len(chunks)})")
                 
                 # Small delay between each episode to reduce API pressure
                 if i < len(chunks) - 1:
@@ -230,6 +237,72 @@ class GraphBuilder:
         """Check if content is too large for Graphiti processing."""
         return self._estimate_tokens(content) > max_tokens
     
+    # Known clinical abbreviation -> canonical full form mapping.
+    # When the LLM extracts "DCCV" in one chunk and "Direct Current Cardioversion"
+    # in another, both resolve to the same canonical name so MERGE creates one node.
+    _ABBREV_MAP = {
+        "af": "Atrial Fibrillation",
+        "afl": "Atrial Flutter",
+        "hf": "Heart Failure",
+        "vka": "Vitamin K Antagonist",
+        "oac": "Oral Anticoagulant",
+        "dccv": "Direct Current Cardioversion",
+        "inr": "International Normalized Ratio",
+        "tia": "Transient Ischaemic Attack",
+        "lmwh": "Low Molecular Weight Heparin",
+        "ecg": "Electrocardiography",
+        "toe": "Transoesophageal Echocardiography",
+        "laa": "Left Atrial Appendage",
+        "tte": "Transthoracic Echocardiography",
+        "ufh": "Unfractionated Heparin",
+        "pci": "Percutaneous Coronary Intervention",
+        "bms": "Bare Metal Stent",
+        "acs": "Acute Coronary Syndrome",
+        "nstemi": "Non-ST Elevation Myocardial Infarction",
+        "lvef": "Left Ventricular Ejection Fraction",
+        "la": "Left Atrium",
+        "lv": "Left Ventricle",
+    }
+
+    @staticmethod
+    def _normalize_entity_name(name: str) -> str:
+        """
+        Normalize an entity name so that case variants, plurals, and
+        known abbreviations all resolve to a single canonical form.
+
+        Rules applied in order:
+          1. Strip leading/trailing whitespace.
+          2. If the lowered name is a known abbreviation, expand it.
+          3. Title-case the result ("atrial fibrillation" -> "Atrial Fibrillation").
+          4. De-pluralize trailing 's' ONLY for simple cases ("Strokes" -> "Stroke")
+             but protect known plurals that should stay (e.g. "Antiarrhythmic Drugs").
+        """
+        if not name:
+            return name
+
+        name = name.strip()
+        lowered = name.lower()
+
+        # Expand known abbreviations
+        if lowered in GraphBuilder._ABBREV_MAP:
+            return GraphBuilder._ABBREV_MAP[lowered]
+
+        # Title-case for consistent casing
+        name = name.title()
+
+        # Simple de-pluralization: remove trailing 's' if the word is > 4 chars
+        # and does NOT end in 'ss' (e.g. "stress"), 'us' (e.g. "status"),
+        # 'is' (e.g. "diagnosis"), or 'sis' (e.g. "analysis")
+        protected_suffixes = ('ss', 'us', 'is', 'sis', 'ics', 'ies')
+        if (
+            len(name) > 4
+            and name.endswith('s')
+            and not name.lower().endswith(protected_suffixes)
+        ):
+            name = name[:-1]
+
+        return name
+
     
     # ==========================================================================
     # LLM-BASED ENTITY EXTRACTION (for PostgreSQL metadata)
@@ -307,7 +380,7 @@ TEXT:
         """
         if not use_llm:
             logger.warning(
-                f"entity_extraction=disabled (use_llm=False) — {len(chunks)} chunks will receive "
+                f"entity_extraction=disabled (use_llm=False) - {len(chunks)} chunks will receive "
                 f"empty entity stubs with extraction_method='skipped'. KG triple anchors will be missing. "
                 f"Check that --skip-graph was not passed unintentionally."
             )
@@ -366,16 +439,16 @@ TEXT:
     
     
     # ==========================================================================
-    # LLM TRIPLE EXTRACTION â€” Universal CPG Relationship Extraction
+    # LLM TRIPLE EXTRACTION - Universal CPG Relationship Extraction
     # ==========================================================================
     
     async def _extract_triples_with_llm(self, text: str, chunk_index: int, source: str, cpg_chunk_id: Optional[str] = None, before: str = "", after: str = "") -> List[Dict[str, Any]]:
         """
         Use LLM to extract (subject, relation, object) triples from a clinical text chunk.
-        Works for any CPG domain â€” no hardcoding required.
+        Works for any CPG domain - no hardcoding required.
 
         Args:
-            text: Focus window — triples are extracted from this region only
+            text: Focus window - triples are extracted from this region only
             chunk_index: Index of the chunk in its document
             source: Source document path
             before: Up to 2 000 chars preceding the focus window (reference context only)
@@ -398,8 +471,8 @@ TEXT:
         
         relation_list = "\n".join(f"  - {r}" for r in self.CLINICAL_RELATION_TYPES)
 
-        before_block = f"\n[BEFORE — reference context, do NOT extract from here]\n{before}\n" if before else ""
-        after_block = f"\n[AFTER — reference context, do NOT extract from here]\n{after}\n" if after else ""
+        before_block = f"\n[BEFORE - reference context, do NOT extract from here]\n{before}\n" if before else ""
+        after_block = f"\n[AFTER - reference context, do NOT extract from here]\n{after}\n" if after else ""
 
         prompt = f"""You are a clinical knowledge graph expert. Extract medical relationships from the clinical text below.
 
@@ -410,26 +483,39 @@ EXTRACT relationships as JSON triples. Each triple must have:
 - object: the target entity (string)
 - object_type: one of [Drug, Condition, Procedure, DiagnosticTool, RiskFactor, AdverseEvent, PatientProfile, Organization, Dosage]
 - evidence: the exact sentence or phrase from the text that supports this triple (string)
+- severity: MAJOR, MODERATE, MINOR, or null. Use ONLY when the text explicitly states a severity level or urgency (e.g. "avoid", "major risk", "monitor closely"). If not stated, return null. DO NOT infer.
+- trigger: string or null. Use for REQUIRES_DOSE_ADJUSTMENT only. The specific condition triggering the adjustment (e.g. "eGFR<30", "hepatic impairment"). If not stated, return null.
+- risk_pct: string or null. Use for CROSS_REACTS_WITH only. The stated cross-reactivity percentage if explicitly given. If not stated, return null.
 
 RELATION TYPES (use exactly as written):
 {relation_list}
 
+RELATION GUIDANCE:
+- CONTRAINDICATED_WITH: absolute contraindication only - the text explicitly says "do not use", "contraindicated", "avoid in all cases"
+- INTERACTS_WITH: pharmacokinetic or pharmacodynamic interaction that requires attention but is not an absolute contraindication
+- CROSS_REACTS_WITH: allergen cross-reactivity between two substances
+- REQUIRES_DOSE_ADJUSTMENT: a dose change is needed under a specific condition (renal, hepatic, age, weight)
+- Use severity=MAJOR for life-threatening risks, MODERATE for significant clinical impact, MINOR for monitoring-only interactions
+
 RULES:
 - Extract ONLY relationships explicitly stated in the [FOCUS] region. Do not infer.
-- The [BEFORE] and [AFTER] regions are context only — use them to resolve references
+- The [BEFORE] and [AFTER] regions are context only - use them to resolve references
   (pronouns, abbreviations, dangling entities) but never extract a triple whose evidence
   sentence lives outside [FOCUS].
 - If a relation does not fit any type, use "OTHER" and describe it in the object.
 - Subject and object must be specific named entities, not vague phrases.
+- severity, trigger, risk_pct: return null if not explicitly stated in the text. Never guess.
 - Return a JSON array of triples. If no relationships found, return [].
-- Do not include commentary â€” only the JSON array.
+- Do not include commentary - only the JSON array.
 {before_block}
-[FOCUS — extract triples from this region only]
+[FOCUS - extract triples from this region only]
 {text}
 {after_block}
 Return format:
 [
-  {{"subject": "Tamoxifen", "subject_type": "Drug", "relation": "TREATS", "object": "ER-positive breast cancer", "object_type": "Condition", "evidence": "Tamoxifen is recommended for ER-positive breast cancer patients."}},
+  {{"subject": "Warfarin", "subject_type": "Drug", "relation": "INTERACTS_WITH", "object": "Amiodarone", "object_type": "Drug", "evidence": "Amiodarone significantly potentiates the anticoagulant effect of warfarin.", "severity": "MAJOR", "trigger": null, "risk_pct": null}},
+  {{"subject": "Metformin", "subject_type": "Drug", "relation": "REQUIRES_DOSE_ADJUSTMENT", "object": "Renal Impairment", "object_type": "Condition", "evidence": "Reduce metformin dose when eGFR falls below 30 mL/min/1.73m2.", "severity": null, "trigger": "eGFR<30", "risk_pct": null}},
+  {{"subject": "Tamoxifen", "subject_type": "Drug", "relation": "TREATS", "object": "ER-positive Breast Cancer", "object_type": "Condition", "evidence": "Tamoxifen is recommended for ER-positive breast cancer patients.", "severity": null, "trigger": null, "risk_pct": null}},
   ...
 ]
 """
@@ -450,6 +536,7 @@ Return format:
                 return []
             
             # Validate and clean triples
+            valid_severities = {"MAJOR", "MODERATE", "MINOR"}
             valid_triples = []
             for t in triples:
                 if not isinstance(t, dict):
@@ -458,6 +545,14 @@ Return format:
                     continue
                 if t.get("relation") not in self.CLINICAL_RELATION_TYPES:
                     t["relation"] = "OTHER"
+                # Enforce controlled vocabulary - reject LLM hallucinations
+                if t.get("severity") not in valid_severities:
+                    t["severity"] = None
+                # Null out trigger/risk_pct if not meaningful
+                if not t.get("trigger"):
+                    t["trigger"] = None
+                if not t.get("risk_pct"):
+                    t["risk_pct"] = None
                 t["chunk_index"] = chunk_index
                 t["source"] = source
                 if cpg_chunk_id:
@@ -478,7 +573,7 @@ Return format:
         """
         Write extracted triples to Neo4j as typed edges using MERGE.
         
-        Uses MERGE so re-ingestion is idempotent â€” duplicate triples are not created.
+        Uses MERGE so re-ingestion is idempotent - duplicate triples are not created.
         Each node is labelled with its entity type (e.g., :Drug, :Condition).
         Each edge carries evidence text and source metadata.
         
@@ -499,50 +594,88 @@ Return format:
             db_name = os.getenv("NEO4J_DATABASE") or None
             async with self.graph_client.graphiti.driver.client.session(database=db_name) as session:
                 for triple in triples:
-                    subject = triple.get("subject", "").strip()
+                    # Raw name from LLM extraction
+                    subject_raw = triple.get("subject", "").strip()
+                    obj_raw = triple.get("object", "").strip()
+
+                    # Display name: title-cased, de-pluralised, abbreviation-expanded
+                    subject_display = self._normalize_entity_name(subject_raw)
+                    obj_display = self._normalize_entity_name(obj_raw)
+
+                    # MERGE key: lowercased canonical form for deduplication
+                    subject_norm = subject_display.lower()
+                    obj_norm = obj_display.lower()
+
                     subject_type = triple.get("subject_type", "Entity").strip()
                     relation = triple.get("relation", "OTHER").strip().upper()
-                    obj = triple.get("object", "").strip()
                     obj_type = triple.get("object_type", "Entity").strip()
                     evidence = triple.get("evidence", "")[:500]  # Cap evidence length
                     chunk_index = triple.get("chunk_index", 0)
                     cpg_chunk_id = triple.get("cpg_chunk_id")
                     source = triple.get("source", "")
+                    severity = triple.get("severity")      # MAJOR/MODERATE/MINOR or None
+                    trigger = triple.get("trigger")        # e.g. "eGFR<30" or None
+                    risk_pct = triple.get("risk_pct")      # e.g. "10%" or None
 
-                    if not subject or not obj:
+                    if not subject_norm or not obj_norm:
                         continue
 
                     # Sanitize labels (Neo4j labels cannot have spaces)
                     subject_label = re.sub(r'\W+', '', subject_type) or "Entity"
                     obj_label = re.sub(r'\W+', '', obj_type) or "Entity"
 
-                    # MERGE nodes by name+label, then MERGE relationship with evidence
+                    # MERGE on name_normalised (canonical key) - guarantees
+                    # "Warfarin", "warfarin", "WARFARIN" all resolve to one node.
+                    # ON CREATE sets the display name; ON MATCH leaves it alone
+                    # so the first-seen display form is preserved.
                     cypher = f"""
-                    MERGE (s:{subject_label} {{name: $subject}})
-                    MERGE (o:{obj_label} {{name: $object}})
+                    MERGE (s:{subject_label} {{name_normalised: $subject_norm}})
+                        ON CREATE SET s.name = $subject_display
+                    MERGE (o:{obj_label} {{name_normalised: $obj_norm}})
+                        ON CREATE SET o.name = $obj_display
                     MERGE (s)-[r:{relation}]->(o)
                     ON CREATE SET
                         r.evidence = $evidence,
+                        r.evidence_list = [$evidence],
+                        r.cpg_chunk_id = $cpg_chunk_id,
+                        r.cpg_chunk_ids = CASE WHEN $cpg_chunk_id IS NOT NULL THEN [$cpg_chunk_id] ELSE [] END,
                         r.source_document = $document_title,
                         r.chunk_index = $chunk_index,
-                        r.cpg_chunk_id = $cpg_chunk_id,
                         r.source = $source,
+                        r.severity = $severity,
+                        r.trigger = $trigger,
+                        r.risk_pct = $risk_pct,
                         r.created_at = datetime()
                     ON MATCH SET
-                        r.evidence = CASE WHEN r.evidence IS NULL THEN $evidence ELSE r.evidence END,
+                        r.evidence_list = CASE
+                            WHEN $evidence IN coalesce(r.evidence_list, []) THEN r.evidence_list
+                            ELSE coalesce(r.evidence_list, [r.evidence]) + [$evidence]
+                        END,
+                        r.cpg_chunk_ids = CASE
+                            WHEN $cpg_chunk_id IS NULL THEN coalesce(r.cpg_chunk_ids, [])
+                            WHEN $cpg_chunk_id IN coalesce(r.cpg_chunk_ids, []) THEN coalesce(r.cpg_chunk_ids, [])
+                            ELSE coalesce(r.cpg_chunk_ids, []) + [$cpg_chunk_id]
+                        END,
                         r.source_document = $document_title,
-                        r.cpg_chunk_id = CASE WHEN $cpg_chunk_id IS NOT NULL THEN $cpg_chunk_id ELSE r.cpg_chunk_id END
+                        r.severity = CASE WHEN r.severity IS NULL THEN $severity ELSE r.severity END,
+                        r.trigger = CASE WHEN r.trigger IS NULL THEN $trigger ELSE r.trigger END,
+                        r.risk_pct = CASE WHEN r.risk_pct IS NULL THEN $risk_pct ELSE r.risk_pct END
                     """
 
                     await session.run(
                         cypher,
-                        subject=subject,
-                        object=obj,
+                        subject_norm=subject_norm,
+                        subject_display=subject_display,
+                        obj_norm=obj_norm,
+                        obj_display=obj_display,
                         evidence=evidence,
                         document_title=document_title,
                         chunk_index=chunk_index,
                         cpg_chunk_id=cpg_chunk_id,
-                        source=source
+                        source=source,
+                        severity=severity,
+                        trigger=trigger,
+                        risk_pct=risk_pct,
                     )
             
             logger.info(f"Wrote {len(triples)} triples to Neo4j for '{document_title}'")
@@ -603,22 +736,78 @@ Return format:
 
         return windows
 
+    # Default category whitelist - only extract triples from chunks with
+    # clinical decision-making content.  Chunks tagged as Introduction,
+    # Methodology, Epidemiology, References, etc. are skipped to save LLM
+    # cost and prevent noise in the graph.
+    CLINICAL_CATEGORY_WHITELIST = {
+        "Treatment", "Supportive Treatment", "Assessment",
+        "Diagnosis", "Special Populations", "Prevention",
+        "Pharmacological Treatment", "Non-Pharmacological Treatment",
+        "Management", "Monitoring", "Referral",
+        # Also accept chunks whose category was not set (legacy or missing
+        # METADATA block) - these may still contain clinically useful content
+        # and should not be silently dropped.
+        None,
+    }
+
     async def build_relationship_graph(
         self,
         chunks: List[DocumentChunk],
-        document_title: str
+        document_title: str,
+        category_whitelist: Optional[Set[str]] = None,
     ) -> Dict[str, Any]:
         """
         Build knowledge graph with LLM-extracted medical relationship triples.
         
         Splits oversized chunks into overlapping sub-chunks to ensure 100% coverage
         without hitting LLM context limits or truncation.
+
+        Args:
+            chunks: List of document chunks
+            document_title: Title of the document
+            category_whitelist: Optional set of category strings to include.
+                Chunks whose metadata['category'] is not in this set are skipped.
+                Defaults to CLINICAL_CATEGORY_WHITELIST.
         """
         all_triples = []
         rel_counts: Dict[str, int] = {}
         processed_triples_keys: Set[Tuple[str, str, str]] = set() # For deduping
         
+        whitelist = category_whitelist if category_whitelist is not None else self.CLINICAL_CATEGORY_WHITELIST
+
+        # Step 1: filter to embedded (h2/h3/h1_leaf) chunks
         embedded_chunks = [c for c in chunks if c.chunk_level in ("h2", "h3", "h1_leaf")]
+
+        # Step 2: apply category whitelist
+        if whitelist:
+            filtered_chunks = []
+            skipped_categories: Dict[str, int] = {}
+            for c in embedded_chunks:
+                cat = c.metadata.get("category")
+                # Category may be a comma-separated string or a list
+                if isinstance(cat, str):
+                    cats = [x.strip() for x in cat.split(",")]
+                elif isinstance(cat, list):
+                    cats = cat
+                else:
+                    cats = [cat]  # None or missing
+
+                # Accept chunk if ANY of its categories is in the whitelist
+                if any(ct in whitelist for ct in cats):
+                    filtered_chunks.append(c)
+                else:
+                    for ct in cats:
+                        skipped_categories[ct] = skipped_categories.get(ct, 0) + 1
+
+            skipped_count = len(embedded_chunks) - len(filtered_chunks)
+            if skipped_count:
+                logger.info(
+                    "Category filter: kept %d of %d embedded chunks, skipped %d (categories: %s)",
+                    len(filtered_chunks), len(embedded_chunks), skipped_count, skipped_categories,
+                )
+            embedded_chunks = filtered_chunks
+
         logger.info(
             "Extracting LLM triples from %d embedded chunks (h2/h3/h1_leaf), skipping %d unembedded, for '%s'",
             len(embedded_chunks), len(chunks) - len(embedded_chunks), document_title,
