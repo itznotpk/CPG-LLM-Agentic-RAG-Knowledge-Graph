@@ -24,7 +24,9 @@ Surveillance should be guided by presumed risk of recurrence and functional stat
 
 > - CRC survivors are encouraged to maintain an ideal body weight, participate in regular physical activity and consume a well-balanced diet.
 
-## Levels Of Evidence
+---
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -33,10 +35,11 @@ Surveillance should be guided by presumed risk of recurrence and functional stat
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CEA | Carcinoembryonic antigen |
 | CRC | Colorectal carcinoma |
 | CT | Computed tomography |
 | DFS | Disease-free survival |
+<!-- parent_only_reference_end -->

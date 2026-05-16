@@ -37,7 +37,9 @@ x 100%
 
 Implementation strategies will be developed following the approval of the CPG by MoH which include Quick Reference and Training Module.
 
-## Levels Of Evidence
+---
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -46,10 +48,11 @@ Implementation strategies will be developed following the approval of the CPG by
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CPG | Clinical Practice Guidelines |
 | CRC | Colorectal carcinoma |
 | iFOBT | Immunochemical fecal occult blood test |
 | MoH | Ministry of Health |
+<!-- parent_only_reference_end -->

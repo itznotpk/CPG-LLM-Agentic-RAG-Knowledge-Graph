@@ -12,11 +12,11 @@ efforts have been done to establish CRC screening programme in primary care sett
 
 Therefore, one of the objectives of this CPG is to assist Family Medicine Specialists and other primary care providers in providing structured screening and referral programme according to the symptoms and risk stratification (refer to Algorithm A: Screening for colorectal carcinoma and Algorithm B: Primary Care Referral for Symptoms of Colorectal Carcinoma ).
 
-## Contextual Anchors (Overlapping)
+---
+<!-- parent_only_reference_start -->
+Algorithm A: Screening For Colorectal Carcinoma
 
-### Algorithm A: Screening For Colorectal Carcinoma
-
-#### Step 1: Initial Assessment
+**Step 1: Initial Assessment**
 **ASSESS PATIENT FOR SYMPTOMS OF CRC\***
 
 ↓
@@ -25,9 +25,7 @@ Therefore, one of the objectives of this CPG is to assist Family Medicine Specia
 * **YES:** → **REFER ALGORITHM B**
 * **NO:** → **STRATIFY RISK FOR FAMILY HISTORY**
 
----
-
-#### Step 2: Risk Stratification
+**Step 2: Risk Stratification**
 **STRATIFY RISK FOR FAMILY HISTORY**
 
 Categorize the patient into one of the following groups:
@@ -43,11 +41,9 @@ Categorize the patient into one of the following groups:
 **Pathway C: CATEGORY 3 - HIGH RISK\*\***
 * → **REFER FOR COLONOSCOPY**
 
----
+Algorithm B: Primary Care Referral For Symptoms Of Colorectal Carcinoma
 
-### Algorithm B: Primary Care Referral For Symptoms Of Colorectal Carcinoma
-
-#### Step 1: Initial Presentation
+**Step 1: Initial Presentation**
 **Presence of any of the following signs or symptoms:**
 * per rectal bleeding
 * mucoid stool
@@ -62,8 +58,7 @@ Categorize the patient into one of the following groups:
 * palpable anorectal mass
 
 ↓
-
-#### Step 2: Clinical Assessment
+**Step 2: Clinical Assessment**
 **Focused history**
 * Age and sex
 * Rectal bleeding (colour)
@@ -80,8 +75,7 @@ Categorize the patient into one of the following groups:
 * Full blood count
 
 ↓
-
-#### Step 3: Referral Pathways
+**Step 3: Referral Pathways**
 **Pathway A: Urgent**
 **Criteria:**
 Unexplained rectal bleeding with ≥1 of the following:
@@ -101,7 +95,7 @@ All other unexplained signs and symptoms that do not meet criteria for urgent re
 * **Initial Action:** → Treat signs or symptoms accordingly
 * **Follow-up:** If signs and symptoms not resolved in 4-6 weeks → **REFER FOR ELECTIVE COLONOSCOPY**
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CPG | Clinical practice guideline |
