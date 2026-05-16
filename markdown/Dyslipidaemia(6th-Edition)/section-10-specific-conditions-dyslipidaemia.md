@@ -427,11 +427,10 @@ Abbreviations
 |---|---|
 | ABI | Ankle Brachial Index |
 | ACS | Acute Coronary Syndrome |
-| AF | Atrial Fibrillation |
-| ALT | Alanine Aminotransferase |
 | ALLHAT | Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial |
+| ALT | Alanine Aminotransferase |
 | apo-B | Apolipoprotein B |
-| apo B-100 | Apolipoprotein B-100 |
+| apoB | Apolipoprotein B |
 | apoA-1 | Apolipoprotein A-1 |
 | ART | Anti-Retroviral Therapy |
 | ASCOT-LLA | Anglo-Scandinavian Cardiac Outcomes Trial – Lipid-Lowering Arm |
@@ -449,17 +448,13 @@ Abbreviations
 | eGFR | Estimated Glomerular Filtration Rate |
 | ESKD | End Stage Kidney Disease |
 | ESKF | End Stage Kidney Failure |
-| EUROASPIRE | European Action on Secondary and Primary Prevention by Intervention to Reduce Events |
-| FA | Fatty Acids |
 | FRS | Framingham Risk Score |
 | HD | Haemodialysis |
+| HDL | High-Density Lipoprotein |
 | HDL-C | High-Density Lipoprotein Cholesterol |
 | HF | Heart Failure |
 | HIV | Human Immunodeficiency Virus |
 | HOPE 3 | Heart Outcomes Prevention Evaluation 3 |
-| HR | Hazard Ratio |
-| hs-CRP | High-Sensitivity C-Reactive Protein |
-| HTN | Hypertension |
 | IGT | Impaired Glucose Tolerance |
 | IV | Intravenous |
 | KDIGO | Kidney Disease: Improving Global Outcomes |
@@ -468,21 +463,15 @@ Abbreviations
 | LLA | Lipid-Lowering Arm |
 | Lp(a) | Lipoprotein(a) |
 | LVH | Left Ventricular Hypertrophy |
-| MACE | Major Adverse Cardiovascular Event |
 | METS | Metabolic Equivalents |
 | MI | Myocardial Infarction |
 | NDR | National Diabetes Registry |
 | Non-HDL-C | Non-High-Density Lipoprotein Cholesterol |
 | NRTI | Nucleoside or Nucleotide Reverse Transcriptase Inhibitors |
-| PAD | Peripheral Arterial Disease |
 | PCSK9-i | Proprotein Convertase Subtilisin/Kexin Type 9 Inhibitor |
 | PD | Peritoneal Dialysis |
 | PI | Protease Inhibitors |
-| PROMINENT | Pemafibrate to Reduce Cardiovascular Outcomes by Reducing Triglycerides in Patients with Diabetes |
-| REDUCE-IT | Reduction of Cardiovascular Events with Icosapent Ethyl–Intervention Trial |
 | SBP | Systolic Blood Pressure |
-| SFA | Saturated Fatty Acids |
-| SMART | Secondary Manifestations of Arterial Disease |
 | TC | Total Cholesterol |
 | TG | Triglycerides |
 | TLC | Therapeutic Lifestyle Changes |

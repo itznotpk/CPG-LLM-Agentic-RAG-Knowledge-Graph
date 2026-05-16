@@ -32,7 +32,7 @@ Lowering TC and LDL-C lowers CV risk, the absolute benefit is greater in high-ri
 *   Low HDL-C, especially when combined with high LDL-C and high TG, is associated with increased CV risk.
 *   **Note**: Increasing HDL-C levels via pharmacotherapy has not yet shown an improvement in CV outcomes.
 
-## 4.3: Triglycerides (Tg)
+## 4.3: Triglycerides (TG)
 In some people, despite achieving low LDL-C levels, the rate of CV events is still significantly high. This residual CV risk is partly contributed by cholesterol remnant particles - TG and TG-rich lipoproteins.
 
 An increase in TG levels is due to multiple factors. These include genetic factors, systemic illnesses e.g., hypothyroidism, poorly control diabetes, systemic lupus erythematosus, a high calorie diet and certain medications.

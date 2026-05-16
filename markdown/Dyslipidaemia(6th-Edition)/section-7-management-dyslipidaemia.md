@@ -1,9 +1,10 @@
 # Section 7: Management Of Dyslipidaemia
 <!-- METADATA
 category: Treatment, Prevention
-use_case: Therapeutic lifestyle changes for dyslipidaemia management — diet, exercise, weight_loss, smoking_cessation, alcohol, MNT, TLC
-patient_input: diet_history, exercise_habits, smoking_status, BMI, waist_circumference
-output: TLC_recommendations, dietary_pattern, exercise_target, weight_goal
+use_case: Dyslipidaemia Management — TLC, MNT, diet, exercise, weight_loss, smoking_cessation, alcohol, statins, ezetimibe, PCSK9_inhibitors, inclisiran, bempedoic_acid, fibrates, niacin, bile_acid_sequestrants, omega-3_fatty_acids, combination_therapy, statin_safety, monitoring
+patient_input: diet_history, exercise_habits, smoking_status, BMI, waist_circumference, LDL-C, HDL-C, TG, CV_risk_category, CK_level, ALT, eGFR, statin_tolerance, current_medications
+output: TLC_recommendations, dietary_pattern, exercise_target, weight_goal, statin_selection, statin_dose, combination_regimen, LDL-C_target, monitoring_schedule, adverse_effect_management
+treatment_type: atorvastatin, rosuvastatin, simvastatin, pravastatin, lovastatin, fluvastatin, pitavastatin, ezetimibe, evolocumab, alirocumab, inclisiran, bempedoic acid, fenofibrate, gemfibrozil, bezafibrate, ciprofibrate, niacin, cholestyramine, icosapent ethyl
 -->
 
 ## 7.1: Therapeutic Lifestyle Changes (TLC)
