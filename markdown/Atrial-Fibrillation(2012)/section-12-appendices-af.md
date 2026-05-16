@@ -351,8 +351,6 @@ Mech heart valve: any mitral valve prosthesis, older aortic valve prosthesis (ca
   - Minor surgery or other invasive procedure and receiving therapeutic dose LMWH: Resume 24 hrs after the procedure when there is adequate hemostasis
   - Major surgery or high bleeding risk surgery/procedure where post-op therapeutic dose LMWH is planned: delay initiation of therapeutic dose LMWH for 48-72 hours after surgery when hemostasis is secured or administering low dose LMWH after surgery when hemostasis is secured or completely avoiding LMWH after surgery.
 
----
-
 ## Appendix D: Vaughn Williams Classification Of Antiarrhythmic Drugs
 **Type IA**
 - Disopyramide

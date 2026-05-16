@@ -1,4 +1,4 @@
-# Section 11: Implementing the Guidelines
+# Section 11: Implementing The Guidelines
 <!-- METADATA
 category: Implementation, Quality Assurance
 use_case: Guideline Implementation — facilitators_barriers, resource_implications, clinical_audit, performance_indicators, referral_targets, surgical_margins
@@ -8,7 +8,7 @@ output: implementation_strategy, audit_indicators, performance_targets
 
 The management of breast cancer should be guided by evidence-based approach in order to provide quality care to the patients. Several factors may affect the implementation of recommendations in the CPG.
 
-### 11.1 Facilitating and Limiting Factors
+## 11.1: Facilitating And Limiting Factors
 Existing facilitators for application of the recommendations in the CPG include:
 *   Wide dissemination of the CPG to healthcare providers (hard- and soft-copies)
 *   Regular topic update for healthcare providers via continuous medical education (seminar/conference/course)
@@ -21,7 +21,7 @@ Existing barriers for application are:
 *   Insufficient resources including expertise, diagnostic tools, medications, equipment
 *   Variation in clinical management and preferences
 
-### 11.2 Potential Resource Implications
+## 11.2: Potential Resource Implications
 To implement the CPG, there must be strong commitment to:
 *   Ensure widespread distribution of CPG & its implementation strategies
 *   Strengthen training to ensure up-to-date information being shared
@@ -30,7 +30,7 @@ To implement the CPG, there must be strong commitment to:
 *   Strengthen the cancer registry
 *   Empower community with active involvement in disease-related activities
 
-### 11.3 Clinical Audit Indicators
+## 11.3: Clinical Audit Indicators
 The following is proposed as clinical audit indicator for quality management of breast cancer:
 
 **Indicator 1: Timely Referral**

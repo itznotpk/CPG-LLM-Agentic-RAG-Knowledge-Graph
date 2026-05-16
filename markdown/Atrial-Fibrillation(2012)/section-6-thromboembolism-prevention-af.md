@@ -20,7 +20,6 @@ Patients aged less than 60 years, with 'lone AF' (i.e. no clinical history or ph
 The various stroke clinical risk factors has led to publication of various stroke schemes. The simplest risk assessment scheme is the CHADS₂ score and as shown in Table 11: CHADS₂ Score and Stroke Rate, has good stroke correlation. The CHADS₂ [cardiac failure, hypertension, age, diabetes, stroke (doubled)] risk index evolved from the AF Investigators and Stroke Prevention in Atrial Fibrillation (SPAF) Investigators criteria, and is based on a point system in which 2 points are assigned for a history of stroke or TIA and 1 point each is assigned for age >75 years, a history of hypertension, diabetes, or recent cardiac failure.
 
 Table 11: CHADS₂ Score and Stroke Rate
-
 | CHADS₂ Score | Patients (n=1,733) | Adjusted Stroke Rate (%/year) (95% CI) |
 |---|---|---|
 | 0 | 120 | 1.9 (1.2–3.0) |
@@ -175,16 +174,15 @@ There was an increased risk of major bleeding in patients receiving clopidogrel 
 [Grade II-b, Level C] In some patients with one 'clinically relevant non-major' risk factor, e.g., female patients aged <65 years with no other risk factors, aspirin may be considered rather than OAC therapy.
 
 ## 6.4: Anticoagulation In Special Circumstances
-
 ### 6.4.1: Perioperative Anticoagulation
 Patients with AF who are anticoagulated will require temporary interruption of VKA treatment before surgery or an invasive procedure. Many surgeons require an INR less than 1.5 or even INR normalization before undertaking surgery. The risk of clinically significant bleeding, even among outpatients undergoing minor procedures, should be weighed against the risk of stroke and thrombo-embolism in an individual patient before the administration of bridging anticoagulant therapy. (refer Appendix C.1.9: Interruption Of Warfarin Therapy For Surgery)
 
 If the VKA used is warfarin, which has a half-life of 36 – 42 h, treatment should be interrupted for about 5 days before surgery (corresponding approximately to five half-lives of warfarin).
 
 Examples of procedures with a low risk of bleeding,
-- **Dental Surgery – Restorative Surgery and Extractions**
+- Dental Surgery – Restorative Surgery and Extractions
   - Anticoagulation can be continued with an INR of less than 3.0 and appropriate topical haemostatic measures should be used. There is no need to discontinue warfarin.
-- **Minor Non-Invasive Surgery (e.g., dilation and curettage [D & C])**
+- Minor Non-Invasive Surgery (e.g., dilation and curettage [D & C])
   - Transient adjustment of the INR to below 1.5 for the perioperative period is required.
 
 In cases of major surgery, consideration should be given to the risk of thromboembolism. (refer Table 12: CHA₂DS₂-VASc Score, Stroke Rate and Approach to Thromboprophylaxis in patients with AF)
@@ -477,4 +475,3 @@ Levels Of Evidence
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 <!-- parent_only_reference_end -->
-

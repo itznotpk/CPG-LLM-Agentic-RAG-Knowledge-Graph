@@ -16,15 +16,10 @@ In the absence of spontaneous reversion, cardioversion is chosen as part of the 
 The following are the guiding principles of antiarrhythmic drug therapy to maintain sinus rhythm in AF:
 
 (1) Treatment is motivated by attempts to reduce AF-related symptoms.
-
 (2) Efficacy of antiarrhythmic drugs to maintain sinus rhythm is modest.
-
 (3) Clinically successful antiarrhythmic drug therapy may reduce rather than eliminate recurrence of AF.
-
 (4) If one antiarrhythmic drug 'fails', a clinically acceptable response may be achieved with another agent.
-
 (5) Drug-induced proarrhythmia or extra-cardiac side effects are frequent.
-
 (6) Safety rather than efficacy considerations should primarily guide the choice of antiarrhythmic agent.
 
 ## 8.1: Efficacy Of Antiarrhythmic Drugs In Preventing Recurrent Atrial Fibrillation

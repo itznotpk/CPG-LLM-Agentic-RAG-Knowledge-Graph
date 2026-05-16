@@ -1,4 +1,4 @@
-# Section 5: Assessment and Diagnosis
+# Section 5: Assessment And Diagnosis
 <!-- METADATA
 category: Diagnosis, Classification, Assessment
 use_case: Assessment and Diagnosis — triple_assessment, imaging, biopsy, histopathology, receptor_status, staging, prognostic_markers, molecular_subtyping
@@ -7,13 +7,13 @@ output: histological_diagnosis, receptor_status, TNM_stage, prognostic_markers
 critical: true
 -->
 
-## 5.1 Triple Assessment
+## 5.1: Triple Assessment
 Triple assessment which consists of clinical assessment, imaging [ultrasound (US) and/or mammography] and pathology (histology and/or cytology) is an established method for the diagnosis of breast cancer.
 
-### 5.1.1 Clinical
+### 5.1.1: Clinical
 Adequate history taking to assess risk and thorough CBE are mandatory in breast cancer diagnosis. The degree of suspicion of breast cancer based on clinical breast examination is variable.
 
-### 5.1.2 Imaging
+### 5.1.2: Imaging
 **a. Diagnostic accuracy of mammography combined with ultrasonography:**
 Combined mammography and US assessment improve breast cancer detection in symptomatic women above 35 years old and thus should be offered in this group of patients. In women younger than 35 years old, US should be used as the initial imaging modality in triple assessment.
 
@@ -77,7 +77,7 @@ All palpable masses should be imaged to see if there is discordance in clinical 
 
 Surgical decisions should not be based solely on the MRI findings. Additional tissue sampling of areas of concern identified by breast MRI is recommended.
 
-### 5.1.3 Laboratory Investigation
+### 5.1.3: Laboratory Investigation
 **a. Histopathological examination:**
 * Core needle biopsy has become a well-established tool for diagnosing both palpable and non-palpable breast lesions. It is considered as part of triple assessment of breast disease.
 * If core needle biopsy is not available, FNAC may be considered for pathological assessment of palpable breast lumps. In equivocal FNAC, core biopsy should be performed for pathological diagnosis.
@@ -159,10 +159,10 @@ Table 3: St. Gallen classification (2011): Definition of subtypes of breast canc
 
 *Source: Falck AK, Fernö M, Bendahl PO, et al. St Gallen molecular subtypes in primary breast cancer and matched lymph node metastases--aspects on distribution and prognosis for patients with luminal A tumours: results from a prospective randomised trial. BMC Cancer. 2013;13:558*
 
-## 5.2 Staging
+## 5.2: Staging
 [Level III] The staging is based on current The American Joint Committee on Cancer (AJCC) Cancer Staging Manual (8th Edition). Refer to Appendix 5: Tnm Classification Of Breast Cancer for further details.
 
-### 5.2.1 Early breast cancer
+### 5.2.1: Early Breast Cancer
 In patients with asymptomatic early breast cancer (including ductal carcinoma in situ, stage I, stage IIA and stage IIB), imaging screening [chest radiograph, bone scan, liver ultrasonography and computerised tomography (CT) scan] for metastasis should not routinely be performed. There is no latest update on imaging investigations in this group of patients.
 
 However, in patients with signs and symptoms of lung, liver and bone diseases, or abnormal related laboratory tests, the above imaging investigations should be performed. A bone scan is indicated in patients presenting with localised bone pain or elevated alkaline phosphatase if sites are not imaged or visualised by plain radiograph or CT scan.
@@ -177,7 +177,7 @@ Patients with early breast cancer and:
 
 *\*Refer to the preceding text.*
 
-### 5.2.2 Locally Advanced Breast Cancer (Stage III)
+### 5.2.2: Locally Advanced Breast Cancer (Stage III)
 In locally advanced breast cancer (LABC), more imaging should be done for staging. This includes CT scan, bone scintigraphy, MRI and positron emission tomography/computerised tomography (PET/CT).
 
 [Level III] LABC is cancer that has not spread beyond the breast or to other parts of the body. This includes:
@@ -186,7 +186,7 @@ In locally advanced breast cancer (LABC), more imaging should be done for stagin
 *   cancers that involve multiple ipsilateral axillary, internal mammary or infra/supra-clavicular lymph nodes
 *   inflammatory breast cancer
 
-### 5.2.3 Advanced (Metastatic) Breast Cancer (Stage IV)
+### 5.2.3: Advanced (Metastatic) Breast Cancer (Stage IV)
 In advanced (metastatic) breast cancer similar imaging as in Section 5.2.2: Locally Advanced Breast Cancer (Stage III) should be done for assessment of bony and visceral metastases.
 
 **Recommendation 8**
@@ -603,7 +603,7 @@ Superior: ______, Medial: ______, Inferior: ______, Lateral: ______, Deep: _____
 **1.7. Sampling:** __________________________________________________________________
 **Grossed by:** ____________________________________________________________________
 
-### 2. Histology
+## 2: Histology
 **2.1. Microscopic description:**
 * **Histological type:** [ ] Invasive carcinoma (NST), [ ] Invasive lobular carcinoma, [ ] Mucinous carcinoma, [ ] Tubular carcinoma, [ ] Papillary carcinoma, [ ] Medullary, [ ] Other: ____________
 * **Tubular score:** [ ] 1 [ ] 2 [ ] 3

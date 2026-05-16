@@ -8,7 +8,7 @@ critical: true
 treatment_type: mastectomy, BCS, SLNB, ALND, reconstruction, radiotherapy, systemic_therapy
 -->
 
-## 6.1 Multi-Disciplinary Team (MDT)
+## 6.1: Multi-Disciplinary Team (MDT)
 Multidisciplinary team (MDT) meetings provide an opportunity for multiple specialties to collaboratively integrate diagnoses and treatment decisions for breast cancer patients. Members of MDT for breast cancer should consist of:
 *   breast surgeon
 *   radiologist
@@ -23,9 +23,9 @@ The objective of MDT meetings is to improve patient care and treatment outcomes 
 **Recommendation 10**
 *   Multidisciplinary team approach should be considered in the management of breast cancer to improve clinical outcomes.
 
-## 6.2 Surgery
+## 6.2: Surgery
 
-### 6.2.1 Early breast cancer
+### 6.2.1: Early Breast Cancer
 **a. Adequate tumour-free margin in breast-conserving surgery**
 
 **i. Invasive carcinoma:**
@@ -68,7 +68,7 @@ In early breast cancer patients:
 *   with clinically lymph nodes negative who have breast conserving surgery and sentinel lymph nodes (SLNs) biopsy, no further axillary surgery is needed in two or less positive SLNs but axillary radiotherapy may be considered
 *   with clinically lymph nodes negative who have mastectomy and SLNs biopsy with two or less positive SLNs, axillary treatment either radiotherapy or surgery should be offered
 
-### 6.2.2 Locally advanced breast cancer
+### 6.2.2: Locally Advanced Breast Cancer
 According to NNCN guidelines, neoadjuvant systemic therapy is indicated in women with inoperable breast cancer. It can render inoperable cancer to resectable cancer.
 
 **Recommendation 13**
@@ -81,7 +81,7 @@ Neoadjuvant systemic therapy can increase rate of BCS and benefits in operable b
 
 > **Clinical Note:** BCS following neoadjuvant systemic therapy can be considered in suitable patients if expertise and facilities are available.
 
-### 6.2.3 Timing for breast reconstruction (with or without prosthesis) in breast cancer requiring post-operative radiotherapy
+### 6.2.3: Timing For Breast Reconstruction (With Or Without Prosthesis) In Breast Cancer Requiring Post-Operative Radiotherapy
 Post-mastectomy radiation therapy (PMRT) has detrimental effect on the aesthetic outcome and associated with a higher complication rate following breast reconstruction (BR). In cases where PMRT is anticipated, the optimum timing and methods of BR need to be considered before the surgery.
 
 [Level III] When an immediate BR is intended, a two-stage implant-based reconstruction is recommended. The first stage involves placement of tissue expander (TE) followed by expansion of the expander within 1 - 6 months. In the second stage, the TE can be exchanged with a permanent implant either prior or after radiation therapy.
@@ -92,7 +92,7 @@ In delayed reconstruction in a previously irradiated patient, an autologous tiss
 
 [Level II-2] Delayed reconstruction is associated with significantly lower risks of overall (OR=0.38, 95% CI 0.24 to 0.62) or major complications (OR=0.52, 95% CI 0.31 to 0.89) compared with immediate procedures.
 
-### 6.2.4 Metastatic breast cancer
+### 6.2.4: Metastatic Breast Cancer
 **a. Surgery on primary tumour**
 [Level III] Patients with stage IV breast cancer has poor prognosis with 5-year survival rate of 27%.
 
@@ -142,7 +142,7 @@ In local practice, surgery followed by brain RT is suggested in patients with si
 **Recommendation 14**
 *   An individualised treatment may be offered in selected patients with metastatic breast cancer.
 
-### 6.2.5 Loco-regional recurrence
+### 6.2.5: Loco-Regional Recurrence
 All patients with LRR should be managed by an MDT to discuss all suitable treatment options.
 
 As there is no retrievable evidence on treatment for LRR in breast cancer, the treatment algorithm is based on NCCN guidelines as shown in Figure 3: Treatment of local and regional recurrence.
@@ -166,10 +166,10 @@ The decision for further systemic therapy should be individualised based on fact
 
 ---
 
-## 6.3 Systemic Therapy
+## 6.3: Systemic Therapy
 Refer to Appendix 7: Medications In Systemic Therapy Of Breast Cancer And Their Common Side Effects
 
-### 6.3.1 Neoadjuvant therapy
+### 6.3.1: Neoadjuvant Therapy
 Neoadjuvant therapy in breast cancer refers to the administration of treatment with the intent of downstaging the tumour and, improve operability and surgical outcomes.
 
 **a. Chemotherapy**
@@ -223,7 +223,7 @@ NCCN recommends chemotherapy and trastuzumab-based treatment for patients with H
 
 > **Clinical Note:** SC trastuzumab is an alternative to IV trastuzumab in both neoadjuvant and adjuvant setting in patients with HER2-positive, clinical stage I-III breast cancer.
 
-### 6.3.2 Adjuvant therapy
+### 6.3.2: Adjuvant Therapy
 Adjuvant therapy is used after surgery to reduce the rate of cancer recurrence. It may include chemotherapy, endocrine therapy, targeted therapy or RT.
 
 St. Gallen international consensus panel of experts developed a series of guidelines and recommendations for selection of adjuvant systemic therapy for breast cancer patients based on risk categories (refer to Table 4. Risk categories of breast cancer for adjuvant systemic therapy). These are widely used by many oncologists and adapted in various CPG worldwide, including the previous edition of Malaysian CPG on Management of Breast Cancer.
@@ -233,8 +233,6 @@ Table 4: Risk categories of breast cancer for adjuvant systemic therapy
 | Low risk | Intermediate risk | High risk |
 |---|---|---|
 | pN0 and all of the following criteria:<br>• size of tumour maximum 2 cm<br>• Grade 1<br>• no vessel invasion<br>• ER/PR+<br>• HER2-negative<br>• age ≥35 years old | pN0 and at least 1 further criterion:<br>• size of tumour >2 cm<br>• Grade 2/3<br>• vessel invasion<br>• HER2 overexpression<br>• age <35 years old<br>• pN+ (N1 - 3) and HER2-negative | pN+ (N1 - 3) and HER2 overexpression or pN+ (N≥4) |
-
-*Source: Persing, Monika & Grosse, Regina. (2007). Current St. Gallen Recommendations on Primary Therapy of Early Breast Cancer*. Breast Care. 2. 137-140*
 
 **a. Chemotherapy:**
 Adjuvant chemotherapy has an established role in eradicating micrometastasis, thus improving survival. Generally, adjuvant chemotherapy is recommended for intermediate or high risk patients. In assessing absolute benefit of systemic adjuvant therapy, NICE recommends the use of PREDICT tool, an online calculator, that is available from the UK NHS website. However, in local setting, a validation study of the tool concludes that while the tool is generally accurate, it needs to be used with caution in patients who are <40 years old and those who have received neoadjuvant chemotherapy.
@@ -322,7 +320,7 @@ The standard duration of trastuzumab for adjuvant therapy of HER2-positive breas
 
 > **Clinical Note:** Trastuzumab for six months in adjuvant setting may be considered based on the discretion of the treating clinicians.
 
-### 6.3.3 Systemic therapy for metastatic disease
+### 6.3.3: Systemic Therapy For Metastatic Disease
 Treatment choice in MBC is influenced by many factors:
 *   patient’s factors (age, co-morbidities, performance status, patient’s preference and menopausal status)
 *   tumour biology (hormone receptor and HER2 status)
@@ -391,7 +389,7 @@ Therapies that target HER2 have become important agents in the treatment of MBC.
 **Recommendation 26**
 *   Anti-HER2 blockade, may be considered in HER2-positive metastatic breast cancer.
 
-### 6.3.4 Supportive Therapy
+### 6.3.4: Supportive Therapy
 **Bone-modifying agents in adjuvant and metastatic breast cancer**
 Treatment targeting osteoclast activity is important for breast cancer with bone metastases to prevent SREs. Bisphosphonates have been used for this purpose.
 
@@ -407,9 +405,8 @@ Treatment targeting osteoclast activity is important for breast cancer with bone
 *   Bisphosphonates may be offered in breast cancer patients with bone metastases to reduce skeletal-related events.
     *   The preferred regimen is 12-weekly intravenous zoledronic acid.
 
-## 6.4 Radiotherapy
-
-### 6.4.1 Radiotherapy post-breast conserving surgery
+## 6.4: Radiotherapy
+### 6.4.1: Radiotherapy Post-Breast Conserving Surgery
 [Level I] Adjuvant radiotherapy following BCS reduces risk of local recurrence in the affected breast by half and risk of death by a sixth. All patients with invasive breast cancer who have BCS with clear margin should be offered adjuvant whole breast irradiation (WBI).
 
 [Level I] Partial breast irradiation (PBI) for early breast cancer is thought to result in comparable local control and better cosmesis. However, a Cochrane systematic review showed that PBI in early stage breast cancer gave worse local control (HR=1.62, 95% CI 1.11 to 2.35) and cosmesis outcome (OR=1.51, 95% CI 1.17 to 1.95) compared with WBI.
@@ -431,7 +428,7 @@ There is not enough evidence to recommend PBI or IORT as standard of care. NICE 
 **Recommendation 28**
 *   Patients with invasive breast cancer who have breast conserving surgery with clear margin should be offered adjuvant radiotherapy.
 
-### 6.4.2 Radiotherapy post-mastectomy
+### 6.4.2: Radiotherapy Post-Mastectomy
 Adjuvant radiotherapy should be offered to the following post-mastectomy patients with $\ge$ 4 lymph nodes and positive margin.
 
 [Level I] However, a recent update of EBCTCG meta-analysis showed that radiotherapy following mastectomy also benefited those with one to three positive lymph nodes:
@@ -449,7 +446,6 @@ NICE also recommends adjuvant radiotherapy to be considered in node negative but
 
 <!-- parent_only_reference_start -->
 Appendix 7: Medications In Systemic Therapy Of Breast Cancer And Their Common Side Effects
-
 | MEDICATION | COMMON SIDE EFFECTS | COMMENTS |
 |---|---|---|
 | CHEMOTHERAPY | | |
@@ -539,5 +535,4 @@ Abbreviations
 | TE | Tissue Expander |
 | WBI | Whole Breast Irradiation |
 | WBRT | Whole Brain Radiotherapy |
-
 <!-- parent_only_reference_end -->

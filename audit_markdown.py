@@ -170,8 +170,12 @@ ATTR_RE = re.compile(r'(\w+)\s*=\s*"([^"]*)"')
 # Sentence case
 # ------------------------------------------------------------------------------
 
+_ROMAN_NUMERAL_RE = re.compile(r'^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$')
+
+
 def is_acronym(token: str) -> bool:
-    """A token like 'AF', 'CVD', 'NSTE-ACS', or 'HDL-C' counts as an acronym."""
+    """A token like 'AF', 'CVD', 'NSTE-ACS', 'HDL-C', 'MDT', or 'III'
+    counts as an acronym (preserve uppercase)."""
     if not token:
         return False
     # Check the hyphen-preserving form first (catches 'NSTE-ACS' which is stored
@@ -180,6 +184,9 @@ def is_acronym(token: str) -> bool:
         return True
     bare = re.sub(r'[^A-Za-z0-9]', '', token)
     if bare and bare.upper() in ACRONYMS:
+        return True
+    # Roman numerals (Stage III, Class IV, Type II) — always uppercase.
+    if bare and _ROMAN_NUMERAL_RE.match(bare.upper()):
         return True
     # Hyphenated acronym where every part is a KNOWN acronym (e.g. 'HDL-C' if
     # both halves are listed). We can't trust `part.isupper()` alone — that
@@ -247,6 +254,26 @@ def to_sentence_case(text: str) -> str:
     if not text:
         return text
 
+    # If the heading is NOT entirely shouting, an embedded ALL-CAPS alpha token
+    # (MDT, ECG, RHC) is a deliberate acronym — preserve it. When the whole
+    # heading is ALL-CAPS, R2 must recase everything, so skip this exemption.
+    letters = [c for c in text if c.isalpha()]
+    heading_all_caps = bool(letters) and all(c.isupper() for c in letters)
+
+    def _case_token(tok: str) -> str:
+        if not tok:
+            return tok
+        if not heading_all_caps:
+            bare = re.sub(r'[^A-Za-z0-9]', '', tok)
+            # Preserve a deliberate ALL-CAPS token: pure acronym (MDT, ECG) or
+            # a gene/marker name with trailing/embedded digits (BRCA1, HER2,
+            # P53, COX2). Requires >= 2 leading caps letters so single letters
+            # and plain numbers fall through to normal casing.
+            if (bare and tok == tok.upper()
+                    and re.fullmatch(r'[A-Z]{2,}[0-9]*', bare)):
+                return tok
+        return smart_case_word(tok)
+
     segments = re.split(r'(\s*:\s*)', text)
     out = []
     for seg in segments:
@@ -254,7 +281,7 @@ def to_sentence_case(text: str) -> str:
             out.append(seg)
             continue
         tokens = seg.split(' ')
-        out.append(' '.join(smart_case_word(tok) if tok else tok for tok in tokens))
+        out.append(' '.join(_case_token(tok) for tok in tokens))
     return ''.join(out)
 
 
@@ -697,6 +724,48 @@ def collect_parent_only_targets(text: str) -> set[str]:
     return targets
 
 
+def collect_section_identifiers(text: str) -> set[str]:
+    """
+    Return every section identifier defined by a heading in this file, e.g.
+    {'6', '6.2', '6.2.2', '6.2.2.a', '6.3.1'}. Handles numeric headings
+    (## 6.2.2: ...), nested letter sub-parts written as headings
+    (#### 6.2.2.a: ... or **a. ...** is NOT a heading so ignored here), and
+    'Section N' / 'Appendix N' keyword headings.
+
+    Used by R5 to suppress within-file "refer to Section 6.2.2.a" prose —
+    same-H1 refs need no cross_ref marker (the chain walk delivers the whole
+    H1 parent to synthesis).
+    """
+    ids: set[str] = set()
+    inside_parent_only = False
+    for line in text.splitlines():
+        if PARENT_ONLY_START in line:
+            inside_parent_only = True
+            continue
+        if PARENT_ONLY_END in line:
+            inside_parent_only = False
+            continue
+        if inside_parent_only:
+            continue
+        hm = HEADING_RE.match(line)
+        if not hm:
+            continue
+        htext = hm.group(2).strip()
+        # Numeric / dotted-letter identifier: 6, 6.2, 6.2.2, 6.2.2.a
+        nm = re.match(r'^(?P<id>\d+(?:\.\d+)*(?:\.[A-Za-z])?)\s*[:.\)]?\s', htext + ' ')
+        if nm:
+            ids.add(nm.group('id').lower())
+            continue
+        # 'Section 6.2.2.a' / 'Appendix 11' keyword heading
+        km = re.match(
+            r'^(?:Section|Appendix)\s+(?P<id>[\w.]+?)\s*[:.\)]?(?:\s|$)',
+            htext, re.IGNORECASE,
+        )
+        if km:
+            ids.add(km.group('id').lower())
+    return ids
+
+
 def detect_missing_cross_refs(text: str, index: dict | None = None, current_file: str = '') -> list[dict]:
     """
     R5: Scan prose for 'refer to Section/Appendix/Table/Figure ...' that lacks
@@ -715,6 +784,7 @@ def detect_missing_cross_refs(text: str, index: dict | None = None, current_file
     inside_parent_only = False
     parent_only_targets = collect_parent_only_targets(text)
     label_h2_locations = collect_table_figure_h2_locations(text)
+    own_section_ids = collect_section_identifiers(text)
 
     for i, line in enumerate(lines):
         if PARENT_ONLY_START in line:
@@ -752,6 +822,16 @@ def detect_missing_cross_refs(text: str, index: dict | None = None, current_file
                 # whole H1 parent (with all its H2 children) to synthesis.
                 if key in label_h2_locations:
                     continue
+
+            # Within-file "refer to Section 6.2.2.a / 6.3.1 / 6" — if the
+            # target identifier matches a heading defined in THIS file
+            # (same H1), no cross_ref marker is needed (spec line 361).
+            sec_m = re.match(
+                r'(?i)^(?:Section|Appendix)\s+(?P<id>\d+(?:\.\d+)*(?:\.[A-Za-z])?)\b',
+                norm_target,
+            )
+            if sec_m and sec_m.group('id').lower() in own_section_ids:
+                continue
 
             if CROSS_REF_RE.search(line):
                 continue

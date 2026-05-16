@@ -15,7 +15,7 @@ Over the past 10 years, advances in molecular genetics and therapeutics have gre
 *   Identification of other genes associated with inherited susceptibility to breast and/or ovarian cancer has led to multi-gene panel testing, beyond just the BRCA genes
 *   Treatment-focussed genetic testing is becoming increasingly important and this has expanded the utility of genetic testing to more than just screening and risk-management and, expanded genetic testing beyond germline to somatic tumour testing
 
-### 8.1 Cancer Genetic Risk Assessment
+## 8.1: Cancer Genetic Risk Assessment
 For patients concerned about or suspected of having hereditary breast and/or ovarian cancers, initial risk evaluation by the doctor responsible for their care (surgeon or oncologist) should be performed in order to determine if formal risk assessment in a cancer genetics clinic should be undertaken. This initial risk evaluation includes a thorough evaluation of:
 *   Personal history (including medical and surgical history, patient's needs and concerns)
 *   Family history (first- and second-degree relatives on both the maternal and paternal sides) of breast, ovarian and other cancers
@@ -40,14 +40,14 @@ Table 5: Mainstreaming cancer genetics cancer-based criteria
 
 In more well-resourced settings, a number of risk assessment tools have been built to more accurately provide the likelihood of an individual's risk of developing cancer (e.g. Tyrer-Cuzick or BOADICEA risk prediction models) and ongoing efforts to calibrate these for the Asian population are expected to be reported by 2020. Another important upcoming focus is the development of polygenic risk scores for Asian and South-East Asian populations, to improve risk stratification and identify women at higher-risk of breast cancer in these regions. Reference to the latest literature is advised.
 
-### 8.2 Genetic Counselling and Genetic Testing
+## 8.2: Genetic Counselling And Genetic Testing
 For individuals meeting established criteria for one or more hereditary cancer syndromes, genetic testing should be considered along with appropriate pre-test counselling. Such counselling can be provided by a genetic counsellor, medical geneticist, oncologist, surgeon, oncology nurse or other healthcare professional with expertise and experience in cancer genetics. Regardless of who provides the counselling, pre- and post-test counselling should include discussion on the test indications, limitations, potential benefits, possible outcomes and implications.
 
 Genetic testing aims to detect variants in cancer predisposition genes. Previously, single-gene tests were performed, but advances in molecular genetics using parallel testing has enabled the testing of multiple genes simultaneously (multi-gene panel testing). Testing must be comprehensive (including full sequencing and large genomic rearrangements), for clinically actionable genes and usually offered to an affected family member first. Should a clinically relevant variant be found, testing may then be offered to other adult at-risk relatives.
 
 Individuals eligible for genetic testing may be referred during initial management or at any time thereafter. Rapid genetic counselling and testing (RGCT) may be offered based on individual case needs, after discussion with the genetics team. [Level I] An RCT reported that female breast cancer patients who received RGCT and subsequently received DNA test results before surgery were more likely to undergo direct bilateral mastectomy compared with women who received the usual care (OR=3.09, 95% CI 1.15 to 8.31). NICE recommends fast-track genetic testing (within four weeks of diagnosis of breast cancer) only as part of a clinical trial.
 
-### 8.3 Genetic Predisposition to Breast Cancer
+## 8.3: Genetic Predisposition To Breast Cancer
 Understanding of genetic predisposition to breast cancer has advanced beyond BRCA1 and BRCA2, with numerous genes in which variants confer a moderate risk (2 - 4-fold higher risk) or high risk (>4 times higher risk) of breast cancer compared with the general population. Refer Table 6: Genes for which breast cancer risk has been established for genes and associated risk of breast cancer.
 
 Table 6: Genes for which breast cancer risk has been established
@@ -69,7 +69,7 @@ Table 6: Genes for which breast cancer risk has been established
 
 The genes BARD1, RAD51C and RAD51D are associated with an increased risk to breast cancer, but risk estimates remain inaccurate because these variants are rare. With more upcoming evidence, the increasing importance of these genes is anticipated and reference to latest literature is encouraged to obtain more accurate risk estimates in this rapidly evolving area.
 
-### 8.4 Clinical Management for Carriers of Pathogenic/Likely Pathogenic Variants in BRCA1, BRCA2 and Other Genes
+## 8.4: Clinical Management For Carriers Of Pathogenic/Likely Pathogenic Variants In BRCA1, BRCA2 And Other Genes
 BRCA1 and BRCA2 are highly penetrant genes and pathogenic/likely pathogenic variants are associated with early-onset breast cancers and increased risk of contralateral breast cancer, ovarian cancer, prostate and pancreatic cancer (BRCA2 only).
 
 > **Clinical Note:** Individuals with pathogenic/likely pathogenic variants in BRCA1 and BRCA2 have an increased risk of breast, ovarian and a number of related cancers. Hence these individuals warrant consideration of earlier and more intensive screening and preventive strategies.
@@ -80,7 +80,7 @@ In the last 10 years, carriers of variants in PALB2, ATM and CHEK2 genes have al
 
 Individuals with strong family history of cancer but with no pathogenic/likely pathogenic variants or whom do not undergo genetic testing, may benefit from further risk assessment using calibrated tools, such as BOADICEA, and offered screening according to their estimated lifetime risk of cancers. The CanRisk tool is a web interface to BOADICEA and can be accessed at https://canrisk.org/about/
 
-#### 8.4.1 Intensive screening
+### 8.4.1: Intensive Screening
 Intensive screening for breast cancer in BRCA carriers and high risk individuals starts considerably earlier than standard recommendations. Breast awareness education with monthly breast self-examination should begin at 18 years of age and biannual CBE should begin at 25 years of age. Other screening strategies, based on age and risk group are summarised in Table 7: Summary of recommendations on screening for women with no personal history of breast cancer.
 
 Table 7: Summary of recommendations on screening for women with no personal history of breast cancer
@@ -105,7 +105,7 @@ Table 7: Summary of recommendations on screening for women with no personal hist
 *   Intensive screening of BRCA carriers and high-risk individuals should be vigilantly performed and adhered to recommended guidelines.
 *   Screening of women with pathogenic/likely pathogenic variants in BRCA1 and BRCA2 should be conducted from age 30–49 years with both MRI and mammography. Those ≥50 years, screening with mammography should be done.
 
-### 8.4.2 Risk-reducing strategies
+### 8.4.2: Risk-Reducing Strategies
 **i) Risk-reducing surgery**
 *   **Bilateral risk-reducing mastectomy:**
     [Level II-2] Risk-reducing mastectomy (RRM) remains the most effective strategy for reducing breast cancer risk. A meta-analysis showed that prophylactic bilateral mastectomy reduced the risk for breast cancer (RR=0.11, 95% CI 0.04 to 0.32) but not all-cause mortality. [Level II-2] Another systematic review also showed 90 - 95% risk reduction.
@@ -149,7 +149,7 @@ Table 7: Summary of recommendations on screening for women with no personal hist
 
 > **Clinical Note:** In high risk women, evidence has shown that risk-reducing surgeries and chemoprevention are effective in reducing the risk of developing breast cancers.
 
-### 8.4.3 Role of poly (ADP-ribose) polymerase inhibitors for BRCA carriers
+### 8.4.3: Role Of Poly (Adp-Ribose) Polymerase Inhibitors For BRCA Carriers
 Poly (ADP-ribose) polymerase (PARP) inhibitors (olaparib or talazoparib) can be considered as a treatment option for patients with BRCA-associated advanced triple negative breast cancer or luminal metastatic breast cancer, after failure of chemotherapy and endocrine therapy. Its use is associated with a PFS benefit, improvement in quality of life and a favourable toxicity profile.
 
 <!-- parent_only_reference_start -->

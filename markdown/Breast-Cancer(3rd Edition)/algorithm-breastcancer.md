@@ -85,7 +85,7 @@ Determine HER2 status:
 * **HER2-Negative:** → Chemotherapy
 * **HER2-Positive:** → Chemotherapy ± Anti-HER2
 
-📝 Adjunct & Local Treatments
+Adjunct & Local Treatments
 > **Adjunct treatment:**
 > * Bisphosphonates
 > * Consider local treatment (radiotherapy/surgery) if indicated

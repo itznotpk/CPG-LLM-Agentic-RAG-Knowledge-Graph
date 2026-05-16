@@ -270,8 +270,6 @@ Please specify the grade of allergic reaction from the categories below.
 - [ ] Provide the patient with a letter listing all substances administered perioperatively to show to those providing care until testing can be conducted.
 > Patient will be contacted by our clinic for an appointment date.
 
----
-
 ## Appendix 3: Malignant Hyperthermia Reporting Form
 | MALIGNANT HYPERTHERMIA |
 |---|
@@ -394,8 +392,6 @@ Report for suspected Malignant Hyperthermia Reaction
 | Positive MH family history in relative of first degree | |
 | Positive MH family history in relative not of first degree | |
 | Please send the completed form to Anaesthetic Department, Hospital Kuala Lumpur. | |
-
----
 
 ## Appendix 4: Local Anaesthetic Systemic Toxicity (LAST) Management Protocol
 | LOCAL ANAESTHETIC SYSTEMIC TOXICITY |

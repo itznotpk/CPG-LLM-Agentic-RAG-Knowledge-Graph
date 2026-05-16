@@ -8,7 +8,7 @@ output: risk_category, risk_reduction_recommendations
 
 The cause of the vast majority of breast cancers remains unknown. However, a number of risk factors has been established and can be divided into non-modifiable and modifiable groups.
 
-## 2.1 Non-modifiable
+## 2.1: Non-Modifiable
 *   **Age:**
     The risk of breast cancer increases with age. Based on latest National Cancer Registry Report of Malaysia, the incidence started to increase at the age of 25 and peaked at the age of 60 to 64 years.
 
@@ -34,7 +34,7 @@ The cause of the vast majority of breast cancers remains unknown. However, a num
 
     Refer to Appendix 3: Recommended Reporting System (Breast Composition Illustrations).
 
-## 2.2 Modifiable
+## 2.2: Modifiable
 *   **Reproductive factors:**
     [Level II-2] Nulliparity and lack of breastfeeding are risk factors for breast cancer.
     *   Nulliparity increases risk of luminal tumour (OR=1.26, 95% CI 1.11 to 1.44).

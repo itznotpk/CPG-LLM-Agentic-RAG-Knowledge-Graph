@@ -20,7 +20,7 @@ Whilst the above tools are accurate for the population, they are less useful for
 
 In a local health technology assessment on various risk assessment tools, the Gail model was shown to have good calibration and moderate discriminative ability. However, it was not suitable to be introduced as one of the strategies in the prevention of breast cancer under the Malaysian National Cancer Control Programme yet as it needs further validation to develop a well-fitted model that would have better predictive ability tailored to Malaysian population. [Level I] In addition, this model needs continual validation to determine the consistency of its performance.
 
-## 3.1 Screening of Unaffected Women
+## 3.1: Screening Of Unaffected Women
 [Level III] Digital breast tomosynthesis (DBT) + full-field digital mammography (FFDM) yields higher detection rates of breast cancer lesion compared with FFDM alone in asymptomatic women.
 
 The followings have been recommended for screening by the existing guidelines:
@@ -33,7 +33,7 @@ Ultrasound as a complementary imaging may be considered after a mammography or b
 
 Refer to Table 7: Summary of recommendations on screening for women with no personal history of breast cancer.
 
-## 3.2 Surveillance of Affected Women
+## 3.2: Surveillance Of Affected Women
 For women with personal history of breast cancer and increased risk for recurrence or a second breast cancer, they should be offered yearly mammography of the remnant breast and the contralateral breast for five years. With regards to cost-effective strategy, NICE recommends the following screening in women with previous history of breast cancer:
 *   For those aged 50 - 74 years and remain at high risk of breast cancer (including BRCA1 or BRCA2 mutation and do not have a TP53 mutation), annual mammographic surveillance should be offered.
 *   For those aged 30 - 49 years and remain at high risk of breast cancer including BRCA 1, BRCA2 or TP53 mutation, annual MRI surveillance should be offered.
