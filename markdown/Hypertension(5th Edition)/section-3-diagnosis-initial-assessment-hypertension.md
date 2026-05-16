@@ -6,7 +6,7 @@ patient_input: blood_pressure_readings, symptoms, family_history, medication_his
 output: secondary_cause_evaluation, TOD_status, cardiovascular_risk_level, follow_up_schedule, referral_indications
 -->
 
-## Diagnosis And Initial Assessment
+**Diagnosis And Initial Assessment**
 Evaluation of patients with documented hypertension has three objectives:
 1. To exclude secondary causes of hypertension. (Table 3-A:  Secondary Causes of Hypertension)
 2. To ascertain the presence of target organ damage or complication. (Table 3-B: Manifestations of Target Organ Damage (TOD) / Target Organ Complication (TOC))
@@ -29,7 +29,7 @@ A complete history should include:
 
 Physical examination should include the following:
 - General examination including height, weight and waist circumference
-- Measure BP appropriately. (refer to Chapter 2)
+- Measure BP appropriately. (refer to Section 2: Measurement Of Blood Pressure) <!-- cross_ref target_file="section-2-measurement-blood-pressure-hypertension.md" target_heading="Section 2: Measurement Of Blood Pressure" target_kind="h1_section" -->
 - Fundus examination
 - Examination for carotid bruit, abdominal bruit, presence of peripheral pulses and radio-femoral delay
 - Cardiac examination for cardiomegaly, signs of heart failure and aortic regurgitation
@@ -49,11 +49,7 @@ Physical examination should include the following:
 
 If the examination or investigations suggest the presence of a secondary causes, the patient should be referred for specialist evaluation. If there is evidence of TOD or TOC (Table 3-B: Manifestations of Target Organ Damage (TOD) / Target Organ Complication (TOC)), further tests should be considered.
 
----
-
-## Contextual Anchors (Overlapping)
 Table 3-A: Secondary Causes Of Hypertension
-
 - Parenchymal kidney disease
 - Renovascular disease
 - Sleep apnoea
@@ -71,10 +67,7 @@ Table 3-A: Secondary Causes Of Hypertension
 - Coarctation of the aorta
 - Takayasu Arteritis
 
----
-
 Table 3-B: Manifestations Of Target Organ Damage (Tod) / Target Organ Complication (Toc)
-
 | Organ | Manifestations |
 |---|---|
 | Heart | • Left Ventricular Hypertrophy<br>• Coronary Heart Disease<br>• Heart Failure |
@@ -87,10 +80,7 @@ TOD = Target organ damage (LVH, retinopathy, proteinuria) <br>
 TOC = Target organ complication (heart failure, renal failure)
 * defined as normal to mildly increased (UACR <30mg/g), moderately increased (UACR 30-300mg/g) and severely increased (UACR >300mg/g)
 
----
-
 Table 3-C: Co-Existing Cardiovascular Risk Factors For Risk Stratification
-
 - Diabetes mellitus
 - Dyslipidaemia
 - Cigarette smoking
@@ -101,10 +91,7 @@ According to a study in Malaysia as many as 54% patients with essential hyperten
 
 Following initial clinical evaluation and investigations, the patient should be risk stratified. Many patients with hypertension have more than one other cardiovascular risk factor. Each additional risk factor increases cardiovascular risk substantially. [Level III] Hence, overall global cardiovascular risk of a patient with hypertension should be done. There are various ways to assess global cardiovascular risk and this includes using validated risk charts like the Framingham General Cardiovascular Risk Chart which has been validated locally and found to perform quite well or using risk stratification tables (Table 3-D: Risk Stratification) which stratifies the risk of developing major cardiovascular events, which includes stroke, myocardial infarction and total mortality.
 
----
-
 Table 3-D: Risk Stratification
-
 | Co-Existing Condition / BP Levels (mmHg) | No RF, No TOD, No TOC | TOD or RF (1-2), No TOC | TOC or RF(≥3) or Clinical atherosclerosis or CKD | Previous MI / IHD, Previous stroke or Diabetes or CKD |
 |---|---|---|---|---|
 | SBP 130 - 139 and/or DBP 80 - 89 | Low | Intermediate | High | Very High |
@@ -124,10 +111,7 @@ TOC = Target organ complication (heart failure, renal failure). <br>
 RF = Additional risk factors (smoking, TC >6.5mmol/L, family history of premature vascular disease). <br>
 Clinical atherosclerosis = CHD, carotid stenosis, peripheral vascular disease, transient ischaemic attack, stroke.
 
----
-
 Table 3-E: Recommendations For Follow-Up Visit Based On Initial Blood Pressure Measurements For Adults
-
 | Initial BP (mmHg) Systolic | | Initial BP (mmHg) Diastolic | Recommended follow-up |
 |---|---|---|---|
 | <120 | and | <80 | Recheck in one year |
@@ -139,9 +123,8 @@ Table 3-E: Recommendations For Follow-Up Visit Based On Initial Blood Pressure M
 
 [Level III] Modified from JNC-VII
 
----
-
-## Level Of Evidence
+<!-- parent_only_reference_start -->
+Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -149,3 +132,25 @@ Table 3-E: Recommendations For Follow-Up Visit Based On Initial Blood Pressure M
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
+
+Abbreviations
+| Abbreviation | Full Term |
+|---|---|
+| BP | Blood pressure |
+| CHD | Coronary heart disease |
+| CKD | Chronic kidney disease |
+| DBP | Diastolic blood pressure |
+| ECG | Electrocardiogram |
+| eGFR | Estimated glomerular filtration rate |
+| GFR | Glomerular filtration rate |
+| HDL | High-density lipoprotein |
+| IHD | Ischaemic heart disease |
+| LDL | Low-density lipoprotein |
+| NSAIDs | Non-steroidal anti-inflammatory drugs |
+| OCP/HRT | Oral contraceptive pill / Hormone replacement therapy |
+| SBP | Systolic blood pressure |
+| TC | Total cholesterol |
+| TOC | Target organ complication |
+| TOD | Target organ damage |
+| UACR | Urinary albumin-to-creatinine ratio |
+<!-- parent_only_reference_end -->

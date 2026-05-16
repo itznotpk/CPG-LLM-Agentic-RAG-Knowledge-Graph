@@ -7,7 +7,6 @@ output: procedure_options, evidence_summary, referral_considerations
 treatment_type: renal_denervation, baroreceptor_activation_therapy
 -->
 
-## 12: Device And Procedure Based Therapy
 One of the potential approaches in treating true resistant hypertension and severe newly diagnosed hypertension is device therapy. This includes renal denervation therapy (RDN) and carotid sinus stimulation. In these patients, blood pressure rise is initiated and sustained by sympathetic over activation and BP reduction can result from its inhibition.
 
 [Level I] Renal denervation therapy gained popularity following early blood pressure reduction result seen in patients with resistant hypertension on medical therapy in the SIMPLICITY HTN-1 and 2 trials. However, the 24-hour ambulatory blood pressure was not significantly reduced. SIMPLICITY HTN-3, which had a sham control arm showed a neutral result suggesting a lack of benefit with the single electrode radiofrequency catheter.
@@ -18,9 +17,8 @@ Baroreceptor activation therapy (BAT) is based on sympathetic inhibition by caro
 
 Clinical development in this area should be accompanied by investigations identifying predictors for good treatment response. Device based therapy should not be part of routine medical care until further evidence is available.
 
----
-
-## Level Of Evidence
+<!-- parent_only_reference_start -->
+Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -29,9 +27,18 @@ Clinical development in this area should be accompanied by investigations identi
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Grades Of Recommendation
+Grades Of Recommendation
 | GRADE | STUDY DESIGN |
 |---|---|
 | A | At least one meta analysis, systematic review, or RCT, or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta analysis, systematic review, or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates absence of directly applicable clinical studies of good quality |
+
+Abbreviations
+| Abbreviation | Full Term |
+|---|---|
+| BAT | Baroreceptor activation therapy |
+| BP | Blood pressure |
+| RDN | Renal denervation therapy |
+| SBP | Systolic blood pressure |
+<!-- parent_only_reference_end -->

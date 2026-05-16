@@ -10,7 +10,7 @@ treatment_type: spironolactone, beta_blockers, alpha_blockers, centrally_acting_
 ## 10.1: Resistant Hypertension
 Resistant hypertension is defined as uncontrolled hypertension (>140/90 mmHg) with good medication adherence while on three or four anti-hypertensive agents (including a diuretic) in adequate doses. In a study of a primary care center involving 1,217 hypertensives in Malaysia, the prevalence of resistant hypertension (as defined above) was reported to be 8.8%. Similar prevalence was observed in national surveys in the United States (National Health and Nutritional Examination Survey from 2003-2008), the estimated prevalence was 8.9%. It is however worth noting that the prevalence may be an overestimate if white coat resistance is excluded. Ambulatory Blood Pressure Monitoring studies on treatment resistant patients have demonstrated that between 30-35% of patients have pseudo resistant or office resistant hypertension. This is consistent with a study from a tertiary center in Malaysia.
 
-### Before Labeling A Patient As Having Resistant Hypertension, It Is Important That The Practitioner Ascertain That:
+**Before Labeling A Patient As Having Resistant Hypertension, It Is Important That The Practitioner Ascertain That:**
 a. the patient adheres to medication (by definition at least 80%)
 
 b. the blood pressure is measured appropriately
@@ -21,17 +21,17 @@ d. an appropriate combination and dosage of drugs is prescribed, namely 3 drugs 
 
 e. the patient is not taking any substances which may antagonise the hypertensive effects of the drugs taken (e.g. NSAID, sympathomimetics, liquorice, oral contraceptives, corticosteroids)
 
-It is therefore important that a thorough review of the patient’s history, physical examination and investigations be done including estimation of renal function glomerular filtration rate (eGFR). A home or ambulatory blood pressure measurement should be done to exclude isolated office hypertension. (Refer to chapter 2 on Measurement of Blood Pressure).
+It is therefore important that a thorough review of the patient’s history, physical examination and investigations be done including estimation of renal function glomerular filtration rate (eGFR). A home or ambulatory blood pressure measurement should be done to exclude isolated office hypertension. (Refer to Section 2: Measurement Of Blood Pressure). <!-- cross_ref target_file="section-2-measurement-blood-pressure-hypertension.md" target_heading="Section 2: Measurement Of Blood Pressure" target_kind="h1_section" -->
 
-Once a patient is confirmed to have true resistant hypertension, consider referral for exclusion of secondary causes (Refer to chapter 3 on Diagnosis and Initial Assessment).
+Once a patient is confirmed to have true resistant hypertension, consider referral for exclusion of secondary causes (Refer to Section 3: Diagnosis And Initial Assessment). <!-- cross_ref target_file="section-3-diagnosis-initial-assessment-hypertension.md" target_heading="Section 3: Diagnosis And Initial Assessment" target_kind="h1_section" -->
 
-### Excluding Secondary Hypertension
+**Excluding Secondary Hypertension**
 Although the prevalence of secondary hypertension is around 5%, its prevalence is higher in patients with resistant hypertension. Depending on series, prevalence of secondary hypertension among patients with resistant hypertension can be as high as 66%, with obstructive sleep apnoea, accounting for most of it. In two large series, primary aldosteronism was diagnosed in 11% of patients with resistant hypertension. Subsequent investigations arranged should be guided by symptoms present, examination findings elicited and results from preliminary investigations. It is prudent that any investigations to be ordered or arranged must be rational with cost effectiveness in mind.
 
-### Treatment Options In Resistant Primary Hypertension
+**Treatment Options In Resistant Primary Hypertension**
 **a. Non-pharmacological Management**
 
-Non-pharmacological approaches (healthy living) must be re-emphasised. (Refer to chapter 4 on Non-Pharmacological Management)
+Non-pharmacological approaches (healthy living) must be re-emphasised. (Refer to Section 4: Non-Pharmacological Management). <!-- cross_ref target_file="section-4-non-pharmacological-management-hypertension.md" target_heading="Section 4: Non-Pharmacological Management" target_kind="h1_section" -->
 
 **b. Pharmacological Management**
 
@@ -44,17 +44,14 @@ If blood pressures are still not controlled with four drugs, a fifth drug may be
 
 Both resistant and refractory hypertensives are candidates for devise-based intervention.
 
----
-
-### Recommendations
+**Recommendations**
 - [Grade C] Treat patients with at least 3 drugs (inclusive of a diuretic) before diagnosing resistant hypertension.
 - [Grade C] Consider drug non-adherence and secondary hypertension before diagnosing resistant hypertension.
 - [Grade A] Add spironolactone as a fourth drug in resistant hypertension.
 - [Grade C] Consider referring for device based therapy in patients with true resistant and refractory hypertension.
 
----
-
-## Level Of Evidence
+<!-- parent_only_reference_start -->
+Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -63,9 +60,23 @@ Both resistant and refractory hypertensives are candidates for devise-based inte
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Grades Of Recommendation
+Grades Of Recommendation
 | GRADE | STUDY DESIGN |
 |---|---|
 | A | At least one meta analysis, systematic review, or RCT, or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta analysis, systematic review, or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates absence of directly applicable clinical studies of good quality |
+
+Abbreviations
+| Abbreviation | Full Term |
+|---|---|
+| ABPM | Ambulatory blood pressure monitoring |
+| BP | Blood pressure |
+| CCB | Calcium channel blocker |
+| DBP | Diastolic blood pressure |
+| eGFR | Estimated glomerular filtration rate |
+| HBPM | Home blood pressure measurement |
+| NSAID | Non-steroidal anti-inflammatory drug |
+| RAS | Renin-angiotensin system |
+| SBP | Systolic blood pressure |
+<!-- parent_only_reference_end -->

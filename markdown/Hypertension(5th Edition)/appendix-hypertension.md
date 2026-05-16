@@ -94,8 +94,6 @@ output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 | 12          | 90th             | 1=13                  | 114                  | 115                  | 117                  | 119                  | 121                  | 122                  | 75                    | 75                    | 75                    | 75                    | 75                    | 76                    | 76                    |
 | 12          | 95th             | 116                  | 117                  | 118                  | 121                  | 124                  | 126                  | 128                  | 78                    | 78                    | 78                    | 78                    | 78                    | 79                    | 79                    |
 
----
-
 ## Appendix 3: Blood Pressure Levels For Girls By Age And Height Percentile
 | Age  year   | BP  Percentile   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Systolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   | Diastolic BP (mmHg)   |
 |-------------|------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
@@ -138,8 +136,6 @@ output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 | 12          | 90th             | 114                  | 115                  | 116                  | 118                  | 120                  | 122                  | 122                  | 75                    | 75                    | 75                    | 75                    | 76                    | 76                    | 76                    |
 | 12          | 95th             | 118                  | 119                  | 120                  | 122                  | 124                  | 125                  | 126                  | 78                    | 78                    | 78                    | 78                    | 79                    | 79                    | 79                    |
 
----
-
 ## Appendix 4: Dosing Recommendation For The Initial Prescription Of Antihypertensive Drugs For Outpatient Management Of Chronic Hypertension In Children And Neonates
 | Drugs                                      | Doses                                                                                                                            | Frequency        |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------------------|
@@ -168,8 +164,6 @@ output: BP_reference_values, paediatric_dosing_guidance, clinical_question_index
 **Referenced from 153rd Edition, MIMS, 2018.
 ***British National Formulary for Children (BNFC) 2018-2019.
 \#American Academy of Pediatrics (AAP) 2017
-
----
 
 ## Appendix 5: Clinical Questions
 1. What is the prevalence of hypertension in adults?

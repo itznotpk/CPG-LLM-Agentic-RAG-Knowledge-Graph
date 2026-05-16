@@ -7,7 +7,7 @@ output: lifestyle_plan, behaviour_targets, counselling_points, expected_BP_reduc
 treatment_type: weight_reduction, sodium_restriction, DASH_diet, physical_activity, smoking_cessation, alcohol_moderation
 -->
 
-## Non-Pharmacological Management
+**Non-Pharmacological Management**
 Non-pharmacological management (healthy living) plays an important role in the management of hypertension and in improving overall cardiovascular health. When recommending healthy living, it is important to know that these interventions require a joint effort from patient, family and healthcare providers.
 
 ## 4.1: Weight Reduction
@@ -37,15 +37,12 @@ A meta-analysis has shown that increased dietary potassium intake reduces BP in 
 ## 4.9: Others
 Evidence for beneficial effect of micronutrient alterations, caffeine reduction and dietary supplementation with fish oil, calcium, magnesium, garlic and fibre on BP is limited. [Level I] Meta-analyses have suggested that regular consumption of black tea and green tea can reduce BP but the sample size was small and quality of studies varied.
 
----
-
-### Recommendations
+**Recommendations**
 * [Grade A] Healthy Living must be instituted as an integral part in managing hypertension.
 * [Grade A] Reduce salt intake, do regular physical activity, limit alcohol intake to < 2 drinks per day for those who drink, increase dietary potassium and lose weight to reduce BP.
 
----
-
-## Level Of Evidence
+<!-- parent_only_reference_start -->
+Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -54,9 +51,20 @@ Evidence for beneficial effect of micronutrient alterations, caffeine reduction 
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Grades Of Recommendation
+Grades Of Recommendation
 | GRADE | STUDY DESIGN |
 |---|---|
 | A | At least one meta analysis, systematic review, or RCT, or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta analysis, systematic review, or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates absence of directly applicable clinical studies of good quality |
+
+Abbreviations
+| Abbreviation | Full Term |
+|---|---|
+| BMI | Body mass index |
+| BP | Blood pressure |
+| DASH | Dietary Approaches to Stop Hypertension |
+| DBP | Diastolic blood pressure |
+| SBP | Systolic blood pressure |
+| WHO | World Health Organization |
+<!-- parent_only_reference_end -->

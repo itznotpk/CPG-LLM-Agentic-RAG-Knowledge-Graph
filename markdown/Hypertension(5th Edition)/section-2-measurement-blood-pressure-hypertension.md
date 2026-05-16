@@ -6,8 +6,7 @@ patient_input: blood_pressure_readings, device_type, measurement_setting, arrhyt
 output: measurement_protocol, HBPM_plan, ABPM_indications, interpretation_rules
 -->
 
-## Measurement Of Blood Pressure
-Blood pressure should be measured under standardised condition (see section 2.1). It can be measured directly or indirectly. There are four common devices used for the indirect measurement of BP namely:
+Blood pressure should be measured under standardised condition (Refer to section 2.1: Electronic BP Sets). It can be measured directly or indirectly. There are four common devices used for the indirect measurement of BP namely: 
 - electronic devices
 - aneroid sphygmomanometer
 - automated ambulatory BP devices
@@ -32,7 +31,7 @@ A technical committee assessment by MOH concluded that if electronic BP set is u
 
 These electronic machines are generally less accurate in patients with arrhythmias (e.g. atrial fibrillation).
 
-## 2.2: Home BP Measurement (Hbpm) Using Electronic Devices
+## 2.2: Home BP Measurement (HBPM) Using Electronic Devices
 Home BP measurement is a useful adjunct in the diagnosis and management of hypertension especially in selected patients. [Level II-2] If properly performed, it has good prognostic value.
 
 [Level I] Systematic reviews have shown that HBPM is superior compared to office measurements in diagnosing hypertension, in uncontrolled hypertension, assessing antihypertensive treatment, improving patient’s adherence (compliance) and provides potential cost saving.
@@ -49,9 +48,7 @@ Situations where HBPM is useful include:
 - to encourage adherence to treatment
 - to optimise blood pressure control
 
----
-
-### Recommendations
+**Recommendations**
 **BP Measuring Technique**
 
 **For Clinic BP, patients should:**
@@ -71,7 +68,7 @@ Situations where HBPM is useful include:
 * Average the remaining BP measurements (at least 3 days)
 * Mean home systolic BP >135 mmHg and/or diastolic BP >85 mmHg should be considered as elevated
 
-## 2.3: Ambulatory Blood Pressure Monitoring (Abpm)
+## 2.3: Ambulatory Blood Pressure Monitoring (ABPM)
 Most of the data upon which estimates of risk are based, as well as benefits of treatment have been accumulated from office BP readings and therefore ABPM is not essential for the diagnosis and management of most patients with hypertension.
 
 The data provided by ABPM does not influence therapeutic decisions in the vast majority of patients. The current cost of ABPM devices will also limit its widespread use.
@@ -85,7 +82,8 @@ The data provided by ABPM does not influence therapeutic decisions in the vast m
 - fluctuating office BP readings
 - confirmation of resistant hypertension
 
-## Level Of Evidence
+<!-- parent_only_reference_start -->
+Level Of Evidence
 | LEVEL | STUDY DESIGN |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -93,3 +91,14 @@ The data provided by ABPM does not influence therapeutic decisions in the vast m
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
+
+Abbreviations
+| Abbreviation | Full Term |
+|---|---|
+| ABPM | Ambulatory blood pressure monitoring |
+| BP | Blood pressure |
+| DBP | Diastolic blood pressure |
+| HBPM | Home blood pressure measurement |
+| MOH | Ministry of Health |
+| SBP | Systolic blood pressure |
+<!-- parent_only_reference_end -->
