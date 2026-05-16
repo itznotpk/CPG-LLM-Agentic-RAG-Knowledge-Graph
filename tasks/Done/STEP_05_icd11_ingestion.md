@@ -1,10 +1,10 @@
-# Step 05 — Expand ICD-11 Ingestion (WHO API, Full Chapters 02 / 05 / 08 / 11 / 16)
+# Step 05 — Expand ICD-11 Ingestion (WHO API, Full Chapters 02 / 05 / 08 / 11 / 16 / 18 / 21)
 
 ## Context
 
 You are working on **CPG LLM**, a Clinical Practice Guideline-grounded RAG system. The full design is in [tasks/IMPLEMENTATION.md](IMPLEMENTATION.md) — read §1, §4 Step E, §7 before starting.
 
-Steps 01–04 are complete. The `documents` table has 16 verified CPG groups with `icd11_scope` populated. The other side of the routing pipeline — Stage 2's symptom→ICD prediction — currently only has Chapter 17 (47 codes) in `icd11_codes`. That makes routing impossible for any non-Chapter-17 patient query.
+Steps 01–04 are complete. The `documents` table has 30 reviewed CPG groups with `icd11_scope` populated. The other side of the routing pipeline — Stage 2's symptom→ICD prediction — currently only has Chapter 17 (47 codes) in `icd11_codes`. That makes routing impossible for any non-Chapter-17 patient query.
 
 This is **Step 05 of 8**. Ingest WHO ICD-11 chapters that cover all `icd11_scope` values currently in `documents`:
 
@@ -15,9 +15,11 @@ This is **Step 05 of 8**. Ingest WHO ICD-11 chapters that cover all `icd11_scope
 | **08** Diseases of the nervous system | Stroke | Ischaemic-Stroke, CVD-Prevention-Women |
 | **11** (codes start with `BA`–`BD`) Circulatory | All cardiology CPGs | AF, HF, HTN, NSTE-ACS, NSTEMI, STEMI, PCI, PAH, IE, CVD-Prevention |
 | **16** Genitourinary | Chronic kidney disease | CVD-Prevention-Women |
+| **18** Pregnancy, childbirth or the puerperium | Diabetes mellitus in pregnancy codes (`JA63*`) | Diabetes-in-Pregnancy |
+| **21** Symptoms, signs or clinical findings | Symptom/presentation routing such as short stature and chronic cancer pain (`MG44*`, `MG30*`) | Growth-Hormone-in-Children-and-Adults, Cancer-Pain |
 | **17** Sexual health | (✅ already ingested via [ddx/ingest_icd11.py](../ddx/ingest_icd11.py)) | Erectile-Dysfunction |
 
-Build a **new** ingestion script that talks to the WHO ICD-11 API and ingests **the full content of chapters 02, 05, 08, 11, 16** into the existing `icd11_codes` table. Do not touch Chapter 17 (already done).
+Build a **new** ingestion script that talks to the WHO ICD-11 API and ingests **the full content of chapters 02, 05, 08, 11, 16, 18, 21** into the existing `icd11_codes` table. Do not touch Chapter 17 (already done).
 
 ## Objective
 
@@ -193,11 +195,11 @@ Append-only writes after each successful entity insert (write atomically — wri
 #### 1h. CLI
 
 ```bash
-# Full run, all 5 target chapters
-python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16
+# Full run, all 7 target chapters
+python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16,18,21
 
 # Resume from progress file
-python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16 --resume
+python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16,18,21 --resume
 
 # Dry-run: walk + parse, print summary, NO embeddings, NO DB writes
 python -m ddx.ingest_icd11_full --chapters 02 --dry-run
@@ -209,7 +211,7 @@ python -m ddx.ingest_icd11_full --chapters 11
 python -m ddx.ingest_icd11_full --chapters 11 --force-refresh
 ```
 
-Default `--chapters` value should be `02,05,08,11,16` (the 5 target chapters). If the user passes nothing, run all five.
+Default `--chapters` value should be `02,05,08,11,16,18,21` (the 7 target chapters). If the user passes nothing, run all seven.
 
 Logging:
 - INFO per-chapter start/complete with counts
@@ -274,11 +276,11 @@ Smoke test:
 All five must pass:
 
 1. `python -m ddx.ingest_icd11_full --chapters 11 --dry-run` runs end-to-end. Reports approximate code count for chapter 11 (expect ~400–600). No DB or embedding side-effects.
-2. `python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16` (full run) completes successfully. Verify with:
+2. `python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16,18,21` (full run) completes successfully. Verify with:
    ```sql
    SELECT chapter, COUNT(*) FROM icd11_codes GROUP BY chapter ORDER BY chapter;
    ```
-   Expected counts roughly: chapter 02 ~1500, 05 ~600, 08 ~700, 11 ~500, 16 ~400, plus chapter 17 ~47 (preserved). Total ~3,700.
+   Expected counts roughly: chapter 02 ~1500, 05 ~600, 08 ~700, 11 ~500, 16 ~400, 18 ~300, 21 ~600, plus chapter 17 ~47 (preserved). Total ~4,600.
 3. The 47 Chapter-17 rows are untouched: `SELECT COUNT(*) FROM icd11_codes WHERE code LIKE 'HA%'` still returns 47 (or whatever the pre-step count was — capture it before running).
 4. `pytest tests/test_ingest_icd11_full.py -v` — all tests green, NO real WHO API calls.
 5. Re-running the full command (idempotency check) produces no errors and no row count change.

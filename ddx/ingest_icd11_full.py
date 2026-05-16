@@ -1,7 +1,7 @@
 """
 ICD-11 Full Chapter Ingestion Script
 
-Ingests chapters 02, 05, 08, 11, 16 from the WHO ICD-11 API into icd11_codes.
+Ingests chapters 02, 05, 08, 11, 16, 18, 21 from the WHO ICD-11 API into icd11_codes.
 Chapter 17 (HA* codes) is already ingested via ingest_icd11.py — do NOT touch it.
 
 Smoke test:
@@ -9,7 +9,7 @@ Smoke test:
   Expected: discovers ~400-600 codes in chapter 11, NO DB writes, runs in ~1-2 min.
 
 Full run:
-  python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16
+  python -m ddx.ingest_icd11_full --chapters 02,05,08,11,16,18,21
 """
 
 import asyncio
@@ -41,7 +41,7 @@ DATA_DIR = Path(__file__).parent / "data"
 PROGRESS_FILE = DATA_DIR / "icd11_progress.json"       # no leading dot — avoids OneDrive locking issues
 PROGRESS_TMP = DATA_DIR / "icd11_progress.json.tmp"
 
-TARGET_CHAPTERS = ["02", "05", "08", "11", "16"]
+TARGET_CHAPTERS = ["02", "05", "08", "11", "16", "18", "21"]
 
 # Chapter root MMS entity IDs (verified against WHO API 2024-01 release)
 CHAPTER_ROOT_IDS = {
@@ -50,6 +50,8 @@ CHAPTER_ROOT_IDS = {
     "08": "1296093776",   # Diseases of the nervous system
     "11": "426429380",    # Diseases of the circulatory system
     "16": "30659757",     # Diseases of the genitourinary system
+    "18": "714000734",    # Pregnancy, childbirth or the puerperium
+    "21": "1843895818",   # Symptoms, signs or clinical findings, not elsewhere classified
 }
 
 
@@ -557,7 +559,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--chapters",
         default=",".join(TARGET_CHAPTERS),
-        help="Comma-separated chapter numbers (default: 02,05,08,11,16)",
+        help=f"Comma-separated chapter numbers (default: {','.join(TARGET_CHAPTERS)})",
     )
     parser.add_argument("--dry-run", action="store_true",
                         help="Walk and parse only — no embeddings, no DB writes")
