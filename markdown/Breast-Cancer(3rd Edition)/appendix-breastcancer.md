@@ -455,7 +455,7 @@ Superior: ______, Medial: ______, Inferior: ______, Lateral: ______, Deep: _____
 **1.7. Sampling:** __________________________________________________________________
 **Grossed by:** ____________________________________________________________________
 
-## 2: Histology
+**2. Histology**
 **2.1. Microscopic description:**
 * **Histological type:** [ ] Invasive carcinoma (NST), [ ] Invasive lobular carcinoma, [ ] Mucinous carcinoma, [ ] Tubular carcinoma, [ ] Papillary carcinoma, [ ] Medullary, [ ] Other: ____________
 * **Tubular score:** [ ] 1 [ ] 2 [ ] 3

@@ -33,9 +33,6 @@ The following search strategy was used (e.g., Medline via Ovid) to identify rele
 23. 3 and 12 and 22
 24. Limit 23 to (English language and humans and "all adult (19 plus years)" and last 20 years)
 
-
----
-
 ## Appendix 2: Clinical Questions
 The following 14 clinical questions were developed to guide the evidence search and recommendations for these guidelines:
 1. What is the appropriate age to start screening for CRC in healthy/general population?
@@ -52,8 +49,6 @@ The following 14 clinical questions were developed to guide the evidence search 
 12. What are the safe and effective chemotherapy in CRC?
 13. What are the safe and effective measures to prevent CRC in general population?
 14. What is the optimum strategy for follow up of CRC patients?
-
----
 
 ## Appendix 3: Radiological Images Of Colorectal Carcinoma
 Figure 1: Normal Anatomy Of Rectum On MRI
@@ -82,7 +77,7 @@ Figure explanation: This figure compares CT virtual colonoscopy with optical col
 
 ## Appendix 4: WHO Classification Of Colorectal Carcinoma 2010 And Tnm Classification Of Tumours Of The Colon And Rectum (7th Edition)
 
-### WHO Classification Of Colorectal Carcinoma 2010
+**WHO Classification Of Colorectal Carcinoma 2010**
 - **Adenocarcinoma**
   - Cribriform comedo-type adenocarcinoma
   - Medullary carcinoma
@@ -95,9 +90,8 @@ Figure explanation: This figure compares CT virtual colonoscopy with optical col
 - **Squamous cell carcinoma**
 - **Undifferentiated carcinoma**
 
-### Tnm Classification Of Tumours Of The Colon And Rectum (7th Edition)
-
-#### T - Primary Tumour
+**Tnm Classification Of Tumours Of The Colon And Rectum (7th Edition)**
+**T - Primary Tumour**
 | T | Description |
 |---|---|
 | TX | Primary tumour cannot be assessed |
@@ -110,7 +104,7 @@ Figure explanation: This figure compares CT virtual colonoscopy with optical col
 | T4a | Tumour perforates visceral peritoneum |
 | T4b | Tumour directly invades other organ or structures |
 
-#### N - Regional Lymph Nodes
+**N - Regional Lymph Nodes**
 | N | Description |
 |---|---|
 | NX | Regional lymph nodes cannot be assessed |
@@ -123,7 +117,7 @@ Figure explanation: This figure compares CT virtual colonoscopy with optical col
 | N2a | Metastasis in 4-6 regional lymph nodes |
 | N2b | Metastasis in 7 or more regional lymph nodes |
 
-#### M - Distant Metastasis
+**M - Distant Metastasis**
 | M | Description |
 |---|---|
 | M0 | No distant metastasis |
@@ -131,7 +125,7 @@ Figure explanation: This figure compares CT virtual colonoscopy with optical col
 | M1a | Metastasis confined to one organ |
 | M1b | Metastasis in more than one organ or the peritoneum |
 
-#### Stage Grouping
+**Stage Grouping**
 | Stage | T | N | M |
 |---|---|---|---|
 | Stage 0 | Tis | N0 | M0 |
@@ -154,18 +148,16 @@ Source: Edge SB, Compton CC. The American Joint Committee on Cancer: the 7th edi
 
 ## Appendix 5: Histopathology Proforma For Colorectal Carcinoma
 **PERKHIDMATAN PATOLOGI**
-
 **HOSPITAL** ________________________________
 
 **COLORECTAL CANCER HISTOPATHOLOGY WORKSHEET**
-
 **Name:** ________________________________ **HPE No:** ________________________________
 
 Specimen container labelled as:
 
-## 1: Gross Description
+**1: Gross Description**
 
-## 1.1: Type Of Specimen
+**1.1: Type Of Specimen**
 - [ ] Total colectomy
 - [ ] Subtotal colectomy
 - [ ] Right hemicolectomy
@@ -176,10 +168,10 @@ Specimen container labelled as:
 - [ ] Abdominoperineal excision (APE)
 - [ ] Other (specify): ________________________________
 
-## 1.2: Bowel Length
+**1.2: Bowel Length**
 ________________________________ mm
 
-## 1.3: Site Of Tumour
+**1.3: Site Of Tumour**
 - [ ] Caecum
 - [ ] Asc. colon
 - [ ] Hepatic flexure
@@ -192,24 +184,24 @@ ________________________________ mm
 
 Other comment(s): ________________________________________________
 
-## 1.4: Maximum Tumour Diameter
+**1.4: Maximum Tumour Diameter**
 ________________________________ mm
 
-## 1.5: Gross Subtype (Optional)
+**1.5: Gross Subtype (Optional)**
 - [ ] Fungating
 - [ ] Ulcerative
 - [ ] Infiltrative
 - [ ] Ulcero-fungating
 
-## 1.6: Margins
+**1.6: Margins**
 - Tumour to proximal / nearer (if untagged) longitudinal margin: ____________ mm.
 - Tumour to distal / opposite (if untagged) longitudinal margin: ____________ mm.
 
-## 1.7: Tumour Perforation (pT4)
+**1.7: Tumour Perforation (pT4)**
 - [ ] No
 - [ ] Yes
 
-## 1.8: For Rectal Tumour
+**1.8: For Rectal Tumour**
 Relation to peritoneal reflection:
 - [ ] Above
 - [ ] Astride
@@ -227,32 +219,32 @@ Plane of resection of the sphincters (APE specimens):
 - [ ] Sphincteric
 - [ ] Intrasphincteric
 
-## 1.9: Polyps
+**1.9: Polyps**
 - [ ] No
 - [ ] Yes (specify number, site, sessile or pedunculated): ________________________________
 
-## 1.10: No. Of Lymph Nodes Retrieved
+**1.10: No. Of Lymph Nodes Retrieved**
 ____________ (____________ mm to ____________ mm in diameter).
 
-## 1.11: Additional Comments
+**1.11: Additional Comments**
 ________________________________________________________________
 
-## 1.12: Tissue Sampling
+**1.12: Tissue Sampling**
 Grossed by: ________________________________
 
-## 2: Histology
+**2: Histology**
 
-## 2.1: Microscopic Description
+**2.1: Microscopic Description**
 ________________________________________________________________
 
-## 2.2: Type
+**2.2: Type**
 - [ ] Adenocarcinoma (NOS/usual-type)
 - [ ] Well-differentiated
 - [ ] Mod-differentiated
 - [ ] Poorly-differentiated
 - [ ] Other (specify e.g. mucinous): ________________________________
 
-## 2.3: Additional Features (optional/non-core Data Items)
+**2.3: Additional Features (optional/non-core Data Items)**
 - Lymphatic invasion
   - [ ] No
   - [ ] Yes
@@ -285,17 +277,17 @@ ________________________________________________________________
 - Mild: Occasional lymphoid aggregates
 - Marked: >= 2 aggregates with germinal centers per tissue section
 
-## 2.4: Local Invasion (Tnm 7th Edition)
+**2.4: Local Invasion (Tnm 7th Edition)**
 - [ ] Submucosa (pT1)
 - [ ] Muscularis propria (pT2)
 - [ ] Beyond muscularis propria (pT3)
 - [ ] Tumour penetrates the visceral peritoneal surface (pT4a)
 - [ ] Tumour directly invades or is adherent to other organs/structures (pT4b)
 
-## 2.5: Maximum Distance Of Spread Beyond Muscularis Propria (Na If Intramural Tumour)
+**2.5: Maximum Distance Of Spread Beyond Muscularis Propria (Na If Intramural Tumour)**
 ____________ mm
 
-## 2.6: Response To Pre-Operative (Neoadjuvant) Therapy
+**2.6: Response To Pre-Operative (Neoadjuvant) Therapy**
 - [ ] Not applicable (pre-op therapy not given/not known to be given)
 - [ ] No viable tumour cells (fibrosis or mucus lakes only)
   - (Entire tumour site and/or scarred area had been submitted for histology)
@@ -303,7 +295,7 @@ ____________ mm
 - [ ] Residual cancer outgrown by fibrosis
 - [ ] Minimal or no regression (extensive residual tumour)
 
-## 2.7: Tumour Involvement Of Margins
+**2.7: Tumour Involvement Of Margins**
 - Proximal doughnut
   - [ ] No
   - [ ] Yes
@@ -329,7 +321,7 @@ Note: Circumferential margin of 1 mm is considered involved
 
 NS - Not submitted by pathologist
 
-## 2.8: Metastatic Spread
+**2.8: Metastatic Spread**
 No. of lymph nodes identified: ____________
 
 - No. of involved lymph nodes: ____________ (pN ____________)
@@ -347,23 +339,23 @@ No. of lymph nodes identified: ____________
   - [ ] Yes - Site(s): ________________________________
   - [pM1a: Single site; pM1b: Multiple sites or peritoneal surface]
 
-## 2.9: Deepest Level Of Venous Invasion
+**2.9: Deepest Level Of Venous Invasion**
 - [ ] None
 - [ ] Submucosal
 - [ ] Intramural
 - [ ] Extramural
 
-## 2.10: Separate Abnormalities
+**2.10: Separate Abnormalities**
 - [ ] No
 - [ ] Yes: Polyps (types(s), number, size) / polyposis (specify type) / UC / CD / Diverticulosis
 - [ ] Synchronous carcinoma (separate proforma for each carcinoma)
 
-## 2.11: Complete Resection (By >1 Mm) At All Surgical Margins
+**2.11: Complete Resection (By >1 Mm) At All Surgical Margins**
 - [ ] Yes (R0)
 - [ ] No (R1 - microscopic margin involvement)
 - [ ] No (R2 - macroscopic margin involvement)
 
-## 2.12: Tnm (7th Edition 2009)
+**2.12: Tnm (7th Edition 2009)**
 - [ ] pT ______
 - [ ] pN ______
 - [ ] pM ______
@@ -393,7 +385,7 @@ TNM (5th Edition):
 - [ ] ypN ______
 - [ ] ypM ______
 
-## 2.13: Modified Dukes Stage
+**2.13: Modified Dukes Stage**
 - [ ] A (Growth limited to wall/muscularis propria, nodes negative)
 - [ ] B (Growth beyond muscularis propria, nodes negative)
 - [ ] C1 (Nodes positive, highest node negative)
@@ -401,7 +393,7 @@ TNM (5th Edition):
 - [ ] D (Histology-proven distant metastasis)
 - [ ] NA (No tumour or no lymph nodes identified)
 
-## 2.14: Mismatch Repair (Mmr) Immunohistochemistry (If applicable/available)
+**2.14: Mismatch Repair (Mmr) Immunohistochemistry (If applicable/available)**
 - [ ] Not performed
 - [ ] Performed:
 
@@ -425,7 +417,7 @@ PMS2:
 - [ ] Equivocal
 - [ ] Loss of protein expression
 
-## 3: Diagnostic Summary
+**3: Diagnostic Summary**
 (Tumour type, differentiation, staging, margins and if present, venous invasion)
 
 ## Appendix 6: Chemotherapy Drugs And Common/Important Side Effects

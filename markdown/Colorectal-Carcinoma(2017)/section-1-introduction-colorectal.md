@@ -16,7 +16,8 @@ The estimated societal cost of CRC management in government hospitals in Malaysi
 
 Management of patients with CRC consists of a comprehensive strategy of screening, diagnosis, staging, appropriate treatment and follow-up. Hence, this first national CPG on CRC is developed to assist healthcare providers in the management of CRC.
 
-## Levels Of Evidence
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -25,9 +26,10 @@ Management of patients with CRC consists of a comprehensive strategy of screenin
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CPG | Clinical Practice Guidelines |
 | CRC | Colorectal carcinoma |
 | TNM | Tumour-node-metastasis |
+<!-- parent_only_reference_end -->

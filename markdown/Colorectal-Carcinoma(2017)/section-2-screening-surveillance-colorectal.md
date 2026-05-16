@@ -20,7 +20,7 @@ Most CRC arise from adenomatous polyps that progress from small to large polyps 
 
 Multiple tests are available for CRC screening. Each test has its own strength and weakness in the attributes of an ideal screening tool.
 
-### A. Faecal Tests
+**A. Faecal Tests**
 Faecal test is a non-invasive tool for screening CRC in general population. It can detect presence of blood, proteins e.g. enzyme M2-PK and DNA.
 
 [Level III] Faecal occult blood test (FOBT) has qualitative and quantitative testing methods. In a meta-analysis of fair to high quality evidence, the pooled sensitivity to detect CRC was 74% (95% CI 62 to 83) for quantitative test methods and 79% (95% CI 61 to 90) for qualitative test methods.
@@ -31,12 +31,12 @@ Faecal test is a non-invasive tool for screening CRC in general population. It c
 
 In a health technology assessment (HTA) report by MaHTAS, screening programme using iFOBT can be effective for prevention of advanced CRC (risk of developing advanced CRC was reduced by 28-46%) and reduced mortality by 23-60%. [Level II-2] iFOBT can detect pre-cancerous lesions and CRC in early stages and thus reduce mortality from CRC.
 
-### B. Sigmoidoscopy
+**B. Sigmoidoscopy**
 Flexible sigmoidoscopy needs less rigorous bowel preparation and can be performed as a clinic-based procedure without the need for sedation. Small polyps can be biopsied during procedure but excision of larger lesions (>1 cm) may be performed during subsequent colonoscopy.
 
 Sigmoidoscopy reduces the CRC incidence by 18-32% and mortality by 26-38% in general population. [Level I] There is low incidence of bowel perforations associated with it.
 
-### C. Colonoscopy
+**C. Colonoscopy**
 Colonoscopy is the screening modality that has the ability to visualise the colonic mucosa directly, perform biopsy and excise polyps. [Level II-2; Level II-3] It can detect proximal lesions that would be missed by screening sigmoidoscopy and has been shown to reduce risk of cancer in the right colon.
 
 [Level II-2] Screening colonoscopy reduces overall CRC incidence significantly by 56% and death by 68%. [Level II-2] For those who has had colonoscopy especially for screening, the risk of CRC is strongly reduced by 91% up to 10 years.
@@ -45,12 +45,12 @@ Colonoscopy is the screening modality that has the ability to visualise the colo
 
 - A good quality colonoscopy should be practised to ensure effective and safe screening of CRC.
 
-### D. Colon Capsule Endoscopy
+**D. Colon Capsule Endoscopy**
 Colon capsule endoscopy (CCE) is used to obtain images of the colon by using video cameras embedded in an ingested capsule. The technique is less invasive but does not allow biopsy or polyp removal.
 
 CCE has a sensitivity of 71% (95% CI 66 to 76) and specificity of 75% (95% CI 66 to 83) for polyps of any size. [Level II-2] It is a safe screening modality for CRC with low rate (4.1%) of mild to moderate side effects such as nausea and abdominal pain.
 
-### E. Computed Tomographic Colonography/Virtual Colonoscopy
+**E. Computed Tomographic Colonography/Virtual Colonoscopy**
 Computed Tomographic Colonography (CTC) uses multiple thin slice computed tomographic data to construct images of the bowel mucosa in two or three dimensions in detecting polyps.
 
 CTC requires bowel preparation similar to conventional colonoscopy (CC) and during the procedure, air or carbon dioxide is introduced into the rectum via a rubber catheter. No sedation is required and patient is usually able to return to work post procedure.
@@ -59,12 +59,12 @@ The sensitivity and specificity of CTC for the detection of adenomas ≥6 mm are
 
 The drawbacks of CTC include radiation exposure and the need for colonoscopy after the identification of polyps for excision and tissue diagnosis, while smaller lesions need to be followed up by surveillance CTC. [Level II-2] Flat adenomas are more likely to be missed by CTC than colonoscopy.
 
-### F. Carcinoembryonic Antigen
+**F. Carcinoembryonic Antigen**
 [Level III] There is no recommendation made by the US Preventive Services Task Force, NICE guidelines and SIGN guidelines on the use of serum carcinoembryonic antigen (CEA) test for CRC screening. Hence, it should not be relied on as a screening tool.
 
 - Based on a local economic evaluation conducted by MaHTAS, iFOBT followed by colonoscopy shown to be the most cost-effective screening strategy compared with no screening or colonoscopy alone with an estimated incremental cost-effectiveness ratio of RM9,377.65.
 
-## Recommendation 1
+**Recommendation 1**
 - Screening of colorectal carcinoma (CRC) should be offered at age of 50 years and continues until age 75 years for average risk population.
 - Immunochemical faecal occult blood test (iFOBT) is the preferred method to screen for CRC in average risk population.
 - If iFOBT is positive, an early colonoscopy is necessary.
@@ -75,7 +75,7 @@ The drawbacks of CTC include radiation exposure and the need for colonoscopy aft
 ### 2.3.1: Family History
 Family history is a well-established risk factor for CRC. It is affected by first-, second- and third-degree relatives, and might include positive family history from both parents.
 
-### A. First-Degree Relatives (FDRs)
+**A. First-Degree Relatives (FDRs)**
 [Level III] Familial Relative Risk (FRR) of developing CRC increases with greater number of affected FDRs irrespective of second-degree relatives (SDRs) or third-degree relatives (TDRs) as shown in Table 2: Selected FRR Estimates for Probands Considering Only FDR Family History.
 
 [Level III] Besides CRC, asymptomatic patients with one FDR of CRC have greater risk of developing pre-cancerous condition i.e. severely dysplastic lesions (OR=2.9, 95% CI 1.0 to 7.8).
@@ -84,7 +84,7 @@ Family history is a well-established risk factor for CRC. It is affected by firs
 - 1.64 (95% CI 1.26 to 2.14) for 1 affected relative and 2.83 (95% CI 1.33 to 6.02) for ≥2 affected relatives
 - 1.99 (95% CI 1.51 to 2.61) for colon carcinoma but not significant for rectal carcinoma
 
-### B. Frr Is Affected By FDRs When Combined With SDRs And TDRs
+**B. Frr Is Affected By FDRs When Combined With SDRs And TDRs**
 [Level III] Combination of a positive family history of FDRs, SDRs and TDRs significantly increases risk of CRC as shown in Table 3: Selected FRR for Probands with 0 or 1 Affected FDRs and Various Combinations of Affected SDRs and TDRs.
 
 Those with positive family history who were diagnosed at younger age have a higher risk of developing CRC with FRR of:
@@ -93,7 +93,7 @@ Those with positive family history who were diagnosed at younger age have a high
 
 Based on preceding evidences, those with family history of CRC can be categorised by risk stratifications as outlined in Table 4: Risk Categories for Family History with CRC.
 
-## Recommendation 2
+**Recommendation 2**
 - Asymptomatic individuals with positive family history should be screened for colorectal carcinoma.
 - Colonoscopy should be performed according to risk category*.
 
@@ -115,7 +115,7 @@ Advanced adenomas are typically defined as adenomas >10 mm, villous components (
 
 Surveillance colonoscopy intervals can be scheduled every 10 years for low risk and every three years for high risk patients after initial clearing. [Level II-2] This is because it is estimated that 10% of low risk patients will develop advanced metachronous adenomas after 10 years and 10% of high risk patients will develop it after three years. [Level III] This is supported by a consensus update by the US Multi-Society Task Force on Colorectal Cancer 2008.
 
-## Recommendation 3
+**Recommendation 3**
 - Surveillance colonoscopy should be offered to patients after removal of adenomatous polyps every 10 years for low risk and every three years for high risk patients for colorectal carcinoma.
 
 ### 2.3.3: Hereditary Colorectal Cancer Syndromes
@@ -126,7 +126,7 @@ Hereditary colorectal cancer syndromes or defined as genetic susceptibility synd
 
 The risk of cancer in colonic Crohn's disease is similar to that in UC. [Level II-2] Patients with colonic Crohn's disease should therefore be offered entry into a similar surveillance programme to those with UC.
 
-## Recommendation 4
+**Recommendation 4**
 - All hereditary colorectal cancer syndromes should be referred and managed by colorectal surgeons.
 - Surveillance of moderate and high risk group populations for hereditary colorectal cancer syndromes should be based on the risk conditions*.
 
@@ -158,6 +158,7 @@ All individuals whose family history is suggestive of a hereditary colorectal ca
 
 Targeting genetic services for patients with a strong family history of cancer rather than screening the entire population proved to be cost-effective. [Level I] Predictive or pre-symptomatic testing and identification of cancer-predisposing mutations in carriers have shown that surveillance, prophylactic and chemoprevention techniques extend survival and are cost-effective.
 
+**Hereditary Colorectal Cancer Syndromes:**
 - [Level III] Refer patients with any of the following to a clinical genetics service for further genetic risk evaluation/assessment for hereditary colorectal cancer syndromes:
   - Personal history of CRC before age 50
   - Personal history of CRC and endometrial cancer at any age
@@ -171,12 +172,12 @@ Targeting genetic services for patients with a strong family history of cancer r
   - Cumulative >20 serrated polyps
   - ≥2 juvenile or Peutz-Jeghers polyps
 
-## Recommendation 5
+**Recommendation 5**
 - All individuals whose family history is suggestive of a hereditary colorectal cancer syndrome* should be referred to a clinical genetics service for genetic risk assessment, where accessible.
 
-*Refer to yellow box on hereditary colorectal cancer syndromes.
+*Refer to Hereditary Colorectal Cancer Syndromes.
 
-## Contextual Anchors (Overlapping)
+<!-- parent_only_reference_start -->
 Table 1: Screening Intervals For Crc Based On Methods
 
 | Methodology | Minimum interval |
@@ -257,9 +258,7 @@ Table 5: Hereditary Colorectal Cancer Syndromes Risk And Surveillance Of Crc
 | Juvenile Polyposis | Cumulative risk: 38% [Level III] | 15 years old or earlier if symptoms occur especially rectal bleeding [Level III] | Colonoscopy [Level III] | 2-yearly [Level III] |
 | MUTYH-Associated Polyposis (MAP) | Cumulative risk: 63% at age 60 years [Level II-2] | 18-20 years old [Level II-2] | Colonoscopy [Level II-2] | 1-2 yearly [Level II-2] |
 
----
-
-### Algorithm A: Screening For Colorectal Carcinoma
+Algorithm A: Screening For Colorectal Carcinoma
 
 #### Step 1: Initial Assessment
 **ASSESS PATIENT FOR SYMPTOMS OF CRC\***
@@ -346,7 +345,7 @@ All other unexplained signs and symptoms that do not meet criteria for urgent re
 * **Initial Action:** → Treat signs or symptoms accordingly
 * **Follow-up:** If signs and symptoms not resolved in 4-6 weeks → **REFER FOR ELECTIVE COLONOSCOPY**
 
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -355,7 +354,7 @@ All other unexplained signs and symptoms that do not meet criteria for urgent re
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | APC | Adenomatous polyposis coli |
@@ -389,3 +388,4 @@ All other unexplained signs and symptoms that do not meet criteria for urgent re
 | TDR | Third-degree relative |
 | UC | Ulcerative colitis |
 | US | United States |
+<!-- parent_only_reference_end -->
