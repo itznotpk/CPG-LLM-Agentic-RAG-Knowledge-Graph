@@ -6,6 +6,8 @@ patient_input: education_level, gender, marital_status, opioid_knowledge, caregi
 output: barrier_identification, educational_strategy, knowledge_gap_assessment
 -->
 
+> **Context:** Barriers to effective cancer pain management and educational strategies in the 2nd Edition Malaysian Cancer Pain CPG: patient, healthcare-provider and caregiver barriers, opioid misconceptions (fear of addiction, tolerance, adverse effects), and the role of pain education (including the BQ-II questionnaire).
+
 - **Barriers**
 Barriers to the effective management of cancer pain need to be identified and addressed. [Level III] A systematic review found negative attitudes and a lack of knowledge towards cancer pain management among the healthcare providers, patients, family caregivers and general public. The most commonly cited barriers were fear of drug addiction, tolerance and AEs of opioids.
 

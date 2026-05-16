@@ -7,7 +7,7 @@ output: monitoring_requirements, alarm_settings, specialized_monitoring_decision
 critical: true
 -->
 
-> **Context:** This section defines the minimal intraoperative monitoring standards, including oxygenation (pulse oximetry mandatory), circulation (ECG, BP, HR), ventilation (capnography mandatory for GA), temperature, neuromuscular function, anaesthetic depth, and specialised monitors.
+> **Context:** Mandatory minimum intraoperative monitoring standards (Malaysian Patient Safety / Minimal Monitoring guideline). Pulse oximetry is mandatory for all anaesthesia and capnography is mandatory for general anaesthesia; other modalities are standard or situational.
 
 ## 3.1: General Monitoring Principles
 a. The anaesthesiologist should ensure proper functioning of anaesthetic equipment, monitor the depth of anaesthesia, oxygenation, adequacy of ventilation, and circulation from induction of anaesthesia until transfer to the recovery room or post-anaesthesia care unit.

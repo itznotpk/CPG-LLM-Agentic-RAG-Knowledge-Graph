@@ -1,10 +1,14 @@
 # Algorithms
 <!-- METADATA
-category: Methodology
-use_case: Key Recommendations and Evidence Grading — evidence_summary, grading_system, recommendation_strength
-patient_input:
-output: guideline_summary, key_recommendations, grading_reference
+category: Treatment, Reference
+use_case: Breast Cancer Management Treatment Algorithms — early_breast_cancer_pathway, locally_advanced_pathway, metastatic_pathway, neoadjuvant_systemic_therapy, surgery_sequencing, adjuvant_therapy
+patient_input: TNM_stage, disease_extent, receptor_status, operability, treatment_response
+output: treatment_pathway, surgery_timing, neoadjuvant_decision, systemic_therapy_sequencing
+critical: true
+treatment_type: neoadjuvant_systemic_therapy, surgery, adjuvant_therapy, radiotherapy, endocrine_therapy
 -->
+
+> **Context:** Treatment decision flowcharts for the 3rd Edition Malaysian Breast Cancer CPG, by disease extent: early breast cancer (Algorithm 1), locally advanced breast cancer (Algorithm 2), and metastatic breast cancer (Algorithm 3). Each algorithm sequences surgery, neoadjuvant/adjuvant systemic therapy, and radiotherapy. Reference pathways — clinical decisions are detailed in Section 6 (Treatment).
 
 ## Algorithm 1: Management Of Early Breast Cancer
 **Step 1: Initial Presentation & Systemic Therapy**
@@ -35,7 +39,7 @@ output: guideline_summary, key_recommendations, grading_reference
       * **If BCS:** → No further axillary surgery but axillary radiotherapy may be considered
       * **If mastectomy:** → Axillary radiotherapy / axillary clearance
 
-📝 Clinical Notes
+Clinical Notes
 > **\*Indication for adjuvant radiotherapy:**
 > i. BCS with clear margin
 > ii. Post-mastectomy

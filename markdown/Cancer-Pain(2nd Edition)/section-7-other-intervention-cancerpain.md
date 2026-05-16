@@ -7,6 +7,8 @@ output: complementary_therapy_recommendation, adjunctive_intervention_plan
 treatment_type: TENS, exercise, massage, aromatherapy, acupuncture
 -->
 
+> **Context:** Physical and complementary therapies as adjuncts for cancer-related pain in the 2nd Edition Malaysian Cancer Pain CPG: exercise programmes, massage, aromatherapy, acupuncture, and TENS. Evidence is limited — these are adjunctive to, not replacements for, the pharmacological management in Section 4.
+
 Physical and complementary therapies have gained widespread recognition as valuable interventions for relieving cancer-related symptoms. Numerous studies and clinical trials have investigated the effectiveness and safety of these therapies in improving the well-being and QoL of individuals living with cancer. From Exercise programmes to Massage and aromatherapy, acupuncture and Transcutaneous Electrical Nerve Stimulation (TENS), these approaches offer a diverse range of options to address the unique needs of patients.
 
 [Level I] A systematic review on the effect of complementary and alternative medicine (CAM) interventions on breast cancer-related pain suggested that CAM should be used cautiously along with other medical treatments to ease cancer-related pain.

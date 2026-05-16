@@ -8,7 +8,7 @@ critical: true
 treatment_type: CCB, bosentan, ambrisentan, sildenafil, tadalafil, iloprost, warfarin, diuretics, oxygen, digoxin, atrial_septostomy, transplantation
 -->
 
-> **Context:** This section covers the complete treatment landscape for PAH, divided into conventional therapy (oxygen, anticoagulation, digoxin, diuretics, CCBs, vaccination, pregnancy avoidance, physical activity) and PAH-specific therapy (bosentan, ambrisentan, iloprost, sildenafil, tadalafil). It also addresses combination therapy strategies, evaluation of treatment response, atrial septostomy, and transplantation as last-resort interventions. Table 13 provides recommended drug dosages natively placed within the PAH-specific therapy section, and Table 14 provides the parameters and targets for re-evaluation of treatment response.
+> **Context:** Adult PAH treatment for the 2011 Malaysian PAH CPG. Structured as conventional therapy (supportive: oxygen, anticoagulation, diuretics, CCBs) vs PAH-specific therapy (endothelin antagonists, PDE-5 inhibitors, prostanoids), escalating to combination therapy then atrial septostomy/transplantation as last resort. Drug dosages are in Table 13; treatment-response targets in Table 14.
 
 The aim of therapy in patients with PAH is to improve survival, disease-related symptoms and QoL. Treatment can be classified as conventional therapy and targeted PAH-specific therapy.
 

@@ -8,8 +8,9 @@ critical: true
 treatment_type: adrenaline, dantrolene, lipid_emulsion, local_anaesthetics, vasopressors, antihistamines, corticosteroids
 -->
 
-## Appendix 1: IMR Allergy Request Form
+> **Context:** Reference forms and emergency protocols for the Malaysian Anaesthesia Medication Safety guideline: IMR allergy test request form (Appendix 1), HKLAAC anaesthetic allergy referral (Appendix 2), malignant hyperthermia reporting form and emergency cart checklist (Appendix 3), and the local anaesthetic systemic toxicity (LAST) management protocol (Appendix 4). Operational reference material — clinical rationale is in Sections 2–5.
 
+## Appendix 1: IMR Allergy Request Form
 **Patient and Request Details**
 | No. | Field | Details |
 |---|---|---|

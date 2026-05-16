@@ -2,12 +2,12 @@
 <!-- METADATA
 category: Reference, Prevention
 use_case: Anaesthetic Machine Apparatus — machine_checks, alternative_ventilation, oxygen_supply_alarm, anti_hypoxic_device, scavenging
-patient_input:
+patient_input: machine_check_status, oxygen_supply_status, breathing_system_integrity
 output: equipment_safety_checklist, machine_readiness
 critical: true
 -->
 
-> **Context:** This section covers the anaesthetic machine and apparatus requirements, including equipment checks, alternative ventilation, oxygen supply monitoring, breathing system safety, disconnection alarms, and scavenging systems.
+> **Context:** Mandatory minimum equipment-safety standards for the anaesthetic machine/apparatus, from the Malaysian Patient Safety / Minimal Monitoring guideline. Pre-use checks are required, not optional.
 
 ## 2.1: Equipment Checks And Alternatives
 a. The anaesthetic machine or apparatus should be regularly maintained and functioning properly before the start of each operation.

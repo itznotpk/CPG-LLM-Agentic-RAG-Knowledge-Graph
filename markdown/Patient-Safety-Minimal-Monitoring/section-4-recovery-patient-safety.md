@@ -7,6 +7,8 @@ output: discharge_decision, monitoring_plan, handover_documentation
 critical: true
 -->
 
+> **Context:** Mandatory minimum standards for post-anaesthesia recovery (Malaysian Patient Safety / Minimal Monitoring guideline): recovery-area requirements, monitoring, handover, and discharge criteria. Requirements are minimums, not aspirational targets.
+
 ## 4.1: Recovery Area Requirements
 a. Designated Area: Recovery of the patient from anaesthesia should be carried out in a designated area (i.e., the recovery area / bay) which is appropriately staffed and equipped.
 

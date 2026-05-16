@@ -1,10 +1,12 @@
 # Section 1: Introduction
 <!-- METADATA
 category: Introduction
-use_case: Background Information
-patient_input:
-output:
+use_case: Breast Cancer Overview — disease_burden, epidemiology_malaysia, incidence_trends, ethnic_variation, cpg_rationale
+patient_input: population_demographics
+output: background_reference, epidemiology_context
 -->
+
+> **Context:** Introduction to the 3rd Edition Malaysian Breast Cancer CPG — disease burden and epidemiology in Malaysia, including incidence trends and ethnic variation (Malay/Chinese/Indian). Background and rationale for the guideline; not clinical recommendations.
 
 Breast cancer is the most important cancer among women worldwide including in Malaysia. Regardless of gender, breast cancer contributed to 19.0% of all new cancer cases diagnosed in 2012 - 2016 compared with 17.7% in 2007 - 2011. The new cases of breast cancer had increased from 32.1% to 34.1% of overall cancer among women in similar period of comparison which gave a 2% increment. The Age-Standardised Incidence Rate (ASR) had increased to 34.1 per 100,000 populations in 2012 - 2016 from 31.1 per 100,000 population in 2007 - 2011. The incidence started to increase at the age of 25 and peaked at the age of 60 to 64 years. Refer to Table 1: Female breast cancer incidence by year in Malaysia and Figure 1: Female breast cancer: comparison of age-specific incidence rate by year in Malaysia. The incidence was highest among Chinese (40.7 per 100,000) followed by Indian (38.1 per 100,000) and Malay (31.5 per 100,000). [Level III] The overall lifetime risk was 1 in 27, with 1 in 22 for Chinese, 1 in 23 for Indians and 1 in 30 for Malays.
 

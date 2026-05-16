@@ -1,7 +1,14 @@
 # Appendix
+<!-- METADATA
+category: Reference, Classification, Diagnosis, Assessment
+use_case: Supplementary Reference Material — search_strategy, clinical_questions, pathology_reporting_system, breast_imaging_survey, TNM_classification, histopathology_worksheet, systemic_therapy_side_effects, BRCA1_BRCA2_testing_criteria, survivorship_management
+patient_input: tumour_pathology, TNM_descriptors, biopsy_findings, family_history, BRCA_status, treatment_history
+output: tnm_stage_reference, brca_testing_indication, pathology_reporting_reference, drug_side_effect_reference, survivorship_management_reference
+-->
+
+> **Context:** Supplementary reference appendices for the 3rd Edition Malaysian Breast Cancer CPG. TNM staging (Appendix 5) follows AJCC 8th edition; BRCA1/2 testing criteria (Appendix 8) are adapted from NCCN. Pure reference material — not direct clinical recommendations.
 
 ## Appendix 1: Example Of Search Strategy
-
 **Clinical Question:** What is the adequate tumour free margin in breast conserving surgery in breast cancer?
 
 1. BREAST NEOPLASMS/
@@ -123,7 +130,7 @@ In the BI-RADS edition 2013, the assignment of the breast composition is changed
 * **c-** The breasts are heterogeneously dense, which may obscure small masses. Some areas in the breasts are sufficiently dense to obscure small masses.
 * **d-** The breasts are extremely dense, which lowers the sensitivity of mammography.
 
-> **Note:** In the 2013 edition, the use of percentages is discouraged because it is more important to take into account the chance that a mass can be obscured by fibroglandular tissue than the percentage of breast density as an indicator for breast cancer risk. For example, a breast with <50% volume of fibroglandular tissue may still be classified as **composition c** if the tissue is sufficiently dense in certain areas to obscure small masses.
+> Note: In the 2013 edition, the use of percentages is discouraged because it is more important to take into account the chance that a mass can be obscured by fibroglandular tissue than the percentage of breast density as an indicator for breast cancer risk. For example, a breast with <50% volume of fibroglandular tissue may still be classified as composition c if the tissue is sufficiently dense in certain areas to obscure small masses.
 
 **3. Describe any significant finding using standardized terminology**
 Use the morphological descriptors: mass, asymmetry, architectural distortion and calcifications. These findings may have associated features (e.g., skin thickening, nipple retraction, calcifications). Correlate these findings with clinical information and findings from mammography, US, or MRI. Integrate findings into a single report.
@@ -210,17 +217,14 @@ next course of action (spot-compression magnification views, US etc)
 | 5 | Highly suggestive of malignancy | Tissue diagnosis | ≥95% |
 | 6 | Known biopsy-proven | Surgical excision when clinically appropriate | Not applicable |
 
-> **Note:** Category 0 is usually for screening when additional imaging (e.g., spot-compression, US) is needed before a final assessment.
+> Note: Category 0 is usually for screening when additional imaging (e.g., spot-compression, US) is needed before a final assessment.
 
 **6. Give management recommendations.**
 
 **7. Communicate unexpected findings with referring clinician:**
 Verbal discussions between radiologist, patient, and clinician should be documented in the clinical notes.
 
-*Adapted from: Radiology Assistant (https://radiologyassistant.nl/breast/bi-rads-for-mammography-and-ultrasound-2013)*
-
 ## Appendix 4: Breast Imaging Survey Form
-
 **JABATAN RADIOLOGI**
 
 **Hospital:** __________________________________________________________________
@@ -299,11 +303,7 @@ Verbal discussions between radiologist, patient, and clinician should be documen
 **Impression:**
 **BIRADS Category:** [0] [1] [2] [3] [4] [5] [6]
 **Recommendation:**
-____________________________________________________________________________
-
 **Signature & stamp of the Medical Officer/Specialist:** ____________________________
-
-*Source: Ministry of Health Malaysia. Makluman Penggunaan Borang Permohonan Pemeriksaan Radiologi bagi Perkhidmatan Radiologi Yang Baharu Di Fasiliti Kementerian Kesihatan Malaysia. Putrajaya 6 November 2018*
 
 ## Appendix 5: Tnm Classification Of Breast Cancer
 **Definition Of Primary Tumour (T) — Clinical And Pathological**
@@ -377,11 +377,11 @@ ____________________________________________________________________________
 | cM0(i+) | No clinical or radiographic evidence of distant metastases in the presence of tumor cells or deposits no larger than 0.2 mm detected microscopically or by molecular techniques in circulating blood, bone marrow, or other nonregional nodal tissue in a patient without symptoms or signs of metastases |
 | M1 | Distant metastases detected by clinical and radiographic means (cM) and/or histologically proven metastases larger than 0.2 mm (pM) |
 
-> **Note:** *Note that imaging studies are not required to assign the cM0 category
+> Note: Imaging studies are not required to assign the cM0 category
 
 **Ajcc Anatomic Stage Groups**
 
-> **Note:** The Anatomic Stage Group table should only be used in global regions where biomarker tests are **not routinely available**. Cancer registries in the U.S. must use the Prognostic Stage Group table for case reporting.
+> Note: The Anatomic Stage Group table should only be used in global regions where biomarker tests are not routinely available. Cancer registries in the U.S. must use the Prognostic Stage Group table for case reporting.
 
 | When T is... | And N is... | And M is... | Then the stage group is... |
 |---|---|---|---|
@@ -413,10 +413,7 @@ ____________________________________________________________________________
 | | | | |
 | Any T | Any N | M1 | **IV** |
 
-*Source: American Joint Committee on Cancer. AJCC Cancer Staging Manual, Eighth Edition. Springer; 2017.*
-
 ## Appendix 6: Histopathology Worksheet For Breast Biopsy/Mastectomy
-
 **KEMENTERIAN KESIHATAN MALAYSIA**
 **PERKHIDMATAN PATOLOGI**
 
@@ -505,10 +502,7 @@ Superior: ______, Medial: ______, Inferior: ______, Lateral: ______, Deep: _____
 
 **3. Final Interpretation**
 
-*Source: Ministry of Health Malaysia. Jemputan Menghadiri Bengkel 'Standardization of Reporting' Anatomik Patologi, 2015. Kota Bharu 28 Julai 2015*
-
 ## Appendix 7: Medications In Systemic Therapy Of Breast Cancer And Their Common Side Effects
-
 | MEDICATION | COMMON SIDE EFFECTS | COMMENTS |
 |---|---|---|
 | CHEMOTHERAPY | | |
@@ -540,79 +534,75 @@ Superior: ______, Medial: ______, Inferior: ______, Lateral: ______, Deep: _____
 | Tamoxifen | • Gastrointestinal disorders: nausea<br>• General disorder: fatigue/asthenia | • Use with caution in patients with history of thromboembolic events |
 
 ## Appendix 8: Brca1/2 Testing Criteria
-
 Meeting one or more of these criteria warrants further personalised risk assessment, genetic counselling and, often genetic testing and management. Testing of an individual without a cancer diagnosis should only be considered when an appropriate affected family member is unavailable for testing.
 
-- Individual from a family with a known BRCA1/2 pathogenic/likely pathogenic variant, including such variants found on research testing<sup>b</sup>
-- Personal history of breast cancer<sup>c</sup> + one or more of the following:
+- Individual from a family with a known BRCA1/2 pathogenic/likely pathogenic variant, including such variants found on research testing[b]
+- Personal history of breast cancer[c] + one or more of the following:
     - Diagnosed ≤45 years of age
     - Diagnosed 46 - 50 years of age with:
-        - An additional breast cancer primary at any age<sup>d</sup>
-        - ≥1 close blood relative<sup>e</sup> with breast cancer at any age
-        - ≥1 close blood relative<sup>e</sup> with high-grade (Gleason score ≥7) prostate cancer
-        - An unknown or limited family history<sup>a</sup>
+        - An additional breast cancer primary at any age[d]
+        - ≥1 close blood relative[e] with breast cancer at any age
+        - ≥1 close blood relative[e] with high-grade (Gleason score ≥7) prostate cancer
+        - An unknown or limited family history[a]
     - Diagnosed ≤60 years of age with:
         - Triple negative breast cancer
     - Diagnosed at any age with:
-        - ≥1 close blood relative<sup>e</sup> with:
+        - ≥1 close blood relative[e] with:
             - breast cancer diagnosed ≤50 years of age; or
-            - ovarian carcinoma;<sup>f</sup> or
+            - ovarian carcinoma;[f] or
             - male breast cancer; or
-            - metastatic prostate cancer;<sup>g</sup> or
+            - metastatic prostate cancer;[g] or
             - pancreatic cancer
-        - ≥2 additional diagnoses<sup>g</sup> of breast cancer at any age in patient and/or in close blood relatives
-    - Ashkenazi Jewish ancestry<sup>h</sup>
-- Personal history of ovarian carcinoma<sup>f</sup>
+        - ≥2 additional diagnoses[g] of breast cancer at any age in patient and/or in close blood relatives
+    - Ashkenazi Jewish ancestry[h]
+- Personal history of ovarian carcinoma[f]
 - Personal history of male breast cancer
-- Personal history of pancreatic cancer<sup>i</sup>
-- Personal history of metastatic prostate cancer<sup>g</sup>
+- Personal history of pancreatic cancer[i]
+- Personal history of metastatic prostate cancer[g]
 - Personal history of high-grade prostate cancer (Gleason score ≥7) at any age with:
-    - ≥1 close blood relatives<sup>e</sup> with ovarian carcinoma, pancreatic cancer or metastatic prostate cancer<sup>g</sup> at any age or breast cancer <50 years of age; or
-    - ≥2 close blood relatives<sup>e</sup> with breast or prostate cancer at any age; or
-    - Ashkenazi Jewish ancestry<sup>h</sup>
+    - ≥1 close blood relatives[e] with ovarian carcinoma, pancreatic cancer or metastatic prostate cancer[g] at any age or breast cancer <50 years of age; or
+    - ≥2 close blood relatives[e] with breast or prostate cancer at any age; or
+    - Ashkenazi Jewish ancestry[h]
 - BRCA1/2 pathogenic/likely pathogenic variant detected by tumour profiling on any tumor type in the absence of germline pathogenic/likely pathogenic variant analysis
-- Regardless of family history, some individuals with an BRCA-related cancer may benefit from genetic testing to determine eligibility for targeted treatment<sup>j</sup>
-- An individual who does not meet the other criteria but with ≥1 first- or second-degree blood<sup>e</sup> relative<sup>k</sup> meeting any of the above criteria. The significant limitations of interpreting test results for an unaffected individual should be discussed.
+- Regardless of family history, some individuals with an BRCA-related cancer may benefit from genetic testing to determine eligibility for targeted treatment[j]
+- An individual who does not meet the other criteria but with ≥1 first- or second-degree blood[e] relative[k] meeting any of the above criteria. The significant limitations of interpreting test results for an unaffected individual should be discussed.
 
-**Footnotes**
-<sup>a</sup> For further details regarding the nuances of genetic counselling and testing, see BR/OV-A.  
-<sup>b</sup> Irrespective of degree of relatedness.  
-<sup>c</sup> For the purposes of these guidelines, invasive and ductal carcinoma in situ breast cancers should be included.  
-<sup>d</sup> Two breast cancer primaries includes bilateral (contralateral) disease or two or more clearly separate ipsilateral primary tumours either synchronously or asynchronously.  
-<sup>e</sup> Close blood relatives include first-, second- and third-degree relatives on same side of family (see BR/OV-B).  
-<sup>f</sup> Includes fallopian tube and primary peritoneal cancers. BRCA-related ovarian cancers are associated with epithelial non-mucinous histology. Lynch syndrome can be associated with both non-mucinous and mucinous epithelial tumours. Be attentive for clinical evidence of Lynch syndrome (see NCCN Guidelines for Genetic/Familial High-Risk Assessment: Colorectal). Specific types of non-epithelial ovarian cancers and tumours can also be associated with other rare syndromes. Examples include an association between sex-cord tumours with annular tubules and Peutz-Jeghers syndrome or Sertoli-Leydig tumors and DICER1-related disorders.  
-<sup>g</sup> Metastatic prostate cancer is biopsy-proven and/or with radiographic evidence and includes distant metastasis and regional bed or nodes. It is not a biochemical recurrence.  
-<sup>h</sup> Testing for Ashkenazi Jewish founder-specific pathogenic/likely pathogenic variant(s), should be performed first. Comprehensive genetic testing may be considered if ancestry also includes non-Ashkenazi Jewish relatives or if other BRCA-related criteria are met. Founder pathogenic/likely pathogenic variants exist in other populations.  
-<sup>i</sup> Approximately 2 - 5% of unselected cases of pancreatic adenocarcinoma will have BRCA1/2 pathegonic/likely pathogenic variant. However, the disease is highly lethal and the option to test the affected relative may not be available in future. Thus, there may be significant benefit to family members in testing these patients near the time of diagnosis. In addition, increasing evidence suggests that identification of BRCA1/2 pathogenic/like pathogenic variant may direct use of targeted therapies for patients with pancreatic cancer (see NCCN Guidelines for Pancreatic Adenocarcinoma). (Holter S, Borgida A, Dodd A, et al. J Clin Oncol 2015;33:3124-3129. Shindo K, YU J, Suenaga M, et al. J Clin Oncol 2017;35:3382-3390).  
-<sup>j</sup> E.g., PARP inhibitors for ovarian cancer and metastatic HER2-negative breast cancer; platinum therapy for prostate cancer. See the relevant NCCN treatment guidelines (e.g. NCCN Guidelines for Breast Cancer; NCCN Guidelines for Prostate Cancer) for further details.  
-<sup>k</sup> This may be extended to an affected third-degree relative if related through two male relatives (e.g. paternal grandfather's mother or sister).  
-
-*Source: National Comprehensive Cancer Network Guidelines Version 3.2019. BRCA-Related Breast and/or Ovarian Cancer Syndrome. NCCN; 2019.*
+Footnotes:
+[a] For further details regarding the nuances of genetic counselling and testing, see BR/OV-A.  
+[b] Irrespective of degree of relatedness.  
+[c] For the purposes of these guidelines, invasive and ductal carcinoma in situ breast cancers should be included.  
+[d] Two breast cancer primaries includes bilateral (contralateral) disease or two or more clearly separate ipsilateral primary tumours either synchronously or asynchronously.  
+[e] Close blood relatives include first-, second- and third-degree relatives on same side of family (see BR/OV-B).  
+[f] Includes fallopian tube and primary peritoneal cancers. BRCA-related ovarian cancers are associated with epithelial non-mucinous histology. Lynch syndrome can be associated with both non-mucinous and mucinous epithelial tumours. Be attentive for clinical evidence of Lynch syndrome (see NCCN Guidelines for Genetic/Familial High-Risk Assessment: Colorectal). Specific types of non-epithelial ovarian cancers and tumours can also be associated with other rare syndromes. Examples include an association between sex-cord tumours with annular tubules and Peutz-Jeghers syndrome or Sertoli-Leydig tumors and DICER1-related disorders.  
+[g] Metastatic prostate cancer is biopsy-proven and/or with radiographic evidence and includes distant metastasis and regional bed or nodes. It is not a biochemical recurrence.  
+[h] Testing for Ashkenazi Jewish founder-specific pathogenic/likely pathogenic variant(s), should be performed first. Comprehensive genetic testing may be considered if ancestry also includes non-Ashkenazi Jewish relatives or if other BRCA-related criteria are met. Founder pathogenic/likely pathogenic variants exist in other populations.  
+[i] Approximately 2 - 5% of unselected cases of pancreatic adenocarcinoma will have BRCA1/2 pathegonic/likely pathogenic variant. However, the disease is highly lethal and the option to test the affected relative may not be available in future. Thus, there may be significant benefit to family members in testing these patients near the time of diagnosis. In addition, increasing evidence suggests that identification of BRCA1/2 pathogenic/like pathogenic variant may direct use of targeted therapies for patients with pancreatic cancer (see NCCN Guidelines for Pancreatic Adenocarcinoma). (Holter S, Borgida A, Dodd A, et al. J Clin Oncol 2015;33:3124-3129. Shindo K, YU J, Suenaga M, et al. J Clin Oncol 2017;35:3382-3390).  
+[j] E.g., PARP inhibitors for ovarian cancer and metastatic HER2-negative breast cancer; platinum therapy for prostate cancer. See the relevant NCCN treatment guidelines (e.g. NCCN Guidelines for Breast Cancer; NCCN Guidelines for Prostate Cancer) for further details.  
+[k] This may be extended to an affected third-degree relative if related through two male relatives (e.g. paternal grandfather's mother or sister).
 
 ## Appendix 9: Post-Treatment Cancer Survivorship (Management Of Treatment Complications)
-
 Breast cancer patients may be at risk of developing treatment-related complications. Thus, healthcare providers must recognise and manage the long-term sequelae of the constellation of therapeutic modalities. There is limited evidence for multidisciplinary rehabilitation among these populations. A systematic review concluded that multidisciplinary rehabilitation was not harmful and may improve functional ability and quality of life in the short-term.
 
-**Breast cancer-related lymphoedema:**
+Breast cancer-related lymphoedema:
 Breast cancer-related lymphoedema (BCRL) is a common consequence of breast cancer treatment. Patient should be counselled on ways to prevent or reduce risk of lymphedema. Weight loss for those who are overweight or obese may reduce this risk. Good evidence showed that there was no increased risk of BRCL with exercise; thus patient should not restrict or avoid physical activity. Patients should be routinely examined for clinical symptoms or swelling suggestive of lymphoedema. They should be referred to therapists knowledgeable about the diagnosis and treatment of it.
 
 Physiotherapist plays an important role in the rehabilitation care of women with breast cancer as well as the care of the survivors.
 
-**Late onset cardiotoxicity:**
+Late onset cardiotoxicity:
 Occurrence of late onset cardiotoxicity associated with chemotherapy is generally low except for anthracycline especially if dose given is above the limit. If occur, it typically presents as reduced left ventricular function failure. In contrast, trastuzumab cardiotoxicity usually occur during treatment and does not have risk of delayed cardiotoxicity.
 
 Identification of high-risk patients including patients with pre-existing heart problems, cardiovascular (CV) risk factors and treatments like trastuzumab and anthracyclines, education of patients on healthy lifestyle modifications, aggressive management of underlying CV risk factors, consideration of cardioprotective strategies and, routine surveillance of left ventricular function before and after therapies are recommended to reduce breast cancer treatment-associated cardiotoxicities. Aerobic exercise is considered a promising non-pharmacological strategy to prevent and/or treat chemotherapy-induced cardiotoxicity.
 
-**Cognitive impairment:**
+Cognitive impairment:
 Cognitive impairment is one of the frequent complications reported by patients with breast cancer. All patients need to be screened for cognitive impairment and to identify reversible contributing factors e.g. organic brain disease, mood disorder, endocrine problem, dehydration, infections or medication-related and optimally treat when possible.
 
-**Fatigue:**
+Fatigue:
 Studies of long-term cancer survivors suggested that approximately one-quarter to one-third experienced persistent fatigue for up to 10 years after cancer diagnosis. Fatigue has a negative impact on work, social relationship, mood and daily activities. It causes impairment in overall quality of life during and after treatment. All patients should be assessed for fatigue and treated for any causative factors including anaemia, cardiac dysfunction, depression, sleep disturbance, etc. Patients without otherwise identifiable cause are encouraged to engage in regular physical activity and cognitive behavioural therapy as appropriate.
 
-**Pain:**
+Pain:
 Approximately 20 - 50% of patients complain of pain during the survivorship period. Types of pain may be nociceptive, neuropathic or mixed pattern. Pain will lead to physical, emotional, spiritual and functional discomfort. Pain can be assessed with a comprehensive history taking and simple pain scales e.g. visual analog scale. Aetiology of the pain needs to be identified before initiation of treatment. Refer to CPG on Management of Cancer Pain.
 
-**Bone health:**
+Bone health:
 Survivors of breast cancer are at high risk of significant bone loss. Assessment of bone mineral density in high risk patients as detailed below are:
 - post-menopausal survivors should have a baseline DEXA scan
 - a repeat DEXA scans every two years should be done for:

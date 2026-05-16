@@ -6,6 +6,8 @@ patient_input: pain_score, functional_status, treatment_response, accessibility,
 output: follow_up_modality, referral_pathway, telehealth_recommendation, palliative_care_referral
 -->
 
+> **Context:** Follow-up modalities and referral pathways for cancer pain in the 2nd Edition Malaysian Cancer Pain CPG: home, primary-care and specialist outpatient follow-up, telehealth/mHealth options, and criteria for palliative care, pain clinic and multidisciplinary referral.
+
 Follow-up care for patients with cancer pain can be provided at home, primary care clinics or specialised outpatient clinics. With the advent of better internet services, teleconferencing or video call services can also be used to help patients who do not have easy access to conventional follow-up.
 
 Two recent observational studies supported the structured outpatient follow-up of cancer patients:

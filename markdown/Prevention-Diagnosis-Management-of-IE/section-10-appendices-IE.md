@@ -6,6 +6,8 @@ patient_input: clinical_findings, imaging_data
 output: classification, diagnostic_criteria_reference
 -->
 
+> **Context:** Reference appendices for the Malaysian Infective Endocarditis CPG: IE classification/definitions (Appendix 1), Enterobacteriaceae and microbiology specimen/blood-culture collection (Appendices 2, 3, 5), directories of laboratories, PET/SPECT-CT WBC scan and cardiothoracic surgery centres (Appendices 4, 6, 7), antimicrobial dosing in adult and paediatric renal impairment (Appendices 8, 9), the weekly OPAT review checklist (Appendix 10), and clinical audit indicators (Appendix 11). Operational reference tables — clinical rationale is in Sections 3–8.
+
 ## Appendix 1: Classification And Definition Of Infective Endocarditis
 **IE According To Localisation Of Infection And Presence Or Absence Of Intracardiac Material**
 - Left-sided native valve IE

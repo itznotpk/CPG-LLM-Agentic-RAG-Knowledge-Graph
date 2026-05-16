@@ -1,7 +1,7 @@
 # Section 3: Screening
 <!-- METADATA
 category: Screening
-use_case: Screening Guidelines
+use_case: Breast Cancer Screening — mammography, clinical_breast_exam, high_risk_surveillance, screening_intervals, age_thresholds, MRI_surveillance
 patient_input: age, family_history, personal_cancer_history, genetic_status, radiation_history, breast_density
 output: screening_recommendations, surveillance_recommendations, risk_stratification
 -->

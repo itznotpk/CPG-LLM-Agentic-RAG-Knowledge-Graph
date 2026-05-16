@@ -7,7 +7,7 @@ output: patient_readiness, anaesthetic_plan, informed_consent_documentation
 critical: true
 -->
 
-> **Context:** This section covers pre-anaesthetic consultation requirements, including timing, elements of consultation (history, examination, investigations, anaesthetic plan), informed consent, and documentation.
+> **Context:** Mandatory minimum standards for the pre-anaesthetic consultation (Malaysian Patient Safety / Minimal Monitoring guideline): required timing, consultation elements, informed consent, and documentation before any anaesthetic.
 
 While the main purpose of the consultation is to assess and ensure that the patient is optimised before surgery, it also includes other aspects of care listed in this section. The skills and judgment required are different and additional to those involved in the administration of anaesthesia.
 

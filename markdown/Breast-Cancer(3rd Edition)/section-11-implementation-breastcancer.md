@@ -1,6 +1,6 @@
 # Section 11: Implementing The Guidelines
 <!-- METADATA
-category: Implementation, Quality Assurance
+category: Reference
 use_case: Guideline Implementation — facilitators_barriers, resource_implications, clinical_audit, performance_indicators, referral_targets, surgical_margins
 patient_input: referral_timing, surgical_outcome_status
 output: implementation_strategy, audit_indicators, performance_targets

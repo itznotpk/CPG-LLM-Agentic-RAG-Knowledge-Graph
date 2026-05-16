@@ -6,6 +6,8 @@ patient_input: none
 output: guideline_scope
 -->
 
+> **Context:** Introduction to the Malaysian Infective Endocarditis CPG — definition of IE, evolving epidemiology (declining rheumatic heart disease, rising prosthetic/device-related and elderly cases), shifting microbiology toward virulent/drug-resistant organisms, and guideline scope. Background, not clinical recommendations.
+
 Infective endocarditis (IE) is defined as an infection of the endocardial surface of the heart (heart valves and mural endocardium) by microorganisms (mainly bacteria).
 
 IE has evolved over the years as the prevalence of rheumatic heart disease declined. Advances in the treatment of congenital heart disease (CHD) and structural heart disease with the introduction of conduits, prosthetic materials and intracardiac devices has led to many patients surviving well into adulthood, hence making them more susceptible to infection in view of the presence of these foreign materials. Incidence of IE in patients with adult CHD is 3 times higher than that in the paediatric population. Increase in the ageing population has also led to older patients with multiple co-morbidities and no known structural heart disease being at risk of this disease too.

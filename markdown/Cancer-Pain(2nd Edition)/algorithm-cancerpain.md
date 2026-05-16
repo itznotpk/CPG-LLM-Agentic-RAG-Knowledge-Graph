@@ -7,8 +7,9 @@ output: treatment_pathway, analgesic_step, morphine_titration_protocol, paediatr
 critical: true
 -->
 
-## Algorithm 1: Management Of Cancer Pain In Adults
+> **Context:** Treatment decision flowcharts for the 2nd Edition Malaysian Cancer Pain CPG: management of cancer pain in adults via the WHO analgesic ladder, morphine titration protocol, and management of cancer pain in children. Reference pathways — clinical detail is in Sections 4 (Pharmacological) and 8 (Paediatric).
 
+## Algorithm 1: Management Of Cancer Pain In Adults
 **Step 1: Initial Assessment**
 **Cancer patient presents with pain**
 ↓

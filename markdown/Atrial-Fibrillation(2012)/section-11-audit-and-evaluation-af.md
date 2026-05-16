@@ -8,6 +8,8 @@ output: audit compliance percentage, implementation effectiveness
 critical: false
 -->
 
+> **Context:** Clinical audit criteria for the 2012 Malaysian Atrial Fibrillation CPG — metrics for evaluating implementation of the six key priority areas against clinical practice and health outcomes. Quality-assurance reference, not clinical recommendations.
+
 The Table below lists the audit criteria identified to evaluate the impact of the implementation of the six key priority areas detailed above on clinical practice and health outcomes.
 
 | Criterion | Exception | Definition of terms |

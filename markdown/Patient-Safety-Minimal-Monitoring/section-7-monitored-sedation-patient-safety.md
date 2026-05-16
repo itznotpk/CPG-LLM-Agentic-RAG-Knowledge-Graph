@@ -8,6 +8,8 @@ critical: true
 treatment_type: sedation
 -->
 
+> **Context:** Mandatory minimum standards for monitored anaesthesia care and procedural sedation (Malaysian Patient Safety / Minimal Monitoring guideline). Key rule: the person administering sedation must monitor the patient and must not also be the operator.
+
 The main objectives of sedating a patient are to bring about anxiolysis, produce a degree of amnesia and maintain co-operation of the patient so that uncomfortable diagnostic and minor surgical procedures may be performed.
 
 ## 7.1: Objectives And Assessment

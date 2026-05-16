@@ -6,6 +6,8 @@ patient_input: pain_assessment, cancer_diagnosis, psychosocial_status, spiritual
 output: total_pain_concept, multidisciplinary_team_role, patient_family_centred_care, individualised_pain_response
 -->
 
+> **Context:** Guiding principles of cancer pain management from the 2nd Edition Malaysian Cancer Pain CPG: comprehensive pain assessment, the concept of Total Pain, multidisciplinary team involvement, patient- and family-centred care, and individualised pain response.
+
 - [Level I] The guiding principles of cancer pain management are:
     - a comprehensive pain assessment
     - the application of the concept of Total Pain

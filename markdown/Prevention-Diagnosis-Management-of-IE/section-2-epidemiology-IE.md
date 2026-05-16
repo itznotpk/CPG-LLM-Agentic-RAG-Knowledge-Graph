@@ -6,6 +6,8 @@ patient_input: demographic_data, risk_factors
 output: epidemiological_context
 -->
 
+> **Context:** Epidemiology of infective endocarditis for the Malaysian IE CPG. Key distinction: developed countries see IE at age 50–60 (degenerative valve disease), developing countries at 20–40 (rheumatic heart disease still the leading cause); Streptococcus predominates in developing settings vs Staphylococcus in developed. Background context, not clinical recommendations.
+
 The annual incidence of IE in the adult population ranges between 3-9 per 100,000 subjects per year. 2-4 However, as most of the available data come from developed countries, its true incidence in developing countries is unknown. Variability in the epidemiology of IE also exists between countries and continents with regards to patient profile, microbiological aetiology, treatment and outcomes.
 
 In the developed countries, IE tends to affect patients between the ages of 50-60 years, in contrast to developing countries where it is commonly seen in the 20-40 years old age group. This is primarily due to a more ageing society in developed countries that relies on increasing invasive medical care, the presence of degenerative valve disease and co-morbidities. In developing countries, rheumatic heart disease is still the most common predisposing cause of IE. 6-9 About 50% of IE in developing countries occur in patients with no known history of valve disease.4,8 Healthcare associated IE (refer to Appendix 1: Classification and definition of infective endocarditis) is increasing with some studies reporting incidence of up to 25%. The gender distribution of IE is male to female case ratio of more than 2:1.

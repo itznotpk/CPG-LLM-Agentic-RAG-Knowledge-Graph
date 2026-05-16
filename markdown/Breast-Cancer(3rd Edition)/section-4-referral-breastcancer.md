@@ -1,7 +1,7 @@
 # Section 4: Referral
 <!-- METADATA
-category: Referral
-use_case: Referral Criteria
+category: Diagnosis
+use_case: Referral Criteria — urgent_referral, routine_referral, red_flag_symptoms, breast_clinic_triage, age_based_criteria
 patient_input: age, signs_and_symptoms, risk_group
 output: referral_urgency, referral_destination
 -->

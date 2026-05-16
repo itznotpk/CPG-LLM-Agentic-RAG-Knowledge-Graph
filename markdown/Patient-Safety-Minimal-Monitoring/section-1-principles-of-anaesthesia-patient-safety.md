@@ -7,7 +7,7 @@ output: anaesthesia_personnel_requirement, consent_documentation, safety_checkli
 critical: true
 -->
 
-> **Context:** This section covers the fundamental principles of anaesthesia care, including personnel qualifications, direct care requirements, delegation rules, pre-anaesthetic consultation, informed consent, and documentation.
+> **Context:** Mandatory minimum standards (not discretionary guidance) for anaesthesia care personnel and conduct, from the Malaysian Patient Safety / Minimal Monitoring guideline.
 
 ---
 

@@ -7,7 +7,7 @@ output: remote_monitoring_plan, equipment_adaptation
 critical: true
 -->
 
-> **Context:** This section covers anaesthesia administered outside operating rooms (e.g., radiology suites, MRI rooms, radiotherapy), requiring equivalent monitoring standards and suitable adaptations for hazardous environments.
+> **Context:** Mandatory minimum standards for anaesthesia outside the operating room (Malaysian Patient Safety / Minimal Monitoring guideline). Key principle: monitoring standards are equivalent to in-theatre, regardless of remote/hazardous location (e.g. MRI).
 
 ## 5.1: Risk Assessment And Vigilance
 In many instances where anaesthetics are administered outside the operating room environment, the anaesthesia may be associated with greater risks to the patient. This may be due to physical separation from the patient e.g. radiological suites, specific hazardous environment e.g. radiotherapy or inability to use certain monitors e.g. MRI rooms. For this reason greater vigilance by the anaesthesiologist is required to maintain safety for the patient.

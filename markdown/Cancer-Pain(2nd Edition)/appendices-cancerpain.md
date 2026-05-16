@@ -6,6 +6,8 @@ patient_input: pain_intensity, cognitive_status, pharmacological_history, sedati
 output: search_results, clinical_questions_alignment, sedation_score_grading, pain_score, neuropathic_pain_screening, distress_screening, palliative_outcome_scale, symptom_assessment, dementia_pain_grading, recommended_dosages, adverse_effects, paediatric_dosages, fentanyl_application_guide, naloxone_titration_protocol
 -->
 
+> **Context:** Reference appendices for the 2nd Edition Malaysian Cancer Pain CPG: literature search strategy and clinical questions, validated pain and symptom assessment scales (FLACC, McGill, LANSS, PainDETECT, DN4, ESAS, IPOS, PAINAD, NCCN Distress Thermometer, Macintyre sedation score), and medication dosing reference tables (NSAIDs, opioids, adjuvants, laxatives, antiemetics, paediatric dosages, transdermal fentanyl and naloxone guides). Operational reference material — clinical rationale is in Sections 3, 4 and 8.
+
 ## Appendix 1: Example Of Search Strategy
 **Clinical Question:** What are the effective and safe pharmacological treatments in cancer pain?
 

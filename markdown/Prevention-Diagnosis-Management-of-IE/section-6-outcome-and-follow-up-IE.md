@@ -6,6 +6,8 @@ patient_input: clinical_status, residual_valvular_dysfunction, complications
 output: follow_up_schedule, monitoring_plan
 -->
 
+> **Context:** Post-treatment outcome and follow-up for infective endocarditis (Malaysian IE CPG): clinical and echocardiographic monitoring after antimicrobial therapy ± surgery, with emphasis on close surveillance during the first year for relapse and reinfection.
+
 Following adequate antimicrobial therapy with/without surgery, resolution of the infection occurs in most patients with IE. However close monitoring with clinical examination and echocardiography is encouraged especially during the first year post-IE.
 
 The subsequent frequency of follow-up will depend on the following:

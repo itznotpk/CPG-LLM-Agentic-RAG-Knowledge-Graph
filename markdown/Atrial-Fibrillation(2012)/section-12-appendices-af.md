@@ -6,6 +6,8 @@ patient_input: INR, warfarin_dose, age, ethnicity, surgical_status, bleeding_sta
 output: warfarin_initiation_protocol, INR_dose_adjustment_table, elevated_INR_management, perioperative_bridging_plan, AAD_classification, glossary
 -->
 
+> **Context:** Reference appendices for the 2012 Malaysian Atrial Fibrillation CPG: literature search terms (Appendix A), warfarin initiation and INR monitoring protocols with Pacific-Asian ethnic dosing and elevated-INR management (warfarin appendices), perioperative bridging, Vaughan Williams antiarrhythmic drug classification, clinical questions, and glossary/abbreviations. Operational reference tables — clinical rationale is in Sections 6–8.
+
 ## Appendix A: Search Terms
 ### Scope Of Search
 A literature search was conducted for guidelines, systematic reviews and randomized controlled trials on the primary care management of Atrial fibrillation, with additional searches in the following areas:

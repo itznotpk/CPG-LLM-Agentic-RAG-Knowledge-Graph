@@ -7,7 +7,7 @@ output: paediatric_PAH_diagnosis, IPAH_vs_secondary_classification, referral_for
 critical: true
 -->
 
-> **Context:** This section covers the paediatric PAH diagnostic pathway, including clinical suspicion by age group (Table 6: infants, children, older children), initial non-invasive detection tests (Table 7: ECG, Chest X-ray, Doppler echocardiography, TOE), PHT clinical class identification via detailed history taking (Table 8: perinatal, respiratory, familial, CHD, drug, and systemic causes), and general/specific laboratory workup (Table 9a/9b) including thrombophilia screening and imaging for CTEPH. IPAH is diagnosed when no secondary cause is found. All paediatric patients require referral to specialized centres for invasive RHC confirmation, severity assessment, and vasoreactivity testing.
+> **Context:** Paediatric PAH diagnostic pathway (2011 Malaysian PAH CPG), mirroring the adult four-stage approach but age-stratified. Key rule: IPAH is a diagnosis of exclusion (no secondary cause found), and all paediatric patients require referral to a specialised centre for invasive RHC confirmation and vasoreactivity testing.
 
 ## 12.1: Clinical Suspicion Of PHT
 The presenting symptoms in children with pulmonary hypertension may differ from adults. Pulmonary hypertension should be suspected in any child who presents with signs and symptoms as listed in Table 6 when there is no other explanation.

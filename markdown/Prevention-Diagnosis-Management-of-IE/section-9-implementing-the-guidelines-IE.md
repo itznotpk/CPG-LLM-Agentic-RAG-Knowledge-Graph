@@ -1,10 +1,12 @@
 # Section 9: Implementing The Guidelines And Resource Implications
 <!-- METADATA
-category: Methodology
-use_case: Guideline Implementation — resource implications, training, auditing
+category: Reference
+use_case: Guideline Implementation — resource_implications, training, clinical_audit, implementation_strategy
 patient_input: none
 output: implementation_strategy
 -->
+
+> **Context:** Implementation and resource-implication notes for the Malaysian Infective Endocarditis CPG: facilitating/limiting factors, training needs, and clinical audit. Operational guidance, not clinical recommendations.
 
 The objective of this CPG is to enable the healthcare professionals who encounter IE patients in the local setting to diagnose this disease early and manage it effectively.
 
@@ -22,7 +24,6 @@ The successful implementation of this CPG would require:
 
 The measurement of specific performance measures (refer Appendix 11: Clinical indicators) affords an effective method in tracking the success of the implementation of these guidelines. The committee does not foresee any additional cost implications. The imaging modalities, microbiological testing and surgery can be performed, and appropriate antimicrobial therapy initiated in tertiary Ministry of Health and Ministry of Education hospitals.
 
----
 <!-- parent_only_reference_start -->
 Appendix 11: Clinical Indicators
 Performance measures for this CPG is to monitor the implementation of these guidelines with the aim of achieving the following within 5 years.

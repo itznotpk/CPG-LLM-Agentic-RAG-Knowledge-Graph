@@ -1,6 +1,6 @@
 # Section 11: Implementing The Guidelines
 <!-- METADATA
-category: Methodology
+category: Reference
 use_case: CPG Implementation and Clinical Audit — facilitating_factors, limiting_factors, clinical_audit_indicator, opioid_prescribing, implementation_strategy
 patient_input: pain_score, opioid_prescription_status
 output: implementation_strategy, clinical_audit_indicator, quality_improvement_plan
@@ -33,7 +33,6 @@ In line with the key recommendations of the CPG and the National Key Performance
 
 Implementation strategies will be developed following the approval of the CPG by MoH which include launching of the CPG, Quick Reference and Training Module.
 
----
 <!-- parent_only_reference_end -->
 Levels Of Evidence
 | Level | Study design |
