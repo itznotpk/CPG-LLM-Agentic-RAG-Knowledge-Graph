@@ -39,7 +39,6 @@ There is no definite treatment for cranial nerve palsy post-radiotherapy in NPC 
 ## 8.4: Otitis Media With Effusion
 Refer to Section 7.2: Treatment Of Otitis Media With Effusion. <!-- cross_ref target_file="section-7-supportive-care-nasopharyngeal.md" target_heading="7.2: Treatment Of Otitis Media With Effusion" target_kind="h2_section" -->
 
----
 <!-- parent_only_reference_start -->
 Appendix 8: Toxicities Of Radiotherapy On Head And Neck
 **Acute Toxicities**
@@ -78,8 +77,6 @@ Levels Of Evidence
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
-
-*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
 Abbreviations
 | Abbreviation | Full Term |

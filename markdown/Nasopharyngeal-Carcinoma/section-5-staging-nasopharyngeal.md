@@ -7,6 +7,8 @@ output: TNM_stage, anatomical_stage_group, imaging_modality_selection
 critical: true
 -->
 
+> **Context:** TNM staging of nasopharyngeal carcinoma (Malaysian NPC CPG). Key rule: the **AJCC Cancer Staging Manual 2010 (7th Edition)** is the system used in this CPG. Staging combines clinical examination with pathological and radiological (MRI/PET-CT) investigation; full T/N/M criteria and stage groupings follow.
+
 Cancer staging plays an important role in determining the best treatment approach and prognosis of the disease. In this CPG, the latest edition of the American Joint Committee on Cancer or AJCC Cancer Staging Manual 2010 (7th Edition) is used to stage NPC. The most clinically useful staging system is the Tumour Node Metastasis (TNM) System.
 
 TNM staging consist of clinical examination, and pathological and radiological investigations. Clinical examination of nasopharynx, regional lymph nodes and distant metastatic sites (especially lung, liver and bone) is crucial for diagnosis and staging. Cranial nerves examination is vital as cranial nerve involvement may be the first and only presentation of NPC. Refer to Appendix 4: TNM Staging Diagram for TNM Staging Diagram.

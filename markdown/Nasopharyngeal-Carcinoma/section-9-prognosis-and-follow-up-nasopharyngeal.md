@@ -9,7 +9,7 @@ output: prognosis_estimation, follow_up_schedule, surveillance_investigation_pla
 ## 9.1: Prognosis
 [Level II-3] [Level III] Different prognostic categories (based on the difference in failure patterns) can be defined across different stages, as shown in Table 2: Prognosis of Different NPC Stages. These prognostic groupings have important implications for the selection of appropriate treatment strategies.
 
-Table 2: Prognosis Of Different Npc Stages
+Table 2: Prognosis Of Different NPC Stages
 
 | Stage | Prognosis |
 |---|---|
@@ -41,9 +41,9 @@ The CPG DG and RC suggest the following procedures to be conducted on NPC patien
 > - if post-radiotherapy cross sectional imaging is required, it should be offered no earlier than 3 months
 > - cross-sectional imaging, as needed, to detect deep infiltrating tumours not associated with mucosal lesion during the initial 3 - 5 years post-treatment
 
-There is no standard local follow-up schedule for NPC patients. However, the CPG DG and RC suggest the following schedule on NPC as shown in Table 3: Follow-Up Schedule Of Npc Without Recurrence.
+There is no standard local follow-up schedule for NPC patients. However, the CPG DG and RC suggest the following schedule on NPC as shown in Table 3: Follow-Up Schedule Of NPC Without Recurrence.
 
-Table 3: Follow-Up Schedule Of Npc Without Recurrence
+Table 3: Follow-Up Schedule Of NPC Without Recurrence
 
 | Year after completion of treatment | Frequency of follow-up |
 |---|---|
@@ -55,7 +55,6 @@ Table 3: Follow-Up Schedule Of Npc Without Recurrence
 
 *\*interval of follow-up may be adjusted based on clinical judgement*
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |
@@ -65,8 +64,6 @@ Levels Of Evidence
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
-
-*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
 Abbreviations
 | Abbreviation | Full Term |
