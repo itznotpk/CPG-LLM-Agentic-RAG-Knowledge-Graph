@@ -356,6 +356,7 @@ TEXT:
                     "entities": entities,
                     "entity_extraction_date": datetime.now().isoformat()
                 },
+                chunk_level=chunk.chunk_level,
                 token_count=chunk.token_count
             )
             enriched_chunks.append(enriched_chunk)
@@ -384,11 +385,13 @@ TEXT:
             List of triple dicts with keys: subject, subject_type, relation, object, object_type, evidence
         """
         from pydantic_ai import Agent
-        
+
         try:
-            from pydantic_ai.models.bedrock import BedrockConverseModel
-            model_id = os.getenv("BEDROCK_MODEL_ID", "us.anthropic.claude-haiku-4-5-20251001-v1:0")
-            model = BedrockConverseModel(model_id)
+            try:
+                from ..agent.providers import get_ingestion_model
+            except ImportError:
+                from agent.providers import get_ingestion_model
+            model = get_ingestion_model()
         except Exception as e:
             logger.warning(f"Could not load ingestion model for triple extraction: {e}")
             return []

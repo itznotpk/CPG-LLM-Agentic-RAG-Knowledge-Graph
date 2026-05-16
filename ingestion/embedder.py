@@ -153,22 +153,31 @@ class EmbeddingGenerator:
     async def generate_embeddings_batch(
         self,
         texts: List[str]
-    ) -> List[List[float]]:
+    ) -> List[Optional[List[float]]]:
         # Filter and truncate texts
         processed_texts = []
         for text in texts:
             if not text or not text.strip():
-                processed_texts.append("")
+                processed_texts.append(None)
                 continue
             if len(text) > self.config["max_tokens"] * 4:
                 text = text[:self.config["max_tokens"] * 4]
             processed_texts.append(text)
-            
+
         if self.provider == "bedrock":
-            # Bedrock doesn't support bulk embedding for all models through the simple API
-            # We process concurrently via individual threads
-            tasks = [self.generate_embedding(txt) if txt else self.generate_embedding(" ") for txt in processed_texts]
-            return await asyncio.gather(*tasks)
+            # Bedrock has no batch endpoint — sequential with delay to stay under quota.
+            results: List[Optional[List[float]]] = []
+            for txt in processed_texts:
+                if txt is None:
+                    results.append(None)
+                    continue
+                try:
+                    results.append(await self.generate_embedding(txt))
+                except Exception as e:
+                    logger.error(f"Bedrock embedding failed after retries: {e}")
+                    results.append(None)
+                await asyncio.sleep(0.2)
+            return results
         
         for attempt in range(self.max_retries):
             try:
@@ -218,7 +227,7 @@ class EmbeddingGenerator:
         for text in texts:
             try:
                 if not text or not text.strip():
-                    embeddings.append([0.0] * self.config["dimensions"])
+                    embeddings.append(None)
                     continue
                 
                 embedding = await self.generate_embedding(text)
@@ -254,13 +263,30 @@ class EmbeddingGenerator:
             return chunks
         
         logger.info(f"Generating embeddings for {len(chunks)} chunks")
-        
+
+        # H1 parents and cap-split H2 intermediates must never be embedded.
+        # Pass them through unchanged (embedding=None); only leaf/child rows get vectors.
+        def _needs_embedding(chunk: DocumentChunk) -> bool:
+            if chunk.chunk_level == "h1":
+                return False
+            if chunk.chunk_level == "h2" and chunk.metadata.get("cap_split"):
+                return False
+            return True
+
         # Process chunks in batches
         embedded_chunks = []
-        total_batches = (len(chunks) + self.batch_size - 1) // self.batch_size
-        
-        for i in range(0, len(chunks), self.batch_size):
-            batch_chunks = chunks[i:i + self.batch_size]
+        embeddable = [c for c in chunks if _needs_embedding(c)]
+        total_batches = (len(embeddable) + self.batch_size - 1) // self.batch_size if embeddable else 0
+
+        # Pass unembeddable chunks through first (preserving original list order below)
+        unembeddable_by_index = {c.index: c for c in chunks if not _needs_embedding(c)}
+        for chunk in unembeddable_by_index.values():
+            chunk.embedding = None
+
+        embeddable_chunks = [c for c in chunks if _needs_embedding(c)]
+
+        for i in range(0, len(embeddable_chunks), self.batch_size):
+            batch_chunks = embeddable_chunks[i:i + self.batch_size]
             batch_texts = [chunk.content for chunk in batch_chunks]
             
             try:
@@ -269,7 +295,6 @@ class EmbeddingGenerator:
                 
                 # Add embeddings to chunks
                 for chunk, embedding in zip(batch_chunks, embeddings):
-                    # Create a new chunk with embedding
                     embedded_chunk = DocumentChunk(
                         content=chunk.content,
                         index=chunk.index,
@@ -280,10 +305,9 @@ class EmbeddingGenerator:
                             "embedding_model": self.model,
                             "embedding_generated_at": datetime.now().isoformat()
                         },
+                        chunk_level=chunk.chunk_level,
                         token_count=chunk.token_count
                     )
-                    
-                    # Add embedding as a separate attribute
                     embedded_chunk.embedding = embedding
                     embedded_chunks.append(embedded_chunk)
                 
@@ -307,8 +331,14 @@ class EmbeddingGenerator:
                     chunk.embedding = None
                     embedded_chunks.append(chunk)
         
-        logger.info(f"Generated embeddings for {len(embedded_chunks)} chunks")
-        return embedded_chunks
+        # Merge embedded and unembeddable chunks back in original index order.
+        all_chunks = embedded_chunks + list(unembeddable_by_index.values())
+        all_chunks.sort(key=lambda c: c.index)
+
+        embedded_count = sum(1 for c in all_chunks if getattr(c, "embedding", None) is not None)
+        skipped_count = sum(1 for c in all_chunks if getattr(c, "embedding", None) is None)
+        logger.info(f"Embeddings done: {embedded_count} embedded, {skipped_count} skipped/failed (NULL)")
+        return all_chunks
     
     async def embed_query(self, query: str) -> List[float]:
         """

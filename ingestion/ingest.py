@@ -299,43 +299,16 @@ class DocumentIngestionPipeline:
         )
         entities_extracted = sum(len(c.metadata.get("entities", {})) for c in chunks)
         
-        # Extract LLM relationship triples BEFORE saving to PostgreSQL
-        # so they are included in the metadata JSON column
-        relationships_created = 0
-        all_triples = []
-        rel_counts = {}
-        
-        if not self.config.skip_graph_building:
-            logger.info("Extracting LLM relationship triples...")
-            for chunk in chunks:
-                triples = await self.graph_builder._extract_triples_with_llm(
-                    text=chunk.content,
-                    chunk_index=chunk.index,
-                    source=chunk.metadata.get("source", "")
-                )
-                
-                # Attach triples to chunk metadata so they are saved to PostgreSQL
-                chunk.metadata["relationships"] = triples
-                
-                for t in triples:
-                    t["source_document"] = document_title
-                    rel = t.get("relation", "OTHER")
-                    rel_counts[rel] = rel_counts.get(rel, 0) + 1
-                
-                all_triples.extend(triples)
-            
-            relationships_created = len(all_triples)
-            logger.info(f"Extracted {relationships_created} triples: {rel_counts}")
-        
         # Generate embeddings and save to PostgreSQL (unless skipping vector DB)
         document_id = ""
         embedded_chunks = chunks  # fallback for graph-only mode
-        
+
         if not self.config.skip_vector_db:
             embedded_chunks = await self.embedder.embed_chunks(chunks)
             logger.info(f"Generated embeddings for {len(embedded_chunks)} chunks")
-            
-            # Save to PostgreSQL (now includes relationships in metadata)
+
+            # Save to PostgreSQL — chunk_id UUIDs are written back into chunk.metadata
+            # by _save_to_postgres so build_relationship_graph can stamp cpg_chunk_id.
             document_id = await self._save_to_postgres(
                 document_title,
                 document_source,
@@ -346,32 +319,38 @@ class DocumentIngestionPipeline:
             logger.info(f"Saved document to PostgreSQL with ID: {document_id}")
         else:
             logger.info("Skipping PostgreSQL vector DB (skip_vector_db=True)")
-        
-        # Write triples to Neo4j + Graphiti knowledge graph
+
+        # Build knowledge graph via the correct parent-child-aware path:
+        #   build_relationship_graph handles subchunk windowing, before/after context
+        #   bands, h2/h3/h1_leaf filtering, dedup, Neo4j writes, and Graphiti episodes.
+        relationships_created = 0
         graph_errors = []
-        
+
         if not self.config.skip_graph_building:
             try:
-                logger.info("Writing triples to Neo4j and Graphiti...")
-                
-                # Write extracted triples to Neo4j as typed edges
-                if all_triples:
-                    await self.graph_builder._write_triples_to_neo4j(all_triples, document_title)
-                    logger.info(f"Wrote {len(all_triples)} triples to Neo4j")
-                
-                # Add to Graphiti knowledge graph
-                graph_result = await self.graph_builder.add_document_to_graph(
+                logger.info("Building relationship graph (subchunk windowing, Neo4j + Graphiti)...")
+                graph_result = await self.graph_builder.build_relationship_graph(
+                    chunks=embedded_chunks,
+                    document_title=document_title,
+                )
+                relationships_created = graph_result.get("total", 0)
+                graph_errors = graph_result.get("errors", [])
+                logger.info(
+                    f"Graph build complete: {relationships_created} triples written"
+                )
+
+                # Add to Graphiti knowledge graph (episodes for agentic retrieval)
+                graphiti_result = await self.graph_builder.add_document_to_graph(
                     chunks=embedded_chunks,
                     document_title=document_title,
                     document_source=document_source,
-                    document_metadata=document_metadata
+                    document_metadata=document_metadata,
                 )
-                
-                graph_errors = graph_result.get("errors", [])
-                logger.info(f"Added {graph_result.get('episodes_created', 0)} episodes to knowledge graph")
-                
+                graph_errors.extend(graphiti_result.get("errors", []))
+                logger.info(f"Added {graphiti_result.get('episodes_created', 0)} episodes to Graphiti")
+
             except Exception as e:
-                error_msg = f"Failed to add to knowledge graph: {str(e)}"
+                error_msg = f"Failed to build knowledge graph: {str(e)}"
                 logger.error(error_msg)
                 graph_errors.append(error_msg)
         else:
@@ -487,39 +466,12 @@ class DocumentIngestionPipeline:
             )
             entities_extracted = sum(len(c.metadata.get("entities", {})) for c in document_chunks)
             
-            # Extract LLM relationship triples BEFORE saving to PostgreSQL
-            # so they are included in the metadata JSON column
-            relationships_created = 0
-            all_triples = []
-            rel_counts = {}
-            
-            if not self.config.skip_graph_building:
-                logger.info("Extracting LLM relationship triples...")
-                for chunk in document_chunks:
-                    triples = await self.graph_builder._extract_triples_with_llm(
-                        text=chunk.content,
-                        chunk_index=chunk.index,
-                        source=chunk.metadata.get("source", "")
-                    )
-                    
-                    # Attach triples to chunk metadata so they are saved to PostgreSQL
-                    chunk.metadata["relationships"] = triples
-                    
-                    for t in triples:
-                        t["source_document"] = document_title
-                        rel = t.get("relation", "OTHER")
-                        rel_counts[rel] = rel_counts.get(rel, 0) + 1
-                    
-                    all_triples.extend(triples)
-                
-                relationships_created = len(all_triples)
-                logger.info(f"Extracted {relationships_created} triples: {rel_counts}")
-            
             # Generate embeddings
             embedded_chunks = await self.embedder.embed_chunks(document_chunks)
             logger.info(f"Generated embeddings for {len(embedded_chunks)} chunks")
-            
-            # Save to PostgreSQL with CPG metadata (now includes relationships)
+
+            # Save to PostgreSQL — chunk_id UUIDs are written back into chunk.metadata
+            # by _save_to_postgres so build_relationship_graph can stamp cpg_chunk_id.
             document_id = await self._save_to_postgres(
                 document_title,
                 document_source,
@@ -527,32 +479,37 @@ class DocumentIngestionPipeline:
                 embedded_chunks,
                 doc_metadata
             )
-            
             logger.info(f"Saved CPG document to PostgreSQL with ID: {document_id}")
-            
-            # Write triples to Neo4j + Graphiti knowledge graph
+
+            # Build knowledge graph via the correct parent-child-aware path:
+            #   build_relationship_graph handles subchunk windowing, before/after context
+            #   bands, h2/h3/h1_leaf filtering, dedup, Neo4j writes, and Graphiti episodes.
+            relationships_created = 0
             graph_errors = []
-            
+
             if not self.config.skip_graph_building:
                 try:
-                    # Write extracted triples to Neo4j as typed edges
-                    if all_triples:
-                        await self.graph_builder._write_triples_to_neo4j(all_triples, document_title)
-                        logger.info(f"Wrote {len(all_triples)} triples to Neo4j")
-                    
-                    # Add to Graphiti knowledge graph (episodes)
-                    graph_result = await self.graph_builder.add_document_to_graph(
+                    logger.info("Building relationship graph (subchunk windowing, Neo4j + Graphiti)...")
+                    graph_result = await self.graph_builder.build_relationship_graph(
+                        chunks=embedded_chunks,
+                        document_title=document_title,
+                    )
+                    relationships_created = graph_result.get("total", 0)
+                    graph_errors = graph_result.get("errors", [])
+                    logger.info(f"Graph build complete: {relationships_created} triples written")
+
+                    # Add to Graphiti knowledge graph (episodes for agentic retrieval)
+                    graphiti_result = await self.graph_builder.add_document_to_graph(
                         chunks=embedded_chunks,
                         document_title=document_title,
                         document_source=document_source,
-                        document_metadata=doc_metadata
+                        document_metadata=doc_metadata,
                     )
-                    
-                    graph_errors = graph_result.get("errors", [])
-                    logger.info(f"Added {graph_result.get('episodes_created', 0)} episodes to knowledge graph")
-                    
+                    graph_errors.extend(graphiti_result.get("errors", []))
+                    logger.info(f"Added {graphiti_result.get('episodes_created', 0)} episodes to Graphiti")
+
                 except Exception as e:
-                    error_msg = f"Failed to add to knowledge graph: {str(e)}"
+                    error_msg = f"Failed to build knowledge graph: {str(e)}"
                     logger.error(error_msg)
                     graph_errors.append(error_msg)
             

@@ -287,6 +287,12 @@ class MarkdownChunker:
             child_pos = 0  # tracks position inside h1_child_text
 
             for h2_doc in h2_docs:
+                # Skip preamble fragment — text before the first ## has no h2_title.
+                # It is already stored verbatim in the H1 parent row; emitting it
+                # again as a child would create a duplicate near-empty chunk.
+                if not h2_doc.metadata.get("h2_title"):
+                    continue
+
                 h2_text = h2_doc.page_content
 
                 # --- A-4: strip cross_ref markers from child embedding text ---

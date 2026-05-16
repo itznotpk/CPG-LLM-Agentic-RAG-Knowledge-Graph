@@ -208,3 +208,127 @@ Every remaining issue collapses into "code fixes (Steps 1–3) → wipe and re-i
 - KG triple quality / Graphiti episode reconciliation — covered in the existing `Phase_A_Step3_Performance_Pass.md` plan.
 - Retrieval-time scoring (hybrid weights, reranking) — depends on healthy embeddings being in place first.
 - DDx routing changes — see `DDx_Routing_Robustness_And_Exclusion_Rerank.md`.
+
+---
+
+## 6. Code fixes applied (2026-05-16)
+
+All code fixes below were applied in the session of 2026-05-16 **before** the re-ingest run. Steps 1–3 from the proposed fix plan are now complete. Step 5 (wipe + re-ingest) remains to be executed.
+
+### Fix A — Triple extraction routed through correct parent-child-aware path *(ingest.py)*
+
+**Root cause:** `_ingest_single_document` and `_ingest_cpg_pdf` both had their own manual triple extraction loop calling `_extract_triples_with_llm` directly on raw `chunk.content` — no subchunk windowing, no `before`/`after` context bands, no `cpg_chunk_id` linking, no h1/cap-split filtering.
+
+**Fix:** Removed the manual loop from both methods. Both now call `build_relationship_graph()` (which handles subchunk windowing, h2/h3/h1_leaf filtering, dedup, Neo4j writes) followed by `add_document_to_graph()` for Graphiti episodes. PostgreSQL save runs first so `chunk_id` UUIDs are available for `cpg_chunk_id` stamping.
+
+**Files:** [`ingestion/ingest.py`](../../ingestion/ingest.py)
+
+---
+
+### Fix B — `chunk_level` silently reset to `h1_leaf` in entity extraction *(graph_builder.py)*
+
+**Root cause:** `extract_entities_from_chunks` reconstructed every `DocumentChunk` without passing `chunk_level`, so every chunk — H1 parents, H2 children, H3 children — came out as `chunk_level='h1_leaf'` (the dataclass default). Downstream effect: `_save_to_postgres` saw no H1 chunks, `parent_uuid_by_index` was always empty, and every Pass 3 chunk got `parent_chunk_id = NULL`.
+
+**Fix:** Added `chunk_level=chunk.chunk_level` to the `DocumentChunk` constructor call inside `extract_entities_from_chunks`.
+
+**Files:** [`ingestion/graph_builder.py:349`](../../ingestion/graph_builder.py)
+
+---
+
+### Fix C — `chunk_level` silently reset to `h1_leaf` in embedder batch loop *(embedder.py)*
+
+**Root cause:** Same pattern as Fix B. The batch loop in `embed_chunks` reconstructed new `DocumentChunk` objects without forwarding `chunk_level`, so any chunk that passed through embedding lost its level.
+
+**Fix:** Added `chunk_level=chunk.chunk_level` to the `DocumentChunk` constructor in the batch loop.
+
+**Files:** [`ingestion/embedder.py`](../../ingestion/embedder.py)
+
+---
+
+### Fix D — H1 parents and cap-split H2s were being sent for embedding *(embedder.py)*
+
+**Root cause:** `embed_chunks` sent all chunks to the embedding API regardless of level. Because `chunk_level` was being reset to `h1_leaf` (Fix B/C), the `_needs_embedding` guard never saw any `h1` chunks — but the guard itself is now also correct for when levels are properly preserved.
+
+**Fix:**
+- Added `_needs_embedding()` guard: returns `False` for `chunk_level='h1'` and for cap-split `h2` (`metadata.cap_split=True`).
+- H1 and cap-split H2 chunks bypass the API entirely, get `embedding=None` immediately.
+- Bedrock batch path changed from concurrent `asyncio.gather` to sequential loop with `0.2s` delay (prevents ThrottlingException burst).
+- Empty/blank text returns `None` instead of a zero vector.
+- Unembeddable chunks merged back in original index order after batch loop.
+
+**Files:** [`ingestion/embedder.py`](../../ingestion/embedder.py)
+
+---
+
+### Fix E — Bedrock throttling produces zero vectors *(embedder.py)* *(Step 2 complete)*
+
+**Root cause:** `generate_embedding` only caught `openai.RateLimitError` for retry logic. `botocore.exceptions.ClientError` with `ThrottlingException` fell through to the generic `Exception` arm, exhausted retries, then the batch fallback wrote `[0.0] * 1536` zero vectors that polluted nearest-neighbour search.
+
+**Fix:**
+- `batch_size` capped at 5 when `provider == 'bedrock'` (already present, confirmed).
+- `ThrottlingException`, `TooManyRequestsException`, `ServiceUnavailableException` caught explicitly with exponential backoff + jitter: `min(60, retry_delay * 2**attempt + random.random())`.
+- On failure after all retries: `embedding=None` (not zero vector). Persistence stores `NULL`; retrieval filter `embedding IS NOT NULL` excludes it automatically.
+
+**Files:** [`ingestion/embedder.py`](../../ingestion/embedder.py)
+
+---
+
+### Fix F — UTF-8 strict read already in place *(ingest.py)* *(Step 1 complete)*
+
+**Verified:** `_read_document` already opens `.md` files with `encoding='utf-8', errors='strict'` (line 772). No change required. Mojibake issue (Issue 6) will not recur on re-ingest.
+
+---
+
+### Fix G — Preamble before first `##` emitted as duplicate H2 child *(chunker.py)*
+
+**Root cause:** LangChain's `MarkdownHeaderTextSplitter` returns text before the first `##` as an element with no `h2_title` metadata. This preamble (METADATA block, intro paragraph) was being emitted as an H2 child chunk — duplicating content already stored verbatim in the H1 parent row, and creating a near-empty retrievable chunk with no clinical heading.
+
+**Fix:** Added a guard at the top of the H2 loop: skip any `h2_doc` where `h2_doc.metadata.get("h2_title")` is empty. Preamble stays in the H1 parent only.
+
+**Files:** [`ingestion/chunker.py`](../../ingestion/chunker.py)
+
+---
+
+### Fix H — `match_chunks` and `hybrid_search` filtered on `chunk_level = 'h2'` only *(schema.sql)*
+
+**Root cause:** Both SQL functions had `AND c.chunk_level = 'h2'` in their WHERE clause — a remnant of the pre-chain-model design. After re-ingest produces `h3` and `h1_leaf` rows, those hits would be silently excluded from retrieval.
+
+**Fix:** Replaced `AND c.chunk_level = 'h2'` with `AND c.embedding IS NOT NULL` in both `match_chunks` and `hybrid_search`. This naturally covers `h2`, `h3`, `h1_leaf` and excludes unembedded `h1` and cap-split `h2` rows. Also updated `schema.sql` comment on `chunk_level` to include `'h3'`.
+
+**Files:** [`sql/schema.sql`](../../sql/schema.sql) — run the updated `CREATE OR REPLACE FUNCTION` blocks directly in NeonDB to apply.
+
+---
+
+### Fix I — Ingestion LLM routed to Xiaomi MiMo instead of Bedrock *(providers.py, .env)*
+
+**Root cause:** `.env` had `INGESTION_LLM_CHOICE=mimo-v2.5-pro` with no `INGESTION_LLM_PROVIDER`, so `get_ingestion_model()` fell through to `get_llm_model()` which used `LLM_BASE_URL=https://token-plan-sgp.xiaomimimo.com/v1`. Entity extraction and triple extraction during ingestion were hitting the Xiaomi API instead of Bedrock. Additionally, `_extract_triples_with_llm` in `graph_builder.py` hard-coded `BedrockConverseModel` directly instead of going through `get_ingestion_model()`.
+
+**Fix:**
+- `.env`: added `INGESTION_LLM_PROVIDER=bedrock`, set `INGESTION_LLM_CHOICE=us.anthropic.claude-haiku-4-5-20251001-v1:0`.
+- `providers.py`: `get_ingestion_model()` now checks `INGESTION_LLM_PROVIDER` first; returns `BedrockConverseModel(model_id)` when set to `bedrock`.
+- `graph_builder.py`: `_extract_triples_with_llm` now calls `get_ingestion_model()` instead of hard-coding `BedrockConverseModel`.
+
+**Provider routing after fix:**
+
+| Task | Provider | Model |
+|---|---|---|
+| Embeddings | AWS Bedrock | Titan v1 (`amazon.titan-embed-text-v1`) |
+| Entity extraction | AWS Bedrock | Claude Haiku (`claude-haiku-4-5-20251001-v1:0`) |
+| Triple extraction | AWS Bedrock | Claude Haiku (`claude-haiku-4-5-20251001-v1:0`) |
+| Main chat (Stage 4/5) | Xiaomi MiMo | `mimo-v2.5-pro` |
+
+**Files:** [`.env`](../../.env), [`agent/providers.py`](../../agent/providers.py), [`ingestion/graph_builder.py`](../../ingestion/graph_builder.py)
+
+---
+
+## 7. Remaining actions before re-ingest
+
+| Action | Status |
+|---|---|
+| Backup `chunks` + `documents` to `backups/chunks_pre_reingest_2026-05-16.sql` | Pending (file present but verify completeness) |
+| Backup Neo4j to `backups/kg_pre_reingest_2026-05-16.cypher` | Pending (file present but verify completeness) |
+| Run updated `match_chunks` + `hybrid_search` SQL in NeonDB | Pending — paste from `sql/schema.sql` |
+| `DELETE FROM chunks; DELETE FROM documents;` | Pending |
+| `MATCH (n) DETACH DELETE n` in Neo4j | Pending |
+| `python -m ingestion.ingest markdown/` — full corpus re-ingest | Pending |
+| Run Step 6 verification queries and paste results here | Pending |

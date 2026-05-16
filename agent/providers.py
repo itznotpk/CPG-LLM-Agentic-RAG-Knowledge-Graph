@@ -63,19 +63,25 @@ def get_embedding_model() -> str:
     return os.getenv('EMBEDDING_MODEL', 'text-embedding-3-small')
 
 
-def get_ingestion_model() -> OpenAIModel:
+def get_ingestion_model() -> OpenAIModel | BedrockConverseModel:
     """
-    Get ingestion-specific LLM model (can be faster/cheaper than main model).
-    
-    Returns:
-        Configured model for ingestion tasks
+    Get ingestion-specific LLM model (entity extraction, triple extraction).
+
+    Checks INGESTION_LLM_PROVIDER first so ingestion can use a different
+    provider (e.g. Bedrock) than the main chat LLM (e.g. Xiaomi/OpenRouter).
+    Falls back to the main LLM provider if not set.
     """
-    ingestion_choice = os.getenv('INGESTION_LLM_CHOICE')
-    
-    # If no specific ingestion model, use the main model
+    ingestion_provider = os.getenv('INGESTION_LLM_PROVIDER', '').lower()
+    ingestion_choice = os.getenv('INGESTION_LLM_CHOICE', '')
+
+    if ingestion_provider == 'bedrock':
+        model_id = ingestion_choice or os.getenv('BEDROCK_MODEL_ID', 'us.anthropic.claude-haiku-4-5-20251001-v1:0')
+        return BedrockConverseModel(model_id)
+
+    # No ingestion-specific provider — fall back to main LLM
     if not ingestion_choice:
         return get_llm_model()
-    
+
     return get_llm_model(model_choice=ingestion_choice)
 
 

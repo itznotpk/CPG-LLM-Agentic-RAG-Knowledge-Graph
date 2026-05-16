@@ -48,7 +48,7 @@ CREATE TABLE chunks (
 
     -- Hierarchical structure
     parent_chunk_id UUID REFERENCES chunks(id) ON DELETE SET NULL,
-    chunk_level TEXT NOT NULL DEFAULT 'h1_leaf',  -- 'h1' | 'h2' | 'h1_leaf'
+    chunk_level TEXT NOT NULL DEFAULT 'h1_leaf',  -- 'h1' | 'h2' | 'h3' | 'h1_leaf'
     start_char INTEGER,  -- child byte offset inside parent content
     end_char INTEGER
 );
@@ -86,7 +86,7 @@ CREATE TABLE messages (
 
 CREATE INDEX idx_messages_session_id ON messages (session_id, created_at);
 
--- Vector search function (returns h2 children only — h1 parents have no embedding)
+-- Vector search function (all embedded rows: h2, h3, h1_leaf — excludes h1 and cap-split h2)
 CREATE OR REPLACE FUNCTION match_chunks(
     query_embedding vector(1536),
     match_count INT DEFAULT 10
@@ -115,13 +115,12 @@ BEGIN
     FROM chunks c
     JOIN documents d ON c.document_id = d.id
     WHERE c.embedding IS NOT NULL
-      AND c.chunk_level = 'h2'
     ORDER BY c.embedding <=> query_embedding
     LIMIT match_count;
 END;
 $$;
 
--- Hybrid search function (h2 children only)
+-- Hybrid search function (all embedded rows: h2, h3, h1_leaf)
 CREATE OR REPLACE FUNCTION hybrid_search(
     query_embedding vector(1536),
     query_text TEXT,
@@ -155,7 +154,6 @@ BEGIN
         FROM chunks c
         JOIN documents d ON c.document_id = d.id
         WHERE c.embedding IS NOT NULL
-          AND c.chunk_level = 'h2'
     ),
     text_results AS (
         SELECT
@@ -169,7 +167,7 @@ BEGIN
         FROM chunks c
         JOIN documents d ON c.document_id = d.id
         WHERE to_tsvector('english', c.content) @@ plainto_tsquery('english', query_text)
-          AND c.chunk_level = 'h2'
+          AND c.embedding IS NOT NULL
     )
     SELECT 
         COALESCE(v.chunk_id, t.chunk_id) AS chunk_id,
