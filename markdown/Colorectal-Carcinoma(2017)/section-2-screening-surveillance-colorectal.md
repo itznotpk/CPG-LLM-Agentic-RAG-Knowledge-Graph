@@ -13,6 +13,15 @@ Average risk population is defined as population with no known risk for CRC. The
 
 [Level III; Level II-2; Level III] Depending on the method used, the following screening intervals for CRC among average risk population recommended by major guidelines are shown in the following Table 1: Screening Intervals for CRC Based on Methods.
 
+Table 1: Screening Intervals For Crc Based On Methods
+
+| Methodology | Minimum interval |
+|---|---|
+| Faecal occult blood | Yearly |
+| Stool DNA test | 3-yearly |
+| CT colonography | 5-yearly |
+| Colonoscopy | 10-yearly |
+
 The US Preventive Task Force recommends screening for CRC to start at the age of 50 years and continues until age 75 years. [Level III] The decision to screen for CRC in adults aged 76 to 85 years should be individualised, taking into account the patient's overall health and prior screening history.
 
 ## 2.2: Screening Modalities
@@ -78,6 +87,18 @@ Family history is a well-established risk factor for CRC. It is affected by firs
 **A. First-Degree Relatives (FDRs)**
 [Level III] Familial Relative Risk (FRR) of developing CRC increases with greater number of affected FDRs irrespective of second-degree relatives (SDRs) or third-degree relatives (TDRs) as shown in Table 2: Selected FRR Estimates for Probands Considering Only FDR Family History.
 
+Table 2: Selected Frr Estimates For Probands Considering Only Fdr Family History
+
+| No. of affected FDRs | FRR (95% CI) |
+|---|---|
+| 0 | 0.89 (0.87 to 0.91) |
+| 1 | 1.91 (1.82 to 2.00) |
+| ≥1 | 2.05 (1.96 to 2.14) |
+| 2 | 3.01 (2.66 to 3.38) |
+| 3 | 4.43 (3.24 to 5.90) |
+| 4 | 7.74 (3.71 to 14.24) |
+| 5 | 19.86 (7.26 to 43.24) |
+
 [Level III] Besides CRC, asymptomatic patients with one FDR of CRC have greater risk of developing pre-cancerous condition i.e. severely dysplastic lesions (OR=2.9, 95% CI 1.0 to 7.8).
 
 [Level II-2] Compared with those without family history, the relative risks (RR) for those with family history (≥1 affected FDRs) of CRC are:
@@ -86,6 +107,30 @@ Family history is a well-established risk factor for CRC. It is affected by firs
 
 **B. Frr Is Affected By FDRs When Combined With SDRs And TDRs**
 [Level III] Combination of a positive family history of FDRs, SDRs and TDRs significantly increases risk of CRC as shown in Table 3: Selected FRR for Probands with 0 or 1 Affected FDRs and Various Combinations of Affected SDRs and TDRs.
+
+Table 3: Selected Frr For Probands With 0 Or 1 Affected FDRs And Various Combinations Of Affected SDRs And TDRs
+
+| No. of affected FDRs | No. of affected SDRs | No. of affected TDRs | FRR (95% CI) |
+|---|---|---|---|
+| 0 | 0 | 0 | 0.83 (0.81 to 0.86) |
+| 0 | 0 | ≥3 | 1.08 (0.97 to 1.20) |
+| 0 | 1 | 2 | 1.33 (1.13 to 1.55) |
+| 0 | 1 | ≥3 | 1.21 (0.98 to 1.48) |
+| 0 | 2 | ≥3 | 1.48 (0.98 to 2.16) |
+| 0 | ≥3 | ≥3 | 1.02 (0.41 to 2.09) |
+| 1 | 0 | 0 | 1.76 (1.63 to 1.89) |
+| 1 | 0 | 2 | 1.90 (1.59 to 2.25) |
+| 1 | 0 | ≥3 | 2.10 (1.61 to 2.47) |
+| 1 | 1 | 0 | 1.88 (1.59 to 2.20) |
+| 1 | 1 | 2 | 2.50 (1.87 to 3.28) |
+| 1 | 1 | ≥3 | 3.28 (2.44 to 4.31) |
+| 1 | 2 | 0 | 2.37 (1.58 to 3.43) |
+| 1 | 2 | 1 | 1.98 (1.15 to 3.17) |
+| 1 | 2 | 2 | 2.70 (1.44 to 4.62) |
+| 1 | 2 | ≥3 | 2.38 (1.19 to 4.26) |
+| 1 | ≥3 | 0 | 2.79 (1.12 to 5.76) |
+| 1 | ≥3 | 2 | 5.32 (2.14 to 10.96) |
+| 1 | ≥3 | ≥3 | 5.20 (2.24 to 10.24) |
 
 Those with positive family history who were diagnosed at younger age have a higher risk of developing CRC with FRR of:
 - [Level II-2] 4.63 (95% CI 1.43 to 15.0) at age of diagnosis <45 years
@@ -98,6 +143,25 @@ Based on preceding evidences, those with family history of CRC can be categorise
 - Colonoscopy should be performed according to risk category*.
 
 *Refer to Table 4: Risk Categories for Family History with CRC.
+
+Table 4: Risk Categories For Family History With Crc
+
+| Category | Description | Screening recommendation |
+|---|---|---|
+| Category 1 Average risk | No family history and age >50 years | - Perform IFOBT (refer to Algorithm A: Screening for Colorectal Carcinoma). |
+|  |  | - [Level III] Stop screening at age 75. |
+| Category 2 Moderate risk | Family history of CRC either: | - FDR with CRC diagnosed at age <60 years, colonoscopy should be performed at age 40 or 10 years younger than affected relative (whichever is younger). If normal, repeat every 3-5 years. |
+|  | - ≥1 FDR | - FDR with CRC diagnosed at ≥60 years, colonoscopy should be performed at age 40 years. If normal, repeat every 10 years. |
+|  | - 1 FDR and >1 SDR | - [Level III] Stop screening at age 75. |
+|  | - >3 and one of them must be FDR |  |
+| Category 3 High risk | Family history of: | - For family history of CRC diagnosed at age <50 years, colonoscopy should be performed at age 40 or 10 years younger than affected relative (whichever is younger). If normal, repeat every 3-5 years. Stop screening at age 75. |
+|  | - CRC at age <50 years | - For hereditary colorectal cancer syndromes, refer to Table 5. |
+|  | - FAP |  |
+|  | - HNPCC (Lynch Syndrome) |  |
+|  | - Peutz-Jegher Syndrome |  |
+|  | - Juvenile polyposis |  |
+|  | - MAP |  |
+
 
 ### 2.3.2: Post-Adenomatous Polypectomy
 [Level III] Colonoscopy screening with removal of adenomas is an effective strategy in reducing CRC incidence and mortality. However, periodic surveillance with colonoscopy is necessary to identify recurrent adenomas after polypectomy.
@@ -178,75 +242,6 @@ Targeting genetic services for patients with a strong family history of cancer r
 *Refer to Hereditary Colorectal Cancer Syndromes.
 
 <!-- parent_only_reference_start -->
-Table 1: Screening Intervals For Crc Based On Methods
-
-| Methodology | Minimum interval |
-|---|---|
-| Faecal occult blood | Yearly |
-| Stool DNA test | 3-yearly |
-| CT colonography | 5-yearly |
-| Colonoscopy | 10-yearly |
-
----
-
-Table 2: Selected Frr Estimates For Probands Considering Only Fdr Family History
-
-| No. of affected FDRs | FRR (95% CI) |
-|---|---|
-| 0 | 0.89 (0.87 to 0.91) |
-| 1 | 1.91 (1.82 to 2.00) |
-| ≥1 | 2.05 (1.96 to 2.14) |
-| 2 | 3.01 (2.66 to 3.38) |
-| 3 | 4.43 (3.24 to 5.90) |
-| 4 | 7.74 (3.71 to 14.24) |
-| 5 | 19.86 (7.26 to 43.24) |
-
----
-Table 3: Selected Frr For Probands With 0 Or 1 Affected FDRs And Various Combinations Of Affected SDRs And TDRs
-
-| No. of affected FDRs | No. of affected SDRs | No. of affected TDRs | FRR (95% CI) |
-|---|---|---|---|
-| 0 | 0 | 0 | 0.83 (0.81 to 0.86) |
-| 0 | 0 | ≥3 | 1.08 (0.97 to 1.20) |
-| 0 | 1 | 2 | 1.33 (1.13 to 1.55) |
-| 0 | 1 | ≥3 | 1.21 (0.98 to 1.48) |
-| 0 | 2 | ≥3 | 1.48 (0.98 to 2.16) |
-| 0 | ≥3 | ≥3 | 1.02 (0.41 to 2.09) |
-| 1 | 0 | 0 | 1.76 (1.63 to 1.89) |
-| 1 | 0 | 2 | 1.90 (1.59 to 2.25) |
-| 1 | 0 | ≥3 | 2.10 (1.61 to 2.47) |
-| 1 | 1 | 0 | 1.88 (1.59 to 2.20) |
-| 1 | 1 | 2 | 2.50 (1.87 to 3.28) |
-| 1 | 1 | ≥3 | 3.28 (2.44 to 4.31) |
-| 1 | 2 | 0 | 2.37 (1.58 to 3.43) |
-| 1 | 2 | 1 | 1.98 (1.15 to 3.17) |
-| 1 | 2 | 2 | 2.70 (1.44 to 4.62) |
-| 1 | 2 | ≥3 | 2.38 (1.19 to 4.26) |
-| 1 | ≥3 | 0 | 2.79 (1.12 to 5.76) |
-| 1 | ≥3 | 2 | 5.32 (2.14 to 10.96) |
-| 1 | ≥3 | ≥3 | 5.20 (2.24 to 10.24) |
-
----
-
-Table 4: Risk Categories For Family History With Crc
-
-| Category | Description | Screening recommendation |
-|---|---|---|
-| Category 1 Average risk | No family history and age >50 years | - Perform IFOBT (refer to Algorithm A: Screening for Colorectal Carcinoma). |
-|  |  | - [Level III] Stop screening at age 75. |
-| Category 2 Moderate risk | Family history of CRC either: | - FDR with CRC diagnosed at age <60 years, colonoscopy should be performed at age 40 or 10 years younger than affected relative (whichever is younger). If normal, repeat every 3-5 years. |
-|  | - ≥1 FDR | - FDR with CRC diagnosed at ≥60 years, colonoscopy should be performed at age 40 years. If normal, repeat every 10 years. |
-|  | - 1 FDR and >1 SDR | - [Level III] Stop screening at age 75. |
-|  | - >3 and one of them must be FDR |  |
-| Category 3 High risk | Family history of: | - For family history of CRC diagnosed at age <50 years, colonoscopy should be performed at age 40 or 10 years younger than affected relative (whichever is younger). If normal, repeat every 3-5 years. Stop screening at age 75. |
-|  | - CRC at age <50 years | - For hereditary colorectal cancer syndromes, refer to Table 5. |
-|  | - FAP |  |
-|  | - HNPCC (Lynch Syndrome) |  |
-|  | - Peutz-Jegher Syndrome |  |
-|  | - Juvenile polyposis |  |
-|  | - MAP |  |
-
----
 Table 5: Hereditary Colorectal Cancer Syndromes Risk And Surveillance Of Crc
 
 | High risk condition | Risk (preferably life time risk) | Initial screening age | Surveillance procedures | Surveillance interval |
@@ -260,8 +255,8 @@ Table 5: Hereditary Colorectal Cancer Syndromes Risk And Surveillance Of Crc
 
 Algorithm A: Screening For Colorectal Carcinoma
 
-#### Step 1: Initial Assessment
-**ASSESS PATIENT FOR SYMPTOMS OF CRC\***
+**Step 1: Initial Assessment**
+ASSESS PATIENT FOR SYMPTOMS OF CRC\*
 
 ↓
 
@@ -269,9 +264,7 @@ Algorithm A: Screening For Colorectal Carcinoma
 * **YES:** → **REFER ALGORITHM B**
 * **NO:** → **STRATIFY RISK FOR FAMILY HISTORY**
 
----
-
-#### Step 2: Risk Stratification
+**Step 2: Risk Stratification**
 **STRATIFY RISK FOR FAMILY HISTORY**
 
 Categorize the patient into one of the following groups:
@@ -287,11 +280,9 @@ Categorize the patient into one of the following groups:
 **Pathway C: CATEGORY 3 - HIGH RISK\*\***
 * → **REFER FOR COLONOSCOPY**
 
----
+Algorithm B: Primary Care Referral For Symptoms Of Colorectal Carcinoma
 
-### Algorithm B: Primary Care Referral For Symptoms Of Colorectal Carcinoma
-
-#### Step 1: Initial Presentation
+**Step 1: Initial Presentation**
 **Presence of any of the following signs or symptoms:**
 * per rectal bleeding
 * mucoid stool
@@ -304,10 +295,9 @@ Categorize the patient into one of the following groups:
 * anaemia
 * palpable abdominal mass
 * palpable anorectal mass
-
 ↓
 
-#### Step 2: Clinical Assessment
+**Step 2: Clinical Assessment**
 **Focused history**
 * Age and sex
 * Rectal bleeding (colour)
@@ -324,8 +314,7 @@ Categorize the patient into one of the following groups:
 * Full blood count
 
 ↓
-
-#### Step 3: Referral Pathways
+**Step 3: Referral Pathways**
 **Pathway A: Urgent**
 **Criteria:**
 Unexplained rectal bleeding with ≥1 of the following:

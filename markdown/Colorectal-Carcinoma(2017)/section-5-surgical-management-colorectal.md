@@ -8,20 +8,20 @@ critical: true
 treatment_type: colectomy, TME, laparoscopic_surgery, stenting, ERAS
 -->
 
-> - The mainstay of treatment for CRC is surgical resection, which offers the best curative outcome. Chemotherapy and RT are used to downstage, as adjuvant therapy and for palliative purposes. The treatments for colon and rectal carcinoma are outlined in **Algorithm C: Treatment for Colon Carcinoma** and **Algorithm D: Treatment for Rectal Carcinoma**.
+> - The mainstay of treatment for CRC is surgical resection, which offers the best curative outcome. Chemotherapy and RT are used to downstage, as adjuvant therapy and for palliative purposes. The treatments for colon and rectal carcinoma are outlined in Algorithm C: Treatment for Colon Carcinoma and Algorithm D: Treatment for Rectal Carcinoma.
 
 ## 5.1: Pre-Operative Preparation
 Pre-operative preparation is important to reduce peri-operative morbidity and mortality.
 
-### A. Antibiotic Prophylaxis
+**A. Antibiotic Prophylaxis**
 [Level I] In a Cochrane systematic review, antibiotic prophylaxis reduced wound infections in colorectal surgery by 66% (RR=0.34, 95% CI 0.28 to 0.41). Combination of aerobic and anaerobic bacteria coverage showed better outcomes compared with the use of aerobic or anaerobic antibiotics alone. There was no difference in terms of duration of antibiotic prophylaxis.
 
-### B. Venous Thromboembolism (VTE) Prophylaxis
+**B. Venous Thromboembolism (VTE) Prophylaxis**
 [Level I] Colorectal surgery has a high risk of post-operative thromboembolic complications. Heparin significantly prevented deep vein thrombosis and/or pulmonary embolism (OR=0.32, 95% CI 0.02 to 0.53). There was no difference between unfractionated heparin and low molecular weight heparin in the outcomes (OR=1.01, 95% CI 0.67 to 1.52).
 
 [Level I] Combined prophylactic modalities (intermittent pneumatic compression and anticoagulants) reduced the incidence of VTE significantly by 61% to 84% when compared with single method.
 
-### C. Bowel Preparation
+**C. Bowel Preparation**
 [Level I] A Cochrane systematic review of 15 trials showed no significant difference between mechanical bowel preparation and no bowel preparation in terms of:
 - anastomotic leakage
 - peritonitis
@@ -33,7 +33,7 @@ Pre-operative preparation is important to reduce peri-operative morbidity and mo
 
 Even though there was no difference in post-operative complications between mechanical bowel preparation and no bowel preparation, consensus among RC and DG agreed that bowel preparation prior to rectal carcinoma surgery resulted in lesser morbidity.
 
-### Recommendation 8
+**Recommendation 8**
 - Patients undergoing colorectal carcinoma surgery should have:
   - antibiotic prophylaxis
   - venous thromboembolism prophylaxis
@@ -44,7 +44,7 @@ Even though there was no difference in post-operative complications between mech
 ## 5.2: Techniques In Colorectal Surgery
 Surgery in CRC involves en-bloc removal of the cancer with clear margins and its associated regional lymphatic drainage. The aim is to achieve complete resection (R0) of the cancer.
 
-### A. Colon Carcinoma
+**A. Colon Carcinoma**
 A thorough surgical exploration of the abdomen should be performed at the time of resection. This is to exclude any possible synchronous lesion, assess the extent of primary disease and if there are any distant metastases and to exclude any other coexisting pathology.
 
 [Level II-2] The extent of bowel resection for colon carcinoma depends on the site of the primary lesion, blood supply and lymphatics to the affected segment. Complete mesocolic excision and flush ligation of the colonic vessels has demonstrated reduced risk of local recurrence (6.5% vs 3.6%) and improved five-year survival rate (89.1% vs 82.1%) compared with earlier techniques.
@@ -53,7 +53,7 @@ A thorough surgical exploration of the abdomen should be performed at the time o
 
 [Level I] Synchronous colon carcinoma can be treated by two separate resections or subtotal colectomy.
 
-### B. Rectal Carcinoma
+**B. Rectal Carcinoma**
 [Level I] Survival in rectal cancer improves and complication rates decrease when credentialed surgeons are involved in the care of CRC patients. The surgeons are more likely to perform restorative procedures, leading to fewer permanent ostomies.
 
 [Level I] Treatment of rectal carcinoma is based on clinical disease stage. Patients with early stage disease are treated with primary surgery. Treatment of locally advanced disease requires a multidisciplinary approach which includes neoadjuvant RT or concurrent chemoradiotherapy (CCRT) followed by surgery.
@@ -74,7 +74,7 @@ A thorough surgical exploration of the abdomen should be performed at the time o
 
 Choice of procedure would depend largely upon the surgeon's preference and expertise. Options include - TEO (transanal endoscopic operation), TEMS (transanal endoscopic microsurgery), TAMIS (transanal minimally invasive surgery). Locally advanced rectal cancers with involvement of adjacent pelvic organs may require a multidisciplinary approach with a multivisceral resection such as pelvic exenteration.
 
-### C. Laparoscopic Surgery In Colorectal Carcinoma
+**C. Laparoscopic Surgery In Colorectal Carcinoma**
 [Level I] The same surgical principles applied in both open surgical resection and laparoscopy. Two Cochrane systematic reviews showed no significant difference in operative mortality or recurrence at primary site between laparoscopic and open colorectal resection.
 
 [Level I] Significant short-term benefits from laparoscopic procedures compared with conventional colorectal surgery were:
@@ -85,7 +85,7 @@ Choice of procedure would depend largely upon the surgeon's preference and exper
 
 > - Resection margins of CRC specimens must be tagged for orientation.
 
-### Recommendation 9
+**Recommendation 9**
 - A thorough surgical exploration should be performed at the time of resection in colorectal carcinoma.
 - Low rectal surgery should be performed by surgeons credentialed in the management of rectal carcinoma.
 - Total mesorectal excision should be performed for middle and low rectal carcinoma.
@@ -93,7 +93,7 @@ Choice of procedure would depend largely upon the surgeon's preference and exper
 
 ## 5.3: Surgical Treatment Of Metastatic Colorectal Carcinoma
 
-### A. Liver Metastases
+**A. Liver Metastases**
 [Level III] Treatment options for liver metastasis consist of hepatectomy, systemic chemotherapy, hepatic arterial infusion therapy and thermal coagulation therapy. Liver resection comprises of systematic and non-systematic (non-anatomical) resection.
 
 [Level I] A Cochrane systematic review on resection of colorectal liver metastases (CRLMs) showed insufficient high level evidence to support the effectiveness or otherwise of a single approach, either surgical or non-surgical, for the management of the condition. Liver resection however has been the mainstay of treatment of resectable colorectal liver metastases. Treatment should be individualised and guided by a team approach.
@@ -115,7 +115,7 @@ Choice of procedure would depend largely upon the surgeon's preference and exper
 
 [Level I] Selective internal radiation therapy (SIRT) has limited evidence to demonstrate improvement in clinical response rates, longer median time to liver progression and OS when used in combination with first-, second- or third-line chemotherapy as well as salvage treatment. Selection of patients should be based on a strict criteria.
 
-### B. Pulmonary Metastases
+**B. Pulmonary Metastases**
 [Level III] A systematic review of observational studies showed that resection of colorectal pulmonary metastases can be performed safely with a low mortality rate in selected patients. Overall five-year survival rate of patients with resection of colorectal pulmonary metastases ranged between 41% and 56%.
 
 [Level III] The following conditions should be considered for potentially curative resection of pulmonary colorectal metastases:
@@ -125,26 +125,26 @@ Choice of procedure would depend largely upon the surgeon's preference and exper
 - no extrathoracic metastases detected with the exception of resectable hepatic lesions
 - remaining lung function is adequate for good quality of life
 
-### C. Hepatopulmonary Metastases
+**C. Hepatopulmonary Metastases**
 [Level III] CRC patients presenting with simultaneous hepatic and pulmonary metastases without extrahepatic and extra-pulmonary disease should be offered curative resection if physiologically capable, and the primary cancer is controlled. The median survival is 54.2 months with a five-year survival rate of 43%.
 
-### Recommendation 10
+**Recommendation 10**
 - Treatment for metastatic colorectal carcinoma should be individualised and guided by a multidisciplinary approach.
 
 ## 5.4: Cancer-Related Emergencies
 [Level I] CRC complications such as bleeding, perforation and obstruction are serious and potentially life-threatening conditions. The aims of treatment for these conditions are to prevent sepsis and/or shock, to achieve the best possible cancer control and to allow initiation of appropriate adjuvant or systemic treatment.
 
-### A. Bleeding
+**A. Bleeding**
 [Level I] Surgical resection to stop bleeding from localised colon carcinoma should follow the same principles as in elective resection. Chronic blood loss is more common than acute massive lower gastrointestinal bleeding in this condition. Selective embolisation may play a role in controlling acute bleeding, but surgical resection is the definitive treatment. Pre-operative or intra-operative efforts should be made to localise the site of bleeding. If the bleeding site cannot be determined but a colonic cancer is suspected, a subtotal colectomy may be considered.
 
-### B. Perforation
+**B. Perforation**
 [Level I] The overall prognosis of colon perforation due to a colon carcinoma is worse than perforation from other causes due to its association with advanced cancer or sepsis. If perforation occurs:
 - proximal to an obstructing cancer, resection of the cancer should be performed whenever possible, in addition to resection of the perforated segment
 - at the cancer site but contained by adjacent structures, resection should ideally incorporate the adjacent structures en-bloc
 
 [Level I] Primary anastomosis (with/without proximal diversion) may be considered in patients with minimal contamination, healthy tissue quality and clinical stability.
 
-### C. Obstruction
+**C. Obstruction**
 [Level I] The management of patients with an obstructing cancer should be individualised but may include a definitive surgical resection. Options for treatment of obstructing cancer depend on the site of obstruction and presence of proximal colonic distention. It is either:
 - resection with/without anastomosis (e.g. right hemicolectomy, Hartmann's procedure, etc.)
 - resection of the distended bowel (e.g. subtotal/total colectomy)
@@ -156,16 +156,16 @@ Choice of procedure would depend largely upon the surgeon's preference and exper
 
 The prognosis among patients with obstructing cancers may be worse than among those without obstruction because of the inherently more advanced nature of their disease. However, this does not preclude the potential for curative resection.
 
-## Contextual Anchors (Overlapping)
+---
+<!-- parent_only_reference_start -->
+Algorithm C: Treatment For Colon Carcinoma
 
-### Algorithm C: Treatment For Colon Carcinoma
-
-#### Step 1: Initial Assessment
+**Step 1: Initial Assessment**
 **Determine disease stage**
 
 ↓
+**Step 2: Treatment Pathways Based On Staging**
 
-#### Step 2: Treatment Pathways Based On Staging
 **Pathway 1: T1-T2 N0 M0**
 * **Primary Treatment:** Surgery
 * **Follow-up:** → **SURVEILLANCE**
@@ -187,9 +187,7 @@ The prognosis among patients with obstructing cancers may be worse than among th
     * Palliative chemotherapy
     * Best supportive care
 
----
-
-#### 📝 Clinical Notes
+📝 Clinical Notes
 > **\*High risk features for stage II colon carcinoma are presence of any of the following:**
 > * obstruction
 > * perforation
@@ -199,16 +197,12 @@ The prognosis among patients with obstructing cancers may be worse than among th
 > * perineural invasion
 > * inadequate lymph node sampling (<12)
 
----
-
-### Algorithm D: Treatment For Rectal Carcinoma
-
-#### Step 1: Initial Assessment
+Algorithm D: Treatment For Rectal Carcinoma
+**Step 1: Initial Assessment**
 **Determine disease stage**
 
 ↓
-
-#### Step 2: Treatment Pathways Based On Staging
+**Step 2: Treatment Pathways Based On Staging**
 **Pathway 1: T1-T2 N0 M0**
 * **Primary Treatment:** Surgery
 * **Follow-up:** → **SURVEILLANCE**
@@ -225,9 +219,7 @@ The prognosis among patients with obstructing cancers may be worse than among th
   * Palliative chemotherapy
   * Best supportive care
 
----
-
-#### 📝 Clinical Notes & Abbreviations
+📝 Clinical Notes & Abbreviations
 > **\*High risk features for stage II rectal carcinoma are presence of any of the following:**
 > * obstruction
 > * perforation
@@ -239,7 +231,7 @@ The prognosis among patients with obstructing cancers may be worse than among th
 > * inadequate lymph node sampling (<12)
 > * incomplete mesorectum
 
-## Levels Of Evidence
+Levels
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -248,7 +240,7 @@ The prognosis among patients with obstructing cancers may be worse than among th
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | APR | Abdominoperineal resection |
@@ -270,3 +262,4 @@ The prognosis among patients with obstructing cancers may be worse than among th
 | TEMS | Transanal endoscopic microsurgery |
 | TME | Total mesorectal excision |
 | VTE | Venous thromboembolism |
+<!-- parent_only_reference_end -->
