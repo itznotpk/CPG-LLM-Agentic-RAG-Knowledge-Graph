@@ -6,6 +6,8 @@ patient_input: risk_factors, medication_history
 output: chemoprevention_recommendation, risk_reduction_strategy
 -->
 
+> **Context:** Chemoprevention of colorectal carcinoma in the general population (2017 Malaysian CPG). Key evidence nuance: aspirin is not significant for primary prevention but reduces CRC risk ~23–28% in secondary prevention; also covers NSAIDs, calcium, flavonoids, and dietary fibre.
+
 Acetylsalicylic acid (ASA) such as aspirin and non-steroidal anti-inflammatory drugs (NSAIDs) may have protective effect against CRC mainly due to reduction in prostaglandin production and induction of apoptosis.
 
 [Level I] Aspirin had mixed results in prevention of CRC in general population. [Level I] It was not significant in primary prevention but significant in secondary prevention with a reduction of 23 to 28% risk of CRC. [Level I] There was no difference in adverse events including serious ones between the treatment and control groups.
@@ -16,7 +18,6 @@ Even though aspirin and NSAIDs have shown some benefits in the prevention of CRC
 
 [Level I] There was no significant benefit from daily consumption of calcium, flavanoids or increased dietary fiber in prevention of CRC in general population.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

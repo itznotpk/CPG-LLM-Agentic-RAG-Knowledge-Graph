@@ -6,6 +6,8 @@ patient_input: tumour_characteristics, histopathology_findings
 output: staging_classification, reporting_proforma, evidence_search_strategy
 -->
 
+> **Context:** Reference appendices for the 2017 Malaysian Colorectal Carcinoma CPG: literature search strategy and clinical questions, radiological image examples, WHO 2010 classification with TNM 7th edition staging (Appendix 4), histopathology reporting proforma (Appendix 5), chemotherapy drug side-effects (Appendix 6), and indications for post-operative CCRT (Appendix 7). Operational reference tables — clinical rationale is in Sections 4–6.
+
 ## Appendix 1: Example Of Search Strategy
 The following search strategy was used (e.g., Medline via Ovid) to identify relevant literature:
 1. COLORECTAL CANCER/
@@ -57,7 +59,7 @@ Normal anatomy of rectum on MRI. The mesorectal fat has high signal intensity on
 
 Figure explanation: The MRI demonstrates the normal pelvic anatomy used for rectal cancer staging. The bladder, prostate, seminal vesicles, rectum, mesorectal fat and mesorectal fascia are identified. The key teaching point is that the mesorectal fascia appears as a thin low-signal line surrounding the high-signal mesorectal fat, and its relationship to tumour is important for assessing the potential circumferential resection margin.
 
-Figure 2: PET/CT Findings At Initial Diagnosis Of Crc
+Figure 2: PET/CT Findings At Initial Diagnosis Of CRC
 
 At initial diagnosis of CRC, sagittal (A) and coronal (B) PET/CT images indicate increased metabolic activity of malignant primary (arrows); transaxial CT (C) and PET/CT (D) images indicate synchronous bone and liver metastases (arrows), leading to change from curative resection to systemic chemotherapy; and transaxial CT (E) and PET/CT (F) images at another level indicate primary tumour. (Source: Buck AK, Herrmann K, Stargardt T, et al. Economic evaluation of PET and PET/CT in oncology: evidence and methodologic approaches. J Nucl Med Technol. 2010;38(1):6-17)
 
@@ -429,8 +431,7 @@ PMS2:
 | Leucovorin (LV)/calcium folinate/folinic acid | - Allergic reaction, rash, pruritus, erythema, urticarial, nausea, vomiting, pyrexia |  |
 | Oxaliplatin | - Gastrointestinal (nausea, vomiting, mucositis, diarrhoea, hiccup); - Blood (anaemia, thrombocytopaenia, neutropaenia); - Peripheral sensory neuropathy; - Pharyngolaryngeal dysesthesia (difficulty in breathing or swallowing seen shortly after drug infusion); - Liver (increase in transaminases, alkaline phosphatase); - Allergic reaction | - Prophylactic anti-emetics for moderate emetic risk should be given; - Allergic reactions: Monitor for development of rash, urticaria, erythema, pruritis, bronchospasm and hypotension; - Neuropathy: Reduce the dose or discontinue if necessary |
 
-**Sources:**
-
+Sources:
 - Xeloda(R) (capecitabine) [package insert]. South San Francisco, CA: Hoffman-La Roche, Inc; 2015.
 - Micromedex Solutions, Truven Health Analytics Inc. MIMS Gateway Service Portal (Available at http://www.mimsgateway.com/Malaysia/Online.as)
 - Camptosar(R) (irinotecan) [package insert]. New York, NY: Pfizer Inc; 2014.
@@ -460,5 +461,3 @@ Hand-foot syndrome = the palms of the hands and soles of the feet become dry, re
 |  | - If good quality smooth intact mesorectum |
 
 CRM = circumferential resection margin; LPLN = lateral pelvic lymph node; MRF = mesorectal fascia
-
-**Source:** Glynne-Jones R, Wyrwicz L, Tiret E, et al. Rectal cancer: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up. Ann Oncol. 2017;28(suppl_4):iv22-iv40.

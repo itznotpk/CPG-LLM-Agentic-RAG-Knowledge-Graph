@@ -8,13 +8,10 @@ critical: true
 treatment_type: conisation, trachelectomy, hysterectomy, radical_hysterectomy, PLND, CCRT, EBRT, brachytherapy, cisplatin, NAC
 -->
 
-- Patients' involvement in decision-making is essential in the management of cervical cancer.
-
 ## A. Primary Treatment
 Surgery is the preferred modality of treatment for early stage cervical cancer, if it is not contraindicated. [Level I] Similar survival outcomes have been reported in surgically treated early stage cervical cancer compared with RT. It also has the advantage of preserving coital and ovarian function in young patients.
 
 ### I. Surgery
-
 #### Fertility-Preserving Surgery
 [Level III] Cervical cancer is the third most common cancer in women younger than 40 years. Up to 42% of all cervical cancers are diagnosed in women before the age of 45 years, and up to 40% of early cervical cancers are diagnosed in young women who are potentially interested in a fertility-preserving surgery. [Level III] Therefore, simple and radical trachelectomy has been increasingly used.
 

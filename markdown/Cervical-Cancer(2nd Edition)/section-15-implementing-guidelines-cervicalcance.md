@@ -1,6 +1,6 @@
 # Section 15: Implementing The Guidelines
 <!-- METADATA
-category: Methodology
+category: Reference
 use_case: Guidelines Implementation — facilitators, barriers, resource_implications, clinical_audit_indicators
 patient_input:
 output: implementation_strategy, audit_indicators

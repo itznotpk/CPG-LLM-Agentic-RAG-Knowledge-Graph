@@ -6,6 +6,8 @@ patient_input: age, sex, ethnicity, symptoms
 output: disease_burden_context, CPG_rationale
 -->
 
+> **Context:** Introduction to the 2017 Malaysian Colorectal Carcinoma CPG. CRC is the 2nd most common cancer in Malaysia (~13.2%); most common presenting symptoms are altered bowel habit, blood in stool, abdominal pain, and weight loss. Epidemiological background, not clinical recommendations.
+
 [Level III] Colorectal carcinoma (CRC) is the second most common cancer in Malaysia (13.2%) as reported in Malaysian National Cancer Registry Report 2007-2011. According to National Cancer Patient Registry on Colorectal Cancer 2008-2013, the overall incidence rate for CRC was 21.3 cases per 100,000 population. Age-adjusted incidence rate was 1.33 times higher among male than female. The incidence was highest in Chinese followed by Malay and Indian. [Level III] Overall mortality rate was 9.8 cases per 100,000 population and age-adjusted mortality rate was 1.42 times higher in male than female.
 
 [Level III] The most common presenting symptoms of CRC are altered bowel habit (41.7%) followed by blood in stool (35.5%), abdominal pain (31.5%), weight loss (31.0%), anaemia (9.8%) and intestinal obstruction (9.3%).

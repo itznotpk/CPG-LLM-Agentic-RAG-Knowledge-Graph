@@ -6,6 +6,8 @@ patient_input: treatment_history, time_since_treatment, symptom_status, risk_lev
 output: follow_up_schedule, investigation_plan, recurrence_screening, lifestyle_recommendation
 -->
 
+> **Context:** Post-treatment surveillance for the 2017 Malaysian Colorectal Carcinoma CPG: recurrence-risk- and function-guided follow-up (highest yield in the first 2–4 years) using CEA monitoring, colonoscopy surveillance, and CT imaging.
+
 Surveillance should be guided by presumed risk of recurrence and functional status of the patient (important within the first two to four years). Any new, persistent or worsening symptoms warrant the consideration of a recurrence.
 
 > [Level III] Follow-up strategies in post-surgery and/or adjuvant treatment are:
@@ -24,7 +26,6 @@ Surveillance should be guided by presumed risk of recurrence and functional stat
 
 > - CRC survivors are encouraged to maintain an ideal body weight, participate in regular physical activity and consume a well-balanced diet.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |
