@@ -15,7 +15,6 @@ The primary cause of cervical cancer is infection with certain types of Human Pa
 - [Level II-2] Smoking
 - [Level II-2] Lower socioeconomic status
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

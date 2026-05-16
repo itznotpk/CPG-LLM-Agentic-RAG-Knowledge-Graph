@@ -30,11 +30,8 @@ DFS for cervical cancer significantly correlates with site of relapse, type of r
 
 Short-term hormone replacement therapy (HRT) does not appear to have an adverse effect on oncologic outcome in most gynecologic cancer survivors and improves quality of life (QOL). [Level II-2] The treatment appears to be safe although not as effective as HRT in the treatment of vasomotor symptoms, selective serotonin reuptake inhibitors (SSRIs) and alpha-2 adrenergic agonists are reasonable alternatives.
 
-**Recommendation 14**
-- After primary treatment, patients with cervical cancer may be followed  up every three months in the first year, four months in the second year, six months in the third to fifth year and annually thereafter.
-    - Physical examination including pelvic examination should b performed during follow-up.
+Recommendation 14: After primary treatment, patients with cervical cancer may be followed  up every three months in the first year, four months in the second year, six months in the third to fifth year and annually thereafter.Physical examination including pelvic examination should be performed during follow-up.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

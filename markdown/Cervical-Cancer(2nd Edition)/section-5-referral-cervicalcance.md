@@ -19,7 +19,6 @@ Table 1: Time Frame For Referral Of Abnormal Cytology To Gynaecology Clinic
 
 [Level III] Once diagnosed with cervical cancer, patients should receive definitive treatment within 31 days of agreeing to their care plan or within 62 days on the referral pathway.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

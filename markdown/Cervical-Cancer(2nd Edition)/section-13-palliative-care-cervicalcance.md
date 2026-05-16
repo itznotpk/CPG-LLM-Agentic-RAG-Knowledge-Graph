@@ -23,7 +23,7 @@ This chapter aims to address some common issues experienced by patients with adv
 
 - Appropriate symptom management in advanced cervical cancer can be complex and a clear understanding of prognosis is essential to guide assessment and subsequent management.
 
-## A. Pain
+## 13.1: Pain
 Principles of pain management are described in the Clinical Practice Guidelines for the Management of Cancer Pain by MoH.
 
 [Level III] Patients with advanced cervical cancer may experience complex neuropathic pain as a complication of RT or chemotherapy, or develop lumbar plexopathy from nerve infiltration.
@@ -32,7 +32,7 @@ Management of selected pain syndromes may benefit from specialist consultations 
 
 Malignant psoas syndrome refers to proximal lumbosacral plexopathy by painful fixed flexion of the ipsilateral hip, with radiological or pathological evidences of ipsilateral psoas major muscle malignant involvement. [Level III] Treatment options include opioids, agents for neuropathic pain, muscle relaxants to counter psoas muscle spasm, agents to reduce peritumoural oedema and anti-tumoural agents if suitable.
 
-## B. Malignant/Malodorous Wounds
+## 13.2: Malignant/Malodorous Wounds
 [Level III] Patients with malodorous malignant wounds often associate the condition with advance, progressing disease. This not only causes physical discomfort, but also significant psychological and social impact, and negatively affects the woman's body image and sense of worth.
 
 Malodorous discharges are generally caused by tissue breakdown from ulcerating necrotic tissue, erosion into a hollow viscous such as the bowel or urinary tract, and/or an added infection of the fluid. [Level III] Benign lesions such as pressure-related breakdown can also contribute to the malodour.
@@ -53,7 +53,7 @@ Surgical methods to manage malodour may include removal or debridement of necrot
 - octreotide and hyoscine butylbromide to reduce faecal loss from enterovaginal fistulae
 - suprapubic catheterisation for vesicovaginal fistulae
 
-## C. Fistulae
+## 13.3: Fistulae
 [Level III] The risk to develop vesicovaginal and/or rectovaginal fistulae is high (22 - 48%) after curative RT with or without chemotherapy in patients with FIGO stage IVA cervical cancer. [Level III] Fistula formation occurs between six and 48 months after RT, with possible serious complications occurring even after five years. [Level III] The routine use of EUA, cystoscopy and proctoscopy at the time of initial diagnosis helps in counseling women about the likelihood of this complication.
 
 [Level III] Appropriate radiological investigations are often needed to establish the fistula site and its complexity. Surgical interventions may include:
@@ -73,7 +73,7 @@ Patients with advance disease where non-surgical measures are more appropriate m
 - tampons and pads
 - low residue diet
 
-## D. Thrombosis And Haemorrhage
+## 13.4: Thrombosis and Haemorrhage
 [Level III] Venous thromboembolism (VTE) causes high mortality and morbidity in patients with cancer, and is the second most common cause of death after cancer progression.
 
 [Level III] The risk of thromboembolic events is up to seven times higher in cancer patients, with the incidence being highest in the first few months of diagnosis. Others at high risk are those with metastatic disease at the time of diagnosis and after tumour recurrence. [Level I] Cancer patients receiving anticoagulant treatment for VTE also showed a two to threefold increased risk of developing recurrent VTE.
@@ -92,12 +92,12 @@ Table 2: Mechanism Of VTE In Cancer Patients
 | Impaired fibrinolysis due to high PAI-1 | Immobility |
 | Acquired deficiencies of natural anticoagulants | |
 
-### Initial Management Of VTE
+### 13.4.1: Initial Management of VTE
 [Level I] For the initial management of VTE in cancer patients, low molecular weight heparin (LMWH) is superior to unfractionated heparin (UFH), with reduced risk of mortality (RR=0.71, 95% CI 0.52 to 0.98) and no significant difference in recurrent VTE events. [Level I] Among various LMWH regimes, once daily treatment is as safe and efficacious as twice daily treatment, and is more convenient for the patient.
 
 [Level I] A Cochrane systematic review showed fondaparinux was as safe and efficacious as UFH, and dalteparin as safe and efficacious as tinzaparin in the initial management of VTE in cancer patients.
 
-### Long-Term Management Of VTE
+### 13.4.2: Long-Term Management of VTE
 [Level I] For the long-term treatment of VTE in cancer patients, LMWH reduces recurrent VTE events (HR=0.47, 95% CI 0.32 to 0.71) but not death when compared with vitamin K antagonists (VKA).
 
 If VKA is the choice of long-term treatment, current Malaysian VTE guidelines recommend starting warfarin within 24 hours of diagnosis in combination with LMWH or fondaparinux. Treatment with LMWH is to be continued for five days or until International Normalised Ratio (INR) is above 2 for at least 24 hours, whichever is longer. Anticoagulation should be continued indefinitely or until cancer is resolved.
@@ -110,12 +110,12 @@ If VKA is the choice of long-term treatment, current Malaysian VTE guidelines re
 
 [Level I] Vena caval filter (VCF) usage for the prevention of pulmonary embolism increases risk of long-term lower limb DVT (HR=1.52, 95% CI 1.02 to 2.27) with no significant improvement in mortality or reduction in the rate of pulmonary embolism or DVT. Current Malaysian VTE guidelines list only two indications for the insertion of a VCF which are contraindication to anticoagulation and the presence of large free floating iliocaval thrombus.
 
-### Haemorrhage
+### 13.4.3: Haemorrhage
 [Level III] Patients with cervical cancer may suffer from bleeding problems due to advanced or metastatic disease. Chemotherapy causing thrombocytopaenia and myelosuppression, vitamin K deficiency and adverse drug effects are factors contributing to clotting and bleeding problems.
 
 [Level III] Palliative RT for cervical carcinoma results in complete cessation of vaginal bleeding in up to 45% of patients after the first radiation fraction. Other methods suggested to treat minor haemorrhage include fibrinolytic inhibitors such as oral or intravenous tranexamic acid.
 
-## E. Lymphoedema
+## 13.5: Lymphoedema
 [Level III] In patients with cervical cancer, 12.2% of them have a clinical diagnosis of lower limb lymphoedema. They are 3.5 times more likely to develop lower limb lymphoedema if they receive pelvic RT and have 3.3 times higher risk if pelvic lymph nodes are surgically removed. Lymph node metastases, infiltrative carcinoma and pressure from large tumours also contribute to secondary lymphoedema.
 
 Patients report a poor QOL due to pain, changes in lower limb sensation, appearance, restriction in activities and distress. [Level III] Those at risk of lymphoedema should be identified early, monitored and taught of self-care. Patients and carers should be offered information about lymphoedema, its prevention and management.
@@ -151,7 +151,7 @@ Severity of disease is classified into stages as described by the International 
 
 [Level III] Lymphoedema is best managed by specialist lymphoedema practitioners, usually physiotherapists, who are available at some healthcare settings.
 
-## F. Malignant Ureteric Obstruction
+## 13.6: Malignant Ureteric Obstruction
 [Level II-2] Obstructive renal failure occurs due to locally advanced cervical cancer. Patients may be asymptomatic, but may complain of pelvic pain or uraemic symptoms due to renal failure.
 
 [Level II-2] Treatment options are:
@@ -165,7 +165,7 @@ PN can be of clinical benefit for patients with performance status 1 - 3 (refer 
 
 Malignant ureteric obstruction indicates poor prognosis. Palliative surgical interventions may be inappropriate if patients are terminally ill with irreversible renal failure. The high morbidity associated with palliative diversion may impair QOL. [Level II-2] Treatment decisions should be based on clear discussions of options, prognosis, cost, complications and QOL, between patients and a multidisciplinary team.
 
-## G. Malignant Bowel Obstruction
+## 13.7: Malignant Bowel Obstruction
 [Level II-3] The incidence of malignant bowel obstruction (MBO) in gynaecologic cancer appears to be commonest in ovarian cancer (54.5%), followed by cervical or endometrial cancer (27.3%). Patients often have high morbidity due to symptoms such as abdominal pain, colic, nausea and vomiting, as well as from treatment such as surgery, nasogastric tube insertion and intravenous therapy.
 
 [Level III] Management of MBO should be tailored to the underlying aetiology, stage of disease and goals of care. Treatment options may include surgical management with corrective or non-corrective laparotomies, venting tubes and stent insertions, or medical management such as symptomatic relief with opioids, anti-emetics, anti-spasmodics, anti-secretory drugs and steroids.
@@ -174,14 +174,13 @@ Malignant ureteric obstruction indicates poor prognosis. Palliative surgical int
 
 [Level I] There are no clear recommendations for surgery in resolving symptoms of MBO in advanced gynaecologic cancer. [Level III] Consider medical management for patients with advanced stage cancer and a shorter time interval between cancer diagnosis and bowel obstructions.
 
-## H. End Of Life Care
+## 13.8: End of Life Care
 [Level III] The final phase of terminal illness can be the most challenging time for the patient, their carers and healthcare providers. Increased clinical vigilance on symptom control, psychosocial and spiritual distress is needed, along with sensitive communication and decision making. Those closely affected by a death should be offered bereavement, emotional and spiritual support appropriate to their needs and preferences.
 
 **Recommendation 18**
 - Patients with advanced cervical cancer should receive palliative care and be referred to a specialised palliative team if necessary.
 - Low molecular weight heparin should be used for the initial and long-term treatment of venous thromboembolism in cervical cancer, where available.
 
----
 <!-- parent_only_reference_start -->
 Appendix 7: Ecog Performance Status
 | Grade | ECOG |

@@ -34,6 +34,7 @@ The following MeSH terms or free text terms were used either singly or in combin
 22. 11 or 12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20 or 21
 23. 10 and 22
 24. limit 23 to (english and humans and last 10 years)
+
 ## Appendix 2: Clinical Questions
 1. Epidemiology/Risk factors/Clinical presentation
 - 1.1 What is the epidemiology of cervical cancer?
@@ -71,6 +72,7 @@ The following MeSH terms or free text terms were used either singly or in combin
 - 4.6 What are the effective and safe management of complications following treatment of cervical cancer?
 - 4.7 What are the effective and safe palliative care following treatment of cervical cancer?
 - 4.8 What are the effective psychosexual care and social support for patients and carers?
+
 ## Appendix 3: WHO Histological Classification Of Tumours Of The Uterine Cervix
 **Epithelial Tumours**
 **Squamous tumours and precursors**
@@ -176,9 +178,6 @@ The following MeSH terms or free text terms were used either singly or in combin
 1. Morphology code of the International Classification of Diseases for Oncology (ICD-O) {921} and the Systematized Nomenclature of Medicine (http://snomed.org). Behaviour is coded /0 for benign tumours, /2 for in situ carcinomas and grade 3 intraepithelial neoplasia, /3 for malignant tumours, and /1 for borderline or uncertain behaviour.
 2. Intraepithelial neoplasia does not have a generic code in ICD-O. ICD-O codes are only available for lesions categorized as squamous intraepithelial neoplasia grade 3 (e.g. cervical intraepithelial neoplasia 3) = 8077/2, squamous cell carcinoma in situ = 8070/2, glandular ntraepithelial neoplasia grade 3 = 8148/2 and adenocarcinoma in situ = 8140/2.
 
-Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumours of Female Reproductive Organs. Fourth Edition. Geneva, WHO. 2014; Chapter 5
-
-
 ## Appendix 4: Reporting Proforma For Cervical Cancer Excisional Cervical Biopsies/Hysterectomy Specimens
 **Macroscopic**
 *   **Specimen labelled as:** ____________________
@@ -280,6 +279,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Margin status of SMILE | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 
 *   **ANCILLARY TEST:** ____________________
+
 ## Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | Stage | Description |
 |---|---|
@@ -297,9 +297,6 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | IVB | Spread to distant organs. |
 
 The depth of invasion should not be more than 5mm taken from the base of epithelium, either surface or glandular, from which it originates. Vascular space invasion should not alter the staging.
-
-Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, and endometrium. Int J Gynaecol Obstet. 2009 May;105(2):103-4.
-
 
 ## Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 | Variable | Relative risk |
@@ -341,9 +338,6 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | No | 1.0 |
 | Yes | 1.7 |
 
-Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelines 2009. Sydney: NSW Department of Health; 2009
-
-
 ## Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
@@ -354,7 +348,6 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 | 4 | Completely disabled. Cannot carry on any self-care. Totally confined to bed or chair |
 | 5 | Dead |
 
-Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
 ## Appendix 8: Systemic Therapy Cancer Protocol
 **Cervical Cancer Chemotherapy**
 **Concurrent Chemo-Radiotherapy**
@@ -397,6 +390,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 *\*Carboplatin can be used if the patient is unable to tolerate cisplatin*
 
 **Source:** Ministry of Health & Ministry of Higher Education Malaysia. Systemic Therapy of Cancer 2nd Edition. Putrajaya: MoH & MoHE; 2008
+
 ## Appendix 9: Malaysian Hospice Directory
 **Pain Management And Palliative Care Service Providers**
 **Pain Clinics**
@@ -609,6 +603,7 @@ Email: info@hospismalaysia.org
 www.hospismalaysia.org
 
 **Source:** Malaysian Hospice Council (available at http://www.malaysianhospicecouncil.org)
+
 ## Appendix 10: International Society Of Lymphology (Isl) Lymphoedema Staging
 | Stage | Description |
 |---|---|
@@ -619,6 +614,7 @@ www.hospismalaysia.org
 | ISL Stage III | The tissue is hard (fibrotic) and pitting is absent. Skin changes such as thickening, hyperpigmentation, increased skin folds, fat deposits and warty overgrowth develop |
 
 Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. International Consensus. London: MEP Ltd; 2006
+
 ## Appendix 11: Distress Thermometer Screening Tool
 **Screening Tools For Measuring Distress**
 **Instructions:** First please circle the number (0-10) that best describes how much distress you have been experiencing in the past week including today.
@@ -665,6 +661,7 @@ Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. I
 **Other Problems:** _________________________________________________
 
 **Source:** Reproduced with permission from The NCCN 1.2010 Distress Management Clinical Practice Guidelines in Oncology. ©National Comprehensive Cancer Network, 2010. Available at: http://www.nccn.org.
+
 ## Appendix 12: Medication List
 | Chemotherapy Drug | Common side effects | Comments |
 |---|---|---|
