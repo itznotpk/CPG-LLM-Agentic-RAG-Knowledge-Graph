@@ -79,6 +79,11 @@ OVERLAP_BLOCK_PATTERN = re.compile(
     re.DOTALL
 )
 
+METADATA_BLOCK_PATTERN = re.compile(
+    r'<!--\s*METADATA\s*\n.*?\n\s*-->',
+    re.DOTALL | re.IGNORECASE
+)
+
 PARENT_ONLY_BLOCK_PATTERN = re.compile(
     r'<!--\s*parent_only_reference_start\s*-->'
     r'(.*?)'
@@ -224,6 +229,11 @@ class MarkdownChunker:
 
         # Strip overlap blocks (Grades/Levels/Abbreviations reference tables)
         stripped_content, overlap_blocks = self._strip_overlap_blocks(content)
+
+        # Strip <!-- METADATA ... --> blocks — already parsed into document metadata
+        # by _extract_document_metadata; keeping them in chunk text pollutes embeddings.
+        stripped_content = METADATA_BLOCK_PATTERN.sub("", stripped_content)
+        stripped_content = re.sub(r'\n{3,}', '\n\n', stripped_content).strip()
 
         # Pass 1 — split at H1
         h1_docs = self._h1_splitter.split_text(stripped_content)

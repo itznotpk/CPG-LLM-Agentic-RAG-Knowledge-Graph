@@ -258,12 +258,22 @@ class DocumentIngestionPipeline:
         
         logger.info(f"Processing document: {document_title}")
         
+        # Only propagate chunk-relevant metadata fields into chunk base_meta.
+        # Document-level fields (use_case, patient_input, output, line_count,
+        # word_count, file_path, file_size) stay in documents.metadata only —
+        # spreading them into every chunk pollutes embeddings and chunk metadata.
+        chunk_metadata = {
+            k: document_metadata[k]
+            for k in ("category", "cpg_name", "section_number")
+            if k in document_metadata
+        }
+
         # Chunk the document
         chunks = self.chunker.chunk_document(
             content=document_content,
             title=document_title,
             source=document_source,
-            metadata=document_metadata
+            metadata=chunk_metadata
         )
         
         if not chunks:
