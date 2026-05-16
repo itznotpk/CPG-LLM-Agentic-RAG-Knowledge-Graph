@@ -8,7 +8,7 @@ critical: true
 treatment_type: colectomy, TME, laparoscopic_surgery, stenting, ERAS
 -->
 
-> - The mainstay of treatment for CRC is surgical resection, which offers the best curative outcome. Chemotherapy and RT are used to downstage, as adjuvant therapy and for palliative purposes. The treatments for colon and rectal carcinoma are outlined in Algorithm C: Treatment for Colon Carcinoma and Algorithm D: Treatment for Rectal Carcinoma.
+The mainstay of treatment for CRC is surgical resection, which offers the best curative outcome. Chemotherapy and RT are used to downstage, as adjuvant therapy and for palliative purposes. The treatments for colon and rectal carcinoma are outlined in Algorithm C: Treatment for Colon Carcinoma and Algorithm D: Treatment for Rectal Carcinoma.
 
 ## 5.1: Pre-Operative Preparation
 Pre-operative preparation is important to reduce peri-operative morbidity and mortality.
@@ -156,7 +156,6 @@ Choice of procedure would depend largely upon the surgeon's preference and exper
 
 The prognosis among patients with obstructing cancers may be worse than among those without obstruction because of the inherently more advanced nature of their disease. However, this does not preclude the potential for curative resection.
 
----
 <!-- parent_only_reference_start -->
 Algorithm C: Treatment For Colon Carcinoma
 
@@ -187,7 +186,7 @@ Algorithm C: Treatment For Colon Carcinoma
     * Palliative chemotherapy
     * Best supportive care
 
-📝 Clinical Notes
+Clinical Notes
 > **\*High risk features for stage II colon carcinoma are presence of any of the following:**
 > * obstruction
 > * perforation
@@ -219,7 +218,7 @@ Algorithm D: Treatment For Rectal Carcinoma
   * Palliative chemotherapy
   * Best supportive care
 
-📝 Clinical Notes & Abbreviations
+Clinical Notes & Abbreviations
 > **\*High risk features for stage II rectal carcinoma are presence of any of the following:**
 > * obstruction
 > * perforation

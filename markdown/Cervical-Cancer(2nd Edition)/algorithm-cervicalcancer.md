@@ -7,6 +7,8 @@ output: treatment_pathway, surgical_approach, referral_decision
 critical: true
 -->
 
+> **Context:** Treatment decision flowcharts for the 2nd Edition Malaysian Cervical Cancer CPG, keyed to revised FIGO 2009 stage: assessment pathway, and stage-specific management for IA1, IA2, and IB1–IIA disease. Reference pathways — clinical detail and evidence are in Sections 7 (Staging) and 8 (Treatment).
+
 ## Algorithm 1: Assessment Of Cervical Cancer
 - **Histologically-confirmed cervical cancer**
   - Staging by a gynaecologist/gynae-oncologist
@@ -29,7 +31,6 @@ critical: true
       - Laboratory test as indicated
       - **Proceed to:** Stage III then Treatment
       - Stage II and Stage IV straight to Treatment
----
 
 ## Algorithm 2: Management Of Figo Stage Ia1
 - **FIGO Stage IA1**
@@ -46,8 +47,6 @@ critical: true
     - **No**
       - Simple / extrafascial hysterectomy
       - Follow-up
-
----
 
 ## Algorithm 3: Management Of Figo Stage Ia2
 - **FIGO Stage 1A2**
@@ -67,8 +66,6 @@ critical: true
     - **No**
       - Simple/ extrafascial hysterectomy + pelvic lymphadenectomy
       - Consider adjuvant if node positive
-
----
 
 ## Algorithm 4: Management Of Figo Stage Ib1 / Iia
 - **FIGO Stage IB1 / IIA1**

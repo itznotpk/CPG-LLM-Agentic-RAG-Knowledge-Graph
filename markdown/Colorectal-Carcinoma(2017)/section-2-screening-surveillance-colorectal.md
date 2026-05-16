@@ -13,8 +13,7 @@ Average risk population is defined as population with no known risk for CRC. The
 
 [Level III; Level II-2; Level III] Depending on the method used, the following screening intervals for CRC among average risk population recommended by major guidelines are shown in the following Table 1: Screening Intervals for CRC Based on Methods.
 
-Table 1: Screening Intervals For Crc Based On Methods
-
+Table 1: Screening Intervals For CRC Based On Methods
 | Methodology | Minimum interval |
 |---|---|
 | Faecal occult blood | Yearly |
@@ -80,7 +79,6 @@ The drawbacks of CTC include radiation exposure and the need for colonoscopy aft
 - If iFOBT is negative, yearly test should be performed.
 
 ## 2.3: Screening/Surveillance In Moderate And High Risk Groups
-
 ### 2.3.1: Family History
 Family history is a well-established risk factor for CRC. It is affected by first-, second- and third-degree relatives, and might include positive family history from both parents.
 
@@ -144,7 +142,7 @@ Based on preceding evidences, those with family history of CRC can be categorise
 
 *Refer to Table 4: Risk Categories for Family History with CRC.
 
-Table 4: Risk Categories For Family History With Crc
+Table 4: Risk Categories For Family History With CRC
 
 | Category | Description | Screening recommendation |
 |---|---|---|
@@ -161,7 +159,6 @@ Table 4: Risk Categories For Family History With Crc
 |  | - Peutz-Jegher Syndrome |  |
 |  | - Juvenile polyposis |  |
 |  | - MAP |  |
-
 
 ### 2.3.2: Post-Adenomatous Polypectomy
 [Level III] Colonoscopy screening with removal of adenomas is an effective strategy in reducing CRC incidence and mortality. However, periodic surveillance with colonoscopy is necessary to identify recurrent adenomas after polypectomy.
@@ -239,10 +236,10 @@ Targeting genetic services for patients with a strong family history of cancer r
 **Recommendation 5**
 - All individuals whose family history is suggestive of a hereditary colorectal cancer syndrome* should be referred to a clinical genetics service for genetic risk assessment, where accessible.
 
-*Refer to Hereditary Colorectal Cancer Syndromes.
+*Refer to Table 5: Hereditary Colorectal Cancer Syndromes.
 
 <!-- parent_only_reference_start -->
-Table 5: Hereditary Colorectal Cancer Syndromes Risk And Surveillance Of Crc
+Table 5: Hereditary Colorectal Cancer Syndromes Risk And Surveillance Of CRC
 
 | High risk condition | Risk (preferably life time risk) | Initial screening age | Surveillance procedures | Surveillance interval |
 |---|---|---|---|---|

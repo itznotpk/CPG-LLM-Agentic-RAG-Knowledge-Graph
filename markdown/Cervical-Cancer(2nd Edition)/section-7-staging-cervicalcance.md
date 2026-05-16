@@ -7,6 +7,8 @@ output: FIGO_stage, treatment_pathway, imaging_modality_recommendation
 critical: true
 -->
 
+> **Context:** Staging of cervical cancer (2nd Edition Malaysian CPG). Key rule: the **revised FIGO 2009** system is the standard used in Malaysia for all histological types (full criteria in Appendix 5); TNM is the alternative. Covers clinical and radiological (CT/MRI/PET-CT) staging.
+
 ## A. Clinical Staging
 Staging of cervical cancer plays an important role in determining further investigations and treatment as well as survival of patients. Hence, an adequate and appropriate staging is an integral part of management for these patients.
 

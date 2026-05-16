@@ -126,7 +126,6 @@ Palliative pelvic RT for symptomatic rectal carcinoma appears to provide relief 
     - Combination chemotherapy is the preferred regime.
     - Oral chemotherapy may be considered as an alternative.
 
----
 <!-- parent_only_reference_start -->
 Algorithm C: Treatment For Colon Carcinoma
 
@@ -157,7 +156,7 @@ Algorithm C: Treatment For Colon Carcinoma
     * Palliative chemotherapy
     * Best supportive care
 
-📝 Clinical Notes
+Clinical Notes
 > **\*High risk features for stage II colon carcinoma are presence of any of the following:**
 > * obstruction
 > * perforation
@@ -189,7 +188,7 @@ Algorithm D: Treatment For Rectal Carcinoma
   * Palliative chemotherapy
   * Best supportive care
 
-📝 Clinical Notes & Abbreviations
+Clinical Notes & Abbreviations
 > **\*High risk features for stage II rectal carcinoma are presence of any of the following:**
 > * obstruction
 > * perforation

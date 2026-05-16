@@ -6,6 +6,8 @@ patient_input: tumour_characteristics, histopathology_findings, FIGO_stage
 output: staging_classification, reporting_proforma, chemotherapy_protocol, referral_directory
 -->
 
+> **Context:** Reference appendices for the 2nd Edition Malaysian Cervical Cancer CPG: literature search strategy and clinical questions, WHO histological classification (Appendix 3), pathology reporting proforma (Appendix 4), revised FIGO 2009 staging (Appendix 5), modified Delgado prognostic risk scoring (Appendix 6), ECOG performance status, systemic therapy protocols, hospice directory, ISL lymphoedema staging, distress thermometer, and medication list. Operational reference tables — clinical rationale is in Sections 6–13.
+
 ## Appendix 1: Examples Of Search Strategy
 The following MeSH terms or free text terms were used either singly or in combination, search was limit to English, human and last 10 years:-
 
@@ -184,8 +186,6 @@ The following MeSH terms or free text terms were used either singly or in combin
 
 Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumours of Female Reproductive Organs. Fourth Edition. Geneva, WHO. 2014; Chapter 5
 
----
-
 ## Appendix 4: Reporting Proforma For Cervical Cancer Excisional Cervical Biopsies/Hysterectomy Specimens
 
 ### Macroscopic
@@ -314,8 +314,6 @@ The depth of invasion should not be more than 5mm taken from the base of epithel
 
 Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, and endometrium. Int J Gynaecol Obstet. 2009 May;105(2):103-4.
 
----
-
 ## Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 | Variable | Relative risk |
 |---|---|
@@ -358,8 +356,6 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 
 Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelines 2009. Sydney: NSW Department of Health; 2009
 
----
-
 ## Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
@@ -372,14 +368,9 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 
 Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
 
----
-
 ## Appendix 8: Systemic Therapy Cancer Protocol
-
 ### Cervical Cancer Chemotherapy
-
 ### Concurrent Chemo-Radiotherapy
-
 #### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|

@@ -37,7 +37,6 @@ x 100%
 
 Implementation strategies will be developed following the approval of the CPG by MoH which include Quick Reference and Training Module.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |

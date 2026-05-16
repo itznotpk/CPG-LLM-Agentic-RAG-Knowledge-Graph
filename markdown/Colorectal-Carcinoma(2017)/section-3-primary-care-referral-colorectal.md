@@ -7,12 +7,13 @@ output: referral_urgency, referral_pathway, colonoscopy_indication
 critical: true
 -->
 
+> **Context:** Primary-care recognition and referral pathway for the 2017 Malaysian Colorectal Carcinoma CPG. Key concern: most symptomatic CRC presents late, so this section defines symptom-based urgent vs elective referral and colonoscopy indication criteria.
+
 In Malaysia, CRC screening is done mainly in primary care. Most of the patients with symptomatic CRC often present at later stages of the disease. In an attempt to improve early detection of CRC, various
 efforts have been done to establish CRC screening programme in primary care setting.
 
 Therefore, one of the objectives of this CPG is to assist Family Medicine Specialists and other primary care providers in providing structured screening and referral programme according to the symptoms and risk stratification (refer to Algorithm A: Screening for colorectal carcinoma and Algorithm B: Primary Care Referral for Symptoms of Colorectal Carcinoma ).
 
----
 <!-- parent_only_reference_start -->
 Algorithm A: Screening For Colorectal Carcinoma
 
@@ -101,3 +102,4 @@ Abbreviations
 | CPG | Clinical practice guideline |
 | CRC | Colorectal carcinoma |
 | iFOBT | Immunochemical faecal occult blood test |
+<!-- parent_only_reference_end -->

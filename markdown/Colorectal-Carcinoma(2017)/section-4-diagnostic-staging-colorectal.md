@@ -6,6 +6,8 @@ patient_input: symptoms, imaging_findings, biopsy_results, tumour_location
 output: TNM_stage, CRM_status, histological_type, surgical_plan, staging_report
 -->
 
+> **Context:** Diagnostic investigations and staging for the 2017 Malaysian Colorectal Carcinoma CPG: colonoscopy (diagnostic standard), CT/MRI/PET-CT and endorectal ultrasound for staging, with TNM (7th edition, per Appendix 4) and circumferential resection margin (CRM) status driving the surgical plan.
+
 ## 4.1: Diagnostic Investigations
 **A. Colonoscopy**
 Complete endoscopic colonoscopy is required in all suspected CRC cases in order to detect synchronous lesion and obtain biopsy specimen.
@@ -87,6 +89,7 @@ PET-CT should not be used routinely for initial staging and surveillance. [Level
 ## 4.3: Histopathological Examination
 HPE of the resected colorectal specimen is essential for patient's management, including the estimation of post-operative outcome and the rationale for adjuvant therapy.
 
+### 4.3.1: Pathological Parameters and Reporting
 **A. Important Pathological Parameters**
 [Level III] Royal College of Pathologists Minimum Pathology Dataset identifies significant prognostic factors for 5-year survival in surgically resected CRC as follows:
 - local invasion
@@ -154,7 +157,6 @@ In view of the importance of high quality reporting of CRC resection specimen, P
   - standardised histopathology reporting proforma incorporating tumor-node-metastasis (TNM) staging system should be used
   - a minimum of 12 lymph nodes should be aimed for proper histopathological examination
 
----
 <!-- parent_only_reference_start -->
 Appendix 3: Radiological Images Of Colorectal Carcinoma
 Figure 1: Normal Anatomy Of Rectum On MRI
@@ -163,7 +165,7 @@ Normal anatomy of rectum on MRI. The mesorectal fat has high signal intensity on
 
 Figure explanation: The MRI demonstrates the normal pelvic anatomy used for rectal cancer staging. The bladder, prostate, seminal vesicles, rectum, mesorectal fat and mesorectal fascia are identified. The key teaching point is that the mesorectal fascia appears as a thin low-signal line surrounding the high-signal mesorectal fat, and its relationship to tumour is important for assessing the potential circumferential resection margin.
 
-Figure 2: PET/CT Findings At Initial Diagnosis Of Crc
+Figure 2: PET/CT Findings At Initial Diagnosis Of CRC
 
 At initial diagnosis of CRC, sagittal (A) and coronal (B) PET/CT images indicate increased metabolic activity of malignant primary (arrows); transaxial CT (C) and PET/CT (D) images indicate synchronous bone and liver metastases (arrows), leading to change from curative resection to systemic chemotherapy; and transaxial CT (E) and PET/CT (F) images at another level indicate primary tumour. (Source: Buck AK, Herrmann K, Stargardt T, et al. Economic evaluation of PET and PET/CT in oncology: evidence and methodologic approaches. J Nucl Med Technol. 2010;38(1):6-17)
 
