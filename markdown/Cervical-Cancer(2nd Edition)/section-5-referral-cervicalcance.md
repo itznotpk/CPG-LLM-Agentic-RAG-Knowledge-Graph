@@ -19,12 +19,14 @@ Table 1: Time Frame For Referral Of Abnormal Cytology To Gynaecology Clinic
 
 [Level III] Once diagnosed with cervical cancer, patients should receive definitive treatment within 31 days of agreeing to their care plan or within 62 days on the referral pathway.
 
-## Levels Of Evidence
+---
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AGC-H | Atypical glandular cells - hyperplasia |
@@ -34,3 +36,4 @@ Table 1: Time Frame For Referral Of Abnormal Cytology To Gynaecology Clinic
 | HSIL | High-grade squamous intraepithelial lesion |
 | LSIL | Low-grade squamous intraepithelial lesion |
 | MoH | Ministry of Health |
+<!-- parent_only_reference_end -->

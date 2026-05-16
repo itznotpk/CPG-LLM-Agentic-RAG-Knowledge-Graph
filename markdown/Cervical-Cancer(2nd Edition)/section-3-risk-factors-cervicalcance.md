@@ -15,7 +15,9 @@ The primary cause of cervical cancer is infection with certain types of Human Pa
 - [Level II-2] Smoking
 - [Level II-2] Lower socioeconomic status
 
-## Levels Of Evidence
+---
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -24,7 +26,8 @@ The primary cause of cervical cancer is infection with certain types of Human Pa
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | HPV | Human Papilloma Virus |
+<!-- parent_only_reference_end -->

@@ -10,7 +10,9 @@ Cervical cancer remains an important health issue among women in Malaysia. Despi
 
 The first edition of CPG on Management of Cervical Cancer was published in 2003. Many new development especially in the treatment of the condition has emerged which lead to variation in clinical practice. Based on these, the CPG have been updated using a systematic review methodology. It aims to guide healthcare providers on the evidence-based management of invasive cervical cancer in the Malaysian healthcare setting.
 
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CPG | Clinical practice guidelines |
+<!-- parent_only_reference_end -->

@@ -7,8 +7,7 @@ output: staging_classification, reporting_proforma, chemotherapy_protocol, refer
 -->
 
 ## Appendix 1: Examples Of Search Strategy
-The following MeSH terms or free text terms were used either singly or in combination, search was limit to English, human and last 10 years:-
-
+The following MeSH terms or free text terms were used either singly or in combination, search was limit to English, human and last 10 years:
 1. Uterine Cervical Neoplasms/
 2. (uterine cervical adj1 (cancer$ or neoplasm$ or carcinoma or tumo?r$ or malignanc$)).tw.
 3. (uterine cervix adj1 (cancer$ or neoplasm$ or carcinoma or tumo?r$ or malignanc$)).tw.
@@ -33,7 +32,6 @@ The following MeSH terms or free text terms were used either singly or in combin
 22. 11 or 12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20 or 21
 23. 10 and 22
 24. limit 23 to (english and humans and last 10 years)
-
 ## Appendix 2: Clinical Questions
 1. Epidemiology/Risk factors/Clinical presentation
 - 1.1 What is the epidemiology of cervical cancer?
@@ -71,12 +69,9 @@ The following MeSH terms or free text terms were used either singly or in combin
 - 4.6 What are the effective and safe management of complications following treatment of cervical cancer?
 - 4.7 What are the effective and safe palliative care following treatment of cervical cancer?
 - 4.8 What are the effective psychosexual care and social support for patients and carers?
-
 ## Appendix 3: WHO Histological Classification Of Tumours Of The Uterine Cervix
-
-### Epithelial Tumours
+**Epithelial Tumours**
 **Squamous tumours and precursors**
-
 | Tumour type | ICD-O Code |
 |---|---|
 | Squamous cell carcinoma, not otherwise specified | 8070/3 |
@@ -98,7 +93,6 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Fibroepithelial polyp | |
 
 **Glandular tumours and precursors**
-
 | Tumour type | ICD-O Code |
 |---|---|
 | Adenocarcinoma | 8140/3 |
@@ -120,7 +114,6 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Endocervical polyp | |
 
 **Other epithelial tumours**
-
 | Tumour type | ICD-O Code |
 |---|---|
 | Adenosquamous carcinoma | 8560/3 |
@@ -129,7 +122,6 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Adenoid basal carcinoma | 8098/3 |
 
 **Neuroendocrine tumours**
-
 | Tumour type | ICD-O Code |
 |---|---|
 | Carcinoid | 8240/3 |
@@ -138,7 +130,7 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Large cell neuroendocrine carcinoma | 8013/3 |
 | Undifferentiated carcinoma | 8020/3 |
 
-### Mesenchymal Tumours And Tumour-Like Conditions
+**Mesenchymal Tumours And Tumour-Like Conditions**
 | Tumour type | ICD-O Code |
 |---|---|
 | Leiomyosarcoma | 8890/3 |
@@ -152,7 +144,7 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Genital rhabdomyoma | 8905/0 |
 | Postoperative spindle cell nodule | |
 
-### Mixed Epithelial And Mesenchymal Tumours
+**Mixed Epithelial And Mesenchymal Tumours**
 | Tumour type | ICD-O Code |
 |---|---|
 | Carcinosarcoma (malignant mullerian mixed tumour; metaplastic carcinoma) | 8980/3 |
@@ -161,34 +153,30 @@ The following MeSH terms or free text terms were used either singly or in combin
 | Adenofibroma | 9013/0 |
 | Adenomyoma | 8932/0 |
 
-### Melanocytic Tumours
+**Melanocytic Tumours**
 | Tumour type | ICD-O Code |
 |---|---|
 | Malignant melanoma | 8720/3 |
 | Blue naevus | 8780/0 |
 
-### Miscellaneous Tumours - Tumours Of Germ Cell Type
+**Miscellaneous Tumours - Tumours Of Germ Cell Type**
 | Tumour type | ICD-O Code |
 |---|---|
 | Yolk sac tumour | 9071/3 |
 | Dermoid cyst | 9084/0 |
 | Mature cystic teratoma | 9080/0 |
 
-### Lymphoid And Haematopoetic Tumours
+**Lymphoid And Haematopoetic Tumours**
 - Malignant lymphoma (specify type)
 - Leukaemia (specify type)
 
-### Secondary Tumours
+**Secondary Tumours**
 1. Morphology code of the International Classification of Diseases for Oncology (ICD-O) {921} and the Systematized Nomenclature of Medicine (http://snomed.org). Behaviour is coded /0 for benign tumours, /2 for in situ carcinomas and grade 3 intraepithelial neoplasia, /3 for malignant tumours, and /1 for borderline or uncertain behaviour.
 2. Intraepithelial neoplasia does not have a generic code in ICD-O. ICD-O codes are only available for lesions categorized as squamous intraepithelial neoplasia grade 3 (e.g. cervical intraepithelial neoplasia 3) = 8077/2, squamous cell carcinoma in situ = 8070/2, glandular ntraepithelial neoplasia grade 3 = 8148/2 and adenocarcinoma in situ = 8140/2.
 
 Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumours of Female Reproductive Organs. Fourth Edition. Geneva, WHO. 2014; Chapter 5
-
----
-
 ## Appendix 4: Reporting Proforma For Cervical Cancer Excisional Cervical Biopsies/Hysterectomy Specimens
-
-### Macroscopic
+**Macroscopic**
 *   **Specimen labelled as:** ____________________
 *   **Type of procedure/specimen:**
     *   [ ] LLETZ
@@ -199,23 +187,20 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
     *   [ ] Radical Hysterectomy
 *   **Orientation markers:** [ ]
 *   **Specimen gross/external appearance:** ____________________
-
-### Specimen Measurements
+**Specimen Measurements**
 | Parameter | Value |
 |---|---|
 | Length of specimen | ______ mm |
 | Length of canal | ______ mm |
 | Ectocervix diameter (3-9 o’clock) | ______ mm |
 | Ectocervix diameter (6-12 o’clock) | ______ mm |
-
-### Uterine Dimension
+**Uterine Dimension**
 | Parameter | Value |
 |---|---|
 | Cervix-fundus | ______ mm |
 | Anterior-posterior | ______ mm |
 | Distance between cornu | ______ mm |
-
-### Adnexa
+**Adnexa**
 | Parameter | Status |
 |---|---|
 | Presence | [ ] Present [ ] Absent |
@@ -240,7 +225,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Macroscopic involvement of paracervix:** [ ] Yes [ ] No
 *   **Lymph nodes:** ____________________
 
-### Microscopic
+**Microscopic**
 *   **Tumour:**
     *   Multiple tumours: [ ] Present [ ] Absent
     *   Histological tumour type:
@@ -266,7 +251,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 *   **Associated CIN:** [ ] Absent [ ] Present (If present, describe grade and extension: ________)
 *   **Associated SMILE:** [ ] Absent [ ] Present (If present, describe extension: ________)
 
-### Extent
+**Extent**
 | Parameter | Finding |
 |---|---|
 | Lymphovascular invasion | [ ] Present [ ] Absent |
@@ -275,7 +260,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Vagina cuff | [ ] Involved [ ] Not Involved<br>(distance from excision margin: ______ mm) |
 | Involvement of other organs | [ ] Not Applicable [ ] No [ ] Yes<br>(Please specify: ________) |
 
-### Margin Status
+**Margin Status**
 | Parameter | Finding |
 |---|---|
 | Invasive tumour | |
@@ -283,7 +268,7 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Ectocervical margin | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 | Radial margin | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 
-### Non-Invasive Component
+**Non-Invasive Component**
 | Parameter | Finding |
 |---|---|
 | Margin status of AIS | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
@@ -291,9 +276,6 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 | Margin status of SMILE | [ ] Involved [ ] Not Involved (specify distance: ______ mm) |
 
 *   **ANCILLARY TEST:** ____________________
-
----
-
 ## Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | Stage | Description |
 |---|---|
@@ -313,9 +295,6 @@ Source: Kurman RJ, Carcangiu ML, Herrington CS et al. WHO Classification of Tumo
 The depth of invasion should not be more than 5mm taken from the base of epithelium, either surface or glandular, from which it originates. Vascular space invasion should not alter the staging.
 
 Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, and endometrium. Int J Gynaecol Obstet. 2009 May;105(2):103-4.
-
----
-
 ## Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 | Variable | Relative risk |
 |---|---|
@@ -357,9 +336,6 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 | Yes | 1.7 |
 
 Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelines 2009. Sydney: NSW Department of Health; 2009
-
----
-
 ## Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
@@ -371,46 +347,38 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 | 5 | Dead |
 
 Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
-
----
-
 ## Appendix 8: Systemic Therapy Cancer Protocol
-
-### Cervical Cancer Chemotherapy
-
-### Concurrent Chemo-Radiotherapy
-
-#### Single Agent Cisplatin
+**Cervical Cancer Chemotherapy**
+**Concurrent Chemo-Radiotherapy**
+**Single Agent Cisplatin**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 30 - 40 | IV | 1 hour | 1 |
 
 *N.B. In practice, 50 mg total dose per week of cisplatin could be used*
-
-### Palliative Chemotherapy
-
-#### Single Agent Cisplatin
+**Palliative Chemotherapy**
+**Single Agent Cisplatin**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 
-#### Cisplatin-5fu
+**Cisplatin-5fu**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 - 75 | IV | 1 hour | 1 |
 | 5Fluorouracil | 750 - 1000 | IV | 24 hour | 1 - 5 |
 
-#### Cisplatin-Mtx
+**Cisplatin-Mtx**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 | Methotrexate | 100 | IV | Bolus | 1 - 5 |
 
-#### Paclitaxel-Cisplatin
+**Paclitaxel-Cisplatin**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
@@ -420,14 +388,9 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 *\*Carboplatin can be used if the patient is unable to tolerate cisplatin*
 
 **Source:** Ministry of Health & Ministry of Higher Education Malaysia. Systemic Therapy of Cancer 2nd Edition. Putrajaya: MoH & MoHE; 2008
-
----
-
 ## Appendix 9: Malaysian Hospice Directory
-
-### Pain Management And Palliative Care Service Providers
-
-#### Pain Clinics
+**Pain Management And Palliative Care Service Providers**
+**Pain Clinics**
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -440,7 +403,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 | Pusat Perubatan Universiti Kebangsaan Malaysia, Kuala Lumpur | 603-91455555 | http://www.ppukm.ukm.my |
 | Hospital Universiti Sains Malaysia, Kelantan | 609-7663000 | http://www.hselayang.moh.gov.my |
 
-#### Palliative Care Units
+**Palliative Care Units**
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -463,9 +426,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 **Source:** Ministry of Health. Management of Cancer Pain. Putrajaya; MoH: 2010
 
----
-
-### Malaysian Hospice Directory
+**Malaysian Hospice Directory**
 **PERSATUAN HOSPICE ARK**
 No. 2, 2A, 2B Jalan Sutera Merah 3
 Taman Sutera, 81200, Johor Bahru, Johor
@@ -639,9 +600,6 @@ Email: info@hospismalaysia.org
 www.hospismalaysia.org
 
 **Source:** Malaysian Hospice Council (available at http://www.malaysianhospicecouncil.org)
-
----
-
 ## Appendix 10: International Society Of Lymphology (Isl) Lymphoedema Staging
 | Stage | Description |
 |---|---|
@@ -652,12 +610,8 @@ www.hospismalaysia.org
 | ISL Stage III | The tissue is hard (fibrotic) and pitting is absent. Skin changes such as thickening, hyperpigmentation, increased skin folds, fat deposits and warty overgrowth develop |
 
 Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. International Consensus. London: MEP Ltd; 2006
-
----
-
 ## Appendix 11: Distress Thermometer Screening Tool
-
-### Screening Tools For Measuring Distress
+**Screening Tools For Measuring Distress**
 **Instructions:** First please circle the number (0-10) that best describes how much distress you have been experiencing in the past week including today.
 
 **Distress Thermometer**
@@ -702,9 +656,6 @@ Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. I
 **Other Problems:** _________________________________________________
 
 **Source:** Reproduced with permission from The NCCN 1.2010 Distress Management Clinical Practice Guidelines in Oncology. ©National Comprehensive Cancer Network, 2010. Available at: http://www.nccn.org.
-
----
-
 ## Appendix 12: Medication List
 | Chemotherapy Drug | Common side effects | Comments |
 |---|---|---|

@@ -29,8 +29,6 @@ critical: true
       - Laboratory test as indicated
       - **Proceed to:** Stage III then Treatment
       - Stage II and Stage IV straight to Treatment
----
-
 ## Algorithm 2: Management Of Figo Stage Ia1
 - **FIGO Stage IA1**
   - **Fertility preservation required**
@@ -46,9 +44,6 @@ critical: true
     - **No**
       - Simple / extrafascial hysterectomy
       - Follow-up
-
----
-
 ## Algorithm 3: Management Of Figo Stage Ia2
 - **FIGO Stage 1A2**
   - **Fertility preservation required**
@@ -67,9 +62,6 @@ critical: true
     - **No**
       - Simple/ extrafascial hysterectomy + pelvic lymphadenectomy
       - Consider adjuvant if node positive
-
----
-
 ## Algorithm 4: Management Of Figo Stage Ib1 / Iia
 - **FIGO Stage IB1 / IIA1**
   - **Nodal involvement on imaging**

@@ -60,7 +60,7 @@ The following criteria can be used as a guide for choosing modality of surgery w
 
 - Intra-operative frozen section is preferred to assess surgical margins and suspicious nodes during simple and radical trachelectomy with pelvic lymph nodes dissection in fertility-preserving cervical cancer surgery.
 
-## Recommendation 3
+**Recommendation 3**
 - Women with early stage cervical cancer desiring fertility preservation is preferably managed by gynae-oncologists and the following may be offered:
   - FIGO stage IA1: cervical conisation without pelvic lymph node dissection (PLND)
   - FIGO stage IA2: cold knife cervical conisation with PLND
@@ -86,7 +86,7 @@ Controversy arises over the best primary management options for bulky tumour >4 
 
 [Level II-2] There is no significant difference in survival rate between SCC and AC in patients with confirmed metastasis on the removed ovaries (p>0.05).
 
-## Recommendation 4
+**Recommendation 4**
 - In women with early stage cervical cancer who do not require fertility preservation,
   - simple/extrafascial hysterectomy should be performed for FIGO stage IA1 cervical cancer.
   - simple/extrafascial hysterectomy with pelvic lymphadenectomy may be performed for FIGO stage IA2.
@@ -113,10 +113,10 @@ Systematic lymphadenectomy followed by histological assessment is the standard t
 
 [Level III] There is no significant difference in the detection rate of SN using either 99mTc or blue dye and also in the methods in identifying and retrieving SN (laparotomy versus laparoscopy). [Level III] Combined 99mTc and blue dye has a significantly higher SN detection rate compared to 99mTc or blue dye alone (97%, 88% and 84% respectively).
 
-## Recommendation 5
+**Recommendation 5**
 - Sentinel nodes detection may be considered to detect nodal metastasis in early stage cervical cancer where facilities are available.
 
-### Ii. Definitive Chemoradiotherapy/Radiotherapy
+### II. Definitive Chemoradiotherapy/Radiotherapy
 The role of definitive chemoradiotherapy in FIGO stage IB2 and above is well established. The treatment consists of external beam radiotherapy (EBRT) 45-50.4 Gray (Gy) in 25-28 fractions over five to six weeks concurrent with weekly cisplatin-based chemotherapy and brachytherapy. The recommended total tumour dose in 2 Gy per fraction radiobiologic equivalence to Point A is 80 to 90 Gy, depending on the initial stage of the disease.
 
 Earlier RCTs have shown that CCRT is superior to RT alone for LACC. This treatment has been the standard of care for LACC since 1999.
@@ -131,12 +131,11 @@ Intracavitary brachytherapy (ICBT) is an essential part of RT for cervical cance
 
 The treatment time (from first fraction of RT to the last fraction of RT or brachytherapy) should not be more than 56 days as this would adversely affect the local control rate. [Level II-1] However, this is not associated with distant failure or disease-specific mortality.
 
-## Recommendation 6
+**Recommendation 6**
 - Concurrent chemoradiotherapy should be given as the primary treatment in FIGO stage IB2 to IVA (locally advanced cervical cancer). The treatment time should not exceed eight weeks.
 - Intracavitary high dose rate or low dose rate brachytherapy should be given in locally advanced cervical cancer.
 
 ## B. Adjuvant Treatment
-
 ### I. Surgery
 The role of adjuvant post-radiation hysterectomy for patients with FIGO stage IB2 cervical cancer has been a source of controversy since this  combined approach was first advocated. It is suggested that these bulky  tumours and the associated tumour hypoxia was better addressed by  hysterectomy than by additional intra-cavitary radiation.
 
@@ -152,16 +151,16 @@ In a large RCT, adjuvant surgery with extrafascial hysterectomy after radiation 
 - 43% of patients treated with pelvic EBRT alone have died of disease recurrence, whereas none among adjuvant hysterectomy patients (p=0.152).
 - No patients develop late toxicity such as fistulae, wound dehiscence or bowel stenosis.
 
-## Recommendation 7
+**Recommendation 7**
 - Adjuvant surgery should not be routinely offered in cervical cancer.
 - Hysterectomy after primary radiation therapy may be offered as a salvage procedure in cervical cancer with bulky primary tumour >4 cm or post-treatment localised residual tumour.
 
-### Ii. Chemotherapy
+### II. Chemotherapy
 Adjuvant chemotherapy is chemotherapy given after primary treatment. In a multi-centered open label RCT, the addition of gemcitabine to standard CCRT, followed by adjuvant chemotherapy with gemcitabine and cisplatin improved OS (HR=0.68, 95%CI 0.49 to 0.95) and PFS (HR=0.68, 95% CI 0.49 to 0.95). The addition of gemcitabine increased grade 3/4 acute haematological (neutropenia) and non-haematological toxicities (vomiting and diarrhoea). When further analysed, the gemcitabine-related toxicities occurred mostly during the pre-adjuvant phase. [Level I] There was no difference in the incidence of late toxicities with or without gemcitabine.
 
 In view of the different regime used as primary treatment in the RCT, further studies are warranted before any recommendation can be made on adjuvant chemotherapy in cervical cancer.
 
-### Iii. Chemoradiotherapy/Radiotherapy
+### III. Chemoradiotherapy/Radiotherapy
 - [Level I] Pathological factors that increase the risk of recurrence for early cervical cancer following radical surgery:
   - positive lymph nodes
   - parametrial or vaginal margin involvement
@@ -181,7 +180,7 @@ Two meta-analyses have shown that chemoradiotherapy is more efficacious than RT 
 
 [Level I] Adjuvant RT alone reduces risk of local recurrence (HR=0.6, 95% CI 0.4 to 0.9) without improvement of OS in FIGO stage IB cervical cancer compared to no further treatment. Adverse events are not significantly increased.
 
-## Recommendation 8
+**Recommendation 8**
 - Adjuvant chemoradiotherapy should be considered in cervical cancer patients with high risk of recurrence* after radical surgery.
 - Patients with cervical cancer who are medically unfit for chemoradiotherapy may be offered adjuvant radiotherapy alone.
 
@@ -204,9 +203,9 @@ In one of the reviews, there was insufficient data for quantitative analysis on 
 
 - Neoadjuvant chemotherapy is not routinely recommended for patients in cervical cancer due to debatable evidence and the decision should be made at the discretion of treating gynae-oncologist/oncologist.
 
-## Contextual Anchors (Overlapping)
-
-### Appendix 5: Revised Figo Cervical Cancer Staging 2009
+---
+<!-- parent_only_reference_start -->
+Appendix 5: Revised Figo Cervical Cancer Staging 2009
 | Stage | Description |
 |---|---|
 | I | The carcinoma is strictly confined to the cervix (extension to the uterus corpus should be disregarded). |
@@ -226,9 +225,7 @@ The depth of invasion should not be more than 5mm taken from the base of epithel
 
 Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, and endometrium. Int J Gynaecol Obstet. 2009 May;105(2):103-4.
 
----
-
-### Appendix 6: Modified Delgado's Prognostic Risk Scoring System
+Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 | Variable | Relative risk |
 |---|---|
 | Depth of tumour penetration (mm) - Superficial | |
@@ -270,9 +267,7 @@ Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, an
 
 Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelines 2009. Sydney: NSW Department of Health; 2009
 
----
-
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -281,7 +276,7 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AC | Adenocarcinoma |
@@ -316,3 +311,4 @@ Source: Greater Metropolitan Clinical Task force. Gynaecological Cancer Guidelin
 | SCC | Squamous cell carcinoma |
 | SN | Sentinel nodes |
 | TVS | Transvaginal ultrasound |
+<!-- parent_only_reference_end -->

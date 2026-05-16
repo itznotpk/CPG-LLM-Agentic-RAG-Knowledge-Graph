@@ -22,7 +22,9 @@ The symptoms associated with cervical cancer are commonly encountered at primary
 
 [Level III] Based on the Malaysian National Cancer Statistics 2007, 21% of cervical cancer patients presented at stage I, 34.7% at stage II, 25.6% at stage III and 18.7% at stage IV.
 
-## Levels Of Evidence
+---
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -31,7 +33,7 @@ The symptoms associated with cervical cancer are commonly encountered at primary
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AGC-H | Atypical glandular cells - hyperplasia |
@@ -42,3 +44,4 @@ The symptoms associated with cervical cancer are commonly encountered at primary
 | LSIL | Low-grade squamous intraepithelial lesion |
 | PCB | Postcoital bleeding |
 | PPV | Positive predictive value |
+<!-- parent_only_reference_end -->
