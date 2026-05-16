@@ -20,10 +20,7 @@ A significant number of patients, especially women, diabetics and the elderly, p
 In patients with these presentation(s) and with a prior history of coronary artery disease (CAD), a family history of premature CVD, diabetes and other cardiovascular risk factors, the index of suspicion of ACS should be high. Prior history of diabetes and renal disease will influence management.
 
 ## 4.2: Physical Examination
-The objective of the physical examination is to identify:
-- possible causes,
-- precipitating causes and
-- consequences of UA/NSTEMI
+The objective of the physical examination is to identify possible causes, precipitating causes and consequences of UA/NSTEMI.
 
 Uncontrolled hypertension, anaemia, thyrotoxicosis, severe aortic stenosis, hypertrophic cardiomyopathy and other co-morbid conditions such as lung disease should be identified.
 Presence of left ventricular failure (hypotension, respiratory crackles or S3 gallop) and arrhythmias carry a poor prognosis. Carotid bruits or peripheral vascular disease indicates extensive atherosclerosis and a higher likelihood of concomitant CAD.
@@ -55,9 +52,7 @@ All patients with NSTEMI have raised troponins; however, the CKMB may be normal 
 Myoglobin is not cardiac specific. It can be detected as early as 2 hours after the onset of chest pain. A negative test within 4-8 hours of chest pain is useful in ruling out myocardial necrosis (infarction). It should not however be used as the only biomarker to identify patients with NSTEMI.
 
 Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
-
 *(Tabular translation of the temporal profile of cardiac biomarker concentrations relative to their Upper Limit of Reference Range [ULRR] over 14 days post-infarction.)*
-
 | Biomarker | Initial Elevation | Peak Concentration | Duration of Elevation | Peak Magnitude (approx.) |
 |---|---|---|---|---|
 | Myoglobin | Rapid (1–4 h) | 12 hours (< 1 day) | 1–2 days | ~20x ULRR |
@@ -70,12 +65,12 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 ## 4.5: Other Diagnostic Modalities
 [Grade II-a, Level B] Echocardiogram: LV systolic function is an important prognostic indicator in patients with UA/NSTEMI. Transient reversible regional wall motion abnormalities may be detected during ischemia.
 
-## Key Messages
 - The diagnosis of UA/NSTEMI is based on history + dynamic ECG changes (without persistent ST elevation), + raised cardiac biomarkers.
 - In UA cardiac biomarkers are normal while in NSTEMI it is elevated.
 - [Grade I, Level A] A raised troponin level has diagnostic and prognostic significance.
 
-## Grades Of Recommendation And Levels Of Evidence
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -84,13 +79,14 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 | II-b | Usefulness/efficacy is less well established by evidence/opinion |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses |
 | B | Data derived from a single randomized clinical trial or large non randomized studies |
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -109,11 +105,8 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 | UA | Unstable Angina |
 | ULRR | Upper Limit of Reference Range |
 
-<!-- OVERLAP CONTENT -->
-
-## Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischaemic Heart Disease
-
-### Damage Related To Secondary Myocardial Ischaemia (MI Type 2)
+Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischaemic Heart Disease
+Damage Related To Secondary Myocardial Ischaemia (MI Type 2)
 * Tachy- or bradyarrhythmias
 * Aortic dissection and severe aortic valve disease
 * Hypo- or hypertension, e.g. haemorrhagic shock, hypertensive emergency
@@ -122,7 +115,7 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 * Coronary vasculitis, e.g. systemic lupus erythematosus, Kawasaki syndrome
 * Coronary endothelial dysfunction without significant CAD, e.g. cocaine abuse
 
-### Damage Not Related To Myocardial Ischaemia
+Damage Not Related To Myocardial Ischaemia
 * Cardiac contusion
 * Cardiac incisions with surgery
 * Radiofrequency or cryoablation therapy
@@ -131,7 +124,7 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 * Cardiotoxic agents, e.g. anthracyclines, herceptin, carbon monoxide poisoning
 * Severe burns affecting >30% of body surface
 
-### Indeterminant Or Multifactorial Group
+Indeterminant Or Multifactorial Group
 * Apical ballooning syndrome
 * Severe pulmonary embolism or pulmonary hypertension
 * Peripartum cardiomyopathy
@@ -142,5 +135,4 @@ Figure 3: Time Course Of Elevation Of Serum Cardiac Biomarkers In ACS
 * Sepsis
 * Acute respiratory failure
 * Frequent defibrillator shocks
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

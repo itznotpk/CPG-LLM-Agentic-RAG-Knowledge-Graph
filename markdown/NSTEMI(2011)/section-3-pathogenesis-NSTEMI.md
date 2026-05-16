@@ -1,5 +1,4 @@
-# SECTION 3: PATHOGENESIS
-
+# Section 3: Pathogenesis
 <!-- METADATA
 category: Pathophysiology
 use_case: ACS Pathogenesis — plaque_rupture, thrombosis, coronary_vasospasm, primary_vs_secondary_UA
@@ -20,10 +19,8 @@ Occasionally UA/NSTEMI is secondary to a precipitating condition, which is extri
 
 Secondary UA/NSTEMI is an important cause of ACS in the elderly.
 
-<!-- OVERLAP CONTENT -->
-
-## Abbreviations
-
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | **ACS** | Acute Coronary Syndrome |
@@ -31,5 +28,4 @@ Secondary UA/NSTEMI is an important cause of ACS in the elderly.
 | **STEMI** | ST Elevation Myocardial Infarction |
 | **UA** | Unstable Angina |
 | **UA/NSTEMI** | Unstable Angina/Non ST Elevation Myocardial Infarction |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

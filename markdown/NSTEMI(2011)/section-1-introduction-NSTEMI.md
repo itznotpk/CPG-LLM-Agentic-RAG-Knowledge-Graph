@@ -12,9 +12,8 @@ Cardiovascular Disease (CVD) is one of the main causes of mortality and morbidit
 
 The last CPG on UA/NSTEMI was published in 2002. Since then, there have been significant advances in the management of this important condition. Thus, it is timely to update this CPG to keep abreast with contemporary evidenced based state of the art management of this condition.
 
-<!-- OVERLAP CONTENT -->
-
-## Abbreviations
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -24,5 +23,4 @@ The last CPG on UA/NSTEMI was published in 2002. Since then, there have been sig
 | NSTEMI | Non ST Elevation Myocardial Infarction |
 | UA | Unstable Angina |
 | UA/NSTEMI | Unstable Angina/Non ST Elevation Myocardial Infarction |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

@@ -38,15 +38,12 @@ Hemorrhagic complications are an independent risk factor for subsequent mortalit
 
 These scores are calculated based on age, clinical status and hemodynamics at presentation, serum creatinine and hematocrit level and the use and combinations of antiplatelets and anticoagulants.
 
-## Key Messages
 [Grade I, Level A] Risk stratification is important for prognosis and to guide management.
 
-<!-- OVERLAP CONTENT -->
-
-## Flowchart 1: Risk Stratification Of UA/NSTEMI
+<!-- parent_only_reference_start -->
+Flowchart 1: Risk Stratification Of UA/NSTEMI
 **[ PATHWAY A: LOW RISK ]**
-
-**1. Clinical Profile Assessment:**
+1. Clinical Profile Assessment:
 * no angina in the past
 * no ongoing angina
 * no prior use of antianginal therapy
@@ -57,16 +54,13 @@ These scores are calculated based on age, clinical status and hemodynamics at pr
 
 *(If criteria met, proceed to Management Strategy)* &rarr;
 
-**2. Management Strategy:**
+2. Management Strategy:
 * Medical therapy*
   *(Includes aspirin &plusmn; &beta;-blockers &plusmn; GTN)*
 * Risk stratify as outpatient (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 
-***
-
 **[ PATHWAY B: INTERMEDIATE / HIGH RISK ]**
-
-**1. Clinical Profile Assessment:**
+1. Clinical Profile Assessment:
 * Patients with recurrent chest pain
 * Early post infarction unstable angina
 * Dynamic ST-segment changes
@@ -78,7 +72,7 @@ These scores are calculated based on age, clinical status and hemodynamics at pr
 
 *(If criteria met, proceed to Medical Management)* &rarr;
 
-**2. Medical Management Strategy:**
+2. Medical Management Strategy:
 This includes (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI):
 * Aspirin
 * Clopidogrel or ticagrelor (or prasugrel after coronary angiography)
@@ -91,11 +85,43 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 
 *(Following stabilization, proceed to Revascularization)* &rarr;
 
-**3. Revascularization Strategy:**
+3. Revascularization Strategy:
 * Coronary Angiography and Revascularization*
   *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
 
-## Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
+**[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
+1. Evaluate ECG and Exercise Tolerance:
+* **Pathway A:** Normal ECG, Good Exercise Tolerance
+  *(Proceed to Exercise Stress Test)* &rarr;
+* **Pathway B:** Abnormal ECG, Limited exercise tolerance
+  *(Proceed to Imaging Stress Test)* &rarr;
+
+**[ PATHWAY A: EXERCISE STRESS TEST ]**
+
+Perform Exercise stress test:
+* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
+* If **Positive** &rarr; Proceed to *Coronary Angiogram*
+* If **Equivocal** &rarr; Proceed to *Pathway B: Imaging Stress Test*
+
+**[ PATHWAY B: IMAGING STRESS TEST ]**
+
+Perform Exercise/Dobutamine Stress Echocardiogram or Radionuclear Perfusion Scan:
+* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
+* If **Equivocal / Positive Test** &rarr; Proceed to *Coronary Angiogram*
+
+Low risk patients have:
+* no angina in the past
+* no ongoing angina
+* no prior use of antianginal therapy
+* normal ECG
+* normal cardiac biomarkers
+* younger age group
+* normal LV function
+
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. All Intermediate/High Risk UA/NSTEMI patients should be considered for coronary angiography and revascularization. (refer Flowchart 1: Algorithm for Risk Stratification of UA/NSTEMI)
+
+Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
 | Category | Greater Likelihood | Lower Likelihood |
 |---|---|---|
 | History | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
@@ -110,7 +136,7 @@ This includes (refer Table 1: Medications in Intermediate / High Risk Patients w
 | | | Normal ECG |
 | Cardiac Biomarkers | Elevated cardiac TnI, TnT, or CK-MB markers | Normal |
 
-## Appendix IV: Timi Risk Score For UA/NSTEMI
+Appendix IV: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 |---|---|
 | 0-1 | 4.7 |
@@ -134,7 +160,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * **Moderate Risk:** 3-4 points
 * **High Risk:** &ge; 5 points
 
-## Appendix V: Grace Prediction Score Card And Nomogram For All Cause Mortality From Discharge To 6 Months
+Appendix V: Grace Prediction Score Card And Nomogram For All Cause Mortality From Discharge To 6 Months
 *To use the GRACE Prediction Score Card: Record the points for each variable and sum the points to calculate the total risk score. The corresponding probability on the y-axis of the risk calculator nomogram is the estimated probability of all-cause mortality from hospital discharge to 6 months.*
 
 | Category | Variable | Condition | Points |
@@ -174,9 +200,8 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | 8. Elevated Cardiac Enzymes | Yes | 15 |
 | | 9. No In-Hospital Percutaneous Coronary Intervention | Yes | 14 |
 
-### Grace Nomogram Plot Reference (Predicted All-Cause Mortality From Hospital Discharge To 6 Months)
+Grace Nomogram Plot Reference (Predicted All-Cause Mortality From Hospital Discharge To 6 Months)
 *Note: The following values approximate the probability curve from the GRACE nomogram plot.*
-
 | Total Risk Score | Estimated Probability |
 |---|---|
 | 70 | ~0.02 (2%) |
@@ -188,7 +213,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | 190 | ~0.33 (33%) |
 | 210 | ~0.50 (50%) |
 
-## Grades Of Recommendation And Levels Of Evidence
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -197,13 +222,14 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | II-b | Usefulness/efficacy is less well established by evidence/opinion |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses |
 | B | Data derived from a single randomized clinical trial or large non randomized studies |
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACE-I | Angiotensin-Converting Enzyme Inhibitor |
@@ -228,5 +254,4 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | UFH | Unfractionated Heparin |
 | VF | Ventricular Fibrillation |
 | VT | Ventricular Tachycardia |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

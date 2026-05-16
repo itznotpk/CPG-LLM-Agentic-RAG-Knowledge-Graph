@@ -74,8 +74,6 @@ Various combinations of searches were carried out. The terms listed below are th
 - exp Pulmonary Veins/ pulmonary vein$.tw
 - exp Catheter Ablation/ or radiofrequency ablation.tw
 
----
-
 ## Appendix B: Clinical Questions
 ### A. Introduction
 1. What is the best way to classify atrial fibrillation?
@@ -136,12 +134,11 @@ Various combinations of searches were carried out. The terms listed below are th
 1. Which patients with AF benefit from referral to specialist services for assessment and management?
 2. Which patients with AF benefit from referral to specialist services for non-pharmacological treatment or electrophysiological studies?
 
----
-
 ## Appendix C: Warfarin In Practice
+### C.1: Barriers and Access to Warfarin and INR Testing
 Barriers that may prevent people accessing medication and INR testing include:
 *   Financial barriers (including the ability to take time off work)
-*   Travel difficulties
+*   Travel difficultiesy
 *   Lack of access to a telephone
 *   Fear or dislike of regular blood tests
 *   Difficulties with general practitioner monitoring.
@@ -152,14 +149,14 @@ Possible solutions include the following:
 *   Domiciliary testing, either at home or the work place
 *   Testing people in groups at a public health centre using a point-of-care monitor
 
-### C.1 Initiation Of Warfarin Therapy
+### C.2: Initiation of Warfarin Therapy
 - Loading doses are **not** recommended because they may increase the risk of bleeding.
 - Initiation of warfarin should be **5 mg daily** in most patients (usually achieves INR ≥ 2 in 4–5 days).
 - A starting dose **< 5 mg** should be considered for patients >65 years, liver disease, malnourished, severe heart failure, or concomitant drugs affecting warfarin metabolism.
 - If overlapping LMWH or heparin with warfarin, overlap for at least 5 days.
 - Discontinue LMWH or heparin when INR is therapeutic on two consecutive measurements 24 hours apart.
 
-### C.1.2 Frequency Of INR Monitoring
+### C.3: Frequency of INR Monitoring
 - Check baseline INR prior to ordering warfarin.
 - Check INR daily (AM lab) until therapeutic for two consecutive days then two-three times weekly during initiation.
 
@@ -178,16 +175,16 @@ Possible solutions include the following:
     - Patients must not have shown previous noncompliance in terms of clinic attendance or medication management.
   - Can increase INR testing frequency and decrease complications associated with oral anticoagulation therapy.
 
-### C.1.3 Therapeutic INR Ranges
+### C.4: Therapeutic INR Ranges
 - **AF alone:** INR 2–3
 - **Prosthetic Heart Valve:** INR 2.5–3.5
 
-### C.1.4 Average Daily Dose
+### C.5: Average Daily Dose
 There are differences among various ethnic groups:
 - About **4–5 mg/day** or 28–35 mg/week for Caucasians for target INR of 2.5 (2.0–3.0).
 - About **3–4 mg/day** or 21–28 mg/week for Pacific-Asian (excluding Caucasians in this region). This dose will be less if target INR is recommended at < 2.0.
 
-### C.1.5 Factors Affecting The Daily Dose
+### C.6: Factors Affecting the Daily Dose
 - Age (for Caucasians):
   - < 35 yr → 8.1 mg/day
   - 35–49 yr → 6.4 mg/day
@@ -203,7 +200,7 @@ There are differences among various ethnic groups:
 - Hyperthyroidism, renal disease.
 - During heparin and direct thrombin inhibitor treatment.
 
-### C.1.6 Warfarin Initiation Protocol
+### C.7: Warfarin Initiation Protocol
 **Day 1:**
 
 If there is an active or acute thromboembolic condition, warfarin should be started along with heparin, unless there is a contraindication or patient cannot take medicine orally. Following warfarin initiation, heparin should be continued until INR reaches therapeutic level for 2 days.
@@ -249,12 +246,12 @@ If there is no need for heparin therapy, the patient may have been discharged, a
 - Start with 5 mg daily. See more detail for dose variation in "Inpatient guideline".
 - Check INR 2 times a week, or more often if necessary, during the first week or so. Adjust warfarin dose and timing for INR check as outline in "Inpatient" guidelines.
 
-### C.1.7 Ethnic Difference For Pacific-Asian Populations
+### C.8: Ethnic Difference for Pacific-Asian Populations
 - Average daily dose of warfarin for Pacific-Asian or Chinese-Asian is about **3 mg**. Weekly dose is about 21–28 mg, or lower if target INR is about 0.4–0.5 lower than Caucasian-American-European level.
 - Target INR for Pacific-Asian or Chinese-Asian should be lower than those of Caucasian-American-European. The suggested level for nonvalvular atrial fibrillation is **1.6–2.6**, to achieve less combined thromboembolic and major bleeding events (needs more database for confirmation).
 - Difference in polymorphism of CYP 2C9 and VKORC1 which will influence warfarin dosage.
 
-### C.1.7.1 Warfarin Initiation Tables
+### C.9: Warfarin Initiation Tables
 Table: Warfarin Initiation — Average Daily Dose of 5 mg
 
 | DAY | INR | INPATIENT (Usually with daily INR) | OUTPATIENT |
@@ -312,7 +309,7 @@ Table: Warfarin Initiation — Average Daily Dose of 3 mg (Pacific-Asian)
 
 > *Note: Frequent INR measurement during warfarin initiation helps prevent bleeding from over anticoagulation and helps reaching target INR sooner.*
 
-### C.1.8 Dose Adjustments For Warfarin Maintenance Therapy (Target INR 2.0-3.0)
+### C.10: Dose Adjustments for Warfarin Maintenance Therapy (Target INR 2.0-3.0)
 | INR | Dose Adjustments |
 |---|---|
 | <1.5 | Increase weekly dose by 20% |
@@ -322,7 +319,7 @@ Table: Warfarin Initiation — Average Daily Dose of 3 mg (Pacific-Asian)
 | 4.0-5.0 | Omit 1 dose; decrease weekly dose by 10-20% |
 | >5.0 | See recommendations for managing elevated INR<br>When resume decrease weekly dose 20-50% |
 
-### C.1.8.1 Recommendations For Managing Elevated INRs Or Bleeding In Patients Receiving Warfarin:
+### C.11: Managing Elevated INRs or Bleeding in Patients Receiving Warfarin
 | Condition | Recommendation |
 |---|---|
 | INR above therapeutic range but < 5; no significant bleeding | Lower the dose or omit a dose and resume with lower dose when INR therapeutic; if only minimally above therapeutic range, no dose reduction may be required. |
@@ -331,7 +328,7 @@ Table: Warfarin Initiation — Average Daily Dose of 3 mg (Pacific-Asian)
 | Serious bleeding at any elevation of INR | Hold warfarin and give vitamin K 10 mg slow IV infusion, supplemented with FFP, prothrombin complex concentrate or rVIIa, depending on urgency of situation. Vitamin K can be repeated q12hr |
 | Life threatening bleeding | Hold warfarin and give FFP, prothrombin complex concentrate, or rVIIa supplemented with vitamin K 10 mg slow IV infusion. Repeat, if necessary, depending on INR. |
 
-### C.1.9 Interruption Of Warfarin Therapy For Surgery
+### C.12: Interruption of Warfarin Therapy for Surgery
 | Condition | Recommendation |
 |---|---|
 | Low risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |

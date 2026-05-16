@@ -114,9 +114,9 @@ Figure 8: Adjusted odds ratios for ischaemic stroke and intracranial bleeding in
 
 *(Reproduced with permission from Ann Intern Med. Hylek E, Singer D. Risk factors for intracranial hemorrhage in outpatients taking warfarin. Ann Intern Med 1994;120:897-902.)*
 
-For a guide on using VKA in daily practice, (refer Appendix C: Warfarin in Practice).
+For a guide on using VKA in daily practice, (refer Appendix C.1: Barriers and Access to Warfarin and INR Testing).
 
-Appendix C: Warfarin In Practice
+C.1: Barriers and Access to Warfarin and INR Testing
 Barriers that may prevent people accessing medication and INR testing include:
 - Financial barriers (including the ability to take time off work)
 - Travel difficulties
@@ -175,7 +175,7 @@ There was an increased risk of major bleeding in patients receiving clopidogrel 
 
 ## 6.4: Anticoagulation In Special Circumstances
 ### 6.4.1: Perioperative Anticoagulation
-Patients with AF who are anticoagulated will require temporary interruption of VKA treatment before surgery or an invasive procedure. Many surgeons require an INR less than 1.5 or even INR normalization before undertaking surgery. The risk of clinically significant bleeding, even among outpatients undergoing minor procedures, should be weighed against the risk of stroke and thrombo-embolism in an individual patient before the administration of bridging anticoagulant therapy. (refer Appendix C.1.9: Interruption Of Warfarin Therapy For Surgery)
+Patients with AF who are anticoagulated will require temporary interruption of VKA treatment before surgery or an invasive procedure. Many surgeons require an INR less than 1.5 or even INR normalization before undertaking surgery. The risk of clinically significant bleeding, even among outpatients undergoing minor procedures, should be weighed against the risk of stroke and thrombo-embolism in an individual patient before the administration of bridging anticoagulant therapy. (refer Appendix C.12: Interruption of Warfarin Therapy for Surgery)
 
 If the VKA used is warfarin, which has a half-life of 36 – 42 h, treatment should be interrupted for about 5 days before surgery (corresponding approximately to five half-lives of warfarin).
 
@@ -204,7 +204,7 @@ In cases of major surgery, consideration should be given to the risk of thromboe
 - **Major Surgery (Interruption of Anticoagulation Required)**
   - In most people without mechanical prosthetic heart valves, anticoagulation can be safely discontinued temporarily, without the need for heparin cover. The decision is made on the basis of the risk of thrombosis.
 
-[Grade II-a, Level C] In patients with AF who do not have mechanical prosthetic heart valves or those who are not at high risk for thrombo-embolism who are undergoing surgical or diagnostic procedures that carry a risk of bleeding, the interruption of OAC (with sub therapeutic anticoagulation for up to 48 h) should be considered, without substituting heparin as 'bridging' anticoagulation therapy. (refer Appendix C.1.9: Interruption Of Warfarin Therapy For Surgery).
+[Grade II-a, Level C] In patients with AF who do not have mechanical prosthetic heart valves or those who are not at high risk for thrombo-embolism who are undergoing surgical or diagnostic procedures that carry a risk of bleeding, the interruption of OAC (with sub therapeutic anticoagulation for up to 48 h) should be considered, without substituting heparin as 'bridging' anticoagulation therapy. (refer Appendix C.12: Interruption of Warfarin Therapy for Surgery).
 
 [Grade II-a, Level C] In patients with a mechanical prosthetic heart valve or AF at high risk for thrombo-embolism who are undergoing surgical or diagnostic procedures, 'bridging' anticoagulation with therapeutic doses of either LMWH or unfractionated heparin during the temporary interruption of OAC therapy should be considered.
 
@@ -212,7 +212,7 @@ In cases of major surgery, consideration should be given to the risk of thromboe
 
 [Grade II-b, Level C] When surgical procedures require interruption of OAC therapy for longer than 48h in high-risk patients, unfractionated heparin or subcutaneous LMWH may be considered.
 
-Appendix C.1.9: Interruption Of Warfarin Therapy For Surgery
+C.12: Interruption of Warfarin Therapy for Surgery
 | Condition | Recommendation |
 |---|---|
 | Low risk of thromboembolism | Stop warfarin 5 days before surgery allowing INR to return to near normal. Bridge therapy with low dose LMWH or no bridging. |
@@ -340,7 +340,6 @@ The left atrial appendage (LAA) is considered the main site of atrial thrombogen
 The PROTECT AF trial randomized 707 eligible patients to percutaneous closure of the LAA using a WATCHMAN device and subsequent discontinuation of warfarin (intervention, n = 463), or to VKA treatment (INR range 2 – 3; control, n = 244). The primary efficacy event rate (a composite endpoint of stroke, cardiovascular death, and systemic embolism) of the WATCHMAN device was considered non-inferior to that of VKA. There was a higher rate of adverse safety events in the intervention group than in the control group, due mainly to periprocedural complications.
 
 ## 6.6: Risk Of Long-Term Anticoagulation
-
 ### 6.6.1: Assessment Of Risk Of Bleeding
 An assessment of bleeding risk should be part of the clinical assessment of patients before starting anticoagulation therapy.
 

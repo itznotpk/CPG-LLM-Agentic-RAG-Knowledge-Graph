@@ -10,10 +10,7 @@ treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, ticlopidine, UFH, L
 
 > **Context:** This section codifies the comprehensive pharmacological management of UA/NSTEMI from immediate pre-hospital care through in-hospital stabilization. It provides definitive dosing and application guidelines for antiplatelets, anticoagulants, anti-ischemics, and lipid-modifying therapies.
 
-The goals of management are:
-- Immediate relief of ongoing ischemia and angina
-- Prevention of recurrent ischemia and angina
-- Prevention of serious adverse cardiac events
+The goals of management are Immediate relief of ongoing ischemia and angina, Prevention of recurrent ischemia and angina and Prevention of serious adverse cardiac events.
 
 ## 7.1: Pre-Hospital Management
 Based on the triage:
@@ -145,13 +142,11 @@ These include: *(refer Table 2: Doses of Anticoagulant Agents in UA/NSTEMI and d
   - It is associated with less bleeding.
   - (To date it is not yet available in Malaysia).
 
-## Key Messages
 - [Grade I, Level C] High risk patients preferably should be continuously monitored in CCU/HDU.
 - Intermediate/high risk patients should be given [Grade I, Level A] ASA, [Grade I, Level A] clopidogrel (or [Grade I, Level B] prasugrel or [Grade I, Level B] ticagrelor) and [Grade I, Level A] UFH or [Grade I, Level A] LMWH or [Grade I, Level A] fondaparinux. [Grade I, Level B] Prasugrel may be given after coronary angiography in high risk patients undergoing [Grade I, Level B] PCI. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 - Low risk patients should be given [Grade I, Level A] aspirin and risk stratified as outpatient with non invasive tests for reversible ischemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 
 Table 2: Doses Of Anticoagulant Agents In UA/NSTEMI And During PCI
-
 | AGENT | DOSING REGIMEN |
 |---|---|
 | UFH UA/NSTEMI | Initial IV bolus: 60 IU/kg (max 4000 IU) followed by infusion of 12 IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5-2.0x normal. **Duration of therapy: 2-8 days** |
@@ -168,7 +163,9 @@ Table 2: Doses Of Anticoagulant Agents In UA/NSTEMI And During PCI
 ### 7.2.4: Anti-Ischemic Drug Therapy
 These agents may be given either for relief of ischemia (symptoms) or for prognosis.
 
-#### 7.2.4.1: Nitrates (Refer Table 3: Recommended Dosages Of Nitrates In UA/NSTEMI)
+#### 7.2.4.1: Nitrates 
+Refer Table 3: Recommended Dosages Of Nitrates In UA/NSTEMI.
+
 [Grade I, Level C] **Sublingual glyceryl trinitrate (GTN 0.5 mg)** – Patients with UA/NSTEMI with ongoing chest pain should receive sublingual GTN 0.5 mg every 5 minutes for a total of 3 doses. If symptoms still persist, intravenous GTN should be considered.
 
 [Grade I, Level C] **Intravenous nitrates** – may be administered in the following situations:
@@ -253,7 +250,6 @@ The statins that have been studied in UA/NSTEMI to date are:
 - [Grade I, Level A] Statins and [Grade I, Level A] ACE-I (for LV dysfunction, LVEF < 40%) are given for prognosis.
 
 Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
-
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Captopril | 6.25 mg bd-tds | 25-50 mg tds |
@@ -263,29 +259,12 @@ Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
 | Perindopril | 2-2.5 mg od | 8-10 mg od |
 
 Table 8: Recommended Dosages Of ARB In UA/NSTEMI
-
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Valsartan | 40-80 mg od | 160 mg od |
 
-<!-- OVERLAP CONTENT -->
-
-## Grades Of Recommendation And Levels Of Evidence
-| GRADE | DEFINITION |
-|---|---|
-| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy. |
-| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| II-b | Usefulness/efficacy is less well established by evidence/opinion |
-| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
-
-| LEVEL | DEFINITION |
-|---|---|
-| A | Data derived from multiple randomized clinical trials or meta analyses |
-| B | Data derived from a single randomized clinical trial or large non randomized studies |
-| C | Only consensus of opinions of experts, case studies or standard of care |
-
-## Abbreviations
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -317,5 +296,4 @@ Table 8: Recommended Dosages Of ARB In UA/NSTEMI
 | SC | Subcutaneous |
 | UA/NSTEMI | Unstable Angina/Non-ST-Elevation Myocardial Infarction |
 | UFH | Unfractionated Heparin |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

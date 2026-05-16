@@ -36,8 +36,7 @@ It may be further classified according to clinical circumstances into either:
 
 The diagnosis of NSTEMI is established if a cardiac biomarker is detected. In NSTEMI, ST/T changes may be present in the ECG, whereas in UA they are usually absent and even if they are present, are usually transient.
 
-Figure 2: Pathogenesis Of ACS (Diagnostic Flow)
-
+## Figure 2: Pathogenesis Of ACS (Diagnostic Flow)
 **[ INITIAL ASSESSMENT ]**
 
 **1. Presentation:**
@@ -56,8 +55,6 @@ Figure 2: Pathogenesis Of ACS (Diagnostic Flow)
 
 *(Proceed to Cardiac Biomarkers Evaluation)* &rarr;
 
-***
-
 **[ DIAGNOSTIC PATHWAYS ]**
 
 **[ PATHWAY A: NO ST ELEVATION ]**
@@ -65,15 +62,28 @@ Figure 2: Pathogenesis Of ACS (Diagnostic Flow)
 * If **Normal** &rarr; Final Diagnosis: **Unstable Angina**
 * If **Elevated** &rarr; Final Diagnosis: **NSTEMI** *(Categorized under Myocardial Infarction)*
 
-***
-
 **[ PATHWAY B: ST ELEVATION ]**
 **Cardiac Biomarkers Evaluation:**
 * **Elevated** &rarr; Final Diagnosis: **STEMI** *(Categorized under Myocardial Infarction)*
 
-<!-- OVERLAP CONTENT -->
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
+| GRADE | DEFINITION |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
-## Abbreviations
+Levels Of Evidence
+| LEVEL | DEFINITION |
+|---|---|
+| A | Data derived from multiple randomized clinical trials or meta analyses |
+| B | Data derived from a single randomized clinical trial or large non randomized studies |
+| C | Only consensus of opinions of experts, case studies or standard of care |
+
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -85,5 +95,4 @@ Figure 2: Pathogenesis Of ACS (Diagnostic Flow)
 | STEMI | ST Elevation Myocardial Infarction |
 | T | Troponins |
 | UA | Unstable Angina |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->
