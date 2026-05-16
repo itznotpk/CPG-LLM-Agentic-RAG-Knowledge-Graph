@@ -8,7 +8,7 @@ output: implementation_strategy, audit_indicators
 
 It is important to standardise the management of cervical cancer at all healthcare levels in Malaysia by using an evidence-based CPG. This aims to prevent long-term morbidity and mortality.
 
-## A. Facilitating And Limiting Factors
+**A. Facilitating And Limiting Factors**
 Existing facilitators for application of the recommendations in the CPG include:
 - dissemination of CPG
   - availability and dissemination of CPG to healthcare providers (hardcopies and softcopies)
@@ -25,7 +25,7 @@ Existing barriers for application of the recommendations of the CPG are:
 - inadequate training at all levels of healthcare providers
 - lack of networking between public and private health-care providers
 
-## B. Potential Resource Implications
+**B. Potential Resource Implications**
 To implement the CPG, there must be a strong commitment to:
 - distribute the CPG widespread to healthcare providers
 - strengthen training on cervical cancer management for healthcare providers
@@ -34,7 +34,7 @@ To implement the CPG, there must be a strong commitment to:
 
 To assist in the implementation of the CPG, the following is proposed as clinical audit indicator for quality management:
 
-### Clinical Audit Indicators
+**Clinical Audit Indicators**
 1. **Percentage of patients with cervical cancer receiving definitive treatment within six weeks of histological diagnosis**
 
    = (Number of patients with cervical cancer receiving definitive treatment within six weeks of histological diagnosis in a year / Number of patients with cervical cancer with histological diagnosis in the same period) x 100%
@@ -45,9 +45,12 @@ To assist in the implementation of the CPG, the following is proposed as clinica
 
 Implementation strategies will be developed following the approval of the CPG by MoH. These include a Quick Reference and a Training Module.
 
-## Abbreviations Used In This Section
+---
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CCRT | Concurrent chemoradiotherapy |
 | CPG | Clinical practice guidelines |
 | MoH | Ministry of Health |
+<!-- parent_only_reference_end -->

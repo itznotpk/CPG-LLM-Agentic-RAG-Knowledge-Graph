@@ -78,7 +78,19 @@ Patients with advance disease where non-surgical measures are more appropriate m
 
 [Level III] The risk of thromboembolic events is up to seven times higher in cancer patients, with the incidence being highest in the first few months of diagnosis. Others at high risk are those with metastatic disease at the time of diagnosis and after tumour recurrence. [Level I] Cancer patients receiving anticoagulant treatment for VTE also showed a two to threefold increased risk of developing recurrent VTE.
 
-The mechanisms of VTE in cancer patients can be summarised in the  following Table 2: Mechanism of VTE in Cancer Patients.
+The mechanisms of VTE in cancer patients can be summarised in the following Table 2: Mechanism of VTE in Cancer Patients.
+
+Table 2: Mechanism Of VTE In Cancer Patients
+
+| Tumour-associated | Non-tumour associated |
+|---|---|
+| Extrinsic vascular compression and invasion | Central venous access devices |
+| Tissue factor production | Anti-neoplastic mediated platelet activation |
+| Cancer pro-coagulant production | Anti-neoplastic mediated endothelial cell damage |
+| Accentuated platelet activation | Anti-angiogenesis therapy |
+| Inflammation-mediated increases in factor VIII, vWF and fibrinogen | Anthracycline-induced congestive heart failure |
+| Impaired fibrinolysis due to high PAI-1 | Immobility |
+| Acquired deficiencies of natural anticoagulants | |
 
 ### Initial Management Of VTE
 [Level I] For the initial management of VTE in cancer patients, low molecular weight heparin (LMWH) is superior to unfractionated heparin (UFH), with reduced risk of mortality (RR=0.71, 95% CI 0.52 to 0.98) and no significant difference in recurrent VTE events. [Level I] Among various LMWH regimes, once daily treatment is as safe and efficacious as twice daily treatment, and is more convenient for the patient.
@@ -165,13 +177,13 @@ Malignant ureteric obstruction indicates poor prognosis. Palliative surgical int
 ## H. End Of Life Care
 [Level III] The final phase of terminal illness can be the most challenging time for the patient, their carers and healthcare providers. Increased clinical vigilance on symptom control, psychosocial and spiritual distress is needed, along with sensitive communication and decision making. Those closely affected by a death should be offered bereavement, emotional and spiritual support appropriate to their needs and preferences.
 
-## Recommendation 18
+**Recommendation 18**
 - Patients with advanced cervical cancer should receive palliative care and be referred to a specialised palliative team if necessary.
 - Low molecular weight heparin should be used for the initial and long-term treatment of venous thromboembolism in cervical cancer, where available.
 
-## Contextual Anchors (Overlapping)
-
-### Appendix 7: Ecog Performance Status
+---
+<!-- parent_only_reference_start -->
+Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -183,13 +195,9 @@ Malignant ureteric obstruction indicates poor prognosis. Palliative surgical int
 
 Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
 
----
-
-### Appendix 9: Malaysian Hospice Directory
-
-### Pain Management And Palliative Care Service Providers
-
-#### Pain Clinics
+Appendix 9: Malaysian Hospice Directory
+**Pain Management And Palliative Care Service Providers**
+**Pain Clinics**
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -202,7 +210,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 | Pusat Perubatan Universiti Kebangsaan Malaysia, Kuala Lumpur | 603-91455555 | http://www.ppukm.ukm.my |
 | Hospital Universiti Sains Malaysia, Kelantan | 609-7663000 | http://www.hselayang.moh.gov.my |
 
-#### Palliative Care Units
+**Palliative Care Units**
 | Hospital | Tel No. | URL |
 |---|---|---|
 | Hospital Selayang, Selangor | 603-61203233 | http://www.hselayang.moh.gov.my |
@@ -225,9 +233,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 **Source:** Ministry of Health. Management of Cancer Pain. Putrajaya; MoH: 2010
 
----
-
-### Malaysian Hospice Directory
+**Malaysian Hospice Directory**
 **PERSATUAN HOSPICE ARK**
 No. 2, 2A, 2B Jalan Sutera Merah 3
 Taman Sutera, 81200, Johor Bahru, Johor
@@ -402,9 +408,7 @@ www.hospismalaysia.org
 
 **Source:** Malaysian Hospice Council (available at http://www.malaysianhospicecouncil.org)
 
----
-
-### Appendix 10: International Society Of Lymphology (Isl) Lymphoedema Staging
+Appendix 10: International Society Of Lymphology (Isl) Lymphoedema Staging
 | Stage | Description |
 |---|---|
 | ISL Stage 0 | A subclinical state where swelling is not evident despite impaired lymph transport. This stage may exist for months or years before oedema becomes evident |
@@ -413,25 +417,9 @@ www.hospismalaysia.org
 | ISL late Stage II | There may or may not be pitting as tissue fibrosis is more evident |
 | ISL Stage III | The tissue is hard (fibrotic) and pitting is absent. Skin changes such as thickening, hyperpigmentation, increased skin folds, fat deposits and warty overgrowth develop |
 
-Source: Lymphoedema Framework. Best Practice for the Management of Lymphodema. International Consensus. London: MEP Ltd; 2006
+**Source:** Lymphoedema Framework. Best Practice for the Management of Lymphodema. International Consensus. London: MEP Ltd; 2006
 
----
-
-Table 2: Mechanism Of VTE In Cancer Patients
-
-| Tumour-associated | Non-tumour associated |
-|---|---|
-| Extrinsic vascular compression and invasion | Central venous access devices |
-| Tissue factor production | Anti-neoplastic mediated platelet activation |
-| Cancer pro-coagulant production | Anti-neoplastic mediated endothelial cell damage |
-| Accentuated platelet activation | Anti-angiogenesis therapy |
-| Inflammation-mediated increases in factor VIII, vWF and fibrinogen | Anthracycline-induced congestive heart failure |
-| Impaired fibrinolysis due to high PAI-1 | Immobility |
-| Acquired deficiencies of natural anticoagulants | |
-
----
-
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -440,7 +428,7 @@ Table 2: Mechanism Of VTE In Cancer Patients
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CI | Confidence interval |
@@ -464,3 +452,4 @@ Table 2: Mechanism Of VTE In Cancer Patients
 | VKA | Vitamin K antagonists |
 | VTE | Venous thromboembolism |
 | vWF | von Willebrand factor |
+<!-- parent_only_reference_end -->

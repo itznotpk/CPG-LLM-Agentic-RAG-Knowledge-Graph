@@ -37,19 +37,19 @@ Histological assessment of lymph node is the gold standard for nodal status. Lap
   - consider laparoscopic pelvic lymphadenectomy for tumour size <2 cm. In the absence of nodal involvement, follow-up closely by clinical examination and imaging modality. If no disease progression, start cancer treatment as soon as foetal maturity is attained. In the presence of nodal involvement, consider termination of pregnancy (TOP) and start chemoradiation therapy thereafter.
   - consider TOP for tumour size 2 - 4 cm as there is a higher risk of nodal involvement.
 
-### Ii. For Figo Stage Ib2 And Above, Ccrt Is The Standard Treatment
+### II. For Figo Stage Ib2 And Above, Ccrt Is The Standard Treatment
 - If tumour is diagnosed when foetal maturity is considered attained,
   - deliver foetus, optimally by caesarean section followed by cervical cancer treatment thereafter.
   - nodal staging surgery (pelvic nodes with/without para-aortic nodes for tumour >4 cm or positive pelvic nodes) at the same sitting is recommended.
 - If tumour diagnosed >22 weeks gestation but before foetal maturity is attained, and without extracervical spread, offer CCRT after caesarean section once foetal maturity attained, and do not delay treatment for >6 - 8 weeks. Dissect pelvic ± para-aortic lymph nodes for tumour >4 cm or positive pelvic nodes during caesarean section.
 - For tumour diagnosed <20 - 22 weeks gestation, offer CCRT after uterus is evacuated (hysterotomy or other procedure) or with foetus in utero (if expulsion impossible and bulky cervical cancer).
 
-### Iii. For Non-Scc And Non-Ac
+### III. For Non-Scc And Non-Ac
 Such as the more aggressive SCC, diagnosed during first or second trimester of pregnancy, treatment is individualised and pregnancy preservation is not advisable.
 
 Recommendations on treatment of cervical cancer in pregnancy are based on expert opinion and discussion among the CPG DG members.
 
-## Recommendation 9
+**Recommendation 9**
 - Treatment of cervical cancer (squamous cell carcinoma and adenocarcinoma) in pregnancy should be based on gestational age and stage/size of tumour.
 - If tumour is diagnosed when foetal maturity is attained, deliver foetus followed by cancer treatment.
 - If tumour is diagnosed before foetal maturity, for FIGO stage IB1:
@@ -66,7 +66,7 @@ Recommendations on treatment of cervical cancer in pregnancy are based on expert
 
 Complete response (10%), partial response (63.4%) and stable disease (23.3%) were achieved after chemotherapy, whereas progression was observed in only 3.3% of cases. [Level II-2] Chemotherapy was well tolerated with no serious adverse outcomes to both mothers and babies.
 
-## Recommendation 10
+## **Recommendation 10**
 - Platinum-based chemotherapy may be considered after the first trimester in pregnant women with cervical cancer.
 
 ## B. Tumour Arising From Cervical Stump
@@ -76,7 +76,7 @@ Cancer of the cervical stump should be managed in the same way as cervical cance
 - [Level II-3] Good OS (68% for 5-year survival rate) and low treatment morbidity (10%) when treated with either surgery followed by tailored adjuvant RT in operable disease, RT or CCRT.
 - [Level II-3] Prognosis is similar when managed with the same treatment regimen.
 
-## Recommendation 11
+**Recommendation 11**
 - Cancer of the cervical stump should be managed in the same way as cervical cancer arising in an intact uterus.
 
 ## C. Cervical Cancer Diagnosed After Hysterectomy For Benign Gynaecological Disorder
@@ -98,7 +98,7 @@ Surgery (RP + PLND) alone is a safe option and achieves good OS rate in patients
 
 [Level II-2] It avoids radiation therapy in 83% of patients and hence, preserves ovarian function and reduces sexual dysfunction.
 
-## Recommendation 12
+**Recommendation 12**
 - In cervical cancer diagnosed after hysterectomy for benign gynaecological disorder,
   - followed up safely without further treatment in FIGO stage IA1.
   - adjuvant treatment (radiotherapy, concurrent chemoradiotherapy or surgery (radical parametrectomy + pelvic lymphadenectomy)) should be considered in FIGO stage IA2 - IIA.
@@ -120,10 +120,12 @@ NAC or adjuvant radiation does not improve survival. Multimodality treatment app
 
 [Level III] The follow-up is similar to other histological types with particular emphasis on periodic full body imaging with either CT or PET/CT. Brain imaging should be considered if patient is symptomatic.
 
-## Recommendation 13
+**Recommendation 13**
 - Neuroendocrine cancer of cervix should be managed by gynae-oncologists/oncologists.
 
-## Levels Of Evidence
+---
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -132,7 +134,7 @@ NAC or adjuvant radiation does not improve survival. Multimodality treatment app
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AC | Adenocarcinoma |
@@ -155,3 +157,4 @@ NAC or adjuvant radiation does not improve survival. Multimodality treatment app
 | SCC | Squamous cell carcinoma |
 | SN | Sentinel nodes |
 | TOP | Termination of pregnancy |
+<!-- parent_only_reference_end -->

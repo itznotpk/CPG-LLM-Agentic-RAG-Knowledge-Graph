@@ -39,7 +39,7 @@ In pelvic exenteration:
   - poor performance status
 - Common complications for pelvic exenteration are infectious morbidity, intestinal obstruction, fistula formation, anastomotic leak and prolonged hospital stay.
 
-## Recommendation 15
+**Recommendation 15**
 - In patients with cervical cancer, pelvic exenteration may be considered in locally advanced disease or in pelvic recurrence, after thorough counselling on its benefits and risks.
 
 ## B. Chemotherapy
@@ -53,7 +53,7 @@ In recurrent or metastatic cervical cancer,
 - [Level I] response rate towards platinum-containing chemotherapy is better in out-of-radiotherapy-field (non-irradiated site) recurrence compared to in-radiotherapy-field (irradiated site) recurrence (RR=0.62, 95% CI 0.46 to 0.83).
 - [Level I] combination chemotherapy has more toxicities compared to single agent chemotherapy.
 
-## Recommendation 16
+**Recommendation 16**
 - Combination chemotherapy* may be offered to patients with recurrent or metastatic cervical cancer with good performance status.
 
 *Refer to Appendix 8: Systemic Therapy Cancer Protocol for suggested chemotherapy regime.
@@ -61,12 +61,12 @@ In recurrent or metastatic cervical cancer,
 ## C. Salvage Radiotherapy/Chemoradiotherapy
 [Level II-2] The treatment for recurrent cervical cancer depends on the mode of primary treatment and the site and extent of recurrent disease. Salvage RT or CCRT may be a feasible treatment option for locally recurrent cervical cancer following surgery with high salvage rate (41 - 45%) and acceptable late complication rate.
 
-## Recommendation 17
+**Recommendation 17**
 - In radiotherapy naïve cervical cancer patients with local recurrence, salvage radiotherapy to the pelvis may be offered.
 
-## Contextual Anchors (Overlapping)
-
-### Appendix 7: Ecog Performance Status
+---
+<!-- parent_only_reference_start -->
+Appendix 7: Ecog Performance Status
 | Grade | ECOG |
 |---|---|
 | 0 | Fully active, able to carry on all pre-disease performance without restriction |
@@ -77,46 +77,39 @@ In recurrent or metastatic cervical cancer,
 | 5 | Dead |
 
 Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982 Dec;5(6):649-55
+Appendix 8: Systemic Therapy Cancer Protocol
+**Cervical Cancer Chemotherapy**
+**Concurrent Chemo-Radiotherapy**
+**Single Agent Cisplatin**
 
----
-
-### Appendix 8: Systemic Therapy Cancer Protocol
-
-### Cervical Cancer Chemotherapy
-
-### Concurrent Chemo-Radiotherapy
-
-#### Single Agent Cisplatin
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 30 - 40 | IV | 1 hour | 1 |
 
 *N.B. In practice, 50 mg total dose per week of cisplatin could be used*
-
-### Palliative Chemotherapy
-
-#### Single Agent Cisplatin
+**Palliative Chemotherapy**
+**Single Agent Cisplatin**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 
-#### Cisplatin-5fu
+**Cisplatin-5fu**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 - 75 | IV | 1 hour | 1 |
 | 5Fluorouracil | 750 - 1000 | IV | 24 hour | 1 - 5 |
 
-#### Cisplatin-Mtx
+**Cisplatin-Mtx**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
 | Cisplatin | 50 | IV | 1 hour | 1 |
 | Methotrexate | 100 | IV | Bolus | 1 - 5 |
 
-#### Paclitaxel-Cisplatin
+**Paclitaxel-Cisplatin**
 | | Cycle length (days) = 21 | | Anti-emetic = 4 | |
 |---|---|---|---|---|
 | Drugs | **Dose (mg/m2)** | **Route** | **Infusion Time** | **Days** |
@@ -127,9 +120,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 
 **Source:** Ministry of Health & Ministry of Higher Education Malaysia. Systemic Therapy of Cancer 2nd Edition. Putrajaya: MoH & MoHE; 2008
 
----
-
-## Levels Of Evidence
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -138,7 +129,7 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AC | Adenocarcinoma |
@@ -154,3 +145,4 @@ Source: Oken MM, Creech RH, Tormey DC, et al. Toxicity and response criteria of 
 | RR | Relative risk |
 | RT | Radiotherapy |
 | SCC | Squamous cell carcinoma |
+<!-- parent_only_reference_end -->

@@ -14,7 +14,7 @@ DFS for cervical cancer significantly correlates with site of relapse, type of r
 
 [Level III] Follow-up is recommended for every three months in the first year, every four months in the second year, every six months in the third to fifth year and annually thereafter.
 
-### Follow-Up Schedule
+**Follow-Up Schedule**
 | Period | Frequency |
 |---|---|
 | Year 1 | Every 3 months |
@@ -30,11 +30,13 @@ DFS for cervical cancer significantly correlates with site of relapse, type of r
 
 Short-term hormone replacement therapy (HRT) does not appear to have an adverse effect on oncologic outcome in most gynecologic cancer survivors and improves quality of life (QOL). [Level II-2] The treatment appears to be safe although not as effective as HRT in the treatment of vasomotor symptoms, selective serotonin reuptake inhibitors (SSRIs) and alpha-2 adrenergic agonists are reasonable alternatives.
 
-## Recommendation 14
+**Recommendation 14**
 - After primary treatment, patients with cervical cancer may be followed  up every three months in the first year, four months in the second year, six months in the third to fifth year and annually thereafter.
     - Physical examination including pelvic examination should b performed during follow-up.
 
-## Levels Of Evidence
+---
+<!-- parent_only_reference_start -->
+Levels Of Evidence
 | Level | Study design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -43,7 +45,7 @@ Short-term hormone replacement therapy (HRT) does not appear to have an adverse 
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CT | Computed tomography |
@@ -56,3 +58,4 @@ Short-term hormone replacement therapy (HRT) does not appear to have an adverse 
 | QOL | Quality of life |
 | RT | Radiotherapy |
 | SCCA | Squamous cell carcinoma antigen |
+<!-- parent_only_reference_end -->

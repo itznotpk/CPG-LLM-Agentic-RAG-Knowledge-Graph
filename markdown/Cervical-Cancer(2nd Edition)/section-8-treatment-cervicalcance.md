@@ -202,26 +202,6 @@ In one of the reviews, there was insufficient data for quantitative analysis on 
 
 ---
 <!-- parent_only_reference_start -->
-Appendix 5: Revised Figo Cervical Cancer Staging 2009
-| Stage | Description |
-|---|---|
-| I | The carcinoma is strictly confined to the cervix (extension to the uterus corpus should be disregarded). |
-| IA | Invasive cancer identified only microscopically (all gross lesion even with superficial invasion are Stage IB cancers). Invasion is limited to measured stromal invasion with a maximum depth of 5 mm and no wider than 7 mm. IA1: Measured invasion of stroma ≤3 mm in depth and ≤7 mm width. IA2: Measured invasion of stroma >3 mm and <5 mm in depth and ≤7 mm width. |
-| IB | Clinical lesions confined to the cervix, or preclinical lesions greater than stage IA. IB1: Clinical lesions no greater than 4 cm in size. IB2: Clinical lesions >4 cm in size. |
-| II | The carcinoma extends beyond the uterus, but has not extended onto the pelvic wall or to the lower third of vagina. |
-| IIA | Involvement up to the upper 2/3. No obvious parametrial involvement. IIA1: Clinically visible lesion ≤4 cm. IIA2: Clinically visible lesion >4 cm. |
-| IIB | Obvious parametrial involvement but not onto the pelvic sidewall. |
-| III | The carcinoma has extended onto the pelvic sidewall. On rectal examination, there is no cancer-free space between the tumor and pelvic sidewall. The tumor involves the lower third of the vagina. All cases of hydronephrosis or non-functioning kidney should be included unless they are known to be due to other causes. |
-| IIIA | Involvement of the lower vagina but no extension onto the pelvic sidewall. |
-| IIIB | Extension onto the pelvic sidewall, or hydronephrosis/non-functioning kidney. |
-| IV | The carcinoma has extended beyond the true pelvis or has clinically involved the mucosa of the bladder and/or the rectum. |
-| IVA | Spread to adjacent pelvic organs. |
-| IVB | Spread to distant organs. |
-
-The depth of invasion should not be more than 5mm taken from the base of epithelium, either surface or glandular, from which it originates. Vascular space invasion should not alter the staging.
-
-Source: Pecorelli S; Revised FIGO staging for carcinoma of the vulva, cervix, and endometrium. Int J Gynaecol Obstet. 2009 May;105(2):103-4.
-
 Appendix 6: Modified Delgado's Prognostic Risk Scoring System
 | Variable | Relative risk |
 |---|---|
