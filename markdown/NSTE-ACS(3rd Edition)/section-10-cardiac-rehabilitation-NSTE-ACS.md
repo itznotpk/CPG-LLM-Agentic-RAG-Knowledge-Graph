@@ -21,9 +21,9 @@ These comprehensive programs provide patient education, enhance regular exercise
 
 Smoking is an independent risk factor for CVD that accelerates atherosclerosis and has been linked with other mechanisms that precipitate thrombosis, hemorrhage, or vasoconstriction, which can all lead to ACS. It also interacts with other CV risk factors, such as hypertension, glucose intolerance and low serum levels of HDL-C. The risk of developing diabetes is 30 - 40% higher for active smokers than nonsmokers.
 
-[Grade I, Level B] Stopping smoking is an important and effective preventive measure. There is significant reduction on morbidity within the first 6 months of quitting and the risks of CVD almost equals the risk of never smokers after 10 - 15 years of cessation. For smoking interventions please refer to the Malaysian CPG on Prevention of Cardiovascular Disease, 1st Ed, 2017 and the Recommendations of the Steering Committee on Tobacco control in Malaysia (Appendix XV: SMOKING AND CHRONIC NON COMMUNICABLE DISEASES).
+[Grade I, Level B] Stopping smoking is an important and effective preventive measure. There is significant reduction on morbidity within the first 6 months of quitting and the risks of CVD almost equals the risk of never smokers after 10 - 15 years of cessation. For smoking interventions please refer to the Malaysian CPG on Prevention of Cardiovascular Disease, 1st Ed, 2017 and the Recommendations of the Steering Committee on Tobacco control in Malaysia (Appendix XV: Smoking And Chronic Non Communicable Diseases).
 
-## 10.1: Cardiac Rehabilitation Programs (Crp)
+## 10.1: Cardiac Rehabilitation Programs (CRP)
 These include:
 - Counselling and educating the patient and family members on CAD and medications used to treat the conditions.
 - Beginning an exercise program.
@@ -72,14 +72,11 @@ Daily walking can be encouraged soon after discharge for most patients.
 ## 10.4: Return To Sexual Activity And Fitness For Commercial Air Travel
 Refer to Malaysian CPG on the Management of ST Elevation Myocardial Infarction, 2019, 4th Ed.
 
-### Key Messages 10#:
+**Key Messages 10#:**
 - All eligible patients with NSTE-ACS should be referred to a comprehensive cardiovascular rehabilitation program either as in-patient or during the first outpatient visit where available.
 
----
-
-## Contextual Anchors (Overlapping)
-
-### Appendix XV: Smoking And Chronic Non Communicable Diseases
+<!-- parent_only_reference_start -->
+Appendix XV: Smoking And Chronic Non Communicable Diseases
 *Recommendations of the Steering Committee on Tobacco control in Malaysia*
 
 Smoking of tobacco and tobacco products (cigarette, electronic cigarette/vape, shisha, pipe, cigar etc.) can lead to various complications of chronic non communicable diseases (NCD) such as coronary heart disease, cancers and chronic lung disease. It is the main cause of death worldwide whereby 6 million people die every year as a consequence of this habit (WHO Tobacco Fact Sheet, 2016).
@@ -96,9 +93,7 @@ Hence, the decision for treatment of smoking to be integrated with other chronic
 
 The treatment for smoking is based on Clinical Practice Guideline: Treatment for Tobacco Use Disorder 2016-(refer to Tables A-D)
 
----
 Table A: Assessment And Treatment Tobacco Use Disorder
-
 | ASSESSMENT & TREATMENT |
 | :--- |
 | Ask and document smoking status for all patients. |
@@ -111,7 +106,6 @@ Table A: Assessment And Treatment Tobacco Use Disorder
 | Arrange a minimum of six to eight face to face follow-up sessions for smoking cessation interventions in six months through counselling support team (Health education officer, pharmacists or any officer trained for quit smoking services). |
 
 Table B: Modified Fagerstrom Test For Cigarette Dependence Questionnaire
-
 | Question | Option | Point |
 | :--- | :--- | :---: |
 | How soon after you wake up do you smoke your first cigarette? | Within 5 minutes | 3 |
@@ -137,7 +131,6 @@ Table B: Modified Fagerstrom Test For Cigarette Dependence Questionnaire
 - Less than 4 points = Minimally Dependent
 
 Table C: Pharmacological Intervention - Nicotine Based Smoking Cessation Drugs
-
 | Drug | Dosage | Prescribing Instructions | Precautions | Side Effects |
 | :--- | :--- | :--- | :--- | :--- |
 | Nicotine Gum (2 mg, 4 mg) | 2 mg gum for patients smoking < 20 cigs/day, 4 mg gum for ≥ 20 cigs/day. Use up to 12 weeks with no more than 24 pieces/day. | Chewing technique: chew slowly until a peppery or minty taste emerges, then parked between cheek and gum. Repeat the chewing routine for about 30 minutes then discard.<br><br>Chew the gum on a fixed schedule (at least one piece every 1-2 hours during waking hours) for at least 1-3 months.<br><br>Do not eat or drink 15 minutes before using or while gum is in the mouth. | Pregnancy and lactating women: Should be used only if the increased likelihood of smoking abstinence, with its potential benefits, outweighs the risk of nicotine replacement and potential concomitant smoking.<br><br>Cardiovascular diseases: should be used with caution among those in the immediate (within 1 to 2 weeks) post myocardial infarction period, serious arrhythmias and worsening angina pectoris. | Mouth soreness, hiccups, dyspepsia, and jaw ache. |
@@ -160,7 +153,6 @@ Nicotine Lozenge:
 NiQuitin Mint Lozenges PIL Booklet - https://quest3plus.bpfk.gov.my/front-end/attachment/66/pharma/211166/V_3818_20170714_084514_D3.pdf (Accessed 27/11/2020)
 
 Table D: Pharmacological Intervention - Non-Nicotine Based Smoking Cessation Drugs
-
 | Drug | Dosage | Prescribing Instructions | Precautions | Side Effects |
 | :--- | :--- | :--- | :--- | :--- |
 | Varenicline (0.5mg, 1mg) | Days 1-3: 0.5 mg once daily;<br>Days 4-7: 0.5 mg twice daily;<br>Day 8-end of treatment: 1 mg twice daily.<br><br>Minimum treatment duration is 12 weeks. | Start 1-2 weeks before quit date. Best taken with a bit of food.<br><br>Administer after eating and with a full glass of water. | Renal insufficiency, and lactating women.<br><br>Dosing renal impairment: CrCl <30 mL/minute: Initial: 0.5 mg once daily; maximum maintenance dose: 0.5 mg twice daily or 1mg daily.<br><br>Not recommended in end stage renal disease, pregnancy, children and adolescents. | Nausea, headache, insomnia and abnormal dreams. |
@@ -175,17 +167,13 @@ https://www.uptodate.com/contents/varenicline-drug-information?search=vareniclin
 Bupropion* (Not available and not registered in Malaysia):
 https://www.gsksource.com/pharma/content/dam/GlaxoSmithKline/US/en/Prescribing_Information/Zyban/pdf/ZYBAN-PI-MG.PDF (Accessed 27/11/2020)
 
----
-
-Table 1: Levels Of Evidence And Grades Of Recommendation
+Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>II-a: Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>II-b: Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
-
-<br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
@@ -193,9 +181,7 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -221,3 +207,4 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | TECMA | Tobacco and E-cigarette Survey Among Adolescents |
 | WHO | World Health Organization |
 | WHO FCTC | World Health Organization Framework Convention on Tobacco Control |
+<!-- parent_only_reference_end -->

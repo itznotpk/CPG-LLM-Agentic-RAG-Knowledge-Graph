@@ -10,14 +10,14 @@ Ischaemic heart disease (IHD) remains the principal cause of death in Malaysia. 
 
 Patients with IHD may present with stable coronary artery disease (CAD) — now called Chronic Coronary Syndromes — or acute coronary syndrome (ACS). ACS is a clinical spectrum from NSTE-ACS (combination of unstable angina (UA) and non-ST elevation myocardial infarction (NSTEMI)) to ST elevation myocardial infarction (STEMI).
 
-### Ncvd-ACS Registry 2016–2017
+**Ncvd-ACS Registry 2016–2017**
 From the Malaysian National Cardiovascular Disease Database Acute Coronary Syndrome (NCVD-ACS) Registry 2016–2017:
 - 44.6% of ACS patients were STEMI.
 - 55.4% of ACS patients were NSTE-ACS (28.0% were NSTEMI and 27.4% were UA).
 
 Patients with NSTE-ACS were older (60.5 vs 56.3 years), more likely females (27.2% vs 14.2%) and had more CVD risk factors (comorbidities) compared to those who presented with STEMI.
 
-### NSTE-ACS Presenting Risk Profile
+**NSTE-ACS Presenting Risk Profile**
 Of those presenting with NSTE-ACS:
 - 42.2% were in the intermediate-high TIMI risk score
   - 35.1% were in the intermediate risk group (TIMI 3 & 4)
@@ -26,7 +26,7 @@ Of those presenting with NSTE-ACS:
 
 Compared to the previous registry data, our patients are now receiving more Guideline Directed Therapy (GDT). The use of DAPT and statins were more than 90%. More patients underwent coronary angiography during the index admission and 35.9% of NSTEMI and 20.2% of patients with UA had percutaneous coronary intervention (PCI).
 
-### Mortality Data
+**Mortality Data**
 The in-hospital, 30-day and 1-year mortality were:
 - 7.5%, 11.5% and 23.6% for NSTEMI respectively
 - 1.0%, 2.2% and 9.6% for UA respectively.
@@ -35,15 +35,10 @@ These figures are slightly lower than that seen in the NCVD 2014–2015 but stil
 
 The Malaysian Clinical Practice Guidelines (CPGs) on Stable Coronary Artery Disease 2018, 2nd Ed and ST Elevation Myocardial Infarction 4th Ed, 2019 were recently updated. The last CPG on UA/NSTEMI was published in 2011. Since then, there have been significant advances in the understanding of the pathophysiology and management. Thus, an update is timely to keep abreast with contemporary evidence.
 
----
-
-### Key Messages 1:
+**Key Messages 1:**
 - IHD remains the principal cause of death in Malaysia.
 - Our NCVD-ACS registry shows that our in-hospital, 30-day and 1-year mortality is still high despite being lower than in previous years. Our figures are higher than those in other international registries. (Table 4: In-hospital, 30-day and 1-year mortalities in the NCVD 2014–2015, NCVD 2016–2017, GRACE, CZECH-2 and FAST MI Registries)
 
----
-
-## Contextual Anchors (Overlapping)
 Table 4: In Hospital, 30-Day And 1-Year Mortalities In The Ncvd 2014–2015, Ncvd 2016–2017, Grace, Czech-2 And Fast MI Registries
 
 | | NCVD 2014–2015 (UA) | NCVD 2014–2015 (NSTEMI) | NCVD 2016–2017 (UA) | NCVD 2016–2017 (NSTEMI) | GRACE (NSTEMI) | CZECH-2 (NSTEMI) | FAST MI (NSTEMI) |
@@ -52,9 +47,8 @@ Table 4: In Hospital, 30-Day And 1-Year Mortalities In The Ncvd 2014–2015, Ncv
 | 30day mortality | 2.8% | 10.9% | 2.2% | 11.5% | | 4.7% | |
 | 1 year mortality | 10.6% | 23.9% | 9.6% | 23.6% | | | |
 
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -93,3 +87,4 @@ Table 4: In Hospital, 30-Day And 1-Year Mortalities In The Ncvd 2014–2015, Ncv
 | TIMI | Thrombolysis in Myocardial Infarction |
 | UA | Unstable Angina |
 | URL | Upper Reference Limit |
+<!-- parent_only_reference_end -->

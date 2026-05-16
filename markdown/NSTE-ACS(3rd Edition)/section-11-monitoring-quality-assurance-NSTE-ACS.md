@@ -10,14 +10,10 @@ Implementation of the recommendations listed in this CPG can be accomplished by:
 - Continuous medical education via regular seminars, lectures and roadshows particularly at the district hospital and family medicine clinics. Education and training is the most important aspect of the implementation of this CPG.
 - Widespread availability of this CPG to healthcare providers via printed copies, electronic websites, etc.
 
-## Key Recommendations 13:
+**Key Recommendations 13:**
 - Regular audit of performance and outcome measures (refer to Table 7: Performance and Outcome Measures) should be performed periodically to monitor and improve quality of care.
 
----
-
-## Contextual Anchors (Overlapping)
 Table 7: Performance And Outcome Measures
-
 | Documentation of the Following | Targets |
 | :--- | :---: |
 | Performance Measures | |
@@ -30,9 +26,8 @@ Table 7: Performance And Outcome Measures
 | In-hospital mortality and morbidity in patients admitted with ACS (NCVD registry). | |
 | Readmission rates for a cardiac related event in patients discharged with a diagnosis of ACS. Elective admissions for cardiac procedure are excluded. | |
 
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -46,3 +41,4 @@ Table 7: Performance And Outcome Measures
 | NSTE-ACS | Non-ST Elevation Acute Coronary Syndrome |
 | P2Y12 | Purinergic Receptor P2Y12 |
 | PCI | Percutaneous Coronary Intervention |
+<!-- parent_only_reference_end -->

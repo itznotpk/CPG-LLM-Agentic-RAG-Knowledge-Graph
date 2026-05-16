@@ -17,15 +17,25 @@ and/or demand. It may occur in the presence of coronary atherosclerosis without 
 
 Type 2 MI is an important cause of ACS in the elderly. Distinguishing Type 2 MI from troponin release due to non-coronary diseases is often difficult and challenging (refer to Table 2: Interpreting Cardiac Troponins & Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE)
 
-## Key Messages 4#:
+**Key Messages 4#:**
 MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies (refer to Table 6: Clinical Classification of MI). This CPG focuses on NSTE-ACS which is usually either:
 - **Type 1 MI** — Spontaneous MI related to atherosclerotic plaque rupture, with ulceration, fissuring, erosion or dissection.
 - **Type 2 MI** — Often due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis. This is an important cause of ACS in the elderly.
 - The majority (66%-78%) of ACS arise from lesions with <50% stenosis and less than 5% arise from lesions exhibiting >70% stenosis.
 
----
+Table 6: Clinical Classification Of MI
+| MI Type | Clinical Classification |
+| :--- | :--- |
+| Type 1: Spontaneous MI due to coronary athero-thrombosis | Spontaneous MI related to atherosclerotic plaque rupture, ulceration, fissuring, erosion, or dissection with resulting intraluminal thrombus in one or more of the coronary arteries leading to decreased myocardial blood flow or distal platelet emboli with ensuing myocyte necrosis. |
+| Type 2: MI secondary to an imbalance between myocardial oxygen demand and supply unrelated to acute coronary athero-thrombosis | MI that occurs due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis e.g., coronary endothelial dysfunction, coronary artery spasm, coronary embolism, coronary artery dissection, tachy/bradyarrhythmias, anemia, respiratory failure, sepsis, hypotension, and hypertension with or without left ventricular hypertrophy (LVH). |
+| Type 3: MI resulting in death when biomarker values are unavailable | Cardiac death with symptoms suggestive of myocardial ischemic and presumed new ischemic ECG changes or new LBBB, but death occurring before blood samples could be obtained, before cardiac biomarker could rise, or in rare cases cardiac biomarkers were not collected. |
+| Type 4a: MI related to PCI | MI associated with PCI is arbitrarily defined by elevation of cardiac troponin (cTn) values 5 x > 99th percentile URL in patients with normal baseline values (≤ 99th percentile URL) or a rise of cTn values > 20% if the baseline values are elevated but are stable or falling. In addition, either <br> (i) symptoms suggestive of myocardial ischemia, or <br> (ii) new ischemic ECG changes or new LBBB, or <br> (iii) angiographic loss of patency of a major coronary artery or a side branch or persistent slow-or no-flow or embolization, or <br> (iv) imaging demonstration of new loss of viable myocardium or new regional wall motion abnormality is required. |
+| Type 4b: MI related to stent thrombosis | MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischemia and with a rise and/or fall of cardiac biomarkers values with at least one value above the 99th percentile URL. |
+| Type 5: MI related to coronary artery bypass surgery (CABG) | MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 x 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either <br> (i) new pathological Q waves or new LBBB, or <br> (ii) angiographic documented new graft or new native coronary artery occlusion, or <br>  (iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality. |
 
-## Contextual Anchors (Overlapping)
+*Adapted from Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
+
+<!-- parent_only_reference_start -->
 Table 2: Interpreting Cardiac Troponins
 
 This table can be read as a clinical pathway for patients with **elevated cardiac troponins (>99th percentile)**.
@@ -67,23 +77,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 - *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
 - *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
 
----
-Table 6: Clinical Classification Of MI
-
-| MI Type | Clinical Classification |
-| :--- | :--- |
-| Type 1: Spontaneous MI due to coronary athero-thrombosis | Spontaneous MI related to atherosclerotic plaque rupture, ulceration, fissuring, erosion, or dissection with resulting intraluminal thrombus in one or more of the coronary arteries leading to decreased myocardial blood flow or distal platelet emboli with ensuing myocyte necrosis. |
-| Type 2: MI secondary to an imbalance between myocardial oxygen demand and supply unrelated to acute coronary athero-thrombosis | MI that occurs due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis e.g., coronary endothelial dysfunction, coronary artery spasm, coronary embolism, coronary artery dissection, tachy/bradyarrhythmias, anemia, respiratory failure, sepsis, hypotension, and hypertension with or without left ventricular hypertrophy (LVH). |
-| Type 3: MI resulting in death when biomarker values are unavailable | Cardiac death with symptoms suggestive of myocardial ischemic and presumed new ischemic ECG changes or new LBBB, but death occurring before blood samples could be obtained, before cardiac biomarker could rise, or in rare cases cardiac biomarkers were not collected. |
-| Type 4a: MI related to PCI | MI associated with PCI is arbitrarily defined by elevation of cardiac troponin (cTn) values 5 x > 99th percentile URL in patients with normal baseline values (≤ 99th percentile URL) or a rise of cTn values > 20% if the baseline values are elevated but are stable or falling. In addition, either <br> (i) symptoms suggestive of myocardial ischemia, or <br> (ii) new ischemic ECG changes or new LBBB, or <br> (iii) angiographic loss of patency of a major coronary artery or a side branch or persistent slow-or no-flow or embolization, or <br> (iv) imaging demonstration of new loss of viable myocardium or new regional wall motion abnormality is required. |
-| Type 4b: MI related to stent thrombosis | MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischemia and with a rise and/or fall of cardiac biomarkers values with at least one value above the 99th percentile URL. |
-| Type 5: MI related to coronary artery bypass surgery (CABG) | MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 x 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either <br> (i) new pathological Q waves or new LBBB, or <br> (ii) angiographic documented new graft or new native coronary artery occlusion, or <br>  (iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality. |
-
-*Adapted from Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
-
----
-
-### Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
+Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
 | Damage related to secondary myocardial ischemia (MI type 2) |
 | :--- |
 | Tachy - or bradyarrhythmias |
@@ -115,9 +109,7 @@ Table 6: Clinical Classification Of MI
 
 *Adapted from Thygesen K et al. Recommendations for the use of cardiac troponin measurement in acute cardiac care. Eur Heart J 2010; 31:2197-2204.*
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACCF | American College of Cardiology Foundation |
@@ -136,3 +128,4 @@ Table 6: Clinical Classification Of MI
 | STEMI | ST Elevation Myocardial Infarction |
 | UA | Unstable Angina |
 | URL | Upper Reference Limit |
+<!-- parent_only_reference_end -->

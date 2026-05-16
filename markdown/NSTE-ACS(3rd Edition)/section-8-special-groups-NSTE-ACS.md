@@ -90,7 +90,7 @@ The diagnosis of ACS in patients with CKD is often difficult though essential.
 ### 8.3.2: Management
 Patients with renal impairment were excluded from most clinical trials. In general, the management of patients with CKD is similar to those with normal renal function except for the following differences:
 - Patients with CKD have more co-morbidity and are usually older.
-- They are at increased bleeding risks. The doses of antithrombotic agents need to be adjusted accordingly to avoid excessive bleeding (Appendix VII: P2Y12 INHIBITORS*).
+- They are at increased bleeding risks. The doses of antithrombotic agents need to be adjusted accordingly to avoid excessive bleeding (Appendix VII: P2y12 Inhibitors*).
 - Medications:
   - Antiplatelet agents -
     - Although DAPT has become the standard of care in patients with ACS and normal renal function, the benefits in persons with CKD are uncertain and are potentially outweighed by bleeding hazards. In these patients, treatment should be individualised.
@@ -110,7 +110,7 @@ Patients with renal impairment were excluded from most clinical trials. In gener
     - worsening renal function and acute on chronic renal failure due to contrast nephropathy and/or cholesterol embolization. Strategies should be taken to reduce this risk.
     - the procedure - These patients often have calcified, tortuous vessels which increases the risk and complexity of PCI.
 
-### Key Messages 9#:
+**Key Messages 9#:**
 - When managing older patients, one should consider the biological age rather than the chronological age.
 - Older persons have greater in-hospital and long term benefits with an early invasive strategy. However, there is an increased risk of major bleeding.
 - Women should be managed with the same pharmacological therapy as that for men for acute care and for secondary prevention.
@@ -118,11 +118,8 @@ Patients with renal impairment were excluded from most clinical trials. In gener
 - In general, patients with CKD should be managed in a similar manner as those with normal renal function. They however have a higher bleeding tendency and doses of medications need to be adjusted according to the renal function.
 - In patients with CKD, an early invasive strategy is superior to a delayed invasive strategy. The benefit, however, declines with lower renal function, and is less certain in those with renal failure or on dialysis.
 
----
-
-## Contextual Anchors (Overlapping)
-
-### Appendix VII: P2y12 Inhibitors*
+<!-- parent_only_reference_start -->
+Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
 | :--- | :--- | :--- | :--- |
 | Chemical class | Thienopyridine | Thienopyridine | Cyclopentyl-<br>triazolopyrimidine |
@@ -143,9 +140,7 @@ Patients with renal impairment were excluded from most clinical trials. In gener
 *<sup>b</sup> Onset of effect may be delayed if intestinal absorption is delayed (e.g. by opiate).* <br>
 *<sup>c</sup> Shortening may be considered if indicated by platelet function tests and low bleeding risk.*
 
----
-
-### Appendix XIV: Calculation Of eGFR For Drug Dosing Adjustments
+Appendix XIV: Calculation Of eGFR For Drug Dosing Adjustments
 Estimated GFR (eGFR) can be derived from various equations including:
 - CKD-EPI Creatinine (CKD -EPI) Equation- (most commonly used)
 - Modification of Diet in Renal Disease Study (MDRD) Equation.
@@ -158,9 +153,7 @@ https://www.mdcalc.com/mdrd-gfr-equation
 
 Creatinine clearance (Cr Cl) is determined by the Cockcroft-Gault (CG) Equation. In the past, this equation was used for drug dosing adjustments based on creatinine clearance. However, in more recent practice, the CKD-EPI equation tends to be used for drug dosing based on eGFR, especially for newer generation drugs. However, drug dosing adjustment should be done according to the United States Food and Drug Administrative - or European Medicines Agency-approved product labelling.
 
----
-
-### Appendix IX: Anticoagulant Agents*
+Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
 | Dose | SC 2.5mg daily | SC 1 mg/kg BD | IV bolus 60 IU/kg (max 4000 IU), infusion 12IU/kg/hour (max 1000 IU/hour) adjusted to maintain aPTT 1.5 - 2.0x normal |
@@ -174,17 +167,12 @@ Creatinine clearance (Cr Cl) is determined by the Cockcroft-Gault (CG) Equation.
 
 *\*\*There are limited clinical data available on the use of Fondaparinux for the treatment of UA/NSTEMI and STEMI in patients with creatinine clearance between 20 to 30 ml/min. Therefore the physician should determine if the benefit of treatment outweighs the risk.It is not recommended when CrCl< 20 ml/min. https://india-pharma.gsk.com/media/701015/arixtra.pdf (Accessed 14th October 2019).*
 
----
-
-Table 1: Levels Of Evidence And Grades Of Recommendation
-
+Levels Of Evidence And Grades Of Recommendation
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>II-a: Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>II-b: Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
-
-<br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
@@ -192,9 +180,7 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACE | Angiotensin Converting Enzyme |
@@ -220,3 +206,4 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | UA | Unstable Angina |
 | UFH | Unfractionated Heparin |
 | URL | Upper Reference Limit |
+<!-- parent_only_reference_end -->

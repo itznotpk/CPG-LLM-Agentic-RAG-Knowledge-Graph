@@ -37,8 +37,6 @@ Immediate measures to be taken by the individual in suspected cases of ACS:
 - [Level I, Grade C] If the patient is already on aspirin 75–150 mg, it is advisable to take an additional 300 mg of aspirin.
 - The 999 dispatchers will provide additional care instructions before the arrival of the pre-hospital care (PHC) providers.
 
----
-
 ## 6.2: Primary Care Clinics
 Chest pain is one of the more common presentations in primary care facilities. In less urban areas, it may be the most accessible healthcare facility to the patient.
 
@@ -56,8 +54,6 @@ In suspected NSTE-ACS:
 - Administer IV morphine as indicated.
 - Inform the hospital prior to transfer.
 
----
-
 ## 6.3: Medical Emergency Coordination Centre (Mecc) And Ambulance Responders
 When a patient presents with chest pain, it is of paramount importance to determine if:
 - The pain is cardiac in origin.
@@ -65,11 +61,10 @@ When a patient presents with chest pain, it is of paramount importance to determ
   - **STEMI** — requires immediate treatment to reopen the occluded infarct related artery preferably by Primary PCI if this can be done in a timely manner.
   - **NSTE-ACS** — UA or NSTEMI. The initial management is medical.
 
-## 999: Call Process
+**999: Call Process**
 When there is a 999 call, the caller is first directed to Telekoms who will verify the authenticity of the caller. It is then directed to a Medical Emergency Coordination Centre (MECC), who will then:
 
 **A. Identify the chief complaint**
-
 If the complaint is chest pain or a chest pain equivalent (e.g., chest heaviness, discomfort which may be associated with sweating and/or shortness of breath), a validated protocol will be used addressing:
 - Nature of complaint and severity including level of alertness.
 - Difficulty breathing.
@@ -79,45 +74,39 @@ If the complaint is chest pain or a chest pain equivalent (e.g., chest heaviness
 
 Pre-arrival instructions will be given and this includes immediate self-care or bystander care while waiting for ambulance arrival.
 
-### Ambulance Teams
+**Ambulance Teams**
 Ambulance teams dispatched to the scene should be trained and equipped to perform an ECG (with the use of Advanced Cardiac Care Device which is capable of ECG recording, transmission, and real-time ECG monitoring and telemetry).
 
 - If the ECG (after interpretation by trained personnel) shows features of **STEMI**, the patient should be transported to the nearest hospital preferably with PCI-capable services.
 -  [Level I, Grade B] If the patient with **NSTE-ACS** has ongoing/recurrent chest pain, they too should be considered for immediate transfer to a PCI-capable hospital.
 - **High-risk unstable patients** should be taken to the nearest hospital for stabilization first.
 
-### Supportive Care During Transfer:
+**Supportive Care During Transfer:**
 - Monitor the patient's haemodynamics continuously prior to and during transfer including continuous ECG monitoring.
 -  [Level I, Grade A] Give 300 mg of chewable aspirin (if not taken earlier).
 -  [Level I, Grade C] GTN either as a sublingual tablet or spray if there are no contraindications.
 
-### Pre-Hospital Care Personnel Should Be Trained To:
+**Pre-Hospital Care Personnel Should Be Trained To:**
 - Identify patients at high risk of developing ACS such as those with prior heart disease, the elderly, presence of multiple cardiovascular risk factors — diabetes, smoking, hypertension, dyslipidaemia, and a family history of premature heart disease.
 - Interpret the ECG, identify and treat common arrhythmias. There should be periodic feedback reports and other quality improvement measures in the interpretation of ECGs.
 - Identify patients with NSTE-ACS and STEMI based on history and characteristic ECG changes after consultation with the ED physician/medical officer.
 - Assess, stabilise and monitor the patient's haemodynamics continuously prior to and during transfer.
 
----
-
-### Key Recommendations 5:
+**Key Recommendations 5:**
 - Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC.
 - If the person is suspected to have an ACS and is not on regular aspirin with no history of allergy, 300mg aspirin should be administered. Soluble and chewable aspirin formulations are preferable to solid aspirin either chewed or swallowed.
 
-### Key Recommendations 6:
+**Key Recommendations 6:**
 - Ambulance responders should be trained and equipped to perform an ECG.
 - If the ECG shows STEMI or the patient with NSTE-ACS has ongoing/recurrent chest pain, they should be considered for immediate transfer to a PCI-capable hospital. High-risk unstable patients should be taken to the nearest hospital for stabilization first.
 
----
-
-Table 1: Levels Of Evidence And Grades Of Recommendation
-
+<!-- parent_only_reference_start -->
+Levels Of Evidence And Grades Of Recommendation
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>II-a: Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>II-b: Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
-
-<br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
@@ -125,9 +114,7 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -149,3 +136,4 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | SpO₂ | Oxygen Saturation |
 | STEMI | ST Elevation Myocardial Infarction |
 | UA | Unstable Angina |
+<!-- parent_only_reference_end -->

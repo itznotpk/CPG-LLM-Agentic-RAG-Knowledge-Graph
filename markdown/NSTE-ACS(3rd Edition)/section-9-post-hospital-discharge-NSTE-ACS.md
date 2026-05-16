@@ -26,10 +26,32 @@ Important discharge instructions (both verbal and written instructions) should i
 
 Refer to Malaysian CPG on Primary and Secondary Prevention of Cardiovascular Disease 2017, 1st Ed for further details.
 
-## 9.1: Medications Post-Discharge (Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS)
+## 9.1: Medications Post-Discharge
+Refer to Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS
+Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS
+
+| Intervention | Grade of Recommendation | Level of Evidence | Comments |
+| :--- | :---: | :---: | :--- |
+| Concomitant Pharmacotherapy | | | |
+| Aspirin | I | A | Maintenance dose: 75-150 mg daily. |
+| + Clopidogrel<br>**OR** | I | A | Maintenance dose 75 mg daily to be given as part of DAPT for at least 1 year. |
+| + Ticagrelor<br>**OR** | I | B | Maintenance dose 90 mg twice daily to be given as part of DAPT for at least 1 year. |
+| + Prasugrel | I | B | Maintenance dose 10 mg daily to be given as part of DAPT for at least 1 year. |
+| + High intensity statins | I | A | Aim for low density lipoprotein-cholesterol (LDL-C) <1.8 mmol/L), the lower the better. |
+| + UFH<br>**OR** | I | A | In medically treated patients, given for 2-8 days or till hospital discharge. |
+| s.c. LMWH<br>**OR** | I | A | In medically treated patients, given for 2-8 days or till hospital discharge. |
+| s.c. Fondaparinux<br>**OR** | I | A | In medically treated patients, given for 2-8 days or till hospital discharge. |
+| + beta-blockers | I | A | Consider long-term therapy (> 1 year) for patients with LVEF <=40%. |
+| + beta-blockers | IIb | B | Routine administration (> 1 year) in all patients post NSTE-ACS with no angina / ischemia and normal LV function. |
+| + ACE-Is | I | A | Started on first day and continued long-term (>1 year) for patients with LVEF <=40%, anterior infarcts and diabetes. |
+| + ACE-Is | IIb | B | Routine administration in all patients post NSTE-ACS > 1 year. |
+| ARBs | I | B | Started on first day and continued long-term (>1 year) for patients with LVEF <=40%, anterior infarcts and diabetes. |
+| ARBs | IIb | B | Routine administration in all patients post NSTE-ACS > 1 year. |
+| Nitrates, CCB, Ivabradine, ranolazine, trimetazidine | IIa | B | Indicated for residual/recurrent ischemia. |
+
 These should include:
 
-### A. Antiplatelet Agents
+**A. Antiplatelet Agents**
 - DAPT consisting of a combination of:
   - 75-100mg daily aspirin. Currently, studies are still being conducted to look at the optimal dose of aspirin in secondary prevention.
   - **+ (Plus) a P2Y12 Inhibitor either**
@@ -39,12 +61,12 @@ These should include:
 - The duration of DAPT in patients with NSTE-ACS will depend on the thrombotic / ischemic versus bleeding risks. Ideally all patients should receive DAPT for 9-12 months (both medically treated patients, those post PCI and those who have undergone CABG).
 - However, in patients with high bleeding risks, a shorter period of DAPT of 3 to 6 months may be considered.
 
-### B. Lipid Modifying Therapy
+**B. Lipid Modifying Therapy**
 - [Grade I, Level A] There is a large body of evidence that early initiation of high dose statin therapy improves outcome regardless of baseline LDL-C levels in patient with ACS.
 - [Grade I, Level A] More aggressive lipid lowering further lowers cardiovascular event rates.
 - If target LDL-C levels are not attained on maximally tolerated statin therapy and especially if it still remains > 2.6 mmol/l, consider the addition of ezetimibe and/or PCSK-9 inhibitors.
 
-### C. In The Presence Of Lvef < 40% And /Or Heart Failure
+**C. In The Presence Of Lvef < 40% And /Or Heart Failure**
 These should include:
 - [Grade I, Level A] beta-blockers
 - [Grade I, Level A] Renin Angiotensin Blockers (ACEIs/ARBs)
@@ -56,13 +78,13 @@ These should include:
 - [Grade I, Level A] Sodium-glucose co-transporter-2 (SGLT2) inhibitors - these agents have been shown to reduce cardiovascular events in both diabetic and non-diabetic patients. In the large trials, they have been instituted when the patient is stable.
 - [Grade IIa, Level A] Angiotensin Receptor-Neprilysin Inhibitor (ARNi) has been shown to cause a greater reduction in NT-Pro BNP levels than ACEI in patients with acute decompensated heart failure. However when instituted early in patients post ACS (STEMI and NSTE-ACS), it did not outperform ACEI in cardiovascular event reduction.
 
-### D. In The Presence Of Angina and/or Myocardial Ischemia
+**D. In The Presence Of Angina and/or Myocardial Ischemia**
 Anti-ischaemic therapy includes:
 - Sublingual nitroglycerin should be administered and patients instructed on its use.
 - beta-blockers and/or CCBs should be prescribed as first-line treatment to reduce angina because it is widely available.
 - Ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
 
-### E. Other Co-Existing Clinical Conditions:
+**E. Other Co-Existing Clinical Conditions:**
 - [Grade IIa, Level B] Atrial Fibrillation
 
 In NSTE-ACS patients with AF who had undergone PCI, the use of DOAC with antiplatelet therapy is associated with a lower risk of bleeding than the standard triple therapy (DAPT + warfarin).
@@ -89,7 +111,8 @@ The following **regimens** may be considered:
 
 [Grade IIb, Level B] Evidence supporting the routine use of beta-blockers and ACEI/ARB > 1-year post NSTE-ACS for the treatment of stable CAD only is less well established.
 
-## 9.2: Investigations During Follow Up (Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*)
+## 9.2: Investigations During Follow Up
+Refer to Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*
 In the outpatient evaluation of low risk NSTE-ACS patients, the following investigations maybe considered:
 - Echocardiogram to assess LV function
 - Treadmill stress test
@@ -99,48 +122,22 @@ In the outpatient evaluation of low risk NSTE-ACS patients, the following invest
 
 Patients with significant demonstrable ischemia should be considered for revascularization.
 
-### Key Recommendations 11:
+**Key Recommendations 11:**
 - Patients should be on optimal medical therapy at discharge. This includes:
   - DAPT with aspirin + clopidogrel (or ticagrelor or prasugrel)
   - **And** high intensity statins to achieve LDL-C target of < 1.8 mmol/l (preferably < 1.4 mmol/l), the lower the better.
   - **And** in the presence of angina /myocardial ischemia, beta-blockers and/or CCBs should be prescribed as first-line treatment and ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
   - **And** in the presence of LVEF < 40% and heart failure, beta-blockers, Renin Angiotensin Blockers (ACEIs/ARBs) and Aldosterone Receptor Antagonists - spironolactone, eplerenone should be given. SGLT2-inhibitors can be instituted in both stable diabetic and non-diabetic patients.
 
-### Key Recommendations 12:
+**Key Recommendations 12:**
 - Low risk patients should be assessed non-invasively for ischemia. (Flowchart 2: Non-invasive investigation of Low Risk Patients with NSTE-ACS*)
 - If they have troubling symptoms and/or significant myocardial ischemia, they should be referred for coronary angiography with view to revascularization.
 
----
-
-## Contextual Anchors (Overlapping)
-Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS
-
-| Intervention | Grade of Recommendation | Level of Evidence | Comments |
-| :--- | :---: | :---: | :--- |
-| Concomitant Pharmacotherapy | | | |
-| Aspirin | I | A | Maintenance dose: 75-150 mg daily. |
-| + Clopidogrel<br>**OR** | I | A | Maintenance dose 75 mg daily to be given as part of DAPT for at least 1 year. |
-| + Ticagrelor<br>**OR** | I | B | Maintenance dose 90 mg twice daily to be given as part of DAPT for at least 1 year. |
-| + Prasugrel | I | B | Maintenance dose 10 mg daily to be given as part of DAPT for at least 1 year. |
-| + High intensity statins | I | A | Aim for low density lipoprotein-cholesterol (LDL-C) <1.8 mmol/L), the lower the better. |
-| + UFH<br>**OR** | I | A | In medically treated patients, given for 2-8 days or till hospital discharge. |
-| s.c. LMWH<br>**OR** | I | A | In medically treated patients, given for 2-8 days or till hospital discharge. |
-| s.c. Fondaparinux<br>**OR** | I | A | In medically treated patients, given for 2-8 days or till hospital discharge. |
-| + beta-blockers | I | A | Consider long-term therapy (> 1 year) for patients with LVEF <=40%. |
-| + beta-blockers | IIb | B | Routine administration (> 1 year) in all patients post NSTE-ACS with no angina / ischemia and normal LV function. |
-| + ACE-Is | I | A | Started on first day and continued long-term (>1 year) for patients with LVEF <=40%, anterior infarcts and diabetes. |
-| + ACE-Is | IIb | B | Routine administration in all patients post NSTE-ACS > 1 year. |
-| ARBs | I | B | Started on first day and continued long-term (>1 year) for patients with LVEF <=40%, anterior infarcts and diabetes. |
-| ARBs | IIb | B | Routine administration in all patients post NSTE-ACS > 1 year. |
-| Nitrates, CCB, Ivabradine, ranolazine, trimetazidine | IIa | B | Indicated for residual/recurrent ischemia. |
-
----
-
-### Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*
+<!-- parent_only_reference_start -->
+Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*
 The flowchart describes the non-invasive investigation pathway for **low risk patients with NSTE-ACS**.
 
 **1. Identify low risk patients**
-
 Low risk patients have:
 - No angina in the past.
 - No ongoing angina.
@@ -151,7 +148,6 @@ Low risk patients have:
 - Normal LV function.
 
 **2. Select the initial investigation according to ECG and exercise tolerance**
-
 - If the patient has **normal ECG** and **good exercise tolerance**:
   - Perform an **exercise stress test**.
 - If the patient has **abnormal ECG** or **limited exercise tolerance**:
@@ -162,7 +158,6 @@ Low risk patients have:
     - CT coronary angiogram.
 
 **3. Interpret the exercise stress test**
-
 - If the exercise stress test is **negative**:
   - Continue **risk factor reduction** and **medical therapy for CAD**.
 - If the exercise stress test is **equivocal**:
@@ -171,27 +166,21 @@ Low risk patients have:
   - Proceed to **invasive coronary angiogram**.
 
 **4. Interpret non-invasive imaging**
-
 - If the exercise or dobutamine stress echocardiogram, cardiac CMR, or CT coronary angiogram is **equivocal or positive**:
   - Proceed to **invasive coronary angiogram**.
 
 **Additional notes**
-
 - The choice of investigation will depend on the available resources and expertise.
 - Patients who have undergone revascularization and have residual or recurrent ischemia, or a change in symptoms, should be investigated as above.
 - All intermediate or high risk NSTE-ACS patients should be considered for coronary angiography and revascularization.
 
----
-
-Table 1: Levels Of Evidence And Grades Of Recommendation
+Levels Of Evidence And Grades Of Recommendation
 
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>II-a: Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>II-b: Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
-
-<br>
 
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
@@ -199,9 +188,7 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -242,3 +229,4 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | s.c. | Subcutaneous |
 | STEMI | ST Elevation Myocardial Infarction |
 | UFH | Unfractionated Heparin |
+<!-- parent_only_reference_end -->
