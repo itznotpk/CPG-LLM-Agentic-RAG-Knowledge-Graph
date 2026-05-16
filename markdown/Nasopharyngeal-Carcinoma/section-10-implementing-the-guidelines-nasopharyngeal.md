@@ -32,7 +32,6 @@ To assist in the implementation of the CPG, the following are proposed as clinic
 
 Implementation strategies will be developed following the approval of the CPG by MoH which include Quick Reference and Training Module.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |
@@ -42,8 +41,6 @@ Levels Of Evidence
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
-
-*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
 Abbreviations
 | Abbreviation | Full Term |

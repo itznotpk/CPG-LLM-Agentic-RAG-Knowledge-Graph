@@ -25,10 +25,9 @@ Other risk factors for NPC are:
 ## 2.3: Screening
 Screening of NPC for general population in endemic area has been extensively studied. The methods used are Epstein-Barr virus (EBV) serology test and nasopharyngoscopy. [Level II-2] The Health Technology Assessment (HTA) report by the Ministry of Health (MoH) Malaysia published in 2011 concluded that there was insufficient evidence to recommend a population-based NPC screening programme as a public health policy. [Level I] The findings of a recent Cochrane systematic review on NPC screening published in 2015 were consistent with the HTA report.
 
-> **Recommendation:**
-> - Screening of NPC in general population could not be recommended due to insufficient evidence for its effectiveness and safety.
+**Recommendation:**
+Screening of NPC in general population could not be recommended due to insufficient evidence for its effectiveness and safety.
 
----
 <!-- parent_only_reference_start -->
 Levels Of Evidence
 | Level | Study design |
@@ -38,8 +37,6 @@ Levels Of Evidence
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
-
-*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
 Abbreviations
 | Abbreviation | Full Term |

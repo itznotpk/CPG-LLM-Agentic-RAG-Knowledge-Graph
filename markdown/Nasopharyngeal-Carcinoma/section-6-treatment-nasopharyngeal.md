@@ -10,7 +10,7 @@ treatment_type: cisplatin, carboplatin, fluorouracil, docetaxel, IMRT, 3D-CRT, b
 
 Multidisciplinary team approach in the management of NPC cases is important to ensure optimum treatment planning. The main treatment for NPC is radiation therapy with or without chemotherapy.
 
-## 6.1: Primary Cancer (Newly Diagnosed Npc)
+## 6.1: Primary Cancer (Newly Diagnosed NPC)
 Radiation therapy (RT) is the main treatment modality for non-disseminated NPC. Chemotherapy plays a role as adjunct treatment to RT. It can be given as concurrent, adjuvant or neoadjuvant setting.
 
 NPC is radiosensitive and thus radiation therapy is the mainstay of treatment. Radical radiation therapy doses usually consist of 66 to 70Gy in 33-35 fractions, treated once daily over 6-7 weeks, usually 5 days a week with two rest days. Conventional 2-dimensional radiation therapy (2D-CRT) used to be the main technique. With the understanding about benefit of conformal radiation therapy and technological advancement, the therapy has evolved to 3-dimensional radiation therapy (3D-CRT) and more recently intensity modulated radiotherapy (IMRT).
@@ -77,7 +77,6 @@ For pain management in cancer patients, refer to CPG Management of Cancer Pain.
 > **Recommendation 6**
 > - Multimodality treatment including palliative care should be considered in advanced nasopharyngeal carcinoma.
 
----
 <!-- parent_only_reference_start -->
 Appendix 6: Chemotherapy Drugs And Side Effects
 | CHEMOTHERAPY DRUGS | SIDE EFFECTS | REMARKS |
@@ -113,8 +112,6 @@ Levels Of Evidence
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
-
-*SOURCE: US / CANADIAN PREVENTIVE SERVICES TASK FORCE 2001*
 
 Abbreviations
 | Abbreviation | Full Term |

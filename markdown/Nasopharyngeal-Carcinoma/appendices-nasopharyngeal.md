@@ -6,6 +6,8 @@ patient_input: tumour_characteristics, histopathology_findings, TNM_stage, perfo
 output: staging_classification, chemotherapy_protocol, toxicity_reference, performance_status_grading
 -->
 
+> **Context:** Reference appendices for the Malaysian Nasopharyngeal Carcinoma CPG: literature search strategy and clinical questions, clinical presentations, AJCC TNM staging diagram (Appendix 4), radiological staging (Appendix 5), chemotherapy drug side-effects, ECOG performance status, and radiotherapy head-and-neck toxicities. Operational reference tables — clinical rationale is in Sections 4–8.
+
 ## Appendix 1: Example Of Search Strategy
 1. Nasopharyngeal Neoplasms/
 2. ((neoplasm* or cancer* or carcinoma*) adj1 (nasopharynx or nasopharyngeal)).tw.
@@ -107,8 +109,7 @@ The distribution and the prognostic impact of regional lymph node spread from na
 | IVB | Any T | N3 | M0 |
 | IVC | Any T | Any N | M1 |
 | | Unknown Stage | | |
-
-*Note: Group definitions are identical for Clinical and Pathologic staging.*
+Note: Group definitions are identical for Clinical and Pathologic staging.
 
 **Nasopharynx Staging Form (Additional Descriptors)**
 - **General Notes:** For identification of special cases of TNM or pTNM classifications, the "m" suffix and "y," "r," and "a" prefixes are used. Although they do not affect the stage grouping, they indicate cases needing separate analysis.
