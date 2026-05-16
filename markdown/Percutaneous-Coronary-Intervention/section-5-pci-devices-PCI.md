@@ -70,7 +70,7 @@ Another consideration in the choice of a stent will be its side branch access. G
 
 Most stents can be delivered through a 5F guiding catheter (except for the larger stents which are > 3.5 mm in diameter). Generally, for the simultaneous deployment of 2 stents, the minimum size of the guiding catheter should be 7F.
 
-### 5.2.2: Drug Eluting Stents (Des)
+### 5.2.2: Drug Eluting Stents (DES)
 The Achilles heel of angioplasty and stenting has been restenosis as a result of neointimal proliferation. If substantial, it can lead to significant in-stent restenosis (ISR). The rates of restenosis with BMS can be as high as 50% in certain situations e.g. CTO, long lesions, small vessels, diabetics, ostial and bifurcation lesions. In large vessels (> 3.5 mm) with discrete lesions the restenosis rates with BMS is low.
 
 Stents may be coated with antiproliferative agents to inhibit neointimal proliferation and therefore reduce the risk of restenosis. They act on specific sites in the cell growth cycle. The current agents used are the limus group e.g. sirolimus, everolimus, zotarolimus and biolimus and the taxol group i.e. paclitaxel.
@@ -95,7 +95,7 @@ These are useful for sealing coronary perforations and excluding aneurysms. They
 #### 5.2.5.1: Biodegradable Polymer
 One of the concerns with polymer based stents is the risk of inflammation that may predispose to stent thrombosis. Biodegradable polymer reduces this risk. They are as efficacious as other first-generation DES but are not safer at 1 year.
 
-#### 5.2.5.2: Biodegradable Des
+#### 5.2.5.2: Biodegradable DES
 The potential advantage of this type of stent is the avoidance of stent thrombosis. It also offers the possibility of allowing that stented segment to be grafted during CABG after it has degraded. Typically an ideal biodegradable DES will be degraded over 18 to 24 months after overcoming the problem of elastic recoil and neointimal proliferation.
 
 These stents are currently being evaluated in ongoing trials.

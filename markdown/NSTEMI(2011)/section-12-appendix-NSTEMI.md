@@ -6,7 +6,7 @@ patient_input: clinical_parameters, scoring_variables
 output: classification_reference, risk_score_calculation, diagnostic_criteria, dosing_reference
 -->
 
-> **Context:** This section consolidates supplementary clinical classification tables and diagnostic criteria, including Appendix I (Braunwald's Classification of Unstable Angina), Appendix II (differential diagnoses for cardiac troponin elevations), Appendix III (clinical likelihood assessment matrix for ACS secondary to CAD), Appendix IV (TIMI Risk Score), Appendix V (GRACE Prediction Score nomogram), Appendix VI (Creatinine Clearance Calculation), Appendix VII and VIII (Contrast Induced Nephropathy Prevention guidelines and dosing).
+> **Context:** Reference appendices for the 2011 Malaysian UA/NSTEMI CPG: Braunwald classification of unstable angina, troponin-elevation differential diagnoses, ACS likelihood matrix, TIMI and GRACE risk scores, creatinine clearance calculation, and contrast-induced nephropathy prevention/dosing. Operational reference tables — clinical rationale is in Sections 4–9.
 
 ## Appendix I: Braunwald's Classification Of Unstable Angina
 | Severity | CLINICAL CIRCUMSTANCES: A (Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia / Secondary UA) | CLINICAL CIRCUMSTANCES: B (Develops in Absence of Extracardiac Condition / Primary UA) | CLINICAL CIRCUMSTANCES: C (Develops Within 2 weeks of MI / Postinfarction UA) |
@@ -18,7 +18,6 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 *UA: Unstable angina; T: Troponins*
 
 ## Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischaemic Heart Disease
-
 ### Damage Related To Secondary Myocardial Ischaemia (MI Type 2)
 * Tachy- or bradyarrhythmias
 * Aortic dissection and severe aortic valve disease
@@ -49,7 +48,7 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 * Acute respiratory failure
 * Frequent defibrillator shocks
 
-## Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
+## Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To CAD
 | Category | Greater Likelihood | Lower Likelihood |
 |---|---|---|
 | History | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |
@@ -63,8 +62,6 @@ output: classification_reference, risk_score_calculation, diagnostic_criteria, d
 | ECG | New, or presumably new, transient ST-segment deviation (1 mm or greater) or T-wave inversion in multiple pre-cordial leads | T-wave flattening or inversion less than 1 mm in leads with dominant R waves |
 | | | Normal ECG |
 | Cardiac Biomarkers | Elevated cardiac TnI, TnT, or CK-MB markers | Normal |
-
-*Modified from Braunwald E, et al. Unstable Angina: Diagnosis and Management. 1994;3-1-AHCPR Publication No 94-0602:1-154.*
 
 ## Appendix IV: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
@@ -84,7 +81,6 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * ST-segment deviation (&ge;0.5mm) on ECG
 * At least 2 anginal episodes in prior 24 h
 * Elevated serum cardiac biomarkers
-
 **Total Score = 7 points**
 * **Low Risk:** &le; 2 points
 * **Moderate Risk:** 3-4 points
@@ -130,9 +126,8 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 | | 8. Elevated Cardiac Enzymes | Yes | 15 |
 | | 9. No In-Hospital Percutaneous Coronary Intervention | Yes | 14 |
 
-### Grace Nomogram Plot Reference (Predicted All-Cause Mortality From Hospital Discharge To 6 Months)
-*Note: The following values approximate the probability curve from the GRACE nomogram plot.*
-
+Grace Nomogram Plot Reference (Predicted All-Cause Mortality From Hospital Discharge To 6 Months)
+Note: The following values approximate the probability curve from the GRACE nomogram plot.
 | Total Risk Score | Estimated Probability |
 |---|---|
 | 70 | ~0.02 (2%) |
@@ -148,9 +143,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 Estimated GFR (ml/min) =  ((140 - age) x weight) / (0.814 x S~Cr~ [&mu;mol/L])
 *or*
 Estimated GFR (ml/min) = (1.2 (140 - age)) / (S~Cr~ [&mu;mol/L])
-
-S~Cr~ : serum creatinine
-(*For women multiply by 0.85*)
+S~Cr~ : serum creatinine (For women multiply by 0.85)
 
 ### Severity Of CKD
 | SEVERITY OF CKD | CREATININE CLEARANCE |
@@ -178,7 +171,8 @@ S~Cr~ : serum creatinine
 | Sodium Bicarbonate | 154 mEq/L in 5% dextrose in water (154 ml of 1000 mEq/I of sodium bicarbonate + 850 ml of 5% Dextrose) | 3 ml/kg/hr for 1 hour before the contrast followed by an infusion of 1 ml/kg/hr for 6 hours after the procedure |
 | N-acetylcysteine | | 1200 mg twice daily, one day before and one day after the contrast |
 
-## Grades Of Recommendation And Levels Of Evidence
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -187,13 +181,14 @@ S~Cr~ : serum creatinine
 | II-b | Usefulness/efficacy is less well established by evidence/opinion |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses |
 | B | Data derived from a single randomized clinical trial or large non randomized studies |
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACC | American College of Cardiology |
@@ -215,3 +210,4 @@ S~Cr~ : serum creatinine
 | TnI | Troponin I |
 | TnT | Troponin T |
 | UA | Unstable Angina |
+<!-- parent_only_reference_end -->

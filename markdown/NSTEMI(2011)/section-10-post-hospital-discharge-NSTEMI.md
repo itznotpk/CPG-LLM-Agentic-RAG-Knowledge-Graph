@@ -7,8 +7,6 @@ output: discharge_medication_plan, follow_up_investigation_plan, medication_titr
 treatment_type: aspirin, clopidogrel, ticlopidine, prasugrel, ticagrelor, beta_blocker, statin, captopril, ramipril, enalapril, lisinopril, perindopril, valsartan, spironolactone, eplerenone
 -->
 
-> **Context:** This section specifies the post-hospital discharge maintenance protocols for UA/NSTEMI patients. It strictly defines the long-term duration and initiation of secondary prevention pharmacotherapy (Antiplatelets, Beta-blockers, Statins, ACE-Is/ARBs) and integrates evaluation logic for follow-up investigations, securing continuity of care after the acute intervention phase.
-
 The acute phase of UA/NSTEMI is usually 1 to 3 months. The risk of recurrence of ischaemic events, STEMI or death is highest during this period. Following this, most patients assume a clinical course similar to that of patients with chronic stable angina.
 
 Several lifestyle modification measures and drug therapies have been shown to be effective in improving long-term outcome. However they are underutilized. Therefore health care providers should ensure that patients with UA/NSTEMI receive appropriate treatment post hospital discharge and ensure that patients remain compliant to treatment.
@@ -32,7 +30,7 @@ Important discharge instructions should include:
 - There are no recent clinical trial data on the use of triflusal in ACS.
 
 ### 10.1.2: Β-Blockers
-(refer Section 7.2.4.2: β-blockers)
+(refer Section 7.2.4.2: β-blockers) <!-- cross_ref target_file="section-7-rate-control-af.md" target_heading="7.2.4: Anti-Ischemic Drug Therapy" target_kind="h3_section" -->
 - β-blockers should be continued for patients with ischemia unless contraindicated.
 - [Grade I, Level B] Long term treatment following UA/NSTEMI may lead to significant mortality reduction.
 - [Grade I, Level A] β-blockers should be continued indefinitely in patients with reduced LV function, with or without symptoms of heart failure.
@@ -48,13 +46,11 @@ Lipid management includes:
 - [Grade II-a, Level B] Patients with low HDL-C may benefit from fibrates or nicotinic acid.
 
 ### 10.1.4: Angiotensin-Converting Enzymes Inhibitors (Ace-Is)
-(refer Table 7: Recommended dosages of ACE-I in UA/NSTEMI)
 - [Grade I, Level A] ACE-Is have shown long term benefit in all patients with evidence of LV dysfunction (LVEF ≤40%) and in patients with diabetes, hypertension or CKD unless contraindicated.
 - [Grade II-a, Level A] For all other patients ACE-Is should be considered to prevent recurrence of ischaemic events.
 - [Grade II-a, Level A] For patients with reduced LV systolic function, ACE-I should be initiated early, during the course of hospitalization. Agents and doses of proven efficacy are recommended.
 
 Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
-
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Captopril | 6.25 mg bd-tds | 25-50 mg tds |
@@ -64,12 +60,9 @@ Table 7: Recommended Dosages Of Ace-I In UA/NSTEMI
 | Perindopril | 2-2.5 mg od | 8-10 mg od |
 
 ### 10.1.5: Angiotensin-Receptor Blockers (ARBs)
-*(refer Table 8: Recommended dosages of ARB in UA/NSTEMI)*
-
 [Grade I, Level A] ARBs should be substituted for patients with ACE-I intolerance.
 
 Table 8: Recommended Dosages Of ARB In UA/NSTEMI
-
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Valsartan | 40-80 mg od | 160 mg od |
@@ -91,15 +84,12 @@ In the outpatient evaluation of low risk UA/NSTEMI patients, the following inves
 
 Low risk patients with significant demonstrable ischaemia and all intermediate/high risk patients should be considered for revascularization.
 
-## Key Messages
 - Patients should be on optimal medical therapy at discharge. This includes [Grade I, Level A] ASA, [Grade I, Level B] clopidogrel (for at least a month and ideally for at least a year), [Grade I, Level B] &beta;-blockers &plusmn; [Grade I, Level B] CCBs, [Grade I, Level C] ACE-I or [Grade I, Level B] ARB and [Grade I, Level A] statins. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 - [Grade I, Level C] These drugs should be uptitrated during outpatient visits to the recommended tolerated doses.
 - [Grade I, Level C] Low risk patients should be assessed non-invasively for ischaemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 
-<!-- OVERLAP CONTENT -->
-
+<!-- parent_only_reference_start -->
 Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
-
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
 | Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
@@ -120,36 +110,76 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 | or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
 | + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
 
+Flowchart 1: Risk Stratification Of UA/NSTEMI
+**[ PATHWAY A: LOW RISK ]**
+1. Clinical Profile Assessment:
+* no angina in the past
+* no ongoing angina
+* no prior use of antianginal therapy
+* normal ECG
+* normal cardiac biomarkers
+* normal LV function
+* younger age group
+
+*(If criteria met, proceed to Management Strategy)* &rarr;
+
+2. Management Strategy:
+* Medical therapy*
+  *(Includes aspirin &plusmn; &beta;-blockers &plusmn; GTN)*
+* Risk stratify as outpatient (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
+
+**[ PATHWAY B: INTERMEDIATE / HIGH RISK ]**
+1. Clinical Profile Assessment:
+* Patients with recurrent chest pain
+* Early post infarction unstable angina
+* Dynamic ST-segment changes
+* Elevated cardiac biomarkers
+* Diabetes
+* Hemodynamic instability
+* Depressed LV function (LVEF <40%)
+* Major arrhythmias (VF, VT)
+
+*(If criteria met, proceed to Medical Management)* &rarr;
+
+2. Medical Management Strategy:
+This includes (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI):
+* Aspirin
+* Clopidogrel or ticagrelor (or prasugrel after coronary angiography)
+* Antithrombotics (UFH or LMWH or Fondaparinux)
+* &beta;-blockers
+* Statins
+* ACE-I/ARB
+* Nitrates
+* &plusmn; CCB (if &beta;-blockers contraindicated and/or unresponsive to above)
+
+*(Following stabilization, proceed to Revascularization)* &rarr;
+
+3. Revascularization Strategy:
+* Coronary Angiography and Revascularization*
+  *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
+
 Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
-
 **[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
-
-**1. Evaluate ECG and Exercise Tolerance:**
+1. Evaluate ECG and Exercise Tolerance:
 * **Pathway A:** Normal ECG, Good Exercise Tolerance
   *(Proceed to Exercise Stress Test)* &rarr;
 * **Pathway B:** Abnormal ECG, Limited exercise tolerance
   *(Proceed to Imaging Stress Test)* &rarr;
 
-***
-
 **[ PATHWAY A: EXERCISE STRESS TEST ]**
 
-**Perform Exercise stress test:**
+Perform Exercise stress test:
 * If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
 * If **Positive** &rarr; Proceed to *Coronary Angiogram*
 * If **Equivocal** &rarr; Proceed to *Pathway B: Imaging Stress Test*
 
-***
-
 **[ PATHWAY B: IMAGING STRESS TEST ]**
 
-**Perform Exercise/Dobutamine Stress Echocardiogram or Radionuclear Perfusion Scan:**
+Perform Exercise/Dobutamine Stress Echocardiogram or Radionuclear Perfusion Scan:
 * If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
 * If **Equivocal / Positive Test** &rarr; Proceed to *Coronary Angiogram*
 
-***
-
-*\* Low risk patients have:*
+Low risk patients have:
 * no angina in the past
 * no ongoing angina
 * no prior use of antianginal therapy
@@ -158,9 +188,9 @@ Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
 * younger age group
 * normal LV function
 
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. All Intermediate/High Risk UA/NSTEMI patients should be considered for coronary angiography and revascularization. (refer Flowchart 1: Algorithm for Risk Stratification of UA/NSTEMI)
 
-## Grades Of Recommendation And Levels Of Evidence
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -169,13 +199,14 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 | II-b | Usefulness/efficacy is less well established by evidence/opinion |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses |
 | B | Data derived from a single randomized clinical trial or large non randomized studies |
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACE-I | Angiotensin-converting enzymes inhibitor |
@@ -197,5 +228,4 @@ Patients who have undergone revascularization and with residual/recurrent or a c
 | STEMI | ST Elevation Myocardial Infarction |
 | UA/NSTEMI | Unstable Angina/Non ST Elevation Myocardial Infarction |
 | UFH | Unfractionated Heparin |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

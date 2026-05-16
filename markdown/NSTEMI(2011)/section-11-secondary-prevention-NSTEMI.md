@@ -7,8 +7,6 @@ output: rehabilitation_phase_plan, risk_factor_targets, lifestyle_plan, exercise
 treatment_type: exercise_rehabilitation, lifestyle, statin, ACEi, ARB
 -->
 
-> **Context:** This section structures the long-term secondary prevention and cardiac rehabilitation framework for post-UA/NSTEMI patients. It defines the multiphase rehabilitation programs (Phases 1-3), provides specific targets for cardiovascular risk factor modifications (lifestyle, LDL-C, blood pressure, glycemic control), bridges optimal medical therapy compliance with discharge instructions, and specifies treadmill-guided timing for return to physical activity.
-
 Cardiac rehabilitation is aimed at improving the physical and psychological well being of the patient. It has been shown to reduce mortality by approximately 20%-25%. There was also a trend towards reduction in non-fatal recurrent MI over a median follow-up of 12 months.
 
 ## 11.1: Cardiac Rehabilitation Programs Include:
@@ -29,13 +27,13 @@ Cardiac rehabilitation/secondary prevention programs are generally divided into 
 Physical activity can be resumed at 50% of maximal exercise capacity in a patient with preserved LV function without inducible ischemia within 1 week post-discharge. This should be gradually increased over time preferably guided by treadmill stress test.
 
 ## 11.3: Risk Factor Modification:
-- **Smoking cessation** – Patients who quit smoking can reduce the rate of reinfarction and death as early as 1 year.
-- **Weight** – Achieve or maintain optimal body weight.
-- **Exercise** – Encourage a minimum of 30–60 minutes of moderate activity 3-4 times weekly (walking, cycling, swimming or other equivalent aerobic activities).
-- **Diet** – To consume low cholesterol or low saturated fat diet.
-- **Lipids** – Aim for an LDL-C < 2.0 mmol/l.
-- **Hypertension** – Aim for a blood pressure of <140/85 mmHg. In diabetics the target is <130/80 mmHg. In elderly patients, a higher BP target may be acceptable.
-- **Diabetes Mellitus** – Optimal glycemic control in diabetes. (refer CPG on Management of Type 2 Diabetes Mellitus)
+- Smoking cessation – Patients who quit smoking can reduce the rate of reinfarction and death as early as 1 year.
+- Weight – Achieve or maintain optimal body weight.
+- Exercise – Encourage a minimum of 30–60 minutes of moderate activity 3-4 times weekly (walking, cycling, swimming or other equivalent aerobic activities).
+- Diet – To consume low cholesterol or low saturated fat diet.
+- Lipids – Aim for an LDL-C < 2.0 mmol/l.
+- Hypertension – Aim for a blood pressure of <140/85 mmHg. In diabetics the target is <130/80 mmHg. In elderly patients, a higher BP target may be acceptable.
+- Diabetes Mellitus – Optimal glycemic control in diabetes. (refer CPG on Management of Type 2 Diabetes Mellitus)
 
 ## 11.4: Discharge Instructions
 - Therapeutic lifestyle changes should be initiated in all patients and reemphasized during follow up.
@@ -43,10 +41,8 @@ Physical activity can be resumed at 50% of maximal exercise capacity in a patien
 - The doses of ACE-I/ARB and β-blockers should be uptitrated to the maximal tolerated doses.
 - Patients should be instructed on how to use GTN. If the chest pain does not subside after 2 GTN's or if there is a change in the usual pattern of angina, they should go to the nearest health facility.
 
-<!-- OVERLAP CONTENT -->
-
+<!-- parent_only_reference_start -->
 Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
-
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
 | Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
@@ -67,7 +63,7 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 | or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
 | + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
 
-## Grades Of Recommendation And Levels Of Evidence
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -76,13 +72,14 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 | II-b | Usefulness/efficacy is less well established by evidence/opinion |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses |
 | B | Data derived from a single randomized clinical trial or large non randomized studies |
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACE-I | Angiotensin-converting enzymes inhibitor |
@@ -103,5 +100,4 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 | PCI | Percutaneous Coronary Intervention |
 | UA/NSTEMI | Unstable Angina/Non ST Elevation Myocardial Infarction |
 | UFH | Unfractionated Heparin |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

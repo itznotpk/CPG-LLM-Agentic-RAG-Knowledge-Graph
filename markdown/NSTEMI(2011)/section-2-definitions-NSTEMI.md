@@ -7,8 +7,6 @@ output: ACS_classification, UA_vs_NSTEMI_differentiation
 critical: true
 -->
 
-> **Context:** This section formally defines the clinical spectrum of Acute Coronary Syndrome, differentiating Unstable Angina (UA) from NSTEMI and STEMI, and establishes the classification criteria and diagnostic role of cardiac biomarkers and ECG changes.
-
 ACS is a clinical spectrum of ischemic heart disease. Depending upon the degree and acuteness of coronary occlusion, it can present as (refer Figure 2: Pathogenesis of ACS (Diagnostic Flow)):
 - Unstable angina (UA)
 - Non -ST elevation myocardial infarction (NSTEMI)

@@ -6,7 +6,7 @@ patient_input:
 output: disease_burden_context, guideline_objectives
 -->
 
-> **Context:** This section provides local incidence and mortality statistics for Cardiovascular Disease (CVD) and Acute Coronary Syndrome (ACS) in Malaysia, establishing the rationale for the guideline update.
+> **Context:** Introduction to the 2011 Malaysian UA/NSTEMI CPG — local CVD and ACS incidence/mortality statistics establishing the rationale for the guideline update. Background, not clinical recommendations.
 
 Cardiovascular Disease (CVD) is one of the main causes of mortality and morbidity in Malaysia. The estimated incidence of Acute Coronary Syndrome (ACS) is 141 per 100,000 population per year, and the inpatient mortality rate is approximately 7%. This data is derived from the National Cardiovascular Disease Database (NCVD) based on the ACS 2006 Annual report. These figures are similar to that of many developed countries. Unstable Angina/Non ST Elevation Myocardial Infarction (UA/NSTEMI) which falls within the spectrum of ACS, is an important cause of cardiac morbidity and mortality.
 

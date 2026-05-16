@@ -14,9 +14,7 @@ The objectives of follow-up post-PCI patients are:
 - for secondary prevention
 
 ## 8.1: Evaluation Of Ischemia
-Neither exercise testing nor any form of imaging has been proven to be beneficial for the routine, periodic monitoring of asymptomatic patients after PCI without specific indications.
-
-For high risk patients (e.g. diabetes mellitus and suboptimal PCI results) stress imaging is preferred to evaluate for ischemia after PCI.
+Neither exercise testing nor any form of imaging has been proven to be beneficial for the routine, periodic monitoring of asymptomatic patients after PCI without specific indications. For high risk patients (e.g. diabetes mellitus and suboptimal PCI results) stress imaging is preferred to evaluate for ischemia after PCI.
 
 ## 8.2: Secondary Prevention
 It is important that the patient should adhere to medical therapies and secondary prevention programs to prevent progressive disease. (refer to Appendix XIII: Grade of Recommendation and Level of Evidence (ACC/AHA and ESC Classification) FOR SECONDARY PREVENTION OF CAD)

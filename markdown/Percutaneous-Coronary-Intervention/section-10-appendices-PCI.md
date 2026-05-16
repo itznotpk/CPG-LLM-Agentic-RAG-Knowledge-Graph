@@ -83,14 +83,12 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 - Elevated serum cardiac biomarkers
 
 Total Score = 7 points
-
 - Low Risk: ≤ 2 point
 - Moderate Risk: 3-4 points
 - High Risk: ≥ 5 points
 
 ## Appendix VI: Classification Of Angina Severity
 Classification of angina severity according to the Canadian Cardiovascular Society
-
 | Class | Level of symptoms |
 |---|---|
 | Class I | "Ordinary activity does not cause angina".<br>Angina with strenuous or rapid or prolonged exertion only. |
@@ -108,9 +106,7 @@ Classification of angina severity according to the Canadian Cardiovascular Socie
 
 ## Appendix VIII: Calculation Of Creatinine Clearance
 Estimated GFR (ml/min) = ((140 - age) x weight) / (0.814 x S~Cr~ [µmol/L])  or  1.2 (140 - age) / S~Cr~ [µmol/L]
-
 S~Cr~: serum creatinine
-
 Women: multiplication with 0.85
 
 ## Appendix IX: Commonly Used Iodinated Contrast Agents
@@ -125,7 +121,7 @@ Women: multiplication with 0.85
 ## Appendix XI: Medina Classification Of Bifurcation Lesions
 In the Medina classification, a binary value (1, 0) is given to each of the 3 components of a bifurcation according to whether each of these segments is compromised (lesion > 50%) or not (0).
 
-The classification format is **(Main Branch Proximal, Main Branch Distal, Side Branch)**:
+The classification format is (Main Branch Proximal, Main Branch Distal, Side Branch):
 - **1,1,1**: Lesions in the proximal main branch, distal main branch, and side branch.
 - **1,1,0**: Lesions in the proximal and distal main branches, but not the side branch.
 - **1,0,1**: Lesions in the proximal main branch and side branch, but not the distal main branch.
@@ -142,13 +138,10 @@ Subtypes include:
 - **Type IB**: Margin
 - **Type IC**: Focal Body
 - **Type ID**: Multifocal
-
 **Class II: "Diffuse intrastent" ISR (ISR Pattern II: Intra-stent)**
 Lesions are > 10 mm in length and are confined to the stent(s), without extending outside the margins of the stent(s).
-
 **Class III: "Diffuse proliferative" ISR (ISR Pattern III: Proliferative)**
 Lesions are > 10 mm in length and extend beyond the margin(s) of the stent(s).
-
 **Class IV: ISR with "total occlusion" (ISR Pattern IV: Total Occlusion)**
 Lesions have a TIMI flow grade of 0.
 

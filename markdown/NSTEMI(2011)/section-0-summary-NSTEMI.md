@@ -6,7 +6,7 @@ patient_input:
 output: guideline_summary, key_recommendations, triage_pathways
 -->
 
-> **Context:** This section provides an executive summary of the UA/NSTEMI clinical practice guidelines, outlining the diagnosis, risk stratification, and primary management pathways. It serves as a high-level reference for triage and therapeutic decisions detailed in subsequent sections.
+> **Context:** Key-recommendations summary and index for the 2011 Malaysian UA/NSTEMI CPG: triage flowcharts, medication protocols, and risk-stratification overview. A consolidated quick-reference — full clinical detail and rationale are in Sections 4–9.
 
 1. Acute coronary syndrome is a spectrum of UA/NSTEMI and STEMI. The clinical presentation will depend on the acuteness and severity of coronary occlusion.
 2. The diagnosis of UA/NSTEMI is based on history ± dynamic ECG changes (without persistent ST elevation), ± raised cardiac biomarkers.

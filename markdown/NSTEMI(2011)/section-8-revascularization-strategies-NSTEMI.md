@@ -8,8 +8,6 @@ critical: true
 treatment_type: PCI, CABG, medical_therapy
 -->
 
-> **Context:** This section provides definitive guidelines on revascularization timelines: routine early invasive versus selective conservative management. By intersecting TIMI/GRACE risk profiling with dynamic clinical variables, this module outlines precisely which patient profiles require immediate catheterization and which can be managed medically, ensuring evidence-based resource allocation.
-
 There is a strong rationale for early revascularization in intermediate/high risk patients with UA/NSTEMI. (refer Flowchart 1: Risk Stratification of UA/NSTEMI), (refer Appendix IV: TIMI Risk Score for UA/NSTEMI). Contemporary antiplatelet and anticoagulant therapies have reduced the early hazard of PCI. With increasing procedure experience, technological improvements in PCI and the development of new antiplatelet and anticoagulant regimens there is a general trend for early revascularization in these patients following optimal medical therapy.
 
 ## 8.1: Routine Early Invasive Management
@@ -35,61 +33,8 @@ Patients with UA/NSTEMI treated conservatively are at risk of developing recurre
 - [Grade I, Level C] Low risk patients should be assessed non-invasively for ischemia. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
 - All patients should receive optimal medical therapy. (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)
 
-<!-- OVERLAP CONTENT -->
-
-## Flowchart 1: Risk Stratification Of UA/NSTEMI
-**[ PATHWAY A: LOW RISK ]**
-
-**1. Clinical Profile Assessment:**
-* no angina in the past
-* no ongoing angina
-* no prior use of antianginal therapy
-* normal ECG
-* normal cardiac biomarkers
-* normal LV function
-* younger age group
-
-*(If criteria met, proceed to Management Strategy)* &rarr;
-
-**2. Management Strategy:**
-* Medical therapy*
-  *(Includes aspirin &plusmn; &beta;-blockers &plusmn; GTN)*
-* Risk stratify as outpatient (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
-
-***
-
-**[ PATHWAY B: INTERMEDIATE / HIGH RISK ]**
-
-**1. Clinical Profile Assessment:**
-* Patients with recurrent chest pain
-* Early post infarction unstable angina
-* Dynamic ST-segment changes
-* Elevated cardiac biomarkers
-* Diabetes
-* Hemodynamic instability
-* Depressed LV function (LVEF <40%)
-* Major arrhythmias (VF, VT)
-
-*(If criteria met, proceed to Medical Management)* &rarr;
-
-**2. Medical Management Strategy:**
-This includes (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI):
-* Aspirin
-* Clopidogrel or ticagrelor (or prasugrel after coronary angiography)
-* Antithrombotics (UFH or LMWH or Fondaparinux)
-* &beta;-blockers
-* Statins
-* ACE-I/ARB
-* Nitrates
-* &plusmn; CCB (if &beta;-blockers contraindicated and/or unresponsive to above)
-
-*(Following stabilization, proceed to Revascularization)* &rarr;
-
-**3. Revascularization Strategy:**
-* Coronary Angiography and Revascularization*
-  *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
-
-## Appendix IV: Timi Risk Score For UA/NSTEMI
+<!-- parent_only_reference_start -->
+Appendix IV: Timi Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 |---|---|
 | 0-1 | 4.7 |
@@ -113,48 +58,7 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * **Moderate Risk:** 3-4 points
 * **High Risk:** &ge; 5 points
 
-Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
-
-**[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
-
-**1. Evaluate ECG and Exercise Tolerance:**
-* **Pathway A:** Normal ECG, Good Exercise Tolerance
-  *(Proceed to Exercise Stress Test)* &rarr;
-* **Pathway B:** Abnormal ECG, Limited exercise tolerance
-  *(Proceed to Imaging Stress Test)* &rarr;
-
-***
-
-**[ PATHWAY A: EXERCISE STRESS TEST ]**
-
-**Perform Exercise stress test:**
-* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
-* If **Positive** &rarr; Proceed to *Coronary Angiogram*
-* If **Equivocal** &rarr; Proceed to *Pathway B: Imaging Stress Test*
-
-***
-
-**[ PATHWAY B: IMAGING STRESS TEST ]**
-
-**Perform Exercise/Dobutamine Stress Echocardiogram or Radionuclear Perfusion Scan:**
-* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
-* If **Equivocal / Positive Test** &rarr; Proceed to *Coronary Angiogram*
-
-***
-
-*\* Low risk patients have:*
-* no angina in the past
-* no ongoing angina
-* no prior use of antianginal therapy
-* normal ECG
-* normal cardiac biomarkers
-* younger age group
-* normal LV function
-
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
-
 Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
-
 | Drug | Initial and In hospital medication | Medication at discharge | Comments |
 |---|---|---|---|
 | Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
@@ -175,7 +79,87 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 | or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
 | + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
 
-## Grades Of Recommendation And Levels Of Evidence
+Flowchart 1: Risk Stratification Of UA/NSTEMI
+**[ PATHWAY A: LOW RISK ]**
+1. Clinical Profile Assessment:
+* no angina in the past
+* no ongoing angina
+* no prior use of antianginal therapy
+* normal ECG
+* normal cardiac biomarkers
+* normal LV function
+* younger age group
+
+*(If criteria met, proceed to Management Strategy)* &rarr;
+
+2. Management Strategy:
+* Medical therapy*
+  *(Includes aspirin &plusmn; &beta;-blockers &plusmn; GTN)*
+* Risk stratify as outpatient (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
+
+**[ PATHWAY B: INTERMEDIATE / HIGH RISK ]**
+1. Clinical Profile Assessment:
+* Patients with recurrent chest pain
+* Early post infarction unstable angina
+* Dynamic ST-segment changes
+* Elevated cardiac biomarkers
+* Diabetes
+* Hemodynamic instability
+* Depressed LV function (LVEF <40%)
+* Major arrhythmias (VF, VT)
+
+*(If criteria met, proceed to Medical Management)* &rarr;
+
+2. Medical Management Strategy:
+This includes (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI):
+* Aspirin
+* Clopidogrel or ticagrelor (or prasugrel after coronary angiography)
+* Antithrombotics (UFH or LMWH or Fondaparinux)
+* &beta;-blockers
+* Statins
+* ACE-I/ARB
+* Nitrates
+* &plusmn; CCB (if &beta;-blockers contraindicated and/or unresponsive to above)
+
+*(Following stabilization, proceed to Revascularization)* &rarr;
+
+3. Revascularization Strategy:
+* Coronary Angiography and Revascularization*
+  *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
+
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
+**[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
+1. Evaluate ECG and Exercise Tolerance:
+* **Pathway A:** Normal ECG, Good Exercise Tolerance
+  *(Proceed to Exercise Stress Test)* &rarr;
+* **Pathway B:** Abnormal ECG, Limited exercise tolerance
+  *(Proceed to Imaging Stress Test)* &rarr;
+
+**[ PATHWAY A: EXERCISE STRESS TEST ]**
+
+Perform Exercise stress test:
+* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
+* If **Positive** &rarr; Proceed to *Coronary Angiogram*
+* If **Equivocal** &rarr; Proceed to *Pathway B: Imaging Stress Test*
+
+**[ PATHWAY B: IMAGING STRESS TEST ]**
+
+Perform Exercise/Dobutamine Stress Echocardiogram or Radionuclear Perfusion Scan:
+* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
+* If **Equivocal / Positive Test** &rarr; Proceed to *Coronary Angiogram*
+
+Low risk patients have:
+* no angina in the past
+* no ongoing angina
+* no prior use of antianginal therapy
+* normal ECG
+* normal cardiac biomarkers
+* younger age group
+* normal LV function
+
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. All Intermediate/High Risk UA/NSTEMI patients should be considered for coronary angiography and revascularization. (refer Flowchart 1: Algorithm for Risk Stratification of UA/NSTEMI)
+
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -184,13 +168,14 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 | II-b | Usefulness/efficacy is less well established by evidence/opinion |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses |
 | B | Data derived from a single randomized clinical trial or large non randomized studies |
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -212,5 +197,4 @@ Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
 | UFH | Unfractionated Heparin |
 | VF | Ventricular Fibrillation |
 | VT | Ventricular Tachycardia |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

@@ -8,8 +8,6 @@ critical: true
 treatment_type: aspirin, clopidogrel, prasugrel, UFH, LMWH, fondaparinux, bivalirudin, eptifibatide, tirofiban, insulin, N_acetylcysteine, sodium_bicarbonate
 -->
 
-> **Context:** This section outlines critical modifications to UA/NSTEMI therapy protocols for vulnerable populations—Elderly, Women, Diabetics, and patients with Chronic Kidney Disease (CKD). It provides precise, age-weighted anti-thrombotic dosage limits, criteria for conservative versus early invasive management strategies, and protocols for avoiding contrast-induced nephropathy during percutaneous coronary interventions.
-
 ## 9.1: UA/NSTEMI In The Elderly
 Cardiovascular morbidity and mortality increases by 70% for every 10 year increase in age.
 
@@ -62,7 +60,6 @@ PCI in patients with CKD is associated with increased risks of:
 Strategies should be taken to reduce this risk. (refer Appendix VII: Prevention of Contrast Induced Nephropathy (ACC/ESC Classification and Appendix VIII: Prevention of Contrast Induced Nephropathy (Dosing))
 
 Table 6: Dosages Of Anti-Thrombotics In CKD*
-
 | | LOADING DOSE | MAINTENANCE DOSE |
 |---|---|---|
 | UFH | No change | No change |
@@ -84,24 +81,24 @@ There is still a lack of consensus on the optimal management of blood sugars dur
 
 [Grade I, Level B] A general consensus is to keep blood sugars less than 8mmol/l in the acute setting and then aim for optimal control following discharge.
 
-<!-- OVERLAP CONTENT -->
-
-## Appendix VI: Calculation Of Creatinine Clearance
+<!-- parent_only_reference_start -->
+Appendix VI: Calculation Of Creatinine Clearance
 Estimated GFR (ml/min) =  ((140 - age) x weight) / (0.814 x S~Cr~ [&mu;mol/L])
 *or*
 Estimated GFR (ml/min) = (1.2 (140 - age)) / (S~Cr~ [&mu;mol/L])
 
-S~Cr~ : serum creatinine
-(*For women multiply by 0.85*)
+S~Cr~ : serum creatinine (*For women multiply by 0.85*)
 
-### Severity Of CKD
+Severity Of CKD
 | SEVERITY OF CKD | CREATININE CLEARANCE |
 |---|---|
 | Normal to mild | >60 ml/min |
 | Moderate | 30-59 ml/min |
 | Severe | <30 ml/min |
 
-## Appendix VII: Prevention Of Contrast Induced Nephropathy (ACC/ESC Classification)
+---
+
+Appendix VII: Prevention Of Contrast Induced Nephropathy (ACC/ESC Classification)
 | Intervention | ACC/ESC Classification |
 |---|---|
 | Contrast Agent | |
@@ -113,14 +110,14 @@ S~Cr~ : serum creatinine
 | Sodium Bicarbonate | [Grade II-a, Level B] |
 | Acetylcysteine | [Grade II-b, Level B] |
 
-## Appendix VIII: Prevention Of Contrast Induced Nephropathy (Dosing)
+Appendix VIII: Prevention Of Contrast Induced Nephropathy (Dosing)
 | AGENT | CONCENTRATION | DOSE / FLOW RATE |
 |---|---|---|
 | Sodium Chloride | 0.9% solution | Rate of 1.0-1.5 ml/kg/hr for 3h-12h before and 6h-24h after the procedure ensuring a urine flow rate of 150 ml/hour.<br>Reduce rate to 0.5 ml/kg/hr if LVEF<40% |
 | Sodium Bicarbonate | 154 mEq/L in 5% dextrose in water (154 ml of 1000 mEq/I of sodium bicarbonate + 850 ml of 5% Dextrose) | 3 ml/kg/hr for 1 hour before the contrast followed by an infusion of 1 ml/kg/hr for 6 hours after the procedure |
 | N-acetylcysteine | | 1200 mg twice daily, one day before and one day after the contrast |
 
-## Grades Of Recommendation And Levels Of Evidence
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -129,13 +126,14 @@ S~Cr~ : serum creatinine
 | II-b | Usefulness/efficacy is less well established by evidence/opinion |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful /effective and in some cases may be harmful. |
 
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta analyses |
 | B | Data derived from a single randomized clinical trial or large non randomized studies |
 | C | Only consensus of opinions of experts, case studies or standard of care |
 
-## Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | ACC | American College of Cardiology |
@@ -158,5 +156,4 @@ S~Cr~ : serum creatinine
 | SCr | Serum Creatinine |
 | UA/NSTEMI | Unstable Angina/Non ST Elevation Myocardial Infarction |
 | UFH | Unfractionated Heparin |
-
-<!-- END OVERLAP CONTENT -->
+<!-- parent_only_reference_end -->

@@ -6,7 +6,7 @@ patient_input:
 output: pathogenesis_classification, mechanism_of_ACS
 -->
 
-> **Context:** This section details the biological cascade of ACS, from vulnerable atherosclerotic plaque rupture and thrombosis through to the resulting degree of coronary occlusion and specific final clinical presentation.
+> **Context:** ACS pathogenesis (2011 Malaysian UA/NSTEMI CPG): the cascade from vulnerable atherosclerotic plaque rupture and thrombosis to the degree of coronary occlusion that determines UA vs NSTEMI vs STEMI. Mechanism background, not clinical recommendations.
 
 ACS occurs due to atherosclerotic plaque rupture, fissure or ulceration with superimposed thrombosis and coronary vasospasm. Depending on the acuteness, degree of occlusion and the presence of collaterals, patients can present as UA, NSTEMI or STEMI.
 

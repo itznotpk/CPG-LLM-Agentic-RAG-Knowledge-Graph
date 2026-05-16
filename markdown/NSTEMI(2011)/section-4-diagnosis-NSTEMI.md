@@ -7,8 +7,6 @@ output: UA_NSTEMI_diagnosis, biomarker_timing, differential_diagnosis
 critical: true
 -->
 
-> **Context:** This section details the diagnostic criteria for UA/NSTEMI encompassing patient history, physical examination, specific ECG findings, and the critical role and timing of cardiac biomarker (troponin) assays. It also provides a tabular breakdown of biomarker elevation kinetics, alongside the definitive grading framework for clinical evidence and recommendations, and an abbreviation index.
-
 ## 4.1: History
 The symptoms of UA/NSTEMI may be indistinguishable from that of STEMI. These include:
 - Chest pain - This is the presenting symptom in most patients. Chest pain or discomfort is usually retrosternal, central or in the left chest and may radiate to the jaw or down the upper limb. It may be crushing, pressing or burning in nature. The severity of the pain is variable.

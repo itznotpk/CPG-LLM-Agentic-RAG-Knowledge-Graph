@@ -8,8 +8,6 @@ critical: true
 treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, ticlopidine, UFH, LMWH, fondaparinux, bivalirudin, eptifibatide, tirofiban, beta_blocker, statin, ACEi, ARB, nitrate, CCB
 -->
 
-> **Context:** This section codifies the comprehensive pharmacological management of UA/NSTEMI from immediate pre-hospital care through in-hospital stabilization. It provides definitive dosing and application guidelines for antiplatelets, anticoagulants, anti-ischemics, and lipid-modifying therapies.
-
 The goals of management are Immediate relief of ongoing ischemia and angina, Prevention of recurrent ischemia and angina and Prevention of serious adverse cardiac events.
 
 ## 7.1: Pre-Hospital Management
@@ -25,71 +23,7 @@ Based on the triage:
   - Low risk patients: they can be referred as outpatient for cardiac assessment. (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
   - Intermediate / High Risk patients: should be admitted.
 
-Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
-
-**[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
-
-**1. Evaluate ECG and Exercise Tolerance:**
-* **Pathway A:** Normal ECG, Good Exercise Tolerance
-  *(Proceed to Exercise Stress Test)* &rarr;
-* **Pathway B:** Abnormal ECG, Limited exercise tolerance
-  *(Proceed to Imaging Stress Test)* &rarr;
-
-***
-
-**[ PATHWAY A: EXERCISE STRESS TEST ]**
-
-**Perform Exercise stress test:**
-* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
-* If **Positive** &rarr; Proceed to *Coronary Angiogram*
-* If **Equivocal** &rarr; Proceed to *Pathway B: Imaging Stress Test*
-
-***
-
-**[ PATHWAY B: IMAGING STRESS TEST ]**
-
-**Perform Exercise/Dobutamine Stress Echocardiogram or Radionuclear Perfusion Scan:**
-* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
-* If **Equivocal / Positive Test** &rarr; Proceed to *Coronary Angiogram*
-
-***
-
-*\* Low risk patients have:*
-* no angina in the past
-* no ongoing angina
-* no prior use of antianginal therapy
-* normal ECG
-* normal cardiac biomarkers
-* younger age group
-* normal LV function
-
-Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above.
-
 ## 7.2: In-Hospital Management
-*(refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI)*
-
-Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
-
-| Drug | Initial and In hospital medication | Medication at discharge | Comments |
-|---|---|---|---|
-| Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
-| + Clopidogrel | [Grade I, Level A] | [Grade I, Level A] | Used in addition to aspirin as part of dual antiplatelet therapy. |
-| | | [Grade I, Level B] | To be continued at least 1 month and ideally for at least a year post UA/NSTEMI and, |
-| | | [Grade I, Level C] | 6-12months or longer post DES implantation |
-| or, Ticlopidine | [Grade II-a, Level B] | [Grade II-a, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. This is a less preferred alternative to clopidogrel. |
-| or, prasugrel | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel in high risk patients undergoing PCI. |
-| or, ticagrelor | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel. |
-| + UFH | [Grade I, Level A] | - | Given for 2-8 days |
-| or, LMWH | [Grade I, Level A] | - | Given for 2-8 days |
-| or, fondaprinux | [Grade I, Level A] | - | Used in patients treated conservatively. Given for 8 days or duration of hospitalization. |
-| or, Bivalirudin | [Grade I, Level A] | - | Used as an alternative to UFH and GPII-b/III-a inhibitors during PCI |
-| + β-blockers | [Grade I, Level B] | [Grade I, Level B] | Should be administered early if no contraindications and continued indefinitely if ischemia is present. |
-| | | [Grade I, Level A] | Continued indefinitely in the presence of LV dysfunction (LVEF<40%) |
-| + ACE - I | [Grade I, Level A] | [Grade I, Level A] | Should be administered early in patients with LV dysfunction (LVEF< 40%), heart failure, diabetes, hypertension or CKD. |
-| | | [Grade II-a, Level A] | Should be considered long term to prevent recurrent ischemia |
-| or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
-| + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
-
 ### 7.2.1: Initial Management – General Measures
 Following risk stratification:
 - Low risk patients may be treated as outpatient.
@@ -98,16 +32,13 @@ Following risk stratification:
 - [Grade II-a, Level B] For pain relief, morphine (intravenous 2 mg to 5 mg) together with concomitant intravenous anti-emetic may be given.
 
 ### 7.2.2: Medications - Antiplatelet Agents
-
 #### 7.2.2.1: Oral Antiplatelet Agents
-
-##### 7.2.2.1.1: Acetylsalicylic Acid (Asa)
+Acetylsalicylic Acid (Asa)
 - [Grade I, Level A] Recommended loading dose: 300 mg of soluble/chewable aspirin. Enteric coated aspirin is not recommended for initial loading dose because of its slow onset of action.
 - [Grade I, Level A] Maintenance dose: 75 -150 mg daily of soluble or enteric coated aspirin.
 - Aspirin in excess of 300-325 mg per day is associated with increased risk of minor bleeding without greater efficacy.
 
-##### 7.2.2.1.2: Adenosine Diphosphate (Adp) Receptor Antagonists
-These include:
+Adenosine Diphosphate (Adp) Receptor Antagonists
 - [Grade I, Level A] **Clopidogrel** – loading dose: 300 to 600 mg, maintenance dose: 75 mg/day.
 - [Grade II-a, Level B] **Ticlopidine** – dose: 250 mg b.i.d. It is associated with neutropenia in 1% of patients. Due to this safety reason, it is not preferred. Patients on ticlopidine should have their total white cell count monitored regularly for the initial 3 months.
 - [Grade I, Level B] **Prasugrel** – loading dose 60 mg, maintenance dose: 10 mg/day.
@@ -120,23 +51,16 @@ These include:
   - Potential drawback is dyspnoea and transient ventricular pauses during the first week. This was rarely associated with symptoms or need for a pacemaker. There was also a small increase in non CABG related major bleeding.
 
 #### 7.2.2.2: Intravenous Antiplatelet Therapy – Glycoprotein (GP) IIb/IIIa Inhibitors
-These include:
-- Abciximab
-- Tirofiban
-- Eptifibatide
-
-These agents may be used in high risk patients awaiting transfer to a PCI facility for an early invasive strategy. Its routine use as "upstream therapy" prior to PCI is now no longer practiced.
+These include: Abciximab, Tirofiban, Eptifibatide. These agents may be used in high risk patients awaiting transfer to a PCI facility for an early invasive strategy. Its routine use as "upstream therapy" prior to PCI is now no longer practiced.
 
 ### 7.2.3: Anticoagulant Therapy
-These include: *(refer Table 2: Doses of Anticoagulant Agents in UA/NSTEMI and during PCI)*
-
-- **Unfractionated heparin (UFH)**
-- [Grade I, Level A] **Low Molecular Weight Heparin (LMWH)** - Enoxaparin
-- [Grade I, Level A] **Anti Xa inhibitor - Fondaparinux**
+Unfractionated heparin (UFH)
+- [Grade I, Level A] Low Molecular Weight Heparin (LMWH) - Enoxaparin
+- [Grade I, Level A] Anti Xa inhibitor - Fondaparinux
   - It is best used in UA/NSTEMI patients treated conservatively.
   - It is associated with an increase in catheter-related thrombus and coronary angiographic complications if used during PCI. It is not recommended as the sole anticoagulant during PCI.
   - If used in UA/NSTEMI and the patient requires an invasive strategy, UFH should be given during the procedure. When used in PCI, it is associated with lower bleeding rates than LMWH.
-- **Anti IIa inhibitors – Bivalirudin**
+Anti IIa inhibitors – Bivalirudin
   - [Grade I, Level B] It may be used as a substitute for heparin in patients with heparin-induced thrombocytopenia (HIT).
   - [Grade I, Level A] It is reasonable to use bivalirudin as an alternative to UFH and GP IIb/IIIa inhibitors in patients undergoing PCI.
   - It is associated with less bleeding.
@@ -158,17 +82,17 @@ Table 2: Doses Of Anticoagulant Agents In UA/NSTEMI And During PCI
 | Fondaparinux UA/NSTEMI | 2.5 mg sc daily for 8 days or duration of hospitalization |
 | Fondaparinux During PCI | If used during PCI, additional 50-60 IU/kg UFH is recommended. |
 
-*For doses in renal impairment refer Section 9: UA/NSTEMI IN SPECIAL GROUPS*
+For doses in renal impairment refer Section Section 9: UA/NSTEMI In Special Groups <!-- cross_ref target_file="section-9-special-groups-NSTEMI.md" target_heading="Section 9: UA/NSTEMI In Special Groups" target_kind="h1_section" -->
 
 ### 7.2.4: Anti-Ischemic Drug Therapy
 These agents may be given either for relief of ischemia (symptoms) or for prognosis.
 
-#### 7.2.4.1: Nitrates 
+#### 7.2.4.1: Nitrates
 Refer Table 3: Recommended Dosages Of Nitrates In UA/NSTEMI.
 
-[Grade I, Level C] **Sublingual glyceryl trinitrate (GTN 0.5 mg)** – Patients with UA/NSTEMI with ongoing chest pain should receive sublingual GTN 0.5 mg every 5 minutes for a total of 3 doses. If symptoms still persist, intravenous GTN should be considered.
+[Grade I, Level C] Sublingual glyceryl trinitrate (GTN 0.5 mg) – Patients with UA/NSTEMI with ongoing chest pain should receive sublingual GTN 0.5 mg every 5 minutes for a total of 3 doses. If symptoms still persist, intravenous GTN should be considered.
 
-[Grade I, Level C] **Intravenous nitrates** – may be administered in the following situations:
+[Grade I, Level C] Intravenous nitrates – may be administered in the following situations:
   - No symptom relief after 3 doses of sublingual GTN
   - Presence of dynamic ECG changes
   - Presence of left ventricular failure
@@ -182,7 +106,6 @@ Contraindications to nitrate therapy:
 - History of phospho-diesterase 5 inhibitors ingestion (depending upon the half-life of the agent)
 
 Table 3: Recommended Dosages Of Nitrates In UA/NSTEMI*
-
 | Compound | Route | Dosage | Time of Onset |
 |---|---|---|---|
 | Nitroglycerine, Glyceryl trinitrate | Sublingual | 0.3 - 0.6 mg, can repeat up to 3 times at 5 minute intervals | 2 minute |
@@ -196,8 +119,6 @@ Table 3: Recommended Dosages Of Nitrates In UA/NSTEMI*
 *\*The dose of IV nitrates should be titrated every 5 – 10 minutes until symptoms and/or ischaemia is relieved and the desired haemodynamic response is obtained*
 
 #### 7.2.4.2: Β-Blockers
-(refer Table 4: Recommended dosages of β-blockers in UA/NSTEMI)
-
 [Grade I, Level B] In the absence of contraindications , β-blockers should be administered early.
 
 Contraindications for β-blockers in UA/NSTEMI:
@@ -209,7 +130,6 @@ Contraindications for β-blockers in UA/NSTEMI:
 - Cardiogenic shock.
 
 Table 4: Recommended Dosages Of Β -Blockers In UA/NSTEMI*
-
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Metoprolol | 25 mg bd | 100 mg bd |
@@ -218,8 +138,6 @@ Table 4: Recommended Dosages Of Β -Blockers In UA/NSTEMI*
 | Carvedilol | 3.125 mg bd | 25 mg bd |
 
 #### 7.2.4.3: Calcium Channel Blockers
-(refer Table 5: Recommended dosages of Calcium Channel Blockers in UA/NSTEMI)
-
 Calcium channel blockers (CCB) may be used in UA/NSTEMI in the following situations:
 - [Grade I, Level B] Verapamil or diltiazem as an alternative to patients who are not able to tolerate or who have contraindication to β-blockers.
 - [Grade II-a, Level C] Continuing or recurring angina despite adequate doses of nitrates and β-blockers – verapamil, diltiazem, slow release nifedipine and amlodipine.
@@ -228,7 +146,6 @@ Calcium channel blockers (CCB) may be used in UA/NSTEMI in the following situati
 [Grade III, Level A] Short-acting dihydropyridine CCB should be avoided
 
 Table 5: Recommended Dosages Of Calcium Channel Blockers In UA/NSTEMI*
-
 | Drug | Dose |
 |---|---|
 | Diltiazem | Immediate release 30-90 mg tds<br><br>Slow release 100-200 mg od |
@@ -264,6 +181,107 @@ Table 8: Recommended Dosages Of ARB In UA/NSTEMI
 | Valsartan | 40-80 mg od | 160 mg od |
 
 <!-- parent_only_reference_start -->
+Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
+| Drug | Initial and In hospital medication | Medication at discharge | Comments |
+|---|---|---|---|
+| Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
+| + Clopidogrel | [Grade I, Level A] | [Grade I, Level A] | Used in addition to aspirin as part of dual antiplatelet therapy. |
+| | | [Grade I, Level B] | To be continued at least 1 month and ideally for at least a year post UA/NSTEMI and, |
+| | | [Grade I, Level C] | 6-12months or longer post DES implantation |
+| or, Ticlopidine | [Grade II-a, Level B] | [Grade II-a, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. This is a less preferred alternative to clopidogrel. |
+| or, prasugrel | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel in high risk patients undergoing PCI. |
+| or, ticagrelor | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel. |
+| + UFH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, LMWH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, fondaprinux | [Grade I, Level A] | - | Used in patients treated conservatively. Given for 8 days or duration of hospitalization. |
+| or, Bivalirudin | [Grade I, Level A] | - | Used as an alternative to UFH and GPII-b/III-a inhibitors during PCI |
+| + β-blockers | [Grade I, Level B] | [Grade I, Level B] | Should be administered early if no contraindications and continued indefinitely if ischemia is present. |
+| | | [Grade I, Level A] | Continued indefinitely in the presence of LV dysfunction (LVEF<40%) |
+| + ACE - I | [Grade I, Level A] | [Grade I, Level A] | Should be administered early in patients with LV dysfunction (LVEF< 40%), heart failure, diabetes, hypertension or CKD. |
+| | | [Grade II-a, Level A] | Should be considered long term to prevent recurrent ischemia |
+| or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
+| + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
+
+Flowchart 1: Risk Stratification Of UA/NSTEMI
+**[ PATHWAY A: LOW RISK ]**
+1. Clinical Profile Assessment:
+* no angina in the past
+* no ongoing angina
+* no prior use of antianginal therapy
+* normal ECG
+* normal cardiac biomarkers
+* normal LV function
+* younger age group
+
+*(If criteria met, proceed to Management Strategy)* &rarr;
+
+2. Management Strategy:
+* Medical therapy*
+  *(Includes aspirin &plusmn; &beta;-blockers &plusmn; GTN)*
+* Risk stratify as outpatient (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI)
+
+**[ PATHWAY B: INTERMEDIATE / HIGH RISK ]**
+1. Clinical Profile Assessment:
+* Patients with recurrent chest pain
+* Early post infarction unstable angina
+* Dynamic ST-segment changes
+* Elevated cardiac biomarkers
+* Diabetes
+* Hemodynamic instability
+* Depressed LV function (LVEF <40%)
+* Major arrhythmias (VF, VT)
+
+*(If criteria met, proceed to Medical Management)* &rarr;
+
+2. Medical Management Strategy:
+This includes (refer Table 1: Medications in Intermediate / High Risk Patients with UA/NSTEMI):
+* Aspirin
+* Clopidogrel or ticagrelor (or prasugrel after coronary angiography)
+* Antithrombotics (UFH or LMWH or Fondaparinux)
+* &beta;-blockers
+* Statins
+* ACE-I/ARB
+* Nitrates
+* &plusmn; CCB (if &beta;-blockers contraindicated and/or unresponsive to above)
+
+*(Following stabilization, proceed to Revascularization)* &rarr;
+
+3. Revascularization Strategy:
+* Coronary Angiography and Revascularization*
+  *(If patient is admitted to a non-PCI centre and has ongoing ischaemia despite optimal medical therapy, it is recommended to transfer the patient for coronary angiography with view to revascularization.)*
+
+Figure 1: Non-Invasive Investigation Of Low Risk Patients With UA/NSTEMI*
+**[ INITIAL ASSESSMENT: LOW RISK PATIENTS with UA/NSTEMI]**
+1. Evaluate ECG and Exercise Tolerance:
+* **Pathway A:** Normal ECG, Good Exercise Tolerance
+  *(Proceed to Exercise Stress Test)* &rarr;
+* **Pathway B:** Abnormal ECG, Limited exercise tolerance
+  *(Proceed to Imaging Stress Test)* &rarr;
+
+**[ PATHWAY A: EXERCISE STRESS TEST ]**
+
+Perform Exercise stress test:
+* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
+* If **Positive** &rarr; Proceed to *Coronary Angiogram*
+* If **Equivocal** &rarr; Proceed to *Pathway B: Imaging Stress Test*
+
+**[ PATHWAY B: IMAGING STRESS TEST ]**
+
+Perform Exercise/Dobutamine Stress Echocardiogram or Radionuclear Perfusion Scan:
+* If **Negative test** &rarr; Proceed to *Risk Factor Reduction &plusmn; Medical Therapy for CAD*
+* If **Equivocal / Positive Test** &rarr; Proceed to *Coronary Angiogram*
+
+Low risk patients have:
+* no angina in the past
+* no ongoing angina
+* no prior use of antianginal therapy
+* normal ECG
+* normal cardiac biomarkers
+* younger age group
+* normal LV function
+
+Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. All Intermediate/High Risk UA/NSTEMI patients should be considered for coronary angiography and revascularization. (refer Flowchart 1: Algorithm for Risk Stratification of UA/NSTEMI)
+
 Abbreviations
 | Abbreviation | Full Term |
 |---|---|

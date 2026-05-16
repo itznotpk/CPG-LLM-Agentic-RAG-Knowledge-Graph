@@ -7,8 +7,6 @@ output: risk_category, prognosis, bleeding_risk_score, management_pathway_select
 critical: true
 -->
 
-> **Context:** This section provides the clinical framework for risk stratification of UA/NSTEMI patients to predict adverse outcomes (e.g., death, recurrent MI, heart failure) using established prognostic logic and scoring systems like the TIMI and GRACE scales. It outlines the rationale for utilizing these metrics to guide site-of-care selection and therapeutic interventions, while incorporating bleeding risk assessments via the ACUITY HORIZONS-AMI and CRUSADE systems.
-
 ## 5.1: Assessment Of Risk
 The initial evaluation should be used to provide information about the diagnosis and prognosis. An attempt should be made to simultaneously answer 2 questions:
 - What is the likelihood that the signs and symptoms represent ACS? (refer Appendix III: Likelihood That Signs and Symptoms Represent an ACS Secondary to CAD)
@@ -121,7 +119,31 @@ Low risk patients have:
 
 Patients who have undergone revascularization and with residual/recurrent or a change in symptoms should be investigated as above. All Intermediate/High Risk UA/NSTEMI patients should be considered for coronary angiography and revascularization. (refer Flowchart 1: Algorithm for Risk Stratification of UA/NSTEMI)
 
-Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To Cad
+Table 1: Medications In Intermediate / High Risk Patients With UA/NSTEMI
+| Drug | Initial and In hospital medication | Medication at discharge | Comments |
+|---|---|---|---|
+| Aspirin | [Grade I, Level A] | [Grade I, Level A] | Continued long term if tolerating |
+| + Clopidogrel | [Grade I, Level A] | [Grade I, Level A] | Used in addition to aspirin as part of dual antiplatelet therapy. |
+| | | [Grade I, Level B] | To be continued at least 1 month and ideally for at least a year post UA/NSTEMI and, |
+| | | [Grade I, Level C] | 6-12months or longer post DES implantation |
+| or, Ticlopidine | [Grade II-a, Level B] | [Grade II-a, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. This is a less preferred alternative to clopidogrel. |
+| or, prasugrel | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel in high risk patients undergoing PCI. |
+| or, ticagrelor | [Grade I, Level B] | [Grade I, Level B] | Used in addition to aspirin as part of dual antiplatelet therapy. Alternative to clopidogrel. |
+| + UFH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, LMWH | [Grade I, Level A] | - | Given for 2-8 days |
+| or, fondaprinux | [Grade I, Level A] | - | Used in patients treated conservatively. Given for 8 days or duration of hospitalization. |
+| or, Bivalirudin | [Grade I, Level A] | - | Used as an alternative to UFH and GPII-b/III-a inhibitors during PCI |
+| + β-blockers | [Grade I, Level B] | [Grade I, Level B] | Should be administered early if no contraindications and continued indefinitely if ischemia is present. |
+| | | [Grade I, Level A] | Continued indefinitely in the presence of LV dysfunction (LVEF<40%) |
+| + ACE - I | [Grade I, Level A] | [Grade I, Level A] | Should be administered early in patients with LV dysfunction (LVEF< 40%), heart failure, diabetes, hypertension or CKD. |
+| | | [Grade II-a, Level A] | Should be considered long term to prevent recurrent ischemia |
+| or ARB | [Grade I, Level B] | [Grade I, Level B] | As an alternative to ACE-I in intolerant patients |
+| + Statins | [Grade I, Level A] | [Grade I, Level A] | High potency statins should be used early till target LDL-C levels are achieved and continued indefinitely. |
+| +/- calcium channel blockers | [Grade I, Level B] | [Grade I, Level B] | If intolerant to β-blockers |
+| | [Grade II-a, Level C] | [Grade II-a, Level C] | Indicated for residual/ recurrent ischemia. |
+| +/- nitrates | [Grade I, Level C] | [Grade I, Level C] | Indicated for residual/ recurrent ischemia. |
+
+Appendix III: Likelihood That Signs And Symptoms Represent An ACS Secondary To CAD
 | Category | Greater Likelihood | Lower Likelihood |
 |---|---|---|
 | History | Chest or left arm pain or discomfort as chief symptom reproducing prior documented angina | Chest pains in the absence of any of the greater likelihood characteristics |

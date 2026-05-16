@@ -21,7 +21,6 @@ When undertaking PCI for unprotected LMS disease the following are important con
 
 ### 6.1.1: Technical Considerations
 PCI of the unprotected LMS should be done by skillful operators in high volume centers with surgical back-up.
-
 - [Grade I, Level C] PCI should be performed preferably with DES. If a DES is used for a vessel that is >4.0 mm then it should be upsized appropriately. The stent must be well deployed and apposed. An IVUS is highly recommended to ensure optimal stent deployment.
 - [Grade I, Level C] If the LV function is depressed and when dealing with high risk unprotected LMS lesions, IABP support is recommended.
 - [Grade IIa, Level C] Close surveillance either by coronary or CT angiogram is recommended at about 3 to 9 months after the procedure.
@@ -65,9 +64,7 @@ The indications for PCI in CTO include:
 - absence of significant LMS disease
 - contraindications for CABG
 
-PCI for CTO has a steep learning curve with the use of additional hardware and different techniques. It is also associated with a higher complication rate (e.g. coronary perforation and cardiac tamponade). Hence it requires experienced, skillful operators performing in high volume centers with cardiothoracic surgical back-up.
-
-Certain lesion characteristics favor successful recanalisation with PCI.
+PCI for CTO has a steep learning curve with the use of additional hardware and different techniques. It is also associated with a higher complication rate (e.g. coronary perforation and cardiac tamponade). Hence it requires experienced, skillful operators performing in high volume centers with cardiothoracic surgical back-up. Certain lesion characteristics favor successful recanalisation with PCI.
 
 ### 6.3.1: Technical Considerations
 Generally an antegrade approach is utilised aided with contra-lateral injections of contrast to delineate the distal segment. Retrograde and Control Antegrade and Retrograde Techniques (CART) techniques should be performed only by experienced operators.

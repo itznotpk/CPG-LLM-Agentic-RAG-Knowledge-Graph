@@ -19,17 +19,11 @@ The culprit vessel should be reopened as early as possible for myocardial salvag
 - fewer non-fatal reinfarctions
 - fewer intracranial hemorrhages and strokes
 
-High risk patients have the greatest mortality benefit with primary PCI. Short term benefits persist during long term (6–18 months) follow-up.
-
-Timing is a key factor in determining the appropriate reperfusion strategy. The optimal door-to-balloon time should be within 90 minutes. With every 15-minute delay in restoring TIMI 3 flow, mortality increases.
-
-The mortality benefit of primary PCI is seen when the incremental delay (door-to-balloon minus door-to-needle time) is no more than 60 minutes. Even with incremental delays up to 2 hours, primary PCI has mortality benefits beyond fibrinolytic therapy.
+High risk patients have the greatest mortality benefit with primary PCI. Short term benefits persist during long term (6–18 months) follow-up. Timing is a key factor in determining the appropriate reperfusion strategy. The optimal door-to-balloon time should be within 90 minutes. With every 15-minute delay in restoring TIMI 3 flow, mortality increases. The mortality benefit of primary PCI is seen when the incremental delay (door-to-balloon minus door-to-needle time) is no more than 60 minutes. Even with incremental delays up to 2 hours, primary PCI has mortality benefits beyond fibrinolytic therapy.
 
 "TIME IS MYOCARDIUM" — Primary PCI should be performed promptly by experienced operators in centers performing a sufficient number of primary PCI procedures.
 
 ### 2.1.1: Indications For Primary PCI
-Refer to Table 1: Indications for PCI in STEMI.
-
 Table 1: Indications For PCI In STEMI
 | INDICATIONS | Recommendation Level |
 |---|---|
@@ -170,7 +164,7 @@ Table 5: Doses Of Anti-Thrombotic Agents In UA/NSTEMI And During PCI\*
 - Consider intra-coronary nitroglycerine to exclude vasospasm and for appropriate stent sizing
 - Bare metal stents (BMS) reduced restenosis and TVR compared to POBA but did not improve mortality. Stents are the strategy of choice for primary PCI.
 
-#### 2.1.4.3: Drug Eluting Stents (Des) Vs Bms For STEMI
+#### 2.1.4.3: Drug Eluting Stents (DES) Vs Bms For STEMI
 Both DES and BMS are effective in STEMI. Randomised trials have not shown mortality advantage of DES over BMS. However, DES is associated with lower TVR without increased all-cause mortality.
 
 #### 2.1.4.4: Distal Embolisation And Use Of Adjunctive Devices And Pharmacotherapy
