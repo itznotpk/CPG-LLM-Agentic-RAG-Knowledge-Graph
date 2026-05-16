@@ -17,7 +17,7 @@ Asymptomatic atherosclerotic disease may be detected by:
 
 Patients with abnormal exercise stress tests, calcified and non-calcified plaques detected by imaging modalities should have:
 *   All their CV risk factors treated to target.
-*   Their LDL-C treated to a target dependent on their CV risk. (refer to Table 4: Target LDL-C levels) In patients at Intermediate Risk, the presence of any of of the features listed below may support upgrading of CV risk, the decision to initiate pharmacotherapy and treatment targets. (refer to Section 5.2.3. Classification of CV Risk)
+*   Their LDL-C treated to a target dependent on their CV risk. (refer to Table 4: Target LDL-C levels) In patients at Intermediate Risk, the presence of any of of the features listed below may support upgrading of CV risk, the decision to initiate pharmacotherapy and treatment targets. (refer to Section 5.2.3. Classification of CV Risk) <!-- cross_ref target_file="section-5-risk-assessment-dyslipidaemia.md" target_heading="5.2.3: Classification Of CV Risk" target_kind="h3_section" -->
 
 The following high-risk features is indicative of the presence of significant atherosclerotic disease. These include:
 *   Ankle Brachial Index: < 0.9 or > 1.40
@@ -31,9 +31,7 @@ The following high-risk features is indicative of the presence of significant at
 
 [Grade I, Level A] Patients with these high-risk features have subclinical established CVD. In these patients, the LDL-C target should be < 1.4 mmol/l and a 50% reduction from baseline.
 
----
-
-## Key Recommendations #10
+**Key Recommendations #10**
 *   Patients with abnormal exercise stress tests, calcified and non-calcified plaques detected by imaging modalities should have:
     * All their CV risk factors treated to target.
     * Their LDL-C treated to a target dependent on their CV risk. In patients at Intermediate Risk, the presence of any of these features may support upgrading of CV risk, the decision to initiate pharmacotherapy and treatment targets.
@@ -59,11 +57,9 @@ The following high-risk features is indicative of the presence of significant at
 *   [Grade I, Level A] In patient with concurrent hypertension and dyslipidemia, **combination therapy** has been shown to **not only improve medication adherence but also improvement in CV risk factor control.**
 *   [Grade I, Level A] In patients with hypertension and dyslipidemia who refuse to take lipid lowering drugs, the use of therapeutic lifestyle changes (non-pharmacological approaches) with a favourable effect on BP and lipids, has been shown to reduce CV events.
 
----
-
-## Key Recommendations #11
+**Key Recommendations #11**
 *   For patients with Hypertension, initiate statins for Primary Prevention if they also have elevated cholesterols (LDL-C > 3.4mmol/L).
-*   In all other patients assess CV risk using the FRS-General CVD risk score. (refer to Table 1 and Table 2) The target LDL-C would depend upon the individual’s CV risk. (refer to Table 4: Target LDL-C levels)
+*   In all other patients assess CV risk using the FRS-General CVD risk score. (refer to Table 1a: Estimation Of 10-Year Framingham General CVD Risk Score For Men (FRS General CVD Risk Score For Men), Table 1b: FRS-General CVD Risk Score For Men, Table 2a: Estimation Of 10-Year Framingham General CVD Risk Score For Women (FRS-General CVD Risk Scores For Women and Table 2b: FRS-General CVD Risk Score For Women) The target LDL-C would depend upon the individual’s CV risk. (refer to Table 4: Target LDL-C levels)
 
 ## 10.3: Diabetes Mellitus (DM)
 *   Patients with diabetes and impaired glucose tolerance (IGT) are at high risk of CVD. These patients have higher mortality and a higher incidence of recurrent CV events. This is especially in individuals with diabetes of more than 10 years duration.
@@ -104,7 +100,6 @@ In patients who have achieved LDL-C targets, the following are secondary targets
 *   In patients with high TG > 4.5mmol/L, when the LDL-C cannot be calculated, non-HDL level is a target of therapy and can be calculated from a non-fasting serum.
 
 ### 10.3.3: Management
-
 #### 10.3.3.1: Elevated LDL-C (Or Non-HDL-C)
 *   [Grade I, Level A] All persons with diabetes above the age of 40 should be treated with a statin regardless of baseline LDL-C level.
 *   [Grade III, Level C] In type 2 diabetes patients who are below 21-years of age and without clinical CVD, statin is generally not recommended.
@@ -114,7 +109,8 @@ In patients who have achieved LDL-C targets, the following are secondary targets
 *   [Grade I, Level A] For very high-risk patients, PCSK9 -i should be considered if maximal tolerated dose of statin and ezetimibe fail to achieve LDL-C targets.
 *   Very low LDL-C level achieved by newer lipid lowering drugs had shown further CV risk reduction in large scale clinical trials proportionate to the degree of LDL-C lowering. The absolute risk reduction is most evident in patients with higher CV risk.
 
-#### 10.3.3.2: Hypertriglyceridemia (Refer To Section 11: Specific Lipid Disorders)
+#### 10.3.3.2: Hypertriglyceridemia
+Refer To Section 11: Specific Lipid Disorders <!-- cross_ref target_file="section-11-specific-disorders-dyslipidaemia.md" target_heading="Section 11: Specific Lipid Disorders" target_kind="h1_section" -->
 *   The primary objective is to achieve target LDL-C.
 *   Investigate for secondary causes if fasting TG > 5.7mmol/L.
 *   Improving diabetes control. Lifestyle modification should be emphasized.
@@ -124,16 +120,13 @@ In patients who have achieved LDL-C targets, the following are secondary targets
 * [Grade TIa, Level B] In patients with CVD or high CV risk and in whom the LDL-C is already at target, but with elevated TG, the addition of icosapent ethyl 4 mg/day to statins has been shown to reduce CV risk by 25%.
 * [Grade TIa, Level B] Nicotinic acid should only be used in patients with high risk of pancreatitis with a TG level of > 10 mmol/L and in those who do not respond adequately to fibrates and/or fish oil.
 
----
-
-## Key Recommendations #12 :
+**Key Recommendations #12:**
 *   All persons with diabetes above the age of 40 should be treated with a statin regardless of baseline LDL-C level.
 *   In Type 2 diabetes patients below 21-years of age and without clinical CVD, statin is generally not recommended.
 *   The target LDL-C levels will depend upon their CV risk (refer to Table 4: Target LDL-C levels).
 *   Statins are the drugs of first choice. If target LDL-C is not achieved, consider combination with:
     *   Ezetimibe **and/or**
     *   PCSK-9 inhibitors.
----
 
 ## 10.4: Heart Failure (HF)
 *   In patients with established atherosclerotic CAD (without HF), cholesterol lowering with statin reduced the incidence of HF, mainly by preventing MI.
@@ -143,19 +136,28 @@ In patients who have achieved LDL-C targets, the following are secondary targets
 *  [Grade TIb, Level B] Routine use of cholesterol-lowering therapy is not recommended in non-ischemic HF.
 *   Patients with HF do not appear to benefit from PCSK-9 inhibition after ACS.
 
----
-
-## Key Recommendations #13 :
+**Key Recommendations #13:**
 *   All patients with HF due to CAD should be on statins.
 *   Routine use of cholesterol-lowering therapy is not recommended in non-ischemic HF.
-
----
 
 ## 10.5: Kidney Disease (CKD)
 *   Individuals with Chronic Kidney Disease (CKD) are at high risk for CVD. It is the most common cause of death in these patients, accounting for 40-50% of all deaths in End Stage Kidney Disease (ESKD), with CVD mortality rates approximately 15 times that seen in the general population.
 *   All patients with CKD should be screened for the traditional CV risk factors and treated appropriately. They benefit similar to non-CKD patients from therapies targeting hypertension, glucose control and smoking cessation. These have been shown to slow down the atherosclerotic process, improve their CV outcomes and also slow down the progression of CKD.
 *   The main lipid abnormality in CKD is elevated TG, small dense LDL- particles and low HDL-C. TC is usually normal or low. (refer to Table 14: Abnormalities of lipid profile by target population)
 *   Dyslipidemia can occur in all stages of CKD, on dialysis, after kidney transplantation and in nephrotic syndrome. As CKD progresses, the dyslipidemia often worsens. The excess risk associated with increased LDL-C decreases in parallel with eGFR despite higher absolute risk of MI.
+
+Table 14: Abnormalities Of Lipid Profile By Target Population
+|                   | Nephrotic Syndrome | CKD (Stages 1-2) | CKD (Stages 3–4) | HD | PD | KTR |
+|---|---|---|---|---|---|---|
+| Total Cholesterol | ↑↑ | = | = | = or ↓ | ↑ | ↑ |
+| LDL               | ↑↑ | = | = or ↓ | = or ↓ | ↑ | ↑ |
+| HDL               | ↓  | ↓ | ↓ | ↓ | ↓ | = or ↓ |
+| Triglycerides     | ↑↑ | ↑↑ | ↑↑ | = or ↑ | ↑↑ | ↑ or ↑↑ |
+
+Key: ↑ increase; ↓ decrease; = No change
+HD: haemodialysis, KTR: kidney transplant recipient, PD: peritoneal dialysis
+
+*Adapted from: Weiner DE, Sarnak MJ. Managing Dyslipidemia in Chronic Kidney Disease. J Gen Intern Med. 2004;19:1045–1052. Lo JC, Go AS, Chandra M, Fan D, Kaysen GA. GFR, body mass index, and low high-density lipoprotein concentration in adults with and without CKD. Am J Kidney Dis. 2007;50:552–558*
 
 ### 10.5.1: Managing Lipid Disorders In Kidney Disease
 * [Grade I, Level A] All adults and adolescents with CKD should have a lipid profile (TC, LDL-C, HDL-C, TG)
@@ -172,6 +174,19 @@ In patients who have achieved LDL-C targets, the following are secondary targets
 * [Grade IIb, Level B] In patients with markedly elevated fasting levels of TG > 11.3 mmol/l, fibrates may be considered. The dose should be adjusted according to kidney function.
 * [Grade III, Level B] In patients with CKD (eGFR <60 mL/min/1.73 m2), the combination of statins and fibrates and ezetimibe monotherapy is not recommended due to risk of drug toxicity.
 *   PCSK 9 inhibitors, bempedoic acid, and inclisiran have all been shown to decrease LDL-C but there is currently limited data for reduction of CV events or mortality in patients with CKD/ESKD.
+
+Table 15: Dosing Modifications For Lipid-Lowering Drugs In CKD (Stage 3a - 5)
+| Agent | Max Dose (mg/day) |
+|---|---|
+| Atorvastatin | 20 |
+| Fluvastatin | 80 |
+| Lovastatin | Not studied |
+| Pravastatin | 40 |
+| Rosuvastatin | 10 |
+| Simvastatin | 40 |
+| Simvastatin/Ezetimibe | 20/10 |
+
+*Adapted from: KDIGO Clinical Practice Guideline for Lipid Management in Chronic Kidney Disease. Kidney International Supplements 2013; volume 3(3)*
 
 #### 10.5.1.2: Specific Kidney Disorders
 **A) Nephrotic Syndrome**
@@ -190,18 +205,14 @@ In patients who have achieved LDL-C targets, the following are secondary targets
 
 **D) Post-transplant**
 * [Grade IIa, Level A] All adult kidney transplant recipients should be treated with a statin, regardless of age.
-
----
-
-## Key Recommendations #14 :
+ 
+ **Key Recommendations #14:**
 *   Lipid lowering therapy with statins or ezetimibe/simvastatin combination should be initiated in non dialysis CKD patients for primary and secondary prevention of CVD.
 *   The target LDL-C levels will depend upon their CV risk. (refer to Table 4: Target LDL-C levels)
 *   Statins should not be commenced for primary prevention of CVD in patients on dialysis. These patients are at very high CV risk, but it is for non-atherosclerotic CVD e.g., due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. No CV benefits have been demonstrated in clinical trials of lipid lowering therapy.
 *   In patients with established CVD already on statins or an ezetimibe/statin combination at the time of initiation of dialysis, these drugs should be continued.
----
 
 ## 10.6: Other Endocrine Disorders
-
 ### 10.6.1: Thyroid Disease
 *   Thyroid hormones have profound effects on lipoprotein metabolism.
 
@@ -237,11 +248,11 @@ In patients who have achieved LDL-C targets, the following are secondary targets
     *   Ketoconazole is a potent inhibitor of cytochrome P450 3A4 (CYP3A4) and can markedly increase plasma levels of certain statins, specifically simvastatin, lovastatin, and, to a lesser extent, atorvastatin. This can significantly increase the risk of myotoxicity from statin therapy. Therefore, statins not metabolized by the CYP3A4 system (including fluvastatin, pravastatin, and rosuvastatin) should be used when cholesterol-lowering therapy is required in the setting of ketoconazole therapy.
     *   Mitotane, commonly used in the treatment of Cushing syndrome, by itself can contribute to a secondary dyslipidemia.
 
-## Key Message #9 :
+**Key Message #9:**
 *   Thyroid hormones have profound effects on lipoprotein metabolism.
 *   Dyslipidemia is a common metabolic abnormality in Cushing syndrome, ranging from 12% to 72%.
 
-## Key Recommendations #15 :
+**Key Recommendations #15:**
 *   Thyroid Disorders:
     *   Treatment of hypothyroidism or hyperthyroidism appropriately can improve the lipid
         abnormalities.
@@ -251,9 +262,7 @@ In patients who have achieved LDL-C targets, the following are secondary targets
     *   In adults with persistent endogenous Cushing syndrome, irrespective of the CV risk score, statin therapy, as adjunct to lifestyle modification, should be considered to reduce CV risk.
     *   LDL-C should be the primary target of therapy. The target should be LDL -C < 1.8mmol/L.
 
----
-
-## 10.7: Hiv
+## 10.7: HIV
 *   With the advent of good and improved access to effective therapy for HIV, life expectancy has increased, and CVD has become an important cause of morbidity and mortality in these patients. This may be due to:
     *   HIV infection itself, which may produce a cardiometabolic type of syndrome.
     *   Metabolic changes associated with anti-retroviral therapy (ART), such as protease inhibitors (PI) and nucleoside or nucleotide reverse transcriptase inhibitors (NRTI).
@@ -274,14 +283,12 @@ In patients who have achieved LDL-C targets, the following are secondary targets
         *   [Grade IIa, Level B] Fenofibrates are preferred because there is no significant interaction with ART.
         *   [Grade IIa, Level B] Gemfibrozil may have a lower efficacy due to interaction with CYP 450 inhibitors, such as protease inhibitors.
 
-## Key Message #10 :
+**Key Message #10:**
 *   CVD has become an important cause of morbidity and mortality in HIV patients. This may be due to the HIV infection itself, which may produce a cardiometabolic type of syndrome, metabolic changes associated with anti-retroviral therapy (ART), or associated CV risk factors such as smoking and recreational drug use (e.g. cocaine).
 
-## Key Recommendations #16 :
+**Key Recommendations #16:**
 *   In patients with HIV, LDL-C is the primary goal of treatment.
 *   Drug interactions with ART is common and monitoring for adverse effects is important.
-
----
 
 ## 10.8: Psychiatric Disorders
 *   Metabolic syndrome and dyslipidemia are typical disorders in patients with schizophrenia.
@@ -301,83 +308,14 @@ In patients who have achieved LDL-C targets, the following are secondary targets
     *   Clozapine, loxapine, haloperidol, melperone, risperidone, and olanzapine have been known to cause significant CK elevations and checking CK levels before starting a statin would be prudent.
     *   After initiation of statin therapy routine CK or ALT testing is not recommended but should be done if the patient develops signs of hepatotoxicity (ALT) or muscle symptoms (CK).
 
-## Key Message #11 :
+**Key Message #11:**
 *   Antipsychotic drug induced dyslipidemia increases risk for developing further metabolic complications and CVD.
 
-## Key Recommendations #17 :
+**Key Recommendations #17:**
 *   In patients with psychosis, LDL-C is the primary target of therapy.
 *   Drugs of first choice are statins.
 
----
-
-## Contextual Anchors (Overlapping)
-
-### 5.2.3: Classification Of CV Risk
-Individuals are classified into four risk categories:
-
-## 1: Very High Risk
-*   **Established CVD**: - Patients who already had a CV event are at highest risk for a recurrent event.
-    *   In the contemporary era, pooled results from phase III trials of high‐risk ACS patients show that 4.1% and 8.3% of patients developed a recurrent major adverse CV event (MACE) - i.e., CV death, MI, or stroke - at 90 days and 360 days, respectively.
-    *   Registry data, however, indicate that these figures are higher - 1-year post index MI rate for MACE was 18.3%, and the 5-year event rate was 33.4%.
-    *   In patients with stable established atherosclerotic disease or risk factors for atherosclerosis, however, the risk is lower-1-year and 4-year rate of MACE was 1.4% and 6.9% respectively.
-    *   Following a stroke, the risk of MACE (ACS, MI, incident CAD, coronary revascularization procedures, incident heart failure, or CV death) is also increased. The data from a registry of elderly stroke survivors (> 66 years), showed that the risk was time-dependent, highest within 30 days. The risk of incident MACE associated with first ever ischemic stroke at 30 days was 25-fold in women and a 23-fold higher in men. This decreases but remains significant between 31 and 90 days (HR 4.2-4.8) and 91 to 365 days (HR, 2.0-2.1). The risk of a recurrent stroke and the risk of death at 1 year was 8-11% and 24.5% respectively.
-*   **Atherosclerosis in other vascular beds**: - aorta including atherosclerotic aortic aneurysms, carotid, cerebral and peripheral vessels.
-*   **Asymptomatic significant atherosclerotic plaques**detected on Computed Tomography (CT) coronary angiogram and carotid ultrasound.
-*   **Diabetes with proteinuria** or with a major risk factor such as smoking, hypertension or dyslipidemia.
-*   **Chronic kidney disease (CKD)**: -  Estimated Glomerular Filtration Rate (eGFR) <30 ml/min-1 /1.73 m² (Stage 4 & 5) - There is an independent, graded association between reduced eGFR and the risk of death, CV events, and hospitalization. The risk begins to increase with eGFR <60 ml / min−1 / 1.73 m² and escalates as the eGFR drops below <30 ml/min-1 / 1.73 m².
-
-## 2: High Risk
-*   **Stage 3 CKD**: eGFR ≥30 - <60 ml/min/1.73 m².
-*   **Diabetes**: Diabetes without target organ damage.
-*   **Very high levels of individual risk factors**: LDL-C > 4.9 mmol/L or BP ≥ 180/110 mmHg.
-*   **Calculated Risk**: FRS-General CVD 10-year risk **≥ 20%**.
-
-Individuals who belong to the above Very High Risk and High-Risk categories, do not need to be risk stratified using the FRS-General CVD Risk Score.
-They should be encouraged to have:
-*   a healthy lifestyle (stop smoking, regular exercise, and a healthy diet) in addition to
-*   pharmacotherapy, to ensure that all their CV risk factors are treated to targets.
-
-These individuals derive the greatest benefit from risk factor reduction and lipid lowering therapy.
-
-The risk of recurrent events in stable CVD patients is influenced mainly by the classical CV risk factors, vascular disease site, and kidney function. In these individuals, the following risk stratification tools for secondary prevention may be used. These include:
-*   Secondary Manifestations of Arterial Disease (SMART) risk score for estimating 10-year residual CVD risk.
-*   European Action on Secondary and Primary Prevention by Intervention to Reduce Events (EUROASPIRE) risk model which estimates 2-year risk of recurrent CVD.
-
-In all otherwise healthy individuals, their global CV risk should first be determined to help guide the intensity of risk factor reduction efforts. Based on their CV risk, they may be
-categorized as:
-
-## 3: Intermediate (Moderate) Risk
-*   Calculated FRS-General CVD 10-year risk **≥ 10% to < 20%**.
-*   In these individuals, other risk factors not included in the FRS-General CVD Risk Score may influence treatment targets and the decision to initiate pharmacotherapy.
-*   Additional factors that may support upgrading of CV risk include:
-    *   Family history of premature CVD - males (father and/or brother(s)) < 55 years of age and females (mothers and/or sister(s)) < 65 years of age
-    *   Ankle: brachial (ABI) index < 0.9- this indicates PAD, the lower the index, the more severe the disease.
-    *   hs-CRP levels ≥ 2mg/L
-    *   Coronary artery calcium score of ≥ 100 Agatston units or coronary artery calcium ≥ 75th percentile for a patient of the same sex and age. Coronary Calcium score:
-        *   can be low or even zero in patients with soft plaques.
-        *   does not provide information on plaque burden or stenosis.
-
-## 4: Low Risk
-*   Calculated FRS-General CVD 10-year risk **< 10%**.
-*   Low-risk individuals should be given advice to help them maintain this status.
-*   The relative risk reduction of lipid lowering therapy is similar in all individuals irrespective of their CV risk status. However, in low-risk individuals the absolute benefit may be less.
-*   Many young individuals may fall into this category of low absolute risk of CVD but they may have a high lifetime risk if their individual risk factors are high. These include individuals with:
-    *   BP > 180/110 mmHg
-    *   LDL-C > 4.9 mmol/L
-    *   In these individuals using Vascular Age (Tables 3A & B, pg. 25), may be helpful in defining CV Risk and guiding management strategies. This risk model has not been validated in our local population.
-
----
-*   Routine measurement of carotid intima media thickness (CIMT) for risk assessment is not recommended due to the lack of methodological standardization, and the absence of added value of IMT in predicting future CVD events, even in the intermediate-risk group.
-*   It has not yet been demonstrated that with upgrading of the risk category of patients at Intermediate (Moderate) Risk and subjecting them to aggressive risk factor reduction, it would lead to reduction in CV risk and improvement in CV outcomes.
-
-*   These risk models help guide risk assessment and management. They do not replace sound clinical judgement in the assessment of global risk and management strategies. They also do not consider risk modifiers such as:
-    *   Psycho-social stressors such as work or family stress, depression, anxiety etc. These can increase CV risk and mortality.
-    *   Frailty - This, by itself, has been associated with both high CV and non-CV morbidity and mortality.
-
-The intensity of preventive actions should be tailored to the patient’s total CV risk. The risks (side effects, costs etc.) should be weighed against the benefits of each intervention.
-
-In subjects who are at Low or Intermediate (Moderate) risk, the decision to initiate pharmacotherapy should be individualized following a mutual discussion with the patient.
-
+<!-- parent_only_reference_start -->
 Table 1a: Estimation Of 10-Year Framingham General CVD Risk Score For Men (FRS General CVD Risk Score For Men)
 
 | Points | Age (y) | HDL (mmol/L) | TC (mmol/L) | SBP (Untreated) | SBP (Treated) | Smoker | Diabetes |
@@ -460,7 +398,6 @@ Table 2b: FRS-General CVD Risk Score For Women
 | 9 | 5.3 | ≥ 21 | > 30 |
 
 Table 4: Target LDL-C Levels
-
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
 | **Low CV Risk*** (<10% 10-year CVD risk) | Clinical judgement** | < 3.0 | < 3.8 |
@@ -469,138 +406,23 @@ Table 4: Target LDL-C Levels
 | **Very High CV Risk*** <br> * established CVD <br> * diabetes with CVD or other target organ damage or > 3 CV risk factors <br> * CKD with eGFR <30ml/min-1/1.73m²**** | > 1.4 | ≤ 1.4 and a reduction of > 50% from baseline | ≤ 2.2 and a reduction of >50% from baseline |
 | ***Those with recurrent CV events within 2 years despite achieving a LDL-C target of <1.4mmol/l | | < 1.0 | |
 
-
 *Low and Moderate CV risk is assessed using the FRS- General CVD Risk Score <br>
 **After a therapeutic trial of 8-12 weeks of TLC and following discussion of the risk: benefit ratio of drug therapy with the patient. <br>
 ***All other CV risk factors should be treated to target.  <br>
 **** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
 
-Table 14: Abnormalities Of Lipid Profile By Target Population
+Grades Of Recommendation And Level Of Evidence
+| Grade | Description |
+| --- | --- |
+| Grade I | Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective. |
+| Grade IIa | Weight of evidence/opinion is in favour of usefulness/efficacy. The specific treatment or procedure *should be considered*. |
+| Grade IIb | Usefulness/efficacy is less well established by evidence/opinion. The specific treatment or procedure *may be considered*.|
+| Grade III | Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful.|
+| Level A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| Level B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| Level C | Only consensus of opinion of experts, case studies, or standard-of-care. |
 
-|                   | Nephrotic Syndrome | CKD (Stages 1-2) | CKD (Stages 3–4) | HD | PD | KTR |
-|---|---|---|---|---|---|---|
-| Total Cholesterol | ↑↑ | = | = | = or ↓ | ↑ | ↑ |
-| LDL               | ↑↑ | = | = or ↓ | = or ↓ | ↑ | ↑ |
-| HDL               | ↓  | ↓ | ↓ | ↓ | ↓ | = or ↓ |
-| Triglycerides     | ↑↑ | ↑↑ | ↑↑ | = or ↑ | ↑↑ | ↑ or ↑↑ |
-
-Key: ↑ increase; ↓ decrease; = No change
-HD: haemodialysis, KTR: kidney transplant recipient, PD: peritoneal dialysis
-
-*Adapted from: Weiner DE, Sarnak MJ. Managing Dyslipidemia in Chronic Kidney Disease. J Gen Intern Med. 2004;19:1045–1052. Lo JC, Go AS, Chandra M, Fan D, Kaysen GA. GFR, body mass index, and low high-density lipoprotein concentration in adults with and without CKD. Am J Kidney Dis. 2007;50:552–558*
-
-Table 15: Dosing Modifications For Lipid-Lowering Drugs In CKD (Stage 3a - 5)
-
-| Agent | Max Dose (mg/day) |
-|---|---|
-| Atorvastatin | 20 |
-| Fluvastatin | 80 |
-| Lovastatin | Not studied |
-| Pravastatin | 40 |
-| Rosuvastatin | 10 |
-| Simvastatin | 40 |
-| Simvastatin/Ezetimibe | 20/10 |
-
-*Adapted from: KDIGO Clinical Practice Guideline for Lipid Management in Chronic Kidney Disease. Kidney International Supplements 2013; volume 3(3)*
-
-### Section 11: Specific Lipid Disorders
-
-## 11.1: Elevated Tg
-*   Hypertriglyceridemia has a modest association as a CV risk factor, but the association is far weaker than for hypercholesterolaemia.
-*   In contrast to the established reduction in CV risk with LDL-C lowering, the efficacy of TG lowering in decreasing CV risk has not been established.
-*   Hypertriglyceridemia is associated with increased numbers of atherogenic small, dense LDL particles and apo B-100-associated TG-rich lipoprotein remnant cholesterol, which increase CV risk.
-*   Data from large prospective studies, have found that non-fasting TG predicts CV risk and mortality, more strongly than fasting TG. This is indicative of insulin resistance and atherogenic remnant lipoproteins.
-    *   Associations were strongest with postprandial TG taken 2 to 4 h after the meal.
-*   Unfortunately, the lack of standardization and reference ranges impedes the general implementation of non-fasting TG as a target for control.
-*   At present, fasting TG >1.7 mmol/L continues to be considered a marker of increased risk, but concentrations ≤1.7 mmol/L are not evidence-based target levels for therapy.
-
-**11.1.1 Targets of therapy**
-
-*   In individuals with elevated TG, the primary target of therapy remains achieving LDL-C goal depending upon the individual's global CV risk.
-*   When TG levels are > 1.5mmol/L, reported LDL-C levels do not reliably indicate LDL particle number.
-*   Individuals with a TG > 4.5mmol/L should have a repeat lipid panel tested in the fasting state.
-*   In individuals where the TG > 2.3mmol/L, non-HDL-C and apo-B levels are more representative of all atherogenic lipoproteins than LDL-C. In these individuals, the secondary target of therapy is non-HDL-C. (refer to Table 4: Target LDL-C levels)
-*   In individuals where the TG > 4.5mmol/L, non-HDL-C is the primary target of therapy. (refer to Table 4: Target LDL-C levels)
-
-**A) Mild-to-moderate elevations in TG (> 1.7 – < 10.0 mmol/L)**
-
-Treatment should include:
-*   Lifestyle changes of weight reduction, low carbohydrate diet reducing intake of simple carbohydrates, eg. high-glycemic and high-fructose foods and beverages, control of diabetes or insulin resistance, exercise, reduction of alcohol intake and cessation of smoking. Dietary fat does not raise fasting plasma TG levels in most people. However, reducing SFA is recommended.
-*   After 4-12 weeks of lifestyle measures, assess need for further TG-lowering therapy with the goal to reduce CVD risk.
-*   Ensure diabetes, if present, is controlled.
-*   Drug therapy should be considered in high CV risk individuals. In stepwise fashion:
-
-**Statins:**
-*   Intensifying statin therapy, especially if LDL-C target is not achieved.
-*   Statins have significant effects on mortality and most CV outcome parameters.
-*   These drugs are the first choice to reduce both total CV risk and moderately elevated TG levels.
-*   More potent statins (atorvastatin, rosuvastatin, and pitavastatin) demonstrate a robust lowering of TG levels, especially at high doses.
-
-**+ Fibrates:**
-*   Failure to achieve adequate TG lowering despite lifestyle interventions and optimal therapy to lower LDL-C, adding fibrates is the next option as a combination therapy to statin.
-*   Fibrates are generally considered the most potent TG agents, with reductions of 45 to 55%.
-*   Caution should be exercised when gemfibrozil is used in combination with statins because of the significant risk of rhabdomyolysis (particularly in the setting of concomitant kidney dysfunction).
-
-**+ Omega 3 Fatty Acids:**
-*   The CV benefits of omega-3 fish oils remains uncertain.
-*   2 trials with high-dose Fish oils have shown CV benefit. Another 4 trials, however, were neutral.
-*   The mechanisms for the reduction in CV events with high-dose omega-3 FA (Icosapent ethyl) are uncertain, as there was a lack of correlation between TG lowering and CV outcomes.
-*   The preparation used in the REDUCE-IT trial that was shown to have CV benefits, is currently not available in Malaysia.
-*   There appears to be a dose-related risk of Atrial Fibrillation (AF) with omega-3 fatty acid.
-    *   At a dose of 4.0gm/day, there is a highly statistically significant nearly doubling increase in risk.
-    *   With the intermediate dose (1.8 gm/day) and standard dose (840mg/day), there is an increase in risk which did not achieve statistical significance.
-    *   Patients who choose to take high doses of omega-3 fatty acids, should be informed of the risk of AF, and followed up for the possible development of this potentially hazardous arrhythmia.
-*   Currently, there is still no outcome data that show a reduction in CV events with the use of drug therapy to reduce TG.
-
-**B) Severe elevations in TG (>10mmol/L)**
-
-**In asymptomatic individuals:**
-
-*   Repeat fasting TG (after an interval of 5 days, but within 2 weeks) and review for potential secondary causes of dyslipidemia. Seek specialist advice if the TG remains above 10 mmol/L.
-
-In these individuals:
-*   **Dietary Modification**: Very low carbohydrate (<10%) and low-fat diets (≤10-15%, preferably < 5% of calorie intake), avoidance of alcohol and lifestyle changes.
-*   **Drug therapy**:
-    *   **Statins**: These are drugs of choice.
-    *   **Combination therapy**:
-        *   Consider a combination of a fibrate, high dose Omega-3 Fatty Acids and/or niacin in severe hypertriglyceridemia (>5.6 mmol/L).
-        *   The higher the baseline TG level, the greater the percent and absolute TG lowering that can be achieved by drug therapy.
-        *   However, despite this, it is less likely any single agent will sufficiently reduce TG to goal.
-    *   **Omega-3 Fatty Acids**:
-        *   A dose of 4gm/day (eicosapentaenoic acid ethyl ester) appears to be efficacious, often given as part of combination therapy.
-    *   **IV insulin**:
-        *   Severe hypertriglyceridemia associated with uncontrolled diabetes warrants initiation of IV insulin infusion.
-        *   IV insulin stimulates intravascular lipoprotein lipase that helps to clear TG at a faster rate.
-        *   The TG level will improve within 2-5 days but may not normalize.
-
-**In patients who have suspected pancreatitis, treatment includes:**
-
-*   **Fibrate or nicotinic acid**:
-    *   Gemfibrozil and Fenofibrate lower TG by about 20-35%.
-    *   Nicotinic acid at doses of above 1.5gm per day can reduce TG by 40%. However, nicotinic acid is not routinely recommended given its limited benefit, and risk of adverse effects, including a worsening of insulin resistance.
-*   **Omega-3 Fatty Acids**:
-    *   When administered in the early phase (within 48 hours) of acute pancreatitis and sepsis, omega 3 Fatty Acids, appear to be safe, and potentially reduce the incidence of new onset organ failure, infectious complications, and mortality.
-    *   Omega-3 Fatty Acid administration appears to affect inflammatory markers, potentially resulting in better clinical outcome. Caution is recommended when interpreting these beneficial results due to the limited number of patients and studies.
-
-## 11.2: Low HDL-C And High Tg
-*   Low HDL-C and high TG are seen in insulin resistance states (e.g., Type 2 diabetes, abdominal obesity), physical inactivity and high carbohydrate intakes. This lipid pattern is associated with atherogenic dyslipidemia and small dense LDL-particles.
-*   HDL-C < 1.0mmol/L (men) and < 1.3mmol/L (women) is considered a marker of increased CV risk.
-*   Treatment of this dyslipidemia in individuals with high/very high CV risk is aimed at lowering LDL-C to target.
-*   Pharmacological manipulation of HDL-C has not improved CV outcomes.
-*   At present, there is inadequate data to recommend the use of additional lipid-modifying therapies beyond statins.
-*   Fibrates have shown reductions in CV events primarily in the subset of patients with high TG (>2.2mmol/L) and/or low HDL-C (<1mmol/L).
-*   A meta-analysis of 18 fibrate trials (45,058 participants) conducted over a mean of 4.1 years found no effect on all-cause mortality or cardiovascular mortality.
-*   In the PROMINENT trial, use of pemafibrate in individuals with Type 2 diabetes and established / high CV risk, with moderately elevated TG, and low HDL and LDL-C, did not lower CV events.
-
-## 11.3: Low HDL-C
-*   For increasing HDL-C levels, modifying lifestyle with increased exercise and dietary modification (reduction in simple carbohydrate, sucrose/fructose consumption), weight reduction, smoking cessation, rather than drug treatment, is recommended.
-
-**Key Recommendations #18:**
-*   In patients with high TG and/or low HDL-C, the primary goal of treatment is lowering LDL-C to target.
-
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ABI | Ankle Brachial Index |
@@ -667,14 +489,4 @@ In these individuals:
 | T1DM | Type 1 Diabetes Mellitus |
 | T2DM | Type 2 Diabetes Mellitus |
 | VLDL | Very Low-Density Lipoprotein |
-
----
-
-## Grades Of Recommendation And Level Of Evidence
-*   **Grade I**: Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
-*   **Grade IIa**: Weight of evidence/opinion is in favour of usefulness/efficacy. The specific treatment or procedure *should be considered*.
-*   **Grade IIb**: Usefulness/efficacy is less well established by evidence/opinion. The specific treatment or procedure *may be considered*.
-*   **Grade III**: Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful.
-*   **Level A**: Data derived from multiple randomized clinical trials or meta-analyses.
-*   **Level B**: Data derived from a single randomized clinical trial or large non-randomized studies.
-*   **Level C**: Only consensus of opinion of experts, case studies, or standard-of-care.
+<!-- parent_only_reference_end -->

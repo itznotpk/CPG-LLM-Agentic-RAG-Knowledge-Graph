@@ -14,8 +14,6 @@ The evidence of the CV benefits of reducing TG and/or increasing HDL-C has been 
 
 TC, HDL-C and TG are measured directly from the serum.
 
----
-
 ## 4.1: Low Density Lipoprotein Cholesterol (LDL-C)
 LDL-C plays a major causal role in the development of CVD. This role has been demonstrated in many epidemiological and mendelian studies and in randomized controlled trials of LDL-C lowering. Mendelian disorders such as Familial Hypercholesterolemia, where LDL levels are high, lead to a high incidence of premature CVD.
 
@@ -28,15 +26,11 @@ In the secondary prevention trials, LDL-C reduction by lipid lowering therapy an
 
 Lowering TC and LDL-C lowers CV risk, the absolute benefit is greater in high-risk Individuals. The lower the LDL-C achieved, the greater the CV benefit. At levels <1.8mmol/L, less progression of the atherosclerotic plaque is seen and at levels <1.6mmol/L, regression of the plaque has been documented.
 
----
-
 ## 4.2: High Density Lipoprotein Cholesterol (HDL-C)
 *   Isolated low HDL-C is more common among Asians than non-Asians (33.1% vs 27.0%).
 *   It is associated with a sedentary lifestyle, obesity, and avoidance of alcohol intake.
 *   Low HDL-C, especially when combined with high LDL-C and high TG, is associated with increased CV risk.
 *   **Note**: Increasing HDL-C levels via pharmacotherapy has not yet shown an improvement in CV outcomes.
-
----
 
 ## 4.3: Triglycerides (Tg)
 In some people, despite achieving low LDL-C levels, the rate of CV events is still significantly high. This residual CV risk is partly contributed by cholesterol remnant particles - TG and TG-rich lipoproteins.
@@ -47,16 +41,12 @@ Recent epidemiological and mendelian studies have shown that high TG levels may 
 
 Previously, reducing TG levels by pharmacotherapy has not demonstrated an improvement in CV outcomes. More recently however, the use of newer agents, specifically icosapent ethyl (IPE) at 4 grams per day, has shown promising results. The observed CV benefits with this preparation of omega 3 fatty acids, however, appeared not to be consistent with the amount of TG lowering that occurred.
 
----
-
 ## 4.4: Non-HDL-C
 Non-HDL-C reflects the concentration of cholesterol within all lipoprotein particles considered atherogenic. This includes chylomicrons, VLDL and their remnants, IDL, LDL and Lp(a).
 
 Studies have demonstrated that non-HDL-C is a better predictor of CV risk than is LDL-C and may be especially true in statin-treated patients. A 1% reduction in Non-HDL-C by lipid modifying drugs has been shown to be associated with a 1% reduction in CHD.
 
 Non-HDL-C is the secondary target of therapy. In cases where the TG>4.5 mmol/l, Non-HDL-C becomes the primary target of therapy
-
----
 
 ## 4.5: Atherogenic Dyslipidemia
 Atherogenic dyslipidemia consists of an increase in TG-rich lipoproteins, low HDL-C, lipoprotein remnants (i.e. small VLDL and IDL) and a preponderance of numerous small and dense LDL particles and postprandial hyperlipidemia.
@@ -65,35 +55,12 @@ Atherogenic dyslipidemia is usually associated with insulin resistance states su
 
 It has been shown to be causally linked to the development and progression of CVD. It also contributes to the residual CV risk seen in statin treated patients.
 
----
-
 ## 4.5: Lipoprotein (A) [Lp(a)]
 Lp(a) is a LDL-C like particle bound to apolipoprotein(a). It is inherited as an autosomal dominant trait. Lp(a) has been shown to be an independent risk factor for atherosclerosis, MI, strokes, and aortic stenosis.
 
 The difficulty, to date, has been that there is no standardized assay to measure the Lp(a), the “normal levels” in the different populations is still unknown and the lack of effective therapy targeting it.
 
----
-
-## Contextual Anchors (Overlapping)
-Table 4: Target LDL-C Levels
-
-| Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
-|---|---|---|---|
-| **Low CV Risk*** (<10% 10-year CVD risk) | Clinical judgement** | < 3.0 | < 3.8 |
-| **Intermediate (Moderate) CV Risk*** <br> * 10-20%, 10-year CVD risk <br> * Diabetes <50 years old and <10-year duration and no CV risk factors | > 2.6** | < 2.6 | < 3.4 |
-| **High CV Risk** <br> * >20% 10-year CVD risk <br> * diabetes >10-year duration without target organ damage + 1 other CV risk factor <br> * CKD with eGFR 30-<60ml/min-1/1.73m² | > 1.8 | ≤ 1.8 and a reduction of > 50% from baseline | ≤ 2.6 and a reduction of >50% from baseline|
-| **Very High CV Risk*** <br> * established CVD <br> * diabetes with CVD or other target organ damage or > 3 CV risk factors <br> * CKD with eGFR <30ml/min-1/1.73m²**** | > 1.4 | ≤ 1.4 and a reduction of > 50% from baseline | ≤ 2.2 and a reduction of >50% from baseline |
-| ***Those with recurrent CV events within 2 years despite achieving a LDL-C target of <1.4mmol/l | | < 1.0 | |
-
-
-*Low and Moderate CV risk is assessed using the FRS- General CVD Risk Score <br>
-**After a therapeutic trial of 8-12 weeks of TLC and following discussion of the risk: benefit ratio of drug therapy with the patient. <br>
-***All other CV risk factors should be treated to target.  <br>
-**** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
-
----
-
-## Key Messages #4
+**Key Messages #4**
 *   According to the Malaysian NCVD-ACS Registry 2018-2019:
     *   The prevalence of dyslipidemia among individuals admitted with ACS was 36.7%.
     *   The mean LDL-C on admission was 3.1 mmol/l in males and 3.0 mmol/l in females.
@@ -107,16 +74,19 @@ Table 4: Target LDL-C Levels
     *   Has been shown to be an independent risk factor for atherosclerosis, MI, strokes, and aortic stenosis.
     *   The difficulty, to date, has been that there is no standardized assay to measure the Lp(a), the “normal levels” in the different populations is still unknown and the lack of effective therapy targeting it.
 
----
-
-## Key Recommendations #3
+**Key Recommendations #3**
 *   **Primary Target**: LDL-C is the primary target for both primary and secondary prevention.
 *   **Benefit Correlation**: Both the absolute value of LDL-C achieved and the percentage reduction in LDL-C lead to CV benefits.
 *   **Intensity**: The lower the LDL-C achieved, the greater the CV benefit. At levels <1.8mmol/L, less progression of the atherosclerotic plaque is seen and at levels <1.6mmol/L, regression of the plaque has been documented.
 
----
+<!-- parent_only_reference_start -->
+Grades Of Recommendation And Level Of Evidence
+| Grade | Description |
+| --- | --- |
+| Grade I | Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective. |
+| Level A | Data derived from multiple randomized clinical trials or meta-analyses. |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -139,9 +109,4 @@ Table 4: Target LDL-C Levels
 | TG | Triglycerides |
 | TLC | Therapeutic Lifestyle Changes |
 | VLDL | Very Low Density Lipoproteins |
-
----
-
-## Grades Of Recommendation And Level Of Evidence
-*   **Grade I**: Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
-*   **Level A**: Data derived from multiple randomized clinical trials or meta-analyses.
+<!-- parent_only_reference_end -->

@@ -7,7 +7,7 @@ output: risk_score_comparison, food_classification, fatty_acid_profile
 -->
 
 ## Appendix 1: Comparison Of Cardiovascular Risk Scores
-The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Malaysia. Other scores (SCORE2, PCE, WHO) are compared below:
+The CPG relies on the FRS-General CVD Risk Score as the primary tool in Malaysia. Other scores (SCORE2, PCE, WHO) are compared below:
 
 | | FRS (Framingham Risk Score) | SCORE2 (Systematic Coronary Risk Evaluation 2) | RPCE (Revised Pooled Cohort Equations) | WHO CVD SCORE (World Health Organization Cardiovascular Disease) | SCORE (Systematic Coronary Risk Evaluation) | PCE (Pooled Cohort Equations) |
 |---|---|---|---|---|---|---|
@@ -21,8 +21,6 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 *Adapted from: Kassim SS et al. Validation of the general Framingham Risk Score (FRS), SCORE2, revised PCE and WHO CVD risk scores in an Asian population. The Lancet. Regional Health Western Pacific. DOI: https://doi.org/10.1016/j.lanwpc.2023.100742*
 
----
-
 ## Appendix 2: Nova Food Classification System
 | GROUP | CATEGORY | DESCRIPTION & EXAMPLES |
 |---|---|---|
@@ -30,8 +28,6 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 | 2 | **Processed culinary ingredients** | These are products extracted from natural foods or from nature by processes such as pressing, grinding, crushing, pulverizing, and refining.<br><br>*e.g., butter, lard, oils, sugar, or salts.* |
 | 3 | **Processed foods** | These are products manufactured by industry with the use of salt, sugar, oil or other substances (Group 2) added to natural or minimally processed foods (Group 1) to preserve or to make them more palatable. They are derived directly from foods and are recognized as versions of the original foods. They are usually consumed as a part of or as a side dish in culinary preparations made using natural or minimally processed foods. Most processed foods have two or three ingredients.<br><br>*e.g., canned fish, fruits in syrup, bottled vegetables, salted or sugared nuts and seeds.* |
 | 4 | **Ultra-processed food and drink products** | These are industrial formulations made entirely or mostly from substances extracted from foods (oils, fats, sugar, starch, and proteins), derived from food constituents (hydrogenated fat and modified starch), or synthesized in laboratories from food substrates, or other organic sources (flavor enhancers, colors, and several food additives used to make the product hyper-palatable)<br><br>*e.g., carbonated drinks, pre-prepared burgers, hot dogs, sausages, chocolates, candies, pre-prepared poultry and fish nuggets.* |
-
----
 
 ## Appendix 3: Fatty Acid Composition Of Selected Dietary Fats And Oils
 | Type of Fats and Oils | SFA (%) | MUFA (%) | PUFA (%) | P/S Ratio | <12:0 | 12:0 | 14:0 | 16:0 | 16:1 | 18:0 | 18:1 | 18:2 | 18:3 | Others |
@@ -54,9 +50,6 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 *Note: Values represent %/100g edible fat.*
 *Sources: Dubois et al.(2007), Grundy & Denke (1990), Kris-Etherton et al. (1988), Orsavova et al. (2015), Gunstone et al. (2007) and Karupaiah et al. (2005)*
-
-
----
 
 ## Appendix 4: Fatty Acid Composition Of Selected Malaysian Food
 | Food Item | Total Fat (g) | SFA (%) | MUFA (%) | PUFA (%) | TFA* (%) |
@@ -131,77 +124,3 @@ The CPG relies on the **FRS-General CVD Risk Score** as the primary tool in Mala
 
 *\*TFA: Trans Fatty Acids (Values represent %/100g edible fat)*
 *Sources: Tee et al. (1997), Karupaiah et al. (2014), Abd. Aziz et al. (2013)*
----
-
-## Contextual Anchors (Overlapping)
-Table 10: Individuals WHO Are At High Risk Of Developing CVD
-
-*   Clinical evidence of atherosclerosis (CHD, CVA, atherosclerotic aortic aneurysm, peripheral vascular disease)
-*   A family history of premature CVD:
-    *   Males (father and/or brother(s)) < 55 years of age
-    *   Females (mothers and/or sister(s)) < 65 years of age
-*   A family history of genetic dyslipidemias
-*   Stigmata of dyslipidemia (corneal arcus, xanthelasma, xanthoma)
-*   CV Risk factors such as:
-    *   Metabolic syndrome
-    *   Diabetes mellitus
-    *   Abdominal obesity
-    *   Hypertension
-    *   Current cigarette smokers
-*   Inflammatory diseases such as Rheumatoid Arthritis, Systemic Lupus Erythematosus, Polyarteritis nodosa
-*   Chronic Kidney Disease (eGFR ≤ 60 mL/min/1.73 m² or ACR ≥ 3 mg/mmol)
-*   Human Immunodeficiency Viral infection
-*   Erectile Dysfunction
-*   A history of hypertensive disorders of pregnancy
-*   Chronic Obstructive Airway Disease
-
-Table 15: Dosing Modifications For Lipid-Lowering Drugs In CKD
-
-| Agent | Stage 3A - 5 (mg/day) |
-|---|---|
-| Atorvastatin | 20 |
-| Fluvastatin | 80 |
-| Lovastatin | Not studied |
-| Pravastatin | 40 |
-| Rosuvastatin | 10 |
-| Simvastatin | 40 |
-| Simvastatin/Ezetimibe | 20/10 |
-
-*Adapted from: KDIGO Clinical Practice Guideline for Lipid Management in Chronic Kidney Disease. Kidney International Supplements 2013;volume 3(3)*
-
----
-
-## Abbreviations Used In This Section
-| Abbreviation | Description |
-|---|---|
-| ACR | Albumin-to-Creatinine Ratio |
-| CHD | Coronary Heart Disease |
-| CHO | Carbohydrates |
-| CKD | Chronic Kidney Disease |
-| CV | Cardiovascular |
-| CVA | Cerebrovascular Accident |
-| CVD | Cardiovascular Disease |
-| DM | Diabetes Mellitus |
-| eGFR | Estimated Glomerular Filtration Rate |
-| ESKD | End Stage Kidney Disease |
-| FRS | Framingham Risk Score |
-| HDL-C | High Density Lipoprotein Cholesterol |
-| HTN | Hypertension |
-| KDIGO | Kidney Disease: Improving Global Outcomes |
-| LDL-C | Low Density Lipoprotein Cholesterol |
-| MUFA | Monounsaturated Fatty Acids |
-| Non-HDL-C | Non High Density Lipoprotein Cholesterol |
-| NOVA | Not an acronym — a classification name for food processing levels |
-| P/S Ratio | Polyunsaturated to Saturated Fat Ratio |
-| PCE | Pooled Cohort Equations |
-| PCSK-9 | Proprotein Convertase Subtilisin Kexin type 9 |
-| PUFA | Polyunsaturated Fatty Acids |
-| RPCE | Revised Pooled Cohort Equations |
-| SCORE | Systematic Coronary Risk Evaluation |
-| SCORE2 | Systematic Coronary Risk Evaluation 2 |
-| SFA | Saturated Fatty Acids |
-| SiRNA | Small Interfering Ribonucleic Acid |
-| TC | Total Cholesterol |
-| TFA | Trans Fatty Acids |
-| TG | Triglycerides |
-| WHO | World Health Organization |

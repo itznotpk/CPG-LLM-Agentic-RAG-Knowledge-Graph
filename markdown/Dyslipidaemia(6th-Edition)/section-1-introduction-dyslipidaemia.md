@@ -11,14 +11,27 @@ In 2019, pre pandemic, non-communicable diseases accounted for 7 of the 10 leadi
 
 In Malaysia, in 2020, ischemic heart disease remained the principal cause of medically certified deaths accounting for 17.0% of all deaths. It had been the leading cause of deaths for more than 2 decades and for the first time in 2021, it was overtaken by Covid-19 infections, and it dropped to second place, accounting for 13.7% of all deaths.
 
-The most recent 2019 National Health and Morbidity Survey (NHMS) reported that among adults aged ≥18 years, the prevalence of some cardiovascular (CV) risk factors—diabetes and overweight/obesity—were on an increasing trend. On the other hand, the prevalence of hypercholesterolemia, hypertension and smoking, although still high, appeared to have stabilized and seemed to be on the downward trend. (refer  Table 7: Prevalence of Cardiovascular Risk Factors among Adults > 18 years of age in Malaysia)
+The most recent 2019 National Health and Morbidity Survey (NHMS) reported that among adults aged ≥18 years, the prevalence of some cardiovascular (CV) risk factors—diabetes and overweight/obesity—were on an increasing trend. On the other hand, the prevalence of hypercholesterolemia, hypertension and smoking, although still high, appeared to have stabilized and seemed to be on the downward trend. (refer Table 7: Prevalence of Cardiovascular Risk Factors among Adults > 18 years of age in Malaysia)
 
 The prevalence of hypercholesterolemia in the NHMS VI was 38.1% and was similar in both rural and urban populations. Even in young adults aged 30-34 years, the prevalence was as high as 27.9%. The Malaysian Health and Adolescents Longitudinal Research Team study (MyHeARTs) found that among 13-year-old students from selected urban and rural public schools, almost 20-25% had total cholesterols >5.2 mmol/L. The CV health of these adolescents have documented adverse transitions over time as more of these school children appeared to be shifting towards a higher prevalence of CV risk factors.
 
 Data from the most recent National Cardiovascular Disease Darabase - Acute Coronary Syndrome (NCVD-ACS) Registry 2018-2019, indicated that Malaysians developed ACS at a mean age of 58.7 years and almost a quarter were below the age of 50 years. These figures are similar to that in the 10 year NCVD-ACS Registry. This is almost a decade less than that seen in Singapore where the median age of onset of MI was 70.4 years. Among patients admitted with ACS, 61.9% had hypertension, 44.2% had diabetes and 36.7% had dyslipidemia. Risk Factor clustering was common with almost 40% having 3 or more CV risk factors.
 
+Table 7: Prevalence Of Cardiovascular Risk Factors Among Adults > 18 Years Of Age In Malaysia
 
----
+| Risk Factor | NHMS III (2006) | NHMS IV (2011) | NHMS V (2015) | NHMS VI (2019) |
+|---|---|---|---|---|
+| Hypercholesterolaemia* | 20.7% | 35.1% | 47.7% | 38.1% |
+| Hypertension** | 32.2% | 32.7% | 30.3% | 30.0% |
+| Diabetes*** | 11.5% | 15.2% | 17.5% | 18.3% |
+| Smoking**** | 21.5% | 23.1% | 22.8% | 21.3% |
+| Overweight / Obesity (BMI >25 kg/m²) | 43.1% | 44.5% | 54.4% | 50.1%***** |
+
+*total cholesterol >5.2 mmol/L by finger prick test<br>
+**BP > 140/>90mmHg<br>
+***fasting blood glucose >6.1 mmol/L by finger prick<br>
+****current smokers > 15 years of age<br>
+***** >23 kg/m2
 
 ## 1.2: Prevention Of Cardiovascular Disease
 In the prevention of CVD, efforts should be aimed at reducing global CV risk. This guideline emphasizes:
@@ -36,8 +49,6 @@ There already exist clinical practice guidelines addressing specific CV risk fac
 
 Decision making however, should be individualized, and based on sound clinical judgment.
 
----
-
 ## 1.3: Definition Of Dyslipidemia
 Lipid levels are continuous and there is no cut-off between "normal" and "abnormal" levels. Arbitrary definitions of dyslipidemia refer to levels which:
 *   Have been shown in epidemiological studies to be associated with increased CV risk and/or
@@ -49,11 +60,7 @@ Commonly used cut off values for dyslipidemia and which has been adopted in this
 *   TG > 1.7 mmol/l
 *   LDL-C levels: Will depend on the patient's CV risk (refer to Table 4: Target LDL-C levels).
 
----
-
-## Contextual Anchors (Overlapping)
 Table 4: Target LDL-C Levels
-
 | Global Risk | LDL-C Initiate Drug Therapy (mmol/L) | Target LDL-C levels (mmol/L) | Target Non-HDL-C  (mmol/L) |
 |---|---|---|---|
 | **Low CV Risk*** (<10% 10-year CVD risk) | Clinical judgement** | < 3.0 | < 3.8 |
@@ -62,43 +69,19 @@ Table 4: Target LDL-C Levels
 | **Very High CV Risk*** <br> * established CVD <br> * diabetes with CVD or other target organ damage or > 3 CV risk factors <br> * CKD with eGFR <30ml/min-1/1.73m²**** | > 1.4 | ≤ 1.4 and a reduction of > 50% from baseline | ≤ 2.2 and a reduction of >50% from baseline |
 | ***Those with recurrent CV events within 2 years despite achieving a LDL-C target of <1.4mmol/l | | < 1.0 | |
 
-
 *Low and Moderate CV risk is assessed using the FRS- General CVD Risk Score <br>
 **After a therapeutic trial of 8-12 weeks of TLC and following discussion of the risk: benefit ratio of drug therapy with the patient. <br>
 ***All other CV risk factors should be treated to target.  <br>
 **** Lipid lowering therapy lowers the risk of atherosclerotic CVD in CKD patients. Those who are on dialysis are at very high CV risk, but it is for non-atherosclerotic CVD e.g. due to medial calcific arteriosclerosis, LVH, coronary artery calcification, arrhythmias etc. Thus, lipid lowering therapy is not initiated in patients on dialysis but if they have CVD or are already on statins before becoming dialysis dependent, then it should be continued.
 
-
----
-
-## Baseline Data
-Table 7: Prevalence Of Cardiovascular Risk Factors Among Adults > 18 Years Of Age In Malaysia
-
-| Risk Factor | NHMS III (2006) | NHMS IV (2011) | NHMS V (2015) | NHMS VI (2019) |
-|---|---|---|---|---|
-| Hypercholesterolaemia* | 20.7% | 35.1% | 47.7% | 38.1% |
-| Hypertension** | 32.2% | 32.7% | 30.3% | 30.0% |
-| Diabetes*** | 11.5% | 15.2% | 17.5% | 18.3% |
-| Smoking**** | 21.5% | 23.1% | 22.8% | 21.3% |
-| Overweight / Obesity (BMI >25 kg/m²) | 43.1% | 44.5% | 54.4% | 50.1%***** |
-
-*total cholesterol >5.2 mmol/L by finger prick test<br>
-**BP > 140/>90mmHg<br>
-***fasting blood glucose >6.1 mmol/L by finger prick<br>
-****current smokers > 15 years of age<br>
-***** >23 kg/m2
-
----
-
-## Key Messages #1
+**Key Messages #1**
 *   Cardiovascular disease (CVD) has been an important cause of morbidity and mortality in both Malaysian men and women for more than a decade.
 *   Malaysians developed ACS at a mean age of 58.7 years and almost a quarter are below the age of 50 years. This is almost 10 years younger than that seen in Singapore.
 *   The prevalence of the common cardiovascular (CV) risk factors among adults ≥ 18 years has been on an increasing trend.
 *   About 40% of patients presenting with ACS have ≥ 3 CV risk factors.
 
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACS | Acute Coronary Syndrome |
@@ -121,3 +104,4 @@ Table 7: Prevalence Of Cardiovascular Risk Factors Among Adults > 18 Years Of Ag
 | TC | Total Cholesterol |
 | TG | Triglycerides |
 | TLC | Therapeutic Lifestyle Changes |
+<!-- parent_only_reference_end -->
