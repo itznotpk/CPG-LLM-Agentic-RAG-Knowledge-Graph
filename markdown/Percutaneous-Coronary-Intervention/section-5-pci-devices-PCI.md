@@ -9,10 +9,6 @@ critical: false
 
 > **Context:** This section details the technical armamentarium of Percutaneous Coronary Intervention (PCI). It provides comprehensive overviews and clinical use-cases for balloon catheters (including cutting and drug-eluting balloons), stents (Bare Metal, Drug-Eluting, and Biodegradable), atherectomy devices, thrombectomy/aspiration catheters, distal protection devices, and advanced intravascular imaging modalities (IVUS, OCT, Virtual Histology) to optimize procedural success.
 
----
-
-## 5: PCI Devices
-
 ## 5.1: Balloon Catheters
 Balloon catheters come in different sizes and lengths. The diameter sizes are between 1.25 to 5.0 mm and lengths of between 5 to 30 mm.
 
@@ -83,7 +79,7 @@ The clinical studies were mainly conducted in uncomplicated (i.e. type A and B l
 
 There are several concerns with DES:
 - Cost consideration – DES generally cost more than BMS.
-- Stent Thrombosis (refer to Section 6.8.1: Stent Thrombosis)
+- Stent Thrombosis (refer to Section 6.8.1: Stent Thrombosis) <!-- cross_ref target_file="section-6-lesion-device-specific-conditions-PCI.md" target_heading="6.8.1: Stent Thrombosis" target_kind="h3_section" -->
 
 In making a choice between a BMS and DES, it is important to take into consideration the patient's risk for stent thrombosis, ISR and bleeding. If the patient is unlikely to comply with long term dual antiplatelet therapy, is at increased risk of bleeding or may need a non-cardiac operation in the near future, one should consider alternative strategies such as using BMS, endothelial progenitor cell capture stents or refer for CABG.
 
@@ -96,7 +92,6 @@ However, it is inferior to BMS in patients with STEMI due to a higher incidence 
 These are useful for sealing coronary perforations and excluding aneurysms. They have a higher profile and are less trackable. They are also associated with higher rates of stent thrombosis and restenosis. These patients require long term dual anti platelet therapy.
 
 ### 5.2.5: Biodegradable (Bioabsorbable) Polymers And Stents
-
 #### 5.2.5.1: Biodegradable Polymer
 One of the concerns with polymer based stents is the risk of inflammation that may predispose to stent thrombosis. Biodegradable polymer reduces this risk. They are as efficacious as other first-generation DES but are not safer at 1 year.
 
@@ -140,7 +135,6 @@ Besides being used in primary PCI to lyse thrombus, the laser device can be used
 Coils are used to seal off persistent perforations created by wire manipulation and for closure of arterio-venous (AV) fistulae. These are delivered through a large lumen microcatheter.
 
 ## 5.11: Intravascular Imaging Devices
-
 ### 5.11.1: Intravascular Ultrasound (Ivus)
 IVUS is the most common imaging device introduced on the guidewire. Its uses are:
 - assessing the severity of borderline lesions
@@ -159,30 +153,31 @@ This imaging modality uses the same IVUS catheter but a special software program
 This is mainly an investigative tool. It allows direct visualisation of the vessel and can be used to observe thrombus, plaque, inflammation and stent apposition. However in order to visualise the vessel a balloon needs to be dilated proximally to obstruct flow during the whole duration of imaging. Thus care needs to be given to prevent the occurrence of ventricular fibrillation.
 
 ## 5.12: Others
-
 ### 5.12.1: Pressure Wire
 Pressure wire is useful in the assessment of borderline lesions. The wire has a small transducer at the tip of a 0.014 inch wire which can be used as a regular guidewire.
 
 Following bolus intracoronary adenosine injections, the pressure difference between the aorta and distal to the lesion is measured. A value of < 0.8 indicates a significant lesion.
 
----
-
-### Abbreviations Used In This Section
-- **Atm**: Atmospheres
-- **AV**: Arterio-venous
-- **BMS**: Bare Metal Stents
-- **CABG**: Coronary Artery Bypass Graft Surgery
-- **CTO**: Chronic Total Occlusions
-- **DES**: Drug Eluting Stents
-- **F**: French (catheter scale)
-- **ISR**: In-stent Restenosis
-- **IVUS**: Intravascular Ultrasound
-- **LMS**: Left Main Stem
-- **OTW**: Over the wire
-- **PCI**: Percutaneous Coronary Intervention
-- **POBA**: Plain Balloon Angioplasty
-- **STEMI**: ST segment Elevation Myocardial Infarction
-- **SVG**: Saphenous Vein Grafts
-- **TIMI**: Thrombolysis In Myocardial Infarction
-- **TLR**: Target Lesion Revascularisation
-- **TMP**: TIMI Myocardial Perfusion grade
+<!-- parent_only_reference_start -->
+Abbreviations
+| Abbreviation | Definition |
+|---|---|
+| Atm | Atmospheres |
+| AV | Arterio-venous |
+| BMS | Bare Metal Stents |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CTO | Chronic Total Occlusions |
+| DES | Drug Eluting Stents |
+| F | French (catheter scale) |
+| ISR | In-stent Restenosis |
+| IVUS | Intravascular Ultrasound |
+| LMS | Left Main Stem |
+| OTW | Over the wire |
+| PCI | Percutaneous Coronary Intervention |
+| POBA | Plain Balloon Angioplasty |
+| STEMI | ST segment Elevation Myocardial Infarction |
+| SVG | Saphenous Vein Grafts |
+| TIMI | Thrombolysis In Myocardial Infarction |
+| TLR | Target Lesion Revascularisation |
+| TMP | TIMI Myocardial Perfusion grade |
+<!-- parent_only_reference_end -->

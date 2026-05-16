@@ -9,11 +9,7 @@ critical: false
 
 > **Context:** This section provides all supplementary reference materials for Percutaneous Coronary Intervention (PCI). It includes contraindications for fibrinolytic therapy, TIMI flow and myocardial perfusion grading, UA/NSTEMI risk scoring, angina severity classifications, secondary prevention risk factor goals, creatinine clearance calculation, contrast agent classifications, and morphological lesion schemas (Medina bifurcation and ISR classifications).
 
----
-
-## 10: Appendices
-
-### Appendix I: Contraindications To Fibrinolytic Therapy
+## Appendix I: Contraindications To Fibrinolytic Therapy
 **Absolute contraindications**
 *   **Risk of Intracranial haemorrhage**
     *   Any history of intracranial haemorrhage
@@ -43,9 +39,7 @@ critical: false
 
 *\* The blood pressure should be reduced prior to institution of fibrinolytic therapy.*
 
----
-
-### Appendix II: Classification Of Timi Flow
+## Appendix II: Classification Of TIMI Flow
 | GRADE | DESCRIPTION |
 |---|---|
 | 0 | Complete occlusion of the infarct related artery |
@@ -53,9 +47,7 @@ critical: false
 | 2 | Perfusion of the entire infarct vessel into the distal but with delayed flow compared with a normal artery |
 | 3 | Full perfusion of the infarct vessel with normal flow |
 
----
-
-### Appendix III: Classification Of Timi Myocardial Perfusion GRADE(TMP)
+## Appendix III: Classification Of TIMI Myocardial Perfusion GRADE(TMP)
 | TMP GRADE | DESCRIPTION |
 |---|---|
 | 0 | Failure of dye to enter the microvasculature. Either minimal or no ground-glass appearance ("blush") or opacification of the myocardium in the distribution of the culprit artery, indicating lack of tissue-level perfusion. |
@@ -63,18 +55,14 @@ critical: false
 | 2 | Delayed entry and exit of dye from the microvasculature. There is the ground-glass appearance ("blush") or opacification of the myocardium in the distribution of the culprit lesion that is strongly persistent at the end of the washout phase (ie, dye is strongly persistent after 3 cardiac cycles of the washout phase and either does not or only minimally diminishes in intensity during washout). |
 | 3 | Normal entry and exit of dye from the microvasculature. There is the ground-glass appearance ("blush") or opacification of the myocardium in the distribution of the culprit lesion that clears normally and is either gone or only mildly/moderately persistent at the end of the washout phase (ie, dye is gone or is mildly/moderately persistent after 3 cardiac cycles of the washout phase and noticeably diminishes in intensity during the washout phase), similar to that in an uninvolved artery. Blush that is of only mild intensity throughout the washout phase but fades minimally is also classified as grade 3. |
 
----
-
-### Appendix IV: Classification Of Unstable Angina*
+## Appendix IV: Classification Of Unstable Angina*
 | Severity | CLINICAL CIRCUMSTANCES: A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES: B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES: C<br>Develops Within 2 wk of MI (Postinfarction UA) |
 |---|---|---|---|
 | **I** — New onset of severe angina or accelerated angina; no rest pain | [Grade I, Level A] | [Grade I, Level B] | [Grade I, Level C] |
 | **II** — Angina at rest within past month but not within preceding 48 h (angina at rest, subacute) | [Grade II, Level A] | [Grade II, Level B] | [Grade II, Level C] |
 | **III** — Angina at rest within 48 h (angina at rest, acute) | [Grade III, Level A] | [Grade III, Level B]-Tneg [Grade III, Level B]-Tpos | [Grade III, Level C] |
 
----
-
-### Appendix V: Timi Risk Score For UA/NSTEMI
+## Appendix V: TIMI Risk Score For UA/NSTEMI
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
 |---|---|
 | 0-1 | 4.7 |
@@ -100,9 +88,7 @@ Total Score = 7 points
 - Moderate Risk: 3-4 points
 - High Risk: ≥ 5 points
 
----
-
-### Appendix VI: Classification Of Angina Severity
+## Appendix VI: Classification Of Angina Severity
 Classification of angina severity according to the Canadian Cardiovascular Society
 
 | Class | Level of symptoms |
@@ -112,9 +98,7 @@ Classification of angina severity according to the Canadian Cardiovascular Socie
 | Class III | "Marked limitation of ordinary physical activity".<br>Angina on walking one or two blocks (Equivalent to 100-200 m) on the level or one flight of stairs at a normal pace under normal conditions. |
 | Class IV | "Inability to carry out any physical activity without discomfort" or "angina at rest" |
 
----
-
-### Appendix VII: Risk Factor Goals In Patients With Cad
+## Appendix VII: Risk Factor Goals In Patients With CAD
 | | RISK FACTOR GOALS IN PATIENTS WITH CAD |
 |---|---|
 | Smoking | Quit |
@@ -122,18 +106,14 @@ Classification of angina severity according to the Canadian Cardiovascular Socie
 | **Lipids**<br>LDL-C<br>HDL-C<br>TG | <br>< 2.6mmol/l (the lower the better. In clinical trials, plaque regression was seen when LDL-C was <1.8mmol/l. In patients with progressive disease, one should aim for LDL-C <1.8mmol/l.)<br>> 1.1 mmol/l (male), > 1.3 mmol/l (female)<br>< 1.7 mmol/l |
 | **Diabetes**<br>Fasting blood sugar<br>2hr PP<br>HbA1c | <br>< 6.1mmol/l<br>< 7.8 mmol/l<br>< 6.5% (in patients with significant co-morbidities and complex CAD, an alternative target of < 7% is acceptable) |
 
----
-
-### Appendix VIII: Calculation Of Creatinine Clearance
+## Appendix VIII: Calculation Of Creatinine Clearance
 Estimated GFR (ml/min) = ((140 - age) x weight) / (0.814 x S~Cr~ [µmol/L])  or  1.2 (140 - age) / S~Cr~ [µmol/L]
 
 S~Cr~: serum creatinine
 
 Women: multiplication with 0.85
 
----
-
-### Appendix IX: Commonly Used Iodinated Contrast Agents
+## Appendix IX: Commonly Used Iodinated Contrast Agents
 | Compound | Name | Type | Iodine Content | Osmolality | Level |
 |---|---|---|---|---|---|
 | Ionic | Ioxaglate (Hexabrix) | Ionic Dimer | 320 | 580 | Low osmolar |
@@ -142,9 +122,7 @@ Women: multiplication with 0.85
 | Non-ionic | Iohexol (Omnipaque 300) | Non-ionic | 300 | | Low osmolar |
 | Non-ionic | Iodixanol (Visipaque 320) | Non-ionic Dimer | 320 | 290 | Iso osmolar |
 
----
-
-### Appendix XI: Medina Classification Of Bifurcation Lesions
+## Appendix XI: Medina Classification Of Bifurcation Lesions
 In the Medina classification, a binary value (1, 0) is given to each of the 3 components of a bifurcation according to whether each of these segments is compromised (lesion > 50%) or not (0).
 
 The classification format is **(Main Branch Proximal, Main Branch Distal, Side Branch)**:
@@ -156,9 +134,7 @@ The classification format is **(Main Branch Proximal, Main Branch Distal, Side B
 - **0,1,0**: Lesion only in the distal main branch.
 - **0,0,1**: Lesion only in the side branch.
 
----
-
-### Appendix XII: Classification Of Instent Restenosis (Isr)
+## Appendix XII: Classification Of Instent Restenosis (ISR)
 **Class I: Focal ISR group (ISR Pattern I: Focal)**
 Lesions are ≤10 mm in length and are positioned at the unscaffolded segment (ie, articulation or gap), the body of the stent, the proximal or distal margin (but not both), or a combination of these sites (multifocal ISR).
 Subtypes include:
@@ -176,9 +152,7 @@ Lesions are > 10 mm in length and extend beyond the margin(s) of the stent(s).
 **Class IV: ISR with "total occlusion" (ISR Pattern IV: Total Occlusion)**
 Lesions have a TIMI flow grade of 0.
 
----
-
-### Appendix XIII: Grade Of Recommendation And Level Of Evidence (ACC/AHA And Esc Classification) For Secondary Prevention Of Cad
+## Appendix XIII: Grade Of Recommendation And Level Of Evidence (ACC/AHA And Esc Classification) For Secondary Prevention Of CAD
 | STRATEGY | RECOMMENDATION | COMMENTS |
 |---|---|---|
 | Smoking Cessation | [Grade I, Level C] | |
@@ -191,53 +165,3 @@ Lesions have a TIMI flow grade of 0.
 | ACEI | [Grade I, Level A] | Consider long term for all pts if no contraindications |
 | ARB | [Grade I, Level B] | For ACEI intolerant pts |
 | Statins | [Grade I, Level A] | Aim for an LDL-C <2.0mmol/l (the lower the better) |
-
-<!-- OVERLAPPED CONTENT -->
-
-### Overlapped Reference Tables
-
-#### Grades Of Recommendation
-| GRADE | DEFINITION |
-|---|---|
-| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
-| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
-
-#### Levels Of Evidence
-| LEVEL | DEFINITION |
-|---|---|
-| A | Data derived from multiple randomised clinical trials or meta-analyses. |
-| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
-
-<!-- END OVERLAPPED CONTENT -->
-
-### Abbreviations Used In This Section
-- **ACC**: American College of Cardiology
-- **ACEI**: Angiotensin Converting Enzyme Inhibitors
-- **AF**: Atrial Fibrillation
-- **AHA**: American Heart Association
-- **ARB**: Angiotensin Receptor Blockers
-- **BMS**: Bare Metal Stents
-- **BP**: Blood Pressure
-- **CAD**: Coronary Artery Disease
-- **CPR**: Cardiopulmonary Resuscitation
-- **DES**: Drug Eluting Stents
-- **ECG**: Electrocardiogram
-- **ESC**: European Society of Cardiology
-- **GFR**: Glomerular Filtration Rate
-- **HbA1c**: Glycosylated Hemoglobin
-- **HDL-C**: High-Density Lipoprotein Cholesterol
-- **INR**: International Normalized Ratio
-- **ISR**: In-stent Restenosis
-- **LDL-C**: Low-Density Lipoprotein Cholesterol
-- **MI**: Myocardial Infarction
-- **NSTEMI**: Non ST segment Elevation Myocardial Infarction
-- **PCI**: Percutaneous Coronary Intervention
-- **PP**: Post Prandial
-- **TG**: Triglycerides
-- **TIMI**: Thrombolysis In Myocardial Infarction
-- **TMP**: TIMI Myocardial Perfusion grade
-- **UA**: Unstable Angina

@@ -9,10 +9,6 @@ critical: true
 
 > **Context:** This section provides specific guidelines and technical considerations for performing Percutaneous Coronary Intervention (PCI) in complex lesion subsets. It covers detailed revascularisation strategies for Left Main Stem (LMS) disease, multi-vessel disease, Chronic Total Occlusions (CTO), bifurcation and ostial lesions, and Saphenous Vein Grafts (SVG). It also addresses the critical management of stent-related complications, specifically stent thrombosis and in-stent restenosis (ISR).
 
----
-
-## 6: Lesion / Device Specific Conditions
-
 ## 6.1: Left Main Stem (Lms) Disease
 The conventional treatment for unprotected LMS (>50%) is CABG. PCI of unprotected LMS is feasible, but has historically been associated with high morbidity and mortality rates.
 
@@ -38,7 +34,7 @@ An important factor determining treatment strategies in a patient with multi-ves
 The choice of strategy would depend upon:
 - lesion characteristics – discrete lesions in multi vessels do well with PCI while long calcified lesions are better treated with CABG
 - LV function – in the presence of depressed LV function, CABG is the preferred option
-- diabetes – generally diabetics have higher restenosis rates with PCI (refer to Section 4.1: Diabetes)
+- diabetes – generally diabetics have higher restenosis rates with PCI (refer to Section 4.1: Diabetes) <!-- cross_ref target_file="section-4-special-clinical-conditions-PCI.md" target_heading="4.1: Diabetes" target_kind="h2_section" -->
 - renal impairment – an important consideration is contrast nephropathy
 - surgical risk and patient's co-morbidities
 - cost constraints – the cost of multiple stents and the possibility of repeat revascularisation for restenosis versus CABG. A procedure with 2-3 DES may cost as much as CABG.
@@ -71,7 +67,7 @@ The indications for PCI in CTO include:
 
 PCI for CTO has a steep learning curve with the use of additional hardware and different techniques. It is also associated with a higher complication rate (e.g. coronary perforation and cardiac tamponade). Hence it requires experienced, skillful operators performing in high volume centers with cardiothoracic surgical back-up.
 
-Certain lesion characteristics favor successful recanalisation with PCI. (refer to Appendix X: Patient and Lesion Characteristics for Recanalisation Success)
+Certain lesion characteristics favor successful recanalisation with PCI.
 
 ### 6.3.1: Technical Considerations
 Generally an antegrade approach is utilised aided with contra-lateral injections of contrast to delineate the distal segment. Retrograde and Control Antegrade and Retrograde Techniques (CART) techniques should be performed only by experienced operators.
@@ -146,14 +142,12 @@ This could be due to new disease in vessels not previously bypassed, progressive
 Treatment options for Saphenous Vein Graft Disease include:
 
 **1. Redo-CABG**
-
 - Redo-CABG is associated with 2- to 4-fold higher risk than the initial CABG, with periprocedural deaths in 2-5% and myocardial infarctions in 2-8% of patients. Five- and 10-year survival rates are 84-94% and 75%, respectively.
 - Difficulties in redo-CABG include:
   - risk of injuring the other patent grafts especially the internal mammary artery
   - patient subsets who tend to be older and sicker with more diseased target vessels, poorer LV function, availability of conduit and serious co-morbid medical problems
 
 **2. PCI**
-
 - the main limitation of POBA in SVGs is the high restenosis rates of up to 23-73% of patients within 6 months and the risk of distal embolisation
 - DES is a reasonable option but its definite role remains to be defined
 - PTFE-covered stents may be useful for treatment of graft rupture or aneurysm
@@ -161,7 +155,7 @@ Treatment options for Saphenous Vein Graft Disease include:
 PCI demonstrates less in-hospital death and MI compared to repeat CABG, but repeat CABG offers more complete revascularisation and less target lesion revascularisation (TLR) at 4 years.
 
 ### 6.6.1: Technical Considerations During Svg Percutaneous Intervention
-Degenerated SVGs are characterised by friable plaques with overlying thrombus which increases the procedural risks of distal embolisation manifesting as slow or no-reflow phenomenon. [Grade IIa, Level B] As such the use of protection devices is strongly recommended (refer to Section 5.8: Protection Devices). Thrombectomy devices may be considered when a significant thrombus burden is present.
+Degenerated SVGs are characterised by friable plaques with overlying thrombus which increases the procedural risks of distal embolisation manifesting as slow or no-reflow phenomenon. [Grade IIa, Level B] As such the use of protection devices is strongly recommended (refer to Section 5.8: Protection Devices). Thrombectomy devices may be considered when a significant thrombus burden is present. <!-- cross_ref target_file="section-5-pci-devices-PCI.md" target_heading="5.8: Protection Devices" target_kind="h2_section" -->
 
 GP IIb/IIIa inhibitors have not been found to be helpful in SVG intervention. Vasodilators e.g. adenosine, verapamil, sodium nitroprusside may be used for situations of slow-flow or no-reflow.
 
@@ -180,12 +174,10 @@ The optimal treatment of coronary aneurysms remains controversial. Coronary aneu
 Percutaneous intervention is an emerging strategy using autologous vein graft–coated stents and PTFE-coated stents with a good short-term angiographic result. It is associated with stent thrombosis and these patients should be on long term dual antiplatelet therapy.
 
 ## 6.8: Stent Related Complications
-
 ### 6.8.1: Stent Thrombosis
 Stent thrombosis is a serious complication as it may result in MI and death. The mortality rate can be as high as 45%. It can be classified as definite, possible or probable according to the Academic Research Consortium (ARC) classification. (refer to Table 9: Definition of Stent Thrombosis)
 
 Table 9: Definition of Stent Thrombosis as proposed by the Academic Research Consortium (ARC)
-
 | Category | Definition |
 |---|---|
 | Definite stent thrombosis | It is diagnosed when either angiographic or pathological confirmation is present<br>- Angiographic confirmation of ST*:<br>The presence of a thrombus originating in the stent or in the segment 5 mm proximal or distal to the stented region and at least one of the following criteria within a 48-h time window:<br>• Acute onset of ischemic symptoms at rest (typical chest pain of 20 min)<br>• New ischemic ECG changes suggestive of acute ischemia<br>• Typical rise and fall in cardiac biomarkers<br>- Pathological confirmation of stent thrombosis:<br>Evidence of recent thrombus within the stent determined at autopsy |
@@ -257,33 +249,11 @@ In managing ISR it is important to use IVUS to ascertain if the stent is well de
 - rotational atherectomy – results are variable.
 - directional atherectomy – results are no better than POBA.
 - DES implantation - superior to POBA and in some instances better than brachytherapy. For DES ISR, the use of another DES with a different drug group may be considered.
-- Drug Eluting Balloon (refer to Section 5.1.3: Drug-eluting Balloons)
+- Drug Eluting Balloon (refer to Section 5.1.3: Drug-eluting Balloons)  <!-- cross_ref target_file="section-5-pci-devices-PCI.md" target_heading="5.1.3: Drug-Eluting Balloons" target_kind="h3_section" -->
 - Brachytherapy – both catheter based gamma and beta irradiation reduce ISR by about 50-60% when compared to POBA. Radiation therapy however is associated with increased risk of edge restenosis ("candy-wrapper effect") and LST.
 
----
-
-<!-- OVERLAPPED CONTENT -->
-
-### Overlapped Reference Tables
-
-#### Grades Of Recommendation
-| GRADE | DEFINITION |
-|---|---|
-| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
-| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
-
-#### Levels Of Evidence
-| LEVEL | DEFINITION |
-|---|---|
-| A | Data derived from multiple randomised clinical trials or meta-analyses. |
-| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
-
+<!-- parent_only_reference_start -->
 Table 3: Indications For PCI In Stable Cad
-
 | INDICATION FOR PCI | Recommendation Level |
 |---|---|
 | In patients requiring revascularization, PCI may be considered in: | |
@@ -303,43 +273,88 @@ Table 3: Indications For PCI In Stable Cad
 
 \* The treatment of choice for patients with significant left main stem disease and 3-vessel disease is CABG.
 
-<!-- END OVERLAPPED CONTENT -->
+Appendix XI: Medina Classification Of Bifurcation Lesions
+In the Medina classification, a binary value (1, 0) is given to each of the 3 components of a bifurcation according to whether each of these segments is compromised (lesion > 50%) or not (0).
 
----
+The classification format is **(Main Branch Proximal, Main Branch Distal, Side Branch)**:
+- **1,1,1**: Lesions in the proximal main branch, distal main branch, and side branch.
+- **1,1,0**: Lesions in the proximal and distal main branches, but not the side branch.
+- **1,0,1**: Lesions in the proximal main branch and side branch, but not the distal main branch.
+- **0,1,1**: Lesions in the distal main branch and side branch, but not the proximal main branch.
+- **1,0,0**: Lesion only in the proximal main branch.
+- **0,1,0**: Lesion only in the distal main branch.
+- **0,0,1**: Lesion only in the side branch.
 
-### Abbreviations Used In This Section
-- **ACS**: Acute Coronary Syndrome
-- **ARC**: Academic Research Consortium
-- **AV**: Arterio-venous
-- **BMS**: Bare Metal Stents
-- **BP**: Blood Pressure
-- **CABG**: Coronary Artery Bypass Graft Surgery
-- **CAD**: Coronary Artery Disease
-- **CART**: Control Antegrade and Retrograde Techniques
-- **CT**: Computed Tomogram
-- **CTO**: Chronic Total Occlusions
-- **DES**: Drug Eluting Stents
-- **ECG**: Electrocardiogram
-- **GP**: Glycoprotein
-- **IABP**: Intra-Aortic Balloon Pump
-- **IMA**: Internal Mammary Artery
-- **ISR**: In-stent Restenosis
-- **IVUS**: Intravascular Ultrasound
-- **kV**: Kilovolt
-- **LMS**: Left Main Stem
-- **LST**: Late Stent Thrombosis
-- **LV**: Left ventricle
-- **MI**: Myocardial Infarction
-- **NSTEMI**: Non ST segment Elevation Myocardial Infarction
-- **OCT**: Optical Coherence Tomography
-- **OTW**: Over the wire
-- **PCI**: Percutaneous Coronary Intervention
-- **POBA**: Plain Balloon Angioplasty
-- **PTFE**: Polytetrafluoroethylene
-- **ST**: Stent Thrombosis
-- **STEMI**: ST segment Elevation Myocardial Infarction
-- **SVG**: Saphenous Vein Grafts
-- **TLR**: Target Lesion Revascularisation
-- **TVR**: Target Vessel Revascularisation
-- **UA**: Unstable Angina
-- **VLST**: Very Late Stent Thrombosis
+Appendix XII: Classification Of Instent Restenosis (ISR)
+**Class I: Focal ISR group (ISR Pattern I: Focal)**
+Lesions are ≤10 mm in length and are positioned at the unscaffolded segment (ie, articulation or gap), the body of the stent, the proximal or distal margin (but not both), or a combination of these sites (multifocal ISR).
+Subtypes include:
+- **Type IA**: Articulation or Gap
+- **Type IB**: Margin
+- **Type IC**: Focal Body
+- **Type ID**: Multifocal
+
+**Class II: "Diffuse intrastent" ISR (ISR Pattern II: Intra-stent)**
+Lesions are > 10 mm in length and are confined to the stent(s), without extending outside the margins of the stent(s).
+
+**Class III: "Diffuse proliferative" ISR (ISR Pattern III: Proliferative)**
+Lesions are > 10 mm in length and extend beyond the margin(s) of the stent(s).
+
+**Class IV: ISR with "total occlusion" (ISR Pattern IV: Total Occlusion)**
+Lesions have a TIMI flow grade of 0.
+
+Grades Of Recommendation
+| GRADE | DEFINITION |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
+
+Levels Of Evidence
+| LEVEL | DEFINITION |
+|---|---|
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
+
+Abbreviations
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| ARC | Academic Research Consortium |
+| AV | Arterio-venous |
+| BMS | Bare Metal Stents |
+| BP | Blood Pressure |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CAD | Coronary Artery Disease |
+| CART | Control Antegrade and Retrograde Techniques |
+| CT | Computed Tomogram |
+| CTO | Chronic Total Occlusions |
+| DES | Drug Eluting Stents |
+| ECG | Electrocardiogram |
+| GP | Glycoprotein |
+| IABP | Intra-Aortic Balloon Pump |
+| IMA | Internal Mammary Artery |
+| ISR | In-stent Restenosis |
+| IVUS | Intravascular Ultrasound |
+| kV | Kilovolt |
+| LMS | Left Main Stem |
+| LST | Late Stent Thrombosis |
+| LV | Left ventricle |
+| MI | Myocardial Infarction |
+| NSTEMI | Non ST segment Elevation Myocardial Infarction |
+| OCT | Optical Coherence Tomography |
+| OTW | Over the wire |
+| PCI | Percutaneous Coronary Intervention |
+| POBA | Plain Balloon Angioplasty |
+| PTFE | Polytetrafluoroethylene |
+| ST | Stent Thrombosis |
+| STEMI | ST segment Elevation Myocardial Infarction |
+| SVG | Saphenous Vein Grafts |
+| TLR | Target Lesion Revascularisation |
+| TVR | Target Vessel Revascularisation |
+| UA | Unstable Angina |
+| VLST | Very Late Stent Thrombosis |
+<!-- parent_only_reference_end -->

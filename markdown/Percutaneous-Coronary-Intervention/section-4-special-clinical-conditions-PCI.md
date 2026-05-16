@@ -9,10 +9,6 @@ critical: true
 
 > **Context:** This section details specialized considerations and modifications for Percutaneous Coronary Intervention (PCI) in high-risk patient populations. It provides targeted management strategies for patients with diabetes (focusing on restenosis risks and revascularisation choice) and chronic kidney disease (emphasizing contrast-induced nephropathy prevention and antithrombotic dose adjustment). It also outlines specific clinical and technical adjustments required for women, the elderly, and patients with a history of bleeding diathesis.
 
----
-
-## 4: Special Clinical Conditions
-
 ## 4.1: Diabetes
 Diabetics have higher cardiovascular morbidity and mortality following both CABG and PCI. CABG (with left internal mammary artery [LIMA] to left anterior descending artery) provides better long term survival than POBA. This is due to:
 - Accelerated atherosclerosis. New lesions (plaque progression) were more frequent among diabetics. This occurred more commonly in arteries that were dilated during the initial procedure. Accelerated disease progression has also been seen after surgical revascularisation.
@@ -35,7 +31,6 @@ Lesion characteristics, vessel size and clinical judgement can help guide the ch
 - If there are no contraindications, abciximab should be used.
 
 ## 4.2: Chronic Kidney Disease (CKD)
-
 ### 4.2.1: Prognosis
 In patients with CKD:
 - PCI was associated with a higher in-hospital and long term mortality compared to patients without CKD; the higher the serum creatinine, the worse the outcome. Even patients with a serum creatinine of 1.1 and 1.2 mg/100ml (96.8 and 105.6 µmol/l) had a non-significant trend towards higher mortality.
@@ -72,7 +67,7 @@ Contrast induced nephropathy (CIN) is more likely to occur in:
 - poor LV function
 - dehydration
 
-The optimal strategy to prevent CIN is uncertain. Preventive measures include (refer to Table 6 and Table 7):
+The optimal strategy to prevent CIN is uncertain. Preventive measures include (refer to Table 6: Prevention of Contrast Induced Nephropathy and Table 7: Pharmacological Prevention of Contrast Induced Nephropathy):
 - Using iso-osmolar or low osmolar non-ionic contrast medium (both are equally safe). (refer to Appendix IX: Commonly Used Iodinated Contrast Agents)
 - Discontinuation of nephrotoxic drugs, such as non-steroidal anti-inflammatory medications and metformin.
 - Use of a minimum volume of contrast including staging of procedure.
@@ -146,13 +141,24 @@ Anti-thrombotic agents, GP IIb/IIIa inhibitors and X-ray contrast agents must be
 ## 4.5: History Of Bleeding Diathesis, Bleeding Gastrointestinal Or Previous Hemorrhagic Stroke
 In these patients the choice of revascularisation strategy should be carefully balanced against the risks associated with bleeding. If PCI is the chosen strategy, POBA or using BMS should be considered.
 
----
+<!-- parent_only_reference_start -->
+Appendix VIII: Calculation Of Creatinine Clearance
+Estimated GFR (ml/min) = ((140 - age) x weight) / (0.814 x S~Cr~ [µmol/L])  or  1.2 (140 - age) / S~Cr~ [µmol/L]
 
-<!-- OVERLAPPED CONTENT -->
+S~Cr~: serum creatinine
 
-### Overlapped Reference Tables
+Women: multiplication with 0.85
 
-#### Grades Of Recommendation
+Appendix IX: Commonly Used Iodinated Contrast Agents
+| Compound | Name | Type | Iodine Content | Osmolality | Level |
+|---|---|---|---|---|---|
+| Ionic | Ioxaglate (Hexabrix) | Ionic Dimer | 320 | 580 | Low osmolar |
+| Non-ionic | Iopamidol (Iopamaro 370) | Non-ionic monomer | 370 | 796 | Low osmolar |
+| Non-ionic | Iohexol (Omnipaque 350) | Non-ionic | 350 | 884 | Low osmolar |
+| Non-ionic | Iohexol (Omnipaque 300) | Non-ionic | 300 | | Low osmolar |
+| Non-ionic | Iodixanol (Visipaque 320) | Non-ionic Dimer | 320 | 290 | Iso osmolar |
+
+Grades Of Recommendation
 | GRADE | DEFINITION |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -161,40 +167,38 @@ In these patients the choice of revascularisation strategy should be carefully b
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
-#### Levels Of Evidence
+Levels Of Evidence
 | LEVEL | DEFINITION |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta-analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
-<!-- END OVERLAPPED CONTENT -->
-
----
-
-### Abbreviations Used In This Section
-- **ACS**: Acute Coronary Syndrome
-- **ARF**: Acute Renal Failure
-- **BMS**: Bare Metal Stents
-- **CABG**: Coronary Artery Bypass Graft Surgery
-- **CAD**: Coronary Artery Disease
-- **CIN**: Contrast Induced Nephropathy
-- **CKD**: Chronic Kidney Disease
-- **CrCl**: Creatinine Clearance
-- **DES**: Drug Eluting Stents
-- **GFR**: Glomerular Filtration Rate
-- **GP**: Glycoprotein
-- **HbA1c**: Glycosylated Hemoglobin
-- **IV**: Intravenous
-- **LIMA**: Left Internal Mammary Artery
-- **LV**: Left ventricle
-- **LVEF**: Left Ventricular Ejection Fraction
-- **MI**: Myocardial Infarction
-- **NSAIDs**: Non-Steroidal Anti-Inflammatory Drugs
-- **NSTEMI**: Non ST segment Elevation Myocardial Infarction
-- **PCI**: Percutaneous Coronary Intervention
-- **POBA**: Plain Balloon Angioplasty
-- **sc**: Subcutaneous
-- **STEMI**: ST segment Elevation Myocardial Infarction
-- **UA**: Unstable Angina
-- **UFH**: Unfractionated Heparin
+Abbreviations
+| Abbreviation | Definition |
+|---|---|
+| ARF | Acute Renal Failure |
+| BMS | Bare Metal Stents |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CAD | Coronary Artery Disease |
+| CIN | Contrast Induced Nephropathy |
+| CKD | Chronic Kidney Disease |
+| CrCl | Creatinine Clearance |
+| DES | Drug Eluting Stents |
+| GFR | Glomerular Filtration Rate |
+| GP | Glycoprotein |
+| HbA1c | Glycosylated Hemoglobin |
+| IV | Intravenous |
+| LIMA | Left Internal Mammary Artery |
+| LV | Left ventricle |
+| LVEF | Left Ventricular Ejection Fraction |
+| MI | Myocardial Infarction |
+| NSAIDs | Non-Steroidal Anti-Inflammatory Drugs |
+| NSTEMI | Non ST segment Elevation Myocardial Infarction |
+| PCI | Percutaneous Coronary Intervention |
+| POBA | Plain Balloon Angioplasty |
+| sc | Subcutaneous |
+| STEMI | ST segment Elevation Myocardial Infarction |
+| UA | Unstable Angina |
+| UFH | Unfractionated Heparin |
+<!-- parent_only_reference_end -->

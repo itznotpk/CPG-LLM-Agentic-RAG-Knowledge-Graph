@@ -9,13 +9,9 @@ critical: false
 
 > **Context:** This section outlines the immediate post-procedure complications following Percutaneous Coronary Intervention (PCI). It provides diagnostic and management strategies for vascular access complications, including retro-peritoneal hematoma, pseudo-aneurysm, and arterio-venous (A-V) fistulas. It also references acute renal failure protocols.
 
----
-
-## 7: Post Procedure Complications
 The femoral arterial sheath may be removed if the ACT is < 180secs. In patients, who had received enoxaparin, sheath removal may be performed 4 hours after the last intravenous dose or 6-8 hours after the last subcutaneous dose. Use of closure devices e.g. Angioseal, Perclose allow immediate removal of sheaths.
 
 ## 7.1: Vascular Access Complications
-
 ### 7.1.1: Retro-Peritoneal Hematoma
 This is more common after a 'high' groin puncture. It may not be detected early as the bleeding occurs in the retro-peritoneal space. One should suspect this complication if the patient develops unexplained tachycardia, pallor or hypotension after the procedure. This can be confirmed by ultrasound or computed tomogram (CT) scan of the abdomen.
 
@@ -35,14 +31,16 @@ This can be prevented by avoiding a through-and-through puncture of the artery a
 Most of these access site complications are more common with femoral rather than with radial punctures. Thus radial punctures are generally preferred. However the radial artery is also a good arterial conduit during CABG with good long term results. Thus the choice of access will depend upon the patient characteristics, the operator and the institution.
 
 ## 7.2: Acute Renal Failure Post Intervention
-Refer to Section 4.2.2: Acute Renal Failure Post Intervention.
+Refer to Section 4.2.2: Acute Renal Failure Post Intervention. <!-- cross_ref target_file="section-4-special-clinical-conditions-PCI.md" target_heading="4.2.2: Acute Renal Failure Post Intervention" target_kind="h3_section" -->
 
----
-
-### Abbreviations Used In This Section
-- **ACT**: Activated Clotting Time
-- **A-V**: Arterio-venous
-- **CABG**: Coronary Artery Bypass Graft Surgery
-- **CT**: Computed Tomogram
-- **IV**: Intravenous
-- **PCI**: Percutaneous Coronary Intervention
+<!-- parent_only_reference_start -->
+Abbreviations
+| Abbreviation | Definition |
+|---|---|
+| ACT | Activated Clotting Time |
+| A-V | Arterio-venous |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CT | Computed Tomogram |
+| IV | Intravenous |
+| PCI | Percutaneous Coronary Intervention |
+<!-- parent_only_reference_end -->

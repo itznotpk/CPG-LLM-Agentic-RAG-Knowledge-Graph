@@ -9,14 +9,8 @@ critical: true
 
 > **Context:** This section details the pharmacological adjunctive therapies essential for Percutaneous Coronary Intervention (PCI). It provides critical dosing protocols and evidence-based recommendations for antiplatelet agents (e.g., aspirin, clopidogrel, GP IIb/IIIa inhibitors), antithrombotic therapies (e.g., UFH, LMWH, bivalirudin), and other adjunctive medications (cilostazol, statins) to optimize patient outcomes and minimize ischemic or bleeding risks during and after PCI.
 
----
-
-## 3: Adjunctive Therapies For PCI
-
 ## 3.1: Antiplatelet Agents
-
 ### 3.1.1: Oral Antiplatelet Therapy
-
 #### 3.1.1.1: Aspirin
 [Grade I, Level C] Patients on long term aspirin therapy undergoing elective PCI should continue taking their usual dose before the PCI procedure.
 
@@ -29,8 +23,7 @@ critical: true
 The optimal loading dose and maintenance dose of aspirin following PCI is being addressed in an ongoing study (CURRENT/OASIS-7).
 
 #### 3.1.1.2: Thienopyridines
-
-##### a) Clopidogrel
+**a) Clopidogrel**
 [Grade I, Level A] A loading dose of clopidogrel 300–600 mg should be administered before PCI. This loading dose is important in patients admitted with STEMI and ACS.
 
 [Grade IIa, Level B] However, in patients with chronic stable angina undergoing PCI, a recent study found no benefit in pretreating with clopidogrel. Giving clopidogrel in the catheterisation lab just prior to ad-hoc PCI did not result in an increase in ischaemic complications.
@@ -45,7 +38,7 @@ The optimal loading dose and maintenance dose of aspirin following PCI is being 
 
 [Grade IIa, Level C] Patients at high risk of very late stent thrombosis (e.g. multiple overlapping stents, long stents, small vessels, ostial or bifurcation lesions, LMS, sub-optimal stent result) may be considered for long term dual antiplatelet therapy (beyond a year).
 
-##### b) Ticlopidine
+**b) Ticlopidine**
 [Grade I, Level A] Ticlopidine may be considered as an alternative to clopidogrel following POBA or BMS implantation. It has not been investigated following implantation of DES.
 
 It is associated with neutropenia in 1% of patients. Due to this safety concern, it is not commonly used following PCI. Patients on ticlopidine should have their total white cell count monitored regularly for the initial 3 months.
@@ -58,12 +51,12 @@ Patients not on maintenance dose of ticlopidine may be given a loading dose of 5
 
 In patients who have undergone PCI, ticlopidine 250 mg b.i.d. should be given together with aspirin for at least 1 month after BMS implantation (unless the patient is at increased risk of bleeding; then it should be given for a minimum of 2 weeks).
 
-##### c) Prasugrel
+**c) Prasugrel**
 Prasugrel has been shown to be more effective than clopidogrel in reducing ischaemic events but is associated with increased bleeding.
 
 In a recent study, prasugrel was found to be more effective than clopidogrel in reducing cardiovascular death, non-fatal MI and non-fatal stroke in patients with STEMI. Only patients who subsequently went on to CABG had increased bleeding with prasugrel.
 
-### 3.1.2: Intravenous Antiplatelet Therapy — Glycoprotein (GP) IIb/IIIa Inhibitors
+### 3.1.2: Intravenous Antiplatelet Therapy — Glycoprotein (GP) IIb/IIIa Inhibitors**
 [Grade IIa, Level B] If clopidogrel is given at the time of an ad-hoc procedure, supplementation with GP IIb/IIIa inhibitors can be beneficial to facilitate earlier platelet inhibition than with clopidogrel alone.
 
 [Grade IIa, Level C] In STEMI, GP IIb/IIIa inhibitors may be given in the presence of intra-coronary thrombus.
@@ -80,7 +73,16 @@ A recent study showed that in patients with NSTEMI treated with aspirin, clopido
 
 Refer to Table 4: Recommended Dosages of GP IIb/IIIa Receptor Antagonists in UA/NSTEMI and During PCI.
 
----
+Table 4: Recommended Dosages Of GP IIb/IIIa Receptor Antagonists In UA/NSTEMI And During PCI\*
+| Drug | Setting | Recommended Dosage |
+|---|---|---|
+| Abciximab (Reopro) | PCI | i.v. bolus: 0.25 mg/kg for 10–60 mins before the start of PCI. Followed by continuous infusion of 0.125 ug/kg/min (max 10 ug/min) for 12 hours |
+| Eptifibatide (Integrilin) | Upstream Use | i.v. bolus: 180 ug/kg. Followed by infusion of 2 ug/kg/min for 72 hours or hospital discharge. In the case of PCI, infusion continued for 96 hours |
+| Eptifibatide (Integrilin) | PCI | i.v. bolus: 180 ug/kg. Followed by infusion of 2 ug/kg/min. Then a second 180 ug/kg bolus after 10 mins. Infusion should be continued till hospital discharge, up to 18–24 hours |
+| Tirofiban (Aggrastat) | Upstream Use | i.v. bolus: 0.4 ug/kg/min for 30 mins. Followed by infusion of 0.1 ug/kg/min for 48–108 hours. In the case of PCI, the infusion should be continued for 12–24 hours after PCI |
+| Tirofiban (Aggrastat) | PCI | i.v. bolus: 0.4 ug/kg/min for 30 mins. Followed by infusion of 0.1 ug/kg/min for 18–24 hours |
+
+\* For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 8: Dosages of Antithrombotic Agents in CKD. <!-- cross_ref target_file="section-4-special-clinical-conditions-PCI.md" target_heading="4.2.3: Bleeding Risks" target_kind="h3_section" -->
 
 ## 3.2: Antithrombotic Therapy
 These include:
@@ -109,26 +111,9 @@ These include:
 
 Refer to Table 5: Doses of Anti-Thrombotic Agents in UA/NSTEMI and During PCI for dosages.
 
-For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 8: Dosages of Antithrombotic Agents in CKD.
-
----
-
-Table 4: Recommended Dosages Of GP IIb/IIIa Receptor Antagonists In UA/NSTEMI And During PCI\*
-
-| Drug | Setting | Recommended Dosage |
-|---|---|---|
-| Abciximab (Reopro) | PCI | i.v. bolus: 0.25 mg/kg for 10–60 mins before the start of PCI. Followed by continuous infusion of 0.125 ug/kg/min (max 10 ug/min) for 12 hours |
-| Eptifibatide (Integrilin) | Upstream Use | i.v. bolus: 180 ug/kg. Followed by infusion of 2 ug/kg/min for 72 hours or hospital discharge. In the case of PCI, infusion continued for 96 hours |
-| Eptifibatide (Integrilin) | PCI | i.v. bolus: 180 ug/kg. Followed by infusion of 2 ug/kg/min. Then a second 180 ug/kg bolus after 10 mins. Infusion should be continued till hospital discharge, up to 18–24 hours |
-| Tirofiban (Aggrastat) | Upstream Use | i.v. bolus: 0.4 ug/kg/min for 30 mins. Followed by infusion of 0.1 ug/kg/min for 48–108 hours. In the case of PCI, the infusion should be continued for 12–24 hours after PCI |
-| Tirofiban (Aggrastat) | PCI | i.v. bolus: 0.4 ug/kg/min for 30 mins. Followed by infusion of 0.1 ug/kg/min for 18–24 hours |
-
-\* For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 8: Dosages of Antithrombotic Agents in CKD.
-
----
+For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 8: Dosages of Antithrombotic Agents in CKD. <!-- cross_ref target_file="section-4-special-clinical-conditions-PCI.md" target_heading="4.2.3: Bleeding Risks" target_kind="h3_section" -->
 
 ## 3.3: Other Agents
-
 ### 3.3.1: Cilostazol
 [Grade IIb, Level B] Cilostazol, a phosphodiesterase inhibitor, was shown to result in reduced rates of stent thrombosis when given as part of a triple antiplatelet regimen in patients with BMS.
 
@@ -139,8 +124,7 @@ Table 4: Recommended Dosages Of GP IIb/IIIa Receptor Antagonists In UA/NSTEMI An
 
 [Grade IIa, Level B] A loading dose of statin pre-procedure has also been shown to reduce post-procedure MI in statin-naive patients and in patients already on regular statins.
 
----
-
+<!-- parent_only_reference_start -->
 Table 5: Doses Of Anti-Thrombotic Agents In UA/NSTEMI And During PCI\*
 
 | Agent | Setting | Dosing Regimen |
@@ -154,32 +138,9 @@ Table 5: Doses Of Anti-Thrombotic Agents In UA/NSTEMI And During PCI\*
 | Fondaparinux | UA/NSTEMI | • Initial dose 2.5 mg IV, then 2.5 mg sc daily |
 | Fondaparinux | During PCI | • If used during PCI, additional 50–60 IU/kg UFH is recommended |
 
-\* For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 8: Dosages of Antithrombotic Agents in CKD.
-
----
-
-<!-- OVERLAPPED CONTENT -->
-
-### Overlapped Reference Tables
-
-#### Grades Of Recommendation
-| GRADE | DEFINITION |
-|---|---|
-| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
-| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
-| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
-| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
-
-#### Levels Of Evidence
-| LEVEL | DEFINITION |
-|---|---|
-| A | Data derived from multiple randomised clinical trials or meta-analyses. |
-| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
-| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
+\* For doses in renal impairment, refer to Section 4.2.3: Bleeding Risks and Table 8: Dosages of Antithrombotic Agents in CKD. <!-- cross_ref target_file="section-4-special-clinical-conditions-PCI.md" target_heading="4.2.3: Bleeding Risks" target_kind="h3_section" -->
 
 Table 8: Dosages Of Antithrombotic Agents In CKD
-
 | Agent | Loading Dose | Maintenance Dose |
 |---|---|---|
 | UFH | No change | No change |
@@ -188,32 +149,47 @@ Table 8: Dosages Of Antithrombotic Agents In CKD
 | Eptifibatide | 180 mcg/kg | IV Infusion 1.0 mcg/kg/min if CrCl < 50 ml/min |
 | Tirofiban | IV infusion 0.4 mcg/kg/min for 30 mins | IV infusion 0.05 mcg/kg/min if CrCl < 30 ml/min |
 
-<!-- END OVERLAPPED CONTENT -->
+Grades Of Recommendation
+| GRADE | DEFINITION |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
+| II | Conditions for which there is conflicting evidence and/or a divergence of opinion about the usefulness/efficacy of a given procedure/therapy. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective, and in some cases may be harmful. |
 
----
+Levels Of Evidence
+| LEVEL | DEFINITION |
+|---|---|
+| A | Data derived from multiple randomised clinical trials or meta-analyses. |
+| B | Data derived from a single randomised clinical trial or large non-randomised studies. |
+| C | Consensus of opinion of the experts and/or small studies, retrospective studies and registries. |
 
-### Abbreviations Used In This Section
-- **ACS**: Acute Coronary Syndrome
-- **ACT**: Activated Clotting Time
-- **aPTT**: Activated Partial Thromboplastin Time
-- **bid**: Twice a day
-- **BMS**: Bare Metal Stents
-- **CABG**: Coronary Artery Bypass Graft Surgery
-- **CKD**: Chronic Kidney Disease
-- **CrCl**: Creatinine Clearance
-- **DES**: Drug Eluting Stents
-- **GP**: Glycoprotein
-- **HIT**: Heparin-Induced Thrombocytopenia
-- **IU**: International Units
-- **IV**: Intravenous
-- **LMS**: Left Main Stem
-- **LMWH**: Low Molecular Weight Heparin
-- **MI**: Myocardial Infarction
-- **NSTEMI**: Non ST segment Elevation Myocardial Infarction
-- **PCI**: Percutaneous Coronary Intervention
-- **POBA**: Plain Balloon Angioplasty
-- **sc**: Subcutaneous
-- **STEMI**: ST segment Elevation Myocardial Infarction
-- **TVR**: Target Vessel Revascularisation
-- **UA**: Unstable Angina
-- **UFH**: Unfractionated Heparin
+Abbreviations
+| Abbreviation | Definition |
+|---|---|
+| ACS | Acute Coronary Syndrome |
+| ACT | Activated Clotting Time |
+| aPTT | Activated Partial Thromboplastin Time |
+| bid | Twice a day |
+| BMS | Bare Metal Stents |
+| CABG | Coronary Artery Bypass Graft Surgery |
+| CKD | Chronic Kidney Disease |
+| CrCl | Creatinine Clearance |
+| DES | Drug Eluting Stents |
+| GP | Glycoprotein |
+| HIT | Heparin-Induced Thrombocytopenia |
+| IU | International Units |
+| IV | Intravenous |
+| LMS | Left Main Stem |
+| LMWH | Low Molecular Weight Heparin |
+| MI | Myocardial Infarction |
+| NSTEMI | Non ST segment Elevation Myocardial Infarction |
+| PCI | Percutaneous Coronary Intervention |
+| POBA | Plain Balloon Angioplasty |
+| sc | Subcutaneous |
+| STEMI | ST segment Elevation Myocardial Infarction |
+| TVR | Target Vessel Revascularisation |
+| UA | Unstable Angina |
+| UFH | Unfractionated Heparin |
+<!-- parent_only_reference_end -->
