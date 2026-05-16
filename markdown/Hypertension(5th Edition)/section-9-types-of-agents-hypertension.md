@@ -72,7 +72,7 @@ Calcium channel blockers (CCBs) are a structurally and functionally heterogenous
 
 [Level I] Metanalyses have shown that RAS blockers and CCBs combinations are superior to other combinations in lowering cardiovascular events, in addition to a better safety profile.
 
-## 9.4: Renin-Angiotensin-System (Ras) Blockers
+## 9.4: Renin-Angiotensin-System (RAS) Blockers
 The RAS is implicated at all stages of the “CV continuum” that links hypertension with other risk factors and major CV events. Therefore, it represents a rational and established therapeutic target when lowering blood pressure.
 
 ### 9.4.1: Ace Inhibitors (ACEIs)
