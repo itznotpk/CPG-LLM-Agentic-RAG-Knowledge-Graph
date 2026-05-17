@@ -8,18 +8,13 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 
 > **Context:** Reference appendices for the 2016 Malaysian CVD Prevention in Women CPG: cancer-therapy cardiotoxicity (Appendix 1), combined oral contraceptive risk classification (Appendix 2), alcohol content of common spirits (Appendix 3), hypertension management (Appendix 4), type 2 diabetes management and clinical audit (Appendices 5–6), and abbreviations. Operational reference tables — clinical rationale is in Sections 2–6.
 
----
-
 ## Appendix 1: Cancer And The Heart
 
 Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and treatment recommendations are detailed in Section 3.2: Cancer And The Heart.
 <!-- cross_ref target_file="section-3-other-diseases-CVD-Women.md" target_heading="## 3.2: Cancer And The Heart" target_kind="h2_section" -->
 
----
-
-## Appendix 2: Combined Oral Contraceptive (Coc)
-
-**Appendix 2A: Combined Oral Contraceptive (COC)**
+## Appendix 2: Combined Oral Contraceptive (COC)
+### Appendix 2A: Combined Oral Contraceptive (COC)**
 | Class of COC | Progesterone content | Estrogen content |
 |---|---|---|
 | First-generation | Norethynodrel, norethindrone (also known as norethisterone), norethindrone acetate, or ethynodiol diacetate | containing ≥ 50 µg ethinyl estradiol |
@@ -32,7 +27,7 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 > - timing of the market introduction of the progestin
 > - structure of the carbon ring from which the progestin is derived (estrane or gonane)
 
-**Appendix 2B: Age-Specific Estimates** Of The Excess Rates Of Myocardial Infarction, Ischemic Stroke, And Venous Thromboembolism Attributable To The Use Of Low-Estrogen Oral Contraceptive And Pregnancy-Related Mortality
+### Appendix 2B: Age-Specific Estimates Of The Excess Rates Of Myocardial Infarction, Ischemic Stroke, And Venous Thromboembolism Attributable To The Use Of Low-Estrogen Oral Contraceptive And Pregnancy-Related Mortality
 *(Note: Low estrogen is defined as less than 50 µg)*
 
 | Variable | Age 20-24 Yr | Age 30-34 Yr | Age 40-44 Yr |
@@ -45,8 +40,6 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 | No of excess cases of venous thromboembolism attributable to oral-contraceptive use (per 100,000 woman-yr of use) | | | |
 | With norethindrone, norethindrone acetate, levonorgestrel, or ethynodiol diacetate | 6 | 9 | 12 |
 | With desogestrel or gestodene | 16 | 23 | 30 |
-
----
 
 ## Appendix 3: Alcohol Content Of Common Spirits
 
@@ -67,14 +60,10 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 |---|---|---|
 | 40% | 1 unit | 2 units |
 
----
-
 ## Appendix 4: Management Of Hypertension
-
-**Appendix 4A: Risk Stratification***
+### Appendix 4A: Risk Stratification
 **X-Axis (Columns):** Co-existing Condition
 **Y-Axis (Rows):** BP Levels (mmHg)
-
 | Co-existing Condition \ BP Levels (mmHg) | No RF, No TOD, No TOC | TOD or RF (1-2), No TOC | TOC or RF (≥ 3) or Clinical atherosclerosis | Previous MI or Previous stroke or Diabetes |
 |---|---|---|---|---|
 | SBP 130-139 and/or DBP 80-89 | Low | Medium | High | Very high |
@@ -89,7 +78,7 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 > - **Clinical atherosclerosis** (CHD, carotid stenosis, peripheral vascular disease, transient ischaemic attack, stroke)
 > - *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
 
-**Appendix 4B: Recommendation For Follow-Up Visit Based On Initial Blood Pressure Measurements For Adults***
+### Appendix 4B: Recommendation For Follow-Up Visit Based On Initial Blood Pressure Measurements For Adults
 | Initial BP (mmHg) Systolic | | Initial BP (mmHg) Diastolic | Follow-up recommendation to confirm diagnosis |
 |---|---|---|---|
 | < 130 | and | < 85 | Recheck in one year |
@@ -99,9 +88,7 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 | 180 - 209 | and/or | 110 - 119 | Evaluate within one week and treat it confirmed |
 | ≥ 210 | and/or | ≥ 120 | Initiate drug treatment immediately |
 
-> *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
-
-**Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions***
+### Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions*
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|---|---|---|---|---|---|
 | Diabetes mellitus (without nephropathy) | + | +/- | +++ | + | +/- | ++ |
@@ -125,9 +112,8 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 > - **#** : Metoprolol, bisoprolol, carvedilol, nebivolol – dose needs to be gradually titrated
 > - **@** : Current evidence available for amlodipine and felodipine only
 > - **$** : Contraindicated in bilateral renal artery stenosis
-> - *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
 
-**Appendix 4D: Effective Anti-Hypertensive Combinations Used In Outcome Trials***
+### Appendix 4D: Effective Anti-Hypertensive Combinations Used In Outcome Trials
 | Effective combination | Patients studied |
 |---|---|
 | ACEI + thiazide-like diuretics | Post stroke |
@@ -139,15 +125,9 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 | ACEI + CCB | High risk hypertensives |
 | thiazide-like diuretics + ACEI | Very elderly (> 80 years old) |
 
-> *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
-
----
-
 ## Appendix 5: Management Of Type 2 Diabetes Mellitus
-
-**Appendix 5A: Treatment Algorithm For Newly Diagnosed T2DM***
+### Appendix 5A: Treatment Algorithm For Newly Diagnosed T2DM
 **Upon Diagnosis of Type 2 Diabetes: LIFESTYLE Modification**
-
 | HbA1c & FPG Levels | Target Recommendation | Options / Escalation | Follow-up |
 |---|---|---|---|
 | A1c < 6.5% AND FPG < 6 mmol/L | LIFESTYLE APPROACH | If postprandial is > 11.0 mmol/L, consider one of the following: <br>• Metformin <br>• Glinides <br>• AGI <br>• DPP-4i | Follow-up with A1c after 3 months. <br> If A1c ≤ 6.5% continue with Lifestyle Approach. <br> If A1c > 6.5% refer to table 21 |
@@ -167,13 +147,10 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 > | **GLP-1 RA, SGLT-2i**| Moderate efficacy, low risk of hypoglycaemia and weight loss |
 > | **TZD** | Moderate efficacy, low risk of hypoglycaemia and weight gain |
 > | **AGI** | Modest efficacy, low risk of hypoglycaemia and weight neutral |
->
-> *Source: Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th ed, 2015*
 
-**Appendix 5B: Treatment Recommendations For Patients On Clinic Follow-Up**
+### Appendix 5B: Treatment Recommendations For Patients On Clinic Follow-Up
 **X-Axis (Columns):** Glycaemic Control
 **Y-Axis (Rows):** Current Treatment
-
 | Current Treatment \ Glycaemic Control | A1c 6.5 - < 7.5% or FPG 6 - < 8 mmol/L | A1c 7.5 - < 8.5% or FPG 8 - < 10 mmol/L | A1c 8.5 - 10.0% or FPG 10 - 13 mmol/L | A1c > 10.0% or FPG > 13 mmol/L |
 |---|---|---|---|---|
 | Lifestyle Treatment | Add Metformin (or if metformin cannot be tolerated add either SU / Glinides / AGI / TZD / DPP-4i / GLP-1 RA / SGLT2i) | Add Metformin and another agent (Dual therapy) | Add Metformin and another 2 agents not used for the dual therapy (Triple therapy) | Dual or Triple therapy + insulin (basal or premixed) |
@@ -188,10 +165,8 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 >
 > **+** intensify involve changing the regimen
 > **+** optimise involve increasing the dose
->
-> *Source: Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th ed, 2015*
 
-**Appendix 5C: Recommended Algorithm For Specific Patient Profiles***
+### Appendix 5C: Recommended Algorithm For Specific Patient Profiles
 **If not to target (generally A1c < 6.5%)**
 
 | Treatment Escalation | Normal weight | Overweight | Obese | Increased Risk of Hypoglycaemia | CKD stage 3 onwards |
@@ -201,10 +176,6 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 | Third Line | SGLT2 inhibitor | DPP-4 inhibitor | SGLT2 inhibitor | SGLT2 inhibitor | 3rd Gen Sulfonylurea (Not advisable stages 4&5) |
 | Fourth Line | Sulfonylurea | GLP-1 agonist (stop DPP-4 Inhibitor) <br><br>**OR**<br><br> Basal insulin or Pre-mix insulin | Basal insulin | Thiazolidinedione | Prandial Insulin |
 | Further Consideration | GLP-1 RA (stop DPP-4 inhibitor) <br><br>**OR**<br><br> Basal insulin or Pre-mix insulin | Insulin intensification | Insulin intensification | GLP-1 RA (stop DPPIV inhibitor) <br><br>**OR**<br><br> Basal insulin analogue | Basal insulin |
-
-> *Source: Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th ed, 2015*
-
----
 
 ## Appendix 6: Audit Of Clinical Diabetes
 **Buku Rekod Rawatan NCD\***
@@ -243,53 +214,3 @@ Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and
 > **Notes:**
 > - ***This audit form contains only some of the parameters recorded in the Buku Rawatan NCD**
 > - ****Estimate/presumed:** If date not known, enter 30/06/yyyy and mark the box.*
-
-<!-- parent_only_reference_start -->
-Abbreviations
-
-| Abbreviation | Full Term |
-|---|---|
-| 2HPP | 2-Hour Postprandial |
-| A1c / HbA1c | Hemoglobin A1c |
-| ACEI | Angiotensin-Converting Enzyme Inhibitor |
-| AGI | Alpha-Glucosidase Inhibitor |
-| AMO | Assistant Medical Officer |
-| ARB | Angiotensin Receptor Blocker |
-| BMI | Body Mass Index |
-| BP | Blood Pressure |
-| CAD | Coronary Artery Disease |
-| CCB | Calcium Channel Blocker |
-| CHD | Coronary Heart Disease |
-| CKD | Chronic Kidney Disease |
-| COC | Combined Oral Contraceptive |
-| cTn | Cardiac Troponins |
-| D.O.B | Date of Birth |
-| DBP | Diastolic Blood Pressure |
-| DPP-4i | Dipeptidyl Peptidase 4 Inhibitor |
-| ECG | Electrocardiogram |
-| FBS | Fasting Blood Sugar |
-| FMS | Family Medicine Specialist |
-| FPG | Fasting Plasma Glucose |
-| GLP-1 RA | Glucagon-Like Peptide-1 Receptor Agonist |
-| HDL | High-Density Lipoprotein |
-| IC | Identity Card |
-| LDL | Low-Density Lipoprotein |
-| LVH | Left Ventricular Hypertrophy |
-| MI | Myocardial Infarction |
-| MO | Medical Officer |
-| NCD | Non-Communicable Disease |
-| OAD | Oral Antidiabetic Drug |
-| PAD | Peripheral Artery Disease |
-| RBS | Random Blood Sugar |
-| RF | Risk Factors |
-| SBP | Systolic Blood Pressure |
-| SGLT-2i | Sodium-Glucose Co-Transporter 2 Inhibitor |
-| SU | Sulfonylurea |
-| T2DM | Type 2 Diabetes Mellitus |
-| TC | Total Cholesterol |
-| TG | Triglycerides |
-| TOC | Target Organ Complication |
-| TOD | Target Organ Damage |
-| TTE | Trans-thoracic Echocardiography |
-| TZD | Thiazolidinedione |
-<!-- parent_only_reference_end -->

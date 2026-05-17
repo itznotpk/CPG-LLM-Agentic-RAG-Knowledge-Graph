@@ -8,8 +8,6 @@ critical: true
 treatment_type: statins, aspirin, ACEI, ARB, beta-blockers, CCB, diuretics, warfarin, NOAC, metformin, omega-3 fatty acids
 -->
 
----
-
 The INTERHEART study found that 9 potentially modifiable factors accounted for 96% of the population attributable risk of a first MI in women compared to 93% among men. These 9 modifiable risk factors include dyslipidaemia, hypertension, diabetes, smoking, abdominal obesity, psychosocial factors, regular physical exercise, daily consumption of fruits and vegetables and regular alcohol consumption. Hypertension, diabetes, alcohol intake, and physical activity were more strongly associated with MI in women compared to men. Generally risk factors were more strongly associated with acute MI in younger (< 60 years) compared to older (≥ 60 years) women and men.
 
 In Malaysia, according to the NHMS IV (2011), almost half of women > 30 years are hypertensive, a third are obese and have high cholesterols and a fifth have diabetes. An earlier survey (NHMS III 2006) showed that women displayed a higher prevalence and a younger age shift in CV risk factor clustering.
@@ -17,8 +15,6 @@ In Malaysia, according to the NHMS IV (2011), almost half of women > 30 years ar
 It was estimated that 90% of CHD events occurred in people with at least 1 CV risk factor. Borderline CV risk factors contribute incrementally to this CVD risk. As the number of risk factors increase, the CV risk also increases and survival decreases.
 
 Thus it is important to assess the global CVD risk since mildly raised levels of several risk factors, in the long term, will result in increased global CVD risk. All CVD risk factors should be identified and managed aggressively according to guidelines.
-
----
 
 ## 6.1: General Recommendations
 The following healthy lifestyle measures are important in all women. By adopting a healthy lifestyle, women can reduce their CVD risk by as much as 55%. A healthy life style has been shown to reduce the risk of heart failure in post-menopausal women even in the absence of antecedent CAD, hypertension and diabetes.
@@ -86,8 +82,6 @@ For primary prevention, in a large study, aspirin was found to be beneficial in 
 - Aspirin should not be recommended for CVD prevention for adults with diabetes at low CVD risk (women < 60 years with no major additional CVD risk factors; 10-year CVD risk < 5%) as the potential adverse effects from bleeding offset the potential benefits.
 - Low-dose (75–162 mg/d) aspirin use for prevention might be considered for those with diabetes at intermediate CVD risk (younger patients with 1 or more risk factors, or older patients with no risk factors, or patients with 10-year CVD risk of 5–10%) until further research is available.
 
----
-
 ## 6.2: Treatment Of Specific Risk Factors
 Aggressive risk factor reduction should be instituted in all High Risk patients.
 
@@ -96,7 +90,6 @@ The primary target of therapy is LDL-C. In women especially in diabetics, low HD
 
 #### 6.2.1.1: Targets Of Therapy
 Table 12: Targets of Therapy in Dyslipidaemia
-
 | | High Risk | At Risk & Optimal Risk |
 |---|---|---|
 | LDL-C | High Risk: Patients with established CHD or CHD Equivalents <br><br> LDL-C Goal: <br> < 2.6 mmol/L\*\* <br> (or a reduction of at least 50% if the baseline LDL-C is between 2.6-5.1 mmol/L) <br><br> < 1.8 mmol/L in diabetics with CVD <br> (or a reduction of at least 50% if the baseline LDL-C is between 1.8 and 3.5 mmol/L) | < 3.0 mmol/L |
@@ -117,7 +110,6 @@ Women with genetic dyslipidaemias such as familial hypercholesterolemia with ver
 - [Grade I, Level C] Statins should not be used in women who are pregnant, intend to become pregnant or who are breast feeding.
 
 ### 6.2.2: Hypertension
-
 #### 6.2.2.1: Targets Of Therapy
 - [Grade I, Level A] The target BP in most patients < 80 years of age should be < 140/90 mmHg. In patients > 80 years, the target should be < 150/90 mmHg. In the presence of target organ damage, a lower BP may be considered especially in younger patients.(refer Table 13: Blood Pressure Targets in the Different Risk Groups)
 - [Grade I, Level B] In diabetics, the target BP is < 135/75 mmHg.
@@ -126,7 +118,6 @@ Women with genetic dyslipidaemias such as familial hypercholesterolemia with ver
 The guidelines recognize that the risk of target organ damage extends to BP below this level and the true threshold for CVD risk should be flexible and dependent on the total risk of the individual. A recent study showed that in persons over the age of 50 years and without diabetes, a lower BP of 120/80 mmHg was associated with improved survival and cardiac outcomes. A lower BP target was however, associated with an increase in adverse effects (syncope, hypotension, electrolyte problems and acute kidney injury or failure).
 
 Table 13: Blood Pressure Targets in the Different Risk Groups\*
-
 | Patient Group | Target BP | Grade, Level |
 |---|---|---|
 | Most women < 80 years of age | < 140/90 mmHg | I, A |
@@ -165,10 +156,8 @@ Current guidelines for the treatment of hypertension are not gender specific. Th
 - Weight loss and reduced sodium intake is beneficial in reducing blood pressure in older women
 
 ### 6.2.3: Diabetes
-
 #### 6.2.3.1: Targets Of Therapy
 Table 14: Targets of Therapy in Diabetes\*
-
 | Category | Measure | Target | Grade, Level |
 |---|---|---|---|
 | Glycaemic Control | HbA1c | ≤ 6.5%\*\* | I, A |
@@ -207,7 +196,6 @@ Certain weight loss therapies may be inappropriate in the following circumstance
 - Prevent weight regain.
 
 ### 6.2.5: Others
-
 #### 6.2.5.1: Anticoagulant
 [Grade I, Level A] Patients with non-valvular AF irrespective of whether the pattern is paroxysmal, persistent or permanent should be considered for anticoagulation depending on their CHA₂DS₂-VASc score.
 
@@ -226,7 +214,6 @@ The NOACs have been shown to be safer and more efficacious in women. The risk of
 [Grade I, Level B] In patients with AF secondary to valvular heart disease, warfarin is the agent of choice.
 
 Table 15: CHA₂DS₂-VASc Score
-
 | Risk Factor | Score |
 |---|---|
 | Congestive Heart Failure | 1 |
@@ -246,7 +233,7 @@ There is no evidence that the following supplements are useful in preventing CVD
 [Grade II, Level B] Omega-3 fatty acid consumption in the form of fish or in capsule form (e.g. EPA 1800 mg/day) may be helpful in women with hypercholesterolemia and/or triglyceridaemia. It has not been shown to be helpful in the primary prevention of CHD.
 
 <!-- parent_only_reference_start -->
-**Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions***
+Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions*
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|---|---|---|---|---|---|
 | Diabetes mellitus (without nephropathy) | + | +/- | +++ | + | +/- | ++ |
@@ -273,7 +260,6 @@ There is no evidence that the following supplements are useful in preventing CVD
 > - *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
 
 Grades Of Recommendation
-
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -283,7 +269,6 @@ Grades Of Recommendation
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 Levels Of Evidence
-
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -291,7 +276,6 @@ Levels Of Evidence
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
 Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AAA | Abdominal aortic aneurysm |

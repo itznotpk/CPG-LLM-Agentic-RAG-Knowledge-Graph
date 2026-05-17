@@ -6,8 +6,6 @@ patient_input: connective_tissue_disease_status, chemotherapy_regimen, radiation
 output: cardiotoxicity_risk_score, monitoring_recommendations, CV_risk_modification, CPAP_recommendation
 -->
 
----
-
 ## 3.1: Connective Tissue Disease And The Heart
 Patients with connective tissue disease especially SLE, rheumatoid arthritis and systemic vasculitis are at increased risk for CVD. This excess risk of premature CVD is seen most commonly in SLE where CVD is the third most common cause of death. The CVD risk is 5-6 times greater in women especially in those aged 35-44 years where the risk may be as high as 50 times the general population. The causes are multifactorial and include increased prevalence of the traditional risk factors, impaired endothelial function, systemic inflammation and the presence of autoantibodies such as anti-phospholipid antibodies and lupus anticoagulant which are associated with increased thrombotic risk.
 
@@ -19,8 +17,6 @@ Cardiovascular manifestations of rheumatological diseases include:
 - **Vascular:** atherosclerosis, arterial stiffness, vasculitis, thrombosis
 
 Patients with connective tissue disease should have their CV risk assessed and have their CV risk factors addressed according to guidelines. Some of the drugs used for the treatment of these rheumatological disorders may have cardiac effects which also have to be addressed.
-
----
 
 ## 3.2: Cancer And The Heart
 Chemotherapeutic agents have potential cardiotoxicity. In symptomatic patients, chemotherapy-induced cardiotoxicity is defined as a decrease in LVEF by ≥ 5% to < 55%. In asymptomatic individuals, it is defined as a decrease in LVEF by ≥ 10% to < 55%. Cardiotoxicity may be:
@@ -74,10 +70,7 @@ For the management of patients on potentially cardiotoxic chemotherapeutic agent
 
 Women who had chemotherapy or radiation therapy in the past and who are now pregnant or planning to get pregnant should be evaluated by a cardiologist, as the pregnancy can unmask a cardiomyopathy.
 
----
-
 ## 3.3: Infections And The Heart
-
 ### 3.3.1: Influenza
 Clinical trials have shown an association between a recent respiratory infection and acute MI. In a recent study done in UK and Hong Kong, there was strong evidence for a link between influenza and MI associated deaths and hospitalizations in both regions. A meta-analysis of 5 published randomized clinical trials of 6735 patients showed that influenza vaccination was associated with a lower risk of composite cardiovascular events. The greatest treatment effect was seen among the highest-risk patients with more active coronary disease. In a case-control study done in Australia, influenza did not predict MI but vaccination was found to be protective. This protective effect is comparable to that of currently accepted therapies for secondary prevention of MI.
 
@@ -88,14 +81,12 @@ A number of observational studies have shown that there is an association betwee
 
 Maintaining good dental hygiene and regular dental visits are recommended.
 
-### 3.3.3: Human Immunodeficiency Virus (Hiv)
+### 3.3.3: Human Immunodeficiency Virus (HIV)
 Studies have shown that HIV infected individuals of both gender, are at increased risk of premature CVD. Atherosclerosis tends to be diffuse, circumferential and is often accelerated. The reasons for this increased CVD risk are multifactorial and includes systemic immune activation resulting in endothelial activation and atherosclerosis, metabolic derangements due to anti-retroviral therapy and also the high prevalence of traditional risk factors such as smoking and obesity in these patients. This increased CVD risk persists even after adjustment for Framingham risk factors, other co morbidities and substance use.
 
 All HIV infected individuals should be encouraged to adopt a healthy lifestyle with CV risk factor modifications.
 
----
-
-## 3.4: Obstructive Sleep Apnoea (Osa)
+## 3.4: Obstructive Sleep Apnoea (OSA)
 OSA is a sleep disorder associated with high blood pressure, CVD, and/or obesity. Observational studies seem to suggest a causal relationship between OSA and CVD although the data is not conclusive.
 
 It occurs more frequently in men than women - due to differences in obesity and the distribution of adipose tissue, upper-airway anatomy and muscle function, control of ventilation, and the effect of sex hormones and leptin.
@@ -106,9 +97,6 @@ Management of OSA includes general measures such as weight reduction, avoidance 
 
 Registry data indicate that CPAP is associated with reduced all-cause mortality in middle-aged and elderly men but there was no significant effect in women. However, a recent randomized trial in patients with systolic heart failure found that adaptive servo-ventilation actually increased all cause and cardiovascular mortality.
 
----
-
-## 3.5: Key Messages
 > **Key Messages:**
 > Other diseases that are associated with an increased CV Risk in women include:
 > - Connective tissue diseases (especially rheumatoid arthritis, SLE and systemic vasculitis) and the drugs that are used to treat these diseases
@@ -118,7 +106,6 @@ Registry data indicate that CPAP is associated with reduced all-cause mortality 
 
 <!-- parent_only_reference_start -->
 Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACEI | Angiotensin-Converting Enzyme Inhibitor |

@@ -7,14 +7,9 @@ output: disease_classification, diagnostic_pathway, investigation_algorithm, man
 treatment_type: statins, ACEI, beta-blockers, CCB, nitrates, ranolazine, anticoagulants, warfarin, NOAC, PCI, CABG, ICD
 -->
 
----
-
 Men and women have similar lifetime risks of CVD at age 55 years. There are however, considerable differences in the first manifestation. Men are more likely to develop CHD as a first event, while women are more likely to have a stroke or heart failure (HF) as their first event, although these manifestations tend to appear when they are older.
 
----
-
-## 2.1: Coronary Heart Disease (Chd)
-
+## 2.1: Coronary Heart Disease (CHD)
 ### 2.1.1: Presenting Symptoms
 In general, women present with CHD 10 to 20 years later than men. Before menopause, the prevalence of CHD is low.
 
@@ -29,7 +24,7 @@ In general, women present with CHD 10 to 20 years later than men. Before menopau
 - The lifetime risk for CHD is generally lower in females and depends on their risk profile. At age of 55 years, with an optimal risk factor profile, lifetime risk for CHD is 3.6% for men and < 1% in women; with ≥ 2 risk factors, it is 37.5% in men and 18.3% for women.
 - Women were found to experience the combined end point of CV death, MI, stroke and HF hospitalisation, an average of 5.7 years later than men of similar risk profiles. For MI there was a delay of 10.7 years.
 - Generally, women with CHD are more likely to be obese and have type 2 diabetes when compared to men. Elderly hypertensive women and young female smokers are especially at risk for CHD.
-- Risk assessment can be used to raise awareness of CVD, educate patients about their CV risk, prompt lifestyle changes, guide therapy, and predict both 10-year and lifetime risk of CVD (refer to Section 5: Total Cardiovascular Risk Assessment).
+- Risk assessment can be used to raise awareness of CVD, educate patients about their CV risk, prompt lifestyle changes, guide therapy, and predict both 10-year and lifetime risk of CVD (refer to Section 5: Total Cardiovascular Risk Assessment). <!-- cross_ref target_file="section-5-cvd-risk-assessment-CVD-Women.md" target_heading="Section 5: Total Cardiovascular Risk Assessment" target_kind="h1_section" -->
 
 ### 2.1.3: Diagnosis And Investigations
 Women with chest pain are less likely to be referred for appropriate investigations due to:
@@ -78,7 +73,6 @@ Figure 2: Algorithm For The Investigation Of Women Suspected Of Chd
 
 **Step 1: Initial Presentation**
 Symptomatic women with intermediate–high* pre-test likelihood of CHD
-
 ↓
 
 **Step 2: Baseline Assessment (Two Pathways)**
@@ -90,8 +84,6 @@ Determine the pathway based on baseline ECG and exercise tolerance:
 **Pathway B: Abnormal ECG, Limited Exercise Tolerance**
 *   → Proceed to Step 3B (Advanced Imaging)
 
----
-
 **Step 3A: Exercise Stress Test**
 Perform standard exercise stress test.
 
@@ -99,8 +91,6 @@ Perform standard exercise stress test.
 *   **If Negative:** → Risk Factor Reduction ± Medical Therapy for CHD
 *   **If Positive:** → Invasive Coronary Angiogram*
 *   **If Equivocal:** → Proceed to Step 3B (Advanced Imaging)
-
----
 
 **Step 3B: Advanced Imaging**
 Perform one or more of the following:
@@ -116,11 +106,8 @@ Perform one or more of the following:
 
 > **Clinical Note:** Symptomatic women with low pre-test probability of CHD should undergo a clinical examination, screening for CV risk factors, resting ECG, and if necessary, an exercise stress test may be considered.
 
----
-
 ### 2.1.5: Unique Gender-Specific Cardiac Issues
-
-#### 2.1.5.1: Non-Obstructive Chd
+#### 2.1.5.1: Non-Obstructive CHD
 Non-obstructive CHD may be defined as:
 - Coronary artery stenosis ≥ 20% but < 50% in the left main coronary artery
 - A stenosis ≥ 20% but < 70% in any other epicardial coronary artery
@@ -133,7 +120,7 @@ In the WISE study, non-obstructive CHD was defined as at least one coronary sten
 - In a systematic review, 7% of patients presenting with MI had non-obstructive coronary arteries. A third of patients presented with STEMI and two-thirds with NSTEMI. About 40% of the patients were women with a mean age of 54 years. Compared with MI due to obstructive coronary artery disease, these patients tended to be younger, females and have less hyperlipidaemia. The one-year all-cause mortality in patients with MI due to non-obstructive disease was 4.7% compared to 6.7% for those with MI and obstructive coronary arteries.
 - Non-obstructive CHD is associated with limitations in flow reserve at the coronary microvascular level. The aetiology appears diverse, multifactorial and may involve more than one mechanism.
 
-#### 2.1.5.1.1: Management
+##### 2.1.5.1.1: Management
 There are no randomised trials on optimal prevention and treatment strategies for non-obstructive CHD. In patients with evidence of atherosclerosis, statins and ACE-I have been beneficial against progression of disease in short-term trials. β-blockers have been shown to give more relief of angina compared to calcium channel blockers. Imipramine has also been shown to provide symptom relief.
 
 #### 2.1.5.2: Cardiac Syndrome X
@@ -173,7 +160,7 @@ The WISE study showed that the 5-year cardiac event rate for MI and CVD death we
 
 Women with non-obstructive CHD and documented myocardial ischemia have a poorer prognosis. Women with Syndrome X and severe endothelial dysfunction have a 30% increased risk of developing CHD at 10 years.
 
-#### 2.1.5.2.1: Management
+##### 2.1.5.2.1: Management
 Patients with Cardiac Syndrome X are at increased CV risk. Thus, emphasis should be towards prevention by modification of CV risk factors and control of chest pain.
 
 Management of patients with chest pain includes:
@@ -184,7 +171,7 @@ Management of patients with chest pain includes:
 
 Although there have been a number of other different treatment strategies that have been studied in coronary microvascular angina such as ACEI (quinapril), phosphodiesterase inhibitors (sildenafil), statins and calcium channel blockers (diltiazem), a recent systemic review found little data to support any of these therapies. These were however very small short term studies.
 
-#### 2.1.5.3: Takotsubo Cardiomyopathy (Tcm)
+#### 2.1.5.3: Takotsubo Cardiomyopathy (TCM)
 Takotsubo Cardiomyopathy (TCM) is a transient cardiac syndrome characterised by:
 - Left ventricular apical akinesis
 - Electrocardiographic changes of MI
@@ -201,10 +188,10 @@ The modified Mayo Clinic criteria for the diagnosis of TCM includes:
 
 The underlying aetiology is unknown but is likely related to release of catecholamines, both locally in the myocardium and in the circulation.
 
-#### 2.1.5.3.1: Management
+##### 2.1.5.3.1: Management
 Treatment is mainly supportive. About 5% of patients may develop LV thrombus and require anticoagulation. The prognosis is excellent with almost 95% having complete recovery within 4-8 weeks. The most common complication is heart failure. Treatment of heart failure is as outlined in guidelines (refer to Section 2.1.5.6.1: Management). About 3.5% of patients however, suffer a recurrence of TCM.
 
-#### 2.1.5.4: Spontaneous Coronary Artery Dissection (Scad)
+#### 2.1.5.4: Spontaneous Coronary Artery Dissection (SCAD)
 SCAD is a very rare condition with an incidence of 0.07-1.1% of all coronary angiograms performed. The prevalence may be as high as 24% in women < 50 years of age who present with MI. It affects predominantly young females – 70-80% are women and the mean age at presentation was 42 years.
 
 They usually present as an ACS – almost 50% as STEMI. The left anterior descending artery is the commonest vessel affected in women.The left anterior descending artery is the commonest vessel affected in women and the right coronary artery in men.In about 25% of patients, there may be multivessel involvement.
@@ -217,7 +204,7 @@ Classically, patients with SCAD fall into the following groups:
 
 The diagnosis is often difficult and made only after coronary angiography. The index of suspicion should be high if a young woman without the traditional risk factors presents with an MI.
 
-#### 2.1.5.4.1: Management
+##### 2.1.5.4.1: Management
 There are no guidelines available on treatment of SCAD. In patients presenting with MI:
 - **Fibrinolytic therapy is contraindicated**
 - A conservative approach is the treatment of choice if the patient is stable, without chest pains and the coronary vessel is open with TIMI 3 flow
@@ -247,10 +234,10 @@ Women tend to have a higher prevalence of:
 - The incidence of SCD is lower in women than in men. Female survivors of cardiac arrest are less likely to have underlying CHD and more likely to have other forms of heart disease or structurally normal hearts.
 - However, in women with a previous MI, the risk of SCD is 2-fold higher and in those with heart failure, it is 5 times higher than in men. Women who do suffer SCD are less likely to have a LVEF < 35% documented prior to SCD.
 
-#### 2.1.5.5.1: Management
+##### 2.1.5.5.1: Management
 - Women with AF benefit from both rate and rhythm control and anticoagulants for prophylaxis against thrombo-embolism. Anticoagulants are however underused in older women.
 - Safety issues with warfarin in women: higher risk of major bleeding; female gender is an independent risk factor for not being in therapeutic range; even within therapeutic range, women remain at a higher risk of stroke.
-- The newer NOACs appear to be more efficacious and safer in women (refer to Section 6: Recommendations for Prevention of CVD in Women).
+- The newer NOACs appear to be more efficacious and safer in women (refer to Section 6: Recommendations for Prevention of CVD in Women). <!-- cross_ref target_file="section-6-recommendations-CVD-Women.md" target_heading="Section 6: Recommendations For Prevention Of CVD In Women" target_kind="h1_section" -->
 - Caution should be exercised in the use of anti-arrhythmic drug therapy in women because of the danger of pro-arrhythmia.
 - Registry data indicate that women benefit from implantable cardioverter defibrillator similar to men, although women were under-represented in primary prevention trials (only 15-30% of the study population).
 
@@ -271,10 +258,7 @@ Common aetiologies of HF in women include hypertension, CHD and valvular heart d
 - Registry data show that women with HF and LBBB requiring cardiac resynchronisation therapy benefit as much as men, although few women have been enrolled in the randomised clinical trials.
 - Women who are overweight and obese should reduce weight although there is limited data to support its benefit in HF.
 
----
-
 ## 2.2: Cerebrovascular Disease
-
 ### 2.2.1: Epidemiology
 Stroke is the leading cause of death in women worldwide. Women have a higher lifetime risk of stroke than men and are on average about 4 years older at stroke onset than men (≈ 75 years compared with 71 years). In younger and middle-aged groups, age-specific incidence rates of stroke in women are much lower than men, but in the older age groups (> 75 years), incidence rates are approximately equal or even higher than in men. Women are more likely to die or have disability following a stroke than men. This could be due to their older age at presentation and their
 pre-stroke disability which is greater than that of men.
@@ -299,15 +283,13 @@ Women also face additional gender-specific risk factors (refer to Table 6: Sex-S
 - Pregnancy
 - Migraine
 
-#### 2.2.3.1.1: Oral Contraceptive Use (Refer To Section 4.12.1: Oral Contraceptive Use)
-<!-- cross_ref target_file="section-4-cardiovascular-risk-factors-CVD-Women.md" target_heading="### 4.12.1: Combined Oral Contraceptives (Coc)" target_kind="h3_section" -->
-For details on COC risk, eligibility criteria and cardiovascular implications, refer to Section 4.12.1: Combined Oral Contraceptives.
+##### 2.2.3.1.1: Oral Contraceptive Use
+For details on COC risk, eligibility criteria and cardiovascular implications, refer to Section 4.12.1: Combined Oral Contraceptives (COC). <!-- cross_ref target_file="section-4-cardiovascular-risk-factors-CVD-Women.md" target_heading="4.12.1: Combined Oral Contraceptives (COC)" target_kind="h3_section" -->
 
-#### 2.2.3.1.2: Hormone Replacement Therapy (Refer To Section 4.12.2: Hormone Replacement Therapy)
-<!-- cross_ref target_file="section-4-cardiovascular-risk-factors-CVD-Women.md" target_heading="### 4.12.2: Oestrogen Therapy / Oestrogen Progesterone Therapy" target_kind="h3_section" -->
-For details on menopausal hormone therapy risks and CVD implications, refer to Section 4.12.2: Oestrogen Therapy / Oestrogen Progesterone Therapy.
+##### 2.2.3.1.2: Hormone Replacement Therapy
+For details on menopausal hormone therapy risks and CVD implications, refer to Section 4.12.2: Oestrogen Therapy / Oestrogen Progesterone Therapy. <!-- cross_ref target_file="section-4-cardiovascular-risk-factors-CVD-Women.md" target_heading="4.12.2: Oestrogen Therapy / Oestrogen Progesterone Therapy" target_kind="h3_section" -->
 
-#### 2.2.3.1.3: Pregnancy
+##### 2.2.3.1.3: Pregnancy
 Pregnancy increases the risk of a stroke in women due to:
 - Pregnancy-induced hypertension
 - increased blood coagulability
@@ -315,16 +297,13 @@ Pregnancy increases the risk of a stroke in women due to:
 
 The incidence of stroke, both ischaemic and haemorrhagic, is markedly increased in the postpartum period.
 
-#### 2.2.3.1.4: Migraine
+##### 2.2.3.1.4: Migraine
 Women are more likely to suffer from migraine. Migraine with visual aura increases the risk of stroke. This risk is higher in current cigarette smokers and current users of oral contraceptives.
-
 
 ### 2.2.4: Diagnosis And Management
 Most studies have found no gender differences in terms of stroke types, although some studies have found an increase in subarachnoid and cardio-embolic strokes in females.
 
 There are no gender differences in the way strokes are diagnosed and managed. Please refer to Malaysian CPG on Management of Ischemic Stroke (2012).
-
----
 
 ## 2.3: Peripheral Arterial Disease
 The prevalence of peripheral arterial disease (PAD) is lower in women under 50 years of age but it increases with age and in those over 80 years, the prevalence is as high as in men. Even for the same disease states, women have poorer prognosis with event rates that are higher than men especially when the ankle brachial index (ABI) is low. Women have an increased risk of MI, cardiovascular and total mortality. They also have faster functional decline and greater mobility loss than men with PAD.
@@ -340,8 +319,69 @@ The following women, symptomatic and asymptomatic, should be screened for PAD:
 - The elderly (above the age of 70 years)
 - Those above the age of 50 years with any atherosclerotic risk factor (smoking, diabetes, hypertension, elevated cholesterols)
 - Diabetics who are 49 years old or younger or who have any of these atherosclerotic risk factors
-- Subjects with a 10-year CVD risk of 10-20% (refer to Table 2: Framingham Risk Score)
-<!-- cross_ref target_file="section-0-summary-CVD-Women.md" target_heading="## 0.2: Critical Reference Tables" target_kind="h2_section" -->
+- Subjects with a 10-year CVD risk of 10-20% (refer to Table 2: Framingham Risk Score For Asessment Of CVD Risk)
+
+Table 2: Framingham Risk Score For Asessment Of CVD Risk
+Table 2A: CVD Points For Women
+| Points | Age, y | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
+|---|---|---|---|---|---|---|---|
+| - 3 | | | | <120 | | | |
+| - 2 | | 1.6+ | | | | | |
+| - 1 | | 1.3 - 1.6 | | | <120 | | |
+| 0 | 30 - 34 | 1.2 - <1.3 | <4.2 | 120 - 129 | | No | No |
+| 1 | | 0.9 - <1.2 | 4.2 - <5.2 | 130 - 139 | | | |
+| 2 | 35 - 39 | <0.9 | | 140 - 149 | 120 - 129 | | |
+| 3 | | | 5.2 - <6.3 | | 130 - 139 | Yes | |
+| 4 | 40 - 44 | | 6.3 - <7.4 | 150 - 159 | | | Yes |
+| 5 | 45 - 49 | | >7.4 | 160+ | 140 - 149 | | |
+| 6 | | | | | 150 - 159 | | |
+| 7 | 50 - 54 | | | | 160+ | | |
+| 8 | 55 - 59 | | | | | | |
+| 9 | 60 - 64 | | | | | | |
+| 10 | 65 - 69 | | | | | | |
+| 11 | 70 - 74 | | | | | | |
+| 12 | 75+ | | | | | | |
+
+Table 2B: CVD Risk For Women
+| Total Points | 10 year Risk % | Total Points | 10 year Risk % |
+|---|---|---|---|
+| < -2 | < 1 | 10 | 6.3 |
+| - 1 | 1.0 | 11 | 7.3 |
+| 0 | 1.2 | 12 | 8.6 |
+| 1 | 1.5 | 13 | 10.0 |
+| 2 | 1.7 | 14 | 11.7 |
+| 3 | 2.0 | 15 | 13.7 |
+| 4 | 2.4 | 16 | 15.9 |
+| 5 | 2.8 | 17 | 18.5 |
+| 6 | 3.3 | 18 | 21.5 |
+| 7 | 3.9 | 19 | 24.8 |
+| 8 | 4.5 | 20 | 28.5 |
+| 9 | 5.3 | 21+ | > 30 |
+
+Table 2C: Heart Age/ Vascular Age For Women
+| Points | Heart age, y |
+|---|---|
+| < 1 | <30 |
+| 1 | 31 |
+| 2 | 34 |
+| 3 | 36 |
+| 4 | 39 |
+| 5 | 42 |
+| 6 | 45 |
+| 7 | 48 |
+| 8 | 51 |
+| 9 | 55 |
+| 10 | 59 |
+| 11 | 64 |
+| 12 | 68 |
+| 13 | 73 |
+| 14 | 79 |
+| 15+ | > 80 |
+
+To determine a women's 10 year CVD risk, calculate in order:
+- Grand Total CVD points (Table 2A)
+- 10 year Risk of CVD (Table 2B)
+- Heart Age/ Vascular Age for Women (Table 2C)
 
 These women should be screened by history and clinical examination of the foot pulses. The diagnosis of PAD may be objectively confirmed by the measurement of the ABI by Doppler ultrasound. The presence of PAD indicates a high-risk individual and alters the intensity of risk factor modification.
 
@@ -364,10 +404,7 @@ However a meta-analysis has shown that these drugs can be safely used in stable 
 
 Symptomatic patients should be considered for intervention – angioplasty or surgery. The diagnosis can be confirmed with either a magnetic resonance angiogram (MRA) or CT angiography (CTA) prior to intervention. Women tend to have higher morbidity and mortality after open surgical procedures.
 
----
-
 ## 2.4: Aortic Atherosclerosis And Aortic Aneurysm
-
 ### 2.4.1: Presenting Symptoms
 Aortic atherosclerosis is usually asymptomatic and was noted in 38% of women. Aortic aneurysms are uncommon in women. The prevalence ranges from 0.6 to 1.4% which is about 15% of that seen in men. Women present seven to ten years later than men. Most AAA-related deaths occur before 80 years of age in men and after 80 years of age in women.
 
@@ -382,9 +419,7 @@ The general guidelines for the management of AAA are:
 - **Medium-sized aneurysm (between 4 cm and 5.5 cm):** Treatment of this condition is still unclear. Closer and more frequent monitoring for progression is recommended
 - **Large (5.5 cm or larger), fast-growing aneurysm (more than 0.5 cm over six months) or symptomatic (leaking, tender or painful):** Surgical or endovascular repair is recommended
 
----
-
-## 2.5: Key Messages
+**Key Messages**
 - CVD (heart disease and strokes) is the main cause of death among women in Malaysia.
 - The pathophysiological mechanisms contributing to myocardial ischaemia in women are varied and may be multiple.
 - Women with angina may have:
@@ -397,7 +432,6 @@ The general guidelines for the management of AAA are:
 
 <!-- parent_only_reference_start -->
 Table 6: Sex Specific Stroke Risk Factors*
-
 | Risk Factor | Sex-Specific Risk Factors | Risk Factors That Are Stronger or More Prevalent in Women | Risk Factors With Similar Prevalence in Men and Women but Unknown Difference in Impact |
 |---|---|---|---|
 | Pregnancy | X | | |
@@ -421,7 +455,6 @@ Table 6: Sex Specific Stroke Risk Factors*
 | Psychosocial stress | | X | |
 
 Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AAA | Abdominal aortic aneurysm |

@@ -6,9 +6,7 @@ patient_input: age, menopausal_status, family_history, lipid_profile, BP, fastin
 output: risk_factor_identification, sex-specific_risk_profile, NHMS_prevalence_data, metabolic_syndrome_criteria
 -->
 
----
-
-## 4.1: Personal History Of Chd and/or Chd Equivalents
+## 4.1: Personal History Of CHD and/or CHD Equivalents
 Persons with established CVD are at high risk for recurrent vascular events. In the GRACE registry, the 6 month risk of CV death and major CV event rate after an ACS, was 5-8% and 15-20% respectively. A study done in England showed that following the first MI, the risk of a recurrent MI was highest during the first year and the cumulative risk increased gradually thereafter. For women, the 1 and 7 year cumulative risk was 7.2% and 16.2% respectively which were higher than that in men (5.6% and 13.9% respectively). Older age, no revascularization procedures, and the presence of comorbidities were associated with a higher recurrence risk.
 
 In patients with stable CHD, the 1 year rate of CV death was 1.9% and the rate of CV death, MI or stroke was 4.5%. Following a stroke, the risk of a recurrent stroke was 8% and the risk of death 4.5%. The rates continued to increase steadily up to 4 years.
@@ -70,8 +68,6 @@ Some studies found that maternal history of MI at any age was more strongly asso
 
 Individuals with a family history of premature CHD or stroke should have their global CVD risk assessed and the appropriate preventive strategies implemented.
 
----
-
 ## 4.4: Dyslipidaemia
 Lipoprotein levels are similar in pre-pubertal girls and boys. After puberty,
 - HDL-C levels remain higher in women compared to men
@@ -122,15 +118,13 @@ Combined oral contraceptive (COC) use may cause a small but detectable increase 
 
 In contrast, HRT as either oral or transdermal oestrogen alone or in combination with a progestin, has neutral effects or may lower the BP in normotensive and in hypertensive women.
 
-Factors that predispose to pregnancy-induced hypertension also predispose to CVD in later life. Thus long term follow-up of these patients is advisable. (section 4.12.3)
+Factors that predispose to pregnancy-induced hypertension also predispose to CVD in later life. Thus long term follow-up of these patients is advisable. (Refer to section 4.12.3: Pre-Eclampsia / Pregnancy Complications)
 
 ## 4.6: Diabetes Mellitus/Pre-diabetes
-
 ### 4.6.1: Diabetes Mellitus
 The most recent NHMS V 2015 found that the prevalence of DM among adults 18 years and above was 17.5%. The prevalence increases with increasing age, from 5.5% in the 18-19 years age group to 39.1% among the 70-74 years age group. In adults age 30 years and above the prevalence had increased from 8.3% in 1996 (NHMS II) to 20.8% (NHMS IV). (Table 7) Among adults above the age of 18 years old, the prevalence was highest in the Indians (22.1%) followed by Malays (14.6%) and Chinese (12.0%). There remains no gender difference observed. (Women 18.3% vs men 16.7%) T2DM accounts for > 95% of the local diabetic population.
 
 Table 7: Prevalence of diabetes in adults 30 years and above\*
-
 | National Health & Morbidity Survey | NHMS II 1996 | NHMS III 2006 | NHMS IV 2011 |
 | :--- | :--- | :--- | :--- |
 | Prevalence of Diabetes Mellitus in Adults 30 Years and Above | 8.3% | 14.9% | 20.8% |
@@ -151,12 +145,11 @@ Pre-diabetes includes:
 - Impaired Glucose Tolerance (IGT)
 - Combined IFG and IGT
 
-DM and pre-diabetes can be diagnosed by using fasting or random plasma glucose, oral glucose tolerance test (OGTT) or HbA1c (Table 8 & 9).
+DM and pre-diabetes can be diagnosed by using fasting or random plasma glucose, oral glucose tolerance test (OGTT) or HbA1c (Table 8: Diagnosis of Pre-Diabetes and T2DM\* & Table 9: Diagnosis of Pre-diabetes and T2DM\* based on HbA1c).
 
 In asymptomatic individuals, any 2 abnormal values performed on 2 different days are required to make the diagnosis of diabetes. In symptomatic individuals, a single abnormal value is adequate.
 
 Table 8: Diagnosis of Pre-Diabetes and T2DM\*
-
 | Plasma glucose (mmol/L) | T2DM | Prediabetes (IFG) | Prediabetes (IGT) |
 | :--- | :--- | :--- | :--- |
 | Fasting | ≥ 7.0 | ≥ 6.1 – 6.9 | - |
@@ -164,8 +157,7 @@ Table 8: Diagnosis of Pre-Diabetes and T2DM\*
 
 *\*Diagnosis of DM: for symptomatic patients, a single abnormal value is adequate; for asymptomatic individuals, 2 abnormal values are required*
 
-**Table 9: Diagnosis of Pre-diabetes and T2DM\* based on HbA1c**
-
+Table 9: Diagnosis of Pre-diabetes and T2DM\* based on HbA1c
 | | Normal | Pre-diabetes (ADA/WHO) | T2DM (ADA/WHO) | T2DM (Malaysian CPG 2015) |
 | :--- | :--- | :--- | :--- | :--- |
 | HbA1c% | < 5.6 | 5.6-6.4\*\* | ≥ 6.5 | ≥ 6.3 |
@@ -201,7 +193,6 @@ Excess abdominal adipose tissue is associated with insulin resistance, creating 
 Overweight/obesity increases CVD risk. With increasing body mass, both CHD mortality and all-cause mortality are increased. Higher BMI (particularly ≥ 30) is associated with a greater risk of SCD, showing stronger association in middle-aged rather than older women.
 
 Table 10: Prevalence of Overweight/Obesity in NHMS III (2006) and NHMS V (2015)
-
 | Adults | Overweight (BMI 25 – 29.9 kg/m²) NHMS III | Overweight (BMI 25 – 29.9 kg/m²) NHMS V | Obese (BMI > 30kg/m²) NHMS III | Obese (BMI > 30kg/m²) NHMS V |
 | :--- | :--- | :--- | :--- | :--- |
 | Males | 29.7% | 31.6% | 10.0% | 15.0% |
@@ -213,7 +204,6 @@ Table 10: Prevalence of Overweight/Obesity in NHMS III (2006) and NHMS V (2015)
 Gender specific waist circumference cut-off points for CVD risk have been established (≥ 80 cm in Asian women raises CVD risk). Weight gain during adulthood is associated with a significantly increased risk of CHD. For each increase in body weight of approximately 1 kg, the risk of CHD mortality increases by 1-1.5%.
 
 Table 11: Beneficial effects of a 10% weight loss in the obese individual
-
 | Parameter | Effects |
 | :--- | :--- |
 | Mortality | >20% ↓ total<br>>30% ↓ diabetes related<br>>40% ↓ obesity related cancer |
@@ -244,8 +234,6 @@ Women with PCOS with obesity, cigarette smoking, dyslipidaemia, hypertension, im
 
 For overweight/ obese women with PCOS, a 5–10% weight loss should be targeted. This can be achieved with lifestyle modification and behavioural techniques. The long-term goal should be a 10 to 20% weight loss and a waist circumference of < 80 cm.
 
----
-
 ## 4.10: Smoking
 Smoking is a very important cardiac risk factor in both men and women. This risk is dose related. In women, even with minimal use, CVD risk is elevated (RR: 2.4 for 1.4 cigarettes/ day). The risks associated with smoking are consistently higher in women than in men and are not age dependent. The risk of CHD begins to decline within months of smoking cessation and reaches the level of persons who have never smoked within 3 to 5 years. Cigarettes can induce an unfavourable lipid profile, increase inflammation, thrombosis and oxidative stress. As a result women, especially premenopausal women, lose their "natural" protection against atherosclerotic vascular disease.
 
@@ -263,8 +251,6 @@ Non smokers exposed to secondhand smoke increase their risk of developing:
 - Lung cancer by 20-30%
 
 The scientific evidence indicates that there is no risk-free level of exposure to secondhand smoke.
-
----
 
 ## 4.11: Physical Activity
 Epidemiological studies have shown that low physical activity is a strong and independent risk factor for both CVD (both CHD and stroke) and all-cause mortality.
@@ -292,7 +278,6 @@ These benefits of physical activity were seen in all women irrespective of the b
 Obesity is often associated with physical inactivity and both independently contribute to the development of CHD in women. Being physically active attenuates moderately but does not eliminate the adverse effects of obesity on cardiac risk. Being lean does not counteract the increased risk of CHD associated with physical inactivity. The lowest risk of CHD is observed among physically active, lean women.
 
 Table 12: Relative Risk of CHD by BMI and Physical Activity
-
 | BMI & Activity Level | Relative Risk (RR) of CHD |
 | :--- | :--- |
 | Healthy weight + Active (exercise ≥ 3.5 hrs/wk) | **1.00 (Reference)** |
@@ -304,11 +289,8 @@ Table 12: Relative Risk of CHD by BMI and Physical Activity
 
 Overweight/obese is associated with far greater increases in the risk of developing T2DM than being unfit or inactive. Higher levels of physical activity does not ameliorate this risk. Women who are physically active tend to have a more favourable CVD risk profile. Physical fitness is independently associated with lower TG, higher HDL-C, lower TC/HDL-C ratio, lower BP and lower cigarette smoking.
 
----
-
 ## 4.12: Sex-Specific And Other Risk Factors
-
-### 4.12.1: Combined Oral Contraceptives (Coc)
+### 4.12.1: Combined Oral Contraceptives (COC)
 Observational studies have shown that COC are associated with an increased risk of VTE, stroke and MI. The CV risk was greater in smokers. Second (2nd) and 3rd generation pills seem to have slightly different risk profiles. VTE seems to be somewhat more prevalent with 3rd generation pills, increasing non-fatal VTE risk by about 2-fold (or about 3 cases for every 10,000 users).
 
 The risk of stroke and MI appears higher among 2nd generation COC pills. Overall incidence among current users:
@@ -319,7 +301,6 @@ The risk of stroke and MI appears higher among 2nd generation COC pills. Overall
 Current or prior use of low-dose COC is not associated with a significant increased risk of MI in healthy non-smokers. However, women who smoke heavily are at high risk of MI (independent of the formulation or oestrogen dose used). The CV risk of COCs is increased if the woman is diabetic, obese, smokes, or has hypertension.
 
 Table 13: WHO Medical Eligibility Criteria for COC Use
-
 | Advised AGAINST use in persons with: | Not usually recommended (unless no other method available): |
 | :--- | :--- |
 | • Breast feeding < 6 weeks post-partum<br>• < 21 days post-partum with other VTE risk factors<br>• Smoking ≥ 15 cigarettes a day<br>• Uncontrolled BP (systolic ≥ 160 or diastolic ≥ 100 mmHg)<br>• Any vascular disease, prior VTE, or pulmonary embolism<br>• Known thrombogenic factors<br>• Recent surgery with prolonged immobilization<br>• History of CHD or stroke<br>• Valvular heart disease with pulmonary hypertension/AF<br>• SLE with positive anti-phospholipid antibodies<br>• Migraine with aura | • > 6 weeks to < 6 months post-partum<br>• > 21 days to < 42 days with other VTE risk factors<br>• Multiple risk factors for CVD<br>• Hypertension<br>• Migraine without aura but age ≥ 35 years |
@@ -328,7 +309,6 @@ Table 13: WHO Medical Eligibility Criteria for COC Use
 Menopausal hormone therapy (ET/EPT) does not protect post-menopausal women against CVD, and may even cause an increased risk of stroke. There is no evidence of protective effects against death from any cause (including CVD or MI).
 
 Table 14: Associated Risks of Menopausal Hormone Therapy
-
 | Therapy Type | Absolute risk per 10,000 women/year |
 | :--- | :--- |
 | ET/EPT Combination | • 7 more CHD events<br>• 8 more strokes<br>• 8 more pulmonary emboli<br>• 8 more invasive breast cancers<br>• 5 fewer hip fractures<br>• 6 fewer colorectal cancers |
@@ -353,10 +333,9 @@ It is critical that such women be referred for lifelong risk factor monitoring a
 ### 4.12.4: Alcohol
 There is a J-shaped curve between alcohol intake and a variety of adverse health outcomes. Low levels of alcohol intake have been found to reduce all-cause mortality in both men and women. In non-pregnant women, this should **not exceed 1 drink (10 g/day) per day**. At moderate to high levels, the risk of death is higher in women than in men, probably owing to increasing risk of cancer and both haemorrhagic and ischemic strokes. Heavy consumption of alcohol (3 or more drinks a day) is also related to hypertriglyceridemia, uncontrolled hypertension, congestive heart failure and liver disease.
 
-When men and women consume the same amount of alcohol, women experience higher blood alcohol concentrations because they metabolize ethanol differently and have lower gastric alcohol dehydrogenase activity. Pregnant women are advised to absolutely refrain from alcohol consumption (see Appendix 3).
+When men and women consume the same amount of alcohol, women experience higher blood alcohol concentrations because they metabolize ethanol differently and have lower gastric alcohol dehydrogenase activity. Pregnant women are advised to absolutely refrain from alcohol consumption (refer to Appendix 3: Alcohol Content of Common Spirits).
 
 The benefits of alcohol appear to be related to its antithrombotic properties and its ability to increase HDL levels. Wine (ethanol with antioxidants) exhibits significantly higher anti-inflammatory effects than gin (ethanol without polyphenols), and thus in general, wine should be preferred to liquor or beer. Regular drinking is associated with better outcomes than occasional (binge) or weekly drinking.
-
 
 ### 4.12.5: Depression
 CVD and depression often co-exist. Patients with CVD have more depression than the general population, and persons with depression are also more likely to eventually develop CVD and have a higher mortality rate. Clinical depression/depressive symptoms are associated with adverse CV outcomes.
@@ -365,9 +344,7 @@ Depression is more common in women than men. Depressive symptoms in women ≤ 55
 
 Coronary patients with clinically significant depression can be safely and effectively treated with psychotherapy or selective serotonin re-uptake inhibitors (SSRIs), although evidence for a beneficial effect on cardiac endpoints is inconclusive. Care must be taken with the use of older anti-depressants as they may cause arrhythmias. A prudent approach is to offer patients with clinically significant depression or anxiety treatment with psychotherapy and antidepressant/anxiolytic medication. Those not accepting treatment should be followed closely, and treatment offered again if symptoms persist for 4 - 6 weeks.
 
----
-
-## 4.13: Key Messages
+**Key Messages**
 CV risk factors in women include:
 - **Non-modifiable factors:** increasing age, family history of premature CVD.
 - **Modifiable factors:**
@@ -382,8 +359,111 @@ CV risk factors in women include:
   - Others – Combined Oral Contraceptives, Oestrogen Therapy/Oestrogen Progesterone Therapy, pre-eclampsia, alcohol, depression
 
 <!-- parent_only_reference_start -->
-**Appendix 3: Alcohol Content of Common Spirits**
+Table 1: Classification Of CVD Risk In Women
+| Risk Category | Criteria |
+|---|---|
+| High Risk | Established CHD and/or CHD Equivalents which are: |
+| | • Cerebrovascular disease |
+| | • Peripheral arterial disease (PAD) |
+| | • Abdominal aortic aneurysm (AAA) |
+| | • Diabetes mellitus (DM) |
+| | • End stage or chronic kidney disease |
+| | • Multiple risk factors that confer a 10 year CVD risk of > 20% using FRS (refer Table 2: Framingham Risk Score) |
+| At Risk | 1 major risk factor for CVD including: |
+| | • Family history of premature CVD (CVD at age < 55 years in male relative and < 65 years in female relative) |
+| | • Total cholesterol ≥ 5.2 mmol/L, HDL-C < 1.2 mmol/l, or treated for dyslipidaemia |
+| | • Systolic blood pressure (SBP) ≥ 120 mmHg, diastolic blood pressure (DBP) ≥ 80 mmHg, or treated hypertension |
+| | • Cigarette smoking |
+| | • Physical inactivity |
+| | • Obesity especially central obesity |
+| | • Metabolic syndrome |
+| | • Evidence of advanced subclinical atherosclerosis (e.g. coronary calcification, carotid plaque, or thickened Intima Medial Thickness (IMT)) |
+| | • History of preeclampsia, gestational diabetes, or pregnancy-induced hypertension |
+| | • Systemic autoimmune collagen-vascular disease (e.g. lupus or rheumatoid arthritis) |
+| Optimal Risk | 10 year CVD risk of < 10% using FRS. Having a healthy lifestyle with no risk factors: |
+| | • Total cholesterol (TC) < 5.2 mmol/L (untreated) |
+| | • BP < 120/< 80 mmHg (untreated) |
+| | • Fasting blood glucose < 6.1 mmol/L (untreated) |
+| | • BMI < 23 kg/m² |
+| | • Abstinence from smoking |
+| | • Physical activity at goal for adults > 20 years of age:<br>&nbsp;&nbsp; ≥ 150 min/week moderate intensity,<br>&nbsp;&nbsp; ≥ 75 min/week vigorous intensity, or combination |
 
+Table 2: Framingham Risk Score For Asessment Of CVD Risk
+Table 2A: CVD Points For Women
+| Points | Age, y | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
+|---|---|---|---|---|---|---|---|
+| - 3 | | | | <120 | | | |
+| - 2 | | 1.6+ | | | | | |
+| - 1 | | 1.3 - 1.6 | | | <120 | | |
+| 0 | 30 - 34 | 1.2 - <1.3 | <4.2 | 120 - 129 | | No | No |
+| 1 | | 0.9 - <1.2 | 4.2 - <5.2 | 130 - 139 | | | |
+| 2 | 35 - 39 | <0.9 | | 140 - 149 | 120 - 129 | | |
+| 3 | | | 5.2 - <6.3 | | 130 - 139 | Yes | |
+| 4 | 40 - 44 | | 6.3 - <7.4 | 150 - 159 | | | Yes |
+| 5 | 45 - 49 | | >7.4 | 160+ | 140 - 149 | | |
+| 6 | | | | | 150 - 159 | | |
+| 7 | 50 - 54 | | | | 160+ | | |
+| 8 | 55 - 59 | | | | | | |
+| 9 | 60 - 64 | | | | | | |
+| 10 | 65 - 69 | | | | | | |
+| 11 | 70 - 74 | | | | | | |
+| 12 | 75+ | | | | | | |
+
+Table 2B: CVD Risk For Women
+| Total Points | 10 year Risk % | Total Points | 10 year Risk % |
+|---|---|---|---|
+| < -2 | < 1 | 10 | 6.3 |
+| - 1 | 1.0 | 11 | 7.3 |
+| 0 | 1.2 | 12 | 8.6 |
+| 1 | 1.5 | 13 | 10.0 |
+| 2 | 1.7 | 14 | 11.7 |
+| 3 | 2.0 | 15 | 13.7 |
+| 4 | 2.4 | 16 | 15.9 |
+| 5 | 2.8 | 17 | 18.5 |
+| 6 | 3.3 | 18 | 21.5 |
+| 7 | 3.9 | 19 | 24.8 |
+| 8 | 4.5 | 20 | 28.5 |
+| 9 | 5.3 | 21+ | > 30 |
+
+Table 2C: Heart Age/ Vascular Age For Women
+| Points | Heart age, y |
+|---|---|
+| < 1 | <30 |
+| 1 | 31 |
+| 2 | 34 |
+| 3 | 36 |
+| 4 | 39 |
+| 5 | 42 |
+| 6 | 45 |
+| 7 | 48 |
+| 8 | 51 |
+| 9 | 55 |
+| 10 | 59 |
+| 11 | 64 |
+| 12 | 68 |
+| 13 | 73 |
+| 14 | 79 |
+| 15+ | > 80 |
+
+To determine a women's 10 year CVD risk, calculate in order:
+- Grand Total CVD points (Table 2A)
+- 10 year Risk of CVD (Table 2B)
+- Heart Age/ Vascular Age for Women (Table 2C)
+
+Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
+| Risk Factor | Units | Patient’s Value | Acceptable range of values | Optimal Values |
+|---|---|---|---|---|
+| Sex | M(males) or F(females) | | M or F | |
+| Age | years | | 20-79 | |
+| Race | AA(African Americans) WH(Whites and others) | | AA or WH | |
+| Total Cholesterol | mg/dL | | 130-320 | 170 |
+| HDL cholesterol | mg/dL | | 20-100 | 50 |
+| Systolic BP | mmHg | | 90-200 | 110 |
+| Treatment for BP | Y (Yes); N (For No) | | Y or N | N |
+| Diabetes | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
+| Smoker | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
+
+Appendix 3: Alcohol Content of Common Spirits
 *Wine*
 | Strength | 125ml (small glass) | 175ml (standard glass) |
 | :--- | :--- | :--- |
@@ -402,7 +482,6 @@ CV risk factors in women include:
 | 40% | 1 unit | 2 units |
 
 Abbreviations
-
 | Abbreviation | Full Term |
 | :--- | :--- |
 | ACS | Acute Coronary Syndrome |

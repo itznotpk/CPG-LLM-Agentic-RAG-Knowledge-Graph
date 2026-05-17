@@ -6,8 +6,6 @@ patient_input: medication_regimen, adherence_barriers, clinical_audit_data, pati
 output: adherence_strategies, regimen_simplification, audit_numerator_denominator, quality_metrics
 -->
 
----
-
 ## 7.1: Barriers To Adherence
 It has been well documented that there is a lack of adherence to cardiovascular preventive therapy. This is due to:
 - Healthcare providers not:
@@ -19,8 +17,6 @@ It has been well documented that there is a lack of adherence to cardiovascular 
 - Patient - non compliance to medical advice and drug therapy
 
 Lack of adherence threatens the success of the guideline recommendation and implementation. More importantly, lack of adherence leads to missed opportunity for the risk reducing benefits of the treatment, thus creating enormous costs to the health system for treating CV events that could have been prevented.
-
----
 
 ## 7.2: Strategies To Improve Adherence And Compliance
 To improve adherence and compliance the following are recommended:
@@ -38,51 +34,37 @@ To improve adherence and compliance the following are recommended:
 - Standardize reference values in all laboratories to recommended Malaysian guidelines
 - Where available, the patient should be referred to the Medication Therapy Adherence Clinic (MTAC) to improve compliance to therapy
 
----
-
 ## 7.3: Clinical Quality Assurance Audit Parameters
 Adherence to therapy should be checked periodically. Some suggested audit parameters are as in the Audit of Clinical Diabetes (Green Book) by the *Unit Penyakit Kardiovaskular dan Diabetes* (refer Appendix 6: Audit of Clinical Diabetes). In addition documentation of the following:
 
 **Target:** More than 70% of the medical records should have these data documented.
 
----
-
-### Measure 1: CVD Risk Documentation
+**Measure 1: CVD Risk Documentation**
 CVD risk of the women (any CV risk score but the Framingham general CVD risk score tool for primary care is encouraged).
 
 - **Numerator:** Number of women with CVD risk score documented
 - **Denominator:** Number of women seen at that clinic session
 
----
-
-### Measure 2: Anthropometric Assessments
+**Measure 2: Anthropometric Assessments**
 Patient's weight, waist circumference and BMI and the desirable values.
 
 - **Numerator:** Number of women with these values documented
 - **Denominator:** Number of women seen at that clinic session
 
----
-
-### Measure 3: Blood Pressure Control
+**Measure 3: Blood Pressure Control**
 - **Numerator:** Number of women with BP target achieved
 - **Denominator:** Number of women with hypertension seen at that clinic session
 
----
-
-### Measure 4: Lipid Target Achievement
+**Measure 4: Lipid Target Achievement**
 - **Numerator:** Number of women with LDL-C (or total cholesterol) target achieved
 - **Denominator:** Number of women seen at that clinic session whose LDL-C (or total cholesterol) were measured
 
----
-
-### Measure 5: Glycaemic Control
+**Measure 5: Glycaemic Control**
 - **Numerator:** Number of women with HbA1c (or fasting glucose) target achieved
 - **Denominator:** Number of women with diabetes seen at that clinic session
 
----
-
 <!-- parent_only_reference_start -->
-**Appendix 6: Audit Of Clinical Diabetes**
+Appendix 6: Audit Of Clinical Diabetes
 **Buku Rekod Rawatan NCD\***
 
 **Patient Demographics**
@@ -121,7 +103,6 @@ Patient's weight, waist circumference and BMI and the desirable values.
 > - *\*\*Estimate/presumed: If date not known, enter 30/06/yyyy and mark the box.*
 
 Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | 2HPP | 2-Hour postprandial |

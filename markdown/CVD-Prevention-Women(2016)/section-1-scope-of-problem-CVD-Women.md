@@ -6,8 +6,6 @@ patient_input: sex, age, clinical_presentation
 output: CVD_burden_in_women, gender_specific_risk_context, awareness_gaps
 -->
 
----
-
 ## 1.1: Epidemiology And Impact
 CVD is the main cause of death among women worldwide including South East Asia and Malaysia. It is 2 ½ times more common as a cause of death in Malaysian women than all cancers combined.
 
@@ -21,8 +19,6 @@ There were no gender differences in the in-hospital mortality in all spectrums o
 
 Similarly, following a stroke, women are more likely to die than men. Those who survive have a poorer long term outcome and a lower quality of life. Stroke is the most important cause of death in women worldwide. It is the most important cause of disability and the second most common cause of dementia after Alzheimer's disease. At age 65, women have a higher lifetime risk of Alzheimer's than men.
 
----
-
 ## 1.2: Lack Of Awareness And Its Consequences
 These facts are not well appreciated by both the general public and health care professionals who often regard CVD as a problem that only affect men. In surveys, more than two thirds of women surveyed said that cancer was the main cause of death among women. A contemporary study found that only 35% and 55% of women below the age of 55 years perceived themselves at risk of heart disease before their index MI.
 
@@ -33,8 +29,6 @@ This lack of awareness has contributed to:
 - Lower rates of diagnosis of CVD in women.
 - Lower usage of appropriate medications and interventions for treating women with CVD.
 
----
-
 ## 1.3: Clinical Differences In Women
 Women with heart disease often present atypically and tend to have less chest pain. Typical symptoms of an ACS however, are as important in women as in men. General feelings of illness, fearfulness and nausea were more common in women. Other atypical presentations include breathlessness and fatigue. Due to their atypical presentations, women are often not appropriately triaged in the emergency room resulting in a delay in the diagnosis and treatment. This has adverse consequences on their prognosis.
 
@@ -44,7 +38,6 @@ Women with heart disease often present atypically and tend to have less chest pa
 
 <!-- parent_only_reference_start -->
 Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | ACEI | Angiotensin-converting enzyme inhibitors |

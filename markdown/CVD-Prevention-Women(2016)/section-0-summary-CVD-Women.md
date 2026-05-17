@@ -8,8 +8,6 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
 
 > **Context:** Key-recommendations summary and index for the 2016 Malaysian CVD Prevention in Women CPG: risk classification, treatment targets, and evidence grading. A consolidated quick-reference — full clinical detail and rationale are in Sections 2–6.
 
----
-
 ## 0.1: Summary Of Key Points
 - Cardiovascular disease (CVD), heart disease and strokes, is the main cause of death among women in Malaysia. It is 2 ½ times more common as a cause of death than all cancers combined.
 - The pathophysiological mechanisms contributing to myocardial ischemia in women are varied and maybe multiple. Women with angina may have:
@@ -29,12 +27,12 @@ output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, ev
 - Increased awareness, early detection with appropriate investigations and management is important.
 - All women above the age of 40 years should know their CVD risk.
 
-### Assessment Of CVD Risk Involves:
+**Assessment Of CVD Risk Involves:**
 - **History:** Looking for symptoms suggestive of CHD or CHD Equivalents, family history of premature CHD, smoking status, physical activity
 - **Physical Examination:** Height, weight, body mass index (BMI), waist circumference, pulses, blood pressure (BP)
 - **Investigations:** Blood glucose, lipid profile
 
-### Risk Classification
+**Risk Classification**
 Risk Classification helps to identify High Risk women and to guide intensity of risk reduction efforts and the need for pharmacotherapy. Women may be classified according to their CVD risk as:
 - High Risk
 - At Risk
@@ -42,13 +40,13 @@ Risk Classification helps to identify High Risk women and to guide intensity of 
 
 Risk classification can also be done using the The Framingham Risk Score (FRS). The AHA/ACC pooled Risk Equations may also be used although in 2 retrospective studies, the FRS was a better estimate of CV risk in our local population.
 
-### Prevention Of CVD
+**Prevention Of CVD**
 Prevention of CVD involves a healthy lifestyle and risk factor reduction – the targets of risk factor reduction will depend on the individual's CVD risk.
 - **High Risk:** Intensive risk factor reduction with lifestyle and pharmacological measures to achieve target levels.
 - **At Risk:** Non pharmacological intervention with diet and physical activity. If targets not achieved, pharmacological therapy is indicated.
 - **Optimal Risk:** Continue with healthy lifestyle measures
 
-### Clinical Audit Parameters
+**Clinical Audit Parameters**
 To ensure compliance to the guidelines, periodic audit of simple parameters should be done. Suggested audit parameters are documentation in the medical records of the individual's:
 - CVD risk
 - Height, weight, waist circumference and BMI and the desirable values.
@@ -56,12 +54,8 @@ To ensure compliance to the guidelines, periodic audit of simple parameters shou
 - Lipid values
 - Fasting glucose and glycated haemoglobin A1c (HbA1c) levels
 
----
-
 ## 0.2: Critical Reference Tables
-
 Table 1: Classification Of CVD Risk In Women
-
 | Risk Category | Criteria |
 |---|---|
 | High Risk | Established CHD and/or CHD Equivalents which are: |
@@ -70,7 +64,7 @@ Table 1: Classification Of CVD Risk In Women
 | | • Abdominal aortic aneurysm (AAA) |
 | | • Diabetes mellitus (DM) |
 | | • End stage or chronic kidney disease |
-| | • Multiple risk factors that confer a 10 year CVD risk of > 20% using FRS (refer Table 2: Framingham Risk Score) |
+| | • Multiple risk factors that confer a 10 year CVD risk of > 20% using FRS (refer Table 2: Framingham Risk Score For Asessment Of CVD Risk) |
 | At Risk | 1 major risk factor for CVD including: |
 | | • Family history of premature CVD (CVD at age < 55 years in male relative and < 65 years in female relative) |
 | | • Total cholesterol ≥ 5.2 mmol/L, HDL-C < 1.2 mmol/l, or treated for dyslipidaemia |
@@ -91,9 +85,7 @@ Table 1: Classification Of CVD Risk In Women
 | | • Physical activity at goal for adults > 20 years of age:<br>&nbsp;&nbsp; ≥ 150 min/week moderate intensity,<br>&nbsp;&nbsp; ≥ 75 min/week vigorous intensity, or combination |
 
 Table 2: Framingham Risk Score For Asessment Of CVD Risk
-
-Table 2a: CVD Points For Women
-
+Table 2A: CVD Points For Women
 | Points | Age, y | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
 | - 3 | | | | <120 | | | |
@@ -113,8 +105,7 @@ Table 2a: CVD Points For Women
 | 11 | 70 - 74 | | | | | | |
 | 12 | 75+ | | | | | | |
 
-Table 2b: CVD Risk For Women
-
+Table 2B: CVD Risk For Women
 | Total Points | 10 year Risk % | Total Points | 10 year Risk % |
 |---|---|---|---|
 | < -2 | < 1 | 10 | 6.3 |
@@ -130,8 +121,7 @@ Table 2b: CVD Risk For Women
 | 8 | 4.5 | 20 | 28.5 |
 | 9 | 5.3 | 21+ | > 30 |
 
-Table 2c: Heart Age/ Vascular Age For Women
-
+Table 2C: Heart Age/ Vascular Age For Women
 | Points | Heart age, y |
 |---|---|
 | < 1 | <30 |
@@ -157,7 +147,6 @@ To determine a women's 10 year CVD risk, calculate in order:
 - Heart Age/ Vascular Age for Women (Table 2C)
 
 Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
-
 | Risk Factor | Units | Patient’s Value | Acceptable range of values | Optimal Values |
 |---|---|---|---|---|
 | Sex | M(males) or F(females) | | M or F | |
@@ -172,7 +161,6 @@ Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
 
 Table 4: General Recommendations For Prevention Of CVD In Women
 *Note: Refer to Section 0.3 (Clinical Evidence Grading) for definitions of Grades (I, II, III) and Levels (A, B, C).*
-
 | Category | Recommendations | Grade of Rec / Level of Evidence |
 |---|---|---|
 | Nutrition | • Know one’s daily calorie requirements.<br>• Home cooked meals are preferable.<br>• Diet should encompass all food groups. Eat more fruits, vegetables, whole grain cereals and bread, fish especially oily fish rich in omega-3 fatty acids (such as *ikan tenggiri*, *carp*), lean meat, nuts and legumes, low fat milk and cheese, skinless poultry, non-tropical vegetable oils.<br>• A high fiber diet: 20-30 gm/day<br>• Eat more complex carbohydrates-whole grains, peas, beans, lentils. Whole grains should form 50% of total grain intake.<br>• Naturally occurring sugars are preferred. Avoid sweets and sucrose-sweetened beverages.<br>• Reduce daily salt intake to approximately 1-1¼ teaspoon salt.<br>• Replace saturated and *trans*-fats with monounsaturated and polyunsaturated fats. | I, B |
@@ -229,7 +217,6 @@ Table 5: Targets Of Treatment
 
 <!-- parent_only_reference_start -->
 Grades Of Recommendation
-
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -239,7 +226,6 @@ Grades Of Recommendation
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
 Levels Of Evidence
-
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
@@ -247,7 +233,6 @@ Levels Of Evidence
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
 Abbreviations
-
 | Abbreviation | Full Term |
 |---|---|
 | AAA | Abdominal aortic aneurysm |
