@@ -1,4 +1,4 @@
-# Section 4: .10: Infective Endocarditis
+# Section 4.10: Infective Endocarditis
 <!-- METADATA
 category: Diagnosis, Treatment, Prevention, Special Populations
 use_case: Infective Endocarditis in Pregnancy — IE_aetiology, antibiotic_management, surgical_indications, prophylaxis, high_risk_structural_heart_disease

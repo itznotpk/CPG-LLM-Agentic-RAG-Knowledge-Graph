@@ -579,8 +579,6 @@ Appendix N: Safety Of Progesterone Only Contraceptive Methods In Women With Card
 ^d^The INR may be altered after initiation of any progesterone hormone therapy. It needs to be monitored.;
 ^e^Risk of Infective Endocarditis
 
-From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
-
 Appendix O: Risk Of Combined Contraceptive Pills For The Different Cardiac Conditions Whomec Risk Classification For The Use Of Combined Hormonal Contraceptives*
 | MEC CLASS | WHOMEC 1 | WHOMEC 2 | WHOMEC 3 | WHOMEC 4 |
 |---|---|---|---|---|
@@ -596,10 +594,6 @@ Appendix O: Risk Of Combined Contraceptive Pills For The Different Cardiac Condi
 | Cardiac Conditions |  |  |  | Poor left ventricle function of any cause (e.g. dilated cardiomyopathy) Ejection fraction < 30% |
 | Cardiac Conditions |  | Hypertrophic cardiomyopathy lacking any of the features noted in WHOMEC 3 and WHOMEC 4 |  | Coronary artery disease |
 | Cardiac Conditions |  | Past cardiomyopathy fully recovered including peripartum cardiomyopathy |  | Coronary arteritis (e.g. Kawasaki's disease with coronary involvement |
-
-*World Health Organization. Medical Eligibility Criteria (MEC) for Contraceptive use. (5th ed) 2015. Available at: www.who.int/reproductivehealth/publication/family_planning/Ex-SummMec-5/en/*
-
-From: Thorne S et al. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
 
 Grades Of Recommendation And Level Of Evidence
 | Grade | Definition |

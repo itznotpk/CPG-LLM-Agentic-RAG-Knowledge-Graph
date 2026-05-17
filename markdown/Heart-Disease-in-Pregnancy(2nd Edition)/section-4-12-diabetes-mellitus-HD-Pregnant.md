@@ -47,23 +47,6 @@ This topic is covered in depth in the Malaysian CPG Management of Diabetes Melli
 - Women with a history of GDM should have annual screening for diabetes.
 
 ## Contextual Anchors (Overlapping)
-
-### Section 4: .11: Hypertension In Pregnancy
-This supports Section 4.12.1 where BP control should be < 130/80 mmHg before pregnancy, and medications that are unsafe in pregnancy - statins, ACE-I, ARB - should be withdrawn and substituted with anti-hypertensives that are safe in pregnancy.
-
-#### Antepartum Care And Pre-Pregnancy Medication Substitution
-[Grade I, Level B] In the treatment of hypertension in pregnancy, the aim is to keep the Systolic BP < 150 mmHg and the diastolic BP 80-100 mmHg. It is important not to lower BP below the stated lower limits as this may be associated with poor placental perfusion.
-
-Commonly used oral and parenteral anti-hypertensive drugs in pregnancy are as listed in Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy* and Table 16: Parenteral Anti-hypertensive Drugs Commonly Used in Pregnancy*.
-
-[Grade I, Level B] In patients already on anti-hypertensive medications pre-pregnancy, the following drugs need to be changed to the recommended drugs listed in Table 15: Oral Anti-hypertensive Drugs Commonly Used in Pregnancy* and Table 16: Parenteral Anti-hypertensive Drugs Commonly Used in Pregnancy*:
-- atenolol
-- angiotensin converting enzyme inhibitors (ACE-I)
-- angiotensin receptor blockers (ARB)
-- thiazide diuretics
-
-These drugs have been associated with impaired fetal growth and fetal anomaly and therefore contraindicated in pregnancy. The data on diltiazem, verapamil and amlodipine are inadequate to provide reliable information on their efficacy and safety in the treatment of hypertension in pregnancy.
-
 Table 15: Oral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 
 | Drug | Mode of Action | Daily Dosage (mg/day) | Max. Dosage (mg/day) | Half-life T1/2 (hours) | Adverse Effects |
@@ -98,9 +81,8 @@ Table 18: Blood Glucose Targets In Pregnancy
 
 ---
 
-## Grades Of Recommendation And Level Of Evidence
-
-### Grades Of Recommendation
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -109,14 +91,14 @@ Table 18: Blood Glucose Targets In Pregnancy
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | A1c | Glycated haemoglobin |
@@ -131,3 +113,4 @@ Table 18: Blood Glucose Targets In Pregnancy
 | GDM | Gestational diabetes mellitus |
 | OGTT | Oral glucose tolerance test |
 | T1/2 | Half-life |
+<!-- parent_only_reference_end -->

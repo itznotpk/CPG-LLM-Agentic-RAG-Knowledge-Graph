@@ -1,5 +1,4 @@
 # Section 4: Management Of Pregnancy In Specific Cardiac Disease
-
 <!-- METADATA
 category: Assessment, Treatment, Prevention, Special Populations
 use_case: Marfan and Thoracic Aortic Aneurysmal Syndromes in Pregnancy — aortic_root_diameter, aortic_dissection_risk, beta_blockade, echocardiography_surveillance, delivery_planning

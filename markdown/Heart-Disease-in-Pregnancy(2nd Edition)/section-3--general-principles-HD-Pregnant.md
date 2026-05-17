@@ -606,10 +606,6 @@ Appendix A: US Fda Pregnancy Risk Classification And Suggested Manegemnet Strate
 | D (positive evidence of risk)       | There is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience or studies of humans but the potential benefits from the use of the drug in pregnant women might be acceptable despite its potential risks                                   | If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be apprised of the potential hazard to the fetus                                                                     | lisinopril , alprazolam, losartan; clonazepam, lorazepam                 |
 | X (contraindicated in pregnancy)    | Studies in animals or humans have demonstrated fetal abnormalities or there is positive evidence of fetal risk based on adverse reaction reports from investigational or marketing experience both. The risk involved in the use of the drug in pregnant women clearly outweighs any possible benefits. | This is contraindicated in women who are might become pregnant. If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be advised of the potential hazard to the fetus drug | atorvastatin, simvastatin; warfarin; methotrexate_ finasteride           |
 
-Adapted From:
-- Boothby LA, Doering PL. FDA labeling system for drugs in pregnancy. Ann Pharmacother. 2001; 35(11):1485-9
-- PDR Staff. Drug Information for the Health Care Professional USDPI vol. (23d Edition) . Micromedex; NY; USA (2003).
-
 Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|

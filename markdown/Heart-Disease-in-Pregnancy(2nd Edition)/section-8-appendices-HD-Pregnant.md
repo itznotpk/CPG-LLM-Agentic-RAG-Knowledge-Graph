@@ -16,10 +16,6 @@ treatment_type: aspirin, adenosine, amiodarone, labetalol, lidocaine, methyldopa
 | D (positive evidence of risk)       | There is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience or studies of humans but the potential benefits from the use of the drug in pregnant women might be acceptable despite its potential risks                                   | If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be apprised of the potential hazard to the fetus                                                                     | lisinopril , alprazolam, losartan; clonazepam, lorazepam                 |
 | X (contraindicated in pregnancy)    | Studies in animals or humans have demonstrated fetal abnormalities or there is positive evidence of fetal risk based on adverse reaction reports from investigational or marketing experience both. The risk involved in the use of the drug in pregnant women clearly outweighs any possible benefits. | This is contraindicated in women who are might become pregnant. If this drug is used during pregnancy; or if the patient becomes pregnant while taking this drug, the patient should be advised of the potential hazard to the fetus drug | atorvastatin, simvastatin; warfarin; methotrexate_ finasteride           |
 
-## Adapted From:
-- Boothby LA, Doering PL. FDA labeling system for drugs in pregnancy. Ann Pharmacother. 2001; 35(11):1485-9
-- PDR Staff. Drug Information for the Health Care Professional USDPI vol. (23d Edition) . Micromedex; NY; USA (2003).
-
 ## Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
@@ -137,8 +133,7 @@ When considering fetal risk from radiation exposure and termination of pregnancy
 | PUTIH       | Penjagaan oleh Jururawat KesihatanlJururawat Masyarakat di Klinik Kesihatan dan Klinik Desa (sekiranya tiada terdapat faktor risiko yang disenaraikan dalam kod merah, kuning dan hijau; ibu diberi kod warna putih) |
 
 ## Appendix G: Suggested Anaesthetic Techniquesl Regimes For Pregnant Patients With Heart Disease*
-
-### Anaesthetic Preparation
+**Anaesthetic Preparation**
 Preparation for anaesthesia should be the same like any other case but extra monitoring and more cardio stable drugs should be chosen.
 
 **Haemodynamic goals for both GA and regional anaesthesia:**
@@ -187,10 +182,10 @@ To check the level of sensory loss to pin prick after 5 minutes. If still below 
 
 ## Appendix H: Management Of Tachyarrhythmias During Pregnancy*
 
-### Initial Rhythm
+**Initial Rhythm**
 The tachyarrhythmia is identified as **SVT/VT**.
 
-### Step 1: Determine Haemodynamic Stability
+**Step 1: Determine Haemodynamic Stability**
 Assess whether the patient is **haemodynamically stable**.
 
 If **No**:
@@ -199,7 +194,7 @@ If **No**:
 If **Yes**:
 - Determine whether the rhythm is **VT** or **SVT**.
 
-### Step 2A: Haemodynamically Stable Vt
+**Step 2A: Haemodynamically Stable Vt**
 For **VT**, use pharmacological cardioversion:
 - IV amiodarone
 - IV procainamide
@@ -210,20 +205,20 @@ For prophylaxis:
 - Amiodarone
 - Or both
 
-### Step 2B: Haemodynamically Stable Svt
+**Step 2B: Haemodynamically Stable Svt**
 For **SVT**, determine if the rhythm is:
 - Atrial ectopics
 - Paroxysmal SVT
 - Focal atrial tachycardia
 - Atrial Fibrillation/Atrial Flutter
 
-### Atrial Ectopics
+**Atrial Ectopics**
 Management:
 - Reassure
 - Avoid precipitating factors
 - Cardioselective beta-blockers
 
-### Paroxysmal Svt
+**Paroxysmal Svt**
 Termination:
 - Vagal maneuvers
 - IV adenosine
@@ -235,27 +230,25 @@ Prophylaxis:
 - beta-blockers
 - Verapamil/diltiazem
 
-### Focal Atrial Tachycardia
+**Focal Atrial Tachycardia**
 Control heart rate with:
 - Digoxin
 - beta-blockers
 - Verapamil/diltiazem
 
-### Atrial Fibrillation/Atrial Flutter
+**Atrial Fibrillation/Atrial Flutter**
 Control heart rate with:
 - Digoxin
 - beta-blockers
 - Verapamil/diltiazem
 - anticoagulants
 
-*Adapted from: Baig M. Arrhythmia-centered treatment review of tachyarrhythmia during pregnancy. An article from the e-journal of the ESC Council for Cardiology Practice 2014; 12: NÂ° 13*
-
 ## Appendix I: Risk Factors For VTE In Pregnancy
 | Risk factor category | Risk factor | Details |
 |---|---|---|
 | Pre-existing | Previous VTE |  |
-| Pre-existing | Thrombophilia | *Heritable*<br>Antithrombin deficiency<br>Protein C deficiency<br>Protein S deficiency<br>Factor V Leiden<br>Prothrombin gene mutation |
-| Pre-existing | Thrombophilia | *Acquired*<br>Antiphospholipid antibodies<br>Persistent lupus anticoagulant and/or persistent moderate/high titre anticardiolipin antibodies and/or β<sub>2</sub> glycoprotein 1 antibodies |
+| Pre-existing | Thrombophilia | *Heritable*; Antithrombin deficiency; Protein C deficiency; Protein S deficiency; Factor V Leiden; Prothrombin gene mutation |
+| Pre-existing | Thrombophilia | *Acquired*; Antiphospholipid antibodies; Persistent lupus anticoagulant and/or persistent moderate/high titre anticardiolipin antibodies and/or β2 glycoprotein 1 antibodies |
 | Pre-existing | Medical comorbidities | e.g. cancer, heart failure, active SLE, inflammatory polyarthropathy or IBD, nephrotic syndrome, type 1 diabetes mellitus with nephropathy, sickle cell disease, current intravenous drug user |
 | Pre-existing | Age > 35 years |  |
 | Pre-existing | Obesity | BMI ≥ 30 kg/m² either pre-pregnancy or in early pregnancy |
@@ -264,8 +257,8 @@ Control heart rate with:
 | Pre-existing | Gross varicose veins | symptomatic or above knee or with associated phlebitis, oedema/skin changes |
 | Pre-existing | Paraplegia |  |
 | Obstetric risk factor | Multiple pregnancy | Current pre-eclampsia |
-| Obstetric risk factor | Caesarean section | Prolong labour (> 24 hours)<br>Mid-cavity or rotational operative delivery<br>Stillbirth<br>Preterm birth<br>Postpartum haemorrhage (> 1 litre/requiring transfusion) |
-| New onset/transient | Any surgical procedure in pregnancy or puerperium except immediate repair of the perineum | e.g. appendicectomy, postpartum sterilisation<br>Bone fracture |
+| Obstetric risk factor | Caesarean section | Prolong labour (> 24 hours); Mid-cavity or rotational operative delivery; Stillbirth; Preterm birth; Postpartum haemorrhage (> 1 litre/requiring transfusion) |
+| New onset/transient | Any surgical procedure in pregnancy or puerperium except immediate repair of the perineum | e.g. appendicectomy, postpartum sterilisation; Bone fracture |
 | New onset/transient | Hyperemesis, dehydration |  |
 | New onset/transient | Ovarian hyperstimulation syndrome (first trimester only) | Assisted reproductive technology (ART), in vitro fertilisation (IVF) |
 | New onset/transient | Admission or immobility (≥ 3 days bed rest) | e.g. pelvic girdle pain restricting mobility |
@@ -274,21 +267,19 @@ Control heart rate with:
 
 *These risk factors are potentially reversible and may develop at later stages in gestation than the initial risk assessment or may resolve and therefore what is important is an ongoing individual risk assessment.*
 
-From: RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the Puerperium. Green-top Guideline No. 37a April 2015
-
 ## Appendix J: Diagnostic Algorithm For Suspected DVT In Pregnancy*
 
-### Initial Assessment
+**Initial Assessment**
 Start with **clinical suspicion of DVT in pregnancy**.
 
-### First-Line Investigation
+**First-Line Investigation**
 Perform **CUS**.
 
-### If Cus Is Positive
+**If Cus Is Positive**
 - Diagnose DVT.
 - Treat DVT.
 
-### If Cus Is Negative
+**If Cus Is Negative**
 Assess whether **DVT is still likely or iliac vein thrombosis is suspected**.
 
 If **No**:
@@ -297,7 +288,7 @@ If **No**:
 If **Yes**:
 - Repeat CUS in 1 week or perform MRV.
 
-### Repeat Cus Or Mrv Result
+**Repeat Cus Or Mrv Result**
 If repeat CUS or MRV is **positive**:
 - Diagnose DVT.
 - Treat DVT.
@@ -307,24 +298,22 @@ If repeat CUS or MRV is **negative**:
 
 CUS: Compression Ultrasonography; DVT: Deep Vein Thrombosis MRV: Magnetic Resonance Venography
 
-*Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
-
 ## Appendix K: Diagnostic Algorithm For Suspected PE In Pregnancy*
 
-### Initial Assessment
+**Initial Assessment**
 Start with **clinical suspicion of PE in pregnancy**.
 
-### First-Line Investigation
+**First-Line Investigation**
 Perform **CTPA or V/Q scan**.
 
-### If Ctpa Or V/Q Scan Is Positive
+**If Ctpa Or V/Q Scan Is Positive**
 - Diagnose PE.
 - Treat PE.
 
-### If Ctpa Or V/Q Scan Is Negative
+**If Ctpa Or V/Q Scan Is Negative**
 Perform **CUS**.
 
-### Cus Result
+**Cus Result**
 If CUS is **positive**:
 - Diagnose PE.
 - Treat PE.
@@ -333,8 +322,6 @@ If CUS is **negative**:
 - Exclude PE.
 
 CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiography; V/Q Scan: Ventilation/Perfusion Scan
-
-*Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
 
 ## Appendix L: Antenatal Risk Assessment And Indications For Antenatal Thrombophylaxis*
 | Risk Factors | Requirements | Management | When to Initiate Treatment |
@@ -352,11 +339,6 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
   - Anti-phospholipid syndrome with previous VTE
 - These very high risk patients require therapeutic dose of LMWH antenatally and at least 6 weeks postnatal LMWH or until switched back to oral anticoagulant therapy
 
-*Adapted from:*
-
-- Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013
-- RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the Puerperium. Green-top Guideline No. 37a April 2015
-
 ## Appendix M: Postnatal Risk Assessment And Indications For Postnatal Thrombophylaxis*
 | Risk Factors | Requirements | Management |
 |---|---|---|
@@ -367,31 +349,27 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 | - Age > 35 years<br>- Obesity BMI > 30 kg/m²<br>- Parity ≥ 3<br>- Smoker<br>- Elective caesarean section<br>- Any surgical procedure in the puerperium<br>- Gross varicose veins<br>- Current systemic infection<br>- Immobility e.g. paraplegia, long haul travel > 4 hours<br>- Preeclampsia<br>- Midcavity rotational operative delivery<br>- Prolonged labour > 24 hours<br>- Assisted reproductive treatment<br>- Postpartum hemorrhage > 1 litre or blood transfusion | Any ≥ 2 Risk Factors | - At least 7 days postnatal prophylactic LMWH<br>- If persisting or > 3 risk factors, consider extending thromboprophylaxis with LMWH |
 | - Age > 35 years<br>- Obesity BMI > 30 kg/m²<br>- Parity ≥ 3<br>- Smoker<br>- Elective caesarean section<br>- Any surgical procedure in the puerperium<br>- Gross varicose veins<br>- Current systemic infection<br>- Immobility e.g. paraplegia, long haul travel > 4 hours<br>- Preeclampsia<br>- Midcavity rotational operative delivery<br>- Prolonged labour > 24 hours<br>- Assisted reproductive treatment<br>- Postpartum hemorrhage > 1 litre or blood transfusion | Any ≤ 2 Risk Factors or less (not admitted into hospital) | - Mobilisation<br>- Avoid dehydration |
 
-*Adapted from Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
-
 ## Appendix N: Safety Of Progesterone Only Contraceptive Methods In Women With Cardiac Disease
 | Progesterone only contraceptive method | Cardiac condition | WHOMEC# Class |
 |---|---|---|
-| Progesterone only pill<sup>a</sup><br>- Noriday<sup>®</sup><br>- Cerazette<sup>®b</sup> | All cardiac conditions<br><em>(should not normally be advised where pregnancy poses a high or unacceptable risk - WHOMEC Class 3 and 4 conditions)</em> | 1 |
+| Progesterone only pill^a^; - Noriday^®^; - Cerazette^®b^ | All cardiac conditions; *(should not normally be advised where pregnancy poses a high or unacceptable risk - WHOMEC Class 3 and 4 conditions)* | 1 |
 | Depo Provera | All cardiac patients who are not on warfarin | 1 |
-|  | All cardiac patients on warfarin<sup>c</sup> | 3 |
-| Implants e.g. (Nexplanon<sup>®</sup>, previously known as Implanon<sup>®</sup>) | All cardiac patients | 1 |
-| Intra-Uterine System e.g. Mirena<sup>®</sup> | Cardiac patients generally even if taking warfarin<sup>d</sup> | 1 |
-| Intra-Uterine System e.g. Mirena<sup>®</sup> | Structural heart disease<sup>e</sup> | 2 |
-| Intra-Uterine System e.g. Mirena<sup>®</sup> | Prosthetic heart valves<sup>d,e</sup> | 3 |
-| Intra-Uterine System e.g. Mirena<sup>®</sup> | Previous endocarditis<sup>e</sup> | 3 |
-| Intra-Uterine System e.g. Mirena<sup>®</sup> | Pulmonary hypertension, Fontan circulation or other condition in which vagal reaction at insertion would be poorly tolerated | 4(3) |
+|  | All cardiac patients on warfarin^c^ | 3 |
+| Implants e.g. (Nexplanon^®^, previously known as Implanon^®^) | All cardiac patients | 1 |
+| Intra-Uterine System e.g. Mirena^®^ | Cardiac patients generally even if taking warfarin^d^ | 1 |
+| Intra-Uterine System e.g. Mirena^®^ | Structural heart disease^e^ | 2 |
+| Intra-Uterine System e.g. Mirena^®^ | Prosthetic heart valves^d,e^ | 3 |
+| Intra-Uterine System e.g. Mirena^®^ | Previous endocarditis^e^ | 3 |
+| Intra-Uterine System e.g. Mirena^®^ | Pulmonary hypertension, Fontan circulation or other condition in which vagal reaction at insertion would be poorly tolerated | 4(3) |
 | Emergency contraception | All cardiac disease | 1 |
 
 #WHOMEC: World Heart Organization Medical Eligibility Criteria
 
-<sup>a</sup>Although safe, the standard progestogen-only pill is less effective than all the other progestogen-only methods.<br>
-<sup>b</sup>Efficacy reduced by Bosentan<br>
-<sup>c</sup>Risk of haematoma at injection site<br>
-<sup>d</sup>The INR may be altered after initiation of any progesterone hormone therapy. It needs to be monitored.<br>
-<sup>e</sup>Risk of Infective Endocarditis
-
-From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81
+^a^Although safe, the standard progestogen-only pill is less effective than all the other progestogen-only methods.;
+^b^Efficacy reduced by Bosentan;
+^c^Risk of haematoma at injection site;
+^d^The INR may be altered after initiation of any progesterone hormone therapy. It needs to be monitored.;
+^e^Risk of Infective Endocarditis
 
 ## Appendix O: Risk Of Combined Contraceptive Pills For The Different Cardiac Conditions Whomec Risk Classification For The Use Of Combined Hormonal Contraceptives*
 | MEC CLASS | WHOMEC 1 | WHOMEC 2 | WHOMEC 3 | WHOMEC 4 |
@@ -403,12 +381,8 @@ From: Thorne S, MacGregor A, Nelson-Piercy C. Pregnancy and contraception in hea
 | Cardiac Conditions | Bicuspid aortic valve with normal function | Tissue prosthetic valve lacking any of the features noted in WHOMEC 3 and WHOMEC 4 | ASD with left to right shunt that may reverse with physiological stress (e.g. Valsalva manoeuvre) | Dilated left atrium > 4 cm |
 | Cardiac Conditions | Mild pulmonary stenosis | Surgically corrected congenital heart disease lacking any features noted in WHOMEC 3 and WHOMEC 4 | Marfan syndrome with aortic dilatation unoperated | Fontan heart on warfarin |
 | Cardiac Conditions | Repaired coarctation with no hypertension or aneurysm | Small left to right shunt not reversible with physiological manoeuvres (e.g. small VSD, small PDA) | Past thrombotic event on Warfarin | Cyanotic heart disease |
-| Cardiac Conditions | Simple congenital lesions successfully repaired in childhood and with no sequelae e.g.<br>- Ostium secundum atrial septal defect<br>- VSD<br>- PDA<br>- Total anomalous pulmonary venous drainage | Uncomplicated Marfan syndrome |  | Pulmonary arteriovenous malformation |
+| Cardiac Conditions | Simple congenital lesions successfully repaired in childhood and with no sequelae e.g.; - Ostium secundum atrial septal defect; - VSD; - PDA; - Total anomalous pulmonary venous drainage | Uncomplicated Marfan syndrome |  | Pulmonary arteriovenous malformation |
 | Cardiac Conditions |  |  |  | Past thromboembolic event (venous and arterial) not on warfarin |
 | Cardiac Conditions |  |  |  | Poor left ventricle function of any cause (e.g. dilated cardiomyopathy) Ejection fraction < 30% |
 | Cardiac Conditions |  | Hypertrophic cardiomyopathy lacking any of the features noted in WHOMEC 3 and WHOMEC 4 |  | Coronary artery disease |
 | Cardiac Conditions |  | Past cardiomyopathy fully recovered including peripartum cardiomyopathy |  | Coronary arteritis (e.g. Kawasaki's disease with coronary involvement |
-
-*World Health Organization. Medical Eligibility Criteria (MEC) for Contraceptive use. (5th ed) 2015. Available at: www.who.int/reproductivehealth/publication/family_planning/Ex-SummMec-5/en/*
-
-From: Thorne S et al. Pregnancy and contraception in heart disease and pulmonary arterial hypertension. J Fam Plann Reprod Health Care. 2006; 32:75-81

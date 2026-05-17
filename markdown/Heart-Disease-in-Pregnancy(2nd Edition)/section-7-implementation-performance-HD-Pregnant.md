@@ -6,7 +6,6 @@ patient_input: healthcare_setting, documentation_status, referral_status, pregna
 output: implementation_plan, performance_measure_tracking, audit_targets, referral_quality_indicators
 -->
 
-
 The objective of this CPG is to improve the care of pregnant women with cardiac disease. It works within the existing framework of perinatal care, emphasising:
 - Clinical signs that should raise suspicion of the presence of cardiac disease and the early signs of cardiac decompensation
 - Clear guidelines on the flow pattern of perinatal care and referral of these patients starting from preconception counselling till postpartum.
@@ -38,7 +37,6 @@ Percentage of pregnant cardiac patients who have documentation in their medical 
 | Labour and delivery in appropriate setting with availability of HDU/CCU/ICU bed if necessary | | | > 95% |
 | Discharge summary provided to all caregivers and patient | | | > 95% |
 
-## Contextual Anchors (Overlapping)
 Table 6: Specialist Referral And Pregnancy Care Plan
 
 | Maternal Risk | Timing of Specialist Referral | Special Considerations |
@@ -49,11 +47,14 @@ Table 6: Specialist Referral And Pregnancy Care Plan
 | Women &/ spouses with congenital heart disease (CHD) and/or family history of CHD | Preconception referral to obstetrician/ maternal fetal medicine (MFM) specialist recommended.<br>If pregnant, early referral to MFM recommended. | To determine risk of CHD in the fetus of parents with CHD. (section 3.2.1: Genetic counselling) |
 | Women &/ spouses and/or family history of genetic diseases with cardiac lesions | Preconception referral to MFM/ geneticist recommended.<br>If pregnant, early referral to MFM. | To determine risk of disease transmission to the fetus. (section 3.2: Preconception and genetic counselling) |
 | **Fetuses with critical CHD*/ major congenital anomalies** | Once diagnosis has been made, to refer to a tertiary centre with the appropriate expertise.<br>(e.g. Paediatric cardiologist, paediatric surgeon with expertise in congenital malformations, neonatal intensive care with expertise to manage very low birth weight and severe prematurity). | Once diagnosis made, a tailored pregnancy care plan (pg. 29) by a multidisciplinary team. |
+ <!-- cross_ref target_file="section-3--general-principles-HD-Pregnant.md" target_heading="3.2.1: Genetic Counselling" target_kind="h3_section" --> 
+  <!-- cross_ref target_file="section-3--general-principles-HD-Pregnant.md" target_heading="3.2: Preconception And Genetic Counselling" target_kind="h2_section" -->
 
 *Critical congenital heart disease/defects (CCHD) are serious congenital heart defects that present with symptoms soon after birth and need early intervention. They are usually duct dependant lesions and may have hypoxaemia. (E.g. coarctation of aorta, transposition of the great arteries, hypoplastic left heart syndrome, pulmonary atresia with intact ventricular septum)
 *Definition from: Frank LH, Bradshaw E, Beekman R, Mahle WT, Martin GR. Critical congenital heart disease screening using pulse oximetry. Journal of Pediatrics. 2013; 162(3): 445-453*
 
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CCU | Coronary care unit |
@@ -62,3 +63,4 @@ Table 6: Specialist Referral And Pregnancy Care Plan
 | ICU | Intensive care unit |
 | NYHA | New York Heart Association |
 | WHO | World Health Organization |
+<!-- parent_only_reference_end -->
