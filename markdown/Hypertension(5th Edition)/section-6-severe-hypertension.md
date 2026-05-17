@@ -8,6 +8,7 @@ critical: true
 treatment_type: captopril, nifedipine, labetalol, nicardipine, esmolol, hydralazine, nitroglycerine, sodium_nitroprusside
 -->
 
+## 6.0: Overview of Severe Hypertension Management
 Severe hypertension is defined as persistent elevated SBP >180 mmHg and/or DBP >110 mmHg.
 
 These patients may present with:
@@ -39,7 +40,7 @@ Table 6-A: Common Causes Of Severe Hypertension
 | Congenital disease | Coarctation of Aorta <br> Polycystic kidney disease |
 | Pregnancy related | Preeclampsia / eclampsia |
 
-## 6.1: Specific Management
+## 6.1: Specific Management of Severe Hypertension
 The aim of management is to reduce BP in a controlled, predictable and safe manner, to avoid provoking or aggravating acute coronary syndrome, cerebral or renal ischaemia.
 
 ### 6.1.1: Hypertensive Urgency
@@ -75,7 +76,6 @@ Figure 6-A provides a step-by-step algorithm for managing patients presenting wi
     *   **No (No BP Reduction):** If the BP remains refractory, the patient must be **Admitted or referred for further care**.
 
 Figure 6-B: Hypertensive Urgency Discharge Plan
-
 *   **Blood pressure monitoring**
     *   Home BP monitoring **OR** check by healthcare provider at least 3 times per week
     *   If BP >180/110 mmHg, repeat after 5 minutes; **IF** second BP higher or same as the first one **OR** have symptoms, seek medical help.
@@ -107,8 +107,8 @@ Table 6-D: Treatment Options For Hypertensive Emergencies
 | Esmolol | Adult*: Loading dose of 80 mg over 15-30 sec, followed by an infusion of 150 mcg/kg/min, may increase to 300 mcg/kg/min if necessary. <br><br> Children**: IV bolus 250-500 mcg/kg over 1 min. IVI 50-200 mcg/kg/min for 4 min. May repeat sequence. | 1 min | 10 - 20 min | Used in peri-operative situations and tachyarrhythmias. |
 | Sodium Nitroprusside | Adult*: Initial: 0.3-1.5 mcg/kg/min, adjust gradually as needed. Usual: 0.5-6 mcg/kg/min. Max rate: 8 mcg/kg/min, discontinue if there is no response after 10 mins. May continue for a few hr if there is response. <br><br> Children**: IV 0.25-0.5 mcg/kg/min, may be repeatedly double at interval of 15-20 min. Max 6 mcg/kg/min. | seconds | 1 - 5 min | Caution in heart failure. Require intra-arterial blood pressure monitoring. <br><br> Lower dosing adjustment required for elderly and those already receiving antihypertensives. |
 
-\*Referenced from 153rd Edition, MIMS, 2018. <br>
-\*\* British National Formulary for Children (BNFC) 2018-2019. <br>
+\*Referenced from 153rd Edition, MIMS, 2018.
+\*\* British National Formulary for Children (BNFC) 2018-2019.
 \# In pregnancy refer to Section 7.6: Hypertension in Women. <!-- cross_ref target_file="section-7-special-groups-hypertension.md" target_heading="7.6: Hypertension In Women" target_kind="h2_section" --> 
 
 There has been very few head to head comparative trials on the management of hypertensive crises especially hypertensive emergencies. [Level 1] A recent meta-analysis showed that IV labetalol have comparable efficacy and safety compared to nicardipine with the later showing more predictable and consistent BP control.
@@ -157,7 +157,7 @@ Rapid reduction of BP (within minutes to hours) in hypertensive urgencies should
 
 Following stabilisation of patient's BP, subsequent management is tailored towards achieving optimal control. For management of patients with severe hypertension and stroke, refer to Section 7.4: Hypertension and Stroke.<!-- cross_ref target_file="section-7-special-groups-hypertension.md" target_heading="7.4: Hypertension And Stroke" target_kind="h2_section" -->
 
-**Recommendations**
+Recommendation:
 * [Grade B] In hypertensive urgencies, aim for 10-20 mmHg SBP reduction after 2 hours of rest. Failing this, pharmacotherapy should be initiated.
 * [Grade C] Do not reduce BP rapidly (within minutes to hours) in hypertensive urgencies as it may precipitate ischaemic events.
 * [Grade B] For patients whose BP responded with adequate rest (after 2 hours), discharge them with Hypertensive Urgency Discharge Plan.

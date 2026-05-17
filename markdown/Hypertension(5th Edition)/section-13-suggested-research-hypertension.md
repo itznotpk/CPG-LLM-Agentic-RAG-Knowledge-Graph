@@ -6,19 +6,18 @@ patient_input: none
 output: research_agenda, priority_topics
 -->
 
-**Suggested Areas Of Research**
+Suggested Areas Of Research:
 This latest CPG on hypertension has incorporated key references from research done in Malaysia. It is also heartening to know that several multicentre international trials cited in this CPG also had Malaysia as one of the centers involved. There are however a few unanswered question unique to Malaysia which needed to be addressed in future CPGs. It is suggested that Malaysian researchers should focus on these research areas and funding authorities should give due importance to these areas of research.
 
-**Epidemiology**
+Epidemiology:
 - Burden of disease in lower income group and association with BP
 - Prevalence of hypertension in children and adolescents
 - Cost effectiveness of hypertension treatment
 - Health system research in hypertension
 
-**Drugs**
-- Differences in antihypertensive drug response among different ethnic groups
+Drugs: Differences in antihypertensive drug response among different ethnic groups
 
-**Monitoring**
+Monitoring:
 - Blood pressure goal for patients with hypertension with different co morbidities
 - Intervention thresholds for people aged under 40 with hypertension
 - Methods of assessing cardiovascular risk in people aged under 40 years with hypertension
@@ -26,7 +25,7 @@ This latest CPG on hypertension has incorporated key references from research do
 - Acceptability of ambulatory and home blood pressure monitoring
 - Psychological impact of home blood pressure monitoring
 
-**Treatment**
+Treatment:
 - Precision medicine and hypertension
 - Should white coat hypertension be treated?
 - New drug for resistant hypertension
@@ -34,17 +33,17 @@ This latest CPG on hypertension has incorporated key references from research do
 - Randomised Control Trial comparing reduced sodium intake with usual diet on efficacy of blood pressure lowering
 - Patient empowerment in blood pressure management
 
-**Complications**
+Complications:
 - Sleep apnea, obesity and hypertension
 - Reasons for higher rate of haemorrhagic stroke in Asian compared to Caucasian
 
-**Risk Factors**
+Risk Factors:
 - Hypertension and Dementia – link and prevention
 - Use of Information and Communication Technology and blood pressure
 - Risk factors of hypertension in younger age group
 - Effects of environmental pollution on blood pressure
 
-**Pregnancy**
+Pregnancy:
 - Screening and management of hypertension in early pregnancy
 - Prevalence of preeclampsia and its outcome
 - Risk of mortality in preeclampsia

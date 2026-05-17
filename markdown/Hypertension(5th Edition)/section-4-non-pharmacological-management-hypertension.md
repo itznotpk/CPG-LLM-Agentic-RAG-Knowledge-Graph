@@ -7,7 +7,7 @@ output: lifestyle_plan, behaviour_targets, counselling_points, expected_BP_reduc
 treatment_type: weight_reduction, sodium_restriction, DASH_diet, physical_activity, smoking_cessation, alcohol_moderation
 -->
 
-**Non-Pharmacological Management**
+## 4.0: Overview of Non-Pharmacological Management
 Non-pharmacological management (healthy living) plays an important role in the management of hypertension and in improving overall cardiovascular health. When recommending healthy living, it is important to know that these interventions require a joint effort from patient, family and healthcare providers.
 
 ## 4.1: Weight Reduction
@@ -37,7 +37,7 @@ A meta-analysis has shown that increased dietary potassium intake reduces BP in 
 ## 4.9: Others
 Evidence for beneficial effect of micronutrient alterations, caffeine reduction and dietary supplementation with fish oil, calcium, magnesium, garlic and fibre on BP is limited. [Level I] Meta-analyses have suggested that regular consumption of black tea and green tea can reduce BP but the sample size was small and quality of studies varied.
 
-**Recommendations**
+Recommendation:
 * [Grade A] Healthy Living must be instituted as an integral part in managing hypertension.
 * [Grade A] Reduce salt intake, do regular physical activity, limit alcohol intake to < 2 drinks per day for those who drink, increase dietary potassium and lose weight to reduce BP.
 

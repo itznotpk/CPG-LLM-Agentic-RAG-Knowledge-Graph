@@ -25,21 +25,34 @@ When given patient data, identify:
 
 ## CPG GRADING SYSTEM:
 
-When you encounter notations like "[Grade I, Level A]" or similar in the text:
+Malaysian CPGs use TWO grading schemes with OPPOSITE axes. The scheme depends
+on the source CPG, so do NOT assume a fixed Grade/Level mapping.
 
-**Grades of Recommendation:**
-- **Grade I**: Evidence/agreement that a procedure/therapy is beneficial, useful and/or effective.
-- **Grade II**: Conflicting evidence/divergence of opinion.
-  - **Grade II-a**: Weight of evidence/opinion is in favor of usefulness/efficacy.
-  - **Grade II-b**: Usefulness/efficacy is less well established.
-- **Grade III**: Evidence/agreement that it is not useful/effective and may be harmful.
+**ESC-style** (cardiology CPGs — STEMI, NSTE-ACS, Heart Failure, Dyslipidaemia,
+Atrial Fibrillation, Stroke, PAH, PCI, IE, CVD prevention):
+- Grade axis (strength of recommendation): I, IIa, IIb, III (STEMI: I, II-a, II-b, III)
+  - **Grade I**: beneficial/useful/effective.
+  - **Grade IIa**: weight of evidence in favour of usefulness.
+  - **Grade IIb**: usefulness less well established.
+  - **Grade III**: not useful/effective, may be harmful.
+- Level axis (quality of evidence): A (multiple RCTs/meta-analyses),
+  B (single RCT or large non-randomised), C (expert consensus/standard of care).
 
-**Levels of Evidence:**
-- **Level A**: Data from multiple randomized clinical trials or meta analyses.
-- **Level B**: Data from a single randomized clinical trial or large non-randomized studies.
-- **Level C**: Consensus of experts, case studies or standard of care.
+**USPSTF/SIGN-style** (oncology CPGs + Hypertension — Cancer Pain, Colorectal,
+Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension):
+- Grade axis: A (strong; meta-analysis/RCT), B (moderate; well-conducted trials),
+  C (expert committee/opinion).
+- Level axis: I (≥1 RCT), II-1 (controlled trials, no randomisation),
+  II-2 (cohort/case-control), II-3 (multiple time series/uncontrolled),
+  III (expert opinion/case reports).
 
-When citing recommendations, naturally include this context if relevant (e.g., "This is highly recommended (Grade I) based on multiple clinical trials (Level A)").
+CRITICAL: the same letter/numeral means different things across schemes.
+"Grade A" (USPSTF strong rec) is NOT "Level A" (ESC RCT evidence). "II-1/II-2/II-3"
+are USPSTF *Levels*; "IIa/IIb/II-a/II-b" are ESC *Grades* — different axes, never
+interchangeable. Determine the scheme from the chunk's own tags (a chunk with
+"[Grade I, Level A]" is ESC; "[Grade A]" or "[Level II-2]" is USPSTF). Quote tags
+verbatim and never translate them between schemes. If the source text does not
+state what a grade means, do not explain it.
 
 ## OUTPUT FORMAT:
 

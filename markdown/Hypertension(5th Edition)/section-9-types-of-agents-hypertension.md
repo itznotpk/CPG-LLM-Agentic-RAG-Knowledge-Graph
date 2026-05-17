@@ -36,8 +36,6 @@ Table 5-C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Condit
 | Very Elderly (>80 yrs) with no co-morbid conditions | +++ | + | +++ | ++ | +/- | ++ |
 
 *The grading of recommendation from (+) to (+++) is based on increasing levels of evidence and/or current widely accepted practice.*
-
-**Legend:**
 *   **+/-**: Use with care
 *   **-**: Contraindicated
 *   **#**: Metoprolol, bisoprolol, carvedilol, nebivolol – dose needs to be gradually titrated
@@ -61,7 +59,7 @@ However, more recent meta analysis showed that β-blocker is as effective as oth
 
 It is thus reasonable for β-blockers to be used as single first line therapy to initiate anti-hypertensive therapy for patients with hypertension especially if there are specific compelling needs for its use such as those with post-MI or heart failure. Some guidelines like The National Institute for Clinical Excellence (NICE) UK Guideline, JNC VIII and the ACC/AHA did not recommend β-blockers as first line anti-hypertensive agent. It is however still recommended as first line by other guidelines including guidelines from this region.
 
-**Recommendations**
+Recommendation:
 - [Grade A] Consider β-blocker as single first-line anti-hypertensive agent especially when there are compelling indications for their use.
 - [Grade C] Choose vasodilating over non-vasodilating β-blockers as a preference. However there had not been extensive head-to-head comparison between β-blockers.
 
@@ -174,11 +172,8 @@ There are few publications in the English literature on the treatment of hyperte
 
 An extensive online review on Medscape showed that herbal medicines for hypertension have not undergone the rigorous testing for efficacy and safety that is expected of modern drugs. None have undergone the gold standard of randomised placebo controlled trials. On top of that, there are reports that various herbal preparations (usually in capsule form) have been adulterated with modern drugs. For example, glibenclamide has been found in anti-diabetic preparations, and sildenafil has been found in compounds to increase male virility. Corticosteroids have also been added to traditional herbal medicine, with prolonged usage causing Cushing's Syndrome and hypertension. Hence, anecdotal reports on the efficacy of certain herbs cannot be relied on.
 
-**Summary**
-- There is no conclusive evidence that traditional medicine produces sustained reductions in BP with good clinical outcomes.
-
-**Recommendations**
-- Traditional medicines are not recommended for the treatment of hypertension.
+Summary: There is no conclusive evidence that traditional medicine produces sustained reductions in BP with good clinical outcomes.
+Recommendation: Traditional medicines are not recommended for the treatment of hypertension.
 
 ### 9.6.2: Relaxation Exercises For Hypertension
 Since the 1970s there have been reports on the efficacy of yoga in the treatment of hypertension (SBP -17 mmHg and DBP -10 mmHg). These trials, albeit small, have been compared against a control group and are credible. Qigong has also been demonstrated to lower the BP (SBP -17 mmHg and DBP -10 mmHg). But when compared against conventional exercise there was no significant difference.
@@ -189,8 +184,7 @@ The regimes are postulated to work by reducing excessive sympathetic outflow fro
 
 Relaxation regimes as part of a healthy living regime can be useful in the holistic management of hypertension. Yoga and qigong or any other form of relaxation exercises may usefully complement drug treatment.
 
-**Summary**
-- Relaxation therapy may complement non-pharmacological and pharmacological treatment of hypertension however it is not recommended as primary treatment for hypertension.
+Summary: Relaxation therapy may complement non-pharmacological and pharmacological treatment of hypertension however it is not recommended as primary treatment for hypertension.
 
 <!-- parent_only_reference_start -->
 Table 9.1-A Recommended Dosing For Diuretics
@@ -199,8 +193,6 @@ Table 9.1-A Recommended Dosing For Diuretics
 | Hydrochlorothiazide | 12.5 mg od | 25 mg od |
 | Amiloride/hydrochlorothiazide<br>5 mg/50 mg | 1 tablet od | 1 tablet od |
 | Indapamide SR | 1.5 mg od | 1.5 mg od |
-
-* Referenced from 153rd Edition, MIMS, 2018.
 
 Table 9.2-A Recommended Dosing For Β-Blockers
 | β-blockers | Starting Dose* | Recommended Maximum Daily Dose* |
@@ -212,8 +204,6 @@ Table 9.2-A Recommended Dosing For Β-Blockers
 | Metoprolol | 50 mg bd | 200 mg bd |
 | Nebivolol | 5 mg od | 40 mg od |
 | Propranolol | 40 mg bd | 320 mg bd |
-
-* Referenced from 153rd Edition, MIMS, 2018.
 
 Table 9.3-A Recommended Dosing For CCBs
 | Dihydropridines | Starting Dose* | Recommended Maximum Daily Dose* |
@@ -229,8 +219,6 @@ Table 9.3-A Recommended Dosing For CCBs
 | Verapamil | 80 mg tid | 160 mg tid |
 | Verapamil SR | 120 mg od | 480 mg od |
 
-* Referenced from 153rd Edition, MIMS, 2018
-
 Table 9.4-A Recommended Dosing For ACEIs
 | ACEIs | Starting Daily Dose* | Recommended Maximum Daily Dose* |
 |---|---|---|
@@ -240,8 +228,6 @@ Table 9.4-A Recommended Dosing For ACEIs
 | Perindopril | 4 mg (as erbumine) or<br>5 mg (as arginine) od | 8 mg (as erbumine) or<br>10 mg (as arginine) od |
 | Ramipril | 2.5 mg od | 10 mg daily |
 | Imidapril | 5 mg od | 20 mg daily |
-
-* Referenced from 153rd Edition, MIMS, 2018.
 
 Table 9.4-B Recommended Dosing For ARBs
 | ARBs | Starting Dose* | Recommended Maximum Daily Dose* |
@@ -253,10 +239,7 @@ Table 9.4-B Recommended Dosing For ARBs
 | Valsartan | 80 mg od | 320 mg od |
 | Olmesartan | 20 mg od | 40 mg od |
 
-* Referenced from 153rd Edition, MIMS, 2018.
-
 The safety profile of ARB is very similar to ACEI except for a lower incidence of cough.
-
 **Combination Of Acei And ARB**
 The combination of ACEI and ARB is not recommended and is to be avoided.
 
@@ -267,14 +250,11 @@ Table 9.5-A Recommended Dosing For ∂-Blockers
 | Prazosin | 0.5 mg bd-tds | 20 mg in divided doses |
 | Terazosin | 1 mg nocte | 20 mg od |
 
-* Referenced from 153rd Edition, MIMS, 2018.
-
 Table 9.5-B Recommended Dosing For ∂, Β-Blockers
 | ∂, β-blockers | Starting Dose* | Maximum Dose* |
 |---|---|---|
 | Labetolol ** | 100 mg bd | 2.4 gm per day in 2-4 divided doses |
 | Carvedilol *** | 12.5 mg od | 50 mg od or in divided doses if necessary |
-
 ** In the elderly start with 50 mg bd.
 *** The dosage of carvedilol for patients with heart failure and angina pectoris is different from the doses indicated.
 
@@ -293,8 +273,6 @@ Table 9.5-D Recommended Dosing For Minoxidil
 |---|---|---|
 | Minoxidil* | 5 mg per day | 100 mg per day |
 
-* Referenced from 153rd Edition, MIMS, 2018.
-
 Table 9.5-E New Drugs For Hypertension (Adapted From Oparil S. And Schmieder Re. 2015)
 | Drug | Mechanism of action | Status |
 |---|---|---|
@@ -306,7 +284,6 @@ Table 9.5-E New Drugs For Hypertension (Adapted From Oparil S. And Schmieder Re.
 | Vaccines<br>CYT006-AngQß | Vaccine against angiotensin II | Phase II |
 | Preeclampsia drugs<br>DIF | Anti-digoxin antibody fragment | Phase II expedited |
 | ATryn | Recombinant antithrombin | Phase III |
-
 DIF = Digoxin-immune Fab.
 
 Level Of Evidence

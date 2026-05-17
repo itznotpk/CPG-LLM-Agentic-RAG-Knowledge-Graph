@@ -6,6 +6,7 @@ patient_input: blood_pressure_readings, device_type, measurement_setting, arrhyt
 output: measurement_protocol, HBPM_plan, ABPM_indications, interpretation_rules
 -->
 
+## 2.0: Overview of Blood Pressure Measurement
 Blood pressure should be measured under standardised condition (Refer to section 2.1: Electronic BP Sets). It can be measured directly or indirectly. There are four common devices used for the indirect measurement of BP namely: 
 - electronic devices
 - aneroid sphygmomanometer
@@ -48,22 +49,21 @@ Situations where HBPM is useful include:
 - to encourage adherence to treatment
 - to optimise blood pressure control
 
-**Recommendations**
-**BP Measuring Technique**
+Recommendation: BP Measuring Technique
 
-**For Clinic BP, patients should:**
+For Clinic BP, patients should:
 * refrain from smoking, eating, caffeine intake or exercise for at least 30 minutes
 * be seated for at least 1 min in a quiet room, back & arm supported (e.g. resting on the table)
 * be seated with legs uncrossed, not talking and relaxed
 * use the correct bladder cuff size placed at heart level
 
-**For home measurements, besides the above:**
+For home measurements, besides the above:
 * a minimum measurement for 3 days (ideally 7 days) should be performed
 * should be done at about the same time once in the morning (before drug intake if on treatment) and evening (before meal)
 * two readings should be taken at each occasion (at least 1 minute apart)
 * the readings must be immediately recorded in a specific logbook or stored in a device with memory
 
-**The following must be taken into consideration when interpreting HBPM:**
+The following must be taken into consideration when interpreting HBPM:
 * BP values measured on the first monitoring day should be disregarded
 * Average the remaining BP measurements (at least 3 days)
 * Mean home systolic BP >135 mmHg and/or diastolic BP >85 mmHg should be considered as elevated

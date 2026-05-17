@@ -10,7 +10,7 @@ treatment_type: spironolactone, beta_blockers, alpha_blockers, centrally_acting_
 ## 10.1: Resistant Hypertension
 Resistant hypertension is defined as uncontrolled hypertension (>140/90 mmHg) with good medication adherence while on three or four anti-hypertensive agents (including a diuretic) in adequate doses. In a study of a primary care center involving 1,217 hypertensives in Malaysia, the prevalence of resistant hypertension (as defined above) was reported to be 8.8%. Similar prevalence was observed in national surveys in the United States (National Health and Nutritional Examination Survey from 2003-2008), the estimated prevalence was 8.9%. It is however worth noting that the prevalence may be an overestimate if white coat resistance is excluded. Ambulatory Blood Pressure Monitoring studies on treatment resistant patients have demonstrated that between 30-35% of patients have pseudo resistant or office resistant hypertension. This is consistent with a study from a tertiary center in Malaysia.
 
-**Before Labeling A Patient As Having Resistant Hypertension, It Is Important That The Practitioner Ascertain That:**
+Before Labeling A Patient As Having Resistant Hypertension, It Is Important That The Practitioner Ascertain That:
 a. the patient adheres to medication (by definition at least 80%)
 
 b. the blood pressure is measured appropriately
@@ -30,11 +30,9 @@ Although the prevalence of secondary hypertension is around 5%, its prevalence i
 
 **Treatment Options In Resistant Primary Hypertension**
 **a. Non-pharmacological Management**
-
 Non-pharmacological approaches (healthy living) must be re-emphasised. (Refer to Section 4: Non-Pharmacological Management). <!-- cross_ref target_file="section-4-non-pharmacological-management-hypertension.md" target_heading="Section 4: Non-Pharmacological Management" target_kind="h1_section" -->
 
 **b. Pharmacological Management**
-
 A fourth drug should be added to the combination of RAS blocker, CCB and diuretic. [Level I] Two recent metaanalyses of randomised and non-randomised controlled trials showed that spironolactone is superior to active controls (which includes alpha blockers, β-blockers, candesartan, frusemide or alpha methyldopa) in reducing office, home and ambulatory blood pressures. [Level I] These meta analyses of disparate studies was strengthened by a multicenter randomised controlled double blind trial which confirmed that spironolactone is the drug of choice as the fourth drug in resistant hypertension.
 
 ## 10.2: Refractory Hypertension
@@ -44,7 +42,7 @@ If blood pressures are still not controlled with four drugs, a fifth drug may be
 
 Both resistant and refractory hypertensives are candidates for devise-based intervention.
 
-**Recommendations**
+Recommendation:
 - [Grade C] Treat patients with at least 3 drugs (inclusive of a diuretic) before diagnosing resistant hypertension.
 - [Grade C] Consider drug non-adherence and secondary hypertension before diagnosing resistant hypertension.
 - [Grade A] Add spironolactone as a fourth drug in resistant hypertension.

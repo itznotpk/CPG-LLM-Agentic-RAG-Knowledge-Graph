@@ -11,7 +11,7 @@ Although the benefits of aspirin in secondary CV prevention is incontrovertible,
 
 A recent large cohort study in Asia showed that aspirin given to uncomplicated hypertensive patients for primary prevention significantly reduced all cause and cardiovascular mortality. However, since it is associated with an increased risk of major bleed, careful evaluation of risk/benefit analysis must be made by the doctor before initiating aspirin.
 
-**Recommendations**
+Recommendation:
 - [Grade B] Consider using aspirin in patients with higher baseline BP.
 - [Grade A] Treat patients BP to target first before initiating aspirin therapy.
 

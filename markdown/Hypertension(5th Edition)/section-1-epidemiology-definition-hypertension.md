@@ -6,6 +6,7 @@ patient_input: blood_pressure_readings, age, gender, ethnicity, measurement_sett
 output: hypertension_classification, BP_staging, epidemiological_context, screening_recommendations
 -->
 
+## 1.0: Overview of Hypertension
 Hypertension is defined as persistent elevation of systolic blood pressure (BP) of 140 mmHg or greater and/or diastolic BP of 90 mmHg or greater, taken at least twice on two separate occasions.
 
 Although there is an attempt to redefine hypertension as >130 and/or 80 mmHg, this Committee recommends that the old recommendation remains. The Committee is of the opinion the proposed lower definition will not change the way we treat our patients, particularly those with cardiovascular complications with BP equal to or more than 130/80 mmHg needs treatment to lower BP regardless.
@@ -45,10 +46,9 @@ Patients with masked hypertension have normal clinic blood pressure but elevated
 
 For both isolated office and masked hypertension, once diagnosed, initial therapeutic interventions should be non-pharmacological and aim for adoption of healthy living. However, drug treatment is indicated, particularly when the patient’s cardiovascular risk profile is elevated or when target-organ damage (TOD) is detected. (Refer to Section 3: Diagnosis and Initial Assessment). <!-- cross_ref target_file="section-3-diagnosis-initial-assessment-hypertension.md" target_heading="Section 3: Diagnosis And Initial Assessment" target_kind="h1_section" -->
 
-**Summary**
-* Hypertension is defined as persistent elevation of systolic BP of 140 mmHg or greater and/or diastolic blood pressure of 90 mmHg or greater, taken at least twice on two separate occasions.
+Summary: Hypertension is defined as persistent elevation of systolic BP of 140 mmHg or greater and/or diastolic blood pressure of 90 mmHg or greater, taken at least twice on two separate occasions.
 
-**Recommendations**
+Recommendations:
 * Measure BP at every opportunity as a high number of Malaysians are undiagnosed.
 * Check BP for every adult above age 18 years at least once as part of their annual health screening, and more frequently for those who are at risk (family history, obese and those at-risk of high blood pressure).
 
@@ -67,8 +67,6 @@ Table 1-B: Criteria For Staging Hypertension Based On Clinic, Home And Ambulator
 | Stage I Hypertension | ≥140/90 | ≥135/85 |
 | Stage II Hypertension | ≥160/100 | ≥150/95 |
 | Severe Hypertension | SBP ≥180 or DBP ≥110 | - |
-
-Note: Adapted from National Institute for Health and Clinical Excellence (NICE) Hypertension, 2011.
 
 Abbreviations
 | Abbreviation | Full Term |

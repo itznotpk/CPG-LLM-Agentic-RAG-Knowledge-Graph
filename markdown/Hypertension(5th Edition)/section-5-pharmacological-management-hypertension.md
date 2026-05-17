@@ -8,7 +8,8 @@ treatment_type: ACEI, ARB, CCB, diuretics, beta_blockers, combination_therapy, s
 -->
 
 ## 5.1: General Guidelines
-All patients must be risk stratified to guide management. Decision to initiate pharmacologic treatment depends on the global cardiovascular risk (Table 3-D: Risk Stratification). [Level I] It is the reduction of BP which provides the main benefits in the general hypertensive population. The choice of drug should be individualised.
+All patients must be risk stratified to guide management. Decision to initiate pharmacologic treatment depends on the global cardiovascular risk (refer Table 3-D: Risk Stratification). 
+[Level I] It is the reduction of BP which provides the main benefits in the general hypertensive population. The choice of drug should be individualised.
 
 ### 5.1a Initiating Treatment
 For patients with Stage I (mild) hypertension with low cardiovascular risk, advice should be given on healthy living for a period of three to six months. Pharmacological treatment has not been shown to prevent cardiovascular outcome in this group of patients. Patients should be seen at least twice (ideally monthly) during this period to assess the efficacy of the non-pharmacological intervention. [Level I] Stage I patients with medium or higher risk should be offered drug treatment upon diagnosis (Refer to Figure 5-A: Algorithm for the Management of Hypertension).
@@ -37,7 +38,6 @@ It should be emphasized that simplification of the treatment regimen using SPC i
 [Level 1] It is important to be reminded that the beneficial effects of BP lowering with pharmacotherapy is demonstrated from medium to very high CV risk. The absolute benefit in terms of CV event reduction is greater the higher baseline risk.
 
 Table 5-A: Effective Anti-Hypertensive Combinations Used In Outcome Trials
-
 | Effective combination | Patients studied |
 |---|---|
 | ACEI + thiazide-like diuretics | Post stroke, diabetes |
@@ -52,7 +52,6 @@ Table 5-A: Effective Anti-Hypertensive Combinations Used In Outcome Trials
 | CCB + β- blocker | Medium risk hypertensives |
 
 Table 5-B: Drug Combinations In Hypertension
-
 **Preferred** (based on outcome trials)
 - ACEI / thiazide or thiazide-like diuretics
 - ARB / thiazide diuretics
@@ -63,15 +62,12 @@ Table 5-B: Drug Combinations In Hypertension
 - CCB/ thiazide or thiazide-like diuretics
 - CCB/ARB
 - CCB / β-blocker
-
 **Acceptable** (no outcome trial evidence yet)
 - β-blocker / thiazide-like diuretics
 - DRI/diuretic
-
 *ARB = angiotensin receptor blocker; ACEI = angiotensin-converting enzyme inhibitor; CCB = calcium channel blocker; DRI = direct renin inhibitor*
 
 Table 5-C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions
-
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
 | Diabetes mellitus (without nephropathy) | + | +/- | +++ | + | +/- | ++ |
@@ -88,8 +84,6 @@ Table 5-C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Condit
 | Very Elderly (>80 yrs) with no co-morbid conditions | +++ | + | +++ | ++ | +/- | ++ |
 
 *The grading of recommendation from (+) to (+++) is based on increasing levels of evidence and/or current widely accepted practice.*
-
-**Legend:**
 *   **+/-**: Use with care
 *   **-**: Contraindicated
 *   **#**: Metoprolol, bisoprolol, carvedilol, nebivolol – dose needs to be gradually titrated
@@ -127,7 +121,7 @@ Step-down therapy is discouraged in the vast majority of patients. However in pa
 
 A recent systematic review supports this recommendation. This review of studies done between 1975 to 2013 showed that a trial of treatment withdrawal in well controlled hypertensives followed by subsequent regular blood pressure monitoring is safe with minor adverse events. Predictors of successful withdrawals were patients on prior monotherapy and lower blood pressures before withdrawal.
 
-**Recommendations**
+Recommendation:
 - [Grade C] Treat most patients with pharmacological agent life-long.
 - [Grade C] Choose mono-therapy in patients with stage 1 hypertension and with no compelling indication from one of the 5 classes of drug of agents (ACEIs, ARBs, CCBs, Diuretics or β-Blockers) based on patient’s individual clinical profile.
 - [Grade A] Choose combination therapy in patients with medium/high/very high risk stage 1 hypertension and stage 2 hypertension.
@@ -153,9 +147,9 @@ Table 3-D: Risk Stratification
 | High | 20 - 30% | Drug treatment and healthy living |
 | Very high | >30% | Drug treatment and healthy living |
 
-TOD = Target organ damage (LVH, retinopathy, proteinuria). <br>
-TOC = Target organ complication (heart failure, renal failure). <br>
-RF = Additional risk factors (smoking, TC >6.5mmol/L, family history of premature vascular disease). <br>
+TOD = Target organ damage (LVH, retinopathy, proteinuria).
+TOC = Target organ complication (heart failure, renal failure).
+RF = Additional risk factors (smoking, TC >6.5mmol/L, family history of premature vascular disease).
 Clinical atherosclerosis = CHD, carotid stenosis, peripheral vascular disease, transient ischaemic attack, stroke.
 
 Figure 5-A: Algorithm For The Management Of Hypertension

@@ -106,9 +106,9 @@ Table 3-D: Risk Stratification
 | High | 20 - 30% | Drug treatment and healthy living |
 | Very high | >30% | Drug treatment and healthy living |
 
-TOD = Target organ damage (LVH, retinopathy, proteinuria). <br>
-TOC = Target organ complication (heart failure, renal failure). <br>
-RF = Additional risk factors (smoking, TC >6.5mmol/L, family history of premature vascular disease). <br>
+TOD = Target organ damage (LVH, retinopathy, proteinuria).
+TOC = Target organ complication (heart failure, renal failure).
+RF = Additional risk factors (smoking, TC >6.5mmol/L, family history of premature vascular disease).
 Clinical atherosclerosis = CHD, carotid stenosis, peripheral vascular disease, transient ischaemic attack, stroke.
 
 Table 3-E: Recommendations For Follow-Up Visit Based On Initial Blood Pressure Measurements For Adults
@@ -120,8 +120,7 @@ Table 3-E: Recommendations For Follow-Up Visit Based On Initial Blood Pressure M
 | 160 – 179 | and/or | 100 – 109 | Assess global CV risk & Evaluate within one month and treat if confirmed |
 | 180 – 209 | and/or | 110 – 119 | Assess global CV risk & Evaluate within one week and treat if confirmed |
 | ≥210 | and/or | ≥120 | Assess global CV risk & Initiate treatment after repeated measurement during the same encounter |
-
-[Level III] Modified from JNC-VII
+- [Level III] Modified from JNC-VII
 
 <!-- parent_only_reference_start -->
 Level Of Evidence

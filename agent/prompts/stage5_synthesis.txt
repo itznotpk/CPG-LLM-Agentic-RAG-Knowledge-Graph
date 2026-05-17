@@ -8,23 +8,46 @@ You will receive:
 - icd_alternates  : list of alternate ICD-11 codes considered
 - evidence_chunks : numbered list of CPG text excerpts, each prefixed with [N] CPG-Name §Section
 
-EVIDENCE GRADE RECOGNITION — Malaysian CPG grading notation:
-- Grade A, Level I   : Strong recommendation; RCT or meta-analysis evidence
-- Grade A, Level II  : Strong recommendation; well-designed controlled trial
-- Grade B, Level II  : Moderate recommendation; non-randomised study evidence
-- Grade B, Level III : Moderate recommendation; case series or registry evidence
-- Grade C, Level III : Consensus; expert opinion only
+EVIDENCE GRADE RECOGNITION — Malaysian CPGs use TWO grading schemes with
+OPPOSITE axes. Do NOT assume a fixed Grade/Level mapping. The scheme depends
+on the source CPG of each chunk:
 
-Grade tags appear INLINE within chunk text in these formats:
-  Combined:      [Grade I, Level A]   [Grade IIa, Level B]
-  Separate:      [Grade I] ... [Level A]
-  Parenthetical: (Grade A)   (Level II-2)
-  Labelled:      (Recommendation Grade: A)   Evidence Level: I
+  ESC-style (cardiology CPGs — STEMI, NSTE-ACS, Heart Failure, Dyslipidaemia,
+  Atrial Fibrillation, Stroke, PAH, PCI, IE, CVD prevention, etc.):
+    Grade axis = I, IIa, IIb, III   (STEMI writes these as I, II-a, II-b, III)
+    Level axis = A, B, C
+
+  USPSTF/SIGN-style (oncology + Hypertension — Cancer Pain, Colorectal,
+  Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension):
+    Grade axis = A, B, C
+    Level axis = I, II-1, II-2, II-3, III
+
+CRITICAL: the SAME letter/numeral means different things across schemes.
+"Grade A" (USPSTF strong rec) is NOT "Level A" (ESC RCT evidence).
+"II-1/II-2/II-3" are USPSTF *Levels*; "IIa/IIb/II-a/II-b" are ESC *Grades* —
+they sit on different axes and are NEVER interchangeable. Do NOT translate,
+normalise, or merge tags between schemes (e.g. never rewrite "Level II-1"
+as "II-a", or "Grade IIa" as "Grade II-1").
+
+Identify the scheme from the chunk's own context: a chunk citing
+"[Grade I, Level A]" or "[Grade IIa, Level B]" is ESC-style; one citing
+"[Grade A]" or "[Level II-2]" is USPSTF-style. Do NOT add prose explaining
+what a grade "means" unless that definition appears in the retrieved text.
+
+Grade tags appear INLINE within chunk text in these formats (only these
+forms occur in the corpus — parenthetical/labelled forms do not exist):
+  Combined (ESC):  [Grade I, Level A]   [Grade IIa, Level B]   [Grade IIb, Level B]
+  Grade-only:      [Grade A]   [Grade B]   [Grade C]            (USPSTF recs)
+  Level-only:      [Level I]   [Level II-2]   [Level II-3]   [Level III]  (USPSTF/oncology)
 
 EVIDENCE GRADE ASSIGNMENT — do this for every Recommendation you generate:
 1. Find the specific sentence in the source chunk that supports this recommendation.
-2. Look for a [Grade X, Level Y] tag immediately following or preceding that sentence.
-3. Copy the tag VERBATIM into evidence_grade (e.g. "Grade I, Level A").
+2. Look for an evidence tag immediately following or preceding that sentence.
+   The tag may be combined ([Grade I, Level A]), grade-only ([Grade A]),
+   or level-only ([Level II-2]) — accept whichever form the CPG uses.
+3. Copy the tag VERBATIM into evidence_grade, preserving its exact tokens
+   (e.g. "Grade I, Level A", or "Grade A", or "Level II-2"). Do not reformat,
+   reorder the Grade/Level parts, or convert between schemes.
 4. If multiple grade tags appear in the same chunk, assign the one closest to the cited sentence.
 5. If no grade tag appears near the cited recommendation, set evidence_grade to null.
 6. Do NOT assign a grade from a different recommendation in the same chunk.

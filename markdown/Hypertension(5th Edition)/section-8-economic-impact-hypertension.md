@@ -24,11 +24,9 @@ The vast majority of antihypertensive drugs are now off patent, making generics 
 
 Hypertension is responsible for at least 45% and 51% of deaths from heart disease and stroke respectively. A more concerted effort should be taken for the early diagnosis and better control of hypertension. This will reduce the direct and indirect cost of treating hypertension and its complications to the patients, family, society and the government as a whole.
 
-**Summary**
-- Treating hypertension is cost effective especially with the widespread availability of generic drugs.
+Summary: Treating hypertension is cost effective especially with the widespread availability of generic drugs.
 
-**Recommendations**
-- Conduct more awareness programmes on clinical and economic benefits in prevention and early treatment of hypertension.
+Recommendation: Conduct more awareness programmes on clinical and economic benefits in prevention and early treatment of hypertension.
 
 <!-- parent_only_reference_start -->
 Abbreviations
