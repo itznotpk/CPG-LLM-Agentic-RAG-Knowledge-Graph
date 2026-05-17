@@ -127,10 +127,8 @@ In a local population, CKD-EPI performs just as well as CKD-MDRD for GFR 60–89
 
 **Equations For Estimation Of Renal Function**
 **i. 2009 CKD-EPI Creatinine Equation:**
-
 141 × min(Scr/κ, 1)^α × max(Scr/κ, 1)^(−1.209) × 0.993^Age [× 1.018 if female] [× 1.159 if black]
 
-Where:
 - Scr = serum creatinine (in mg/dL)
 - κ = 0.7 for females and 0.9 for males
 - α = −0.329 for females and −0.411 for males
@@ -138,6 +136,5 @@ Where:
 - max indicates the maximum of Scr/κ or 1
 
 **ii. Cockcroft-Gault Creatinine Clearance:**
-
 CrCL (ml/min/1.73 m²) = (140 − age (years)) × body weight (kg) / Scr (µmol/L) × Constant
 Where the constant is **1.23 in males** or **1.04 in females**.

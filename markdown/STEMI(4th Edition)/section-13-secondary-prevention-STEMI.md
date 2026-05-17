@@ -131,7 +131,7 @@ In patients who continue to have angina post revascularization, the following ma
 - [Grade IIa, Level B] ß-blockers and/or CCBs should be prescribed as first-line treatment to reduce angina because it is widely available.
 - [Grade IIa, Level B] Ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
 
-**Key Recommendation 10:**
+Key Recommendation:
 - Post STEMI, all patients should receive secondary prevention interventions that have been shown to reduce mortality and cardiovascular event rate. These include:
   - smoking cessation and other lifestyle changes
   - regular exercise

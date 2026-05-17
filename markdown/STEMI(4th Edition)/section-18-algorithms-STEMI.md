@@ -9,8 +9,6 @@ treatment_type: defibrillation, amiodarone, epinephrine, atropine, cardioversion
 -->
 
 ## Algorithm 1: Pulseless Arrhythmias — Adult Cardiac Arrest Algorithm (2015 Update)
-*(Adapted from Guidelines for Resuscitation Training for Ministry of Health Malaysia, March 2016)*
-
 **Step 1: Start CPR**
 - Give oxygen.
 - Attach monitor/defibrillator.
@@ -193,7 +191,5 @@ Assess LV function:
     - **No →** Go to intervention sequence (above).
   - **No →** Observe and monitor. No urgent treatment required for first degree AV block or Mobitz type 1 (Wenckebach).
 
-**Important Note:** In anterior MI with Mobitz type 2 or complete AV block — temporary pacing should be considered even if the patient is haemodynamically stable, as there is a risk of sudden deterioration.
-
-**Footnote:**
+Note: In anterior MI with Mobitz type 2 or complete AV block — temporary pacing should be considered even if the patient is haemodynamically stable, as there is a risk of sudden deterioration.
 - *ABC: Airway, Breathing, Circulation*

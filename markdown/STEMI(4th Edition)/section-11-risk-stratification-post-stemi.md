@@ -148,7 +148,6 @@ Appendix IV: Grace ACS Risk Model
 | ST segment depression | Yes / No |
 | Elevated cardiac enzymes/markers | Yes / No |
 
-<!-- parent_only_reference_start -->
 Grades Of Recommendation
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |

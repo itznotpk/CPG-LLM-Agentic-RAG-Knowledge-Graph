@@ -8,13 +8,6 @@ critical: true
 treatment_type: amiodarone, noradrenaline, IABP, ECMO, temporary_pacing, defibrillation, surgical_repair, aspirin, colchicine, heparin
 -->
 
-Complications of STEMI include:
-- Arrhythmias.
-- LV dysfunction and shock.
-- Mechanical complications.
-- RV infarction.
-- Others e.g., pericarditis.
-
 ## 9.1: Arrhythmias
 **A. Tachyarrhythmias**
 **Pulseless Ventricular Tachyarrhythmias**
@@ -144,7 +137,7 @@ Failure to respond to these measures usually indicates concomitant LV dysfunctio
 ### 9.5.1: Chest Pain Post-STEMI
 Chest pain post-STEMI may be due to reinfarction, recurrent MI, ischaemia or pericarditis. Non-cardiac causes must also be considered.
 
-#### 9.5.1.1 Reinfarction/Recurrent MI
+#### 9.5.1.1: Reinfarction/Recurrent MI
 In-hospital reinfarction occurred in about 3–4% of patients who had undergone fibrinolytic therapy and received aspirin. Even in contemporary practice, with primary PCI and DAPT, the incidence of reinfarction/recurrent MI is not infrequent — 1.8% at 30 days and 4% at 1 year. Reinfarction/Recurrent MI is associated with a poor prognosis especially if it is due to stent thrombosis.
 
 Reinfarction may be diagnosed by:
@@ -154,14 +147,14 @@ Reinfarction may be diagnosed by:
 
 Death, severe HF and arrhythmias are more common in these patients. They should be considered for rescue PCI.
 
-#### 9.5.1.2 Post-Infarct Angina
+#### 9.5.1.2: Post-Infarct Angina
 After successful reperfusion with fibrinolytic therapy, early recurrent angina may occur in up to 20% of patients at 30 days. Among patients undergoing primary PCI, 30% of patients reported angina at 6 weeks and about 10–20% continued to have angina at 12 months.
 
 These patients have a higher risk of recurrent MI and mortality especially when accompanied by ECG and haemodynamic changes. These patients should be:
 - Sent for early coronary angiography with a view to revascularization.
 - Treated optimally medically with anti-platelets, statins and anti-anginal medications.
 
-#### 9.5.1.3 Pericarditis
+#### 9.5.1.3: Pericarditis
 Pericarditis used to occur in about 20% of patients post-STEMI. In the contemporary era, it is an uncommon complication (about 1.2%) and there was no difference in survival at 30 days, 1 and 5 years. It is usually associated with delayed presentations and bigger infarct size.
 
 Pericarditis may produce pain as early as the first day and as late as 6 weeks. The pain classically becomes worse on deep inspiration and may be relieved when the patient sits up and leans forward. A pericardial rub may be detected.
@@ -186,7 +179,7 @@ Anti-coagulation therapy is recommended for 3–6 months or until the LV thrombu
 ### 9.5.3: Deep Venous Thrombosis (DVT)
 In high-risk patients (prolonged bed rest, HF, unable to mobilise), prophylactic anticoagulation therapy (s.c. heparin 5000 units twice daily, LMWH — e.g., enoxaparin 40 mg once daily) may be considered until the patient is ambulant.
 
-**Key Message 9:**
+Key Message:
 - Important complications following STEMI are arrhythmias and HF.
 - HF may be due to extensive myocardial damage or mechanical complications.
 - Chest pain post-STEMI may be due to:

@@ -7,6 +7,7 @@ output: STEMI_diagnosis, infarct_localisation, differential_diagnoses
 critical: true
 -->
 
+## 3.0: Overview of Diagnosis
 The diagnosis of STEMI is based on:
 - The presence of evolutionary changes of ST elevation in the resting ECG
 - History of ischaemic-type chest pain or its equivalent and

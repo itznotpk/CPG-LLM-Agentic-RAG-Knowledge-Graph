@@ -1,6 +1,6 @@
 # Section 0: Summary
 <!-- METADATA
-category: Executive Summary
+category: Reference
 use_case: STEMI Overview and Key Messages — epidemiology, diagnosis, initial_management, reperfusion_strategies, secondary_prevention
 patient_input: 
 output: clinical_summary, key_messages, management_principles
@@ -380,7 +380,7 @@ Important: If time intervals/transfer times are anticipated to be longer than st
 | • Routine angiography with a view to PCI and stenting between 3-24 hours in all STEMI patients (pharmaco-invasive therapy). | [Grade I, Level A] |
 | • Delayed selective angiography depending on presence of hemodynamic instability or residual ischaemia. | [Grade I, Level A] |
 | **PCI** of totally occluded vessel within 3-28 days after MI and no reversible ischaemia. | [Grade III, Level B] |
-<!-- cross_ref target_file="section-7-reperfusion-strategies-STEMI.md" target_heading="Section 7: Reperfusion Strategies (STEMI)" target_kind="h1_section" -->
+<!-- cross_ref target_file="section-7-reperfusion-strategies-STEMI.md" target_heading="Section 7: Reperfusion Strategies" target_kind="h1_section" -->
 
 <!-- parent_only_reference_start -->
 Appendix III: STEMI TIMI Risk Score For Predicting 30-Day Mortality

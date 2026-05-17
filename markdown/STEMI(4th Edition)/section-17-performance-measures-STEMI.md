@@ -15,8 +15,7 @@ Outcome Measures indicators include:
 - 30-day mortality < 14%
 - 1-year mortality < 18%
 
-**Key Recommendation 11:**
-- Regular audit of performance measures (refer to Table 19: Performance Measures) and outcomes measures are important to monitor and improve quality of care.
+Regular audit of performance measures (refer to Table 19: Performance Measures) and outcomes measures are important to monitor and improve quality of care.
 
 Table 19: Performance Measures
 | Indicators for STEMI at Presentation | Targets |

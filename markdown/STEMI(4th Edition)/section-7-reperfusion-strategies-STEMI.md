@@ -8,6 +8,7 @@ critical: true
 treatment_type: primary_PCI, fibrinolysis, rescue_PCI, pharmaco_invasive
 -->
 
+## 7.0: Overview of Reperfusion Strategies
 A patient's immediate and long-term prognosis following STEMI can be predicted by using the:
 - Thrombolysis in Myocardial Infarction (TIMI) STEMI risk score (Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality) - This was specifically developed for patients with STEMI or
 - GRACE risk score (refer to Appendix IV: GRACE ACS Risk Model). -this predicts in-hospital and 6-month mortality in patients with ACS.
@@ -132,9 +133,7 @@ Streptokinase is antigenic and promotes the production of antibodies. Thus the u
 
 **Fibrin Specific Agents**
 [Grade I, Level B] A fibrin-specific agent such as tenecteplase (TNK-tPA) is recommended.
-
 The benefit of using TNK-tPA is that it causes more rapid reperfusion of the occluded artery than streptokinase and is given as a single bolus dose.
-
 This is a weight-based regimen and thus there is a risk of bleeding if the weight has been overestimated.
 
 <u>Regimen:</u>
@@ -316,14 +315,12 @@ Management includes:
 - IC nitroprusside 50–100 µg boluses.
 - IV nicardipine 100–200 µg boluses.
 
-**Key Recommendation 5:**
+Key Recommendation:
 - Primary PCI is superior to fibrinolysis for STEMI and should be performed in a timely manner at experienced centres. (refer to Flow Chart 2: Time intervals to determine choice of reperfusion strategy)
-
-**Key Recommendation 6:**
 - When fibrinolytic therapy is administered, the DNT should be ≤ 30 minutes.
 - Whenever possible, patients given fibrinolytic therapy should be considered for a pharmaco-invasive approach (elective angiogram within 3–24 hours post fibrinolysis).
 
-**Key Message #7:**
+Key Message 7:
 Primary PCI is superior to fibrinolysis for STEMI when performed in a timely manner at experienced centres. (refer to Flow Chart 1: Management of patients presenting with STEMI & Flow Chart 2: Time intervals to determine choice of reperfusion strategy)
 - If the patient **presents at a PCI centre**, then the time from FMC (First Medical Contact) to wire crossing should be **≤ 90 minutes.**
 - If transferred from **a centre with no PCI facilities**, the time from FMC to wire crossing should be **≤120 minutes** (including transfer delay). This is made up of:
@@ -348,7 +345,6 @@ Appendix III: STEMI Timi Risk Score For Predicting 30-Day Mortality
 | History of diabetes, hypertension, or angina | Yes / No | 1 / 0 |
 
 **TIMI Risk Score:** 0–14 plausible points
-
 - **Low and moderate risk:** 5 points and below (< 12% mortality)
 - **High-risk:** 6 points and above (16–36.0% mortality)
 

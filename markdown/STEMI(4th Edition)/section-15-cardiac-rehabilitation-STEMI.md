@@ -7,6 +7,7 @@ output: rehabilitation_phase_plan, exercise_programme, activity_clearance, psych
 treatment_type: exercise_rehabilitation, psychosocial_therapy
 -->
 
+## 15.0: Overview Of Cardiac Rehabilitation Programme (CRP)
 Cardiac Rehabilitation Programme (CRP) consists of coordinated, multifaceted interventions designed to optimise a cardiac patient's physical, psychological, and social functioning. It is a comprehensive, long-term program involving:
 - Medical evaluation
 - Exercise prescriptions

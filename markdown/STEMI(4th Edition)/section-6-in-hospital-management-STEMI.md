@@ -8,12 +8,12 @@ critical: true
 treatment_type: antiplatelet_loading, analgesia, oxygen_therapy, reperfusion
 -->
 
+## 6.1: Initial Recognition And Management
 Early management of STEMI is directed at:
 - Pain relief.
 - Establishing early reperfusion.
 - Treatment of complications.
 
-## 6.1: Initial Recognition And Management
 - [Grade I, Level A] When the patient with suspected STEMI reaches the emergency department, evaluation and initial management should be prompt (**FAST TRACK - RED ZONE**) because the benefits of reperfusion therapy are greater the earlier it is instituted.
 - [Grade I, Level C] A quick targeted history should be taken, and vital signs noted. The diagnosis should be confirmed with an ECG, which should be done as soon as possible, within 10 minutes of the patient's arrival in the emergency department.
 - [Grade I, Level C] In patients suspected of having a STEMI in view of the prolonged ischaemic-type chest pain of > 30 minutes but without obvious ST elevation seen in the resting ECG, the following steps may be taken: (Section 3.1: History and Section 3.2: Electrocardiographic Changes, and Table 6: ECG patterns of various STEMI locations and the diagnostic cut off points (in the absence of LVH or LBBB)) <!-- cross_ref target_file="section-3-diagnosis-STEMI.md" target_heading="3.1: History" target_kind="h2_section" --> <!-- cross_ref target_file="section-3-diagnosis-STEMI.md" target_heading="3.2: Electrocardiographic Changes" target_kind="h2_section" -->
@@ -34,7 +34,7 @@ Table 6: ECG Patterns Of Various STEMI Locations And The Diagnostic Cut Off Poin
 | Inferior | II, III, AVF | • ST elevation ST elevation of ≥ 0.1 mV,<br>• Q wave |
 | Right Ventricular (RV) | V4R | • ST elevation> 0.5 mm (≥ 1 mm in men<br>&nbsp;&nbsp;< 30 years old). |
 
-**THUS, EARLY DIAGNOSIS AND PROMPT TREATMENT OF STEMI IS VITAL.**
+THUS, EARLY DIAGNOSIS AND PROMPT TREATMENT OF STEMI IS VITAL.
 
 - [Grade I, Level C] Continuous ECG monitoring using a monitor with defibrillation capacity should be commenced as soon as the diagnosis of STEMI is made.
 - [Grade I, Level C] Pain should be relieved with titrated IV morphine at 2-5 mg by slow bolus injection every 5-15 minutes as necessary. Watch for adverse events – hypotension and respiratory depression. Antiemetic (IV metoclopramide 10 mg or promethazine 25 mg) should be given with morphine and 8-hourly as necessary.
@@ -51,13 +51,13 @@ Table 6: ECG Patterns Of Various STEMI Locations And The Diagnostic Cut Off Poin
     - [Grade I, Level B] 180 mg of ticagrelor
   - [Grade I, Level B] Oxygen is administered in patients with hypoxaemia (SpO₂ < 95% or PaO₂ < 60 mmHg). Routine oxygen is not recommended in patients with SpO₂ ≥ 95%.
 
-**Key Message #6:**
+Key Message #6:
 - Early management of STEMI is directed at:
   - Pain relief.
   - Establishing early reperfusion.
   - Treatment of complications.
 
-**Key Recommendation 4:**
+Key Recommendation 4:
 - "Time is muscle" - Every patient with STEMI should have the occluded artery reopened (reperfusion therapy) as soon as possible after the onset of symptoms.
 - Reperfusion therapy is indicated in all patients with symptoms of ischaemia of <12 hours duration and persistent ST-segment elevation.
 

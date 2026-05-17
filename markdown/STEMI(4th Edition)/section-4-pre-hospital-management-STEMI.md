@@ -8,6 +8,7 @@ critical: true
 treatment_type: pre_hospital_fibrinolysis, antiplatelet_loading
 -->
 
+## 4.0: Overview of Pre-Hospital Management
 Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC. Most deaths following STEMI occur in the pre-hospital phase. Patients with ischaemic-type chest pain should go to the nearest hospital rather than a clinic.
 
 In STEMI, it is important to reduce total ischaemic time — the time from symptom onset to the time of institution of reperfusion strategies. Total ischaemic time is a combination of:

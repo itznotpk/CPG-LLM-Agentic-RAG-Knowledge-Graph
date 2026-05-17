@@ -13,18 +13,12 @@ All STEMI patients should be admitted to a CCU or equivalent unit equipped with 
 
 Following successful reperfusion, uncomplicated cases may be kept for a minimum of 24 hours before transfer to a step-down unit. They can sit out of bed and undertake self-care the next day. Patients with STEMI complicated by significant myocardial damage and arrhythmias need longer bed rest and may need to be kept in the CCU longer.
 
-Sedatives may be useful. Titrated IV opioids may be administered to relieve pain.
+Sedatives may be useful. Titrated IV opioids may be administered to relieve pain. Use of bedside commode and assisted bedside washing should be safe in most patients.
 
-Use of bedside commode and assisted bedside washing should be safe in most patients.
-
-The Valsalva manoeuvre has been shown to precipitate dangerous haemodynamic and electrocardiographic changes. Prevention of constipation with stool softeners is encouraged.
-
-Early referral for cardiac rehabilitation is advisable.
+The Valsalva manoeuvre has been shown to precipitate dangerous haemodynamic and electrocardiographic changes. Prevention of constipation with stool softeners is encouraged. Early referral for cardiac rehabilitation is advisable.
 
 ## 8.2: Monitoring
-The general condition of the patient, vital signs, pulse oximetry and the cardiac rhythm should be continuously monitored following STEMI.
-
-In general, systolic blood pressure should be > 90mmHg prior to starting ACE-I or ß-blockers.
+The general condition of the patient, vital signs, pulse oximetry and the cardiac rhythm should be continuously monitored following STEMI. In general, systolic blood pressure should be > 90mmHg prior to starting ACE-I or ß-blockers.
 
 ## 8.3: Concomitant Therapy
 ### 8.3.1: Oxygen
@@ -70,7 +64,6 @@ Table 9: Recommended Dosages Of Anti-Thrombotics In STEMI
 | Enoxaparin | < 75 years: 30 mg IV bolus followed by sc 1.0 mg/kg bd<br>≥ 75 years: No bolus, sc 0.75 mg/kg bd | 8 days or until hospital discharge |
 | UFH | 60 U/kg i.v. bolus (max 4000 U)<br>i.v. infusion 12 U/kg/h (max 1000 U/h) – to maintain an activated partial thromboplastin time (APTT) of 1.5 – 2.5 x control | 48 hours |
 | Fondaparinux | sc 2.5 mg once daily | 8 days or until hospital discharge |
-
 _sc: subcutaneous_
 
 **A) Heparin**
@@ -90,8 +83,6 @@ These include:
 
 OACs are prescribed for the following indications:
 
-#### 8.3.3.1: Atrial Fibrillation
-#### 8.3.3.2: Lv Thrombus
 #### 8.3.3.1: Atrial Fibrillation
 Refer To Appendix V: Cha₂ds₂-Vasc Score
 [Grade IIa, Level B] In STEMI patients with AF who had undergone PCI, the use of DOAC with anti-platelet therapy is associated with a lower risk of bleeding than the standard triple therapy (DAPT + warfarin).
@@ -133,13 +124,11 @@ Refer To Table 10: Recommended Dosages Of Ss-Blockers In STEMI
 - [Grade I, Level A] Routine oral treatment with ß-blockers should be considered during hospitalisation and continued thereafter in all patients without contraindications.
 
 Table 10: Recommended Dosages Of Ss-Blockers In STEMI
-
 | Type | Initiation dose | Target dose |
 |---|---|---|
 | Metoprolol | 25 mg bd | 100 mg bd |
 | Carvedilol | 3.125 mg bd | 25 mg bd |
 | Bisoprolol | 1.25 mg od | 10 mg od |
-
 _bd: twice a day, od: once daily_
 
 **Contraindications to ß-blockers:**
@@ -162,7 +151,6 @@ Table 11: Recommended Dosages Of Ace-Is And ARBs In STEMI
 | Lisinopril | 5 mg od | 10 mg od |
 | Perindopril | 2 mg od | 8-10 mg od |
 | Valsartan | 40-80 mg od | 160 mg bd |
-
 _bd: twice a day, tds: three times a day, od: once daily_
 
 **Contraindications to ACE-I and ARB therapy:**
@@ -214,7 +202,6 @@ Table 12: Recommended Doses Of Nitrates
 | Isosorbide dinitrate | Transdermal patch | 2.5 – 10 mg | 3 - 4 minutes |
 | Isosorbide dinitrate | Oral | 10 – 20 mg, bd/tds | 30-60 minutes |
 | Isosorbide mononitrate extended release | Oral | 30-60 mg, od | 60 minutes |
-
 _\*The dose of IV nitrates should be titrated every 5 - 10 minutes until symptoms and/or ischaemia is relieved and the desired haemodynamic response is obtained._
 
 ### 8.3.9: Calcium Channel Blockers (CCB)
@@ -233,7 +220,7 @@ _\*The dose of IV nitrates should be titrated every 5 - 10 minutes until symptom
 - [Grade III, Level A] Garlic, lecithin, Vitamin A and C are not beneficial.
 - [Grade III, Level A] Omega-3 fatty acids – The initial open label study indicated that these were beneficial but subsequent studies have been negative.
 
-**Key Recommendation 7:**
+Key Recommendation:
 - All patients with STEMI receiving fibrinolytic therapy should receive:
   - 300 mg aspirin
   - **+ (Plus) loading dose**
@@ -248,8 +235,6 @@ _\*The dose of IV nitrates should be titrated every 5 - 10 minutes until symptom
     - 60 mg prasugrel (after the coronary angiogram)
   - This is followed by a maintenance dose of 75-150 mg daily of aspirin long-term and 75 mg of clopidogrel daily or 90 mg twice daily ticagrelor or 10 mg prasugrel daily.
   - Patients who underwent PCI require DAPT for up to a year depending on the thrombotic/ischaemic versus bleeding risks. In patients with high bleeding risks, a shorter period of DAPT of 6 months may be considered.
-
-**Key Recommendation 8:**
 - All patients with STEMI should receive medications that have been shown to improve survival if given early. These include:
   - ACE-Is
   - ARBs if ACE-I intolerant

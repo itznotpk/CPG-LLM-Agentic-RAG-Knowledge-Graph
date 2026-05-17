@@ -130,7 +130,7 @@ Table 15: Dosages Of Anti-Thrombotics In CKD
 | Fondaparinux | Avoid if CrCL < 30 ml/minute | Avoid if CrCL < 30 ml/minute |
 | Tirofiban | 25 µg/kg IV over 3 minutes followed | CrCL ≤60 mL/minute: infusion of 0.075 µg/kg/minute for up to 18 h post-PCI |
 
-**Key Message 12 (Renal Disease):**
+Key Message (Renal Disease):
 - Treatment of STEMI in patients with CKD should be individualised.
 - Primary PCI is the preferred reperfusion strategy but morbidity and mortality are high.
 - In view of bleeding risks, the dosages of anti-platelet agents and antithrombotics need to be adjusted accordingly.
