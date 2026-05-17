@@ -6,7 +6,7 @@ patient_input: none
 output: reference_tables, dietary_data, clinical_scores
 -->
 
-> **Context:** This file contains Appendices 1–13 for the CPG, including FRS comparison tables, dietary nutrient data (fat, carbohydrate, fibre, sodium content of Malaysian foods), glycaemic index references, STOP-BANG questionnaire, alcohol guidelines, weight management tips, and descriptions of traditional medicine forms.
+> **Context:** Reference appendices (1–13) for the 2017 Malaysian Prevention of CVD CPG: global risk-score comparison (FRS/SCORE/PCE/QRISK2), dietary nutrient tables for Malaysian foods (fat, carbohydrate, fibre, sodium), glycaemic index, STOP-BANG questionnaire, alcohol guidelines, weight-management tips, traditional medicine forms. Clinical rationale is in Sections 2–13.
 
 ## Appendix 1: Comparison Of Global Coronary And CV Risk Scores
 | | Framingham CHD Risk Score | Framingham General CVD Risk Score | SCORE | ACC/AHA Pooled Cohort | Q-Risk2 Score |
@@ -51,12 +51,8 @@ If the patient is female, aged 30 years, has a systolic blood pressure of 125 mm
 |---|---|---|
 
 High risk of OSA: Yes 5-8
-
 Intermediate risk of OSA: Yes 3-4
-
 Low Risk of OSA: Yes 0-2
-
-*From: Chung F, Abdullah HR, Liao P. STOP-Bang Questionnaire: A Practical Approach to Screen for Obstructive Sleep Apnea. Chest. 2016 Mar;149(3):631-8*
 
 ## Appendix 4: Fat Content Of Common Malaysian Food*
 | Food | Portion | Calorie content |
@@ -121,7 +117,6 @@ Low Risk of OSA: Yes 0-2
 | Fruits | Apple<br>Mango<br>Oranges<br>Plum | Banana<br>Dates<br>Papaya<br>Pineapples<br>Raisin | Lychee<br>Watermelon |
 | Legumes | Baked beans<br>Chickpeas<br>Lentils<br>Mung bean | - | - |
 | Tubers | Cassava, boiled<br>Sweet potato, boiled | Pumpkins, boiled<br>Sweet corn, boiled | Potato, boiled |
-
 *\*Adapted from CPG, Management of Type2 Diabetes Mellitus 2015*
 *\*\*It is important to consider both GL and GI:*
 *GL = GI x CHO (g)/100*
@@ -207,10 +202,6 @@ Low Risk of OSA: Yes 0-2
 | 17. | Snack noodle | 1 packet (medium, 35g) | 430 |
 | 18. | Fruit pickles | 1 dessert spoon (10g) | 428 |
 
-*Source:*
-*1. CCHRC. 2007. Sodium (Na+) Content of Seasoning and Common Foods.USA: Chinese Community Health Resource Center*
-*2. CFS. 2012. Risk Assessment Studies, Report No. 49: Study on Sodium Content in Local Foods. Center for Food Safety Food and Environmental Hygiene Department. The Government of the Hong Kong Special Administrative Region.*
-
 ## Appendix 10: Alcohol Content Of Common Drinks*
 | Low Alcohol Beer, Lager & Cider | Bottle (330ml) | Can (440ml) | Pint (568ml) | Litre |
 |---|---|---|---|---|
@@ -233,8 +224,6 @@ Low Risk of OSA: Yes 0-2
 | 38 - 40% | 1 unit | 1.4 units | 1.9-2 units | 2.7-2.8 units |
 | Shots (Tequila, Sambuca) | **Single Measure (25ml)** | **Large Single Measure (35ml)** | | |
 | 38 – 40% | 1 unit | 1.3 units | | |
-
-*\*Department of Health. Alcohol know your limits. Alcohol units: A brief guide, National Health Service. Crown Copyright 2008. Accessed from www.nhs.uk/units)*
 
 ## Appendix 11: Tips On Losing Weight
 **Good Eating Habits**
@@ -265,7 +254,7 @@ Low Risk of OSA: Yes 0-2
 - Substitute other activities for snacking
 - Snack on fresh vegetables and fruits
 
-See Physical Activity Tips – Table 10, pg 73
+See Physical Activity Tips at Table 10: Recommendation Of PA In Adult For CVD Prevention.
 
 ## Appendix 12: Forms Of Traditional Medicine
 **Traditional Malay Medicine (TMM):**
@@ -313,4 +302,11 @@ The National Centre for Complementary and Alternative Medicine (NCCAM) has ident
 - Manipulative and body-based Practices- This includes chiropractic medicine, osteopathy, massage, rolfing (structural integration), and cranial-sacral therapy. Each of these approaches is based on manipulation and/or movement of the body.
 - Energy therapies -This includes biofield therapy and electromagnetic therapy. Biofield therapies, such as therapeutic touch, healing touch, reiki, and qi gong, are intended to affect the energy fields that are believed to surround and penetrate the body.
 
-*\*National Centre for Complementary and Alternative Medicine (NCCAM),USA 2007*
+<!-- parent_only_reference_start -->
+Table 10: Recommendation Of PA In Adult For CVD Prevention
+| PA type | Starting point | PA Goal | Additional Benefits |
+| :--- | :--- | :--- | :--- |
+| Aerobic activity | 1. Identify current aerobic PA & its intensities (refer to table 9: Classification of Physical Activity).<br>2. Total up weekly duration of PA engagement.<br>3. Start with 60 min/ week of PA time, this can be broken down to daily, 3 days/ week or once-a week commitment (i.e. 10 minutes daily; 20 minutes every other day).<br>4. In unfit or inactive individuals it is recommended to start with low intensity PA, 60 min/ week at a time commitment they can. | **Aim for:**<br>Frequency: 3 or more days/ week<br>Intensity: moderate intensity aerobic PA<br>Duration: 150 min/ week | Additional benefits for weight loss and lipid control can be gained by increasing aerobic PA to 250 - 450min/ week moderate intensity or 150min/ week high intensity PA. |
+| Strength training | 1. Identify any ongoing orthopaedic or musculoskeletal (MSK) issues.<br>2. Identify contraindications for strength training:<br>• Unstable angina<br>• Uncontrolled hypertension (systolic blood pressure ≥160 mm Hg and/or diastolic blood pressure ≥100 mmHg)<br>• Uncontrolled dysrhythmias<br>• Unevaluated/ symptomatic congestive heart failure<br>• Severe stenotic or regurgitant valvular disease<br>• Hypertrophic cardiomyopathy<br>3. Candidates for strength training should be involving in moderate intensity aerobic PA for at least 4 weeks. | **Aim for:**<br>2 - 3 sets<br>8 – 12 repetitions<br>60 – 80% individual’s 1 repetition maximum<br>2 days/week or more<br>Whenever possible, refer to physiotherapist or in cases of established CVD to cardiac rehabilitation (CR) team for assessment & prescription of exercises. Indicate concomitant orthopaedic/ MSK conditions. | Strength training helps in lipid and BP control plus increase insulin sensitivity in combination with aerobic exercise. It stimulates bone formation, reduces bone loss, preserves and enhances muscle mass, strength, power and functional ability. |
+| Flexibility exercises | 1. Identify any ongoing orthopaedic or MSK issues.<br>2. Flexibility training complements aerobic exercises and should be done during cool down phase after aerobic activities.<br>3. Start at 3 sets of 15 seconds stretch of key muscles as tolerable. | **Aim for:**<br>5 sets<br>30 seconds stretch<br>Full joint ROM<br>2 - 3 days/ week<br>Breathe normally<br>Refer to physiotherapist or CR team for exercise prescription. | Lack of flexibility in the elderly contributes to reduce ability to perform activities of daily living. Adequate joint ROM is required for optimal musculoskeletal function. |
+<!-- parent_only_reference_end -->

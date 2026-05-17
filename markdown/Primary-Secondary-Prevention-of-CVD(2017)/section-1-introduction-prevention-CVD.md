@@ -6,7 +6,7 @@ patient_input: none
 output: guideline_context, epidemiological_background, key_messages
 -->
 
-> **Context:** This section establishes the epidemiological rationale for the 2017 CPG, documenting the high and rising burden of CVD and its modifiable risk factors in Malaysia. It is background context and is less directly used for care plan generation. The Key Message and Recommendation are the highest-yield content for RAG retrieval.
+> **Context:** Epidemiological rationale for the 2017 Malaysian Primary & Secondary Prevention of CVD CPG — local CVD burden and modifiable risk-factor prevalence (NCVD-ACS Registry, NHMS).
 
 ## 1.1: Epidemiology Of Cardiovascular Disease
 - CVD is the leading cause of morbidity and mortality in Malaysia for over a decade.
@@ -42,12 +42,11 @@ Based on the National Health and Morbidity Survey (NHMS), the Malaysian adult po
   - Finland: CHD mortality decreased by 82% in men and 84% in women (1969-2012).
   - UK modelling: >5,000 fewer deaths/year if cholesterol reduced by 1 mmol/L, smoking prevalence reduced from 30% to 18%, and diastolic BP reduced by 3.2 mmHg.
 
-**Key Message**
+Key Message:
 - The prevalence of common CV risk factors (hypertension, smoking, hypercholesterolaemia, diabetes, overweight and obesity) in Malaysia is high and shows a rising trend.
 - A decrease in these CV risk factors has been shown to reduce CV morbidity and mortality in both people without (primary prevention) and with established CVD (secondary prevention).
 
-**Recommendation**
-To tackle the CV epidemic in Malaysia, efforts should be made to reduce global CV risk. Dietary and lifestyle changes in the general population should be emphasized.
+Recommendation: To tackle the CV epidemic in Malaysia, efforts should be made to reduce global CV risk. Dietary and lifestyle changes in the general population should be emphasized.
 
 <!-- parent_only_reference_start -->
 Abbreviations

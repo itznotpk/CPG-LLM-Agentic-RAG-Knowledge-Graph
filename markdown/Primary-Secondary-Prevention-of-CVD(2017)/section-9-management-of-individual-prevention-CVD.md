@@ -7,14 +7,11 @@ output: management_plan, treatment_targets, drug_selection, referral_criteria
 critical: true
 treatment_type: ACEi, ARB, CCB, thiazide, beta_blocker, statin, ezetimibe, PCSK9i, fibrate, metformin, SGLT2i, GLP-1, DPP-4i, gliclazide, insulin, aspirin, clopidogrel, ticagrelor, prasugrel, warfarin, dabigatran, rivaroxaban, apixaban
 -->
-
-> **Context:** This is the core clinical management section. It covers pharmacological and non-pharmacological management of hypertension (staging, drug selection, resistant hypertension), dyslipidaemia (LDL-C targeting by risk tier, statin/ezetimibe/PCSK-9 use), prediabetes and T2DM (A1c targets, SGLT2i/GLP-1 sequencing, hypoglycaemia risk), antiplatelet therapy (primary and secondary prevention), and anticoagulation (AF, LV thrombus).
-
+## 9.0: Overview Of Managment Of Risk Factors in CVD
 In the primary prevention of CVD, the emphasis should be on the assessment and management of the global risk of the individual and not solely concentrating on individual risk factors. The global CV risk can be calculated using many different CV risk calculators. The risk calculator that has been validated in our local population is the Framingham General CV Risk Calculator for primary care. (Refer to Table 1A: Estimation of 10-year CVD Points for Men; Table 1B: CVD Risk for Men; Table 2A: CVD Points for Women; Table 2B: CVD Risk for Women; Table 3: Risk Stratification of Cardiovascular Risk.
 
 Table 1 & 2: Framingham Risk Score For Assessment Of CVD Risk*
 Table 1A: Estimation Of 10-Year CVD Points For Men (Framingham Point Scores)
-
 | Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
 | -2 | | 1.6+ | | <120 | | | |
@@ -36,11 +33,9 @@ Table 1A: Estimation Of 10-Year CVD Points For Men (Framingham Point Scores)
 | 14 | 70-74 | | | | | | |
 | 15 | 75+ | | | | | | |
 | Points allotted | | | | | | | |
-
 Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
 
 Table 1B: CVD Risk For Men
-
 | Total Points | 10-year Risk % | Total Points | 10-year Risk % |
 |---|---|---|---|
 | ≤-3 | <1 | 8 | 6.7 |
@@ -75,7 +70,6 @@ Table 2A: CVD Points For Women
 | 11 | 70-74 | | | | | | |
 | 12 | 75+ | | | | | | |
 | Points allotted | | | | | | | |
-
 Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
 
 Table 2B: CVD Risk For Women
@@ -95,6 +89,7 @@ Table 2B: CVD Risk For Women
 | 9 | 5.3 | 21+ | >30 |
 
 ## 9.1: Hypertension
+### 9.1.0: Overview of Hypertension
 The NHMS 2015 showed that the prevalence of hypertension among adults 18 years old and above is 30.3%. It is now estimated that there are 6.4 million individuals with hypertension in Malaysia. According to NHMS 2011, almost two thirds (61%) of individuals with hypertension in Malaysia were unaware they were having hypertension. Of all patients with hypertension and on treatment, only 35% of them achieved target BP. With the anticipated doubling of CVD burden especially in the developing world in the next few decades, it is imperative that major risk factors like hypertension be optimally managed.
 
 ### 9.1.1: Preventing Hypertension
@@ -116,9 +111,7 @@ This approach focuses on people known to be at higher risk of developing hyperte
 - Presence of other CV risk factors.
 
 ### 9.1.2: Managing Hypertension For The Prevention Of CVD
-Reducing BP to target values will result in a reduction in CV events in both primary and secondary prevention.
-
-The objectives of treatment are:
+Reducing BP to target values will result in a reduction in CV events in both primary and secondary prevention. The objectives of treatment are:
 - Preventing the complications of hypertension by reducing BP to target levels and
 - Reducing the global CV risk of the individual by detecting and correcting other CV risk factors simultaneously.
 
@@ -167,10 +160,6 @@ Table 4: Targets Of Individual Risk Factors
 | Diabetes** — Triglycerides | ≤1.7 mmol/L | — |
 | Overweight/Obesity** | Weight loss: aim for 5-10% in 6 months and maintain the weight in the next 1-2 years. | [Grade I, Level A] |
 
-> \* *Malaysian Clinical Practice Guidelines on Hypertension, 4th Ed 2013*
->
-> \*\* *Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th Ed 2015*
-
 #### 9.1.2.3: Resistant Hypertension
 This is defined as BP still >140/90 mmHg with three drugs, inclusive of a diuretic, at near maximal doses. The possible causes of resistant hypertension include:
 - Medication non-adherence
@@ -179,7 +168,7 @@ This is defined as BP still >140/90 mmHg with three drugs, inclusive of a diuret
 - Excessive sodium intake, excessive liquorice intake and drug interactions.
 - Complications of long standing hypertension such as nephrosclerosis, loss of aortic distensibility and atherosclerotic renal artery stenosis.
 
-##### 9.1.2.3.1: Management Of Resistant Hypertension
+**Management Of Resistant Hypertension**
 In these patients:
 - Secondary causes of hypertension should be excluded
 - A 4th anti-hypertensive agent should be added. This would include either/or:
@@ -190,7 +179,7 @@ In these patients:
     - Vasodilators.
 - Referral to a specialist is often necessary.
 
-> **Recommendation:**
+Recommendations:
 > - Once hypertension is diagnosed, the patient should be risk stratified (Refer to Table 13: Criteria for Staging Hypertension Based on Clinic, Home and Ambulatory Blood Pressure Monitoring) and staged accordingly (Refer to Table 14: Risk Stratification). The algorithm for management of hypertension is in Figure 1: Algorithm for the Management of Hypertension.
 > - All patients should be counselled on non-pharmacological measures (Refer to Section 9.1.1: Preventing Hypertension).
 > - Drug treatment should be instituted at the outset in the following scenario:
@@ -201,12 +190,10 @@ In these patients:
 
 ## 9.2: Dyslipidaemia
 Elevated cholesterols (especially LDL-C) is an important CV risk factor. Studies done in western countries and in New Zealand have shown that the biggest benefits with regards reduction in CHD mortality using the Scottish CHD mortality model, have come from reductions in smoking. However, in the UK, reductions in cholesterol seem to have even greater potential to further reduce CHD mortality rates.
-
 Importantly, it was estimated that population CHD mortality is reduced more by a 1% relative reduction in cholesterol than by a 1% relative reduction in population mean BP or smoking prevalence.
 
-### 9.2.1: Management
+### 9.2.1: Management Of Dyslipidaemia
 Numerous studies have conclusively shown that LDL-C reduction leads to a reduction in CV mortality and CVD. A 1 mmol/L reduction in LDL-C reduces vascular mortality by 22%. Statins have consistently been shown to be beneficial in both primary and secondary prevention.
-
 Observational studies indicate that a low HDL-C and raised TG are associated with adverse CV outcomes. However interventional trials that increase HDL-C and/or reduce TG levels have not shown any CV benefit.
 
 ### 9.2.2: Targets Of Therapy
@@ -215,11 +202,7 @@ Observational studies indicate that a low HDL-C and raised TG are associated wit
 
 Both the absolute on treatment LDL-C level and the percentage LDL-C reduction achieved have been found to correlate with the observed CV benefits (Table 15: Target LDL-C Levels).
 
-Non-HDL-C may be considered as a secondary target when treating patients with:
-- Combined hyperlipidaemias
-- Diabetes
-- Cardiometabolic Risk
-- CKD
+Non-HDL-C may be considered as a secondary target when treating patients with: Combined hyperlipidaemias, Diabetes, Cardiometabolic Risk, CKD.
 
 In measuring lipid levels:
 - A standard lipid profile includes measurement of plasma or serum TC, LDL-C, HDL-C and TG.
@@ -230,7 +213,7 @@ All individuals should be risk stratified using Table 3: Risk Stratification of 
 
 In patients at **Low** and **Intermediate (Moderate)** Risk, the emphasis should be on therapeutic lifestyle changes (Refer to Section 8: Interventions to prevent CVD). If target goals are not achieved, statins may be initiated after discussion with the patient. <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="Section 8: Interventions To Prevent CVD" target_kind="h1_section" -->
 
-> **Recommendation:**
+Reccomendation:
 > - Both fasting and non-fasting samples may be used for lipid measurement.
 > - LDL-C is the primary target of therapy.
 > - All individuals should be risk stratified using Table 3: Risk Stratification of Cardiovascular Risk. The target lipid levels will depend on their CV risk (Table 15: Target LDL-C Levels).
@@ -251,32 +234,27 @@ Table 16: Lipid Modifying Therapy For Dyslipidemia
 | Ezetimibe | Statin intolerance | IIa, C |
 | PCSK-9 inhibitors | Very High and High CV risk with statin intolerance | IIa, B |
 | Fibrates | Very High TG despite non-pharmacological measures | IIa, C |
-
 *\*After Therapeutic Lifestyle changes*
 
-## 9.3: Prediabetes And Diabetes Mellitus (Type 2 And Type 1)
-### 9.3.1: Prediabetes
-#### 9.3.1.1: Definition
+## 9.3: Prediabetes
+### 9.3.1: Definition of Prediabetes
 Prediabetes is a condition when blood glucose levels are higher than normal but below diabetic thresholds.
-
 It includes any of the following categories: (Table 17: Diagnosis of Prediabetes and Diabetes)
 - Impaired fasting glucose (IFG) – FBG: 6.1-6.9 mmol/L
 - Impaired glucose tolerance (IGT) – 2-hour post load glucose level following oral glucose tolerance test (OGTT) with 75 gm oral glucose between 7.8 – 11.1 mmol/L
 - Prediabetes – A1c: >5.6 to <6.3%
 
-#### 9.3.1.2: Epidemiology
-In general, the proportion of individuals with prediabetes tends to be equal or greater than that of diabetes in any studied population.
+### 9.3.2: Epidemiology of Prediabetes
+In general, the proportion of individuals with prediabetes tends to be equal or greater than that of diabetes in any studied population. Based on the Metabolic Syndrome Study of Malaysia (MSSM) 2008 the prevalence of prediabetes (based on the OGTT) among adults above the age of 18 years was 20% while that of diabetes was 22%.
 
-Based on the Metabolic Syndrome Study of Malaysia (MSSM) 2008 the prevalence of prediabetes (based on the OGTT) among adults above the age of 18 years was 20% while that of diabetes was 22%.
-
-#### 9.3.1.3: Prediabetes As A Risk Factor For CVD
+### 9.3.3: Prediabetes As A Risk Factor For CVD
 Existing evidence indicates that:
 - There is a linear relationship between blood glucose levels and CVD.
 - The risk of CVD is almost 2 fold in subjects with prediabetes compared to those with normal OGTT.
 - All-cause and CVD mortality is significantly increased in individuals with IGT but not with IFG.
 - At A1c values below the diabetic range (5.7 - 6.3%) there is an increased risk for CHD, stroke and death.
 
-#### 9.3.1.4: Diagnosis
+### 9.3.4: Diagnosis
 Screening can be done by measuring capillary blood glucose levels using glucometers. If the test is positive (random capillary blood glucose ≥7.8 or fasting ≥ 5.6 mmol/L), a confirmatory test can be performed by one of the following methods:
 - OGTT with 75 grams of glucose
 - FBG
@@ -284,9 +262,7 @@ Screening can be done by measuring capillary blood glucose levels using glucomet
 
 If A1c is used for the diagnosis of prediabetes, it is best that the test is followed by an OGTT to classify individuals into either IFG, IGT or combination of both. This has prognostic significance in terms of the risk of developing CVD and conversion to full blown diabetes.
 
-#### 9.3.1.5: WHO Should Be Screened?
-Refer to Table 18: Who Should be Screened for Prediabetes
-
+### 9.3.5: WHO Should Be Screened?
 Table 18: WHO Should Be Screened For Prediabetes
 - A. Women with a history of gestational diabetes mellitus (GDM)
 - B. Adults who are overweight or obese (BMI ≥23 kg/m² or waist circumference ≥80 cm for women and ≥90 cm for men) with ANY of the following:
@@ -311,11 +287,9 @@ Table 18: WHO Should Be Screened For Prediabetes
         - β-blockers
         - Statins
 
-In those without the above risk factors, testing should begin at the age of 30 years. If tests are normal, screening should be done annually (Refer to Section 9.3.1.4: Diagnosis).
+In those without the above risk factors, testing should begin at the age of 30 years. If tests are normal, screening should be done annually (Refer to Section 9.3.4: Diagnosis).
 
-*\*Modified from American Diabetes Association (ADA) Position Statement on Standards of Medical Care in Diabetes– 2017*
-
-#### 9.3.1.6: Management
+### 9.3.6: Management Of Prediabetes
 With proper management of prediabetes, progression to diabetes can be delayed. However, this has not been shown to reduce CVD.
 
 Interventions that can prevent the development of diabetes include:
@@ -347,10 +321,10 @@ Interventions that can prevent the development of diabetes include:
 
 Other CV risk factors should also be managed appropriately in accordance with guidelines.
 
-### 9.3.2: Diabetes
-The diagnosis of diabetes is conventionally based on FBG, 2-hour post load/challenge with 75 gm oral glucose or A1c values that correspond to the onset of microvascular complications, namely retinopathy. However, it is known that the risk of CVD starts to increase at a much lower level of blood glucose compared to the onset of diabetic retinopathy (Refer to Section 9.3.1.3: Prediabetes as a Risk Factor for CVD).
+## 9.4: Diabetes Mellitus
+The diagnosis of diabetes is conventionally based on FBG, 2-hour post load/challenge with 75 gm oral glucose or A1c values that correspond to the onset of microvascular complications, namely retinopathy. However, it is known that the risk of CVD starts to increase at a much lower level of blood glucose compared to the onset of diabetic retinopathy (Refer to Section 9.3.3: Prediabetes As A Risk Factor For CVD).
 
-#### 9.3.2.1: Epidemiology
+### 9.4.1: Epidemiology of Diabetes Mellitus
 According to the NHMS 2015, the prevalence of diabetes in adults above the age of 18 years was 17.5%. In addition:
 - The prevalence in the 20-24 year age group was 5.9% (Refer to Table 7: Prevalence of CV Risk Factors among Adults ≥18 years of age in Malaysia According to Age (NHMS 2015)).
 - The prevalence was highest in the Indians (22.1%) followed by Malays (14.6%) and Chinese (12.0%).
@@ -359,7 +333,7 @@ According to the NHMS 2015, the prevalence of diabetes in adults above the age o
 - Of concern is the proportion of undiagnosed diabetes among those below the age of 30 years (88%).
 - Only 23.8% of patients in primary care and 12.7% in tertiary institutions were able to achieve their A1c targets.
 
-#### 9.3.2.2: Diabetes & CVD
+### 9.4.2: Diabetes & CVD
 The metabolic milieu of diabetes comprises mainly of but not limited to insulin resistance, reduced insulin secretion and/or their combination. These are responsible for endothelial dysfunction, increased platelet reactivity and inflammation; factors that trigger and aggravate atherosclerotic vascular disease and thrombosis.
 
 The higher mortality and complication rates seen in diabetic patients appear to be multifactorial. Diabetes is associated with:
@@ -370,7 +344,7 @@ The higher mortality and complication rates seen in diabetic patients appear to 
 
 These result in a higher risk of death when diabetics have an acute coronary event. It also increases their risk of recurrent CV events and other long-term complications such as heart failure and sudden death.
 
-#### 9.3.2.3: Definition, Classification And Diagnosis
+### 9.4.3: Definition, Classification And Diagnosis
 Diagnosis of diabetes can be made by measurement of (Table 17: Diagnosis of Prediabetes and Diabetes):
 - FBG
 - 2-hour blood glucose level post 75-grams of oral glucose
@@ -378,13 +352,13 @@ Diagnosis of diabetes can be made by measurement of (Table 17: Diagnosis of Pred
 
 For symptomatic individuals, 1 abnormal result is sufficient to make the diagnosis. In asymptomatic individuals, the abnormal test result should be repeated on a different day to confirm the diagnosis.
 
-#### 9.3.2.4: Specific Measures For Primary Prevention Of CVD In Diabetes
+### 9.4.4: Specific Measures For Primary Prevention Of CVD In Diabetes
 Patients who have diabetes >10 years duration or above the age of 40 years:
 - Should be on statin therapy regardless of their lipid level.
 - Aspirin is not routinely recommended.
 - The other CV risk factors should be treated to target (Table 7: Prevalence of CV Risk Factors among Adults ≥18 years of age in Malaysia According to Age (NHMS 2015)).
 
-##### 9.3.2.4.1: Severe Hypoglycaemia As A Predictor Of Subsequent CV Events
+#### 9.4.4.1: Severe Hypoglycaemia As A Predictor Of Subsequent CV Events
 Hypoglycaemia is the most common acute complication of insulin secretagogues such as sulphonylureas and meglitinides and insulin therapy. It may affect daily activities and is a hindrance to tight glycaemic control. Hypoglycaemia is classified as severe when it requires a third-party assistance to correct it.
 
 Individuals with severe hypoglycaemia are at a very high risk of developing CVD. Severe hypoglycemia:
@@ -397,9 +371,7 @@ Patients with more than a 10-year history of diabetes who have been hospitalised
 - Their overall CV risk profile should be reassessed and other risk factors should be intensified. (Optimization of BP, lipid, smoking cessation etc)
 - Screen for CVD and refer to a cardiologist when indicated.
 
-##### 9.3.2.4.2: Treatment Targets In Individuals Without CVD
-Refer to Table 19: A1c Targets for T2DM Without Pre-existing CVD.
-
+#### 9.4.4.2: Treatment Targets In Individuals Without CVD
 The treatment targets in this group of patients should be individualised. In general, most patients should aim for an A1c target of < 6.5%. Patients with proteinuria are at risk of developing chronic kidney disease and ESRD which can be prevented by strict glycaemic control.
 
 In view of the strong association between hypoglycaemia and CVD, the following patients should have an intermediate A1c target of between 6.5-7.5%:
@@ -411,19 +383,21 @@ Table 19: A1c Targets For T2dm Without Pre-Existing CVD
 | Tight Control (≤6.5%) | Intermediate (6.6–7.4%) | Less Tight Control (7.5–8.0%) |
 |---|---|---|
 | 1. Newly diagnosed<br>2. On medications that do not cause hypoglycaemia<br>3. Low risk of hypoglycaemia<br>4. Proteinuria<br>5. Healthier (long life expectancy) | 1. High CV risk based on Framingham Risk Score<br>2. High risk of hypoglycaemia<br>3. Repeated episodes of hypoglycaemia | 1. Comorbidities e.g.<br>• Chronic Renal Failure (GFR < 60 units),<br>• Decompensated chronic liver disease,<br>• Chronic dementia,<br>• Bed-bound due to CVA etc.<br>2. Episode of severe hypoglycaemia<br>3. Limited life expectancy (metastatic malignancies etc) |
-
 *\*Modified from the Clinical Practice Guidelines for the Management of Type 2 Diabetes Mellitus. 2015.*
 
-##### 9.3.2.4.3: Treatment Targets In Individuals With Pre-Existing CVD
-Refer to Table 20: A1c Targets for T2DM with Pre-Existing CVD ("The Dynamic A1c Target")
+#### 9.4.4.3: Treatment Targets In Individuals With Pre-Existing CVD
+Table 20: A1c Targets For T2dm With Pre-Existing CVD ("The Dynamic A1c Target")
+| Tight Control (≤6.5%) | Intermediate (6.6–7.4%) | Less Tight Control (7.5–8.0%) |
+|---|---|---|
+| 1. Able to achieve glycaemic targets without significant hypoglycaemia<br>2. Possesses good glycaemic control without much concern<br>3. On medications that do not cause hypoglycaemia | 1. Initiation of insulin therapy or oral agents that can cause hypoglycaemia<br>2. Intensification of insulin therapy or oral agents that can cause hypoglycaemia | 1. Frequent* + new episodes of hypoglycaemia<br>2. Severe hypoglycaemia**<br>3. Chronic Kidney Disease (GFR < 60 ml/min/1.73m² units)<br>4. Symptomatic IHD or incomplete revascularisation (Suboptimal therapy of CVD)<br>5. Limited life expectancy (metastatic malignancies etc) |
 
 The treatment targets in this group should be set initially at a modest level (HbA1c: 6.6-7.4%). If the patient can achieve this target without any risk of hypoglycaemia within 3-6 months, then a lower target should be aimed for. If however, the patient develops new or recurrent hypoglycaemia, the target should be revised.
 
-#### 9.3.2.5: Management
-##### 9.3.2.5.1: Lifestyle Measures
-This is as outlined in Section 9.3.1.6: Management.
+### 9.4.5: Management Of Diabetes
+#### 9.4.5.1: Lifestyle Measures
+This is as outlined in Section 9.3.6: Management Of Prediabetes.
 
-##### 9.3.2.5.2: Pharmacotherapy
+#### 9.4.5.2: Pharmacotherapy
 General guidelines on the use of anti-diabetic agents:
 - The aim of treatment is to bring to target the A1c, fasting and post-prandial blood glucose levels (in that order) while avoiding the risk of hypoglycaemia and unwarranted weight gain.
 - Metformin is the preferred choice as a first line therapy. However other oral anti-diabetic agents are acceptable alternatives depending on the individual patient profile. It should only be stopped completely if the GFR <30 mL/min per 1.73 m². It is important to reiterate that metformin does not cause or aggravate kidney disease.
@@ -436,10 +410,9 @@ General guidelines on the use of anti-diabetic agents:
 
 For details of prescribing oral anti-diabetic agents, injectable GLP-1 RA and insulin please refer to the CPG on the Management of Type 2 Diabetes Mellitus 2015.
 
-##### 9.3.2.5.3: Glycemic Control For The Prevention Of CVD
-###### 9.3.2.5.3.1: Primary Prevention
+#### 9.4.5.3: Glycemic Control For The Prevention Of CVD
+A) Primary Prevention
 The trials of glycemic control in the prevention of CVD in diabetics have shown mixed results in the past.
-
 In type 1 DM, intensive glycemic control has been shown to reduce the risk of a CV event in the post-trial long term follow-up analysis.
 
 In T2DM however, intensive glycemic control has not as yet been shown to reduce CV event rates in any randomized controlled trial. However, in the long term post-trial follow up study there appears to be a reduction in CV mortality and CV event in those randomized to intensive therapy. This benefit that manifested long after the period of intervention is termed the legacy effect or metabolic memory.
@@ -448,7 +421,7 @@ In the management of patients with diabetes an approach that targets multiple CV
 
 The importance of a multifactorial approach in preventing CVD cannot be over-emphasized as more than two-third of individuals with diabetes die from CVD.
 
-###### 9.3.2.5.3.2: Secondary Prevention
+B) Secondary Prevention
 In the DIGAMI trial, patients who received intensive insulin therapy following an MI had a reduction in CV mortality at 1 year which was sustained in the 20-year post-trial analysis. The initial result was however not reproduced in the subsequent multi-centre DIGAMI 2 trial. Nevertheless DIGAMI II still supports the CVD benefit of a good glycemic control following an AMI.
 
 There are concerns of the CV safety of some anti-diabetic drugs.
@@ -471,11 +444,11 @@ However, in some situations, cost may preclude the available choices. Based on c
 - RM 922,560 over 3.1 years for treating 62 patients with empagliflozin to avoid one CVD composite end point.
 - RM 1,305,702 for 3.8 years for treating 53 patients with liraglutide to avoid 1 CVD composite end point.
 
-**Key Messages:**
+Key Message:
 - The risk of CVD starts to increase at much lower levels of blood glucose than that required to make a diagnosis of diabetes.
 - The aim of treatment is to bring to target the A1c, fasting and post-prandial blood glucose levels (in that order) while avoiding the risk of hypoglycaemia and unwarranted weight gain.
 
-**Recommendations:**
+Recommendations:
 - A1c targets for patients with diabetes and low risk of CVD should be ≤6.5%
 - A1c targets for patients with diabetes and CVD should be individualised. The target should be:
     - A1c ≤6.5% - for patients without any risk of hypoglycaemia
@@ -485,33 +458,30 @@ However, in some situations, cost may preclude the available choices. Based on c
 - Patients who have diabetes of >10 years duration or above the age of 40 years should be on statin therapy regardless of their lipid levels
 - Patients aged 40 years and above with long standing diabetes (>10 years) who experienced an episode of severe hypoglycaemia that required hospitalisation are recommended to undergo screening for CVD and be referred to a cardiologist if indicated. Treatment of all other CV risk factors should also be intensified.
 
-## 9.4: Antiplatelet/ Anticoagulant Therapy
-### 9.4.1: Antiplatelet Agents
-#### 9.4.1.1: Primary Prevention Of CVD
+## 9.5: Antiplatelet/ Anticoagulant Therapy
+### 9.5.1: Antiplatelet Agents
+#### 9.5.1.1: Primary Prevention Of CVD
 Refer to Table 21: Antiplatelet Therapy for Primary and Secondary Prevention of CVD.
-
-##### 9.4.1.1.1: Non-Diabetics
+A) Non-Diabetics
 **Aspirin:**
 - This is the only agent investigated for the primary prevention of CVD.
 - The beneficial effect of aspirin in both gender is a modest reduction in non-fatal MI at a dose of ≤100mg per day.
 - There was no effect on non-fatal stroke, all-cause mortality or CV mortality.
 - Older adults seem to achieve a greater relative MI benefit.
 - The benefits of aspirin need to be weighed against the risk of bleeding especially gastrointestinal bleed.
-
 **Recommendations for the primary prevention of CVD, aspirin:**
 - [Grade I, Level A] Is not routinely recommended for the primary prevention of CVD.
 - [Grade IIa, Level B] May be considered in individuals with multiple CV risk factors who are not at an increased risk of bleeding.
-
 **Combination therapy (aspirin + clopidogrel):**
 - The only study that investigated this combination versus aspirin alone in individuals at high risk of CVD (defined as either pre-existing CVD or risk factors) showed a small benefit of CV event reduction which was almost similar to the rate of bleeding.
 - [Grade III, Level B] This combination is not recommended for primary prevention of CVD.
 
-##### 9.4.1.1.2: Type 1 And Type 2 Diabetes Mellitus
+B) Type 1 And Type 2 Diabetes Mellitus
 - [Grade I, Level B] In patients with diabetes, aspirin is not routinely recommended.
 - [Grade IIa, Level C] It may be considered in patients with diabetes >10 years duration if the bleeding risk is low.
 
-#### 9.4.1.2: Secondary Prevention Of CVD
-##### 9.4.1.2.1: Coronary Heart Disease
+#### 9.5.1.2: Secondary Prevention Of CVD
+A) Coronary Heart Disease
 Refer to Table 21: Antiplatelet Therapy for Primary and Secondary Prevention of CVD
 
 - [Grade I, Level A] In patients with established CHD (>1 year), long term treatment with Aspirin 75 to 100 mg daily is recommended.
@@ -535,23 +505,21 @@ In patients with stable CHD who have undergone PCI, the recommendation is DAPT f
 - [Grade I, Level B] Bare metal stent: 1 month with Low-dose aspirin 75-100 mg + clopidogrel 75 mg daily.
 - [Grade I, Level B] Drug eluting stents: at least 6 months with Low-dose aspirin 75-100 mg + clopidogrel 75 mg daily.
 
-##### 9.4.1.2.2: Cerebrovascular Disease
+B) Cerebrovascular Disease
 In patients with a recent non-cardio-embolic ischemic stroke or TIA, antiplatelet agents that have been investigated for secondary prevention include:
 - **Aspirin:**
     - [Grade I, Level A] Is recommended for secondary prevention.
     - Recommended dose 75 – 325 mg daily.
     - For patients who use low-dose aspirin (≤325 mg) for prolonged intervals, the annual risk of serious gastrointestinal hemorrhage is about 0.4%, which is 2.5 times the risk for non-users.
     - Aspirin therapy is associated with an increased risk of hemorrhagic stroke that is smaller than the risk for ischemic stroke, resulting in a net benefit.
-
 - **Clopidogrel:**
     - [Grade IIa, Level B] Is a reasonable option in individuals who are allergic or cannot tolerate aspirin.
     - Its efficacy was found to be similar to that of aspirin in a subgroup analysis of a large study.
-
 - **Combination therapy:**
     - [Grade III, Level A] Aspirin + clopidogrel – when initiated days to years after a stroke or TIA has no additional benefit compared to aspirin alone. This combination is associated with an increased risk of bleeding. It is not recommended in routine practice.
 
-### 9.4.2: Anticoagulant Therapy
-#### 9.4.2.1: Non-Valvular Atrial Fibrillation
+### 9.5.2: Anticoagulant Therapy
+#### 9.5.2.1: Non-Valvular Atrial Fibrillation
 Patients with non-valvular AF irrespective of whether the pattern is paroxysmal, persistent, permanent or achieved apparently successful rhythm control, should be considered for anticoagulation to reduce their stroke risk.
 
 The stroke risk is calculated using the CHA2DS2-VASc score as in Table 22: CHA2DS2-VASc Score.
@@ -569,7 +537,7 @@ Table 22: Cha2ds2-Vasc Score
 | Female gender | 1 |
 The rate of stroke is 0.2%, 1.3%, and 2.2% per year for CHA2DS2-VASc scores of 0, 1, and 2 respectively.
 
-**In patients with a CHA2DS2-VASc score of:**
+In patients with a CHA2DS2-VASc score of:
 - more than 1 in males and >2 in females anticoagulation is recommended.
 - 1 in males and 2 in females anticoagulation should be individualized after a discussion with the patient.
 - 0 and those with lone AF (strictly defined, irrespective of gender) have very low absolute stroke risk. It may be reasonable not to consider these group of individuals for antithrombotic treatment.
@@ -584,20 +552,20 @@ In patients with AF who have undergone PCI and stenting with drug eluting stents
 - [Grade IIa, Level B] Rivaroxaban 15 mg daily (10mg if eGFR: 30 to 50 ml per minute) + clopidogrel 75 mg daily (or ticagrelor at a dose of 90 mg twice daily or prasugrel at a dose of 10 mg once daily)
 - [Grade IIa, Level B] Rivaroxaban 2.5 mg BD and DAPT - aspirin 75 to 100 mg per day + clopidogrel 75 mg once daily (or ticagrelor at a dose of 90 mg twice daily or prasugrel at a dose of 10 mg once daily) - The duration of DAPT will depend on the risk of stent thrombosis versus bleeding risk. This dose of rivaroxaban is yet to be registered in Malaysia.
 
-#### 9.4.2.2: Valvular Atrial Fibrillation And Prosthetic Heart Valves
-- [Grade I, Level C] Patients with AF due to valve disease or prosthetic heart valves should be anticoagulated with warfarin.
+#### 9.5.2.2: Valvular Atrial Fibrillation And Prosthetic Heart Valves
+[Grade I, Level C] Patients with AF due to valve disease or prosthetic heart valves should be anticoagulated with warfarin.
 
-#### 9.4.2.3: Left Ventricular Thrombus
+#### 9.5.2.3: Left Ventricular Thrombus
 Recent studies have shown that the incidence of mural thrombus after a large anterior MI varies 6-15% and in individuals with anterior MI and left ventricular ejection fraction (LVEF) <40% is about 27%. The use of warfarin in the pre-thrombolytic and pre-primary PCI era, has been shown to reduce the incidence of mural thrombus and embolization. However at present, most patients are already on DAPT, and the addition of warfarin has been associated with increased bleeding.
 
-- [Grade III, Level B] The use of warfarin in addition to DAPT is not recommended for the prevention of mural thrombus in patients with large anterior MI and LVEF <40%.
+[Grade III, Level B] The use of warfarin in addition to DAPT is not recommended for the prevention of mural thrombus in patients with large anterior MI and LVEF <40%.
 
 In patients with LV thrombus demonstrated by echocardiography following a recent MI:
 - [Grade I, Level C] Warfarin may be considered in addition to DAPT for at least 3 months in patient with non-ischaemic stroke with TIA.
 - [Grade IIa, Level C] Warfarin may be considered in addition to DAPT for at least 3 months in those without prior stroke or TIA.
 - [Grade IIb, Level C] In patients with high risk of bleeding, warfarin plus antiplatelet monotherapy may be considered.
 
-**Recommendations:**
+Recommendations:
 - For the use of anti platelet therapy in the primary and secondary prevention of CVD, refer to Table 20: A1c Targets for T2DM with Pre-Existing CVD ("The Dynamic A1c Target").
 - In patients with a recent non-cardio-embolic ischemic stroke or TIA:
     - Aspirin is recommended.
@@ -642,13 +610,11 @@ Table 7: Prevalence Of CV Risk Factors Among Adults ≥18 Years Of Age In Malays
 | 75+ | 58.3 | 73.4 | 37.0 | 37.3 | 15.1 | — |
 
 Table 13: Criteria For Staging Hypertension Based On Clinic, Home And Ambulatory Blood Pressure Monitoring
-
 | Category | Clinic BP (mmHg) | Home BP Monitoring Average or Ambulatory BP Daytime Average (mmHg) |
 |---|---|---|
 | Stage I Hypertension | ≥140/90 | ≥135/85 |
 | Stage II Hypertension | ≥160/100 | ≥150/95 |
 | Severe Hypertension | SBP ≥180 or DBP ≥110 | - |
-
 *\*Adapted from National Institute for Health and Clinical Excellence (NICE) Hypertension, 2011 [Available at: www.nice.org.uk/guidance/CG127 (accepted 8th September 2013)]*
 
 Table 14: Risk Stratification
@@ -661,17 +627,12 @@ Table 14: Risk Stratification
 | SBP >180 and/or DBP >110 | High | Very high | Very high | Very high |
 
 *TOD = Target organ damage (LVH, retinopathy, proteinuria)*
-
 *TOC = Target organ complication (heart failure, renal failure)*
-
 *RF = additional risk factors (smoking, TC > 6.5 mmol/L, family history of premature vascular disease)*
-
 *Clinical atherosclerosis (CHD, carotid stenosis, peripheral vascular disease, transient ischaemic attack, stroke)*
-
 *\* Malaysian Clinical Practice Guidelines on Hypertension, 4th ed, 2013*
 
 Table 15: Target LDL-C Levels
-
 | GLOBAL RISK | LDL-C Levels to initiate Drug therapy (mmol/L) | Target LDL-C levels (mmol/L) |
 |---|---|---|
 | Low CV Risk* | clinical judgement** | <3.0 |
@@ -684,7 +645,6 @@ Table 15: Target LDL-C Levels
 *\*\*\*whichever results in a lower level of LDL-C*
 
 Table 17: Diagnosis Of Prediabetes And Diabetes
-
 | Category | 0 hour (fasting*) | 2 hour |
 |---|---|---|
 | Based on OGTT | | |
@@ -696,20 +656,11 @@ Table 17: Diagnosis Of Prediabetes And Diabetes
 | Normal | < 5.6% | - |
 | Prediabetes | 5.6 to <6.3% | - |
 | Diabetes | ≥6.3% | ≥7.0 (fasting)<br>≥11.0 (random) |
-
 *\*fasting of at least 10 hours*
 
-Table 20: A1c Targets For T2dm With Pre-Existing CVD ("The Dynamic A1c Target")
-| Tight Control (≤6.5%) | Intermediate (6.6–7.4%) | Less Tight Control (7.5–8.0%) |
-|---|---|---|
-| 1. Able to achieve glycaemic targets without significant hypoglycaemia<br>2. Possesses good glycaemic control without much concern<br>3. On medications that do not cause hypoglycaemia | 1. Initiation of insulin therapy or oral agents that can cause hypoglycaemia<br>2. Intensification of insulin therapy or oral agents that can cause hypoglycaemia | 1. Frequent* + new episodes of hypoglycaemia<br>2. Severe hypoglycaemia**<br>3. Chronic Kidney Disease (GFR < 60 ml/min/1.73m² units)<br>4. Symptomatic IHD or incomplete revascularisation (Suboptimal therapy of CVD)<br>5. Limited life expectancy (metastatic malignancies etc) |
-
 *Decision Logic: Based on the incidence of hypoglycemia + achievable A1c target, the target should be modified accordingly every 3 months.*
-
 *\* >2 episodes of hypoglycaemia per month*
-
 *\*\* Episodes of hypoglycaemia that require third person's assistance*
-
 *\*\*\* Caution should be exercised when intensifying treatment in diabetic patients with CVD whose baseline A1c is high (>8%) and who have never experienced an episode of hypoglycaemia. A higher initial A1c target of ≥ 7.5% is preferred with gradual introduction of therapy aimed at controlling blood glucose levels. If this is achieved without significant increase in hypoglycaemia a lower A1c target of 6.5%-7.0% may be considered.*
 
 Table 21: Antiplatelet Therapy For Primary And Secondary Prevention Of CVD
@@ -788,8 +739,6 @@ Appendix 7: Dietary Fibre Content Of Common Food*
 | Vegetables | Green peas, fresh, frozen or canned, ½ cup,<br>snowpeas, 10 pods | Bean sprouts, ½ cup<br>Beans, string, ½ cup<br>Brocolli,1/2 cup<br>Carrots, raw,1/2 cup<br>Eggplant, ½ cup<br>Ladies fingers, ½ cup<br>Vegetables, mixed, ½ cup | Asparagus, cooked, 6 spears<br>Cabbage, raw, 1 cup<br>Lettuce iceberg, 1 cup<br>Cauliflower, raw, ½ cup<br>Celery, raw, ½ cup<br>Cucumber, raw,1/2 cup<br>Mushrooms, raw,1/2 cup<br>Mustard greens, fresh Cooked, ½ cup<br>Spinach, raw,1 cup |
 | Nuts & seeds | Almonds ,1 oz | Peanut butter, smooth, crunchy, 2 tbsp<br>Peanuts (15),1 oz<br>Sunflower seeds, with kernels, 2 tbsp<br>Watermelon seeds, 2 tbsp<br>Sesame seeds, 2 tbsp | Coconut, 2 tbsp<br>Walnut, 2 tbsp |
 
-*\*Medical Nutrition Therapy Guideline for Type 2 Diabetes Mellitus 2nd Edition, adapted from American Dietetic Association, 2000*
-
 Appendix 9: Sodium Content Of Common Food
 | No. | Foods | Serving size | Sodium/ Na (mg) |
 |---|---|---|---|
@@ -812,12 +761,8 @@ Appendix 9: Sodium Content Of Common Food
 | 17. | Snack noodle | 1 packet (medium, 35g) | 430 |
 | 18. | Fruit pickles | 1 dessert spoon (10g) | 428 |
 
-*Source:*
-*1. CCHRC. 2007. Sodium (Na+) Content of Seasoning and Common Foods.USA: Chinese Community Health Resource Center*
-*2. CFS. 2012. Risk Assessment Studies, Report No. 49: Study on Sodium Content in Local Foods. Center for Food Safety Food and Environmental Hygiene Department. The Government of the Hong Kong Special Administrative Region.*
 
 Figure 1: Algorithm For The Management Of Hypertension
-
 The algorithm for managing hypertension based on repeated blood pressure readings is as follows:
 - For patients with **SBP 130 – 159 mmHg and/or DBP 80 – 99 mmHg**:
     - Assess global cardiovascular risk using Table 14: Risk Stratification.
@@ -829,7 +774,6 @@ The algorithm for managing hypertension based on repeated blood pressure reading
     - Initiate drug treatment immediately (combination therapy is preferred, either as free drugs or a single pill combination).
 
 Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CVD And Specific Disease Profiles.
-
 **Text interpretation (stepwise pharmacotherapy by profile; top → bottom):**
 | DM + CVD profile | Preferred escalation sequence (top → bottom) |
 |---|---|
@@ -838,14 +782,12 @@ Figure 2: Recommendations For Glycaemic Control In Patients With Pre-Existing CV
 | History of severe hypoglycaemia | SGLT2i**** → GLP-1***** → Metformin → DPP-4i / Gliclazide / TZD*** → Basal insulin (consider insulin analogues) → Basal bolus insulin (consider insulin analogues) |
 | **Obese** ** (BMI >27.5 kg/m²) | SGLT2i → GLP-1 → Metformin → DPP-4i / Gliclazide → Basal insulin → Basal bolus insulin |
 | GFR <45 mL/min/1.73m² | Low-dose DPP-4i → TZD*** → Low-dose gliclazide → Bolus insulin → Basal bolus insulin |
-
 **Notes (from figure footnotes):**
 - \* Modify dose of diuretic if on SGLT2i.
 - \*\* Definition of obesity is based on the Malaysian CPG for the Management of Obesity 2003.
 - \*\*\* At present only TZD available is pioglitazone; contraindicated in NYHA Class 3 & 4 patients.
 - \*\*\*\* At present only empagliflozin has CV outcome data.
 - \*\*\*\*\* At present only liraglutide, semaglutide have CV outcome data.
-
 **Key takeaways:**
 - The figure prioritizes agents by **safety** and **cardio-metabolic risk reduction**, then efficacy, convenience, and cost.
 - **Renal function (GFR)** and **hypoglycaemia history** materially change the preferred escalation pathway.

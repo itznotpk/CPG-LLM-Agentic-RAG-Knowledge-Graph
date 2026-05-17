@@ -93,16 +93,16 @@ Laboratory tests for infection may aid the diagnosis of IE. These include:
 - Urine full examination and microscopic examination (UFEME):
   - Microscopic haematuria.
 
-- Blood culture and sensitivity (refer Section 3.2.2: Microbiological diagnosis).
+- Blood culture and sensitivity (refer Section 3.3: Microbiological Diagnosis).
 
 With the exception of blood cultures, the **above tests are not specific** and may indicate other causes of sepsis.
 
-### 3.2.2: Microbiological Diagnosis
+## 3.3: Microbiological Diagnosis
 The microbiological diagnosis of IE can be divided into:
 - Blood culture positive IE.
 - Blood culture negative IE.
 
-#### 3.2.2.1: Blood Culture Positive Infective Endocarditis
+### 3.3.1: Blood Culture-Positive Infective Endocarditis
 Blood cultures should be taken before the commencement of empiric antimicrobial agents as it is critical to the diagnosis and treatment of patients with IE. In order to obtain high yield of positive blood cultures, the following considerations are crucial:
 
 **A. Timing of blood cultures**
@@ -131,7 +131,7 @@ These microorganisms may be considered as significant pathogens when they are cu
   -  The anaerobic culture is vital for the growth of nutritionally variant streptococci (NVS) and facultative anaerobic microorganisms such as *Enterobacteriaceae* (refer Appendix 2: Enterobacteriaceae).
 - Each bottle should contain 10 ml of blood for adults and 1-3 ml of blood for paediatric patients (using the appropriate paediatric blood culture bottles).
   -  Adequate volume is the most important factor in the recovery of microorganisms in IE.
-- If the blood cultures are negative, BCNIE should be considered (refer Section 3.2.2.2: Blood culture-negative infective endocarditis).
+- If the blood cultures are negative, BCNIE should be considered (refer Section 3.3.2: Blood Culture-Negative Infective Endocarditis).
 
 **C. Sampling sites of blood cultures**
 - Strict aseptic techniques should be observed (refer Appendix 3: Blood culture collection).
@@ -141,7 +141,7 @@ These microorganisms may be considered as significant pathogens when they are cu
 **D. Duration of incubation of blood cultures**
 - Within 5 days, most clinically important microorganisms including *Haemophilus*, *Aggregatibacter actinomycetemcomitans*, *Cardiobacterium*, *Eikinella* and *Kingella* (HACEK) will be isolated.
 - If all blood cultures are negative at 5 days and the diagnosis of IE is still being pursued consider:
-  - BCNIE (refer Section 3.2.2.2: Blood culture-negative infective endocarditis).
+  - BCNIE (refer Section 3.3.2: Blood Culture-Negative Infective Endocarditis).
   - Fungal IE.
 - Longer incubation time for a total of 2 weeks and appropriate selective culture media may be required when fungaemia or bacteraemia caused by fastidious microorganisms e.g. *Legionella*, *Brucella* or *Nocardia* spp. is suspected.
 
@@ -150,7 +150,7 @@ These microorganisms may be considered as significant pathogens when they are cu
 - A newly available state-of-the-art technology in rapid bacterial identification is based on peptide spectra by matrix-assisted laser desorption ionisation time-of-flight mass spectrometry (MALDI-TOF) which is able to provide direct identification of bacteria in the blood culture supernatant.<sup>27</sup> This has improved the turnaround time of bacterial identification tremendously.
 - For decisions on optimal therapy in IE, especially for infections involving streptococci spp. and multidrug resistant microorganisms, it is recommended to test for susceptibility of antimicrobials by determining the minimal inhibitory concentration (MIC) of the drug.
 
-#### 3.2.2.2: Blood Culture-Negative Infective Endocarditis
+### 3.3.2: Blood Culture-Negative Infective Endocarditis
 In general, BCNIE indicates IE which has no microorganism grown following inoculation of at least 3 independent blood samples when using the usual currently available culture methods in clinical laboratories after 5 days of incubation.
 
 - BCNIE can be due to 3 main reasons:
@@ -202,7 +202,7 @@ Table 3.3: Special Stains Which Aid In The Identification Of The Causative Micro
 | Kinyoun, Machiavello |                                   |
 | Gomori-Grocott       | Fungi                             |
 
-### 3.2.3: Histopathological Diagnosis
+## 3.4: Histopathological Diagnosis
 Patients with IE often undergo surgery to repair or replace their heart valve. Histopathology when available is of diagnostic value.33,34 If excised tissue is obtained during cardiac surgery, it must be sent for HPE and culture.
 
 Tissue specimens that can be sent are:
@@ -216,7 +216,7 @@ A diagnosis can be made from the pathological specimens if:
 
 The various special stains that are used to detect the infectious agents of interest in valvular tissue are shown in Table 3.3: Special stains which aid in the identification of the causative microorganisms of IE from cardiac tissue specimens. For the preparation and transportation of cardiac tissue for HPE refer Appendix 5: Guidelines on specimen collection.
 
-**Recommendations**
+Recommendations:
 Processes To Ensure Successful Microbiological Diagnosis:
 1. [Grade IIa, Level C] At least 3 sets of blood cultures to be taken at least 30 minutes apart. In adult patients, each bottle should contain 10 ml of blood.
 2. [Grade IIa, Level C] For optimal recovery of diverse aetiological agents, each set of blood cultures should include paired aerobic and anaerobic blood culture bottles.
@@ -246,15 +246,12 @@ Figure 3a: Approach To Microbiological Diagnosis Of IE
 * *Note: Elicit risk factors for fastidious/intracellular pathogens\*\* and send for appropriate serological tests as indicated (refer Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations
 ).*
 * ↓
-
 **Step 2: Blood Cultures**
 * 3 x blood culture
 * ↓
-
 **Step 3: Empirical Treatment**
 * Start empirical antimicrobials (refer Section 4.2.3: Empirical therapy)
 * ↓
-
 **Step 4: Culture Results Evaluation**
 
 * **Pathway A: Culture positive**
@@ -273,9 +270,11 @@ Figure 3a: Approach To Microbiological Diagnosis Of IE
 \*\*Refer Table 3.2: Fastidious and intracellular microorganisms, epidemiology and investigations for the risk factors for fastidious/intracellular pathogens.
 ^*Legionella*, *Brucella*, *Nocardia* spp., fungi and NVS e.g. *Gemella*, *Granulicatella* and *Abiotrophia* may require longer incubation periods.
 
-## 3.3: Imaging
-### 3.3.1: Echocardiography
-#### 3.3.1.1: Echocardiography In Diagnosis Of Infective Endocarditis
+## 3.5: Imaging
+Imaging is central to the diagnosis of IE and the detection of its complications. The principal modality is echocardiography (transthoracic and transoesophageal), complemented by other imaging modalities where indicated.
+
+## 3.6: Echocardiography
+### 3.6.1: Echocardiography in Diagnosis of Infective Endocarditis
 Echocardiography plays a key role in the diagnosis of IE. The first line imaging investigation in suspected IE is usually transthoracic echocardiography (TTE) as it is non-invasive and widely available. TEE should be performed subsequently if indicated.
 
 - In native valves, the sensitivity of TTE in diagnosing vegetations is 44-63%.
@@ -329,7 +328,7 @@ Table 3.4: Findings Suggestive Of IE And Their Anatomical And Echocardiographic 
 | Valve aneurysm                    | Saccular outpouching of valvular  tissue                                                                  | Saccular bulging of valvular leaflet  tissue                                                                                        |
 | Dehiscence of a  prosthetic valve | Dehiscence of the prosthesis                                                                              | Paravalvular regurgitation identified  by TTE/TEE, with or without rocking  motion of the prosthesis                                |
 
-#### 3.3.1.2: Interpretation Of Echocardiography
+### 3.6.2: Interpretation of Echocardiography
 Echocardiography in IE can be challenging. This may be due to the absence of vegetations despite a high index of clinical suspicion or the presence of masses on the endocardial surface that are not due to infective vegetation. Therefore the results of the echocardiographic study must be interpreted with caution, taking into account the patient's clinical presentation and the likelihood of IE. The limitations of echocardiography in the diagnosis of IE should be noted as follows:
 - The sensitivity and specificity of TTE and TEE are not 100%.
 - A negative echocardiogram does not rule out IE.
@@ -392,11 +391,11 @@ Figure 3b: Use Of Echocardiography In The Diagnosis And Management Of IE
           * **Negative TEE/TTE findings:** → Consider advanced microbiological assessment and other imaging modalities (refer Figure 3a: Approach to microbiological diagnosis of IE and Figure 3c: The use of modified Duke criteria in diagnosing IE).
 
 TEE: Transoesophageal echocardiography; TTE: Transthoracic echocardiography; ECHO: echocardiogram.
-Refer Section 3.3.1 Echocardiography for positive and negative findings.
+Refer Section 3.6 Echocardiography for positive and negative findings.
 \*\*E.g. a patient with fever and known heart murmur but with no other signs or symptoms of IE
 <sup>§</sup>Includes presence of prosthetic valves, various CHD, appearance of new murmur, presence of heart failure, or other signs and symptoms of IE
 
-### 3.3.2: Other Imaging Modalities
+## 3.7: Other Imaging Modalities
 **A. Multislice Computed Tomography**
 Multislice computed tomography (MSCT) in the context of IE maybe useful in the following situations:
 - To:
@@ -448,8 +447,8 @@ New modalities in nuclear imaging like single-photon emission computed tomograph
 2. MRI is more sensitive than CT in diagnosing cerebral embolic lesions many of which are silent.
 3. Radiolabelled WBC SPECT/CT and F-FDG PET/CT may have a supplementary role in detecting peripheral embolic or metastatic infectious lesions in those with high clinical suspicion of IE and diagnostic difficulties. They may also be useful in diagnosing prosthetic valve endocarditis.
 
-## 3.4: Diagnostic Criteria
-### 3.4.1: The Modified Duke Criteria And Its Limitations
+## 3.8: Diagnostic Criteria
+### 3.8.1: The Modified Duke Criteria and Its Limitations
 The Duke criteria was first proposed in 1994 by Durack et al. from the Duke University Medical Centre, North Carolina, United State of America (USA). This was a diagnostic schema that stratified patients with suspected IE into 3 categories; definite, possible and rejected. In the year 2000, taking into account further evidence, the Duke criteria was refined further into the modified Duke criteria (refer Table 3.7: Definition of IE according to the modified Duke criteria) which is currently widely used in clinical practice.
 
 The Duke criteria should be used as a research tool rather than a clinical tool for diagnosing IE, therefore clinicians should treat each individual patient appropriately. In very ill patients and patients in whom the diagnosis of IE is likely, empirical treatment should be started before blood culture results are available. This classification has a sensitivity of approximately 80% overall, when the criteria are evaluated at the end of patient follow-up in epidemiological studies.                               |

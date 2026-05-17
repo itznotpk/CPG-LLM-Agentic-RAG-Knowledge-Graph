@@ -7,8 +7,6 @@ output: risk_modifier_guidance, referral_criteria, treatment_cautions
 treatment_type: CPAP, sildenafil, tadalafil, SSRI, menopausal_hormone_therapy, testosterone
 -->
 
-> **Context:** This section covers conditions that amplify CVD risk beyond the traditional Framingham factors: CKD, infections (influenza, periodontal disease, HIV), cancer therapies, connective tissue diseases, sleep disorders (OSA), psychosocial factors, and gender-specific issues.
-
 ## 6.1: Chronic Kidney Disease
 The prevalence of CKD in Malaysian adults is approximately 9.1% based on estimated glomerular filtration rate (eGFR). Risk factors for CVD and CKD overlap significantly (age, diabetes, hypertension, dyslipidaemia, smoking, obesity). In CKD patients, non-traditional risk factors—such as albuminuria, hyperuricaemia, anaemia, inflammation, and endothelial dysfunction—further elevate CVD risk.
 

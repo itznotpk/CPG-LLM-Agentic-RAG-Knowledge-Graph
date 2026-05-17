@@ -6,8 +6,6 @@ patient_input: barriers_to_adherence, current_medications, side_effects, socioec
 output: adherence_assessment, intervention_strategies, adherence_plan
 -->
 
-> **Context:** This section addresses medication non-adherence — a major contributor to poor CVD outcomes. It provides a structured approach to identifying causes of non-adherence (patient, system, therapy, socioeconomic factors) and interventions to improve it, including team-based care, polypill strategies, and motivational counselling techniques.
-
 The WHO defines adherence as the extent to which a person’s behavior – taking medication, following a diet, and/or executing lifestyle changes – corresponds with agreed recommendations from a health care provider.
 
 Full adherence to medication that have been proven to prevent CVD (aspirin, BP and cholesterol lowering drugs) has been estimated to reduce the risk of a first or second CVD event by approximately 80%. However, even among high risk post-MI patients, only 43% were fully adherent to treatment after six months and this declined to 34% after one year. Low adherence rate leads to adverse outcomes, higher hospitalization rates and increased costs.

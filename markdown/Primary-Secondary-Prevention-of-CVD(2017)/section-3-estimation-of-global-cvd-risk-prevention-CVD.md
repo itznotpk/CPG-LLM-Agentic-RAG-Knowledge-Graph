@@ -12,7 +12,6 @@ output: 10_year_cvd_risk_percentage, cvd_risk_category, vascular_age, screening_
 [Grade I, Level B] Based on the prevalence of CV risk factors in our local population, the committee advocates screening in adults >30 years of age. (Refer to Table 7: Prevalence Of CV Risk Factors Among Adults ≥18 Years Of Age In Malaysia According To Age (Nhms 2015))
 
 Table 7: Prevalence Of CV Risk Factors Among Adults ≥18 Years Of Age In Malaysia According To Age (Nhms 2015)
-
 | Age Group | Hypercholesterolaemia (%) | Hypertension (%) | Diabetes (%) | Overweight BMI: 23–27.5 kg/m² (%) | Obesity BMI: >27.5 kg/m² (%) | Current Tobacco Smoking — Males only (%) |
 |---|---|---|---|---|---|---|
 | 18–19 | 22.0 | 6.7 | 5.5 | 20.8 | 20.2 | 49.6 |
@@ -118,20 +117,20 @@ Table 8B: Heart Age / Vascular Age For Women
 
 **Lifestyle changes include:**
 - Diet low in saturated fats, high in fibre, low in sodium (Refer to Section 8.1: Diet) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.1: Nutrition" target_kind="h2_section" -->
-- Regular physical activity (Refer to Section 8.2: Physical Activity) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.2: Physical Activity" target_kind="h2_section" -->
-- Smoking cessation (Refer to Section 8.3: Smoking) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.3: Smoking Intervention" target_kind="h2_section" -->
-- Maintaining ideal body weight (Refer to Section 8.4: Obesity And Body Weight) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.4: Obesity And Body Weight" target_kind="h2_section" -->
+- Regular physical activity (Refer to Section 8.5: Physical Activity) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.5: Physical Activity" target_kind="h2_section" -->
+- Smoking cessation (Refer to Section 8.6: Smoking) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.6: Smoking Intervention" target_kind="h2_section" -->
+- Maintaining ideal body weight (Refer to Section 8.7: Obesity and Body Weight) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.7: Obesity and Body Weight" target_kind="h2_section" -->
 
 These individuals should be assessed and counselled at regular intervals to ensure adherence and to determine if treatment goals are achieved.
 
-[Grade I, Level A] Smoking is an important CV risk factor in Malaysia and efforts should be taken to **encourage cessation.** (Refer to Section 8.3: Smoking) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.3: Smoking Intervention" target_kind="h2_section" -->
+[Grade I, Level A] Smoking is an important CV risk factor in Malaysia and efforts should be taken to **encourage cessation.** (Refer to Section 8.6: Smoking) <!-- cross_ref target_file="section-8-interventions-to-prevent-cvd.md" target_heading="8.6: Smoking Intervention" target_kind="h2_section" -->
 
 ## 3.2: Secondary Prevention
 Individuals with established CVD are at **high risk** of a recurrent CV event.
 
 [Grade I, Level A] All CV risk factors in these patients **should be treated to target** via lifestyle modification and drug therapy as indicated, in accordance with the respective CPGs.
 
-**Recommendations**
+Recommendations:
 - Screen adults >30 years of age; opportunistic rather than mass screening.
 - Use the FRS General CVD Risk Score to assess 10-year CVD risk and guide risk reduction efforts. (Refer to Table 1A: Estimation of 10-year CVD Points for MEN (Framingham Point Scores), Table 1B: CVD Risk for Men; Table 2A: CVD Points for Women, Table 2B: CVD Risk for Women; Table 3: Risk Stratification of Cardiovascular Risk)
 - Treatment intensity and goals depend on the individual's baseline CV risk. (Refer to Table 3: Risk Stratification of Cardiovascular Risk; Table 4: Targets of Individual Risk Factors)
@@ -153,7 +152,6 @@ Individuals with established CVD are at **high risk** of a recurrent CV event.
 <!-- parent_only_reference_start -->
 Table 1 & 2: Framingham Risk Score For Assessment Of CVD Risk*
 Table 1A: Estimation Of 10-Year CVD Points For Men (Framingham Point Scores)
-
 | Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
 | -2 | | 1.6+ | | <120 | | | |
@@ -179,7 +177,6 @@ Table 1A: Estimation Of 10-Year CVD Points For Men (Framingham Point Scores)
 Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
 
 Table 1B: CVD Risk For Men
-
 | Total Points | 10-year Risk % | Total Points | 10-year Risk % |
 |---|---|---|---|
 | ≤-3 | <1 | 8 | 6.7 |
@@ -195,7 +192,6 @@ Table 1B: CVD Risk For Men
 | 7 | 5.6 | 18+ | >30 |
 
 Table 2A: CVD Points For Women
-
 | Points | Age, yr | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
 | -3 | | | | <120 | | | |
@@ -219,7 +215,6 @@ Table 2A: CVD Points For Women
 Grand Total = Age (yr) points + HDL-C points + TC points + SBP points + Smoker points + Diabetes points
 
 Table 2B: CVD Risk For Women
-
 | Total Points | 10-year Risk % | Total Points | 10-year Risk % |
 |---|---|---|---|
 | ≤-2 | <1 | 10 | 6.3 |
@@ -236,7 +231,6 @@ Table 2B: CVD Risk For Women
 | 9 | 5.3 | 21+ | >30 |
 
 Table 3: Risk Stratification Of Cardiovascular Risk
-
 - **Very High Risk** individuals are those with:
   - A FRS-CVD score that confer a 10-year risk for CVD of >30%
   - Established CVD
@@ -253,7 +247,6 @@ Table 3: Risk Stratification Of Cardiovascular Risk
   - Have a FRS-CVD score that confer a 10-year risk for CVD <10%
 
 Table 4: Targets Of Individual Risk Factors
-
 | Risk Factor | Target | Grade / Level of Evidence |
 |---|---|---|
 | Smoking | Complete Cessation | [Grade I, Level B] |
@@ -271,7 +264,6 @@ Table 4: Targets Of Individual Risk Factors
 | Overweight/Obesity** | Weight loss: aim for 5-10% in 6 months and maintain the weight in the next 1-2 years. | [Grade I, Level A] |
 
 > \* *Malaysian Clinical Practice Guidelines on Hypertension, 4th Ed 2013*
->
 > \*\* *Malaysian Clinical Practice Guidelines on Management of Type 2 Diabetes Mellitus, 5th Ed 2015*
 
 Grades Of Recommendation

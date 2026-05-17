@@ -182,6 +182,7 @@ If a cardiac specimen is also being collected for:
 | Heart Centre, Kota Samarahan |
 
 ## Appendix 8: Antimicrobial Dosing In Adults With Renal Impairment
+### Appendix 8.0: Principles Of Dose Adjustment In Renal Impairment
 **Loading Dose**
 The size of a loading dose (LD) is the product of the desired drug concentration in the blood and the volume of distribution. It is independent of drug clearance. Therefore, provided the desired drug concentration and volume of distribution are unchanged, the size of the loading dose does not require modification in patients with renal impairment. In cases where there is slight alteration in the volume of distribution, e.g. those with low serum protein or fluid overload, some clinicians may alter the loading dose of some drugs with narrow therapeutic index.<sup>1</sup>
 
@@ -192,7 +193,7 @@ Three common methods are used to maintain drug doses in patients with renal impa
 - **Dose method (D)**:<br>Reduce the size of individual dose and maintain the same dose interval – used where the size of a dose and peak concentrations are not critical for drug activity.
 - **Combination method (D & I)**:<br>Uses a combination of the 'Dose' and 'Interval' methods – used for narrow therapeutic index drugs where close control over blood concentrations should be maintained.
 
-### Estimating Creatinine Clearance In Adults
+### Appendix 8.1: Estimating Creatinine Clearance In Adults
 Check renal function before prescribing any drug that requires dose modification in renal impairment, even if only mild impairment is likely.
 
 Renal function and muscle mass both decline with age, hence elderly people may have normal serum creatinine despite reduced renal function. Calculation of creatinine clearance (CrCl) may be necessary to estimate renal function in this population especially when prescribing renally excreted drugs with a narrow therapeutic index.
@@ -225,7 +226,7 @@ Modified Cockcroft-Gault equation:
 
 Note: All doses recommended are for the treatment of infective endocarditis only.
 
-### Antimicrobial Doses In Adults With Renal Impairment
+### Appendix 8.2: Antimicrobial Doses In Adults With Renal Impairment
 | Drug | Dose for normal renal function | Method | Adjustment for renal failure Estimated CrCl (ml/min) > 50-90 | Adjustment for renal failure Estimated CrCl (ml/min) 10-50 | Adjustment for renal failure Estimated CrCl (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
 |---|---|---|---|---|---|---|---|
 | AMINOGLYCOSIDES | | | | | | | |
@@ -256,7 +257,7 @@ Note: All doses recommended are for the treatment of infective endocarditis only
 | Micafungin | 150 mg IV daily | - | 150 mg IV daily | 150 mg IV daily | 150 mg IV daily | HD: No supplemental or dose adjustment necessary | |
 
 ## Appendix 9: Antimicrobial Dosing In Children With Renal Impairment
-### Estimating Creatinine Clearance In Paediatrics
+### Appendix 9.1: Estimating Creatinine Clearance In Paediatrics
 There are 2 methods to calculate CrCl in children. Available data suggest that the bias of Schwartz calculated glomerular filtration rate (eGFR) increases at lower levels of GFR. The Schwartz and Counahan-Barratt formulae can provide rapid and convenient estimates of GFR, although clinicians should be aware of their imprecision in this setting.
 
 **Schwartz Method:**
@@ -290,7 +291,7 @@ There are 2 methods to calculate CrCl in children. Available data suggest that t
 
 Note: All doses recommended are for the treatment of infective endocarditis only. *WTi : ideal body weight (kg); Amo : age in months; Ayr : age in years.
 
-### Antimicrobial Doses In Paediatrics With Renal Impairment
+### Appendix 9.2: Antimicrobial Doses In Paediatrics With Renal Impairment
 | Drug | Age | Dose for normal renal function | Method | Adjustment for renal failure Estimated GFR (ml/min) > 50-90 | Adjustment for renal failure Estimated GFR (ml/min) 10-50 | Adjustment for renal failure Estimated GFR (ml/min) < 10 | Dose in patients undergoing renal replacement therapies | Comments |
 |---|---|---|---|---|---|---|---|---|
 | AMINOGLYCOSIDES | | | | | | | | |

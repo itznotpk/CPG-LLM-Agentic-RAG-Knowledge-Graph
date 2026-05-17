@@ -22,8 +22,7 @@ Prevention of CVD includes:
 - Individuals with a low CV risk profile in middle age have dramatically lower total, CV and non-CV mortality rates, greater longevity, and substantially lower remaining lifetime risks for CVD events.
 - A healthy lifestyle in young adulthood has been shown to be strongly associated with a low CVD risk profile in middle age.
 
-**Recommendation**
-In the prevention of CVD, population preventative strategies are more cost effective and need to be encouraged.
+Recommendation: In the prevention of CVD, population preventative strategies are more cost effective and need to be encouraged.
 
 <!-- parent_only_reference_start -->
 Abbreviations

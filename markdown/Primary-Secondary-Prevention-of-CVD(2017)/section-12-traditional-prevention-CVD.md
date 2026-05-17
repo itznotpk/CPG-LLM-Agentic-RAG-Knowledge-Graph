@@ -6,8 +6,6 @@ patient_input: tcim_use, current_meds, comorbidities, herbal_supplements
 output: safety_guidance, interaction_warnings, referral_criteria
 -->
 
-> **Context:** This section addresses Traditional and Complementary Medicine (T&CM) use in the context of CVD prevention in Malaysia. It covers utilisation rates, evidence and risks for specific practices (acupuncture, qi gong, mind-body therapies, herbal medicine), the role of the T&CM Act 775, and guidance for clinicians on monitoring patients who use T&CM concurrently with conventional medications.
-
 ## 12.1: Definition Of Terms And Concepts
 Traditional medicine, by WHO definition, is the sum total of the knowledge, skills, and practices based on the theories, beliefs, and experiences indigenous to different cultures, whether explicable or not, used in the maintenance of health as well as in the prevention, diagnosis, improvement or treatment of physical and mental illness. In Malaysia, it identifies strongly with the respective ethnic cultures and is often considered as an important part of their cultural heritage.
 

@@ -69,7 +69,7 @@ It is important to recognise the common and serious complications of IE, as card
 
 All IE patients who develop cardiac complications should be referred to a SC (a centre with cardiology and cardiothoracic surgery services; refer Section 4.1.4: Referral for specialist care) as most would need more advanced imaging, surgical intervention and cardiac intensive services.
 
-**4.1.2.1: Heart Failure**
+#### 4.1.2.1: Heart Failure
 Heart failure is the most common complication of IE, which occurs in up to half of all cases.62 It is the most important predictor of mortality. In most cases of IE, heart failure is usually caused by valvular dysfunction and not myocardial failure. 63 Heart failure is more commonly associated with aortic valve dysfunction compared to mitral valve dysfunction. 64 Less commonly, intracardiac fistulae may also cause heart failure. 65 The clinical presentation of heart failure includes dyspnoea, pulmonary oedema and cardiogenic shock.
 
 **The Management Of Heart Failure In Infective Endocarditis**
@@ -353,7 +353,6 @@ Therefore, prior to discharge, patients who have had appropriate and effective m
 2. [Grade IIa, Level C] Education to patients on recognising relapses, complications and oral hygiene is recommended.
 
 ## 4.2: Antimicrobial Therapy: Principles And Methods
-
 ### 4.2.1: General Principles
 General principles for the treatment of IE include:
 - Parenteral antimicrobials in high dose to sustain antibacterial concentrations for treatment success.
@@ -597,7 +596,7 @@ In carefully selected patients, outpatient parenteral antimicrobial therapy (OPA
 - Has no heart failure.
 - Has no neurological signs.
 - Has no renal impairment.
-- Has no high-risk cardiac features on echocardiogram (refer Section 3.3.1: Echocardiography and Table 3.4: Findings suggestive of IE and their anatomical and echocardiographic definitions). <!-- cross_ref target_file="section-3-diagnosis-IE.md" target_heading="3.3.1: Echocardiography" target_kind="h3_section" -->
+- Has no high-risk cardiac features on echocardiogram (refer Section 3.6: Echocardiography and Table 3.4: Findings suggestive of IE and their anatomical and echocardiographic definitions). <!-- cross_ref target_file="section-3-diagnosis-IE.md" target_heading="3.6: Echocardiography" target_kind="h2_section" -->
 
 The hospital must have established OPAT services with trained staff and protocols. Patients need to be reviewed daily by a trained nurse and by a doctor once/twice a week. Some important parameters that should be reviewed are presented in Appendix 10: Weekly OPAT review checklist (for doctors).
 
@@ -873,7 +872,7 @@ Figure 3b: Use Of Echocardiography In The Diagnosis And Management Of IE
           * **Negative TEE/TTE findings:** → Consider advanced microbiological assessment and other imaging modalities (refer Figure 3a: Approach to microbiological diagnosis of IE and Figure 3c: The use of modified Duke criteria in diagnosing IE).
 
 TEE: Transoesophageal echocardiography; TTE: Transthoracic echocardiography; ECHO: echocardiogram.
-Refer Section 3.3.1 Echocardiography for positive and negative findings.
+Refer Section 3.6 Echocardiography for positive and negative findings.
 \*\*E.g. a patient with fever and known heart murmur but with no other signs or symptoms of IE
 <sup>§</sup>Includes presence of prosthetic valves, various CHD, appearance of new murmur, presence of heart failure, or other signs and symptoms of IE
 

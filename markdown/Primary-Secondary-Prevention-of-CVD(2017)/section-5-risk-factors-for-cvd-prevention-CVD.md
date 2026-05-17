@@ -6,8 +6,6 @@ patient_input: risk_factors, lifestyle, family_history, ethnicity, comorbidities
 output: risk_factor_list, modifiable_vs_nonmodifiable_classification
 -->
 
-> **Context:** This section catalogs non-modifiable (age, gender, family history, ethnicity) and modifiable (diet, smoking, inactivity, obesity, hypertension, dyslipidaemia, diabetes, cardiometabolic risk) CV risk factors, with evidence for how each contributes to CVD risk burden in the Malaysian population.
-
 **CV risk factors include:**
 - **Non-modifiable risk factors:**
   - Increasing age
