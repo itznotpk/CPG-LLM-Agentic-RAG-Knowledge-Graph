@@ -106,11 +106,12 @@ class GraphitiClient:
             raise ValueError("NEO4J_PASSWORD environment variable not set")
         
         # LLM configuration
-        self.llm_base_url = os.getenv("LLM_BASE_URL", "https://api.openai.com/v1")
-        self.llm_api_key = os.getenv("LLM_API_KEY")
-        self.llm_choice = os.getenv("LLM_CHOICE", "gpt-4.1-mini")
+        self.llm_provider = os.getenv("GRAPHITI_LLM_PROVIDER", os.getenv("INGESTION_LLM_PROVIDER", os.getenv("LLM_PROVIDER", "openai"))).lower()
+        self.llm_base_url = os.getenv("GRAPHITI_LLM_BASE_URL", os.getenv("INGESTION_LLM_BASE_URL", os.getenv("LLM_BASE_URL", "https://api.openai.com/v1")))
+        self.llm_api_key = os.getenv("GRAPHITI_LLM_API_KEY", os.getenv("INGESTION_LLM_API_KEY", os.getenv("LLM_API_KEY")))
+        self.llm_choice = os.getenv("GRAPHITI_LLM_CHOICE", os.getenv("INGESTION_LLM_CHOICE", os.getenv("LLM_CHOICE", "gpt-4.1-mini")))
         
-        if not self.llm_api_key:
+        if not self.llm_api_key and self.llm_provider != "bedrock":
             raise ValueError("LLM_API_KEY environment variable not set")
         
         # Embedding configuration
@@ -139,7 +140,7 @@ class GraphitiClient:
                 small_model=self.llm_choice,  # Can be the same as main model
                 base_url=self.llm_base_url
             )
-            llm_provider = os.getenv("LLM_PROVIDER", "openai").lower()
+            llm_provider = self.llm_provider
             
             if llm_provider == "bedrock":
                 import boto3
@@ -149,8 +150,7 @@ class GraphitiClient:
                     def __init__(self, config):
                         super().__init__(config)
                         self.client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
-                        # Read model ID from env — defaults to Llama 3.3 70B
-                        self.model_id = os.getenv('LLM_CHOICE', 'us.meta.llama3-3-70b-instruct-v1:0')
+                        self.model_id = config.model
                         
                     async def _generate_response(self, messages, response_model, max_tokens, model_size):
                         boto_messages = []

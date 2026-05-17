@@ -349,15 +349,18 @@ class DocumentIngestionPipeline:
                     f"Graph build complete: {relationships_created} triples written"
                 )
 
-                # Add to Graphiti knowledge graph (episodes for agentic retrieval)
-                graphiti_result = await self.graph_builder.add_document_to_graph(
-                    chunks=embedded_chunks,
-                    document_title=document_title,
-                    document_source=document_source,
-                    document_metadata=document_metadata,
-                )
-                graph_errors.extend(graphiti_result.get("errors", []))
-                logger.info(f"Added {graphiti_result.get('episodes_created', 0)} episodes to Graphiti")
+                # Graphiti episodic memory DISABLED — the agent retrieval layer
+                # never queries Graphiti episodes (it uses PostgreSQL vector search
+                # + Neo4j typed clinical triples only). Keeping this off saves
+                # significant Bedrock credits and avoids ThrottlingExceptions.
+                # graphiti_result = await self.graph_builder.add_document_to_graph(
+                #     chunks=embedded_chunks,
+                #     document_title=document_title,
+                #     document_source=document_source,
+                #     document_metadata=document_metadata,
+                # )
+                # graph_errors.extend(graphiti_result.get("errors", []))
+                # logger.info(f"Added {graphiti_result.get('episodes_created', 0)} episodes to Graphiti")
 
             except Exception as e:
                 error_msg = f"Failed to build knowledge graph: {str(e)}"
@@ -508,15 +511,15 @@ class DocumentIngestionPipeline:
                     graph_errors = graph_result.get("errors", [])
                     logger.info(f"Graph build complete: {relationships_created} triples written")
 
-                    # Add to Graphiti knowledge graph (episodes for agentic retrieval)
-                    graphiti_result = await self.graph_builder.add_document_to_graph(
-                        chunks=embedded_chunks,
-                        document_title=document_title,
-                        document_source=document_source,
-                        document_metadata=doc_metadata,
-                    )
-                    graph_errors.extend(graphiti_result.get("errors", []))
-                    logger.info(f"Added {graphiti_result.get('episodes_created', 0)} episodes to Graphiti")
+                    # Graphiti episodic memory DISABLED — see comment above.
+                    # graphiti_result = await self.graph_builder.add_document_to_graph(
+                    #     chunks=embedded_chunks,
+                    #     document_title=document_title,
+                    #     document_source=document_source,
+                    #     document_metadata=doc_metadata,
+                    # )
+                    # graph_errors.extend(graphiti_result.get("errors", []))
+                    # logger.info(f"Added {graphiti_result.get('episodes_created', 0)} episodes to Graphiti")
 
                 except Exception as e:
                     error_msg = f"Failed to build knowledge graph: {str(e)}"
