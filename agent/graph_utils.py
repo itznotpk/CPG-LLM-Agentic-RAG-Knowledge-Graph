@@ -143,8 +143,6 @@ class GraphitiClient:
             
             if llm_provider == "bedrock":
                 import boto3
-                import json
-                import asyncio
                 from graphiti_core.llm_client.client import LLMClient
                 
                 class BedrockLlamaClient(LLMClient):
@@ -402,38 +400,64 @@ class GraphitiClient:
         self,
         query: str,
         center_node_distance: int = 2,
-        use_hybrid_search: bool = True
+        use_hybrid_search: bool = True,
+        limit: int = 20,
     ) -> List[Dict[str, Any]]:
         """
-        Search the knowledge graph.
-        
-        Args:
-            query: Search query
-            center_node_distance: Distance from center nodes
-            use_hybrid_search: Whether to use hybrid search
-        
-        Returns:
-            Search results
+        Search the knowledge graph for clinical facts.
+
+        Ingestion populates typed edges (CAUSES, INDICATED_FOR, ...) directly via Cypher
+        rather than via graphiti.add_episode, so Graphiti's RELATES_TO / Episodic index is
+        empty and graphiti.search() returns nothing. This implementation does a keyword
+        Cypher search over the typed edges instead, ranked by how many query keywords hit
+        the subject or object names.
         """
         if not self._initialized:
             await self.initialize()
-        
+
+        import re
+        keywords = [w.lower() for w in re.findall(r"\w+", query) if len(w) >= 3]
+        if not keywords:
+            return []
+
         try:
-            # Use Graphiti's search method (simplified parameters)
-            results = await self.graphiti.search(query)
-            
-            # Convert results to dictionaries
-            return [
-                {
-                    "fact": result.fact,
-                    "uuid": str(result.uuid),
-                    "valid_at": str(result.valid_at) if hasattr(result, 'valid_at') and result.valid_at else None,
-                    "invalid_at": str(result.invalid_at) if hasattr(result, 'invalid_at') and result.invalid_at else None,
-                    "source_node_uuid": str(result.source_node_uuid) if hasattr(result, 'source_node_uuid') and result.source_node_uuid else None
-                }
-                for result in results
-            ]
-            
+            async with self.graphiti.driver.session() as session:
+                cypher = """
+                UNWIND $keywords AS kw
+                MATCH (a)-[r]->(b)
+                WHERE r.evidence IS NOT NULL
+                  AND (toLower(a.name) CONTAINS kw OR toLower(b.name) CONTAINS kw)
+                WITH a, r, b, count(DISTINCT kw) AS hits
+                ORDER BY hits DESC
+                LIMIT $limit
+                RETURN
+                    a.name              AS subj,
+                    type(r)             AS rel,
+                    b.name              AS obj,
+                    r.severity          AS sev,
+                    r.evidence          AS evidence,
+                    r.cpg_chunk_id      AS source_chunk,
+                    toString(elementId(r)) AS uuid,
+                    toString(elementId(a)) AS subj_uuid
+                """
+                result = await session.run(cypher, keywords=keywords, limit=limit)
+                facts: List[Dict[str, Any]] = []
+                async for rec in result:
+                    sev = f"[{rec['sev']}]" if rec["sev"] else ""
+                    fact_str = (
+                        f"({rec['subj']}) -[{rec['rel']}]{sev}-> ({rec['obj']})"
+                    )
+                    if rec["evidence"]:
+                        fact_str += f": {rec['evidence']}"
+                    facts.append({
+                        "fact": fact_str,
+                        "uuid": rec["uuid"],
+                        "valid_at": None,
+                        "invalid_at": None,
+                        "source_node_uuid": rec["subj_uuid"],
+                    })
+                return facts
+
         except Exception as e:
             logger.error(f"Graph search failed: {e}")
             return []
