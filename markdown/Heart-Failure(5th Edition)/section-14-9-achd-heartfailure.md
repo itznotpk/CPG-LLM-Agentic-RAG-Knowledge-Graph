@@ -1,4 +1,4 @@
-# Section 14: .9: Heart Failure In Adult Congenital Heart Disease (Achd)
+# Section 14.9: Heart Failure In Adult Congenital Heart Disease (Achd)
 <!-- METADATA
 category: Special Populations, Treatment, Assessment
 use_case: HF in Adult Congenital Heart Disease — ACHD_HF_management, pharmacotherapy_by_subgroup, advanced_therapies
@@ -152,68 +152,6 @@ In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired H
     *   To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
 
 ---
-
-## Contextual Anchors (Overlapping)
-
-#### Section 6: .1: Symptoms And Signs Of HF (Cross-Referenced)
-[Grade I, Level C] **The clinical suspicion of HF should be supported by objective evidence of cardiac dysfunction.** Breathlessness with orthopnea, paroxysmal nocturnal dyspnea (PND), reduced exercise tolerance and ankle swelling are the characteristic symptoms of HF. Orthopnea and paroxysmal nocturnal dyspnea are markers of high filling pressures and contribute to sleep-disordered breathing.
-
-Signs which are more specific for HF are an elevated jugular venous pulse (JVP), and a third heart sound. These signs are associated with adverse outcomes in patients with HF and asymptomatic LV dysfunction. The presence of a raised JVP, a positive jugulo-venous reflux and hepatomegaly generally indicate a raised right atrial pressure of > 8 mmHg. A raised JVP has a good sensitivity (70%) and specificity (79%) of left sided congestion.
-
-A fourth heart sound is due to atrial contraction and is more frequent in patients with HFpEF. It is absent in patients with atrial fibrillation (AF).
-
-These signs may be accompanied by a laterally displaced apical impulse and a cardiac murmur. Other supportive signs include peripheral edema, tachycardia, narrow pulse pressure, pulmonary crepitations, hepatomegaly and ascites. These clinical findings may be transient and resolve completely following initial therapy.
-
-However, these signs are difficult to detect and are not always easily reproducible in the elderly, the obese and in patients with chronic lung disease. In a small study on patients with chronic HF, signs of congestion (rales, edema and JVP elevation) were absent in 42% of patients with a PCWP ≥ 22 mmHg. Occasionally symptoms and signs of volume overload may be absent, and the patient may present with fatigue only.
-
-In the elderly, as exertional dyspnea increases, they begin to lead more sedentary lives. Fatigue is common and this is likely due to low cardiac output, peripheral hypo-perfusion and skeletal muscle deconditioning and should not be considered due to ageing only. Atypical symptoms, such as confusion, memory deficit, sleepiness, episodes of delirium, irritability, syncopal states, fatigue, anorexia, and reduced level of activity are common manifestations of HF especially after age 80. Other co-existing conditions such as infections, anemia, delirium etc may complicate the clinical picture making the diagnosis of HF difficult. Bilateral leg edema is common in the elderly and may be due to other causes such as venous insufficiency, chronic kidney disease or lymphedema besides HF.
-
-In patients presenting with dyspnea, acute LV failure can sometimes mimic an acute exacerbation of bronchial asthma or chronic obstructive pulmonary disease. Thus, a proper history and clinical examination is essential. Similarly, in patients with CKD presenting with dyspnea, a concomitant diagnosis of HF may be missed.
-
-Exercise capacity in a patient with heart disease is assessed by the New York Heart Association (NYHA) functional classification. (refer to Table 9: New York Heart Association Functional Classification)
-
-[Grade I, Level A] The clinical suspicion of HF should be supported objectively with either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion. A value of NT-Pro BNP > 125pg/ml or BNP >35pg/ml is used as a cut off value for the diagnosis of HF in the non-acute setting. (refer to Table 12)
-
----
-
-#### Section 6: .2: Investigations (Cross-Referenced)
-Table: Basic and Important Investigations
-
-| | BASIC INVESTIGATIONS |
-|---|---|
-| **12 Lead Electrocardiogram**<br>**Chest Radiograph** | - To assess heart rate, rhythm, QRS morphology, QRS duration, QRS voltage, evidence of ischemia, LV hypertrophy and arrhythmias.<br>- To look for pulmonary congestion, cardiomegaly, and presence of underlying lung pathology.<br>- Patients with HFpEF may have a normal cardiac size. |
-| Blood Tests | Full Blood Count, urea, creatinine, serum electrolytes (sodium and potassium) liver function, serum glucose, lipid profile. |
-| Urinalysis | To look for proteinuria. |
-| | **OTHER IMPORTANT INVESTIGATIONS** |
-| Echocardiography | This will allow assessment of:<br>* LV chamber size, volume, and systolic function.<br>* LV wall thickness, evidence of scarring and wall motion abnormalities.<br>* Diastolic function of the heart.<br>* Valvular structure and function.<br>* Congenital cardiac abnormalities.<br>* LV mechanical dyssynchrony.<br>* Pulmonary hypertension.<br>It is the most useful and widely available test to establish the diagnosis in patients suspected of HF. |
-| **Natriuretic peptides in (NP):**<br>* **Brain Natriuretic Peptide (BNP) or**<br>* **N-Terminal Pro BNP (NT-Pro BNP)** | BNP and NT-Pro BNP are a family of hormones secreted by the ventricles in response to wall stress.<br>They are useful in the following situations:<br><br>**DIAGNOSIS OF HF**<br>**A) De Novo HF-1st episode of HF**<br>**A1. Emergency Setting**<br>* **NPs are useful as a 'rule out' test for patients presenting with acute dyspnea.** A level of < 100pg/ml for BNP and < 300pg/ml for NT-Pro BNP makes the diagnosis of acute HF unlikely.<br>* There is no statistical difference between the diagnostic accuracy of plasma B type natriuretic peptide (BNP) and NT-Pro BNP.<br>* These levels are affected by renal function and gender.<br>* A high level supports the diagnosis of acute HF and very high levels correlate with the severity of HF and adverse outcomes.<br>* The values of both BNP and NT-Pro BNP are predictive of both in-hospital and 1-year mortality, irrespective of LVEF.<br>* The discharge value as well as percent change from admission to discharge were more predictive of subsequent mortality and/or rehospitalization than admission values. A decrease by > 30% at discharge indicates a better prognosis than when values fail to decrease or actually increase.<br><br>**A2. In the community setting (Primary Care):**<br>* **They are a useful "rule out" test in the diagnosis of HF in patients presenting with dyspnea.** A point-of-care test allows early diagnosis.<br>* Changes in the levels of BNP and NT-Pro BNP predict risk of hospital admissions for HF.<br>* A decline in NT-ProBNP over time suggests favourable LV remodeling and improved clinical outcomes.<br><br>**B) Acute Decompensation in patients with Chronic HF**<br>* In patients with chronic HF, NPs may be persistently elevated and show substantial biological variation.<br>* When these patients present with acute symptoms, a change of 100% or more from the stable concentration suggests decompensation.<br>* **A combination of symptoms, weight gain and NP concentration may, however, be the best way to diagnose early decompensation in these patients.**<br><br>NP levels are affected by:<br>* Atrial fibrillation (AF) - levels are increased even in the absence of HF.<br>* Age - Levels of NP increase with age.<br>* Renal function.<br>* Obesity - Levels are reduced in obesity.<br>* Certain medications such as Angiotensin Receptor Neprilysin Inhibitor (ARNI) may interfere with the interpretation of BNP levels.<br><br>In cases of suspected HF, a point-of-care NP test allows early confirmation of the diagnosis. However:<br>* A raised NP level may be due to other causes besides HF.<br>* For this reason, NPs should only be used in conjunction with careful clinical assessment and investigation and interpreted with all other clinical information.<br><br>**GUIDING THERAPY:**<br>* The results of studies on the use of NP to guide therapy in HF are conflicting.<br>* A value of NT-Pro BNP of ≤ 1,000 pg/ml during treatment was associated with better CV outcomes. |
-| | **ADDITIONAL INVESTIGATIONS WHEN INDICATED:** |
-| Blood Tests | * Serum cardiac biomarkers: to look for myocardial necrosis - troponins, creatine kinase - muscle/brain band (CKMB).<br>* Iron studies (ferritin, serum iron, transferrin saturation).<br>* Serum calcium and magnesium.<br>* Thyroid function tests. |
-| | Other less common tests that may be considered include:<br>* Gamma-glutamyl transferase (GGT)<br>* Viral studies |
-| Tests for Myocardial Ischemia and/or Viability | * Treadmill exercise test<br>* Stress echocardiography (exercise or pharmacological)<br>* Radionuclide studies<br>* Cardiac magnetic resonance imaging (Cardiac MRI) |
-| Invasive Tests | * Coronary angiography<br>* Cardiac catheterisation<br>* Endomyocardial biopsy |
-| Others | * Holter electrocardiography, loop recorders<br>* Pulmonary function test |
-
----
-
-#### Section 14: .7: HF And Pregnancy (Cross-Referenced)
-**Key Message #20: HF and Pregnancy**
-*   About 0.5-4% of pregnant women have cardiac disease. HF remains the most common complication among all women with heart disease regardless of the cause.
-*   Women with cardiac disease should be assessed:
-    *   Before conception to assess their risk and to be advised accordingly and
-    *   Early in the pregnancy to optimize the outcome of the pregnancy.
-*   Maternal cardiovascular risk can be assessed using the modified World Health Organization (WHO) or NYHA classification.
-*   Level of Care will depend on the maternal CV risk.
-    *   **Low risk**: can be managed at their local center after review by a family medicine specialist/physician or cardiologist.
-    *   **Moderate risk**: should be managed at a tertiary center by a multidisciplinary team with cardiac expertise.
-    *   **High risk**: should be referred early to the tertiary center for assessment.
-*   Patients with LVEF < 30% and those in NYHA Class III and IV should be strongly advised not to get pregnant. If pregnant, termination should be considered.
-
-**Key Recommendations #16: HF and Pregnancy**
-*   HF in pregnancy should be managed by a multidisciplinary team consisting of physicians, obstetricians and pediatricians.
-*   HF that develops during pregnancy can be managed with the judicious use of diuretics, digoxin, nitrates, β-blockers (most commonly metoprolol) and/or hydralazine.
-*   For post-partum women with severe acute HF caused by Peripartum cardiomyopathy and LVEF < 35%, Foundational HF medications to improve LVEF recovery and prophylactic anticoagulation are recommended.
-
 #### Appendix XI: Modified World Health Organization Maternal Cardiovascular Risk Assessment (Cross-Referenced From 14.7)
 | Modified World Health Organization Maternal Cardiovascular Risk Assessment |
 |---|
@@ -222,55 +160,6 @@ Table: Basic and Important Investigations
 | **WHO CLASS II-III: Maternal Mortality, (1-5%)<br>Depending on the individual or other co-existing conditions**<br>• Mild left ventricular dysfunction (LVEF 40-50%).<br>• Hypertrophic cardiomyopathy.<br>&nbsp;&nbsp;&nbsp;&nbsp;> No LV outflow tract obstruction: WHO II<br>&nbsp;&nbsp;&nbsp;&nbsp;> LV outflow tract obstruction present: WHO III<br>• Marfan syndrome without aortic dilation.<br>• Aorta < 45 mm in aortic disease associated with bicuspid aortic valve.<br>• Native or tissue valve disease not considered WHO I or IV.<br>• Mild native or repaired coarctation of aorta (without hypertension or significant obstruction). |
 | **WHO CLASS III: Severe Increase in Maternal Morbidity<br>Significant Increase in Maternal Mortality (5-15%)<br>Expert counselling required. If pregnancy is decided upon, needs an individualized pregnancy care plan with a multidisciplinary team management.**<br>• Left ventricular dysfunction (LVEF 35-40%).<br>• Mechanical valve.<br>• Systemic right ventricle (cCTGA, post Senning/Mustard).<br>• Fontan circulation.<br>• Repaired Tetralogy of Fallot with severe pulmonary regurgitation, right ventricular failure, right ventricular outflow tract obstruction.<br>• Cyanotic heart disease (unrepaired).<br>• Other complex congenital heart disease.<br>• Aortic dilatation 40 - 45 mm in Marfan syndrome.<br>• Aortic dilatation 45 - 50 mm in aortic disease associated with bicuspid aortic valve. |
 | **WHO CLASS IV: Maternal mortality is 25-50%<br>Pregnancy Is Not Recommended or Is Contraindicated.<br>If pregnancy occurs, termination should be discussed.<br>If pregnancy continues, care as for class III.**<br>• Severe pulmonary arterial hypertension of any cause (mortality 17-33%).<br>• Severe systemic ventricular dysfunction (LVEF < 30%, NYHA III-IV).<br>• Previous peripartum cardiomyopathy with any residual impairment of left ventricular function.<br>• Severe mitral stenosis (MVA < 1.0 cm²), severe symptomatic aortic stenosis (AVA < 1.0cm²).<br>• Marfan syndrome with aorta dilated > 45 mm.<br>• Aortic dilatation > 50 mm in aortic disease associated with bicuspid aortic valve.<br>• Uncorrected severe coarctation. |
-
----
-
-#### Section 16: HF Rehabilitation (Cross-Referenced For 14.9.E)
-**Key Message #24: HF Rehabilitation**
-*   Fatigue and breathlessness lead to individuals restricting their physical activities and this in turn, leads to deconditioning.
-*   Exercise training in patients with HF is safe and leads to an improvement in functional capacity, exercise duration, and health related quality of life.
-*   HF is now endorsed as an indication for Cardiac Rehabilitation, and it spans throughout the continuum of HF care.
-
-**Key Recommendation #19: HF Rehabilitation**
-*   [Grade I, Level A] Cardiac Rehabilitation should be recommended to all stable HF patients, in NYHA II-III.
-
----
-
-#### Section 15: .3: Palliative And End Of Life Care (Cross-Referenced For 14.9.F)
-Despite recent advances in therapy, for some patients, HF remains a progressive disease and carries a poor prognosis. Patients with refractory symptoms despite guideline-directed medical therapy, should be considered for cardiac transplantation or LVAD implantation if deemed eligible. This includes:
-*   Those with < 50% survival at 1 year (using established scoring tools)
-*   Persistently elevated natriuretic peptide levels and/or
-*   A low VO2 max measurement (if available)
-
-[Grade IIa, Level B] In patients who are unable to receive advanced therapy, palliative care consultation should be considered. The aim of palliative care in HF is to prevent and relieve suffering and to promote the best quality of life for patients and their families.
-
-A recent international consensus referral criterion for specialist palliative care for patients with advanced HF includes 6 major categories:
-*   Patients suffering from advanced HF alongside complications including cardiac cachexia or multiorgan failure, having concurrent non-cardiac life-threatening diseases, or being intolerant to guideline-directed therapies.
-*   Patients likely eligible for advanced therapies but not receiving them due to various factors.
-*   Patients with repeated hospitalizations or emergency department visits within the past 3 months.
-*   Patients with poor prognostic estimate, with estimated life expectancy of 6 months or less.
-*   Patients suffering from refractory symptoms requiring palliative sedation, severe emotional or physical symptoms, and severe spiritual or existential distress.
-*   Patients, their families, or care teams requesting palliative care, including assistance in discussing goals of care and other planning surrounding withdrawal or de-escalation of life-prolonging interventions.
-
-**Advanced care planning**
-*   Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation, ICD implantation, etc)
-*   Address disease-specific aspects of care with clear limits to escalation.
-*   Record and clearly document these plans in the medical records.
-*   When requested and possible, clearly nominate a personal representative for medical decision-making.
-*   When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
-
-**Medical management and Care for the dying**
-*   Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
-*   Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most importantly depression and anxiety.
-*   Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
-*   Understanding that dying is a medical diagnosis that should neither be neglected nor postponed, and is a complex and dynamic process.
-*   The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation).
-
-**Managing ethical dilemmas**
-*   Patient autonomy remains central in the decision making for palliative care, although the 3 other ethical principles remain paramount (beneficence, non-maleficence, and justice).
-*   In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
-
----
 
 ## Appendix XIII: The Different Causes Of Achd-HF Based On The Underlying Pathophysiology, Related Chd And Etiology Tailored Management
 | Etiology | Pathophysiology | Congenital heart defect | Management |

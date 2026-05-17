@@ -1,4 +1,4 @@
-# Section 16: HF Rehabilitation
+# Section 16: Heart Failure Rehabilitation
 <!-- METADATA
 category: Supportive Treatment, Prevention
 use_case: HF Rehabilitation — cardiac_rehabilitation, exercise_prescription, special_populations_exercise
@@ -7,7 +7,6 @@ output: cardiac_rehabilitation_plan, exercise_prescription, special_population_g
 treatment_type: exercise_rehabilitation
 -->
 
-## 16: Heart Failure Rehabilitation
 Fatigue and breathlessness lead to individuals restricting their physical activities. This in turn leads to deconditioning - a phenomenon of reduced capacity to perform physical, mental, and cognitive tasks. This adds to the humanistic burden of HF, increasing morbidity and recurrent hospitalizations.
 
 *   Exercise training in HF addresses 3 main impairments:
@@ -19,7 +18,7 @@ Fatigue and breathlessness lead to individuals restricting their physical activi
         *   Decreased lung compliance caused by chronic pulmonary congestion and fibrosis.
 *   Exercise training in HF is safe and effective. Long-term exercise training leads to improvement in quality of life, functional capacity and survival rates.
 
-## 16.1: Cardiac Rehabilitation (Cr) In HF
+## 16.1: Cardiac Rehabilitation (CR) In HF
 *   HF is now endorsed as an indication for CR. CR spans throughout the continuum of HF care.
 *   A formal cardiac rehabilitation program usually includes:
     *   A medical and functional evaluation.
@@ -45,7 +44,7 @@ Fatigue and breathlessness lead to individuals restricting their physical activi
 *   Active participation in any kind of exercise training program is sufficient to improve the prognosis, quality of life and functional capacity. Active participation is a more important factor in achieving improvement than how the exercise is performed.
 *   The details of the Cardiac Rehabilitation program in HF can be obtained from several resources.
 
-## 16.2: Settings For Cr In HF
+## 16.2: Settings For CR In HF
 *   A community-based CR program provides patients with a structured exercise training intervention alongside educational support and psychological counselling.
 *   Settings for CR in HF include:
     *   Traditional center-based CR programs are safe and effective but are resource intensive and of limited availability. It is recommended during the initial sessions following discharge particularly in patients with severe HF symptoms.
@@ -55,7 +54,7 @@ Fatigue and breathlessness lead to individuals restricting their physical activi
         *   Mobile phone based CR.
         *   Telerehabilitation services. There is still inadequate evidence at present on the impact of this modality on hospitalization and CV death reduction.
 
-## 16.3: Heart Failure Cr In Special Populations
+## 16.3: Heart Failure CR In Special Populations
 *   **Individuals with implantable devices:**
     *   CR in HF patients with ICD and CRT is safe and beneficial.
     *   Activities such as hydrotherapy or pronounced arm-shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
@@ -82,19 +81,31 @@ Fatigue and breathlessness lead to individuals restricting their physical activi
         *   Lack of insurance coverage.
         *   Accessibility of programs.
 
----
-
-### Key Message #24: HF Rehabilitation
+**Key Message #24: HF Rehabilitation**
 *   Fatigue and breathlessness lead to individuals restricting their physical activities and this in turn, leads to deconditioning.
 *   Exercise training in patients with HF is safe and leads to an improvement in functional capacity, exercise duration, and health related quality of life.
 *   HF is now endorsed as an indication for Cardiac Rehabilitation, and it spans throughout the continuum of HF care.
 
-### Key Recommendation #19: HF Rehabilitation
+**Key Recommendation #19: HF Rehabilitation**
 *   Cardiac Rehabilitation should be recommended to all stable HF patients, in NYHA II-III.
 
----
+<!-- parent_only_reference_start -->
+Grades of Recommendation
+| Grade | Description |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and, in some cases, may be harmful. |
 
-## Abbreviations Used In This Section
+Levels of Evidence
+| Level | Description |
+|---|---|
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
+
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CR | Cardiac Rehabilitation |
@@ -103,12 +114,4 @@ Fatigue and breathlessness lead to individuals restricting their physical activi
 | HF | Heart Failure |
 | ICD | Implantable Cardioverter Defibrillator |
 | NYHA | New York Heart Association |
-
----
-
-## Grades Of Recommendation And Levels Of Evidence Used In This Section
-**Grades of Recommendation:**
-*   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.
-
-**Levels of Evidence:**
-*   **Level B:** Data derived from a single randomized clinical trial or large non-randomized studies.
+<!-- parent_only_reference_end -->

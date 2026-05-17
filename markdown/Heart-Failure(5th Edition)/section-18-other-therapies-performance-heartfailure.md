@@ -1,15 +1,15 @@
-# Section 18: -19: Other Therapies & Performance Measures
+# Section 18: Other Therapies for Heart Failure
 <!-- METADATA
-category: Reference, Treatment
-use_case: Complementary Therapies and Quality Indicators — EECP, stem_cell_therapy, supplements, performance_measures
-patient_input: quality_indicators
-output: EECP_evidence, stem_cell_therapy_status, supplement_guidance, performance_measures, quality_metrics
+category: Supportive Treatment
+use_case: Complementary and Alternative Therapies for HF — EECP, stem_cell_therapy, omega_3, coenzyme_Q10, tai_chi, yoga
+patient_input: HF_status, functional_capacity, current_therapy
+output: EECP_evidence, stem_cell_therapy_status, supplement_guidance, exercise_therapy_options
+treatment_type: EECP, omega_3_fatty_acids, coenzyme_Q10
 -->
 
-## 18: Other Therapies For Heart Failure
 Despite taking conventional HF therapy, patients may seek alternative therapy and healing approaches that are not considered as allopathic medicine. The National Center for Complementary and Alternative Medicine (NCCAM) defines complementary and alternative medicine (CAM) as a group of diverse medical and healthcare interventions, practices, products, or disciplines that are not generally considered part of conventional medicine.
 
-## 18.1: Enhanced External Counter Pulsation (Eecp)
+## 18.1: Enhanced External Counter Pulsation (EECP)
 There is inadequate evidence of clinical effectiveness of EECP in HF. Data seem to indicate that there is improved functional status, walk distance, and symptoms and NYHA Functional class. There is however, concern that it could precipitate or exacerbate symptoms in those with a history of HF.
 
 ## 18.2: Stem Cell Therapy
@@ -29,71 +29,17 @@ Tai Chi may improve 6 minute walk test distance, quality of life and LVEF in pat
 ## 18.6: Yoga
 Yoga improves peak VO2 (exercise capacity) and quality of life in chronic HF patients. In addition, it has been reported to reduce cardiovascular events, morbidity, and mortality although the evidence supporting these conclusions is somewhat limited.
 
----
-
-## 19: Performance Measures
-Performance measures should be used with the goal of improving quality of care for HF and conversion of scientific evidence into clinical practice. It has been shown that higher hospital performance measures were inversely associated with HF readmissions.
-
-Process performance measures focus on the aspects of care that are delivered to a patient, while outcome measures focus on the endpoints such as mortality or hospitalization.
-
-**Process performance indicators for in-patients with HF include:**
-*   % of patients who had documentation of NYHA Functional Class.
-*   % of patients who had LVEF measurement.
-*   % of patients with current or prior LVEF < 40% and without contraindications discharged with ACE-I/ARB/ARNI.
-*   % of patients with current or prior LVEF < 40% and without contraindications discharged on β-blockers.
-*   % of patients with current or prior LVEF < 40% and without contraindications discharged on MRA.
-*   % of patients with chronic or paroxysmal AF/Atrial Flutter without contraindications on anticoagulant therapy at discharge.
-*   % of patients given a post discharge appointment within 14 days.
-*   % of patients who had up titration of their Foundational HF medications to target or maximally tolerated doses at 3 months.
-
-The accepted performance measure is 60%.
-
-**Outcome Measures indicators include:**
-*   In-hospital mortality
-*   30-day readmission for heart failure
-
-Refer to Appendix XVI: Calculation of Performance and Outcome Measures for calculation of these measures.
-
-### Key Recommendation #20: Performance Measures
-*   Performance measures are used with the goal of improving quality of care for HF.
-*   This includes:
-    *   Process performance which measures the aspects of care that are delivered to a patient and
-    *   Outcome measures which focus on hard endpoints such as mortality or hospitalization.
-*   For the Quality indicators in HF, refer to section 19: Performance Measures & Appendix XVI: Calculation of Performance and Outcome Measures.
-
----
-
-## Contextual Anchors (Overlapping)
-
-## Appendix XVI: Calculation Of Performance And Outcome Measures
-| Measure | | Formula | |
-|---|---|---|---|
-| % of patients who had documentation of NYHA Functional Class | = | (Number of patients who had documentation of NYHA Functional Class) / (Number of HF patients who were seen during that time period) | x 100 |
-| % of patients who had LVEF measurement | = | (Number of patients who had LVEF measurement) / (Number of HF patients who were seen during that time period) | x 100 |
-| % of patients discharged with ACE-I / ARB | = | (Number of patients who were on ACE-I / ARB at discharge) / (Number of HF patients who were discharged during this time period who had no contraindications to ACE-I/ARB) | x 100 |
-| % of patients discharged on β-blockers | = | (Number of patients who were on β-blockers at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to β-blockers) | x 100 |
-| % of patients discharged on MRA | = | (Number of patients who were on MRA at discharge) / (Number of HF patients who were discharged during that time period who had no contraindications to MRA) | x 100 |
-| % of patients with chronic or paroxysmal AF/Atrial Flutter on anticoagulant therapy (OAC) at discharge. | = | (Number of patients who had AF/Atrial Flutter who were on OAC at discharge) / (Number of HF patients who had AF/Atrial Flutter during that time period who had no contraindications to OAC at discharge) | x 100 |
-| % of patients given a post discharge appointment within 14 days | = | (Number of patients who were given a post discharge appointment) / (Number of HF patients who were seen during that time period) | x 100 |
-| % of patients who had their Foundational HF medications up titrated to maximally tolerated doses by 3 months post discharge | = | (Number of patients who Had the HF medications up titrated within 3 months) / (Number of HF patients who were seen during that time period) | x 100 |
-
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
-| ACE-I | Angiotensin Converting Enzyme Inhibitor |
-| AF | Atrial Fibrillation |
-| ARB | Angiotensin Receptor Blocker |
-| ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
 | CAM | Complementary and Alternative Medicine |
 | CV | Cardiovascular |
 | EECP | Enhanced External Counter Pulsation |
 | HF | Heart Failure |
 | LVEF | Left Ventricular Ejection Fraction |
 | MI | Myocardial Infarction |
-| MRA | Mineralocorticoid Receptor Antagonist |
 | NCCAM | National Center for Complementary and Alternative Medicine |
 | NYHA | New York Heart Association |
-| OAC | Oral Anticoagulant |
 | VO2 | Oxygen Consumption |
+<!-- parent_only_reference_end -->

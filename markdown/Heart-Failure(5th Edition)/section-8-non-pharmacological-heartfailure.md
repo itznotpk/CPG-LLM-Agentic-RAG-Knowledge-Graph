@@ -6,8 +6,6 @@ patient_input: lifestyle, diet, fluid_intake, exercise_capacity
 output: education_plan, exercise_prescription, dietary_guidance, fluid_restriction_plan
 -->
 
-## 8: Non-Pharmacological Measures
-
 ## 8.1: Education
 *   [Grade I, Level B] HF patients and their family members should be educated on the definition, causes, signs, symptoms, and the progressive and relapsing nature of the disease, emphasizing self-care wherever possible. Increased awareness helps patients adhere to therapeutic instructions whereas knowledge leads to reduced anxiety and better sense of control. Self-care is important and improves long term adherence to management strategies.
 
@@ -27,7 +25,8 @@ In advanced HF, treatment options must be discussed tactfully and realistically 
 
 Structured telephone support and non-invasive home telemonitoring have been shown to reduce all-cause and cardiac hospitalizations, length of hospital stays and all-cause and cardiac mortality. Patients involved actively in educational process through telemedicine are more likely to accept positive lifestyle changes.
 
-**Telemedicine (refer also to section 17.4: Telemedicine and Telehealth)**
+**Telemedicine**
+Refer to section 17.4: Telemedicine/Telehealth. <!-- cross_ref target_file="section-17-organisation-of-care-heartfailure.md" target_heading="17.4: Telemedicine/Telehealth" target_kind="h2_section" -->
 *   Allows more frequent monitoring of the patient's status using smart phones and other mobile devices.
 *   Has been found to be effective in improving patient's self-care abilities.
 *   Enables HF patients to be cared for while staying at home, thus reducing hospitalizations.
@@ -39,7 +38,8 @@ They are however barriers for the widespread implementation of telemedicine. The
     *   The HF sub-populations who may gain from telehealth interventions (e.g., older patients with more comorbidities).
     *   In which specific healthcare subsets these interventions should be implemented e.g., immediate post discharge.
 
-## 8.2: Exercise Training (Refer Also To Section 16: HF Rehabilitation)
+## 8.2: Exercise Training
+Refer To Section 16: HF Rehabilitation <!-- cross_ref target_file="section-16-rehabilitation-heartfailure.md" target_heading="Section 16: HF Rehabilitation" target_kind="h1_section" -->
 *   [Grade I, Level B] Several systematic reviews and meta-analyses support exercise training as an integral part of the non-pharmacological treatment of HF. Exercise also leads to an improvement in the patient's Health Related Quality of Life (HRQoL) - symptoms, a greater sense of wellbeing, and better functional capacity.
 
 **Exercise training:**
@@ -60,7 +60,7 @@ Regular aerobic exercises are encouraged in NYHA I - III patients. These include
 
 ## 8.3: Diet And Nutrition
 *   [Grade I, Level B] It has been widely accepted that sodium intake should be restricted in patients with HF especially in those with symptoms. However, there is little clinical evidence to support this. Sodium restriction to < 100gm/day did not reduce clinical events.
-*   [Grade IIa, Level C] The current recommendation is to avoid adding salt and flavouring sauces such as soya sauce, tomato ketchup and chilli sauce while cooking or at the table. Refer to Appendix II, Page 162-163 on salt content of common Malaysian food.
+*   [Grade IIa, Level C] The current recommendation is to avoid adding salt and flavouring sauces such as soya sauce, tomato ketchup and chilli sauce while cooking or at the table. Refer to Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon) for salt content of common Malaysian food.
 *   [Grade IIa, Level B] A good balanced diet plays an important role in preventing energy depletion which can lead to cardiac cachexia and malnutrition. Cachexia is associated with increased mortality.
 
 A review found that the combination of personalized nutrition intervention with conventional treatment led to a decrease in all-cause mortality and hospital readmission.
@@ -131,9 +131,7 @@ Patients with HF who have psychological problems have been shown to have increas
 
 *   [Grade I, Level C] Thus, it is important that family members and carers are included during counselling sessions. Depressive symptoms may affect adherence and should prompt referral to the appropriate specialists for psychological support. Inpatient treatment and hospitalizations are the main drivers for a decrease of HRQoL and efforts should be made to avoid this.
 
----
-
-## Key Recommendation # 3: Non-Pharmacological Measures
+**Key Recommendation # 3: Non-Pharmacological Measures**
 *   In managing HF, non-pharmacological measures play a vital role. It is important to:
     *   Educate patient and family about the disease, treatment options and prognosis. There should be frank end-of-life discussions and advanced care planning with the patient and family. This is important as there is a potential risk of sudden death, and they should put their affairs in order.
     *   Encourage lifestyle measures:
@@ -145,101 +143,9 @@ Patients with HF who have psychological problems have been shown to have increas
     *   Provide advice regarding sexual activities and pregnancy.
     *   Address psychosocial problems encountered by the patient and the family.
 
----
-
-## Contextual Anchors (Overlapping)
-
-#### Section 17: .4: Telemedicine/Telehealth (Cross-Referenced For 8.1)
-Telemedicine services may improve healthcare accessibility and geographical limitations. In the unforeseen circumstances of a future pandemic, telemedicine may provide uninterrupted patient consultation when community lockdowns or social distancing is required.
-
-Early escalation of HF care with a multidisciplinary team is possible without the need for face-to-face consultation.
-
-**Telemedicine Strategies**
-
-**Requirements:**
-*   Home Monitoring Equipment - The following are required:
-    *   Computer, tablet, or smart phone
-    *   BP machines
-    *   Weighing scales
-    *   Optional:
-        *   ECG recording device on smart phone.
-        *   Mobile monitor (e.g., Cardio Mobile)
-
-Patients, and/or their younger family members can record and transmit the information to the physician.
-
-**Virtual visits:**
-*   This will help maintain the doctor-patient relationship.
-*   These virtual visits can be performed via audio-visual telecommunication system or through an online portal to review the following:
-    *   Assessment of symptoms.
-    *   Review information from the Home Monitoring devices.
-    *   Where available, laboratory results from a laboratory close to the patient's home.
-    *   Optimization of Foundational HF Medications.
-
-**Telerehabilitation:**
-Telemedicine can allow:
-*   Initiation of dietary and physical cardiac rehabilitation.
-*   Identification of cardiac decompensation and advise hospitalization, when necessary.
-
----
-
-#### Section 16: Heart Failure Rehabilitation (Cross-Referenced For 8.2)
-*   [Grade IIa, Level B] CR should be recommended to all stable HF patients, in NYHA II-III. This includes patients with no recent (≤ 6 weeks) or planned (≤ 6 months) major CV hospitalizations or procedures.
-*   There is insufficient data at present to recommend outpatient CR for patients in NYHA IV.
-
-**Stages of Cardiac Rehabilitation (CR):**
-*   **Inpatient phase:** Aims towards safe home discharge. Early CR significantly improves physical capacity and clinical outcomes.
-*   **Outpatient phase:** Improves functional gains through:
-    *   Endurance aerobic training.
-    *   Resistance strengthening (addresses sarcopenia).
-    *   Respiratory muscle training.
-*   **Maintenance phase:** Aims at improving long-term survival by focusing on identifying and treating CV risk factors.
-
-**Settings for CR in HF:**
-*   **Center-based CR programs:** Recommended during the initial sessions following discharge, particularly in severe HF.
-*   **Home-based programs:** Cost-effective for stable and well-treated patients.
-*   **Emerging models:** Hybrid CR, mobile phone based CR, and telerehabilitation.
-
-**Special Populations:**
-*   **Elderly/Frail:** Early rehabilitation prevents worsening frailty. Patients with high frailty scores benefit from closer HF specialist contact.
-*   **Implantable Devices:** CR is safe and beneficial for ICD/CRT patients, but activities with pronounced arm-shoulder movements or aquatic therapy should be avoided to prevent accidental ICD discharge.
-
----
-
-Table 8: Classification Of Heart Failure According To Lvef
-
-| Ejection Fraction Terminology | LVEF |
-|---|---|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
-| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
-| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
-
-### Stages Of Heart Failure
-| Stage | Description |
-|---|---|
-| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| C - "HF" | Symptomatic HF, either previous or current symptoms |
-| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
-
-The severity of symptomatic HF can be assessed by the New York Heart Association
-(NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
-
----
-
-Table 9: New York Heart Association Functional Classification
-
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
----
-
-## Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon)
+<!-- parent_only_reference_start -->
+Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon)
 **SALT CONTENT IN FOOD**
-
 | LOW (< 5% of DRI) | MODERATE (5% - 20% of DRI) | HIGH (> 20% of DRI) |
 |-------------------|----------------------------|---------------------|
 | Tosai without Gravy (1 piece) 0.5g | Preserved Bean Curd (16g) 0.8g (16% of DRI) | Fried Chicken (3 pieces), Coleslaw, Mashed potato, Soft Drink 10.4g (208% of DRI) |
@@ -282,11 +188,22 @@ Table 9: New York Heart Association Functional Classification
 | | | Mono Sodium Glutamate (1 tsp, 5g) 1.54g (31% of DRI) |
 | | | Dark Soya Sauce (1 tbsp, 15g) 1.41g (28% of DRI) |
 
-Source: Malaysian Food Composition Database
+Grades of Recommendation
+| Grade | Description |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and, in some cases, may be harmful. |
 
----
+Levels of Evidence
+| Level | Description |
+|---|---|
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial Fibrillation |
@@ -314,17 +231,4 @@ Source: Malaysian Food Composition Database
 | PSG | Polysomnography |
 | SAS | Sexual Adjustment Scale |
 | SDB | Sleep Disordered Breathing |
-
----
-
-## Grades Of Recommendation And Levels Of Evidence Used In This Section
-**Grades of Recommendation:**
-*   **Grade I:** Conditions for which there is evidence and/or general agreement.
-*   **Grade II-a:** Weight of evidence/opinion is in favor of its usefulness/efficacy.
-*   **Grade II-b:** Usefulness/efficacy is less well established by evidence/opinion.
-*   **Grade III:** Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and, in some cases, may be harmful.
-
-**Levels of Evidence:**
-*   **Level A:** Data derived from multiple randomized clinical trials or meta-analyses.
-*   **Level B:** Data derived from a single randomized clinical trial or large non-randomized studies.
-*   **Level C:** Only consensus of opinions of experts, case studies or standard of care.
+<!-- parent_only_reference_end -->

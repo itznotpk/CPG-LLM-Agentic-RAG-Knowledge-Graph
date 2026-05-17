@@ -1,4 +1,4 @@
-# Section 6: Diagnosis
+# Section 6: Diagnosis and Investigations
 <!-- METADATA
 category: Diagnosis
 use_case: HF Clinical Assessment — symptoms, signs, ECG, BNP_NT_proBNP, echocardiogram, Framingham_criteria
@@ -7,11 +7,10 @@ output: HF_diagnosis, Framingham_criteria, investigation_plan
 critical: true
 -->
 
-## 6: Diagnosis
-[Grade I, Level C] **The diagnosis of HF depends on a detailed history focusing on symptoms, risk factors and a thorough physical examination.** Patients with HF may present differently but tend to be consistent in their presentation whenever they develop a recurrent episode.
+[Grade I, Level C] The diagnosis of HF depends on a detailed history focusing on symptoms, risk factors and a thorough physical examination. Patients with HF may present differently but tend to be consistent in their presentation whenever they develop a recurrent episode.
 
 ## 6.1: Symptoms And Signs
-[Grade I, Level C] **The clinical suspicion of HF should be supported by objective evidence of cardiac dysfunction.** Breathlessness with orthopnea, paroxysmal nocturnal dyspnea (PND), reduced exercise tolerance and ankle swelling are the characteristic symptoms of HF. Orthopnea and paroxysmal nocturnal dyspnea are markers of high filling pressures and contribute to sleep-disordered breathing.
+[Grade I, Level C] The clinical suspicion of HF should be supported by objective evidence of cardiac dysfunction. Breathlessness with orthopnea, paroxysmal nocturnal dyspnea (PND), reduced exercise tolerance and ankle swelling are the characteristic symptoms of HF. Orthopnea and paroxysmal nocturnal dyspnea are markers of high filling pressures and contribute to sleep-disordered breathing.
 
 Signs which are more specific for HF are an elevated jugular venous pulse (JVP), and a third heart sound. These signs are associated with adverse outcomes in patients with HF and asymptomatic LV dysfunction. The presence of a raised JVP, a positive jugulo-venous reflux and hepatomegaly generally indicate a raised right atrial pressure of > 8 mmHg. A raised JVP has a good sensitivity (70%) and specificity (79%) of left sided congestion.
 
@@ -31,19 +30,14 @@ Exercise capacity in a patient with heart disease is assessed by the New York He
 
 Objective evidence of cardiac dysfunction by diagnostic tests will further support the diagnosis of HF. It will help establish the etiology and the precipitating factors of the syndrome.
 
----
-
-## Key Message # 5:
+**Key Message # 5:**
 * In making a diagnosis of HF, a detailed history and a thorough physical examination is important.
 * The clinical suspicion of HF should be supported objectively with either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
-
----
 
 ## 6.2: Investigations
 (refer to Flowchart 1: Algorithm for the Diagnosis of Heart Failure*)
 
 Table: Basic and Important Investigations
-
 | | BASIC INVESTIGATIONS |
 |---|---|
 | **12 Lead Electrocardiogram**<br>**Chest Radiograph** | - To assess heart rate, rhythm, QRS morphology, QRS duration, QRS voltage, evidence of ischemia, LV hypertrophy and arrhythmias.<br>- To look for pulmonary congestion, cardiomegaly, and presence of underlying lung pathology.<br>- Patients with HFpEF may have a normal cardiac size. |
@@ -59,16 +53,13 @@ Table: Basic and Important Investigations
 | Invasive Tests | * Coronary angiography<br>* Cardiac catheterisation<br>* Endomyocardial biopsy |
 | Others | * Holter electrocardiography, loop recorders<br>* Pulmonary function test |
 
----
 
-### Flowchart 1: Algorithm For The Diagnosis Of Heart Failure*
-
-##### Step 1: Initial Presentation
+Flowchart 1: Algorithm For The Diagnosis Of Heart Failure*
+**Step 1: Initial Presentation**
 **Suspected HF Because of Symptoms and/or Signs**
-
 ↓
 
-##### Step 2: Initial Investigations
+**Step 2: Initial Investigations**
 Perform the following:
 *   ECG
 *   Chest Radiograph
@@ -85,9 +76,7 @@ Perform the following:
 **Pathway C: Tests Normal *and* Clinical Suspicion is Low**
 *   → Heart Failure or LV Dysfunction is Unlikely. Consider Other Diagnosis e.g., Coronary Artery Disease (Angina Equivalent), Obesity, Pulmonary Disease.
 
----
-
-##### Step 3: Echocardiography
+**Step 3: Echocardiography**
 Perform echocardiography to assess cardiac structure and function.
 
 **Outcome Evaluation:**
@@ -106,11 +95,9 @@ Perform echocardiography to assess cardiac structure and function.
 
 *   **If Tests Normal:** → Heart Failure or LV Dysfunction is Unlikely. Consider Other Diagnosis e.g., Coronary Artery Disease (Angina Equivalent), Obesity, Pulmonary Disease.
 
-
 > *\*refer to Section 6.2 Investigations for the full list of Basic, Important and Additional Investigations.*
 
 Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of Heart Failure Among Patients With Dyspnea
-
 | | BNP (ng/L) | NT-Pro BNP (ng/L) |
 |---|---|---|
 | Emergency Setting | | |
@@ -119,9 +106,7 @@ Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of H
 | Community Setting (Primary Care) | | |
 | Heart Failure Rule Out | < 35 | < 125 |
 
----
-
-## Key Recommendations # 1: Diagnosis & Essential Investigations
+**Key Recommendations # 1: Diagnosis & Essential Investigations**
 * In making a diagnosis of HF, a detailed history and a thorough physical examination are important.
 * The clinical suspicion of HF should be supported objectively by either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 * Important basic investigations:
@@ -134,42 +119,19 @@ Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of H
         * In chronic HF, NPs may be persistently elevated and show substantial biological variation. In this setting, NPs should be interpreted with careful clinical assessment and investigation and with all other clinical information.
         * A value of NT-Pro BNP of ≤ 1,000 pg/ml during treatment was associated with better CV outcomes.
 
----
-
-## Contextual Anchors (Overlapping)
-Table 8: Classification Of Heart Failure According To Lvef
-
-| Ejection Fraction Terminology | LVEF |
+<!-- parent_only_reference_start -->
+Grades of Recommendation
+| Grade | Description |
 |---|---|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
-| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
-| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
+| I |Conditions for which there is evidence and/or general agreement. |
 
-### Stages Of Heart Failure
-| Stage | Description |
+Levels of Evidence
+| Level | Description |
 |---|---|
-| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| C - "HF" | Symptomatic HF, either previous or current symptoms |
-| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association
-(NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
-
----
-
-Table 9: New York Heart Association Functional Classification
-
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial Fibrillation |
@@ -196,13 +158,4 @@ Table 9: New York Heart Association Functional Classification
 | NYHA | New York Heart Association |
 | PCWP | Pulmonary Capillary Wedge Pressure |
 | PND | Paroxysmal Nocturnal Dyspnea |
-
----
-
-## Grades Of Recommendation And Levels Of Evidence Used In This Section
-**Grades of Recommendation:**
-*   **Grade I:** Conditions for which there is evidence and/or general agreement.
-
-**Levels of Evidence:**
-*   **Level A:** Data derived from multiple randomized clinical trials or meta-analyses.
-*   **Level C:** Only consensus of opinions of experts, case studies or standard of care.
+<!-- parent_only_reference_end -->

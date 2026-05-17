@@ -6,8 +6,6 @@ patient_input: clinical_stability, remote_monitoring_needs
 output: HF_clinic_model, multidisciplinary_referral, follow_up_schedules, referral_criteria, telemedicine_guidance
 -->
 
-## 17: Organisation Of Care
-
 ## 17.1: Level Of Care And Shared Management
 The care of patients with HF should ideally take place in a multidisciplinary system, allowing for shared care between the hospital (secondary or tertiary settings) and community (primary setting). A multidisciplinary approach encompasses patient education, cardiac rehabilitation, psychosocial support and palliative care, and has been proven to reduce HF hospitalizations and mortality in discharged patients.
 
@@ -137,9 +135,7 @@ Telemedicine can allow:
 *   Initiation of dietary and physical cardiac rehabilitation.
 *   Identification of cardiac decompensation and advise hospitalization, when necessary.
 
----
-
-### Key Message #25: Level Of Care, Shared Care, Monitoring And Follow-Up & Telemedicine/Telehealth
+**Key Message #25: Level Of Care, Shared Care, Monitoring And Follow-Up & Telemedicine/Telehealth**
 *   The care of patients with HF should ideally take place in a multidisciplinary system, allowing for shared care between the hospital (secondary or tertiary settings) and community (primary setting).
 *   Heart Failure clinics will serve as an intermediary between in-patient hospital care and community primary care.
 *   HF clinics can either be:
@@ -150,9 +146,8 @@ Telemedicine can allow:
 *   Where necessary, (decompensation, development of significant arrhythmias) they can be referred to the cardiologists/specialists.
 *   Telemedicine services may improve healthcare accessibility and geographical limitations. It can complement existing HF clinic services and provide venues for early escalation of HF therapy before decompensation.
 
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -180,3 +175,4 @@ Telemedicine can allow:
 | PCI | Percutaneous Coronary Intervention |
 | QRS | QRS Complex |
 | VT | Ventricular Tachycardia |
+<!-- parent_only_reference_end -->

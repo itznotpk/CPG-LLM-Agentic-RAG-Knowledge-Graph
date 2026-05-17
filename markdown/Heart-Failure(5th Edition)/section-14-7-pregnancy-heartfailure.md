@@ -1,4 +1,4 @@
-# Section 14: .7: HF And Pregnancy
+# Section 14.7: HF And Pregnancy
 <!-- METADATA
 category: Special Populations, Treatment, Assessment
 use_case: HF in Pregnancy — risk_stratification, safe_medications, PPCM_management, mWHO_classification
@@ -159,40 +159,6 @@ Timing and mode of delivery should be carefully planned by a multidisciplinary t
 *   HF that develops during pregnancy can be managed with the judicious use of diuretics, digoxin, nitrates, β-blockers (most commonly metoprolol) and/or hydralazine.
 *   For post-partum women with severe acute HF caused by Peripartum cardiomyopathy and LVEF < 35%, Foundational HF medications to improve LVEF recovery and prophylactic anticoagulation are recommended.
 
----
-
-## Contextual Anchors (Overlapping)
-
-#### Section 14: .7.3.2: Management Of HF During Pregnancy (Cross-Referenced For 14.7.4.1)
-**Non-pharmacological measures:**
-*   [Grade I, Level B] The management of patients with mild symptoms consists mainly of non-pharmacological measures such as:
-    *   Limiting strenuous exercise.
-    *   Adequate rest - maintaining a low salt diet.
-    *   Treating anemia and infections early.
-    *   Frequent antenatal examinations.
-
-**Pharmacological measures:**
-*   The following drugs may be used in the pregnant patient with HF:
-    *   [Grade I, Level C] Diuretics are the first line therapy in patients who are fluid overloaded.
-    *   [Grade IIa, Level C] Nitrates and/or hydralazine are used for preload and afterload reduction.
-    *   [Grade IIa, Level C] β-blockers can be used cautiously, most commonly metoprolol.
-    *   [Grade IIa, Level C] Digoxin is safe in pregnancy and during breast feeding.
-    *   [Grade III, Level C] ACE-I, ARB, ARNI, MRA, SGLT2-i and ivabradine are contraindicated in pregnancy.
-    *   [Grade IIa, Level C] ACE-I (enalapril and captopril) can be used in the post partum period.
-    *   In the postpartum period, Foundational HF medications may be given. The patient should however be advised not to breast feed.
-
-**Other treatment considerations in the pregnant patient:**
-*   Patients with AF who are hemodynamically unstable should be promptly electrically cardioverted. This is safe in pregnancy.
-*   Anticoagulation is indicated in the presence of AF, dilated left atrium or mechanical prosthetic heart valve.
-*   Patients with valvular lesions who remain symptomatic despite optimal medical treatment may be considered for percutaneous valve intervention or surgery.
-*   [Grade I, Level C] Commonly recommended antihypertensive drugs include methyldopa, labetalol, calcium channel blockers and hydralazine.
-*   Echocardiographic reexamination may be considered:
-    *   In the third trimester for reassessment of myocardial structure and function before labor.
-    *   When there are significant changes in HF symptoms or signs during pregnancy.
-    *   When HF medications are reduced or discontinued.
-*   In selected patients, Natriuretic peptide (BNP or NT-Pro BNP) monitoring may have some value for prediction of cardiovascular events.
-
----
 
 Table 20: Predictors Of Maternal Risk For Cardiac Complications
 

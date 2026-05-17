@@ -6,8 +6,7 @@ patient_input: patient_history, risk_factors, echocardiography, medication_histo
 output: HF_aetiology, decompensation_factors, reversible_causes, underlying_cause_identification
 -->
 
-## 5: Etiology
-HF is not a complete diagnosis. **It is important to identify the underlying disease and the precipitating cause(s), if present**, so that disease-specific treatment can be initiated early.
+HF is not a complete diagnosis. It is important to identify the underlying disease and the precipitating cause(s), if present, so that disease-specific treatment can be initiated early.
 
 The common underlying causes of HF in adults are:
 * Coronary artery disease (CAD)
@@ -56,9 +55,7 @@ Other causes of HF include:
 * **O** - **O**ther medications such as NSAIDs and COX-2 inhibitors,
 * **N** - **N**on-compliance to medications
 
----
-
-## Key Message #5: Etiology
+**Key Message #5: Etiology**
 * The common underlying causes of HF in adults are:
     * Coronary artery disease (CAD) - accounting for almost 60-66% of HF in Malaysia
     * Hypertension
@@ -67,10 +64,7 @@ Other causes of HF include:
     * Diabetic cardiomyopathy
 * Comorbidities are common and include hypertension, diabetes, and dyslipidemia.
 
----
-
 Table 11: Factors Contributing To Decompensation In A Patient With Stable HF
-
 | Category | Factors |
 |---|---|
 | Patient factors | * Non-compliance to medications<br>* Dietary indiscretion especially salt and fluid intake<br>* Inappropriate medications e.g., NSAIDs and COX-2 inhibitors<br>* Alcohol consumption |
@@ -78,42 +72,8 @@ Table 11: Factors Contributing To Decompensation In A Patient With Stable HF
 | Systemic conditions | * Superimposed infections<br>* Anemia<br>* Thyroid disease<br>* Electrolyte disturbances<br>* Worsening renal disease |
 | Others | * Urinary retention<br>* Severe emotional or physical stress<br>* Medications with negative ionotropic effect, e.g., Verapamil |
 
----
-
-## Contextual Anchors (Overlapping)
-Table 8: Classification Of Heart Failure According To Lvef
-
-| Ejection Fraction Terminology | LVEF |
-|---|---|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
-| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
-| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
-
-### Stages Of Heart Failure
-| Stage | Description |
-|---|---|
-| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| C - "HF" | Symptomatic HF, either previous or current symptoms |
-| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
-
-The severity of symptomatic HF can be assessed by the New York Heart Association
-(NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
-
----
-
-Table 9: New York Heart Association Functional Classification
-
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial Fibrillation |
@@ -127,3 +87,4 @@ Table 9: New York Heart Association Functional Classification
 | LVEF | Left Ventricular Ejection Fraction |
 | NSAID | Non-Steroidal Anti-Inflammatory Drug |
 | NYHA | New York Heart Association |
+<!-- parent_only_reference_end -->

@@ -1,4 +1,4 @@
-# Section 14: .8: Coronavirus 2019 (Covid 19) And Heart Failure
+# Section 14.8: Coronavirus 2019 (Covid 19) And Heart Failure
 <!-- METADATA
 category: Special Populations, Treatment
 use_case: COVID-19 and Heart Failure — cardiac_effects, myocarditis_management, vaccination, pandemic_considerations

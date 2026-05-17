@@ -1,4 +1,4 @@
-# Section 13: Chronic HF - HFpEF (Lvef ≥50%)
+# Section 13: Chronic Heart Failure - Heart Failure with Preserved LVEF (HFpEF)
 <!-- METADATA
 category: Treatment, Classification
 use_case: Chronic HFpEF Management — preserved_EF_classification, diuretics, SGLT2i, comorbidity_management, preserved_EF_pharmacotherapy
@@ -7,7 +7,6 @@ output: HFpEF_management_plan, diuretic_selection, SGLT2i_indication, comorbidit
 treatment_type: diuretics, SGLT2i, comorbidity_specific_therapy
 -->
 
-## 13: Chronic Heart Failure - HF Due To Preserved Lv Systolic Function, Lvef ≥50% (HFpEF)
 HFpEF is a heterogenous disease with various phenotypes and comorbidities. It is highly prevalent, accounting for up to 50% of all patients with HF and is becoming the dominant form of HF in aging populations worldwide.
 
 In this guideline HFpEF refers to LVEF ≥ 50%. Importantly, clinicians should be aware that LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
@@ -70,10 +69,31 @@ The following patients who continue to have dyspnea may be referred to these cen
     *   The presence of diabetes, a lower systolic BP, lower hemoglobin and a lower eGFR were associated with a poorer outcome.
     *   AF is common in HFpEF and increases the risk of adverse outcomes.
 
-## 13.3: Management (Refer To Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (Lvef > 50%))
+## 13.3: Management
+Refer To Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (Lvef > 50)
 Compared with HFrEF patients, hospitalizations, and deaths in patients with HFpEF are more likely to be due to non-cardiovascular causes. As LVEF increases, the proportional contribution of non-cardiac and non-HF events to death or hospitalization increases, highlighting the importance of managing comorbidities.
 
 The important aim of therapy is to alleviate symptoms, improve well-being and reduce hospitalizations. Screening for comorbidities and treating these appropriately is important.
+
+Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (LVEF > 50%)
+
+| Intervention | Grades of Recommendation | Levels of Evidence | Comments |
+|---|---|---|---|
+| LIFESTYLE MEASURES | | | |
+| Overweight / Obesity | I | B | <ul><li>A caloric restriction diet is feasible and safe and should ideally be combined with exercise.</li><li>Bariatric Surgery in patients with HFpEF and obesity was associated with improved symptoms and reduction in HF hospitalizations.</li></ul> |
+| Exercise Training | I | A | <ul><li>This is safe and improves exercise capacity and quality of life.</li></ul> |
+| IDENTIFYING AND TREATING THE UNDERLYING CAUSE(S) AND CO-MORBIDITIES | | | |
+| Hypertension | I | A | <ul><li>Improved BP control has been shown to reduce morbidity and hospitalizations for HF.</li></ul> |
+| Tachyarrhythmias (Persistent or Paroxysmal AF) | IIa | B | <ul><li>**Rate Control** with β-blockers or non-dihydro pyridine calcium channel blockers (verapamil, diltiazem) alone or in combination.</li></ul> |
+| | IIa | A | <ul><li>**Rhythm Control** in patients with recent onset AF < 1 year duration or paroxysmal AF.</li></ul> |
+| Anti Coagulation | I | A | <ul><li>To reduce the risk of thromboembolic events.</li></ul> |
+| Others | I | C | <ul><li>Treat CAD, Diabetes, CKD appropriately according to guidelines.</li></ul> |
+| PHARMACOTHERAPY | | | |
+| Diuretics | I | C | <ul><li>To relieve congestion.</li></ul> |
+| RAS Blockers | IIb | B | <ul><li>Trial data show a reduction in HF hospitalizations, but no reduction in all-cause or CV mortality in HFpEF.</li><li>With ARNI, there was a suggestion of benefit in patients with LVEF < 57% (in women benefits of ARNI were sustained up to LVEF 60%, while for men the benefit was restricted to LVEF 45%).</li></ul> |
+| MRA | IIb | B | <ul><li>It may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum.</li></ul> |
+| SGLT2-i | IIa | A | <ul><li>These have been shown to decrease HF hospitalizations and CV mortality.</li><li>As more trial data becomes evident, the grading **may** move upwards to I, A</li></ul> |
+| β-Blockers | | | <ul><li>No good data to show that β-blockers are beneficial in the treatment of HFpEF.</li><li>Often prescribed for treatment of co-morbidities.</li></ul>
 
 ### 13.3.1: Lifestyle Measures
 *   Overweight or obesity are important comorbidities in HFpEF.
@@ -89,7 +109,7 @@ The important aim of therapy is to alleviate symptoms, improve well-being and re
 *  [Grade I Level A] Hypertension should be treated to target goals. Improved BP control has been shown to reduce morbidity and hospitalizations for HF. More intensive BP control in patients with high CV risk including those > 75 years of age, significantly reduces HF and other cardiovascular outcomes.
 *   CAD is common in patients with HFpEF and this should be treated appropriately.
 *   Diabetes - refer to section 14.1: Diabetes and Heart Failure
-*   Chronic Kidney Disease - refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)
+*   Chronic Kidney Disease - refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD) <!-- cross_ref target_file="section-14-1-diabetes-vhd-cardiomyopathy-heartfailure.md" target_heading="14.1: Diabetes And Heart Failure" target_kind="h2_section" --> <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
 *   Tachyarrhythmias should be treated, and sinus rhythm restored whenever possible.
     * [Grade IIa, Level B] If the patient remains in persistent AF, β-blockers or non-dihydropyridine calcium channel blockers (verapamil, diltiazem) alone or in combination are the usual first line agents used for rate control.
     * [Grade IIa, Level A] In patients with recent onset AF < 1 year duration or paroxysmal AF who received early rhythm-control, there was a significantly decreased primary end point of a composite of CV death, stroke, or hospitalization due to HF than those who received rate control.
@@ -108,15 +128,13 @@ Pharmacotherapy has not been shown to reduce total or CV mortality. These includ
 *   [Grade I, Level A] **SGLT2-i:** These have been shown to decrease HF hospitalizations and CV mortality. There was also a decrease in the slope of the eGFR decline, and a modest improvement in quality of life at 52 weeks. The benefit was similar irrespective of the presence or absence of diabetes at baseline. In a subgroup analysis by LVEF, there was a signal for lower benefit on the primary composite endpoint, first and recurrent HF hospitalizations, at higher LVEF > 62.5%.
 *   **Non-dihydropyridine Calcium Channel Blockers (verapamil and diltiazem):** Clinical data regarding use of calcium-channel blockers in HFpEF is sparse. Its use is mainly to treat hypertension or for rate control in AF.
 
----
-
-### Key Message # 13: Chronic HF Due To HFpEF
+**Key Message # 13: Chronic HF Due To HFpEF**
 *   HFpEF is a heterogenous disease with various phenotypes and comorbidities, accounting for up to 50% of all patients with HF.
 *   In this guideline HFpEF refer to LVEF ≥ 50%. LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
 *   HFpEF differs from HFrEF in that HFpEF patients are older, more often female with AF, CKD and non-CV comorbidities being more common.
 *   The main hemodynamic finding in HFpEF is an elevation in LV filling pressures i.e. end diastolic LV pressure (LVEDP), initially only on exertion and later even at rest
 
-### Key Recommendation #11: Chronic HF Due To HFpEF
+**Key Recommendation #11: Chronic HF Due To HFpEF**
 *   Timely and early diagnosis of HFpEF leads to a better outcome.
 *   The management of patients with HFpEF includes:
     *   Lifestyle measures:
@@ -130,63 +148,8 @@ Pharmacotherapy has not been shown to reduce total or CV mortality. These includ
         *   MRA - it may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum.
         *   β-blockers - No good data that they are beneficial in the treatment of HFpEF although they are often prescribed for the management of comorbidities such as CAD or AF.
 
----
-
-## Contextual Anchors (Overlapping)
-Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (Lvef > 50%)
-
-| Intervention | Grades of Recommendation | Levels of Evidence | Comments |
-|---|---|---|---|
-| LIFESTYLE MEASURES | | | |
-| Overweight / Obesity | I | B | <ul><li>A caloric restriction diet is feasible and safe and should ideally be combined with exercise.</li><li>Bariatric Surgery in patients with HFpEF and obesity was associated with improved symptoms and reduction in HF hospitalizations.</li></ul> |
-| Exercise Training | I | A | <ul><li>This is safe and improves exercise capacity and quality of life.</li></ul> |
-| IDENTIFYING AND TREATING THE UNDERLYING CAUSE(S) AND CO-MORBIDITIES | | | |
-| Hypertension | I | A | <ul><li>Improved BP control has been shown to reduce morbidity and hospitalizations for HF.</li></ul> |
-| Tachyarrhythmias (Persistent or Paroxysmal AF) | IIa | B | <ul><li>**Rate Control** with β-blockers or non-dihydro pyridine calcium channel blockers (verapamil, diltiazem) alone or in combination.</li></ul> |
-| | IIa | A | <ul><li>**Rhythm Control** in patients with recent onset AF < 1 year duration or paroxysmal AF.</li></ul> |
-| Anti Coagulation | I | A | <ul><li>To reduce the risk of thromboembolic events.</li></ul> |
-| Others | I | C | <ul><li>Treat CAD, Diabetes, CKD appropriately according to guidelines.</li></ul> |
-| PHARMACOTHERAPY | | | |
-| Diuretics | I | C | <ul><li>To relieve congestion.</li></ul> |
-| RAS Blockers | IIb | B | <ul><li>Trial data show a reduction in HF hospitalizations, but no reduction in all-cause or CV mortality in HFpEF.</li><li>With ARNI, there was a suggestion of benefit in patients with LVEF < 57% (in women benefits of ARNI were sustained up to LVEF 60%, while for men the benefit was restricted to LVEF 45%).</li></ul> |
-| MRA | IIb | B | <ul><li>It may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum.</li></ul> |
-| SGLT2-i | IIa | A | <ul><li>These have been shown to decrease HF hospitalizations and CV mortality.</li><li>As more trial data becomes evident, the grading **may** move upwards to I, A</li></ul> |
-| β-Blockers | | | <ul><li>No good data to show that β-blockers are beneficial in the treatment of HFpEF.</li><li>Often prescribed for treatment of co-morbidities.</li></ul> |
-
----
-Table 8: Classification Of Heart Failure According To Lvef
-
-| Ejection Fraction Terminology | LVEF |
-|---|---|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
-| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
-| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
-
-### Stages Of Heart Failure
-| Stage | Description |
-|---|---|
-| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| C - "HF" | Symptomatic HF, either previous or current symptoms |
-| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
-
-The severity of symptomatic HF can be assessed by the New York Heart Association (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
-
----
-
-Table 9: New York Heart Association Functional Classification
-
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
-
----
-
-## Appendix VI: Esc Heart Failure Association Algorithm (HFA–PEFF)
+<!-- parent_only_reference_start -->
+Appendix VI: ESC Heart Failure Association Algorithm (HFA–PEFF)
 |  |
 |----------------------------------------------------|
 | **P - Pretest Assessment**<br>This includes a detailed clinical evaluation, electrocardiogram, laboratory tests, and basic echocardiogram. HF*p*EF is suggested by:<br>• Normal LVEF *and*<br>• Nondilated left ventricle with concentric remodelling, or left ventricular hypertrophy *and*<br>• Left atrial enlargement. |
@@ -198,7 +161,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 * Cases where the diagnosis is unclear.
 * Non responders to treatment especially those with multiple comorbidities.
 
-## Appendix VII: H2fpef Score
+Appendix VII: H2FPEF Score
 | | Characteristic | Measurement | Score |
 |---|---|---|:---:|
 | H | Heavy | Body mass index > 30 kg/m² | 2 |
@@ -214,55 +177,22 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 | 0-1 | ≤ 23% |
 | 2-5 | Intermediate probability and require additional testing to determine the cause of dyspnea. |
 
----
+Grades of Recommendation
+| Grade | Description |
+|---|---|
+| I | Conditions for which there is evidence and/or general agreement. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and, in some cases, may be harmful. |
 
-## Contextual Anchors (Overlapping)
+Levels of Evidence
+| Level | Description |
+|---|---|
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
-### Overlapping Content From Section 14.1: Diabetes And Heart Failure
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 14.1                            -->
-<!-- Purpose: Provides management rules for Diabetes comorbidity   -->
-<!-- referenced in Section 13.3.2 (line 97)                         -->
-<!-- ============================================================ -->
-
-**Key Considerations in HF & Diabetes:**
-*   HF and diabetes mellitus (DM) often co-exist, compounding mortality risk, especially in **HFpEF**.
-*   **HFpEF Specific Risk:** Both poor glycemic control (HbA1c > 9.5%) and tight glycemic control (HbA1c < 5.5%) are associated with increased all-cause mortality in HFpEF patients.
-*   Every 1% HbA1c reduction is associated with a 15% relative risk reduction in HF hospitalization.
-
-**Management & Treatment:**
-*   **Glucose Lowering Agents (Target HbA1c 7%-8%):**
-    *   **SGLT2-i:** [Grade I, Level A] Recommended to prevent HF hospitalizations and reduce CV mortality.
-    *   **GLP-1 Receptor Agonists:** [Grade IIa, Level A] Recommended to reduce CV risk.
-    *   **Metformin:** [Grade IIa, Level B] Recommended if eGFR is stable and ≥ 30 mL/min/1.73m². In older patients, metformin initiation is independently associated with a significant reduction in HF hospitalization, particularly in patients with **LVEF > 40%**.
-    *   **Avoid:** Thiazolidinediones. Use with caution: Sulfonylureas and Insulin (associated with increased mortality if HbA1c < 7%).
-
----
-
-### Overlapping Content From Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 14.6                            -->
-<!-- Purpose: Provides comorbidity management for CKD               -->
-<!-- referenced in Section 13.2 (line 72) and 13.3.2 (line 98)      -->
-<!-- ============================================================ -->
-
-**Cardiorenal Syndrome (CRS) in HFpEF:**
-*   **Type 2 (Chronic CRS):** Chronic cardiac dysfunction (HFpEF) leading to progressive CKD.
-*   **Type 4 (Chronic Renocardiac):** Primary CKD contributing to cardiac dysfunction (LVH, CAD) and increased CV events.
-
-**Management & Treatment:**
-*   **Monitoring:** [Grade I, Level C] Closely monitor electrolytes (target potassium 4-5.5 mmol/L) and kidney function. In advanced CKD, repeat tests within 3-7 days after drug initiation/titration.
-*   **Pharmacotherapy Safety:**
-    *   **SGLT2-i:** [Grade I, Level A] Benefit established in CKD to reduce HF hospitalizations and CV death. Initiation recommended down to **eGFR 20**.
-    *   **MRA:** [Grade IIb, Level B] Can be considered in HFpEF patients with **eGFR > 30 mL/min/1.73m²**, but requires close monitoring of potassium (check after 7 days of initiation).
-    *   **Diuretics:** Aim for the lowest dose necessary to maintain euvolemia; avoid excessive preload reduction which HFpEF patients tolerate poorly.
-
-**RAS Blocker Response (if used for comorbidities):**
-*   Initial drop in eGFR (up to 30%) is common. If SCr increases > 50%, temporarily stop and exclude other causes.
-
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -307,17 +237,4 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 | SCr | Serum Creatinine |
 | SGLT2-i | Sodium-Glucose Co-transporter 2 Inhibitor |
 | TR | Tricuspid Regurgitation |
-
----
-
-## Grades Of Recommendation And Levels Of Evidence Used In This Section
-**Grades of Recommendation:**
-*   **Grade I:** Conditions for which there is evidence and/or general agreement that a given procedure or treatment is beneficial, useful, and effective.
-*   **Grade II-a:** Weight of evidence/opinion is in favour of usefulness/efficacy. *Should be considered*.
-*   **Grade II-b:** Usefulness/efficacy is less well established by evidence/opinion. *May be considered*.
-*   **Grade III:** Conditions for which there is evidence and/or general agreement that a procedure/treatment is not useful/effective and in some cases may be harmful.
-
-**Levels of Evidence:**
-*   **Level A:** Data derived from multiple randomized clinical trials or meta-analyses.
-*   **Level B:** Data derived from a single randomized clinical trial or large non-randomized studies.
-*   **Level C:** Only consensus of opinions of experts, case studies or standard of care.
+<!-- parent_only_reference_end -->

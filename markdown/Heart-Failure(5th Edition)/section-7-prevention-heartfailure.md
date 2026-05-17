@@ -1,4 +1,4 @@
-# Section 7: Prevention
+# Section 7: Prevention of Heart Failure
 <!-- METADATA
 category: Prevention, Screening
 use_case: HF Risk Factor Management and Screening — HTN_control, DM_management, obesity, smoking_cessation, Stage_A_B_prevention, at_risk_screening, cardiomyopathy_family_screening, CKD_monitoring
@@ -7,9 +7,7 @@ output: Stage_A_B_prevention_strategies, risk_factor_targets, screening_recommen
 treatment_type: SGLT2i, ACEi, beta_blocker, statin
 -->
 
-## 7: Prevention
 Table: Foundation Of Management Of Heart Failure
-
 | Stage A <br> "At Risk" | **Individuals who do not have structural cardiac disease but are at high risk of developing HF/CAD.**<br>Hypertension<br>Diabetes<br>Obesity and the Metabolic Syndrome<br>Cigarette smoking<br>Familial hypercholesterolemia<br>Multiple CV risk factors<br>Family history of Cardiomyopathy<br>Thyroid Disease<br>Renal Disease<br>Cardiotoxins<br>*Others:*<br>Sleep Disordered breathing,<br>Connective Tissue Disease,<br>Chronic Pulmonary disease and Pulmonary Hypertension |
 |---|---|
 | **Stage B** <br> **"Pre HF"** | **Individuals with structural cardiac disease and who either have normal or impaired myocardial function.**<br>Established CAD<br>Hypertension with LVH<br>Cardiac Valve disease<br>Congenital Heart disease<br>Arrhythmias |
@@ -19,8 +17,6 @@ Table: Foundation Of Management Of Heart Failure
 *   **Stage B - "Pre HF"** - Individuals with structural cardiac disease and who have either normal or impaired cardiac function but do not have signs and symptoms of HF.
 
 There is robust clinical data that by appropriate and timely interventions, HF can be prevented in these individuals and cardiac function improved.
-
----
 
 ## 7.1: Stage A - "At Risk"
 Individuals who are at high risk of developing HF/CAD but who do not yet have structural heart disease. These include individuals with:
@@ -117,8 +113,6 @@ Individuals who are at high risk of developing HF/CAD but who do not yet have st
         *   To date, there have been no primary prevention trials on the use of these supplements to prevent cardiac disease.
         *   [Grade IIb, Level B] The cumulative findings from RCTs on the prevention of HF and or CV events in patients at high CV risk and or established CVD have been mixed.
 
----
-
 ## 7.2: Stage B - "Pre HF"
 Individuals with structural cardiac disease but who do not have signs and symptoms of HF. Cardiac function may be normal or impaired. The following strategies have been shown to prevent the development of HF.
 
@@ -136,16 +130,14 @@ Individuals with structural cardiac disease but who do not have signs and sympto
 *   [Grade I, Level A] SGLT2-i reduce hospitalization for HF in patients with and without established CVD, irrespective of diabetes status.
 *   [Grade I, Level A] In symptomatic patients in NYHA Class II-IV- All the 4 Foundational HF medications (RAS blockers, MRA, β-blockers and SGLT2-i) improve CV outcomes.
 
----
-
-## Key Message #6: Prevention Of HF
+**Key Message #6: Prevention Of HF**
 * Prevention and early intervention, wherever appropriate, should be the primary objective of management of patients at risk for HF.
 * There is robust clinical data that by appropriate and timely interventions, HF can be prevented in these individuals and cardiac function improved.
 * It should focus on those who are in:
     * Stage A - "At Risk" - Individuals who are at high risk of developing cardiac disease but who do not have symptoms or signs of HF and have structurally normal hearts.
     * Stage B - "Pre HF" - Individuals with structural cardiac disease and who have either normal or impaired cardiac function but do not have signs and symptoms of HF.
 
-## Key Recommendations #2: Prevention Of HF
+**Key Recommendations #2: Prevention Of HF**
 * In the prevention of HF for patients in Stage A:
     * All CV risk factors should be treated to target.
     * Optimal profiles of the 7 CV risk factors - blood pressure, glucose, cholesterol, absence of smoking, body mass index and physical activity has been shown to be associated with a lower lifetime risk of HF.
@@ -156,43 +148,23 @@ Individuals with structural cardiac disease but who do not have signs and sympto
         * In asymptomatic patients in NYHA Class I: ACE-I, β-blockers, and SGLT2-i.
         * Symptomatic patients in NYHA Class II-IV: All the 4 Foundational HF medications (RAS blockers, MRA, β-blockers and SGLT2-i) should be instituted early to improve CV outcomes.
 
----
-
-## Contextual Anchors (Overlapping)
-Table 8: Classification Of Heart Failure According To Lvef
-
-| Ejection Fraction Terminology | LVEF |
+<!-- parent_only_reference_start -->
+Grades of Recommendation
+| Grade | Description |
 |---|---|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
-| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
-| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
+| I | Conditions for which there is evidence and/or general agreement. |
+| II-a | Weight of evidence/opinion is in favor of its usefulness/efficacy. |
+| II-b | Usefulness/efficacy is less well established by evidence/opinion. |
+| III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and, in some cases, may be harmful. |
 
-### Stages Of Heart Failure
-| Stage | Description |
+Levels of Evidence
+| Level | Description |
 |---|---|
-| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| C - "HF" | Symptomatic HF, either previous or current symptoms |
-| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
+| A | Data derived from multiple randomized clinical trials or meta-analyses. |
+| B | Data derived from a single randomized clinical trial or large non-randomized studies. |
+| C | Only consensus of opinions of experts, case studies or standard of care. |
 
-The severity of symptomatic HF can be assessed by the New York Heart Association
-(NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
-
----
-
-Table 9: New York Heart Association Functional Classification
-
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
-
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | A1c | Glycated Hemoglobin |
@@ -226,17 +198,4 @@ Table 9: New York Heart Association Functional Classification
 | SGLT2-i | Sodium-Glucose Cotransporter-2 Inhibitors |
 | SLE | Systemic Lupus Erythematosus |
 | TSH | Thyroid Stimulating Hormone |
-
----
-
-## Grades Of Recommendation And Levels Of Evidence Used In This Section
-**Grades of Recommendation:**
-*   **Grade I:** Conditions for which there is evidence and/or general agreement.
-*   **Grade II-a:** Weight of evidence/opinion is in favor of its usefulness/efficacy.
-*   **Grade II-b:** Usefulness/efficacy is less well established by evidence/opinion.
-*   **Grade III:** Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and, in some cases, may be harmful.
-
-**Levels of Evidence:**
-*   **Level A:** Data derived from multiple randomized clinical trials or meta-analyses.
-*   **Level B:** Data derived from a single randomized clinical trial or large non-randomized studies.
-*   **Level C:** Only consensus of opinions of experts, case studies or standard of care.
+<!-- parent_only_reference_end -->

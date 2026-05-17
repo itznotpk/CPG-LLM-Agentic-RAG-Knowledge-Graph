@@ -8,8 +8,6 @@ critical: true
 treatment_type: heart_transplant, MCS, LVAD, palliative_care
 -->
 
-## 15: Advanced Heart Failure
-
 ## 15.1: Heart Transplant
 Heart transplantation is well-established for refractory end stage HF. It is the gold standard for the treatment of advanced HF in the absence of contraindications. World-wide the 1-year survival rate is 91% and the median survival post-transplant is 12 to 13 years.
 
@@ -37,7 +35,8 @@ Assessment for heart transplant is done by a multispecialty, multidisciplinary t
 *   Pharmacologically irreversible pulmonary hypertension.
 *   Other medical or psychosocial issues that would impact survival.
 
-## 15.2: Mechanical Circulatory Support (Mcs) - Refer To **Section 9.2.2: Mechanical Circulatory Support**
+## 15.2: Mechanical Circulatory Support (MCS)
+Refer To Section 9.2.2: Mechanical Circulatory Support. <!-- cross_ref target_file="section-9-acute-hf-heartfailure.md" target_heading="9.2.2: Mechanical Circulatory Support" target_kind="h3_section" --> 
 The use of a mechanical circulatory support (e.g., Left Ventricular Assist Device - LVAD) may be considered as a:
 *   Bridge to recovery in patients with potentially reversible or treatable conditions or
 *   Bridge to heart transplant in suitable candidates or
@@ -52,7 +51,7 @@ Despite recent advances in therapy, for some patients, HF remains a progressive 
 *   Those with < 50% survival at 1 year (using established scoring tools)
 *   Persistently elevated natriuretic peptide levels and/or
 *   A low VO2 max measurement (if available) and
-*   Other eligibility criteria as stated in **Section 15.1. Heart Transplant**.
+*   Other eligibility criteria as stated in Section 15.1. Heart Transplant.
 
 In patients who are unable to receive advanced therapy, palliative care consultation should be considered. The aim of palliative care in HF is to prevent and relieve suffering and to promote the best quality of life for patients and their families.
 
@@ -66,14 +65,14 @@ Although majority of guidelines do not specifically address when best to refer e
 
 End-of-life issues surrounding advanced HF remains complex to this day, with minimal evidence in the literature to guide management. Nonetheless, there exists several position papers and expert consensus documents highlighting key components in providing palliative care for HF patients, including the following:
 
-#### Advanced Care Planning
+**Advanced Care Planning**
 *   Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation, ICD implantation, etc)
 *   Address disease-specific aspects of care with clear limits to escalation.
 *   Record and clearly document these plans in the medical records.
 *   When requested and possible, clearly nominate a personal representative for medical decision-making.
 *   When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
 
-#### Medical Management
+**Medical Management**
 *   Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
 *   Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most importantly depression and anxiety.
 *   Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
@@ -85,49 +84,22 @@ End-of-life issues surrounding advanced HF remains complex to this day, with min
     *   Counselling, support, and reassurance should be provided to patients and their families.
     *   The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation).
 
-#### Managing Ethical Dilemmas
+**Managing Ethical Dilemmas**
 *   An ethical dilemma arises when at least two of the four ethical principles conflict with one another.
 *   Patient autonomy remains central in the decision making for palliative care, although the 3 other ethical principles remain paramount (beneficence, non-maleficence, and justice).
 *   In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
 
----
-
-### Key Message #23: Advanced HF
+**Key Message #23: Advanced HF**
 *   All patients with severe symptomatic HF despite OMT and no other alternative therapeutic options should be considered for heart transplant.
 *   If they are not eligible or a donor heart is not available, they may be considered for LVAD as a destination therapy or a bridge to heart transplant.
 *   Patients who are unable to receive either should be considered for palliative care.
 
-### Key Recommendation #18: Advanced HF
+**Key Recommendation #18: Advanced HF**
 *   Heart transplantation is well-established for refractory end stage HF.
 *   Patients with severe symptomatic HF despite OMT and no other alternative therapeutic options should be considered for palliative care.
 
----
-
-## Contextual Anchors (Overlapping)
-
-#### Section 9: .2.2: Mechanical Circulatory Support (Cross-Referenced For 15.2)
-This includes:
-*   **Intra-aortic balloon pump (IABP):**
-    *   [Grade IIa, Level B] This would be useful in patients with ADHF and cardiogenic shock who are not responding optimally to medical therapy and as a bridge to definitive treatment. IABP would be particularly useful in patients with intractable myocardial ischemia or acute moderate to severe mitral regurgitation.
-    *   [Grade IIb, Level B] In patients with acute MI complicated by cardiogenic shock and undergoing percutaneous coronary intervention, the use of IABP has not been shown to reduce mortality. There was however a trend of benefit in patients in Killip class 3 & 4 undergoing reperfusion by fibrinolytic therapy.
-    *   [Grade III, Level C] IABP is contraindicated in patients with aortic regurgitation or aortic dissection.
-*   **Others** - These include the Impella system, the TandemHeart, and venous-arterial extracorporeal membrane oxygenation (ECMO). These are not widely available in Malaysia.
-*   **Ventricular Assist Devices (VAD)** (refer to **Section 15.2:Mechanical Circulatory Support (MCS)**)
-    *   These would be useful as a bridge in patients for whom recovery from Acute HF is expected or for whom heart transplant is an option. It may also be used as a destination therapy in selected patients.
-
----
-Table 9: New York Heart Association Functional Classification
-
-| Class | Functional Capacity | 1-Year Mortality |
-|---|---|---|
-| CLASS I | No limitation. Ordinary physical activity does not cause undue fatigue, dyspnea or palpitation. | 5-10% |
-| CLASS II | Slight limitation of physical activity. Comfortable at rest. Ordinary physical activity results in fatigue, palpitation, dyspnea or angina. | 10-15% |
-| CLASS III | Marked limitation of physical activity. Comfortable at rest, but less than ordinary activity will lead to symptoms. | 15-20% |
-| CLASS IV | Inability to carry on any physical activity without discomfort. Symptoms of congestive failure are present at rest. With any physical activity, increased discomfort is experienced.  | 20-50% |
-
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ADHF | Acute Decompensated Heart Failure |
@@ -143,3 +115,4 @@ Table 9: New York Heart Association Functional Classification
 | OMT | Optimal Medical Therapy |
 | VAD | Ventricular Assist Device |
 | VO2 | Oxygen Consumption |
+<!-- parent_only_reference_end -->

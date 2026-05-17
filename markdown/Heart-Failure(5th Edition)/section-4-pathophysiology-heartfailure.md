@@ -6,7 +6,6 @@ patient_input:
 output: HFrEF_pathophysiology, HFpEF_pathophysiology, HFmrEF_pathophysiology, HFimpEF_pathophysiology
 -->
 
-## 4: Pathophysiology
 The main pathophysiology of HF is the inability of the heart to provide sufficient cardiac output to meet the perfusion and oxygenation requirements of the body while maintaining normal filling pressures. This may be due to either impaired cardiac contractility or impaired relaxation and compliance. Both mechanisms may co-exist in the same patient and depending on the predominant pathophysiology, the patient may present as HFrEF or HFpEF.
 
 This will result in the following compensatory mechanisms:
@@ -40,6 +39,15 @@ There is limited data available on therapies that improve survival in HFpEF unli
 ## 4.3: HFmrEF
 The prevalence of HFmrEF is between 10-25%. (refer to Table 10: Prevalence of HFrEF, HFpEF and HFmrEF in Registries). It is a clinical entity between HFrEF and HFpEF. With regards to etiology, it is more similar to HFrEF (high prevalence of CAD) but in terms of prognosis, they are more like HFpEF in terms of survival rates, low risk of CV events but a higher risk of non-CV adverse events than those with HFrEF.
 
+Table 10: Prevalence Of HFrEF, HFpEF And HFmrEF In Registries
+| | ESCHF-LT HF | GWTG-HF | Swedish Registry | ASIAN HF | MYHF |
+|---|---|---|---|---|---|
+| Source of Data | Prospective Observational study of Outpatients and hospitalized patients April 2011 to Jan 2015 | Prospective Observational study of hospitalized between Jan 2005 and Sept 2013 | Prospective Observational study of Outpatients and hospitalized patients between 2000 - 2018 | Prospective longitudinal study of outpatient (at least 1 episode of decompensated HF in the previous 6 months) and hospitalized patients 1st Oct 2012- 31st Oct 2016 | Prospective observational study on hospitalized patients from Aug 2019 - Dec 2020 |
+| No | 16,354 | 99,825 | 75,518 | 6,480 | 2,673 |
+| HFrEF | 59.8% | 49.0% | 52.5% | 81.0% | 64.6% |
+| HFmrEF | 24.2% | 12.8% | 23.5% | NA | 11.3% |
+| HFpEF | 16.0% | 38.1% | 24.1% | 19.0% | 21.6% |
+
 HFmrEF represents a transitional phase and the LVEF can:
 * Remain in the 41 to 49% range (HFmrEF) or
 * Worsen to ≤ 40% (HFrEF) or
@@ -54,49 +62,15 @@ In HF with improved EF (HFimpEF), the baseline LVEF is ≤40% but either spontan
 
 In a large meta-analysis, the prevalence of HFimpEF was 22.64%. They had a lower mortality and risk of hospitalization compared HFrEF and HFpEF.
 
-## Key Message #4: Pathophysiology
+**Key Message #4: Pathophysiology**
 * The main pathophysiology of HF is the inability of the heart to provide sufficient cardiac output to meet the perfusion and oxygenation requirements of the body while maintaining normal filling pressures.
 * In HFrEF, cardiac output is reduced due to depressed myocardial contractility, irrespective of the etiology.
 * In HFpEF there is impaired left ventricular (LV) filling due to decreased relaxation (during early diastole) and/or reduced compliance (early to late diastole) leading to elevated LV filling pressures at rest or during exercise and dyspnea.
 * HFmrEF is a clinical entity between HFrEF and HFpEF. With regards to etiology, it is more like HFrEF (high prevalence of CAD) but in terms of prognosis, it is more like HFpEF.
 * In HFimpEF, patients have resolution of symptoms and signs of HF but HF is known to frequently relapse especially after withdrawal of pharmacological treatment. They have a lower mortality and risk of hospitalization compared HFrEF and HFpEF.
 
-Table 10: Prevalence Of HFrEF, HFpEF And HFmrEF In Registries
-
-| | ESCHF-LT HF | GWTG-HF | Swedish Registry | ASIAN HF | MYHF |
-|---|---|---|---|---|---|
-| Source of Data | Prospective Observational study of Outpatients and hospitalized patients April 2011 to Jan 2015 | Prospective Observational study of hospitalized between Jan 2005 and Sept 2013 | Prospective Observational study of Outpatients and hospitalized patients between 2000 - 2018 | Prospective longitudinal study of outpatient (at least 1 episode of decompensated HF in the previous 6 months) and hospitalized patients 1st Oct 2012- 31st Oct 2016 | Prospective observational study on hospitalized patients from Aug 2019 - Dec 2020 |
-| No | 16,354 | 99,825 | 75,518 | 6,480 | 2,673 |
-| HFrEF | 59.8% | 49.0% | 52.5% | 81.0% | 64.6% |
-| HFmrEF | 24.2% | 12.8% | 23.5% | NA | 11.3% |
-| HFpEF | 16.0% | 38.1% | 24.1% | 19.0% | 21.6% |
-
----
-
-## Contextual Anchors (Overlapping)
-Table 8: Classification Of Heart Failure According To Lvef
-
-| Ejection Fraction Terminology | LVEF |
-|---|---|
-| Heart Failure with Reduced Ejection Fraction (HFrEF) | ≤ 40% |
-| Heart Failure with mildly reduced LVEF (HFmrEF) | 41-49% |
-| Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
-| Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
-
-### Stages Of Heart Failure
-| Stage | Description |
-|---|---|
-| A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
-| B - "Pre HF" | Asymptomatic but with structural and functional cardiac abnormalities that can lead to HF |
-| C - "HF" | Symptomatic HF, either previous or current symptoms |
-| D - "Advanced HF" | Marked symptoms interfering with daily activities of living and with recurrent hospitalizations |
-
-The severity of symptomatic HF can be assessed by the New York Heart Association
-(NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
-
----
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CAD | Coronary Artery Disease |
@@ -109,3 +83,4 @@ The severity of symptomatic HF can be assessed by the New York Heart Association
 | LV | Left Ventricular |
 | LVEF | Left Ventricular Ejection Fraction |
 | NYHA | New York Heart Association |
+<!-- parent_only_reference_end -->

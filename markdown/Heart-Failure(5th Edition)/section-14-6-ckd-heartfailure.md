@@ -1,4 +1,4 @@
-# Section 14: .6: HF And Chronic Kidney Disease
+# Section 14.6: HF And Chronic Kidney Disease
 <!-- METADATA
 category: Special Populations
 use_case: HF with Chronic Kidney Disease — cardiorenal_syndrome, drug_dosing_in_CKD, dialysis_considerations
@@ -7,7 +7,7 @@ output: cardiorenal_syndrome_management, drug_dosing_in_CKD, dialysis_considerat
 treatment_type: dose_adjusted_pharmacotherapy, dialysis
 -->
 
-## Section 14: .6: Heart Failure And Chronic Kidney Disease (CKD)
+## Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)
 
 ### 14.6.1: Epidemiology, Definitions, And Classifications
 HF and CKD frequently co-exist. The presence of both at the time of admission for HF, varies from 45.4% in patients with chronic HF to > 60% in those with Acute HF.
