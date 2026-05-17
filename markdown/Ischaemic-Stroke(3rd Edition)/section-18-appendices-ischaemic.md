@@ -6,9 +6,7 @@ patient_input:
 output: reference_tools, screening_instruments, operational_definitions
 -->
 
-## Appendix A: MeSH terms or free text terms used for literature search
-*(Reference:Rationale, Objectives And Process Of Guideline Development)*
-
+## Appendix A: MeSH Terms Or Free Text Terms Used For Literature Search
 | Chapter | Related Topics | Search Terms Used |
 | --- | --- | --- |
 | - | Stroke | Stroke<br>Brain infarct*<br>Brain ischemia<br>Brain isch?emi*<br>Cerebral infarct*<br>Cerebrovascular accident*<br>CVA<br>Cerebrovascular infarct*<br>Acute ischemi* stroke<br>Carotid artery thrombosis<br>Anterior cerebral artery infarction<br>Middle cerebral artery infarction<br>Posterior cerebral artery infarction<br>Anterior circulation occlusion |
@@ -53,7 +51,7 @@ output: reference_tools, screening_instruments, operational_definitions
 
 *\*note: There are several other Pre-Hospital Stroke Severity Scales available for use as screening tools. The above list are just few examples of Pre-Hospital Stroke Severity Scales.*
 
-## Appendix C: Operational definition - Terms and Descriptions
+## Appendix C: Operational Definition - Terms And Descriptions
 | Terms | Descriptions |
 | --- | --- |
 | Bypass | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
@@ -63,7 +61,7 @@ output: reference_tools, screening_instruments, operational_definitions
 | PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
 | Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
-## Appendix D: Types of Swallowing Test
+## Appendix D: Types Of Swallowing Test
 **Types Of Swallowing Tests**
 **Kidd Water Test**
 *Description:* Clinical examination includes pharyngeal sensation assessed by orange stick, tongue and facial movement, speech, sensory and perceptual function and muscle strength also assessed. Ability to swallow also assessed by patient swallowing 50 ml of water in 5 ml allotments.

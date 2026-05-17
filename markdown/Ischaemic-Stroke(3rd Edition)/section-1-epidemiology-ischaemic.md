@@ -6,7 +6,7 @@ patient_input: demographics, stroke_type, risk_factors
 output: stroke_classification, epidemiological_context
 -->
 
-## 1: Epidemiology Of Stroke
+## 1.1: Epidemiology Of Stroke
 Stroke is a major cause of mortality and disability in many countries , including Malaysia . Global stroke estimates study reported that , in, there were approximately 25.7 million stroke survivors , 6.5 million deaths , 113 million disability-adjusted life-years (DALYs) lost , and 10.3 million new cases of stroke . The high burden of stroke was mainly observed in developing countries , and accounted for 75.2% of all stroke-related deaths and 81% of associated DALYs lost.
 
 Statistics from the Department of Statistics , Malaysia showed that stroke emerged as one of the top five leading causes of mortality since 2000 . Data in 2017 showed that cerebrovascular diseases contributed to 7.1% of all mortalities recorded in the Malaysian population (refer to Table 1.1: Leading Causes of Mortalities in Malaysia).
@@ -53,7 +53,7 @@ There are a few other classification systems currently being used worldwide whic
 - IV. ASCO is the first purely phenotypic classification in which every patient is characterized by A-S-C-O acronym: Atherosclerosis, Small-vessel disease, Cardiac source, and Other causes. ASCOD Phenotyping of Ischaemic Stroke is the modified version of the ASCO classification.
 - V. Chinese Ischaemic Stroke Classification (CISS) is a new two-step system that looks at the aetiology and underlying mechanism of stroke. It takes into account the importance of intracranial atheromatous branch disease affecting penetrating arteries and the underlying mechanisms of ischaemic strokes caused by large artery atherosclerosis, that commonly found in the Asian population.
 
-## Key Recommendations:
+Key Recommendations:
 - Stroke is a major cause of mortality and morbidity, and in Malaysia, stroke is the third leading cause of mortality.
 - Ischaemic stroke is the most common stroke, and hypertension is the most common risk factor followed by diabetes mellitus.
 - The new definition of stroke and transient ischaemic attack (TIA) involved either pathological imaging or clinical evidence of ischaemia and can be timed based on the presentation of symptoms.

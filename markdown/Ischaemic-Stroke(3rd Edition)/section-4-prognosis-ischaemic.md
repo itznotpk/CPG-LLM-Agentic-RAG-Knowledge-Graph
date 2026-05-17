@@ -28,7 +28,7 @@ The risk is higher among individuals with cardiovascular risk factors, symptomat
 ## 4.4: Disability
 Progress of time is an independent covariate which reflects spontaneous recovery of bodily functions. About 16-42% of improvements can be seen during the first 6 to 10 weeks of stroke onset. Following a first-ever stroke, around 60% of patients may survive up to 5 years. One-third of stroke survivors may exhibit some form of persistent disability after the initial episode of stroke. Up to 58% of patients who survive the first stroke will regain independence in activities of daily living (ADL), with most functional recovery occurring within the first 2 months of stroke. Less functional recovery is observed at the subsequent 4 to 5 months after stroke. Improvement in functional recovery is less than certain after 6 months, however the known predictors of disability were older age, very low premorbid level of activities before stroke and subsequent recurrent stroke. Over a period of 10 years of follow-up, almost one half of survivors remained disabled, and one seventh required institutional care.
 
-**Key Recommendations:**
+Key Recommendations:
 - Haemorrhagic stroke has a higher mortality than ischaemic stroke.
 - There is a decline in stroke mortality in both men and women suffering from ischaemic or haemorrhagic stroke due to the introduction of stroke units and better control of stroke risk factors.
 - The recurrent rates are 3-4% in the first month and 12% in the first year.

@@ -24,7 +24,6 @@ A full neurological examination, including documenting the patient's conscious l
 
 Table 3.1: Clinical Features Of Stroke
 **Anterior (carotid) artery circulation**
-
 *Middle cerebral artery*
 - Aphasia (dominant hemisphere)
 - Hemiparesis / hemiplegia
@@ -74,7 +73,7 @@ Table 3.2: Differential Diagnosis Of Stroke
 - Syncope
 - Peripheral vestibulopathy (e.g. positional vertigo, labyrinthine disorder, etc.)
 
-**Key Recommendations:**
+Key Recommendations:
 - The diagnosis of stroke is made by evaluating and analysing information derived from a good history, physical examination and selected diagnostic tests.
 - The symptoms and signs of stroke depend on the type, location, and the extent of the affected brain tissues.
 - A full neurological examination, including assessing the patient's conscious level and tests of higher mental function is mandatory.

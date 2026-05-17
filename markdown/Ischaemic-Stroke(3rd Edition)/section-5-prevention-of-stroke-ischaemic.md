@@ -67,7 +67,7 @@ The US Health Professionals and Nurses study showed that participants who achiev
 
 A study among 11450 Swedish men with high cardiovascular risk (hypertensive, high cholesterol, diabetes, heart failure or atrial fibrillation) showed that adopting all five healthy lifestyle choices [(≥5 servings of fruits and vegetables and <30g/day of processed meat; not smoking; ≥150min of physical activity /week; BMI 18.5-25 kg/m² ; low to moderate alcohol consumption (>0 to <30g/day)] had a 72% reduction of stroke incidence over 9 years as compared to those who were adherent to none or only one healthy behaviour.
 
-**Recommendation:** [New recommendation, Level I, Grade A] Adopting a healthy lifestyle (diets rich in fruits and vegetables, no smoking, daily exercise of >30 minutes or 150 minutes/week, low to moderate alcohol intake and maintaining a normal BMI of 18.5-25 kg/m²) reduces stroke incidence in normal and high-risk populations.
+Recommendation: [Level I, Grade A] Adopting a healthy lifestyle (diets rich in fruits and vegetables, no smoking, daily exercise of >30 minutes or 150 minutes/week, low to moderate alcohol intake and maintaining a normal BMI of 18.5-25 kg/m²) reduces stroke incidence in normal and high-risk populations.
 
 ### 5.4.2: Hypertension
 Hypertension is the commonest and major risk factor for both ischaemic and haemorrhagic strokes in Malaysia, affecting 69.9% of patients with the first ever stroke. The incidence of stroke increases in proportion to both systolic and diastolic blood pressures. Isolated systolic hypertension is an important risk factor for stroke in the elderly (systolic blood pressure >140mmHg and diastolic blood pressure <90mmHg).
@@ -83,16 +83,14 @@ The ACCORD BP trial showed that a lower target systolic value of 120 mmHg was su
 
 For diabetics with hypertension, lowering systolic blood pressure to a target of 120 mmHg or below with careful monitoring of adverse events led to a significant reduction in stroke incidence.
 
-**Recommendation:** [New recommendation, Level I, Grade A] Target BP for diabetics is <130mmHg systolic and <80mmHg diastolic, preferably <120mmHg if tolerated.
-
-[New recommendation, Level I, Grade B] For high-risk non-diabetic hypertensive patients, intensive systolic BP lowering to below 120mmHg led to excess adverse events without reduction in stroke incidence.
-
-**Recommendation:** [New recommendation, Level I, Grade B] Newly diagnosed hypertension in the very elderly (>80 years of age) should be treated.
+Recommendation: 
+- [Level I, Grade A] Target BP for diabetics is <130mmHg systolic and <80mmHg diastolic, preferably <120mmHg if tolerated.
+- [Level I, Grade B] For high-risk non-diabetic hypertensive patients, intensive systolic BP lowering to below 120mmHg led to excess adverse events without reduction in stroke incidence.
+- [Level I, Grade B] Newly diagnosed hypertension in the very elderly (>80 years of age) should be treated.
 
 ### 5.4.3: Smoking
 [Level III] The Malaysian National Stroke Registry data showed that 51% of all patients with the first ever stroke were smokers. All forms of smoking, both active and passive, are a major risk factor for stroke. Smokers who stopped for more than 5 years have the same risk as non-smokers.
-
-**Recommendation:** [Level III, Grade C] Cessation of smoking is strongly recommended.
+Recommendation: [Level III, Grade C] Cessation of smoking is strongly recommended.
 
 #### 5.4.3.1: Smoking And Non Communicable Diseases
 Smoking of tobacco and tobacco products (cigarette, electronic cigarette/vape, shisha, pipe, cigar etc.) can lead to various non-communicable diseases (NCDs). Worldwide, more than eight million people die every year because of this habit (WHO Tobacco Fact Sheet, 2020).
@@ -115,22 +113,20 @@ Table 5.1: Assessment And Treatment Of Tobacco Use Disorder
 
 ### 5.4.4: Alcohol
 Alcohol consumption has been identified as one of the risk factors for global stroke burden. Heavy alcohol drinking, of more than 4 units/day (1unit = 1glass wine = 1 pack of hard liquor), increases the risk of stroke.
-
-**Recommendation:** [New recommendation, Level II -2, Grade B] Avoid heavy alcohol consumption or limit to <1 drink per day.
+Recommendation: [Level II -2, Grade B] Avoid heavy alcohol consumption or limit to <1 drink per day.
 
 ### 5.4.5: Post-Menopausal Hormone Replacement Therapy
 Stroke rates rapidly rise in women once they become menopausal. The Nurses' Health Study (6-year follow-up of, 337 postmenopausal women) showed only a weak association between stroke and oestrogen replacement therapy. However, the Women's Health Initiative Estrogen Plus Progestin Study (E+P Study) showed a 31% increase in the risk of stroke due to E+ P.
 
-**Recommendation:** [Level II, Grade B] Post-menopausal hormonal therapy may increase the risk of stroke and is not recommended for primary stroke prevention.
+Recommendation: [Level II, Grade B] Post-menopausal hormonal therapy may increase the risk of stroke and is not recommended for primary stroke prevention.
 
 ### 5.4.6: Diabetes
 [Level II-2] Case-control studies of stroke patients and prospective epidemiological studies have confirmed an independent effect of diabetes on ischaemic stroke, with an increased relative risk in diabetics ranging from 1.8 -to nearly 6-folds.
-
-**Recommendation:** [Level I, Grade A] Tight control of hypertension in diabetics is recommended to reduce stroke incidence.
+Recommendation: [Level I, Grade A] Tight control of hypertension in diabetics is recommended to reduce stroke incidence.
 
 A systematic review and meta-analysis of observational cohort and nested case-control cohort studies showed that compared to controls with a normal HbA1c range (i.e. <5.7%), patients with diabetes mellitus with an abnormal HbA1c range (i.e. ≥6.5%) had an increased risk of first-ever stroke with an average HR [] of 2.15 [95% CI 1.76, 2.63]. In those with a pre–diabetes mellitus HbA1c range (i.e. 5.7 – 6.5%) there was not increased risk of first-ever stroke (average HR 1.19, 95% CI 0.87, 1.62).
 
-**Recommendation:** [Level I, Grade A] More intensive glycaemic control targets (HbA1c <6.5%) may be required for optimal ischemic stroke prevention.
+Recommendation: [Level I, Grade A] More intensive glycaemic control targets (HbA1c <6.5%) may be required for optimal ischemic stroke prevention.
 
 ### 5.4.7: Hyperlipidaemia
 Although the relationship between high cholesterol and increased risk of coronary heart disease is stronger, epidemiological studies have also shown an association between raised serum lipids and risk of ischaemic stroke.
@@ -143,25 +139,25 @@ A prospective study involving 7484 elderly population (>65 years) with no histor
 
 [Level I, Grade A] In the high-risk group (those with cardiovascular disease, occlusive arterial disease, or diabetes), statin therapy is recommended to reduce the incidence of coronary events and ischaemic strokes, even amongst individuals with normal cholesterol concentrations.
 
-[New recommendation, Level I] In the high-risk group, intensive lipid lowering therapy is superior in reducing stroke as compared to normal therapy.
+[Level I] In the high-risk group, intensive lipid lowering therapy is superior in reducing stroke as compared to normal therapy.
 
-[New recommendation, Level II, Grade B] Low dose statin is beneficial in reducing stroke risk in patients with low and intermediate risk.
+[Level II, Grade B] Low dose statin is beneficial in reducing stroke risk in patients with low and intermediate risk.
 
-[New recommendation, Level II, Grade B] Low dose statin is beneficial in reducing stroke risk in elderly patients with no vascular events.
+[Level II, Grade B] Low dose statin is beneficial in reducing stroke risk in elderly patients with no vascular events.
 
 ### 5.4.8: Dietary Factors
 The PREDIMED study showed that a Mediterranean diet enriched with either olive oil or mixed nuts, reduced the incidence of stroke by 47% in 5 years as compared to a low fat diet. A meta -analysis involving 20 prospective studies showed that diet rich in fruits and vegetables reduced stroke incidence with a linear inverse relationship between fruits and vegetables consumption and stroke incidence.
 
-**Recommendation:** [New recommendation, Level II, Grade B] A Mediterranean diet rich in olive oil and canola oil, with less meat and increased vegetables is beneficial for stroke prevention.
+[Level II, Grade B] A Mediterranean diet rich in olive oil and canola oil, with less meat and increased vegetables is beneficial for stroke prevention.
 
-**Recommendation:** [New recommendation, Level II, Grade B] A diet rich in fruits (citrus type) and vegetables (green leafy) is beneficial in reducing stroke.
+[Level II, Grade B] A diet rich in fruits (citrus type) and vegetables (green leafy) is beneficial in reducing stroke.
 
-**Recommendation:** [New recommendation, Level I, Grade A] DASH diet that is high in vegetables and fruits and low in saturated fats is beneficial in reducing BP.
+[Level I, Grade A] DASH diet that is high in vegetables and fruits and low in saturated fats is beneficial in reducing BP.
 
 ### 5.4.9: Physical Activity
 Physical activity is defined as any bodily movements involving skeletal muscles that results in energy expenditure and may involve occupational and leisure time activities such as walking, commuting and housework. However, meta -analyses of observational studies on physical activity and stroke showed that increased physical activity in healthy adults reduced stroke incidence by 20-25% 46 and stroke mortality by 17% irrespective of gender. Analysis from the Japanese Diabetes Complications study showed that increased physical activity (30 minutes of walking daily) reduced stroke incidence in diabetics by 45%.
 
-**Recommendation:** [New recommendation, Level I, Grade A] Increased physical activity is recommended for stroke prevention in healthy adults and high-risk patients.
+[Level I, Grade A] Increased physical activity is recommended for stroke prevention in healthy adults and high-risk patients.
 
 | Asymptomatic Carotid Stenosis   | See Revascularization Procedures   |
 |---------------------------------|------------------------------------|
@@ -175,9 +171,9 @@ Similarly, the Japanese Primary Prevention Project, a randomized controlled tria
 
 The ASCEND Aspirin study, a RCT which involved 15480 diabetic patients did not show a net benefit of Aspirin in preventing stroke or cardiovascular events, but with an increased risk of bleeding.
 
-**Recommendation:** [New recommendation, Level I, Grade A] Daily Aspirin is not recommended for primary prevention of stroke in diabetics, moderate risk individuals or elderly patients in view of the high risk of bleeding which outweighs any benefits.
+[Level I, Grade A] Daily Aspirin is not recommended for primary prevention of stroke in diabetics, moderate risk individuals or elderly patients in view of the high risk of bleeding which outweighs any benefits.
 
-**Recommendations Summary:**
+Recommendations Summary:
 Table 5.2: Primary Prevention And Management Of Risk Factors
 | Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -212,29 +208,25 @@ The risk for recurrent vascular events after stroke or transient ischaemic attac
 ### 5.5.1: Anti-Platelet Therapy
 Aspirin: There is substantial evidence to support the use of Aspirin. A 25% risk reduction of stroke was seen in all patients with stroke who received Aspirin. Aspirin given within 48 hours had shown to be beneficial in reducing recurrent stroke and deaths. Studies comparing the effects of different dosages of Aspirin had failed to show any differences in stroke recurrences.
 
-**Recommendation:** [Level I, Grade A] The recommended dose of oral Aspirin post-stroke is 75mg to 325mg daily.
+Recommendation: [Level I, Grade A] The recommended dose of oral Aspirin post-stroke is 75mg to 325mg daily.
 
 Alternative anti -platelet medications can be considered for patients with Aspirin allergy, Aspirin failure, Aspirin intolerance or Aspirin contraindications based on the evidence presented below.
 
 Ticlopidine: Previous clinical trials demonstrated that Ticlopidine is slightly superior to Aspirin. Full blood count monitoring is essential as neutropenia is the most important side-effect. Severe neutropenia usually occurs within the first 3 months of use. Thus, a baseline full blood count should be performed every 2-3 weeks during this time frame. Ticlopidine can also be used if the patient has recurrent symptoms despite Aspirin administration.
-
-**Recommendation:** [Level I, Grade A] The recommended dose of oral Ticlopidine is 250mg twice a day.
+Recommendation: [Level I, Grade A] The recommended dose of oral Ticlopidine is 250mg twice a day.
 
 Clopidogrel: Clopidogrel is a newer thienopyridine derivative. It is slightly superior to the 325 mg daily dosage of Aspirin. It may be more beneficial than Aspirin in several settings, including patients with contraindications or having adverse effects due to Aspirin and in high risk subjects with multiple risk factors (i.e. with a previous stroke, peripheral artery disease, symptomatic coronary disease and diabetes) 64
-
-**Recommendation:** [Level I, Grade A] The recommended dose of oral Clopidogrel is 75mg daily.
+Recommendation: [Level I, Grade A] The recommended dose of oral Clopidogrel is 75mg daily.
 
 Triflusal: Triflusal is a viable alternative to Aspirin in secondary prevention of ischaemic stroke at a dosage of 600mg daily. There are less haemorrhagic complications compared to Aspirin. Triflusal is licensed in Malaysia for the secondary prevention of ischaemic stroke.
-
-**Recommendation:** [Level I, Grade A] The recommended dose of oral Triflusal is 600mg daily.
+Recommendation: [Level I, Grade A] The recommended dose of oral Triflusal is 600mg daily.
 
 Cilostazol: Cilostazol is another alternative in the secondary prevention of acute ischaemic stroke at a dosage of 100mg twice daily. Studies from Japan and China supports the safety and efficacy of Cilostazol for secondary stroke prevention in Asian populations. However, there are as yet no high-quality data regarding the use of Cilostazol for secondary stroke prevention in non-Asian ethnic groups. The most recent meta -analysis showed that Cilostazol appeared to be effective for long-term secondary stroke prevention without increasing the risk of haemorrhage. Combination use of cilostazol with aspirin or clopidogrel was explored in open-label trial in Japan that showed adult patients with non-cardioembolic ischemic stroke who had ≥50% stenosis of a major intracranial or extracranial artery, or two or more vascular risk factors, had lower recurrent ischaemic stroke compared to monotherapy (3% vs. 7%) with similar bleeding rates.
-
-**Recommendation:** [Level I, Grade A] The recommended dose of oral Cilostazol is 100mg twice a day.
+Recommendation: [Level I, Grade A] The recommended dose of oral Cilostazol is 100mg twice a day.
 
 Aspirin and Clopidogrel combination: Recent evidence from 2 large trials in minor stroke and high risk TIA patients (NIHSS ≤ 3, ABCD2 ≥ 4), showed that those who received a combination of Clopidogrel and Aspirin had a lower risk of major ischaemic events for 3 weeks to 3 months, but a higher risk of major haemorrhage at 90 days than those who received Aspirin alone.
 
-**Recommendation:** [New recommendation, Level I, Grade A] Dual antiplatelet therapy (Clopidogrel and Aspirin) is recommended for 21 days in patients with high risk TIA or minor ischaemic stroke.
+Recommendation: [Level I, Grade A] Dual antiplatelet therapy (Clopidogrel and Aspirin) is recommended for 21 days in patients with high risk TIA or minor ischaemic stroke.
 
 [Level II, Grade B] Ticagrelor: In the SOCRATES trial, Ticagrelor was not superior to Aspirin in the prevention of fatal stroke, MI and death at 90 days in patients with minor stroke or TIA. However, sub -analysis in the Asian population, showed a trend towards reduction in stroke, MI and death with Ticagrelor. Since there were no significant safety differences in the 2 groups, Ticagrelor may be a reasonable alternative in stroke patients who have a contraindication to Aspirin.
 
@@ -249,9 +241,9 @@ In one study, the combination of an ACE-inhibitor and thiazide diuretic was bene
 
 Another study proved the superiority of an angiotensin receptor blocker (ARB), Losartan over a beta-blocker (Atenolol) in a specific group of high-risk patients with left ventricular hypertrophy, including subjects with previous stroke.
 
-**Recommendation:** [Level I, Grade A] In the post-stroke period (2 weeks or more after stroke), ACE -inhibitor based therapy has been shown to reduce recurrent stroke in normotensive and hypertensive patients.
+Recommendation: [Level I, Grade A] In the post-stroke period (2 weeks or more after stroke), ACE -inhibitor based therapy has been shown to reduce recurrent stroke in normotensive and hypertensive patients.
 
-**Recommendation:** [Level II-1, Grade B] Other classes of anti -hypertensive (ARB-based) therapy appear to be effective in selected high-risk populations.
+Recommendation: [Level II-1, Grade B] Other classes of anti -hypertensive (ARB-based) therapy appear to be effective in selected high-risk populations.
 
 [Level II-1, Grade B] The target blood pressure of absolute levels is not certain, but targets based on hypertension guidelines (local or international) can be followed and should be individualized.
 
@@ -261,22 +253,21 @@ Another study proved the superiority of an angiotensin receptor blocker (ARB), L
 ### 5.5.3: Lipid Lowering
 Statins were proven to reduce vascular events among high risk patients including subjects with previous stroke.
 
-**Recommendation:** [Level I, Grade A] Lipid reduction should be considered in all patients with previous ischaemic strokes.
+Recommendation: [Level I, Grade A] Lipid reduction should be considered in all patients with previous ischaemic strokes.
 
 The Treat Stroke to Target trial that involved 2860 patients with a history of ischaemic stroke or TIA showed that patients who achieved a target LDL of 1.8 mmol had a lower cardiovascular and stroke events at 3.5 years than those with a target LDL of 2.5 mmol/L.
 
-**Recommendation:** [New recommendation, Level I, Grade A] LDL target of 1.8 mmol/L is recommended.
+Recommendation: [Level I, Grade A] LDL target of 1.8 mmol/L is recommended.
 
 ## 5.6: Other Risk Factors
 The control of risk factors such as better glycaemic control in diabetes and smoking cessation has not been the subject of major randomized secondary prevention clinical trials. Although diabetes is recognized as an independent risk factor for ischaemic stroke, better diabetes control resulted only in the reduction of microvascular but not macrovascular complications. Inferences can also be drawn from positive results of primary prevention trials (refer to 5.1: Primary Prevention). Nevertheless, better control of these risk factors should be advocated for better overall health after an ischaemic stroke.
 
-**Recommendation:** [Level III, Grade C] All diabetic patients with a previous stroke should maintain a good glycaemic control.
+Recommendation: 
+- [Level III, Grade C] All diabetic patients with a previous stroke should maintain a good glycaemic control.
+- [Level III, Grade C] All smokers should stop smoking.
 
-**Recommendation:** [Level III, Grade C] All smokers should stop smoking.
-
-**Recommendations Summary:**
+Recommendations Summary:
 Table 5.3: Secondary Prevention Of Stroke
-
 | Factors/Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Antiplatelet (Single agent) | | | |
@@ -311,7 +302,7 @@ Anticoagulation is not indicated for non-thrombotic causes of cardiac emboli and
 
 Further details on stroke and cardioembolism in Section 13: Stroke and Cardioembolism. <!-- cross_ref target_file="section-13-stroke-and-cardioembolism-ischaemic.md" target_heading="Section 13: Stroke And Cardioembolism" target_kind="h1_section" -->
 
-**Recommendations Summary:**
+Recommendations Summary:
 Table 5.4: Cardiac Conditions Predisposing To Ischaemic Stroke
 
 | Major Risk Conditions | Additional Risk Factors | Recommendations | Level of Evidence | Grade |
@@ -359,7 +350,7 @@ Surgical procedures in stroke management may be classified to procedures perform
 ### 5.8.1: Primary Prevention
 Carotid endarterectomy (CEA) has been compared to conservative medical therapy for asymptomatic patients without prior history of TIA or stroke for whom imaging of the carotid arteries reveals a definite stenosis. Of the 5 published randomized studies, only 2 were sufficiently powered to compare the outcomes between surgery and medical therapy. The absolute 5 -year risk reduction for patients with 70-99% carotid artery stenosis (by ultrasound) was 5.4% in the recent follow -up of the ACST trial, which was consistent with the ACAS study from North America (5-year absolute risk reduction of 5.9%). This translates into a 1% annual stroke rate reduction. Patients who are asymptomatic and receiving appropriate medical therapy face an annual stroke rate of 2% without CEA. Surgical morbidity and mortality often exceed this beneficial risk reduction. In the ACST and ACAS trials, surgery -related events were 3.1% and 2.3%, respectively. In an unselected patient group undergoing CEA in a centre without proper auditing of the surgeon or the centre's operative records, the complications are likely to outweigh the benefits of CEA. Furthermore, asymptomatic patients should not be offered CEA if their 5-year probability of dying from unrelated causes is high. Finally, in the NASCET study, nearly 45% of all strokes occurring in patients with asymptomatic stenosis may be attributable to lacunar infarcts or cardioembolism.
 
-**Recommendation:** [Level I, Grade A] Endarterectomy may be considered in patients with high-grade asymptomatic carotid stenosis (70-99%) when performed by a surgeon with less than 3% morbidity/ mortality rate.
+Recommendation: [Level I, Grade A] Endarterectomy may be considered in patients with high-grade asymptomatic carotid stenosis (70-99%) when performed by a surgeon with less than 3% morbidity/ mortality rate.
 
 Careful patient selection, guided by comorbid conditions, life expectancy, and patient preference, followed by a thorough discussion of the risks and benefits of the procedure is required. It is important that asymptomatic patients receive appropriate medical treatment and be fully evaluated for other treatable causes of stroke.
 
@@ -368,19 +359,14 @@ Two large randomized trials (NASCET and ECST) have compared the outcomes of pati
 
 Extracranial -intracranial anastomosis between the superficial temporal and middle cerebral arteries (EC-IC Bypass) has not been shown to be beneficial for secondary stroke prevention by the EC/IC Bypass Study Group.
 
-**Recommendation:** [Level I, Grade A] CEA is indicated for patients with carotid stenosis of 70-99% without a severe neurological deficit following a recent ischaemic event (less than 180 days) in centres with a perioperative complication rate for all strokes and deaths of less than 6%.
-
-**Recommendation:** [Level II-1, Grade B] Early CEA is indicated for patients with carotid stenosis of 70-99% without a severe neurological deficit within 2 weeks of recent ischaemic events in centres with a perioperative complication rate for all strokes and deaths of less than 6%.
-
-**Recommendation:** [Level III, Grade C] CEA may be indicated for patients with carotid stenosis of 50-69% without a severe neurological deficit with recent ischaemic event (less than 180 days) in centres with a perioperative complication rate for all strokes and deaths of less than 6%.
-
-**Recommendation:** [Level I, Grade A] CEA is not recommended for patients with carotid stenosis less than 50%.
-
-[Level I, Grade A] CEA should not be performed in centres not exhibiting low complication rates similar to those seen with NASCET or ECST.
-
-**Recommendation:** [Level II-2, Grade B] Patients should remain on antithrombotic therapy before and after surgery.
-
-**Recommendation:** [Level I, Grade A] External/internal carotid bypass is not recommended for secondary stroke prevention.
+Recommendation: 
+- [Level I, Grade A] CEA is indicated for patients with carotid stenosis of 70-99% without a severe neurological deficit following a recent ischaemic event (less than 180 days) in centres with a perioperative complication rate for all strokes and deaths of less than 6%.
+- [Level II-1, Grade B] Early CEA is indicated for patients with carotid stenosis of 70-99% without a severe neurological deficit within 2 weeks of recent ischaemic events in centres with a perioperative complication rate for all strokes and deaths of less than 6%.
+- [Level III, Grade C] CEA may be indicated for patients with carotid stenosis of 50-69% without a severe neurological deficit with recent ischaemic event (less than 180 days) in centres with a perioperative complication rate for all strokes and deaths of less than 6%.
+- [Level I, Grade A] CEA is not recommended for patients with carotid stenosis less than 50%.
+- [Level I, Grade A] CEA should not be performed in centres not exhibiting low complication rates similar to those seen with NASCET or ECST.
+- [Level II-2, Grade B] Patients should remain on antithrombotic therapy before and after surgery.
+- [Level I, Grade A] External/internal carotid bypass is not recommended for secondary stroke prevention.
 
 ## 5.9: Angioplasty Or Stenting
 This is a rapidly evolving field in stroke treatment and prevention. Several randomized trials have compared extra-cranial carotid angioplasty and stenting (CAS) to carotid endarterectomy (CEA).

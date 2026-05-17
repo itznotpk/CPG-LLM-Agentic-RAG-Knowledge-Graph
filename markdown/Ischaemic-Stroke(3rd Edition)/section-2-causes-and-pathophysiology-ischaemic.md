@@ -19,7 +19,6 @@ Atherothrombosis is defined as atherosclerosis with superimposed thrombosis. Ath
 Intracranial small vessel disease is thought to be due to lipohyalinosis, microatheroma and fibrinoid necrosis. The clinical syndrome caused by this phenomenon is lacunar infarction due to occlusion of small perforating arteries. (Refer to Table 2.1: Common Vascular Risk Factors of Stroke) exhibits the vascular risk factors associated with increased risk of stroke.
 
 Table 2.1: Common Vascular Risk Factors Of Stroke
-
 | Non-Modifiable | Modifiable |
 | :--- | :--- |
 | Age | Hypertension |
@@ -48,7 +47,7 @@ Algorithm: Pathophysiology of Ischaemic Stroke
 |---|---|---|---|---|
 | • Atherothrombosis<br>• Hypoperfusion | • Lipohyalinosis<br>• Microatheroma<br>• Fibrinoid necrosis | • Atrial fibrillation<br>• Valvular disease<br>• Artery-to-artery<br>• Fat, amniotic, tumour, etc | • Dissection<br>• Vasculitis<br>• Vasospasm<br>• Thrombophilia<br>• Inherited disorders |  |
 
-**Key Recommendations:**
+Key Recommendations:
 - Three main causes of ischaemic stroke include atherothrombosis of large vessels, intracranial small vessel disease, and embolism which may contribute up to 80% of the cases.
 - Cryptogenic infarction or stroke of undetermined aetiology may be responsible for around 20 to 40% of the cases despite an extensive workout and is usually a diagnosis of exclusion.
 
