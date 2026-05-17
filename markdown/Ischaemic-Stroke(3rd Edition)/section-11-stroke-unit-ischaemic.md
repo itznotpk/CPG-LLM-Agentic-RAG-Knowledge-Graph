@@ -50,7 +50,7 @@ Standardized stroke orders or integrated stroke pathways improve adherence towar
 
 Nine KPI are used as the measurement index for the effectiveness of a stroke unit as shown below:
 
-### The 9 KPI's Recommended By The Stroke Council Malaysian Society Of Neurosciences (Msn) 2011
+**The 9 KPI's Recommended By The Stroke Council Malaysian Society Of Neurosciences (Msn) 2011**
 *(Used in Malaysian National Stroke Registry)*
 
 1. Thrombolytic Therapy Administered
@@ -63,21 +63,19 @@ Nine KPI are used as the measurement index for the effectiveness of a stroke uni
 8. Discharged on Anti Thrombotic Therapy
 9. Discharged on Cholesterol Reducing Medication
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 11.1: Stroke Unit
-
 | Factor | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Stroke Unit | Every hospital should set up a stroke unit as it can significantly reduce deaths, dependency, institutionalisation, and the length of hospital stay. | I | A |
 | Stroke Unit | The use of comprehensive specialized stroke care (stroke units) that incorporates rehabilitation services is recommended. | I | A |
 | Stroke Unit | A stroke unit should be managed by a multidisciplinary stroke team. | I | A |
 
-## Key Recommendations:
+**Key Recommendations:**
 The use of comprehensive specialized stroke care (stroke units) that incorporates rehabilitation services are able to reduce mortality and disabilities among stroke patients.
 
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+<!-- parent_only_reference_start -->
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -86,18 +84,14 @@ The use of comprehensive specialized stroke care (stroke units) that incorporate
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | DVT | Deep Vein Thrombosis |
@@ -105,3 +99,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | MSN | Malaysian Society of Neurosciences |
 | RCT | Randomized Controlled Trial |
 | rtPA | Recombinant Tissue Plasminogen Activator |
+<!-- parent_only_reference_end -->

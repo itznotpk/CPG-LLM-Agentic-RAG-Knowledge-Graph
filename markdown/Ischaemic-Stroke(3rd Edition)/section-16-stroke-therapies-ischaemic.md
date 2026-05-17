@@ -8,7 +8,6 @@ output: evidence_summary, therapy_status
 A variety of medicines and treatment modalities have been used for stroke. Although yet to be proven effective, they may be considered for treatment in acute stroke (refer to Table 16.1: Stroke Therapy Modalities).
 
 Table 16.1: Stroke Therapy Modalities
-
 | Therapy | Description |
 | --- | --- |
 | NeuroAid | The medicine did not demonstrate any statistically significant benefit after 3 months although some small studies showed that it could be effective in improving functional independence and motor recovery, and is safe for patients with a primarily non-acute stable stroke. |
@@ -25,10 +24,12 @@ Table 16.1: Stroke Therapy Modalities
 | Selenium | Selenium levels have been shown to be on the lower side during an acute stroke. However, there is still no evidence of benefit from Selenium supplementation in acute stroke although a few animal studies have shown some benefits. |
 | Piracetam | Piracetam played a limited role in the rehabilitation of the overall language impairment and only showed benefit as regards to the written language ability based on a meta-analysis. Its effect on the overall linguistic level and written language tends to emerge within a short period and declines thereafter. Piracetam also did not significantly improve neurologic or functional outcome in acute stroke patients. |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. There are a variety of stroke medications and treatment modalities, but the evidence is very limited.
 
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviations | Descriptions |
 | --- | --- |
 | TMS | Transcranial Magnetic Stimulation |
+<!-- parent_only_reference_end -->

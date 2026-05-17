@@ -6,7 +6,7 @@ patient_input:
 output: reference_tools, screening_instruments, operational_definitions
 -->
 
-**Appendix A.** *MeSH terms or free text terms used for literature search*
+## Appendix A: MeSH terms or free text terms used for literature search
 *(Reference:Rationale, Objectives And Process Of Guideline Development)*
 
 | Chapter | Related Topics | Search Terms Used |
@@ -30,7 +30,7 @@ output: reference_tools, screening_instruments, operational_definitions
 | OR | Management of Stroke in Pregnancy | Pregnancy<br>During pregnancy<br>Labour induction |
 | OR | Stroke Therapies with Limited Evidence | Stroke therapy<br>Limited evidence<br>Treatment modalities |
 
-**Appendix B.** *Prehospital Stroke Screening Tool*
+## Appendix B: Prehospital Stroke Screening Tool
 *(Reference Chapter: Chapter 7)*
 
 **Acute Stroke Pre-Hospital Diagnostic Screening Tools**
@@ -53,9 +53,7 @@ output: reference_tools, screening_instruments, operational_definitions
 
 *\*note: There are several other Pre-Hospital Stroke Severity Scales available for use as screening tools. The above list are just few examples of Pre-Hospital Stroke Severity Scales.*
 
-**Appendix C.** *Operational definition - Terms and Descriptions*
-*(Reference Chapter: Chapter 7)*
-
+## Appendix C: Operational definition - Terms and Descriptions
 | Terms | Descriptions |
 | --- | --- |
 | Bypass | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
@@ -65,10 +63,8 @@ output: reference_tools, screening_instruments, operational_definitions
 | PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
 | Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
-**Appendix D.** *Types of Swallowing Test*
-*(Reference Chapter: Chapter 8)*
-
-### Types Of Swallowing Tests
+## Appendix D: Types of Swallowing Test
+**Types Of Swallowing Tests**
 **Kidd Water Test**
 *Description:* Clinical examination includes pharyngeal sensation assessed by orange stick, tongue and facial movement, speech, sensory and perceptual function and muscle strength also assessed. Ability to swallow also assessed by patient swallowing 50 ml of water in 5 ml allotments.
 *Source:* Kidd D, Lawson J, Nesbitt R, MacMahon J. Aspiration in acute stroke: a clinical study with video fluroscopy. *Quarterly Journal of Medicine.* 1993; 86:825-829.
@@ -84,26 +80,3 @@ output: reference_tools, screening_instruments, operational_definitions
 **Toronto Bedside Swallowing Screening Test (TOR-BSST)**
 *Description:* The test is divided into three sections. First section is oral exam (3 items), followed by section on water swallowing. The third section is examination of voice after swallow. The TOR-BSST has been validated in stroke survivors and is a simple accurate tool to identify stroke patients with dysphagia regardless of severity and setting.
 *Source:* Martino R, Silver F, Teasell R, Bayley M, Nicholson G, et al. The Toronto Bedside swallowing Screening Test (TOR-BSST). *Stroke.* 2009; 40: 555-561.
-
-## Abbreviations Used In This Section
-| Abbreviations | Descriptions |
-| --- | --- |
-| BEFAST | Balance, Eye, Face Arm Speech Test |
-| CEA | Carotid Endarterectomy |
-| CVA | Cerebrovascular Accident |
-| EMS | Emergency Medicine Services |
-| ESUS | Embolic Stroke of Undetermined Source |
-| FAST | Face Arm Speech Test |
-| FAST-ED | Field Assessment Stroke Triage for Emergency Destination |
-| IVT | Intravenous Thrombolysis |
-| LAMS | Los Angeles Motor Scale |
-| LAPSS | Los Angeles Prehospital Stroke Screen |
-| LOC | Level of Consciousness |
-| LVO | Large Vessel Occlusion |
-| MECC | Medical Emergency Coordinating Centre |
-| NIHSS | National Institutes of Health Stroke Scale |
-| PFO | Patent Foramen Ovale |
-| PHC | Pre-Hospital Care |
-| SSA | Standardized Swallowing Assessment |
-| TOR-BSST | Toronto Bedside Swallowing Screening Test |
-| VAN | Vision, Aphasia, and Neglect |

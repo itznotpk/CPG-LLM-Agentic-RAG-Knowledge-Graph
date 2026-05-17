@@ -15,9 +15,9 @@ Reperfusion therapy is the single most important and beneficial treatment for ac
 
 [Level I, Grade A] IVT is indicated for patients with onset of symptoms within 4.5 hours of presentation, while EVT for large vessel occlusion (LVO) could be offered up to 24 hours using advanced imaging such as CT/MR perfusion scan. LVO include the ICA and M1 MCA occlusions. It is reasonable to include EVT for ACA, PCA and basilar artery occlusions.
 
-Stroke treatment protocol and an organized stroke pathway is essential and should be established to achieve the recommended response time for IVT and EVT, in order to improve the clinical outcomes. Stroke organizations should incorporate the emergency department (ED) including their pre-hospital care team, radiology department and stroke team. The management of acute ischaemic stroke at the pre-hospital care phase and emergency department phase were explained in Section 7: Emergency Medicine Services.
+Stroke treatment protocol and an organized stroke pathway is essential and should be established to achieve the recommended response time for IVT and EVT, in order to improve the clinical outcomes. Stroke organizations should incorporate the emergency department (ED) including their pre-hospital care team, radiology department and stroke team. The management of acute ischaemic stroke at the pre-hospital care phase and emergency department phase were explained in Section 7: Emergency Medicine Services. <!-- cross_ref target_file="section-7-emergency-medicine-services-ischaemic.md" target_heading="Section 7: Emergency Medicine Services" target_kind="h1_section" -->
 
-## 9.2: Recommended Nih Emergency Response Time For Ais
+## 9.2: Recommended NIH Emergency Response Time For AIS
 | Action | Time (Minutes) |
 | --- | --- |
 | Door to MD consult and initial work up | ≤ 10 min |
@@ -47,12 +47,12 @@ In a situation where a radiologist/stroke-trained physician is not available, te
 ## 9.3: Intravenous Thrombolysis
 For patients that are found to be eligible for IVT, the benefit of therapy is time dependent, and treatment should be initiated as quickly as possible. Thus, early detection and activation of the thrombolysis pathway is paramount and concerted effort should be made to deliver the treatment as soon as possible.
 
-### 9.3.1: Requirement For Thrombolysis (Ivt)
+### 9.3.1: Requirement For Thrombolysis (IVT)
 I. Physicians with experience in treating hyperacute stroke <br>
 II. Neuroimaging availability; NCCT ± CTA; MRI; perfusion scan <br>
 III. Capability to manage complications of thrombolysis, particularly intracranial haemorrhage, and access to neurosurgical support
 
-### 9.3.2: Patient Eligibility For Ivt
+### 9.3.2: Patient Eligibility For IVT
 I. Clinical diagnosis of acute stroke at presentation.<br>
 II. Acute disabling stroke within 4.5 hours of presentation or last known/seen to be well.<br>
 III. For patients who present with a wake-up stroke or stroke of unknown onset and are not eligible for EVT, IVT may be considered if the MRI shows stroke with DWI and FLAIR mismatch, and the lesion is not larger than 1/3 MCA territory.<br>
@@ -63,7 +63,6 @@ VII. Use of sono-thrombolysis as adjuvant therapy with IVT is not recommended.<b
 VIII. Thrombolysis shall not be withheld for aphasic patients who cannot give consent and/or without any family members.
 
 ## 9.4: Contraindications For Intravenous Thrombolytic Therapy
-
 ### 9.4.1: Absolute Contraindication
 I. Pre-treatment systolic BP is >185mmHg or diastolic BP is >110mmHg.<br>
 II. A blood glucose <2.7mmol/l. IVT in patients with AIS who presents with initial glucose levels <2.7 mmol/l, and that is subsequently normalized and who are otherwise eligible, may be reasonable.<br>
@@ -105,7 +104,6 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 12. Streptokinase is contraindicated.
 
 ## 9.6: General Care
-
 ### 9.6.1: BP Control
 [New recommendation, Level I, Grade A] Blood pressure should be kept ≤180/105 mmHg during and post thrombolysis.
 
@@ -147,7 +145,6 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 * Repeat CT brain at 24 hours post thrombolysis.
 
 ## 9.7: Management Of Complications
-
 ### 9.7.1: Bleeding
 1. Stop IV Alteplase
 2. Urgent CT brain if there is neurology deterioration
@@ -176,7 +173,7 @@ XI. Pregnancy (up to 10 days of postpartum) or nursing mother with no bleeding t
 ## 9.8: Administration Of Intravenous Thrombolysis
 We recommend administering intravenous thrombolysis in a hospital with trained general physicians, neurologists, geriatricians or emergency physicians experienced in administrating, monitoring post-procedure, and managing the associated complications.
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 9.1: Treatment Of Acute Ischaemic Stroke With Intravenous Thrombolysis
 
 | Treatment | Recommendations | Level of Evidence | Grade |
@@ -186,11 +183,11 @@ Table 9.1: Treatment Of Acute Ischaemic Stroke With Intravenous Thrombolysis
 | Alteplase | Uncertain onset and wake up stroke guided by MRI (DWI-FLAIR mismatch) *New recommendation* | II | B |
 | Tenecteplase | Onset within 4.5 hours and eligible for thrombolytic treatment can be considered for intravenous Tenecteplase prior to EVT. Dose: 0.25mg/kg; maximum dose of 25mg *New recommendation* | II | B |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. Intravenous alteplase (0.9 mg/kg; maximum dose of 90mg) is recommended for definite onset stroke for up to 4.5 hours from the onset or the treatment window can be extended via CT perfusion with evidence of penumbra-core mismatch up to 9 hours from the time of last known to be well/midpoint of sleep or via MRI (DWI-FLAIR mismatch) to identify possible stroke onset within 4.5 hours.
 2. Intravenous tenecteplase (0.25 mg/kg; maximum dose of 25mg) is a possible treatment agent in acute stroke presented within 4.5 hours with evidence of large vessel occlusion.
 
-## Contextual Anchors (Overlapping)
+<!-- parent_only_reference_start -->
 Figure 9.1: Acute Ischaemic Stroke Pathway
 
 1. **Pre-Hospital Management**
@@ -219,22 +216,7 @@ Figure 9.2: Regional Stroke Referral System Concept For Acute Ischaemic Stroke M
 - **Primary Referral**: Non-stroke ready hospitals refer suspected AIS patients to a centralized **Stroke Ready Hospital**.
 - **Secondary Referral**: Multiple autonomous Stroke Ready Hospitals refer patients requiring advanced care (e.g., EVT) to a centralized **Comprehensive Stroke Centre**.
 
-### Section 7: Emergency Medicine Services
-*(Referenced regarding the management of acute ischaemic stroke at the pre-hospital care phase and emergency department phase)*
-
-Emergency medicine management framework for acute stroke includes two distinct phases: the pre-hospital care phase and the emergency department clinical care phase.
-
-**Pre-Hospital Management:**
-PHC responders should rapidly evaluate airway, breathing and circulation in patients with suspected acute stroke. For stroke identification, PHC responders should use a validated and standardized assessment tool such as FAST (Face, Arm, Speech, and Time) or BE-FAST (Balance, Eyes, Face, Arm, Speech, Time). PHC responders should ascertain the time of onset of stroke symptoms from the patient or witness(es). All stroke patients from PHC with positive signs of stroke within the 4.5-hour therapeutic window for medical thrombolytic therapy should be transported rapidly to an acute stroke ready hospital. PHC responders should provide pre-arrival notification of stroke patients to receiving hospitals.
-
-[New recommendation, Level I, Grade A] **Recommendation:** MECC and associated stroke ready hospital(s) are recommended to have local regional stroke referral system/network and agreement with the ED to facilitate the transport decision from PHC to ensure the treatment window of 4.5 hours is achieved (Stroke system of care).
-
-**Emergency Department Management:**
-All patients presenting to an ED with suspected acute stroke must have immediate clinical evaluation and investigations to establish the diagnosis and to determine the eligibility for intravenous thrombolytic therapy and/or EVT. A standardized stroke severity scale such as the NIHSS should be used to assess stroke severity in the ED. All patients with suspected stroke who are candidates for intravenous thrombolysis and/or EVT should undergo at least a CT scan immediately. Patients with acute stroke should have their swallowing ability screened as early as possible after arrival at the hospital and before being given any oral food, fluid, or medication.
-
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -243,18 +225,14 @@ All patients presenting to an ED with suspected acute stroke must have immediate
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | ACA | Anterior Cerebral Artery |
@@ -300,3 +278,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | PTT | Partial Thromboplastin Time |
 | RCT | Randomized Controlled Trial |
 | S/C | Subcutaneous |
+<!-- parent_only_reference_end -->

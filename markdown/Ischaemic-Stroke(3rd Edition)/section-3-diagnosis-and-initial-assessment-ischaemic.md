@@ -23,7 +23,6 @@ The symptoms and signs of stroke depend on the type, location, and the extent of
 A full neurological examination, including documenting the patient's conscious level and tests of higher mental function (such as the mini-mental state examination) is mandatory. Every positive and negative finding should point to the site of lesion. These can be divided into 2 broad groups: a) clinical features that are caused by anterior circulation stroke (carotid artery); and b) those caused by posterior circulation stroke (vertebrobasilar system) (refer to Table 3.1: Clinical Features of Stroke).
 
 Table 3.1: Clinical Features Of Stroke
-
 **Anterior (carotid) artery circulation**
 
 *Middle cerebral artery*
@@ -58,7 +57,6 @@ Less commonly, some patients present with atypical stroke symptoms (stroke "cham
 Stroke mimics commonly confound the clinical diagnosis of stroke (refer to Table 3.2: Differential Diagnosis of Stroke). In one study, 19% of patients diagnosed with acute ischaemic stroke by neurologists before cranial CT scanning actually had non-cerebrovascular causes for their clinical presentations.
 
 Table 3.2: Differential Diagnosis Of Stroke
-
 - Metabolic / toxic encephalopathy (hypoglycaemia, non-ketotic, hyperglycaemia, hyponatraemia, Wernicke-Korsakoff syndrome or drug intoxication)
 - Epileptic seizures (postictal Todd's paresis)
 - Hemiplegic migraine
@@ -76,13 +74,15 @@ Table 3.2: Differential Diagnosis Of Stroke
 - Syncope
 - Peripheral vestibulopathy (e.g. positional vertigo, labyrinthine disorder, etc.)
 
-## Key Recommendations:
+**Key Recommendations:**
 - The diagnosis of stroke is made by evaluating and analysing information derived from a good history, physical examination and selected diagnostic tests.
 - The symptoms and signs of stroke depend on the type, location, and the extent of the affected brain tissues.
 - A full neurological examination, including assessing the patient's conscious level and tests of higher mental function is mandatory.
 - Stroke mimics commonly confound the clinical diagnosis of stroke.
 
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CT | Computerized Tomography |
+<!-- parent_only_reference_end -->

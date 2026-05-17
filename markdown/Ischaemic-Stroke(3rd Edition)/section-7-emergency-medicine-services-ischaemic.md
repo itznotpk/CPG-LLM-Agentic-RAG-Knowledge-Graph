@@ -7,7 +7,6 @@ output: transport_decision, triage_priority, acute_intervention_pathway
 critical: true
 -->
 
-## Emergency Medicine Services
 Most people with acute stroke (95%) have their first symptoms out of hospital. Based on data in other countries, approximately two-thirds of all patients who seek acute care for stroke arrive to the emergency department by ambulance.
 
 Specific therapies for acute stroke, namely intravenous thrombolysis, and endovascular treatment (EVT) are time-critical treatments. Thus, they are most effective when initiated soon after the onset of symptoms. Proper treatment and disposition of stroke patients begins from the out-of-hospital environment, subsequently continues in the emergency department (ED), and extends to the inpatient admission. Therefore, it is essential for Emergency Medicine and Trauma Service (EMTS) personnel, Medical Emergency Coordination Centre (MECC) or Ambulance Dispatch Centre (ADC) personnel, and/or pre-hospital care responders and ED personnel, to recognise stroke early and as accurately as possible. At the same time, a strong working relationship are required between pre -hospital care staffs, ED staffs and the stroke team to improve timely assessments and early management.
@@ -18,7 +17,6 @@ I. Pre-hospital care phase
 II. Emergency department clinical care phase
 
 ## 7.1: Pre-Hospital Management
-
 ### 7.1.1: Public Education
 **Recommendation:** [New recommendation, Level II-1, Grade A] Public or community educational programmes should be designed to create awareness and knowledge of stroke warning signs.
 
@@ -56,7 +54,6 @@ There are several validated prehospital stroke screening tools which can be util
 **Recommendation:** [New recommendation, Level I, Grade A] MECC and associated stroke ready hospital(s) are recommended to have local regional stroke referral system/ network and agreement with the ED to facilitate the transport decision from PHC to ensure the treatment window of 4.5 hours is achieved (Stroke system of care).
 
 ## 7.2: Emergency Department Management
-
 ### 7.2.1: ED Evaluation
 **Recommendation:** [New recommendation, Level I, Grade A] All patients presenting to an ED with suspected acute stroke must have immediate clinical evaluation and investigations to establish the diagnosis and to determine the eligibility for intravenous thrombolytic therapy and/or EVT.
 
@@ -88,9 +85,8 @@ There are several validated prehospital stroke screening tools which can be util
 
 Appendix C: Operational definition - Terms and Descriptions lists and describes the terms related to this section.
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 7.1: Emergency Medicine Services
-
 | Management | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Pre-Hospital Management | | | |
@@ -122,17 +118,15 @@ Table 7.1: Emergency Medicine Services
 | Quality Improvement | Joint multidisciplinary audit to review and monitor stroke care quality benchmarks, indicators, evidence-based practices, and outcomes should be performed periodically.<br>*New recommendation* | II-1 | A |
 | Quality Improvement | ED personnel should undergo a standardized training in acute stroke management.<br>*New recommendation* | III | C |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. The public should be encouraged to call 999 if they suspect a person is having a stroke.
 2. Emergency medical dispatcher and prehospital care provider should be trained to recognize and identify stroke and are able to provide rapid transportation of suspected acute stroke patient to nearest stroke ready hospital.
 3. Assessment of patient with suspected acute stroke in emergency department should be prioritized in order to expeditiously establish stroke diagnosis and to determine the best appropriate acute stroke interventions.
 4. Audit of acute stroke care and training of emergency department personnel should be conducted to improve quality of care in acute stroke cases.
 
-## Contextual Anchors (Overlapping)
-
-## Appendix B: Prehospital Stroke Screening Tool
+<!-- parent_only_reference_start -->
+Appendix B: Prehospital Stroke Screening Tool
 **Acute Stroke Pre-Hospital Diagnostic Screening Tools**
-
 | Assessment Tools | Items/ Scoring |
 | --- | --- |
 | Face Arm Speech Test (FAST) | 1. Facial palsy,<br>2. Arm weakness,<br>3. Speech disturbance.<br><br>Abnormality demonstrated on one or more items is indicative of suspected stroke |
@@ -141,7 +135,6 @@ Table 7.1: Emergency Medicine Services
 | Los Angeles Prehospital Stroke Screen (LAPSS) | 1. Age > 45<br>2. History of seizures absent<br>3. Symptom duration < 24 hr<br>4. At baseline, patient is not wheelchair bound or bedridden<br>5. Blood sugar between 60 and 400 mg/dL<br>6. Obvious asymmetry (right versus left)<br>7. Facial smile/grimace<br>8. Grip<br>9. Arm strength<br><br>If 1–5 are yes with asymmetry on exam then LAPS criteria are met indicating suspected stroke |
 
 **Pre-Hospital Stroke Severity Scale**
-
 | Assessment Tools | Items/ Scoring |
 | --- | --- |
 | Field Assessment Stroke Triage for Emergency Destination (FAST-ED) | 6-items<br>1. Facial palsy (0-1)<br>2. Arm weakness (0-2)<br>3. Speech changes (0-2)<br>4. Eye deviation (0-2)<br>5. Denial/neglect (0-2)<br>6. Time (documentation for decision making) not scored<br><br>Total possible score: 9<br>Large vessel occlusion (LVO) is possible if score 4 or more |
@@ -151,7 +144,7 @@ Table 7.1: Emergency Medicine Services
 
 *\*note: There are several other Pre-Hospital Stroke Severity Scales available for use as screening tools. The above list are just few examples of Pre-Hospital Stroke Severity Scales.*
 
-## Appendix C: Operational Definition - Terms And Descriptions
+Appendix C: Operational Definition - Terms And Descriptions
 | Terms | Descriptions |
 | --- | --- |
 | Bypass | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
@@ -161,9 +154,7 @@ Table 7.1: Emergency Medicine Services
 | PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
 | Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -172,18 +163,14 @@ Table 7.1: Emergency Medicine Services
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | ADC | Ambulance Dispatch Centre |
@@ -200,3 +187,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | NCCT | Non-Contrast CT |
 | NIHSS | National Institutes of Health Stroke Scale |
 | PHC | Pre-Hospital Care |
+<!-- parent_only_reference_end -->

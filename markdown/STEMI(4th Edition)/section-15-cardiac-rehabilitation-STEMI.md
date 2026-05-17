@@ -135,17 +135,34 @@ Levels Of Evidence
 Abbreviations
 | Abbreviation | Description |
 |---|---|
+| ACE-I | Angiotensin Converting Enzyme Inhibitor |
+| ARB | Angiotensin Receptor Blocker |
 | AV | Atrioventricular |
+| BP | Blood Pressure |
+| CCB | Calcium Channel Blocker |
 | CHF | Congestive Heart Failure |
 | CRP | Cardiac Rehabilitation Programme |
+| CV | Cardiovascular |
+| DAPT | Dual Antiplatelet Therapy |
 | DBP | Diastolic Blood Pressure |
+| DM | Diabetes Mellitus |
+| DOAC | Direct Oral Anticoagulant |
 | ECG | Electrocardiogram |
 | EF | Ejection Fraction |
+| FMC | First Medical Contact |
 | HF | Heart Failure |
 | HR | Heart Rate |
+| ICD | Implantable Cardioverter Defibrillator |
+| LDL-C | Low-Density Lipoprotein Cholesterol |
+| LV | Left Ventricular |
 | LVEF | Left Ventricular Ejection Fraction |
 | MI | Myocardial Infarction |
+| MRA | Mineralocorticoid Receptor Antagonist |
 | NYHA | New York Heart Association |
+| PA | Physical Activity |
+| PCSK-9 | Proprotein Convertase Subtilisin/Kexin Type 9 |
 | SBP | Systolic Blood Pressure |
 | STEMI | ST Segment Elevation Myocardial Infarction |
+| SVT | Supraventricular Tachycardia |
+| VT | Ventricular Tachycardia |
 <!-- parent_only_reference_end -->

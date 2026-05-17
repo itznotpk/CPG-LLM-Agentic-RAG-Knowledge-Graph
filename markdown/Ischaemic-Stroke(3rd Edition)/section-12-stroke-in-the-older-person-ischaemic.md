@@ -19,7 +19,6 @@ Hence, frail older persons need to be assessed closely for side effects and adve
 [New recommendation, Level III, Grade C] **Recommendation:** All older adults should be screened for frailty using a validated instrument suitable for the specific setting or context with a tailored management plan thereafter.
 
 ## 12.2: Treatment Of Acute Stroke
-
 ### 12.2.1: Stroke Thrombolysis
 The Cochrane review and meta-analysis shows that older patients benefit at least as much as those below the age of 80 years, so there is no upper age limit for stroke thrombolysis treatment, particularly within the first 3 hours. Patients with mild and severe stroke and those with early signs of infarction on initial brain imaging also benefit from treatment, as long as early radiological changes are consistent with the stated time of onset.
 
@@ -40,7 +39,6 @@ At present, the optimal level of blood glucose after a stroke is unclear. A syst
 [New recommendation, Level I, Grade A] **Recommendation:** Avoid very tight targets of glucose control (4.0-7.5 mmol/L) in the first few hours of acute ischaemic stroke.
 
 ## 12.3: Management Of Risk Factors For Stroke Prevention
-
 ### 12.3.1: Hypertension
 Older persons may develop orthostatic hypotension, have falls and syncope when prescribed with multiple antihypertensive medications. Home BP monitoring may supplement clinic BP measurements for a more reflective picture of the overall BP control.
 
@@ -154,9 +152,8 @@ Common burdensome symptoms at the end of life in stroke include anxiety, agitati
 
 [New recommendation, Level III, Grade C] **Recommendation:** Stroke teams should be prepared to facilitate the transfer of care of the individual dying of stroke to their own homes supported by local hospices and palliative care services if available.
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 12.1: Stroke In The Older Person
-
 | Management | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Screening for Frailty | All older adults should be screened for frailty using a validated instrument suitable for the specific setting or context with a tailored management plan thereafter. *New recommendation* | III | C |
@@ -185,7 +182,7 @@ Table 12.1: Stroke In The Older Person
 | End-of-life care | Decision to withhold and withdraw treatment should take into account prior expressed wishes of the individual with stroke which often needs to be established from the next-of-kin and close relations. *New recommendation* | III | C |
 | End-of-life care | Stroke teams should be prepared to facilitate the transfer of care of the individual dying of stroke to their own homes supported by local hospices and palliative care services if available. *New recommendation* | III | C |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. All older persons with acute stroke should be assessed for fitness/frailty level using a validated instrument to facilitate a tailored, individualised treatment plan.
 2. An older person can benefit from acute treatment for stroke including stroke thrombolysis and endovascular thrombectomy providing the inclusion and exclusion criteria of the treatment are followed.
 3. An older person can benefit from and should receive treatment for stroke prevention with management of polypharmacy, individualised medication dosages and treatment targets as tolerated, for stroke risk factors.
@@ -195,9 +192,8 @@ Table 12.1: Stroke In The Older Person
    - assessed by a multidisciplinary team with appropriate discharge planning
    - able to receive end-of-life care and recommendations when the prognosis is poor either from the stroke itself, complications, or other serious comorbid conditions
 
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+<!-- parent_only_reference_start -->
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -206,18 +202,14 @@ Table 12.1: Stroke In The Older Person
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | 4AT | 4 A's Test |
@@ -227,3 +219,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | mRS | Modified Rankin Scale |
 | OAC | Oral Anticoagulant |
 | RCT | Randomized Controlled Trial |
+<!-- parent_only_reference_end -->

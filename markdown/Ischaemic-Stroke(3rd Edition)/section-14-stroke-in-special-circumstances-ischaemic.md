@@ -19,7 +19,6 @@ Non-atherosclerotic arteriopathies such as arterial dissection as well as premat
 Cryptogenic stroke is defined as stroke without any probable cause identified after adequate diagnostic evaluation. Cryptogenic stroke has been reported in up to 40% of young stroke cases. In 2014, the clinical construct of "embolic stroke of undetermined source" (ESUS) was introduced to identify patients with non-lacunar cryptogenic ischaemic strokes in whom embolism was the likely stroke mechanism. About 1/6 of stroke patients are labelled as ESUS and they are generally younger patients with milder stroke but are associated with a higher risk of stroke recurrence. To date, there is no evidence to suggest the role of anticoagulants in the management of ESUS.
 
 Table 14.1: Aetiology Of Young Stroke
-
 **Large artery atherosclerosis**
 * Uncommon before the age of 40 but incidence increases with age
 * Classic vascular risk factors are present
@@ -115,9 +114,10 @@ In one study, in patients who had a recent cryptogenic stroke due to PFO with an
 ## 14.4: Investigation Of Young Stroke
 Identify the cause / predisposing factor:
 
-### A. Search For The Classical Vascular Risk Factors
+**A. Search For The Classical Vascular Risk Factors**
 
-### B. Special Diagnostic Tests (See Section On Investigations)
+**B. Special Diagnostic Tests**
+Refer to 15.2: Investigations <!-- cross_ref target_file="section-15-management-of-stroke-in-pregnancy-ischaemic.md" target_heading="15.2: Investigations" target_kind="h2_section" -->
 1. ESR, CRP and fasting homocysteine
 2. FBC, RP, PT/aPTT, pregnancy test
 3. Serum and urine toxicology screen
@@ -134,19 +134,17 @@ Identify the cause / predisposing factor:
     * Factor V-Leiden
     * Prothrombin gene mutation
 
-### C. Radiological Investigations - Standard And Specialised
+**C. Radiological Investigations - Standard And Specialised**
 1. MRI/MRA brain and intra and extracranial carotids / Carotid Doppler ultrasounds
 2. Transthoracic Echocardiography (to detect atrial myxoma or any lesion in the heart)
 3. Trans-oesophageal echocardiography (TOE), Lower extremity ultrasound, pelvic CT, or MR venography (in patients with PFO)
 4. Advanced brain imaging: axial fat-suppressed T1-weighted MRI, high-resolution (3T) contrast-enhanced T1-weighted MRI, PET scan, MR spectroscopy, transcranial Doppler ultrasound studies, percutaneous cerebral angiography.
 
-### D. Others
+**D. Others**
 24-hour Holter monitoring, prolonged ambulatory ECG monitoring, sleep study.
 
-Recommendations:
-
+**Recommendations:**
 Table 14.2: Investigation Of Young Stroke
-
 | Investigation | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Homocysteinaemia | Routine screening for hyperhomocysteinaemia among patients with a recent ischaemic stroke or TIA is not indicated. | III | C |
@@ -155,7 +153,6 @@ Table 14.2: Investigation Of Young Stroke
 | Sleep study | A sleep study might be considered for patients with an ischaemic stroke or TIA. | II-2 | B |
 
 Table 14.3: Treatment Of Stroke In Certain Circumstances
-
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Aspirin | If the cause is not identified, Aspirin is usually given while additional tests are obtained to guide the choice between long-term antiplatelet or anticoagulant therapy. | III | C |
@@ -174,9 +171,8 @@ Table 14.3: Treatment Of Stroke In Certain Circumstances
 ## 14.5: Cerebral Venous Thrombosis
 Cerebral Venous Thrombosis (CVT) is a type of stroke where the thrombosis occurs in the venous side of the brain circulation, leading to occlusion of one or more cerebral veins and dural venous sinus. The age and gender distribution of CVT is different from that of ischaemic stroke, CVT being more frequent in young adults and women. The incidence is higher in developing countries. CVT is associated with prothrombotic conditions either due to transient causes or permanent primary causes. In around 13% of adult with CVT, no risk factors are identified. The European Stroke Organization guideline addresses both diagnostic and therapeutic topics in CVT. CVT in pregnancy is outlined in the section of stroke in pregnancy.
 
-Recommendations:
+**Recommendations:**
 Table 14.4: Investigation Of Cerebral Venous Thrombosis
-
 | Investigation | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | CTV / MRV | Either CT or MR venography can be used as a reliable alternative to DSA for the diagnosis of CVT in patients with suspected CVT. | II-3 | B |
@@ -186,7 +182,6 @@ Table 14.4: Investigation Of Cerebral Venous Thrombosis
 | Occult malignancy screening | Routine screening for occult malignancy in patients with CVT is not recommended to improve outcomes. | II-3 | B |
 
 Table 14.5: Treatment Of Central Venous Thrombosis
-
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Acute anticoagulant treatment | Treatment of adult patients with acute CVT with heparin in therapeutic dosage is recommended, including in those with intracerebral haemorrhage at baseline. | I | B |
@@ -202,15 +197,14 @@ Table 14.5: Treatment Of Central Venous Thrombosis
 | Decompressive surgery | Decompressive surgery for patients with acute CVT and parenchymal lesion(s) with impending herniation is recommended to prevent death. | II-1 | B |
 | Antiepileptic drugs (AEDs) | Antiepileptic drugs in patients with acute CVT with supratentorial lesions and seizures are recommended to prevent early recurrent seizures. | II-3 | C |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. Young onset stroke requires more comprehensive investigation to determine the stroke aetiology.
 2. Diagnosis of cryptogenic stroke and embolic stroke of undetermined source (ESUS) is made after standard evaluation to rule out possible cause of stroke.
 3. Further specialized investigations needed in the cryptogenic or ESUS stroke for example prolonged Holter monitoring to look for atrial fibrillation or to look for evidence of patent foramen ovale (PFO).
 4. Cerebral venous thrombosis is one of the major cause of venous infarct and would require investigations to determine the cause of thrombosis. Treatment mainly directed at anticoagulation with adjunctive therapy to prevent associated complications.
 
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+<!-- parent_only_reference_start -->
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -219,24 +213,20 @@ Table 14.5: Treatment Of Central Venous Thrombosis
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
-| Abbreviations | Descriptions |
+Abbreviations
+| Abbreviation | Description |
 | --- | --- |
 | AED | Antiepileptic Drug |
 | AF | Atrial Fibrillation |
-| aPTT | Activated Partial Thromboplastin Time |
 | APS | Antiphospholipid Syndrome |
+| aPTT | Activated Partial Thromboplastin Time |
 | ASD | Atrial Septal Defect |
 | CADASIL | Cerebral Autosomal Dominant Arteriopathy with Subcortical Infarcts and Leukoencephalopathy |
 | cANCA | Cytoplasmic Antineutrophil Cytoplasmic Antibodies |
@@ -256,7 +246,6 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | FBC | Full Blood Count |
 | HHT | Hereditary Haemorrhagic Telangiectasia |
 | HIV/AIDS | Human Immunodeficiency Virus infection / Acquired Immune Deficiency Syndrome |
-| IV | Intravenous |
 | LMWH | Low Molecular Weight Heparin |
 | LP | Lumbar Puncture |
 | LSD | D-lysergic acid diethylamide |
@@ -285,3 +274,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | TOAST | Trial of Org 10172 in Acute Stroke Treatment |
 | TOE | Trans-oesophageal Echocardiogram |
 | UFH | Unfractionated Heparin |
+<!-- parent_only_reference_end -->

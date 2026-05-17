@@ -16,12 +16,10 @@ III. Stratify risks and determine prognosis <br>
 IV. Identify potential treatable large obstructive lesions of the cerebrovascular circulation
 
 ## 6.2: Types Of Investigations
-
 ### 6.2.1: Haematological Investigations
 The required haematological investigations are displayed in Table 6.1: Haematological Investigations Required.
 
 Table 6.1: Haematological Investigations Required
-
 | Investigation | Indication |
 | --- | --- |
 | On Admission | |
@@ -45,7 +43,6 @@ Table 6.1: Haematological Investigations Required
 Other baseline investigations that are crucial for the management of stroke are listed in Table 6.2: Other Investigations.
 
 Table 6.2: Other Investigations
-
 | Investigation | Indication |
 | --- | --- |
 | 12 lead ECG | - Mandatory |
@@ -55,7 +52,6 @@ Table 6.2: Other Investigations
 Important imaging investigations for suspected stroke patients are shown in Table 6.3: Imaging for Stroke Patients.
 
 Table 6.3: Imaging For Stroke Patients
-
 | Investigation | Findings / Indication |
 | --- | --- |
 | For all suspected stroke | |
@@ -72,13 +68,14 @@ Table 6.3: Imaging For Stroke Patients
 | MR Venography | - In suspected cerebral venous thrombosis |
 | Contrast Angiogram | - Gold standard assessment of cerebral vasculature<br>- Reserved for patients planned for intervention |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. Investigations carried out in stroke are aimed to confirm the diagnosis, determine the mechanism of stroke, stratify risk, and to identify potential treatable vascular lesions.
 2. Computed tomography (CT) brain is mandatory and is the preferred imaging investigation in the emergency setting to differentiates haemorrhage, determine the site, cause, and extent of the lesion.
 3. Advance imaging may be required in selected cases in the emergency settings, e.g., ruling out stroke mimics, reperfusion therapy in extended hours and determining potential re-vascularisation procedure.
 4. Selected blood investigations and imaging will be required in certain patients to determine the aetiology of stroke.
 
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | CT | Computerized Tomography |
@@ -94,3 +91,4 @@ Table 6.3: Imaging For Stroke Patients
 | MRI | Magnetic Resonance Imaging |
 | MRP | Magnetic Resonance Perfusion |
 | VDRL | Venereal Disease Research Laboratory |
+<!-- parent_only_reference_end -->

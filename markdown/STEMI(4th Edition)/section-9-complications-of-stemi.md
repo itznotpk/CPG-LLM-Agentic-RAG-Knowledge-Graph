@@ -397,16 +397,23 @@ Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ABC | Airway, Breathing, Circulation |
+| ACE-I | Angiotensin Converting Enzyme Inhibitor |
 | AF | Atrial Fibrillation |
+| ARB | Angiotensin Receptor Blocker |
 | AV | Atrioventricular |
 | BiPAP | Bi-Level Positive Airway Pressure |
+| BLS | Basic Life Support |
 | bpm | Beats per minute |
 | CABG | Coronary Artery Bypass Grafting |
+| CCB | Calcium Channel Blocker |
+| CCU | Cardiac Care Unit |
 | CK-MB | Creatine Kinase-Myocardial Band |
 | CPAP | Continuous Positive Airway Pressure |
 | CPR | Cardiopulmonary Resuscitation |
+| CRP | C-Reactive Protein |
 | CV | Cardioversion |
 | DAPT | Dual Antiplatelet Therapy |
+| DOAC | Direct Oral Anticoagulant |
 | DVT | Deep Venous Thrombosis |
 | ECG | Electrocardiogram |
 | ECMO | Extracorporeal Membrane Oxygenation |
@@ -414,12 +421,15 @@ Abbreviations
 | HF | Heart Failure |
 | IABP | Intra-Aortic Balloon Pump |
 | IO | Intraosseous |
+| IRA | Infarct-Related Artery |
 | IV | Intravenous |
 | JVP | Jugular Venous Pressure |
+| LDL-C | Low-Density Lipoprotein Cholesterol |
 | LMWH | Low Molecular Weight Heparin |
 | LV | Left Ventricular |
 | LVEF | Left Ventricular Ejection Fraction |
 | MI | Myocardial Infarction |
+| MRA | Mineralocorticoid Receptor Antagonist |
 | NSAIDs | Non-Steroidal Anti-Inflammatory Drugs |
 | PCI | Percutaneous Coronary Intervention |
 | PEA | Pulseless Electrical Activity |
@@ -432,5 +442,6 @@ Abbreviations
 | STEMI | ST Segment Elevation Myocardial Infarction |
 | VF | Ventricular Fibrillation |
 | VPC | Ventricular Premature Contractions |
+| VSD | Ventricular Septal Defect |
 | VT | Ventricular Tachycardia |
 <!-- parent_only_reference_end -->

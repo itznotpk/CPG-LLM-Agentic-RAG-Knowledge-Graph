@@ -6,8 +6,6 @@ patient_input: demographics, stroke_type, risk_factors
 output: stroke_classification, epidemiological_context
 -->
 
-## Epidemiology , Definition And Classification Of Stroke
-
 ## 1: Epidemiology Of Stroke
 Stroke is a major cause of mortality and disability in many countries , including Malaysia . Global stroke estimates study reported that , in, there were approximately 25.7 million stroke survivors , 6.5 million deaths , 113 million disability-adjusted life-years (DALYs) lost , and 10.3 million new cases of stroke . The high burden of stroke was mainly observed in developing countries , and accounted for 75.2% of all stroke-related deaths and 81% of associated DALYs lost.
 
@@ -20,7 +18,6 @@ Hypertension was the most common risk factor (72%), followed by diabetes mellitu
 The mean age for ischaemic stroke in Malaysia was 62.8 years for the first stroke and 64.3 years for recurrent cases. Malaysian women with a first-ever ischaemic stroke had a greater severity, higher number of risk factors and poorer functional outcomes, as compared to men. After post gender–age adjustment, the Malaysian population observed an increased incidence of stroke in women as compared to men. However, there was no difference between genders in terms of access to thrombolysis treatment.
 
 ## 1.2: Conceptual Definitions
-
 ### 1.2.1: Stroke
 Stroke is defined as a clinical syndrome characterized by rapidly developing clinical symptoms and/or signs of focal, and at times global, loss of cerebral function, with symptoms lasting more than 24 hours or leading to death, with no apparent cause other than that of a vascular origin.
 
@@ -39,7 +36,6 @@ TIA originally had a time-based definition characterized by an acute loss of foc
 TIA currently uses a tissue-based definition i.e. a transient episode of neurologic dysfunction caused by focal brain, spinal cord, or retinal ischaemia, without acute infarction.
 
 ## 1.3: Classification Of Stroke
-
 ### 1.3.1: Why Classify Stroke?
 Stroke classification has numerous implications during the immediate supportive care and rehabilitation, for prognostic purposes, guiding cost-effective investigations for underlying causes as well as to aid decisions for therapy and secondary stroke prevention strategies. Apart from being useful in setting up stroke registries and data banks for epidemiological studies, proper classification of the causative mechanism of stroke is important for optimizing stroke treatment and prognosis.
 
@@ -62,32 +58,3 @@ There are a few other classification systems currently being used worldwide whic
 - Ischaemic stroke is the most common stroke, and hypertension is the most common risk factor followed by diabetes mellitus.
 - The new definition of stroke and transient ischaemic attack (TIA) involved either pathological imaging or clinical evidence of ischaemia and can be timed based on the presentation of symptoms.
 - Ischaemic stroke can be classified according to clinical, phenotypic, or aetiologic classification.
-
----
-
-## Contextual Anchors (Overlapping)
-Table 1.1: Leading Causes Of Mortalities In Malaysia
-
-| Table 1.1: Leading Causes of Mortalities in Malaysia | |
-| :--- | :--- |
-| 1. Ischaemic Heart Disease | 13.9% |
-| 2. Pneumonia | 12.7% |
-| 3. Stroke | 7.1% |
-| 4. Transport Accidents | 4.6% |
-| 5. Malignant Cancer | 2.3% |
-
-(Source: Department of Statistics Malaysia ,2017)
-
----
-
-## Abbreviations Used In This Section
-| Abbreviation | Description |
-|---|---|
-| ASCO | Atherosclerosis, Small-vessel disease, Cardiac source, and Other causes |
-| CCS | Causative Classification Systems |
-| CISS | Chinese Ischaemic Stroke Classification |
-| CNS | Central Nervous System |
-| DALYs | Disability Adjusted Life Years |
-| OCSP | Oxford Community Stroke Project |
-| TIA | Transient Ischaemic Attack |
-| TOAST | Trial of Org 10172 in Acute Stroke Treatment |

@@ -9,7 +9,7 @@ treatment_type: labetalol, captopril, insulin, heparin, aspirin, enoxaparin
 -->
 
 ## 8.1: General Management
-The primary aim of acute stroke management is for early reperfusion therapy which will be covered in Section 9: Reperfusion of Ischaemic Brain and Section 10: Endovascular Thrombectomy. This section will cover the general management of acute stroke that includes supportive care and treatment of acute complications. This is important to improve the mortality rates and reduce the functional disability.
+The primary aim of acute stroke management is for early reperfusion therapy which will be covered in Section 9: Reperfusion of Ischaemic Brain and Section 10: Endovascular Thrombectomy. This section will cover the general management of acute stroke that includes supportive care and treatment of acute complications. This is important to improve the mortality rates and reduce the functional disability. <!-- cross_ref target_file="section-9-reperfusion-of-ischaemi.md" target_heading="Section 9: Reperfusion Of Ischaemic Brain" target_kind="h1_section" --> <!-- cross_ref target_file="section-10-endovascular-thrombectomy-ischaemic.md" target_heading="Section 10: Endovascular Thrombectomy" target_kind="h1_section" -->
 
 ### 8.1.1: Oxygen And Airway Support
 [Level II-3 to III] Adequate tissue oxygenation is imperative to prevent hypoxia and potential worsening of the neurological injury.
@@ -55,7 +55,7 @@ The FOOD RCT's showed that supplemented diet was associated with an absolute red
 
 [New recommendation, Level I, Grade A] **Recommendation:** Enteral feeding should be started within 7 days of admission (oral or tube feeding).
 
-A water swallowing test (refer to **Appendix C**) should be performed before the patient is allowed to eat or drink. A wet voice after swallowing, incomplete oral-labial closure, or coughing reflex on swallowing indicates high risk of developing aspiration. There is good evidence that a multi-item dysphagia screening protocol that includes at least a water intake test of 10 teaspoons and a lingual motor test was more accurate than screening protocols with only a single item.
+A water swallowing test (refer to Appendix C: Operational definition - Terms and Descriptions) should be performed before the patient is allowed to eat or drink. A wet voice after swallowing, incomplete oral-labial closure, or coughing reflex on swallowing indicates high risk of developing aspiration. There is good evidence that a multi-item dysphagia screening protocol that includes at least a water intake test of 10 teaspoons and a lingual motor test was more accurate than screening protocols with only a single item.
 
 [Level III, Grade C] **Recommendation:** Perform a water swallowing test. Insert a nasogastric tube if the patient fails the swallowing test.
 
@@ -135,9 +135,8 @@ Early seizures after stroke are relatively uncommon, however if they do occur, i
 
 [New recommendation, Level III, Grade C] **Recommendation:** Patients that have an immediate post-stroke seizure should be monitored for recurrent seizure activity and should be treated as per treatment recommendations for seizures in other neurological conditions and treatment should be individualised.
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 8.1: Acute General Management
-
 | Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Oxygen and Airway support | Patients with acute stroke should only receive supplemental oxygen if their oxygen saturation is below 95% and be titrated to achieve above 95%. *New recommendation* | II-3 | B |
@@ -170,75 +169,23 @@ Table 8.1: Acute General Management
 | Seizure | A single, self-limiting seizure occurring at the onset, or within 24 hours after an ischemic stroke (considered an "immediate" post-stroke seizure) should not be treated with long-term anticonvulsant medications. The use of prophylactic anti-seizure medications is not recommended. *New recommendation* | III | C |
 | Seizure | Patients that have an immediate post-stroke seizure should be monitored for recurrent seizure activity and should be treated as per treatment recommendations for seizures in other neurological conditions and treatment should be individualised. *New recommendation* | III | C |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. Acute general management in stroke includes supportive care and treatment of acute complications in order to improve mortality and functional disability.
 2. General management includes the management of blood pressure, glycaemic control, nutritional support, prevention of infection and DVT and also to treat potential sequelae, e.g. raised intracranial pressure and seizure.
 
-## Contextual Anchors (Overlapping)
+<!-- parent_only_reference_start -->
+Appendix C: Operational definition - Terms and Descriptions
 
-### Appendix D: Types Of Swallowing Test
-
-### Types Of Swallowing Tests
-**Kidd Water Test**
-*Description:* Clinical examination includes pharyngeal sensation assessed by orange stick, tongue and facial movement, speech, sensory and perceptual function and muscle strength also assessed. Ability to swallow also assessed by patient swallowing 50 ml of water in 5 ml allotments.
-*Source:* Kidd D, Lawson J, Nesbitt R, MacMahon J. Aspiration in acute stroke: a clinical study with video fluroscopy. *Quarterly Journal of Medicine.* 1993; 86:825-829.
-
-**Nishiwaki et al.**
-*Description:* Scores 6 items including lip closure, tongue movement, palatal elevation, gag reflex, voice quality and motor speech function. Also includes a saliva swallowing test. After patient swallows 1 teaspoon of water twice, asked to drink the rest of the water from a cup for a total of 30 ml.
-*Source:* Nishiwaki K, Tsuji T, Liu M, Hase K, Tanaka N, Fujiwara T. Identification of a simple screening tool for dysphagia in patients with stroke using factor analysis of multiple dysphagia variables. *J Rehabil Med.* 2005; 37(4):247-51.
-
-**CODA Standardized Swallowing Assessment (SSA)**
-*Description:* Pre-swallowing check list if passed is followed by teaspoon sips of water 3 times, followed by half glassful of water (*Grade A, strong evidence Westergren, 2006*).
-*Source:* Perry, L. Screening swallowing function of patients with acute stroke. Part one: identification, implementation and initial evaluation of a screening tool for use by nurses. Journal of Clinical Nursing 2001; 10: 463-473.
-
-**Toronto Bedside Swallowing Screening Test (TOR-BSST)**
-*Description:* The test is divided into three sections. First section is oral exam (3 items), followed by section on water swallowing. The third section is examination of voice after swallow. The TOR-BSST has been validated in stroke survivors and is a simple accurate tool to identify stroke patients with dysphagia regardless of severity and setting.
-*Source:* Martino R, Silver F, Teasell R, Bayley M, Nicholson G, et al. The Toronto Bedside swallowing Screening Test (TOR-BSST). *Stroke.* 2009; 40: 555-561.
-
-### Contextual Anchor: Section 9 — Reperfusion Of Ischaemic Brain
-Reperfusion therapy is the single most important and beneficial treatment for acute ischaemic stroke. It can be achieved via intravenous thrombolysis (IVT) or/and endovascular thrombectomy (EVT).
-
-**Recommended NIH Emergency Response Time for AIS:**
-
-| Action | Time (Minutes) |
+| Terms | Descriptions |
 | --- | --- |
-| Door to MD consult and initial work up | ≤ 10 min |
-| Door to neuro consult | ≤ 15 min |
-| Door to CT | ≤ 25 min |
-| Door to needle | ≤ 60 min |
-| Door to groin | ≤ 120 min |
+| Bypass | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
+| Call taker | A trained person in MECC who receives calls from the public through 999 and manages the call. |
+| Dispatch priority | Level of priority assigned to each case according to the clinical urgency. There are 4 levels of priority: Priority 1, priority 2, priority 3 and priority 4. Priority 1 is the highest priority level in the dispatch system. |
+| Dispatching system | A computerized system in MECC manned by the call taker to manage all incoming 999 calls from the public and dispatches the appropriate response team to the scene. |
+| PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
+| Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
-**Patient Eligibility for IVT:**
-- Clinical diagnosis of acute stroke at presentation.
-- Acute disabling stroke within 4.5 hours of presentation or last known/seen to be well.
-- For wake-up stroke or unknown onset not eligible for EVT, IVT may be considered if MRI shows DWI-FLAIR mismatch and lesion is not larger than 1/3 MCA territory.
-- NCCT or MRI brain shows no haemorrhage or established large infarct core.
-- No contraindications.
-
-**Key Recommendations from Section 9:**
-- [Level I, Grade A] IVT (Alteplase 0.9 mg/kg, max 90 mg, 10% given as bolus and remaining dose infused over 1 hour) is indicated for patients with onset of symptoms within 4.5 hours.
-- [New recommendation, Level II, Grade B] Tele-stroke could be beneficial for sites without in house neurology or neuroradiology services.
-- [New recommendation, Level I, Grade A] Tenecteplase 0.25 mg/kg (max 25 mg) IV bolus is an alternative for AIS within 4.5 hours.
-
-### Contextual Anchor: Section 10 — Endovascular Thrombectomy
-EVT is the standard of care since 2015. EVT is indicated in acute ischaemic stroke that presents within 6-8 hours, and is equally beneficial in selected patients of up to 24 hours from the time last seen well (TLSW) with evidence of large vessel occlusion (LVO).
-
-**Indication for EVT:**
-- Baseline functional status mRS of 0-2 or generally ADL independent.
-- EVT is indicated in patients who have received IVT but do not wait to assess response, and those not eligible for IVT with evidence of LVO.
-- LVO of the middle cerebral artery or/and internal carotid artery or proximal M2 occlusion.
-- For patients who arrive between 6 and 24 hours, multimodal imaging is indicated (CT perfusion) using DAWN or DEFUSE 3 trial criteria.
-
-**Key Recommendations from Section 10:**
-- [New recommendation, Level I, Grade A] EVT is indicated for AIS with LVO (M1/proximal M2/ICA), presenting within 6 hours from onset.
-- [New recommendation, Level I, Grade A] EVT is indicated in selected patients who arrive after 6 hours and up to 24 hours with evidence of LVO.
-- [New recommendation, Level I, Grade A] AIS patients eligible for rtPA should be considered for thrombolytic treatment prior to EVT ("Drip & Ship"); there should be no delay in proceeding to EVT.
-- [New recommendation, Level II, Grade B] Tenecteplase can be considered as bridging therapy prior to EVT.
-- [New recommendation, Level II, Grade B] Procedural sedation is generally preferred over general anaesthesia in most patients undergoing EVT.
-
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -247,18 +194,14 @@ EVT is the standard of care since 2015. EVT is indicated in acute ischaemic stro
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | AIS | Acute Ischaemic Stroke |
@@ -283,3 +226,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | UFH | Unfractionated Heparin |
 | VFSE | Video Fluoroscopic Swallowing Examination |
 | VTE | Venous Thromboembolism |
+<!-- parent_only_reference_end -->

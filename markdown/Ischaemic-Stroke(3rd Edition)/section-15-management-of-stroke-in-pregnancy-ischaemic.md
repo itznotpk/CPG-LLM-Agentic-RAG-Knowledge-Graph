@@ -41,9 +41,8 @@ Patients with cerebral venous thrombosis (CVT) can be administered with either u
 
 There is lack of evidence regarding the safety of statins in pregnancy. Statins should be stopped during preconception and throughout pregnancy. In general, stroke management decisions are based on symptom severity, maternal medical conditions, and wishes of the patient and her family. Rehabilitation should be started early. Rehabilitation is based on a multidisciplinary team discussions and decisions.
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 15.1: Management Of Stroke In Pregnancy
-
 | Management | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | During pregnancy | In AIS, Aspirin up to 150mg daily is well tolerated during pregnancy.<br>Pregnant patients with a well-defined low risk conditions may be given UFH or LMWH in the first trimester, followed by a low dose aspirin in the second and third trimesters. | III | C |
@@ -56,13 +55,12 @@ Table 15.1: Management Of Stroke In Pregnancy
 | Labour induction | UFH and LMWH should be restarted within 24 hours of delivery if there are no contraindications. | III | C |
 | Labour induction | Vitamin K antagonists (without a loading dose) may be restarted after 24 hours of delivery if there are no contraindications. | III | C |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. MRI of the brain (without gadolinium contrast) is the radiological modality of choice for investigating strokes in pregnancy.
 2. Aspirin is the only choice of antiplatelet for pregnant patients with a well-defined low risk condition.
 
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+<!-- parent_only_reference_start -->
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -71,18 +69,14 @@ Table 15.1: Management Of Stroke In Pregnancy
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviations | Descriptions |
 | --- | --- |
 | AF | Atrial Fibrillation |
@@ -95,3 +89,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | MRI | Magnetic Resonance Imaging |
 | RCT | Randomized Clinical Trials |
 | UFH | Unfractionated Heparin |
+<!-- parent_only_reference_end -->

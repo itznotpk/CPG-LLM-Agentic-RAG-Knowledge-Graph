@@ -8,10 +8,7 @@ critical: true
 treatment_type: aspirin, clopidogrel, ticlopidine, cilostazol, triflusal, statin, ACE_inhibitor, ARB, carotid_endarterectomy, carotid_stenting, warfarin, DOAC
 -->
 
-## Prevention Of Stroke
-
 ## 5.1: Primary Prevention
-
 ### 5.1.1: Epidemiology And Risk Factors Of Stroke In Malaysia
 Stroke incidence and prevalence in Malaysia has increased steadily over the last 2 decades. Stroke is the third cause of mortality and the second leading cause of Disability Adjusted Life Years (DALY) in Malaysia. The incidence and prevalence rate for both ischaemic and haemorrhagic stroke in Malaysia had increased steadily from 2010 to 2014. Without effective interventions, stroke incidence will continue to rise, thus increasing the healthcare burden.
 
@@ -28,7 +25,6 @@ The National Health Morbidity Survey (NHMS) 2011 and 2015 highlighted an alarmin
 - Hypercholesterolaemia (known and undiagnosed) – 47.7%
 
 ## 5.2: Modifiable And Non-Modifiable Risk Factors
-
 ### 5.2.1: Non-Modifiable Risk Factors
 Understanding the epidemiology of risk factors for stroke among Malaysians allows prioritization of primary prevention strategies specific to the needs of the population. Stroke risk factors can be categorized into modifiable and non-modifiable risk factors. Non-modifiable risk factors include age, sex, and family history.
 
@@ -48,7 +44,6 @@ The National Stroke Registry has identified the following as the top modifiable 
 - Atrial fibrillation
 
 ## 5.3: Risk Stratification And Monitoring
-
 ### 5.3.1: Cardiovascular Risk Estimates
 For primary prevention strategies to be effective, understanding risk estimates is crucial for both the population at large and healthcare providers. Individualized risk estimation scores that takes into account both modifiable and non-modifiable risk factors, validated across multi populations such as the Framingham Stroke Risk Score Calculator, ASCVD and QRISK2 is helpful to create awareness and stratifying individuals according to cardiovascular risk categories. The Revised FSRS is shown to be better than the conventional FRS as it adjusts for temporal trends in stroke risk factors and has better discriminatory index for detecting stroke in various populations. These risk estimations allow stratifying of individuals into risk categories for better preventive strategies.
 
@@ -67,7 +62,6 @@ The Stroke Riskometer App, a smart phone-based application available in various 
 [Level II, Grade B] The use of Stroke Riskometer and R-FRS Calculator may be beneficial in the community and in clinics for individualizing stroke risk and its management.
 
 ## 5.4: Prevention And Management Of Risk Factors
-
 ### 5.4.1: Lifestyle Changes
 The US Health Professionals and Nurses study showed that participants who achieved all five healthy lifestyle choices (not smoking, moderate intake of alcohol, BMI <25 kg/m² , daily exercise for 30 minutes and a healthy diet score in the top 40%), had their incidence of stroke reduced by 80% as compared to those who achieved none.
 
@@ -108,7 +102,6 @@ Hence, the decision to integrate smoking treatment with NCDs is important to red
 The treatment for smoking should be initiated by the treating doctor based on the assessment and treatment of tobacco use disorder as in Table 5.1: Assessment and treatment of tobacco use disorder. Details on this can be found in the CPG on Treatment of Tobacco Use Disorder, available at: https://www. moh. gov. my/moh/resources/Penerbitan/CPG/Respiratory/CPG \_ TobacoDisorder. pdf
 
 Table 5.1: Assessment And Treatment Of Tobacco Use Disorder
-
 | | ASSESSMENT AND TREATMENT |
 | --- | --- |
 | 1. | Ask and document smoking status for all patients. |
@@ -161,9 +154,7 @@ The PREDIMED study showed that a Mediterranean diet enriched with either olive o
 
 **Recommendation:** [New recommendation, Level II, Grade B] A Mediterranean diet rich in olive oil and canola oil, with less meat and increased vegetables is beneficial for stroke prevention.
 
-
 **Recommendation:** [New recommendation, Level II, Grade B] A diet rich in fruits (citrus type) and vegetables (green leafy) is beneficial in reducing stroke.
-
 
 **Recommendation:** [New recommendation, Level I, Grade A] DASH diet that is high in vegetables and fruits and low in saturated fats is beneficial in reducing BP.
 
@@ -172,13 +163,11 @@ Physical activity is defined as any bodily movements involving skeletal muscles 
 
 **Recommendation:** [New recommendation, Level I, Grade A] Increased physical activity is recommended for stroke prevention in healthy adults and high-risk patients.
 
-
 | Asymptomatic Carotid Stenosis   | See Revascularization Procedures   |
 |---------------------------------|------------------------------------|
 | Atrial fibrillation             | See Cardio - embolism & Stroke     |
 
 ### 5.4.10: Medical Therapy
-
 #### 5.4.10.1: Aspirin
 The ARRIVE trial which involved 12500 participants with moderate cardiovascular risk and low risk of bleeding, showed that Aspirin did not prevent the first occurrence of cardiovascular events and stroke as compared to placebo.
 
@@ -188,9 +177,8 @@ The ASCEND Aspirin study, a RCT which involved 15480 diabetic patients did not s
 
 **Recommendation:** [New recommendation, Level I, Grade A] Daily Aspirin is not recommended for primary prevention of stroke in diabetics, moderate risk individuals or elderly patients in view of the high risk of bleeding which outweighs any benefits.
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 5.2: Primary Prevention And Management Of Risk Factors
-
 | Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Hypertension | Self-BP monitoring is recommended for all hypertensive patients.<br>*New recommendation* | I | A |
@@ -269,8 +257,7 @@ Another study proved the superiority of an angiotensin receptor blocker (ARB), L
 
 [Level II-1, Grade B] The choice of antihypertensive drug therapy (single or in combination) should also be individualized based on current evidence and specific patient characteristics.
 
-## Carotid Endarterectomy (Cea) See Revascularization Procedures
-
+**Carotid Endarterectomy (Cea) See Revascularization Procedures**
 ### 5.5.3: Lipid Lowering
 Statins were proven to reduce vascular events among high risk patients including subjects with previous stroke.
 
@@ -281,13 +268,13 @@ The Treat Stroke to Target trial that involved 2860 patients with a history of i
 **Recommendation:** [New recommendation, Level I, Grade A] LDL target of 1.8 mmol/L is recommended.
 
 ## 5.6: Other Risk Factors
-The control of risk factors such as better glycaemic control in diabetes and smoking cessation has not been the subject of major randomized secondary prevention clinical trials. Although diabetes is recognized as an independent risk factor for ischaemic stroke, better diabetes control resulted only in the reduction of microvascular but not macrovascular complications. Inferences can also be drawn from positive results of primary prevention trials (see primary prevention section). Nevertheless, better control of these risk factors should be advocated for better overall health after an ischaemic stroke.
+The control of risk factors such as better glycaemic control in diabetes and smoking cessation has not been the subject of major randomized secondary prevention clinical trials. Although diabetes is recognized as an independent risk factor for ischaemic stroke, better diabetes control resulted only in the reduction of microvascular but not macrovascular complications. Inferences can also be drawn from positive results of primary prevention trials (refer to 5.1: Primary Prevention). Nevertheless, better control of these risk factors should be advocated for better overall health after an ischaemic stroke.
 
 **Recommendation:** [Level III, Grade C] All diabetic patients with a previous stroke should maintain a good glycaemic control.
 
 **Recommendation:** [Level III, Grade C] All smokers should stop smoking.
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 5.3: Secondary Prevention Of Stroke
 
 | Factors/Treatment | Recommendations | Level of Evidence | Grade |
@@ -322,9 +309,9 @@ Anticoagulation is not indicated for non-thrombotic causes of cardiac emboli and
 
 [Level III] Anticoagulation is not proven to reduce recurrent stroke in the first 14 days following an acute cardioembolic event [Level I] with the possible exception of prosthetic heart valves, recent MI, presence of intra-cardiac thrombus, AF with additional risk factors and previous stroke. (refer to Table 5.5: Anticoagulation for the Patient with Acute Cardioembolic Stroke)
 
-Further details on stroke and cardioembolism in Section 13: Stroke and Cardioembolism.
+Further details on stroke and cardioembolism in Section 13: Stroke and Cardioembolism. <!-- cross_ref target_file="section-13-stroke-and-cardioembolism-ischaemic.md" target_heading="Section 13: Stroke And Cardioembolism" target_kind="h1_section" -->
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 5.4: Cardiac Conditions Predisposing To Ischaemic Stroke
 
 | Major Risk Conditions | Additional Risk Factors | Recommendations | Level of Evidence | Grade |
@@ -348,7 +335,6 @@ Table 5.4: Cardiac Conditions Predisposing To Ischaemic Stroke
 | *Recommended Warfarin dose INR target 2.5 [range 2.0 to 3.0] unless stated otherwise* | | | | |
 
 Table 5.5: Anticoagulation For The Patient With Acute Cardioembolic Stroke
-
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Warfarin | Adjusted-dose warfarin may be commenced within 2-4 days after the patient is both neurologically and medically stable. | II-2 | C |
@@ -360,7 +346,6 @@ Table 5.5: Anticoagulation For The Patient With Acute Cardioembolic Stroke
 [New recommendation] HAS-BLED stands for Hypertension, Abnormal renal/liver function, Stroke, Bleeding history or predisposition, Labile INR, Elderly (age over 65), and Drugs/alcohol concomitantly; the maximum possible score is 9 with 1 point for each of the components (with abnormal renal/liver function, for example, a person scores 2 if both are present and similarly for drugs/alcohol). "Drugs" refer to any medications that increases the bleeding risk during anticoagulation, such as Aspirin, non-steroidal anti-inflammatory drugs (NSAIDs), or even steroids on top of Warfarin, and "alcohol" refers to alcohol abuse.
 
 Risk of bleeding is as following (see chart):
-
 | HAS-BLED score | n | Bleeds, n | Bleeds/100 patients* |
 | --- | --- | --- | --- |
 | 0 | 798 | 9 | 1.13 |
@@ -423,7 +408,6 @@ Therefore, careful selection with extensive multidisciplinary discussions by cen
 **Recommendation:** [Level II-2, Grade C] Role of IAS in intra -cranial stenoses, asymptomatic stenoses and acute stroke is unclear and may be recommended.
 
 Table 5.6: Revascularisation Procedures
-
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Carotid Endarterectomy (CEA) | *Primary Prevention*<br>May be considered in patients with high grade asymptomatic carotid stenosis (70-99%) when performed by surgeons with less than 3% morbidity/mortality rate. | I | A |
@@ -439,7 +423,7 @@ Table 5.6: Revascularisation Procedures
 | Carotid angioplasty and stenting (CAS) | Complex configuration of the aortic arch and internal carotid artery tortuosity increase the risk of cerebral ischemia in CAS | II-2 | B |
 | Intracranial angioplasty & stenting (IAS) | Role of IAS in intra-cranial stenoses, asymptomatic stenoses and acute stroke is unclear and may be recommended. | II-2 | C |
 
-## Key Recommendations:
+**Key Recommendations:**
 - Stroke is a preventable disease and may be attributed to modifiable and non-modifiable risk factors.
 - Modifiable risk factors are the focus of primary prevention and can be clustered into three main groups i.e.
 - a) Lifestyle risk factors, i.e., smoking, physical inactivity, and unhealthy eating
@@ -447,40 +431,8 @@ Table 5.6: Revascularisation Procedures
 - c) Environmental factors, i.e., air pollution and lead exposure.
 - Secondary prevention of stroke involves the prevention of recurrent stroke, and this may involve medical interventions includes antiplatelet therapy, anti -hypertensive treatment, lipid-lowering agents, glycaemic control, prevention of cardio-embolism and re-vascularisation procedures in selected cases.
 
-### Contextual Anchor: Section 13 — Stroke And Cardioembolism
-**Stroke Prevention in Atrial Fibrillation Patients:**
-
-- [Level I, Grade A] Antiplatelet monotherapy is not indicated for stroke prevention in non-valvular atrial fibrillation (NVAF) patients.
-- [Level I, Grade A] Oral anticoagulant (OAC) has been proven to be superior to no treatment or Aspirin in patients with NVAF.
-- [New recommendation, Level I, Grade A] OAC to prevent cardioembolic stroke is recommended for all NVAF male patients with CHA2DS2-VASc score of 2 or more and female patients with a CHA2DS2-VASc score of 3 or more.
-- [Level I, Grade A] The choice of OAC for valvular AF (moderate-to-severe mitral stenosis) and mechanical heart valves patients is a Vitamin K Antagonist (Warfarin).
-
-**Recommendation of treatment according to CHA2DS2-VASc Score:**
-
-| Male Score | Recommendation | Female Score | Recommendation |
-| :---: | --- | :---: | --- |
-| ≥2 | OAC | **≥3** | OAC |
-| 1 | Consider OAC | **2** | Consider OAC |
-| 0 | No treatment | **0-1** | No treatment |
-
-**Secondary Stroke Prevention in AF Patients:**
-
-- [Level I, Grade A] After a cardioembolic stroke, parenteral anticoagulant therapy (heparin or LMWH) is not recommended to prevent secondary stroke.
-- [New recommendation, Level II, Grade B] For secondary stroke prevention in an AF patient, the initiation of DOACs is recommended after excluding haemorrhagic transformation using the **1-3-6-12 Day Rule:**
-
-| Type of stroke | NIHSS score | Day to start OAC |
-| :---: | :---: | :---: |
-| TIA | | 1 |
-| Mild | <8 | 3 |
-| Moderate | 8-15 | 6 |
-| Severe | ≥16 | 12 |
-
-- [New recommendation, Level I, Grade A] DOACs are preferred as compared to VKA or Aspirin in AF patients with a previous stroke.
-- [Level III, Grade C] Aspirin could be considered before the initiation of OAC after an AF patient suffers from an ischaemic stroke.
-
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+<!-- parent_only_reference_start -->
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -489,18 +441,14 @@ Table 5.6: Revascularisation Procedures
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | ABCD2 | Age, Blood pressure, Clinical features, Duration of TIA, Diabetes score |
@@ -545,7 +493,6 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | MI | Myocardial Infarction |
 | MRC/BHF | Medical Research Council / British Heart Foundation |
 | NASCET | North American Symptomatic Carotid Endarterectomy Trial |
-| NCD | Non-Communicable Diseases |
 | NHMS | National Health Morbidity Survey |
 | NIHSS | National Institutes of Health Stroke Scale |
 | NRT | Nicotine Replacement Therapy |
@@ -564,3 +511,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | VISSIT | Vitesse Intracranial Stent Study for Ischemic Therapy |
 | WEAVE | Wingspan Stent System Post Market Surveillance |
 | WHO FCTC | World Health Organization Framework Convention on Tobacco Control |
+<!-- parent_only_reference_end -->

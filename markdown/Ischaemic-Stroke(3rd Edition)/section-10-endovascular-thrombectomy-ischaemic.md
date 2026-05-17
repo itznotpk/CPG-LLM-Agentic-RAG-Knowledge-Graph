@@ -64,9 +64,8 @@ Revascularization needs to be organized immediately. The majority of the EVT stu
 ## 10.6: Endovascular Thrombectomy Work Flow
 EVT should be offered at the comprehensive stroke centre when the following are available and in coordination with the EMS as following:
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 10.1: Acute Endovascular Thrombectomy Treatment
-
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Acute Endovascular Thrombectomy (EVT) | EVT is indicated for AIS with large vessel occlusion; proximal middle cerebral artery segment 1 (M1)/proximal M2 occlusion/internal carotid artery (ICA), and presenting within 6 hours from onset. *New recommendation* | I | A |
@@ -75,11 +74,11 @@ Table 10.1: Acute Endovascular Thrombectomy Treatment
 | EVT bridging with Alteplase (Drip & Ship) | For patients undergoing "Drip & Ship" (EVT following administration of IVT), there should be no delay in proceeding to EVT to determine the clinical effectiveness of Alteplase. *New recommendation* | I | A |
 | EVT bridging with Tenecteplase | AIS patients who arrive within 4.5 hours of stroke onset and are eligible for thrombolytic treatment can be considered for intravenous Tenecteplase prior to EVT. *New recommendation* | II | B |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. Hyperacute endovascular thrombectomy is recommended for definite onset stroke with evidence of large vessel occlusion which is within 6 hours from the onset or the treatment window can be extended via CT/MR perfusion (penumbra-core mismatch) or MRI (clinical-imaging mismatch) with current evidences showed significant benefit up to 24 hours from onset/time last known to be well. However, treatment pathway should not be delayed, as the treatment outcome can be influenced by the imaging-to-recanalization time.
-2. Drip & Ship (IVT prior to EVT) as per Section 9 is recommended for the eligible patients.
+2. Drip & Ship (IVT prior to EVT) as per Section 9: Reperfusion Of Ischaemic Brain is recommended for the eligible patients. <!-- cross_ref target_file="section-9-reperfusion-of-ischaemi.md" target_heading="Section 9: Reperfusion Of Ischaemic Brain" target_kind="h1_section" -->
 
-## Contextual Anchors (Overlapping)
+<!-- parent_only_reference_start -->
 Figure 10.1: Endovascular Thrombectomy Work Flow
 
 Staff receive notification from the primary triage nurse or medical assistant. Suspected stroke cases receive priority, and the next CT slot should be booked. The ED should transfer the patient immediately and inform the radiologist, interventional radiologist, or neuroradiologist on call. The patient should be prepared immediately upon arrival; a renal profile is not required for plain CT brain or CT angiography.
@@ -88,20 +87,7 @@ Plain CT brain must be performed as per protocol, with or without CT angiography
 
 If eligible, administer IV rtPA as soon as possible and proceed with Drip and Ship or Direct-thrombectomy. If not eligible, the reason(s) must be documented.
 
-### Section 9: Reperfusion Of Ischaemic Brain
-*(Referenced regarding Drip & Ship (IVT prior to EVT) recommendations for eligible patients undergoing acute endovascular thrombectomy.)*
-
-IVT is indicated for patients with onset of symptoms within 4.5 hours of presentation, while EVT for large vessel occlusion (LVO) could be offered up to 24 hours using advanced imaging such as CT/MR perfusion scan.
-
-[Level I, Grade A] **Recommendation:** (Onset within 4.5 hours) Alteplase dose: 0.9 mg/kg, max 90 mg, 10% given as bolus and remaining dose infused over 1 hour.
-
-[New recommendation, Level II, Grade B] **Recommendation:** AIS patients who arrive within 4.5 hours of symptoms onset and are eligible for thrombolytic treatment can be considered for intravenous Tenecteplase prior to EVT. (Tenecteplase dose of 0.25mg/kg; maximum dose of 25mg)
-
-For patients undergoing "Drip & Ship" (IVT prior to EVT), IVT can be initiated at the primary stroke centre prior to the transfer to a comprehensive stroke centre for EVT. Hospitals within the stroke care system should adhere to the protocol to provide the best standard of care available. There should be no delay in proceeding to EVT to determine the clinical effectiveness of Alteplase.
-
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -110,18 +96,14 @@ For patients undergoing "Drip & Ship" (IVT prior to EVT), IVT can be initiated a
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | ADL | Activities of Daily Living |
@@ -148,3 +130,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | RCT | Randomized Controlled Trial |
 | rtPA | Recombinant Tissue Plasminogen Activator |
 | TLSW | Time Last Seen Well |
+<!-- parent_only_reference_end -->

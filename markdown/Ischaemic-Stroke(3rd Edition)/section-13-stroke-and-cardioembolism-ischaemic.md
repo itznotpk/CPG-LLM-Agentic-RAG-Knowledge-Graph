@@ -24,7 +24,7 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 
 [Level I, Grade A] **Recommendation:** The choice of OAC for valvular AF (moderate-to-severe mitral stenosis) and mechanical heart valves patients is a Vitamin K Antagonist (Warfarin).
 
-### Recommendation Of Treatment According To Cha2ds2-Vasc Score:
+**Recommendation Of Treatment According To Cha2ds2-Vasc Score:**
 | Male Score | Recommendation | Female Score | Recommendation |
 | :---: | --- | :---: | --- |
 | ≥2 | OAC | **≥3** | OAC |
@@ -36,7 +36,7 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 
 [New recommendation, Level II, Grade B] **Recommendation:** For the secondary stroke prevention in an AF patient, the initiation of direct oral anticoagulants (DOACs) is recommended as below after excluding haemorrhagic transformation:
 
-### 1-3-6-12 Day Rule
+**1-3-6-12 Day Rule**
 | Type of stroke | NIHSS score | Day to start OAC |
 | :---: | :---: | :---: |
 | TIA | | 1 |
@@ -62,7 +62,6 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 * Notify on-call haematologist
 
 The following chart refers to specific measures of intervention:
-
 | OAC Category | Name of OAC | Blood tests | Specific Reversal Agent | Alternative Treatment Options |
 | --- | --- | --- | --- | --- |
 | Vitamin K antagonist | Warfarin | INR | Vitamin K | 1. PCC<br>2. Recombinant Factor VIIa<br>3. IV Tranexamic Acid<br>4. FFP |
@@ -72,9 +71,8 @@ The following chart refers to specific measures of intervention:
 
 *\*Not available at the time of writing, boxed warning (FDA) for thromboembolic risks, ischaemic risks, cardiac arrest, and sudden death*
 
-## Recommendations Summary:
+**Recommendations Summary:**
 Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
-
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
 | Stroke Prevention | | | |
@@ -90,7 +88,7 @@ Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 | Combination therapy of OAC and antiplatelet | The risk of bleeding is high after initiation of combination therapy of OAC and antiplatelet for secondary stroke prevention.<br>*New recommendation* | III | C |
 | OAC | After intracranial haemorrhage, OAC could be re-initiated after 4-8 weeks in a NVAF patient with high CHA2DS2-VASc score if the underlying cause and risk factors of the bleeding have been treated.<br>*New recommendation* | II | B |
 
-## Key Recommendations:
+**Key Recommendations:**
 1. Cardioembolism is a common cause of stroke. Stroke patient must have cardiac assessment to look for cardioemboli.
 2. It causes more severe stroke and carry a higher morbidity and mortality rates.
 3. Effective treatment to prevent cardioembolism is available and should be offered to patient at risk.
@@ -98,9 +96,8 @@ Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 5. Patient on VKA should have regular INR monitoring and aim time in the therapeutic range (TTR) > 70%.
 6. Antiplatelet is not recommended for NVAF for the prevention of stroke.
 
-## Key To Evidence Statements And Grades Of Recommendations
-
-### Levels Of Evidence Scale
+<!-- parent_only_reference_start -->
+Levels Of Evidence Scale
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
@@ -109,18 +106,14 @@ Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 | II-3 | Evidence obtained from multiple time series with or without the intervention. Dramatic results in uncontrolled experiments (such as the results of the introduction of penicillin treatment in the 1940s) could also be regarded as this type of evidence |
 | III | Opinions of respected authorities, based on clinical experience, descriptive studies and case reports; or reports of expert committees |
 
-Source: U.S./ CANADIAN PREVENTIVE SERVICES TASK FORCE
-
-### Grades Of Recommendations
+Grades Of Recommendations
 | Grade | Description |
 | :---: | --- |
 | A | At least one meta-analysis, systematic review, or randomized controlled trial (RCT), or evidence rated as good and directly applicable to the target population |
 | B | Evidence from well-conducted clinical trials, directly applicable to the target population, and demonstrating overall consistency of results; or evidence extrapolated from meta-analysis, systematic review or RCT |
 | C | Evidence from expert committee reports, or opinions and/or clinical experiences of respected authorities; indicates the absence of directly applicable clinical studies of good quality |
 
-Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia 2003
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Definition |
 | --- | --- |
 | AF | Atrial Fibrillation |
@@ -144,3 +137,4 @@ Source: Guidelines for CLINICAL PRACTICE GUIDELINES, Ministry of Health Malaysia
 | TTE | Transthoracic Echocardiogram |
 | TTR | Time in the Therapeutic Range |
 | VKA | Vitamin K Antagonists |
+<!-- parent_only_reference_end -->
