@@ -498,7 +498,7 @@ Tools for recognising and predicting opioid misuse are available for clinical us
 ## 4.5: Adjuvants
 Adjuvant analgesics are medications with primary indications other than pain. However, they are useful in managing certain painful conditions, particularly neuropathic pain. The most common classes of adjuvant analgesics used in cancer pain management are anticonvulsants, antidepressants and corticosteroids. Evidence for the use of these medications was largely extrapolated from studies on non-cancer pain.
 
-- **Anticonvulsants**
+### Anticonvulsants
  [Level I] A large meta-analysis on patients with neuropathic pain including cancer-related neuropathic pain reported the following NNT to achieve 50% pain relief and NNH for the following anticonvulsants:
     - gabapentin (900 - 3600 mg/day): NNT 6.3 (95% CI 5.0 to 8.3) and NNH 25.6 (95% CI 15.3 to 78.6)
     - pregabalin (150 - 600 mg/day): NNT 7.7 (95% CI 6.5 to 9.4) and NNH 13.9 (95% CI 11.6 to 17.4)
@@ -511,7 +511,7 @@ There was no evidence on a dose-response effect for gabapentin, while pregabalin
 
 [Level I] The Cochrane systematic review above reported that 63% of those on gabapentin (1200 mg/day or more) experienced at least one AE, compared with 49% on placebo (RR=1.3, 95% CI 1.2 to 1.4; NNH=7.5 95% CI 6.1 to 9.6). The most common AEs reported were somnolence and dizziness, peripheral oedema and ataxia/gait disturbances.
 
-- **Antidepressants**
+### Antidepressants
 [Level I] A meta-analysis on patients with neuropathic pain including cancer-related neuropathic pain gave an NNT to achieve 50% pain relief of 3.6 (95% CI 3.0 to 4.4) for amitriptyline and 6.4 (95% CI 5.2 to 8.4) for selective norepinephrine reuptake inhibitors (SNRIs) e.g. duloxetine and venlafaxine. The NNH were 13.4 (95% CI 9.3 to 24.4) for amitriptyline and 11.8 (95% CI 9.5 to 15.2) for the SNRIs. There was no evidence of a dose-response effect for amitriptyline. The final quality of evidence was moderate for amitriptyline and high for SNRIs.
 
 [Level I] In a Cochrane systematic review, two clinical trials assessed the effectiveness of amitriptyline in cancer-related neuropathic pain. Only one trial showed that amitriptyline 50 - 100 mg decreased mean pain intensity, had a morphine-sparing effect and improved functional capacity. The quality of the evidence was very low.
@@ -524,10 +524,10 @@ There was no evidence on a dose-response effect for gabapentin, while pregabalin
 
 The previous local CPG on cancer pain recommends that neuropathic cancer pain may be treated with antidepressants and/or anticonvulsants. Despite the lack of high-quality evidence, WHO guidelines also suggests that practitioners may consider anticonvulsants and/or antidepressants for patients with inadequate pain relief or intolerable AEs to opioids.
 
-- **Corticosteroids**
+### Corticosteroids
 Due to their anti-inflammatory mechanism of action, corticosteroids are used as adjuvant analgesics for pain associated with inflammation e.g. headache from brain metastases, abdominal pain from liver capsule distension or intestinal obstruction and neuropathic pain from spinal cord compression. [Level I] A Cochrane systematic review found that corticosteroids were more effective than controls in cancer pain for up to one week of intervention (MD= -0.84, 95% CI -1.38 to -0.30). The most common AEs attributed to the medication were restlessness, insomnia, GI and cardiovascular (CV) events, Cushingoid facies, anxiety, fluid retention, hypocalcaemia and hyperglycaemia. An improvement in quality of life or patient well-being had also been reported. However, current evidence from this systematic review is insufficient to establish an ideal dose, duration of therapy and route of administration of corticosteroids for the relief of cancer pain. Therefore, it is advocated that clinicians prescribe corticosteroids cautiously for cancer pain management i.e. carefully assess the benefit, treat for the shortest duration and discontinue early if ineffective.
 
-- **Bone targeting agents**
+### Bone targeting agents
 Bisphosphonates inhibit osteoclast activity and are used as supportive treatment to prevent or delay the occurrence of skeletal-related events (SRE) (i.e. pathological fractures, spinal cord compression, surgery and radiotherapy to the bone, and hypercalcemia) in patients with bone metastases. They have been found to reduce pain and analgesic requirements in certain cases. However, the mechanism of its pain-relieving effect is poorly understood. Examples include clodronate, ibandronate, pamidronate, risendronate, etidronate and zoledronate. Denosumab is a monoclonal antibody that is directed against the receptor activator of the nuclear factor kappa beta (RANK) ligand which leads to a decrease in osteoclastogenesis and osteoclast activity, hence reducing bone resorption.
 
 [Level I] Three recent systematic reviews assessed the effectiveness of different bone targeting agents in patients of various cancers [i.e. breast, prostate and non-small cell lung cancer (NSCLC)] with bone metastases. The first systematic review on bisphosphonates and denosumab on pain relief and QoL reported that there was no high-level evidence that any of these agents reduced or prevented pain or improved QoL in NSCLC patients.
@@ -545,7 +545,7 @@ WHO guidelines on cancer pain management:
 - has no recommendation for or against the use of monoclonal antibodies to prevent and treat bone pain
 - also has no recommendation for or against the comparative advantage of monoclonal antibodies over bisphosphonates to prevent and treat bone pain
 
-- **Others**
+### Others
 Ketamine, an NMDA-receptor antagonist used for general anaesthesia and sedation, can also be used in selected patients whose pain has been inadequately relieved by opioids alone. [Level I] However, a Cochrane systematic review showed insufficient evidence to make any conclusion on the clinical benefit of ketamine as an adjuvant to opioids for the relief of cancer pain. Hallucinations and cognitive disturbance were reported at higher doses of ketamine. One RCT included in the review demonstrated twice the incidence of AEs when a rapid dose escalation method was employed.
 
 In the previous guidelines, ketamine was recommended to be considered in patients with poorly controlled cancer pain despite optimal opioid therapy. It may be used by specialists familiar with cancer pain management or palliative medicine/pain specialists.
