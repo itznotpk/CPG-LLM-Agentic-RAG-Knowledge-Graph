@@ -29,10 +29,9 @@ output: reference_tools, screening_instruments, operational_definitions
 | OR | Stroke Therapies with Limited Evidence | Stroke therapy<br>Limited evidence<br>Treatment modalities |
 
 ## Appendix B: Prehospital Stroke Screening Tool
-*(Reference Chapter: Chapter 7)*
+*(Reference Chapter: Chapter 7)* <!-- cross_ref target_file="section-7-emergency-medicine-services-ischaemic.md" target_heading="Section 7: Emergency Medicine Services" target_kind="h1_section" -->
 
 **Acute Stroke Pre-Hospital Diagnostic Screening Tools**
-
 | Assessment Tools | Items/ Scoring |
 | --- | --- |
 | Face Arm Speech Test (FAST) | 1. Facial palsy,<br>2. Arm weakness,<br>3. Speech disturbance.<br><br>Abnormality demonstrated on one or more items is indicative of suspected stroke |
@@ -41,7 +40,6 @@ output: reference_tools, screening_instruments, operational_definitions
 | Los Angeles Prehospital Stroke Screen (LAPSS) | 1. Age > 45<br>2. History of seizures absent<br>3. Symptom duration < 24 hr<br>4. At baseline, patient is not wheelchair bound or bedridden<br>5. Blood sugar between 60 and 400 mg/dL<br>6. Obvious asymmetry (right versus left)<br>7. Facial smile/grimace<br>8. Grip<br>9. Arm strength<br><br>If 1–5 are yes with asymmetry on exam then LAPS criteria are met indicating suspected stroke |
 
 **Pre-Hospital Stroke Severity Scale**
-
 | Assessment Tools | Items/ Scoring |
 | --- | --- |
 | Field Assessment Stroke Triage for Emergency Destination (FAST-ED) | 6-items<br>1. Facial palsy (0-1)<br>2. Arm weakness (0-2)<br>3. Speech changes (0-2)<br>4. Eye deviation (0-2)<br>5. Denial/neglect (0-2)<br>6. Time (documentation for decision making) not scored<br><br>Total possible score: 9<br>Large vessel occlusion (LVO) is possible if score 4 or more |

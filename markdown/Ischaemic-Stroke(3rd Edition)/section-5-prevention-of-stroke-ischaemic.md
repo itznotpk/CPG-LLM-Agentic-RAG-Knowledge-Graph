@@ -304,7 +304,6 @@ Further details on stroke and cardioembolism in Section 13: Stroke and Cardioemb
 
 Recommendations Summary:
 Table 5.4: Cardiac Conditions Predisposing To Ischaemic Stroke
-
 | Major Risk Conditions | Additional Risk Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- | --- |
 | Atrial Fibrillation | Risk factors to be assessed by CHA₂DS₂-VASc score. | OAC to prevent cardioembolic stroke is recommended for all NVAF male patients with CHA₂DS₂-VASc score of 2 or more and female patients with a CHA₂DS₂-VASc score of 3 or more.<br>*New recommendation* | I | A |
@@ -323,7 +322,7 @@ Table 5.4: Cardiac Conditions Predisposing To Ischaemic Stroke
 | MI and LV dysfunction | *High risk:*<br>Acute/recent MI (<6 months); extensive infarct with anterior wall involvement; previous stroke/TIA.<br><br>*Very high risk:*<br>Severe LV dysfunction (EF < 28%); LV aneurysm; spontaneous echo contrast; LV thrombus; dilated non-ischaemic cardiomyopathies. | If risk factors are present without LV thrombus: consider Warfarin for 3-6 months followed by Aspirin 75-150mg daily. | III | C |
 | MI and LV dysfunction | *High risk:*<br>Acute/recent MI (<6 months); extensive infarct with anterior wall involvement; previous stroke/TIA.<br><br>*Very high risk:*<br>Severe LV dysfunction (EF < 28%); LV aneurysm; spontaneous echo contrast; LV thrombus; dilated non-ischaemic cardiomyopathies. | If LV thrombus is present, consider Warfarin for 6-12 months | III | C |
 | MI and LV dysfunction | *High risk:*<br>Acute/recent MI (<6 months); extensive infarct with anterior wall involvement; previous stroke/TIA.<br><br>*Very high risk:*<br>Severe LV dysfunction (EF < 28%); LV aneurysm; spontaneous echo contrast; LV thrombus; dilated non-ischaemic cardiomyopathies. | For dilated cardiomyopathies including peripartum, consider lifelong Warfarin | III | C |
-| *Recommended Warfarin dose INR target 2.5 [range 2.0 to 3.0] unless stated otherwise* | | | | |
+| Recommended Warfarin dose INR target 2.5 [range 2.0 to 3.0] unless stated otherwise | | | | |
 
 Table 5.5: Anticoagulation For The Patient With Acute Cardioembolic Stroke
 | Treatment | Recommendations | Level of Evidence | Grade |
@@ -371,7 +370,7 @@ Recommendation:
 ## 5.9: Angioplasty Or Stenting
 This is a rapidly evolving field in stroke treatment and prevention. Several randomized trials have compared extra-cranial carotid angioplasty and stenting (CAS) to carotid endarterectomy (CEA).
 
-**Recommendation:** [Level II-2] CAS represents a feasible alternative to carotid endarterectomy for secondary stroke prevention when surgery is undesirable, technically difficult, or inaccessible.
+Recommendation: [Level II-2] CAS represents a feasible alternative to carotid endarterectomy for secondary stroke prevention when surgery is undesirable, technically difficult, or inaccessible.
 
 In recent studies, the 4 -year outcome in death, stroke and myocardial infarction was similar in CAS and CEA. However, the periprocedural rate of stroke was higher in the CAS group while the periprocedural rate of myocardial infarction was higher in the CEA group. Selection of patients for either CAS or CEA may require attention to age, with younger patients having a slightly better outcome with CAS and older patients having a better outcome with CEA.
 
@@ -391,7 +390,7 @@ The role of CAS in intra-cranial stenoses, asymptomatic stenoses and acute strok
 
 Therefore, careful selection with extensive multidisciplinary discussions by centres experienced in stroke management is recommended. As angioplasty with or without stenting is still an investigational procedure, it should be carried out under appropriate clinical trial protocols.
 
-**Recommendation:** [Level II-2, Grade C] Role of IAS in intra -cranial stenoses, asymptomatic stenoses and acute stroke is unclear and may be recommended.
+Recommendation: [Level II-2, Grade C] Role of IAS in intra -cranial stenoses, asymptomatic stenoses and acute stroke is unclear and may be recommended.
 
 Table 5.6: Revascularisation Procedures
 | Treatment | Recommendations | Level of Evidence | Grade |
@@ -409,7 +408,7 @@ Table 5.6: Revascularisation Procedures
 | Carotid angioplasty and stenting (CAS) | Complex configuration of the aortic arch and internal carotid artery tortuosity increase the risk of cerebral ischemia in CAS | II-2 | B |
 | Intracranial angioplasty & stenting (IAS) | Role of IAS in intra-cranial stenoses, asymptomatic stenoses and acute stroke is unclear and may be recommended. | II-2 | C |
 
-**Key Recommendations:**
+Key Recommendations:
 - Stroke is a preventable disease and may be attributed to modifiable and non-modifiable risk factors.
 - Modifiable risk factors are the focus of primary prevention and can be clustered into three main groups i.e.
 - a) Lifestyle risk factors, i.e., smoking, physical inactivity, and unhealthy eating

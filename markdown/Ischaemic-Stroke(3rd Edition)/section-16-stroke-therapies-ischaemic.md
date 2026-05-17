@@ -24,8 +24,7 @@ Table 16.1: Stroke Therapy Modalities
 | Selenium | Selenium levels have been shown to be on the lower side during an acute stroke. However, there is still no evidence of benefit from Selenium supplementation in acute stroke although a few animal studies have shown some benefits. |
 | Piracetam | Piracetam played a limited role in the rehabilitation of the overall language impairment and only showed benefit as regards to the written language ability based on a meta-analysis. Its effect on the overall linguistic level and written language tends to emerge within a short period and declines thereafter. Piracetam also did not significantly improve neurologic or functional outcome in acute stroke patients. |
 
-**Key Recommendations:**
-1. There are a variety of stroke medications and treatment modalities, but the evidence is very limited.
+Key Recommendations: There are a variety of stroke medications and treatment modalities, but the evidence is very limited.
 
 <!-- parent_only_reference_start -->
 Abbreviations

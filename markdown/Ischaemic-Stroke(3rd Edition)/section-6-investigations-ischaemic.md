@@ -10,9 +10,9 @@ critical: true
 ## 6.1: Investigational Objectives
 Investigations carried out for stroke patients are aimed to:
 
-I. Confirm the diagnosis <br>
-II. Determine the mechanism of stroke <br>
-III. Stratify risks and determine prognosis <br>
+I. Confirm the diagnosis
+II. Determine the mechanism of stroke
+III. Stratify risks and determine prognosis
 IV. Identify potential treatable large obstructive lesions of the cerebrovascular circulation
 
 ## 6.2: Types Of Investigations
@@ -36,7 +36,6 @@ Table 6.1: Haematological Investigations Required
 | Thrombophilia screen & lupus anticoagulant | Serum fibrinogen, anti-thrombin III, protein C, protein S, factor V-Leiden, anti-phospholipid antibodies, etc. |
 | Homocysteine (fasting) | |
 | C-reactive protein | |
-
 *\* If thrombolysis considered*
 
 ### 6.2.2: Other Baseline Investigations
@@ -68,7 +67,7 @@ Table 6.3: Imaging For Stroke Patients
 | MR Venography | - In suspected cerebral venous thrombosis |
 | Contrast Angiogram | - Gold standard assessment of cerebral vasculature<br>- Reserved for patients planned for intervention |
 
-**Key Recommendations:**
+Key Recommendations:
 1. Investigations carried out in stroke are aimed to confirm the diagnosis, determine the mechanism of stroke, stratify risk, and to identify potential treatable vascular lesions.
 2. Computed tomography (CT) brain is mandatory and is the preferred imaging investigation in the emergency setting to differentiates haemorrhage, determine the site, cause, and extent of the lesion.
 3. Advance imaging may be required in selected cases in the emergency settings, e.g., ruling out stroke mimics, reperfusion therapy in extended hours and determining potential re-vascularisation procedure.

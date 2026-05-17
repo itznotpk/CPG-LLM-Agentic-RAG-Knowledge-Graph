@@ -7,85 +7,85 @@ output: transport_decision, triage_priority, acute_intervention_pathway
 critical: true
 -->
 
+## 7.0 Overview of Emergency Management of Acute Stroke
 Most people with acute stroke (95%) have their first symptoms out of hospital. Based on data in other countries, approximately two-thirds of all patients who seek acute care for stroke arrive to the emergency department by ambulance.
 
 Specific therapies for acute stroke, namely intravenous thrombolysis, and endovascular treatment (EVT) are time-critical treatments. Thus, they are most effective when initiated soon after the onset of symptoms. Proper treatment and disposition of stroke patients begins from the out-of-hospital environment, subsequently continues in the emergency department (ED), and extends to the inpatient admission. Therefore, it is essential for Emergency Medicine and Trauma Service (EMTS) personnel, Medical Emergency Coordination Centre (MECC) or Ambulance Dispatch Centre (ADC) personnel, and/or pre-hospital care responders and ED personnel, to recognise stroke early and as accurately as possible. At the same time, a strong working relationship are required between pre -hospital care staffs, ED staffs and the stroke team to improve timely assessments and early management.
 
 Emergency medicine management framework for acute stroke include two distinct phases:
-
 I. Pre-hospital care phase
 II. Emergency department clinical care phase
 
 ## 7.1: Pre-Hospital Management
 ### 7.1.1: Public Education
-**Recommendation:** [New recommendation, Level II-1, Grade A] Public or community educational programmes should be designed to create awareness and knowledge of stroke warning signs.
+[Level II-1, Grade A] Public or community educational programmes should be designed to create awareness and knowledge of stroke warning signs.
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] The educational programmes should also include the timely recognition and need to seek emergency care by calling 999 promptly.
+[Level II-1, Grade A] The educational programmes should also include the timely recognition and need to seek emergency care by calling 999 promptly.
 
 ### 7.1.2: Emergency Dispatch System
-**Recommendation:** [New recommendation, Level II-1, Grade A] Ambulance Dispatch Centres (ADC) should be familiar with common descriptors used by public for stroke. Whenever the descriptors are used, Emergency Medical Dispatchers (EMD) are trained to use the stroke protocols to identify suspected stroke patients.
+[Level II-1, Grade A] Ambulance Dispatch Centres (ADC) should be familiar with common descriptors used by public for stroke. Whenever the descriptors are used, Emergency Medical Dispatchers (EMD) are trained to use the stroke protocols to identify suspected stroke patients.
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] ADC should have a protocol or tools that allow Emergency Medical Dispatchers (EMD) to identify suspected stroke patients. Examples of stroke assessment tools are the MDPS Stroke Diagnostic Tool used by MECC, FAST (Face, Arm, Speech, and Time) stroke assessment or CPSS (Cincinnati Prehospital Stroke Scale).
+[Level II-1, Grade A] ADC should have a protocol or tools that allow Emergency Medical Dispatchers (EMD) to identify suspected stroke patients. Examples of stroke assessment tools are the MDPS Stroke Diagnostic Tool used by MECC, FAST (Face, Arm, Speech, and Time) stroke assessment or CPSS (Cincinnati Prehospital Stroke Scale).
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] ADC should have a system in place to allow suspected stroke calls to receive priority in response that will facilitate early arrival of patients to the Emergency Department (ED).
+[Level II-1, Grade A] ADC should have a system in place to allow suspected stroke calls to receive priority in response that will facilitate early arrival of patients to the Emergency Department (ED).
 
 ### 7.1.3: Initial On-Scene Management
 [Level II-1, Grade A] PHC responders (a medically trained person who responds to pre-hospital calls, usually an Assistant Medical Officer or Staff Nurse) should be familiar with the detection and management of stroke patients.
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] PHC responders should rapidly evaluate the airway, breathing and circulation in patients with suspected acute stroke to identify life threatening situations, and manage accordingly.
+[Level II-1, Grade A] PHC responders should rapidly evaluate the airway, breathing and circulation in patients with suspected acute stroke to identify life threatening situations, and manage accordingly.
 
 There are several validated prehospital stroke screening tools which can be utilized to identify stroke (pre-hospital diagnostic screening tools) and to assess severity of stroke (pre-hospital stroke severity scales) (refer to Appendix B: Prehospital Stroke Screening Tool). Stroke severity assessment may be considered if patient demonstrate any signs of stroke.
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] For stroke identification, PHC responders should use a validated and standardized assessment tool such as FAST or BE-FAST (Balance, Eyes, Face, Arm, Speech, Time) stroke assessment. Other identification assessment tools that can be used include CPSS, LAPSS (Los Angeles Prehospital Stroke Screen).
+[Level II-1, Grade A] For stroke identification, PHC responders should use a validated and standardized assessment tool such as FAST or BE-FAST (Balance, Eyes, Face, Arm, Speech, Time) stroke assessment. Other identification assessment tools that can be used include CPSS, LAPSS (Los Angeles Prehospital Stroke Screen).
 
-**Recommendation:** [New recommendation, Level I, Grade A] PHC responders should be trained to identify hypoglycaemia as a stroke-mimic and apply appropriate management protocols.
+[Level I, Grade A] PHC responders should be trained to identify hypoglycaemia as a stroke-mimic and apply appropriate management protocols.
 
-**Recommendation:** [New recommendation, Level I, Grade A] PHC responders should ascertain the time of onset of stroke symptoms from the patient or witness(es).
+[Level I, Grade A] PHC responders should ascertain the time of onset of stroke symptoms from the patient or witness(es).
 
-**Recommendation:** [New recommendation, Level I, Grade A] PHC Service Providers should ensure its responders are made aware of the nearest hospital capable of providing thrombolysis and hospital capable of performing endovascular stroke treatment, within their service area. A written protocol that ensures the ambulance diversion of the patient to such hospitals should be made available for use.
+[Level I, Grade A] PHC Service Providers should ensure its responders are made aware of the nearest hospital capable of providing thrombolysis and hospital capable of performing endovascular stroke treatment, within their service area. A written protocol that ensures the ambulance diversion of the patient to such hospitals should be made available for use.
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] All stroke patients from PHC with positive signs of stroke within the 4.5-hour therapeutic window for medical thrombolytic therapy should be transported rapidly to an acute stroke ready hospital.
+[Level II-1, Grade A] All stroke patients from PHC with positive signs of stroke within the 4.5-hour therapeutic window for medical thrombolytic therapy should be transported rapidly to an acute stroke ready hospital.
 
-**Recommendation:** [New recommendation, Level II-3, Grade B] Titrated doses of oxygen should be delivered to stroke patients with oxygen saturation levels below 95%.
+[Level II-3, Grade B] Titrated doses of oxygen should be delivered to stroke patients with oxygen saturation levels below 95%.
 
 ### 7.1.4: Pre-Arrival Communication (Stroke Alert)
-**Recommendation:** [New recommendation, Level II-1, Grade A] PHC Responders should be trained to provide pre-arrival notification of stroke patients to receiving hospitals. Ambulance Dispatch Centres can be used as an intermediary to provide stroke alert communication to hospitals.
+[Level II-1, Grade A] PHC Responders should be trained to provide pre-arrival notification of stroke patients to receiving hospitals. Ambulance Dispatch Centres can be used as an intermediary to provide stroke alert communication to hospitals.
 
-**Recommendation:** [New recommendation, Level I, Grade A] MECC and associated stroke ready hospital(s) are recommended to have local regional stroke referral system/ network and agreement with the ED to facilitate the transport decision from PHC to ensure the treatment window of 4.5 hours is achieved (Stroke system of care).
+[Level I, Grade A] MECC and associated stroke ready hospital(s) are recommended to have local regional stroke referral system/ network and agreement with the ED to facilitate the transport decision from PHC to ensure the treatment window of 4.5 hours is achieved (Stroke system of care).
 
 ## 7.2: Emergency Department Management
 ### 7.2.1: ED Evaluation
-**Recommendation:** [New recommendation, Level I, Grade A] All patients presenting to an ED with suspected acute stroke must have immediate clinical evaluation and investigations to establish the diagnosis and to determine the eligibility for intravenous thrombolytic therapy and/or EVT.
+[Level I, Grade A] All patients presenting to an ED with suspected acute stroke must have immediate clinical evaluation and investigations to establish the diagnosis and to determine the eligibility for intravenous thrombolytic therapy and/or EVT.
 
-**Recommendation:** [New recommendation, Level II-2, Grade B] The use of clinical screening tools such as FAST or BE-FAST to identify stroke by ED staff can be beneficial.
+[Level II-2, Grade B] The use of clinical screening tools such as FAST or BE-FAST to identify stroke by ED staff can be beneficial.
 
 ### 7.2.2: Initial Assessment Of Stroke Patient In ED
-**Recommendation:** [New recommendation, Level I, Grade A] ED staff should rapidly evaluate airway, breathing and circulation on patients with suspected acute stroke and manage accordingly.
+[Level I, Grade A] ED staff should rapidly evaluate airway, breathing and circulation on patients with suspected acute stroke and manage accordingly.
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] All patients with suspected acute stroke should have their blood glucose concentration checked upon arrival at the ED. Hypoglycaemia should be corrected immediately.
+[Level II-1, Grade A] All patients with suspected acute stroke should have their blood glucose concentration checked upon arrival at the ED. Hypoglycaemia should be corrected immediately.
 
-**Recommendation:** [New recommendation, Level II-1, Grade A] A standardized stroke severity scale such as the National Institutes of Health Stroke Scale (NIHSS) should be used to assess stroke severity in the ED.
+[Level II-1, Grade A] A standardized stroke severity scale such as the National Institutes of Health Stroke Scale (NIHSS) should be used to assess stroke severity in the ED.
 
 ### 7.2.3: Imaging
-**Recommendation:** [New recommendation, Level II-1, Grade A] All patients with suspected stroke who are candidates for intravenous thrombolysis and/ or EVT should undergo at least a CT scan immediately. All other suspected stroke patients should have an urgent CT-brain. In most cases, a non-contrast CT (NCCT) brain will provide necessary information to make decisions about acute management.
+[Level II-1, Grade A] All patients with suspected stroke who are candidates for intravenous thrombolysis and/ or EVT should undergo at least a CT scan immediately. All other suspected stroke patients should have an urgent CT-brain. In most cases, a non-contrast CT (NCCT) brain will provide necessary information to make decisions about acute management.
 
-**Recommendation:** [New recommendation, Level III, Grade C] Interpretation of acute stroke imaging for thrombolysis decisions should only be made by healthcare professionals who have received appropriate training.
+[Level III, Grade C] Interpretation of acute stroke imaging for thrombolysis decisions should only be made by healthcare professionals who have received appropriate training.
 
 ### 7.2.4: Other Considerations
-**Recommendation:** [New recommendation, Level II-3, Grade B] Patients with acute stroke should only receive supplemental oxygen if their oxygen saturation is below 95%.
+[Level II-3, Grade B] Patients with acute stroke should only receive supplemental oxygen if their oxygen saturation is below 95%.
 
-**Recommendation:** [New recommendation, Level III, Grade C] Hypotension and hypertension in patients with acute stroke should be identified and managed accordingly.
+[Level III, Grade C] Hypotension and hypertension in patients with acute stroke should be identified and managed accordingly.
 
-**Recommendation:** [New recommendation, Level II-2, Grade B] Patients with acute stroke should have their swallowing ability screened as early as possible after arrival at the hospital and before being given any oral food, fluid, or medication.
+[Level II-2, Grade B] Patients with acute stroke should have their swallowing ability screened as early as possible after arrival at the hospital and before being given any oral food, fluid, or medication.
 
 ### 7.2.5: Quality Improvement
-**Recommendation:** [New recommendation, Level II-1, Grade A] Joint multidisciplinary audits to review and monitor stroke care quality benchmarks, indicators, evidence-based practices and outcomes should be performed periodically. Quality improvement should be conducted to look at gaps and disparities in order to improve patient care and outcome.
+[Level II-1, Grade A] Joint multidisciplinary audits to review and monitor stroke care quality benchmarks, indicators, evidence-based practices and outcomes should be performed periodically. Quality improvement should be conducted to look at gaps and disparities in order to improve patient care and outcome.
 
-**Recommendation:** [New recommendation, Level III, Grade C] ED personnel should undergo a standardized training in acute stroke management.
+[Level III, Grade C] ED personnel should undergo a standardized training in acute stroke management.
 
 Appendix C: Operational definition - Terms and Descriptions lists and describes the terms related to this section.
 
-**Recommendations Summary:**
+Recommendations Summary:
 Table 7.1: Emergency Medicine Services
 | Management | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -118,7 +118,7 @@ Table 7.1: Emergency Medicine Services
 | Quality Improvement | Joint multidisciplinary audit to review and monitor stroke care quality benchmarks, indicators, evidence-based practices, and outcomes should be performed periodically.<br>*New recommendation* | II-1 | A |
 | Quality Improvement | ED personnel should undergo a standardized training in acute stroke management.<br>*New recommendation* | III | C |
 
-**Key Recommendations:**
+Key Recommendations:
 1. The public should be encouraged to call 999 if they suspect a person is having a stroke.
 2. Emergency medical dispatcher and prehospital care provider should be trained to recognize and identify stroke and are able to provide rapid transportation of suspected acute stroke patient to nearest stroke ready hospital.
 3. Assessment of patient with suspected acute stroke in emergency department should be prioritized in order to expeditiously establish stroke diagnosis and to determine the best appropriate acute stroke interventions.
@@ -126,7 +126,7 @@ Table 7.1: Emergency Medicine Services
 
 <!-- parent_only_reference_start -->
 Appendix B: Prehospital Stroke Screening Tool
-**Acute Stroke Pre-Hospital Diagnostic Screening Tools**
+Acute Stroke Pre-Hospital Diagnostic Screening Tools
 | Assessment Tools | Items/ Scoring |
 | --- | --- |
 | Face Arm Speech Test (FAST) | 1. Facial palsy,<br>2. Arm weakness,<br>3. Speech disturbance.<br><br>Abnormality demonstrated on one or more items is indicative of suspected stroke |
@@ -134,7 +134,7 @@ Appendix B: Prehospital Stroke Screening Tool
 | Cincinnati Prehospital Stroke Scale | 1. Presence/absence of facial pals<br>2. Unilateral arm weakness<br>3. Speech impairment.<br><br>Abnormality demonstrated on one or more items is indicative of suspected stroke |
 | Los Angeles Prehospital Stroke Screen (LAPSS) | 1. Age > 45<br>2. History of seizures absent<br>3. Symptom duration < 24 hr<br>4. At baseline, patient is not wheelchair bound or bedridden<br>5. Blood sugar between 60 and 400 mg/dL<br>6. Obvious asymmetry (right versus left)<br>7. Facial smile/grimace<br>8. Grip<br>9. Arm strength<br><br>If 1–5 are yes with asymmetry on exam then LAPS criteria are met indicating suspected stroke |
 
-**Pre-Hospital Stroke Severity Scale**
+Pre-Hospital Stroke Severity Scale
 | Assessment Tools | Items/ Scoring |
 | --- | --- |
 | Field Assessment Stroke Triage for Emergency Destination (FAST-ED) | 6-items<br>1. Facial palsy (0-1)<br>2. Arm weakness (0-2)<br>3. Speech changes (0-2)<br>4. Eye deviation (0-2)<br>5. Denial/neglect (0-2)<br>6. Time (documentation for decision making) not scored<br><br>Total possible score: 9<br>Large vessel occlusion (LVO) is possible if score 4 or more |
@@ -154,7 +154,7 @@ Appendix C: Operational Definition - Terms And Descriptions
 | PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
 | Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
-Levels Of Evidence Scale
+Levels Of Evidence
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |

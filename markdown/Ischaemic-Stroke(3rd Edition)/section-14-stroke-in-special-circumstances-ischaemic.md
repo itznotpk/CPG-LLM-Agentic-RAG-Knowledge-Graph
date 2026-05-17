@@ -38,7 +38,6 @@ Table 14.1: Aetiology Of Young Stroke
 * Management is long-term antiplatelet therapy
 
 **Stroke of other determined cause**
-
 * Haematological causes based on abnormal blood components:
 * Erythrocytes: polycythaemia vera, sickle-cell disease, paroxysmal nocturnal haemoglobinuria, etc.
 * Leucocytes: leukaemias, Waldenstrom macroglobulinaemia, multiple myeloma, hypereosinophilic syndrome, etc.
@@ -86,7 +85,6 @@ Table 14.1: Aetiology Of Young Stroke
 * Hereditary haemorrhagic telangiectasia (HHT) - stroke caused by paradoxical embolism due to pulmonary arteriovenous malformations
 
 **Stroke of undetermined cause**
-
 *Cryptogenic stroke:*
 * "Cryptogenic" after standard evaluation vs "cryptogenic" after additional, specialized evaluation
 * "Highly cryptogenic" (i.e., with no probable and no possible cause discovered) vs "of possibly determined origin" (i.e., with no probable, but one or more possible, causes identified)
@@ -96,16 +94,16 @@ Table 14.1: Aetiology Of Young Stroke
 * Criteria: (1) non-lacunar stroke detected by CT or MRI; (2) absence of extracranial or intracranial atherosclerosis causing 50% luminal stenosis in arteries supplying the ischaemic area; (3) absence of a major-risk cardiac source of embolism; and (4) absence of any other specific cause of index stroke. Lacunar stroke is defined as a subcortical infarct ≤1.5 cm in its largest dimension and in the distribution of the small, penetrating arteries.
 * Management is long-term antiplatelet with no evidence for oral anticoagulants. One RCT showed direct oral anticoagulants (Rivaroxaban) is not superior to aspirin in prevention of recurrent stroke and associated with higher risk of bleeding. Prolonged ambulatory ECG monitoring to detect AF is more important as occult AF occurs in about 25% of all ESUS.
 
-## 14.3: Stroke Patients With Patent Foramen Ovale (Pfo)
-[New recommendation, Level I, Grade A] **Recommendation:** PFO closure devices have moderate benefit to young and middle-aged patients with cryptogenic ischaemic stroke. PFO closure devices combined with antiplatelet therapy is also recommended.
+## 14.3: Stroke Patients With Patent Foramen Ovale (PFO)
+[Level I, Grade A] PFO closure devices have moderate benefit to young and middle-aged patients with cryptogenic ischaemic stroke. PFO closure devices combined with antiplatelet therapy is also recommended.
 
-[New recommendation, Level II-1, Grade B] **Recommendation:** In patients with ischaemic stroke or transient ischaemic attack (TIA) and a patent foramen ovale (PFO) who are not treated with anticoagulation treatment, antiplatelet therapy is recommended.
+[Level II-1, Grade B] In patients with ischaemic stroke or transient ischaemic attack (TIA) and a patent foramen ovale (PFO) who are not treated with anticoagulation treatment, antiplatelet therapy is recommended.
 
-[New recommendation, Level I, Grade A] **Recommendation:** Among ischaemic stroke or TIA patients who have both a PFO and a venous source of embolism, anticoagulation is indicated based on the characteristics of stroke.
+[Level I, Grade A] Among ischaemic stroke or TIA patients who have both a PFO and a venous source of embolism, anticoagulation is indicated based on the characteristics of stroke.
 
-[New recommendation, Level III, Grade C] **Recommendation:** When anticoagulant therapy is contraindicated, an inferior vena cava filter can be inserted.
+[Level III, Grade C] When anticoagulant therapy is contraindicated, an inferior vena cava filter can be inserted.
 
-[New recommendation, Level III, Grade C] **Recommendation:** In patients with PFO and deep vein thrombosis (DVT), PFO closure with a transcatheter device may be considered depending on the risk of recurrent DVT.
+[Level III, Grade C] In patients with PFO and deep vein thrombosis (DVT), PFO closure with a transcatheter device may be considered depending on the risk of recurrent DVT.
 
 PFO closure during pregnancy is not recommended. Low-dose oral Aspirin is the first line of treatment. If a pregnant patient with a known PFO is at increased risk of venous thrombosis, prophylactic low molecular weight heparin (LMWH) doses can be considered.
 
@@ -113,11 +111,10 @@ In one study, in patients who had a recent cryptogenic stroke due to PFO with an
 
 ## 14.4: Investigation Of Young Stroke
 Identify the cause / predisposing factor:
-
 **A. Search For The Classical Vascular Risk Factors**
 
 **B. Special Diagnostic Tests**
-Refer to 15.2: Investigations <!-- cross_ref target_file="section-15-management-of-stroke-in-pregnancy-ischaemic.md" target_heading="15.2: Investigations" target_kind="h2_section" -->
+Refer to Section 15.2: Investigations <!-- cross_ref target_file="section-15-management-of-stroke-in-pregnancy-ischaemic.md" target_heading="15.2: Investigations" target_kind="h2_section" -->
 1. ESR, CRP and fasting homocysteine
 2. FBC, RP, PT/aPTT, pregnancy test
 3. Serum and urine toxicology screen
@@ -139,11 +136,9 @@ Refer to 15.2: Investigations <!-- cross_ref target_file="section-15-management-
 2. Transthoracic Echocardiography (to detect atrial myxoma or any lesion in the heart)
 3. Trans-oesophageal echocardiography (TOE), Lower extremity ultrasound, pelvic CT, or MR venography (in patients with PFO)
 4. Advanced brain imaging: axial fat-suppressed T1-weighted MRI, high-resolution (3T) contrast-enhanced T1-weighted MRI, PET scan, MR spectroscopy, transcranial Doppler ultrasound studies, percutaneous cerebral angiography.
-
 **D. Others**
 24-hour Holter monitoring, prolonged ambulatory ECG monitoring, sleep study.
 
-**Recommendations:**
 Table 14.2: Investigation Of Young Stroke
 | Investigation | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -171,7 +166,6 @@ Table 14.3: Treatment Of Stroke In Certain Circumstances
 ## 14.5: Cerebral Venous Thrombosis
 Cerebral Venous Thrombosis (CVT) is a type of stroke where the thrombosis occurs in the venous side of the brain circulation, leading to occlusion of one or more cerebral veins and dural venous sinus. The age and gender distribution of CVT is different from that of ischaemic stroke, CVT being more frequent in young adults and women. The incidence is higher in developing countries. CVT is associated with prothrombotic conditions either due to transient causes or permanent primary causes. In around 13% of adult with CVT, no risk factors are identified. The European Stroke Organization guideline addresses both diagnostic and therapeutic topics in CVT. CVT in pregnancy is outlined in the section of stroke in pregnancy.
 
-**Recommendations:**
 Table 14.4: Investigation Of Cerebral Venous Thrombosis
 | Investigation | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -197,14 +191,14 @@ Table 14.5: Treatment Of Central Venous Thrombosis
 | Decompressive surgery | Decompressive surgery for patients with acute CVT and parenchymal lesion(s) with impending herniation is recommended to prevent death. | II-1 | B |
 | Antiepileptic drugs (AEDs) | Antiepileptic drugs in patients with acute CVT with supratentorial lesions and seizures are recommended to prevent early recurrent seizures. | II-3 | C |
 
-**Key Recommendations:**
+Key Recommendations:
 1. Young onset stroke requires more comprehensive investigation to determine the stroke aetiology.
 2. Diagnosis of cryptogenic stroke and embolic stroke of undetermined source (ESUS) is made after standard evaluation to rule out possible cause of stroke.
 3. Further specialized investigations needed in the cryptogenic or ESUS stroke for example prolonged Holter monitoring to look for atrial fibrillation or to look for evidence of patent foramen ovale (PFO).
 4. Cerebral venous thrombosis is one of the major cause of venous infarct and would require investigations to determine the cause of thrombosis. Treatment mainly directed at anticoagulation with adjunctive therapy to prevent associated complications.
 
 <!-- parent_only_reference_start -->
-Levels Of Evidence Scale
+Levels Of Evidence
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |

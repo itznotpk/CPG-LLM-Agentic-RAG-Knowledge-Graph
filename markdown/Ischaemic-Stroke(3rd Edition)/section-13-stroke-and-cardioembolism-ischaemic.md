@@ -16,15 +16,15 @@ Atrial fibrillation (AF) whether chronic or paroxysmal, is the most common cause
 Investigations are directed at demonstrating cardiac sources of embolism in the absence of significant atherosclerosis or other vascular disease. All patients with stroke/TIA require a 12-lead electrocardiogram. A 72-hour Holter monitor is required to detect paroxysmal AF. In addition, all patients under 45 years of age and those in whom baseline investigations do not reveal an apparent cause for stroke will require a transthoracic echocardiogram (TTE). Patients in whom there is high suspicion of cardioembolism not found on TTE may undergo a trans-oesophageal echocardiogram (TOE). Conditions in which this method is superior to TTE include identifying thrombi in the left atrium and left atrial appendage, patent foramen ovale, atrial septal aneurysm and aortic arch atheroma.
 
 ## 13.2: Stroke Prevention In Atrial Fibrillation Patients
-[Level I, Grade A] **Recommendation:** Antiplatelet monotherapy is not indicated for stroke prevention in non-valvular atrial fibrillation (NVAF) patients.
+[Level I, Grade A] Antiplatelet monotherapy is not indicated for stroke prevention in non-valvular atrial fibrillation (NVAF) patients.
 
-[Level I, Grade A] **Recommendation:** Oral anticoagulant (OAC) has been proven to be superior to no treatment or Aspirin in patients with NVAF.
+[Level I, Grade A] Oral anticoagulant (OAC) has been proven to be superior to no treatment or Aspirin in patients with NVAF.
 
-[New recommendation, Level I, Grade A] **Recommendation:** OAC to prevent cardioembolic stroke is recommended for all NVAF male patients with CHA2DS2-VASc score of 2 or more and female patients with a CHA2DS2-VASc score of 3 or more.
+[Level I, Grade A] OAC to prevent cardioembolic stroke is recommended for all NVAF male patients with CHA2DS2-VASc score of 2 or more and female patients with a CHA2DS2-VASc score of 3 or more.
 
-[Level I, Grade A] **Recommendation:** The choice of OAC for valvular AF (moderate-to-severe mitral stenosis) and mechanical heart valves patients is a Vitamin K Antagonist (Warfarin).
+[Level I, Grade A] The choice of OAC for valvular AF (moderate-to-severe mitral stenosis) and mechanical heart valves patients is a Vitamin K Antagonist (Warfarin).
 
-**Recommendation Of Treatment According To Cha2ds2-Vasc Score:**
+Recommendation Of Treatment According To Cha2ds2-Vasc Score:
 | Male Score | Recommendation | Female Score | Recommendation |
 | :---: | --- | :---: | --- |
 | ≥2 | OAC | **≥3** | OAC |
@@ -32,9 +32,9 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 | 0 | No treatment | **0-1** | No treatment |
 
 ## 13.3: Secondary Stroke Prevention In Atrial Fibrillation Patients
-[Level I, Grade A] **Recommendation:** After a cardioembolic stroke, parenteral anticoagulant therapy (heparin or low molecular weight heparin) is not recommended to prevent secondary stroke.
+[Level I, Grade A] After a cardioembolic stroke, parenteral anticoagulant therapy (heparin or low molecular weight heparin) is not recommended to prevent secondary stroke.
 
-[New recommendation, Level II, Grade B] **Recommendation:** For the secondary stroke prevention in an AF patient, the initiation of direct oral anticoagulants (DOACs) is recommended as below after excluding haemorrhagic transformation:
+[Level II, Grade B] For the secondary stroke prevention in an AF patient, the initiation of direct oral anticoagulants (DOACs) is recommended as below after excluding haemorrhagic transformation:
 
 **1-3-6-12 Day Rule**
 | Type of stroke | NIHSS score | Day to start OAC |
@@ -44,13 +44,13 @@ Investigations are directed at demonstrating cardiac sources of embolism in the 
 | Moderate | 8-15 | 6 |
 | Severe | ≥16 | 12 |
 
-[New recommendation, Level I, Grade A] **Recommendation:** DOACs are preferred as compared to VKA or Aspirin in AF patients with a previous stroke.
+[Level I, Grade A] DOACs are preferred as compared to VKA or Aspirin in AF patients with a previous stroke.
 
-[Level III, Grade C] **Recommendation:** Aspirin could be considered before the initiation of OAC after an AF patient suffers from an ischaemic stroke.
+[Level III, Grade C] Aspirin could be considered before the initiation of OAC after an AF patient suffers from an ischaemic stroke.
 
-[New recommendation, Level III, Grade C] **Recommendation:** The risk of bleeding is high after initiation of combination therapy of OAC and antiplatelet for secondary stroke prevention.
+[Level III, Grade C] The risk of bleeding is high after initiation of combination therapy of OAC and antiplatelet for secondary stroke prevention.
 
-[New recommendation, Level II, Grade B] **Recommendation:** After intracranial haemorrhage, OAC could be re-initiated after 4-8 weeks in a NVAF patient with high CHA2DS2-VASc score if the underlying cause and risk factors of the bleeding have been treated.
+[Level II, Grade B] After intracranial haemorrhage, OAC could be re-initiated after 4-8 weeks in a NVAF patient with high CHA2DS2-VASc score if the underlying cause and risk factors of the bleeding have been treated.
 
 ## 13.4: General Measures For DOACs In Bleeding And Emergency Intervention
 * Mechanical compression if possible
@@ -68,10 +68,9 @@ The following chart refers to specific measures of intervention:
 | DOAC | Dabigatran | aPTT, TT | Idarucizumab 5g IV (2 times infusions of 2.5 grams) | 1. PCC<br>2. Recombinant Factor VIIa<br>3. IV Tranexamic Acid<br>4. FFP<br>5. *Haemodialysis only for Dabigatran |
 | DOAC | Rivaroxaban | Anti-Factor Xa | Andexanet alfa* | 1. PCC<br>2. Recombinant Factor VIIa<br>3. IV Tranexamic Acid<br>4. FFP |
 | DOAC | Apixaban | Anti-Factor Xa | Andexanet alfa* | 1. PCC<br>2. Recombinant Factor VIIa<br>3. IV Tranexamic Acid<br>4. FFP |
-
 *\*Not available at the time of writing, boxed warning (FDA) for thromboembolic risks, ischaemic risks, cardiac arrest, and sudden death*
 
-**Recommendations Summary:**
+Recommendations Summary:
 Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 | Treatment | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -88,7 +87,7 @@ Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 | Combination therapy of OAC and antiplatelet | The risk of bleeding is high after initiation of combination therapy of OAC and antiplatelet for secondary stroke prevention.<br>*New recommendation* | III | C |
 | OAC | After intracranial haemorrhage, OAC could be re-initiated after 4-8 weeks in a NVAF patient with high CHA2DS2-VASc score if the underlying cause and risk factors of the bleeding have been treated.<br>*New recommendation* | II | B |
 
-**Key Recommendations:**
+Key Recommendations:
 1. Cardioembolism is a common cause of stroke. Stroke patient must have cardiac assessment to look for cardioemboli.
 2. It causes more severe stroke and carry a higher morbidity and mortality rates.
 3. Effective treatment to prevent cardioembolism is available and should be offered to patient at risk.
@@ -97,7 +96,7 @@ Table 13.1: Prevention Of Stroke In Atrial Fibrillation Patients
 6. Antiplatelet is not recommended for NVAF for the prevention of stroke.
 
 <!-- parent_only_reference_start -->
-Levels Of Evidence Scale
+Levels Of Evidence
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |

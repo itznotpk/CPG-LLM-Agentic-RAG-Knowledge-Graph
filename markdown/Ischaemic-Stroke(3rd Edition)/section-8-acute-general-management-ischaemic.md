@@ -14,28 +14,28 @@ The primary aim of acute stroke management is for early reperfusion therapy whic
 ### 8.1.1: Oxygen And Airway Support
 [Level II-3 to III] Adequate tissue oxygenation is imperative to prevent hypoxia and potential worsening of the neurological injury.
 
-[New recommendation, Level II-3, Grade B] **Recommendation:** Patients with acute stroke should only receive supplemental oxygen if their oxygen saturation is below 95% and be titrated to achieve above 95%.
+[Level II-3, Grade B]  Patients with acute stroke should only receive supplemental oxygen if their oxygen saturation is below 95% and be titrated to achieve above 95%.
 
 ### 8.1.2: Observation
-[Level III, Grade C] **Recommendation:** Regular observation is mandatory to recognise impaired pulmonary function (pulse oxymeter), circulatory function (pulse rate, blood pressure), NIHSS score, head chart, GCS, and complications from mass effect.
+[Level III, Grade C]  Regular observation is mandatory to recognise impaired pulmonary function (pulse oxymeter), circulatory function (pulse rate, blood pressure), NIHSS score, head chart, GCS, and complications from mass effect.
 
 ### 8.1.3: Mobilisation
 Most patients are first treated with bed rest, but mobilisation should begin as soon as the patient's condition is judged to be stable.
 
-[Level II-3, Grade C] **Recommendation:** Mobilise early to prevent complications.
+[Level II-3, Grade C]  Mobilise early to prevent complications.
 
 Although two small RCTs showed that very early mobilisation (beginning within 24 hours) was feasible in an acute setting, the AVERT trial showed that very early, more frequent and higher dose of mobilisation focused on out-of-bed activities in addition to usual care was worse in terms of outcomes than usual care alone. Very early mobilisation reduced the odds of favourable outcomes at three months.
 
-[New recommendation, Level I] **Recommendation:** High-dose, very early mobilisation within 24 hours of stroke onset should not be recommended.
+[Level I]  High-dose, very early mobilisation within 24 hours of stroke onset should not be recommended.
 
 ### 8.1.4: Blood Pressure
 In patients with AIS, early treatment of hypertension is indicated when required by comorbid conditions (e.g. concomitant acute coronary event, acute heart failure, aortic dissection, post-thrombolysis sICH, or preeclampsia/eclampsia). In patients with a BP of ≥220/120 mm Hg who have not received IV alteplase or EVT and have no comorbid conditions requiring acute antihypertensive treatment, the benefit of initiating or reinitiating treatment of hypertension within the first 48 to 72 hours is uncertain. It might be reasonable to lower BP by 15% during the first 24 hours after the onset of stroke.
 
-[New recommendation, Level III, Grade C] **Recommendation:** Lowering BP initially by 15% is probably safe. Very high blood pressure should be reduced gradually.
+[Level III, Grade C]  Lowering BP initially by 15% is probably safe. Very high blood pressure should be reduced gradually.
 
-[New recommendation, Level III, Grade C] **Recommendation:** Do not treat hypertension if systolic BP is <220mmHg or diastolic BP is <120mmHg. Mild hypertension is desirable at 160-180/90-100 mmHg.
+[Level III, Grade C]  Do not treat hypertension if systolic BP is <220mmHg or diastolic BP is <120mmHg. Mild hypertension is desirable at 160-180/90-100 mmHg.
 
-[Level II-3, Grade C] **Recommendation:** Proposed drugs: Labetalol 10-20mg boluses at 10 minute intervals up to 150-300mg or 1mg/ml infusion, with the rate of infusion of 1-3mg/min or oral Captopril 6.25-12.5mg. Sublingual use of a calcium antagonist, such as Nifedipine, should be avoided because of the risk of rapid decline in blood pressure.
+[Level II-3, Grade C]  Proposed drugs: Labetalol 10-20mg boluses at 10 minute intervals up to 150-300mg or 1mg/ml infusion, with the rate of infusion of 1-3mg/min or oral Captopril 6.25-12.5mg. Sublingual use of a calcium antagonist, such as Nifedipine, should be avoided because of the risk of rapid decline in blood pressure.
 
 ### 8.1.5: Blood Glucose
 [Level II-3, Grade C] Hyperglycaemia following acute stroke is strongly associated with subsequent mortality and impaired neurological recovery. This applies to both diabetics and non-diabetics.
@@ -44,51 +44,51 @@ The International Diabetes Federation published a comprehensive guideline on man
 
 At present, the optimal level of blood glucose after a stroke is unclear. A systematic review of 11 RCTs concluded that the administration of intravenous insulin to maintain tight glucose control within a specific range (4.0-7.5 mmol/L) in the first few hours of acute ischaemic stroke does not provide benefit in terms of functional outcome, death, or improvement in final neurological deficit, but significantly increased the number of hypoglycaemic episodes.
 
-[New recommendation, Level III, Grade C] **Recommendation:** After an acute stroke, treat hyperglycaemia to keep the blood glucose levels between 6.0-10.0 mmol/L and ensure that hypoglycaemia is avoided.
+[Level III, Grade C]  After an acute stroke, treat hyperglycaemia to keep the blood glucose levels between 6.0-10.0 mmol/L and ensure that hypoglycaemia is avoided.
 
-[New recommendation, Level I, Grade A] **Recommendation:** Avoid very tight targets of glucose control (4.0-7.5 mmol/L) in the first few hours of acute ischaemic stroke.
+[Level I, Grade A]  Avoid very tight targets of glucose control (4.0-7.5 mmol/L) in the first few hours of acute ischaemic stroke.
 
 ### 8.1.6: Nutrition
 Sustaining nutrition is important as malnutrition after stroke might interfere with recovery. Persons with infarctions of the brain stem, multiple strokes, large hemispheric lesions, or depressed consciousness are at the greatest risk for aspiration. Swallowing impairments are associated with an increased mortality.
 
 The FOOD RCT's showed that supplemented diet was associated with an absolute reduction in risk of death of 0.7% and that early tube feeding (within 7 days of admission) was associated with an absolute reduction in risk of death by 5.8% and a reduction in death or poor outcomes by 1.2%.
 
-[New recommendation, Level I, Grade A] **Recommendation:** Enteral feeding should be started within 7 days of admission (oral or tube feeding).
+[Level I, Grade A]  Enteral feeding should be started within 7 days of admission (oral or tube feeding).
 
 A water swallowing test (refer to Appendix C: Operational definition - Terms and Descriptions) should be performed before the patient is allowed to eat or drink. A wet voice after swallowing, incomplete oral-labial closure, or coughing reflex on swallowing indicates high risk of developing aspiration. There is good evidence that a multi-item dysphagia screening protocol that includes at least a water intake test of 10 teaspoons and a lingual motor test was more accurate than screening protocols with only a single item.
 
-[Level III, Grade C] **Recommendation:** Perform a water swallowing test. Insert a nasogastric tube if the patient fails the swallowing test.
+[Level III, Grade C]  Perform a water swallowing test. Insert a nasogastric tube if the patient fails the swallowing test.
 
 [Level III, Grade C] An instrumental evaluation such as a video fluoroscopic swallowing examination (VFSE) or modified barium swallow examination (MBS) can be performed later if indicated.
 
 If the patient fails the swallowing test, a nasogastric tube should be inserted to prevent aspiration. PEG tube is superior to nasogastric tube feeding if a prolonged need for devices is anticipated.
 
-[Level II-1, Grade B] **Recommendation:** PEG is superior to nasogastric feeding only if prolonged enteral feeding is required.
+[Level II-1, Grade B]  PEG is superior to nasogastric feeding only if prolonged enteral feeding is required.
 
 ### 8.1.7: Infection
 Infection is the commonest complication after an acute stroke especially pneumonia and urinary tract infection.
 
 The appearance of fever should prompt a search for infection and appropriate antibiotic therapy should be administered early. Bladder catheters should be avoided if possible.
 
-[Level III, Grade C] **Recommendation:** Search for infection if fever appears and treat with appropriate antibiotics early.
+[Level III, Grade C]  Search for infection if fever appears and treat with appropriate antibiotics early.
 
-[New recommendation, Level I, Grade A] **Recommendation:** Routine use of prophylactic antibiotics has not been shown to be beneficial.
+[Level I, Grade A]  Routine use of prophylactic antibiotics has not been shown to be beneficial.
 
 ### 8.1.8: Fever
 A meta-analysis suggested that fever after the onset of stroke was associated with marked increase in mortality and morbidity.
 
-[Level II-1, Grade B] **Recommendation:** Antipyretics should be used to control elevated temperatures in acute stroke patients.
+[Level II-1, Grade B]  Antipyretics should be used to control elevated temperatures in acute stroke patients.
 
 The benefit of induced hypothermia for treating patients with ischaemic stroke is not well established.
 
-[New recommendation, Level I, Grade A] Hypothermia should be offered only in the context of on-going clinical trials.
+[Level I, Grade A] Hypothermia should be offered only in the context of on-going clinical trials.
 
 ### 8.1.9: Continence
 The application of indwelling catheter should be treated cautiously due to the risk of urinary tract infection.
 
-[New recommendation, Level I, Grade A] **Recommendation:** If being used, daily assessment (with excellent perineum care) needs to be carried out and should be removed as soon as possible.
+[Level I, Grade A]  If being used, daily assessment (with excellent perineum care) needs to be carried out and should be removed as soon as possible.
 
-[New recommendation, Level III, Grade C] **Recommendation:** All stroke patients should be screened for urinary retention or incontinence, faecal incontinence, and constipation. The use of portable ultrasound machine (non-invasive) is recommended for assessing the post-void residual volume. A bladder training program should be implemented in patient who have urinary incontinence, including the use of intermittent catheterization based on post-void residual urine volume and bowel management procedures should be taught to patients/carers of patients with constipation and faecal incontinence.
+[Level III, Grade C]  All stroke patients should be screened for urinary retention or incontinence, faecal incontinence, and constipation. The use of portable ultrasound machine (non-invasive) is recommended for assessing the post-void residual volume. A bladder training program should be implemented in patient who have urinary incontinence, including the use of intermittent catheterization based on post-void residual urine volume and bowel management procedures should be taught to patients/carers of patients with constipation and faecal incontinence.
 
 ### 8.1.10: Raised Intracranial Pressure
 Cerebral oedema and increased intracranial pressure largely occur with large cerebral infarctions.
@@ -97,45 +97,45 @@ Cerebral oedema and increased intracranial pressure largely occur with large cer
 
 [Level I] Disability outcomes after acute stroke did not differ significantly between patients assigned to a lying-flat position for 24 hours and patients assigned to a sitting-up position with the head elevated to at least 30 degrees for 24 hours.
 
-[Level II-2, Grade B] **Recommendation:** Mannitol (0.25 to 0.5g/kg) administered intravenously over 20 minutes lowers intracranial pressure and can be given every 6 hours. Maximum daily dose is 2g/kg.
+[Level II-2, Grade B]  Mannitol (0.25 to 0.5g/kg) administered intravenously over 20 minutes lowers intracranial pressure and can be given every 6 hours. Maximum daily dose is 2g/kg.
 
-[Level III, Grade C] **Recommendation:** If hydrocephalus is present, drainage of cerebrospinal fluid via an intra-ventricular catheter can rapidly lower intracranial pressure.
+[Level III, Grade C]  If hydrocephalus is present, drainage of cerebrospinal fluid via an intra-ventricular catheter can rapidly lower intracranial pressure.
 
 The pooled result of RCTs demonstrated significant reduction in mortality when decompressive craniectomy was performed within 48 hours of malignant MCA infarction in patients <60 years of age, with an absolute risk reduction in mortality of 50% (95% CI 34–66%) at 12 months.
 
 There is evidence that patients aged >60 years can benefit from decompressive craniectomy. Hemicraniectomy increased survival without severe disability among patients aged 61 years or older with a malignant middle-cerebral-artery infarction. The majority of survivors required assistance with most of the bodily functional needs.
 
-[New recommendation, Level I, Grade A] **Recommendation:** Hemicraniectomy and surgical decompressive therapy within 48 hours after symptom onset is recommended to control intracranial pressure and prevent herniation among those patients with very large infarcts of the cerebral hemisphere.
+[Level I, Grade A]  Hemicraniectomy and surgical decompressive therapy within 48 hours after symptom onset is recommended to control intracranial pressure and prevent herniation among those patients with very large infarcts of the cerebral hemisphere.
 
-[New recommendation, Level I, Grade A] **Recommendation:** Patients >60 years of age may be considered for decompressive craniectomy in selected cases.
+[Level I, Grade A]  Patients >60 years of age may be considered for decompressive craniectomy in selected cases.
 
-[Level II-2, Grade B] **Recommendation:** Ventriculostomy and sub-occipital craniectomy are effective in relieving hydrocephalus and brain stem compression caused by large cerebellar infarctions.
+[Level II-2, Grade B]  Ventriculostomy and sub-occipital craniectomy are effective in relieving hydrocephalus and brain stem compression caused by large cerebellar infarctions.
 
 ### 8.1.11: Deep Vein Thrombosis
 Venous thromboembolism is a common, potentially avoidable cause of death and morbidity in patients, including those with stroke. Up to 50% of patients have thrombus in either the calf or thigh of the paretic limb.
 
 Intermittent pneumatic compression (IPC) is an effective method of reducing the risk of DVT and to possibly improve survival in a variety of patients who are immobile after stroke.
 
-[New recommendation, Level I, Grade A] **Recommendation:** For immobile stroke patients without contraindications, intermittent pneumatic compression (IPC) in addition to routine care (aspirin and hydration) is recommended over routine care to reduce the risk of deep vein thrombosis (DVT).
+[Level I, Grade A]  For immobile stroke patients without contraindications, intermittent pneumatic compression (IPC) in addition to routine care (aspirin and hydration) is recommended over routine care to reduce the risk of deep vein thrombosis (DVT).
 
 Prophylactic anticoagulants (unfractionated heparin or LMWH) were not associated with any significant effect on mortality or functional status at the final follow-up. There were statistically significant reductions in the incidences of symptomatic pulmonary embolisms and in DVTs, most of which were asymptomatic. There were statistically significant increases in the incidences of symptomatic intracranial haemorrhage and symptomatic extracranial haemorrhages.
 
-[New recommendation, Level III, Grade C] **Recommendation:** The benefit of prophylactic-dose subcutaneous heparin (unfractionated heparin [UFH] or LMWH) in immobile patients with AIS is not well established.
+[Level III, Grade C]  The benefit of prophylactic-dose subcutaneous heparin (unfractionated heparin [UFH] or LMWH) in immobile patients with AIS is not well established.
 
 The CLOTS 1 and 2 trials showed that graduated compression stockings were ineffective in preventing VTE or improving functional outcomes in stroke. Skin breaks, ulcers, blisters, and skin necrosis were significantly more common in patients allocated to graduated compression stockings than in those who avoided their use.
 
-[New recommendation, Level I, Grade A] **Recommendation:** In ischaemic stroke, elastic compression stockings should not be used.
+[Level I, Grade A]  In ischaemic stroke, elastic compression stockings should not be used.
 
 ### 8.1.12: Seizure
 Early seizures after stroke are relatively uncommon, however if they do occur, it is associated with a poor outcome. Risk factors includes a more severe stroke severity and cortical involvement.
 
-[New recommendation, Level III, Grade C] **Recommendation:** New-onset seizures in admitted patients with acute stroke should be treated using appropriate short-acting medications if they are not self-limiting.
+[Level III, Grade C]  New-onset seizures in admitted patients with acute stroke should be treated using appropriate short-acting medications if they are not self-limiting.
 
-[New recommendation, Level III, Grade C] **Recommendation:** A single, self-limiting seizure occurring at the onset, or within 24 hours after an ischemic stroke (considered an "immediate" post-stroke seizure) should not be treated with long-term anticonvulsant medications. The use of prophylactic anti-seizure medications is not recommended.
+[Level III, Grade C]  A single, self-limiting seizure occurring at the onset, or within 24 hours after an ischemic stroke (considered an "immediate" post-stroke seizure) should not be treated with long-term anticonvulsant medications. The use of prophylactic anti-seizure medications is not recommended.
 
-[New recommendation, Level III, Grade C] **Recommendation:** Patients that have an immediate post-stroke seizure should be monitored for recurrent seizure activity and should be treated as per treatment recommendations for seizures in other neurological conditions and treatment should be individualised.
+[Level III, Grade C]  Patients that have an immediate post-stroke seizure should be monitored for recurrent seizure activity and should be treated as per treatment recommendations for seizures in other neurological conditions and treatment should be individualised.
 
-**Recommendations Summary:**
+Recommendations Summary:
 Table 8.1: Acute General Management
 | Factors | Recommendations | Level of Evidence | Grade |
 | --- | --- | --- | --- |
@@ -169,13 +169,12 @@ Table 8.1: Acute General Management
 | Seizure | A single, self-limiting seizure occurring at the onset, or within 24 hours after an ischemic stroke (considered an "immediate" post-stroke seizure) should not be treated with long-term anticonvulsant medications. The use of prophylactic anti-seizure medications is not recommended. *New recommendation* | III | C |
 | Seizure | Patients that have an immediate post-stroke seizure should be monitored for recurrent seizure activity and should be treated as per treatment recommendations for seizures in other neurological conditions and treatment should be individualised. *New recommendation* | III | C |
 
-**Key Recommendations:**
+Key Recommendations:
 1. Acute general management in stroke includes supportive care and treatment of acute complications in order to improve mortality and functional disability.
 2. General management includes the management of blood pressure, glycaemic control, nutritional support, prevention of infection and DVT and also to treat potential sequelae, e.g. raised intracranial pressure and seizure.
 
 <!-- parent_only_reference_start -->
 Appendix C: Operational definition - Terms and Descriptions
-
 | Terms | Descriptions |
 | --- | --- |
 | Bypass | Ambulances are directed to other facilities by bypassing the original destination. It is to ensure the stroke patient is sent to the nearest stroke centre rather than a facility that is not capable of thrombolysing the stroke patient. |
@@ -185,7 +184,7 @@ Appendix C: Operational definition - Terms and Descriptions
 | PHC responder | A medically trained person (usually an Assistant Medical Officer / Staff Nurse) who responds to pre-hospital calls. |
 | Pre-arrival alert | Providing notification of an incoming case prior to the patient's arrival. |
 
-Levels Of Evidence Scale
+Levels Of Evidence
 | Level | Description |
 | :---: | --- |
 | I | Evidence obtained from at least one properly randomized controlled trial |
