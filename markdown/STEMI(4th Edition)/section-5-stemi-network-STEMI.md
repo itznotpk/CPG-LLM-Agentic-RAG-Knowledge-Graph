@@ -18,7 +18,7 @@ The optimal treatment of these patients should be based on the implementation of
 The main features of such a network are:
 - Clear definition of geographic areas of responsibility.
 - Shared written protocols based on risk stratification and transportation by a trained physician, nurse, or PHC personnel in appropriately equipped ambulances.
-- Pre-hospital triage and management of STEMI patients (refer to Section 4: Pre-Hospital Management).
+- Pre-hospital triage and management of STEMI patients (refer to Section 4: Pre-Hospital Management).<!-- cross_ref target_file="section-4-pre-hospital-management-STEMI.md" target_heading="Section 4: Pre-Hospital Management" target_kind="h1_section" -->
 
 Ideally, primary PCI centres (hub) should perform the procedure systematically on a 24/7 basis for all STEMI patients. In centres with limited resources, a primary PCI programme should still be encouraged and eventually aim to offer a 24/7 service.
 

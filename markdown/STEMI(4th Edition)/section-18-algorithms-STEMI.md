@@ -18,9 +18,8 @@ treatment_type: defibrillation, amiodarone, epinephrine, atropine, cardioversion
 **Step 2: Assess — Is rhythm shockable?**
 - **Yes →** Go to Shockable Pathway (VF / Pulseless VT)
 - **No →** Go to Non-Shockable Pathway (Asystole / PEA)
----
 
-### Shockable Pathway (Vf / Pulseless Vt)
+**Shockable Pathway (Vf / Pulseless Vt)**
 **Step 2:** Identify VF/pVT on monitor.
 
 **Step 3:** Deliver shock.
@@ -47,9 +46,7 @@ treatment_type: defibrillation, amiodarone, epinephrine, atropine, cardioversion
 - Treat reversible causes.
 - Continue cycles: CPR 2 min → rhythm check → shock if shockable.
 
----
-
-### Non-Shockable Pathway (Asystole / Pea)
+**Non-Shockable Pathway (Asystole / Pea)**
 **Step 9:** Identify Asystole/PEA on monitor.
 
 **Step 10:** CPR for 2 minutes.
@@ -67,9 +64,7 @@ treatment_type: defibrillation, amiodarone, epinephrine, atropine, cardioversion
   - If no signs of return of spontaneous circulation (ROSC), go to Step 10 or 11.
   - If ROSC, go to Post-Cardiac Arrest Care.
 
----
-
-### Cpr Quality Standards
+**CPR Quality Standards**
 - Push hard: at least 2 inches (5 cm) depth, at a rate of 100–120/min. Allow complete chest recoil.
 - Minimise interruptions in compressions.
 - Avoid excessive ventilation.
@@ -78,30 +73,28 @@ treatment_type: defibrillation, amiodarone, epinephrine, atropine, cardioversion
 - Quantitative waveform capnography: if PETCO₂ < 10 mmHg, attempt to improve CPR quality.
 - Intra-arterial pressure: if relaxation phase (diastolic) pressure < 20 mmHg, attempt to improve CPR quality.
 
-### Shock Energy For Defibrillation
+**Shock Energy For Defibrillation**
 - **Biphasic:** Manufacturer recommendation (e.g. initial dose of 120–200 J); if unknown, use maximum available. Second and subsequent doses should be equivalent, and higher doses may be considered.
 - **Monophasic:** 360 J.
 
-### Drug Therapy
+**Drug Therapy**
 - **Epinephrine IV/IO dose:** 1 mg every 3–5 minutes.
 - **Amiodarone IV/IO dose:** First dose: 300 mg bolus. Second dose: 150 mg.
 
-### Advanced Airway
+**Advanced Airway**
 - Endotracheal intubation or supraglottic advanced airway.
 - Waveform capnography or capnometry to confirm and monitor ET tube placement.
 - Once advanced airway in place, give 1 breath every 6 seconds (10 breaths/min) with continuous chest compressions.
 
-### Return Of Spontaneous Circulation (Rosc)
+**Return Of Spontaneous Circulation (Rosc)**
 Signs of ROSC include:
 - Pulse and blood pressure.
 - Abrupt sustained increase in PETCO₂ (typically > 40 mmHg).
 - Spontaneous arterial pressure waves with intra-arterial monitoring.
 
-### Reversible Causes (5 H's And 5 T's)
+**Reversible Causes (5 H's And 5 T's)**
 - **H:** Hypovolaemia, Hypoxia, Hydrogen ion (acidosis), Hypo-/Hyperkalaemia, Hypothermia.
 - **T:** Tension pneumothorax, Tamponade (cardiac), Toxins, Thrombosis (pulmonary), Thrombosis (coronary).
-
----
 
 ## Algorithm 2: Stable Ventricular Tachycardia (Vt)
 *(If unstable → immediate synchronised cardioversion)*
@@ -134,8 +127,6 @@ Signs of ROSC include:
 **Footnotes:**
 - *ABC: Airway, Breathing, Circulation*
 - *CV: Cardioversion*
-
----
 
 ## Algorithm 3: Atrial Fibrillation
 **Step 1: Search and treat identifiable underlying causes.**
@@ -173,8 +164,6 @@ Assess LV function:
 **Footnote:**
 - *CV: Cardioversion*
 
----
-
 ## Algorithm 4: Bradycardia
 **Step 1: Identify Bradycardia**
 - Slow: absolute bradycardia ≤ 50 bpm, **or**
@@ -208,34 +197,3 @@ Assess LV function:
 
 **Footnote:**
 - *ABC: Airway, Breathing, Circulation*
-
-<!-- parent_only_reference_start -->
-Abbreviations
-| Abbreviation | Description |
-|---|---|
-| ABC | Airway, Breathing, Circulation |
-| AF | Atrial Fibrillation |
-| AV | Atrioventricular |
-| BLS | Basic Life Support |
-| bpm | Beats per minute |
-| CABG | Coronary Artery Bypass Grafting |
-| CCB | Calcium Channel Blocker |
-| CPR | Cardiopulmonary Resuscitation |
-| CV | Cardioversion |
-| DOAC | Direct Oral Anticoagulant |
-| ECG | Electrocardiogram |
-| ET | Endotracheal |
-| HF | Heart Failure |
-| IO | Intraosseous |
-| IV | Intravenous |
-| LV | Left Ventricular |
-| MI | Myocardial Infarction |
-| PCI | Percutaneous Coronary Intervention |
-| PEA | Pulseless Electrical Activity |
-| PETCO₂ | End-Tidal Carbon Dioxide |
-| pVT | Pulseless Ventricular Tachycardia |
-| ROSC | Return of Spontaneous Circulation |
-| STEMI | ST Segment Elevation Myocardial Infarction |
-| VF | Ventricular Fibrillation |
-| VT | Ventricular Tachycardia |
-<!-- parent_only_reference_end -->

@@ -13,7 +13,7 @@ Patients above the age of 75 years have much higher in-hospital as well as 1-yea
 - Non-diagnostic and difficult to interpret ECGs complicated by an abnormal baseline.
 - Non-diagnostic cardiac biomarkers. The baseline troponin levels may be elevated in as many as 22% of the elderly without an MI because of pre-existing cardiac and renal disease. Thus, a high index of suspicion must be present to make a diagnosis of ACS in older individuals. The trend of a rise and fall cardiac biomarker levels is critical to the diagnosis.
 
-### Management
+**Management**
 Evidence for risk-benefit ratio for interventions in older patients is scarce as they were largely excluded from most of the large trials and data is mainly derived from post-hoc analysis. In determining the appropriate management for this group, one should consider the heterogeneity of this population and consider the biological age rather than the chronological age of the patient. Therefore, the risk-benefit ratio of each intervention should be individualised so that these patients are not excluded from interventions. It is important to assess frailty, general health and functional status, co-morbidities as well as the particular wishes of the patient and family.
 
 In addition, age-related differences in physiology can affect disease manifestation, bleeding risks, drug metabolism and management. Most MIs in older patients are NSTEMI rather than STEMI. Older patients are more likely to develop left ventricular failure (more than 50% of those aged > 75 years of age) and more than 10% develop cardiogenic shock. This is due to their more extensive disease, late presentation, and age-related changes in cardiac physiology or decreased vascular compliance, ventricular hypertrophy and remodelling.
@@ -38,7 +38,7 @@ In patients with STEMI, the blood glucose level was associated with adverse outc
 
 Patients with diabetes may have atypical presentations and this may contribute to their late presentation. They also tend to have more diffuse atherosclerotic disease.
 
-### Management
+**Management**
 Diabetic patients should be treated in a similar manner as non-diabetics.
 
 - Primary PCI is the reperfusion strategy of choice in these high-risk patients.
@@ -52,7 +52,7 @@ There is still a lack of consensus on the optimal management of blood sugars dur
 
 A general consensus is to keep blood sugars between 6–10 mmol/L in the acute setting and then aim for optimal control following discharge.
 
-### Pharmacotherapy In Diabetic Patients With Cad:
+**Pharmacotherapy In Diabetic Patients With CAD:**
 - Both the SGLT2i and the GLP-1 agonists have been shown to be associated with a reduction in the risk of CV composite end-points.
 - The SGLT2i have been shown to reduce the risk of heart failure.
 - In a meta-analysis, the SGLT2i and GLP-1 agonists have been associated with a reduction in all-cause mortality.
@@ -67,7 +67,7 @@ This gender difference in 30-day mortality was not seen if the analysis was adju
 
 Women tend to have atypical symptoms and generally do not present with classical ischaemic-type chest pain. They are more likely to have fatigue, neck pain, syncope, nausea, right arm pain, dizziness and jaw pain. Subjective reports of sleep disturbance preceding MI seem to be common in women. Thus a high degree of clinical suspicion is necessary to diagnose MI in women.
 
-### Management
+**Management**
 In general, women should be treated the same as men taking into consideration the following:
 - **Primary PCI** is the preferred reperfusion strategy. Women however, have higher early all-cause and cardiac mortality after primary PCI and they also have higher bleeding risk. Women are less likely to undergo coronary angiography and reperfusion and those who underwent primary PCI tend to have longer DBT.
 - Women given fibrinolytics (r-TPA) had a higher incidence but lower mortality from bleeding than men.
@@ -75,14 +75,14 @@ In general, women should be treated the same as men taking into consideration th
 - **Cardiac rehabilitation** — women, especially older women, are under-referred for cardiac rehabilitation. Efforts should be initiated to overcome these barriers.
 - Continuing HRT after STEMI does not confer a benefit nor pose a worrisome increase in risk. When considering the need for HRT for menopausal symptoms, clinical judgement is necessary.
 
-## Key Message 12:
+**Key Message 12:**
 - Diagnosis of STEMI in the elderly, diabetics and women is difficult and a high index of suspicion is important.
 - Treatment is the same although the elderly and women tend to have higher bleeding risk.
 
 ## 14.4: STEMI In Renal Disease
 Patients with all grades of CKD (refer to Appendix VI: Calculation of Creatinine Clearance and GFR for Drug Dosing Adjustments) have a worse prognosis after an MI compared to those with normal renal function; those on dialysis may have as high as 74% mortality at 2 years. The Scr at admission predicts long-term mortality even after successful primary PCI. One in 6 survivors develop worsening renal function during the admission and this is also associated with increased mortality even in patients with normal renal function at baseline.
 
-### Patients With CKD Tend To:
+**Patients With CKD Tend To:**
 - Be older.
 - Have more comorbidities such as diabetes.
 - Be on more cardio-protective medications.
@@ -94,9 +94,8 @@ Patients with all grades of CKD (refer to Appendix VI: Calculation of Creatinine
 
 Troponins may be elevated in patients with CKD even in the absence of ACS. A rise and fall in cardiac biomarkers is essential to make a diagnosis of MI. Small studies seem to indicate that Troponin I may be more specific for myocardial necrosis than Troponin T in CKD.
 
-### Management
+**Management**
 **Reperfusion Strategy:**
-
 The optimal mode of reperfusion in patients with CKD presenting with STEMI has not been addressed in large prospective trials. The best strategy in patients with severe CKD and those on dialysis is still unclear. Registry data seem to indicate that the benefits of reperfusion is uncertain in this population.
 
 In patients receiving fibrinolytics, there are no dose adjustment recommendations for the use of streptokinase, alteplase, reteplase, or tenecteplase in patients with CKD. However, the risk of intracranial haemorrhage is increased.
@@ -106,8 +105,7 @@ The success rate of emergency PCI in patients with CKD is generally lower and ca
 CIN is higher among patients undergoing primary PCI as compared to elective procedures. It occurs in as high as 20–30% of cases and is associated with adverse 1-year mortality. Half of these patients may go on to develop persistent renal failure. Recent studies have shown high-dose statin therapy to reduce the incidence of CIN but more studies are needed to confirm these findings.
 
 **Adjunctive Therapy:**
-
-Patients with CKD were excluded from most clinical trials and most of the available data is derived from post-hoc analyses. These patients have higher rates of bleeding and the doses of antithrombotic agents need to be adjusted accordingly. (refer to Table 15)
+Patients with CKD were excluded from most clinical trials and most of the available data is derived from post-hoc analyses. These patients have higher rates of bleeding and the doses of antithrombotic agents need to be adjusted accordingly. (refer to Table 15: Dosages Of Anti-Thrombotics In CKD)
 
 The Cockcroft -Gault (CG) equation has traditionally been used for drug dosing based on CrCL. In recent practice, the CKD-EPI Creatinine (CKD-EPI) has been used for drug dosing based on eGFR especially for newer generation drugs. Drug dosing adjustment, however, should be done according to the United States Food and Drug Administration or the European Medicine Agency approved drug labelling.
 
@@ -122,8 +120,7 @@ The Cockcroft -Gault (CG) equation has traditionally been used for drug dosing b
   - In patients with mild to moderate CKD, meta-analyses and post-hoc analyses of studies have noted benefits. In patients on ACE-I, renal function and potassium should be monitored.
   - In patients on dialysis, there is a lack of evidence concerning the cardiovascular benefits of statins. Aspirin, ß-blockers and ACE-Is however, remain beneficial.
 
-Table 15: Dosages Of Anti-Thrombotics In CKD⁴⁴⁷
-
+Table 15: Dosages Of Anti-Thrombotics In CKD
 | | LOADING DOSE | MAINTENANCE DOSE |
 |---|---|---|
 | UFH | No change | No change |
@@ -133,58 +130,19 @@ Table 15: Dosages Of Anti-Thrombotics In CKD⁴⁴⁷
 | Fondaparinux | Avoid if CrCL < 30 ml/minute | Avoid if CrCL < 30 ml/minute |
 | Tirofiban | 25 µg/kg IV over 3 minutes followed | CrCL ≤60 mL/minute: infusion of 0.075 µg/kg/minute for up to 18 h post-PCI |
 
-## Key Message 12 (Renal Disease):
+**Key Message 12 (Renal Disease):**
 - Treatment of STEMI in patients with CKD should be individualised.
 - Primary PCI is the preferred reperfusion strategy but morbidity and mortality are high.
 - In view of bleeding risks, the dosages of anti-platelet agents and antithrombotics need to be adjusted accordingly.
 - Aspirin, ß-blockers, ACE-I and statins are beneficial in patients with mild to moderate CKD. In patients on dialysis, only aspirin, ß-blockers and ACE-I remain beneficial.
 
----
-
-## Contextual Anchors (Overlapping)
-
-### Section 13: .2.2: Good Glycaemic Control (Overlapping)
-[Grade IIa, Level B] After STEMI, diabetic patients have a high risk of subsequent CVD events, including another MI, stroke, and death. While it is imperative to achieve good blood glucose control, glycaemic control should be individualised.
-
-Those with long duration of diabetes, known history of severe hypoglycaemia, advanced atherosclerosis, or advanced age/frailty may benefit from less aggressive targets. However, in type 2 diabetes, there is evidence that more intensive treatment of glycaemia (without causing hypoglycaemia) in newly diagnosed patients may reduce long-term CVD rates.
-
-Table 14: Individualised A1c Targets And Patients' Profile
-
-| A1c Targets | Patient's Profile |
-|---|---|
-| Tight (6.0–6.5%) | Newly diagnosed, younger age, healthier (long life expectancy, no CVD complications), low risk of hypoglycaemia |
-| 6.6–7.0% | All others |
-| Less tight (7.1–8.0%) | Comorbidities (coronary disease, heart failure, renal failure, liver dysfunction), short life expectancy, prone to hypoglycaemia |
-
----
-
-## Appendix III: STEMI Timi Risk Score For Predicting 30-Day Mortality
-| Categories | Options | Points |
-|---|---|---|
-| Age (years) | < 65 | 0 |
-| | 65–74 | 2 |
-| | ≥ 75 | 3 |
-| Weight < 67 kg | Yes / No | 1 / 0 |
-| SBP < 100 mmHg | Yes / No | 3 / 0 |
-| Heart rate > 100 bpm | Yes / No | 2 / 0 |
-| Killip Class II–IV | Yes / No | 2 / 0 |
-| Anterior ST segment elevation or LBBB | Yes / No | 1 / 0 |
-| Time to treatment > 4 hours | Yes / No | 1 / 0 |
-| History of diabetes, hypertension, or angina | Yes / No | 1 / 0 |
-
-**TIMI Risk Score:** 0–14 plausible points
-
-- **Low and moderate risk:** 5 points and below (< 12% mortality)
-- **High-risk:** 6 points and above (16–36.0% mortality)
-
----
-
-## Appendix VI: Calculation Of Creatinine Clearance And GFR For Drug Dosing Adjustments
+<!-- parent_only_reference_start -->
+Appendix VI: Calculation Of Creatinine Clearance And GFR For Drug Dosing Adjustments
 Creatinine clearance (CrCL) is determined by the Cockcroft-Gault (CG) Equation whereas eGFR can be derived from various equations including most commonly, the CKD-EPI Creatinine (CKD-EPI) and Modification of Diet in Renal Disease Study (MDRD) Equations.
 
 In a local population, CKD-EPI performs just as well as CKD-MDRD for GFR 60–89 ml/min and better at the other GFR levels.
 
-### Equations For Estimation Of Renal Function
+**Equations For Estimation Of Renal Function**
 **i. 2009 CKD-EPI Creatinine Equation:**
 
 141 × min(Scr/κ, 1)^α × max(Scr/κ, 1)^(−1.209) × 0.993^Age [× 1.018 if female] [× 1.159 if black]
@@ -197,95 +155,44 @@ Where:
 - max indicates the maximum of Scr/κ or 1
 
 **ii. Cockcroft-Gault Creatinine Clearance:**
-
 CrCL (ml/min/1.73 m²) = (140 − age (years)) × body weight (kg) / Scr (µmol/L) × Constant
-
 Where the constant is **1.23 in males** or **1.04 in females**.
 
----
-
-### Section 7: Reperfusion Strategies (Overlapping)
-[Grade I, Level A] Early and prompt reperfusion is crucial as **TIME LOST** is equivalent to **MYOCARDIUM LOST**.
-
-[Grade I, Level A] Primary PCI is superior to fibrinolytic therapy as a reperfusion strategy.
-
-The best reperfusion strategy depends upon:
-
-**A. Time from onset of symptoms to STEMI Diagnosis:**
-- **Early presentation (within 3 hours):** [Grade I, Level A] Both PCI and fibrinolysis equally effective, except where fibrinolysis is contraindicated, in high-risk patients, or PCI time delay (DBT minus DNT) > 60 minutes — then primary PCI is preferred.
-- **Late presentation (3–12 hours):** [Grade I, Level A] Primary PCI preferred. STEMI diagnosis to wire crossing ≤ 90 min (PCI-capable facility) or ≤ 120 min (transferred). If delay > 120 min, fibrinolysis + pharmaco-invasive strategy.
-- **Very late presentation (> 12 hours):** [Grade I, Level A] Not routinely recommended unless persistent ischaemic symptoms, haemodynamic or electrical instability — primary PCI preferred.
-
-**B. Contraindications to fibrinolytic therapy:**
-- **Absolute:** History of intracranial bleed, ischaemic stroke within 3 months, known cerebral vascular lesion/neoplasm, active bleeding, significant head trauma within 3 months, suspected aortic dissection.
-- **Relative:** Severe uncontrolled hypertension (BP > 180/110), ischaemic stroke > 3 months, anticoagulant use (INR > 2 or DOAC), recent surgery < 3 weeks, traumatic/prolonged CPR > 10 min, recent internal bleeding, non-compressible vascular puncture, active peptic ulcer, pregnancy, prior streptokinase exposure.
-
-**C. High-risk patients** (primary PCI preferred):
-- Large infarcts, anterior infarcts, hypotension and cardiogenic shock, significant arrhythmias, elderly patients, post-revascularization (post-CABG/PCI), post-infarct angina.
-
-**Failed Fibrinolysis:**
-- Manifested as continuing chest pain, persistent ST elevation, haemodynamic instability.
-- [Grade I, Level A] Rescue PCI is treatment of choice.
-- [Grade III, Level B] A second dose of fibrinolytic agent should not be given.
-
-**Transfer to PCI-capable centres should be considered for:**
-- [Grade I, Level A] Fibrinolytic therapy contraindicated, irrespective of time delay.
-- [Grade I, Level A] Cardiogenic shock, irrespective of time delay.
-- [Grade I, Level A] Failed fibrinolytic therapy or re-occlusion post-fibrinolysis.
-
-#### Key Recommendation 5 (From Section 7):
-- Primary PCI is the preferred reperfusion strategy in patients with STEMI.
-- For hospitals without PCI capability, fibrinolysis should be available with a Door-to-Needle Time (DNT) of ≤ 30 minutes.
-
----
-Table 1: Levels Of Evidence And Grades Of Recommendation
-
+Grades Of Recommendation
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>II-a: Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>II-b: Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-<br>
-
+Levels Of Evidence
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
 | A | Data derived from multiple randomised clinical trials or meta-analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
 | ACS | Acute Coronary Syndrome |
-| ARB | Angiotensin Receptor Blocker |
-| BP | Blood Pressure |
 | CABG | Coronary Artery Bypass Grafting |
 | CG | Cockcroft-Gault |
 | CHD | Coronary Heart Disease |
 | CIN | Contrast Induced Nephropathy |
 | CKD | Chronic Kidney Disease |
 | CKD-EPI | Chronic Kidney Disease Epidemiology Collaboration |
-| CPR | Cardiopulmonary Resuscitation |
 | CrCL | Creatinine Clearance |
 | CV | Cardiovascular |
 | CVD | Cardiovascular Disease |
-| DAPT | Dual Antiplatelet Therapy |
 | DBT | Door-to-Balloon Time |
-| DNT | Door-to-Needle Time |
-| DOAC | Direct Oral Anticoagulant |
 | DPP-4i | Dipeptidyl Peptidase-4 Inhibitor |
-| ECG | Electrocardiogram |
 | eGFR | Estimated Glomerular Filtration Rate |
 | GFR | Glomerular Filtration Rate |
 | GLP-1 | Glucagon-Like Peptide-1 |
 | HRT | Hormone Replacement Therapy |
-| INR | International Normalised Ratio |
 | IV | Intravenous |
-| LBBB | Left Bundle Branch Block |
 | LV | Left Ventricular |
 | MDRD | Modification of Diet in Renal Disease |
 | MI | Myocardial Infarction |
@@ -294,10 +201,10 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | NYHA | New York Heart Association |
 | PCI | Percutaneous Coronary Intervention |
 | r-TPA | Recombinant Tissue Plasminogen Activator |
-| SBP | Systolic Blood Pressure |
 | SC | Subcutaneous |
 | Scr | Serum Creatinine |
 | SGLT2i | Sodium-Glucose Co-Transporter 2 Inhibitor |
 | STEMI | ST Segment Elevation Myocardial Infarction |
 | TIMI | Thrombolysis in Myocardial Infarction |
 | UFH | Unfractionated Heparin |
+<!-- parent_only_reference_end -->

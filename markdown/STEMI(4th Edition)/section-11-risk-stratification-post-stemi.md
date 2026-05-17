@@ -11,7 +11,7 @@ treatment_type: ICD, beta_blocker, ACEi, MRA, statin
 Risk stratification of patients post-STEMI serves to prognosticate and identify appropriate treatment strategies. It starts from admission and is a continuing process. It is especially important in patients treated medically and those with multivessel disease who underwent PCI of the IRA only.
 
 ## 11.1: Short-Term Risk
-All patients with STEMI should have an early assessment of short-term risk. This can be done using the STEMI TIMI or GRACE risk scores (refer to Appendix III: STEMI TIMI Risk Score for Predicting 30-Day MortalityI & Appendix IV: GRACE ACS Risk Model).
+All patients with STEMI should have an early assessment of short-term risk. This can be done using the STEMI TIMI or GRACE risk scores (refer to Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality & Appendix IV: GRACE ACS Risk Model).
 
 In evaluating risk, the following are important considerations:
 - An evaluation of the extent of myocardial damage.
@@ -91,7 +91,7 @@ In addition, the following patients should be considered for an ICD:
 - [Grade I, Level A] Secondary prevention in patients with resuscitated sudden cardiac death.
 - [Grade IIa, Level A] Primary prevention in patients with LV dysfunction (EF < 30%). ICD may be considered 40 days post-STEMI and 3 months post-revascularization.
 
-## Key Recommendation 9:
+**Key Recommendation 9:**
 - All patients post-STEMI should be risk-stratified either clinically or by using the STEMI TIMI and/or GRACE risk scores.
 - STEMI patients who present initially to non-PCI-capable hospitals should be referred for early coronary angiography with a view to revascularization in the presence of any of the following:
   - Post-infarct angina
@@ -100,11 +100,8 @@ In addition, the following patients should be considered for an ICD:
   - In the presence of a depressed LV function (LVEF ≤ 35%) and significant regional wall motion abnormalities
   - STEMI TIMI risk score ≥ 6.0 (refer to Appendix III: STEMI TIMI Risk Score for Predicting 30-Day Mortality)
 
----
-
-## Contextual Anchors (Overlapping)
-
-### Appendix III: STEMI Timi Risk Score For Predicting 30-Day Mortality
+<!-- parent_only_reference_start -->
+Appendix III: STEMI Timi Risk Score For Predicting 30-Day Mortality
 | Categories | Options | Points |
 |---|---|---|
 | Age (years) | < 65 | 0 |
@@ -123,11 +120,8 @@ In addition, the following patients should be considered for an ICD:
 - **Low and moderate risk:** 5 points and below (< 12% mortality)
 - **High-risk:** 6 points and above (16–36.0% mortality)
 
----
-
-### Appendix IV: Grace ACS Risk Model
-
-### At Admission (In-Hospital/to 6 Months)
+Appendix IV: Grace ACS Risk Model
+**At Admission (In-Hospital/to 6 Months)**
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -139,7 +133,7 @@ In addition, the following patients should be considered for an ICD:
 | ST segment deviation | Yes / No |
 | Elevated cardiac enzymes/markers | Yes / No |
 
-### At Discharge (To 6 Months)
+**At Discharge (To 6 Months)**
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -154,128 +148,22 @@ In addition, the following patients should be considered for an ICD:
 | ST segment depression | Yes / No |
 | Elevated cardiac enzymes/markers | Yes / No |
 
----
-
-### Section 9: Complications Of STEMI (Overlapping)
-Complications of STEMI include: arrhythmias, LV dysfunction and shock, mechanical complications, RV infarction, and others (e.g., pericarditis).
-
-## 9.1: Arrhythmias
-**A. Tachyarrhythmias:**
-- **Pulseless VT/VF** — Defibrillate immediately. Early VF (within 48 hours) is due to electrical instability. Late VF is associated with large infarcts and poor pump function — poor prognosis.
-- **VT** — May arise from ischaemia (within 48 hours) or myocardial scar (late onset). Treatment of ischaemia may terminate tachycardia.
-- **VPC** — Often benign; correct underlying ischaemia, hypoxia and electrolyte disturbances.
-- **Accelerated Idioventricular Rhythm** — No treatment required; sign of successful reperfusion.
-- **AF** — More common in elderly, associated with large infarcts, poorer prognosis, increased thromboembolism risk.
-
-**B. Bradyarrhythmias:**
-- **Sinus Bradycardia** — No treatment unless symptomatic/hypotensive.
-- **AV Block** — First degree and Mobitz 1 do not need treatment. Mobitz 2 and complete AV block: temporary pacing if unstable (atropine up to 3 mg in interim). Anterior infarcts with Mobitz 2/complete AV block carry worse prognosis — pacing even if stable.
-- **Asystole/PEA** — Non-shockable rhythms.
-
-## 9.2: Lv Dysfunction And Cardiogenic Shock
-LV dysfunction is the single strongest predictor of mortality following STEMI. Killip Classification is used for clinical grading.
-
-**Cardiogenic Shock:**
-- Occurs in 6–10% of STEMI cases; hospital mortality ~70% (reduced to ~50% with timely primary PCI).
-- Criteria: SBP < 90 mmHg for 30 min (or MAP < 65 mmHg), pulmonary congestion, impaired organ perfusion (altered mental status, cold/clammy skin, oliguria, elevated lactate).
-- Management: noradrenaline (first choice inotrope), emergency PCI, IABP (individualised), ECMO/LV assist device if refractory.
-
-## 9.3: Mechanical Complications
-- **Free wall rupture** — usually fatal, sudden cardiovascular collapse and haemopericardium.
-- **Ventricular septal rupture** — urgent surgical or percutaneous closure.
-- **Mitral regurgitation** — suspect with sudden deterioration, new murmurs, diminished heart sounds. Confirm by echocardiography.
-
-## 9.4: Rv Infarct
-- Complicates ~5–10% of all STEMI; occurs in 30–50% of inferobasal MI.
-- Clinical triad: hypotension, clear lung fields, elevated JVP in setting of inferior STEMI.
-- ST elevation in V4R is most specific finding (may be transient, resolving within 8–10 hours).
-- Management: IV fluid optimisation (key therapy); avoid nitrates and diuretics. Inotropes if needed. Failure to respond usually indicates concomitant LV dysfunction.
-
-## 9.5: Others
-- **Reinfarction/Recurrent MI** — 1.8% at 30 days, 4% at 1 year. Diagnosed by recurrent chest pain, ST re-elevation, re-elevation of cardiac biomarkers. Consider rescue PCI.
-- **Post-Infarct Angina** — Up to 20% after fibrinolysis at 30 days. Early coronary angiography with revascularization indicated.
-- **Pericarditis** — ~1.2% incidence. Pain worse on inspiration, relieved sitting forward. Treatment: aspirin 600 mg 3–4 times/day, colchicine for recurrences.
-- **LV Thrombus** — Prevalence reduced to 2.7% with primary PCI era. Anticoagulation 3–6 months.
-- **DVT** — Prophylactic anticoagulation in high-risk patients (prolonged bed rest, HF, immobile).
-
-#### Key Message 9 (From Section 9):
-- Important complications following STEMI are arrhythmias and HF.
-- HF may be due to extensive myocardial damage or mechanical complications.
-- Chest pain post-STEMI may be due to: reinfarction, post-infarct angina, or pericarditis.
-
----
-
-### Section 13: Secondary Prevention (Overlapping)
-
-## 13.1: Non-Pharmacological Measures
-- **Smoking Cessation:** [Grade I, Level A] Consistently associated with mortality benefit. Persistent smokers at 30 days post-PCI had almost twofold increase in long-term mortality. All smoking cessation interventions (NRT, varenicline, bupropion) are safe in cardiac patients.
-- **Diet and Weight Control:** Mediterranean-style diet recommended. Salt < 5 g/day, 30–45 g fibre/day, ≥ 200 g fruits and 200 g vegetables/day, fish 1–2 times/week, 30 g unsalted nuts daily. Maintaining healthy weight recommended. [Grade I, Level B]
-- **Regular Exercise:** [Grade I, Level A] Regular supervised exercise after MI prevents future complications and increases quality of life and longevity. Refer to cardiac rehabilitative physician for exercise prescription.
-
-## 13.2: Control Of CV Risk Factors
-- **Hypertension:** Target BP 110 to < 140/< 90 mmHg. [Grade I, Level A] Drugs of choice: ß-blockers, ACE-Is, ARBs. Lifestyle modification also recommended.
-- **Glycaemic Control:** [Grade IIa, Level B] Diabetic patients post-STEMI have high risk of subsequent CVD events. Glycaemic control should be individualised:
-
-| A1c Targets | Patient Profile |
-|---|---|
-| Tight (6.0–6.5%) | Newly diagnosed, younger, healthier, low hypoglycaemia risk |
-| 6.6–7.0% | All others |
-| Less tight (7.1–8.0%) | Comorbidities (CAD, HF, renal/liver dysfunction), short life expectancy, prone to hypoglycaemia |
-
-## 13.3: Pharmacotherapy For Secondary Prevention
-**A. Antiplatelet agents:**
-- [Grade I, Level A] Aspirin 75–100 mg daily indefinitely.
-- [Grade I, Level A] P2Y₁₂ inhibitor (clopidogrel, ticagrelor, or prasugrel) as component of DAPT.
-- [Grade IIb, Level B] Ticagrelor 60 mg bd up to 3 years in high-risk patients.
-
-**B. Statins:**
-- [Grade I, Level A] Target LDL-C < 1.8 mmol/L — the lower the better.
-- [Grade I, Level A] Non-statin therapy (ezetimibe, PCSK-9 inhibitors) if LDL-C target not achieved.
-
-**C. ß-blockers:**
-- [Grade I, Level A] Indicated in all patients post-STEMI, especially with HF or LV dysfunction.
-
-**D. ACE-Is and ARBs:**
-- [Grade I, Level A] Within 24 hours for high-risk patients (LVEF ≤ 40%, HF, DM, anterior infarct). Continued indefinitely if no contraindications.
-- [Grade IIb, Level B] Routine use > 1 year not recommended in stable CAD with preserved LV function.
-
-**E. MRA:**
-- [Grade I, Level B] Eplerenone in patients with LVEF ≤ 40% and HF, absence of renal failure.
-
-**F. DOAC:**
-- [Grade IIa, Level B] Rivaroxaban 2.5 mg bd + aspirin 100 mg daily in high-risk post-MI patients — significantly reduced major CV events at 2 years (increased bleeding risk).
-
-**G. Anti-ischaemic Therapy:**
-- [Grade IIa, Level B] ß-blockers and/or CCBs as first-line for persistent angina.
-- [Grade IIa, Level B] Ivabradine, trimetazidine, long-acting nitrates, ranolazine as add-on therapy.
-
-#### Key Recommendation 10 (From Section 13):
-- All patients post-STEMI should receive secondary prevention interventions:
-  - Smoking cessation and lifestyle changes
-  - Regular exercise
-  - Control of CV risk factors (hypertension, diabetes, dyslipidaemia)
-  - Drug therapy: antiplatelets, statins, ß-blockers (< 1 year all; > 1 year if LVEF ≤ 40%), ACE-I/ARB (< 1 year all; > 1 year if LVEF ≤ 40%, anterior infarct, diabetes)
-
----
-Table 1: Levels Of Evidence And Grades Of Recommendation
-
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
-| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>**II-a:** Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>**II-b:** Usefulness/efficacy is less well established by evidence/opinion. |
+| II | Conditions for which there is conflicting evidence and/or divergence of opinion about the usefulness/efficacy of a procedure/therapy.<br>II-a: Weight of evidence/opinion is in favour of its usefulness/efficacy.<br>II-b: Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-<br>
-
+Levels Of Evidence
 | LEVELS OF EVIDENCE | |
 | :--- | :--- |
 | A | Data derived from multiple randomised clinical trials or meta-analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
----
-
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
@@ -322,3 +210,4 @@ Table 1: Levels Of Evidence And Grades Of Recommendation
 | VF | Ventricular Fibrillation |
 | VPC | Ventricular Premature Contractions |
 | VT | Ventricular Tachycardia |
+<!-- parent_only_reference_end -->

@@ -25,8 +25,7 @@ The following conditions may cause ECG changes that may be confused with that of
 In these difficult situations where the ECG is non-diagnostic, cardiac imaging techniques such as echocardiogram looking for presumed new wall motion abnormalities or elevation of cardiac biomarkers will help in making the diagnosis.
 
 ## Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischaemic Heart Disease
-
-### Damage Related To Secondary Myocardial Ischaemia (MI Type 2)
+**Damage Related To Secondary Myocardial Ischaemia (MI Type 2)**
 - Tachy- or bradyarrhythmias
 - Aortic dissection and severe aortic valve disease
 - Hypo- or hypertension, e.g., haemorrhagic shock, hypertensive emergency
@@ -35,7 +34,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - Coronary vasculitis, e.g., systemic lupus erythematosus, Kawasaki syndrome
 - Coronary endothelial dysfunction without significant CAD, e.g., cocaine abuse
 
-### Damage Not Related To Myocardial Ischaemia
+**Damage Not Related To Myocardial Ischaemia**
 - Cardiac contusion
 - Cardiac incisions with surgery
 - Radiofrequency or cryoablation therapy
@@ -44,7 +43,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - Cardiotoxic agents, e.g., anthracyclines, herceptin, carbon monoxide poisoning
 - Severe burns affecting > 30% of body surface
 
-### Indeterminant Or Multifactorial Group
+**Indeterminant Or Multifactorial Group**
 - Apical ballooning syndrome
 - Severe pulmonary embolism or pulmonary hypertension
 - Peripartum cardiomyopathy
@@ -76,7 +75,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 - **High-risk:** 6 points and above (16–36.0% mortality)
 
 ## Appendix IV: Grace ACS Risk Model
-### At Admission (In-Hospital/to 6 Months)
+**At Admission (In-Hospital/to 6 Months)**
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -88,7 +87,7 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 | ST segment deviation | Yes / No |
 | Elevated cardiac enzymes/markers | Yes / No |
 
-### At Discharge (To 6 Months)
+**At Discharge (To 6 Months)**
 | Categories | Options |
 |---|---|
 | Age (years) | < 30, 30–39, 40–49, 50–59, 60–69, 70–79, 80–89, 90–100 |
@@ -117,7 +116,6 @@ In these difficult situations where the ECG is non-diagnostic, cardiac imaging t
 | Diabetes Mellitus | Yes / No | 1 / 0 |
 
 **Score Interpretation:**
-
 - CHA₂DS₂-VASc score 0 in men or 1 in women: **Low risk** — reasonable to omit anti-coagulation.
 - CHA₂DS₂-VASc score 1 in men or 2 in women: **Moderate risk** — antiplatelet or anti-coagulation.
 - CHA₂DS₂-VASc score ≥ 2 in men and ≥ 3 in women: **Moderate to high risk** — should be anti-coagulated.
@@ -127,7 +125,7 @@ Creatinine clearance (CrCL) is determined by the Cockcroft-Gault (CG) Equation w
 
 In a local population, CKD-EPI performs just as well as CKD-MDRD for GFR 60–89 ml/min and better at the other GFR levels.
 
-### Equations For Estimation Of Renal Function
+**Equations For Estimation Of Renal Function**
 **i. 2009 CKD-EPI Creatinine Equation:**
 
 141 × min(Scr/κ, 1)^α × max(Scr/κ, 1)^(−1.209) × 0.993^Age [× 1.018 if female] [× 1.159 if black]
@@ -142,32 +140,4 @@ Where:
 **ii. Cockcroft-Gault Creatinine Clearance:**
 
 CrCL (ml/min/1.73 m²) = (140 − age (years)) × body weight (kg) / Scr (µmol/L) × Constant
-
 Where the constant is **1.23 in males** or **1.04 in females**.
-
----
-
-## Abbreviations Used In This Section
-| Abbreviation | Description |
-|---|---|
-| CABG | Coronary Artery Bypass Grafting |
-| CAD | Coronary Artery Disease |
-| CHF | Congestive Heart Failure |
-| CKD | Chronic Kidney Disease |
-| CKD-EPI | Chronic Kidney Disease Epidemiology Collaboration |
-| CrCL | Creatinine Clearance |
-| ECG | Electrocardiogram |
-| eGFR | Estimated Glomerular Filtration Rate |
-| GFR | Glomerular Filtration Rate |
-| GRACE | Global Registry of Acute Coronary Events |
-| HF | Heart Failure |
-| JVD | Jugular Venous Distension |
-| LBBB | Left Bundle Branch Block |
-| MDRD | Modification of Diet in Renal Disease |
-| MI | Myocardial Infarction |
-| PCI | Percutaneous Coronary Intervention |
-| SBP | Systolic Blood Pressure |
-| Scr | Serum Creatinine |
-| STEMI | ST Segment Elevation Myocardial Infarction |
-| TIA | Transient Ischaemic Attack |
-| TIMI | Thrombolysis in Myocardial Infarction |

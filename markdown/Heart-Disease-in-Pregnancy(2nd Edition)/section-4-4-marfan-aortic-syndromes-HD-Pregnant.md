@@ -1,4 +1,5 @@
-# Section 4: .4: Marfan And Aortic Syndromes
+# Section 4: Management Of Pregnancy In Specific Cardiac Disease
+
 <!-- METADATA
 category: Assessment, Treatment, Prevention, Special Populations
 use_case: Marfan and Thoracic Aortic Aneurysmal Syndromes in Pregnancy — aortic_root_diameter, aortic_dissection_risk, beta_blockade, echocardiography_surveillance, delivery_planning
@@ -70,7 +71,7 @@ The aim of intrapartum management in patients with ascending aorta enlargement i
 ### 4.4.4: Postpartum Care
 Patients should be monitored haemodynamically for 24 hours postpartum. They should have a cardiac review at 6 weeks. Echocardiography should be performed 3-6 months post-delivery.
 
-## Key Message:
+**Key Message:**
 - Pregnancy in the following patients are High Risk (WHO Class IV):
   - Marfan syndrome with aorta dilated > 45 mm
   - Bicuspid aortic valve with aorta dilated > 50 mm
@@ -78,9 +79,9 @@ Patients should be monitored haemodynamically for 24 hours postpartum. They shou
 - They should be advised aortic root replacement prior to pregnancy.
 - Even in women with normal sized aorta dissections may still occur.
 
-## Grades Of Recommendation And Level Of Evidence
-
-### Grades Of Recommendation
+<!-- parent_only_reference_start -->
+Grades Of Recommendation And Level Of Evidence
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -89,16 +90,17 @@ Patients should be monitored haemodynamically for 24 hours postpartum. They shou
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | mm | millimetre |
 | WHO | World Health Organization |
 | β-blockers | Beta-blocking agents |
+<!-- parent_only_reference_end -->
