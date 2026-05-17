@@ -32,9 +32,9 @@ This lack of awareness has contributed to:
 ## 1.3: Clinical Differences In Women
 Women with heart disease often present atypically and tend to have less chest pain. Typical symptoms of an ACS however, are as important in women as in men. General feelings of illness, fearfulness and nausea were more common in women. Other atypical presentations include breathlessness and fatigue. Due to their atypical presentations, women are often not appropriately triaged in the emergency room resulting in a delay in the diagnosis and treatment. This has adverse consequences on their prognosis.
 
-> **Clinical Note:** There are important gender differences in CVD. There are differences in the clinical presentation, predisposing risk factors and the presence of co-morbidity in women. The accuracy of diagnostic tests and physiologic responses to exercise differ. Cultural norms, socioeconomic and psychological factors all affect the way women respond to their illness. All these factors have an impact on the management of CVD in women.
+There are important gender differences in CVD. There are differences in the clinical presentation, predisposing risk factors and the presence of co-morbidity in women. The accuracy of diagnostic tests and physiologic responses to exercise differ. Cultural norms, socioeconomic and psychological factors all affect the way women respond to their illness. All these factors have an impact on the management of CVD in women.
 
-> **Recommendation:** This CPG provides evidence-based recommendations focusing on preventing CVD in women. Cardiovascular disease often strikes without warning, underscoring the importance of prevention. Decision making, however, should be individualized and based on sound clinical judgment.
+This CPG provides evidence-based recommendations focusing on preventing CVD in women. Cardiovascular disease often strikes without warning, underscoring the importance of prevention. Decision making, however, should be individualized and based on sound clinical judgment.
 
 <!-- parent_only_reference_start -->
 Abbreviations

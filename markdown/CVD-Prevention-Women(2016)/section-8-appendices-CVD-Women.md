@@ -11,7 +11,7 @@ output: cardiotoxicity_monitoring, drug_selection_table, treatment_algorithm, au
 ## Appendix 1: Cancer And The Heart
 
 Cardiotoxicity risk assessment, risk categories, monitoring recommendations, and treatment recommendations are detailed in Section 3.2: Cancer And The Heart.
-<!-- cross_ref target_file="section-3-other-diseases-CVD-Women.md" target_heading="## 3.2: Cancer And The Heart" target_kind="h2_section" -->
+<!-- cross_ref target_file="section-3-other-diseases-CVD-Women.md" target_heading="3.2: Cancer And The Heart" target_kind="h2_section" -->
 
 ## Appendix 2: Combined Oral Contraceptive (COC)
 ### Appendix 2A: Combined Oral Contraceptive (COC)**
