@@ -45,30 +45,6 @@ Follow-up visit at 6 weeks postpartum should be attended by the multidisciplinar
 - Heart failure that develops during pregnancy can be managed with the judicious use of diuretics, digoxin, nitrates, beta-blockers and/or hydralazine.
 
 ## Contextual Anchors (Overlapping)
-
-### Section 4: .6: Peripartum Cardiomyopathies And Other Cardiomyopathies
-This supports Section 4.8: Heart failure in pregnancy where peripartum cardiomyopathy or other cardiomyopathies are listed as common causes for the development of new onset heart failure in pregnancy.
-
-The cardiomyopathies constitute a group of disorders in which the dominant feature is direct involvement of the heart muscle itself. According to the European Society of Cardiology Working Group definition, cardiomyopathy is "a myocardial disorder in which heart muscle is structurally and functionally abnormal in the absence of coronary artery disease, hypertension, valvular disease, and congenital heart diseases".
-
-Cardiomyopathies may be classified on the basis of their predominant morphofunctional phenotype into:
-- dilated cardiomyopathy (DCM)
-- hypertrophic cardiomyopathy
-- restrictive cardiomyopathy
-- arrhythmogenic RV dysplasia
-- unclassified cardiomyopathy
-
-They can be further subclassified into familial/genetic and non-familial/non-genetic.
-
-### Section 4: .6.1.1: Preconception Counselling
-This supports Section 4.8.4: Postpartum care where the risk of recurrence of HF in subsequent pregnancies should be made known to the patient.
-
-In patients with a past history of PPCM, the risk of recurrence in a subsequent pregnancy would depend upon the recovery of the LV function.
-
-- [Grade I, Level B] If LV function has recovered fully, subsequent pregnancies are not contraindicated but the patient should be warned of a possibility of recurrence.
-- [Grade I, Level B] If the LV function has not recovered, subsequent pregnancy is contraindicated and appropriate contraceptive measures should be advised.
-- [Grade II-b, Level C] A small study of 6 patients found dobutamine stress echocardiography useful in predicting contractile reserve and subsequent recovery of LV function. This however, needs to be evaluated in larger studies.
-
 Table 1a: Maternal Mortality Risk Based On Modified WHO Classification
 
 | WHO Class | Maternal Mortality |

@@ -6,16 +6,14 @@ patient_input: cardiac_disease_status, pregnancy_intent, gestational_age, WHO_cl
 output: flowchart_pathway, counselling_plan, referral_plan, pregnancy_care_plan, delivery_plan, postpartum_plan
 -->
 
-### Flowchart 1: Preconception Counselling And Contraceptive Advice
+## Flowchart 1: Preconception Counselling And Contraceptive Advice
 **Step 1: Known Cardiac Disease**
 
 **Step 2: Choose Pathway based on Intent**
 - **Pathway A:** Planning First or Subsequent Pregnancy
 - **Pathway B:** Seeking Contraceptive Advice
 
----
-
-### Pathway A: Planning Pregnancy
+**Pathway A: Planning Pregnancy**
 **Step 3A: Preconception Clinical Assessment**
 - Counselling should be initiated at puberty and re-emphasised at age 16-18 and prior to marriage. It should continue until they have completed their family.
 - A thorough history particularly focusing on current physical activity, past cardiac events and any planned cardiac intervention.
@@ -42,48 +40,41 @@ output: flowchart_pathway, counselling_plan, referral_plan, pregnancy_care_plan,
 - Appropriate advice and identification of the nearest health facility for antenatal booking as soon as pregnancy is confirmed.
 - Early referral for cardiac assessment and risk stratification.
 
----
-
-### Pathway B: Seeking Contraceptive Advice
+**Pathway B: Seeking Contraceptive Advice**
 *(Also applies to High Risk patients from Pathway A)*
 
 **Step 3B: Appropriate Contraceptive Advice (End)**
 
----
-
-### Flowchart 2: Antenatal Care Plan For Women With Cardiac Disease
+## Flowchart 2: Antenatal Care Plan For Women With Cardiac Disease
 *(no later than end of 1st trimester)*
 
-#### Step 1: Initial Actions
+**Step 1: Initial Actions**
 - To do antenatal booking at the nearest healthcare facility as soon as pregnancy is suspected.
 - The patient should be referred as soon as possible for cardiac assessment and risk stratification.
 
-#### Step 2: Clinical Assessment
+**Step 2: Clinical Assessment**
 Perform clinical assessment including:
 - History and physical examination
 - Drug history
 - Baseline investigations (if necessary)
 
-#### Step 3: Risk Stratification
+**Step 3: Risk Stratification**
 Perform risk stratification using **WHO & NYHA** classifications (refer to Table 1 & 2).
 
 This risk is cumulative depending on obstetric and cardiac risk factors.
 
-#### Step 4: Risk Pathways
+**Step 4: Risk Pathways**
 **Low risk**
-
 - WHO risk I-II
 - NYHA I & II
 - Can be managed at local health facility with appropriate advice.
 
 **Moderate Risk**
-
 - WHO risk II-III & III
 - Manage by a multidisciplinary team with cardiac expertise.
 - Develop a pregnancy care plan. Proceed to step 5.
 
 **High risk**
-
 - WHO risk IV
 - NYHA III & IV
 
@@ -97,15 +88,13 @@ If patient chooses to continue pregnancy:
 - Close monitoring and ± early hospitalisation (manage as per moderate risk).
 - Develop a pregnancy care plan.
 
-#### Step 5: Develop Pregnancy Care Plan
+**Step 5: Develop Pregnancy Care Plan**
 **Antepartum:**
-
 - Follow up in a tertiary centre at least one visit per trimester (frequency of follow up dependent on maternal risk).
 - Close maternal-fetal surveillance.
 - Anaesthetic review in advance.
 
 **Intrapartum:**
-
 - Detailed labour and delivery plan written in advance addressing:
   - Timing of delivery (spontaneous/ induced)
   - Mode of delivery
@@ -113,14 +102,13 @@ If patient chooses to continue pregnancy:
   - Anaesthetic considerations
 
 **Postpartum:**
-
 - Appropriate contraception.
 
 This care plan should be widely disseminated and there should be close communication between tertiary centre and primary health care team.
 
 - Proceed to step 6.
 
-#### Step 6: Identify Additional Care Needs
+**Step 6: Identify Additional Care Needs**
 - Close maternal-fetal surveillance:
   - Nuchal translucency scan 11 to < 14 weeks, if indicated
   - Genetic karyotyping, if indicated
@@ -129,9 +117,7 @@ This care plan should be widely disseminated and there should be close communica
 - Appropriate anticoagulation (refer to Section 4.9: Anticoagulation in Pregnancy) or cardiovascular medication(s).
 - Correct factors that may contribute to cardiac decompensation, e.g. infection, anaemia, arrhythmias and hypertension.
 
----
-
-### Flowchart 3: Intrapartum And Early (< 24 Hours) Postpartum Care Plan
+## Flowchart 3: Intrapartum And Early (< 24 Hours) Postpartum Care Plan
 **Step 1: Risk Stratification Pathways**
 *Divide into 3 risk groups:*
 - **Low Risk:** WHO risk I - II, NYHA I & II
@@ -172,10 +158,7 @@ This care plan should be widely disseminated and there should be close communica
 - Antibiotic prophylaxis in high risk patients *(refer to Section 4.10.3: Antibiotic Prophylaxis)*.
 - Paediatric team to be present during delivery.
 
-
----
-
-### Flowchart 4: Postpartum Care Plan
+## Flowchart 4: Postpartum Care Plan
 **Step 1: Risk Stratification Pathways**
 *Divide into 3 risk groups:*
 - **Low Risk:** WHO risk I - II, NYHA I & II *(Proceed to Step 3: Discharge Planning & Postpartum Care)*
@@ -205,9 +188,7 @@ This care plan should be widely disseminated and there should be close communica
 - Contraception or contraceptive advice to be given prior to discharge.
 - Reiterate the need for preconception assessment and counselling.
 
----
-
-### Flowchart 5: Management Of Anticoagulation In Pregnancy
+## Flowchart 5: Management Of Anticoagulation In Pregnancy
 **Step 1: Indication for Anticoagulation**
 - Mechanical Heart Valves
 - Other Indications (e.g., VTE, Atrial Fibrillation)
@@ -229,89 +210,3 @@ This care plan should be widely disseminated and there should be close communica
 - Restart IV UFH 4-6 hours after vaginal delivery or 6-12 hours after LSCS (if no bleeding complications).
 - Resume oral anticoagulants (Warfarin) after 24 hours.
 - Bridge with UFH/LMWH until target INR is achieved prior to discharge.
----
-
-## Overall Abbreviations
-| Abbreviation | Description |
-|---|---|
-| ABPM | Ambulatory Blood Pressure Monitoring |
-| APPT | Activated Partial Thromboplastin Time |
-| AR | Aortic Regurgitation |
-| ARM | Artificial Rupture of Membrane |
-| ASD | Atrial Septal Defect |
-| AVA | Aortic Valve Area |
-| AVRT | Atrioventricular Reentrant Tachycardia |
-| AVNRT | Atrioventricular Nodal Reentrant Tachycardia |
-| BNP | Brain Natriuretic Peptide |
-| BP | Blood Pressure |
-| CCT | Controlled Cord Traction |
-| CCU | Coronary Care Unit |
-| CEMD | Confidential Enquiries into Maternal Death |
-| CHD | Congenital Heart Disease |
-| CHD-PAH | Pulmonary Arterial Hypertension Associated with Congenital Heart Disease |
-| c-MRI | Cardiac Magnetic Resonance Imaging |
-| COA | Coarctation of Aorta |
-| COC | Combined oral contraceptive |
-| CPB | Cardiopulmonary Bypass |
-| CPG | Clinical Practice Guidelines |
-| CTG | Cardiotocography |
-| CV | Cardiovascular |
-| CVD | Cardiovascular Disease |
-| DAPT | Dual Antiplatelet Therapy |
-| DBP | Diastolic Blood Pressure |
-| DCCV | Direct Current Cardioversion |
-| DCM | Dilated Cardiomyopathy |
-| DES | Drug-Eluting Stents |
-| ECG | Electrocardiogram |
-| ECMO | Extracorporeal Membrane Support |
-| FDA | The United States Food and Drug Administration |
-| FGR | Fetal Growth Restriction |
-| FMS | Family Medicine Specialist |
-| GDM | Gestational Diabetes |
-| GH | Gestational Hypertension |
-| HCM | Hypertrophic Cardiomyopathy |
-| HDU | High Dependency Unit |
-| HF | Heart Failure |
-| ICU | Intensive Care Unit |
-| IE | Infective Endocarditis |
-| IM | Intramuscular |
-| iPAH | Idiopathic Pulmonary Arterial Hypertension |
-| ISSHP | International Society for Study of Hypertension in Pregnancy |
-| IUD | Intrauterine Contraceptive Device |
-| IUS | Intrauterine System |
-| IV | Intravenous |
-| LMWH | Low Molecular Weight Heparin |
-| LSCS | Elective Lower Section Caesarean Section |
-| LV | Left Ventricular |
-| LVEF | Left Ventricular Ejection Fraction |
-| LVOTO | Left Ventricular Outflow Tract Obstruction |
-| MFM | Maternal Fetal Medicine |
-| MI | Myocardial Infarction |
-| MVA | Mitral Valve Area |
-| NYHA | New York Heart Association |
-| OAC | Oral Anticoagulants |
-| OGTT | Oral Glucose Tolerance Test |
-| oPAH | PAH Associated with Other Causes |
-| PAH | Pulmonary Arterial Hypertension |
-| PCA | Patient Controlled Analgesia |
-| PCEA | Patient Controlled Epidural Analgesia |
-| PCI | Percutaneous Coronary Intervention |
-| PDA | Patent Ductus Arteriosus |
-| PE | Pre-Eclampsia |
-| PH | Pulmonary Hypertension |
-| PIH | Pregnancy Induced Hypertension |
-| PPCM | Peripartum Cardiomyopathy |
-| PPH | Postpartum Haemorrhage |
-| PSVT | Paroxysmal Supraventricular Tachycardia |
-| PTMC | Percutaneous Mitral Commisurotomy |
-| RVOT | Right Ventricular Outflow Tract |
-| SBP | Systolic Blood Pressure |
-| STEMI | ST Elevation Myocardial Infarction |
-| SVT | Supraventricular Tachycardia |
-| TOF | Tetralogy of Fallot |
-| TOP | Termination of Pregnancy |
-| UFH | Unfractionated Heparin |
-| VSD | Ventricular Septal Defect |
-| VT | Ventricular Tachycardia |
-| VTE | Venous Thromboembolism |
-| WHO | World Health Organisation |

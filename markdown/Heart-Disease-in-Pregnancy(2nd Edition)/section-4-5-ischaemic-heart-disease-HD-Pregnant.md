@@ -100,51 +100,7 @@ The above indicators would determine the risk of future pregnancies in these pat
 - Management needs to be individualised and the risk : benefit ratio of therapeutic options (cardiac interventions e.g. PCI) and medications need to be considered.
 - Often, cardiac medications have to be continued despite the potential fetal risks.
 
-## Contextual Anchors (Overlapping)
-
-### Section 3: .6: Intervention And Surgery In Pregnancy
-This content supports the Section 4.5.1: Pathophysiology, symptoms and diagnosis diagnostic recommendation that coronary angiography should be performed where indicated while keeping radiation to a minimum, and the Section 4.5.2: Management of ACS in pregnancy management recommendation for primary PCI in STEMI.
-
-#### Section 3: .6.1: Percutaneous Therapy
-Wherever possible, cardiac intervention is preferably done after delivery. However, if an intervention is absolutely necessary, the best time to intervene is considered to be after the 4th month in the second trimester. By this time organogenesis is complete, the fetal thyroid gland is still inactive, and the volume of the uterus is still small, so there is a greater distance between the fetus and the chest than in later months. The disadvantage however, is that if there are any inadvertent maternal complications and the baby needs to be delivered, it will be very premature.
-
-The effect of radiation on the fetus depends on the radiation dose and the gestational age at which exposure occurs. If possible, procedures should be delayed until the completion of the period of major organogenesis (first trimester). There is no evidence of an increased fetal risk of congenital malformations, intellectual disability, FGR, or pregnancy loss at doses of radiation to the pregnant woman of < 50 mGy.
-
-[Grade I, Level C] Fluoroscopy and cine-angiography should be as brief as possible and the gravid uterus should be shielded from direct radiation using abdominal lead shields.
-
-[Grade II-a, Level C] Heparin has to be given at 40-70 IU/kg, targeting an activated clotting time of 200-300 seconds.
-
-The following are safe in pregnancy when indicated:
-- [Grade II-a, Level C] Percutaneous mitral commisurotomy (PTMC) in patients with symptomatic mitral stenosis refractory to medical therapy.
-- [Grade I, Level C] Pregnant women with ST Elevation Myocardial Infarction (STEMI) - Primary Percutaneous Coronary Intervention (PCI) is preferred over thrombolysis due to the lower risk of haemorrhage. Spontaneous coronary dissection is an important cause of MI in the pregnant population. These patients should be treated conservatively unless there is ongoing ischemia or hemodynamic changes.
-- In general:
-  - The safety of drug-eluting stents (DES) and dual antiplatelet therapy (DAPT) in pregnant patients is not known.
-  - [Grade II-a, Level C] Bare-metal stents may be the preferred strategy because DES may mandate a longer period of DAPT.
-  - [Grade II-a, Level C] The use of an intra-aortic balloon pump in cardiogenic shock to improve left ventricular output and coronary perfusion is also considered safe.
-- The patient should be positioned in the left lateral recumbent position to reduce compression of the inferior vena cava.
-
-Invasive treatments during pregnancy (with the exception of primary PCI for STEMI) should only be used if the mother is symptomatic despite being on optimal medical therapy.
-
-#### Section 3: .6.2: Cardiac Surgery With Cardiopulmonary Bypass
-Maternal mortality during cardiopulmonary bypass is now similar to that in non-pregnant women who undergo comparable cardiac procedures. It is generally low but may be as high as 13.3% depending on the preoperative maternal cardiac status.
-
-However, fetal mortality rate is 14.3% to 38.5% and there is significant morbidity. For this reason cardiac surgery is recommended only when medical therapy or interventional procedures fail and the mother's life is threatened.
-
-Determining the optimal timing for cardiac surgery is critical and needs to be individualised. Early surgery will decrease maternal risk but increase fetal loss. Delaying cardiac surgery after delivery may be detrimental to the mother.
-
-Important strategies are as listed below:
-- Optimal timing of surgery - gestational age has an impact on fetal outcome.
-  - [Grade II-a, Level C] The best period for surgery is in the second trimester. Surgery during the first trimester carries a higher risk of fetal loss, and during the third trimester there is a higher incidence of pre-term delivery and maternal complications.
-  - [Grade II-a, Level C] After 28 weeks gestation, if cardiac surgery is indicated, the decision to deliver the baby before or after the surgery should be made in consultation with the multidisciplinary team, patient and family.
-- Patients should preferably be placed in the left lateral position to avoid aortocaval compression and impairment of uteroplacental blood flow.
-
-Key Message:
-- Invasive treatments during pregnancy (with the exception of primary PCI for STEMI) should only be used if the mother is symptomatic despite being on optimal medical therapy.
-- If cardiac surgery is indicated, determining the optimal timing is critical and needs to be individualised.
-
----
-
-### Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
+## Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Aspirin (low dose) | B | Yes | Well tolerated | No teratogenic effects known (large data sets) |
@@ -179,9 +135,7 @@ Key Message:
 *MERCK manual grading
 http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
 
----
-
-### Appendix C: Recommendations For Antibiotic Use During Pregnancy
+## Appendix C: Recommendations For Antibiotic Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Ampicillin, amoxicillin, cephalosporins, erythromycin, mezlocillin, penicillin | B | Yes | Yes | No fetal adverse effects reported |
@@ -198,9 +152,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 *MERCK manual grading
 http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
 
----
-
-### Appendix D: Recommendations For Drug Use During Pregnancy
+## Appendix D: Recommendations For Drug Use During Pregnancy
 | Drug | FDA Category | Adverse Effects |
 |---|---|---|
 | ORAL HYPOGLYCAEMICS | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
@@ -225,9 +177,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 | Pseudoephedrine | C | Placental vasoconstriction and possible risk of gastroschisis |
 | Vitamin K | C | In women or fetuses with G6PD deficiency- haemolysis |
 
----
-
-### Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
+## Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
 | Conventional X-Ray examinations | Fetal dose | Fetal dose | Maternal Exposure* |
 |---|---|---|---|
 |  | Mean (mGy) | Maximum (mGy) | mGy |
@@ -258,10 +208,7 @@ When considering fetal risk from radiation exposure and termination of pregnancy
 - at fetal doses between 100 and 500 mGy, decisions should be based upon individual circumstances
 - at fetal doses in excess of 500 mGy, there can be significant fetal damage, the magnitude and type of which is a function of dose and stage of pregnancy
 
----
-
-## Grades Of Recommendation And Level Of Evidenc
-
+Grades Of Recommendation And Level Of Evidenc
 ### Grades Of Recommendation
 | Grade | Definition |
 |---|---|

@@ -1,4 +1,4 @@
-# Section 4: .13: Venous Thromboembolism
+# Section 4.13: Venous Thromboembolism
 <!-- METADATA
 category: Diagnosis, Assessment, Treatment, Prevention, Special Populations
 use_case: Venous Thromboembolism in Pregnancy — VTE_risk_assessment, DVT_diagnosis, PE_diagnosis, anticoagulation, thromboprophylaxis, postpartum_management

@@ -6,8 +6,14 @@ patient_input: pregnancy_status, cardiac_disease_history, population_risk_contex
 output: guideline_context, epidemiology_summary, care_priority
 -->
 
-
 Cardiovascular disease (CVD) generally affects approximately 0.2% to 4% of pregnant women. According to the Report of the National Obstetrics Registry, the incidence of cardiac disease in pregnancy in Malaysia was 0.55% in 2013 and 0.45% in 2014. This data was based on deliveries from 14 tertiary public hospitals. Based on these figures, CVD in pregnancy is relatively common. It accounted for 51% and almost 70% of indirect deaths in the period 2009-2011 and 2011 respectively. (refer to Table 7: Cardiovascular Disease as a Cause of Maternal Deaths in Malaysia (Based on data from Confidential Enquiries into Maternal Deaths))
+
+Table 7: Cardiovascular Disease As A Cause Of Maternal Deaths In Malaysia (Based On Data From Confidential Enquiries Into Maternal Deaths)
+
+| CVD | 2009-2011 | 2012 | 2013 | 2014 |
+|---|---|---|---|---|
+| % of total maternal deaths (Refers to Indirect and Direct (obstetric) deaths) | 15.3%; (66/430) | 16.1%; (18/112) | 13.9%; (15/108) | 12.1%; (14/116) |
+| % of indirect deaths | 51.2%; (66/129) | 50.0%; (18/36) | 50.0%; (15/30) | 53.8%; (14/26) |
 
 Cardiac disease is a leading cause of maternal mortality in many developed countries. Similarly, in Malaysia, since 1997, the Confidential Enquiries into Maternal Death (CEMD) reports have shown that maternal deaths due to cardiac disease were the main non-obstetric cause of maternal mortality. In the 3-year period (2006-2008), there were 49 cases of maternal deaths due to heart disease. In the following 3-year period (2009-2011), there was a 33% increase in maternal cardiac deaths. Chronic rheumatic heart disease remains the commonest aetiology, accounting for 29% of all deaths due to maternal cardiac disease in the period 2009-2011.
 
@@ -23,18 +29,10 @@ The objective of this clinical practice guideline is to highlight to the healthc
 
 This guideline provides evidence-based recommendations on how best to manage pregnant patients with cardiac disease. Patient care should be individualised and sound clinical judgement plays an important role in decision making.
 
----
-
-## Contextual Anchors (Overlapping)
-Table 7: Cardiovascular Disease As A Cause Of Maternal Deaths In Malaysia (Based On Data From Confidential Enquiries Into Maternal Deaths)
-
-| CVD | 2009-2011 | 2012 | 2013 | 2014 |
-|---|---|---|---|---|
-| % of total maternal deaths (Refers to Indirect and Direct (obstetric) deaths) | 15.3%; (66/430) | 16.1%; (18/112) | 13.9%; (15/108) | 12.1%; (14/116) |
-| % of indirect deaths | 51.2%; (66/129) | 50.0%; (18/36) | 50.0%; (15/30) | 53.8%; (14/26) |
-
-## Abbreviations Used In This Section
+<!-- parent_only_reference_start -->
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | CEMD | Confidential Enquiries into Maternal Death |
 | CVD | Cardiovascular Disease |
+<!-- parent_only_reference_end -->

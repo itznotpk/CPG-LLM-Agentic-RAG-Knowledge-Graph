@@ -1,4 +1,4 @@
-# Section 4: .9: Anticoagulation In Pregnancy
+# Section 4.9: Anticoagulation In Pregnancy
 <!-- METADATA
 category: Treatment, Prevention, Special Populations
 use_case: Anticoagulation in Pregnancy — mechanical_heart_valves, atrial_fibrillation, thromboembolism_prevention, warfarin_heparin_regimens, delivery_transition, valve_thrombosis_management
