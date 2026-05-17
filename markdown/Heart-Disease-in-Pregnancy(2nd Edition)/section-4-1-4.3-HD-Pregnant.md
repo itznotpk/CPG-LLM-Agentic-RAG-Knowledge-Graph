@@ -220,7 +220,7 @@ Table 3: Maternal Cardiovascular Risk Assessment And Level Of Care*
 
 | Level of Care Depending on Maternal Cardiovascular Risk |  |  |
 |---|---|---|
-| Classification | **WHO/ NHYA; Class I & II** | **WHO/ NHYA; Class II-III, III & IV** |
+| Classification | **WHO/ NYHA; Class I & II** | **WHO/ NYHA; Class II-III, III & IV** |
 | Level of Personnel | - **Primary care:**; MO & FMS | - **Tertiary care:**; Physician/ Cardiologist/ Obstetrician/ MFM |
 | Level of Care | - **Primary care:**; Health Clinic | - **Tertiary care:**; Hospital with multidisciplinary team |
 | Frequency of visits:; Primary care by MO/FMS | - 1 visit for 1st trimester (if indicated, to refer to a centre which provides nuchal translucency scan); - 3 visits for 2nd trimester; - 6 visits for 3rd trimester (weekly > 36 weeks) | - |
@@ -624,11 +624,14 @@ Abbreviations
 | AS | Aortic stenosis |
 | ASD | Atrial septal defect |
 | AVA | Aortic valve area |
-| AVSD | Atrioventricular septal defect |
 | BNP | B-type natriuretic peptide |
 | BP | Blood pressure |
+| CCU | Coronary care unit |
+| ccTGA | Congenitally corrected transposition of the great arteries |
 | CHD | Congenital heart disease |
+| CHD-PAH | Pulmonary arterial hypertension associated with congenital heart disease |
 | COA | Coarctation of aorta |
+| CT | Computed tomography |
 | CXR | Chest X-ray |
 | DC | Direct current |
 | ECG | Electrocardiogram |
@@ -636,8 +639,12 @@ Abbreviations
 | FGR | Fetal growth restriction |
 | FMS | Family Medicine Specialist |
 | Hb | Haemoglobin |
+| HDU | High dependency unit |
 | HF | Heart failure |
+| ICU | Intensive care unit |
 | INR | International normalised ratio |
+| iPAH | Idiopathic pulmonary arterial hypertension |
+| IV | Intravenous |
 | IVC | Inferior vena cava |
 | LMWH | Low molecular weight heparin |
 | LSCS | Lower segment caesarean section |
@@ -646,8 +653,9 @@ Abbreviations
 | MFM | Maternal Fetal-Medicine Specialist |
 | MO | Medical Officer |
 | MVA | Mitral valve area |
-| NTproBNP | N-terminal pro-B-type natriuretic peptide |
+| NT-proBNP | N-terminal pro-B-type natriuretic peptide |
 | NYHA | New York Heart Association |
+| oPAH | Pulmonary arterial hypertension associated with other causes |
 | PAH | Pulmonary arterial hypertension |
 | PCWP | Pulmonary capillary wedge pressure |
 | PDA | Patent ductus arteriosus |
