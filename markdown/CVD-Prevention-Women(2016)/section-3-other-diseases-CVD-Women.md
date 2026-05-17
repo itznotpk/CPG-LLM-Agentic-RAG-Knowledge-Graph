@@ -33,7 +33,7 @@ Radiation also causes significant cardiac toxicity after a long latent period ev
 
 For the management of patients on potentially cardiotoxic chemotherapeutic agents, adhere to the following cardiotoxicity risk assessment and monitoring algorithms:
 
-#### Cardiotoxicity Risk Assessment
+**Cardiotoxicity Risk Assessment**
 | Risk Origin | Risk Value | Factors |
 |---|---|---|
 | Medication Related Risk | High Risk (Score = 4) | Anthracyclines, Cyclophosphamide, Ifosfamide, Clofarabine, Herceptin |
@@ -42,7 +42,7 @@ For the management of patients on potentially cardiotoxic chemotherapeutic agent
 | | Rare Risk (Score = 0) | Etoposide, Rituximab, Thalidomide |
 | Patient Related Risk | 1 point each | • Heart failure or cardiomyopathy <br>• CHD or equivalent (PAD) <br>• Hypertension <br>• Diabetes Mellitus <br>• Prior or recurrent anthracyclines <br>• Prior or recurrent chest radiation <br>• Age < 15 or > 65 years <br>• Female gender |
 
-#### Cardiotoxicity Risk Categories
+**Cardiotoxicity Risk Categories**
 | Cardiotoxicity Risk Score | Category |
 |---|---|
 | > 6 | Very High |
@@ -51,7 +51,7 @@ For the management of patients on potentially cardiotoxic chemotherapeutic agent
 | 1-2 | Low |
 | 0 | Very Low |
 
-#### Monitoring Recommendations during/after Chemotherapy
+**Monitoring Recommendations during/after Chemotherapy**
 | Risk Category | Recommendation |
 |---|---|
 | Very high risk | TTE with strain before every (other) cycle, end, 3-6 months and 1 year, optional ECG, cTn with TTE during chemotherapy |
@@ -63,7 +63,7 @@ For the management of patients on potentially cardiotoxic chemotherapeutic agent
 > **Notes:**
 > - **TTE**: trans-thoracic echocardiography, **cTn**: cardiac troponins
 
-#### Treatment Recommendations
+**Treatment Recommendations**
 | Risk Category | Management |
 |---|---|
 | Very high cardiotoxicity risk | Initiate ACEI/ARB, carvedilol and statins, one week prior to chemotherapy and up-titre as tolerated |
@@ -116,13 +116,8 @@ Registry data indicate that CPAP is associated with reduced all-cause mortality 
 > - Infections such as influenza, peridontal disease and HIV
 > - Obstructive Sleep Apnoea
 
----
-
-## 3.6: Abbreviations
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Localized list of clinical abbreviations used in Section 3 -->
-<!-- ============================================================ -->
+<!-- parent_only_reference_start -->
+Abbreviations
 
 | Abbreviation | Full Term |
 |---|---|
@@ -143,3 +138,4 @@ Registry data indicate that CPAP is associated with reduced all-cause mortality 
 | SCD | Sudden Cardiac Death |
 | SLE | Systemic Lupus Erythematosus |
 | TTE | Trans-thoracic Echocardiography |
+<!-- parent_only_reference_end -->

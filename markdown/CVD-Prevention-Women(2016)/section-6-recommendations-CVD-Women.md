@@ -245,9 +245,8 @@ There is no evidence that the following supplements are useful in preventing CVD
 
 [Grade II, Level B] Omega-3 fatty acid consumption in the form of fish or in capsule form (e.g. EPA 1800 mg/day) may be helpful in women with hypercholesterolemia and/or triglyceridaemia. It has not been shown to be helpful in the primary prevention of CHD.
 
----
-
-### Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions*
+<!-- parent_only_reference_start -->
+**Appendix 4C: Choice Of Anti-Hypertensive Drugs In Patients With Concomitant Conditions***
 | Concomitant Condition | Diuretics | β-blockers | ACEIs | CCBs | Peripheral α-blockers | ARBs |
 |---|---|---|---|---|---|---|
 | Diabetes mellitus (without nephropathy) | + | +/- | +++ | + | +/- | ++ |
@@ -273,14 +272,8 @@ There is no evidence that the following supplements are useful in preventing CVD
 > - **$** : Contraindicated in bilateral renal artery stenosis
 > - *Source: Malaysian Clinical Practice Guidelines on Hypertension, 4th ed. 2013*
 
----
+Grades Of Recommendation
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -289,23 +282,16 @@ There is no evidence that the following supplements are useful in preventing CVD
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
+
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
+Abbreviations
 
----
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Master list of clinical abbreviations used in CPG   -->
-<!-- ============================================================ -->
-
-### Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | AAA | Abdominal aortic aneurysm |
@@ -338,5 +324,4 @@ There is no evidence that the following supplements are useful in preventing CVD
 | TG | Triglycerides |
 | TIA | Transient ischemic attack |
 | VLCD | Very low-calorie diet |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

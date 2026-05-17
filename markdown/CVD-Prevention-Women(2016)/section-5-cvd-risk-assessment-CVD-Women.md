@@ -19,7 +19,9 @@ CV risk refers to the likelihood of a woman developing a CV event, fatal or non-
 - Improve physician recognition, detection and treatment of risk factors
 
 ## 5.2: Risk Scoring Tools
-Ideally, the CV risk model should be based on data derived from the local population. Currently, we do not have such a CV risk score. The risk score that is widely used in Malaysia is the Framingham general CVD risk score tool for primary care that assesses the 10 year risk of developing CVD (refer Table 2: Framingham Risk Score for Assessment of CVD Risk). It provides sex-specific CVD risk scores and allows for the calculation of an individual's heart/vascular age.
+Ideally, the CV risk model should be based on data derived from the local population. Currently, we do not have such a CV risk score. The risk score that is widely used in Malaysia is the Framingham general CVD risk score tool for primary care that assesses the 10 year risk of developing CVD (refer Table 2: Framingham Risk Score for Assessment of CVD Risk).
+<!-- cross_ref target_file="section-0-summary-CVD-Women.md" target_heading="## 0.2: Critical Reference Tables" target_kind="h2_section" -->
+It provides sex-specific CVD risk scores and allows for the calculation of an individual's heart/vascular age.
 
 The FRS has the advantage of being derived from a population that had received no or little treatment at the start and during the study. It is also simple and easy to use – an important feature if healthcare providers are to use it routinely. It may however underestimate risk in women. The FRS has been validated in a multi-ethnic local population in 2 retrospective studies.
 
@@ -34,7 +36,9 @@ Other risk models include:
 ## 5.3: Limitations Of Risk Scoring In Women
 The FRS has been validated in white and black American men and women but may not be that predictive in other populations. It also has its limitations in women because it focuses on short term (10 year) risk of MI and CHD mortality. Although women have a low absolute risk of CVD, due to their longer life expectancy, the average lifetime risk in women is substantial (approaching 1 in 2).
 
-For these reasons, in women, we advocate the risk classification in (refer Table 1: Classification of CVD Risk in Women). It is adapted from the American guidelines and incorporates the Framingham general CVD risk score tool. It provides a more holistic approach to CV risk assessment in women. Sometimes, however, it may be necessary to juggle multiple guidelines and risk models to evaluate CVD risk and decide on the intensity of primary prevention strategies in women.
+For these reasons, in women, we advocate the risk classification in (refer Table 1: Classification of CVD Risk in Women).
+<!-- cross_ref target_file="section-0-summary-CVD-Women.md" target_heading="## 0.2: Critical Reference Tables" target_kind="h2_section" -->
+It is adapted from the American guidelines and incorporates the Framingham general CVD risk score tool. It provides a more holistic approach to CV risk assessment in women. Sometimes, however, it may be necessary to juggle multiple guidelines and risk models to evaluate CVD risk and decide on the intensity of primary prevention strategies in women.
 
 ## 5.4: Newer Risk Factors
 The risk model outlined in (refer Table 1: Classification of CVD Risk in Women) does not include newer risk factors such as hs-CRP and other biomarkers. In addition, it does not include investigations such as resting ECG, calcium scoring, ABI etc.
@@ -76,107 +80,9 @@ Women at **Optimal Risk** should be encouraged to continue their healthy lifesty
 
 ---
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SECTION 0 (SUMMARY TABLES)             -->
-<!-- Purpose: Key risk classification and scoring tables          -->
-<!-- ============================================================ -->
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 
-Table 1: Classification Of CVD Risk In Women
-
-| Risk Category | Criteria |
-|---|---|
-| High Risk | Established CHD and/or CHD Equivalents which are: <br>• Cerebrovascular disease <br>• Peripheral arterial disease (PAD) <br>• Abdominal aortic aneurysm (AAA) <br>• Diabetes mellitus (DM) <br>• End stage or chronic kidney disease <br>• Multiple risk factors that confer a 10 year CVD risk of > 20% using FRS |
-| At Risk | 1 major risk factor for CVD including: <br>• Family history of premature CVD (CVD at age < 55 years in male relative and < 65 years in female relative) <br>• Total cholesterol ≥ 5.2 mmol/L, HDL-C < 1.2 mmol/l, or treated for dyslipidaemia <br>• SBP ≥ 120 mmHg, DBP ≥ 80 mmHg, or treated hypertension <br>• Cigarette smoking <br>• Physical inactivity <br>• Obesity especially central obesity <br>• Metabolic syndrome <br>• Evidence of advanced subclinical atherosclerosis <br>• History of preeclampsia, gestational diabetes, or pregnancy-induced hypertension <br>• Systemic autoimmune collagen-vascular disease |
-| Optimal Risk | 10 year CVD risk of < 10% using FRS. Having a healthy lifestyle with no risk factors: <br>• TC < 5.2 mmol/L (untreated) <br>• BP < 120/< 80 mmHg (untreated) <br>• Fasting blood glucose < 6.1 mmol/L (untreated) <br>• BMI < 23 kg/m2 <br>• Abstinence from smoking <br>• Physical activity at goal for adults > 20 years |
-
-Table 2: Framingham Risk Score For Assessment Of CVD Risk
-
-Table 2a: CVD Points For Women
-
-| Points | Age, y | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
-|---|---|---|---|---|---|---|---|
-| - 3 | | | | <120 | | | |
-| - 2 | | 1.6+ | | | | | |
-| - 1 | | 1.3 - 1.6 | | | <120 | | |
-| 0 | 30 - 34 | 1.2 - <1.3 | <4.2 | 120 - 129 | | No | No |
-| 1 | | 0.9 - <1.2 | 4.2 - <5.2 | 130 - 139 | | | |
-| 2 | 35 - 39 | <0.9 | | 140 - 149 | 120 - 129 | | |
-| 3 | | | 5.2 - <6.3 | | 130 - 139 | Yes | |
-| 4 | 40 - 44 | | 6.3 - <7.4 | 150 - 159 | | | Yes |
-| 5 | 45 - 49 | | >7.4 | 160+ | 140 - 149 | | |
-| 6 | | | | | 150 - 159 | | |
-| 7 | 50 - 54 | | | | 160+ | | |
-| 8 | 55 - 59 | | | | | | |
-| 9 | 60 - 64 | | | | | | |
-| 10 | 65 - 69 | | | | | | |
-| 11 | 70 - 74 | | | | | | |
-| 12 | 75+ | | | | | | |
-
-Table 2b: CVD Risk For Women
-
-| Total Points | 10 year Risk % | Total Points | 10 year Risk % |
-|---|---|---|---|
-| < -2 | < 1 | 10 | 6.3 |
-| - 1 | 1.0 | 11 | 7.3 |
-| 0 | 1.2 | 12 | 8.6 |
-| 1 | 1.5 | 13 | 10.0 |
-| 2 | 1.7 | 14 | 11.7 |
-| 3 | 2.0 | 15 | 13.7 |
-| 4 | 2.4 | 16 | 15.9 |
-| 5 | 2.8 | 17 | 18.5 |
-| 6 | 3.3 | 18 | 21.5 |
-| 7 | 3.9 | 19 | 24.8 |
-| 8 | 4.5 | 20 | 28.5 |
-| 9 | 5.3 | 21+ | > 30 |
-
-Table 2c: Heart Age / Vascular Age For Women
-
-| Points | Heart age, y |
-|---|---|
-| < 1 | <30 |
-| 1 | 31 |
-| 2 | 34 |
-| 3 | 36 |
-| 4 | 39 |
-| 5 | 42 |
-| 6 | 45 |
-| 7 | 48 |
-| 8 | 51 |
-| 9 | 55 |
-| 10 | 59 |
-| 11 | 64 |
-| 12 | 68 |
-| 13 | 73 |
-| 14 | 79 |
-| 15+ | > 80 |
-
-To determine a woman's 10 year CVD risk, calculate in order:
-- Grand Total CVD points (Table 2A)
-- 10 year Risk of CVD (Table 2B)
-- Heart Age / Vascular Age for Women (Table 2C)
-
-Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
-
-| Risk Factor | Units | Patient's Value | Acceptable range of values | Optimal Values |
-|---|---|---|---|---|
-| Sex | M(males) or F(females) | | M or F | |
-| Age | years | | 20-79 | |
-| Race | AA(African Americans) WH(Whites and others) | | AA or WH | |
-| Total Cholesterol | mg/dL | | 130-320 | 170 |
-| HDL cholesterol | mg/dL | | 20-100 | 50 |
-| Systolic BP | mmHg | | 90-200 | 110 |
-| Treatment for BP | Y (Yes); N (For No) | | Y or N | N |
-| Diabetes | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
-| Smoker | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
-
-<!-- ============================================================ -->
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -185,21 +91,16 @@ Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
+
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- ============================================================ -->
+Abbreviations
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Localized list of clinical abbreviations used in Section 5 -->
-<!-- ============================================================ -->
-
-### Abbreviations
 | Abbreviation | Full Term |
 | :--- | :--- |
 | AAA | Abdominal Aortic Aneurysm |
@@ -226,5 +127,4 @@ Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
 | SIGN | Scottish Intercollegiate Guidelines Network |
 | TC | Total Cholesterol |
 | WHO | World Health Organization |
-
-<!-- ============================================================ -->
+<!-- parent_only_reference_end -->

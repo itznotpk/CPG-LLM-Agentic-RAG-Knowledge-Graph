@@ -59,10 +59,6 @@ To ensure compliance to the guidelines, periodic audit of simple parameters shou
 ---
 
 ## 0.2: Critical Reference Tables
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: SUMMARY TABLES                        -->
-<!-- Purpose: Key risk tables required across multiple sections   -->
-<!-- ============================================================ -->
 
 Table 1: Classification Of CVD Risk In Women
 
@@ -193,7 +189,7 @@ Table 4: General Recommendations For Prevention Of CVD In Women
 | | • < 65 years of age with lone AF and those with CHA2DS2-VASc of 0, anti thrombotics may be omitted | II-a, B |
 | | • Valvular AF: anticoagulate with warfarin to maintain INR 2.0-3.0 | I, B |
 
-### Cha2ds2-Vasc Score
+**CHA₂DS₂-VASc Score**
 | Risk Factor | CHA2DS2-VASc SCORE |
 |---|---|
 | Congestive Heart Failure | 1 |
@@ -231,17 +227,9 @@ Table 5: Targets Of Treatment
 | | **HDL-cholesterol:** > 1.2 mmol/L | - |
 | | **Triglycerides:** < 1.7 mmol/L | - |
 
-<!-- END OVERLAP FROM: SUMMARY TABLES -->
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 
----
-
-## 0.3: Clinical Evidence Grading
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -250,22 +238,15 @@ Table 5: Targets Of Treatment
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
+
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
----
-
-## 0.4: Abbreviations
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Master list of clinical abbreviations used in CPG   -->
-<!-- ============================================================ -->
+Abbreviations
 
 | Abbreviation | Full Term |
 |---|---|
@@ -295,5 +276,4 @@ Table 5: Targets Of Treatment
 | SLE | Systemic lupus erythematosus |
 | TC | Total cholesterol |
 | TIA | Transient ischemic attack |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

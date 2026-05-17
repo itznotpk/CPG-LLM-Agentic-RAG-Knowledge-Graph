@@ -357,31 +357,6 @@ When men and women consume the same amount of alcohol, women experience higher b
 
 The benefits of alcohol appear to be related to its antithrombotic properties and its ability to increase HDL levels. Wine (ethanol with antioxidants) exhibits significantly higher anti-inflammatory effects than gin (ethanol without polyphenols), and thus in general, wine should be preferred to liquor or beer. Regular drinking is associated with better outcomes than occasional (binge) or weekly drinking.
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: APPENDIX 3 (ALCOHOL CONTENT)           -->
-<!-- Purpose: Reference for standardizing daily alcohol limits    -->
-<!-- ============================================================ -->
-
-**Appendix 3: Alcohol Content of Common Spirits**
-
-*Wine*
-| Strength | 125ml (small glass) | 175ml (standard glass) |
-| :--- | :--- | :--- |
-| 12% | 2.1 units | 1.5 units |
-| 14% | 1.75 units | 2.45 units |
-
-*Beer*
-| Strength | Half Pint | 330ml bottle | Pint |
-| :--- | :--- | :--- | :--- |
-| 4% | 1.1 units | - | 2.2 units |
-| 5% | 1.4 units | 1.7 units | 2.8 units |
-
-*Spirits*
-| Strength | 25ml (single) | 50ml (double) |
-| :--- | :--- | :--- |
-| 40% | 1 unit | 2 units |
-
-<!-- ============================================================ -->
 
 ### 4.12.5: Depression
 CVD and depression often co-exist. Patients with CVD have more depression than the general population, and persons with depression are also more likely to eventually develop CVD and have a higher mortality rate. Clinical depression/depressive symptoms are associated with adverse CV outcomes.
@@ -406,14 +381,28 @@ CV risk factors in women include:
   - Physical inactivity
   - Others – Combined Oral Contraceptives, Oestrogen Therapy/Oestrogen Progesterone Therapy, pre-eclampsia, alcohol, depression
 
----
+<!-- parent_only_reference_start -->
+**Appendix 3: Alcohol Content of Common Spirits**
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Localized list of clinical abbreviations used in Section 4 -->
-<!-- ============================================================ -->
+*Wine*
+| Strength | 125ml (small glass) | 175ml (standard glass) |
+| :--- | :--- | :--- |
+| 12% | 2.1 units | 1.5 units |
+| 14% | 1.75 units | 2.45 units |
 
-### Abbreviations
+*Beer*
+| Strength | Half Pint | 330ml bottle | Pint |
+| :--- | :--- | :--- | :--- |
+| 4% | 1.1 units | - | 2.2 units |
+| 5% | 1.4 units | 1.7 units | 2.8 units |
+
+*Spirits*
+| Strength | 25ml (single) | 50ml (double) |
+| :--- | :--- | :--- |
+| 40% | 1 unit | 2 units |
+
+Abbreviations
+
 | Abbreviation | Full Term |
 | :--- | :--- |
 | ACS | Acute Coronary Syndrome |
@@ -461,5 +450,4 @@ CV risk factors in women include:
 | TG | Triglycerides |
 | VTE | Venous Thromboembolism |
 | WHO | World Health Organization |
-
-<!-- ============================================================ -->
+<!-- parent_only_reference_end -->

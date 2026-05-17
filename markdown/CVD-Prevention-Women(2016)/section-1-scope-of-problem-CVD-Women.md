@@ -42,13 +42,8 @@ Women with heart disease often present atypically and tend to have less chest pa
 
 > **Recommendation:** This CPG provides evidence-based recommendations focusing on preventing CVD in women. Cardiovascular disease often strikes without warning, underscoring the importance of prevention. Decision making, however, should be individualized and based on sound clinical judgment.
 
----
-
-## 1.4: Abbreviations
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Master list of clinical abbreviations used in CPG   -->
-<!-- ============================================================ -->
+<!-- parent_only_reference_start -->
+Abbreviations
 
 | Abbreviation | Full Term |
 |---|---|
@@ -61,5 +56,4 @@ Women with heart disease often present atypically and tend to have less chest pa
 | NCVD-ACS | National Cardiovascular Disease Database-Acute Coronary Syndrome |
 | PCI | Percutaneous coronary intervention |
 | STEMI | ST elevation myocardial infarction |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

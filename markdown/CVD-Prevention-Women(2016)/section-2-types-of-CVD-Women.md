@@ -76,12 +76,12 @@ Evidence-based data on the management of CHD in women are limited because they a
 
 Figure 2: Algorithm For The Investigation Of Women Suspected Of Chd
 
-##### Step 1: Initial Presentation
-**Symptomatic women with intermediate–high* pre-test likelihood of CHD**
+**Step 1: Initial Presentation**
+Symptomatic women with intermediate–high* pre-test likelihood of CHD
 
 ↓
 
-##### Step 2: Baseline Assessment (Two Pathways)
+**Step 2: Baseline Assessment (Two Pathways)**
 Determine the pathway based on baseline ECG and exercise tolerance:
 
 **Pathway A: Normal ECG, Good Exercise Tolerance**
@@ -92,7 +92,7 @@ Determine the pathway based on baseline ECG and exercise tolerance:
 
 ---
 
-##### Step 3A: Exercise Stress Test
+**Step 3A: Exercise Stress Test**
 Perform standard exercise stress test.
 
 **Outcome Evaluation:**
@@ -102,7 +102,7 @@ Perform standard exercise stress test.
 
 ---
 
-##### Step 3B: Advanced Imaging
+**Step 3B: Advanced Imaging**
 Perform one or more of the following:
 *   Exercise/Dobutamine Stress Echocardiography
 *   Myocardial Perfusion Scan (Radionuclear or Cardiac MR)
@@ -133,7 +133,7 @@ In the WISE study, non-obstructive CHD was defined as at least one coronary sten
 - In a systematic review, 7% of patients presenting with MI had non-obstructive coronary arteries. A third of patients presented with STEMI and two-thirds with NSTEMI. About 40% of the patients were women with a mean age of 54 years. Compared with MI due to obstructive coronary artery disease, these patients tended to be younger, females and have less hyperlipidaemia. The one-year all-cause mortality in patients with MI due to non-obstructive disease was 4.7% compared to 6.7% for those with MI and obstructive coronary arteries.
 - Non-obstructive CHD is associated with limitations in flow reserve at the coronary microvascular level. The aetiology appears diverse, multifactorial and may involve more than one mechanism.
 
-##### 2.1.5.1.1: Management
+#### 2.1.5.1.1: Management
 There are no randomised trials on optimal prevention and treatment strategies for non-obstructive CHD. In patients with evidence of atherosclerosis, statins and ACE-I have been beneficial against progression of disease in short-term trials. β-blockers have been shown to give more relief of angina compared to calcium channel blockers. Imipramine has also been shown to provide symptom relief.
 
 #### 2.1.5.2: Cardiac Syndrome X
@@ -173,7 +173,7 @@ The WISE study showed that the 5-year cardiac event rate for MI and CVD death we
 
 Women with non-obstructive CHD and documented myocardial ischemia have a poorer prognosis. Women with Syndrome X and severe endothelial dysfunction have a 30% increased risk of developing CHD at 10 years.
 
-##### 2.1.5.2.1: Management
+#### 2.1.5.2.1: Management
 Patients with Cardiac Syndrome X are at increased CV risk. Thus, emphasis should be towards prevention by modification of CV risk factors and control of chest pain.
 
 Management of patients with chest pain includes:
@@ -201,7 +201,7 @@ The modified Mayo Clinic criteria for the diagnosis of TCM includes:
 
 The underlying aetiology is unknown but is likely related to release of catecholamines, both locally in the myocardium and in the circulation.
 
-##### 2.1.5.3.1: Management
+#### 2.1.5.3.1: Management
 Treatment is mainly supportive. About 5% of patients may develop LV thrombus and require anticoagulation. The prognosis is excellent with almost 95% having complete recovery within 4-8 weeks. The most common complication is heart failure. Treatment of heart failure is as outlined in guidelines (refer to Section 2.1.5.6.1: Management). About 3.5% of patients however, suffer a recurrence of TCM.
 
 #### 2.1.5.4: Spontaneous Coronary Artery Dissection (Scad)
@@ -217,7 +217,7 @@ Classically, patients with SCAD fall into the following groups:
 
 The diagnosis is often difficult and made only after coronary angiography. The index of suspicion should be high if a young woman without the traditional risk factors presents with an MI.
 
-##### 2.1.5.4.1: Management
+#### 2.1.5.4.1: Management
 There are no guidelines available on treatment of SCAD. In patients presenting with MI:
 - **Fibrinolytic therapy is contraindicated**
 - A conservative approach is the treatment of choice if the patient is stable, without chest pains and the coronary vessel is open with TIMI 3 flow
@@ -247,7 +247,7 @@ Women tend to have a higher prevalence of:
 - The incidence of SCD is lower in women than in men. Female survivors of cardiac arrest are less likely to have underlying CHD and more likely to have other forms of heart disease or structurally normal hearts.
 - However, in women with a previous MI, the risk of SCD is 2-fold higher and in those with heart failure, it is 5 times higher than in men. Women who do suffer SCD are less likely to have a LVEF < 35% documented prior to SCD.
 
-##### 2.1.5.5.1: Management
+#### 2.1.5.5.1: Management
 - Women with AF benefit from both rate and rhythm control and anticoagulants for prophylaxis against thrombo-embolism. Anticoagulants are however underused in older women.
 - Safety issues with warfarin in women: higher risk of major bleeding; female gender is an independent risk factor for not being in therapeutic range; even within therapeutic range, women remain at a higher risk of stroke.
 - The newer NOACs appear to be more efficacious and safer in women (refer to Section 6: Recommendations for Prevention of CVD in Women).
@@ -266,7 +266,7 @@ Common aetiologies of HF in women include hypertension, CHD and valvular heart d
 - Women develop CHD and HF later in life and have more age-related changes in the heart, such as poor diastolic performance at that time.
 - The prognosis of women with HF is generally better than that of men. However, if the aetiology of HF is ischaemia-related, the prognosis is similar.
 
-##### 2.1.5.6.1: Management
+#### 2.1.5.6.1: Management
 - Women with HF have similar benefits as men with evidence-based therapy such as ACEI/ARB, β-blockers and mineralocorticoid inhibitors.
 - Registry data show that women with HF and LBBB requiring cardiac resynchronisation therapy benefit as much as men, although few women have been enrolled in the randomised clinical trials.
 - Women who are overweight and obese should reduce weight although there is limited data to support its benefit in HF.
@@ -299,68 +299,15 @@ Women also face additional gender-specific risk factors (refer to Table 6: Sex-S
 - Pregnancy
 - Migraine
 
-##### 2.2.3.1.1: Oral Contraceptive Use (Refer To Section 4.12.1: Oral Contraceptive Use)
-<!-- OVERLAP CONTENT FROM: Section 4.12.1 -->
-Observational studies have shown that COC are associated with an increased risk of VTE, stroke and MI. The CV risk was greater in smokers. These early studies however, had numerous potential biases.
+#### 2.2.3.1.1: Oral Contraceptive Use (Refer To Section 4.12.1: Oral Contraceptive Use)
+<!-- cross_ref target_file="section-4-cardiovascular-risk-factors-CVD-Women.md" target_heading="### 4.12.1: Combined Oral Contraceptives (Coc)" target_kind="h3_section" -->
+For details on COC risk, eligibility criteria and cardiovascular implications, refer to Section 4.12.1: Combined Oral Contraceptives.
 
-Second (2nd) and 3rd generation pills seem to have slightly different risk profiles. VTE seems to be somewhat more prevalent with 3rd generation pills, the risk of non-fatal VTE being increased by about 2 fold (or about 3 cases for every 10,000 users).
+#### 2.2.3.1.2: Hormone Replacement Therapy (Refer To Section 4.12.2: Hormone Replacement Therapy)
+<!-- cross_ref target_file="section-4-cardiovascular-risk-factors-CVD-Women.md" target_heading="### 4.12.2: Oestrogen Therapy / Oestrogen Progesterone Therapy" target_kind="h3_section" -->
+For details on menopausal hormone therapy risks and CVD implications, refer to Section 4.12.2: Oestrogen Therapy / Oestrogen Progesterone Therapy.
 
-The risk of stroke and MI appears higher among 2nd generation COC pills. The overall incidence of MI was found to be increased at least 2-fold, the risk of ischemic stroke by approximately 2-fold and that of haemorrhagic stroke by about 1.5-fold among current users of COCs. Studies comparing the stroke risk of users of 2nd and 3rd generation COCs however, are not consistent and have shown mixed results. Currently, 1st generation pills are hardly used.
-
-There is however, no data available for the newest generation COC (4th generation) as well as for the non-oral routes (topical and vaginal).
-
-Current or prior use of low-dose COC is not associated with a significant increased risk of MI in healthy non-smokers. Women who smoke heavily however, are at high risk of MI. This risk was independent of the formulation or dose of oestrogen used.
-
-The CV risk of COCs is increased if the women is diabetic, obese, smokes, or has hypertension. Before prescribing COCs, it is important to screen for CV risk factors and have them optimally controlled.
-
-The WHO have published a medical eligibility criteria for COC use. They have advised against the use of COCs in persons with:
-- Breast feeding < 6 weeks post-partum
-- < 21 days post-partum with other risk factors for VTE
-- Smoking ≥ 15 cigarettes a day
-- Uncontrolled BP (systolic ≥ 160 or diastolic ≥ 100 mmHg)
-- Any vascular disease
-- Prior or current history of pulmonary embolism or VTE
-- Known thrombogenic factors
-- Recent surgery with prolonged immobilization
-- History of CHD or stroke
-- Valvular heart disease complicated by pulmonary hypertension, atrial fibrillation and/or infective endocarditis
-- SLE with positive (or unknown) anti-phospholipid antibodies
-- Migraine with aura
-
-Use of COC is not usually recommended unless other more appropriate methods are not available or not acceptable in persons:
-- > 6 weeks < 6 months post-partum
-- > 21 days < 42 days with other risk factors for VTE
-- With multiple risk factors for CVD
-- With hypertension
-- With migraine without aura but age ≥ 35 years
-<!-- END OVERLAP CONTENT -->
-
-##### 2.2.3.1.2: Hormone Replacement Therapy (Refer To Section 4.12.2: Hormone Replacement Therapy)
-<!-- OVERLAP CONTENT FROM: Section 4.12.2 -->
-Menopausal hormone therapy (ET/ EPT) does not protect post-menopausal women against CVD, and may even cause an increased risk of stroke. There is no evidence that ET/ EPT has any protective effects against death from any cause, and specifically death from CVD, non-fatal MI or angina, either in healthy women or women with pre-existing heart disease. Instead there a small increased risk of stroke in post-menopausal women.
-
-There is some evidence that women who start treatment within the first 10 years of their menopause, seemed to have a small protection against death and MI, with no increased risk of stroke. However, even in this group, the risk of deep vein thrombosis (DVT) is increased. This apparent benefit in preventing CVD in younger women should be considered alongside other possible benefits and emerging evidence of harm, including the risk of breast cancer, ovarian cancer, and DVT.
-
-Absolute excess risk per 10,000 women treated with an ET/EPT combination for a year, were:
-- 5 fewer hip fractures
-- 6 fewer colorectal cancers
-- 7 more CHD events
-- 8 more strokes
-- 8 more pulmonary emboli
-- 8 more invasive breast cancers.
-
-There was a trend that women who initiated hormone therapy closer to menopause tended to have reduced CHD risk and total mortality compared with those more distant from menopause. For the ET only pill, per 10 000 person-years, there was an absolute:
-- excess risk of 12 additional strokes
-- risk reduction of 6 fewer hip fractures
-
-Earlier studies showed that the risk of stroke was elevated regardless of years since menopause.
-
-Menopausal hormone therapy is not recommended either for primary or secondary prevention of CVD. It should only be used for symptomatic relief of bothersome vasomotor symptoms using the lowest oestrogen dose and for the shortest duration of time up to age 60.
-
-In women with high CV risk, non-hormonal therapy is recommended. For women with moderate risk of CVD, transdermal estradiol alone is recommended as 1st line in women without a uterus or combined with micronized progesterone for women with uterus.
-<!-- END OVERLAP CONTENT -->
-
-##### 2.2.3.1.3: Pregnancy
+#### 2.2.3.1.3: Pregnancy
 Pregnancy increases the risk of a stroke in women due to:
 - Pregnancy-induced hypertension
 - increased blood coagulability
@@ -368,32 +315,9 @@ Pregnancy increases the risk of a stroke in women due to:
 
 The incidence of stroke, both ischaemic and haemorrhagic, is markedly increased in the postpartum period.
 
-##### 2.2.3.1.4: Migraine
+#### 2.2.3.1.4: Migraine
 Women are more likely to suffer from migraine. Migraine with visual aura increases the risk of stroke. This risk is higher in current cigarette smokers and current users of oral contraceptives.
 
-Table 6: Sex Specific Stroke Risk Factors*
-
-| Risk Factor | Sex-Specific Risk Factors | Risk Factors That Are Stronger or More Prevalent in Women | Risk Factors With Similar Prevalence in Men and Women but Unknown Difference in Impact |
-|---|---|---|---|
-| Pregnancy | X | | |
-| Preeclampsia | X | | |
-| Gestational diabetes | X | | |
-| Oral contraceptive use | X | | |
-| Postmenopausal hormone use | X | | |
-| Changes in hormonal status | X | | |
-| Migraine with aura | | X | |
-| Atrial fibrillation | | X | |
-| Diabetes mellitus | | X | |
-| Hypertension | | X | |
-| Physical inactivity | | | X |
-| Age | | | X |
-| Prior CVD | | | X |
-| Obesity | | | X |
-| Diet | | | X |
-| Smoking | | | X |
-| Metabolic syndrome | | | X |
-| Depression | | X | |
-| Psychosocial stress | | X | |
 
 ### 2.2.4: Diagnosis And Management
 Most studies have found no gender differences in terms of stroke types, although some studies have found an increase in subarachnoid and cardio-embolic strokes in females.
@@ -417,74 +341,7 @@ The following women, symptomatic and asymptomatic, should be screened for PAD:
 - Those above the age of 50 years with any atherosclerotic risk factor (smoking, diabetes, hypertension, elevated cholesterols)
 - Diabetics who are 49 years old or younger or who have any of these atherosclerotic risk factors
 - Subjects with a 10-year CVD risk of 10-20% (refer to Table 2: Framingham Risk Score)
-
-<!-- OVERLAP CONTENT FROM: Table 2 -->
-Table 2: Framingham Risk Score For Asessment Of CVD Risk
-
-Table 2a: CVD Points For Women
-
-| Points | Age, y | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
-|---|---|---|---|---|---|---|---|
-| - 3 | | | | <120 | | | |
-| - 2 | | 1.6+ | | | | | |
-| - 1 | | 1.3 - 1.6 | | | <120 | | |
-| 0 | 30 - 34 | 1.2 - <1.3 | <4.2 | 120 - 129 | | No | No |
-| 1 | | 0.9 - <1.2 | 4.2 - <5.2 | 130 - 139 | | | |
-| 2 | 35 - 39 | <0.9 | | 140 - 149 | 120 - 129 | | |
-| 3 | | | 5.2 - <6.3 | | 130 - 139 | Yes | |
-| 4 | 40 - 44 | | 6.3 - <7.4 | 150 - 159 | | | Yes |
-| 5 | 45 - 49 | | >7.4 | 160+ | 140 - 149 | | |
-| 6 | | | | | 150 - 159 | | |
-| 7 | 50 - 54 | | | | 160+ | | |
-| 8 | 55 - 59 | | | | | | |
-| 9 | 60 - 64 | | | | | | |
-| 10 | 65 - 69 | | | | | | |
-| 11 | 70 - 74 | | | | | | |
-| 12 | 75+ | | | | | | |
-
-Table 2b: CVD Risk For Women
-
-| Total Points | 10 year Risk % | Total Points | 10 year Risk % |
-|---|---|---|---|
-| < -2 | < 1 | 10 | 6.3 |
-| - 1 | 1.0 | 11 | 7.3 |
-| 0 | 1.2 | 12 | 8.6 |
-| 1 | 1.5 | 13 | 10.0 |
-| 2 | 1.7 | 14 | 11.7 |
-| 3 | 2.0 | 15 | 13.7 |
-| 4 | 2.4 | 16 | 15.9 |
-| 5 | 2.8 | 17 | 18.5 |
-| 6 | 3.3 | 18 | 21.5 |
-| 7 | 3.9 | 19 | 24.8 |
-| 8 | 4.5 | 20 | 28.5 |
-| 9 | 5.3 | 21+ | > 30 |
-
-Table 2c: Heart Age/ Vascular Age For Women
-
-| Points | Heart age, y |
-|---|---|
-| < 1 | <30 |
-| 1 | 31 |
-| 2 | 34 |
-| 3 | 36 |
-| 4 | 39 |
-| 5 | 42 |
-| 6 | 45 |
-| 7 | 48 |
-| 8 | 51 |
-| 9 | 55 |
-| 10 | 59 |
-| 11 | 64 |
-| 12 | 68 |
-| 13 | 73 |
-| 14 | 79 |
-| 15+ | > 80 |
-
-To determine a women's 10 year CVD risk, calculate in order:
-- Grand Total CVD points (Table 2A)
-- 10 year Risk of CVD (Table 2B)
-- Heart Age/ Vascular Age for Women (Table 2C)
-<!-- END OVERLAP CONTENT -->
+<!-- cross_ref target_file="section-0-summary-CVD-Women.md" target_heading="## 0.2: Critical Reference Tables" target_kind="h2_section" -->
 
 These women should be screened by history and clinical examination of the foot pulses. The diagnosis of PAD may be objectively confirmed by the measurement of the ABI by Doppler ultrasound. The presence of PAD indicates a high-risk individual and alters the intensity of risk factor modification.
 
@@ -538,13 +395,32 @@ The general guidelines for the management of AAA are:
 - Prognosis for women following an MI and stroke is poorer than men.
 - Increased awareness, early detection with appropriate investigations and management is important.
 
----
+<!-- parent_only_reference_start -->
+Table 6: Sex Specific Stroke Risk Factors*
 
-## 2.6: Abbreviations
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Master list of clinical abbreviations used in CPG   -->
-<!-- ============================================================ -->
+| Risk Factor | Sex-Specific Risk Factors | Risk Factors That Are Stronger or More Prevalent in Women | Risk Factors With Similar Prevalence in Men and Women but Unknown Difference in Impact |
+|---|---|---|---|
+| Pregnancy | X | | |
+| Preeclampsia | X | | |
+| Gestational diabetes | X | | |
+| Oral contraceptive use | X | | |
+| Postmenopausal hormone use | X | | |
+| Changes in hormonal status | X | | |
+| Migraine with aura | | X | |
+| Atrial fibrillation | | X | |
+| Diabetes mellitus | | X | |
+| Hypertension | | X | |
+| Physical inactivity | | | X |
+| Age | | | X |
+| Prior CVD | | | X |
+| Obesity | | | X |
+| Diet | | | X |
+| Smoking | | | X |
+| Metabolic syndrome | | | X |
+| Depression | | X | |
+| Psychosocial stress | | X | |
+
+Abbreviations
 
 | Abbreviation | Full Term |
 |---|---|
@@ -602,5 +478,4 @@ The general guidelines for the management of AAA are:
 | VTE | Venous thromboembolism |
 | WHO | World Health Organization |
 | WISE | Women's Ischaemia Syndrome Evaluation |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

@@ -81,10 +81,11 @@ Patient's weight, waist circumference and BMI and the desirable values.
 
 ---
 
-### Appendix 6: Audit Of Clinical Diabetes
+<!-- parent_only_reference_start -->
+**Appendix 6: Audit Of Clinical Diabetes**
 **Buku Rekod Rawatan NCD\***
 
-#### Patient Demographics
+**Patient Demographics**
 - **Hospital/ Health Clinic:**
 - **Type of practice:** FMS / MO / AMO
 - **Name of patient:**
@@ -94,7 +95,7 @@ Patient's weight, waist circumference and BMI and the desirable values.
 - **Date when diabetes was diagnosed:** (estimated/ presumed\*\*)
 - **Ethnic group:**
 
-#### Clinical Audit Criteria
+**Clinical Audit Criteria**
 | Criteria | Result of the most recent examination | Date of the most recent examination | Not done |
 |---|---|---|---|
 | Height | ______ cm | | [ ] |
@@ -119,14 +120,8 @@ Patient's weight, waist circumference and BMI and the desirable values.
 > - *\*This audit form contains only some of the parameters recorded in the Buku Rawatan NCD*
 > - *\*\*Estimate/presumed: If date not known, enter 30/06/yyyy and mark the box.*
 
----
+Abbreviations
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Localized list of clinical abbreviations used in Section 7 -->
-<!-- ============================================================ -->
-
-### Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | 2HPP | 2-Hour postprandial |
@@ -149,5 +144,4 @@ Patient's weight, waist circumference and BMI and the desirable values.
 | RBS | Random blood sugar |
 | TC | Total cholesterol |
 | TG | Triglycerides |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->
