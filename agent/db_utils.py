@@ -396,7 +396,7 @@ async def vector_search(
                     COALESCE(c.metadata::text, '{}') AS metadata,
                     d.title AS document_title,
                     d.source AS document_source,
-                    d.published_year AS published_year
+                    d.metadata->>'published_year' AS published_year
                 FROM chunks c
                 JOIN documents d ON d.id = c.document_id
                 WHERE c.document_id = ANY($3::uuid[])
@@ -477,7 +477,7 @@ async def hybrid_search(
                     COALESCE(c.metadata::text, '{}')  AS metadata,
                     d.title  AS document_title,
                     d.source AS document_source,
-                    d.published_year AS published_year
+                    d.metadata->>'published_year' AS published_year
                 FROM chunks c
                 JOIN documents d ON d.id = c.document_id
                 WHERE c.document_id = ANY($6::uuid[])

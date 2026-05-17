@@ -67,7 +67,14 @@ async def main():
 
     gold = load_jsonl("retrieval_gold.jsonl")
     rows = []
+    skipped = 0
     for item in gold:
+        # Skip entries whose chunk IDs haven't been resolved yet
+        relevant = item["relevant_chunk_ids"]
+        if any(str(cid).startswith("REPLACE_WITH_") for cid in relevant):
+            skipped += 1
+            continue
+
         doc_ids = None
         if item.get("document_filter"):
             doc_ids = await resolve_cpg_title_to_doc_ids(item["document_filter"])
@@ -75,7 +82,6 @@ async def main():
                 print(f"[warn] {item['id']}: no docs matched filter {item['document_filter']!r}")
 
         retrieved = await call_retriever(item["query"], doc_ids, args.k_max, args.mode)
-        relevant = item["relevant_chunk_ids"]
 
         rows.append({
             "id": item["id"],
@@ -90,9 +96,13 @@ async def main():
             "hit@10": hit_rate_at_k(retrieved, relevant, 10),
         })
 
+    if skipped:
+        print(f"[info] Skipped {skipped} unresolved gold entries (REPLACE_WITH_ placeholders)")
+
     summary = {
         "mode": args.mode,
         "n": len(rows),
+        "skipped_unresolved": skipped,
         "recall@5":  mean(r["recall@5"]  for r in rows),
         "recall@10": mean(r["recall@10"] for r in rows),
         "recall@20": mean(r["recall@20"] for r in rows),

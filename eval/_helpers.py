@@ -62,22 +62,42 @@ def to_patient_case(raw: dict[str, Any]) -> PatientCase:
     )
 
 
+# Maps gold-set document_filter labels → exact cpg_name slugs in the DB.
+# Add entries here each time a new CPG is ingested.
+_FILTER_TO_CPG_SLUG: dict[str, str] = {
+    "Atrial Fibrillation":               "Atrial-Fibrillation(2012)",
+    "Cancer Pain":                        "Cancer-Pain(2nd Edition)",
+    "Patient Safety Minimal Monitoring":  "Patient-Safety-Minimal-Monitoring",
+    "Pre-Anaesthetic Assessment":         "Pre-Anaesthetic-Assessment",
+    "Anaesthesia Medication Safety":      "Anaesthesia-Medication-Safety",
+    "Anaesthesia Safe Medication Use":    "Anaesthesia-Medication-Safety",
+}
+
+
 async def resolve_cpg_title_to_doc_ids(cpg_title_substring: str) -> list[str]:
-    """Resolve a CPG title fragment (e.g. 'STEMI') to its list of document UUIDs."""
+    """Resolve a CPG title fragment (e.g. 'Atrial Fibrillation') to document UUIDs.
+
+    Uses the explicit slug map first for known ingested CPGs; falls back to
+    substring match on metadata->>'cpg_name' and title for anything not yet mapped.
+    """
     from agent.db_utils import db_pool
+    slug = _FILTER_TO_CPG_SLUG.get(cpg_title_substring)
     async with db_pool.acquire() as conn:
-        rows = await conn.fetch(
-            """
-            SELECT id::text AS id
-            FROM documents
-            WHERE scope_verified = TRUE
-              AND (
-                  metadata->>'cpg_name' ILIKE $1
-                  OR title ILIKE $1
-              )
-            """,
-            f"%{cpg_title_substring}%",
-        )
+        if slug:
+            rows = await conn.fetch(
+                "SELECT id::text AS id FROM documents WHERE metadata->>'cpg_name' = $1",
+                slug,
+            )
+        else:
+            rows = await conn.fetch(
+                """
+                SELECT id::text AS id
+                FROM documents
+                WHERE metadata->>'cpg_name' ILIKE $1
+                   OR title ILIKE $1
+                """,
+                f"%{cpg_title_substring}%",
+            )
     return [r["id"] for r in rows]
 
 
