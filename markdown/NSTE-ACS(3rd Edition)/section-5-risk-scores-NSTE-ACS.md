@@ -6,14 +6,15 @@ patient_input: chest_pain, ECG_findings, cardiac_troponin, age, risk_factors, re
 output: ACS_rule_out_status, risk_category, prognosis, bleeding_risk_score, management_pathway
 critical: true
 -->
-
+## 5.0: Introduction To Risk Scores
 In patients presenting to the ED with chest pain, it is important:
 - To timely recognise ACS. This will enable patients with ACS (including those who are cardiac biomarker negative) to be treated rapidly and appropriately and non-ACS patients to be rapidly discharged from a busy ED.
 - To prognosticate ACS patients and help guide further management.
   - A low-risk patient for ACS that is safe for discharge from ED is defined as one who has a < 1% risk of MACE or death at ≥ 30-days follow up.
   - A high-risk patient with typical history of ischaemic pains and diagnostic ECG changes, can be quickly triaged to the monitored area.
 
-## 5.1: Risk Scores To "Rule Out ACS"
+## 5.1: Risk Scores To Rule Out ACS
+### 5.1.0: Overview — Limitations of Clinical Evaluation Alone
 The initial history, physical examination, and ECG alone are not always reliable in predicting the presence of CAD and myocardial ischaemia. Even in patients presenting with acute chest pain, clinical evaluation alone did not confirm or exclude the diagnosis of ACS.
 
 Cardiac biomarkers especially assays measuring hs-cTn are very sensitive and can detect myocardial injury earlier than conventional older assays. However, they are not specific and need to be interpreted in the clinical context since there are other conditions besides MI that can give rise to raised cTn. (refer to Table 2: Interpreting Cardiac Troponins & Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE.)
@@ -157,22 +158,20 @@ We advocate using the PRECISE-DAPT risk score in patients at high risk of bleedi
 
 These scores are calculated based on age, clinical status and hemodynamics at presentation, serum creatinine and haematocrit level and the use and combinations of antiplatelets and anticoagulants.
 
-**Key Messages 6#:**
+Key Messages:
 - Patients presenting with chest pain or chest pain equivalents, may, based on the clinical history and ECG, have:
   - **Very low likelihood of NSTE-ACS** or have an alternative cause for their symptoms. These can be treated accordingly and be discharged from ED.
   - **Definite NSTE-ACS or STEMI.** These patients should be admitted and managed as for STEMI or as for NSTE-ACS.
   - **Possible or suspected NSTE-ACS.** These patients have normal or non-diagnostic ECGs. They need to be evaluated using a "rule out protocol" for ACS. (refer to Flowchart 1: "Rule out" Protocol for Patients Suspected to Have ACS Using Cardiac Troponin (Preferably hs-cTn) and 0/3 Hour# Protocol)
 - Evaluation is a continuous process and it is possible for a patient to move from very low likelihood to definite NSTE-ACS.
 
-**Key Recommendations 3:**
+Key Recommendations:
 - Patients with chest pain suspected to be due to ACS should have their cTn, preferably hs-cTn, measured.
 - **Patients with suspected ACS should be risk stratified using the HEART or TIMI risk scores and the "Rule out ACS" Flowchart 1: "Rule out" Protocol for Patients Suspected to Have ACS Using Cardiac Troponin (Preferably hs-cTn) and 0/3 Hour# Protocol.**
 - Using the "Rule out ACS" Flowchart 1: "Rule out" Protocol for Patients Suspected to Have ACS Using Cardiac Troponin (Preferably hs-cTn) and 0/3 Hour# Protocol, patients may be:
   - Discharged from ED
   - Referred for an early outpatient cardiology (or in the absence of cardiology, internal medicine) consult
   - Admitted for definitive management of NSTE-ACS.
-
-**Key Recommendations 4:**
 - **Patients with definite NSTE-ACS should be risk stratified using clinical features** (refer to Table 3: Risk Stratification for NSTE-ACS), **TIMI or GRACE risk scores** (refer to Appendix IV: TIMI RISK SCORE FOR UA/NSTEMI* & V). This will help determine:
   - Prognosis of the patient
   - Management strategies
@@ -212,11 +211,7 @@ Elevated troponins may occasionally be due to analytical issues, including:
 2)  electrocardiography (ECG) changes of new ischemia or,
 3)  development of pathologic Q-waves in the ECG or
 4)  imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
-
-#Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
-*Adapted from:*
-- *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
-- *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
+- Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
 Table 3: Risk Stratification For NSTE-ACS
 **Very-High-Risk Criteria**
@@ -226,13 +221,11 @@ Table 3: Risk Stratification For NSTE-ACS
 - Life-threatening arrhythmias or cardiac arrest
 - Acute heart failure
 - Mechanical complications of MI
-
 **High-Risk Criteria**
 - Rise or fall in cardiac troponin compatible with MI
 - Dynamic ST- or T-wave changes (symptomatic or silent)
 - GRACE score >140
 - TIMI risk score >4
-
 **Intermediate-Risk Criteria**
 - Diabetes mellitus
 - LVEF <40% or congestive heart failure
@@ -240,7 +233,6 @@ Table 3: Risk Stratification For NSTE-ACS
 - Prior revascularization (PCI/CABG)
 - GRACE risk score >109 and <140
 - TIMI risk score 3 & 4
-
 **Low-Risk Criteria**
 - Any characteristics not mentioned above
 
@@ -274,8 +266,6 @@ Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Hea
 | Acute respiratory failure |
 | Frequent defibrillator shocks |
 
-*Adapted from Thygesen K et al. Recommendations for the use of cardiac troponin measurement in acute cardiac care. Eur Heart J 2010; 31:2197-2204.*
-
 Appendix III: Heart Score# ++
 | HEART SCORE | | |
 | :--- | :--- | :--- |
@@ -297,9 +287,6 @@ Appendix III: Heart Score# ++
 
 *\* Risk factors include: currently treated diabetes mellitus, current or recent smoker, diagnosed and/or treated hypertension, diagnosed hypercholesterolemia, family history of coronary artery disease, obesity (body mass index >30).*
 *\*\* History of atherosclerotic disease include: coronary revascularization, myocardial infarction, stroke, or peripheral arterial disease, irrespective of the risk factors for coronary artery disease.*
-*#Six AJ, Backus BE, Kelder JC. Chest pain in the emergency room: value of the HEART score. Neth Heart J. 2008;16(6):191-196.*
-*+ In Modified Heart Score, the hs-cTn is used instead of cardiac troponins.*
-*++ Willems MN, van de Wijngaart DJ, Bergman H, et al. Addition of heart score to high-sensitivity troponin T versus conventional troponin T in risk stratification of patients with chest pain at the coronary emergency rooms. Neth Heart J. 2014;22:552–556.*
 
 Appendix IV: Timi Risk Score For UA/NSTEMI*
 | TIMI Risk Score | All-Cause Mortality, New or Recurrent MI, or Severe Recurrent Ischemia Requiring Urgent Revascularization Through 14 d After Randomization, % |
@@ -310,8 +297,6 @@ Appendix IV: Timi Risk Score For UA/NSTEMI*
 | 4 | 19.9 |
 | 5 | 26.2 |
 | 6-7 | 40.9 |
-
-*\* Derived from clinical trial data*
 
 The TIMI risk score is determined by the sum of the presence of 7 variables at admission:
 1 point is given for each of the following variables:
@@ -324,17 +309,12 @@ The TIMI risk score is determined by the sum of the presence of 7 variables at a
 * Elevated serum cardiac biomarkers
 
 **Total Score = 7 points**
-
 **Low Risk : ≤ 2 point**
 **Moderate Risk : 3 - 4 points**
 **High Risk : ≥ 5 points**
 
-*Adapted from :*
-*Antman EM, Cohen M, Bernink PJ, et al. The TIMI risk score for unstable angina/non-ST elevation MI: a method for prognostication and therapeutic decision making. JAMA 2000; 284 : 835-42 .*
-
 Appendix V: Grace Prediction Score Card And Nomogram For All Cause Mortality From Discharge To 6 Months*
 **Risk Calculator for 6-Month Postdischarge Mortality After Hospitalization for Acute Coronary Syndrome**
-
 Record the points for each variable at the bottom left and sum the points to calculate the total risk score. Find the total score on the x-axis of the nomogram plot. The corresponding probability on the y-axis is the estimated probability of all-cause mortality from hospital discharge to 6 monts
 
 | Medical History | Points | Findings at Initial Hospital Presentation | Points | Findings During Hospitalization | Points |
@@ -382,9 +362,6 @@ The nomogram plot demonstrates an exponential relationship between the Total Ris
 - **Score 190:** ~35% probability (0.35)
 - **Score 210:** ~49% probability (0.49)
 
-*Derived from international registry of ACS patients*
-*\*Fox KAA, Dabbous OH, Goldberg RJ, et al. Prediction of risk of death and myocardial, infarction in the six months after presentation with acute coronary syndrome: prospective multinational observational study(GRACE), BMJ, 2006:333:1091*
-
 Appendix VI: Precise-Dapt Score *
 **1-Year Bleeding Risk Based on PRECISE-DAPT Score**
 The graph correlates the total bleeding score with the estimated 1-year bleeding risk (%).
@@ -406,14 +383,9 @@ Points are derived based on the following continuous and categorical variables:
 - **Age (years):** Range from ≤ 50 (lowest points) to ≥ 90 (highest points)
 - **Creatinine Clearance (mL/min):** Range from ≥ 100 (lowest points) to 0 (highest points)
 - **Previous Bleed:** No (0 points) or Yes (highest points)
-
 **Interpretation:**
 - **Score ≥ 25:** High bleeding risk — consider shorter DAPT duration (3–6 months).
 - **Score < 25:** Standard DAPT duration (12 months or longer).
-
-*\*Costa F, van Klaveren D, James S, Heg D, Räber L et al. PRECISE-DAPT Study Investigators. Derivation and validation of the predicting bleeding complications in patients undergoing stent implantation and subsequent dual antiplatelet therapy (PRECISE-DAPT) score: a pooled analysis of individual-patient datasets from clinical trials. Lancet. 2017; 389(10073):1025-1034*
-
-Available at : http://www.precisedaptscore.com/predapt/webcalculator.html
 
 Flowchart 1: "Rule Out" Protocol For Patients Suspected To Have ACS Using Cardiac Troponin (Preferably Hs-Ctn) And 0/3 Hour# Protocol
 The flowchart describes the rule-out pathway for patients with acute chest pain after history and physical examination:

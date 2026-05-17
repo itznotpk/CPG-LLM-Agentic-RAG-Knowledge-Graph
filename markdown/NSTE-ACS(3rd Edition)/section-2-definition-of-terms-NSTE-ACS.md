@@ -11,7 +11,6 @@ ACS is a clinical spectrum of IHD that develops because of an imbalance between 
   - Unstable angina (UA) and
   - Non-ST elevation myocardial infarction (NSTEMI)
 - **ST elevation myocardial infarction (STEMI)**
-
 The pathology is dynamic. A patient presenting with UA may progress to NSTEMI or even STEMI.
 
 ## 2.1: Unstable Angina
@@ -35,7 +34,7 @@ It is important to distinguish between myocardial injury and Myocardial Infarcti
 
 MI is myocardial injury due to ischaemia and is defined pathologically as myocardial cell death due to prolonged ischaemia.
 
-#### 2.2.1.1: Cardiac Biomarkers In The Diagnosis Of Myocardial Injury And Myocardial Infarction
+### 2.2.2: Cardiac Biomarkers in the Diagnosis of Myocardial Injury and Myocardial Infarction
 The cardiac biomarkers of choice for the diagnosis are the cardiac troponins — cTn (both I and T), preferably high-sensitivity (hs-cTn). Elevation of cTn indicates myocardial necrosis. A level above the 99th percentile Upper Reference Limit (URL) is abnormal and indicative of myocardial injury.
 
 All locally available commercial laboratory-based assays indicate this level, the exact value varying depending on the reagents and assays used. The point of care (POC) kits, however, although giving a more rapid result, are not sensitive enough to detect this low level.
@@ -81,10 +80,6 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 #Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
-*Adapted from:*
-- *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
-- *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
-
 According to the 4th Universal definition, MI is diagnosed when there is a significant rise and/or fall in cTn, with at least one value above the 99th percentile URL, and accompanied with at least one of the following:
 - Clinical history consistent with chest pain of ischaemic origin of > 30 minutes.
 - ECG changes of ischaemia/infarction and/or the development of pathological Q waves.
@@ -97,7 +92,7 @@ The exact value for the rise and fall is not addressed in most guidelines. The c
 
 The assays used should have a coefficient of variation (CoV) of < 10% at the 99th percentile URL. (refer to section 4.4: Cardiac Biomarkers) <!-- cross_ref target_file="section-4-diagnosis-NSTE-ACS.md" target_heading="4.4: Cardiac Biomarkers" target_kind="h2_section" -->
 
-#### 2.2.1.2: ECG In The Diagnosis Of Myocardial Injury And Myocardial Infarction
+### 2.2.3: ECG in the Diagnosis of Myocardial Injury and Myocardial Infarction
 In myocardial injury, the ECG is either normal or showing non-specific changes and without the typical features of ischaemia/infarction.
 
 MI may be STEMI or NSTE-ACS based on the ECG. (Flowchart 3: Pathogenesis of ACS)
@@ -116,7 +111,7 @@ In NSTE-ACS, ST elevation is absent on the resting ECG.
 - In NSTEMI, the ischaemia is severe enough to cause sufficient myocardial injury to release detectable cardiac biomarkers. The diagnosis of NSTEMI is established if a cardiac biomarker is detected. Often, there is a lapse of time from myocardial injury before these biomarkers can be detected. As such, in the early stages, UA and NSTEMI often cannot be differentiated.
 - In NSTEMI, ST/T changes may be present in the ECG, whereas in UA they are usually absent and even if they are present, are usually transient.
 
-**Key Messages 2#:**
+Key Messages:
 - Acute Coronary Syndrome is a clinical spectrum of IHD that develops because of an imbalance between myocardial oxygen demand and supply.
 - Depending upon the acuteness of onset and the degree of coronary occlusion, it can range from (Flowchart 3: Pathogenesis of ACS):
   - Non-ST Elevation Acute Coronary Syndrome (**NSTE-ACS**). This is a combination of:
@@ -126,8 +121,6 @@ In NSTE-ACS, ST elevation is absent on the resting ECG.
 - In UA, myocardial injury is absent and cardiac biomarkers (cTn) are normal.
 - Myocardial injury can lead to cell death and cardiac biomarkers are raised. It may result from severe ischemia and/or non ischemic causes (e.g., myocarditis).
 - Myocardial Infarction (MI) is myocardial injury due to ischemia.
-
-**Key Messages 3#:**
 - According to the 4th Universal definition, **MI** is diagnosed when there is a significant rise and/or fall in cTn, with at **least one** value above the 99th percentile URL, and accompanied with at least one of the following:
   - Clinical history consistent with chest pain of ischemic origin of > 30 minutes.
   - ECG changes of ischemia/infarction and/or the development of pathological Q waves.
@@ -138,13 +131,10 @@ In NSTE-ACS, ST elevation is absent on the resting ECG.
 <!-- parent_only_reference_start -->
 Flowchart 3: Pathogenesis Of ACS
 The flowchart describes the diagnostic pathway from presentation to final ACS subtype:
-
 **1. Presentation**
 Patients present with **ischemic chest discomfort**.
-
 **2. Provisional diagnosis**
 The initial working diagnosis is **acute coronary syndrome (ACS)**.
-
 **3. ECG assessment**
 The ECG separates patients into two pathways:
 - **No ST elevation**
@@ -155,12 +145,9 @@ The ECG separates patients into two pathways:
 - **ST elevation**
   - Proceed to cardiac biomarker assessment.
   - If cardiac biomarkers are **elevated**, the final diagnosis is **STEMI**.
-
 **4. Final diagnostic grouping**
 - **NSTEMI** and **STEMI** are forms of **myocardial infarction (MI)**.
 - **UA**, **NSTEMI**, and **STEMI** are all part of the overall **ACS** spectrum.
-
-*Adapted from Amsterdam EA, Wenger N, Brindis RG et al. "2014 ACC/AHA Guidelines for the management of patients with Non ST Elevation Acute Coronary Syndromes" Circulation. 2014;130:e344-e426.*
 
 Appendix I: BRAUNWALD’S Classification Of Unstable Angina*
 | Severity | CLINICAL CIRCUMSTANCES<br><br>A<br>Develops in Presence of Extracardiac Condition That Intensifies Myocardial Ischemia (Secondary UA) | CLINICAL CIRCUMSTANCES<br><br>B<br>Develops in Absence of Extracardiac Condition (Primary UA) | CLINICAL CIRCUMSTANCES<br><br>C<br>Develops Within 2 weeks of MI (Postinfarction UA) |
@@ -201,8 +188,6 @@ Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Hea
 | Sepsis |
 | Acute respiratory failure |
 | Frequent defibrillator shocks |
-
-*Adapted from Thygesen K et al. Recommendations for the use of cardiac troponin measurement in acute cardiac care. Eur Heart J 2010; 31:2197-2204.*
 
 Abbreviations
 | Abbreviation | Description |

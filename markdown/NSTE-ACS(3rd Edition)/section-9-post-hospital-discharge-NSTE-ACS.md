@@ -7,6 +7,7 @@ output: discharge_medication_plan, secondary_prevention_targets, follow_up_inves
 treatment_type: aspirin, clopidogrel, ticagrelor, prasugrel, statins, beta_blockers, ACEI, ARB, aldosterone_antagonists, SGLT2_inhibitors, nitrates, CCB, DOAC, warfarin
 -->
 
+## 9.0: Overview of Post-Hospital Discharge
 The acute phase of NSTE-ACS is usually 1 to 3 months. The risk of recurrence of ischemic events, STEMI or death is highest during this period. Following this, most patients assume a clinical course similar to that of patients with chronic stable angina.
 
 Several lifestyle modification measures and drug therapies have been shown to be effective in improving long-term outcome. However, they are underutilized. Therefore, health care providers should ensure that patients with NSTE-ACS receive appropriate treatment post-hospital discharge and ensure that patients remain compliant to treatment.
@@ -27,9 +28,7 @@ Important discharge instructions (both verbal and written instructions) should i
 Refer to Malaysian CPG on Primary and Secondary Prevention of Cardiovascular Disease 2017, 1st Ed for further details.
 
 ## 9.1: Medications Post-Discharge
-Refer to Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS
 Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS
-
 | Intervention | Grade of Recommendation | Level of Evidence | Comments |
 | :--- | :---: | :---: | :--- |
 | Concomitant Pharmacotherapy | | | |
@@ -50,7 +49,6 @@ Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NS
 | Nitrates, CCB, Ivabradine, ranolazine, trimetazidine | IIa | B | Indicated for residual/recurrent ischemia. |
 
 These should include:
-
 **A. Antiplatelet Agents**
 - DAPT consisting of a combination of:
   - 75-100mg daily aspirin. Currently, studies are still being conducted to look at the optimal dose of aspirin in secondary prevention.
@@ -90,14 +88,11 @@ Anti-ischaemic therapy includes:
 In NSTE-ACS patients with AF who had undergone PCI, the use of DOAC with antiplatelet therapy is associated with a lower risk of bleeding than the standard triple therapy (DAPT + warfarin).
 
 The following **regimens** may be considered:
-
 **1. Warfarin + DAPT**
-
 - [Grade IIa, Level B] Target INR in the lower part of the recommended target range (INR: 2).
 - The use of ticagrelor or prasugrel is not recommended as part of triple antithrombotic therapy with aspirin and OAC.
 
 **2. DOAC + DAPT**
-
 - [Grade IIa, Level B] Dabigatran 110 or 150mg twice daily + aspirin <100mg daily + clopidogrel 75mg once daily for one to six months depending on bleeding risks followed by antiplatelet monotherapy and dabigatran 110 or 150mg twice daily. **or**
 - [Grade IIa, Level B] Rivaroxaban 15mg once daily (10mg if CrCl 30-50ml/min) + aspirin + clopidogrel 75mg once daily for one to six months depending on bleeding risks followed by antiplatelet monotherapy and rivaroxaban 15mg once daily. **or**
 - [Grade IIa, Level B] Rivaroxaban 2.5mg twice daily and aspirin 75-100mg once daily and clopidogrel 75mg once daily for one to 12 months. The duration of DAPT with this combination will depend on the risk of stent thrombosis versus bleeding risk.
@@ -122,21 +117,18 @@ In the outpatient evaluation of low risk NSTE-ACS patients, the following invest
 
 Patients with significant demonstrable ischemia should be considered for revascularization.
 
-**Key Recommendations 11:**
+Recommendations:
 - Patients should be on optimal medical therapy at discharge. This includes:
   - DAPT with aspirin + clopidogrel (or ticagrelor or prasugrel)
   - **And** high intensity statins to achieve LDL-C target of < 1.8 mmol/l (preferably < 1.4 mmol/l), the lower the better.
   - **And** in the presence of angina /myocardial ischemia, beta-blockers and/or CCBs should be prescribed as first-line treatment and ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
   - **And** in the presence of LVEF < 40% and heart failure, beta-blockers, Renin Angiotensin Blockers (ACEIs/ARBs) and Aldosterone Receptor Antagonists - spironolactone, eplerenone should be given. SGLT2-inhibitors can be instituted in both stable diabetic and non-diabetic patients.
-
-**Key Recommendations 12:**
 - Low risk patients should be assessed non-invasively for ischemia. (Flowchart 2: Non-invasive investigation of Low Risk Patients with NSTE-ACS*)
 - If they have troubling symptoms and/or significant myocardial ischemia, they should be referred for coronary angiography with view to revascularization.
 
 <!-- parent_only_reference_start -->
 Flowchart 2: Non-Invasive Investigation Of Low Risk Patients With NSTE-ACS*
 The flowchart describes the non-invasive investigation pathway for **low risk patients with NSTE-ACS**.
-
 **1. Identify low risk patients**
 Low risk patients have:
 - No angina in the past.
@@ -175,7 +167,6 @@ Low risk patients have:
 - All intermediate or high risk NSTE-ACS patients should be considered for coronary angiography and revascularization.
 
 Levels Of Evidence And Grades Of Recommendation
-
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |

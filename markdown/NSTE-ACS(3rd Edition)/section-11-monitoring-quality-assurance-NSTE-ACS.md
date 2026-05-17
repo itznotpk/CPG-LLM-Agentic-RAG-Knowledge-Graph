@@ -9,8 +9,6 @@ output: performance_indicators, outcome_measures, audit_targets, quality_improve
 Implementation of the recommendations listed in this CPG can be accomplished by:
 - Continuous medical education via regular seminars, lectures and roadshows particularly at the district hospital and family medicine clinics. Education and training is the most important aspect of the implementation of this CPG.
 - Widespread availability of this CPG to healthcare providers via printed copies, electronic websites, etc.
-
-**Key Recommendations 13:**
 - Regular audit of performance and outcome measures (refer to Table 7: Performance and Outcome Measures) should be performed periodically to monitor and improve quality of care.
 
 Table 7: Performance And Outcome Measures

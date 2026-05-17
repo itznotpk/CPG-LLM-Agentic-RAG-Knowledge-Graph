@@ -110,7 +110,7 @@ Patients with renal impairment were excluded from most clinical trials. In gener
     - worsening renal function and acute on chronic renal failure due to contrast nephropathy and/or cholesterol embolization. Strategies should be taken to reduce this risk.
     - the procedure - These patients often have calcified, tortuous vessels which increases the risk and complexity of PCI.
 
-**Key Messages 9#:**
+Key Message:
 - When managing older patients, one should consider the biological age rather than the chronological age.
 - Older persons have greater in-hospital and long term benefits with an early invasive strategy. However, there is an increased risk of major bleeding.
 - Women should be managed with the same pharmacological therapy as that for men for acute care and for secondary prevention.
@@ -133,8 +133,6 @@ Appendix VII: P2y12 Inhibitors*
 | Nonbleeding significant side effects | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
 | Plasma half-life of active P2Y12 inhibitor<sup>d</sup> | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
 | Inhibition of adenosine reuptake | No | No | Yes |
-
-*\*Adapted from Roffi M, Patrono C, Collet J-P, et.al. 2015 ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation: Task Force for the Management of Acute Coronary Syndromes in Patients Presenting without Persistent ST-Segment Elevation of the European Society of Cardiology (ESC). Eur Heart J. 2016;37(3): 267-315*
 
 *<sup>a</sup> 50% inhibition of ADP-induced platelet aggregation.* <br>
 *<sup>b</sup> Onset of effect may be delayed if intestinal absorption is delayed (e.g. by opiate).* <br>
@@ -162,10 +160,6 @@ Appendix IX: Anticoagulant Agents*
 | **Stage 3**<br>CrCl 30 - 59 ml/min | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>CrCl 15 - 29 mL/min | Not recommended if CrCl < 20 ml/min** | SC 1 mg/kg OD | No dose adjustment |
 | **Stage 5**<br>CrCl < 15 mL/min | Not recommended | SC 1 mg/kg OD | No dose adjustment |
-
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia) and IBM Micromedex drug Reference. Retrieved 27th July 2019*
-
-*\*\*There are limited clinical data available on the use of Fondaparinux for the treatment of UA/NSTEMI and STEMI in patients with creatinine clearance between 20 to 30 ml/min. Therefore the physician should determine if the benefit of treatment outweighs the risk.It is not recommended when CrCl< 20 ml/min. https://india-pharma.gsk.com/media/701015/arixtra.pdf (Accessed 14th October 2019).*
 
 Levels Of Evidence And Grades Of Recommendation
 | GRADES OF RECOMMENDATION | |

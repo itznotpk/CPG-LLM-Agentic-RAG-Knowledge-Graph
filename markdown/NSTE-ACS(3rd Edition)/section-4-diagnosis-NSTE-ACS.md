@@ -83,7 +83,7 @@ Where there is access to cTn testing, other biomarkers (AST, LDH, CK, CKMB and m
 
 After acute MI, cTn becomes detectable at 6 hours using the conventional older cTn assays and may remain elevated for up to 14 days. Hs-cTn assays detect cTn release at an earlier time point than the older cTn tests leading to an improved early sensitivity for a diagnosis of MI.
 
-cTn are markers of myocardial necrosis and not specific markers for MI. The rise and/or fall of cTn with at least one value greater than the 99th percentile URL is a key criterion in addition to other clinical features for the diagnosis of MI. (refer to Section 2.2.1.1: Cardiac Biomarkers In The Diagnosis Of Myocardial Injury And Myocardial Infarction) <!-- cross_ref target_file="section-2-definition-of-terms-NSTE-ACS.md" target_heading="2.2.1.1: Cardiac Biomarkers In The Diagnosis Of Myocardial Injury And Myocardial Infarction" target_kind="h3_section" -->
+cTn are markers of myocardial necrosis and not specific markers for MI. The rise and/or fall of cTn with at least one value greater than the 99th percentile URL is a key criterion in addition to other clinical features for the diagnosis of MI. (refer to Section 2.2.2: Cardiac Biomarkers in the Diagnosis of Myocardial Injury and Myocardial Infarction) <!-- cross_ref target_file="section-2-definition-of-terms-NSTE-ACS.md" target_heading="2.2.2: Cardiac Biomarkers in the Diagnosis of Myocardial Injury and Myocardial Infarction" target_kind="h3_section" -->
 
 **High-Sensitivity Cardiac Troponin (Hs-Ctn)**
 The hs-cTn assay is currently replacing the conventional cTn assay in the market. The term "high sensitivity (hs)" reflects the assay's characteristics and not a different type of cTn. A "high sensitivity" assay must meet 2 criteria:
@@ -123,15 +123,13 @@ Concentrations for hs-cTn assays should be expressed in nanograms per litre inst
 
 hs-cTn can be used to:
 - Rule in MI — Significant rise and/or fall of cTn with at least one value greater than the 99th percentile URL in combination with other clinical criteria. (Universal definition of MI)
-- Rule out MI (refer to Section 5.1: Risk Scores to "Rule out ACS")  <!-- cross_ref target_file="section-5-risk-scores-NSTE-ACS.md" target_heading="5.1: Risk Scores To "Rule Out ACS"" target_kind="h2_section" -->
+- Rule out MI (refer to Section 5.1: Risk Scores to Rule out ACS)  <!-- cross_ref target_file="section-5-risk-scores-NSTE-ACS.md" target_heading="5.1: Risk Scores to Rule Out ACS" target_kind="h2_section" -->
 
 Rule out does not equate to discharge. It requires consideration of other causes of chest pain, early out-patient assessment for possible stable CAD or optimisation of care in patients with known CAD.
 
 Rule in strategies help commence appropriate GDT earlier for NSTE-ACS.
 
 ## 4.5: Other Diagnostic Modalities
-These include:
-
 **Echocardiography / Point Of Care Ultrasound (Pocus):**
 - Echocardiography is a safe modality that assists in the rapid diagnosis and management of MI.
 - It helps detect:
@@ -142,23 +140,20 @@ These include:
 **Chest Radiograph:**
 - Routine Chest Radiograph is not advised in all patients presenting with chest pain suspicious of ACS. The decision should be individualised.
 
-**Key Messages 5#:**
+Key Message:
 - The combination of history, physical examination and ECG is important but may be insufficient to reliably rule in or rule out NSTE-ACS.
 - Cardiac troponins (cTn), preferably hs-cTn, both T and I are the most sensitive and specific biomarkers for myocardial injury and necrosis.
 - Elevations of cTn should be correlated with the clinical condition of the patient and the ECG. (See definition of MI, Section 2: Definition of Terms and Table 2: Interpreting Cardiac Troponins) <!-- cross_ref target_file="section-2-definition-of-terms-NSTE-ACS.md" target_heading="Section 2: Definition Of Terms" target_kind="h1_section" -->
 
-**Key Recommendations 1:**
+Key Recommendations:
 - An ECG should be performed within 10 minutes of the First Medical Contact (FMC).
 - All ambulances, government and private clinics should be equipped with ECG-capable devices. These should have computer-generated interpretation and wherever possible, reviewed by trained personnel.
-
-**Key Recommendations 2:**
 - All hospitals providing care for patients with acute chest pain or suspected MI should have access to cTn (subtypes T or I) testing, preferably hs-cTn.
 - Clinicians must be familiar with their local cTn assays-point of care (POC) kits or laboratory based, the 99th percentile URL and the lower limit of detection (LoD) of the assay used in their respective hospitals.
 - The exact value of the cTn result should be stated and not as positive or negative.
 
 <!-- parent_only_reference_start -->
 Table 2: Interpreting Cardiac Troponins
-
 This table can be read as a clinical pathway for patients with **elevated cardiac troponins (>99th percentile)**.
 
 **1. First determine whether troponin levels rise and/or fall**
@@ -194,10 +189,6 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 #Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
-*Adapted from:*
-- *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
-- *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
-
 Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
 | Damage related to secondary myocardial ischemia (MI type 2) |
 | :--- |
@@ -227,8 +218,6 @@ Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Hea
 | Sepsis |
 | Acute respiratory failure |
 | Frequent defibrillator shocks |
-
-*Adapted from Thygesen K et al. Recommendations for the use of cardiac troponin measurement in acute cardiac care. Eur Heart J 2010; 31:2197-2204.*
 
 Levels Of Evidence And Grades Of Recommendation
 | GRADES OF RECOMMENDATION | |

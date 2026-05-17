@@ -92,11 +92,9 @@ Ambulance teams dispatched to the scene should be trained and equipped to perfor
 - Identify patients with NSTE-ACS and STEMI based on history and characteristic ECG changes after consultation with the ED physician/medical officer.
 - Assess, stabilise and monitor the patient's haemodynamics continuously prior to and during transfer.
 
-**Key Recommendations 5:**
+Key Recommendations:
 - Public awareness about heart disease should be increased so that individuals will seek appropriate treatment early, thus reducing time from symptom onset to FMC.
 - If the person is suspected to have an ACS and is not on regular aspirin with no history of allergy, 300mg aspirin should be administered. Soluble and chewable aspirin formulations are preferable to solid aspirin either chewed or swallowed.
-
-**Key Recommendations 6:**
 - Ambulance responders should be trained and equipped to perform an ECG.
 - If the ECG shows STEMI or the patient with NSTE-ACS has ongoing/recurrent chest pain, they should be considered for immediate transfer to a PCI-capable hospital. High-risk unstable patients should be taken to the nearest hospital for stabilization first.
 

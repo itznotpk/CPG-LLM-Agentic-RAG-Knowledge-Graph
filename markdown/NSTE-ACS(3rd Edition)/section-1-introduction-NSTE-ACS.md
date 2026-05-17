@@ -35,12 +35,11 @@ These figures are slightly lower than that seen in the NCVD 2014–2015 but stil
 
 The Malaysian Clinical Practice Guidelines (CPGs) on Stable Coronary Artery Disease 2018, 2nd Ed and ST Elevation Myocardial Infarction 4th Ed, 2019 were recently updated. The last CPG on UA/NSTEMI was published in 2011. Since then, there have been significant advances in the understanding of the pathophysiology and management. Thus, an update is timely to keep abreast with contemporary evidence.
 
-**Key Messages 1:**
+Key Messages:
 - IHD remains the principal cause of death in Malaysia.
 - Our NCVD-ACS registry shows that our in-hospital, 30-day and 1-year mortality is still high despite being lower than in previous years. Our figures are higher than those in other international registries. (Table 4: In-hospital, 30-day and 1-year mortalities in the NCVD 2014–2015, NCVD 2016–2017, GRACE, CZECH-2 and FAST MI Registries)
 
 Table 4: In Hospital, 30-Day And 1-Year Mortalities In The Ncvd 2014–2015, Ncvd 2016–2017, Grace, Czech-2 And Fast MI Registries
-
 | | NCVD 2014–2015 (UA) | NCVD 2014–2015 (NSTEMI) | NCVD 2016–2017 (UA) | NCVD 2016–2017 (NSTEMI) | GRACE (NSTEMI) | CZECH-2 (NSTEMI) | FAST MI (NSTEMI) |
 |---|---|---|---|---|---|---|---|
 | In hospital mortality | 1.6% | 8.0% | 1.0% | 7.5% | 2.9% | 4.1% | 1.9% |

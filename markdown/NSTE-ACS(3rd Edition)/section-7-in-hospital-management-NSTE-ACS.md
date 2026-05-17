@@ -10,10 +10,8 @@ treatment_type: aspirin, oxygen, GTN, morphine, LMWH, fondaparinux, DAPT, statin
 
 ## 7.1: Emergency Department
 When the patient with suspected ACS reaches the emergency department, evaluation and initial management should be prompt. Patients can be either triaged to the red or yellow zone according to the Malaysian Triage Scale.
-
 A quick targeted history should be taken, and vital signs noted.
-
-- A 12 lead ECG should be taken within 10 minutes of the patient's arrival in the emergency department. This should be compared with prehospital ECGs or that taken earlier if available.
+A 12 lead ECG should be taken within 10 minutes of the patient's arrival in the emergency department. This should be compared with prehospital ECGs or that taken earlier if available.
 
 Based on the initial clinical evaluation, the patient may have:
 - Definite STEMI
@@ -22,7 +20,7 @@ Based on the initial clinical evaluation, the patient may have:
   - The use of additional chest leads may be helpful in detecting STEMI at uncommon and difficult to detect sites:
     - Additional posterior chest wall leads (V7-V9) can detect a posterior MI (circumflex occlusion).
     - Right precordial leads (V3R and V4R) may be necessary to identify concomitant Right Ventricular (RV) infarction in the presence of an inferior wall MI.
-- If STEMI has been excluded, the patient may fall into 3 categories as outlined in Section 5.1: Risk Scores to "Rule out ACS". <!-- cross_ref target_file="section-5-risk-scores-NSTE-ACS.md" target_heading="5.1: Risk Scores To "Rule Out ACS" target_kind="h2_section" -->
+- If STEMI has been excluded, the patient may fall into 3 categories as outlined in Section 5.1: Risk Scores to Rule out ACS. <!-- cross_ref target_file="section-5-risk-scores-NSTE-ACS.md" target_heading="5.1: Risk Scores Rule Out ACS" target_kind="h2_section" -->
   - **Very low likelihood to be ACS** or have an alternative cause for their symptoms. These can be treated accordingly and be considered for discharge.
   - **Definite NSTE-ACS**
   - **Possible or suspected NSTE-ACS** - In these individuals the HEART Score (or modified HEART score) or TIMI score should be calculated, the cTn, preferably hs-cTn measured and the "rule out protocol" Flowchart 1: “Rule out” Protocol for patients suspected to have ACS using cardiac troponin (preferably hs-cTn) and 0/3 hour# protocol be used.
@@ -55,7 +53,7 @@ In patients with chest pain not due to ACS, other important clinical conditions 
 - Pulmonary (e.g. pneumonia, pleuritis, pneumothorax)
 - Other etiologies (e.g. herpes zoster, panic attack)
 
-**Key Recommendations 7:**
+Key Recommendations:
 - Patients with NSTE-ACS should be given:
   - Aspirin 300 mg stat (if not given earlier)
   - **And** Oxygen if oxygen saturation < 95%
@@ -74,6 +72,7 @@ Following risk stratification as outlined in section 5.2: Risk Scores for Progno
 Stable, low-risk NSTE-ACS may be managed appropriately on telemetry wards and result in a reduction in hospital costs and critical care capacity.
 
 ## 7.3: Pharmacotherapy
+### 7.3.0: Overview of Pharmacotherapy in NSTE-ACS
 In NSTE-ACS the commonest pathophysiology (Type 1 MI) is a ruptured or fissured plaque with superadded thrombosis leading to varying degrees of occlusion of the vessel. Thus, anti-thrombotic therapy (both antiplatelet and anticoagulant) plays a more important role in management than anti-ischemic agents.
 
 In Type 2 MI, the underlying etiology needs to be addressed. Anti-ischemic agents play a more important role than antiplatelets and antithrombotic agents.
@@ -125,13 +124,13 @@ Both ticagrelor and prasugrel have similar efficacy and bleeding rates when used
 - When compared to clopidogrel, ticagrelor resulted in a significant reduction in cardiac end points in patients undergoing an early invasive or medically treated strategy.
 - Potential drawback is dyspnoea and transient ventricular pauses during the first week. This was rarely associated with symptoms or need for a pacemaker. Caution should be exercised in patients with heart block.
 
-#### 7.3.1.3: Timing Of Initiation Of Dapt
+#### 7.3.1.3: Timing Of Initiation Of DAPT
 - When given as part of DAPT, the timing of initiation of the second antiplatelet agent is not clear. There are a few randomised trials directly comparing pre-treatment with initiation at the time of angiography.
 - Unlike in STEMI, NSTE-ACS patients are a heterogenous group and include patients with multivessel disease who may be more suitable for coronary artery bypass surgery or maybe even have normal coronaries.
 - Although most Guidelines advocate pre-treatment, no recommendation for or against pre-treatment with these agents can be formulated because of the lack of trial data.
 - [Grade I, Level C] The exact timing is left to the clinical judgement of the attending physician.
 
-#### 7.3.1.4: Duration Of Dapt
+#### 7.3.1.4: Duration Of DAPT
 - [Grade I, Level A] In NSTE-ACS patients, with or without PCI, DAPT is recommended for up to 12 months unless there are contraindications such as excessive risk of bleeds.
 - [Grade I, Level B] In ACS patients who underwent PCI and at high risk of bleeding, DAPT maybe continued for 3 to 6 months.
 - [Grade IIb, Level B] Continuing DAPT for more than 12 months significantly reduces MACE at the expense of an increase in major bleeding.
@@ -246,7 +245,7 @@ These include:
 - Trimetazidine
   - [Grade IIa, Level B] In small clinical studies, trimetazidine has been shown to be effective in providing angina symptom relief, reduction in the need for nitrates, time to onset of ST depression and improving functional capacity. It is useful as monotherapy and in combination with other anti-ischaemic agents.
 
-**Key Recommendations 8:**
+Key Recommendations:
 - Patients with NSTE-ACS should be on DAPT.
   - Aspirin should be given at the time of diagnosis.
   - The timing of the second antiplatelet agent will depend on the agent used. No firm recommendations can be made about pre-treatment.
@@ -255,7 +254,6 @@ These include:
   - Duration of DAPT will depend on the risk of bleeding versus the thrombotic risk. Ideally all patients should be given for 1 year but patients with high bleeding risk can be given DAPT for a shorter period of 3-6 months.
 - Patients with NSTE-ACS treated medically (without an invasive strategy) should be on s.c. LMWH or s.c. fondaparinux for 2-8 days or until hospital discharge.
 
-**Key Recommendations 9:**
 - High dose statins should be initiated soon after diagnosis.
 - In patients who have angina/ischaemia, β-blockers and/or non-dihydropyridine CCBs should be prescribed as first-line treatment to reduce angina because it is widely available.
 - Long-acting nitrates, trimetazidine and ranolazine are recommended as add-on therapy in patients who remain symptomatic. Ivabradine may also be considered for in patients with normal sinus rhythm, especially in those who have a contraindication to or intolerance to β-blockers and if the resting HR is above 70/min.
@@ -331,10 +329,8 @@ Wherever possible, patients who have undergone intervention should undergo compl
 - FFR < 0.8 - intervene
 - FFR > 0.8 - medical therapy
 
-**Key Messages 8#:**
 - An early as opposed to a delayed invasive strategy is safe and associated with a lower risk of refractory ischemia and a shorter duration of hospital stay.
 
-**Key Recommendations 10:**
 - The selection of the optimal timing of invasive coronary angiography and revascularization should be guided by the individual's risk for a MACE. (refer to Table 2: Interpreting Cardiac Troponins) Patients at:
   - Very high risk should undergo an immediate invasive strategy (<2 h).
   - High risk should be recommended for an early invasive strategy (<24 h).
@@ -376,9 +372,6 @@ Elevated troponins may occasionally be due to analytical issues, including:
 4)  imaging evidence of new loss of viable myocardium or new regional wall motion abnormality.
 
 #Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
-*Adapted from:*
-- *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
-- *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
 
 Appendix VII: P2y12 Inhibitors*
 | | Clopidogrel | Prasugrel | Ticagrelor |
@@ -394,8 +387,6 @@ Appendix VII: P2y12 Inhibitors*
 | Nonbleeding significant side effects | None | None | Dyspnea, elevated serum creatinine, elevated uric acid |
 | Plasma half-life of active P2Y12 inhibitor<sup>d</sup> | 30 - 60 min | 30 - 60 min<sup>e</sup> | 6 - 12 hours |
 | Inhibition of adenosine reuptake | No | No | Yes |
-
-*\*Adapted from Roffi M, Patrono C, Collet J-P, et.al. 2015 ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation: Task Force for the Management of Acute Coronary Syndromes in Patients Presenting without Persistent ST-Segment Elevation of the European Society of Cardiology (ESC). Eur Heart J. 2016;37(3): 267-315*
 
 *<sup>a</sup> 50% inhibition of ADP-induced platelet aggregation.* <br>
 *<sup>b</sup> Onset of effect may be delayed if intestinal absorption is delayed (e.g. by opiate).* <br>
@@ -416,11 +407,6 @@ Appendix VIII: Glycoprotein (GP) IIb/IIIa Inhibitors*
 | **Stage 4**<br>(eGFR 15 - 29 mL/min/1.73m2) | No dose adjustment | No adjustment of bolus, reduce infusion to 0.05 µg/kg/min | Not Recommended |
 | **Stage 5**<br>(eGFR <15 mL/min/1.73m2) | No dose adjustment | Not recommended | Not recommended |
 
-*\*References:*
-* *Roffi M, Patrono C, Collet J-P, Mueller C, Valgimigli M, Andreotti F, Bax JJ, Borger MA, Brotons C, Chew DP, Gencer B, Hasenfuss G, Kjeldsen K, Lancellotti P, Landmesser U, Mehilli J, Mukherjee D, Storey RF, Windecker S, Group ESCSD. 2015 ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation: Task Force for the Management of Acute Coronary Syndromes in Patients Presenting without Persistent ST-Segment Elevation of the European Society of Cardiology (ESC). Eur Heart J. 2016;37(3): 267-315.*
-* *Washam JB, Herzog CA, Beitelshees AL, Cohen MG, Henry TD, Kapur NK, Mega JL, Menon V, Page RL, 2nd, Newby LK. Pharmacotherapy in chronic kidney disease patients presenting with acute coronary syndrome: a scientific statement from the American Heart Association. Circulation. 2015;131(12): 1123-49.*
-* *De Luca G. Glycoprotein IIb-IIIa inhibitors. Cardiovasc Ther. 2012;30(5): e242-54.*
-
 Appendix IX: Anticoagulant Agents*
 | | FONDAPARINUX | ENOXAPARIN | UFH |
 | :--- | :--- | :--- | :--- |
@@ -430,10 +416,6 @@ Appendix IX: Anticoagulant Agents*
 | **Stage 3**<br>CrCl 30 - 59 ml/min | No dose adjustment | No dose adjustment | No dose adjustment |
 | **Stage 4**<br>CrCl 15 - 29 mL/min | Not recommended if CrCl < 20 ml/min** | SC 1 mg/kg OD | No dose adjustment |
 | **Stage 5**<br>CrCl < 15 mL/min | Not recommended | SC 1 mg/kg OD | No dose adjustment |
-
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia) and IBM Micromedex drug Reference. Retrieved 27th July 2019*
-
-*\*\*There are limited clinical data available on the use of Fondaparinux for the treatment of UA/NSTEMI and STEMI in patients with creatinine clearance between 20 to 30 ml/min. Therefore the physician should determine if the benefit of treatment outweighs the risk.It is not recommended when CrCl< 20 ml/min. https://india-pharma.gsk.com/media/701015/arixtra.pdf (Accessed 14th October 2019).*
 
 Appendix X: Β-Blockers In NSTE-ACS*
 | β-blockers | Bisoprolol | Carvedilol | Metoprolol |
@@ -447,8 +429,6 @@ Appendix X: Β-Blockers In NSTE-ACS*
 | **Stage 5:**<br>CrCl < 15mL/min | CrCl < 40mL/min: used with caution | No adjustment needed | No adjustment needed |
 | Metabolism | Liver: 50% | Liver | Liver |
 | Elimination | Renal: 50 - 60% unchanged | Fecal / biliary | Renal: 95% |
-
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia) and IBM Micromedex drug Reference. Retrieved 27th July 2019.*
 
 Appendix XI: ACEI/ARB In NSTE-ACS*
 | ACE/ARB | Captopril | Ramipril | Enalapril | Perindopril |
@@ -465,8 +445,6 @@ Appendix XI: ACEI/ARB In NSTE-ACS*
 | Metabolism | Liver | Liver | Liver | Liver |
 | Elimination | Renal: >95% | Renal: 60%<br>Fecal: 40% | Renal: 61%<br>Fecal: 33% | Renal: 75% |
 
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 28th July 2019.*
-
 Appendix XII: Recommended Dosages Of Nitrates*
 | | Glyceryl trinitrate (GTN) | | | | | Isosorbide dinitrate | | | Isosorbide mononitrate |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -478,7 +456,6 @@ Appendix XII: Recommended Dosages Of Nitrates*
 | Metabolism | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver | Liver |
 | Elimination | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 22% | Renal: 80 - 90% | Renal: 80 - 90% | Renal: 78% |
 
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 *<sup>†</sup>Initially, 10 mcg/min, increase in increment of 10 mcg/min at approximately 30-minute intervals, according to patient requirement.*
 
 Appendix XIII: CCBs*
@@ -491,8 +468,6 @@ Appendix XIII: CCBs*
 | Renal Impairment | No dose adjustment | No dose adjustment | No dose adjustment | No dose adjustment |
 | Metabolism | Liver | Liver | Liver | Liver |
 | Elimination | Renal: 35%<br>Fecal: 60 - 65% | Renal: 70% | Renal: 60%<br>Fecal: 20 - 25% | Renal: 70 - 80%<br>Fecal: 20% |
-
-*\*As stated in MIMS Malaysia (https://www.mims.com/malaysia). Retrieved 27th July 2019.*
 
 Flowchart 1: "Rule Out" Protocol For Patients Suspected To Have ACS Using Cardiac Troponin (Preferably Hs-Ctn) And 0/3 Hour# Protocol
 The flowchart describes the rule-out pathway for patients with acute chest pain after history and physical examination:
@@ -533,7 +508,6 @@ Patients discharged after rule-out should:
 - \*\*\* If the initial baseline cTn or hs-cTn is markedly > 99th percentile, a change of >20% is significant. If the baseline is < or around the 99th percentile URL, a change of at least 50% is required to be significant.
 
 Levels Of Evidence And Grades Of Recommendation
-
 | GRADES OF RECOMMENDATION | |
 | :--- | :--- |
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |

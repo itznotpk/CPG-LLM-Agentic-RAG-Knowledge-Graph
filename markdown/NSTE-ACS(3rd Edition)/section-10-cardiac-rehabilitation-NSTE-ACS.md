@@ -7,6 +7,7 @@ output: rehabilitation_referral, exercise_plan, risk_factor_targets, activity_gu
 treatment_type: cardiac_rehabilitation, exercise_training, smoking_cessation, lifestyle_modification
 -->
 
+## 10.0: Introduction to Cardiac Rehabilitation
 Cardiac rehabilitation is aimed at improving the physical and psychological well-being of the patient. It has been shown to reduce mortality by approximately 20%-25%. There was also a trend towards reduction in non-fatal recurrent MI over a median follow-up of 12 months.
 
 Angina management programs have been shown to decrease the episodes of chest pain by 70%, reduce nitrate use by 65% and improve exercise tolerance by 57%.

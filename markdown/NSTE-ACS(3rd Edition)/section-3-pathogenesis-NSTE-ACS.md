@@ -17,7 +17,7 @@ and/or demand. It may occur in the presence of coronary atherosclerosis without 
 
 Type 2 MI is an important cause of ACS in the elderly. Distinguishing Type 2 MI from troponin release due to non-coronary diseases is often difficult and challenging (refer to Table 2: Interpreting Cardiac Troponins & Appendix II: ELEVATIONS OF CARDIAC TROPONIN IN THE ABSENCE OF OVERT ISCHEMIC HEART DISEASE)
 
-**Key Messages 4#:**
+Key Messages:
 MI can be classified as 5 types depending on the pathology, clinical features, prognosis and treatment strategies (refer to Table 6: Clinical Classification of MI). This CPG focuses on NSTE-ACS which is usually either:
 - **Type 1 MI** — Spontaneous MI related to atherosclerotic plaque rupture, with ulceration, fissuring, erosion or dissection.
 - **Type 2 MI** — Often due to an imbalance between myocardial oxygen supply and/or demand. It may occur in the presence of coronary atherosclerosis without plaque rupture or in the absence of atherosclerosis. This is an important cause of ACS in the elderly.
@@ -33,11 +33,8 @@ Table 6: Clinical Classification Of MI
 | Type 4b: MI related to stent thrombosis | MI associated with stent thrombosis is detected by coronary angiography or autopsy in the setting of myocardial ischemia and with a rise and/or fall of cardiac biomarkers values with at least one value above the 99th percentile URL. |
 | Type 5: MI related to coronary artery bypass surgery (CABG) | MI associated with CABG is arbitrarily defined by elevation of cardiac biomarker values 10 x 99th percentile URL in patients with normal baseline cTn values (99th percentile URL). In addition, either <br> (i) new pathological Q waves or new LBBB, or <br> (ii) angiographic documented new graft or new native coronary artery occlusion, or <br>  (iii) imaging evidence of new loss of viable myocardium or new regional wall motion abnormality. |
 
-*Adapted from Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
-
 <!-- parent_only_reference_start -->
 Table 2: Interpreting Cardiac Troponins
-
 This table can be read as a clinical pathway for patients with **elevated cardiac troponins (>99th percentile)**.
 
 **1. First determine whether troponin levels rise and/or fall**
@@ -73,10 +70,6 @@ Elevated troponins may occasionally be due to analytical issues, including:
 
 #Stable denotes ≤20% variation of troponin values in the appropriate clinical context.
 
-*Adapted from:*
-- *Thygesen K et al. Fourth universal definition of myocardial infarction. Eur Heart J 2019; 40(3):237-269.*
-- *Newby LK, Jesse RL, Babb JD, et al. ACCF 2012 expert consensus document on practical clinical considerations in the interpretation of troponin elevations: a report of the American College of Cardiology Foundation task force on Clinical Expert Consensus Documents. J Am Coll Cardiol. 2012;60(23):2427-2463.*
-
 Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Heart Disease.
 | Damage related to secondary myocardial ischemia (MI type 2) |
 | :--- |
@@ -106,8 +99,6 @@ Appendix II: Elevations Of Cardiac Troponin In The Absence Of Overt Ischemic Hea
 | Sepsis |
 | Acute respiratory failure |
 | Frequent defibrillator shocks |
-
-*Adapted from Thygesen K et al. Recommendations for the use of cardiac troponin measurement in acute cardiac care. Eur Heart J 2010; 31:2197-2204.*
 
 Abbreviations
 | Abbreviation | Description |
