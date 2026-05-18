@@ -7,10 +7,10 @@ output: nutrition_plan, weight_gain_target, exercise_recommendation, GDM_prevent
 treatment_type: medical nutrition therapy, lifestyle modification
 -->
 
+## 3.0: Overview of Risk Factors and Prevention Strategies
 There are many adverse effects of obesity on maternal and perinatal outcomes. Obesity in pregnancy is associated with a significant risk of GDM and hypertensive disorders of pregnancy including pre-eclampsia. Caesarean section rates are high and infants of obese mothers are at greater risk of large for gestational age (LGA), macrosomia, shoulder dystocia, congenital malformation and stillbirth. Thus, lifestyle modification strategies such as exercise, diet and weight management are important to prevent GDM.
 
-## 3.1 Medical Nutrition Therapy
-
+## 3.1: Medical Nutrition Therapy
 [Level III] Medical nutrition therapy (MNT) consists of nutritional diagnosis and therapy that include dietary intervention and counselling. It is crucial at any stage of pregnancy in women who are at risk of GDM. This can be achieved by choosing healthy food with appropriate gestational weight gain (GWG).
 
 [Level II-2] Women at risks of GDM should receive individualised MNT as needed, preferably by a dietitian. A small group counselling (2-4 women) may also be provided. A nonrandomised trial has shown that small group counselling produced similar improvement in nutrition knowledge compared to individual counselling.
@@ -44,10 +44,10 @@ GWG is the major determinant of incremental energy needs during pregnancy. Energ
   * postpartum care
 * MNT should be individualised according to nutritional needs and cultural preference to ensure positive maternal and fetal outcomes.
 
-**Recommendation 2**
+Recommendation:
 * Pregnant women at risk of gestational diabetes mellitus should be offered medical nutrition therapy which includes monitoring of gestational weight gain.
 
-## 3.2 Exercise
+## 3.2: Exercise
 [Level I] Structured moderate physical exercise programmes during pregnancy significantly decrease the risk of Gestational Diabetes Mellitus. [Level I] They also reduce maternal weight gain with no adverse events to the mother and neonate.
 
 [Level III] Examples of safe physical activities during pregnancy are:
@@ -72,8 +72,7 @@ GWG is the major determinant of incremental energy needs during pregnancy. Energ
 * Ruptured membranes
 * Pregnancy induced hypertension
 
-**Recommendation 3**
-* All pregnant women with uncomplicated pregnancies should be encouraged to exercise especially those at risk of developing gestational diabetes mellitus.
+Recommendation: All pregnant women with uncomplicated pregnancies should be encouraged to exercise especially those at risk of developing gestational diabetes mellitus.
 
 <!-- parent_only_reference_start -->
 Level Of Evidence

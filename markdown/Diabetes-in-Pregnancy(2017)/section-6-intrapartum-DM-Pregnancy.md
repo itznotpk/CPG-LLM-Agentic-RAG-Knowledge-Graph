@@ -22,7 +22,7 @@ treatment_type: intravenous insulin, intravenous dextrose, normal saline
 
 For intrapartum glycaemic management in women with pre-existing diabetes and GDM, refer to Algorithm B: Intrapartum Glucose Monitoring For Diabetes In Pregnancy In Active Labour and Algorithm C: Insulin Infusion And Titration In Active Labour.
 
-**Recommendation 13**
+Recommendation:
 * In women with diabetes, capillary blood glucose should be maintained at 4.0-7.0 mmol/L during labour and delivery.
 * Monitoring of capillary blood glucose during labour and delivery in women with diabetes should be done:
   * 1- to 2-hourly in women on insulin treatment

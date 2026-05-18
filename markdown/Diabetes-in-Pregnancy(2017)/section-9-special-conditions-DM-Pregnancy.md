@@ -7,14 +7,14 @@ output: CSII_continuation_advice, corticosteroid_glucose_monitoring_plan, fastin
 treatment_type: continuous subcutaneous insulin infusion, corticosteroids, NPH insulin
 -->
 
-## 9.1 Continuous Subcutaneous Insulin Infusion
+## 9.1: Continuous Subcutaneous Insulin Infusion
 Insulin pump or continuous subcutaneous insulin infusion (CSII) is a small device that is used to administer subcutaneous insulin continuously. It has been used in non-pregnant diabetes patients especially in T1DM.
 
 [Level I] In a Cochrane systematic review, there is no evidence to support the use of CSII over multiple doses insulin for pregnant women with pre-existing diabetes and GDM. The RCTs used in the review were small and of low quality.
 
 * CSII does not confer additional maternal or fetal benefits compared with MDI. However, those who are already using the device can continue it throughout pregnancy.
 
-## 9.2 Corticosteroids
+## 9.2: Corticosteroids
 Pregnant women with diabetes should be strongly advised against fasting during Ramadhan. However, some of them might wish to observe the religious obligation.
 
 Corticosteroids are administered during pregnancy to accelerate fetal lung maturation. It is known to elevate plasma glucose levels and worsen glycaemic control of diabetes in pregnancy.
@@ -25,15 +25,14 @@ There is no evidence on the use of oral or inhaled corticosteroids for other ind
 
 * Women with diabetes who are given corticosteroids during pregnancy need regular plasma glucose monitoring (at least four times a day, for 48 hours from the first dose) and adjustment of their insulin dose accordingly.
 
-## 9.3 Fasting
+## 9.3: Fasting
 Pregnant women with diabetes should be strongly advised against fasting during Ramadhan. However, some of them might wish to observe the religious obligation.
 
 [Level III] In a local study on pregnant women with diabetes who fasted during Ramadhan, most of them who were on NPH insulin (79.2%) were able to fast for more than 15 days without any hypoglycaemia or fetal complications. Thus, once or twice daily NPH insulin is safe and tolerable for this group of pregnant women.
 
 [Level II-2] Women with pre-existing diabetes and GDM with good glycaemic control prior to Ramadhan continue to have good control throughout and after Ramadhan.
 
-**Recommendation 15**
-* Pregnant diabetes women should consult their healthcare providers if they wish to observe fasting.
+Recommendation: Pregnant diabetes women should consult their healthcare providers if they wish to observe fasting.
 
 <!-- parent_only_reference_start -->
 Level Of Evidence

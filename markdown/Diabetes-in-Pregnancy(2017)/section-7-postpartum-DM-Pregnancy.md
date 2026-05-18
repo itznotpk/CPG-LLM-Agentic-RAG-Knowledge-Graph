@@ -9,7 +9,7 @@ treatment_type: insulin, metformin
 
 Postpartum management is important in both GDM and pre-existing diabetes. This section covers aspects in glucose monitoring, diabetes prevention, pharmacotherapy, contraception, breastfeeding and lifestyle modification in the postnatal period.
 
-## 7.1 Postpartum Glucose Monitoring
+## 7.1: Postpartum Glucose Monitoring
 * Women with insulin-treated pre-existing diabetes should reduce their insulin immediately after birth and monitor their blood glucose levels carefully to establish the appropriate dose.
 * Most women diagnosed with GDM should be able to discontinue their insulin immediately after delivery.
 * Explain to women with insulin-treated pre-existing diabetes that they are at increased risk of hypoglycaemia in the postnatal period, especially when breastfeeding, and advise them to have a meal or snack available before or during feeds.
@@ -22,20 +22,20 @@ In women with history of GDM,
 * annual screening for diabetes should be performed.
 * OGTT should be performed six weeks postnatally.
 
-## 7.2 Postpartum Use Of Metformin
+## 7.2: Postpartum Use Of Metformin
 [Level I] Postpartum metformin therapy significantly prevents newly-diagnosed diabetes in women with history of GDM compared with placebo (risk reduction=50.4%). However, [Level I] there is no significant benefit on weight loss or achievement of pre-pregnancy weight.
 
-## 7.3 Breastfeeding
+## 7.3: Breastfeeding
 [Level II-2] Breastfeeding of more than three months in women with history of GDM is associated with lower risk of diabetes (HR=0.55, 95% CI 0.35 to 0.85). [Level II-2] Breastfeeding of more than nine months is associated with lower incidence of metabolic syndrome (p=0.03) compared with shorter duration. [Level II-2] Breastfeeding reduces the odds of abnormal OGTT at 12 weeks compared with bottle-feeding (OR=0.418, 95% CI 0.199 to 0.888).
 
 The optimum duration for breastfeeding is unknown. Breastfeeding for at least three months is recommended and longer duration is encouraged to reduce the risk of diabetes.
 
-## 7.4 Postpartum Contraception
+## 7.4: Postpartum Contraception
 [Level I] In pre-existing diabetes, there is insufficient evidence to demonstrate any significant difference in contraceptive efficacy and diabetes control between hormonal and non-hormonal contraceptions.
 
 [Level III] There is limited data to demonstrate that Levonorgestrel-intrauterine system does not negatively affect glucose tolerance, i.e. IFG and IGT, compared with copper intrauterine device or tubal sterilisation in women with history of GDM.
 
-## 7.5 Postpartum Lifestyle Intervention
+## 7.5: Postpartum Lifestyle Intervention
 [Level I] Postpartum lifestyle intervention includes MNT, physical activity and behavioural modification. It has been shown to be effective in reducing weight and insulin resistance, and development of T2DM among women with history of GDM.
 
 [Level I] Intensive lifestyle intervention (addition of moderate physical activity, 50-60 minutes, four days per week) is effective in reducing cumulative incidence of diabetes during a 3-year study compared with conventional care (p=0.003). [Level I] It is also effective in reducing postpartum weight retention, waist circumference, insulin resistance, LDL-cholesterol and triglycerides, and increase intensity of vigorous physical activity level.
@@ -44,7 +44,7 @@ The optimum duration for breastfeeding is unknown. Breastfeeding for at least th
 
 [Level I] In an RCT, intensive lifestyle intervention delivered via educational programme showed no significant differences in waist circumference, fasting blood glucose and lipids. This may be due to low subjects participation to the scheduled visits.
 
-**Recommendation 14**
+Recommendation:
 * In women with history of gestational diabetes mellitus,
   * oral glucose tolerance test should be performed at six weeks after delivery to detect diabetes and pre-diabetes; If the result is negative, annual screening should be performed
   * metformin and intensive lifestyle intervention during postpartum period should be considered to prevent diabetes

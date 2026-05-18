@@ -7,7 +7,7 @@ output: preconception_plan, medication_substitution, glycaemic_target, folic_aci
 treatment_type: folic acid, insulin
 -->
 
-## 4.1 Preconception Care and Counselling
+## 4.1: Preconception Care and Counselling
 [Level II-2] Women with pre-existing Type 1 DM (T1DM) and Type 2 DM (T2DM) will benefit from preconception care because it reduces the incidence of congenital malformation, preterm delivery and perinatal mortality. Preconception care also lowers the HbA1c level of these women in the first trimester. [Level I] However, the role of preconception care in women with history of GDM remains unclear due to lack of evidence.
 
 Before conceiving, women with pre-existing diabetes are advised to reduce their weight if they are overweight or obese. The recommended exercise schedule is 150 minutes per week. Blood pressure (<130/80 mmHg) and HbA1c should be kept to the optimal (<6.5% or 48 mmol/mol). Screening for diabetic retinopathy and nephropathy should be organised prior to conception. Women with multiple cardiovascular risk factors on contraception should undergo cardiovascular risk assessment before withdrawal of the contraception. Additionally, folic acid supplementation should be given three months before withdrawal of contraception.
@@ -28,17 +28,17 @@ Before conceiving, women with pre-existing diabetes are advised to reduce their 
   * Women with pre-existing diabetes who also have polycystic ovarian syndrome may continue metformin for ovulation induction.
   * Prior to conception or upon detection of pregnancy, the following medications should be discontinued: angiotensin-converting enzyme inhibitors, angiotensin II receptor blockers and statins.
 
-## 4.2 Contraception
+## 4.2: Contraception
 Women with pre-existing diabetes are encouraged to have a planned pregnancy. Their choice of contraception is based on their own preferences and any risk factors according to the Medical Eligibility Criteria. The use of oral contraceptive pills are allowed. However, intrauterine contraceptive device is the preferred method. [Level III] Caution should be exercised when using Depo-Provera since it may worsen glycaemic control.
 
-## 4.3 Glycaemic Control
+## 4.3: Glycaemic Control
 NICE guidelines recommend that women with pre-existing diabetes who plan for pregnancy to aim for HbA1c <6.5% (48 mmol/mol) if this is achievable without causing hypoglycaemia. Any reduction in HbA1c level towards the target is likely to reduce the risk of congenital malformations in the baby. Those with HbA1c level >10% (86 mmol/mol) are advised not to get pregnant because of the associated risks.
 
 [Level I] For each 1% decrement in HbA1c, the risk of pre-eclampsia reduces by 12% in pre-pregnancy period to 53% at 34 weeks of gestation in T1DM.
 
 Women with pre-existing diabetes who plan to become pregnant need to increase the frequency of self-monitoring of blood glucose (SMBG) by including fasting, pre- and postprandial levels.
 
-## 4.4 Folic Acid Supplementation
+## 4.4: Folic Acid Supplementation
 The synthetic form of folate is folic acid (FA) which is often used in supplements and fortified foods. The main function of folate is to act as the co-enzyme in one-carbon transfer during the methylation cycle, an essential process for the syntheses of nucleic acids, which form part of deoxyribonucleic acid and neurotransmitters. Folate also plays an essential function in protein synthesis, metabolism and other processes associated to cell multiplication and tissue growth.
 
 [Level I] Daily FA supplementation (alone or in combination with other vitamins and minerals) in women who become pregnant or are ≤12 weeks pregnant is effective in preventing neural tube defects (NTDs) compared with no intervention/placebo or vitamins and minerals without FA (RR=0.31, 95% CI 0.17 to 0.58). It also has protective effect for recurrence of NTDs (RR=0.34, 95% CI 0.18 to 0.64). However, there is no significant evidence of preventive effect on cleft palate, cleft lip, congenital cardiovascular defects and miscarriages.
@@ -47,7 +47,7 @@ The synthetic form of folate is folic acid (FA) which is often used in supplemen
 
 [Level III] All women with diabetes should be counselled regarding intake of foods high in FA, folate-fortified foods and appropriate FA supplementation of 4 to 5 mg per day during the preconception period and in the first 12 weeks of gestation. [Level III] This is supported by NICE and Canadian guidelines. [Level III] Local guidelines and Canadian guidelines recommend that FA supplementation should be taken at least three months prior to conception.
 
-**Recommendation 4**
+Recommendation:
 * Preconception care of women with pre-existing diabetes which involve a multidisciplinary team should be fully implemented in all healthcare facilities.
 * Supplement of 5 mg folic acid per day should be given to women with diabetes who plan to become pregnant at least three months prior to conception and continue until 12 weeks of gestation.
 

@@ -1,4 +1,4 @@
-# Section 11: Appendices
+# Appendices
 <!-- METADATA
 category: Reference, Treatment
 use_case: Diabetes in Pregnancy Appendices — search_strategy, clinical_questions, insulin_types, metformin_dosing, CHO_exchange_list, glycaemic_index, Malaysian_food_CHO, sample_meal_plan, insulin_infusion_preparation
@@ -51,9 +51,8 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 11. What are the effective and safe management for infants of diabetic mothers?
 12. What are the indications for referral to secondary/tertiary care?
 
-
-## Appendix 3
-**Carbohydrate Content Of Common Malaysian Foods**
+## Appendix 3: Carbohydrate Content And Food Exchange Lists
+### Appendix 3.1: Carbohydrate Content Of Common Malaysian Foods
 | Foods | Serving | Calories (kcal) | CHO content (g) | Approx. CHO exchanges* |
 |---|---|---|---|---|
 | Cooked rice | 1 bowl (159 g) | 207 | 48 | 3 |
@@ -82,7 +81,7 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 *\*1 CHO food exchange = 15 g*  
 *tbsp = tablespoon*
 
-**Food Groups And Exchange Lists**
+### Appendix 3.2: Food Groups And Exchange Lists
 **Cereals, Grain Products and Starchy Vegetables**
 *(Each item contains 15 g carbohydrate, 2 g protein, 0.5 g fat and 75 calories)*
 
@@ -114,7 +113,6 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | Small thin, salted biscuits (4.5 x 4.5 cm) | 6 pieces |
 
 **Starchy Vegetables**
-
 | Food | Serving |
 |---|---|
 | \*Baked beans, canned | 1/3 cup |
@@ -132,13 +130,11 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | Waterchestnut | 4 pieces |
 
 *(\*Contains more protein than other foods in the list i.e. 5 g/serve)*
-
 * `• 1 cup = 200 mL in volume = ¾ Chinese rice bowl (11.2 cm in diameter x 3.7 cm deep)`
 * `• Tablespoon (tbsp) refers to dessert spoon level (equivalent to 2 teaspoons)`
 
 **Fruits**
 *(Each item contains 15 g carbohydrate and 60 calories)*
-
 | Food | Serving |
 |---|---|
 | Orange | 1 medium |
@@ -185,7 +181,6 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | Fish / shellfish | 0 | 7 | 1 | 35 |
 
 **Lean Meat**
-
 | Food | Serving |
 |---|---|
 | Chicken (raw, without skin) | ½ drumstick |
@@ -213,7 +208,6 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | Prawn | 6 medium |
 
 *Beans and lentils are good sources of protein but they also contain carbohydrate
-
 **Milk**
 *(Milk contains varying amount of carbohydrate, fat and protein depending on the types)*
 
@@ -233,7 +227,6 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 
 **Fat**
 *(Each item contains 5 g of fat and 45 calories. Some of the foods in the list, e.g. nuts and seeds also contain small amounts of carbohydrate and protein)*
-
 | Food | Serving |
 |---|---|
 | Oil (all types) | 1 level teaspoon (5 g) |
@@ -256,7 +249,7 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | Sesame seed | 1 level tbsp |
 | Watermelon seed (kuachi) with shell | ¼ whole |
 
-**Glycaemic Index List**
+### Appendix 3.3: Glycaemic Index List
 | Food Category | Low GI (< 55) | Intermediate GI (56-70) | High GI (>70) |
 |---|---|---|---|
 | Rice | Barley | Basmati Rice<br>Brown rice<br>Parboiled rice<br>Red rice | Glutinous rice<br>Jasmine rice<br>Instant porridge<br>White rice<br>Sago |
@@ -267,9 +260,8 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | Legumes | Baked beans<br>Chickpeas<br>Lentils<br>Mung bean | | |
 | Tubers | Cassava, boiled | Pumpkins, boiled<br>Sweet corn, boiled | Potato, boiled<br>Sweet potato, boiled |
 
-**Sample Menu (For 2000 kcal/Day*)
+### Appendix 3.4: Sample Menu (For 2000 kcal/Day*)
 *(This sample menu provides ~ 48% carbohydrate, 18% protein and 34% fat from energy)*
-
 | Suggested meal time | Suggestion for serving size and foods |
 |---|---|
 | Breakfast (8-9 am) | • 1 cup wheat noodles or spaghetti, preferably soups than fried, or<br>• 1 piece chapatti/2 pieces idli with dhal curry, or<br>• 5 tbsp oats with 1 tbsp powder milk and 1 tbsp fruits cutlets<br>AND<br>• 1 glass (250ml) milk |
@@ -278,7 +270,6 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | Afternoon Tea (4-5 pm) | • ½ cup barley water and 1 chickpea, or<br>• 1 tab plain yogurt, or<br>• 4-5 piece cream cracker with low fat cheese, or<br>• 1 glass milk |
 | Dinner (6-8 pm) | • Same as lunch, or<br>• 1 cup spaghetti (bolognaise or soup), salads and with 1 exchange fruit (apple/orange/pear), or<br>• Noodles soup with slices of chicken, salads and with 1 exchange of fruit (apple/orange/pear), or<br>• Chicken sandwich (2-3 pieces of whole grain bread, 1 slices baked chicken, salads) with 1 (apple/orange/pear) |
 | Supper (9-10 pm) | • 1 glass milk |
-
 *This is a menu planned for women with a normal pre-pregnancy BMI. Patients who are underweight, overweight or obese should be referred to a dietitian/nutritionist. The same applies to those with excessive gestational weight gain.*
 
 ## Appendix 4: Medication Table
@@ -326,12 +317,12 @@ treatment_type: insulin, metformin, potassium chloride, dextrose
 | 2-hours after the start of a meal | 6.7 |
 
 ## Appendix 5: Preparation Of Insulin Infusion
-**Principles of infusion:**  
+Principles of infusion:  
 Glucose is infused intravenously at a fixed rate. Insulin is administered intravenously at a variable rate. CBG is checked hourly and insulin infusion rate adjusted accordingly to maintain target CBG range.
 
 Women with T1DM need to have some insulin in their system at all times to avoid diabetic ketoacidosis. Those with T2DM or GDM may or may not require insulin infusion. Insulin requirements decrease after delivery of the placenta.
 
-**Intravenous insulin infusion protocol**  
+Intravenous insulin infusion protocol: 
 Dilute insulin to a concentration of 1 unit/mL. Use either 20 units short-acting human insulin (actrapid) made up to 20 mL with 0.9% saline solution in a 20 mL syringe or 50 units short-acting human insulin made up to 50 mL with 0.9% saline solution in a 50 mL syringe. Administer insulin infusion via a syringe pump.
 
 Based on serum potassium (K+) result, prepare a separate dextrose-potassium chloride (KCl) mixture as below:
@@ -342,8 +333,7 @@ Based on serum potassium (K+) result, prepare a separate dextrose-potassium chlo
 | 3.5-4.5 mmol/L | 2 g (26 mmol) |
 | >4.5 mmol/L | 1 g (13 mmol) |
 
-**Note:** One ampoule of 10 mL KCl 10% contains 13.4 mmol of K+.
-
+Note: One ampoule of 10 mL KCl 10% contains 13.4 mmol of K+.
 * Initiate IV insulin infusion as detailed in Algorithm C.
 * Maintain a constant infusion of dextrose-KCl over six hours, at a rate of 83 mL/hour.
 * The patient would require one dedicated IV cannula with both infusions administered concurrently through infusion pumps, connected via a 3-way stopcock to the IV cannula.

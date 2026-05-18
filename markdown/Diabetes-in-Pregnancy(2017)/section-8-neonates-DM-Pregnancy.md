@@ -12,11 +12,4 @@ Optimal glycaemic control during pregnancy reduces the incidence of perinatal mo
 Management of neonates of mothers with diabetes are listed below:
 * The neonates should stay with their mothers unless there are clinical complications or signs that warrant admission for special or intensive care.
 * Perform blood glucose testing routinely in neonates at 2-4 hours after birth to detect hypoglycaemia. Perform blood tests for polycythaemia, hyperbilirubinaemia, hypocalcaemia and hypomagnesaemia if clinical signs present.
-* Only discharge neonates after 24 hours of delivery, provided that they are maintaining satisfactory CBG levels and feeding well.
-
-<!-- parent_only_reference_start -->
-Abbreviations
-| Abbreviation | Description |
-|---|---|
-| CBG | Capillary blood glucose |
-<!-- parent_only_reference_end -->
+* Only discharge neonates after 24 hours of delivery, provided that they are maintaining satisfactory Capillary blood glucose (CBG) levels and feeding well.

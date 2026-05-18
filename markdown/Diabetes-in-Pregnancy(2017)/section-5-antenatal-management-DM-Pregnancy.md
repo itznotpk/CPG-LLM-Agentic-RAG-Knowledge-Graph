@@ -7,8 +7,7 @@ output: SMBG_frequency, glucose_target_plan, MNT_plan, insulin_initiation_plan, 
 treatment_type: metformin, insulin aspart, insulin lispro, insulin actrapid, insulin NPH, insulin detemir, aspirin
 -->
 
-## 5.1 Glycaemic Control
-
+## 5.1: Glycaemic Control
 Self-monitoring of blood glucose (SMBG) in all pregnant women with pre-existing diabetes or GDM is recommended to achieve glycaemic control and improve pregnancy outcomes. It serves to assist patients in adjustments of their medications particularly multiple daily insulin (MDI) therapy to achieve the desired glycaemic targets. Furthermore, it helps to prevent hypoglycaemia or hyperglycaemia episodes.
 
 Monitoring of blood glucose is preferably done at home. The traditional blood sugar profile (BSP) performed in the hospital may not reflect the actual day-to-day blood sugar levels. In local setting when SMBG is not feasible, clinic-based BSP may be done to assess the glycaemic control. The frequency of BSP is once in two weeks until delivery or more frequent.
@@ -45,7 +44,7 @@ Table 2: Timing for Self-monitoring Blood Glucose
 | OAD or single dose insulin | ✓ | ✓ | | ✓ | | ✓ |
 | Multiple dose insulin | ✓ | ✓ | ✓ | ✓ | ✓ | |
 
-**Recommendation 5**
+Recommendation:
 * Self-monitoring of blood glucose (SMBG) should be done in diabetes in pregnancy. The blood glucose targets should be as the following:
   * fasting or preprandial: ≤5.3 mmol/L
   * 1-hour postprandial: ≤7.8 mmol/L
@@ -56,8 +55,7 @@ Table 2: Timing for Self-monitoring Blood Glucose
 * Pregnant women with type 2 diabetes mellitus or GDM on diet and exercise therapy, oral antidiabetic agents (OAD), single-dose intermediate-acting or long-acting insulin should perform fasting and postprandial SMBG at least once daily until blood glucose targets are reached.
 * Pregnant women who are on insulin or OAD should maintain their capillary blood glucose level >4.0 mmol/L.
 
-## 5.2 Medical Nutrition Therapy
-
+## 5.2: Medical Nutrition Therapy
 MNT for pregnant women with diabetes focuses on carbohydrate (CHO)-controlled meal plan. The aim is to achieve and maintain optimum glycaemic levels and appropriate GWG, while meeting essential nutrients to promote positive maternal and fetal outcomes.
 
 [Level III] Evidence on the ideal amount of CHO for pregnant women with diabetes to achieve good glycaemic control is limited, but a minimum of 175 g CHO daily has been recommended. [Level I] In a meta-analysis of RCTs on GDM, lower CHO diets [40-45% of total energy intake (TEI)] showed no significant difference in maternal and neonatal outcomes compared with CHO intake of 55-60% TEI.
@@ -78,11 +76,9 @@ Refer to Appendix 3 on CHO food, exchange list and GI diet.
 * [Level I] MNT provided by a dietitian, SMBG and insulin therapy are effective in reducing the rate of serious perinatal complications and tend to improve maternal quality of life.
 * Early nutritional intervention should be initiated at the time of diagnosis. Refer to Appendix 3 for suggested menu plan.
 
-**Recommendation 6**
-* Pregnant women with diabetes should be given individualised medical nutrition therapy which includes carbohydrate-controlled meal plan and monitoring of gestational weight gain.
+Recommendation: Pregnant women with diabetes should be given individualised medical nutrition therapy which includes carbohydrate-controlled meal plan and monitoring of gestational weight gain.
 
-## 5.3 Oral Antidiabetic Agents
-
+## 5.3: Oral Antidiabetic Agents
 Metformin and glibenclamide are OAD that have been used in GDM. Glibenclamide has limited human data and should only be used if potential benefit outweighs the potential risk. Metformin is labelled as FDA pregnancy category B while glibenclamide is in category C.
 
 [Level I] A meta-analysis showed that compared with glibenclamide, metformin had significantly lower maternal weight gain, neonatal birth weight, macrosomia and LGA. However, there was no significant difference in glycaemic control (FPG and postprandial plasma glucose), caesarean section, preterm birth, stillbirth and neonatal hypoglycaemia.
@@ -92,52 +88,35 @@ Metformin and glibenclamide are OAD that have been used in GDM. Glibenclamide ha
 [Level I] Two of the above meta-analyses compared glibenclamide and insulin. Glibenclamide was associated with less maternal hypoglycaemia but higher maternal weight gain. [Level I] For neonatal outcomes, it was associated with higher incidence of macrosomia, neonatal birth weight and neonatal hypoglycaemia.
 
 **FDA Pregnancy Categories:**
-* **Category B:** Animal studies have failed to demonstrate a risk to the fetus and there are no adequate and well-controlled studies in pregnant women.
-* **Category C:** Animal studies have shown an adverse effect on the fetus and adequate and well-controlled studies in humans were not available.
+* Category B: Animal studies have failed to demonstrate a risk to the fetus and there are no adequate and well-controlled studies in pregnant women.
+* Category C: Animal studies have shown an adverse effect on the fetus and adequate and well-controlled studies in humans were not available.
 
 NICE guidelines state that metformin should be offered to women with GDM if diet and exercise do not control the blood glucose adequately within 1-2 weeks.
-
 Refer to the medication table in Appendix 4: Medication Table.
 
-**Recommendation 7**
+Recommendation:
 * In gestational diabetes mellitus, metformin should be offered when blood glucose targets are not met by modification in diet and exercise within 1-2 weeks.
-  * It should be prescribed after consultation with specialists.
+* It should be prescribed after consultation with specialists.
 * Metformin should be continued in women who are already on the treatment before pregnancy.
 
-## 5.4 Insulin
-
-### 5.4.1 Initiating Insulin Therapy
-
+## 5.4: Insulin
+### 5.4.1: Initiating Insulin Therapy
 [Level III] Common current practice involves hospital admissions for initiation of insulin therapy in insulin-naïve pregnant women and GDM. There is no evidence to support inpatient or outpatient settings for more effective treatment. However, local expert opinion recommends that insulin therapy could be initiated in the outpatient setting if the patient is agreeable, able to equip herself with adequate SMBG and able to titrate the required insulin doses to achieve glycaemic targets without hypoglycaemia. This may provide a more practical real-life experience in the comfort of her home as she attempts to make the necessary diet and lifestyle changes.
 
 Specialists may opt for hospital admission if deemed necessary due to logistic reasons, the need for referral to other multidisciplinary teams, closer monitoring for hyperglycaemia or hypoglycaemia and other factors.
 
 Insulin should be initiated when MNT and/or metformin therapy failed to achieve optimum glycaemic control. There are multiple insulin regimes available in managing diabetes in pregnancy. However, the preferred choice of insulin regime is MDI. Initiation and optimisation of insulin therapy is illustrated in Appendix 4: Medication Table.
 
-* Insulin should be initiated when:
-  * blood glucose targets are not met after MNT and metformin therapy
-  * metformin is contraindicated or unacceptable
-  * FPG ≥7.0 mmol/L at diagnosis (with or without metformin)
-  * FPG of 6.0-6.9 mmol/L with complications such as macrosomia or polyhydramnios (start insulin immediately, with or without metformin).
+Insulin should be initiated when:
+* blood glucose targets are not met after MNT and metformin therapy
+* metformin is contraindicated or unacceptable
+* FPG ≥7.0 mmol/L at diagnosis (with or without metformin)
+* FPG of 6.0-6.9 mmol/L with complications such as macrosomia or polyhydramnios (start insulin immediately, with or without metformin).
 
-The preferred insulin regime in diabetes in pregnancy is multiple daily injections (MDI). Initiation and dose estimation:
-
-**Insulin Dose Estimation By Trimester**
-
-| Pregnancy Gestation | Total Daily Insulin Requirement |
-|---|---|
-| 1st trimester | 0.7 units/kg/day |
-| 2nd trimester | 0.8 units/kg/day |
-| 3rd trimester | 0.9 units/kg/day |
-
-**Insulin Initiation Doses:**
-* FPG >5.3 mmol/L: Start 0.2 units/kg of intermediate-acting insulin at bedtime. Increase by 2 units every 3 days until targets are reached.
-* 1-hour postprandial >7.8 mmol/L or 2-hour postprandial >6.7 mmol/L: Start 6 units of short-acting insulin. Increase by 2 units every 3 days until targets are reached. If preprandial short-acting insulin dose exceeds 16 units TDS, consider adding 6–10 units intermediate-acting insulin in the morning and titrate accordingly.
-
-## 5.4.2 Human Insulin
+## 5.4.2: Human Insulin
 The use of human insulin, both short acting (regular) and intermediate or long acting [Neutral Protamine Hagedorn (NPH)] have been established in pregnancy. They are generally considered safe and effective and labelled as FDA pregnancy category B. In the local setting, human insulin is the preferred choice of insulin in view of its cost and availability.
 
-## 5.4.3 Insulin Analogues
+## 5.4.3: Insulin Analogues
 Insulin analogues mimic natural insulin physiology. There are rapid and long acting (basal) insulin analogues which are currently used in pre-existing diabetes during pregnancy and GDM. Insulin lispro and aspart are labelled as FDA pregnancy category B. On the other hand, insulin glulisine and glargine are labelled as FDA pregnancy category C (refer footnote in page 13).
 
 ### A. Rapid-acting Insulin Analogues
@@ -167,13 +146,13 @@ Insulin analogues mimic natural insulin physiology. There are rapid and long act
 * Insulin glulisine and glargine can be given only when potential benefit outweighs the potential risk.
 * There is no evidence to support the use of glulisine in pregnancy.
 
-**Recommendation 8**
+Recommendation:
 * Insulin therapy can be initiated at outpatient setting in pregnant women with diabetes.
 * The preferred choice of insulin regime in diabetes in pregnancy is multiple daily injections.
 * Insulin analogues should be continued during pregnancy in women with pre-existing diabetes who are already on the treatment and have established good blood glucose control before pregnancy.
 * Rapid-acting insulin analogue may be considered as an option, particularly in patients with frequent hypoglycaemia or postprandial hyperglycaemia using human insulin during pregnancy.
 
-## 5.5 Pre-Eclampsia Prophylaxis
+## 5.5: Pre-Eclampsia Prophylaxis
 [Level II-2] Pregnant women with pre-existing diabetes have a five-fold increased risk of pre-eclampsia (OR=5.74, CI 95% 5.31 to 6.20) compared to women without diabetes.
 
 [Level I] In a large RCT on women with pre-existing diabetes, low dose aspirin supplementation (60 mg) did not reduce the risk of pre-eclampsia. There was also no evidence of harm to mothers or neonates. [Level III] However, existing guidelines recommend 75 mg aspirin daily from 12 weeks of gestation until delivery in patients with high risk of developing pre-eclampsia, which includes diabetes.
@@ -188,12 +167,12 @@ Insulin analogues mimic natural insulin physiology. There are rapid and long act
 
 [Level III] The World Health Organisation (WHO) recommends calcium supplementation with 1.5-2.0 gram elemental calcium daily from 20 weeks of gestation in populations with low dietary calcium intake, to reduce the risk of pre-eclampsia.
 
-**Recommendation 9**
+Recommendation:
 * Low dose aspirin (75-150 mg daily) should be given to prevent pre-eclampsia in women with pre-existing diabetes from 12 weeks of gestation until term.
 * Vitamin C and E supplementation should not be given to prevent pre-eclampsia in women with diabetes.
 
-## 5.6 Assessment Of Complications Of Diabetes
-### 5.6.1 Retinal Assessment during Pregnancy
+## 5.6: Assessment Of Complications Of Diabetes
+### 5.6.1: Retinal Assessment during Pregnancy
 Pregnant women with pre-existing diabetes should receive retinal assessment at booking, and again at 28 weeks, if initial findings were normal. If diabetic retinopathy is detected, referral to an ophthalmologist is required.
 
 [Level III] In a population-based study on pre-existing diabetes during pregnancy, 25.9% of patients who received two or more retinal assessment had progression of retinopathy. Significant factors associated with progression of retinopathy were higher systolic blood pressure during booking, higher HbA1c at first trimester and greater drop of HbA1c between first and third trimester.
@@ -210,12 +189,12 @@ Thromboprophylaxis should be considered for women with nephrotic range proteinur
 
 Pregnant women with pre-existing renal disease should be managed in a combined clinic by multidisciplinary specialists.
 
-**Recommendation 10**
+Recommendation:
 * In women with pre-existing diabetes,
   * retinal assessment should be performed at booking and repeated at least once throughout the pregnancy
   * renal assessment should be performed at booking; those with pre-existing renal disease should be managed in a combined clinic
 
-## 5.7 Fetal Surveillance
+## 5.7: Fetal Surveillance
 [Level II-2] A meta-analysis of observational studies showed a higher risk of major congenital malformations in babies of women with GDM compared with reference group (RR=1.16, 95% CI 1.07 to 1.25). The risk was higher in women with pre-existing diabetes compared with reference group (RR=2.66, 95% CI 2.04 to 3.47).
 
 [Level I] In women with GDM, ultrasound-guided management reduces the risk of LGA/SGA (RR=0.64, 95% CI 0.45 to 0.93) and macrosomia (RR=0.32, 95% CI 0.11 to 0.95), but increases the need for insulin treatment (RR=1.58, 95% CI 1.14 to 2.20) compared with conventional management.
@@ -227,13 +206,13 @@ Fetal surveillance using ultrasound scan in women with pre-existing diabetes is 
 | 18-20 weeks of gestation | * Detailed structural anatomy scan which includes the spine and heart (four-chamber, outflow tract and three-vessel views) |
 | 28-36 weeks of gestation | * Serial growth scan is performed every four weeks to assess fetal growth and amniotic fluid volume<br>* The rate of fetal growth should be used to facilitate decisions with treatment, and timing and mode of delivery |
 
-**Recommendation 11**
+Recommendation:
 * Pregnant women with pre-existing diabetes should be offered ultrasound scan at:
   * 11–14 weeks of gestation for dating and assessment of major structural malformation
   * 18–20 weeks of gestation for detailed structural anatomy scan (by a trained specialist or sonographer)
 * In pregnant women with pre-existing diabetes and gestational diabetes mellitus, serial growth scan should be performed every four weeks from 28 to 36 weeks of gestation.
 
-## 5.8 Timing and Mode of Delivery
+## 5.8: Timing and Mode of Delivery
 [Level I] In two systematic reviews on pregnant women with GDM and pre-existing T2DM requiring insulin, active IOL at 38 weeks gestation reduced the risk of macrosomia compared with expectant management until 42 weeks (RR=0.56, 95% CI 0.32 to 0.98). There was no significant increase in rates of caesarean section, shoulder dystocia, neonatal hypoglycaemia or perinatal deaths. However, the RCT included had small sample size and did not permit firm conclusion to be drawn.
 
 [Level I] In a systematic review on GDM, observational studies suggested a potential reduction in macrosomia and shoulder dystocia rates with elective IOL and caesarean section for estimated fetal weight indications. However, the quality of evidence was low.
@@ -255,7 +234,7 @@ Recommendations from other guidelines are:
 
 Antenatal corticosteroids is administered to women who have spontaneous or planned preterm delivery to accelerate fetal lung development. This will prevent respiratory distress syndrome. However, the use of corticosteroids is associated with a significant worsening of glycaemic control requiring adjustment in insulin dose.
 
-**Recommendation 12**
+Recommendation:
 * The following should be planned for pregnant women with pre-existing diabetes:
   * without complications, delivery between 37+0 and 38+6 weeks
   * with maternal or fetal complications, delivery before 37+0 weeks
@@ -267,8 +246,8 @@ Antenatal corticosteroids is administered to women who have spontaneous or plann
 * Women with diabetes who receive antenatal corticosteroids for fetal lung maturation should have close monitoring of blood glucose levels and insulin dose adjusted accordingly.
 
 <!-- parent_only_reference_start -->
-Appendix 3
-**Carbohydrate Content Of Common Malaysian Foods**
+Appendix 3: Carbohydrate Content And Food Exchange Lists
+Appendix 3.1: Carbohydrate Content Of Common Malaysian Foods
 | Foods | Serving | Calories (kcal) | CHO content (g) | Approx. CHO exchanges* |
 |---|---|---|---|---|
 | Cooked rice | 1 bowl (159 g) | 207 | 48 | 3 |
@@ -297,7 +276,7 @@ Appendix 3
 *\*1 CHO food exchange = 15 g*  
 *tbsp = tablespoon*
 
-**Food Groups And Exchange Lists**
+Appendix 3.2: Food Groups And Exchange Lists
 **Cereals, Grain Products and Starchy Vegetables**
 *(Each item contains 15 g carbohydrate, 2 g protein, 0.5 g fat and 75 calories)*
 
@@ -329,7 +308,6 @@ Appendix 3
 | Small thin, salted biscuits (4.5 x 4.5 cm) | 6 pieces |
 
 **Starchy Vegetables**
-
 | Food | Serving |
 |---|---|
 | \*Baked beans, canned | 1/3 cup |
@@ -347,13 +325,11 @@ Appendix 3
 | Waterchestnut | 4 pieces |
 
 *(\*Contains more protein than other foods in the list i.e. 5 g/serve)*
-
 * `• 1 cup = 200 mL in volume = ¾ Chinese rice bowl (11.2 cm in diameter x 3.7 cm deep)`
 * `• Tablespoon (tbsp) refers to dessert spoon level (equivalent to 2 teaspoons)`
 
 **Fruits**
 *(Each item contains 15 g carbohydrate and 60 calories)*
-
 | Food | Serving |
 |---|---|
 | Orange | 1 medium |
@@ -427,7 +403,6 @@ Appendix 3
 | Prawn | 6 medium |
 
 *Beans and lentils are good sources of protein but they also contain carbohydrate
-
 **Milk**
 *(Milk contains varying amount of carbohydrate, fat and protein depending on the types)*
 
@@ -447,7 +422,6 @@ Appendix 3
 
 **Fat**
 *(Each item contains 5 g of fat and 45 calories. Some of the foods in the list, e.g. nuts and seeds also contain small amounts of carbohydrate and protein)*
-
 | Food | Serving |
 |---|---|
 | Oil (all types) | 1 level teaspoon (5 g) |
@@ -470,7 +444,7 @@ Appendix 3
 | Sesame seed | 1 level tbsp |
 | Watermelon seed (kuachi) with shell | ¼ whole |
 
-**Glycaemic Index List**
+Appendix 3.3: Glycaemic Index List
 | Food Category | Low GI (< 55) | Intermediate GI (56-70) | High GI (>70) |
 |---|---|---|---|
 | Rice | Barley | Basmati Rice<br>Brown rice<br>Parboiled rice<br>Red rice | Glutinous rice<br>Jasmine rice<br>Instant porridge<br>White rice<br>Sago |
@@ -481,9 +455,8 @@ Appendix 3
 | Legumes | Baked beans<br>Chickpeas<br>Lentils<br>Mung bean | | |
 | Tubers | Cassava, boiled | Pumpkins, boiled<br>Sweet corn, boiled | Potato, boiled<br>Sweet potato, boiled |
 
-**Sample Menu (For 2000 kcal/Day*)
+Appendix 3.4: Sample Menu (For 2000 kcal/Day*)
 *(This sample menu provides ~ 48% carbohydrate, 18% protein and 34% fat from energy)*
-
 | Suggested meal time | Suggestion for serving size and foods |
 |---|---|
 | Breakfast (8-9 am) | • 1 cup wheat noodles or spaghetti, preferably soups than fried, or<br>• 1 piece chapatti/2 pieces idli with dhal curry, or<br>• 5 tbsp oats with 1 tbsp powder milk and 1 tbsp fruits cutlets<br>AND<br>• 1 glass (250ml) milk |
@@ -492,7 +465,6 @@ Appendix 3
 | Afternoon Tea (4-5 pm) | • ½ cup barley water and 1 chickpea, or<br>• 1 tab plain yogurt, or<br>• 4-5 piece cream cracker with low fat cheese, or<br>• 1 glass milk |
 | Dinner (6-8 pm) | • Same as lunch, or<br>• 1 cup spaghetti (bolognaise or soup), salads and with 1 exchange fruit (apple/orange/pear), or<br>• Noodles soup with slices of chicken, salads and with 1 exchange of fruit (apple/orange/pear), or<br>• Chicken sandwich (2-3 pieces of whole grain bread, 1 slices baked chicken, salads) with 1 (apple/orange/pear) |
 | Supper (9-10 pm) | • 1 glass milk |
-
 *This is a menu planned for women with a normal pre-pregnancy BMI. Patients who are underweight, overweight or obese should be referred to a dietitian/nutritionist. The same applies to those with excessive gestational weight gain.*
 
 Appendix 4: Medication Table

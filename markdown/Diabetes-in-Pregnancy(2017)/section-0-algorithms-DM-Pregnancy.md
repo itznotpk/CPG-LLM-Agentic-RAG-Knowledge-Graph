@@ -1,7 +1,7 @@
 # Section 0: Key Recommendations And Algorithms
 <!-- METADATA
-category: Methodology, Reference, Screening, Diagnosis, Assessment
-use_case: Key clinical recommendations, screening & diagnostic algorithms, intrapartum glucose monitoring and insulin infusion titration protocols
+category: Reference, Screening, Diagnosis, Assessment
+use_case: Key Recommendations and Clinical Algorithms Index — key_recommendations, screening_algorithm, diagnostic_algorithm, intrapartum_glucose_monitoring, insulin_infusion_titration, OGTT_pathway
 patient_input: gestational_age, risk_factors, diabetes_type, capillary_blood_glucose, labour_status, insulin_treatment, GDM_history
 output: key_recommendations, screening_pathway, diagnosis_pathway, glucose_monitoring_plan, insulin_infusion_protocol
 -->
@@ -11,16 +11,16 @@ output: key_recommendations, screening_pathway, diagnosis_pathway, glucose_monit
 ## Key Recommendations
 The following recommendations were highlighted by the guidelines Development Group as the key clinical recommendations that should be prioritised for implementation.
 
-**Screening**
+Screening
 * Screening for gestational diabetes mellitus based on risk factors using 75 gram oral glucose tolerance test (OGTT) should be done at booking.
   * If the test is negative, it should be repeated at 24-28 weeks of gestation.
 * For women at the age of 25 or more with no other risk factors, OGTT should be done at 24-28 weeks of gestation.
 * Overt diabetes in pregnancy should be managed as pre-existing diabetes.
 
-**Preconception Care**
+Preconception Care
 * Preconception care of women with pre-existing diabetes which involve a multidisciplinary team should be fully implemented in all healthcare facilities.
 
-**Antenatal Management of Diabetes in Pregnancy**
+Antenatal Management of Diabetes in Pregnancy
 * Self-monitoring of blood glucose (SMBG) should be done in diabetes in pregnancy. The blood glucose targets should be as the following:
   * fasting or preprandial: ≤5.3 mmol/L
   * 1-hour postprandial: ≤7.8 mmol/L
@@ -44,23 +44,21 @@ The following recommendations were highlighted by the guidelines Development Gro
 * In women with pre-existing diabetes and gestational diabetes mellitus, serial growth scan should be performed every four weeks from 28 to 36 weeks of gestation.
 * In women with pre-existing diabetes or gestational diabetes mellitus who develop maternal or fetal complications, elective delivery before 37+0 weeks should be considered.
 
-**Intrapartum Management of Diabetes in Pregnancy**
+Intrapartum Management of Diabetes in Pregnancy
 * In women with diabetes, capillary blood glucose should be maintained between 4.0-7.0 mmol/L during labour and delivery.
 
-**Postpartum Management of Diabetes in Pregnancy**
+Postpartum Management of Diabetes in Pregnancy
 * In women with history of gestational diabetes mellitus, oral glucose tolerance test should be performed at six weeks after delivery to detect diabetes and prediabetes. If negative, annual screening should be performed.
 
 ## Algorithm A: Screening And Diagnosis Of Diabetes In Pregnancy
-
-**Overview:** This algorithm guides clinicians on when and how to screen pregnant women for gestational diabetes mellitus (GDM) and overt diabetes in pregnancy. It uses a risk-stratified approach with the 75 g Oral Glucose Tolerance Test (OGTT) as the diagnostic tool.
+Overview: This algorithm guides clinicians on when and how to screen pregnant women for gestational diabetes mellitus (GDM) and overt diabetes in pregnancy. It uses a risk-stratified approach with the 75 g Oral Glucose Tolerance Test (OGTT) as the diagnostic tool.
 
 **Step 1: Determine Screening Timing**
-
 Two groups of women require screening:
-- **Women at risk of GDM** (any risk factor present — see risk factors below): Screen at **booking** (as early as possible in pregnancy).
-- **Women aged ≥25 years with no other risk factors**: Screen at **24–28 weeks of gestation**.
+- Women at risk of GDM (any risk factor present — see risk factors below): Screen at booking (as early as possible in pregnancy).
+- Women aged ≥25 years with no other risk factors: Screen at 24–28 weeks of gestation.
 
-**Risk Factors for GDM (any one of the following triggers early screening):**
+Risk Factors for GDM (any one of the following triggers early screening):
 - Body mass index (BMI) >27 kg/m²
 - Previous history of GDM
 - First-degree relative with diabetes mellitus
@@ -70,13 +68,11 @@ Two groups of women require screening:
 - Current obstetric problems (essential hypertension, pregnancy-induced hypertension, polyhydramnios, or current use of corticosteroids)
 
 **Step 2: Perform 75 g Oral Glucose Tolerance Test (OGTT)**
-
 The OGTT is a two-point blood draw:
-- **Fasting plasma glucose (FPG):** blood drawn after an overnight fast
-- **2-hour postprandial glucose (2-HPP):** blood drawn 2 hours after ingesting 75 g glucose load
+- Fasting plasma glucose (FPG): blood drawn after an overnight fast
+- 2-hour postprandial glucose (2-HPP): blood drawn 2 hours after ingesting 75 g glucose load
 
 **Step 3: Interpret OGTT Results**
-
 *Gestational Diabetes Mellitus (GDM) is diagnosed if ANY ONE of the following is met:*
 - FPG ≥ 5.1 mmol/L
 - 2-HPP ≥ 7.8 mmol/L
@@ -90,21 +86,18 @@ The OGTT is a two-point blood draw:
 → If still negative → **Exclude GDM**. No further OGTT required unless new risk factors emerge.
 
 **Step 4: Screen for Overt Diabetes in Pregnancy**
-
 *Overt diabetes in pregnancy is suspected (regardless of gestational age) if:*
 - FPG ≥ 7.0 mmol/L, OR
 - Random plasma glucose (RPG) ≥ 11.1 mmol/L (with symptoms of hyperglycaemia)
 
-**Important:** Overt diabetes diagnosis MUST be confirmed with a **second confirmatory test** on a separate day (repeat FPG, RPG, or OGTT). Do NOT diagnose on a single result alone.
+Important: Overt diabetes diagnosis MUST be confirmed with a second confirmatory test on a separate day (repeat FPG, RPG, or OGTT). Do NOT diagnose on a single result alone.
 
-If overt diabetes is confirmed → manage as **pre-existing diabetes** (not GDM).
+If overt diabetes is confirmed → manage as pre-existing diabetes (not GDM).
 
 ## Algorithm B: Intrapartum Glucose Monitoring For Diabetes In Pregnancy In Active Labour
-
-**Overview:** This algorithm describes how to monitor and manage capillary blood glucose (CBG) in women with diabetes once they are in active labour. The target CBG range during labour is **4.0–7.0 mmol/L** to prevent neonatal hypoglycaemia and fetal distress.
+Overview: This algorithm describes how to monitor and manage capillary blood glucose (CBG) in women with diabetes once they are in active labour. The target CBG range during labour is **4.0–7.0 mmol/L** to prevent neonatal hypoglycaemia and fetal distress.
 
 **Step 1: Classify the Patient at Onset of Labour**
-
 Three patient categories determine the initial management pathway:
 
 **Category 1: Type 1 Diabetes Mellitus (T1DM)**
@@ -142,7 +135,6 @@ T2DM : Type 2 diabetes mellitus
 GDM  : Gestational diabetes mellitus
 
 ## Algorithm C: Insulin Infusion And Titration In Active Labour
-
 The clinical management workflow for insulin infusion and titration in active labour is structured around continuous intravenous administration, strict hourly monitoring, and dynamic dose adjustment to maintain a safe target range.
 
 **1. Initiation and Monitoring:**
@@ -167,12 +159,33 @@ The clinical management workflow for insulin infusion and titration in active la
   - > 10.0: Add 2.0 unit
 - Check CBG in 1 hour and repeat the assessment.
 
-**Key takeaways:**
+Key takeaways:
 - The algorithm emphasises precise hourly monitoring and dynamic insulin titration to maintain blood glucose securely within the 4.0-7.0 mmol/L target range while actively mitigating the risk of hypoglycaemia.
-
 Refer to Appendix 5 for preparation of insulin infusion.
 
 <!-- parent_only_reference_start -->
+Appendix 5: Preparation Of Insulin Infusion
+Principles of infusion:  
+Glucose is infused intravenously at a fixed rate. Insulin is administered intravenously at a variable rate. CBG is checked hourly and insulin infusion rate adjusted accordingly to maintain target CBG range.
+
+Women with T1DM need to have some insulin in their system at all times to avoid diabetic ketoacidosis. Those with T2DM or GDM may or may not require insulin infusion. Insulin requirements decrease after delivery of the placenta.
+
+Intravenous insulin infusion protocol: 
+Dilute insulin to a concentration of 1 unit/mL. Use either 20 units short-acting human insulin (actrapid) made up to 20 mL with 0.9% saline solution in a 20 mL syringe or 50 units short-acting human insulin made up to 50 mL with 0.9% saline solution in a 50 mL syringe. Administer insulin infusion via a syringe pump.
+
+Based on serum potassium (K+) result, prepare a separate dextrose-potassium chloride (KCl) mixture as below:
+
+| K+ result | Amount of KCl to add to 500 mL of 5% dextrose solution |
+|---|---|
+| <3.5 mmol/L | 3 g (39 mmol) |
+| 3.5-4.5 mmol/L | 2 g (26 mmol) |
+| >4.5 mmol/L | 1 g (13 mmol) |
+
+Note: One ampoule of 10 mL KCl 10% contains 13.4 mmol of K+.
+* Initiate IV insulin infusion as detailed in Algorithm C.
+* Maintain a constant infusion of dextrose-KCl over six hours, at a rate of 83 mL/hour.
+* The patient would require one dedicated IV cannula with both infusions administered concurrently through infusion pumps, connected via a 3-way stopcock to the IV cannula.
+
 Level Of Evidence
 | Level | Study Design |
 |---|---|
