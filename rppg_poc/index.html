@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rPPG Vital Signs Monitor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    (function(){
+        var s = document.createElement('script');
+        s.src = '/exceljs.min.js';
+        s.onerror = function(){
+            var s2 = document.createElement('script');
+            s2.src = 'https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js';
+            document.head.appendChild(s2);
+        };
+        document.head.appendChild(s);
+    })();
+    </script>
+    <style>
+        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 5px rgba(239,68,68,0.3)} 50%{box-shadow:0 0 25px rgba(239,68,68,0.8)} }
+        .pulse-glow { animation: pulse-glow 1s ease-in-out infinite; }
+        @keyframes heartbeat { 0%{transform:scale(1)} 15%{transform:scale(1.3)} 30%{transform:scale(1)} 45%{transform:scale(1.2)} 60%{transform:scale(1)} }
+        .heartbeat { animation: heartbeat 1s ease-in-out infinite; }
+        html, body { height: 100%; overflow: hidden; }
+        canvas#waveform { image-rendering: pixelated; }
+        .source-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+        .tbtn { padding:2px 10px; border-radius:8px; background:#1f2937; border:1px solid rgba(255,255,255,0.1); font-size:0.75rem; color:#9ca3af; transition:all .15s; cursor:pointer; }
+        .tbtn:hover { border-color:rgba(255,255,255,0.3); }
+        .tbtn.active { background:#1d4ed8; border-color:#60a5fa; color:#fff; }
+        @keyframes val-flash { 0%{color:#4ade80;transform:scale(1.15)} 100%{color:inherit;transform:scale(1)} }
+        .val-flash { animation: val-flash 0.6s ease-out; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white h-screen overflow-hidden">
+
+<div class="flex flex-col h-screen p-2 gap-2 max-w-screen-2xl mx-auto">
+
+    <!-- ── HEADER ── -->
+    <div class="flex items-center justify-between flex-shrink-0 bg-white/5 rounded-2xl px-4 py-2 border border-white/10">
+        <div class="flex items-center gap-3">
+            <span class="text-2xl">🫀</span>
+            <div>
+                <h1 class="text-base font-bold text-white leading-tight">rPPG Vital Signs Monitor</h1>
+                <p class="text-gray-500 text-xs">Remote Photoplethysmography · Webcam + MAX30100 Hardware Sensor</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 bg-white/5 rounded-xl px-3 py-1.5 border border-white/10">
+                <div id="statusDot" class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse flex-shrink-0"></div>
+                <span id="statusText" class="text-xs text-gray-300">Initializing...</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/5 rounded-xl px-3 py-1.5 border border-white/10">
+                <span class="text-xs text-gray-600">MAX30100</span>
+                <span id="esp32Status" class="text-xs px-2 py-0.5 rounded-full bg-gray-800 text-gray-400">Waiting...</span>
+            </div>
+            <div id="faceStatus" class="px-3 py-1.5 rounded-xl text-xs bg-red-500/20 border border-red-500/30 text-red-300">👤 No Face</div>
+            <div class="bg-white/5 rounded-xl px-3 py-1.5 border border-white/10 text-xs text-gray-500">
+                FPS <span id="fpsValue" class="text-gray-300 font-mono">--</span>
+            </div>
+            <!-- Session timer -->
+            <div class="bg-white/5 rounded-xl px-3 py-1.5 border border-white/10 text-xs text-gray-500 font-mono">
+                ⏱ <span id="sessionTimer">00:00</span>
+            </div>
+            <!-- Student counter -->
+            <span id="studentCounter" class="text-xs px-2 py-1.5 rounded-xl bg-gray-800 text-gray-500 border border-white/10">Student #0</span>
+            <!-- Next student button -->
+            <button onclick="showNextStudentModal()" class="flex items-center gap-1.5 bg-green-700/60 hover:bg-green-600/80 border border-green-500/40 rounded-xl px-3 py-1.5 text-xs text-green-100 font-semibold transition-colors">
+                👤 Next Student
+            </button>
+            <!-- Download all students Excel -->
+            <button onclick="downloadAllStudentsExcel()" class="flex items-center gap-1.5 bg-emerald-800/60 hover:bg-emerald-700/80 border border-emerald-500/40 rounded-xl px-3 py-1.5 text-xs text-emerald-100 font-semibold transition-colors">
+                📊 Export Excel <span id="allStudentsBadge" class="bg-emerald-900/60 px-1.5 py-0.5 rounded-lg text-emerald-400 text-xs">0 saved</span>
+            </button>
+            <button onclick="clearAllData()" class="bg-gray-800/60 hover:bg-red-900/50 border border-white/10 hover:border-red-500/30 rounded-xl px-2.5 py-1.5 text-xs text-gray-500 hover:text-red-400 transition-colors" title="Clear all saved student data">🗑</button>
+            <a href="/download/slides" download class="flex items-center gap-1.5 bg-indigo-700/50 hover:bg-indigo-600/70 border border-indigo-500/40 rounded-xl px-3 py-1.5 text-xs text-indigo-200 transition-colors">
+                📥 Slides
+            </a>
+        </div>
+    </div>
+
+    <!-- ── HOW TO USE ── -->
+    <div class="grid grid-cols-4 gap-2 flex-shrink-0">
+        <div class="flex items-center gap-2 bg-white/3 border border-white/8 rounded-xl px-3 py-2">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold flex items-center justify-center flex-shrink-0">1</div>
+            <div class="min-w-0">
+                <div class="text-xs font-semibold text-gray-200">Allow Camera</div>
+                <div class="text-xs text-gray-600 truncate">Grant webcam permission</div>
+            </div>
+            <span class="ml-auto text-lg flex-shrink-0">📷</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/3 border border-white/8 rounded-xl px-3 py-2">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold flex items-center justify-center flex-shrink-0">2</div>
+            <div class="min-w-0">
+                <div class="text-xs font-semibold text-gray-200">Face in Frame</div>
+                <div class="text-xs text-gray-600 truncate">Look at the camera</div>
+            </div>
+            <span class="ml-auto text-lg flex-shrink-0">👤</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/3 border border-white/8 rounded-xl px-3 py-2">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold flex items-center justify-center flex-shrink-0">3</div>
+            <div class="min-w-0">
+                <div class="text-xs font-semibold text-gray-200">Touch Sensor</div>
+                <div class="text-xs text-gray-600 truncate">Finger on MAX30100</div>
+            </div>
+            <span class="ml-auto text-lg flex-shrink-0">🫱</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/3 border border-white/8 rounded-xl px-3 py-2">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold flex items-center justify-center flex-shrink-0">4</div>
+            <div class="min-w-0">
+                <div class="text-xs font-semibold text-gray-200">Read Vitals</div>
+                <div class="text-xs text-gray-600 truncate">Wait ~10s to stabilise</div>
+            </div>
+            <span class="ml-auto text-lg flex-shrink-0">✅</span>
+        </div>
+    </div>
+
+    <!-- ── MAIN ── -->
+    <div class="flex gap-2 flex-1 min-h-0">
+
+        <!-- LEFT: Camera + Waveform -->
+        <div class="flex flex-col gap-2" style="width:46%">
+
+            <!-- Camera -->
+            <div class="flex-1 min-h-0 bg-black rounded-2xl overflow-hidden relative border border-white/10">
+                <video id="video" autoplay playsinline class="w-full h-full object-cover" style="transform:scaleX(-1)"></video>
+                <canvas id="overlay" class="absolute top-0 left-0 w-full h-full" style="transform:scaleX(-1)"></canvas>
+                <div class="absolute top-2 left-2 bg-black/70 backdrop-blur-sm rounded-lg px-2 py-1 border border-white/10">
+                    <span class="text-xs text-gray-300 font-medium">📹 Live Camera</span>
+                </div>
+                <div class="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/10">
+                    <p class="text-xs text-gray-400 leading-snug">
+                        <span class="text-green-400 font-semibold">How rPPG works:</span> Blood pumping through your face slightly changes skin colour each heartbeat. The camera detects these tiny colour changes to estimate your heart rate — no contact needed.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Waveform -->
+            <div class="bg-white/5 rounded-2xl p-3 border border-white/10 flex-shrink-0">
+                <div class="flex justify-between items-center mb-1.5">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs font-semibold text-gray-200">📈 Blood Volume Pulse (BVP) Waveform</span>
+                        <span id="qualityBadge" class="text-xs px-2 py-0.5 rounded-full bg-gray-700 text-gray-400">Signal: --</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 flex-shrink-0">
+                        <div class="flex items-center gap-1">
+                            <div class="w-16 bg-gray-700 rounded-full h-1.5">
+                                <div id="bufferProgress" class="h-1.5 rounded-full bg-cyan-500 transition-all" style="width:0%"></div>
+                            </div>
+                            <span id="bufferText" class="text-xs text-gray-500 w-10">0%</span>
+                        </div>
+                        <button onclick="downloadWaveformPNG()" class="text-xs px-2 py-0.5 rounded-lg bg-indigo-700/50 hover:bg-indigo-600 text-indigo-200 transition-colors">PNG</button>
+                        <button onclick="downloadSessionCSV()" class="text-xs px-2 py-0.5 rounded-lg bg-teal-700/50 hover:bg-teal-600 text-teal-200 transition-colors">CSV</button>
+                        <button onclick="clearSession()" class="text-xs px-2 py-0.5 rounded-lg bg-gray-700/50 hover:bg-red-900/50 text-gray-500 hover:text-red-400 transition-colors">Reset</button>
+                    </div>
+                </div>
+                <canvas id="waveform" height="75" class="w-full bg-black/40 rounded-xl"></canvas>
+                <div class="flex justify-between items-center mt-1">
+                    <span id="sessionRecordCount" class="text-xs text-gray-600">Session: 0 readings</span>
+                    <span class="text-xs text-gray-700">Each peak = one heartbeat</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Vitals -->
+        <div class="flex flex-col gap-2 flex-1 min-h-0">
+
+            <!-- ── HEART RATE ── -->
+            <div id="hrCard" class="bg-white/5 rounded-2xl p-3 border border-red-500/20 flex-1 min-h-0 flex flex-col">
+                <div class="flex items-center justify-between mb-2 flex-shrink-0">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span id="hrHeart" class="text-lg">❤️</span>
+                            <span class="font-bold text-white">Heart Rate</span>
+                            <span class="text-xs text-gray-500">beats per minute (BPM)</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-0.5">Normal adult resting range: <span class="text-gray-400">60 – 100 BPM</span> · Below 60 = Bradycardia · Above 100 = Tachycardia</p>
+                    </div>
+                    <span id="dlBadge" class="text-xs px-2 py-0.5 rounded-full bg-gray-700 text-gray-400 flex-shrink-0">AI: buffering...</span>
+                </div>
+                <div class="grid grid-cols-4 gap-2 flex-1 min-h-0">
+
+                    <!-- Hardware Sensor -->
+                    <div class="bg-green-950/60 rounded-xl p-2 border border-green-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-green-500 mb-0.5">Hardware</div>
+                            <div class="text-xs text-green-800 leading-tight">MAX30100<br>Finger Sensor</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-3xl font-bold text-white leading-none font-mono" id="esp32HrValue">--</div>
+                            <div class="text-xs text-green-400 mt-0.5">BPM</div>
+                        </div>
+                        <div id="esp32HrRange" class="text-xs text-green-700 text-center">Place finger</div>
+                    </div>
+
+                    <!-- Webcam rPPG -->
+                    <div class="bg-red-950/50 rounded-xl p-2 border border-red-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-red-400 mb-0.5">Webcam rPPG</div>
+                            <div class="text-xs text-red-900 leading-tight">POS Algorithm<br>No contact</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-3xl font-bold text-white leading-none font-mono" id="hrValue">--</div>
+                            <div class="text-xs text-red-400 mt-0.5">BPM</div>
+                        </div>
+                        <div class="text-xs text-red-900 text-center">Face needed</div>
+                    </div>
+
+                    <!-- AI / DL Model -->
+                    <div class="bg-purple-950/50 rounded-xl p-2 border border-purple-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-purple-400 mb-0.5">AI Model</div>
+                            <div class="text-xs text-purple-900 leading-tight">EfficientPhys<br>Deep Learning</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-3xl font-bold text-white leading-none font-mono" id="dlHrValue">--</div>
+                            <div class="text-xs text-purple-400 mt-0.5">BPM</div>
+                        </div>
+                        <div class="text-xs text-purple-900 text-center">Needs buffer</div>
+                    </div>
+
+                    <!-- Average -->
+                    <div class="bg-gradient-to-b from-red-900/40 to-red-950/60 rounded-xl p-2 border border-red-400/30 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-red-300 mb-0.5">Average</div>
+                            <div class="text-xs text-red-900 leading-tight">All 3 sources<br>combined</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-4xl font-bold text-white leading-none font-mono" id="avgHrValue">--</div>
+                            <div class="text-xs text-red-300 mt-0.5">BPM</div>
+                        </div>
+                        <div id="hrRange" class="text-xs text-red-500 text-center">60–100 BPM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SpO2 ── -->
+            <div class="bg-white/5 rounded-2xl p-3 border border-cyan-500/20 flex-1 min-h-0 flex flex-col">
+                <div class="flex items-center justify-between mb-2 flex-shrink-0">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🩸</span>
+                            <span class="font-bold text-white">Blood Oxygen Saturation (SpO₂)</span>
+                            <span class="text-xs text-gray-500">%</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-0.5">Normal: <span class="text-gray-400">95–100%</span> · 90–94% = Low, needs monitoring · Below 90% = Critical</p>
+                    </div>
+                    <span class="text-xs text-yellow-500/80 bg-yellow-900/20 px-2 py-0.5 rounded-full border border-yellow-600/20 flex-shrink-0">Webcam SpO₂ = estimate only</span>
+                </div>
+                <div class="grid grid-cols-4 gap-2 flex-1 min-h-0">
+
+                    <!-- Hardware -->
+                    <div class="bg-emerald-950/60 rounded-xl p-2 border border-emerald-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-emerald-500 mb-0.5">Hardware</div>
+                            <div class="text-xs text-emerald-900 leading-tight">MAX30100<br>Finger Sensor</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-3xl font-bold text-white leading-none font-mono" id="esp32Spo2Value">--</div>
+                            <div class="text-xs text-emerald-400 mt-0.5">%</div>
+                        </div>
+                        <div id="esp32Spo2Range" class="text-xs text-emerald-800 text-center">Place finger</div>
+                    </div>
+
+                    <!-- AI Model -->
+                    <div class="bg-purple-950/60 rounded-xl p-2 border border-purple-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-purple-400 mb-0.5">AI Model</div>
+                            <div class="text-xs text-purple-900 leading-tight">EfficientPhys<br>Deep Learning</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-3xl font-bold text-white leading-none font-mono" id="dlSpo2Value">--</div>
+                            <div class="text-xs text-purple-400 mt-0.5">%</div>
+                        </div>
+                        <div id="dlSpo2Range" class="text-xs text-purple-900 text-center">Needs buffer</div>
+                    </div>
+
+                    <!-- Average -->
+                    <div class="bg-gradient-to-b from-cyan-900/40 to-cyan-950/60 rounded-xl p-2 border border-cyan-400/30 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-cyan-300 mb-0.5">Average</div>
+                            <div class="text-xs text-cyan-900 leading-tight">All sources<br>combined</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-4xl font-bold text-white leading-none font-mono" id="avgSpo2Value">--</div>
+                            <div class="text-xs text-cyan-300 mt-0.5">%</div>
+                        </div>
+                        <div id="spo2Range" class="text-xs text-cyan-600 text-center">95–100%</div>
+                    </div>
+
+                    <!-- Webcam rPPG -->
+                    <div class="bg-cyan-950/50 rounded-xl p-2 border border-cyan-500/20 flex flex-col justify-between">
+                        <div>
+                            <div class="source-tag text-cyan-400 mb-0.5">Webcam rPPG</div>
+                            <div class="text-xs text-cyan-900 leading-tight">Red/Blue ratio<br>estimate</div>
+                        </div>
+                        <div class="text-center py-1">
+                            <div class="text-3xl font-bold text-white leading-none font-mono" id="spo2Value">--</div>
+                            <div class="text-xs text-cyan-400 mt-0.5">%</div>
+                        </div>
+                        <div class="text-xs text-cyan-900 text-center">Face needed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Bottom row ── -->
+            <div class="grid grid-cols-4 gap-2 flex-shrink-0">
+
+                <!-- Blood Pressure -->
+                <div class="bg-pink-950/40 rounded-2xl p-3 border border-pink-500/20">
+                    <div class="flex items-center gap-1.5 mb-1">
+                        <span>💉</span>
+                        <div class="min-w-0">
+                            <div class="text-xs font-bold text-pink-400">Blood Pressure</div>
+                            <div class="text-xs text-pink-900 truncate">rPPG + AI estimate</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-pink-700 mb-0.5">rPPG</div>
+                    <div class="flex items-baseline gap-1 mb-1">
+                        <span id="bpSystolicValue" class="text-2xl font-bold text-white font-mono">--</span>
+                        <span class="text-pink-400 text-sm font-bold">/</span>
+                        <span id="bpDiastolicValue" class="text-2xl font-bold text-white font-mono">--</span>
+                        <span class="text-pink-300 text-xs">mmHg</span>
+                    </div>
+                    <div class="text-xs text-purple-500 mb-0.5">AI Model</div>
+                    <div class="flex items-baseline gap-1">
+                        <span id="dlBpSystolicValue" class="text-xl font-bold text-purple-300 font-mono">--</span>
+                        <span class="text-purple-400 text-xs font-bold">/</span>
+                        <span id="dlBpDiastolicValue" class="text-xl font-bold text-purple-300 font-mono">--</span>
+                        <span class="text-purple-400 text-xs">mmHg</span>
+                    </div>
+                    <div id="bpRange" class="text-xs text-pink-700 mt-0.5">Normal: &lt;120/80</div>
+                    <div class="text-xs text-yellow-700 mt-0.5">⚠️ Not clinically validated</div>
+                </div>
+
+                <!-- Temperature -->
+                <div class="bg-orange-950/40 rounded-2xl p-3 border border-orange-500/20">
+                    <div class="flex items-center gap-1.5 mb-1">
+                        <span>🌡️</span>
+                        <div>
+                            <div class="text-xs font-bold text-orange-400">Temperature</div>
+                            <div class="text-xs text-orange-900">Hardware only</div>
+                        </div>
+                    </div>
+                    <div class="flex items-baseline gap-1">
+                        <span id="esp32TempValue" class="text-2xl font-bold text-white font-mono">--</span>
+                        <span class="text-orange-300 text-sm">°C</span>
+                    </div>
+                    <div id="esp32TempNote" class="text-orange-800 text-xs mt-0.5">Add ~3°C for body temp</div>
+                </div>
+
+                <!-- Respiratory Rate -->
+                <div class="bg-blue-950/40 rounded-2xl p-3 border border-blue-500/20">
+                    <div class="flex items-center gap-1.5 mb-1">
+                        <span>🫁</span>
+                        <div>
+                            <div class="text-xs font-bold text-blue-400">Respiratory Rate</div>
+                            <div class="text-xs text-blue-900">BVP amplitude</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-blue-700 mb-0.5">rPPG</div>
+                    <div class="flex items-baseline gap-1 mb-1">
+                        <span id="rrValue" class="text-2xl font-bold text-white font-mono">--</span>
+                        <span class="text-blue-300 text-sm">br/min</span>
+                    </div>
+                    <div class="text-xs text-purple-500 mb-0.5">AI Model</div>
+                    <div class="flex items-baseline gap-1">
+                        <span id="dlRrValue" class="text-xl font-bold text-purple-300 font-mono">--</span>
+                        <span class="text-purple-400 text-xs">br/min</span>
+                    </div>
+                    <div class="text-blue-800 text-xs mt-0.5">Normal: 12–20 br/min</div>
+                </div>
+
+                <!-- Signal Quality -->
+                <div class="bg-white/4 rounded-2xl p-3 border border-white/10">
+                    <div class="flex items-center gap-1.5 mb-1">
+                        <span>📡</span>
+                        <div>
+                            <div class="text-xs font-bold text-gray-400">Signal Quality</div>
+                            <div class="text-xs text-gray-700">Webcam rPPG</div>
+                        </div>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2 mt-2">
+                        <div id="qualityBar" class="h-2 rounded-full bg-gray-600 transition-all duration-500" style="width:0%"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-700 mt-1">
+                        <span>Poor</span><span>Fair</span><span>Good</span>
+                    </div>
+                    <div class="text-xs text-gray-700 mt-0.5">Good lighting + stay still</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── NEXT STUDENT MODAL ── -->
+<div id="nextStudentModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center flex">
+    <div class="bg-gray-900 border border-white/20 rounded-2xl p-6 w-[540px] max-h-[90vh] overflow-y-auto shadow-2xl">
+        <div class="flex items-center justify-between mb-3">
+            <div>
+                <h2 class="text-white font-bold text-lg leading-tight">Save Student <span id="modalStudentNum">#1</span></h2>
+                <p id="modalTimerStatus" class="text-xs text-gray-500 mt-0.5">Fill in details then save</p>
+            </div>
+        </div>
+
+        <!-- Protocol checklist -->
+        <div class="bg-blue-950/40 border border-blue-500/20 rounded-xl p-3 mb-4">
+            <div class="text-xs font-semibold text-blue-300 mb-2">📋 Operator Checklist — confirm before saving</div>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-blue-300/70">
+                <span>✓ Camera distance ~50–60 cm</span>
+                <span>✓ Student not talking / moving</span>
+                <span>✓ Good overhead lighting</span>
+                <span>✓ Finger on sensor (if using)</span>
+                <span>✓ Measured at least 2 minutes</span>
+                <span>✓ Note pulse ox reading below</span>
+            </div>
+        </div>
+
+        <!-- HR + SpO2 summary -->
+        <div class="grid grid-cols-3 gap-2 mb-2">
+            <div class="bg-red-950/50 rounded-xl p-2 text-center border border-red-500/20">
+                <div class="text-xs text-red-400 mb-1">rPPG HR</div>
+                <div id="modalRppgHr" class="text-2xl font-bold text-white font-mono">--</div>
+                <div class="text-xs text-red-900">BPM</div>
+            </div>
+            <div class="bg-green-950/50 rounded-xl p-2 text-center border border-green-500/20">
+                <div class="text-xs text-green-400 mb-1">Hardware HR</div>
+                <div id="modalHwHr" class="text-2xl font-bold text-white font-mono">--</div>
+                <div class="text-xs text-green-900">BPM</div>
+            </div>
+            <div class="bg-purple-950/50 rounded-xl p-2 text-center border border-purple-500/20">
+                <div class="text-xs text-purple-400 mb-1">AI Model HR</div>
+                <div id="modalDlHr" class="text-2xl font-bold text-white font-mono">--</div>
+                <div class="text-xs text-purple-900">BPM</div>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-cyan-950/50 rounded-xl p-2 text-center border border-cyan-500/20">
+                <div class="text-xs text-cyan-400 mb-1">rPPG SpO₂</div>
+                <div id="modalRppgSpo2" class="text-xl font-bold text-white font-mono">--</div>
+                <div class="text-xs text-cyan-900">%</div>
+            </div>
+            <div class="bg-emerald-950/50 rounded-xl p-2 text-center border border-emerald-500/20">
+                <div class="text-xs text-emerald-400 mb-1">Hardware SpO₂</div>
+                <div id="modalHwSpo2" class="text-xl font-bold text-white font-mono">--</div>
+                <div class="text-xs text-emerald-900">%</div>
+            </div>
+            <div class="bg-purple-950/50 rounded-xl p-2 text-center border border-purple-500/20">
+                <div class="text-xs text-purple-400 mb-1">AI Model SpO₂</div>
+                <div id="modalDlSpo2" class="text-xl font-bold text-white font-mono">--</div>
+                <div class="text-xs text-purple-900">%</div>
+            </div>
+        </div>
+
+        <!-- Demographics -->
+        <div class="bg-white/3 border border-white/8 rounded-xl p-3 mb-4">
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-3">Demographics &amp; Conditions</div>
+
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs text-gray-400 w-24 flex-shrink-0">Age Group</span>
+                <div class="flex gap-1" data-group="ageGroup">
+                    <button class="tbtn" onclick="selectToggle('ageGroup',this)" data-val="<20">&lt;20</button>
+                    <button class="tbtn" onclick="selectToggle('ageGroup',this)" data-val="20-22">20-22</button>
+                    <button class="tbtn" onclick="selectToggle('ageGroup',this)" data-val="23-25">23-25</button>
+                    <button class="tbtn" onclick="selectToggle('ageGroup',this)" data-val="26+">26+</button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs text-gray-400 w-24 flex-shrink-0">Skin Tone</span>
+                <div class="flex gap-1 flex-wrap" data-group="skinTone">
+                    <button class="tbtn" onclick="selectToggle('skinTone',this)" data-val="Light">Light</button>
+                    <button class="tbtn" onclick="selectToggle('skinTone',this)" data-val="Medium">Medium</button>
+                    <button class="tbtn" onclick="selectToggle('skinTone',this)" data-val="Dark">Dark</button>
+                    <button class="tbtn" onclick="selectToggle('skinTone',this)" data-val="Very Dark">Very Dark</button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs text-gray-400 w-24 flex-shrink-0">Gender</span>
+                <div class="flex gap-1" data-group="gender">
+                    <button class="tbtn" onclick="selectToggle('gender',this)" data-val="Male">Male</button>
+                    <button class="tbtn" onclick="selectToggle('gender',this)" data-val="Female">Female</button>
+                    <button class="tbtn" onclick="selectToggle('gender',this)" data-val="Other">Other</button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs text-gray-400 w-24 flex-shrink-0">Glasses</span>
+                <div class="flex gap-1" data-group="glasses">
+                    <button class="tbtn" onclick="selectToggle('glasses',this)" data-val="Yes">Yes</button>
+                    <button class="tbtn" onclick="selectToggle('glasses',this)" data-val="No">No</button>
+                </div>
+                <span class="text-xs text-gray-400 w-20 flex-shrink-0 ml-3">Makeup</span>
+                <div class="flex gap-1" data-group="makeup">
+                    <button class="tbtn" onclick="selectToggle('makeup',this)" data-val="Yes">Yes</button>
+                    <button class="tbtn" onclick="selectToggle('makeup',this)" data-val="No">No</button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs text-gray-400 w-24 flex-shrink-0">Facial Hair</span>
+                <div class="flex gap-1" data-group="facialHair">
+                    <button class="tbtn" onclick="selectToggle('facialHair',this)" data-val="None">None</button>
+                    <button class="tbtn" onclick="selectToggle('facialHair',this)" data-val="Stubble">Stubble</button>
+                    <button class="tbtn" onclick="selectToggle('facialHair',this)" data-val="Beard">Beard</button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-400 w-24 flex-shrink-0">Sat Still?</span>
+                <div class="flex gap-1" data-group="satStill">
+                    <button class="tbtn" onclick="selectToggle('satStill',this)" data-val="Yes">Yes</button>
+                    <button class="tbtn" onclick="selectToggle('satStill',this)" data-val="Somewhat">Somewhat</button>
+                    <button class="tbtn" onclick="selectToggle('satStill',this)" data-val="No">No</button>
+                </div>
+                <span class="text-xs text-gray-400 w-20 flex-shrink-0 ml-3">Lighting</span>
+                <div class="flex gap-1" data-group="lighting">
+                    <button class="tbtn" onclick="selectToggle('lighting',this)" data-val="Good">Good</button>
+                    <button class="tbtn" onclick="selectToggle('lighting',this)" data-val="Mixed">Mixed</button>
+                    <button class="tbtn" onclick="selectToggle('lighting',this)" data-val="Poor">Poor</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reference inputs -->
+        <div class="grid grid-cols-2 gap-3 mb-3">
+            <div>
+                <label class="text-xs text-gray-400 mb-1 block">Reference HR (BPM)</label>
+                <input id="refHrInput" type="number" placeholder="e.g. 72" min="30" max="200"
+                    class="w-full bg-gray-800 border border-white/20 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-green-500">
+            </div>
+            <div>
+                <label class="text-xs text-gray-400 mb-1 block">Reference SpO₂ %</label>
+                <input id="refSpo2Input" type="number" placeholder="e.g. 98" min="70" max="100"
+                    class="w-full bg-gray-800 border border-white/20 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-green-500">
+            </div>
+        </div>
+
+        <label class="text-xs text-gray-400 mb-1 block">Notes (optional)</label>
+        <input id="notesInput" type="text" placeholder="e.g. Had coffee, fringe over forehead"
+            class="w-full bg-gray-800 border border-white/20 rounded-xl px-3 py-2 text-white text-sm mb-4 focus:outline-none focus:border-green-500">
+
+        <div class="flex gap-2">
+            <button id="saveStudentBtn" onclick="saveStudentAndNext()"
+                class="flex-1 bg-green-700 hover:bg-green-600 text-white rounded-xl py-2 text-sm font-semibold transition-colors">
+                Save &amp; Next Student
+            </button>
+            <button onclick="document.getElementById('nextStudentModal').classList.add('hidden')"
+                class="px-4 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-xl py-2 text-sm transition-colors">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const video    = document.getElementById('video');
+const overlay  = document.getElementById('overlay');
+const overlayCtx = overlay.getContext('2d');
+const waveCanvas = document.getElementById('waveform');
+const waveCtx  = waveCanvas.getContext('2d');
+let ws = null;
+let sendCanvas = document.createElement('canvas');
+let sendCtx    = sendCanvas.getContext('2d');
+let sending    = false;
+
+// Latest values for avg calculation
+let latestSensorHr   = 0, latestRppgHr   = 0, latestDlHr = 0;
+let latestSensorSpo2 = 0, latestRppgSpo2 = 0, latestDlSpo2 = 0;
+
+// Previous sensor values to skip duplicate renders
+let prevSensorHr = null, prevSensorSpo2 = null, prevSensorTemp = null;
+
+// Session recording
+let sessionLog = [];
+let sessionStart = new Date();
+let studentCount = 0;
+let sessionTimerInterval = null;
+
+// Master log — accumulates one summary row per student across the whole event
+let allStudentsLog = [];
+// In-memory waveform store — keyed by student_num, not persisted to localStorage
+const waveformStore = {};
+let _saveCountdownInterval = null;
+const MIN_SESSION_SECONDS = 120;
+
+// Toggle button selections for demographics
+const toggleSelections = {};
+
+function selectToggle(group, btn) {
+    const container = btn.closest('[data-group]');
+    container.querySelectorAll('.tbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    toggleSelections[group] = btn.dataset.val;
+}
+
+function clearToggles() {
+    document.querySelectorAll('.tbtn').forEach(b => b.classList.remove('active'));
+    Object.keys(toggleSelections).forEach(k => delete toggleSelections[k]);
+}
+
+function flashEl(el) {
+    el.classList.remove('val-flash');
+    void el.offsetWidth; // force reflow so animation restarts
+    el.classList.add('val-flash');
+}
+
+function _median(arr) {
+    if (arr.length === 0) return 0;
+    const s = [...arr].sort((a, b) => a - b);
+    const mid = Math.floor(s.length / 2);
+    return Math.round(s.length % 2 !== 0 ? s[mid] : (s[mid - 1] + s[mid]) / 2);
+}
+
+function showNextStudentModal() {
+    const hrVals     = sessionLog.map(r => r.hr_rppg).filter(v => v > 0);
+    const dlVals     = sessionLog.map(r => r.hr_dl).filter(v => v > 0);
+    const hwVals     = sessionLog.map(r => r.hr_sensor).filter(v => v > 0);
+    const spo2Vals   = sessionLog.map(r => r.spo2_rppg).filter(v => v > 0);
+    const spo2HwVals = sessionLog.map(r => r.spo2_sensor).filter(v => v > 0);
+    const spo2DlVals = sessionLog.map(r => r.spo2_dl).filter(v => v > 0);
+
+    const nextNum = studentCount + 1;
+    document.getElementById('modalStudentNum').textContent = `#${nextNum}`;
+    document.getElementById('modalRppgHr').textContent   = _median(hrVals)     || '--';
+    document.getElementById('modalDlHr').textContent     = _median(dlVals)     || '--';
+    document.getElementById('modalHwHr').textContent     = _median(hwVals)     || '--';
+    document.getElementById('modalRppgSpo2').textContent = _median(spo2Vals)   || '--';
+    document.getElementById('modalHwSpo2').textContent   = _median(spo2HwVals) || '--';
+    document.getElementById('modalDlSpo2').textContent   = _median(spo2DlVals) || '--';
+    document.getElementById('refHrInput').value   = '';
+    document.getElementById('refSpo2Input').value = '';
+    document.getElementById('notesInput').value   = '';
+    clearToggles();
+
+    // Timer lock — enforce minimum 2-min measurement AND require reference values
+    if (_saveCountdownInterval) { clearInterval(_saveCountdownInterval); _saveCountdownInterval = null; }
+    const btn = document.getElementById('saveStudentBtn');
+    const statusEl = document.getElementById('modalTimerStatus');
+    const elapsed = (Date.now() - sessionStart) / 1000;
+
+    // Attach ref-value listeners (idempotent — replace existing ones)
+    ['refHrInput','refSpo2Input'].forEach(id => {
+        const el = document.getElementById(id);
+        el.oninput = checkRefAndEnable;
+    });
+
+    function refsAreFilled() {
+        const hr   = parseInt(document.getElementById('refHrInput').value);
+        const spo2 = parseInt(document.getElementById('refSpo2Input').value);
+        return hr > 0 && spo2 > 0;
+    }
+
+    function checkRefAndEnable() {
+        if (!_timerDone) return;           // timer not finished yet — don't unlock early
+        if (refsAreFilled()) {
+            btn.disabled = false;
+            btn.className = 'flex-1 bg-green-700 hover:bg-green-600 text-white rounded-xl py-2 text-sm font-semibold transition-colors';
+            btn.textContent = 'Save & Next Student';
+            statusEl.textContent = '✅ Ready to save';
+            statusEl.className = 'text-xs text-green-400 mt-0.5';
+        } else {
+            btn.disabled = true;
+            btn.className = 'flex-1 bg-gray-700 text-gray-400 rounded-xl py-2 text-sm font-semibold cursor-not-allowed transition-colors';
+            btn.textContent = 'Enter reference values to save';
+            statusEl.textContent = 'Enter both Reference HR and SpO₂ above';
+            statusEl.className = 'text-xs text-yellow-400 mt-0.5';
+        }
+    }
+
+    let _timerDone = false;
+
+    function onTimerDone() {
+        _timerDone = true;
+        checkRefAndEnable();
+    }
+
+    btn.disabled = true;
+    btn.className = 'flex-1 bg-gray-700 text-gray-400 rounded-xl py-2 text-sm font-semibold cursor-not-allowed transition-colors';
+
+    if (elapsed >= MIN_SESSION_SECONDS) {
+        onTimerDone();
+    } else {
+        _saveCountdownInterval = setInterval(() => {
+            const rem = Math.ceil(MIN_SESSION_SECONDS - (Date.now() - sessionStart) / 1000);
+            if (rem <= 0) {
+                clearInterval(_saveCountdownInterval); _saveCountdownInterval = null;
+                onTimerDone();
+            } else {
+                const m = Math.floor(rem / 60), s = rem % 60;
+                btn.textContent = `⏳ ${m}:${String(s).padStart(2,'0')} remaining...`;
+                statusEl.textContent = `Minimum 2 min not reached — ${m}m ${s}s left`;
+                statusEl.className = 'text-xs text-yellow-400 mt-0.5';
+            }
+        }, 500);
+        const rem0 = Math.ceil(MIN_SESSION_SECONDS - elapsed);
+        const m0 = Math.floor(rem0 / 60), s0 = rem0 % 60;
+        btn.textContent = `⏳ ${m0}:${String(s0).padStart(2,'0')} remaining...`;
+        statusEl.textContent = `Minimum 2 min not reached — ${m0}m ${s0}s left`;
+        statusEl.className = 'text-xs text-yellow-400 mt-0.5';
+    }
+
+    document.getElementById('nextStudentModal').classList.remove('hidden');
+}
+
+async function saveStudentAndNext() {
+    const hrVals     = sessionLog.map(r => r.hr_rppg).filter(v => v > 0);
+    const dlVals     = sessionLog.map(r => r.hr_dl).filter(v => v > 0);
+    const hwVals     = sessionLog.map(r => r.hr_sensor).filter(v => v > 0);
+    const spo2Vals   = sessionLog.map(r => r.spo2_rppg).filter(v => v > 0);
+    const spo2DlVals = sessionLog.map(r => r.spo2_dl).filter(v => v > 0);
+    const spo2HwVals = sessionLog.map(r => r.spo2_sensor).filter(v => v > 0);
+    const rrDlVals   = sessionLog.map(r => r.rr_dl).filter(v => v > 0);
+    const dlSbpVals  = sessionLog.map(r => r.dl_sbp).filter(v => v > 0);
+    const dlDbpVals  = sessionLog.map(r => r.dl_dbp).filter(v => v > 0);
+    const qualVals   = sessionLog.map(r => r.quality_pct).filter(v => v > 0);
+
+    const rppgHr = _median(hrVals);
+    const dlHr   = _median(dlVals);
+    const hwHr   = _median(hwVals);
+    const allHrs = [rppgHr, dlHr, hwHr].filter(v => v > 0);
+    const avgHr  = allHrs.length > 0 ? Math.round(allHrs.reduce((a, b) => a + b, 0) / allHrs.length) : 0;
+
+    const refHr   = parseInt(document.getElementById('refHrInput').value)   || '';
+    const refSpo2 = parseInt(document.getElementById('refSpo2Input').value) || '';
+    const notes   = document.getElementById('notesInput').value.trim() || '';
+
+    const err = (measured, ref) => (ref > 0 && measured > 0) ? Math.abs(measured - ref) : '';
+
+    allStudentsLog.push({
+        student_num:          studentCount + 1,
+        timestamp:            new Date().toLocaleString(),
+        session_duration_s:   ((Date.now() - sessionStart) / 1000).toFixed(0),
+        num_readings:         sessionLog.length,
+        // demographics
+        age_group:            toggleSelections.ageGroup   || '',
+        skin_tone:            toggleSelections.skinTone   || '',
+        gender:               toggleSelections.gender     || '',
+        glasses:              toggleSelections.glasses    || '',
+        makeup:               toggleSelections.makeup     || '',
+        facial_hair:          toggleSelections.facialHair || '',
+        sat_still:            toggleSelections.satStill   || '',
+        lighting:             toggleSelections.lighting   || '',
+        // vitals — HR
+        hr_rppg_median:       rppgHr,
+        hr_dl_median:         dlHr,
+        hr_hardware_median:   hwHr,
+        hr_avg:               avgHr,
+        hr_reference:         refHr,
+        hr_error_rppg:        err(rppgHr, refHr),
+        hr_error_dl:          err(dlHr,   refHr),
+        hr_error_hardware:    err(hwHr,   refHr),
+        // vitals — SpO2
+        spo2_rppg_median:     _median(spo2Vals),
+        spo2_dl_median:       _median(spo2DlVals),
+        spo2_hardware_median: _median(spo2HwVals),
+        spo2_reference:       refSpo2,
+        spo2_error_rppg:      err(_median(spo2Vals),   refSpo2),
+        spo2_error_dl:        err(_median(spo2DlVals), refSpo2),
+        spo2_error_hardware:  err(_median(spo2HwVals), refSpo2),
+        // vitals — RR
+        rr_rppg_median:       _median(sessionLog.map(r => r.rr_bpm).filter(v => v > 0)),
+        rr_dl_median:         _median(rrDlVals),
+        // vitals — BP
+        dl_sbp_median:        _median(dlSbpVals),
+        dl_dbp_median:        _median(dlDbpVals),
+        signal_quality_pct:   _median(qualVals),
+        quality_flag:         _median(qualVals) < 40 ? 'LOW QUALITY' : 'OK',
+        notes
+    });
+
+    // Capture waveform for Excel embedding
+    const sNum = studentCount + 1;
+    waveformStore[sNum] = waveCanvas.toDataURL('image/png');
+
+    persistLog();
+
+    const badge = document.getElementById('allStudentsBadge');
+    if (badge) badge.textContent = `${allStudentsLog.length} saved`;
+
+    document.getElementById('nextStudentModal').classList.add('hidden');
+    await nextStudent();
+}
+
+async function downloadAllStudentsExcel() {
+    if (allStudentsLog.length === 0) {
+        alert('No student data saved yet.\nPress "Next Student" after each student to save their data.');
+        return;
+    }
+
+    const wb = new ExcelJS.Workbook();
+    const ws = wb.addWorksheet('Validation Data');
+
+    const dataKeys = Object.keys(allStudentsLog[0]);
+
+    // Columns: all data fields + Waveform at end
+    ws.columns = [
+        ...dataKeys.map(k => ({ header: k, key: k, width: 20 })),
+        { header: 'waveform', key: 'waveform', width: 42 }
+    ];
+
+    // Style header row
+    const headerRow = ws.getRow(1);
+    headerRow.font = { bold: true, color: { argb: 'FFFFFFFF' } };
+    headerRow.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1F2937' } };
+    headerRow.alignment = { vertical: 'middle' };
+    headerRow.height = 20;
+
+    // Add data rows + embed waveform images
+    allStudentsLog.forEach((record, idx) => {
+        const excelRow = idx + 2;          // 1-based, row 1 = header
+        const imgRow   = idx + 1;          // 0-based for addImage tl
+        const imgCol   = dataKeys.length;  // 0-based column index
+
+        ws.addRow(record);
+        ws.getRow(excelRow).height = 55;
+        ws.getRow(excelRow).alignment = { vertical: 'middle' };
+
+        // Flag low quality rows in yellow
+        if (record.quality_flag === 'LOW QUALITY') {
+            ws.getRow(excelRow).eachCell({ includeEmpty: true }, cell => {
+                cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF9C4' } };
+            });
+        }
+
+        const b64 = waveformStore[record.student_num];
+        if (b64) {
+            const imageId = wb.addImage({
+                base64: b64.split(',')[1],
+                extension: 'png'
+            });
+            ws.addImage(imageId, {
+                tl: { col: imgCol, row: imgRow },
+                ext: { width: 300, height: 52 }
+            });
+        }
+    });
+
+    const buffer = await wb.xlsx.writeBuffer();
+    const blob   = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url    = URL.createObjectURL(blob);
+    const link   = document.createElement('a');
+    link.download = `rppg_validation_sulam_${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}.xlsx`;
+    link.href = url;
+    link.click();
+    URL.revokeObjectURL(url);
+}
+
+function persistLog() {
+    try { localStorage.setItem('rppg_students_log', JSON.stringify(allStudentsLog)); } catch(e) {}
+}
+
+function loadSavedLog() {
+    try {
+        const saved = localStorage.getItem('rppg_students_log');
+        if (saved) {
+            allStudentsLog = JSON.parse(saved);
+            if (allStudentsLog.length > 0) {
+                document.getElementById('allStudentsBadge').textContent = `${allStudentsLog.length} saved`;
+            }
+        }
+    } catch(e) { allStudentsLog = []; }
+}
+
+function clearAllData() {
+    if (allStudentsLog.length === 0) { alert('Nothing to clear.'); return; }
+    if (!confirm(`Delete all ${allStudentsLog.length} saved student records? Cannot be undone.`)) return;
+    allStudentsLog = [];
+    localStorage.removeItem('rppg_students_log');
+    document.getElementById('allStudentsBadge').textContent = '0 saved';
+}
+
+function recordReading(d) {
+    if (d.hr <= 0 && d.rr <= 0) return;
+    sessionLog.push({
+        time: new Date().toISOString(),
+        elapsed_s: ((Date.now() - sessionStart) / 1000).toFixed(1),
+        hr_rppg: d.hr || 0,
+        hr_dl: d.dl_hr || 0,
+        hr_sensor: d.esp32?.hr || 0,
+        hr_avg: calcAvg(d.esp32?.hr || 0, d.hr || 0, d.dl_hr || 0),
+        spo2_rppg: d.spo2 || 0,
+        spo2_dl: d.dl_spo2 || 0,
+        spo2_sensor: d.esp32?.spo2 || 0,
+        spo2_avg: calcAvg(d.esp32?.spo2 || 0, d.spo2 || 0, d.dl_spo2 || 0),
+        rr_bpm: d.rr || 0,
+        rr_dl: d.dl_rr || 0,
+        bp_sbp: d.sbp || 0,
+        bp_dbp: d.dbp || 0,
+        dl_sbp: d.dl_sbp || 0,
+        dl_dbp: d.dl_dbp || 0,
+        temp_c: d.esp32?.temp || 0,
+        quality_pct: d.quality || 0,
+        fps: d.fps || 0
+    });
+    document.getElementById('sessionRecordCount').textContent =
+        `Session: ${sessionLog.length} readings (${sessionStart.toLocaleTimeString()})`;
+}
+
+function calcAvg(...vals) {
+    const valid = vals.filter(v => v > 0);
+    if (valid.length === 0) return 0;
+    return Math.round(valid.reduce((a, b) => a + b, 0) / valid.length);
+}
+
+function updateAverages() {
+    const avgHr   = calcAvg(latestSensorHr, latestRppgHr, latestDlHr);
+    const avgSpo2 = calcAvg(latestSensorSpo2, latestRppgSpo2, latestDlSpo2);
+
+    const avgHrEl = document.getElementById('avgHrValue');
+    if (avgHr > 0) {
+        avgHrEl.textContent = avgHr;
+        const hrRange = document.getElementById('hrRange');
+        const hrCard  = document.getElementById('hrCard');
+        if (avgHr < 60) {
+            hrRange.textContent = '⬇️ Bradycardia';
+            hrCard.className = hrCard.className.replace(/border-\S+/g, 'border-blue-500/30');
+        } else if (avgHr > 100) {
+            hrRange.textContent = '⬆️ Tachycardia';
+            hrCard.className = hrCard.className.replace(/border-\S+/g, 'border-orange-500/30 pulse-glow');
+        } else {
+            hrRange.textContent = '✅ Normal 60–100';
+            hrCard.className = hrCard.className.replace(/border-\S+/g, 'border-red-500/20');
+        }
+    } else {
+        avgHrEl.textContent = '--';
+    }
+
+    const avgSpo2El = document.getElementById('avgSpo2Value');
+    if (avgSpo2 > 0) {
+        avgSpo2El.textContent = avgSpo2;
+        const spo2Range = document.getElementById('spo2Range');
+        if (avgSpo2 >= 95)      spo2Range.textContent = '✅ Normal 95–100%';
+        else if (avgSpo2 >= 90) spo2Range.textContent = '⚠️ Low — monitor';
+        else                    spo2Range.textContent = '🚨 Critical';
+    } else {
+        avgSpo2El.textContent = '--';
+    }
+}
+
+function downloadWaveformPNG() {
+    const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    const link = document.createElement('a');
+    link.download = `ppg_waveform_${ts}.png`;
+    link.href = waveCanvas.toDataURL('image/png');
+    link.click();
+}
+
+function downloadSessionCSV() {
+    if (sessionLog.length === 0) { alert('No session data recorded yet.'); return; }
+    const headers = Object.keys(sessionLog[0]).join(',');
+    const rows = sessionLog.map(r => Object.values(r).join(','));
+    const csv = [headers, ...rows].join('\n');
+    const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const link = document.createElement('a');
+    link.download = `rppg_session_${ts}.csv`;
+    link.href = URL.createObjectURL(blob);
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+
+function resetSensorDisplay() {
+    latestSensorHr = 0; latestSensorSpo2 = 0;
+    prevSensorHr = null; prevSensorSpo2 = null; prevSensorTemp = null;
+    const _hrEl   = document.getElementById('esp32HrValue');
+    const _spo2El = document.getElementById('esp32Spo2Value');
+    _hrEl.textContent = '--';   _hrEl.style.opacity   = '1';
+    _spo2El.textContent = '--'; _spo2El.style.opacity = '1';
+    document.getElementById('esp32HrRange').textContent   = 'Place finger';
+    document.getElementById('esp32Spo2Range').textContent = 'Place finger';
+    document.getElementById('esp32TempValue').textContent = '--';
+    document.getElementById('esp32TempNote').textContent = 'Add ~3°C for body temp';
+}
+
+function clearDisplay() {
+    latestRppgHr = 0; latestDlHr = 0; latestRppgSpo2 = 0; latestDlSpo2 = 0;
+    resetSensorDisplay();
+    document.getElementById('hrValue').textContent = '--';
+    document.getElementById('dlHrValue').textContent = '--';
+    document.getElementById('spo2Value').textContent = '--';
+    document.getElementById('rrValue').textContent = '--';
+    document.getElementById('bpSystolicValue').textContent = '--';
+    document.getElementById('bpDiastolicValue').textContent = '--';
+    document.getElementById('bpRange').textContent = 'Normal: <120/80';
+    document.getElementById('bpRange').className = 'text-xs text-pink-700 mt-0.5';
+    document.getElementById('avgHrValue').textContent = '--';
+    document.getElementById('avgSpo2Value').textContent = '--';
+    document.getElementById('hrRange').textContent = '60–100 BPM';
+    document.getElementById('spo2Range').textContent = '95–100%';
+    document.getElementById('hrHeart').className = 'text-lg';
+    const W = waveCanvas.width = waveCanvas.offsetWidth;
+    waveCtx.clearRect(0, 0, W, waveCanvas.height);
+}
+
+function clearSession() {
+    sessionLog = [];
+    sessionStart = new Date();
+    document.getElementById('sessionRecordCount').textContent = 'Session: 0 readings';
+    clearDisplay();
+}
+
+async function nextStudent() {
+    // Tell backend to clear DL buffer and increment student counter
+    try {
+        const res = await fetch('/api/reset', { method: 'POST' });
+        const d   = await res.json();
+        studentCount = d.student || studentCount + 1;
+    } catch (e) {
+        studentCount++;
+    }
+
+    // Reset frontend
+    sessionLog   = [];
+    sessionStart = new Date();
+    clearDisplay();
+
+    // Update counter badge
+    document.getElementById('studentCounter').textContent = `Student #${studentCount}`;
+    document.getElementById('studentCounter').className =
+        'text-xs px-2 py-0.5 rounded-full bg-green-900/50 text-green-300 border border-green-500/30';
+
+    // Restart session timer
+    if (sessionTimerInterval) clearInterval(sessionTimerInterval);
+    sessionTimerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+        const m = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const s = String(elapsed % 60).padStart(2, '0');
+        const el = document.getElementById('sessionTimer');
+        if (el) el.textContent = `${m}:${s}`;
+    }, 1000);
+
+    document.getElementById('sessionRecordCount').textContent = 'Session: 0 readings';
+}
+
+async function startCamera() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: { width: 640, height: 480, facingMode: 'user' }
+        });
+        video.srcObject = stream;
+        await video.play();
+        sendCanvas.width  = 320;
+        sendCanvas.height = 240;
+        overlay.width  = video.videoWidth  || 640;
+        overlay.height = video.videoHeight || 480;
+        document.getElementById('statusText').textContent = 'Camera ready, connecting...';
+        document.getElementById('statusDot').className = 'w-2 h-2 rounded-full bg-cyan-500 animate-pulse flex-shrink-0';
+        connectWebSocket();
+    } catch (e) {
+        document.getElementById('statusText').textContent = 'Camera error: ' + e.message;
+        document.getElementById('statusDot').className = 'w-2 h-2 rounded-full bg-red-500 flex-shrink-0';
+    }
+}
+
+let _wsReconnectTimer = null;
+
+function connectWebSocket() {
+    // Cancel any pending reconnect
+    if (_wsReconnectTimer) { clearTimeout(_wsReconnectTimer); _wsReconnectTimer = null; }
+    // Close existing socket cleanly before opening a new one
+    if (ws && ws.readyState < 2) { ws.onclose = null; ws.close(); }
+
+    const wsHost = window.location.hostname || '127.0.0.1';
+    ws = new WebSocket(`ws://${wsHost}:8090/ws`);
+    ws.onopen = () => {
+        document.getElementById('statusText').textContent = 'Connected — detecting face...';
+        document.getElementById('statusDot').className = 'w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0';
+        sending = false;
+        startSending();
+    };
+    ws.onmessage = (e) => {
+        try {
+            const d = JSON.parse(e.data);
+            if (d.type === 'ping') return;
+            if (d.type === 'esp32') {
+                updateESP32(d);
+            } else {
+                updateUI(d);
+                if (d.esp32 && d.esp32.status === 'connected') updateESP32(d.esp32);
+            }
+        } catch (_) {}
+    };
+    ws.onclose = () => {
+        document.getElementById('statusText').textContent = 'Disconnected. Reconnecting...';
+        document.getElementById('statusDot').className = 'w-2 h-2 rounded-full bg-yellow-500 animate-pulse flex-shrink-0';
+        _wsReconnectTimer = setTimeout(connectWebSocket, 2000);
+    };
+}
+
+function startSending() {
+    if (sending) return;
+    sending = true;
+    function sendFrame() {
+        if (!ws || ws.readyState !== WebSocket.OPEN) { sending = false; return; }
+        sendCtx.drawImage(video, 0, 0, 320, 240);
+        sendCanvas.toBlob((blob) => {
+            if (!blob) { requestAnimationFrame(sendFrame); return; }
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const b64 = reader.result.split(',')[1];
+                ws.send(JSON.stringify({ type: 'frame', data: b64 }));
+                setTimeout(sendFrame, 66);
+            };
+            reader.readAsDataURL(blob);
+        }, 'image/jpeg', 0.7);
+    }
+    sendFrame();
+}
+
+let esp32LastSeen = 0;
+setInterval(() => {
+    if (esp32LastSeen > 0 && Date.now() - esp32LastSeen > 20000) {
+        const el = document.getElementById('esp32Status');
+        el.textContent = '🔴 Disconnected';
+        el.className = 'text-xs px-2 py-0.5 rounded-full bg-red-900/50 text-red-400';
+        // Keep last known values visible — only mark as disconnected, don't blank the readings
+        esp32LastSeen = 0;
+        updateAverages();
+    }
+}, 3000);
+
+function updateESP32(d) {
+    esp32LastSeen = Date.now();
+    const el = document.getElementById('esp32Status');
+    const noContact = d.status === 'no_contact';
+    if (noContact) {
+        el.textContent = '👆 Place Finger';
+        el.className = 'text-xs px-2 py-0.5 rounded-full bg-yellow-900/50 text-yellow-400';
+    } else {
+        el.textContent = '🟢 Connected';
+        el.className = 'text-xs px-2 py-0.5 rounded-full bg-green-900/50 text-green-400';
+    }
+
+    const newHr = d.hr > 0 ? Math.round(d.hr) : null;
+    const hrEl  = document.getElementById('esp32HrValue');
+    const hrRng = document.getElementById('esp32HrRange');
+    if (newHr !== null) {
+        if (newHr !== prevSensorHr) {
+            prevSensorHr  = newHr;
+            latestSensorHr = d.hr;
+            hrEl.textContent  = newHr;
+            hrEl.style.opacity = '1';
+            flashEl(hrEl);
+        }
+        if (d.hr < 60)       hrRng.textContent = '⬇️ Bradycardia';
+        else if (d.hr > 100) hrRng.textContent = '⬆️ Tachycardia';
+        else                 hrRng.textContent = '✅ Normal';
+    } else if (prevSensorHr !== null) {
+        hrEl.style.opacity = '0.5';
+        hrRng.textContent  = '〰️ Weak signal';
+    } else if (noContact) {
+        hrEl.textContent   = '--';
+        hrEl.style.opacity = '0.5';
+        hrRng.textContent  = 'Place finger on sensor';
+    } else if (d.status === 'connected') {
+        hrEl.textContent   = '...';
+        hrEl.style.opacity = '0.6';
+        hrRng.textContent  = 'Computing...';
+    } else {
+        hrEl.textContent   = '--';
+        hrRng.textContent  = 'Place finger';
+    }
+
+    const newSpo2  = d.spo2 > 0 ? Math.round(d.spo2) : null;
+    const spo2El   = document.getElementById('esp32Spo2Value');
+    const spo2Rng  = document.getElementById('esp32Spo2Range');
+    if (newSpo2 !== null) {
+        if (newSpo2 !== prevSensorSpo2) {
+            prevSensorSpo2  = newSpo2;
+            latestSensorSpo2 = d.spo2;
+            spo2El.textContent  = newSpo2;
+            spo2El.style.opacity = '1';
+            flashEl(spo2El);
+        }
+        if (d.spo2 >= 95)      spo2Rng.textContent = '✅ Normal';
+        else if (d.spo2 >= 90) spo2Rng.textContent = '⚠️ Low';
+        else                   spo2Rng.textContent = '🚨 Critical';
+    } else if (prevSensorSpo2 !== null) {
+        spo2El.style.opacity = '0.5';
+        spo2Rng.textContent  = '〰️ Weak signal';
+    } else if (d.status === 'connected') {
+        spo2El.textContent   = '...';
+        spo2El.style.opacity = '0.6';
+        spo2Rng.textContent  = 'Computing...';
+    } else {
+        spo2El.textContent  = '--';
+        spo2Rng.textContent = 'Place finger';
+    }
+
+    if (d.temp != null && d.temp !== undefined) {
+        const newTemp = parseFloat(d.temp).toFixed(1);
+        if (newTemp !== prevSensorTemp) {
+            prevSensorTemp = newTemp;
+            document.getElementById('esp32TempValue').textContent = newTemp;
+            const estimated = (parseFloat(d.temp) + 3).toFixed(1);
+            document.getElementById('esp32TempNote').textContent = `Die temp — body ≈ ${estimated}°C`;
+        }
+    }
+
+    updateAverages();
+}
+
+function updateUI(d) {
+    recordReading(d);
+
+    // Face status
+    const faceEl = document.getElementById('faceStatus');
+    if (d.face_detected) {
+        faceEl.textContent = '👤 Face Detected';
+        faceEl.className = 'px-3 py-1.5 rounded-xl text-xs bg-green-500/20 border border-green-500/30 text-green-300';
+        if (d.face_roi) {
+            overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+            const sx = overlay.width / 320, sy = overlay.height / 240;
+            // Full face outline (dim green)
+            const [fx, fy, fw, fh] = d.face_roi;
+            overlayCtx.strokeStyle = 'rgba(0,255,136,0.4)';
+            overlayCtx.lineWidth = 1.5;
+            overlayCtx.strokeRect(fx * sx, fy * sy, fw * sx, fh * sy);
+            // Forehead ROI highlight (bright green — where rPPG is measured)
+            if (d.rppg_roi) {
+                const [rx, ry, rw, rh] = d.rppg_roi;
+                overlayCtx.strokeStyle = '#00ff88';
+                overlayCtx.lineWidth = 2;
+                overlayCtx.strokeRect(rx * sx, ry * sy, rw * sx, rh * sy);
+                overlayCtx.fillStyle = 'rgba(0,255,136,0.12)';
+                overlayCtx.fillRect(rx * sx, ry * sy, rw * sx, rh * sy);
+                overlayCtx.fillStyle = 'rgba(0,255,136,0.8)';
+                overlayCtx.font = '9px monospace';
+                overlayCtx.fillText('rPPG', rx * sx + 3, ry * sy + rh * sy - 3);
+            }
+        }
+    } else {
+        faceEl.textContent = '👤 No Face';
+        faceEl.className = 'px-3 py-1.5 rounded-xl text-xs bg-red-500/20 border border-red-500/30 text-red-300';
+        overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+    }
+
+    // Heart rate (rPPG POS)
+    if (d.hr > 0) {
+        latestRppgHr = d.hr;
+        const hrEl = document.getElementById('hrValue');
+        hrEl.textContent = Math.round(d.hr);
+        hrEl.style.opacity = d.quality > 20 ? '1' : '0.4';
+        document.getElementById('hrHeart').className = 'text-lg heartbeat';
+    }
+
+    // DL Model — HR + all vitals
+    const dlBadge = document.getElementById('dlBadge');
+    if (d.dl_ready) {
+        if (d.dl_hr > 0) {
+            latestDlHr = d.dl_hr;
+            document.getElementById('dlHrValue').textContent = Math.round(d.dl_hr);
+            dlBadge.textContent = 'AI: Ready';
+            dlBadge.className = 'text-xs px-2 py-0.5 rounded-full bg-purple-900/50 text-purple-300 flex-shrink-0';
+        }
+        if (d.dl_spo2 > 0) {
+            latestDlSpo2 = d.dl_spo2;
+            document.getElementById('dlSpo2Value').textContent = Math.round(d.dl_spo2);
+            document.getElementById('dlSpo2Range').textContent =
+                d.dl_spo2 >= 95 ? '✅ Normal' : d.dl_spo2 >= 90 ? '⚠️ Low' : '🚨 Critical';
+        }
+        if (d.dl_rr > 0)  document.getElementById('dlRrValue').textContent  = Math.round(d.dl_rr);
+        if (d.dl_sbp > 0 && d.dl_dbp > 0) {
+            document.getElementById('dlBpSystolicValue').textContent  = Math.round(d.dl_sbp);
+            document.getElementById('dlBpDiastolicValue').textContent = Math.round(d.dl_dbp);
+        }
+    } else {
+        const pct = Math.round((d.buffer_pct || 0) * 0.6);
+        dlBadge.textContent = `AI: buffering ${pct}%`;
+        dlBadge.className = 'text-xs px-2 py-0.5 rounded-full bg-gray-700 text-gray-400 flex-shrink-0';
+    }
+
+    // SpO2
+    if (d.spo2 > 0) {
+        latestRppgSpo2 = d.spo2;
+        const spo2El = document.getElementById('spo2Value');
+        spo2El.textContent = Math.round(d.spo2);
+        spo2El.style.opacity = d.quality > 20 ? '1' : '0.4';
+    }
+
+    // Respiratory rate
+    if (d.rr > 0) document.getElementById('rrValue').textContent = Math.round(d.rr);
+
+    // Blood pressure estimate
+    if (d.sbp > 0 && d.dbp > 0) {
+        const sbp = Math.round(d.sbp), dbp = Math.round(d.dbp);
+        document.getElementById('bpSystolicValue').textContent  = sbp;
+        document.getElementById('bpDiastolicValue').textContent = dbp;
+        const bpRange = document.getElementById('bpRange');
+        if      (sbp < 90  || dbp < 60)  { bpRange.textContent = '⬇️ Low BP'; bpRange.className = 'text-xs text-blue-400 mt-0.5'; }
+        else if (sbp < 120 && dbp < 80)  { bpRange.textContent = '✅ Normal'; bpRange.className = 'text-xs text-green-400 mt-0.5'; }
+        else if (sbp < 130 && dbp < 80)  { bpRange.textContent = '⚠️ Elevated'; bpRange.className = 'text-xs text-yellow-400 mt-0.5'; }
+        else if (sbp < 140 || dbp < 90)  { bpRange.textContent = '🔴 High Stage 1'; bpRange.className = 'text-xs text-orange-400 mt-0.5'; }
+        else                              { bpRange.textContent = '🚨 High Stage 2'; bpRange.className = 'text-xs text-red-400 mt-0.5'; }
+    }
+
+    // Signal quality
+    const q = d.quality || 0;
+    const qBar = document.getElementById('qualityBar');
+    qBar.style.width = q + '%';
+    qBar.className = 'h-2 rounded-full transition-all duration-500 ' +
+        (q > 60 ? 'bg-green-500' : q > 30 ? 'bg-yellow-500' : 'bg-red-500');
+    document.getElementById('qualityBadge').textContent = 'Signal: ' + Math.round(q) + '%';
+
+    // Buffer
+    document.getElementById('bufferProgress').style.width = (d.buffer_pct || 0) + '%';
+    document.getElementById('bufferText').textContent =
+        d.status === 'buffering' ? Math.round(d.buffer_pct) + '%' : 'Ready';
+
+    // Status text
+    if (d.status === 'buffering') {
+        document.getElementById('statusText').textContent = 'Buffering... ' + Math.round(d.buffer_pct) + '%';
+    } else if (d.status === 'measuring' || d.status === 'locked') {
+        document.getElementById('statusText').textContent = d.status === 'locked' ? '🔒 Signal Locked' : '📊 Measuring...';
+        document.getElementById('statusDot').className = 'w-2 h-2 rounded-full bg-green-500 flex-shrink-0';
+    }
+
+    if (d.fps) document.getElementById('fpsValue').textContent = d.fps;
+    if (d.bvp && d.bvp.length > 10) drawWaveform(d.bvp);
+
+    updateAverages();
+}
+
+function drawWaveform(bvp) {
+    const W = waveCanvas.width = waveCanvas.offsetWidth;
+    const H = waveCanvas.height;
+    waveCtx.clearRect(0, 0, W, H);
+    waveCtx.fillStyle = 'rgba(0,0,0,0.4)';
+    waveCtx.fillRect(0, 0, W, H);
+
+    // Grid lines
+    waveCtx.strokeStyle = 'rgba(255,255,255,0.03)';
+    waveCtx.lineWidth = 1;
+    for (let y = 0; y < H; y += 15) {
+        waveCtx.beginPath(); waveCtx.moveTo(0, y); waveCtx.lineTo(W, y); waveCtx.stroke();
+    }
+
+    const min = Math.min(...bvp), max = Math.max(...bvp);
+    const range = max - min || 1;
+    const step  = W / bvp.length;
+
+    waveCtx.strokeStyle = '#00ff88';
+    waveCtx.lineWidth = 1.5;
+    waveCtx.beginPath();
+    bvp.forEach((v, i) => {
+        const x = i * step;
+        const y = H - ((v - min) / range) * (H - 14) - 7;
+        i === 0 ? waveCtx.moveTo(x, y) : waveCtx.lineTo(x, y);
+    });
+    waveCtx.stroke();
+}
+
+// Start session timer immediately
+sessionTimerInterval = setInterval(() => {
+    const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+    const m = String(Math.floor(elapsed / 60)).padStart(2, '0');
+    const s = String(elapsed % 60).padStart(2, '0');
+    const el = document.getElementById('sessionTimer');
+    if (el) el.textContent = `${m}:${s}`;
+}, 1000);
+
+loadSavedLog();
+startCamera();
+</script>
+</body>
+</html>
