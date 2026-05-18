@@ -1,6 +1,6 @@
-# Section 2:Clinical Spectrum Of Stable CAD
+# Section 2: Clinical Spectrum Of Stable CAD
 <!-- METADATA
-category: Diagnosis
+category: Classification, Diagnosis
 use_case: Clinical presentation patterns of stable CAD — chest_pain, dyspnoea, palpitations, syncope, angina_typing
 patient_input: symptoms, duration, triggers, risk_factors
 output: presentation_classification, angina_type

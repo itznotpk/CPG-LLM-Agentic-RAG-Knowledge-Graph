@@ -1,4 +1,4 @@
-# Chronic Refractory Angina
+# Section 9: Chronic Refractory Angina
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Management of chronic refractory angina — antianginal_therapy, adjunctive_options, referral
@@ -7,7 +7,6 @@ output: refractory_treatment_plan
 treatment_type: antianginal_agents, EECP, ESMR, neuromodulation, transplantation
 -->
 
-## 9: Chronic Refractory Angina
 Chronic refractory angina is a clinical diagnosis based on the symptoms of ischaemic chest pain of >3 months duration which is not controlled by a combination of maximal medical therapy and/or revascularization.
 
 Most common reasons why revascularisation (or repeat revascularization) is not undertaken:
@@ -15,43 +14,41 @@ Most common reasons why revascularisation (or repeat revascularization) is not u
 - one or several previous CABG and/or PCI have been performed
 - severely depressed LV function
 - lack of available graft conduits
+- extra-cardiac diseases with increased perioperative morbidity and mortality
 - advanced age, in combination with the above factors
 
 Medical management of these patients requires optimisation of risk factors and the use of combination antianginal drugs in maximal tolerated doses.
 
 Options available to these symptomatic patients who are not amenable to conventional therapy include:
-- enhanced external counter pulsation (EECP)393-396
-- extracorporeal shockwave myocardial revascularisation (ESMR) 397-400
-- acupuncture401
-- cell therapy and angiogenesis402-409
-- chelation therapy410
+- cardiac rehabilitation - This has not been validated in an independent study nor has it been tested in a trial appropriately powered to assess its effect on symptom improvement.
+- enhanced external counter pulsation (EECP)
+- extracorporeal shockwave myocardial revascularisation (ESMR)
+- acupuncture
+- cell therapy and angiogenesis
+- chelation therapy
 
-## Other Investigational Therapies Include:
-- neuromodulation techniques (transcutaneous electric nerve stimulation and spinal cord stimulation)411-413
+Other investigational therapies include:
+- neuromodulation techniques (transcutaneous electric nerve stimulation and spinal cord stimulation)
+- trans myocardial (TMR) or percutaneous laser revascularization
 - thoracic epidural anaesthesia
 - endoscopic thoracic sympathectomy
 - stellate ganglion blockade
 - heart transplantation
 - drugs that modulate metabolism
-- coronary sinus reducer425
+- coronary Sinus Reducer
 - oral morphine therapy
 
+In small clinical trials, these alternative therapies have been shown to relieve angina and improve quality of life to a variable degree in some patients with refractory angina.
 
-In small clinical trials, these alternative therapies have been shown to relieve angina and improve quality of life to a variable degree in some patients with refractory angina.393-425
+- [Grade II-b, Level B] These therapies should only be considered in patients who continue to have troubling angina despite conventional therapy or when conventional therapy is not feasible.
 
-- These therapies should only be considered in patients who continue to have [Grade II-b, Level B] troubling angina despite conventional therapy or when conventional therapy is not feasible. 393-425
-
-## Key Messages:
-- ischaemic chest pain of >3 months duration which is not controlled by a combination of maximal medical therapy and/or revascularization
+**Key Messages:**
+- Chronic refractory angina is a clinical diagnosis based on the symptoms of ischaemic chest pain of >3 months duration which is not controlled by a combination of maximal medical therapy and/or revascularization.
 - Alternative and investigational therapies have been shown to relieve angina and improve quality of life to a variable degree in some of these patients.
 - They should only be considered in patients who continue to have troubling angina despite adequate conventional treatments.
 
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: GRADES OF RECOMMENDATION & EVIDENCE    -->
-<!-- Purpose: Defines clinical evidence codes used in this CPG    -->
-<!-- ============================================================ -->
-
-### Grades Of Recommendation
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -60,24 +57,16 @@ In small clinical trials, these alternative therapies have been shown to relieve
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that the procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomized clinical trials or meta-analyses. |
 | B | Data derived from a single randomized clinical trial or large non-randomized studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-<!-- END OVERLAP FROM: GRADES OF RECOMMENDATION & EVIDENCE -->
-
-<!-- ============================================================ -->
-<!-- OVERLAP CONTENT FROM: ABBREVIATIONS                          -->
-<!-- Purpose: Localized list of clinical abbreviations used in this section -->
-<!-- ============================================================ -->
-
-### Abbreviations
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | EECP | Enhanced External Counterpulsation |
 | ESMR | Extracorporeal Shockwave Myocardial Revascularisation |
-
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->

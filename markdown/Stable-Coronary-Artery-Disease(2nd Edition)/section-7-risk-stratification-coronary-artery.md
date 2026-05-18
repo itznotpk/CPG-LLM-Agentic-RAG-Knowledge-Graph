@@ -65,11 +65,10 @@ LV function is the strongest predictor of survival. Patients with an LVEF of <50
 - [Grade I, Level C] Non-invasive tests provide useful information for prognostication. (refer to Table 2: Prognostic Indicators For Adverse CV Outcomes On Non-Invasive Testing)
 - [Grade I, Level C] A negative test carries a good prognosis but the clinical evaluation (e.g. age, ability to exercise, exercise duration, co-morbidity such as diabetes, CKD etc) and LV function should also be considered when assessing CV risk.
 
-### Table 2: Prognostic indicators for Adverse CV outcomes on Non-Invasive testing
-
+Table 2: Prognostic indicators for Adverse CV outcomes on Non-Invasive testing
 | Modality | Definition of Risk | Risk |
 |---|---|---|
-| Exercise Stress Test based on Duke Treadmill Score (DTS) (Table 7, pg 44) | DTS: ≤ -11: High risk | Annual mortality >5% |
+| Exercise Stress Test based on Duke Treadmill Score (DTS) (Table 7: Duke Treadmill Score (DTS)) | DTS: ≤ -11: High risk | Annual mortality >5% |
 | | DTS: +4 to -10: Moderate Risk | Annual mortality 0.25-5% |
 | | DTS: ≥ +5: Low risk | Annual mortality <0.25% |
 | Stress Echocardiogram | Low risk: No inducible ischemia (negative test) | Annual rate of CV death /MI 0.54%, annual mortality <1% |
@@ -87,6 +86,24 @@ LV function is the strongest predictor of survival. Patients with an LVEF of <50
 - [Grade II-a, Level C] Small imaging sub studies have shown mixed results when looking at CV outcomes in individuals with moderate to severe ischemia treated with revascularization as compared to OMT. Two large clinical trials have not shown any advantage of revascularization as compared to OMT in these patients. In individuals with depressed LV function (LVEF ≤35%) CABG did not reduce all-cause mortality but resulted in a reduction in CV mortality and hospitalizations. The ISCHEMIA trial is a large randomized clinical trial that is currently underway specifically addressing the role of revascularisation versus OMT in patients with moderate to severe myocardial ischemia.
 
 In patients with unprotected Left Main stem stenosis of >50%, revascularisation by CABG has been shown to improve survival in the pivotal Coronary Artery Surgery Study (CASS) Registry. In view of this "the benefit of surgery over medical treatment in patients with significant LMS stenosis (greater than 50%) is little argued."
+
+Table 7: Duke Treadmill Score (DTS)
+DTS : Exercise Time - (5 x max ST) - (4 x Angina Index)
+
+Exercise Time : Treadmill exercise time (minutes) by Bruce protocol
+Maximum ST : Maximum net ST deviation (except aVR) (mm) **
+Angina Index : Treadmill angina index
+  1. No angina during exercise
+  2. Non-limiting angina
+  3. Exercise induced angina
+
+DTS Risk : Duke Treadmill Score
+  more than +5: Low risk
+  +4 to -10: Moderate risk
+  < -11: High risk
+
+\*Using standard Bruce protocol
+**At 80msc after the J point
 
 ## 7.5: Risk Stratification Of Stable CAD By Anatomic Testing
 ### 7.5.1: Coronary Calcium (CAC) Score
@@ -248,4 +265,4 @@ Abbreviations
 | OMT | Optimal Medical Therapy |
 | PCI | Percutaneous Coronary Intervention |
 | SPECT | Single-Photon Emission Computed Tomography |
-<!-- END OVERLAP FROM: ABBREVIATIONS -->
+<!-- parent_only_reference_end -->
