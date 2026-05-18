@@ -573,6 +573,65 @@ Drive a query that predicts `predict_code`. Verify:
 - Ancestor lookup is shown (in logs/telemetry) to have run **and missed** before the sibling match — confirming the documented order (exact → ancestor → sibling).
 If the SQL returns 0 rows, state that in the report (no sibling-route case exists in the current corpus) and mark this smoke N/A with the query output as evidence — do not skip silently.
 
+## Follow-up (optional, NOT part of the 12 done-criteria) — D1.5: `.Z` unspecified-code fallback
+
+> **Status: proposed extension to D1.** Captured here so it is not lost. It is *not* required to mark this task done, is *not* in the §Done criteria, and adds no new constants. Implement only if explicitly pulled into scope. Origin: collaborator review note on this doc.
+
+**Concern in plain terms.** When Stage 3 predicts a leaf ICD-11 code that no CPG covers, D1 currently falls back by walking up to the structural `parent_code` (a category header, e.g. `BA01` "Ischaemic heart disease"). ICD-11 also defines, for *some* branches, a `…Z` sibling meaning **"this category, subtype unspecified"** (e.g. `BA01.Z` "Ischaemic heart disease, unspecified"). The `.Z` code is a *real, clinician-recognisable diagnosis*, whereas the bare parent is more of an organisational grouping. So when it exists, routing via the `.Z` sibling is more clinically honest than routing via the parent header.
+
+**Why this can't be a blanket rule (the key constraint).** Unlike `parent_code` — which *every* code has, terminating at a chapter root (see §"Note for D1") — **not every branch has a `.Z` code.** Some do, some don't. So this fallback must *first check whether a `.Z` sibling exists for the predicted code's branch* and only use it when present; it can never be applied unconditionally the way the parent walk is.
+
+**Proposed placement: right after exact, before the ancestor walk.** Prefer a same-branch "unspecified" diagnosis over going broader to a structural parent. New D1 chain:
+
+```
+exact → .Z sibling (if it exists) → ancestor (depth ≤2) → other siblings → none → D2
+```
+
+`route_method` gains one value: `"unspecified_z"`. Badge (extends the §D5b table): `≈ Matched via unspecified (…Z) code` — same trust tier as `ancestor_*`/`sibling` (broader-than-exact, use clinical judgement), never rendered as an `exact` curated match.
+
+**Detecting the `.Z` sibling — VERIFIED against the live `icd11_codes` table (2026-05-18, 5,672 rows).** The naive "ends in `Z`" rule is **wrong** — 871 codes end in `Z` and they split into three structurally different patterns that must NOT be treated alike:
+
+| Pattern | Example | Count | What it is | `parent_code` of the Z code | Usable here? |
+|---|---|---|---|---|---|
+| **P1 `X.Z`** | `2A20.Z`, `BC43.Z` | 478 | Category-unspecified — true *sibling* of the specific `X.0`/`X.1` leaves | the category `X` (e.g. `2A20`) | **YES — this is the target** |
+| **P2 `X.nZ`** | `2A20.0Z`, `BD50.0Z` | 256 | Leaf-level unspecified — a *child* of one specific leaf | the specific leaf (e.g. `2A20.0`), **not** the category | No — it is a child, not a peer |
+| **P3 `XnZ`** | `2A0Z`, `2A3Z` | 137 | Block-level unspecified | the **chapter root** (e.g. `02`) — far too broad | No — near chapter-level, the ancestor walk's cap exists to avoid exactly this |
+
+**The correct discriminator is the `parent_code` join, NOT the code-string shape.** For a predicted code `$1`, its true category-unspecified sibling is the row whose `parent_code` equals `$1`'s `parent_code` and whose own code is the `…Z` of that same category. Verified working on 6 random leaves (`BC43.1`→`BC43.Z`, `JB09.0`→`JB09.Z`, `MG30.11`→`MG30.1Z`, etc. — each found its sibling purely via shared `parent_code`):
+
+```sql
+-- given predicted code $1, find its category's unspecified (.Z) sibling if one exists.
+-- Correctness comes from the shared parent_code, NOT from the LIKE shape — the LIKE
+-- is only a cheap pre-filter. This naturally excludes P2 (X.nZ): a P2 code's
+-- parent_code is the specific leaf, never the predicted code's parent, so it can't match.
+SELECT z.code
+FROM icd11_codes p
+JOIN icd11_codes z
+  ON z.parent_code = p.parent_code   -- ← the actual correctness condition
+ AND z.code <> p.code
+ AND z.code LIKE '%Z'                -- ← cheap pre-filter only; parent_code does the real work
+WHERE p.code = $1
+LIMIT 1;
+```
+
+**Verified facts (no longer open assumptions):**
+- The category-unspecified code (P1) genuinely shares the specific leaves' `parent_code` — the sibling model in this doc is structurally sound for P1. ✓
+- P2 (`X.nZ`) is a *child* of a specific leaf, not a sibling — the `parent_code = p.parent_code` join correctly excludes it without any string special-casing. ✓
+- Not every category has a P1 `.Z` (478 of them across 5,672 rows) — confirms this **cannot** be a blanket rule and the existence check is mandatory.
+
+**Open questions still to resolve before implementing** (genuinely undecided, do not assume):
+- Behaviour when the predicted code *is itself* a `…Z` code (any of P1/P2/P3): skip this step, fall straight to the ancestor walk. Add an explicit guard + test.
+- Whether to *also* accept a P3 block-level `Z` as a last-ditch pre-`none` option, or treat P3 as out of bounds because it is effectively chapter-level (leaning: exclude P3 — it conflicts with the deliberate `ANCESTOR_MAX_DEPTH = 2` clinical-defensibility cap).
+- A `.Z` sibling existing in `icd11_codes` does **not** guarantee any CPG covers it — this step still routes via `documents.icd11_scope @> ARRAY[<.Z code>]` and only counts as a hit if a CPG actually lists it; otherwise continue to the ancestor walk.
+
+**If pulled into scope, also add:**
+- Unit test `test_z_fallback_before_ancestor` — predicted code not in scope, its `.Z` sibling *is* in scope, parent also in scope → `route_method == "unspecified_z"` (proves `.Z` wins over ancestor).
+- Unit test `test_z_fallback_skipped_when_no_z_sibling` — branch has no `.Z` code → behaves exactly as today (falls through to ancestor); proves it is not a blanket rule.
+- A Smoke case (or an extension of Smoke 9) driving a query that predicts a code whose branch has a `.Z` in some CPG scope.
+- The new `route_method` value in the §D5b badge table and the §D5a `ScoreBreakdown.route_method` allowed set.
+
+**Scope-boundary note.** This is a *routing-layer* refinement (predicted code → CPG), consistent with D1's remit. It is **not** a prediction-layer change (it does not alter which code the model emits). Keeping it routing-only is what makes it a clean optional add-on to D1 rather than a cross-cutting change.
+
 ## Out of scope
 
 - ❌ Hybrid retrieval (vector + code-prefix + lexical) for ICD lookup. Defer until DDx logs show actual misses.

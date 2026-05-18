@@ -28,6 +28,16 @@ WHO_pregnancy_class, embed it with the matching scale's wording (use
 preserve qualified tiers verbatim (e.g. "WHO Class III (severe)",
 "WHO Class II-III") rather than reducing them to plain "III".
 
+NYHA functional class (heart-failure symptom severity, Class I–IV) is a
+SEPARATE scale from WHO FC — do not relabel one as the other. When
+severity_staging carries an NYHA value, embed it as "NYHA <n>" using the
+matching CPG's wording. Normalise notation/OCR before embedding: "NHYA" →
+"NYHA"; arabic "class 2" → "II"; "Il/Ill/lV" → "II/III/IV". An NYHA range
+("NYHA II-III", "NYHA III & IV", "NYHA II-IV") is an INCLUSIVE ENUMERATION,
+not a single band — embed the stated range verbatim (e.g. "NYHA II-IV") so
+recommendations covering any class in that range are retrieved. (This is the
+OPPOSITE of mWHO "II-III", which is one distinct band — keep that verbatim too.)
+
 Domain 1 — PHARMACOTHERAPY
 Target: drug choice, dose, duration for this condition at this severity level.
 ALWAYS embed the severity class from severity_staging into the query when provided

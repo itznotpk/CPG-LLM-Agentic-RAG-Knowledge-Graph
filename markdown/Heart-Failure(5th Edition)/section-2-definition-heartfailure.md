@@ -6,7 +6,7 @@ patient_input: LVEF, symptoms, functional_status
 output: HF_definition, diagnostic_framework, LVEF_classification, NYHA_class, HF_stage_assignment
 -->
 
-**HF is a clinical syndrome** due to any structural or physiological abnormality of the heart resulting in its inability to meet the metabolic demands of the body or its ability to do so only at higher-than-normal filling pressures. This is supported by either an elevation of natriuretic peptides and/or evidence of pulmonary or systemic congestion.
+HF is a clinical syndrome due to any structural or physiological abnormality of the heart resulting in its inability to meet the metabolic demands of the body or its ability to do so only at higher-than-normal filling pressures. This is supported by either an elevation of natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 
 This may be accompanied by signs and symptoms of systemic hypoperfusion and/or volume overload. Patients may have typical symptoms (e.g., breathlessness, ankle swelling and fatigue) and signs (e.g., elevated jugular venous pressure, ankle edema, pulmonary crackles and displaced apex beat). Occasionally, some patients may present without signs or symptoms of volume overload. Older patients, often, present with atypical symptoms such as delirium, reduced appetite, immobility, incontinence, and falls.
 
@@ -14,7 +14,7 @@ Most commonly, HF is due to myocardial dysfunction- either systolic, diastolic, 
 
 Occasionally, non-cardiac disease, e.g., anemia, pulmonary, renal, thyroid, or hepatic disease may have symptoms and signs like those of HF, but in the absence of cardiac dysfunction, these do not fulfil the criteria for HF. However, these pathologies can coexist with HF and exacerbate the condition.
 
-**Key Message #2: Definition**
+Key Message:
 * HF is a clinical syndrome due to any structural or physiological abnormality of the heart resulting in its inability to meet the metabolic demands of the body or its ability to do so only at higher-than-normal filling pressures.
 * This is supported objectively by either an elevation of natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 

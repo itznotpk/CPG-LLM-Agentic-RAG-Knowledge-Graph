@@ -15,7 +15,7 @@ Care can be done in two different settings:
 *   In the patient's own home - home-based interventions are associated with significantly lower healthcare costs, reduced hospital readmissions and an improvement in the patient's quality of life. This may now be possible with telemedicine.
 *   Specialist outpatient clinic - the HF clinic.
 
-**HF clinics can either be:**
+HF clinics can either be:
 *   Nurse-directed - these are run by nurses with special training in HF.
 *   Physician-directed - run by general physicians and/or cardiologists.
 
@@ -60,25 +60,25 @@ Patients with HF require regular follow-up and monitoring. Serial evaluations se
 
 ### 17.2.1: Assessment During Follow Up Visits
 Key components of assessment include:
-*   **History:**
+*   History:
     *   Functional capacity - NYHA functional class or 6-minute walk test
     *   Cognitive status and nutritional status
     *   Diet and sodium intake
     *   Consumption of alcohol or illicit drugs
     *   Smoking history
-*   **Physical examination:**
+*   Physical examination:
     *   Fluid status and body weight
     *   Blood pressure, heart rate and rhythm
     *   Examination of the cardiovascular and respiratory systems
-*   **Investigations:**
+*   *nvestigations:
     *   Blood tests - serum urea, electrolytes, creatinine and eGFR as necessary.
     *   Serial brain natriuretic peptide measurements to guide and tailor HF therapy cannot be recommended at the present time due to a lack of consistent evidence.
     *   Echocardiogram: Routine serial echocardiogram is not recommended. However, if there has been a recent change in clinical status (e.g., episode of acute coronary syndrome) or if the patient has received treatment (e.g., revascularization or device therapy) that might significantly change certain echocardiographic parameters, a follow-up echocardiogram is reasonable to re-assess the LVEF, degree of valvular function and structural remodeling.
-*   **Others:**
+*   Others:
     *   Review of pharmacotherapy - compliance, side effects and titration of dosages as necessary.
     *   Control of disease specific management - hypothyroidism, hyperthyroidism, acromegaly, connective tissue disease, HIV, sarcoidosis, amyloidosis, hemochromatosis.
     *   Review use of potentially detrimental medication to HF control - e.g., NSAIDs.
-*   **Education:**
+*   Education:
     *   Another key component during follow up is education regarding the name, dose and function of each medication the patient is on. This is not only important in terms of enhancing compliance, but this is also to avoid polypharmacy from a different facility the patient may also be seeing.
 
 ### 17.2.2: Frequency Of Follow-Up
@@ -110,7 +110,7 @@ Telemedicine services may improve healthcare accessibility and geographical limi
 Early escalation of HF care with a multidisciplinary team is possible without the need for face-to-face consultation.
 
 ### 17.4.1: Telemedicine Strategies
-**Requirements:**
+Requirements:
 *   Home Monitoring Equipment - The following are required:
     *   Computer, tablet, or smart phone
     *   BP machines
@@ -121,7 +121,7 @@ Early escalation of HF care with a multidisciplinary team is possible without th
 
 Patients, and/or their younger family members can record and transmit the information to the physician.
 
-**Virtual visits:**
+Virtual visits:
 *   This will help maintain the doctor-patient relationship.
 *   These virtual visits can be performed via audio-visual telecommunication system or through an online portal to review the following:
     *   Assessment of symptoms.
@@ -129,13 +129,12 @@ Patients, and/or their younger family members can record and transmit the inform
     *   Where available, laboratory results from a laboratory close to the patient's home.
     *   Optimization of Foundational HF Medications.
 
-**Telerehabilitation:**
-
+Telerehabilitation:
 Telemedicine can allow:
 *   Initiation of dietary and physical cardiac rehabilitation.
 *   Identification of cardiac decompensation and advise hospitalization, when necessary.
 
-**Key Message #25: Level Of Care, Shared Care, Monitoring And Follow-Up & Telemedicine/Telehealth**
+Key Message: Level Of Care, Shared Care, Monitoring And Follow-Up & Telemedicine/Telehealth
 *   The care of patients with HF should ideally take place in a multidisciplinary system, allowing for shared care between the hospital (secondary or tertiary settings) and community (primary setting).
 *   Heart Failure clinics will serve as an intermediary between in-patient hospital care and community primary care.
 *   HF clinics can either be:

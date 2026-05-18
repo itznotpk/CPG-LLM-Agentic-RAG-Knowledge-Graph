@@ -17,7 +17,7 @@ All patients with severe symptomatic HF despite OMT and no other alternative the
 
 Assessment for heart transplant is done by a multispecialty, multidisciplinary team and appropriate work up will be performed for eligibility.
 
-**Eligibility criteria to be considered for heart transplant include:**
+Eligibility criteria to be considered for heart transplant include:
 *   Poor LVEF (< 25%).
 *   Recurrent HF hospitalizations.
 *   Major limitation of the patient's daily activities.
@@ -25,7 +25,7 @@ Assessment for heart transplant is done by a multispecialty, multidisciplinary t
 *   Intravenous inotropic dependence for symptomatic relief or to maintain end organ function.
 *   Motivated, psychologically stable, and compliant with therapy.
 
-**Contraindications to heart transplant:**
+Contraindications to heart transplant:
 *   Active infection.
 *   Severe peripheral arterial or cerebrovascular disease.
 *   Malignancy within 5 years.
@@ -65,14 +65,14 @@ Although majority of guidelines do not specifically address when best to refer e
 
 End-of-life issues surrounding advanced HF remains complex to this day, with minimal evidence in the literature to guide management. Nonetheless, there exists several position papers and expert consensus documents highlighting key components in providing palliative care for HF patients, including the following:
 
-**Advanced Care Planning**
+Advanced Care Planning:
 *   Clearly define goals of care and preference for future and pre-existing treatment, especially those which are life-sustaining. (e.g., intubation and mechanical ventilation, ICD implantation, etc)
 *   Address disease-specific aspects of care with clear limits to escalation.
 *   Record and clearly document these plans in the medical records.
 *   When requested and possible, clearly nominate a personal representative for medical decision-making.
 *   When available, clearly indicate where palliative care is to be provided (home versus healthcare facility).
 
-**Medical Management**
+Medical Management:
 *   Medical management with clear goals of care, prioritizing symptom control over disease control, and maximizing quality of life.
 *   Common symptoms and signs to be addressed include dyspnea, fatigue, pain, irregular bowel habits including constipation, urinary retention, or incontinence, and most importantly depression and anxiety.
 *   Validity of previous medications used in disease control should be continuously re-evaluated for benefit and harm, with appropriate adjustment.
@@ -84,17 +84,17 @@ End-of-life issues surrounding advanced HF remains complex to this day, with min
     *   Counselling, support, and reassurance should be provided to patients and their families.
     *   The aim should be to provide the highest level of comfort to the patient and their families, and therapy that contradict this should be discontinued (e.g., ICD deactivation).
 
-**Managing Ethical Dilemmas**
+Managing Ethical Dilemmas:
 *   An ethical dilemma arises when at least two of the four ethical principles conflict with one another.
 *   Patient autonomy remains central in the decision making for palliative care, although the 3 other ethical principles remain paramount (beneficence, non-maleficence, and justice).
 *   In the event of an ethical dilemma, ethical consultation through palliative care services or a professional ethics committee should be sought.
 
-**Key Message #23: Advanced HF**
+Key Message: Advanced HF
 *   All patients with severe symptomatic HF despite OMT and no other alternative therapeutic options should be considered for heart transplant.
 *   If they are not eligible or a donor heart is not available, they may be considered for LVAD as a destination therapy or a bridge to heart transplant.
 *   Patients who are unable to receive either should be considered for palliative care.
 
-**Key Recommendation #18: Advanced HF**
+Key Recommendation: Advanced HF
 *   Heart transplantation is well-established for refractory end stage HF.
 *   Patients with severe symptomatic HF despite OMT and no other alternative therapeutic options should be considered for palliative care.
 

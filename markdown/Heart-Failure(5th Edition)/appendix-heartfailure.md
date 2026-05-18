@@ -192,7 +192,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 | **WHO CLASS III: Severe Increase in Maternal Morbidity<br>Significant Increase in Maternal Mortality (5-15%)<br>Expert counselling required. If pregnancy is decided upon, needs an individualized pregnancy care plan with a multidisciplinary team management.**<br>• Left ventricular dysfunction (LVEF 35-40%).<br>• Mechanical valve.<br>• Systemic right ventricle (cCTGA, post Senning/Mustard).<br>• Fontan circulation.<br>• Repaired Tetralogy of Fallot with severe pulmonary regurgitation, right ventricular failure, right ventricular outflow tract obstruction.<br>• Cyanotic heart disease (unrepaired).<br>• Other complex congenital heart disease.<br>• Aortic dilatation 40 - 45 mm in Marfan syndrome.<br>• Aortic dilatation 45 - 50 mm in aortic disease associated with bicuspid aortic valve. |
 | **WHO CLASS IV: Maternal mortality is 25-50%<br>Pregnancy Is Not Recommended or Is Contraindicated.<br>If pregnancy occurs, termination should be discussed.<br>If pregnancy continues, care as for class III.**<br>• Severe pulmonary arterial hypertension of any cause (mortality 17-33%).<br>• Severe systemic ventricular dysfunction (LVEF < 30%, NYHA III-IV).<br>• Previous peripartum cardiomyopathy with any residual impairment of left ventricular function.<br>• Severe mitral stenosis (MVA < 1.0 cm²), severe symptomatic aortic stenosis (AVA < 1.0cm²).<br>• Marfan syndrome with aorta dilated > 45 mm.<br>• Aortic dilatation > 50 mm in aortic disease associated with bicuspid aortic valve.<br>• Uncorrected severe coarctation. |
 
-## Appendix XII: New York Heart Association (Nyha) Functional Classification
+## Appendix XII: New York Heart Association (NYHA) Functional Classification
 | Functional  Class   | Symptoms                                                                                                                                                                                      | Maternal  Cardiovascular  Risk   |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
 | CLASS I             | No limitation. Ordinary physical activity does not  cause undue fatigue, dyspnea or palpitation.                                                                                              | Low                              |
@@ -200,7 +200,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 | CLASS III           | Marked limitation of physical activity. Although  patients are comfortable at rest, less than ordinary  will activity lead to fatigue, palpitation, dyspnea or  angina.                       | High                             |
 | CLASS IV            | Inability to carry on any physical activity without  discomfort. Symptoms of congestive heart failure  are present at rest. With any physical activity,  increased discomfort is experienced. | High                             |
 
-## Appendix XIII: The Different Causes Of Achd-HF Based On The Underlying Pathophysiology, Related Chd And Etiology Tailored Management
+## Appendix XIII: The Different Causes Of ACHD-HF Based On The Underlying Pathophysiology, Related Chd And Etiology Tailored Management
 | Etiology | Pathophysiology | Congenital heart defect | Management |
 |---|---|---|---|
 | Systemic left ventricle failure | **Pressure overload** | Sub, supravalvular or valvular aortic stenosis, coarctation of the aorta, congenital MS, Shone syndrome | **Surgical or catheter intervention** to address obstructive or regurgitant valve lesions, persistent shunts, coronary anomalies.<br>For coarctation of aorta - correct residual lesion, treat hypertension<br>**Medical therapy**<br>ACEi, ARB ± sacubitril, RAS blockers<br>Beta blockers<br>Mineralocorticoid receptor antagonist<br>Loop diuretics for symptom relief<br>**CRT/ Biventricular pacing** in patients with chronic RV pacing and desynchrony |
@@ -221,7 +221,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 - l) Egbe AC, Connolly HM, Khan AR, et al. Outcomes in adult Fontan patients with atrial tachyarrhythmias. Am Heart J 2017;186:12-20.
 - m) Fedchenko M, Z. Mandalenakis, K.W. Giang, A. Rosengren, P. Eriksson, M. Dellborg, Long-term outcomes after myocardial infarction in middle-aged and older patients with congenital heart disease-a nationwide study, Eur. Heart J. 2021: 42 (26): 2577-2586.
 
-## Appendix XIV: Investigations In ACHD<sup>a</sup>
+## Appendix XIV: Investigations In ACHD<sup>a</sup
 | Investigations | Important | Values/Parameter |
 |---|---|---|
 | Electrocardiogram (ECG) | To identify new onset/change in baseline ECG e.g., right/left ventricular hypertrophy, Conduction abnormalities. | Baseline ECG is abnormal to begin with in many ACHD.<br>New or recent change in baseline ECG should trigger further review. |
@@ -242,7 +242,7 @@ In general, steps E, F, F are best performed in specialized cardiology centers. 
 - e) Inuzuka R, Diller GP, Borgia F, Benson L, Tay EL, Alonso-Gonzalez R, Silva M, Charalambides M, Swan L, Dimopoulos K, Gatzoulis MA. Comprehensive use of cardiopulmonary exercise testing identifies adults with congenital heart disease at increased mortality risk in the
 - f) Kempny A, Dimopoulos K, Uebing A, Moceri P, Swan L, Gatzoulis MA, Diller GP. Reference values for exercise limitations among adults with congenital heart dis- ease. Relation to activities of daily life-single centre experience and review of published data. Eur Heart J 2012;33:1386 -1396.
 
-## Appendix XV: Flow Chart Of The Management Of Achd-HF
+## Appendix XV: Flow Chart Of The Management Of ACHD-HF
 **Step 1: Initial Assessment**
 Detail History Physical Examination
 Basic Investigation - TTE, CXR, ECG, Routine Bloods
@@ -280,9 +280,7 @@ Perform **Biomarkers / CPET**
 *   Advance Imaging: CT/CMR
 *   ± Cardiac Catheterization
 *   Rhythm Analysis
-
 ↓
-
 **Step 5: Hemodynamic Significant Structural / Shunt / Valvular Lesion?**
 **Outcome Evaluation:**
 *   **If Yes:** → **Transcatheter / Surgical Intervention** → Proceed to Step 6 (Appropriate Treatment)
@@ -307,13 +305,9 @@ Perform **Biomarkers / CPET**
 **Step 7: Ventricular Dysfunction**
 **Heart Failure Pharmacotherapy (GDMT)**
 **Consider CRT**
-
 ↓
-
 **Worsening Heart Failure Despite Optimal Therapy**
-
 ↓
-
 **Advanced Therapies MCS (Mechanical Circulatory Support) / Heart Transplant**
 
 **Outcome Evaluation:**
@@ -323,7 +317,6 @@ Perform **Biomarkers / CPET**
 
 **Step 8: Follow Up**
 **Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification**
-
 ↓ *(Surveillance / Reassessance – Loop back to Step 1 if worsening symptoms)*
 
 ## Appendix XVI: Calculation Of Performance And Outcome Measures

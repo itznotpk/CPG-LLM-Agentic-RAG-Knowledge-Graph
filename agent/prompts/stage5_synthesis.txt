@@ -100,7 +100,10 @@ corpus. They share the word "WHO" but mean OPPOSITE things. Never merge them.
       DISTINCT from the unqualified class (do not collapse them)
     - OCR variants where roman "I" is rendered as lowercase "l"
       ("WHO CLASS Il" = II, "Ill" = III)
-   Do NOT treat NYHA classes, or the WHO organisation, as WHO classification.
+   Do NOT treat a plain "NYHA" class, or the WHO organisation, as a WHO
+   classification token. (Exception: in a PAH chunk the functional scale is
+   "WHO FC" — a WHO-modified NYHA — and IS a WHO FC token; see the NYHA
+   FUNCTIONAL CLASS section below for NYHA-specific handling.)
 
 RULES:
 1. Read the source CPG name from the chunk header FIRST, then pick the scale:
@@ -115,6 +118,41 @@ RULES:
    do not soften it into a generic "severe" descriptor.
 3. Quote the classification token verbatim ("WHO Class IV", "WHO FC III");
    do not translate between the two scales or invent a class not in the text.
+
+NYHA FUNCTIONAL CLASS — a heart-failure SYMPTOM severity scale (Class I–IV;
+higher = worse). It is clinically PARALLEL to WHO Functional Class but is a
+SEPARATE, differently-labelled scale. PAH's "WHO FC" is a WHO-modified version
+of NYHA — near-equivalent in meaning but NOT the same label.
+
+  SCALE/LABEL IS DETERMINED BY THE SOURCE CPG, NOT BY SYNTAX:
+   - Heart Failure / Atrial Fibrillation / NSTE-ACS chunk → it is NYHA.
+   - PAH chunk → the functional scale is "WHO FC" (modified NYHA), NOT plain
+     NYHA, even if the PAH text mentions NYHA in passing.
+   - Heart Disease in Pregnancy chunk → NYHA and mWHO maternal-risk Class are
+     INTENTIONALLY paired (e.g. "NYHA III & IV, WHO Class IV"). Keep BOTH; do
+     not collapse one into the other — they answer different questions.
+  Never translate a patient's NYHA class into a WHO FC recommendation (or vice
+  versa). Quote whichever label the source chunk uses, verbatim.
+
+  BAND/RANGE SEMANTICS — OPPOSITE of the mWHO rule above. For NYHA, a hyphen,
+  en-dash, "to", "&", or "or" between classes denotes an INCLUSIVE RANGE /
+  ENUMERATION, NOT a single intermediate band:
+   - "NYHA II-III" / "NYHA II–III" / "NYHA II to III" = Class II OR Class III
+   - "NYHA II-IV" = Classes II, III and IV (all of them)
+   - "NYHA III & IV" / "NYHA III or IV" = Class III OR Class IV
+  Do NOT treat "NYHA II-III" as one ordinal band (that rule applies to mWHO
+  ONLY). A patient at NYHA III satisfies a "NYHA II-III" or "NYHA II-IV"
+  criterion. (Contrast: mWHO "II-III" IS a single distinct band.)
+
+  NOTATION & OCR VARIANTS to recognise as NYHA (normalise meaning, but quote
+  the source token verbatim in output):
+   - "NYHA I/II/III/IV", "NYHA Class III", "NYHA functional class III"
+   - "(NYHA III)", "NYHA functional class ≥ 2", arabic "NYHA class 2" (= II)
+   - OCR corruption: "NHYA" = NYHA; "WHOI NHYA Class & Il" → WHO I, NYHA II;
+     doubled "class 2 2" = Class II; "1 & II" in a class column = I & II;
+     roman "I" rendered as lowercase "l" ("Il"=II, "Ill"=III, "lV"=IV)
+   - If a NYHA token is too corrupted to resolve confidently, do not guess —
+     add an unresolved_questions entry instead.
 
 MANDATORY OUTPUT SECTIONS — all 6 sections must be populated:
 

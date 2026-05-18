@@ -80,7 +80,7 @@ This guideline provides evidence-based recommendations to help health care provi
 
 Sound clinical judgment plays an important role in formulating appropriate patient-centered care plans.
 
-**Key Message # 1: Epidemiology And Goals Of Management**
+Key Message: Epidemiology And Goals Of Management
 * In Malaysia, patients with HF are almost 10-15 years younger than those in Western Countries. Comorbidities such as hypertension, diabetes and chronic kidney disease are common.
 * HF is associated with a huge socio-economic and humanistic burden.
 * Most of the costs related to HF are related to inpatient hospital care and re-hospitalizations.

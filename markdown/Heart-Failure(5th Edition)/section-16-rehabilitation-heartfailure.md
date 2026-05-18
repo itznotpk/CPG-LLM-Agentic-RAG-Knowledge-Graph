@@ -7,6 +7,7 @@ output: cardiac_rehabilitation_plan, exercise_prescription, special_population_g
 treatment_type: exercise_rehabilitation
 -->
 
+## 16.0 Introduction to HF Rehabilitation
 Fatigue and breathlessness lead to individuals restricting their physical activities. This in turn leads to deconditioning - a phenomenon of reduced capacity to perform physical, mental, and cognitive tasks. This adds to the humanistic burden of HF, increasing morbidity and recurrent hospitalizations.
 
 *   Exercise training in HF addresses 3 main impairments:
@@ -55,10 +56,10 @@ Fatigue and breathlessness lead to individuals restricting their physical activi
         *   Telerehabilitation services. There is still inadequate evidence at present on the impact of this modality on hospitalization and CV death reduction.
 
 ## 16.3: Heart Failure CR In Special Populations
-*   **Individuals with implantable devices:**
+*   Individuals with implantable devices:
     *   CR in HF patients with ICD and CRT is safe and beneficial.
     *   Activities such as hydrotherapy or pronounced arm-shoulder movements should be avoided as this may lead to an ICD discharge and loss of consciousness.
-*   **Elderly patients with HF:**
+*   Elderly patients with HF:
     *   Frailty is common among the elderly and is associated with increased morbidity and mortality. It is partially reversible and potentially preventable in HF with early rehabilitation referral.
     *   Rehabilitation non-enrolment results in worsening frailty status.
     *   Cognitive impairment and HF frequently coexist - either as acute delirium with decompensated HF during hospital admission or dementia.
@@ -67,26 +68,26 @@ Fatigue and breathlessness lead to individuals restricting their physical activi
 ## 16.4: Barriers To HF Rehabilitation
 *   Despite benefits, cost-effectiveness, and strong practice guideline recommendations, CR remains underused.
 *   Barriers include:
-    *   **Physician Factors:**
+    *   Physician Factors:
         *   Fewer referrals from cardiologists.
         *   Fewer well trained CR staff.
         *   Overworked doctors.
-    *   **Patient Factors:**
+    *   Patient Factors:
         *   Lack of motivation.
         *   Reluctance to change in lifestyle.
         *   Transport difficulties.
         *   Lack of family support.
         *   Time constraints.
-    *   **Service Factors:**
+    *   Service Factors:
         *   Lack of insurance coverage.
         *   Accessibility of programs.
 
-**Key Message #24: HF Rehabilitation**
+Key Message: HF Rehabilitation
 *   Fatigue and breathlessness lead to individuals restricting their physical activities and this in turn, leads to deconditioning.
 *   Exercise training in patients with HF is safe and leads to an improvement in functional capacity, exercise duration, and health related quality of life.
 *   HF is now endorsed as an indication for Cardiac Rehabilitation, and it spans throughout the continuum of HF care.
 
-**Key Recommendation #19: HF Rehabilitation**
+Key Recommendation: HF Rehabilitation
 *   Cardiac Rehabilitation should be recommended to all stable HF patients, in NYHA II-III.
 
 <!-- parent_only_reference_start -->
