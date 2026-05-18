@@ -32,7 +32,7 @@ In patients presenting with stable chest pain of more than two months duration a
 
 In patients with intermediate PTP, the choice of non-invasive tests will depend on the patient's ability to exercise, ECG interpretability, obesity and the presence of good echo windows and the local availability of services and expertise.
 
-Table 6: Sensitivity And Specificity Of Non-Invasive Diagnostic Tests For Cad
+Table 6: Sensitivity And Specificity Of Non-Invasive Diagnostic Tests For CAD
 | Test | Sensitivity (%) | Specificity (%) |
 |------|-----------------|-----------------|
 | Exercise ECG | 45–50 | 85–90 |
@@ -46,7 +46,7 @@ Table 6: Sensitivity And Specificity Of Non-Invasive Diagnostic Tests For Cad
 | Coronary CTA | 95–99 | 64–83 |
 | Vasodilator stress PET | 81–97 | 74–91 |
 
-**Key Messages:**
+Key Messages:
 - In the diagnosis of CAD in patients presenting with stable chest pain, non-invasive tests may be:
   - Functional — for myocardial ischemia or
   - Anatomical — for visualization of the coronary arteries
@@ -54,7 +54,7 @@ Table 6: Sensitivity And Specificity Of Non-Invasive Diagnostic Tests For Cad
   - Pre-Test Probability (PTP) of CAD of that individual.
   - Sensitivity and specificity of the different diagnostic modalities.
 
-**Recommendation 2:**
+Recommendation:
 In persons with suspected CAD and having stable chest pain/angina equivalent of more than 2 months and undergoing non-invasive cardiac testing, it is important to determine the:
 - Pre-Test Probability (PTP) of CAD of that individual. (refer Table 1: Pre-Test Probability (PTP) of CAD in patients with stable Chest Pain*) In the Euro model for assessing PTP, (refer Table 1: Pre-Test Probability (PTP) of CAD in patients with stable Chest Pain*) which this writing group has adopted, patients with a:
   - low PTP of <15% can be assumed to have no significant obstructive CAD. In these individuals, CV risk factors should be treated to target. Other causes of chest pain should be looked for.
@@ -65,19 +65,9 @@ In persons with suspected CAD and having stable chest pain/angina equivalent of 
 ## 6.2: Functional Tests For Myocardial Ischemia In The Diagnosis Of CAD
 ### 6.2.1: Diagnostic Accuracy Of Exercise Stress ECG
 Exercise stress ECG is an important investigative tool in the diagnosis of CAD and in risk stratification. The sensitivity and specificity vary from 70-77% depending on the prevalence of CAD in the population being studied. It is lower in females.
-- [Grade I, Level A] Despite its pitfalls, exercise stress ECG is a useful first line strategy in both genders in the evaluation of individuals with chest pain. (Refer to Figure 1: Algorithm for the investigation of individuals with stable chest symptoms suspected to be due to CAD) This recommendation differs from that of the NICE guidelines where CTA is recommended as a first line strategy in individuals with typical or atypical angina or if clinical assessment indicates non anginal pains, but the resting ECG is abnormal.
 
-Figure 1: Algorithm for the investigation of individuals with stable chest symptoms suspected to be due to CAD
-Figure 1 outlines a clinical decision-making pathway for symptomatic individuals with an intermediate pre-test probability (PTP) of CAD (between 15% and 85%). The investigation strategy branches based on resting ECG interpretability and exercise tolerance:
-- **Normal ECG and Good Exercise Tolerance:** Patients proceed to an initial **Exercise Stress Test**. Subsequent clinical pathways are:
-  - **Negative Test:** Directs to **Risk Factor Reduction ± Medical Therapy for CAD**.
-  - **Positive at Low Workloads:** Directs directly to an **Invasive Coronary Angiogram (ICA)**.
-  - **Equivocal, Positive at Low-to-Moderate Workloads, or Negative but high PTP (>65%):** Requires referral for advanced non-invasive testing (Exercise/Dobutamine Stress Echocardiography, Myocardial Perfusion Imaging by SPECT, Cardiac Magnetic Resonance Imaging, or Calcium Score and/or CT Coronary Angiogram).
-- **Abnormal ECG or Limited Exercise Tolerance:** Patients bypass the initial exercise ECG and proceed directly to advanced non-invasive modalities (Exercise/Dobutamine Stress Echocardiography, Myocardial Perfusion Imaging by SPECT, Cardiac Magnetic Resonance Imaging, or Calcium Score and/or CT Coronary Angiogram).
-  - If the subsequent stress imaging or anatomical test is **Equivocal or Positive**, the patient is referred for an **Invasive Coronary Angiogram**.
+[Grade I, Level A] Despite its pitfalls, exercise stress ECG is a useful first line strategy in both genders in the evaluation of individuals with chest pain. (Refer to Figure 1: Algorithm for the investigation of individuals with stable chest symptoms suspected to be due to CAD) This recommendation differs from that of the NICE guidelines where CTA is recommended as a first line strategy in individuals with typical or atypical angina or if clinical assessment indicates non anginal pains, but the resting ECG is abnormal.
 
-*\*The choice of non-invasive tests will depend on the patient’s ability to exercise, ECG interpretability, obesity and the presence of good echo windows and availability of local services and expertise.*
-*\*\*In individuals with typical symptoms and a high pre-test likelihood of CAD (PTP >85%), an invasive coronary angiogram may be the initial investigation of choice.*
 Patient selection for exercise stress ECG is important. The individual should be:
 - able to perform moderate physical activity (e.g. household chores, gardening or recreational work, activities of daily living). In these instances, the exercise stress test is safe, inexpensive and performs well. It will allow correlation with the patient's symptoms on exercise and the assessment of functional capacity.
 - without disabling comorbidities such as frailty, marked obesity, peripheral arterial disease, chronic obstructive airways disease or orthopaedic limitations.
@@ -107,7 +97,7 @@ The Duke treadmill scoring system allows a method for risk stratification:
 - High-risk — the predicted 4-year survival was 79%, annual mortality: 5%. This group should be considered for invasive coronary angiography.
 - Intermediate-risk — these patients require further evaluation using stress imaging techniques and/or CTA.
 
-- [Grade I, Level C] The patient should be made to attain maximal symptom-limited exercise level.
+[Grade I, Level C] The patient should be made to attain maximal symptom-limited exercise level.
 
 Achieving 85% of age-predicted maximal heart rate might not indicate sufficient stress. This should not be used as criteria to terminate an exercise stress ECG. Should the patient have inadequate levels of stress, use of pharmacological stress imaging may help in further evaluation.
 
@@ -131,23 +121,20 @@ Following the initiation of treatment, an exercise stress ECG may be repeated to
 - guide an exercise regime
 - reassess the clinical condition if there is a change in symptoms
 
-- [Grade I, Level C] The benefits of routine periodic exercise stress testing in the asymptomatic individual with stable CAD is unknown.
+[Grade I, Level C] The benefits of routine periodic exercise stress testing in the asymptomatic individual with stable CAD is unknown.
 
 Table 7: Duke Treadmill Score (DTS)
 DTS : Exercise Time - (5 x max ST) - (4 x Angina Index)
-
 Exercise Time : Treadmill exercise time (minutes) by Bruce protocol
 Maximum ST : Maximum net ST deviation (except aVR) (mm) **
 Angina Index : Treadmill angina index
   1. No angina during exercise
   2. Non-limiting angina
   3. Exercise induced angina
-
 DTS Risk : Duke Treadmill Score
   more than +5: Low risk
   +4 to -10: Moderate risk
   < -11: High risk
-
 \*Using standard Bruce protocol
 **At 80msc after the J point
 
@@ -155,11 +142,11 @@ Figure 3: Nomogram of the Percentage of Predicted Exercise Capacity for Age in A
 Figure 3 presents a clinical nomogram designed to determine a patient's objective fitness level relative to peers by calculating their percentage of predicted exercise capacity based on age and metabolic equivalents (METs) achieved during exercise stress testing.
 
 The nomogram consists of three primary components:
-1. **Left vertical axis (Age in years):** Ranging from 35 to 85 years.
-2. **Right vertical axis (METs):** Ranging from 1 to 15 METs.
-3. **Center diagonal intersection lines:** Gender-specific scales for Men (blue) and Women (red), indicating the percentage of predicted exercise capacity ranging from 10% to 150%.
+1. Left vertical axis (Age in years): Ranging from 35 to 85 years.
+2. Right vertical axis (METs): Ranging from 1 to 15 METs.
+3. Center diagonal intersection lines: Gender-specific scales for Men (blue) and Women (red), indicating the percentage of predicted exercise capacity ranging from 10% to 150%.
 
-**Instructions for Clinical Interpretation:**
+Instructions for Clinical Interpretation:
 To utilize the nomogram, draw a straight line connecting the patient's age on the left axis to the maximum workload (MET value) achieved on the right axis. The point at which this line intersects the respective gender axis (Men or Women) indicates the patient's percentage of predicted exercise capacity.
 - An intersection at or above 100% indicates that the patient's exercise capacity is at or above the predicted average for their age group.
 - Lower percentages indicate diminished functional capacity, which serves as a powerful independent predictor of adverse cardiovascular outcomes and all-cause mortality.
@@ -176,7 +163,7 @@ The stressor agent is either:
   - dobutamine in the case of echocardiography and CMR imaging or
   - vasodilators like adenosine and dipyridamole for MPI and CMR imaging
 
-Stress imaging techniques have better diagnostic sensitivity and specificity compared to exercise stress ECG because they identify ischemia prior to changes in ECG and prior to onset of symptoms (the ischemic cascade). They can localize the territory of ischemia and are also superior in the presence of myocardial scarring. In a study in low risk women who had good exercise capacity, both exercise ECG and stress MPI resulted in similar CV outcomes. An initial strategy of exercise ECG was also more cost effective than an initial strategy of stress MPI.
+Stress imaging techniques have better diagnostic sensitivity and specificity compared to exercise stress ECG because they identify ischemia prior to changes in ECG and prior to onset of symptoms (the ischemic casCADe). They can localize the territory of ischemia and are also superior in the presence of myocardial scarring. In a study in low risk women who had good exercise capacity, both exercise ECG and stress MPI resulted in similar CV outcomes. An initial strategy of exercise ECG was also more cost effective than an initial strategy of stress MPI.
 
 Stress echocardiogram, however, was found to be superior to exercise ECG as an initial strategy for the prediction of CAD in individuals presenting with chest pain. It was also found to be cost-beneficial.
 
@@ -199,10 +186,10 @@ In the presence of LBBB and ventricular paced rhythms, stress imaging techniques
 
 In patients with multivessel disease, imaging tests especially Stress MPI can sometimes underestimate the amount of myocardial ischemia. This is because these tests are based on the principle of perfusion differences between different myocardial territories and therefore require at least one non-ischemic myocardial territory as a "normal" reference to be able to detect inducible myocardial ischemia in another territory. If all 3 vessels are significantly narrowed or there is a combination of left main and multivessel CAD, uniform tracer uptake due to "balanced" ischemia may lead to a rather homogeneous tracer uptake and result in a false negative result.
 
-### 6.2.2.1: Diagnostic Accuracy of Stress echocardiogram - exercise or pharmacological stress (dobutamine)
+#### 6.2.2.1: Diagnostic Accuracy of Stress echocardiogram - exercise or pharmacological stress (dobutamine)
 This is one of the least expensive and most widely available stress imaging techniques.
 
-- [Grade I, Level B] An exercise stress echocardiogram is more physiological than pharmacological stress and is the stress of choice wherever possible.
+[Grade I, Level B] An exercise stress echocardiogram is more physiological than pharmacological stress and is the stress of choice wherever possible.
 
 Pharmacological stress is preferred if the patient is unable to exercise or if there are wall motion abnormalities seen at rest. The pharmacological stressor most often used is dobutamine. The increase in cardiac workload seen with dobutamine is less than that with exercise. The addition of atropine augments the sensitivity of the dobutamine stress echocardiogram (DSE). With the use of dobutamine, viability can also be assessed.
 
@@ -217,7 +204,7 @@ MPI most commonly uses technetium-99m sestamibi as the radiotracer and SPECT ima
 
 The tracer is injected at peak stress and images are acquired. The stress images are compared with the uptake at rest. Transient ischaemic dilatation and reduced post-stress LV ejection fraction are important predictors of severe CAD.
 
-SPECT detects a relative reduction in myocardial blood volume that occurs earlier than wall thickening abnormality in the ischaemic cascade. Despite this, SPECT has similar sensitivity and specificity to stress echocardiography in diagnosing and detecting the extent of CAD. This is due to the poorer spatial resolution of SPECT (12mm) as compared to stress echocardiography (2mm).
+SPECT detects a relative reduction in myocardial blood volume that occurs earlier than wall thickening abnormality in the ischaemic casCADe. Despite this, SPECT has similar sensitivity and specificity to stress echocardiography in diagnosing and detecting the extent of CAD. This is due to the poorer spatial resolution of SPECT (12mm) as compared to stress echocardiography (2mm).
 
 In the diagnosis of CAD, MPI with SPECT has good sensitivity and specificity. The diagnostic image quality is affected in obese patients, as well as in women with large breasts due to breast attenuation. Other disadvantages include radiation exposure, unavailability of services at most centers and its high cost.
 
@@ -267,9 +254,9 @@ Due to the low prevalence of disease in most individuals undergoing health scree
 ### 6.3.3: Diagnostic Accuracy Of Invasive Coronary Angiography (ICA)
 Invasive Coronary Angiography (ICA) has been the gold standard in the diagnosis of CAD. It can detect obstructive lesions with negative remodelling accurately but unlike CTA, it may not be able to detect non-obstructive lesions with positive remodelling where the lumen diameter may be maintained.
 
-- [Grade I, Level C] ICA is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization.
+[Grade I, Level C] ICA is rarely necessary in stable patients with suspected CAD for the sole purpose of establishing the diagnosis of CAD. It is indicated, following non-invasive risk stratification, to determine the most appropriate mode of revascularization.
 
-**Key messages:**
+Key messages:
 In the diagnosis of CAD in patients presenting with stable chest pain:
 - Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs.
   - If the exercise stress test is negative and there is:
@@ -289,7 +276,7 @@ In the diagnosis of CAD in patients presenting with stable chest pain:
   - May be considered in individuals with low to intermediate risk PTP of CAD and who have mild or equivocal changes of ischemia in the exercise stress test or stress imaging tests and who are asymptomatic or mildly symptomatic with good exercise capacity.
   - It should not be used as a screening tool for CAD in the asymptomatic individual.
 
-**Recommendation 1:**
+Recommendation:
 In the diagnosis of CAD in patients having stable chest pain/angina equivalent:
 - Exercise stress ECG is the non-invasive test of choice in patients who can exercise and have interpretable ECGs.
 - Stress imaging tests are used in individuals who have intermediate PTP of CAD and who:
@@ -312,8 +299,19 @@ Table 1: Pre-Test Probability (PTP) of CAD in patients with stable Chest Pain*
 | 60-69 | 84 | 58 | 59 | 28 | 44 | 17 |
 | 70-79 | 89 | 68 | 69 | 37 | 54 | 24 |
 | >80 | 93 | 76 | 78 | 47 | 65 | 32 |
-
 Red boxes: High PTP >85%; Yellow boxes: Intermediate PTP >15-<85%; Green box: Low PTP <15%
+
+Figure 1: Algorithm for the investigation of individuals with stable chest symptoms suspected to be due to CAD
+Figure 1 outlines a clinical decision-making pathway for symptomatic individuals with an intermediate pre-test probability (PTP) of CAD (between 15% and 85%). The investigation strategy branches based on resting ECG interpretability and exercise tolerance:
+- Normal ECG and Good Exercise Tolerance: Patients proceed to an initial Exercise Stress Test. Subsequent clinical pathways are:
+  - Negative Test: Directs to Risk Factor Reduction ± Medical Therapy for CAD.
+  - Positive at Low Workloads: Directs directly to an Invasive Coronary Angiogram (ICA).
+  - Equivocal, Positive at Low-to-Moderate Workloads, or Negative but high PTP (>65%): Requires referral for advanced non-invasive testing (Exercise/Dobutamine Stress Echocardiography, Myocardial Perfusion Imaging by SPECT, Cardiac Magnetic Resonance Imaging, or Calcium Score and/or CT Coronary Angiogram).
+- Abnormal ECG or Limited Exercise Tolerance: Patients bypass the initial exercise ECG and proceed directly to advanced non-invasive modalities (Exercise/Dobutamine Stress Echocardiography, Myocardial Perfusion Imaging by SPECT, Cardiac Magnetic Resonance Imaging, or Calcium Score and/or CT Coronary Angiogram).
+  - If the subsequent stress imaging or anatomical test is Equivocal or Positive, the patient is referred for an Invasive Coronary Angiogram.
+
+*\*The choice of non-invasive tests will depend on the patient’s ability to exercise, ECG interpretability, obesity and the presence of good echo windows and availability of local services and expertise.*
+*\*\*In individuals with typical symptoms and a high pre-test likelihood of CAD (PTP >85%), an invasive coronary angiogram may be the initial investigation of choice.*
 
 Grades Of Recommendation
 | Grade | Definition |

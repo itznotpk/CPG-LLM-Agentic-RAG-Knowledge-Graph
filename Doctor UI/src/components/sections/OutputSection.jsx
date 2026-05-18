@@ -194,54 +194,55 @@ export function OutputSection() {
         </div>
       </GlassCard>
 
-      {/* SOAP NOTE VIEW */}
-      <GlassCard className="p-8 max-w-5xl mx-auto border-t-8 border-t-[var(--accent-primary)] shadow-lg bg-white dark:bg-slate-900">
-        <h3 className={`text-2xl font-bold mb-6 text-center border-b pb-4 ${isDark ? 'text-white border-white/10' : 'text-slate-800 border-slate-200'}`}>
+      {/* SOAP NOTE VIEW — always rendered as a light clinical document (theme-independent,
+          matches printed/exported record convention; do not gate on isDark here) */}
+      <GlassCard className="p-8 max-w-5xl mx-auto border-t-8 border-t-[var(--accent-primary)] shadow-lg !bg-white !text-slate-800 !border-slate-200">
+        <h3 className="text-2xl font-bold mb-6 text-center border-b pb-4 text-slate-800 border-slate-200">
           Clinical Encounter Note
         </h3>
-         
-        <div className="space-y-8">
+
+        <div className="space-y-8 text-slate-700">
           {/* Subjective */}
           <section>
-            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            <h4 className="text-base font-semibold mb-3 flex items-center gap-2 text-slate-600">
               <User className="w-4 h-4" strokeWidth={1.5} /> Subjective
             </h4>
-            <p className={`whitespace-pre-wrap pl-6 border-l-2 ${isDark ? 'border-slate-700 text-slate-300' : 'border-slate-200 text-slate-700'}`}>
+            <p className="whitespace-pre-wrap pl-6 border-l-2 border-slate-200 text-slate-700">
               {clinicalNotes || 'No clinical notes provided.'}
             </p>
           </section>
 
           {/* Objective */}
           <section>
-            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            <h4 className="text-base font-semibold mb-3 flex items-center gap-2 text-slate-600">
               <Activity className="w-4 h-4" strokeWidth={1.5} /> Objective (Vitals)
             </h4>
-            <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-xl ml-6 ${isDark ? 'bg-slate-800/50' : 'bg-slate-50'}`}>
-              <div><span className="text-xs text-slate-500 block mb-1">Blood Pressure</span> <span className="font-medium ds-numeric">{vitals?.bpSystolic}/{vitals?.bpDiastolic} mmHg</span></div>
-              <div><span className="text-xs text-slate-500 block mb-1">Heart Rate</span> <span className="font-medium ds-numeric">{vitals?.hr} bpm</span></div>
-              <div><span className="text-xs text-slate-500 block mb-1">Temperature</span> <span className="font-medium ds-numeric">{vitals?.temp} °C</span></div>
-              <div><span className="text-xs text-slate-500 block mb-1">SpO2</span> <span className="font-medium ds-numeric">{vitals?.spo2} %</span></div>
-              <div><span className="text-xs text-slate-500 block mb-1">Weight</span> <span className="font-medium ds-numeric">{vitals?.weight} kg</span></div>
-              <div><span className="text-xs text-slate-500 block mb-1">Height</span> <span className="font-medium ds-numeric">{vitals?.height} cm</span></div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-xl ml-6 bg-slate-50">
+              <div><span className="text-xs text-slate-500 block mb-1">Blood Pressure</span> <span className="font-medium ds-numeric text-slate-800">{vitals?.bpSystolic}/{vitals?.bpDiastolic} mmHg</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Heart Rate</span> <span className="font-medium ds-numeric text-slate-800">{vitals?.hr} bpm</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Temperature</span> <span className="font-medium ds-numeric text-slate-800">{vitals?.temp} °C</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">SpO2</span> <span className="font-medium ds-numeric text-slate-800">{vitals?.spo2} %</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Weight</span> <span className="font-medium ds-numeric text-slate-800">{vitals?.weight} kg</span></div>
+              <div><span className="text-xs text-slate-500 block mb-1">Height</span> <span className="font-medium ds-numeric text-slate-800">{vitals?.height} cm</span></div>
             </div>
           </section>
 
           {/* Assessment */}
           <section>
-            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            <h4 className="text-base font-semibold mb-3 flex items-center gap-2 text-slate-600">
               <Stethoscope className="w-4 h-4" strokeWidth={1.5} /> Assessment
             </h4>
             <div className="ml-6 space-y-2">
               {selectedDiagnoses.map(d => (
-                <div key={d.id} className={`p-3 rounded-lg border ${isDark ? 'border-slate-700 bg-slate-800/30' : 'border-slate-200 bg-white'}`}>
-                  <span className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{d.name}</span>
+                <div key={d.id} className="p-3 rounded-lg border border-slate-200 bg-white">
+                  <span className="font-semibold text-slate-800">{d.name}</span>
                   {d.icdCode && <span className="text-xs bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] px-2 py-0.5 rounded ml-3 ds-mono">ICD-11: {d.icdCode}</span>}
                 </div>
               ))}
               {selectedDiagnoses.length === 0 && <p className="text-slate-500">No diagnoses selected.</p>}
               {/* CPG Evidence source */}
               {carePlan?.cpgReferences?.length > 0 && (
-                <div className={`mt-2 p-2.5 rounded-lg text-xs flex items-start gap-2 ${isDark ? 'bg-indigo-900/20 text-indigo-300 border border-indigo-500/20' : 'bg-indigo-50 text-indigo-700 border border-indigo-100'}`}>
+                <div className="mt-2 p-2.5 rounded-lg text-xs flex items-start gap-2 bg-indigo-50 text-indigo-700 border border-indigo-100">
                   <span className="font-semibold shrink-0">CPG Evidence:</span>
                   <span>{carePlan.cpgReferences.map(r => r.title || r).join(' · ')}</span>
                 </div>
@@ -251,44 +252,94 @@ export function OutputSection() {
 
           {/* Plan */}
           <section>
-            <h4 className={`text-base font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            <h4 className="text-base font-semibold mb-3 flex items-center gap-2 text-slate-600">
               <ClipboardList className="w-4 h-4" strokeWidth={1.5} /> Plan
             </h4>
-            <div className={`ml-6 space-y-4 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+            <div className="ml-6 space-y-4 text-slate-700">
               <p className="leading-relaxed">{carePlan?.clinicalSummary}</p>
-              
+
               {carePlan?.medications?.start?.length > 0 && (
-                <div className={`p-3 rounded-lg border-l-4 border-green-500 ${isDark ? 'bg-green-900/10' : 'bg-green-50'}`}>
-                  <strong className={`text-sm block mb-2 ${isDark ? 'text-green-400' : 'text-green-700'}`}>Start Medications:</strong>
+                <div className="p-3 rounded-lg border-l-4 border-green-500 bg-green-50">
+                  <strong className="text-sm block mb-2 text-green-700">Start Medications:</strong>
                   <ul className="list-disc pl-5 space-y-1">
                     {carePlan.medications.start.filter(m => m.accepted !== false).map(m => <li key={m.id}><span className="font-medium">{m.name} {m.dose}</span> — {m.reason}</li>)}
                   </ul>
                 </div>
               )}
               {carePlan?.medications?.stop?.length > 0 && (
-                <div className={`p-3 rounded-lg border-l-4 border-red-500 ${isDark ? 'bg-red-900/10' : 'bg-red-50'}`}>
-                  <strong className={`text-sm block mb-2 ${isDark ? 'text-red-400' : 'text-red-700'}`}>Stop Medications:</strong>
+                <div className="p-3 rounded-lg border-l-4 border-red-500 bg-red-50">
+                  <strong className="text-sm block mb-2 text-red-700">Stop Medications:</strong>
                   <ul className="list-disc pl-5 space-y-1">
                     {carePlan.medications.stop.filter(m => m.accepted !== false).map(m => <li key={m.id}><span className="font-medium">{m.name}</span> — {m.reason}</li>)}
                   </ul>
                 </div>
               )}
-              {carePlan?.investigations?.filter(i => i.accepted !== false)?.length > 0 && (
-                <div className={`p-3 rounded-lg border-l-4 border-blue-400 ${isDark ? 'bg-blue-900/10' : 'bg-blue-50'}`}>
-                  <strong className={`text-sm block mb-2 ${isDark ? 'text-blue-400' : 'text-blue-700'}`}>Investigations:</strong>
+              {carePlan?.interventions?.filter(i => i.accepted !== false)?.length > 0 && (
+                <div className="p-3 rounded-lg border-l-4 border-blue-400 bg-blue-50">
+                  <strong className="text-sm block mb-2 text-blue-700">Procedures & Investigations:</strong>
                   <ul className="list-disc pl-5 space-y-1">
-                    {carePlan.investigations.filter(i => i.accepted !== false).map(i => <li key={i.id}>{i.name}</li>)}
+                    {carePlan.interventions.filter(i => i.accepted !== false).map(i => (
+                      <li key={i.id}><span className="font-medium">{i.name}</span>{i.rationale ? ` — ${i.rationale}` : ''}</li>
+                    ))}
                   </ul>
                 </div>
               )}
-              <div className={`p-3 rounded-lg border ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
+              {carePlan?.lifestyle?.filter(l => l.accepted !== false)?.length > 0 && (
+                <div className="p-3 rounded-lg border-l-4 border-teal-400 bg-teal-50">
+                  <strong className="text-sm block mb-2 text-teal-700">Lifestyle:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {carePlan.lifestyle.filter(l => l.accepted !== false).map(l => (
+                      <li key={l.id}><span className="font-medium">{l.goal}</span>{l.rationale ? ` — ${l.rationale}` : ''}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {carePlan?.referrals?.filter(r => r.accepted !== false)?.length > 0 && (
+                <div className="p-3 rounded-lg border-l-4 border-purple-400 bg-purple-50">
+                  <strong className="text-sm block mb-2 text-purple-700">Referrals:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {carePlan.referrals.filter(r => r.accepted !== false).map(r => (
+                      <li key={r.id}><span className="font-medium">{r.specialty}</span>{r.reason ? ` — ${r.reason}` : ''}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {carePlan?.monitoring?.length > 0 && (
+                <div className="p-3 rounded-lg border-l-4 border-indigo-400 bg-indigo-50">
+                  <strong className="text-sm block mb-2 text-indigo-700">Monitoring:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {carePlan.monitoring.map(m => (
+                      <li key={m.id}>
+                        <span className="font-medium">{m.parameter}</span>
+                        {m.schedule ? ` — ${m.schedule}` : ''}
+                        {m.target ? ` (target: ${m.target})` : ''}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {carePlan?.redFlags?.length > 0 && (
+                <div className="p-3 rounded-lg border-l-4 border-red-500 bg-red-50">
+                  <strong className="text-sm block mb-2 text-red-700">🚩 Red Flags — Safety Netting:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {carePlan.redFlags.map((f, i) => <li key={i}>{f}</li>)}
+                  </ul>
+                </div>
+              )}
+              <div className="p-3 rounded-lg border border-slate-200">
                 <strong className="text-sm font-medium">Follow-up:</strong>
-                <span className="ml-2">{nextReviewDate || carePlan?.disposition?.followUp || 'As needed'}</span>
+                {carePlan?.followUp?.length > 0 ? (
+                  <ul className="list-disc pl-5 space-y-1 mt-1">
+                    {carePlan.followUp.map((f, i) => <li key={i}>{f}</li>)}
+                  </ul>
+                ) : (
+                  <span className="ml-2">{nextReviewDate || 'As needed'}</span>
+                )}
               </div>
               {carePlan?.unresolvedQuestions?.length > 0 && (
-                <div className={`p-3 rounded-lg border ${isDark ? 'border-amber-500/30 bg-amber-900/10' : 'border-amber-200 bg-amber-50'}`}>
-                  <strong className={`text-sm block mb-2 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>⚠ Unresolved:</strong>
-                  <ul className={`list-disc pl-5 space-y-1 text-sm ${isDark ? 'text-amber-300/80' : 'text-amber-800'}`}>
+                <div className="p-3 rounded-lg border border-amber-200 bg-amber-50">
+                  <strong className="text-sm block mb-2 text-amber-700">⚠ Unresolved:</strong>
+                  <ul className="list-disc pl-5 space-y-1 text-sm text-amber-800">
                     {carePlan.unresolvedQuestions.map((q, i) => <li key={i}>{q}</li>)}
                   </ul>
                 </div>

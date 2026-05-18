@@ -40,9 +40,9 @@ Other investigational therapies include:
 
 In small clinical trials, these alternative therapies have been shown to relieve angina and improve quality of life to a variable degree in some patients with refractory angina.
 
-- [Grade II-b, Level B] These therapies should only be considered in patients who continue to have troubling angina despite conventional therapy or when conventional therapy is not feasible.
+[Grade II-b, Level B] These therapies should only be considered in patients who continue to have troubling angina despite conventional therapy or when conventional therapy is not feasible.
 
-**Key Messages:**
+Key Message:
 - Chronic refractory angina is a clinical diagnosis based on the symptoms of ischaemic chest pain of >3 months duration which is not controlled by a combination of maximal medical therapy and/or revascularization.
 - Alternative and investigational therapies have been shown to relieve angina and improve quality of life to a variable degree in some of these patients.
 - They should only be considered in patients who continue to have troubling angina despite adequate conventional treatments.

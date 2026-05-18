@@ -265,98 +265,19 @@ entities are consistently structured in the pipeline.
 
 ---
 
-## Agent 3 — Medical Scribe
-
-**Priority: LOW (post-pilot)** | **Pattern: Document generator**
-
-### What it does
-
-Once the doctor approves the care plan, this agent takes the approved
-`TreatmentPlan` + `PatientCase` + confirmed diagnoses and drafts a
-structured clinical note in standard SOAP format, ready for EMR export.
-
-```
-Doctor clicks "Sign & Close"
-         │
-         ▼
-  Medical Scribe Agent
-  ┌─────────────────────────────────────────┐
-  │ Input:                                  │
-  │   • PatientCase (S + O)                 │
-  │   • Confirmed ICD-11 diagnoses (A)      │
-  │   • Approved TreatmentPlan (P)          │
-  │   • Doctor name + timestamp             │
-  │                                         │
-  │ Output: ClinicalNote                    │
-  │   • soap_note: str (formatted)          │
-  │   • icd_codes: list[str]               │
-  │   • prescriptions: list[Prescription]  │
-  │   • follow_up_date: date               │
-  │   • export_formats: ["PDF", "HL7 FHIR"]│
-  └─────────────────────────────────────────┘
-```
-
-### Why it closes the loop
-
-CPG LLM currently does the hard work — finding evidence, generating recommendations,
-checking safety — but the output is a structured JSON object. The doctor still has to
-manually transcribe the approved plan into their EMR.
-
-The Medical Scribe eliminates this step. It is the **lowest hallucination risk** of the
-three agents because:
-- It transforms structured data (TreatmentPlan JSON) into formatted text
-- It does not retrieve, reason, or synthesise new clinical content
-- The doctor approved the source data — the scribe only formats it
-
-### SOAP mapping
-
-| SOAP section | Source data |
-|---|---|
-| **S** — Subjective | `PatientCase.chief_complaint` + `PatientCase.history` |
-| **O** — Objective | `PatientCase.vitals` (formatted) + `PatientCase.age`/`sex` |
-| **A** — Assessment | Confirmed ICD-11 codes + titles + `TreatmentPlan.confidence` |
-| **P** — Plan | `TreatmentPlan.recommendations` (accepted only) + `monitoring` + `red_flags` |
-
-### HL7 FHIR export (future)
-
-The `ClinicalNote` output maps cleanly to FHIR R4 resources:
-- `Patient` resource from `PatientCase`
-- `Condition` resources from confirmed ICD-11 codes
-- `MedicationRequest` resources from pharmacological recommendations
-- `CarePlan` resource from the full plan
-
-This is the path to integration with MySejahtera, iHIS, or any FHIR-compliant EMR.
-
-### Implementation
-
-**New file: `agent/medical_scribe.py`**
-
-```python
-class ClinicalNote(BaseModel):
-    soap_note: str
-    icd_codes: list[str]
-    encounter_date: str
-    clinician_name: str
-    follow_up_date: str | None = None
-    export_ready: bool = False
-
-async def run_medical_scribe(
-    case: PatientCase,
-    plan: TreatmentPlan,
-    confirmed_diagnoses: list[str],      # ICD codes confirmed by clinician
-    clinician_name: str,
-) -> ClinicalNote:
-```
-
-**Frontend:** `OutputSection.jsx` calls scribe on "Sign & Close"; renders SOAP note in
-the document view (already designed in `design_reconstruction.md`). Adds PDF export
-and FHIR bundle download buttons.
-
-**Files:** `agent/medical_scribe.py`, `agent/models.py` (ClinicalNote),
-`agent/api.py` (POST /clinical/note/generate),
-`Doctor UI/src/components/sections/OutputSection.jsx`
-**Effort:** ~3 h
-**Dependencies:** Step 4 SOAP view in `design_reconstruction.md` should be built first.
+> **Removed — Medical Scribe (was "Agent 3").** Deliberately dropped 2026-05-19.
+> SOAP note generation is a fixed, deterministic mapping of *already clinician-approved*
+> structured data (`TreatmentPlan` + `PatientCase`) into a SOAP layout. It requires no
+> reasoning or synthesis, so an LLM/agent adds only hallucination risk and cost with zero
+> benefit — an agent here could only corrupt an approved clinical document.
+>
+> It is also already implemented as **plain frontend wiring**:
+> `Doctor UI/src/lib/clinicalMappers.js` (`mapTreatmentPlanToCarePlan`) →
+> `Doctor UI/src/components/sections/OutputSection.jsx` renders the SOAP document
+> (Subjective / Objective / Assessment / Plan + EMR export action bar) client-side with
+> no backend agent. If a server-authoritative note is ever needed (EMR/FHIR/audit), it is
+> a small deterministic Python formatter — **not** an agent — and should be specced
+> separately at that time. Do not reintroduce this as an agent.
 
 ---
 
@@ -376,13 +297,10 @@ Gap 4 (severity staging)          ← enables Agent 2 to be useful
         │
         ▼
 Agent 2 — Graph Navigator         ← requires structured comorbidity data
-        │
-        ▼
-design_reconstruction.md Step 4   ← SOAP view prerequisite
-        │
-        ▼
-Agent 3 — Medical Scribe          ← closes the clinical loop; build last
 ```
+
+> (The former "Agent 3 — Medical Scribe" node was removed — SOAP generation is
+> deterministic frontend wiring, already shipped; see the removed-section note above.)
 
 ---
 
@@ -392,7 +310,7 @@ Agent 3 — Medical Scribe          ← closes the clinical loop; build last
 |---|---|---|---|
 | Safety Critic | After Gaps 1–3 closed | ~4 h | 🔴 Critical |
 | Graph Navigator | After Gap 4 + Agent 1 | ~6 h | 🟠 High |
-| Medical Scribe | Post-pilot | ~3 h | 🟡 Low (workflow, not safety) |
+| ~~Medical Scribe~~ | Removed 2026-05-19 — deterministic SOAP wiring, not an agent; already shipped in the Doctor UI | — | — |
 
 **If only one agent gets built:** build the Safety Critic. A second LLM independently
 verifying the output of the first is the single most impactful safety improvement

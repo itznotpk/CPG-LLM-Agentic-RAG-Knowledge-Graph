@@ -8,6 +8,7 @@ critical: true
 treatment_type: aspirin, clopidogrel, statins, ACEI, ARB, beta-blockers, CCB, nitrates, ivabradine, trimetazidine, PCI, CABG
 -->
 
+## 8.0: Management of Stable CAD
 The treatment goals in stable CAD are to:
 - alleviate symptoms and improve quality of life,
 - reduce risk of adverse CV outcomes and improve survival and
@@ -15,24 +16,21 @@ The treatment goals in stable CAD are to:
 
 Optimal Medical Therapy (OMT) is the cornerstone of management of patients with both obstructive and non-obstructive CAD. It has been shown to improve prognosis, reduce symptoms and myocardial ischemia.
 
-- [Grade I, Level A] OMT involves:
-  - intensive lifestyle changes (healthy diet, regular physical activity, smoking cessation and optimal management of risk factors and weight) *and*
-  - pharmacotherapy which includes:
-    - anti-platelet agents *and*
-    - statins to achieve target LDL-C.
+[Grade I, Level A] OMT involves:
+- intensive lifestyle changes (healthy diet, regular physical activity, smoking cessation and optimal management of risk factors and weight) 
+- pharmacotherapy which includes anti-platelet agents and statins to achieve target LDL-C.
 
 In addition, ACEi, β-blockers and anti-anginal medications may be necessary to treat co-existing hypertension, LV dysfunction and/or angina.
 
 The management of these patients with Stable CAD should be multifaceted and include:
-- behavioural modification therapy (BMT) - patient education and lifestyle modification *and*
-- pharmacological therapy *and*
+- behavioural modification therapy (BMT) - patient education and lifestyle modification
+- pharmacological therapy
 - myocardial revascularization when indicated.
 
 All patients should be educated on behavioural modification therapy and receive OMT for survival benefit. Treatment of CV risk factors to target and adherence to treatment recommendations should also be addressed.
 
 ## 8.1: Behavioural Modification Therapy (BMT)
 ### 8.1.1: Patient Education
-This should include:
 - cause of angina and factors that can provoke symptoms.
 - circumstances in which urgent medical attention should be sought, especially if there is a sudden worsening in symptom frequency or severity.
 - role and importance of behavioural modification.
@@ -61,7 +59,6 @@ Table 9: Nutritional Recommendations
 | | • <10% of total energy intake from added sugar. This is equivalent to 50 g (or around 12 level teaspoons) for an adult of healthy body weight consuming approximately 2000 calories per day | [Grade I, Level A] |
 | | • <5 g salt or 1 level teaspoon per day or (2000 mg sodium per day) | [Grade I, Level A] |
 | | • Abstinence or not more than 1-2 standard servings of alcohol intake per day. | [Grade II-a, Level B] |
-
 *\*In individuals with Very High and High CV risk advise < 200mg cholesterol a day*
 
 ### 8.1.3: Physical Activity
@@ -79,26 +76,24 @@ In addition, a cardiac rehabilitation program:
 - helps the identification and management of comorbid conditions and psychosocial disorder (anxiety and depression).
 - ensures patient adherence to medical and lifestyle therapies to achieve cardiovascular (CVD) prevention goals.
 
-- [Grade I, Level B] The recommended duration of PA in healthy adults regardless of age is:
-  - at least 150 minutes a week of moderate intensity or
-  - 75 minutes a week of vigorous intensity PA or an equivalent combination
+[Grade I, Level B] The recommended duration of PA in healthy adults regardless of age is:
+- at least 150 minutes a week of moderate intensity or
+- 75 minutes a week of vigorous intensity PA or an equivalent combination
 
-- [Grade I, Level B] Sedentary patients should be strongly encouraged to start light-intensity exercise programmes after an adequate exercise-related risk stratification.
+[Grade I, Level B] Sedentary patients should be strongly encouraged to start light-intensity exercise programmes after an adequate exercise-related risk stratification.
 
 In patients with significant CAD who are not candidates for revascularization, exercise training may offer an alternative means of symptom alleviation and improved prognosis.
 
-- [Grade I, Level B] All individuals should be encouraged to exercise. Any amount of PA is better than none.
+[Grade I, Level B] All individuals should be encouraged to exercise. Any amount of PA is better than none.
 
 Wherever possible, individuals should be referred to physiotherapists/exercise physiologists for exercise prescription.
 
-Table 10: Classification Of Physical Activity*
+Table 10: Classification Of Physical Activity
 | Pa Intensity | Leisure Time & Sports | Occupational | Commuting | Exercises |
 |---|---|---|---|---|
 | **Low** | • Walk with pet<br>• Push stroller with child<br>• Bowling, recreational<br>• Golf, recreational<br>• Slow ballroom dancing | • Sweeping floor, mopping, vacuuming<br>• Washing car<br>• Doing laundry, washing dishes, cooking<br>• Childcare & elderly care<br>• General plumbing & light gardening<br>• Commercial driving, moderate machinery operation<br>• Typing, desk job, light office work | • Driving automobile/light trucks<br>• Pushing wheelchair on flat surface<br>• Walking from house to car/bus to places/worksite | **Aerobic Exercise:**<br>• Walking (4.0-4.8 kmh)<br>• Yoga<br>• Stretching<br>• Pilates<br>• Rowing machine, moderate pace<br>**Resistance training (moderate effort):**<br>• Circuit training |
 | **Moderate** | • Vigorously playing with children<br>• Non-competitive sports:<br>&nbsp;&nbsp;&nbsp;&nbsp;> Cricket<br>&nbsp;&nbsp;&nbsp;&nbsp;> Ping-pong<br>&nbsp;&nbsp;&nbsp;&nbsp;> Badminton<br>&nbsp;&nbsp;&nbsp;&nbsp;> Basketball<br>&nbsp;&nbsp;&nbsp;&nbsp;> Kayaking/ paddle boat<br>&nbsp;&nbsp;&nbsp;&nbsp;> Snorkelling<br>&nbsp;&nbsp;&nbsp;&nbsp;> Backpacking | • Scrubbing bathroom<br>• Carrying/ moving boxes<br>• Using a hoe & spade, mowing lawn, shovelling 10-15 minutes vigorously<br>• Moderate yard work, using power tools | • Cycling<br>• Walking and carrying approx. 7kg load<br>• Walking uphill<br>• Using crutches | **Aerobic Exercise:**<br>• Fast walking (5-8kmh)<br>• Combination of jog & walk (< 10 minutes jogging)<br>• Stationary bicycle<br>• Elliptical machine<br>• Slow-moderate swimming<br>• Water-based aerobics<br>**Resistance training, (vigorous effort)**<br>**Weight training** |
 | **High** | • Rope skipping<br>• Marathon, mountain biking<br>• Football, hockey, martial arts, rugby, rollerblading, volleyball<br>• Track & field | • Carrying load up stairs<br>• Heavy carpentry/ farming<br>• Farming vigorously<br>• Fire fighting<br>• Commercial fishing<br>• Factory work | • Fast stair climbing<br>• Hiking cross country | **Aerobic Exercise:**<br>• Jog/ run > 8km/hr<br>• Vigorous swimming or calisthenics<br>• Stair-treadmill |
-
-*\*Adapted from Ainsworth BE, Haskell WL, Hermann SD et al. The Compendium Of Physical Activities Tracking Guide. Healthy Lifestyles Research Centre, College of Nursing & Health Innovation, Arizona State University.*
 
 ### 8.1.4: Smoking Cessation
 Smoking is an independent risk factor for CVD.
@@ -107,7 +102,7 @@ It also interacts with other CV risk factors, such as glucose intolerance and lo
 - the presence of smoking alone is reported to double the level of risk, but the simultaneous presence of another major risk factor is estimated to quadruple the risk (2 × 2).
 - the presence of two other risk factors with smoking may result in approximately eight times the risk (2 × 2 × 2) of persons with no risk factors.
 
-- [Grade I, Level B] Smoking is an important cause of plaque rupture leading to ACS. Data from the NCVD-ACS Registry 2014-2015 showed that 37% of patients were smokers. In the INTERHEART study, a dose response relationship was demonstrated between the number of cigarettes smoked and MI, where smokers who smoked >40 cig/day were found to have a 9-fold relative risk of MI compared with non-smokers.
+[Grade I, Level B] Smoking is an important cause of plaque rupture leading to ACS. Data from the NCVD-ACS Registry 2014-2015 showed that 37% of patients were smokers. In the INTERHEART study, a dose response relationship was demonstrated between the number of cigarettes smoked and MI, where smokers who smoked >40 cig/day were found to have a 9-fold relative risk of MI compared with non-smokers.
 
 Changing cigarette designs such as filtered, low-tar, and "light" variations, have not reduced overall disease risk among smokers.
 
@@ -122,9 +117,9 @@ Non-smokers exposed to second-hand smoke increase their risk of developing:
 
 There is no safe level of exposure to second-hand tobacco smoke.
 
-- [Grade III, Level B] E-cigarette aerosol (vaping) is harmful.
-  - The use of products containing nicotine poses dangers to youth, pregnant women, and foetuses.
-  - Nicotine exposure during adolescence can cause addiction and can harm the developing adolescent brain.
+[Grade III, Level B] E-cigarette aerosol (vaping) is harmful.
+- The use of products containing nicotine poses dangers to youth, pregnant women, and foetuses.
+- Nicotine exposure during adolescence can cause addiction and can harm the developing adolescent brain.
 
 The use of e-cigarettes and shisha are not recommended.
 
@@ -140,7 +135,7 @@ Every 5 kg/m² higher BMI, was associated, on the average, with a 30% higher ove
 
 Weight loss is a challenge and preventing weight regain after weight loss may be even more difficult. Modest weight loss of between 5 to 10%, can reduce blood pressure (BP), improve glycaemic control, lipid profile, and quality of life.
 
-- [Grade I, Level B] The goals of weight management are to achieve 5 to 10% weight loss and to maintain this over a period of 1-2 years before attempting further weight loss.
+[Grade I, Level B] The goals of weight management are to achieve 5 to 10% weight loss and to maintain this over a period of 1-2 years before attempting further weight loss.
 
 Methods of weight loss include dietary intervention, increased physical activity, behavioural modifications (e.g. self-monitoring of eating habits), pharmacological agents and bariatric surgery.
 
@@ -149,11 +144,11 @@ Anti-obesity drugs that are available locally are:
 - Lipase Inhibitor - Orlistat.
 - Glucagon-like peptide 1 Receptor Agonist - Liraglutide.
 
-- [Grade II-a, Level B] These drugs may be considered for overweight and obese people with:
-  - BMI >25.0 kg/m² plus 2 CV risk factors or
-  - BMI ≥27.0 kg/m² after failing to lose weight despite 6 months of lifestyle modification
+[Grade II-a, Level B] These drugs may be considered for overweight and obese people with:
+- BMI >25.0 kg/m² plus 2 CV risk factors or
+- BMI ≥27.0 kg/m² after failing to lose weight despite 6 months of lifestyle modification
 
-- [Grade II-a, Level B] In patients with morbid obesity, bariatric surgery may be considered.
+[Grade II-a, Level B] In patients with morbid obesity, bariatric surgery may be considered.
 
 ## 8.2: Pharmacological Therapy
 The aims of pharmacological therapy in patients with both obstructive and non-obstructive CAD are to:
@@ -166,11 +161,11 @@ This is achieved by:
 - stabilizing the plaque and
 - preventing thrombosis in the event of plaque rupture.
 
-#### 8.2.1.1: Antiplatelet Agents And Anticoagulants
+### 8.2.2: Prevention — Antiplatelet Agents And Anticoagulants
 **A) Antiplatelet Agents**
 In patients with stable CAD, aspirin reduces the risk of non-fatal MI, non-fatal stroke and vascular death by 22%.
 
-- [Grade I, Level A] Aspirin monotherapy at a dosing of 75-150 mg daily remains the initial antiplatelet agent of choice.
+[Grade I, Level A] Aspirin monotherapy at a dosing of 75-150 mg daily remains the initial antiplatelet agent of choice.
 
 In patients who cannot tolerate aspirin, alternatives include:
 - [Grade I, Level A] Clopidogrel
@@ -185,18 +180,18 @@ Following an ACS, the risk of a recurrent cardiac event remains high. This may b
 
 The use of DAPT (aspirin + thienopyridine) beyond one year has been shown to reduce additional ischemic events but the risk of bleeding is also increased. Similarly, in an extended >one year study of patients post ACS, the use of aspirin in combination with ticagrelor was also associated with a reduction in ischemic events but at the cost of an increased risk of bleeding.
 
-- [Grade II-a, Level A] The use of DAPT beyond one year, in patients with stable CAD who have undergone PCI and stenting, has to be individualized weighing the risk of a recurrent ischemic event versus bleeding risks.
+[Grade II-a, Level A] The use of DAPT beyond one year, in patients with stable CAD who have undergone PCI and stenting, has to be individualized weighing the risk of a recurrent ischemic event versus bleeding risks.
 
-- [Grade II-a, Level B] In patients with high bleeding risk, the duration of DAPT post stenting can be shortened.
+[Grade II-a, Level B] In patients with high bleeding risk, the duration of DAPT post stenting can be shortened.
 
 **B) Newer Oral Anticoagulant (NOACs) / Anticoagulant Therapy
 Refer to Table 11: Indications For Warfarin And NOACs In Patients With Stable CAD
 
-- [Grade I, Level A] In patients with Stable CAD, NOACs are indicated for:
-  - Non-valvular AF both paroxysmal and persistent depending on the CHA2DS2-VASc score.
+[Grade I, Level A] In patients with Stable CAD, NOACs are indicated for:
+- Non-valvular AF both paroxysmal and persistent depending on the CHA2DS2-VASc score.
 - [Grade II-a, Level A] Valvular AF (excluding mechanical heart valves and rheumatic mitral stenosis)
 
-- [Grade II-a, Level B] In these patients, concomitant antiplatelet agents is not warranted.
+[Grade II-a, Level B] In these patients, concomitant antiplatelet agents is not warranted.
 
 In patients with AF who have undergone PCI and stenting with drug eluting stents, the use of NOACs with antiplatelet therapy is associated with a lower risk of bleeding than the standard triple therapy (DAPT + warfarin). The following regimens are recommended:
 - [Grade II-a, Level B] Rivaroxaban 15mg daily (10mg if Creatinine clearance: 30 to 50ml per minute) + clopidogrel 75mg daily (or ticagrelor at a dose of 90mg twice daily or prasugrel at a dose of 10mg once daily)
@@ -221,33 +216,31 @@ Table 11: Indications For Warfarin And NOACs In Patients With Stable CAD
 | Non-valvular AF depending on the CHA2DS2-VASc score | Maintain target INR. Concomitant antiplatelet therapy not warranted. | Indicated. Concomitant antiplatelet therapy not warranted. |
 | Non-valvular AF + PCI and stenting with DES. Antiplatelet therapy may be discontinued after a year in stable patients and maintained on warfarin or NOAC alone | Warfarin + DAPT** | Rivaroxaban 15mg daily (10mg if Creatinine clearance: 30 to 50ml per minute) + clopidogrel 75mg daily or ticagrelor 90mg bid or prasugrel 10mg daily<br>OR<br>Rivaroxaban 2.5mg BD + DAPT - aspirin 75-100mg per day + clopidogrel 75mg daily or ticagrelor 90mg bid or prasugrel 10mg daily<br>OR<br>Dabigatran 110 or 150mg bid + clopidogrel 75mg daily or ticagrelor 90mg bid |
 | Reduction of CV events | Not indicated | Rivaroxaban 2.5mg bid + aspirin 100mg daily in high risk stable CAD patients |
-
 ** Higher risk of bleeding with warfarin + DAPT
 
-#### 8.2.1.2: Lipid Modifying Agents
-- [Grade I, Level A] Lipid modifying agents have been shown to improve prognosis in patients with stable CAD, the lower the Low-Density Lipoprotein Cholesterol (LDL-C) achieved, the better the CV outcome.
-- [Grade I, Level A] In addition to behavioural modification therapy, statins should be initiated to achieve LDL-C targets, the lower the level of LDL-C achieved, the better the outcome.
+### 8.2.3: Prevention — Lipid Modifying Agents
+[Grade I, Level A] Lipid modifying agents have been shown to improve prognosis in patients with stable CAD, the lower the Low-Density Lipoprotein Cholesterol (LDL-C) achieved, the better the CV outcome.
+[Grade I, Level A] In addition to behavioural modification therapy, statins should be initiated to achieve LDL-C targets, the lower the level of LDL-C achieved, the better the outcome.
 
 There appears to be a dose-dependent reduction in CVD with LDL-C lowering; the greater the LDL-C reduction, the greater the CV risk reduction. Levels of LDL-C <1.8 mmol/L has been associated with less progression of atherosclerotic plaques. At levels of LDL-C <1.6 mmol/L, regression of atherosclerotic plaques has been demonstrated.
 
-- [Grade II-a, Level B] A meta-analyses showed that more intensive compared with less intensive LDL-C lowering was associated with a greater reduction in total and CV mortality in individuals with higher baseline LDL-C levels of > 2.6 mmol/l. If LDL-C levels cannot be achieved, the additional use of other non-statin therapy (e.g. ezetimibe, PCSK-9 inhibitors) may be considered.
-- [Grade II-a, Level B] Reloading with high intensity statin before PCI may be considered in patients with stable CAD. This has been shown to reduce peri-procedural MI in both statin-naive and patients receiving chronic statin therapy.
+[Grade II-a, Level B] A meta-analyses showed that more intensive compared with less intensive LDL-C lowering was associated with a greater reduction in total and CV mortality in individuals with higher baseline LDL-C levels of > 2.6 mmol/l. If LDL-C levels cannot be achieved, the additional use of other non-statin therapy (e.g. ezetimibe, PCSK-9 inhibitors) may be considered.
+[Grade II-a, Level B] Reloading with high intensity statin before PCI may be considered in patients with stable CAD. This has been shown to reduce peri-procedural MI in both statin-naive and patients receiving chronic statin therapy.
 
-#### 8.2.1.3: Renin-Angiotensin-Aldosterone System Blockers
+### 8.2.4: Prevention — Renin-Angiotensin-Aldosterone System Blockers
 Renin-angiotensin-aldosterone system blockers consist of angiotensin converting enzyme inhibitors (ACEi), angiotensin receptor blockers (ARBs) and mineralocorticoid receptor antagonists.
 
 Early trials indicated improved CV outcomes with ACEi in patients with stable CAD and preserved LV function. Recent data however show that ACEi/ARB do not have any additional benefits in reducing CV events and death in this group of patients.
+[Grade II-b, Level B] The routine use of ACEi/ARB in patients with Stable CAD without hypertension and normal LV function is not recommended.
 
-- [Grade II-b, Level B] The routine use of ACEi/ARB in patients with Stable CAD without hypertension and normal LV function is not recommended.
-
-#### 8.2.1.4: Depressed LV function (LVEF <40%)
+### 8.2.5: Prevention — Depressed LV function (LVEF <40%)
 In patient with stable CAD and reduced LV function, the following drugs should be given to improve survival and other CV outcomes:
 - [Grade I, Level A] ACEi/ARB
 - [Grade I, Level A] β-blockers
 - [Grade I, Level A] mineralocorticoid receptor antagonists - spironolactone and eplerenone
 - [Grade I, Level B] angiotensin receptor neprilysin inhibitor - Sacubitril/Valsartan (Entresto)
 
-### 8.2.2: Management Of Symptoms — Anti-Ischemic Therapy
+### 8.2.6: Management Of Symptoms — Anti-Ischemic Therapy
 Refer to Figure 2: Management of Stable CAD Algorithm
 
 Figure 2: Management of Stable CAD Algorithm
@@ -299,7 +292,7 @@ The choice of anti-ischemic therapy should be individualised depending upon:
 
 Combination of anti-ischemic therapy may be necessary to control symptoms.
 
-#### 8.2.2.1: β-blockers
+### 8.2.7: Anti-Ischemic — β-blockers
 β-blockers are suitable first-line agents to reduce the symptoms of angina. They act by competitively inhibiting catecholamines from binding to β1, β2 and β3 receptors, thus reducing heart rate, myocardial contractility and blood pressure. This results in a decrease in myocardial oxygen demand. The prolongation of diastole also results in improved coronary arterial filling. All these result in an improvement in symptoms and exercise tolerance.
 
 β-blockers have not been shown to reduce the rate of CV events or mortality in patients with stable CAD. A meta-analysis of trials done in post MI patients in the pre-primary PCI era, showed that β-blockers reduced all-cause mortality and nonfatal MI. Current data however, have not shown β-blockers to reduce long term mortality if continued beyond 1-year post MI.
@@ -312,7 +305,7 @@ Side-effects of β-blockers include hypotension, fatigue, bradycardia, heart blo
 
 β-blockers can worsen symptoms in patients with vasospastic (Prinzmetal) angina and should therefore be avoided in these patients.
 
-#### 8.2.2.2: Calcium Channel Blockers (CCBs)
+### 8.2.8: Anti-Ischemic — Calcium Channel Blockers (CCBs)
 CCBs dilate systemic arterioles and coronary arteries, resulting in reduced afterload and peripheral vascular resistance. Selective, non-competitive inhibition of voltage-dependent L-type calcium channels lead to reduced myocardium contractility, smooth muscle relaxation and nodal inhibition leading to a slowing down of conduction.
 
 CCBs can be classified as:
@@ -327,22 +320,22 @@ Non-DHPs such as verapamil and diltiazem are as efficacious as β-blockers as an
 
 CCBs are effective anti-anginal therapy but have not been shown to have any effect on long term CV outcomes.
 
-#### 8.2.2.3: Nitrates
+### 8.2.9: Anti-Ischemic — Nitrates
 Nitrates are effective in the management of angina due to their coronary arteriolar and venous vasodilatation properties that result in a reduction in preload and afterload.
 
-##### 8.2.2.3.1: Nitrates for acute angina
+A) Nitrates for acute angina
 Sublingual glyceryl trinitrate (GTN) can be given for immediate relief of angina. The aerosol formulation has a faster onset of action. GTN improves exercise tolerance when given prophylactically, thus preventing anticipated angina caused by exertion. Besides its anti-anginal properties, GTN also has shown antithrombotic and antiplatelet activity.
 
 GTN tablets should be kept in an amber coloured bottle and protected from sunlight. Once the bottle has been opened, the life-span is reduced to 8 weeks. The aerosol formulation can be used until the expiry date.
 
-##### 8.2.2.3.2: Nitrates for angina treatment and prophylaxis
+B) Nitrates for angina treatment and prophylaxis
 Nitrates are often used with β-blockers or CCBs to prevent or reduce angina and increase exercise tolerance in symptomatic patients. Isosorbide mononitrate (ISMN) has similar efficacy as isosorbide dinitrate (ISDN) but with a longer duration of action and a better side effect profile.
 
 Long-term regular use of nitrates without a nitrate-free or nitrate-low interval of about 8-10 hours can lead to nitrate tolerance. This could offset the beneficial short-term ischemic preconditioning effects and potentially worsen endothelial dysfunction. Twice daily dosing of ISDN that provides a 10-12-hour nitrate-free interval each day is preferred.
 
 The most common side effect of nitrates is headache. It may also cause hypotension. Concurrent use with a phosphodiesterase type-5 (PDE5) inhibitor like sildenafil is contraindicated because of severe hypotension.
 
-#### 8.2.2.4: Ivabradine (If inhibitor)
+### 8.2.10: Anti-Ischemic — Ivabradine (If inhibitor)
 An elevated heart rate is associated with an increase in both all-cause as well as CV mortality. This relationship is independent of other risk markers. Decreasing heart rate can lead to an improvement in angina by reducing myocardial oxygen consumption and by increasing diastolic perfusion time.
 
 Ivabradine is a selective inhibitor of the sinus node If ion current (‘funny current’). It is negatively chronotropic (slows heart rate), thereby decreasing myocardial oxygen demand with no effect on myocardial contractility or systemic blood pressure.
@@ -353,14 +346,14 @@ Ivabradine may be considered for symptomatic treatment of stable CAD in patients
 
 Ivabradine is not suitable for patients who are in atrial fibrillation. Its use with rate-limiting non-DHPs should be avoided because of the QT prolonging effect. Side-effects include bradycardia and reversible visual disturbances. There is no significant interaction with most other cardiac drugs e.g. ACEis, ARBs, warfarin, amiodarone, anti-platelet agents, cholesterol lowering agents, digoxin and diuretics.
 
-#### 8.2.2.5: Trimetazidine (3-Ketoacyl CoA Thiolase [KAT] Inhibitor)
+### 8.2.11: Anti-Ischemic — Trimetazidine (3-Ketoacyl CoA Thiolase [KAT] Inhibitor)
 Trimetazidine inhibits 3-KAT (3-ketoacyl CoA thiolase) enzyme in myocardial cells-resulting in a switch of the energy substrate from fatty acid to glucose oxidation. This is a more efficient pathway for adenosine triphosphate (ATP) production.
 
 In small clinical studies, trimetazidine has been shown to be effective in providing angina symptom relief, reduction in the need for nitrates, time to onset of ST depression and improving functional capacity. It is useful as monotherapy and in combination with other anti-ischaemic agents. Trimetazidine has not been evaluated in large outcome studies in patients with stable CAD.
 
 In patients with erectile dysfunction and using PDE5 inhibitor, the concomitant use of trimetazidine is safe. Trimetazidine should be used with caution in the presence of CKD. There have been reports of association between trimetazidine and symptoms of parkinsonism.
 
-#### 8.2.2.6: Ranolazine (Late Na Current Inhibitor)
+### 8.2.12: Anti-Ischemic — Ranolazine (Late Na Current Inhibitor)
 Ranolazine selectively inhibits the late inward sodium current in the myocardium, leading to a reduction in intracellular calcium levels and diastolic LV wall tension, thereby reducing myocardial oxygen demand. Doses of 500-2000 mg daily reduced angina and increased exercise capacity without changes in heart rate or BP.
 
 Compared to placebo, or as additional to current anti-anginal therapy, ranolazine improved angina symptoms, exercise tolerance, and decreased angina attacks and GTN consumption. It was equally effective in diabetic patients. Ranolazine has been shown to have a beneficial effect on glycaemic control with significant reduction of HbA1c in patients with and without diabetes.
@@ -369,15 +362,14 @@ Ranolazine was found not to be beneficial in the management of angina following 
 
 Commonly reported side-effects include dizziness, constipation and nausea. Ranolazine prolongs the QTc interval in a dose-related manner although clinical experience has not shown an increased risk of proarrhythmia or sudden death. It should be used with caution in patients with a prolonged QTc interval, liver cirrhosis and stage IV CKD.
 
-#### 8.2.2.7: Nicorandil (K Channel Activator)
+### 8.2.13: Anti-Ischemic — Nicorandil (K Channel Activator)
 Nicorandil is a nitrate derivative of nicotinamide. It has dual pharmacological mechanism of action with adenosine triphosphate sensitive potassium (KATP) channel agonist and nitrate-like properties.
 
 The antianginal efficacy of nicorandil is similar to β-blockers, CCBs and nitrates. It can be used as add-on therapy to other anti-ischemic medications. Tolerance however, develops with long-term use.
 
 Nicorandil can cause serious skin, mucosal, and eye ulceration which persists unless treatment is discontinued. The concurrent use of nicorandil with aspirin increases the risk of gastrointestinal ulcers, perforations, and haemorrhages.
 
-**Key Messages:**
-Optimal medical therapy is the cornerstone of management of patients with obstructive and non-obstructive CAD.
+Key Message: Optimal medical therapy is the cornerstone of management of patients with obstructive and non-obstructive CAD.
 
 Pharmacological management of stable CAD aims at:
 - prevention of cardiovascular events
@@ -389,7 +381,7 @@ Pharmacological management of stable CAD aims at:
   - Ivabradine, trimetazidine, long-acting nitrates and ranolazine are recommended as add-on therapy in patients who remain symptomatic.
 - Optimal medical therapy should be instituted prior to revascularization procedures.
 
-**Recommendation 6:**
+Recommendation:
 - All patients with suspected or known CAD should be on Optimal Medical Therapy (Behavioural modification therapy and appropriate pharmacotherapy).
 - Appropriate pharmacotherapy includes:
   - aspirin (or ticlopidine/clopidogrel if aspirin intolerant) and
@@ -434,7 +426,7 @@ In general, in patients with a low burden of CAD - single vessel disease not inv
 
 In patients with complex CAD, evaluation by a Heart Team is recommended. For patients with multivessel CAD, preserved LV systolic function, low complexity coronary anatomy, and absence of diabetes, PCI may be considered. In patients with multivessel disease, complex anatomy, diabetes and low surgical risk, CABG has a better survival benefit. Please refer to Malaysian Appropriate Use Criteria for Investigations and Revascularizations in CAD, 1st Ed, 2015.
 
-**Key Messages:**
+Key Messages:
 The decision to revascularize patients with stable CAD on OMT will depend on:
 - Symptoms - presence of angina affecting quality of life.
 - Extent of ischemia as determined by non-invasive testing - mild vs moderate to severe myocardial ischemia. Individuals with moderate to severe ischemia benefit from revascularization while those with no or mild ischemia do better with OMT. (Refer to Table 2: Prognostic Indicators For Adverse CV Outcomes On Non-Invasive Testing)
@@ -445,13 +437,14 @@ The decision to revascularize patients with stable CAD on OMT will depend on:
 
 Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy - PCI or CABG.
 
-**Recommendation 7:**
+Recommendation:
 - The decision to revascularize patients with stable CAD on OMT will depend on:
   - Symptoms [Grade I, Level C]
   - Extent of ischemia [Grade II-a, Level B]
   - Extent of coronary disease and where applicable physiological functional testing using FFR. [Grade I, Level A]
 - Wherever possible, a discussion with the patient and Heart Team should be encouraged prior to revascularization to determine the best strategy. [Grade I, Level C]
 
+<!-- parent_only_reference_start -->
 Table 2: Prognostic Indicators For Adverse CV Outcomes On Non-Invasive Testing
 | Modality | High Risk (>3% annual mortality) | Intermediate Risk (1–3% annual mortality) | Low Risk (<1% annual mortality) |
 |---|---|---|---|
@@ -461,7 +454,6 @@ Table 2: Prognostic Indicators For Adverse CV Outcomes On Non-Invasive Testing
 | Cardiac MRI (CMR) | ≥ 2 of 17 segments with new wall motion abnormality; or ≥ 6 segments with perfusion deficit | 1 segment with new wall motion abnormality; or 1–5 segments perfusion deficit | No new wall motion abnormality; stress EF > 45% |
 | CT Coronary Angiography (CTA) | Three-vessel disease or left main disease | Two-vessel disease with proximal LAD involvement | Normal; non-obstructive CAD |
 
-<!-- parent_only_reference_start -->
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|

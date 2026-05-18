@@ -32,7 +32,7 @@ Wherever necessary, these patients should be referred back to tertiary cardiac c
 
 Close follow-up and rapport with patients generally leads to improved adherence to OMT.
 
-**Key Messages:**
+Key Messages:
 - All patients with Stable CAD can be managed both at hospital and at general outpatient clinics.
 - In general, a repeat exercise stress ECG (or pharmacological stress) may be warranted if there is a change in the patient's:
   - Symptoms - worsening angina or effort tolerance
@@ -40,7 +40,7 @@ Close follow-up and rapport with patients generally leads to improved adherence 
   - Development of malignant arrhythmias
 - Whenever indicated, these patients should be referred to tertiary cardiac centres for optimization of management. When stable, they can be transferred back to general outpatient clinics with Family Medicine Specialists.
 
-**Recommendation 8:**
+Recommendation:
 - All patients with Stable CAD with no change in symptoms and medications over a period of 1 - 2 years, can be discharged from the specialty cardiac clinics.
 - When there is a change in the patient's clinical condition, they should be referred back to specialty cardiac clinics for optimization. When stable, they can be transferred back to general outpatient clinics with Family Medicine Specialists.
 

@@ -13,10 +13,9 @@ Earlier studies reported that the annual rate of MI in persons with stable angin
 However, in a recent registry of patients with stable CAD managed in the contemporary era and who had their ischemic events and/or revascularization 4 to 5 years earlier, the incidence of MI occurred linearly at a rate of 0.8% per year and about a third of these were STEMI. About 20% of the MIs in this registry were due to very late stent thrombosis.
 
 Prognosis in any individual patient however, will depend on the nature and extent of the underlying disease, the LV function, the age of the patient, the presence of CV risk factors and other co-morbidities. In the registry study mentioned earlier, baseline predictors of MI were:
-
-*   CV risk factors such as active smoking, poorly controlled diabetes and/or lipids,
-*   persistent angina and
-*   multivessel disease
+- CV risk factors such as active smoking, poorly controlled diabetes and/or lipids,
+- persistent angina and
+- multivessel disease
 
 Previous CABG was inversely associated with the risk of MI.
 
@@ -28,11 +27,11 @@ In a large registry of outpatients with stable CAD, about half of CV events (CV 
 
 This highlights the importance of optimal medical therapy in all patients with CAD irrespective of the presence of symptoms.
 
-**Key messages:**
-*   The natural history of Stable CAD is marked by episodes of sudden deterioration due to plaque fissuring, ulceration or erosion with superimposed thrombosis resulting in ACS.
-*   In patients with Stable CAD on OMT, the incidence of MI occurs at a rate of 0.8% per year.
-*   Predictors of MI are CV risk factors such as active smoking, poorly controlled diabetes and/or lipids, persistent angina and multivessel disease.
-*   The most important predictors of adverse CV outcomes are LV function and the extent of myocardial ischemia (total ischemic burden).
+Key message:
+- The natural history of Stable CAD is marked by episodes of sudden deterioration due to plaque fissuring, ulceration or erosion with superimposed thrombosis resulting in ACS.
+- In patients with Stable CAD on OMT, the incidence of MI occurs at a rate of 0.8% per year.
+- Predictors of MI are CV risk factors such as active smoking, poorly controlled diabetes and/or lipids, persistent angina and multivessel disease.
+- The most important predictors of adverse CV outcomes are LV function and the extent of myocardial ischemia (total ischemic burden).
 
 <!-- parent_only_reference_start -->
 Abbreviations

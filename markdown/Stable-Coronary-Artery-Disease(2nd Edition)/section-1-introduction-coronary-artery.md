@@ -1,4 +1,4 @@
-# Section 1:Introduction
+# Section 1: Introduction
 <!-- METADATA
 category: Introduction
 use_case: Overview of stable CAD scope and target population — disease_overview, target_population, care_scope
@@ -11,16 +11,16 @@ Coronary Artery Disease (CAD) is an important cause of morbidity and mortality i
 CAD covers a wide spectrum - from persons who are asymptomatic to those presenting with ACS and sudden cardiac death (SCD).
 
 This CPG on Stable CAD is directed at individuals:
-*   with stable chest pain or other symptoms (e.g. dyspnoea) which are known or suspected to be due to CAD.
-*   who had a previous episode of ACS but who are now stable and need regular follow up and monitoring.
-*   post revascularization (by CABG or PCI) who are at present asymptomatic or have stable symptoms due to CAD.
-*   who are asymptomatic but are suspected or known to have CAD on non-invasive testing. This may occur in the absence or presence of ischemia and/or Left Ventricular (LV) dysfunction.
+- with stable chest pain or other symptoms (e.g. dyspnoea) which are known or suspected to be due to CAD.
+- who had a previous episode of ACS but who are now stable and need regular follow up and monitoring.
+- post revascularization (by CABG or PCI) who are at present asymptomatic or have stable symptoms due to CAD.
+- who are asymptomatic but are suspected or known to have CAD on non-invasive testing. This may occur in the absence or presence of ischemia and/or Left Ventricular (LV) dysfunction.
 
 It provides guidance on:
-*   diagnosis of CAD in individuals presenting with stable chest symptoms.
-*   risk stratification of individuals who are diagnosed with CAD. This helps determine the need for revascularization guided by the patient's preferences.
-*   optimal medical therapy in all individuals with CAD.
-*   revascularization strategies.
+- diagnosis of CAD in individuals presenting with stable chest symptoms.
+- risk stratification of individuals who are diagnosed with CAD. This helps determine the need for revascularization guided by the patient's preferences.
+- optimal medical therapy in all individuals with CAD.
+- revascularization strategies.
 
 Individuals with CAD, even with minimal or absent symptoms, including those post-revascularization, are at high risk for recurrent cardiovascular (CV) events. In a large multinational registry, the 4-year rate of CV death, MI or stroke in patients with stable CAD but no previous ischemic events was 12.2% and in those with previous ischemic events, it was 18.3%. Almost 20% of individuals continue to have angina one year after their MI.
 
@@ -28,9 +28,9 @@ In a more recent registry of patients with stable CAD who were enrolled 1-year p
 
 This CPG does not address individuals who do not have CAD but who are at risk for CAD. This is covered in the CPG Primary and Secondary Prevention of CVD, 2017.
 
-**Key Messages**
-*   CAD covers a wide spectrum – from individuals who are asymptomatic to those presenting with ACS and SCD.
-*   Individuals with CAD, even with minimal or absent symptoms, including those post-revascularization, are at high risk for recurrent CV events.
+Key Messages:
+- CAD covers a wide spectrum – from individuals who are asymptomatic to those presenting with ACS and SCD.
+- Individuals with CAD, even with minimal or absent symptoms, including those post-revascularization, are at high risk for recurrent CV events.
 
 <!-- parent_only_reference_start -->
 Abbreviations

@@ -16,33 +16,33 @@ In addition, other factors that need to be considered include the presence of:
 - CKD
 - LV dysfunction
 
-- [Grade I, Level C] In general, a resting ECG should be performed in all patients and compared with previous ECGs.
+[Grade I, Level C] In general, a resting ECG should be performed in all patients and compared with previous ECGs.
 
-- [Grade II-a, Level B] An echocardiogram may be considered in:
-  - intermediate and high-risk surgery
-  - more than 1 other clinical risk factors that include:
-    - CAD - previous revascularization/MI
-    - heart failure
-    - stroke/TIA
-    - renal dysfunction (serum creatinine >170umol/l or Cr Cl <60 mL/min)
-    - diabetes
+[Grade II-a, Level B] An echocardiogram may be considered in:
+- intermediate and high-risk surgery
+- more than 1 other clinical risk factors that include:
+  - CAD - previous revascularization/MI
+  - heart failure
+  - stroke/TIA
+  - renal dysfunction (serum creatinine >170umol/l or Cr Cl <60 mL/min)
+  - diabetes
 
-- [Grade I, Level C] If a previous echocardiogram had been done within the last 12 months and it was normal and the patient has no change in his symptoms, then a repeat examination is not warranted.
+[Grade I, Level C] If a previous echocardiogram had been done within the last 12 months and it was normal and the patient has no change in his symptoms, then a repeat examination is not warranted.
 
-- [Grade II-a, Level B] If the patient is asymptomatic with good effort tolerance (>4 METS*), no further investigations is necessary.
+[Grade II-a, Level B] If the patient is asymptomatic with good effort tolerance (>4 METS*), no further investigations is necessary.
 
-- [Grade II-b, Level C] Non-invasive stress testing may be considered if the patient has:
-  - poor functional capacity (<4 METS) and
-  - ≥1 clinical risk factors and
-  - undergoing intermediate and high-risk surgery or vascular surgery/liver and kidney transplant.
+[Grade II-b, Level C] Non-invasive stress testing may be considered if the patient has:
+- poor functional capacity (<4 METS) and
+- ≥1 clinical risk factors and
+- undergoing intermediate and high-risk surgery or vascular surgery/liver and kidney transplant.
 
-- [Grade I, Level C] We advocate that these considerations should be done prior to listing the patient for surgery, for proper evaluation, planning of investigations and appropriate ethical informed consent process to be offered.
+[Grade I, Level C] We advocate that these considerations should be done prior to listing the patient for surgery, for proper evaluation, planning of investigations and appropriate ethical informed consent process to be offered.
 
 In patients who have undergone PCI and stenting and are on DAPT, a consultation with the cardiologist is necessary.
 
 *\*4 METS is equivalent to doing housework, sweeping floors and climbing 1 flight of stairs.*
 
-**Key Messages:**
+Key Message:
 - The extent of investigation in the pre-operative assessment of patients with stable CAD going for elective non-cardiac surgery will depend on the risk of the surgery:
   - low risk surgery (risk of death or MI <1% e.g. cataract, simple plastic surgery)
   - intermediate risk and High-Risk surgery (risk of death or MI > 1% e.g. intra peritoneal, intra thoracic surgery)

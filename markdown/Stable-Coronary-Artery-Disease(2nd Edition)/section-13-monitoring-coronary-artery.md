@@ -9,11 +9,9 @@ output: quality_indicators, improvement_actions
 Recommended Performance Indicators for Management of Stable CAD - to be audited on hospital discharges and at review at the outpatient clinics on an annual basis.
 
 Percentage of patients with CAD on antiplatelet therapy:
-
 (No. of patients with CAD on aspirin (or clopidogrel or ticlopidine, if aspirin intolerant)) / (No. of patients with CAD seen on that clinic day) × 100%
 
 Percentage of patients with CAD on statins (Target >70%):
-
 (No. of patients with CAD on statin) / (No. of patients with CAD seen on that clinic day) × 100%
 
 <!-- parent_only_reference_start -->

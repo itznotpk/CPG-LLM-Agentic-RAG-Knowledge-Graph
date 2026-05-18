@@ -97,7 +97,7 @@ Elderly patients with objective evidence of moderate to severe ischemia on non-i
 The elderly are more likely to have extensive disease and impaired LV function.
 
 ### 10.3.2: Management
--  Management in the elderly should be individualised taking into consideration comorbidities and should not be based on age alone.
+Management in the elderly should be individualised taking into consideration comorbidities and should not be based on age alone.
 
 Important considerations in drug therapy in the elderly are dose modification, drug interactions, polypharmacy and compliance.
 
@@ -134,7 +134,7 @@ Observational data consistently show increased risk of serious operative complic
 
 The ISCHEMIA-CKD (International Study of Comparative Health Effectiveness With Medical and Invasive Approaches-Chronic Kidney Disease) trial is a randomized ongoing trial with a target of 1,000 patients with eGFRs <30 mL/min/1.73 m² (or on dialysis therapy) and moderate ischemia to determine whether a routine invasive strategy (cardiac catheterization and then revascularization together with OMT) is superior to a conservative strategy (OMT; catheterization and revascularization available as indicated).
 
-**Key Messages:**
+Key Message:
 - Diabetes is associated with an increased risk of CVD.
   - Conventional therapies for CAD and indications for coronary revascularisation are similar in diabetic and non-diabetic patients.
   - Long-term maintenance of near-normal blood glucose levels substantially reduces complications and mortality.
