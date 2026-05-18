@@ -24,11 +24,11 @@ In the management of these patients:
 *   [Grade IIa, Level B] Sub-group analysis of large trials indicates that β-blockers, RAS blockers (ARNI, ACEI or ARB) and MRAs can be considered to reduce the risk of HF hospitalization and CV death.
 *   CV risk factors must be optimized.
 
-**Key Message # 11: Chronic HF Due To HFmrEF**
+Key Message: Chronic HF Due To HFmrEF
 *   HFmrEF includes symptomatic HF patients with LVEF between 41-49% and is a clinical entity between HFrEF and HFpEF.
 *   There are limited number of randomized control trials focusing on this category of patients - most of the evidence is derived from post-hoc or sub-group analysis of previous HF trials.
 
-**Key Recommendation #9: Chronic HF Due To HFmrEF**
+*ey Recommendation: Chronic HF Due To HFmrEF
 *   The management of these patients include:
     *   Optimal treatment of CV risk factors.
     *   SGLT2-i.

@@ -6,7 +6,7 @@ patient_input: LVEF, symptoms, functional_status
 output: HF_classification, NYHA_staging, HF_stage_assignment
 -->
 
-**HF can be classified by phenotypes**. These descriptions may reflect the:
+HF can be classified by phenotypes. These descriptions may reflect the:
 * Temporal characteristics (e.g., acuteness, chronicity)
 * Affected circulatory systems (e.g., left vs right)
 * Clinical context and trajectory (e.g., decompensated, improved, advanced, end-stage).
@@ -21,7 +21,7 @@ Table 8: Classification Of Heart Failure According To Lvef
 | Heart Failure with Preserved Ejection Fraction (HFpEF) | ≥ 50% |
 | Heart Failure with Improved Ejection Fraction (HFimpEF) | HF with a baseline LVEF of ≤ 40%, a ≥10-point increase from baseline LVEF following treatment, and a second measurement of LVEF of > 40%. |
 
-**Stages Of Heart Failure**
+Stages Of Heart Failure
 | Stage | Description |
 |---|---|
 | A - "At Risk" | Asymptomatic without structural cardiac disease but 'at risk' of developing HF |
@@ -32,7 +32,7 @@ Table 8: Classification Of Heart Failure According To Lvef
 The severity of symptomatic HF can be assessed by the New York Heart Association
 (NYHA) Functional Class. (refer to Table 9: New York Heart Association Functional Classification)
 
-**Key Message #3: Classification & Stages Of HF**
+Key Message: Classification & Stages Of HF
 * HF can be classified according to:
     * Clinical Presentation:
         * Acute heart failure (Acute HF)

@@ -8,6 +8,7 @@ critical: true
 treatment_type: diuretics, vasodilators, nitrates, inotropes, noradrenaline, dopamine, dobutamine, milrinone, levosimendan, oxygen_therapy, NIV, IABP, VAD, ECMO, ACEi, ARB, ARNI, beta_blocker, MRA, SGLT2i, DOAC
 -->
 
+## 9.0: Overview of Acute Heart Failure
 Acute heart failure is a heterogeneous clinical syndrome of new or worsening symptoms and signs of HF. It may occur as:
 *   **De Novo HF** - first occurrence of HF ***or***,
 *   **Acute decompensated HF (ADHF)** - this is a more common presentation occurring in a previously stable patient with HF who has now deteriorated.
@@ -61,7 +62,7 @@ Table 11: Factors Contributing To Decompensation In A Patient With Stable HF
 In 40% of patients admitted with Acute HF however, a clear underlying precipitant may not be identified.
 
 *   **Identify non-cardiovascular comorbidities** - These can complicate management affecting the choice and doses of medications used. The presence of these non-cardiovascular comorbidities tends to worsen the prognosis. The more common comorbidities include:
-    *   Diabetes (refer to Section 14.1: Diabetes and Heart Failure) <!-- cross_ref target_file="section-14-1-diabetes-vhd-cardiomyopathy-heartfailure.md" target_heading="14.1: Diabetes And Heart Failure" target_kind="h2_section" -->
+    *   Diabetes (refer to Section 14.1: Diabetes and Heart Failure) <!-- cross_ref target_file="section-14-1-diabetes-heartfailure.md" target_heading="Section 14.1: Diabetes And Heart Failure" target_kind="h2_section" -->
     *   Chronic kidney disease (refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)) <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
     *   Thyroid disease (Both hyper and hypothyroidism)
     *   Chronic lung disease
@@ -144,39 +145,16 @@ Generally, **a SBP ≥ 90mmHg would be considered adequate** if the patient has 
 
 ## 9.2: Phase 2: In - Hospital Management
 Refer To:
-*   Flow Chart Ii: Management Of Acute Heart Failure
+*   Flowchart II: Management Of Acute Heart Failure
 *   Table 2: Grading Of Recommendations In The Management Of Acute HF
 *   Table 14: Drugs Commonly Used In Acute HF
 
 The management of patients with Acute HF is largely based on clinical judgement and experience rather than on randomized controlled trials. Most clinical trials have been small and of low quality.
 
-Table 2: Grading Of Recommendations In The Management Of Acute HF
-
-| Intervention | Grades of Recommendation | Levels of Evidence | Comments |
-|---|---|---|---|
-| INITIAL MANAGEMENT CONSISTS OF: | | | |
-| Oxygen | I | C | Maintain the oxygen saturation ≥ 95%. |
-| Diuretics | I | B | To be given preferably when SBP ≥ 90mmHg. |
-| MRA | I | A | To be given if eGFR ≥ 30 mLs/min/1.73m² and serum potassium levels < 5.0mmol/l.<br>May be initiated within 24-48 hours of admission. |
-| NOT RESPONSIVE TO INITIAL TREATMENT AND SBP ≥ 90mmHg | | | |
-| Diuretics | IIa | B | Continuous infusion +/- combination with thiazides. |
-| Nitrates | I | B | Most useful if there is concomitant myocardial ischemia, severe hypertension or aortic or mitral regurgitation. |
-| Noradrenaline | IIa | B | Indicated for peripheral hypoperfusion despite an adequate filling status. |
-| Dopamine | IIb | B | Indicated for peripheral hypoperfusion despite an adequate filling status. |
-| NOT RESPONSIVE TO INITIAL TREATMENT AND SBP < 90mmHg | | | |
-| Noradrenaline | IIa | B | Indicated to increase the BP. |
-| Dopamine | IIb | B | Indicated to increase the BP. |
-| IABP | IIa | B | Indicated as a bridge till myocardial recovery or heart transplant. |
-| Ventricular Assist (VAD) | IIa | B | Indicated as a bridge till myocardial recovery or heart transplant.<br>Occasionally as destination (definitive) therapy. |
-| **ORAL MEDICATIONS IN ACUTE HF**<br>(Initiated when patient is hemodynamically stable, off all i.v. inotropes and SBP ≥ 100mmHg) | | | |
-| RAS blockers (ACE-I or ARB in ACE-I intolerant patients) | I | A | |
-| ARNI | IIa | B | |
-| β-Blockers | I | A | |
-| SGLT2-i | I | A | No increase in i.v. diuretic dose and off all iv vasodilators, including nitrates within the last 6 hours.<br>The dose of diuretics may need to be reduced on initiation of SGLT2-i. |
-
 ### 9.2.1: Pharmacotherapy
+Pharmacotherapy in the in-hospital phase covers oxygen, diuretics, vasodilators, inotropes and morphine, each detailed below according to the patient's haemodynamic and congestion status.
 
-#### 9.2.1.1: Oxygen
+### 9.2.2: Pharmacotherapy — Oxygen
 *   [Grade I, Level C] Measurement of oxygenation by pulse oximetry (SpO2) is recommended.
 *   [Grade I, Level B] **Supplemental oxygen therapy is recommended when the SpO2 < 94% and should be titrated to achieve SpO2 ≥ 95%.**
 *   [Grade III, Level B] Routine use in non-hypoxic patients is not recommended as it can cause deleterious effects such as vasoconstriction and a reduction in cardiac output.
@@ -196,7 +174,7 @@ Table 2: Grading Of Recommendations In The Management Of Acute HF
     *   Hypercapnia (PaCO2 > 50mmHg), and
     *   Acidosis (pH < 7.35)
 
-#### 9.2.1.2: Diuretics
+### 9.2.3: Pharmacotherapy — Diuretics
 *   Diuretics is the cornerstone of therapy in patients who are fluid overloaded (wet).
 *   i.v. diuretics should be administered as early as possible to relieve congestion and provide symptomatic relief. Studies on the impact of early administration of i.v. diuretics on in-hospital mortality, however, have shown mixed results.
 * [Grade I, Level B] i.v. furosemide 40-100mg is the diuretic of choice. This initial dose should be individualized depending on the severity of the clinical condition.
@@ -235,7 +213,7 @@ Table 2: Grading Of Recommendations In The Management Of Acute HF
 
 *   [Grade IIa, Level B] Target 0.5 - 1kg decrease in body weight/day when the patient is volume overloaded. Less than 0.5kg of weight loss/day may indicate inadequate diuretic dose or diuretic resistance.
 
-#### 9.2.1.3: Vasodilators
+### 9.2.4: Pharmacotherapy — Vasodilators
 Refer To Table 14: Drugs Commonly Used In Acute HF
 *   Vasodilators can confer symptomatic relief and an improvement in hemodynamics but there is, however, a lack of data to draw any firm conclusions concerning their effects on CV outcomes.
 *   In patients with pulmonary congestion who are normotensive, emphasis should be placed on adequate diuresis, with vasodilators reserved for patients who fail to show clinical improvement or have poor perfusion and cool extremities.
@@ -249,7 +227,7 @@ Refer To Table 14: Drugs Commonly Used In Acute HF
     *   [Grade IIb, Level C] Extreme caution should be exercised in patients with aortic and mitral stenosis.
     *   [Grade III, Level C] Nitrates are contraindicated in severe valvular stenosis.
 
-#### 9.2.1.4: Inotropes
+### 9.2.5: Pharmacotherapy — Inotropes
 Refer To Table 14: Drugs Commonly Used In Acute HF
 *   Inotropes are not routinely administered to patients with an adequate BP.
 *   They are indicated in the presence of persistent signs of hypoperfusion (hypotension and low cardiac output - "cold patients") despite an adequate filling status.
@@ -266,7 +244,7 @@ Refer To Table 14: Drugs Commonly Used In Acute HF
     *   Started at 2-5mcg/kg/minute and titrated by 1-2mcg/kg/minute increments at 30-minute intervals until the desired clinical and hemodynamic response is attained.
     *   [Grade IIb, Level B] Dobutamine, when used alone, improved cardiac output but there was a trend towards an increase in mortality.
 
-#### 9.2.1.5: Morphine
+### 9.2.6: Pharmacotherapy — Morphine
 *   i.v. 1-3mg bolus (repeated, if necessary, up to a maximum of 10mg) reduces pulmonary venous congestion although its effect on venodilation has been shown to be minimal.
 *   [Grade IIb, Level B] May reduce anxiety and dyspnea however due to paucity of data, routine use cannot be recommended.
 *   Dose-dependent side effects include nausea, hypotension, bradycardia, and respiratory depression.
@@ -286,7 +264,7 @@ If the blood pressure is low at initial presentation (SBP < 90 mmHg) or drops du
 
 If the patient is still unwell with poor perfusion "cool" and/or congested "wet", **Mechanical Circulatory Support** may need to be considered:
 
-### 9.2.2: Mechanical Circulatory Support
+### 9.2.7: Mechanical Circulatory Support
 This includes:
 *   **Intra-aortic balloon pump (IABP):**
     *   [Grade IIa, Level B] This would be useful in patients with ADHF and cardiogenic shock who are not responding optimally to medical therapy and as a bridge to definitive treatment. IABP would be particularly useful in patients with intractable myocardial ischemia or acute moderate to severe mitral regurgitation.
@@ -296,7 +274,7 @@ This includes:
 *   **Ventricular Assist Devices (VAD)** - refer to Section 15.2: Mechanical Circulatory Support (MCS). <!-- cross_ref target_file="section-15-advanced-hf-heartfailure.md" target_heading="15.2: Mechanical Circulatory Support (MCS)" target_kind="h2_section" -->
     *   These would be useful as a bridge in patients for whom recovery from Acute HF is expected or for whom heart transplant is an option. It may also be used as a destination therapy in selected patients.
 
-### 9.2.3: Treat Precipitating Factors For The Acute HF - "C H A M P I O N"
+### 9.2.8: Treat Precipitating Factors For The Acute HF - "C H A M P I O N"
 *   **C - Coronary Artery Disease - Myocardial Ischemia / Infarction:**
     *   Reversible myocardial ischemia causing Acute HF needs early recognition, rapid stabilization and referral for urgent coronary angiography.
     *   In STEMI, reperfusion therapy by fibrinolytic or primary Percutaneous Coronary Intervention (PCI) may significantly improve or prevent Acute HF.
@@ -328,7 +306,7 @@ This includes:
     *   The reasons for this may be multifactorial and some reasons include poor patient understanding of the disease, financial or transport constraints in getting refills, fears of polypharmacy and the effects of the medications on the kidney etc.
     *   Patient and family education is important prior to discharge.
 
-### 9.2.4: Comorbidities
+### 9.2.9: Comorbidities
 Other comorbidities should be identified, and treatment optimized. This includes:
 *   Diabetes
 *   Hypertension
@@ -351,7 +329,7 @@ Following "decongestion", the challenges are to:
 *   How to perform up titration at discharge and
 *   Correctly prioritize or select the most appropriate titration schedule according to the patient profile. (refer to Section 10.2: Patient Profiling And Titration Of "Foundational HF Medications") <!-- cross_ref target_file="section-10-chronic-hfref-heartfailure.md" target_heading="10.2: Patient Profiling And Titration Of "Foundational HF Medications"" target_kind="h2_section" -->
 
-#### 9.3.1.1: Conversion To Oral Therapy
+### 9.3.2: Pre-Discharge — Conversion To Oral Therapy
 Following adequate response to intravenous therapy, the patient should be converted to optimal oral medications. If the LVEF < 40%, they should be initiated on Foundational HF medications (RAS blockers, β-blockers, MRA and SGLT2-i) as outlined below.
 
 *   **Diuretics**
@@ -391,17 +369,17 @@ Following adequate response to intravenous therapy, the patient should be conver
         *   Vasodilators have been stopped for at least 6 hours.
     *   The diuretic dose may need adjustment taking into consideration the degree of diuresis induced by this drug.
 
-#### 9.3.1.2: Worsening Renal Function
+### 9.3.3: Pre-Discharge — Worsening Renal Function
 *   Worsening Renal Function may occur during treatment. Refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD) <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
 *   Following conversion to oral therapy, the patient should be observed for at least 24 hours for the stability of symptoms, weight and hemodynamics prior to discharge. The follow-up plans must be tailored according to the availability of facilities and expertise to manage the patient on an outpatient basis.
 
-#### 9.3.1.3: Deep Vein Thrombosis (DVT) Prophylaxis
+### 9.3.4: Pre-Discharge — Deep Vein Thrombosis (DVT) Prophylaxis
 *   [Grade IIa, Level B] HF patients especially if they are bed-bound for protracted periods are at risk for DVT. Prophylactic measures include:
     *   TED stockings
     *   Direct oral anticoagulants (DOAC)
     *   Unfractionated or low molecular weight heparin.
 
-#### 9.3.1.4: Comorbidities
+### 9.3.5: Pre-Discharge — Comorbidities
 *   Other comorbidities should be identified, and treatment optimized according to guidelines. This includes:
     *   Diabetes
     *   Hypertension
@@ -416,7 +394,7 @@ Following adequate response to intravenous therapy, the patient should be conver
     *   [Grade I, Level C] A summary of the care plan must be made available to the doctor in the out-patient clinic. (Appendix III: Discharge Care Plan & Appendix IV: Discharge Care Summary)
 *   **Hospitalization is a key opportunity to initiate Foundational HF medications.** A large trial showed that starting and optimizing Foundational HF medications as in-patient, followed by regular check-ups and monitoring after hospital discharge, cuts the rate of all-cause death and HF readmissions within 6 months.
 
-### 9.3.2: Post-Discharge Phase (Vulnerable Period)
+### 9.3.6: Post-Discharge Phase (Vulnerable Period)
 At the time of hospital discharge, the patient should be:
 *   On all the foundational HF medications as tolerated.
 *   Given a discharge summary and discharge care plan. (Appendix III: Discharge Care Plan & Appendix IV: Discharge Care Summary)
@@ -437,8 +415,30 @@ At the Follow up visit:
 *   The presence of any of these clinical features is an indication of the need for optimization of Foundational HF medications.
 
 <!-- parent_only_reference_start -->
-Table 13: Classification Of Acute HF According To Clinical Presentation And A Guide To Management
+Table 2: Grading Of Recommendations In The Management Of Acute HF
+| Intervention | Grades of Recommendation | Levels of Evidence | Comments |
+|---|---|---|---|
+| INITIAL MANAGEMENT CONSISTS OF: | | | |
+| Oxygen | I | C | Maintain the oxygen saturation ≥ 95%. |
+| Diuretics | I | B | To be given preferably when SBP ≥ 90mmHg. |
+| MRA | I | A | To be given if eGFR ≥ 30 mLs/min/1.73m² and serum potassium levels < 5.0mmol/l.<br>May be initiated within 24-48 hours of admission. |
+| NOT RESPONSIVE TO INITIAL TREATMENT AND SBP ≥ 90mmHg | | | |
+| Diuretics | IIa | B | Continuous infusion +/- combination with thiazides. |
+| Nitrates | I | B | Most useful if there is concomitant myocardial ischemia, severe hypertension or aortic or mitral regurgitation. |
+| Noradrenaline | IIa | B | Indicated for peripheral hypoperfusion despite an adequate filling status. |
+| Dopamine | IIb | B | Indicated for peripheral hypoperfusion despite an adequate filling status. |
+| NOT RESPONSIVE TO INITIAL TREATMENT AND SBP < 90mmHg | | | |
+| Noradrenaline | IIa | B | Indicated to increase the BP. |
+| Dopamine | IIb | B | Indicated to increase the BP. |
+| IABP | IIa | B | Indicated as a bridge till myocardial recovery or heart transplant. |
+| Ventricular Assist (VAD) | IIa | B | Indicated as a bridge till myocardial recovery or heart transplant.<br>Occasionally as destination (definitive) therapy. |
+| **ORAL MEDICATIONS IN ACUTE HF**<br>(Initiated when patient is hemodynamically stable, off all i.v. inotropes and SBP ≥ 100mmHg) | | | |
+| RAS blockers (ACE-I or ARB in ACE-I intolerant patients) | I | A | |
+| ARNI | IIa | B | |
+| β-Blockers | I | A | |
+| SGLT2-i | I | A | No increase in i.v. diuretic dose and off all iv vasodilators, including nitrates within the last 6 hours.<br>The dose of diuretics may need to be reduced on initiation of SGLT2-i. |
 
+Table 13: Classification Of Acute HF According To Clinical Presentation And A Guide To Management
 | Warm / Wet | Warm / Dry |
 |---|---|
 | **SBP**: Adequate (≥ 90mmHg)<br>**Perfusion**: Adequate<br>**Fluid Status**: Congested<br><br>**Management:**<br>* Diuretics - Yes<br>* Vasodilators - Yes<br>* Inotropes - No | **SBP**: Adequate (≥ 90mmHg)<br>**Perfusion**: Adequate<br>**Fluid Status**: Not congested.<br><br>**Management:**<br>* Diuretics - No<br>* Vasodilators - No<br>* Inotropes - No<br>* Adjust Oral Medications |
@@ -453,13 +453,10 @@ Table 14: Drugs Commonly Used In Acute HF
 | **Inotropes**<br>Noradrenaline<br><br>Dopamine<br><br><br><br>Dobutamine<br><br>Adrenaline | <br>Infusion<br><br>Infusion<br><br><br><br>Infusion<br><br>Infusion | <br>0.02-1mcg/kg/min till desired blood pressure is attained<br><br>< 2-3mcg/kg/min - renal arterial vasodilation<br>2-5mcg/kg/min - inotropic doses<br>5-15mcg/kg/min - peripheral vasoconstriction<br><br>2-20mcg/kg/min<br><br>0.05-0.5μg/kg/min |
 
 Flowchart II: Management Of Acute Heart Failure
-
 **Step 1: Acute Heart Failure**
 ↓
-
 **Step 2: Oxygen If O2 Saturation < 95%**
 ↓
-
 **Step 3: Assess For Congestion And Perfusion**
 Classify the patient into one of four hemodynamic profiles:
 
@@ -473,9 +470,7 @@ Classify the patient into one of four hemodynamic profiles:
 **Outcome Evaluation:**
 *   **If Cold/Wet, Cold/Dry, or Warm/Wet:** → Proceed to Step 4 (Blood Pressure Assessment)
 *   **If Warm, Dry:** → Titrate oral medications (Flow Chart III & IV)
-
 ↓
-
 **Step 4: Blood Pressure Assessment (Two Pathways)**
 Determine the pathway based on systolic blood pressure:
 
@@ -495,9 +490,7 @@ Determine the pathway based on systolic blood pressure:
 
 **Step 5B: Sbp < 90mmHg**
 *   Consider Cautious Fluid Challenge if dehydrated.
-
 ↓
-
 *   **Inotropes:**
     *   Noradrenaline 1st
     *   Dopamine / Dobutamine

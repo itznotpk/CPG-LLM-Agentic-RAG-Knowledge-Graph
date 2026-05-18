@@ -7,6 +7,7 @@ output: HFpEF_management_plan, diuretic_selection, SGLT2i_indication, comorbidit
 treatment_type: diuretics, SGLT2i, comorbidity_specific_therapy
 -->
 
+## 13.0: Overview of Chronic Heart Failure - HFpEF
 HFpEF is a heterogenous disease with various phenotypes and comorbidities. It is highly prevalent, accounting for up to 50% of all patients with HF and is becoming the dominant form of HF in aging populations worldwide.
 
 In this guideline HFpEF refers to LVEF ≥ 50%. Importantly, clinicians should be aware that LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
@@ -76,7 +77,6 @@ Compared with HFrEF patients, hospitalizations, and deaths in patients with HFpE
 The important aim of therapy is to alleviate symptoms, improve well-being and reduce hospitalizations. Screening for comorbidities and treating these appropriately is important.
 
 Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (LVEF > 50%)
-
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|---|---|
 | LIFESTYLE MEASURES | | | |
@@ -109,7 +109,7 @@ Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of 
 *  [Grade I Level A] Hypertension should be treated to target goals. Improved BP control has been shown to reduce morbidity and hospitalizations for HF. More intensive BP control in patients with high CV risk including those > 75 years of age, significantly reduces HF and other cardiovascular outcomes.
 *   CAD is common in patients with HFpEF and this should be treated appropriately.
 *   Diabetes - refer to section 14.1: Diabetes and Heart Failure
-*   Chronic Kidney Disease - refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD) <!-- cross_ref target_file="section-14-1-diabetes-vhd-cardiomyopathy-heartfailure.md" target_heading="14.1: Diabetes And Heart Failure" target_kind="h2_section" --> <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
+*   Chronic Kidney Disease - refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD) <!-- cross_ref target_file="section-14-1-diabetes-heartfailure.md" target_heading="Section 14.1: Diabetes And Heart Failure" target_kind="h2_section" --> <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
 *   Tachyarrhythmias should be treated, and sinus rhythm restored whenever possible.
     * [Grade IIa, Level B] If the patient remains in persistent AF, β-blockers or non-dihydropyridine calcium channel blockers (verapamil, diltiazem) alone or in combination are the usual first line agents used for rate control.
     * [Grade IIa, Level A] In patients with recent onset AF < 1 year duration or paroxysmal AF who received early rhythm-control, there was a significantly decreased primary end point of a composite of CV death, stroke, or hospitalization due to HF than those who received rate control.
@@ -125,16 +125,16 @@ Pharmacotherapy has not been shown to reduce total or CV mortality. These includ
     *   [Grade IIb, Level B] ACE-I - may be considered to reduce hospitalization in patients with HFpEF.
     *   [Grade IIb, Level B] ARNI - did not reduce the composite endpoint of CV death and total hospitalizations for HF in patients with a LVEF > 45% when compared to an ARB. In a combined analysis of 2 large ARNI trials, there was a suggestion of benefit in patients with LVEF < 57% and in women (benefits of sacubitril-valsartan in women were sustained up to LVEF 60%, while for men the benefit was restricted to LVEF < 45%).
 *   [Grade IIb, Level B] **MRA:** MRAs improve diastolic function in patients with HFpEF. It may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum. Benefits were seen in patients with LVEF > 45%, elevated BNP level or HF admission within 1 year, eGFR > 30 mL/min/1.73m², creatinine < 2.5 mg/dL, and potassium < 5.0 mEq/L. MRAs showed a greater benefit in patients who demonstrated more functional impairment, obesity, diabetes, CKD, concentric LV hypertrophy, high renin, and biomarkers of tumor necrosis factor-alpha-mediated inflammation, liver fibrosis, and tissue remodeling. Hyperkalemia was more common in those on MRA and close monitoring of potassium is important.
-*   [Grade I, Level A] **SGLT2-i:** These have been shown to decrease HF hospitalizations and CV mortality. There was also a decrease in the slope of the eGFR decline, and a modest improvement in quality of life at 52 weeks. The benefit was similar irrespective of the presence or absence of diabetes at baseline. In a subgroup analysis by LVEF, there was a signal for lower benefit on the primary composite endpoint, first and recurrent HF hospitalizations, at higher LVEF > 62.5%.
-*   **Non-dihydropyridine Calcium Channel Blockers (verapamil and diltiazem):** Clinical data regarding use of calcium-channel blockers in HFpEF is sparse. Its use is mainly to treat hypertension or for rate control in AF.
+*   [Grade I, Level A] SGLT2-i: These have been shown to decrease HF hospitalizations and CV mortality. There was also a decrease in the slope of the eGFR decline, and a modest improvement in quality of life at 52 weeks. The benefit was similar irrespective of the presence or absence of diabetes at baseline. In a subgroup analysis by LVEF, there was a signal for lower benefit on the primary composite endpoint, first and recurrent HF hospitalizations, at higher LVEF > 62.5%.
+*   Non-dihydropyridine Calcium Channel Blockers (verapamil and diltiazem): Clinical data regarding use of calcium-channel blockers in HFpEF is sparse. Its use is mainly to treat hypertension or for rate control in AF.
 
-**Key Message # 13: Chronic HF Due To HFpEF**
+Key Message: Chronic HF Due To HFpEF
 *   HFpEF is a heterogenous disease with various phenotypes and comorbidities, accounting for up to 50% of all patients with HF.
 *   In this guideline HFpEF refer to LVEF ≥ 50%. LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
 *   HFpEF differs from HFrEF in that HFpEF patients are older, more often female with AF, CKD and non-CV comorbidities being more common.
 *   The main hemodynamic finding in HFpEF is an elevation in LV filling pressures i.e. end diastolic LV pressure (LVEDP), initially only on exertion and later even at rest
 
-**Key Recommendation #11: Chronic HF Due To HFpEF**
+Key Recommendation: Chronic HF Due To HFpEF
 *   Timely and early diagnosis of HFpEF leads to a better outcome.
 *   The management of patients with HFpEF includes:
     *   Lifestyle measures:

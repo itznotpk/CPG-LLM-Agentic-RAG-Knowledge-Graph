@@ -7,7 +7,7 @@ output: education_plan, exercise_prescription, dietary_guidance, fluid_restricti
 -->
 
 ## 8.1: Education
-*   [Grade I, Level B] HF patients and their family members should be educated on the definition, causes, signs, symptoms, and the progressive and relapsing nature of the disease, emphasizing self-care wherever possible. Increased awareness helps patients adhere to therapeutic instructions whereas knowledge leads to reduced anxiety and better sense of control. Self-care is important and improves long term adherence to management strategies.
+[Grade I, Level B] HF patients and their family members should be educated on the definition, causes, signs, symptoms, and the progressive and relapsing nature of the disease, emphasizing self-care wherever possible. Increased awareness helps patients adhere to therapeutic instructions whereas knowledge leads to reduced anxiety and better sense of control. Self-care is important and improves long term adherence to management strategies.
 
 Patients and their family should:
 *   Be educated on self-care which includes:
@@ -39,7 +39,7 @@ They are however barriers for the widespread implementation of telemedicine. The
     *   In which specific healthcare subsets these interventions should be implemented e.g., immediate post discharge.
 
 ## 8.2: Exercise Training
-Refer To Section 16: HF Rehabilitation <!-- cross_ref target_file="section-16-rehabilitation-heartfailure.md" target_heading="Section 16: HF Rehabilitation" target_kind="h1_section" -->
+Refer To Section 16: HF Rehabilitation <!-- cross_ref target_file="section-16-rehabilitation-heartfailure.md" target_heading="Section 16: Heart Failure Rehabilitation" target_kind="h1_section" -->
 *   [Grade I, Level B] Several systematic reviews and meta-analyses support exercise training as an integral part of the non-pharmacological treatment of HF. Exercise also leads to an improvement in the patient's Health Related Quality of Life (HRQoL) - symptoms, a greater sense of wellbeing, and better functional capacity.
 
 **Exercise training:**

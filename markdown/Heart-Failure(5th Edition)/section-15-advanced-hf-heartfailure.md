@@ -36,7 +36,7 @@ Contraindications to heart transplant:
 *   Other medical or psychosocial issues that would impact survival.
 
 ## 15.2: Mechanical Circulatory Support (MCS)
-Refer To Section 9.2.2: Mechanical Circulatory Support. <!-- cross_ref target_file="section-9-acute-hf-heartfailure.md" target_heading="9.2.2: Mechanical Circulatory Support" target_kind="h3_section" --> 
+Refer To Section 9.2.2: Mechanical Circulatory Support. <!-- cross_ref target_file="section-9-acute-hf-heartfailure.md" target_heading="9.2.7: Mechanical Circulatory Support" target_kind="h3_section" --> 
 The use of a mechanical circulatory support (e.g., Left Ventricular Assist Device - LVAD) may be considered as a:
 *   Bridge to recovery in patients with potentially reversible or treatable conditions or
 *   Bridge to heart transplant in suitable candidates or

@@ -30,12 +30,12 @@ Exercise capacity in a patient with heart disease is assessed by the New York He
 
 Objective evidence of cardiac dysfunction by diagnostic tests will further support the diagnosis of HF. It will help establish the etiology and the precipitating factors of the syndrome.
 
-**Key Message # 5:**
+Key Message:
 * In making a diagnosis of HF, a detailed history and a thorough physical examination is important.
 * The clinical suspicion of HF should be supported objectively with either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 
 ## 6.2: Investigations
-(refer to Flowchart 1: Algorithm for the Diagnosis of Heart Failure*)
+Refer to Flowchart 1: Algorithm for the Diagnosis of Heart Failure*.
 
 Table: Basic and Important Investigations
 | | BASIC INVESTIGATIONS |
@@ -53,12 +53,33 @@ Table: Basic and Important Investigations
 | Invasive Tests | * Coronary angiography<br>* Cardiac catheterisation<br>* Endomyocardial biopsy |
 | Others | * Holter electrocardiography, loop recorders<br>* Pulmonary function test |
 
+Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of Heart Failure Among Patients With Dyspnea
+| | BNP (ng/L) | NT-Pro BNP (ng/L) |
+|---|---|---|
+| Emergency Setting | | |
+| Heart Failure Rule Out | < 100 | < 300 |
+| Heart Failure Possible | > 400 | Age < 50 y: > 450<br>Age 50 - 75: > 900<br>Age > 75: > 1800 |
+| Community Setting (Primary Care) | | |
+| Heart Failure Rule Out | < 35 | < 125 |
 
+Key Recommendations: Diagnosis & Essential Investigations
+* In making a diagnosis of HF, a detailed history and a thorough physical examination are important.
+* The clinical suspicion of HF should be supported objectively by either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
+* Important basic investigations:
+    * Echocardiogram.
+    * ECG.
+    * Chest Radiograph.
+    * Blood - Full Blood Count, urea, creatinine, serum electrolytes (sodium and potassium) liver function, serum glucose, lipid profile.
+    * Natriuretic Peptides: NT-Pro BNP or BNP
+        * They are a useful "rule out" test in the diagnosis of HF in patients presenting with acute dyspnea.
+        * In chronic HF, NPs may be persistently elevated and show substantial biological variation. In this setting, NPs should be interpreted with careful clinical assessment and investigation and with all other clinical information.
+        * A value of NT-Pro BNP of ≤ 1,000 pg/ml during treatment was associated with better CV outcomes.
+
+<!-- parent_only_reference_start -->
 Flowchart 1: Algorithm For The Diagnosis Of Heart Failure*
 **Step 1: Initial Presentation**
 **Suspected HF Because of Symptoms and/or Signs**
 ↓
-
 **Step 2: Initial Investigations**
 Perform the following:
 *   ECG
@@ -80,7 +101,6 @@ Perform the following:
 Perform echocardiography to assess cardiac structure and function.
 
 **Outcome Evaluation:**
-
 *   **If Tests Abnormal:** → Determine:
     *   Underlying Cause
     *   Precipitating Cause
@@ -94,32 +114,8 @@ Perform echocardiography to assess cardiac structure and function.
             *   *(Which then leads to)* → **TREAT ACCORDINGLY**
 
 *   **If Tests Normal:** → Heart Failure or LV Dysfunction is Unlikely. Consider Other Diagnosis e.g., Coronary Artery Disease (Angina Equivalent), Obesity, Pulmonary Disease.
-
 > *\*refer to Section 6.2 Investigations for the full list of Basic, Important and Additional Investigations.*
 
-Table 12: Optimal Natriuretic Peptide Cut Points For Diagnosis Or Exclusion Of Heart Failure Among Patients With Dyspnea
-| | BNP (ng/L) | NT-Pro BNP (ng/L) |
-|---|---|---|
-| Emergency Setting | | |
-| Heart Failure Rule Out | < 100 | < 300 |
-| Heart Failure Possible | > 400 | Age < 50 y: > 450<br>Age 50 - 75: > 900<br>Age > 75: > 1800 |
-| Community Setting (Primary Care) | | |
-| Heart Failure Rule Out | < 35 | < 125 |
-
-**Key Recommendations # 1: Diagnosis & Essential Investigations**
-* In making a diagnosis of HF, a detailed history and a thorough physical examination are important.
-* The clinical suspicion of HF should be supported objectively by either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
-* Important basic investigations:
-    * Echocardiogram.
-    * ECG.
-    * Chest Radiograph.
-    * Blood - Full Blood Count, urea, creatinine, serum electrolytes (sodium and potassium) liver function, serum glucose, lipid profile.
-    * Natriuretic Peptides: NT-Pro BNP or BNP
-        * They are a useful "rule out" test in the diagnosis of HF in patients presenting with acute dyspnea.
-        * In chronic HF, NPs may be persistently elevated and show substantial biological variation. In this setting, NPs should be interpreted with careful clinical assessment and investigation and with all other clinical information.
-        * A value of NT-Pro BNP of ≤ 1,000 pg/ml during treatment was associated with better CV outcomes.
-
-<!-- parent_only_reference_start -->
 Grades of Recommendation
 | Grade | Description |
 |---|---|

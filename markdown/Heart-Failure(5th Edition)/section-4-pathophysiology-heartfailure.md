@@ -62,7 +62,7 @@ In HF with improved EF (HFimpEF), the baseline LVEF is ≤40% but either spontan
 
 In a large meta-analysis, the prevalence of HFimpEF was 22.64%. They had a lower mortality and risk of hospitalization compared HFrEF and HFpEF.
 
-**Key Message #4: Pathophysiology**
+Key Message: Pathophysiology
 * The main pathophysiology of HF is the inability of the heart to provide sufficient cardiac output to meet the perfusion and oxygenation requirements of the body while maintaining normal filling pressures.
 * In HFrEF, cardiac output is reduced due to depressed myocardial contractility, irrespective of the etiology.
 * In HFpEF there is impaired left ventricular (LV) filling due to decreased relaxation (during early diastole) and/or reduced compliance (early to late diastole) leading to elevated LV filling pressures at rest or during exercise and dyspnea.

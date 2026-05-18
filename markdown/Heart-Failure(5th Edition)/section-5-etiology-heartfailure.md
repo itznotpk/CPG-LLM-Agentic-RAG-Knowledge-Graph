@@ -42,10 +42,9 @@ Other causes of HF include:
     * Peripartum cardiomyopathy.
     * Stress (Takotsubo) cardiomyopathy.
 
-**Patients with Chronic HF may occasionally develop acute decompensation.** Factors that can contribute to this acute decompensation are listed in Table 11: Factors Contributing to Decompensation in a Patient with Stable HF. The more important causes that need to be recognized and treated appropriately are as in the acronym:
+Patients with Chronic HF may occasionally develop acute decompensation. Factors that can contribute to this acute decompensation are listed in Table 11: Factors Contributing to Decompensation in a Patient with Stable HF. The more important causes that need to be recognized and treated appropriately are as in the acronym:
 
 **C H A M P I O N**
-
 * **C** - **C**oronary artery disease - Acute myocardial infarction/myocardial ischemia
 * **H** - **H**ypertensive emergencies
 * **A** - **A**rrhythmias (e.g., atrial fibrillation)
@@ -55,7 +54,7 @@ Other causes of HF include:
 * **O** - **O**ther medications such as NSAIDs and COX-2 inhibitors,
 * **N** - **N**on-compliance to medications
 
-**Key Message #5: Etiology**
+Key Message 5: Etiology
 * The common underlying causes of HF in adults are:
     * Coronary artery disease (CAD) - accounting for almost 60-66% of HF in Malaysia
     * Hypertension
