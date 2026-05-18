@@ -137,9 +137,105 @@ def _extract_evidence_tags(text: str) -> Dict[str, list]:
         lv = re.sub(r'\s+', '', m.group(1).upper())
         if lv not in levels: levels.append(lv)
 
-    for m in re.finditer(r'\*{0,2}\[WHO\s+Class\s+(I{1,3}V?|IV)(?:[-\s]?[A-Z])?\]\*{0,2}', text, re.IGNORECASE):
-        w = m.group(1).upper()
-        if w not in who_classes: who_classes.append(w)
+    # WHO classification — covers two scales that share the "WHO" word:
+    #   * WHO Functional Class (symptom severity; PAH, stroke, etc.)
+    #   * modified-WHO maternal-risk Class (Heart Disease in Pregnancy)
+    # The mWHO scale has FIVE ordinal bands: I, II, II-III, III, IV — the
+    # "II-III" band is its OWN category (between II and III), NOT a II+III
+    # range, so it is emitted as a single token "II-III".
+    #
+    # Forms in the corpus (bracketed and bare prose, incl. OCR garble):
+    #   [WHO Class IV]  ·  (WHO Class IV)  ·  WHO class III & IV
+    #   [WHO Class II-III & III]  ·  NYHA/ WHO Class II-III, III & IV
+    #   [WHO Class I-IV] (PAH range = all FC bands)  ·  WHO-FC II
+    #   WHO functional class I  ·  WHO ClassII  ·  WHO CLASS Il / Ill (OCR L→I)
+    # Numerals: explicit longest-first alternation so "IV"/"III" win over
+    # shorter prefixes. OCR often renders roman "I" as lowercase "l", so the
+    # body is normalised (l/L -> I) immediately after capture.
+    # A trailing severity qualifier such as "III (severe)" is its OWN tier
+    # in the Modified-WHO mortality table (plain III = 1-5%, III (severe) =
+    # 5-15%), so it is preserved as a distinct token "III-severe".
+    _RN = r'(?:IV|III|II|I)'
+    _ORDER = ['I', 'II', 'III', 'IV']
+    # Named group so positional numbering can never collide with groups
+    # inside the body/short-form patterns.
+    _QUAL = r'(?:\s*\(\s*(?P<qual>severe|mild|moderate)\s*\))?'
+
+    def _emit(tokens):
+        for w in tokens:
+            if w and w not in who_classes:
+                who_classes.append(w)
+
+    def _expand_part(part):
+        """A single band expression -> list of canonical band tokens."""
+        rng = re.match(rf'^({_RN})\s*[-–]\s*({_RN})$', part)
+        if rng:
+            a, b = rng.group(1), rng.group(2)
+            if a in _ORDER and b in _ORDER and _ORDER.index(a) < _ORDER.index(b):
+                if a == 'II' and b == 'III':
+                    # mWHO intermediate band — a single category, NOT a
+                    # II+III split. Kept whole as "II-III".
+                    return ['II-III']
+                # Wider range (e.g. PAH "I-IV") = every band spanned.
+                return _ORDER[_ORDER.index(a):_ORDER.index(b) + 1]
+            return [part]
+        if part in _ORDER or part == 'II-III':
+            return [part]
+        return None  # not a recognised band expression
+
+    for m in re.finditer(
+        r'WHO[\s\-]*(?:functional\s+)?(?:class|FC)\s*'
+        r'(?P<body>[IVlL]{1,4}'                         # first band (OCR-safe)
+        r'(?:\s*[-–]\s*[IVlL]{1,4})?'                    # optional "-III" range
+        r'(?:\s*(?:&|,|\band\b)\s*[IVlL]{1,4}'           # connector list...
+        r'(?:\s*[-–]\s*[IVlL]{1,4})?)*'                  # ...each maybe a range
+        rf'){_QUAL}(?![A-Za-z])',                        # optional qualifier
+        text, re.IGNORECASE,
+    ):
+        qual = (m.group('qual') or '').lower()
+        # Normalise OCR lowercase-L -> roman I before parsing.
+        body = m.group('body').replace('l', 'I').replace('L', 'I').upper()
+        # Split on &/comma/"and" into separate band expressions; a bare
+        # hyphen inside a part is a range (e.g. "II-III").
+        parts = [p.strip() for p in re.split(r'\s*(?:&|,|\bAND\b)\s*', body) if p.strip()]
+        for idx, part in enumerate(parts):
+            tokens = _expand_part(part)
+            if tokens is None:
+                continue
+            # The qualifier attaches only to the LAST band in the expression
+            # (e.g. "WHO Class III (severe)" -> "III-severe").
+            if qual and idx == len(parts) - 1 and len(tokens) == 1:
+                tokens = [f'{tokens[0]}-{qual}']
+            _emit(tokens)
+
+    # Short inline form "WHO II" / "WHO III" (no Class/FC word) — only trust
+    # it inside a WHO-classification region, else "WHO" + a stray numeral
+    # would false-match. Anchor = a [WHO Class ...] tag or a "Modified WHO" /
+    # "WHO Class |" table marker anywhere in the chunk. "or" is accepted as a
+    # connector here (e.g. "not considered WHO I or IV").
+    if re.search(r'\[WHO\s+Class|Modified\s+WHO|WHO\s+Class\s*\|', text, re.IGNORECASE):
+        for m in re.finditer(
+            rf'\bWHO\s+(?P<a>{_RN})'
+            rf'(?:\s*(?:[-–]|&|,|\bor\b|\band\b)\s*(?P<b>{_RN}))?'
+            rf'{_QUAL}(?![A-Za-z])',
+            text, re.IGNORECASE,
+        ):
+            a = m.group('a').upper()
+            b = (m.group('b') or '').upper()
+            q = (m.group('qual') or '').lower()
+            sep = m.group(0)
+            if b:
+                # A hyphen/en-dash between numerals = a range; &/,/or/and =
+                # two separate bands.
+                if re.search(r'[-–]\s*' + re.escape(b) + r'\b', sep):
+                    toks = _expand_part(f'{a}-{b}') or [a, b]
+                else:
+                    toks = [a, b]
+            else:
+                toks = [a]
+            if q and len(toks) == 1:
+                toks = [f'{toks[0]}-{q}']
+            _emit(toks)
 
     result = {}
     if grades: result["evidence_grades"] = grades

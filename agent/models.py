@@ -238,7 +238,7 @@ class PatientCase(BaseModel):
     # NEW — structured severity staging dictionary
     severity_staging: Dict[str, str] = Field(
         default_factory=dict,
-        description="Structured staging: NYHA, WHO_FC, CKD_stage, HbA1c, LVEF, eGFR, etc.",
+        description="Structured staging: NYHA, WHO_FC, WHO_pregnancy_class, CKD_stage, HbA1c, LVEF, eGFR, etc.",
     )
     # NEW — optional structured comorbidities (retires Gap D1 deterministic map)
     staged_comorbidities: List[StagedComorbidity] = Field(

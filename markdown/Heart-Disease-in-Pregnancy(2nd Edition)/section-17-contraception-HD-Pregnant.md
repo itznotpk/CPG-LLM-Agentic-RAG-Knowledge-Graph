@@ -1,4 +1,4 @@
-# Section 5: Contraception
+# Section 17: Contraception
 <!-- METADATA
 category: Treatment, Prevention, Special Populations
 use_case: Contraception in Cardiac Disease — contraceptive_method_selection, thrombotic_risk, infective_endocarditis_risk, drug_interactions, emergency_contraception, sterilisation
@@ -18,8 +18,7 @@ When considering contraception in patients with heart disease, the following fac
 - Individual preference
 - Cost
 
-There are many types of contraceptive methods such as: (Table 20: Contraceptive Methods, Appendix N: Safety of Progesterone Only Contraceptive Methods in Women with Cardiac Disease and Appendix O: Risk of Combined Contraceptive Pills for the Different Cardiac Conditions WHOMEC Risk Classification for the Use of Combined Hormonal Contraceptives*)
-
+There are many types of contraceptive methods such as: (Table 20: Contraceptive Methods, Appendix N: Safety of Progesterone Only Contraceptive Methods in Women with Cardiac Disease and Appendix O: Risk of Combined Contraceptive Pills for the Different Cardiac Conditions WHOMEC Risk Classification for the Use of Combined Hormonal Contraceptives*):
 - Combined hormonal contraception
 - Progestogen only contraception
 - Depo provera
@@ -30,7 +29,6 @@ There are many types of contraceptive methods such as: (Table 20: Contraceptive 
 - Barrier methods
 
 Table 20: Contraceptive Methods
-
 | Contraceptive Method | Route of Use/ Administration | Pearl Index* Typical Use** | Pearl Index* Perfect Use | General Considerations |
 |---|---|---|---|---|
 | Combined hormonal contraception | Oral (combined oral contraceptives - COC) | 5 | 0.1 | Contain oestrogen and progestogen; Have high efficacy (PI 0.05); Increased risk of thrombosis; Have non contraceptive benefits; Refer Appendix J: Diagnostic Algorithm for Suspected DVT in Pregnancy*,  for the WHOMEC risk classification for the use of these agents |
@@ -74,7 +72,7 @@ For emergency contraception, the following are available:
 
 In patients with PH and Eisenmenger syndrome who are not on Bosentan, progestin only implants (Nexplanon® previously known as Implanon®) are recommended. This is an effective contraceptive method that is easy and safe to implant.
 
-**Key Messages:**
+Key Messages:
 - Contraception plays a key role in stabilising the maternal heart condition by the prevention of an unwanted pregnancy.
 - A planned pregnancy brings the best outcomes.
 - If pregnancy is contraindicated, then appropriate contraceptive advice is paramount for the safety of the patient.

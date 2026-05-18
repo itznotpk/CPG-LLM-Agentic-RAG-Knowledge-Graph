@@ -11,7 +11,6 @@ The impact of the physiological changes of pregnancy in women with cardiac disea
 These physiological changes are summarized in Table 8: Summary of Hemodynamic Changes During Pregnancy and Figure 1: Physiological Changes in Pregnancy. They may produce a number of changes in the physical findings of normal pregnant women and also in some common cardiac investigations (refer to Table 9: Physical Findings and Changes Seen in Common Cardiac Investigations in Normal Pregnancy).
 
 Table 8: Summary Of Hemodynamic Changes During Pregnancy
-
 | Haemodynamic parameter | Changes during normal pregnancy | Changes during labour and delivery | Changes during postpartum |
 |---|---|---|---|
 | Systemic vascular resistance | Decreases 15-20%; (lowest at 20-24th week) | Increases | Decreases |
@@ -29,7 +28,6 @@ Figure 1: Physiological Changes In Pregnancy
 - **Overall pattern:** All parameters show a sharp return toward baseline values in the post-delivery period.
 
 Table 9: Physical Findings And Changes Seen In Common Cardiac Investigations In Normal Pregnancy
-
 | Investigation | Findings |
 |---|---|
 | Clinical examination | - Peripheral oedema is a common finding; - Pulse rate may be increased; - Pulse may be bounding; - Occasional ectopics are common and are often benign; - Apex beat may be shifted more laterally; - Ejection systolic murmurs and continuous flow murmurs due to mammary souffle and venous hum are common*; - Splitting of the first heart sound is common; - The intensity of the pulmonary second sound (P2) may be accentuated; - Physiological third heart sound may be present; - A fourth heart sound is seldom heard |
@@ -54,7 +52,7 @@ During labour and delivery, haemodynamic fluctuations can be intense. Most of th
 
 The haemodynamic changes return to pre-pregnant levels within 2-4 weeks following vaginal delivery and 4 to 6 weeks following caesarean section.
 
-> **Key Message:** The impact of the physiological changes of pregnancy in women with cardiac disease will vary according to the type and severity of the cardiac lesion.
+The impact of the physiological changes of pregnancy in women with cardiac disease will vary according to the type and severity of the cardiac lesion.
 
 <!-- parent_only_reference_start -->
 Abbreviations

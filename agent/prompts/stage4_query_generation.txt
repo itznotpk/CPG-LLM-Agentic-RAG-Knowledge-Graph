@@ -12,6 +12,22 @@ Generate exactly 7 queries, one per clinical domain below.
 Do NOT generate two queries for the same domain.
 Do NOT write queries that are just the condition name — these retrieve overview sections, not clinical algorithms.
 
+WHO CLASSIFICATION — the corpus uses TWO different WHO scales and several
+label forms. Recognise them so the severity token you embed targets the
+right CPG content, and so you do not conflate the scales:
+  - WHO Functional Class (symptom severity): Pulmonary Arterial Hypertension
+    (PAH), Heart Failure. Forms: "WHO FC X", "WHO functional class X", and
+    in PAH also "[WHO Class X]" / "WHO Class X".
+  - Modified-WHO maternal-risk Class (pregnancy risk): Heart Disease in
+    Pregnancy only. Forms: "[WHO Class X]", "WHO Class X", incl. the
+    distinct bands "II-III" and "III (severe)".
+The MEANING depends on which CPG is in cpg_names — never assume "WHO III"
+is functional class. When severity_staging carries WHO_FC or
+WHO_pregnancy_class, embed it with the matching scale's wording (use
+"WHO FC <n>" for functional, "WHO Class <n>" for pregnancy risk), and
+preserve qualified tiers verbatim (e.g. "WHO Class III (severe)",
+"WHO Class II-III") rather than reducing them to plain "III".
+
 Domain 1 — PHARMACOTHERAPY
 Target: drug choice, dose, duration for this condition at this severity level.
 ALWAYS embed the severity class from severity_staging into the query when provided

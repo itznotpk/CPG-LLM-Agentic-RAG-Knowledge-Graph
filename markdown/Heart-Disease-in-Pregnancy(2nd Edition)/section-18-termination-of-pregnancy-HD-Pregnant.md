@@ -1,4 +1,4 @@
-# Section 6: Termination Of Pregnancy
+# Section 18: Termination Of Pregnancy
 <!-- METADATA
 category: Treatment, Prevention, Special Populations
 use_case: Termination of Pregnancy in Cardiac Disease — TOP_counselling, high_risk_cardiac_patient, IE_prophylaxis, procedure_selection, prostaglandin_safety, post_TOP_contraception
@@ -8,12 +8,7 @@ critical: true
 treatment_type: ampicillin, gentamycin, vancomycin, prostaglandin_E1, prostaglandin_E2, norepinephrine
 -->
 
-The request for termination of pregnancy (TOP) may be made by;
-
-- The patient herself
-- The family
-- The attending cardiologist/physician
-- The obstetrician
+The request for termination of pregnancy (TOP) may be made by: patient herself, family, the attending cardiologist/physician or the obstetrician.
 
 Each of these requests must be based on the merits of the individual case within the provision of the law. It will depend upon:
 - Patient's current cardiac status
@@ -44,7 +39,7 @@ The session has to address issues such as:
 For every patient the method and the need for anaesthesia should be individualised.
 
 - [Grade I, Level C] High risk patients should be managed in a centre equipped to handle complications including cardiac surgery.
-- [Grade I, Level C] Prophylaxis against IE is advised in high risk patients. (section 4.10: Infective Endocarditis in Pregnancy) <!-- cross_ref target_file="section-4-10-infective-endocarditis-HD-Pregnant.md" target_heading="4.10: Infective Endocarditis In Pregnancy" target_kind="h2_section" -->
+- [Grade I, Level C] Prophylaxis against IE is advised in high risk patients. (Section 13: Management Of Infective Endocarditis In Pregnancy) <!-- cross_ref target_file="section-13-infective-endocarditis-HD-Pregnant.md" target_heading="Section 13: Management Of Infective Endocarditis In Pregnancy" target_kind="h1_section" -->
 - [Grade I, Level C] Dilatation and evacuation is the safest procedure in both the first and second trimesters.
 - [Grade II-a, Level C] When surgical evacuation is not feasible in the second trimester, prostaglandins E1 or E2, can be administered to evacuate the uterus. These drugs are absorbed into the systemic circulation and can lower systemic vascular resistance and BP, and increase heart rate, effects that are greater with E2 than with E1.
   - With prostaglandin E compounds, systemic arterial oxygen saturation should be monitored with a transcutaneous pulse oximeter and norepinephrine infused at a rate that supports the DBP.
@@ -52,9 +47,7 @@ For every patient the method and the need for anaesthesia should be individualis
 - [Grade III, Level C] Saline abortion should be avoided because saline absorption can cause expansion of the intravascular volume, heart failure, and clotting abnormalities.
 - It must be borne in mind that despite the TOP the maternal cardiac risks may persist until haemodynamic changes normalise.
 
-For more details, please refer to Ministry of Health, TOP guidelines 2012.
-
-**Key Messages:**
+Key Messages:
 - Whenever TOP is being considered a detailed counselling session is a prerequisite.
 - Despite the TOP, maternal cardiac risks may persist until haemodynamic changes normalise.
 

@@ -252,7 +252,9 @@ Adapted from: Ministry Of Health, Perinatal Care Manual 3rd Ed. 2013
 Frequency of follow up at the specialist centre will depend on the maternal risk, baseline cardiovascular and functional status, progression of the pregnancy, onset of symptoms & potential complications. (refer to Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV)) Policies of the respective centres, patient socioeconomic & geographical factors and patient preferences should also be considered.
 
 ### 3.5.2: General Pregnancy Care Plan
-#### 3.5.2.1: Antepartum Care
+The general pregnancy care plan spans three phases — antepartum, intrapartum and postpartum care — each with specific objectives and monitoring requirements detailed below.
+
+### 3.5.3: Antepartum Care (General Pregnancy Care Plan)
 The aims of antepartum care are:
 - to assess and risk stratify the maternal cardiovascular status
 - to offer termination of pregnancy if indicated
@@ -283,7 +285,7 @@ Once pregnancy is confirmed:
   - Fetal echocardiogram is advisable in women with CHD
 - Iron and folic acid supplements should be prescribed to all patients.
 - Correct anaemia if present.
-- For anticoagulation in pregnancy, refer to section 4.9: Anticoagulation in Pregnancy. <!-- cross_ref target_file="section-4-9-anticoagulation-HD-Pregnant.md" target_heading="Section 4.9: Anticoagulation In Pregnancy" target_kind="h1_section" -->
+- For anticoagulation in pregnancy, refer to Section 12: Management Of Anticoagulation In Pregnancy. <!-- cross_ref target_file="section-12-anticoagulation-HD-Pregnant.md" target_heading="Section 12: Management Of Anticoagulation In Pregnancy" target_kind="h1_section" -->
 - Admission and rest may be required in patients with NYHA/ WHO Class II-III, III & IV.
 - Correct factors that may contribute to cardiac decompensation e.g. infection, arrhythmias and hypertension.
 - Depending on the severity of the cardiac condition, the women may need to be seen at closer intervals. (refer to Tables 3: Maternal Cardiovascular Risk assessment and Level of Care*, Table 4: Antenatal Visits Depending on Maternal Cardiovascular Risk (WHO & NYHA I & II) and Table 5: Antenatal Visits Depending on Maternal Cardiovascular risk (WHO & NYHA III & IV))
@@ -303,7 +305,7 @@ Once pregnancy is confirmed:
   *Caution: there is a 1-5% risk of uterine hyperstimulation.*
 - [Grade II-b, Level B] In patients with cyanosis, PGE2 should be used with caution due to the risk of hypotension.
 
-#### 3.5.2.2: Intrapartum Care
+### 3.5.4: Intrapartum Care (General Pregnancy Care Plan)
 [Grade I, Level C] Management should be an obstetrician led care.
 - Monitoring includes:
   - Haemodynamic cardiac monitor - ECG, pulse and non-invasive BP monitoring
@@ -344,9 +346,9 @@ During vaginal delivery:
 - In the 2nd stage of labour, active pushing should be limited as this can cause haemodynamic instability in some women. The 2nd stage should be shortened by assisted delivery to avoid excessive maternal effort.
 - [Grade III, Level C] Syntometrine is contraindicated in women with cardiac disease.
 - Consider central access or arterial monitoring in PPH.
-- For antibiotic prophylaxis against infective endocarditis in high risk patients see section 4.10.3: Prophylaxis. <!-- cross_ref target_file="section-4-10-infective-endocarditis-HD-Pregnant.md" target_heading="4.10.3: Prophylaxis" target_kind="h2_section" -->
+- For antibiotic prophylaxis against infective endocarditis in high risk patients see Section 13.3: Prophylaxis. <!-- cross_ref target_file="section-13-infective-endocarditis-HD-Pregnant.md" target_heading="13.3: Prophylaxis" target_kind="h2_section" -->
 
-#### 3.5.2.3: Postpartum Care
+### 3.5.5: Postpartum Care (General Pregnancy Care Plan)
 - [Grade I, Level C] During the first few days of the puerperium, the patient needs to be monitored in the HDU/ICU/CCU managed by a team of obstetrician, anaesthetist and/or cardiologist/physician.
 - Significant haemodynamic changes and fluid shifts occur in the first 24-72 hours and cardiac failure may occur.
 - The following should be monitored to detect signs of fluid overload:
@@ -355,7 +357,7 @@ During vaginal delivery:
   - input-output charts
 - The postpartum obstetric review should be individualised.
 - [Grade I, Level C] Medication should be recommenced as indicated with breastfeeding safety profile considered.
-- [Grade I, Level C] Patients at risk of thromboembolism should be identified and managed appropriately with: (refer to section 4.13: Venous Thromboembolism in Pregnancy) <!-- cross_ref target_file="section-4-13-venous-thromboembolism-HD-Pregnant.md" target_heading="Section 4.13: Venous Thromboembolism" target_kind="h1_section" -->
+- [Grade I, Level C] Patients at risk of thromboembolism should be identified and managed appropriately with: (refer to Section 16: Management Of Venous Thromboembolism In Pregnancy) <!-- cross_ref target_file="section-16-venous-thromboembolism-HD-Pregnant.md" target_heading="Section 16: Management Of Venous Thromboembolism In Pregnancy" target_kind="h1_section" -->
   - early ambulation
   - the use of anti-embolism stockings - these may be of limited use however, since pelvic veins are a more common site of deep vein thrombosis in pregnant patients.
   - the use of Low Molecular Weight Heparin for thrombophylaxis where indicated.
@@ -366,7 +368,7 @@ During vaginal delivery:
 - A cardiac review/follow-up appointment should be given at 6 weeks postpartum. Following this, the patient can return to her usual cardiac follow-up. High Risk patients need to be seen earlier.
 - [Grade I, Level C] Reiterate the need for preconception assessment and counselling.
 
-Key Message: Refer to flowcharts on antepartum, intrapartum and postpartum care. (refer to Section 0: Flowchart) <!-- cross_ref target_file="Section 4.13: Venous Thromboembolism" target_heading="Section 0: Flowchart" target_kind="h1_section" -->
+Key Message: Refer to flowcharts on antepartum, intrapartum and postpartum care. (refer to Section 0: Flowchart) <!-- cross_ref target_file="section-0-flowcharts-HD-Pregnant.md" target_heading="Section 0: Flowchart" target_kind="h1_section" -->
 
 ## 3.6: Intervention And Surgery In Pregnancy
 ### 3.6.1: Percutaneous Therapy
@@ -508,7 +510,6 @@ Table 1a: Maternal Mortality Risk Based On Modified WHO Classification
 | III | 1-5% |
 | III (severe) | 5-15% |
 | IV | 25-50% |
-
 
 Table 1b: Modified World Health Organization Maternal Cardiovascular Risk Assessment
 **[WHO Class I]** No Increase or a Mild Increase in Morbidity:
@@ -826,7 +827,7 @@ This care plan should be widely disseminated and there should be close communica
   - Genetic karyotyping, if indicated
   - Fetal anomaly scan at 18-22 weeks
   - Women with CHD - offer fetal echocardiogram at 18-22 weeks
-- Appropriate anticoagulation (refer to Section 4.9: Anticoagulation in Pregnancy) or cardiovascular medication(s). <!-- cross_ref target_file="section-4-9-anticoagulation-HD-Pregnant.md" target_heading="Section 4.9: Anticoagulation In Pregnancy" target_kind="h1_section" -->
+- Appropriate anticoagulation (refer to Section 12: Management Of Anticoagulation In Pregnancy) or cardiovascular medication(s). <!-- cross_ref target_file="section-12-anticoagulation-HD-Pregnant.md" target_heading="Section 12: Management Of Anticoagulation In Pregnancy" target_kind="h1_section" -->
 - Correct factors that may contribute to cardiac decompensation, e.g. infection, anaemia, arrhythmias and hypertension.
 
 Grades Of Recommendation And Levels Of Evidence

@@ -1,4 +1,4 @@
-# Section 7: Implementation The Guidelines, Resource Implication And Performance Measures
+# Section 19: Implementation The Guidelines, Resource Implication And Performance Measures
 <!-- METADATA
 category: Methodology, Reference
 use_case: Guideline Implementation and Performance Measures — resource_implication, training, referral_linkage, documentation_audit, maternal_mortality_reduction
@@ -22,9 +22,7 @@ The performance measures for this CPG will be the confidential report of materna
 The aim of the CPG is to reduce maternal cardiac deaths by 50% by 2020.
 
 Other Performance measures are:
-
 Percentage of pregnant cardiac patients who have documentation in their medical record of all of the following:
-
 | Performance Measure | Yes | No | Target to Achieve in 3-5 Years |
 |---|---|---|---|
 | Preconception counselling given | | | > 70% |
@@ -38,7 +36,6 @@ Percentage of pregnant cardiac patients who have documentation in their medical 
 | Discharge summary provided to all caregivers and patient | | | > 95% |
 
 Table 6: Specialist Referral And Pregnancy Care Plan
-
 | Maternal Risk | Timing of Specialist Referral | Special Considerations |
 |---|---|---|
 | All women with known cardiac disease | Preconception | Needs detailed assessment to determine the maternal cardiovascular risk. |
@@ -47,11 +44,10 @@ Table 6: Specialist Referral And Pregnancy Care Plan
 | Women &/ spouses with congenital heart disease (CHD) and/or family history of CHD | Preconception referral to obstetrician/ maternal fetal medicine (MFM) specialist recommended.<br>If pregnant, early referral to MFM recommended. | To determine risk of CHD in the fetus of parents with CHD. (section 3.2.1: Genetic counselling) |
 | Women &/ spouses and/or family history of genetic diseases with cardiac lesions | Preconception referral to MFM/ geneticist recommended.<br>If pregnant, early referral to MFM. | To determine risk of disease transmission to the fetus. (section 3.2: Preconception and genetic counselling) |
 | **Fetuses with critical CHD*/ major congenital anomalies** | Once diagnosis has been made, to refer to a tertiary centre with the appropriate expertise.<br>(e.g. Paediatric cardiologist, paediatric surgeon with expertise in congenital malformations, neonatal intensive care with expertise to manage very low birth weight and severe prematurity). | Once diagnosis made, a tailored pregnancy care plan (pg. 29) by a multidisciplinary team. |
- <!-- cross_ref target_file="section-3--general-principles-HD-Pregnant.md" target_heading="3.2.1: Genetic Counselling" target_kind="h3_section" --> 
-  <!-- cross_ref target_file="section-3--general-principles-HD-Pregnant.md" target_heading="3.2: Preconception And Genetic Counselling" target_kind="h2_section" -->
+ <!-- cross_ref target_file="section-3-general-principles-HD-Pregnant.md" target_heading="3.2.1: Genetic Counselling" target_kind="h3_section" --> 
+  <!-- cross_ref target_file="section-3-general-principles-HD-Pregnant.md" target_heading="3.2: Preconception And Genetic Counselling" target_kind="h2_section" -->
 
 *Critical congenital heart disease/defects (CCHD) are serious congenital heart defects that present with symptoms soon after birth and need early intervention. They are usually duct dependant lesions and may have hypoxaemia. (E.g. coarctation of aorta, transposition of the great arteries, hypoplastic left heart syndrome, pulmonary atresia with intact ventricular septum)
-*Definition from: Frank LH, Bradshaw E, Beekman R, Mahle WT, Martin GR. Critical congenital heart disease screening using pulse oximetry. Journal of Pediatrics. 2013; 162(3): 445-453*
 
 <!-- parent_only_reference_start -->
 Abbreviations

@@ -1,4 +1,4 @@
-# Section 4.13: Venous Thromboembolism
+# Section 16: Management Of Venous Thromboembolism In Pregnancy
 <!-- METADATA
 category: Diagnosis, Assessment, Treatment, Prevention, Special Populations
 use_case: Venous Thromboembolism in Pregnancy — VTE_risk_assessment, DVT_diagnosis, PE_diagnosis, anticoagulation, thromboprophylaxis, postpartum_management
@@ -8,7 +8,7 @@ critical: true
 treatment_type: low_molecular_weight_heparin, unfractionated_heparin, warfarin, fondaparinux, thrombolysis, enoxaparin, tinzaparin
 -->
 
-## 4.13: Venous Thromboembolism In Pregnancy
+## 16.0: Ovierview of VTE in Pregnancy
 Venous thromboembolism (VTE) occurs in 1 in 500 to 1 in 2000 pregnancies. This is about 4-5 times higher than in the non-pregnant state. In women with previous VTE, the recurrence rate per 100 patient-years could be as high as 11%. It was one of the leading direct causes of maternal deaths in Malaysia for the year 2008.
 
 The 2 manifestations of VTE are deep venous thrombosis (DVT) and pulmonary embolism (PE). The sequelae of VTE are pulmonary hypertension, post-thrombotic syndrome and venous insufficiency.
@@ -36,10 +36,10 @@ Cardiac patients who are at higher risk of VTE include those with:
 - Eisenmenger Syndrome and other forms of cyanotic heart disease
 - Heart failure who are sedentary and lying in bed most of the time
 
-### 4.13.1: Diagnosis
+## 16.1: Diagnosis
 The clinical diagnosis of VTE and PE is sometimes difficult in pregnancy because the symptoms and signs may be vague and non-specific. The diagnostic algorithms for VTE and PE in pregnancy are in Appendix J: Diagnostic Algorithm for Suspected DVT in Pregnancy* and Appendix K: Diagnostic Algorithm for Suspected PE in Pregnancy*.
 
-### 4.13.2: Treatment Of VTE
+## 16.2: Treatment Of VTE
 [Grade I, Level C] Where the diagnosis is strongly suspected, (especially in the case of PE) empiric anticoagulation is recommended (unless contraindicated for other reasons) prior to the diagnostic evaluation. In patients with low or intermediate suspicion for PE or DVT, anticoagulation may be delayed till the diagnosis is confirmed.
 
 In the treatment of DVT:
@@ -60,23 +60,21 @@ Prior to delivery, there are several management options:
 
 [Grade II-a, Level C] Following delivery LMWH or UFH can be restarted 4-6 hours after vaginal delivery and 6-12 hours after LSCS if there are no bleeding complications. Oral anticoagulation can be resumed after 24 hours if there are no bleeding concerns.
 
-### 4.13.3: Treatment Of Pulmonary Embolism
+## 16.3: Treatment Of Pulmonary Embolism
 Patients presenting with massive PE require urgent cardiorespiratory resuscitation. They may be treated by:
 - Initial thrombolysis
 - Percutaneous catheter directed embolectomy devices
 
 This is then followed up with LMWH and then warfarin post-delivery for a total duration of treatment of about 6 months.
 
-### 4.13.4: Prevention Of VTE
+## 16.4: Prevention Of VTE
 [Grade I, Level C] All women should undergo an assessment of risk factors for VTE in:
 - Early pregnancy or before pregnancy and
 - Intrapartum or immediately postpartum
 
 [Grade I, Level C] This assessment should be repeated if the woman is admitted to the hospital for any reason or develops other intercurrent problems during the antenatal and postpartum period. (Appendix L: Antenatal Risk Assessment and Indications for Antenatal Thrombophylaxis* and Appendix M: Postnatal Risk Assessment and Indications for Postnatal Thrombophylaxis*) They should be offered thromboprophylaxis with LMWH where appropriate.
 
-## Contextual Anchors (Overlapping)
 Table 19: Dosing* Of Subcutaneous Lmwh For The Treatment And Thromboprophylaxis Of VTE In Pregnancy
-
 | Agent | < 50 kg | 50-69 kg | 70-90 kg | > 90 kg |
 |---|---|---|---|---|
 | Thromboprophylactic Dose** - Enoxaparin | 20 mg daily | 40 mg daily | 40 mg daily | 40 mg daily |
@@ -86,11 +84,9 @@ Table 19: Dosing* Of Subcutaneous Lmwh For The Treatment And Thromboprophylaxis 
 
 *Doses should be reduced in renal impairment*
 **RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the Puerperium. Green-top Guideline No. 37a April 2015*
-***Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
 
----
-
-### Appendix I: Risk Factors For VTE In Pregnancy
+<!-- parent_only_reference_start -->
+Appendix I: Risk Factors For VTE In Pregnancy
 | Risk factor category | Risk factor | Details |
 |---|---|---|
 | Pre-existing | Previous VTE |  |
@@ -114,21 +110,18 @@ Table 19: Dosing* Of Subcutaneous Lmwh For The Treatment And Thromboprophylaxis 
 
 *These risk factors are potentially reversible and may develop at later stages in gestation than the initial risk assessment or may resolve and therefore what is important is an ongoing individual risk assessment.*
 
-From: RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the Puerperium. Green-top Guideline No. 37a April 2015
-
-### Appendix J: Diagnostic Algorithm For Suspected DVT In Pregnancy*
-
-### Initial Assessment
+Appendix J: Diagnostic Algorithm For Suspected DVT In Pregnancy*
+Initial Assessment:
 Start with **clinical suspicion of DVT in pregnancy**.
 
-### First-Line Investigation
+First-Line Investigation:
 Perform **CUS**.
 
-### If Cus Is Positive
+If CUS Is Positive:
 - Diagnose DVT.
 - Treat DVT.
 
-### If Cus Is Negative
+If Cus Is Negative:
 Assess whether **DVT is still likely or iliac vein thrombosis is suspected**.
 
 If **No**:
@@ -137,7 +130,7 @@ If **No**:
 If **Yes**:
 - Repeat CUS in 1 week or perform MRV.
 
-### Repeat Cus Or Mrv Result
+Repeat Cus Or Mrv Result:
 If repeat CUS or MRV is **positive**:
 - Diagnose DVT.
 - Treat DVT.
@@ -147,24 +140,21 @@ If repeat CUS or MRV is **negative**:
 
 CUS: Compression Ultrasonography; DVT: Deep Vein Thrombosis MRV: Magnetic Resonance Venography
 
-*Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
-
-### Appendix K: Diagnostic Algorithm For Suspected PE In Pregnancy*
-
-### Initial Assessment
+Appendix K: Diagnostic Algorithm For Suspected PE In Pregnancy*
+Initial Assessment:
 Start with **clinical suspicion of PE in pregnancy**.
 
-### First-Line Investigation
+First-Line Investigation:
 Perform **CTPA or V/Q scan**.
 
-### If Ctpa Or V/Q Scan Is Positive
+If CTPA Or V/Q Scan Is Positive:
 - Diagnose PE.
 - Treat PE.
 
-### If Ctpa Or V/Q Scan Is Negative
+If Ctpa Or V/Q Scan Is Negative:
 Perform **CUS**.
 
-### Cus Result
+Cus Result:
 If CUS is **positive**:
 - Diagnose PE.
 - Treat PE.
@@ -174,9 +164,7 @@ If CUS is **negative**:
 
 CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiography; V/Q Scan: Ventilation/Perfusion Scan
 
-*Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
-
-### Appendix L: Antenatal Risk Assessment And Indications For Antenatal Thrombophylaxis*
+Appendix L: Antenatal Risk Assessment And Indications For Antenatal Thrombophylaxis*
 | Risk Factors | Requirements | Management | When to Initiate Treatment |
 |---|---|---|---|
 | High Risk |  |  |  |
@@ -192,12 +180,7 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
   - Anti-phospholipid syndrome with previous VTE
 - These very high risk patients require therapeutic dose of LMWH antenatally and at least 6 weeks postnatal LMWH or until switched back to oral anticoagulant therapy
 
-*Adapted from:*
-
-- Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013
-- RCOG. Reducing the Risk of Venous Thromboembolism during Pregnancy and the Puerperium. Green-top Guideline No. 37a April 2015
-
-### Appendix M: Postnatal Risk Assessment And Indications For Postnatal Thrombophylaxis*
+Appendix M: Postnatal Risk Assessment And Indications For Postnatal Thrombophylaxis*
 | Risk Factors | Requirements | Management |
 |---|---|---|
 | High Risk |  |  |
@@ -207,11 +190,7 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 | - Age > 35 years<br>- Obesity BMI > 30 kg/m²<br>- Parity ≥ 3<br>- Smoker<br>- Elective caesarean section<br>- Any surgical procedure in the puerperium<br>- Gross varicose veins<br>- Current systemic infection<br>- Immobility e.g. paraplegia, long haul travel > 4 hours<br>- Preeclampsia<br>- Midcavity rotational operative delivery<br>- Prolonged labour > 24 hours<br>- Assisted reproductive treatment<br>- Postpartum hemorrhage > 1 litre or blood transfusion | Any ≥ 2 Risk Factors | - At least 7 days postnatal prophylactic LMWH<br>- If persisting or > 3 risk factors, consider extending thromboprophylaxis with LMWH |
 | - Age > 35 years<br>- Obesity BMI > 30 kg/m²<br>- Parity ≥ 3<br>- Smoker<br>- Elective caesarean section<br>- Any surgical procedure in the puerperium<br>- Gross varicose veins<br>- Current systemic infection<br>- Immobility e.g. paraplegia, long haul travel > 4 hours<br>- Preeclampsia<br>- Midcavity rotational operative delivery<br>- Prolonged labour > 24 hours<br>- Assisted reproductive treatment<br>- Postpartum hemorrhage > 1 litre or blood transfusion | Any ≤ 2 Risk Factors or less (not admitted into hospital) | - Mobilisation<br>- Avoid dehydration |
 
-*Adapted from Ministry of Health Malaysia. Clinical Practice Guidelines. Prevention and Treatment of Venous thromboembolism. 2013*
-
-## Grades Of Recommendation And Level Of Evidence
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -220,14 +199,14 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviations
 | Abbreviation | Description |
 |---|---|
 | anti-Xa | Anti-factor Xa activity |
@@ -252,3 +231,4 @@ CUS: Compression Ultrasonography; CTPA: Computed Tomography Pulmonary Angiograph
 | UFH | Unfractionated heparin |
 | V/Q | Ventilation/perfusion |
 | VTE | Venous thromboembolism |
+<!-- parent_only_reference_end -->

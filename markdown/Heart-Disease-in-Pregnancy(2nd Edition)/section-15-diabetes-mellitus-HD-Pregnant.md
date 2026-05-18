@@ -1,4 +1,4 @@
-# Section 4: .12: Diabetes Mellitus
+# Section 15: Management Of Diabetes Mellitus In Pregnancy
 <!-- METADATA
 category: Screening, Diagnosis, Treatment, Prevention, Special Populations
 use_case: Diabetes Mellitus in Pregnancy — preconception_glycaemic_control, GDM_screening, OGTT, blood_glucose_targets, postpartum_diabetes_screening
@@ -7,27 +7,25 @@ output: preconception_diabetes_plan, medication_substitution_plan, screening_pla
 treatment_type: insulin, methyldopa, labetalol, nifedipine
 -->
 
-## 4.12: Diabetes Mellitus In Pregnancy
 Pregnant patient with diabetes may have:
 - diabetes prior to conception
 - gestational diabetes (GDM) - defined as any degree of glucose intolerance which is first recognised during pregnancy, whether or not the condition persisted after pregnancy.
-
 This topic is covered in depth in the Malaysian CPG Management of Diabetes Mellitus 2015, 5th Ed.
 
-### 4.12.1: Preconception Counselling
+## 15.1: Preconception Counselling
 - [Grade I, Level C] Women with diabetes who receive preconception counselling have better preconception glycaemic control and are more likely to have favourable pregnancy outcomes.
 - Pregnancy has to be planned and to occur only when the woman has a good glycaemic control, has had appropriate assessment and management of comorbidities and diabetic complications (such as retinopathy and nephropathy).
 
 - [Grade I, Level B] Keep the A1c as normal as possible - preferably < 6.5%.
 - Weight reduction in those obese and overweight.
 - The BP control should be < 130/80 mmHg.
-- Medications that are unsafe in pregnancy - statins, ACE-I, ARB - should be withdrawn. Anti-hypertensives that are safe in pregnancy (section 4.11: Hypertension in Pregnancy) should be substituted.
+- Medications that are unsafe in pregnancy - statins, ACE-I, ARB - should be withdrawn. Anti-hypertensives that are safe in pregnancy (Section 14: Management Of Hypertension In Pregnancy) should be substituted.
 - Insulin therapy should be considered if the blood glucose targets are not met 1-2 weeks after introducing changes to diet and initiating exercise.
 
 - [Grade I, Level B] Women on oral hypoglycaemic can be switched to insulin for a better glycaemic control before planning pregnancy.
 - Insulin treated women should be on multiple daily doses (basal-bolus) of insulin.
 
-### 4.12.2: Antepartum
+## 15.2: Antepartum
 - Women who are at risk, should be screened for GDM at booking (Table 17: Diagnostic Criteria for Overt Diabetes and GDM by OGTT at 24 to 28 Weeks Gestation*).
 - "Universal screening" for GDM is being advocated for all other pregnant women at 24-28 weeks.
 
@@ -35,51 +33,27 @@ This topic is covered in depth in the Malaysian CPG Management of Diabetes Melli
 - A repeat OGTT, 4-6 weeks later, should be performed in those whose initial OGTT results are normal.
 - The blood glucose targets in pregnancy are in Table 18: Blood Glucose Targets in Pregnancy. The treatment targets are lower than those used for diagnosis of GDM.
 
-### 4.12.3: Postpartum
+## 15.3: Postpartum
 - Insulin requirement drops immediately after delivery by 60-75%.
 - If glycaemic control is inadequate with diet therapy alone, consider appropriate therapy.
 - Those whose blood sugar normalised immediately after delivery should have a modified OGTT performed 6 weeks later.
-
 - [Grade I, Level C] Women with a history of GDM should have annual screening for diabetes.
 
-## Key Messages:
+Key Message:
 - Women at risk should be screened for GDM.
 - Women with a history of GDM should have annual screening for diabetes.
 
-## Contextual Anchors (Overlapping)
-Table 15: Oral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
-
-| Drug | Mode of Action | Daily Dosage (mg/day) | Max. Dosage (mg/day) | Half-life T1/2 (hours) | Adverse Effects |
-|---|---|---|---|---|---|
-| Methyldopa | Centrally-acting (false transmitter precursor) | 250-1000 mg in 2-3 divided doses | 3000 | 1.8 | Depression, drowsiness, lupus-like syndrome, blood dyscrasias, liver dysfunction |
-| Labetolol | alpha & beta-blocker | 200-800 mg in 2-3 divided doses | 2400 | 4 | Complete heart block, pulmonary oedema, bronchoconstriction |
-| Nifedipine** (extended release) | Ca-channel blocker | 30-60 mg daily | 120 |  | Headaches, flushing |
-
-*Adapted from:
-- Training Manual on Hypertensives Disorders in Pregnancy, 2014, Division of Family Health Division, Ministry of Health, Malaysia.*
-- Hypertensive Disorders in Pregnancy. Guideline Summary. New York State Department of Health, May 2013.
-
-**Short acting nifedipine is not recommended for maintenance therapy due to the risk of hypotension.
-
 Table 17: Diagnostic Criteria For Overt Diabetes And Gdm By Ogtt At 24 To 28 Weeks Gestation*
-
 | Diagnosis | FBG (mmol/L) | 2 Hour Value (mmol/L) |
 |---|---|---|
 | GDM | ≥ 5.1 | ≥ 7.8 |
 
-*From the International Federation of Gynecology and Obstetrics (FIGO) Initiative on gestational diabetes mellitus: A pragmatic guide for diagnosis, management, and care. Int J Gynaecol and Obstet 2015: 131 (Suppl 3): S173-211*
-
----
-
 Table 18: Blood Glucose Targets In Pregnancy
-
 |  | Target Value (mmol/L) |
 |---|---|
 | Pre-prandial blood glucose | ≤ 5.3 |
 | 1 hour after the start of a meal | ≤ 7.8 |
 | 2 hours after the start of a meal | ≤ 6.7 |
-
----
 
 <!-- parent_only_reference_start -->
 Grades Of Recommendation

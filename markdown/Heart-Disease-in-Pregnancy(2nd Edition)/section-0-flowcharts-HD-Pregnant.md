@@ -114,7 +114,7 @@ This care plan should be widely disseminated and there should be close communica
   - Genetic karyotyping, if indicated
   - Fetal anomaly scan at 18-22 weeks
   - Women with CHD - offer fetal echocardiogram at 18-22 weeks
-- Appropriate anticoagulation (refer to Section 4.9: Anticoagulation in Pregnancy) or cardiovascular medication(s).
+- Appropriate anticoagulation (refer to Section 12: Management Of Anticoagulation In Pregnancy) or cardiovascular medication(s). <!-- cross_ref target_file="section-12-anticoagulation-HD-Pregnant.md" target_heading="Section 12: Management Of Anticoagulation In Pregnancy" target_kind="h1_section" -->
 - Correct factors that may contribute to cardiac decompensation, e.g. infection, anaemia, arrhythmias and hypertension.
 
 ## Flowchart 3: Intrapartum And Early (< 24 Hours) Postpartum Care Plan
@@ -155,7 +155,7 @@ This care plan should be widely disseminated and there should be close communica
 - Prolonged and difficult labour should be avoided.
 - The lateral decubitus position to avoid aortacaval compression is the preferred position in labour.
 - Epidural analgesia is the analgesia of choice in labour. This should be done with a low dose of local anaesthetic with increments given very slowly to avoid acute hypotension.
-- Antibiotic prophylaxis in high risk patients *(refer to Section 4.10.3: Antibiotic Prophylaxis)*.
+- Antibiotic prophylaxis in high risk patients *(refer to Section 13.3: Prophylaxis)*.<!-- cross_ref target_file="section-13-infective-endocarditis-HD-Pregnant.md" target_heading="13.3: Prophylaxis" target_kind="h2_section" -->
 - Paediatric team to be present during delivery.
 
 ## Flowchart 4: Postpartum Care Plan

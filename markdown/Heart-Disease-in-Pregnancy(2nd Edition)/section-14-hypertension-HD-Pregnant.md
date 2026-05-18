@@ -1,4 +1,4 @@
-# Section 4: .11: Hypertension In Pregnancy
+# Section 14: Management Of Hypertension In Pregnancy
 <!-- METADATA
 category: Diagnosis, Assessment, Treatment, Prevention, Special Populations
 use_case: Hypertension in Pregnancy — HDP_classification, preeclampsia_definition, aspirin_prevention, antihypertensive_selection, hypertensive_crisis, postpartum_care
@@ -8,13 +8,8 @@ critical: true
 treatment_type: aspirin, calcium, methyldopa, labetalol, nifedipine, hydralazine, nitroglycerine, nicardipine, sodium_nitroprusside, enalapril, captopril
 -->
 
-## 4.11: Hypertension In Pregnancy
-
-### 4.11.1: Definition
-Definition of Hypertension:
-
-Hypertension in pregnancy is defined as:
-- BP of ≥ 140/ ≥ 90 mmHg taken after a period of rest on two occasions.
+## 14.1: Definition of Hypertension
+Hypertension in pregnancy is defined as: BP of ≥ 140/ ≥ 90 mmHg taken after a period of rest on two occasions.
 
 A rise of systolic blood pressure (SBP) of 30 mmHg and/or a rise in diastolic blood pressure (DBP) of 15 mmHg compared to pre-pregnancy levels should raise concerns for careful follow-up.
 
@@ -49,7 +44,6 @@ Recently the International Society for Study of Hypertension in Pregnancy (ISSHP
    - Thus increased surveillance using home BP measurements or BP checked by a healthcare personnel other than the doctor.
 
 The revised definition of preeclampsia is as follows:
-
 Hypertension developing after 20 weeks gestation and the coexistence of one or more of the following new onset conditions:
 1. Proteinuria
 2. Other maternal organ dysfunction:
@@ -59,7 +53,7 @@ Hypertension developing after 20 weeks gestation and the coexistence of one or m
    - haematological complications (thrombocytopenia, DIC, haemolysis)
 3. Uteroplacental dysfunction fetal growth restriction
 
-### 4.11.2: Antepartum Care
+## 14.2: Antepartum Care
 For a detailed account please refer to the Training Manual on Hypertensive Disorders in Pregnancy, 2014 produced by the Family Health Division, Ministry of Health, Malaysia.
 
 [Grade I, Level A] Pregnant women who are at increased risk of pre-eclampsia should be offered aspirin 75 mg daily from 12 weeks gestation till delivery. Women are at increased risk of pre-eclampsia if they have 1 high risk factor or ≥ 1 moderate risk factor.
@@ -103,12 +97,12 @@ Acute onset severe hypertension (systolic BP ≥ 160 mmHg and diastolic BP ≥ 1
 
 In these patients, the goal is not to normalise the BP, but to achieve a range of 140-150/90-100 mmHg.
 
-### 4.11.3: Labour And Delivery
+## 14.3: Labour And Delivery
 [Grade I, Level B] Women with chronic hypertension, gestational hypertension or white-coat hypertension should be delivered no later than 40 weeks and earlier if there is inability to control maternal blood pressure or if pre-eclampsia develops.
 
 [Grade I, Level B] Women with pre-eclampsia > 37 weeks gestation should be delivered.
 
-### 4.11.4: Postpartum Care
+## 14.4: Postpartum Care
 Following delivery:
 - Continue the same antenatal anti-hypertensive medications.
 - Methyldopa should be stopped within 2 days following delivery to avoid the risk of depression.
@@ -133,15 +127,14 @@ The safety of the following drugs has not as yet been established during breast 
 
 [Grade II-a, Level C] Diuretic therapy for the treatment of hypertension should be avoided during breast feeding and milk expression.
 
-## Key Messages:
+Key Message:
 - Hypertension in pregnancy is defined as BP of ≥ 140/ ≥ 90 mmHg taken after a period of rest on two occasions.
 - The aim is to keep the Systolic BP < 150 mmHg and the diastolic BP 80-100 mmHg.
 - The definition of preeclampsia has been revised in the latest International Society for Study of Hypertension in Pregnancy (ISSHP) 2014.
 - Women with pre-eclampsia > 37 weeks gestation should be delivered.
 
-## Contextual Anchors (Overlapping)
+<!-- parent_only_reference_start -->
 Table 15: Oral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
-
 | Drug | Mode of Action | Daily Dosage (mg/day) | Max. Dosage (mg/day) | Half-life T1/2 (hours) | Adverse Effects |
 |---|---|---|---|---|---|
 | Methyldopa | Centrally-acting (false transmitter precursor) | 250-1000 mg in 2-3 divided doses | 3000 | 1.8 | Depression, drowsiness, lupus-like syndrome, blood dyscrasias, liver dysfunction |
@@ -151,11 +144,9 @@ Table 15: Oral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 *Adapted from:
 - Training Manual on Hypertensives Disorders in Pregnancy, 2014, Division of Family Health Division, Ministry of Health, Malaysia.*
 - Hypertensive Disorders in Pregnancy. Guideline Summary. New York State Department of Health, May 2013. ;
-
 **Short acting nifedipine is not recommended for maintenance therapy due to the risk of hypotension.
 
 Table 16: Parenteral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
-
 | Drug | Dosages |
 |---|---|
 | Labetolol | For rapid control; - IV Labetolol 10 mg over 1 minute and repeat at 5 minute intervals (Maximum dose: 200 mg (40 mls)); - Effective dose: 20-150 mg/hr (4-30 mls/hr); - Infusion syringe pump;   - Put 200 mg Labetolol in 50 ml syringe and start at 20 mg/hr i.e. 20 mg or 4 mls/hr and increase at 30 minutes.;   - Stop infusion if rate exceeds 150 mg/hr (30 mls/hr) and inform specialist. |
@@ -167,12 +158,9 @@ Table 16: Parenteral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 *Adapted from:
 - Training Manual on Hypertensives Disorders in Pregnancy, 2014, Division of Family Health Division, Ministry of Health, Malaysia*
 - *4th Ed Malaysian CPG on Hypertension. ;
-
 **Limited data on the use of IV nitroglycerin in pregnancy.
 
-## Grades Of Recommendation And Level Of Evidence
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -181,14 +169,14 @@ Table 16: Parenteral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviation
 | Abbreviation | Description |
 |---|---|
 | ABPM | Ambulatory blood pressure monitoring |
@@ -210,3 +198,4 @@ Table 16: Parenteral Anti-Hypertensive Drugs Commonly Used In Pregnancy*
 | SBP | Systolic blood pressure |
 | α-blocker | Alpha-blocker |
 | β-blocker | Beta-blocker |
+<!-- parent_only_reference_end -->

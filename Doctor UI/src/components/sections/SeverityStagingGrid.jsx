@@ -41,6 +41,12 @@ const stagingFields = [
     options: ['I', 'II', 'III', 'IV'],
   },
   {
+    key: 'WHO_pregnancy_class',
+    label: 'WHO Pregnancy Risk Class (mWHO)',
+    type: 'select',
+    options: ['I', 'II', 'II-III', 'III', 'IV'],
+  },
+  {
     key: 'CKD_stage',
     label: 'CKD Stage',
     type: 'select',

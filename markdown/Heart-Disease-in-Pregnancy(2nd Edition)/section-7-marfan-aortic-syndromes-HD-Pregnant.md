@@ -1,4 +1,4 @@
-# Section 4: Management Of Pregnancy In Specific Cardiac Disease
+# Section 7: Management Of Pregnancy In Marfan Syndrome And Other Thoracic Aortic Aneurysmal Syndromes
 <!-- METADATA
 category: Assessment, Treatment, Prevention, Special Populations
 use_case: Marfan and Thoracic Aortic Aneurysmal Syndromes in Pregnancy — aortic_root_diameter, aortic_dissection_risk, beta_blockade, echocardiography_surveillance, delivery_planning
@@ -8,7 +8,7 @@ critical: true
 treatment_type: beta_blockade, caesarean_delivery, aortic_root_replacement
 -->
 
-## 4.4: Marfan Syndrome And Other Thoracic Aortic Aneurysmal Syndromes
+## 7.0: Overview of Marfan Syndrome and Other Thoracic Aortic Aneurysmal Syndromes in Pregnancy
 Patients with Marfan syndrome are almost always asymptomatic pre-pregnancy and may be diagnosed for the first time after complications occur. They have an increased risk of aortic dissection during pregnancy.
 
 In a report of unselected pregnancies, it was suggested that the expected rate of aortic dissection of ≈ 3% - an estimated 1% in women with aortic diameter < 40 mm and 10% in high-risk patients. High risk patients for aortic dissection are those with:
@@ -39,7 +39,7 @@ Other complications include worsening mitral regurgitation leading to supraventr
 
 Following elective aortic root replacement, patients remain at risk for dissection in the residual aorta.
 
-### 4.4.1: Preconception Counselling
+## 7.1: Preconception Counselling
 [Grade I, Level C] Pregnancy is contraindicated (WHO Class IV) in the following:
 - Marfan syndrome with aorta dilated > 45 mm
 - Bicuspid aortic valve with aorta dilated > 50 mm
@@ -49,14 +49,14 @@ Following elective aortic root replacement, patients remain at risk for dissecti
 
 The risk of Marfan syndrome in the offspring is 50%.
 
-### 4.4.2: Antenatal Care
+## 7.2: Antenatal Care
 [Grade II-a, Level C] Patients with aortic pathology should be monitored by serial echocardiography. The initial echocardiogram should be done at antenatal booking and repeated at 4-6 week intervals from the 24th week of pregnancy.
 
 [Grade II-a, Level C] Treatment with β-blocking agents may reduce the rate of aortic dilatation and may improve survival.
 
 Higher doses of β-blockers may be required to achieve adequate heart rate control because of the increased sympathetic activity seen in pregnancy. Fetal growth needs to be monitored more frequently in patients on β-blockers.
 
-### 4.4.3: Labour And Delivery
+## 7.3: Labour And Delivery
 The aim of intrapartum management in patients with ascending aorta enlargement is to reduce the cardiovascular stress of labour and delivery.
 
 - [Grade I, Level C] If the woman is taking β-blockers during pregnancy, they should be continued in the peripartum period.
@@ -67,10 +67,10 @@ The aim of intrapartum management in patients with ascending aorta enlargement i
 - [Grade I, Level C] In all other patients, the mode of delivery should be individualised.
 - Regional anaesthesia techniques can be difficult in patients with Marfan syndrome depending on the presence and severity of scoliosis and the presence of dural ectasia.
 
-### 4.4.4: Postpartum Care
+## 7.4: Postpartum Care
 Patients should be monitored haemodynamically for 24 hours postpartum. They should have a cardiac review at 6 weeks. Echocardiography should be performed 3-6 months post-delivery.
 
-**Key Message:**
+Key Message:
 - Pregnancy in the following patients are High Risk (WHO Class IV):
   - Marfan syndrome with aorta dilated > 45 mm
   - Bicuspid aortic valve with aorta dilated > 50 mm
@@ -79,7 +79,6 @@ Patients should be monitored haemodynamically for 24 hours postpartum. They shou
 - Even in women with normal sized aorta dissections may still occur.
 
 <!-- parent_only_reference_start -->
-Grades Of Recommendation And Level Of Evidence
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|

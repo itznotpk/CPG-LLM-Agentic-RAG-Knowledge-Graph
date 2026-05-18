@@ -1,4 +1,4 @@
-# Section 8: Appendices
+# Section 20: Appendices
 <!-- METADATA
 category: Reference, Classification, Diagnosis, Assessment, Treatment, Special Populations
 use_case: Appendices and Reference Tables — pregnancy_drug_safety, radiation_exposure, thrombosis_risk_assessment, contraception_risk_classification, diagnostic_algorithms, anaesthetic_preparation
@@ -7,7 +7,7 @@ output: reference_lookup, drug_safety_classification, fetal_radiation_dose, risk
 treatment_type: aspirin, adenosine, amiodarone, labetalol, lidocaine, methyldopa, nifedipine, warfarin, heparin, enoxaparin, tinzaparin, oxytocin
 -->
 
-## Appendix A: US Fda Pregnancy Risk Classification And Suggested Manegemnet Strategies
+## Appendix A: US FDA Pregnancy Risk Classification And Suggested Manegemnet Strategies
 | CATEGORY                          | DEFINITION                                                                                                                                                                                                                                                                                              | MANAGEMENT STRATEGY                                                                                                                                                                                                                       | EXAMPLE DRUGS                                                            |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
 | A (controlled studies show no risk) | Adequate and well-controlled studies in pregnant women have failed to demonstrate a risk to the fetus in the first trimester of pregnancy (there is no evidence of risk in later trimesters) .                                                                                                          | Because studies are not able to rule out the possibility of harm; the drug should be used during pregnancy only if clearly indicated.                                                                                                     | levothyroxine; folic acid, magnesium sulfate liothyronine                |
@@ -137,13 +137,11 @@ When considering fetal risk from radiation exposure and termination of pregnancy
 Preparation for anaesthesia should be the same like any other case but extra monitoring and more cardio stable drugs should be chosen.
 
 **Haemodynamic goals for both GA and regional anaesthesia:**
-
 - To maintain sinus rhythm (Phenylephrine infusion can help maintaining heart rate)
 - To maintain good cardiac output (might need Dopamine or Dobutamine infusion)
 - To prevent hypotension (MAP to keep at baseline of above 70 mmHg)
 
 **GA technique for heart case**
-
 1.1 Invasive line i.e. arterial line and CVP monitoring (via Internal jugular preferably under ultrasound guidance) should be done whilst patient still widely awake.
 **Some centres consider central line monitoring as an optional especially in mild to moderate risk case.**
 
@@ -168,11 +166,9 @@ Preparation for anaesthesia should be the same like any other case but extra mon
 1.10 Post-operative monitoring should be in HDW/ICU.
 
 **Regional technique for heart case**
-
 Low dose sequential Combined Spinal Epidural (CSE) is recommended whenever regional is considered as a better choice compared to GA.
 
 **2.1 Dosage of (CSE) in Heart Case**
-
 - **Spinal dose**
 (0.5-1 ml of heavy 0.5% bupivacaine) + 25 mcg fentanyl.
 To check the level of sensory loss to pin prick after 5 minutes. If still below T5-T6 level, to slowly increase the level with titration of epidural.
@@ -181,7 +177,6 @@ To check the level of sensory loss to pin prick after 5 minutes. If still below 
 (2% of lignocaine in 1:200 000 Adrenaline), 3-5 mls every 5 minutes until T5-T6 is reached.
 
 ## Appendix H: Management Of Tachyarrhythmias During Pregnancy*
-
 **Initial Rhythm**
 The tachyarrhythmia is identified as **SVT/VT**.
 
@@ -268,7 +263,6 @@ Control heart rate with:
 *These risk factors are potentially reversible and may develop at later stages in gestation than the initial risk assessment or may resolve and therefore what is important is an ongoing individual risk assessment.*
 
 ## Appendix J: Diagnostic Algorithm For Suspected DVT In Pregnancy*
-
 **Initial Assessment**
 Start with **clinical suspicion of DVT in pregnancy**.
 
@@ -299,7 +293,6 @@ If repeat CUS or MRV is **negative**:
 CUS: Compression Ultrasonography; DVT: Deep Vein Thrombosis MRV: Magnetic Resonance Venography
 
 ## Appendix K: Diagnostic Algorithm For Suspected PE In Pregnancy*
-
 **Initial Assessment**
 Start with **clinical suspicion of PE in pregnancy**.
 

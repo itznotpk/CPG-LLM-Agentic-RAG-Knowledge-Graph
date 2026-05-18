@@ -1,4 +1,4 @@
-# Section 4: .7: Arrhythmias
+# Section 10: Management Of Arrhythmias In Pregnancy
 <!-- METADATA
 category: Diagnosis, Treatment, Special Populations
 use_case: Arrhythmias in Pregnancy — SVT, VT, atrial_fibrillation, bradyarrhythmia, cardioversion, catheter_ablation, antiarrhythmic_drug_safety
@@ -8,7 +8,7 @@ critical: true
 treatment_type: digoxin, sotalol, amiodarone, atenolol, beta_blockade, cardioversion, catheter_ablation
 -->
 
-## 4.7: Arrhythmias In Pregnancy
+## 10.0: Overview to Arrhythmias in Pregnancy
 Arrhythmias are the most common cardiac complication encountered during pregnancy. This increased arrhythmic risk is due to a combination of hormonal, autonomic and haemodynamic factors such as atrial and ventricular myocardial stretch resulting from the rise in plasma volume and cardiac output. These arrhythmias include:
 - sinus tachycardia, sinus bradycardia and sinus arrhythmia
 - ectopic beats and non-sustained arrhythmias - encountered in more than 50% of pregnant women.
@@ -21,7 +21,7 @@ Supraventricular and ventricular arrhythmias requiring treatment develop in up t
 
 Ventricular Tachycardia (VT) in patients with structural heart disease is associated with an increased risk of maternal Sudden Cardiac Death (SCD). Peripartum cardiomyopathy should always be excluded in women presenting with new-onset VT during the last 6 weeks of pregnancy or in the early postpartum period.
 
-### 4.7.1: Management
+## 10.1: Management
 Management of arrhythmias in pregnancy is similar to that in the non-pregnant patient. (Appendix H: Management of Tachyarrhythmias During Pregnancy*)
 
 [Grade I, Level C] These include:
@@ -50,7 +50,7 @@ Management of arrhythmias in pregnancy is similar to that in the non-pregnant pa
   - [Grade III, Level C] AV nodal blocking agents should not be used in patients with manifest pre-excitation on resting ECG. (Wolff-Parkinson White Syndrome)
   - [Grade II-b, Level C] Amiodarone should be used only when other therapies have failed and then at the lowest effective dose. Amiodarone's adverse effects on the fetus include hypothyroidism, FGR and premature delivery. Newborns of mothers who had received amiodarone should be admitted for paediatric review.
 
-### 4.7.2: Preconception Counselling
+## 10.2: Preconception Counselling
 The risk related to arrhythmias is highest in mothers with:
 - known cardiac disease especially CHD
 - established arrhythmias including some of the inherited arrhythmias such as long QT
@@ -59,26 +59,27 @@ These women who are in the childbearing age should be screened for risk of arrhy
 
 The presence of cardiac pacemakers and implantable cardioverter defibrillator do not itself contraindicate future pregnancy.
 
-### 4.7.3: Antenatal Care
+## 10.3: Antenatal Care
 All pregnant women with complaints of palpitations or dizziness should undergo a detailed clinical assessment to identify the nature of the arrhythmia. Investigations should include:
 - Blood tests - full blood count, renal function, electrolytes and thyroid function test
 - ECG
 - Telemetry or Holter monitoring and
 - Echocardiogram
 
-### 4.7.4: Labour And Delivery
+## 10.4: Labour And Delivery
 [Grade I, Level C] All sustained arrhythmias with haemodynamic compromise should be electrically cardioverted.
 
 [Grade I, Level C] Temporary pacing (preferably transvenous) during delivery is recommended in the presence of symptomatic complete heart block.
 
-### 4.7.5: Postpartum Care
+## 10.5: Postpartum Care
 Patients with symptoms due to recurrent arrhythmias should be referred for catheter ablation.
 
-## Key Messages:
+Key Messages:
 - Cardiac arrhythmias are common in pregnancy.
 - Most of them are benign and self-limiting and do not require treatment.
 
-### Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
+<!-- parent_only_reference_start -->
+Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
 | Conventional X-Ray examinations | Fetal dose | Fetal dose | Maternal Exposure* |
 |---|---|---|---|
 |  | Mean (mGy) | Maximum (mGy) | mGy |
@@ -109,14 +110,11 @@ When considering fetal risk from radiation exposure and termination of pregnancy
 - at fetal doses between 100 and 500 mGy, decisions should be based upon individual circumstances
 - at fetal doses in excess of 500 mGy, there can be significant fetal damage, the magnitude and type of which is a function of dose and stage of pregnancy
 
----
-
-### Appendix H: Management Of Tachyarrhythmias During Pregnancy*
-
-### Initial Rhythm
+Appendix H: Management Of Tachyarrhythmias During Pregnancy*
+**Initial Rhythm**
 The tachyarrhythmia is identified as **SVT/VT**.
 
-### Step 1: Determine Haemodynamic Stability
+**Step 1: Determine Haemodynamic Stability**
 Assess whether the patient is **haemodynamically stable**.
 
 If **No**:
@@ -125,7 +123,7 @@ If **No**:
 If **Yes**:
 - Determine whether the rhythm is **VT** or **SVT**.
 
-### Step 2A: Haemodynamically Stable Vt
+**Step 2A: Haemodynamically Stable Vt**
 For **VT**, use pharmacological cardioversion:
 - IV amiodarone
 - IV procainamide
@@ -136,20 +134,20 @@ For prophylaxis:
 - Amiodarone
 - Or both
 
-### Step 2B: Haemodynamically Stable Svt
+**Step 2B: Haemodynamically Stable Svt**
 For **SVT**, determine if the rhythm is:
 - Atrial ectopics
 - Paroxysmal SVT
 - Focal atrial tachycardia
 - Atrial Fibrillation/Atrial Flutter
 
-### Atrial Ectopics
+**Atrial Ectopics**
 Management:
 - Reassure
 - Avoid precipitating factors
 - Cardioselective beta-blockers
 
-### Paroxysmal Svt
+**Paroxysmal Svt**
 Termination:
 - Vagal maneuvers
 - IV adenosine
@@ -161,24 +159,20 @@ Prophylaxis:
 - beta-blockers
 - Verapamil/diltiazem
 
-### Focal Atrial Tachycardia
+**Focal Atrial Tachycardia**
 Control heart rate with:
 - Digoxin
 - beta-blockers
 - Verapamil/diltiazem
 
-### Atrial Fibrillation/Atrial Flutter
+**Atrial Fibrillation/Atrial Flutter**
 Control heart rate with:
 - Digoxin
 - beta-blockers
 - Verapamil/diltiazem
 - anticoagulants
 
-*Adapted from: Baig M. Arrhythmia-centered treatment review of tachyarrhythmia during pregnancy. An article from the e-journal of the ESC Council for Cardiology Practice 2014; 12: NÂ° 13*
-
-## Grades Of Recommendation And Level Of Evidence
-
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -187,14 +181,14 @@ Control heart rate with:
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviation
 | Abbreviation | Description |
 |---|---|
 | ARNRT | Atrioventricular nodal re-entry tachycardia |
@@ -218,3 +212,4 @@ Control heart rate with:
 | SVT | Supraventricular tachycardia |
 | VT | Ventricular tachycardia |
 | β-blockers | Beta-blockers |
+<!-- parent_only_reference_end -->

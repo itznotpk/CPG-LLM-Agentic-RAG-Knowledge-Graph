@@ -1,4 +1,4 @@
-# Section 4.9: Anticoagulation In Pregnancy
+# Section 12: Management Of Anticoagulation In Pregnancy
 <!-- METADATA
 category: Treatment, Prevention, Special Populations
 use_case: Anticoagulation in Pregnancy — mechanical_heart_valves, atrial_fibrillation, thromboembolism_prevention, warfarin_heparin_regimens, delivery_transition, valve_thrombosis_management
@@ -8,9 +8,7 @@ critical: true
 treatment_type: warfarin, unfractionated_heparin, low_molecular_weight_heparin, aspirin, streptokinase, tissue_plasminogen_activator
 -->
 
-## 4.9: Anticoagulation In Pregnancy
-
-### 4.9.1: Indications For Anticoagulation
+## 12.1: Indications For Anticoagulation
 The general indications are:
 - Mechanical heart valves
 - Atrial fibrillation
@@ -22,7 +20,7 @@ The general indications are:
 
 Management of these patients will vary depending upon the indication.
 
-#### 4.9.1.1: Mechanical Heart Valves
+### 12.1.1: Mechanical Heart Valves
 Prosthetic valve thrombosis is a rare complication with an estimated incidence of 0.1-5.7% per patient year. During pregnancy, this risk is much higher (as high as 10%) due to the prothrombotic state. Changes in drug metabolism may also affect control of INR compared to the non-pregnant state.
 
 There is no optimal anticoagulation regimen during pregnancy for patients with mechanical heart valves because every therapeutic option has its drawbacks. Anticoagulant regimens in pregnant patients with prosthetic heart valves are associated with similar risks of maternal bleeding but with different embolic risks.
@@ -63,15 +61,12 @@ Suggested regimes:
 - [Grade II-a, Level C] Low dose aspirin (75-100 mg) daily can be added to warfarin or heparin throughout pregnancy especially in patients with first generation heart valves.
 
 **Anticoagulation Regimes in the 1st Trimester:**
-
 **Regime A:**
-
 [Grade II-a, Level C] Warfarin throughout pregnancy:
 - If dose of warfarin is > 5 mg/day, there may be potential fetal adverse events. A daily dosage > 5 mg was a significant predictor of poor pregnancy outcomes.
 - If the warfarin dose ≤ 5 mg - the risk of embryopathy is low.
 
 **Regime B:**
-
 [Grade II-b, Level C] Bridging heparin therapy in the 1st trimester:
 - Intravenous dose adjusted UFH with regular aPTT monitoring which should be kept at > 2x control **OR**
 - Self-injected adjusted-dose LMWH with monitoring at regular intervals at the discretion of the attending physician/cardiologist/haematologist:
@@ -99,7 +94,7 @@ If labour begins while the patient is still on warfarin, then LSCS should be per
 
 Bilateral tubal ligation should be offered with proper counselling if these patients are going for LSCS.
 
-#### 4.9.1.2: Anticoagulation For Other Indications
+### 12.1.2: Anticoagulation For Other Indications
 The choice of therapeutic anticoagulation for other indications would depend upon the risk of thrombosis, patients' preference and the consensus of the multidisciplinary team. Either:
 - [Grade II-b, Level C] Regime A - warfarin throughout pregnancy till 36 weeks
 - [Grade II-b, Level C] Regime B - UFH/LMWH therapy in the first trimester
@@ -114,7 +109,7 @@ If AF should occur for the first time in patients with valvular heart disease, i
 
 Both warfarin and heparin based therapy are safe during breast feeding.
 
-### 4.9.2: Management Of Valve Thrombosis In Pregnancy
+## 12.2: Management Of Valve Thrombosis In Pregnancy
 Any pregnant patient with a mechanical heart valve presenting with dyspnoea or an embolic event requires an urgent echocardiogram and/or transoesophageal echocardiography or fluoroscopy (with lead shielding of the abdomen) if needed, to make the diagnosis.
 
 Management includes:
@@ -125,7 +120,7 @@ Management includes:
   - Surgery is indicated
   - If surgery is not available, fibrinolysis may be considered as an option
 
-## Key Messages:
+Key Messages:
 - In pregnant patients, the choice of anticoagulation regime has to be individualised depending upon the maternal and fetal risk and patient preferences.
 - In patients with **mechanical heart valves**, we advocate:
   - Warfarin throughout pregnancy till 36 weeks.
@@ -142,9 +137,8 @@ Management includes:
 - IV UFH should be discontinued 4-6 hours before planned delivery and restarted 4-6 hours after vaginal delivery and 6-12 hours after LSCS if there are no bleeding complications.
 - Oral anticoagulation can be resumed after 24 hours if there are no bleeding concerns.
 
-## Grades Of Recommendation And Level Of Evidence
-
-### Grades Of Recommendation
+<!-- parent_only_reference_start -->
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -153,14 +147,14 @@ Management includes:
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviation
 | Abbreviation | Description |
 |---|---|
 | AF | Atrial fibrillation |
@@ -175,3 +169,4 @@ Management includes:
 | PH | Pulmonary hypertension |
 | TPA | Tissue plasminogen activator |
 | UFH | Unfractionated heparin |
+<!-- parent_only_reference_end -->

@@ -53,13 +53,78 @@ EVIDENCE GRADE ASSIGNMENT — do this for every Recommendation you generate:
 6. Do NOT assign a grade from a different recommendation in the same chunk.
 7. Do NOT invent a grade that is not present in the retrieved text.
 
+WHO CLASSIFICATION DISAMBIGUATION — two unrelated WHO scales appear in the
+corpus. They share the word "WHO" but mean OPPOSITE things. Never merge them.
+
+  CRITICAL — the SCALE IS DETERMINED BY THE SOURCE CPG, NOT BY SYNTAX.
+  The bracket form "[WHO Class X]" is AMBIGUOUS: it is used by BOTH scales.
+  Always disambiguate using the CPG name in the chunk's [N] header.
+
+  WHO Functional Class (WHO FC) — SYMPTOM severity, analogous to NYHA.
+    Source CPGs: Pulmonary Arterial Hypertension (PAH), Heart Failure.
+    Values I–IV; higher = worse symptoms / exercise limitation.
+    Written as "WHO FC III", "WHO functional class III", AND — in the PAH
+    CPG specifically — as "[WHO Class III]", "[WHO Class I-IV]",
+    "[WHO Class I] or [WHO Class II]" (e.g. CCB-responder status). In a PAH
+    or Heart Failure chunk, "[WHO Class II]" means FUNCTIONAL class II
+    (mild symptoms) — it has NOTHING to do with pregnancy or mortality.
+
+  WHO Class (modified WHO / mWHO) — PREGNANCY maternal cardiovascular RISK.
+    Source CPG: Heart Disease in Pregnancy ONLY.
+    Written as "[WHO Class III]", "WHO Class IV", "(WHO Class IV)".
+    Class I    : no/mild increased maternal risk.
+    Class II   : small increased maternal mortality (<1%).
+    Class II-III: a DISTINCT intermediate-risk band in its OWN right
+                 (the mWHO scale is I < II < II-III < III < IV — five
+                 ordinal bands). "II-III" is NOT shorthand for "II and III";
+                 treat it as one category: significantly increased risk
+                 requiring expert counselling and specialist monitoring.
+    Class III  : significantly increased maternal mortality; needs MDT
+                 pregnancy care plan and expert counselling.
+    Class III (severe) : a HIGHER tier than plain Class III — distinctly
+                 worse maternal mortality. Treat "III (severe)" as its own
+                 category, NOT the same as plain "III".
+    Class IV   : highest maternal mortality; PREGNANCY CONTRAINDICATED —
+                 termination should be discussed. This is NOT "severe
+                 symptoms"; it is a contraindication to pregnancy itself.
+    A compound like "WHO Class II-III & III" lists TWO bands (II-III and
+    III), not a range. The patient is in exactly one band.
+
+  SHORT FORMS & LABELS to recognise (any of these is a WHO classification —
+  interpret its meaning using the SOURCE-CPG rule above, never by syntax):
+    - "[WHO Class X]", "(WHO Class X)", "WHO Class X", "WHO class X"
+    - "WHO FC X", "WHO-FC X", "WHO functional class X"
+    - bare "WHO X" (e.g. "obstruction present: WHO III" inside an mWHO
+      band list — resolves which sub-band a condition falls into)
+    - "X (severe)" / "X (mild)" / "X (moderate)" — a qualified tier that is
+      DISTINCT from the unqualified class (do not collapse them)
+    - OCR variants where roman "I" is rendered as lowercase "l"
+      ("WHO CLASS Il" = II, "Ill" = III)
+   Do NOT treat NYHA classes, or the WHO organisation, as WHO classification.
+
+RULES:
+1. Read the source CPG name from the chunk header FIRST, then pick the scale:
+   - PAH or Heart Failure chunk  → every "WHO Class/FC X" is FUNCTIONAL class.
+   - Heart Disease in Pregnancy chunk → every "WHO Class X" is mWHO maternal
+     RISK (mortality / pregnancy-contraindication meaning).
+   Never infer the scale from brackets, and never assume "WHO III" is
+   functional class by default.
+2. If a WHO Class III/IV pregnancy-risk statement applies to the patient,
+   surface it as a red_flag and (for Class IV) reflect the
+   pregnancy-contraindicated / termination-discussion guidance VERBATIM —
+   do not soften it into a generic "severe" descriptor.
+3. Quote the classification token verbatim ("WHO Class IV", "WHO FC III");
+   do not translate between the two scales or invent a class not in the text.
+
 MANDATORY OUTPUT SECTIONS — all 6 sections must be populated:
 
 summary (string) — Section 1: Clinical Assessment
   Write 2–3 sentences covering:
   - Patient profile: "[Age][sex] with [primary diagnosis]"
   - Key risk factors or SAFETY ALERT if a contraindication exists
-  - Classification or severity (e.g. WHO FC III, NYHA Class II, HbA1c 9.2%)
+  - Classification or severity (e.g. WHO FC III, NYHA Class II, HbA1c 9.2%).
+    See WHO CLASSIFICATION DISAMBIGUATION below — never conflate WHO
+    Functional Class with the WHO pregnancy maternal-risk Class.
   Example: "22F presenting with exertional dyspnoea and elevated JVP, classified WHO FC III
   Pulmonary Arterial Hypertension (BB01.1). Current Warfarin use requires careful review before
   initiating ERA therapy — drug interaction with bosentan (LFT monitoring mandatory)."

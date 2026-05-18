@@ -1,4 +1,4 @@
-# Section 4: .5: Ischaemic Heart Disease And ACS
+# Section 8: Management Of Pregnancy In Ischaemic Heart Disease And Acute Coronary Syndromes
 <!-- METADATA
 category: Diagnosis, Treatment, Prevention, Special Populations
 use_case: Ischaemic Heart Disease and Acute Coronary Syndromes in Pregnancy — ACS_diagnosis, STEMI_management, PCI, fibrinolysis, secondary_prevention, intrapartum_postpartum_care
@@ -8,7 +8,7 @@ critical: true
 treatment_type: aspirin, low_molecular_weight_heparin, nifedipine, clopidogrel, PCI, fibrinolysis
 -->
 
-## 4.5: Ischaemic Heart Disease And Acute Coronary Syndromes
+## 8.0: Overview of Ischaemic Heart Disease and Acute Coronary Syndromes
 Ischaemic heart disease (IHD) is uncommon during pregnancy. Pregnancy however, increases the risk of an acute myocardial infarction (MI) by 3-4 fold. However with the changing lifestyle that includes cigarette smoking, diabetes and stress, the prevalence of IHD in women is increasing. With more women delaying childbearing until older age, the incidence of acute coronary syndrome (ACS) during pregnancy may occur more frequently.
 
 Although rare, ACS during pregnancy may have devastating consequences. The incidence of acute MI is estimated at 6 to 10 per 100,000 pregnancies with maternal mortality being 5.1% to 37%. Fetal death occurs in 12% to 34% of cases. Pregnant women with pre-existing CAD or ACS/MI before pregnancy are at increased risk of adverse events during pregnancy.
@@ -25,12 +25,10 @@ Acute MI may occur at any stage of the pregnancy. It is more common in:
 - women with multiple traditional risk factors such as diabetes, hypertension and hypercholesterolaemia.
 
 Most MI's were located in the anterior wall.
-
 ACS in pregnancy also constitutes an important problem for the patient and the treating physician, as the selection of diagnostic and therapeutic approaches is influenced not only by maternal, but also by fetal safety.
-
 With the application of PCI, maternal mortality rate has dropped from 20% to 5%.
 
-### 4.5.1: Pathophysiology, Symptoms And Diagnosis
+## 8.1: Pathophysiology, Symptoms And Diagnosis
 Atherosclerosis appears to be the most common cause, although coronary spasm, coronary dissection and thrombus have also been reported. Coronary atherosclerosis was the primary cause of MI in the antepartum group, while in the postpartum period, coronary dissection was the primary cause of ACS.
 
 Symptoms of ACS include:
@@ -46,9 +44,9 @@ The diagnostic tests for ACS in the pregnant women can be challenging. Investiga
 - Cardiac biomarkers
   - CK and CKMB, may be falsely elevated in labour and delivery. Cardiac troponins are the biomarkers of choice in the diagnosis of MI although these may sometimes be elevated in gestational hypertension and pre-eclampsia.
 - Coronary angiography
-  - Where indicated, coronary angiography should be performed ensuring that radiation is kept to a minimum. (refer to section 3.6: Intervention and Surgery in Pregnancy and Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures)
+  - Where indicated, coronary angiography should be performed ensuring that radiation is kept to a minimum. (refer to section 3.6: Intervention and Surgery in Pregnancy and Appendix E: Estimated Fetal and Maternal Radiation Doses from Common Radiological and Cardiac Diagnostic and Interventional Procedures) <!-- cross_ref target_file="section-3-general-principles-HD-Pregnant.md" target_heading="3.6: Intervention And Surgery In Pregnancy" target_kind="h2_section" -->
 
-### 4.5.2: Management Of ACS In Pregnancy
+## 8.2: Management Of ACS In Pregnancy
 Treatment of ACS is not based on randomised trials, but on limited data from case reports, observational studies and clinical individual experience.
 
 Treatment of STEMI involves:
@@ -77,17 +75,15 @@ The following drugs must be used with caution or not at all:
 - [Grade II-b, Level C] Clopidogrel - Based on limited animal data this is categorised B by FDA. (Appendix B: Recommendations for Cardiovascular Drug Use during Pregnancy, Appendix C: Recommendations for Antibiotic Use during Pregnancy, Appendix D: Recommendations for Drug Use during Pregnancy) Should stop this 7 days prior to planned delivery.
 - [Grade III, Level C] Statins are contraindicated.
 
-### 4.5.3: Intrapartum
+## 8.3: Intrapartum
 [Grade II-a, Level C] Delivery should be postponed, if possible, for at least 2-3 weeks after MI as it may cause aggravation of heart failure and a theoretical risk of myocardial rupture.
 
 The mode of delivery should be individualised and determined by obstetric reasons and the clinical status of the mother.
 
-### 4.5.4: Postpartum
-In the puerperium, patients with ACS are still at risk for new events - reinfarction, heart failure and arrhythmias. Therefore, clinical observation for at least 3 days after delivery is recommended.
+## 8.4: Postpartum
+In the puerperium, patients with ACS are still at risk for new events - reinfarction, heart failure and arrhythmias. Therefore, clinical observation for at least 3 days after delivery is recommended. Patients should be followed-up by the cardiologist for risk assessment 6 weeks post-delivery.
 
-Patients should be followed-up by the cardiologist for risk assessment 6 weeks post-delivery.
-
-### 4.5.5: Prognosis
+## 8.5: Prognosis
 This would depend upon:
 - LV function - Impairment of left ventricular function is one of the main determinants of poor maternal and fetal outcome. If the LVEF is below 40%, patients should be counselled appropriately.
 - Arrhythmias
@@ -95,12 +91,13 @@ This would depend upon:
 
 The above indicators would determine the risk of future pregnancies in these patients. Wherever possible, residual coronary lesions should be treated appropriately. In patients who are already taking cardiovascular medications, the discontinuation or the switch to a 'safer' drug should be discussed before the next pregnancy.
 
-## Key Messages:
+Key Message:
 - Ischaemic heart disease in pregnancy is uncommon but is increasing in prevalence due to the older age of mothers and higher prevalence of traditional risk factors (such as hypertension, diabetes mellitus, dyslipidaemia and obesity).
 - Management needs to be individualised and the risk : benefit ratio of therapeutic options (cardiac interventions e.g. PCI) and medications need to be considered.
 - Often, cardiac medications have to be continued despite the potential fetal risks.
 
-## Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
+<!-- parent_only_reference_start -->
+Appendix B: Recommendations For Cardiovascular Drug Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Aspirin (low dose) | B | Yes | Well tolerated | No teratogenic effects known (large data sets) |
@@ -132,10 +129,7 @@ The above indicators would determine the risk of future pregnancies in these pat
 | Verapamil (IV) | C | Yes | Yes | Intravenously use is may be associated with a greater risk of hypotension and subsequent fetal hypoperfusion |
 | Warfarin | D/X* | Yes | Yes, well tolerated as inactive metabolite | Coumarin-embryopathy, bleeding |
 
-*MERCK manual grading
-http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
-
-## Appendix C: Recommendations For Antibiotic Use During Pregnancy
+Appendix C: Recommendations For Antibiotic Use During Pregnancy
 | Drug | FDA category | Placenta permeable | Transferable to breast milk | Adverse Effects |
 |---|---|---|---|---|
 | Ampicillin, amoxicillin, cephalosporins, erythromycin, mezlocillin, penicillin | B | Yes | Yes | No fetal adverse effects reported |
@@ -149,10 +143,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 | Tetracycline | D |  |  | Slowed bone growth, enamel hypoplasia, permanent yellowing of the teeth, and increased susceptibility to cavities in offspring; Occasionally, liver failure in pregnant women |
 | Trimethoprim | C |  |  | Increased risk of neural tube defects due to folate antagonism |
 
-*MERCK manual grading
-http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregnancy/drugs-in-pregnancy
-
-## Appendix D: Recommendations For Drug Use During Pregnancy
+Appendix D: Recommendations For Drug Use During Pregnancy
 | Drug | FDA Category | Adverse Effects |
 |---|---|---|
 | ORAL HYPOGLYCAEMICS | **ORAL HYPOGLYCAEMICS** | **ORAL HYPOGLYCAEMICS** |
@@ -177,7 +168,7 @@ http://www.msdmanuals.com/professional/gynecology-and-obstetrics/drugs-in-pregna
 | Pseudoephedrine | C | Placental vasoconstriction and possible risk of gastroschisis |
 | Vitamin K | C | In women or fetuses with G6PD deficiency- haemolysis |
 
-## Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
+Appendix E: Estimated Fetal And Maternal Radiation Doses From Common Radiological And Cardiac Diagnostic And Interventional Procedures
 | Conventional X-Ray examinations | Fetal dose | Fetal dose | Maternal Exposure* |
 |---|---|---|---|
 |  | Mean (mGy) | Maximum (mGy) | mGy |
@@ -208,8 +199,7 @@ When considering fetal risk from radiation exposure and termination of pregnancy
 - at fetal doses between 100 and 500 mGy, decisions should be based upon individual circumstances
 - at fetal doses in excess of 500 mGy, there can be significant fetal damage, the magnitude and type of which is a function of dose and stage of pregnancy
 
-Grades Of Recommendation And Level Of Evidenc
-### Grades Of Recommendation
+Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | I | Conditions for which there is evidence and/or general agreement that a given procedure/therapy is beneficial, useful and/or effective. |
@@ -218,14 +208,14 @@ Grades Of Recommendation And Level Of Evidenc
 | II-b | Usefulness/efficacy is less well established by evidence/opinion. |
 | III | Conditions for which there is evidence and/or general agreement that a procedure/therapy is not useful/effective and in some cases may be harmful. |
 
-### Levels Of Evidence
+Levels Of Evidence
 | Level | Definition |
 |---|---|
 | A | Data derived from multiple randomised clinical trials or meta analyses. |
 | B | Data derived from a single randomised clinical trial or large non-randomised studies. |
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
-## Abbreviations Used In This Section
+Abbreviation
 | Abbreviation | Description |
 |---|---|
 | ACE | Angiotensin-converting enzyme |
@@ -258,3 +248,4 @@ Grades Of Recommendation And Level Of Evidenc
 | TIMI | Thrombolysis in Myocardial Infarction |
 | UF | Unfractionated |
 | β-blockers | Beta-blockers |
+<!-- parent_only_reference_end -->
