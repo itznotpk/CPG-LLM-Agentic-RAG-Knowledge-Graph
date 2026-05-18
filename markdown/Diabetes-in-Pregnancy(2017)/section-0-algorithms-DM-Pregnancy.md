@@ -1,10 +1,54 @@
-# Section 0: Algorithms — Screening, Intrapartum Glucose Monitoring, and Insulin Infusion
+# Section 0: Key Recommendations And Algorithms
 <!-- METADATA
-category: Reference, Screening, Diagnosis, Treatment, Intrapartum
-use_case: Diabetes in Pregnancy Algorithms — GDM_screening, overt_diabetes_diagnosis, intrapartum_glucose_monitoring, insulin_infusion_titration
-patient_input: gestational_age, risk_factors, diabetes_type, capillary_blood_glucose, labour_status, insulin_treatment
-output: screening_pathway, diagnosis_pathway, glucose_monitoring_plan, insulin_infusion_protocol
+category: Methodology, Reference, Screening, Diagnosis, Assessment
+use_case: Key clinical recommendations, screening & diagnostic algorithms, intrapartum glucose monitoring and insulin infusion titration protocols
+patient_input: gestational_age, risk_factors, diabetes_type, capillary_blood_glucose, labour_status, insulin_treatment, GDM_history
+output: key_recommendations, screening_pathway, diagnosis_pathway, glucose_monitoring_plan, insulin_infusion_protocol
 -->
+
+> **Context:** Key clinical recommendations and quick-reference algorithms for the 2017 Malaysian Diabetes in Pregnancy CPG: screening/diagnosis timing, intrapartum glucose monitoring, and active insulin infusion/titration. Full clinical rationale and detailed evidence levels are presented in Sections 1–10.
+
+## Key Recommendations
+The following recommendations were highlighted by the guidelines Development Group as the key clinical recommendations that should be prioritised for implementation.
+
+**Screening**
+* Screening for gestational diabetes mellitus based on risk factors using 75 gram oral glucose tolerance test (OGTT) should be done at booking.
+  * If the test is negative, it should be repeated at 24-28 weeks of gestation.
+* For women at the age of 25 or more with no other risk factors, OGTT should be done at 24-28 weeks of gestation.
+* Overt diabetes in pregnancy should be managed as pre-existing diabetes.
+
+**Preconception Care**
+* Preconception care of women with pre-existing diabetes which involve a multidisciplinary team should be fully implemented in all healthcare facilities.
+
+**Antenatal Management of Diabetes in Pregnancy**
+* Self-monitoring of blood glucose (SMBG) should be done in diabetes in pregnancy. The blood glucose targets should be as the following:
+  * fasting or preprandial: ≤5.3 mmol/L
+  * 1-hour postprandial: ≤7.8 mmol/L
+  * 2-hour postprandial: ≤6.7 mmol/L
+* The frequency of SMBG in diabetes in pregnancy should be individualised based on mode of treatment and glycaemic control.
+* Pregnant women with pre-existing diabetes on multiple daily insulin (MDI) injection regimen should perform SMBG at least three times daily. It can be done at fasting, preprandial, postprandial or bedtime.
+* Women with gestational diabetes mellitus (GDM) on MDI injection regimen should perform SMBG two to three times daily, for two to three days a week.
+* Pregnant women with type 2 diabetes mellitus or GDM on diet and exercise therapy, oral antidiabetic agents (OAD), single-dose intermediate-acting or long-acting insulin should perform fasting and postprandial SMBG at least once daily until blood glucose targets are reached.
+* Pregnant women who are on insulin or OAD should maintain their capillary blood glucose level >4.0 mmol/L.
+* Pregnant women with diabetes should be given individualised medical nutrition therapy which includes carbohydrate-controlled meal plan and monitoring of gestational weight gain.
+* In gestational diabetes mellitus, metformin should be offered when blood glucose targets are not met using changes in diet and exercise within 1-2 weeks.
+  * It should be prescribed after consultation with specialists.
+* Metformin should be continued in women who are already on the treatment before pregnancy.
+* Insulin therapy can be initiated at outpatient setting in pregnant women with diabetes.
+* The preferred choice of insulin regime in diabetes in pregnancy is multiple daily injections.
+* Insulin analogues should be continued during pregnancy in women with pre-existing diabetes who are already on the treatment and have established good blood glucose control before pregnancy.
+* Rapid-acting insulin analogue may be considered as an option, particularly in patients with frequent hypoglycaemia or postprandial hyperglycaemia using human insulin during pregnancy.
+* Pregnant women with pre-existing diabetes should be offered ultrasound scan at:
+  * 11-14 weeks of gestation for dating and major structural malformation
+  * 18-20 weeks of gestation for detailed structural anatomy scan (by a trained specialist or ultrasonographer)
+* In women with pre-existing diabetes and gestational diabetes mellitus, serial growth scan should be performed every four weeks from 28 to 36 weeks of gestation.
+* In women with pre-existing diabetes or gestational diabetes mellitus who develop maternal or fetal complications, elective delivery before 37+0 weeks should be considered.
+
+**Intrapartum Management of Diabetes in Pregnancy**
+* In women with diabetes, capillary blood glucose should be maintained between 4.0-7.0 mmol/L during labour and delivery.
+
+**Postpartum Management of Diabetes in Pregnancy**
+* In women with history of gestational diabetes mellitus, oral glucose tolerance test should be performed at six weeks after delivery to detect diabetes and prediabetes. If negative, annual screening should be performed.
 
 ## Algorithm A: Screening And Diagnosis Of Diabetes In Pregnancy
 
@@ -55,8 +99,6 @@ The OGTT is a two-point blood draw:
 
 If overt diabetes is confirmed → manage as **pre-existing diabetes** (not GDM).
 
----
-
 ## Algorithm B: Intrapartum Glucose Monitoring For Diabetes In Pregnancy In Active Labour
 
 **Overview:** This algorithm describes how to monitor and manage capillary blood glucose (CBG) in women with diabetes once they are in active labour. The target CBG range during labour is **4.0–7.0 mmol/L** to prevent neonatal hypoglycaemia and fetal distress.
@@ -81,58 +123,57 @@ Three patient categories determine the initial management pathway:
 - If CBG exceeds 7.0 mmol/L → start IV insulin infusion and proceed to Algorithm C.
 
 **Step 2: Interpret CBG Results (Target: 4.0–7.0 mmol/L)**
+- **If CBG < 4.0 mmol/L (hypoglycaemia):**
+  - Inform doctor immediately.
+  - If symptomatic: give bolus IV 20 mL of D50%.
+  - If asymptomatic: offer nourishing fluid.
+  - Repeat CBG in 30 minutes and re-assess.
+- **If CBG 4.0–7.0 mmol/L (target range):**
+  - Continue monitoring CBG as previously scheduled. No change needed.
+- **If CBG 7.1–10.0 mmol/L (mildly elevated):**
+  - Repeat CBG in 1 hour.
+  - If CBG is still >7.0 mmol/L on repeat: start IV insulin infusion and proceed to Algorithm C.
+  - If CBG falls to ≤7.0 mmol/L: continue monitoring as before.
+- **If CBG > 10.0 mmol/L (significantly elevated):**
+  - Start IV insulin infusion immediately. Proceed to Algorithm C.
 
-| CBG Result (mmol/L) | Action |
-|---|---|
-| < 4.0 (hypoglycaemia) | Inform doctor immediately. If symptomatic: give bolus IV 20 mL of D50%. If asymptomatic: offer nourishing fluid. Repeat CBG in 30 minutes and re-assess. |
-| 4.0–7.0 (target range) | Continue monitoring CBG as previously scheduled. No change needed. |
-| 7.1–10.0 (mildly elevated) | Repeat CBG in 1 hour. If CBG is still >7.0 mmol/L on repeat → start IV insulin infusion and proceed to Algorithm C. If CBG falls to ≤7.0 mmol/L → continue monitoring as before. |
-| >10.0 (significantly elevated) | Start IV insulin infusion immediately. Proceed to Algorithm C. |
-
----
+T1DM : Type 1 diabetes mellitus
+T2DM : Type 2 diabetes mellitus
+GDM  : Gestational diabetes mellitus
 
 ## Algorithm C: Insulin Infusion And Titration In Active Labour
 
-**Overview:** This algorithm provides the protocol for initiating and titrating intravenous (IV) insulin infusion during active labour. It is used for T1DM (from onset of labour) and for T2DM/GDM patients when CBG exceeds 7.0 mmol/L.
+The clinical management workflow for insulin infusion and titration in active labour is structured around continuous intravenous administration, strict hourly monitoring, and dynamic dose adjustment to maintain a safe target range.
 
-Refer to Appendix 5 (Section 11) for the preparation of insulin infusion solution.
+**1. Initiation and Monitoring:**
+- Start intravenous (IV) insulin infusion based on diabetes type:
+  - Type 1 diabetes mellitus: 0.01-0.02 unit/kg/hour
+  - Type 2 diabetes mellitus/gestational diabetes mellitus: 0.05-0.07 unit/kg/hour
+  - *Note: If requirement exceeds 0.1 unit/kg/hour, refer to the endocrinologist/physician.*
+- Check capillary blood glucose (CBG) hourly.
 
-**Step 1: Initiate IV Insulin Infusion**
+**2. CBG Results and Titration (Target: 4.0-7.0 mmol/L):**
+- **If CBG < 4.0 mmol/L:**
+  - Withhold insulin infusion
+  - Inform doctor immediately
+  - If symptomatic, give bolus IV (20 ml of D50%)
+  - If asymptomatic, offer nourishing fluid
+  - Repeat CBG in 30 minutes
+- **If CBG ≥ 4.0 mmol/L (Titration of insulin infusion):**
+  - Drop > 2.0 from previous reading: Reduce by 1.0 unit
+  - 4.0-7.0: Maintain current dose
+  - 7.1-8.5: Add 0.5 unit
+  - 8.6-10.0: Add 1.0 unit
+  - > 10.0: Add 2.0 unit
+- Check CBG in 1 hour and repeat the assessment.
 
-Starting infusion rate depends on diabetes type:
-- **Type 1 Diabetes Mellitus:** 0.01–0.02 unit/kg/hour
-- **Type 2 Diabetes Mellitus or GDM:** 0.05–0.07 unit/kg/hour
-- **Note:** If insulin requirement exceeds 0.1 unit/kg/hour at any point, refer to endocrinologist or physician immediately.
+**Key takeaways:**
+- The algorithm emphasises precise hourly monitoring and dynamic insulin titration to maintain blood glucose securely within the 4.0-7.0 mmol/L target range while actively mitigating the risk of hypoglycaemia.
 
-**Step 2: Monitor CBG Hourly**
-
-Once IV insulin infusion is running, check CBG every hour.
-
-**Step 3: Interpret CBG and Adjust Infusion Rate**
-
-| CBG Result (mmol/L) | Action |
-|---|---|
-| < 4.0 (hypoglycaemia) | Withhold insulin infusion immediately. Inform doctor immediately. If symptomatic: give bolus IV 20 mL of D50%. If asymptomatic: offer nourishing fluid. Repeat CBG in 30 minutes. Restart insulin when CBG ≥ 4.0 mmol/L. |
-| ≥ 4.0 (proceed to titration table below) | Adjust infusion rate as per titration table. |
-
-**Titration of Insulin Infusion (for CBG ≥ 4.0 mmol/L):**
-
-| CBG (mmol/L) | Action |
-|---|---|
-| Drop >2.0 from previous reading | Reduce infusion by 1.0 unit/hour |
-| 4.0–7.0 (target range) | Maintain current dose |
-| 7.1–8.5 | Add 0.5 unit/hour |
-| 8.6–10.0 | Add 1.0 unit/hour |
-| >10.0 | Add 2.0 units/hour |
-
-**Step 4: Continue Hourly CBG Monitoring**
-
-After each adjustment, re-check CBG in 1 hour and repeat titration assessment. Continue until delivery.
-
----
+Refer to Appendix 5 for preparation of insulin infusion.
 
 <!-- parent_only_reference_start -->
-Level Of Evidence (US/Canadian Preventive Services Task Force 2001)
+Level Of Evidence
 | Level | Study Design |
 |---|---|
 | I | Evidence from at least one properly randomised controlled trial |
@@ -140,25 +181,4 @@ Level Of Evidence (US/Canadian Preventive Services Task Force 2001)
 | II-2 | Evidence obtained from well-designed cohort or case-control analytic studies, preferably from more than one centre or group |
 | II-3 | Evidence from multiple time series with or without intervention. Dramatic results in uncontrolled experiments could also be regarded as this type of evidence |
 | III | Opinions of respected authorities based on clinical experience; descriptive studies and case reports; or reports of expert committees |
-
-Grades Of Recommendation (GRADE Principles)
-| Grade | Definition |
-|---|---|
-| A | Strong recommendation; based on Level I evidence (RCT/meta-analysis) |
-| B | Moderate recommendation; based on Level II-1 or II-2 evidence |
-| C | Weak/conditional recommendation; based on Level II-3, III, or expert consensus |
-
-Abbreviations
-| Abbreviation | Description |
-|---|---|
-| CBG | Capillary blood glucose |
-| FPG | Fasting plasma glucose |
-| GDM | Gestational diabetes mellitus |
-| OGTT | Oral glucose tolerance test |
-| RPG | Random plasma glucose |
-| T1DM | Type 1 diabetes mellitus |
-| T2DM | Type 2 diabetes mellitus |
-| 2-HPP | 2-hour postprandial glucose |
-| IV | Intravenous |
-| D50% | 50% dextrose solution |
 <!-- parent_only_reference_end -->
