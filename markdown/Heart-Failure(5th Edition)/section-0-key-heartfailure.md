@@ -1,4 +1,12 @@
 # Section 0: Key Messages & Recommendations
+<!-- METADATA
+category: Reference
+use_case: HF Key Messages and Recommendations Index — epidemiology, definition, classification, diagnosis, prevention, pharmacotherapy, device_therapy, acute_HF, special_populations, advanced_HF, secondary_prevention
+patient_input:
+output: key_messages, consolidated_recommendations, management_principles
+-->
+
+> **Context:** Consolidated key-messages and key-recommendations index for the 2019 Malaysian Heart Failure CPG (5th Edition) — a quick-reference digest spanning epidemiology through advanced HF. Full clinical detail and rationale are in Sections 1–19.
 
 ## Key Messages 1: Epidemiology and Goals of Management
 * In Malaysia, patients with HF are almost 10-15 years younger than those in western countries. Comorbidities such as hypertension, diabetes and chronic kidney disease are common in our patients.
@@ -415,7 +423,6 @@
 **Step 1: Initial Presentation**
 **Suspected HF Because of Symptoms and/or Signs**
 ↓
-
 **Step 2: Initial Investigations**
 Perform the following:
 *   ECG
@@ -455,13 +462,10 @@ Perform echocardiography to assess cardiac structure and function.
 > *\*refer to Section 6.2 Investigations for the full list of Basic, Important and Additional Investigations.*
 
 ## Flowchart II: Management Of Acute Heart Failure
-
 **Step 1: Acute Heart Failure**
 ↓
-
 **Step 2: Oxygen If O2 Saturation < 95%**
 ↓
-
 **Step 3: Assess For Congestion And Perfusion**
 Classify the patient into one of four hemodynamic profiles:
 
@@ -475,9 +479,7 @@ Classify the patient into one of four hemodynamic profiles:
 **Outcome Evaluation:**
 *   **If Cold/Wet, Cold/Dry, or Warm/Wet:** → Proceed to Step 4 (Blood Pressure Assessment)
 *   **If Warm, Dry:** → Titrate oral medications (Flow Chart III & IV)
-
 ↓
-
 **Step 4: Blood Pressure Assessment (Two Pathways)**
 Determine the pathway based on systolic blood pressure:
 
@@ -497,9 +499,7 @@ Determine the pathway based on systolic blood pressure:
 
 **Step 5B: Sbp < 90mmHg**
 *   Consider Cautious Fluid Challenge if dehydrated.
-
 ↓
-
 *   **Inotropes:**
     *   Noradrenaline 1st
     *   Dopamine / Dobutamine
@@ -670,7 +670,6 @@ If BP is low, then:
 *   First reduce dose of diuretics if fluid overload is absent before reducing dose of RAS blockers and/or β-Blockers.
 
 ## Table 1: GRADES OF RECOMMENDATIONS AND LEVELS OF EVIDENCE
-
 GRADES OF RECOMMENDATION
 | Grade | Description |
 |---|---|
@@ -688,7 +687,6 @@ LEVELS OF EVIDENCE
 | C | Only consensus of opinions of experts, case studies or standard of care. |
 
 ## Table 2: Grading Of Recommendations In The Management Of Acute HF
-
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|---|---|
 | INITIAL MANAGEMENT CONSISTS OF: | | | |
@@ -746,7 +744,6 @@ LEVELS OF EVIDENCE
 > *CrCl unit: ml/min; eGFR unit: ml/min/1.73m²*
 
 ## Table 4: Grading Of Recommendations And Levels Of Evidence In The Management Of HFrEF (LVEF<40%)
-
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|---|---|
 | INDICATED FOR FLUID RETENTION IN NYHA II - IV | | | |
@@ -784,7 +781,6 @@ LEVELS OF EVIDENCE
 | | **Serum Creatinine** | <ul><li>Consider reducing or discontinuing RAS Blockers (after excluding other precipitating factors) when SCr levels remain ≥ 30% from the baseline (or eGFR reduces ≥ 25%) and if these occur within two months from commencement or dose increase.</li></ul> |
 
 ## Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (LVEF > 50%)
-
 | Intervention | Grades of Recommendation | Levels of Evidence | Comments |
 |---|---|-  ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````  --|---|
 | LIFESTYLE MEASURES | | | |

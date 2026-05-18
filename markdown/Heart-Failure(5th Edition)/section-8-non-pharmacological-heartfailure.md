@@ -10,16 +10,16 @@ output: education_plan, exercise_prescription, dietary_guidance, fluid_restricti
 [Grade I, Level B] HF patients and their family members should be educated on the definition, causes, signs, symptoms, and the progressive and relapsing nature of the disease, emphasizing self-care wherever possible. Increased awareness helps patients adhere to therapeutic instructions whereas knowledge leads to reduced anxiety and better sense of control. Self-care is important and improves long term adherence to management strategies.
 
 Patients and their family should:
-*   Be educated on self-care which includes:
-    *   Maintenance (e.g., taking medication, exercising, and adhering to a healthy diet)
-    *   Monitoring (e.g., regular weighing) and
-    *   Management (e.g., changing diuretic dose in response to symptoms)
-*   Recognize the changes in their signs and symptoms - a sudden weight gain - more than 2kg in 3 days is a sign of worsening HF.
-*   Know when to contact their healthcare provider.
-*   Understand the indication, dosing, side effects and drug interaction of each medication they are prescribed.
-*   Be warned about self-medication and potential drug interactions.
-*   Adhere to treatment and be informed of the potential complications resulting from non-adherence to prescribed medications.
-*   Be provided with prognostic information to enable them to make realistic long-term decisions and plans. There should be frank end-of-life discussions and advanced care planning with the patient and family. This is important as there is a potential risk of sudden death, and they must put their affairs in order.
+- Be educated on self-care which includes:
+    - Maintenance (e.g., taking medication, exercising, and adhering to a healthy diet)
+    - Monitoring (e.g., regular weighing) and
+    - Management (e.g., changing diuretic dose in response to symptoms)
+- Recognize the changes in their signs and symptoms - a sudden weight gain - more than 2kg in 3 days is a sign of worsening HF.
+- Know when to contact their healthcare provider.
+- Understand the indication, dosing, side effects and drug interaction of each medication they are prescribed.
+- Be warned about self-medication and potential drug interactions.
+- Adhere to treatment and be informed of the potential complications resulting from non-adherence to prescribed medications.
+- Be provided with prognostic information to enable them to make realistic long-term decisions and plans. There should be frank end-of-life discussions and advanced care planning with the patient and family. This is important as there is a potential risk of sudden death, and they must put their affairs in order.
 
 In advanced HF, treatment options must be discussed tactfully and realistically with the patient and family.
 
@@ -27,49 +27,49 @@ Structured telephone support and non-invasive home telemonitoring have been show
 
 **Telemedicine**
 Refer to section 17.4: Telemedicine/Telehealth. <!-- cross_ref target_file="section-17-organisation-of-care-heartfailure.md" target_heading="17.4: Telemedicine/Telehealth" target_kind="h2_section" -->
-*   Allows more frequent monitoring of the patient's status using smart phones and other mobile devices.
-*   Has been found to be effective in improving patient's self-care abilities.
-*   Enables HF patients to be cared for while staying at home, thus reducing hospitalizations.
+- Allows more frequent monitoring of the patient's status using smart phones and other mobile devices.
+- Has been found to be effective in improving patient's self-care abilities.
+- Enables HF patients to be cared for while staying at home, thus reducing hospitalizations.
 
 They are however barriers for the widespread implementation of telemedicine. These include:
-*   Issues related to patient privacy and data safety although recently, many platforms have been developed to address these issues.
-*   Costs - it would be more cost effective to identify:
-    *   The most relevant biological parameters to monitor.
-    *   The HF sub-populations who may gain from telehealth interventions (e.g., older patients with more comorbidities).
-    *   In which specific healthcare subsets these interventions should be implemented e.g., immediate post discharge.
+- Issues related to patient privacy and data safety although recently, many platforms have been developed to address these issues.
+- Costs - it would be more cost effective to identify:
+    - The most relevant biological parameters to monitor.
+    - The HF sub-populations who may gain from telehealth interventions (e.g., older patients with more comorbidities).
+    - In which specific healthcare subsets these interventions should be implemented e.g., immediate post discharge.
 
 ## 8.2: Exercise Training
 Refer To Section 16: HF Rehabilitation <!-- cross_ref target_file="section-16-rehabilitation-heartfailure.md" target_heading="Section 16: Heart Failure Rehabilitation" target_kind="h1_section" -->
-*   [Grade I, Level B] Several systematic reviews and meta-analyses support exercise training as an integral part of the non-pharmacological treatment of HF. Exercise also leads to an improvement in the patient's Health Related Quality of Life (HRQoL) - symptoms, a greater sense of wellbeing, and better functional capacity.
+- [Grade I, Level B] Several systematic reviews and meta-analyses support exercise training as an integral part of the non-pharmacological treatment of HF. Exercise also leads to an improvement in the patient's Health Related Quality of Life (HRQoL) - symptoms, a greater sense of wellbeing, and better functional capacity.
 
 **Exercise training:**
-*   Is safe in patients with stable HF.
-*   In patients with HFrEF, has been shown to reduce overall and HF-specific hospitalizations.
-*   In patients with HFpEF has limited clinical data. Small trials show that exercise training leads to an improvement in exercise capacity and quality of life.
+- Is safe in patients with stable HF.
+- In patients with HFrEF, has been shown to reduce overall and HF-specific hospitalizations.
+- In patients with HFpEF has limited clinical data. Small trials show that exercise training leads to an improvement in exercise capacity and quality of life.
 
 **Exercise-based rehabilitation:**
-*   Reduced the risk of hospital admissions.
-*   Improved health related quality of life (HRQoL).
-*   Enhanced exercise capacity.
-*   Did not result in an obvious improvement in cardiac function although in some small studies, it has been shown to reverse left ventricular remodelling.
+- Reduced the risk of hospital admissions.
+- Improved health related quality of life (HRQoL).
+- Enhanced exercise capacity.
+- Did not result in an obvious improvement in cardiac function although in some small studies, it has been shown to reverse left ventricular remodelling.
 
 Regular aerobic exercises are encouraged in NYHA I - III patients. These include:
-*   Aerobic and endurance training - Moderate intensity continuous exercises such as walking, treadmill, stationary bicycle as well as swimming with a target goal of 5 days per week, 30 minutes per session.
-*   Interval training and high intensity interval training (HIIT) - This has been shown to be safe and results in greater improvements in exercise tolerance in selected patients with HF. In a trial on patients with HFpEF, however, HIIT did not confer any advantage compared to guideline based physical exercise.
-*   Inspiratory muscle training (IMT) - the addition of IMT has been shown to reduce dyspnea, improve exercise time and HRQoL.
+- Aerobic and endurance training - Moderate intensity continuous exercises such as walking, treadmill, stationary bicycle as well as swimming with a target goal of 5 days per week, 30 minutes per session.
+- Interval training and high intensity interval training (HIIT) - This has been shown to be safe and results in greater improvements in exercise tolerance in selected patients with HF. In a trial on patients with HFpEF, however, HIIT did not confer any advantage compared to guideline based physical exercise.
+- Inspiratory muscle training (IMT) - the addition of IMT has been shown to reduce dyspnea, improve exercise time and HRQoL.
 
 ## 8.3: Diet And Nutrition
-*   [Grade I, Level B] It has been widely accepted that sodium intake should be restricted in patients with HF especially in those with symptoms. However, there is little clinical evidence to support this. Sodium restriction to < 100gm/day did not reduce clinical events.
-*   [Grade IIa, Level C] The current recommendation is to avoid adding salt and flavouring sauces such as soya sauce, tomato ketchup and chilli sauce while cooking or at the table. Refer to Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon) for salt content of common Malaysian food.
-*   [Grade IIa, Level B] A good balanced diet plays an important role in preventing energy depletion which can lead to cardiac cachexia and malnutrition. Cachexia is associated with increased mortality.
+- [Grade I, Level B] It has been widely accepted that sodium intake should be restricted in patients with HF especially in those with symptoms. However, there is little clinical evidence to support this. Sodium restriction to < 100gm/day did not reduce clinical events.
+- [Grade IIa, Level C] The current recommendation is to avoid adding salt and flavouring sauces such as soya sauce, tomato ketchup and chilli sauce while cooking or at the table. Refer to Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon) for salt content of common Malaysian food.
+- [Grade IIa, Level B] A good balanced diet plays an important role in preventing energy depletion which can lead to cardiac cachexia and malnutrition. Cachexia is associated with increased mortality.
 
 A review found that the combination of personalized nutrition intervention with conventional treatment led to a decrease in all-cause mortality and hospital readmission.
 
 There are at present, however, few existing dietary strategies proven to improve clinical outcomes in HF. The role of routine supplementation of micronutrients as a component of HF management is unclear.
 
 ## 8.4: Fluid Restriction
-*   [Grade IIa, Level C] The current evidence on fluid restriction is mixed. As with salt, excessive fluid restriction can also lead to worse outcomes. This may also be due to reverse causality - sicker patients tend to take less salt and water.
-*   [Grade I, Level C] Fluid intake should be individualized. A general recommendation is 1-1.5 liters per day in patients with normal renal function.
+- [Grade IIa, Level C] The current evidence on fluid restriction is mixed. As with salt, excessive fluid restriction can also lead to worse outcomes. This may also be due to reverse causality - sicker patients tend to take less salt and water.
+- [Grade I, Level C] Fluid intake should be individualized. A general recommendation is 1-1.5 liters per day in patients with normal renal function.
 
 In older persons, particularly those living with dementia and at the end of life, fluid intake may be more liberal.
 
@@ -77,39 +77,39 @@ Temporary fluid restriction can be considered in decompensated heart failure and
 
 #### 8.2.1.5: Lifestyle Measures
 These include:
-*   [Grade I, Level B] **Weight Monitoring** - Patients should be encouraged to monitor their own weight. In obese patients, weight loss should be encouraged.
-*   [Grade IIa, Level B] **Alcohol** - Heavy binge drinking should be avoided in patients with HF as it can predispose to supraventricular arrhythmias especially atrial fibrillation and lead to acute cardiac decompensation. Patients with alcoholic cardiomyopathy should abstain from alcohol.
-*   [Grade I, Level B] **Smoking** should be stopped.
+- [Grade I, Level B] **Weight Monitoring** - Patients should be encouraged to monitor their own weight. In obese patients, weight loss should be encouraged.
+- [Grade IIa, Level B] **Alcohol** - Heavy binge drinking should be avoided in patients with HF as it can predispose to supraventricular arrhythmias especially atrial fibrillation and lead to acute cardiac decompensation. Patients with alcoholic cardiomyopathy should abstain from alcohol.
+- [Grade I, Level B] **Smoking** should be stopped.
 
 #### 8.2.1.6: Sexual Activity, Pregnancy, And Contraception
 As many as 60% to 87% of HF patients have sexual problems. Erectile dysfunction (ED) is common and many have misconceptions that their symptoms (20%) or medications (10%) is the cause. Proper counselling is necessary to address these concerns, to allay anxiety, avoid skipping medications and prevent the use of traditional potency enhancing drugs or herbs.
 
-*   [Grade IIa, Level B] It is imperative that enquiries on sexual activities or dysfunction be addressed to provide a holistic approach to patient care. The physician must take over the initial approach since patients are often embarrassed to initiate the topic. Some helpful tools to initiate the conversation include:
-    *   PLISSIT (permission, limited information, specific suggestion, and intensive therapy).
-    *   Needs of Sexual Counselling Scale for Chronic Heart Failure (NSCS-CHF).
-    *   Sexual Adjustment Scale (SAS).
+- [Grade IIa, Level B] It is imperative that enquiries on sexual activities or dysfunction be addressed to provide a holistic approach to patient care. The physician must take over the initial approach since patients are often embarrassed to initiate the topic. Some helpful tools to initiate the conversation include:
+    - PLISSIT (permission, limited information, specific suggestion, and intensive therapy).
+    - Needs of Sexual Counselling Scale for Chronic Heart Failure (NSCS-CHF).
+    - Sexual Adjustment Scale (SAS).
 
 Patients should be taught:
-*   To pay attention to their symptoms of HF.
-*   The potential dangers (worsening chest pain, dyspnea, giddiness and/or palpitations) and how to manage them when they occur during sexual activities.
-*   To defer sexual activities if in NYHA III-IV.
-*   Not to resume until his/her heart condition stabilizes.
-*   To modify sexual practices to accommodate impaired effort tolerance.
+- To pay attention to their symptoms of HF.
+- The potential dangers (worsening chest pain, dyspnea, giddiness and/or palpitations) and how to manage them when they occur during sexual activities.
+- To defer sexual activities if in NYHA III-IV.
+- Not to resume until his/her heart condition stabilizes.
+- To modify sexual practices to accommodate impaired effort tolerance.
 
 HF patients need to be told that certain cardiac medications have important side effects and drug interactions:
-*   Nitrates may dangerously interact with drugs for erectile dysfunction - phosphodiesterase - 5-inhibitors (Viagra, Cialis, Levitra).
-*   β-blockers may contribute towards worsening erectile dysfunction, but it is important that HF patients remain compliant to them.
+- Nitrates may dangerously interact with drugs for erectile dysfunction - phosphodiesterase - 5-inhibitors (Viagra, Cialis, Levitra).
+- β-blockers may contribute towards worsening erectile dysfunction, but it is important that HF patients remain compliant to them.
 
-*   [Grade I, Level C] Patients with LVEF < 30% and those with NYHA III and IV should be advised against pregnancy because of high maternal mortality. If pregnant, termination of pregnancy should be considered.
-*   [Grade I, Level C] When pregnancy is contraindicated, a multi-disciplinary approach with pre-conception counselling and proper contraceptive advice becomes paramount to the safety of the patient by preventing an unwanted pregnancy. Contraceptive counselling should begin early. In the absence of randomized controlled studies, the choice of contraceptive method is almost always based on expert opinion of the attending cardiologists, obstetrician, and the patient's choice.
+- [Grade I, Level C] Patients with LVEF < 30% and those with NYHA III and IV should be advised against pregnancy because of high maternal mortality. If pregnant, termination of pregnancy should be considered.
+- [Grade I, Level C] When pregnancy is contraindicated, a multi-disciplinary approach with pre-conception counselling and proper contraceptive advice becomes paramount to the safety of the patient by preventing an unwanted pregnancy. Contraceptive counselling should begin early. In the absence of randomized controlled studies, the choice of contraceptive method is almost always based on expert opinion of the attending cardiologists, obstetrician, and the patient's choice.
 
 Generally, Tier I methods which includes permanent sterilization and long-acting reversible contraceptives such as intrauterine devices [IUDs] and implants, have typical-use 1-year failure rates of < 1%. Given their excellent safety and efficacy profile, they should be recommended for women with underlying CVD. The risk of infective endocarditis with IUD is low.
 
 #### 8.2.1.7: Sleep Disorders
 Sleep disorders are common in HF with prevalence rates of 50-75%, the prevalence increasing with age, obesity, male sex, Atrial Fibrillation, and poorer LV systolic function. These sleep disorders include short sleep time, low sleep quality, and sleep-disordered breathing. Sleep disordered breathing (SDB) includes either:
-*   Central Sleep Apnea (CSA) or
-*   Obstructive Sleep Apnea (OSA) or
-*   Coexisting OSA and CSA.
+- Central Sleep Apnea (CSA) or
+- Obstructive Sleep Apnea (OSA) or
+- Coexisting OSA and CSA.
 
 Sleep disturbances could also be due to pulmonary congestion leading to breathlessness and cough, and nocturnal diuresis due to diuretics and anxiety.
 
@@ -117,31 +117,31 @@ OSA may occur in the normal population or in HF patients, while CSA, which may p
 
 SDB affects HRQoL and leads to harmful effects on cardiac function, arrhythmias (both atrial fibrillation and malignant ventricular arrhythmias) and poorer prognosis due to the repetitive hypoxemia, hypercapnia and swings in blood pressure and intrathoracic pressure.
 
-*   [Grade I, Level C] OSA patients are encouraged to lose weight and to exercise moderately. Alcohol and sedatives before sleep are best avoided. These patients are best managed in a multi-disciplinary manner.
-*   [Grade IIa, Level B] CPAP improves daytime sleepiness. However, none of the evidence so far indicates an improvement in terms of cardiovascular or all-cause mortality or hospital admissions.
+- [Grade I, Level C] OSA patients are encouraged to lose weight and to exercise moderately. Alcohol and sedatives before sleep are best avoided. These patients are best managed in a multi-disciplinary manner.
+- [Grade IIa, Level B] CPAP improves daytime sleepiness. However, none of the evidence so far indicates an improvement in terms of cardiovascular or all-cause mortality or hospital admissions.
 
 In patients with HF and CSA, the use of Adaptive Servo Ventilation (ASV) was associated with an increase in all cause and CV mortality mainly driven by an increase in sudden cardiac death.
-*   [Grade III, Level B] ASV is contraindicated in patients with HF and CSA.
-*   [Grade I, Level C] As CSA tends to worsen when HF worsens, optimizing medical therapy remains the main strategy in CSA.
+- [Grade III, Level B] ASV is contraindicated in patients with HF and CSA.
+- [Grade I, Level C] As CSA tends to worsen when HF worsens, optimizing medical therapy remains the main strategy in CSA.
 
 #### 8.2.1.8: Psychosocial Support
 About 35% patients with HF have clinical depression and about 40% have severe anxiety. There is an association between HRQoL scores and survival. Most patients prefer improved HRQoL to longevity.
 
 Patients with HF who have psychological problems have been shown to have increased morbidity and hospital readmission rates, to be less adherent to their medical regimen, and to have an overall increase in cost of care. Effective, homebased HF management, has been shown to improve HRQoL, reduce expenditure and re-hospitalization rate.
 
-*   [Grade I, Level C] Thus, it is important that family members and carers are included during counselling sessions. Depressive symptoms may affect adherence and should prompt referral to the appropriate specialists for psychological support. Inpatient treatment and hospitalizations are the main drivers for a decrease of HRQoL and efforts should be made to avoid this.
+- [Grade I, Level C] Thus, it is important that family members and carers are included during counselling sessions. Depressive symptoms may affect adherence and should prompt referral to the appropriate specialists for psychological support. Inpatient treatment and hospitalizations are the main drivers for a decrease of HRQoL and efforts should be made to avoid this.
 
 **Key Recommendation # 3: Non-Pharmacological Measures**
-*   In managing HF, non-pharmacological measures play a vital role. It is important to:
-    *   Educate patient and family about the disease, treatment options and prognosis. There should be frank end-of-life discussions and advanced care planning with the patient and family. This is important as there is a potential risk of sudden death, and they should put their affairs in order.
-    *   Encourage lifestyle measures:
-        *   Proper balanced diet to prevent malnutrition and cardiac cachexia.
-        *   Weight management - avoid obesity.
-        *   Regular physical activity and exercise training.
-        *   Smoking cessation.
-    *   Individualize fluid intake - A general recommendation is 1-1.5 liters per day in patients with normal renal function.
-    *   Provide advice regarding sexual activities and pregnancy.
-    *   Address psychosocial problems encountered by the patient and the family.
+- In managing HF, non-pharmacological measures play a vital role. It is important to:
+    - Educate patient and family about the disease, treatment options and prognosis. There should be frank end-of-life discussions and advanced care planning with the patient and family. This is important as there is a potential risk of sudden death, and they should put their affairs in order.
+    - Encourage lifestyle measures:
+        - Proper balanced diet to prevent malnutrition and cardiac cachexia.
+        - Weight management - avoid obesity.
+        - Regular physical activity and exercise training.
+        - Smoking cessation.
+    - Individualize fluid intake - A general recommendation is 1-1.5 liters per day in patients with normal renal function.
+    - Provide advice regarding sexual activities and pregnancy.
+    - Address psychosocial problems encountered by the patient and the family.
 
 <!-- parent_only_reference_start -->
 Appendix II: Salt Content Of Common Malaysian Foods Daily Reference Intake (Dri) For Salt: 5 G Per Day (1 Teaspoon)

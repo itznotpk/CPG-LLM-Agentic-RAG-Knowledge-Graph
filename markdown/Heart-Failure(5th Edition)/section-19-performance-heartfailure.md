@@ -10,29 +10,29 @@ Performance measures should be used with the goal of improving quality of care f
 Process performance measures focus on the aspects of care that are delivered to a patient, while outcome measures focus on the endpoints such as mortality or hospitalization.
 
 Process performance indicators for in-patients with HF include:
-*   % of patients who had documentation of NYHA Functional Class.
-*   % of patients who had LVEF measurement.
-*   % of patients with current or prior LVEF < 40% and without contraindications discharged with ACE-I/ARB/ARNI.
-*   % of patients with current or prior LVEF < 40% and without contraindications discharged on β-blockers.
-*   % of patients with current or prior LVEF < 40% and without contraindications discharged on MRA.
-*   % of patients with chronic or paroxysmal AF/Atrial Flutter without contraindications on anticoagulant therapy at discharge.
-*   % of patients given a post discharge appointment within 14 days.
-*   % of patients who had up titration of their Foundational HF medications to target or maximally tolerated doses at 3 months.
+- % of patients who had documentation of NYHA Functional Class.
+- % of patients who had LVEF measurement.
+- % of patients with current or prior LVEF < 40% and without contraindications discharged with ACE-I/ARB/ARNI.
+- % of patients with current or prior LVEF < 40% and without contraindications discharged on β-blockers.
+- % of patients with current or prior LVEF < 40% and without contraindications discharged on MRA.
+- % of patients with chronic or paroxysmal AF/Atrial Flutter without contraindications on anticoagulant therapy at discharge.
+- % of patients given a post discharge appointment within 14 days.
+- % of patients who had up titration of their Foundational HF medications to target or maximally tolerated doses at 3 months.
 
 The accepted performance measure is 60%.
 
 Outcome Measures indicators include:
-*   In-hospital mortality
-*   30-day readmission for heart failure
+- In-hospital mortality
+- 30-day readmission for heart failure
 
 Refer to Appendix XVI: Calculation of Performance and Outcome Measures for calculation of these measures.
 
 Key Recommendation #20: Performance Measures:
-*   Performance measures are used with the goal of improving quality of care for HF.
-*   This includes:
-    *   Process performance which measures the aspects of care that are delivered to a patient and
-    *   Outcome measures which focus on hard endpoints such as mortality or hospitalization.
-*   For the Quality indicators in HF, refer to section 19: Performance Measures & Appendix XVI: Calculation of Performance and Outcome Measures.
+- Performance measures are used with the goal of improving quality of care for HF.
+- This includes:
+    - Process performance which measures the aspects of care that are delivered to a patient and
+    - Outcome measures which focus on hard endpoints such as mortality or hospitalization.
+- For the Quality indicators in HF, refer to section 19: Performance Measures & Appendix XVI: Calculation of Performance and Outcome Measures.
 
 <!-- parent_only_reference_start -->
 Appendix XVI: Calculation Of Performance And Outcome Measures

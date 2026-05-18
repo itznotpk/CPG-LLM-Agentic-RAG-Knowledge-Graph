@@ -10,56 +10,56 @@ treatment_type: ACEi, ARB, ARNI, beta_blocker, MRA, SGLT2i, ICD, CRT
 
 ## 10.1: Pharmacological Management
 There are five essential classes of medications (Optimal Medical Therapy) in the management of patients with HFrEF. These are:
-*   [Grade I, Level B] Diuretics
-*   [Grade I, Level A] Renin-angiotensin system (RAS) blockers:
-    *   Angiotensin converting enzyme inhibitors (ACE-I) or
-    *   Angiotensin receptor blockers (ARB) or
-    *   Angiotensin receptor neprilysin inhibitor (ARNI)
-*   [Grade I, Level A] β-blockers
-*   [Grade I, Level A] Mineralocorticoid Antagonists (MRA)
-*   [Grade I, Level A] Sodium glucose cotransporter 2 inhibitors (SGLT2-i)
+- [Grade I, Level B] Diuretics
+- [Grade I, Level A] Renin-angiotensin system (RAS) blockers:
+    - Angiotensin converting enzyme inhibitors (ACE-I) or
+    - Angiotensin receptor blockers (ARB) or
+    - Angiotensin receptor neprilysin inhibitor (ARNI)
+- [Grade I, Level A] β-blockers
+- [Grade I, Level A] Mineralocorticoid Antagonists (MRA)
+- [Grade I, Level A] Sodium glucose cotransporter 2 inhibitors (SGLT2-i)
 
-*   Diuretics, by relieving congestion, are the initial step in the management of patients with symptomatic HF.
-*   The other four medications (RAS blockers, β-blockers, MRA and SGLT2-i) have been shown to improve survival, reduce hospitalizations for HF and improve quality of life in patients with HFrEF. SGLT2-i has been shown to be effective irrespective of diabetic status. For these reasons, these 4 medications are referred to as "Foundational HF" Medications.
-*   The initiation and up titration of these 4 Foundational drug classes should be guided by the patient's:
-    *   Clinical status,
-    *   Heart rate,
-    *   Blood pressure,
-    *   Fluid overload status,
-    *   Renal function,
-    *   Electrolytes and
-    *   Tolerance.
-*   Comorbidities such as atrial fibrillation, diabetes, chronic kidney, and pulmonary disease are also important conditions to be considered.
-*   These 4 Foundational HF Medications should be initiated at about the same time and up titrated if needed to their target or maximally tolerated doses.
-    *   In general, starting low doses of the 4 different classes would be preferred over up titration of each of the individual drugs to the maximally tolerated dose before initiating the next drug.
-    *   These drugs are preferably all initiated, albeit at low doses, when the patient is admitted with HF so that at the time of discharge, the patient is on all the "Foundational HF" Medications.
-*   These drugs should be "up titrated" as outpatient to the maximally tolerated dose according to the patient's profile - hemodynamic and renal function. (refer to Section 10.2: Patient Profiling and Titration of Foundational HF Medications & Flow Chart III: Initiating Foundational HF Medication, Flow Chart IV: For Patients with eGFR < 30mls/min/1.73m² (Initiating Foundational HF Medication) & Flow Chart V: Optimizing Management of HFrEF Foundational HF Medications)
-*   Drugs with less proven survival benefits (e.g., diuretics) should be re-evaluated for reduction in dosage when Foundational HF medications are not well tolerated due to a low BP. If the patient is no longer congested and appears clinically to be euvolemic, the doses of diuretics can be reduced. Alternatively, administering drugs at different timing may be considered for those with symptomatic hypotension.
-*   Wherever possible, Foundational HF medications should be continued during an acute illness. If discontinued, they should be restarted as soon as the condition has stabilized.
+- Diuretics, by relieving congestion, are the initial step in the management of patients with symptomatic HF.
+- The other four medications (RAS blockers, β-blockers, MRA and SGLT2-i) have been shown to improve survival, reduce hospitalizations for HF and improve quality of life in patients with HFrEF. SGLT2-i has been shown to be effective irrespective of diabetic status. For these reasons, these 4 medications are referred to as "Foundational HF" Medications.
+- The initiation and up titration of these 4 Foundational drug classes should be guided by the patient's:
+    - Clinical status,
+    - Heart rate,
+    - Blood pressure,
+    - Fluid overload status,
+    - Renal function,
+    - Electrolytes and
+    - Tolerance.
+- Comorbidities such as atrial fibrillation, diabetes, chronic kidney, and pulmonary disease are also important conditions to be considered.
+- These 4 Foundational HF Medications should be initiated at about the same time and up titrated if needed to their target or maximally tolerated doses.
+    - In general, starting low doses of the 4 different classes would be preferred over up titration of each of the individual drugs to the maximally tolerated dose before initiating the next drug.
+    - These drugs are preferably all initiated, albeit at low doses, when the patient is admitted with HF so that at the time of discharge, the patient is on all the "Foundational HF" Medications.
+- These drugs should be "up titrated" as outpatient to the maximally tolerated dose according to the patient's profile - hemodynamic and renal function. (refer to Section 10.2: Patient Profiling and Titration of Foundational HF Medications & Flow Chart III: Initiating Foundational HF Medication, Flow Chart IV: For Patients with eGFR < 30mls/min/1.73m² (Initiating Foundational HF Medication) & Flow Chart V: Optimizing Management of HFrEF Foundational HF Medications)
+- Drugs with less proven survival benefits (e.g., diuretics) should be re-evaluated for reduction in dosage when Foundational HF medications are not well tolerated due to a low BP. If the patient is no longer congested and appears clinically to be euvolemic, the doses of diuretics can be reduced. Alternatively, administering drugs at different timing may be considered for those with symptomatic hypotension.
+- Wherever possible, Foundational HF medications should be continued during an acute illness. If discontinued, they should be restarted as soon as the condition has stabilized.
 
 ### 10.1.1: Diuretics
 Refer To Table 15: Diuretics Used In Heart Failure
-*   [Grade I, Level B] Diuretics are indicated in all patients in whom there are signs and/or symptoms of congestion to alleviate symptoms, improve exercise capacity, and decrease hospitalizations for HF.
-*   The goal is to achieve and maintain euvolemia with the lowest dose of a diuretic. Euvolemia is, however, often difficult to assess clinically. Important features to look for clinically are:
-    *   Resolution of symptoms and signs of congestion - subclinical congestion is sometimes, however, difficult to detect.
-    *   Improvement in effort tolerance and walking distance.
-*   Other useful investigative tools which may be helpful to assess euvolemia, if available, include:
-    *   Chest X-ray - this is a specific but not a very sensitive indicator of volume status.
-    *   Echocardiographic parameters - such as:
-        *   Decrease in chamber sizes.
-        *   Decrease in the diameter of the IVC and a 50% decrease with inspiration.
-        *   Normalization or at least a decrease in doppler indices of LV and RV filling pressures.
-    *   Natriuretic peptides - These may, however, be persistently elevated in patients with Chronic HF and in addition, there is biological variability. A decrease in levels compared to admission would be a helpful guide although relying on this alone can lead to a false assurance that decongestion has been achieved.
-    *   Lung ultrasound (LUS) - In a small study, tailored LUS-guided diuretic treatment of pulmonary congestion reduced the number of decompensations and improved walking capacity in patients with HF.
-*   Most of these investigative tools - such as echocardiographic parameters and natriuretic peptides - measure filling pressures and not volume status. These tests, however, may sometimes be insufficient to detect subclinical volume excess without accompanying increases in filling pressures.
-*   The dose of diuretic used is variable and dependent on individual requirements. In the presence of:
-    *   Severe congestive HF and ADHF, oral diuretic therapy may be ineffective. Intravenous therapy may be preferred. The diuretic of choice in these patients with fluid overload is a loop diuretic i.e., furosemide. The goal is a reduction of body weight of about 1kg/day.
-    *   Mild fluid retention, thiazide diuretics may be preferred especially in the presence of co-existing hypertension. Thiazides, however, are weak diuretics.
-*   For most patients however, a loop diuretic is often required. Other Foundational HF Medications - ARNI, MRAs, and SGLT2-i - also have diuretic characteristics and this may help modify the dose of the diuretic.
-*   Patients on diuretics should be monitored closely as over diuresis can cause intravascular volume depletion leading to hypotension and deterioration of renal function. Hypokalemia is a common problem with diuretic use and oral potassium supplementation is usually necessary.
-*   Patients should be educated in 'dry weight' management and advised to record their daily weight. If there is a consistent increase in weight of more than 2kg in 3 days, patients should be educated to self-adjust their diuretic (furosemide) dose together with restriction of their fluid intake until their "dry weight" is regained. However, if the weight increase is associated with worsening symptoms or the patient fails to respond to these measures, the patient should seek medical help immediately.
-*   Diuretic therapy may be reduced as the clinical condition of the patient improves and they are assessed to have attained euvolemia using the indicators listed earlier. In one study, however, these indicators had limited predictive capability to determine down titration success/failure.
-*   In selected patients who have stable symptoms and have been taught to manage their volume status and modify their diuretic dose accordingly, diuretic therapy may be discontinued. This is more likely to succeed if their LVEF improves to above 40-45%.
+- [Grade I, Level B] Diuretics are indicated in all patients in whom there are signs and/or symptoms of congestion to alleviate symptoms, improve exercise capacity, and decrease hospitalizations for HF.
+- The goal is to achieve and maintain euvolemia with the lowest dose of a diuretic. Euvolemia is, however, often difficult to assess clinically. Important features to look for clinically are:
+    - Resolution of symptoms and signs of congestion - subclinical congestion is sometimes, however, difficult to detect.
+    - Improvement in effort tolerance and walking distance.
+- Other useful investigative tools which may be helpful to assess euvolemia, if available, include:
+    - Chest X-ray - this is a specific but not a very sensitive indicator of volume status.
+    - Echocardiographic parameters - such as:
+        - Decrease in chamber sizes.
+        - Decrease in the diameter of the IVC and a 50% decrease with inspiration.
+        - Normalization or at least a decrease in doppler indices of LV and RV filling pressures.
+    - Natriuretic peptides - These may, however, be persistently elevated in patients with Chronic HF and in addition, there is biological variability. A decrease in levels compared to admission would be a helpful guide although relying on this alone can lead to a false assurance that decongestion has been achieved.
+    - Lung ultrasound (LUS) - In a small study, tailored LUS-guided diuretic treatment of pulmonary congestion reduced the number of decompensations and improved walking capacity in patients with HF.
+- Most of these investigative tools - such as echocardiographic parameters and natriuretic peptides - measure filling pressures and not volume status. These tests, however, may sometimes be insufficient to detect subclinical volume excess without accompanying increases in filling pressures.
+- The dose of diuretic used is variable and dependent on individual requirements. In the presence of:
+    - Severe congestive HF and ADHF, oral diuretic therapy may be ineffective. Intravenous therapy may be preferred. The diuretic of choice in these patients with fluid overload is a loop diuretic i.e., furosemide. The goal is a reduction of body weight of about 1kg/day.
+    - Mild fluid retention, thiazide diuretics may be preferred especially in the presence of co-existing hypertension. Thiazides, however, are weak diuretics.
+- For most patients however, a loop diuretic is often required. Other Foundational HF Medications - ARNI, MRAs, and SGLT2-i - also have diuretic characteristics and this may help modify the dose of the diuretic.
+- Patients on diuretics should be monitored closely as over diuresis can cause intravascular volume depletion leading to hypotension and deterioration of renal function. Hypokalemia is a common problem with diuretic use and oral potassium supplementation is usually necessary.
+- Patients should be educated in 'dry weight' management and advised to record their daily weight. If there is a consistent increase in weight of more than 2kg in 3 days, patients should be educated to self-adjust their diuretic (furosemide) dose together with restriction of their fluid intake until their "dry weight" is regained. However, if the weight increase is associated with worsening symptoms or the patient fails to respond to these measures, the patient should seek medical help immediately.
+- Diuretic therapy may be reduced as the clinical condition of the patient improves and they are assessed to have attained euvolemia using the indicators listed earlier. In one study, however, these indicators had limited predictive capability to determine down titration success/failure.
+- In selected patients who have stable symptoms and have been taught to manage their volume status and modify their diuretic dose accordingly, diuretic therapy may be discontinued. This is more likely to succeed if their LVEF improves to above 40-45%.
 
 Table 15: Diuretics Used In Heart Failure
 | Category | Drug | Route of Administration | Starting Dose | Usual Daily Dose |
@@ -70,316 +70,316 @@ Table 15: Diuretics Used In Heart Failure
 ### 10.1.2: Renin-Angiotensin System (RAS) Blockers
 Refer To Table 3: Doses Of Foundational HF Medications
 These include:
-*   Angiotensin Converting Enzyme Inhibitors (ACE-I)
-*   Angiotensin Receptor Blockers (ARBs)
-*   Angiotensin Receptor Neprilysin Inhibitor (ARNI)
+- Angiotensin Converting Enzyme Inhibitors (ACE-I)
+- Angiotensin Receptor Blockers (ARBs)
+- Angiotensin Receptor Neprilysin Inhibitor (ARNI)
 
 #### 10.1.2.1: ACE-I and ARB
-*   [Grade I, Level A] ACE-I improve survival and reduce HF hospitalizations in patients with mild, moderate, and severe symptoms of HFrEF. They are recommended in all HFrEF patients. There are no differences among available ACE-Is in their effects on symptoms or survival.
-*   In head-to-head analysis, there was no difference between ACE-I and ARBs in terms of CV outcomes such as mortality and HF hospitalization, in patients with HFrEF.
-*   [Grade I, Level A] ACE-I are, however, the preferred agents because the data for reduction in mortality and HF hospitalizations are more robust.
-*   ARBs are however better tolerated because of their better side effect profile.
-*   [Grade I, Level A] ARBs are indicated in HFrEF in ACE-I intolerant patients and can be considered in patients who develop angioedema with ACE-I or ARNI.
-*   [Grade IIa, Level B] In patients post MI with impaired LV function, the ARB, Valsartan, was found to be as effective as captopril.
+- [Grade I, Level A] ACE-I improve survival and reduce HF hospitalizations in patients with mild, moderate, and severe symptoms of HFrEF. They are recommended in all HFrEF patients. There are no differences among available ACE-Is in their effects on symptoms or survival.
+- In head-to-head analysis, there was no difference between ACE-I and ARBs in terms of CV outcomes such as mortality and HF hospitalization, in patients with HFrEF.
+- [Grade I, Level A] ACE-I are, however, the preferred agents because the data for reduction in mortality and HF hospitalizations are more robust.
+- ARBs are however better tolerated because of their better side effect profile.
+- [Grade I, Level A] ARBs are indicated in HFrEF in ACE-I intolerant patients and can be considered in patients who develop angioedema with ACE-I or ARNI.
+- [Grade IIa, Level B] In patients post MI with impaired LV function, the ARB, Valsartan, was found to be as effective as captopril.
 
 **In the initiation of ACE-I/ARB, the following should be considered:**
-*   Patients with underlying low systolic BP < 100mmHg and/or elevated serum creatinine or potassium (>5.0 mmol/l) should be initiated with a low-dose of ACE-I/ARB cautiously.
-*   Avoid excessive diuresis before treatment. If patients are on large doses of diuretics, the BP and renal function should be monitored.
-*   Start with a low dose. The dose should be increased gradually to the target dose (refer to Flow Chart III: Initiating Foundational HF Medication & Flow Chart IV: For Patients with eGFR < 30mls/min/1.73m² (Initiating Foundational HF Medication), Table 3: Doses of Foundational HF Medications) or the maximum tolerated dose.
-*   Orthostatic hypotension should be avoided. Wherever possible, the BP should be measured in the lying and standing position. The consensus definition of orthostatic hypotension is a reduction of systolic BP of at least 20 mm Hg or a reduction of diastolic BP of at least 10 mm Hg within 3 minutes of erect standing. In the elderly, the presence of orthostatic hypotension should be interpreted cautiously due to both its high prevalence in this population and its low association with underlying pathology directly related to volume status.
-*   Renal profile should be checked periodically. Serum creatinine may increase up to 30% (or eGFR may decrease by 25%) from baseline at 7-14 days, after introduction of either an ACE-I or an ARB. Dose adjustment is not required if the increase in serum creatinine stabilizes at < 30% (or eGFR reduces < 25%) and serum potassium < 5.5 mmol/l. The renal function should however be monitored periodically on a regular basis. Other causes of deteriorating renal function such as infection, drug therapies or worsening HF should be excluded.
-*   There is no significant difference in rates of hypotension, hyperkalemia, or renal dysfunction between ACE-Is and ARBs.
-*   [Grade I, Level A] ACE-I intolerance denotes the presence of a bothersome cough (most commonly, 5%-20% although it can be as high as 64.9%) or the experience of angioedema (uncommon, < 1%) with ACE-I therapy. Patients with these conditions may be switched to an ARB, although, some may still develop angioedema.
-*   [Grade III, Level A] Routine combined use of both ACE-I and an ARB should be avoided, as this combination causes more adverse effects (hypotension, hyperkalemia, and renal dysfunction).
+- Patients with underlying low systolic BP < 100mmHg and/or elevated serum creatinine or potassium (>5.0 mmol/l) should be initiated with a low-dose of ACE-I/ARB cautiously.
+- Avoid excessive diuresis before treatment. If patients are on large doses of diuretics, the BP and renal function should be monitored.
+- Start with a low dose. The dose should be increased gradually to the target dose (refer to Flow Chart III: Initiating Foundational HF Medication & Flow Chart IV: For Patients with eGFR < 30mls/min/1.73m² (Initiating Foundational HF Medication), Table 3: Doses of Foundational HF Medications) or the maximum tolerated dose.
+- Orthostatic hypotension should be avoided. Wherever possible, the BP should be measured in the lying and standing position. The consensus definition of orthostatic hypotension is a reduction of systolic BP of at least 20 mm Hg or a reduction of diastolic BP of at least 10 mm Hg within 3 minutes of erect standing. In the elderly, the presence of orthostatic hypotension should be interpreted cautiously due to both its high prevalence in this population and its low association with underlying pathology directly related to volume status.
+- Renal profile should be checked periodically. Serum creatinine may increase up to 30% (or eGFR may decrease by 25%) from baseline at 7-14 days, after introduction of either an ACE-I or an ARB. Dose adjustment is not required if the increase in serum creatinine stabilizes at < 30% (or eGFR reduces < 25%) and serum potassium < 5.5 mmol/l. The renal function should however be monitored periodically on a regular basis. Other causes of deteriorating renal function such as infection, drug therapies or worsening HF should be excluded.
+- There is no significant difference in rates of hypotension, hyperkalemia, or renal dysfunction between ACE-Is and ARBs.
+- [Grade I, Level A] ACE-I intolerance denotes the presence of a bothersome cough (most commonly, 5%-20% although it can be as high as 64.9%) or the experience of angioedema (uncommon, < 1%) with ACE-I therapy. Patients with these conditions may be switched to an ARB, although, some may still develop angioedema.
+- [Grade III, Level A] Routine combined use of both ACE-I and an ARB should be avoided, as this combination causes more adverse effects (hypotension, hyperkalemia, and renal dysfunction).
 
 #### 10.1.2.2: ARNNI
-*   ARNI is a combination of angiotensin receptor blocker (ARB) and a neprilysin inhibitor (an enzyme that degrades natriuretic peptides-bradykinin, adrenomedullin, and other vasoactive peptides). The only drug in this class is sacubitril/valsartan.
-*   [Grade I, Level B] ARNI has been shown to improve symptoms, reduce HF hospitalizations and increase survival in patients with HFrEF who have previously tolerated ACE-I.
-*   ARNI has also been shown to be safe in patients who are ACEI-naive and in hospitalized patients who have just recovered from Acute HF.
-*   [Grade I, Level B] ARNI is recommended as a replacement to ACE-I in patients with HFrEF who remain symptomatic despite OMT. It has been shown to decrease CV death, HF hospitalizations, and symptoms. The benefit of ARNI over an ACE-I was consistent regardless of background therapy and irrespective of previous coronary revascularization or β-blocker dose. It has also been shown to have favorable effects on cardiac remodeling.
-*   [Grade IIa, Level B] ARNI may also be considered as a first-line RAS blocker in ACE-I-naïve patients.
-*   [Grade IIa, Level B] ARNI in Post MI patients with LVEF <40% was not superior to the ACE-I ramipril.
-*   The tolerability of ARNI and its side effect profile is like that of ACE-I or ARB. Laboratory monitoring is also similar.
-*   The use of ARNI is, however, associated with hypotension but a low incidence of angioedema.
-*   When initiating an ARNI, the initial dosing and rate of titration:
-    *   Is dependent on pre-existing treatment, hemodynamic profile, and associated comorbidities. It should be individualized.
-    *   Should not be initiated if systolic BP < 100mmHg and used with caution if eGFR < 30 mL/min/1.73m2.
-    *   When switching from ACEI to ARNI, a washout period of at least 36 hours is required to decrease the risk of angioedema.
-    *   No washout period is required for conversion between ARB and ARNI.
-*   The drug should be up titrated to the target or maximally tolerated dose shown to improve important HF outcomes.
-*   Among patients with HFrEF, similar improvement in prognostic biomarkers, health status, and cardiac remodeling were observed across various ARNI doses - average daily dose: 112 mg in Tertile 1 (low dose), 342 mg in Tertile 2 (moderate dose), and 379 mg in Tertile 3 (high dose).
-*   In patients taking ARNI, NT-Pro BNP is a more reliable biomarker than BNP. BNP levels may be spuriously elevated as the drug prevents its breakdown.
+- ARNI is a combination of angiotensin receptor blocker (ARB) and a neprilysin inhibitor (an enzyme that degrades natriuretic peptides-bradykinin, adrenomedullin, and other vasoactive peptides). The only drug in this class is sacubitril/valsartan.
+- [Grade I, Level B] ARNI has been shown to improve symptoms, reduce HF hospitalizations and increase survival in patients with HFrEF who have previously tolerated ACE-I.
+- ARNI has also been shown to be safe in patients who are ACEI-naive and in hospitalized patients who have just recovered from Acute HF.
+- [Grade I, Level B] ARNI is recommended as a replacement to ACE-I in patients with HFrEF who remain symptomatic despite OMT. It has been shown to decrease CV death, HF hospitalizations, and symptoms. The benefit of ARNI over an ACE-I was consistent regardless of background therapy and irrespective of previous coronary revascularization or β-blocker dose. It has also been shown to have favorable effects on cardiac remodeling.
+- [Grade IIa, Level B] ARNI may also be considered as a first-line RAS blocker in ACE-I-naïve patients.
+- [Grade IIa, Level B] ARNI in Post MI patients with LVEF <40% was not superior to the ACE-I ramipril.
+- The tolerability of ARNI and its side effect profile is like that of ACE-I or ARB. Laboratory monitoring is also similar.
+- The use of ARNI is, however, associated with hypotension but a low incidence of angioedema.
+- When initiating an ARNI, the initial dosing and rate of titration:
+    - Is dependent on pre-existing treatment, hemodynamic profile, and associated comorbidities. It should be individualized.
+    - Should not be initiated if systolic BP < 100mmHg and used with caution if eGFR < 30 mL/min/1.73m2.
+    - When switching from ACEI to ARNI, a washout period of at least 36 hours is required to decrease the risk of angioedema.
+    - No washout period is required for conversion between ARB and ARNI.
+- The drug should be up titrated to the target or maximally tolerated dose shown to improve important HF outcomes.
+- Among patients with HFrEF, similar improvement in prognostic biomarkers, health status, and cardiac remodeling were observed across various ARNI doses - average daily dose: 112 mg in Tertile 1 (low dose), 342 mg in Tertile 2 (moderate dose), and 379 mg in Tertile 3 (high dose).
+- In patients taking ARNI, NT-Pro BNP is a more reliable biomarker than BNP. BNP levels may be spuriously elevated as the drug prevents its breakdown.
 
 ### 10.1.3: Β-Blockers
 Refer To Table 3: Doses Of Foundational HF Medications
-*   [Grade I, Level A] In major clinical trials, β-blockers, on top of standard therapy, have been shown to improve symptoms, reduce hospitalizations and improve survival in patients with HFrEF, regardless of their NYHA Functional class.
-*   [Grade I, Level A] All patients with HFrEF should be on β-blockers unless there is a contraindication.
-*   Objective improvement in cardiac function might not, however, be apparent for 6-12 months after β-blocker initiation. Hence, early initiation of β-blockers for all stable patients with current or prior symptoms of HF upon diagnosis is warranted, unless contraindicated.
-*   When initiating a β-blocker, the patient should be in a non-congested state ie. out of Acute HF and preferably euvolemic with clear lung fields. Caution should be exercised when initiating β-blockers in a patient in NYHA class III-IV.
-*   [Grade IIa, Level B] Patients who decompensate and are admitted in Acute HF should be maintained on the same dose of β-blockers unless the clinical condition (hypotension or significant bradycardia) warrants a temporary stopping or reduction in the dose.
-*   After the patient has been stabilized, an attempt should be made to titrate to the target or maximum tolerated dose.
-*   The contraindications for β-blocker use include:
-    *   Second- or third-degree atrioventricular block (without a pacemaker).
-    *   Bronchial asthma (relative contraindication - use with caution).
-    *   Symptomatic bradycardia or hypotension.
-    *   Critical limb ischemia.
-*   [Grade IIa, Level B] Initiating therapy with a β-blocker first is non-inferior to the standard approach of starting with an ACE-I. The benefits seen with both these drugs are additive.
+- [Grade I, Level A] In major clinical trials, β-blockers, on top of standard therapy, have been shown to improve symptoms, reduce hospitalizations and improve survival in patients with HFrEF, regardless of their NYHA Functional class.
+- [Grade I, Level A] All patients with HFrEF should be on β-blockers unless there is a contraindication.
+- Objective improvement in cardiac function might not, however, be apparent for 6-12 months after β-blocker initiation. Hence, early initiation of β-blockers for all stable patients with current or prior symptoms of HF upon diagnosis is warranted, unless contraindicated.
+- When initiating a β-blocker, the patient should be in a non-congested state ie. out of Acute HF and preferably euvolemic with clear lung fields. Caution should be exercised when initiating β-blockers in a patient in NYHA class III-IV.
+- [Grade IIa, Level B] Patients who decompensate and are admitted in Acute HF should be maintained on the same dose of β-blockers unless the clinical condition (hypotension or significant bradycardia) warrants a temporary stopping or reduction in the dose.
+- After the patient has been stabilized, an attempt should be made to titrate to the target or maximum tolerated dose.
+- The contraindications for β-blocker use include:
+    - Second- or third-degree atrioventricular block (without a pacemaker).
+    - Bronchial asthma (relative contraindication - use with caution).
+    - Symptomatic bradycardia or hypotension.
+    - Critical limb ischemia.
+- [Grade IIa, Level B] Initiating therapy with a β-blocker first is non-inferior to the standard approach of starting with an ACE-I. The benefits seen with both these drugs are additive.
 
 ### 10.1.4: MRA
 Refer To Table 3: Doses Of Foundational HF Medications
-*   [Grade I, Level A] MRAs improve symptoms, reduce HF hospitalizations and mortality in patients with HFrEF. It is indicated in all symptomatic HFrEF patients (NYHA II-IV) in addition to other Foundational HF Medications.
-*   Caution should be exercised in the following conditions:
-    *   Hyperkalemia
-    *   Renal dysfunction
-    *   Concomitant use of:
-        *   Potassium-sparing diuretics
-        *   Potassium supplements
-        *   ACEI/ARB/ARNI
-        *   NSAIDs
+- [Grade I, Level A] MRAs improve symptoms, reduce HF hospitalizations and mortality in patients with HFrEF. It is indicated in all symptomatic HFrEF patients (NYHA II-IV) in addition to other Foundational HF Medications.
+- Caution should be exercised in the following conditions:
+    - Hyperkalemia
+    - Renal dysfunction
+    - Concomitant use of:
+        - Potassium-sparing diuretics
+        - Potassium supplements
+        - ACEI/ARB/ARNI
+        - NSAIDs
 *  [Grade IIa, Level B] MRAs have also been shown to be beneficial in patients with HF and comorbid conditions such as diabetes and chronic kidney disease despite a greater risk of hyperkalemia and acute renal insufficiency.
-*   It has also been shown to improve CV outcomes in elderly HF patients > 75 years.
-*   Potassium supplements may need to be reduced or discontinued. If despite these measures, hyperkalemia persists (serum potassium >5.5mmol/l), then the dose of MRA should be reduced or stopped. Alternatively potassium binders may be used. (refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)) <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
-*   Spironolactone may uncommonly cause gynaecomastia in men. The incidence of gynaecomastia is lower with eplerenone as it is more selective for aldosterone blockade.
-*   Finerenone is a non-steroidal MRA which has less risk of hyperkalemia and BP-lowering effects. It has been shown to reduce first and recurrent HF hospitalizations in patients with Type 2 diabetes and CKD.
+- It has also been shown to improve CV outcomes in elderly HF patients > 75 years.
+- Potassium supplements may need to be reduced or discontinued. If despite these measures, hyperkalemia persists (serum potassium >5.5mmol/l), then the dose of MRA should be reduced or stopped. Alternatively potassium binders may be used. (refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)) <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
+- Spironolactone may uncommonly cause gynaecomastia in men. The incidence of gynaecomastia is lower with eplerenone as it is more selective for aldosterone blockade.
+- Finerenone is a non-steroidal MRA which has less risk of hyperkalemia and BP-lowering effects. It has been shown to reduce first and recurrent HF hospitalizations in patients with Type 2 diabetes and CKD.
 
 ### 10.1.5: SGLT2-I
 Refer To Table 3: Doses Of Foundational HF Medications
-*   [Grade I, Level A] SGLT2-i, particularly dapagliflozin and empagliflozin, lower the risk of HF hospitalizations, cardiovascular mortality, and improve quality of life in patients with HFrEF, irrespective of diabetes status.
-*   The diuretic/natriuretic characteristics of SGLT2-i may provide further benefits in decreasing congestion and may allow for a reduction in loop diuretic dosage.
-*   In the initiation of SGLT2-i, the following should be considered:
-    *   Renal profile should be checked periodically and monitored regularly. Although renal function is known to decrease modestly following initiation, SGLT2-i tends to be renoprotective in the long term. A slight decrease in eGFR following initiation is expected, but this should not lead to discontinuation of treatment.
-    *   Monitor glycemia regularly, especially in diabetic patients. Consider modifying other diabetic medications.
-    *   Identify and eliminate risk factors for ketoacidosis e.g., fasting, inadequate fluid intake.
-    *   Monitor fluid balance regularly, especially when a patient is on diuretics, is elderly, and/or frail. Adjust diuretic therapy and fluid intake as necessary.
-*   Uro-genital infections may occur during treatment with SGLT2-i. Patients should be educated on the signs and symptoms of uro-genital infections as well as the appropriate preventive measures.
+- [Grade I, Level A] SGLT2-i, particularly dapagliflozin and empagliflozin, lower the risk of HF hospitalizations, cardiovascular mortality, and improve quality of life in patients with HFrEF, irrespective of diabetes status.
+- The diuretic/natriuretic characteristics of SGLT2-i may provide further benefits in decreasing congestion and may allow for a reduction in loop diuretic dosage.
+- In the initiation of SGLT2-i, the following should be considered:
+    - Renal profile should be checked periodically and monitored regularly. Although renal function is known to decrease modestly following initiation, SGLT2-i tends to be renoprotective in the long term. A slight decrease in eGFR following initiation is expected, but this should not lead to discontinuation of treatment.
+    - Monitor glycemia regularly, especially in diabetic patients. Consider modifying other diabetic medications.
+    - Identify and eliminate risk factors for ketoacidosis e.g., fasting, inadequate fluid intake.
+    - Monitor fluid balance regularly, especially when a patient is on diuretics, is elderly, and/or frail. Adjust diuretic therapy and fluid intake as necessary.
+- Uro-genital infections may occur during treatment with SGLT2-i. Patients should be educated on the signs and symptoms of uro-genital infections as well as the appropriate preventive measures.
 
 ### 10.1.6: If Channel Inhibitor - Ivabradine
 Refer To Table 16: Other Drugs Recommended For HF Management And Their Dose Regime
-*   Ivabradine selectively inhibits the If current in the sinoatrial node, resulting in a reduction in heart rate.
-*   It is effective in patients in sinus rhythm. Ivabradine may, however, be associated with an increased incidence of AF.
-*   [Grade IIa, Level B] Ivabradine resulted in a reduction in the combined endpoints of CV mortality and HF hospitalizations in patients who were still symptomatic while on OMT with an ACE-I (or ARB), a β-blocker and an MRA and:
-    *   With an LVEF ≤ 35% and
-    *   An episode of HF hospitalization in the past 12 months and
-    *   Who were in sinus rhythm with a heart rate of ≥ 70 beats per minute (bpm).
-*   The magnitude of heart rate reduction by β-blocker plus ivabradine, rather than the background dose of β-blockers, appeared to determine the effect on CV outcomes.
-*   In patients with a heart rate of ≥ 75 bpm, ivabradine has been shown to improve CV outcomes, the best risk reduction being seen in those achieving a heart rate < 60 bpm or a heart rate reduction > 10 bpm.
-*   [Grade IIa, Level B] In patients with stable CAD and LVEF < 40%, ivabradine did not reduce CV outcomes. In a subgroup of patients with a heart rate > 70bpm, there was a reduction in the secondary end point of the incidence of CAD (fatal and non-fatal MI and coronary revascularization).
-*   Every effort should be made to achieve target or maximally tolerated doses of β-blockers before initiation of ivabradine. It would be useful in patients who have contraindications to β-blockers or who are not able to tolerate higher dose of β-blockers due to its side effects. Ivabradine has no effect on BP or myocardial contractility.
-*   Patients should be educated to measure and record their pulse regularly, to monitor for bradycardia. Side effects of ivabradine include symptomatic bradycardia (dizziness, fatigue, or hypotension) and visual disturbances.
+- Ivabradine selectively inhibits the If current in the sinoatrial node, resulting in a reduction in heart rate.
+- It is effective in patients in sinus rhythm. Ivabradine may, however, be associated with an increased incidence of AF.
+- [Grade IIa, Level B] Ivabradine resulted in a reduction in the combined endpoints of CV mortality and HF hospitalizations in patients who were still symptomatic while on OMT with an ACE-I (or ARB), a β-blocker and an MRA and:
+    - With an LVEF ≤ 35% and
+    - An episode of HF hospitalization in the past 12 months and
+    - Who were in sinus rhythm with a heart rate of ≥ 70 beats per minute (bpm).
+- The magnitude of heart rate reduction by β-blocker plus ivabradine, rather than the background dose of β-blockers, appeared to determine the effect on CV outcomes.
+- In patients with a heart rate of ≥ 75 bpm, ivabradine has been shown to improve CV outcomes, the best risk reduction being seen in those achieving a heart rate < 60 bpm or a heart rate reduction > 10 bpm.
+- [Grade IIa, Level B] In patients with stable CAD and LVEF < 40%, ivabradine did not reduce CV outcomes. In a subgroup of patients with a heart rate > 70bpm, there was a reduction in the secondary end point of the incidence of CAD (fatal and non-fatal MI and coronary revascularization).
+- Every effort should be made to achieve target or maximally tolerated doses of β-blockers before initiation of ivabradine. It would be useful in patients who have contraindications to β-blockers or who are not able to tolerate higher dose of β-blockers due to its side effects. Ivabradine has no effect on BP or myocardial contractility.
+- Patients should be educated to measure and record their pulse regularly, to monitor for bradycardia. Side effects of ivabradine include symptomatic bradycardia (dizziness, fatigue, or hypotension) and visual disturbances.
 
 ### 10.1.7: Soluble Guanylate Cyclase Stimulator - Vericiguat
-*   [Grade IIb, Level B] Vericiguat may be considered in patients in NYHA classes II to IV, who despite being on OMT with a RAS blocker, a β-blocker and an MRA, have evidence of worsening HF. It has been shown to reduce CV mortality or HF hospitalizations.
+- [Grade IIb, Level B] Vericiguat may be considered in patients in NYHA classes II to IV, who despite being on OMT with a RAS blocker, a β-blocker and an MRA, have evidence of worsening HF. It has been shown to reduce CV mortality or HF hospitalizations.
 
 ### 10.1.8: Nitrates
 Refer To Table 16: Other Drugs Recommended For HF Management And Their Dose Regime
-*   [Grade IIa, Level C] Symptoms of HF such as orthopnea, paroxysmal nocturnal dyspnea, exercise-induced dyspnea and/or angina may be relieved with the use of nitrates alone, in the form of tablets, sprays, or transdermal patches.
-*   Continuous (i.e., around the clock) use should generally be avoided to prevent nitrate tolerance and pseudotolerance.
-*   Nitrates are mainly used in Acute HF.
-*   [Grade I, Level A] In chronic HF, the trials on nitrates have been in combination with hydralazine. This combination has been shown to improve survival in the African American population with HF.
+- [Grade IIa, Level C] Symptoms of HF such as orthopnea, paroxysmal nocturnal dyspnea, exercise-induced dyspnea and/or angina may be relieved with the use of nitrates alone, in the form of tablets, sprays, or transdermal patches.
+- Continuous (i.e., around the clock) use should generally be avoided to prevent nitrate tolerance and pseudotolerance.
+- Nitrates are mainly used in Acute HF.
+- [Grade I, Level A] In chronic HF, the trials on nitrates have been in combination with hydralazine. This combination has been shown to improve survival in the African American population with HF.
 
 ### 10.1.9: Digoxin
-*   [Grade IIb, Level B] In patients with HF, digoxin may be considered in the following situations:
-    *   [Grade IIb, Level B] To relieve symptoms and lower the risk of hospitalization in patients with symptomatic HFrEF and already on OMT with an ACE-I (or ARB), a β-blocker and an MRA. It has no survival benefit.
-    *   [Grade IIb, Level B] Rate control in patients with AF.
-*   [Grade IIa, Level B] Where rate control is the preferred strategy, β-blocker alone or in combination with digoxin was associated with a similar decrease in the risk of mortality. Digoxin alone was associated with an increase in mortality.
-*   [Grade IIa, Level B] Digoxin may be considered in patients with HF and AF in the following situations:
-    *   Rate control is inadequate on β-blockers alone.
-    *   β-blockers are contraindicated.
-    *   Rapid control of the ventricular rate with parenteral drugs is required.
-*   Digoxin has a narrow therapeutic range and thus close monitoring of renal function and serum electrolytes (particularly potassium and magnesium levels) is required, prior to initiation of digoxin and periodically during its use.
-*   No loading dose is required for the management of chronic HF. Lower doses of digoxin and lower levels of serum digoxin (0.5-0.8ng/ml or 0.65 to 1nmol/L) are efficacious and appear adequate in most patients with compensated HF.
-*   The maintenance dose of digoxin may range between 0.0625mg to 0.25mg daily, which may be lower in elderly patients, women, and those with renal impairment.
-*   Regular monitoring of digoxin levels is not required other than to assess for toxicity as the levels should not be used to guide dose adjustment in chronic therapy. Digoxin levels may be elevated in the presence of worsening renal function, electrolyte imbalance (hypokalemia, hypomagnesemia, or hypocalcemia) or interacting drugs (e.g., amiodarone), which may lead to atrial and ventricular arrhythmias particularly in the presence of hypokalemia.
+- [Grade IIb, Level B] In patients with HF, digoxin may be considered in the following situations:
+    - [Grade IIb, Level B] To relieve symptoms and lower the risk of hospitalization in patients with symptomatic HFrEF and already on OMT with an ACE-I (or ARB), a β-blocker and an MRA. It has no survival benefit.
+    - [Grade IIb, Level B] Rate control in patients with AF.
+- [Grade IIa, Level B] Where rate control is the preferred strategy, β-blocker alone or in combination with digoxin was associated with a similar decrease in the risk of mortality. Digoxin alone was associated with an increase in mortality.
+- [Grade IIa, Level B] Digoxin may be considered in patients with HF and AF in the following situations:
+    - Rate control is inadequate on β-blockers alone.
+    - β-blockers are contraindicated.
+    - Rapid control of the ventricular rate with parenteral drugs is required.
+- Digoxin has a narrow therapeutic range and thus close monitoring of renal function and serum electrolytes (particularly potassium and magnesium levels) is required, prior to initiation of digoxin and periodically during its use.
+- No loading dose is required for the management of chronic HF. Lower doses of digoxin and lower levels of serum digoxin (0.5-0.8ng/ml or 0.65 to 1nmol/L) are efficacious and appear adequate in most patients with compensated HF.
+- The maintenance dose of digoxin may range between 0.0625mg to 0.25mg daily, which may be lower in elderly patients, women, and those with renal impairment.
+- Regular monitoring of digoxin levels is not required other than to assess for toxicity as the levels should not be used to guide dose adjustment in chronic therapy. Digoxin levels may be elevated in the presence of worsening renal function, electrolyte imbalance (hypokalemia, hypomagnesemia, or hypocalcemia) or interacting drugs (e.g., amiodarone), which may lead to atrial and ventricular arrhythmias particularly in the presence of hypokalemia.
 
 ### 10.1.10: Antiplatelet And Anticoagulation Therapy
 *  [Grade IIb, Level B] There is no role for routine antiplatelet or anticoagulant therapy in patients with HF.
-*   The decision to treat patients with HF with antiplatelet therapy is largely influenced by the presence or absence of concomitant arterial disease.
-*   In patients with HF and sinus rhythm, anticoagulation, when compared to antiplatelet therapy, did not significantly influence the primary outcome of death and stroke, but reduced ischemic stroke rates. Treatment with warfarin however, was associated with a higher risk of major bleeding complications.
-*   [Grade I, Level A] HF patients with the following risk factors for thromboembolism should be given an appropriate anticoagulant, unless contraindicated:
-    *   **Atrial fibrillation (AF)**
-        *   All patients with AF, HF and CHA2DS2-VASc score > 2 in men or > 3 in women should be given an anticoagulant indefinitely, unless contraindicated.
-        *   [Grade I, Level A] Direct-acting oral anticoagulants (DOACs) are recommended over warfarin in patients with HF who are eligible, with the exception of those with moderate or severe mitral stenosis and those with mechanical prosthetic heart valves.
-    *   **Left ventricular thrombus (LVT)**
-        *   The 1-year risk of stroke with LVT is high (10%) even with anticoagulation.
-        *   There was no statistically significant difference in thrombus resolution, risks of bleeding complications, stroke, or systemic embolization and mortality in LVT patients treated with warfarin compared to those treated with DOACs.
+- The decision to treat patients with HF with antiplatelet therapy is largely influenced by the presence or absence of concomitant arterial disease.
+- In patients with HF and sinus rhythm, anticoagulation, when compared to antiplatelet therapy, did not significantly influence the primary outcome of death and stroke, but reduced ischemic stroke rates. Treatment with warfarin however, was associated with a higher risk of major bleeding complications.
+- [Grade I, Level A] HF patients with the following risk factors for thromboembolism should be given an appropriate anticoagulant, unless contraindicated:
+    - **Atrial fibrillation (AF)**
+        - All patients with AF, HF and CHA2DS2-VASc score > 2 in men or > 3 in women should be given an anticoagulant indefinitely, unless contraindicated.
+        - [Grade I, Level A] Direct-acting oral anticoagulants (DOACs) are recommended over warfarin in patients with HF who are eligible, with the exception of those with moderate or severe mitral stenosis and those with mechanical prosthetic heart valves.
+    - **Left ventricular thrombus (LVT)**
+        - The 1-year risk of stroke with LVT is high (10%) even with anticoagulation.
+        - There was no statistically significant difference in thrombus resolution, risks of bleeding complications, stroke, or systemic embolization and mortality in LVT patients treated with warfarin compared to those treated with DOACs.
         *  [Grade IIa, Level C] If an LVT is detected, the duration of anticoagulation will depend on clinical judgment, including the following factors:
-            *   If following an acute MI, then anticoagulation (especially for a duration > 3 months) was associated with an overall lower risk of MACE or all-cause mortality. A recent review has suggested that if the LV thrombus has resolved, anticoagulation can be discontinued and dual antiplatelet therapy continued per management of MI. If the LV thrombus is persistent, anticoagulation should continue with repeat imaging every 3 months. Once anticoagulation has been discontinued, repeat imaging 3 months later is advised.
-            *   If there is no obvious acute event and the thrombus was detected during a routine examination, then the duration of anticoagulation becomes more difficult to decide since the risk of embolisation decreases over time although still present. In these cases, clinical judgment taking into account the bleeding risk and clinical profile of the patient can help in decision making.
+            - If following an acute MI, then anticoagulation (especially for a duration > 3 months) was associated with an overall lower risk of MACE or all-cause mortality. A recent review has suggested that if the LV thrombus has resolved, anticoagulation can be discontinued and dual antiplatelet therapy continued per management of MI. If the LV thrombus is persistent, anticoagulation should continue with repeat imaging every 3 months. Once anticoagulation has been discontinued, repeat imaging 3 months later is advised.
+            - If there is no obvious acute event and the thrombus was detected during a routine examination, then the duration of anticoagulation becomes more difficult to decide since the risk of embolisation decreases over time although still present. In these cases, clinical judgment taking into account the bleeding risk and clinical profile of the patient can help in decision making.
 
 ### 10.1.11: Antiarrhythmic Drug Therapy
-*   Arrhythmias are common in HF. The more common ones are:
-    *   Atrial fibrillation
-    *   Ventricular tachyarrhythmias
-    *   Bradyarrhythmias
+- Arrhythmias are common in HF. The more common ones are:
+    - Atrial fibrillation
+    - Ventricular tachyarrhythmias
+    - Bradyarrhythmias
 
 #### 10.1.11.1: Atrial Fibrillation (AF)
-*   New-onset AF in a patient with established HF is associated with a poor prognosis irrespective of the LVEF.
-*   On the other hand, patients who develop AF first, followed by HF usually have a more benign course.
-*   Combination of HF and AF may increase the risk of stroke, dementia, HF hospitalization and all-cause mortality.
-*   Patients with AF and HF can be managed by identifying and treating potential causes of AF and optimizing HF treatment - i.e., Optimal Medical Therapy.
+- New-onset AF in a patient with established HF is associated with a poor prognosis irrespective of the LVEF.
+- On the other hand, patients who develop AF first, followed by HF usually have a more benign course.
+- Combination of HF and AF may increase the risk of stroke, dementia, HF hospitalization and all-cause mortality.
+- Patients with AF and HF can be managed by identifying and treating potential causes of AF and optimizing HF treatment - i.e., Optimal Medical Therapy.
 *  [Grade IIa, Level A] The AF can be treated by either rate control or rhythm control although in patients with recent onset of AF < 1 year duration, rhythm control is preferred to rate control.
 
 **10.1.11.A Rate control**
-*   The optimal resting ventricular rate in patients with AF and HF is unknown. There was no significant difference in clinical events between a strict rate control of < 80bpm vs a more lenient < 100/bpm.
-*   A reasonable approach is to aim for a HR < 110/bpm unless there are symptoms or a deterioration in LV function, in which case, one should try to target a HR < 80 bpm.
-*   The optimal ventricular rate during exercise is also uncertain, but may be < 110 bpm during light exercise.
-*   In the rate control of AF:
-    *   [Grade IIa, Level B] β-blockers should be considered for both short- and long-term rate control. β-blockers are preferred over digoxin as it provides better rate control during exercise and improves morbidity and mortality in patients with HF although the latter effect is attenuated in patients with AF.
-    *   [Grade IIa, Level B] Digoxin should be considered if the ventricular rate remains elevated despite treatment with β-blockers, or if β-blockers are contraindicated or intolerable.
-    *   Intravenous amiodarone may be used for rate control, but only in the acute setting.
-    *   The initial target heart rate for rate control therapy should be < 110 bpm.
+- The optimal resting ventricular rate in patients with AF and HF is unknown. There was no significant difference in clinical events between a strict rate control of < 80bpm vs a more lenient < 100/bpm.
+- A reasonable approach is to aim for a HR < 110/bpm unless there are symptoms or a deterioration in LV function, in which case, one should try to target a HR < 80 bpm.
+- The optimal ventricular rate during exercise is also uncertain, but may be < 110 bpm during light exercise.
+- In the rate control of AF:
+    - [Grade IIa, Level B] β-blockers should be considered for both short- and long-term rate control. β-blockers are preferred over digoxin as it provides better rate control during exercise and improves morbidity and mortality in patients with HF although the latter effect is attenuated in patients with AF.
+    - [Grade IIa, Level B] Digoxin should be considered if the ventricular rate remains elevated despite treatment with β-blockers, or if β-blockers are contraindicated or intolerable.
+    - Intravenous amiodarone may be used for rate control, but only in the acute setting.
+    - The initial target heart rate for rate control therapy should be < 110 bpm.
     *  [Grade IIa, Level B] Combination therapy may be considered if a single rate control therapy does not achieve the target heart rate. Rate control is better when digoxin and β-blockers are used in combination rather than with each drug individually.
-*   In patients with marked congestion who cannot tolerate β-blockers, suggest:
-    *   Oral or IV digoxin
-    *   Oral or IV amiodarone
+- In patients with marked congestion who cannot tolerate β-blockers, suggest:
+    - Oral or IV digoxin
+    - Oral or IV amiodarone
 
 **10.1.11.B Rhythm control**
-*   In patients with permanent AF and HF and LVEF < 35% (HFrEF), there was no difference in all-cause mortality or secondary outcomes (death from any cause, worsening HF or stroke) comparing a strategy of rate or rhythm control.
-*   [Grade IIa, Level A] In patients with early onset AF of < 1 year duration and/or paroxysmal AF, and/or cardiovascular problems who received early rhythm-control, there was a significantly decreased primary end point of a composite of CV death, stroke or hospitalization due to HF or ACS than those who received standard care. The study included 28% stable HF patients.
-*   At 2 years, however, symptoms and LV function did not differ significantly between the groups.
-*   The primary indication for rhythm control is reduction in AF-related symptoms and improvement of quality of life.
-*   Rhythm control can be achieved by:
+- In patients with permanent AF and HF and LVEF < 35% (HFrEF), there was no difference in all-cause mortality or secondary outcomes (death from any cause, worsening HF or stroke) comparing a strategy of rate or rhythm control.
+- [Grade IIa, Level A] In patients with early onset AF of < 1 year duration and/or paroxysmal AF, and/or cardiovascular problems who received early rhythm-control, there was a significantly decreased primary end point of a composite of CV death, stroke or hospitalization due to HF or ACS than those who received standard care. The study included 28% stable HF patients.
+- At 2 years, however, symptoms and LV function did not differ significantly between the groups.
+- The primary indication for rhythm control is reduction in AF-related symptoms and improvement of quality of life.
+- Rhythm control can be achieved by:
     * [Grade IIa, Level B] Pharmacotherapy:
-        *   Amiodarone is preferable compared to other antiarrhythmic drugs as others are associated with worse outcomes in HFrEF.
-    *   Electrical therapy:
+        - Amiodarone is preferable compared to other antiarrhythmic drugs as others are associated with worse outcomes in HFrEF.
+    - Electrical therapy:
         *  [Grade IIa, Level C] Electrical cardioversion and/or
         *  [Grade IIa, Level A] Radiofrequency ablation.
 
 #### 10.1.11.2: Ventricular Arrhythmias
-*   The exact prevalence of sudden cardiac death (SCD) in patients with HF in the contemporary era is not known. It varies depending on the etiology of the HF and the LVEF. Patients with HF and reduced (< 30 or 35%) LVEF (HFrEF) account for < 20% of all SCDs.
-*   SCD is most often due to either sustained ventricular tachycardia (VT) or ventricular fibrillation (VF) although sometimes it may be due to a bradyarrhythmia or electromechanical dissociation. Occasionally rapid supraventricular tachycardias may deteriorate to malignant ventricular tachyarrhythmias.
-*   Patients with HF with ventricular arrhythmias must be treated aggressively with OMT.
-*   The following medications have been shown to reduce the risk of SCD:
-    *   [Grade I, Level A] β-blockers: have been shown to reduce SCD in the clinical trials done on patients post MI as well as in the HF trials.
-    *   [Grade IIa, Level B] ACE-I or ARB: clinical trials done following MI and heart failure with EF < 40% showed that ACE-I or ARB reduced SCD.
-    *   [Grade IIa, Level B] ARNI: reduced both SCD and deaths due to worsening HF.
-    *   [Grade IIa, Level B] MRA: have been shown to reduce the incidence of SCD.
-    *   Statins: do not prevent SCD or overall mortality, however statins may minimize hospitalization for worsening heart failure in patients with HF.
-*   In addition to the above, in patients with ventricular tachyarrhythmias, the following are important:
-    *   [Grade I, Level C] Identify contributing factors such as electrolyte imbalances, ischemia and drugs.
-    *   [Grade I, Level A] Implantable cardioverter defibrillator (ICD). (refer to Section 10.3.2: Implantable Cardioverter Defibrillator (ICD))
-    *   [Grade IIa, Level B] Antiarrhythmic drug therapy with amiodarone can be considered as adjunctive therapy in patients with ICD to reduce the number of shocks and in patients who are not candidates for ICD.
-    *   [Grade IIb, Level B] Radiofrequency ablation may be considered in the event of VT storms.
+- The exact prevalence of sudden cardiac death (SCD) in patients with HF in the contemporary era is not known. It varies depending on the etiology of the HF and the LVEF. Patients with HF and reduced (< 30 or 35%) LVEF (HFrEF) account for < 20% of all SCDs.
+- SCD is most often due to either sustained ventricular tachycardia (VT) or ventricular fibrillation (VF) although sometimes it may be due to a bradyarrhythmia or electromechanical dissociation. Occasionally rapid supraventricular tachycardias may deteriorate to malignant ventricular tachyarrhythmias.
+- Patients with HF with ventricular arrhythmias must be treated aggressively with OMT.
+- The following medications have been shown to reduce the risk of SCD:
+    - [Grade I, Level A] β-blockers: have been shown to reduce SCD in the clinical trials done on patients post MI as well as in the HF trials.
+    - [Grade IIa, Level B] ACE-I or ARB: clinical trials done following MI and heart failure with EF < 40% showed that ACE-I or ARB reduced SCD.
+    - [Grade IIa, Level B] ARNI: reduced both SCD and deaths due to worsening HF.
+    - [Grade IIa, Level B] MRA: have been shown to reduce the incidence of SCD.
+    - Statins: do not prevent SCD or overall mortality, however statins may minimize hospitalization for worsening heart failure in patients with HF.
+- In addition to the above, in patients with ventricular tachyarrhythmias, the following are important:
+    - [Grade I, Level C] Identify contributing factors such as electrolyte imbalances, ischemia and drugs.
+    - [Grade I, Level A] Implantable cardioverter defibrillator (ICD). (refer to Section 10.3.2: Implantable Cardioverter Defibrillator (ICD))
+    - [Grade IIa, Level B] Antiarrhythmic drug therapy with amiodarone can be considered as adjunctive therapy in patients with ICD to reduce the number of shocks and in patients who are not candidates for ICD.
+    - [Grade IIb, Level B] Radiofrequency ablation may be considered in the event of VT storms.
 
 #### 10.1.11.3: Bradyarrhythmias
 Refer To Section 10.3.3: Bradyarrhythmias
 
 ### 10.1.12: Calcium Channel Blockers (CCBs)
-*   [Grade IIb, Level B] Routine use of CCBs is not recommended in patients with HFrEF as they do not confer any morbidity or mortality benefit but worsen HF outcomes.
-*   [Grade III, Level A] Diltiazem, verapamil and nifedipine should be avoided.
-*   [Grade IIa, Level B] However, amlodipine and felodipine may be considered for other indications such as persistent hypertension despite OMT.
+- [Grade IIb, Level B] Routine use of CCBs is not recommended in patients with HFrEF as they do not confer any morbidity or mortality benefit but worsen HF outcomes.
+- [Grade III, Level A] Diltiazem, verapamil and nifedipine should be avoided.
+- [Grade IIa, Level B] However, amlodipine and felodipine may be considered for other indications such as persistent hypertension despite OMT.
 
 ## 10.2: Patient Profiling And Titration Of "Foundational HF Medications"
 Refer To Table 5: Patient Profiling And Titration Of “Foundational HF Medications”
 The "Foundational HF" drug classes should be initiated in all patients, preferably prior to discharge. These "Foundational HF" Medications are:
-*   Renin-angiotensin system (RAS) blockers:
-    *   Angiotensin converting enzyme inhibitor (ACE-I) or
-    *   Angiotensin receptor blocker or
-    *   Angiotensin receptor neprilysin inhibitor (ARNI)
-*   β-blockers
-*   MRA
-*   SGLT2-i
+- Renin-angiotensin system (RAS) blockers:
+    - Angiotensin converting enzyme inhibitor (ACE-I) or
+    - Angiotensin receptor blocker or
+    - Angiotensin receptor neprilysin inhibitor (ARNI)
+- β-blockers
+- MRA
+- SGLT2-i
 
 These drugs should be up titrated cautiously depending on the patient's BP, heart rate, renal function, and potassium levels. The following is a guide to titration and modifying the doses of these medications depending on the patient's profile.
 
 ### 10.2.1: Blood Pressure
 **If systolic BP < 90 mmHg:**
-*   Detect and treat causes of hypotension, such as hypovolemia from over diuresis, bleeding, infection accordingly.
-*   If the patient is euvolemic using the criteria in section 10.1.1: Diuretics, an attempt may be made to reduce the dose of diuretics to the lowest maintenance level e.g. furosemide 20 mg EOD or use a mild thiazide diuretic such as hydrochlorothiazide 12.5-25 mg daily. Occasionally it may be possible to remove the diuretic completely especially if the LVEF > 40-45%.
-*   Remove all non "Foundational HF" Medications that may also cause hypotension eg - nitrates, calcium channel blockers, alpha blockers.
-*   The dose of the "Foundational HF" Medications only needs to be reduced or temporarily stopped if there is symptomatic hypotension.
-*   SGLT2-i and low-dose MRA have minimal effects on BP and may be continued. Spironolactone at a mean dose of 26 mg daily had no significant hemodynamic effects in the RALES trial. However when used as a fourth line drug in patients on a mean of 2.9 other anti-hypertensive drugs, at a mean dose of 25 mg daily, it can drop the SBP/DBP by 21.9/9.5 mm Hg.
+- Detect and treat causes of hypotension, such as hypovolemia from over diuresis, bleeding, infection accordingly.
+- If the patient is euvolemic using the criteria in section 10.1.1: Diuretics, an attempt may be made to reduce the dose of diuretics to the lowest maintenance level e.g. furosemide 20 mg EOD or use a mild thiazide diuretic such as hydrochlorothiazide 12.5-25 mg daily. Occasionally it may be possible to remove the diuretic completely especially if the LVEF > 40-45%.
+- Remove all non "Foundational HF" Medications that may also cause hypotension eg - nitrates, calcium channel blockers, alpha blockers.
+- The dose of the "Foundational HF" Medications only needs to be reduced or temporarily stopped if there is symptomatic hypotension.
+- SGLT2-i and low-dose MRA have minimal effects on BP and may be continued. Spironolactone at a mean dose of 26 mg daily had no significant hemodynamic effects in the RALES trial. However when used as a fourth line drug in patients on a mean of 2.9 other anti-hypertensive drugs, at a mean dose of 25 mg daily, it can drop the SBP/DBP by 21.9/9.5 mm Hg.
 
 **If systolic BP > 110 mmHg:**
-*   The dose of RAS blockers and β-blockers should be up titrated in turn till the target or maximally tolerated dose.
-*   Whether the RAS blocker or the β-blocker should be up titrated first will depend on the patient's heart rate, renal function, and potassium levels.
+- The dose of RAS blockers and β-blockers should be up titrated in turn till the target or maximally tolerated dose.
+- Whether the RAS blocker or the β-blocker should be up titrated first will depend on the patient's heart rate, renal function, and potassium levels.
 
 ### 10.2.2: Heart Rate (HR)
 #### 10.2.2.1: Sinus Rhythm
-*   The optimal HR for patients with HF and in sinus rhythm is 50-60/bpm.
+- The optimal HR for patients with HF and in sinus rhythm is 50-60/bpm.
 
 **If the HR > 70/bpm:**
-*   The dose of β-blocker should first be up titrated to the target or maximally tolerated dose.
-*   Ivabradine may be added to the β-blocker to achieve the target HR.
+- The dose of β-blocker should first be up titrated to the target or maximally tolerated dose.
+- Ivabradine may be added to the β-blocker to achieve the target HR.
 
 **If the HR < 50/bpm:**
-*   Discontinue non-dihydropyridine calcium channel blockers e.g., diltiazem and verapamil, digoxin, or other antiarrhythmic drugs such as amiodarone.
-*   If the HR is still < 50/bpm, the dose of ivabradine should first be reduced.
-*   If the HR is still < 50/bpm or the patient has symptomatic bradycardia, then the dose of β-blocker should be reduced or temporarily discontinued.
+- Discontinue non-dihydropyridine calcium channel blockers e.g., diltiazem and verapamil, digoxin, or other antiarrhythmic drugs such as amiodarone.
+- If the HR is still < 50/bpm, the dose of ivabradine should first be reduced.
+- If the HR is still < 50/bpm or the patient has symptomatic bradycardia, then the dose of β-blocker should be reduced or temporarily discontinued.
 
 #### 10.2.2.2: Atrial Fibrillation
 **Heart rate (HR):**
-*   The optimal resting ventricular rate in patients with AF and HF is unknown.
-*   It is not unreasonable to aim for a HR < 110bpm.
-*   If the patient is troubled by palpitations or there is deterioration of LV function, then a more strict rate control of 80bpm may be targeted. The ventricular rate should however, be maintained > 70 bpm. A lower HR has been associated with worse outcomes.
-*   Excessive rate control, which may be associated with an increase in pauses, carries a risk.
-*   The optimal ventricular rate during exercise is also uncertain, but may be < 110bpm during light exercise.
-*   In patients with persistent AF and HFrEF, heart rate is not a predictor of mortality unlike in patients in sinus rhythm.
-*   There is no clear evidence for a prognostic benefit of β-blockers in HF patients with AF.
+- The optimal resting ventricular rate in patients with AF and HF is unknown.
+- It is not unreasonable to aim for a HR < 110bpm.
+- If the patient is troubled by palpitations or there is deterioration of LV function, then a more strict rate control of 80bpm may be targeted. The ventricular rate should however, be maintained > 70 bpm. A lower HR has been associated with worse outcomes.
+- Excessive rate control, which may be associated with an increase in pauses, carries a risk.
+- The optimal ventricular rate during exercise is also uncertain, but may be < 110bpm during light exercise.
+- In patients with persistent AF and HFrEF, heart rate is not a predictor of mortality unlike in patients in sinus rhythm.
+- There is no clear evidence for a prognostic benefit of β-blockers in HF patients with AF.
 
 **Systolic BP < 90mmHg:**
-*   β-blockers may be stopped and replaced with digoxin for rate control.
-*   This may allow for the up titration of RAS blockers.
+- β-blockers may be stopped and replaced with digoxin for rate control.
+- This may allow for the up titration of RAS blockers.
 
 ### 10.2.3: Chronic Kidney Disease
 Refer To Section 14.6: Heart Failure And Chronic Kidney Disease (CKD) <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
 
 **Key Message # 8: Chronic HF Due To Lv Reduced Function (HFrEF)**
-*   Optimal HF medications are:
-    *   Diuretics - to be titrated according to presence of congestion.
-    *   Foundational HF medications:
-        *   Renin-angiotensin system (RAS) blockers:
-            *   Angiotensin converting enzyme inhibitor (ACE-I) or
-            *   Angiotensin receptor blocker or
-            *   Angiotensin receptor neprilysin inhibitor (ARNI)
-        *   β-blockers
-        *   Mineralocorticoid Antagonists (MRA)
-        *   Sodium glucose cotransporter 2 inhibitors (SGLT2-i)
-    *   Other drugs (when necessary) include:
-        *   Ivabradine
-        *   Nitrates
-    *   For doses of these Foundational HF medications, Grades of recommendation and Levels of Evidence of these medications, refer to Tables 3: Doses of Foundational HF Medications & 4: Grading of Recommendations and Levels of Evidence in the Management of HFrEF (LVEF<40%).
+- Optimal HF medications are:
+    - Diuretics - to be titrated according to presence of congestion.
+    - Foundational HF medications:
+        - Renin-angiotensin system (RAS) blockers:
+            - Angiotensin converting enzyme inhibitor (ACE-I) or
+            - Angiotensin receptor blocker or
+            - Angiotensin receptor neprilysin inhibitor (ARNI)
+        - β-blockers
+        - Mineralocorticoid Antagonists (MRA)
+        - Sodium glucose cotransporter 2 inhibitors (SGLT2-i)
+    - Other drugs (when necessary) include:
+        - Ivabradine
+        - Nitrates
+    - For doses of these Foundational HF medications, Grades of recommendation and Levels of Evidence of these medications, refer to Tables 3: Doses of Foundational HF Medications & 4: Grading of Recommendations and Levels of Evidence in the Management of HFrEF (LVEF<40%).
 
 **Key Message # 9: Arrhythmias**
-*   Arrhythmias are common in HF. These include:
-    *   Atrial Fibrillation
-    *   Ventricular arrhythmias
-    *   Bradyarrhythmias
+- Arrhythmias are common in HF. These include:
+    - Atrial Fibrillation
+    - Ventricular arrhythmias
+    - Bradyarrhythmias
 
 **Key Recommendation #6: Chronic HF Due To HFrEF: Pharmacotherapy**
-*   For Grades of recommendation and Levels of Evidence, refer to Table 4: Grading of Recommendations and Levels of Evidence in the Management of HFrEF (LVEF<40%).
-*   Foundational HF Medications
-    *   The Foundational HF Medications should be initiated at about the same time and up titrated if needed to their target or maximally tolerated doses.
-    *   Once the patient is stable and no longer volume overloaded, the dose of diuretics may be down titrated to the lowest maintenance dose.
-    *   In general, starting low doses of the 4 different classes would be preferred over up titration of each of the individual drugs to the maximally tolerated dose before initiating the next drug.
-    *   These drugs are preferably all initiated, albeit at low doses, when the patient is admitted with HF so that at the time of discharge, the patient is on all of them.
-    *   For the initiation and up titration of these HF drugs refer to Flow Chart III: Initiating Foundational HF Medication, Flow Chart IV: For Patients with eGFR < 30mls/min/1.73m² (Initiating Foundational HF Medication) & Flow Chart V: Optimizing Management of HFrEF Foundational HF Medications.
+- For Grades of recommendation and Levels of Evidence, refer to Table 4: Grading of Recommendations and Levels of Evidence in the Management of HFrEF (LVEF<40%).
+- Foundational HF Medications
+    - The Foundational HF Medications should be initiated at about the same time and up titrated if needed to their target or maximally tolerated doses.
+    - Once the patient is stable and no longer volume overloaded, the dose of diuretics may be down titrated to the lowest maintenance dose.
+    - In general, starting low doses of the 4 different classes would be preferred over up titration of each of the individual drugs to the maximally tolerated dose before initiating the next drug.
+    - These drugs are preferably all initiated, albeit at low doses, when the patient is admitted with HF so that at the time of discharge, the patient is on all of them.
+    - For the initiation and up titration of these HF drugs refer to Flow Chart III: Initiating Foundational HF Medication, Flow Chart IV: For Patients with eGFR < 30mls/min/1.73m² (Initiating Foundational HF Medication) & Flow Chart V: Optimizing Management of HFrEF Foundational HF Medications.
 
 **Key Recommendation #7: Arrhythmias**
-*   Atrial Fibrillation
-    *   To be treated by rate or rhythm control (if onset < 1 year).
-    *   Anticoagulation with DOAC or Vitamin K antagonists.
-*   Ventricular arrhythmias
-    *   Identify contributing factors such as electrolyte imbalances, ischemia and drugs.
-    *   Implantable cardioverter defibrillator (ICD).
-*   Bradyarrhythmias
-    *   Device Therapy as indicated.
+- Atrial Fibrillation
+    - To be treated by rate or rhythm control (if onset < 1 year).
+    - Anticoagulation with DOAC or Vitamin K antagonists.
+- Ventricular arrhythmias
+    - Identify contributing factors such as electrolyte imbalances, ischemia and drugs.
+    - Implantable cardioverter defibrillator (ICD).
+- Bradyarrhythmias
+    - Device Therapy as indicated.
 
 ## 10.3: Device Therapy In Heart Failure
 ### 10.3.1: Cardiac Resynchronisation Therapy (CRT)
-*   Patients who remain symptomatic (NYHA class II-III) despite OMT should be considered for CRT.
-*   CRT has been shown to improve symptoms, hospitalizations, and mortality, though up to 30% of patients may be non-responders.
-*   Patients with all the following criteria can be considered for CRT:
-    *   Sinus rhythm
-    *   LVEF ≤ 35%
-    *   LBBB
-    *   QRS duration on resting 12-lead ECG:
-        *   [Grade I, Level A] ≥ 150ms
-        *   [Grade IIa, Level B] ≥ 120-149ms
-*   Mechanical ventricular dyssynchrony is no longer a criterion in selecting patients for CRT.
-*   Patients with AF are less likely to respond to CRT. They may be considered for CRT along with atrio-ventricular node ablation.
-*   Conduction system pacing may be an alternative to biventricular pacing in patients with pacing indications (expected RV pacing of > 40%) and HF not fulfilling criteria for CRT or with unsuccessful coronary sinus lead implantation.
-*   Regular monitoring of the patients after device implantation is mandatory to adjust medical therapies and reprogram the device as necessary.
+- Patients who remain symptomatic (NYHA class II-III) despite OMT should be considered for CRT.
+- CRT has been shown to improve symptoms, hospitalizations, and mortality, though up to 30% of patients may be non-responders.
+- Patients with all the following criteria can be considered for CRT:
+    - Sinus rhythm
+    - LVEF ≤ 35%
+    - LBBB
+    - QRS duration on resting 12-lead ECG:
+        - [Grade I, Level A] ≥ 150ms
+        - [Grade IIa, Level B] ≥ 120-149ms
+- Mechanical ventricular dyssynchrony is no longer a criterion in selecting patients for CRT.
+- Patients with AF are less likely to respond to CRT. They may be considered for CRT along with atrio-ventricular node ablation.
+- Conduction system pacing may be an alternative to biventricular pacing in patients with pacing indications (expected RV pacing of > 40%) and HF not fulfilling criteria for CRT or with unsuccessful coronary sinus lead implantation.
+- Regular monitoring of the patients after device implantation is mandatory to adjust medical therapies and reprogram the device as necessary.
 
 ### 10.3.2: Implantable Cardioverter Defibrillator (ICD)
 Sudden cardiac death (SCD) in patients with HF is often due to ventricular fibrillation or ventricular tachycardia. This risk can be reduced with the implantation of an ICD.
@@ -390,31 +390,31 @@ It should be considered in patients who fulfil the eligibility criteria, who oth
 
 **Secondary prevention:**
 The following should be considered for implantation of ICD:
-*   [Grade I, Level A] Patients resuscitated from SCD due to ventricular fibrillation or hemodynamically unstable sustained ventricular tachycardia. These cardiac arrest survivors have a high risk of recurrent events and implantation of an ICD has been shown to reduce mortality.
-*   [Grade IIa, Level B] Patients with chronic HF and LVEF ≤ 35% who experience syncope of unclear origin have a high risk of subsequent SCD should also be considered for placement of an ICD.
-*   [Grade I, Level A] Prior MI and LVEF ≤ 40% with non-sustained VT **AND** inducible sustained VT or VF during an electrophysiological (EP) study.
+- [Grade I, Level A] Patients resuscitated from SCD due to ventricular fibrillation or hemodynamically unstable sustained ventricular tachycardia. These cardiac arrest survivors have a high risk of recurrent events and implantation of an ICD has been shown to reduce mortality.
+- [Grade IIa, Level B] Patients with chronic HF and LVEF ≤ 35% who experience syncope of unclear origin have a high risk of subsequent SCD should also be considered for placement of an ICD.
+- [Grade I, Level A] Prior MI and LVEF ≤ 40% with non-sustained VT **AND** inducible sustained VT or VF during an electrophysiological (EP) study.
 
 **Primary prevention (prophylactic ICD implantation)**
 Prophylactic ICD implantation to reduce the risk of SCD may be considered in patients with:
-*   Prior MI and at least 40 days after an MI and 3 months after revascularization by PCI or CABG and:
-    *   [Grade I, Level A] LVEF ≤ 35% with mild to moderate HF symptoms (NYHA class II-III).
-    *   [Grade IIa, Level B] LVEF ≤ 30% regardless of NYHA class, to reduce mortality.
-*   Non ischemic cardiomyopathy LVEF < 35%, on guideline directed medical therapy with no reversible causes, and
-    *   [Grade I, Level B] Mild to moderate HF symptoms (NYHA class II-III).
-    *   [Grade IIa, Level B] No HF symptoms (NYHA class I).
-*   Additional risk factors shown to further increase the risk of sudden cardiac death and ventricular arrhythmias that may be factored to further support prophylactic implantation of a defibrillator device (ICD/ CRTD) are:
-    *   Syncope/ presyncope
-    *   LVEF < 25%
-    *   Non sustained Ventricular Tachycardia
-    *   PVCs > 10/hr on Holter monitoring
+- Prior MI and at least 40 days after an MI and 3 months after revascularization by PCI or CABG and:
+    - [Grade I, Level A] LVEF ≤ 35% with mild to moderate HF symptoms (NYHA class II-III).
+    - [Grade IIa, Level B] LVEF ≤ 30% regardless of NYHA class, to reduce mortality.
+- Non ischemic cardiomyopathy LVEF < 35%, on guideline directed medical therapy with no reversible causes, and
+    - [Grade I, Level B] Mild to moderate HF symptoms (NYHA class II-III).
+    - [Grade IIa, Level B] No HF symptoms (NYHA class I).
+- Additional risk factors shown to further increase the risk of sudden cardiac death and ventricular arrhythmias that may be factored to further support prophylactic implantation of a defibrillator device (ICD/ CRTD) are:
+    - Syncope/ presyncope
+    - LVEF < 25%
+    - Non sustained Ventricular Tachycardia
+    - PVCs > 10/hr on Holter monitoring
 
 ### 10.3.3: Pacemakers
-*   [Grade I, Level A] Patients with significant bradyarrhythmias, trifascicular bundle branch blocks and permanent or paroxysmal third-or high-degree atrioventricular (AV) blocks should be considered for pacemaker therapy. Prior to implanting a conventional pacemaker, the need for an ICD or Cardiac Resynchronisation Therapy (CRT) device should be considered.
-*   Conduction system pacing (which includes His bundle and left bundle branch area pacing) is a new pacing modality. The early results appear promising but evidence on its safety and efficacy is still lacking.
+- [Grade I, Level A] Patients with significant bradyarrhythmias, trifascicular bundle branch blocks and permanent or paroxysmal third-or high-degree atrioventricular (AV) blocks should be considered for pacemaker therapy. Prior to implanting a conventional pacemaker, the need for an ICD or Cardiac Resynchronisation Therapy (CRT) device should be considered.
+- Conduction system pacing (which includes His bundle and left bundle branch area pacing) is a new pacing modality. The early results appear promising but evidence on its safety and efficacy is still lacking.
 
 **Key Recommendation #8: Arrhythmias**
-*   **Device Therapy For HF**
-    *   The grade of recommendations and levels of evidence for device therapy (ICD, CRT, pacemakers) are as in Table 4: Grading of Recommendations and Levels of Evidence in the Management of HFrEF (LVEF<40%)
+- **Device Therapy For HF**
+    - The grade of recommendations and levels of evidence for device therapy (ICD, CRT, pacemakers) are as in Table 4: Grading of Recommendations and Levels of Evidence in the Management of HFrEF (LVEF<40%)
 
 ## 10.4: Surgery For Heart Failure
 Patients with HF should undergo surgery if the pathology causing the HF is amenable to surgical treatment. The decision to subject a patient to surgery should however consider the functional status, prognosis, and comorbid conditions of the patient.
@@ -426,7 +426,7 @@ Patients with CAD and HF may benefit from revascularization particularly if they
 
 The STICH trial did not find any difference in survival between optimal medical therapy and CABG in patients with CAD amenable to surgery and LVEF < 35% at the end of the trial at a median follow up of 56 months. An extended follow up of the trial, however, after a median follow-up of 9.8 years, found lower total mortality, CV death and the combined outcome of all cause death and CV hospitalizations in patients with severe HF (LVEF < 35%) who underwent CABG. There was an early risk of mortality following CABG, but the benefits of CABG were seen after 2 years, and these were seen whether myocardial viability or angina was present or absent.
 
-*   [Grade IIa, Level B] Coronary revascularization by CABG should be considered in patients with HF and suitable coronary anatomy.
+- [Grade IIa, Level B] Coronary revascularization by CABG should be considered in patients with HF and suitable coronary anatomy.
 
 A recently completed trial comparing PCI to OMT in patients with demonstrable myocardial viability and LVEF< 35% did not result in an improvement in CV outcomes.
 
@@ -435,33 +435,33 @@ These high-risk patients undergoing CABG have a high surgical morbidity with lon
 ### 10.4.2: Lv Reduction Surgery
 In the STICH trial, surgical ventricular restoration (SVR) resulted in a significant reduction of the end-systolic volume index but despite this, there were no differences in symptoms, exercise tolerance, rate of death or hospitalization compared with patients who underwent CABG alone.
 
-*   [Grade III, Level B] As such, SVR is not routinely recommended in patients with HF who have areas of LV dyskinesia or akinesia and undergoing CABG.
-*   [Grade IIb, Level B] LV aneurysmectomy may be considered in patients with a large discrete LV aneurysm who develop HF, angina pectoris, thromboembolism, and tachyarrhythmias due to the aneurysm.
+- [Grade III, Level B] As such, SVR is not routinely recommended in patients with HF who have areas of LV dyskinesia or akinesia and undergoing CABG.
+- [Grade IIb, Level B] LV aneurysmectomy may be considered in patients with a large discrete LV aneurysm who develop HF, angina pectoris, thromboembolism, and tachyarrhythmias due to the aneurysm.
 
 ### 10.4.3: Valve Surgery
 Please see section 14.2.5.1: Valve Intervention in Patients with HF <!-- cross_ref target_file="section-14-2-vhd-heartfailure.md" target_heading="14.2.5.1: Valve Intervention In Patients With HF" target_kind="h3_section" -->
 
 ### 10.4.4: Lv Assist Devices
 Left ventricular assist devices have been used to:
-*   Bridge patients with HF to heart transplant.
-*   Support patients as a bridge to recovery.
-*   Provide long term hemodynamic support in patients ineligible for heart transplantation (destination therapy). In this group of patients, permanent treatment with LVADs improves survival and quality of life compared with optimal medical therapy alone. It is however expensive and is associated with significant adverse events.
+- Bridge patients with HF to heart transplant.
+- Support patients as a bridge to recovery.
+- Provide long term hemodynamic support in patients ineligible for heart transplantation (destination therapy). In this group of patients, permanent treatment with LVADs improves survival and quality of life compared with optimal medical therapy alone. It is however expensive and is associated with significant adverse events.
 
-*   [Grade IIa, Level B] Patients awaiting heart transplant who have become refractory to medical therapy and requiring inotropic support should be considered for a mechanical support device as a bridge to transplant.
+- [Grade IIa, Level B] Patients awaiting heart transplant who have become refractory to medical therapy and requiring inotropic support should be considered for a mechanical support device as a bridge to transplant.
 
 **Key Messages # 10: Surgery For HF**
-*   Patients with HF should undergo surgery if the pathology causing the HF is amenable to surgical treatment.
-*   This is particularly so if they have ischemia demonstrated as angina or by non- invasive testing and an anatomy that is suitable for revascularization (left main stem or triple vessel disease).
-*   The decision to subject a patient to surgery should however consider the functional status, prognosis, and comorbid conditions of the patient.
+- Patients with HF should undergo surgery if the pathology causing the HF is amenable to surgical treatment.
+- This is particularly so if they have ischemia demonstrated as angina or by non- invasive testing and an anatomy that is suitable for revascularization (left main stem or triple vessel disease).
+- The decision to subject a patient to surgery should however consider the functional status, prognosis, and comorbid conditions of the patient.
 
 **Key Recommendations #8: Chronic HF Due To HFrEF**
-*   Surgery For HF
-    *   CAD
-        *   Patients with HF should undergo surgery if they have angina and anatomy that is suitable for revascularization (left main stem or triple vessel disease).
-    *   Valve Disease
-        *   All patients with VHD should be assessed periodically on the need for early intervention before they begin to develop symptoms of reduced effort tolerance and decompensate.
-        *   Patients who are assessed to require intervention should be seen by a heart team to help decide the timing and type of intervention.
-        *   The indications for valve intervention are as in the Appendix V: Indications for Valve Intervention*.
+- Surgery For HF
+    - CAD
+        - Patients with HF should undergo surgery if they have angina and anatomy that is suitable for revascularization (left main stem or triple vessel disease).
+    - Valve Disease
+        - All patients with VHD should be assessed periodically on the need for early intervention before they begin to develop symptoms of reduced effort tolerance and decompensate.
+        - Patients who are assessed to require intervention should be seen by a heart team to help decide the timing and type of intervention.
+        - The indications for valve intervention are as in the Appendix V: Indications for Valve Intervention*.
 
 <!-- parent_only_reference_start -->
 Flowchart II: Management Of Acute Heart Failure
@@ -483,8 +483,8 @@ Classify the patient into one of four hemodynamic profiles:
 | Warm, Dry | Not Congested | Perfusion Adequate |
 
 **Outcome Evaluation:**
-*   **If Cold/Wet, Cold/Dry, or Warm/Wet:** → Proceed to Step 4 (Blood Pressure Assessment)
-*   **If Warm, Dry:** → Titrate oral medications (Flow Chart III & IV)
+- **If Cold/Wet, Cold/Dry, or Warm/Wet:** → Proceed to Step 4 (Blood Pressure Assessment)
+- **If Warm, Dry:** → Titrate oral medications (Flow Chart III & IV)
 
 ↓
 
@@ -492,88 +492,88 @@ Classify the patient into one of four hemodynamic profiles:
 Determine the pathway based on systolic blood pressure:
 
 **Pathway A: SBP ≥ 90mmHg**
-*   → Proceed to Step 5A (IV Diuretics)
+- → Proceed to Step 5A (IV Diuretics)
 
 **Pathway B: SBP < 90mmHg**
-*   → Proceed to Step 5B (Fluid Challenge / Inotropes)
+- → Proceed to Step 5B (Fluid Challenge / Inotropes)
 
 **Step 5A: Sbp ≥ 90mmHg**
-*   IV Diuretics
-*   Oral MRA#
+- IV Diuretics
+- Oral MRA#
 
 **Outcome Evaluation:**
-*   **If Improved:** → Step 7 (Start/Titrate Oral Medications)
-*   **If Not Improved:** → Step 6 (Escalation)
+- **If Improved:** → Step 7 (Start/Titrate Oral Medications)
+- **If Not Improved:** → Step 6 (Escalation)
 
 **Step 5B: Sbp < 90mmHg**
-*   Consider Cautious Fluid Challenge if dehydrated.
+- Consider Cautious Fluid Challenge if dehydrated.
 
 ↓
 
-*   **Inotropes:**
-    *   Noradrenaline 1st
-    *   Dopamine / Dobutamine
-    *   May be given even if BP > 90mmHg but the perfusion is inadequate.
+- **Inotropes:**
+    - Noradrenaline 1st
+    - Dopamine / Dobutamine
+    - May be given even if BP > 90mmHg but the perfusion is inadequate.
 
 **Outcome Evaluation:**
-*   **If SBP still < 90mmHg:** → Step 8 (Refractory HF Management)
-*   **If SBP improves to ≥ 90mmHg:** → Proceed to Step 5A
+- **If SBP still < 90mmHg:** → Step 8 (Refractory HF Management)
+- **If SBP improves to ≥ 90mmHg:** → Proceed to Step 5A
 
 **Step 6: Escalation (Not Improved From Step 5a Or Sbp Still < 90mmHg From Step 5b)**
-*   ↑ Diuretics, continuous infusion + combination with thiazides
-*   Nitrates
-*   Dopamine / Dobutamine
+- ↑ Diuretics, continuous infusion + combination with thiazides
+- Nitrates
+- Dopamine / Dobutamine
 
 **Outcome Evaluation:**
-*   **If Improved:** → Step 7 (Start/Titrate Oral Medications)
-*   **If Not Improved:** → Step 8 (Refractory HF Management)
+- **If Improved:** → Step 7 (Start/Titrate Oral Medications)
+- **If Not Improved:** → Step 8 (Refractory HF Management)
 
 **Step 7: Improved — Start/Titrate Oral Medications**
-*   Start/titrate oral medications (Flow Chart III & IV).
+- Start/titrate oral medications (Flow Chart III & IV).
 
 **Step 8: Not Improved — Refractory HF**
-*   Correct hypoxia and acidosis.
-*   Consider invasive ventilation.
-*   Refer to tertiary centres.
+- Correct hypoxia and acidosis.
+- Consider invasive ventilation.
+- Refer to tertiary centres.
 
 Flow Chart III: Initiating Foundational HF Medication
 **Categories:** Diuretics &nbsp;\|&nbsp; RAS Blockers (ACE-I, ARB, ARNI) &nbsp;\|&nbsp; SGLT2-i &nbsp;\|&nbsp; MRA &nbsp;\|&nbsp; β-Blockers
 
 **Day 1**
-*   **Acute HF**
+- **Acute HF**
     ↓
-*   **See Flow Chart II**
-    *   Diuretics - usually i.v.
-    *   Depending on BP and Perfusion - Vasodilators and Inotropes
+- **See Flow Chart II**
+    - Diuretics - usually i.v.
+    - Depending on BP and Perfusion - Vasodilators and Inotropes
 
 **Day 2-4**
-*   **Depends on:** eGFR, BP, Presence of Lung Congestion
+- **Depends on:** eGFR, BP, Presence of Lung Congestion
     ↓
-*   **Decision 1: eGFR ≥ 30 mls/min/1.73m²**
-    *   **No:** → See Flow Chart IV
-    *   **Yes:** ↓
+- **Decision 1: eGFR ≥ 30 mls/min/1.73m²**
+    - **No:** → See Flow Chart IV
+    - **Yes:** ↓
 
-*   **Decision 2: SBP ≥ 100mmHg**
-    *   **If Yes:**
-        *   Start RAS Blockers (1/4 target dose)
-        *   Start MRA (1/4 target dose)*
-    *   **If No:**
-        *   Start RAS Blockers (1/8 to 1/4 target dose)
-        *   Start MRA (1/4 target dose)*
+- **Decision 2: SBP ≥ 100mmHg**
+    - **If Yes:**
+        - Start RAS Blockers (1/4 target dose)
+        - Start MRA (1/4 target dose)*
+    - **If No:**
+        - Start RAS Blockers (1/8 to 1/4 target dose)
+        - Start MRA (1/4 target dose)*
     ↓
-*   **Decision 3: Lung Congestion**
-    *   **If Absent:**
-        *   Change iv to oral diuretics
-        *   Start β-Blockers (1/4 - 1/2 target dose)
-        *   Start SGLT2-i (full dose)*
-    *   **If Present:**
-        *   Continue iv diuretics till lungs are dry
-        *   Start β-Blockers 1/8 target dose only after no longer fluid overloaded.
-        *   Start SGLT2-i (full dose)*
+- **Decision 3: Lung Congestion**
+    - **If Absent:**
+        - Change iv to oral diuretics
+        - Start β-Blockers (1/4 - 1/2 target dose)
+        - Start SGLT2-i (full dose)*
+    - **If Present:**
+        - Continue iv diuretics till lungs are dry
+        - Start β-Blockers 1/8 target dose only after no longer fluid overloaded.
+        - Start SGLT2-i (full dose)*
 
 **Day 4-5**
-*   **Discharge Medications:**
-    *   Diuretics (oral) + RAS Blockers + SGLT2-i + MRA + β-Blockers
+- **Discharge Medications:**
+    - Diuretics (oral) + RAS Blockers + SGLT2-i + MRA + β-Blockers
 
 > *The dose of diuretics may need to be down titrated upon initiation of SGLT2-i and MRA. The initiating drug doses may occasionally need to be modified depending on the patient's clinical condition. SGLT2-i should be initiated when patients have not been on inotropes for at least 24 hours, SBP > 100mmHg and there is no increase in the diuretic dose in the last 6 hours. SGLT2-i may also be initiated post discharge.*
 
@@ -581,103 +581,103 @@ Flow Chart IV: For Patients With eGFR < 30mls/min/1.73m² (Initiating Foundation
 **Categories:** Diuretics &nbsp;\|&nbsp; RAS Blockers (ACE-I, ARB, ARNI) &nbsp;\|&nbsp; β-Blockers &nbsp;\|&nbsp; SGLT2-i
 
 **Day 1**
-*   **Acute HF**
+- **Acute HF**
     ↓
-*   **See Flow Chart II**
-    *   i.v diuretics
-    *   Depending on BP and Perfusion - Vasodilators and Inotropes
+- **See Flow Chart II**
+    - i.v diuretics
+    - Depending on BP and Perfusion - Vasodilators and Inotropes
 
 **Day 2-4**
-*   **Depends on:** eGFR, BP, Presence of Lung Congestion
+- **Depends on:** eGFR, BP, Presence of Lung Congestion
     ↓
-*   **Decision 1: eGFR < 30 mls/min/1.73m²** (Yes)
+- **Decision 1: eGFR < 30 mls/min/1.73m²** (Yes)
     ↓
-*   **Decision 2: SBP ≥ 100mmHg**
-    *   **If Yes:**
-        *   Start RAS Blockers (1/4 target dose)
-    *   **If No:**
-        *   Start RAS Blockers (1/4 target dose)
+- **Decision 2: SBP ≥ 100mmHg**
+    - **If Yes:**
+        - Start RAS Blockers (1/4 target dose)
+    - **If No:**
+        - Start RAS Blockers (1/4 target dose)
     ↓
-*   **Decision 3: Lung Congestion**
-    *   **If Absent:**
-        *   Change iv to oral diuretics
-        *   Start β-Blockers (1/4 - 1/2 target dose)
-        *   Start SGLT2-i (full dose)*
-    *   **If Present:**
-        *   Continue iv diuretics till no longer fluid overloaded.
-        *   Start β-Blockers 1/8 target dose only after no longer fluid overloaded.
-        *   Start SGLT2-i (full dose)*
+- **Decision 3: Lung Congestion**
+    - **If Absent:**
+        - Change iv to oral diuretics
+        - Start β-Blockers (1/4 - 1/2 target dose)
+        - Start SGLT2-i (full dose)*
+    - **If Present:**
+        - Continue iv diuretics till no longer fluid overloaded.
+        - Start β-Blockers 1/8 target dose only after no longer fluid overloaded.
+        - Start SGLT2-i (full dose)*
 
 **Day 4-5**
-*   **Discharge Medications:**
-    *   Diuretics (oral) + RAS Blockers** + SGLT2-i* + β-Blockers
+- **Discharge Medications:**
+    - Diuretics (oral) + RAS Blockers** + SGLT2-i* + β-Blockers
 
 > *SGLT2-i should only be initiated if eGFR ≥ 20mls/min/1.73m². Caution should be exercised when it is started concurrently with the RAS-blocker. The dose of diuretics may need to be down titrated upon initiation of SGLT2-i.<br>
 > **ARNI should be used with caution if eGFR < 30mls/min/1.73m². It is not recommended in patients with end-stage renal disease.*
 
 **IN CKD (Monitoring Guidance):**
-*   Frequent monitoring of renal function tests is necessary. The exact frequency needs to be individualized.
-*   With more advanced CKD, renal function tests should be repeated within 3-7 days after drug initiation and every time doses are titrated.
-*   Reduce or discontinue RAS Blockers (after other causes are excluded) when:
-    *   SCr levels rise and remain persistently > 30% from the baseline (or eGFR reduces > 25%) within 2-3 months from commencement or an increase in dose, or
-    *   Serum potassium ≥ 5.6 mmol/L
-*   If > 3 months after commencement of RAS blockers, the renal function usually deteriorates gradually and the dose of RAS blockers need not be reduced provided serum potassium is < 5.6 mmol/L.
+- Frequent monitoring of renal function tests is necessary. The exact frequency needs to be individualized.
+- With more advanced CKD, renal function tests should be repeated within 3-7 days after drug initiation and every time doses are titrated.
+- Reduce or discontinue RAS Blockers (after other causes are excluded) when:
+    - SCr levels rise and remain persistently > 30% from the baseline (or eGFR reduces > 25%) within 2-3 months from commencement or an increase in dose, or
+    - Serum potassium ≥ 5.6 mmol/L
+- If > 3 months after commencement of RAS blockers, the renal function usually deteriorates gradually and the dose of RAS blockers need not be reduced provided serum potassium is < 5.6 mmol/L.
 
 Flow Chart V: Optimizing Management Of HFrEF Foundational HF Medications
 **Categories:** Diuretics &nbsp;\|&nbsp; RAS Blockers (ACE-I, ARB, ARNI) &nbsp;\|&nbsp; MRA &nbsp;\|&nbsp; β-Blockers &nbsp;\|&nbsp; SGLT2-i
 
 **Step 1: Up Titration**
-*   **Up titrated depending on SBP, HR and potassium levels:**
-    *   RAS blockers
-    *   β-Blockers
-    *   MRA
+- **Up titrated depending on SBP, HR and potassium levels:**
+    - RAS blockers
+    - β-Blockers
+    - MRA
 
 **Step 2: Address Precipitating Factors**
-*   **Treat underlying cause and/or precipitating factors:**
-    *   **CAD** - revascularize as necessary.
-    *   **Valve disorders** - surgery/TAVI/mitral valve repair as indicated.
-    *   **Arrhythmias- treat appropriately:**
-        *   **AF** - Ablation (if < 1 year of onset), Rate control with β-blockers/digoxin, Anticoagulation.
-        *   **Ventricular Arrhythmias (Frequent PVCs or VT)** - Drug therapy, Ablation or ICD (as indicated).
+- **Treat underlying cause and/or precipitating factors:**
+    - **CAD** - revascularize as necessary.
+    - **Valve disorders** - surgery/TAVI/mitral valve repair as indicated.
+    - **Arrhythmias- treat appropriately:**
+        - **AF** - Ablation (if < 1 year of onset), Rate control with β-blockers/digoxin, Anticoagulation.
+        - **Ventricular Arrhythmias (Frequent PVCs or VT)** - Drug therapy, Ablation or ICD (as indicated).
 
 **Step 3: Assess Lvef & Symptoms (Two Pathways)**
 **Pathway A: If LVEF ≥ 40% and asymptomatic**
-*   → Proceed straight to *Step 4 (Continue/Maintenance)*
+- → Proceed straight to *Step 4 (Continue/Maintenance)*
 
 **Pathway B: If LVEF < 40% and/or patient still symptomatic**
-*   *Additional Interventions:*
-    *   **SR with LBBB, QRS ≥ 150 msecs and LVEF ≤ 35%**: Consider CRT/D
-    *   **SR and HR ≥ 70 bpm**: Add Ivabradine
-    *   **Iron deficiency**: Iron replacement
+- *Additional Interventions:*
+    - **SR with LBBB, QRS ≥ 150 msecs and LVEF ≤ 35%**: Consider CRT/D
+    - **SR and HR ≥ 70 bpm**: Add Ivabradine
+    - **Iron deficiency**: Iron replacement
     ↓
-*   ***If LVEF < 40% and/or still symptomatic:***
-    *   If still volume overloaded - increase dose of diuretics +/- combination with thiazides.
-    *   Change to ARNI (If not already on).
-    *   Consider vericiguat.
+- ***If LVEF < 40% and/or still symptomatic:***
+    - If still volume overloaded - increase dose of diuretics +/- combination with thiazides.
+    - Change to ARNI (If not already on).
+    - Consider vericiguat.
     ↓
-*   ***If LVEF < 40% and/or still symptomatic (Advanced HF):***
-    *   Consider heart transplant (if eligible)
-    *   LVAD as a bridge or as a Destination Therapy (if eligible)
-    *   Palliative Care
+- ***If LVEF < 40% and/or still symptomatic (Advanced HF):***
+    - Consider heart transplant (if eligible)
+    - LVAD as a bridge or as a Destination Therapy (if eligible)
+    - Palliative Care
     ↓
 
 **Step 4: Continue (Maintenance)**
-*   **Maximally tolerated dose of Foundational HF medications** - RAS Blockers (ACE-I, ARB, ARNI), MRA, β-Blockers, SGLT2-i.
-*   **Reduce diuretics** to lowest dose if volume overload is absent.
-*   **Optimize dosing** and patient adherence.
-*   **Cardiac rehabilitation** - Patient education and Exercise training.
+- **Maximally tolerated dose of Foundational HF medications** - RAS Blockers (ACE-I, ARB, ARNI), MRA, β-Blockers, SGLT2-i.
+- **Reduce diuretics** to lowest dose if volume overload is absent.
+- **Optimize dosing** and patient adherence.
+- **Cardiac rehabilitation** - Patient education and Exercise training.
 
 **Guidance on Adequate Parameters:**
 Following parameters considered adequate if the patient:
-*   Feels well.
-*   Has good tissue perfusion as shown by the absence of giddiness, warm skin **and** stable renal function with good urine flow.
-*   SBP ≥ 90mmHg
-*   HR ≥ 50/min
-*   Serum potassium < 5.6 mmol/l
+- Feels well.
+- Has good tissue perfusion as shown by the absence of giddiness, warm skin **and** stable renal function with good urine flow.
+- SBP ≥ 90mmHg
+- HR ≥ 50/min
+- Serum potassium < 5.6 mmol/l
 
 **Guidance on Low BP:**
 If BP is low, then:
-*   First reduce dose of diuretics if fluid overload is absent before reducing dose of RAS blockers and/or β-Blockers.
+- First reduce dose of diuretics if fluid overload is absent before reducing dose of RAS blockers and/or β-Blockers.
 
 Table 3: Doses Of Foundational HF Medications
 | Drug | Initial Daily Dose(s) | Target Dose(s) | 1/8 Target Dose | 1/4 Target Dose | 1/2 Target Dose | Tablet Strength Available | Available (MOH) | Renal Dose For CrCl < 30ml/min |

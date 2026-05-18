@@ -10,30 +10,30 @@ treatment_type: catheter_ablation, amiodarone, beta_blocker, CRT, rate_control_a
 ## 14.4: Cardiomyopathy Due To Arrhythmias Or Conduction Abnormalities
 ### 14.4.1: Arrhythmia Induced Cardiomyopathy
 Arrhythmia-induced cardiomyopathy (AiCM) includes:
-*   Tachycardia-induced cardiomyopathy.
-*   Atrial Fibrillation (AF) induced cardiomyopathy.
-*   Premature Ventricular Complexes (PVC) induced cardiomyopathy.
+- Tachycardia-induced cardiomyopathy.
+- Atrial Fibrillation (AF) induced cardiomyopathy.
+- Premature Ventricular Complexes (PVC) induced cardiomyopathy.
 
 Arrhythmia-induced Cardiomyopathy is a reversible cause of HF characterized by LV dysfunction resulting from an increased ventricular rate. The degree of LV dysfunction correlates with the duration as well as rate of the tachyarrhythmia. The cardiomyopathy may present weeks, months, or years after the onset of the tachycardia. It can occur in the setting of either an incessant or paroxysmal tachycardia and it should be suspected if no other cause of LV dysfunction is identified.
 
 Recognition of this entity is important clinically, as treatment of the underlying arrhythmia can result in either partial or complete recovery of LV function which, in turn, would result in an improvement in morbidity and mortality.
 
 In managing arrhythmias in patients with HF:
-*   [Grade I, Level A] Initiate the "Foundational HF" Medications to improve LV function and optimize reverse LV remodeling.
-*   [Grade I, Level C] Identify and treat arrhythmias accordingly. Arrhythmia recognition and suppression should be considered as part of the holistic evaluation and management of HF.
-*   [Grade I, Level C] Treat non cardiovascular comorbidities particularly, lung disease, obstructive sleep apnea and obesity.
+- [Grade I, Level A] Initiate the "Foundational HF" Medications to improve LV function and optimize reverse LV remodeling.
+- [Grade I, Level C] Identify and treat arrhythmias accordingly. Arrhythmia recognition and suppression should be considered as part of the holistic evaluation and management of HF.
+- [Grade I, Level C] Treat non cardiovascular comorbidities particularly, lung disease, obstructive sleep apnea and obesity.
 
 #### 14.4.1.1: Detection Of Arrhythmias
 Arrhythmias are sometimes difficult to detect, especially if they are paroxysmal and infrequent. In any person who presents with a deterioration in cardiac function, paroxysmal palpitations, near faints or syncope and the clinical suspicion that these could possibly be due to arrhythmias are high, the following modalities may be considered to aid in the diagnosis:
-*   Prolonged ECG rhythm monitoring using 3-day, 7-day or even 1-month rhythm monitors.
-*   Using a watch that can monitor ECG heart rhythm or
-*   An implantable loop recorder.
+- Prolonged ECG rhythm monitoring using 3-day, 7-day or even 1-month rhythm monitors.
+- Using a watch that can monitor ECG heart rhythm or
+- An implantable loop recorder.
 
 #### 14.4.1.2: Supraventricular Arrhythmias
 Any supraventricular tachycardia (SVT) with a rapid ventricular response may induce HF. Commonly encountered SVTs in clinical practice include:
-*   Incessant atrial tachycardia (AT),
-*   Very frequent episodes of atrioventricular nodal re-entrant tachycardia (AVNRT), and
-*   Atrioventricular re-entrant tachycardia (AVRT).
+- Incessant atrial tachycardia (AT),
+- Very frequent episodes of atrioventricular nodal re-entrant tachycardia (AVNRT), and
+- Atrioventricular re-entrant tachycardia (AVRT).
 
 Arrhythmia-induced Cardiomyopathy has been reported in 10% of patients with AT, and as high as 37% of patients with incessant AT.
 
@@ -43,8 +43,8 @@ Arrhythmia-induced Cardiomyopathy has been reported in 10% of patients with AT, 
 AF is the commonest cardiac arrhythmia encountered in clinical practice. AF and atrial flutter with rapid ventricular response is the most common cause of tachycardia induced cardiomyopathy. AF induced cardiomyopathy may be suspected if LV function improves after rhythm control has been achieved and no other underlying cause has been identified.
 
 Management of AF in patients with HF would include the use of:
-*   [Grade IIa, Level B] Anti-arrhythmic drugs for either rate control or rhythm control. Most anti-arrhythmic drugs are however contraindicated in the presence of HF.
-*   [Grade IIa, Level A] Catheter ablation - This has a higher chance of achieving rhythm control in patients with AF than anti-arrhythmic drugs. Catheter ablation has been shown to reduce the risk of death and HF hospitalization in patients with AF and HF when compared to standard therapy with anti-arrhythmic drugs. The success of the procedure and benefits seen were more likely in patients who underwent the procedure within 1 year of diagnosing AF.
+- [Grade IIa, Level B] Anti-arrhythmic drugs for either rate control or rhythm control. Most anti-arrhythmic drugs are however contraindicated in the presence of HF.
+- [Grade IIa, Level A] Catheter ablation - This has a higher chance of achieving rhythm control in patients with AF than anti-arrhythmic drugs. Catheter ablation has been shown to reduce the risk of death and HF hospitalization in patients with AF and HF when compared to standard therapy with anti-arrhythmic drugs. The success of the procedure and benefits seen were more likely in patients who underwent the procedure within 1 year of diagnosing AF.
 
 #### 14.4.1.4: Ventricular Arrhythmias
 Ventricular arrhythmias, including frequent PVCs or VT, may also induce HF. It is however, sometimes difficult to ascertain whether the PVCs caused LV dysfunction or whether progressive LV dysfunction caused the frequent PVCs. Even if the PVCs are the result of LV dysfunction, if frequent, may contribute to and increase the risk of HF and mortality even after adjusting for age and other ECG abnormalities.
@@ -81,9 +81,31 @@ A high RV pacing percentage of > 40% and long-term pacing may exacerbate HF symp
 This would include left bundle branch block (LBBB) - induced cardiomyopathy and other dyssynchronopathies.
 
 Key Message: HF Due To Arrhythmias And Conduction Abnormalities
-*   Cardiomyopathy due to arrhythmias and conduction abnormalities are potentially reversible causes of HF.
-*   Successful treatment of the arrhythmia by drug therapy or catheter ablation can result in normalization of LV function.
+- Cardiomyopathy due to arrhythmias and conduction abnormalities are potentially reversible causes of HF.
+- Successful treatment of the arrhythmia by drug therapy or catheter ablation can result in normalization of LV function.
 
 Key Recommendation: HF Due To Arrhythmias And Conduction Abnormalities
-*   In managing cardiomyopathy due to arrhythmias, radiofrequency ablation is the preferred therapy, since most antiarrhythmic drugs are contraindicated in the presence of HF.
-*   In patients with HF who have bradyarrhythmias and where pacing is indicated, biventricular pacing (Cardiac Resynchronisation Therapy) is the pacing mode of choice.
+- In managing cardiomyopathy due to arrhythmias, radiofrequency ablation is the preferred therapy, since most antiarrhythmic drugs are contraindicated in the presence of HF.
+- In patients with HF who have bradyarrhythmias and where pacing is indicated, biventricular pacing (Cardiac Resynchronisation Therapy) is the pacing mode of choice.
+
+<!-- parent_only_reference_start -->
+Abbreviations
+| Abbreviation | Description |
+|---|---|
+| AF | Atrial Fibrillation |
+| AiCM | Arrhythmia-induced Cardiomyopathy |
+| AT | Atrial Tachycardia |
+| AVNRT | Atrioventricular Nodal Re-entrant Tachycardia |
+| AVRT | Atrioventricular Re-entrant Tachycardia |
+| CRT | Cardiac Resynchronization Therapy |
+| ECG | Electrocardiogram |
+| HF | Heart Failure |
+| LBBB | Left Bundle Branch Block |
+| LV | Left Ventricular |
+| LVEF | Left Ventricular Ejection Fraction |
+| PVC | Premature Ventricular Complex |
+| QRS | QRS Complex |
+| RV | Right Ventricular |
+| SVT | Supraventricular Tachycardia |
+| VT | Ventricular Tachycardia |
+<!-- parent_only_reference_end -->

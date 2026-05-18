@@ -13,131 +13,132 @@ Majority of pediatric patients with congenital heart disease are now surviving i
 Definition of HF in the ACHD in patients with biventricular circulation is like that of those with acquired heart disease.However, defining HF in patients with Fontan circulation, may be more complicated.
 
 ### 14.9.2: Burden Of Disease
-*   Prevalence of HF in ACHD ranges from 3.3% (median follow up of 27.5 years) to 6.4% at a mean age of 35 years.
-*   HF is the most common cause of death in ACHD patients, accounting for 17-42% of all deaths.
-*   The median age of death from HF was 48.4 years (range 20.2-91.2 years) and varied based on the complexity of the underlying lesions and interventions.
-*   Those patients with more complex CHD including systemic RV, single ventricle palliated with Fontan circulation, and unrepaired cyanotic CHD with Eisenmenger physiology comprise the majority of HF-related deaths.
-*   Hospitalization related to ACHD associated HF has increased significantly over the recent years accounting for 11.8%-20% of all ACHD admissions.
-*   ACHD patients with HF had longer length of stay, higher burden of arrhythmias and were more likely to die. One-year mortality after HF admission was 24% and 3-year mortality was 35%. Male gender, pacemaker implantation, admission duration, non-cardiac medication use, and high serum creatinine were identified as independent risk factors for 3-year mortality.
+- Prevalence of HF in ACHD ranges from 3.3% (median follow up of 27.5 years) to 6.4% at a mean age of 35 years.
+- HF is the most common cause of death in ACHD patients, accounting for 17-42% of all deaths.
+- The median age of death from HF was 48.4 years (range 20.2-91.2 years) and varied based on the complexity of the underlying lesions and interventions.
+- Those patients with more complex CHD including systemic RV, single ventricle palliated with Fontan circulation, and unrepaired cyanotic CHD with Eisenmenger physiology comprise the majority of HF-related deaths.
+- Hospitalization related to ACHD associated HF has increased significantly over the recent years accounting for 11.8%-20% of all ACHD admissions.
+- ACHD patients with HF had longer length of stay, higher burden of arrhythmias and were more likely to die. One-year mortality after HF admission was 24% and 3-year mortality was 35%. Male gender, pacemaker implantation, admission duration, non-cardiac medication use, and high serum creatinine were identified as independent risk factors for 3-year mortality.
 
 ### 14.9.3: Predisposing Risk Factors
-*   The risk factors for developing HF and related mortality in ACHD patients includes advancing age, worsening NYHA functional class, complexity of the underlying congenital heart defect(s), pulmonary hypertension/Eisenmenger syndrome, endocarditis, atrial arrhythmias, ventricular dysfunction, end organ dysfunction and previous interventions e.g., Fontan surgery.
+- The risk factors for developing HF and related mortality in ACHD patients includes advancing age, worsening NYHA functional class, complexity of the underlying congenital heart defect(s), pulmonary hypertension/Eisenmenger syndrome, endocarditis, atrial arrhythmias, ventricular dysfunction, end organ dysfunction and previous interventions e.g., Fontan surgery.
 
 ### 14.9.4: Pathophysiology Of HF In ACHD
-*   Unlike acquired heart disease, the underlying mechanism for HF is more heterogenous and complex.
-*   It is highly dependent on the underlying anatomy, presence of pulmonary arterial hypertension, timing and type of intervention, myocardial protection during surgery, presence of residual hemodynamic lesions and acquired comorbidities.
-*   The most common reasons for ACHD-HF include presence of native, new, or residual hemodynamic lesions, myocardial failure and arrhythmias.
-*   For the different causes of ACHD-HF based on the underlying pathophysiology, related congenital heart disease and etiology tailored management refer to Appendix XIII: The different causes of ACHD-HF based on the underlying pathophysiology, related CHD and etiology tailored management.
+- Unlike acquired heart disease, the underlying mechanism for HF is more heterogenous and complex.
+- It is highly dependent on the underlying anatomy, presence of pulmonary arterial hypertension, timing and type of intervention, myocardial protection during surgery, presence of residual hemodynamic lesions and acquired comorbidities.
+- The most common reasons for ACHD-HF include presence of native, new, or residual hemodynamic lesions, myocardial failure and arrhythmias.
+- For the different causes of ACHD-HF based on the underlying pathophysiology, related congenital heart disease and etiology tailored management refer to Appendix XIII: The different causes of ACHD-HF based on the underlying pathophysiology, related CHD and etiology tailored management.
 
 ### 14.9.5: Diagnosis Of HF In ACHD
-*   Diagnosing HF is challenging as typical clinical findings may not be present and most patients do not report symptoms of decreased functional capacity due to chronic adaptation since childhood.
-*   Interpreting the routine investigations also poses a challenge as many are abnormal even at baseline.
-*   Assessment of HF in these ACHD patients should include a comprehensive review of clinical history, underlying congenital heart defect, previous interventions, signs, symptoms, and relevant investigations.
-*   Due to the multifactorial etiology of HF in these patients, a patient-centered approach is crucial.
+- Diagnosing HF is challenging as typical clinical findings may not be present and most patients do not report symptoms of decreased functional capacity due to chronic adaptation since childhood.
+- Interpreting the routine investigations also poses a challenge as many are abnormal even at baseline.
+- Assessment of HF in these ACHD patients should include a comprehensive review of clinical history, underlying congenital heart defect, previous interventions, signs, symptoms, and relevant investigations.
+- Due to the multifactorial etiology of HF in these patients, a patient-centered approach is crucial.
 
-**Signs and symptoms** of HF are non-specific. It can vary depending on whether it is due to biventricular failure, systemic or sub pulmonary ventricle failure. Refer to **Section 6**.
+Signs and symptoms of HF are non-specific. It can vary depending on whether it is due to biventricular failure, systemic or sub pulmonary ventricle failure. Refer to Section 6: Diagnosis and Investigations. <!-- cross_ref target_file="section-6-diagnosis-heartfailure.md" target_heading="Section 6: Diagnosis and Investigations" target_kind="h1_section" -->
 
-*   Chronic lymphatic dysfunction in failing Fontan circulation causes plastic bronchitis and protein losing enteropathy (PLE) characterized by enteric protein loss.
-*   Right sided HF is more prevalent in ACHD compared to other acquired heart disease.
-*   Patients with palliated or unrepaired cyanotic congenital heart disease, Eisenmenger syndrome or pulmonary to systemic shunts may have worsening cyanosis contributing to impaired functional capacity with or without HF. These patients are also at risk of thromboembolic events.
-*   Arrhythmias may be the cause or the first manifestation of HF in these patients.
-*   Identifying the cause of HF is important as it may be reversible (e.g., new or residual hemodynamic lesions, acute arrhythmias, compounding medical conditions like iron deficiency anemia or thyrotoxicosis.)
+- Chronic lymphatic dysfunction in failing Fontan circulation causes plastic bronchitis and protein losing enteropathy (PLE) characterized by enteric protein loss.
+- Right sided HF is more prevalent in ACHD compared to other acquired heart disease.
+- Patients with palliated or unrepaired cyanotic congenital heart disease, Eisenmenger syndrome or pulmonary to systemic shunts may have worsening cyanosis contributing to impaired functional capacity with or without HF. These patients are also at risk of thromboembolic events.
+- Arrhythmias may be the cause or the first manifestation of HF in these patients.
+- Identifying the cause of HF is important as it may be reversible (e.g., new or residual hemodynamic lesions, acute arrhythmias, compounding medical conditions like iron deficiency anemia or thyrotoxicosis.)
 
 ### 14.9.6: Investigations
-*   Investigations are like that of acquired heart disease as outlined earlier in Section 6: Diagnosis and Investigations. <!-- cross_ref target_file="section-6-diagnosis-heartfailure.md" target_heading="Section 6: Diagnosis and Investigations" target_kind="h1_section" -->In addition, the following investigations are important to assess both structural and hemodynamic anomalies: (refer to Appendix XIV: Investigations in ACHD)
-    *   Transthoracic and transesophageal echocardiogram
-    *   Cardiac magnetic resonance (CMR)
-    *   Computer tomography scan
-    *   Cardiac catheterization for invasive hemodynamic assessment.
-    *   Rhythm monitoring and analysis.
-*   Patients with ACHD are usually well adapted to their functional limitations. Thus, objective assessment of their functional capacity and response to therapy is important. This can be done by exercise tests (Cardiopulmonary exercise test (CPET) or a six-minute walk test). The CPET predictive values of poor prognosis may, however, be different in ACHD compared to acquired heart disease especially in single ventricle physiology and in patients with cyanotic heart disease.
+- Investigations are like that of acquired heart disease as outlined earlier in Section 6: Diagnosis and Investigations. <!-- cross_ref target_file="section-6-diagnosis-heartfailure.md" target_heading="Section 6: Diagnosis and Investigations" target_kind="h1_section" -->In addition, the following investigations are important to assess both structural and hemodynamic anomalies: (refer to Appendix XIV: Investigations in ACHD)
+    - Transthoracic and transesophageal echocardiogram
+    - Cardiac magnetic resonance (CMR)
+    - Computer tomography scan
+    - Cardiac catheterization for invasive hemodynamic assessment.
+    - Rhythm monitoring and analysis.
+- Patients with ACHD are usually well adapted to their functional limitations. Thus, objective assessment of their functional capacity and response to therapy is important. This can be done by exercise tests (Cardiopulmonary exercise test (CPET) or a six-minute walk test). The CPET predictive values of poor prognosis may, however, be different in ACHD compared to acquired heart disease especially in single ventricle physiology and in patients with cyanotic heart disease.
 
-### 14.9.7: Management (Refer To Appendix Xv: Flow Chart Of The Management Of ACHD-HF)
-*   The aim of treatment is to alleviate symptoms, improve quality of life and to improve survival. These patients are preferably managed by a multidisciplinary team that includes both the ACHD and HF cardiologist.
-*   The principles of managing HF in ACHD HF are:
-    *   First to access and address all reversible causes.
-    *   To initiate pharmacotherapy if HF control is still not optimal.
-    *   To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
+### 14.9.7: Management 
+(Refer To Appendix XV: Flow Chart Of The Management Of ACHD-HF)
+- The aim of treatment is to alleviate symptoms, improve quality of life and to improve survival. These patients are preferably managed by a multidisciplinary team that includes both the ACHD and HF cardiologist.
+- The principles of managing HF in ACHD HF are:
+    - First to access and address all reversible causes.
+    - To initiate pharmacotherapy if HF control is still not optimal.
+    - To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
 
 Potentially reversible causes in ACHD-HF are:
-*   Native, new, or residual structural anomalies that are amenable to surgical or catheter interventions. These include:
-    *   Shunts (VSD/ASD/PDA)
-    *   Valvular lesions (free flow Pulmonary regurgitation post TOF repair/aortic regurgitation e.g., post arterial switch)
-    *   Outflow tract obstruction (conduit stenosis/LV outflow tract obstruction).
-*   Arrhythmias - atrial or ventricular tachyarrhythmias
-*   Other medical problems such as sepsis, thyrotoxicosis, anemia, uncontrolled hypertension.
+- Native, new, or residual structural anomalies that are amenable to surgical or catheter interventions. These include:
+    - Shunts (VSD/ASD/PDA)
+    - Valvular lesions (free flow Pulmonary regurgitation post TOF repair/aortic regurgitation e.g., post arterial switch)
+    - Outflow tract obstruction (conduit stenosis/LV outflow tract obstruction).
+- Arrhythmias - atrial or ventricular tachyarrhythmias
+- Other medical problems such as sepsis, thyrotoxicosis, anemia, uncontrolled hypertension.
 
 #### Pharmacotherapy
 In general, drug therapy for HF in ACHD lacks evidence unlike that in acquired HF. The medical treatment is based on the varying subgroups of ACHD-HF.
 
 A) Impaired Systolic Function
-*   Systemic left ventricle failure (LVEF <40%):
-    *   The treatment is similar as acquired HF.
-    *   Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers, MRA and SGLT2-i. Loop diuretics are given for symptom relief.
-*   Systolic failure of subpulmonic RV (RVEF <40%):
-    *   No medical treatment is indicated for asymptomatic patients.
-    *   There is limited evidence for the use of RAS blockers or β-blockers.
-    *   Diuretics are the mainstay treatment for symptomatic patients.
-    *   It is important to identify hemodynamically significant lesions and to address these.
-    *   Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension (PAH)/Eisenmenger would benefit from PAH targeted therapy.
-*   Systolic failure of systemic RV:
-    *   There are no standard guidelines for medical therapy for asymptomatic patients.
-    *   In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
-    *   An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
-*   Systolic failure of single ventricle:
-    *   There are no guidelines for the use of standard drugs in asymptomatic patients.
-    *   Loop diuretics may be used judiciously in symptomatic patients.
-    *   PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
+- Systemic left ventricle failure (LVEF <40%):
+    - The treatment is similar as acquired HF.
+    - Patients with HFrEF may be treated with RAS blockers (ACE-I, ARB, ARNI), β-blockers, MRA and SGLT2-i. Loop diuretics are given for symptom relief.
+- Systolic failure of subpulmonic RV (RVEF <40%):
+    - No medical treatment is indicated for asymptomatic patients.
+    - There is limited evidence for the use of RAS blockers or β-blockers.
+    - Diuretics are the mainstay treatment for symptomatic patients.
+    - It is important to identify hemodynamically significant lesions and to address these.
+    - Patients with Right Heart Failure (RHF) due to Pulmonary Arterial Hypertension (PAH)/Eisenmenger would benefit from PAH targeted therapy.
+- Systolic failure of systemic RV:
+    - There are no standard guidelines for medical therapy for asymptomatic patients.
+    - In symptomatic patients, standard heart failure medications may be given but evidence for their use in this setting is lacking.
+    - An increase in biomarkers and worsening VO2 max may be useful parameters to consider for initiating medical therapy.
+- Systolic failure of single ventricle:
+    - There are no guidelines for the use of standard drugs in asymptomatic patients.
+    - Loop diuretics may be used judiciously in symptomatic patients.
+    - PAH targeted therapy (Phosphodiesterase-5 Inhibitors and Endothelin receptor antagonists) may improve pulmonary blood flow and improve cardiac output.
 
 B) Arrhythmias
-*   Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in a regional ACHD center by a cardiac electrophysiologist with expertise in CHD, and in a laboratory with appropriate personnel and equipment.
-*   [Grade I, Level C] These should be managed promptly and aggressively with appropriate antiarrhythmic drug therapy, catheter, or surgical ablation.
-*   Permanent pacing is recommended in:
-    *   [Grade I, Level B] Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
-    *   [Grade I, Level B] Post operative advanced second- or third-degree AV block that persists more than 7 days after cardiac surgery.
-    *   [Grade I, Level B] Congenital 3rd degree AV block.
-*   Cardiac implantable cardioverter defibrillator (ICD) may be considered for the secondary prevention of sudden death in:
-    *   [Grade I, Level B] High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
-    *   [Grade IIa, Level C] In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
-*   CRT may be helpful in managing HF in patients with subpulmonary and systemic RV.
+- Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in a regional ACHD center by a cardiac electrophysiologist with expertise in CHD, and in a laboratory with appropriate personnel and equipment.
+- [Grade I, Level C] These should be managed promptly and aggressively with appropriate antiarrhythmic drug therapy, catheter, or surgical ablation.
+- Permanent pacing is recommended in:
+    - [Grade I, Level B] Advanced second- or third-degree AV block associated with symptomatic bradycardia, ventricular dysfunction, or low cardiac output.
+    - [Grade I, Level B] Post operative advanced second- or third-degree AV block that persists more than 7 days after cardiac surgery.
+    - [Grade I, Level B] Congenital 3rd degree AV block.
+- Cardiac implantable cardioverter defibrillator (ICD) may be considered for the secondary prevention of sudden death in:
+    - [Grade I, Level B] High risk ACHD patients resuscitated from cardiac arrest due to VT/VF and
+    - [Grade IIa, Level C] In those with spontaneous sustained ventricular tachycardia with no clear reversible cause.
+- CRT may be helpful in managing HF in patients with subpulmonary and systemic RV.
 
 C) Cyanosis
-*   Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
-*   Routine phlebotomy based on a predetermined hematocrit should be avoided.
-*   These patients are also at risk of thromboembolic events and bleeding. Anticoagulants should be given with caution.
+- Iron deficiency anemia is common in those with cyanotic heart disease and may be missed due to secondary erythrocytosis.
+- Routine phlebotomy based on a predetermined hematocrit should be avoided.
+- These patients are also at risk of thromboembolic events and bleeding. Anticoagulants should be given with caution.
 
 D) Advanced Therapies for ACHD-HF
-*   The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
-    *   Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
-    *   Prior surgical intervention/repeated sternotomies.
-    *   Allosensitization due to blood transfusion, use of homografts.
-    *   Pulmonary hypertension - thus a heart-lung transplant may be required.
-    *   End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
+- The use of mechanical circulatory support (MCS), total artificial heart, and heart transplantation in ACHD patients are challenging due to:
+    - Complex anatomy with abnormal pulmonary arteries, anomalous pulmonary or systemic venous drainage, aortopulmonary collaterals.
+    - Prior surgical intervention/repeated sternotomies.
+    - Allosensitization due to blood transfusion, use of homografts.
+    - Pulmonary hypertension - thus a heart-lung transplant may be required.
+    - End organ involvement e.g. Fontan associated liver disease (may need heart-liver transplant).
 
 E) General Measures
-*   Infective endocarditis:
-    *   Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
-    *   Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
-*   Pregnancy (refer to Section 14.7: HF and Pregnancy):
-    *   It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
-*   Exercise rehabilitation (refer to Section 16: HF Rehabilitation):
-    *   Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
-    *   Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
+- Infective endocarditis:
+    - Optimal oral hygiene is recommended to prevent infective endocarditis which has been identified as a predisposing risk for ACHD-HF.
+    - Antibiotic prophylaxis should be considered in selected high-risk patients to prevent endocarditis during invasive dental procedures.
+- Pregnancy (refer to Section 14.7: HF and Pregnancy):
+    - It is important that in all women in the childbearing age with ACHD, preconception counselling should be initiated early, and all pregnancies should be pre-planned.
+- Exercise rehabilitation (refer to Section 16: HF Rehabilitation):
+    - Even though the evidence is less extensive in ACHD-HF, individualized exercise programs have been shown to be beneficial.
+    - Cardiopulmonary exercise testing is a useful tool performed both at baseline and post exercise training.
 
 F) Palliative Care and Advance Care Planning (refer to Section 15.3: Palliative and End of Life Care)
-*   Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
-*   It should be patient-tailored and age appropriate due to the heterogenous nature and chronicity of ACHD and counselling should be given based on the projected course of the respective disease and prognosis.
+- Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.
+- It should be patient-tailored and age appropriate due to the heterogenous nature and chronicity of ACHD and counselling should be given based on the projected course of the respective disease and prognosis.
 
 Key Message: HF And ACHD
-*   HF is the most common cause of death in ACHD patients, accounting for 17- 42% of all deaths.
-*   Patients with isolated simple defects generally do well with mortality rates like those in the general population.
-*   Patients with complex heart defects such as systemic RV, single ventricle palliated with Fontan circulation, and unrepaired cyanotic CHD with Eisenmenger physiology comprise the majority of HF-related deaths.
+- HF is the most common cause of death in ACHD patients, accounting for 17- 42% of all deaths.
+- Patients with isolated simple defects generally do well with mortality rates like those in the general population.
+- Patients with complex heart defects such as systemic RV, single ventricle palliated with Fontan circulation, and unrepaired cyanotic CHD with Eisenmenger physiology comprise the majority of HF-related deaths.
 
 Key Recommendations: HF And ACHD
-*   The principals of managing HF in ACHD HF are: (refer to Appendix XV: Flow Chart of the Management of ACHD-HF)
-    *   First to access and address all reversible causes.
-    *   To initiate pharmacotherapy if HF control is still not optimal.
-    *   To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
+- The principals of managing HF in ACHD HF are: (refer to Appendix XV: Flow Chart of the Management of ACHD-HF)
+    - First to access and address all reversible causes.
+    - To initiate pharmacotherapy if HF control is still not optimal.
+    - To consider cardiac resynchronization and more advanced therapies if these patients continue to have worsening HF despite optimal medical therapy.
 
 <!-- parent_only_reference_start -->
 Appendix XI: Modified World Health Organization Maternal Cardiovascular Risk Assessment (Cross-Referenced From 14.7)
@@ -167,9 +168,6 @@ Appendix XIII: The Different Causes Of ACHD-HF Based On The Underlying Pathophys
 | Acquired ischemic heart disease and ventricular dysfunction | **Congenital coronary artery abnormalities** | Anomalous origin and/or course, extrinsic compression by a dilated pulmonary artery, coronary kinking after re-implantation of coronary arteries | **Treat appropriately** |
 | Non cardiac cause of ventricular dysfunction | **Anemia, Thyroid diseases, renal failure, Liver failure** | Can affect any CHD<br>Fontan associated liver disease<br>Iron deficiency anemia more common in cyanotic heart disease | **Treat appropriately** |
 
-- l) Egbe AC, Connolly HM, Khan AR, et al. Outcomes in adult Fontan patients with atrial tachyarrhythmias. Am Heart J 2017;186:12-20.
-- m) Fedchenko M, Z. Mandalenakis, K.W. Giang, A. Rosengren, P. Eriksson, M. Dellborg, Long-term outcomes after myocardial infarction in middle-aged and older patients with congenital heart disease-a nationwide study, Eur. Heart J. 2021: 42 (26): 2577-2586.
-
 Appendix XIV: Investigations In ACHD<sup>a</sup>
 | Investigations | Important | Values/Parameter |
 |---|---|---|
@@ -192,66 +190,66 @@ Appendix XIV: Investigations In ACHD<sup>a</sup>
 - f) Kempny A, Dimopoulos K, Uebing A, Moceri P, Swan L, Gatzoulis MA, Diller GP. Reference values for exercise limitations among adults with congenital heart dis- ease. Relation to activities of daily life-single centre experience and review of published data. Eur Heart J 2012;33:1386 -1396.
 
 Appendix XV: Flow Chart Of The Management Of ACHD-HF
-##### Step 1: Initial Assessment
+Step 1: Initial Assessment
 **Detail History Physical Examination**
 **Basic Investigation - TTE, CXR, ECG, Routine Bloods**
 ↓
-##### Step 2: Identify Signs And Symptoms Of Heart Failure
+Step 2: Identify Signs And Symptoms Of Heart Failure
 **Signs and Symptom of Heart Failure**
 
 Determine the pathway based on symptom status:
 
 **Pathway A: Symptomatic**
-*   → Proceed to Step 3A (Biomarkers / CPET)
+- → Proceed to Step 3A (Biomarkers / CPET)
 
 **Pathway B: Asymptomatic**
-*   → Proceed to Step 3B (Biomarkers / CPET)
+- → Proceed to Step 3B (Biomarkers / CPET)
 
-##### Step 3A: Symptomatic Pathway
+Step 3A: Symptomatic Pathway
 Perform **Biomarkers / CPET**
 
 **Outcome Evaluation:**
-*   **If Normal:** → Surveillance / assess for other diagnosis
-    *   If **Worsening Symptoms (Yes):** → Proceed to Step 4 (Evaluation for Underlying Cause)
-    *   If **Worsening Symptoms (No):** → Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification
-*   **If Abnormal:** → Proceed to Step 4 (Evaluation for Underlying Cause)
+- **If Normal:** → Surveillance / assess for other diagnosis
+    - If **Worsening Symptoms (Yes):** → Proceed to Step 4 (Evaluation for Underlying Cause)
+    - If **Worsening Symptoms (No):** → Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification
+- **If Abnormal:** → Proceed to Step 4 (Evaluation for Underlying Cause)
 
 ##### Step 3B: Asymptomatic Pathway
 Perform **Biomarkers / CPET**
 
 **Outcome Evaluation:**
-*   **If Normal:** → Systemic Right Ventricle / Single Ventricle → Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification
-*   **If Abnormal:** → Proceed to Step 4 (Evaluation for Underlying Cause)
+- **If Normal:** → Systemic Right Ventricle / Single Ventricle → Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification
+- **If Abnormal:** → Proceed to Step 4 (Evaluation for Underlying Cause)
 
-##### Step 4: Evaluation For Underlying Cause
+Step 4: Evaluation For Underlying Cause
 **Advance Diagnostic Testing:**
-*   TEE
-*   Advance Imaging: CT/CMR
-*   ± Cardiac Catheterization
-*   Rhythm Analysis
+- TEE
+- Advance Imaging: CT/CMR
+- ± Cardiac Catheterization
+- Rhythm Analysis
 ↓
-##### Step 5: Hemodynamic Significant Structural / Shunt / Valvular Lesion?
+Step 5: Hemodynamic Significant Structural / Shunt / Valvular Lesion?
 **Outcome Evaluation:**
-*   **If Yes:** → **Transcatheter / Surgical Intervention** → Proceed to Step 6 (Appropriate Treatment)
-*   **If No:** → Proceed to Step 5A (Arrhythmia?)
+- **If Yes:** → **Transcatheter / Surgical Intervention** → Proceed to Step 6 (Appropriate Treatment)
+- **If No:** → Proceed to Step 5A (Arrhythmia?)
 
-##### Step 5A: Arrhythmia?
+Step 5A: Arrhythmia?
 **Outcome Evaluation:**
-*   **If Yes:** → **Antiarrhythmic Medical Therapy, EPS + Catheter Ablation, Pacemaker**
-*   **If No:** → Proceed to Step 5B (Other causes?)
+- **If Yes:** → **Antiarrhythmic Medical Therapy, EPS + Catheter Ablation, Pacemaker**
+- **If No:** → Proceed to Step 5B (Other causes?)
 
-##### Step 5B: Others – Bleeding (Anaemia, Infective Endocarditis / Thyroid Disease, Systemic Pulmonary Hypertension)?
+Step 5B: Others – Bleeding (Anaemia, Infective Endocarditis / Thyroid Disease, Systemic Pulmonary Hypertension)?
 **Outcome Evaluation:**
-*   **If Yes:** → **Appropriate Treatment**
-    *   If **Pulmonary Hypertension:** → **PAH Targeted Therapy**
-*   **If No:** → Proceed to Step 6 (Response to Treatment)
+- **If Yes:** → **Appropriate Treatment**
+    - If **Pulmonary Hypertension:** → **PAH Targeted Therapy**
+- **If No:** → Proceed to Step 6 (Response to Treatment)
 
-##### Step 6: Response To Treatment?
+Step 6: Response To Treatment?
 **Outcome Evaluation:**
-*   **If Yes:** → Proceed to Step 8 (Follow Up)
-*   **If No:** → Proceed to Step 7 (Ventricular Dysfunction)
+- **If Yes:** → Proceed to Step 8 (Follow Up)
+- **If No:** → Proceed to Step 7 (Ventricular Dysfunction)
 
-##### Step 7: Ventricular Dysfunction
+Step 7: Ventricular Dysfunction
 **Heart Failure Pharmacotherapy (GDMT)**
 **Consider CRT**
 ↓
@@ -260,14 +258,13 @@ Perform **Biomarkers / CPET**
 **Advanced Therapies MCS (Mechanical Circulatory Support) / Heart Transplant**
 
 **Outcome Evaluation:**
-*   **If No (Not a candidate):** → **Palliative Care / Advance Care Planning**
+- **If No (Not a candidate):** → **Palliative Care / Advance Care Planning**
 
 ↓ *(Loop back to Step 8)*
 
-##### Step 8: Follow Up
+Step 8: Follow Up
 **Follow Up - Imaging, Biomarkers / CPET, Exercise Rehabilitation, Lifestyle Modification**
 ↓ *(Surveillance / Reassessance – Loop back to Step 1 if worsening symptoms)*
-
 
 Grades Of Recommendation
 | Grade | Definition |
@@ -290,7 +287,6 @@ Abbreviation
 |---|---|
 | ACE-I | Angiotensin Converting Enzyme Inhibitor |
 | ACHD | Adult Congenital Heart Disease |
-| AF | Atrial Fibrillation |
 | ALCAPA | Anomalous Left Coronary Artery from the Pulmonary Artery |
 | ARB | Angiotensin Receptor Blocker |
 | ARNI | Angiotensin Receptor-Neprilysin Inhibitor |
@@ -300,47 +296,45 @@ Abbreviation
 | AVM | Arteriovenous Malformation |
 | AVSD | Atrioventricular Septal Defect |
 | BNP | B-type Natriuretic Peptide |
+| BT shunt | Blalock-Taussig shunt |
 | cCTGA | Congenitally Corrected Transposition of the Great Arteries |
 | CHD | Congenital Heart Disease |
-| CKMB | Creatine Kinase Myocardial Band |
 | CMR | Cardiac Magnetic Resonance |
 | CPET | Cardiopulmonary Exercise Test |
 | CRT | Cardiac Resynchronization Therapy |
 | CT | Computed Tomography |
-| CV | Cardiovascular |
+| CXR | Chest X-ray |
 | ECG | Electrocardiogram |
 | EPS | Electrophysiology Study |
 | ERA | Endothelin Receptor Antagonist |
-| GGT | Gamma-Glutamyl Transferase |
+| GDMT | Guideline-Directed Medical Therapy |
 | HF | Heart Failure |
 | HFrEF | HF with Reduced Ejection Fraction |
 | ICD | Implantable Cardioverter Defibrillator |
-| JVP | Jugular Venous Pressure |
 | LV | Left Ventricular |
-| LVAD | Left Ventricular Assist Device |
 | LVEF | Left Ventricular Ejection Fraction |
 | MCS | Mechanical Circulatory Support |
 | MRA | Mineralocorticoid Receptor Antagonist |
 | MRI | Magnetic Resonance Imaging |
 | MS | Mitral Stenosis |
 | MVA | Mitral Valve Area |
-| NP | Natriuretic Peptide |
 | NT-Pro BNP | N-Terminal Pro B-type Natriuretic Peptide |
 | NYHA | New York Heart Association |
 | PA | Pulmonary Artery |
 | PAH | Pulmonary Arterial Hypertension |
-| PCWP | Pulmonary Capillary Wedge Pressure |
 | PDA | Patent Ductus Arteriosus |
+| PDE5 | Phosphodiesterase 5 |
 | PH | Pulmonary Hypertension |
 | PLE | Protein Losing Enteropathy |
-| PND | Paroxysmal Nocturnal Dyspnea |
 | RAS | Renin-Angiotensin System |
 | RFA | Radiofrequency Ablation |
 | RHF | Right Heart Failure |
 | RV | Right Ventricular |
 | RVEF | Right Ventricular Ejection Fraction |
 | SGLT2-i | Sodium-Glucose Co-transporter 2 Inhibitor |
+| TEE | Transesophageal Echocardiogram |
 | TOF | Tetralogy of Fallot |
+| TTE | Transthoracic Echocardiogram |
 | TV | Tricuspid Valve |
 | VO2 | Oxygen Consumption |
 | VSD | Ventricular Septal Defect |

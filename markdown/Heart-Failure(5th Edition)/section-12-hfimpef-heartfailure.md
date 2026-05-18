@@ -7,9 +7,9 @@ output: therapy_continuation_plan, monitoring_protocol, relapse_risk_assessment
 -->
 
 This is a new category which includes patients with a:
-*   Baseline LVEF of < 40% and
-*   > 10-point increase from baseline LVEF and
-*   A second measure of LVEF > 40%.
+- Baseline LVEF of < 40% and
+- > 10-point increase from baseline LVEF and
+- A second measure of LVEF > 40%.
 
 Patients with a baseline LVEF of 41-49% who have improved to a new baseline of LVEF > 50% may be categorized in this group.
 
@@ -18,15 +18,15 @@ LV function and structural abnormalities do not fully normalize despite improvem
 [Grade IIa, Level B] Hence in patients with HFimpEF, Foundational HF medications should be continued to prevent relapse of symptoms and subsequent deterioration of LV function.
 
 Key Message: Chronic HF Due To HFimpEF
-*   HFimpEF includes patients with a:
-    *   Baseline LVEF of < 40% and
-    *   >10-point increase from baseline LVEF and
-    *   A second measure of LVEF > 40%.
-*   LV function and structural abnormalities do not fully normalize despite improvement in symptoms, functional capacity, and near normalization of biomarkers.
+- HFimpEF includes patients with a:
+    - Baseline LVEF of < 40% and
+    - >10-point increase from baseline LVEF and
+    - A second measure of LVEF > 40%.
+- LV function and structural abnormalities do not fully normalize despite improvement in symptoms, functional capacity, and near normalization of biomarkers.
 
 Key Recommendation: Chronic HF Due To HFimpEF
-*   Symptoms and signs may relapse, and cardiac biomarkers may increase if HF treatment is withdrawn.
-*   Foundational HF medications should be continued to prevent relapse of symptoms and subsequent deterioration of LV function.
+- Symptoms and signs may relapse, and cardiac biomarkers may increase if HF treatment is withdrawn.
+- Foundational HF medications should be continued to prevent relapse of symptoms and subsequent deterioration of LV function.
 
 <!-- parent_only_reference_start -->
 Grades of Recommendation

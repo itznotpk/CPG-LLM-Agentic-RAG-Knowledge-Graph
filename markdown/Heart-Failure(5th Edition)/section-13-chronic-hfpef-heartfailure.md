@@ -22,23 +22,23 @@ The diagnosis of HFpEF is challenging as symptoms and signs can be attributable 
 The main hemodynamic finding in HFpEF is an elevation in LV filling pressures i.e. end diastolic LV pressure (LVEDP). In the early stages of the disease, these become elevated only during exercise or exertion giving rise to exertional shortness of breath. As the disease progresses, it becomes elevated even at rest.
 
 As outlined previously, the definition of HF includes the presence of:
-*   Clinical symptoms and signs of HF and
-*   Raised NP - In general, the level of elevation of these peptides are less than that seen in patients with HFrEF. NP levels may be normal in patients with HFpEF who are obese and falsely raised in patients without HFpEF but with AF. Thus the diagnosis of HFpEF cannot be relied on solely on elevated NP levels.
+- Clinical symptoms and signs of HF and
+- Raised NP - In general, the level of elevation of these peptides are less than that seen in patients with HFrEF. NP levels may be normal in patients with HFpEF who are obese and falsely raised in patients without HFpEF but with AF. Thus the diagnosis of HFpEF cannot be relied on solely on elevated NP levels.
 
 If the patient has HF as per above definition, then basic investigations should be performed as outlined previously to look for possible etiology and the presence of comorbidities:
-*   ECG
-*   Chest X-ray
-*   Lab investigations
-*   Echocardiogram - Some features supporting the diagnosis of HFpEF include:
-    *   LVEF ≥ 50% within 72 hours of the clinical event.
-    *   Left ventricular hypertrophy (increased LV wall thickness or LV mass index > 115g/m² for men and > 95g/m² for women).
-    *   Left atrial enlargement (LA volume index > 34ml/m² or > 40 mL/m² in the presence of AF).
-    *   Diastolic dysfunction if E/e′ ≥ 15. A mean E/e' index >15 at rest has good diagnostic value for identifying a high mean pulmonary capillary wedge pressure (mPCWP), supporting the likelihood of HFpEF but an E/e' ratio within the intermediate range (9-14) is less sensitive. The E/e' index cannot be recommended as a single diagnostic index above all other non-invasive measures of filling pressures (such as retrograde pulmonary venous flow).
-    *   Tricuspid valve regurgitation velocity > 2.8m/s.
+- ECG
+- Chest X-ray
+- Lab investigations
+- Echocardiogram - Some features supporting the diagnosis of HFpEF include:
+    - LVEF ≥ 50% within 72 hours of the clinical event.
+    - Left ventricular hypertrophy (increased LV wall thickness or LV mass index > 115g/m² for men and > 95g/m² for women).
+    - Left atrial enlargement (LA volume index > 34ml/m² or > 40 mL/m² in the presence of AF).
+    - Diastolic dysfunction if E/e′ ≥ 15. A mean E/e' index >15 at rest has good diagnostic value for identifying a high mean pulmonary capillary wedge pressure (mPCWP), supporting the likelihood of HFpEF but an E/e' ratio within the intermediate range (9-14) is less sensitive. The E/e' index cannot be recommended as a single diagnostic index above all other non-invasive measures of filling pressures (such as retrograde pulmonary venous flow).
+    - Tricuspid valve regurgitation velocity > 2.8m/s.
 
 HFpEF may be suspected in patients who have dyspnea and in whom non-cardiac causes of breathlessness have been excluded. In addition:
-*   The LVEF > 50% and
-*   There is no significant heart valve disease or cardiac ischemia.
+- The LVEF > 50% and
+- There is no significant heart valve disease or cardiac ischemia.
 
 Many patients who are elderly, obese and who have hypertension, diabetes and/or AF presenting with dyspnea would fall into this category.
 
@@ -51,24 +51,24 @@ In cases of intermediate probability of the disease based on the scores, confirm
 These tests are best performed in specialized cardiology centers and most doctors may not have access to them. This limits the broad clinical applicability of the scores and demonstrates the ongoing difficulty in making the diagnosis of HFpEF.
 
 The following patients who continue to have dyspnea may be referred to these centers for further evaluation and management:
-*   Cases where the diagnosis is unclear.
-*   Non responders to treatment especially those with multiple comorbidities.
+- Cases where the diagnosis is unclear.
+- Non responders to treatment especially those with multiple comorbidities.
 
 ## 13.2: Etiology And Associated Comorbidities
-*   HFpEF may also share similar clinical characteristics with valvular heart disease, pericardial disease, and high-output HF. In all these conditions, patients present with HF and have normal LVEF and even normal LV dimensions. In HFpEF however, the HF is due to myocardial disease resulting in abnormal myocardial relaxation, decreased compliance, and increased filling pressure. For this reason, a basic echocardiogram is essential in the initial work up of these patients.
-*   The etiological factors affecting HFpEF and HFrEF seem to be different. When compared to patients with HFrEF, patients with HFpEF are more likely to have hypertension, valvular heart disease (e.g., aortic stenosis) and AF and are less likely to have a MI or left bundle branch block.
-*   Comorbidities play an important role in the pathophysiology of HFpEF. These contribute to systemic and endomyocardial inflammation with fibrosis which are important in the pathogenesis of the disease. It is these comorbidities that primarily correlate with outcome in patients with HFpEF rather than NP levels or echocardiographic parameters.
-    *   Hypertension remains the most prevalent comorbidity of HFpEF, with a prevalence of 60% to 89%.
-    *   Other comorbidities include:
-        *   Overweight or obesity - Obesity is not only a comorbidity, but it is also an important risk factor for HFpEF development. The mechanisms involved are complex and include neurohormonal mechanisms and oxidative stress. Morbid obesity also has an adverse effect on cardiac remodeling.
-        *   Diabetes mellitus (DM)
-        *   Chronic obstructive pulmonary disease (COPD)
-        *   Obstructive sleep apnea (OSA)
-        *   Anemia
-        *   Coronary artery disease (CAD)
-        *   Chronic kidney disease (CKD)
-    *   The presence of diabetes, a lower systolic BP, lower hemoglobin and a lower eGFR were associated with a poorer outcome.
-    *   AF is common in HFpEF and increases the risk of adverse outcomes.
+- HFpEF may also share similar clinical characteristics with valvular heart disease, pericardial disease, and high-output HF. In all these conditions, patients present with HF and have normal LVEF and even normal LV dimensions. In HFpEF however, the HF is due to myocardial disease resulting in abnormal myocardial relaxation, decreased compliance, and increased filling pressure. For this reason, a basic echocardiogram is essential in the initial work up of these patients.
+- The etiological factors affecting HFpEF and HFrEF seem to be different. When compared to patients with HFrEF, patients with HFpEF are more likely to have hypertension, valvular heart disease (e.g., aortic stenosis) and AF and are less likely to have a MI or left bundle branch block.
+- Comorbidities play an important role in the pathophysiology of HFpEF. These contribute to systemic and endomyocardial inflammation with fibrosis which are important in the pathogenesis of the disease. It is these comorbidities that primarily correlate with outcome in patients with HFpEF rather than NP levels or echocardiographic parameters.
+    - Hypertension remains the most prevalent comorbidity of HFpEF, with a prevalence of 60% to 89%.
+    - Other comorbidities include:
+        - Overweight or obesity - Obesity is not only a comorbidity, but it is also an important risk factor for HFpEF development. The mechanisms involved are complex and include neurohormonal mechanisms and oxidative stress. Morbid obesity also has an adverse effect on cardiac remodeling.
+        - Diabetes mellitus (DM)
+        - Chronic obstructive pulmonary disease (COPD)
+        - Obstructive sleep apnea (OSA)
+        - Anemia
+        - Coronary artery disease (CAD)
+        - Chronic kidney disease (CKD)
+    - The presence of diabetes, a lower systolic BP, lower hemoglobin and a lower eGFR were associated with a poorer outcome.
+    - AF is common in HFpEF and increases the risk of adverse outcomes.
 
 ## 13.3: Management
 Refer To Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of HFpEF (Lvef > 50)
@@ -96,57 +96,57 @@ Table 6: Grading Of Recommendations And Levels Of Evidence In The Management Of 
 | β-Blockers | | | <ul><li>No good data to show that β-blockers are beneficial in the treatment of HFpEF.</li><li>Often prescribed for treatment of co-morbidities.</li></ul>
 
 ### 13.3.1: Lifestyle Measures
-*   Overweight or obesity are important comorbidities in HFpEF.
-    *   [Grade I, Level B] A caloric restriction diet is feasible and safe in older, obese patients with HFpEF. It has been shown to significantly improve patient's dyspnea, peak oxygen consumption, and quality of life.
-    *   Caloric restriction should ideally be combined with exercise, such as walking exercise for one hour three or more times per week.
-    *   Bariatric Surgery in patients with HFpEF and obesity was associated with improved symptoms, reduction in HF hospitalizations, reverse cardiac remodelling, and improved LV distensibility.
-*   Exercise training:
-    *   [Grade I, Level A] This is safe and improves exercise capacity and quality of life.
-    *   Combined endurance/resistance training appears safe for patients with HFpEF and improves exercise capacity (as reflected by an increase in peak oxygen consumption), physical functioning score and diastolic function. It should consist of dynamic isotonic (e.g., walking or cycling) and not static exercise.
-    *   High-intensity interval training or moderate continuous training has not proved to be better than guideline-based physical activity for patients with HFpEF.
+- Overweight or obesity are important comorbidities in HFpEF.
+    - [Grade I, Level B] A caloric restriction diet is feasible and safe in older, obese patients with HFpEF. It has been shown to significantly improve patient's dyspnea, peak oxygen consumption, and quality of life.
+    - Caloric restriction should ideally be combined with exercise, such as walking exercise for one hour three or more times per week.
+    - Bariatric Surgery in patients with HFpEF and obesity was associated with improved symptoms, reduction in HF hospitalizations, reverse cardiac remodelling, and improved LV distensibility.
+- Exercise training:
+    - [Grade I, Level A] This is safe and improves exercise capacity and quality of life.
+    - Combined endurance/resistance training appears safe for patients with HFpEF and improves exercise capacity (as reflected by an increase in peak oxygen consumption), physical functioning score and diastolic function. It should consist of dynamic isotonic (e.g., walking or cycling) and not static exercise.
+    - High-intensity interval training or moderate continuous training has not proved to be better than guideline-based physical activity for patients with HFpEF.
 
 ### 13.3.2: Identifying And Treating The Underlying cause(s) And Comorbidities
 *  [Grade I Level A] Hypertension should be treated to target goals. Improved BP control has been shown to reduce morbidity and hospitalizations for HF. More intensive BP control in patients with high CV risk including those > 75 years of age, significantly reduces HF and other cardiovascular outcomes.
-*   CAD is common in patients with HFpEF and this should be treated appropriately.
-*   Diabetes - refer to section 14.1: Diabetes and Heart Failure
-*   Chronic Kidney Disease - refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD) <!-- cross_ref target_file="section-14-1-diabetes-heartfailure.md" target_heading="Section 14.1: Diabetes And Heart Failure" target_kind="h2_section" --> <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
-*   Tachyarrhythmias should be treated, and sinus rhythm restored whenever possible.
+- CAD is common in patients with HFpEF and this should be treated appropriately.
+- Diabetes - refer to section 14.1: Diabetes and Heart Failure
+- Chronic Kidney Disease - refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD) <!-- cross_ref target_file="section-14-1-diabetes-heartfailure.md" target_heading="Section 14.1: Diabetes And Heart Failure" target_kind="h2_section" --> <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
+- Tachyarrhythmias should be treated, and sinus rhythm restored whenever possible.
     * [Grade IIa, Level B] If the patient remains in persistent AF, β-blockers or non-dihydropyridine calcium channel blockers (verapamil, diltiazem) alone or in combination are the usual first line agents used for rate control.
     * [Grade IIa, Level A] In patients with recent onset AF < 1 year duration or paroxysmal AF who received early rhythm-control, there was a significantly decreased primary end point of a composite of CV death, stroke, or hospitalization due to HF than those who received rate control.
-*   [Grade I, Level A] Anticoagulation - Patients with paroxysmal or persistent AF should be anticoagulated to reduce the risk of thromboembolic events.
+- [Grade I, Level A] Anticoagulation - Patients with paroxysmal or persistent AF should be anticoagulated to reduce the risk of thromboembolic events.
 
 ### 13.3.3: Pharmacological Options
 Pharmacotherapy has not been shown to reduce total or CV mortality. These include:
 * [Grade I, Level C] **Diuretics:** These are necessary to control pulmonary congestion and peripheral edema but should be used cautiously so as not to lower preload excessively and thereby reduce stroke volume and cardiac output. One should aim to use the lowest dose of a diuretic necessary to maintain euvolemia.
-*   **β-blockers:** β-blockers are often prescribed for the management of comorbidities such as coronary artery disease or atrial fibrillation. At present, however, there is no good data to show that β-blockers are beneficial in the treatment of HFpEF. Furthermore, the type of β-blockers (non-selective and vasodilating, such as nebivolol and carvedilol, vs. rate controlling only) may have differential effects in different HFpEF phenotypes. β-blocker withdrawal was shown to improve maximal functional capacity and chronotropic incompetence in patients with HFpEF. Further studies are warranted on the use of β-blockers in these patients.
-*   **RAS blockers:**
-    *   Current evidence does not support their routine use in HFpEF in the absence of an alternative indication. Trial data show a reduction in HF hospitalizations, but no reduction in all-cause or CV mortality in HFpEF.
-    *   [Grade IIb, Level B] ARB - the use of ARB may be considered to decrease hospitalizations, particularly among patients with LVEF on the lower end of this spectrum.
-    *   [Grade IIb, Level B] ACE-I - may be considered to reduce hospitalization in patients with HFpEF.
-    *   [Grade IIb, Level B] ARNI - did not reduce the composite endpoint of CV death and total hospitalizations for HF in patients with a LVEF > 45% when compared to an ARB. In a combined analysis of 2 large ARNI trials, there was a suggestion of benefit in patients with LVEF < 57% and in women (benefits of sacubitril-valsartan in women were sustained up to LVEF 60%, while for men the benefit was restricted to LVEF < 45%).
-*   [Grade IIb, Level B] **MRA:** MRAs improve diastolic function in patients with HFpEF. It may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum. Benefits were seen in patients with LVEF > 45%, elevated BNP level or HF admission within 1 year, eGFR > 30 mL/min/1.73m², creatinine < 2.5 mg/dL, and potassium < 5.0 mEq/L. MRAs showed a greater benefit in patients who demonstrated more functional impairment, obesity, diabetes, CKD, concentric LV hypertrophy, high renin, and biomarkers of tumor necrosis factor-alpha-mediated inflammation, liver fibrosis, and tissue remodeling. Hyperkalemia was more common in those on MRA and close monitoring of potassium is important.
-*   [Grade I, Level A] SGLT2-i: These have been shown to decrease HF hospitalizations and CV mortality. There was also a decrease in the slope of the eGFR decline, and a modest improvement in quality of life at 52 weeks. The benefit was similar irrespective of the presence or absence of diabetes at baseline. In a subgroup analysis by LVEF, there was a signal for lower benefit on the primary composite endpoint, first and recurrent HF hospitalizations, at higher LVEF > 62.5%.
-*   Non-dihydropyridine Calcium Channel Blockers (verapamil and diltiazem): Clinical data regarding use of calcium-channel blockers in HFpEF is sparse. Its use is mainly to treat hypertension or for rate control in AF.
+- **β-blockers:** β-blockers are often prescribed for the management of comorbidities such as coronary artery disease or atrial fibrillation. At present, however, there is no good data to show that β-blockers are beneficial in the treatment of HFpEF. Furthermore, the type of β-blockers (non-selective and vasodilating, such as nebivolol and carvedilol, vs. rate controlling only) may have differential effects in different HFpEF phenotypes. β-blocker withdrawal was shown to improve maximal functional capacity and chronotropic incompetence in patients with HFpEF. Further studies are warranted on the use of β-blockers in these patients.
+- **RAS blockers:**
+    - Current evidence does not support their routine use in HFpEF in the absence of an alternative indication. Trial data show a reduction in HF hospitalizations, but no reduction in all-cause or CV mortality in HFpEF.
+    - [Grade IIb, Level B] ARB - the use of ARB may be considered to decrease hospitalizations, particularly among patients with LVEF on the lower end of this spectrum.
+    - [Grade IIb, Level B] ACE-I - may be considered to reduce hospitalization in patients with HFpEF.
+    - [Grade IIb, Level B] ARNI - did not reduce the composite endpoint of CV death and total hospitalizations for HF in patients with a LVEF > 45% when compared to an ARB. In a combined analysis of 2 large ARNI trials, there was a suggestion of benefit in patients with LVEF < 57% and in women (benefits of sacubitril-valsartan in women were sustained up to LVEF 60%, while for men the benefit was restricted to LVEF < 45%).
+- [Grade IIb, Level B] **MRA:** MRAs improve diastolic function in patients with HFpEF. It may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum. Benefits were seen in patients with LVEF > 45%, elevated BNP level or HF admission within 1 year, eGFR > 30 mL/min/1.73m², creatinine < 2.5 mg/dL, and potassium < 5.0 mEq/L. MRAs showed a greater benefit in patients who demonstrated more functional impairment, obesity, diabetes, CKD, concentric LV hypertrophy, high renin, and biomarkers of tumor necrosis factor-alpha-mediated inflammation, liver fibrosis, and tissue remodeling. Hyperkalemia was more common in those on MRA and close monitoring of potassium is important.
+- [Grade I, Level A] SGLT2-i: These have been shown to decrease HF hospitalizations and CV mortality. There was also a decrease in the slope of the eGFR decline, and a modest improvement in quality of life at 52 weeks. The benefit was similar irrespective of the presence or absence of diabetes at baseline. In a subgroup analysis by LVEF, there was a signal for lower benefit on the primary composite endpoint, first and recurrent HF hospitalizations, at higher LVEF > 62.5%.
+- Non-dihydropyridine Calcium Channel Blockers (verapamil and diltiazem): Clinical data regarding use of calcium-channel blockers in HFpEF is sparse. Its use is mainly to treat hypertension or for rate control in AF.
 
 Key Message: Chronic HF Due To HFpEF
-*   HFpEF is a heterogenous disease with various phenotypes and comorbidities, accounting for up to 50% of all patients with HF.
-*   In this guideline HFpEF refer to LVEF ≥ 50%. LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
-*   HFpEF differs from HFrEF in that HFpEF patients are older, more often female with AF, CKD and non-CV comorbidities being more common.
-*   The main hemodynamic finding in HFpEF is an elevation in LV filling pressures i.e. end diastolic LV pressure (LVEDP), initially only on exertion and later even at rest
+- HFpEF is a heterogenous disease with various phenotypes and comorbidities, accounting for up to 50% of all patients with HF.
+- In this guideline HFpEF refer to LVEF ≥ 50%. LVEF is a continuous variable and the EF cut-offs used in definitions are therefore arbitrary.
+- HFpEF differs from HFrEF in that HFpEF patients are older, more often female with AF, CKD and non-CV comorbidities being more common.
+- The main hemodynamic finding in HFpEF is an elevation in LV filling pressures i.e. end diastolic LV pressure (LVEDP), initially only on exertion and later even at rest
 
 Key Recommendation: Chronic HF Due To HFpEF
-*   Timely and early diagnosis of HFpEF leads to a better outcome.
-*   The management of patients with HFpEF includes:
-    *   Lifestyle measures:
-        *   Weight reduction
-        *   Exercise training
-    *   Managing comorbidities such as hypertension, CAD, CKD, atrial fibrillation, obesity according to guidelines.
-    *   Pharmacotherapy:
-        *   Diuretics - for volume overload.
-        *   SGLT2-i - decreases HF hospitalizations and CV mortality.
-        *   RAS blockers (ARB, ACE-I, ARNI) - As a group, RAS blockers have not been shown to reduce total or CV mortality. There was a suggestion of benefit of ARNI in women up to LVEF 60%, while for men the benefit was restricted to LVEF < 45%.
-        *   MRA - it may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum.
-        *   β-blockers - No good data that they are beneficial in the treatment of HFpEF although they are often prescribed for the management of comorbidities such as CAD or AF.
+- Timely and early diagnosis of HFpEF leads to a better outcome.
+- The management of patients with HFpEF includes:
+    - Lifestyle measures:
+        - Weight reduction
+        - Exercise training
+    - Managing comorbidities such as hypertension, CAD, CKD, atrial fibrillation, obesity according to guidelines.
+    - Pharmacotherapy:
+        - Diuretics - for volume overload.
+        - SGLT2-i - decreases HF hospitalizations and CV mortality.
+        - RAS blockers (ARB, ACE-I, ARNI) - As a group, RAS blockers have not been shown to reduce total or CV mortality. There was a suggestion of benefit of ARNI in women up to LVEF 60%, while for men the benefit was restricted to LVEF < 45%.
+        - MRA - it may be considered to decrease HF hospitalizations, particularly among patients with LVEF on the lower end of this spectrum.
+        - β-blockers - No good data that they are beneficial in the treatment of HFpEF although they are often prescribed for the management of comorbidities such as CAD or AF.
 
 <!-- parent_only_reference_start -->
 Appendix VI: ESC Heart Failure Association Algorithm (HFA–PEFF)

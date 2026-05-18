@@ -35,7 +35,7 @@ Key Message:
 * The clinical suspicion of HF should be supported objectively with either raised natriuretic peptides and/or evidence of pulmonary or systemic congestion.
 
 ## 6.2: Investigations
-Refer to Flowchart 1: Algorithm for the Diagnosis of Heart Failure*.
+Refer to Flowchart I: Algorithm for the Diagnosis of Heart Failure*.
 
 Table: Basic and Important Investigations
 | | BASIC INVESTIGATIONS |
@@ -76,44 +76,44 @@ Key Recommendations: Diagnosis & Essential Investigations
         * A value of NT-Pro BNP of ≤ 1,000 pg/ml during treatment was associated with better CV outcomes.
 
 <!-- parent_only_reference_start -->
-Flowchart 1: Algorithm For The Diagnosis Of Heart Failure*
+Flowchart I: Algorithm For The Diagnosis Of Heart Failure*
 **Step 1: Initial Presentation**
 **Suspected HF Because of Symptoms and/or Signs**
 ↓
 **Step 2: Initial Investigations**
 Perform the following:
-*   ECG
-*   Chest Radiograph
-*   Natriuretic Peptides
+- ECG
+- Chest Radiograph
+- Natriuretic Peptides
 
 **Outcome Evaluation (Three Pathways):**
 
 **Pathway A: Tests Abnormal**
-*   → Proceed to Step 3 (Echocardiography)
+- → Proceed to Step 3 (Echocardiography)
 
 **Pathway B: Tests Normal *but* Clinical Suspicion is High**
-*   → Proceed to Step 3 (Echocardiography)
+- → Proceed to Step 3 (Echocardiography)
 
 **Pathway C: Tests Normal *and* Clinical Suspicion is Low**
-*   → Heart Failure or LV Dysfunction is Unlikely. Consider Other Diagnosis e.g., Coronary Artery Disease (Angina Equivalent), Obesity, Pulmonary Disease.
+- → Heart Failure or LV Dysfunction is Unlikely. Consider Other Diagnosis e.g., Coronary Artery Disease (Angina Equivalent), Obesity, Pulmonary Disease.
 
 **Step 3: Echocardiography**
 Perform echocardiography to assess cardiac structure and function.
 
 **Outcome Evaluation:**
-*   **If Tests Abnormal:** → Determine:
-    *   Underlying Cause
-    *   Precipitating Cause
-    *   Type of LV Dysfunction (HFrEF, HFpEF, HFmrEF)
-    *   **From here, either:**
-        *   → **TREAT ACCORDINGLY**
-        *   → **OR proceed to:** *Additional Diagnostic Tests (Where Indicated) e.g.,
-            *   Coronary Angiography (CT or Invasive as Indicated)
-            *   Nuclear Imaging
-            *   Cardiac MRI
-            *   *(Which then leads to)* → **TREAT ACCORDINGLY**
+- **If Tests Abnormal:** → Determine:
+    - Underlying Cause
+    - Precipitating Cause
+    - Type of LV Dysfunction (HFrEF, HFpEF, HFmrEF)
+    - **From here, either:**
+        - → **TREAT ACCORDINGLY**
+        - → **OR proceed to:** *Additional Diagnostic Tests (Where Indicated) e.g.,
+            - Coronary Angiography (CT or Invasive as Indicated)
+            - Nuclear Imaging
+            - Cardiac MRI
+            - *(Which then leads to)* → **TREAT ACCORDINGLY**
 
-*   **If Tests Normal:** → Heart Failure or LV Dysfunction is Unlikely. Consider Other Diagnosis e.g., Coronary Artery Disease (Angina Equivalent), Obesity, Pulmonary Disease.
+- **If Tests Normal:** → Heart Failure or LV Dysfunction is Unlikely. Consider Other Diagnosis e.g., Coronary Artery Disease (Angina Equivalent), Obesity, Pulmonary Disease.
 > *\*refer to Section 6.2 Investigations for the full list of Basic, Important and Additional Investigations.*
 
 Grades of Recommendation
