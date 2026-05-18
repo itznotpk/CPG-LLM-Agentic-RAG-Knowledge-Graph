@@ -9,11 +9,18 @@
 
 ---
 
-## Phase 1 — Category-aware retrieval (no re-ingestion)
+## Phase 1 — Category-aware retrieval (no re-ingestion) — 🟡 OPTIONAL / DEFER
 
 ### R3 Phase 2 Step 1 — query-aware SQL category filter (plumbing + conservative default)
 
-**Why:** Background chunks (Methodology, Epidemiology) still consume the candidate slots and token budget. Phase 1 score-boost reorders them down but doesn't exclude them at the DB level.
+> **Status (2026-05-18): 🟡 OPTIONAL — defer until after Friend 1's re-ingest (A-13), low value.**
+> Two of the three justifications below are now obsolete:
+> 1. **The user-facing problem is already solved by the shipped score-boost** (`clinical_stages.py:489-510`): `Methodology ×0.3`, `Epidemiology ×0.4` sort to the bottom and fall outside the `all_chunks[:20]` cut — the clinician never sees them.
+> 2. **The "consumes token budget" argument was killed by Phase A Step 1** — the old flat 4000-char/80k caps were replaced with a token-budgeted whole-chunk-or-skip assembler (`_TOTAL_TOKEN_BUDGET`). Low-ranked noise no longer reaches the budget.
+> 3. R3 targets the *old* chunk/category shape and says "no re-ingestion"; after A-13 the category lives on H2/H3 children with the new schema, so any SQL filter must be (re)written against post-A-13 `db_utils.py` anyway.
+> **Net:** a hard SQL filter is marginally cleaner than a soft boost but adds no correctness or safety value. ~1h plumbing, opportunistic only, **after A-13**. Not a standalone lane.
+
+**Why (original rationale — points 1 & 2 now obsolete, see status above):** Background chunks (Methodology, Epidemiology) still consume the candidate slots and token budget. Phase 1 score-boost reorders them down but doesn't exclude them at the DB level.
 
 **Do:**
 
@@ -27,13 +34,17 @@
 
 ---
 
-## Phase 2 — Comorbidity routing (parallel, independent)
+## Phase 2 — Comorbidity routing (parallel, independent) — ✅ DONE
 
-### C1 — `route_comorbidities` second pass
+### C1 — `route_comorbidities` second pass — ✅ DONE (verified in code 2026-05-18)
+
+> **Status:** Implemented and live in all orchestrator paths. Code **exceeds** the spec below — it adds a 0.55 similarity threshold to reject semantic-fallback drift, `top_k=3` DDx lookup, dedup against existing CPGs, a `comorbidities[:4]` latency cap, and full diagnostic logging. None of that is in the original snippet.
+> **Evidence:** `route_comorbidities()` at [clinical_workflow.py:18-69](../agent/clinical_workflow.py); called after `stage_3_route` in the non-streaming path ([clinical_workflow.py:113](../agent/clinical_workflow.py)) and streaming path ([clinical_workflow.py:211](../agent/clinical_workflow.py), with `sub_step` "comorbidity" badge emit at :215). See also `Gaps_Closing.md` Gap 1 "✅ CODE IMPLEMENTED".
+> **Do not re-implement.** The original spec snippet below is the weaker early draft, retained for history only.
 
 **Why:** `stage_3_route` only routes the top-2 DDx ICDs to CPGs. A patient with T2DM + HTN never gets the DM or HTN CPGs consulted, even though they're ingested.
 
-**Do:** Add `route_comorbidities` after `stage_3_route` in [clinical_workflow.py](../agent/clinical_workflow.py):
+**Do (original draft — superseded by shipped code):** Add `route_comorbidities` after `stage_3_route` in [clinical_workflow.py](../agent/clinical_workflow.py):
 
 ```python
 async def route_comorbidities(
@@ -56,37 +67,9 @@ async def route_comorbidities(
 
 ---
 
-## Phase 3 — Section-level context enrichment
+## Phase 4 — Knowledge graph (deterministic wiring first) — ✅ DONE (Superseded)
 
-### R7 — chunk-context retrieval (Option A: sibling fetch at query time)
-
-**Why:** `chunk_method: "markdown_header"` stores each section as one chunk. Some sections are 18k+ chars; even with the 4000-char per-chunk cap we see ~22% of the section. Grade tags and dose details deeper in the section are invisible.
-
-**Pick:** **Option A — sibling fetch at retrieval time** (no re-ingestion, no schema change). When chunk 4.5 is retrieved, fetch all siblings in Section 4 ordered by `section_number` and inject them in order.
-
-**Do:** Extend the post-retrieval pass in [db_utils.py](../agent/db_utils.py):
-
-```python
-sibling_sql = """
-  SELECT id, content, metadata FROM document_chunks
-  WHERE document_id = $1
-    AND metadata->>'context_path' LIKE $2
-  ORDER BY (metadata->>'section_number')::float
-"""
-# $2 = 'Section 4%'  (derived by stripping last '.x' from retrieved chunk's context_path)
-```
-
-**Fallback (Option C — only if grade misses persist on flat sections):** sub-split sections where `total_chunks: 1` and content > 5000 chars at `chunk_size=600, chunk_overlap=200`. Requires scoped re-ingestion.
-
-**Why not naive paragraph splitting:** CPG paragraphs have up-down dependency. *"Add ERA 62.5mg BD"* is meaningless without the preceding paragraph defining the population as *"WHO FC III–IV with RHC-confirmed PAH"*. Splitting severs this.
-
-**Effort:** ~0.5 day for Option A. Fallback Option C ~0.5 day re-ingestion if needed.
-
----
-
-## Phase 4 — Knowledge graph (deterministic wiring first)
-
-### R6 — KG schema, extraction, and Stage 4 graph calls
+### R6 — KG schema, extraction, and Stage 4 graph calls — ✅ DONE / Superseded (verified in code 2026-05-18)
 
 **Why:** No graph-based contraindication, interaction, or pathway retrieval today. Stage 5 performs drug-interaction screening from LLM training memory — imperfect and unverifiable.
 
@@ -106,18 +89,16 @@ sibling_sql = """
     -[:MONITORED_BY {parameter, frequency, cpg_chunk_id}]-> (LabTest)
 ```
 
+> **Status summary (verified against code 2026-05-18):** The KG **consumer wiring** (steps 4 & 5 — the actual point of R6) is fully implemented and live in all 3 orchestrator paths. Steps 1 & 3 (ICD on Condition nodes / ICD-scoped graph) were **deliberately cancelled** by a later architectural decision — see `Next-Step/KG_Remaining_Edits_Plan.md` "Architectural decision 2026-05-17": the KG must stay **global/unscoped** so cross-CPG drug-interaction safety signals are not suppressed; ICD→CPG mapping stays at the Postgres routing layer. Steps 2 & 6 are code-complete and AF-validated; full-corpus execution rides on Friend 1's pending re-ingest (`Phase_A_Step2` A-13/A-14 = `KG_Remaining_Edits_Plan.md` Phase B.2). **Do not re-implement. Do not add `icd11_code` to KG nodes — explicitly rejected as harmful.**
+
 #### Do (in this order)
 
-1. **Schema** — add `icd11_code` to `(:Condition)` nodes (Cypher batch). *2 h.*
-2. **Re-extract** — re-run [graph_builder.py](../ingestion/graph_builder.py) scoped to Treatment/Assessment chunks (via category filter from Phase 1). Extraction prompt must explicitly target the 6 relation types above. *1 day.*
-3. **Add `document_id_filter`** to `graph_search` so results are scoped to the routed CPGs. *2 h.*
-4. **Wire deterministic graph calls into Stage 4** ([clinical_stages.py](../agent/clinical_stages.py)) — direct function calls, NOT pydantic-ai tools yet:
-   - For each `case.current_medications` × each drug mentioned in retrieved chunks → `graph_search` for `INTERACTS_WITH`
-   - For each `case.allergies` → `graph_search` for `CROSS_REACTS_WITH` edges
-   - For each `case.comorbidities` ICD × each drug in chunks → `graph_search` for `REQUIRES_DOSE_ADJUSTMENT`
-   *0.5 day.*
-5. **Inject "INTERACTION FLAGS" block** prepended to evidence text passed to Stage 5. Each flag carries its `cpg_chunk_id` citation. *0.5 day.*
-6. **Validate** with fixture cases:
+1. ⚠️ **Schema** — add `icd11_code` to `(:Condition)` nodes (Cypher batch). **SUPERSEDED — cancelled by design** (`KG_Remaining_Edits_Plan.md` item 8 dropped 2026-05-17; ICD belongs at Postgres routing, not KG nodes).
+2. 🟡 **Re-extract** — re-run [graph_builder.py](../ingestion/graph_builder.py) scoped to Treatment/Assessment chunks. **Code done** (taxonomy + extraction prompt expanded — `KG_Remaining_Edits_Plan.md` Phase A ✅; AF dry-run ✅). Full 16-CPG batch pending Friend 1's re-ingest (Phase B.2 / A-14).
+3. ⚠️ **Add `document_id_filter`** to `graph_search`. **SUPERSEDED — cancelled by design** (same architectural decision: KG safety lookup is intentionally global/unscoped — scoping would hide cross-CPG interactions).
+4. ✅ **Wire deterministic graph calls into Stage 4** — **DONE.** `clinical_graph_lookup()` at [graph_clinical.py:298](../agent/graph_clinical.py) covers `CONTRAINDICATED_WITH|INTERACTS_WITH` (:130), `REQUIRES_DOSE_ADJUSTMENT` (:177), `CROSS_REACTS_WITH` (:230); wired between Stage 4 & 5 in all 3 paths ([clinical_workflow.py:132, 251, 355](../agent/clinical_workflow.py)). Candidate drugs grounded in retrieved chunks via `extract_candidate_drugs_from_chunks()`.
+5. ✅ **Inject "INTERACTION FLAGS" block** into Stage 5 — **DONE.** `format_flags_for_prompt(flags)` → `flags_block` injected into the Stage 5 user prompt at [clinical_stages.py:949, 968](../agent/clinical_stages.py); `stage_5_synthesize(..., flags=kg_flags)` signature at :929. Each flag carries `cpg_chunk_id` / `cpg_chunk_ids`.
+6. 🟡 **Validate** with fixture cases — AF polypharmacy gate ✅ passed (`scratch/test_phase_d_af.py`, `KG_Remaining_Edits_Plan.md` Phase D). Full warfarin/sulfa/CKD fixture validation deferred to post-Phase-B.2 (needs full-corpus flag density).
    - warfarin + retrieved-rivaroxaban → `INTERACTS_WITH severity=MAJOR`
    - sulfa allergy + retrieved-furosemide → `CROSS_REACTS_WITH risk_pct=1`
    - T2DM + retrieved-metformin + CKD Stage 4 → `REQUIRES_DOSE_ADJUSTMENT trigger=eGFR<30`
@@ -186,12 +167,12 @@ The LLM's role shrinks to: receive structured graph results → assign severity 
 
 ## Execution order
 
-| # | Phase | Task | Effort | Blocks |
+| # | Phase | Task | Effort | Status |
 |---|---|---|---|---|
-| 1 | 1 | R3 Phase 2 Step 1 — SQL category filter | 1 h | — |
-| 2 | 2 | C1 — comorbidity routing | 3 h | independent, can run in parallel |
-| 3 | 3 | R7 — sibling fetch at retrieval | 0.5 day | — |
-| 4 | 4 | R6 — KG schema + extraction + deterministic Stage 4 wiring | 2.5 days | needs Phase 1 (category filter) for scoped re-extraction |
+| 1 | 1 | R3 Phase 2 Step 1 — SQL category filter | 1 h | 🟡 OPTIONAL / defer post-A-13 — superseded in value by shipped score-boost + Phase A Step 1 token budgeting; not a standalone lane |
+| 2 | 2 | C1 — comorbidity routing | 3 h | ✅ DONE (code exceeds spec) |
+| — | 3 | ~~R7 — sibling fetch at retrieval~~ | — | ❌ DELETED — superseded by Phase A Step 2 parent-child chain (`Phase_A_Step2_ParentChild_Ingest.md`); whole parent section now attached to every child hit |
+| 4 | 4 | R6 — KG extraction + deterministic Stage 4 wiring | 2.5 days | ✅ DONE / Superseded (wiring live; steps 1+3 cancelled by design; batch rides Friend 1's re-ingest) |
 | 5 | 5a | Stage 4 → agentic sub-agent | 2 days | needs Phase 4 validated |
 | 6 | 5b | Stage 5 → self-critique loop | 1.5 days | needs Phase 5a (proves the agentic pattern works) |
 | 7 | 5c | Safety Critic → KG-grounded pydantic-ai agent; remove hardcoded sulfonamide list | 1 day | needs Phase 4 KG relations validated |
