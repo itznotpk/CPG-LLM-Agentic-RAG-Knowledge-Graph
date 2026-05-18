@@ -53,11 +53,16 @@ async def test_exact_match():
 
 
 @pytest.mark.asyncio
-async def test_parent_3char_match():
+async def test_ancestor_d1_match():
     doc = _row(id="doc-2", title="Some CPG", icd11_scope=["BC81"], cpg_name="Some CPG")
 
     mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=[doc])
+    mock_conn.fetch = AsyncMock(side_effect=[
+        [],                         # exact
+        [],                         # range
+        [_row(code="BC81", depth=1)],  # ancestors
+        [doc],                      # ancestor scope match
+    ])
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
@@ -67,16 +72,21 @@ async def test_parent_3char_match():
         results = await route_icd_to_cpgs("BC81.3")
 
     assert len(results) == 1
-    assert results[0].match_type == "parent"
+    assert results[0].match_type == "ancestor_d1"
     assert results[0].matched_scope == "BC81"
 
 
 @pytest.mark.asyncio
-async def test_parent_4char_match():
+async def test_ancestor_d1_4char_match():
     doc = _row(id="doc-3", title="STEMI CPG", icd11_scope=["BA41"], cpg_name="STEMI CPG")
 
     mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=[doc])
+    mock_conn.fetch = AsyncMock(side_effect=[
+        [],
+        [],
+        [_row(code="BA41", depth=1)],
+        [doc],
+    ])
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
@@ -86,7 +96,7 @@ async def test_parent_4char_match():
         results = await route_icd_to_cpgs("BA41.0")
 
     assert len(results) == 1
-    assert results[0].match_type == "parent"
+    assert results[0].match_type == "ancestor_d1"
     assert results[0].matched_scope == "BA41"
 
 
@@ -98,7 +108,7 @@ async def test_range_match():
     mock_conn = AsyncMock()
     # first call: _structural_match (returns empty)
     # second call: _range_match (returns all docs)
-    mock_conn.fetch = AsyncMock(side_effect=[[], [doc]])
+    mock_conn.fetch = AsyncMock(side_effect=[[], [doc], [], []])
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
@@ -116,8 +126,9 @@ async def test_range_no_match():
     doc = _row(id="doc-4", title="Range CPG", icd11_scope=["BC60-BC9Z"], cpg_name="Range CPG")
 
     mock_conn = AsyncMock()
-    # structural empty, range fetch returns doc but BA00 is outside BC60-BC9Z
-    mock_conn.fetch = AsyncMock(side_effect=[[], [doc]])
+    # exact empty, range fetch returns doc but BA00 is outside BC60-BC9Z,
+    # then ancestor and sibling fallbacks both miss.
+    mock_conn.fetch = AsyncMock(side_effect=[[], [doc], [], []])
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
@@ -155,8 +166,8 @@ async def test_multi_code_dedup():
 @pytest.mark.asyncio
 async def test_semantic_fallback_fires_on_no_structural():
     mock_conn = AsyncMock()
-    # structural returns [], range fetch returns []
-    mock_conn.fetch = AsyncMock(side_effect=[[], []])
+    # exact, range, ancestors, siblings all miss
+    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], []])
 
     semantic_result = MagicMock()
     semantic_result.document_id = "doc-sem"
@@ -176,24 +187,47 @@ async def test_semantic_fallback_fires_on_no_structural():
 
 
 @pytest.mark.asyncio
+async def test_sibling_fallback_after_ancestor_misses():
+    doc = _row(id="doc-sib", title="Sibling CPG", icd11_scope=["BA41.1"], cpg_name="Sibling CPG")
+
+    mock_conn = AsyncMock()
+    mock_conn.fetch = AsyncMock(side_effect=[
+        [],                              # exact
+        [],                              # range
+        [_row(code="BA41", depth=1)],    # ancestors
+        [],                              # ancestor scope miss
+        [_row(code="BA41.1")],           # siblings
+        [doc],                           # sibling scope match
+    ])
+
+    with patch("agent.routing.db_pool") as mock_pool:
+        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
+        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
+
+        from agent.routing import route_icd_to_cpgs
+        results = await route_icd_to_cpgs("BA41.0")
+
+    assert len(results) == 1
+    assert results[0].match_type == "sibling"
+    assert results[0].matched_scope == "BA41.1"
+
+
+@pytest.mark.asyncio
 async def test_semantic_fallback_threshold():
     """Results below threshold must be excluded by _semantic_fallback."""
     from agent.routing import _semantic_fallback
 
     mock_conn = AsyncMock()
     mock_conn.fetchrow = AsyncMock(return_value=_row(title="Mystery disease", description=""))
-    # verified docs fetch — needs cpg_name column
-    mock_conn.fetch = AsyncMock(return_value=[
-        _row(id="doc-above", cpg_name="CPG A", title="CPG A"),
-        _row(id="doc-below", cpg_name="CPG B", title="CPG B"),
+    candidate_above = _row(id="doc-above", cpg_name="CPG A", title="CPG A", similarity=0.75)
+    candidate_below = _row(id="doc-below", cpg_name="CPG B", title="CPG B", similarity=0.40)
+    mock_conn.fetch = AsyncMock(side_effect=[
+        [candidate_above, candidate_below],
+        [_row(id="doc-above", cpg_name="CPG A", title="CPG A")],
     ])
 
-    chunk_above = _row(document_id="doc-above", similarity=0.75, document_title="CPG A")
-    chunk_below = _row(document_id="doc-below", similarity=0.40, document_title="CPG B")
-
     with patch("agent.routing.generate_embedding", new=AsyncMock(return_value=[0.1] * 1536)):
-        with patch("agent.routing.vector_search", new=AsyncMock(return_value=[chunk_above, chunk_below])):
-            results = await _semantic_fallback(mock_conn, "ZZ00", top_k=5, threshold=0.60)
+        results = await _semantic_fallback(mock_conn, "ZZ00", top_k=5, threshold=0.60)
 
     doc_ids = [r.document_id for r in results]
     assert "doc-above" in doc_ids
@@ -226,14 +260,13 @@ async def test_unknown_icd_code_uses_raw_string():
 
     mock_conn = AsyncMock()
     mock_conn.fetchrow = AsyncMock(return_value=None)  # code not found
-    mock_conn.fetch = AsyncMock(return_value=[])        # no verified docs
+    mock_conn.fetch = AsyncMock(return_value=[])        # no scope-embedding docs
 
     with patch("agent.routing.generate_embedding", new=AsyncMock(return_value=[0.0] * 1536)) as mock_embed:
-        with patch("agent.routing.vector_search", new=AsyncMock(return_value=[])):
-            with patch("agent.routing.db_pool") as _pool:
-                _pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-                _pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-                await _semantic_fallback(mock_conn, "XX99ZZ", top_k=3, threshold=0.60)
+        with patch("agent.routing.db_pool") as _pool:
+            _pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
+            _pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
+            await _semantic_fallback(mock_conn, "XX99ZZ", top_k=3, threshold=0.60)
 
     mock_embed.assert_awaited_once_with("XX99ZZ")
 
@@ -264,7 +297,7 @@ async def test_empty_scope_verified_false():
     """Documents with scope_verified=FALSE must not be returned (SQL WHERE filters them)."""
     mock_conn = AsyncMock()
     # The SQL already filters scope_verified=TRUE; simulate DB returning nothing
-    mock_conn.fetch = AsyncMock(side_effect=[[], []])
+    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], []])
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)

@@ -13,6 +13,7 @@ import asyncio
 import json
 import logging
 import os
+from typing import Literal
 
 import openai
 try:
@@ -24,13 +25,14 @@ from pydantic import ValidationError
 
 from .db_utils import db_pool
 from .graph_clinical import ClinicalFlag, format_flags_for_prompt
-from .models import ChunkResult, PatientCase, TreatmentPlan
+from .models import ChunkResult, PatientCase, Recommendation, TreatmentPlan
 from .routing import CPGDocRef, route_icd_to_cpgs
 from .tools import VectorSearchInput, vector_search_tool
 
 logger = logging.getLogger(__name__)
 
 DDX_RERANK_MODEL = os.getenv("LLM_CHOICE", "gpt-4o")
+OUT_OF_SCOPE_INCL_THRESHOLD = 0.3
 DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidates
 
 
@@ -42,9 +44,23 @@ class DDxResult(BaseModel):
     code: str
     title: str
     similarity: float
+    base_similarity: float | None = None
+    final_score: float | None = None
     inclusion_match: bool = False
     matched_term: str | None = None
+    inclusion_similarity: float | None = None
+    exclusion_match: bool = False
+    matched_exclusion: str | None = None
+    exclusion_similarity: float | None = None
+    exclusion_penalty: float = 0.0
     reasoning: list[str] = []
+
+
+class OutOfScopeInfo(BaseModel):
+    route_method: Literal["out_of_scope"] = "out_of_scope"
+    icd_candidates_considered: list[dict]
+    max_inclusion_score: float
+    message: str
 
 
 # ---------------------------------------------------------------------------
@@ -339,6 +355,48 @@ async def stage_2_ddx(
     return results[:top_k]
 
 
+def _ddx_inclusion_score(result: DDxResult) -> float:
+    if result.inclusion_similarity is not None:
+        return float(result.inclusion_similarity)
+    return 0.0
+
+
+def build_out_of_scope_info(
+    ddx: list[DDxResult],
+    threshold: float = OUT_OF_SCOPE_INCL_THRESHOLD,
+) -> OutOfScopeInfo | None:
+    """
+    Build a structured out-of-scope signal when DDx confidence is weak.
+
+    Stage 3 calls this only after exact/ancestor/sibling/semantic routing returns
+    no CPGs. The inclusion-score gate prevents a confident ICD hit with pending
+    scope data from being over-labelled as out of scope.
+    """
+    considered = [
+        {
+            "code": d.code,
+            "title": d.title,
+            "similarity": d.similarity,
+            "inclusion_score": _ddx_inclusion_score(d),
+            "final_score": d.final_score,
+        }
+        for d in ddx
+    ]
+    max_inclusion = max((_ddx_inclusion_score(d) for d in ddx), default=0.0)
+    if max_inclusion >= threshold:
+        return None
+
+    top_codes = ", ".join(f"{d.code} {d.title}" for d in ddx[:3]) or "none"
+    return OutOfScopeInfo(
+        icd_candidates_considered=considered,
+        max_inclusion_score=round(max_inclusion, 3),
+        message=(
+            "No loaded CPG covers this query. "
+            f"Top ICD-11 candidates: {top_codes}."
+        ),
+    )
+
+
 # ---------------------------------------------------------------------------
 # Stage 3 — Route
 # ---------------------------------------------------------------------------
@@ -364,6 +422,23 @@ async def stage_3_route(
                         "badge": ref.match_type,
                         "status": "complete",
                     })
+
+    if not all_refs:
+        out_of_scope = build_out_of_scope_info(ddx[:top_k_codes])
+        if out_of_scope:
+            logger.info(
+                "Stage 3 out_of_scope: max_inclusion_score=%.3f candidates=%s",
+                out_of_scope.max_inclusion_score,
+                [c["code"] for c in out_of_scope.icd_candidates_considered],
+            )
+            if emit:
+                await emit("sub_step", {
+                    "stage": 3,
+                    "detail": out_of_scope.message,
+                    "badge": "out_of_scope",
+                    "status": "complete",
+                    "data": out_of_scope.model_dump(),
+                })
 
     return list(all_refs.values())[:top_k_cpgs]
 
@@ -921,6 +996,50 @@ def _guard_prompt_size(system_prompt: str, user_prompt: str) -> None:
         )
 
 
+def _build_out_of_scope_plan(
+    case: PatientCase,
+    ddx: list[DDxResult],
+    info: OutOfScopeInfo,
+) -> TreatmentPlan:
+    icd_primary = ddx[0].code if ddx else "Unknown"
+    icd_alternates = [d.code for d in ddx[1:3]]
+    top_titles = ", ".join(f"{d.code} {d.title}" for d in ddx[:3]) or "none"
+
+    return TreatmentPlan(
+        icd_primary=icd_primary,
+        icd_alternates=icd_alternates,
+        summary=(
+            "No loaded Clinical Practice Guideline matched this presentation. "
+            f"Top ICD-11 candidates considered: {top_titles}."
+        ),
+        recommendations=[
+            Recommendation(
+                intervention="Refer for clinician review using local non-CPG pathways",
+                type="referral",
+                evidence_grade=None,
+                cpg_source="No loaded CPG match",
+                rationale=(
+                    "The routing layer found no exact, hierarchy, sibling, or semantic CPG "
+                    f"match, and the maximum ICD inclusion score was {info.max_inclusion_score:.2f}."
+                ),
+                contraindications_checked=[],
+            )
+        ],
+        monitoring=[],
+        red_flags=[
+            "Escalate urgently if the patient is clinically unstable or has red-flag symptoms.",
+        ],
+        follow_up=[
+            "Reassess after specialist/local pathway review or after relevant CPG coverage is added.",
+        ],
+        confidence=0.2,
+        unresolved_questions=[
+            info.message,
+            "No treatment recommendation should be inferred from unrelated loaded CPGs.",
+        ],
+    )
+
+
 async def stage_5_synthesize(
     case: PatientCase,
     ddx: list[DDxResult],
@@ -929,6 +1048,15 @@ async def stage_5_synthesize(
     flags: list[ClinicalFlag] | None = None,
 ) -> TreatmentPlan:
     """Synthesise a structured TreatmentPlan from patient context and CPG evidence."""
+    if not _cpgs and not evidence:
+        out_of_scope = build_out_of_scope_info(ddx)
+        if out_of_scope:
+            logger.info(
+                "stage_5_synthesize: returning deterministic out_of_scope plan "
+                "without LLM synthesis"
+            )
+            return _build_out_of_scope_plan(case, ddx, out_of_scope)
+
     # STAGE5_LLM_* vars override main LLM config (e.g. when primary API is blocked)
     base_url = os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")

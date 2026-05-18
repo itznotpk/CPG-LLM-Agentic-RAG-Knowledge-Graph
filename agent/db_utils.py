@@ -583,3 +583,44 @@ async def test_connection() -> bool:
     except Exception as e:
         logger.error(f"Database connection test failed: {e}")
         return False
+
+
+async def fetch_icd_ancestors(conn, code: str, max_depth: int = 2) -> list[dict[str, Any]]:
+    """
+    Fetch ICD-11 ancestors using the stored parent_code chain.
+
+    Stops naturally when parent_code is not present in icd11_codes; this is
+    expected for chapter roots and intentionally missing WHO block groupings.
+    """
+    rows = await conn.fetch(
+        """
+        WITH RECURSIVE ancestors AS (
+          SELECT code, parent_code, 0 AS depth FROM icd11_codes WHERE code = $1
+          UNION ALL
+          SELECT c.code, c.parent_code, a.depth + 1
+            FROM icd11_codes c JOIN ancestors a ON c.code = a.parent_code
+           WHERE a.depth < $2
+        )
+        SELECT code, depth FROM ancestors WHERE depth > 0 ORDER BY depth
+        """,
+        code,
+        max_depth,
+    )
+    return [dict(row) for row in rows]
+
+
+async def fetch_icd_siblings(conn, code: str) -> list[str]:
+    """Fetch ICD-11 sibling codes sharing the predicted code's parent_code."""
+    rows = await conn.fetch(
+        """
+        SELECT s.code
+        FROM icd11_codes p
+        JOIN icd11_codes s
+          ON s.parent_code = p.parent_code
+         AND s.code <> p.code
+        WHERE p.code = $1
+        ORDER BY s.code
+        """,
+        code,
+    )
+    return [row["code"] for row in rows]

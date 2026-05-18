@@ -1,13 +1,15 @@
 """
 ICD-11 to CPG routing layer.
 
-Maps an ICD-11 code to a shortlist of CPG documents (grouped by CPG name) via:
-  1. Structural match (exact code, 3-char prefix, 4-char prefix, lexicographic range)
-  2. Semantic fallback (embed code title, vector search against verified-document chunks)
+Maps a predicted ICD-11 code to CPG document groups via:
+1. Exact document icd11_scope match.
+2. ICD-11 parent hierarchy fallback up to depth 2.
+3. ICD-11 sibling fallback.
+4. Semantic fallback against documents.scope_embedding.
 
-Each CPGDocRef represents one *CPG*, not one section row.  All section UUIDs for
-that CPG are collected in document_ids so that downstream vector searches can
-filter against the full CPG.
+Each CPGDocRef represents one CPG, not one section row. All section UUIDs for
+that CPG are collected in document_ids so downstream vector searches can filter
+against the full CPG.
 """
 
 from __future__ import annotations
@@ -19,32 +21,34 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from .db_utils import db_pool, vector_search
+from .db_utils import db_pool, fetch_icd_ancestors, fetch_icd_siblings
 from .tools import generate_embedding
 
 logger = logging.getLogger(__name__)
 
+ANCESTOR_MAX_DEPTH = 2
+SEMANTIC_FALLBACK_THRESHOLD = 0.65
+SEMANTIC_FALLBACK_TOP_K = 3
+
+RouteMethod = Literal["exact", "ancestor_d1", "ancestor_d2", "sibling", "semantic"]
+
 
 class CPGDocRef(BaseModel):
-    cpg_name: str                        # e.g. "STEMI(4th Edition)"
-    document_id: str                     # first/representative section UUID
-    document_ids: list[str]              # ALL section UUIDs for this CPG
-    title: str                           # title of the representative section row
-    match_type: Literal["exact", "parent", "semantic"]
+    cpg_name: str
+    document_id: str
+    document_ids: list[str]
+    title: str
+    match_type: RouteMethod
     score: float
     matched_scope: str
 
 
-# ---------------------------------------------------------------------------
-# Internal helpers
-# ---------------------------------------------------------------------------
-
-_RANGE_PATTERN = re.compile(r'^[A-Z0-9]{2,4}-[A-Z0-9]{2,4}$')
+_RANGE_PATTERN = re.compile(r"^[A-Z0-9]{2,4}-[A-Z0-9]{2,4}$")
 
 
 def _icd11_range_match(code: str, scope: list[str]) -> tuple[bool, str]:
     """Return (matched, entry) if code falls in any range entry of scope."""
-    for entry in scope:
+    for entry in scope or []:
         if _RANGE_PATTERN.match(entry):
             low, high = entry.split("-", 1)
             if low <= code <= high:
@@ -52,99 +56,131 @@ def _icd11_range_match(code: str, scope: list[str]) -> tuple[bool, str]:
     return False, ""
 
 
-def _determine_match(icd_code: str, icd11_scope: list[str]) -> tuple[Literal["exact", "parent"], str]:
-    """Return (match_type, matched_scope) for a row that already passed SQL filter."""
-    if icd_code in icd11_scope:
-        return "exact", icd_code
-    prefixes = [s for s in icd11_scope if icd_code.startswith(s) and len(s) <= len(icd_code)]
-    if prefixes:
-        return "parent", max(prefixes, key=len)
-    # Shouldn't reach here if SQL is correct, but be safe
-    return "parent", icd11_scope[0] if icd11_scope else ""
+def _group_document_rows(
+    rows,
+    match_type: RouteMethod,
+    matched_scope: str,
+    default_score: float = 1.0,
+) -> list[CPGDocRef]:
+    groups: dict[str, dict] = defaultdict(
+        lambda: {"ids": [], "title": "", "score": default_score}
+    )
+
+    for row in rows:
+        cpg_name = row["cpg_name"] or row["id"]
+        group = groups[cpg_name]
+        group["ids"].append(row["id"])
+        if not group["title"]:
+            group["title"] = row["title"] or cpg_name
+        if "similarity" in row.keys():
+            group["score"] = max(group["score"], float(row["similarity"]))
+
+    return [
+        CPGDocRef(
+            cpg_name=cpg_name,
+            document_id=data["ids"][0],
+            document_ids=data["ids"],
+            title=data["title"],
+            match_type=match_type,
+            score=data["score"],
+            matched_scope=matched_scope,
+        )
+        for cpg_name, data in groups.items()
+    ]
 
 
-async def _structural_match(conn, icd_code: str) -> list[CPGDocRef]:
+async def _scope_code_match(
+    conn,
+    scope_code: str,
+    match_type: Literal["exact", "ancestor_d1", "ancestor_d2", "sibling"],
+    matched_scope: str | None = None,
+) -> list[CPGDocRef]:
     rows = await conn.fetch(
         """
         SELECT id::text, title, icd11_scope, metadata->>'cpg_name' AS cpg_name
         FROM documents
         WHERE scope_verified = TRUE
-          AND (
-              $1 = ANY(icd11_scope)
-              OR LEFT($1, 3) = ANY(icd11_scope)
-              OR LEFT($1, 4) = ANY(icd11_scope)
-          )
+          AND $1 = ANY(icd11_scope)
         """,
-        icd_code,
+        scope_code,
     )
-
-    # Group rows by cpg_name
-    groups: dict[str, dict] = defaultdict(
-        lambda: {"ids": [], "title": "", "icd11_scope": [], "match_type": "parent", "matched": ""}
+    return _group_document_rows(
+        rows,
+        match_type=match_type,
+        matched_scope=matched_scope or scope_code,
     )
-    for row in rows:
-        name: str = row["cpg_name"] or row["id"]
-        g = groups[name]
-        g["ids"].append(row["id"])
-        if not g["title"]:
-            g["title"] = row["title"]
-        g["icd11_scope"] = row["icd11_scope"]  # same for all rows of a CPG
-
-        mt, ms = _determine_match(icd_code, row["icd11_scope"])
-        # Prefer "exact" over "parent" if any row gives exact
-        if g["match_type"] != "exact":
-            g["match_type"] = mt
-            g["matched"] = ms
-
-    return [
-        CPGDocRef(
-            cpg_name=name,
-            document_id=v["ids"][0],
-            document_ids=v["ids"],
-            title=v["title"],
-            match_type=v["match_type"],
-            score=1.0,
-            matched_scope=v["matched"],
-        )
-        for name, v in groups.items()
-    ]
 
 
 async def _range_match(conn, icd_code: str) -> list[CPGDocRef]:
     rows = await conn.fetch(
         """
         SELECT id::text, title, icd11_scope, metadata->>'cpg_name' AS cpg_name
-        FROM documents WHERE scope_verified = TRUE
+        FROM documents
+        WHERE scope_verified = TRUE
         """
     )
 
-    groups: dict[str, dict] = defaultdict(
-        lambda: {"ids": [], "title": "", "entry": ""}
-    )
+    matched_rows = []
+    matched_entry = ""
     for row in rows:
-        matched, entry = _icd11_range_match(icd_code, row["icd11_scope"])
-        if not matched:
-            continue
-        name: str = row["cpg_name"] or row["id"]
-        g = groups[name]
-        g["ids"].append(row["id"])
-        if not g["title"]:
-            g["title"] = row["title"]
-        if not g["entry"]:
-            g["entry"] = entry
+        matched, entry = _icd11_range_match(icd_code, row["icd11_scope"] or [])
+        if matched:
+            matched_rows.append(row)
+            matched_entry = matched_entry or entry
 
-    return [
-        CPGDocRef(
-            cpg_name=name,
-            document_id=v["ids"][0],
-            document_ids=v["ids"],
-            title=v["title"],
-            match_type="exact",
-            score=1.0,
-            matched_scope=v["entry"],
+    return _group_document_rows(
+        matched_rows,
+        match_type="exact",
+        matched_scope=matched_entry,
+    )
+
+
+async def find_cpgs_for_code(
+    code: str,
+    conn,
+    max_depth: int = ANCESTOR_MAX_DEPTH,
+) -> tuple[list[CPGDocRef], str]:
+    """
+    Find CPGs for a predicted ICD-11 code.
+
+    Returns (matched_documents, route_method), where route_method is one of:
+    exact, ancestor_d1, ancestor_d2, sibling, none.
+    """
+    exact = await _scope_code_match(conn, code, match_type="exact")
+    if exact:
+        return exact, "exact"
+
+    range_refs = await _range_match(conn, code)
+    if range_refs:
+        return range_refs, "exact"
+
+    ancestors = await fetch_icd_ancestors(conn, code, max_depth=max_depth)
+    for ancestor in ancestors:
+        depth = int(ancestor["depth"])
+        if depth > max_depth:
+            continue
+        route_method = "ancestor_d1" if depth == 1 else "ancestor_d2"
+        refs = await _scope_code_match(
+            conn,
+            ancestor["code"],
+            match_type=route_method,
+            matched_scope=ancestor["code"],
         )
-        for name, v in groups.items()
-    ]
+        if refs:
+            return refs, route_method
+
+    siblings = await fetch_icd_siblings(conn, code)
+    for sibling_code in siblings:
+        refs = await _scope_code_match(
+            conn,
+            sibling_code,
+            match_type="sibling",
+            matched_scope=sibling_code,
+        )
+        if refs:
+            return refs, "sibling"
+
+    return [], "none"
 
 
 async def _semantic_fallback(
@@ -154,7 +190,8 @@ async def _semantic_fallback(
     threshold: float,
 ) -> list[CPGDocRef]:
     row = await conn.fetchrow(
-        "SELECT title, description FROM icd11_codes WHERE code = $1", icd_code
+        "SELECT title, description FROM icd11_codes WHERE code = $1",
+        icd_code,
     )
     if not row:
         query_text = icd_code
@@ -163,95 +200,108 @@ async def _semantic_fallback(
         if row["description"]:
             query_text += ". " + row["description"]
 
-    query_embedding = await generate_embedding(query_text)
+    embedding = await generate_embedding(query_text)
+    embedding_str = "[" + ",".join(map(str, embedding)) + "]"
 
-    # Scope the vector search to verified documents
-    verified = await conn.fetch(
+    candidate_rows = await conn.fetch(
+        """
+        SELECT
+            id::text,
+            title,
+            metadata->>'cpg_name' AS cpg_name,
+            1 - (scope_embedding <=> $1::vector) AS similarity
+        FROM documents
+        WHERE scope_verified = TRUE
+          AND scope_embedding IS NOT NULL
+        ORDER BY scope_embedding <=> $1::vector
+        LIMIT $2
+        """,
+        embedding_str,
+        max(top_k * 10, SEMANTIC_FALLBACK_TOP_K),
+    )
+
+    best_by_cpg: dict[str, dict] = {}
+    for candidate in candidate_rows:
+        score = float(candidate["similarity"])
+        if score < threshold:
+            continue
+        cpg_name = candidate["cpg_name"] or candidate["id"]
+        if cpg_name not in best_by_cpg or score > float(best_by_cpg[cpg_name]["similarity"]):
+            best_by_cpg[cpg_name] = dict(candidate)
+
+    if not best_by_cpg:
+        return []
+
+    cpg_names = list(best_by_cpg.keys())
+    all_doc_rows = await conn.fetch(
         """
         SELECT id::text, title, metadata->>'cpg_name' AS cpg_name
-        FROM documents WHERE scope_verified = TRUE
-        """
-    )
-    id_list = [r["id"] for r in verified]
-    # Build lookup: doc_id -> (cpg_name, title)
-    doc_meta: dict[str, tuple[str, str]] = {
-        r["id"]: (r["cpg_name"] or r["id"], r["title"] or "")
-        for r in verified
-    }
-
-    chunk_results = await vector_search(
-        embedding=query_embedding,
-        limit=top_k * 5,
-        document_id_filter=id_list,
+        FROM documents
+        WHERE scope_verified = TRUE
+          AND COALESCE(metadata->>'cpg_name', id::text) = ANY($1::text[])
+        ORDER BY title, id
+        """,
+        cpg_names,
     )
 
-    # Group by cpg_name: best chunk score per CPG
-    cpg_best: dict[str, dict] = {}
-    for c in chunk_results:
-        doc_id = str(c["document_id"])
-        score = c["similarity"]
-        cpg_name, doc_title = doc_meta.get(doc_id, (doc_id, ""))
-        if cpg_name not in cpg_best or score > cpg_best[cpg_name]["score"]:
-            cpg_best[cpg_name] = {
-                "score": score,
-                "title": doc_title or c["document_title"],
-                "representative_id": doc_id,
-            }
+    ids_by_cpg: dict[str, list[str]] = defaultdict(list)
+    for doc_row in all_doc_rows:
+        ids_by_cpg[doc_row["cpg_name"] or doc_row["id"]].append(doc_row["id"])
 
-    # Collect all doc IDs per CPG (from the verified list, not just chunk hits)
-    cpg_all_ids: dict[str, list[str]] = defaultdict(list)
-    for doc_id, (cpg_name, _) in doc_meta.items():
-        cpg_all_ids[cpg_name].append(doc_id)
-
-    results = [
-        CPGDocRef(
-            cpg_name=cpg_name,
-            document_id=v["representative_id"],
-            document_ids=cpg_all_ids.get(cpg_name, [v["representative_id"]]),
-            title=v["title"],
-            match_type="semantic",
-            score=v["score"],
-            matched_scope=f"semantic:{v['score']:.2f}",
+    refs: list[CPGDocRef] = []
+    for cpg_name, candidate in sorted(
+        best_by_cpg.items(),
+        key=lambda item: -float(item[1]["similarity"]),
+    ):
+        score = float(candidate["similarity"])
+        refs.append(
+            CPGDocRef(
+                cpg_name=cpg_name,
+                document_id=candidate["id"],
+                document_ids=ids_by_cpg.get(cpg_name, [candidate["id"]]),
+                title=candidate["title"] or cpg_name,
+                match_type="semantic",
+                score=score,
+                matched_scope=f"semantic:{score:.2f}",
+            )
         )
-        for cpg_name, v in sorted(cpg_best.items(), key=lambda x: -x[1]["score"])
-        if v["score"] >= threshold
-    ]
-    return results[:top_k]
 
+    return refs[:top_k]
 
-# ---------------------------------------------------------------------------
-# Public API
-# ---------------------------------------------------------------------------
 
 async def route_icd_to_cpgs(
     icd_code: str,
-    top_k: int = 3,
-    semantic_threshold: float = 0.60,
+    top_k: int = SEMANTIC_FALLBACK_TOP_K,
+    semantic_threshold: float = SEMANTIC_FALLBACK_THRESHOLD,
 ) -> list[CPGDocRef]:
     """
-    Map an ICD-11 code to up to top_k CPGs (each CPGDocRef = one CPG).
+    Map an ICD-11 code to up to top_k CPGs.
 
-    Structural match (exact → prefix → range) is tried first;
-    semantic fallback fires only when structural returns nothing.
-    top_k refers to the number of distinct CPGs returned.
+    Exact/ancestor/sibling routing is tried first. Semantic fallback fires only
+    when the curated ICD routes return nothing.
     """
     async with db_pool.acquire() as conn:
-        results = await _structural_match(conn, icd_code)
+        results, route_method = await find_cpgs_for_code(
+            icd_code,
+            conn,
+            max_depth=ANCESTOR_MAX_DEPTH,
+        )
 
-        if not results:
-            results = await _range_match(conn, icd_code)
-
-        # Deduplicate by cpg_name
         seen_names: set[str] = set()
         deduped: list[CPGDocRef] = []
-        for r in results:
-            if r.cpg_name not in seen_names:
-                seen_names.add(r.cpg_name)
-                deduped.append(r)
+        for result in results:
+            if result.cpg_name not in seen_names:
+                seen_names.add(result.cpg_name)
+                deduped.append(result)
         results = deduped
 
-        if not results:
-            results = await _semantic_fallback(conn, icd_code, top_k, semantic_threshold)
+        if route_method == "none":
+            results = await _semantic_fallback(
+                conn,
+                icd_code,
+                top_k=top_k,
+                threshold=semantic_threshold,
+            )
 
     return results[:top_k]
 
@@ -261,7 +311,7 @@ if __name__ == "__main__":
 
     async def _smoke():
         refs = await route_icd_to_cpgs("BC81.3")
-        for r in refs:
-            print(r)
+        for ref in refs:
+            print(ref)
 
     asyncio.run(_smoke())

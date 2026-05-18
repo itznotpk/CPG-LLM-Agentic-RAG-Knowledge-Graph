@@ -38,15 +38,117 @@ This task is **six deliverables (D1–D6)** forming **two tracks that converge**
 
 Two tracks. **Track A (routing)** and **Track B (scoring/display)** are independent and may be done in either order or in parallel by two passes; they only meet at P6. Each phase has a hard exit gate — do not start the next phase in a track until its gate passes.
 
-| Phase | Track | Deliverable(s) | Why here | Exit gate (must pass before next phase in this track) |
-|---|---|---|---|---|
-| **P0** | — | Preconditions + baseline snapshots | Capture invariants *before* any change so #11/#12 are provable | §Preconditions queries match expected; `icd11_codes` embedding checksum + `documents` scope snapshot saved to the report draft |
-| **P1** | B | D3 migration 008 + `backfill_exclusion_embeddings` + scorer change | Pure data prep + isolated scorer math; zero pipeline risk; fully dry-runnable; unblocks D5 | Migration applied; 402 rows backfilled; idempotent re-run = 0 writes; D3 unit tests green; Smoke 4 green |
-| **P2** | A | D1 (ancestor + sibling) + D2 migration 007 + `backfill_scope_embeddings` + D2 semantic fallback | Routing core; D4 cannot be built or tested without both branches existing | Migration applied; 16 scope embeddings backfilled; D1/D2 unit tests green; Smoke 1, 2, 3, 9 green on staging |
-| **P3** | A | D4 out-of-scope detector | Observes D1+D2 outputs — only buildable after P2 | D4 unit tests green; Smoke 5 green on staging |
-| **P4** | B | D5a model + D5b render + D5c explainer | Consumes D3's `ScoreBreakdown`; needs P1 done | D5 unit tests green; Smoke 7 green on staging |
-| **P5** | B | D6a prompt-feed + D6b model ext + D6c render + D6d telemetry + force-rerank harness | Needs D5's candidate model and D3's exclusion signal | D6 unit tests green; Smoke 6, 8 green on staging |
-| **P6** | A+B | Pipeline assembly + full pre-deploy gate | Both tracks converge: routing provenance flows into the D5/D6 display | **Full suite Smoke 1–9 green on staging**; all 12 done-criteria checked; then promote to prod |
+### P0 — Preconditions + Baseline Snapshots
+
+- Track: —
+- Deliverable(s): Preconditions + baseline snapshots
+- Why here: Capture invariants *before* any change so #11/#12 are provable
+- Exit gate: §Preconditions queries match expected; `icd11_codes` embedding checksum + `documents` scope snapshot saved to the report draft
+
+Progress:
+- [x] Run P0 ICD-11 baseline checks.
+- [x] Capture ICD-11 embedding checksum.
+- [x] Capture `documents` scope snapshot.
+- [x] Record P0 findings in `tasks/ddx_routing_robustness_report.md`.
+- [ ] Resolve blocked document-scope precondition: live Neon `documents.icd11_scope` / `procedure_scope` are currently empty and `scope_verified=TRUE` is 0.
+
+### P1 — D3 Exclusion-Aware DDx Re-ranking
+
+- Track: B
+- Deliverable(s): D3 migration 008 + `backfill_exclusion_embeddings` + scorer change
+- Why here: Pure data prep + isolated scorer math; zero pipeline risk; fully dry-runnable; unblocks D5
+- Exit gate: Migration applied; 402 rows backfilled; idempotent re-run = 0 writes; D3 unit tests green; Smoke 4 green
+
+Progress:
+- [x] Add migration `sql/migrations/008_icd11_exclusion_embeddings.sql`.
+- [x] Apply `icd11_codes.exclusion_embeddings` migration to Neon.
+- [x] Add idempotent `ddx/backfill_exclusion_embeddings.py`.
+- [x] Support `--dry-run`, `--force`, `--limit`, and `--chapters`.
+- [x] Backfill all exclusion phrase embeddings in Neon.
+- [x] Confirm idempotent rerun: 0 rows updated, 0 embedding calls.
+- [x] Replace hard exclusion filtering with exclusion penalty scoring.
+- [x] Surface matched WHO exclusion phrase and penalty fields in DDx output.
+- [x] Extend `DDxResult` to carry score/exclusion fields through Stage 2.
+- [x] Add focused exclusion rerank tests.
+- [x] Run targeted Stage 2 regression tests.
+
+### P2 — D1 + D2 Routing Core
+
+- Track: A
+- Deliverable(s): D1 (ancestor + sibling) + D2 migration 007 + `backfill_scope_embeddings` + D2 semantic fallback
+- Why here: Routing core; D4 cannot be built or tested without both branches existing
+- Exit gate: Migration applied; 16 scope embeddings backfilled; D1/D2 unit tests green; Smoke 1, 2, 3, 9 green on staging
+
+Progress:
+- [x] Add D1 exact -> ancestor -> sibling routing fallback.
+- [x] Add route method stamping: `exact`, `ancestor_d1`, `ancestor_d2`, `sibling`, `none`.
+- [x] Add SQL/helper support for ICD ancestor lookup.
+- [x] Add D2 migration file `sql/migrations/009_documents_scope_embedding.sql` for later DB application.
+- [x] Add `ddx/backfill_scope_embeddings.py` for later scope embedding backfill.
+- [ ] Apply D2 migration to Neon after credits / document-scope data are ready.
+- [ ] Backfill `documents.scope_embedding`.
+- [x] Add semantic fallback gated by D1 returning no hits.
+- [x] Add D1/D2 unit tests.
+- [ ] Run Smoke 1, 2, 3, and 9 on staging.
+
+### P3 — D4 Out-of-Scope Detector
+
+- Track: A
+- Deliverable(s): D4 out-of-scope detector
+- Why here: Observes D1+D2 outputs — only buildable after P2
+- Exit gate: D4 unit tests green; Smoke 5 green on staging
+
+Progress:
+- [x] Add structured `out_of_scope` response when D1 and D2 both miss and ICD inclusion confidence is low.
+- [x] Ensure downstream synthesis renders "no matching CPG" instead of using unrelated documents.
+- [ ] Add D4 unit tests.
+- [ ] Run Smoke 5 on staging.
+
+### P4 — D5 Score Transparency
+
+- Track: B
+- Deliverable(s): D5a model + D5b render + D5c explainer
+- Why here: Consumes D3's `ScoreBreakdown`; needs P1 done
+- Exit gate: D5 unit tests green; Smoke 7 green on staging
+
+Progress:
+- [ ] Add structured `ScoreBreakdown` model for top-5 DDx candidates.
+- [ ] Render base, inclusion, exclusion, and final score honestly.
+- [ ] Add route provenance badges, including semantic/fuzzy route badge.
+- [ ] Add D5 tests.
+- [ ] Run Smoke 7 on staging.
+
+### P5 — D6 Math + LLM Rerank Merge
+
+- Track: B
+- Deliverable(s): D6a prompt-feed + D6b model ext + D6c render + D6d telemetry + force-rerank harness
+- Why here: Needs D5's candidate model and D3's exclusion signal
+- Exit gate: D6 unit tests green; Smoke 6, 8 green on staging
+
+Progress:
+- [ ] Feed math signals into the LLM rerank prompt.
+- [ ] Extend model/output for math-rank vs LLM-rank disagreements.
+- [ ] Surface material LLM movement with reason.
+- [ ] Enforce override reason when promoting exclusion-penalized candidates.
+- [ ] Add deterministic force-rerank test harness.
+- [ ] Add D6 telemetry counters.
+- [ ] Add D6 tests.
+- [ ] Run Smoke 6 and 8 on staging.
+
+### P6 — Pipeline Assembly + Full Pre-Deploy Gate
+
+- Track: A+B
+- Deliverable(s): Pipeline assembly + full pre-deploy gate
+- Why here: Both tracks converge: routing provenance flows into the D5/D6 display
+- Exit gate: **Full suite Smoke 1-9 green on staging**; all 12 done-criteria checked; then promote to prod
+
+Progress:
+- [ ] Full Smoke 1-9 suite green on staging.
+- [ ] Verify all 12 done criteria.
+- [ ] Confirm existing `documents.icd11_scope` snapshot unchanged after routing/display work.
+- [ ] Confirm `icd11_codes.embedding` checksum unchanged.
+- [ ] Produce final report-back package.
+- [ ] Decide whether to pull optional D1.5 `.Z` unspecified-code fallback into scope.
 
 Recommended single-pass order if done sequentially: **P0 → P1 → P2 → P3 → P4 → P5 → P6**. P1 and P2 have no dependency on each other — if parallelizing, run them as two concurrent passes and converge at P4 (which needs P1) / P3 (which needs P2).
 
@@ -220,7 +322,7 @@ When an exclusion contributes a non-trivial penalty (`exclusion_score > 0.5`), s
 Triggers when both:
 1. `find_cpgs_for_code()` returned `route_method == "none"` (D1 missed)
 2. D2 semantic fallback returned 0 candidates above threshold
-3. AND the top-K ICD candidates for the query all have `inclusion_score < OUT_OF_SCOPE_INCL_THRESHOLD` (default 0.55)
+3. AND the top-K ICD candidates for the query all have `inclusion_score < OUT_OF_SCOPE_INCL_THRESHOLD` (default 0.3)
 
 Returns a structured response:
 ```python
@@ -416,7 +518,7 @@ ANCESTOR_MAX_DEPTH           = 2
 SEMANTIC_FALLBACK_THRESHOLD  = 0.65
 SEMANTIC_FALLBACK_TOP_K      = 3
 EXCLUSION_PENALTY_WEIGHT     = 0.3
-OUT_OF_SCOPE_INCL_THRESHOLD  = 0.55
+OUT_OF_SCOPE_INCL_THRESHOLD  = 0.3
 DDX_PHRASE_DISPLAY_FLOOR     = 0.5    # below this, inclusion/exclusion phrase shown as null
 DDX_DISPLAY_FLOOR            = 0.30   # below this, render "low confidence" alongside the %
 RERANK_DISAGREEMENT_DELTA    = 2      # |math_rank - llm_rank| >= this → reason required + surfaced

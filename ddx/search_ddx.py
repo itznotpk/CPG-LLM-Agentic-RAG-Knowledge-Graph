@@ -21,6 +21,9 @@ import asyncpg
 from agent.providers import get_embedding_client, get_embedding_model
 import re
 
+EXCLUSION_PENALTY_WEIGHT = 0.3
+EXCLUSION_TRACE_THRESHOLD = 0.5
+
 
 # Clinical abbreviation → ICD-11 full-form expansion.
 # Applied BEFORE embedding so short comorbidity strings ("CKD Stage 3", "T2DM")
@@ -205,6 +208,10 @@ def build_reasoning(candidate: dict, query_text: str) -> list[str]:
     if sim is not None:
         reasons.append(f"Vector similarity {sim:.3f}")
 
+    final_score = candidate.get("final_score")
+    if final_score is not None:
+        reasons.append(f"Final DDx score {final_score:.3f}")
+
     if candidate.get("inclusion_match"):
         matched = candidate.get("matched_term")
         inc_sim = candidate.get("inclusion_similarity")
@@ -213,6 +220,19 @@ def build_reasoning(candidate: dict, query_text: str) -> list[str]:
                 reasons.append(f"Inclusion match: {matched} ({inc_sim:.3f})")
             else:
                 reasons.append(f"Inclusion match: {matched}")
+
+    if candidate.get("exclusion_match"):
+        matched_exclusion = candidate.get("matched_exclusion")
+        exc_sim = candidate.get("exclusion_similarity")
+        penalty = candidate.get("exclusion_penalty")
+        if matched_exclusion:
+            if exc_sim is not None and penalty is not None:
+                reasons.append(
+                    f'WHO exclusion: "{matched_exclusion}" '
+                    f"(match {exc_sim:.3f}, penalty {penalty:.3f})"
+                )
+            else:
+                reasons.append(f'WHO exclusion: "{matched_exclusion}"')
 
     overlap = _lexical_overlap(
         query_text,
@@ -240,11 +260,12 @@ async def apply_tabulation_filter(
     inclusion_threshold: float = 0.70
 ) -> list[dict]:
     """
-    Apply Morbidity Tabulation Layer filter to candidates.
+    Apply Morbidity Tabulation Layer scoring to candidates.
     
     Rules:
-    - REMOVE if query matches any Exclusion (NO list) - substring match (strict)
-    - BOOST if query embedding is similar to Inclusion embedding (semantic match)
+    - BOOST if query embedding is similar to an inclusion phrase embedding.
+    - PENALIZE, but do not remove, if query embedding is similar to a WHO
+      exclusion phrase embedding.
     
     Args:
         candidates: List of ICD-11 code candidates from vector search
@@ -257,19 +278,6 @@ async def apply_tabulation_filter(
     query_words = set(query_lower.split())
     
     for candidate in candidates:
-        # Check NO list first (strict removal - substring match)
-        exclusions = candidate.get("exclusions") or []
-        excluded = False
-        for exc in exclusions:
-            exc_lower = exc.lower()
-            if exc_lower in query_lower or any(word in exc_lower for word in query_words if len(word) > 3):
-                excluded = True
-                candidate["filter_reason"] = f"Excluded: {exc}"
-                break
-        
-        if excluded:
-            continue  # Skip this candidate
-        
         # Check YES list using SEMANTIC SIMILARITY
         inclusion_embeddings = candidate.get("inclusion_embeddings") or {}
         inclusion_match = False
@@ -295,18 +303,43 @@ async def apply_tabulation_filter(
                     matched_inclusion = inc
                     match_similarity = 0.5  # Lower confidence for substring match
                     break
+
+        exclusion_embeddings = candidate.get("exclusion_embeddings") or {}
+        exclusion_match = False
+        matched_exclusion = None
+        exclusion_similarity = 0.0
+
+        if exclusion_embeddings and query_embedding:
+            for exc_text, exc_emb in exclusion_embeddings.items():
+                if exc_emb:
+                    sim = cosine_similarity(query_embedding, exc_emb)
+                    if sim > exclusion_similarity:
+                        matched_exclusion = exc_text
+                        exclusion_similarity = sim
+
+        if exclusion_similarity > EXCLUSION_TRACE_THRESHOLD:
+            exclusion_match = True
+
+        base_score = float(candidate.get("similarity") or 0.0)
+        inclusion_score = match_similarity
+        exclusion_penalty = EXCLUSION_PENALTY_WEIGHT * exclusion_similarity
+        final_score = base_score + inclusion_score - exclusion_penalty
         
         candidate["inclusion_match"] = inclusion_match
         candidate["matched_term"] = matched_inclusion
         candidate["inclusion_similarity"] = round(match_similarity, 3) if match_similarity else None
+        candidate["exclusion_match"] = exclusion_match
+        candidate["matched_exclusion"] = matched_exclusion if exclusion_match else None
+        candidate["exclusion_similarity"] = round(exclusion_similarity, 3) if exclusion_similarity else None
+        candidate["exclusion_penalty"] = round(exclusion_penalty, 3) if exclusion_penalty else 0.0
+        candidate["base_similarity"] = round(base_score, 4)
+        candidate["final_score"] = round(final_score, 4)
         filtered.append(candidate)
     
-    # Sort: inclusion matches first (by inclusion similarity), then by vector similarity
+    # Sort by the transparent DDx score: base + inclusion - exclusion penalty.
     filtered.sort(
-        key=lambda x: (
-            not x.get("inclusion_match", False),
-            -(x.get("inclusion_similarity") or 0),
-            -x["similarity"]
+        key=lambda x: -(
+            x["final_score"] if x.get("final_score") is not None else x["similarity"]
         )
     )
     
@@ -368,6 +401,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "description": "Anorgasmia is characterised by the absence or marked infrequency of the orgasm experience or markedly diminished intensity of orgasmic sensations.",
                 "inclusions": ["Psychogenic anorgasmy", "Inhibited orgasm"],
                 "exclusions": [],
+                "exclusion_embeddings": {},
                 "similarity": 0.8100 
             },
             {
@@ -376,6 +410,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "description": "Sexual arousal dysfunctions are characterized by the inability to attain or maintain adequate lubrication or vasocongestion responses.",
                 "inclusions": ["Female sexual arousal dysfunction"],
                 "exclusions": [],
+                "exclusion_embeddings": {},
                 "similarity": 0.7500
             },
             {
@@ -384,6 +419,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "description": "Ejaculatory dysfunctions involve the inability to ejaculate or premature ejaculation during sexual activity.",
                 "inclusions": ["Premature ejaculation", "Delayed ejaculation"],
                 "exclusions": [],
+                "exclusion_embeddings": {},
                 "similarity": 0.6500
             },
             {
@@ -392,6 +428,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "description": "Persistent or recurrent pain associated with sexual intercourse or other sexual activities.",
                 "inclusions": ["Dyspareunia", "Vaginismus"],
                 "exclusions": [],
+                "exclusion_embeddings": {},
                 "similarity": 0.5400
             }
         ]
@@ -430,6 +467,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 inclusions,
                 exclusions,
                 inclusion_embeddings,
+                exclusion_embeddings,
                 1 - (embedding <=> $1::vector) AS similarity
             FROM icd11_codes
             WHERE embedding IS NOT NULL
@@ -445,6 +483,12 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
             if inc_emb_raw:
                 import json
                 inc_emb = json.loads(inc_emb_raw) if isinstance(inc_emb_raw, str) else inc_emb_raw
+
+            exc_emb_raw = row["exclusion_embeddings"]
+            exc_emb = {}
+            if exc_emb_raw:
+                import json
+                exc_emb = json.loads(exc_emb_raw) if isinstance(exc_emb_raw, str) else exc_emb_raw
             
             candidates.append({
                 "code": row["code"],
@@ -453,6 +497,7 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "inclusions": row["inclusions"],
                 "exclusions": row["exclusions"],
                 "inclusion_embeddings": inc_emb,
+                "exclusion_embeddings": exc_emb,
                 "similarity": round(float(row["similarity"]), 4)
             })
         
@@ -468,9 +513,15 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
                 "title": item["title"],
                 "description": desc[:200] + "..." if len(desc) > 200 else desc,
                 "similarity": item["similarity"],
+                "base_similarity": item.get("base_similarity"),
+                "final_score": item.get("final_score"),
                 "inclusion_match": item.get("inclusion_match", False),
                 "matched_term": item.get("matched_term"),
                 "inclusion_similarity": item.get("inclusion_similarity"),
+                "exclusion_match": item.get("exclusion_match", False),
+                "matched_exclusion": item.get("matched_exclusion"),
+                "exclusion_similarity": item.get("exclusion_similarity"),
+                "exclusion_penalty": item.get("exclusion_penalty", 0.0),
                 "reasoning": build_reasoning(item, normalized_symptoms)
             })
         

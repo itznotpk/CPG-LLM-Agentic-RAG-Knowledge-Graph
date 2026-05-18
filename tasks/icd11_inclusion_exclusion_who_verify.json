@@ -1,0 +1,42 @@
+{
+  "release": "2024-01",
+  "linearization": "mms",
+  "language": "en",
+  "chapters": [
+    "02",
+    "05",
+    "08",
+    "11",
+    "16",
+    "17",
+    "18",
+    "21"
+  ],
+  "checked_codes": 5672,
+  "mismatch_count": 2,
+  "error_count": 0,
+  "duration_seconds": 565.6,
+  "mismatches": [
+    {
+      "db_inclusions": [
+        "Low libido",
+        "Decreased sexual desire",
+        "Inhibited sexual desire"
+      ],
+      "who_inclusions": [],
+      "code": "HA00",
+      "chapter": "17",
+      "title": "Hypoactive sexual desire dysfunction"
+    },
+    {
+      "db_exclusions": [
+        "Male early ejaculation (HA03.0)"
+      ],
+      "who_exclusions": [],
+      "code": "HA02",
+      "chapter": "17",
+      "title": "Orgasmic dysfunctions"
+    }
+  ],
+  "errors": []
+}
