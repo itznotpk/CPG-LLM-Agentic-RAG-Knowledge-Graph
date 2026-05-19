@@ -6,8 +6,7 @@ patient_input: BMI, weight_history, comorbidities
 output: disease_framing, weight_loss_target_by_comorbidity, epidemiology_context
 -->
 
-## 1.1: Introduction
-
+## 1.1: Introduction to Obesity
 Obesity is a **complex and chronic disease** that has a heterogeneous presentation. The excess and unwanted body fat accumulation or adiposity leads to many complications and increased risk of premature morbidity and mortality.
 
 [Level 1++] Studies have shown that overweight and obesity increase the risk of chronic health conditions and reduce quality of life. Hence, like any other chronic disease, early recognition, appropriate and effective individualised intervention, and long-term support are essential.

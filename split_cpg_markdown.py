@@ -170,7 +170,179 @@ THYROID_2019 = CPGConfig(
     ],
 )
 
-CONFIGS: dict[str, CPGConfig] = {THYROID_2019.key: THYROID_2019}
+T1DM_2016 = CPGConfig(
+    key="t1dm-2016",
+    source="markdown/raw_monolithic/CPG Management of Type 1 Diabetes Mellitus in Children & Adolescents (2016).md",
+    out_dir="markdown/Type-1-Diabetes-Mellitus-Children_Adolescents(2016)",
+    cpg_slug="t1dm",
+    sections=[
+        Section(
+            1, "Introduction", "introduction",
+            r"^## 1\. INTRODUCTION",
+            "category: Introduction, Epidemiology\n"
+            "use_case: Background and epidemiology of type 1 diabetes mellitus in children and adolescents\n"
+            "patient_input: none\n"
+            "output: disease_background, epidemiology, T1DM_definition",
+        ),
+        Section(
+            2, "Diagnosis", "diagnosis",
+            r"^## 2\. DIAGNOSIS",
+            "category: Diagnosis\n"
+            "use_case: Diagnostic criteria and classification of type 1 diabetes in children and adolescents\n"
+            "patient_input: symptoms, fasting_plasma_glucose, random_plasma_glucose, HbA1c, OGTT, autoantibodies\n"
+            "output: T1DM_diagnosis, diabetes_classification, differentiation_from_T2DM",
+        ),
+        Section(
+            3, "Risk Factors", "risk-factors",
+            r"^## 3\. RISK FACTORS",
+            "category: Risk Factors\n"
+            "use_case: Genetic and environmental risk factors for type 1 diabetes\n"
+            "patient_input: family_history, genetic_markers\n"
+            "output: risk_factor_profile",
+        ),
+        Section(
+            4, "Co-Morbidities", "comorbidities",
+            r"^## 4\. CO-MORBIDITIES",
+            "category: Co-Morbidities, Autoimmune Screening\n"
+            "use_case: Screening for associated autoimmune conditions (thyroid disease, coeliac disease) in children with T1DM\n"
+            "patient_input: TSH, thyroid_antibodies, coeliac_serology, growth_parameters\n"
+            "output: comorbidity_screening_schedule, associated_condition_diagnosis",
+        ),
+        Section(
+            5, "Treatment Targets", "treatment-targets",
+            r"^## 5\. TREATMENT TARGETS",
+            "category: Treatment Targets, Glycaemic Control, Growth\n"
+            "use_case: Optimal HbA1c targets, ideal blood glucose ranges and growth/puberty monitoring goals\n"
+            "patient_input: HbA1c, blood_glucose, age, growth_parameters, pubertal_stage\n"
+            "output: HbA1c_target, blood_glucose_range, growth_monitoring_plan",
+        ),
+        Section(
+            6, "Diabetic Ketoacidosis", "dka",
+            r"^## 6\. DIABETIC KETOACIDOSIS",
+            "category: Diabetic Ketoacidosis, Acute Complication, Emergency\n"
+            "use_case: Diagnosis, treatment, morbidity/mortality and prevention of recurrent DKA in children\n"
+            "patient_input: blood_glucose, venous_pH, bicarbonate, ketones, hydration_status, conscious_level\n"
+            "output: DKA_diagnosis, fluid_insulin_protocol, complication_monitoring, recurrence_prevention",
+        ),
+        Section(
+            7, "Insulin Therapy", "insulin-therapy",
+            r"^## 7\. INSULIN THERAPY",
+            "category: Insulin Therapy\n"
+            "use_case: Principles of insulin therapy, insulin formulations and dosage in children and adolescents\n"
+            "patient_input: body_weight, age, blood_glucose_pattern, lifestyle, pubertal_stage\n"
+            "output: insulin_regimen, insulin_formulation_choice, starting_dose",
+        ),
+        Section(
+            8, "Insulin Dose Adjustment", "insulin-dose-adjustment",
+            r"^## 8\. INSULIN DOSE ADJUSTMENT",
+            "category: Insulin Therapy, Dose Titration\n"
+            "use_case: Adjusting insulin doses based on blood glucose monitoring and clinical factors\n"
+            "patient_input: blood_glucose_logs, carbohydrate_intake, activity_level, illness\n"
+            "output: insulin_dose_adjustment_rules, correction_factor",
+        ),
+        Section(
+            9, "Hypoglycaemia", "hypoglycaemia",
+            r"^## 9\. HYPOGLYCAEMIA",
+            "category: Hypoglycaemia, Acute Complication\n"
+            "use_case: Recognition, classification and treatment of hypoglycaemia in children with T1DM\n"
+            "patient_input: blood_glucose, symptoms, conscious_level\n"
+            "output: hypoglycaemia_classification, treatment_protocol, glucagon_use",
+        ),
+        Section(
+            10, "Medical Nutrition Therapy", "nutrition-therapy",
+            r"^## 10\. MEDICAL NUTRITION THERAPY",
+            "category: Medical Nutrition Therapy, Carbohydrate Counting\n"
+            "use_case: Dietary management and carbohydrate counting for children and adolescents with T1DM\n"
+            "patient_input: dietary_history, carbohydrate_intake, body_weight, growth_parameters\n"
+            "output: nutrition_plan, carbohydrate_counting_method, glycaemic_index_guidance",
+        ),
+        Section(
+            11, "Psychosocial Support", "psychosocial-support",
+            r"^## 11\. PSYCHOSOCIAL SUPPORT",
+            "category: Psychosocial Support, Mental Health\n"
+            "use_case: Psychosocial and mental health support for children/adolescents with T1DM and their families\n"
+            "patient_input: psychological_assessment, family_circumstances, depression_screening\n"
+            "output: psychosocial_support_plan, mental_health_referral_criteria",
+        ),
+        Section(
+            12, "Physical Activity (Exercise)", "physical-activity",
+            r"^## 12\. PHYSICAL ACTIVITY \(EXERCISE\)",
+            "category: Physical Activity, Exercise\n"
+            "use_case: Benefits of exercise and prevention of exercise-associated hypoglycaemia\n"
+            "patient_input: activity_type, blood_glucose, insulin_regimen, carbohydrate_intake\n"
+            "output: exercise_recommendations, hypoglycaemia_prevention_strategy",
+        ),
+        Section(
+            13, "Self-Monitoring Blood Glucose", "smbg",
+            r"^## 13\. SELF-MONITORING BLOOD GLUCOSE",
+            "category: Self-Monitoring, Blood Glucose Monitoring\n"
+            "use_case: Frequency and use of self-monitoring of blood glucose in children with T1DM\n"
+            "patient_input: blood_glucose_readings, monitoring_frequency\n"
+            "output: SMBG_schedule, monitoring_recommendations",
+        ),
+        Section(
+            14, "Special Situations", "special-situations",
+            r"^## 14\. SPECIAL SITUATIONS",
+            "category: Special Situations, Sick Day, Ramadan Fasting, Surgery\n"
+            "use_case: Management during sick days, eating out, Ramadan fasting, schooling, travelling, surgery and partial remission phase\n"
+            "patient_input: illness_status, fasting_status, surgical_status, blood_glucose, insulin_regimen\n"
+            "output: sick_day_rules, fasting_management, perioperative_plan, remission_phase_guidance",
+        ),
+        Section(
+            15, "Supplements / Complementary Medications", "supplements",
+            r"^## 15\. SUPPLEMENTS/COMPLEMENTARY MEDICATIONS",
+            "category: Supplements, Complementary Medicine\n"
+            "use_case: Evidence and advice on supplements and complementary medications in T1DM\n"
+            "patient_input: supplement_use, complementary_medicine_use\n"
+            "output: supplement_recommendations",
+        ),
+        Section(
+            16, "Long-Term Complications", "long-term-complications",
+            r"^## 16\. LONG-TERM COMPLICATIONS",
+            "category: Long-Term Complications, Nephropathy, Retinopathy, Neuropathy\n"
+            "use_case: Screening and management of nephropathy, retinopathy, neuropathy and macrovascular complications\n"
+            "patient_input: urine_ACR, eGFR, fundus_examination, blood_pressure, lipid_profile, diabetes_duration\n"
+            "output: complication_screening_schedule, microvascular_management, cardiovascular_risk_management",
+        ),
+        Section(
+            17, "Referral", "referral",
+            r"^## 17\. REFERRAL",
+            "category: Referral\n"
+            "use_case: Indications and pathways for specialist referral\n"
+            "patient_input: clinical_status, complication_status\n"
+            "output: referral_criteria, referral_pathway",
+        ),
+        Section(
+            18, "Implementing the Guidelines", "implementation",
+            r"^## 18\. IMPLEMENTING THE GUIDELINES",
+            "category: Implementation, Quality Indicators\n"
+            "use_case: Facilitating/limiting factors, resource implications and clinical audit indicators\n"
+            "patient_input: none\n"
+            "output: implementation_barriers, resource_implications, audit_indicators",
+        ),
+        Section(
+            19, "References", "references",
+            r"^## References",
+            "category: References\n"
+            "use_case: Source citations for the guideline recommendations\n"
+            "patient_input: none\n"
+            "output: bibliographic_references",
+        ),
+        Section(
+            20, "Appendices", "appendices",
+            r"^## Appendix 1",
+            "category: Appendix, Clinical Questions, Abbreviations\n"
+            "use_case: Clinical questions, search strategy, carbohydrate exchange tables and list of abbreviations\n"
+            "patient_input: none\n"
+            "output: clinical_questions, carbohydrate_exchange_tables, abbreviations",
+        ),
+    ],
+)
+
+CONFIGS: dict[str, CPGConfig] = {
+    THYROID_2019.key: THYROID_2019,
+    T1DM_2016.key: T1DM_2016,
+}
 
 
 # Docling emits typographic whitespace (EN SPACE U+2002, NBSP U+00A0, etc.)

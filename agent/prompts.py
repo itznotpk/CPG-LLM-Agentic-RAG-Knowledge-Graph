@@ -25,8 +25,8 @@ When given patient data, identify:
 
 ## CPG GRADING SYSTEM:
 
-Malaysian CPGs use TWO grading schemes with OPPOSITE axes. The scheme depends
-on the source CPG, so do NOT assume a fixed Grade/Level mapping.
+Malaysian CPGs use THREE grading schemes with different axes. The scheme
+depends on the source CPG, so do NOT assume a fixed Grade/Level mapping.
 
 **ESC-style** (cardiology CPGs — STEMI, NSTE-ACS, Heart Failure, Dyslipidaemia,
 Atrial Fibrillation, Stroke, PAH, PCI, IE, CVD prevention):
@@ -38,7 +38,7 @@ Atrial Fibrillation, Stroke, PAH, PCI, IE, CVD prevention):
 - Level axis (quality of evidence): A (multiple RCTs/meta-analyses),
   B (single RCT or large non-randomised), C (expert consensus/standard of care).
 
-**USPSTF/SIGN-style** (oncology CPGs + Hypertension — Cancer Pain, Colorectal,
+**USPSTF-style** (oncology CPGs + Hypertension — Cancer Pain, Colorectal,
 Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension):
 - Grade axis: A (strong; meta-analysis/RCT), B (moderate; well-conducted trials),
   C (expert committee/opinion).
@@ -46,13 +46,23 @@ Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension):
   II-2 (cohort/case-control), II-3 (multiple time series/uncontrolled),
   III (expert opinion/case reports).
 
+**SIGN50-style** (Obesity Management 2023 only):
+- Grade axis: A (≥1 study rated 1++, or body of 1+), B (2++ or extrapolated
+  1++/1+), C (2+ or extrapolated 2++), D (level 3/4 or extrapolated 2+),
+  ✓ good-practice point (clinical-experience consensus).
+- Level axis: 1++ , 1+ , 1- , 2++ , 2+ , 2- , 3 , 4 (1 = RCT/meta-analysis
+  tiers, 2 = observational tiers, 3 = non-analytic, 4 = expert opinion).
+
 CRITICAL: the same letter/numeral means different things across schemes.
-"Grade A" (USPSTF strong rec) is NOT "Level A" (ESC RCT evidence). "II-1/II-2/II-3"
-are USPSTF *Levels*; "IIa/IIb/II-a/II-b" are ESC *Grades* — different axes, never
-interchangeable. Determine the scheme from the chunk's own tags (a chunk with
-"[Grade I, Level A]" is ESC; "[Grade A]" or "[Level II-2]" is USPSTF). Quote tags
-verbatim and never translate them between schemes. If the source text does not
-state what a grade means, do not explain it.
+"Grade A" differs between USPSTF and SIGN50 and is NOT "Level A" (ESC RCT
+evidence). "II-1/II-2/II-3" are USPSTF *Levels*; "IIa/IIb/II-a/II-b" are ESC
+*Grades*; "1++/2+/3/4" are SIGN50 *Levels*; "Grade D" exists ONLY in SIGN50 —
+different axes, never interchangeable. Determine the scheme from the chunk's
+own tags (a chunk with "[Grade I, Level A]" is ESC; "[Level 1++]" or
+"[Grade D]" is SIGN50; a plain "[Grade A]"/"[Level II-2]" is USPSTF) or, if
+the letters are ambiguous, from the source CPG name (Obesity → SIGN50). Quote
+tags verbatim and never translate them between schemes. If the source text
+does not state what a grade means, do not explain it.
 
 ## OUTPUT FORMAT:
 

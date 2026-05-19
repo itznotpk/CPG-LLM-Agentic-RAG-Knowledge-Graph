@@ -7,17 +7,14 @@ output: obesity_classification, management_pathway, intervention_plan, specialis
 -->
 
 ## Algorithm 1: Assessment And Management Of Adult Obesity
-
-**Overview:** This algorithm guides the assessment and management of adults attending any clinic or health centre for obesity screening and treatment.
+Overview: This algorithm guides the assessment and management of adults attending any clinic or health centre for obesity screening and treatment.
 
 **Step 1: Measure and Calculate**
-
 For all adults attending a clinic or health centre:
 - Measure **height**, **weight**, and **waist circumference (WC)**
 - Calculate **BMI (kg/m²)** = Weight (kg) ÷ Height² (m²)
 
 **Step 2: Interpret Results**
-
 Identify if any of the following thresholds are met:
 - **BMI ≥ 23 kg/m²**, OR
 - **Waist circumference ≥ 90 cm for men** or **≥ 80 cm for women**
@@ -43,10 +40,7 @@ Identify if any of the following thresholds are met:
 2. Reassess weight and comorbidities periodically
 3. Consider pharmacotherapy and/or bariatric surgery when lifestyle interventions are insufficient (refer to Sections 5 and 6 for indications and contraindications)
 
----
-
 ## Algorithm 2: Assessment And Management Of Childhood Obesity
-
 **Overview:** This algorithm guides the assessment and management of children and adolescents (<18 years old) presenting with overweight or obesity.
 
 **Step 1: Assess**
@@ -64,7 +58,6 @@ Provide Counselling on Healthy Behaviour regardless of BMI classification:
 - Get enough sleep as per age recommendation
 
 **Step 4: Classify and Act**
-
 **Normal Weight:**
 → Provide positive reinforcement for healthy behaviour. Continue routine monitoring.
 
@@ -91,8 +84,6 @@ Provide Counselling on Healthy Behaviour regardless of BMI classification:
 **Key notes:**
 - Start at Stage 1, 2 or 3 depending on age, degree of obesity, health risks, and motivation of the child/adolescent
 - If there is failure to achieve or maintain the goal BMI, advance to more-intensive levels of intervention
-
----
 
 <!-- parent_only_reference_start -->
 BMI Cut-Offs (Asian Adult Population)
