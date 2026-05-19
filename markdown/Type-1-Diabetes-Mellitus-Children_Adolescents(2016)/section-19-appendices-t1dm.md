@@ -1,8 +1,8 @@
 # Section 19: Appendices
 <!-- METADATA
-category: Appendix, Clinical Questions, Abbreviations
-use_case: Clinical questions, search strategy, carbohydrate exchange tables and list of abbreviations
-patient_input: none
+category: Reference
+use_case: T1DM Reference Appendices — search_strategy, clinical_questions, carbohydrate_exchange_tables, glycaemic_index_list, abbreviations
+patient_input:
 output: clinical_questions, carbohydrate_exchange_tables, abbreviations
 -->
 
@@ -340,74 +340,23 @@ Each item contains 15 g carbohydrate.
 | Tuber | Cassava, boiled; Sweet potato, boiled | Pumpkins, boiled; Sweet corn, boiled | Potato, boiled |
 
 <!-- parent_only_reference_start -->
-## List Of Abbreviations
+Abbreviations
 | Abbreviation | Full term |
 |---|---|
-| βOHB | β-hydroxybuterate |
-| µg | microgramme |
-| ACEi | angiotensin converting enzyme inhibitor |
-| ACR | albumin:creatinine ratio |
-| AER | albumin excretion rates |
-| ARB | angiotensin receptor blocker |
-| aTPO | anti-thyroid peroxidase antibody |
 | BG | blood glucose |
-| BMI | body mass index |
-| BP | blood pressure |
-| carb | carbohydrate |
-| CGM(S) | Continuous Glucose Monitoring (System) |
-| CI | confidence interval |
-| CPG(s) | clinical practice guidelines |
-| CSII | continuous subcutaneous insulin infusion |
-| DCCT | Diabetes Control and Complications Trial |
-| DG | Development Group |
-| DiCARE | Malaysian Diabetes in Children and Adolescents Registry |
 | DKA | diabetic ketoacidosis |
-| dL | desilitre |
 | ECG | Electrocardiogramme |
-| EDIC | Epidemiology of Diabetes Interventions and Complications |
 | g | gramme |
-| GA | general anaesthesia |
-| GAD | glutamic acid decarboxylase |
 | GI | glycaemic index |
 | HbA1c | glycated haemoglobin |
-| IAA | insulin autoantibodies |
-| ICA | anti-islet antibody |
-| ICA512 or IA2A | protein tyrosine phosphatase antibody |
-| ICR | insulin to carbohydrate ratio |
-| IFCC | International Federation of Clinical Chemistry and Laboratory Medicine |
-| IM | intramuscular |
-| IQR | interquartile range |
-| ISF | insulin sensitivity factor |
-| ISPAD | International Society for Pediatric and Adolescent Diabetes |
-| IU | international unit |
 | IV | intravenous |
-| kcal | kilocalorie |
 | kg | kilogramme |
 | L | litre |
-| LDL | low-density lipoprotein |
-| LJM | limited joint mobility |
-| MDI | multiple daily injections |
-| mg | milligramme |
 | min | minutes |
 | ml | millilitre |
 | mmol | millimol |
-| MoH | Ministry of Health |
-| MUFA | monounsaturated fatty acids |
-| NaCl | natrium chloride |
 | NPH | neutral protamine Hagedorn |
-| OGTT | oral glucose tolerance test |
-| OR | odds ratio |
-| pCO2 | partial pressure of carbon dioxide |
-| PUFA | polyunsaturated fatty acids |
-| RC | Review Committee |
-| RCT(s) | randomised controlled trial(s) |
 | SC | subcutaneous |
-| SMBG | self-monitoring of blood glucose |
-| SMD | standardised mean difference |
 | T1DM | type 1 diabetes mellitus |
 | tbsp | tablespoon |
-| TDD | total daily insulin dose |
-| TSH | thyroid stimulating hormone |
-| WMD | weighted mean difference |
-| ZnT8 | zinc transporter 8 |
 <!-- parent_only_reference_end -->

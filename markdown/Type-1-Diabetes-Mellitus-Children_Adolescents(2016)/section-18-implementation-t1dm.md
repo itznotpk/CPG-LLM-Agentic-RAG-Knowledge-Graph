@@ -1,8 +1,8 @@
 # Section 18: Implementing The Guidelines
 <!-- METADATA
-category: Implementation, Quality Indicators
-use_case: Facilitating/limiting factors, resource implications and clinical audit indicators
-patient_input: none
+category: Reference
+use_case: T1DM Guideline Implementation — facilitating_factors, limiting_factors, resource_implications, clinical_audit_indicators, DiCARE_registry, dissemination
+patient_input:
 output: implementation_barriers, resource_implications, audit_indicators
 -->
 
