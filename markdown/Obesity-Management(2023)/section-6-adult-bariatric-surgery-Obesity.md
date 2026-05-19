@@ -1,208 +1,158 @@
-# Section 6: Management Of Obesity In Adults — Surgical Procedures
+# Section 6: Prevention of overweight and obesity in adults, children and adolescents
 <!-- METADATA
-category: Treatment, Special Populations
-use_case: Bariatric Surgery — RYGB, sleeve_gastrectomy, gastric_banding, intragastric_balloon, bariatric_indications_Malaysia, preoperative_assessment, T2DM_remission, weight_loss_efficacy, complications, contraindications, IGB_safety
-patient_input: BMI, comorbidities, diabetes_status, previous_weight_loss_attempts, psychiatric_history, OSA_status, age, compliance_history
-output: bariatric_eligibility, procedure_selection, preoperative_plan, IGB_recommendation, complication_monitoring
+category: Prevention
+use_case: Obesity Prevention — adult_prevention, childhood_prevention, adolescent_prevention, lifestyle_interventions, family_environment, school_environment, early_life_interventions
+patient_input: age, risk_factors, pregnancy, infant_feeding, screen_time, parenting_styles, school_environment
+output: prevention_recommendations, diet_and_physical_activity_goals, screen_time_limits, sleep_duration_targets, school_based_initiatives
+treatment_type: orlistat
 -->
 
-## 4.3: Surgical Procedures
+## 6.1: Prevention of overweight and obesity in adults
+Obesity is a chronic disorder that not only requires continuous care, support and follow-up, but should be off-set by preventive strategies. The United States Preventive Services Taskforce updated their recommendation in 2018 to include intensive behavioural counselling for individuals of normal weight with abnormal blood glucose levels or diabetes.
 
-*Refer to the Malaysian Consensus for patient and procedure selection for bariatric and metabolic surgery for full details.*
+Primary prevention measures are essential to halt the development of obesity as early as possible. It generally includes:
+- Promoting healthy eating
+- Improving physical activity (reducing physical inactivity)
+- Managing daily stress
+- Improving the sense of well-being and self-esteem
 
-The basis for bariatric surgery is to accomplish weight loss in severely obese individuals who have been **unable to sustain weight loss by non-surgical means**.
+[Level 2++] These strategies can be challenging because it involves lifestyle and behavioural modifications that must be applied consistently. Individuals tend to have high levels of motivation initially that can decrease over time making these changes difficult to sustain. A systematic review of prevention of overweight and obesity using education and financial strategies for dietary, exercise and psychological approaches to weight management in the adult population provided moderate quality evidence for preventing weight gain in normal-weight individuals.
 
-[Level 2++] Weight loss induced by surgery: [Grade B]
-- Reduces CV disease risk
-- Resolves or improves pulmonary diseases such as OSA and asthma
-- Reduces disabilities from joint disease
-- Improves MAFLD
-- Improves renal function and urinary incontinence
+[Level 2++] Primary prevention of further weight gain through dietary advice and increase in physical activity in overweight patients without other comorbidities is an appropriate target compared to weight loss.
 
-The ultimate benefit of surgery is weight loss and control, and the remission of obesity's metabolic component.
+### 6.1.1: Low-calorie diet and orlistat for prevention of obesity in adults
+The cost effectiveness of pharmacologic treatment of obesity in combination with a low-calorie diet was linked with gains in length and quality of life (QoL) similar to prevention of chronic diseases such as diabetes, cardiovascular disease and osteoarthritis.
 
-**Types of bariatric procedures:**
-- **Restrictive:** Gastric banding (AGB), Sleeve gastrectomy (SG)
-- **Malabsorption:** Biliopancreatic diversion/duodenal switch (BPD/DS), Roux-en-Y gastric bypass (RYGB), Mini gastric bypass (MBG) / One anastomosis gastric bypass (ABG)
+Incremental costs per quality-adjusted-life year (QALY) gained were €17,900 for the low-calorie diet-only intervention compared to no intervention and €58,800 for the low-calorie diet and orlistat compared to the low-calorie diet only. Assuming a direct relation between body mass index (BMI) and QoL, these ratios decreased to €6000 per QALY gained and €24,100 per QALY gained. Costs per QALY gained were sensitive to assumptions about long-term weight loss maintenance.
 
-**Diagrammatic descriptions of procedures:**
-- **Gastric banding (AGB):** An adjustable silicone band is placed around the upper part of the stomach creating a small pouch. The band is connected to an access port under the skin; tightness can be adjusted by injecting saline. Restricts food intake.
-- **Sleeve gastrectomy (SG):** Approximately 75–80% of the stomach is surgically removed, creating a sleeve or tube-shaped stomach. Restricts intake and reduces ghrelin production.
-- **Roux-en-Y gastric bypass (RYGB):** A small pouch is created from the stomach and connected directly to the small intestine (Roux limb), bypassing most of the stomach and the first part of the small intestine (duodenum). Combination of restriction and malabsorption.
-- **One anastomosis gastric bypass (ABG/MBG):** The stomach is converted into a narrow tube (sleeve) connected to a loop of the small intestine, creating a single anastomosis. Simpler than RYGB.
-- **Biliopancreatic diversion:** A large portion of the stomach is removed and the remaining stomach is connected to the distal portion of the small intestine, significantly reducing absorption.
+[Level 1++] Low-calorie diet is cost effective compared to low-calorie diet and orlistat combination. Hence, intervention using low-calorie diet should be recommended as the first option by policy makers in combating obesity for the population.
 
-## 4.3.1: Efficacy Of Different Procedures
+### 6.1.2: Pharmacotherapy for prevention of obesity in adults
+There is no pharmacotherapy that has shown significant benefits in preventing overweight and obesity in individuals with normal BMI at risk of obesity.
+- [Level 1+/Level 2+] Women with Polycystic Ovarian Syndrome (PCOS) who were not overweight or obese showed no reduction in BMI following metformin therapy of between 12 weeks to 6 months. There are no recent studies to demonstrate any other benefits
+- [Level 1++] Individuals with psychotic disorders who are prescribed antipsychotic medications may experience modest weight loss and metabolic improvements from 8-12 weeks of treatment with metformin
+- [Level 1+] A systematic review of the effect of glucagon-like peptide-1 receptor agonists (GLP1-RA) in individuals with normal BMI identified a small number of subjects who showed no significant difference in weight change.
 
-**Percentage weight loss at 1 year:** [Level 1+] [Grade A]
-- RYGB: **31.2%** (95% CI 31.1, 31.3)
-- SG: **25.2%** (95% CI 25.1, 25.4)
-- AGB: **13.7%** (95% CI 13.3, 14.0)
+**Recommendations 9**
+- [Grade A] Fundamental preventive measures that should be implemented against the onset of obesity are promoting healthy eating, improving physical activity and implementing stress management practices.
+- [Grade B] Healthcare providers should offer weight management interventions for preventing weight gain in normal-weight or overweight adults.
 
-**5-year mean percentage weight loss:** [Level 1+] [Grade A]
-- RYGB: **25.5%** (95% CI 25.1, 25.9)
-- SG: **18.8%** (95% CI 18.0, 19.6)
-- AGB: **11.7%** (95% CI 10.2, 13.1)
+## 6.2: Prevention of obesity in children and adolescents
+The primary intervention in the management of paediatric obesity should be prevention. Preventive interventions should be designed to modify the environment surrounding the child. Primary prevention actions begin from the prenatal age into adolescence with actions at individual, family and community level.
 
-[Level 1++] In SLEEVEPASS trial (n=240, 7-year follow-up): RYGB had greater percent excess weight loss than SG at all time points (47% after SG vs 55% after RYGB). However, overall morbidity rate: 24% after SG vs 28.6% after RYGB. [Grade A]
+### 6.2.1: Early life interventions
+[Level 1+] Although beyond the scope of these guidelines, preconception and prenatal interventions are also of major importance in the prevention of childhood obesity.
 
-[Level 1++] In SM-BOSS trial: No significant difference in weight loss at 1, 2, and 5 years. Gastric reflux remission was observed more in RYGB (60.4%) compared to SG (25%). [Grade A]
+- [Level 1+] Breast feeding should be encouraged for its numerous health benefits and its role in obesity prevention
+- [Level 2+] Adherence to dietary guidelines during weaning is recommended. Solid foods and beverages other than breast milk or infant formulas should be introduced no earlier than 6 months as evidence suggests early introduction of weaning diet may be linked to childhood obesity
 
-**T2DM control or remission:** [Level 1++] [Grade A]
-- Mini-gastric bypass (MBG) was significantly more efficacious than laparoscopic SG and AGB
-- RYGB was significantly more efficacious than AGB
-- LSG was significantly more efficacious than laparoscopic AGB
+[Level 1+] Systematic reviews demonstrate a beneficial effect using interventions focused on individual- or family-level behaviour changes through counselling provided through home or community visits.
 
-## 4.3.2: Preoperative Assessment And Preparation
+We recommend early routine counselling on obesity prevention utilizing routine 'healthy baby' clinic visits. This would facilitate early referral for evaluation of at-risk children.
 
-[Level 1++] Preoperative assessment must include: psychological, appropriate surgical risk and comorbidities assessments. [Grade A]
+### 6.2.2: Lifestyle interventions
+Lifestyle interventions remain the first-line approach for the prevention of childhood obesity. However, the combination of interventions is largely varied due to the complexity of childhood obesity itself. As a child's behaviour is very much dependant on their environment, preventive measures must target the family and school environment.
 
-Surgery is **not contraindicated** in patients with mood and anxiety disorders or binge eating disorders provided they receive appropriate medical treatment. [Level 1++]
+**Family environment**
+There is evidence for an association between the development of paediatric obesity and family dysfunction, as well as, exposure to stress. This requires programmes to foster healthy family functioning and to minimise paediatric stress.
 
-[Level 3] Patients who achieved preoperative weight loss were less likely to be lost to follow-up (p=0.023). Postoperative weight loss was better in patients who could lose ≥5% total weight preoperatively (p=0.009). [Grade C]
+In addition, research indicates the need for parental involvement and a whole family approach for successful prevention programmes. Any preventive programme will, therefore, need to involve the whole family to advocate good parenting practices and lifestyle choices. There should be support for home activities that encourage children to be more active, eat nutritious foods and spend less time on screen-based activities.
 
-[Level 1+] However, preoperative weight loss does **not lead to reduction in perioperative mortality and comorbidities**. [Grade A]
+**School environment**
+The school environment is an important component in obesity prevention as, most children and adolescents spend the bulk of their waking hours in schools. A school-based programme can be standardised across multiple sites and reach large populations of children and adolescents during the early and teenage years. There is evidence that supports the use of school-based preventive programmes with family and community reinforcement.
 
-[Level 2+] Screening for OSA using the **STOP-BANG criteria** and utilisation of perioperative **continuous positive airway pressure (CPAP)** should be considered in patients with severe OSA undergoing bariatric surgery. [Grade B]
+[Level 4] Some measures that can be used to promote obesity prevention within schools are:
+- School curriculum that includes healthy diet, importance of physical activity and positive body image
+- Increasing physical activity sessions and the development of fundamental movement skills throughout the school week
+- Improving the nutritional quality of foods in schools
+- Supporting teachers and other staff to implement health promotion strategies and activities
 
-## 4.3.3: Indications For Bariatric Surgery
+**Diet and physical activity**
+[Level 1-] Dietary interventions, ranging from brief advice or counselling to structured management by health professionals, have been studied the most. The use of multicomponent interventions focusing on dietary, physical activity and behavioural aspects may be useful depending on the age-group, settings and available resources. Also, the implementation of multidisciplinary childhood obesity intervention programmes in the clinical setting should involve a team of care providers including a psychologist, trained nurse, dietitian, physiotherapist and exercise specialist.
 
-[Level 2++] The bariatric experts in the Asia-Pacific region recommend that the surgical approach may be considered as a non-primary alternative to treat inadequately controlled T2DM or metabolic syndrome for suitable Asian candidates with a **BMI ≥27.5 kg/m²**. [Grade B]
+Lifestyle intervention would have to be comprehensive involving the whole family and the environment the child lives in. Main findings from literature indicate using school-based preventive programmes with family and community reinforcement. Research has indicated the need for parental involvement and a whole family approach in the success of prevention programmes.
 
-**Malaysian Bariatric and Metabolic Working Committee consensus (Table 4-6):** [Level 4] [Grade D]
+*In children ≤6 years old*
+[Level 1-] Data from a randomised controlled trial (RCT) involving 520 children focused solely on dietary intervention suggested little to no difference in BMI Z-score reductions in children ≤5 years old.
 
-| Category | Indication |
-|---|---|
-| **Morbid obesity without any comorbidities** | Bariatric surgery should be considered in suitable patients with **BMI ≥37.5 kg/m²** who fulfil the selection criteria |
-| **Morbid obesity with metabolic syndrome** | May be considered in suitable patients with **BMI ≥32.5 kg/m²** with metabolic syndrome or CV risk following inadequate weight loss by medical therapy and lifestyle modifications |
-| **Low BMI with or without comorbidities** | Any surgery for BMI <32.5 kg/m² should **NOT be routine clinical practice** — strictly only under clinical study protocol with informed consent and prior ethics committee approval |
-| **Age restriction** | Recommended for patients between **18 and 65 years** |
-| **Special circumstances** | May be performed in morbidly obese adolescents provided they have attained physiological bone maturity consistent with **Tanner stage 4** (upon multidisciplinary consultation) |
+[Level 1++] A Cochrane review of 153 RCTs by Brown et al. in 2019 reported that a range of interventions focusing on both diet and physical activity components contributed to a modest effect on obesity prevention in children aged 0 up to 12 years. In children ≤5 years old,
+- There was a pooled reduction of 0.07 units (95% CI -0.14, -0.01) in BMI Z-score from combined diet and physical activity interventions
+- There was a BMI reduction of 0.11 kg/m² (95% CI -0.21, 0.00) from combined diet and physical activity interventions
 
-## 4.3.4: Patient Selection Criteria For Bariatric Surgery
+[Level 1-] While being modest, diet and physical activity behaviours adopted early in life suggests that these behaviours track to later ages in life when the health benefits might be seen.
 
-Patients undergoing bariatric surgery should fulfil the following criteria:
-- **Weight loss history:** Previous non-surgical attempts at weight reduction for at least 6 months
-- **Demonstrated patient commitment:**
-  - Follow-up visits with healthcare teams; voluntary participation in support groups
-  - Compliance with instructions regarding recommended medical management, procedures, and tests including dietary supplements and exercise
-  - **Smoking cessation for a minimum of 4 weeks before surgery**
+[Level 1++] In another Cochrane review of RCTs involving children aged 0-6 years old assigned to combination of interventions focusing on diet, physical activity and behavioural components vs usual care, there were greater BMI Z-score reductions on follow-up with mean difference of:
+- -0.3 units (95% CI -0.4, -0.2) at 6 to 12 months
+- -0.4 units (95% CI -0.6, -0.2) at 12-18 months
+- -0.3 units (95% CI -0.4, -0.1) at 2 years
 
-## 4.3.5: Complications Of Bariatric Procedures
+*In children 6-12 years old*
+[Level 1++] In children aged 6-12 years who received a combination of dietary and physical activity interventions compared to those assigned to the control group demonstrated,
+- Reduction in their BMI Z-score (mean difference -0.05 units, 95% CI -0.10, -0.01)
+- Reduction in their BMI (mean difference -0.05 kg/m², 95% CI -0.11, -0.01), though it was not statistically significant.
 
-[Level 2++] [Grade B] Complications by procedure:
+[Level 1++] Interventions that combined diet, physical activity and behavioural components for at least 6 months in children 6-11 years compared to no interventions or usual care were associated with reductions of,
+- BMI (mean difference -0.53 kg/m², 95% CI -0.82, -0.24)
+- BMI Z-score (mean difference -0.06 units, 95% CI -0.10, -0.22)
+- Body weight (mean difference -1.45 kg, 95% CI -1.88, -1.02)
 
-**RYGB complications:** Gastric remnant distension, stomal stenosis, marginal ulcer formation, cholelithiasis, ventral hernias, internal hernias, small bowel obstructions, hypoglycaemia, dumping syndrome, metabolic and nutritional derangements, gastrogastric fistulas, weight regain.
+*In adolescents 13-18 years old*
+[Level 1++] No significant reductions were demonstrated between interventions to change either diet or physical activity alone, or combining both interventions on BMI Z-score and BMI. However, these findings were from the pooled analysis of RCTs with low certainty (high heterogeneity and potential biased).
 
-**Sleeve gastrectomy (LSG) complications:** Bleeding, narrowing or stenosis, leaks, and reflux.
+[Level 1++] In another Cochrane review, children assigned to multi-component interventions containing diet, physical activity and behavioural components vs those with no interventions resulted in reductions of:
+- BMI (mean difference -1.18 kg/m², 95% CI -1.67, -0.69)
+- BMI Z-score (mean difference -0.13 units, 95% CI -0.21, -0.05)
+- Body weight (mean difference -3.67 kg, 95% CI -5.21, -2.31)
 
-**One ABG/MBG complications:** [Level 2+] Bleeding, anastomotic site stenosis, marginal ulcer formation, anastomosis leak, and bile reflux.
+[Level 1++] The favourable effect of the multi-component intervention was reported up to 24 months of follow up.
 
-**AGB complications:** [Level 2+] Band erosion, band slippage, port or tubing malfunction, stomal obstruction, port infection, and insufficient weight loss.
+*All (children and adolescents 0-18 years old)*
+[Level 1++] Similarly, another review that included RCTs involving children 0-18 years found that combined interventions of diet and physical activity were linked with reductions in BMI and BMI Z-scores.
 
-**Contraindications for bariatric surgery:** [Level 2+] [Grade C]
-- Pregnancy
-- Patients unable to comply with continuous medical follow-up
-- Patients with non-stabilised psychotic disorders, severe depression or personality/eating disorders (unless specifically advised by a psychiatrist/psychologist)
-- Patients with reversible endocrine disorders that cause obesity
-- Alcohol abuse and/or drug dependencies
-- Patients with short-term life-threatening diseases (ASA-4)
-- Patients unable to care for themselves without long-term family/social support
+While most of the Cochrane reviews discussed indicate the favourable effects of combined diet, physical activity as well as behavioural interventions on weight reduction in children aged between 0 and 18 years, considerable inconsistencies in the weight management strategies used were evident. Other inconsistencies were also observed in the settings where the RCTs were conducted as well as the duration of the follow-up.
 
-Post-operative care: use proton-pump inhibitors (PPI) to prevent marginal ulcers, supplementation of micro and/or macronutrients, behavioural and nutritional advice, delay pregnancy until weight stabilises.
+### 6.2.3: Environment
+Preventive measures for obesity will need to include changes in the environment. Availability and accessibility to greenspaces, parks, recreational facilities, and sidewalks were found to be associated with increased physical activity levels and reduced sedentary behaviour in children.
 
-> **[Grade B]** Bariatric surgery should only be performed in individuals with morbid obesity who fail medical therapy.
->
-> **[Grade A]** Roux-En-Y gastric bypass surgery may be considered.
->
-> **[Grade B]** A comprehensive preoperative assessment and preparation should be done before bariatric surgery.
-
----
-
-## 4.3.6: Intragastric Balloon (IGB) — Special Non-Operative Procedure
-
-**Efficacy:**
-[Level 1++] [Grade A] IGB is capable of producing **6–15% total body weight loss (TBWL)** compared with the 1–5% produced through lifestyle interventions alone.
-
-[Level 1++] A meta-analysis of 55 studies (6,654 Orbera balloon implantations) demonstrated pooled estimate of TBWL:
-- 12.3% at 3 months
-- 13.16% at 6 months
-- 11.27% at 12 months
-
-**Sustained weight loss:**
-[Level 2+] Although IGB is safe and effective short-term, it is a temporary measure and weight regain is expected after removal. In a study of 500 patients:
-- Only 50% maintained a 20% excess weight loss at 1 year after balloon removal
-- 25% maintained weight loss at 5 years
-- By 10 years, no difference between IGB therapy and lifestyle changes alone
-
-[Level 1++] IGB therapy has shown improvement in metabolic parameters among patients who successfully lose weight. [Grade A]
-
-**Safety of IGB:**
-- Gas-filled balloon systems are better tolerated than fluid-filled systems
-- IGB that are swallowed cause fewer serious complications and death vs endoscopically-placed balloons
-- **All patients undergoing IGB should be tested and treated for Helicobacter pylori before placement**, and should receive PPI treatment while the balloon is in place
-
-**Common adverse events:** At beginning of IGB therapy, up to 91% of patients develop some form of GI symptoms (nausea, vomiting, abdominal pain, acid reflux, burping, dyspepsia, constipation). 4–7% continue experiencing significant GI symptoms after the first week; fewer (<3%) required endoscopic reintervention.
-
-**Serious adverse events:** [Level 1++] Incidence of balloon migration 1.4%, gastric perforation 0.1%, mortality 0.08%.
-
-**Balloon-related serious adverse events:**
-- Balloon migration — risk if left longer than intended duration
-- Spontaneous hyperinflation (unique to liquid-filled balloons)
-- Acute pancreatitis (observed mostly with liquid-filled balloons)
-
-**Mortality:** FDA has issued multiple letters alerting healthcare providers of 18 reported deaths worldwide (2016 to present) in patients with liquid-filled IGB systems. [Level 1++] Meta-analysis of RCTs reported a 0% mortality rate at 3 months. [Grade A]
-
-**IGB Recommendations Summary:** [Level 1++] [Grade A]
-
-| Recommendation | Strength | Evidence |
-|---|---|---|
-| Use IGB with lifestyle modification over lifestyle modification alone | Conditional | Moderate |
-| Moderate-to-high intensity lifestyle modification during IGB therapy | Strong | Moderate |
-| Prophylaxis with PPIs during IGB therapy | Strong | Moderate |
-| Perioperative antiemetics for 2 weeks after IGB placement | Conditional | Low |
-| Perioperative laboratory screening for nutritional deficiencies | Conditional | Low |
-| Daily supplementation with 1–2 adult dose multivitamins after IGB placement | Conditional | Very Low |
-| After IGB removal: suggest weight-loss or maintenance interventions (dietary interventions, pharmacotherapy, repeat IGB, or bariatric surgery) | Conditional | Very Low |
+**Recommendations 10**
+- [Grade B] Breast feeding should be encouraged and adherence to dietary guidelines during weaning should be advocated.
+- [Grade B] Multicomponent interventions should be used in preventing obesity
+  - Dietary
+  - Physical activity
+  - Behavioural aspects
+- [Grade C] Family and parental involvement should be encouraged.
+- [Grade C] School-based programme with community engagement should be advocated.
+- [Grade D] Environmental changes should be made to support obesity prevention.
 
 <!-- parent_only_reference_start -->
-Bariatric Surgery Indications (Malaysia)
-| Condition | BMI Threshold |
-|---|---|
-| Morbid obesity without comorbidities | ≥37.5 kg/m² |
-| Morbid obesity with metabolic syndrome/CV risk (failing medical therapy) | ≥32.5 kg/m² |
-| Low BMI — research only | <32.5 kg/m² |
-
-Weight Loss By Procedure (1-Year)
-| Procedure | % Weight Loss at 1 Year | % Weight Loss at 5 Years |
-|---|---|---|
-| RYGB | 31.2% | 25.5% |
-| SG | 25.2% | 18.8% |
-| AGB | 13.7% | 11.7% |
-
-Level Of Evidence (SIGN50)
+Level Of Evidence
 | Level | Study Design |
 |---|---|
 | 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with very low-risk of bias |
 | 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with low-risk of bias |
+| 1- | Meta-analyses, systematic reviews, or RCTs with high-risk of bias |
 | 2++ | High quality systematic reviews of case-control or cohort studies |
-| 2+ | Well-conducted case-control or cohort studies |
+| 2+ | Well-conducted case-control or cohort studies with low-risk of confounding |
 | 3 | Non-analytic studies |
 | 4 | Expert opinion |
+
+Grades Of Recommendation
+| Grade | Definition |
+|---|---|
+| A | At least one RCT rated 1++ or body of evidence from 1+ studies, directly applicable |
+| B | Body of evidence from 2++ studies or extrapolated from 1++/1+ |
+| C | Body of evidence from 2+ studies or extrapolated from 2++ |
+| D | Evidence level 3 or 4 or extrapolated from 2+ |
 
 Abbreviations
 | Abbreviation | Description |
 |---|---|
-| AGB | Abdominal gastric banding |
-| CPAP | Continuous positive airway pressure |
-| CVD | Cardiovascular disease |
-| IGB | Intragastric balloon |
-| MAFLD | Metabolic associated fatty liver disease |
-| MBG | Mini gastric bypass |
-| OSA | Obstructive sleep apnoea |
-| PPI | Proton-pump inhibitor |
-| RYGB | Roux-en-Y gastric bypass |
-| SG | Sleeve gastrectomy |
-| T2DM | Type 2 diabetes mellitus |
-| TBWL | Total body weight loss |
+| BMI | Body mass index |
+| CI | Confidence interval |
+| CV | Cardiovascular |
+| GLP1-RA | Glucagon-like peptide-1 receptor agonist |
+| PCOS | Polycystic ovarian syndrome |
+| QALY | Quality-adjusted life year |
+| QoL | Quality of life |
+| RCT | Randomised controlled trial |
 <!-- parent_only_reference_end -->
