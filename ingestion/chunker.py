@@ -102,40 +102,112 @@ CROSS_REF_PATTERN = re.compile(
 
 _VALID_TARGET_KINDS = {'h1_section', 'h2_section', 'h3_section', 'algorithm_flowchart', 'appendix'}
 
-# Evidence tag patterns (kept from original)
-_GRADE_TOKEN = r'(?:I{1,3}[-]?[a-c]?|A|B|C)'
-_LEVEL_TOKEN = r'(?:[A-C]|I{1,3}(?:\s*-\s*\d+)?|\d+(?:\s*-\s*\d+)?)'
+# Evidence tag patterns. Three grading schemes coexist in the corpus and use
+# disjoint token sets, so a single union regex is safe — we never need to
+# disambiguate which scheme a captured token belongs to at extract time:
+#   ESC     : Grade I/IIa/IIb/III   Level A/B/C
+#   USPSTF  : Grade A/B/C           Level I/II-1/II-2/II-3/III
+#   SIGN50  : Grade A/B/C/D + ✓     Level 1++/1+/1-/2++/2+/2-/3/4
+# Order the SIGN50 plus-suffix alternatives longest-first so "1++" matches
+# before "1+", and so on. The trailing "✓ good-practice point" marker is
+# emitted only in definition tables in the corpus, not as an inline tag,
+# so it is intentionally NOT captured here.
+_GRADE_TOKEN = r'(?:I{1,3}[-]?[a-c]?|A|B|C|D)'
+# Level tokens, longest-first to avoid greedy mis-segmentation:
+#   IV                              (Thyroid CPG extends USPSTF Levels to IV)
+#   I/II/III with optional "-N"     (USPSTF II-1/II-2/II-3, also ESC II-a captured by Grade)
+#   1++ / 1+ / 1- / 2++ / 2+ / 2-   (SIGN50 — longest first so "1++" wins over "1+")
+#   bare digit with optional "-N"   (plain 3 / 4, plus any future numeric range)
+#   A/B/C                           (ESC Level)
+_LEVEL_TOKEN = (
+    r'(?:IV'
+    r'|I{1,3}(?:\s*-\s*\d+)?'
+    r'|1\+\+|1\+|1-|2\+\+|2\+|2-'
+    r'|\d+(?:\s*-\s*\d+)?'
+    r'|[A-C])'
+)
+
+
+# A bracketed or parenthesised evidence-tag block. Body must begin with the
+# keyword "Grade" or "Level"; ** wrappers and surrounding whitespace are
+# tolerated. The block body is parsed by _parse_evidence_body below; if the
+# body is not a strict sequence of {keyword? + token} segments, the whole
+# block is rejected (so prose like "[Grade III pressure ulcer]" cannot
+# false-match).
+_EVIDENCE_BLOCK = re.compile(
+    r'\*{0,2}'
+    r'(?:\[(?P<bbody>(?:Grade|Level)[^\]]*?)\]'
+    r'|\((?P<pbody>(?:Grade|Level)[^)]*?)\))'
+    r'\*{0,2}',
+    re.IGNORECASE,
+)
+# Splits a tag-block body into segments. Real-world separators observed in
+# the corpus: comma, semicolon, slash, and the word "and" between bands.
+_EVIDENCE_SEP = re.compile(r'\s*[,;/]\s*|\s+and\s+', re.IGNORECASE)
+# Strict per-segment shape: optional Grade|Level keyword + exactly one token.
+_EVIDENCE_SEGMENT = re.compile(
+    rf'^(?:(?P<kw>Grade|Level)\s+)?(?P<tok>{_GRADE_TOKEN}|{_LEVEL_TOKEN})\s*$',
+    re.IGNORECASE,
+)
+
+
+def _parse_evidence_body(body: str):
+    """
+    Parse a tag-block body into [(kind, token), ...].
+
+    Handles every inline form seen in the corpus:
+      [Grade A]                              · single grade
+      [Level II-2]                           · single level (USPSTF / SIGN50)
+      [Level IV]                             · Thyroid USPSTF extension
+      [Grade I, Level A]   [Grade I Level A] · combined (comma or whitespace)
+      [Level A, Grade I]                     · combined, level-first
+      [Grade I, Level A/C]                   · combined with multi-level slash
+      [Level I; Level II-1]                  · multi-level, semicolon, keyword repeated
+      [Level I, Level II-3, Level III]       · multi-level, comma, keyword repeated
+      [Level III, II]   [Level III, IV]      · multi-level, bare token inherits kind
+      [Level A/B/C]                          · multi-level, slash separated
+      (Grade A)   (Level II-2)               · parenthesised forms
+      **[Grade D]**                          · bold-wrapped
+
+    Returns None (and the caller discards the block) if any segment fails the
+    strict shape — this prevents prose blocks like "[Grade III pressure ulcer]"
+    from being mis-captured.
+    """
+    # Normalise: insert a comma before any non-leading "Grade "/"Level " keyword
+    # so whitespace-separated combined forms like "[Grade I Level A]" parse as
+    # two segments without further special-casing.
+    body = re.sub(r'\s+(?=(?:Grade|Level)\b)', ',', body.strip(), flags=re.IGNORECASE)
+    out = []
+    current_kind = None
+    for raw in _EVIDENCE_SEP.split(body):
+        seg = raw.strip()
+        if not seg:
+            continue
+        sm = _EVIDENCE_SEGMENT.match(seg)
+        if not sm:
+            return None  # extra prose or unrecognised token — reject block
+        kw = sm.group('kw')
+        if kw:
+            current_kind = kw.capitalize()
+        if not current_kind:
+            return None  # bare token before any keyword — reject
+        token = re.sub(r'\s+', '', sm.group('tok').upper())
+        out.append((current_kind, token))
+    return out or None
 
 
 def _extract_evidence_tags(text: str) -> Dict[str, list]:
     grades, levels, who_classes = [], [], []
 
-    combined = rf'\*{{0,2}}\[Grade\s*({_GRADE_TOKEN}),\s*Level\s*({_LEVEL_TOKEN})\]\*{{0,2}}'
-    for m in re.finditer(combined, text, re.IGNORECASE):
-        g = re.sub(r'\s+', '', m.group(1).upper())
-        lv = re.sub(r'\s+', '', m.group(2).upper())
-        if g not in grades: grades.append(g)
-        if lv not in levels: levels.append(lv)
-
-    grade_only = rf'\*{{0,2}}\[Grade\s*({_GRADE_TOKEN})\]\*{{0,2}}'
-    for m in re.finditer(grade_only, text, re.IGNORECASE):
-        g = re.sub(r'\s+', '', m.group(1).upper())
-        if g not in grades: grades.append(g)
-
-    level_only = rf'\*{{0,2}}\[(?:L|l)evel\s*({_LEVEL_TOKEN})\]\*{{0,2}}'
-    for m in re.finditer(level_only, text):
-        lv = re.sub(r'\s+', '', m.group(1).upper())
-        if lv not in levels: levels.append(lv)
-
-    grade_paren = rf'\(\s*Grade\s*({_GRADE_TOKEN})\s*\)'
-    for m in re.finditer(grade_paren, text, re.IGNORECASE):
-        g = re.sub(r'\s+', '', m.group(1).upper())
-        if g not in grades: grades.append(g)
-
-    level_paren = rf'\(\s*(?:L|l)evel\s*({_LEVEL_TOKEN})\s*\)'
-    for m in re.finditer(level_paren, text):
-        lv = re.sub(r'\s+', '', m.group(1).upper())
-        if lv not in levels: levels.append(lv)
+    for m in _EVIDENCE_BLOCK.finditer(text):
+        body = m.group('bbody') or m.group('pbody') or ''
+        parsed = _parse_evidence_body(body)
+        if not parsed:
+            continue
+        for kind, token in parsed:
+            bucket = grades if kind == 'Grade' else levels
+            if token not in bucket:
+                bucket.append(token)
 
     # WHO classification — covers two scales that share the "WHO" word:
     #   * WHO Functional Class (symptom severity; PAH, stroke, etc.)

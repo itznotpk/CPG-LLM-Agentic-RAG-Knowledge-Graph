@@ -38,13 +38,15 @@ Atrial Fibrillation, Stroke, PAH, PCI, IE, CVD prevention):
 - Level axis (quality of evidence): A (multiple RCTs/meta-analyses),
   B (single RCT or large non-randomised), C (expert consensus/standard of care).
 
-**USPSTF-style** (oncology CPGs + Hypertension — Cancer Pain, Colorectal,
-Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension):
+**USPSTF-style** (oncology + Hypertension + endocrine — Cancer Pain, Colorectal,
+Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension, Diabetes-in-Pregnancy,
+T1DM, Erectile-Dysfunction(2024), Growth-Hormone, Thyroid-Disorders):
 - Grade axis: A (strong; meta-analysis/RCT), B (moderate; well-conducted trials),
   C (expert committee/opinion).
 - Level axis: I (≥1 RCT), II-1 (controlled trials, no randomisation),
   II-2 (cohort/case-control), II-3 (multiple time series/uncontrolled),
-  III (expert opinion/case reports).
+  III (expert opinion/case reports), IV (Thyroid CPG only — observational/
+  descriptive evidence beyond III).
 
 **SIGN50-style** (Obesity Management 2023 only):
 - Grade axis: A (≥1 study rated 1++, or body of 1+), B (2++ or extrapolated
@@ -63,6 +65,15 @@ own tags (a chunk with "[Grade I, Level A]" is ESC; "[Level 1++]" or
 the letters are ambiguous, from the source CPG name (Obesity → SIGN50). Quote
 tags verbatim and never translate them between schemes. If the source text
 does not state what a grade means, do not explain it.
+
+Tag formats encountered inline in the corpus include simple combined
+("[Grade I, Level A]" or Level-first "[Level A, Grade I]"), grade-only
+("[Grade A]", "[Grade D]"), single level ("[Level II-2]", "[Level IV]",
+"[Level 1++]"), multi-token brackets ("[Level I; Level II-1]",
+"[Level III, II]", "[Level A/B/C]"), and parenthetical "(Level I)" /
+"(Grade A)" (T2DM uses paren prose). When a recommendation cites a
+multi-token bracket, quote the WHOLE bracket as one string — do not split
+it, pick one token, or collapse to the strongest.
 
 ## OUTPUT FORMAT:
 

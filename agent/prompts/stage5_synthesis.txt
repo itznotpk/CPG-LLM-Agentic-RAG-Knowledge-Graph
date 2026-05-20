@@ -17,10 +17,12 @@ scheme depends on the source CPG of each chunk (read the [N] header):
     Grade axis = I, IIa, IIb, III   (STEMI writes these as I, II-a, II-b, III)
     Level axis = A, B, C
 
-  USPSTF-style (oncology + Hypertension — Cancer Pain, Colorectal,
-  Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension):
+  USPSTF-style (oncology + Hypertension + endocrine — Cancer Pain,
+  Colorectal, Cervical, Breast, Nasopharyngeal Carcinoma, Hypertension,
+  Diabetes-in-Pregnancy, T1DM, Erectile-Dysfunction(2024), Growth-Hormone,
+  Thyroid-Disorders):
     Grade axis = A, B, C
-    Level axis = I, II-1, II-2, II-3, III
+    Level axis = I, II-1, II-2, II-3, III, IV (Thyroid only extends to IV)
 
   SIGN50-style (Obesity Management 2023 ONLY):
     Grade axis = A, B, C, D, plus ✓ (good-practice point / GPP)
@@ -42,24 +44,44 @@ doubt between USPSTF and SIGN50 "Grade A/B/C" (identical letters), resolve by
 source CPG: an Obesity Management chunk is SIGN50. Do NOT add prose explaining
 what a grade "means" unless that definition appears in the retrieved text.
 
-Grade tags appear INLINE within chunk text in these formats (only these
-forms occur in the corpus — parenthetical/labelled forms do not exist):
-  Combined (ESC):  [Grade I, Level A]   [Grade IIa, Level B]   [Grade IIb, Level B]
-  Grade-only:      [Grade A]   [Grade B]   [Grade C]   [Grade D]   (USPSTF & SIGN50)
-  Level-only:      [Level I]  [Level II-2]  [Level III]            (USPSTF/oncology)
-                   [Level 1++]  [Level 1+]  [Level 2++]  [Level 3]  [Level 4]  (SIGN50)
+Grade tags appear INLINE within chunk text in these formats (parenthetical
+"(Grade X)"/"(Level X)" wrappers also appear, mainly in T2DM CPG):
+  Simple combined:   [Grade I, Level A]   [Grade IIa, Level B]   [Grade IIb, Level B]
+                     [Grade I Level A]                                      (no comma — rare)
+                     [Level A, Grade I]   [Level I, Grade A]                (Level-first; common in Ischaemic Stroke)
+                     [Grade I, Level A/C]   [Grade III, Level A/B/C]        (combined w/ slash multi-level)
+  Grade-only:        [Grade A]  [Grade B]  [Grade C]  [Grade D]             (USPSTF & SIGN50; "D" = SIGN50 only)
+  Level-only single: [Level I]  [Level II-2]  [Level III]  [Level IV]       (USPSTF; IV = Thyroid only)
+                     [Level 1++]  [Level 1+]  [Level 2++]  [Level 3]  [Level 4]  (SIGN50)
+  Level-only multi:  [Level I; Level II-1]                                  (semicolon, keyword repeated)
+                     [Level I, Level II-3, Level III]                       (comma, keyword repeated)
+                     [Level III, II]   [Level III, IV]                      (bare token inherits "Level" kind)
+                     [Level A/B/C]   [Level 1++/Level 1+/Level 4]           (slash separator)
+  Parenthetical:     (Level I)  (Level II-2)  (Grade A)                     (T2DM uses paren prose form)
   The SIGN50 ✓ "good practice point" appears only in definition tables, not as
   an inline recommendation tag — if seen near a recommendation, treat as null.
+
+MULTI-TOKEN BRACKET RULE: when a recommendation cites a multi-token tag (e.g.
+"[Level I; Level II-1]", "[Level III, II]", "[Level A/B/C]"), copy the WHOLE
+bracket as a single string into evidence_grade — do not split it, do not pick
+one, do not collapse to the strongest. The chunker has already exploded the
+individual tokens into the chunk's evidence_levels list for downstream
+consumers, so traceability is preserved on both sides.
 
 EVIDENCE GRADE ASSIGNMENT — do this for every Recommendation you generate:
 1. Find the specific sentence in the source chunk that supports this recommendation.
 2. Look for an evidence tag immediately following or preceding that sentence.
-   The tag may be combined ([Grade I, Level A]), grade-only ([Grade A],
-   [Grade D]), or level-only ([Level II-2], [Level 1++]) — accept whichever
-   form the source CPG uses.
+   Any form from the list above is valid: simple combined ([Grade I, Level A]
+   or Level-first [Level A, Grade I]), grade-only ([Grade A], [Grade D]),
+   level-only single ([Level II-2], [Level IV], [Level 1++]), level-only
+   multi ([Level I; Level II-1], [Level III, II], [Level A/B/C]), or
+   parenthetical ((Level I), (Grade A)).
 3. Copy the tag VERBATIM into evidence_grade, preserving its exact tokens
-   (e.g. "Grade I, Level A", "Grade A", "Level II-2", "Grade D", "Level 1++").
-   Do not reformat, reorder the Grade/Level parts, or convert between schemes.
+   AND separators (e.g. "Grade I, Level A", "Level A, Grade I", "Grade A",
+   "Level II-2", "Level IV", "Grade D", "Level 1++", "Level I; Level II-1",
+   "Level III, II", "Level A/B/C"). Do not reformat, reorder the Grade/Level
+   parts, split a multi-token bracket, pick a single token from inside one,
+   or convert between schemes.
 4. If multiple grade tags appear in the same chunk, assign the one closest to the cited sentence.
 5. If no grade tag appears near the cited recommendation, set evidence_grade to null.
 6. Do NOT assign a grade from a different recommendation in the same chunk.

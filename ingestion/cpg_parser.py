@@ -92,10 +92,29 @@ SECTION_PATTERNS = {
     'table': re.compile(r'Table\s*(\d+|[A-Z])', re.IGNORECASE),
 }
 
-# Evidence Level Patterns
+# Evidence Level Patterns — cover three coexisting grading schemes:
+#   ESC     : Grade I/II/IIa/IIb/III  Level A/B/C
+#   USPSTF  : Grade A/B/C             Level I/II-1/II-2/II-3/III
+#   SIGN50  : Grade A/B/C/D           Level 1++/1+/1-/2++/2+/2-/3/4
+# The level capture group preserves SIGN50 suffixes verbatim (e.g. "1++"
+# stays "1++") so downstream code can keep the scheme distinction.
 EVIDENCE_PATTERNS = {
-    'level': re.compile(r'Level\s+([I]+|[1-3])', re.IGNORECASE),
-    'grade': re.compile(r'Grade\s+([A-C])', re.IGNORECASE),
+    'level': re.compile(
+        r'Level\s+('
+        r'IV'                            # Thyroid USPSTF extension to Level IV
+        r'|I{1,3}(?:\s*-\s*\d+)?'        # USPSTF/ESC Roman, incl. II-1/II-2/II-3
+        r'|1\+\+|1\+|1-|2\+\+|2\+|2-'   # SIGN50 suffixed forms (longest first)
+        r'|[1-4]'                        # SIGN50 plain 3/4 (and bare 1/2 fallback)
+        r')',
+        re.IGNORECASE,
+    ),
+    'grade': re.compile(
+        r'Grade\s+('
+        r'I{1,3}[-]?[a-c]?'              # ESC Roman, incl. IIa/IIb/II-a/II-b
+        r'|[A-D]'                        # USPSTF A/B/C + SIGN50 A/B/C/D
+        r')',
+        re.IGNORECASE,
+    ),
     'key_recommendation': re.compile(r'Key\s+Recommendation', re.IGNORECASE),
 }
 
@@ -774,19 +793,32 @@ Focus on clinical decision-making logic."""
         return chunks
     
     def _extract_evidence_level(self, text: str) -> Optional[str]:
-        """Extract evidence level from text."""
+        """Extract evidence level from text.
+
+        Preserves SIGN50 tokens verbatim ("1++", "1+", "4", etc.) and only
+        applies the legacy digit→Roman normalisation when the surrounding
+        chunk does not look like SIGN50 — distinguishing schemes by whether
+        any SIGN50-specific suffix or "Level 4" appears in the text.
+        """
         match = EVIDENCE_PATTERNS['level'].search(text)
-        if match:
-            level = match.group(1)
-            # Normalize to roman numerals
-            if level == '1':
-                return 'Level I'
-            elif level == '2':
-                return 'Level II'
-            elif level == '3':
-                return 'Level III'
+        if not match:
+            return None
+        level = match.group(1)
+        # SIGN50 tokens — keep verbatim (covers 1++/1+/1-/2++/2+/2- and bare 4).
+        if any(c in level for c in ('+', '-')) or level == '4':
             return f'Level {level}'
-        return None
+        # If the chunk contains SIGN50 suffix tokens elsewhere, don't relabel
+        # a bare "1"/"2"/"3" as Roman — it's almost certainly SIGN50 too.
+        if re.search(r'\bLevel\s+[12](?:\+\+|\+|-)\b|\bLevel\s+4\b', text, re.IGNORECASE):
+            return f'Level {level}'
+        # Legacy USPSTF/ESC normalisation: bare digits → Roman.
+        if level == '1':
+            return 'Level I'
+        elif level == '2':
+            return 'Level II'
+        elif level == '3':
+            return 'Level III'
+        return f'Level {level}'
     
     def _extract_grade(self, text: str) -> Optional[str]:
         """Extract recommendation grade from text."""
