@@ -1,6 +1,6 @@
 # Section 0: Summary
 <!-- METADATA
-category: Reference
+category: Methodology
 use_case: STEMI Overview and Key Messages — epidemiology, diagnosis, initial_management, reperfusion_strategies, secondary_prevention
 patient_input: 
 output: clinical_summary, key_messages, management_principles

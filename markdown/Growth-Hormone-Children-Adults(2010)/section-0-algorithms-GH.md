@@ -1,6 +1,6 @@
 # Section 0: Algorithms — GH Therapy In Children, Transition Period, And Adult GHD Screening
 <!-- METADATA
-category: Reference, Screening, Diagnosis, Treatment
+category: Methodology, Reference, Screening, Diagnosis, Treatment
 use_case: Growth Hormone Algorithms — GHD_diagnosis_children, Turner_syndrome_rhGH, SGA_rhGH, transition_period_GHD, adult_GHD_screening
 patient_input: height_percentile, height_velocity, bone_age, IGF1_level, GH_stimulation_test_result, pituitary_hormone_status, clinical_features
 output: GHD_diagnosis_pathway, treatment_decision, stimulation_test_indication, transition_pathway, adult_GHD_treatment_decision

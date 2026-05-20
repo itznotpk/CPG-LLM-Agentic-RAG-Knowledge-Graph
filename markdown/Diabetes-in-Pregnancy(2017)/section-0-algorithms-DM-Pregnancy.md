@@ -1,6 +1,6 @@
 # Section 0: Key Recommendations And Algorithms
 <!-- METADATA
-category: Reference, Screening, Diagnosis, Assessment
+category: Methodology, Reference, Screening, Diagnosis, Assessment
 use_case: Key Recommendations and Clinical Algorithms Index — key_recommendations, screening_algorithm, diagnostic_algorithm, intrapartum_glucose_monitoring, insulin_infusion_titration, OGTT_pathway
 patient_input: gestational_age, risk_factors, diabetes_type, capillary_blood_glucose, labour_status, insulin_treatment, GDM_history
 output: key_recommendations, screening_pathway, diagnosis_pathway, glucose_monitoring_plan, insulin_infusion_protocol

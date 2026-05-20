@@ -1,6 +1,6 @@
 # Section 0: Summary And Key General Recommendations
 <!-- METADATA
-category: Reference
+category: Methodology
 use_case: Executive summary of CVD prevention in women with key recommendations, risk classification, and treatment targets — risk_classification, FRS, CHA2DS2-VASc, treatment_targets, evidence_grading, abbreviations
 patient_input: age, sex, TC, HDL-C, SBP, smoking_status, diabetes_status, BP_treatment
 output: CVD_risk_category, 10-year_CVD_risk, vascular_age, treatment_targets, evidence_grades

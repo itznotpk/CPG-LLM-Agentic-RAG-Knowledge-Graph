@@ -1,6 +1,6 @@
 # Section 5: Growth Hormone Deficiency In Adults
 <!-- METADATA
-category: Screening, Diagnosis, Treatment, Monitoring
+category: Screening, Diagnosis, Treatment, Assessment
 use_case: Adult GHD — clinical_features_adult_GHD, aetiology_adult_GHD, ITT_adult, GST_adult, GHD_diagnosis_adult, rhGH_benefits_adults, QoL_assessment, body_composition, cardiovascular_risk, bone_density, rhGH_dosage_adults, GH_safety_adults
 patient_input: clinical_features_GHD, aetiology, pituitary_hormone_status, IGF1_level, ITT_result, GST_result, cardiovascular_history, age, sex, seizure_history, BMD, QoL_score
 output: GHD_diagnosis_adult, rhGH_eligibility, rhGH_dose, monitoring_plan, QoL_assessment_timing, bone_density_monitoring

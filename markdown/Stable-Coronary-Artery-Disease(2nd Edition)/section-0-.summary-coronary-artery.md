@@ -1,6 +1,6 @@
 # Section 0: Summary and Key Recommendations
 <!-- METADATA
-category: Reference
+category: Methodology
 use_case: Stable CAD Summary and Recommendations Index — diagnostics, risk stratification, pharmacotherapy, revascularization, follow-up
 patient_input: symptoms, risk_factors, PTP, LVEF, FFR
 output: diagnostics_summary, risk_stratification, OMT_recommendations, revascularization_rules, follow_up_rules

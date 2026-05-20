@@ -1,6 +1,6 @@
 # Section 4: Use Of Growth Hormone In The Transition Period
 <!-- METADATA
-category: Treatment, Monitoring, Special Populations
+category: Treatment, Assessment, Special Populations
 use_case: GH Transition Period — COGHD_re-evaluation, who_continues_GH, re-testing_GHD, transition_GH_dose, IGF1_monitoring_transition, benefits_transition
 patient_input: COGHD_history, final_height_achieved, IGF1_level, pituitary_hormone_count, organic_vs_idiopathic_GHD, ITT_result, GST_result, MRI_findings, bone_age
 output: re-testing_decision, GH_continuation_decision, transition_dose, monitoring_plan

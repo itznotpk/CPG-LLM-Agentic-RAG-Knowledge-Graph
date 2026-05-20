@@ -1,6 +1,6 @@
 # Section 0: Key Messages & Recommendations
 <!-- METADATA
-category: Reference
+category: Methodology
 use_case: HF Key Messages and Recommendations Index — epidemiology, definition, classification, diagnosis, prevention, pharmacotherapy, device_therapy, acute_HF, special_populations, advanced_HF, secondary_prevention
 patient_input:
 output: key_messages, consolidated_recommendations, management_principles
