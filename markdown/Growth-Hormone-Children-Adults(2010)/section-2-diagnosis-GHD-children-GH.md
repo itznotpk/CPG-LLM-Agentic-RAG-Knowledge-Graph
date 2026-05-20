@@ -196,8 +196,7 @@ E) Quality of life (QoL)
 
 Behavioural scores partially improved in GHD children with rhGH therapy.
 
-## 2.2.5: Safety
-A) Malignancy
+### 2.2.5: Safety - Malignancy
 rhGH is both anabolic and mitogenic whilst IGF-1 is antiapoptotic. There is much experimental data to suggest that GH treatment acting via local tissue might enhance tumour cell growth. There are concerns that GH treatment may cause new malignancy (de-novo), tumour recurrence or second malignancy in those already treated for one tumour.
 
 New malignancy:
@@ -216,7 +215,7 @@ All above reported studies have significant limitations. However, a RCT cannot b
 * There is no evidence that leukemia (de novo or relapse) or CNS tumour recurrence is increased with rhGH therapy.
 * There is insufficient evidence with regards to risk of secondary neoplasms with rhGH therapy.
 
-B) Benign intracranial hypertension (BIH)
+### 2.2.6: Safety - Benign intracranial hypertension (BIH)
 [Level II-3] BIH has been recognised as an early complication of rhGH. It has been reported in GH deficiency but also in other conditions treated with rhGH including chronic renal insufficiency (CRI), Turner syndrome (TS), Prader-Willi syndrome (PWS), glucocorticoids usage and delayed puberty. Children receiving rhGH for CRI are more likely to develop BIH.
 
 [Level II-3] Based on a national database of rhGH-treated children in Australia and New Zealand, the incidence of BIH was low i.e. 1.2 per 1,000 cases.
@@ -225,7 +224,7 @@ B) Benign intracranial hypertension (BIH)
 
 BIH is known to occur in patients on rhGH therapy.
 
-C) Bone health
+### 2.2.7: Safety - Bone health
 [Level II-3] Different studies reported different prevalence of scoliosis. The NCGS database (n=24,000) reported fewer than 1% of the patients had scoliosis (prevalence of scoliosis in the general population was between 1.5 to 3.0%). [Level II-3] In a retrospective study (n= 250) of children treated with rhGH, 4% developed scoliosis. [Level II-2] A cohort study (OZGROW) showed that TS girls receiving rhGH therapy have a high prevalence of scoliosis (28%).
 
 [Level II-3] The International Cooperative Growth Study (ICGS) demonstrated that Perthes’ disease developed in 12 boys (69.9 per 100,000 patient-years). Neither recurrence nor aggravation of Perthes’ disease was observed during the rhGH therapy.
@@ -237,7 +236,7 @@ C) Bone health
 - There is insufficient evidence to suggest a causal relationship between rhGH therapy and scoliosis. However the prevalence of scoliosis is high in TS girls.
 - Children with organic causes of GH deficiency on rhGH therapy have an increase frequency of slipped capital femoral epiphyses.
 
-D) Glucose metabolism
+### 2.2.8: Safety - Glucose metabolism
 [Level III] A study evaluated the impact of rhGH therapy on glucose metabolism in children and young adults with idiopathic GH deficiency and showed no significant change after one year of rhGH therapy (0.024 mg/kg/day). [Level II-1] In another study, rhGH therapy in GHD children did not lead to an impaired glucose tolerance (IGT) or T2DM, although it significantly decreased insulin sensitivity.
 
 [Level II-3] The NCGS reported that the majority of patients who developed diabetes mellitus during rhGH therapy had an identifiable risk factor. The incidence of permanent diabetes in others is similar to that reported in American adolescents. [Level II-3] In contrast, the KIGS database demonstrated an increased frequency of T2DM in children and adolescents receiving rhGH. Of the 43 who were confirmed to have glucose disorders, 11 had type 1 diabetes (T1DM), 18 had T2DM and 14 had impaired glucose tolerance (IGT). There was no increase in the incidence for T1DM but the incidence for T2DM (34 cases per 100,000 patient-years) was approximately six-fold higher than in children not treated with rhGH.
@@ -245,7 +244,7 @@ D) Glucose metabolism
 - rhGH therapy decreases insulin sensitivity without impairing glucose tolerance.
 - The risk of T2DM may be increased in individuals on rhGH therapy.
 
-E) Skin
+### 2.2.9: Safety - Skin
 [Level II-3] There are concerns that rhGH may cause skin cancer in pre-existing pigmented naevi. The NCGS database reported 13 cases of increase in pigmented naevi during rhGH therapy. [Level II-3] However, biopsies have not detected neoplasia or pre-malignant naevi transformations. [Level II-2] Studies have shown that there were no difference in the naevi count between the children with GH deficiency and control group despite many years of rhGH therapy. However, children with TS had more naevi, but there was no relation to the duration of rhGH therapy and frequency of skin cancer.
 
 - There was no increase in melanocytic naevi or risk of skin cancer in GHD patient on rhGH therapy.

@@ -11,8 +11,7 @@ treatment_type: rhGH, recombinant human growth hormone
 [Level II-2] Turner Syndrome (TS) is a genetic disorder due to abnormalities of the X chromosome resulting in an array of genetic, developmental, endocrine, cardiovascular, psychosocial and reproductive issues. It affects approximately one in every 2,500 liveborn females. Majority of these patients have extreme short stature, gonadal dysgenesis and hypogonadism with a normal intellectual performance and language abilities. However, visual-spatial and/or visual-perceptual abilities are impaired. [Level II-1] The average height of untreated women with TS is 143 cm and is approximately 20 cm below the TH. [Level II-3] However, they are able to reach normal adult height with high doses of rhGH.
 
 ## 3.1.1: Outcome of rhGH Therapy
-**a. Final height**
-
+A) Final height
 [Level I; Level II-1] In a recent Cochrane Systematic Review, it was shown that rhGH was effective in improving growth and FH in girls with TS. [Level II-1] The FH was 148 cm (1.4 ± 1.0 SD Turner chart) and 141 cm (0.2 ± 0.9 SD Turner chart) in the treated and untreated women respectively.
 
 [Level III] Factors affecting height gain [from start of rhGH therapy to attainment of near-adult-height (NAH)] include:
@@ -25,10 +24,10 @@ treatment_type: rhGH, recombinant human growth hormone
 - Duration of rhGH therapy
 - Birth weight
 
-**b. Cognitive function and psychological adjustment**
+B) Cognitive function and psychological adjustment
 [Level I] The same Cochrane Review showed the possibility that girls treated with rhGH have a better psychological adjustment than untreated girls. [Level III] However, there were no demonstrable effects on cognitive function, visual-spatial and/or visual-perceptual abilities.
 
-**c. Bone/body composition**
+C) Bone/body composition
 [Level II-2] rhGH therapy had little effect on cortical or trabecular BMD in girls with TS. However, rhGH therapy was associated with an increase in lean body mass and reduced adiposity.
 
 ### 3.1.2: Time to start rhGH
@@ -49,7 +48,7 @@ treatment_type: rhGH, recombinant human growth hormone
 ### 3.1.7: Adverse Reactions of rhGH Therapy
 [Level I] Long-term surveillance showed that adverse effects are rare, but can be serious. Girls with TS on rhGH therapy were at increased risk for diabetes mellitus, SCFE, idiopathic intracranial hypertension, oedema, lymphoedema or scoliosis. [Level II-2] The Genentech Drug Safety Department received 117 serious adverse events out of 5,220 patients on rhGH therapy where seven deaths were reported (five from aortic dissection/rupture) and 10 new-onset malignancies including six in patients without known risk factors. [Level III] However, rhGH therapy does not seem to affect the diameter of ascending or descending aorta.
 
-**Recommendations:**
+Recommendations:
 - [Grade A] Turner syndrome with short stature should be considered for rhGH therapy and be referred early to a paediatric endocrinologist.
 - [Grade A] Oestrogen replacement therapy in TS children should not be initiated before the age of 12 years.
 
@@ -57,19 +56,19 @@ treatment_type: rhGH, recombinant human growth hormone
 [Level III] Small for gestational age (SGA) is defined as birth weight and/or birth length of ≥2 SD below the mean for gestational age. Approximately between 2.3 and 10% of all infants are born SGA. Most SGA infants achieve appropriate catch-up growth by two years of age. However, approximately 15% do not catch-up and continue to experience poor growth throughout childhood. [Level III] Catch-up growth is considered to have been achieved when the child's height is at or above -2 SD for age.
 
 ### 3.2.1: Outcome of rhGH Therapy
-**a. Final height**
+A) Final height
 [Level II-1] After adjustment for gender and TH, SGA subjects were significantly shorter (men 4.5 cm shorter and women 3.9 cm shorter) than those with a normal birth weight at age 20 years. [Level III] It was shown that when rhGH therapy (0.033 or 0.067 mg/kg/day) was commenced at 8 years of age and continued for 7 - 8 years, adult height increased by ≥1 SD. [Level II-1] rhGH therapy resulted in an adult height above -2 SDS in 85% of the children after a mean treatment period of 7.8 years. There is no significant difference in height gain between the low dose rhGH group (0.033 mg/kg/day) and the high dose rhGH group (0.067 mg/kg/day).
 
-**b. Cognitive function and psychological adjustment**
+B) Cognitive function and psychological adjustment
 [Level III] There is inconclusive evidence that rhGH improves IQ in short SGA children. Long-term outcome data for children born SGA show no difference in frequency of employment, marital status or satisfaction with life. However, these individuals hold fewer professional or managerial jobs and have significantly lower income than individuals of normal size at birth.
 
-**c. Body composition**
+C) Body composition
 [Level III; Level II-1] rhGH therapy in short children born SGA was shown to improve body composition, blood pressure and lipid metabolism. [Level II-1] In a 6-year multicentre RCT, normalisation of BMI was not accompanied by overall changes in percentage body fat but was accompanied by an increase in muscle mass. The long-term clinical significance of these changes is uncertain.
 
-**d. Bone Mineral Density**
+D) Bone Mineral Density
 [Level II-1] Bone maturation increases proportionately to height gain with rhGH therapy. Mean values of bone mineral apparent density (BMAD) (-0.6 SDS) were significantly reduced at start but normalised (0.3 SDS) during rhGH therapy.
 
-**e. Cardiovascular risk**
+E) Cardiovascular risk
 [Level II-1] Children born SGA have an inherent risk of cardiovascular disease and dyslipidaemia in later life. A 4-year study of children born SGA treated with rhGH showed that those who had elevated systolic blood pressure before treatment had a reduction in blood pressure over time. [Level II-1] A six-year RCT demonstrated that total cholesterol and low-density lipoprotein cholesterol (LDL) decreased significantly by the end of the study.
 
 ### 3.2.2: Time to Start
@@ -84,35 +83,34 @@ treatment_type: rhGH, recombinant human growth hormone
 ### 3.2.3: Safety and Adverse Reactions
 [Level III; Level II-1] Adverse events are not more common in this population than in other conditions treated with rhGH, nor have additional safety concerns arisen.
 
-**a. Insulin resistance**
+A) Insulin resistance
 [Level III; Level II-1] There is no evidence that T2DM, IGT or dyslipidaemia occurs more commonly among children born SGA than in the normal childhood population. Although children born SGA tend to develop higher fasting insulin level and relative insulin resistance during rhGH therapy, these changes appear to be largely reversible when treatment is terminated.
 
-**b. Bone age acceleration**
+B) Bone age acceleration
 [Level II-1] Hokken-Koelega and colleagues showed that rhGH therapy is associated with an acceleration of bone maturation especially in the first two years regardless of the rhGH dose given.
 
-**c. Risk of malignancy**
+C) Risk of malignancy
 [Level III; Level II-1] There is no evidence that the risk of malignancy is increased with rhGH therapy.
 
-**d. Benign intracranial hypertension**
+D) Benign intracranial hypertension
 [Level III; Level II-1] As in other children treated with rhGH, BIH is a rare complication of rhGH therapy in children born SGA, occurring in approximately 1 in 1000 individuals.
 
-**e. Other concerns**
+E) Other concerns
 [Level III; Level II-1] It is currently unknown whether rhGH therapy for SGA subjects through childhood and adolescence is associated with future benefits or amplification of metabolic risks in adult life. There is no long-term surveillance data on adults who have been treated with rhGH for short stature due to SGA. It is therefore prudent to follow up this group systematically.
 
-**Recommendation:**
-[Grade C] SGA children who remained short (<3rd percentile) after 4 years of age should be referred to a paediatric endocrinologist for evaluation and consideration of rhGH therapy.
+Recommendation: [Grade C] SGA children who remained short (<3rd percentile) after 4 years of age should be referred to a paediatric endocrinologist for evaluation and consideration of rhGH therapy.
 
 ## 3.3: Idiopathic Short Stature
 [Level I] Idiopathic short stature (ISS) is used to describe children who are very short for their age for unknown reason. Precise estimates for incidence and prevalence of ISS are difficult to obtain. A systematic review showed that 5 - 9% of the shortest 3% of the population did not reach an adult height above -2 SD. This accounts for 0.2% of the normal children population.
 
 ### 3.3.1: Outcome of rhGH Therapy
-**a. Final height**
+A) Final height
 [Level I] In a systematic review by Bryant J et al, a study reported that ISS patients treated with rhGH for 6 months to 6.2 years showed that near-final-height in girls were 7.5 cm taller than untreated controls (mean height of 155.3 ± 6.4 cm and 147.8 ± 2.6 cm for GH-treated and control group respectively). Another study reported an adult height of 3.7 cm taller in the GH-treated group compared with the control. Other studies suggested that short-term height gain can range from none to approximately 0.7 SD over one year. [Level I] FH measurements were within the normal adult height range for 94% of patients who received rhGH at a dose of 0.37 mg/kg/week (0.053 mg/kg/day). [Level I] Lee et al. estimated that the potential cost of rhGH therapy is around USD 52,000 per 2.54 cm gain in height.
 
-**b. Quality of life (QoL)**
+B) Quality of life (QoL)
 [Level I] There was a significant improvement in QoL in rhGH-treated ISS children compared with the control, while no significant impact on psychological adaptation or self-perception was found.
 
-**c. Psychosocial Functioning**
+C) Psychosocial Functioning
 Children with ISS were perceived to have psychosocial distress due to their short stature. [Level II-3] Visser-van BH et al. showed that rhGH therapy did not improve psychosocial functioning. [Level II-2] There was no difference in the psychosocial variables between the rhGH-treated and untreated subjects. Compared with the Dutch population norms, psychological and social functioning in ISS children was normal.
 
 ### 3.3.2: Dose
@@ -121,7 +119,7 @@ rhGH doses range from 0.30 to 0.37 mg/kg/week (0.043 - 0.053 mg/kg/day). [Level 
 ### 3.3.3: Adverse Reactions
 [Level II-3] No serious adverse effects of treatment were reported in a Cochrane Systematic Review 2007. A GH registry on ISS patients reported a safety profile similar to GHD patients.
 
-**Recommendation:**
+Recommendation:
 rhGH should not be routinely prescribed in ISS patients for the following reasons:
 - inconsistent height gain with rhGH therapy
 - high dose requirement (cost issues)
@@ -132,8 +130,6 @@ Familial short stature (FSS) is a condition characterised by height below the 3r
 
 ### 3.4.1: Outcome of rhGH Therapy
 [Level II-3] rhGH therapy has not been proven to improve remarkably FH of children with FSS. A small RCT using two different doses (20 or 40 IU/m2/week equivalent to 0.031 or 0.063 mg/kg/day) of rhGH in FSS showed no difference in their adult height outcome. The incremental effect of both doses on stature was minimal.
-
-**Recommendation:**
 [Grade C] rhGH should not be used in familial/genetic short stature.
 
 ## 3.5: Chronic Renal Insufficiency (CRI)
@@ -144,8 +140,6 @@ Renal failure is a state of growth hormone resistance and not growth hormone def
 
 ### 3.5.2: Adverse Reactions of rhGH Therapy
 [Level I] The frequency of reported side effects of rhGH in CRI patients was similar to that of the control group. They were wheezing, acute rejection in transplanted patients, deterioration in kidney function, raised fasting glucose, papilloedema, glucose intolerance, granuloma formation, lymph node swelling, claudication, hypertension and worsening of pre-existing idiopathic scoliosis. Three trials reported no significant difference in glucose intolerance in patients on rhGH therapy. Nine trials reported that kidney function did not differ between the treated and untreated groups. Only one trial demonstrated a significant increase in wheezing in the rhGH group compared to the control group.
-
-**Recommendation:**
 [Grade C] In local setting, rhGH therapy should not be given to short children with CRI.
 
 ## 3.6: Prader-Willi Syndrome
@@ -157,30 +151,28 @@ Renal failure is a state of growth hormone resistance and not growth hormone def
 [Level II-1] In a study by Lindgren et al, all patients reached near-adult height within mid-parental height median -0.5 SDS (range -1.4 to 0.7) and 0.9 SDS (range 0.1 to 1.9) for girls and boys, respectively.
 
 ### 3.6.2: Adverse Reactions
-**a. Death during rhGH therapy**
+A) Death during rhGH therapy
 [Level III] In a mini review of 13 mortality reports, 10 out of 13 PWS children died of respiratory insufficiency. The highest risk of mortality occurred during the first 7 months of rhGH therapy.
 
-**b. Respiratory**
+B) Respiratory
 [Level II-2] PWS children had increased risk of central apnoea. However, six months of rhGH therapy did not aggravate the sleep-related breathing disorders in young PWS children.
 
-**c. Carbohydrate metabolism**
+C) Carbohydrate metabolism
 [Level II-2; Level II-3] Studies have shown that fasting insulin was significantly increased at 12 months and returned to baseline between 24 and 36 months of rhGH therapy. All PWS children receiving rhGH therapy had normal levels of insulin, glucose, insulin to glucose ratio and HOMA-IR during the entire study.
 
 [Level II-1] However, in the KIGS database (n= 22), one patient developed impaired glucose tolerance (IGT) and another T2DM when their weights increased rapidly over six months (gained >10 kg). In the patient with IGT, glucose levels normalised after weight reduction.
 
-**d. Scoliosis**
+D) Scoliosis
 [Level II-3] The prevalence of scoliosis in children with PWS is high (37.5%) and increases with age. Many children with scoliosis (13%) had undergone brace treatment or surgery. [Level III; Level II-2] However, the prevalence of scoliosis is not higher in PWS patients receiving rhGH therapy.
 
 In local setting, PWS are generally very obese with high risk of central apnoea at presentation. rhGH dose based on their body weight is likely to be very high and hence very expensive.
-
-**Recommendation:**
 [Grade C] rhGH therapy should not be given to children with PWS.
 
 ## 3.7: Noonan Syndrome
 [Level II-3; Level II-2] Noonan Syndrome (NS) is a multiple congenital abnormality syndrome characterised by short stature, mental retardation, distinctive facial appearance, congenital heart defects, thoracic deformities and cryptorchidism. The incidence of NS is estimated to be between 1:1000 and 1:2500 live births. It is a hereditary autosomal dominant disorder but 60% of the cases are sporadic. Mutation of PTPN11 gene accounts for approximately 50% of all cases.
 
 ### 3.7.1: Outcome of rhGH Therapy
-**a. Final height**
+A) Final height
 [Level III] FH gain was variable with rhGH therapy in Noonan patients. Some rhGH-treated NS patients had no or only small increases in final adult height. The poor FH may be partly explained by PTPN11 gene mutation which is associated with lower basal height and possibly poor response.
 
 [Level II-3] In the KIGS Database (n=402) of patients treated with rhGH therapy for 4 to 12 years, the median increment in final height was 0.6 SDS. [Level II-3] In an uncontrolled study of 29 patients (22 patients had PTPN11 mutation) using high dose of 0.05 mg/kg/day over 3.0 to 10.3 years, mean height gain was 1.3 SDS (range from +0.2 to +2.7).
@@ -189,8 +181,6 @@ In local setting, PWS are generally very obese with high risk of central apnoea 
 [Level II-3; Level II-2] NS patients with hypertrophic cardiomyopathy may be at risk from rhGH therapy because of the effect of rhGH on cardiac muscle mass. These patients have generally been excluded from trials of rhGH therapy. [Level II-2] Possible abnormal anabolic effects of rhGH on myocardial thickness are not confirmed, and none of the rhGH-treated NS patients develop hypertrophic cardiomyopathy.
 
 In local setting, rhGH cannot be recommended for short children with Noonan syndrome in view of the high dose and cost, a wide variation of growth response and the uncertainty of rhGH on cardiovascular safety.
-
-**Recommendation:**
 [Grade C] rhGH therapy should not be given to children with Noonan syndrome.
 
 ## 3.8: Russell-Silver Syndrome
@@ -198,8 +188,6 @@ The incidence of Russell-Silver Syndrome (RSS) is 1:100,000 live births. Key fea
 
 ### 3.8.1: Growth Response with GH Therapy
 [Level III] Recent data suggested that RSS exhibit abnormal pulsatility of GH secretion. There were very few studies on RSS. In an earlier review it was suggested that FH outcome can be improved by using pharmacological doses of rhGH. However the number of RSS patients was very small. [Level III] Height gain (+1.3 SD) was the same in SGA and RSS, but final adult height is lower in RSS as they were shorter at baseline.
-
-**Recommendation:**
 [Grade C] rhGH should not be given to children with Russell-Silver syndrome.
 
 ## 3.9: Skeletal Dysplasia
@@ -215,8 +203,6 @@ First year response to rhGh therapy is typically a 2 - 3 cm increase in growth v
 [Level III] rhGH therapy is unlikely to improve the height of ACH to within normal range for the population. On the contrary, rhGH therapy can worsen scoliosis during pubertal growth and also the stature. Surgical limb lengthening is a better alternative for these patients.
 
 [Level II-3] The height improvement was much greater in HCH than in ACH. With three years of rhGH therapy, the mean increase in height SD for ACH was negligible (-0.2 SD to 0.1 SD) but was better in HCH (1.2 SD to 2.6 SD).
-
-**Recommendation:**
 [Grade C] rhGH therapy should not be used for skeletal dysplasia.
 
 <!-- parent_only_reference_start -->

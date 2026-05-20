@@ -6,6 +6,7 @@ patient_input: short_stature, slow_growth, neonatal_hypoglycaemia, history_crani
 output: guideline_context, investigation_criteria, cost_context
 -->
 
+## 1.0: Introduction to Growth Hormone (GH)
 Growth hormone (GH) has been used in clinical practice since 1950s. The initial source of GH was human cadaver pituitary extract. The supply was scarce and the scope of GH usage then was limited only to children with proven GH deficiency. In 1985, pituitary-derived GH was banned because of its association with Creutzfeld Jacob disease. This triggered an acceleration in the biosynthesis of GH via recombinant DNA technology. Today there is an abundant supply of biosynthetic GH commercially. The use of GH has also expanded markedly beyond GH deficiency to conditions without GH deficiency where data regarding its efficacy and safety in these conditions are still lacking.
 
 In Malaysia, recombinant human growth hormone (rhGH) has been commercially available since 1985. However, despite its increased availability, many GH deficient (GHD) children are still deprived of rhGH therapy due to its high cost and concerns regarding its long-term safety. On the contrary, the broadening of scope of GH therapy also has its drawbacks including its increasing use and abuse of GH in a broad variety of growth disorders without evidence of GH deficiency.
@@ -24,7 +25,7 @@ The most common presentation of GH deficiency in children is stunted growth. In 
 ## 1.2: Who Should Be Investigated for GH Deficiency?
 The consensus guidelines (GH Research Group, 2000) recognised the key facts in history and physical examination that may indicate GH deficiency in the neonates. [Level II, Level III] These include neonatal history of persistent hypoglycaemia, prolonged neonatal hyperbilirubinemia, microphallus, traumatic delivery or presence of craniofacial midline abnormalities. [Level I, Level II-3, Level III] Positive history of intracranial tumour, cranial surgery, head injury either from complications at birth or from trauma, central nervous system infection, cranial irradiation should also alert the clinician of the diagnosis of GH deficiency in a short and slowly growing child.
 
-**Recommendations**
+Recommendations:
 * In neonates/infants, evaluation for GH deficiency should be conducted if they manifest persistent, intractable hypoglycaemia ± convulsions associated with any of the following:
   * Micropenis in a male infant
   * Prolonged neonatal jaundice

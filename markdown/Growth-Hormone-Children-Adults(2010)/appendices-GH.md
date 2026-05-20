@@ -99,8 +99,8 @@ These growth charts are standard reference charts used to monitor growth and dev
     - Weight: Measured in pounds (lb) and kilograms (kg) up to 230 lb / 105 kg.
 - **Percentile Curves:** 5th, 10th, 25th, 50th, 75th, 90th, and 95th percentiles are plotted.
 - **BMI Calculation Reference Formula:**
-  - Metric: $\text{BMI} = \frac{\text{Weight (kg)}}{\text{Stature (cm)} \times \text{Stature (cm)}} \times 10,000$
-  - Imperial: $\text{BMI} = \frac{\text{Weight (lb)}}{\text{Stature (in)} \times \text{Stature (in)}} \times 703$
+  - Metric: BMI = (Weight (kg) / (Stature (cm) * Stature (cm))) * 10,000
+  - Imperial: BMI = (Weight (lb) / (Stature (in) * Stature (in))) * 703
 
 **C. Girls 0 to 36 Months (Birth to 36 Months)**
 - **Parameters Measured:** Length-for-age and Weight-for-age percentiles.
@@ -120,8 +120,8 @@ These growth charts are standard reference charts used to monitor growth and dev
     - Weight: Measured in pounds (lb) and kilograms (kg) up to 230 lb / 105 kg.
 - **Percentile Curves:** 5th, 10th, 25th, 50th, 75th, 90th, and 95th percentiles are plotted.
 - **BMI Calculation Reference Formula:**
-  - Metric: $\text{BMI} = \frac{\text{Weight (kg)}}{\text{Stature (cm)} \times \text{Stature (cm)}} \times 10,000$
-  - Imperial: $\text{BMI} = \frac{\text{Weight (lb)}}{\text{Stature (in)} \times \text{Stature (in)}} \times 703$
+  - Metric: BMI = (Weight (kg) / (Stature (cm) * Stature (cm))) * 10,000
+  - Imperial: BMI = (Weight (lb) / (Stature (in) * Stature (in))) * 703
 
 ## Appendix 4: Suggested Growth Hormone Dosages And Side Effects
 | Drug | Recommended Dose In Paediatrics | Recommended Dose In Adults | Side Effects | Caution |

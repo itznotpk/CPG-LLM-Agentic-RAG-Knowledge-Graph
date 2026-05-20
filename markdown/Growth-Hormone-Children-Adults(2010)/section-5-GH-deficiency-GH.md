@@ -24,11 +24,8 @@ Table 1: Clinical Features of Syndrome of Adult GH Deficiency
 | - Reduced vitality and energy | |
 | - Increased social isolation | |
 
-* Adopted from Ho K 2006. Growth Hormone deficiency in Adults. Endocrinology 2006. 5th edition; 755-765.
-
 [Level II-2] Untreated GH deficiency in adults is associated with increased morbidity and mortality. The syndrome is associated with increased risk for cardiovascular mortality, osteopenia, fracture rates, fat mass and decreased muscle mass. [Level III] There is also a greater propensity for dyslipidaemia with increased total and LDL cholesterol, and reduced HDL cholesterol. [Level III] Successful rhGH replacement treatment ameliorates many symptoms of GH deficiency syndrome. [Level II-2] GHD adults are associated with reduced bone density and osteoporosis. [Level II-2] COGHD results in reduced bone density in adult life and subjects with adult onset GH deficiency have an increased prevalence of fractures. [Level II-3] The KIMS database of GHD adult showed that the majority (60 - 70%) of patients had additional pituitary hormones deficiency primarily gonadotropin, TSH and ACTH deficiency. Posterior pituitary deficiency was less common (22%).
 
-**Recommendation:**
 [Grade C] Regular monitoring of the cardiovascular parameters including lipid profiles, blood pressure and fasting glucose should be done.
 
 GHD adults should:
@@ -45,7 +42,7 @@ A large number of different aetiologies contribute to GH deficiency in adulthood
 
 [Level I] At least 25% of TBI survivors developed one or more pituitary hormone deficiencies. Most cases of post-traumatic hypopituitarism remain undiagnosed and untreated in clinical practice. In a recent systematic review, up to one third of TBI patients were diagnosed to have GH deficiency. In the majority of patients, the condition was transient and only 16% of the cases had persistent deficiency at 6 - 12 months of follow up. [Level III] It was recommended that screening for GH deficiency is appropriate 6 to 12 months after the head trauma in moderate to severe head cases.
 
-**Recommendation:**
+Recommendation:
 GH deficiency should be excluded in adult patients with clinical features of GH deficiency AND one of the following:
 - hypothalamic-pituitary disease,
 - previous cranial irradiation
@@ -60,23 +57,22 @@ The diagnosis of GH deficiency in adults should ideally be based on correct iden
 
 [Level III] ITT is contraindicated in patients with electrocardiographic evidence or history of ischaemic heart disease or in patients with seizure disorders. [Level III] Since ITT can cause seizures, it might be prudent to avoid it in patients with a history of previous stroke as well. In such patients where the ITT is undesirable or contraindicated, a reliable alternative GH stimulation test is the glucagon stimulation test (GST) for the following reasons: 1) accurate and reliable discrimination between normal and true GH deficiency, 2) availability, 3) reproducibility, 4) safety and 5) lack of influence by gender, or hypothalamic cause of GHD.
 
-- Insulin Tolerance Test (ITT) is the gold standard for diagnosing adult GH deficiency.
+Insulin Tolerance Test (ITT) is the gold standard for diagnosing adult GH deficiency.
 
-**Recommendation:**
+Recommendation:
 ITT should be avoided in patients with one or more of the following:
 - History of seizures
 - History of strokes
 - Presence of coronary artery disease.
 - [Grade C] >55 years of age
 
-Glucagon stimulation test is an alternative in patients who are unsuitable for ITT. [Grade C]
+[Grade C] Glucagon stimulation test is an alternative in patients who are unsuitable for ITT.
 
 [Grade C] Patients with irreversible hypothalamic-pituitary lesions and with evidence of at least three pituitary hormone deficiencies and serum IGF-1 levels below the age- and sex-appropriate reference range are deemed GH deficient and do not require GH stimulation test.
 
 ## 5.4: Benefits
 [Level III] There are protean clinical manifestations of GH deficient syndrome for which the appropriate management is GH replacement. However, not all subjects with GH deficiency has the GHD syndrome. The benefits of GH replacement are well documented and many of the metabolic and body composition improvement may have a positive impact on the cardiovascular risk that GH deficient adult. The indications and the positive impact are discussed in the sections below.
 
-**Recommendation:**
 [Grade C] rhGH should only be prescribed to patients with clinical features suggestive of adult GH deficiency AND biochemically proven GH deficiency.
 
 ### 5.4.1: Psychological Well-Being
@@ -90,7 +86,6 @@ Methods for assessing the QoL in adult with GH deficiency:
 - Generic Questionnaires such as Nottingham Health Profile, Psychological General Health Well-being Schedule and General Health Questionnaire
 - Disease-Specific Questionnaire such as Quality of Life-Adult with GH deficiency Assessment, GH deficiency Questionnaire
 
-**Recommendation:**
 [Grade C] A QoL questionnaire should be administered before beginning GH replacement as psychological well-being is the most compelling indication for GH replacement in adults with GH deficiency.
 
 [Grade C] Adults with GH deficiency on GH replacement should be evaluated using the QoL questionnaire at 6 to 12-monthly intervals to document the effects of GH on their psychological well-being.
@@ -98,7 +93,6 @@ Methods for assessing the QoL in adult with GH deficiency:
 ### 5.4.2: Body Composition
 [Level III; Level II-2; Level II-1] There is a reduction of total body fat mass (FM) after rhGH replacement and the magnitude of FM reduction is dose dependent. [Level III] This FM reduction is accompanied by a parallel increase in fat free mass (FFM) which follows the same rhGH dose trend. The reduction in whole body FM with rhGH replacement is due mainly to a marked decrease in central and visceral fat in GHD subjects. [Level III; Level II-2; Level II-1] rhGH replacement has been shown to have greater reduction in central adipose tissue as compared to peripheral adipose tissue. [Level III] These body composition changes were more pronounced for young and lean subjects. [Level III] The increase in the FFM was reflected by an increase in muscle power in these subjects. [Level III] While the increase in FFM was seen within a month of rhGH replacement, the increase in muscle strength was only seen after 6 - 12 months of rhGH replacement. This lag in the functional improvement may be due to initial improvement in muscle tissue hydration.
 
-**Recommendation:**
 [Grade C] GHD adults who are undergoing rhGH replacement should have their body composition such as BMI and waist circumference measured regularly.
 
 ### 5.4.3: Cardiovascular Risk
@@ -108,7 +102,6 @@ Patients with GH deficiency have been shown to have an increased cardiovascular 
 
 [Level II-2; Level II-3] Longer term studies of five years duration have also demonstrated a significant reduction in IMT suggesting a reversal of the atherosclerotic process. However, no data is available yet to show a reduction of cardiovascular events or mortality as the number of GHD adults on sufficient duration of GH replacement is still relatively small.
 
-**Recommendation:**
 [Grade C] GHD adults who are undergoing GH replacement should have their cardiovascular parameters monitored, in addition to body composition measurements.
 
 ### 5.4.4: Bone Density
@@ -116,7 +109,7 @@ Adults with GH deficiency are associated with reduced bone density and osteoporo
 
 [Level III; Level II-2] There are studies showing that treating GHD adults with rhGH replacement improved BMD as assessed by dual energy x-ray absorptiometry scan (DEXA scan) which is more pronounced in males and in those with lower initial BMD.
 
-**Recommendation:**
+Recommendation:
 [Grade B] GHD adults should undergo DEXA scan prior to starting GH replacement.
 - [Grade C] If the initial bone density is abnormal, repeat DEXA scan is recommended at 1 - 3 years intervals to assess the need for additional anti-osteoporosis treatment.
 
@@ -125,7 +118,6 @@ Adults with GH deficiency are associated with reduced bone density and osteoporo
 
 [Level III] The dose of rhGH is initiated at 0.1 - 0.2 mg daily for men and 0.2 - 0.3 mg daily for women. At each visit, the rhGH dose is increased by 0.1 to 0.2 mg until the maintenance dose is reached based on clinical response, IGF-1 levels and limited by the occurrence of side effects.
 
-**Recommendation:**
 [Grade A] rhGH dose for replacement in GHD adults should be individualised independent of body weight.
 
 [Grade C] The starting dose of rhGH is 0.1 mg daily for men and 0.2 mg daily for women. The dose is increased by 0.1 mg or 0.2 mg to achieve a maintenance dose based on clinical response, IGF-1 levels, and side effects.
@@ -134,21 +126,21 @@ Adults with GH deficiency are associated with reduced bone density and osteoporo
 ### 5.6.1: Common Adverse Effects
 [Level I] In short term RCTs, the most common reported adverse events related to rhGH therapy were oedema, arthralgia and muscle weakness. [Level I] Similarly, a three-year RCT reported that adverse events related to fluid retention are fairly common which include arthralgia (30.6%), myalgia (13.5%), peripheral oedema (12.6%), paresthesia (9.0%), carpal tunnel syndrome (7.2%), generalised oedema (7.2%) and hypoesthesia (5.4%). These events were not associated with increase in IGF-1 levels. [Level II-3] Data from the KIMS Pfizer International Metabolic Database reported that 18% of patients developed fluid retention.
 
-- Fluid-related adverse effects such as arthralgia, myalgia and peripheral oedema are common in rhGH replacement therapy.
+Fluid-related adverse effects such as arthralgia, myalgia and peripheral oedema are common in rhGH replacement therapy.
 
 ### 5.6.2: Risk of Tumour Recurrence
 [Level II-2] Three observational studies had shown that rhGH replacement therapy had no significant effect on tumour regrowth.
 
 [Level II-2] In a long-term study by Arnold et al. involving 130 patients with non-functioning pituitary adenoma treated by surgical removal, rhGH treatment was not a significant independent predictor of recurrence.
 
-- rhGH in GHD adults does not increase recurrence of hypothalamic-pituitary tumours.
+rhGH in GHD adults does not increase recurrence of hypothalamic-pituitary tumours.
 
 ### 5.6.3: Risk of New Malignant Disease
 [Level II-2] A prospective longitudinal study of rhGH therapy in hypopituitary males of more than 50 years old demonstrated no change in serum prostate specific antigen (PSA). [Level II-3] The KIMs database also showed no evidence of rhGH therapy increasing the risk of developing malignant neoplasms.
 
 [Level II-2] When comparing 1, 411 hypopituitary adults without rhGH replacement (mean age of 56.9 year) and 289 hypopituitary patients on long-term GH replacement (mean age of 47.6 year and mean duration of GH treatment of 60 months) with the normal population, malignancies were increased in those hypopituitary patients without rhGH replacement. However in patients on rhGH replacement, the overall mortality and the rate of malignancies were similar to the normal population.
 
-- rhGH replacement in GHD adults does not increase the risk of new malignant tumours.
+rhGH replacement in GHD adults does not increase the risk of new malignant tumours.
 
 <!-- parent_only_reference_start -->
 Level Of Evidence

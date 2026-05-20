@@ -7,6 +7,7 @@ output: re-testing_decision, GH_continuation_decision, transition_dose, monitori
 treatment_type: rhGH, recombinant human growth hormone
 -->
 
+## 4.0: Overview of Growth Hormone Therapy in Transition Period
 The primary goal of rhGH therapy in children is to achieve a final height (FH) which is consistent with the target height (TH). It is a common practice to discontinue rhGH therapy after attainment of FH when growth is completed. [Level III] This period of adolescence after attainment of FH until 6 to 7 years later (approximately from 17 to 25 years old) is termed the transition period. This period encompasses a broad set of physical and psychosocial changes.
 
 The new goal of rhGH therapy in the transition period is normalisation of metabolism and improvement in quality of life.
@@ -18,7 +19,7 @@ The new goal of rhGH therapy in the transition period is normalisation of metabo
 
 [Level III] The AACE 2009 guidelines recommend that all patients with COGHD should be re-evaluated using a GH stimulation test at completion of growth except those with organic causes of hypothalamic-pituitary disease, presence of at least three pituitary hormones deficiency and serum IGF-1 below the given laboratory reference range of <-2 SD. Repeat screening for GH deficiency should be performed by paediatric endocrinologists at least one to three months after cessation of rhGH therapy.
 
-**Recommendation:**
+Recommendation:
 [Grade C] All patients with COGHD should be re-tested at completion of growth EXCEPT for those with:
 - organic hypothalamic-pituitary disease
   AND
@@ -35,7 +36,6 @@ There are scarce data regarding the optimal pharmacologic agent for GH stimulati
 - A peak stimulated GH value of 5.6 mcg/L or less in response to ITT has the best accuracy for diagnosing permanent GH deficiency.
 - Glucagon test is a good alternative to ITT.
 
-**Recommendation:**
 [Grade B] ITT should be used to re-test COGHD patients during transition period.
 
 ## 4.3: Dose Of GH
@@ -47,7 +47,7 @@ There are scarce data regarding the optimal pharmacologic agent for GH stimulati
 
 [Level III] The American Association of Clinical Endocrinologists (AACE) 2009 guidelines recommend that the starting dose of rhGH in transition should be approximately 50% of the dose between the paediatric dose required for growth and the adult dose.
 
-**Recommendations:**
+Recommendation:
 - [Grade C] The starting dose of rhGH that should be given during transition period is 0.0125 - 0.0250 mg/kg/day.
 - [Grade A] The dose of rhGH should be adjusted to maintain normal serum IGF-1 level.
 

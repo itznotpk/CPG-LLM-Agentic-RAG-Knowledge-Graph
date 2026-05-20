@@ -12,7 +12,6 @@ treatment_type: rhGH, recombinant human growth hormone
 
 There is no retrievable evidence regarding the usefulness of rhGH therapy in burns in adult patients.
 
-**Recommendation:**
 [Grade B] rhGH therapy for burns in children should only be limited to research purposes.
 
 [Grade C] rhGH therapy should not be used for burns in adults.
@@ -22,7 +21,6 @@ There is no retrievable evidence regarding the usefulness of rhGH therapy in bur
 
 [Level I] However, two smaller studies using short-term, low-dose rhGH in surgical patients showed protein sparing benefits of rhGH supplementation with no major adverse effects apart from hyperglycaemia.
 
-**Recommendation:**
 [Grade A] rhGH therapy should not be used in critical illness.
 
 ## 6.3: Fibromyalgia
@@ -30,7 +28,6 @@ There is no retrievable evidence regarding the usefulness of rhGH therapy in bur
 
 [Level I] In a small non-placebo RCT using rhGH as concomitant treatment in severe fibromyalgia associated with low IGF-1 levels, the therapy group showed a 60% reduction in the mean number of tender points compared to the control group (3.25 ± 0.8 vs 8.25 ± 0.9). Similar improvements were observed in FIQ score and EQ-VAS scale. The findings suggested that there may be an advantage of using rhGH therapy in a subset of severe fibromyalgia patients with low IGF-1 serum levels. Further randomised placebo-controlled studies would be useful to evaluate the place of rhGH therapy in fibromyalgia.
 
-**Recommendation:**
 [Grade A] rhGH therapy should not be used for routine treatment of fibromyalgia. It may be considered in patients with low IGF-1 levels.
 
 ## 6.4: Anti-Ageing Therapy In Healthy Elderly
@@ -40,7 +37,6 @@ There are physiological changes in GH levels with age. The safety, efficacy and 
 
 [Level II-2] A recent systematic review also showed no definite evidence that rhGH therapy benefited elderly non-GHD individuals. There is no data available to suggest that rhGH therapy benefits cognition in the healthy adult population.
 
-**Recommendation:**
 [Grade A] rhGH should not be used as an anti-ageing therapy.
 
 ## 6.5: Sports
@@ -48,7 +44,6 @@ Exogenous rhGH therapy has been touted as an athletic performance enhancer for m
 
 [Level I] Liu H et al., in 2008, published a systematic review of 44 articles on the effects of GH on athletic performance. Overall, 303 subjects received rhGH therapy. They were young (mean age of 27 ± 3 years), lean (mean BMI of 24 ± 2 kg/m2) and physically fit (mean maximum oxygen uptake of 51 ± 8 ml/kg/minute). GH dosage varied (mean dose of 36 ± 21 mcg/ kg/day) as did treatment duration (mean of 20 ± 18 days). The review found that although exogenous GH was associated with an increase in lean body mass (mean of 2.1 kg, 95% CI 1.3 to 2.9), there was no significant improvement in actual strength and exercise capacity. In fact, two out of three studies that measured exercising lactate levels showed significantly higher exercising lactate levels in rhGH-treated subjects suggesting that GH therapy may worsen exercise capacity. rhGH treated subjects were more frequently experiencing adverse events such as soft tissue oedema and fatigue compared to those not treated with GH.
 
-**Recommendation:**
 [Grade A] rhGH therapy should not be used to enhance athletic performance.
 
 ## 6.6: Infertility
@@ -58,7 +53,6 @@ A Cochrane systematic review of nine RCT by Harper K et al in 2003 specifically 
 
 [Level II-1] The other systematic review looked at various therapeutic options available for women who had previously responded poorly to IVF. Five of the six studies using rhGH therapy showed no significant improvement in measures of fertility (such as serum oestradiol, duration of follicular phase, number of oocytes and pregnancy rate). The single study which favoured the addition of GH was small and used historical controls.
 
-**Recommendation:**
 [Grade B] rhGH therapy should not be used in the treatment of infertile women with normal pituitary function.
 
 ## 6.7: Obesity
@@ -66,7 +60,6 @@ It is known that the endogenous secretion of GH in obese individuals is decrease
 
 [Level I] A recent meta-analysis of 24 RCTs looked at the efficacy and safety of rhGH therapy in simple adult obesity (i.e. not associated with distinct clinical syndromes). Treatment with very high dosages of rhGH therapy led to very small improvement in waist-hip ratio and fat mass in subjects treated with rhGH therapy compared to placebo. There were no significant differences in body weight, BMI, subcutaneous fat area, resting energy expenditure, respiratory quotient and blood pressure. However, there were significant increase in adverse events associated with rhGH therapy including arthralgia, paraesthesias and oedema. The beneficial effects appear to be quantitatively small and would not justify a clinically relevant role for rhGH therapy in obesity.
 
-**Recommendation:**
 [Grade A] rhGH therapy should not be used in the treatment of simple adult obesity.
 
 <!-- parent_only_reference_start -->
