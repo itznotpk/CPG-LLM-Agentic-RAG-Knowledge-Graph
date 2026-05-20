@@ -33,14 +33,15 @@ For persons who have weight related medical conditions, reducing weight benefits
 These clinical practice guidelines intend to provide healthcare providers comprehensive evidence-based guidance for screening and managing overweight and obesity, i.e., how to evaluate, treat, and manage a person with obesity while incorporating individual needs and preferences for improved clinical outcomes.
 
 <!-- parent_only_reference_start -->
-Level Of Evidence (SIGN50)
+Level Of Evidence
 | Level | Study Design |
 |---|---|
 | 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with a very low-risk of bias |
 | 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with a low-risk of bias |
 | 1- | Meta-analyses, systematic, or RCTs with a high-risk of bias |
 | 2++ | High quality systematic reviews of case-control or cohort studies |
-| 2+ | Well-conducted case-control or cohort studies with low-risk of confounding |
+| 2+ | Well-conducted case-control or cohort studies with a low-risk of confounding or bias |
+| 2- | Case-control or cohort studies with a high-risk of confounding or bias |
 | 3 | Non-analytic studies, e.g. case reports, case series |
 | 4 | Expert opinion |
 

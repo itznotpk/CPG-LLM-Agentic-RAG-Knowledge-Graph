@@ -27,7 +27,7 @@ Multicomponent approaches can include the following:
 - Motivational interviewing and behavioural strategies
 - Psychological interventions
 
-**Enhancing communication and avoidance of stigmatisation**
+### 3.2.1: Enhancing Communication And Avoidance Of Stigmatisation
 Communication is vital in obesity management and it is crucial to avoid stigmatising the individual as it produces negative consequences.
 
 [Level 1++] Approaches in communication may include:
@@ -38,10 +38,10 @@ Communication is vital in obesity management and it is crucial to avoid stigmati
 - Avoiding the use of inappropriate or hurtful words in order to maintain a positive therapeutic relationship
 - Referring to the individual as a person with obesity rather than "an obese person" will be less stigmatising
 
-**Psychoeducation**
+### 3.2.2: Psychoeducation
 [Level 1++] When educating patients, the emphasis is to work on achievable behavioural and psychological goals to achieve improved health, function and quality of life, and not just on the amount of weight loss.
 
-**Motivational interviewing**
+### 3.2.3: Motivational Interviewing
 [Level 1++] Motivational interviewing is a collaborative, goal-oriented and patient-centred guided-style counselling method depending on where they are on the Stages of Change*.
 
 These are the basic steps of practicing motivational interviewing:
@@ -52,10 +52,10 @@ These are the basic steps of practicing motivational interviewing:
 
 *\*The stages of change include, precontemplation, contemplation, preparation, action, maintenance and relapse.*
 
-**Behavioural strategies**
+### 3.2.4: Behavioural Strategies
 [Level 1++] Behavioural strategies improved adherence to lifestyle intervention programmes in adults with obesity. [Level 1++] Healthcare providers can be trained to effectively implement the wide range of behavioural interventions available.
 
-**Behavioural and cognitive interventions**
+### 3.2.5: Behavioural And Cognitive Interventions
 - Goal setting and action planning: Setting specific, measurable, achievable, relevant and time-bound (SMART) goals that can be adhered to:
   - Specific — a behavioural goal is broken into small manageable specific steps which are documented
   - Measurable — the goal and the steps taken to achieve it must be measurable to monitor progress and to know when the goal has been achieved
@@ -80,15 +80,15 @@ These are the basic steps of practicing motivational interviewing:
   - Generating alternatives — coming up with rational alternative explanations to replace the distortions which are inaccurate and unhelpful
 - Relapse prevention and management: As relapses are common in weight management, some strategies to prevent this are the early identification of high-risk situations and lapses and devising a plan to overcome high-risk situations and adapting to new coping mechanisms.
 
-**Psychological interventions**
+### 3.2.6: Psychological Interventions
 [Level 1] Psychological interventions such as Cognitive Behavioural Therapy (CBT) and, Acceptance and Commitment Therapy are effective. Acceptance and Commitment therapies focus on value-directed actions and commitment to multicomponent behavioural interventions. [Level 1++] CBT when combined with a diet or exercise intervention was found to increase weight loss compared to diet or exercise alone (WMD -4.9 kg; 95% CI -7.3, -2.4). As both these methods are intensive, patients may need a referral to a mental health professional.
 
-**Recommendations 2**
-- [Grade A] Multicomponent psychological and behavioural therapy approaches should be integrated in managing people with obesity
-  - Enhancing communication and avoiding stigmatisation
-  - Psychoeducation
-  - Motivational interviewing and behavioural strategies
-  - Psychological interventions
+Recommendation:
+[Grade A] Multicomponent psychological and behavioural therapy approaches should be integrated in managing people with obesity
+- Enhancing communication and avoiding stigmatisation
+- Psychoeducation
+- Motivational interviewing and behavioural strategies
+- Psychological interventions
 
 <!-- parent_only_reference_start -->
 Appendix 2: Binge Eating Scale
@@ -202,17 +202,20 @@ Level Of Evidence
 | 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with a very low-risk of bias |
 | 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with a low-risk of bias |
 | 1- | Meta-analyses, systematic, or RCTs with a high-risk of bias |
-| 2+ | Well-conducted case-control or cohort studies with low-risk of confounding |
-| 3 | Non-analytic studies |
+| 2++ | High quality systematic reviews of case-control or cohort studies |
+| 2+ | Well-conducted case-control or cohort studies with a low-risk of confounding or bias |
+| 2- | Case-control or cohort studies with a high-risk of confounding or bias |
+| 3 | Non-analytic studies, e.g. case reports, case series |
 | 4 | Expert opinion |
 
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| A | At least one RCT rated 1++ or body of evidence from 1+ studies, directly applicable |
-| B | Body of evidence from 2++ studies or extrapolated from 1++/1+ |
-| C | Body of evidence from 2+ studies or extrapolated from 2++ |
-| D | Evidence level 3 or 4 or extrapolated from 2+ |
+| A | At least one meta-analysis, systematic review, or RCT rated as 1++, directly applicable to the target population; OR a body of evidence from studies rated 1+, directly applicable and demonstrating overall consistency |
+| B | A body of evidence including studies rated 2++, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 1++ or 1+ |
+| C | A body of evidence including studies rated 2+, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 2++ |
+| D | Evidence level 3 or 4 OR extrapolated evidence from 2+ |
+| ✓ | Good practice points — Recommended best practice based on clinical experience of the guidelines development group |
 
 Abbreviations
 | Abbreviation | Description |

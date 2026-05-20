@@ -17,16 +17,16 @@ treatment_type: orlistat, phentermine, topiramate, naltrexone, bupropion, liragl
 ### 4.1.1: Medical nutrition therapy (MNT) for adults
 [Level 4] Treating obesity requires achieving a state of negative energy balance. Hence, dietary intervention for obesity should primarily address the reduction in energy (calorie) intake. There are many dietary approaches that reduce calorie intake, some more than others, and the degree of weight loss generally reflects the size of this reduction. The goals of MNT are to facilitate weight loss, prevent weight gain, improve cardiometabolic outcomes and optimise nutrient adequacy.
 
-**Weight management interventions by a dietitian**
+### 4.1.2: MNT — Weight Management Interventions By A Dietitian
 [Level 1++] MNT for weight management reduced body mass index (BMI) (-1.5 kg/m², 95% CI -1.74,-1.26 kg/m²), improved percentage weight loss (-4.01%, 95% CI -5.26, -2.75%), WC reduction (-3.45 cm, 95% CI -4.39, -2.51 cm), systolic blood pressure (BP) reduction (-3.04 mmHg, 95% CI -5.10, -0.98 mmHg), diastolic BP reduction (-1.99 mmHg, 95% CI -3.02, -0.96 mmHg) and fasting plasma glucose (FPG) reduction among individuals with type 2 diabetes mellitus (T2DM; -12.47 mg/dL, 95% CI -17.50, -7.44 mg/dL).
 
-**Weight loss goals**
+### 4.1.3: MNT — Weight Loss Goals
 [Level 4] MNT prescribed for <6 months reported a significant weight loss of approximately 0.5 to 1 kg per week. 6-12 months of MNT resulted in a significant mean weight loss of up to 10% of body weight. A sustained weight loss of 3-5% is likely to result in clinically meaningful improvement in cardiometabolic outcomes. Therefore, realistic weight loss goals are,
 - Up to 1 kg per week
 - Up to 10% of baseline body weight
 - A total of 3-5% of baseline body weight in the presence of cardiovascular (CV) risk factors (e.g., hypertension, hyperlipidaemia and hyperglycaemia)
 
-**Energy restriction**
+### 4.1.4: MNT — Energy Restriction
 [Level 1++] A systematic review of randomised controlled trials (RCTs) showed that energy restrictive diets with 300-1000 kcal/day deficit from the daily energy requirement or usual intake, or the recommended 1200-1800 kcal/day energy intake in metabolically healthy obese adults resulted in reduction of BMI (-2.70 kg/m², 95% CI -4.01, -1.39), BP (systolic BP: -4.73 mmHg; 95% CI -7.12, -2.23, and diastolic BP: -2.75 mmHg; 95% CI -4.30, -1.21) and triglycerides (-0.11 mmol/l; 95% CI -0.16, -0.06).
 
 [Level 1+] To determine short (6 months) and long-term (12 months) weight loss based on calorie reduction, obese women were randomly prescribed with 1,000 kcal/day or 1500 kcal/day balanced diet combined with increased walking (10,000 steps/day or 3,000 steps above baseline) for 6 months. In the short-term (first 6 months), weight loss was greater in the 1000 kcal/day group (p=0.045). However, baseline caloric consumption moderated the effect of treatment on weight gain — participants with baseline intakes of ≥2000 kcal/day who were assigned 1000 kcal/day diets were significantly more susceptible to weight regain than those assigned 1500 kcal/day from months 7-12 (p=0.049).
@@ -69,13 +69,13 @@ In a meta-analysis of RCTs, low GI/GL was not superior to high GI/GL diets on bo
 *Meal replacement*
 [Level 1++] In a meta-analysis of RCTs, meal replacement-based plans as part of a structured calorie restriction diet that replaced ≥60% of the total daily energy intake, replacing 3 meals/day or an intervention duration of 3-6 months resulted in greater weight loss than conventional food-based low energy diet.
 
-**Recommendations 3**
+Recommendation:
 - [Grade A] MNT provided by a dietitian is recommended for adults with overweight and obesity especially those with comorbidities.
 - [Grade C] Dietary prescriptions should be individualised to the individual’s motivation level, age, sex, comorbidities, physical activity level and weight loss goals.
 - [Grade A] Calorie restriction diets should be combined with either low carbohydrate or low fat intake.
 - [Grade A] Meal replacement or intermittent fasting may be used as alternative methods of calorie restrictions.
 
-## 4.1.2: Physical activity
+### 4.1.5: Physical Activity
 [Level 1++] Exercise is an integral part of any weight loss programme. Although physical activity and exercise are used interchangeably, their definitions are slightly different.
 - Physical activity means all movement that creates energy expenditure
 - Exercise is a planned, structured, repetitive and purposeful physical activity
@@ -147,7 +147,7 @@ For older adults,
 - Encourage them to limit the amount of time spent being sedentary
 - Ensure that they perform varied multicomponent physical activity that emphasize functional balance and strength training at moderate or greater intensity, on 3 or more days a week, to enhance functional capacity and to prevent falls
 
-**Recommendations 4**
+Recommendation:
 - [Grade A] Physical activity should be encouraged in all individuals with obesity:
   - A minimum of 150 minutes/week (30 minutes/day) progressing to 300 minutes/week (60 minutes/day) of moderate intensity
   - or at least 75-150 minutes/week of vigorous intensity is required for weight loss.
@@ -171,7 +171,6 @@ A patient may require pharmacotherapy to:
 |---|---|
 | BMI 27.0-29.9 kg/m² with associated risk factors | - Type 2 diabetes mellitus (T2DM)<br>- Hypertension<br>- Dyslipidaemia<br>- Obstructive sleep apnoea (OSA) |
 | BMI ≥30 kg/m² with or without risk factors | |
-
 *BMI, body mass index.*
 
 Pharmacotherapy reinforces behavioural and lifestyle strategies to create a negative energy balance.
@@ -204,7 +203,7 @@ Anti-obesity drugs can be classified into two groups, i.e., those acting on the 
 
 *Drugs acting on the GI system*
 
-**1. Oral orlistat**
+### 4.2.2: Anti-obesity Drug — Oral Orlistat
 Orlistat is the only non-systemically acting drug available for the long-term treatment of obesity. It is a selective pancreatic lipase inhibitor – inhibiting the breakdown of dietary triglycerides into absorbable free fatty acids. As a result, ~30% of ingested triglycerides are excreted, mainly in the stools, leading to a caloric deficit.
 
 [Level 1++] Efficacy of orlistat compared to placebo in weight reduction:
@@ -227,9 +226,9 @@ Side effects of orlistat include:
 - Affecting absorption of certain drugs such as levothyroxine and/or iodine salts, cyclosporine, anticonvulsants and antiretroviral drugs
 
 Orlistat is contraindicated in individuals with malabsorption syndromes and those with cholestasis.
-
 *Drugs acting on the CNS*
-**2. Oral phentermine**
+
+### 4.2.3: Anti-obesity Drug — Oral Phentermine
 Oral phentermine is a noradrenergic sympathomimetic amine agent (dimethylphenethylamine hydrochloride) and was approved by the USFDA in 1959 for short-term use as an adjunct to lifestyle interventions for management of obesity. It appears to act within the hypothalamus and upregulates noradrenaline. This results in the stimulation of β2-adrenergic receptors that induces appetite suppression. It also inhibits monoamine oxidase, potentiating the effect of serotonin and increasing the basal metabolic rate.
 
 The efficacy of phentermine compared to placebo for weight reduction:
@@ -245,7 +244,7 @@ The efficacy of phentermine compared to placebo for weight reduction:
 - [Level 1++] Increased heart rate (SMD=0.64; 95% CI 0.35, 0.92)
 - Dry mouth
 
-**3. Oral phentermine/topiramate**
+### 4.2.4: Anti-obesity Drug — Oral Phentermine/Topiramate
 Phentermine stimulates the hypothalamic release of norepinephrine without any effect on serotonin whilst topiramate is a gamma-aminobutyric acid (GABA) receptor modulator that was first developed as an anticonvulsant. In combination, phentermine and topiramate increase energy expenditure, and reduce energy efficiency and caloric intake.
 
 The benefits of combining these drugs are:
@@ -266,7 +265,7 @@ The benefits of combining these drugs are:
 - Non-significant increase in resting heart rate secondary to the sympathomimetic action of phentermine can occur at high doses (15 mg/92 mg)
 - Teratogenic effects such as cleft lip/palate – due to topiramate if taken during pregnancy (Pregnancy category D)
 
-**4. Oral naltrexone/bupropion**
+### 4.2.5: Anti-obesity Drug — Oral Naltrexone/Bupropion
 Naltrexone is an opioid antagonist used in alcohol and opioid dependence. It blocks opioid-mediated pro-opiomelanocortin (POMC) auto-inhibition by endogenous β-endorphins.
 
 The effects of bupropion are:
@@ -296,7 +295,7 @@ Bupropion is also used as an anti-depressant and smoking cessation agent.
 
 [Level 1++] Though there was no increase in depression or suicidal ideations, it is important to note that patients with serious psychiatric illnesses were excluded from the naltrexone/bupropion phase III trials. Hence, these drugs should be used with caution in patients with known depression.
 
-**5. Subcutaneous liraglutide 3 mg daily**
+### 4.2.6: Anti-obesity Drug — Subcutaneous Liraglutide 3 mg Daily
 Liraglutide is a glucagon-like peptide-1 receptor agonist (GLP1-RA) that improves glycaemic control in T2DM by stimulating insulin secretion, suppressing glucagon secretion and reducing caloric intake by suppressing appetite.
 
 Doses up to 1.8 mg daily have been approved for T2DM while doses up to 3 mg daily are used for managing obesity.
@@ -321,7 +320,7 @@ Only liraglutide 3 mg has been compared head-to-head with an anti-obesity agent,
 - Most common – GI side effects such as nausea, vomiting, diarrhoea and constipation
 - Increase in resting heart rate
 
-**6. Subcutaneous semaglutide 2.4 mg weekly**
+### 4.2.7: Anti-obesity Drug — Subcutaneous Semaglutide 2.4 mg Weekly
 Semaglutide is a GLP1-RA that improves glycaemic control in T2DM by stimulating insulin secretion and suppressing glucagon secretion, and reducing caloric intake by suppressing appetite.
 
 [Level 1++] Doses of up to 1 mg weekly are indicated for the treatment of T2DM, whilst doses up to 2.4 mg weekly are used for managing obesity in patients without diabetes.
@@ -346,7 +345,7 @@ The side effects of semaglutide 2.4 mg weekly:
 
 [Level 1++] The rapid improvement of glycaemia in T2DM patients with baseline retinopathy resulted in early transient worsening of retinopathy when treated with semaglutide 0.5-1.0 mg weekly. Patients with obesity and T2DM with retinopathy treated with semaglutide should be monitored closely and co-managed with an ophthalmologist.
 
-**Key learning points:**
+Summary:
 - Pharmacotherapy for obesity is indicated and effective in those with BMI ≥30 kg/m² or BMI ≥27.5 kg/m² with comorbidities
 - Pharmacotherapy for obesity should only be used as an adjunct to lifestyle/behavioural modifications
 - There are 5 USFDA approved drugs for chronic management of obesity, i.e., orlistat, phentermine/topiramate, naltrexone/bupropion, and high dose liraglutide and semaglutide
@@ -355,7 +354,7 @@ The side effects of semaglutide 2.4 mg weekly:
 - Careful consideration of the side effects of these drugs is required before initiation
 - GLP1-RAs such as liraglutide and semaglutide have the added benefit of improving glycaemic control, MAFLD and cardiorenal outcomes in patients with both T2DM and obesity
 
-**Recommendations 5**
+Recommendation:
 - [Grade A] Pharmacotherapy for obesity should be used only as an adjunct to diet, exercise and behavioural modification and not alone.
 - [Grade A] Pharmacotherapy for obesity is indicated in patients with BMI ≥30 kg/m² without comorbidities and BMI ≥27 kg/m² with comorbidity.
 - [Grade A] Pharmacotherapy that may be prescribed are:
@@ -446,7 +445,6 @@ Table 4-6: Indications for bariatric surgery
 | **Low BMI with or without comorbidities** | Any surgery for metabolic syndrome or obesity related comorbidity in patients with a BMI <32.5 kg/m² **should not be a routine clinical practice** and should be strictly performed **only under clinical study protocol** with informed consent from the patient and prior approval from an ethics committee |
 | **Age restriction** | Bariatric surgery is recommended for patients between the ages of 18 and 65 years |
 | **Special circumstances** | Upon consultation with a physician, paediatrician, orthopaedic surgeon, clinical psychologist, or a surgeon, bariatric surgery may be performed in morbidly obese adolescent patients provided they have attained the physiological bone maturity consistent with Tanner stage 4 |
-
 *BMI, body mass index.*
 
 [Level 4] [Grade D] The indications, patient criteria and type of procedure for bariatric and metabolic surgery in Malaysia are based on the consensus reached by the Bariatric Metabolic Framework Committee, Ministry of Health, Malaysia (previously known as the Bariatric Metabolic Working Committee of Malaysia).
@@ -494,8 +492,7 @@ The two types of bariatric surgery are restrictive and malabsorption.
 
 Post-operative care includes the use of proton-pump inhibitors (PPI) to prevent marginal ulcers, supplementation of micro and/or macronutrients, behavioural and nutritional advice and to delay pregnancy until weight stabilises.
 
-### 4.3.6: Intragastric balloon (special non-operative procedure)
-**Efficacy**
+### 4.3.6: Intragastric Balloon — Efficacy
 [Level 1++] [Grade A] Intragastric balloon (IGB) is capable of producing 6-15% of total body weight loss (TBWL) compared with the 1-5% produced through lifestyle interventions alone.
 
 [Level 1++] [Grade A] A meta-analysis of 55 studies involving 6654 Orbera balloon implantations demonstrated pooled estimate of TBWL of:
@@ -516,7 +513,7 @@ Although IGB is safe and effective in managing obesity for the short term, it is
 
 [Level 1++] [Grade A] In a meta-analysis of 10 trials and 30 observational studies, there was moderate quality but mostly short-term evidence for improvement in most metabolic parameters after IGB therapy compared with lifestyle intervention.
 
-**Safety**
+### 4.3.7: Intragastric Balloon — Safety
 The safety profile for IGB therapy depend on its type (fluid or gas filled) and how it was placed (endoscopically or swallowed).
 - Gas-filled balloon systems are better tolerated than fluid-filled systems
 - IGB that are swallowed cause fewer serious complications and death vs endoscopically-placed balloons
@@ -545,7 +542,7 @@ Procedure-related serious adverse events: Mostly occur during balloon removal, i
 
 Gas-filled or procedure-less balloons: Generally better tolerated than fluid-filled ones. In a prospective registry of 1343 patients, symptoms of nausea, vomiting, and abdominal pain occurred in 2.3-5.3%, and any GI symptom occurred in 13.4% of patients. While the rate of serious adverse events with the procedure-less balloon is similar to that of the gas-filled IGB, post-placement accommodative symptoms may be more similar to those of other fluid-filled balloons.
 
-**Outcomes**
+### 4.3.8: Intragastric Balloon — Outcomes
 - [Level 1++] [Grade A] Overall percentage of patients successfully achieving weight loss and improvement in hepatic transaminases:
   - Weight loss achieved and improvement in hepatic amino transferases: Two studies reported outcomes based on the proportion of patients who successfully achieved >10% TBWL
   - Overall, 86/141 (60.9%) patients were able to achieve this target. 112/182 (61.5%) patients achieved >20% excess weight loss
@@ -570,7 +567,7 @@ Gas-filled or procedure-less balloons: Generally better tolerated than fluid-fil
 | Daily supplementation with 1-2 adult dose multivitamins after IGB placement | Conditional | Very Low |
 | After IGB removal, suggest subsequent weight-loss or maintenance interventions that include dietary interventions, pharmacotherapy, repeat IGB, or bariatric surgery. The choice of weight-loss or maintenance method after IGB is determined based on patient’s context and comorbidities following a shared decision-making approach | Conditional | Very Low |
 
-**Recommendations 6**
+Reccomendation:
 - [Grade B] Bariatric surgery should only be performed in individuals with morbid obesity who fail medical therapy.
 - [Grade A] Roux-en-Y gastric bypass surgery may be considered
 - [Grade B] A comprehensive preoperative assessment and preparation should be done before bariatric surgery.
@@ -752,20 +749,23 @@ Each item contains 5 g and 45 calories. Some of the foods in the list, e.g., nut
 Level Of Evidence
 | Level | Study Design |
 |---|---|
-| 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with very low-risk of bias |
-| 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with low-risk of bias |
-| 1- | Meta-analyses, systematic reviews, or RCTs with high-risk of bias |
-| 2+ | Well-conducted case-control or cohort studies with low-risk of confounding |
-| 3 | Non-analytic studies |
+| 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with a very low-risk of bias |
+| 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with a low-risk of bias |
+| 1- | Meta-analyses, systematic, or RCTs with a high-risk of bias |
+| 2++ | High quality systematic reviews of case-control or cohort studies |
+| 2+ | Well-conducted case-control or cohort studies with a low-risk of confounding or bias |
+| 2- | Case-control or cohort studies with a high-risk of confounding or bias |
+| 3 | Non-analytic studies, e.g. case reports, case series |
 | 4 | Expert opinion |
 
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| A | At least one RCT rated 1++ or body of evidence from 1+ studies, directly applicable |
-| B | Body of evidence from 2++ studies or extrapolated from 1++/1+ |
-| C | Body of evidence from 2+ studies or extrapolated from 2++ |
-| D | Evidence level 3 or 4 or extrapolated from 2+ |
+| A | At least one meta-analysis, systematic review, or RCT rated as 1++, directly applicable to the target population; OR a body of evidence from studies rated 1+, directly applicable and demonstrating overall consistency |
+| B | A body of evidence including studies rated 2++, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 1++ or 1+ |
+| C | A body of evidence including studies rated 2+, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 2++ |
+| D | Evidence level 3 or 4 OR extrapolated evidence from 2+ |
+| ✓ | Good practice points — Recommended best practice based on clinical experience of the guidelines development group |
 
 Abbreviations
 | Abbreviation | Description |

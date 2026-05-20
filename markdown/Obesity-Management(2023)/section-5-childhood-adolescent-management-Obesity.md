@@ -126,10 +126,10 @@ Obesity treatment in children and adolescents aims to reduce adiposity, improve 
 Table 5-4: Basic management principles for children and adolescents with obesity
 | Age | Basic management |
 |---|---|
-| **Infants** | - Exclusive breast feeding<br><br>- Delay complementary food until 6 months of age<br><br>- No sugar sweetened beverages<br><br>- No screen time |
-| **Toddlers (2-4 years old)** | - Parents should model healthy behaviour habits<br><br>- Three main meals with 1-2 snacks<br><br>- Encourage routine sleep pattern |
-| **Children (5-9 years old)** | - Parents are important role models, involve family in the management<br><br>- Recreational screen time should be kept to minimum<br><br>- Activity should be done daily and as vigorously as possible |
-| **Older children/Adolescents** | - Importance of peer group support<br><br>- Regular sleep time<br><br>- Use of technology to track exercise and meal intake |
+| Infants | - Exclusive breast feeding<br><br>- Delay complementary food until 6 months of age<br><br>- No sugar sweetened beverages<br><br>- No screen time |
+| Toddlers (2-4 years old) | - Parents should model healthy behaviour habits<br><br>- Three main meals with 1-2 snacks<br><br>- Encourage routine sleep pattern |
+| Children (5-9 years old) | - Parents are important role models, involve family in the management<br><br>- Recreational screen time should be kept to minimum<br><br>- Activity should be done daily and as vigorously as possible |
+| Older children/Adolescents | - Importance of peer group support<br><br>- Regular sleep time<br><br>- Use of technology to track exercise and meal intake |
 
 ### 5.4.2: Family involvement
 The involvement of family is crucial for managing obesity in children and adolescents.
@@ -156,9 +156,9 @@ A supportive and collaborative relationship between the healthcare professional,
 Table 5-5: Staged approach to obesity management in children and adolescents
 | Stage | Components | Implementation | Frequency of visits |
 |---|---|---|---|
-| **1** | - Develop a structured plan with the patient and family<br><br>- Provide a log book for monitoring<br><br>- Should be done under parental supervision<br><br>- Diet:<br>  - Address eating behaviours<br>  - Should include ≥5 servings of fruits and vegetables/day<br>  - Eliminate sugar sweetened beverages<br><br>- Physical activity:<br>  - Aim for a daily average of 60 minutes or more of physical activity<br>  - Reduce recreational screen time to <2 hours/day | Primary care | 3-6 monthly |
-| **2** | - Continue diet and physical activity intervention<br><br>- Multidisciplinary approach that should include a dietitian, physical activity counsellor and psychological services<br><br>- Medical screening for complications of obesity | Obesity clinic/Paediatrician | 3 monthly |
-| **3** | - Stages 1 and 2 components<br><br>- Increase intensity of interventions<br><br>- Consider medical therapy or referral for bariatric surgery | Tertiary weight management centres/Paediatric endocrinologist | More frequent visits for monitoring |
+| 1 | - Develop a structured plan with the patient and family<br><br>- Provide a log book for monitoring<br><br>- Should be done under parental supervision<br><br>- Diet:<br>  - Address eating behaviours<br>  - Should include ≥5 servings of fruits and vegetables/day<br>  - Eliminate sugar sweetened beverages<br><br>- Physical activity:<br>  - Aim for a daily average of 60 minutes or more of physical activity<br>  - Reduce recreational screen time to <2 hours/day | Primary care | 3-6 monthly |
+| 2 | - Continue diet and physical activity intervention<br><br>- Multidisciplinary approach that should include a dietitian, physical activity counsellor and psychological services<br><br>- Medical screening for complications of obesity | Obesity clinic/Paediatrician | 3 monthly |
+| 3 | - Stages 1 and 2 components<br><br>- Increase intensity of interventions<br><br>- Consider medical therapy or referral for bariatric surgery | Tertiary weight management centres/Paediatric endocrinologist | More frequent visits for monitoring |
 
 Start at stage 1, 2 or 3 depending on the age, degree of obesity, health risks and motivation of the child/adolescent. If there is failure to achieve or maintain the goal BMI, advance to more-intensive levels of intervention. Advancement will depend on the age, presence of comorbidities, response to current interventions and the motivation of the patient and their family.
 
@@ -167,13 +167,13 @@ Refer for specialist care if:
 - There is a clinical suspicion of an underlying medical/genetic syndrome or endocrine cause, or there are concerns about height and development
 - There are comorbidities that require weight management, e.g. OSA and metabolic complications
 
-**Lifestyle changes**
+### 5.4.4: Childhood Obesity — Lifestyle Changes
 [Level 1++] There is sufficient evidence to demonstrate that intensive lifestyle modification programmes can be effective tools for paediatric weight control.
 [Level 1++] Lifestyle intervention strategies include a combination of addressing dietary intake and exercise and behavioural modifications. Interventions have to involve the family as family-based interventions with parental involvement have improved outcomes.
 
 [Level 1++] Following the treatment phase, a formal maintenance programme should be continued to maintain the achieved weight loss.
 
-**Diet**
+### 5.4.5: Childhood Obesity — Diet
 Healthy eating habits are at the core of any weight management plan. As children are still in the phase of growth, dietary modifications should be focused on healthy food choices rather than portion control only.
 
 [Level 1++/Level 1+/Level 4] Clinicians are recommended to advocate for healthy eating habits as below:
@@ -195,7 +195,7 @@ Healthy eating habits are at the core of any weight management plan. As children
 
 [Level 1++] There has been research into the use of intensive dietary interventions in post-pubertal adolescents with obesity with ongoing larger trials. A meta-analysis of 20 studies found that Very Low-Calorie Diets (VLCD) are effective at inducing rapid short-term weight loss in children and adolescents with obesity. However, it lacks long-term data.
 
-**Physical activity**
+### 5.4.6: Childhood Obesity — Physical Activity
 [Level 1+] Regular physical activity has the potential to improve weight loss and maintenance. Physical fitness, even without weight loss, may also confer other benefits such as improving aerobic fitness and reducing cardiovascular (CV) risk factors in children and adolescents.
 
 [Level 1+] Strategies to increase physical activity should include increasing structured and non-structured physical activity and reducing the amount of time spent on sedentary activities.
@@ -206,7 +206,7 @@ Clinicians should encourage the following:
 - [Level 1+] Children should engage in resistance training activities at least three times a week. These activities should be supervised to improve physical literacy and reduce risk of injury. A meta-analysis of the types of exercise intervention revealed that combined aerobic and strength training ranked best in reducing BMI Z-scores
 - [Level 1+] Participation in classical sports activities/programmes. Classic sports activities have beneficial effects on overall physical activity level, body composition and metabolic profile in children and youth
 
-**Sleep**
+### 5.4.7: Childhood Obesity — Sleep
 [Level 1++] Adequate sleep has numerous health benefits for the growing child. Various studies have demonstrated a link between obesity and reduced sleep duration.
 - Electronic devices should be removed from the bedroom to allow for uninterrupted sleep
 
@@ -215,15 +215,15 @@ Clinicians should encourage the following:
 Table 5-6: Recommended hours of sleep based on age
 | Age (years) | Hours of sleep |
 |---|---|
-| **3-5** | 10-13 |
-| **6-13** | 9-11 |
-| **14-17** | 8-10 |
+| 3-5 | 10-13 |
+| 6-13 | 9-11 |
+| 14-17 | 8-10 |
 
-**Screen time**
+### 5.4.8: Childhood Obesity — Screen Time
 [Level 1+] The increasing prevalence of using technology and electronic devices for recreation and education requires a balanced approach. Screen times for ≥2 hours/day had demonstrated an increased risk of overweight/obesity among children.
 - [Level 1++] Recreational screen time should be limited to no more than 1 hour a day for 2–5-year-olds, and no more than 2 hours a day for children 6 years and older.
 
-**Psychosocial aspects**
+### 5.4.9: Childhood Obesity — Psychosocial Aspects
 [Level 2+] Maladaptive rearing habits around diet and exercise must be evaluated and identified. Interaction between parent and children and parenting styles contribute to obesity in children.
 
 [Level 2+] During adolescence, self-esteem becomes more closely tied to body image and rapidly plummets, with adolescent females who have higher BMIs and body image dissatisfaction having the lowest self-esteem.
@@ -242,7 +242,7 @@ Clinicians should screen children for the presence of mental health issues by as
 - Eating disorders like anorexia or binge eating
 - Family dynamics and attitudes about weight
 
-**Medications**
+### 5.4.10: Childhood Obesity — Medications
 [Level 1+] There are limited number of well-controlled safety and efficacy studies involving obese children and adolescents. The only two medications which are approved by the United States Food and Drug Authority (USFDA) are liraglutide and orlistat. The negative health impact of paediatric obesity may justify long-term medication.
 
 [Level 1++/Level 4] Pharmacotherapy:
@@ -250,20 +250,20 @@ Clinicians should screen children for the presence of mental health issues by as
 - Should be administered only with a concomitant lifestyle modification programme in a specialised centre
 - Needs to be re-evaluated if there is failure of reduction of BMI after 12 weeks (<4% BMI/BMI z-score reduction)
 
-[Level 1++] **Liraglutide** is a new treatment option approved by most regulatory agencies (including the USFDA and the European Medicines Agency [EMEA]) for chronic obesity treatment in adolescents aged 12–18 years.
+[Level 1++] Liraglutide is a new treatment option approved by most regulatory agencies (including the USFDA and the European Medicines Agency [EMEA]) for chronic obesity treatment in adolescents aged 12–18 years.
 - Liraglutide belongs to the glucagon-like peptide-1 receptor agonist (GLP1-RA) class of drugs and is delivered subcutaneously
 - It acts by reducing appetite, slowing gastric motility and enhancing satiety
 - In the largest liraglutide randomised control trial (RCT), a 3 mg daily dose among adolescents (12 to 18 years of age) with obesity, resulted in a mean placebo-subtracted BMI reduction of approximately 5% at one year. Reduction in weight parameters also persisted even after treatment cessation
 
 Though the most reported adverse event was gastrointestinal, there were no new safety concerns in relation to previous adult trials.
 
-**Orlistat** is approved by the USFDA for obesity treatment for those above 12 years of age.
+Orlistat is approved by the USFDA for obesity treatment for those above 12 years of age.
 - [Level 1++] Orlistat inhibits gastrointestinal lipases, reducing fat absorption by about 30%
 - [Level 1++] Though orlistat reduces the BMI significantly in adolescents, it is associated with significant gastrointestinal side effects making long-term treatment difficult
 
-[Level 1++] **Metformin** is not approved for use in obesity management. However, studies demonstrate that it has some weight loss effect and it may be useful in those with PCOS.
+[Level 1++] Metformin is not approved for use in obesity management. However, studies demonstrate that it has some weight loss effect and it may be useful in those with PCOS.
 
-**Surgery**
+### 5.4.11: Childhood Obesity — Surgery
 - Bariatric surgery should not be routinely offered and should only be undertaken by a highly specialised surgical team within the framework of a multidisciplinary team
 - [Level 1+] Metabolic and bariatric surgery can be considered in adolescents who have severe obesity and significant comorbidity
 - [Level 1+] Data from the Teen-LABS and AMOS studies have shown good outcomes in reduction of BMI and cardiometabolic effects (such as remission of diabetes and dyslipidaemia) in this group of adolescents
@@ -273,7 +273,7 @@ Though the most reported adverse event was gastrointestinal, there were no new s
 - There was a shift in procedure use over time, with a relative increase in patients undergoing VSG because of the lower risk of complications
 - [Level 1+] The most common complications with both RYGB and VSG are abdominal pain, diarrhoea, nausea or dehydration followed by stricture with RYGB and wound infection with VSG
 
-**Recommendations 8**
+Recommendation:
 - [Grade D] A step or staged approach for weight management in the paediatric population should be used
   - For prepubertal children – allow a gradual decline in BMI with weight maintenance or a slower weight gain.
   - For pubertal children – gradual weight loss with a maximum loss of 0.5–1.0 kg per month.
@@ -440,20 +440,23 @@ Appendix 4B: Blood pressure levels for girls by age and height percentile
 Level Of Evidence
 | Level | Study Design |
 |---|---|
-| 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with very low-risk of bias |
-| 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with low-risk of bias |
-| 1- | Meta-analyses, systematic reviews, or RCTs with high-risk of bias |
-| 2+ | Well-conducted case-control or cohort studies with low-risk of confounding |
-| 3 | Non-analytic studies |
+| 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with a very low-risk of bias |
+| 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with a low-risk of bias |
+| 1- | Meta-analyses, systematic, or RCTs with a high-risk of bias |
+| 2++ | High quality systematic reviews of case-control or cohort studies |
+| 2+ | Well-conducted case-control or cohort studies with a low-risk of confounding or bias |
+| 2- | Case-control or cohort studies with a high-risk of confounding or bias |
+| 3 | Non-analytic studies, e.g. case reports, case series |
 | 4 | Expert opinion |
 
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| A | At least one RCT rated 1++ or body of evidence from 1+ studies, directly applicable |
-| B | Body of evidence from 2++ studies or extrapolated from 1++/1+ |
-| C | Body of evidence from 2+ studies or extrapolated from 2++ |
-| D | Evidence level 3 or 4 or extrapolated from 2+ |
+| A | At least one meta-analysis, systematic review, or RCT rated as 1++, directly applicable to the target population; OR a body of evidence from studies rated 1+, directly applicable and demonstrating overall consistency |
+| B | A body of evidence including studies rated 2++, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 1++ or 1+ |
+| C | A body of evidence including studies rated 2+, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 2++ |
+| D | Evidence level 3 or 4 OR extrapolated evidence from 2+ |
+| ✓ | Good practice points — Recommended best practice based on clinical experience of the guidelines development group |
 
 Abbreviations
 | Abbreviation | Description |
@@ -478,5 +481,4 @@ Abbreviations
 | TG | Triglyceride |
 | VSG | Vertical sleeve gastrectomy |
 | WC | Waist circumference |
-| WHO | World Health Organization |
 <!-- parent_only_reference_end -->

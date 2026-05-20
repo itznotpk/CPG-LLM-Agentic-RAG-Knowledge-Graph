@@ -33,7 +33,7 @@ There is no pharmacotherapy that has shown significant benefits in preventing ov
 - [Level 1++] Individuals with psychotic disorders who are prescribed antipsychotic medications may experience modest weight loss and metabolic improvements from 8-12 weeks of treatment with metformin
 - [Level 1+] A systematic review of the effect of glucagon-like peptide-1 receptor agonists (GLP1-RA) in individuals with normal BMI identified a small number of subjects who showed no significant difference in weight change.
 
-**Recommendations 9**
+Recommendation:
 - [Grade A] Fundamental preventive measures that should be implemented against the onset of obesity are promoting healthy eating, improving physical activity and implementing stress management practices.
 - [Grade B] Healthcare providers should offer weight management interventions for preventing weight gain in normal-weight or overweight adults.
 
@@ -114,7 +114,7 @@ While most of the Cochrane reviews discussed indicate the favourable effects of 
 ### 6.2.3: Environment
 Preventive measures for obesity will need to include changes in the environment. Availability and accessibility to greenspaces, parks, recreational facilities, and sidewalks were found to be associated with increased physical activity levels and reduced sedentary behaviour in children.
 
-**Recommendations 10**
+Recommendation:
 - [Grade B] Breast feeding should be encouraged and adherence to dietary guidelines during weaning should be advocated.
 - [Grade B] Multicomponent interventions should be used in preventing obesity
   - Dietary
@@ -128,21 +128,23 @@ Preventive measures for obesity will need to include changes in the environment.
 Level Of Evidence
 | Level | Study Design |
 |---|---|
-| 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with very low-risk of bias |
-| 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with low-risk of bias |
-| 1- | Meta-analyses, systematic reviews, or RCTs with high-risk of bias |
+| 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with a very low-risk of bias |
+| 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with a low-risk of bias |
+| 1- | Meta-analyses, systematic, or RCTs with a high-risk of bias |
 | 2++ | High quality systematic reviews of case-control or cohort studies |
-| 2+ | Well-conducted case-control or cohort studies with low-risk of confounding |
-| 3 | Non-analytic studies |
+| 2+ | Well-conducted case-control or cohort studies with a low-risk of confounding or bias |
+| 2- | Case-control or cohort studies with a high-risk of confounding or bias |
+| 3 | Non-analytic studies, e.g. case reports, case series |
 | 4 | Expert opinion |
 
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| A | At least one RCT rated 1++ or body of evidence from 1+ studies, directly applicable |
-| B | Body of evidence from 2++ studies or extrapolated from 1++/1+ |
-| C | Body of evidence from 2+ studies or extrapolated from 2++ |
-| D | Evidence level 3 or 4 or extrapolated from 2+ |
+| A | At least one meta-analysis, systematic review, or RCT rated as 1++, directly applicable to the target population; OR a body of evidence from studies rated 1+, directly applicable and demonstrating overall consistency |
+| B | A body of evidence including studies rated 2++, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 1++ or 1+ |
+| C | A body of evidence including studies rated 2+, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 2++ |
+| D | Evidence level 3 or 4 OR extrapolated evidence from 2+ |
+| ✓ | Good practice points — Recommended best practice based on clinical experience of the guidelines development group |
 
 Abbreviations
 | Abbreviation | Description |

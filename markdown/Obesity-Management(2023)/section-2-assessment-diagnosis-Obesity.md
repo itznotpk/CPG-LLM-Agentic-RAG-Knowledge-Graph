@@ -16,7 +16,7 @@ The BMI is an international standard for measurement of obesity as recommended b
 
 The BMI is still the most widely accepted measurement of obesity as it is easy to access, affordable to measure, and can conveniently be used to monitor weight changes.
 
-Body mass index (BMI) = Weight (kg)/height<sup>2</sup> (m<sup>2</sup>)
+Body mass index (BMI) = Weight (kg) / height^2 (m^2)
 
 [Level 1++] [Level 2] Asians generally have higher body fat percentages compared to Caucasians at similar BMI cut-off points. [Level 1+] [Level 2+] Evidence from Asian countries reveal that the risk of comorbidities such as type 2 diabetes mellitus (T2DM), hypertension and other cardiovascular (CV) risks, begin to increase at lower BMI. Hence, the lower BMI cut-off points for overweight and obesity for the Asian population (Refer to Table 2-1: BMI-based weight classification for adults (>18 years old)).
 
@@ -24,7 +24,6 @@ Body mass index (BMI) = Weight (kg)/height<sup>2</sup> (m<sup>2</sup>)
 The initial assessment of people with obesity should include height, weight and BMI (kg/m²). The classification of weight by BMI for the Asian population and its associated CV risk are shown in Table 2-1: BMI-based weight classification for adults (>18 years old).
 
 [Level 1+] Table 2-1: BMI-based weight classification for adults (>18 years old)
-
 | Classification | BMI (kg/m²) | Risk of comorbidities |
 |---|---|---|
 | Underweight | <18.5 | Low, but with increased risk of other clinical problems |
@@ -53,8 +52,8 @@ WC is a very practical measurement for assessing excess fat around the abdomen. 
 
 **Figure 2-A: Measuring the Waist Circumference**
 Figure 2-A illustrates the clinical landmarks and procedure for measuring waist circumference:
-- **Clinical Landmarks**: The skeletal structure shows that the waist circumference should be measured midway between the lowest palpable ribs and the iliac crest.
-- **Measurement Protocol**: The tape measure is wrapped in a horizontal plane, midway between these landmarks. The measurement is taken at the end of normal expiration with the subject standing.
+- **Clinical Landmarks**: Both a front-view and side-view skeletal diagram are shown, with three labelled landmarks indicated by arrows — (1) the lowest palpable ribs, (2) the midpoint between the lowest palpable rib and the iliac crest (the correct measurement site), and (3) the iliac crest. The tape measure is positioned horizontally at this midpoint.
+- **Clinical Demonstration**: Two photographs of a patient's torso are shown. The left photo shows skin markings on the abdomen identifying the measurement landmarks. The right photo demonstrates the correct application of a tape measure, wrapped horizontally around the waist at the midpoint between the lowest palpable rib and the iliac crest.
 - **Utility and Limitations**: [Level 2+] WC measurement is most useful in individuals who are in the normal and overweight (pre-obesity) BMI-based categories. For those with a BMI >35 kg/m² it is unnecessary to measure WC as it loses its predictive value.
 
 [Level 2+] The WHO recommends WC of ≥102 cm in men and ≥88 cm in women. However, studies from Asian countries showed high prevalence of T2DM and CVD at lower cut-off points of 90 cm in men and 80 cm in women.
@@ -74,17 +73,15 @@ Patients who are pre-obese and above, should also be assessed for the following 
 Current medications history should also be elicited as some drugs can contribute to weight gain (Refer to Table 2-2: Medications that may contribute to weight gain).
 
 Table 2-2: Medications that may contribute to weight gain
-| Classes | Name of Medications |
-|---|---|
-| Antidepressants | - Mirtazapine<br>- Selective serotonin reuptake inhibitors (SSRI)<br>- Monoamine oxidase inhibitors (MAOIs) |
-| Antiepileptic drugs or mood stabilizers | - Gabapentin<br>- Pregabalin<br>- Carbamazepine<br>- Divalproex<br>- Lithium<br>- Valproic acid<br>- Vigabatrin |
-| Antihistamines | - Cetirizine<br>- Cyproheptadine |
-| Antipsychotics | - Quetiapine<br>- Clozapine<br>- Olanzapine<br>- Risperidone<br>- Thioridazine |
-| Alpha-blockers | - Terazosin |
-| Beta-blockers | - Metoprolol<br>- Atenolol<br>- Propranolol |
-| Glucocorticoids | - Prednisolone<br>- Methylprednisolone<br>- Hydrocortisone |
-| Glucose lowering drugs | - Insulin<br>- Sulfonylureas<br>- Meglitinides<br>- Thiazolidinediones |
-| Hormonal Agents | - Progestins |
+- Antidepressants: Mirtazapine; Selective serotonin reuptake inhibitors (SSRI); Monoamine oxidase inhibitors (MAOIs)
+- Antiepileptic drugs or mood stabilizers: Gabapentin; Pregabalin; Carbamazepine; Divalproex; Lithium; Valproic acid; Vigabatrin
+- Antihistamines: Cetirizine; Cyproheptadine
+- Antipsychotics: Quetiapine; Clozapine; Olanzapine; Risperidone; Thioridazine
+- Alpha-blockers: Terazosin
+- Beta-blockers: Metoprolol; Atenolol; Propranolol
+- Glucocorticoids: Prednisolone; Methylprednisolone; Hydrocortisone
+- Glucose lowering drugs: Insulin; Sulfonylureas; Meglitinides; Thiazolidinediones
+- Hormonal Agents: Progestins
 
 ## 2.4: Targets for control
 [Level 1] The principal goals in obesity management are to:
@@ -109,13 +106,11 @@ Table 2-3. Treatment targets based on diagnosis in the medical management of pat
 
 *Note: Weight loss is dependent on the nature of the comorbidity.*
 *BP, blood pressure; FEV1, forced expiratory volume at 1 second; HDL, high density lipoprotein; LDL, low density lipoprotein; MAFLD, metabolic associated fatty liver disease; PCOS, polycystic ovarian syndrome; T2DM, type 2 diabetes mellitus; TG, triglyceride.*
-[Level 1+] *Adapted from Garvey WT, et al. Endocr Pract 2016.*
 
-**Recommendations 1**
+Recommendation:
 - [Grade B] Screening with BMI and WC measurements should be done yearly.
 - [Grade A] Cut off BMI values that should be used are: pre-obesity (overweight) -23 kg/m² and obesity - >27.5 kg/m²
 - [Grade A] Individuals diagnosed with pre-obesity and obesity should be assessed for associated conditions, co-occurring medical conditions and current treatments that could cause obesity.
-
 
 <!-- parent_only_reference_start -->
 Level Of Evidence
@@ -123,18 +118,21 @@ Level Of Evidence
 |---|---|
 | 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with a very low-risk of bias |
 | 1+ | Well-conducted meta-analyses, systematic reviews, or RCTs with a low-risk of bias |
+| 1- | Meta-analyses, systematic, or RCTs with a high-risk of bias |
 | 2++ | High quality systematic reviews of case-control or cohort studies |
-| 2+ | Well-conducted case-control or cohort studies with low-risk of confounding |
-| 3 | Non-analytic studies |
+| 2+ | Well-conducted case-control or cohort studies with a low-risk of confounding or bias |
+| 2- | Case-control or cohort studies with a high-risk of confounding or bias |
+| 3 | Non-analytic studies, e.g. case reports, case series |
 | 4 | Expert opinion |
 
 Grades Of Recommendation
 | Grade | Definition |
 |---|---|
-| A | At least one RCT rated 1++ or body of evidence from 1+ studies, directly applicable |
-| B | Body of evidence from 2++ studies or extrapolated from 1++/1+ |
-| C | Body of evidence from 2+ studies or extrapolated from 2++ |
-| D | Evidence level 3 or 4 or extrapolated from 2+ |
+| A | At least one meta-analysis, systematic review, or RCT rated as 1++, directly applicable to the target population; OR a body of evidence from studies rated 1+, directly applicable and demonstrating overall consistency |
+| B | A body of evidence including studies rated 2++, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 1++ or 1+ |
+| C | A body of evidence including studies rated 2+, directly applicable and demonstrating overall consistency; OR extrapolated evidence from 2++ |
+| D | Evidence level 3 or 4 OR extrapolated evidence from 2+ |
+| ✓ | Good practice points — Recommended best practice based on clinical experience of the guidelines development group |
 
 Abbreviations
 | Abbreviation | Description |

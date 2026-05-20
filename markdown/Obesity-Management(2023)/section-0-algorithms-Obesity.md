@@ -1,29 +1,30 @@
 # Section 0: Key Recommendations & Algorithms
 <!-- METADATA
-category: Reference, Screening, Diagnosis, Treatment
+category: Methodology, Reference, Screening, Diagnosis, Treatment
 use_case: Obesity Management Algorithms — adult_obesity_assessment, childhood_obesity_staged_management, BMI_screening, weight_loss_programme, pharmacotherapy_bariatric_surgery_trigger
 patient_input: height, weight, BMI, waist_circumference, age, comorbidities, readiness_to_change, obesity_stage
 output: obesity_classification, management_pathway, intervention_plan, specialist_referral
 -->
 
-## Key Recommendations
+> **Context:** Key Recommendations + clinical algorithms for the 2023 Malaysian Management of Obesity CPG. Spans adult and paediatric: screening (BMI/WC), psychological/behavioural therapy, medical nutrition therapy, physical activity, pharmacotherapy and bariatric surgery triggers, plus prevention. The Key Recommendations are a consolidated digest — full clinical rationale is in Sections 2–6.
 
+## Key Recommendations
 The following recommendations were highlighted by the CPG Development Group as the key clinical recommendations that should be prioritised for implementation.
 
-**Adults**
-**Screening and diagnosis**
+### Adults
+#### Screening and diagnosis
 - Screening with body mass index (BMI) and waist circumference (WC) measurements should be done yearly
 - Cut off BMI values that should be used are: pre-obesity (overweight) -23 kg/m² and obesity - >27.5 kg/m²
 - Individuals diagnosed with pre-obesity and obesity should be assessed for associated conditions, co-occurring medical conditions and current treatments that could cause obesity
 
-**Psychological and behavioural therapy**
+#### Psychological and behavioural therapy
 - Multicomponent psychological and behavioural therapy approaches should be integrated in managing people with obesity
   - Enhancing communication and avoiding stigmatisation
   - Psychoeducation
   - Motivational interviewing and behavioural strategies
   - Psychological interventions
 
-**Medical Nutrition Therapy**
+#### Medical Nutrition Therapy
 - Dietary prescriptions should be individualised based on
   - Individual's motivation level
   - Age
@@ -33,14 +34,14 @@ The following recommendations were highlighted by the CPG Development Group as t
   - Weight loss goals
 - Calorie restriction diet should be combined with either low carbohydrate or low fat intake
 
-**Physical activity**
+#### Physical activity
 - Physical activity should be encouraged in all individuals with obesity
   - A minimum of 150 minutes/week (30 minutes/day) progressing to 300 minutes/week (60 minutes/day) of moderate intensity, or
   - At least 75-150 minutes/week of vigorous intensity is required for weight loss.
 - Combination of both moderate- and vigorous-intensity activity throughout the week should be encouraged to maintain weight loss
 - Both resistance and aerobic exercise or activities should be emphasised to improve physical function and well-being
 
-**Pharmacotherapy**
+#### Pharmacotherapy
 - Pharmacotherapy for obesity should be used only as an adjunct to diet, exercise and behavioural modification and not alone
   - Pharmacotherapy for obesity is indicated in patients with BMI ≥30 kg/m² without comorbidities and BMI ≥27 kg/m² with comorbidity
 - Pharmacotherapy that may be prescribed are:
@@ -51,23 +52,23 @@ The following recommendations were highlighted by the CPG Development Group as t
   - High dose semaglutide
 - Anti-obesity treatments should be used with medical supervision and careful monitoring
 
-**Bariatric surgery**
+#### Bariatric surgery
 - Bariatric surgery should only be performed in individuals with morbid obesity who fail medical therapy
 - Roux-en-Y gastric bypass surgery may be considered
 - A comprehensive preoperative assessment and preparation should be done before bariatric surgery
 
-**Prevention**
+#### Prevention
 - Fundamental preventive measures that should be implemented against the onset of obesity are promoting healthy eating, improving physical activity and implementing stress management practices
 - Healthcare providers should offer weight management interventions for preventing weight gain in normal-weight or overweight adults
 
-**Children And Adolescents (<18 years old)**
-**Screening and diagnosis**
+### Children And Adolescents (<18 years old)
+#### Screening and diagnosis
 - BMI cut-offs using the World Health Organization (WHO) BMI-for-age chart should be used for the classification of overweight and obesity in children
 - Clinical evaluation (history and physical examination) should be performed to identify the aetiology and to rule out pathological causes
 - Children and adolescents with obesity should be offered screening for related comorbidities
 - Overweight children and adolescents should be offered screening if risk factors are present
 
-**Management**
+#### Management
 - A step or staged approach for weight management in the paediatric population should be used
   - For prepubertal children – allow a gradual decline in BMI with weight maintenance or a slower weight gain
   - For pubertal children – gradual weight loss with a maximum loss of 0.5–1.0 kg/month
@@ -81,7 +82,7 @@ The following recommendations were highlighted by the CPG Development Group as t
   - Liraglutide may be considered
 - Metabolic and bariatric surgery may be considered for adolescents with extreme obesity and significant comorbidities
 
-**Prevention**
+#### Prevention
 - Breast feeding should be encouraged and adherence to dietary guidelines during weaning should be advocated
 - Multicomponent interventions should be used in preventing obesity
   - Dietary
@@ -113,7 +114,6 @@ Identify if any of the following thresholds are met:
 2. Assess for overweight/obesogenic medication use (see Table 2-2 in Section 2)
 
 **Step 3: Assess Readiness to Engage in Weight Loss Programme**
-
 *(Note: For patients >65 years old or with severe comorbidities, individualised assessment is essential.)*
 
 **If patient is NOT ready to engage:**
@@ -150,7 +150,6 @@ Provide Counselling on Healthy Behaviour regardless of BMI classification:
 → Perform **Detailed Assessment:** History and Physical Assessment; Determine health risk factors; Investigations as necessary
 
 **Step 5: Staged Management (for Overweight and Obese children)**
-
 **Stage 1 — Structured Weight Management (Primary Care, 3–6 monthly visits)**
 - Develop a structured plan with the patient and family; provide a log book for monitoring (should be done under parental supervision)
 - Diet: Address eating behaviours; include ≥5 servings of fruits and vegetables/day; eliminate sugar sweetened beverages
@@ -166,11 +165,11 @@ Provide Counselling on Healthy Behaviour regardless of BMI classification:
 - Increase intensity of interventions
 - Consider medical therapy or referral for bariatric surgery
 
-**Key notes:**
+Key notes:
 - Start at Stage 1, 2 or 3 depending on age, degree of obesity, health risks, and motivation of the child/adolescent
 - If there is failure to achieve or maintain the goal BMI, advance to more-intensive levels of intervention
 
-**Level Of Evidence**
+## Level Of Evidence
 | Level | Study Design |
 |---|---|
 | 1++ | High quality meta-analyses, systematic reviews of RCTs, or RCTs with a very low-risk of bias |
@@ -182,7 +181,7 @@ Provide Counselling on Healthy Behaviour regardless of BMI classification:
 | 3 | Non-analytic studies, e.g. case reports, case series |
 | 4 | Expert opinion |
 
-**Grades Of Recommendation**
+## Grades Of Recommendation
 | Grade | Definition |
 |---|---|
 | A | At least one meta-analysis, systematic review, or RCT rated as 1++, directly applicable to the target population; OR a body of evidence from studies rated 1+, directly applicable and demonstrating overall consistency |

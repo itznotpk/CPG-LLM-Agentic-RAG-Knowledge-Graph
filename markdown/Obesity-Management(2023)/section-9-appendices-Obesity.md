@@ -55,84 +55,67 @@ Clinical question: What are the effective screening strategies and assessments f
 
 ## Appendix 2: Binge Eating Scale
 The Binge Eating Scale is a 16-item questionnaire completed by the patient that assesses the presence of certain binge eating behaviours which may be indicative of an eating disorder. It is formatted as groups of statements about behaviour, thought and emotional states. The patient should indicate **which statement within each group best describes how they feel**.
-
-1. 
-   - [ ] I don't feel self-conscoius about my weight or body size when I'm with others.
+1. - [ ] I don't feel self-conscoius about my weight or body size when I'm with others.
    - [ ] I feel concerned about how I look to others, but it normally does not make me feel disappointed with myself.
    - [ ] I do get self-conscious about my apprearance and weight which makes me feel disappointed in myself.
    - [ ] I feel very self-conscious about my weight and frequently, I feel intense shame and disgust for myself. I try to avoid social contacts because of my self-consciousness.
-2. 
-   - [ ] I don't have any difficulty eating slowly in the proper manner.
+2. - [ ] I don't have any difficulty eating slowly in the proper manner.
    - [ ] Although I seem to be "gobble down" foods, I don't end up feeling stuffed because of eating too much.
    - [ ] At times, I tend to eat quickly and then, I feel uncomfortably full afterwards.
    - [ ] I have the habit of bolting down my food, without really chewing it. When this happens I usually feel uncomfortably stuffed because I've eaten too much.
-3. 
-   - [ ] I feel capable to control my eating urges when I want to.
+3. - [ ] I feel capable to control my eating urges when I want to.
    - [ ] I feel like I have failed to control my eating more than the average person.
    - [ ] I feel utterly helpless when it comes to feeling in control of my eating urges.
    - [ ] Because I feel so helpless about controlling my eating I have become very desperate about trying to get in control.
-4. 
-   - [ ] I don't have the habit of eating when I'm bored.
+4. - [ ] I don't have the habit of eating when I'm bored.
    - [ ] I sometimes eat when I'm bored, but often I'm able to "get busy" and get my mind off food.
    - [ ] I have regular habit of eating when I'm bored, but occasionally, I can use some other activity to get my mind off eating.
    - [ ] I have a strong habit of eating when I'm bored. Nothing seems to help me break the habit.
-5. 
-   - [ ] I'm usually physically hungry when I eat something.
+5. - [ ] I'm usually physically hungry when I eat something.
    - [ ] Occasionally, I eat something on impulse even though I really am not hungry.
    - [ ] I have the regular habit of eating foods, that I might not really enjoy, to satisfy a hungry feeling even though physically, I don't need the food.
    - [ ] Although I'm not physically hungry, I get a hungry feeling in my mouth that only seems to be satisfied my mouth hunger, I then spit the food out so I won't gain weight.
-6. 
-   - [ ] I don't feel any guilt or self-hate after I overeat.
+6. - [ ] I don't feel any guilt or self-hate after I overeat.
    - [ ] After I overeat, occasionally I feel guilt or self-hate.
    - [ ] Almost all the time I experience strong guilt or self-hate after I overeat.
-7. 
-   - [ ] I don't lose total control of my eating when dieting even after periods when I overeat.
+7. - [ ] I don't lose total control of my eating when dieting even after periods when I overeat.
    - [ ] Sometimes when I eat a "forbidden food" on a diet , I feel like I "blew it" and eat even more.
    - [ ] Frequently, I have the habit of saying to myself, "I've blown it now, why not go all the way" when I overeat on a diet. When that happens I eat even more.
    - [ ] I have a regular habit of starting strict diets for myself, but I break the diets by going on an eating binge. My life seems to be either a "feast" or "famine".
-8. 
-   - [ ] I rarely eat so much food that I feel uncomfortably stuffed afterwards.
+8. - [ ] I rarely eat so much food that I feel uncomfortably stuffed afterwards.
    - [ ] Usually about once a month, I eat such a quantity of food, I end up feeling very stuffed.
    - [ ] I have regular periods during the month when I eat large amounts of food, either at mealtime or at snacks.
    - [ ] I eat so much food that I regularly feel quite uncomfortable after eating and sometimes a bit nauseous.
-9. 
-   - [ ] My level of calorie intake does not go up very high or go down very low on a regular basis.
+9. - [ ] My level of calorie intake does not go up very high or go down very low on a regular basis.
    - [ ] Sometimes after I overeat, I will try to reduce my calorie intake to almost nothing to compensate for the excess calories I've eaten.
    - [ ] I have a regular habit of overeating during the night. It seems that my routine is not to be hungry in the morning but overeat in the evening.
    - [ ] In my adult years, I have had week-long periods where I practically starve myself. This follows periods when I overeat. It seems I live a life of either "feast or famine".
-10. 
-    - [ ] I usually am able to stop eating when I want to. I know when "enough is enough".
+10. - [ ] I usually am able to stop eating when I want to. I know when "enough is enough".
     - [ ] Every so often, I experience a compulsion to eat which I can't seem to control.
     - [ ] Frequently, I experience strong urges to eat which I seem unable to control, but at other times I can control my eating urges.
     - [ ] I feel incapable of controlling urges to eat. I have a fear of not being able to stop eating voluntarily.
-11. 
-    - [ ] I don't have any problem stopping eating when I feel full.
+11. - [ ] I don't have any problem stopping eating when I feel full.
     - [ ] I usually can stop eating when I feel full but occasionally overeat leaving me feeling uncomfortably stuffed.
     - [ ] I have a problem stoppinge eating once I start and usually I feel uncomfortably stuffed after I eat a meal.
     - [ ] Because I have a problem not being able to stop eating when I want, I sometimes have to induce vomiting to relieve my stuffed feeling.
-12. 
-    - [ ] I seem to eat just as much when I'm with others (family, social gatherings) as when I'm by myself.
+12. - [ ] I seem to eat just as much when I'm with others (family, social gatherings) as when I'm by myself.
     - [ ] Sometimes, when I'm with other persons, I don't eat as much as I want to eat because I'm self-conscious about my eating.
     - [ ] Frequently, I eat only a small amount of food when others are present, because I'm very embarrassed about my eating.
     - [ ] I feel so ashamed about overeating that I pick times to overeat when I know no one will see me. I feel like a "closet eater".
-13. 
-    - [ ] I eat 3 meals a day with only an occasional between meal snack.
+13. - [ ] I eat 3 meals a day with only an occasional between meal snack.
     - [ ] I eat 3 meals a day, but I also normally snack between meals.
     - [ ] When I am snacking heavily, I get in the habit of skipping regular meals.
     - [ ] There are regular periods when I seem to be continually eating, with no planned meals.
-14. 
-    - [ ] I don't think much about trying to control unwanted eating urges.
+14. - [ ] I don't think much about trying to control unwanted eating urges.
     - [ ] At least some of the time, I feel my thoughts are pre-occupied with trying to control my eating urges.
     - [ ] I feel that frequently I spend much time thinking about how much I ate or about trying not to eat urges.
     - [ ] I feel that frequently I spend much time thinking about how much I ate or about trying not to eat anymore.
     - [ ] It seems to me that most of my waking hours are pre-occupied by thoughts about eating or not eating. I feel like I'm constantly struggling not to eat.
-15. 
-    - [ ] I don't think about food a great deal.
+15. - [ ] I don't think about food a great deal.
     - [ ] I have strong cravings for food but they last only for brief periods of time.
     - [ ] I have days when I can't seem to think about anything else but food.
     - [ ] Most of my days seem to be pre-occupied with thoughts about food. I feel like I live to eat.
-16. 
-    - [ ] I usually know whether or not I'm physically hungry. I take the right portion of food to satisfy me.
+16. - [ ] I usually know whether or not I'm physically hungry. I take the right portion of food to satisfy me.
     - [ ] Occasionally, I feel uncertain about knowing whether or not I'm physically hungry. At these times it's hard to know how much food I should take to satisfy me.
     - [ ] Even though I might know how many calories I should eat, I don't have any idea what is a "normal" amount of food for me.
 
@@ -145,18 +128,6 @@ The self-monitoring worksheet is a tracking table for clinical and patient use.
   - [ ] mood
   - [ ] other (free text line)
 - **Tracking Structure:** It consists of a table tracking 8 consecutive weeks (split into two blocks of 4 weeks, with a prominent divider between Week 4 and Week 5) across each day of the week from Monday to Sunday.
-
-| | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
-|---|---|---|---|---|---|---|---|
-| **Week 1** | | | | | | | |
-| **Week 2** | | | | | | | |
-| **Week 3** | | | | | | | |
-| **Week 4** | | | | | | | |
-|===|===|===|===|===|===|===|===|
-| **Week 5** | | | | | | | |
-| **Week 6** | | | | | | | |
-| **Week 7** | | | | | | | |
-| **Week 8** | | | | | | | |
 
 ## Appendix 3A: Sample menu plan
 **(50% carbohydrate, 20% protein, 30% fat)**
@@ -317,7 +288,6 @@ Each item contains 5 g and 45 calories. Some of the foods in the list, e.g., nut
 **Oil (all types) = 1 level teaspoon (5 g)**
 
 **Can be exchanged for:**
-
 | Fat | Quantity |
 |---|---|
 | Butter, margarine, Mayonnaise, Shortening, lard | 1 level teaspoon |

@@ -31,10 +31,3 @@ To implement the CPG, there must be dedicated efforts to:
 - Explore opportunities to work with the school healthcare teams in addressing paediatric overweight and obesity
 
 Implementation strategies will be developed following the approval of the CPG by MoH which include launching of the CPG, Quick Reference and Training Module.
-
-<!-- parent_only_reference_start -->
-| Abbreviation | Description |
-|---|---|
-| CPG | Clinical practice guideline |
-| MoH | Ministry of Health |
-<!-- parent_only_reference_end -->
