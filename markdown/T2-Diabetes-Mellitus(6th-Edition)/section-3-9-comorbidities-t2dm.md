@@ -27,35 +27,35 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 
 ## 3.9.1 Hypertension and T2DM
 
-- Hypertension is a common co-morbidity of T2DM, with a prevalence of 80.4% among patients who are followed up in the National Diabetes Registry (Level II-3).
+- [Level II-3] Hypertension is a common co-morbidity of T2DM, with a prevalence of 80.4% among patients who are followed up in the National Diabetes Registry.
 - Hypertension should be detected and treated early in the course of T2DM to prevent CVD and to delay the progression of renal disease and diabetic retinopathy.
-- Reduction in systolic blood pressure (SBP) of 10 mmHg or diastolic blood pressure (DBP) of 5 mmHg, irrespective of whether the patient has T2DM, is associated with significant reductions in all major CV events by 20%, all-cause mortality by 15%, stroke by 35%, coronary events by 20% and heart failure by 40% (Level I).
+- [Level I] Reduction in systolic blood pressure (SBP) of 10 mmHg or diastolic blood pressure (DBP) of 5 mmHg, irrespective of whether the patient has T2DM, is associated with significant reductions in all major CV events by 20%, all-cause mortality by 15%, stroke by 35%, coronary events by 20% and heart failure by 40%.
 
 ### Treatment Threshold
 - Pharmacological treatment should be initiated in patients with T2DM when BP is persistently **≥140 mmHg systolic and/or ≥90 mmHg diastolic**.
-  - Meta-analyses have consistently shown significant risk reduction in mortality, CHD, cerebrovascular disease and heart failure when treatment is started at SBP ≥140 mm Hg (Level I) and DBP >90 mmHg (Level I).
-- Two meta-analyses showed that lowering BP when initial SBP is <140 mmHg, showed no additional CV benefits. Moreover, a more recent systematic review found that it increased the risk of CV death (HR 1.15, 95% CI 1.00,1.32), with no observed extra benefit in MI, stroke, heart failure or ESKD (Level I).
-- There is insufficient evidence to date for benefits of starting treatment when DBP is <90 mmHg (Level I).
+ - [Level I] [Level I] Meta-analyses have consistently shown significant risk reduction in mortality, CHD, cerebrovascular disease and heart failure when treatment is started at SBP ≥140 mm Hg and DBP >90 mmHg.
+- [Level I] Two meta-analyses showed that lowering BP when initial SBP is <140 mmHg, showed no additional CV benefits. Moreover, a more recent systematic review found that it increased the risk of CV death (HR 1.15, 95% CI 1.00,1.32), with no observed extra benefit in MI, stroke, heart failure or ESKD.
+- [Level I] There is insufficient evidence to date for benefits of starting treatment when DBP is <90 mmHg.
 
 ### Treatment Target for SBP and DBP
-- The ACCORD trial showed no benefit in combined CV endpoints with SBP <120 mmHg vs. <140 mmHg (Level I).
-- A more recent meta-analysis demonstrated an increase of adverse events with SBP <130 mmHg (Level I).
-- In high risk patients with T2DM and coronary artery disease, lowering SBP to <120 mmHg and DBP <70 mmHg, studies report adverse CV outcomes supporting the existence of a J-curve phenomenon. This supports targets for SBP of **130–139 mmHg** and **DBP 70–79 mmHg** (Level I).
-- In those who do not have pre-existing CHD, but have a higher risk of stroke (such as Asian patients) and DKD, lower SBP target of **<130 mmHg** (but not <120 mmHg) might be appropriate provided that it is well tolerated, to lower the risk of stroke and albuminuria (Level I).
+- [Level I] The ACCORD trial showed no benefit in combined CV endpoints with SBP <120 mmHg vs. <140 mmHg.
+- [Level I] A more recent meta-analysis demonstrated an increase of adverse events with SBP <130 mmHg.
+- [Level I] In high risk patients with T2DM and coronary artery disease, lowering SBP to <120 mmHg and DBP <70 mmHg, studies report adverse CV outcomes supporting the existence of a J-curve phenomenon. This supports targets for SBP of **130–139 mmHg** and **DBP 70–79 mmHg**.
+- [Level I] In those who do not have pre-existing CHD, but have a higher risk of stroke (such as Asian patients) and DKD, lower SBP target of **<130 mmHg** (but not <120 mmHg) might be appropriate provided that it is well tolerated, to lower the risk of stroke and albuminuria.
 
 ### Management of Hypertension in T2DM
 - Non-pharmacological management cannot be overemphasized.
   - Dietary counselling should target an optimal body weight.
   - Dietary sodium restriction is advisable.
 - **Renin-angiotensin system (RAS) blockers are the first-line pharmacological treatment of choice** for patients with T2DM and hypertension.
-  - They are found to be more effective than other drug classes in reducing the risk of CHD, all-cause death and composite of stroke, CHD, and heart failure (Level I).
-- ACE inhibitors have been regarded as drug of choice based on extensive data (Level I).
-  - If an ACE inhibitor is not tolerated, an ARB should be considered (Level I).
-  - ARBs have been reported to be superior to other non-RAS blocker antihypertensive drugs in terms of slowing the progression of nephropathy at the microalbuminuric and overt nephropathy stages (Level I).
+ - [Level I] They are found to be more effective than other drug classes in reducing the risk of CHD, all-cause death and composite of stroke, CHD, and heart failure.
+- [Level I] ACE inhibitors have been regarded as drug of choice based on extensive data.
+ - [Level I] If an ACE inhibitor is not tolerated, an ARB should be considered.
+ - [Level I] ARBs have been reported to be superior to other non-RAS blocker antihypertensive drugs in terms of slowing the progression of nephropathy at the microalbuminuric and overt nephropathy stages.
 - Multiple drug therapy is generally required to achieve BP targets.
-  - 90% of patients require three antihypertensive medications to achieve target (Level I).
+ - [Level I] 90% of patients require three antihypertensive medications to achieve target.
   - Diuretics, calcium channel blockers (CCBs), beta-blockers and peripheral alpha-blockers may be used as add-on therapy.
-- **Combination ACE inhibitor and ARB is not recommended** (Level I).
+- [Level I] **Combination ACE inhibitor and ARB is not recommended**.
 
 ### Table 3-25: Anti-Hypertensive Drugs for T2DM
 
@@ -81,21 +81,21 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 ## 3.9.2 Hyperlipidaemia and T2DM
 
 - T2DM is a CHD defining disease.
-- Control of hyperglycaemia alone has a modest and heterogeneous effect on reduction of CVD (Level I) and may take long periods to manifest (Level I).
-- In contrast, multifactorial intervention has been shown to reduce microvascular complications, CV events and mortality in the STENO-2 study (Level I).
+- [Level I] [Level I] Control of hyperglycaemia alone has a modest and heterogeneous effect on reduction of CVD and may take long periods to manifest.
+- [Level I] In contrast, multifactorial intervention has been shown to reduce microvascular complications, CV events and mortality in the STENO-2 study.
 - Thus, efforts must also be directed to address other risk factors such as dyslipidaemia, hypertension and prior CV events.
 
 ### Screening
 - In adult patients, test for lipid disorders at least annually and more often if needed to achieve goals.
   - Non-fasting sample can be used for assessment of lipid parameters.
   - If non-fasting TG is elevated (>2.3 mmol/L), a fasting sample is required.
-- In adolescents with T2DM, screening for lipid disorders should be done at diagnosis after glycaemic control is achieved. If lipid values are within targets, screening should be repeated annually thereafter (Level III).
+- [Level III] In adolescents with T2DM, screening for lipid disorders should be done at diagnosis after glycaemic control is achieved. If lipid values are within targets, screening should be repeated annually thereafter.
 - CV risk calculators for primary prevention are not recommended as individuals with T2DM are already considered high risk and all CV risk factors should be aggressively managed.
 
 ### Targets
 
 **Primary Target: LDL-C**
-- All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level (Level I).
+- [Level I] All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.
   - Statin is not recommended in women of child-bearing potential who are not using adequate contraception and is contraindicated during pregnancy.
 - The LDL-C targets depend on the patient's CV risk category.
 
@@ -109,8 +109,8 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 
 *Non-HDL-C: calculated as Total cholesterol – HDL-C.*
 
-- Very low LDL-C level achieved by newer lipid lowering drugs had shown further CV risk reduction in large scale clinical trials proportionate to the degree of LDL-C lowering (Level I). The absolute risk reduction is most evident in patients with higher CV risk.
-- If the above targets are unattainable, aim for a 50% reduction of pre-treatment LDL-C level (Level I).
+- [Level I] Very low LDL-C level achieved by newer lipid lowering drugs had shown further CV risk reduction in large scale clinical trials proportionate to the degree of LDL-C lowering. The absolute risk reduction is most evident in patients with higher CV risk.
+- [Level I] If the above targets are unattainable, aim for a 50% reduction of pre-treatment LDL-C level.
 
 **Secondary Targets: Non-HDL-C, HDL-C and TG**
 
@@ -126,15 +126,15 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 - Lifestyle modification focusing on: reduction of saturated fat, trans-fat and cholesterol intake; increasing intake of dietary n-3 fatty acids, viscous fibre and plant stanols/sterols; weight loss (if indicated); and increasing physical activity.
 - Lowering LDL-C is the main aim of treatment and statins are the first-line lipid lowering drug.
 - Statin therapy should be intensified to achieve LDL-C goal before considering combination therapy.
-- If the target LDL-C is not achieved with maximal tolerated dose of statin therapy, combination therapy with ezetimibe is recommended (Level I).
-- For very high-risk patients, Proprotein Convertase Subtilisin/Kexin Type 9 (PCSK9) inhibitors should be considered if maximal tolerated dose of statin and ezetimibe fail to achieve LDL-C targets (Level I).
+- [Level I] If the target LDL-C is not achieved with maximal tolerated dose of statin therapy, combination therapy with ezetimibe is recommended.
+- [Level I] For very high-risk patients, Proprotein Convertase Subtilisin/Kexin Type 9 (PCSK9) inhibitors should be considered if maximal tolerated dose of statin and ezetimibe fail to achieve LDL-C targets.
 - In patients with high TG, improving diabetes control and lifestyle modification is emphasized.
 - Investigate for secondary causes, if fasting TG >5.7 mmol/L and consider pharmacological therapy with fibrate and/or fish oil (2–4g/day) to reduce the risk of pancreatitis.
-- Nicotinic acid should only be used in patients with high risk of pancreatitis with a TG level of >10 mmol/L, in those who do not respond adequately to fibrates and/or fish oil (Level I).
-- In patients with ASCVD or high CV risk and elevated triglycerides, the addition of icosapent ethyl 4 mg/day to statin has been shown to reduce CV risk by 25% (Level I).
-- In patients with TG >2.3 mmol/L and low HDL-C, fibrates may be considered in combination with statin (Level III).
-- In patients with established retinopathy, fenofibrate reduces progression of diabetic retinopathy, irrespective of baseline TG/HDL-C level (Level I).
-- In T2DM patients below 21-year-old without clinical ASCVD, statin is generally not recommended (Level III).
+- [Level I] Nicotinic acid should only be used in patients with high risk of pancreatitis with a TG level of >10 mmol/L, in those who do not respond adequately to fibrates and/or fish oil.
+- [Level I] In patients with ASCVD or high CV risk and elevated triglycerides, the addition of icosapent ethyl 4 mg/day to statin has been shown to reduce CV risk by 25%.
+- [Level III] In patients with TG >2.3 mmol/L and low HDL-C, fibrates may be considered in combination with statin.
+- [Level I] In patients with established retinopathy, fenofibrate reduces progression of diabetic retinopathy, irrespective of baseline TG/HDL-C level.
+- [Level III] In T2DM patients below 21-year-old without clinical ASCVD, statin is generally not recommended.
 
 ### Table 3-28: Lipid Lowering Drugs for Dyslipidaemia in T2DM
 
@@ -179,8 +179,8 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 
 ## 3.9.3 Obesity and T2DM
 
-- Based on the 2019 National Diabetes Registry data, 84% of individuals with T2DM are either overweight or obese (Level II-3). People with diabetes who are overweight or obese have higher risk of complications.
-- Lifestyle intervention focusing on weight loss showed improvement in HbA1c and other CV risk factors (Level I).
+- [Level II-3] Based on the 2019 National Diabetes Registry data, 84% of individuals with T2DM are either overweight or obese. People with diabetes who are overweight or obese have higher risk of complications.
+- [Level I] Lifestyle intervention focusing on weight loss showed improvement in HbA1c and other CV risk factors.
 - Many GLDs are associated with weight gain, and attempts should be made to minimise these medications without compromising glycaemic control or to switch to alternative agents not associated with weight gain.
 
 ### Table 3-31: GLDs and Their Effect on Weight
@@ -208,18 +208,18 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 
 ### A. Non-Pharmacological Intervention
 - Nutritionally balanced, energy-reduced dietary interventions are recommended for healthier body weight to be achieved.
-  - Weight loss >5% is needed to see beneficial effect on HbA1c, lipid and BP (Level I).
-  - Caloric restriction of 1200–1500 kcal/day for women and 1500–1800 kcal/day for men is useful for rapid weight loss (Level I).
-- Use of MRP, with close patient monitoring, can be beneficial. DiRECT trial: Significant weight loss of 15 kg (24%) and diabetes remission (46%) were seen in the intervention group (Level I).
-- Very low calorie diet (VLCD) with a total MRP of <800 kcal/day may achieve greater short-term weight loss (10%–15%) with greater glycaemic improvement, as shown in the DROPLET study (Level I).
+ - [Level I] Weight loss >5% is needed to see beneficial effect on HbA1c, lipid and BP.
+ - [Level I] Caloric restriction of 1200–1500 kcal/day for women and 1500–1800 kcal/day for men is useful for rapid weight loss.
+- [Level I] Use of MRP, with close patient monitoring, can be beneficial. DiRECT trial: Significant weight loss of 15 kg (24%) and diabetes remission (46%) were seen in the intervention group.
+- [Level I] Very low calorie diet (VLCD) with a total MRP of <800 kcal/day may achieve greater short-term weight loss (10%–15%) with greater glycaemic improvement, as shown in the DROPLET study.
   - Significant weight loss at week 12, -9.6 kg and was sustained at 12 months, -7.2 kg.
-- Increased physical activity consisting of at least 150 minute/week of moderate-intensity exercise (Level III).
+- [Level III] Increased physical activity consisting of at least 150 minute/week of moderate-intensity exercise.
   - This includes muscle strengthening and resistance exercise 2 to 3 times/week.
-  - Overweight or obese persons with T2DM should increase the exercise duration to >60 minutes per day/approximately 450 minutes per week for weight reduction (Level III).
+ - [Level III] Overweight or obese persons with T2DM should increase the exercise duration to >60 minutes per day/approximately 450 minutes per week for weight reduction.
 - Frequent contact with healthcare providers and behavioural therapy should be part of the intervention.
 
 ### B. Pharmacological Intervention
-- Pharmacotherapy can be considered for patients with T2DM with BMI ≥27.0 kg/m² after failing 6 months of lifestyle modification (Level III).
+- [Level III] Pharmacotherapy can be considered for patients with T2DM with BMI ≥27.0 kg/m² after failing 6 months of lifestyle modification.
 - Three anti-obesity agents have been approved: phentermine, orlistat, and high dose liraglutide (3 mg/day) for the management of obesity.
 
 ### Table 3-33: Approved Anti-Obesity Drugs
@@ -231,15 +231,15 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 | Liraglutide, 3.0 mg (Level I) | GLP-1 RA | Slows gastric motility, reduces satiety | 56 weeks | 6.4 | Nausea and vomiting; Pancreatitis; Cholelithiasis |
 
 ### C. Surgical Intervention
-- Bariatric surgery should be considered when lifestyle and pharmacological interventions have failed in the obese with T2DM and at high CVD risk with suboptimal glycaemic control (Level III).
-- Metabolic surgery should be recommended for Asians with T2DM as below (Level III):
+- [Level III] Bariatric surgery should be considered when lifestyle and pharmacological interventions have failed in the obese with T2DM and at high CVD risk with suboptimal glycaemic control.
+- [Level III] Metabolic surgery should be recommended for Asians with T2DM as below:
   - **≥37.5 kg/m²**
   - **≥32.5 kg/m² to 37.4 kg/m²** with inadequately controlled hyperglycaemia despite lifestyle modification and optimal medical treatment
   - **≥27.5 kg/m² to 32.5 kg/m²** — it can be considered in those with inadequately controlled hyperglycaemia despite optimal medical treatment
-- The Asian Consensus Meeting on Metabolic Surgery (ACMOMS) recommends bariatric surgery for the following persons with diabetes (Level III):
+- [Level III] The Asian Consensus Meeting on Metabolic Surgery (ACMOMS) recommends bariatric surgery for the following persons with diabetes:
   - >32 kg/m²
   - >30 kg/m² with 1 or more features of metabolic syndrome
-- Evaluation for the appropriateness of surgery should be performed by a multidisciplinary team consisting of endocrinologist, bariatric surgeon, psychiatrist, dietitian and physiotherapist prior to surgery (Level III).
+- [Level III] Evaluation for the appropriateness of surgery should be performed by a multidisciplinary team consisting of endocrinologist, bariatric surgeon, psychiatrist, dietitian and physiotherapist prior to surgery.
 
 ### Table 3-34: Criteria for Bariatric Surgery
 
@@ -268,7 +268,7 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 | C-peptide (mmol/L) | <2 | 2–2.9 | 3–4.9 | ≥5 |
 | Duration of T2DM (years) | >8 | 4–8 | 1–3.9 | <1 |
 
-*Total possible score value range from 0–10. The higher the score, the higher percentage for T2DM remission. With a score of ≥4, the remission rate for T2DM is >50% (Level II-2).*
+[Level II-2] *Total possible score value range from 0–10. The higher the score, the higher percentage for T2DM remission. With a score of ≥4, the remission rate for T2DM is >50%.*
 
 ### Recommendations: Obesity and T2DM
 
@@ -284,14 +284,14 @@ output: BP_target, antihypertensive_selection, LDL_target, statin_dose, weight_l
 ## 3.9.4 Non-Alcoholic Fatty Liver Disease (NAFLD)
 
 - A new proposed nomenclature for NAFLD is **"metabolic associated fatty liver disease" or MAFLD**. The major benefit of this new nomenclature is a shift towards a diagnosis of inclusion based on the presence of metabolic dysfunction.
-- NAFLD encompasses a spectrum of liver conditions characterised by excess accumulation of fat in the liver that is associated with chronic overnutrition (Level II-2).
-- NAFLD is closely associated with obesity and is considered as the liver manifestation of the metabolic syndrome (Level II-2).
-- For a strict definition of NAFLD, significant alcohol intake (more than two standard drinks/day for men or more one standard drink/day for women), drugs that can cause hepatic steatosis and other causes of liver diseases should be excluded (Level II-2).
-- Non-alcoholic steatohepatitis (NASH) is the more severe form of NAFLD that is defined histologically by the presence of lobular inflammation and hepatocyte ballooning (Level II-2).
-- Patients with NASH are more likely to develop liver fibrosis and cirrhosis, and hepatocellular carcinoma (HCC) (Level II-2).
-- T2DM is a risk factor for NASH and advanced liver fibrosis (Level II-2).
-- In Malaysia, the prevalence of NAFLD among patients with T2DM has been estimated to be 49.6% based on ultrasonography and 72.4% based on controlled attenuation parameter (Level II-2).
-- A study using liver stiffness measurement estimated the prevalence of advanced liver fibrosis among patients with diabetes mellitus to be 21.0% (Level II-2).
+- [Level II-2] NAFLD encompasses a spectrum of liver conditions characterised by excess accumulation of fat in the liver that is associated with chronic overnutrition.
+- [Level II-2] NAFLD is closely associated with obesity and is considered as the liver manifestation of the metabolic syndrome.
+- [Level II-2] For a strict definition of NAFLD, significant alcohol intake (more than two standard drinks/day for men or more one standard drink/day for women), drugs that can cause hepatic steatosis and other causes of liver diseases should be excluded.
+- [Level II-2] Non-alcoholic steatohepatitis (NASH) is the more severe form of NAFLD that is defined histologically by the presence of lobular inflammation and hepatocyte ballooning.
+- [Level II-2] Patients with NASH are more likely to develop liver fibrosis and cirrhosis, and hepatocellular carcinoma (HCC).
+- [Level II-2] T2DM is a risk factor for NASH and advanced liver fibrosis.
+- [Level II-2] In Malaysia, the prevalence of NAFLD among patients with T2DM has been estimated to be 49.6% based on ultrasonography and 72.4% based on controlled attenuation parameter.
+- [Level II-2] A study using liver stiffness measurement estimated the prevalence of advanced liver fibrosis among patients with diabetes mellitus to be 21.0%.
 
 ### Assessment of NAFLD in T2DM
 
@@ -311,7 +311,7 @@ FIB-4 = Age (years) × AST (U/L) / [Platelet count (×10⁹/L) × √ALT (U/L)]
 - FIB-4 <1.3 = Low risk for advanced fibrosis
 - FIB-4 ≥1.3 = Intermediate to high risk for advanced fibrosis → refer for liver stiffness measurement
 
-- Persistently elevated serum ALT and/or AST levels in patients with T2DM and NAFLD may indicate the presence of NASH. However, normal serum ALT and AST levels do not exclude NASH and advanced liver fibrosis (Level II-2).
+- [Level II-2] Persistently elevated serum ALT and/or AST levels in patients with T2DM and NAFLD may indicate the presence of NASH. However, normal serum ALT and AST levels do not exclude NASH and advanced liver fibrosis.
 - US examination of the liver should be performed in patients with T2DM and elevated serum ALT and/or AST to diagnose fatty liver and to exclude focal liver lesion.
 
 ### Table 3-38: Interpretation of Liver Stiffness Measurements and Recommended Action
@@ -326,16 +326,16 @@ FIB-4 = Age (years) × AST (U/L) / [Platelet count (×10⁹/L) × √ALT (U/L)]
 *\*Values obtained by transient elastography.*
 
 ### Treatment of NAFLD in T2DM
-- The mainstay of treatment of NAFLD is **lifestyle intervention** (Level II-2).
-  - A balanced, reduced calorie, individually tailored diet to enable weight loss which includes limiting excess fructose consumption, choosing complex CHO, high fibre foods and avoiding processed foods (Level II-2).
-    - A study on biopsy-proven NASH patients found that weight loss of ≥10% through lifestyle intervention over 52 weeks resulted in NASH resolution and fibrosis improvement in 90% and 45% of patients, respectively (Level II-2).
-  - Avoid excessive alcohol consumption (Level II-2).
-  - Moderate-intensity exercise ≥30 minutes/day for ≥5 days/week or a total of ≥150 minutes/week, or vigorous-intensity exercise for ≥20 minutes/day for ≥3 days/week or a total of ≥75 minutes/week (Level I).
-  - Smoking cessation to reduce CVD risk (Level II-1).
-- **GLP1-RA** has been shown to be associated with significantly greater NASH resolution and lesser fibrosis progression in a randomised, double-blind, placebo-controlled trial (Level I).
-- **SGLT2-i** has been shown to significantly reduce liver fat based on MRI-proton density fat fraction and serum ALT level in a RCT (Level I), and may be useful for the treatment of NASH (Level II-2).
-- **Pioglitazone** has been shown to significantly reduce steatosis, lobular inflammation and hepatocyte ballooning in biopsy-proven NASH patients (Level I), but its use has been associated with significant weight gain, risk of CCF, osteoporosis and bladder cancer.
-- **Vitamin E** has been shown to significantly reduce steatosis, lobular inflammation and hepatocyte ballooning in biopsy-proven NASH patients without T2DM (Level I), but its use has been associated with concerns about risk of prostate cancer and increased all-cause mortality.
+- [Level II-2] The mainstay of treatment of NAFLD is **lifestyle intervention**.
+ - [Level II-2] A balanced, reduced calorie, individually tailored diet to enable weight loss which includes limiting excess fructose consumption, choosing complex CHO, high fibre foods and avoiding processed foods.
+ - [Level II-2] A study on biopsy-proven NASH patients found that weight loss of ≥10% through lifestyle intervention over 52 weeks resulted in NASH resolution and fibrosis improvement in 90% and 45% of patients, respectively.
+ - [Level II-2] Avoid excessive alcohol consumption.
+ - [Level I] Moderate-intensity exercise ≥30 minutes/day for ≥5 days/week or a total of ≥150 minutes/week, or vigorous-intensity exercise for ≥20 minutes/day for ≥3 days/week or a total of ≥75 minutes/week.
+ - [Level II-1] Smoking cessation to reduce CVD risk.
+- [Level I] **GLP1-RA** has been shown to be associated with significantly greater NASH resolution and lesser fibrosis progression in a randomised, double-blind, placebo-controlled trial.
+- [Level I] [Level II-2] **SGLT2-i** has been shown to significantly reduce liver fat based on MRI-proton density fat fraction and serum ALT level in a RCT, and may be useful for the treatment of NASH.
+- [Level I] **Pioglitazone** has been shown to significantly reduce steatosis, lobular inflammation and hepatocyte ballooning in biopsy-proven NASH patients, but its use has been associated with significant weight gain, risk of CCF, osteoporosis and bladder cancer.
+- [Level I] **Vitamin E** has been shown to significantly reduce steatosis, lobular inflammation and hepatocyte ballooning in biopsy-proven NASH patients without T2DM, but its use has been associated with concerns about risk of prostate cancer and increased all-cause mortality.
 - CVD is the leading cause of mortality in patients with NAFLD. Statins should be prescribed for dyslipidaemia in NAFLD patients. Serious liver injury from statins is rare and it is safe to be prescribed for most NAFLD patients.
 
 ### Recommendations: Assessment of NAFLD
