@@ -87,7 +87,7 @@ The `--cpg` argument is a substring matched against `metadata->>'cpg_name'`. Use
 | **KG-1** Total edges from this CPG | ≥ 30 (warn at <30, fail at 0) | LLM triple extraction failed silently (most likely Bedrock 404) |
 | **KG-2** Severity on safety-critical edges | ≥ 30% | Phase A prompt regression — Stage 5 flag triage will degrade |
 | **KG-3** `evidence_list` + `cpg_chunk_ids` on every edge | 100% | Phase A write-side regression in [graph_builder.py:649-658](../../ingestion/graph_builder.py#L649-L658) |
-| **KG-4** `cpg_chunk_id` → Postgres cross-DB lookup | 10/10 sampled found | Cross-DB drift; `chunk_id` propagation broke |
+| **KG-4** `cpg_chunk_id` → Postgres cross-DB lookup | 10/10 sampled found | Cross-DB drift; `chunk_id` propagation broke. ⚠ **Samples corpus-wide, not per-CPG — can pass while a single CPG is badly orphaned. Always also run Step 4b (KG-8).** |
 | **KG-5** Sample 5 edges printed | Manual eyeball | Edge looks wrong → re-ingest with `--verbose` and check the extraction prompt |
 | **KG-6** `name_normalised` on all nodes | 100% (FAIL if any missing) | `clinical_graph_lookup` Cypher queries match on `name_normalised` — missing values = invisible nodes |
 | **KG-7** Duplicate node detection | <5% duplication rate | Name normalisation regression — same entity creates multiple nodes, queries miss edges |
@@ -99,6 +99,33 @@ The `--cpg` argument is a substring matched against `metadata->>'cpg_name'`. Use
 ```
 
 …or a list of `FAIL` / `WARN` lines. **Stop and investigate** any `FAIL`. `WARN` is informational unless it repeats across multiple CPGs.
+
+---
+
+## Step 4b — KG-8: Full per-CPG `cpg_chunk_id` resolution (MANDATORY)
+
+> **Why this exists:** KG-4 samples only 10 `cpg_chunk_id`s **corpus-wide**, so it can report 10/10 while a single CPG is up to ~94% orphaned. This blind spot let the Dyslipidaemia and Ischaemic-Stroke cross-DB corruptions pass verification (incident 2026-05-20). KG-8 closes it by checking **every** edge of the target CPG.
+
+```powershell
+venv\Scripts\python.exe scratch\sweep_cpg_corruption.py            # all CPGs (read-only)
+# or, for the CPG you just ingested, the per-section breakdown:
+venv\Scripts\python.exe scratch\_dyslip_proper_check.py            # template — adapt cpg_name
+```
+
+**How it identifies a CPG's edges (do NOT use a spelling substring):**
+
+1. Get the CPG's section titles: `SELECT DISTINCT title FROM documents WHERE metadata->>'cpg_name' = '<exact cpg_name>'`.
+2. **Collision-check** every title against other CPGs (`SELECT count(DISTINCT metadata->>'cpg_name') ... WHERE title = $t`). A title used by >1 CPG (e.g. "Appendices", "Section 1: Introduction", "Section 3: Diagnosis And Initial Assessment") is **shared** — never match/delete edges by it alone.
+3. Match Neo4j edges `WHERE r.source_document IN $unique_titles`. For shared titles, disambiguate by `cpg_chunk_id` ownership (resolve the id to a chunk and check its `cpg_name`).
+4. Resolve every distinct `cpg_chunk_id` against `chunks`. Report `live / total` and orphan %.
+
+> ⚠ **Never filter a CPG's edges with `r.source_document CONTAINS '<name>'`.** Section titles mix British/American spelling ("Dyslipidaemia" vs "Dyslipidemia") and generic names, so a substring silently inspects only a fraction of the CPG and hides corruption.
+
+| Check | Threshold | What FAIL means |
+|---|---|---|
+| **KG-8** Per-CPG `cpg_chunk_id` resolution (full, not sampled) | **0 orphans** (FAIL at any orphan from a fresh ingest; >10% = corruption) | Stale edges from a prior/partial ingest survived cleanup, OR chunk UUIDs regenerated out of sync. Remediate: delete the CPG's edges (collision-aware, by unique titles + shared-title disambiguation), delete its chunks/docs by `cpg_name`, re-ingest clean. See `scratch/cleanup_stroke.py` for the collision-aware template. |
+
+**Periodic corpus sweep:** run `scratch/sweep_cpg_corruption.py` after any bulk re-ingest or backup restore to catch CPGs that drifted. It prints a per-CPG orphan % and a FLAGGED list.
 
 ---
 
@@ -248,6 +275,7 @@ Then re-ingest the failed CPG fresh.
 # 1. ingest, 2. verify per-CPG, 3. cumulative health, 4. duplicates, 5. clinical lookup
 venv\Scripts\python.exe -m ingestion.ingest --documents "markdown\<CPG-folder>"
 venv\Scripts\python.exe scratch\verify_cpg_ingest.py --cpg "<CPG-folder>"
+venv\Scripts\python.exe scratch\sweep_cpg_corruption.py | Select-String -Pattern "<CPG>|CORRUPTION|clean"  # KG-8
 venv\Scripts\python.exe scratch\kg_verify.py | Select-String -Pattern "TOTAL|ISSUES|PASSED"
 venv\Scripts\python.exe scratch\kg_dupes.py | Select-String -Pattern "CHECK 4|CLEAN|WARNING"
 venv\Scripts\python.exe scratch\test_graph_clinical.py
@@ -262,6 +290,8 @@ If all exit with `PASSED` / `ALL CHECKS PASSED` / `CLEAN`, the CPG is in.
 | Script | Purpose |
 |---|---|
 | [scratch/verify_cpg_ingest.py](../../scratch/verify_cpg_ingest.py) | Per-CPG verification (PG-1–6, KG-1–7 — this SOP's main tool) |
+| [scratch/sweep_cpg_corruption.py](../../scratch/sweep_cpg_corruption.py) | **KG-8** — read-only per-CPG full `cpg_chunk_id` resolution sweep across all CPGs (collision-aware) |
+| [scratch/cleanup_stroke.py](../../scratch/cleanup_stroke.py) | Collision-aware CPG remediation template (unique-title + shared-title disambiguation delete) |
 | [scratch/kg_verify.py](../../scratch/kg_verify.py) | Whole-graph health check |
 | [scratch/kg_dupes.py](../../scratch/kg_dupes.py) | Standalone duplicate node audit (abbreviation splits, case dupes, plurals) |
 | [scratch/test_graph_clinical.py](../../scratch/test_graph_clinical.py) | `clinical_graph_lookup` smoke test (structured Cypher queries) |
