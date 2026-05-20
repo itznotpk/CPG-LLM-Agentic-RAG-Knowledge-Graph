@@ -22,6 +22,7 @@ except ImportError:  # pragma: no cover - only used before requirements are rein
     tiktoken = None
 from pydantic import BaseModel
 from pydantic import ValidationError
+from pydantic import model_validator
 
 from .db_utils import db_pool
 from .graph_clinical import ClinicalFlag, format_flags_for_prompt
@@ -32,13 +33,45 @@ from .tools import VectorSearchInput, vector_search_tool
 logger = logging.getLogger(__name__)
 
 DDX_RERANK_MODEL = os.getenv("LLM_CHOICE", "gpt-4o")
+EXCLUSION_PENALTY_WEIGHT = 0.3       # λ — applied in ddx/search_ddx.py; defined here for central reference
 OUT_OF_SCOPE_INCL_THRESHOLD = 0.3
+DDX_DISPLAY_FLOOR = 0.30
+SCORE_TERM_DISPLAY_FLOOR = 0.50
+RERANK_DISAGREEMENT_DELTA = 2
+ScoreRouteMethod = Literal[
+    "exact",
+    "ancestor_d1",
+    "ancestor_d1_sibling",
+    "ancestor_d1_sibling_child",
+    "ancestor_d2",
+    "sibling",
+    "out_of_scope",
+]
 DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidates
 
 
 # ---------------------------------------------------------------------------
 # DDxResult — pipeline-internal, not a user-facing schema type
 # ---------------------------------------------------------------------------
+
+class ScoreBreakdown(BaseModel):
+    base_similarity: float
+    inclusion_match: float = 0.0
+    inclusion_phrase: str | None = None
+    exclusion_penalty: float = 0.0
+    exclusion_phrase: str | None = None
+    final_score: float
+    route_method: ScoreRouteMethod
+
+    @model_validator(mode="after")
+    def validate_final_score(self) -> "ScoreBreakdown":
+        expected = self.base_similarity + self.inclusion_match - self.exclusion_penalty
+        if abs(self.final_score - expected) > 0.001:
+            raise ValueError(
+                "final_score must equal base_similarity + inclusion_match - exclusion_penalty"
+            )
+        return self
+
 
 class DDxResult(BaseModel):
     code: str
@@ -53,7 +86,13 @@ class DDxResult(BaseModel):
     matched_exclusion: str | None = None
     exclusion_similarity: float | None = None
     exclusion_penalty: float = 0.0
+    score_breakdown: ScoreBreakdown | None = None
+    matched_cpg_title: str | None = None
     reasoning: list[str] = []
+    math_rank: int | None = None
+    llm_rank: int | None = None
+    rank_delta: int | None = None
+    override_reason: str | None = None
 
 
 class OutOfScopeInfo(BaseModel):
@@ -61,6 +100,109 @@ class OutOfScopeInfo(BaseModel):
     icd_candidates_considered: list[dict]
     max_inclusion_score: float
     message: str
+
+
+DDX_SCORE_EXPLAINER = """Each diagnosis is scored from three signals:
+- Symptom match - how closely the patient's presentation matches the condition's official description.
+- Known-term match - bonus when the patient's words match a recognised synonym for the condition.
+- Exclusion caution - the score is reduced when the presentation matches something the WHO guideline explicitly says this code is NOT. The diagnosis is not removed; it is ranked lower with the reason shown.
+
+The CPG badge tells you HOW the guideline behind a diagnosis was found: an exact match is the strongest; a broader ancestor match indicates the guideline covers a parent or related category."""
+
+
+def build_score_breakdown(
+    result: DDxResult,
+    route_method: ScoreRouteMethod,
+) -> ScoreBreakdown:
+    base_similarity = float(result.base_similarity if result.base_similarity is not None else result.similarity)
+    inclusion_match = float(result.inclusion_similarity or 0.0)
+    exclusion_penalty = float(result.exclusion_penalty or 0.0)
+    final_score = round(base_similarity + inclusion_match - exclusion_penalty, 4)
+
+    inclusion_phrase = (
+        result.matched_term
+        if inclusion_match >= SCORE_TERM_DISPLAY_FLOOR and result.matched_term
+        else None
+    )
+    exclusion_phrase = (
+        result.matched_exclusion
+        if (result.exclusion_similarity or 0.0) >= SCORE_TERM_DISPLAY_FLOOR and exclusion_penalty > 0
+        else None
+    )
+
+    return ScoreBreakdown(
+        base_similarity=round(base_similarity, 4),
+        inclusion_match=round(inclusion_match, 4),
+        inclusion_phrase=inclusion_phrase,
+        exclusion_penalty=round(exclusion_penalty, 4),
+        exclusion_phrase=exclusion_phrase,
+        final_score=final_score,
+        route_method=route_method,
+    )
+
+
+def route_provenance_badge(route_method: ScoreRouteMethod) -> str:
+    if route_method == "exact":
+        return "✓ Exact guideline match"
+    if route_method in {"ancestor_d1", "ancestor_d2"}:
+        return "≈ Matched via broader category"
+    if route_method == "sibling":
+        return "≈ Matched via related code"
+    if route_method == "ancestor_d1_sibling":
+        return "≈ Matched via related category"
+    if route_method == "ancestor_d1_sibling_child":
+        return "≈ Matched via related subcode"
+    return "✕ No guideline covers this"
+
+
+def render_ddx_candidate(candidate: DDxResult, rank: int) -> str:
+    breakdown = candidate.score_breakdown or build_score_breakdown(
+        candidate,
+        route_method="out_of_scope",
+    )
+    badge = route_provenance_badge(breakdown.route_method)
+    confidence = f"{breakdown.final_score:.0%}"
+    if breakdown.final_score < DDX_DISPLAY_FLOOR:
+        confidence = f"{confidence} low confidence"
+
+    cpg_title = candidate.matched_cpg_title or "No matched CPG"
+    lines = [
+        f"#{rank}  {candidate.code} - {candidate.title}  confidence: {confidence}",
+        f"     CPG: {cpg_title}   [{badge}]",
+        "     Why this rank:",
+        f"       ✓ Symptom match: {breakdown.base_similarity:.0%}",
+    ]
+    if breakdown.inclusion_phrase:
+        lines.append(
+            f'       ✓ Matched known term "{breakdown.inclusion_phrase}" '
+            f"(+{breakdown.inclusion_match:.0%})"
+        )
+    if breakdown.exclusion_phrase:
+        lines.append(
+            f'       ⚠ WHO excludes "{breakdown.exclusion_phrase}" - '
+            f"ranked lower (-{breakdown.exclusion_penalty:.0%})"
+        )
+    if candidate.rank_delta is not None and abs(candidate.rank_delta) >= RERANK_DISAGREEMENT_DELTA:
+        direction = "up" if candidate.rank_delta > 0 else "down"
+        math_r = candidate.math_rank or "?"
+        llm_r = candidate.llm_rank or rank
+        has_excl_override = (
+            candidate.rank_delta > 0
+            and candidate.matched_exclusion
+            and candidate.exclusion_penalty > 0
+        )
+        glyph = "⚠ ↕" if has_excl_override else "↕"
+        lines.append(f"   {glyph} Reasoning model moved this {direction} (math had it #{math_r}, now #{llm_r})")
+        if candidate.override_reason:
+            lines.append(f"     Reason: {candidate.override_reason}")
+    return "\n".join(lines)
+
+
+def render_ddx_top5(candidates: list[DDxResult]) -> str:
+    return "\n\n".join(
+        render_ddx_candidate(candidate, rank=i + 1)
+        for i, candidate in enumerate(candidates[:5])
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -112,11 +254,34 @@ async def _llm_rerank_ddx(
         using_override,
     )
 
+    # D6: assign math_rank before building the prompt
+    for i, c in enumerate(candidates):
+        c.math_rank = i + 1
+
     vitals_str = json.dumps(case.vitals) if case.vitals else "none"
-    candidate_lines = "\n".join(
-        f"  {i+1}. {c.code}  {c.title}  (vector score: {c.similarity:.3f})"
-        for i, c in enumerate(candidates)
-    )
+
+    def _candidate_block(i: int, c: DDxResult) -> str:
+        n = i + 1
+        lines = [
+            f"  {n}. {c.code}  {c.title}",
+            f"       math_rank: {n}  vector_score: {c.similarity:.3f}"
+            f"  symptom_match: {(c.base_similarity or c.similarity):.3f}"
+            f"  inclusion_match: {(c.inclusion_similarity or 0.0):.3f}",
+        ]
+        if (c.inclusion_similarity or 0.0) >= SCORE_TERM_DISPLAY_FLOOR and c.matched_term:
+            lines.append(f'       known-term: "{c.matched_term}"')
+        if (
+            c.matched_exclusion
+            and (c.exclusion_similarity or 0.0) >= SCORE_TERM_DISPLAY_FLOOR
+            and c.exclusion_penalty > 0
+        ):
+            lines.append(
+                f'       WHO exclusion: "{c.matched_exclusion}"'
+                f"  penalty: {c.exclusion_penalty:.3f}"
+            )
+        return "\n".join(lines)
+
+    candidate_lines = "\n".join(_candidate_block(i, c) for i, c in enumerate(candidates))
 
     prompt = f"""You are a clinical coding expert performing differential diagnosis.
 
@@ -129,7 +294,7 @@ Patient:
 - Allergies: {", ".join(case.allergies) or "none"}
 - Vitals: {vitals_str}
 
-Candidate ICD-11 codes (pre-ranked by vector similarity):
+Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
 {candidate_lines}
 
 Re-rank these candidates based on clinical probability for THIS specific patient.
@@ -137,17 +302,21 @@ Apply reasoning about:
 - How age, sex, vitals, and comorbidities shift the prior probability of each code
 - Whether current medications suggest an existing diagnosis
 - Which codes are actionable vs incidental findings
+- The math signals above (vector_score, symptom_match, inclusion_match) represent quantitative evidence
+- WHO exclusion terms show when the patient's presentation matches what the code explicitly excludes
 
 CRITICAL OUTPUT RULES:
 - Keep ALL reasoning extremely concise — one short sentence per code, max 20 words each.
 - Your TOTAL response must be under 1500 tokens. The JSON array is the required output.
 - Return ONLY the JSON array. No preamble, no markdown fences, no explanation before/after.
 - Include ALL candidate codes, ordered from most to least likely.
+- Include "override_reason" when you reorder a candidate by 2 or more positions from its math_rank.
+- You MUST include a non-empty "override_reason" when you promote (move up) a candidate that has a WHO exclusion penalty.
 
 Format:
 [
-  {{"code": "BC81.3", "confidence": 0.91, "reasoning": "68M with irregular HR 110 — persistent AF fits best"}},
-  {{"code": "BC81.1", "confidence": 0.72, "reasoning": "Paroxysmal AF cannot be excluded without Holter"}}
+  {{"code": "BC81.3", "confidence": 0.91, "reasoning": "68M with irregular HR 110 — persistent AF fits best", "override_reason": null}},
+  {{"code": "BC81.1", "confidence": 0.72, "reasoning": "Paroxysmal AF cannot be excluded without Holter", "override_reason": null}}
 ]"""
 
     try:
@@ -218,19 +387,59 @@ Format:
 
         code_to_result = {c.code: c for c in candidates}
         reranked: list[DDxResult] = []
-        for item in ranked:
+        for llm_pos, item in enumerate(ranked):
             code = item.get("code")
             if code and code in code_to_result:
                 result = code_to_result[code].model_copy()
                 llm_reason = item.get("reasoning", "")
                 if llm_reason:
                     result.reasoning = result.reasoning + [f"LLM: {llm_reason}"]
+                # D6: assign llm_rank and rank_delta
+                result.llm_rank = llm_pos + 1
+                result.rank_delta = (result.math_rank or 0) - result.llm_rank
+                result.override_reason = item.get("override_reason") or None
+                # D6 hard rule: exclusion-penalised candidate promoted >= RERANK_DISAGREEMENT_DELTA
+                # without an override_reason → inject placeholder and warn
+                if (
+                    result.matched_exclusion
+                    and (result.exclusion_similarity or 0.0) >= SCORE_TERM_DISPLAY_FLOOR
+                    and result.exclusion_penalty > 0
+                    and result.rank_delta >= RERANK_DISAGREEMENT_DELTA
+                    and not result.override_reason
+                ):
+                    result.override_reason = "[override_reason required but not provided by LLM]"
+                    logger.warning(
+                        "D6 hard rule: exclusion-penalised candidate %s promoted %d positions "
+                        "without override_reason — injecting placeholder",
+                        code,
+                        result.rank_delta,
+                    )
                 reranked.append(result)
 
         seen = {r.code for r in reranked}
         for c in candidates:
             if c.code not in seen:
                 reranked.append(c)
+
+        # D6d telemetry
+        disagreements = sum(
+            1 for r in reranked
+            if r.rank_delta is not None and abs(r.rank_delta) >= RERANK_DISAGREEMENT_DELTA
+        )
+        exclusion_overrides = sum(
+            1 for r in reranked
+            if r.rank_delta is not None
+            and r.rank_delta >= RERANK_DISAGREEMENT_DELTA
+            and r.matched_exclusion
+            and (r.exclusion_similarity or 0.0) >= SCORE_TERM_DISPLAY_FLOOR
+            and r.exclusion_penalty > 0
+        )
+        logger.info(
+            "D6 telemetry: model=%s disagreements=%d exclusion_overrides=%d",
+            active_model,
+            disagreements,
+            exclusion_overrides,
+        )
 
         logger.info("DDx re-ranked %d candidates via %s", len(reranked), active_model)
         return reranked
@@ -412,6 +621,13 @@ async def stage_3_route(
 
     for result in ddx[:top_k_codes]:
         refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs)
+        if refs:
+            primary_ref = refs[0]
+            result.score_breakdown = build_score_breakdown(
+                result,
+                route_method=primary_ref.match_type,
+            )
+            result.matched_cpg_title = primary_ref.title
         for ref in refs:
             if ref.cpg_name not in all_refs:
                 all_refs[ref.cpg_name] = ref
@@ -439,6 +655,13 @@ async def stage_3_route(
                     "status": "complete",
                     "data": out_of_scope.model_dump(),
                 })
+
+    for result in ddx:
+        if result.score_breakdown is None:
+            result.score_breakdown = build_score_breakdown(
+                result,
+                route_method="out_of_scope",
+            )
 
     return list(all_refs.values())[:top_k_cpgs]
 
@@ -1019,7 +1242,7 @@ def _build_out_of_scope_plan(
                 evidence_grade=None,
                 cpg_source="No loaded CPG match",
                 rationale=(
-                    "The routing layer found no exact, hierarchy, sibling, or semantic CPG "
+                    "The routing layer found no exact, hierarchy, or sibling CPG "
                     f"match, and the maximum ICD inclusion score was {info.max_inclusion_score:.2f}."
                 ),
                 contraindications_checked=[],

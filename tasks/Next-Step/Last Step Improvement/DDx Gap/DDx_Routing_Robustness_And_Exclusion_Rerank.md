@@ -21,16 +21,16 @@ icd11_codes:    3,914 rows total
                 → backfill scope: ~748 Bedrock embedding calls, < $1, < 10 min
 ```
 
-Phase A Step 2 ([Phase_A_Step2_ParentChild_Ingest.md](Phase_A_Step2_ParentChild_Ingest.md)) restructures the `chunks` table (h1/h2/h3 chain). **It does not touch `icd11_codes` or `documents.icd11_scope`** — the work in this doc is orthogonal and can be implemented and tested independently. Coordination note: smoke-test the routing changes (D1, D2, D4) against the post-Phase-A chunks table once A-13 lands; the ICD-side changes (D3) are completely independent of Phase A.
+Phase A Step 2 ([Phase_A_Step2_ParentChild_Ingest.md](Phase_A_Step2_ParentChild_Ingest.md)) restructures the `chunks` table (h1/h2/h3 chain). **It does not touch `icd11_codes` or `documents.icd11_scope`** — the work in this doc is orthogonal and can be implemented and tested independently. Coordination note: smoke-test the routing changes (D1, D4) against the post-Phase-A chunks table once A-13 lands; the ICD-side changes (D3) are completely independent of Phase A.
 
-This task is **six deliverables (D1–D6)** forming **two tracks that converge**: a routing track (D1 → D2 → D4) and a scoring/display track (D3 → D5 → D6). The two tracks are independent of each other until the final pipeline assembly. Follow the phased execution sequence below — do not work top-to-bottom through the D-sections.
+This task is **six deliverables (D1–D6)** forming **two tracks that converge**: a routing track (D1 → D4) and a scoring/display track (D3 → D5 → D6). The two tracks are independent of each other until the final pipeline assembly. Follow the phased execution sequence below — do not work top-to-bottom through the D-sections.
 
 ## Objectives
 
-- **D1** — ICD-11 hierarchy fallback in Stage 3 routing using existing `parent_code`. No WHO API calls.
-- **D2** — Semantic CPG fallback gated by D1 returning 0 hits. Requires a small `documents.scope_embedding` migration.
+- **D1** — ICD-11 hierarchy fallback in Stage 3 routing using existing `parent_code`. No WHO API calls. Six structural levels: exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2.
+- **D2** — ~~Semantic CPG fallback~~ **RETIRED.** See §D2 for rationale. Dead weight — do not implement.
 - **D3** — Exclusion-aware DDx re-ranking: schema migration + backfill + scorer change.
-- **D4** — Out-of-scope detector: structured "no CPG matches" response when D1 + D2 both miss and ICD confidence is low.
+- **D4** — Out-of-scope detector: structured "no CPG matches" response when D1 misses and ICD confidence is low.
 - **D5** — Clinician-facing score transparency: structured `ScoreBreakdown` per top-5 candidate + honest rendering/badges.
 - **D6** — Math ↔ LLM rerank merge: feed math signals into the rerank prompt and surface material disagreements.
 
@@ -72,34 +72,30 @@ Progress:
 - [x] Add focused exclusion rerank tests.
 - [x] Run targeted Stage 2 regression tests.
 
-### P2 — D1 + D2 Routing Core
+### P2 — D1 Routing Core
 
 - Track: A
-- Deliverable(s): D1 (ancestor + sibling) + D2 migration 007 + `backfill_scope_embeddings` + D2 semantic fallback
-- Why here: Routing core; D4 cannot be built or tested without both branches existing
-- Exit gate: Migration applied; 16 scope embeddings backfilled; D1/D2 unit tests green; Smoke 1, 2, 3, 9 green on staging
+- Deliverable(s): D1 six-level structural fallback (exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2)
+- Why here: Routing core; D4 cannot be built or tested without D1 existing
+- Exit gate: D1 unit tests green; Smoke 1, 2, 3, 9 green on staging
 
 Progress:
-- [x] Add D1 exact -> ancestor -> sibling routing fallback.
-- [x] Add route method stamping: `exact`, `ancestor_d1`, `ancestor_d2`, `sibling`, `none`.
-- [x] Add SQL/helper support for ICD ancestor lookup.
-- [x] Add D2 migration file `sql/migrations/009_documents_scope_embedding.sql` for later DB application.
-- [x] Add `ddx/backfill_scope_embeddings.py` for later scope embedding backfill.
-- [ ] Apply D2 migration to Neon after credits / document-scope data are ready.
-- [ ] Backfill `documents.scope_embedding`.
-- [x] Add semantic fallback gated by D1 returning no hits.
-- [x] Add D1/D2 unit tests.
+- [x] Add D1 exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2 routing fallback.
+- [x] Add route method stamping: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`, `none`.
+- [x] Add SQL/helper support for ICD ancestor, sibling, ancestor-sibling, and ancestor-sibling-child lookups.
+- [x] D2 (scope_embedding / semantic fallback) retired — migration 009 and backfill script are dead weight, not applied.
+- [x] Add D1 unit tests.
 - [ ] Run Smoke 1, 2, 3, and 9 on staging.
 
 ### P3 — D4 Out-of-Scope Detector
 
 - Track: A
 - Deliverable(s): D4 out-of-scope detector
-- Why here: Observes D1+D2 outputs — only buildable after P2
+- Why here: Observes D1 output — only buildable after P2
 - Exit gate: D4 unit tests green; Smoke 5 green on staging
 
 Progress:
-- [x] Add structured `out_of_scope` response when D1 and D2 both miss and ICD inclusion confidence is low.
+- [x] Add structured `out_of_scope` response when D1 misses (all six structural levels) and ICD inclusion confidence is low.
 - [x] Ensure downstream synthesis renders "no matching CPG" instead of using unrelated documents.
 - [ ] Add D4 unit tests.
 - [ ] Run Smoke 5 on staging.
@@ -112,11 +108,12 @@ Progress:
 - Exit gate: D5 unit tests green; Smoke 7 green on staging
 
 Progress:
-- [ ] Add structured `ScoreBreakdown` model for top-5 DDx candidates.
-- [ ] Render base, inclusion, exclusion, and final score honestly.
-- [ ] Add route provenance badges, including semantic/fuzzy route badge.
-- [ ] Add D5 tests.
-- [ ] Run Smoke 7 on staging.
+- [x] Add structured `ScoreBreakdown` model for top-5 DDx candidates.
+- [x] Render base, inclusion, exclusion, and final score honestly.
+- [x] Add route provenance badges for all seven route_method values.
+- [x] Add D5 tests.
+- [x] Run D5 unit tests locally: `tests/test_score_breakdown.py`.
+- [ ] Run Smoke 7 on staging. *(blocked: `documents.icd11_scope` unpopulated in Neon)*
 
 ### P5 — D6 Math + LLM Rerank Merge
 
@@ -126,25 +123,25 @@ Progress:
 - Exit gate: D6 unit tests green; Smoke 6, 8 green on staging
 
 Progress:
-- [ ] Feed math signals into the LLM rerank prompt.
-- [ ] Extend model/output for math-rank vs LLM-rank disagreements.
-- [ ] Surface material LLM movement with reason.
-- [ ] Enforce override reason when promoting exclusion-penalized candidates.
-- [ ] Add deterministic force-rerank test harness.
-- [ ] Add D6 telemetry counters.
-- [ ] Add D6 tests.
-- [ ] Run Smoke 6 and 8 on staging.
+- [x] Feed math signals into the LLM rerank prompt (symptom_match, inclusion_match, WHO exclusion line per candidate).
+- [x] Extend model/output for math-rank vs LLM-rank disagreements (`math_rank`, `llm_rank`, `rank_delta`, `override_reason` on `DDxResult`).
+- [x] Surface material LLM movement with reason (`↕` / `⚠ ↕` disagreement line when `|rank_delta| >= RERANK_DISAGREEMENT_DELTA`).
+- [x] Enforce override reason when promoting exclusion-penalized candidates (hard rule: injects placeholder if `override_reason` empty and exclusion candidate promoted ≥ threshold).
+- [ ] Add deterministic force-rerank test harness (`--force-rerank-order` flag for Smoke 8). *(deferred — currently mocked in tests only)*
+- [x] Add D6 telemetry counters (`D6 telemetry: model=... disagreements=... exclusion_overrides=...`).
+- [x] Add D6 tests (`tests/test_rerank_merge.py` — 10 tests, all green).
+- [ ] Run Smoke 6 and 8 on staging. *(blocked: `documents.icd11_scope` unpopulated in Neon)*
 
 ### P6 — Pipeline Assembly + Full Pre-Deploy Gate
 
 - Track: A+B
 - Deliverable(s): Pipeline assembly + full pre-deploy gate
 - Why here: Both tracks converge: routing provenance flows into the D5/D6 display
-- Exit gate: **Full suite Smoke 1-9 green on staging**; all 12 done-criteria checked; then promote to prod
+- Exit gate: **Full suite Smoke 1-9 green on staging**; all 11 done-criteria checked; then promote to prod
 
 Progress:
 - [ ] Full Smoke 1-9 suite green on staging.
-- [ ] Verify all 12 done criteria.
+- [ ] Verify all 11 done criteria.
 - [ ] Confirm existing `documents.icd11_scope` snapshot unchanged after routing/display work.
 - [ ] Confirm `icd11_codes.embedding` checksum unchanged.
 - [ ] Produce final report-back package.
@@ -224,19 +221,87 @@ async def find_cpgs_for_code(
 ) -> tuple[list[Document], str]:
     """
     Returns (matched_documents, route_method).
-    route_method ∈ {"exact", "ancestor_d1", "ancestor_d2", "sibling", "none"}
+    route_method ∈ {"exact", "sibling", "ancestor_d1", "ancestor_d1_sibling",
+                    "ancestor_d1_sibling_child", "ancestor_d2", "none"}
 
-    1. Exact: documents.icd11_scope @> ARRAY[code]
-    2. If 0: walk parent_code up to max_depth=2; retry exact match on each ancestor
-    3. If still 0: try siblings — codes with same parent_code as the predicted code
-    4. If still 0: return ([], "none") — D2 takes over
+    1. Exact: documents.icd11_scope @> ARRAY[code]                    e.g. BA00.0
+    2. If 0: sibling — all codes sharing the same parent_code, incl. .Y/.Z
+                                                                       e.g. BA00.1, BA00.2, BA00.Y, BA00.Z
+    3. If 0: ancestor_d1 — direct parent                              e.g. BA00
+    4. If 0: ancestor_d1_sibling — peer categories of parent          e.g. BA01, BA02, BA03, BA04
+    5. If 0: ancestor_d1_sibling_child — children of those peers      e.g. BA01.0…BA04.Z
+    6. If 0: ancestor_d2 — grandparent block                          e.g. Hypertensive diseases
+    7. If still 0: return ([], "none") — out_of_scope
     """
 ```
 
 Rules:
-- `max_depth=2` is a hard cap. Going higher (chapter-level) is too broad to be clinically defensible.
-- Sibling lookup runs **after** ancestor lookup, not before — siblings are usually clinical neighbours of equal specificity, ancestors are broader categories. Try the broader category first; siblings are a finer-grained second chance.
-- Stamp `route_method` onto the routing result so downstream telemetry / clinician audit can see *which* path matched. Never silently fall through.
+- **Lookup order: exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2 → none.** All six structural levels checked before returning out_of_scope. No vector search used at any step. Stopping at `ancestor_d2` is deliberate: ICD-11 block-group labels and chapter root codes (e.g. `"11"`) are never stored in any CPG's `icd11_scope`, so walking higher adds only latency.
+- `ancestor_d1_sibling` = peer category codes whose `parent_code` equals ancestor_d1's `parent_code`, excluding ancestor_d1 itself.
+- `ancestor_d1_sibling_child` = all codes whose `parent_code` is any of the ancestor_d1_sibling codes.
+- Trust degrades visibly per step. Stamp `route_method` onto the routing result so downstream telemetry / clinician audit can see *which* path matched. Never silently fall through.
+
+#### D1 alternative proposal — breadth-first structural routing
+
+> **Proposal status: review before implementation.** The current D1 implementation is serial: it checks one structural branch, returns as soon as it finds a match, and only then would have checked later branches. That is simple, but it is path-dependent. A better version is to keep exact matching first, then collect the remaining structural candidates breadth-first and rank them deterministically.
+
+Proposed flow:
+
+```text
+1. exact match
+   - direct ICD code
+   - range match
+
+2. if no exact: same-level structural search
+   - siblings of the predicted code, including .Y / .Z variants
+
+3. if no same-level hit: ancestor_d1 breadth search
+   - direct parent
+   - sibling categories of the direct parent
+   - children under those sibling categories
+
+4. if no d1-level hit: ancestor_d2
+   - grandparent block
+
+5. if no structural hit: none / out_of_scope
+```
+
+Implementation intent:
+- Query candidate route groups in parallel or as one batched SQL query after exact misses.
+- Do **not** return whichever query finishes first.
+- Assign every candidate a deterministic `route_priority`, `route_method`, `matched_scope`, and optional `route_distance`.
+- Select results by clinical priority, not async completion order.
+
+Recommended priority:
+
+```text
+exact
+> sibling
+> ancestor_d1
+> ancestor_d1_sibling
+> ancestor_d1_sibling_child
+> ancestor_d2
+> none
+```
+
+Why this may be better:
+- Avoids a brittle "reverse back then deep dive" serial feel.
+- Lets D1 evaluate the whole relevant ICD neighbourhood at the same structural level.
+- Keeps the behaviour auditable because every selected CPG still has a structural route, not a semantic float.
+- Gives D5 richer transparency fields: predicted code, matched scope, route method, and route distance.
+
+Suggested D5 display addition if this is implemented:
+
+```text
+CPG: {matched CPG title} [{route badge}]
+Matched scope: {matched_scope}
+Route: {route_method}; distance: {route_distance}
+```
+
+Open decision before coding:
+- Should `ancestor_d1` always outrank `ancestor_d1_sibling`, even when the sibling category has a more specific child match?
+- Should `.Y` / `.Z` siblings receive the same priority as ordinary siblings, or a slightly lower same-level priority?
+- Should multiple CPGs from the same route group be returned together, or should P6 cap one CPG per DDx code before deduping globally?
 
 SQL helper for ancestor walk (single query, no recursion needed at depth 2):
 ```sql
@@ -250,35 +315,37 @@ WITH RECURSIVE ancestors AS (
 SELECT code, depth FROM ancestors WHERE depth > 0 ORDER BY depth;
 ```
 
-### D2 — Semantic CPG fallback (gated)
+### D2 — Semantic CPG fallback (RETIRED — team decision required)
 
-**Files touched:** new migration `sql/migrations/007_documents_scope_embedding.sql`, new backfill script `ddx/backfill_scope_embeddings.py`, Stage 3 routing in `agent/clinical_stages.py`.
+> **Current status: retired.** The original implementation stalled because `scope_rationale` was a one-sentence hardcoded label — too thin to embed meaningfully — and `scope_embedding` was never actually applied to Neon. The six-step structural walk (D1) was built as the reliable replacement. Migration `009_documents_scope_embedding.sql` was **not** applied; `ddx/backfill_scope_embeddings.py` is dead weight and can be deleted.
+>
+> The core idea of D2 is not inherently wrong — only the **data quality** killed it. The table below is for teammates to weigh before deciding whether to revive it.
 
-Migration:
-```sql
-ALTER TABLE documents
-  ADD COLUMN IF NOT EXISTS scope_embedding vector(1536);
-CREATE INDEX IF NOT EXISTS idx_documents_scope_embedding
-  ON documents USING ivfflat (scope_embedding vector_cosine_ops) WITH (lists = 16);
-```
+#### Should we revive D2?
 
-Backfill: for each document, embed `f"{title}. {scope_rationale or ''}"` and write the vector. Idempotent — re-running with `--force` recomputes; default skips rows already populated.
+**Pros**
 
-Routing change in Stage 3: if `find_cpgs_for_code()` from D1 returns `route_method == "none"`:
-```python
-sims = cosine_similarity(query_embedding, all_documents.scope_embedding)
-candidates = [(doc, sim) for doc, sim in sims if sim >= SEMANTIC_FALLBACK_THRESHOLD]
-candidates.sort(key=lambda x: -x[1])
-return candidates[:3], "semantic"
-```
+| Area | Why it helps |
+|---|---|
+| **Coverage gap** | D1 stops at `ancestor_d2`. A CPG that covers a clinical domain but was tagged under a different ICD subtree (cross-chapter conditions, rare syndromes) will always return `out_of_scope` even though a matching CPG exists. D2 would catch those. |
+| **Data quality is fixable** | We have only 16 verified CPGs — rewriting `scope_rationale` to 100–200 words each is ~1 hour of content work. At that length the embedding is meaningful, unlike the one-sentence label that killed D2 originally. |
+| **Low migration cost** | Migration 009 is already written (`scope_embedding VECTOR(1536)` + index). Backfill is exactly 16 embedding calls. Applying it is low-risk. |
+| **Latency is negligible** | Similarity search over 16 rows. The query embedding is already computed in Stage 2, so no extra Bedrock call is needed. |
 
-Constants (place near the top of the routing module, not magic numbers in the function body):
-```python
-SEMANTIC_FALLBACK_THRESHOLD = 0.65   # tune empirically; log all near-misses for review
-SEMANTIC_FALLBACK_TOP_K     = 3
-```
+**Cons**
 
-Always log the similarity score with the result. Stamp `route_method = "semantic"` and include the score in the routing result so the clinician UI can show "matched on semantic similarity 0.71" instead of pretending it was a curated route.
+| Area | Why it hurts |
+|---|---|
+| **Original failure was data, not code — and data is not fixed yet** | The one-sentence `scope_rationale` labels produced near-random cosine scores. The column and backfill script need a rewrite before any code is worth writing. It is a content task before it is a code task. |
+| **Explainability** | Structural routes (`ancestor_d1`, `sibling`) are clinically auditable — a clinician can trace exactly why a CPG was matched. A semantic route is a float. If it fires wrongly, there is no chain of reasoning to show. |
+| **False-positive risk** | A vague `scope_rationale` causes silent misfires. e.g. "Covers diabetes" would match any diabetes query, including non-obstetric ones against a Diabetes in Pregnancy CPG. Tight, specific rationale text is mandatory — and hard to review without clinical SME sign-off. |
+| **D1 may already be sufficient** | The six structural levels cover every same-tree path. Cross-chapter misses only arise when a CPG was deliberately tagged to a different chapter — which is uncommon if tagging was done correctly. |
+
+**Recommended prerequisite if revived:** rewrite `scope_rationale` for all 16 CPGs to at least 3–5 sentences covering: patient population, conditions included, conditions explicitly excluded, and the ICD code range. Run a similarity spot-check against 10 known queries *before* writing any routing code.
+
+**Recommended decision point:** revisit after Smoke 1–5 results are in. If > 20% of real queries hit `out_of_scope` despite D1 exhausting all six levels, that is evidence D2 is needed. If `out_of_scope` is rare, the explainability cost is not worth it.
+
+> `sql/migrations/009_documents_scope_embedding.sql` and `ddx/backfill_scope_embeddings.py` — keep on disk but do **not** apply until team decides to proceed.
 
 ### D3 — Exclusion-aware DDx re-ranking
 
@@ -319,10 +386,9 @@ When an exclusion contributes a non-trivial penalty (`exclusion_score > 0.5`), s
 
 **File touched:** Stage 3 routing in `agent/clinical_stages.py`.
 
-Triggers when both:
-1. `find_cpgs_for_code()` returned `route_method == "none"` (D1 missed)
-2. D2 semantic fallback returned 0 candidates above threshold
-3. AND the top-K ICD candidates for the query all have `inclusion_score < OUT_OF_SCOPE_INCL_THRESHOLD` (default 0.3)
+Triggers when:
+1. `find_cpgs_for_code()` returned `route_method == "none"` (all six structural levels exhausted)
+2. AND the top-K ICD candidates for the query all have `inclusion_score < OUT_OF_SCOPE_INCL_THRESHOLD` (default 0.3)
 
 Returns a structured response:
 ```python
@@ -356,14 +422,13 @@ class ScoreBreakdown:
     exclusion_phrase:    str | None   # WHICH exclusion fired (for display), e.g. "type 1 diabetes"
     final_score:         float   # base + inclusion_match - exclusion_penalty
     # routing provenance — from D1/D2/D4, attached to the CPG this DDx routed to
-    route_method:        str     # exact | ancestor_d1 | ancestor_d2 | sibling | semantic | out_of_scope
-    route_similarity:    float | None   # populated only when route_method == "semantic"
+    route_method:        str     # exact | sibling | ancestor_d1 | ancestor_d1_sibling | ancestor_d1_sibling_child | ancestor_d2 | out_of_scope
 ```
 
 Rules:
 - `final_score` must equal `base_similarity + inclusion_match - exclusion_penalty` (assert this in code; a test enforces it).
 - `inclusion_phrase` / `exclusion_phrase` are the actual WHO text that produced the contribution — null when that term didn't fire (sim below a display floor of `0.5`).
-- `route_method` / `route_similarity` come straight from D1/D2/D4's routing result for the CPG this candidate maps to. Do not recompute.
+- `route_method` comes straight from D1/D4's routing result for the CPG this candidate maps to. Do not recompute.
 
 #### D5b — Top-5 clinician rendering spec
 
@@ -380,18 +445,20 @@ The top-5 DDx list rendered to the clinician must show, per candidate, in this o
 
 **Provenance badge** (the single most important trust signal — render it visually distinct):
 
-These are the **only** `route_method` values the system produces — the implementer must handle all six and map each to exactly the badge below:
+These are the **only** `route_method` values the system produces — the implementer must handle all seven and map each to exactly the badge below:
 
 | route_method | Badge text | Clinician meaning | Brief example |
 |---|---|---|---|
 | `exact` | `✓ Exact guideline match` | The CPG explicitly covers this ICD code. Highest trust. | Code `BC81.3` (AF) is listed in the Atrial-Fibrillation CPG's verified scope. |
-| `ancestor_d1` / `ancestor_d2` | `≈ Matched via broader category` | No exact CPG; matched a parent category (1–2 levels up). Reasonable, but broader. | Code `BA21.0` (hypotension) not in any scope; its parent `BA20–BA2Z` is in the Anaesthesia CPG → `ancestor_d1`. |
-| `sibling` | `≈ Matched via related code` | Matched a sibling code's CPG. Use clinical judgement. | Code `BA01.1` not in scope; a sibling `BA01.0` (same parent) is in the IHD CPG → matched via the sibling. |
-| `semantic` | `~ Fuzzy match ({route_similarity:.0%})` | Matched only by text similarity, not curated scope. **Show the % — lower trust.** | ENT query, code not in any loaded chapter; query text is 0.71 cosine to the CKD CPG scope → `semantic`, badge shows `~ Fuzzy match (71%)`. |
-| `out_of_scope` | `✕ No guideline covers this` | No CPG matched. Do not present as guideline-backed. | "Acute appendicitis management" — no surgical CPG loaded, no exact/ancestor/sibling/semantic hit → `out_of_scope`. |
+| `sibling` | `≈ Matched via related code` | Matched a same-level peer, including .Y and .Z variants. Use clinical judgement. | `BA00.0` not in scope; sibling `BA00.1` or `BA00.Y` is in the Hypertension CPG. |
+| `ancestor_d1` | `≈ Matched via broader category` | Matched the direct parent category. Reasonable, but broader. | All BA00.x not in scope; parent `BA00` is in the Hypertension CPG. |
+| `ancestor_d1_sibling` | `≈ Matched via related category` | Matched a peer category of the parent — same clinical domain. | `BA00` not in scope; peer `BA01` (Hypertensive heart disease) is in the Hypertension CPG. |
+| `ancestor_d1_sibling_child` | `≈ Matched via related subcode` | Matched a child of a peer category. | `BA01` not in scope; child `BA01.0` is in the Hypertension CPG. |
+| `ancestor_d2` | `≈ Matched via broader category` | Matched the grandparent block. | All Hypertensive diseases subcodes exhausted; block itself is in scope. |
+| `out_of_scope` | `✕ No guideline covers this` | No CPG matched at any structural level. Do not present as guideline-backed. | "Acute appendicitis management" — no surgical CPG loaded, tree exhausted → `out_of_scope`. |
 
 Hard requirements:
-- The provenance badge is **never** hidden. A `semantic` or `out_of_scope` result must never visually masquerade as an `exact` curated match.
+- The provenance badge is **never** hidden. An `out_of_scope` result or any non-exact route must never visually masquerade as an `exact` curated match.
 - The exclusion line uses a caution glyph (`⚠`) and the word "ranked lower" — it is a *caution*, not a removal. The diagnosis still appears in the list; it just sits lower with a stated reason.
 - If `final_score` is below a display floor (`DDX_DISPLAY_FLOOR = 0.30`), the candidate is still shown in the top-5 if it makes the cut, but its confidence is rendered as "low confidence" text alongside the percentage, not just a bare number.
 - No marketing language. "Matched via broader category", not "Confidently identified".
@@ -411,8 +478,8 @@ Each diagnosis is scored from three signals:
    diagnosis is not removed; it is ranked lower with the reason shown.
 
 The CPG badge tells you HOW the guideline behind a diagnosis was found:
-an exact match is the strongest; a fuzzy/semantic match is shown with its
-similarity % so you can weigh it accordingly.
+an exact match is the strongest; a broader ancestor match is shown clearly
+so you can weigh it accordingly.
 ```
 
 ### D6 — Math ↔ LLM rerank merge (signal-fed + disagreement surfacing)
@@ -433,7 +500,7 @@ Candidate {n}: {ICD code} — {ICD title}
   symptom match: {base_similarity:.2f}
   known-term match: {inclusion_match:.2f}  (matched: "{inclusion_phrase}")
   WHO exclusion fired: "{exclusion_phrase}"  (penalty {exclusion_penalty:.2f})   ← only if exclusion_phrase not null
-  CPG provenance: {route_method}{ " "+route_similarity if semantic }
+  CPG provenance: {route_method}
 ```
 
 System-prompt rules the rerank LLM must be given (exact intent, implementer may word-smith):
@@ -515,8 +582,7 @@ Log per query: count of candidates where `|rank_delta| >= RERANK_DISAGREEMENT_DE
 Define once near the top of the routing module:
 ```python
 ANCESTOR_MAX_DEPTH           = 2
-SEMANTIC_FALLBACK_THRESHOLD  = 0.65
-SEMANTIC_FALLBACK_TOP_K      = 3
+ROUTE_TOP_K                  = 3      # max CPGs returned by route_icd_to_cpgs
 EXCLUSION_PENALTY_WEIGHT     = 0.3
 OUT_OF_SCOPE_INCL_THRESHOLD  = 0.3
 DDX_PHRASE_DISPLAY_FLOOR     = 0.5    # below this, inclusion/exclusion phrase shown as null
@@ -524,7 +590,7 @@ DDX_DISPLAY_FLOOR            = 0.30   # below this, render "low confidence" alon
 RERANK_DISAGREEMENT_DELTA    = 2      # |math_rank - llm_rank| >= this → reason required + surfaced
 ```
 
-Eight tunable constants. Log enough to tune them empirically from real DDx logs. `DDX_PHRASE_DISPLAY_FLOOR`, `DDX_DISPLAY_FLOOR`, `RERANK_DISAGREEMENT_DELTA` are display/telemetry-only and never change `final_score` or `llm_rank`.
+Seven tunable constants. Log enough to tune them empirically from real DDx logs. `DDX_PHRASE_DISPLAY_FLOOR`, `DDX_DISPLAY_FLOOR`, `RERANK_DISAGREEMENT_DELTA` are display/telemetry-only and never change `final_score` or `llm_rank`.
 
 ## Tests
 
@@ -533,13 +599,10 @@ Eight tunable constants. Log enough to tune them empirically from real DDx logs.
 - `test_exact_match_returns_route_exact` — code in `icd11_scope` of one doc → returns that doc, method="exact".
 - `test_ancestor_d1_match` — predicted code's parent is in `icd11_scope` → method="ancestor_d1".
 - `test_ancestor_d2_match` — grandparent is in scope → method="ancestor_d2".
-- `test_ancestor_walk_capped_at_depth_2` — only chapter-root is in scope (depth 3+) → method="none".
+- `test_ancestor_walk_stops_at_d2` — only a depth-3+ code is in scope → method="none" (confirms ANCESTOR_MAX_DEPTH=2 cap).
 - `test_sibling_match_when_no_ancestor` — sibling (same parent_code) is in scope → method="sibling".
 - `test_sibling_only_after_ancestor` — both ancestor and sibling match → ancestor wins.
-- `test_semantic_fallback_only_fires_when_d1_misses` — D1 returns docs → semantic never queried (mock asserts).
-- `test_semantic_fallback_threshold_filters` — top similarity 0.60 < 0.65 threshold → returns 0 candidates.
-- `test_semantic_fallback_returns_top_k_sorted` — 5 candidates above threshold → returns top 3 sorted desc.
-- `test_out_of_scope_when_all_signals_weak` — D1 none + D2 none + max incl_score 0.40 → returns out_of_scope dict.
+- `test_out_of_scope_when_all_signals_weak` — D1 none + max incl_score 0.40 → returns out_of_scope dict.
 - `test_route_method_always_stamped` — every routing path returns a non-empty `route_method`.
 
 `tests/test_exclusion_rerank.py` (D3):
@@ -559,9 +622,8 @@ Eight tunable constants. Log enough to tune them empirically from real DDx logs.
 - `test_final_score_equals_sum_of_parts` — `final_score == base_similarity + inclusion_match - exclusion_penalty` for a range of synthetic inputs (this is the core invariant).
 - `test_inclusion_phrase_null_below_floor` — best inclusion sim 0.4 < `DDX_PHRASE_DISPLAY_FLOOR` → `inclusion_phrase` is None, line omitted.
 - `test_exclusion_phrase_populated_when_fired` — exclusion sim 0.7 → `exclusion_phrase` = the actual WHO text, penalty > 0.
-- `test_route_provenance_passed_through_not_recomputed` — ranker receives `route_method="semantic", route_similarity=0.71` → breakdown carries them verbatim.
-- `test_badge_text_per_route_method` — each of the 6 `route_method` values maps to the exact badge string in the D5b table.
-- `test_semantic_badge_includes_similarity` — `route_method="semantic"`, sim 0.66 → badge renders `~ Fuzzy match (66%)`.
+- `test_route_provenance_passed_through_not_recomputed` — ranker receives `route_method="sibling"` → breakdown carries it verbatim.
+- `test_badge_text_per_route_method` — each of the 7 `route_method` values (6 route methods + out_of_scope) maps to the exact badge string in the D5b table.
 - `test_exclusion_line_uses_caution_not_removal` — rendered exclusion line contains "⚠" and "ranked lower", never "removed"/"excluded from list".
 - `test_low_confidence_label_below_display_floor` — `final_score` 0.22 < `DDX_DISPLAY_FLOOR` → render includes "low confidence" text.
 - `test_out_of_scope_badge_never_looks_curated` — `route_method="out_of_scope"` → badge is the `✕ No guideline covers this` string, never an exact-match style.
@@ -586,7 +648,7 @@ All tests must mock the WHO API, the DB pool, the embedding client, **and the LL
 
 ## E2E smoke tests (manual, post-deploy)
 
-**Dry-run scope (read first).** `--dry-run` exists *only* on the two backfill scripts (`backfill_scope_embeddings`, `backfill_exclusion_embeddings`) — the data-prep steps for D2/D3. The **live routing/rerank changes (D1, D4, D5, D6) have no dry-run mode by design**: they are pure read-path logic with no destructive side effects, so their safety net is the mocked unit tests (pre-merge) plus these E2E smokes (post-deploy). Do not assume a dry-run guard exists for the query pipeline.
+**Dry-run scope (read first).** `--dry-run` exists *only* on the D3 backfill script (`backfill_exclusion_embeddings`) — the data-prep step. The **live routing/rerank changes (D1, D4, D5, D6) have no dry-run mode by design**: they are pure read-path logic with no destructive side effects, so their safety net is the mocked unit tests (pre-merge) plus these E2E smokes (post-deploy). Do not assume a dry-run guard exists for the query pipeline.
 
 **Pre-deploy gate.** Run the full smoke suite below against **staging** (pointed at a copy of prod data) and get all of Smoke 1–9 green **before** promoting to production. Production smokes are then a confirmation pass, not the first time these paths run live.
 
@@ -604,11 +666,14 @@ Query: *"My patient has hypotension during anaesthesia, what should I check?"*
 - Expected `route_method`: `ancestor_d1` or `ancestor_d2` (since hypotension isn't an explicit `icd11_scope` entry)
 - Expected matched doc: a Cardiology or Anaesthesia CPG via the BA20-BA2Z parent
 
-### Smoke 3 — Semantic fallback (D2)
+### Smoke 3 — Out-of-chapter miss → out_of_scope (D4)
+
+> **D2 semantic fallback retired — Smoke 3 repurposed.** The original Smoke 3 tested a `semantic` route method that no longer exists. It is replaced by a direct out_of_scope test on an ENT query (chapter not loaded).
+
 Query: *"Patient with persistent unilateral nasal obstruction and epistaxis — workup?"*
-- Expected predicted ICD: an ENT code (chapter not loaded)
-- Expected `route_method`: `semantic`
-- Expected: top-K candidates with similarity scores logged; either matches a related CPG or proceeds to D4
+- Expected predicted ICD: an ENT code (chapter 09 — not loaded)
+- Expected `route_method`: `out_of_scope` (all six structural levels return 0; inclusion scores all < threshold)
+- Expected: structured out_of_scope response; no CPG cited
 
 ### Smoke 4 — Exclusion penalty (D3)
 Find a code in `icd11_codes` whose `exclusions` contains a clinically meaningful phrase (run `SELECT code, title, exclusions FROM icd11_codes WHERE cardinality(exclusions) > 0 LIMIT 20`). Construct a DDx query that closely matches an exclusion phrase. Verify:
@@ -621,23 +686,21 @@ Query: *"Best management of acute appendicitis in the ED?"* (no surgical CPG loa
 - Expected: structured response with `max_inclusion_score` reported; no CPG cited; clinician-facing message instead of hallucinated synthesis
 
 ### Smoke 6 — Idempotency
-Re-run both backfill scripts with no args:
+Re-run the exclusion backfill with no args:
 ```bash
-python -m ddx.backfill_scope_embeddings
 python -m ddx.backfill_exclusion_embeddings
 ```
 - Expected: 0 embedding calls, 0 DB writes, exit cleanly. Confirms idempotency.
+- Note: `backfill_scope_embeddings` is dead weight (D2 retired) — do not run it.
 
 ### Smoke 7 — Score transparency (D5, the clinician-facing check)
-Re-use the Smoke 4 query (the one that triggers an exclusion penalty) and the Smoke 3 query (semantic route). For each, capture the rendered top-5 DDx as a clinician would see it. Verify on the exclusion case:
+Re-use the Smoke 4 query (the one that triggers an exclusion penalty). Capture the rendered top-5 DDx as a clinician would see it. Verify:
 - The downranked diagnosis still appears in the top-5 (not removed).
 - Its breakdown shows all three lines with real numbers; `final_score` visibly equals `base + inclusion − exclusion_penalty`.
 - The `⚠ WHO excludes "<phrase>"` line names the actual WHO exclusion text.
+- The provenance badge matches the actual `route_method` (e.g. `✓ Exact guideline match` for `exact`) — never misrepresented.
 
-And on the semantic case:
-- The provenance badge reads `~ Fuzzy match (NN%)` with the real similarity — **not** `✓ Exact guideline match`.
-
-Paste both rendered top-5 blocks verbatim into the report. This is the deliverable a clinician actually sees — it must be legible and honest at a glance.
+Paste the rendered top-5 block verbatim into the report. This is the deliverable a clinician actually sees — it must be legible and honest at a glance.
 
 ### Smoke 8 — Math ↔ LLM disagreement surfacing (D6)
 **Deterministic harness required — do not rely on the LLM happening to disagree.** Add a test-only `--force-rerank-order` flag (or equivalent injectable fixture) on the DDx endpoint that lets the smoke runner supply a fixed `llm_rank` permutation + `override_reason` per candidate, bypassing the real LLM call. This guarantees the D6c/D6d path is exercised every run regardless of model behaviour. The flag must be inert/unreachable in production config (assert this in a unit test).
@@ -670,7 +733,7 @@ WHERE NOT EXISTS (SELECT 1 FROM documents d WHERE c.code = ANY(d.icd11_scope))
 LIMIT 5;
 ```
 Drive a query that predicts `predict_code`. Verify:
-- `route_method` = `sibling` (not `exact`, not `ancestor_*`, not `semantic`).
+- `route_method` = `sibling` (not `exact`, not `ancestor_*`).
 - The badge renders `≈ Matched via related code`.
 - Ancestor lookup is shown (in logs/telemetry) to have run **and missed** before the sibling match — confirming the documented order (exact → ancestor → sibling).
 If the SQL returns 0 rows, state that in the report (no sibling-route case exists in the current corpus) and mark this smoke N/A with the query output as evidence — do not skip silently.
@@ -686,10 +749,10 @@ If the SQL returns 0 rows, state that in the report (no sibling-route case exist
 **Proposed placement: right after exact, before the ancestor walk.** Prefer a same-branch "unspecified" diagnosis over going broader to a structural parent. New D1 chain:
 
 ```
-exact → .Z sibling (if it exists) → ancestor (depth ≤2) → other siblings → none → D2
+exact → sibling (incl. Y/Z) → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2 → out_of_scope
 ```
 
-`route_method` gains one value: `"unspecified_z"`. Badge (extends the §D5b table): `≈ Matched via unspecified (…Z) code` — same trust tier as `ancestor_*`/`sibling` (broader-than-exact, use clinical judgement), never rendered as an `exact` curated match.
+`route_method` for Y/Z variants is now folded into `"sibling"` — the sibling step covers all same-parent codes including .Y and .Z. Badge: `≈ Matched via related code` — same trust tier as other structural fallbacks, never rendered as an `exact` curated match.
 
 **Detecting the `.Z` sibling — VERIFIED against the live `icd11_codes` table (2026-05-18, 5,672 rows).** The naive "ends in `Z`" rule is **wrong** — 871 codes end in `Z` and they split into three structurally different patterns that must NOT be treated alike:
 
@@ -743,26 +806,25 @@ LIMIT 1;
 - ❌ Modifying `documents.icd11_scope` for existing CPGs. The 16 verified entries are immutable.
 - ❌ Changing the existing inclusion-based ranker logic. D3 *adds* an exclusion penalty term — it does not rewrite inclusion scoring.
 - ❌ Real WHO API calls, or real LLM rerank calls, in tests.
-- ❌ Tuning the eight constants — ship with the defaults above and tune from real DDx logs in a follow-up.
+- ❌ Tuning the seven constants — ship with the defaults above and tune from real DDx logs in a follow-up.
 - ❌ Replacing or retraining the LLM rerank model itself. D6 *feeds signals into* the existing rerank stage and surfaces its disagreements — it does not swap the model or change its core prompt beyond the documented additions.
 - ❌ Frontend visual design / CSS for D5/D6. This doc fixes the *content, ordering, badge text, and honesty rules* of the clinician render; pixel-level styling is a follow-up for whoever owns the UI. The structured candidate model (D5a + D6b) is the contract — a text/CLI rendering that satisfies §D5b and §D6c is sufficient to mark this done.
 
 ## Done criteria
 
-All twelve must hold:
+All eleven must hold:
 
-1. Migrations 007 and 008 applied cleanly. `\d documents` shows `scope_embedding vector(1536)`. `\d icd11_codes` shows `exclusion_embeddings jsonb`.
-2. `python -m ddx.backfill_scope_embeddings` populates all 16 documents. Verify: `SELECT COUNT(*) FROM documents WHERE scope_embedding IS NOT NULL` returns 16.
-3. `python -m ddx.backfill_exclusion_embeddings` populates the 402 rows with non-empty exclusions. Verify: `SELECT COUNT(*) FROM icd11_codes WHERE exclusion_embeddings != '{}'::jsonb` returns 402.
-4. Re-running both backfills makes 0 embedding calls and 0 DB writes (idempotent).
-5. `pytest tests/test_routing_fallback.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v` all green. No real Bedrock, WHO, or LLM calls.
-6. All nine smoke tests in §6 produce the expected result (Smoke 9 may be a documented N/A if the corpus has no sibling-route case — the SQL output must be shown). The full suite passed on **staging before** prod promotion. Telemetry is captured. Smoke 7 and the two Smoke 8 deterministic blocks are pasted verbatim.
-7. **(D5)** Every DDx candidate returned by the API carries the full breakdown (D5a + D6b fields) populated. `final_score == base_similarity + inclusion_match - exclusion_penalty` holds for every candidate (spot-check 10 from a live query).
-8. **(D5)** The rendered top-5 for a `semantic`-routed query shows the `~ Fuzzy match (NN%)` badge — never an exact-match badge. The rendered top-5 for an exclusion-penalised candidate keeps it in the list with the `⚠ ... ranked lower` line, not removed.
-9. **(D6)** The clinician-facing order equals `llm_rank`. The LLM rerank prompt provably contains the math signals per candidate (capture one prompt from a live query).
-10. **(D6)** Hard rule holds: no exclusion-penalised candidate is promoted ≥ `RERANK_DISAGREEMENT_DELTA` without a non-empty `override_reason`. Materially-moved candidates render the `↕` disagreement line; D6d telemetry counters are emitted. The Smoke 8 `--force-rerank-order` harness is proven inert under production config (unit test asserts it).
-11. The 16 verified `icd11_scope` entries on existing documents are byte-for-byte unchanged. Verify: `SELECT title, icd11_scope, scope_verified FROM documents` matches the pre-deploy snapshot.
-12. The existing `embedding` column on `icd11_codes` is byte-for-byte unchanged across the full table. Verify the checksum equals the canonical P0 baseline:
+1. Migration 008 applied cleanly. `\d icd11_codes` shows `exclusion_embeddings jsonb`. (Migration 007 / `scope_embedding` — D2 retired, do NOT apply.)
+2. `python -m ddx.backfill_exclusion_embeddings` populates the 402 rows with non-empty exclusions. Verify: `SELECT COUNT(*) FROM icd11_codes WHERE exclusion_embeddings != '{}'::jsonb` returns 402.
+3. Re-running the exclusion backfill makes 0 embedding calls and 0 DB writes (idempotent).
+4. `pytest tests/test_routing_fallback.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v` all green. No real Bedrock, WHO, or LLM calls.
+5. All nine smoke tests in §6 produce the expected result (Smoke 3 now tests out_of_scope on an ENT query; Smoke 9 may be a documented N/A if the corpus has no sibling-route case — the SQL output must be shown). The full suite passed on **staging before** prod promotion. Telemetry is captured. Smoke 7 and the two Smoke 8 deterministic blocks are pasted verbatim.
+6. **(D5)** Every DDx candidate returned by the API carries the full breakdown (D5a + D6b fields) populated. `final_score == base_similarity + inclusion_match - exclusion_penalty` holds for every candidate (spot-check 10 from a live query).
+7. **(D5)** The rendered top-5 for an exclusion-penalised candidate keeps it in the list with the `⚠ ... ranked lower` line, not removed. The provenance badge for each candidate matches its actual `route_method` — never shows `✓ Exact guideline match` for a non-exact route.
+8. **(D6)** The clinician-facing order equals `llm_rank`. The LLM rerank prompt provably contains the math signals per candidate (capture one prompt from a live query).
+9. **(D6)** Hard rule holds: no exclusion-penalised candidate is promoted ≥ `RERANK_DISAGREEMENT_DELTA` without a non-empty `override_reason`. Materially-moved candidates render the `↕` disagreement line; D6d telemetry counters are emitted. The Smoke 8 `--force-rerank-order` harness is proven inert under production config (unit test asserts it).
+10. The 16 verified `icd11_scope` entries on existing documents are byte-for-byte unchanged. Verify: `SELECT title, icd11_scope, scope_verified FROM documents` matches the pre-deploy snapshot.
+11. The existing `embedding` column on `icd11_codes` is byte-for-byte unchanged across the full table. Verify the checksum equals the canonical P0 baseline:
    ```sql
    SELECT MD5(string_agg(embedding::text, '|' ORDER BY code)) FROM icd11_codes;
    -- MUST return: d8a2db83e95d7655aa3b73cdf72b2631
@@ -775,19 +837,17 @@ All twelve must hold:
 When you finish, return the following — concise, no marketing:
 
 1. **Files created/modified** — exact paths.
-2. **Migrations applied** — output of `\d documents` and `\d icd11_codes` (relevant columns only).
-3. **Backfill results**:
-   - `documents.scope_embedding`: rows populated, embedding calls made, runtime, total cost (Bedrock invocations × $0.0001 / 1k tokens estimate).
-   - `icd11_codes.exclusion_embeddings`: rows populated (expect 402), embedding calls made (expect ~748), runtime, total cost.
-4. **Idempotency check** — output of re-running both backfills (expect "0 rows updated").
+2. **Migrations applied** — output of `\d icd11_codes` (relevant columns only). Migration 007 / `scope_embedding` was NOT applied (D2 retired).
+3. **Backfill results** — `icd11_codes.exclusion_embeddings`: rows populated (expect 402), embedding calls made (expect ~748), runtime, total cost (Bedrock invocations × $0.0001 / 1k tokens estimate).
+4. **Idempotency check** — output of re-running `backfill_exclusion_embeddings` with no args (expect "0 rows updated, 0 embedding calls").
 5. **Test output** — last ~30 lines of `pytest tests/test_routing_fallback.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v`.
 6. **Smoke test telemetry** — table with one row per routing smoke test (Smoke 1–6 and 9):
    | Smoke # | Query (truncated) | Predicted ICD | route_method | Matched CPG | Notes |
    |---------|-------------------|---------------|--------------|-------------|-------|
    For Smoke 9, include the discovery SQL output (or state N/A with that output as evidence).
-7. **D5 rendered output** — Smoke 7's two top-5 blocks pasted **verbatim** (the exclusion-penalty case and the semantic-route case), exactly as a clinician would see them. Plus one spot-check showing `final_score == base + inclusion − exclusion_penalty` arithmetic for one candidate.
+7. **D5 rendered output** — Smoke 7's top-5 block pasted **verbatim** (the exclusion-penalty case), exactly as a clinician would see it. Plus one spot-check showing `final_score == base + inclusion − exclusion_penalty` arithmetic for one candidate.
 8. **D6 rendered output** — Smoke 8's **two deterministic** top-5 blocks pasted **verbatim** (plain disagreement + exclusion override), the negative-check result (empty `override_reason` rejected), one captured LLM rerank prompt showing the math signals are present, and the D6d telemetry counts (disagreements, exclusion-overrides) for both cases.
-9. **Pre/post invariants** — the two checksum/count queries in §Done criteria #11 and #12, before and after.
-10. **Constants used** — confirm the eight constants in §Constants summary are at their default values (and listed in code at the top of the routing module).
+9. **Pre/post invariants** — the two checksum/count queries in §Done criteria #10 and #11, before and after.
+10. **Constants used** — confirm the seven constants in §Constants summary are at their default values (and listed in code at the top of the routing module).
 11. **Any deviations** from this brief and why.
-12. **Follow-ups noticed but not done** — likely candidates: tuning the eight constants from logged DDx data (esp. `EXCLUSION_PENALTY_WEIGHT` and `RERANK_DISAGREEMENT_DELTA` from D6d telemetry), adding hybrid retrieval if logs show ICD lookup misses, pixel-level UI styling for the D5/D6 badges, surfacing the breakdown + disagreement view in the production frontend.
+12. **Follow-ups noticed but not done** — likely candidates: tuning the seven constants from logged DDx data (esp. `EXCLUSION_PENALTY_WEIGHT` and `RERANK_DISAGREEMENT_DELTA` from D6d telemetry), adding hybrid retrieval if logs show ICD lookup misses, pixel-level UI styling for the D5/D6 badges, surfacing the breakdown + disagreement view in the production frontend.

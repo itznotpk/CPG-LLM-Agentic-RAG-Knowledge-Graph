@@ -610,7 +610,11 @@ async def fetch_icd_ancestors(conn, code: str, max_depth: int = 2) -> list[dict[
 
 
 async def fetch_icd_siblings(conn, code: str) -> list[str]:
-    """Fetch ICD-11 sibling codes sharing the predicted code's parent_code."""
+    """Fetch ICD-11 sibling codes sharing the predicted code's parent_code.
+
+    Includes .Y (other specified) and .Z (unspecified) variants — all codes
+    whose parent_code equals the predicted code's parent_code.
+    """
     rows = await conn.fetch(
         """
         SELECT s.code
@@ -620,6 +624,53 @@ async def fetch_icd_siblings(conn, code: str) -> list[str]:
          AND s.code <> p.code
         WHERE p.code = $1
         ORDER BY s.code
+        """,
+        code,
+    )
+    return [row["code"] for row in rows]
+
+
+async def fetch_icd_ancestor_siblings(conn, code: str) -> list[str]:
+    """Fetch peer categories of the predicted code's direct parent.
+
+    For BA00.0 (parent=BA00, grandparent=Hypertensive diseases):
+    returns BA01, BA02, BA03, BA04 — siblings of BA00, not of BA00.0.
+    Excludes the direct parent itself (BA00) since ancestor_d1 already tried it.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT s.code
+        FROM icd11_codes p
+        JOIN icd11_codes parent ON parent.code = p.parent_code
+        JOIN icd11_codes s
+          ON s.parent_code = parent.parent_code
+         AND s.code <> parent.code
+        WHERE p.code = $1
+        ORDER BY s.code
+        """,
+        code,
+    )
+    return [row["code"] for row in rows]
+
+
+async def fetch_icd_ancestor_sibling_children(conn, code: str) -> list[str]:
+    """Fetch all children of the predicted code's parent-sibling categories.
+
+    For BA00.0: returns BA01.0, BA01.Y, BA01.Z, BA02.0 ... BA04.Z —
+    the full subtree of BA01-BA04, one level deep.
+    Excludes the predicted code's own siblings (already tried in the sibling step).
+    """
+    rows = await conn.fetch(
+        """
+        SELECT child.code
+        FROM icd11_codes p
+        JOIN icd11_codes parent ON parent.code = p.parent_code
+        JOIN icd11_codes sibling
+          ON sibling.parent_code = parent.parent_code
+         AND sibling.code <> parent.code
+        JOIN icd11_codes child ON child.parent_code = sibling.code
+        WHERE p.code = $1
+        ORDER BY child.code
         """,
         code,
     )
