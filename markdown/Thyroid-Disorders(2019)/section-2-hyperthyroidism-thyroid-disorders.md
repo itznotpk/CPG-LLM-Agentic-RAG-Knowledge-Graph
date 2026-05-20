@@ -12,31 +12,31 @@ treatment_type: carbimazole, methimazole, propylthiouracil, radioactive_iodine, 
 [Level I] Thyrotoxicosis occurs due to inappropriately high thyroid hormone action in tissues secondary to elevated thyroid hormone levels, as opposed to hyperthyroidism, which is a subset of thyrotoxicosis due to inappropriately high thyroid hormone synthesis and secretion by the thyroid gland.
 
 Thyrotoxicosis can be broadly divided into four main causes:
-**A. Activation Of Thyroid Hormone Synthesis And Secretion, Which Leads To Autonomous Release Of Excessive Thyroid Hormone**
+A) Activation Of Thyroid Hormone Synthesis And Secretion, Which Leads To Autonomous Release Of Excessive Thyroid Hormone
 
-[Level III, II] Graves' disease remained the most common cause of primary hyperthyroidism. Its prevalence can be as high as 70%–84% in different countries. Graves' disease occurs due to the presence of anti-TSH receptor antibodies. Yersinia enterocolitica infection has been associated with Graves' disease. (Level II) Other causes of primary hyperthyroidism include toxic adenoma and toxic multinodular goitre. Genetic analysis of resected nodules revealed a mutation in the TSH receptor gene, which leads to basal activation of the protein kinase A pathway and increased T4 production and increased cellular proliferation. In addition, the mutation leads to increased TSH receptor affinity to TSH, thus increasing thyroid hormone synthesis. (Level II) Not all of these hot nodules are actually benign. Some may be malignant, and further workout is necessary. The risk of malignancy in hot nodules may be underestimated, and a literature review reported that a weighted rate of 3.1% (0–12.5%) of hot nodules are graded as thyroid cancer. (Level I) Thyroid papillary carcinoma can cause hyperthyroidism. (Level III) Graves' disease can co-exist with toxic adenoma and is termed as Marine–Lenhart syndrome. (Level III) And, finally, there is a small group of patients with diffuse non-autoimmune hyperthyroidism due to a genetic mutation leading to the production of thyroid hormone without any TSH ligand. (Level III)
+[Level III, II] Graves' disease remained the most common cause of primary hyperthyroidism. Its prevalence can be as high as 70%–84% in different countries. Graves' disease occurs due to the presence of anti-TSH receptor antibodies. Yersinia enterocolitica infection has been associated with Graves' disease. [Level II] Other causes of primary hyperthyroidism include toxic adenoma and toxic multinodular goitre. Genetic analysis of resected nodules revealed a mutation in the TSH receptor gene, which leads to basal activation of the protein kinase A pathway and increased T4 production and increased cellular proliferation. In addition, the mutation leads to increased TSH receptor affinity to TSH, thus increasing thyroid hormone synthesis. [Level II] Not all of these hot nodules are actually benign. Some may be malignant, and further workout is necessary. The risk of malignancy in hot nodules may be underestimated, and a literature review reported that a weighted rate of 3.1% (0–12.5%) of hot nodules are graded as thyroid cancer. [Level I] Thyroid papillary carcinoma can cause hyperthyroidism. [Level III] Graves' disease can co-exist with toxic adenoma and is termed as Marine–Lenhart syndrome. [Level III] And, finally, there is a small group of patients with diffuse non-autoimmune hyperthyroidism due to a genetic mutation leading to the production of thyroid hormone without any TSH ligand. [Level III]
 
-**B. Thyroid Stores Of Preformed Hormone Are Passively Released In Excessive Amounts Due To Autoimmune, Infective, Chemical, Or Physical Insults**
+B) Thyroid Stores Of Preformed Hormone Are Passively Released In Excessive Amounts Due To Autoimmune, Infective, Chemical, Or Physical Insults
 
 [Level III] Destruction of the thyroid follicle cells can result in the hyperthyroid stage of any thyroiditis. [Level III] It could be due to autoimmune processes such as Hashimoto's thyroiditis; infective like subacute thyroiditis (viral) or even Mycobacterium tuberculosis, cellulitis of the skin anterior to the neck or due to physical insult from a rapidly growing anaplastic carcinoma of the thyroid gland or primary thyroid lymphoma.
 
-**C. Exposure To Extrathyroidal Sources Of Thyroid Hormone Either Endogenous Or Exogenous**
-
+C) Exposure To Extrathyroidal Sources Of Thyroid Hormone Either Endogenous Or Exogenous
 [Level III] Endogenous sources of thyroid hormones include struma ovarii, which is actually teratoma of the ovaries composed mainly of thyroid tissue (Level III) and metastatic thyroid carcinoma secreting thyroid hormones. These are actually rare, with fewer than 100 cases reported since 1946. [Level III] Exogenous sources of thyroid hormones are becoming commoner nowadays. [Level III,II] Over-the–counter supplements containing thyroid support/thyroid supplements/thyroid health actually contain various amounts of T3 and/or T4 that are readily available over the Internet – via online purchases. They are cheap, there is no need for a prescription, and people have more privacy in managing their own health. People purchase it based on testimonials. [Level II,III] These supplements may not mention the actual ingredients used. [Level II,III]In addition, exogenous sources of thyroid hormones can come from cooked animals' thyroid gland, as reported in an epidemic of thyrotoxicosis after ingesting thyroid hormone-containing beef hamburger.
 
-**D. The Thyroid Gland Is Excessively Stimulated By Trophic Factors Such As Thyrotropin-Stimulating Hormone (TSH) And Other Factors.**
-
+D) The Thyroid Gland Is Excessively Stimulated By Trophic Factors Such As Thyrotropin-Stimulating Hormone (TSH) And Other Factors
 TSHoma, which is pituitary gland thyrotrophs adenoma secreting excessive amounts of TSH leading to secondary hyperthyroidism is rare. Besides, gestational trophoblastic disease, which secretes b-HCG (which has partial molecular similarity with TSH) can lead to thyrotoxicosis. [Level III] It is also rare, as only 2.0 per 1000 pregnancies have gestational trophoblastic disease, of which only 7% have biochemical thyrotoxicosis. Iodinated contrast materials are increasingly being used during CT scans and angiographic procedures. Amiodarones are used frequently for various types of tachyarrhythmia. The iodine content in radiographic contrast materials and amiodarone is much higher than the amount human beings actually require. [Level III] This excess iodine will lead to Jod–Basedow thyrotoxicosis. The prevalence of contrast iodine-induced subclinical hyperthyroidism can reach up to 2.66% [Level II] and contrast iodine-induced hyperthyroidism up to 1.7%  [Level II,III] . [Level III] Amiodarone-induced thyrotoxicosis is more prevalent and is in the range of 3.0%–20.8%. [Level III]There are other rare case reports of thyrotoxicosis such as due to L-asparaginase chemotherapy, which leads to transient thyrotoxicosis.
 
 ### 2.1.2: How To Diagnose Hyperthyroidism?
-#### 2.1.2.1: Biochemical Evaluation For Diagnosis Of Hyperthyroidism
+Diagnosis of hyperthyroidism involves two components: biochemical confirmation of thyroid hormone excess (TSH, fT4, fT3) and aetiological evaluation (autoantibodies, radionuclide uptake, ultrasonography). Each is detailed in the subsections below.
+
+### 2.1.3: Diagnose — Biochemical Evaluation For Diagnosis Of Hyperthyroidism
 [Level III] Serum thyroid-stimulating hormone (TSH) measurement has the highest sensitivity and specificity of any single blood test and is used as an initial screening test for hyperthyroidism. However, diagnostic accuracy is improved when serum TSH and free T4 (fT4) are assessed at initial evaluation. If fT4 is within the normal range and TSH is suppressed, then free T3 (fT3) should be measured. [Level III] In overt hyperthyroidism, serum fT4, fT3, or both are elevated and serum TSH is suppressed (usually <0.01 mIU/L).
 
-#### 2.1.2.2: Diagnostic Testing For Aetiology Of Hyperthyroidism
-**Thyroid Ultrasound**
+### 2.1.4: Diagnose — Diagnostic Testing For Aetiology Of Hyperthyroidism
+Thyroid Ultrasound
 [Level II] When expertise is available and there is no stigmata of Graves' disease and the aetiology not clear by history, thyroid ultrasound comprising both conventional greyscale and colour flow Doppler examination is recommended as the imaging procedure for hyperthyroidism work-up. Thyroid vascularity (Refer to Table 1: Thyroid vascularity grading and pattern by ultrasound) and peak systolic velocity (PSV) of the inferior thyroid artery are useful markers to distinguish between Graves' disease and thyroiditis, especially in the setting of pregnancy or lactation, where nuclear imaging is contraindicated. [Level II] Peak systolic velocity of inferior thyroid artery >40 cm/s is suggestive of Graves' disease. [Level II] According to Hari Kumar et al., colour flow Doppler and ultrasound parameters correlated significantly with pertechnetate scan results, demonstrating a comparable sensitivity of 96% and specificity of 95%. [Level III] However, thyroid ultrasound has its limitation, as it may miss early Graves' disease and resolving thyroiditis.
 
-[Level III] Figure 1: Algorithm for the investigations of suspected hyperthyroidism. 
+Figure 1: Algorithm for the investigations of suspected hyperthyroidism. 
 - **Initial Presentation**: Suspected hyperthyroidism.
 - **First Step**: Measure serum TSH and fT4 levels.
 - **Diagnostic Pathway based on fT4 and TSH**:
@@ -44,7 +44,6 @@ TSHoma, which is pituitary gland thyrotrophs adenoma secreting excessive amounts
   - **Normal fT4 and Suppressed TSH (Normal fT4, ↓TSH)**: Proceed to measure fT3.
     - **Elevated fT3 (↑fT3)**: Diagnosed as **Overt hyperthyroidism** (T3-toxicosis).
     - **Normal fT3 (Normal fT3)**: Diagnosed as **Subclinical hyperthyroidism**.
-
 
 [Level II] Table 1: Thyroid vascularity grading and pattern by ultrasound
 | Grading | Vascular pattern | Vascular pattern |
@@ -57,7 +56,7 @@ TSHoma, which is pituitary gland thyrotrophs adenoma secreting excessive amounts
 **TSH Receptor Antibodies (TRAbs)**
 [Level III] TRAbs are specific biomarkers for the diagnosis of Graves' disease. [Level III] They are also useful for predicting the risk of relapse and guide definitive treatment for Graves' disease. [Level III] There are two methods for measuring TRAbs: competitive binding assay (TSH binding inhibiting immunoglobulin, TBII) and cell-based bioassay (Thyroid stimulating immunoglobulin, TSI). Most immunoassays today use a competitive binding assay (TBII). TBII only reports the presence or absence of TRAbs and their concentrations, but does not indicate their functional activity. [Level III] The third generation TBII has 99% sensitivity and 99% specificity for the diagnosis of Graves' disease in hyperthyroidism. [Level III] In contrast, highly sensitive cell-based bioassays (TSI) exclusively differentiate between the TSH-R-stimulating Ab (TSAb) and TSH-R-blocking Ab (TBAb).
 
-[Level III] Figure 2: Categories of TRAbs.
+Figure 2: Categories of TRAbs.
 Figure 2 illustrates the relationships and assay methods for TSH receptor antibodies (TRAbs):
 - **TRAb (TSH Receptor Antibody)**: Represents the overarching parent category of antibodies.
   - **TBII (TSH-Binding Inhibiting Immunoglobulin)**: Represents the competitive binding assay path. TBII detects and measures the presence/concentration of overall TRAbs by identifying binding inhibition but does not determine functional activity (i.e., whether the antibody is stimulating, blocking, or neutral).
@@ -67,11 +66,10 @@ Figure 2 illustrates the relationships and assay methods for TSH receptor antibo
   - **TBAb (TSH-R-Blocking Antibody)**: Functionally blocking antibodies that inhibit receptor activation.
   - **Neutral**: Neutral antibodies that bind to the receptor without functional agonist or antagonist effects.
 
-
 **Thyroid Scintigraphy**
 [Level III] Thyroid scintigraphy is the only technique that allows the assessment of thyroid regional function and detection of areas of autonomously functioning thyroid nodules. Scintigraphy of the thyroid is suggested when thyroid nodularity coexists with hyperthyroidism. However, thyroid scintigraphy is significantly less sensitive for diagnosing thyroid nodules measuring less than 1-1.5 cm. [Level III] The most used radionuclides in scintigraphy according to the American Association of Clinical Endocrinologists/European Thyroid Association (AACE/ETA) guideline are Iodine-123 (I-123) or Technetium-99m (Tc-99m). The advantages of Tc-99m include the high availability in the nuclear medicine department, low energy of gamma photons, and the relatively short half-life (six hours). These characteristics make Tc-99m a more preferred option compared to I-123.
 
-**Recommendations**
+Recommendation:
 - In patients with suspected hyperthyroidism, serum TSH and fT4 should be obtained at the initial evaluation. fT3 should be measured when TSH is suppressed but fT4 is within the normal range
 - Thyroid ultrasonography with colour flow Doppler has reasonable sensitivity and specificity to distinguish between Graves' disease and thyroiditis and is recommended in situations wherein scintigraphy is not available or feasible (e.g. pregnancy or lactation)
 - In overt hyperthyroidism without stigmata of Grave's disease, TSH receptor antibody (TRAb) is useful to distinguish between Graves' disease and other causes of hyperthyroidism
@@ -104,39 +102,37 @@ Figure 3 outlines the diagnostic algorithm for determining the underlying cause 
        - **Normal or elevated serum thyroglobulin**: Diagnosed as **Postpartum thyroiditis** or **Hashimoto thyroiditis**.
        - **Low or undetectable serum thyroglobulin**: Diagnosed as **Factitious thyrotoxicosis**.
 
-### 2.1.3: How To Treat Hyperthyroidism?
+### 2.1.5: How To Treat Hyperthyroidism?
 [Level II] In patients in whom the diagnosis of thyrotoxicosis is strongly suspected or confirmed, treatment with propranolol, atenolol, metoprolol, or other beta-blockers leads to a decrease in heart rate, systolic blood pressure, muscle weakness, and tremors, as well as improvement in the degree of irritability, emotional lability, and exercise intolerance. [Level II] Oral administration of calcium-channel blockers, both verapamil and diltiazem, has been shown to affect heart rate control in patients who do not tolerate or are not candidates for beta-adrenergic blocking agents.
 
-**Recommendation**
-- Beta-adrenergic blockade is recommended in all patients with symptomatic thyrotoxicosis, especially elderly patients and thyrotoxic patients with resting heart rates in excess of 90 beats per minute or coexistent cardiovascular disease
+Beta-adrenergic blockade is recommended in all patients with symptomatic thyrotoxicosis, especially elderly patients and thyrotoxic patients with resting heart rates in excess of 90 beats per minute or coexistent cardiovascular disease
 
-#### 2.1.3.1: How To Treat Graves' Hyperthyroidism (GD)?
+### 2.1.6: Treat — How To Treat Graves' Hyperthyroidism (GD)?
 [Level II] Once it has been established that the patient is hyperthyroid and the cause is GD, the patient and physician must choose between three effective and relatively safe initial treatment options: I-131 therapy (radioactive iodine), antithyroid drugs (ATD), or thyroidectomy. [Level II] The long-term quality of life (QoL) following treatment for GD was found to be the same in patients randomly allocated to one of the three treatment options.
 
-**Radioactive Iodine (RAI)**
+### 2.1.7: Treat Graves' — Radioactive Iodine (RAI)
 [Level II] RAI has been used to treat hyperthyroidism and is well tolerated; complications are rare, except for those related to orbitopathy. Thyroid storm occurs only rarely following the administration of RAI. However, RAI can induce a short-term increase of thyroid hormone levels. To prevent a clinical exacerbation of hyperthyroidism, the use of methimazole (MMI) or carbimazole, before and after RAI treatment may be considered in patients with severe hyperthyroidism, the elderly, and individuals with substantial comorbidity that puts them at greater risk for complications of worsening thyrotoxicosis. The latter includes patients with cardiovascular complications such as atrial fibrillation, heart failure, or pulmonary hypertension and those with renal failure, infection, trauma, poorly controlled diabetes mellitus, and cerebrovascular or pulmonary disease. These comorbid conditions should be addressed with standard medical care and the patient rendered medically stable before the administration of RAI if possible. If possible, iodinated radiocontrast should be avoided at least 4-6 weeks prior to RAI therapy. In addition, beta-adrenergic blocking drugs should be used judiciously in these patients in preparation for RAI therapy. Methimazole and carbimazole have been shown to reduce thyroid hormone levels after RAI treatment in randomised controlled trials. A special diet is not required before RAI therapy, but nutritional supplements that may contain excess iodine and seaweeds should be avoided for at least seven days. A low-iodine diet may be useful for those with relatively low RAIU to increase the proportion of RAI trapped. Patients who might benefit from adjunctive MMI or carbimazole may be those who tolerate hyperthyroid symptoms poorly. Such patients frequently have free T4 at 2-3 times the upper limit of normal. Young and middle-aged patients who are otherwise healthy and clinically well compensated despite significant biochemical hyperthyroidism can generally receive RAI without pretreatment. If given as pretreatment, MMI and carbimazole should be discontinued before the administration of RAI. Continuation of ATDs up to 2-3 days prior to RAI can prevent a short-term increase of thyroid hormone levels, which is found after six days. In elderly patients or in those with underlying cardiovascular disease, resuming MMI or carbimazole 3-7 days after RAI administration should be considered and generally tapered as thyroid function normalises. In selected patients with Graves' hyperthyroidism who would have been candidates for pretreatment with ATDs because of comorbidities or excessive symptoms, but who are allergic to ATDs, the duration of hyperthyroidism may be shortened by administering iodine (e.g. saturated solution of potassium iodide [SSKI]) beginning a week after RAI administration.
 
 [Level II] The goal of RAI therapy in GD is to control hyperthyroidism by rendering the patient hypothyroid; this treatment is very effective, provided a sufficient radiation dose is deposited in the thyroid. This outcome can be accomplished equally well by either administering a fixed dose or by calculating the activity based on the size of the thyroid and its ability to trap RAI. The first method is simple, while the second method requires two unknowns to be determined: the uptake of RAI and the size of the thyroid.
 
-[Level II] Table 2: Clinical situations that favour a particular modality as treatment for Graves' hyperthyroidism
-
+Table 2: Clinical situations that favour a particular modality as treatment for Graves' hyperthyroidism
 | Modality | Favour | Contraindication |
 |---|---|---|
 | RAI | • Women not planning a pregnancy in the future (in less than six months, provided thyroid hormone levels are normal)<br>• Individuals with comorbidities increasing surgical risk<br>• Patients with previously operated or externally irradiated necks<br>• Lack of access to a high-volume thyroid surgeon<br>• Patients with contraindications to ATD use or failure to achieve euthyroidism during treatment with ATDs<br>• Patients with periodic thyrotoxic hypokalaemic paralysis, right heart failure, pulmonary hypertension or congestive heart failure | • Pregnancy<br>• Lactation<br>• Coexisting thyroid cancer, or suspicion of thyroid cancer<br>• Individuals unable to comply with radiation safety guidelines<br>• Used with informed caution in women planning a pregnancy within 4-6 months |
 | ATDs | • Patients with a high likelihood of remission (especially women, with mild disease, small goitres and negative or low-titre TRAb)<br>• Pregnancy<br>• Elderly or others with comorbidities increasing surgical risk or with limited life expectancy<br>• Individuals in nursing homes or other care facilities who may have limited longevity and are unable to follow radiation safety regulations<br>• Patients with previously operated or irradiated necks<br>• Patients with lack of access to a high-volume thyroid surgeon<br>• Patients with moderate-to-severe active Graves' ophthalmopathy (GO)<br>• Patients who need more rapid biochemical disease control | • Previous known major adverse reactions to ATDs |
 | Surgery | • Women planning a pregnancy in <6 months provided thyroid hormone levels are normal<br>• Symptomatic compression or large goitres (>80 g)<br>• Relatively low uptake of RAI<br>• Thyroid malignancy is documented or suspected (e.g. suspicious or indeterminate cytology)<br>• Large thyroid nodules, especially if greater than 4 cm or if nonfunctioning, or hypofunctioning on Tc-99m pertechnetate scanning<br>• Coexisting hyperparathyroidism requiring surgery<br>• If TRAb levels are particularly high<br>• Patients with moderate-to-severe active GO | • Substantial comorbidities such as cardiopulmonary disease, end-stage cancer, or other debilitating disorders<br>• Lack of access to a high-volume thyroid surgeon<br>• Pregnancy is a relative contraindication, and surgery should only be used in circumstances wherein rapid control of hyperthyroidism is required and antithyroid medications cannot be used. Thyroidectomy is best avoided in the first and third trimesters of pregnancy because of teratogenic effects associated with anaesthetic agents and the increased risk of foetal loss in the first trimester and the increased risk of preterm labour in the third. Optimally, thyroidectomy is performed in the second trimester; however, although it is the safest time, it is not without risk (4.5%-5.5% risk of preterm labour). Thyroid surgery in pregnancy is also associated with a higher rate of complications, including hypoparathyroidism and recurrent laryngeal nerve (RLN) injury. |
 
-**Anti-Thyroid Drugs (ATDs)**
-[Level II] The goal of the therapy is to render the patient euthyroid as quickly and safely as possible. These medications do not cure Graves' hyperthyroidism; however, when given in adequate doses, they are very effective in controlling hyperthyroidism. When they fail to achieve euthyroidism, the usual cause is nonadherence. The treatment itself might have a beneficial immunosuppressive role, either to primarily decrease thyroid-specific autoimmunity, or secondarily, by ameliorating the hyperthyroid state, which may restore the dysregulated immune system back to normal. Carbimazole is rapidly converted to MMI in the serum (10 mg of carbimazole is metabolised to approximately 6 mg of MMI). They work in an identical fashion, and both are effective as a single daily dose. At the start of MMI therapy, initial doses of 10-30 mg daily are used to restore euthyroidism, and the dose can then be titrated down to a maintenance level (generally 5-10 mg daily). The dose of MMI should be targeted to the degree of thyroid dysfunction because too low dose will not restore a euthyroid state in patients with severe disease and an excessive dose can cause iatrogenic hypothyroidism in patients with mild disease. In addition, adverse drug reactions are more frequent with higher MMI doses. Thus, it is important to use an MMI dose that will achieve the clinical goal of normalisation of thyroid function reasonably rapidly while minimising adverse drug effects. It is important to monitor serum T3 levels initially because some patients normalise their free T4 levels with MMI, but have persistently elevated serum T3, indicating continuing thyrotoxicosis. Methimazole has the benefit of once-a-day administration and a reduced risk of major side effects compared to propylthiouracil (PTU). Propylthiouracil has a shorter duration of action and is usually administered two or three times daily, starting with 50-150 mg three times daily, depending on the severity of the hyperthyroidism. As clinical findings and thyroid function tests results return to normal, a reduction to a maintenance PTU dose of 50 mg two or three times daily is usually possible. When more rapid biochemical control is needed in patients with severe thyrotoxicosis, an initial split dose of MMI (e.g. 15 or 20 mg twice a day) maybe more effective than a single daily dose because the duration of action of MMI may be less than 24 hours.
+### 2.1.8: Treat Graves' — Anti-Thyroid Drugs (ATDs)
+[Level II] The goal of the therapy is to render the patient euthyroid as quickly and safely as possible. These medications do not cure Graves' hyperthyroidism; however, when given in adequate doses, they are very effective in controlling hyperthyroidism. When they fail to achieve euthyroidism, the usual cause is nonadherence. The treatment itself might have a beneficial immunosuppressive role, either to primarily decrease thyroid-specific autoimmunity, or secondarily, by ameliorating the hyperthyroid state, which may restore the dysregulated immune system back to normal. Carbimazole is rapidly converted to MMI in the serum (10 mg of carbimazole is metabolised to approximately 6 mg of MMI). They work in an identical fashion, and both are effective as a single daily dose. At the start of MMI therapy, initial doses of 10-30 mg daily are used to restore euthyroidism, and the dose can then be titrated down to a maintenance level (generally 5-10 mg daily). The dose of MMI should be targeted to the degree of thyroid dysfunction because too low dose will not restore a euthyroid state in patients with severe disease and an excessive dose can cause iatrogenic hypothyroidism in patients with mild disease. In addition, adverse drug reactions are more frequent with higher MMI doses. Thus, it is important to use an MMI dose that will achieve the clinical goal of normalisation of thyroid function reasonably rapidly while minimising adverse drug effects. It is important to monitor serum T3 levels initially because some patients normalise their free T4 levels with MMI, but have persistently elevated serum T3, indicating continuing thyrotoxicosis. Methimazole has the benefit of once-a-day administration and a reduced risk of major side effects compared to propylthiouracil (PTU). Propylthiouracil has a shorter duration of action and is usually administered two or three times daily, starting with 50-150 mg three times daily, depending on the severity of the hyperthyroidism. As clinical findings and thyroid function tests results return to normal, a reduction to a maintenance PTU dose of 50 mg two or three times daily is usually possible. When more rapid biochemical control is needed in patients with severe thyrotoxicosis, an initial split dose of MMI (e.g. 15 or 20 mg twice a day)maybe more effective than a single daily dose because the duration of action of MMI may be less than 24 hours.
 
 [Level II] The adverse effects of ATDs can be divided into common, minor allergic side effects and rare but serious allergic/toxic events such as agranulocytosis, vasculitis, or hepatic damage. The minor allergic reactions included pruritus or a limited, minor rash. Cutaneous reactions were more common with PTU or higher dose MMI (30 mg/day) compared with lower dose MMI (15 mg/day). Hepatotoxicity was more common with PTU.
 
 [Level II] A patient is considered to be in remission if they have had a normal serum TSH, free T4, and free T3 for a year after discontinuation of ATD therapy. The remission rate varies considerably between geographical areas. A meta-analysis shows the remission rate in adults is not improved by a course of ATDs longer than 18 months. A lower remission rate has been described in men, smokers (especially men), and those with large goitres (>80 g). Higher initial doses of MMI (60-80 mg/day) do not improve remission rates; they increase the risk of side effects and are not recommended. If a patient experiences a relapse at follow-up, RAI therapy or surgery can be considered.
 
-**Surgery**
+### 2.1.9: Treat Graves' — Surgery
 [Level II] Thyroidectomy has a high cure rate for the hyperthyroidism of GD. Total thyroidectomy has a nearly 0% risk of recurrence, whereas subtotal thyroidectomy may have an 8% chance of persistence or recurrence of hyperthyroidism at five years. The most common complications following near-total or total thyroidectomy are hypocalcaemia due to hypoparathyroidism (which can be transient or permanent), recurrent or superior laryngeal nerve injury (which can be temporary or permanent), postoperative bleeding, and complications related to general anaesthesia.
 
-**Recommendations**
+Recommendation:
 - Patients with overt Graves' hyperthyroidism should be treated with any of the following modalities: ATDs, RAI therapy, or thyroidectomy
 - Medical therapy of any comorbid conditions should be optimised prior to RAI therapy
 - Pretreatment with ATDs prior to RAI therapy for GD should be considered in patients who are at increased risk for complications due to worsening of hyperthyroidism. MMI should be discontinued 2-3 days prior to RAI
@@ -149,21 +145,21 @@ Figure 3 outlines the diagnostic algorithm for determining the underlying cause 
 - If surgery is chosen as treatment for GD, patients should be rendered euthyroid prior to the procedure with ATD pretreatment, with or without beta-adrenergic blockade
 - If surgery is chosen as the primary therapy for GD, near-total or total thyroidectomy is the procedure of choice and should be referred to a high-volume thyroid surgeon
 
-#### 2.1.3.2: How Should Overt Hyperthyroidism Due To Toxic Multinodular Goitre (TMNG) Or Toxic Adenoma (TA) Be Managed?
+### 2.1.10: Treat — How Should Overt Hyperthyroidism Due To Toxic Multinodular Goitre (TMNG) Or Toxic Adenoma (TA) Be Managed?
 [Level II] Two effective and relatively safe definitive treatment options exist for TMNG and TA: RAI therapy and thyroid surgery. The decision regarding treatment should take into consideration several clinical and demographic factors as well as patient preference. The goal of therapy is the rapid and durable elimination of the hyperthyroid state. For patients with TMNG, the risk of treatment failure or need for repeat treatment is <1% following near-total and/total thyroidectomy, compared with a 20% risk for retreatment following RAI therapy.
 
 [Level II] Euthyroidism is achieved within days after surgery. However, the risk of hypothyroidism and the requirement for exogenous thyroid hormone therapy is 100% after near-total/total thyroidectomy. For patients with TMNG who receive RAI therapy, the response is 50%-60% by three months and 80% by six months. In a large study of patients with TMNG treated with RAI, the prevalence of hypothyroidism was 3% at one year and 64% at 24 years. Hypothyroidism was more common among patients under 50 years of age.
 
 [Level II] For patients with TA, the risk of treatment failure is <1% after surgical resection (ipsilateral thyroid lobectomy or isthmusectomy). Typically, euthyroidism is achieved within days after surgery. The prevalence of hypothyroidism varies from 2% to 3% following lobectomy for TA. For patients with TA who receive RAI therapy, there is a 6%-18% risk of persistent hyperthyroidism and a 3%-5.5% risk of recurrent hyperthyroidism. There is a 75% response rate by three months and 89% rate by one year following RAI therapy for TA. The prevalence of hypothyroidism after RAI is progressive and hastened by the presence of antithyroid antibodies or a nonsuppressed TSH at the time of treatment.
 
-[Level II] Table 3: Factors that favour a particular modality as treatment for TMNG or TA
+Table 3: Factors that favour a particular modality as treatment for TMNG or TA
 | Modality | Favour | Contraindication |
 |---|---|---|
 | RAI | • Advanced patient age<br>• Significant comorbidity<br>• Prior surgery or scarring in the anterior neck<br>• Small goitre size<br>• RAIU sufficient to allow therapy<br>• Lack of access to a high-volume thyroid surgeon | • Pregnancy<br>• Lactation<br>• Coexisting thyroid cancer<br>• Unable to comply with radiation safety guidelines<br>• Used with caution in women planning a pregnancy within 4-6 months |
 | Surgery | • Presence of symptoms or signs of compression within the neck<br>• Concern for coexisting thyroid cancer<br>• Coexisting hyperparathyroidism requiring surgery<br>• Large goitre size (>80 g)<br>• Substernal or retrosternal extension<br>• RAIU insufficient for therapy<br>• Need for rapid correction of the thyrotoxic state | • Significant comorbidities, such as cardiopulmonary disease, end-stage cancer, or other debilitating disorders<br>• Lack of access to a high-volume thyroid surgeon<br>• Pregnancy is a relative contraindication, and surgery should only be used in this circumstance when rapid control of hyperthyroidism is required and ATDs cannot be used |
 | ATD | • Advanced age<br>• Comorbidities with increased surgical risk<br>• Associated with decreased life expectancy<br>• Poor candidates for ablative therapy | • Previous known major adverse reactions to ATDs |
 
-**Recommendations**
+Recommendation:
 - Patients with overtly TMNG or TA should be treated with RAI therapy or thyroidectomy. On occasion, long-term, low-dose treatment with MMI may be appropriate
 - Because RAI treatment of TMNG or TA can cause a transient exacerbation of hyperthyroidism, beta-adrenergic blockade should be considered even in asymptomatic patients who are at increased risk for complications due to worsening of hyperthyroidism (i.e. elderly patients and patients with comorbidities)
 - In addition to beta-adrenergic blockade, pretreatment with MMI prior to RAI therapy for TMNG or TA should be considered in patients who are at increased risk for complications due to worsening of hyperthyroidism, including the elderly and those with cardiovascular disease or severe hyperthyroidism
@@ -174,9 +170,8 @@ Figure 3 outlines the diagnostic algorithm for determining the underlying cause 
 - RAI therapy should be used for retreatment of persistent or recurrent hyperthyroidism following inadequate surgery for TMNG or TA
 - Long-term MMI treatment of TMNG or TA might be indicated in some elderly or otherwise ill patients with limited life expectancy, in patients who are not good candidates for surgery or ablative therapy, and in patients who prefer this option
 
-### 2.1.4: How To Monitor Treatment Of Hyperthyroidism?
-**Patients Post RAI**
-
+### 2.1.11: How To Monitor Treatment Of Hyperthyroidism?
+Patients Post RAI:
 [Level II] Most patients respond to RAI therapy with a normalisation of thyroid function tests and improvement of clinical symptoms within 4-8 weeks. Hypothyroidism may occur from four weeks onwards. This transition can occur rapidly, but more commonly occurs between two and six months, and the timing of thyroid hormone replacement therapy should be determined by results of thyroid function tests, clinical symptoms, and physical examination. Transient hypothyroidism following RAI therapy can rarely occur, with subsequent complete recovery of thyroid function or recurrent hyperthyroidism. In such patients, the thyroid gland often remains palpable.
 
 [Level II] Beta-blockers that were instituted prior to RAI treatment should be tapered when free T4 and free T3 have returned to the reference range. As free T4 and free T3 improve, ATDs can usually be tapered, which allows an assessment of the response to RAI. Most patients eventually develop hypothyroidism, which is indicated by a free T4 below the normal range. At this point, levothyroxine should be instituted. TSH levels may not rise immediately with the development of hypothyroidism and should not be used initially to determine the need for levothyroxine. When thyroid hormone replacement is initiated, the dose should be adjusted based on an assessment of free T4. Overt hypothyroidism should be avoided, especially in patients with active GO.
@@ -185,18 +180,17 @@ Figure 3 outlines the diagnostic algorithm for determining the underlying cause 
 
 [Level II] Response to RAI therapy can be assessed by monitoring the size of the gland, thyroid function, and clinical signs and symptoms. The goal of re-treatment is to control hyperthyroidism with certainty by rendering the patient hypothyroid. Patients who have persistent, suppressed TSH with normal free T3 and free T4 may not require immediate retreatment but should be monitored closely for either relapse or development of hypothyroidism. In the small percentage of patients with hyperthyroidism refractory to several applications of RAI, surgery should be considered.
 
-**Patients Treated With ATD**
-
+Patients Treated With ATD:
 [Level II] Periodic clinical and biochemical evaluation of thyroid status in patients taking ATDs is necessary, and it is essential that patients understand its importance. An assessment of serum free T4 and free T3 should be obtained about 2-6 weeks after initiation of therapy, depending on the severity of the thyrotoxicosis, and the dose of medication should be adjusted accordingly. Serum T3 should be monitored because the serum free T4 levels may normalise despite persistent elevation of serum free T3. Serum TSH may remain suppressed for several months after starting therapy, and it is therefore not a good parameter for monitoring therapy early in the course. Once the patient is euthyroid, the dose of MMI can usually be decreased by 30%-50% and biochemical testing repeated in 4-6 weeks. Once euthyroid levels are achieved with the minimal dose of medication, clinical and laboratory evaluation can be undertaken at intervals of 2-3 months. If a patient is receiving long-term MMI (>18 months), this interval can be increased to 6 months.
 
-**Recommendations**
+Recommendations:
 - Follow-up within the first 1-2 months after RAI therapy for GD/TMNG/TA should include an assessment of free T4 (and free T3 if indicated), and TSH. Biochemical monitoring should be continued at four- to six-week intervals for six months, or until the patient becomes hypothyroid and is stable on thyroid hormone replacement
 - When hyperthyroidism due to GD/TMNG/TA persists after six months following RAI therapy, re-treatment with RAI is suggested. In selected patients with minimal response three months after therapy, additional RAI may be considered
 - A differential WBC count should be obtained during febrile illness and at the onset of pharyngitis in all patients taking antithyroid medication
 - Liver function and hepatocellular integrity should be assessed in patients taking MMI or PTU who experience pruritic rash, jaundice, light-coloured stool or dark urine, joint pain, abdominal pain or bloating, anorexia, nausea, or fatigue
 
-### 2.1.5: When To Refer Patients
-**Recommendations**
+### 2.1.12: When To Refer Patients
+Recommendation:
 - Hyperthyroidism due to TMNG or TA should be referred to centres with radioiodine facility or surgical expertise
 - Hyperthyroidism due to GD treated with ATDs but remaining hyperthyroid despite adequate treatment should be referred to centres with radioiodine facility or surgical expertise
 - Hyperthyroidism due to GD treated with ATDs but relapsing after an initial course of ATDs should be referred to centres with radioiodine facility or surgical expertise
@@ -212,7 +206,7 @@ Figure 3 outlines the diagnostic algorithm for determining the underlying cause 
 ### 2.2.2: What Is The Aetiology Of Subclinical Hyperthyroidism?
 The aetiology of subclinical hyperthyroidism would be similar to that of overt hyperthyroidism.
 
-[Level II, Level III] Table 4: Causes of a low serum TSH level
+Table 4: Causes of a low serum TSH level
 | Causes of a low serum TSH level |  |
 |---|---|
 | **True subclinical hyperthyroidism** |  |
@@ -283,13 +277,12 @@ The aetiology of subclinical hyperthyroidism would be similar to that of overt h
 **Symptoms**
 [Level II] A prospective study by Stott showed subclinical hyperthyroidism is associated with higher mean Wayne scores as compared with euthyroid subjects.
 
-**Recommendation**
-- ECG, echo and bone mineral density assessments are recommended especially for patients with subclinical hyperthyroidism
+ECG, echo and bone mineral density assessments are recommended especially for patients with subclinical hyperthyroidism
 
 ### 2.2.5: What Are The Benefits Of Treatment Of Subclinical Hyperthyroidism?
 [Level II] So far, no large randomised controlled trials have looked into the effects of treatment outcomes on mortality, cardiovascular events, fractures, stroke, and cognition. However, there have been several much smaller studies looking at the effects of treatment on symptoms, cardiac structure and function, heart rate, body composition, and bone mineral density.
 
-[Level II] Table 6: Benefits of treatment of subclinical hyperthyroidism
+Table 6: Benefits of treatment of subclinical hyperthyroidism
 | Outcome measures | Treatment modality | Benefits: Yes | Benefits: No |
 |---|---|---|---|
 | Symptoms | Methimazole | √ |  |
@@ -338,7 +331,7 @@ Figure 4 outlines the clinical workflow for investigating a low/suppressed serum
 ### 2.2.7: What Is The Treatment Of Subclinical Hyperthyroidism?
 [Level II] According to currently available evidence, subclinical hyperthyroidism is likely to cause atrial fibrillation; may probably increase the risk of mortality and fractures; and possibly cause heart failure and cardiovascular events. However, it is unclear whether subclinical hyperthyroidism causes stroke and dementia. Current studies on treatment outcomes measure only surrogate markers such as symptoms, cardiac structure, function and rate, bone mineral density, and body composition. Therefore, the American Thyroid Association in 2016 suggested when to treat subclinical hyperthyroidism.
 
-[Level II] Table 7: Factors influencing consideration for treatment of subclinical hyperthyroidism
+Table 7: Factors influencing consideration for treatment of subclinical hyperthyroidism
 | Factor | TSH (<0.1 mIU/L) | TSH (0.1-0.4 mIU/L) |
 |---|---|---|
 | Age >65 years | Yes | Consider treating |
@@ -349,14 +342,14 @@ Figure 4 outlines the clinical workflow for investigating a low/suppressed serum
 | Hyperthyroid symptoms | Yes | Consider treating |
 | Age <65 years, asymptomatic | Consider treating | Observe |
 
-**Recommendations**
+Recommendation:
 - Treatment should be considered in patients with subclinical hyperthyroidism who are either elderly (age >65 years old) OR with comorbidities (cardiac disease or osteoporosis) OR TSH level less than 0.1 mIU/L
 - Patients with subclinical hyperthyroidism at a younger age (age <65 years) AND those without comorbidities (cardiac disease or osteoporosis) AND TSH between 0.1 and 0.5 mIU/L AND asymptomatic should be observed
 - Beta-blockers should be instituted in patients with symptomatic subclinical hyperthyroidism
 - Treatment if decided, should be based on aetiology and follow the same outlined principles for overt hyperthyroidism
 - Anti-thyroid drugs should be the first-line of treatment and initial treatment for subclinical hyperthyroidism, whatever the aetiology
 
-[Level II] Figure 5: Algorithm for treatment of subclinical hyperthyroidism.
+Figure 5: Algorithm for treatment of subclinical hyperthyroidism.
 Figure 5 outlines the treatment approach for true subclinical hyperthyroidism caused by Graves' disease (GD), multinodular goitre (MNG), or autonomous nodule (AN):
 1. **Category 1: High-Risk / Highly Suppressed Patients**
    - **Criteria**: Patient is elderly, has comorbidities, or has TSH <0.1 mIU/L.

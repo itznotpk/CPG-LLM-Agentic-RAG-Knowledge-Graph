@@ -17,7 +17,7 @@ Raised erythrocyte sedimentation rate (ESR) is one of the important diagnostic c
 
 [Level III] In terms of imaging, destructive thyroiditis displays low uptake on radio-iodine scan. [Level III] In centres without radio-iodine scan facility, ultrasound of the neck and thyroid may not be helpful as common findings include ill-defined hypoechoic lesion within the thyroid gland. However, Doppler ultrasound which shows suppressed vascularity may be of value. [Level II] A study reported that 77.8% of patients with subacute thyroiditis had ill-defined hypoechoic lesions while 95% had reduce Doppler Colour flow. [Level III] Another study described "lava flow" appearance on grey scale ultrasound in 100% of their case series (n=22).
 
-**Recommendations**
+Recommendation:
 -  Subacute thyroiditis should be suspected in all patients who present with painful goitre
 -  All patients with painful thyroid swelling should have thyroid function test done which includes free thyroxine and thyroid stimulating hormone
 -  An fT3/fT4 ratio of less than 0.3 may be used to help differentiate between subacute thyroiditis and Graves' disease
@@ -29,7 +29,7 @@ Management of subacute thyroiditis is limited by the rarity of the condition and
 
 A non-randomised retrospective review of prednisolone vs. loxoprofen (NSAID) for the treatment of subacute thyroiditis was done by Sato et al. (2016). The average dose of prednisolone given was 15 mg/day (range: 14–16 mg/day) vs. loxoprofen 180 mg/day. [Level III] They demonstrated that the time to normalisation of thyroid function was quicker in the prednisolone group (22 vs. 32 days). [Level III] Similarly, Benbassat et al. reported that those who received steroid had faster remission compared with NSAIDs.
 
-**Recommendations**
+RecommendatioN:
 -  Beta-blocker can be used in patients with symptoms of thyrotoxicosis
 -  Non-steroidal anti-inflammatory drugs are the first-line therapy and should be used for patients with mild symptoms
 -  Prednisolone should be used in patients who present with severe symptoms or for those who do not respond to initial NSAID therapy
@@ -39,14 +39,12 @@ In a prospective non-randomised clinical trial, Kubota et al. demonstrated that 
 
 [Level III] An experimental approach to the treatment of subacute thyroiditis is administration of a mixture of lidocaine and dexamethasone using insulin pen into the thyroid gland. Although the study design is prospective with seemingly favourable outcome, due to its small number (n=36), further study would be needed to clarify its benefits and risks.
 
-**Recommendation**
--  A starting dose of 15 mg/day tapered to 5 mg/day every 2 weeks is recommended. The duration of prednisolone may be prolonged in cases with persistent symptoms or raised ESR or CRP
+A starting dose of 15 mg/day tapered to 5 mg/day every 2 weeks is recommended. The duration of prednisolone may be prolonged in cases with persistent symptoms or raised ESR or CRP.
 
 ### 6.1.4: How Long Should Patients With Subacute Thyroiditis Be Followed-up?
 Overall, from retrospective studies, the recurrent rate of subacute thyroiditis is extremely low over the longterm. [Level III] In a retrospective cohort, the recurrence rate is only 1.6% over a total of 13 years. However, the recurrence rates are higher within the 1st year and tend to reduce over the years. [Level III] In a retrospective review, the recurrence rate was about 10% over a 5-year period of follow-up. Another study reported a recurrence rate of 10% within 1 year, and 4% after more than a year. [Level III] The rate of hypothyroidism is as high as 34% in the first year and 15% after 1 year. Therefore, it would be sensible to have frequent follow-up within the first 12 months, with reducing frequency over the next 5 years. Follow-up after 5 years may not be necessary.
 
-**Recommendation**
--  Patients should be monitored for recurrence 6 monthly for the first 1 year and yearly for the next 5 years
+Patients should be monitored for recurrence 6 monthly for the first 1 year and yearly for the next 5 years.
 
 ## 6.2: Acute/Suppurative Thyroiditis
 ### 6.2.1: How Is Acute Thyroiditis Diagnosed?
@@ -58,7 +56,7 @@ In general, patients with acute thyroiditis are euthyroid. [Level III] However, 
 
 [Level III] Apart from demonstrating thyroid abscess, several authors emphasize the need to identify pyriform sinus fistula which may contribute to recurrence. [Level III] The pyriform sinus fistula may be identified using direct endoscopy, barium oesophagography or CT scan.
 
-**Recommendations**
+Recommendation:
 -  Acute thyroiditis should be suspected in all patients who present with painful goitre
 -  All patients with painful thyroid swelling should have thyroid function test done which includes free thyroxine and thyroid stimulating hormone
 -  Ultrasound should be done in all patients with painful thyroid swelling to rule out acute/suppurative thyroiditis. A non-suggestive ultrasound within 1 week of onset of illness should be repeated later
@@ -70,7 +68,7 @@ Thyroid fine needle aspiration with Gram staining, culture and sensitivity shoul
 
 [Level III] The mainstay of therapy for acute thyroiditis is surgical excision. [Level III] To prevent recurrence, the piriform sinus fistula can be surgically excised or obliterated using chemocauterisation with favourable outcome based on case series. With effective antibiotic therapy and elimination of formed abscesses, patients typically have an excellent prognosis if they survive the acute episode. However, it is difficult to determine the exact morbidity and mortality of this condition due to its low incidence.
 
-**Recommendations**
+Recommendation:
 -  Beta-blocker can be used in patients with symptoms of thyrotoxicosis
 -  Acute/suppurative thyroiditis should be treated with antibiotics and surgical drainage determined by clinical judgement
 

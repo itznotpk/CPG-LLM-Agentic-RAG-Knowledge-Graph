@@ -70,8 +70,7 @@ Patients with dysthyroid optic neuropathy (DON) and/or corneal breakdown
 
 The clinician needs to decide whether GO is active or inactive and mild, moderateto–severe or sight-threatening in the assessment of GO.
 
-**Recommendation**
-- Assessment of GO includes assessment of activity and severity using standardised criteria. It is categorised as active or inactive; mild, moderate, severe, or sight threatening
+Assessment of GO includes assessment of activity and severity using standardised criteria. It is categorised as active or inactive; mild, moderate, severe, or sight threatening
 
 ## 9.4: When To Refer To Ophthalmologist And Endocrinologist?
 All cases of GO except those with mild GO should be referred to specialised care. [Level II] Cases where diagnosis of GO is doubtful should be referred too.
@@ -84,7 +83,7 @@ All cases of GO except those with mild GO should be referred to specialised care
 
 [Level II] Ocular surface inflammation and dry eyes are common in patients with GO. [Level I] Use of preservative-free artificial tears with osmoprotective properties, such as sodium hyaluronate or use of eye lubricant gels/ointments to moisture the ocular surface is important.
 
-**Recommendations**
+Recommendation:
 - All patients with Graves' disease should be urged to quit smoking
 - Euthyroidism should be restored as soon as possible in patients with GO
 - Ocular surface disease is common and should be treated with topical therapy
@@ -96,8 +95,7 @@ Sodium selenite 100 mcg bd (corresponding to 93.6 mcg of elemental selenium per 
 
 [Level III] In cases where objectively mild GO has a profound impact on QoL, these cases may be considered as moderate-to–severe GO and offered immunosuppressive treatment or rehabilitative surgery (refer to moderate-to–severe GO section).
 
-**Recommendation**
-- Topical treatment and measures to control the risk factors are the mainstay of treatment. A 6-month selenium supplement at a dose of 100 mcg bd can be considered
+Topical treatment and measures to control the risk factors are the mainstay of treatment. A 6-month selenium supplement at a dose of 100 mcg bd can be considered
 
 ### 9.5.3: Moderate-to–Severe And Active Graves' Ophthalmopathy
 **First-Line Treatment**
@@ -107,7 +105,7 @@ Sodium selenite 100 mcg bd (corresponding to 93.6 mcg of elemental selenium per 
 
 In a randomised, single-blind–controlled trial, 35 untreated, active, moderately severe GO patients received IV methylprednisolone 0.5 g weekly for 6 weeks followed by 0.25 g weekly for 6 weeks. Another 35 patients received oral prednisolone at 0.1 g/day then tapering by 0.01 g/week with cumulative dose of 4 g in 12 weeks. At 3 months, 77% in IV group vs. 51% at the oral group showed improvement, p<0.01. [Level I] Side effects were seen in 17% IV group versus 51% oral group, p=0.005. In another study, 159 subjects with active, moderate-to–severe GO were randomised to cumulative dose of 2.25 g (Low Dose), 4.98 g (Medium Dose) and 7.47 g (High Dose) of intravenous methylprednisolone in 12 weekly infusions. Overall, ophthalmic improvement at 12 weeks were as follows: HD 52% vs. MD 35% p=0.03, and HD 52% vs. LD 28% p=0.01. CAS improvement was 83% (HD), 81% (MD), 58% (LD). Major adverse reaction was seen more commonly in the high-dose group. The authors concluded that high dose IV methylprednisolone provides a short-term benefit over low dose but with more side effects. [Level I] Hence, the intermediate dose regimen should be used in most cases and the high-dose regimen should be reserved for most severe cases of GO.
 
-**Recommendations**
+Recommendation:
 - We recommend an intermediate dose of IV methylprednisolone at 0.5 g weekly for 6 weeks followed by 0.25 g weekly for 6 weeks (cumulative dose 4.5 g) in most cases of moderate-to–severe GO
 - High-dose regimens of IV methylprednisolone at 0.75 g weekly for 6 weeks followed by 0.5 g weekly for 6 weeks (cumulative dose of 7.5 g) should be reserved for the worst cases with moderate-to–severe GO
 - We recommend that a cumulative dose of IV methylprednisolone should not exceed 8 g
@@ -124,8 +122,7 @@ Rituximab: There are conflicting data with rituximab, which works by its effect 
 
 Watchful monitoring may be indicated in some patients after GC treatment or withdrawal. Orbital vascular congestion can mimic active GO with eyelid and conjunctival redness and oedema. [Level II] For patients with orbital vascular congestion, orbital decompression can be considered.
 
-**Recommendation**
-- We recommend shared decision-making when selecting a second-line therapy in patients with moderate-to–severe GO
+We recommend shared decision-making when selecting a second-line therapy in patients with moderate-to–severe GO.
 
 ### 9.5.4: Sight-Threatening Active Graves' Ophthalmopathy
 Sight-threatening GO includes dysthyroid optic neuropathy (DON), severe corneal exposure (large epithelial and/or stromal defect), corneal breakdown, and eyeball subluxation. [Level I] Recent development of choroidal folds can cause metamorphopsia and should be addressed urgently too.
@@ -134,8 +131,7 @@ Very high doses of intravenous GCs (500–1000 mg of methylprednisolone) for 3 c
 
 [Level I] Severe corneal exposure should be treated aggressively with medical therapy or with more invasive surgical treatment in order to prevent corneal breakdown.
 
-**Recommendation**
-- Dysthyroid optic neuropathy should be treated immediately with very high doses of intravenous GCs (500–1000 mg methylprednisolone) for 3 consecutive days or on alternate days during the first week. The doses should be repeated in the second week. If the response is absent or poor, urgent orbital decompression should be done
+Dysthyroid optic neuropathy should be treated immediately with very high doses of intravenous GCs (500–1000 mg methylprednisolone) for 3 consecutive days or on alternate days during the first week. The doses should be repeated in the second week. If the response is absent or poor, urgent orbital decompression should be done
 
 ### 9.5.5: Moderate-to–Severe And Inactive Graves' Ophthalmopathy
 Assessment to confirm inactivity of GO is important and at times can be challenging. If in doubt, watchful monitoring over a period of time is needed. [Level II] Rehabilitative surgery should be done after the disease has been inactive for 6 months. Different degrees and types or surgical intervention may be needed depending on the amount of disfigurement and/or dysfunction that persists in the postinflammatory phase.
@@ -149,8 +145,7 @@ There are multiple options for rehabilitative surgeries.
 
 [Level II] If more than one surgical procedure is needed, the sequence should be orbital decompression followed by squint surgery, and lastly lid surgery.
 
-**Recommendation**
-- Elective rehabilitative surgery should be offered to patients with GO after the disease has been inactive for at least 6 months and when GO is associated with significant impact on visual function or quality of life. Patients should be referred to specialised centres with specialised surgeons able to tailor to the specific need of the individual patient
+Elective rehabilitative surgery should be offered to patients with GO after the disease has been inactive for at least 6 months and when GO is associated with significant impact on visual function or quality of life. Patients should be referred to specialised centres with specialised surgeons able to tailor to the specific need of the individual patient
 
 ### 9.5.6: Radioactive Iodine Therapy And Graves' Ophthalmopathy
 [Level I] Radioactive iodine confers a small but definite risk of worsening pre-existing GO or development of new GO. Studies have shown that glucocorticoids given concurrently may prevent worsening of GO in patients with mild active eye disease. There is insufficient evidence for prophylaxis glucocorticoids in nonsmokers with no clinical evidence of GO who are going for RAI therapy.
@@ -158,7 +153,6 @@ There are multiple options for rehabilitative surgeries.
 [Level II, III] Antithyroid drugs and thyroidectomy are the preferred treatment options for hyperthyroidism in patients with active, moderate-to–severe or sight-threatening GO as compared to RAI therapy. In patients with significant but inactive GO, RAI therapy can be given without glucocorticoids prophylaxis (Refer to Table 16: Recommendation for RAI with or without glucocorticoids).
 
 Table 16: Recommendation for RAI with or without glucocorticoids
-
 | | RAI without glucocorticoids | RAI with oral glucocorticoids |
 | :--- | :--- | :--- |
 | No GO, nonsmoker | Recommend | Recommend against |
@@ -173,7 +167,7 @@ Table 16: Recommendation for RAI with or without glucocorticoids
 
 [Level I, II] The dose of prednisolone for GO prophylaxis is 0.4–0.5 mg/kg per day, starting 1–3 days after RAI therapy in patients with mild-to–moderate GO, continued for 1 month then tapered over the next 2 months. In a prospective randomised study, 15% of radioiodine group developed or had worsening of GO 2–6 months after radioiodine therapy; no patientin the radioiodine and prednisolone group had progression of GO. A retrospective study has shown that a lower dose of 0.2–0.3 mg/kg per day of prednisolone for a total of 6 weeks can be used in patients with milder GO or in those who have no GO prior to RAI therapy but have significant risk factors for GO.
 
-**Recommendations**
+Recommendation:
 - In patients with active, moderate-to–severe GO or sight-threatening GO, surgery or antithyroid drugs are preferred treatment options
 - Oral prednisolone prophylaxis of 0.4–0.5 mg/kg per day for a total of 3 months is recommended in patients with mild-to–moderate GO who are undergoing radioiodine therapy
 - Lower dose of oral prednisolone prophylaxis of 0.2–0.3 mg/kg per day can be used in patients with milder GO or who have risk factors for GO
@@ -186,7 +180,6 @@ Figure 10: Management of Graves' Ophthalmopathy (GO)
 - Refer to specialists (except for the mildest cases)
 
 Based on severity, the management pathway is divided into three categories:
-
 **1. Mild GO**
 - The standard approach is **Wait and see** and/or providing **Selenium** supplements.
   - If the condition becomes **Stable and inactive**, the patient may proceed to **Rehabilitative surgery (if needed)**.

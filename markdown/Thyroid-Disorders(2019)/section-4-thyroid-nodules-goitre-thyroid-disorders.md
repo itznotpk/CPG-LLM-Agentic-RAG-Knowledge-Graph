@@ -41,7 +41,7 @@ Large goitres may displace or compress the trachea, oesophagus, and neck vessels
 
 [Level III] The presence of multiple nodules does not decrease the likelihood of thyroid cancer. In patients with multiple nodules, the decrease in malignancy rate is approximately proportional to the number of nodules. Thyroid cancers are often in the dominant nodule, but in approximately one-third of cases, the cancer is in a non-dominant nodule.
 
-**Recommendations**
+Recommendation:
 - A complete history should include:
   - Personal or family history of thyroid disease or cancer
   - Previous head and neck or whole-body irradiation
@@ -59,8 +59,7 @@ Large goitres may displace or compress the trachea, oesophagus, and neck vessels
 ## 4.4: Ultrasound Evaluation Of Thyroid Nodules/Goitre
 [Level III] When a nodular goitre is clinically present, ultrasound (US) assessment is the preferred and most useful imaging technique to guide disease management and treatment. The pattern of US features associated with nodule confers a risk of malignancy and, combined with nodule size, guides the decision to proceed for Fine Needle Aspiration Biopsy (FNAB).
 
-**Recommendation**
-- All patients with a suspected thyroid nodule/nodular goitre or radiographic abnormality suggesting a thyroid nodule incidentally detected on another imaging study should undergo a dedicated thyroid/neck US that encompasses the thyroid as well as the central and lateral neck compartments
+All patients with a suspected thyroid nodule/nodular goitre or radiographic abnormality suggesting a thyroid nodule incidentally detected on another imaging study should undergo a dedicated thyroid/neck US that encompasses the thyroid as well as the central and lateral neck compartments
 
 [Level III] Ultrasound is the gold standard for assessing nodule/gland size and thyroid parenchyma (homogeneous or heterogeneous), location and characteristics of any nodule(s), and the presence or absence of suspicious cervical lymph nodes in the central and lateral compartments. Nodule characteristics include composition (solid/cystic proportion), echogenicity, shape if taller than wide, margins, and presence of echogenic profile.
 
@@ -76,46 +75,68 @@ For patients with multiple nodules (≥4) present, only the four highest scoring
 
 FNAB is recommended for suspicious lesions (TR3–TR5) with the specific size criteria, according to the ACR TI-RADS 2017 management algorithm (Refer to Figure 6: ACR TI-RADS 2017 Structured Reporting System and Management Algorithm):
 
-- **TR1: Benign** (`0 points`): No FNA required
-- **TR2: Not Suspicious** (`2 points`): No FNA required
-- **TR3: Mildly Suspicious** (`3 points`): FNA if ≥2.5 cm; follow-up if ≥1.5 cm (at 1, 3, and 5 years)
-- **TR4: Moderately Suspicious** (`4 to 6 points`): FNA if ≥1.5 cm; follow-up if ≥1.0 cm (at 1, 2, 3, and 5 years)
-- **TR5: Highly Suspicious** (`7 points or more`): FNA if ≥1.0 cm; follow-up if ≥0.5 cm (annual follow-up for up to 5 years; refer to discussion of papillary microcarcinomas for 5–9 mm TR5 nodules)
+- TR1: Benign (`0 points`): No FNA required
+- TR2: Not Suspicious (`2 points`): No FNA required
+- TR3: Mildly Suspicious (`3 points`): FNA if ≥2.5 cm; follow-up if ≥1.5 cm (at 1, 3, and 5 years)
+- TR4: Moderately Suspicious (`4 to 6 points`): FNA if ≥1.5 cm; follow-up if ≥1.0 cm (at 1, 2, 3, and 5 years)
+- TR5: Highly Suspicious (`7 points or more`): FNA if ≥1.0 cm; follow-up if ≥0.5 cm (annual follow-up for up to 5 years; refer to discussion of papillary microcarcinomas for 5–9 mm TR5 nodules)
 
 Figure 6: ACR TI-RADS 2017 Structured Reporting System and Management Algorithm
 The ACR TI-RADS 2017 structured reporting system provides a standardized, objective framework for assessing thyroid malignancy risk by assigning points across five distinct categories. The cumulative score determines the nodule's TI-RADS level and directs whether active intervention (FNAB) or ultrasound surveillance is required.
 
-**1. Point Allocation by Category:**
-*   **Composition (Choose 1):**
-    *   Cystic or almost completely cystic: `0 points`
-    *   Spongiform (composed predominantly [>50%] of small cystic spaces; do not add further points for other categories): `0 points`
-    *   Mixed cystic and solid (points are assigned for the predominant solid component): `1 point`
-    *   Solid or almost completely solid: `2 points`
-    *   *Note:* If composition cannot be determined due to dense calcification, assign `2 points`.
-*   **Echogenicity (Choose 1):**
-    *   Anechoic (applies only to cystic or almost completely cystic nodules): `0 points`
-    *   Hyperechoic or Isoechoic (compared to adjacent thyroid parenchyma): `1 point`
-    *   Hypoechoic (compared to adjacent thyroid parenchyma): `2 points`
-    *   Very hypoechoic (more hypoechoic than the strap muscles): `3 points`
-    *   *Note:* If echogenicity cannot be determined, assign `1 point`.
-*   **Shape (Choose 1):**
-    *   Wider-than-tall: `0 points`
-    *   Taller-than-wide (assessed on a transverse image with measurements parallel to the sound beam for height and perpendicular for width; can usually be assessed by visual inspection): `3 points`
-*   **Margin (Choose 1):**
-    *   Smooth: `0 points`
-    *   Ill-defined: `0 points`
-    *   Lobulated or irregular (lobulated refers to protrusions into adjacent tissue; irregular refers to jagged, spiculed, or sharp angles): `2 points`
-    *   Extra-thyroidal extension (obvious invasion of adjacent structures, highly indicative of malignancy): `3 points`
-    *   *Note:* If margin cannot be determined, assign `0 points`.
-*   **Echogenic Foci (Choose All That Apply):**
-    *   None or large comet-tail artifacts (V-shaped, >1 mm, in cystic components): `0 points`
-    *   Macrocalcifications (cause acoustic shadowing): `1 point`
-    *   Peripheral (rim) calcifications (complete or incomplete along the margin): `2 points`
-    *   Punctate echogenic foci (may have small associated comet-tail artifacts): `3 points`
+1. Point Allocation by Category:
+- Composition (Choose 1):
+  - Cystic or almost completely cystic: 0 points
+  - Spongiform (composed predominantly [>50%] of small cystic spaces; do not add further points for other categories): 0 points
+  - Mixed cystic and solid (points are assigned for the predominant solid component): 1 point
+  - Solid or almost completely solid: 2 points
+  - Note: If composition cannot be determined due to dense calcification, assign 2 points.
+- Echogenicity (Choose 1):
+  - Anechoic (applies only to cystic or almost completely cystic nodules): 0 points
+  - Hyperechoic or Isoechoic (compared to adjacent thyroid parenchyma): 1 point
+  - Hypoechoic (compared to adjacent thyroid parenchyma): 2 points
+  - Very hypoechoic (more hypoechoic than the strap muscles): 3 points
+  - Note: If echogenicity cannot be determined, assign 1 point.
+- Shape (Choose 1):
+  - Wider-than-tall: 0 points
+  - Taller-than-wide (assessed on a transverse image with measurements parallel to the sound beam for height and perpendicular for width; can usually be assessed by visual inspection): 3 points
+- Margin (Choose 1):
+  - Smooth: 0 points
+  - Ill-defined: 0 points
+  - Lobulated or irregular (lobulated refers to protrusions into adjacent tissue; irregular refers to jagged, spiculated, or sharp angles): 2 points
+  - Extra-thyroidal extension (obvious invasion of adjacent structures, highly indicative of malignancy): 3 points
+  - Note: If margin cannot be determined, assign 0 points.
+- Echogenic Foci (Choose All That Apply):
+  - None or large comet-tail artifacts (V-shaped, >1 mm, in cystic components): 0 points
+  - Macrocalcifications (cause acoustic shadowing): 1 point
+  - Peripheral (rim) calcifications (complete or incomplete along the margin): 2 points
+  - Punctate echogenic foci (may have small associated comet-tail artifacts): 3 points
 
-**2. Guidelines for Managing Multiple Nodules:**
+2. Add Points From All Categories to Determine TI-RADS Level:
+| TI-RADS Level | Points | Suspicion Category | FNA if | Follow-up if |
+|---|---|---|---|---|
+| TR1 | 0 points | Benign | No FNA | — |
+| TR2 | 2 points | Not Suspicious | No FNA | — |
+| TR3 | 3 points | Mildly Suspicious | ≥2.5 cm | ≥1.5 cm |
+| TR4 | 4 to 6 points | Moderately Suspicious | ≥1.5 cm | ≥1.0 cm |
+| TR5 | 7 points or more | Highly Suspicious | ≥1.0 cm | ≥0.5 cm* |
+*Refer to discussion of papillary microcarcinomas for 5–9 mm TR5 nodules.
+
+Follow-up intervals:
+- TR3: follow-up at 1, 3, and 5 years
+- TR4: follow-up at 1, 2, 3, and 5 years
+- TR5: annual follow-up for up to 5 years
+
+3. Detailed Category Definitions:
+- Composition: Spongiform — composed predominantly (>50%) of small cystic spaces; do not add further points for other categories. Mixed cystic and solid — assign points for predominant solid component. Solid or almost completely solid — assign 2 points if composition cannot be determined because of dense calcification.
+- Echogenicity: Anechoic — applies to cystic or almost completely cystic nodules. Hyperechoic/Isoechoic/Hypoechoic — compared to adjacent parenchyma. Very hypoechoic — more hypoechoic than strap muscles. Assign 1 point if echogenicity cannot be determined.
+- Shape: Taller-than-wide — should be assessed on a transverse image with measurements parallel to sound beam for height and perpendicular to sound beam for width. This can usually be assessed by visual inspection.
+- Margin: Lobulated — protrusions into adjacent tissue. Irregular — jagged, spiculated, or sharp angles. Extrathyroidal extension — obvious invasion; highly indicative of malignancy. Assign 0 points if margin cannot be determined.
+- Echogenic Foci: Large comet-tail artifacts — V-shaped, >1 mm, in cystic components. Macrocalcifications — cause acoustic shadowing. Peripheral — complete or incomplete along margin. Punctate echogenic foci — may have small comet-tail artifacts.
+
+4. Guidelines for Managing Multiple Nodules:
 If multiple thyroid nodules are present:
-- Biopsy should be performed on the **two nodules with the highest ACR TI-RADS grades**.
+- Biopsy should be performed on the two nodules with the highest ACR TI-RADS grades.
 - Associated suspicious neck lymph nodes (levels II, III, IV, and VI) must be thoroughly evaluated. If metastatic lymph nodes are clinically or sonographically suspected, FNA may be indicated for subcentimetric nodules with a TI-RADS grade of 4 or 5, or the nodule with the highest TI-RADS grade, independent of its size.
 
 ### 4.5.1: Cytology Reports Of FNAB Samples From Thyroid Nodules
@@ -131,51 +152,45 @@ Standardised reporting of FNA cytology interpretation is necessary and currently
 [Level III] Molecular testing of FNAB specimens for thyroid-related genes might be useful as an adjunct in the assessment of thyroid nodules. Several molecular panels aimed at increasing the accuracy of preoperative cytological diagnosis of thyroid nodules are commercially available. After consideration of clinical and US features, mutational testing for BRAF or the seven-gene mutation marker panel (BRAF, RAS, RET/PTC, PAX8/PPAR-Gamma) may be considered in nodules with cytological interpretation reporting suspicious of malignancy and guide surgical decision-making.
 
 ## 4.6: Laboratory Evaluation For Thyroid Nodules
-**A. Serum Thyroid-Stimulating Hormone/Thyrotropin (TSH)**
+A) Serum Thyroid-Stimulating Hormone/Thyrotropin (TSH)
 [Level III] Serum TSH levels, measured in a highly sensitive immunometric assay, should always be performed and, if abnormal, fT4 levels should be measured during the initial evaluation of a patient with a thyroid nodule or nontoxic goitre.
 [Level III] An undetectable TSH should suggest the possibility of toxic, autonomously functioning nodular areas in the goitre. Proceeding with thyroid scintigraphy is recommended. Patients with thyroid cancer rarely have abnormalities in serum TSH. Elevated serum TSH in patients with nontoxic goitre suggests the possibility of thyroiditis and hypothyroidism.
 
-**B. Serum Thyroid Autoantibodies**
+B) Serum Thyroid Autoantibodies
 [Level III] Measurement of serum antithyroid peroxidase (TPO) antibody or antithyroglobulin antibody levels may be helpful in the diagnosis of chronic autoimmune thyroiditis. Routine measurement of serum thyroglobulin for initial evaluation of thyroid nodules is not recommended.
 
-**C. Serum Calcitonin**
+C) Serum Calcitonin
 [Level III] Serum calcitonin levels should be measured for patients with a family history or clinical suspicion of medullary thyroid carcinoma (MTC) or multiple endocrine neoplasia type 2 (MEN2).
 [Level III] It is not cost-effective or necessary to measure calcitonin levels in patients with nodular thyroid disease in the absence of clinical suspicion of MTC or abnormal cytologic findings.
 
 ## 4.7: What Other Imaging Modalities May Be Needed When Evaluating Thyroid Nodules/Goitre?
-**A. Radionuclide Scanning**
+A) Radionuclide Scanning
 [Level III] Thyroid scintigraphy with technetium should be performed in patients with solitary thyroid nodule or multi-nodular goitre with low TSH levels.
 
-**B. CT And MRI**
+B) CT And MRI
 In patients with large goitres, conventional radiography of the neck and upper mediastinum should be used to determine tracheal compression. CT and MRI are useful for evaluating invasion into surrounding structures or retrosternal extension or intrathoracic goitre.
 
 It is also recommended in evaluation of occult metastases in mediastinal and retropharyngeal regions in follow up cases of post thyroidectomy with elevation of serum thyroglobulin (Tg) level and negative sonographic finding. Other additional functions of CT and MR is to access other nodal sites that should not be neglected in cases of thyroid carcinoma. These are the lower paratracheal nodes in the superior mediastinum (level VII), and the retropharyngeal and retroesophageal groups which are difficult to access on ultrasound.
 
 ## 4.8: Management Of Thyroid Nodules/Goitre
-**1. Observation And Monitoring**
-
+1) Observation And Monitoring
 Patients with small, asymptomatic goitres can be monitored by clinical examination and evaluated periodically with ultrasound measurements. Goitre growth can be variable, and some patients have stable goitres for many years.
 
-**2. Thyroid Hormone Suppression Therapy**
-
+2) Thyroid Hormone Suppression Therapy
 [Level III] Regression of sporadic nontoxic diffuse goitre following thyroxine suppression therapy has been established in earlier studies. Nodular goitre and thyroid nodules are less responsive to thyroxine suppression therapy for size regression. [Level III] A subset of patients with younger age, smaller and recently diagnosed nodules are more likely to respond to thyroid hormone suppression therapy.
 [Level III] With the discontinuation of therapy, thyroid nodules return to their pretreatment size, and therefore size reduction may require continuous treatment. Long-term thyroid hormone suppression therapy increases the risk of bone loss and cardiac tachyarrhythmia, especially in the elderly.
 
-**3. Surgery**
-
+3) Surgery
 [Level II] Surgery for nontoxic goitre may be necessary if progressive obstructive symptoms develop with a near-total or total thyroidectomy as the operative procedure of choice. Recurrence may be seen in 10%–20% of patients within 10 years if subtotal thyroidectomy is performed.
 
-**4. Radioiodine 131-I Therapy**
-
+4) Radioiodine 131-I Therapy
 [Level II] 131-I therapy for nontoxic diffuse and multinodular goitre is safe and effective with a gradual reduction in goitre size noted in the majority of patients. Initial side effects may present as mild pain and tenderness with transient mild thyrotoxicosis. Hypothyroidism may be a long-term consequence in up to 40% of patients.
 
-**5. Alcohol Injection**
-
+5) Alcohol Injection
 [Level II] Percutaneous ethanol injection may be used for recurrent symptomatic cystic nodules.
 
-[Level III] Figure 7: Algorithm for Management of Patients with Thyroid Nodules
+Figure 7: Algorithm for Management of Patients with Thyroid Nodules
 The management of thyroid nodules is guided by the cytology results from the Bethesda System for Reporting Thyroid Cytopathology. The algorithm outlines the following clinical pathways based on the six diagnostic categories:
-
 *   **Nondiagnostic:** Proceed to **Repeat FNA**.
 *   **Benign:** Requires **No surgery**.
 *   **AUS/FLUS** (Atypia of Undetermined Significance / Follicular Lesion of Undetermined Significance): Proceed to **See recommendations** (requires individualized clinical decision-making).

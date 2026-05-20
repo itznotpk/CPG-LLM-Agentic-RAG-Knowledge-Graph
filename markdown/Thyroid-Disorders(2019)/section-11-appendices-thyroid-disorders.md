@@ -7,7 +7,10 @@ output: clinical_questions, abbreviations
 -->
 
 ## Appendix 1: Clinical Questions
+### Appendix 1.1: Clinical Questions — Section 1 — Epidemiology
 1. What is the epidemiology of thyroid disorders in Malaysia?
+
+### Appendix 1.2: Clinical Questions — Section 2 — Hyperthyroidism
 2. What are the causes of hyperthyroidism?
 3. How to diagnose hyperthyroidism?
 4. How to treat hyperthyroidism?
@@ -22,6 +25,8 @@ output: clinical_questions, abbreviations
 13. What are the benefits of treatment of subclinical hyperthyroidism?
 14. What is the treatment approach in patients with low TSH levels?
 15. What is the treatment of subclinical hyperthyroidism?
+
+### Appendix 1.3: Clinical Questions — Section 3 — Hypothyroidism
 16. What are the clinical and biochemical goals for levothyroxine replacement in primary hypothyroidism?
 17. Are clinical parameters such as cold sensitivity and dry skin useful by themselves for assessing the adequacy of levothyroxine replacement in primary hypothyroidism?
 18. How should levothyroxine administration be timed with respect to meals and beverages in order to maintain maximum, consistent absorption?
@@ -45,6 +50,8 @@ output: clinical_questions, abbreviations
 36. What are the causes of subclinical hypothyroidism?
 37. How to diagnose subclinical hypothyroidism?
 38. What are the complications of subclinical hypothyroidism?
+
+### Appendix 1.4: Clinical Questions — Section 4 — Thyroid Nodules And Goitre
 39. How common are thyroid nodules and nontoxic goitre?
 40. What are the clinical presentation/features of thyroid nodules and nontoxic goitre?
 41. When to perform thyroid ultrasonography?
@@ -52,6 +59,8 @@ output: clinical_questions, abbreviations
 43. How to select nodules for FNAB?
 44. When to do other investigations for thyroid nodules?
 45. How to manage benign nontoxic and nodular goitre?
+
+### Appendix 1.5: Clinical Questions — Section 5 — Thyroid Emergencies And Perioperative Management
 46. How is thyroid storm diagnosed?
 47. What is the antithyroid drug of choice in thyroid storm?
 48. Are rectal antithyroid drugs useful?
@@ -71,12 +80,16 @@ output: clinical_questions, abbreviations
 62. Is there a role for universal screening for hypothyroidism preoperatively?
 63. What are the potential intra- and postoperative complications of untreated hypothyroidism?
 64. How should perioperative hypothyroidism be managed?
+
+### Appendix 1.6: Clinical Questions — Section 6 — Thyroiditis
 65. How is subacute thyroiditis diagnosed?
 66. How should subacute thyroiditis be managed?
 67. What is the dosage of steroid used to treat subacute thyroiditis?
 68. How long should patients with subacute thyroiditis be followed up?
 69. How is acute thyroiditis diagnosed?
 70. How should acute thyroiditis be managed?
+
+### Appendix 1.7: Clinical Questions — Section 7 — Pregnancy And Postpartum
 71. What is the definition of maternal overt/subclinical hypothyroidism (OH/ SCHypo)?
 72. What are the common causes of maternal hypothyroidism?
 73. Is maternal OH/ SCHypo associated with adverse maternal/foetal outcomes?
@@ -104,6 +117,8 @@ output: clinical_questions, abbreviations
 95. What is the management of postpartum thyroiditis?
 96. When to monitor patients with postpartum thyroiditis?
 97. Is postpartum thyroiditis associated with postpartum depression?
+
+### Appendix 1.8: Clinical Questions — Section 7 — Children, Adolescents And Elderly
 98. What is the prevalence of Hashimoto Thyroiditis in children and adolescents?
 99. What are the clinical features of Hashimoto Thyroiditis in children and adolescents?
 100. What is the natural history of Hashimoto Thyroiditis in children and adolescents?
@@ -137,11 +152,15 @@ output: clinical_questions, abbreviations
 128. What are the risks of subclinical hypothyroidism in the elderly?
 129. Should subclinical hypothyroidism in the elderly be treated?
 130. How should subclinical hypothyroidism in the elderly be treated?
+
+### Appendix 1.9: Clinical Questions — Section 8 — Drug-Induced Thyroid Disorders
 131. What are the thyroid abnormalities caused by amiodarone?
 132. What are the mechanisms of amiodarone-induced thyrotoxicosis (AIT) and how to diagnose them?
 133. How should amiodarone-induced thyrotoxicosis (AIT) be managed?
 134. How should amiodarone-induced hypothyroidism (AIH) be managed?
 135. What are the drugs that cause thyroid disorder and what is the management?
+
+### Appendix 1.10: Clinical Questions — Section 9 — Graves' Ophthalmopathy
 136. What is the incidence of GO in Malaysia?
 137. What is the definition of GO?
 138. How is the assessment of activity and severity?

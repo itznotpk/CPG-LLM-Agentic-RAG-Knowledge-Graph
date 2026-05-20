@@ -26,7 +26,6 @@ To implement the CPG, there must be dedicated efforts to:
 - Involve multidisciplinary team at all levels of healthcare
 
 To assist in the implementation of the CPG, the following are proposed as clinical audit indicators for quality management:
-
 Euthyroid hyper/hypothyroidism (target > 80%) = {No. of patients with euthyroid hyper/hypothyroidism / (Total no. of patients with hyper/hypothyroidism)} x 100%
 
 <!-- parent_only_reference_start -->

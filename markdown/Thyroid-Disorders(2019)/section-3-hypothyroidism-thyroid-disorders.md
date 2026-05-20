@@ -11,13 +11,12 @@ treatment_type: levothyroxine, liothyronine
 ### 3.1.1: What Are The Clinical And Biochemical Goals For Levothyroxine Replacement In Primary Hypothyroidism?
 [Level I] The goals of levothyroxine replacement in primary hypothyroidism are to achieve a state of euthyroidism and normalisation of circulating levels of TSH and thyroid hormones.
 
-**Recommendations**
-- Levothyroxine is the recommended preparation of choice and the mainstay of treatment of hypothyroidism
+Levothyroxine is the recommended preparation of choice and the mainstay of treatment of hypothyroidism
 
 The Three Main Aims Of Therapy Are:
-- **i)** To provide resolution of signs and symptoms, including biological and physiological markers of hypothyroidism
-- **ii)** To achieve normalisation of serum TSH with improvement in thyroid hormone concentrations
-- **iii)** To avoid iatrogenic thyrotoxicosis or overtreatment, particularly in the elderly
+- i) To provide resolution of signs and symptoms, including biological and physiological markers of hypothyroidism
+- ii) To achieve normalisation of serum TSH with improvement in thyroid hormone concentrations
+- iii) To avoid iatrogenic thyrotoxicosis or overtreatment, particularly in the elderly
 
 ### 3.1.2: Are Clinical Parameters Such As Cold Sensitivity And Dry Skin Useful By Themselves For Assessing Adequacy Of Levothyroxine Replacement In Primary Hypothyroidism?
 [Level I] The signs and symptoms associated with hypothyroidism such as dry skin, cold intolerance, constipation, and psychomotor retardation are neither sensitive nor specific and overlap significantly between patients with and without thyroid disease. Therefore, symptoms alone without biochemical assessment lack sensitivity and specificity and should, therefore, not be used for judgeing the adequacy of replacement. However, changes in clinical symptoms should be followed longitudinally and taken into consideration together with serum TSH and thyroid hormones levels, comorbidities, and other potential causes.
@@ -25,31 +24,27 @@ The Three Main Aims Of Therapy Are:
 ### 3.1.3: How Should Levothyroxine Administration Be Timed With Respect To Meals And Beverages In Order To Maintain Maximum, Consistent Absorption?
 [Level II] When levothyroxine is co-administered with food, absorption is reduced compared with absorption in the fasting state. [Level II] Taking levothyroxine at bedtime has been shown to be just as efficacious as taking it in the morning, with no significant changes in the TSH levels. It is important to consider not only when the absorption of levothyroxine would be optimal, but also what timing promotes adherence.
 
-**Recommendation**
-- Levothyroxine is best taken on empty stomach (1 hour before breakfast or at bedtime, at least 3 hours after the last meal of the day) because absorption is impaired if taken with food. Compliance may be enhanced however, by instructing patients to consistently take it before breakfast each day
+Levothyroxine is best taken on empty stomach (1 hour before breakfast or at bedtime, at least 3 hours after the last meal of the day) because absorption is impaired if taken with food. Compliance may be enhanced however, by instructing patients to consistently take it before breakfast each day
 
 ### 3.1.4: Are There Medications And Supplements That Should Not Be Co-Administered With Levothyroxine In Order To Avoid Impaired Absorption?
 [Level II] Multiple studies have shown that administration of levothyroxine with various medications or beverage such as coffee can impair the absorption of levothyroxine.
 
-**Recommendation**
-- Administration of levothyroxine should be separated from other potentially interfering medications and supplements (Refer to Table 8: Medications and supplements interfering with absorption of levothyroxine). A four-hour separation is advised, but untested
+Administration of levothyroxine should be separated from other potentially interfering medications and supplements (Refer to Table 8: Medications and supplements interfering with absorption of levothyroxine). A four-hour separation is advised, but untested.
 
-[Level II] Table 8: Medications and supplements interfering with absorption of levothyroxine
+Table 8: Medications and supplements interfering with absorption of levothyroxine
 | Category 1 | Category 2 | Diet & Malabsorption |
 |---|---|---|
-| • Bile acid sequestrants (cholestyramine, colestipol, colesevelam)<br>• Sucralfate<br>• Cation exchange resins (Kayexelate)<br>• Oral bisphosphonates<br>• Proton pump inhibitors<br>• Raloxifene<br>• Multivitamins (containing ferrous sulfate or calcium carbonate)<br>• Ferrous sulphate<br>• Phosphate binders (sevelamer, aluminum hydroxide) | • Calcium salts (carbonate, citrate, acetate)<br>• Chromium picolinate<br>• Charcoal<br>• Orlistat<br>• Ciprofloxacin<br>• H₂ receptor antagonists<br>• Malabsorption syndromes:<br>&nbsp;&nbsp;• Celiac disease<br>&nbsp;&nbsp;• Jejunoileal bypass surgery<br>&nbsp;&nbsp;• Cirrhosis (biliary)<br>&nbsp;&nbsp;• Achlorhydria | **Diet**:<br>• Ingestion with a meal<br>• Grapefruit juice<br>• Espresso coffee<br>• High fibre diet<br>• Soybean formula (infants)<br>• Soy |
+| • Bile acid sequestrants (cholestyramine, colestipol, colesevelam)<br>• Sucralfate<br>• Cation exchange resins (Kayexelate)<br>• Oral bisphosphonates<br>• Proton pump inhibitors<br>• Raloxifene<br>• Multivitamins (containing ferrous sulfate or calcium carbonate)<br>• Ferrous sulphate<br>• Phosphate binders (sevelamer, aluminum hydroxide) | • Calcium salts (carbonate, citrate, acetate)<br>• Chromium picolinate<br>• Charcoal<br>• Orlistat<br>• Ciprofloxacin<br>• H₂ receptor antagonists<br>• Malabsorption syndromes:<br>&nbsp;&nbsp;• Celiac disease<br>&nbsp;&nbsp;• Jejunoileal bypass surgery<br>&nbsp;&nbsp;• Cirrhosis (biliary)<br>&nbsp;&nbsp;• Achlorhydria | Diet:<br>• Ingestion with a meal<br>• Grapefruit juice<br>• Espresso coffee<br>• High fibre diet<br>• Soybean formula (infants)<br>• Soy |
 
 ### 3.1.5: Are There Gastrointestinal Conditions That Should Be Considered When A Patient's Levothyroxine Dose Is Much Higher Than Expected?
 [Level II] Several gastrointestinal disorders seem to affect levothyroxine absorption or serum TSH levels possibly mediated through an impact on gastric acidity. [Level II] Reduction of levothyroxine requirement after eradication of H. pylori infection and institution of a gluten-free diet for coeliac disease has been shown in prospective studies. [Level II] Levothyroxine absorption, however, appeared to be preserved in Roux-en-Y surgery and various other gastric bypass procedures. This is consistent with the ileum being the main site of levothyroxine absorption. [Level II] It should also be noted that autoimmune atrophic gastritis is particularly prevalent in older patients with hypothyroidism and Hashimoto's thyroiditis.
 
-**Recommendation**
-- Evaluation for gastrointestinal disorders (H. pylori, atrophic gastritis, and coeliac's disease) should be considered in patients requiring a much higher-than-expected dose of levothyroxine. If indeed such disorders are detected and treated successfully, re-assessment of thyroid function is necessary, and the levothyroxine dose adjusted accordingly
+Recommendation: Evaluation for gastrointestinal disorders (H. pylori, atrophic gastritis, and coeliac's disease) should be considered in patients requiring a much higher-than-expected dose of levothyroxine. If indeed such disorders are detected and treated successfully, re-assessment of thyroid function is necessary, and the levothyroxine dose adjusted accordingly.
 
 ### 3.1.6: What Medications May Alter A Patient's Levothyroxine Requirement By Affecting Either Metabolism Or Binding To Transport Proteins?
 [Level I] Adjustment of levothyroxine dose may be necessary for the use of medications that alter T4 metabolism or change the concentration of thyroxine-binding globulin. [Level II] The need to increase the levothyroxine dose substantially has been reported in athyreotic patients prescribed tyrosine kinase inhibitors such as imatinib and sunitinib.
 
-**Recommendation**
-- Serum TSH should be reassessed at initiation or discontinuation of oestrogen and androgens (may alter levothyroxine requirement), and at the commencement of agents (such as tyrosine kinase inhibitors) that can affect thyroxine metabolism and thyroxine and tri-iodothyronine deiodination. Monitoring of serum TSH is also advisable when patients are started on drugs that have been shown to increase hepatic metabolism of T4 and T3, i.e. antiepileptics such as phenobarbital, phenytoin, and carbamazepine, or other medications such as rifampicin and sertraline
+Serum TSH should be reassessed at initiation or discontinuation of oestrogen and androgens (may alter levothyroxine requirement), and at the commencement of agents (such as tyrosine kinase inhibitors) that can affect thyroxine metabolism and thyroxine and tri-iodothyronine deiodination. Monitoring of serum TSH is also advisable when patients are started on drugs that have been shown to increase hepatic metabolism of T4 and T3, i.e. antiepileptics such as phenobarbital, phenytoin, and carbamazepine, or other medications such as rifampicin and sertraline
 
 ### 3.1.7: What Factors Determine The Levothyroxine Dose Required By A Hypothyroid Patient For Reaching The Appropriate Serum TSH Goal?
 [Level II] Many factors can affect the levothyroxine requirement to achieve normalisation of serum TSH levels. The initial dose of levothyroxine should be decided based on the patient's body weight, lean body mass, pregnancy status, aetiology of hypothyroidism, degree of TSH elevation (in the case of primary hypothyroidism), age, general medical condition – especially the presence of cardiac disease, and the serum TSH goal appropriate for the clinical situation.
@@ -57,42 +52,35 @@ The Three Main Aims Of Therapy Are:
 ### 3.1.8: What Is The Best Approach To Initiating And Adjusting Levothyroxine Therapy?
 [Level I] Multiple factors need to be considered when initiating levothyroxine based on serum TSH levels and weight (full replacement of 1.6 µg/kg when serum TSH levels are markedly elevated and lower doses of 25–50 µg/day in milder degrees of hypothyroidism). [Level I] Medications taken concurrently may affect the dose required as well.
 
-**Recommendation**
-- Levothyroxine replacement therapy can be started as an initial full replacement or as a partial replacement with gradual dose increments titrated using serum TSH as the goal. Dose adjustments should be made when there are significant changes in body weight, and with pregnancy and ageing. Serum TSH should be reassessed 4–8 weeks after any dose adjustments
+Levothyroxine replacement therapy can be started as an initial full replacement or as a partial replacement with gradual dose increments titrated using serum TSH as the goal. Dose adjustments should be made when there are significant changes in body weight, and with pregnancy and ageing. Serum TSH should be reassessed 4–8 weeks after any dose adjustments.
 
 ### 3.1.9: What Are The Potentially Deleterious Effects Of Excessive Levothyroxine?
 Overtreatment or iatrogenic thyrotoxicosis can result in atrial fibrillation and accelerated bone loss or osteoporosis. Therefore, thyroid hormone excess and subnormal serum TSH level (especially values less than 0.1 mIU/L) should be avoided, particularly in older people and postmenopausal women.
-
-(Refer to the section on subclinical hyperthyroidism and hyperthyroidism in the elderly.)
+Refer to the section on subclinical hyperthyroidism and hyperthyroidism in the elderly.
 
 ### 3.1.10: What Are The Potentially Deleterious Effects Of Inadequate Levothyroxine?
 Thyroid hormone deficiency can have detrimental effects on the serum lipid profile and result in the progression of cardiovascular disease. Therefore, adequate doses of levothyroxine should be given to normalise serum TSH levels, to minimise or eliminate these effects.
-
-(Refer to the section on effects of subclinical hypothyroidism.)
+Refer to the section on effects of subclinical hypothyroidism.
 
 ### 3.1.11: What Is The Appropriate Management Of Perceived Allergy To The Constituents Of Levothyroxine Or Intolerance To Levothyroxine?
 [Level III] Allergy to the dye in the tablet has been reported, but rarely occurs.
 
-**Recommendation**
-- If a patient is perceived to be allergic or intolerant to levothyroxine, change in dose or product, including the use of gel capsules and treating concomitant iron-deficiency anaemia, can be tried. Referral to an allergist may be helpful in a few cases, to rule out other allergens, reactions to which may have been attributed to levothyroxine
+If a patient is perceived to be allergic or intolerant to levothyroxine, change in dose or product, including the use of gel capsules and treating concomitant iron-deficiency anaemia, can be tried. Referral to an allergist may be helpful in a few cases, to rule out other allergens, reactions to which may have been attributed to levothyroxine
 
 ### 3.1.12: How Should Levothyroxine Therapy Be Managed In Individuals WHO Have Elevated TSH Values Due To Nonadherence?
 [Level II] There are various reports in which patients with raised serum TSH levels while being prescribed levothyroxine were shown to be able to absorb levothyroxine normally and therefore thought to be nonadherent. In such cases, once weekly dosing has been shown to be effective and safe in reducing TSH levels.
 
-**Recommendation**
-- Weekly oral administration of the full week's dose of levothyroxine should be considered in patients in whom adherence cannot otherwise be sustained
+Weekly oral administration of the full week's dose of levothyroxine should be considered in patients in whom adherence cannot otherwise be sustained.
 
 ### 3.1.13: What Biochemical Goals Should Be Employed For Levothyroxine Replacement In Patients With Secondary Hypothyroidism?
 [Level I] A randomised controlled trial showed that patients given a dose of 1.6 µg/kg/day produced fT4 that reached the upper part of the reference range, and it was associated with lower body weight, lower BMI, lower cholesterol, and fewer clinical signs of hypothyroidism, based on the Zulewski score. However, no differences in well-being and cognitive function were observed. [Level II] Growth hormone replacement may result in the need to either initiate or increase the dose of levothyroxine in patients with hypopituitarism.
 
-**Recommendation**
-- The primary biochemical goal in patients with secondary hypothyroidism is to maintain serum free thyroxine levels in the upper half of the reference range, but the level may be reduced in older patients or those with comorbidities and those at a higher risk of complications of thyroid hormone excess
+The primary biochemical goal in patients with secondary hypothyroidism is to maintain serum free thyroxine levels in the upper half of the reference range, but the level may be reduced in older patients or those with comorbidities and those at a higher risk of complications of thyroid hormone excess
 
 ### 3.1.14: What Approach Should Be Taken In Patients Treated For Hypothyroidism WHO Have Normal Serum TSH Values But Still Have Unresolved Symptoms?
 [Level II] A prospective case-control study showed that women with Hashimoto's thyroiditis suffer from a high symptom load and that hypothyroidism is only a contributory factor. [Level II] In addition, it has been shown that individuals referred for thyroid testing by their primary care physicians had rates of psychological distress twice as high as the general population despite the fact that the rate of hypothyroidism was not higher.
 
-**Recommendation**
-- Acknowledgement of the patients' symptoms and evaluation for alternative causes is recommended
+Acknowledgement of the patients' symptoms and evaluation for alternative causes is recommended
 
 ### 3.1.15: Is There An Unmet Need In L-T4–Treated Patients With Hypothyroidism?
 [Level II] A community-based study from the UK showed that patients taking levothyroxine despite normal serum TSH levels display significant psychological well-being impairment, as measured using the General Health Questionnaire (GHQ-12), compared to controls of similar age and sex. Higher serum fT4 (but not fT3) was associated with lower GHQ-12 scores, implying improved well-being. [Level II] Another community-based study from Norway suggested a higher prevalence of depression and anxiety, as measured by the Hospital Anxiety and Depression Scale (HADS) scores in hypothyroid women aged 40 years and older taking levothyroxine. [Level II] In a third study from the USA, levothyroxine-treated women were shown to have decrements in health status, psychological function, working memory, and motor learning compared to euthyroid controls. However, correlations between TSH levels and outcomes were not found. The evidence suggests that despite normal serum TSH levels, psychological distress, impaired well-being, and cognitive disturbances occur more often in patients with hypothyroidism treated with levothyroxine monotherapy than controls and that 5%–10% of patients treated with levothyroxine monotherapy with normal serum TSH can have persistent symptoms related to the disease and therapy.
@@ -104,7 +92,6 @@ Thyroid hormone deficiency can have detrimental effects on the serum lipid profi
 
 ### 3.1.17: When Should Endocrinologists Be Involved In The Care Of Patients With Hypothyroidism?
 Consultation with an endocrinologist is recommended in the following situations / for the following population groups:
-
 - Children and infants
 - Patients in whom it is difficult to render and maintain a euthyroid state
 - Pregnancy
@@ -118,16 +105,13 @@ Consultation with an endocrinologist is recommended in the following situations 
 ### 3.1.18: In Hospitalised But Not Critically Ill Patients With Known Pre-Existing Hypothyroidism, Should Levothyroxine Therapy Be Re-Evaluated Based On An Elevated Serum TSH Measurement?
 [Level III] There is a lack of RCTs and other evidence in the literature regarding the use and monitoring of levothyroxine in hospitalised patients. However, the ATA has provided recommendations for this population of patients in its 2014 guidelines.
 
-**Recommendation**
-- Factors that should be taken into consideration for institution and adjustment of levothyroxine replacement include the degree of clinical and biochemical hypothyroidism, active comorbidities, and details of administration of levothyroxine (e.g., dosage, timing, and other factors affecting absorption).
+Factors that should be taken into consideration for institution and adjustment of levothyroxine replacement include the degree of clinical and biochemical hypothyroidism, active comorbidities, and details of administration of levothyroxine (e.g., dosage, timing, and other factors affecting absorption).
 
 ### 3.1.19: In Hospitalised But Not Critically Ill Patients Treated With Levothyroxine Replacement, What Formulation And Route Of Administration Are Recommended?
-**Recommendation**
-- Oral administration of levothyroxine is recommended, but if this is not feasible, other enteral routes can be used. However, if enteral administration is contraindicated (e.g. perforated viscus) or there are concerns of significant malabsorption, then intravenous levothyroxine (at approximately 75% of oral dose, assuming enteral levothyroxine dose achieved euthyroidism) may be used till enteral absorption improves.
+Oral administration of levothyroxine is recommended, but if this is not feasible, other enteral routes can be used. However, if enteral administration is contraindicated (e.g. perforated viscus) or there are concerns of significant malabsorption, then intravenous levothyroxine (at approximately 75% of oral dose, assuming enteral levothyroxine dose achieved euthyroidism) may be used till enteral absorption improves.
 
 ### 3.1.20: In Hospitalised But Not Critically Ill Patients About To Be Treated With Levothyroxine, Should The Possibility Of Adrenal Insufficiency Be Excluded?
-**Recommendation**
-- The possibility of adrenal insufficiency should be considered and if there is sufficient clinical or biochemical evidence to consider this diagnosis, empiric treatment should be provided.
+The possibility of adrenal insufficiency should be considered and if there is sufficient clinical or biochemical evidence to consider this diagnosis, empiric treatment should be provided.
 
 ## 3.2: Subclinical Hypothyroidism
 ### 3.2.1: What Are The Causes Of Subclinical Hypothyroidism?
@@ -137,7 +121,7 @@ Consultation with an endocrinologist is recommended in the following situations 
 [Level I] Subclinical thyroid disease is a laboratory diagnosis. It is defined as a serum TSH concentration above the statistically defined upper limit of the reference range when serum fT4 and T3 concentrations are within their reference ranges. [Level I] However, since an array of factors has been shown to lead to transient abnormalities of serum TSH, investigation for raised TSH requires repeat measurements within two to three months to establish a firm diagnosis. [Level I] Transient elevations of TSH may occur in numerous circumstances, such as subacute or painless thyroiditis, following withdrawal of L-thyroxine, during recovery from a significant non-thyroidal illness, and during treatment with various drugs (e.g. lithium, amiodarone). [Level I] Patients with subclinical disease may have few or no definitive clinical signs or symptoms of thyroid dysfunction. [Level I] Serum TSH has a log-linear relationship with circulating thyroid hormone levels (a two-fold change in free thyroxine will produce a 100-fold change in TSH). The generally accepted reference range for serum TSH is 0.40–4.2 mIU/L. [Level IV] Determination of anti-TPO antibodies may be helpful in defining the risk of progression (2.6% each year if thyroid peroxidase [TPO] antibodies are absent and 4.3% if they are present).
 [Level I] Spontaneous recovery has been described in subjects with subclinical hypothyroidism, and is more likely in those with negative antithyroid antibodies and serum TSH levels less than 10 mIU/L and within the first two years after diagnosis.
 
-**Recommendations**
+Recommendation:
 - Subclinical hypothyroidism is defined as a serum TSH concentration above the statistically defined upper limit of the reference range when serum fT4 is within its reference range
 - Investigation of raised TSH requires repeat measurements, to establish a firm diagnosis
 - Determination of anti-TPO antibodies may be helpful in defining the risk of progression
@@ -155,7 +139,6 @@ Consultation with an endocrinologist is recommended in the following situations 
 
 [Level I] Subclinical hypothyroidism is associated with elevated TC, LDL-C, and TG levels, and these lipid levels decrease with treatment. Higher serum TC, LDL-C, and TG levels increased the risk of coronary heart disease (CHD); therefore, the cardiovascular status of SCHypo patients should be monitored carefully. [Level I] A meta-analysis involving a total of 40,516 participants showed weak evidence of an association between HDL-C and subclinical hypothyroidism. [Level I] A systematic review of 7 prospective studies and a meta-analysis of 11 prospective cohort studies showed the risk of CHD events increased significantly with higher levels of TSH, particularly in those with TSH levels ≥10.0 mIU/L (HR 1.89, 95% CI, 1.28–2.80).  inimal TSH disturbances between 4.5 and 6.9 mIU/L were not associated with CHD events.
 [Level I] A meta-analysis of 13 prospective cohort studies found no association between subclinical hypothyroidism and fracture risk. [Level IV] Multiple studies showed no association with anxiety, depression, or cognitive dysfunction.
-
 
 <!-- parent_only_reference_start -->
 Levels of Evidence
