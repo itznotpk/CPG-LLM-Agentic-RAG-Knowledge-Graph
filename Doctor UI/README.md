@@ -341,22 +341,25 @@ The Doctor UI now includes a **contactless vital signs scanner** powered by remo
 
 ### Starting Everything
 
-The rPPG backend **auto-starts on port 8090** when the API backend launches — no separate command needed:
+Three separate terminals are required:
 
 ```bash
-# 1. Start API + rPPG backend (one command)
-uvicorn agent.api:app --port 8058 --reload
+# Terminal 1 — rPPG backend (port 8090)
+python rppg_poc/rppg_vitals.py
 
-# 2. Start Doctor UI frontend
+# Terminal 2 — Doctor UI backend (port 8058)
+uvicorn agent.api:app --port 8058
+
+# Terminal 3 — Doctor UI frontend (port 5173)
 cd "Doctor UI"
-npm run dev          # or: node_modules/.bin/vite --port 5173
+npm run dev
 ```
 
 | Service | URL |
 |---|---|
 | Doctor UI | http://localhost:5173 |
 | API Backend | http://localhost:8058 |
-| rPPG Backend (auto) | http://localhost:8090 |
+| rPPG Backend | http://localhost:8090 |
 | rPPG POC Standalone | http://localhost:8090 |
 
 ### ESP32 Hardware Sensor
