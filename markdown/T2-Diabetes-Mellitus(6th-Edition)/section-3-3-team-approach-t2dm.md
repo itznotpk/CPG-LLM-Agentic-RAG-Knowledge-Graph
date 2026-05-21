@@ -1,11 +1,12 @@
-# Section 3.3: Team Approach
+# Section 3: Management of Type 2 Diabetes Mellitus
 <!-- METADATA
-category: Multidisciplinary Care
+category: Supportive Treatment
 use_case: Multidisciplinary team care for T2DM — roles of team members, patient-centred comprehensive care
 patient_input: new_diagnosis, complications_history, comorbidities
 output: team_referral, team_roles
 -->
 
+## 3.3: Team Approach
 - Patient-centred comprehensive care requires a multi-disciplinary team of healthcare providers.
   - [Level III] Working with healthcare providers with different skills and specialities allows the patient to gain in-depth knowledge and understanding of their T2DM.
   - It also ensures that: the patient's needs are addressed, it avoids therapeutic inertia, and it prioritises timely and appropriate intensification of lifestyle and/or pharmacologic therapy.
@@ -33,7 +34,7 @@ The following professionals are important team members in the multi-disciplinary
 - Dietitians help patients develop healthful eating plans, appropriate to individual needs and circumstances.
 - In addition, they can help identify and address problems such as disordered meal patterns, timing of meals, eating disorders and other physiological and psychosocial problems.
 - These issues may not be readily identified during doctor office visits.
-- The other team members also need to understand the principles of dietary advice to assist in reinforcing dietary recommendations (Refer Section 3.5.1).
+- The other team members also need to understand the principles of dietary advice to assist in reinforcing dietary recommendations (Refer Section 3.5.1: Medical Nutrition Therapy (MNT)). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" -->
 
 **Registered Nurses and Assistant Medical Officers**
 - Registered nurses and assistant medical officers can provide assessments before the doctor sees the patient, which allows for a better focus on any identified problems.
@@ -50,7 +51,7 @@ The following professionals are important team members in the multi-disciplinary
 - They may undertake special tasks of training the patients to administer and adjust insulin dosing.
 
 **Ophthalmologist/Optometrist**
-- Referral to an ophthalmologist/optometrist is required for further assessment and management of retinopathy and other eye problems (Refer Section 5.1).
+- Referral to an ophthalmologist/optometrist is required for further assessment and management of retinopathy and other eye problems (Refer Section 5.1: Retinopathy). <!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.1: Retinopathy" target_kind="h2_section" -->
 
 **Oral Health Professional**
 - [Level II-2] Dental and periodontal problems are common in patients with T2DM with a long established bi-directional influence reported.
@@ -76,6 +77,13 @@ Level of Evidence
 | Level II-2 | Evidence from well-designed cohort or case-control analytic studies |
 | Level II-3 | Evidence from multiple time series or dramatic results in uncontrolled experiments |
 | Level III | Opinions of respected authorities, based on clinical experience, descriptive studies or reports of expert committees |
+
+Grading System
+| Grade | Description |
+|---|---|
+| Grade A | Evidence from multiple randomised controlled trials or meta-analyses |
+| Grade B | Evidence from limited clinical trials or observational studies |
+| Grade C | Consensus of expert opinion |
 
 Abbreviations
 | Abbreviation | Full Term |

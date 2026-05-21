@@ -1,12 +1,12 @@
-# Section 3.8: Monitoring in T2DM
+# Section 3: Management of Type 2 Diabetes Mellitus
 <!-- METADATA
-category: Monitoring, Glycaemic Control
+category: Assessment
 use_case: HbA1c monitoring, self-monitoring of blood glucose (SMBG), continuous glucose monitoring (CGM), monitoring of other risk factors and complications in T2DM
 patient_input: HbA1c, SMBG_readings, insulin_regimen, OGLD_type, CGM_availability, age, risk_factors, monitoring_frequency
 output: HbA1c_interval, SMBG_timing_frequency, CGM_indication, monitoring_schedule, HbA1c_target, glucose_targets
 -->
 
-## 3.8 Monitoring
+## 3.8: Monitoring
 **Summary of Updates**
 - **Self-monitoring of blood glucose (SMBG)**
   - SMBG is important in people with insulin treated T2DM.
@@ -17,7 +17,7 @@ output: HbA1c_interval, SMBG_timing_frequency, CGM_indication, monitoring_schedu
   - CGM technology has evolved significantly in recent years with emerging evidence as a useful tool in glycaemic monitoring in people with T2DM.
   - Ambulatory glucose profile and key glucose metrics derived from CGM reports provide objective insights into individual glycaemic variability that facilitate improved glycaemic management and promote self-engagement.
 
-### 3.8.1 Glycated haemoglobin (HbA1c)
+### 3.8.1: Glycated haemoglobin (HbA1c)
 - HbA1c assay must be standardised to the National Glycohemoglobin Standardization Program (NGSP).
   - [Level I] [Level III] NGSP results can be directly correlated with clinical outcomes especially DCCT and UKPDS trials and therefore, the decision by most guidelines to utilise HbA1c for diabetes care goals and targets (NGSP website is available at *http://www.ngsp.org/*).
 - [Level III] The assay quality has been improved and calibrated via the International Federation of Clinical Chemistry (IFCC). IFCC results are more accuracy-based using latest and newer assay techniques (Conversion between NGSP and IFCC is available at *http://www.ngsp.org/convert1.asp*).
@@ -45,8 +45,16 @@ Table 3-20: Relationships between NGSP, IFCC HbA1c and estimated average glucose
   - [Level I] Reduction in HbA1c will result in a reduction in risk of microvascular complications in the immediate short-term and macrovascular complications in the long-term.
 - HbA1c target should be individualised.
   - Therapy in most patients with T2DM should be targeted to achieve HbA1c ≤7.0%.
-  - A more aggressive target (≤6.5%) should be attempted in those with long life-expectancy, no co-morbidities and in those whose targets can be achieved without causing severe hypoglycaemia (Refer to Table 3-6).
+  - A more aggressive target (≤6.5%) should be attempted in those with long life-expectancy, no co-morbidities and in those whose targets can be achieved without causing severe hypoglycaemia (Refer to Table 3-6: Individualised HbA1c targets based on patient profile).
 - [Level I] [Level III] Despite the standardisation, sometimes the measured HbA1c value may still at times not reflect the true level of glycaemia (glycation gap) due to various causes.
+
+Table 3-6: Individualised HbA1c targets based on patient profile.
+| ≤6.5 % (Tight) | 6.6%-7.0% | 7.1%-8.0% (Less tight) |
+|---|---|---|
+| • Newly and recently diagnosed\*<br>• Younger age<br>• Healthier (long life expectancy, no CVD complications)<br>• On medications that do not cause hypoglycaemia<br>• Albuminuria - nil<br>• Low risk of hypoglycaemia | • All others | • Elderly patients<br>• Presence of co-morbidities:<br>  › advanced CVD<br>  › coronary artery disease<br>  › heart failure<br>  › advanced renal failure (eGFR <45 ml/min/1.73 m²)<br>  › decompensated chronic liver disease<br>  › dementia<br>  › bed-bound e.g. stroke/other co-morbidities<br>• Prone to/experiencing severe hypoglycaemia<br>• Hypoglycaemia unawareness<br>• High risk of consequence of hypoglycaemia such as:<br>  › those at risk of falling,<br>  › those who drive or operate machinery.<br>• Those unlikely to benefit from strict glycaemic control<br>• Short life expectancy |
+
+CVD: cardiovascular disease; eGFR: estimated glomerular filtration rate; T2DM: type 2 diabetes mellitus.
+\* Newly diagnosed is arbitrarily defined as T2DM <1-year duration and recently diagnosed is defined as T2DM duration of <5 years.
 
 Table 3-21: Causes that may affect the HbA1c value.
 | Higher HbA1c values | Lower HbA1c values | Either higher or lower HbA1c values |
@@ -74,14 +82,14 @@ Table 3-21: Causes that may affect the HbA1c value.
 - It is an alternative to HbA1c in monitoring glycaemic control in patients in whom HbA1c measurements may be inaccurate.
 - It only reflects glycaemic control over the recent 2-3 weeks.
 
-### 3.8.2 Self-monitoring of blood glucose (SMBG)
+### 3.8.2: Self-monitoring of blood glucose (SMBG)
 - SMBG is the method of choice in assessing glycaemic control and preventing hypoglycaemia.
   - [Level I] [Level III] As part of an educational initiative, SMBG should be recommended in patients treated with insulin and is desirable for those on OGLDs.
 
 ***In out-patient setting***
 - Insulin treated T2DM
   - [Level I] Recommend routine SMBG to evaluate glycaemic control and prevent hypoglycaemia.
-  - Frequency and timing of SMBG vary based on types of insulin regimen (Refer Section 3.6.5).
+  - Frequency and timing of SMBG vary based on types of insulin regimen (Refer Section 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy). <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy" target_kind="h3_section" -->
 
 - Non-insulin treated T2DM
   - [Level I] [Level II] Earlier RCTs and meta-analyses suggest lack of benefit with SMBG in this group.
@@ -103,8 +111,7 @@ Table 3-21: Causes that may affect the HbA1c value.
 - [Level II-2] Re-evaluation of the need for and frequency of SMBG should be performed by healthcare providers during each follow-up visit.
 - [Level II-2] Ideally, SMBG should be performed on a daily basis in people with insulin-treated T2DM or if possible, at least one 24-hour cycle on a weekly basis.
 
-**Table 3-22: Recommendations for SMBG.**
-
+Table 3-22: Recommendations for SMBG.
 | Mode of Treatment | Breakfast Pre | Breakfast Post | Lunch Pre | Lunch Post | Dinner Pre | Post / Pre-bed |
 |---|---|---|---|---|---|---|
 | Diet only | √ | √ | - | √ | - | √ |
@@ -122,14 +129,14 @@ The figure shows a time axis across the day (Bedtime, Breakfast, Lunch, Dinner).
 Figure 3-8: OGLDs + once daily basal long acting insulin.
 The figure shows a time axis across the day. A single flat band representing long-acting insulin starts at bedtime and remains steady throughout the entire 24 hours. The recommended timing of SMBG is pre-breakfast.
 
-- Readings before breakfast give information about pre-bed intermediate acting insulin (Figure 3-7) or once daily long acting insulin (Figure 3-8).
+- Readings before breakfast give information about pre-bed intermediate acting insulin (Figure 3-7: OGLDs + bedtime insulin-intermediate acting insulin) or once daily long acting insulin (Figure 3-8: OGLDs + once daily basal long acting insulin).
 
 Figure 3-9: Basal bolus insulin regimen.
 The figure shows a basal insulin curve starting at bedtime and lasting till breakfast, along with three separate bolus insulin curves starting at breakfast, lunch, and dinner. The recommended timing of SMBG is pre-meal/pre-bed and post-meal.
 
 - Readings before breakfast give information about pre-bed intermediate acting insulin.
 - Readings before other main meals (pre-lunch or pre-dinner) reflect short acting insulin taken at the previous meal.
-- Readings at pre-bed give information about short acting insulin given before dinner (Figure 3-9).
+- Readings at pre-bed give information about short acting insulin given before dinner (Figure 3-9: Basal bolus insulin regimen).
 - Monitoring of readings at post-meal is recommended when readings at pre-meal are on target.
 
 Figure 3-10: Twice daily premixed human insulin regimen.
@@ -139,7 +146,7 @@ The figure shows an intermediate-acting baseline curve peaking after breakfast a
 - Readings at pre-lunch give information about short acting insulin given before breakfast.
 - Readings at pre-dinner give information about the intermediate acting insulin given before breakfast.
 - Readings at pre-bed give information about short acting insulin given before dinner.
-- Monitoring of readings at post-meal is recommended when readings at pre-meal are on target (Figure 3-10).
+- Monitoring of readings at post-meal is recommended when readings at pre-meal are on target (Figure 3-10: Twice daily premixed human insulin regimen).
 
 Figure 3-11: Twice daily premixed insulin analogue.
 The figure shows a long-acting baseline curve with two rapid-acting peaks at breakfast and dinner. Recommended timing of SMBG is pre-meal/pre-bed and post-meal.
@@ -150,7 +157,7 @@ The figure shows a long-acting baseline curve with three rapid-acting peaks at b
 - Readings before breakfast give information about pre-dinner long acting insulin.
 - Readings at pre-dinner give information about the long acting insulin given before breakfast.
 - Readings at post-meal give information about rapid acting insulin given before each meal.
-- There is less insulin stacking for twice daily premixed insulin analogue compared to twice daily premixed human insulin (Refer to Figures 3-11 and 3-12).
+- There is less insulin stacking for twice daily premixed insulin analogue compared to twice daily premixed human insulin (Refer to Figure 3-11: Twice daily premixed insulin analogue and Figure 3-12: Thrice daily premixed insulin analogue).
 
 ***Role of mobile health (mHealth) in SMBG***
 - [Level I] mHealth tools play an emerging role in diabetes prevention and management.
@@ -164,7 +171,7 @@ The figure shows a long-acting baseline curve with three rapid-acting peaks at b
 
 *For monitoring of glycaemic control in specific populations such as during Ramadan fasting (available online at: https://www.diabetesmalaysia.com.my/article.php?aid=224), pregnancy (available online at: http://www.acadmed.org.my/index.cfm?&menuid=67) and inpatients setting (Ministry of Health Malaysia. Practical Guide to Inpatient Glycaemic Care, 2nd edition, May 2020), please refer to the relevant Malaysian guidelines.*
 
-### 3.8.3 Continuous glucose monitoring (CGM)
+### 3.8.3: Continuous glucose monitoring (CGM)
 - CGM measures interstitial glucose (which correlates closely to plasma glucose) via a subcutaneously inserted sensor.
 - Glucose readings are measured every 5 to 15 minutes.
 - CGM can be classified into two types, retrospective (professional) and real-time (personal or flash).
@@ -218,10 +225,10 @@ CGM may be considered in the following situations:
 - The choice and frequency of CGM devices should be individualised depending on the primary goal and patients' willingness to be actively engaged in their day-to-day glucose management.
 - To derive maximum benefits, it is essential to provide structured diabetes education, training and support, assisted by a diabetes nurse educator.
 
-## 3.8.4 Monitoring of Other Risk Factors
+## 3.8.4: Monitoring of Other Risk Factors
 - Monitoring of glycaemic control, co-morbidities, complications and other CVD risk factors should follow the schedule below.
 
-**Table 3-24: Clinical Monitoring Schedule for Other Risk Factors in Patients with T2DM
+Table 3-24: Clinical Monitoring Schedule for Other Risk Factors in Patients with T2DM
 | Test | Initial visit | 3-monthly OR Every follow-up visit | At annual visit |
 |---|---|---|---|
 | **Physical examination** | | | |
@@ -244,7 +251,7 @@ CGM may be considered in the following situations:
 | Urine microscopy | ✓ | | ✓ |
 | Urine albumin/microalbumin/spot morning urinary ACR | ✓ | | ✓ |
 
-*^a^ Refer to Section 5.1 retinopathy table — 1–2 yearly if no diabetic retinopathy, more frequently according to retinopathy status.*
+*^a^ Refer to Section 5.1: Retinopathy table — 1–2 yearly if no diabetic retinopathy, more frequently according to retinopathy status.*  <!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.1: Retinopathy" target_kind="h2_section" -->
 *^b^ Baseline resting ECG is recommended. If abnormal, refer to cardiology. However, if resting ECG is normal, further screening for CVD is not recommended in asymptomatic patients with high risk of ASCVD, provided they are receiving intensive medical therapy for optimal CV risk factor control. To date, CV risk assessment in asymptomatic patients is still controversial.*
 *^c^ Once statin is initiated, suggest checking lipid profile every 4–12 weeks to ascertain efficacy and adherence, and annually thereafter.*
 *^d^ Serum creatinine with calculated eGFR, preferably using CKD-EPI formula.*

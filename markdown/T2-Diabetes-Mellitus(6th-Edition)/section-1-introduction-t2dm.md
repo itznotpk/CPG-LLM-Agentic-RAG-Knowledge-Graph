@@ -6,7 +6,7 @@ patient_input: population_data, NHMS_survey, ethnic_group, age_group, diabetes_t
 output: disease_burden, prevalence_statistics, comorbidity_data, treatment_summary, diabetes_definition
 -->
 
-## 1.1 Background
+## 1.1: Background
 - Plasma glucose abnormalities may span a progressive continuum ranging from prediabetes, consisting of impaired fasting glycaemia (IFG) and impaired glucose tolerance (IGT), to overt diabetes mellitus.
 - Prediabetes usually does not cause symptoms and is characterised by elevated plasma glucose levels that fall below the threshold to diagnose diabetes. Prediabetes is an important risk factor for future diabetes and cardiovascular disease (CVD). It is a potentially reversible condition with lifestyle modification.
 - Type 2 Diabetes Mellitus (T2DM) is the most common form of diabetes mellitus, accounting for >90% of all cases of adult-onset diabetes mellitus in Malaysia. Both prediabetes and diabetes commonly coexist with other non-communicable diseases namely hypertension, dyslipidaemia and obesity.
@@ -20,7 +20,7 @@ output: disease_burden, prevalence_statistics, comorbidity_data, treatment_summa
 - The main aim of management is directed at reducing acute and chronic diabetes-related complications by targeting control of plasma glucose, blood pressure (BP), lipids and body weight concurrently.
 - Recently, there is evidence that reversal or remission of T2DM may be possible in some individuals with short duration of disease, following reversal of insulin resistance through significant and sustained weight loss by either caloric restriction or bariatric surgery.
 
-## 1.2 Prevalence and State of T2DM in Malaysia
+## 1.2: Prevalence and State of T2DM in Malaysia
 - [Level II-3] The National Health and Morbidity Survey (NHMS) 2019 reported a prevalence of 23.6% for those with abnormal fasting plasma glucose (FPG) in non-diabetic range (FPG 5.6 mmol/L–6.9 mmol/L) at the time of the survey. This estimates approximately 5 million (5,019,359) adult individuals in Malaysia with probable prediabetes in 2019 and future risk of diabetes.
 - [Level II-3] Prevalence of a known or established diagnosis of diabetes during the 2019 NHMS was 9.4%, whilst in 2015 it was 8.3%. Hence in 2019, there were almost 2 million (1,999,450) adult individuals with known diabetes in Malaysia.
 - [Level II-3] Prevalence of unknown/undiagnosed diabetes (elevated fasting plasma glucose of ≥7.0 mmol/L during survey) for adults age ≥18 years; in NHMS 2015 and 2019 were 5.1% and 8.9% respectively.

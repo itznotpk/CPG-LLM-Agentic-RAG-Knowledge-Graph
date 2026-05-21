@@ -11,7 +11,7 @@ output: screening_indication, diabetes_diagnosis, prediabetes_diagnosis, CVD_ris
 - In symptomatic individuals, 1 abnormal result (either plasma glucose/HbA1c) is diagnostic while in asymptomatic individuals, 2 abnormal test results from the same sample (e.g. plasma glucose + HbA1c) or from 2 separate test samples are accepted for diagnosis.
 - Recommendations for criteria-based screening of adolescents who are overweight and have additional risk factors for T2DM (NEW).
 
-## 2.1 Objective and Strategies
+## 2.1: Objective and Strategies
 **Objective**
 - To diagnose prediabetes and T2DM among the general population specifically the high-risk individuals, whilst ensuring prompt and appropriate intervention.
 
@@ -19,7 +19,7 @@ output: screening_indication, diabetes_diagnosis, prediabetes_diagnosis, CVD_ris
 - Screening the general population to identify high-risk individuals.
 - Screening of specific high-risk populations, e.g. those with history of gestational diabetes mellitus (GDM).
 
-## 2.2 Who Should Be Screened
+## 2.2: Who Should Be Screened
 **Symptomatic Individuals**
 - [Level III] Any individual who has symptoms suggestive of T2DM (fatigue, lethargy, polyuria, nocturia, polydipsia, polyphagia, weight loss, pruritus vulvae, balanitis) should be investigated to confirm diagnosis of T2DM.
 
@@ -66,7 +66,7 @@ If tests are normal, repeat screening at a minimum of 3-year intervals, or more 
 
 *\*After the onset of puberty or after 10 years of age, whichever occurs earlier.*
 
-## 2.3 Screening Test
+## 2.3: Screening Test
 **Capillary Plasma Glucose**
 - In circumstances where facilities for venous plasma glucose measurements are not readily available, preliminary screening can be performed by measuring capillary plasma glucose using standard glucometers.
   - This testing can be done irrespective of timing of prior meals.
@@ -76,7 +76,7 @@ If tests are normal, repeat screening at a minimum of 3-year intervals, or more 
     - HbA1c
 - Screening should be done annually in those listed in Table 2-1: Criteria for Testing for T2DM or Prediabetes in Asymptomatic Adults and Table 2-2: Criteria for Testing for T2DM in Adolescents.
 
-## 2.4 Diagnostic Tests
+## 2.4: Diagnostic Tests
 **Fasting Plasma Glucose**
 - This should be performed following a minimum of an 8-hour overnight fast.
 - [Level II-2] Once blood is taken, the sample should not be left standing as the concentration of glucose decreases due to glycolysis, which degrades glucose at a rate of 5% to 7% per hour.
@@ -125,7 +125,7 @@ Table 2-5: Diagnostic Value for Prediabetes and T2DM Based on HbA1c
 
 *A repeat HbA1c should be done 4 weeks after the first positive test for asymptomatic patients (if an accompanying FPG or RPG is indeterminate). For symptomatic patients, a single positive test is sufficient.*
 
-* There are situations where the HbA1c value may not reflect the true level of glycaemia (glycation gap) due to various causes (Refer to Section 3.8.1). <!-- cross_ref target_file="section-3-6-monitoring-t2dm.md" target_heading="3.8.1 Glycated Haemoglobin (HbA1c)" target_kind="h3_section" -->
+* There are situations where the HbA1c value may not reflect the true level of glycaemia (glycation gap) due to various causes (Refer to Section 3.8.1 Glycated Haemoglobin (HbA1c)). <!-- cross_ref target_file="section-3-6-monitoring-t2dm.md" target_heading="3.8.1 Glycated Haemoglobin (HbA1c)" target_kind="h3_section" -->
   - [Level III] Depending on the method used for measuring HbA1c, some may give inaccurate results when the patients have a haemoglobin variant.
   » In patients suspected of having haemoglobinopathies, other screening tests for e.g. another HbA1c methodology should be used (such as the National Glycohemoglobin Standardization Program [NGSP] available online at *http://www.ngsp.org/interf.asp*).
 
@@ -144,7 +144,12 @@ Table 2-5: Diagnostic Value for Prediabetes and T2DM Based on HbA1c
     - Hence, for HbA1c to be useful, it is important that the HbA1c assays are standardised.
     - Several international and national standardisation programs have evolved over the years to enable the conformity of HbA1c results from different laboratories to those reported in the DCCT trial.
   - [Level II-1] In 1994, the International Federation of Clinical Chemistry and Laboratory Medicine (IFCC) Working Group on Standardisation of HbA1c developed a global HbA1c reference system with a much improved intra-assay and inter-assay coefficients of variation of <2.5%.
-  - For the purpose of diagnosis, the HbA1c test should be performed using the method that is certified by the NGSP-HbA1c units (%) and standardised according to the assays employed in the DCCT study. Recommendations have been made on the reporting of HbA1c results as IFCC-HbA1c values in SI units (mmol HbA1c/mol Hb) [Refer to Section 3.8.1 and Table 3-21] <!-- cross_ref target_file="section-3-6-monitoring-t2dm.md" target_heading="3.8.1 Glycated Haemoglobin (HbA1c)" target_kind="h3_section" -->
+  - For the purpose of diagnosis, the HbA1c test should be performed using the method that is certified by the NGSP-HbA1c units (%) and standardised according to the assays employed in the DCCT study. Recommendations have been made on the reporting of HbA1c results as IFCC-HbA1c values in SI units (mmol HbA1c/mol Hb) [Refer to Section 3.8.1 Glycated Haemoglobin (HbA1c) and Table 3-21: Causes that may affect the HbA1c value.] <!-- cross_ref target_file="section-3-6-monitoring-t2dm.md" target_heading="3.8.1 Glycated Haemoglobin (HbA1c)" target_kind="h3_section" -->
+
+Table 3-21: Causes that may affect the HbA1c value.
+| Higher HbA1c values | Lower HbA1c values | Either higher or lower HbA1c values |
+|---|---|---|
+| • Rapidly improved diabetes<br>• Age (older)<br>• Iron deficiency<br>• Vitamin B12 deficiency<br>• Folate deficiency<br>• Hypothyroidism<br>• Vitamin E supplementation | • Sudden onset or exacerbation of diabetes<br>• Period of recovery from iron deficiency anaemia<br>• Hemolysis<br>• Blood loss/transfusion<br>• Renal anaemia during treatment with erythropoietin<br>• Liver cirrhosis<br>• Asplenia<br>• Treatment with iron<br>• Treatment with B12<br>• Treatment with folate | • Haemoglobinopathy (depends on the type of assay and type of haemoglobin variant)<br>• Ethnicity (Indian and Malays – higher values, Chinese – lower values) [Level II-2]<br>• Medications: Dapsone |
 
 Figure 2-1: Screening for T2DM in symptomatic individuals
 For symptomatic individuals, the screening process begins with a venous plasma glucose test, which can be either a fasting or a random test.

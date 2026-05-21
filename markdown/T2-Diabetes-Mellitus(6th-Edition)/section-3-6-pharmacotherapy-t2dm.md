@@ -1,17 +1,19 @@
-# Section 3.6: Glucose Lowering Drugs and Insulin Therapy
+# Section 3: Management of Type 2 Diabetes Mellitus
 <!-- METADATA
-category: Pharmacotherapy, Oral Medications, Injectable Medications, Insulin
-use_case: Selection and dosing of oral glucose lowering drugs, GLP1-RA, insulin initiation and intensification, combination therapy, biosimilar insulin in T2DM
-patient_input: HbA1c, fasting_plasma_glucose, PPG, eGFR, CVD_status, heart_failure, BMI, weight, hypoglycaemia_risk, age, comorbidities, current_medications, insulin_dose, SMBG_results, retinopathy_status
-output: drug_selection, drug_dosage, drug_combination, dose_adjustment_in_CKD, contraindications, adverse_effects, CV_benefit, GLP1RA_selection, insulin_type, insulin_dose, insulin_regimen, titration_algorithm, insulin_intensification
+category: Treatment
+use_case: Pharmacological management of T2DM — oral glucose lowering drugs (OGLDs), injectable therapies (GLP1-RA), and insulin initiation, optimisation and intensification
+patient_input: HbA1c, FPG, weight, eGFR, CV_risk, ASCVD_status, heart_failure, DKD_stage, current_medications, hypoglycaemia_history, insulin_regimen
+output: OGLD_selection, dose_titration, insulin_initiation, insulin_intensification, GLP1RA_selection, combination_therapy, side_effect_management
+treatment_type: metformin, glimepiride, gliclazide, glipizide, glibenclamide, repaglinide, acarbose, pioglitazone, sitagliptin, vildagliptin, saxagliptin, linagliptin, dapagliflozin, canagliflozin, empagliflozin, ertugliflozin, luseogliflozin, exenatide, liraglutide, lixisenatide, dulaglutide, semaglutide, insulin glargine, insulin degludec, insulin detemir, insulin aspart, insulin lispro, insulin glulisine
 -->
 
+## 3.6: Glucose Lowering Drugs and Insulin Therapy
 **Summary of Updates**
 - Recent cardiovascular outcome trials (CVOTs) have confirmed CV benefits beyond glucose lowering in 2 classes of GLDs i.e. GLP1-RA and SGLT2-i. As a result, a new paradigm shift in choice of drug therapy has emerged.
 - Achieving HbA1c targets remains an important goal that may require combining drugs that target the multiple pathophysiological defects.
 - Recent evidence supports the use of early combination therapy for durability of glycaemic control.
 
-### 3.6.1 Oral glucose lowering drugs (OGLDs)
+### 3.6.1: Oral glucose lowering drugs (OGLDs)
 *Biguanides (Metformin)*
 - Metformin lowers blood glucose especially fasting plasma glucose by decreasing hepatic glucose production. It does not stimulate insulin secretion and as monotherapy, is usually not accompanied by hypoglycaemia.
 - [Level I] Metformin reduces HbA1c by up to 1.5%.
@@ -34,7 +36,7 @@ Table 3-8: Metformin formulations and dosages.
 | **Metformin XR** | 500/750/1000 | Initial dose:<br>500 mg OD<br><br>Usual dose:<br>2000 mg OD | 2000 mg OD |
 
 *\*Some patients may benefit up to a maximum dose of 1000 mg TDS.*
-*For fixed-dose combination formulations, please refer to Table 3-16 and specific product inserts. Dose escalation will depend on tolerability and according to the PI.*
+*For fixed-dose combination formulations, please refer to Table 3-16: Summary of dosage, titration requirements, administration and actions in the event of a missed dose for GLP1-RA and specific product inserts. Dose escalation will depend on tolerability and according to the PI.*
 *SR: slow release; XR: extended release; OD: daily; BD: twice daily; TDS: three times daily.*
 
 *Sulphonylureas (SU)*
@@ -62,7 +64,7 @@ Table 3-9: SU formulations and dosage.
 **Note:**
 *Glibenclamide is metabolised by the liver but its metabolites are active and excreted by the kidney. It is contraindicated in renal impairment. Other second-generation SUs (glimepiride, gliclazide and glipizide) may still be used in renal impairment with caution.*
 
-*Refer to Appendix 7 for dose adjustment in renal impairment*
+*Refer to Appendix 7: Dosage of Glucose Lowering Drugs in Chronic Kidney Disease (CKD) for dose adjustment in renal impairment*
 
 *Meglitinides*
 - [Level I] These are short acting insulin secretagogues that bind to different sites within the SU receptor. It has a shorter half-life than SUs.
@@ -126,12 +128,12 @@ Table 3-12: TZD formulations and dosage.
 **A. Dipeptidyl peptidase 4 inhibitor (DPP4-i)**
 - [Level I] DPP4-i lower HbA1c by 0.5%-0.8%.
 - [Level I] They are weight neutral and have a minimal risk of hypoglycaemia.
-- [Level I] DPP4-i CVOTs (CARMELINA, CAROLINA, TECOS, SAVOR-TIMI) have confirmed CV safety [Refer to Appendix 8 DPP4-i CVOT table].
-- They are efficacious and safe in the elderly and all stages of DKD (See Appendix 7 for dose adjustment in renal failure).
+- [Level I] DPP4-i CVOTs (CARMELINA, CAROLINA, TECOS, SAVOR-TIMI) have confirmed CV safety [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) DPP4-i CVOT table].
+- They are efficacious and safe in the elderly and all stages of DKD (Refer to Appendix 7: Dosage of Glucose Lowering Drugs in Chronic Kidney Disease (CKD) for dose adjustment in renal failure).
 - [Level III] [Level I] Saxagliptin is not recommended in patients with pre-existing heart failure as it has been shown to be associated with increased risk of hospital admission for heart failure.
 - [Level I] The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.
 
-**Table 3-13: DPP4-i Formulations and Dosage**
+Table 3-13: DPP4-i Formulations and Dosage
 | Drugs | Formulations (mg) | Minimum dose | Maximum dose |
 |---|---|---|---|
 | Sitagliptin | 25/50/100 | 25 mg OD | 100 mg OD |
@@ -166,7 +168,7 @@ Table 3-12: TZD formulations and dosage.
  - [Level I] [Level III] Cases of euglycaemic diabetic ketoacidosis (eDKA) have been reported in patients who were on SGLT2-i with inter-current illness
 - [Level III] During inter-current illnesses/surgery, SGLT2-i may need to be withheld temporarily.
 
-**Table 3-14: SGLT2-i Formulations and Dosages**
+Table 3-14: SGLT2-i Formulations and Dosages
 | Drugs | Formulations (mg) | Minimum dose | Maximum dose |
 |---|---|---|---|
 | Dapagliflozin | 5/10 | 5 mg OD | 10 mg OD |
@@ -175,7 +177,7 @@ Table 3-12: TZD formulations and dosage.
 | Luseogliflozin | 2.5/5 | 2.5 mg OD | 5 mg OD |
 | Ertugliflozin | 5/15 | 5 mg OD | 15 mg OD |
 
-*For fixed dose combination formulations, please refer to Table 3-15. Dose escalation will depend on tolerability and according to the PI.*
+*For fixed dose combination formulations, please refer to Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages. Dose escalation will depend on tolerability and according to the PI.*
 *OD: daily.*
 
 Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages
@@ -193,7 +195,7 @@ Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages
 *Dose escalation will depend on tolerability and according to the PI.*
 *OD: daily; XR: extended release; HCl: hydrochloride.*
 
-### 3.6.2 Injectable agents
+### 3.6.2: Injectable agents
 *Glucagon-like peptide-1 receptor agonist (GLP1-RA)*
 - GLP-1 RAs currently available include exenatide IR and ER (once weekly), liraglutide (daily) and lixisenatide (daily) and, the once-weekly agents dulaglutide and semaglutide.
 - GLP-1RAs have been shown to reduce HbA1c (~0.8-1.6%), body weight (~1.0-4.1 kg). Their effects are dose dependent. The weight reduction is due to the effect on satiety and delay in gastric emptying.
@@ -208,13 +210,13 @@ Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages
   - [Level I] can be added on to SGLT2-i (dapagliflozin) for further HbA1c reduction.
   - [Level I] can be added on to existing basal insulin glargine therapy; with further HbA1c reduction and significantly more patients reaching HbA1c <7.0%.
 - [Level I] Progressive weight loss is seen with its use.
-- [Level I] In the EXSCEL study where Exenatide ER was compared to placebo in a high-risk population, the occurrence of primary MACE endpoints (death from CV causes, non-fatal MI or non-fatal stroke) did not significantly differ between the two groups [Refer to Appendix 8 GLP1-RA CVOT table].
+- [Level I] In the EXSCEL study where Exenatide ER was compared to placebo in a high-risk population, the occurrence of primary MACE endpoints (death from CV causes, non-fatal MI or non-fatal stroke) did not significantly differ between the two groups [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 
 **B. Liraglutide**
 - [Level I] Liraglutide is indicated for use in combination with OGLDs and/or insulin. It results in reductions in mean HbA1c of 0.8%-1.4%
 - [Level I] There is no increased risk of hypoglycaemia and it may result in weight loss of up to 3.2 kg.
 - [Level I] In patients who are on combination of metformin and SU with an HbA1c <10.0%, the addition of liraglutide produced similar glycaemic improvement compared to insulin glargine without any increased risk of hypoglycaemia and weight gain.
-- [Level I] In the LEADER study, MACE endpoints were significantly reduced in the liraglutide group vs. placebo [Refer to Appendix 8 GLP1-RA CVOT table].
+- [Level I] In the LEADER study, MACE endpoints were significantly reduced in the liraglutide group vs. placebo [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 
 **C. Lixisenatide**
 - [Level I] Lixisenatide can be used in combination with OGLDs and/or basal insulin.
@@ -222,7 +224,7 @@ Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages
 - In Malaysia, lixisenatide is available as a fixed-ratio combination iGlarLixi which combines basal insulin glargine with prandial GLP-1RA lixisenatide.
   - [Level I] Once daily iGlarLixi was superior to iGlar monotherapy when used with metformin with or without a second OGLD and in patients inadequately controlled on basal insulin with or without OGLDs, with superior weight reduction.
   - [Level I] Switching to iGlarLixi is superior to continuing maximally tolerated GLP-1 RA. Significantly more iGlarLixi patients achieve HbA1c <7% compared to remaining on GLP1-RA alone.
-- [Level I] Lixisenatide given to a very high-risk population with MI or hospitalisation for unstable angina and followed up for a mean of 25 months showed no significant difference in any components of the composite MACE endpoints [Refer to Appendix 8 GLP1-RA CVOT table].
+- [Level I] Lixisenatide given to a very high-risk population with MI or hospitalisation for unstable angina and followed up for a mean of 25 months showed no significant difference in any components of the composite MACE endpoints [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 - Refer to package insert for dosing schedule.
 
 **D. Dulaglutide**
@@ -238,7 +240,7 @@ Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages
 - As add-on to insulin, addition of dulaglutide:
   - [Level I] on a background of basal insulin glargine, resulted in significant further HbA1c reduction; and
   - [Level I] on a background of prandial insulin, was superior to basal insulin glargine, with significantly greater HbA1c reduction and a weight difference of 3.2 kg between groups.
-- [Level I] In the REWIND study (over 5 years), which consisted predominantly of patients with CVD risk factors (70%), and established CVD (30%), dulaglutide was associated with a significant reduction of primary 3-point MACE endpoints [Refer to Appendix 8 GLP1-RA CVOT table].
+- [Level I] In the REWIND study (over 5 years), which consisted predominantly of patients with CVD risk factors (70%), and established CVD (30%), dulaglutide was associated with a significant reduction of primary 3-point MACE endpoints [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 
 **E. Semaglutide**
 - Semaglutide is a once-weekly injectable human GLP-1RA (0.5 mg, 1 mg).
@@ -250,8 +252,8 @@ Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages
 - [Level I] Semaglutide can be effectively added on to SGLT2-i + existing OGLDs for further HbA1c reduction.
 - [Level I] Semaglutide is the most potent GLP1-RA with demonstrated superior glycaemic efficacy to exenatide ER, dulaglutide and liraglutide.
 - [Level I] Semaglutide (both doses) has demonstrated superior glycaemic efficacy vs. basal insulin glargine, when added on to insulin naïve patients or already on basal insulin glargine.
-- [Level I] In the CVOT (SUSTAIN 6) over 104 weeks, semaglutide was associated with a significant reduction in risk of 3-point MACE [Refer to Appendix 8 GLP1-RA CVOT table].
-- [Level I] Patients with a history of diabetic retinopathy should be monitored for progression of retinopathy and slower dose titration may be warranted (Refer to Section 5.1).
+- [Level I] In the CVOT (SUSTAIN 6) over 104 weeks, semaglutide was associated with a significant reduction in risk of 3-point MACE [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
+- [Level I] Patients with a history of diabetic retinopathy should be monitored for progression of retinopathy and slower dose titration may be warranted (Refer to Section 5.1: Retinopathy). <!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.1: Retinopathy" target_kind="h2_section" -->
 
 Table 3-16: Summary of dosage, titration requirements, administration and actions in the event of a missed dose for GLP1-RA.
 | Drug | Titration | Initial dose | Recommended dose | Administration in relation to meals | Action if missed dose |
@@ -266,7 +268,7 @@ Table 3-16: Summary of dosage, titration requirements, administration and action
 | **Semaglutide** | Yes | 0.25 mg once weekly for 4 weeks | 0.5-1.0 mg once weekly<br>(dose increase after 4 weeks if required) | At any time, without regard to meals | ≥5 days until the next scheduled dose: administer the dose as soon as possible<br><br><5 days: skip the dose, wait and administer their next regularly scheduled weekly dose |
 
 *Dose escalation will depend on tolerability and according to the PI.*
-*For CV benefit refer to Appendix 8 GLP1-RA CVOT table.*
+*For CV benefit refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table.*
 *µg: microgram; OD: daily; hr: hour.*
 
 **Precautions for GLP1-RA**
@@ -276,10 +278,10 @@ Table 3-16: Summary of dosage, titration requirements, administration and action
 - They **should not be used** in patients with a history of pancreatitis.
 - [Level II-1] **Should not be used** in patients with a history of or a family history of MEN 2A or 2B or medullary thyroid cancer.
 - Exenatide and Lixisenatide **should not be used** in patients with gastroparesis.
-- Refer to specific product inserts and Appendix 7 when treating patients with DKD.
+- Refer to specific product inserts and Appendix 7: Dosage of Glucose Lowering Drugs in Chronic Kidney Disease (CKD) when treating patients with DKD.
 [Level III] When considering initiating GLP-1RA for CV risk reduction, choose GLP-1RAs with proven CVD benefit and that has received label indication for CV benefit from NPRA.
 
-**Table 3-17: GLP1-RA Formulations and Dosage**
+Table 3-17: GLP1-RA Formulations and Dosage
 | Drugs | Formulations | Minimum dose | Maximum dose |
 |---|---|---|---|
 | Exenatide IR | 5 μg/20 μL; 10 μg/40 μL | 5 μg BD | 10 μg BD |
@@ -291,7 +293,7 @@ Table 3-16: Summary of dosage, titration requirements, administration and action
 *For fixed ratio formulations, please refer to specific product inserts. Dose escalation will depend on tolerability and according to the PI.*
 *IR: immediate release; ER: extended release; μg: microgram; μL: microlitre; BD: twice daily; OD: daily.*
 
-## 3.6.3 General Guidelines for Use of Oral Glucose Lowering Drugs
+## 3.6.3: General Guidelines for Use of Oral Glucose Lowering Drugs
 - OGLDs can be used as monotherapy or in combination with other OGLDs, and/or injectable agents (e.g. insulin, GLP-RAs).
 - [Level I] Early combination therapy that addresses different pathophysiological defects in T2DM should be considered in the newly diagnosed T2DM patient.
  - [Level I] The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis.
@@ -307,7 +309,7 @@ Table 3-16: Summary of dosage, titration requirements, administration and action
 - Targets for control should be individualised.
 - [Level III] There may be a role for de-escalation of OGLD doses/medication. Reasons for this include improvement in glycaemic control, successful weight loss (from lifestyle intervention), change in glycaemic goals (especially in the setting of elderly patients), development of new co-morbidities, development of intolerable side effects, or treatment ineffectiveness.
 
-## 3.6.4 Combination of OGLDs, GLP-1RA and Insulin
+## 3.6.4: Combination of OGLDs, GLP-1RA and Insulin
 - If targets have not been reached after optimal OGLD therapy, consider adding:
  - [Level I] Pre-bed basal insulin
  - [Level I] Pre-dinner premixed insulin
@@ -337,14 +339,14 @@ Table 3-16: Summary of dosage, titration requirements, administration and action
 | **5.** If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin. | *Grade A* |
 | **6.** HbA1c remains an important target. If glycaemic targets are not achieved, intensification of treatment should be made every 3-6 months. | *Grade C* |
 
-## 3.6.5 Initiation, Optimisation and Intensification of Insulin Therapy
+## 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy
 - [Level I] T2DM is a progressive disease characterised by worsening glycaemia due to progressive decline in beta cell function.
 - This ultimately renders OGLDs ineffective and the majority of patients with T2DM will require insulin therapy.
   - Persistent hyperglycaemia in spite of optimal OGLDs and weight loss suggests beta cell failure.
   - However, it is important to exclude concomitant illnesses such as; chronic infections, malignancy, or medications as a cause of the weight loss.
 - Insulin therapy is suitable at all stages of T2DM, for all ages, and with a wide range of treatment options and regimens. Insulin can be combined with OGLDs or GLP-1RA.
 - Insulin therapy should be considered in the following situations:
-  - [Level I] Inadequate glycaemic control on optimal dose and number of OGLDs (Refer to Figure 3-2).
+  - [Level I] Inadequate glycaemic control on optimal dose and number of OGLDs (Refer to Figure 3-2: Initiation and Optimisation of Insulin Therapy).
   - As short-term use in the following: acute illness or surgery, pregnancy, breast-feeding, severe metabolic decompensation (e.g. diabetic ketoacidosis, hyperosmolar hyperglycaemic state).
   - As initial therapy in newly diagnosed T2DM:
     - [Level III] In presence of symptomatic hyperglycaemia and evidence of ongoing catabolism
@@ -378,7 +380,7 @@ Table 3-18: Types of insulin and their pharmacokinetic profiles.*
 | **Co-formulation**<br>IDegAsp 30 [Ryzodeg]<br>Rapid-acting insulin analogue + basal insulin | 10-20 min | 1-4 | 24-40 | 5-15 min before meals |
 
 - The time course of action of different insulin preparations may vary in different individuals, or at different times in the same individual.
-  - The variations and time periods indicated in Table 3-18 should be considered as general guidelines only.
+  - The variations and time periods indicated in Table 3-18: Types of insulin and their pharmacokinetic profiles.* should be considered as general guidelines only.
   - The higher the dose of the insulin, the longer the duration of action.
 - [Level I] Long acting insulin analogues, which have less peak, result in lower hypoglycaemic episodes and less weight gain compared to human basal insulin.
 - [Level I] Glargine U300 compared to Glargine U100 is non-inferior in achieving glycaemic control but with less overall and nocturnal hypoglycaemia.
@@ -399,7 +401,7 @@ Table 3-18: Types of insulin and their pharmacokinetic profiles.*
     - set FPG target and choose evidence-based titration algorithm e.g. increase by 2 U every 3 days to reach target FPG without hypoglycaemia; or
     - Adjust 2 U every week based on 3 days' glucose readings.
   - Premixed insulin once or twice daily.
-- All patients prescribed insulin therapy should be advised to perform self-monitoring of blood glucose (SMBG) and empowered to self-adjust their insulin doses (Refer to Section 3.8).
+- All patients prescribed insulin therapy should be advised to perform self-monitoring of blood glucose (SMBG) and empowered to self-adjust their insulin doses (Refer to Section 3.8: Monitoring). <!-- cross_ref target_file="section-3-8-monitoring-t2dm.md" target_heading="3.8: Monitoring" target_kind="h2_section" -->
   - Patients should be educated regarding symptoms of hypoglycaemia and its management.
   - [Level I] Insulin dose optimisation requires gradual, safe and prompt titration according to SMBG.
 
@@ -436,8 +438,7 @@ Table 3-19: Various insulin regimen options.
 *Table above describes variations of insulin regimens available depending on the number of injections/day and type of insulin with the timing.*
 *OD: once daily; BD: twice daily; TDS: three times daily; NPH: Neutral Protamine Hagedorn; T1DM: type 1 diabetes mellitus.*
 
-### Figure 3-2: Initiation and Optimisation of Insulin Therapy (Explained)
-
+Figure 3-2: Initiation and Optimisation of Insulin Therapy
 **1. When to Initiate Insulin**
 Insulin therapy should be initiated in the following scenarios:
 - **Newly diagnosed T2DM:**
@@ -478,7 +479,7 @@ Once the need for insulin is established, assess the pattern of hyperglycaemia b
   - This effect is exaggerated if "unphysiological" dose of insulin is used.
   - Monitor weight - progressive weight gain should raise the possibility of too much insulinisation. Weight gain can be minimised by improving insulin sensitivity through diet, lifestyle measures or using insulin sensitizing OGLDs and, hence avoiding need for large doses of insulin.
 
-## 3.6.6 Biosimilar insulin
+## 3.6.6: Biosimilar insulin
 - Pharmaceutical companies other than the original multi-national ones also manufacture market-similar insulins.
 - Because none of the insulin manufacturing processes are identical, this results in insulin that might become biosimilarly different from the originator insulin to a certain extent.
 - The National Pharmaceutical Regulatory Agency (NPRA) guidelines for market approval require that the manufacturer demonstrate that the insulin has a safety and efficacy profile that is similar to that of the original insulin formulation.
@@ -495,6 +496,141 @@ Once the need for insulin is established, assess the pattern of hyperglycaemia b
 | **5.** Attention to weight gain, assessment for hunger/defensive-eating behaviour and recognition of possibility of over-insulinisation is important. Lifestyle and dietary modification need to be emphasized at every stage of T2DM management. | *Grade C* |
 
 <!-- parent_only_reference_start -->
+Appendix 7: Dosage of Glucose Lowering Drugs in Chronic Kidney Disease (CKD)
+| Generic Name | Usual dose* | Mild (CKD 2)<br>(GFR 60-89) | Moderate (CKD 3)<br>(GFR 30-59) | Severe (CKD 4 & 5)<br>(GFR <30) |
+|---|---|---|---|---|
+| **Biguanide§** | | | | |
+| Metformin | 500-1000 mg BD | Continue | 45-59: No dose adjustment<br>30-44: 50% dose reduction | Avoid |
+| **Sulphonylurea^** | | | | |
+| Glibenclamide | 5 mg OD -10 mg BD | Use with caution | Avoid | Avoid |
+| Gliclazide | 80 mg OD -160 mg BD | No dose adjustment | No dose adjustment | Caution |
+| Gliclazide MR | 30-120 mg OD | No dose adjustment | No dose adjustment | Caution |
+| Glimepiride | 1-6 mg OD | Initiate with 1 mg OD | ≥15: Caution | <15: Avoid |
+| Glipizide | 2.5 mg OD -10 mg BD | No dose adjustment | No dose adjustment | Caution |
+| **Meglitinides** | | | | |
+| Repaglinide | 0.5-4 mg TDS | No dose adjustment | No dose adjustment | Initiate at 0.5 mg with meals |
+| **Alpha-glucosidase Inhibitor** | | | | |
+| Acarbose | 25-100 mg TDS | 50-100% | ≥25: 50-100% | <25: Avoid |
+| **Thiazolidinediones** | | | | |
+| Pioglitazone | 15-45 mg OD | No dose adjustment (caution with fluid retention risk) | No dose adjustment (caution with fluid retention risk) | No dose adjustment (caution with fluid retention risk) |
+| **DPP4-i** | | | | |
+| Sitagliptin | 100 mg OD | No dose adjustment | > 50: No dose adjustment<br>30-<50: 50 mg OD | 25 mg OD |
+| Vildagliptin | 50 mg OD-BD | No dose adjustment | ≥50: No dose adjustment<br><50: 50 mg OD (limited data) | |
+| Saxagliptin | 2.5-5 mg OD | No dose adjustment | >50: No dose adjustment<br>≤50: 2.5 mg OD | |
+| Linagliptin | 2.5-5 mg OD | No dose adjustment | No dose adjustment | No dose adjustment |
+| **GLP-1RA** | | | | |
+| Exenatide IR | 5 μg/20 μL;<br>10 μg/40 μL | No dose adjustment | >50: No dose adjustment<br>30-50: Caution in initiating or escalating dose from 5 to 10 mcg | Avoid |
+| Exenatide ER | 2 mg weekly | No dose adjustment | >50: No dose adjustment<br>30-50: Use with caution | Avoid |
+| Liraglutide | 6 mg/mL | No dose adjustment | No dose adjustment | ≥15: No dose adjustment<br><15: Avoid |
+| | 3 mg | No dose adjustment | No dose adjustment | Avoid |
+| Lixisenatide | 50 μg/mL;<br>100 μg/mL | No dose adjustment | No dose adjustment | Avoid |
+| Dulaglutide | 0.75-1.5 mg weekly | No dose adjustment | No dose adjustment | ≥15: No dose adjustment<br><15: Avoid |
+| Semaglutide | 0.5-1.0 mg weekly | No dose adjustment | No dose adjustment | ≥15: No dose adjustment<br><15: Avoid |
+| **SGLT2 Inhibitors¶** | | | | |
+| Dapagliflozin | 5-10 mg OD | No dose adjustment | 45-59: No dose adjustment<br>30-44: Not recommended | Avoid |
+| Canagliflozin | 100-300 mg OD | No dose adjustment | 45-59: 100 mg OD<br>30-44: Not recommended | Avoid |
+| Empagliflozin | 10-25 mg OD | No dose adjustment | No dose adjustment | Avoid |
+| Ertugliflozin | 5-15 mg OD | No dose adjustment | 45-59: No initiation<br>30-44: Not recommended | Avoid |
+| Luseogliflozin | 2.5-5 mg OD | No dose adjustment | Not recommended | Avoid |
+| **Insulin** | | | | |
+| All insulin types | Doses should be adjusted based on frequent monitoring to balance goals of glycaemic control with avoiding hypoglycaemia. Long-acting tends to accumulate longer than short-acting insulin. | | | |
+
+*Dose escalation will depend on tolerability and according to the PI.*
+
+*GFR in ml/min/1.73 m²; \*usual dose not maximum dose.*
+*^ Sulphonylureas should be used cautiously because of the increased risk of hypoglycaemia. First generation sulphonylureas (e.g. glibenclamide): generally, should be avoided due to long half-life and risk of hypoglycaemia in patients with CKD. Gliclazide and glipizide are the preferred agents among the second-generation sulphonylureas as they do not have active metabolites and have lower risk of hypoglycaemia in CKD patients.*
+*§ Metformin is eliminated via kidney and may accumulate in body as kidney function deteriorates, increase risk of lactic acidosis.*
+*¶ SGLT2-i – eGFR below which this class of agents can be prescribed is expected to change, with the advent of their significant reno-protective and cardio-protective benefits; however, the indication may be for their reno and cardio-protective benefits rather than specifically for glucose lowering. At lower eGFR, glucose-lowering efficacy of SGLT2-i are modest. Shown here are cut-offs based on individual agents’ registered indication in Malaysia.*
+
+*CKD: chronic kidney disease; OD: daily; BD: twice daily; TDS: three times daily; GFR: glomerular filtration rate; DPP4-i: Dipeptidyl peptidase-4 inhibitors; GLP1-RA: glucagon-like peptide-1 receptor agonists; SGLT2-i: sodium-glucose transport protein 2 inhibitors.*
+
+Appendix 8: Cardiovascular Outcomes Trials (CVOTs)
+**(A) DPP4-i**
+| CVOTs DPP4-i | SAVOR-TIMI 53 (Level I) | EXAMINE (Level I) | TECOS (Level I) | CARMELINA (Level I) | CAROLINA (Level I) |
+|---|---|---|---|---|---|
+| **Trial participants (n)** | 16,492 | 5,380 | 14,671 | 6,979 | 6,033 |
+| **Intervention** | Saxagliptin (QD)/<br>Placebo | Alogliptin (QD)/<br>Placebo | Sitagliptin (QD)/<br>Placebo | Linagliptin (QD)/<br>Placebo | Linagliptin (QD)/<br>Glimepiride |
+| **Main inclusion criteria** | T2DM and history of or multiple risk factors for CVD | T2DM and ACS within 15-90 days before randomisation | T2DM and pre-existing CVD | T2DM and established CV and/or prevalent CKD | Early T2DM and pre-existing CVD or CV risk factors |
+| **Age (years)†** | 65.1 | 61.0 | 65.4 | 65.9 | 64.0 |
+| **Diabetes duration (years)†** | 10.3 | 7.1 | 11.6 | 14.8 | 6.3 |
+| **Median follow-up time (years)** | 2.1 | 1.5 | 3.0 | 2.2 | 6.3 |
+| **Prior CVD/CHF (%)** | 78/13 | 100/28 | 74/18 | 57/26.8 | 34.7/4.6 |
+| **Mean baseline HbA1c (%)** | 8.0 | 8.0 | 7.2 | 8.0 | 7.2 |
+| **Primary outcome** | 3-point MACE<br>1.00<br>(0.89-1.12)<br>*p<0.001 for non-inferiority*;<br>*p=0.99 for superiority* | 3-point MACE<br>0.96<br>(95% UL ≤1.16)<br>*p<0.001 for non-inferiority*;<br>*p=0.32 for superiority* | 4-point MACE<br>0.98<br>(0.89-1.08)<br>*p<0.001 for non-inferiority*;<br>*p=0.65 for superiority* | 3-point MACE<br>1.02<br>(0.89-1.17)<br>*p<0.001 for non-inferiority*;<br>*p=0.74 for superiority* | 3-point MACE<br>0.98<br>(0.84-1.14)<br>*p<0.001 for non-inferiority*;<br>*p=0.76 for superiority* |
+| **CV death** | 1.03<br>(0.87-1.22) | 0.79<br>(CI 0.60-1.04) | 1.03<br>(0.89-1.19) | 0.96<br>(0.81-1.14) | 1.0<br>(0.81-1.24) |
+| **Non-fatal MI** | 0.95<br>(0.80-1.12) | 1.08<br>(0.88-1.33) | 0.95<br>(0.81-1.11)<br>*(incl. fatal MI)* | 1.12<br>(0.90-1.40) | 1.01<br>(0.80-1.28) |
+| **Non-fatal stroke** | 1.11<br>(0.88-1.39) | 0.91<br>(0.55-1.50) | 0.97<br>(0.79-1.19)<br>*(incl. fatal stroke)* | 0.88<br>(CI 0.63-1.23) | 0.88<br>(CI 0.63-1.23) |
+| **HF hospitalisation** | 1.27<br>(1.07-1.51)<br>p=0.007 | 1.19<br>(0.90-1.58)<br>p=0.22 | 1.00<br>(0.83-1.20)<br>p=0.98 | 0.90<br>(0.74-1.08)<br>p=0.26 | 1.21<br>(0.92-1.59) |
+| **All-cause mortality HR** | 1.11<br>(0.96-1.27) | 0.88<br>(0.71-1.09) | 1.01<br>(0.90-1.14) | 0.98<br>(0.84-1.13)<br>p=0.74 | 0.91<br>(0.78-1.06) |
+| **Worsening DKD** | 1.08(a)<br>(0.88-1.32) | – | – | 1.04(b)<br>(0.89-1.22)<br>0.86(c)<br>(0.78-0.95)<br>**p=0.003** | |
+
+*† Age was reported as means in all trials except EXAMINE, which reported median; diabetes duration was reported as means in all trials except SAVOR-TIMI 53, EXAMINE and CAROLINA which reported medians.*
+*(a) Doubling of serum creatinine, initiation of dialysis, renal transplantation, or creatinine >6mg/dL*
+*(b) Sustained ESRD, death due to kidney failure, or sustained decrease of ≥40% in eGFR from baseline*
+*(c) Albuminuria progression*
+*Range in parenthesis indicates 95% Confidence Interval.*
+
+*CVOTs: cardiovascular outcomes trials; DPP4-i: Dipeptidyl peptidase-4 inhibitors; CV: cardiovascular; CVD: cardiovascular disease; CHF: congestive heart failure; MI: myocardial infarction; HF: heart failure; HR: hazard ratio; DKD: diabetic kidney diseases; QD: once daily; T2DM: type 2 diabetes mellitus; ACS: acute coronary syndrome; ASCVD: atherosclerotic cardiovascular disease; MACE: major adverse cardiovascular events.*
+
+**(B) SGLT2-i**
+| CVOTs SGLT2-i | EMPA-REG (Level I) | CANVAS program (Level I) | DECLARE-TIMI (Level I) | VERTIS CV* (Level I) |
+|---|---|---|---|---|
+| **Trial participants (n)** | 7,020 | 10,142 (4,330 & 5,812) | 17,160 | 8,238 |
+| **Intervention** | Empagliflozin (QD)/<br>placebo | Canagliflozin (QD)/<br>placebo | Dapagliflozin (QD)/<br>placebo | Ertugliflozin (QD)/<br>placebo |
+| **Main inclusion criteria** | T2DM and pre-existing CVD | T2DM and pre-existing CVD at ≥30 years of age or ≥2 CV risk factor at ≥50 years of age | T2DM and established ASCVD or multiple risk factors for ASCVD | T2DM and established ASCVD |
+| **Age (years)** | 63.1 | 63.3 | 63.9 | 64.4 |
+| **Diabetes duration (years)** | 57% >10 | 13.5 | 11 | 13 |
+| **Median follow-up time (years)** | 3.1 | 2.4 | 4.2 | 3.0 |
+| **Prior CVD/ CHF (%)** | 99/10.2 | 65.6/14.4 | 40/10 | 100/23 |
+| **Mean baseline HbA1c (%)** | 8.1 | 8.2 | 8.3 | 8.2 |
+| **Primary outcome** | 3-point MACE<br>**0.86** (0.74-0.99)<br>*p<0.001 for non-inferiority*;<br>***p=0.04 for superiority*** | 3-point MACE<br>**0.86** (0.75-0.97)<br>*p<0.001 for non-inferiority*;<br>***p=0.02 for superiority*** | 3-point MACE<br>**0.93** (0.84-1.03)<br>***p<0.001 for non-inferiority***;<br>*p=0.17 for superiority*<br><br>CV death or HF hospitalization<br>**0.83** (0.73-0.95)<br>***p=0.005 for superiority*** | 3-point MACE<br>**0.97** (0.85-1.11)<br>*p<0.001 for non-inferiority* |
+| **CV death** | 0.62<br>(0.49-0.77)<br>**p<0.001** | 0.87<br>(0.72-1.06) | 0.98<br>(0.82-1.17) | 0.92<br>(0.77-1.11) |
+| **Non-fatal MI** | 0.87<br>(0.70-1.09) | 0.85<br>(0.69-1.05) | 0.89<br>(0.77-1.01) | 1.04<br>(0.86-1.27) |
+| **Non-fatal stroke** | **1.24**<br>**(0.92-1.67)** | 0.90<br>(0.71-1.15) | 1.01<br>(0.84-1.21) | 1.01<br>(0.84-1.21) |
+| **HF hospitalisation** | 0.65<br>(0.50-0.85)<br>**p<0.001** | 0.67<br>(0.52-0.87) | 0.73<br>(0.61-0.88) | 0.70<br>(0.54-0.90) |
+| **All-cause mortality HR** | 0.68<br>(0.57-0.82)<br>p<0.001 | 0.87<br>(0.74-1.01) | 0.93<br>(0.82-1.04) | 0.93<br>(0.80-1.08) |
+| **Worsening DKD** | 0.61(a)<br>(0.53-0.70)<br>p<0.001 | 0.60(a)<br>(0.47-0.77)<br><br>0.73(b)<br>(0.67-0.79); | 0.53(c)<br>(0.43-0.66) | 0.81(d)<br>(0.64-1.04) |
+
+*† Age was reported as means in all trials; diabetes duration was reported as mean in CANVAS and VERTIS CV; EMPA-REG reported as percentage of population with DM duration >10 yrs; DECLARE-TIMI 58, which reported median.*
+*(a) Progression to macroalbuminuria, double of serum creatinine level, initiation of renal replacement therapy or death from renal disease*
+*(b) ≥40% reduction in eGFR, renal-replacement therapy, or renal death*
+*(c) ≥40% decrease in eGFR to <60 ml/min/1.73 m2, ESRD, or death from renal cause*
+*(d) Doubling of serum creatinine, renal replacement therapy or death from renal causes*
+*Range in parenthesis indicates 95% Confidence Interval.*
+
+*\*The hazard ratio for the primary outcome event is reported with a 95.6% confidence interval (adjusted to account for the interim analysis). The hazard ratio for key secondary outcome events are reported with a 95.8% confidence interval (adjusted to account for the interim analysis). The hazard ratios for other secondary outcome events are reported with a 95% confidence interval.*
+
+*CVOTs: cardiovascular outcomes trials; SGLT2-i: sodium-glucose cotransporter 2 inhibitors; CV: cardiovascular; CVD: cardiovascular disease; CHF: congestive heart failure; MI: myocardial infarction; HF: heart failure; HR: hazard ratio; DKD: diabetic kidney diseases; QD: once daily; T2DM: type 2 diabetes mellitus; ACS: acute coronary syndrome; ASCVD: atherosclerotic cardiovascular disease; MACE: major adverse cardiovascular events.*
+
+**(C) GLP1-RA**
+| CVOTs GLP1-RA | ELIXA (Level I) | LEADER (Level I) | SUSTAIN-6 (Level I) | EXSCEL (Level I) | HARMONY outcomes (Level I) | REWIND (Level I) | PIONEER 6 (Level I) |
+|---|---|---|---|---|---|---|---|
+| **Trial participants (n)** | 6,068 | 9,340 | 3,297 | 14,752 | 9,463 | 9,901 | 3,183 |
+| **Intervention** | Lixisenatide<br>(QD) | Liraglutide<br>(QD) | Semaglutide<br>(OW) | Exenatide<br>(QW) | Albiglutide<br>(OW) | Dulaglutide<br>(OW) | Semaglutide Oral (QD) |
+| **Main inclusion criteria** | T2DM and history of ACS (<180 days) | T2DM and pre-existing CVD, CKD, or HF at ≥50 years of age or CV risk at ≥60 years of age | T2DM and pre-existing CVD, HF, or CKD at ≥50 years of age or CV risk at ≥60 years of age | T2DM with or without pre-existing CVD | T2DM with pre-existing CVD | T2DM and prior ASCVD event or risk factors for ASCVD | T2DM and pre-existing CVD, HF or moderate CKD at ≥50 years of age or CV risk at ≥60 years of age |
+| **Age (years)** | 60.3 | 64.3 | 64.6 | 62.0 | 64.1 | 66.2 | 66.0 |
+| **Diabetes duration (years)** | 9.3 | 12.8 | 13.9 | 12.0 | 14.1 | 10.5 | 14.9 |
+| **Median follow-up time (years)** | 2.1 | 3.8 | 2.1 | 3.2 | 1.6 | 5.4 | 1.4 |
+| **Prior CVD/ CHF (%)** | 100/22.4 | 81.3/17.9 | 83/23.6 | 73.1/16.2 | 100/20 | 31.4/8.6 | 84.7/12.2 |
+| **Mean baseline HbA1c (%)** | 7.7 | 8.7 | 8.7 | 8.0 | 8.7 | 7.3 | 8.2 |
+| **Primary outcome** | 4-point MACE<br>1.02<br>(0.89-1.17)<br>p=0.81 | 3-point MACE<br>**0.87**<br>(0.78-0.97)<br>p=0.01 | 3-point MACE<br>**0.74**<br>(0.58-0.95)<br>***p<0.001 for noninferiority, p<0.02 for superiority*** | 3-point MACE<br>**0.91**<br>(0.83-1.00)<br>p=0.06 | 3-point MACE<br>**0.78**<br>(0.68–0.90)<br>p=0.0006 | 3-point MACE<br>0.88<br>(0.79-0.99)<br>p=0.026 | 3-point MACE<br>**0.79**<br>(0.57-1.11)<br>***p<0.001 for noninferiority***,<br>p=0.17 for superiority |
+| **CV death** | 0.98<br>(0.78-1.22) | 0.78<br>(0.66-0.93) | 0.98<br>(0.65-1.48) | 0.88<br>(0.73-1.05) | 0.93<br>(0.73-1.19) | 0.91<br>(0.78-1.06) | 0.49<br>(0.27-0.92) |
+| **Non-fatal MI** | 1.03<br>(0.87-1.22) | 0.88<br>(0.75-1.03) | 0.74<br>(0.51-1.08) | 0.95<br>(0.84-1.09) | 0.75<br>(0.61-0.90) | 0.96<br>(0.79-1.16) | 1.18<br>(0.73-1.90) |
+| **Non-fatal stroke** | 1.12<br>(0.79-1.58) | 0.89<br>(0.72-1.11) | 0.61<br>(0.38-0.99) | 0.86<br>(0.70-1.07) | 0.86<br>(0.66-1.14) | 0.76<br>(0.61-0.95) | 0.74<br>(0.35-1.57) |
+| **HF hospitalisation** | 0.96<br>(0.75-1.23) | 0.87<br>(0.73-1.05) | 1.11<br>(0.77-1.61) | 0.94<br>(0.78-1.13) | 0.85<br>(0.70-1.04)<br>[Composite of CV death or hHF] | 0.93<br>(0.77-1.12) | 0.86<br>(0.48-1.55) |
+| **All-cause mortality HR** | 0.94<br>(0.78-1.13) | 0.85<br>(0.74-0.97) | 1.05<br>(0.74-1.50) | 0.86<br>(0.77-0.97) | 0.95<br>(0.79-1.16) | 0.90<br>(0.80-1.01) | 0.51<br>(0.31-0.84) |
+| **Worsening DKD** | 0.81(a)<br>(0.66-0.99) | 0.78(b)<br>(0.67-0.92) | 0.64(c)<br>(0.46-0.88) | 0.85(d)<br>(0.74-0.98) | Reported as AEs | 0.85(e)<br>(0.77-0.93) | Reported as AEs |
+
+*† Age was reported as means in all trials; diabetes duration was reported as means except EXSCEL, which reported median.*
+*(a) New onset macroalbuminuria*
+*(b) Nephropathy [defined as new onset macro-albuminuria or doubling of serum creatinine and eGFR ≤45 ml/min/1.73 m2, need for continuous renal-replacement therapy, or death from renal disease*
+*(c) Persistent macroalbuminuria, persistent doubling of serum creatinine and creatinine clearance per MDRD <45ml/min/1.73m2, need for continuous renal-replacement therapy*
+*(d) ≥40% decline in eGFR, renal replacement, renal death and new macroalbuminuria*
+*(e) New macro-albuminuria, sustained decline in eGFR > 30% from baseline, or chronic renal replacement therapy*
+*Range in parenthesis indicates 95% Confidence Interval.*
+
+*CVOTs: cardiovascular outcomes trials; DPP4-i: Dipeptidyl peptidase-4 inhibitors; CV: cardiovascular; CVD: cardiovascular disease; CHF: congestive heart failure; MI: myocardial infarction; HF: heart failure; HR: hazard ratio; DKD: diabetic kidney diseases; QD: once daily; T2DM: type 2 diabetes mellitus; ACS: acute coronary syndrome; ASCVD: atherosclerotic cardiovascular disease; MACE: major adverse cardiovascular events; MDRD: Modification of Diet in Renal Disease Study.*
+
 Level of Evidence
 | Level | Source |
 |---|---|
@@ -503,6 +639,13 @@ Level of Evidence
 | Level II-2 | Evidence from well-designed cohort or case-control analytic studies |
 | Level II-3 | Evidence from multiple time series or dramatic results in uncontrolled experiments |
 | Level III | Opinions of respected authorities, based on clinical experience, descriptive studies or reports of expert committees |
+
+Grading System
+| Grade | Description |
+|---|---|
+| Grade A | Evidence from multiple randomised controlled trials or meta-analyses |
+| Grade B | Evidence from limited clinical trials or observational studies |
+| Grade C | Consensus of expert opinion |
 
 Abbreviations
 | Abbreviation | Full Term |

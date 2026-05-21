@@ -1,13 +1,12 @@
 # Section 6: T2DM in Special Populations
 <!-- METADATA
-category: Special Populations, Acute Illness, Adolescents, Elderly, Ramadan
+category: Special Populations, Treatment
 use_case: Management of T2DM in acute illness/surgery, adolescents, elderly patients and during Ramadan fasting
 patient_input: age, inpatient_glucose, surgery_type, HbA1c, eGFR, frailty_score, comorbidities, insulin_regimen, fasting_status, risk_category, adolescent_BMI, pubertal_status
 output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target_elderly, Ramadan_drug_adjustment, adolescent_management, risk_stratification_Ramadan
 -->
 
-## Summary of Updates
-
+**Summary of Updates**
 - **Management of T2DM in acute illness, stress and surgery:**
   - HbA1c should be considered for inpatients with hyperglycaemia or known T2DM if it has not been done for the last 3 months.
   - Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.
@@ -25,8 +24,7 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
   - SGLT2-i are generally safe in patients without advanced renal disease.
   - GLP1-RA are safe and effective in reducing weight and maintaining HbA1c.
 
-## 6.1 Management of T2DM in Acute Illness, Stress and Surgery
-
+## 6.1: Management of T2DM in Acute Illness, Stress and Surgery
 - Hyperglycaemia in acute illness may reflect previously known or undiagnosed T2DM.
   - Acute illness results in a number of physiological changes (e.g. increase in circulating concentrations of stress hormones) or therapeutic interventions (e.g. glucocorticoid use) that can exacerbate hyperglycaemia (Level III).
 - Hyperglycaemia in turn, causes physiological changes that exacerbate the acute illness, such as decreased immune function and increased oxidative stress (Level III).
@@ -34,14 +32,12 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
   - Inpatient hyperglycaemia is associated with a mortality rate of 11.2% (Level II-2).
 - A dedicated inpatient diabetes service applying well-developed standards and careful transition to prearranged outpatient management is important to improve patient outcomes (Level II-2).
 
-### Inpatient Hyperglycaemia
-
+**Inpatient Hyperglycaemia**
 - Inpatient hyperglycaemia is defined as any glucose value **>7.8 mmol/L** in patients with no previous history of T2DM (Level III).
 - HbA1c should be considered for inpatients with hyperglycaemia or known T2DM if it has not been done for the last 3 months.
   - Admission HbA1c has been found to be a good predictor of glycaemic control and response to insulin treatment, and tailoring treatment on discharge (Level II-2).
 
-### Glycaemic Control
-
+**Glycaemic Control**
 **A. In Non-Critically Ill Patients (Level I):**
 - **Insulin is the preferred pharmacological therapy** for most hospitalised patients with T2DM or hyperglycaemia.
 - In non-critically ill patients with T2DM, scheduled insulin regimens are recommended to manage hyperglycaemia.
@@ -70,7 +66,7 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
   - During intra-operative period and/or fasting, stop OGLDs and convert to insulin i.e. basal plus insulin or VRIII.
   - Once tolerating orally with stable plasma glucose, to resume previous pre-operative regimen.
 
-### Use of Insulin (Inpatient)
+**Use of Insulin (Inpatient)**
 - **The use of sliding scale insulin (SSI) in inpatient hospital setting is strongly discouraged.**
 - SSI protocols, when compared to a basal-bolus regime have been shown to be associated with (Level I):
   - Increased glycaemic variability
@@ -90,19 +86,17 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
 - In absence of contraindications, CSII can be continued during hospitalisation.
 - If patient is unable (mentally or physically) to manage CSII or there is presence of contraindications, it can be converted to basal bolus insulin regimen or VRIII (Level III).
 
-### Transition from Hospital to Home
+**Transition from Hospital to Home**
 - During recovery, education on diabetes care including treatment regime, plasma glucose monitoring and medical nutritional therapy are important aspects of discharge planning.
 - On discharge: Rapid reduction in HbA1c especially among those with long standing uncontrolled disease and background retinopathy should be avoided to prevent transient worsening of diabetes retinopathy (Level I) (Level II-3).
 
-### Recommendations: Management of T2DM in Acute Illnesses, Stress and Surgery
-
+**Recommendations: Management of T2DM in Acute Illnesses, Stress and Surgery**
 | Recommendation | Grade |
 |---|---|
-| In hospitalised patients without known diabetes, plasma glucose >7.8, signifies hyperglycaemia and warrants further monitoring. | **Grade B** |
-| Inpatient target plasma glucose levels should be between 7.8 mmol/L–10.0 mmol/L for majority of critically ill and non-critically ill patients. | **Grade B** |
+| In hospitalised patients without known diabetes, plasma glucose >7.8, signifies hyperglycaemia and warrants further monitoring. | Grade B |
+| Inpatient target plasma glucose levels should be between 7.8 mmol/L–10.0 mmol/L for majority of critically ill and non-critically ill patients. | Grade B |
 
-## 6.2 T2DM in Adolescents
-
+## 6.2: T2DM in Adolescents
 - T2DM is rapidly increasing among the adolescents (ages 12–18 years) in tandem with rising sedentary lifestyles, prevalence of obesity and increase in-utero glycaemic exposure (Level II-2).
 - T2DM usually occurs in the 2nd decade coinciding with physiologic pubertal insulin resistance, more common in female gender, increased adiposity, family history of diabetes and low socioeconomic status.
 - Cross-sectional, observational and therapeutic trials suggest that T2DM in the young might represent a **more severe and rapidly progressive disorder** than in adults (Level III).
@@ -114,20 +108,18 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
 - When ketosis/ketoacidosis is present at onset (Level III)
 - When pancreatic autoantibodies are positive (Level II-2)
 
-### Screening and Diagnosis
+**Screening and Diagnosis**
 - Risk-based screening for prediabetes and/or T2DM should be considered in adolescents or during onset of puberty who are overweight (BMI ≥85th percentile) or obese (BMI ≥95th percentile) and who have one or more additional risk factors for diabetes (Level III).
 - Screen at a minimum every 3 years (or more frequently if BMI is increasing) starting at the age of 10 or at onset of puberty, if puberty occurs at a younger age (Level III).
   - A glucose load of **1.75 g/kg body weight (maximum of 75 g)** for OGTT is used.
 
-### Management of T2DM in Adolescents
-
+**Management of T2DM in Adolescents**
 **Goals:**
 - Goal of treatment is to achieve HbA1c <7.0% (<53 mmol/mol; i.e. 8.6 mmol/L) (Level III).
 - Home SMBG targets (Level III): Premeal: 4.0–7.0 mmol/L; Post meal: 5.0–10.0 mmol/L; Prebed: 4.4–7.8 mmol/L.
 - HbA1c should be measured every 3 months.
 
-### Table 6-1: Essential Monitoring in Adolescents with T2DM
-
+Table 6-1: Essential Monitoring in Adolescents with T2DM
 | Time points | Essential monitoring |
 |---|---|
 | **At diagnosis and annually** | Test for microalbuminuria or macroalbuminuria <br> Examination for retinopathy <br> Test for dyslipidaemia <br> Evaluation for NAFLD <br> Foot examination for neuropathy — foot pulses, pinprick and vibration sensation, ankle reflex |
@@ -148,8 +140,7 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
 - Insulin may be required for initial metabolic control. Transition from insulin to metformin can usually be made when metabolic stability is reached. This may take 2–6 weeks (Level III).
 - If glycaemic targets are not achieved with metformin (with or without basal insulin), **liraglutide can be considered** (Level I) (avoid in patients with family history of medullary thyroid carcinoma/MEN 2).
 
-### Approach to Initial Treatment in Adolescents
-
+**Approach to Initial Treatment in Adolescents**
 **For HbA1c <8.5%, No acidosis or ketosis:**
 - Metformin BD: Titrate up to 2000 mg/day as tolerated
 - Test for pancreatic autoantibodies:
@@ -168,17 +159,15 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
 - IV insulin until acidosis resolves, then SC, as for T1DM until antibodies are known
 - Test for pancreatic autoantibodies
 
-### Recommendations: T2DM in Adolescents
-
+**Recommendations: T2DM in Adolescents**
 | Recommendation | Grade |
 |---|---|
-| For those at risk of developing diabetes, screening should be initiated at 10 years of age or at onset of puberty if puberty occurs at a younger age and repeated every 2 years. | **Grade C** |
-| A glucose load of 1.75 g/kg body weight (maximum of 75 g) for OGTT is recommended. | **Grade C** |
-| Metformin and insulin remain the mainstay of T2DM treatment in adolescents. | **Grade A** |
-| Incorporation of a multidisciplinary team in managing diabetes in adolescence. | **Grade C** |
+| For those at risk of developing diabetes, screening should be initiated at 10 years of age or at onset of puberty if puberty occurs at a younger age and repeated every 2 years. | Grade C |
+| A glucose load of 1.75 g/kg body weight (maximum of 75 g) for OGTT is recommended. | Grade C |
+| Metformin and insulin remain the mainstay of T2DM treatment in adolescents. | Grade A |
+| Incorporation of a multidisciplinary team in managing diabetes in adolescence. | Grade C |
 
-## 6.3 T2DM in Elderly
-
+## 6.3: T2DM in Elderly
 - Diabetes is more common in the elderly (>60 years old). The prevalence of T2DM in individuals between the ages of 60–64, 65–69 and 70–74 are 42.4%, 43.4% and 40.6%, respectively.
 - The elderly with T2DM is a very heterogeneous group ranging from active individuals with little comorbidity and complications to frail individuals with multiple serious co-morbidities and disabling complications.
 - There is also an increased rate of age-related concomitant illnesses e.g. hypertension, renal impairment, ischaemic heart disease, cognitive impairment and functional disabilities with increased risk of falls.
@@ -200,8 +189,7 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
 - Regular assessment of medical, psychosocial, functional and social domains is necessary.
   - Annual screening with tools such as the Mini-Mental State Examination, Mini-Cognitive, the Montreal Cognitive Assessment and the Clinical Frailty Score may help identify patients requiring neuropsychological evaluation and referral to geriatrician (Level II).
 
-### Table 6-2: Treatment Goals for Glycaemia, BP and Dyslipidaemia in Elderly with T2DM
-
+Table 6-2: Treatment Goals for Glycaemia, BP and Dyslipidaemia in Elderly with T2DM
 | Patient characteristics/health status | Rationale | Reasonable HbA1c goal | Plasma glucose targets (mmol/L) | BP (mm Hg) | Lipids |
 |---|---|---|---|---|---|
 | **Healthy** (few coexisting chronic illnesses, intact cognitive and functional status) | Longer life expectancy | ≤7.5 | Fasting: 5–7.2; Pre-bed: 5.0–8.3 | <140/90 | Statins treatment as long as tolerated |
@@ -211,17 +199,15 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
 *\* Coexisting chronic illnesses are conditions serious enough to require medications or lifestyle management. "Multiple" means ≥3.*
 *\*\* The presence of a single end-stage chronic illness, such as stage 3–4 congestive heart failure or oxygen-dependent lung disease, DKD requiring dialysis, or uncontrolled metastatic cancer.*
 
-### Recommendations: T2DM in Elderly
-
+**Recommendations: T2DM in Elderly**
 | Recommendation | Grade |
 |---|---|
-| PPG values are a better outcome predictor compared to HbA1c or pre-prandial glucose values. | **Grade C** |
-| Glycaemic targets depend on the degree of frailty and overall life expectancy of each individual, rather than chronological age. | **Grade C** |
-| Adequate nourishment and physical training to be established. | **Grade C** |
-| Periodic cognitive assessment to determine adherence to prescribed management. | **Grade B** |
+| PPG values are a better outcome predictor compared to HbA1c or pre-prandial glucose values. | Grade C |
+| Glycaemic targets depend on the degree of frailty and overall life expectancy of each individual, rather than chronological age. | Grade C |
+| Adequate nourishment and physical training to be established. | Grade C |
+| Periodic cognitive assessment to determine adherence to prescribed management. | Grade B |
 
-## 6.4 Diabetes in Ramadan
-
+## 6.4: Diabetes in Ramadan
 - Fasting during Ramadan is obligatory for all healthy adult Muslims.
 - Ramadan fasting may have favourable physiological changes among healthy individuals, such as decreased body weight and lipid profile.
 - Fasting in certain individuals with diabetes may be associated with adverse outcomes; hence they are not obliged to fast.
@@ -230,8 +216,7 @@ output: inpatient_glucose_target, insulin_regimen_modification, glycaemic_target
 - There are several potential risks associated with fasting in Ramadan namely hypoglycaemia, hyperglycaemia/DKA, dehydration and thrombosis.
 - It is important to **categorise patients** who intend to fast based on risk stratification. Those in high- and very high-risk categories should abstain from fasting (Level III).
 
-### Risk Categories for Ramadan Fasting (IDF-DAR)
-
+**Risk Categories for Ramadan Fasting (IDF-DAR)**
 **Category 1 — Very High Risk** (should abstain from fasting):
 1. Severe hypoglycaemia within the 3 months prior to Ramadan
 2. DKA within the 3 months prior to Ramadan
@@ -265,7 +250,7 @@ Well-controlled T2DM treated with: lifestyle therapy, metformin, acarbose, TZDs,
 - Be prepared to break the fast in case of hypo- or hyperglycaemia
 - Be prepared to stop the fast in case of frequent hypo- or hyperglycaemia or worsening of other related medical conditions
 
-### Preparation Prior to Ramadan
+**Preparation Prior to Ramadan**
 A pre-Ramadan medical assessment should be performed. Patients and caregivers should receive education concerning self-care (Level III):
 - Risks of adverse effect of fasting
 - SMBG
@@ -274,8 +259,7 @@ A pre-Ramadan medical assessment should be performed. Patients and caregivers sh
 - Exercise and physical activity
 - Modifications of glucose lowering medication (oral and in particular insulin)
 
-### Table 6-3: Criteria to Terminate Fasting
-
+Table 6-3: Criteria to Terminate Fasting
 | Plasma glucose (mmol/L) | Time of day |
 |---|---|
 | <3.3 (Level II-2) | Anytime during fast |
@@ -283,8 +267,7 @@ A pre-Ramadan medical assessment should be performed. Patients and caregivers sh
 | >16.7 (Level II-2) or symptomatic of dehydration | Anytime during fast |
 | Without SMBG (Level III) | When experiencing symptoms of hypoglycaemia, or severe dehydration, e.g. giddiness, syncope or confusion |
 
-### Table 6-4: Recommendations for SMBG During Ramadan
-
+Table 6-4: Recommendations for SMBG During Ramadan
 | Mode of treatment | Sahur Pre | Sahur Post | Mid-day | Iftar Pre | Iftar Post/Pre-bed |
 |---|---|---|---|---|---|
 | OGLDs (especially SU) | | | ✓ | ✓ | ✓ |
@@ -293,8 +276,7 @@ A pre-Ramadan medical assessment should be performed. Patients and caregivers sh
 | Premixed BD | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Prandial/bolus | ✓ | ✓ | ✓ | ✓ | ✓ |
 
-### Table 6-5: Adjustment of OGLDs During Fasting in Ramadan
-
+Table 6-5: Adjustment of OGLDs During Fasting in Ramadan
 | Regimen | Iftar | Sahur |
 |---|---|---|
 | AGIs | No change | No change |
@@ -307,8 +289,7 @@ A pre-Ramadan medical assessment should be performed. Patients and caregivers sh
 
 *\*SGLT2-i associated with some safety concerns in particular, dehydration and should be used with caution in patients with DKD ≥Stage 3 (Level III) (Level II-3).*
 
-### Table 6-6: Insulin Adjustments During Ramadan
-
+Table 6-6: Insulin Adjustments During Ramadan
 | Insulin Regimen | Adjustment |
 |---|---|
 | **Basal insulin only** | Basal insulin to be taken at bedtime or after Iftar. May need dose reduction if there is a risk of daytime hypoglycaemia. Patients who are well/tightly controlled suggest dose reduction of 15–30% (Level III) |
@@ -326,87 +307,64 @@ A pre-Ramadan medical assessment should be performed. Patients and caregivers sh
 - A post-Ramadan follow-up meeting with HCPs is advisable in order to discuss medication and regimen readjustments.
 - It should be stressed to the patient that a safe fast one year does not automatically make them a low risk for the next year due to the progressive nature of the disease.
 
-### Recommendations: Management During Ramadan
-
+**Recommendations: Management During Ramadan**
 | Recommendation | Grade |
 |---|---|
-| A pre-Ramadan medical assessment of general well-being, glycaemic control, comorbidities and complications should be performed to categorise the patient's risk from fasting as well as to optimise their managements. | **Grade C** |
-| Patients and caregivers should receive education concerning self-care on risks of hypoglycaemia, hyperglycaemia and dehydration. | **Grade C** |
-| Glucose lowering therapies should be individualised during fasting — modification of medication may be needed. | **Grade C** |
-| SMBG recommended especially in patients on insulin or SUs/meglitinides. | **Grade C** |
-| Clear advice on when to terminate fasting should be given e.g. in the event of severe hypoglycaemia or during "sick day". | **Grade C** |
+| A pre-Ramadan medical assessment of general well-being, glycaemic control, comorbidities and complications should be performed to categorise the patient's risk from fasting as well as to optimise their managements. | Grade C |
+| Patients and caregivers should receive education concerning self-care on risks of hypoglycaemia, hyperglycaemia and dehydration. | Grade C |
+| Glucose lowering therapies should be individualised during fasting — modification of medication may be needed. | Grade C |
+| SMBG recommended especially in patients on insulin or SUs/meglitinides. | Grade C |
+| Clear advice on when to terminate fasting should be given e.g. in the event of severe hypoglycaemia or during "sick day". | Grade C |
 
 <!-- parent_only_reference_start -->
-### Inpatient Glucose Targets Quick Reference
-
-| Setting | Target glucose |
+Level of Evidence
+| Level | Source |
 |---|---|
-| Non-critically ill | 7.8–10.0 mmol/L |
-| Critically ill (ICU) | 7.8–10.0 mmol/L |
-| Surgery | 6.0–10.0 mmol/L |
-| Avoid | ≤3.9 mmol/L |
+| Level I | Evidence from at least one properly designed randomised controlled trial |
+| Level II-1 | Evidence from well-designed controlled trials without randomisation |
+| Level II-2 | Evidence from well-designed cohort or case-control analytic studies |
+| Level II-3 | Evidence from multiple time series or dramatic results in uncontrolled experiments |
+| Level III | Opinions of respected authorities, based on clinical experience, descriptive studies or reports of expert committees |
 
-### Elderly T2DM Glycaemic Goals
-
-| Health Status | HbA1c Goal | Fasting Glucose |
-|---|---|---|
-| Healthy (few comorbidities) | ≤7.5% | 5–7.2 mmol/L |
-| Complex/Intermediate | <8.0% | 5–8.3 mmol/L |
-| Very complex/poor health | <8.5% | 5.6–10 mmol/L |
-
-### Ramadan Risk Categories (Quick Reference)
-
-| Category | Description | Recommendation |
-|---|---|---|
-| Very High Risk | Severe hypo, DKA, HHS within 3 months; recurrent hypo; acute illness; pregnancy + insulin/SU; dialysis; advanced complications; old + ill | Should NOT fast |
-| High Risk | Poor glycaemic control; insulin MDI/mixed; pregnant + metformin; DKD stage 3; comorbidities | Should NOT fast |
-| Moderate/Low Risk | Well-controlled on lifestyle, metformin, AGI, TZD, 2nd gen SU, incretin, SGLT2-i, or basal insulin | May fast with education and monitoring |
-
-### Drug Adjustments During Ramadan (Summary)
-
-| Drug | Change at Iftar | Change at Sahur |
-|---|---|---|
-| Metformin | No change | No change |
-| AGI | No change | No change |
-| DPP4-i | Switch timing to Iftar | Remove from Sahur |
-| SGLT2-i | Switch timing to Iftar | Remove from Sahur |
-| TZD | No change | No change |
-| SU (Gliclazide MR, Glimepiride) | No change | Switch timing to Iftar; consider dose reduction |
-| Glibenclamide | No change | Reduce/omit |
-| Basal insulin | Take at bedtime or after Iftar | Reduce dose by 15–30% if well controlled |
-| Premixed BD insulin | Morning dose at Iftar | Reduce dose by 20–50% |
-| GLP1-RA | No dose change; give at Iftar | Remove from Sahur |
-
-### Grading System
-
+Grading System
 | Grade | Description |
 |---|---|
-| **Grade A** | Evidence from multiple randomised controlled trials or meta-analyses |
-| **Grade B** | Evidence from limited clinical trials or observational studies |
-| **Grade C** | Consensus of expert opinion |
+| Grade A | Evidence from multiple randomised controlled trials or meta-analyses |
+| Grade B | Evidence from limited clinical trials or observational studies |
+| Grade C | Consensus of expert opinion |
 
-### Key Abbreviations
-
+Abbreviations
 | Abbreviation | Full Term |
 |---|---|
 | AGI | Alpha-Glucosidase Inhibitor |
-| CSII | Continuous SC Insulin Infusion |
+| BD | Twice Daily |
+| BMI | Body Mass Index |
+| BP | Blood Pressure |
 | CHO | Carbohydrate |
+| CSII | Continuous Subcutaneous Insulin Infusion |
 | CVD | Cardiovascular Disease |
 | DKA | Diabetic Ketoacidosis |
 | DKD | Diabetic Kidney Disease |
+| DM | Diabetes Mellitus |
 | DPP4-i | Dipeptidyl Peptidase 4 Inhibitor |
-| FDA | United States Food and Drug Administration |
+| FDA | Food and Drug Administration |
 | GDM | Gestational Diabetes Mellitus |
+| GFR | Glomerular Filtration Rate |
+| GLD | Glucose Lowering Drug |
 | GLP1-RA | Glucagon-Like Peptide-1 Receptor Agonist |
 | HbA1c | Glycated Haemoglobin |
+| HCP | Healthcare Professional |
 | HHS | Hyperglycaemic Hyperosmolar State |
 | ICR | Insulin-to-Carbohydrate Ratio |
 | ICU | Intensive Care Unit |
+| IDF-DAR | International Diabetes Federation - Diabetes and Ramadan |
+| IV | Intravenous |
 | MDI | Multiple Dose Insulin |
 | MEN | Multiple Endocrine Neoplasia |
+| MR | Modified Release |
 | NAFLD | Non-Alcoholic Fatty Liver Disease |
 | NPH | Neutral Protamine Hagedorn |
+| OD | Once Daily |
 | OGLD | Oral Glucose Lowering Drug |
 | OGTT | Oral Glucose Tolerance Test |
 | PCOS | Polycystic Ovarian Syndrome |

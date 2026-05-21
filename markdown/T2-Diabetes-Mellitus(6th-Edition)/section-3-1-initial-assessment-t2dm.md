@@ -1,4 +1,4 @@
-# Section 3.1: Initial Assessment
+# Section 3: Management of Type 2 Diabetes Mellitus
 <!-- METADATA
 category: Assessment
 use_case: Initial assessment of newly diagnosed T2DM patient — history, physical examination, investigations, aims of treatment
@@ -9,7 +9,7 @@ output: assessment_checklist, treatment_aims, monitoring_schedule
 **Summary of Updates**
 - Importance of categorizing patients at initial visit, in particular with regard to presence of co-morbidities (i.e. CV, renal complications, quality of life assessments), as it will help in deciding management plans.
 
-## 3.1 Initial Assessment
+## 3.1: Initial Assessment
 - At diagnosis of T2DM:
   - A detailed history which focuses on a few key issues which will affect treatment decision should be undertaken apart from assessing for symptoms and presentation of diabetes (refer to Table 3-1: Detailed Assessment of a Newly Diagnosed Patient with T2DM).
   - Full physical examination (including fundoscopy and monofilament test) and baseline investigations should be performed to assess for presence of ASCVD risk factors and complications of diabetes.
@@ -31,9 +31,12 @@ Table 3-2: Physical Examination of Newly Diagnosed Patient with T2DM
 |---|---|
 | **Weight/waist measurement** | • Body mass index (BMI) = weight (kg) / height² (m²) <br> • Waist circumference (WC) <br> • Growth/pubertal development in adolescents |
 | **CV system** | • Blood pressure (supine and standing) <br> • Neck and peripheral pulses <br> • Precordial examination |
-| **Eye** (Refer to Section 5.1) | • Visual acuity with refraction (with corrected vision) <br> • Dilated retinal examination/photography (for retinopathy) <br> • Cataract |
-| **Feet** (Refer to Section 5.6) | • Skin integrity <br> • Pressure areas/callus formation <br> • Ulcer <br> • Toenails <br> • Interdigital lesions <br> • Foot deformities (structure/Charcot's joint) <br> • Skin sensation <br> • Pedal pulses (dorsalis pedis and posterior tibial) |
-| **Peripheral nerves** (Refer to Section 5.3) | • Tendon reflexes <br> • Sensation: touch (e.g. with 10-g monofilament) <br> • Vibration (e.g. with 128-Hz tuning fork) |
+| **Eye** (Refer to Section 5.1: Retinopathy) | • Visual acuity with refraction (with corrected vision) <br> • Dilated retinal examination/photography (for retinopathy) <br> • Cataract |
+| **Feet** (Refer to Section 5.6: Sexual dysfunction) | • Skin integrity <br> • Pressure areas/callus formation <br> • Ulcer <br> • Toenails <br> • Interdigital lesions <br> • Foot deformities (structure/Charcot's joint) <br> • Skin sensation <br> • Pedal pulses (dorsalis pedis and posterior tibial) |
+| **Peripheral nerves** (Refer to Section 5.3: Neuropathy) | • Tendon reflexes <br> • Sensation: touch (e.g. with 10-g monofilament) <br> • Vibration (e.g. with 128-Hz tuning fork) | 
+ <!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.1: Retinopathy" target_kind="h2_section" -->
+<!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.6: Sexual dysfunction" target_kind="h2_section" -->
+<!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.3: Neuropathy" target_kind="h2_section" -->
 
 Table 3-3: Investigations for a Newly Diagnosed Patient with T2DM
 | Category | Investigations |

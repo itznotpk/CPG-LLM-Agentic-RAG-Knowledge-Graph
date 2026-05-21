@@ -1,11 +1,12 @@
-# Section 3.2: Diabetes Education
+# Section 3: Management of Type 2 Diabetes Mellitus
 <!-- METADATA
-category: Education
+category: Supportive Treatment
 use_case: Diabetes self-management education and support — scope, methods, process and outcome measures
 patient_input: new_diagnosis, education_needs, health_literacy, psychosocial_status
 output: education_plan, DSME_process, behaviour_change_outcomes
 -->
 
+## 3.2: Diabetes Education
 **Summary of Updates**
 - Diabetes self-management education and support continues to be an essential part of ensuring patient motivation and adherence.
 - Local primary healthcare diabetes education programs run as part of a chronic care model has been shown to be effective in improving glycaemic targets.

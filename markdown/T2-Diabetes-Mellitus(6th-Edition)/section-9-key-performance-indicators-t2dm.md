@@ -1,9 +1,9 @@
 # Section 9: Key Performance Indicators
 <!-- METADATA
-category: Quality Monitoring, Audit, Improvement, Standards
+category: Reference
 use_case: Measuring and monitoring quality of diabetes care; identifying areas for improvement
-inputs: KPI_data, baseline_data, patient_data
-outputs: Quality_metrics, audit_reports, improvement_interventions
+patient_input: KPI_data, baseline_data, patient_data
+output: Quality_metrics, audit_reports, improvement_interventions
 -->
 
 This section has been revamped and focuses on key performance indicators for management of T2DM. Two measures specific for KPIs and 3 measures for baseline data collection have been introduced. The results will allow for future re-strategizing where discrepancies and imbalances exist. It will also allow for sharing of best practices contributing to achieving higher standards of care.

@@ -1,16 +1,17 @@
-# Section 3.4: Targets for control
+# Section 3: Management of Type 2 Diabetes Mellitus
 <!-- METADATA
-category: Glycaemic Targets
-use_case: Setting individualised glycaemic, BP and lipid targets for T2DM
-patient_input: HbA1c, age, CV_risk, comorbidities, BMI, eGFR
-output: HbA1c_target, BP_target, LDL_target
+category: Assessment, Treatment
+use_case: Setting individualised glycaemic targets based on patient profile — HbA1c, FPG, PPG targets and treatment goal personalisation
+patient_input: age, diabetes_duration, comorbidities, hypoglycaemia_risk, life_expectancy, CVD_status, DKD_stage
+output: HbA1c_target, FPG_target, PPG_target, individualised_treatment_goal
 -->
 
+## 3.4: Targets for control
 **Summary of Updates**
 - The importance of achieving optimal body weight with lifestyle modification is emphasized in overweight/obese T2DM individuals.
 - HbA1c targets: glycaemic targets have been revised according to individual characteristics.
 - BP targets are revised to 130-139/70-79 mmHg.
-- Lipid (LDL-C) targets according to CV risk i.e. moderate risk <2.6 mmol/L; high-risk <1.8 mmol/L; very high-risk <1.4 mmol/L (refer to Table 3-27).
+- Lipid (LDL-C) targets according to CV risk i.e. moderate risk <2.6 mmol/L; high-risk <1.8 mmol/L; very high-risk <1.4 mmol/L (refer to Table 3-27: Secondary targets).
 
 Table 3-5: Targets for control
 | Parameters | | Levels |
@@ -35,7 +36,7 @@ Table 3-5: Targets for control
 Target DBP to 70-79 mmHg, but not <70 mmHg.
 
 HDL-C: high-density lipoprotein cholesterol; LDL-C: low-density lipoprotein cholesterol; BP: blood pressure; CVD: cardiovascular disease; DKD: diabetic kidney disease; SBP: systolic blood pressure; DBP: diastolic blood pressure.
-Lipids: Refer Section 3.9.2; BP: Refer Section 3.9.1; Exercise: Refer Section 3.5.2; Body weight: Refer Sections 3.5.1 and 3.9.3.
+Lipids: Refer Section 3.9.2: Hyperlipidaemia and T2DM; BP: Refer Section 3.9.1: Hypertension and T2DM; Exercise: Refer Section 3.5.2: Physical Activity; Body weight: Refer Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.9.3: Obesity and T2DM.   <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.1: Hypertension and T2DM" target_kind="h3_section" -->  <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.2: Hyperlipidaemia and T2DM" target_kind="h3_section" -->  <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.3: Obesity and T2DM" target_kind="h3_section" -->  <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.2: Physical Activity" target_kind="h3_section" -->
 
 Table 3-6: Individualised HbA1c targets based on patient profile.
 | ≤6.5 % (Tight) | 6.6%-7.0% | 7.1%-8.0% (Less tight) |
@@ -48,6 +49,25 @@ CVD: cardiovascular disease; eGFR: estimated glomerular filtration rate; T2DM: t
 [Level III] Adapted from American Diabetes Association 2020; EASD 2019, NICE 2019 and Canadian 2018 guidelines.
 
 <!-- parent_only_reference_start -->
+Table 3-26: LDL-C targets
+| Risk categories for patients with T2DM | Target LDL-C (mmol/L) | Target Non-HDL-C (mmol/L) |
+|---|---|---|
+| **Very high risk** [Level I]<br>Patients with diabetes and established CVD<br>**OR**<br>Other target organ damage<br>**OR**<br>≥3 risk factors | <1.4 | <2.2 |
+| **High risk** [Level I]<br>Patients with diabetes for ≥10 years without target organ damage<br>**AND** any other additional risk factor | <1.8 | <2.6 |
+| **Moderate risk** [Level I]<br><50-year-old with T2DM of <10 years duration without other risk factors | <2.6 | <3.4 |
+
+*Non-HDL-C: calculated as Total cholesterol – HDL-C. LDL-C targets depends on the patients' CV risks as detailed above.*
+*LDL-C: low-density lipoprotein cholesterol; Non-HDL-C: Non-high-density lipoprotein cholesterol; CVD: cardiovascular disease.*
+
+Table 3-27: Secondary targets
+| Parameter | Targets |
+|---|---|
+| **Non-HDL-C** | 0.8 mmol/L above the LDL-C target according to risk category (Refer Table 3-26) |
+| **HDL-C** | >1.0 mmol/L for males; >1.3 mmol/L for females |
+| **TG** | < 1.7 mmol/L |
+
+*Non-HDL-C: Non-high-density lipoprotein cholesterol; HDL-C: high-density lipoprotein cholesterol; TG: triglycerides; LDL-C: low-density lipoprotein cholesterol.*
+
 Level of Evidence
 | Level | Source |
 |---|---|

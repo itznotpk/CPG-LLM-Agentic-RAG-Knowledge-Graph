@@ -1,12 +1,12 @@
-# Section 3.7: Treatment Algorithms for the Management of T2DM
+# Section 3: Management of Type 2 Diabetes Mellitus
 <!-- METADATA
-category: Treatment Algorithms, Clinical Decision Support
+category: Treatment, Reference
 use_case: Step-by-step treatment algorithms for newly diagnosed T2DM and T2DM on clinic follow-up; patient profile-specific treatment approaches; drug efficacy comparison
 patient_input: HbA1c, FPG, CV_risk, ASCVD_status, heart_failure, DKD_stage, weight, obesity_status, hypoglycaemia_risk, comorbidities, current_medications
 output: initial_drug_choice, combination_therapy, escalation_strategy, patient_specific_drug_recommendation, drug_comparison
 -->
 
-## 3.7 Treatment algorithms for the management of T2DM
+## 3.7: Treatment algorithms for the management of T2DM
 Figure 3-3: Treatment algorithm for newly diagnosed T2DM
 **Diagnosis of T2DM**
 All newly diagnosed patients should undergo **Lifestyle modification**^a^. Following this, treatment decisions are based on the initial HbA1c and FPG levels:
@@ -49,12 +49,12 @@ All newly diagnosed patients should undergo **Lifestyle modification**^a^. Follo
 - Modest efficacy, low risk of hypoglycaemia and weight neutral: **AGI**
 
 Footnotes:
-a. Lifestyle modification: refer to Sections 3.5.1 and 3.5.3.
+a. Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h3_section" -->
 b. If patients are able to normalise plasma glucose (glucose profile/HbA1c) and/or lose weight, may continue metformin.
 c. Consider addition of DPP4-i (vildagliptin) - [Level I] In the VERIFY trial metformin + vildagliptin delays loss of glycaemic control when initiated within 24 months of diagnosis.
 d. Meglitinide/AGI/TZD may not be appropriate for monotherapy.
 e. Combination therapy includes both oral and injectable (GLP1-RA) GLD.
-f. For patients who are symptomatic refer to Section 3.6.5.
+f. For patients who are symptomatic refer to Section 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy. <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy" target_kind="h3_section" -->
 
 FPG: fasting plasma glucose; AGI: alpha-glucosidase inhibitors; DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; TZD: thiazolidinediones; GLD: glucose lowering drugs; OGLD: oral glucose lowering drugs.
 
@@ -80,7 +80,7 @@ If **HbA1c is above individualised target** with lifestyle modification + existi
 Footnotes:
 *Maximum OGLDs allowed is 5. 
 ^∫^ When on insulin continue metformin/SGLT2-i/DPP4-i/GLP1-RA. Stop SU if on full insulin. 
-^£^ Lifestyle modification: refer to Sections 3.5.1 and 3.5.3. 
+^£^ Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h3_section" --> 
 ** for GLDs - interval before addition of another GLD may need to allow for dose titration and escalation of the current therapy. 
 DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; GLD: glucose lowering drugs.
 
@@ -142,15 +142,15 @@ If **HbA1c not to individualised target**, treatment is tailored based on patien
 - SU* *(if DPP4-i given)*
 - Basal OR premixed insulin *(escalate to basal bolus/switch to analogues)*⁺
 
-*Footnotes for Figure 3-5:*
+*Footnotes for Figure 3-5: Suggested treatment approach for specific patient profiles:*
 1. Patients who are well-controlled on their existing therapies should continue with the treatment regime.
 2. Bariatric surgery may be considered in patients with BMI ≥32 kg/m² and their T2DM cannot be controlled by lifestyle changes and pharmacotherapy.
 CVD divided into 2 categories: ASCVD – established atherosclerotic cardiovascular disease (ASCVD) / High risk CVD – Primary Prevention, without clinical CV events.
-^ VLCD + MRP - Refer to Section 3.5.1; * SU refers to 2nd generation sulphonylurea; ᶴ Stop DPP4-i; ǂ Saxagliptin (SAVOR-TIMI) showed increased risk of hospitalisation for heart failure.
+^ VLCD + MRP - Refer to Section 3.5.1: Medical Nutrition Therapy (MNT); * SU refers to 2nd generation sulphonylurea; ᶴ Stop DPP4-i; ǂ Saxagliptin (SAVOR-TIMI) showed increased risk of hospitalisation for heart failure. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" -->
 ^x^ Choose GLP1-RA with proven CV benefit and has appropriate label indication for CV reduction; ^α^ SGLT2i recommended in DKD stage 3-5 – for renoprotective effects, do not initiate when <30 ml/min/1.73m²; however, eGFR levels at which SGLT2-i can be initiated may be subject to change as new evidence become available, ⁺ may switch to basal-bolus human/analogue insulin where appropriate; for hypoglycaemic risk - insulin analogue may be more appropriate.
 DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; TZD: thiazolidinediones; VLCD: very low-calorie diet; MRP: meal replacement therapy.
 
-**Figure 3-6: Efficacy of various GLDs.**
+Figure 3-6: Efficacy of various GLDs.
 | | [Level I] MET | [Level I] [Level II] SU | [Level I] GLN | [Level I] AGI | [Level I] TZD | [Level I] DPP4-i | [Level I] SGLT2-i | [Level I] GLP1-RA | [Level I] Insulin |
 |---|---|---|---|---|---|---|---|---|---|
 | **HbA1c ↓ %** | 1.0-1.5 | 0.4-1.6 | 1.0-1.2 | 0.5-0.8 | 0.5-1.4 | 0.5-0.8 | 0.2-0.8 | 0.5-1.4 | >1.5 |

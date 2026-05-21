@@ -1,12 +1,12 @@
 # Section 8: Complementary and Alternative Therapy in T2DM
 <!-- METADATA
-category: Complementary Medicine, Quality Indicators, Audit
+category: Supportive Treatment
 use_case: Role of complementary and alternative medicine in T2DM; key performance indicators for diabetes care quality monitoring
 patient_input: CAM_use, herbal_supplements, vitamin_use, HbA1c, diabetes_complication_status, KPI_data
 output: CAM_counselling, adverse_event_reporting, KPI_measurement, baseline_data_collection, quality_improvement
 -->
 
-## 8.0: Overview of CAM Therapy in T2DM
+**Summary of Updates**
 - There is insufficient evidence to recommend the use of supplements such as chromium, vitamin D, cinnamon or herbs/supplement.
 - Alternative therapies may contain harmful ingredients, may be unsafe or may be improperly marketed as over-the-counter (OTC) products.
 - A recent prospective RCT assessing vitamin D supplementation failed to slow progression of prediabetes to overt diabetes.
@@ -30,7 +30,7 @@ It is very important to advise patients not to replace conventional medical ther
 
 Medicines for T2DM and other health conditions may need to be adjusted if a person is taking an alternative treatment as drug-herb interactions may occur.
 
-### Popular Supplements and Evidence of Benefits
+**Popular Supplements and Evidence of Benefits**
 Clear scientific evidence supporting the benefit from all herbal, vitamin and other supplementations for treatment and prevention of T2DM remain scarce.
 
 - [Level I] Olive oil: When taken as supplementation or part of a Mediterranean diet, has demonstrated favourable effects in reducing the risk of development of T2DM in prediabetes and improvement in glycaemic control in T2DM by 0.27%.
@@ -45,13 +45,6 @@ Healthcare professionals and consumers are encouraged to report any adverse even
 - Recommendation 2: [Grade C] Benefits from all herbal, vitamin and other supplementations for treatment and prevention of T2DM remain unclear.
 
 <!-- parent_only_reference_start -->
-Grading System
-| Grade | Description |
-|---|---|
-| Grade A | Evidence from multiple randomised controlled trials or meta-analyses |
-| Grade B | Evidence from limited clinical trials or observational studies |
-| Grade C | Consensus of expert opinion |
-
 Level of Evidence
 | Level | Source |
 |---|---|
@@ -60,6 +53,13 @@ Level of Evidence
 | Level II-2 | Evidence from well-designed cohort or case-control analytic studies |
 | Level II-3 | Evidence from multiple time series or dramatic results in uncontrolled experiments |
 | Level III | Opinions of respected authorities, based on clinical experience, descriptive studies or reports of expert committees |
+
+Grading System
+| Grade | Description |
+|---|---|
+| Grade A | Evidence from multiple randomised controlled trials or meta-analyses |
+| Grade B | Evidence from limited clinical trials or observational studies |
+| Grade C | Consensus of expert opinion |
 
 Abbreviations
 | Abbreviation | Description |

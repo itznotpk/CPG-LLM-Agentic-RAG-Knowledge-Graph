@@ -1,6 +1,6 @@
 # Appendix: Drug Dosage Adjustments in Chronic Kidney Disease (CKD) and Cardiovascular Outcome Trials (CVOTs)
 <!-- METADATA
-category: Appendix, Drug Dosing, CKD, CVOTs
+category: Reference, Treatment
 use_case: Reference tables for GLD dose adjustments in CKD, CVOT data for GLP1-RA and SGLT2-i, and drug comparison for T2DM management
 patient_input: eGFR, CKD_stage, current_medications, CV_risk, diabetes_duration
 output: dose_adjusted_regimen, drug_selection, CVOT_evidence_summary, renal_dose_recommendation
