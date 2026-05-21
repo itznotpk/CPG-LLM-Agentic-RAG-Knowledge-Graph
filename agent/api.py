@@ -143,7 +143,7 @@ async def lifespan(app: FastAPI):
     
     # Shutdown
     logger.info("Shutting down agentic RAG API...")
-    
+
     try:
         await close_database()
         await close_graph()
@@ -156,8 +156,8 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Agentic RAG with Knowledge Graph",
     description="AI agent combining vector search and knowledge graph for tech company analysis",
-    version="0.1.0"
-    
+    version="0.1.0",
+    lifespan=lifespan,
 )
 
 # Add middleware with flexible CORS

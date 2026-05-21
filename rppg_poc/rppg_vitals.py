@@ -233,9 +233,9 @@ def estimate_blood_pressure(bvp_signal, fs, hr):
         return 0.0, 0.0
 
 
+
 # ============================================================
 # EfficientPhys Deep Learning Processor (rPPG-Toolbox)
-# Runs alongside POS — adds a second HR estimate
 # ============================================================
 
 _TOOLBOX_PATH = os.path.normpath(
@@ -243,9 +243,9 @@ _TOOLBOX_PATH = os.path.normpath(
 _MODEL_PATH = os.path.join(_TOOLBOX_PATH, 'final_model_release', 'UBFC-rPPG_EfficientPhys.pth')
 
 class DLProcessor:
-    FRAME_DEPTH = 10   # TSM n_segment (from infer config)
-    IMG_SIZE    = 72   # resize to 72x72 (from infer config)
-    BUFFER_SIZE = 101  # T=101 → after torch.diff → 100 frames, divisible by FRAME_DEPTH
+    FRAME_DEPTH = 10
+    IMG_SIZE    = 72
+    BUFFER_SIZE = 101
 
     def __init__(self):
         self.frame_buffer = deque(maxlen=self.BUFFER_SIZE)
@@ -272,7 +272,6 @@ class DLProcessor:
                 frame_depth=self.FRAME_DEPTH, img_size=self.IMG_SIZE
             )
             state = torch.load(_MODEL_PATH, map_location='cpu')
-            # Strip DataParallel 'module.' prefix if present
             if any(k.startswith('module.') for k in state):
                 state = {k[7:]: v for k, v in state.items()}
             model.load_state_dict(state)
@@ -283,13 +282,8 @@ class DLProcessor:
             print(f"[DL] EfficientPhys not loaded (optional): {e}")
 
     def reset(self):
-        """Clear frame buffer between students."""
         self.frame_buffer.clear()
-        self.last_hr   = 0.0
-        self.last_rr   = 0.0
-        self.last_spo2 = 0.0
-        self.last_sbp  = 0.0
-        self.last_dbp  = 0.0
+        self.last_hr = self.last_rr = self.last_spo2 = self.last_sbp = self.last_dbp = 0.0
 
     @property
     def ready(self):
@@ -303,8 +297,7 @@ class DLProcessor:
         if crop.size == 0:
             return
         resized = cv2.resize(crop, (self.IMG_SIZE, self.IMG_SIZE))
-        rgb = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB).astype(np.float32)
-        self.frame_buffer.append(rgb)
+        self.frame_buffer.append(cv2.cvtColor(resized, cv2.COLOR_BGR2RGB).astype(np.float32))
 
     def _snapshot(self):
         return {
@@ -316,48 +309,32 @@ class DLProcessor:
         }
 
     def compute_vitals(self, actual_fps):
-        """CPU inference — run in executor to avoid blocking event loop.
-        Computes HR, RR, SpO2 and BP from the EfficientPhys BVP output."""
         if not self.ready:
             return self._snapshot()
         try:
-            torch = self._torch
-            frames = np.array(list(self.frame_buffer))  # (T, 72, 72, 3) RGB float32
-
-            # Extract mean RGB per frame BEFORE standardisation — needed for SpO2
-            rgb_means = frames.reshape(len(frames), -1, 3).mean(axis=1)  # (T, 3)
-
-            # Standardised preprocessing (per config DATA_TYPE: Standardized)
+            torch  = self._torch
+            frames = np.array(list(self.frame_buffer))
+            rgb_means = frames.reshape(len(frames), -1, 3).mean(axis=1)
             frames_std = frames.copy()
             for c in range(3):
                 ch = frames_std[:, :, :, c]
                 frames_std[:, :, :, c] = (ch - ch.mean()) / (ch.std() + 1e-8)
-
             tensor = torch.FloatTensor(frames_std.transpose(0, 3, 1, 2))
             with torch.no_grad():
                 bvp = self.model(tensor).squeeze().cpu().numpy()
-
-            # HR
             hr = calculate_hr_fft(bvp, actual_fps)
             if 40 <= hr <= 180:
                 self.last_hr = hr
-
-            # Respiratory rate from BVP amplitude modulation
             rr = calculate_respiratory_rate(bvp, actual_fps)
             if 6 <= rr <= 30:
                 self.last_rr = rr
-
-            # SpO2 from channel-specific means (red/blue ratio method)
             spo2 = calculate_spo2(rgb_means, actual_fps)
             if 80 <= spo2 <= 100:
                 self.last_spo2 = spo2
-
-            # Blood pressure from BVP waveform morphology
             sbp, dbp = estimate_blood_pressure(bvp, actual_fps, self.last_hr)
             if sbp > 0 and dbp > 0:
                 self.last_sbp = sbp
                 self.last_dbp = dbp
-
             return self._snapshot()
         except Exception as e:
             print(f"[DL] Inference error: {e}")
@@ -639,8 +616,8 @@ esp32_vitals = {"hr": 0, "spo2": 0, "temp": 0.0, "source": "esp32", "status": "d
 # Track all active WebSocket clients so ESP32 data can be pushed immediately
 active_ws_clients: set = set()
 
-# DL processor (shared across sessions — model loaded once)
-dl_processor  = DLProcessor()
+# DL processor (shared across sessions — model loaded once at startup)
+dl_processor          = DLProcessor()
 _dl_inference_running = False
 
 # Hardware sensor filter — smooths and validates MAX30100 readings
@@ -703,14 +680,12 @@ async def reset_session():
     hw_filter.reset()
     _dl_inference_running = False
     student_count += 1
-    # Clear cached ESP32 reading so new student's finger placement shows as fresh data
     esp32_vitals = {"hr": 0, "spo2": 0, "temp": 0.0, "source": "esp32", "status": "disconnected"}
     print(f"[RESET] Student #{student_count} — all buffers cleared")
     return JSONResponse({"status": "ok", "student": student_count})
 
 
 async def _run_dl_inference(fps_est: float):
-    """Background task — runs DL inference in a thread without blocking the event loop."""
     global _dl_inference_running
     _dl_inference_running = True
     try:
@@ -737,7 +712,7 @@ async def websocket_endpoint(ws: WebSocket):
 
     proc = RPPGProcessor(buffer_seconds=10, fps=15)
     frame_count   = 0
-    cached_face   = None   # full face bbox — for DL and display
+    cached_face   = None   # full face bbox — for display
     cached_rppg   = None   # forehead strip — for POS signal extraction
     roi_miss      = 0
     detect_every  = 10
@@ -786,7 +761,6 @@ async def websocket_endpoint(ws: WebSocket):
                     mean_rgb = face_detector.extract_roi_rgb(frame, cached_rppg)
                     if mean_rgb is not None:
                         proc.add_frame(mean_rgb)
-                    # DL gets the full face crop
                     dl_processor.add_frame(frame, cached_face)
 
                 frame_count += 1
@@ -800,9 +774,6 @@ async def websocket_endpoint(ws: WebSocket):
                         vitals["face_roi"]  = [int(v) for v in cached_face]
                         vitals["rppg_roi"]  = [int(v) for v in cached_rppg]
                     vitals["bvp"] = [float(v) for v in vitals.get("bvp", [])]
-
-                    # DL inference — fired as background task so it NEVER blocks
-                    # the WebSocket loop. Result available next cycle via last_hr.
                     if frame_count % 24 == 0 and dl_processor.ready and not _dl_inference_running:
                         ts = list(proc.timestamps)
                         fps_est = len(ts) / (ts[-1] - ts[0] + 1e-10) if len(ts) > 1 else 15.0

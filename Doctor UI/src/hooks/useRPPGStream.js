@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-// rPPG now runs inside the main backend (mounted at /rppg). Default to the
-// clinical API host on :8058; override with VITE_RPPG_WS_URL if needed.
-const RPPG_WS_URL =
-  import.meta.env.VITE_RPPG_WS_URL || 'ws://127.0.0.1:8058/rppg/ws';
+// rPPG backend runs separately on port 8090.
+// Override with VITE_RPPG_URL for other machines (e.g. ws://192.168.x.x:8090).
+const RPPG_WS_URL = (import.meta.env.VITE_RPPG_URL || 'ws://127.0.0.1:8090') + '/ws';
 const FRAME_INTERVAL = 100; // ms between frames sent (10 fps)
 
 /**

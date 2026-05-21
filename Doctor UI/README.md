@@ -317,11 +317,64 @@ The application includes complete Supabase backend setup:
 ### Setup Instructions
 See [docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md) for complete setup guide.
 
-## 🔮 Planned Integrations
+## 🩺 rPPG Vital Scanner Integration (2026-05-21)
 
-- **AI/LLM Integration**: Diagnosis and care plan generation
-- **MPIS API**: Malaysian Patient Information System sync
-- **RAG System**: Feedback loop for AI improvement
+The Doctor UI now includes a **contactless vital signs scanner** powered by remote photoplethysmography (rPPG) and an optional ESP32 hardware sensor.
+
+### How It Works
+
+1. The doctor opens a patient consultation and clicks the **rPPG Scan** button
+2. The browser streams webcam frames to the **rPPG backend** (Python/FastAPI) via WebSocket
+3. The backend extracts a Blood Volume Pulse (BVP) waveform from subtle skin colour changes in the patient's **forehead region** using two methods in parallel:
+   - **POS algorithm** — traditional signal processing (fast, always-on)
+   - **EfficientPhys deep learning model** — neural network for a second independent estimate
+4. Both methods compute: **Heart Rate, SpO₂, Respiratory Rate, Blood Pressure**
+5. If an **ESP32 MAX30100 finger sensor** is connected, hardware HR, SpO₂ and temperature are received via HTTP and blended with the camera readings
+6. The doctor clicks **Apply to Vitals** — all values fill the consultation form automatically and are saved to Supabase `live_vitals`
+
+### UI Entry Points
+
+| Component | Location | Description |
+|---|---|---|
+| `LiveVitalsWidget` | Top of consultation page | Compact live bar — HR · SpO₂ · BP · RR · Quality% with "Apply to Vitals" button |
+| `RPPGScanModal` | Scan button in patient chart | Full-screen camera view with face guide, live vitals panel, and "Apply X of 6 vitals" button |
+
+### Starting Everything
+
+The rPPG backend **auto-starts on port 8090** when the API backend launches — no separate command needed:
+
+```bash
+# 1. Start API + rPPG backend (one command)
+uvicorn agent.api:app --port 8058 --reload
+
+# 2. Start Doctor UI frontend
+cd "Doctor UI"
+npm run dev          # or: node_modules/.bin/vite --port 5173
+```
+
+| Service | URL |
+|---|---|
+| Doctor UI | http://localhost:5173 |
+| API Backend | http://localhost:8058 |
+| rPPG Backend (auto) | http://localhost:8090 |
+| rPPG POC Standalone | http://localhost:8090 |
+
+### ESP32 Hardware Sensor
+
+The MAX30100 finger sensor posts to `http://<host>:8090/api/vitals`. When a reading arrives, the Doctor UI status bar shows **ESP32** badge and prioritises hardware SpO₂ and temperature over camera estimates.
+
+### Signal Quality
+
+The rPPG backend computes a **true SNR-based signal quality** (peak BVP power vs noise floor). Quality is displayed as a colour-coded bar:
+- **Green (>60%)** — reliable reading
+- **Amber (30–60%)** — usable but noisy
+- **Red (<30%)** — position face closer, improve lighting
+
+### Key Technical Notes
+- ROI is **forehead-only** (top 22% of face) — avoids glasses glare which was the largest error driver in validation
+- Hardware SpO₂ uses jump rejection (±10%) to discard contact-loss spikes
+- When ESP32 sends `hr=0` (no finger), UI shows "👆 Place Finger" instead of "--"
+- Session minimum enforced at **2 minutes** before vitals can be saved
 
 ## 📄 License
 
@@ -343,5 +396,5 @@ Proprietary - MHNexus Healthcare Solutions
 
 For a full list of changes, see [CHANGELOG.md](CHANGELOG.md).
 
-**Version**: 1.8.0 (Multiple Consultations per Patient, Jan 2026)
-**Last Updated**: January 18, 2026
+**Version**: 1.9.0 (rPPG Vital Scanner + Doctor UI Integration, May 2026)
+**Last Updated**: May 21, 2026
