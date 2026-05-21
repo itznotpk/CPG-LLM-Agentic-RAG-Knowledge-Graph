@@ -1,52 +1,52 @@
-# Section 3: Management of Type 2 Diabetes Mellitus
+# Section 3.7: Treatment algorithms for the management of T2DM
 <!-- METADATA
 category: Treatment, Reference
-use_case: Step-by-step treatment algorithms for newly diagnosed T2DM and T2DM on clinic follow-up; patient profile-specific treatment approaches; drug efficacy comparison
+use_case: T2DM Treatment Algorithms — newly_diagnosed_algorithm, follow_up_algorithm, patient_profile_specific_approach, drug_efficacy_comparison, escalation_strategy, combination_therapy, initial_drug_choice
 patient_input: HbA1c, FPG, CV_risk, ASCVD_status, heart_failure, DKD_stage, weight, obesity_status, hypoglycaemia_risk, comorbidities, current_medications
 output: initial_drug_choice, combination_therapy, escalation_strategy, patient_specific_drug_recommendation, drug_comparison
 -->
 
 ## 3.7: Treatment algorithms for the management of T2DM
 Figure 3-3: Treatment algorithm for newly diagnosed T2DM
-**Diagnosis of T2DM**
-All newly diagnosed patients should undergo **Lifestyle modification**^a^. Following this, treatment decisions are based on the initial HbA1c and FPG levels:
+Diagnosis of T2DM
+All newly diagnosed patients should undergo Lifestyle modification^a^. Following this, treatment decisions are based on the initial HbA1c and FPG levels:
 
-- **If HbA1c <6.5% AND FPG <6.0 mmol/L:**
+- If HbA1c <6.5% AND FPG <6.0 mmol/L:
   - Consider metformin monotherapy^b^
   - If post prandial is >11.0 mmol/L and/or metformin is not tolerated, consider one of the following: Meglitinide, AGI, DPP4-i
   - Follow-up with HbA1c after 3-6 months
     - If HbA1c ≤6.5%, continue with lifestyle modification.
     - If HbA1c >6.5%^c^
 
-- **If HbA1c 6.5-7.4% OR FPG 6.0-7.9 mmol/L:**
-  - Mono- or dual-therapy^c^ with: **Metformin**^d^ OR **SU**, **DPP4-i**, **GLP1-RA**, **SGLT2-i**
+- If HbA1c 6.5-7.4% OR FPG 6.0-7.9 mmol/L:
+  - Mono- or dual-therapy^c^ with: Metformin^d^ OR SU, DPP4-i, GLP1-RA, SGLT2-i
   - Optimise dose of GLD agent in subsequent 3-6 months.
   - Follow-up with HbA1c after 3-6 months
     - If HbA1c ≤6.5%, continue therapy
 
-- **If HbA1c 7.5-8.4% OR FPG 8.0-9.9 mmol/L:**
-  - Dual combination therapy^e^ with any combination of: **Metformin**, **SU**, **Meglitinide**, **AGI**, **TZD**, **DPP4-i**, **GLP1-RA**, **SGLT2-i**, **Insulin**
+- If HbA1c 7.5-8.4% OR FPG 8.0-9.9 mmol/L:
+  - Dual combination therapy^e^ with any combination of: Metformin, SU, Meglitinide, AGI, TZD, DPP4-i, GLP1-RA, SGLT2-i, Insulin
   - Optimise dose of GLD agent in subsequent 3-6 months.
   - Follow-up with HbA1c after 3-6 months
     - If HbA1c ≤6.5%, continue therapy
 
-- **If HbA1c 8.5-10.0% OR FPG 10.0-13.0 mmol/L:**
-  - Triple combination therapy^e^ with any combination of: **Metformin**, **SU**, **Meglitinide**, **AGI**, **TZD**, **DPP4-i**, **GLP1-RA**, **SGLT2-i**, **Insulin**
+- If HbA1c 8.5-10.0% OR FPG 10.0-13.0 mmol/L:
+  - Triple combination therapy^e^ with any combination of: Metformin, SU, Meglitinide, AGI, TZD, DPP4-i, GLP1-RA, SGLT2-i, Insulin
   - Optimise dose of GLD agent in subsequent 3-6 months.
   - Follow-up with HbA1c after 3-6 months
     - If HbA1c ≤6.5%, continue therapy
 
-- **If HbA1c >10.0% OR FPG >13.0 mmol/L**^f^**:**
+- If HbA1c >10.0% OR FPG >13.0 mmol/L^f^:
   - Basal/premixed insulin therapy + Combination therapy OR Intensive insulin therapy + OGLD
 
 *Drug colour-coding legend:*
-- Efficacious, low risk of hypoglycaemia and weight neutral: **Metformin**
-- Efficacious, risk of hypoglycaemia and weight gain: **SU**, **Meglitinide**, **Insulin**
-- Efficacious, low risk of hypoglycaemia and weight loss: **GLP1-RA**, **SGLT2-i**
-- Moderate efficacy, low risk of hypoglycaemia and weight neutral: **DPP4-i**
-- Moderate efficacy, low risk of hypoglycaemia and weight gain: **TZD**
-- Moderate efficacy, low risk of hypoglycaemia and weight loss: **SGLT2-i**
-- Modest efficacy, low risk of hypoglycaemia and weight neutral: **AGI**
+- Efficacious, low risk of hypoglycaemia and weight neutral: Metformin
+- Efficacious, risk of hypoglycaemia and weight gain: SU, Meglitinide, Insulin
+- Efficacious, low risk of hypoglycaemia and weight loss: GLP1-RA, SGLT2-i
+- Moderate efficacy, low risk of hypoglycaemia and weight neutral: DPP4-i
+- Moderate efficacy, low risk of hypoglycaemia and weight gain: TZD
+- Moderate efficacy, low risk of hypoglycaemia and weight loss: SGLT2-i
+- Modest efficacy, low risk of hypoglycaemia and weight neutral: AGI
 
 Footnotes:
 a. Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h3_section" -->
@@ -59,17 +59,17 @@ f. For patients who are symptomatic refer to Section 3.6.5: Initiation, Optimisa
 FPG: fasting plasma glucose; AGI: alpha-glucosidase inhibitors; DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; TZD: thiazolidinediones; GLD: glucose lowering drugs; OGLD: oral glucose lowering drugs.
 
 Figure 3-4: Treatment recommendations for patients with T2DM on clinic follow-up
-**3-6 months after initiation of therapy**
+3-6 months after initiation of therapy
 
-If **HbA1c is above individualised target** with lifestyle modification + existing therapy, treatment should be escalated based on the degree of HbA1c elevation:
+If HbA1c is above individualised target with lifestyle modification + existing therapy, treatment should be escalated based on the degree of HbA1c elevation:
 
-- **0.5%-1% above target:**
-  - Add **1** additional GLD from different class OR
+- 0.5%-1% above target:
+  - Add 1 additional GLD from different class OR
   - Intensification of insulin (if already on insulin)^∫^
-- **1%-2% above target:**
-  - Consider **2** GLDs from different classes* OR
+- 1%-2% above target:
+  - Consider 2 GLDs from different classes* OR
   - Intensification of insulin (if already on insulin)^∫^
-- **>2% above target:**
+- >2% above target:
   - Initiation of insulin ± GLP1-RA^∫^ OR
   - Intensification of insulin^∫^
 
@@ -81,15 +81,15 @@ Footnotes:
 *Maximum OGLDs allowed is 5. 
 ^∫^ When on insulin continue metformin/SGLT2-i/DPP4-i/GLP1-RA. Stop SU if on full insulin. 
 ^£^ Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h3_section" --> 
-** for GLDs - interval before addition of another GLD may need to allow for dose titration and escalation of the current therapy. 
+ for GLDs - interval before addition of another GLD may need to allow for dose titration and escalation of the current therapy. 
 DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; GLD: glucose lowering drugs.
 
 Figure 3-5: Suggested treatment approach for specific patient profiles
-All patients should undergo **LIFESTYLE MODIFICATION + METFORMIN** *(unless intolerant or contraindicated / ½ dose at DKD stage 3B, stop at DKD stages 4-5)*. 
-If **HbA1c not to individualised target**, treatment is tailored based on patient profile. 
+All patients should undergo LIFESTYLE MODIFICATION + METFORMIN *(unless intolerant or contraindicated / ½ dose at DKD stage 3B, stop at DKD stages 4-5)*. 
+If HbA1c not to individualised target, treatment is tailored based on patient profile. 
 *(Note: Reaching HbA1c is the priority (Targets individualised). Cost of newer medications may render them inaccessible. Use therapies that have been shown to be efficacious and safe.)*
 
-**1. Overweight /obese**
+1. Overweight /obese
 - Weight loss through lifestyle modification^
 - GLP1-RA/SGLT2-i
 - GLP1-RA *(if SGLT2-i given or vice-versa)*
@@ -97,14 +97,14 @@ If **HbA1c not to individualised target**, treatment is tailored based on patien
 - SU*
 - Basal OR premixed insulin *(escalate to basal bolus/switch to analogues)*⁺
 
-**2. Normal weight**
+2. Normal weight
 - DPP4-i OR SU*
 - SU* *(if DPP4-i given)*
 - SGLT2-i
 - GLP1-RAᶴ
 - Basal OR premixed insulin *(escalate to basal bolus/switch to analogues)*⁺
 
-**3. Increased risk of hypoglycaemia**
+3. Increased risk of hypoglycaemia
 - DPP4-i
 - SGLT2-i
 - TZD
@@ -112,14 +112,14 @@ If **HbA1c not to individualised target**, treatment is tailored based on patien
 - Low dose SU*
 - Basal OR premixed insulin *(escalate to basal bolus/switch to analogues)*⁺
 
-**4. DKD Stage 3-5^α^**
+4. DKD Stage 3-5^α^
 - SGLT2-i *(stop when initiating dialysis)*
 - GLP1-RAᶴ *(contraindicated at eGFR <15 ml/min/1.73m²)*
 - DPP4-i
 - SU* *(not advisable in Stages 4-5)*
 - Basal OR premixed insulin *(escalate to basal bolus/switch to analogues)*⁺
 
-**5. High risk CVD**
+5. High risk CVD
 - GLP1-RA^x^
 - SGLT2-i
 - DPP4-i^ǂ^ *(if not on GLP1-RA)* OR SU*
@@ -127,7 +127,7 @@ If **HbA1c not to individualised target**, treatment is tailored based on patien
 - TZD
 - Basal OR premixed insulin *(escalate to basal bolus/switch to analogues)*⁺
 
-**6. ASCVD**
+6. ASCVD
 - SGLT2-i / GLP1-RA
 - GLP1-RA *(if SGLT2-i given or vice-versa)*
 - DPP4-i^ǂ^ *(if not on GLP1-RA)* OR SU*
@@ -135,7 +135,7 @@ If **HbA1c not to individualised target**, treatment is tailored based on patien
 - TZD
 - Basal OR premixed insulin *(escalate to basal bolus/switch to analogues)*⁺
 
-**7. Heart failure**
+7. Heart failure
 - SGLT2-i
 - GLP1-RA
 - DPP4-i^ǂ^ *(if not on GLP1-RA)* OR SU*
@@ -153,15 +153,15 @@ DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter
 Figure 3-6: Efficacy of various GLDs.
 | | [Level I] MET | [Level I] [Level II] SU | [Level I] GLN | [Level I] AGI | [Level I] TZD | [Level I] DPP4-i | [Level I] SGLT2-i | [Level I] GLP1-RA | [Level I] Insulin |
 |---|---|---|---|---|---|---|---|---|---|
-| **HbA1c ↓ %** | 1.0-1.5 | 0.4-1.6 | 1.0-1.2 | 0.5-0.8 | 0.5-1.4 | 0.5-0.8 | 0.2-0.8 | 0.5-1.4 | >1.5 |
-| **FPG vs. PPG** | FPG | Both | PPG | PPG | FPG | Both | Both | Both | Both |
-| **Hypoglycaemia** | ↔ | ↑↑ | ↑ | ↔ | ↔ | ↔ | ↔ | ↔ | ↑↑ |
-| **Weight change** | ↓ | ↑↑ | ↑ | ↔ | ↑↑ | ↔ | ↓-↓↓ | ↓↓ | ↑↑ |
-| **GI symptoms** | ↑↑ | ↔ | ↔ | ↑↑ | ↔ | ↑ | ↔ | ↑↑ | ↔ |
-| **CHF** | ↔ | ↔ | ↔ | ↔ | ↑ | ↔ | ↓↓ | ↔ | ↔ |
-| **CVD** | ↓ | ↔ | ↔ | ↔ | ↔ | ↔ | ↓↓ | ↓↓ | ↔ |
-| **Bone loss** | ↔ | ↔ | ↔ | ↔ | ↑ | ↔ | ↔ | ↔ | ↔ |
-| **DKD** | Avoid* | Hypo | Hypo | ↔ | Fluid ret'n | Dose adjustment | ↓↓ᵃ | ↓† | Hypo |
+| HbA1c ↓ % | 1.0-1.5 | 0.4-1.6 | 1.0-1.2 | 0.5-0.8 | 0.5-1.4 | 0.5-0.8 | 0.2-0.8 | 0.5-1.4 | >1.5 |
+| FPG vs. PPG | FPG | Both | PPG | PPG | FPG | Both | Both | Both | Both |
+| Hypoglycaemia | ↔ | ↑↑ | ↑ | ↔ | ↔ | ↔ | ↔ | ↔ | ↑↑ |
+| Weight change | ↓ | ↑↑ | ↑ | ↔ | ↑↑ | ↔ | ↓-↓↓ | ↓↓ | ↑↑ |
+| GI symptoms | ↑↑ | ↔ | ↔ | ↑↑ | ↔ | ↑ | ↔ | ↑↑ | ↔ |
+| CHF | ↔ | ↔ | ↔ | ↔ | ↑ | ↔ | ↓↓ | ↔ | ↔ |
+| CVD | ↓ | ↔ | ↔ | ↔ | ↔ | ↔ | ↓↓ | ↓↓ | ↔ |
+| Bone loss | ↔ | ↔ | ↔ | ↔ | ↑ | ↔ | ↔ | ↔ | ↔ |
+| DKD | Avoid* | Hypo | Hypo | ↔ | Fluid ret'n | Dose adjustment | ↓↓ᵃ | ↓† | Hypo |
 
 *Legend: ↑↑/↑ = Increased risk/Mild-mod risk; ↔ = Neutral; ↓/↓↓ = Possible benefit/Beneficial*
 

@@ -1,4 +1,4 @@
-# Section 3: Management of Type 2 Diabetes Mellitus
+# Section 3.9: Management of Co-morbidities in T2DM
 <!-- METADATA
 category: Treatment, Supportive Treatment
 use_case: Management of hypertension, hyperlipidaemia, obesity and NAFLD in T2DM — targets, pharmacotherapy, bariatric surgery, NAFLD assessment and treatment
@@ -8,17 +8,17 @@ treatment_type: ACE inhibitor, ARB, amlodipine, atenolol, hydrochlorothiazide, a
 -->
 
 ## 3.9: Management of Co-morbidities in T2DM
-**Summary of Updates**
-- **Hypertension:**
+Summary of Updates
+- Hypertension:
   - Target for initiation of treatment is systolic BP (SBP) ≥140 mmHg and/or diastolic BP (DBP) ≥90 mmHg.
   - Treatment target is SBP 130–139 mmHg and DBP 70–79 mmHg.
-- **Hyperlipidaemia:**
+- Hyperlipidaemia:
   - All individuals with T2DM over the age of 40 should be treated with a statin regardless of baseline LDL-cholesterol (LDL-C) level.
   - LDL-C targets have recently been revised to lower levels, according to category of CV risk.
-- **Obesity:**
+- Obesity:
   - A structured lifestyle modification that includes dietary intervention with VLCD (≤800 kcal) using MRP products has been shown to be effective in weight loss and reducing HbA1c. Successful weight reduction of >15% of body weight can result in diabetes remission.
   - Comparing lifestyle intervention vs. metabolic surgery, the surgical group achieved better diabetes remission rates and was able to sustain better weight reduction after 2–5 years post surgery. Metabolic surgery should be considered in those who fulfil the criteria.
-- **Non-alcoholic fatty liver disease (NAFLD)**
+- Non-alcoholic fatty liver disease (NAFLD)
   - Metabolic associated fatty liver disease (MAFLD) is a new proposed nomenclature to replace NAFLD as it includes a key driver of this disease which is presence of metabolic dysfunction.
   - Non-alcoholic fatty liver disease (NAFLD) is highly prevalent among  patients with T2DM.
   - T2DM is a risk factor for more severe NAFLD.
@@ -31,13 +31,13 @@ treatment_type: ACE inhibitor, ARB, amlodipine, atenolol, hydrochlorothiazide, a
 - Hypertension should be detected and treated early in the course of T2DM to prevent CVD and to delay the progression of renal disease and diabetic retinopathy.
 - [Level I] Reduction in systolic blood pressure (SBP) of 10 mmHg or diastolic blood pressure (DBP) of 5 mmHg, irrespective of whether the patient has T2DM, is associated with significant reductions in all major CV events by 20%, all-cause mortality by 15%, stroke by 35%, coronary events by 20% and heart failure by 40%.
 
-**Treatment Threshold**
+Treatment Threshold
 - Pharmacological treatment should be initiated in patients with T2DM when BP is persistently ≥140 mmHg systolic and/or ≥90 mmHg diastolic.
  - [Level I] [Level I] Meta-analyses have consistently shown significant risk reduction in mortality, CHD, cerebrovascular disease and heart failure when treatment is started at SBP ≥140 mm Hg and DBP >90 mmHg.
 - [Level I] Two meta-analyses showed that lowering BP when initial SBP is <140 mmHg, showed no additional CV benefits. Moreover, a more recent systematic review found that it increased the risk of CV death (HR 1.15, 95% CI 1.00,1.32), with no observed extra benefit in MI, stroke, heart failure or ESKD.
 - [Level I] There is insufficient evidence to date for benefits of starting treatment when DBP is <90 mmHg.
 
-**Treatment Target for SBP and DBP**
+Treatment Target for SBP and DBP
 - [Level I] The ACCORD trial showed no benefit in combined CV endpoints with SBP <120 mmHg vs. <140 mmHg.
 - [Level I] A more recent meta-analysis demonstrated an increase of adverse events with SBP <130 mmHg.
 - [Level I] In contrast, the SPRINT trial (patients with hypertension without T2DM), lowering SBP to <120 mmHg vs. <140 mmHg resulted in 25% lower rates of primary composite outcomes of MI, other acute coronary syndromes, stroke, heart failure or death from CV causes.
@@ -45,7 +45,7 @@ treatment_type: ACE inhibitor, ARB, amlodipine, atenolol, hydrochlorothiazide, a
 
 - [Level I] In those who do not have pre-existing CHD, but have a higher risk of stroke (such as Asian patients) and DKD, lower SBP target of <130 mmHg (but not <120 mmHg) might be appropriate provided that it is well tolerated, to lower the risk of stroke and albuminuria.
 
-**Management**
+Management
 - Non-pharmacological management cannot be overemphasized.
   - Dietary counselling should target an optimal body weight.
   - Dietary sodium restriction is advisable.
@@ -62,13 +62,13 @@ treatment_type: ACE inhibitor, ARB, amlodipine, atenolol, hydrochlorothiazide, a
 Table 3-25: Anti-hypertensive drugs for T2DM.
 | | Diuretics | β-blockers | ACE inhibitors | CCB | Peripheral α-blockers | ARB |
 |---|---|---|---|---|---|---|
-| **T2DM without nephropathy** | + | +/- | +++ | + | +/- | ++ |
-| **T2DM with nephropathy** | ++ | +/- | +++ | ++ | +/- | +++ |
+| T2DM without nephropathy | + | +/- | +++ | + | +/- | ++ |
+| T2DM with nephropathy | ++ | +/- | +++ | ++ | +/- | +++ |
 
 *The grading of recommendation from (+) to (+++) is based on increasing levels of evidence and/or current widely accepted practice. (+/-) indicates to use with care.*
 *ACE: angiotensin-converting enzyme; CCB: calcium channel blocker; ARB: angiotensin-receptor blocker.*
 
-**Recommendations: Hypertension and T2DM**
+Recommendations: Hypertension and T2DM
 | Recommendation | Grade |
 |---|---|
 | 1. For patients with T2DM, the treatment threshold for starting pharmacological therapy is ≥140 mmHg systolic and/or ≥90 mmHg diastolic. | Grade A |
@@ -84,15 +84,15 @@ Table 3-25: Anti-hypertensive drugs for T2DM.
 - [Level I] In contrast, multifactorial intervention has been shown to reduce microvascular complications, CV events and mortality in the STENO-2 study.
 - Thus, efforts must also be directed to address other risk factors such as dyslipidaemia, hypertension and prior CV events.
 
-**Screening**
+Screening
 - In adult patients, test for lipid disorders at least annually and more often if needed to achieve goals.
   - Non-fasting sample can be used for assessment of lipid parameters.
   - If non-fasting TG is elevated (>2.3 mmol/L), a fasting sample is required.
 - [Level III] In adolescents with T2DM, screening for lipid disorders should be done at diagnosis after glycaemic control is achieved. If lipid values are within targets, screening should be repeated annually thereafter.
 - CV risk calculators for primary prevention are not recommended as individuals with T2DM are already considered high risk and all CV risk factors should be aggressively managed (Refer to Section 5.4-A: Coronary heart disease). <!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.4: Cardiovascular disease" target_kind="h2_section" -->
 
-**Targets**
-**A. Primary target: LDL-C**
+Targets
+A. Primary target: LDL-C
 - [Level I] All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level (Refer Table 3-26: LDL-C targets).
   - Statin is not recommended in women of child-bearing potential who are not using adequate contraception and is contraindicated during pregnancy.
 - The LDL-C targets depends on the patient's CV risk category (TRefer to Table 3-26: LDL-C targets).
@@ -101,28 +101,28 @@ Table 3-25: Anti-hypertensive drugs for T2DM.
 Table 3-26: LDL-C targets.
 | Risk categories for patients with T2DM | Target LDL-C (mmol/L) | Target Non-HDL-C (mmol/L) |
 |---|---|---|
-| **Very high risk** [Level I]<br>Patients with diabetes and established CVD<br>**OR**<br>Other target organ damage<br>**OR**<br>≥3 risk factors | <1.4 | <2.2 |
-| **High risk** [Level I]<br>Patients with diabetes for ≥10 years without target organ damage<br>**AND** any other additional risk factor | <1.8 | <2.6 |
-| **Moderate risk** [Level I]<br><50-year-old with T2DM of <10 years duration without other risk factors | <2.6 | <3.4 |
+| Very high risk [Level I]<br>Patients with diabetes and established CVD<br>OR<br>Other target organ damage<br>OR<br>≥3 risk factors | <1.4 | <2.2 |
+| High risk [Level I]<br>Patients with diabetes for ≥10 years without target organ damage<br>AND any other additional risk factor | <1.8 | <2.6 |
+| Moderate risk [Level I]<br><50-year-old with T2DM of <10 years duration without other risk factors | <2.6 | <3.4 |
 
 *Non-HDL-C: calculated as Total cholesterol – HDL-C. LDL-C targets depends on the patients' CV risks as detailed above.*
 *LDL-C: low-density lipoprotein cholesterol; Non-HDL-C: Non-high-density lipoprotein cholesterol; CVD: cardiovascular disease.*
 
 - [Level I] If the above targets are unattainable, aim for a 50% reduction of pre-treatment LDL-C level.
 
-**B. Secondary targets: Non-HDL-C, HDL-C and TG**
+B. Secondary targets: Non-HDL-C, HDL-C and TG
 - In patients with high TG >4.5 mmol/L, when the LDL-C cannot be calculated, non-HDL level is a target of therapy and can be calculated from non-fasting serum.
 
 Table 3-27: Secondary targets.
 | Parameter | Targets |
 |---|---|
-| **Non-HDL-C** | 0.8 mmol/L above the LDL-C target according to risk category (Refer Table 3-26: LDL-C targets) |
-| **HDL-C** | >1.0 mmol/L for males; >1.3 mmol/L for females |
-| **TG** | < 1.7 mmol/L |
+| Non-HDL-C | 0.8 mmol/L above the LDL-C target according to risk category (Refer Table 3-26: LDL-C targets) |
+| HDL-C | >1.0 mmol/L for males; >1.3 mmol/L for females |
+| TG | < 1.7 mmol/L |
 
 *Non-HDL-C: Non-high-density lipoprotein cholesterol; HDL-C: high-density lipoprotein cholesterol; TG: triglycerides; LDL-C: low-density lipoprotein cholesterol.*
 
-**Management**
+Management
 - Lifestyle modification focusing on:
   - reduction of saturated fat, trans-fat and cholesterol intake,
   - increasing intake of dietary n-3 fatty acids, viscous fibre and plant stanols / sterols,
@@ -143,9 +143,9 @@ Table 3-27: Secondary targets.
 Table 3-28: Lipid lowering drugs for dyslipidaemia in T2DM.
 | Lipid goal | Initial drug | Suggested addition in order of preference |
 |---|---|---|
-| **Lower LDL-C** | Statins | Ezetimibe<br>PCSK9 inhibitor<br>BAS (may increase TG) |
-| **Lower TG** | Fibrates | Omega-3 fatty acid<br>Statins*<br>Nicotinic acid** |
-| **Treat combined hyperlipidaemia** | Statins* | Fibrates<br>BAS and fibrates<br>PCSK9<br>Ezetimibe |
+| Lower LDL-C | Statins | Ezetimibe<br>PCSK9 inhibitor<br>BAS (may increase TG) |
+| Lower TG | Fibrates | Omega-3 fatty acid<br>Statins*<br>Nicotinic acid |
+| Treat combined hyperlipidaemia | Statins* | Fibrates<br>BAS and fibrates<br>PCSK9<br>Ezetimibe |
 
 *\*High dose may be required; \*\*With careful monitoring and keeping dose <1.5 g/day.*
 *LDL-C: low-density lipoprotein cholesterol; TG: triglycerides; PCSK9: Proprotein Convertase Subtilisin/Kexin Type 9; BAS: bile acid sequestrants*
@@ -153,13 +153,13 @@ Table 3-28: Lipid lowering drugs for dyslipidaemia in T2DM.
 Table 3-29: Effect of lipid lowering therapy on lipids.
 | Lipid lowering therapy | LDL-C | TG | HDL-C |
 |---|---|---|---|
-| **Statin** | ↓ 30%-60% | ↓ 10%-20% | ↑ 1%-10% |
-| **BAS** | ↓ 20%-30% | May ↑ | ↔ |
-| **Ezetimibe** | ↓ 10%-20% | ↓ 10% | ↑ 1%-5% |
-| **PCSK9 inhibitor** | ↓ 60% | ↓ 25% | ↑ 10% |
-| **Fibrate** | ↓20% | ↓ 25%-50% | ↑ 10%-20% |
-| **Omega 3 fatty acid (2-4g)** | Variable effect | ↓ 20%-45% | ↑ 1%-10% |
-| **Nicotinic acid** | ↓10%-20% | ↓ 20%-50% | ↑ 20%-25% |
+| Statin | ↓ 30%-60% | ↓ 10%-20% | ↑ 1%-10% |
+| BAS | ↓ 20%-30% | May ↑ | ↔ |
+| Ezetimibe | ↓ 10%-20% | ↓ 10% | ↑ 1%-5% |
+| PCSK9 inhibitor | ↓ 60% | ↓ 25% | ↑ 10% |
+| Fibrate | ↓20% | ↓ 25%-50% | ↑ 10%-20% |
+| Omega 3 fatty acid (2-4g) | Variable effect | ↓ 20%-45% | ↑ 1%-10% |
+| Nicotinic acid | ↓10%-20% | ↓ 20%-50% | ↑ 20%-25% |
 
 *\*Effect varies with individual, baseline lipid levels and, dose and type of drugs used.*
 *LDL-C: low-density lipoprotein cholesterol; TG: triglycerides; HDL-C: high-density lipoprotein cholesterol; PCSK9: Proprotein Convertase Subtilisin/Kexin Type 9; BAS: bile acid sequestrants.*
@@ -167,15 +167,15 @@ Table 3-29: Effect of lipid lowering therapy on lipids.
 Table 3-30: Effect of various statins on LDL-C.
 | | High Intensity | Moderate Intensity | Low Intensity |
 |---|---|---|---|
-| **LDL-C lowering** | ≥ 50% | 30-49% | <30% |
-| **Statins** | Atorvastatin 40-80 mg | Atorvastatin 10-20mg | |
+| LDL-C lowering | ≥ 50% | 30-49% | <30% |
+| Statins | Atorvastatin 40-80 mg | Atorvastatin 10-20mg | |
 | | Rosuvastatin 20-40 mg | Rosuvastatin 5-10 mg | |
 | | | Simvastatin 20-40 mg | Simvastatin 10 mg |
 | | | Pravastatin 40-80mg<br>Lovastatin 40-80 mg | Pravastatin 10-20 mg<br>Lovastatin 20 mg |
 
 *LDL-C: low-density lipoprotein cholesterol.*
 
-**Recommendations: Dyslipidaemia and T2DM**
+Recommendations: Dyslipidaemia and T2DM
 | Recommendation | Grade |
 |---|---|
 | 1. All patients over the age of 40 should be treated with a statin regardless of baseline LDL-cholesterol levels. | Grade A |
@@ -190,14 +190,14 @@ Table 3-30: Effect of various statins on LDL-C.
 Table 3-31: GLDs and their effect on weight.
 | Weight gain | Weight neutral | Weight loss |
 |---|---|---|
-| **Insulin** | Metformin | GLP1-RA |
-| **TZDs** | AGIs | SGLT2-i |
-| **SU** | DPP4-i | |
-| **Meglitinides** | | |
+| Insulin | Metformin | GLP1-RA |
+| TZDs | AGIs | SGLT2-i |
+| SU | DPP4-i | |
+| Meglitinides | | |
 
 *TZDs: thiazolidinediones; SU: sulphonylurea; AGIs: alpha-glucosidase inhibitors; DPP4-i: dipeptidyl peptidase-4 inhibitors; GLP1-RA: glucagon-like peptide 1 receptor agonists; SGLT2-i: sodium-glucose cotransporter 2 inhibitors.*
 
-**Assessment and treatment of overweight and obesity**
+Assessment and treatment of overweight and obesity
 - The initial assessment of people with diabetes should include height, weight, BMI (kg/m²) and waist circumference.
 - [Level I] Weight loss of between 5%-10% will improve glycaemic control, BP, lipid profile and QoL.
 - The goals of therapy are to achieve optimal glycaemic and metabolic control.
@@ -206,18 +206,18 @@ Table 3-31: GLDs and their effect on weight.
 Table 3-32: Classification of weight by BMI.
 | Classification | BMI (kg/m²) | Risk of co-morbidities |
 |---|---|---|
-| **Underweight** | <18.5 | Low (but increased risk of other clinical problems) |
-| **Normal range** | 18.5-22.9 | Optimal |
-| **Overweight** | ≥23.0 | |
-| **• Pre-obese** | 23.0-27.4 | Increased |
-| **• Obese I** | 27.5-34.9 | High |
-| **• Obese II** | 35.0-39.9 | Very High |
-| **• Obese III** | ≥40.0 | Extremely high |
+| Underweight | <18.5 | Low (but increased risk of other clinical problems) |
+| Normal range | 18.5-22.9 | Optimal |
+| Overweight | ≥23.0 | |
+| • Pre-obese | 23.0-27.4 | Increased |
+| • Obese I | 27.5-34.9 | High |
+| • Obese II | 35.0-39.9 | Very High |
+| • Obese III | ≥40.0 | Extremely high |
 
 *Classification of BMI based on the Malaysian CPG on Management of Obesity, 2004.*
 
-**Management**
-**A. Non-pharmacological intervention**
+Management
+A. Non-pharmacological intervention
 - Nutritionally balanced, energy-reduced dietary interventions are recommended for healthier body weight to be achieved (Refer Section 3.5.1: Medical Nutrition Therapy (MNT)). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" -->
   - [Level I] Weight loss >5% is needed to see beneficial effect on HbA1c, lipid and BP.
   - [Level I] Caloric restriction of 1200-1500 kcal/day for women and 1500-1800 kcal/day for men is useful for rapid weight loss.
@@ -232,20 +232,20 @@ Table 3-32: Classification of weight by BMI.
   - [Level III] Overweight or obese persons with T2DM should increase the exercise duration to >60 minutes per day/approximately 450 minutes/per week for weight reduction.
 - Frequent contact with healthcare providers and behavioural therapy should be part of the intervention.
 
-**B. Pharmacological intervention**
+B. Pharmacological intervention
 - [Level III] Pharmacotherapy can be considered for patients with T2DM with BMI ≥27.0 kg/m² after failing 6 months of lifestyle modification.
 - [Level I] [Level II-1] [Level I] [Level II-3] [Level I] Three anti-obesity agents have been approved, phentermine, orlistat and high dose liraglutide (3 mg/day) for the management of obesity.
 
 Table 3-33: Approved anti-obesity drugs.
 | Drug | Class | MOA | Recommended duration | Net weight loss (kg) | Precautions and side effects |
 |---|---|---|---|---|---|
-| **Phentermine**<br>[Level I] [Level II-1] | Sympatho-mimetic amine | Appetite suppression | 3 months (can be used cyclically) | 3.6 | • Only indicated for short-term use.<br>• Precautions in poorly controlled BP and coronary artery disease |
-| **Orlistat**<br>[Level I] [Level II-3] | Lipase inhibitor | Reduces GI fat absorption | Up to 4 years | 6.9 | • Liquid or oily stool, oil leakage from rectum and flatulence.<br>• MVT replacements if used >12 months. |
-| **Liraglutide, 3.0 mg**<br>[Level I] | GLP-1 RA | Slows gastric motility, reduces satiety | 56 weeks | 6.4 | • Nausea and vomiting<br>• Pancreatitis<br>• Cholelithiasis |
+| Phentermine<br>[Level I] [Level II-1] | Sympatho-mimetic amine | Appetite suppression | 3 months (can be used cyclically) | 3.6 | • Only indicated for short-term use.<br>• Precautions in poorly controlled BP and coronary artery disease |
+| Orlistat<br>[Level I] [Level II-3] | Lipase inhibitor | Reduces GI fat absorption | Up to 4 years | 6.9 | • Liquid or oily stool, oil leakage from rectum and flatulence.<br>• MVT replacements if used >12 months. |
+| Liraglutide, 3.0 mg<br>[Level I] | GLP-1 RA | Slows gastric motility, reduces satiety | 56 weeks | 6.4 | • Nausea and vomiting<br>• Pancreatitis<br>• Cholelithiasis |
 
 *BP: blood pressure; GI: gastrointestinal; GLP1-RA: glucagon-like peptide 1 receptor agonists; MVT: multivitamins.*
 
-**C. Surgical intervention**
+C. Surgical intervention
 - [Level III] Bariatric surgery should be considered when lifestyle and pharmacological interventions have failed in the obese with T2DM and at high CVD risk with suboptimal glycaemic control.
 - [Level III] International diabetes organisations developed a consensus treatment algorithm for metabolic surgery in T2DM (Diabetes Surgery Summit-II, DSS-II). Metabolic surgery should be recommended for Asians with T2DM as below:
   - ≥37.5 kg/m²,
@@ -262,9 +262,9 @@ Table 3-33: Approved anti-obesity drugs.
 Table 3-34: Criteria for bariatric surgery.
 | Factors | Criteria |
 |---|---|
-| **Weight loss history** | Failure of previous attempts at weight reduction, including programs such as weight watchers etc. |
-| **Commitment** | Expectation that patient will adhere to postoperative care consisting of:<br>• follow up visits with health care team,<br>• adherence to medical management,<br>• continued dietary restriction |
-| **Exclusion criteria** | • BMI <30 kg/m² or <27.5 kg/m² for Asians<br>• Current drug or alcohol abuse<br>• Severe psychiatric illness<br>• Lack of comprehension of the benefits, risks, expected outcomes and required lifestyle changes |
+| Weight loss history | Failure of previous attempts at weight reduction, including programs such as weight watchers etc. |
+| Commitment | Expectation that patient will adhere to postoperative care consisting of:<br>• follow up visits with health care team,<br>• adherence to medical management,<br>• continued dietary restriction |
+| Exclusion criteria | • BMI <30 kg/m² or <27.5 kg/m² for Asians<br>• Current drug or alcohol abuse<br>• Severe psychiatric illness<br>• Lack of comprehension of the benefits, risks, expected outcomes and required lifestyle changes |
 
 *BMI: body mass index.*
 
@@ -279,11 +279,11 @@ Table 3-34: Criteria for bariatric surgery.
 Table 3-35: Metabolic improvement associated with bariatric surgery.
 | Disease | At 2 years | At 5-7 years | At 10 years |
 |---|---|---|---|
-| **T2DM** | 72%<br>80.3% | 54%<br>88% | 36% |
-| **Hypertension** | 24% | 66% | 41% |
-| **Hypertriglyceridaemia** | 62% | 82% | 46% |
-| **Hypercholesterolaemia** | 22% | 53% | 21% |
-| **NAFLD** | 84% steatosis resolution,<br>75% fibrosis resolution | | |
+| T2DM | 72%<br>80.3% | 54%<br>88% | 36% |
+| Hypertension | 24% | 66% | 41% |
+| Hypertriglyceridaemia | 62% | 82% | 46% |
+| Hypercholesterolaemia | 22% | 53% | 21% |
+| NAFLD | 84% steatosis resolution,<br>75% fibrosis resolution | | |
 
 *NAFLD: non-alcoholic fatty liver disease.*
 
@@ -292,14 +292,14 @@ Table 3-35: Metabolic improvement associated with bariatric surgery.
 Table 3-36: ABCD score for prediction of T2DM remission
 | Variable | 0 | 1 | 2 | 3 |
 |---|---|---|---|---|
-| **Age** | ≥40 | <40 | | |
-| **BMI (kg/m²)** | <27 | 27-34.9 | 35-41.9 | ≥42 |
-| **c-peptide (mmol/L)** | <2 | 2-2.9 | 3-4.9 | ≥5 |
-| **Duration of T2DM (years)** | >8 | 4-8 | 1-3.9 | <1 |
+| Age | ≥40 | <40 | | |
+| BMI (kg/m²) | <27 | 27-34.9 | 35-41.9 | ≥42 |
+| c-peptide (mmol/L) | <2 | 2-2.9 | 3-4.9 | ≥5 |
+| Duration of T2DM (years) | >8 | 4-8 | 1-3.9 | <1 |
 
 *The age, BMI, c-peptide and duration of T2DM (ABCD) scoring. The total possible score value range from 0-10. The higher the score, the higher percentage for T2DM remission.*
 
-**Recommendations: Obesity and T2DM**
+Recommendations: Obesity and T2DM
 | Recommendation | Grade |
 |---|---|
 | 1. In overweight or obese persons with diabetes, at each clinic encounter, BMI and waist circumference should be measured and documented. | Grade A |
@@ -321,14 +321,14 @@ Table 3-36: ABCD score for prediction of T2DM remission
 - [Level II-2] A study using liver stiffness measurement (measured using transient elastography e.g. Fibroscan; a non-invasive procedure) estimated the prevalence of advanced liver fibrosis among patients with diabetes mellitus to be 21.0%.
 - [Level II-2] The same study using liver stiffness measurement ≥8 kPa to identify patients with diabetes mellitus for liver biopsy found that the majority of the patients had NASH (83.1%) and some degree of liver fibrosis (87.1%), while advanced liver fibrosis was diagnosed in 36.6%.
 
-**Assessment**
+Assessment
 Table 3-37: Modalities for NAFLD assessment and recommended intervals for testing.
 | Assessment | Result | Action |
 |---|---|---|
-| **Blood tests (e.g. ALT and AST)** | Normal ALT and AST | Repeat ALT and AST annually |
-| | Elevated ALT and AST* | • US abdomen to diagnose fatty liver/exclude focal liver lesion<br>• Repeat ALT and AST after 3-6 months<br><br>**AND**<br><br>• Exclude other causes of liver disease<br>• Consider referral to Gastroenterologist/Hepatologist |
-| **Fibrosis-4 scoring** | Fibrosis-4 index <1.3 | Repeat every 2-3 years |
-| | Fibrosis-4 index ≥1.3 | Refer for liver stiffness measurement (Refer to Table 3-38: Interpretation of liver stiffness measurements and recommended action)<br><br>**AND**<br><br>Consider referral to Gastroenterologist/Hepatologist |
+| Blood tests (e.g. ALT and AST) | Normal ALT and AST | Repeat ALT and AST annually |
+| | Elevated ALT and AST* | • US abdomen to diagnose fatty liver/exclude focal liver lesion<br>• Repeat ALT and AST after 3-6 months<br><br>AND<br><br>• Exclude other causes of liver disease<br>• Consider referral to Gastroenterologist/Hepatologist |
+| Fibrosis-4 scoring | Fibrosis-4 index <1.3 | Repeat every 2-3 years |
+| | Fibrosis-4 index ≥1.3 | Refer for liver stiffness measurement (Refer to Table 3-38: Interpretation of liver stiffness measurements and recommended action)<br><br>AND<br><br>Consider referral to Gastroenterologist/Hepatologist |
 
 *\* Exclude possibility of drug-induced liver injury.*
 *ALT: Alanine aminotransferase; AST: Aspartate aminotransferase; US: ultrasound. For Fibrosis-4 index and assessment of NAFLD in T2DM illustrated as a flow chart refer to Appendix 9: Fibrosis 4 Index.*
@@ -345,15 +345,15 @@ Table 3-37: Modalities for NAFLD assessment and recommended intervals for testin
 Table 3-38: Interpretation of liver stiffness measurements and recommended action.
 | Liver stiffness measurement (kPa)* | Interpretation | Action |
 |---|---|---|
-| **<10** | Unlikely to have advanced liver fibrosis | |
-| **10-15** | May have advanced liver fibrosis | • Requires monitoring e.g. repeat in 1 year<br>• Consider referring to Gastroenterologist/Hepatologist |
-| **>15** | Likely to have advanced liver fibrosis | • Should be considered for HCC surveillance<br>• Consider referring to Gastroenterologist/Hepatologist |
-| **>20-25 (and/or presence of thrombocytopaenia)** | Likely to have clinically significant portal hypertension | • Should be considered for HCC surveillance and variceal screening<br>• Requires referral to Gastroenterologist/Hepatologist |
+| <10 | Unlikely to have advanced liver fibrosis | |
+| 10-15 | May have advanced liver fibrosis | • Requires monitoring e.g. repeat in 1 year<br>• Consider referring to Gastroenterologist/Hepatologist |
+| >15 | Likely to have advanced liver fibrosis | • Should be considered for HCC surveillance<br>• Consider referring to Gastroenterologist/Hepatologist |
+| >20-25 (and/or presence of thrombocytopaenia) | Likely to have clinically significant portal hypertension | • Should be considered for HCC surveillance and variceal screening<br>• Requires referral to Gastroenterologist/Hepatologist |
 
 *\*values obtained by transient elastography.*
 *kPa: kilopascals; HCC: hepatocellular carcinoma.*
 
-**Recommendations: Assessment of NAFLD**
+Recommendations: Assessment of NAFLD
 | Recommendation | Grade |
 |---|---|
 | 1. Patients with T2DM should have platelet count, and serum ALT and AST levels performed for assessment for NASH and advanced liver fibrosis. This may be repeated annually or more frequently, as indicated. | Grade A |
@@ -363,7 +363,7 @@ Table 3-38: Interpretation of liver stiffness measurements and recommended actio
 | 5. Patients with persistently elevated serum ALT and/or AST level or elevated liver stiffness measurement should be considered for referral to Gastroenterologist/Hepatologist for further evaluation and management. | Grade A |
 | 6. A liver biopsy may be considered for definitive diagnosis of NASH and/or advanced liver fibrosis. | Grade A |
 
-**Treatment**
+Treatment
 - [Level II-2] The mainstay of treatment of NAFLD is lifestyle intervention.
   - [Level II-2] A balanced, reduced calorie, individually tailored diet (for overweight/obese persons with T2DM) to enable weight loss which includes limiting excess fructose consumption such as avoiding beverages with added fructose and foods with high fructose corn syrup, choosing complex CHO, high fibre foods and avoiding processed foods.
     - [Level II-2] A study on biopsy-proven NASH patients found that weight loss of ≥10% through lifestyle intervention over 52 weeks resulted in NASH resolution and fibrosis improvement in 90% and 45% of patients, respectively.
@@ -381,7 +381,7 @@ Table 3-38: Interpretation of liver stiffness measurements and recommended actio
     - [Level II-2] In a study on 428 NAFLD patients, 74.1% of patients who should have been receiving statin therapy were not while 58.9% of patients who were on statins did not achieve the treatment LDL-C target.
     - Serious liver injury from statins is rare and it is safe to be prescribed for most NAFLD patients.
 
-**Recommendations: Treatment of NAFLD**
+Recommendations: Treatment of NAFLD
 | Recommendation | Grade |
 |---|---|
 | 1. Lifestyle intervention is the mainstay of treatment of NAFLD. | Grade A |
@@ -390,33 +390,33 @@ Table 3-38: Interpretation of liver stiffness measurements and recommended actio
 
 <!-- parent_only_reference_start -->
 Appendix 9: Fibrosis 4 Index
-**(A) Use of Fibrosis-4 index in assessment of NAFLD**
+(A) Use of Fibrosis-4 index in assessment of NAFLD
 The Fibrosis-4 (FIB-4) index is used to assess Non-Alcoholic Fatty Liver Disease (NAFLD) in T2DM patients. The assessment pathway is as follows:
 
-1. **Calculate Fibrosis-4 index** for the T2DM patient.
+1. Calculate Fibrosis-4 index for the T2DM patient.
 2. Based on the FIB-4 index:
-   - **If < 1.3**: The patient is unlikely to have advanced liver fibrosis.
-   - **If ≥ 1.3**: Proceed to Liver stiffness measurement.
-3. **Based on Liver stiffness measurement**:
-   - **< 10 kPa**: Unlikely to have advanced liver fibrosis.
-   - **10-15 kPa**: May have advanced liver fibrosis. Requires monitoring. Consider referral to Gastroenterologist/Hepatologist.
-   - **> 15 kPa**: Likely to have advanced liver fibrosis. Consider referral to Gastroenterologist/Hepatologist. Consider HCC surveillance.
-   - **> 20-25 kPa**: Likely to have clinically significant portal hypertension. Should refer to Gastroenterologist/Hepatologist. Consider variceal screening.
+   - If < 1.3: The patient is unlikely to have advanced liver fibrosis.
+   - If ≥ 1.3: Proceed to Liver stiffness measurement.
+3. Based on Liver stiffness measurement:
+   - < 10 kPa: Unlikely to have advanced liver fibrosis.
+   - 10-15 kPa: May have advanced liver fibrosis. Requires monitoring. Consider referral to Gastroenterologist/Hepatologist.
+   - > 15 kPa: Likely to have advanced liver fibrosis. Consider referral to Gastroenterologist/Hepatologist. Consider HCC surveillance.
+   - > 20-25 kPa: Likely to have clinically significant portal hypertension. Should refer to Gastroenterologist/Hepatologist. Consider variceal screening.
 
-**Additional considerations for Elevated ALT and/or AST:**
+Additional considerations for Elevated ALT and/or AST:
 - Use ultrasound (US) to diagnose fatty liver and exclude focal liver lesion.
 - Exclude other causes of elevated ALT/AST.
 - A liver biopsy may be considered for definitive diagnosis of NASH and/or advanced liver fibrosis in patients with persistently elevated ALT and/or AST, and/or elevated liver stiffness measurement.
 
 *T2DM: type 2 diabetes mellitus; kPa: kilopascals; HCC: hepatocellular carcinoma; US: ultrasound; ALT: alanine aminotransferase; AST: aspartate aminotransferase.*
 
-**(B) Calculating Fibrosis 4 index**
-**Formula:**
+(B) Calculating Fibrosis 4 index
+Formula:
 FIB-4 = (Age (years) x AST (U/L)) / (Platelet count (x 10^9/L) x ALT (U/L)^½)
 
-**Interpretation:**
-- **<1.3**: Low risk for advanced fibrosis
-- **≥1.3**: Intermediate to high risk for advanced fibrosis
+Interpretation:
+- <1.3: Low risk for advanced fibrosis
+- ≥1.3: Intermediate to high risk for advanced fibrosis
 
 Level of Evidence
 | Level | Source |

@@ -1,4 +1,4 @@
-# Section 3: Management of Type 2 Diabetes Mellitus
+# Section 3.4: Targets for control
 <!-- METADATA
 category: Assessment, Treatment
 use_case: Setting individualised glycaemic targets based on patient profile — HbA1c, FPG, PPG targets and treatment goal personalisation
@@ -7,7 +7,7 @@ output: HbA1c_target, FPG_target, PPG_target, individualised_treatment_goal
 -->
 
 ## 3.4: Targets for control
-**Summary of Updates**
+Summary of Updates
 - The importance of achieving optimal body weight with lifestyle modification is emphasized in overweight/obese T2DM individuals.
 - HbA1c targets: glycaemic targets have been revised according to individual characteristics.
 - BP targets are revised to 130-139/70-79 mmHg.
@@ -16,15 +16,15 @@ output: HbA1c_target, FPG_target, PPG_target, individualised_treatment_goal
 Table 3-5: Targets for control
 | Parameters | | Levels |
 |---|---|---|
-| **Glycaemic control\*** | Fasting or pre-prandial | 4.4 mmol/L-7.0 mmol/L |
+| Glycaemic control\* | Fasting or pre-prandial | 4.4 mmol/L-7.0 mmol/L |
 | | Post-prandial | 4.4 mmol/L-8.5 mmol/L\*\* |
 | | HbA1c | <7.0% (for most)<br>≤6.5 %\*\*\* |
-| **Lipids** | Triglycerides | ≤1.7 mmol/L |
+| Lipids | Triglycerides | ≤1.7 mmol/L |
 | | HDL-C | Male: >1.0 mmol/L<br>Female: >1.2 mmol/L |
 | | LDL-C | ≤2.6 mmol/L# |
-| **BP** | | 130-139/70-79 mmHg^^ |
-| **Exercise** | | 150 minutes/week |
-| **Body weight** | | If overweight or obese, aim for up to 10% weight loss in 6 months |
+| BP | | 130-139/70-79 mmHg^^ |
+| Exercise | | 150 minutes/week |
+| Body weight | | If overweight or obese, aim for up to 10% weight loss in 6 months |
 
 [Level III] * Modified from the NICE guideline: Type 2 diabetes: The management of type 2 diabetes, 2014.
 [Level I] Glycaemic target should be individualised to minimise risk of hypoglycaemia.
@@ -52,9 +52,9 @@ CVD: cardiovascular disease; eGFR: estimated glomerular filtration rate; T2DM: t
 Table 3-26: LDL-C targets
 | Risk categories for patients with T2DM | Target LDL-C (mmol/L) | Target Non-HDL-C (mmol/L) |
 |---|---|---|
-| **Very high risk** [Level I]<br>Patients with diabetes and established CVD<br>**OR**<br>Other target organ damage<br>**OR**<br>≥3 risk factors | <1.4 | <2.2 |
-| **High risk** [Level I]<br>Patients with diabetes for ≥10 years without target organ damage<br>**AND** any other additional risk factor | <1.8 | <2.6 |
-| **Moderate risk** [Level I]<br><50-year-old with T2DM of <10 years duration without other risk factors | <2.6 | <3.4 |
+| Very high risk [Level I]<br>Patients with diabetes and established CVD<br>OR<br>Other target organ damage<br>OR<br>≥3 risk factors | <1.4 | <2.2 |
+| High risk [Level I]<br>Patients with diabetes for ≥10 years without target organ damage<br>AND any other additional risk factor | <1.8 | <2.6 |
+| Moderate risk [Level I]<br><50-year-old with T2DM of <10 years duration without other risk factors | <2.6 | <3.4 |
 
 *Non-HDL-C: calculated as Total cholesterol – HDL-C. LDL-C targets depends on the patients' CV risks as detailed above.*
 *LDL-C: low-density lipoprotein cholesterol; Non-HDL-C: Non-high-density lipoprotein cholesterol; CVD: cardiovascular disease.*
@@ -62,9 +62,9 @@ Table 3-26: LDL-C targets
 Table 3-27: Secondary targets
 | Parameter | Targets |
 |---|---|
-| **Non-HDL-C** | 0.8 mmol/L above the LDL-C target according to risk category (Refer Table 3-26) |
-| **HDL-C** | >1.0 mmol/L for males; >1.3 mmol/L for females |
-| **TG** | < 1.7 mmol/L |
+| Non-HDL-C | 0.8 mmol/L above the LDL-C target according to risk category (Refer Table 3-26) |
+| HDL-C | >1.0 mmol/L for males; >1.3 mmol/L for females |
+| TG | < 1.7 mmol/L |
 
 *Non-HDL-C: Non-high-density lipoprotein cholesterol; HDL-C: high-density lipoprotein cholesterol; TG: triglycerides; LDL-C: low-density lipoprotein cholesterol.*
 

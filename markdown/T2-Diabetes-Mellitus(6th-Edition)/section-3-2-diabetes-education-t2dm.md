@@ -1,4 +1,4 @@
-# Section 3: Management of Type 2 Diabetes Mellitus
+# Section 3.2: Diabetes Education
 <!-- METADATA
 category: Supportive Treatment
 use_case: Diabetes self-management education and support — scope, methods, process and outcome measures
@@ -7,7 +7,7 @@ output: education_plan, DSME_process, behaviour_change_outcomes
 -->
 
 ## 3.2: Diabetes Education
-**Summary of Updates**
+Summary of Updates
 - Diabetes self-management education and support continues to be an essential part of ensuring patient motivation and adherence.
 - Local primary healthcare diabetes education programs run as part of a chronic care model has been shown to be effective in improving glycaemic targets.
 - Structured diabetes education programs that are patient-centred have been shown to improve glycaemic control; use of newer technology, e.g. digital web-based apps/short-messaging system (SMS) or phone calls further encourage patient participation.
@@ -30,14 +30,14 @@ output: education_plan, DSME_process, behaviour_change_outcomes
 Table 3-4: Diabetes Education — Scope and Methods
 | Category | Content |
 |---|---|
-| **Self-Management Education** | • Diet <br> • Food exchanges <br> • Exercise <br> • Medication <br> • Complications (acute and chronic) <br> • SMBG <br> • Self-monitoring of BP and weight <br> • Foot care <br> • Smoking cessation <br> • Problem solving skills e.g. management of hypoglycaemia, sick days <br> • Psychosocial adaptation to diabetes e.g. to manage the stress associated with the initial diagnosis of diabetes or its complications and initiation of insulin |
-| **Self-Management Support** | • Telephone contact <br> • Digital/web-based/apps <br> • Diabetes resource centres |
-| **Patient/Peer Support Organisation** | • Community-based support groups and organisations |
+| Self-Management Education | • Diet <br> • Food exchanges <br> • Exercise <br> • Medication <br> • Complications (acute and chronic) <br> • SMBG <br> • Self-monitoring of BP and weight <br> • Foot care <br> • Smoking cessation <br> • Problem solving skills e.g. management of hypoglycaemia, sick days <br> • Psychosocial adaptation to diabetes e.g. to manage the stress associated with the initial diagnosis of diabetes or its complications and initiation of insulin |
+| Self-Management Support | • Telephone contact <br> • Digital/web-based/apps <br> • Diabetes resource centres |
+| Patient/Peer Support Organisation | • Community-based support groups and organisations |
 
 Figugre 3-1: Process of Diabetes Self-Management Education (DSME)
 Members of HCP team include: Diabetes educator, nurse, dietitian, doctor, pharmacist, health education officer, assistant medical officers and psychologist.
 
-**1. Components/Objectives**
+1. Components/Objectives
 Clinical Evaluation and Treatment Plan:
 - Assessment
 - Goal setting
@@ -45,7 +45,7 @@ Clinical Evaluation and Treatment Plan:
 - Evaluation/monitoring
 - Focusing on individualised needs and goals
 
-**2. Process**
+2. Process
 Individualised Based On:  
 - Prior knowledge and experience with T2DM
 - Health literacy
@@ -53,7 +53,7 @@ Individualised Based On:
 - Preferred learning style
 - Psychosocial issues that include cultural, religious preference and readiness for change
 
-**3. Outcome Measure**
+3. Outcome Measure
 Behaviour Change:
 - Adherence to lifestyle (diet, weight reduction, physical activity, smoking cessation)
 - Adherence to medication

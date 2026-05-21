@@ -7,7 +7,7 @@ output: lifestyle_recommendation, weight_loss_target, exercise_prescription, met
 treatment_type: metformin, liraglutide, acarbose, pioglitazone, orlistat
 -->
 
-**Summary of Updates**
+Summary of Updates
 - Individuals with pre-diabetes are at risk of progression to frank diabetes and are also at higher CV risk.
 - The mainstay of T2DM prevention is intensive behavioural lifestyle intervention program to achieve target weight loss of at least 7% (and improving insulin resistance).
 - Metformin should be considered in those at very high risk, prediabetes, previous history of GDM or for those who failed lifestyle therapy after 6 months.
@@ -24,8 +24,8 @@ treatment_type: metformin, liraglutide, acarbose, pioglitazone, orlistat
 - Progression to diabetes in patients with prediabetes can be delayed.
 - Patients with prediabetes often have other CV risk factors, e.g. hypertension and dyslipidaemia, and are associated with increased CV risk. They should be screened for presence of these modifiable CV risk factors, and appropriate management instituted.
 
-**Interventions Proven to Reduce the Conversion of IFG/IGT to T2DM**
-**A. Lifestyle Modifications**
+Interventions Proven to Reduce the Conversion of IFG/IGT to T2DM
+A. Lifestyle Modifications
 - [Level I] Diet and moderate intensity physical activity remain the mainstay of therapy.
 - [Level I] There is strong evidence that combination of diet plus physical activity reduces or delays the incidence of T2DM in prediabetes, particularly in IGT patients.
 - [Level III] Intensive behavioural lifestyle intervention program modelled on the Diabetes Prevention Program (DPP) should be advocated for all prediabetic patients to achieve moderate-intensity physical activity (such as brisk walking) for at least 150 min/week and a target weight loss of at least 7%.
@@ -33,7 +33,7 @@ treatment_type: metformin, liraglutide, acarbose, pioglitazone, orlistat
 - [Level I] [Level III] Interventions that use technology to disseminate diet and exercise lifestyle programs have been shown to be effective in weight reduction and improvements in glycaemic levels in patients with prediabetes and should be considered as part of T2DM prevention strategy.
 - [Level I] [Level II-2] There is limited evidence on benefit of bariatric surgery on reduction of progression to T2DM.
 
-**B. Pharmacotherapy**
+B. Pharmacotherapy
 - [Level I] In addition to lifestyle intervention, metformin should be considered for those at very high risk. These include those with:
   - Combined IFG and IGT
   - IGT + obesity (BMI >35 kg/m²)

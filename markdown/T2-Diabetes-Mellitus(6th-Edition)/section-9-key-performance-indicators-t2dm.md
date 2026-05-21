@@ -1,7 +1,7 @@
 # Section 9: Key Performance Indicators
 <!-- METADATA
 category: Reference
-use_case: Measuring and monitoring quality of diabetes care; identifying areas for improvement
+use_case: T2DM Key Performance Indicators — quality_metrics, clinical_audit, KPI_measurement, baseline_data_collection, care_quality_monitoring, improvement_areas
 patient_input: KPI_data, baseline_data, patient_data
 output: Quality_metrics, audit_reports, improvement_interventions
 -->

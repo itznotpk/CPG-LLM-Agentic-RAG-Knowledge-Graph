@@ -1,19 +1,19 @@
-# Section 3: Management of Type 2 Diabetes Mellitus
+# Section 3.8: Monitoring
 <!-- METADATA
 category: Assessment
-use_case: HbA1c monitoring, self-monitoring of blood glucose (SMBG), continuous glucose monitoring (CGM), monitoring of other risk factors and complications in T2DM
+use_case: T2DM Monitoring — HbA1c_monitoring, SMBG, CGM, glucose_targets, monitoring_frequency, risk_factor_monitoring, complication_surveillance
 patient_input: HbA1c, SMBG_readings, insulin_regimen, OGLD_type, CGM_availability, age, risk_factors, monitoring_frequency
 output: HbA1c_interval, SMBG_timing_frequency, CGM_indication, monitoring_schedule, HbA1c_target, glucose_targets
 -->
 
 ## 3.8: Monitoring
-**Summary of Updates**
-- **Self-monitoring of blood glucose (SMBG)**
+Summary of Updates
+- Self-monitoring of blood glucose (SMBG)
   - SMBG is important in people with insulin treated T2DM.
   - SMBG may improve glycaemic control in people with non-insulin treated T2DM with short diabetes duration, HbA1c ≥8% and/or obesity.
   - Mobile health may promote diabetes self-management, although more evidence on application (apps) accuracy, data security, accessibility and sustainability are required.
 
-- **Continuous glucose monitoring (CGM)**
+- Continuous glucose monitoring (CGM)
   - CGM technology has evolved significantly in recent years with emerging evidence as a useful tool in glycaemic monitoring in people with T2DM.
   - Ambulatory glucose profile and key glucose metrics derived from CGM reports provide objective insights into individual glycaemic variability that facilitate improved glycaemic management and promote self-engagement.
 
@@ -68,7 +68,7 @@ Table 3-21: Causes that may affect the HbA1c value.
   - total glycated haemoglobin estimation (if abnormal haemoglobins) using boronate affinity methods. These are available in select hospitals.
 - Other limitations of HbA1c are that it does not provide information on glucose variability and does not capture hypoglycaemia. In such circumstances, a combination of SMBG and HbA1c is appropriate.
 
-***Point of care testing for HbA1c***
+*Point of care testing for HbA1c*
 - [Level I] Point of care (POC) devices should not be used for diagnosis of T2DM.
 - However, POC devices are gaining popularity.
   - POC devices fill an unmet need – making HbA1c assessment possible in the more remote/interior regions of the country where laboratory facilities are not readily available.
@@ -77,7 +77,7 @@ Table 3-21: Causes that may affect the HbA1c value.
 - As precision and accuracy in newer POC devices continue to improve, they have the potential to be as accurate as laboratory based HbA1c. This can reduce cost, waiting time and necessity for multiple visits, improve QoL, and increase accessibility to remote/interior areas and also for the paediatric population (minimal blood needed).
 - The main utility for POC devices will be in the monitoring of diabetes management in follow-up of patients.
 
-***Fructosamine estimation***
+*Fructosamine estimation*
 - [Level III] The evidence that correlates fructosamine to average glucose levels and its prognostic significance are not as strong as HbA1c.
 - It is an alternative to HbA1c in monitoring glycaemic control in patients in whom HbA1c measurements may be inaccurate.
 - It only reflects glycaemic control over the recent 2-3 weeks.
@@ -86,7 +86,7 @@ Table 3-21: Causes that may affect the HbA1c value.
 - SMBG is the method of choice in assessing glycaemic control and preventing hypoglycaemia.
   - [Level I] [Level III] As part of an educational initiative, SMBG should be recommended in patients treated with insulin and is desirable for those on OGLDs.
 
-***In out-patient setting***
+*In out-patient setting*
 - Insulin treated T2DM
   - [Level I] Recommend routine SMBG to evaluate glycaemic control and prevent hypoglycaemia.
   - Frequency and timing of SMBG vary based on types of insulin regimen (Refer Section 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy). <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy" target_kind="h3_section" -->
@@ -101,12 +101,12 @@ Table 3-21: Causes that may affect the HbA1c value.
     - more frequent SMBG,
     - high levels of health literacy,
     - structured SMBG and evaluation of technique with regular feedback*,
-    - adjustment of therapy (diet, physical activity and GLDs).**
+    - adjustment of therapy (diet, physical activity and GLDs).
 
 *\*By health care providers (clinicians, diabetes-skilled allied health personnel).*
 *\*\*By patients themselves with emphasis on self-management support and on-going patient empowerment by health care providers.*
 
-***Frequency and timing of SMBG***
+*Frequency and timing of SMBG*
 - [Level II-2] Frequency and timing of SMBG should be tailored based on the patient's needs including glycaemic status, drug therapy, treatment goals and lifestyle (dietary patterns and level of physical activity).
 - [Level II-2] Re-evaluation of the need for and frequency of SMBG should be performed by healthcare providers during each follow-up visit.
 - [Level II-2] Ideally, SMBG should be performed on a daily basis in people with insulin-treated T2DM or if possible, at least one 24-hour cycle on a weekly basis.
@@ -159,7 +159,7 @@ The figure shows a long-acting baseline curve with three rapid-acting peaks at b
 - Readings at post-meal give information about rapid acting insulin given before each meal.
 - There is less insulin stacking for twice daily premixed insulin analogue compared to twice daily premixed human insulin (Refer to Figure 3-11: Twice daily premixed insulin analogue and Figure 3-12: Thrice daily premixed insulin analogue).
 
-***Role of mobile health (mHealth) in SMBG***
+*Role of mobile health (mHealth) in SMBG*
 - [Level I] mHealth tools play an emerging role in diabetes prevention and management.
 - [Level I] Commonly available mHealth tools include:
   - short-messaging service (sms),
@@ -179,24 +179,24 @@ The figure shows a long-acting baseline curve with three rapid-acting peaks at b
 Table 3-23: Comparison of professional, personal or flash CGM.
 | Type of CGM | Professional CGM | Personal CGM | Flash CGM |
 |---|---|---|---|
-| **Usage frequency** | Intermittent | Intermittent / Continuous | Intermittent / Continuous |
-| **Glucose data display** | Retrospective / Blinded | Real-time glucose levels with trend arrows and graphic display | On demand real-time glucose levels with trend arrows and graphic display |
-| **Capillary plasma glucose calibration** | Required | Variable depending on device | Not required* |
-| **Hypo-/Hyperglycaemia alarm** | x | √ | x |
-| **Devices required** | Sensor, recorder | Sensor, transmitter, display unit^a | Sensor, reader / mobile app |
-| **Sensor lifespan** | 6 days | 6-90 days | 14 days |
-| **User training requirement** | + | ++ | + |
-| **Integration with insulin pump** | x | √^b | x |
-| **Report download** | √ | √ | √ |
-| **Cost** | ++ | +++ | + |
-| **Interference / Precaution of use** | Paracetamol^# | MRI / X-ray, diving (>1 m depth for >30 min) | - |
+| Usage frequency | Intermittent | Intermittent / Continuous | Intermittent / Continuous |
+| Glucose data display | Retrospective / Blinded | Real-time glucose levels with trend arrows and graphic display | On demand real-time glucose levels with trend arrows and graphic display |
+| Capillary plasma glucose calibration | Required | Variable depending on device | Not required* |
+| Hypo-/Hyperglycaemia alarm | x | √ | x |
+| Devices required | Sensor, recorder | Sensor, transmitter, display unit^a | Sensor, reader / mobile app |
+| Sensor lifespan | 6 days | 6-90 days | 14 days |
+| User training requirement | + | ++ | + |
+| Integration with insulin pump | x | √^b | x |
+| Report download | √ | √ | √ |
+| Cost | ++ | +++ | + |
+| Interference / Precaution of use | Paracetamol^# | MRI / X-ray, diving (>1 m depth for >30 min) | - |
 
 *^a Insulin pump, portable diabetes assistant or mobile app (bluetooth link)*
 *^b Medtronic 640G insulin pump*
 *[Level II-2] \* factory calibrated; ^# may cause falsely elevated glucose readings up to 8 hours post ingestion.*
 *CGM: continuous glucose monitoring; MRI: magnetic resonance imaging.*
 
-***Clinical benefits of CGM in the management of T2DM***
+*Clinical benefits of CGM in the management of T2DM*
 - There is emerging evidence that CGM application in people with T2DM provide a number of clinical benefits.
   - Detection of unrecognised hypoglycaemia/hyperglycaemia and evaluation of glycaemic variability.
     - [Level II-1] [Level II-2] It provides objective insights into the key glucose metric i.e. time in range (TIR).
@@ -207,15 +207,15 @@ Table 3-23: Comparison of professional, personal or flash CGM.
  - [Level I] Flash CGM users reported higher treatment satisfaction.
  - [Level I] [Level II-2] Effective motivational tool in improving adherence to therapeutic lifestyle modification.
 
-**Limitations and Barriers to CGM Use**
-- **Cost/reimbursements:** CGM is costly and not routinely reimbursed.
-- [Level II-2] [Level III] **Technological barriers:** Accuracy tends to be lower:
+Limitations and Barriers to CGM Use
+- Cost/reimbursements: CGM is costly and not routinely reimbursed.
+- [Level II-2] [Level III] Technological barriers: Accuracy tends to be lower:
   - During the first 24 hours of sensor insertion
   - In the low end of glycaemic range
   - During the phase of rapidly changing glucose levels related to time-lag between interstitial and plasma glucose
-- [Level III] **Human (user) factors:** Adequate training is required for proper use and interpretation of the report.
+- [Level III] Human (user) factors: Adequate training is required for proper use and interpretation of the report.
 
-**Considerations for Use of CGM in T2DM**
+Considerations for Use of CGM in T2DM
 CGM may be considered in the following situations:
 - [Grade B] HbA1c above target despite intensive insulin therapy with multiple daily injections 
 - [Grade B] Suspected unrecognised hypoglycaemia, impaired hypoglycaemia awareness, dawn phenomenon or delayed postprandial hyperglycaemia 
@@ -231,7 +231,7 @@ CGM may be considered in the following situations:
 Table 3-24: Clinical Monitoring Schedule for Other Risk Factors in Patients with T2DM
 | Test | Initial visit | 3-monthly OR Every follow-up visit | At annual visit |
 |---|---|---|---|
-| **Physical examination** | | | |
+| Physical examination | | | |
 | Weight | ✓ | ✓ | ✓ |
 | Waist circumference | ✓ | ✓ | ✓ |
 | BMI | ✓ | | ✓ |
@@ -242,7 +242,7 @@ Table 3-24: Clinical Monitoring Schedule for Other Risk Factors in Patients with
 | Feet — Neuropathy | ✓ | ✓ | ✓ |
 | Dental check-up | ✓ | | ✓ |
 | ECG^b^ | ✓ | | ✓ |
-| **Laboratory investigations** | | | |
+| Laboratory investigations | | | |
 | Plasma glucose | ✓ | ✓ | ✓ |
 | HbA1c | ✓ | ✓ | ✓ |
 | Lipid profile^c^ | ✓ | | ✓ |
@@ -256,14 +256,14 @@ Table 3-24: Clinical Monitoring Schedule for Other Risk Factors in Patients with
 *^c^ Once statin is initiated, suggest checking lipid profile every 4–12 weeks to ascertain efficacy and adherence, and annually thereafter.*
 *^d^ Serum creatinine with calculated eGFR, preferably using CKD-EPI formula.*
 
-**Recommendations: Monitoring**
+Recommendations: Monitoring
 | Recommendation | Grade |
 |---|---|
-| Glycaemic targets must be individualised. Therapy in most patients with T2DM should be targeted to achieve an HbA1c ≤7.0% or 6.5% (where appropriate), if achievable without significant hypoglycaemia. Reduction in HbA1c has been shown to decrease the risk of: (a) microvascular complications — Grade A; (b) macrovascular complications | **Grade B** |
-| To achieve HbA1c ≤7.0%, aim for FPG or pre-prandial glucose targets of 4.4–7.0 mmol/L and 2-hour PPG target of 4.4–8.5 mmol/L. | **Grade B** |
-| SMBG should be recommended in patients on insulin and is desirable for those on OGLDs. | **Grade C** |
-| CGM may be considered in patients with suboptimal HbA1c or suspected to have unrecognised hypoglycaemia on intensive insulin therapy. | **Grade B** |
-| Monitoring of glycaemic control, co-morbidities, complications and other CVD risk factors should be done at initial visit and whenever indicated subsequently. | **Grade C** |
+| Glycaemic targets must be individualised. Therapy in most patients with T2DM should be targeted to achieve an HbA1c ≤7.0% or 6.5% (where appropriate), if achievable without significant hypoglycaemia. Reduction in HbA1c has been shown to decrease the risk of: (a) microvascular complications — Grade A; (b) macrovascular complications | Grade B |
+| To achieve HbA1c ≤7.0%, aim for FPG or pre-prandial glucose targets of 4.4–7.0 mmol/L and 2-hour PPG target of 4.4–8.5 mmol/L. | Grade B |
+| SMBG should be recommended in patients on insulin and is desirable for those on OGLDs. | Grade C |
+| CGM may be considered in patients with suboptimal HbA1c or suspected to have unrecognised hypoglycaemia on intensive insulin therapy. | Grade B |
+| Monitoring of glycaemic control, co-morbidities, complications and other CVD risk factors should be done at initial visit and whenever indicated subsequently. | Grade C |
 
 <!-- parent_only_reference_start -->
 Level of Evidence

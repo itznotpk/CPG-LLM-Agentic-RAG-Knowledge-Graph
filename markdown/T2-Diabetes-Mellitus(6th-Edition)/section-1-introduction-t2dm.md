@@ -32,12 +32,12 @@ output: disease_burden, prevalence_statistics, comorbidity_data, treatment_summa
 Table 1-1: Prevalence of Overall Diabetes by Ethnicity for Adults ≥18 Years
 | | Overall diabetes | Diagnosed/Known diabetes | Raised plasma glucose ≥7mmol/L / Unknown diabetes |
 |---|---|---|---|
-| **Malay** | 21.6% | 11.0% | 10.6% |
-| **Chinese** | 15.1% | 8.5% | 6.6% |
-| **Indians** | 31.4% | 18.5% | 12.9% |
-| **Bumiputera Sabah** | 11.1% | 4.7% | 6.4% |
-| **Bumiputera Sarawak** | 12.2% | 7.9% | 4.3% |
-| **Others** | 8.7% | 2.0% | 6.7% |
+| Malay | 21.6% | 11.0% | 10.6% |
+| Chinese | 15.1% | 8.5% | 6.6% |
+| Indians | 31.4% | 18.5% | 12.9% |
+| Bumiputera Sabah | 11.1% | 4.7% | 6.4% |
+| Bumiputera Sarawak | 12.2% | 7.9% | 4.3% |
+| Others | 8.7% | 2.0% | 6.7% |
 
 - [Level II-3] Prevalence of overall diabetes is increasing in the young with 4.3% and 5.4% of those between ages 18–19 years and 20–24 years, respectively.
 
@@ -74,7 +74,7 @@ Table 1-3: Percentage of Patients on Insulin by Institution
 | MoH hospital | 38.3% |
 | Private hospital | 30.5% |
 
-**Comorbidities**
+Comorbidities
 [Level II-3] From the 2019 Diabetes Clinical Audit (NDR), the following were noted:
 - Prevalence of hypertension was 80.4% (hypertensive or on BP lowering therapy).
   - Mean systolic BP was 135.4 mmHg and diastolic BP was 76.9 mmHg.
@@ -86,17 +86,17 @@ Table 1-3: Percentage of Patients on Insulin by Institution
   - Mean BMI was 27.8 kg/m²
   - Mean waist circumference in males was 95.2 cm (>90 cm in 69.6%) and in females was 92.1 cm (>80 cm in 87.8%).
 
-**Complications**
+Complications
 [Level II-3] In the 2015–2016 annual report of patients admitted with acute coronary syndrome (National Cardiovascular Disease Database – NCVD-ACS registry), 44.7% of patients were diagnosed to have diabetes. This is the 2nd-most common CV risk factor; the most prevalent CV risk was hypertension at 63.3%.
 - [Level II-3] In 2016, diabetic kidney disease (DKD) was the most common cause of end stage kidney disease (ESKD), accounting for 65% of new patients requiring dialysis in Malaysia.
 
-**Management**
+Management
 Refer to Table 1-4: Summary of Treatments Used for T2DM Management (Diabetes Clinical Audit, NDR 2019) for a summary of treatment used in individuals with T2DM based on the 2019 Diabetes Clinical Audit (NDR).
 
 Table 1-4: Summary of Treatments Used for T2DM Management (Diabetes Clinical Audit, NDR 2019)
 | Medication | | |
 |---|---|---|
-| **Glucose lowering therapy** | | |
+| Glucose lowering therapy | | |
 | Diet alone | | 5.6% |
 | Most commonly prescribed | Metformin | 83% |
 | | Sulphonylureas | 44% |
@@ -104,10 +104,10 @@ Table 1-4: Summary of Treatments Used for T2DM Management (Diabetes Clinical Aud
 | | ≥2 OGLDs | 35.1% |
 | Insulin use | Overall | 30.3% |
 | | In combination with OGLD* | 23.7% |
-| **Anti-hypertensive therapy** | | |
+| Anti-hypertensive therapy | | |
 | Most commonly prescribed | Calcium channel blockers | 57.7% |
 | | ACE-i | 51.8% |
-| **Other medications** | | |
+| Other medications | | |
 | Lipid lowering agents | Statins | 79.9% |
 | Anti-platelet agents | Aspirin | 19.2% |
 

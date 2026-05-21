@@ -1,15 +1,15 @@
 # Section 4: Management of Diabetic Metabolic Emergencies
 <!-- METADATA
 category: Treatment
-use_case: Recognition and management of hypoglycaemia, diabetic ketoacidosis (DKA), euglycaemic ketoacidosis, and hyperglycaemic hyperosmolar state (HHS) in T2DM
+use_case: T2DM Diabetic Emergencies — hypoglycaemia, diabetic_ketoacidosis, DKA, euglycaemic_DKA, SGLT2i_ketoacidosis, hyperglycaemic_hyperosmolar_state, HHS, fixed_rate_insulin_infusion, fluid_replacement, potassium_replacement
 patient_input: plasma_glucose, ketones, pH, bicarbonate, potassium, sodium, osmolality, GCS, urine_output, fluid_status, insulin_dose, SGLT2i_use, consciousness_level
 output: hypoglycaemia_treatment, DKA_protocol, fluid_replacement, insulin_infusion, potassium_replacement, HHS_management, euglycaemic_DKA_recognition
 critical: true
 -->
 
-**Summary of Updates**
-- **Diabetic ketoacidosis:** Weight-based fixed rate intravenous insulin infusion (FRIII) is the current standard recommendation and the use of 'sliding scale' insulin should no longer be practised.
-- **Euglycaemic ketoacidosis:** Although this has been known in T1DM, it can occur in patients with T2DM treated with SGLT2-i, precipitated by stress, and/or omission of insulin. Awareness, prompt recognition, timely diagnosis and management is required.
+Summary of Updates
+- Diabetic ketoacidosis: Weight-based fixed rate intravenous insulin infusion (FRIII) is the current standard recommendation and the use of 'sliding scale' insulin should no longer be practised.
+- Euglycaemic ketoacidosis: Although this has been known in T1DM, it can occur in patients with T2DM treated with SGLT2-i, precipitated by stress, and/or omission of insulin. Awareness, prompt recognition, timely diagnosis and management is required.
 
 ## 4.1: Hypoglycaemia
 Hypoglycaemia is defined by either one of the following three conditions:
@@ -27,9 +27,9 @@ Table 4-1: Symptoms of Hypoglycaemia*
 Table 4-2: Classification of Hypoglycaemia
 | Level | Glycaemic criteria | Description |
 |---|---|---|
-| **1** | <3.9 mmol/L but ≥3.0 mmol/L | Recognised as a threshold for neuroendocrine responses to falling glucose in people without diabetes. |
-| **2** | <3.0 mmol/L | Threshold at which neuroglycopenic symptoms begin to occur. Requires immediate action to resolve the hypoglycaemic event. |
-| **3** | — | A severe event characterised by altered mental and/or physical functioning that requires assistance from another person for recovery. |
+| 1 | <3.9 mmol/L but ≥3.0 mmol/L | Recognised as a threshold for neuroendocrine responses to falling glucose in people without diabetes. |
+| 2 | <3.0 mmol/L | Threshold at which neuroglycopenic symptoms begin to occur. Requires immediate action to resolve the hypoglycaemic event. |
+| 3 | — | A severe event characterised by altered mental and/or physical functioning that requires assistance from another person for recovery. |
 
 Risk Factors for Hypoglycaemia
 - Advancing age
@@ -48,14 +48,14 @@ Strategies for Prevention of Hypoglycaemia
 
 - Patients at risk of hypoglycaemia should be discouraged from driving motor-vehicles, cycling, swimming or operating heavy machinery, as these activities may endanger oneself and the public.
 
-**Treatment of Hypoglycaemia**
-**Aims of treatment:**
+Treatment of Hypoglycaemia
+Aims of treatment:
 - Detect and treat a low plasma glucose level promptly
 - Eliminate the risk of injury to oneself and to relieve symptoms quickly
 - [Level III] Avoid over-correction of hypoglycaemia especially in repeated cases as this will lead to poor glycaemic control and weight gain.
 
-**Level 1 and Level 2 Hypoglycaemia (patient is conscious and able to self-treat):**
-- [Level II-3] [Level III] Ingest **15 g of simple CHO** e.g.:
+Level 1 and Level 2 Hypoglycaemia (patient is conscious and able to self-treat):
+- [Level II-3] [Level III] Ingest 15 g of simple CHO e.g.:
   - 1 tablespoon of honey
   - 150–200 ml of fruit juice such as orange juice or regular soft drink
   - 3 teaspoons of table sugar dissolved in water
@@ -63,28 +63,28 @@ Strategies for Prevention of Hypoglycaemia
 - If the level at 15 minutes is still <3.9 mmol/L, another 15 g of CHO should be taken.
 - People taking AGIs (acarbose) must use glucose (dextrose) tablets or, if unavailable, milk or honey to treat the hypoglycaemia.
 
-[Level III] **Level 3 Hypoglycaemia (unconscious or needs assistance):**
-- Where the individual is **still conscious**: administer 20 g of CHO and the above steps are repeated.
-- Where the individual is **unconscious**, administer:
-  - 20–50 ml of Dextrose (D) 50% intravenously (IV) over 1–3 minutes, **OR**
-  - 75–100 ml of D20% over 15 minutes, **OR**
+[Level III] Level 3 Hypoglycaemia (unconscious or needs assistance):
+- Where the individual is still conscious: administer 20 g of CHO and the above steps are repeated.
+- Where the individual is unconscious, administer:
+  - 20–50 ml of Dextrose (D) 50% intravenously (IV) over 1–3 minutes, OR
+  - 75–100 ml of D20% over 15 minutes, OR
   - 1 mg glucagon subcutaneously (SC) or intramuscularly (IM)
   - Outside the hospital setting: a tablespoon of honey (or equivalent e.g. maple syrup) should be administered into the oral cavity.
 
-**Post-treatment:**
+Post-treatment:
 - Once hypoglycaemia has been reversed, the patient should have the usual meal or snack that is due at that time of the day to prevent recurrent hypoglycaemia.
 - Evaluate cause of the hypoglycaemia and educate patient on how to prevent future episodes.
 - Diabetes treatment (OGLDs and insulin) regime may need to be reviewed and adjusted.
 
 Figure 4-1: Acute Management Algorithm for Hypoglycaemia
-**If patient is conscious and able to self-treat:**
+If patient is conscious and able to self-treat:
 → Give 15 g simple/rapid acting CHO
 → Monitor plasma glucose every 15 minutes
 → Repeat until plasma glucose >3.9 mmol/l
 → Eat usual meal due at the time
 → Evaluate causes of hypoglycaemia
 
-**If patient is unconscious:**
+If patient is unconscious:
 → IV D50% 25 ml–50 ml, OR IV D20% 75 ml–100 ml, OR IM Glucagon 1 mg (if IV line inaccessible)
 → Monitor plasma glucose every 15 minutes
 → Repeat until plasma glucose >3.9 mmol/l
@@ -93,7 +93,7 @@ Figure 4-1: Acute Management Algorithm for Hypoglycaemia
 
 *CHO: carbohydrate; IV: intravenous; IM: intramuscular.*
 
-**Hypoglycaemia Unawareness**
+Hypoglycaemia Unawareness
 - [Level III] Hypoglycaemia unawareness occurs when the ability to perceive the autonomic warning symptoms is either diminished or lost such that the first sign of hypoglycaemia is confusion or loss of consciousness.
 - [Level II-2] Recent or recurrent hypoglycaemia can decrease normal responses to hypoglycaemia and lead to defective glucose counter-regulation and hypoglycaemia unawareness.
 - [Level III] Hypoglycaemia unawareness increases the incidence of severe hypoglycaemia and therefore should trigger re-evaluation of the treatment regimen.
@@ -101,7 +101,7 @@ Figure 4-1: Acute Management Algorithm for Hypoglycaemia
 - Patients should be advised to temporarily relax their targets.
 - [Level III] [Level II-2] Strict avoidance of hypoglycaemia for up to 3 months has been associated with improvement in the recognition of severe hypoglycaemia, the counter-regulatory hormone responses or both.
 
-**Nocturnal Hypoglycaemia**
+Nocturnal Hypoglycaemia
 - [Level II-3] Risk of nocturnal hypoglycaemia is higher especially in the elderly.
 - [Level III] [Level II-2] The clinical manifestations may include:
   - poor sleep quality,
@@ -121,7 +121,7 @@ Figure 4-1: Acute Management Algorithm for Hypoglycaemia
   - Consider switching from human basal insulin to basal insulin analogues.
 - Patients on SU should readjust dose/consider switching to an OGLD without hypoglycaemia risk.
 
-**Complications of Hypoglycaemia**
+Complications of Hypoglycaemia
 - Hypoglycaemia can cause acute harm to the person with T2DM or others, especially if it causes falls, motor vehicle accidents, or other accidents.
 - [Level II-3] A large cohort study suggested that among older adults with T2DM, a history of severe hypoglycaemia was associated with greater risk of dementia.
 - [Level I] Severe hypoglycaemia was associated with excess mortality in participants in both the standard and the intensive glycaemia arms of the ACCORD, VADT and ADVANCE trials.
@@ -129,7 +129,7 @@ Figure 4-1: Acute Management Algorithm for Hypoglycaemia
 - [Level II-2] Acute hypoglycaemia is proinflammatory, increases platelet activation and decreases fibrinolysis, leading to a prothrombotic state.
 - [Level II-2] [Level II-3] [Level III] Hypoglycaemia is associated with increased heart rate, SBP, myocardial contractility, stroke volume and cardiac output, and can induce ST- and T-wave changes with a lengthening of the QT interval (slower repolarization), which may increase the risk of arrhythmias and sudden cardiac death.
 
-**Recommendations: Hypoglycaemia**
+Recommendations: Hypoglycaemia
 | Recommendation | Grade |
 |---|---|
 | Patients at risk of hypoglycaemia or with high CV risk should be educated to recognise and prevent hypoglycaemia. | Grade C |
@@ -143,14 +143,14 @@ Figure 4-1: Acute Management Algorithm for Hypoglycaemia
 - It has a high mortality rate if unrecognised. The overall mortality is <1%, but a mortality rate >5% in the elderly has been reported.
 - Mortality in patients with DKA is frequently related to the underlying aetiological precipitant rather than the metabolic sequelae of hyperglycaemia or ketoacidosis.
 
-**Principles of management**
+Principles of management
 - Correction of dehydration
 - Correction of electrolyte imbalance
 - Insulin therapy
 - Treatment of precipitating factor
 - Prevention of complications
 
-**Assessment**
+Assessment
 - Initial assessment
   - History and physical examination
     - Look for precipitating causes: infection, missed therapy, non-adherence, acute coronary syndrome, cerebrovascular accident, surgery and drugs (e.g. steroids).
@@ -185,16 +185,16 @@ Figure 4-1: Acute Management Algorithm for Hypoglycaemia
 
 *\*Na⁺: sodium; K⁺: potassium; Cl⁻: chloride; HCO₃⁻: bicarbonate*
 
-**Treatment**
+Treatment
 - Aims of treatment
-  - Rate of fall of ketones of at least 0.5 mmol/L/hr, **OR**
-  - Bicarbonate rise of 3 mmol/L/hr, **AND**
-  - Plasma glucose fall of at least 3 mmol/L/hr, **AND**
+  - Rate of fall of ketones of at least 0.5 mmol/L/hr, OR
+  - Bicarbonate rise of 3 mmol/L/hr, AND
+  - Plasma glucose fall of at least 3 mmol/L/hr, AND
   - Maintain serum potassium within normal range.
 - Precaution during treatment
   - Avoid over-correction of hyperglycaemia (within the first 12-24 hours of treatment, avoid lowering glucose to <14.0 mmol/L)
 
-**A. Immediate treatment**
+A. Immediate treatment
 - Correction of dehydration
   - Fluid deficits in DKA may be up to 10% of total body weight. Restoration of circulating volume is a priority.
   - [Level III] SBP on admission <90 mmHg (likely due to low circulating volume, but consider other causes such as heart failure or sepsis). Start administration of fluid as shown in Table 4-3: Correction of Dehydration in DKA with Admission SBP <90 mmHg.
@@ -214,11 +214,11 @@ Table 4-3: Correction of Dehydration in DKA with Admission SBP <90 mmHg
 Table 4-4: Correction of dehydration in DKA with admission SBP ≥90 mmHg
 | Hours from admission | Action |
 |---|---|
-| **First 1 hour** | Start IV fluid 1L of 0.9% saline |
+| First 1 hour | Start IV fluid 1L of 0.9% saline |
 | | Continue fluid replacement via infusion pump depending on hydration status |
-| **Over next 2 hours** | 1000 ml of 0.9% saline with potassium chloride (KCl) |
-| **Over next 4 hours** | 1000 ml of 0.9% saline with KCl |
-| **Over next 6-8 hours** | 1000 ml of 0.9% saline with KCl |
+| Over next 2 hours | 1000 ml of 0.9% saline with potassium chloride (KCl) |
+| Over next 4 hours | 1000 ml of 0.9% saline with KCl |
+| Over next 6-8 hours | 1000 ml of 0.9% saline with KCl |
 
 - The rate of hydration should be guided by:
   - haemodynamic status,
@@ -242,7 +242,7 @@ Table 4-5: Potassium replacement of infusion solution.
 |---|---|
 | >5.5 | Nil |
 | 3.5-5.5 | 20-30 mmol KCl/l* |
-| <3.5 | additional K⁺ replacement required** |
+| <3.5 | additional K⁺ replacement required |
 
 *\*1 g KCl = 13.4 mmol K⁺; \*\* Maximum potassium replacement per hour is 40 mmol/h.*
 
@@ -269,7 +269,7 @@ Table 4-5: Potassium replacement of infusion solution.
   - [Level III] No evidence to support routine phosphate replacement for DKA.
   - If levels <0.32 mmol/L in the presence of cardiac dysfunction or respiratory depression, consider phosphate replacement.
 
-**B. Monitoring**
+B. Monitoring
 - Hourly capillary plasma glucose until it reaches maintenance level of 8 mmol/L-12 mmol/L, then monitor 2-4 hourly.
 - Vital signs and input-output charting hourly
 - Venous HCO₃⁻ and K⁺ at 60 minutes, 4 hours and 6-hourly thereafter
@@ -277,13 +277,13 @@ Table 4-5: Potassium replacement of infusion solution.
 - If ketones and glucose are not falling as expected, check if the insulin infusion pump is working and connected, and the correct insulin residual volume is present.
 - If equipment is working but response to treatment inadequate, increase insulin infusion rate by 1 U/hr increments hourly until targets are achieved.
 
-**C. Resolution**
+C. Resolution
 - Continue IV insulin infusion until resolution of DKA
 - [Level III] Resolution is defined as:
   - pH >7.3
   - Plasma ketone <0.6 mmol/L
 
-**D. Transitioning from IV insulin to SC basal bolus insulin**
+D. Transitioning from IV insulin to SC basal bolus insulin
 - [Level III] Patient should be eating and drinking, and back on normal insulin.
 - Overlap the SC insulin with the insulin infusion for ½ hour (for insulin analogues) or 1 hour (for human insulin).
 - [Level III] Calculating a basal bolus regimen (4 times daily)
@@ -298,11 +298,11 @@ Figure 4-2: Algorithm for management of T2DM with DKA.
 
 The algorithm for managing T2DM with DKA follows this structure:
 
-**IV Fluids** — based on SBP:
+IV Fluids — based on SBP:
 - SBP <90 mmHg → 500 ml 0.9% NaCl bolus, repeat if needed, consider colloids
 - SBP ≥90 mmHg → 1 litre 0.9% NaCl over 1 hr, then continue fluid replacement with KCl based on hydration status
 
-**Insulin** — FRIII 0.1 U/kg/hr:
+Insulin — FRIII 0.1 U/kg/hr:
 - Monitor capillary glucose hourly
 - If glucose does not fall by 3 mmol/L/hr for first 2–3 hrs despite adequate hydration → increase FRIII by 1 U/hr
 - If glucose <14 mmol/L → reduce FRIII by 50% and switch to dextrose drip
@@ -311,16 +311,16 @@ The algorithm for managing T2DM with DKA follows this structure:
 - Continue insulin infusion for ½ hr (for insulin analogues) or 1 hr (for human insulin) after SC insulin to prevent rebound hyperglycaemia
 - Use SC basal bolus regime
 
-**Potassium** — evaluate serum K⁺:
+Potassium — evaluate serum K⁺:
 - K⁺ <3.5 mmol/L → Delay initiation of insulin and give 20–40 mmol/L KCl until K⁺ ≥3.5 mmol/L (Maximum K⁺ replacement is 40 mmol/hr [3g KCl/hr])
 - K⁺ ≥3.5 but ≤5.5 mmol/L → Add 20–30 mmol/L KCl in each litre of IV fluid; Maintain serum K⁺ at 4–5 mmol/L
 - K⁺ >5.5 mmol/L → No replacement; check serum K⁺ 2 hourly
 
-**Bicarbonate**:
+Bicarbonate:
 - pH ≥6.9 → No bicarbonate
 - pH persistently <6.9 → Add 50 ml 8.4% NaHCO₃ to 200 ml D5% over 1 hr, repeat every 1–2 hours until pH is ≥7.0
 
-**When capillary glucose <14 mmol/L:** Switch/add concurrent D5%.
+When capillary glucose <14 mmol/L: Switch/add concurrent D5%.
 
 *IV: intravenous; NaCl: sodium chloride; Na⁺: sodium; D5%: dextrose 5%; FRIII: fixed rate IV insulin infusion; SC: subcutaneous; K⁺: potassium; KCl: potassium chloride; BUSE: blood urea and serum electrolytes; VBG: venous blood gas.*
 *[Level II-2] Adapted from Umpierrez GE, et al. Diabetes Spectrum 2002.*
@@ -351,7 +351,7 @@ The algorithm for managing T2DM with DKA follows this structure:
   - [Level III] Well-described complications such as seizures, cerebral oedema and osmotic demyelination syndrome though uncommon can occur due to rapid changes in osmolality during treatment.
 - [Level III] Whilst the presentation of DKA is rapid (within hours), HHS progresses over many days. As a result, the dehydration and metabolic disturbances are more profound.
 
-**[Level III] Diagnostic Criteria**
+[Level III] Diagnostic Criteria
 - Severe dehydration
 - Marked hyperglycaemia (plasma glucose >30 mmol/L)
 - Serum osmolality >320 mosmol/kg
@@ -359,7 +359,7 @@ The algorithm for managing T2DM with DKA follows this structure:
   - In severe hyperglycaemia, measured serum Na²⁺ is falsely low (pseudohyponatraemia). Recognition of pseudohyponatraemia is important to avoid use of hypertonic saline during fluid management.
   - Urea levels are not used for calculation of osmolality, as it passes freely across the plasma membranes and its accumulation does not induce an osmotic gradient across cell membranes.
 
-[Level III] **Other important clinical features**
+[Level III] Other important clinical features
 - There is no significant ketonaemia (<3.0 mmol/L) or acidosis (pH >7.3, HCO₃⁻ >15 mmol/L).
 - When significant acidosis is present, a mixed picture of HHS and DKA should be considered. However, other causes of acidosis (such as lactic acidosis, sepsis and poisoning) should be excluded.
 - If there is worsening of acute cognitive impairment, consider:
@@ -370,13 +370,13 @@ The algorithm for managing T2DM with DKA follows this structure:
   - hypoglycaemia during treatment; and
   - renal failure.
 
-[Level III] **Precipitating factors for HHS**
+[Level III] Precipitating factors for HHS
   - Infection (30-60%)
   - Poor adherence to treatment - omission of insulin or OGLDs
   - Presence of acute concomitant illness - cerebrovascular events, myocardial infarction
   - Medication - diuretics, glucocorticoids or antipsychotic drugs
 
-**Management goals**
+Management goals
 - The treatment goals of HHS are to treat the underlying cause as well as gradual and safe:
   - correction of dehydration,
   - correction of electrolyte imbalance,
@@ -384,7 +384,7 @@ The algorithm for managing T2DM with DKA follows this structure:
   - treatment of precipitating factors,
   - prevention of complications.
 
-**Principles of treatment**
+Principles of treatment
 - IV 0.9% saline solution is the principle fluid to restore circulating volume and correction of dehydration.
 - IV 0.45% saline solution is used if serum Na²⁺ is >145 mmol/L or the serum osmolality is not declining (<3 mosm/kg) despite adequate hydration.
 - Recognition of pseudohyponatraemia in severe hyperglycaemia is important as to avoid using hypertonic saline.
@@ -404,7 +404,7 @@ The algorithm for managing T2DM with DKA follows this structure:
   - education on medications including insulin administration, if required.
 
 Figure 4-3: Algorithm for management of T2DM with HHS.
-**IV fluids**
+IV fluids
 - Administer 0.9% NaCl: 1 L during first 1-2 hours.
 - Reassess hydration status
 - Evaluate serum Na⁺
@@ -413,7 +413,7 @@ Figure 4-3: Algorithm for management of T2DM with HHS.
   - Low → 0.9% NaCl at 250-500 ml/hr depending on hydration status
 - When capillary glucose <14 mmol/L → Switch/add concurrent D5%
 
-**Insulin**
+Insulin
 - FRIII 0.05 U/kg/hr
 - Monitor capillary glucose hourly until levels reach 8-12 mmol/L, then 2-4 hourly
 - If glucose does not fall by 3 mmol/L/hr for 2-3 hrs despite adequate hydration, increase FRIII by 1 U/hr
@@ -421,7 +421,7 @@ Figure 4-3: Algorithm for management of T2DM with HHS.
 - Maintain glucose 8-12 mmol
 - Transition to SC insulin when patient is alert and able to eat
 
-**Potassium**
+Potassium
 - Evaluate serum K⁺
   - K⁺ <3.5 mmol/L → Delay initiation of insulin and give 20-40 mmol/L KCl until K⁺ ≥3.5 mmol/L. Maximum K⁺ replacement is 40 mmol/hr (3g KCl/hr)
   - K⁺ ≥3.5 but ≤5.5 mmol/L → Add 20-30 mmol/L KCl in each litre of IV fluid. Maintain serum K⁺ at 4-5 mmol/L
@@ -431,7 +431,7 @@ Give prophylactic low molecular weight heparin (LMWH) if no contraindication
 
 *IV: intravenous; NaCl: sodium chloride; Na⁺: sodium; D5%: dextrose 5%; FRIII: fixed rate IV insulin infusion; SC: subcutaneous; K⁺: potassium; BUSE: blood urea and serum electrolytes; VBG: venous blood gas.*
 
-**Recommendations: DKA and HHS**
+Recommendations: DKA and HHS
 | | |
 |---|---|
 | 1. Prompt recognition and institution of treatment are important to avoid complications. | Grade C |

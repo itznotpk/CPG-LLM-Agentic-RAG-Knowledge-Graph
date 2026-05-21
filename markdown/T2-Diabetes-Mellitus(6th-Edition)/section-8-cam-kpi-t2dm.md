@@ -1,12 +1,14 @@
 # Section 8: Complementary and Alternative Therapy in T2DM
 <!-- METADATA
 category: Supportive Treatment
-use_case: Role of complementary and alternative medicine in T2DM; key performance indicators for diabetes care quality monitoring
-patient_input: CAM_use, herbal_supplements, vitamin_use, HbA1c, diabetes_complication_status, KPI_data
-output: CAM_counselling, adverse_event_reporting, KPI_measurement, baseline_data_collection, quality_improvement
+use_case: Complementary and Alternative Medicine in T2DM — CAM_definition, supplements, chromium, vitamin_D, cinnamon, herbal_supplements, insufficient_evidence, safety_concerns, adverse_event_reporting
+patient_input: CAM_use, herbal_supplements, vitamin_use, HbA1c, diabetes_complication_status
+output: CAM_counselling, adverse_event_reporting, safety_guidance
 -->
 
-**Summary of Updates**
+> **Context:** Complementary and alternative medicine (CAM) in T2DM (2020 Malaysian CPG, 6th Ed). Bottom line: **insufficient evidence to recommend supplements (chromium, vitamin D, cinnamon, herbs); some may contain harmful ingredients or be unsafe.** Cited findings are not endorsements — counsel patients on safety and encourage disclosure of CAM use.
+
+Summary of Updates
 - There is insufficient evidence to recommend the use of supplements such as chromium, vitamin D, cinnamon or herbs/supplement.
 - Alternative therapies may contain harmful ingredients, may be unsafe or may be improperly marketed as over-the-counter (OTC) products.
 - A recent prospective RCT assessing vitamin D supplementation failed to slow progression of prediabetes to overt diabetes.
@@ -30,7 +32,7 @@ It is very important to advise patients not to replace conventional medical ther
 
 Medicines for T2DM and other health conditions may need to be adjusted if a person is taking an alternative treatment as drug-herb interactions may occur.
 
-**Popular Supplements and Evidence of Benefits**
+Popular Supplements and Evidence of Benefits
 Clear scientific evidence supporting the benefit from all herbal, vitamin and other supplementations for treatment and prevention of T2DM remain scarce.
 
 - [Level I] Olive oil: When taken as supplementation or part of a Mediterranean diet, has demonstrated favourable effects in reducing the risk of development of T2DM in prediabetes and improvement in glycaemic control in T2DM by 0.27%.

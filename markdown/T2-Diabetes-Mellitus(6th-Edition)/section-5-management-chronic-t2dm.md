@@ -1,14 +1,14 @@
 # Section 5: Management of Chronic Complications
 <!-- METADATA
 category: Treatment, Supportive Treatment, Assessment
-use_case: Screening, prevention and management of diabetic retinopathy and diabetic kidney disease (DKD) in T2DM
+use_case: T2DM Chronic Complications — diabetic_retinopathy, diabetic_kidney_disease, DKD, neuropathy, cardiovascular_disease, diabetic_foot, sexual_dysfunction, mental_health, periodontal_disease, complication_screening, anti_VEGF, SGLT2i_renal
 patient_input: diabetes_duration, HbA1c, BP, visual_acuity, fundoscopy_findings, eGFR, urine_albumin, ACR, creatinine, retinopathy_stage
 output: retinopathy_classification, referral_urgency, laser_treatment_indication, anti_VEGF_indication, DKD_stage, ACE_ARB_indication, SGLT2i_indication, nephrology_referral
 treatment_type: anti-VEGF, laser photocoagulation, ACE inhibitor, ARB, SGLT2 inhibitor, aspirin, statin, PDE-5 inhibitor, pregabalin, gabapentin, duloxetine, amitriptyline
 -->
 
 ## 5.1: Retinopathy
-**Summary of Updates**
+Summary of Updates
 - Anti-vascular endothelial growth factor (anti-VEGF) therapy has emerged as the treatment of choice in centre-involving diabetic macular oedema, shown to be superior to laser photocoagulation in improving vision.
 - Rapid improvement of glycaemia in patients with established retinopathy may be associated with transient worsening of retinopathy. Co-management with an ophthalmologist and a more gradual improvement of glycaemia is advised.
 
@@ -19,49 +19,49 @@ treatment_type: anti-VEGF, laser photocoagulation, ACE inhibitor, ARB, SGLT2 inh
   - [Level III] In Malaysia, the prevalence of diabetic retinopathy from the 2007 Diabetes Eye Registry was 36.8%.
   - More recently, a prevalence of retinopathy in ambulatory outpatients with T2DM of 15% and 39.3% was found in Klang Valley and Kelantan tertiary care centres respectively.
 
-**Screening**
+Screening
 - [Level II-3] [Level II-2] Screening and early treatment can prevent substantial visual loss in many cases.
 - Screening should include:
   - Visual acuity assessment using Snellen or equivalent chart with pinhole correction
   - [Level III] A non-mydriatic fundus camera photography as a part of a telemedicine program with remote review by credentialled personnel
 - [Level II-3] [Level II-2] In general, eye examinations are repeated every 1–2 years in those with minimal-to-no retinopathy.
 
-**Eye Examination**
+Eye Examination
 - [Level I] Ideally at the time of diagnosis of T2DM and preferably performed by an ophthalmologist.
 - Should include:
   - Visual acuity assessment using Snellen or equivalent chart with pinhole correction
   - Complete anterior segment and dilated fundus examination
 - [Level III] In low-/intermediate resource settings, screening should include visual acuity assessment and retinal examination for adequate Diabetic Retinopathy Classification by trained/credentialled personnel.
 
-**Management**
-**A. Delay Onset and Progression**
-**Glucose:**
+Management
+A. Delay Onset and Progression
+Glucose:
 - [Level I] Intensive glucose-lowering has been shown to prevent and/or delay onset and progression of retinopathy in T2DM.
-- [Level I] [Level II] In situations where rapid control of glucose is expected in patients with pre-existing diabetic retinopathy there is a potential for **transient worsening of retinopathy**; hence, referral for detailed ophthalmological assessment is required.
+- [Level I] [Level II] In situations where rapid control of glucose is expected in patients with pre-existing diabetic retinopathy there is a potential for transient worsening of retinopathy; hence, referral for detailed ophthalmological assessment is required.
   - If diabetic retinopathy is documented, care should be taken when improving glycaemic control and patients need to be counselled regarding the likelihood of transient worsening of retinopathy.
 
-**Blood Pressure:**
+Blood Pressure:
 - [Level I] Lowering blood pressure (BP) decreases retinopathy progression, although lowering BP intensively (systolic BP <120 mmHg) does not impart additional benefit.
 
-**Fenofibrate Use:**
+Fenofibrate Use:
 - [Level I] Retinopathy progression may be slowed by addition of fenofibrate particularly in those with non-proliferative diabetic retinopathy (NPDR).
 - This holds true irrespective of baseline dyslipidaemia status.
 
-**Aspirin Use:**
+Aspirin Use:
 - [Level I] The presence of retinopathy is not a contraindication to aspirin therapy for cardiovascular disease prevention, as this therapy does not increase the risk of retinal bleeding.
 
-**B. Treatment**
-**Photocoagulation Therapy:**
+B. Treatment
+Photocoagulation Therapy:
 - [Level I] Laser photocoagulation remains the standard practice for treating diabetic retinopathy. Laser therapy is indicated for severe NPDR and proliferative diabetic retinopathy.
 - [Level III] Laser therapy is only relatively indicated in certain types of diabetic macular oedema.
 
-**Anti-Vascular Endothelial Growth Factor (anti-VEGF):**
+Anti-Vascular Endothelial Growth Factor (anti-VEGF):
 - Vascular endothelial growth factor (VEGF) plays an important role in diabetic retinopathy, particularly in the development of diabetic macular oedema.
 - [Level I] Anti-VEGF therapy is superior to laser photocoagulation, improves vision and is the treatment of choice in centre-involving diabetic macular oedema.
 - [Level I] Potential adverse effects of anti-VEGFs include transient increases in intraocular pressure and injection-related infectious endophthalmitis.
 - [Level I] Non-ocular adverse events reported include cerebrovascular accidents and MI. However systematic reviews have not found a statistically significant association.
 
-**Referral to Ophthalmologist**
+Referral to Ophthalmologist
 Referral to an ophthalmologist is necessary for the following situations (Refer Table 5-1: Recommended follow-up and referral schedule for diabetic retinopathy):
 - Severe NPDR
 - Any level of diabetic maculopathy
@@ -92,7 +92,7 @@ Table 5-2: Criteria for urgent referral.
 
 *NPDR: non-proliferative diabetic retinopathy.*
 
-**Recommendations: Retinopathy**
+Recommendations: Retinopathy
 | Recommendation | Grade |
 |---|---|
 | 1. Improving glycaemic control and optimising BP reduces risk of development and progression of retinopathy. | Grade A |
@@ -103,7 +103,7 @@ Table 5-2: Criteria for urgent referral.
 | 6. Intra-vitreal anti-VEGF is indicated for sight-threatening centre-involving diabetic macular oedema. | Grade A |
 
 ## 5.2: Diabetic kidney disease (DKD)
-**Summary of Updates**
+Summary of Updates
 - DKD is the new term used to refer to kidney disease caused by T2DM.
 - SGLT2-i have been proven to be renoprotective, beyond glucose-lowering.
 - SGLT2-i should be considered in patients with albuminuria and DKD down to eGFR 30 ml/min/1.73 m², to reduce DKD progression.
@@ -115,21 +115,21 @@ Table 5-2: Criteria for urgent referral.
 - [Level III] Diagnosis is made clinically — based on presence of albuminuria and/or reduced eGFR in the absence of other causes of kidney disease. If there is concomitant presence of other microvascular complications (e.g. retinopathy), it is more suggestive that the albuminuria/reduced eGFR is due to DKD.
 - Progression to ESKD requiring renal replacement therapy (RRT) occurs in many with poorly controlled BP and glucose.
 
-**Screening and risk stratification**
+Screening and risk stratification
 - Screening should encompass:
   - assessment of albuminuria,
   - estimation of glomerular filtration rate (eGFR).
 
 - [Level II-2] DKD can be present with or without albuminuria, in the presence or absence of retinopathy.
 
-**A. Assessment of albuminuria**
+A. Assessment of albuminuria
 
 Figure 5-1: Assessment of albuminuria.
-**Urine dipstick for protein**
-If **Negative**:
+Urine dipstick for protein
+If Negative:
 - Screen for microalbuminuria on early morning spot urine
-  - If **Negative**: Yearly test for microalbuminuria and renal function
-  - If **Positive**:
+  - If Negative: Yearly test for microalbuminuria and renal function
+  - If Positive:
     - Retest twice in 3-6 months
       - Exclude other causes e.g. UTI, CCF and others
       - If 2 of 3 tests are positive, diagnosis of DKD is established
@@ -166,7 +166,7 @@ Table 5-3: Stages of CKD based on albuminuria
 
 *AER: albumin excretion rate; ACR: albumin creatinine ratio. [Level III]*
 
-**B. Estimation of GFR**
+B. Estimation of GFR
 - [Level III] Measure serum creatinine at least annually regardless of degree of albumin excretion.
 - [Level III] Renal function should be assessed using estimated glomerular filtration rate (eGFR) based on the 2009 CKD-epidemiology (CKD-EPI) creatinine equation. [Level II-2] A Malaysian study showed that the CKD-EPI creatinine equation was more accurate than MDRD in patients with eGFR <60 ml/min/1.73 m², using Cr-51-EDTA as a reference.
 - An eGFR <60 ml/min/1.73m² is considered abnormal and should be repeated after 3 months to diagnose DKD. However, eGFR thresholds may vary in older adults [Level III] and should be interpreted with caution in elderly individuals >70 years.
@@ -178,20 +178,20 @@ Table 5-3: Stages of CKD based on albuminuria
 Table 5-4: Prognosis of DKD based on GFR and albuminuria.
 | GFR categories (ml/min/1.73 m²) | | | Persistent albuminuria categories | | |
 |---|---|---|---|---|---|
-| | | | **A1** | **A2** | **A3** |
+| | | | A1 | A2 | A3 |
 | | | | Normal-to-mildly increased | Moderately increased | Severely increased |
 | | | | <30 mg/g <3 mg/mmol | 30-300 mg/g 3-30 mg/mmol | >300 mg/g >30 mg/mmol |
-| **G1** | Normal or high | ≥90 | Green | Yellow | Orange |
-| **G2** | Mildly decreased | 60-89 | Green | Yellow | Orange |
-| **G3a** | Mildly-to-moderately decreased | 45-59 | Yellow | Orange | Red |
-| **G3b** | Moderately-to-severely decreased | 30-44 | Orange | Red | Red |
-| **G4** | Severely decreased | 15-29 | Red | Red | Deep red |
-| **G5** | Renal failure | <15 | Deep red | Deep red | Deep red |
+| G1 | Normal or high | ≥90 | Green | Yellow | Orange |
+| G2 | Mildly decreased | 60-89 | Green | Yellow | Orange |
+| G3a | Mildly-to-moderately decreased | 45-59 | Yellow | Orange | Red |
+| G3b | Moderately-to-severely decreased | 30-44 | Orange | Red | Red |
+| G4 | Severely decreased | 15-29 | Red | Red | Deep red |
+| G5 | Renal failure | <15 | Deep red | Deep red | Deep red |
 
 *Colours indicate prognosis - Green: low risk; Yellow: moderate risk, Orange: high risk, Red and deep red: very high risk. GFR: glomerular filtration rate.*
 *Green: low risk; Yellow: moderate risk; Orange: high risk; Red: very high risk.*
 
-**Recommendations: Screening for DKD**
+Recommendations: Screening for DKD
 | Recommendation | Grade |
 |---|---|
 | DKD should be assessed, risk stratified and managed based on degree of albuminuria and eGFR. | Grade C |
@@ -201,8 +201,8 @@ Table 5-4: Prognosis of DKD based on GFR and albuminuria.
 | If microalbuminuria is not detected, re-screening should be performed annually. | Grade C |
 | Regardless of the degree of albuminuria, serum creatinine level should be measured annually to determine GFR based on the CKD EPI formula. | Grade C |
 
-**Management of DKD**
-**A. General Management**
+Management of DKD
+A. General Management
 Preventing progression of DKD encompasses:
 - BP control
 - Glycaemic control
@@ -211,7 +211,7 @@ Preventing progression of DKD encompasses:
 
 Dose adjustments of GLDs may be necessary with eGFR <60 ml/min/1.73 m².
 
-**BP Control:**
+BP Control:
 - [Level III] [Level II-1] [Level II-2] BP target in DKD should be <130/80 mmHg regardless of level of albuminuria.
 - SBP should not be <120 mmHg and DBP not <70 mmHg.
 - ACE inhibitors/ARB
@@ -253,12 +253,12 @@ Dose adjustments of GLDs may be necessary with eGFR <60 ml/min/1.73 m².
   - [Level III] Control of dietary potassium is important in those who are at risk of hyperkalaemia.
   - [Level III] [Level II-1] Salt restriction to <2 g/day (sodium chloride <5 g/day) is recommended to control BP and reduce CV risk.
 
-**B. Other measures**
+B. Other measures
 - Lipid control (Refer Sub-section 3.9.2: Hyperlipidaemia and T2DM) <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.2: Hyperlipidaemia and T2DM" target_kind="h3_section" --> 
 - Smoking cessation
 - Weight reduction (Refer Sub-section 3.9.3: Obesity and T2DM) <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.3: Obesity and T2DM" target_kind="h3_section" --> 
 
-**Recommendations: Management of DKD**
+Recommendations: Management of DKD
 | Recommendation | Grade |
 |---|---|
 | 1. Optimise glucose and blood pressure control and use RAS blockade to slow progression of DKD. | Grade A |
@@ -267,8 +267,7 @@ Dose adjustments of GLDs may be necessary with eGFR <60 ml/min/1.73 m².
 | 4. SGLT2-i should be considered in patients with eGFR ≥30ml/min/1.73m², particularly in those with albuminuria to reduce risk of DKD progression. | Grade A |
 | 5. GLP1-RA should be considered in patients with DKD and at high CV risk. | Grade A |
 
-**Referral to nephrologist**
-[Level III] All patients with T2DM and DKD should be referred to a nephrologist in these situations:
+Referral to nephrologist: [Level III] All patients with T2DM and DKD should be referred to a nephrologist in these situations:
 
 - rapid decline in renal function (eGFR loss >5 ml/min/1.73 m² in 1 year or >10 ml/min/1.73 m² in 5 years),
 - eGFR <30 ml/min/1.73 m²,
@@ -283,9 +282,8 @@ Dose adjustments of GLDs may be necessary with eGFR <60 ml/min/1.73 m².
 [Level III] Consultation with a nephrologist at eGFR <30ml/ min/1.73m² has been shown to delay dialysis, improve quality of care and reduce cost. The reason for limiting referral to this eGFR is for purely logistical concerns. It is important for primary care and general physicians to jointly manage patients with nephrologists.
 
 ## 5.3: Neuropathy
-**Summary of Updates**
+Summary of Updates
 - CV autonomic neuropathy is an independent risk factor for CV mortality.
-
 - The diabetic peripheral neuropathies (DPN) are heterogeneous with diverse clinical manifestations. They may be diffuse or focal.
 - Diffuse neuropathies are:
   - distal symmetric polyneuropathy (DSPN), and
@@ -294,7 +292,7 @@ Dose adjustments of GLDs may be necessary with eGFR <60 ml/min/1.73 m².
   - mononeuritis, and
   - radiculopathies.
 
-**Diabetic symmetric polyneuropathy (DSPN)**
+Diabetic symmetric polyneuropathy (DSPN)
 - The likelihood of having DSPN is higher in the presence of:
   - neuropathic symptoms,
   - absent or decreased ankle reflex,
@@ -302,7 +300,7 @@ Dose adjustments of GLDs may be necessary with eGFR <60 ml/min/1.73 m².
   - distal muscle weakness or atrophy, and
   - abnormal nerve conduction study.
 
-**A. Screening and diagnosis**
+A. Screening and diagnosis
 - DSPN should be assessed with a 10-g monofilament (starting from the dorsum of hallux, then moving proximally); and one other modality:
   - pin prick,
   - vibration sense using a 128-Hz tuning fork,
@@ -331,7 +329,7 @@ Dose adjustments of GLDs may be necessary with eGFR <60 ml/min/1.73 m².
 
 Of the above, DN4 and ID pain are simple and feasible for use in clinical practice, whilst LANSS Pain Scale and painDetect is more detailed and more frequently used for research purposes.
 
-**B. Management**
+B. Management
 - Intensive lifestyle intervention
   - [Level II-1] In T2DM, reduces the risk of DSPN.
   - [Level II-2] In prediabetes, reduces the risk of DSPN especially in the subgroup that did not progress to T2DM.
@@ -346,11 +344,11 @@ Of the above, DN4 and ID pain are simple and feasible for use in clinical practi
 Table 5-5: Drugs approved for painful DSPN.
 | Class of drugs | Generic name | Adverse events | Issues | [Level III] Dose in renal impairment |
 |---|---|---|---|---|
-| **Voltage-gated calcium channel α2-δ subunit ligand** | [Level I] Pregabalin <br><br> Initial dose: 75mg OD or BD <br> Effective dose: 150-300 mg BD <br> Max dose: 600 mg/day in divided doses | Somnolence, dizziness, ataxia, seizure upon rapid withdrawal | • Pregabalin requires 2 weeks to achieve maximum efficacy, regular dosing is required during titration phase | eGFR 15-30: 25-150 mg/day in 1-2 divided doses <br> eGFR <15: 25-75 mg OD |
+| Voltage-gated calcium channel α2-δ subunit ligand | [Level I] Pregabalin <br><br> Initial dose: 75mg OD or BD <br> Effective dose: 150-300 mg BD <br> Max dose: 600 mg/day in divided doses | Somnolence, dizziness, ataxia, seizure upon rapid withdrawal | • Pregabalin requires 2 weeks to achieve maximum efficacy, regular dosing is required during titration phase | eGFR 15-30: 25-150 mg/day in 1-2 divided doses <br> eGFR <15: 25-75 mg OD |
 | | [Level I] Gabapentin <br><br> Initial dose: 100-300 mg OD-to-TDS <br> Effective dose: 900-3600 mg/day <br> Max dose: 3600 mg/day in divided dose | | • Efficacy of gabapentin at lower-to-intermediate dose is variable and often require higher dose | eGFR 30-50: 300-900 mg/day in 3 divided doses <br> eGFR 15-29: 300-600 mg/day in 3 divided doses <br> [Level III] eGFR <15: 100-300 mg OD |
-| **Serotonin-norepinephrine reuptake inhibitor** | [Level I] Duloxetine <br><br> Initial dose: 30 mg OD <br> Effective dose: 60-120 mg OD <br> Max dose: 120 mg OD | Nausea, somnolence, dizziness, dry mouth, constipation, hyponatremia, arrhythmia, seizures, serotonin syndrome | None | Consider lower starting dose and slow titration <br> eGFR <30: Not recommended |
-| **Tricyclic antidepressant** | [Level I] Amitriptyline <br><br> Initial dose: 10-25 mg OD <br> Effective dose: 25-100 mg/day <br> Max dose: 150 mg/day | Somnolence, dizziness, insomnia, dry mouth, orthostatic hypotension, urinary retention, constipation, hyponatremia, arrhythmias, seizures, neuroleptic malignant syndrome | Side-effects of tricyclic antidepressants increase the risk of falls in older people. | No dose reduction but, increased likelihood of anticholinergic adverse events (blurred vision, dry mouth and constipation) |
-| **Opioid** | [Level I] Tapentadol <br><br> Initial dose: 50 mg BD <br> Effective dose: 50 mg BD <br> Max 500 mg/day | Somnolence, dizziness nausea, vomiting, constipation, respiratory depression, serotonin syndrome | Long-term use of opioid is associated with tolerance and dependence. | Avoid use or reduce dose as effects of opioids are increased and prolonged due to increased cerebral sensitivity in renal impairment <br> • Tramadol and Oxycodone: As above <br> • Tapentadol: No dose adjustment in mild-moderate renal impairment. Avoid in severe impairment |
+| Serotonin-norepinephrine reuptake inhibitor | [Level I] Duloxetine <br><br> Initial dose: 30 mg OD <br> Effective dose: 60-120 mg OD <br> Max dose: 120 mg OD | Nausea, somnolence, dizziness, dry mouth, constipation, hyponatremia, arrhythmia, seizures, serotonin syndrome | None | Consider lower starting dose and slow titration <br> eGFR <30: Not recommended |
+| Tricyclic antidepressant | [Level I] Amitriptyline <br><br> Initial dose: 10-25 mg OD <br> Effective dose: 25-100 mg/day <br> Max dose: 150 mg/day | Somnolence, dizziness, insomnia, dry mouth, orthostatic hypotension, urinary retention, constipation, hyponatremia, arrhythmias, seizures, neuroleptic malignant syndrome | Side-effects of tricyclic antidepressants increase the risk of falls in older people. | No dose reduction but, increased likelihood of anticholinergic adverse events (blurred vision, dry mouth and constipation) |
+| Opioid | [Level I] Tapentadol <br><br> Initial dose: 50 mg BD <br> Effective dose: 50 mg BD <br> Max 500 mg/day | Somnolence, dizziness nausea, vomiting, constipation, respiratory depression, serotonin syndrome | Long-term use of opioid is associated with tolerance and dependence. | Avoid use or reduce dose as effects of opioids are increased and prolonged due to increased cerebral sensitivity in renal impairment <br> • Tramadol and Oxycodone: As above <br> • Tapentadol: No dose adjustment in mild-moderate renal impairment. Avoid in severe impairment |
 | | [Level I] Tramadol <br><br> Initial dose: 50 mg OD-to-BD <br> Effective dose: 100-200 mg/day <br> Max dose: 400 mg/day | | | |
 | | [Level I] Oxycodone <br><br> Initial dose: 5-10 mg BD | | | |
 
@@ -359,11 +357,11 @@ Table 5-5: Drugs approved for painful DSPN.
 *DSPN: diabetic symmetric polyneuropathy, OD: daily; BD: twice daily; TDS: three times daily; FDA: United States Food and Drug Administration.*
 *Adapted from [Level I] Pop-Busui, et al. 2017, [Level III] Bril V, et al. 2018, [Level III] British National Formulary, 2015.*
 
-**Diabetic autonomic neuropathy (DAN)**
+Diabetic autonomic neuropathy (DAN)
 - Diabetic autonomic neuropathy (DAN) causes CV, GI, urogenital, and pseudomotor dysfunctions, as well as hypoglycaemia unawareness and abnormal pupillary function (Refer Table 5-6: Symptoms of DAN).
 - [Level I] Of clinical relevance, cardiovascular autonomic neuropathy (CAN) is an independent risk factor for cardiovascular mortality.
 
-**A. Symptoms and diagnosis**
+A. Symptoms and diagnosis
 Table 5-6: Symptoms of DAN.
 | CAN | GI | Urogenital | Sudomotor |
 |---|---|---|---|
@@ -389,7 +387,7 @@ Table 5-6: Symptoms of DAN.
     - exclusion of gastric outlet obstruction or ulceration.
   - The gold-standard test to diagnose gastroparesis is gastric emptying scintigraphy.
 
-**B. Management**
+B. Management
 - [Level I] Intensive control of modifiable CV risk factors have been shown to reduce the progression and development of CAN among patients with T2DM.
 - Avoid/minimise drugs that cause orthostatic hypotension.
   - [Level III] Midodrine has been approved as medical therapy for orthostatic hypotension.
@@ -402,20 +400,20 @@ Table 5-6: Symptoms of DAN.
   - Long-term use may be complicated by tardive dyskinesia and extrapyramidal side-effects.
   - [Level III] Alternatively, domperidone acts similarly to metoclopramide, but with less neurological side-effects.
 
-**Diabetic amyotrophy**
+Diabetic amyotrophy
 - [Level II-2] [Level III] Diabetic amyotrophy, also known as proximal diabetic neuropathy, diabetic lumbosacral radiculoplexus neuropathy, or Bruns-Garland syndrome is an uncommon subtype of diabetic neuropathy affecting about 0.8% to 1% of people with diabetes.
 - [Level III] It Is characterised by weakness and areflexia of asymmetric onset, pain on the affected site and marked weight loss.
 
-**A. Diagnosis**
+A. Diagnosis
 - Is made by excluding nerve root compression with MRI.
 - [Level III] Supported by the presence of small amplitude sensory nerve action potential from nerve conduction studies, and fibrillation potentials and long duration high amplitude motor unit action potential from electromyogram.
 
-**B. Management**
+B. Management
 - [Level III] Treatment of pain due to diabetic amyotrophy follows similar recommendation on for treatment for pain due to DSPN.
 - [Level III] Data on the effect of glycaemic control on diabetic amyotrophy is lacking. However, given the known benefits of preventing neuropathy and other diabetic complications, glucose control should be optimized.
 - [Level II-2] Diabetic amyotrophy progresses over months, and eventually stabilises and improves.
 
-**Recommendations: Neuropathy**
+Recommendations: Neuropathy
 | Recommendation | Grade |
 |---|---|
 | 1. Assessment for peripheral neuropathy should be performed at diagnosis and annually. | Grade C |
@@ -425,8 +423,8 @@ Table 5-6: Symptoms of DAN.
 | 5. Refer patients to specialised pain centres if they require long-term opioid treatment. | Grade C |
 
 ## 5.4: Cardiovascular disease
-**A. Coronary heart disease**
-**Summary of Updates**
+A. Coronary heart disease
+Summary of Updates
 - In addition to the importance of managing hyperglycaemia, management of the other traditional concomitant CV risk factors; i.e. BP and LDL-C remain important - with BP targets of 130-139/70-79 mmHg and LDL-C according to CV risk category, with proven clinically meaningful CV risk reduction.
 - Recent CVOTs have proven that certain GLDs (GLP1-RAs and SGLT2-i) are also cardioprotective, beyond their glucose-lowering effects. These CV benefits are seen irrespective of HbA1c level achieved. Paradigm shifts in management algorithm recommendations are emerging.
 - There is an emerging role of SGLT2-i to reduce heart failure hospitalisations in high risk ASCVD patients.
@@ -446,7 +444,7 @@ Table 5-6: Symptoms of DAN.
   - [Level II-2] Poor glycaemic control is also associated with increased risk of HF; every 1% increase in HbA1c is associated with an 8% increased risk of heart failure (95% CI 5%,12%).
   - [Level II-2] Approximately 40% of hospitalised heart failure patients with low ejection fraction have T2DM. Post discharge, T2DM is associated with worse prognosis, increased risk for combined CV mortality and heart failure-related re-hospitalisation.
 
-**Screening**
+Screening
 - Typical symptoms of CHD warrant a prompt referral to a cardiologist for further assessment. However, it is quite common for patients with T2DM to have atypical symptoms or even 'silent' CHD.
 - [Level II-1] Atypical symptoms include dyspnoea, fatigue, and GI symptoms associated with exertion.
 - [Level I] In asymptomatic patients, routine screening for coronary artery disease is not recommended because it does not improve outcome as long as they are receiving intensive medical therapy for optimal CV risk factor control.
@@ -459,22 +457,22 @@ Table 5-6: Symptoms of DAN.
   - with hypertension; or
   - [Level II-2] if CVD is suspected.
 
-**Recommendations: Screening for CVD**
+Recommendations: Screening for CVD
 | Recommendation | Grade |
 |---|---|
 | 1. In asymptomatic patients, routine screening for coronary artery disease is not recommended. Routine screening does not improve outcomes as long as ASCVD risk factors are treated to target. | Grade A |
 | 2. In asymptomatic patients whose CV risk factors are not to target. | Grade A |
 | 3. A resting ECG is indicated in patients with T2DM and hypertension, or if CVD is suspected. | Grade B |
 
-**Management**
-**I. General management**
+Management
+I. General management
 - [Level I] Lifestyle modification, weight management and increased physical activity are important measures.
   - Reduced caloric intake to lower excessive body weight and regular moderate-to-vigorous physical activity of ≥150 minutes/week is beneficial in improving CV risk factors, glycaemic control and inducing remission of T2DM. (Refer Section 3.5: Lifestyle Modification) <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5: Lifestyle Modification" target_kind="h2_section" -->
   - Mortality and CV event reduction with lifestyle intervention alone has not been demonstrated in RCTs.
 - [Level I] Smoking cessation is strongly recommended and a high priority.
   - Smoking increases the risk of CVD and premature death.
 
-**II. Glycaemic control**
+II. Glycaemic control
 - [Level I] Intensive glycaemic control has more beneficial CV effects when achieved early and maintained throughout the course of T2DM management.
 - For management strategies of hyperglycaemia in patients admitted with acute coronary syndrome/unstable angina/heart failure, refer to Section 6.1: Management of T2DM in Acute Illness, Stress and Surgery. <!-- cross_ref target_file="section-6-special-populations-t2dm.md" target_heading="6.1: Management of T2DM in Acute Illness, Stress and Surgery" target_kind="h2_section" -->
 - [Level II] In patients with T2DM with stable heart failure, metformin may be continued if estimated glomerular filtration rate remains >30 mL/min/1.73 m².
@@ -491,15 +489,15 @@ Table 5-6: Symptoms of DAN.
   - SGLT2-i has been given a specific indication for use to reduce hospitalisation for heart failure in adults with T2DM with ASCVD or multiple CV risk (use SGLT2-i that has label indication for heart failure prevention).
 - [Level III] Less rigorous glycaemic targets may be appropriate for elderly patients and those with severe co-morbidities or advanced CVD.
 
-**III. BP control**
+III. BP control
 Refer to Section 3.9.1: Hypertension and T2DM. <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.1: Hypertension and T2DM" target_kind="h3_section" -->
 - [Level I] BP control to target of 130-139/70-79 mmHg with coronary artery disease (existing ASCVD or 10-year ASCVD of ≥15%) if it can be safely achieved.
 - [Level I] In patients with known ASCVD, consider ACE inhibitor or ARB therapy if ACE inhibitor intolerant to reduce the risk of CV events.
 
-**IV. Lipid control**
+IV. Lipid control
 Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.2: Hyperlipidaemia and T2DM" target_kind="h3_section" -->
 
-**V. Antiplatelet therapy**
+V. Antiplatelet therapy
 - [Level I] There is strong evidence that aspirin is effective for secondary prevention of cardiovascular events.
 - [Level I] The Japanese Primary Prevention of Atherosclerosis with Aspirin for Diabetes (JPAD) study showed that daily low-dose aspirin (81 or 100 mg daily) taken for >4 years in asymptomatic people with T2DM failed to show a significant effect on a broad composite of CVD endpoints. However, the risk of fatal coronary or cerebrovascular events was significantly decreased in the aspirin group in those >65 years old.
 - A recent large primary prevention trial (ASCEND trial) showed reduction in CV events but with an increased rate of GI haemorrhage.
@@ -508,13 +506,13 @@ Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="se
 - [Level I] However, in those who are at increased CV risk, aspirin therapy may be considered after a discussion with the patient on the benefits vs. increased risk of bleeding.
 - [Level I] For patients with ASCVD and documented aspirin allergy, clopidogrel (75 mg/day) may be used.
 
-**VI. Revascularisation**
+VI. Revascularisation
 - [Level I] In T2DM patients with NSTEMI, early invasive revascularisation (where possible), will result in similar or greater reduction in death and MI compared to the overall population.
 - T2DM should be considered as a distinct disease entity that is critical for the selection of myocardial revascularisation strategies in multi vessel disease.
   - [Level I] Current evidence indicates that in stable patients with coronary anatomy suitable for both procedures and low predicted surgical mortality, CABG is superior to PCI in reducing the composite risk of death, MI, or stroke, as well as death.
 - [Level II-1] Presence of diabetic retinopathy is not a contraindication for thrombolytic therapy.
 
-**Recommendations: Management of CVD**
+Recommendations: Management of CVD
 | Recommendation | Grade |
 |---|---|
 | 1. Lifestyle measures remain important, including:<br> a. attainment of appropriate weight, increased physical activity; and<br> b. smoking cessation. | Grade A |
@@ -525,8 +523,8 @@ Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="se
 | 6. Among patients with ASCVD with pre-existing or at high risk of heart failure (HFrEF) SGLT2-i should be considered, even if HbA1c is at target. | Grade A |
 | 7. In patients with T2DM and multi vessel coronary artery disease or complex left anterior descending coronary artery disease, and suitable coronary anatomy for revascularization, CABG is superior to PCI. | Grade A |
 
-**B. Cerebrovascular disease (Stroke)**
-**Summary of Updates**
+B. Cerebrovascular disease (Stroke)
+Summary of Updates
 - 3-point MACE outcomes in the recent CVOTs incorporate non-fatal stroke as part of the composite CV outcome.
 - Recent GLP1-RA trials (SUSTAIN-6 and REWIND) have found positive 3-point MACE outcome, largely driven by reduction in non-fatal stroke. These interesting findings may need to be confirmed in dedicated cerebrovascular event trials.
 
@@ -536,13 +534,13 @@ Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="se
 - [Level I] Thiazolidinediones (TZDs), PROACTIVE cardiovascular outcome trial (CVOT) showed positive outcomes for 3-point MACE of which the most significant was reduction of 47% of recurrent stroke. However, side-effects of TZDs of weight gain, increased risk of CHF and osteoporotic fracture render the benefit-risk ratio unfavourable.
 - [Level I] GLP1-RA CVOTs have shown positive 3-point MACE outcomes largely driven by significant reduction of non-fatal stroke (39% risk reduction in SUSTAIN-6 and 24% risk reduction in REWIND).
 
-**Recommendations: Stroke**
+Recommendations: Stroke
 | Recommendation | Grade |
 |---|---|
 | 1. Patients with ischaemic stroke should be managed similarly as patients with established ASCVD. | Grade B |
 
-**C. Peripheral arterial disease (PAD)**
-**Summary of Updates**
+C. Peripheral arterial disease (PAD)
+Summary of Updates
 - Absent peripheral pulses are independent predictors of major vascular outcomes in patients with T2DM. These clinical indicators can be used to improve risk stratification for patients with T2DM.
 - Presence of critical limb ischaemia features (e.g. rest pain with ulcers or tissue loss) identifies a high-risk individual for amputation and/or mortality. Urgent referral to specialist care is indicated.
 
@@ -558,7 +556,7 @@ Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="se
   - previous CVD
   - smoking
 
-**Assessment**
+Assessment
 - [Level III] All patients with T2DM undergoing annual screening for peripheral neuropathy should also be assessed for peripheral vascular disease, with appropriate history taking and palpation of the peripheral pulses (femoral, popliteal, posterior tibial and dorsalis pedis artery).
 - [Level III] If PAD is suspected from the initial screening, several non-invasive bedside tests can be done for further evaluation (Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD).
   - Ankle brachial index (ABI) is used widely due to feasibility.
@@ -567,19 +565,19 @@ Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="se
 Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 | Test | Result | Implication | Recommended alternative action |
 |---|---|---|---|
-| **Ankle brachial index (ABI)** | <0.90 | Diagnostic for PAD | |
+| Ankle brachial index (ABI) | <0.90 | Diagnostic for PAD | |
 | | 0.90–1.3* | PAD less likely | |
 | | >1.3 | May be due to medial calcinosis | Other tests e.g. TBI or CWD recommended |
-| **Toe brachial index (TBI)** | <0.70 | Diagnostic for PAD | |
+| Toe brachial index (TBI) | <0.70 | Diagnostic for PAD | |
 | | ≥0.75 | PAD less likely | |
-| **Continuous wave Doppler of ankle arteries (CWD)** | Triphasic pedal Doppler waveforms | PAD less likely | |
+| Continuous wave Doppler of ankle arteries (CWD) | Triphasic pedal Doppler waveforms | PAD less likely | |
 
 *\*Note: ABI values may be falsely elevated in diabetes due to vessel stiffening/calcification.*
 
 - [Level III] In patients with T2DM and a foot ulcer, clinical examination alone may not exclude PAD hence combined modality testing of CWD and ABI or TBI is recommended.
 - [Level III] Patients with features of critical limb ischaemia (rest pain with ulcers or tissue loss due to PAD) are at high risk of amputation and mortality and should be referred urgently for specialist care.
 
-**Management**
+Management
 - [Level III] Principles of PAD management in T2DM:
   - [Level III] Reducing CV risk factors and treating concomitant disorders.
     - Smoking cessation and lifestyle modification.
@@ -597,7 +595,7 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
   - Consider revascularization in a patient with PAD and a diabetic foot ulcer that is not healing despite 4-6 weeks of optimal management.
   - Patients with intermittent claudication can improve their walking distance by doing regular exercise training programmes. However, those with severe/disabling claudication may require revascularization.
 
-**Recommendations: Peripheral Arterial Disease**
+Recommendations: Peripheral Arterial Disease
 | Recommendation | Grade |
 |---|---|
 | 1. Patients with suspected PAD from initial screening are recommended to be further evaluated with bedside tests such as ABI, TBI or CWD. | Grade B |
@@ -606,14 +604,14 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 | 4. Critical limb ischaemia warrants prompt referral and multidisciplinary management. | Grade C |
 
 ## 5.5: Diabetic foot
-**Summary of Updates**
+Summary of Updates
 - Screening for peripheral neuropathy with loss of protective sensation (LOPS) and peripheral arterial disease (PAD) should be done at diagnosis and repeated at least annually.
 - High risk feet (history of ulcers or amputations, foot deformities, LOPS, PAD) will need more frequent detailed foot assessment.
 
 - [Level II-2] The prevalence of diabetic foot ulcer is 15% over the course of the disease [Level III] while the prevalence of lower limb amputation is 4.3% and remains a major cause of morbidity and mortality.
 - [Level III] Peripheral neuropathy which is asymptomatic in up to 50% of patients, predisposes to ulcerations and vasculopathy further retards the healing process.
 
-**Risk factors for foot ulcers and amputation**
+Risk factors for foot ulcers and amputation
 - [Level III] Risk factors include:
   - previous amputation,
   - history of foot ulcer, pre-ulcerative callous or corn, and foot deformity,
@@ -624,13 +622,13 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
   - poor glycaemic control, and
   - cigarette smoking.
 
-**Assessment of diabetic foot ulcers**
+Assessment of diabetic foot ulcers
 - [Level III] All patients with T2DM should be assessed for risk of diabetic foot ulcers with proper history taking and comprehensive foot evaluation (Refer the Malaysian CPG for Management of Diabetic Foot [2nd edition] available at https://www.moh.gov.my/moh/resources/Penerbitan/CPG/Orthopaedics/Draft%20CPG%20Diabetic%20Foot.pdf)
 - [Level III] Screening for peripheral neuropathy with LOPS and PAD should be done at diagnosis and repeated at least annually. For peripheral neuropathy with LOPS, refer to Section 5.3: Neuropathy.
   - For PAD assessment is by palpation of foot pulses. Ankle brachial index testing should be performed.
 - [Level III] Those at high risk (history of ulcers or amputations, foot deformities, LOPS, PAD) will need more frequent detailed foot assessment.
 
-**Prevention**
+Prevention
 - [Level III] All patients with T2DM should receive foot care education at least annually, and more frequently in those with high risk foot conditions.
 - [Level III] Relevant patient education such as:
   - proper care of feet including nail and skin care,
@@ -640,13 +638,13 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
   - selection of appropriate footwear according to foot risk, including certain prescribed footwear for high risk patients; and
   - seek early treatment in presence of active diabetic foot problems (e.g. ulceration, infection, gangrene or limb ischaemia).
 
-**Management**
+Management
 - [Level III] Patients with active diabetic foot problems (ulceration, infection, gangrene, critical limb ischaemia, acute Charcot neuroarthropathy) should be referred urgently and seen within 24 hours in secondary/tertiary care, and preferably managed by a multidisciplinary foot care team.
 - Trauma induced ulcers with no other risk factors will require the standard wound care and close follow-up until full recovery.
 - [Level III] Antibiotics should be used as an adjunct to surgical debridement for diabetic foot ulcers with local or systemic infection but should not be used to prevent infection.
 - [Level III] Appropriate analgesia should be given for adequate pain relief in those with painful neuropathy.
 
-**Recommendations: Diabetic Foot**
+Recommendations: Diabetic Foot
 | Recommendation | Grade |
 |---|---|
 | 1. All patients with T2DM are recommended to have at least annual comprehensive foot assessment to identify individuals with risk factors, as well as receive foot care education to avoid ulcers and amputations. | Grade B |
@@ -654,34 +652,33 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 | 3. A multidisciplinary approach is recommended for patients with foot ulcers and high-risk feet. | Grade B |
 
 ## 5.6: Sexual dysfunction
-**Summary of Updates**
+Summary of Updates
 - Erectile dysfunction is common in T2DM men. It has been reported to be a marker for potential CVD. Screening for CHD in T2DM men with ED is recommended.
 - Hypogonadism also occurs more frequently in T2DM men and should be excluded.
 - Testosterone therapy improves response to PDE-5 inhibitors.
 
-**5.6.1 Erectile dysfunction**
+### 5.6.1: Erectile dysfunction
 - [Level II-3] Erectile dysfunction (ED) is the inability to achieve, maintain or sustain an erection firm enough for sexual intercourse that may result from psychological, neurological, hormonal, arterial, or cavernosal impairment or from a combination of these factors.
 - [Level II-3] The prevalence of ED among diabetic men varies from 35% to 45%.
   - [Level II-1] ED is three times more common in men with T2DM and its annual, age-adjusted incidence is doubled compared to men without T2DM.
   - [Level II-3] Compared to men without T2DM, it occurs 10-15 years earlier and is less responsive to treatment.
 - [Level II-2] ED has been reported to be a marker for potential CVD, with significant association with all-cause mortality and CV events.
 
-**Risk factors of ED [Level II-2]:**
-- Advancing age, duration of T2DM, poor glycaemic control, presence of diabetic microvascular complications, CV disease, hypertension, hyperlipidaemia, sedentary lifestyle, cigarette smoking and androgen-deficiency/hypogonadism.
+Risk factors of ED [Level II-2]: Advancing age, duration of T2DM, poor glycaemic control, presence of diabetic microvascular complications, CV disease, hypertension, hyperlipidaemia, sedentary lifestyle, cigarette smoking and androgen-deficiency/hypogonadism.
 
-**Hypogonadism:**
+Hypogonadism:
 - Rates of hypogonadism are higher in men with T2DM compared to the general population.
   - [Level II-2] Prevalence of 30%–40% hypogonadotrophic hypogonadism has been reported in men with T2DM.
   - Symptoms and signs suggestive of hypogonadism are reduced libido, absence of early morning erection and testicular atrophy.
 
-**Screening and Diagnosis**
+Screening and Diagnosis
 - All adult men with T2DM should be regularly screened for ED. Many patients do not voluntarily offer the history.
 - All patients with T2DM and ED should be screened for CHD.
 - Hypogonadism should be excluded in men with T2DM and ED.
   - [Level III] Early morning blood for total testosterone (taken before 11.00 am) should be performed.
 - [Level I] Screening can be done using the 5-item version of the International Index of Erectile Function (IIEF) questionnaire (Refer Appendix 10: Assessment of Sexual Dysfunction).
 
-**Management**
+Management
 - No RCTs have shown that improving glycaemic control directly prevents or improves ED.
 - However, early intensive glucose control reduced the incidence of neuropathy, which is a major contributing factor for ED.
 - [Level III] Optimisation of glycaemic control, management of other co-morbidities and lifestyle modifications should be encouraged.
@@ -699,12 +696,12 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
   - [Level II-1] [Level II-2] Testosterone therapy improves the efficacy of PDE-5 inhibitors.
   - [Level I] [Level II-2] Several non-randomised, observational studies have produced conflicting results with regards to cardiac risk vs. benefit from testosterone replacement.
 
-**Testosterone replacement therapy for ED**
+Testosterone replacement therapy for ED
 1. Biochemical confirmation of hypogonadism
 2. Testosterone (parenteral/oral/transdermal)
 3. PDE-5 inhibitor
 
-**Recommendations: Erectile dysfunction**
+Recommendations: Erectile dysfunction
 | Recommendation | Grade |
 |---|---|
 | 1. All adult men with diabetes should be screened for ED. | Grade C |
@@ -713,7 +710,7 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 | 4. Testosterone therapy should be considered in symptomatic hypogonadal men as it improves response to PDE-5 inhibitor therapy. | Grade A |
 | 5. Referral to a urologist should be considered for men who do not respond to PDE-5 inhibitors or for whom the use of PDE-5 inhibitors is contraindicated. | Grade C |
 
-**5.6.2 Female sexual dysfunction**
+### 5.6.2: Female sexual dysfunction
 - [Level III] Female sexual dysfunction (FSD) is defined as persistent or recurring decrease in sexual arousal, dyspareunia and difficulty or inability to achieve an orgasm that leads to personal distress and relationship difficulties.
   - [Level III] It consists of female sexual interest/arousal disorder, orgasmic disorder and genito-pelvic pain/penetration disorder.
   - Most women experience a combination of these disorders.
@@ -722,7 +719,7 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 - Risk factors:
   - [Level II-2] Age, duration of diabetes, poor glycaemic control, menopause, micro- and macro-vascular T2DM complications, and psychological factors (depression and anxiety disorder).
 
-**Screening and diagnosis**
+Screening and diagnosis
 - All women with T2DM should be asked about sexual dysfunction.
 - Brief sexual symptom checklist can be used as initial screening.
 - The patient's medical, surgical, social and psychiatric history should also be obtained.
@@ -742,7 +739,7 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 
 - [Level III] Routine laboratory testing for testosterone and dehydroepiandrosterone (DHEAs) levels are not recommended.
 
-**Management**
+Management
 - Emphasis should be made to treat psychosocial disorders and relationship disharmony.
 - Optimisation of glycaemic control should be encouraged.
 - Where possible, avoid drugs that may affect sexual function:
@@ -755,13 +752,13 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 - Topical lubricants, vaginal moisturisers and local oestrogen application aid with vaginal dryness and dyspareunia.
 - [Level III] Androgen, DHEAs and PDE5 inhibitor are not recommended.
 
-**Recommendations: Female sexual dysfunction**
+Recommendations: Female sexual dysfunction
 | Recommendation | Grade |
 |---|---|
 | 1. FSD is common and should be screened and managed where appropriate. | Grade C |
 
 ## 5.7: Mental health issues in T2DM
-**Summary of Updates**
+Summary of Updates
 - Diabetes distress/depression is common and increasingly recognised as a barrier to patients' ability to cope and self-manage their diabetes.
 - Psychological and social factors need to be assessed as an integral part of management.
 - Referral to a Mental Health specialist may be indicated in specific circumstances.
@@ -794,13 +791,13 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 - [Level I] Behavioural treatment interventions which include cognitive behavioural therapy and exercise as shown in Program ACTIVE II has demonstrated clinically meaningful improvements in depression outcomes in adults with T2DM and major depressive disorder.
 - [Level III] It is important to acknowledge that mental health well-being is a very important part of diabetes management.
 
-**Recommendations: Mental health issues in T2DM**
+Recommendations: Mental health issues in T2DM
 | Recommendation | Grade |
 |---|---|
 | 1. Diabetes distress/depression is common. Assessment of psychological and social wellbeing should be performed as part of continuing diabetes management; at diagnosis, onset of complications, when diabetes is out of control and whenever indicated. | Grade C |
 
 ## 5.8: Periodontal Disease in T2DM
-**Summary of Updates**
+Summary of Updates
 - Oral health education should be provided to all patients with T2DM emphasizing the increased risk of periodontal disease in T2DM. This should include:
   - The bi-directional relationship of periodontal disease and T2DM
   - Adverse effects on HbA1c control due to untreated periodontal disease
@@ -811,7 +808,7 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
   - Gingivitis; and
   - [Level III] Periodontitis which involves destruction of the tooth supporting structures such as the alveolar bone, periodontal ligament and cementum. If left untreated it causes tooth loss.
 
-**Signs and symptoms include:**
+Signs and symptoms include:
 - Bleeding gums during brushing or eating
 - Loose teeth, spacing or spreading of the teeth
 - Oral malodour
@@ -828,30 +825,30 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
   - [Level III] The comorbid presence of periodontitis and T2DM in patients with DKD is reported to elevate the 10-year all-cause mortality risk by 23% and CV mortality risk by 16%.
   - [Level II-2] CV complications (CV mortality, CHD or cerebrovascular events, and subclinical heart disease) have also been significantly associated with the comorbid presence of T2DM and periodontitis (OR 2.2-2.6; 95%CI 1.4-4.2).
 
-**Management**
+Management
 - [Level III] [Level I] Current evidence indicates that in people with T2DM, periodontal therapy accompanied by effective self-care is both safe and effective. Clinical periodontal parameters improve following standard non-surgical therapy even in people with poorly controlled T2DM.
 - [Level I] Systematic reviews and meta-analyses have concluded that HbA1c reductions ranges from 0.27% to 0.48% at 3-4 months following periodontal therapy.
 - [Level III] [Level I] The adjunctive use of antibiotics does not enhance HbA1c reduction beyond scaling and root surface debridement alone among people with T2DM.
 - [Level III] [Level II-2] As evidence mounts supporting the link between T2DM and periodontitis, closer collaboration between physicians and oral health care professionals is warranted to improve glycaemic control.
 - [Level III] [Level II-2] Additionally, there is a need for healthcare providers to routinely refer these patients for oral healthcare as part of the holistic care for people with T2DM.
 
-**Recommendations: Periodontal disease**
+Recommendations: Periodontal disease
 | Recommendation | Grade |
 |---|---|
-| 1. Oral health education should be provided to all patients with T2DM emphasizing on the increased risk of periodontal disease in T2DM. **Successful management of periodontal disease will improve metabolic parameters.** | Grade A |
+| 1. Oral health education should be provided to all patients with T2DM emphasizing on the increased risk of periodontal disease in T2DM. Successful management of periodontal disease will improve metabolic parameters. | Grade A |
 | 2. Physicians/medical health professionals should investigate the presence of periodontal disease as an integral part of T2DM care visits. If present, prompt referral should be made to the dentist for periodontal examination. | Grade C |
 | 3. For all people with newly diagnosed diabetes, referral for a periodontal examination should occur as part of their management. Even if no periodontitis is diagnosed initially, annual periodontal review is recommended. | Grade C |
 
 <!-- parent_only_reference_start -->
 Appendix 10: Assessment of Sexual Dysfunction
-**(A) The 5-item version of the international index of erectile function**
+(A) The 5-item version of the international index of erectile function
 | Question | 0 | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|---|
-| **1. How do you rate your confidence that you could get and keep an erection?** | | Very low<br>**1** | Low<br>**2** | Moderate<br>**3** | High<br>**4** | Very high<br>**5** |
-| **2. When you had erections with sexual stimulation, how often were your erections hard enough for penetration (entering your partner)?** | No sexual activity<br>**0** | Never or almost never<br>**1** | A few times (much less than half the time)<br>**2** | Sometimes (about half the time)<br>**3** | Most times (much more than half the time)<br>**4** | Almost always or always<br>**5** |
-| **3. During sexual intercourse, how often were you able to maintain your erection after you had penetrated (entered) your partner?** | Did not attempt intercourse<br>**0** | Never or almost never<br>**1** | A few times (much less than half the time)<br>**2** | Sometimes (about half the time)<br>**3** | Most times (much more than half the time)<br>**4** | Almost always or always<br>**5** |
-| **4. During sexual intercourse, how difficult was it to maintain your erection to completion of intercourse?** | Did not attempt intercourse<br>**0** | Extremely difficult<br>**1** | Very difficult<br>**2** | Difficult<br>**3** | Slightly difficult<br>**4** | Not difficult<br>**5** |
-| **5. When you attempted intercourse, how often was it satisfactory for you?** | Did not attempt intercourse<br>**0** | Never or almost never<br>**1** | A few times (much less than half the time)<br>**2** | Sometimes (about half the time)<br>**3** | Most times (much more than half the time)<br>**4** | Almost always or always<br>**5** |
+| 1. How do you rate your confidence that you could get and keep an erection? | | Very low<br>1 | Low<br>2 | Moderate<br>3 | High<br>4 | Very high<br>5 |
+| 2. When you had erections with sexual stimulation, how often were your erections hard enough for penetration (entering your partner)? | No sexual activity<br>0 | Never or almost never<br>1 | A few times (much less than half the time)<br>2 | Sometimes (about half the time)<br>3 | Most times (much more than half the time)<br>4 | Almost always or always<br>5 |
+| 3. During sexual intercourse, how often were you able to maintain your erection after you had penetrated (entered) your partner? | Did not attempt intercourse<br>0 | Never or almost never<br>1 | A few times (much less than half the time)<br>2 | Sometimes (about half the time)<br>3 | Most times (much more than half the time)<br>4 | Almost always or always<br>5 |
+| 4. During sexual intercourse, how difficult was it to maintain your erection to completion of intercourse? | Did not attempt intercourse<br>0 | Extremely difficult<br>1 | Very difficult<br>2 | Difficult<br>3 | Slightly difficult<br>4 | Not difficult<br>5 |
+| 5. When you attempted intercourse, how often was it satisfactory for you? | Did not attempt intercourse<br>0 | Never or almost never<br>1 | A few times (much less than half the time)<br>2 | Sometimes (about half the time)<br>3 | Most times (much more than half the time)<br>4 | Almost always or always<br>5 |
 
 *All questions are pertaining to the last 4 weeks*
 *Total up all scores (maximum score = 25)*
@@ -866,8 +863,8 @@ Appendix 10: Assessment of Sexual Dysfunction
 | 17-21 | Mild |
 | 22-25 | No abnormality |
 
-**(B) Sexual symptoms checklist for women**
-**Sexual Symptom Checklist for Women**
+(B) Sexual symptoms checklist for women
+Sexual Symptom Checklist for Women
 Please answer the following questions about your overall sexual function:
 1. Are you satisfied with your sexual function? Yes / No
    If No, please continue.
