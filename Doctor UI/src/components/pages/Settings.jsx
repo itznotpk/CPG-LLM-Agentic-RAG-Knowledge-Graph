@@ -412,8 +412,8 @@ const Settings = ({ profile, setProfile }) => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>Settings</h1>
-        <p className={`mt-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Manage your profile and system preferences</p>
+        <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Settings</h1>
+        <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Manage your profile and system preferences</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">

@@ -172,6 +172,29 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
+# ── rPPG vital scanner ──────────────────────────────────────────────────────
+# Mount the standalone rPPG POC (CPG LLM/rppg_poc/rppg_vitals.py) as a sub-app
+# so it runs inside this backend. With the API on :8058 the scanner is reachable
+# at  ws://<host>:8058/rppg/ws  and  http://<host>:8058/rppg/api/vitals .
+# Optional: if its deps (opencv/scipy/etc.) aren't installed the API still boots.
+try:
+    import sys as _sys
+    _rppg_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rppg_poc"
+    )
+    if _rppg_dir not in _sys.path:
+        _sys.path.insert(0, _rppg_dir)
+    from rppg_vitals import app as rppg_app  # noqa: E402
+    app.mount("/rppg", rppg_app)
+    logger.info("rPPG vital scanner mounted at /rppg (ws: /rppg/ws)")
+except Exception as _rppg_err:  # pragma: no cover - optional dependency
+    logger.warning(
+        "rPPG vital scanner not mounted (optional): %s. "
+        "Install its deps with: pip install opencv-python scipy mediapipe",
+        _rppg_err,
+    )
+
+
 # Helper functions for agent execution
 async def get_or_create_session(request: ChatRequest) -> str:
     """Get existing session or create new one."""

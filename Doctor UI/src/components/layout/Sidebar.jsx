@@ -7,7 +7,8 @@ import {
   BarChart3,
   ChevronLeft,
   ChevronRight,
-  LogOut
+  LogOut,
+  ArrowRight
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
@@ -20,7 +21,7 @@ const navItems = [
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
-const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profile }) => {
+const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profile, consultProcessing = false }) => {
   const { isDark, accent } = useTheme();
   const { signOut } = useAuth();
 
@@ -73,12 +74,13 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = currentView === item.id;
+          const isProcessing = consultProcessing && item.id === 'consultation';
 
           return (
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200
+              className={`hover-reveal w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200
                 ${isActive
                   ? isDark
                     ? `bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20 ${accent.text}`
@@ -90,12 +92,37 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
                 ${isCollapsed ? 'justify-center' : ''}`}
               title={isCollapsed ? item.label : ''}
             >
-              <Icon className={`w-5 h-5 flex-shrink-0 ${isActive ? accent.text : ''}`} />
+              <span className="relative flex-shrink-0">
+                <Icon className={`w-5 h-5 ${isActive ? accent.text : ''}`} />
+                {/* Collapsed: corner pulse so background work is visible without labels */}
+                {isCollapsed && isProcessing && (
+                  <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--accent-primary)] opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[var(--accent-primary)]" />
+                  </span>
+                )}
+              </span>
               {!isCollapsed && (
                 <span className="font-medium text-sm">{item.label}</span>
               )}
-              {!isCollapsed && isActive && (
+              {/* Background-processing indicator takes priority over arrow/active bar */}
+              {!isCollapsed && isProcessing && (
+                <span className="ml-auto flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--accent-primary)] opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent-primary)]" />
+                  </span>
+                  <span className="text-[10px] font-medium text-[var(--accent-primary)]">Running</span>
+                </span>
+              )}
+              {!isCollapsed && !isProcessing && isActive && (
                 <div className={`ml-auto w-1.5 h-8 bg-gradient-to-b ${accent.gradient} rounded-full`} />
+              )}
+              {!isCollapsed && !isProcessing && !isActive && (
+                <ArrowRight
+                  className={`hover-reveal-item ml-auto w-4 h-4 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}
+                  strokeWidth={1.5}
+                />
               )}
             </button>
           );

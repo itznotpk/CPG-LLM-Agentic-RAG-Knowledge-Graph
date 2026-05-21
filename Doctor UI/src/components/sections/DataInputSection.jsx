@@ -23,8 +23,8 @@ function AnalyzingSkeleton() {
             <Brain className={`w-6 h-6 animate-pulse text-[var(--accent-primary)]`} strokeWidth={1.5} />
           </div>
           <div className="flex-1">
-            <h3 className={`text-lg font-semibold mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>AI Analysis in Progress</h3>
-            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Processing clinical data and generating diagnosis...</p>
+            <h3 className={`text-xl font-semibold tracking-tight mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>AI Analysis in Progress</h3>
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Processing clinical data and generating diagnosis...</p>
           </div>
         </div>
 
@@ -161,10 +161,10 @@ function ChartModal({ patient, isOpen, onClose }) {
               <BarChart2 className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
             </div>
             <div>
-              <h2 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+              <h2 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
                 Vital Signs History - {patient.name}
               </h2>
-              <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                 {vitalsData.length} historical readings from MPIS
               </p>
             </div>
@@ -258,7 +258,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
             <CheckCircle className="w-6 h-6 text-green-500" strokeWidth={1.5} />
           </div>
           <div>
-            <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
               Patient Found
             </h3>
           </div>
@@ -518,7 +518,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
             <UserPlus className="w-6 h-6 text-amber-500" strokeWidth={1.5} />
           </div>
           <div>
-            <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
               New Patient Registration
             </h3>
             <p className={`text-sm ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
@@ -835,6 +835,13 @@ export function DataInputSection({ onViewChart }) {
     setMpisFound(result.found);
   };
 
+  // Skip lookup and go straight to registering a new patient
+  const handleStartNewPatient = () => {
+    setNricError('');
+    setMpisChecked(true);
+    setMpisFound(false);
+  };
+
   // Handler to clear and search again
   const handleClear = () => {
     setNsn('');
@@ -852,28 +859,34 @@ export function DataInputSection({ onViewChart }) {
 
   return (
     <div className="space-y-6 animate-fadeIn">
-      <div className="text-center mb-8">
-        <h2 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+      <div className="mb-6">
+        <span className="ds-eyebrow">STEP 1 OF 4</span>
+        <h2 className={`text-xl font-semibold tracking-tight mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
           Clinical Assessment Input
         </h2>
+        <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          Confirm patient details and capture vitals and clinical notes.
+        </p>
       </div>
 
       <div className={`grid grid-cols-1 ${mpisChecked ? 'xl:grid-cols-12' : ''} gap-6`}>
         {/* LEFT COLUMN: Patient Context */}
-        <div className={mpisChecked ? 'xl:col-span-5 space-y-6' : 'max-w-3xl mx-auto w-full space-y-6'}>
-          {/* Step 1: NRIC Input */}
+        <div className={mpisChecked ? 'xl:col-span-5 space-y-6' : 'max-w-2xl mx-auto w-full'}>
+          {/* Step 1: NRIC Input — centered hero before a patient is loaded */}
           {!mpisChecked && (
-            <GlassCard className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-                  <Database className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
+            <div className="min-h-[58vh] flex flex-col items-center justify-center space-y-8">
+              {/* Lookup card */}
+              <GlassCard className="p-6 w-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
+                    <Database className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                      Patient Lookup
+                    </h3>
+                  </div>
                 </div>
-                <div>
-                  <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                    Patient Lookup
-                  </h3>
-                </div>
-              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-end">
                 <div className="flex-1">
@@ -922,7 +935,40 @@ export function DataInputSection({ onViewChart }) {
                   {mpisLoading ? 'Searching...' : 'Search Patient'}
                 </Button>
               </div>
-            </GlassCard>
+
+              {/* Secondary: register a new patient without a lookup */}
+              <div className={`mt-5 pt-5 border-t flex items-center justify-between gap-3 flex-wrap ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+                <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No NRIC on file?</span>
+                <button
+                  type="button"
+                  onClick={handleStartNewPatient}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-primary)] hover:underline"
+                >
+                  <UserPlus className="w-4 h-4" strokeWidth={1.5} />
+                  Register a New Patient
+                </button>
+              </div>
+              </GlassCard>
+
+              {/* What happens next */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                {[
+                  { icon: UserPlus, label: 'Verify Identity', desc: 'Confirm patient & MPIS record' },
+                  { icon: Activity, label: 'Capture Vitals', desc: 'Enter vitals & clinical notes' },
+                  { icon: Brain, label: 'AI Analysis', desc: 'Generate diagnosis & care plan' },
+                ].map((s, i) => (
+                  <div key={i} className={`p-3 rounded-xl border flex items-start gap-3 ${isDark ? 'bg-white/5 border-white/10' : 'bg-white/60 border-slate-200'}`}>
+                    <div className="p-1.5 rounded-lg bg-[var(--accent-primary)]/10 flex-shrink-0">
+                      <s.icon className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.5} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className={`text-xs font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{i + 1}. {s.label}</p>
+                      <p className={`text-[11px] mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
 
           {/* Step 2: Show auto-filled or manual entry */}
@@ -1013,17 +1059,21 @@ export function DataInputSection({ onViewChart }) {
               </div>
             )}
 
-            <div className="flex justify-center pt-4">
-              <Button
-                variant="primary"
-                size="xl"
-                icon={Stethoscope}
+            <div className="pt-4">
+              <button
                 onClick={handleAnalyze}
-                glow={canAnalyze}
-                className="min-w-[300px]"
+                className={`
+                  w-full inline-flex items-center justify-center px-8 py-4 text-xl font-semibold
+                  rounded-2xl backdrop-blur-xl border transition-all duration-200
+                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent-primary)]/50
+                  ${isDark
+                    ? 'bg-[var(--accent-primary)]/20 hover:bg-[var(--accent-primary)]/30 border-[var(--accent-primary)]/40 text-white'
+                    : 'bg-[var(--accent-primary)]/15 hover:bg-[var(--accent-primary)]/25 border-[var(--accent-primary)]/40 text-[var(--accent-primary-hover)]'}
+                  ${canAnalyze ? 'animate-pulse-glow shadow-[var(--shadow-accent)]' : 'shadow-md'}
+                `}
               >
                 Analyze Clinical Assessment
-              </Button>
+              </button>
             </div>
           </div>
         )}

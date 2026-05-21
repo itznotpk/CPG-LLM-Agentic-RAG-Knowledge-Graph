@@ -293,7 +293,7 @@ export function DashboardSection() {
       {/* Header */}
       <div>
         <div className="flex items-center justify-between">
-          <h1 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+          <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
             AI Assistant Performance
           </h1>
           {loading && <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'} animate-pulse`}>Syncing with database...</span>}

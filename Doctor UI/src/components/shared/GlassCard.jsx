@@ -23,18 +23,25 @@ export function GlassCard({ children, className = '', variant = 'default', ...pr
     warning: isDark
       ? 'bg-amber-900/50 border-amber-500/40 text-amber-100'
       : 'bg-amber-50/80 border-amber-400/40 text-amber-800',
+    // Calm reading surface (Notion-style): opaque, hairline border, no glow.
+    // For long-form clinical text where legibility beats visual flourish.
+    reading: isDark
+      ? 'bg-slate-900 border-white/10 text-slate-100'
+      : 'bg-white border-slate-200 text-slate-800',
   };
+
+  // Reading surfaces stay static — no hover elevation/border shift.
+  const isReading = variant === 'reading';
+  const interaction = isReading
+    ? 'shadow-sm'
+    : `shadow-lg transition-all duration-200 hover:shadow-xl ${isDark ? 'hover:border-[var(--accent-primary)]/40' : 'hover:border-slate-300'}`;
 
   return (
     <div
       className={`
         ${variants[variant]}
         border
-        shadow-lg
-        transition-all
-        duration-300
-        hover:shadow-xl
-        ${isDark ? 'hover:border-[var(--accent-primary)]/40' : 'hover:border-slate-300'}
+        ${interaction}
         ${className}
       `}
       style={{ borderRadius: 'var(--radius-lg)' }}

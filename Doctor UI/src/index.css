@@ -153,11 +153,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.4s ease-out forwards;
+  /* Notion-style: fast, ease-out, no overshoot */
+  animation: fadeIn var(--dur) var(--ease-out) forwards;
 }
 
 .animate-slideIn {
-  animation: slideIn 0.3s ease-out forwards;
+  animation: slideIn var(--dur) var(--ease-out) forwards;
 }
 
 .animate-pulse-glow {
@@ -174,48 +175,80 @@ input:focus, textarea:focus, select:focus {
   transition: width 0.8s ease-out;
 }
 
-/* Enhanced hover effects */
+/* Hover effects — restrained (Notion-style): fast color/elevation, no lift or bounce.
+   Buttons keep a real but subtle shadow shift instead of a teal bloom + jump. */
 button, .btn {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
 }
 
 button:hover:not(:disabled), .btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3);
+  box-shadow: var(--shadow);
 }
 
 button:active:not(:disabled), .btn:active:not(:disabled) {
-  transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Card hover effects */
+/* Card hover — gentle elevation only, no translate */
 .hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--dur) var(--ease-out),
+              border-color var(--dur) var(--ease-out);
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(20, 184, 166, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
-/* Input focus glow */
+/* Input focus — keep the focus ring (accessibility), drop the teal glow bloom */
 input:focus, textarea:focus, select:focus {
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.35);
 }
 
-/* Icon button hover */
+/* Icon button hover — bg tint reveal, no scale jump */
 .icon-btn {
-  transition: all 0.2s ease;
+  transition: background-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
 }
 
 .icon-btn:hover {
-  transform: scale(1.1);
-  background-color: rgba(20, 184, 166, 0.15);
+  background-color: rgba(20, 184, 166, 0.12);
 }
 
-/* Badge hover */
+/* Badge hover — subtle brightness, no scale */
+.badge-hover {
+  transition: filter var(--dur-fast) var(--ease-out);
+}
+
 .badge-hover:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
+  filter: brightness(1.05);
+}
+
+/* ============ HOVER-REVEAL (Notion-style row affordances) ============
+   Children marked .hover-reveal-item stay invisible until the parent
+   .hover-reveal is hovered or focused within. Keeps dense screens calm. */
+.hover-reveal .hover-reveal-item {
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.hover-reveal:hover .hover-reveal-item,
+.hover-reveal:focus-within .hover-reveal-item {
+  opacity: 1;
+}
+
+/* ============ REDUCED MOTION ============
+   Honor the OS preference — disable transforms/animations, keep opacity. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-pulse-glow {
+    animation: none !important;
+  }
 }

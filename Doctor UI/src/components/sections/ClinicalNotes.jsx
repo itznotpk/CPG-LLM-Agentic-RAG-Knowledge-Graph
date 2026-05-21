@@ -52,7 +52,7 @@ export function ClinicalNotes({ isConfirmed, onConfirm }) {
             }
           </div>
           <div>
-            <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Clinical Notes</h3>
+            <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Clinical Notes</h3>
             {isConfirmed && (
               <p className="text-xs text-green-500">Notes confirmed ✓</p>
             )}

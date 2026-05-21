@@ -26,7 +26,7 @@ export function PatientDemographics() {
         <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
           <User className="w-5 h-5 text-[var(--accent-primary)]" />
         </div>
-        <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Patient Demographics</h3>
+        <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Patient Demographics</h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

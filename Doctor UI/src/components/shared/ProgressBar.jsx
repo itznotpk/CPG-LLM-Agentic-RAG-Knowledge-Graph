@@ -71,21 +71,27 @@ export function StepIndicator({ steps, currentStep, className = '' }) {
         return (
           <React.Fragment key={step.id || stepNumber}>
             <div className="flex flex-col items-center">
-              <div
-                className={`
-                  w-10 h-10 rounded-full flex items-center justify-center
-                  font-semibold text-sm transition-all duration-300
-                  ${isCompleted
-                    ? 'bg-green-500 text-white'
-                    : isActive
-                      ? 'bg-[var(--accent-primary)] text-white shadow-lg shadow-[var(--accent-primary)]/30'
-                      : isDark 
-                        ? 'bg-white/10 text-slate-400 border border-white/20'
-                        : 'bg-white/50 text-slate-500 border border-slate-300'
-                  }
-                `}
-              >
-                {isCompleted ? <CheckCircle className="w-5 h-5" /> : stepNumber}
+              <div className="relative">
+                {/* Soft ping ring behind the active step */}
+                {isActive && (
+                  <span className="absolute inset-0 rounded-full bg-[var(--accent-primary)] opacity-60 animate-ping" />
+                )}
+                <div
+                  className={`
+                    relative w-10 h-10 rounded-full flex items-center justify-center
+                    font-semibold text-sm transition-all duration-300
+                    ${isCompleted
+                      ? 'bg-green-500 text-white'
+                      : isActive
+                        ? 'bg-[var(--accent-primary)] text-white scale-110 animate-pulse-glow'
+                        : isDark
+                          ? 'bg-white/10 text-slate-400 border border-white/20'
+                          : 'bg-white/50 text-slate-500 border border-slate-300'
+                    }
+                  `}
+                >
+                  {isCompleted ? <CheckCircle className="w-5 h-5" /> : stepNumber}
+                </div>
               </div>
               <span
                 className={`

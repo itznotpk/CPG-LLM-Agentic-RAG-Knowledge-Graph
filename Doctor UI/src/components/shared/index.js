@@ -11,3 +11,5 @@ export { ToastProvider, useToast } from './Notification';
 export { default as PatientQuickView } from './PatientQuickView';
 export { PatientBanner } from './PatientBanner';
 export { TraceDrawer } from './TraceDrawer';
+export { default as CommandPalette } from './CommandPalette';
+export { PageHeader, SectionHeader, GroupLabel } from './Typography';

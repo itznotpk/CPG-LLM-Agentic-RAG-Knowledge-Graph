@@ -247,8 +247,8 @@ export function ClinicalDecisionSupport() {
           <ShieldAlert className="w-5 h-5 text-red-600" />
         </div>
         <div>
-          <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Drug Safety Alerts</h3>
-          <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Drug interactions and safety alerts</p>
+          <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Drug Safety Alerts</h3>
+          <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Drug interactions and safety alerts</p>
         </div>
         {!hasAlerts && (
           <Badge variant="success" size="md" className="ml-auto">

@@ -216,7 +216,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+          <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
             {getGreeting()},{' '}
             <span className={accent.text}>{profile?.full_name || profile?.name || 'Doctor'}</span>
           </h1>

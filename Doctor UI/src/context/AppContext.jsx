@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useReducer } from 'react';
+import React, { createContext, useContext, useState, useReducer, useEffect } from 'react';
 import {
   sampleDiagnosis,
   sampleCarePlan,
@@ -66,6 +66,41 @@ const initialState = {
   resynthOverride: null,   // { codes: string[] } set when clinician override runs
   safetyReport: null,      // SafetyReport | null — set on safety_review SSE event
 };
+
+// ── Consultation snapshot persistence ──────────────────────────────────────
+// Survives an accidental refresh / tab-restore within the session. Note: this
+// restores DATA + current step, but does NOT resume a stream that was mid-flight
+// at reload — the network connection dies with the page, so a run interrupted by
+// a refresh comes back frozen at its last streamed state.
+const PERSIST_KEY = 'cpg.consultation.v1';
+
+function loadPersistedState() {
+  try {
+    const raw = sessionStorage.getItem(PERSIST_KEY);
+    if (!raw) return initialState;
+    const saved = JSON.parse(raw);
+    // A run interrupted by reload can't keep streaming — clear transient flags.
+    return { ...initialState, ...saved, isAnalyzing: false, isGeneratingPlan: false };
+  } catch {
+    return initialState;
+  }
+}
+
+function persistState(state) {
+  try {
+    sessionStorage.setItem(PERSIST_KEY, JSON.stringify(state));
+  } catch {
+    // Quota/serialization errors are non-fatal — persistence is best-effort.
+  }
+}
+
+function clearPersistedState() {
+  try {
+    sessionStorage.removeItem(PERSIST_KEY);
+  } catch {
+    // ignore
+  }
+}
 
 function appReducer(state, action) {
   switch (action.type) {
@@ -180,7 +215,12 @@ function updateItemAcceptance(items, id, accepted) {
 }
 
 export function AppProvider({ children }) {
-  const [state, dispatch] = useReducer(appReducer, initialState);
+  const [state, dispatch] = useReducer(appReducer, initialState, loadPersistedState);
+
+  // Snapshot consultation state so an accidental refresh/tab-restore recovers it.
+  useEffect(() => {
+    persistState(state);
+  }, [state]);
 
   const loadDemoData = () => {
     dispatch({ type: 'LOAD_DEMO_DATA' });
@@ -565,6 +605,7 @@ export function AppProvider({ children }) {
   };
 
   const resetApp = () => {
+    clearPersistedState();
     dispatch({ type: 'RESET' });
   };
 

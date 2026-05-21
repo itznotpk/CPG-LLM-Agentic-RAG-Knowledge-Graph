@@ -13,7 +13,7 @@ import {
   OutputSection,
   DashboardSection,
 } from './components/sections';
-import { StepIndicator, PatientBanner } from './components/shared';
+import { StepIndicator, PatientBanner, CommandPalette } from './components/shared';
 import Home from './components/pages/Home';
 import MyPatients from './components/pages/MyPatients';
 import Settings from './components/pages/Settings';
@@ -27,7 +27,7 @@ const steps = [
 ];
 
 function AppContent() {
-  const { state, dispatch } = useApp();
+  const { state, dispatch, goToStep } = useApp();
   const { isDark } = useTheme();
   const { profile: authProfile, signOut, refreshProfile } = useAuth();
   const { currentStep } = state;
@@ -47,9 +47,21 @@ function AppContent() {
     role:       authProfile.role           || 'doctor',
   } : null;
 
+  // A consultation is "active" if work is running or partial results exist.
+  // We must NOT reset it when the clinician navigates back to the tab — that
+  // would destroy a pipeline still streaming in the background.
+  const hasActiveConsult =
+    state.isAnalyzing ||
+    state.isGeneratingPlan ||
+    state.currentStep > 1 ||
+    !!state.diagnosis ||
+    !!state.carePlan;
+
   const handleNavigate = (view) => {
-    // Reset state when manually navigating to consultation (not via Start Consult)
-    if (view === 'consultation') {
+    // Returning to the consultation tab: keep an in-progress/active consult
+    // intact so background work survives. Only reset a stale, idle one so the
+    // tab opens fresh when nothing is happening.
+    if (view === 'consultation' && !hasActiveConsult) {
       dispatch({ type: 'RESET' });
     }
     setCurrentView(view);
@@ -137,6 +149,14 @@ function AppContent() {
       case 'consultation':
         return (
           <>
+            {/* Page header — standardized to match the other tabs (ds-h1) */}
+            <div className="mb-6">
+              <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Consultation</h1>
+              <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                AI-assisted clinical workflow, step by step
+              </p>
+            </div>
+
             {/* Persistent Patient Banner */}
             <PatientBanner />
 
@@ -167,6 +187,9 @@ function AppContent() {
       ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
       : 'bg-gradient-to-br from-slate-100 via-white to-slate-100'
       }`}>
+      {/* Cmd/Ctrl+K command palette (self-contained; owns its own open state) */}
+      <CommandPalette onNavigate={handleNavigate} onGoToStep={goToStep} />
+
       {/* Sidebar */}
       <Sidebar
         currentView={currentView}
@@ -174,6 +197,7 @@ function AppContent() {
         isCollapsed={sidebarCollapsed}
         onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
         profile={profile}
+        consultProcessing={state.isAnalyzing || state.isGeneratingPlan}
       />
 
       {/* Main Content Area */}

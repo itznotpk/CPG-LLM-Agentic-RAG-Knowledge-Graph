@@ -359,8 +359,8 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>My Patients</h1>
-          <p className={`mt-1 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Your patient panel and clinical history</p>
+          <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>My Patients</h1>
+          <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Your patient panel and clinical history</p>
         </div>
         <button
           onClick={onNewPatient}

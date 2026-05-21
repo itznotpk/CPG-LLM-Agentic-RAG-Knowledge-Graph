@@ -118,7 +118,7 @@ export function SeverityStagingGrid() {
       >
         <div className="text-left">
           <p className={`text-[10px] font-semibold tracking-widest uppercase mb-0.5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>Staging</p>
-          <h3 className={`text-base font-semibold leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>
+          <h3 className={`text-xl font-semibold tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>
             Severity Staging
           </h3>
           <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>

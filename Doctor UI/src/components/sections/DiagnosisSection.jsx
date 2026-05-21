@@ -63,10 +63,10 @@ export function DiagnosisSection() {
       <div className="flex items-center justify-between gap-6 mb-6">
         <div>
           <span className="ds-eyebrow">STEP 2 OF 4</span>
-          <h2 className={`text-2xl font-bold mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+          <h2 className={`text-xl font-semibold tracking-tight mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
             Diagnosis
           </h2>
-          <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>
+          <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
             Confirm the AI's working diagnosis, or pick differentials to re-route.
           </p>
         </div>
@@ -125,7 +125,7 @@ export function DiagnosisSection() {
           <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
             <Target className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
           </div>
-          <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Differential Diagnosis</h3>
+          <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Differential Diagnosis</h3>
         </div>
 
         {diagnosis?.cpgsMatched?.length > 0 && (

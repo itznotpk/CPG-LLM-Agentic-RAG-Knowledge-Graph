@@ -50,7 +50,7 @@ function AccordionSection({ title, icon: Icon, children, defaultOpen = true, rig
           <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
             <Icon className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
           </div>
-          <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{title}</h3>
+          <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{title}</h3>
         </button>
         <div className="flex items-center gap-2">
           {rightAction}
@@ -681,10 +681,14 @@ export function CarePlanSection() {
 
   return (
     <div className="space-y-6 animate-fadeIn">
-      <div className="text-center mb-2">
-        <h2 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+      <div className="mb-6">
+        <span className="ds-eyebrow">STEP 3 OF 4</span>
+        <h2 className={`text-xl font-semibold tracking-tight mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
           Recommended Care Plan
         </h2>
+        <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          Review and accept the AI's recommended interventions before finalizing.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

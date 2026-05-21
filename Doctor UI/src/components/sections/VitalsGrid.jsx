@@ -70,7 +70,7 @@ export function VitalsGrid() {
       <div className="flex items-center justify-between mb-5">
         <div>
           <p className={`text-[10px] font-semibold tracking-widest uppercase mb-0.5 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Assessment</p>
-          <h3 className={`text-base font-semibold leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>Vital Signs</h3>
+          <h3 className={`text-xl font-semibold tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>Vital Signs</h3>
         </div>
         <div className="flex items-center gap-2">
           <button

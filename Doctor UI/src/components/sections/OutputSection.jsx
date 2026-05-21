@@ -44,7 +44,7 @@ function PlanSummary({ carePlan, patient, nextReviewDate }) {
           <div className="p-2 bg-green-500/20 rounded-xl">
             <FileText className={`w-5 h-5 ${isDark ? 'text-green-400' : 'text-green-600'}`} strokeWidth={1.5} />
           </div>
-          <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Plan Summary</h3>
+          <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Plan Summary</h3>
         </div>
         {isExpanded ? (
           <ChevronUp className={`w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`} strokeWidth={1.5} />
@@ -196,7 +196,7 @@ export function OutputSection() {
 
       {/* SOAP NOTE VIEW — always rendered as a light clinical document (theme-independent,
           matches printed/exported record convention; do not gate on isDark here) */}
-      <GlassCard className="p-8 max-w-5xl mx-auto border-t-8 border-t-[var(--accent-primary)] shadow-lg !bg-white !text-slate-800 !border-slate-200">
+      <GlassCard variant="reading" className="p-8 max-w-5xl mx-auto border-t-8 border-t-[var(--accent-primary)] !bg-white !text-slate-800 !border-slate-200">
         <h3 className="text-2xl font-bold mb-6 text-center border-b pb-4 text-slate-800 border-slate-200">
           Clinical Encounter Note
         </h3>
