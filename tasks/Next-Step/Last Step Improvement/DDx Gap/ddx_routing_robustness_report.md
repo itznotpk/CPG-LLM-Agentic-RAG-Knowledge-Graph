@@ -126,7 +126,7 @@ Implemented (eight-level router):
 - `semantic_scope` (D2) — cosine similarity between `icd11_codes.embedding` and
   `documents.scope_embedding`, gated at `SEMANTIC_SCOPE_THRESHOLD = 0.65`; catches
   cross-chapter conditions the structural walk misses.
-- Route method stamping through `CPGDocRef.match_type`: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`, `procedure_scope`, `semantic_scope`. Returns `[], "none"` only when all eight levels miss.
+- Route method stamping through `CPGDocRef.match_type`: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`, `procedure_scope`, `semantic_scope`. `find_cpgs_for_code` returns `[], "out_of_scope"` only when all eight levels miss.
 
 D2 semantic_scope fallback — REVIVED (commit 435c781, merged 2026-05-22):
 - `_semantic_scope_match` in `agent/routing.py` runs after the structural + procedure_scope levels.
