@@ -101,9 +101,9 @@ Progress:
 
 Progress:
 - [x] Write `cpg_scope_rationale` text (100–200 words) for all 30 CPGs — generated via Codex agent and stored in `tasks/cpg_scope_review.md`. Field renamed from single-sentence `icd11_rationale`; new `cpg_scope_rationale` field is the DB-bound text.
-- [ ] Apply migration `sql/migrations/009_documents_scope_embedding.sql` (`scope_embedding VECTOR(1536)` column + index). *(not yet applied to Neon)*
-- [x] Update `ddx/backfill_scope_embeddings.py` — `_scope_text()` replaced with `_build_scope_text(row, title_map)` combining scope_rationale + resolved icd11_scope titles + procedure_scope tags. `_fetch_rows()` now selects `icd11_scope` and `procedure_scope`. ICD code-to-title resolution is batched in one query (`_fetch_icd_title_map()`).
-- [ ] Backfill all 30 CPG scope embeddings. *(blocked: migration 009 not applied; scope_rationale not yet written to DB)*
+- [~] Migration `sql/migrations/009_documents_scope_embedding.sql` (`scope_embedding VECTOR(1536)` column + index). Created idempotently by `backfill_scope_embeddings.py` Step 1, so a manual apply is optional. *(column not yet present on Neon)*
+- [x] Update `ddx/backfill_scope_embeddings.py` — `_build_scope_text(row)` embeds `scope_rationale` (= cpg_scope_rationale) + procedure_scope tags ONLY; ICD-title dump removed (diluted broad CPGs). Embeds each unique scope text once and fans the vector to all of a CPG's rows (~30 calls, not ~389). Helpers `_collect_icd_codes` / `_fetch_icd_title_map` removed.
+- [ ] Backfill all CPG scope embeddings. *(blocked: scope not yet written to DB — run `verify_cpg_scope` first, then the backfill)*
 - [x] Add `semantic_scope` step in `find_cpgs_for_code()` — `_semantic_scope_match()` uses pgvector `<=>` operator; DISTINCT ON cpg_name for one representative row per CPG; threshold guard at `SEMANTIC_SCOPE_THRESHOLD`.
 - [x] Add `procedure_scope` step in `find_cpgs_for_code()` — `_procedure_scope_match()` uses Postgres `&&` array overlap; fires before semantic_scope when `procedure_tags` are supplied.
 - [x] Add `"semantic_scope"` and `"procedure_scope"` to `RouteMethod` Literal (`agent/routing.py`) and `ScoreRouteMethod` Literal (`agent/clinical_stages.py`).
@@ -380,27 +380,33 @@ Instead, look up the human-readable **titles** for each code in `icd11_scope` fr
 
 #### Combined CPG scope text (what gets embedded)
 
-The backfill script builds one text block per CPG from three sources:
+The backfill script builds one text block per CPG from two sources:
 
 ```
-{scope_rationale}
-Conditions covered: {title of each code in icd11_scope, looked up from icd11_codes, comma-separated}
+{scope_rationale}   (= the cpg_scope_rationale prose)
 Procedures: {procedure_scope tags, comma-separated}
 ```
 
+> **Decision (2026-05-22):** the per-code ICD-11 condition-title dump
+> ("Conditions covered: …") was **removed**. For broad CPGs (100+ codes, e.g.
+> CVD-Prevention-Women) it diluted the embedding into a blurry centroid. The
+> `cpg_scope_rationale` prose already names the conditions in natural language,
+> which is a stronger, compact signal. `_build_scope_text` now uses rationale +
+> procedure tags only.
+
 **Example — Atrial Fibrillation CPG:**
 ```
-This guideline covers diagnosis and management of atrial fibrillation in adults,
-including rate control, rhythm control, and anticoagulation to prevent stroke.
-Covers persistent, paroxysmal, and long-standing persistent AF. Excludes atrial
-flutter and AF arising from acute illness requiring ICU care.
-Conditions covered: Atrial fibrillation, Paroxysmal atrial fibrillation,
-Persistent atrial fibrillation, Permanent atrial fibrillation
-Procedures: anticoagulation initiation, INR monitoring, cardioversion,
-rate control, rhythm control
+This guideline covers atrial fibrillation as a supraventricular tachyarrhythmia
+spectrum including paroxysmal, persistent, long-standing persistent, permanent,
+and unspecified atrial fibrillation. Relevant patient population includes adults
+with confirmed or suspected AF... (full cpg_scope_rationale)
+Procedures: referral_pathway; clinical_audit; warfarin_initiation; inr_monitoring;
+dose_adjustment; perioperative_bridging
 ```
 
-This overlaps directly with the ICD embedding for `BC81.3` which encodes the same condition names and synonyms. Target length: 150–350 words total — enough signal without approaching Titan v1 token limits.
+The query side (ICD embedding for `BC81.3`) still encodes the condition names and
+synonyms (title + description + inclusions), so semantic overlap is preserved
+without dumping titles into the document side. Keep the rationale ~150–350 words.
 
 #### Data prerequisites (must be done before any code)
 
@@ -412,21 +418,18 @@ This overlaps directly with the ICD embedding for `BC81.3` which encodes the sam
 
    A one-sentence label will reproduce the original D2 failure — quality here directly determines whether D2 fires correctly.
 
-2. **Apply migration 009** — adds `scope_embedding VECTOR(1536)` column + index to `documents`. Already written at `sql/migrations/009_documents_scope_embedding.sql`. Not yet applied to Neon.
+2. **`scope_embedding` column** — `VECTOR(1536)` + ivfflat index on `documents`. The backfill creates this itself as Step 1 (`ADD COLUMN IF NOT EXISTS`), so applying `sql/migrations/009_documents_scope_embedding.sql` manually is **optional/redundant** — running the backfill is sufficient.
 
-3. **Run backfill** — `ddx/backfill_scope_embeddings.py` builds the combined text and embeds it. 30 Bedrock calls total, < 1 min.
+3. **Run backfill** — `ddx/backfill_scope_embeddings.py` builds the scope text and embeds it. ~30 embedding calls total (one per CPG, see dedup below), < 1 min.
 
 #### Backfill script spec (`ddx/backfill_scope_embeddings.py`)
 
-The script already exists — it currently only embeds `title + scope_rationale`. It must be updated to build the combined text:
-
-- Fetch `icd11_scope` and `procedure_scope` alongside `scope_rationale` from `documents`.
-- For each code in `icd11_scope`, look up its `title` from `icd11_codes` (batch lookup, single query per CPG group).
-- Build combined text: `scope_rationale` + `"Conditions covered: " + titles` + `"Procedures: " + procedure_scope tags`.
-- Skip rows where `scope_rationale IS NULL OR scope_rationale = ''` — no rationale, no embedding.
+- Fetch `scope_rationale` and `procedure_scope` from `documents` (`icd11_scope` is selected but not embedded).
+- Build text via `_build_scope_text(row)`: `scope_rationale` + `"Procedures: " + procedure_scope tags`. No ICD titles (see decision above). Falls back to `title` only if both are empty.
+- **Embed each unique scope text once** and fan the vector out to all rows of that CPG (a CPG's sections share one `cpg_scope_rationale`). This cuts calls from ~1/row (~389) to ~1/CPG (~30).
 - Skip rows where `scope_embedding IS NOT NULL` (idempotent — no overwrite unless `--force`).
-- Support `--dry-run` (prints combined text per CPG, no DB writes, no Bedrock calls), `--force`, `--limit N`.
-- Log combined text length and embedding dimension per CPG on success.
+- Support `--dry-run` (no DB writes, no embedding calls), `--force`, `--limit N`, `--all-documents`.
+- Step 1 runs the `scope_embedding` column/index DDL idempotently.
 
 #### Routing code change in `find_cpgs_for_code()` (`agent/routing.py`)
 
@@ -822,11 +825,15 @@ Query: *"My patient has hypotension during anaesthesia, what should I check?"*
 
 ### Smoke 3 — Out-of-chapter miss → out_of_scope (D4)
 
-> **D2 semantic fallback retired — Smoke 3 repurposed.** The original Smoke 3 tested a `semantic` route method that no longer exists. It is replaced by a direct out_of_scope test on an ENT query (chapter not loaded).
-
-Query: *"Patient with persistent unilateral nasal obstruction and epistaxis — workup?"*
-- Expected predicted ICD: an ENT code (chapter 09 — not loaded)
-- Expected `route_method`: `out_of_scope` (all six structural levels return 0; inclusion scores all < threshold)
+> **Note (2026-05-22):** D2 `semantic_scope` is REVIVED, so `out_of_scope` now
+> fires only after D1 (6 structural levels) **and** procedure_scope **and** D2
+> semantic_scope all miss. Pick a query whose condition is genuinely unrelated to
+> every loaded CPG scope (so semantic similarity stays below
+> `SEMANTIC_SCOPE_THRESHOLD = 0.65`). NOTE: nasal/epistaxis queries may now route
+> to the loaded Nasopharyngeal-Carcinoma CPG (2B6B) — choose a different
+> out-of-corpus query (e.g. an unrelated dermatology/ophthalmology presentation).
+- Expected predicted ICD: a code in a chapter with no loaded CPG
+- Expected `route_method`: `out_of_scope` (all structural levels return 0; procedure + semantic_scope also miss)
 - Expected: structured out_of_scope response; no CPG cited
 
 ### Smoke 4 — Exclusion penalty (D3)
@@ -845,7 +852,7 @@ Re-run the exclusion backfill with no args:
 python -m ddx.backfill_exclusion_embeddings
 ```
 - Expected: 0 embedding calls, 0 DB writes, exit cleanly. Confirms idempotency.
-- Note: `backfill_scope_embeddings` is dead weight (D2 retired) — do not run it.
+- Note: `backfill_scope_embeddings` IS required for D2 semantic_scope — run it (after scope ingestion) to populate `documents.scope_embedding`. It is idempotent.
 
 ### Smoke 7 — Score transparency (D5, the clinician-facing check)
 Re-use the Smoke 4 query (the one that triggers an exclusion penalty). Capture the rendered top-5 DDx as a clinician would see it. Verify:
@@ -984,7 +991,7 @@ LIMIT 1;
 
 All eleven must hold:
 
-1. Migration 008 applied cleanly. `\d icd11_codes` shows `exclusion_embeddings jsonb`. (Migration 007 / `scope_embedding` — D2 retired, do NOT apply.)
+1. Migration 008 applied cleanly. `\d icd11_codes` shows `exclusion_embeddings jsonb`. (Migration 009 / `documents.scope_embedding` — D2 revived; created idempotently by `backfill_scope_embeddings.py` Step 1, so applying 009 manually is optional.)
 2. `python -m ddx.backfill_exclusion_embeddings` populates the 402 rows with non-empty exclusions. Verify: `SELECT COUNT(*) FROM icd11_codes WHERE exclusion_embeddings != '{}'::jsonb` returns 402.
 3. Re-running the exclusion backfill makes 0 embedding calls and 0 DB writes (idempotent).
 4. `pytest tests/test_routing.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v` all green. No real Bedrock, WHO, or LLM calls.
@@ -1007,7 +1014,7 @@ All eleven must hold:
 When you finish, return the following — concise, no marketing:
 
 1. **Files created/modified** — exact paths.
-2. **Migrations applied** — output of `\d icd11_codes` (relevant columns only). Migration 007 / `scope_embedding` was NOT applied (D2 retired).
+2. **Migrations applied** — output of `\d icd11_codes` (relevant columns only) and `\d documents` showing `scope_embedding vector(1536)` (D2 revived; created by migration 009 or backfill Step 1).
 3. **Backfill results** — `icd11_codes.exclusion_embeddings`: rows populated (expect 402), embedding calls made (expect ~748), runtime, total cost (Bedrock invocations × $0.0001 / 1k tokens estimate).
 4. **Idempotency check** — output of re-running `backfill_exclusion_embeddings` with no args (expect "0 rows updated, 0 embedding calls").
 5. **Test output** — last ~30 lines of `pytest tests/test_routing.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v`.
