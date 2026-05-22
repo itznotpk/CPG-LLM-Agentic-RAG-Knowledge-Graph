@@ -63,7 +63,10 @@ class ScoreBreakdown(BaseModel):
     exclusion_penalty: float = 0.0
     exclusion_phrase: str | None = None
     final_score: float
-    route_method: ScoreRouteMethod
+    # None until routing (stage 3) is known — the numeric scores are computed at
+    # stage 2 so the top-5 can show "why this rank" immediately; the route badge
+    # is filled in once stage_3_route resolves the match.
+    route_method: ScoreRouteMethod | None = None
 
     @model_validator(mode="after")
     def validate_final_score(self) -> "ScoreBreakdown":
@@ -114,7 +117,7 @@ The CPG badge tells you HOW the guideline behind a diagnosis was found: an exact
 
 def build_score_breakdown(
     result: DDxResult,
-    route_method: ScoreRouteMethod,
+    route_method: ScoreRouteMethod | None = None,
 ) -> ScoreBreakdown:
     base_similarity = float(result.base_similarity if result.base_similarity is not None else result.similarity)
     inclusion_match = float(result.inclusion_similarity or 0.0)
@@ -143,7 +146,9 @@ def build_score_breakdown(
     )
 
 
-def route_provenance_badge(route_method: ScoreRouteMethod) -> str:
+def route_provenance_badge(route_method: ScoreRouteMethod | None) -> str:
+    if route_method is None:
+        return ""  # routing not resolved yet (stage 2) — no badge to show
     if route_method == "exact":
         return "✓ Exact guideline match"
     if route_method in {"ancestor_d1", "ancestor_d2"}:
@@ -162,19 +167,17 @@ def route_provenance_badge(route_method: ScoreRouteMethod) -> str:
 
 
 def render_ddx_candidate(candidate: DDxResult, rank: int) -> str:
-    breakdown = candidate.score_breakdown or build_score_breakdown(
-        candidate,
-        route_method="out_of_scope",
-    )
+    breakdown = candidate.score_breakdown or build_score_breakdown(candidate)
     badge = route_provenance_badge(breakdown.route_method)
     confidence = f"{breakdown.final_score:.0%}"
     if breakdown.final_score < DDX_DISPLAY_FLOOR:
         confidence = f"{confidence} low confidence"
 
     cpg_title = candidate.matched_cpg_title or "No matched CPG"
+    cpg_line = f"     CPG: {cpg_title}   [{badge}]" if badge else f"     CPG: {cpg_title}"
     lines = [
         f"#{rank}  {candidate.code} - {candidate.title}  confidence: {confidence}",
-        f"     CPG: {cpg_title}   [{badge}]",
+        cpg_line,
         "     Why this rank:",
         f"       ✓ Symptom match: {breakdown.base_similarity:.0%}",
     ]
@@ -567,7 +570,14 @@ async def stage_2_ddx(
     if rerank and results:
         results = await _llm_rerank_ddx(case, results, emit=emit)
 
-    return results[:top_k]
+    top = results[:top_k]
+    # Attach the numeric score breakdown now (base / inclusion / exclusion / final)
+    # so the streamed top-5 already shows "why this rank". route_method stays None
+    # until stage_3_route resolves the match and rebuilds the breakdown with a badge.
+    for r in top:
+        if r.score_breakdown is None:
+            r.score_breakdown = build_score_breakdown(r)
+    return top
 
 
 def _ddx_inclusion_score(result: DDxResult) -> float:
@@ -722,8 +732,10 @@ async def stage_3_route(
                     "data": out_of_scope.model_dump(),
                 })
 
+    # After routing is resolved, any candidate still without a route_method
+    # (stage-2 numeric-only breakdown, never matched a CPG) is out_of_scope.
     for result in ddx:
-        if result.score_breakdown is None:
+        if result.score_breakdown is None or result.score_breakdown.route_method is None:
             result.score_breakdown = build_score_breakdown(
                 result,
                 route_method="out_of_scope",
