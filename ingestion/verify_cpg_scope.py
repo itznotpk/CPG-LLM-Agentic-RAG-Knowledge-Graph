@@ -1,7 +1,21 @@
 """
-Step 04 — CPG Scope Review Verifier.
+Step 04 — CPG Scope Review Verifier (single ingestion path for documents scope).
 
-Parses tasks/cpg_scope_review.md and writes reviewer decisions back to `documents`.
+Parses tasks/cpg_scope_review.md (the source of truth) and writes scope back to
+`documents`, keyed on metadata->>'cpg_name'. Field → column mapping:
+
+    Proposed icd11_scope      -> documents.icd11_scope        (text[])
+    Proposed procedure_scope  -> documents.procedure_scope    (text[])
+    cpg_scope_rationale       -> documents.scope_rationale    (text; feeds scope_embedding)
+    decision [x] Approve/Edit -> documents.scope_verified = TRUE
+    icd11_rationale           -> (audit only, NOT ingested)
+    ICD-11 hierarchy          -> (audit only, NOT ingested)
+
+Both Approve and Edit write the review file's scope (the live DB scope may be
+empty / freshly ingested). Reject and unmarked sections are skipped. CPGs with
+no matching documents rows yet (not-yet-ingested) are skipped with a warning, not
+treated as errors. Re-runs are idempotent. scope_embedding itself is populated
+separately by ddx/backfill_scope_embeddings.py.
 
 Usage:
     python -m ingestion.verify_cpg_scope --verifier "Dr Smith"
@@ -134,21 +148,22 @@ def parse_review_file(path: Path) -> list[CPGSectionDecision]:
             ))
             continue
 
-        if decision in ("approve", "reject"):
+        if decision == "reject":
             sections.append(CPGSectionDecision(
-                cpg_name=cpg_name, decision=decision, raw_section_text=raw
+                cpg_name=cpg_name, decision="reject", raw_section_text=raw
             ))
             continue
 
-        # decision == "edit": parse scope bullets
+        # decision == "approve" or "edit": parse scope bullets + cpg_scope_rationale.
+        # The review file is the source of truth, so scope is written for BOTH
+        # approve and edit (the live DB scope may be empty / freshly ingested).
         icd11_scope: list[str] | None = None
         procedure_scope: list[str] | None = None
-        rationale: str | None = None
+        rationale_parts: list[str] = []
 
         i = 1
         while i < len(lines):
-            line = lines[i].rstrip()
-            stripped = line.lstrip('- ').strip()
+            stripped = lines[i].rstrip().lstrip('- ').strip()
 
             if re.match(r'Proposed icd11_scope\s*:', stripped, re.IGNORECASE):
                 val = re.split(r'Proposed icd11_scope\s*:', stripped, flags=re.IGNORECASE, maxsplit=1)[1]
@@ -158,9 +173,14 @@ def parse_review_file(path: Path) -> list[CPGSectionDecision]:
                 val = re.split(r'Proposed procedure_scope\s*:', stripped, flags=re.IGNORECASE, maxsplit=1)[1]
                 procedure_scope = _parse_scope_list(val)
 
-            elif re.match(r'Rationale\s*:', stripped, re.IGNORECASE):
-                val = re.split(r'Rationale\s*:', stripped, flags=re.IGNORECASE, maxsplit=1)[1].strip()
-                # Accumulate multi-line rationale (until next bullet or blank line)
+            # cpg_scope_rationale is the DB-bound text (feeds documents.scope_embedding).
+            # An optional "(adult, Part A)"-style qualifier may follow the field name;
+            # multiple such lines (e.g. Cancer-Pain) are concatenated. The audit-only
+            # `icd11_rationale` and `ICD-11 hierarchy` lines are intentionally ignored.
+            elif re.match(r'cpg_scope_rationale\s*(?:\([^)]*\))?\s*:', stripped, re.IGNORECASE):
+                val = re.split(r'cpg_scope_rationale\s*(?:\([^)]*\))?\s*:', stripped,
+                               flags=re.IGNORECASE, maxsplit=1)[1].strip()
+                # Accumulate continuation lines (until next bullet or blank line)
                 j = i + 1
                 while j < len(lines):
                     next_line = lines[j].rstrip()
@@ -168,7 +188,7 @@ def parse_review_file(path: Path) -> list[CPGSectionDecision]:
                         break
                     val += ' ' + next_line.strip()
                     j += 1
-                rationale = val.strip()
+                rationale_parts.append(val.strip())
                 i = j
                 continue
 
@@ -176,10 +196,10 @@ def parse_review_file(path: Path) -> list[CPGSectionDecision]:
 
         sections.append(CPGSectionDecision(
             cpg_name=cpg_name,
-            decision="edit",
+            decision=decision,  # "approve" or "edit"
             new_icd11_scope=icd11_scope if icd11_scope is not None else [],
             new_procedure_scope=procedure_scope if procedure_scope is not None else [],
-            new_rationale=rationale,
+            new_rationale=" ".join(rationale_parts) if rationale_parts else None,
             raw_section_text=raw,
         ))
 
@@ -191,12 +211,16 @@ def parse_review_file(path: Path) -> list[CPGSectionDecision]:
 # ---------------------------------------------------------------------------
 
 # Procedure-only CPG names (empty icd11_scope is allowed)
-_PROCEDURE_ONLY_CPGS = {"Patient-Safety-Minimal-Monitoring", "Pre-Anaesthetic-Assessment"}
+_PROCEDURE_ONLY_CPGS = {
+    "Patient-Safety-Minimal-Monitoring",
+    "Pre-Anaesthetic-Assessment",
+    "Anaesthesia-Medication-Safety",
+}
 
 
-def validate_edit_section(sec: CPGSectionDecision) -> CPGSectionDecision:
+def validate_scope_section(sec: CPGSectionDecision) -> CPGSectionDecision:
     """Validate and filter scope codes; returns updated section or raises."""
-    assert sec.decision == "edit"
+    assert sec.decision in ("approve", "edit")
 
     valid_icd: list[str] = []
     for code in (sec.new_icd11_scope or []):
@@ -239,12 +263,12 @@ async def apply_decisions(
     skipped: list[str] = []
     errors: list[str] = []
 
-    # Validate edit sections first (non-fatal per section)
+    # Validate scope sections first (non-fatal per section)
     validated: list[CPGSectionDecision] = []
     for sec in decisions:
-        if sec.decision == "edit":
+        if sec.decision in ("approve", "edit"):
             try:
-                validated.append(validate_edit_section(sec))
+                validated.append(validate_scope_section(sec))
             except ValueError as exc:
                 logger.error("Validation error for %s: %s", sec.cpg_name, exc)
                 errors.append(f"{sec.cpg_name}: {exc}")
@@ -253,18 +277,18 @@ async def apply_decisions(
 
     if dry_run:
         for sec in validated:
-            if sec.decision == "approve":
-                approved.append({"cpg_name": sec.cpg_name, "rows": 0, "note": "dry-run"})
-                logger.info("[DRY-RUN] Would APPROVE %s", sec.cpg_name)
-            elif sec.decision == "edit":
-                edited.append({
+            if sec.decision in ("approve", "edit"):
+                bucket = approved if sec.decision == "approve" else edited
+                bucket.append({
                     "cpg_name": sec.cpg_name,
                     "rows": 0,
                     "icd11": sec.new_icd11_scope,
                     "proc": sec.new_procedure_scope,
                 })
-                logger.info("[DRY-RUN] Would EDIT %s: icd11=%s proc=%s",
-                            sec.cpg_name, sec.new_icd11_scope, sec.new_procedure_scope)
+                logger.info("[DRY-RUN] Would WRITE (%s) %s: icd11=%s proc=%s rationale=%s",
+                            sec.decision, sec.cpg_name, sec.new_icd11_scope,
+                            sec.new_procedure_scope,
+                            "yes" if sec.new_rationale else "MISSING")
             elif sec.decision == "reject":
                 rejected.append(sec.cpg_name)
                 logger.info("[DRY-RUN] Would REJECT %s", sec.cpg_name)
@@ -274,34 +298,9 @@ async def apply_decisions(
 
     async with conn.transaction():
         for sec in validated:
-            if sec.decision == "approve":
-                result = await conn.execute(
-                    """
-                    UPDATE documents
-                    SET scope_verified = TRUE,
-                        verified_at    = NOW(),
-                        verified_by    = $1
-                    WHERE metadata->>'cpg_name' = $2
-                      AND scope_verified = FALSE
-                    """,
-                    verifier, sec.cpg_name,
-                )
-                n = int(result.split()[-1])
-                if n == 0:
-                    # Check if already verified
-                    already = await conn.fetchval(
-                        "SELECT COUNT(*) FROM documents WHERE metadata->>'cpg_name' = $1 AND scope_verified = TRUE",
-                        sec.cpg_name,
-                    )
-                    if already == 0:
-                        raise RuntimeError(f"APPROVE: cpg_name '{sec.cpg_name}' matched no rows")
-                    logger.info("%s: already verified (%d rows), skipping stamp", sec.cpg_name, already)
-                    approved.append({"cpg_name": sec.cpg_name, "rows": 0, "note": "already verified"})
-                else:
-                    logger.info("%s: approved %d rows", sec.cpg_name, n)
-                    approved.append({"cpg_name": sec.cpg_name, "rows": n})
-
-            elif sec.decision == "edit":
+            if sec.decision in ("approve", "edit"):
+                # Review file is the source of truth: write scope from it and
+                # stamp verified, for both approve and edit.
                 result = await conn.execute(
                     """
                     UPDATE documents
@@ -321,8 +320,14 @@ async def apply_decisions(
                     sec.cpg_name,
                 )
                 n = int(result.split()[-1])
-                logger.info("%s: edited %d rows", sec.cpg_name, n)
-                edited.append({
+                if n == 0:
+                    # Not-yet-ingested CPG (no documents rows) — skip, don't abort.
+                    logger.warning("%s: matched no rows (not yet ingested?) — skipped", sec.cpg_name)
+                    skipped.append(sec.cpg_name)
+                    continue
+                logger.info("%s: wrote scope to %d rows (%s)", sec.cpg_name, n, sec.decision)
+                bucket = approved if sec.decision == "approve" else edited
+                bucket.append({
                     "cpg_name": sec.cpg_name,
                     "rows": n,
                     "icd11": sec.new_icd11_scope,

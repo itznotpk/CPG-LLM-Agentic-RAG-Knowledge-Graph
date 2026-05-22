@@ -34,7 +34,7 @@ Scope-tagging readiness (review file vs live DB):
   reconciling 11 edition/year name differences + merging Cancer-Pain Part A/B).
 - 1 live group has NO reviewed scope: **Nasopharyngeal-Carcinoma** (11 rows) — needs a scope entry.
 - 1 reviewed group is NOT yet ingested: **Type-2-Diabetes-Mellitus(6th Edition)** (0 rows).
-- Ready-to-run idempotent loader (dry-run by default): `apply_documents_scope.sql`.
+- Ingestion path (single source of truth): `python -m ingestion.verify_cpg_scope --verifier "<name>" [--dry-run]` parses `cpg_scope_review.md` and writes `icd11_scope` / `procedure_scope` / `scope_rationale` (from `cpg_scope_rationale`) + stamps `scope_verified`. Idempotent; not-yet-ingested CPGs are skipped.
 
 ### P0 Gate Status
 

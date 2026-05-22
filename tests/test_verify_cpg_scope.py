@@ -2,6 +2,12 @@
 Tests for ingestion/verify_cpg_scope.py — Step 04.
 
 All DB interactions are mocked; no real DB or LLM calls.
+
+Contract (post-2026-05-22): the review file is the source of truth. Both Approve
+and Edit parse + write scope (icd11_scope, procedure_scope, scope_rationale) and
+stamp scope_verified. scope_rationale comes from `cpg_scope_rationale` (the
+DB-bound text); `icd11_rationale` and `ICD-11 hierarchy` are audit-only/ignored.
+A CPG matching 0 documents rows is skipped (not yet ingested), not an error.
 """
 
 from __future__ import annotations
@@ -16,7 +22,7 @@ from ingestion.verify_cpg_scope import (
     CPGSectionDecision,
     apply_decisions,
     parse_review_file,
-    validate_edit_section,
+    validate_scope_section,
 )
 
 
@@ -38,7 +44,8 @@ def _approve_section(cpg_name: str = "Test-CPG") -> str:
         "- Rows in DB: 5\n"
         "- Proposed icd11_scope: `BC81`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: Some reason.\n"
+        "- icd11_rationale: Short audit note (ignored).\n"
+        "- cpg_scope_rationale: Rich DB-bound scope description.\n"
         "- [x] Approve / [ ] Edit / [ ] Reject\n"
     )
 
@@ -49,7 +56,8 @@ def _edit_section(cpg_name: str = "Test-CPG", icd: str = "`BC81`, `BA02`", proc:
         "- Rows in DB: 5\n"
         f"- Proposed icd11_scope: {icd}\n"
         f"- Proposed procedure_scope: {proc}\n"
-        "- Rationale: Updated reason.\n"
+        "- icd11_rationale: Short audit note (ignored).\n"
+        "- cpg_scope_rationale: Updated rich description.\n"
         "- [ ] Approve / [x] Edit / [ ] Reject\n"
     )
 
@@ -60,7 +68,7 @@ def _reject_section(cpg_name: str = "Test-CPG") -> str:
         "- Rows in DB: 5\n"
         "- Proposed icd11_scope: `BC81`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: Some reason.\n"
+        "- cpg_scope_rationale: Some reason.\n"
         "- [ ] Approve / [ ] Edit / [x] Reject\n"
     )
 
@@ -71,7 +79,7 @@ def _none_section(cpg_name: str = "Test-CPG") -> str:
         "- Rows in DB: 5\n"
         "- Proposed icd11_scope: `BC81`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: Some reason.\n"
+        "- cpg_scope_rationale: Some reason.\n"
         "- [ ] Approve / [ ] Edit / [ ] Reject\n"
     )
 
@@ -80,15 +88,17 @@ def _none_section(cpg_name: str = "Test-CPG") -> str:
 # Parser tests
 # ---------------------------------------------------------------------------
 
-def test_parse_approve_section(tmp_path):
+def test_parse_approve_section_now_parses_scope(tmp_path):
+    """Approve now parses scope too (review file is source of truth)."""
     p = _make_tmp_review(tmp_path, _approve_section())
     results = parse_review_file(p)
     assert len(results) == 1
     sec = results[0]
     assert sec.decision == "approve"
-    assert sec.new_icd11_scope is None
-    assert sec.new_procedure_scope is None
-    assert sec.new_rationale is None
+    assert sec.new_icd11_scope == ["BC81"]
+    assert sec.new_procedure_scope == []
+    # rationale comes from cpg_scope_rationale, NOT icd11_rationale
+    assert sec.new_rationale == "Rich DB-bound scope description."
 
 
 def test_parse_edit_section_with_codes(tmp_path):
@@ -99,6 +109,38 @@ def test_parse_edit_section_with_codes(tmp_path):
     assert sec.decision == "edit"
     assert sec.new_icd11_scope == ["BC81", "BA02"]
     assert sec.new_procedure_scope == []
+    assert sec.new_rationale == "Updated rich description."
+
+
+def test_icd11_rationale_is_ignored(tmp_path):
+    """Only cpg_scope_rationale feeds new_rationale; icd11_rationale is audit-only."""
+    body = (
+        "## Test-CPG\n"
+        "- Proposed icd11_scope: `BC81`\n"
+        "- Proposed procedure_scope: (none)\n"
+        "- icd11_rationale: THIS SHOULD NOT BE STORED.\n"
+        "- cpg_scope_rationale: Stored description.\n"
+        "- ICD-11 hierarchy: Chapter 11 > ... (ignored).\n"
+        "- [x] Approve / [ ] Edit / [ ] Reject\n"
+    )
+    p = _make_tmp_review(tmp_path, body)
+    sec = parse_review_file(p)[0]
+    assert sec.new_rationale == "Stored description."
+
+
+def test_cpg_scope_rationale_with_qualifier_and_multiple_lines(tmp_path):
+    """Cancer-Pain style: qualified label + multiple cpg_scope_rationale lines concatenate."""
+    body = (
+        "## Cancer-Pain(2nd Edition)\n"
+        "- Proposed icd11_scope: `MG30.1`\n"
+        "- Proposed procedure_scope: `pain_assessment`\n"
+        "- cpg_scope_rationale (adult, Part A): Adult description.\n"
+        "- cpg_scope_rationale (paediatric, Part B): Paediatric description.\n"
+        "- [x] Approve / [ ] Edit / [ ] Reject\n"
+    )
+    p = _make_tmp_review(tmp_path, body)
+    sec = parse_review_file(p)[0]
+    assert sec.new_rationale == "Adult description. Paediatric description."
 
 
 def test_parse_reject_section(tmp_path):
@@ -118,7 +160,7 @@ def test_parse_uppercase_X_box(tmp_path):
         "## NSTEMI(2011)\n"
         "- Proposed icd11_scope: `BA41`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: test.\n"
+        "- cpg_scope_rationale: test.\n"
         "- [X] Approve / [ ] Edit / [ ] Reject\n"
     )
     p = _make_tmp_review(tmp_path, body)
@@ -127,12 +169,12 @@ def test_parse_uppercase_X_box(tmp_path):
 
 
 def test_parse_box_with_internal_whitespace(tmp_path):
-    # [x ] Approve
+    # [x ] Edit
     body = (
         "## Dyslipidaemia(6th-Edition)\n"
         "- Proposed icd11_scope: `5C80`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: test.\n"
+        "- cpg_scope_rationale: test.\n"
         "- [ ] Approve / [x ] Edit / [ ] Reject\n"
     )
     p = _make_tmp_review(tmp_path, body)
@@ -144,7 +186,7 @@ def test_parse_box_with_internal_whitespace(tmp_path):
         "## Dyslipidaemia(6th-Edition)\n"
         "- Proposed icd11_scope: `5C80`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: test.\n"
+        "- cpg_scope_rationale: test.\n"
         "- [ x ] Approve / [ ] Edit / [ ] Reject\n"
     )
     p2 = _make_tmp_review(tmp_path, body2)
@@ -157,7 +199,7 @@ def test_parse_multiple_decisions_raises(tmp_path):
         "## Test-CPG\n"
         "- Proposed icd11_scope: `BC81`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: test.\n"
+        "- cpg_scope_rationale: test.\n"
         "- [x] Approve / [x] Edit / [ ] Reject\n"
     )
     p = _make_tmp_review(tmp_path, body)
@@ -165,35 +207,46 @@ def test_parse_multiple_decisions_raises(tmp_path):
         parse_review_file(p)
 
 
-def test_parse_edit_drops_invalid_codes(tmp_path):
+def test_validate_drops_invalid_codes(tmp_path):
     body = _edit_section(icd="`BC81`, `INVALID`, `2C60`")
     p = _make_tmp_review(tmp_path, body)
-    results = parse_review_file(p)
-    sec = results[0]
+    sec = parse_review_file(p)[0]
     assert sec.decision == "edit"
-    validated = validate_edit_section(sec)
+    validated = validate_scope_section(sec)
     assert "BC81" in validated.new_icd11_scope
     assert "2C60" in validated.new_icd11_scope
     assert "INVALID" not in validated.new_icd11_scope
 
 
-def test_parse_edit_all_invalid_raises(tmp_path):
+def test_validate_all_invalid_raises(tmp_path):
     body = _edit_section(icd="`INVALID`, `BADCODE`", proc="(none)")
     p = _make_tmp_review(tmp_path, body)
-    results = parse_review_file(p)
-    sec = results[0]
-    assert sec.decision == "edit"
+    sec = parse_review_file(p)[0]
     with pytest.raises(ValueError):
-        validate_edit_section(sec)
+        validate_scope_section(sec)
 
 
-def test_parse_edit_handles_none_string(tmp_path):
+def test_validate_handles_none_string(tmp_path):
     body = _edit_section(icd="`BC81`", proc="(none)")
     p = _make_tmp_review(tmp_path, body)
-    results = parse_review_file(p)
-    sec = results[0]
-    validated = validate_edit_section(sec)
+    sec = parse_review_file(p)[0]
+    validated = validate_scope_section(sec)
     assert validated.new_procedure_scope == []
+
+
+def test_procedure_only_cpg_allows_empty_icd(tmp_path):
+    body = (
+        "## Anaesthesia-Medication-Safety\n"
+        "- Proposed icd11_scope: (none)\n"
+        "- Proposed procedure_scope: `medication_labelling`\n"
+        "- cpg_scope_rationale: Procedure-only guideline.\n"
+        "- [x] Approve / [ ] Edit / [ ] Reject\n"
+    )
+    p = _make_tmp_review(tmp_path, body)
+    sec = parse_review_file(p)[0]
+    validated = validate_scope_section(sec)  # must not raise
+    assert validated.new_icd11_scope == []
+    assert validated.new_procedure_scope == ["medication_labelling"]
 
 
 def test_parse_ignores_extra_bullets(tmp_path):
@@ -203,7 +256,7 @@ def test_parse_ignores_extra_bullets(tmp_path):
         "- Last classified: 2026-05-08T14:00:00+00:00\n"
         "- Proposed icd11_scope: `BC81`\n"
         "- Proposed procedure_scope: (none)\n"
-        "- Rationale: Some reason.\n"
+        "- cpg_scope_rationale: Some reason.\n"
         "- ICD-11 hierarchy: Chapter 11 > ...\n"
         "- [x] Approve / [ ] Edit / [ ] Reject\n"
     )
@@ -229,22 +282,26 @@ def _make_mock_conn(execute_result="UPDATE 5"):
     return conn
 
 
-def test_db_apply_approve_only_flips_metadata():
-    """Approve UPDATE must not touch icd11_scope columns."""
+def test_db_apply_approve_writes_scope():
+    """Approve now writes scope columns (not just stamps verified)."""
     conn = _make_mock_conn("UPDATE 3")
     sec = CPGSectionDecision(
-        cpg_name="Test-CPG", decision="approve", raw_section_text=""
+        cpg_name="Test-CPG", decision="approve",
+        new_icd11_scope=["BC81"], new_procedure_scope=[], new_rationale="r",
+        raw_section_text="",
     )
 
-    asyncio.get_event_loop().run_until_complete(
+    result = asyncio.get_event_loop().run_until_complete(
         apply_decisions(conn, [sec], verifier="Tester", dry_run=False)
     )
 
     call_args = conn.execute.call_args_list
     assert len(call_args) == 1
     sql = call_args[0].args[0]
-    assert "icd11_scope" not in sql
-    assert "scope_verified = TRUE" in sql
+    assert "icd11_scope" in sql
+    assert "scope_rationale" in sql
+    assert "scope_verified" in sql and "TRUE" in sql
+    assert len(result["approved"]) == 1
 
 
 def test_db_apply_edit_writes_new_scope():
@@ -267,7 +324,6 @@ def test_db_apply_edit_writes_new_scope():
     sql = call_args[0].args[0]
     assert "icd11_scope" in sql
     assert "procedure_scope" in sql
-    # Verify the new scope list was passed
     positional_args = call_args[0].args
     assert ["BC81"] in positional_args
 
@@ -288,7 +344,11 @@ def test_db_apply_reject_does_not_call_update():
 def test_dry_run_makes_no_db_writes():
     conn = _make_mock_conn()
     secs = [
-        CPGSectionDecision(cpg_name="A", decision="approve", raw_section_text=""),
+        CPGSectionDecision(
+            cpg_name="A", decision="approve",
+            new_icd11_scope=["BC81"], new_procedure_scope=[], new_rationale="r",
+            raw_section_text="",
+        ),
         CPGSectionDecision(
             cpg_name="B", decision="edit",
             new_icd11_scope=["BC81"], new_procedure_scope=[], new_rationale="r",
@@ -304,18 +364,19 @@ def test_dry_run_makes_no_db_writes():
     conn.execute.assert_not_called()
 
 
-def test_idempotency_already_verified():
-    """If DB returns 0 rows updated for approve, and already-verified count > 0, don't error."""
+def test_zero_rows_is_skipped_not_error():
+    """A CPG matching 0 documents rows (not yet ingested) is skipped, not fatal."""
     conn = _make_mock_conn("UPDATE 0")
-    conn.fetchval = AsyncMock(return_value=5)  # 5 rows already verified
     sec = CPGSectionDecision(
-        cpg_name="Test-CPG", decision="approve", raw_section_text=""
+        cpg_name="Not-Yet-Ingested", decision="approve",
+        new_icd11_scope=["BC81"], new_procedure_scope=[], new_rationale="r",
+        raw_section_text="",
     )
 
     result = asyncio.get_event_loop().run_until_complete(
         apply_decisions(conn, [sec], verifier="Tester", dry_run=False)
     )
 
-    # Should not raise; the already-verified rows are logged and recorded
-    assert len(result["approved"]) == 1
-    assert result["approved"][0].get("note") == "already verified"
+    assert "Not-Yet-Ingested" in result["skipped"]
+    assert result["approved"] == []
+    assert result["errors"] == []
