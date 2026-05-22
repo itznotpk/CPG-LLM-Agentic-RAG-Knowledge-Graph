@@ -90,36 +90,15 @@ def _parse_jsonb_list(value: Any) -> list[str]:
     return []
 
 
-def _collect_icd_codes(rows: list[asyncpg.Record]) -> list[str]:
-    """Gather unique ICD codes across all rows' icd11_scope fields."""
-    codes: set[str] = set()
-    for row in rows:
-        for code in _parse_jsonb_list(row["icd11_scope"]):
-            if code:
-                codes.add(code)
-    return list(codes)
-
-
-async def _fetch_icd_title_map(
-    conn: asyncpg.Connection, codes: list[str]
-) -> dict[str, str]:
-    """Return {code: title} for every code found in icd11_codes."""
-    if not codes:
-        return {}
-    rows = await conn.fetch(
-        "SELECT code, title FROM icd11_codes WHERE code = ANY($1::text[])",
-        codes,
-    )
-    return {row["code"]: (row["title"] or "").strip() for row in rows}
-
-
-def _build_scope_text(
-    row: asyncpg.Record | dict[str, Any],
-    title_map: dict[str, str],
-) -> str:
+def _build_scope_text(row: asyncpg.Record | dict[str, Any]) -> str:
     """
-    Combine scope_rationale + resolved icd11_scope condition titles +
-    procedure_scope tags into one embedding text (target 150–350 words).
+    Build the text embedded into documents.scope_embedding.
+
+    Uses the human-authored cpg_scope_rationale (stored in the scope_rationale
+    column) plus the procedure_scope tags only. ICD-11 condition titles are
+    intentionally NOT dumped in: for broad CPGs (100+ codes) they dilute the
+    embedding into a blurry centroid. The rationale prose already describes the
+    conditions in natural language, which is a stronger, compact semantic signal.
     """
     parts: list[str] = []
 
@@ -127,19 +106,13 @@ def _build_scope_text(
     if rationale:
         parts.append(rationale)
 
-    icd_codes = _parse_jsonb_list(row["icd11_scope"])
-    condition_titles = [title_map[c] for c in icd_codes if c in title_map]
-    if condition_titles:
-        parts.append("Conditions covered: " + "; ".join(condition_titles) + ".")
-
     proc_tags = _parse_jsonb_list(row["procedure_scope"])
     if proc_tags:
         parts.append("Procedures: " + "; ".join(proc_tags) + ".")
 
     if not parts:
         # Bare minimum: just the document title so the row is not empty
-        title = (row["title"] or "").strip()
-        return title
+        return (row["title"] or "").strip()
 
     return " ".join(parts)
 
@@ -215,18 +188,13 @@ async def backfill(
             f"({'verified only' if only_verified else 'all documents'})"
         )
 
-        print("Step 2b: resolving ICD-11 code titles for scope text...")
-        all_codes = _collect_icd_codes(pending)
-        title_map = await _fetch_icd_title_map(conn, all_codes)
-        print(f"  Resolved {len(title_map)}/{len(all_codes)} ICD codes to titles")
-
         updated = 0
         embedding_calls = 0
 
         for batch in _batched(pending):
             updates: list[tuple[str, str]] = []
             for row in batch:
-                text = _build_scope_text(row, title_map)
+                text = _build_scope_text(row)
                 if dry_run:
                     print(f"  {row['id']}: would embed {len(text)} chars")
                     updated += 1
