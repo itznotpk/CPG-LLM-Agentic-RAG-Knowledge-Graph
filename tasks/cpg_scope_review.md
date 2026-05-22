@@ -50,8 +50,8 @@ Groups: 30
 
 ---
 
-## Erectile-Dysfunction
-- Rows in DB: 13
+## Erectile-Dysfunction(2024)
+- Rows in DB: 10
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `HA01.10`, `HA01.11`, `HA01.12`, `HA01.13`, `HA01.1Z`
 - Proposed procedure_scope: (none)
@@ -179,8 +179,8 @@ Groups: 30
 
 ---
 
-## Heart-Disease-in-Pregnancy
-- Rows in DB: pending ingestion/classification
+## Heart-Disease-in-Pregnancy(2nd Edition)
+- Rows in DB: 21
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `BA00`, `BA00.0`, `BA00.1`, `BA00.2`, `BA00.Y`, `BA00.Z`, `BA01`, `BA02`, `BA03`, `BA04`, `BA04.0`, `BA04.1`, `BA04.2`, `BA04.Y`, `BA04.Z`, `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`, `BD10`, `BD11`, `BD11.0`, `BD11.1`, `BD11.2`, `BD11.Z`, `BD12`, `BD13`, `8B11`, `8B11.0`, `8B11.1`, `8B11.20`, `8B11.21`, `8B11.22`, `8B11.2Y`, `8B11.2Z`, `8B11.3`, `8B11.40`, `8B11.41`, `8B11.42`, `8B11.43`, `8B11.44`, `8B11.50`, `8B11.51`, `8B11.5Z`, `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5B81`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`, `BD40`, `BD40.0`, `BD40.1`, `BD40.2`, `BD40.3`, `BD40.Y`, `BD40.Z`, `BD50`, `BD50.00`, `BD50.01`, `BD50.02`, `BD50.0Y`, `BD50.0Z`, `BD50.10`, `BD50.11`, `BD50.12`, `BD50.1Y`, `BD50.1Z`, `BD50.20`, `BD50.21`, `BD50.22`, `BD50.2Y`, `BD50.2Z`, `BD50.30`, `BD50.31`, `BD50.32`, `BD50.3Y`, `BD50.3Z`, `BD50.40`, `BD50.41`, `BD50.4Y`, `BD50.4Z`, `BD50.50`, `BD50.51`, `BD50.52`, `BD50.5Y`, `BD50.5Z`, `BD50.Z`, `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`, `GB61`, `GB61.0`, `GB61.1`, `GB61.2`, `GB61.3`, `GB61.4`, `GB61.5`, `GB61.Z`
 - Proposed procedure_scope: `preconception_counselling`, `pregnancy_cardiac_risk_assessment`, `antenatal_cardiology_referral`, `multidisciplinary_pregnancy_care`, `labour_delivery_planning`, `postpartum_cardiac_follow_up`
@@ -190,30 +190,20 @@ Groups: 30
 
 ---
 
-## Cancer-Pain(Part A)
-- Rows in DB: pending ingestion/classification
+## Cancer-Pain(2nd Edition)
+- Rows in DB: 13
 - Last classified: 2026-05-16T19:30:00+08:00
+- Note: ingested as ONE CPG (adult Part A + paediatric Part B sections in one document group). Merged from the two original review proposals; ICD scope identical, procedure_scope is the union.
 - Proposed icd11_scope: `MG30.1`, `MG30.10`, `MG30.11`, `MG30.1Y`, `MG30.1Z`
-- Proposed procedure_scope: `pain_assessment`, `analgesic_ladder`, `opioid_initiation`, `opioid_titration`, `opioid_rotation`, `breakthrough_pain_management`, `adjuvant_analgesia`, `interventional_pain_management`, `palliative_care`
-- Rationale: Cancer pain guidance is primarily symptom and supportive-care focused across cancer types, so the narrowest disease scope is chronic cancer-related pain rather than all malignant neoplasm codes.
-- ICD-11 hierarchy: Chapter 21 (Symptoms, signs or clinical findings) > Chronic pain > MG30.1 Chronic cancer-related pain.
-- [ ] Approve / [x] Edit / [ ] Reject
-
----
-
-## Cancer-Pain(Part B)
-- Rows in DB: pending ingestion/classification
-- Last classified: 2026-05-16T19:30:00+08:00
-- Proposed icd11_scope: `MG30.1`, `MG30.10`, `MG30.11`, `MG30.1Y`, `MG30.1Z`
-- Proposed procedure_scope: `paediatric_pain_assessment`, `paediatric_analgesia`, `opioid_titration`, `procedural_pain_management`, `psychosocial_support`, `caregiver_education`, `palliative_care`
-- Rationale: Part B continues cancer pain management with paediatric assessment, treatment, and supportive-care workflows; it remains scoped to chronic cancer-related pain rather than individual tumour sites.
+- Proposed procedure_scope: `pain_assessment`, `analgesic_ladder`, `opioid_initiation`, `opioid_titration`, `opioid_rotation`, `breakthrough_pain_management`, `adjuvant_analgesia`, `interventional_pain_management`, `palliative_care`, `paediatric_pain_assessment`, `paediatric_analgesia`, `procedural_pain_management`, `psychosocial_support`, `caregiver_education`
+- Rationale: Cancer pain guidance (adult Part A + paediatric Part B) is symptom and supportive-care focused across cancer types, scoped to chronic cancer-related pain rather than all malignant neoplasm codes.
 - ICD-11 hierarchy: Chapter 21 (Symptoms, signs or clinical findings) > Chronic pain > MG30.1 Chronic cancer-related pain.
 - [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Cervical-Cancer(Second Edition)
-- Rows in DB: pending ingestion/classification
+## Cervical-Cancer(2nd Edition)
+- Rows in DB: 17
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `2C77`, `2C77.0`, `2C77.1`, `2C77.2`, `2C77.3`, `2C77.Y`, `2C77.Z`
 - Proposed procedure_scope: `cancer_referral`, `cancer_staging`, `surgical_management`, `chemoradiotherapy`, `follow_up_surveillance`, `recurrent_disease_management`, `palliative_care`
@@ -234,8 +224,8 @@ Groups: 30
 
 ---
 
-## Primary-Secondary-Prevention-CVD(2017)
-- Rows in DB: pending ingestion/classification
+## Primary-Secondary-Prevention-of-CVD(2017)
+- Rows in DB: 15
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `BA00`, `BA00.0`, `BA00.1`, `BA00.2`, `BA00.Y`, `BA00.Z`, `BA01`, `BA02`, `BA03`, `BA04`, `BA04.0`, `BA04.1`, `BA04.2`, `BA04.Y`, `BA04.Z`, `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`, `BD10`, `BD11`, `BD11.0`, `BD11.1`, `BD11.2`, `BD11.Z`, `BD12`, `BD13`, `8B11`, `8B11.0`, `8B11.1`, `8B11.20`, `8B11.21`, `8B11.22`, `8B11.2Y`, `8B11.2Z`, `8B11.3`, `8B11.40`, `8B11.41`, `8B11.42`, `8B11.43`, `8B11.44`, `8B11.50`, `8B11.51`, `8B11.5Z`, `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5B81`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`, `BD40`, `BD40.0`, `BD40.1`, `BD40.2`, `BD40.3`, `BD40.Y`, `BD40.Z`, `BD50`, `BD50.00`, `BD50.01`, `BD50.02`, `BD50.0Y`, `BD50.0Z`, `BD50.10`, `BD50.11`, `BD50.12`, `BD50.1Y`, `BD50.1Z`, `BD50.20`, `BD50.21`, `BD50.22`, `BD50.2Y`, `BD50.2Z`, `BD50.30`, `BD50.31`, `BD50.32`, `BD50.3Y`, `BD50.3Z`, `BD50.40`, `BD50.41`, `BD50.4Y`, `BD50.4Z`, `BD50.50`, `BD50.51`, `BD50.52`, `BD50.5Y`, `BD50.5Z`, `BD50.Z`, `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`, `GB61`, `GB61.0`, `GB61.1`, `GB61.2`, `GB61.3`, `GB61.4`, `GB61.5`, `GB61.Z`
 - Proposed procedure_scope: `cardiovascular_risk_assessment`, `lifestyle_modification`, `smoking_cessation`, `exercise_prescription`, `dietary_intervention`, `secondary_prevention`, `cardiac_rehabilitation`
@@ -256,8 +246,8 @@ Groups: 30
 
 ---
 
-## Safe-Use-Medication-Anaesthesia(2024)
-- Rows in DB: pending ingestion/classification
+## Anaesthesia-Medication-Safety
+- Rows in DB: 7
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: (none)
 - Proposed procedure_scope: `anaesthetic_medication_safety`, `medication_labelling`, `medication_storage`, `high_alert_medication`, `drug_allergy_management`, `malignant_hyperthermia_management`, `safe_medication_practice`, `medication_waste_management`
@@ -267,8 +257,8 @@ Groups: 30
 
 ---
 
-## Obesity(Second Edition)
-- Rows in DB: pending ingestion/classification
+## Obesity-Management(2023)
+- Rows in DB: 5 of 10 sections ingested (Sections 5-9 pending re-ingestion)
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5B80`, `5B80.0`, `5B80.1`, `5B81`, `5B81.0`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`
 - Proposed procedure_scope: `bmi_assessment`, `waist_circumference_assessment`, `lifestyle_modification`, `dietary_intervention`, `exercise_prescription`, `weight_monitoring`, `anti_obesity_pharmacotherapy`, `bariatric_surgery_referral`
@@ -278,8 +268,8 @@ Groups: 30
 
 ---
 
-## Type-2-Diabetes-Mellitus(6th Edition)
-- Rows in DB: pending ingestion/classification
+## T2-Diabetes-Mellitus(6th-Edition)
+- Rows in DB: pending ingestion (source folder has 17 sections, 0 ingested)
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A11`
 - Proposed procedure_scope: `glycaemic_assessment`, `hba1c_monitoring`, `lifestyle_modification`, `dietary_intervention`, `oral_glucose_lowering_therapy`, `insulin_therapy`, `self_monitoring_blood_glucose`, `cardiovascular_risk_assessment`, `diabetes_complication_screening`, `sick_day_management`
@@ -289,8 +279,8 @@ Groups: 30
 
 ---
 
-## Thyroid-Disorders
-- Rows in DB: pending ingestion/classification
+## Thyroid-Disorders(2019)
+- Rows in DB: 12
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A00`, `5A00.0`, `5A00.1`, `5A00.2`, `5A00.Z`, `5A01`, `5A01.0`, `5A01.1`, `5A01.2`, `5A01.Z`, `5A02`, `5A02.0`, `5A02.1`, `5A02.2`, `5A02.3`, `5A02.4`, `5A02.5`, `5A02.6`, `5A02.Y`, `5A02.Z`, `5A03`, `5A03.0`, `5A03.1`, `5A03.2`, `5A03.Y`, `5A03.Z`, `5A0Y`, `5A0Z`
 - Proposed procedure_scope: `thyroid_function_testing`, `thyroid_autoantibody_testing`, `thyroid_ultrasound`, `thyroid_nodule_assessment`, `levothyroxine_therapy`, `antithyroid_drug_therapy`, `radioactive_iodine_referral`, `endocrine_referral`, `thyroid_follow_up_monitoring`
@@ -300,8 +290,8 @@ Groups: 30
 
 ---
 
-## Diabetes-in-Pregnancy
-- Rows in DB: pending ingestion/classification
+## Diabetes-in-Pregnancy(2017)
+- Rows in DB: 13
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `JA63`, `JA63.0`, `JA63.1`, `JA63.2`, `JA63.Y`, `JA63.Z`, `5A10`, `5A11`
 - Proposed procedure_scope: `preconception_counselling`, `antenatal_diabetes_screening`, `ogtt`, `glucose_monitoring`, `insulin_therapy`, `medical_nutrition_therapy`, `fetal_surveillance`, `delivery_planning`, `postpartum_diabetes_screening`
@@ -311,8 +301,8 @@ Groups: 30
 
 ---
 
-## Type-1-Diabetes-Mellitus-Children-Adolescents
-- Rows in DB: pending ingestion/classification
+## Type-1-Diabetes-Mellitus-Children_Adolescents(2016)
+- Rows in DB: 19
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A10`
 - Proposed procedure_scope: `paediatric_diabetes_education`, `insulin_therapy`, `glucose_monitoring`, `hba1c_monitoring`, `hypoglycaemia_management`, `diabetic_ketoacidosis_prevention`, `sick_day_management`, `school_care_planning`, `transition_to_adult_care`
@@ -322,14 +312,25 @@ Groups: 30
 
 ---
 
-## Growth-Hormone-in-Children-and-Adults
-- Rows in DB: pending ingestion/classification
+## Growth-Hormone-Children-Adults(2010)
+- Rows in DB: 8
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A61.3`, `5B11`, `MG44.12`, `MG44.13`
 - Proposed procedure_scope: `auxology_assessment`, `growth_velocity_monitoring`, `endocrine_referral`, `growth_hormone_stimulation_testing`, `growth_hormone_therapy`, `igf1_monitoring`, `adverse_effect_monitoring`, `treatment_response_monitoring`
 - Rationale: Growth hormone guidance is scoped to confirmed growth hormone deficiency and to early growth-presentation workflows where patients present before endocrine stimulation testing confirms the diagnosis.
 - ICD-11 hierarchy: Chapter 05 (Endocrine, nutritional or metabolic diseases) > Hypofunction or certain other specified disorders of pituitary gland > 5A61.3 Growth hormone deficiency; plus nutritional/developmental growth presentation 5B11 Short stature, not elsewhere classified; plus Chapter 21 symptom presentation codes MG44.12 Short stature of child and MG44.13 Constitutional delay of growth and puberty for initial workup routing. Endocrine codes verified against WHO ICD-11 2024-01 MMS API; MG44.12 and MG44.13 proposed for Step 05 ingestion coverage.
 - [ ] Approve / [x] Edit / [ ] Reject
+
+---
+
+## Nasopharyngeal-Carcinoma
+- Rows in DB: 11
+- Last classified: 2026-05-22T00:00:00+08:00
+- Proposed icd11_scope: `2B6B`, `2B6B.0`, `2B6B.1`, `2B6B.Y`, `2B6B.Z`
+- Proposed procedure_scope: `cancer_referral`, `cancer_staging`, `chemoradiotherapy`, `surgical_management`, `supportive_care`, `recurrent_disease_management`, `follow_up_surveillance`, `palliative_care`
+- Rationale: The guideline covers diagnosis, staging, treatment (chemoradiotherapy/surgery), supportive care, management of complications, and prognosis/follow-up for malignant neoplasms of the nasopharynx.
+- ICD-11 hierarchy: Chapter 02 (Neoplasms) > Malignant neoplasms of head, face or neck > 2B6B Malignant neoplasms of nasopharynx, with squamous cell carcinoma (2B6B.0), unspecified epithelial (2B6B.1), other specified (2B6B.Y), and unspecified (2B6B.Z). Codes verified against the live icd11_codes table 2026-05-22.
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 

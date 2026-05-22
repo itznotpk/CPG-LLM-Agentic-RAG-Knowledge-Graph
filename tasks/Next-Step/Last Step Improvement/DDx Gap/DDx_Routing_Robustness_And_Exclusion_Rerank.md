@@ -594,7 +594,7 @@ Seven tunable constants. Log enough to tune them empirically from real DDx logs.
 
 ## Tests
 
-`tests/test_routing_fallback.py` (D1 + D2 + D4):
+`tests/test_routing.py` (D1 + D4; D2 semantic fallback retired):
 
 - `test_exact_match_returns_route_exact` — code in `icd11_scope` of one doc → returns that doc, method="exact".
 - `test_ancestor_d1_match` — predicted code's parent is in `icd11_scope` → method="ancestor_d1".
@@ -817,7 +817,7 @@ All eleven must hold:
 1. Migration 008 applied cleanly. `\d icd11_codes` shows `exclusion_embeddings jsonb`. (Migration 007 / `scope_embedding` — D2 retired, do NOT apply.)
 2. `python -m ddx.backfill_exclusion_embeddings` populates the 402 rows with non-empty exclusions. Verify: `SELECT COUNT(*) FROM icd11_codes WHERE exclusion_embeddings != '{}'::jsonb` returns 402.
 3. Re-running the exclusion backfill makes 0 embedding calls and 0 DB writes (idempotent).
-4. `pytest tests/test_routing_fallback.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v` all green. No real Bedrock, WHO, or LLM calls.
+4. `pytest tests/test_routing.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v` all green. No real Bedrock, WHO, or LLM calls.
 5. All nine smoke tests in §6 produce the expected result (Smoke 3 now tests out_of_scope on an ENT query; Smoke 9 may be a documented N/A if the corpus has no sibling-route case — the SQL output must be shown). The full suite passed on **staging before** prod promotion. Telemetry is captured. Smoke 7 and the two Smoke 8 deterministic blocks are pasted verbatim.
 6. **(D5)** Every DDx candidate returned by the API carries the full breakdown (D5a + D6b fields) populated. `final_score == base_similarity + inclusion_match - exclusion_penalty` holds for every candidate (spot-check 10 from a live query).
 7. **(D5)** The rendered top-5 for an exclusion-penalised candidate keeps it in the list with the `⚠ ... ranked lower` line, not removed. The provenance badge for each candidate matches its actual `route_method` — never shows `✓ Exact guideline match` for a non-exact route.
@@ -840,7 +840,7 @@ When you finish, return the following — concise, no marketing:
 2. **Migrations applied** — output of `\d icd11_codes` (relevant columns only). Migration 007 / `scope_embedding` was NOT applied (D2 retired).
 3. **Backfill results** — `icd11_codes.exclusion_embeddings`: rows populated (expect 402), embedding calls made (expect ~748), runtime, total cost (Bedrock invocations × $0.0001 / 1k tokens estimate).
 4. **Idempotency check** — output of re-running `backfill_exclusion_embeddings` with no args (expect "0 rows updated, 0 embedding calls").
-5. **Test output** — last ~30 lines of `pytest tests/test_routing_fallback.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v`.
+5. **Test output** — last ~30 lines of `pytest tests/test_routing.py tests/test_exclusion_rerank.py tests/test_score_breakdown.py tests/test_rerank_merge.py -v`.
 6. **Smoke test telemetry** — table with one row per routing smoke test (Smoke 1–6 and 9):
    | Smoke # | Query (truncated) | Predicted ICD | route_method | Matched CPG | Notes |
    |---------|-------------------|---------------|--------------|-------------|-------|

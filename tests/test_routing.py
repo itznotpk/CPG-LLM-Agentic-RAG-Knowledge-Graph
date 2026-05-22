@@ -2,13 +2,25 @@
 Tests for agent/routing.py (Deliverable 1) and scoped retrieval in
 agent/tools.py + agent/db_utils.py (Deliverable 2).
 
+D1 routing is the six-level structural walk:
+    exact -> sibling -> ancestor_d1 -> ancestor_d1_sibling
+          -> ancestor_d1_sibling_child -> ancestor_d2 -> none
+The retired D2 semantic fallback (_semantic_fallback) no longer exists; these
+tests exercise the structural walk only.
+
 All tests are fully mocked — no real DB, no real embeddings, no external calls.
+The mock conn simulates the two document-scope queries the router issues
+(_scope_code_match and _range_match); the ICD tree helpers
+(fetch_icd_siblings / fetch_icd_ancestors / fetch_icd_ancestor_siblings /
+fetch_icd_ancestor_sibling_children) are patched per test so each test states
+exactly which structural neighbours exist.
 """
 
 from __future__ import annotations
 
 import logging
-from unittest.mock import AsyncMock, MagicMock, patch
+from contextlib import contextmanager
+from unittest.mock import AsyncMock, patch
 
 import pytest
 
@@ -28,134 +40,284 @@ def _row(**kwargs):
     return _Record(kwargs)
 
 
+@contextmanager
+def _routing_env(
+    docs,
+    *,
+    siblings=None,
+    ancestors=None,
+    anc_siblings=None,
+    anc_sibling_children=None,
+):
+    """
+    Set up a mocked routing environment.
+
+    `docs` is the simulated `documents` table (each a _row with id/title/
+    icd11_scope/cpg_name). The mock conn.fetch interprets the router's two
+    document queries:
+      - _scope_code_match: SQL contains "ANY(icd11_scope)", param[0] is the
+        scope code -> return docs whose icd11_scope contains that code.
+      - _range_match: SQL has no scope param -> return all (verified) docs,
+        letting the router's own range logic filter them.
+
+    The four ICD-tree helpers are patched to return the supplied neighbour
+    code lists (ancestors as [{"code", "depth"}], the rest as [code, ...]).
+    """
+    async def _fetch(sql, *params):
+        if "ANY(icd11_scope)" in sql:
+            scope_code = params[0]
+            return [d for d in docs if scope_code in (d["icd11_scope"] or [])]
+        return list(docs)  # _range_match: all verified docs
+
+    mock_conn = AsyncMock()
+    mock_conn.fetch = AsyncMock(side_effect=_fetch)
+
+    with patch("agent.routing.db_pool") as mock_pool, patch(
+        "agent.routing.fetch_icd_siblings",
+        new=AsyncMock(return_value=siblings or []),
+    ), patch(
+        "agent.routing.fetch_icd_ancestors",
+        new=AsyncMock(return_value=ancestors or []),
+    ), patch(
+        "agent.routing.fetch_icd_ancestor_siblings",
+        new=AsyncMock(return_value=anc_siblings or []),
+    ), patch(
+        "agent.routing.fetch_icd_ancestor_sibling_children",
+        new=AsyncMock(return_value=anc_sibling_children or []),
+    ):
+        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
+        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
+        yield mock_conn
+
+
 # ---------------------------------------------------------------------------
-# Routing — unit tests
+# D1 — six-level structural routing (find_cpgs_for_code)
 # ---------------------------------------------------------------------------
 
 @pytest.mark.asyncio
 async def test_exact_match():
-    doc = _row(id="doc-1", title="AF CPG", icd11_scope=["BC81.3"], cpg_name="AF CPG")
+    from agent.routing import find_cpgs_for_code
 
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=[doc])
+    docs = [_row(id="doc-1", title="AF CPG", icd11_scope=["BC81.3"], cpg_name="AF CPG")]
+    with _routing_env(docs) as conn:
+        refs, method = await find_cpgs_for_code("BC81.3", conn)
 
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
+    assert method == "exact"
+    assert len(refs) == 1
+    assert refs[0].match_type == "exact"
+    assert refs[0].score == 1.0
+    assert refs[0].matched_scope == "BC81.3"
 
-        from agent.routing import route_icd_to_cpgs
-        results = await route_icd_to_cpgs("BC81.3")
 
-    assert len(results) == 1
-    assert results[0].match_type == "exact"
-    assert results[0].score == 1.0
-    assert results[0].matched_scope == "BC81.3"
+@pytest.mark.asyncio
+async def test_range_match_is_exact():
+    """A code that falls inside a range entry (BC60-BC9Z) routes as exact."""
+    from agent.routing import find_cpgs_for_code
+
+    docs = [_row(id="doc-r", title="Range CPG", icd11_scope=["BC60-BC9Z"], cpg_name="Range CPG")]
+    with _routing_env(docs) as conn:
+        refs, method = await find_cpgs_for_code("BC81", conn)
+
+    assert method == "exact"
+    assert len(refs) == 1
+    assert refs[0].matched_scope == "BC60-BC9Z"
+
+
+@pytest.mark.asyncio
+async def test_sibling_match_when_no_exact():
+    """Exact miss; a same-parent sibling (BA41.1) is in scope -> sibling."""
+    from agent.routing import find_cpgs_for_code
+
+    docs = [_row(id="doc-sib", title="Sibling CPG", icd11_scope=["BA41.1"], cpg_name="Sibling CPG")]
+    with _routing_env(docs, siblings=["BA41.1", "BA41.Z"]) as conn:
+        refs, method = await find_cpgs_for_code("BA41.0", conn)
+
+    assert method == "sibling"
+    assert refs[0].match_type == "sibling"
+    assert refs[0].matched_scope == "BA41.1"
 
 
 @pytest.mark.asyncio
 async def test_ancestor_d1_match():
-    doc = _row(id="doc-2", title="Some CPG", icd11_scope=["BC81"], cpg_name="Some CPG")
+    """Exact + siblings miss; the direct parent (BC81) is in scope -> ancestor_d1."""
+    from agent.routing import find_cpgs_for_code
 
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(side_effect=[
-        [],                         # exact
-        [],                         # range
-        [_row(code="BC81", depth=1)],  # ancestors
-        [doc],                      # ancestor scope match
-    ])
+    docs = [_row(id="doc-2", title="Some CPG", icd11_scope=["BC81"], cpg_name="Some CPG")]
+    with _routing_env(
+        docs,
+        siblings=[],
+        ancestors=[{"code": "BC81", "depth": 1}],
+    ) as conn:
+        refs, method = await find_cpgs_for_code("BC81.3", conn)
 
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
-        results = await route_icd_to_cpgs("BC81.3")
-
-    assert len(results) == 1
-    assert results[0].match_type == "ancestor_d1"
-    assert results[0].matched_scope == "BC81"
+    assert method == "ancestor_d1"
+    assert refs[0].matched_scope == "BC81"
 
 
 @pytest.mark.asyncio
-async def test_ancestor_d1_4char_match():
-    doc = _row(id="doc-3", title="STEMI CPG", icd11_scope=["BA41"], cpg_name="STEMI CPG")
+async def test_ancestor_d1_sibling_match():
+    """Parent miss; a peer category of the parent (BA01) is in scope."""
+    from agent.routing import find_cpgs_for_code
 
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(side_effect=[
-        [],
-        [],
-        [_row(code="BA41", depth=1)],
-        [doc],
-    ])
+    docs = [_row(id="doc-as", title="HTN CPG", icd11_scope=["BA01"], cpg_name="HTN CPG")]
+    with _routing_env(
+        docs,
+        ancestors=[{"code": "BA00", "depth": 1}],
+        anc_siblings=["BA01", "BA02"],
+    ) as conn:
+        refs, method = await find_cpgs_for_code("BA00.0", conn)
 
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
-        results = await route_icd_to_cpgs("BA41.0")
-
-    assert len(results) == 1
-    assert results[0].match_type == "ancestor_d1"
-    assert results[0].matched_scope == "BA41"
+    assert method == "ancestor_d1_sibling"
+    assert refs[0].matched_scope == "BA01"
 
 
 @pytest.mark.asyncio
-async def test_range_match():
-    # structural returns nothing; _range_match should find it
-    doc = _row(id="doc-4", title="Range CPG", icd11_scope=["BC60-BC9Z"], cpg_name="Range CPG")
+async def test_ancestor_d1_sibling_child_match():
+    """Parent + its siblings miss; a child of a peer category (BA01.0) is in scope."""
+    from agent.routing import find_cpgs_for_code
 
-    mock_conn = AsyncMock()
-    # first call: _structural_match (returns empty)
-    # second call: _range_match (returns all docs)
-    mock_conn.fetch = AsyncMock(side_effect=[[], [doc], [], []])
+    docs = [_row(id="doc-asc", title="HTN CPG", icd11_scope=["BA01.0"], cpg_name="HTN CPG")]
+    with _routing_env(
+        docs,
+        ancestors=[{"code": "BA00", "depth": 1}],
+        anc_siblings=["BA01"],
+        anc_sibling_children=["BA01.0", "BA01.Z"],
+    ) as conn:
+        refs, method = await find_cpgs_for_code("BA00.0", conn)
 
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
-        results = await route_icd_to_cpgs("BC81")
-
-    assert len(results) == 1
-    assert results[0].matched_scope == "BC60-BC9Z"
+    assert method == "ancestor_d1_sibling_child"
+    assert refs[0].matched_scope == "BA01.0"
 
 
 @pytest.mark.asyncio
-async def test_range_no_match():
-    doc = _row(id="doc-4", title="Range CPG", icd11_scope=["BC60-BC9Z"], cpg_name="Range CPG")
+async def test_ancestor_d2_match():
+    """All nearer levels miss; the grandparent block (depth 2) is in scope."""
+    from agent.routing import find_cpgs_for_code
 
-    mock_conn = AsyncMock()
-    # exact empty, range fetch returns doc but BA00 is outside BC60-BC9Z,
-    # then ancestor and sibling fallbacks both miss.
-    mock_conn.fetch = AsyncMock(side_effect=[[], [doc], [], []])
+    docs = [_row(id="doc-d2", title="Block CPG", icd11_scope=["BA00"], cpg_name="Block CPG")]
+    with _routing_env(
+        docs,
+        ancestors=[{"code": "BA00.1", "depth": 1}, {"code": "BA00", "depth": 2}],
+    ) as conn:
+        refs, method = await find_cpgs_for_code("BA00.10", conn)
 
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
+    assert method == "ancestor_d2"
+    assert refs[0].matched_scope == "BA00"
 
-        # semantic fallback is also mocked to return empty
-        with patch("agent.routing._semantic_fallback", new=AsyncMock(return_value=[])):
-            from agent.routing import route_icd_to_cpgs
-            results = await route_icd_to_cpgs("BA00")
 
-    assert len(results) == 0
+@pytest.mark.asyncio
+async def test_ancestor_walk_stops_at_d2():
+    """A depth-3+ code in scope is never reached (ANCESTOR_MAX_DEPTH=2) -> none."""
+    from agent.routing import find_cpgs_for_code
 
+    # The only in-scope code would be a depth-3 ancestor, which the helper
+    # (capped at max_depth=2) never returns.
+    docs = [_row(id="doc-deep", title="Deep CPG", icd11_scope=["BA"], cpg_name="Deep CPG")]
+    with _routing_env(
+        docs,
+        ancestors=[{"code": "BA00.1", "depth": 1}, {"code": "BA00", "depth": 2}],
+    ) as conn:
+        refs, method = await find_cpgs_for_code("BA00.10", conn)
+
+    assert method == "none"
+    assert refs == []
+
+
+@pytest.mark.asyncio
+async def test_out_of_scope_returns_none():
+    """Nothing matches at any structural level -> ([], 'none')."""
+    from agent.routing import find_cpgs_for_code
+
+    docs = [_row(id="doc-x", title="Unrelated CPG", icd11_scope=["ZZ99"], cpg_name="Unrelated CPG")]
+    with _routing_env(
+        docs,
+        siblings=["BA41.1"],
+        ancestors=[{"code": "BA41", "depth": 1}, {"code": "BA4", "depth": 2}],
+        anc_siblings=["BA42"],
+        anc_sibling_children=["BA42.0"],
+    ) as conn:
+        refs, method = await find_cpgs_for_code("BA41.0", conn)
+
+    assert method == "none"
+    assert refs == []
+
+
+@pytest.mark.asyncio
+async def test_exact_beats_lower_levels():
+    """When exact and a sibling both match, exact wins."""
+    from agent.routing import find_cpgs_for_code
+
+    docs = [
+        _row(id="doc-exact", title="Exact CPG", icd11_scope=["BA41.0"], cpg_name="Exact CPG"),
+        _row(id="doc-sib", title="Sibling CPG", icd11_scope=["BA41.1"], cpg_name="Sibling CPG"),
+    ]
+    with _routing_env(docs, siblings=["BA41.1"]) as conn:
+        refs, method = await find_cpgs_for_code("BA41.0", conn)
+
+    assert method == "exact"
+    assert refs[0].cpg_name == "Exact CPG"
+
+
+@pytest.mark.asyncio
+async def test_sibling_beats_ancestor():
+    """When both a sibling and the parent are in scope, sibling wins (checked first)."""
+    from agent.routing import find_cpgs_for_code
+
+    docs = [
+        _row(id="doc-sib", title="Sibling CPG", icd11_scope=["BA41.1"], cpg_name="Sibling CPG"),
+        _row(id="doc-anc", title="Ancestor CPG", icd11_scope=["BA41"], cpg_name="Ancestor CPG"),
+    ]
+    with _routing_env(
+        docs,
+        siblings=["BA41.1"],
+        ancestors=[{"code": "BA41", "depth": 1}],
+    ) as conn:
+        refs, method = await find_cpgs_for_code("BA41.0", conn)
+
+    assert method == "sibling"
+    assert refs[0].cpg_name == "Sibling CPG"
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "scenario_method",
+    ["exact", "sibling", "ancestor_d1", "none"],
+)
+async def test_route_method_always_stamped(scenario_method):
+    """Every routing path returns a non-empty route_method string."""
+    from agent.routing import find_cpgs_for_code
+
+    if scenario_method == "exact":
+        docs = [_row(id="d", title="C", icd11_scope=["BA41.0"], cpg_name="C")]
+        env = _routing_env(docs)
+    elif scenario_method == "sibling":
+        docs = [_row(id="d", title="C", icd11_scope=["BA41.1"], cpg_name="C")]
+        env = _routing_env(docs, siblings=["BA41.1"])
+    elif scenario_method == "ancestor_d1":
+        docs = [_row(id="d", title="C", icd11_scope=["BA41"], cpg_name="C")]
+        env = _routing_env(docs, ancestors=[{"code": "BA41", "depth": 1}])
+    else:  # none
+        docs = [_row(id="d", title="C", icd11_scope=["ZZ99"], cpg_name="C")]
+        env = _routing_env(docs)
+
+    with env as conn:
+        _, method = await find_cpgs_for_code("BA41.0", conn)
+
+    assert isinstance(method, str) and method
+    assert method == scenario_method
+
+
+# ---------------------------------------------------------------------------
+# route_icd_to_cpgs — dedup / top_k / CPG grouping
+# ---------------------------------------------------------------------------
 
 @pytest.mark.asyncio
 async def test_multi_code_dedup():
-    # Document has both 'BC81' and 'BC81.3'; querying BC81.3 should match exact
-    # but the CPG should appear only once.
-    doc = _row(id="doc-5", title="AF CPG", icd11_scope=["BC81", "BC81.3"], cpg_name="AF CPG")
+    """A CPG listing both 'BC81' and 'BC81.3' appears once for an exact query."""
+    from agent.routing import route_icd_to_cpgs
 
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=[doc])
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
+    docs = [_row(id="doc-5", title="AF CPG", icd11_scope=["BC81", "BC81.3"], cpg_name="AF CPG")]
+    with _routing_env(docs):
         results = await route_icd_to_cpgs("BC81.3")
 
     assert len(results) == 1
@@ -164,172 +326,15 @@ async def test_multi_code_dedup():
 
 
 @pytest.mark.asyncio
-async def test_semantic_fallback_fires_on_no_structural():
-    mock_conn = AsyncMock()
-    # exact, range, ancestors, siblings all miss
-    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], []])
-
-    semantic_result = MagicMock()
-    semantic_result.document_id = "doc-sem"
-    semantic_result.cpg_name = "Sem CPG"
-    semantic_result.match_type = "semantic"
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        with patch("agent.routing._semantic_fallback", new=AsyncMock(return_value=[semantic_result])) as mock_sem:
-            from agent.routing import route_icd_to_cpgs
-            results = await route_icd_to_cpgs("ZZ99")
-
-    mock_sem.assert_awaited_once()
-    assert results[0].document_id == "doc-sem"
-
-
-@pytest.mark.asyncio
-async def test_sibling_fallback_after_ancestor_misses():
-    doc = _row(id="doc-sib", title="Sibling CPG", icd11_scope=["BA41.1"], cpg_name="Sibling CPG")
-
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(side_effect=[
-        [],                              # exact
-        [],                              # range
-        [_row(code="BA41", depth=1)],    # ancestors
-        [],                              # ancestor scope miss
-        [_row(code="BA41.1")],           # siblings
-        [doc],                           # sibling scope match
-    ])
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
-        results = await route_icd_to_cpgs("BA41.0")
-
-    assert len(results) == 1
-    assert results[0].match_type == "sibling"
-    assert results[0].matched_scope == "BA41.1"
-
-
-@pytest.mark.asyncio
-async def test_semantic_fallback_threshold():
-    """Results below threshold must be excluded by _semantic_fallback."""
-    from agent.routing import _semantic_fallback
-
-    mock_conn = AsyncMock()
-    mock_conn.fetchrow = AsyncMock(return_value=_row(title="Mystery disease", description=""))
-    candidate_above = _row(id="doc-above", cpg_name="CPG A", title="CPG A", similarity=0.75)
-    candidate_below = _row(id="doc-below", cpg_name="CPG B", title="CPG B", similarity=0.40)
-    mock_conn.fetch = AsyncMock(side_effect=[
-        [candidate_above, candidate_below],
-        [_row(id="doc-above", cpg_name="CPG A", title="CPG A")],
-    ])
-
-    with patch("agent.routing.generate_embedding", new=AsyncMock(return_value=[0.1] * 1536)):
-        results = await _semantic_fallback(mock_conn, "ZZ00", top_k=5, threshold=0.60)
-
-    doc_ids = [r.document_id for r in results]
-    assert "doc-above" in doc_ids
-    assert "doc-below" not in doc_ids
-
-
-@pytest.mark.asyncio
-async def test_semantic_fallback_skipped_when_structural_matches():
-    doc = _row(id="doc-7", title="HTN CPG", icd11_scope=["BA00"], cpg_name="HTN CPG")
-
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=[doc])
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        with patch("agent.routing._semantic_fallback", new=AsyncMock()) as mock_sem:
-            from agent.routing import route_icd_to_cpgs
-            results = await route_icd_to_cpgs("BA00")
-
-    mock_sem.assert_not_awaited()
-    assert len(results) == 1
-
-
-@pytest.mark.asyncio
-async def test_unknown_icd_code_uses_raw_string():
-    """When the code is not in icd11_codes, the raw code string must be embedded."""
-    from agent.routing import _semantic_fallback
-
-    mock_conn = AsyncMock()
-    mock_conn.fetchrow = AsyncMock(return_value=None)  # code not found
-    mock_conn.fetch = AsyncMock(return_value=[])        # no scope-embedding docs
-
-    with patch("agent.routing.generate_embedding", new=AsyncMock(return_value=[0.0] * 1536)) as mock_embed:
-        with patch("agent.routing.db_pool") as _pool:
-            _pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-            _pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-            await _semantic_fallback(mock_conn, "XX99ZZ", top_k=3, threshold=0.60)
-
-    mock_embed.assert_awaited_once_with("XX99ZZ")
-
-
-@pytest.mark.asyncio
-async def test_returns_at_most_top_k():
-    # 5 rows with distinct cpg_names so they don't collapse into one CPG
-    docs = [
-        _row(id=f"doc-{i}", title=f"CPG {i}", icd11_scope=["BA00"], cpg_name=f"CPG {i}")
-        for i in range(5)
-    ]
-
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=docs)
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
-        results = await route_icd_to_cpgs("BA00", top_k=3)
-
-    assert len(results) == 3
-
-
-@pytest.mark.asyncio
-async def test_empty_scope_verified_false():
-    """Documents with scope_verified=FALSE must not be returned (SQL WHERE filters them)."""
-    mock_conn = AsyncMock()
-    # The SQL already filters scope_verified=TRUE; simulate DB returning nothing
-    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], []])
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        with patch("agent.routing._semantic_fallback", new=AsyncMock(return_value=[])):
-            from agent.routing import route_icd_to_cpgs
-            results = await route_icd_to_cpgs("BC81.3")
-
-    assert results == []
-
-
-# ---------------------------------------------------------------------------
-# CPGDocRef grouping tests (new for Step 07)
-# ---------------------------------------------------------------------------
-
-@pytest.mark.asyncio
 async def test_cpgdocref_has_document_ids():
-    """13 section rows for the same CPG → one CPGDocRef with 13 document_ids."""
+    """13 section rows for the same CPG -> one CPGDocRef with 13 document_ids."""
+    from agent.routing import route_icd_to_cpgs
+
     docs = [
         _row(id=f"af-section-{i}", title="AF CPG", icd11_scope=["BC81.3"], cpg_name="AF CPG")
         for i in range(13)
     ]
-
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=docs)
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
+    with _routing_env(docs):
         results = await route_icd_to_cpgs("BC81.3", top_k=5)
 
     assert len(results) == 1, "13 section rows should collapse to 1 CPGDocRef"
@@ -338,30 +343,44 @@ async def test_cpgdocref_has_document_ids():
 
 
 @pytest.mark.asyncio
+async def test_returns_at_most_top_k():
+    from agent.routing import route_icd_to_cpgs
+
+    docs = [
+        _row(id=f"doc-{i}", title=f"CPG {i}", icd11_scope=["BA00"], cpg_name=f"CPG {i}")
+        for i in range(5)
+    ]
+    with _routing_env(docs):
+        results = await route_icd_to_cpgs("BA00", top_k=3)
+
+    assert len(results) == 3
+
+
+@pytest.mark.asyncio
 async def test_route_top_k_is_cpg_count():
-    """2 CPGs with 10 rows each → top_k=1 returns 1 CPGDocRef with 10 document_ids."""
-    cpg_a_rows = [
-        _row(id=f"cpg-a-{i}", title="CPG A", icd11_scope=["BA00"], cpg_name="CPG A")
-        for i in range(10)
-    ]
-    cpg_b_rows = [
-        _row(id=f"cpg-b-{i}", title="CPG B", icd11_scope=["BA00"], cpg_name="CPG B")
-        for i in range(10)
-    ]
-    all_docs = cpg_a_rows + cpg_b_rows
+    """2 CPGs with 10 rows each -> top_k=1 returns 1 CPGDocRef with 10 document_ids."""
+    from agent.routing import route_icd_to_cpgs
 
-    mock_conn = AsyncMock()
-    mock_conn.fetch = AsyncMock(return_value=all_docs)
-
-    with patch("agent.routing.db_pool") as mock_pool:
-        mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-        mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-
-        from agent.routing import route_icd_to_cpgs
+    docs = (
+        [_row(id=f"cpg-a-{i}", title="CPG A", icd11_scope=["BA00"], cpg_name="CPG A") for i in range(10)]
+        + [_row(id=f"cpg-b-{i}", title="CPG B", icd11_scope=["BA00"], cpg_name="CPG B") for i in range(10)]
+    )
+    with _routing_env(docs):
         results = await route_icd_to_cpgs("BA00", top_k=1)
 
     assert len(results) == 1, "top_k=1 should return exactly 1 CPGDocRef"
     assert len(results[0].document_ids) == 10
+
+
+@pytest.mark.asyncio
+async def test_empty_scope_returns_nothing():
+    """No verified documents -> no route at any level -> empty list."""
+    from agent.routing import route_icd_to_cpgs
+
+    with _routing_env([]):
+        results = await route_icd_to_cpgs("BC81.3")
+
+    assert results == []
 
 
 # ---------------------------------------------------------------------------

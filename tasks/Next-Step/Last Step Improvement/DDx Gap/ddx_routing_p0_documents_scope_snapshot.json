@@ -30,6 +30,31 @@
     "scope_verified": false
   },
   {
+    "title": "Appendices",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Appendices",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Appendices",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Appendices",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Appendix",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Appendix",
     "icd11_scope": [],
     "scope_verified": false
@@ -55,12 +80,37 @@
     "scope_verified": false
   },
   {
+    "title": "Section 0: Algorithms — GH Therapy In Children, Transition Period, And Adult GHD Screening",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 0: Appendix",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 0: Flowchart",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 0: Key Messages & Recommendations",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 0: Key Recommendations",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 0: Key Recommendations & Algorithms",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 0: Key Recommendations And Algorithms",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -76,6 +126,11 @@
   },
   {
     "title": "Section 0: Summary And Key General Recommendations",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 0: Summary and Key Recommendations",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -100,6 +155,16 @@
     "scope_verified": false
   },
   {
+    "title": "Section 10: Cardiac Rehabilitation",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 10: Chronic Heart Failure - Heart Failure with Reduced LVEF (HFrEF)",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 10: Endovascular Thrombectomy",
     "icd11_scope": [],
     "scope_verified": false
@@ -120,6 +185,11 @@
     "scope_verified": false
   },
   {
+    "title": "Section 10: Implementing The Guidelines",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 10: Introduction To PAH In Children",
     "icd11_scope": [],
     "scope_verified": false
@@ -130,7 +200,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 10: Management Of Dyslipidemia In Specific Conditions",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 10: Medical Nutrition Therapy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 10: Post Hospital Discharge",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 10: Referral To Secondary/Tertiary Care",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -145,12 +230,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 10: Special Groups",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 10: Supportive Treatment",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 10: URGENT/EMERGENT Cabg Surgery",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 11: Appendices",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -170,12 +265,27 @@
     "scope_verified": false
   },
   {
+    "title": "Section 11: Chronic Heart Failure- Heart Failure with Mildly Reduced LVEF (HFmrEF)",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 11: Community, Population And Governmental Level",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 11: Definition And Classification Of PAH In Children",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 11: Follow-Up of Patients with Stable CAD",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 11: Implementing The Guidelines",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -195,12 +305,27 @@
     "scope_verified": false
   },
   {
+    "title": "Section 11: Monitoring Of Activity And Quality Assurance",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 11: Psychosocial Support",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 11: Recurrent Disease",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 11: Risk Stratification Post STEMI",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 11: Specific Lipid Disorders",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -220,6 +345,16 @@
     "scope_verified": false
   },
   {
+    "title": "Section 12: Appendices",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 12: Chronic Heart Failure - Heart Failure with Improved LVEF (HFimpEF)",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 12: Device And Procedure Based Therapy",
     "icd11_scope": [],
     "scope_verified": false
@@ -235,7 +370,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 12: Management In Special Groups",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 12: Management Of Anticoagulation In Pregnancy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 12: Physical Activity (Exercise)",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 12: Pre-Operative Assessment for Elective Non-Cardiac Surgery",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -255,7 +405,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 13: Adherence To Lifestyle Changes And Medications",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 13: Assessment Of Severity Of PAH In Children",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 13: Chronic Heart Failure - Heart Failure with Preserved LVEF (HFpEF)",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -270,6 +430,11 @@
     "scope_verified": false
   },
   {
+    "title": "Section 13: Monitoring And Quality Assurance",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 13: Palliative Care",
     "icd11_scope": [],
     "scope_verified": false
@@ -280,12 +445,62 @@
     "scope_verified": false
   },
   {
+    "title": "Section 13: Self-Monitoring Blood Glucose",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 13: Stroke And Cardioembolism",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 13: Suggested Areas Of Research",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.1: Diabetes And Heart Failure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.2: Valvular Heart Disease (VHD) And HF",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.3: Cardiomyopathy And Heart Failure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.4: Cardiomyopathy Due To Arrhythmias Or Conduction Abnormalities",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.5: Cardio-Oncology And Heart Failure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.6: HF And Chronic Kidney Disease",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.7: HF And Pregnancy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.8: Coronavirus 2019 (Covid 19) And Heart Failure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14.9: Heart Failure In Adult Congenital Heart Disease (ACHD)",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -305,7 +520,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 14: Quality Indicators & Performance Measures",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 14: Special Groups",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 14: Special Situations",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -316,6 +541,11 @@
   },
   {
     "title": "Section 14: Treatment Of iPAH In Children",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 15: Advanced Heart Failure",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -340,6 +570,11 @@
     "scope_verified": false
   },
   {
+    "title": "Section 15: Supplements / Complementary Medications",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 15: Treatment Algorithm For PAH In Children",
     "icd11_scope": [],
     "scope_verified": false
@@ -350,7 +585,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 16: Heart Failure Rehabilitation",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 16: Introduction To PAH In Congenital Heart Diseases",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 16: Long-Term Complications",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -375,12 +620,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 17: Organisation Of Care",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 17: Performance Measures",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 17: Quality Assurance",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 17: Referral",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -400,7 +655,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 18: Implementing The Guidelines",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 18: Other Therapies for Heart Failure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 18: Termination Of Pregnancy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 19: Appendices",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -416,6 +686,11 @@
   },
   {
     "title": "Section 19: Implementation The Guidelines, Resource Implication And Performance Measures",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 19: Performance Measures",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -495,6 +770,46 @@
     "scope_verified": false
   },
   {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Introduction",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 1: Introduction And Epidemiology",
     "icd11_scope": [],
     "scope_verified": false
@@ -505,12 +820,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 1: Obesity: the disease",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 1: Principles Of Anaesthesia Care",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 1: The Scope Of The Problem",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 1: Thyroid Disorders: The Disease",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -530,6 +855,11 @@
     "scope_verified": false
   },
   {
+    "title": "Section 2: Assessment And Diagnosis",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 2: Causes And Pathophysiology",
     "icd11_scope": [],
     "scope_verified": false
@@ -540,12 +870,32 @@
     "scope_verified": false
   },
   {
+    "title": "Section 2: Clinical Spectrum Of Stable CAD",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 2: Definition",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 2: Definition And Pathogenesis Of Myocardial Infarction",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 2: Definition Of Terms",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 2: Definition Of Terms",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 2: Diagnosis",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -570,6 +920,11 @@
     "scope_verified": false
   },
   {
+    "title": "Section 2: Hyperthyroidism",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 2: Indications For PCI",
     "icd11_scope": [],
     "scope_verified": false
@@ -581,6 +936,11 @@
   },
   {
     "title": "Section 2: Measurement Of Blood Pressure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 2: Measurement Of Lipids And Apolipoproteins",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -610,6 +970,16 @@
     "scope_verified": false
   },
   {
+    "title": "Section 2: Risk Factors",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 2: Screening And Diagnosis",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 2: Screening And Surveillance",
     "icd11_scope": [],
     "scope_verified": false
@@ -625,7 +995,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 2: Use of Growth Hormone in Growth hormone Deficient (GHD) Children",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 3: Adjunctive Therapies For PCI",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 3: Classification",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 3: Classification Of Dyslipidemia",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -655,6 +1040,11 @@
     "scope_verified": false
   },
   {
+    "title": "Section 3: Diagnosis And Assessment",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 3: Diagnosis And Initial Assessment",
     "icd11_scope": [],
     "scope_verified": false
@@ -675,12 +1065,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 3: Hypothyroidism",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 3: Initial Management",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 3: Intraoperative Monitoring Of The Patient",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 3: Management Of Pregnant Women At Risk Of Developing Gestational Diabetes Mellitus",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -695,12 +1095,32 @@
     "scope_verified": false
   },
   {
+    "title": "Section 3: Pathogenesis",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 3: Pathogenesis Of PAH In Adults",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
+    "title": "Section 3: Pathophysiology",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 3: Primary Care And Referral",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 3: Psychological And Behavioural Therapy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 3: Risk Factors",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -720,6 +1140,11 @@
     "scope_verified": false
   },
   {
+    "title": "Section 3: Use of Growth Hormone in Non-GHD Children",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 4: Cardiovascular Risk Factors",
     "icd11_scope": [],
     "scope_verified": false
@@ -730,12 +1155,27 @@
     "scope_verified": false
   },
   {
+    "title": "Section 4: Co-Morbidities",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 4: Diagnosis",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 4: Diagnosis",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 4: Diagnostic And Radiological Investigations For Staging",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 4: Dyslipidemia As A CV Risk Factor",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -755,7 +1195,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 4: Management Of Obesity In Adults",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 4: Management Of Pregnancy In Valvular Heart Disease",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 4: Management Of Women With Pre-existing Diabetes",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -765,7 +1215,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 4: Natural History And Prognosis Of Stable CAD",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 4: Non-Pharmacological Management",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 4: Pathophysiology",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -810,12 +1270,32 @@
     "scope_verified": false
   },
   {
+    "title": "Section 4: Thyroid Nodules / Goitre",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 4: Treatment",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 4: Types Of CVD",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
+    "title": "Section 4: Use Of Growth Hormone In The Transition Period",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 5: Anaesthesia Administered Outside The Operating Rooms",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 5: Antenatal Management Of Diabetes In Pregnancy",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -830,12 +1310,32 @@
     "scope_verified": false
   },
   {
+    "title": "Section 5: Diagnosis of CAD - Basic Assessment",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 5: Etiology",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 5: Global Cardiovascular Risk Assessment",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 5: Growth Hormone Deficiency In Adults",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 5: Management Of Pregnancy In Congenital Heart Disease (CHD)",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
-    "title": "Section 5: Management \u2014 Acute-Onset AF",
+    "title": "Section 5: Management — Acute-Onset AF",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -866,6 +1366,11 @@
   },
   {
     "title": "Section 5: Risk Factors For CVD",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 5: Risk Scores",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -905,12 +1410,32 @@
     "scope_verified": false
   },
   {
+    "title": "Section 5: Thyroid Emergencies & Perioperative Management Of Thyroid Diseases",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 5: Total Cardiovascular Risk Assessment",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
+    "title": "Section 5: Traditional And Complementary Medicine",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 5: Treatment Targets",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 6: Chemotherapy And Radiotherapy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 6: Diabetic Ketoacidosis",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -925,12 +1450,27 @@
     "scope_verified": false
   },
   {
+    "title": "Section 6: Diagnosis and Investigations",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 6: Follow-Up",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 6: In-Hospital Management",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 6: Interventional TECHNIQUES/SURGERY",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 6: Intrapartum Glycaemic Control For Diabetes In Pregnancy",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -965,7 +1505,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 6: Other Non-Invasive Investigations For The Diagnosis Of CAD",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 6: Outcome And Follow-Up",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 6: Pre-Hospital Management",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -990,6 +1540,16 @@
     "scope_verified": false
   },
   {
+    "title": "Section 6: Target Lipid Levels",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 6: Thyroiditis - Subacute & Acute Thyroiditis",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 6: Treatment",
     "icd11_scope": [],
     "scope_verified": false
@@ -1001,6 +1561,11 @@
   },
   {
     "title": "Section 6: Triage",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 6: Use Of Growth Hormone In Non-GHD Adults",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1031,6 +1596,21 @@
   },
   {
     "title": "Section 7: Hypertension In Special Groups",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 7: In-Hospital Management",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 7: Insulin Therapy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 7: Management Of Dyslipidaemia",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1070,7 +1650,32 @@
     "scope_verified": false
   },
   {
+    "title": "Section 7: Postpartum Management Of Diabetes In Pregnancy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 7: Prevention of Heart Failure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 7: Referral",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 7: Reperfusion Strategies",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 7: Risk Stratification In Stable CAD",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 7: Special Situations",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1120,12 +1725,22 @@
     "scope_verified": false
   },
   {
+    "title": "Section 8: Drug-Induced Thyroid Disorders",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 8: Economic Impact Of Hypertension",
     "icd11_scope": [],
     "scope_verified": false
   },
   {
     "title": "Section 8: Familial Breast Cancer",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 8: Insulin Dose Adjustment",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1140,7 +1755,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 8: Management",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 8: Management Of Complications",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 8: Management Of Neonates Of Mothers With Diabetes",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1150,7 +1775,17 @@
     "scope_verified": false
   },
   {
-    "title": "Section 8: Management \u2014 Long-Term Rhythm Control",
+    "title": "Section 8: Management — Long-Term Rhythm Control",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 8: NSTE-ACS In Special Groups",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 8: Non-Pharmacological Measures",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1175,7 +1810,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 8: Primary Prevention",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 8: Revascularization Strategies",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 8: Special Populations",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1185,7 +1830,17 @@
     "scope_verified": false
   },
   {
+    "title": "Section 9: Acute Heart Failure",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
     "title": "Section 9: Barriers And Education",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 9: Chronic Refractory Angina",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1196,6 +1851,21 @@
   },
   {
     "title": "Section 9: Follow-Up",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 9: Graves' Ophthalmopathy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 9: Hypoglycaemia",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 9: Implementing The Guidelines",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1220,7 +1890,17 @@
     "scope_verified": false
   },
   {
-    "title": "Section 9: Management \u2014 Special Populations",
+    "title": "Section 9: Management Of Special Conditions In Diabetes In Pregnancy",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 9: Management — Special Populations",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 9: Post-Hospital Discharge",
     "icd11_scope": [],
     "scope_verified": false
   },
@@ -1241,6 +1921,11 @@
   },
   {
     "title": "Section 9: Resuscitation Facilities",
+    "icd11_scope": [],
+    "scope_verified": false
+  },
+  {
+    "title": "Section 9: Secondary Prevention",
     "icd11_scope": [],
     "scope_verified": false
   },

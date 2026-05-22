@@ -15,26 +15,32 @@ Captured: 2026-05-18
 Notes:
 - The ICD row/exclusion counts differ from the older task brief values (`3914` / `402`) because the live DB now includes additional chapters. The checksum matches the canonical value recorded in the brief.
 
-### Documents checks
+### Documents checks (refreshed 2026-05-22 against live Neon)
 
-- `SELECT COUNT(*) FROM documents`: 252
-- Rows with `metadata->>'cpg_name' IS NOT NULL`: 252
-- Distinct CPG groups: 19
+- `SELECT COUNT(*) FROM documents`: 389  (was 252 at 2026-05-18 baseline)
+- Rows with `metadata->>'cpg_name' IS NOT NULL`: 389
+- Distinct CPG groups: 29  (was 19)
 - Rows with non-empty `icd11_scope`: 0
 - Rows with non-empty `procedure_scope`: 0
 - Rows with `scope_verified = TRUE`: 0
 - Distinct verified CPG groups: 0
-- `documents.scope_embedding` exists: false
-- `icd11_codes.exclusion_embeddings` exists: false
+- `icd11_codes.exclusion_embeddings` exists: true (D3 backfill applied)
 
-Baseline scope snapshot:
-- `tasks/ddx_routing_p0_documents_scope_snapshot.json`
+Scope snapshot (regenerated 2026-05-22, 389 rows):
+- `tasks/Next-Step/Last Step Improvement/DDx Gap/ddx_routing_p0_documents_scope_snapshot.json`
+
+Scope-tagging readiness (review file vs live DB):
+- 28 of 29 live CPG groups have a reviewed scope in `cpg_scope_review.md` (after
+  reconciling 11 edition/year name differences + merging Cancer-Pain Part A/B).
+- 1 live group has NO reviewed scope: **Nasopharyngeal-Carcinoma** (11 rows) — needs a scope entry.
+- 1 reviewed group is NOT yet ingested: **Type-2-Diabetes-Mellitus(6th Edition)** (0 rows).
+- Ready-to-run idempotent loader (dry-run by default): `apply_documents_scope.sql`.
 
 ### P0 Gate Status
 
 Blocked.
 
-The task brief requires populated and verified `documents.icd11_scope` for the reviewed CPGs before D1/D2 routing work is validated. The current Neon `documents` table has no populated ICD or procedure scopes, so exact routing, hierarchy fallback, sibling fallback, and semantic fallback cannot be meaningfully smoke-tested against the live CPG corpus yet.
+The task brief requires populated and verified `documents.icd11_scope` for the reviewed CPGs before D1/D2 routing work is validated. The current Neon `documents` table has no populated ICD or procedure scopes, so exact routing, sibling fallback, and the ancestor-hierarchy fallbacks cannot be meaningfully smoke-tested against the live CPG corpus yet.
 
 Recommended repair before continuing:
 - Apply the reviewed CPG scopes from `tasks/cpg_scope_review.md` to the live `documents` table, accounting for current DB group-name differences.
@@ -99,29 +105,30 @@ Implementation notes:
 Remaining blocker:
 - Routing phases P2/P3 remain blocked until live `documents.icd11_scope` / `procedure_scope` are populated and verified.
 
-## P2 / D1 + D2 Routing Core
+## P2 / D1 Routing Core (D2 semantic fallback RETIRED)
 
 Status: locally implemented and unit-tested. Not applied/backfilled on Neon.
 
 Files created/modified:
 - `agent/routing.py`
 - `agent/db_utils.py`
-- `sql/migrations/009_documents_scope_embedding.sql`
-- `ddx/backfill_scope_embeddings.py`
 - `tests/test_routing.py`
 
-Implemented:
-- D1 exact ICD scope routing.
-- D1 ancestor fallback using `icd11_codes.parent_code`, capped at depth 2.
-- D1 sibling fallback after ancestor lookup misses.
-- Route method stamping through `CPGDocRef.match_type`: `exact`, `ancestor_d1`, `ancestor_d2`, `sibling`, `semantic`.
-- D2 semantic fallback gated by D1 returning `route_method == "none"`.
-- D2 semantic fallback uses `documents.scope_embedding`, not chunk embeddings.
-- Scope embedding migration and backfill script are prepared for later execution.
+Implemented (six-level structural router, no vector search):
+- D1 exact ICD scope routing (direct code match + range-entry match).
+- Sibling fallback — same-parent codes incl. `.Y` / `.Z` variants.
+- `ancestor_d1` — direct parent category.
+- `ancestor_d1_sibling` — peer categories of the parent.
+- `ancestor_d1_sibling_child` — children of those peer categories.
+- `ancestor_d2` — grandparent block; ancestor walk capped at depth 2 (`ANCESTOR_MAX_DEPTH = 2`).
+- Route method stamping through `CPGDocRef.match_type`: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`. Returns `[], "none"` when all six levels miss.
+
+D2 semantic fallback — RETIRED:
+- The `_semantic_fallback` path was removed from `agent/routing.py`. `match_type` no longer includes `"semantic"`.
+- `sql/migrations/009_documents_scope_embedding.sql` and `ddx/backfill_scope_embeddings.py` are dead weight (never applied / never run); the six-level structural walk replaces semantic routing.
+- "No CPG matched" is now handled by the D4 out-of-scope detector, not a vector fallback.
 
 Not run on Neon:
-- `sql/migrations/009_documents_scope_embedding.sql` was not applied.
-- `ddx/backfill_scope_embeddings.py` was not run against Neon.
 - No document scope embeddings were generated.
 - No chunks were embedded or modified.
 
@@ -131,24 +138,12 @@ Reason:
 
 Targeted tests:
 ```text
-tests/test_routing.py::test_exact_match PASSED
-tests/test_routing.py::test_ancestor_d1_match PASSED
-tests/test_routing.py::test_ancestor_d1_4char_match PASSED
-tests/test_routing.py::test_range_match PASSED
-tests/test_routing.py::test_range_no_match PASSED
-tests/test_routing.py::test_multi_code_dedup PASSED
-tests/test_routing.py::test_semantic_fallback_fires_on_no_structural PASSED
-tests/test_routing.py::test_sibling_fallback_after_ancestor_misses PASSED
-tests/test_routing.py::test_semantic_fallback_threshold PASSED
-tests/test_routing.py::test_semantic_fallback_skipped_when_structural_matches PASSED
-tests/test_routing.py::test_unknown_icd_code_uses_raw_string PASSED
-tests/test_routing.py::test_returns_at_most_top_k PASSED
-tests/test_routing.py::test_empty_scope_verified_false PASSED
-tests/test_routing.py::test_cpgdocref_has_document_ids PASSED
-tests/test_routing.py::test_route_top_k_is_cpg_count PASSED
+tests/test_routing.py — 25 passed (six-level routing, priority order,
+ANCESTOR_MAX_DEPTH=2 stop, out_of_scope→none, route_method stamping,
+dedup, top_k, document_ids grouping, preserved db_utils search tests).
 
-Combined targeted run:
-34 passed, 17 deselected
+Combined targeted run (test_routing.py + test_exclusion_rerank.py +
+test_score_breakdown.py + test_rerank_merge.py): 54 passed.
 ```
 
 ## P3 / D4 Out-of-Scope Detector
@@ -165,8 +160,8 @@ Implemented:
   - `icd_candidates_considered`
   - `max_inclusion_score`
   - clinician-facing `message`
-- Added `OUT_OF_SCOPE_INCL_THRESHOLD = 0.55`.
-- Stage 3 emits an `out_of_scope` sub-step when no CPGs are routed and all considered ICD candidates have inclusion score below threshold.
+- Added `OUT_OF_SCOPE_INCL_THRESHOLD = 0.3` (matches the spec Constants summary; an earlier draft of this report said 0.55 — that was stale).
+- Stage 3 emits an `out_of_scope` sub-step when routing returns `none` and all considered ICD candidates have inclusion score below threshold.
 - Stage 5 now short-circuits to a deterministic low-confidence TreatmentPlan when no CPG/evidence exists and the out-of-scope detector fires.
 - This avoids LLM synthesis from empty/unrelated CPG evidence.
 
