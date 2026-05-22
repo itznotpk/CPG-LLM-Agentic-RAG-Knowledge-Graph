@@ -7,6 +7,7 @@ All tests are fully mocked — no real DB, no real LLM, no real embeddings.
 from __future__ import annotations
 
 import json
+import os
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
@@ -584,8 +585,8 @@ async def test_stage2_rerank_skipped_when_false(minimal_case):
 
 
 @pytest.mark.asyncio
-async def test_rerank_uses_gemini_25_flash(minimal_case):
-    """_llm_rerank_ddx calls the configured rerank model with deterministic output bounds."""
+async def test_rerank_uses_configured_model(minimal_case):
+    """_llm_rerank_ddx calls the resolved rerank model (STAGE2 override → mimo, else DDX_RERANK_MODEL)."""
     candidates = [
         DDxResult(code="BC81.3", title="AF",  similarity=0.91),
         DDxResult(code="BA00",   title="HTN", similarity=0.72),
@@ -603,7 +604,9 @@ async def test_rerank_uses_gemini_25_flash(minimal_case):
         result = await _llm_rerank_ddx(minimal_case, candidates)
 
         call_kwargs = mock_client.chat.completions.create.call_args.kwargs
-        assert call_kwargs["model"] == DDX_RERANK_MODEL
+        # Model resolution mirrors clinical_stages: STAGE2 override (e.g. mimo) wins, else DDX_RERANK_MODEL
+        expected_model = os.getenv("STAGE2_LLM_CHOICE") or DDX_RERANK_MODEL
+        assert call_kwargs["model"] == expected_model
         assert call_kwargs["temperature"] == 1
         assert call_kwargs["max_tokens"] == 4000
 
