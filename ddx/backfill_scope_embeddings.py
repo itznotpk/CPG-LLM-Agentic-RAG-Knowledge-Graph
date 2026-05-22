@@ -190,21 +190,30 @@ async def backfill(
 
         updated = 0
         embedding_calls = 0
+        # A CPG's sections all share the same scope text (one cpg_scope_rationale
+        # per CPG), so embed each UNIQUE text once and fan the vector out to every
+        # row of that CPG. This cuts embedding API calls from ~1/row to ~1/CPG.
+        vector_by_text: dict[str, str] = {}
 
         for batch in _batched(pending):
             updates: list[tuple[str, str]] = []
             for row in batch:
                 text = _build_scope_text(row)
-                if dry_run:
-                    print(f"  {row['id']}: would embed {len(text)} chars")
-                    updated += 1
+
+                if text not in vector_by_text:
                     embedding_calls += 1
+                    if dry_run:
+                        print(f"  would embed unique scope text ({len(text)} chars)")
+                        vector_by_text[text] = ""  # placeholder (unused in dry-run)
+                    else:
+                        emb = await generate_embedding(text)
+                        vector_by_text[text] = "[" + ",".join(map(str, emb)) + "]"
+
+                if dry_run:
+                    updated += 1
                     continue
 
-                emb = await generate_embedding(text)
-                embedding_calls += 1
-                vector = "[" + ",".join(map(str, emb)) + "]"
-                updates.append((vector, row["id"]))
+                updates.append((vector_by_text[text], row["id"]))
 
             if updates and not dry_run:
                 await conn.executemany(
@@ -220,7 +229,8 @@ async def backfill(
         print(
             f"{'Dry run complete' if dry_run else 'Backfill complete'}: "
             f"{updated} rows {'would be ' if dry_run else ''}updated, "
-            f"{skipped} skipped, {embedding_calls} embedding calls"
+            f"{skipped} skipped, {embedding_calls} embedding calls "
+            f"({embedding_calls} unique scope texts across {updated} rows)"
         )
         return {
             "candidate_rows": len(rows),
