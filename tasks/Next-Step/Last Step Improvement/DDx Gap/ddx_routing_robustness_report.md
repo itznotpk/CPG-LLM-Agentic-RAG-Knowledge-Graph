@@ -105,28 +105,33 @@ Implementation notes:
 Remaining blocker:
 - Routing phases P2/P3 remain blocked until live `documents.icd11_scope` / `procedure_scope` are populated and verified.
 
-## P2 / D1 Routing Core (D2 semantic fallback RETIRED)
+## P2 / D1 Routing Core (+ D2 semantic_scope fallback, revived 2026-05-22)
 
 Status: locally implemented and unit-tested. Not applied/backfilled on Neon.
 
 Files created/modified:
 - `agent/routing.py`
 - `agent/db_utils.py`
+- `ddx/backfill_scope_embeddings.py`
 - `tests/test_routing.py`
 
-Implemented (six-level structural router, no vector search):
+Implemented (eight-level router):
 - D1 exact ICD scope routing (direct code match + range-entry match).
 - Sibling fallback — same-parent codes incl. `.Y` / `.Z` variants.
 - `ancestor_d1` — direct parent category.
 - `ancestor_d1_sibling` — peer categories of the parent.
 - `ancestor_d1_sibling_child` — children of those peer categories.
 - `ancestor_d2` — grandparent block; ancestor walk capped at depth 2 (`ANCESTOR_MAX_DEPTH = 2`).
-- Route method stamping through `CPGDocRef.match_type`: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`. Returns `[], "none"` when all six levels miss.
+- `procedure_scope` — match on shared procedure tags.
+- `semantic_scope` (D2) — cosine similarity between `icd11_codes.embedding` and
+  `documents.scope_embedding`, gated at `SEMANTIC_SCOPE_THRESHOLD = 0.65`; catches
+  cross-chapter conditions the structural walk misses.
+- Route method stamping through `CPGDocRef.match_type`: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`, `procedure_scope`, `semantic_scope`. Returns `[], "none"` only when all eight levels miss.
 
-D2 semantic fallback — RETIRED:
-- The `_semantic_fallback` path was removed from `agent/routing.py`. `match_type` no longer includes `"semantic"`.
-- `sql/migrations/009_documents_scope_embedding.sql` and `ddx/backfill_scope_embeddings.py` are dead weight (never applied / never run); the six-level structural walk replaces semantic routing.
-- "No CPG matched" is now handled by the D4 out-of-scope detector, not a vector fallback.
+D2 semantic_scope fallback — REVIVED (commit 435c781, merged 2026-05-22):
+- `_semantic_scope_match` in `agent/routing.py` runs after the structural + procedure_scope levels.
+- Requires `documents.scope_embedding` to be populated — see `ddx/backfill_scope_embeddings.py`.
+- "No CPG matched" (route_method `none`) now only fires after semantic_scope also misses; the D4 out-of-scope detector then takes over.
 
 Not run on Neon:
 - No document scope embeddings were generated.
@@ -138,12 +143,12 @@ Reason:
 
 Targeted tests:
 ```text
-tests/test_routing.py — 25 passed (six-level routing, priority order,
-ANCESTOR_MAX_DEPTH=2 stop, out_of_scope→none, route_method stamping,
-dedup, top_k, document_ids grouping, preserved db_utils search tests).
+tests/test_routing.py — 20 passed (eight-level routing incl. semantic_scope,
+priority order, ANCESTOR_MAX_DEPTH=2 stop, out_of_scope→none, route_method
+stamping, dedup, top_k, document_ids grouping, db_utils search tests).
 
 Combined targeted run (test_routing.py + test_exclusion_rerank.py +
-test_score_breakdown.py + test_rerank_merge.py): 54 passed.
+test_score_breakdown.py + test_rerank_merge.py): 49 passed (2026-05-22, post-merge).
 ```
 
 ## P3 / D4 Out-of-Scope Detector
