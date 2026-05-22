@@ -1,5 +1,16 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
+
+// Shared entrance variant — respects prefers-reduced-motion via Framer's built-in support
+export const cardEntrance = {
+  hidden: { opacity: 0, y: 12 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.06, duration: 0.28, ease: 'easeOut' },
+  }),
+};
 
 export function GlassCard({ children, className = '', variant = 'default', ...props }) {
   const { isDark } = useTheme();

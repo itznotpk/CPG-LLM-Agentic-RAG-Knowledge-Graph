@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   LayoutDashboard,
   Users,
@@ -12,6 +13,15 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+
+const navStagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
+};
+const navItem = {
+  hidden: { opacity: 0, x: -12 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.22, ease: 'easeOut' } },
+};
 
 const navItems = [
   { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
@@ -36,13 +46,14 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
   };
 
   return (
-    <aside
-      className={`fixed left-0 top-0 h-full transition-all duration-300 z-50 flex flex-col
+    <motion.aside
+      animate={{ width: isCollapsed ? 80 : 256 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      className={`fixed left-0 top-0 h-full z-50 flex flex-col overflow-hidden
         ${isDark
           ? 'bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 border-r border-white/10'
           : 'bg-white border-r border-slate-200 shadow-lg'
-        }
-        ${isCollapsed ? 'w-20' : 'w-64'}`}
+        }`}
     >
       {/* Logo Section */}
       <div className={`p-4 flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} ${isDark ? 'border-b border-white/10' : 'border-b border-slate-200'}`}>
@@ -70,15 +81,20 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
       </div>
 
       {/* Navigation Items */}
-      <nav className="flex-1 p-3 space-y-2">
+      <motion.nav
+        variants={navStagger}
+        initial="hidden"
+        animate="visible"
+        className="flex-1 p-3 space-y-2"
+      >
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = currentView === item.id;
           const isProcessing = consultProcessing && item.id === 'consultation';
 
           return (
+            <motion.div key={item.id} variants={navItem}>
             <button
-              key={item.id}
               onClick={() => onNavigate(item.id)}
               className={`hover-reveal w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200
                 ${isActive
@@ -125,9 +141,10 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
                 />
               )}
             </button>
+            </motion.div>
           );
         })}
-      </nav>
+      </motion.nav>
 
       {/* Collapse Toggle */}
       <div className={`p-3 ${isDark ? 'border-t border-white/10' : 'border-t border-slate-200'}`}>
@@ -186,7 +203,7 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
           </button>
         </div>
       )}
-    </aside>
+    </motion.aside>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, useContext, useCallback } from 'react';
 import { CheckCircle, XCircle, AlertTriangle, Info, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Toast Context
 const ToastContext = createContext();
@@ -43,36 +44,21 @@ export const ToastProvider = ({ children }) => {
 const ToastContainer = ({ toasts, removeToast }) => {
   return (
     <div className="fixed bottom-4 right-4 z-[100] flex flex-col gap-2 max-w-sm">
-      {toasts.map(toast => (
-        <Toast key={toast.id} {...toast} onClose={() => removeToast(toast.id)} />
-      ))}
+      <AnimatePresence initial={false}>
+        {toasts.map(toast => (
+          <Toast key={toast.id} {...toast} onClose={() => removeToast(toast.id)} />
+        ))}
+      </AnimatePresence>
     </div>
   );
 };
 
 // Individual Toast Component
 const Toast = ({ id, message, type, duration, onClose }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isLeaving, setIsLeaving] = useState(false);
-
   useEffect(() => {
-    // Trigger enter animation
-    requestAnimationFrame(() => setIsVisible(true));
-
-    // Auto-dismiss timer
-    const timer = setTimeout(() => {
-      handleClose();
-    }, duration);
-
+    const timer = setTimeout(onClose, duration);
     return () => clearTimeout(timer);
-  }, [duration]);
-
-  const handleClose = () => {
-    setIsLeaving(true);
-    setTimeout(() => {
-      onClose();
-    }, 300);
-  };
+  }, [duration, onClose]);
 
   const icons = {
     success: <CheckCircle className="w-5 h-5 text-emerald-500" />,
@@ -96,22 +82,23 @@ const Toast = ({ id, message, type, duration, onClose }) => {
   };
 
   return (
-    <div
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl border backdrop-blur-xl shadow-lg
-        transition-all duration-300 ease-out
-        ${backgrounds[type]}
-        ${isVisible && !isLeaving ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}
-      `}
+    <motion.div
+      layout
+      initial={{ x: 80, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: 80, opacity: 0, transition: { duration: 0.18 } }}
+      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+      className={`flex items-center gap-3 px-4 py-3 rounded-xl border backdrop-blur-xl shadow-lg ${backgrounds[type]}`}
     >
       {icons[type]}
       <p className={`flex-1 text-sm font-medium ${textColors[type]}`}>{message}</p>
       <button
-        onClick={handleClose}
+        onClick={onClose}
         className="p-1 rounded-lg hover:bg-white/20 transition-colors text-slate-500 hover:text-slate-700"
       >
         <X className="w-4 h-4" />
       </button>
-    </div>
+    </motion.div>
   );
 };
 

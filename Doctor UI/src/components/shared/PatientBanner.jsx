@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { AlertCircle, Activity } from 'lucide-react';
@@ -37,7 +38,11 @@ export function PatientBanner() {
   };
 
   return (
-    <div className={`mb-6 p-4 rounded-xl flex flex-wrap items-center justify-between gap-4 border ${isDark ? 'bg-slate-800/80 border-white/10' : 'bg-white/80 border-slate-200'} shadow-sm backdrop-blur-md`}>
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      className={`mb-6 p-4 rounded-xl flex flex-wrap items-center justify-between gap-4 border ${isDark ? 'bg-slate-800/80 border-white/10' : 'bg-white/80 border-slate-200'} shadow-sm backdrop-blur-md`}>
       <div className="flex items-center gap-4 flex-wrap">
         <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold text-sm shadow-sm`}>
           {patient.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
@@ -86,6 +91,6 @@ export function PatientBanner() {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -4,11 +4,24 @@ Source of truth is the `documents` table. Edit the lists below to correct any sc
 
 Groups: 30
 
-> **TODO — recalibrate `SEMANTIC_SCOPE_THRESHOLD` (D2):** currently 0.65 in `agent/routing.py` — **confirmed too high; D2 would never fire.** With 3 CPGs embedded, every probe code ranks its correct CPG #1 (separation works), but absolute cosine is low: self-matches AF=0.59, Breast=0.50, and broad CVD only 0.13–0.22 (diffuse rationale centroid). ICD-code embedding (title+desc+synonyms) vs scope-rationale embedding are different text styles, so cosine is compressed. **Action:** drop threshold to ~0.30–0.40, OR use a margin rule (best must beat 2nd by a gap) instead of an absolute floor; consider whether broad CPGs should rely on D1+procedure tags rather than D2. Re-test with a genuinely-orphan code (not in any CPG's icd11_scope) before finalizing.
+> **TODO — recalibrate `SEMANTIC_SCOPE_THRESHOLD` (D2):** currently 0.65 in `agent/routing.py` — **confirmed too high; D2 would never fire.** Decision: **set to `0.40` (single absolute floor, no margin rule)**, but apply the change to `agent/routing.py` only *after all CPGs are embedded* so the floor is set against the full picture.
+>
+> **Calibration probe (RE-RUN at 27 CPGs embedded, 2026-05-23), best cosine(icd_emb, scope_emb):**
+> | class | range | examples |
+> |---|---|---|
+> | positives (correct CPG, in-scope) | **0.42–0.70** | thyroid 0.42 (lowest), colorectal 0.51, breast 0.50, HTN 0.53, cancer-pain 0.53, HF 0.54, PAH 0.54, T1DM 0.55, stroke 0.56, cervical 0.57, AF 0.59, ED 0.60, IE 0.67, MI 0.70 |
+> | cardiac near-miss (adjacent, not in scope) | **0.35–0.36** | valve 0.364, cardiomyopathy 0.363, pericarditis 0.350 |
+> | unrelated orphans (in table) | **0.14–0.28** | cardiac-arrest 0.276, UTI 0.265, lung-ca→breast 0.245, migraine 0.220, epilepsy 0.144 |
+>
+> **Clean separator confirmed:** min positive (thyroid **0.417**) > max orphan (valve **0.364**). 0.40 sits in the 0.364–0.417 gap. Note: thyroid at 0.417 is the tightest positive (only 0.017 above 0.40); **0.38** is an equally valid choice that buys more headroom below thyroid while still rejecting valve (0.364). Both fine; 0.40 is the conservative round number.
+>
+> **Why 0.40, why no margin:** 0.40 sits cleanly above every orphan (≤0.27, incl. the confident-but-wrong lung-ca→breast 0.245) and below every true positive (≥0.50). The **margin rule fails**: good near-miss has a tiny gap (cardiomyopathy 0.029 → margin would wrongly reject) while a bad orphan has a big gap (lung-ca→breast 0.193 → margin would wrongly accept). 0.40 treats cardiac near-misses as out_of_scope (conservative — safer to say "no CPG" than route to the wrong guideline); lower to **0.33** later if D2 should recover those adjacencies.
+>
+> **Structural caveats:** (1) `icd11_codes` is a curated subset, not all of ICD-11 — many model-predicted codes (fractures, derm, COPD, etc.) aren't in the table, so D2 returns `[]` (no embedding) → out_of_scope regardless of threshold; D2's firing population is already narrow. (2) D2 cannot recover **broad-CPG members** — diabetes/obesity/CKD are in CVD's scope but score only 0.15–0.32 semantically; the broad rationale doesn't surface them. They MUST be caught by D1 (they are). (3) Numbers re-derived at 14 then 27 CPGs and the 0.364–0.417 gap held both times; one final re-run after the last 3 CPGs (Obesity, T2-DM, Nasopharyngeal) is the only thing left before flipping the constant — Titan v1 compression means absolute values may shift slightly as the last few join, but the gap has been stable.
 
 ---
 
-## Atrial-Fibrillation(2012) ✅ ingested
+## Atrial-Fibrillation(2012) ✅
 - Rows in DB: 12
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`
@@ -20,7 +33,7 @@ Groups: 30
 
 ---
 
-## Breast-Cancer(3rd Edition) ✅ ingested
+## Breast-Cancer(3rd Edition) ✅
 - Rows in DB: 13
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `2C60`, `2C61`, `2C61.0`, `2C61.1`, `2C61.2`, `2C61.3`, `2C61.4`, `2C62`, `2C63`, `2C64`, `2C65`, `2C6Y`, `2C6Z`
@@ -32,7 +45,7 @@ Groups: 30
 
 ---
 
-## CVD-Prevention-Women(2016) ✅ ingested
+## CVD-Prevention-Women(2016) ✅
 - Rows in DB: 9
 - Last classified: 2026-05-08T14:01:21.563348+00:00
 - Proposed icd11_scope: `BA00`, `BA00.0`, `BA00.1`, `BA00.2`, `BA00.Y`, `BA00.Z`, `BA01`, `BA02`, `BA03`, `BA04`, `BA04.0`, `BA04.1`, `BA04.2`, `BA04.Y`, `BA04.Z`, `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`, `BD10`, `BD11`, `BD11.0`, `BD11.1`, `BD11.2`, `BD11.Z`, `BD12`, `BD13`, `8B11`, `8B11.0`, `8B11.1`, `8B11.20`, `8B11.21`, `8B11.22`, `8B11.2Y`, `8B11.2Z`, `8B11.3`, `8B11.40`, `8B11.41`, `8B11.42`, `8B11.43`, `8B11.44`, `8B11.50`, `8B11.51`, `8B11.5Z`, `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5A11`, `BD40`, `BD40.0`, `BD40.1`, `BD40.2`, `BD40.3`, `BD40.Y`, `BD40.Z`, `BD50`, `BD50.00`, `BD50.01`, `BD50.02`, `BD50.0Y`, `BD50.0Z`, `BD50.10`, `BD50.11`, `BD50.12`, `BD50.1Y`, `BD50.1Z`, `BD50.20`, `BD50.21`, `BD50.22`, `BD50.2Y`, `BD50.2Z`, `BD50.30`, `BD50.31`, `BD50.32`, `BD50.3Y`, `BD50.3Z`, `BD50.40`, `BD50.41`, `BD50.4Y`, `BD50.4Z`, `BD50.50`, `BD50.51`, `BD50.52`, `BD50.5Y`, `BD50.5Z`, `BD50.Z`, `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`, `5B81`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`, `GB61`, `GB61.0`, `GB61.1`, `GB61.2`, `GB61.3`, `GB61.4`, `GB61.5`, `GB61.Z`
@@ -44,7 +57,7 @@ Groups: 30
 
 ---
 
-## Dyslipidaemia(6th-Edition) ✅ ingested
+## Dyslipidaemia(6th-Edition) ✅
 - Rows in DB: 15
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5C81`, `5C81.0`, `5C81.1`, `5C81.Y`, `5C81.Z`, `5C8Y`, `5C8Z`
@@ -56,7 +69,7 @@ Groups: 30
 
 ---
 
-## Erectile-Dysfunction(2024) ✅ ingested
+## Erectile-Dysfunction(2024) ✅
 - Rows in DB: 10
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `HA01.10`, `HA01.11`, `HA01.12`, `HA01.13`, `HA01.1Z`
@@ -68,20 +81,20 @@ Groups: 30
 
 ---
 
-## Heart-Failure(5th Edition)
-- Rows in DB: 24
+## Heart-Failure(5th Edition) ✅
+- Rows in DB: 29
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `BD10`, `BD11`, `BD11.0`, `BD11.1`, `BD11.2`, `BD11.Z`, `BD12`, `BD13`, `BD14`, `BD1Y`, `BD1Z`
 - Proposed procedure_scope: (none)
 - icd11_rationale: Comprehensive management of the heart failure clinical syndrome, including congestive, left ventricular, right ventricular, biventricular, and unspecified heart failure presentations.
 - cpg_scope_rationale: This guideline covers heart failure clinical syndrome across acute, chronic, congestive, left ventricular, right ventricular, biventricular, preserved ejection fraction, mildly reduced ejection fraction, reduced ejection fraction, improved ejection fraction, advanced, pregnancy-associated, cardio-oncology, arrhythmia-related, cardiomyopathy-related, and unspecified presentations. Relevant patient population includes adults with suspected heart failure, newly diagnosed heart failure, stable chronic heart failure, decompensated heart failure, or advanced heart failure. Clinical decisions and interventions include symptom assessment, sign assessment, natriuretic peptide testing, imaging, echocardiography, staging, precipitant assessment, guideline-directed medical therapy, diuretics, device therapy, rehabilitation, monitoring, discharge planning, referral, transplant pathway, mechanical circulatory support pathway, palliative care, and multidisciplinary follow-up. Relevant comorbidities and key risk factors include hypertension, ischaemic heart disease, atrial fibrillation, chronic kidney disease, diabetes mellitus, valvular heart disease, cardiomyopathy, COVID-19, pregnancy, and anaemia.
 - ICD-11 hierarchy: Chapter 11 (Diseases of the circulatory system) > Heart failure range BD10-BD1Z
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Hypertension(5th Edition)
-- Rows in DB: 15
+## Hypertension(5th Edition) ✅
+- Rows in DB: 14
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `BA00`, `BA00.0`, `BA00.1`, `BA00.2`, `BA00.Y`, `BA00.Z`, `BA01`, `BA02`, `BA03`, `BA04`, `BA04.0`, `BA04.1`, `BA04.2`, `BA04.Y`, `BA04.Z`
 - Proposed procedure_scope: (none)
@@ -91,7 +104,7 @@ Groups: 30
 
 ---
 
-## Ischaemic-Stroke(3rd Edition)
+## Ischaemic-Stroke(3rd Edition) ✅
 - Rows in DB: 18
 - Last classified: 2026-05-08T13:17:44.569519+00:00
 - Proposed icd11_scope: `8B11`, `8B11.0`, `8B11.1`, `8B11.20`, `8B11.21`, `8B11.22`, `8B11.2Y`, `8B11.2Z`, `8B11.3`, `8B11.40`, `8B11.41`, `8B11.42`, `8B11.43`, `8B11.44`, `8B11.50`, `8B11.51`, `8B11.5Z`
@@ -99,11 +112,11 @@ Groups: 30
 - icd11_rationale: The 3rd Edition CPG specifically manages acute cerebral ischaemic stroke (8B11) and reperfusion therapy. 8B10 (TIA) is excluded as it has distinct management; 8B20 is a pre-imaging triage code; 8B25 (Late effects) covers rehabilitation, not acute treatment.
 - cpg_scope_rationale: This guideline covers cerebral ischaemic stroke including large artery atherosclerotic stroke, cardioembolic stroke, lacunar stroke, posterior circulation stroke, anterior circulation stroke, unspecified ischaemic stroke, and acute cerebral infarction presentations. Relevant patient population includes adults with suspected or confirmed acute focal neurological deficit due to cerebral ischaemia in emergency department, stroke unit, inpatient, and post-acute care settings. Clinical decisions and interventions include rapid recognition, neuroimaging, stroke workflow, reperfusion eligibility, intravenous thrombolysis, endovascular thrombectomy, antiplatelet timing, anticoagulation timing, blood pressure management, glucose management, dysphagia screening, secondary prevention, rehabilitation referral, complication management, and follow-up surveillance. Relevant comorbidities and key risk factors include atrial fibrillation, hypertension, diabetes mellitus, dyslipidaemia, smoking, carotid disease, prior stroke, transient ischaemic attack, chronic kidney disease, coronary disease, and peripheral vascular disease.
 - ICD-11 hierarchy: Chapter 08 (Nervous system diseases) > Cerebrovascular diseases > Cerebral ischaemia > 8B11 Cerebral ischaemic stroke
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## NSTE-ACS(3rd Edition)
+## NSTE-ACS(3rd Edition) ✅
 - Rows in DB: 12
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`
@@ -115,8 +128,8 @@ Groups: 30
 
 ---
 
-## NSTEMI(2011)
-- Rows in DB: 10
+## NSTEMI(2011) ✅
+- Rows in DB: 13
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`
 - Proposed procedure_scope: (none)
@@ -126,7 +139,7 @@ Groups: 30
 
 ---
 
-## Patient-Safety-Minimal-Monitoring
+## Patient-Safety-Minimal-Monitoring ✅
 - Rows in DB: 9
 - Last classified: 2026-05-08T13:17:49.790774+00:00
 - Proposed icd11_scope: (none)
@@ -137,8 +150,8 @@ Groups: 30
 
 ---
 
-## Percutaneous-Coronary-Intervention
-- Rows in DB: 9
+## Percutaneous-Coronary-Intervention ✅
+- Rows in DB: 10
 - Last classified: 2026-05-08T14:01:21.563348+00:00
 - Proposed icd11_scope: `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`
 - Proposed procedure_scope: `percutaneous_coronary_intervention`, `coronary_angiography`, `coronary_stenting`, `intravascular_imaging`
@@ -149,8 +162,8 @@ Groups: 30
 
 ---
 
-## Pre-Anaesthetic-Assessment
-- Rows in DB: 8
+## Pre-Anaesthetic-Assessment ✅
+- Rows in DB: 9
 - Last classified: 2026-05-08T13:17:54.174182+00:00
 - Proposed icd11_scope: (none)
 - Proposed procedure_scope: `pre_op_assessment`, `investigation_selection`, `risk_assessment`, `anaesthetic_planning`
@@ -161,8 +174,8 @@ Groups: 30
 
 ---
 
-## Prevention-Diagnosis-Management-of-IE
-- Rows in DB: 9
+## Prevention-Diagnosis-Management-of-IE ✅
+- Rows in DB: 10
 - Last classified: 2026-05-09T14:18:42.102345+00:00
 - Proposed icd11_scope: `BB40`, `BB41`, `BB42`, `BB4Y`, `BB4Z`
 - Proposed procedure_scope: (none)
@@ -173,8 +186,8 @@ Groups: 30
 
 ---
 
-## Pulmonary-Arterial-Hypertension(2011)
-- Rows in DB: 20
+## Pulmonary-Arterial-Hypertension(2011) ✅
+- Rows in DB: 21
 - Last classified: 2026-05-09T14:25:10.112456+00:00
 - Proposed icd11_scope: `BB01`, `BB01.0`, `BB01.1`, `BB01.2`, `BB01.3`, `BB01.4`, `BB01.5`, `BB01.Z`
 - Proposed procedure_scope: (none)
@@ -185,19 +198,19 @@ Groups: 30
 
 ---
 
-## STEMI(4th Edition)
-- Rows in DB: 18
+## STEMI(4th Edition) ✅
+- Rows in DB: 20
 - Last classified: 2026-05-09T14:26:05.883120+00:00
 - Proposed icd11_scope: `BA41.0`
 - Proposed procedure_scope: (none)
 - icd11_rationale: Specifically identifies ST-elevation myocardial infarction. The parent code BA41 is too broad as it includes NSTEMI (BA41.1), which is managed under a different clinical pathway.
 - cpg_scope_rationale: This guideline covers ST-elevation myocardial infarction as an acute coronary occlusion syndrome with persistent ST-segment elevation, equivalent electrocardiographic patterns, acute coronary thrombosis, and immediate reperfusion need. Relevant patient population includes adults with acute chest pain, ischaemic equivalents, ECG evidence of STEMI, suspected coronary artery occlusion, or myocardial infarction complications in emergency, pre-hospital, catheterisation laboratory, and coronary care settings. Clinical decisions and interventions include rapid diagnosis, reperfusion strategy, primary PCI, fibrinolysis, rescue PCI, antiplatelet therapy, anticoagulant therapy, beta-blockers, statins, ACE inhibitors, ARBs, shock management, arrhythmia management, discharge planning, rehabilitation, and secondary prevention. Relevant comorbidities and key risk factors include diabetes mellitus, hypertension, dyslipidaemia, smoking, chronic kidney disease, prior coronary disease, older age, and heart failure.
 - ICD-11 hierarchy: Chapter 11 (Diseases of the circulatory system) > Ischaemic heart disease > Acute myocardial infarction > BA41.0 ST elevation myocardial infarction.
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Heart-Disease-in-Pregnancy(2nd Edition)
+## Heart-Disease-in-Pregnancy(2nd Edition) ✅
 - Rows in DB: 21
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `BA00`, `BA00.0`, `BA00.1`, `BA00.2`, `BA00.Y`, `BA00.Z`, `BA01`, `BA02`, `BA03`, `BA04`, `BA04.0`, `BA04.1`, `BA04.2`, `BA04.Y`, `BA04.Z`, `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`, `BD10`, `BD11`, `BD11.0`, `BD11.1`, `BD11.2`, `BD11.Z`, `BD12`, `BD13`, `8B11`, `8B11.0`, `8B11.1`, `8B11.20`, `8B11.21`, `8B11.22`, `8B11.2Y`, `8B11.2Z`, `8B11.3`, `8B11.40`, `8B11.41`, `8B11.42`, `8B11.43`, `8B11.44`, `8B11.50`, `8B11.51`, `8B11.5Z`, `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5B81`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`, `BD40`, `BD40.0`, `BD40.1`, `BD40.2`, `BD40.3`, `BD40.Y`, `BD40.Z`, `BD50`, `BD50.00`, `BD50.01`, `BD50.02`, `BD50.0Y`, `BD50.0Z`, `BD50.10`, `BD50.11`, `BD50.12`, `BD50.1Y`, `BD50.1Z`, `BD50.20`, `BD50.21`, `BD50.22`, `BD50.2Y`, `BD50.2Z`, `BD50.30`, `BD50.31`, `BD50.32`, `BD50.3Y`, `BD50.3Z`, `BD50.40`, `BD50.41`, `BD50.4Y`, `BD50.4Z`, `BD50.50`, `BD50.51`, `BD50.52`, `BD50.5Y`, `BD50.5Z`, `BD50.Z`, `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`, `GB61`, `GB61.0`, `GB61.1`, `GB61.2`, `GB61.3`, `GB61.4`, `GB61.5`, `GB61.Z`
@@ -205,11 +218,11 @@ Groups: 30
 - icd11_rationale: Heart disease in pregnancy is scoped to the major cardiovascular conditions and cardiometabolic risk drivers that affect maternal cardiac risk assessment and management.
 - cpg_scope_rationale: This guideline covers cardiovascular disease in pregnancy and the puerperium including hypertensive disease, ischaemic heart disease, cardiomyopathy, heart failure, valvular heart disease, congenital heart disease, pulmonary hypertension, arrhythmia, aortic disease, thromboembolism, infective endocarditis, and cardiometabolic risk states. Relevant patient population includes women contemplating pregnancy, pregnant patients, intrapartum patients, and postpartum patients with known or suspected cardiac disease. Clinical decisions and interventions include preconception counselling, contraception counselling, maternal risk stratification, antenatal surveillance, medication safety, multidisciplinary pregnancy heart team care, imaging, intervention timing, anticoagulation, labour planning, delivery planning, anaesthetic consideration, postpartum monitoring, and fetal consideration. Relevant comorbidities and key risk factors include diabetes mellitus, chronic kidney disease, obesity, dyslipidaemia, hypertension, stroke history, thrombophilia, congenital heart disease, and prior cardiac events.
 - ICD-11 hierarchy: Chapter 11 (Diseases of the circulatory system) > Hypertensive diseases (BA00-BA04), Ischaemic heart diseases (BA40-BA42), Heart failure (BD10-BD13), Cardiac arrhythmia (BC81.3), Peripheral vascular disease (BD40, BD50); Chapter 08 (Nervous) > Ischaemic stroke (8B11); Chapter 05 (Metabolic) > Lipidaemias (5C80), Obesity (5B81); Chapter 16 (Genitourinary) > Chronic kidney disease (GB61).
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Cancer-Pain(2nd Edition)
+## Cancer-Pain(2nd Edition) ✅
 - Rows in DB: 13
 - Last classified: 2026-05-16T19:30:00+08:00
 - Note: ingested as ONE CPG (adult Part A + paediatric Part B sections in one document group). Merged from the two original review proposals; ICD scope identical, procedure_scope is the union.
@@ -223,7 +236,7 @@ Groups: 30
 
 ---
 
-## Cervical-Cancer(2nd Edition)
+## Cervical-Cancer(2nd Edition) ✅
 - Rows in DB: 17
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `2C77`, `2C77.0`, `2C77.1`, `2C77.2`, `2C77.3`, `2C77.Y`, `2C77.Z`
@@ -235,8 +248,8 @@ Groups: 30
 
 ---
 
-## Colorectal-Carcinoma(2017)
-- Rows in DB: pending ingestion/classification
+## Colorectal-Carcinoma(2017) ✅
+- Rows in DB: 10
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `2B90`, `2B90.00`, `2B90.0Y`, `2B90.0Z`, `2B90.10`, `2B90.1Y`, `2B90.1Z`, `2B90.20`, `2B90.2Y`, `2B90.2Z`, `2B90.30`, `2B90.3Y`, `2B90.3Z`, `2B90.Y`, `2B90.Z`, `2B91`, `2B91.0`, `2B91.Y`, `2B91.Z`, `2B92`, `2B92.0`, `2B92.1`, `2B92.Y`, `2B92.Z`
 - Proposed procedure_scope: `colorectal_screening`, `surveillance_colonoscopy`, `genetic_counselling`, `cancer_referral`, `cancer_staging`, `colorectal_surgery`, `chemotherapy`, `radiotherapy`, `follow_up_surveillance`
@@ -247,7 +260,7 @@ Groups: 30
 
 ---
 
-## Primary-Secondary-Prevention-of-CVD(2017)
+## Primary-Secondary-Prevention-of-CVD(2017) ✅
 - Rows in DB: 15
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `BA00`, `BA00.0`, `BA00.1`, `BA00.2`, `BA00.Y`, `BA00.Z`, `BA01`, `BA02`, `BA03`, `BA04`, `BA04.0`, `BA04.1`, `BA04.2`, `BA04.Y`, `BA04.Z`, `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`, `BD10`, `BD11`, `BD11.0`, `BD11.1`, `BD11.2`, `BD11.Z`, `BD12`, `BD13`, `8B11`, `8B11.0`, `8B11.1`, `8B11.20`, `8B11.21`, `8B11.22`, `8B11.2Y`, `8B11.2Z`, `8B11.3`, `8B11.40`, `8B11.41`, `8B11.42`, `8B11.43`, `8B11.44`, `8B11.50`, `8B11.51`, `8B11.5Z`, `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5B81`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`, `BD40`, `BD40.0`, `BD40.1`, `BD40.2`, `BD40.3`, `BD40.Y`, `BD40.Z`, `BD50`, `BD50.00`, `BD50.01`, `BD50.02`, `BD50.0Y`, `BD50.0Z`, `BD50.10`, `BD50.11`, `BD50.12`, `BD50.1Y`, `BD50.1Z`, `BD50.20`, `BD50.21`, `BD50.22`, `BD50.2Y`, `BD50.2Z`, `BD50.30`, `BD50.31`, `BD50.32`, `BD50.3Y`, `BD50.3Z`, `BD50.40`, `BD50.41`, `BD50.4Y`, `BD50.4Z`, `BD50.50`, `BD50.51`, `BD50.52`, `BD50.5Y`, `BD50.5Z`, `BD50.Z`, `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`, `GB61`, `GB61.0`, `GB61.1`, `GB61.2`, `GB61.3`, `GB61.4`, `GB61.5`, `GB61.Z`
@@ -255,12 +268,12 @@ Groups: 30
 - icd11_rationale: Integrated primary and secondary prevention guidance for major cardiovascular outcomes and risk drivers, including hypertension, ischaemic heart disease, heart failure, stroke, dyslipidaemia, obesity, peripheral vascular disease, atrial fibrillation, and chronic kidney disease.
 - cpg_scope_rationale: This guideline covers primary and secondary prevention of cardiovascular disease across atherosclerotic and cardiometabolic conditions including hypertension, angina pectoris, myocardial infarction, chronic ischaemic heart disease, heart failure, atrial fibrillation, ischaemic stroke, peripheral arterial disease, aortic aneurysm, dissection risk states, dyslipidaemia, obesity, diabetes mellitus, and chronic kidney disease. Relevant patient population includes adults requiring first-event cardiovascular risk reduction and adults after cardiovascular events requiring recurrence prevention. Clinical decisions and interventions include absolute risk assessment, lifestyle modification, smoking cessation, dietary intervention, exercise prescription, weight control, lipid lowering, blood pressure control, glycaemic risk management, antiplatelet therapy consideration, anticoagulation context, cardiac rehabilitation, adherence monitoring, and long-term follow-up. Relevant comorbidities and key risk factors include hypertension, diabetes mellitus, dyslipidaemia, obesity, chronic kidney disease, atrial fibrillation, smoking, prior stroke, coronary artery disease, peripheral vascular disease, and metabolic syndrome.
 - ICD-11 hierarchy: Chapter 11 (Circulatory) > Hypertension (BA00-BA04), IHD (BA40-BA42), Heart failure (BD10-BD13), Arrhythmia (BC81.3), Peripheral vascular disease (BD40, BD50); Chapter 08 (Nervous) > Ischaemic stroke (8B11); Chapter 05 (Metabolic) > Lipidaemias (5C80), Obesity (5B81); Chapter 16 (Genitourinary) > Chronic kidney disease (GB61).
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Stable-Coronary-Artery-Disease(2nd Edition)
-- Rows in DB: pending ingestion/classification
+## Stable-Coronary-Artery-Disease(2nd Edition) ✅
+- Rows in DB: 14
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`
 - Proposed procedure_scope: `cardiovascular_risk_assessment`, `non_invasive_cardiac_testing`, `coronary_angiography`, `antianginal_therapy`, `lifestyle_modification`, `secondary_prevention`, `revascularization_referral`
@@ -271,7 +284,7 @@ Groups: 30
 
 ---
 
-## Anaesthesia-Medication-Safety
+## Anaesthesia-Medication-Safety ✅
 - Rows in DB: 7
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: (none)
@@ -291,7 +304,7 @@ Groups: 30
 - icd11_rationale: Obesity CPG covers diagnosis, risk stratification, prevention, lifestyle therapy, pharmacotherapy, and bariatric referral across overweight and obesity in children, adolescents, and adults.
 - cpg_scope_rationale: This guideline covers overweight and obesity as chronic adiposity-related nutritional and metabolic disease including adult obesity, childhood obesity, adolescent obesity, drug-induced obesity, obesity due to energy imbalance, severe obesity, obesity with cardiometabolic complications, and unspecified obesity presentations. Relevant patient population includes children, adolescents, and adults undergoing BMI assessment, waist circumference assessment, comorbidity assessment, behavioural assessment, psychosocial assessment, prevention, or treatment. Clinical decisions and interventions include diagnosis, risk stratification, lifestyle modification, medical nutrition therapy, physical activity, behavioural intervention, weight monitoring, pharmacotherapy, bariatric surgery referral, childhood obesity management, relapse prevention, and long-term follow-up. Relevant comorbidities and key risk factors include type 2 diabetes mellitus, hypertension, dyslipidaemia, obstructive sleep apnoea, cardiovascular disease, non-alcoholic fatty liver disease, osteoarthritis, infertility, depression, and chronic kidney disease.
 - ICD-11 hierarchy: Chapter 05 (Endocrine, nutritional or metabolic diseases) > Overweight (5B80, 5B80.0, 5B80.1) and Obesity (5B81), including obesity due to energy imbalance in children/adolescents and adults (5B81.0, 5B81.00, 5B81.01), drug-induced obesity (5B81.1), other specified obesity (5B81.Y), and obesity unspecified (5B81.Z). Obesity codes verified against WHO ICD-11 2024-01 MMS API; overweight codes proposed for Step 05 ingestion coverage.
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
@@ -307,7 +320,7 @@ Groups: 30
 
 ---
 
-## Thyroid-Disorders(2019)
+## Thyroid-Disorders(2019) ✅
 - Rows in DB: 12
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A00`, `5A00.0`, `5A00.1`, `5A00.2`, `5A00.Z`, `5A01`, `5A01.0`, `5A01.1`, `5A01.2`, `5A01.Z`, `5A02`, `5A02.0`, `5A02.1`, `5A02.2`, `5A02.3`, `5A02.4`, `5A02.5`, `5A02.6`, `5A02.Y`, `5A02.Z`, `5A03`, `5A03.0`, `5A03.1`, `5A03.2`, `5A03.Y`, `5A03.Z`, `5A0Y`, `5A0Z`
@@ -319,7 +332,7 @@ Groups: 30
 
 ---
 
-## Diabetes-in-Pregnancy(2017)
+## Diabetes-in-Pregnancy(2017) ✅
 - Rows in DB: 13
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `JA63`, `JA63.0`, `JA63.1`, `JA63.2`, `JA63.Y`, `JA63.Z`, `5A10`, `5A11`
@@ -331,7 +344,7 @@ Groups: 30
 
 ---
 
-## Type-1-Diabetes-Mellitus-Children_Adolescents(2016)
+## Type-1-Diabetes-Mellitus-Children_Adolescents(2016) ✅
 - Rows in DB: 19
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A10`
@@ -343,7 +356,7 @@ Groups: 30
 
 ---
 
-## Growth-Hormone-Children-Adults(2010)
+## Growth-Hormone-Children-Adults(2010) ✅
 - Rows in DB: 8
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A61.3`, `5B11`, `MG44.12`, `MG44.13`
@@ -351,7 +364,7 @@ Groups: 30
 - icd11_rationale: Growth hormone guidance is scoped to confirmed growth hormone deficiency and to early growth-presentation workflows where patients present before endocrine stimulation testing confirms the diagnosis.
 - cpg_scope_rationale: This guideline covers growth hormone disorders and growth hormone therapy decision making including confirmed growth hormone deficiency, short stature, impaired growth velocity, delayed growth and puberty, adult growth hormone deficiency, transition-phase growth hormone deficiency, and selected non-GHD indications. Relevant patient population includes children with growth failure, adolescents requiring transition assessment, and adults with pituitary disease, hypothalamic disease, low IGF-1, or suspected growth hormone deficiency. Clinical decisions and interventions include auxology assessment, height velocity monitoring, bone age assessment, endocrine referral, growth hormone stimulation testing, pituitary assessment, IGF-1 monitoring, treatment eligibility assessment, recombinant growth hormone dosing, adverse-effect monitoring, treatment response monitoring, discontinuation decision, transition care, and adult replacement decision. Relevant comorbidities and key risk factors include pituitary tumours, cranial irradiation, traumatic brain injury, genetic syndromes, chronic systemic disease, delayed puberty, obesity, diabetes risk, and intracranial hypertension.
 - ICD-11 hierarchy: Chapter 05 (Endocrine, nutritional or metabolic diseases) > Hypofunction or certain other specified disorders of pituitary gland > 5A61.3 Growth hormone deficiency; plus nutritional/developmental growth presentation 5B11 Short stature, not elsewhere classified; plus Chapter 21 symptom presentation codes MG44.12 Short stature of child and MG44.13 Constitutional delay of growth and puberty for initial workup routing. Endocrine codes verified against WHO ICD-11 2024-01 MMS API; MG44.12 and MG44.13 proposed for Step 05 ingestion coverage.
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 

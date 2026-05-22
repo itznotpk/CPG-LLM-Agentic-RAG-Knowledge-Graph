@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Login from './pages/Login';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { AppProvider, useApp } from './context/AppContext';
@@ -166,8 +167,18 @@ function AppContent() {
             </div>
 
             {/* Main Content Area */}
-            <div className="transition-all duration-300 min-h-[600px]">
-              {renderCurrentSection()}
+            <div className="min-h-[600px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentStep}
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -24, transition: { duration: 0.15 } }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                >
+                  {renderCurrentSection()}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </>
         );
@@ -201,14 +212,25 @@ function AppContent() {
       />
 
       {/* Main Content Area */}
-      <main
-        className={`min-h-screen transition-all duration-300 ${sidebarCollapsed ? 'ml-20' : 'ml-64'
-          }`}
+      <motion.main
+        animate={{ marginLeft: sidebarCollapsed ? 80 : 256 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        className="min-h-screen"
       >
         <div className="p-6 lg:p-8">
-          {renderMainContent()}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentView}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10, transition: { duration: 0.15 } }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+            >
+              {renderMainContent()}
+            </motion.div>
+          </AnimatePresence>
         </div>
-      </main>
+      </motion.main>
     </div>
   );
 }

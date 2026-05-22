@@ -12,6 +12,7 @@
     "@fontsource/geist-mono": "^5.2.7",
     "@fontsource/geist-sans": "^5.2.5",
     "@supabase/supabase-js": "^2.90.1",
+    "framer-motion": "^12.40.0",
     "jspdf": "^4.0.0",
     "jspdf-autotable": "^5.0.7",
     "lucide-react": "^0.294.0",
