@@ -134,7 +134,7 @@ async def test_stage3_attaches_route_provenance_to_ddx(monkeypatch):
         matched_scope="BC81.3",
     )
 
-    async def mock_route(_code, top_k=3):
+    async def mock_route(_code, top_k=3, procedure_tags=None):
         return [ref]
 
     monkeypatch.setattr("agent.clinical_stages.route_icd_to_cpgs", mock_route)
