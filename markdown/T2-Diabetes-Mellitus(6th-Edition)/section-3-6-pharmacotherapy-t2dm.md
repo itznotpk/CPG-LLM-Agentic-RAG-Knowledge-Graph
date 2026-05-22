@@ -13,8 +13,8 @@ Summary of Updates
 - Achieving HbA1c targets remains an important goal that may require combining drugs that target the multiple pathophysiological defects.
 - Recent evidence supports the use of early combination therapy for durability of glycaemic control.
 
-### 3.6.1: Oral glucose lowering drugs (OGLDs)
-*Biguanides (Metformin)*
+## 3.6.1: Oral glucose lowering drugs (OGLDs)
+### 3.6.1.1: Biguanides (Metformin)
 - Metformin lowers blood glucose especially fasting plasma glucose by decreasing hepatic glucose production. It does not stimulate insulin secretion and as monotherapy, is usually not accompanied by hypoglycaemia.
 - [Level I] Metformin reduces HbA1c by up to 1.5%.
 - [Level I] Use in combination with other OGLDs has a synergistic effect to further reduce plasma glucose and may reduce insulin requirement.
@@ -39,7 +39,7 @@ Table 3-8: Metformin formulations and dosages.
 *For fixed-dose combination formulations, please refer to Table 3-16: Summary of dosage, titration requirements, administration and actions in the event of a missed dose for GLP1-RA and specific product inserts. Dose escalation will depend on tolerability and according to the PI.*
 *SR: slow release; XR: extended release; OD: daily; BD: twice daily; TDS: three times daily.*
 
-*Sulphonylureas (SU)*
+### 3.6.1.2: Sulphonylureas (SU)
 - [Level I] SUs reduce plasma glucose by increasing insulin secretion with an average HbA1c reduction of 0.46%-1.62%.
 - [Level I] The major adverse effect is hypoglycaemia. [Level II-2] The risk is higher in renal impairment, liver cirrhosis and the elderly.
 - [Level I] Weight gain in the range of 1.31 kg-3.32 kg is common.
@@ -66,7 +66,7 @@ Note:
 
 *Refer to Appendix 7: Dosage of Glucose Lowering Drugs in Chronic Kidney Disease (CKD) for dose adjustment in renal impairment*
 
-*Meglitinides*
+### 3.6.1.3: Meglitinides
 - [Level I] These are short acting insulin secretagogues that bind to different sites within the SU receptor. It has a shorter half-life than SUs.
 - It should be taken within 10 minutes before main meals.
 - [Level I] It is primarily used to control PPG and reduces HbA1c by 1.0%-1.2%.
@@ -83,7 +83,7 @@ Table 3-10: Meglitinide formulation and dosage.
 Caution:
 *[Level I] There is a higher risk of prolonged hypoglycaemia when repaglinide is combined with gemfibrozil. This combination is contraindicated.*
 
-*Alpha-glucosidase inhibitors (AGIs)*
+### 3.6.1.4: Alpha-Glucosidase Inhibitors (AGIs)
 - [Level I] AGIs e.g. acarbose reduces the rate of absorption of polysaccharides in the proximal small intestine by inhibiting α-glucosidase enzymes. They should be taken with main meals.
 - [Level I] It lowers PPG without causing hypoglycaemia and reduces HbA1c by 0.5%-0.8%.
 - [Level I] AGI significantly reduced risk of incident T2DM from IGT by 23%, whereas in those with IGT or T2DM, the impact on CV outcomes was neutral.
@@ -97,7 +97,7 @@ Table 3-11: AGI formulation and dosage.
 *Dose escalation will depend on tolerability and according to the PI.*
 *OD: daily; TDS: three times daily.*
 
-*Thiazolidinediones (TZD)*
+### 3.6.1.5: Thiazolidinediones (TZD)
 - TZDs are peroxisome proliferator-activated receptor-gamma (PPAR-γ) agonists and act primarily by increasing insulin sensitivity in muscle, adipose tissue and liver.
 - [Level I] TZDs reduce HbA1c by 0.5%-1.4%.
 - [Level I] Improvement in glycaemic control may only be seen after six weeks with maximum effect at six months.
@@ -118,7 +118,7 @@ Caution:
 
 *OD: daily.*
 
-*Incretins - Dipeptidyl peptidase 4 inhibitor (DPP4-i) and glucagon-like peptide-1 (GLP-1) analogue*
+### 3.6.1.6: Incretins — Dipeptidyl Peptidase 4 Inhibitor (DPP4-i)
 - The incretin system has become an important target in the treatment of T2DM.
 - [Level II-2] After meals, incretins (GLP-1 and glucose-dependent insulinotropic polypeptide [GIP]) are released; these augment glucose-induced insulin secretion and suppress glucagon release thus reducing hepatic glucose output, and reducing plasma glucose in a glucose dependent manner.
 - [Level II-2] [Level II-1] Incretins, at pharmacological levels, reduce gastric motility (thus slowing glucose absorption) and increase satiety by acting on centres in the brain.
@@ -148,7 +148,7 @@ B. Glucagon-like peptide-1 receptor agonist (GLP1-RA) – will be discussed in I
 - Currently, all available GLP1-RAs are in the form of injectables.
 - However, oral semaglutide may be made available in the near future.
 
-Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2-i)
+### 3.6.1.7: Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2-i)
 - [Level I] This class of drugs selectively inhibits SGLT2, a transporter in the proximal tubule, thus reducing glucose reabsorption leading to an increase in urinary glucose excretion.
 - [Level I] It reduces HbA1c by 0.5%–1.0%.
 - [Level I] Additional effects of treatment include weight loss (1.8 kg–2.7 kg) and reduction of SBP (2.7–4.8 mmHg) and DBP (1.8–2.0 mmHg).
@@ -195,13 +195,13 @@ Table 3-15: SGLT2-i Fixed Dose Formulations and Dosages
 *Dose escalation will depend on tolerability and according to the PI.*
 *OD: daily; XR: extended release; HCl: hydrochloride.*
 
-### 3.6.2: Injectable agents
+## 3.6.2: Injectable agents
 *Glucagon-like peptide-1 receptor agonist (GLP1-RA)*
 - GLP-1 RAs currently available include exenatide IR and ER (once weekly), liraglutide (daily) and lixisenatide (daily) and, the once-weekly agents dulaglutide and semaglutide.
 - GLP-1RAs have been shown to reduce HbA1c (~0.8-1.6%), body weight (~1.0-4.1 kg). Their effects are dose dependent. The weight reduction is due to the effect on satiety and delay in gastric emptying.
 - [Level I] Common side effects of all GLP1-RAs are mainly gastro-intestinal i.e. nausea, vomiting and diarrhoea.
 
-A. Exenatide
+### 3.6.2.1: Exenatide
 - [Level I] Exenatide formulations available: immediate release (IR) and extended release (ER) formulations. Exenatide ER is the more commonly used preparation.
 - [Level I] Exenatide monotherapy results in a reduction of HbA1c by 1.53%, comparable to metformin.
 - Exenatide ER,
@@ -212,13 +212,13 @@ A. Exenatide
 - [Level I] Progressive weight loss is seen with its use.
 - [Level I] In the EXSCEL study where Exenatide ER was compared to placebo in a high-risk population, the occurrence of primary MACE endpoints (death from CV causes, non-fatal MI or non-fatal stroke) did not significantly differ between the two groups [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 
-B. Liraglutide
+### 3.6.2.2: Liraglutide
 - [Level I] Liraglutide is indicated for use in combination with OGLDs and/or insulin. It results in reductions in mean HbA1c of 0.8%-1.4%
 - [Level I] There is no increased risk of hypoglycaemia and it may result in weight loss of up to 3.2 kg.
 - [Level I] In patients who are on combination of metformin and SU with an HbA1c <10.0%, the addition of liraglutide produced similar glycaemic improvement compared to insulin glargine without any increased risk of hypoglycaemia and weight gain.
 - [Level I] In the LEADER study, MACE endpoints were significantly reduced in the liraglutide group vs. placebo [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 
-C. Lixisenatide
+### 3.6.2.3: Lixisenatide
 - [Level I] Lixisenatide can be used in combination with OGLDs and/or basal insulin.
 - [Level I] Monotherapy with lixisenatide results in a HbA1c reduction of 0.5%-0.7%.
 - In Malaysia, lixisenatide is available as a fixed-ratio combination iGlarLixi which combines basal insulin glargine with prandial GLP-1RA lixisenatide.
@@ -227,7 +227,7 @@ C. Lixisenatide
 - [Level I] Lixisenatide given to a very high-risk population with MI or hospitalisation for unstable angina and followed up for a mean of 25 months showed no significant difference in any components of the composite MACE endpoints [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 - Refer to package insert for dosing schedule.
 
-D. Dulaglutide
+### 3.6.2.4: Dulaglutide
 - Dulaglutide is a long acting once weekly GLP1-RA.
 - Dulaglutide:
   - [Level I] monotherapy was slightly superior to metformin.
@@ -242,7 +242,7 @@ D. Dulaglutide
   - [Level I] on a background of prandial insulin, was superior to basal insulin glargine, with significantly greater HbA1c reduction and a weight difference of 3.2 kg between groups.
 - [Level I] In the REWIND study (over 5 years), which consisted predominantly of patients with CVD risk factors (70%), and established CVD (30%), dulaglutide was associated with a significant reduction of primary 3-point MACE endpoints [Refer to Appendix 8: Cardiovascular Outcomes Trials (CVOTs) GLP1-RA CVOT table].
 
-E. Semaglutide
+### 3.6.2.5: Semaglutide
 - Semaglutide is a once-weekly injectable human GLP-1RA (0.5 mg, 1 mg).
 - [Level I] It has a dose dependent effect on HbA1c and weight reduction.
 - Semaglutide in both doses demonstrated superior glycaemic efficacy compared to:
@@ -354,7 +354,7 @@ Recommendations: Combination of glucose lowering drugs
     - [Level I] [Level II-2] As part of early insulinisation treatment regime
 
 *Insulin types and regimens*
-A. Insulin types
+### 3.6.5.1: Insulin Types
 - The insulin currently used in this country are human insulin or insulin analogue. Both types of insulin are further divided into prandial, basal and premixed according to their pharmacokinetic profiles.
   - Prandial insulin is administered pre-meal because of its short or rapid onset of action in controlling postprandial glucose excursion. It is also used in insulin pumps.
   - Basal insulin is administered once or twice daily. The intermediate or long-acting pharmacokinetic profile covers the basal insulin requirements in between meals and through the night.
@@ -388,7 +388,7 @@ Table 3-18: Types of insulin and their pharmacokinetic profiles.*
 - Premix/co-formulation insulins can be used to reduce the number of injections needed.
   - [Level I] Co-formulation insulin analogues (insulin degludec/insulin aspart) compared to premixed biphasic insulin aspart is non-inferior in HbA1c reduction but with lower FPG and lower rate of confirmed nocturnal or overall hypoglycaemia.
 
-B. Insulin regimen
+### 3.6.5.2: Insulin Regimen
 - An ideal insulin regimen should mimic the physiological insulin response to meals and endogenous hepatic glucose production.
 - The choice of insulin regimen should be individualised, based on the patient's glycaemic profile, dietary pattern and lifestyle.
 - The main advantage of insulin over other GLDs is that insulin lowers glucose in a dose-dependent manner to almost any glycaemic target. The main limitation of insulin is hypoglycaemia.
@@ -401,7 +401,7 @@ B. Insulin regimen
     - set FPG target and choose evidence-based titration algorithm e.g. increase by 2 U every 3 days to reach target FPG without hypoglycaemia; or
     - Adjust 2 U every week based on 3 days' glucose readings.
   - Premixed insulin once or twice daily.
-- All patients prescribed insulin therapy should be advised to perform self-monitoring of blood glucose (SMBG) and empowered to self-adjust their insulin doses (Refer to Section 3.8: Monitoring). <!-- cross_ref target_file="section-3-8-monitoring-t2dm.md" target_heading="3.8: Monitoring" target_kind="h2_section" -->
+- All patients prescribed insulin therapy should be advised to perform self-monitoring of blood glucose (SMBG) and empowered to self-adjust their insulin doses (Refer to Section 3.8: Monitoring). <!-- cross_ref target_file="section-3-8-monitoring-t2dm.md" target_heading="Section 3.8: Monitoring" target_kind="h1_section" -->
   - Patients should be educated regarding symptoms of hypoglycaemia and its management.
   - [Level I] Insulin dose optimisation requires gradual, safe and prompt titration according to SMBG.
 
@@ -469,7 +469,7 @@ Pathway B: Premixed / Co-formulation Insulin
 
 *(T2DM: type 2 diabetes mellitus; FPG: fasting plasma glucose; PPG: post-prandial glucose; OGLDs: oral glucose lowering drugs; GLP1-RA: Glucagon-like peptide-1 receptor agonist; U: units; OD: daily; BD: twice daily; TDS: thrice daily)*
 
-General Guidelines for Long Term Use of Insulin
+### 3.6.5.3: General Guidelines For Long Term Use Of Insulin
 - The basal intermediate acting insulin should be administered pre-bed (preferably not earlier than 10 p.m.) because of the risk of hypoglycaemia in the early hours of the morning if given earlier.
 - It is not necessary to have an extra meal or snack after intermediate or long acting insulin.
 - Requirements of high dose of insulin (total daily dose >1.5 U/kg–2.0 U/kg) should prompt a search for underlying causes: non-adherence, incorrect dosing/timing/injection technique, and occult infections.
@@ -545,6 +545,7 @@ Appendix 7: Dosage of Glucose Lowering Drugs in Chronic Kidney Disease (CKD)
 *CKD: chronic kidney disease; OD: daily; BD: twice daily; TDS: three times daily; GFR: glomerular filtration rate; DPP4-i: Dipeptidyl peptidase-4 inhibitors; GLP1-RA: glucagon-like peptide-1 receptor agonists; SGLT2-i: sodium-glucose transport protein 2 inhibitors.*
 
 Appendix 8: Cardiovascular Outcomes Trials (CVOTs)
+Appendix 8.1: CVOTs — DPP4-i
 (A) DPP4-i
 | CVOTs DPP4-i | SAVOR-TIMI 53 (Level I) | EXAMINE (Level I) | TECOS (Level I) | CARMELINA (Level I) | CAROLINA (Level I) |
 |---|---|---|---|---|---|
@@ -572,6 +573,7 @@ Appendix 8: Cardiovascular Outcomes Trials (CVOTs)
 
 *CVOTs: cardiovascular outcomes trials; DPP4-i: Dipeptidyl peptidase-4 inhibitors; CV: cardiovascular; CVD: cardiovascular disease; CHF: congestive heart failure; MI: myocardial infarction; HF: heart failure; HR: hazard ratio; DKD: diabetic kidney diseases; QD: once daily; T2DM: type 2 diabetes mellitus; ACS: acute coronary syndrome; ASCVD: atherosclerotic cardiovascular disease; MACE: major adverse cardiovascular events.*
 
+Appendix 8.2: CVOTs — SGLT2-i
 (B) SGLT2-i
 | CVOTs SGLT2-i | EMPA-REG (Level I) | CANVAS program (Level I) | DECLARE-TIMI (Level I) | VERTIS CV* (Level I) |
 |---|---|---|---|---|
@@ -602,6 +604,7 @@ Appendix 8: Cardiovascular Outcomes Trials (CVOTs)
 
 *CVOTs: cardiovascular outcomes trials; SGLT2-i: sodium-glucose cotransporter 2 inhibitors; CV: cardiovascular; CVD: cardiovascular disease; CHF: congestive heart failure; MI: myocardial infarction; HF: heart failure; HR: hazard ratio; DKD: diabetic kidney diseases; QD: once daily; T2DM: type 2 diabetes mellitus; ACS: acute coronary syndrome; ASCVD: atherosclerotic cardiovascular disease; MACE: major adverse cardiovascular events.*
 
+Appendix 8.3: CVOTs — GLP1-RA
 (C) GLP1-RA
 | CVOTs GLP1-RA | ELIXA (Level I) | LEADER (Level I) | SUSTAIN-6 (Level I) | EXSCEL (Level I) | HARMONY outcomes (Level I) | REWIND (Level I) | PIONEER 6 (Level I) |
 |---|---|---|---|---|---|---|---|

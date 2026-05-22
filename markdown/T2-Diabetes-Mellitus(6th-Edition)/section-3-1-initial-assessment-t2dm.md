@@ -32,10 +32,10 @@ Table 3-2: Physical Examination of Newly Diagnosed Patient with T2DM
 | Weight/waist measurement | • Body mass index (BMI) = weight (kg) / height² (m²) <br> • Waist circumference (WC) <br> • Growth/pubertal development in adolescents |
 | CV system | • Blood pressure (supine and standing) <br> • Neck and peripheral pulses <br> • Precordial examination |
 | Eye (Refer to Section 5.1: Retinopathy) | • Visual acuity with refraction (with corrected vision) <br> • Dilated retinal examination/photography (for retinopathy) <br> • Cataract |
-| Feet (Refer to Section 5.6: Sexual dysfunction) | • Skin integrity <br> • Pressure areas/callus formation <br> • Ulcer <br> • Toenails <br> • Interdigital lesions <br> • Foot deformities (structure/Charcot's joint) <br> • Skin sensation <br> • Pedal pulses (dorsalis pedis and posterior tibial) |
+| Feet (Refer to Section 5.5: Diabetic foot) | • Skin integrity <br> • Pressure areas/callus formation <br> • Ulcer <br> • Toenails <br> • Interdigital lesions <br> • Foot deformities (structure/Charcot's joint) <br> • Skin sensation <br> • Pedal pulses (dorsalis pedis and posterior tibial) |
 | Peripheral nerves (Refer to Section 5.3: Neuropathy) | • Tendon reflexes <br> • Sensation: touch (e.g. with 10-g monofilament) <br> • Vibration (e.g. with 128-Hz tuning fork) | 
  <!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.1: Retinopathy" target_kind="h2_section" -->
-<!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.6: Sexual dysfunction" target_kind="h2_section" -->
+<!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.5: Diabetic foot" target_kind="h2_section" -->
 <!-- cross_ref target_file="section-5-management-chronic-t2dm.md" target_heading="5.3: Neuropathy" target_kind="h2_section" -->
 
 Table 3-3: Investigations for a Newly Diagnosed Patient with T2DM

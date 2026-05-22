@@ -26,7 +26,7 @@ Summary of Updates
   - Statin should be prescribed for treatment of dyslipidaemia in NAFLD patients to reduce the risk of CVD.
   - Patients suspected or confirmed to have more severe NAFLD should be considered for referral to Gastroenterologist/Hepatologist for further evaluation and management.
 
-### 3.9.1: Hypertension and T2DM
+## 3.9.1: Hypertension and T2DM
 - [Level II-3] Hypertension is a common co-morbidity of T2DM, with a prevalence of 80.4% among patients who are followed up in the National Diabetes Registry.
 - Hypertension should be detected and treated early in the course of T2DM to prevent CVD and to delay the progression of renal disease and diabetic retinopathy.
 - [Level I] Reduction in systolic blood pressure (SBP) of 10 mmHg or diastolic blood pressure (DBP) of 5 mmHg, irrespective of whether the patient has T2DM, is associated with significant reductions in all major CV events by 20%, all-cause mortality by 15%, stroke by 35%, coronary events by 20% and heart failure by 40%.
@@ -78,7 +78,7 @@ Recommendations: Hypertension and T2DM
 | 5. ARBs or ACEIs are the first-line BP agents of choice for patients with T2DM and hypertension. | Grade A |
 | 6. Combined use of ACE-i and ARB is not recommended. | Grade A |
 
-### 3.9.2: Hyperlipidaemia and T2DM
+## 3.9.2: Hyperlipidaemia and T2DM
 - T2DM is a CHD defining disease.
 - [Level I] Control of hyperglycaemia alone has a modest and heterogeneous effect on reduction of CVD and may take long periods to manifest.
 - [Level I] In contrast, multifactorial intervention has been shown to reduce microvascular complications, CV events and mortality in the STENO-2 study.
@@ -181,7 +181,7 @@ Recommendations: Dyslipidaemia and T2DM
 | 1. All patients over the age of 40 should be treated with a statin regardless of baseline LDL-cholesterol levels. | Grade A |
 | 2. Statin therapy should be intensified to achieve LDL-C goal based on CV risk. | Grade A |
 
-### 3.9.3: Obesity and T2DM
+## 3.9.3: Obesity and T2DM
 - In the Malaysian National Health Morbidity Survey (NHMS) 2015, 33.4% and 30.6% of adults (>18 years old) were overweight and obese (BMI according to the Malaysian CPG on Management of Obesity, 2004).
 - [Level II-3] Based on the 2019 National Diabetes Registry data sourced from primary care health clinics, 84% of individuals with T2DM are either overweight or obese (Available at: *http://ndr.moh.gov.my/report/clinical_audit/crn1*). People with diabetes who are overweight or obese have higher risk of complications.
 - [Level I] Lifestyle intervention focusing on weight loss showed improvement in HbA1c and other CV risk factors.
@@ -201,7 +201,7 @@ Assessment and treatment of overweight and obesity
 - The initial assessment of people with diabetes should include height, weight, BMI (kg/m²) and waist circumference.
 - [Level I] Weight loss of between 5%-10% will improve glycaemic control, BP, lipid profile and QoL.
 - The goals of therapy are to achieve optimal glycaemic and metabolic control.
-- The mainstay of treatment should be through lifestyle modification which include behavioural change, physical activity and dietary interventions (Refer Sections 3.5.1: Medical Nutrition Therapy (MNT) & Section 3.5.2: Physical Activity). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.2: Physical Activity" target_kind="h3_section" -->
+- The mainstay of treatment should be through lifestyle modification which include behavioural change, physical activity and dietary interventions (Refer Sections 3.5.1: Medical Nutrition Therapy (MNT) & Section 3.5.2: Physical Activity). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h2_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.2: Physical Activity" target_kind="h2_section" -->
 
 Table 3-32: Classification of weight by BMI.
 | Classification | BMI (kg/m²) | Risk of co-morbidities |
@@ -217,8 +217,8 @@ Table 3-32: Classification of weight by BMI.
 *Classification of BMI based on the Malaysian CPG on Management of Obesity, 2004.*
 
 Management
-A. Non-pharmacological intervention
-- Nutritionally balanced, energy-reduced dietary interventions are recommended for healthier body weight to be achieved (Refer Section 3.5.1: Medical Nutrition Therapy (MNT)). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" -->
+### 3.9.3.1: Non-Pharmacological Intervention
+- Nutritionally balanced, energy-reduced dietary interventions are recommended for healthier body weight to be achieved (Refer Section 3.5.1: Medical Nutrition Therapy (MNT)). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h2_section" -->
   - [Level I] Weight loss >5% is needed to see beneficial effect on HbA1c, lipid and BP.
   - [Level I] Caloric restriction of 1200-1500 kcal/day for women and 1500-1800 kcal/day for men is useful for rapid weight loss.
 - [Level I] Use of MRP, with close patient monitoring, can be beneficial. DiRECT, an open randomised trial involving overweight or obese patients with T2DM were treated with total diet replacement (825 kcal) at primary care level. A significant weight loss of 15 kg (24%) and diabetes remission (46%) were seen in the intervention group.
@@ -227,12 +227,12 @@ A. Non-pharmacological intervention
   - At week 13 onwards, subjects were encouraged to take MRP once or twice daily.
   - Significant weight loss at week 12, -9.6 kg (-11.0 kg to -8.2 kg) was seen and was sustained at 12 months, -7.2 kg (-9.4 kg to -4.9 kg).
   - Risk of weight rebound after discontinuing the program was not seen in this study.
-- Increased physical activity consisting of at least 150 minute/week of moderate-intensity exercise (Refer Section 3.5.2: Physical Activity). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.2: Physical Activity" target_kind="h3_section" -->
+- Increased physical activity consisting of at least 150 minute/week of moderate-intensity exercise (Refer Section 3.5.2: Physical Activity). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.2: Physical Activity" target_kind="h2_section" -->
   - [Level III] This includes muscle strengthening and resistance exercise 2 to 3 times/week.
   - [Level III] Overweight or obese persons with T2DM should increase the exercise duration to >60 minutes per day/approximately 450 minutes/per week for weight reduction.
 - Frequent contact with healthcare providers and behavioural therapy should be part of the intervention.
 
-B. Pharmacological intervention
+### 3.9.3.2: Pharmacological Intervention
 - [Level III] Pharmacotherapy can be considered for patients with T2DM with BMI ≥27.0 kg/m² after failing 6 months of lifestyle modification.
 - [Level I] [Level II-1] [Level I] [Level II-3] [Level I] Three anti-obesity agents have been approved, phentermine, orlistat and high dose liraglutide (3 mg/day) for the management of obesity.
 
@@ -245,7 +245,7 @@ Table 3-33: Approved anti-obesity drugs.
 
 *BP: blood pressure; GI: gastrointestinal; GLP1-RA: glucagon-like peptide 1 receptor agonists; MVT: multivitamins.*
 
-C. Surgical intervention
+### 3.9.3.3: Surgical Intervention
 - [Level III] Bariatric surgery should be considered when lifestyle and pharmacological interventions have failed in the obese with T2DM and at high CVD risk with suboptimal glycaemic control.
 - [Level III] International diabetes organisations developed a consensus treatment algorithm for metabolic surgery in T2DM (Diabetes Surgery Summit-II, DSS-II). Metabolic surgery should be recommended for Asians with T2DM as below:
   - ≥37.5 kg/m²,
@@ -309,7 +309,7 @@ Recommendations: Obesity and T2DM
 | 5. The use of anti-obesity agents in obese T2DM patients is an effective option for those who fail lifestyle intervention. | Grade A |
 | 6. Bariatric surgery may be considered in those who fulfil the criteria. | Grade A |
 
-### 3.9.4: Non-alcoholic fatty liver disease (NAFLD)
+## 3.9.4: Non-alcoholic fatty liver disease (NAFLD)
 - A new proposed nomenclature for NAFLD is "metabolic associated fatty liver disease" or MAFLD. The major benefit of this new nomenclature is a shift towards a diagnosis of inclusion based on the presence of metabolic dysfunction, the key driver of the disease. Note that the following section still refers to NAFLD.
 - [Level II-2] Non-alcoholic fatty liver disease (NAFLD) encompasses a spectrum of liver conditions characterised by excess accumulation of fat in the liver that is associated with chronic overnutrition.
 - [Level II-2] NAFLD is closely associated with obesity and is considered as the liver manifestation of the metabolic syndrome.
@@ -321,7 +321,7 @@ Recommendations: Obesity and T2DM
 - [Level II-2] A study using liver stiffness measurement (measured using transient elastography e.g. Fibroscan; a non-invasive procedure) estimated the prevalence of advanced liver fibrosis among patients with diabetes mellitus to be 21.0%.
 - [Level II-2] The same study using liver stiffness measurement ≥8 kPa to identify patients with diabetes mellitus for liver biopsy found that the majority of the patients had NASH (83.1%) and some degree of liver fibrosis (87.1%), while advanced liver fibrosis was diagnosed in 36.6%.
 
-Assessment
+### 3.9.4.1: Assessment
 Table 3-37: Modalities for NAFLD assessment and recommended intervals for testing.
 | Assessment | Result | Action |
 |---|---|---|
@@ -363,7 +363,7 @@ Recommendations: Assessment of NAFLD
 | 5. Patients with persistently elevated serum ALT and/or AST level or elevated liver stiffness measurement should be considered for referral to Gastroenterologist/Hepatologist for further evaluation and management. | Grade A |
 | 6. A liver biopsy may be considered for definitive diagnosis of NASH and/or advanced liver fibrosis. | Grade A |
 
-Treatment
+### 3.9.4.2: Treatment
 - [Level II-2] The mainstay of treatment of NAFLD is lifestyle intervention.
   - [Level II-2] A balanced, reduced calorie, individually tailored diet (for overweight/obese persons with T2DM) to enable weight loss which includes limiting excess fructose consumption such as avoiding beverages with added fructose and foods with high fructose corn syrup, choosing complex CHO, high fibre foods and avoiding processed foods.
     - [Level II-2] A study on biopsy-proven NASH patients found that weight loss of ≥10% through lifestyle intervention over 52 weeks resulted in NASH resolution and fibrosis improvement in 90% and 45% of patients, respectively.

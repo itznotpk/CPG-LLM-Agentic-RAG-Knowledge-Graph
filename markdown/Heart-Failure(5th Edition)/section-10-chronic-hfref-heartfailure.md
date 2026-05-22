@@ -439,7 +439,7 @@ In the STICH trial, surgical ventricular restoration (SVR) resulted in a signifi
 - [Grade IIb, Level B] LV aneurysmectomy may be considered in patients with a large discrete LV aneurysm who develop HF, angina pectoris, thromboembolism, and tachyarrhythmias due to the aneurysm.
 
 ### 10.4.3: Valve Surgery
-Please see section 14.2.5.1: Valve Intervention in Patients with HF <!-- cross_ref target_file="section-14-2-vhd-heartfailure.md" target_heading="14.2.5.1: Valve Intervention In Patients With HF" target_kind="h3_section" -->
+Please see section 14.2.5.1: Valve Intervention in Patients with HF <!-- cross_ref target_file="section-14-2-vhd-heartfailure.md" target_heading="14.2.5: Management" target_kind="h3_section" -->
 
 ### 10.4.4: Lv Assist Devices
 Left ventricular assist devices have been used to:

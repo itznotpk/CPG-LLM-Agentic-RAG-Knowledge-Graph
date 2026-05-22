@@ -115,7 +115,7 @@ Summary of Updates
 - [Level III] Diagnosis is made clinically — based on presence of albuminuria and/or reduced eGFR in the absence of other causes of kidney disease. If there is concomitant presence of other microvascular complications (e.g. retinopathy), it is more suggestive that the albuminuria/reduced eGFR is due to DKD.
 - Progression to ESKD requiring renal replacement therapy (RRT) occurs in many with poorly controlled BP and glucose.
 
-Screening and risk stratification
+### 5.2.1: Screening And Risk Stratification
 - Screening should encompass:
   - assessment of albuminuria,
   - estimation of glomerular filtration rate (eGFR).
@@ -201,7 +201,7 @@ Recommendations: Screening for DKD
 | If microalbuminuria is not detected, re-screening should be performed annually. | Grade C |
 | Regardless of the degree of albuminuria, serum creatinine level should be measured annually to determine GFR based on the CKD EPI formula. | Grade C |
 
-Management of DKD
+### 5.2.2: Management Of DKD
 A. General Management
 Preventing progression of DKD encompasses:
 - BP control
@@ -254,9 +254,9 @@ BP Control:
   - [Level III] [Level II-1] Salt restriction to <2 g/day (sodium chloride <5 g/day) is recommended to control BP and reduce CV risk.
 
 B. Other measures
-- Lipid control (Refer Sub-section 3.9.2: Hyperlipidaemia and T2DM) <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.2: Hyperlipidaemia and T2DM" target_kind="h3_section" --> 
+- Lipid control (Refer Sub-section 3.9.2: Hyperlipidaemia and T2DM) <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.2: Hyperlipidaemia and T2DM" target_kind="h2_section" --> 
 - Smoking cessation
-- Weight reduction (Refer Sub-section 3.9.3: Obesity and T2DM) <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.3: Obesity and T2DM" target_kind="h3_section" --> 
+- Weight reduction (Refer Sub-section 3.9.3: Obesity and T2DM) <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.3: Obesity and T2DM" target_kind="h2_section" --> 
 
 Recommendations: Management of DKD
 | Recommendation | Grade |
@@ -267,7 +267,8 @@ Recommendations: Management of DKD
 | 4. SGLT2-i should be considered in patients with eGFR ≥30ml/min/1.73m², particularly in those with albuminuria to reduce risk of DKD progression. | Grade A |
 | 5. GLP1-RA should be considered in patients with DKD and at high CV risk. | Grade A |
 
-Referral to nephrologist: [Level III] All patients with T2DM and DKD should be referred to a nephrologist in these situations:
+### 5.2.3: Referral To Nephrologist
+[Level III] All patients with T2DM and DKD should be referred to a nephrologist in these situations:
 
 - rapid decline in renal function (eGFR loss >5 ml/min/1.73 m² in 1 year or >10 ml/min/1.73 m² in 5 years),
 - eGFR <30 ml/min/1.73 m²,
@@ -300,7 +301,7 @@ Diabetic symmetric polyneuropathy (DSPN)
   - distal muscle weakness or atrophy, and
   - abnormal nerve conduction study.
 
-A. Screening and diagnosis
+### 5.3.1: Peripheral Neuropathy — Screening And Diagnosis
 - DSPN should be assessed with a 10-g monofilament (starting from the dorsum of hallux, then moving proximally); and one other modality:
   - pin prick,
   - vibration sense using a 128-Hz tuning fork,
@@ -329,7 +330,7 @@ A. Screening and diagnosis
 
 Of the above, DN4 and ID pain are simple and feasible for use in clinical practice, whilst LANSS Pain Scale and painDetect is more detailed and more frequently used for research purposes.
 
-B. Management
+### 5.3.2: Peripheral Neuropathy — Management
 - Intensive lifestyle intervention
   - [Level II-1] In T2DM, reduces the risk of DSPN.
   - [Level II-2] In prediabetes, reduces the risk of DSPN especially in the subgroup that did not progress to T2DM.
@@ -355,20 +356,17 @@ Table 5-5: Drugs approved for painful DSPN.
 *Drugs approved for DSPN according to class preference.*
 *eGFR is in mL/min/1.73 m²*
 *DSPN: diabetic symmetric polyneuropathy, OD: daily; BD: twice daily; TDS: three times daily; FDA: United States Food and Drug Administration.*
-*Adapted from [Level I] Pop-Busui, et al. 2017, [Level III] Bril V, et al. 2018, [Level III] British National Formulary, 2015.*
 
 Diabetic autonomic neuropathy (DAN)
 - Diabetic autonomic neuropathy (DAN) causes CV, GI, urogenital, and pseudomotor dysfunctions, as well as hypoglycaemia unawareness and abnormal pupillary function (Refer Table 5-6: Symptoms of DAN).
 - [Level I] Of clinical relevance, cardiovascular autonomic neuropathy (CAN) is an independent risk factor for cardiovascular mortality.
 
-A. Symptoms and diagnosis
+### 5.3.3: Autonomic Neuropathy — Symptoms And Diagnosis
 Table 5-6: Symptoms of DAN.
 | CAN | GI | Urogenital | Sudomotor |
 |---|---|---|---|
 | Resting tachycardia <br><br> Abnormal blood pressure regulation <br> • Non-dipping <br> • Reverse dipping <br><br> Orthostatic hypotension <br> • Light-headedness <br> • Weakness <br> • Faintness <br> • Visual impairment <br> • Syncope <br><br> Orthostatic tachycardia or bradycardia and chronotropic incompetence <br> • Light-headedness <br> • Weakness <br> • Faintness <br> • Dizziness <br> • Visual impairment <br> • Syncope <br><br> Exercise intolerance | Gastroparesis <br> • Nausea <br> • Bloating <br> • Loss of appetite <br> • Early satiety <br> • Postprandial vomiting <br> • Brittle diabetes <br><br> Oesophageal dysfunction <br> • Heartburn <br> • Dysphagia for solids <br><br> Diabetic diarrhoea <br> • Profuse and watery diarrhoea <br> • Faecal incontinence <br> • May alternate with constipation <br><br> Constipation <br> • May alternate with explosive diarrhoea | Bladder dysfunction <br> • Frequency <br> • Urgency <br> • Nocturia <br> • Hesitancy <br> • Weak stream <br> • Dribbling <br> • Urinary incontinence <br> • Urinary retention <br><br> Male sexual dysfunction <br> • Erectile dysfunction <br> • Decreased libido <br> • Abnormal ejaculation <br><br> Female sexual dysfunction <br> • Decreased sexual desire <br> • Increased pain during intercourse <br> • Decreased sexual arousal <br> • Inadequate lubrication | Dry skin <br> • Anhidrosis <br> • Gustatory sweating |
-
 *CAN: cardiovascular autonomic neuropathy; GI: gastrointestinal.*
-*Adapted from Pop-Busui et al. Diabetes Care, 2017.*
 
 - Diagnosis of CAN
   - Use of standardised CV autonomic reflex tests (CART) is recommended for diagnosis.
@@ -387,7 +385,7 @@ Table 5-6: Symptoms of DAN.
     - exclusion of gastric outlet obstruction or ulceration.
   - The gold-standard test to diagnose gastroparesis is gastric emptying scintigraphy.
 
-B. Management
+### 5.3.4: Autonomic Neuropathy — Management
 - [Level I] Intensive control of modifiable CV risk factors have been shown to reduce the progression and development of CAN among patients with T2DM.
 - Avoid/minimise drugs that cause orthostatic hypotension.
   - [Level III] Midodrine has been approved as medical therapy for orthostatic hypotension.
@@ -400,7 +398,7 @@ B. Management
   - Long-term use may be complicated by tardive dyskinesia and extrapyramidal side-effects.
   - [Level III] Alternatively, domperidone acts similarly to metoclopramide, but with less neurological side-effects.
 
-Diabetic amyotrophy
+### 5.3.5: Diabetic Amyotrophy
 - [Level II-2] [Level III] Diabetic amyotrophy, also known as proximal diabetic neuropathy, diabetic lumbosacral radiculoplexus neuropathy, or Bruns-Garland syndrome is an uncommon subtype of diabetic neuropathy affecting about 0.8% to 1% of people with diabetes.
 - [Level III] It Is characterised by weakness and areflexia of asymmetric onset, pain on the affected site and marked weight loss.
 
@@ -408,7 +406,7 @@ A. Diagnosis
 - Is made by excluding nerve root compression with MRI.
 - [Level III] Supported by the presence of small amplitude sensory nerve action potential from nerve conduction studies, and fibrillation potentials and long duration high amplitude motor unit action potential from electromyogram.
 
-B. Management
+### 5.3.6: Diabetic Amyotrophy — Management
 - [Level III] Treatment of pain due to diabetic amyotrophy follows similar recommendation on for treatment for pain due to DSPN.
 - [Level III] Data on the effect of glycaemic control on diabetic amyotrophy is lacking. However, given the known benefits of preventing neuropathy and other diabetic complications, glucose control should be optimized.
 - [Level II-2] Diabetic amyotrophy progresses over months, and eventually stabilises and improves.
@@ -423,7 +421,7 @@ Recommendations: Neuropathy
 | 5. Refer patients to specialised pain centres if they require long-term opioid treatment. | Grade C |
 
 ## 5.4: Cardiovascular disease
-A. Coronary heart disease
+### 5.4.1: Coronary Heart Disease — Overview
 Summary of Updates
 - In addition to the importance of managing hyperglycaemia, management of the other traditional concomitant CV risk factors; i.e. BP and LDL-C remain important - with BP targets of 130-139/70-79 mmHg and LDL-C according to CV risk category, with proven clinically meaningful CV risk reduction.
 - Recent CVOTs have proven that certain GLDs (GLP1-RAs and SGLT2-i) are also cardioprotective, beyond their glucose-lowering effects. These CV benefits are seen irrespective of HbA1c level achieved. Paradigm shifts in management algorithm recommendations are emerging.
@@ -444,7 +442,7 @@ Summary of Updates
   - [Level II-2] Poor glycaemic control is also associated with increased risk of HF; every 1% increase in HbA1c is associated with an 8% increased risk of heart failure (95% CI 5%,12%).
   - [Level II-2] Approximately 40% of hospitalised heart failure patients with low ejection fraction have T2DM. Post discharge, T2DM is associated with worse prognosis, increased risk for combined CV mortality and heart failure-related re-hospitalisation.
 
-Screening
+### 5.4.2: Coronary Heart Disease — Screening
 - Typical symptoms of CHD warrant a prompt referral to a cardiologist for further assessment. However, it is quite common for patients with T2DM to have atypical symptoms or even 'silent' CHD.
 - [Level II-1] Atypical symptoms include dyspnoea, fatigue, and GI symptoms associated with exertion.
 - [Level I] In asymptomatic patients, routine screening for coronary artery disease is not recommended because it does not improve outcome as long as they are receiving intensive medical therapy for optimal CV risk factor control.
@@ -464,10 +462,10 @@ Recommendations: Screening for CVD
 | 2. In asymptomatic patients whose CV risk factors are not to target. | Grade A |
 | 3. A resting ECG is indicated in patients with T2DM and hypertension, or if CVD is suspected. | Grade B |
 
-Management
+### 5.4.3: Coronary Heart Disease — Management
 I. General management
 - [Level I] Lifestyle modification, weight management and increased physical activity are important measures.
-  - Reduced caloric intake to lower excessive body weight and regular moderate-to-vigorous physical activity of ≥150 minutes/week is beneficial in improving CV risk factors, glycaemic control and inducing remission of T2DM. (Refer Section 3.5: Lifestyle Modification) <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5: Lifestyle Modification" target_kind="h2_section" -->
+  - Reduced caloric intake to lower excessive body weight and regular moderate-to-vigorous physical activity of ≥150 minutes/week is beneficial in improving CV risk factors, glycaemic control and inducing remission of T2DM. (Refer Section 3.5: Lifestyle Modification) <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="Section 3.5: Lifestyle Modification" target_kind="h1_section" -->
   - Mortality and CV event reduction with lifestyle intervention alone has not been demonstrated in RCTs.
 - [Level I] Smoking cessation is strongly recommended and a high priority.
   - Smoking increases the risk of CVD and premature death.
@@ -484,18 +482,18 @@ II. Glycaemic control
   - [Level I] A meta-analysis of two dedicated heart failure trials, [Level I] DAPA-HF and EMPEROR-Reduced, [Level I] that recruited patients with HFrEF (42-50% with known T2DM) showed:
     - [Level I] Over a median of 16.0-18.2 months, there was a significant reduction in risk of CV death or heart failure (HR 0.75, 95% CI: 0.68-0.84, p<0.0001) vs. placebo.
     - [Level I] There was also significant reduction in first hospitalisation for heart failure (HR 0.69, 95% CI: 0.62-0.78, P<0.0001) vs. placebo.
-    - [Level I] These significant benefits were seen in both patients with T2DM as well as those without (Refer to Section 3.6-SGLT2-i). <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6: Glucose Lowering Drugs and Insulin Therapy" target_kind="h2_section" -->
+    - [Level I] These significant benefits were seen in both patients with T2DM as well as those without (Refer to Section 3.6-SGLT2-i). <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="Section 3.6: Glucose Lowering Drugs and Insulin Therapy" target_kind="h1_section" -->
   - [Level I] These heart failure benefits are found irrespective of glucose-lowering and also in non-diabetic subjects.
   - SGLT2-i has been given a specific indication for use to reduce hospitalisation for heart failure in adults with T2DM with ASCVD or multiple CV risk (use SGLT2-i that has label indication for heart failure prevention).
 - [Level III] Less rigorous glycaemic targets may be appropriate for elderly patients and those with severe co-morbidities or advanced CVD.
 
 III. BP control
-Refer to Section 3.9.1: Hypertension and T2DM. <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.1: Hypertension and T2DM" target_kind="h3_section" -->
+Refer to Section 3.9.1: Hypertension and T2DM. <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.1: Hypertension and T2DM" target_kind="h2_section" -->
 - [Level I] BP control to target of 130-139/70-79 mmHg with coronary artery disease (existing ASCVD or 10-year ASCVD of ≥15%) if it can be safely achieved.
 - [Level I] In patients with known ASCVD, consider ACE inhibitor or ARB therapy if ACE inhibitor intolerant to reduce the risk of CV events.
 
 IV. Lipid control
-Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.2: Hyperlipidaemia and T2DM" target_kind="h3_section" -->
+Refer to Section 3.9.2: Hyperlipidaemia and T2DM. <!-- cross_ref target_file="section-3-9-comorbidities-t2dm.md" target_heading="3.9.2: Hyperlipidaemia and T2DM" target_kind="h2_section" -->
 
 V. Antiplatelet therapy
 - [Level I] There is strong evidence that aspirin is effective for secondary prevention of cardiovascular events.
@@ -523,7 +521,7 @@ Recommendations: Management of CVD
 | 6. Among patients with ASCVD with pre-existing or at high risk of heart failure (HFrEF) SGLT2-i should be considered, even if HbA1c is at target. | Grade A |
 | 7. In patients with T2DM and multi vessel coronary artery disease or complex left anterior descending coronary artery disease, and suitable coronary anatomy for revascularization, CABG is superior to PCI. | Grade A |
 
-B. Cerebrovascular disease (Stroke)
+### 5.4.4: Cerebrovascular Disease (Stroke)
 Summary of Updates
 - 3-point MACE outcomes in the recent CVOTs incorporate non-fatal stroke as part of the composite CV outcome.
 - Recent GLP1-RA trials (SUSTAIN-6 and REWIND) have found positive 3-point MACE outcome, largely driven by reduction in non-fatal stroke. These interesting findings may need to be confirmed in dedicated cerebrovascular event trials.
@@ -539,7 +537,7 @@ Recommendations: Stroke
 |---|---|
 | 1. Patients with ischaemic stroke should be managed similarly as patients with established ASCVD. | Grade B |
 
-C. Peripheral arterial disease (PAD)
+### 5.4.5: Peripheral Arterial Disease (PAD)
 Summary of Updates
 - Absent peripheral pulses are independent predictors of major vascular outcomes in patients with T2DM. These clinical indicators can be used to improve risk stratification for patients with T2DM.
 - Presence of critical limb ischaemia features (e.g. rest pain with ulcers or tissue loss) identifies a high-risk individual for amputation and/or mortality. Urgent referral to specialist care is indicated.
@@ -577,7 +575,7 @@ Table 5-7: Non-Invasive Bedside Tests for Evaluation of PAD
 - [Level III] In patients with T2DM and a foot ulcer, clinical examination alone may not exclude PAD hence combined modality testing of CWD and ABI or TBI is recommended.
 - [Level III] Patients with features of critical limb ischaemia (rest pain with ulcers or tissue loss due to PAD) are at high risk of amputation and mortality and should be referred urgently for specialist care.
 
-Management
+### 5.4.6: Peripheral Arterial Disease — Management
 - [Level III] Principles of PAD management in T2DM:
   - [Level III] Reducing CV risk factors and treating concomitant disorders.
     - Smoking cessation and lifestyle modification.

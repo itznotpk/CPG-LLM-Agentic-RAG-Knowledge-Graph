@@ -77,7 +77,7 @@ Capillary Plasma Glucose
 - Screening should be done annually in those listed in Table 2-1: Criteria for Testing for T2DM or Prediabetes in Asymptomatic Adults and Table 2-2: Criteria for Testing for T2DM in Adolescents.
 
 ## 2.4: Diagnostic Tests
-Fasting Plasma Glucose
+### 2.4.1: Fasting Plasma Glucose
 - This should be performed following a minimum of an 8-hour overnight fast.
 - [Level II-2] Once blood is taken, the sample should not be left standing as the concentration of glucose decreases due to glycolysis, which degrades glucose at a rate of 5% to 7% per hour.
 - This glycolysis can be prevented by using sample tubes containing glycolysis inhibitors such as citrate buffer.
@@ -89,7 +89,7 @@ Table 2-3: Diagnostic Value for T2DM Based on Venous Plasma Glucose
 | Venous plasma glucose | ≥7.0 mmol/L | ≥11.1 mmol/L |
 *In symptomatic individuals, one abnormal glucose value is diagnostic. In asymptomatic individuals, 2 abnormal test results (plasma glucose and HbA1c) from the same sample or from 2 separate test samples are required for diagnosis.*
 
-Oral Glucose Tolerance Test (OGTT)
+### 2.4.2: Oral Glucose Tolerance Test (OGTT)
 - OGTT is done in the fasting state using 75 g of glucose.
 - Patient should rest throughout the test and only allowed to drink plain water.
 - A 2-hour plasma glucose of ≥11.1 mmol/L confirms the diagnosis of diabetes.
@@ -105,7 +105,7 @@ Table 2-4: Diagnostic Value for Glucose Tolerance and T2DM Based on OGTT
 
 *IFG: impaired fasting glucose; IGT: impaired glucose tolerance; T2DM: type 2 diabetes mellitus. In adolescents, the glucose load in OGTT is based on body weight (1.75 g/kg body weight, maximum of 75 g).*
 
-HbA1c
+### 2.4.3: HbA1c
 - [Level I] HbA1c reflects the average plasma glucose level over the preceding 3 months.
 - [Level II-2] Although OGTT used to be the "gold standard" for diagnosing T2DM, it is known to be poorly reproducible and is cumbersome to perform.
 - [Level II-2] Standardised HbA1c assay has been shown to have the least variability (0.3%–0.4%) compared to fasting and 2-hour plasma glucose levels, 12% and 20% respectively.
@@ -125,7 +125,7 @@ Table 2-5: Diagnostic Value for Prediabetes and T2DM Based on HbA1c
 
 *A repeat HbA1c should be done 4 weeks after the first positive test for asymptomatic patients (if an accompanying FPG or RPG is indeterminate). For symptomatic patients, a single positive test is sufficient.*
 
-* There are situations where the HbA1c value may not reflect the true level of glycaemia (glycation gap) due to various causes (Refer to Section 3.8.1 Glycated Haemoglobin (HbA1c)). <!-- cross_ref target_file="section-3-6-monitoring-t2dm.md" target_heading="3.8.1 Glycated Haemoglobin (HbA1c)" target_kind="h3_section" -->
+* There are situations where the HbA1c value may not reflect the true level of glycaemia (glycation gap) due to various causes (Refer to Section 3.8.1 Glycated Haemoglobin (HbA1c)). <!-- cross_ref target_file="section-3-8-monitoring-t2dm.md" target_heading="3.8.1: Glycated haemoglobin (HbA1c)" target_kind="h3_section" -->
   - [Level III] Depending on the method used for measuring HbA1c, some may give inaccurate results when the patients have a haemoglobin variant.
   » In patients suspected of having haemoglobinopathies, other screening tests for e.g. another HbA1c methodology should be used (such as the National Glycohemoglobin Standardization Program [NGSP] available online at *http://www.ngsp.org/interf.asp*).
 
@@ -144,13 +144,14 @@ Table 2-5: Diagnostic Value for Prediabetes and T2DM Based on HbA1c
     - Hence, for HbA1c to be useful, it is important that the HbA1c assays are standardised.
     - Several international and national standardisation programs have evolved over the years to enable the conformity of HbA1c results from different laboratories to those reported in the DCCT trial.
   - [Level II-1] In 1994, the International Federation of Clinical Chemistry and Laboratory Medicine (IFCC) Working Group on Standardisation of HbA1c developed a global HbA1c reference system with a much improved intra-assay and inter-assay coefficients of variation of <2.5%.
-  - For the purpose of diagnosis, the HbA1c test should be performed using the method that is certified by the NGSP-HbA1c units (%) and standardised according to the assays employed in the DCCT study. Recommendations have been made on the reporting of HbA1c results as IFCC-HbA1c values in SI units (mmol HbA1c/mol Hb) [Refer to Section 3.8.1 Glycated Haemoglobin (HbA1c) and Table 3-21: Causes that may affect the HbA1c value.] <!-- cross_ref target_file="section-3-6-monitoring-t2dm.md" target_heading="3.8.1 Glycated Haemoglobin (HbA1c)" target_kind="h3_section" -->
+  - For the purpose of diagnosis, the HbA1c test should be performed using the method that is certified by the NGSP-HbA1c units (%) and standardised according to the assays employed in the DCCT study. Recommendations have been made on the reporting of HbA1c results as IFCC-HbA1c values in SI units (mmol HbA1c/mol Hb) [Refer to Section 3.8.1 Glycated Haemoglobin (HbA1c) and Table 3-21: Causes that may affect the HbA1c value.] <!-- cross_ref target_file="section-3-8-monitoring-t2dm.md" target_heading="3.8.1: Glycated haemoglobin (HbA1c)" target_kind="h3_section" -->
 
 Table 3-21: Causes that may affect the HbA1c value.
 | Higher HbA1c values | Lower HbA1c values | Either higher or lower HbA1c values |
 |---|---|---|
 | • Rapidly improved diabetes<br>• Age (older)<br>• Iron deficiency<br>• Vitamin B12 deficiency<br>• Folate deficiency<br>• Hypothyroidism<br>• Vitamin E supplementation | • Sudden onset or exacerbation of diabetes<br>• Period of recovery from iron deficiency anaemia<br>• Hemolysis<br>• Blood loss/transfusion<br>• Renal anaemia during treatment with erythropoietin<br>• Liver cirrhosis<br>• Asplenia<br>• Treatment with iron<br>• Treatment with B12<br>• Treatment with folate | • Haemoglobinopathy (depends on the type of assay and type of haemoglobin variant)<br>• Ethnicity (Indian and Malays – higher values, Chinese – lower values) [Level II-2]<br>• Medications: Dapsone |
 
+### 2.4.4: Screening Algorithms For T2DM
 Figure 2-1: Screening for T2DM in symptomatic individuals
 For symptomatic individuals, the screening process begins with a venous plasma glucose test, which can be either a fasting or a random test.
 - If a fasting test is performed and the result is <7.0 mmol/L, an Oral Glucose Tolerance Test (OGTT) should be conducted. If the fasting result is ≥7.0 mmol/L, a diagnosis of T2DM is made.
@@ -188,7 +189,7 @@ When an OGTT is performed, it yields both a fasting plasma glucose (FPG) and a 2
 
 *VPG: venous plasma glucose; FPG: fasting plasma glucose; OGTT: oral glucose tolerance test; T2DM: type 2 diabetes mellitus; PPG: post-prandial glucose; IGT: impaired glucose tolerance; IFG: impaired fasting glucose.*
 
-## 2.5 Cardiovascular risk estimation
+## 2.5: Cardiovascular risk estimation
 - It is well established that patients with prediabetes and T2DM have a 2-3-fold increased risk of developing CVD.
 - 60% of patients with T2DM will eventually die from CV complications.
 - As such, it is prudent that the CV risk profiles be determined at diagnosis of prediabetes and T2DM as well as during each clinic visit.

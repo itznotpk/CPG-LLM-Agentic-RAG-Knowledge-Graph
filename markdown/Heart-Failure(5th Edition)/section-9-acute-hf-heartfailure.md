@@ -62,7 +62,7 @@ Table 11: Factors Contributing To Decompensation In A Patient With Stable HF
 In 40% of patients admitted with Acute HF however, a clear underlying precipitant may not be identified.
 
 - **Identify non-cardiovascular comorbidities** - These can complicate management affecting the choice and doses of medications used. The presence of these non-cardiovascular comorbidities tends to worsen the prognosis. The more common comorbidities include:
-    - Diabetes (refer to Section 14.1: Diabetes and Heart Failure) <!-- cross_ref target_file="section-14-1-diabetes-heartfailure.md" target_heading="Section 14.1: Diabetes And Heart Failure" target_kind="h2_section" -->
+    - Diabetes (refer to Section 14.1: Diabetes and Heart Failure) <!-- cross_ref target_file="section-14-1-diabetes-heartfailure.md" target_heading="Section 14.1: Diabetes And Heart Failure" target_kind="h1_section" -->
     - Chronic kidney disease (refer to Section 14.6: Heart Failure and Chronic Kidney Disease (CKD)) <!-- cross_ref target_file="section-14-6-ckd-heartfailure.md" target_heading="Section 14.6: Heart Failure And Chronic Kidney Disease (CKD)" target_kind="h2_section" -->
     - Thyroid disease (Both hyper and hypothyroidism)
     - Chronic lung disease

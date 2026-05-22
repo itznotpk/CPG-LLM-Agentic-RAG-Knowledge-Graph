@@ -7,6 +7,7 @@ output: initial_drug_choice, combination_therapy, escalation_strategy, patient_s
 -->
 
 ## 3.7: Treatment algorithms for the management of T2DM
+### 3.7.1: Algorithm — Newly Diagnosed T2DM
 Figure 3-3: Treatment algorithm for newly diagnosed T2DM
 Diagnosis of T2DM
 All newly diagnosed patients should undergo Lifestyle modification^a^. Following this, treatment decisions are based on the initial HbA1c and FPG levels:
@@ -49,15 +50,16 @@ All newly diagnosed patients should undergo Lifestyle modification^a^. Following
 - Modest efficacy, low risk of hypoglycaemia and weight neutral: AGI
 
 Footnotes:
-a. Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h3_section" -->
+a. Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h2_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h2_section" -->
 b. If patients are able to normalise plasma glucose (glucose profile/HbA1c) and/or lose weight, may continue metformin.
 c. Consider addition of DPP4-i (vildagliptin) - [Level I] In the VERIFY trial metformin + vildagliptin delays loss of glycaemic control when initiated within 24 months of diagnosis.
 d. Meglitinide/AGI/TZD may not be appropriate for monotherapy.
 e. Combination therapy includes both oral and injectable (GLP1-RA) GLD.
-f. For patients who are symptomatic refer to Section 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy. <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy" target_kind="h3_section" -->
+f. For patients who are symptomatic refer to Section 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy. <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy" target_kind="h2_section" -->
 
 FPG: fasting plasma glucose; AGI: alpha-glucosidase inhibitors; DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; TZD: thiazolidinediones; GLD: glucose lowering drugs; OGLD: oral glucose lowering drugs.
 
+### 3.7.2: Algorithm — Clinic Follow-Up
 Figure 3-4: Treatment recommendations for patients with T2DM on clinic follow-up
 3-6 months after initiation of therapy
 
@@ -80,10 +82,11 @@ If HbA1c is above individualised target with lifestyle modification + existing t
 Footnotes:
 *Maximum OGLDs allowed is 5. 
 ^∫^ When on insulin continue metformin/SGLT2-i/DPP4-i/GLP1-RA. Stop SU if on full insulin. 
-^£^ Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h3_section" --> 
+^£^ Lifestyle modification: refer to Sections 3.5.1: Medical Nutrition Therapy (MNT) and Section 3.5.3: Tobacco cessation. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h2_section" --> <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.3: Tobacco cessation" target_kind="h2_section" --> 
  for GLDs - interval before addition of another GLD may need to allow for dose titration and escalation of the current therapy. 
 DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; GLD: glucose lowering drugs.
 
+### 3.7.3: Algorithm — Specific Patient Profiles
 Figure 3-5: Suggested treatment approach for specific patient profiles
 All patients should undergo LIFESTYLE MODIFICATION + METFORMIN *(unless intolerant or contraindicated / ½ dose at DKD stage 3B, stop at DKD stages 4-5)*. 
 If HbA1c not to individualised target, treatment is tailored based on patient profile. 
@@ -146,10 +149,11 @@ If HbA1c not to individualised target, treatment is tailored based on patient pr
 1. Patients who are well-controlled on their existing therapies should continue with the treatment regime.
 2. Bariatric surgery may be considered in patients with BMI ≥32 kg/m² and their T2DM cannot be controlled by lifestyle changes and pharmacotherapy.
 CVD divided into 2 categories: ASCVD – established atherosclerotic cardiovascular disease (ASCVD) / High risk CVD – Primary Prevention, without clinical CV events.
-^ VLCD + MRP - Refer to Section 3.5.1: Medical Nutrition Therapy (MNT); * SU refers to 2nd generation sulphonylurea; ᶴ Stop DPP4-i; ǂ Saxagliptin (SAVOR-TIMI) showed increased risk of hospitalisation for heart failure. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" -->
+^ VLCD + MRP - Refer to Section 3.5.1: Medical Nutrition Therapy (MNT); * SU refers to 2nd generation sulphonylurea; ᶴ Stop DPP4-i; ǂ Saxagliptin (SAVOR-TIMI) showed increased risk of hospitalisation for heart failure. <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h2_section" -->
 ^x^ Choose GLP1-RA with proven CV benefit and has appropriate label indication for CV reduction; ^α^ SGLT2i recommended in DKD stage 3-5 – for renoprotective effects, do not initiate when <30 ml/min/1.73m²; however, eGFR levels at which SGLT2-i can be initiated may be subject to change as new evidence become available, ⁺ may switch to basal-bolus human/analogue insulin where appropriate; for hypoglycaemic risk - insulin analogue may be more appropriate.
 DPP4-i: dipeptidyl peptidase-4 inhibitors; SGLT2-i: sodium-glucose cotransporter 2-inhibitors; SU: sulphonylurea; GLP1-RA: glucagon-like peptide-1 receptor agonist; TZD: thiazolidinediones; VLCD: very low-calorie diet; MRP: meal replacement therapy.
 
+### 3.7.4: Efficacy Of Various Glucose Lowering Drugs
 Figure 3-6: Efficacy of various GLDs.
 | | [Level I] MET | [Level I] [Level II] SU | [Level I] GLN | [Level I] AGI | [Level I] TZD | [Level I] DPP4-i | [Level I] SGLT2-i | [Level I] GLP1-RA | [Level I] Insulin |
 |---|---|---|---|---|---|---|---|---|---|

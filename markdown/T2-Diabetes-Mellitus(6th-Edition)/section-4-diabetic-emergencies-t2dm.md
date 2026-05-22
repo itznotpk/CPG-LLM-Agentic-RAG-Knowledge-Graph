@@ -5,7 +5,9 @@ use_case: T2DM Diabetic Emergencies — hypoglycaemia, diabetic_ketoacidosis, DK
 patient_input: plasma_glucose, ketones, pH, bicarbonate, potassium, sodium, osmolality, GCS, urine_output, fluid_status, insulin_dose, SGLT2i_use, consciousness_level
 output: hypoglycaemia_treatment, DKA_protocol, fluid_replacement, insulin_infusion, potassium_replacement, HHS_management, euglycaemic_DKA_recognition
 critical: true
+treatment_type: intravenous insulin, fixed-rate insulin infusion, dextrose, glucagon, intravenous fluids, normal saline, potassium chloride
 -->
+
 
 Summary of Updates
 - Diabetic ketoacidosis: Weight-based fixed rate intravenous insulin infusion (FRIII) is the current standard recommendation and the use of 'sliding scale' insulin should no longer be practised.
@@ -31,7 +33,7 @@ Table 4-2: Classification of Hypoglycaemia
 | 2 | <3.0 mmol/L | Threshold at which neuroglycopenic symptoms begin to occur. Requires immediate action to resolve the hypoglycaemic event. |
 | 3 | — | A severe event characterised by altered mental and/or physical functioning that requires assistance from another person for recovery. |
 
-Risk Factors for Hypoglycaemia
+### 4.1.1: Risk Factors For Hypoglycaemia
 - Advancing age
 - Severe cognitive impairment
 - Poor health knowledge
@@ -41,14 +43,14 @@ Risk Factors for Hypoglycaemia
 - Renal and hepatic impairment
 - Peripheral and autonomic neuropathy
 
-Strategies for Prevention of Hypoglycaemia
+### 4.1.2: Strategies For Prevention Of Hypoglycaemia
 - Identifying patients at risk
 - Education on recognising symptoms of hypoglycaemia
 - [Level I] Structured educational and psycho-behavioural programs (e.g. Blood glucose awareness training) that may help to improve detection of hypoglycaemia and reduce the frequency of severe episodes.
 
 - Patients at risk of hypoglycaemia should be discouraged from driving motor-vehicles, cycling, swimming or operating heavy machinery, as these activities may endanger oneself and the public.
 
-Treatment of Hypoglycaemia
+### 4.1.3: Treatment Of Hypoglycaemia
 Aims of treatment:
 - Detect and treat a low plasma glucose level promptly
 - Eliminate the risk of injury to oneself and to relieve symptoms quickly
@@ -93,7 +95,7 @@ If patient is unconscious:
 
 *CHO: carbohydrate; IV: intravenous; IM: intramuscular.*
 
-Hypoglycaemia Unawareness
+### 4.1.4: Hypoglycaemia Unawareness
 - [Level III] Hypoglycaemia unawareness occurs when the ability to perceive the autonomic warning symptoms is either diminished or lost such that the first sign of hypoglycaemia is confusion or loss of consciousness.
 - [Level II-2] Recent or recurrent hypoglycaemia can decrease normal responses to hypoglycaemia and lead to defective glucose counter-regulation and hypoglycaemia unawareness.
 - [Level III] Hypoglycaemia unawareness increases the incidence of severe hypoglycaemia and therefore should trigger re-evaluation of the treatment regimen.
@@ -101,7 +103,7 @@ Hypoglycaemia Unawareness
 - Patients should be advised to temporarily relax their targets.
 - [Level III] [Level II-2] Strict avoidance of hypoglycaemia for up to 3 months has been associated with improvement in the recognition of severe hypoglycaemia, the counter-regulatory hormone responses or both.
 
-Nocturnal Hypoglycaemia
+### 4.1.5: Nocturnal Hypoglycaemia
 - [Level II-3] Risk of nocturnal hypoglycaemia is higher especially in the elderly.
 - [Level III] [Level II-2] The clinical manifestations may include:
   - poor sleep quality,
@@ -121,7 +123,7 @@ Nocturnal Hypoglycaemia
   - Consider switching from human basal insulin to basal insulin analogues.
 - Patients on SU should readjust dose/consider switching to an OGLD without hypoglycaemia risk.
 
-Complications of Hypoglycaemia
+### 4.1.6: Complications Of Hypoglycaemia
 - Hypoglycaemia can cause acute harm to the person with T2DM or others, especially if it causes falls, motor vehicle accidents, or other accidents.
 - [Level II-3] A large cohort study suggested that among older adults with T2DM, a history of severe hypoglycaemia was associated with greater risk of dementia.
 - [Level I] Severe hypoglycaemia was associated with excess mortality in participants in both the standard and the intensive glycaemia arms of the ACCORD, VADT and ADVANCE trials.
@@ -143,14 +145,14 @@ Recommendations: Hypoglycaemia
 - It has a high mortality rate if unrecognised. The overall mortality is <1%, but a mortality rate >5% in the elderly has been reported.
 - Mortality in patients with DKA is frequently related to the underlying aetiological precipitant rather than the metabolic sequelae of hyperglycaemia or ketoacidosis.
 
-Principles of management
+### 4.2.1: Principles Of Management
 - Correction of dehydration
 - Correction of electrolyte imbalance
 - Insulin therapy
 - Treatment of precipitating factor
 - Prevention of complications
 
-Assessment
+### 4.2.2: Assessment
 - Initial assessment
   - History and physical examination
     - Look for precipitating causes: infection, missed therapy, non-adherence, acute coronary syndrome, cerebrovascular accident, surgery and drugs (e.g. steroids).
@@ -185,7 +187,7 @@ Assessment
 
 *\*Na⁺: sodium; K⁺: potassium; Cl⁻: chloride; HCO₃⁻: bicarbonate*
 
-Treatment
+### 4.2.3: Treatment
 - Aims of treatment
   - Rate of fall of ketones of at least 0.5 mmol/L/hr, OR
   - Bicarbonate rise of 3 mmol/L/hr, AND
@@ -269,7 +271,7 @@ Table 4-5: Potassium replacement of infusion solution.
   - [Level III] No evidence to support routine phosphate replacement for DKA.
   - If levels <0.32 mmol/L in the presence of cardiac dysfunction or respiratory depression, consider phosphate replacement.
 
-B. Monitoring
+### 4.2.4: DKA — Monitoring, Resolution And Transition
 - Hourly capillary plasma glucose until it reaches maintenance level of 8 mmol/L-12 mmol/L, then monitor 2-4 hourly.
 - Vital signs and input-output charting hourly
 - Venous HCO₃⁻ and K⁺ at 60 minutes, 4 hours and 6-hourly thereafter

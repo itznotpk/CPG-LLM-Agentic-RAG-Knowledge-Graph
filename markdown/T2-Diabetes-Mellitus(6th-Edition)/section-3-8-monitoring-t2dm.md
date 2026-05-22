@@ -89,7 +89,7 @@ Table 3-21: Causes that may affect the HbA1c value.
 *In out-patient setting*
 - Insulin treated T2DM
   - [Level I] Recommend routine SMBG to evaluate glycaemic control and prevent hypoglycaemia.
-  - Frequency and timing of SMBG vary based on types of insulin regimen (Refer Section 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy). <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy" target_kind="h3_section" -->
+  - Frequency and timing of SMBG vary based on types of insulin regimen (Refer Section 3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy). <!-- cross_ref target_file="section-3-6-pharmacotherapy-t2dm.md" target_heading="3.6.5: Initiation, Optimisation and Intensification of Insulin Therapy" target_kind="h2_section" -->
 
 - Non-insulin treated T2DM
   - [Level I] [Level II] Earlier RCTs and meta-analyses suggest lack of benefit with SMBG in this group.
@@ -225,7 +225,7 @@ CGM may be considered in the following situations:
 - The choice and frequency of CGM devices should be individualised depending on the primary goal and patients' willingness to be actively engaged in their day-to-day glucose management.
 - To derive maximum benefits, it is essential to provide structured diabetes education, training and support, assisted by a diabetes nurse educator.
 
-## 3.8.4: Monitoring of Other Risk Factors
+### 3.8.4: Monitoring of Other Risk Factors
 - Monitoring of glycaemic control, co-morbidities, complications and other CVD risk factors should follow the schedule below.
 
 Table 3-24: Clinical Monitoring Schedule for Other Risk Factors in Patients with T2DM

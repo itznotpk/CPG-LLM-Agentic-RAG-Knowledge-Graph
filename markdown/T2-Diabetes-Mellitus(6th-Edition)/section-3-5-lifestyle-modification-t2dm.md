@@ -14,10 +14,10 @@ Summary of Updates
 - A healthful eating pattern with low glycaemic index (GI) diet may be relevant in the Malaysian context because excessive rise in post-prandial glycaemia is frequently observed.
 
 ## 3.5: Lifestyle Modification
-### 3.5.1: Medical Nutrition Therapy (MNT)
+## 3.5.1: Medical Nutrition Therapy (MNT)
 Medical nutrition therapy (MNT) is important in preventing diabetes, managing existing diabetes, and delaying complications. Proper diet is crucial at all stages of management of diabetes including those on medication. The need for medical therapy should not be interpreted as a failure of lifestyle management but as an adjunct to it.
 
-General Recommendations
+### 3.5.1.1: General Recommendations
 - [Level I] Nutrition care by a dietitian should be provided under the following conditions: at diagnosis, sub-optimal metabolic and/or weight control, at initiation of insulin therapy, development of other co-morbidities such as hyperlipidaemia, hypertension and DKD.
 - [Level I] Individualised dietary counselling by a dietitian is effective to lower HbA1c up to 2.0% in 6 months, reduce weight, CV risk, lower medication use and improve quality of life (QoL).
 - The goals of MNT are to:
@@ -25,7 +25,7 @@ General Recommendations
   - Promote healthful eating patterns in appropriate portion sizes and limiting food choices only when supported by scientific evidence
   - [Level III] Provide nutrition needs based on cultural preferences, health literacy and numeracy, willingness and ability to make behavioural changes.
 
-Specific recommendations
+### 3.5.1.2: Specific Recommendations
 A. Prevention of T2DM
 The following diet and lifestyle changes are recommended for individuals with BMI >23 kg/m² (overweight) or >27.5 kg/m² (obese) who have prediabetes or are at risk for diabetes:
 - [Level I] Weight loss of ≥7%–10% of initial body weight within 6 months has been proven to be effective for diabetes prevention. This can be achieved by:
@@ -43,13 +43,13 @@ The following diet and lifestyle changes are recommended for individuals with BM
   - [Level III] Following the Malaysian Healthy Plate Model may help increase consumption of vegetables and fruits and control portion size of meals. (Refer Appendix 1: Malaysian Healthy Plate)
 
 B. Management of T2DM
-Weight Management
+### 3.5.1.3: Weight Management
 - [Level I] Individuals who are overweight (BMI >23.0 kg/m² – <27.5 kg/m²) and obese (>27.5 kg/m²) and not achieving glycaemic control should restrict their caloric intake with the goal of reducing body weight by at least 5%–10%.
 - Structured lifestyle intervention:
   - [Level I] MRP have been shown to be effective in lowering HbA1c, lipid profile and BP.
   - [Level I] Total diet replacement (TRP) (≤800 kcal/day) inducing weight loss up to 15% (approximately 15 kg) from baseline has been shown to lead to diabetes remission in T2DM patients.
 
-Overall Macronutrient Distribution
+### 3.5.1.4: Overall Macronutrient Distribution
 - [Level III] There is no ideal percentage of calories from carbohydrate (CHO), protein and fat for people with T2DM. A balanced diet consisting of 45%–60% of energy from CHO, 15%–20% energy from protein and 25%–35% energy from fat is encouraged.
 - These recommendations must be individualised based on weight, glycaemic and other metabolic goals, cultural preferences and individual lifestyle.
 
@@ -104,7 +104,7 @@ v. Fats
 - [Level I] Patients with T2DM should limit total fat (25%–35% energy intake), saturated fats (<7% energy intake) and minimise trans-fat (<1% energy intake) for prevention and treatment of CVD.
 - [Level I] A healthy diet incorporating oats, nuts and legumes, green leafy vegetables and soy protein may be beneficial for cardiovascular health.
 
-Sodium
+### 3.5.1.5: Sodium
 - [Level I] In normotensive and hypertensive patients, a reduced sodium intake (<2,000 mg sodium/day or 5 g of salt a day or 1 teaspoon) with a diet high in fruits, vegetables, and low-fat dairy products lowers BP.
 
 Dietary Supplements and Diabetes-Specific Formulas
@@ -126,7 +126,7 @@ Recommendations: Medical Nutrition Therapy
 | 3. A healthful eating pattern i.e. low in saturated fat, low in sodium, high in fruits, vegetables, wholegrain cereals and legumes is recommended for prediabetes and T2DM patients. | *[Grade B]* |
 | 4. Meal plans that meet individualised caloric goals with a macronutrient distribution that is consistent with a healthful eating pattern is recommended for long-term achievement of glycaemia, lipids and weight goals. | *[Grade B]* |
 
-### 3.5.2: Physical Activity
+## 3.5.2: Physical Activity
 - Increased physical activity can improve glycaemic control, assist with weight maintenance, and reduce the risk of CVD.
 - Combining physical activity with dietary intervention results in greater HbA1c reduction.
 - [Level II-2] Mild to moderate exercise is generally safe but before beginning a program of vigorous physical activity, people with T2DM should be assessed for complications that may preclude vigorous exercise (CVD, retinopathy, neuropathy and foot injury).
@@ -162,7 +162,7 @@ Recommendations: Physical activity
 | 3. Higher duration of exercise (300 minutes/week of moderate-intensity) is advisable for greater benefit in glycaemic control and cardiovascular risk reduction. | *[Grade B]* |
 | 4. Glucose lowering drugs may need adjustment if exercise is planned. Insulin-treated patients engaging in moderate/high-intensity exercise may require counselling and modification of insulin doses. | *[Grade C]* |
 
-### 3.5.3: Tobacco cessation
+## 3.5.3: Tobacco cessation
 - Smoking of tobacco and tobacco products (cigarette, electronic cigarette/vape, shisha, pipe, cigar etc.) can lead to various complications of chronic non-communicable diseases (NCD) such as coronary heart disease, cancers, and chronic lung disease. It is the main cause of death worldwide whereby 8 million people die every year as a consequence of this habit.
 - Hence, the decision to integrate smoking treatment with NCDs is important to reduce the prevalence of NCDs and their complications. This decision was made during the World Health Organization Framework Convention on Tobacco Control (WHO FCTC) Steering Committee Meeting in December 2019 chaired by the Honourable Health Minister of Malaysia.
 - The treatment for smoking should be initiated by the treating doctor based on the assessment and treatment of tobacco use disorder as in Appendix 12: Assessment and Treatment of Tobacco Use Disorder. More details on this can be found in the CPG on Treatment of Tobacco Use Disorder 2016, available at: https://www.moh.gov.my/moh/resources/Penerbitan/CPG/Respiratory/CPG_TobaccoDisorder.pdf

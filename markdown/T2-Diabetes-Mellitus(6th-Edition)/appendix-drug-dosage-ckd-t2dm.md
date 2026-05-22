@@ -320,6 +320,7 @@ Activities to increase muscle strength and endurance for minimum of 3 times per 
 *CKD: chronic kidney disease; OD: daily; BD: twice daily; TDS: three times daily; GFR: glomerular filtration rate; DPP4-i: Dipeptidyl peptidase-4 inhibitors; GLP1-RA: glucagon-like peptide-1 receptor agonists; SGLT2-i: sodium-glucose transport protein 2 inhibitors.*
 
 ## Appendix 8: Cardiovascular Outcomes Trials (CVOTs)
+### Appendix 8.1: CVOTs — DPP4-i
 (A) DPP4-i
 | CVOTs DPP4-i | SAVOR-TIMI 53 (Level I) | EXAMINE (Level I) | TECOS (Level I) | CARMELINA (Level I) | CAROLINA (Level I) |
 |---|---|---|---|---|---|
@@ -347,6 +348,7 @@ Activities to increase muscle strength and endurance for minimum of 3 times per 
 
 *CVOTs: cardiovascular outcomes trials; DPP4-i: Dipeptidyl peptidase-4 inhibitors; CV: cardiovascular; CVD: cardiovascular disease; CHF: congestive heart failure; MI: myocardial infarction; HF: heart failure; HR: hazard ratio; DKD: diabetic kidney diseases; QD: once daily; T2DM: type 2 diabetes mellitus; ACS: acute coronary syndrome; ASCVD: atherosclerotic cardiovascular disease; MACE: major adverse cardiovascular events.*
 
+### Appendix 8.2: CVOTs — SGLT2-i
 (B) SGLT2-i
 | CVOTs SGLT2-i | EMPA-REG (Level I) | CANVAS program (Level I) | DECLARE-TIMI (Level I) | VERTIS CV* (Level I) |
 |---|---|---|---|---|
@@ -377,6 +379,7 @@ Activities to increase muscle strength and endurance for minimum of 3 times per 
 
 *CVOTs: cardiovascular outcomes trials; SGLT2-i: sodium-glucose cotransporter 2 inhibitors; CV: cardiovascular; CVD: cardiovascular disease; CHF: congestive heart failure; MI: myocardial infarction; HF: heart failure; HR: hazard ratio; DKD: diabetic kidney diseases; QD: once daily; T2DM: type 2 diabetes mellitus; ACS: acute coronary syndrome; ASCVD: atherosclerotic cardiovascular disease; MACE: major adverse cardiovascular events.*
 
+### Appendix 8.3: CVOTs — GLP1-RA
 (C) GLP1-RA
 | CVOTs GLP1-RA | ELIXA (Level I) | LEADER (Level I) | SUSTAIN-6 (Level I) | EXSCEL (Level I) | HARMONY outcomes (Level I) | REWIND (Level I) | PIONEER 6 (Level I) |
 |---|---|---|---|---|---|---|---|

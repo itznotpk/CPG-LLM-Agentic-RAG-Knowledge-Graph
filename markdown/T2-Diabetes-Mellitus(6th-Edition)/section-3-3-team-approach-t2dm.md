@@ -34,7 +34,7 @@ Dietitian
 - Dietitians help patients develop healthful eating plans, appropriate to individual needs and circumstances.
 - In addition, they can help identify and address problems such as disordered meal patterns, timing of meals, eating disorders and other physiological and psychosocial problems.
 - These issues may not be readily identified during doctor office visits.
-- The other team members also need to understand the principles of dietary advice to assist in reinforcing dietary recommendations (Refer Section 3.5.1: Medical Nutrition Therapy (MNT)). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h3_section" -->
+- The other team members also need to understand the principles of dietary advice to assist in reinforcing dietary recommendations (Refer Section 3.5.1: Medical Nutrition Therapy (MNT)). <!-- cross_ref target_file="section-3-5-lifestyle-modification-t2dm.md" target_heading="3.5.1: Medical Nutrition Therapy (MNT)" target_kind="h2_section" -->
 
 Registered Nurses and Assistant Medical Officers
 - Registered nurses and assistant medical officers can provide assessments before the doctor sees the patient, which allows for a better focus on any identified problems.
