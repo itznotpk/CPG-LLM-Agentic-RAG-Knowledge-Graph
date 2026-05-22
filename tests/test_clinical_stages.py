@@ -157,7 +157,11 @@ async def test_stage2_calls_search_ddx():
          "inclusion_match": False, "matched_term": None, "reasoning": []},
     ]
 
-    with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=raw_results)) as mock_ddx:
+    # Mock extraction so the test is deterministic and never hits the LLM
+    # (extraction now succeeds and may rephrase/recapitalise the notes).
+    with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=raw_results)) as mock_ddx, \
+         patch("agent.clinical_stages._extract_symptom_phrase",
+               new=AsyncMock(return_value="palpitations, irregular pulse")):
         result = await stage_2_ddx(case, top_k=5, rerank=False)
 
     mock_ddx.assert_awaited_once()

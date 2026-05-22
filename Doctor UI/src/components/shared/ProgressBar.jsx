@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, XCircle, AlertCircle, Info } from 'lucide-react';
+import { CheckCircle, XCircle, AlertCircle, Info, Loader2 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 export function ProgressBar({ value, max = 100, variant = 'primary', className = '', showLabel = true }) {
@@ -58,15 +58,20 @@ export function ProbabilityBar({ label, probability, risk = 'low', className = '
   );
 }
 
-export function StepIndicator({ steps, currentStep, className = '' }) {
+export function StepIndicator({ steps, currentStep, isProcessing = false, className = '' }) {
   const { isDark } = useTheme();
-  
+
   return (
     <div className={`flex items-center justify-center gap-2 ${className}`}>
       {steps.map((step, index) => {
         const stepNumber = index + 1;
         const isActive = stepNumber === currentStep;
         const isCompleted = stepNumber < currentStep;
+        // While the pipeline runs we sit on `currentStep` but are really
+        // transitioning to the next one — surface that on the active step
+        // and the connector leading out of it.
+        const isTransitioning = isActive && isProcessing;
+        const connectorPending = isProcessing && stepNumber === currentStep; // line leaving active step
 
         return (
           <React.Fragment key={step.id || stepNumber}>
@@ -90,28 +95,34 @@ export function StepIndicator({ steps, currentStep, className = '' }) {
                     }
                   `}
                 >
-                  {isCompleted ? <CheckCircle className="w-5 h-5" /> : stepNumber}
+                  {isCompleted
+                    ? <CheckCircle className="w-5 h-5" />
+                    : isTransitioning
+                      ? <Loader2 className="w-5 h-5 animate-spin" strokeWidth={2.5} />
+                      : stepNumber}
                 </div>
               </div>
               <span
                 className={`
                   mt-2 text-xs font-medium
-                  ${isActive 
+                  ${isActive
                     ? (isDark ? 'text-white' : 'text-slate-800')
                     : (isDark ? 'text-slate-400' : 'text-slate-600')
                   }
                 `}
               >
-                {step.label}
+                {isTransitioning ? 'Analysing…' : step.label}
               </span>
             </div>
             {index < steps.length - 1 && (
-              <div
-                className={`
-                  w-12 h-0.5 mb-6
-                  ${isCompleted ? 'bg-green-500' : (isDark ? 'bg-[var(--accent-primary)]/30' : 'bg-[var(--accent-primary)]/20')}
-                `}
-              />
+              <div className={`relative w-12 h-0.5 mb-6 overflow-hidden rounded-full
+                ${isCompleted ? 'bg-green-500' : (isDark ? 'bg-[var(--accent-primary)]/30' : 'bg-[var(--accent-primary)]/20')}`}
+              >
+                {/* Animated fill on the connector leaving the active step while processing */}
+                {connectorPending && (
+                  <span className="absolute inset-0 bg-[var(--accent-primary)] animate-pulse" />
+                )}
+              </div>
             )}
           </React.Fragment>
         );

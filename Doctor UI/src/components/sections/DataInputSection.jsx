@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stethoscope, Sparkles, Brain, FileText, Activity, Search, UserPlus, CheckCircle, AlertCircle, X, Database, Heart, Pill, BarChart2, Wind, Scale, Thermometer, Loader2, ClipboardList } from 'lucide-react';
+import { Stethoscope, Sparkles, Brain, FileText, Activity, Search, UserPlus, CheckCircle, AlertCircle, X, Database, Heart, Pill, BarChart2, Wind, Scale, Thermometer, Loader2, ClipboardList, Pencil } from 'lucide-react';
 import { ClinicalNotes } from './ClinicalNotes';
 import { PipelineProgress } from './PipelineProgress';
 import { VitalsGrid } from './VitalsGrid';
@@ -9,6 +9,25 @@ import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { VitalsLineChart } from '../shared/VitalsLineChart';
 import { getPatientConsultation } from '../../lib/supabase';
+
+// ── Medications text ⇄ structured helpers ──────────────────────────────
+// DB shape is [{ name, dose, frequency }]. The UI uses a single comma-separated
+// text field; we keep the full label in `name` so nothing is lost on round-trip.
+function medsToText(meds) {
+  if (!Array.isArray(meds)) return '';
+  return meds
+    .map(m => (typeof m === 'string'
+      ? m
+      : [m.name || m.medication, m.dose, m.frequency].filter(Boolean).join(' ')))
+    .join(', ');
+}
+function textToMeds(text) {
+  return (text || '')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(name => ({ name, dose: '', frequency: '' }));
+}
 
 // Analyzing Skeleton Component
 function AnalyzingSkeleton() {
@@ -225,8 +244,58 @@ function ChartModal({ patient, isOpen, onClose }) {
 // Patient Info Display Card for found patients
 function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
   const { isDark } = useTheme();
+  const { dispatch } = useApp();
   const [previousNotes, setPreviousNotes] = React.useState(null);
   const [loadingNotes, setLoadingNotes] = React.useState(true);
+
+  // ── Edit mode for the patient record (allergies / comorbidities / meds) ──
+  const [isEditing, setIsEditing] = React.useState(false);
+  const [isSaving, setIsSaving] = React.useState(false);
+  const [saveError, setSaveError] = React.useState('');
+  const [draft, setDraft] = React.useState(null);
+
+  const startEdit = () => {
+    setDraft({
+      allergies: mpisData?.allergies || '',
+      comorbidities: mpisData?.comorbidities || [],
+      currentMeds: mpisData?.currentMeds || [],
+    });
+    setSaveError('');
+    setIsEditing(true);
+  };
+
+  const cancelEdit = () => {
+    setIsEditing(false);
+    setDraft(null);
+    setSaveError('');
+  };
+
+  const handleSaveRecord = async () => {
+    if (!patient?.nsn || !draft) return;
+    setIsSaving(true);
+    setSaveError('');
+    try {
+      const { updatePatientFromMPIS } = await import('../../lib/supabase');
+      const payload = {
+        allergies: draft.allergies || null,
+        comorbidities: draft.comorbidities || [],
+        currentMeds: draft.currentMeds || [],
+      };
+      const { success, error } = await updatePatientFromMPIS(patient.nsn, payload);
+      if (!success || error) {
+        setSaveError(error?.message || 'Failed to save changes');
+      } else {
+        // Reflect the saved values in app state so the rest of the flow sees them.
+        dispatch({ type: 'SET_MPIS_DATA', payload: { ...mpisData, ...payload } });
+        setIsEditing(false);
+        setDraft(null);
+      }
+    } catch (err) {
+      setSaveError(err.message || 'Failed to save changes');
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   // Fetch previous clinical notes when patient is loaded
   React.useEffect(() => {
@@ -264,21 +333,45 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          {onViewChart && (
-            <Button
-              variant="success"
-              size="sm"
-              icon={BarChart2}
-              onClick={() => onViewChart(patient)}
-            >
-              View Chart
-            </Button>
+          {isEditing ? (
+            <>
+              <Button variant="primary" size="sm" icon={Database} onClick={handleSaveRecord} loading={isSaving} disabled={isSaving}>
+                Save
+              </Button>
+              <Button variant="ghost" size="sm" onClick={cancelEdit} disabled={isSaving}>
+                Cancel
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button variant="secondary" size="sm" icon={Pencil} onClick={startEdit}>
+                Edit
+              </Button>
+              {onViewChart && (
+                <Button
+                  variant="success"
+                  size="sm"
+                  icon={BarChart2}
+                  onClick={() => onViewChart(patient)}
+                >
+                  View Chart
+                </Button>
+              )}
+              <Button variant="ghost" size="sm" icon={X} onClick={onClear}>
+                Clear
+              </Button>
+            </>
           )}
-          <Button variant="ghost" size="sm" icon={X} onClick={onClear}>
-            Clear
-          </Button>
         </div>
       </div>
+
+      {/* Save error */}
+      {saveError && (
+        <div className="mb-4 p-3 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center gap-2">
+          <AlertCircle className="w-5 h-5 text-red-500" strokeWidth={1.5} />
+          <span className={`text-sm font-medium ${isDark ? 'text-red-400' : 'text-red-700'}`}>{saveError}</span>
+        </div>
+      )}
 
       {/* Patient Demographics — bordered grid with ds-eyebrow labels */}
       <div className={`grid grid-cols-2 md:grid-cols-4 text-sm mb-4 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'} border rounded-xl overflow-hidden ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
@@ -303,9 +396,22 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
         </div>
         <div className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
           <p className="ds-eyebrow mb-1">Allergies</p>
-          <p className={`font-medium text-sm ${mpisData?.allergies ? 'text-red-500' : isDark ? 'text-white' : 'text-slate-800'}`}>
-            {mpisData?.allergies || 'No known allergies'}
-          </p>
+          {isEditing ? (
+            <input
+              type="text"
+              className={`w-full px-2.5 py-1.5 rounded-lg border text-sm ${isDark
+                ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+                : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+                } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+              placeholder="e.g., Penicillin (or leave blank)"
+              value={draft?.allergies || ''}
+              onChange={e => setDraft(d => ({ ...d, allergies: e.target.value }))}
+            />
+          ) : (
+            <p className={`font-medium text-sm ${mpisData?.allergies ? 'text-red-500' : isDark ? 'text-white' : 'text-slate-800'}`}>
+              {mpisData?.allergies || 'No known allergies'}
+            </p>
+          )}
         </div>
       </div>
 
@@ -314,7 +420,18 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
         {/* Comorbidities */}
         <div className={`p-4 rounded-xl border-l-2 border-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20'}`}>
           <p className="ds-eyebrow mb-2">Comorbidities</p>
-          {mpisData?.comorbidities?.length > 0 ? (
+          {isEditing ? (
+            <input
+              type="text"
+              className={`w-full px-2.5 py-1.5 rounded-lg border text-sm ${isDark
+                ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+                : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+                } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+              placeholder="e.g., Hypertension, Diabetes"
+              value={draft?.comorbidities?.join(', ') || ''}
+              onChange={e => setDraft(d => ({ ...d, comorbidities: e.target.value.split(',').map(s => s.trim()).filter(Boolean) }))}
+            />
+          ) : mpisData?.comorbidities?.length > 0 ? (
             <div className="flex flex-wrap gap-1.5">
               {mpisData.comorbidities.map((condition, idx) => (
                 <Badge key={idx} variant="warning" size="sm">{condition}</Badge>
@@ -351,7 +468,18 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
         {/* Current Medications */}
         <div className={`p-4 rounded-xl border-l-2 border-amber-400 ${isDark ? 'bg-amber-500/5 border border-amber-500/20' : 'bg-amber-50/60 border border-amber-200'}`}>
           <p className="ds-eyebrow mb-2" style={{ color: 'rgb(245,158,11)' }}>Current medications</p>
-          {mpisData?.currentMeds?.length > 0 ? (
+          {isEditing ? (
+            <input
+              type="text"
+              className={`w-full px-2.5 py-1.5 rounded-lg border text-sm ${isDark
+                ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+                : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+                } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+              placeholder="e.g., Metformin 500mg BD, Amlodipine 5mg OD"
+              value={medsToText(draft?.currentMeds)}
+              onChange={e => setDraft(d => ({ ...d, currentMeds: textToMeds(e.target.value) }))}
+            />
+          ) : mpisData?.currentMeds?.length > 0 ? (
             <div className="space-y-1.5">
               {mpisData.currentMeds.map((med, idx) => (
                 <div key={idx} className={`flex items-center justify-between text-sm ${isDark ? 'border-b border-white/10' : 'border-b border-amber-100'} pb-1 last:border-0 last:pb-0`}>
@@ -478,11 +606,12 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
     setRegistrationError('');
 
     try {
-      // Import the register function
-      const { registerPatient } = await import('../../lib/supabase');
+      // Import the register + update functions
+      const { registerPatient, updatePatientFromMPIS } = await import('../../lib/supabase');
 
+      const nric = patient.nsn || nsn;
       const result = await registerPatient({
-        nric: patient.nsn || nsn,
+        nric,
         fullName: patient.name,
         dateOfBirth: patient.dob,
         gender: patient.gender,
@@ -495,6 +624,15 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
       if (result.error) {
         setRegistrationError(result.error.message || 'Failed to register patient');
       } else {
+        // register_patient RPC does not accept current_medications, so persist
+        // meds (and re-affirm allergies/comorbidities) in a follow-up update.
+        if (mpisData?.currentMeds?.length > 0) {
+          await updatePatientFromMPIS(nric, {
+            allergies: mpisData?.allergies || null,
+            comorbidities: mpisData?.comorbidities || null,
+            currentMeds: mpisData.currentMeds,
+          });
+        }
         setRegistrationSuccess(true);
         console.log('✅ Patient registered successfully:', result.patientId);
         // Important: Update parent state that patient is now in DB
@@ -519,10 +657,10 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
           </div>
           <div>
             <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
-              New Patient Registration
+              New patient
             </h3>
-            <p className={`text-sm ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
-              NRIC "{nsn}" not found. Please enter patient information.
+            <p className={`text-sm font-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              {nsn}
             </p>
           </div>
         </div>
@@ -552,15 +690,10 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
       )}
 
       {/* Patient Demographics */}
-      <div className="space-y-4">
+      <div className="space-y-6">
         <div>
-          <h4 className={`text-sm font-semibold mb-3 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-            Patient Demographics
-            <span className={`ml-2 text-xs font-normal ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              (Auto-filled from NRIC)
-            </span>
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h4 className="ds-eyebrow mb-3">Demographics</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <div>
               <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                 Full Name *
@@ -578,7 +711,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
             </div>
             <div>
               <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Date of Birth * <span className="text-emerald-500">(from NRIC)</span>
+                Date of Birth *
               </label>
               <input
                 type="date"
@@ -592,7 +725,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
             </div>
             <div>
               <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Age <span className="text-emerald-500">(calculated)</span>
+                Age
               </label>
               <input
                 type="number"
@@ -607,7 +740,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
             </div>
             <div>
               <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Gender * <span className="text-emerald-500">(from NRIC)</span>
+                Gender *
               </label>
               <select
                 className={`w-full px-3 py-2 rounded-lg border ${isDark
@@ -647,10 +780,8 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
 
         {/* Medical Information */}
         <div>
-          <h4 className={`text-sm font-semibold mb-3 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-            Medical Information
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <h4 className="ds-eyebrow mb-3">Medical</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                 Known Allergies
@@ -668,7 +799,7 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
             </div>
             <div>
               <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Comorbidities (comma-separated)
+                Comorbidities
               </label>
               <input
                 type="text"
@@ -681,27 +812,35 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
                 onChange={e => handleMpisChange('comorbidities', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
               />
             </div>
+            <div className="md:col-span-2">
+              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                Current Medications
+              </label>
+              <input
+                type="text"
+                className={`w-full px-3 py-2 rounded-lg border ${isDark
+                  ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+                  : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400'
+                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+                placeholder="e.g., Metformin 500mg BD, Amlodipine 5mg OD"
+                value={medsToText(mpisData?.currentMeds)}
+                onChange={e => handleMpisChange('currentMeds', textToMeds(e.target.value))}
+              />
+            </div>
           </div>
         </div>
 
         {/* Register Button */}
-        <div className="pt-4 border-t border-amber-500/20">
+        <div className="pt-5 border-t border-amber-500/20 flex justify-end">
           <Button
             variant={registrationSuccess ? 'success' : 'primary'}
-            size="lg"
             icon={registrationSuccess ? CheckCircle : Database}
             onClick={handleRegisterPatient}
             loading={isRegistering}
             disabled={!canRegister || isRegistering || registrationSuccess}
-            className="w-full sm:w-auto"
           >
-            {registrationSuccess ? 'Patient Registered' : isRegistering ? 'Registering...' : 'Register Patient to Database'}
+            {registrationSuccess ? 'Registered' : isRegistering ? 'Registering…' : 'Register patient'}
           </Button>
-          {!canRegister && (
-            <p className={`mt-2 text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              Please fill in Full Name, Date of Birth, and Gender to register.
-            </p>
-          )}
         </div>
       </div>
     </GlassCard>

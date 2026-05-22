@@ -3,7 +3,7 @@ import styles from './Login.module.css';
 import '../styles/colors_and_type.css';
 import { useAuth } from '../context/AuthContext';
 
-export default function Login() {
+export default function Login({ onBackToLanding }) {
   const cardRef = useRef(null);
   const wrapRef = useRef(null);
 
@@ -162,6 +162,27 @@ export default function Login() {
 
       {/* ====== RIGHT — LOGIN PANEL ====== */}
       <section className={styles.right} aria-label="Sign in">
+        {/* Back to landing page */}
+        {onBackToLanding && (
+          <button
+            type="button"
+            onClick={onBackToLanding}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+              background: 'none', border: 'none', cursor: 'pointer',
+              padding: '6px 4px', marginBottom: 4,
+              fontSize: 13, fontWeight: 500, color: 'var(--fg-secondary, #334155)',
+              alignSelf: 'flex-start',
+            }}
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5" />
+              <path d="M12 19l-7-7 7-7" />
+            </svg>
+            Back
+          </button>
+        )}
+
         {/* Perspective wrapper for 3D tilt */}
         <div className={styles.cardWrap} ref={wrapRef}>
           <div className={styles.card} ref={cardRef}>

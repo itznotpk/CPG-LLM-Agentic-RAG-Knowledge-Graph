@@ -368,7 +368,7 @@ Groups: 30
 
 ---
 
-## Nasopharyngeal-Carcinoma
+## Nasopharyngeal-Carcinoma ✅
 - Rows in DB: 11
 - Last classified: 2026-05-22T00:00:00+08:00
 - Proposed icd11_scope: `2B6B`, `2B6B.0`, `2B6B.1`, `2B6B.Y`, `2B6B.Z`

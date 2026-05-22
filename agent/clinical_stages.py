@@ -467,11 +467,16 @@ async def _extract_symptom_phrase(
     notes: str,
     client: openai.AsyncOpenAI,
     model: str,
+    extra_body: dict | None = None,
 ) -> str:
     """Compress clinical notes to a symptom-focused query string for DDx vector search.
 
     Long clinical narratives dilute the ICD-11 vector match. This pre-step extracts
     only the presenting symptoms relevant to differential diagnosis.
+
+    extra_body is forwarded to the API call. For reasoning models (e.g. mimo) this
+    MUST disable thinking — otherwise the model spends its whole token budget on
+    hidden reasoning and returns empty content, forcing a fallback to raw notes.
     """
     # Concise prompt without few-shot examples — MiMo follows direct instructions
     # better than imitating examples (which it can confuse with the expected output format).
@@ -491,6 +496,7 @@ async def _extract_symptom_phrase(
             messages=[{"role": "user", "content": prompt}],
             max_tokens=80,
             temperature=0,
+            **({"extra_body": extra_body} if extra_body else {}),
         )
         phrase = resp.choices[0].message.content.strip().strip('"').strip("'").rstrip(".")
 
@@ -546,7 +552,15 @@ async def stage_2_ddx(
         _s2_model if _using_override
         else os.getenv("SYMPTOM_EXTRACT_MODEL", os.getenv("LLM_CHOICE", "gemini-2.0-flash"))
     )
-    query = await _extract_symptom_phrase(case.chief_complaint, client, extraction_model)
+    # mimo (and other reasoning models reached via the STAGE2 override) must have
+    # thinking disabled for extraction, or they burn the whole token budget on hidden
+    # reasoning and return empty content → silent fallback to the raw, diluting notes.
+    extraction_extra_body = (
+        {"chat_template_kwargs": {"enable_thinking": False}} if _using_override else None
+    )
+    query = await _extract_symptom_phrase(
+        case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body
+    )
 
     if emit is not None:
         await emit("sub_step", {

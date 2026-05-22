@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Login from './pages/Login';
+import Landing from './pages/Landing';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { AppProvider, useApp } from './context/AppContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
@@ -27,14 +36,22 @@ const steps = [
   { id: 4, label: 'Complete' },
 ];
 
-function AppContent() {
+// Top-level app views that map 1:1 to URL paths (/dashboard, /patients, …).
+// 'chart' is intentionally NOT routable — it's an in-memory sub-view that
+// needs a patient object, so it lives under /patients and falls back there.
+const APP_VIEWS = ['dashboard', 'patients', 'consultation', 'settings', 'analytics'];
+
+function AppContent({ view }) {
   const { state, dispatch, goToStep } = useApp();
   const { isDark } = useTheme();
   const { profile: authProfile, signOut, refreshProfile } = useAuth();
   const { currentStep } = state;
-  const [currentView, setCurrentView] = useState('dashboard');
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const navigate = useNavigate();
+  // 'chart' is a transient sub-view layered over the routed views.
   const [chartPatient, setChartPatient] = useState(null);
+  const [showChart, setShowChart] = useState(false);
+  const currentView = showChart ? 'chart' : view;
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const profile = authProfile ? {
     name:       authProfile.full_name      || 'Clinician',
@@ -58,14 +75,15 @@ function AppContent() {
     !!state.diagnosis ||
     !!state.carePlan;
 
-  const handleNavigate = (view) => {
+  const handleNavigate = (nextView) => {
     // Returning to the consultation tab: keep an in-progress/active consult
     // intact so background work survives. Only reset a stale, idle one so the
     // tab opens fresh when nothing is happening.
-    if (view === 'consultation' && !hasActiveConsult) {
+    if (nextView === 'consultation' && !hasActiveConsult) {
       dispatch({ type: 'RESET' });
     }
-    setCurrentView(view);
+    setShowChart(false);
+    navigate(`/${nextView}`);
   };
 
   const handleStartConsult = (patient, triage) => {
@@ -113,17 +131,19 @@ function AppContent() {
     }
 
     // Navigate to consultation
-    setCurrentView('consultation');
+    setShowChart(false);
+    navigate('/consultation');
   };
 
   const handleNewPatient = () => {
     dispatch({ type: 'RESET' });
-    setCurrentView('consultation');
+    setShowChart(false);
+    navigate('/consultation');
   };
 
   const handleViewChart = (patient) => {
     setChartPatient(patient);
-    setCurrentView('chart');
+    setShowChart(true);
   };
 
   const renderCurrentSection = () => {
@@ -163,7 +183,11 @@ function AppContent() {
 
             {/* Step Indicator */}
             <div className="mb-6">
-              <StepIndicator steps={steps} currentStep={currentStep} />
+              <StepIndicator
+                steps={steps}
+                currentStep={currentStep}
+                isProcessing={state.isAnalyzing || state.isGeneratingPlan}
+              />
             </div>
 
             {/* Main Content Area */}
@@ -187,7 +211,7 @@ function AppContent() {
       case 'analytics':
         return <DashboardSection />;
       case 'chart':
-        return <PatientChart patient={chartPatient} onBack={() => setCurrentView('patients')} />;
+        return <PatientChart patient={chartPatient} onBack={() => setShowChart(false)} />;
       default:
         return <Home onStartConsult={handleStartConsult} onViewChart={handleViewChart} />;
     }
@@ -235,33 +259,69 @@ function AppContent() {
   );
 }
 
-function Gate() {
-  const { session, loading } = useAuth();
+/* ── Route: marketing landing (public) ── */
+function LandingRoute() {
+  const { session } = useAuth();
+  const navigate = useNavigate();
+  if (session) return <Navigate to="/dashboard" replace />;
+  return <Landing onSignIn={() => navigate('/login')} />;
+}
 
-  if (loading) {
-    return <SplashScreen />;
-  }
+/* ── Route: login (public) ── */
+function LoginRoute() {
+  const { session } = useAuth();
+  const navigate = useNavigate();
+  if (session) return <Navigate to="/dashboard" replace />;
+  return <Login onBackToLanding={() => navigate('/')} />;
+}
 
-  if (!session) {
-    return <Login />;
-  }
+/* ── Route: authenticated app shell ── */
+function AppShell() {
+  const { session } = useAuth();
+  const { view } = useParams();
+
+  // Unauthenticated access to a protected route → send to Login (not Landing),
+  // which is also how sign-out behaves.
+  if (!session) return <Navigate to="/login" replace />;
+
+  // Unknown view slug → normalise to the dashboard.
+  if (!APP_VIEWS.includes(view)) return <Navigate to="/dashboard" replace />;
 
   return (
     <ThemeProvider>
       <AppProvider>
         <ToastProvider>
-          <AppContent />
+          <AppContent view={view} />
         </ToastProvider>
       </AppProvider>
     </ThemeProvider>
   );
 }
 
+function Gate() {
+  const { loading } = useAuth();
+
+  if (loading) {
+    return <SplashScreen />;
+  }
+
+  return (
+    <Routes>
+      <Route path="/" element={<LandingRoute />} />
+      <Route path="/login" element={<LoginRoute />} />
+      <Route path="/:view" element={<AppShell />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
+
 function App() {
   return (
-    <AuthProvider>
-      <Gate />
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <Gate />
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

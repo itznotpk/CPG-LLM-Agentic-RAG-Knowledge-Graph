@@ -30,6 +30,7 @@ export default {
       fontFamily: {
         sans: ['Geist', 'system-ui', 'sans-serif'],
         mono: ['Geist Mono', 'monospace'],
+        display: ['"DM Serif Display"', 'Times New Roman', 'serif'],
       },
       backdropBlur: {
         xs: '2px',

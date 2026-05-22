@@ -21,6 +21,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { GlassCard } from '../shared/GlassCard';
+import { Button } from '../shared/Button';
 import { useTheme, accentColors } from '../../context/ThemeContext';
 
 const Settings = ({ profile, setProfile }) => {
@@ -82,16 +83,9 @@ const Settings = ({ profile, setProfile }) => {
               <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{profile.specialty}</p>
             </div>
             {!isProfileEditing && (
-              <button
-                onClick={() => setIsProfileEditing(true)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all
-                  ${isDark
-                    ? 'bg-white/10 hover:bg-white/20 text-white border border-white/10'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'}`}
-              >
-                <Edit3 className="w-4 h-4" />
+              <Button variant="secondary" size="sm" icon={Edit3} onClick={() => setIsProfileEditing(true)}>
                 Edit Profile
-              </button>
+              </Button>
             )}
           </div>
           {isProfileEditing && (
@@ -364,10 +358,7 @@ const Settings = ({ profile, setProfile }) => {
                 <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Two-factor authentication enabled</p>
               </div>
             </div>
-            <button className={`px-3 py-1.5 rounded-lg text-sm border transition-all
-              ${isDark ? 'bg-white/5 text-slate-300 hover:bg-white/10 border-white/10' : 'bg-white text-slate-600 hover:bg-slate-50 border-slate-300'}`}>
-              Manage
-            </button>
+            <Button variant="secondary" size="sm">Manage</Button>
           </div>
         </div>
 
@@ -380,10 +371,7 @@ const Settings = ({ profile, setProfile }) => {
                 <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>English (Malaysia)</p>
               </div>
             </div>
-            <button className={`px-3 py-1.5 rounded-lg text-sm border transition-all
-              ${isDark ? 'bg-white/5 text-slate-300 hover:bg-white/10 border-white/10' : 'bg-white text-slate-600 hover:bg-slate-50 border-slate-300'}`}>
-              Change
-            </button>
+            <Button variant="secondary" size="sm">Change</Button>
           </div>
         </div>
 
@@ -454,20 +442,12 @@ const Settings = ({ profile, setProfile }) => {
           {/* Profile Edit Footer */}
           {activeTab === 'profile' && isProfileEditing && (
             <div className={`flex justify-end gap-3 mt-8 pt-6 border-t ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-              <button
-                onClick={() => setIsProfileEditing(false)}
-                className={`px-4 py-2 rounded-lg transition-colors ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-800'}`}
-              >
+              <Button variant="ghost" onClick={() => setIsProfileEditing(false)}>
                 Cancel
-              </button>
-              <button
-                onClick={handleSaveProfile}
-                className="flex items-center gap-2 px-6 py-2 rounded-lg font-medium
-                  bg-[var(--accent-primary)] hover:opacity-90 text-white transition-all"
-              >
-                <Save className="w-4 h-4" />
+              </Button>
+              <Button variant="primary" icon={Save} onClick={handleSaveProfile}>
                 Save Changes
-              </button>
+              </Button>
             </div>
           )}
         </GlassCard>

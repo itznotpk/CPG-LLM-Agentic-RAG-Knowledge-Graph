@@ -137,54 +137,91 @@ export function DiagnosisSection() {
           </div>
         )}
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           {sortedDifferentials.map((diff, idx) => {
             const isSelected = selectedIds.includes(diff.id);
             const isTopSuggestion = idx === 0;
-            const riskColors = {
-              low: 'bg-emerald-500',
+            // probability is already 0–100 (mapped from similarity*100 in clinicalMappers.js)
+            const pct = diff.probability != null ? Math.round(diff.probability) : null;
+
+            // Canonical MHNexus colors from 19-probability.html
+            const barFill =
+              pct == null   ? '#94a3b8'
+              : pct >= 70   ? '#ef4444'
+              : pct >= 40   ? '#f59e0b'
+              : '#22c55e';
+
+            const riskDotColor = {
+              low:    'bg-emerald-500',
               medium: 'bg-amber-500',
-              high: 'bg-rose-500',
-            };
+              high:   'bg-rose-500',
+            }[diff.risk] ?? 'bg-amber-500';
 
             return (
               <button
                 key={diff.id}
                 onClick={() => handleSelectDiagnosis(diff.id)}
-                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center justify-between border-l-3 ${
+                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 border-l-4 ${
                   isSelected
                     ? `border-l-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/10'}`
-                    : `border-l-transparent ${isDark ? 'hover:bg-white/5' : 'hover:bg-white/20'}`
+                    : `border-l-transparent ${isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`
                 }`}
               >
-                <div className="flex items-center gap-3 flex-1 min-w-0">
-                  <span className={`ds-numeric text-sm font-mono font-semibold shrink-0 ${
-                    isSelected ? 'text-[var(--accent-primary)]' : isDark ? 'text-slate-400' : 'text-slate-600'
+                {/* Row 1: name · ICD · badges · percentage — matches 19-probability.html .head */}
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className={`font-mono text-xs font-semibold shrink-0 ${
+                    isSelected ? 'text-[var(--accent-primary)]' : isDark ? 'text-slate-400' : 'text-slate-500'
                   }`}>
                     {String(idx + 1).padStart(2, '0')}
                   </span>
-                  <span className={`font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                  {/* .nm — font-weight 500, var(--slate-700) */}
+                  <span
+                    className="flex-1 text-sm truncate"
+                    style={{ fontWeight: 500, color: isDark ? '#e2e8f0' : 'var(--slate-700)' }}
+                  >
                     {diff.name}
                   </span>
-                  <span className={`text-xs font-mono shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
+                  <span className={`text-[11px] font-mono shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                     ICD-11 · {diff.icdCode}
                   </span>
-                  <span className="text-slate-400 text-sm shrink-0">•</span>
-                  <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${riskColors[diff.risk] || riskColors.medium}`} />
-                  <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                    {diff.risk}
-                  </span>
+                  <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${riskDotColor}`} />
                   {isTopSuggestion && (
-                    <span className={`text-xs font-medium shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                      · AI top pick
+                    <span className="text-[10px] font-semibold text-[var(--accent-primary)] bg-[var(--accent-primary)]/10 px-1.5 py-0.5 rounded shrink-0">
+                      AI top pick
                     </span>
                   )}
-                  {diff.probability != null && (
-                    <span className={`text-xs font-mono shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                      · {Math.round(diff.probability * 100)}%
+                  {/* .pc — font-weight 700, tabular-nums, var(--slate-900) */}
+                  {pct != null && (
+                    <span
+                      className="font-mono text-sm shrink-0"
+                      style={{ fontWeight: 700, fontVariantNumeric: 'tabular-nums', color: isDark ? '#f1f5f9' : 'var(--slate-900)' }}
+                    >
+                      {pct}%
                     </span>
                   )}
                 </div>
+
+                {/* Row 2: probability bar — 10px height, 6px radius, 0.7s CSS transition */}
+                {pct != null && (
+                  <div
+                    style={{
+                      height: 10,
+                      borderRadius: 6,
+                      background: isDark ? 'rgba(255,255,255,0.08)' : 'var(--slate-100)',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <div
+                      style={{
+                        height: '100%',
+                        borderRadius: 6,
+                        background: barFill,
+                        width: `${pct}%`,
+                        transition: 'width 0.7s cubic-bezier(0.4,0,0.2,1)',
+                      }}
+                    />
+                  </div>
+                )}
               </button>
             );
           })}

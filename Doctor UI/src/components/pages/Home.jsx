@@ -18,6 +18,7 @@ import {
 import { todaySchedule, patientRegistry } from '../../data/scheduleData';
 import { getAllPatients } from '../../lib/supabase';
 import { GlassCard } from '../shared/GlassCard';
+import { Button } from '../shared/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../shared/Notification';
 import { useAuth } from '../../context/AuthContext';
@@ -307,12 +308,16 @@ const Home = ({ onStartConsult, onViewChart }) => {
                     {criticalPatient.triage.chiefComplaint} · arrived {criticalPatient.time}
                   </p>
                 </div>
-                <button
+                <Button
+                  variant="danger"
+                  size="sm"
+                  icon={ArrowRight}
+                  iconPosition="right"
                   onClick={() => handleStartConsultClick(criticalPatient)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-500 text-white hover:bg-rose-600 transition-colors flex-shrink-0"
+                  className="flex-shrink-0"
                 >
-                  See now <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-                </button>
+                  See now
+                </Button>
               </div>
             ) : (
               <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-emerald-500`}>
@@ -526,34 +531,37 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
                   {/* Actions */}
                   <div className="flex flex-col gap-2 ml-4 flex-shrink-0">
-                    <button
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      icon={Eye}
                       onClick={() => handleQuickView(appointment)}
-                      className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors min-w-[128px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400
-                        ${isDark
-                          ? 'bg-white/8 hover:bg-white/16 text-slate-300 hover:text-white border border-white/10'
-                          : 'bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-800 border border-slate-200'}`}
+                      className="min-w-[128px]"
                     >
-                      <Eye aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
                       Quick view
-                    </button>
+                    </Button>
                     {appointment.status === 'waiting' && (
-                      <button
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        icon={Play}
                         onClick={() => handleStartConsultClick(appointment)}
-                        className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg font-medium text-sm min-w-[128px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)]
-                          bg-gradient-to-r ${accent.gradient} text-white shadow-md ${accent.shadow}`}
+                        className="min-w-[128px]"
                       >
-                        <Play aria-hidden="true" className="w-4 h-4" strokeWidth={1.5} />
                         Start consult
-                      </button>
+                      </Button>
                     )}
                     {appointment.status === 'in-progress' && (
-                      <button
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        icon={ChevronRight}
+                        iconPosition="right"
                         onClick={() => handleStartConsultClick(appointment)}
-                        className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg font-medium text-sm min-w-[128px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 bg-blue-500 text-white hover:bg-blue-600 shadow-md"
+                        className="min-w-[128px]"
                       >
                         Resume
-                        <ChevronRight aria-hidden="true" className="w-4 h-4" strokeWidth={2} />
-                      </button>
+                      </Button>
                     )}
                     {appointment.status === 'done' && (
                       <span className="px-4 py-2.5 rounded-lg text-sm text-emerald-600 bg-emerald-500/10 font-medium text-center min-w-[128px]">

@@ -25,6 +25,7 @@ import {
   Loader2
 } from 'lucide-react';
 import { GlassCard } from '../shared/GlassCard';
+import { Button } from '../shared/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { getAllPatients, getPatientConsultation, getAllPatientConsultations } from '../../lib/supabase';
 
@@ -362,15 +363,9 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
           <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>My Patients</h1>
           <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Your patient panel and clinical history</p>
         </div>
-        <button
-          onClick={onNewPatient}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--accent-primary)]
-            bg-gradient-to-r ${accent.gradient} text-white
-            transition-transform hover:scale-[1.02] shadow-lg ${accent.shadow}`}
-        >
-          <UserPlus className="w-5 h-5" strokeWidth={1.5} />
+        <Button variant="primary" icon={UserPlus} onClick={onNewPatient}>
           Walk-in Consult
-        </button>
+        </Button>
       </div>
 
       {/* Search and Filter Bar */}
@@ -455,12 +450,9 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                     <div className="flex flex-col items-center gap-3">
                       <AlertCircle className="w-8 h-8 text-red-500" strokeWidth={1.5} />
                       <p className="text-red-500">{error}</p>
-                      <button
-                        onClick={fetchPatients}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium ${accent.text} hover:bg-[var(--accent-primary)]/10`}
-                      >
+                      <Button variant="ghost" size="sm" icon={RotateCcw} onClick={fetchPatients}>
                         Try Again
-                      </button>
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -688,14 +680,14 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                               {/* Recent Vital Signs */}
                               <div className={`p-4 rounded-xl border-l-2 border-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20'}`}>
                                 <p className="ds-eyebrow mb-3">Recent vital signs</p>
-                                <button
+                                <Button
+                                  variant="primary"
+                                  size="sm"
+                                  icon={FileText}
                                   onClick={() => onViewChart && onViewChart(patient)}
-                                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium
-                                    bg-gradient-to-r ${accent.gradient} text-white transition-all hover:opacity-90`}
                                 >
-                                  <FileText className="w-4 h-4" strokeWidth={1.5} />
                                   View chart
-                                </button>
+                                </Button>
                               </div>
 
                               {/* Clinical Notes */}
