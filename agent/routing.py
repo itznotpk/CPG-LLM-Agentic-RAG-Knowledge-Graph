@@ -8,7 +8,11 @@ Maps a predicted ICD-11 code to CPG document groups via:
 4. ancestor_d1_sibling — peer categories of the parent.
 5. ancestor_d1_sibling_child — children of those peer categories.
 6. ancestor_d2 — grandparent block.
-7. out_of_scope — no CPG matched.
+7. procedure_scope — tag overlap against caller-supplied procedure context tags
+   (catches procedure-only CPGs with no icd11_scope, e.g. anaesthesia guidelines).
+8. semantic_scope — cosine similarity between icd11_codes.embedding and
+   documents.scope_embedding (catches cross-chapter conditions D1 misses).
+9. out_of_scope — no CPG matched.
 
 Each CPGDocRef represents one CPG, not one section row. All section UUIDs for
 that CPG are collected in document_ids so downstream vector searches can filter
@@ -36,6 +40,8 @@ logger = logging.getLogger(__name__)
 
 ANCESTOR_MAX_DEPTH = 2
 ROUTE_TOP_K = 3
+SEMANTIC_SCOPE_THRESHOLD = 0.65  # minimum cosine similarity for D2 semantic fallback
+
 
 RouteMethod = Literal[
     "exact",
@@ -44,6 +50,8 @@ RouteMethod = Literal[
     "ancestor_d1_sibling",
     "ancestor_d1_sibling_child",
     "ancestor_d2",
+    "procedure_scope",
+    "semantic_scope",
 ]
 
 
@@ -149,22 +157,100 @@ async def _range_match(conn, icd_code: str) -> list[CPGDocRef]:
     )
 
 
+async def _procedure_scope_match(
+    conn,
+    procedure_tags: list[str],
+) -> list[CPGDocRef]:
+    """
+    Return CPGs whose procedure_scope overlaps with the supplied tags.
+    Uses Postgres array overlap (&&) so a single shared tag is enough.
+    Only considers scope_verified CPGs.
+    """
+    if not procedure_tags:
+        return []
+    rows = await conn.fetch(
+        """
+        SELECT id::text, title, metadata->>'cpg_name' AS cpg_name
+        FROM documents
+        WHERE scope_verified = TRUE
+          AND procedure_scope && $1::text[]
+        """,
+        procedure_tags,
+    )
+    return _group_document_rows(
+        rows,
+        match_type="procedure_scope",
+        matched_scope="procedure:" + ",".join(procedure_tags[:3]),
+    )
+
+
+async def _semantic_scope_match(
+    conn,
+    code: str,
+) -> list[CPGDocRef]:
+    """
+    Cosine similarity between icd11_codes.embedding and documents.scope_embedding.
+    Returns the single best CPG if similarity >= SEMANTIC_SCOPE_THRESHOLD.
+    Uses pgvector <=> operator (cosine distance = 1 - similarity).
+    """
+    icd_emb = await conn.fetchval(
+        "SELECT embedding FROM icd11_codes WHERE code = $1",
+        code,
+    )
+    if not icd_emb:
+        return []
+
+    # fetchval returns a list[float] for vector columns via asyncpg+pgvector
+    vec_str = "[" + ",".join(map(str, icd_emb)) + "]"
+
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT ON (metadata->>'cpg_name')
+               id::text, title,
+               metadata->>'cpg_name' AS cpg_name,
+               1 - (scope_embedding <=> $1::vector) AS similarity
+        FROM documents
+        WHERE scope_embedding IS NOT NULL
+          AND scope_verified = TRUE
+        ORDER BY metadata->>'cpg_name', scope_embedding <=> $1::vector
+        """,
+        vec_str,
+    )
+    if not rows:
+        return []
+
+    # pick the single best-scoring CPG
+    best = max(rows, key=lambda r: float(r["similarity"]))
+    if float(best["similarity"]) < SEMANTIC_SCOPE_THRESHOLD:
+        return []
+
+    return _group_document_rows(
+        [best],
+        match_type="semantic_scope",
+        matched_scope=f"semantic:{float(best['similarity']):.3f}",
+        default_score=float(best["similarity"]),
+    )
+
+
 async def find_cpgs_for_code(
     code: str,
     conn,
     max_depth: int = ANCESTOR_MAX_DEPTH,
+    procedure_tags: list[str] | None = None,
 ) -> tuple[list[CPGDocRef], str]:
     """
     Find CPGs for a predicted ICD-11 code.
 
     Returns (matched_documents, route_method). Lookup order:
-    1. exact         — code or range directly in icd11_scope
-    2. sibling       — same-parent codes incl. .Y / .Z variants
-    3. ancestor_d1   — direct parent
-    4. ancestor_d1_sibling       — peer categories of the parent
+    1. exact               — code or range directly in icd11_scope
+    2. sibling             — same-parent codes incl. .Y / .Z variants
+    3. ancestor_d1         — direct parent
+    4. ancestor_d1_sibling — peer categories of the parent
     5. ancestor_d1_sibling_child — children of those peer categories
-    6. ancestor_d2   — grandparent block
-    7. none          — D2 semantic fallback takes over
+    6. ancestor_d2         — grandparent block
+    7. procedure_scope     — tag overlap with caller-supplied procedure context
+    8. semantic_scope      — cosine(icd_embedding, scope_embedding) >= threshold
+    9. out_of_scope
     """
     # 1. Exact
     exact = await _scope_code_match(conn, code, match_type="exact")
@@ -223,25 +309,44 @@ async def find_cpgs_for_code(
             if refs:
                 return refs, "ancestor_d2"
 
-    return [], "none"
+    # 7. procedure_scope — tag overlap (catches procedure-only CPGs with no icd11_scope)
+    if procedure_tags:
+        refs = await _procedure_scope_match(conn, procedure_tags)
+        if refs:
+            logger.debug("procedure_scope match: code=%s tags=%s cpgs=%d", code, procedure_tags, len(refs))
+            return refs, "procedure_scope"
+
+    # 8. semantic_scope — cosine fallback via scope_embedding (D2)
+    refs = await _semantic_scope_match(conn, code)
+    if refs:
+        logger.debug("semantic_scope match: code=%s score=%s", code, refs[0].matched_scope)
+        return refs, "semantic_scope"
+
+    return [], "out_of_scope"
 
 
 async def route_icd_to_cpgs(
     icd_code: str,
     top_k: int = ROUTE_TOP_K,
+    procedure_tags: list[str] | None = None,
 ) -> list[CPGDocRef]:
     """
     Map an ICD-11 code to up to top_k CPGs.
 
     Tries exact → sibling → ancestor_d1 → ancestor_d1_sibling →
-    ancestor_d1_sibling_child → ancestor_d2 in order.
+    ancestor_d1_sibling_child → ancestor_d2 → procedure_scope → semantic_scope.
     Returns empty list if none match (out_of_scope).
+
+    procedure_tags: snake_case tags extracted from the clinical context
+    (e.g. ["pre_op_assessment", "anaesthetic_planning"]) used to route
+    procedure-only CPGs that have no icd11_scope.
     """
     async with db_pool.acquire() as conn:
         results, _ = await find_cpgs_for_code(
             icd_code,
             conn,
             max_depth=ANCESTOR_MAX_DEPTH,
+            procedure_tags=procedure_tags,
         )
 
         seen_names: set[str] = set()

@@ -40,11 +40,13 @@ SCORE_TERM_DISPLAY_FLOOR = 0.50
 RERANK_DISAGREEMENT_DELTA = 2
 ScoreRouteMethod = Literal[
     "exact",
+    "sibling",
     "ancestor_d1",
     "ancestor_d1_sibling",
     "ancestor_d1_sibling_child",
     "ancestor_d2",
-    "sibling",
+    "procedure_scope",
+    "semantic_scope",
     "out_of_scope",
 ]
 DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidates
@@ -152,6 +154,10 @@ def route_provenance_badge(route_method: ScoreRouteMethod) -> str:
         return "≈ Matched via related category"
     if route_method == "ancestor_d1_sibling_child":
         return "≈ Matched via related subcode"
+    if route_method == "procedure_scope":
+        return "⚙ Matched via procedure context"
+    if route_method == "semantic_scope":
+        return "~ Matched via semantic scope similarity"
     return "✕ No guideline covers this"
 
 
@@ -610,17 +616,77 @@ def build_out_of_scope_info(
 # Stage 3 — Route
 # ---------------------------------------------------------------------------
 
+# Keyword → procedure_scope tag mapping.
+# Keys are lowercase substrings searched in the clinical context text.
+# Values are the canonical snake_case tags stored in documents.procedure_scope.
+_PROCEDURE_KEYWORD_MAP: dict[str, str] = {
+    "anaesthe": "anaesthetic_safety",
+    "anesthet": "anaesthetic_safety",
+    "sedation": "anaesthetic_safety",
+    "pre-op": "pre_op_assessment",
+    "preop": "pre_op_assessment",
+    "pre op": "pre_op_assessment",
+    "pre-anaesthe": "pre_op_assessment",
+    "preanae": "pre_op_assessment",
+    "preanaesthe": "pre_op_assessment",
+    "anaesthetic planning": "anaesthetic_planning",
+    "anaesthetic assessment": "pre_op_assessment",
+    "perioperative": "pre_op_assessment",
+    "peri-operative": "pre_op_assessment",
+    "surgery": "pre_op_assessment",
+    "surgical": "pre_op_assessment",
+    "operation": "pre_op_assessment",
+    "intubat": "anaesthetic_equipment_safety",
+    "airway": "anaesthetic_equipment_safety",
+    "anaesthetic equipment": "anaesthetic_equipment_safety",
+    "medication safety": "anaesthetic_medication_safety",
+    "drug labelling": "medication_labelling",
+    "syringe label": "medication_labelling",
+    "high alert": "high_alert_medication",
+    "malignant hyperthermia": "malignant_hyperthermia_management",
+    "coronary intervention": "percutaneous_coronary_intervention",
+    "pci": "percutaneous_coronary_intervention",
+    "angiograph": "coronary_angiography",
+    "stent": "coronary_stenting",
+    "thrombectom": "endovascular_thrombectomy",
+    "stroke workflow": "stroke_workflow",
+    "revasculariz": "revascularization",
+    "cardiac rehab": "cardiac_rehabilitation",
+    "rehabilitation": "cardiac_rehabilitation",
+    "warfarin": "warfarin_initiation",
+    "inr monitor": "inr_monitoring",
+    "anticoagul": "warfarin_initiation",
+}
+
+
+def _extract_procedure_tags(clinical_text: str) -> list[str]:
+    """
+    Return unique procedure_scope tags inferred from free-text clinical context.
+    Matches are case-insensitive substring checks against _PROCEDURE_KEYWORD_MAP.
+    """
+    if not clinical_text:
+        return []
+    lower = clinical_text.lower()
+    found: set[str] = set()
+    for keyword, tag in _PROCEDURE_KEYWORD_MAP.items():
+        if keyword in lower:
+            found.add(tag)
+    return list(found)
+
+
 async def stage_3_route(
     ddx: list[DDxResult],
     top_k_codes: int = 2,
     top_k_cpgs: int = 3,
     emit=None,                      # async callable | None
+    clinical_context: str | None = None,  # free-text query for procedure-scope routing
 ) -> list[CPGDocRef]:
     """Map the top DDx ICD-11 codes to CPG document sets."""
+    procedure_tags = _extract_procedure_tags(clinical_context or "")
     all_refs: dict[str, CPGDocRef] = {}
 
     for result in ddx[:top_k_codes]:
-        refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs)
+        refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs, procedure_tags=procedure_tags or None)
         if refs:
             primary_ref = refs[0]
             result.score_breakdown = build_score_breakdown(

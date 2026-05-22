@@ -60,6 +60,7 @@ async def test_ancestor_d1_match():
     mock_conn.fetch = AsyncMock(side_effect=[
         [],                         # exact
         [],                         # range
+        [],                         # siblings
         [_row(code="BC81", depth=1)],  # ancestors
         [doc],                      # ancestor scope match
     ])
@@ -82,6 +83,7 @@ async def test_ancestor_d1_4char_match():
 
     mock_conn = AsyncMock()
     mock_conn.fetch = AsyncMock(side_effect=[
+        [],
         [],
         [],
         [_row(code="BA41", depth=1)],
@@ -127,15 +129,15 @@ async def test_range_no_match():
 
     mock_conn = AsyncMock()
     # exact empty, range fetch returns doc but BA00 is outside BC60-BC9Z,
-    # then ancestor and sibling fallbacks both miss.
-    mock_conn.fetch = AsyncMock(side_effect=[[], [doc], [], []])
+    # then structural fallbacks all miss.
+    mock_conn.fetch = AsyncMock(side_effect=[[], [doc], [], [], [], []])
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
         mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
 
-        # semantic fallback is also mocked to return empty
-        with patch("agent.routing._semantic_fallback", new=AsyncMock(return_value=[])):
+        # semantic scope fallback is also mocked to return empty
+        with patch("agent.routing._semantic_scope_match", new=AsyncMock(return_value=[])):
             from agent.routing import route_icd_to_cpgs
             results = await route_icd_to_cpgs("BA00")
 
@@ -166,19 +168,19 @@ async def test_multi_code_dedup():
 @pytest.mark.asyncio
 async def test_semantic_fallback_fires_on_no_structural():
     mock_conn = AsyncMock()
-    # exact, range, ancestors, siblings all miss
-    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], []])
+    # exact, range, siblings, ancestors, ancestor siblings, sibling children all miss
+    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], [], [], []])
 
     semantic_result = MagicMock()
     semantic_result.document_id = "doc-sem"
     semantic_result.cpg_name = "Sem CPG"
-    semantic_result.match_type = "semantic"
+    semantic_result.match_type = "semantic_scope"
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
         mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
 
-        with patch("agent.routing._semantic_fallback", new=AsyncMock(return_value=[semantic_result])) as mock_sem:
+        with patch("agent.routing._semantic_scope_match", new=AsyncMock(return_value=[semantic_result])) as mock_sem:
             from agent.routing import route_icd_to_cpgs
             results = await route_icd_to_cpgs("ZZ99")
 
@@ -194,8 +196,6 @@ async def test_sibling_fallback_after_ancestor_misses():
     mock_conn.fetch = AsyncMock(side_effect=[
         [],                              # exact
         [],                              # range
-        [_row(code="BA41", depth=1)],    # ancestors
-        [],                              # ancestor scope miss
         [_row(code="BA41.1")],           # siblings
         [doc],                           # sibling scope match
     ])
@@ -214,20 +214,16 @@ async def test_sibling_fallback_after_ancestor_misses():
 
 @pytest.mark.asyncio
 async def test_semantic_fallback_threshold():
-    """Results below threshold must be excluded by _semantic_fallback."""
-    from agent.routing import _semantic_fallback
+    """Results below threshold must be excluded by _semantic_scope_match."""
+    from agent.routing import _semantic_scope_match
 
     mock_conn = AsyncMock()
-    mock_conn.fetchrow = AsyncMock(return_value=_row(title="Mystery disease", description=""))
+    mock_conn.fetchval = AsyncMock(return_value=[0.1] * 1536)
     candidate_above = _row(id="doc-above", cpg_name="CPG A", title="CPG A", similarity=0.75)
     candidate_below = _row(id="doc-below", cpg_name="CPG B", title="CPG B", similarity=0.40)
-    mock_conn.fetch = AsyncMock(side_effect=[
-        [candidate_above, candidate_below],
-        [_row(id="doc-above", cpg_name="CPG A", title="CPG A")],
-    ])
+    mock_conn.fetch = AsyncMock(return_value=[candidate_above, candidate_below])
 
-    with patch("agent.routing.generate_embedding", new=AsyncMock(return_value=[0.1] * 1536)):
-        results = await _semantic_fallback(mock_conn, "ZZ00", top_k=5, threshold=0.60)
+    results = await _semantic_scope_match(mock_conn, "ZZ00")
 
     doc_ids = [r.document_id for r in results]
     assert "doc-above" in doc_ids
@@ -245,7 +241,7 @@ async def test_semantic_fallback_skipped_when_structural_matches():
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
         mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
 
-        with patch("agent.routing._semantic_fallback", new=AsyncMock()) as mock_sem:
+        with patch("agent.routing._semantic_scope_match", new=AsyncMock()) as mock_sem:
             from agent.routing import route_icd_to_cpgs
             results = await route_icd_to_cpgs("BA00")
 
@@ -255,20 +251,17 @@ async def test_semantic_fallback_skipped_when_structural_matches():
 
 @pytest.mark.asyncio
 async def test_unknown_icd_code_uses_raw_string():
-    """When the code is not in icd11_codes, the raw code string must be embedded."""
-    from agent.routing import _semantic_fallback
+    """When the code is not in icd11_codes, semantic scope matching is skipped."""
+    from agent.routing import _semantic_scope_match
 
     mock_conn = AsyncMock()
-    mock_conn.fetchrow = AsyncMock(return_value=None)  # code not found
+    mock_conn.fetchval = AsyncMock(return_value=None)  # code embedding not found
     mock_conn.fetch = AsyncMock(return_value=[])        # no scope-embedding docs
 
-    with patch("agent.routing.generate_embedding", new=AsyncMock(return_value=[0.0] * 1536)) as mock_embed:
-        with patch("agent.routing.db_pool") as _pool:
-            _pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
-            _pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
-            await _semantic_fallback(mock_conn, "XX99ZZ", top_k=3, threshold=0.60)
+    results = await _semantic_scope_match(mock_conn, "XX99ZZ")
 
-    mock_embed.assert_awaited_once_with("XX99ZZ")
+    assert results == []
+    mock_conn.fetch.assert_not_awaited()
 
 
 @pytest.mark.asyncio
@@ -297,13 +290,13 @@ async def test_empty_scope_verified_false():
     """Documents with scope_verified=FALSE must not be returned (SQL WHERE filters them)."""
     mock_conn = AsyncMock()
     # The SQL already filters scope_verified=TRUE; simulate DB returning nothing
-    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], []])
+    mock_conn.fetch = AsyncMock(side_effect=[[], [], [], [], [], []])
 
     with patch("agent.routing.db_pool") as mock_pool:
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
         mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
 
-        with patch("agent.routing._semantic_fallback", new=AsyncMock(return_value=[])):
+        with patch("agent.routing._semantic_scope_match", new=AsyncMock(return_value=[])):
             from agent.routing import route_icd_to_cpgs
             results = await route_icd_to_cpgs("BC81.3")
 

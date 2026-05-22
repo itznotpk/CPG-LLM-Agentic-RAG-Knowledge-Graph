@@ -4,7 +4,7 @@
 
 You are working on **CPG LLM**, a Clinical Practice Guideline-grounded RAG system. The full design is in [tasks/IMPLEMENTATION.md](../IMPLEMENTATION.md) — read §1, §4 Step E, §7 before starting.
 
-The ICD-11 ingestion (STEP_05, [tasks/Done/STEP_05_icd11_ingestion.md](../Done/STEP_05_icd11_ingestion.md)) loaded ~3,700 codes across chapters 02/05/08/11/16/17 with `title`, `description`, `inclusions`, `exclusions`, `parent_code`, `chapter`, `embedding (1536)`, `inclusion_embeddings (JSONB)`. Inclusion embeddings are backfilled and live in DDx ranking.
+The ICD-11 ingestion (STEP_05, [tasks/Done/STEP_05_icd11_ingestion.md](../Done/STEP_05_icd11_ingestion.md)) loaded 3,914 codes across chapters 02/05/08/11/16/17/18/21 with `title`, `description`, `inclusions`, `exclusions`, `parent_code`, `chapter`, `embedding (1536)`, `inclusion_embeddings (JSONB)`. Inclusion embeddings are backfilled and live in DDx ranking.
 
 Two real gaps remain in the DDx → routing path:
 
@@ -19,18 +19,24 @@ icd11_codes:    3,914 rows total
                 exclusion_embeddings column DOES NOT EXIST yet
                 402 rows have non-empty exclusions[] (avg 1.86 per row)
                 → backfill scope: ~748 Bedrock embedding calls, < $1, < 10 min
+
+documents:      28 CPGs ingested (of 30 planned), 384 doc sections
+                2 CPGs still pending ingestion
+chunks:         2,246 chunks total (verified 2026-05-21)
+                documents.icd11_scope / procedure_scope / scope_rationale — columns exist but unpopulated
+                scope_verified = TRUE: 0 rows (data blocker for D1 routing)
 ```
 
 Phase A Step 2 ([Phase_A_Step2_ParentChild_Ingest.md](Phase_A_Step2_ParentChild_Ingest.md)) restructures the `chunks` table (h1/h2/h3 chain). **It does not touch `icd11_codes` or `documents.icd11_scope`** — the work in this doc is orthogonal and can be implemented and tested independently. Coordination note: smoke-test the routing changes (D1, D4) against the post-Phase-A chunks table once A-13 lands; the ICD-side changes (D3) are completely independent of Phase A.
 
-This task is **six deliverables (D1–D6)** forming **two tracks that converge**: a routing track (D1 → D4) and a scoring/display track (D3 → D5 → D6). The two tracks are independent of each other until the final pipeline assembly. Follow the phased execution sequence below — do not work top-to-bottom through the D-sections.
+This task is **seven deliverables (D1–D6, D2 revived)** forming **two tracks that converge**: a routing track (D1 → D2 → D4) and a scoring/display track (D3 → D5 → D6). The two tracks are independent of each other until the final pipeline assembly. Follow the phased execution sequence below — do not work top-to-bottom through the D-sections.
 
 ## Objectives
 
 - **D1** — ICD-11 hierarchy fallback in Stage 3 routing using existing `parent_code`. No WHO API calls. Six structural levels: exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2.
-- **D2** — ~~Semantic CPG fallback~~ **RETIRED.** See §D2 for rationale. Dead weight — do not implement.
+- **D2** — Procedure-scope + semantic CPG fallback: two new steps inserted between `ancestor_d2` and `out_of_scope`. Step 7: procedure_scope tag overlap (catches procedure-only CPGs with no icd11_scope). Step 8: cosine similarity between ICD embedding and CPG scope_embedding (catches cross-chapter conditions D1 misses). Both only fire after all six structural levels miss.
 - **D3** — Exclusion-aware DDx re-ranking: schema migration + backfill + scorer change.
-- **D4** — Out-of-scope detector: structured "no CPG matches" response when D1 misses and ICD confidence is low.
+- **D4** — Out-of-scope detector: structured "no CPG matches" response when D1 + D2 both miss and ICD confidence is low.
 - **D5** — Clinician-facing score transparency: structured `ScoreBreakdown` per top-5 candidate + honest rendering/badges.
 - **D6** — Math ↔ LLM rerank merge: feed math signals into the rerank prompt and surface material disagreements.
 
@@ -76,26 +82,48 @@ Progress:
 
 - Track: A
 - Deliverable(s): D1 six-level structural fallback (exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2)
-- Why here: Routing core; D4 cannot be built or tested without D1 existing
+- Why here: Routing core; D2 and D4 cannot be built or tested without D1 existing
 - Exit gate: D1 unit tests green; Smoke 1, 2, 3, 9 green on staging
 
 Progress:
 - [x] Add D1 exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2 routing fallback.
 - [x] Add route method stamping: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`, `none`.
 - [x] Add SQL/helper support for ICD ancestor, sibling, ancestor-sibling, and ancestor-sibling-child lookups.
-- [x] D2 (scope_embedding / semantic fallback) retired — migration 009 and backfill script are dead weight, not applied.
 - [x] Add D1 unit tests.
 - [ ] Run Smoke 1, 2, 3, and 9 on staging.
+
+### P2b — D2 Semantic Scope Fallback
+
+- Track: A
+- Deliverable(s): D2 `scope_rationale` embedding + migration 009 + semantic match step in `find_cpgs_for_code()`
+- Why here: Sits between D1 and D4 in the routing chain — D1 must be complete before D2 can be inserted
+- Exit gate: Migration 009 applied; 30 CPG scope embeddings backfilled; D2 unit tests green; Smoke 10 green on staging
+
+Progress:
+- [x] Write `cpg_scope_rationale` text (100–200 words) for all 30 CPGs — generated via Codex agent and stored in `tasks/cpg_scope_review.md`. Field renamed from single-sentence `icd11_rationale`; new `cpg_scope_rationale` field is the DB-bound text.
+- [ ] Apply migration `sql/migrations/009_documents_scope_embedding.sql` (`scope_embedding VECTOR(1536)` column + index). *(not yet applied to Neon)*
+- [x] Update `ddx/backfill_scope_embeddings.py` — `_scope_text()` replaced with `_build_scope_text(row, title_map)` combining scope_rationale + resolved icd11_scope titles + procedure_scope tags. `_fetch_rows()` now selects `icd11_scope` and `procedure_scope`. ICD code-to-title resolution is batched in one query (`_fetch_icd_title_map()`).
+- [ ] Backfill all 30 CPG scope embeddings. *(blocked: migration 009 not applied; scope_rationale not yet written to DB)*
+- [x] Add `semantic_scope` step in `find_cpgs_for_code()` — `_semantic_scope_match()` uses pgvector `<=>` operator; DISTINCT ON cpg_name for one representative row per CPG; threshold guard at `SEMANTIC_SCOPE_THRESHOLD`.
+- [x] Add `procedure_scope` step in `find_cpgs_for_code()` — `_procedure_scope_match()` uses Postgres `&&` array overlap; fires before semantic_scope when `procedure_tags` are supplied.
+- [x] Add `"semantic_scope"` and `"procedure_scope"` to `RouteMethod` Literal (`agent/routing.py`) and `ScoreRouteMethod` Literal (`agent/clinical_stages.py`).
+- [x] Add badges for `semantic_scope` (`~ Matched via semantic scope similarity`) and `procedure_scope` (`⚙ Matched via procedure context`) in `route_provenance_badge()`.
+- [x] Add `SEMANTIC_SCOPE_THRESHOLD = 0.65` constant to `agent/routing.py`.
+- [x] Add `_extract_procedure_tags(clinical_text)` keyword-to-tag mapper in `agent/clinical_stages.py`; `stage_3_route()` now accepts `clinical_context: str | None` and forwards extracted tags to `route_icd_to_cpgs()`.
+- [x] Update `route_icd_to_cpgs()` signature to accept and forward `procedure_tags: list[str] | None`.
+- [ ] Add D2 / procedure-scope unit tests (`tests/test_semantic_scope.py`).
+- [ ] Run Smoke 10 on staging.
 
 ### P3 — D4 Out-of-Scope Detector
 
 - Track: A
 - Deliverable(s): D4 out-of-scope detector
-- Why here: Observes D1 output — only buildable after P2
+- Why here: Observes D1 + D2 output — only buildable after P2 and P2b
 - Exit gate: D4 unit tests green; Smoke 5 green on staging
 
 Progress:
 - [x] Add structured `out_of_scope` response when D1 misses (all six structural levels) and ICD inclusion confidence is low.
+- [ ] Update D4 trigger condition: fires only after D1 **and** D2 (`semantic_scope`) both return no match.
 - [x] Ensure downstream synthesis renders "no matching CPG" instead of using unrelated documents.
 - [ ] Add D4 unit tests.
 - [ ] Run Smoke 5 on staging.
@@ -147,7 +175,7 @@ Progress:
 - [ ] Produce final report-back package.
 - [ ] Decide whether to pull optional D1.5 `.Z` unspecified-code fallback into scope.
 
-Recommended single-pass order if done sequentially: **P0 → P1 → P2 → P3 → P4 → P5 → P6**. P1 and P2 have no dependency on each other — if parallelizing, run them as two concurrent passes and converge at P4 (which needs P1) / P3 (which needs P2).
+Recommended single-pass order if done sequentially: **P0 → P1 → P2 → P2b → P3 → P4 → P5 → P6**. P1 and P2 have no dependency on each other — if parallelizing, run them as two concurrent passes. P2b (D2 semantic fallback) requires P2 done first; P3 (D4) requires both P2 and P2b done. Note: P2b has a content prerequisite (writing `scope_rationale` for 30 CPGs) that must be completed before any code work in P2b begins.
 
 ## Preconditions
 
@@ -169,7 +197,7 @@ Recommended single-pass order if done sequentially: **P0 → P1 → P2 → P3 �
   SELECT atttypmod FROM pg_attribute
    WHERE attrelid='icd11_codes'::regclass AND attname='embedding';     -- expect 1536
   ```
-- `documents` table has `icd11_scope` populated and `scope_verified=TRUE` for all 16 CPGs.
+- `documents` table has `icd11_scope` populated and `scope_verified=TRUE` for all 30 CPGs (28 currently ingested + 2 pending).
 - Embedding stack: `EMBEDDING_PROVIDER=bedrock`, `EMBEDDING_MODEL=amazon.titan-embed-text-v1`, `VECTOR_DIMENSION=1536`. Reuse `get_embedding_client()` / `get_embedding_model()` from [agent/providers.py](../../agent/providers.py).
 - Read the existing routing code in `agent/clinical_stages.py` (Stage 3) and the DDx ranker that currently consumes `inclusion_embeddings` — match its style.
 
@@ -315,37 +343,148 @@ WITH RECURSIVE ancestors AS (
 SELECT code, depth FROM ancestors WHERE depth > 0 ORDER BY depth;
 ```
 
-### D2 — Semantic CPG fallback (RETIRED — team decision required)
+### D2 — Semantic CPG fallback via `scope_embedding`
 
-> **Current status: retired.** The original implementation stalled because `scope_rationale` was a one-sentence hardcoded label — too thin to embed meaningfully — and `scope_embedding` was never actually applied to Neon. The six-step structural walk (D1) was built as the reliable replacement. Migration `009_documents_scope_embedding.sql` was **not** applied; `ddx/backfill_scope_embeddings.py` is dead weight and can be deleted.
->
-> The core idea of D2 is not inherently wrong — only the **data quality** killed it. The table below is for teammates to weigh before deciding whether to revive it.
+**Status: revived.** Original attempt failed because `scope_rationale` was a one-sentence label — too thin to embed meaningfully. Now properly specced with correct data requirements and insertion point.
 
-#### Should we revive D2?
+**Insertion point in the routing chain:**
+```
+exact → sibling → ancestor_d1 → ancestor_d1_sibling
+      → ancestor_d1_sibling_child → ancestor_d2
+      → semantic_scope   ← D2 fires here
+      → out_of_scope
+```
 
-**Pros**
+**Why here:** D1 covers every same-tree structural path. D2 catches the remaining case: a CPG that covers a clinical domain but was tagged to a different ICD subtree (e.g. cross-chapter conditions, rare syndromes). It is the last safety net before declaring no CPG exists.
 
-| Area | Why it helps |
-|---|---|
-| **Coverage gap** | D1 stops at `ancestor_d2`. A CPG that covers a clinical domain but was tagged under a different ICD subtree (cross-chapter conditions, rare syndromes) will always return `out_of_scope` even though a matching CPG exists. D2 would catch those. |
-| **Data quality is fixable** | We have only 16 verified CPGs — rewriting `scope_rationale` to 100–200 words each is ~1 hour of content work. At that length the embedding is meaningful, unlike the one-sentence label that killed D2 originally. |
-| **Low migration cost** | Migration 009 is already written (`scope_embedding VECTOR(1536)` + index). Backfill is exactly 16 embedding calls. Applying it is low-risk. |
-| **Latency is negligible** | Similarity search over 16 rows. The query embedding is already computed in Stage 2, so no extra Bedrock call is needed. |
+**Files touched:** `sql/migrations/009_documents_scope_embedding.sql` (already written, not yet applied), new `ddx/backfill_scope_embeddings.py`, `agent/routing.py` (`find_cpgs_for_code()`), `agent/clinical_stages.py` (`ScoreRouteMethod`, `route_provenance_badge()`).
 
-**Cons**
+#### How it works
 
-| Area | Why it hurts |
-|---|---|
-| **Original failure was data, not code — and data is not fixed yet** | The one-sentence `scope_rationale` labels produced near-random cosine scores. The column and backfill script need a rewrite before any code is worth writing. It is a content task before it is a code task. |
-| **Explainability** | Structural routes (`ancestor_d1`, `sibling`) are clinically auditable — a clinician can trace exactly why a CPG was matched. A semantic route is a float. If it fires wrongly, there is no chain of reasoning to show. |
-| **False-positive risk** | A vague `scope_rationale` causes silent misfires. e.g. "Covers diabetes" would match any diabetes query, including non-obstetric ones against a Diabetes in Pregnancy CPG. Tight, specific rationale text is mandatory — and hard to review without clinical SME sign-off. |
-| **D1 may already be sufficient** | The six structural levels cover every same-tree path. Cross-chapter misses only arise when a CPG was deliberately tagged to a different chapter — which is uncommon if tagging was done correctly. |
+```
+icd11_codes.embedding  ──cosine──►  documents.scope_embedding  →  matched CPG
+```
 
-**Recommended prerequisite if revived:** rewrite `scope_rationale` for all 16 CPGs to at least 3–5 sentences covering: patient population, conditions included, conditions explicitly excluded, and the ICD code range. Run a similarity spot-check against 10 known queries *before* writing any routing code.
+1. After `ancestor_d2` returns 0 results, fetch all CPG rows from `documents` that have a non-null `scope_embedding`.
+2. Cosine-compare the predicted ICD code's `icd11_codes.embedding` (already in DB — encodes title + description + inclusions) against each CPG's `scope_embedding`.
+3. If best match score ≥ `SEMANTIC_SCOPE_THRESHOLD` → route to that CPG, `route_method = "semantic_scope"`.
+4. If no CPG exceeds threshold → fall through to `out_of_scope`.
 
-**Recommended decision point:** revisit after Smoke 1–5 results are in. If > 20% of real queries hit `out_of_scope` despite D1 exhausting all six levels, that is evidence D2 is needed. If `out_of_scope` is rare, the explainability cost is not worth it.
+**No extra Bedrock call at query time** — `icd11_codes.embedding` already exists; `scope_embedding` is pre-computed once per CPG at backfill time. The search is 30 cosine comparisons — negligible latency.
 
-> `sql/migrations/009_documents_scope_embedding.sql` and `ddx/backfill_scope_embeddings.py` — keep on disk but do **not** apply until team decides to proceed.
+#### Why raw ICD codes are excluded from the CPG embedding
+
+`icd11_scope` stores codes like `BC81.3`, `BA00`. These are opaque alphanumeric tokens to the embedding model — it has no knowledge that `BC81.3` means atrial fibrillation. Embedding them adds noise, not signal.
+
+Instead, look up the human-readable **titles** for each code in `icd11_scope` from the `icd11_codes` table and embed those. This creates clinical language overlap with the ICD embedding (which encodes title + description + inclusions), producing meaningful cosine similarity.
+
+#### Combined CPG scope text (what gets embedded)
+
+The backfill script builds one text block per CPG from three sources:
+
+```
+{scope_rationale}
+Conditions covered: {title of each code in icd11_scope, looked up from icd11_codes, comma-separated}
+Procedures: {procedure_scope tags, comma-separated}
+```
+
+**Example — Atrial Fibrillation CPG:**
+```
+This guideline covers diagnosis and management of atrial fibrillation in adults,
+including rate control, rhythm control, and anticoagulation to prevent stroke.
+Covers persistent, paroxysmal, and long-standing persistent AF. Excludes atrial
+flutter and AF arising from acute illness requiring ICU care.
+Conditions covered: Atrial fibrillation, Paroxysmal atrial fibrillation,
+Persistent atrial fibrillation, Permanent atrial fibrillation
+Procedures: anticoagulation initiation, INR monitoring, cardioversion,
+rate control, rhythm control
+```
+
+This overlaps directly with the ICD embedding for `BC81.3` which encodes the same condition names and synonyms. Target length: 150–350 words total — enough signal without approaching Titan v1 token limits.
+
+#### Data prerequisites (must be done before any code)
+
+1. **Rewrite `scope_rationale`** for all 30 CPGs to 100–200 words covering:
+   - Patient population this CPG is for
+   - Conditions explicitly covered (use clinical names matching WHO language)
+   - Conditions explicitly excluded from this CPG
+   - Clinical context (primary care, specialist, inpatient)
+
+   A one-sentence label will reproduce the original D2 failure — quality here directly determines whether D2 fires correctly.
+
+2. **Apply migration 009** — adds `scope_embedding VECTOR(1536)` column + index to `documents`. Already written at `sql/migrations/009_documents_scope_embedding.sql`. Not yet applied to Neon.
+
+3. **Run backfill** — `ddx/backfill_scope_embeddings.py` builds the combined text and embeds it. 30 Bedrock calls total, < 1 min.
+
+#### Backfill script spec (`ddx/backfill_scope_embeddings.py`)
+
+The script already exists — it currently only embeds `title + scope_rationale`. It must be updated to build the combined text:
+
+- Fetch `icd11_scope` and `procedure_scope` alongside `scope_rationale` from `documents`.
+- For each code in `icd11_scope`, look up its `title` from `icd11_codes` (batch lookup, single query per CPG group).
+- Build combined text: `scope_rationale` + `"Conditions covered: " + titles` + `"Procedures: " + procedure_scope tags`.
+- Skip rows where `scope_rationale IS NULL OR scope_rationale = ''` — no rationale, no embedding.
+- Skip rows where `scope_embedding IS NOT NULL` (idempotent — no overwrite unless `--force`).
+- Support `--dry-run` (prints combined text per CPG, no DB writes, no Bedrock calls), `--force`, `--limit N`.
+- Log combined text length and embedding dimension per CPG on success.
+
+#### Routing code change in `find_cpgs_for_code()` (`agent/routing.py`)
+
+```python
+SEMANTIC_SCOPE_THRESHOLD = 0.65   # tune from Smoke 10 results
+
+# After ancestor_d2 returns 0:
+scope_rows = await conn.fetch(
+    """
+    SELECT DISTINCT ON (metadata->>'cpg_name')
+           id::text, title, scope_embedding,
+           metadata->>'cpg_name' AS cpg_name
+    FROM documents
+    WHERE scope_embedding IS NOT NULL
+    ORDER BY metadata->>'cpg_name', id
+    """
+)
+icd_emb = await conn.fetchval(
+    "SELECT embedding FROM icd11_codes WHERE code = $1", code
+)
+if icd_emb and scope_rows:
+    best_score, best_row = 0.0, None
+    for row in scope_rows:
+        sim = cosine_similarity(icd_emb, row["scope_embedding"])
+        if sim > best_score:
+            best_score, best_row = sim, row
+    if best_score >= SEMANTIC_SCOPE_THRESHOLD:
+        logger.info(
+            "D2 semantic_scope: code=%s matched cpg=%s score=%.3f",
+            code, best_row["cpg_name"], best_score,
+        )
+        refs = _group_document_rows(
+            [best_row],
+            match_type="semantic_scope",
+            matched_scope=f"semantic:{best_score:.3f}",
+        )
+        return refs, "semantic_scope"
+
+return [], "none"
+```
+
+Note: `DISTINCT ON (cpg_name)` ensures one representative row per CPG — the scope embedding is the same across all sections of the same CPG.
+
+#### Badge and display
+
+Add to `route_provenance_badge()`:
+```python
+if route_method == "semantic_scope":
+    return "~ Matched via semantic scope similarity"
+```
+
+Add to the D5b badge table:
+
+| route_method | Badge text | Clinician meaning |
+|---|---|---|
+| `semantic_scope` | `~ Matched via semantic scope similarity` | No structural ICD match found; CPG selected because its clinical scope description is semantically similar to the predicted condition. Use with caution — verify clinical relevance. |
+
+**Hard rule:** `semantic_scope` badge must be visually distinct from all structural routes. Never render it as `✓` (exact) or `≈` (related). The `~` glyph signals "fuzzy — clinician should verify."
 
 ### D3 — Exclusion-aware DDx re-ranking
 
@@ -455,7 +594,9 @@ These are the **only** `route_method` values the system produces — the impleme
 | `ancestor_d1_sibling` | `≈ Matched via related category` | Matched a peer category of the parent — same clinical domain. | `BA00` not in scope; peer `BA01` (Hypertensive heart disease) is in the Hypertension CPG. |
 | `ancestor_d1_sibling_child` | `≈ Matched via related subcode` | Matched a child of a peer category. | `BA01` not in scope; child `BA01.0` is in the Hypertension CPG. |
 | `ancestor_d2` | `≈ Matched via broader category` | Matched the grandparent block. | All Hypertensive diseases subcodes exhausted; block itself is in scope. |
-| `out_of_scope` | `✕ No guideline covers this` | No CPG matched at any structural level. Do not present as guideline-backed. | "Acute appendicitis management" — no surgical CPG loaded, tree exhausted → `out_of_scope`. |
+| `procedure_scope` | `⚙ Matched via procedure context` | No ICD structural match; CPG selected because the clinical context mentions a procedure this guideline covers (e.g. anaesthesia, pre-op assessment). Verify clinical intent. | Patient booked for surgery — anaesthesia safety CPG matched via `pre_op_assessment` tag. |
+| `semantic_scope` | `~ Matched via semantic scope similarity` | No structural ICD match found; CPG selected because its clinical scope description is semantically similar to the predicted condition. Use with caution — verify clinical relevance. | Rare endocrine condition outside all CPG ICD scopes; Growth-Hormone CPG selected via cosine similarity. |
+| `out_of_scope` | `✕ No guideline covers this` | No CPG matched at any structural, procedure, or semantic level. Do not present as guideline-backed. | "Acute appendicitis management" — no surgical CPG loaded, all levels exhausted → `out_of_scope`. |
 
 Hard requirements:
 - The provenance badge is **never** hidden. An `out_of_scope` result or any non-exact route must never visually masquerade as an `exact` curated match.
@@ -583,6 +724,7 @@ Define once near the top of the routing module:
 ```python
 ANCESTOR_MAX_DEPTH           = 2
 ROUTE_TOP_K                  = 3      # max CPGs returned by route_icd_to_cpgs
+SEMANTIC_SCOPE_THRESHOLD     = 0.65   # D2: min cosine(icd_emb, scope_emb) to trigger semantic_scope route
 EXCLUSION_PENALTY_WEIGHT     = 0.3
 OUT_OF_SCOPE_INCL_THRESHOLD  = 0.3
 DDX_PHRASE_DISPLAY_FLOOR     = 0.5    # below this, inclusion/exclusion phrase shown as null
@@ -590,11 +732,11 @@ DDX_DISPLAY_FLOOR            = 0.30   # below this, render "low confidence" alon
 RERANK_DISAGREEMENT_DELTA    = 2      # |math_rank - llm_rank| >= this → reason required + surfaced
 ```
 
-Seven tunable constants. Log enough to tune them empirically from real DDx logs. `DDX_PHRASE_DISPLAY_FLOOR`, `DDX_DISPLAY_FLOOR`, `RERANK_DISAGREEMENT_DELTA` are display/telemetry-only and never change `final_score` or `llm_rank`.
+Eight tunable constants. Log enough to tune them empirically from real DDx logs. `DDX_PHRASE_DISPLAY_FLOOR`, `DDX_DISPLAY_FLOOR`, `RERANK_DISAGREEMENT_DELTA` are display/telemetry-only and never change `final_score` or `llm_rank`.
 
 ## Tests
 
-`tests/test_routing_fallback.py` (D1 + D2 + D4):
+`tests/test_routing_fallback.py` (D1 + D4):
 
 - `test_exact_match_returns_route_exact` — code in `icd11_scope` of one doc → returns that doc, method="exact".
 - `test_ancestor_d1_match` — predicted code's parent is in `icd11_scope` → method="ancestor_d1".
@@ -602,8 +744,20 @@ Seven tunable constants. Log enough to tune them empirically from real DDx logs.
 - `test_ancestor_walk_stops_at_d2` — only a depth-3+ code is in scope → method="none" (confirms ANCESTOR_MAX_DEPTH=2 cap).
 - `test_sibling_match_when_no_ancestor` — sibling (same parent_code) is in scope → method="sibling".
 - `test_sibling_only_after_ancestor` — both ancestor and sibling match → ancestor wins.
-- `test_out_of_scope_when_all_signals_weak` — D1 none + max incl_score 0.40 → returns out_of_scope dict.
+- `test_out_of_scope_when_all_signals_weak` — D1 + D2 both miss + max incl_score 0.40 → returns out_of_scope dict.
 - `test_route_method_always_stamped` — every routing path returns a non-empty `route_method`.
+
+`tests/test_semantic_scope.py` (D2) — mock the embedding client and DB; no real Bedrock calls:
+
+- `test_semantic_scope_fires_after_d1_exhausted` — D1 returns none, scope_embedding cosine ≥ threshold → method="semantic_scope".
+- `test_semantic_scope_skipped_when_d1_matches` — D1 returns a hit → semantic step never reached.
+- `test_semantic_scope_below_threshold_falls_to_out_of_scope` — best cosine 0.60 < 0.65 threshold → method="none".
+- `test_semantic_scope_picks_highest_cosine_cpg` — two CPGs with different scope embeddings → CPG with higher cosine selected.
+- `test_backfill_skips_null_scope_rationale` — CPG with no scope_rationale → no embedding call, no DB write.
+- `test_backfill_idempotent` — CPG with scope_embedding already set → no re-embed unless `--force`.
+- `test_backfill_force_recomputes` — `--force` → embedding called even if already populated.
+- `test_dry_run_no_db_writes` — `--dry-run` → DB write never called.
+- `test_badge_semantic_scope` — `route_provenance_badge("semantic_scope")` returns the `~` badge string.
 
 `tests/test_exclusion_rerank.py` (D3):
 
@@ -623,7 +777,7 @@ Seven tunable constants. Log enough to tune them empirically from real DDx logs.
 - `test_inclusion_phrase_null_below_floor` — best inclusion sim 0.4 < `DDX_PHRASE_DISPLAY_FLOOR` → `inclusion_phrase` is None, line omitted.
 - `test_exclusion_phrase_populated_when_fired` — exclusion sim 0.7 → `exclusion_phrase` = the actual WHO text, penalty > 0.
 - `test_route_provenance_passed_through_not_recomputed` — ranker receives `route_method="sibling"` → breakdown carries it verbatim.
-- `test_badge_text_per_route_method` — each of the 7 `route_method` values (6 route methods + out_of_scope) maps to the exact badge string in the D5b table.
+- `test_badge_text_per_route_method` — each of the 8 `route_method` values (6 structural + semantic_scope + out_of_scope) maps to the exact badge string in the D5b table.
 - `test_exclusion_line_uses_caution_not_removal` — rendered exclusion line contains "⚠" and "ranked lower", never "removed"/"excluded from list".
 - `test_low_confidence_label_below_display_floor` — `final_score` 0.22 < `DDX_DISPLAY_FLOOR` → render includes "low confidence" text.
 - `test_out_of_scope_badge_never_looks_curated` — `route_method="out_of_scope"` → badge is the `✕ No guideline covers this` string, never an exact-match style.
@@ -738,6 +892,22 @@ Drive a query that predicts `predict_code`. Verify:
 - Ancestor lookup is shown (in logs/telemetry) to have run **and missed** before the sibling match — confirming the documented order (exact → ancestor → sibling).
 If the SQL returns 0 rows, state that in the report (no sibling-route case exists in the current corpus) and mark this smoke N/A with the query output as evidence — do not skip silently.
 
+### Smoke 10 — Semantic scope fallback (D2)
+
+Pick a query whose predicted ICD code sits outside all 30 CPGs' `icd11_scope` at every structural level (D1 exhausts all six levels) but whose clinical meaning is semantically close to a CPG's `scope_rationale`.
+
+Example: a rare endocrine condition not directly tagged to any CPG, but whose description is semantically close to the Thyroid Disorders or Growth Hormone CPG.
+
+Run the query and verify:
+- D1 exhausts all six structural levels and returns zero matches (confirm in logs).
+- D2 fires: `route_method = "semantic_scope"`.
+- The matched CPG is clinically plausible given the query.
+- The badge renders `~ Matched via semantic scope similarity`.
+- The similarity score logged is ≥ `SEMANTIC_SCOPE_THRESHOLD` (0.65).
+- Negative check: lower the threshold artificially to 0.99 → D2 misses → falls through to `out_of_scope`.
+
+If no suitable query can be constructed from the current corpus, document the attempt and the best cosine scores observed, and mark this smoke N/A with evidence.
+
 ## Follow-up (optional, NOT part of the 12 done-criteria) — D1.5: `.Z` unspecified-code fallback
 
 > **Status: proposed extension to D1.** Captured here so it is not lost. It is *not* required to mark this task done, is *not* in the §Done criteria, and adds no new constants. Implement only if explicitly pulled into scope. Origin: collaborator review note on this doc.
@@ -803,7 +973,7 @@ LIMIT 1;
 - ❌ Re-embedding the existing `icd11_codes.embedding` column. The main embedding stays as-is.
 - ❌ Adding new ICD-11 chapters. Stick with the 5+1 already loaded.
 - ❌ Touching `chunks` table — that's Phase A's territory.
-- ❌ Modifying `documents.icd11_scope` for existing CPGs. The 16 verified entries are immutable.
+- ❌ Modifying `documents.icd11_scope` for existing CPGs. The 30 verified entries are immutable.
 - ❌ Changing the existing inclusion-based ranker logic. D3 *adds* an exclusion penalty term — it does not rewrite inclusion scoring.
 - ❌ Real WHO API calls, or real LLM rerank calls, in tests.
 - ❌ Tuning the seven constants — ship with the defaults above and tune from real DDx logs in a follow-up.
@@ -823,7 +993,7 @@ All eleven must hold:
 7. **(D5)** The rendered top-5 for an exclusion-penalised candidate keeps it in the list with the `⚠ ... ranked lower` line, not removed. The provenance badge for each candidate matches its actual `route_method` — never shows `✓ Exact guideline match` for a non-exact route.
 8. **(D6)** The clinician-facing order equals `llm_rank`. The LLM rerank prompt provably contains the math signals per candidate (capture one prompt from a live query).
 9. **(D6)** Hard rule holds: no exclusion-penalised candidate is promoted ≥ `RERANK_DISAGREEMENT_DELTA` without a non-empty `override_reason`. Materially-moved candidates render the `↕` disagreement line; D6d telemetry counters are emitted. The Smoke 8 `--force-rerank-order` harness is proven inert under production config (unit test asserts it).
-10. The 16 verified `icd11_scope` entries on existing documents are byte-for-byte unchanged. Verify: `SELECT title, icd11_scope, scope_verified FROM documents` matches the pre-deploy snapshot.
+10. The 30 verified `icd11_scope` entries on existing documents are byte-for-byte unchanged. Verify: `SELECT title, icd11_scope, scope_verified FROM documents` matches the pre-deploy snapshot.
 11. The existing `embedding` column on `icd11_codes` is byte-for-byte unchanged across the full table. Verify the checksum equals the canonical P0 baseline:
    ```sql
    SELECT MD5(string_agg(embedding::text, '|' ORDER BY code)) FROM icd11_codes;
