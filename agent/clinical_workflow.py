@@ -8,7 +8,7 @@ import time
 from dataclasses import dataclass, field
 
 from .models import PatientCase, TreatmentPlan, SafetyReport
-from .clinical_stages import DDxResult, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
+from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks
 from .routing import CPGDocRef, route_icd_to_cpgs
 
@@ -109,7 +109,8 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
 
     # Stage 3 — Route
     try:
-        cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3)
+        cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3,
+                                   clinical_context=_build_symptom_text(case))
         extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
@@ -207,7 +208,8 @@ async def run_clinical_workflow_streaming(
         "status": "running", "detail": "Matching ICD codes to clinical guidelines…"
     })
     try:
-        cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit)
+        cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit,
+                                   clinical_context=_build_symptom_text(case))
         extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
@@ -320,7 +322,8 @@ async def run_resynthesize_streaming(
         "detail": f"Routing {len(selected_ddx)} clinician-selected code(s)…",
     })
     try:
-        cpgs = await stage_3_route(selected_ddx, top_k_codes=len(selected_ddx), top_k_cpgs=3, emit=emit)
+        cpgs = await stage_3_route(selected_ddx, top_k_codes=len(selected_ddx), top_k_cpgs=3, emit=emit,
+                                   clinical_context=_build_symptom_text(case))
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",

@@ -189,7 +189,7 @@ async def test_stage3_routes_top2_codes():
 
     call_log: list[str] = []
 
-    async def mock_route(code, top_k=3):
+    async def mock_route(code, top_k=3, procedure_tags=None):
         call_log.append(code)
         return [_make_cpg(cpg_name=f"CPG_{code}")]
 
@@ -206,7 +206,7 @@ async def test_stage3_deduplicates_cpgs():
     """Two DDx codes both routing to the same CPG → only one entry returned."""
     ddx = [_make_ddx("CODE0"), _make_ddx("CODE1")]
 
-    async def mock_route(code, top_k=3):
+    async def mock_route(code, top_k=3, procedure_tags=None):
         return [_make_cpg(cpg_name="Shared CPG")]  # same CPG for both codes
 
     with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
@@ -223,7 +223,7 @@ async def test_stage3_caps_at_top_k_cpgs():
 
     call_count = 0
 
-    async def mock_route(code, top_k=3):
+    async def mock_route(code, top_k=3, procedure_tags=None):
         nonlocal call_count
         # Return 3 unique CPGs per call; CODE1's CPGs are different names
         offset = call_count * 3
