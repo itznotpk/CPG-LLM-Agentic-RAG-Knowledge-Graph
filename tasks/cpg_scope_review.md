@@ -4,22 +4,24 @@ Source of truth is the `documents` table. Edit the lists below to correct any sc
 
 Groups: 30
 
+> **TODO — recalibrate `SEMANTIC_SCOPE_THRESHOLD` (D2):** currently 0.65 in `agent/routing.py` — **confirmed too high; D2 would never fire.** With 3 CPGs embedded, every probe code ranks its correct CPG #1 (separation works), but absolute cosine is low: self-matches AF=0.59, Breast=0.50, and broad CVD only 0.13–0.22 (diffuse rationale centroid). ICD-code embedding (title+desc+synonyms) vs scope-rationale embedding are different text styles, so cosine is compressed. **Action:** drop threshold to ~0.30–0.40, OR use a margin rule (best must beat 2nd by a gap) instead of an absolute floor; consider whether broad CPGs should rely on D1+procedure tags rather than D2. Re-test with a genuinely-orphan code (not in any CPG's icd11_scope) before finalizing.
+
 ---
 
-## Atrial-Fibrillation(2012)
-- Rows in DB: 10
+## Atrial-Fibrillation(2012) ✅ ingested
+- Rows in DB: 12
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`
 - Proposed procedure_scope: `referral_pathway`, `clinical_audit`, `quality_assurance`, `warfarin_initiation`, `inr_monitoring`, `dose_adjustment`, `perioperative_bridging`
 - icd11_rationale: Specific AF guidance maps to BC81.3 (Atrial fibrillation) under the cardiac arrhythmia hierarchy.
 - cpg_scope_rationale: This guideline covers atrial fibrillation as a supraventricular tachyarrhythmia spectrum including paroxysmal, persistent, long-standing persistent, permanent, and unspecified atrial fibrillation. Relevant patient population includes adults with confirmed or suspected atrial fibrillation, irregular pulse, palpitations, thromboembolic risk, or anticoagulation management needs. Clinical decisions and interventions include diagnostic confirmation, stroke risk stratification, bleeding risk assessment, warfarin initiation, INR monitoring, dose adjustment, perioperative bridging, rate control, rhythm control, follow-up, referral pathway, audit, and quality assurance. Relevant comorbidities and key risk factors include hypertension, ischaemic heart disease, heart failure, valvular heart disease, diabetes mellitus, chronic kidney disease, older age, prior stroke, transient ischaemic attack, and cardiovascular risk factors.
 - ICD-11 hierarchy: Chapter 11 (Diseases of the circulatory system) > Block BC60-BC9Z (Cardiac arrhythmia) > Category BC80-BC8Z (Supraventricular rhythm disturbance) > Section BC81 (Supraventricular tachyarrhythmia) > Specific BC81.3 (Atrial fibrillation)
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Breast-Cancer(3rd Edition)
-- Rows in DB: 14
+## Breast-Cancer(3rd Edition) ✅ ingested
+- Rows in DB: 13
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `2C60`, `2C61`, `2C61.0`, `2C61.1`, `2C61.2`, `2C61.3`, `2C61.4`, `2C62`, `2C63`, `2C64`, `2C65`, `2C6Y`, `2C6Z`
 - Proposed procedure_scope: (none)
@@ -30,19 +32,19 @@ Groups: 30
 
 ---
 
-## CVD-Prevention-Women(2016)
-- Rows in DB: 8
+## CVD-Prevention-Women(2016) ✅ ingested
+- Rows in DB: 9
 - Last classified: 2026-05-08T14:01:21.563348+00:00
 - Proposed icd11_scope: `BA00`, `BA00.0`, `BA00.1`, `BA00.2`, `BA00.Y`, `BA00.Z`, `BA01`, `BA02`, `BA03`, `BA04`, `BA04.0`, `BA04.1`, `BA04.2`, `BA04.Y`, `BA04.Z`, `BA40`, `BA40.0`, `BA40.1`, `BA40.Y`, `BA40.Z`, `BA41`, `BA41.0`, `BA41.1`, `BA41.Z`, `BA42`, `BA42.0`, `BA42.1`, `BA42.Z`, `BD10`, `BD11`, `BD11.0`, `BD11.1`, `BD11.2`, `BD11.Z`, `BD12`, `BD13`, `8B11`, `8B11.0`, `8B11.1`, `8B11.20`, `8B11.21`, `8B11.22`, `8B11.2Y`, `8B11.2Z`, `8B11.3`, `8B11.40`, `8B11.41`, `8B11.42`, `8B11.43`, `8B11.44`, `8B11.50`, `8B11.51`, `8B11.5Z`, `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5A11`, `BD40`, `BD40.0`, `BD40.1`, `BD40.2`, `BD40.3`, `BD40.Y`, `BD40.Z`, `BD50`, `BD50.00`, `BD50.01`, `BD50.02`, `BD50.0Y`, `BD50.0Z`, `BD50.10`, `BD50.11`, `BD50.12`, `BD50.1Y`, `BD50.1Z`, `BD50.20`, `BD50.21`, `BD50.22`, `BD50.2Y`, `BD50.2Z`, `BD50.30`, `BD50.31`, `BD50.32`, `BD50.3Y`, `BD50.3Z`, `BD50.40`, `BD50.41`, `BD50.4Y`, `BD50.4Z`, `BD50.50`, `BD50.51`, `BD50.52`, `BD50.5Y`, `BD50.5Z`, `BD50.Z`, `BC81.3`, `BC81.30`, `BC81.31`, `BC81.32`, `BC81.33`, `BC81.3Y`, `BC81.3Z`, `5B81`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`, `GB61`, `GB61.0`, `GB61.1`, `GB61.2`, `GB61.3`, `GB61.4`, `GB61.5`, `GB61.Z`
 - Proposed procedure_scope: (none)
 - icd11_rationale: Systemic cardiovascular prevention strategy covering major circulatory endpoints and metabolic drivers, including chronic kidney disease as a high-risk cardiovascular equivalent.
 - cpg_scope_rationale: This guideline covers cardiovascular disease prevention in women across hypertension, ischaemic heart disease, myocardial infarction, heart failure, atrial fibrillation, cerebrovascular disease, peripheral arterial disease, dyslipidaemia, diabetes mellitus, obesity, chronic kidney disease, and cardiometabolic risk states. Relevant patient population includes women needing primary cardiovascular prevention, women needing secondary prevention after cardiovascular disease, and women with life-course or sex-specific risk contexts. Clinical decisions and interventions include cardiovascular risk assessment, blood pressure control, lipid management, glycaemic risk management, smoking cessation, dietary intervention, physical activity, weight reduction, antiplatelet consideration, anticoagulant consideration, cardiac rehabilitation, and follow-up. Relevant comorbidities and key risk factors include pregnancy history, menopause, metabolic syndrome, hypertension, diabetes mellitus, dyslipidaemia, obesity, chronic kidney disease, smoking, stroke history, and vascular risk clustering.
 - ICD-11 hierarchy: Chapter 11 (Circulatory) -> Hypertension (BA00-BA04), IHD (BA40-BA42), Heart Failure (BD10-BD13), Arrhythmia (BC81.3), Peripheral Vascular (BD40, BD50); Chapter 05 (Metabolic) -> Diabetes (5A11), Dyslipidaemia (5C80), Obesity (5B81), Metabolic Syndrome (5C40); Chapter 08 (Nervous) -> Ischaemic Stroke (8B11); Chapter 16 (Genitourinary) -> Chronic Kidney Disease (GB61)
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Dyslipidaemia(6th-Edition)
+## Dyslipidaemia(6th-Edition) ✅ ingested
 - Rows in DB: 15
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `5C80`, `5C80.00`, `5C80.01`, `5C80.0Z`, `5C80.1`, `5C80.2`, `5C80.3`, `5C80.Y`, `5C80.Z`, `5C81`, `5C81.0`, `5C81.1`, `5C81.Y`, `5C81.Z`, `5C8Y`, `5C8Z`
@@ -50,11 +52,11 @@ Groups: 30
 - icd11_rationale: Comprehensive management of lipoprotein metabolism disorders, including primary and secondary hypercholesterolaemia, hypertriglyceridaemia, and mixed dyslipidaemias.
 - cpg_scope_rationale: This guideline covers disorders of lipoprotein metabolism and other lipidaemias including hypercholesterolaemia, hypertriglyceridaemia, mixed dyslipidaemia, familial dyslipidaemia, primary dyslipidaemia, secondary dyslipidaemia, low HDL cholesterol, elevated LDL cholesterol, non-HDL cholesterol, lipoprotein(a), and unspecified lipid abnormalities. Relevant patient population includes adults and high-risk groups undergoing cardiovascular risk evaluation, primary prevention, and secondary prevention after atherosclerotic cardiovascular disease. Clinical decisions and interventions include fasting lipid measurement, non-fasting lipid measurement, risk stratification, lipid targets, medical nutrition therapy, physical activity, weight management, smoking cessation, statins, ezetimibe, fibrates, PCSK9 inhibitors, combination lipid-lowering therapy, adverse-effect monitoring, and adherence review. Relevant comorbidities and key risk factors include diabetes mellitus, chronic kidney disease, hypertension, obesity, metabolic syndrome, premature coronary artery disease, stroke, and peripheral arterial disease.
 - ICD-11 hierarchy: Chapter 05 (Endocrine, nutritional or metabolic diseases) > Metabolic disorders > Disorders of lipoprotein metabolism or other lipidaemias range 5C80-5C8Z
-- [ ] Approve / [x ] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
-## Erectile-Dysfunction(2024)
+## Erectile-Dysfunction(2024) ✅ ingested
 - Rows in DB: 10
 - Last classified: 2026-05-08T13:48:07.294617+00:00
 - Proposed icd11_scope: `HA01.10`, `HA01.11`, `HA01.12`, `HA01.13`, `HA01.1Z`
@@ -62,7 +64,7 @@ Groups: 30
 - icd11_rationale: Direct mapping for male erectile dysfunction, covering lifelong, acquired, situational, and generalized presentations.
 - cpg_scope_rationale: This guideline covers male erectile dysfunction as a sexual arousal disorder including lifelong, acquired, generalized, situational, psychogenic, vasculogenic, neurogenic, endocrine, medication-related, and mixed erectile dysfunction presentations. Relevant patient population includes adult men with persistent or recurrent inability to attain or maintain an erection sufficient for satisfactory sexual activity. Clinical decisions and interventions include history taking, validated symptom assessment, sexual evaluation, psychosocial evaluation, cardiovascular risk assessment, endocrine investigation, testosterone assessment, lifestyle modification, phosphodiesterase type 5 inhibitor therapy, vacuum device therapy, intracavernosal therapy, intraurethral therapy, penile prosthesis referral, counselling, partner-factor assessment, follow-up, and referral. Relevant comorbidities and key risk factors include diabetes mellitus, hypertension, dyslipidaemia, obesity, smoking, depression, hypogonadism, benign prostatic disease, pelvic surgery, and cardiovascular disease.
 - ICD-11 hierarchy: Chapter 17 (Conditions related to sexual health) > Sexual dysfunctions > Sexual arousal dysfunctions > Male erectile dysfunction range HA01.10-HA01.1Z
-- [ ] Approve / [x] Edit / [ ] Reject
+- [x] Approve / [ ] Edit / [ ] Reject
 
 ---
 
