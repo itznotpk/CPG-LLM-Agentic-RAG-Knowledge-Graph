@@ -1,18 +1,24 @@
 """
 ICD-11 to CPG routing layer.
 
-Maps a predicted ICD-11 code to CPG document groups via:
-1. Exact document icd11_scope match.
-2. Sibling — same-parent codes incl. .Y and .Z variants.
-3. ancestor_d1 — direct parent category.
-4. ancestor_d1_sibling — peer categories of the parent.
-5. ancestor_d1_sibling_child — children of those peer categories.
-6. ancestor_d2 — grandparent block.
-7. procedure_scope — tag overlap against caller-supplied procedure context tags
-   (catches procedure-only CPGs with no icd11_scope, e.g. anaesthesia guidelines).
-8. semantic_scope — cosine similarity between icd11_codes.embedding and
-   documents.scope_embedding (catches cross-chapter conditions D1 misses).
-9. out_of_scope — no CPG matched.
+Phase 1 — ICD structural routing (code-to-code, no text/embedding):
+  1. exact                    — predicted code directly in icd11_scope
+  2. sibling                  — same-parent siblings incl. .Y / .Z variants
+  3. ancestor_d1              — one-decimal-digit parent (e.g. BA41 from BA41.0)
+  4. ancestor_d1_sibling      — peer categories of that parent
+  5. ancestor_d1_sibling_child— children of those peer categories
+  6. ancestor_d2              — no-decimal block ancestor (e.g. BA00 from BA00.0)
+
+  Example depth walk for grandchild code 5B80.00:
+    exact → siblings of 5B80.00 → ancestor_d1 (5B80.0) → siblings of 5B80.0
+    → children of those siblings → ancestor_d2 (5B80, the no-decimal block)
+
+Phase 2 — text-form fallbacks (only after all 6 ICD levels exhaust):
+  7. procedure_scope          — tag overlap with caller-supplied procedure context
+                                (catches procedure-only CPGs with no icd11_scope)
+  8. semantic_scope           — cosine(icd_embedding, scope_embedding) ≥ threshold
+                                (catches cross-chapter conditions D1 misses)
+  9. out_of_scope             — no CPG matched
 
 Each CPGDocRef represents one CPG, not one section row. All section UUIDs for
 that CPG are collected in document_ids so downstream vector searches can filter

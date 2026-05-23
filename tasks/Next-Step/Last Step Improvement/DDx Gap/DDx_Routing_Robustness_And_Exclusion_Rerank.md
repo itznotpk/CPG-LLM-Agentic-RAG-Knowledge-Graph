@@ -111,7 +111,7 @@ Progress:
 - [x] Add `SEMANTIC_SCOPE_THRESHOLD = 0.65` constant to `agent/routing.py`.
 - [x] Add `_extract_procedure_tags(clinical_text)` keyword-to-tag mapper in `agent/clinical_stages.py`; `stage_3_route()` now accepts `clinical_context: str | None` and forwards extracted tags to `route_icd_to_cpgs()`.
 - [x] Update `route_icd_to_cpgs()` signature to accept and forward `procedure_tags: list[str] | None`.
-- [ ] Add D2 / procedure-scope unit tests (`tests/test_semantic_scope.py`).
+- [x] Add D2 / procedure-scope unit tests (`tests/test_semantic_scope.py`). 11 tests green (2026-05-23).
 - [ ] Run Smoke 10 on staging.
 
 ### P3 — D4 Out-of-Scope Detector
@@ -244,34 +244,51 @@ Add a routing fallback that walks `parent_code` up the ICD-11 tree when an exact
 ```python
 async def find_cpgs_for_code(
     code: str,
-    pool: asyncpg.Pool,
+    conn,
     max_depth: int = 2,
-) -> tuple[list[Document], str]:
+    procedure_tags: list[str] | None = None,
+) -> tuple[list[CPGDocRef], str]:
     """
     Returns (matched_documents, route_method).
-    route_method ∈ {"exact", "sibling", "ancestor_d1", "ancestor_d1_sibling",
-                    "ancestor_d1_sibling_child", "ancestor_d2", "none"}
 
-    1. Exact: documents.icd11_scope @> ARRAY[code]                    e.g. BA00.0
-    2. If 0: sibling — all codes sharing the same parent_code, incl. .Y/.Z
-                                                                       e.g. BA00.1, BA00.2, BA00.Y, BA00.Z
-    3. If 0: ancestor_d1 — direct parent                              e.g. BA00
-    4. If 0: ancestor_d1_sibling — peer categories of parent          e.g. BA01, BA02, BA03, BA04
-    5. If 0: ancestor_d1_sibling_child — children of those peers      e.g. BA01.0…BA04.Z
-    6. If 0: ancestor_d2 — grandparent block                          e.g. Hypertensive diseases
-    7. If still 0: return ([], "none") — out_of_scope
+    Phase 1 — ICD structural (code-to-code, no text/embedding):
+      route_method ∈ {"exact", "sibling", "ancestor_d1",
+                      "ancestor_d1_sibling", "ancestor_d1_sibling_child", "ancestor_d2"}
+
+    1. exact                     — code in icd11_scope          e.g. BA41.0
+    2. sibling                   — same parent_code incl. .Y/.Z  e.g. BA41.1, BA41.Z
+    3. ancestor_d1               — one-decimal parent            e.g. BA41 from BA41.0
+    4. ancestor_d1_sibling       — peers of that parent          e.g. BA40, BA42
+    5. ancestor_d1_sibling_child — children of those peers       e.g. BA40.0, BA42.1
+    6. ancestor_d2               — no-decimal block ancestor     e.g. 5B80 from 5B80.00
+
+    Grandchild depth example for 5B80.00:
+      exact(5B80.00) → sibling(5B80.01,5B80.0Z) → ancestor_d1(5B80.0)
+      → ancestor_d1_sibling(5B80.1,5B80.Y,5B80.Z)
+      → ancestor_d1_sibling_child(children of 5B80.1…)
+      → ancestor_d2(5B80)
+
+    Phase 2 — text fallbacks (only if all 6 ICD levels exhaust):
+      route_method ∈ {"procedure_scope", "semantic_scope", "out_of_scope"}
+
+    7. procedure_scope — tag overlap with caller procedure_tags
+    8. semantic_scope  — cosine(icd_embedding, scope_embedding) ≥ threshold
+    9. out_of_scope
     """
 ```
 
 Rules:
-- **Lookup order: exact → sibling → ancestor_d1 → ancestor_d1_sibling → ancestor_d1_sibling_child → ancestor_d2 → none.** All six structural levels checked before returning out_of_scope. No vector search used at any step. Stopping at `ancestor_d2` is deliberate: ICD-11 block-group labels and chapter root codes (e.g. `"11"`) are never stored in any CPG's `icd11_scope`, so walking higher adds only latency.
+- **Phase 1 is purely structural code-to-code: no text, no embeddings, no vector search.** All six levels checked before falling to Phase 2. Stopping at `ancestor_d2` is deliberate — block-group labels and chapter root codes are never stored in CPG `icd11_scope`, so walking higher adds only noise.
+- **Phase 2 fires only after Phase 1 exhausts.** `procedure_scope` catches procedure-only CPGs (anaesthesia, pre-op) that have no `icd11_scope`. `semantic_scope` catches cross-chapter conditions D1 structurally misses.
+- `ancestor_d1` = direct parent code (one dot-level up, e.g. `5B80.0` → `5B80.00`'s parent).
+- `ancestor_d2` = no-decimal block ancestor, two levels up (e.g. `5B80` from `5B80.00`).
 - `ancestor_d1_sibling` = peer category codes whose `parent_code` equals ancestor_d1's `parent_code`, excluding ancestor_d1 itself.
 - `ancestor_d1_sibling_child` = all codes whose `parent_code` is any of the ancestor_d1_sibling codes.
 - Trust degrades visibly per step. Stamp `route_method` onto the routing result so downstream telemetry / clinician audit can see *which* path matched. Never silently fall through.
 
 #### D1 alternative proposal — breadth-first structural routing
 
-> **Proposal status: review before implementation.** The current D1 implementation is serial: it checks one structural branch, returns as soon as it finds a match, and only then would have checked later branches. That is simple, but it is path-dependent. A better version is to keep exact matching first, then collect the remaining structural candidates breadth-first and rank them deterministically.
+> **Proposal status: SUPERSEDED — serial implementation chosen and shipped.** The serial approach (stop at first match, fixed priority order) was implemented and confirmed correct. The breadth-first alternative below is retained for reference only and should NOT be implemented.
 
 Proposed flow:
 
@@ -431,63 +448,52 @@ without dumping titles into the document side. Keep the rationale ~150–350 wor
 - Support `--dry-run` (no DB writes, no embedding calls), `--force`, `--limit N`, `--all-documents`.
 - Step 1 runs the `scope_embedding` column/index DDL idempotently.
 
-#### Routing code change in `find_cpgs_for_code()` (`agent/routing.py`)
+#### Routing code — implemented in `agent/routing.py`
 
+Two functions handle Phase 2 (both already shipped):
+
+**`_procedure_scope_match(conn, procedure_tags)`** — fires first after ancestor_d2 fails:
+```python
+# Postgres array overlap — one shared tag is enough
+WHERE scope_verified = TRUE
+  AND procedure_scope && $1::text[]
+```
+Tags are extracted from the clinical context by `_extract_procedure_tags(clinical_text)` in `clinical_stages.py` using a keyword→tag map, then forwarded via `stage_3_route(clinical_context=...)` → `route_icd_to_cpgs(procedure_tags=...)`.
+
+**`_semantic_scope_match(conn, code)`** — fires after procedure_scope fails:
 ```python
 SEMANTIC_SCOPE_THRESHOLD = 0.65   # tune from Smoke 10 results
 
-# After ancestor_d2 returns 0:
-scope_rows = await conn.fetch(
-    """
-    SELECT DISTINCT ON (metadata->>'cpg_name')
-           id::text, title, scope_embedding,
-           metadata->>'cpg_name' AS cpg_name
-    FROM documents
-    WHERE scope_embedding IS NOT NULL
-    ORDER BY metadata->>'cpg_name', id
-    """
-)
-icd_emb = await conn.fetchval(
-    "SELECT embedding FROM icd11_codes WHERE code = $1", code
-)
-if icd_emb and scope_rows:
-    best_score, best_row = 0.0, None
-    for row in scope_rows:
-        sim = cosine_similarity(icd_emb, row["scope_embedding"])
-        if sim > best_score:
-            best_score, best_row = sim, row
-    if best_score >= SEMANTIC_SCOPE_THRESHOLD:
-        logger.info(
-            "D2 semantic_scope: code=%s matched cpg=%s score=%.3f",
-            code, best_row["cpg_name"], best_score,
-        )
-        refs = _group_document_rows(
-            [best_row],
-            match_type="semantic_scope",
-            matched_scope=f"semantic:{best_score:.3f}",
-        )
-        return refs, "semantic_scope"
+# Fetch ICD embedding, convert to vector string, then:
+SELECT DISTINCT ON (metadata->>'cpg_name')
+       id::text, title,
+       metadata->>'cpg_name' AS cpg_name,
+       1 - (scope_embedding <=> $1::vector) AS similarity
+FROM documents
+WHERE scope_embedding IS NOT NULL
+  AND scope_verified = TRUE
+ORDER BY metadata->>'cpg_name', scope_embedding <=> $1::vector
+```
+Uses pgvector `<=>` (cosine distance) — no Python-level cosine loop. Picks the single best-scoring CPG; returns it only if `similarity >= SEMANTIC_SCOPE_THRESHOLD`.
 
-return [], "none"
+Terminal when all 9 steps fail:
+```python
+return [], "out_of_scope"
 ```
 
 Note: `DISTINCT ON (cpg_name)` ensures one representative row per CPG — the scope embedding is the same across all sections of the same CPG.
 
-#### Badge and display
+#### Badge and display — implemented in `route_provenance_badge()` (`agent/clinical_stages.py`)
 
-Add to `route_provenance_badge()`:
+Both Phase 2 badges are shipped:
 ```python
+if route_method == "procedure_scope":
+    return "⚙ Matched via procedure context"
 if route_method == "semantic_scope":
     return "~ Matched via semantic scope similarity"
 ```
 
-Add to the D5b badge table:
-
-| route_method | Badge text | Clinician meaning |
-|---|---|---|
-| `semantic_scope` | `~ Matched via semantic scope similarity` | No structural ICD match found; CPG selected because its clinical scope description is semantically similar to the predicted condition. Use with caution — verify clinical relevance. |
-
-**Hard rule:** `semantic_scope` badge must be visually distinct from all structural routes. Never render it as `✓` (exact) or `≈` (related). The `~` glyph signals "fuzzy — clinician should verify."
+**Hard rule:** Phase 2 badges must be visually distinct from all Phase 1 structural routes. Never render them as `✓` (exact) or `≈` (related). `⚙` signals procedure-triggered; `~` signals fuzzy semantic — clinician should verify in both cases.
 
 ### D3 — Exclusion-aware DDx re-ranking
 
@@ -529,7 +535,7 @@ When an exclusion contributes a non-trivial penalty (`exclusion_score > 0.5`), s
 **File touched:** Stage 3 routing in `agent/clinical_stages.py`.
 
 Triggers when:
-1. `find_cpgs_for_code()` returned `route_method == "none"` (all six structural levels exhausted)
+1. `find_cpgs_for_code()` returned `route_method == "out_of_scope"` (all 8 levels exhausted — 6 structural + procedure_scope + semantic_scope)
 2. AND the top-K ICD candidates for the query all have `inclusion_score < OUT_OF_SCOPE_INCL_THRESHOLD` (default 0.3)
 
 Returns a structured response:
@@ -587,19 +593,19 @@ The top-5 DDx list rendered to the clinician must show, per candidate, in this o
 
 **Provenance badge** (the single most important trust signal — render it visually distinct):
 
-These are the **only** `route_method` values the system produces — the implementer must handle all seven and map each to exactly the badge below:
+These are the **only** `route_method` values the system produces — the implementer must handle all nine and map each to exactly the badge below:
 
 | route_method | Badge text | Clinician meaning | Brief example |
 |---|---|---|---|
-| `exact` | `✓ Exact guideline match` | The CPG explicitly covers this ICD code. Highest trust. | Code `BC81.3` (AF) is listed in the Atrial-Fibrillation CPG's verified scope. |
-| `sibling` | `≈ Matched via related code` | Matched a same-level peer, including .Y and .Z variants. Use clinical judgement. | `BA00.0` not in scope; sibling `BA00.1` or `BA00.Y` is in the Hypertension CPG. |
-| `ancestor_d1` | `≈ Matched via broader category` | Matched the direct parent category. Reasonable, but broader. | All BA00.x not in scope; parent `BA00` is in the Hypertension CPG. |
-| `ancestor_d1_sibling` | `≈ Matched via related category` | Matched a peer category of the parent — same clinical domain. | `BA00` not in scope; peer `BA01` (Hypertensive heart disease) is in the Hypertension CPG. |
-| `ancestor_d1_sibling_child` | `≈ Matched via related subcode` | Matched a child of a peer category. | `BA01` not in scope; child `BA01.0` is in the Hypertension CPG. |
-| `ancestor_d2` | `≈ Matched via broader category` | Matched the grandparent block. | All Hypertensive diseases subcodes exhausted; block itself is in scope. |
-| `procedure_scope` | `⚙ Matched via procedure context` | No ICD structural match; CPG selected because the clinical context mentions a procedure this guideline covers (e.g. anaesthesia, pre-op assessment). Verify clinical intent. | Patient booked for surgery — anaesthesia safety CPG matched via `pre_op_assessment` tag. |
-| `semantic_scope` | `~ Matched via semantic scope similarity` | No structural ICD match found; CPG selected because its clinical scope description is semantically similar to the predicted condition. Use with caution — verify clinical relevance. | Rare endocrine condition outside all CPG ICD scopes; Growth-Hormone CPG selected via cosine similarity. |
-| `out_of_scope` | `✕ No guideline covers this` | No CPG matched at any structural, procedure, or semantic level. Do not present as guideline-backed. | "Acute appendicitis management" — no surgical CPG loaded, all levels exhausted → `out_of_scope`. |
+| `exact` | `✓ Exact guideline match` | The CPG explicitly covers this ICD code. Highest trust. | `5B80.00` (Type 2 DM with diabetic nephropathy, stage 1) is explicitly listed in the Diabetes-Mellitus CPG's verified scope. |
+| `sibling` | `≈ Matched via related code` | Matched a same-level peer at the same decimal depth, including `.Y`/`.Z` unspecified variants. Use clinical judgement. | `5B80.00` not in scope; same-level sibling `5B80.01` (stage 2) or `5B80.0Z` (unspecified stage) is in the Diabetes-Mellitus CPG. |
+| `ancestor_d1` | `≈ Matched via broader category` | Matched the direct one-decimal parent. Reasonable, but broader than exact. | `5B80.00` and all `.0x` siblings miss; parent `5B80.0` (T2DM with diabetic nephropathy) is in the Diabetes-Mellitus CPG. |
+| `ancestor_d1_sibling` | `≈ Matched via related category` | Matched a peer of the one-decimal parent — same clinical block. | `5B80.0` not in scope; peer `5B80.1` (T2DM with diabetic retinopathy) is in the Diabetes-Mellitus CPG. |
+| `ancestor_d1_sibling_child` | `≈ Matched via related subcode` | Matched a child of a peer one-decimal category. | `5B80.1` itself not in scope; child `5B80.10` (T2DM with mild retinopathy) is in the Diabetes-Mellitus CPG. |
+| `ancestor_d2` | `≈ Matched via broader category` | Matched the no-decimal block ancestor (grandparent). | All `5B80.0x` and `5B80.1x` subcodes exhausted; no-decimal block `5B80` (Type 2 diabetes mellitus) is in the Diabetes-Mellitus CPG. |
+| `procedure_scope` | `⚙ Matched via procedure context` | No ICD structural match; CPG selected because the clinical context mentions a procedure this guideline covers (e.g. anaesthesia, pre-op assessment). Verify clinical intent. | Patient booked for surgery — Pre-Anaesthetic-Assessment CPG matched via `pre_op_assessment` tag; no ICD scope defined for that CPG. |
+| `semantic_scope` | `~ Matched via semantic scope similarity` | No structural ICD match found; CPG selected because its clinical scope description is semantically similar to the predicted condition. Use with caution — verify clinical relevance. | Rare growth hormone deficiency code outside all CPG ICD scopes; Growth-Hormone-Disorders CPG selected via cosine similarity to scope embedding. |
+| `out_of_scope` | `✕ No guideline covers this` | No CPG matched at any structural, procedure, or semantic level. Do not present as guideline-backed. | `5B80.00` walk exhausted all 6 structural levels, no procedure tags matched, semantic similarity below threshold → `out_of_scope`. |
 
 Hard requirements:
 - The provenance badge is **never** hidden. An `out_of_scope` result or any non-exact route must never visually masquerade as an `exact` curated match.
@@ -780,7 +786,7 @@ Eight tunable constants. Log enough to tune them empirically from real DDx logs.
 - `test_inclusion_phrase_null_below_floor` — best inclusion sim 0.4 < `DDX_PHRASE_DISPLAY_FLOOR` → `inclusion_phrase` is None, line omitted.
 - `test_exclusion_phrase_populated_when_fired` — exclusion sim 0.7 → `exclusion_phrase` = the actual WHO text, penalty > 0.
 - `test_route_provenance_passed_through_not_recomputed` — ranker receives `route_method="sibling"` → breakdown carries it verbatim.
-- `test_badge_text_per_route_method` — each of the 8 `route_method` values (6 structural + semantic_scope + out_of_scope) maps to the exact badge string in the D5b table.
+- `test_badge_text_per_route_method` — each of the 9 `route_method` values (6 structural + procedure_scope + semantic_scope + out_of_scope) maps to the exact badge string in the D5b table.
 - `test_exclusion_line_uses_caution_not_removal` — rendered exclusion line contains "⚠" and "ranked lower", never "removed"/"excluded from list".
 - `test_low_confidence_label_below_display_floor` — `final_score` 0.22 < `DDX_DISPLAY_FLOOR` → render includes "low confidence" text.
 - `test_out_of_scope_badge_never_looks_curated` — `route_method="out_of_scope"` → badge is the `✕ No guideline covers this` string, never an exact-match style.
