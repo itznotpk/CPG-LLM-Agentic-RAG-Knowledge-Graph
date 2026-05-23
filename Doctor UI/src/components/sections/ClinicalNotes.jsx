@@ -101,7 +101,18 @@ export function ClinicalNotes() {
             <span className="opacity-0 select-none">·</span>
           )}
         </span>
-        <span>{wordCount > 0 ? `${wordCount} words · markdown enabled` : 'markdown enabled'}</span>
+        <span className="flex items-center gap-2">
+          {wordCount > 0 ? `${wordCount} words` : ''}
+          <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium ${
+            isDark ? 'bg-white/5 text-slate-500' : 'bg-slate-100 text-slate-400'
+          }`}>
+            <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2a7 7 0 0 1 7 7v4a7 7 0 0 1-14 0V9a7 7 0 0 1 7-7Z" />
+              <path d="M8 21h8" /><path d="M12 17v4" />
+            </svg>
+            Google STT
+          </span>
+        </span>
       </div>
     </GlassCard>
   );

@@ -1007,6 +1007,134 @@ async def search_hybrid(request: SearchRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ── Google Cloud Speech-to-Text proxy ──────────────────────────────────────
+# Keeps the API key on the server; the frontend just POSTs raw audio.
+@app.post("/clinical/stt")
+async def speech_to_text(request: Request):
+    """
+    Accepts an audio file upload and returns Google Cloud STT transcript.
+
+    The frontend sends audio recorded via MediaRecorder (webm/ogg/wav).
+    This endpoint forwards it to Google Cloud Speech-to-Text REST API v1
+    using the API key stored in .env (GOOGLE_CLOUD_STT_API_KEY).
+    """
+    import base64
+    import httpx
+
+    api_key = os.getenv("GOOGLE_CLOUD_STT_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="GOOGLE_CLOUD_STT_API_KEY not configured")
+
+    # Read the raw audio bytes from the request body
+    content_type = request.headers.get("content-type", "")
+
+    # Support both multipart/form-data and raw binary body
+    if "multipart" in content_type:
+        form = await request.form()
+        audio_file = form.get("audio")
+        if not audio_file:
+            raise HTTPException(status_code=400, detail="No 'audio' field in form data")
+        audio_bytes = await audio_file.read()
+        file_content_type = getattr(audio_file, "content_type", "audio/webm")
+    else:
+        audio_bytes = await request.body()
+        file_content_type = content_type or "audio/webm"
+
+    if not audio_bytes or len(audio_bytes) < 100:
+        raise HTTPException(status_code=400, detail="Audio data too small or empty")
+
+    # Map browser MIME types to Google Cloud encoding enums
+    encoding_map = {
+        "audio/webm":       "WEBM_OPUS",
+        "audio/ogg":        "OGG_OPUS",
+        "audio/wav":        "LINEAR16",
+        "audio/x-wav":      "LINEAR16",
+        "audio/mp4":        "MP4",        # Chrome sometimes sends mp4
+        "audio/mpeg":       "MP3",
+    }
+
+    # Determine encoding; fall back to WEBM_OPUS (most common from browsers)
+    gcloud_encoding = "WEBM_OPUS"
+    for mime, enc in encoding_map.items():
+        if mime in file_content_type.lower():
+            gcloud_encoding = enc
+            break
+
+    # Sample rate hint (WEBM_OPUS / OGG_OPUS auto-detect; LINEAR16 needs explicit)
+    sample_rate = 48000 if "OPUS" in gcloud_encoding else 16000
+
+    payload = {
+        "config": {
+            "encoding": gcloud_encoding,
+            "sampleRateHertz": sample_rate,
+            "languageCode": "en-US",
+            "enableAutomaticPunctuation": True,
+            "model": "latest_long",
+            "useEnhanced": True,
+            # Medical-specific hints for better clinical dictation
+            "speechContexts": [{
+                "phrases": [
+                    "HPI", "CC", "PE", "ROS", "PMH", "PSH",
+                    "NYHA", "LVEF", "eGFR", "HbA1c", "CKD",
+                    "systolic", "diastolic", "mmHg", "bpm",
+                    "hypertension", "diabetes", "diaphoresis",
+                    "dyspnea", "tachycardia", "bradycardia",
+                    "murmur", "edema", "crackles", "wheezing",
+                    "metformin", "atorvastatin", "amlodipine",
+                    "lisinopril", "aspirin", "clopidogrel",
+                    "T2DM", "HTN", "CKD", "AF", "COPD",
+                ],
+                "boost": 15,
+            }],
+        },
+        "audio": {
+            "content": base64.b64encode(audio_bytes).decode("utf-8"),
+        },
+    }
+
+    url = f"https://speech.googleapis.com/v1/speech:recognize?key={api_key}"
+
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.post(url, json=payload)
+
+        if resp.status_code != 200:
+            detail = resp.text[:500]
+            logger.error("Google STT API error %s: %s", resp.status_code, detail)
+            raise HTTPException(status_code=502, detail=f"Google STT error: {detail}")
+
+        result = resp.json()
+        results = result.get("results", [])
+
+        # Concatenate all transcript alternatives
+        transcript_parts = []
+        confidence_sum = 0.0
+        count = 0
+        for r in results:
+            alts = r.get("alternatives", [])
+            if alts:
+                transcript_parts.append(alts[0].get("transcript", ""))
+                confidence_sum += alts[0].get("confidence", 0.0)
+                count += 1
+
+        transcript = " ".join(transcript_parts).strip()
+        avg_confidence = round(confidence_sum / count, 3) if count > 0 else 0.0
+
+        return {
+            "transcript": transcript,
+            "confidence": avg_confidence,
+            "language": "en-US",
+        }
+
+    except httpx.TimeoutException:
+        raise HTTPException(status_code=504, detail="Google STT request timed out")
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("STT endpoint error: %s", e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 # Documents endpoint removed - use vector_search or graph_search instead
 
 
