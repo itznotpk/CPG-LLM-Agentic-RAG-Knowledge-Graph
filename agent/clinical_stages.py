@@ -397,7 +397,7 @@ Format:
                 model=active_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=1,
-                max_tokens=4000,
+                max_tokens=8000,
                 stream=True,
             )
             async for chunk in stream:
@@ -427,7 +427,7 @@ Format:
                 model=active_model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=1,
-                max_tokens=4000,
+                max_tokens=8000,
             )
             raw_content = resp.choices[0].message.content
 

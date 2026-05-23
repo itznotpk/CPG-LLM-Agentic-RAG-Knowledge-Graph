@@ -90,7 +90,7 @@ Progress:
 - [x] Add route method stamping: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`, `none`.
 - [x] Add SQL/helper support for ICD ancestor, sibling, ancestor-sibling, and ancestor-sibling-child lookups.
 - [x] Add D1 unit tests.
-- [ ] Run Smoke 1, 2, 3, and 9 on staging.
+- [x] Run Smoke 1, 2, 3, and 9 — validated 2026-05-23 against live Neon (staging-equivalent). Smoke 1 exact (BC81.3→AF) ✓; Smoke 2 ancestor_d1 (5A00.0Y→Thyroid) ✓; Smoke 9 sibling (5A61.1→Growth-Hormone) ✓; Smoke 3 out_of_scope (migraine/UTI/epilepsy) ✓ **after fixing 2 real D1 bugs** (see Smoke-validation findings below). Formal hosted-staging run still recommended pre-prod.
 
 ### P2b — D2 Semantic Scope Fallback
 
@@ -112,7 +112,7 @@ Progress:
 - [x] Add `_extract_procedure_tags(clinical_text)` keyword-to-tag mapper in `agent/clinical_stages.py`; `stage_3_route()` now accepts `clinical_context: str | None` and forwards extracted tags to `route_icd_to_cpgs()`.
 - [x] Update `route_icd_to_cpgs()` signature to accept and forward `procedure_tags: list[str] | None`.
 - [x] Add D2 / procedure-scope unit tests (`tests/test_semantic_scope.py`). 11 tests green (2026-05-23).
-- [ ] Run Smoke 10 on staging.
+- [x] Run Smoke 10 — validated 2026-05-23 against live Neon. D2 `semantic_scope` fires correctly for clinically-related non-scope codes: HA01.1→Erectile-Dysfunction (0.65), MC80.03→Hypertension (0.58), BA5Y→Stable-CAD (0.57), MF41→Erectile-Dysfunction (0.59). **Required fixing a runtime crash in `_semantic_scope_match`** (see findings below). Confirms the 0.40 floor works under real firing (related codes 0.57–0.65 clear it; orphans <0.40 don't). Formal hosted-staging run still recommended pre-prod.
 
 ### P3 — D4 Out-of-Scope Detector
 
@@ -126,7 +126,7 @@ Progress:
 - [x] Update D4 trigger condition: fires only after D1 **and** D2 (`semantic_scope`) both return no match. Satisfied by construction (2026-05-23): `route_icd_to_cpgs` → `find_cpgs_for_code` runs the full 9-step chain (…→ procedure_scope → semantic_scope → out_of_scope), so it returns `[]` only after D1 *and* D2 miss; `stage_3_route`'s `if not all_refs` gate therefore fires D4 only post-D2.
 - [x] Ensure downstream synthesis renders "no matching CPG" instead of using unrelated documents.
 - [x] Add D4 unit tests — `tests/test_d4_out_of_scope.py` (8 tests: inclusion-gate boundary, empty-ddx, and stage-3 trigger gated on D1+D2 + inclusion confidence). Green 2026-05-23.
-- [ ] Run Smoke 5 on staging.
+- [x] Run Smoke 5 — validated 2026-05-23: migraine (8A80) → out_of_scope []; codes absent from `icd11_codes` → D2 returns [] → out_of_scope. D4 fires only after D1+D2 both miss. Formal hosted-staging run still recommended pre-prod.
 
 ### P4 — D5 Score Transparency
 
@@ -141,7 +141,7 @@ Progress:
 - [x] Add route provenance badges for all seven route_method values.
 - [x] Add D5 tests.
 - [x] Run D5 unit tests locally: `tests/test_score_breakdown.py`.
-- [ ] Run Smoke 7 on staging. *(scope blocker RESOLVED 2026-05-23 — `documents.icd11_scope` now populated + verified for all 30 CPGs; staging run still pending)*
+- [x] Run Smoke 7 — validated 2026-05-23: `render_ddx_top5` shows base/inclusion/exclusion lines + provenance badge; exclusion candidate (5A10, WHO-excluded) renders the `⚠ WHO excludes "…"` caution line and stays in the list; `final_score = base + inclusion − exclusion` honoured. Formal hosted-staging run still recommended pre-prod.
 
 ### P5 — D6 Math + LLM Rerank Merge
 
@@ -158,7 +158,7 @@ Progress:
 - [x] Add deterministic force-rerank test harness for Smoke 8 — env-injectable `FORCE_RERANK_ORDER` (JSON order + per-candidate `override_reason`) gated by `ALLOW_FORCE_RERANK=1` and **inert when `APP_ENV=production`**. Feeds a fixed order through the normal parse/assembly so llm_rank, rank_delta, the override hard-rule, and D6d telemetry run unchanged with the LLM bypassed. `_forced_rerank_spec` / `_force_rerank_enabled` in `agent/clinical_stages.py`; tests `tests/test_force_rerank.py` (7, incl. `test_force_rerank_order_inert_in_prod_config` and LLM-bypass integration). 2026-05-23.
 - [x] Add D6 telemetry counters (`D6 telemetry: model=... disagreements=... exclusion_overrides=...`).
 - [x] Add D6 tests (`tests/test_rerank_merge.py` — 10 tests, all green).
-- [ ] Run Smoke 6 and 8 on staging. *(scope blocker RESOLVED 2026-05-23 — `documents.icd11_scope` now populated; staging run still pending)*
+- [x] Run Smoke 6 and 8 — validated 2026-05-23. Smoke 6: exclusion backfill idempotent (703 candidates, 0 pending, 0 calls, 0 writes). Smoke 8 via the `FORCE_RERANK_ORDER` harness: Case 1 plain disagreement (math#4→#1, ↕ line, telemetry disagreements=1/overrides=0) ✓; Case 2a exclusion override WITH reason (⚠↕ + reason, overrides=1) ✓; Case 2b NEGATIVE empty reason → hard rule injects `[override_reason required…]` placeholder ✓. Formal hosted-staging run still recommended pre-prod.
 
 ### P6 — Pipeline Assembly + Full Pre-Deploy Gate
 
@@ -187,6 +187,23 @@ Shipped during/after the scope-ingestion milestone (2026-05-23). These are **not
 - [x] **E4 — Sex-incompatibility filter.** A male is never routed to an obstetric/female-only CPG (and vice-versa). `sex_incompatible_reason()` + filtering in `stage_3_route` and `route_comorbidities`; exclusions shown as a red trace sub-step. Registry: pregnancy/cervical/CVD-Women → female; ED → male; `"pregnancy"` substring catch-all. Conservative (only fires for explicit M/F; breast cancer NOT filtered). Tests: `tests/test_sex_filter.py`.
 - [x] **E5 — Stop-and-confirm gate (Doctor UI).** Stage 2 (DDx) now streams and **pauses** for clinician confirm/override before Stages 3–5 synthesize the plan — so the authoritative care plan is never generated against an unvalidated diagnosis. New `/clinical/plan/ddx/stream` endpoint + `run_ddx_only_streaming`; phase 2 reuses the existing resynthesize path. Tests: `tests/test_ddx_only.py`.
 - [x] **E6 — Stage-2 trace transparency.** The AI Reasoning Trace now renders, per DDx candidate: before/after re-rank (`math# → AI#` + delta + `override_reason`), the numeric score breakdown (base / incl / excl / final), and the extraction-fallback / condition-hypotheses sub-steps. Frontend: `Doctor UI/src/components/sections/PipelineProgress.jsx`.
+
+## Smoke-validation findings (2026-05-23) — 3 real bugs caught + fixed
+
+Running the §6 smokes locally against live Neon (staging-equivalent) surfaced three genuine production bugs that the mocked unit tests could not — exactly what the post-deploy smokes exist for. All fixed; full suite (247) green after.
+
+1. **Chapter-root sibling explosion (D1).** Codes whose `parent_code` is a *chapter root* (e.g. migraine `8A80`→`'08'`; chapter roots store `parent_code = ''`, not NULL) had the **entire chapter** as "siblings" (203 codes), so the `sibling` step matched any in-scope code in the chapter (migraine → Ischaemic-Stroke). Fixed `fetch_icd_siblings` with a chapter-root guard (`agent/db_utils.py`).
+2. **Chapter-root ancestor-sibling explosion (D1).** Same root cause leaked through `ancestor_d1_sibling` / `ancestor_d1_sibling_child`: a chapter-rooted code's "parent peers" are *other chapters*, so migraine reached Nasopharyngeal-Carcinoma (ch.02). Fixed both `fetch_icd_ancestor_siblings` and `fetch_icd_ancestor_sibling_children` with the same guard.
+3. **D2 `semantic_scope` runtime crash.** `_semantic_scope_match` fetched the ICD embedding into Python then re-serialised it with `",".join(map(str, …))` — but asyncpg returns a pgvector column as a *string*, so this produced `"[[,-,0,…]"` and the `::vector` cast threw `InvalidTextRepresentationError`. D2 would have crashed on its first real fire (never hit before because codes always matched a structural step first). Rewrote as a server-side join in `agent/routing.py` (no Python round-trip). D2 semantic now works — and clinically well (Smoke 10).
+
+Net effect: D1 no longer mis-routes unrelated conditions via chapter-wide pseudo-siblings, and D2 semantic_scope is functional for the first time. Unit test `test_unknown_icd_code_uses_raw_string` → `test_unknown_icd_code_returns_empty` (asserted obsolete internals).
+
+### Follow-up bugs found via a clinician CLI run (2026-05-23) — classic ACS case returned no MI/ACS code
+
+A `clinical_cli.py` run on a textbook ACS presentation (62 M smoker, HTN, T2DM, "chest pain radiating to left arm") returned a DDx with **no acute-MI/ACS code at all** (pulmonary embolism #1, aortic dissection, generic chest pain). Two independent root causes:
+
+4. **ivfflat ANN recall loss (CRITICAL, all DDx searches).** `icd11_embedding_idx` is ivfflat with `lists=10`; at the default `ivfflat.probes = 1` the approximate search scans only ~1/10 of vectors and **silently drops the true top matches**. For "acute myocardial infarction", BA41 (exact cosine **0.730**, the #1 match) was missed entirely — the search returned BA60 (0.643) instead, so no MI code reached the candidate pool and the reranker never saw it. Verified: probes=1 → BA41 absent; probes≥10 → BA41 #1. Fixed by `SET ivfflat.probes = 100` on the search connection in `ddx/search_ddx.py` and `_semantic_scope_match` in `agent/routing.py` (negligible cost on 5.7k / 30-row tables; near-exact recall). NOTE: `idx_documents_scope_embedding` (lists=16) had the same latent issue; same fix applied. `idx_chunks_embedding` is lists=1 (already full-scan, unaffected).
+5. **mimo rerank empty-output (intermittent).** The Stage-2 rerank ran at `max_tokens=4000` with thinking enabled; for complex 10-candidate cases mimo (a reasoning model) exhausted the budget on hidden reasoning and returned **empty content** → "No JSON array found (len=0)" → fell back to math order (which ranks tight-embedding conditions like PE above ACS). Bumped rerank `max_tokens` 4000 → 8000 in `agent/clinical_stages.py`. After both fixes the same case returns **Unstable angina (BA40.0) #1** with aortic dissection / PE / hypertensive crisis as differentials — clinically correct, routes to NSTE-ACS exact.
 
 ## Preconditions
 

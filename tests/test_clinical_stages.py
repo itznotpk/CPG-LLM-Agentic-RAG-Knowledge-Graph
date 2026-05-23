@@ -622,7 +622,9 @@ async def test_rerank_uses_configured_model(minimal_case):
         expected_model = os.getenv("STAGE2_LLM_CHOICE") or DDX_RERANK_MODEL
         assert call_kwargs["model"] == expected_model
         assert call_kwargs["temperature"] == 1
-        assert call_kwargs["max_tokens"] == 4000
+        # Bumped 4000 → 8000 so mimo's reasoning + JSON output both fit; at 4000 the
+        # reasoning model frequently exhausted the budget and returned empty content.
+        assert call_kwargs["max_tokens"] == 8000
 
 
 @pytest.mark.asyncio

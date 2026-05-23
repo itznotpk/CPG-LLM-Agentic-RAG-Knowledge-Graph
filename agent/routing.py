@@ -204,6 +204,11 @@ async def _semantic_scope_match(
     Returns the single best CPG if similarity >= SEMANTIC_SCOPE_THRESHOLD.
     Uses pgvector <=> operator (cosine distance = 1 - similarity).
     """
+    # The scope_embedding ivfflat index (lists=16) at the default probes=1 scans
+    # only ~1/16 of CPG rows and can miss the best semantic match — widen probes for
+    # near-exact recall (only 30 CPGs, so cost is negligible).
+    await conn.execute("SET ivfflat.probes = 100")
+
     # Compare entirely in SQL via a join — never round-trip the embedding through
     # Python. asyncpg returns a pgvector column as a *string* ("[0.1,0.2,...]"),
     # not a list, so re-serializing it with ",".join(map(str, ...)) corrupts it

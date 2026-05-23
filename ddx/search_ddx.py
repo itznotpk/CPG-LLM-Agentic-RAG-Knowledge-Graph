@@ -454,8 +454,16 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
         return suggestions[:top_k] # Filter to top K
     
     conn = await asyncpg.connect(database_url)
-    
+
     try:
+        # The icd11_codes.embedding ivfflat index has lists=10; at the default
+        # ivfflat.probes=1 the approximate search scans only ~1/10 of vectors and
+        # SILENTLY DROPS true top matches (e.g. 'acute myocardial infarction' missed
+        # BA41 at 0.73, returning BA60 0.64 instead). On a 5.7k-row table the index
+        # buys almost nothing, so probe widely for near-exact recall — correctness
+        # of the DDx candidate set matters far more than microseconds here.
+        await conn.execute("SET ivfflat.probes = 100")
+
         # Fetch more candidates than needed for filtering
         fetch_limit = top_k * 2  # Get 10 for filtering down to 5
         
