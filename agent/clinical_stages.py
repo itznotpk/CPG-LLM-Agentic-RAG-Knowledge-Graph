@@ -1559,6 +1559,41 @@ def _build_out_of_scope_plan(
     )
 
 
+def _build_synthesis_failed_plan(
+    ddx: list[DDxResult],
+    evidence: list[ChunkResult],
+) -> TreatmentPlan:
+    """Degraded plan when the synthesis LLM returns nothing usable.
+
+    Stage 5 is unrecoverable, so rather than crash the consultation we return an
+    honest, low-confidence plan that names the predicted diagnosis, surfaces the
+    failure in unresolved_questions, and tells the clinician to proceed on their
+    own judgement / retry. No fabricated guideline citations.
+    """
+    icd_primary = ddx[0].code if ddx else "Unknown"
+    title = ddx[0].title if ddx else "Unknown"
+    return TreatmentPlan(
+        icd_primary=icd_primary,
+        icd_alternates=[d.code for d in ddx[1:3]],
+        summary=(
+            f"Automated care-plan synthesis was unavailable for {icd_primary} ({title}). "
+            f"{len(evidence)} guideline evidence chunk(s) were retrieved but the synthesis "
+            "model returned no output."
+        ),
+        recommendations=[],
+        monitoring=[],
+        red_flags=[
+            "Escalate urgently if the patient is clinically unstable or has red-flag symptoms.",
+        ],
+        follow_up=[],
+        confidence=0.0,
+        unresolved_questions=[
+            "Care-plan synthesis failed (model returned empty output) — retry, or proceed "
+            "on clinical judgement using the retrieved guideline evidence directly.",
+        ],
+    )
+
+
 async def stage_5_synthesize(
     case: PatientCase,
     ddx: list[DDxResult],
@@ -1631,7 +1666,14 @@ Produce a TreatmentPlan JSON object matching this schema:
         response_format={"type": "json_object"},
     )
 
-    raw_json = resp.choices[0].message.content.strip()
+    raw_json = (resp.choices[0].message.content or "").strip()
+    if not raw_json:
+        # Reasoning models (e.g. mimo) can return empty content. Stage 5 is the
+        # unrecoverable stage, so degrade gracefully to an honest "synthesis
+        # unavailable" plan instead of crashing the whole consultation.
+        logger.error("stage_5_synthesize: LLM returned empty content — degrading to safe plan")
+        return _build_synthesis_failed_plan(ddx, evidence)
+
     data = json.loads(raw_json)
 
     # Ensure required fields are populated when LLM omits them

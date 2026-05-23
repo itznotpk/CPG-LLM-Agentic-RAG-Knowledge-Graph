@@ -292,12 +292,22 @@ class TreatmentPlan(BaseModel):
     confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score for the plan (0.0–1.0)")
     unresolved_questions: List[str] = Field(default_factory=list, description="Clinical questions that could not be resolved from available evidence")
 
-    @field_validator("recommendations")
-    @classmethod
-    def recommendations_not_empty(cls, v: List[Recommendation]) -> List[Recommendation]:
-        if len(v) < 1:
-            raise ValueError("recommendations must contain at least one entry; use unresolved_questions for cases with no actionable guidance")
-        return v
+    @model_validator(mode="after")
+    def actionable_or_unresolved(self) -> "TreatmentPlan":
+        """A plan must carry actionable content OR an honest reason it can't.
+
+        Empty `recommendations` is allowed ONLY when `unresolved_questions` explains
+        why there is no actionable guidance (e.g. no CPG evidence retrieved). This
+        matches the documented contract — and prevents the unrecoverable crash where
+        the model correctly returns an evidence-honest, recommendation-free plan but
+        the schema rejected it. Both empty = a genuinely empty plan = invalid.
+        """
+        if len(self.recommendations) < 1 and len(self.unresolved_questions) < 1:
+            raise ValueError(
+                "recommendations must contain at least one entry, or "
+                "unresolved_questions must explain why no actionable guidance is available"
+            )
+        return self
 
 
 # Safety Critic Models
