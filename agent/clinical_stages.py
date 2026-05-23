@@ -230,6 +230,55 @@ def _build_symptom_text(case: PatientCase) -> str:
     return ". ".join(parts)
 
 
+def _force_rerank_enabled() -> bool:
+    """Gate for the deterministic Smoke-8 rerank harness. INERT in production.
+
+    Requires `ALLOW_FORCE_RERANK=1` AND `APP_ENV` != 'production'. Either condition
+    failing disables the harness, so production behaviour can never be altered by it.
+    """
+    if os.getenv("APP_ENV", "").strip().lower() == "production":
+        return False
+    return os.getenv("ALLOW_FORCE_RERANK", "").strip() == "1"
+
+
+def _forced_rerank_spec(candidates: list[DDxResult]) -> list[dict] | None:
+    """Test/staging-only: read a fixed rerank order from `FORCE_RERANK_ORDER` and
+    return it shaped like the LLM's JSON output (list of {code, reasoning,
+    override_reason}). Feeding it through the normal assembly path means llm_rank,
+    rank_delta, the override-enforcement hard rule, and D6d telemetry all run
+    unchanged — only the LLM call is skipped. This makes Smoke 8 deterministic.
+
+    Returns None when the harness is disabled, unset, or invalid — so it can never
+    change production behaviour. `FORCE_RERANK_ORDER` is a JSON list, ordered by
+    intended rank (or carrying explicit `llm_rank`):
+        [{"code": "BC81.3", "override_reason": "..."}, {"code": "BD11.0"}]
+    """
+    if not _force_rerank_enabled():
+        return None
+    raw = os.getenv("FORCE_RERANK_ORDER")
+    if not raw:
+        return None
+    try:
+        spec = json.loads(raw)
+        assert isinstance(spec, list)
+    except Exception:
+        logger.warning("FORCE_RERANK_ORDER is not a valid JSON list — ignoring harness")
+        return None
+    valid = {c.code for c in candidates}
+    entries = [e for e in spec if isinstance(e, dict) and e.get("code") in valid]
+    if any("llm_rank" in e for e in entries):
+        entries.sort(key=lambda e: e.get("llm_rank", 1_000))
+    out = [
+        {
+            "code": e["code"],
+            "reasoning": e.get("reasoning", "forced order (Smoke 8 harness)"),
+            "override_reason": e.get("override_reason"),
+        }
+        for e in entries
+    ]
+    return out or None
+
+
 async def _llm_rerank_ddx(
     case: PatientCase,
     candidates: list[DDxResult],
@@ -240,6 +289,9 @@ async def _llm_rerank_ddx(
 
     Falls back to original order on any failure.
     When emit is provided, streams thinking tokens as thinking_delta SSE events.
+    A deterministic test/staging harness (`FORCE_RERANK_ORDER` + `ALLOW_FORCE_RERANK`,
+    see `_forced_rerank_spec`) can inject a fixed order, bypassing the LLM — inert in
+    production.
     """
     if not candidates:
         return candidates
@@ -331,7 +383,13 @@ Format:
     try:
         raw_content = ""
 
-        if emit is not None:
+        forced = _forced_rerank_spec(candidates)
+        if forced is not None:
+            # Deterministic Smoke-8 harness (test/staging only): skip the LLM and
+            # feed the fixed order through the same parse/assembly/telemetry path.
+            logger.info("D6 FORCE_RERANK harness active (test/staging only) — bypassing LLM")
+            raw_content = json.dumps(forced)
+        elif emit is not None:
             # Streaming path — capture thinking tokens
             # max_tokens caps total output so MiMo doesn't burn the budget on
             # verbose reasoning and run out before emitting the JSON array.

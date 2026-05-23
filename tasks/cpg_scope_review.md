@@ -4,7 +4,7 @@ Source of truth is the `documents` table. Edit the lists below to correct any sc
 
 Groups: 30
 
-> **TODO — recalibrate `SEMANTIC_SCOPE_THRESHOLD` (D2):** currently 0.65 in `agent/routing.py` — **confirmed too high; D2 would never fire.** Decision: **set to `0.40` (single absolute floor, no margin rule)**, but apply the change to `agent/routing.py` only *after all CPGs are embedded* so the floor is set against the full picture.
+> **DONE (2026-05-23) — `SEMANTIC_SCOPE_THRESHOLD` set to `0.40`** in `agent/routing.py` (was 0.65). Final calibration on the full 30-CPG corpus: min in-scope positive = 0.417 (thyroid), max unrelated orphan = 0.364 (valve disease) → 0.40 separates cleanly. Gap held at 14, 27, and 30 CPGs. Single absolute floor, no margin rule (margin was rejected — see history below).
 >
 > **Calibration probe (RE-RUN at 27 CPGs embedded, 2026-05-23), best cosine(icd_emb, scope_emb):**
 > | class | range | examples |
@@ -296,8 +296,8 @@ Groups: 30
 
 ---
 
-## Obesity-Management(2023)
-- Rows in DB: 5 of 10 sections ingested (Sections 5-9 pending re-ingestion)
+## Obesity-Management(2023) ✅
+- Rows in DB: 10
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5B80`, `5B80.0`, `5B80.00`, `5B80.01`, `5B80.0Z`, `5B80.1`, `5B81`, `5B81.0`, `5B81.00`, `5B81.01`, `5B81.1`, `5B81.Y`, `5B81.Z`
 - Proposed procedure_scope: `bmi_assessment`, `waist_circumference_assessment`, `lifestyle_modification`, `dietary_intervention`, `exercise_prescription`, `weight_monitoring`, `anti_obesity_pharmacotherapy`, `bariatric_surgery_referral`
@@ -308,8 +308,8 @@ Groups: 30
 
 ---
 
-## T2-Diabetes-Mellitus(6th-Edition)
-- Rows in DB: pending ingestion (source folder has 17 sections, 0 ingested)
+## T2-Diabetes-Mellitus(6th-Edition) ✅
+- Rows in DB: 18
 - Last classified: 2026-05-16T19:30:00+08:00
 - Proposed icd11_scope: `5A11`
 - Proposed procedure_scope: `glycaemic_assessment`, `hba1c_monitoring`, `lifestyle_modification`, `dietary_intervention`, `oral_glucose_lowering_therapy`, `insulin_therapy`, `self_monitoring_blood_glucose`, `cardiovascular_risk_assessment`, `diabetes_complication_screening`, `sick_day_management`

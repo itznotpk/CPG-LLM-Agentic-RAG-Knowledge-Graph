@@ -56,7 +56,7 @@ Progress:
 - [x] Capture ICD-11 embedding checksum.
 - [x] Capture `documents` scope snapshot.
 - [x] Record P0 findings in `tasks/ddx_routing_robustness_report.md`.
-- [ ] Resolve blocked document-scope precondition: live Neon `documents.icd11_scope` / `procedure_scope` are currently empty and `scope_verified=TRUE` is 0.
+- [x] Resolve blocked document-scope precondition: all 30 CPGs scope-ingested via `ingestion/verify_cpg_scope.py` — 412 `documents` rows now carry `icd11_scope` / `procedure_scope` / `scope_rationale` with `scope_verified=TRUE` (2026-05-23).
 
 ### P1 — D3 Exclusion-Aware DDx Re-ranking
 
@@ -101,14 +101,14 @@ Progress:
 
 Progress:
 - [x] Write `cpg_scope_rationale` text (100–200 words) for all 30 CPGs — generated via Codex agent and stored in `tasks/cpg_scope_review.md`. Field renamed from single-sentence `icd11_rationale`; new `cpg_scope_rationale` field is the DB-bound text.
-- [~] Migration `sql/migrations/009_documents_scope_embedding.sql` (`scope_embedding VECTOR(1536)` column + index). Created idempotently by `backfill_scope_embeddings.py` Step 1, so a manual apply is optional. *(column not yet present on Neon)*
+- [x] Migration `sql/migrations/009_documents_scope_embedding.sql` (`scope_embedding VECTOR(1536)` column + index). Created idempotently by `backfill_scope_embeddings.py` Step 1. *(column now present on Neon; all 412 rows embedded)*
 - [x] Update `ddx/backfill_scope_embeddings.py` — `_build_scope_text(row)` embeds `scope_rationale` (= cpg_scope_rationale) + procedure_scope tags ONLY; ICD-title dump removed (diluted broad CPGs). Embeds each unique scope text once and fans the vector to all of a CPG's rows (~30 calls, not ~389). Helpers `_collect_icd_codes` / `_fetch_icd_title_map` removed.
-- [ ] Backfill all CPG scope embeddings. *(blocked: scope not yet written to DB — run `verify_cpg_scope` first, then the backfill)*
+- [x] Backfill all CPG scope embeddings — 30 CPGs / 412 rows embedded via `ddx/backfill_scope_embeddings.py` (one unique vector per CPG via dedup), 2026-05-23.
 - [x] Add `semantic_scope` step in `find_cpgs_for_code()` — `_semantic_scope_match()` uses pgvector `<=>` operator; DISTINCT ON cpg_name for one representative row per CPG; threshold guard at `SEMANTIC_SCOPE_THRESHOLD`.
 - [x] Add `procedure_scope` step in `find_cpgs_for_code()` — `_procedure_scope_match()` uses Postgres `&&` array overlap; fires before semantic_scope when `procedure_tags` are supplied.
 - [x] Add `"semantic_scope"` and `"procedure_scope"` to `RouteMethod` Literal (`agent/routing.py`) and `ScoreRouteMethod` Literal (`agent/clinical_stages.py`).
 - [x] Add badges for `semantic_scope` (`~ Matched via semantic scope similarity`) and `procedure_scope` (`⚙ Matched via procedure context`) in `route_provenance_badge()`.
-- [x] Add `SEMANTIC_SCOPE_THRESHOLD = 0.65` constant to `agent/routing.py`.
+- [x] Add `SEMANTIC_SCOPE_THRESHOLD` constant to `agent/routing.py` — **calibrated to 0.40** on the full 30-CPG corpus (min in-scope positive 0.417 > max unrelated orphan 0.364; gap held at 14/27/30 CPGs). Was 0.65 — too high for Titan-v1 compressed cosine; D2 would never have fired. (2026-05-23)
 - [x] Add `_extract_procedure_tags(clinical_text)` keyword-to-tag mapper in `agent/clinical_stages.py`; `stage_3_route()` now accepts `clinical_context: str | None` and forwards extracted tags to `route_icd_to_cpgs()`.
 - [x] Update `route_icd_to_cpgs()` signature to accept and forward `procedure_tags: list[str] | None`.
 - [x] Add D2 / procedure-scope unit tests (`tests/test_semantic_scope.py`). 11 tests green (2026-05-23).
@@ -123,9 +123,9 @@ Progress:
 
 Progress:
 - [x] Add structured `out_of_scope` response when D1 misses (all six structural levels) and ICD inclusion confidence is low.
-- [ ] Update D4 trigger condition: fires only after D1 **and** D2 (`semantic_scope`) both return no match.
+- [x] Update D4 trigger condition: fires only after D1 **and** D2 (`semantic_scope`) both return no match. Satisfied by construction (2026-05-23): `route_icd_to_cpgs` → `find_cpgs_for_code` runs the full 9-step chain (…→ procedure_scope → semantic_scope → out_of_scope), so it returns `[]` only after D1 *and* D2 miss; `stage_3_route`'s `if not all_refs` gate therefore fires D4 only post-D2.
 - [x] Ensure downstream synthesis renders "no matching CPG" instead of using unrelated documents.
-- [ ] Add D4 unit tests.
+- [x] Add D4 unit tests — `tests/test_d4_out_of_scope.py` (8 tests: inclusion-gate boundary, empty-ddx, and stage-3 trigger gated on D1+D2 + inclusion confidence). Green 2026-05-23.
 - [ ] Run Smoke 5 on staging.
 
 ### P4 — D5 Score Transparency
@@ -141,7 +141,7 @@ Progress:
 - [x] Add route provenance badges for all seven route_method values.
 - [x] Add D5 tests.
 - [x] Run D5 unit tests locally: `tests/test_score_breakdown.py`.
-- [ ] Run Smoke 7 on staging. *(blocked: `documents.icd11_scope` unpopulated in Neon)*
+- [ ] Run Smoke 7 on staging. *(scope blocker RESOLVED 2026-05-23 — `documents.icd11_scope` now populated + verified for all 30 CPGs; staging run still pending)*
 
 ### P5 — D6 Math + LLM Rerank Merge
 
@@ -155,10 +155,10 @@ Progress:
 - [x] Extend model/output for math-rank vs LLM-rank disagreements (`math_rank`, `llm_rank`, `rank_delta`, `override_reason` on `DDxResult`).
 - [x] Surface material LLM movement with reason (`↕` / `⚠ ↕` disagreement line when `|rank_delta| >= RERANK_DISAGREEMENT_DELTA`).
 - [x] Enforce override reason when promoting exclusion-penalized candidates (hard rule: injects placeholder if `override_reason` empty and exclusion candidate promoted ≥ threshold).
-- [ ] Add deterministic force-rerank test harness (`--force-rerank-order` flag for Smoke 8). *(deferred — currently mocked in tests only)*
+- [x] Add deterministic force-rerank test harness for Smoke 8 — env-injectable `FORCE_RERANK_ORDER` (JSON order + per-candidate `override_reason`) gated by `ALLOW_FORCE_RERANK=1` and **inert when `APP_ENV=production`**. Feeds a fixed order through the normal parse/assembly so llm_rank, rank_delta, the override hard-rule, and D6d telemetry run unchanged with the LLM bypassed. `_forced_rerank_spec` / `_force_rerank_enabled` in `agent/clinical_stages.py`; tests `tests/test_force_rerank.py` (7, incl. `test_force_rerank_order_inert_in_prod_config` and LLM-bypass integration). 2026-05-23.
 - [x] Add D6 telemetry counters (`D6 telemetry: model=... disagreements=... exclusion_overrides=...`).
 - [x] Add D6 tests (`tests/test_rerank_merge.py` — 10 tests, all green).
-- [ ] Run Smoke 6 and 8 on staging. *(blocked: `documents.icd11_scope` unpopulated in Neon)*
+- [ ] Run Smoke 6 and 8 on staging. *(scope blocker RESOLVED 2026-05-23 — `documents.icd11_scope` now populated; staging run still pending)*
 
 ### P6 — Pipeline Assembly + Full Pre-Deploy Gate
 
@@ -170,12 +170,23 @@ Progress:
 Progress:
 - [ ] Full Smoke 1-9 suite green on staging.
 - [ ] Verify all 11 done criteria.
-- [ ] Confirm existing `documents.icd11_scope` snapshot unchanged after routing/display work.
-- [ ] Confirm `icd11_codes.embedding` checksum unchanged.
+- [x] Confirm existing `documents.icd11_scope` snapshot — **new post-ingestion baseline-2 captured 2026-05-23** (412 verified rows; 387 with icd11_scope, 25 procedure-only) via `_dump_snapshot.py` → `ddx_routing_p0_documents_scope_snapshot.json`. Re-run `_dump_snapshot.py` and diff after any future routing/display change to prove no mutation (done-criterion #11).
+- [x] Confirm `icd11_codes.embedding` checksum unchanged — verified 2026-05-23: live MD5 `d8a2db83e95d7655aa3b73cdf72b2631` == canonical (done-criterion #12). Note: live `icd11_codes` is now **5672 rows** (not the 3914 in §Preconditions — that prose is stale; the canonical MD5 was recomputed when later codes/chapters were added).
 - [ ] Produce final report-back package.
-- [ ] Decide whether to pull optional D1.5 `.Z` unspecified-code fallback into scope.
+- [x] Decide whether to pull optional D1.5 `.Z` unspecified-code fallback into scope. **DECIDED 2026-05-23: NO separate step — the functional `.Z` (P1 category-unspecified) fallback is already live via the D1 `sibling` step.** `fetch_icd_siblings` uses the same `parent_code` join the D1.5 spec specifies (returns all same-parent codes incl. `.Z`/`.Y`), correctly excludes P2 (`X.nZ` child) and P3 (`XnZ` block) by construction, and runs at step 2 — so `.Z` already outranks the ancestor walk. The only thing NOT pulled in is the cosmetic distinct `route_method="unspecified_z"` + badge + dedicated tests; deferred as low-value (the `sibling` badge "≈ Matched via related code" already signals the correct caution tier). Revisit only if clinicians ask to distinguish "unspecified subtype" matches from specific-sibling matches.
 
 Recommended single-pass order if done sequentially: **P0 → P1 → P2 → P2b → P3 → P4 → P5 → P6**. P1 and P2 have no dependency on each other — if parallelizing, run them as two concurrent passes. P2b (D2 semantic fallback) requires P2 done first; P3 (D4) requires both P2 and P2b done. Note: P2b has a content prerequisite (writing `scope_rationale` for 30 CPGs) that must be completed before any code work in P2b begins.
+
+## Post-spec enhancements (beyond D1–D6)
+
+Shipped during/after the scope-ingestion milestone (2026-05-23). These are **not part of the original D1–D6 scope** but harden the same DDx→routing→display path. Recorded here so they aren't lost; each has tests and is independent of the staging-smoke gate.
+
+- [x] **E1 — Full scope ingestion + D2 calibration.** All 30 CPGs scope-ingested (412 rows) and `scope_embedding` backfilled; `SEMANTIC_SCOPE_THRESHOLD` calibrated 0.65→**0.40** against the full corpus (min positive 0.417 > max orphan 0.364). Ingestion path unified in `ingestion/verify_cpg_scope.py`; review file is `tasks/cpg_scope_review.md`.
+- [x] **E2 — Multi-query DDx retrieval (symptom→disease gap fix).** `stage_2_ddx` now searches the extracted symptom phrase **plus LLM-named condition hypotheses** (`_generate_condition_hypotheses`), unioning candidates by code. Bridges the gap where a symptom narrative ("palpitations, irregular pulse") never retrieves the named disease (atrial fibrillation): AF went from absent → rank #1 on the canonical case. Disease-name→ICD-code lookup is reliable where symptom→disease isn't. Hypotheses shown as a trace sub-step.
+- [x] **E3 — Symptom-extraction fallback flag.** `_extract_symptom_phrase` returns `(query, fell_back)`; a `⚠ fell back to raw notes` trace sub-step surfaces the previously-silent fail-open. Root cause fixed: mimo (reasoning model) returned empty content until `chat_template_kwargs.enable_thinking=False` was set for the extraction call.
+- [x] **E4 — Sex-incompatibility filter.** A male is never routed to an obstetric/female-only CPG (and vice-versa). `sex_incompatible_reason()` + filtering in `stage_3_route` and `route_comorbidities`; exclusions shown as a red trace sub-step. Registry: pregnancy/cervical/CVD-Women → female; ED → male; `"pregnancy"` substring catch-all. Conservative (only fires for explicit M/F; breast cancer NOT filtered). Tests: `tests/test_sex_filter.py`.
+- [x] **E5 — Stop-and-confirm gate (Doctor UI).** Stage 2 (DDx) now streams and **pauses** for clinician confirm/override before Stages 3–5 synthesize the plan — so the authoritative care plan is never generated against an unvalidated diagnosis. New `/clinical/plan/ddx/stream` endpoint + `run_ddx_only_streaming`; phase 2 reuses the existing resynthesize path. Tests: `tests/test_ddx_only.py`.
+- [x] **E6 — Stage-2 trace transparency.** The AI Reasoning Trace now renders, per DDx candidate: before/after re-rank (`math# → AI#` + delta + `override_reason`), the numeric score breakdown (base / incl / excl / final), and the extraction-fallback / condition-hypotheses sub-steps. Frontend: `Doctor UI/src/components/sections/PipelineProgress.jsx`.
 
 ## Preconditions
 

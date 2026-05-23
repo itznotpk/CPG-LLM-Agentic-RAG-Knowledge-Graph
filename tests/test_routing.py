@@ -250,18 +250,20 @@ async def test_semantic_fallback_skipped_when_structural_matches():
 
 
 @pytest.mark.asyncio
-async def test_unknown_icd_code_uses_raw_string():
-    """When the code is not in icd11_codes, semantic scope matching is skipped."""
+async def test_unknown_icd_code_returns_empty():
+    """When the code is not in icd11_codes, semantic scope matching yields no CPG.
+
+    _semantic_scope_match now compares server-side via a single join (no Python
+    round-trip of the embedding), so an unknown code simply produces no join rows.
+    """
     from agent.routing import _semantic_scope_match
 
     mock_conn = AsyncMock()
-    mock_conn.fetchval = AsyncMock(return_value=None)  # code embedding not found
-    mock_conn.fetch = AsyncMock(return_value=[])        # no scope-embedding docs
+    mock_conn.fetch = AsyncMock(return_value=[])  # join yields nothing (no embedding / no match)
 
     results = await _semantic_scope_match(mock_conn, "XX99ZZ")
 
     assert results == []
-    mock_conn.fetch.assert_not_awaited()
 
 
 @pytest.mark.asyncio

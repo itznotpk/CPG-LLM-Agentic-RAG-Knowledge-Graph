@@ -614,6 +614,14 @@ async def fetch_icd_siblings(conn, code: str) -> list[str]:
 
     Includes .Y (other specified) and .Z (unspecified) variants — all codes
     whose parent_code equals the predicted code's parent_code.
+
+    Guard: when the shared parent is a *chapter root* (a node whose own
+    parent_code is empty/NULL, e.g. '08', '16' — chapter roots store
+    parent_code = ''), the "siblings" would be the entire chapter — clinically
+    meaningless (migraine and stroke are not peers). Such codes have no granular
+    parent in the table, so the sibling step is skipped for them and routing falls
+    through to the ancestor/semantic steps. Real siblings (e.g. children of BC81,
+    whose parent BC81 sits below chapter '11') are unaffected.
     """
     rows = await conn.fetch(
         """
@@ -623,6 +631,11 @@ async def fetch_icd_siblings(conn, code: str) -> list[str]:
           ON s.parent_code = p.parent_code
          AND s.code <> p.code
         WHERE p.code = $1
+          AND NOT EXISTS (
+              SELECT 1 FROM icd11_codes par
+              WHERE par.code = p.parent_code
+                AND (par.parent_code IS NULL OR par.parent_code = '')
+          )
         ORDER BY s.code
         """,
         code,
@@ -636,6 +649,12 @@ async def fetch_icd_ancestor_siblings(conn, code: str) -> list[str]:
     For BA00.0 (parent=BA00, grandparent=Hypertensive diseases):
     returns BA01, BA02, BA03, BA04 — siblings of BA00, not of BA00.0.
     Excludes the direct parent itself (BA00) since ancestor_d1 already tried it.
+
+    Guard: when the direct parent is itself a *chapter root* (parent_code empty),
+    its "peers" are OTHER CHAPTERS — a cross-chapter explosion (e.g. migraine in
+    ch.08 reaching neoplasms in ch.02). Skip the step in that case. Codes whose
+    parent is a real block within a chapter (e.g. BA00 under chapter 11) are
+    unaffected — their peers stay same-chapter.
     """
     rows = await conn.fetch(
         """
@@ -646,6 +665,8 @@ async def fetch_icd_ancestor_siblings(conn, code: str) -> list[str]:
           ON s.parent_code = parent.parent_code
          AND s.code <> parent.code
         WHERE p.code = $1
+          AND parent.parent_code IS NOT NULL
+          AND parent.parent_code <> ''
         ORDER BY s.code
         """,
         code,
@@ -659,6 +680,10 @@ async def fetch_icd_ancestor_sibling_children(conn, code: str) -> list[str]:
     For BA00.0: returns BA01.0, BA01.Y, BA01.Z, BA02.0 ... BA04.Z —
     the full subtree of BA01-BA04, one level deep.
     Excludes the predicted code's own siblings (already tried in the sibling step).
+
+    Guard: same chapter-root protection as fetch_icd_ancestor_siblings — when the
+    direct parent is a chapter root, the "sibling categories" are other chapters and
+    their children span unrelated chapters. Skip in that case.
     """
     rows = await conn.fetch(
         """
@@ -670,6 +695,8 @@ async def fetch_icd_ancestor_sibling_children(conn, code: str) -> list[str]:
          AND sibling.code <> parent.code
         JOIN icd11_codes child ON child.parent_code = sibling.code
         WHERE p.code = $1
+          AND parent.parent_code IS NOT NULL
+          AND parent.parent_code <> ''
         ORDER BY child.code
         """,
         code,

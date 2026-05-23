@@ -46,7 +46,12 @@ logger = logging.getLogger(__name__)
 
 ANCESTOR_MAX_DEPTH = 2
 ROUTE_TOP_K = 3
-SEMANTIC_SCOPE_THRESHOLD = 0.65  # minimum cosine similarity for D2 semantic fallback
+# D2 semantic-fallback floor. Calibrated against the full 30-CPG corpus
+# (2026-05-23): min in-scope positive match = 0.417 (thyroid), max unrelated
+# orphan = 0.364 (valve disease). 0.40 sits in that gap — accepts genuine matches,
+# rejects orphans. Titan-v1 cosine runs compressed, so this is far below the 0.65
+# that "feels" right for normalised embeddings. See tasks/cpg_scope_review.md.
+SEMANTIC_SCOPE_THRESHOLD = 0.40  # minimum cosine similarity for D2 semantic fallback
 
 
 RouteMethod = Literal[
@@ -199,28 +204,27 @@ async def _semantic_scope_match(
     Returns the single best CPG if similarity >= SEMANTIC_SCOPE_THRESHOLD.
     Uses pgvector <=> operator (cosine distance = 1 - similarity).
     """
-    icd_emb = await conn.fetchval(
-        "SELECT embedding FROM icd11_codes WHERE code = $1",
-        code,
-    )
-    if not icd_emb:
-        return []
-
-    # fetchval returns a list[float] for vector columns via asyncpg+pgvector
-    vec_str = "[" + ",".join(map(str, icd_emb)) + "]"
-
+    # Compare entirely in SQL via a join — never round-trip the embedding through
+    # Python. asyncpg returns a pgvector column as a *string* ("[0.1,0.2,...]"),
+    # not a list, so re-serializing it with ",".join(map(str, ...)) corrupts it
+    # into "[[,-,0,...]" and the cast to ::vector fails. Joining icd11_codes to
+    # documents keeps the vector server-side and sidesteps that entirely.
     rows = await conn.fetch(
         """
-        SELECT DISTINCT ON (metadata->>'cpg_name')
-               id::text, title,
-               metadata->>'cpg_name' AS cpg_name,
-               1 - (scope_embedding <=> $1::vector) AS similarity
-        FROM documents
-        WHERE scope_embedding IS NOT NULL
-          AND scope_verified = TRUE
-        ORDER BY metadata->>'cpg_name', scope_embedding <=> $1::vector
+        WITH icd AS (
+            SELECT embedding FROM icd11_codes WHERE code = $1
+        )
+        SELECT DISTINCT ON (d.metadata->>'cpg_name')
+               d.id::text, d.title,
+               d.metadata->>'cpg_name' AS cpg_name,
+               1 - (d.scope_embedding <=> icd.embedding) AS similarity
+        FROM documents d, icd
+        WHERE d.scope_embedding IS NOT NULL
+          AND d.scope_verified = TRUE
+          AND icd.embedding IS NOT NULL
+        ORDER BY d.metadata->>'cpg_name', d.scope_embedding <=> icd.embedding
         """,
-        vec_str,
+        code,
     )
     if not rows:
         return []
