@@ -676,6 +676,55 @@ async def clinical_plan_stream(request: ClinicalPlanRequest):
     )
 
 
+@app.post("/clinical/plan/ddx/stream")
+async def clinical_ddx_stream(request: ClinicalPlanRequest):
+    """
+    Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and stream it, then stop.
+
+    The UI renders the ranked candidates and a confirm/override gate; on confirm it
+    calls /clinical/plan/resynthesize/stream to run Stages 3–5 on the agreed
+    diagnosis. Events match /clinical/plan/stream (stage_update, thinking_delta,
+    sub_step) plus a terminal:
+      event: ddx_ready   data: {"ddx": [DDxResult, ...]}
+    """
+    from .clinical_workflow import run_ddx_only_streaming
+
+    async def generate():
+        queue: asyncio.Queue = asyncio.Queue()
+
+        async def emit(event_type: str, data: dict):
+            await queue.put((event_type, data))
+
+        async def run_workflow():
+            try:
+                await run_ddx_only_streaming(request.case, emit)
+            except Exception as e:
+                logger.error("DDx-only streaming failed: %s", e)
+                await queue.put(("error", {"detail": str(e)}))
+            finally:
+                await queue.put(None)
+
+        asyncio.create_task(run_workflow())
+
+        while True:
+            item = await queue.get()
+            if item is None:
+                yield f"event: done\ndata: {{}}\n\n"
+                break
+            event_type, data = item
+            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
 @app.post("/clinical/plan/resynthesize/stream")
 async def clinical_resynthesize_stream(request: ResynthesizeRequest):
     """

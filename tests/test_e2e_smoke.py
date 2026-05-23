@@ -20,6 +20,7 @@ def make_plan(icd_primary: str, icd_alternates: list[str], confidence: float,
               unresolved: list[str] | None = None) -> TreatmentPlan:
     return TreatmentPlan(
         icd_primary=icd_primary,
+        summary="Management plan per CPG.",
         icd_alternates=icd_alternates,
         recommendations=[
             Recommendation(
@@ -29,7 +30,7 @@ def make_plan(icd_primary: str, icd_alternates: list[str], confidence: float,
                 rationale="Guideline-recommended first-line therapy",
             )
         ],
-        monitoring=["Follow-up in 4 weeks"],
+        monitoring=[{"parameter": "clinical review", "schedule": "follow-up in 4 weeks"}],
         red_flags=["Haemodynamic compromise"],
         confidence=confidence,
         unresolved_questions=unresolved or [],
@@ -41,7 +42,15 @@ def make_ddx(code: str, title: str) -> list[DDxResult]:
 
 
 def make_cpg(name: str) -> list[CPGDocRef]:
-    return [CPGDocRef(cpg_name=name, document_ids=["doc-001"])]
+    return [CPGDocRef(
+        cpg_name=name,
+        document_id="doc-001",
+        document_ids=["doc-001"],
+        title=name,
+        match_type="exact",
+        score=0.9,
+        matched_scope="BC81.3",
+    )]
 
 
 # ---------------------------------------------------------------------------

@@ -161,7 +161,9 @@ async def test_stage2_calls_search_ddx():
     # (extraction now succeeds and may rephrase/recapitalise the notes).
     with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=raw_results)) as mock_ddx, \
          patch("agent.clinical_stages._extract_symptom_phrase",
-               new=AsyncMock(return_value="palpitations, irregular pulse")):
+               new=AsyncMock(return_value=("palpitations, irregular pulse", False))), \
+         patch("agent.clinical_stages._generate_condition_hypotheses",
+               new=AsyncMock(return_value=[])):
         result = await stage_2_ddx(case, top_k=5, rerank=False)
 
     mock_ddx.assert_awaited_once()
@@ -177,7 +179,11 @@ async def test_stage2_calls_search_ddx():
 async def test_stage2_handles_empty_ddx():
     case = _make_case()
 
-    with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=[])):
+    with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=[])), \
+         patch("agent.clinical_stages._extract_symptom_phrase",
+               new=AsyncMock(return_value=("palpitations", False))), \
+         patch("agent.clinical_stages._generate_condition_hypotheses",
+               new=AsyncMock(return_value=[])):
         result = await stage_2_ddx(case, rerank=False)
 
     assert result == []
@@ -572,6 +578,8 @@ async def test_stage5_empty_evidence_populates_unresolved():
 async def test_stage2_rerank_called_by_default(minimal_case):
     """rerank=True by default → _llm_rerank_ddx is called."""
     with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=MOCK_DDX_RAW[:4])), \
+         patch("agent.clinical_stages._extract_symptom_phrase", new=AsyncMock(return_value=("palpitations", False))), \
+         patch("agent.clinical_stages._generate_condition_hypotheses", new=AsyncMock(return_value=[])), \
          patch("agent.clinical_stages._llm_rerank_ddx", new_callable=AsyncMock) as mock_rerank:
         mock_rerank.return_value = [DDxResult(code="BC81.3", title="AF", similarity=0.91)]
         result = await stage_2_ddx(minimal_case, top_k=1)
@@ -583,6 +591,8 @@ async def test_stage2_rerank_called_by_default(minimal_case):
 async def test_stage2_rerank_skipped_when_false(minimal_case):
     """rerank=False → _llm_rerank_ddx is never called."""
     with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=MOCK_DDX_RAW[:2])), \
+         patch("agent.clinical_stages._extract_symptom_phrase", new=AsyncMock(return_value=("palpitations", False))), \
+         patch("agent.clinical_stages._generate_condition_hypotheses", new=AsyncMock(return_value=[])), \
          patch("agent.clinical_stages._llm_rerank_ddx", new_callable=AsyncMock) as mock_rerank:
         await stage_2_ddx(minimal_case, top_k=2, rerank=False)
         mock_rerank.assert_not_called()

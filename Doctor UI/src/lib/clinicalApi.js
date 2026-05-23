@@ -56,6 +56,88 @@ export async function runClinicalPlan(patientState, vitals, clinicalNotes, mpisD
   return resp.json();   // ClinicalPlanResponse shape
 }
 
+// ─── stop-and-confirm phase 1: DDx only ───────────────────────────────────────
+/**
+ * Run ONLY Stage 2 (DDx) and stream it, then stop for clinician confirmation.
+ *
+ * Resolves with the candidate list (from the terminal `ddx_ready` event). The UI
+ * then renders the confirm/override gate and calls resynthesizePlanStream to run
+ * Stages 3–5 on the agreed diagnosis.
+ *
+ * @returns {Promise<{ddx: Array}>}  resolves with the DDx candidates
+ */
+export async function runDDxStream(
+  patientState,
+  vitals,
+  clinicalNotes,
+  mpisData,
+  onStageUpdate,
+  onThinkingChunk,
+  onSubStep,
+  stagingData,
+  structuredComorbidities,
+) {
+  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities);
+
+  const response = await fetch(`${CLINICAL_API_BASE}/clinical/plan/ddx/stream`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`DDx stream API error ${response.status}: ${text}`);
+  }
+
+  return new Promise((resolve, reject) => {
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let ddxResult = null;
+
+    const pump = async () => {
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) {
+            // Stream closed: resolve with whatever we captured (or empty).
+            resolve(ddxResult || { ddx: [] });
+            return;
+          }
+          buffer += decoder.decode(value, { stream: true });
+
+          const frames = buffer.split('\n\n');
+          buffer = frames.pop();
+
+          for (const frame of frames) {
+            if (!frame.trim()) continue;
+            let eventType = 'message', dataStr = '';
+            for (const line of frame.split('\n')) {
+              if (line.startsWith('event: ')) eventType = line.slice(7).trim();
+              else if (line.startsWith('data: ')) dataStr = line.slice(6).trim();
+            }
+            if (!dataStr) continue;
+            let payload;
+            try { payload = JSON.parse(dataStr); } catch { continue; }
+
+            if      (eventType === 'stage_update'   && onStageUpdate)   onStageUpdate(payload);
+            else if (eventType === 'thinking_delta' && onThinkingChunk) onThinkingChunk(payload);
+            else if (eventType === 'sub_step'       && onSubStep)       onSubStep(payload);
+            else if (eventType === 'ddx_ready')                          ddxResult = payload;
+            else if (eventType === 'error')                             reject(new Error(payload.detail || 'DDx pipeline error'));
+            else if (eventType === 'done')                             { resolve(ddxResult || { ddx: [] }); return; }
+          }
+        }
+      } catch (err) {
+        reject(err);
+      }
+    };
+
+    pump();
+  });
+}
+
 // ─── streaming variant ────────────────────────────────────────────────────────
 /**
  * Run the clinical pipeline and stream SSE stage-update + thinking events.

@@ -1,13 +1,11 @@
 """Tests for clinical workflow streaming + thinking token emission."""
-import asyncio
 import json
 import pytest
 from unittest.mock import AsyncMock, patch, MagicMock
 
 from agent.clinical_workflow import run_clinical_workflow_streaming, WorkflowResult
-from agent.clinical_stages import DDxResult, _llm_rerank_ddx, DDX_RERANK_MODEL, DDX_THINKING_BUDGET
+from agent.clinical_stages import DDxResult, _llm_rerank_ddx
 from agent.models import PatientCase, TreatmentPlan
-from agent.routing import CPGDocRef
 
 
 @pytest.fixture
@@ -24,6 +22,7 @@ def mock_ddx():
 def mock_plan():
     return TreatmentPlan(
         icd_primary="BC81.3",
+        summary="Atrial fibrillation management plan.",
         recommendations=[{
             "intervention": "Rate control with beta-blocker",
             "type": "pharmacological",
@@ -136,6 +135,7 @@ async def test_rerank_streams_thinking_tokens_when_emit_provided(minimal_case):
         chunk2.choices = [MagicMock()]
         chunk2.choices[0].delta = MagicMock(
             reasoning=None,
+            thinking=None,
             reasoning_content=None,
             content='[{"code":"BC81.3","confidence":0.92,"reasoning":"fits best"}]',
         )

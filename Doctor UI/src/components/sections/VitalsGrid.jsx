@@ -1,9 +1,54 @@
 import React, { useMemo, useState } from 'react';
-import { Zap, Scan } from 'lucide-react';
-import { GlassCard, Input, Badge } from '../shared';
+import { Scan } from 'lucide-react';
+import { GlassCard, Badge } from '../shared';
 import { RPPGScanModal } from '../shared/RPPGScanModal';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
+
+const GROUPS = [
+  {
+    id: 'haemo',
+    label: 'Haemodynamic',
+    cols: 'grid-cols-2',
+    fields: [
+      {
+        id: 'bp', label: 'Blood Pressure (mmHg)', dual: true,
+        fields: [
+          { key: 'bpSystolic', placeholder: '—' },
+          { key: 'bpDiastolic', placeholder: '—' },
+        ],
+      },
+      { id: 'hr', label: 'Heart Rate (bpm)', key: 'hr', placeholder: '—' },
+    ],
+  },
+  {
+    id: 'resp',
+    label: 'Respiratory',
+    cols: 'grid-cols-3',
+    fields: [
+      { id: 'rr',   label: 'RR (/min)',  key: 'rr',   placeholder: '—' },
+      { id: 'spo2', label: 'SpO₂ (%)',   key: 'spo2', placeholder: '—' },
+      { id: 'temp', label: 'Temp (°C)',  key: 'temp', placeholder: '—', step: '0.1' },
+    ],
+  },
+  {
+    id: 'anthro',
+    label: 'Anthropometry',
+    cols: 'grid-cols-3',
+    fields: [
+      { id: 'weight', label: 'Weight (kg)', key: 'weight', placeholder: '—', step: '0.1' },
+      { id: 'height', label: 'Height (cm)', key: 'height', placeholder: '—' },
+      { id: 'bmi',    label: 'BMI',         bmiDisplay: true },
+    ],
+  },
+];
+
+const inputCls = (isDark) =>
+  `w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 ${
+    isDark
+      ? 'bg-white/10 border-white/20 text-white placeholder-slate-500'
+      : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+  }`;
 
 export function VitalsGrid() {
   const { state, dispatch, calculateBMI } = useApp();
@@ -11,155 +56,147 @@ export function VitalsGrid() {
   const { vitals } = state;
   const [showScanner, setShowScanner] = useState(false);
 
-  const handleChange = (field, value) => {
+  const handleChange = (field, value) =>
     dispatch({ type: 'SET_VITALS', payload: { [field]: value } });
-  };
 
   const bmi = useMemo(() => calculateBMI(), [vitals.weight, vitals.height]);
 
   const getBMICategory = (bmi) => {
     if (!bmi) return null;
-    const bmiValue = parseFloat(bmi);
-    if (bmiValue < 18.5) return { label: 'Underweight', variant: 'warning' };
-    if (bmiValue < 25) return { label: 'Normal', variant: 'success' };
-    if (bmiValue < 30) return { label: 'Overweight', variant: 'warning' };
-    return { label: 'Obese', variant: 'danger' };
+    const v = parseFloat(bmi);
+    if (v < 18.5) return { label: 'Under', variant: 'warning' };
+    if (v < 25)   return { label: 'Normal', variant: 'success' };
+    if (v < 30)   return { label: 'Over',   variant: 'warning' };
+    return           { label: 'Obese',  variant: 'danger' };
   };
 
   const bmiCategory = getBMICategory(bmi);
 
-  const vitalFields = [
-    {
-      id: 'bp',
-      label: 'Blood Pressure',
-      unit: 'mmHg',
-      dual: true,
-      fields: [
-        { key: 'bpSystolic', placeholder: 'Sys' },
-        { key: 'bpDiastolic', placeholder: 'Dia' },
-      ],
-    },
-    { id: 'hr',     label: 'Heart Rate',       unit: 'bpm',  key: 'hr',     placeholder: 'HR'     },
-    { id: 'temp',   label: 'Temperature',      unit: '°C',   key: 'temp',   placeholder: 'Temp',  step: '0.1' },
-    { id: 'rr',     label: 'Respiratory Rate', unit: '/min', key: 'rr',     placeholder: 'RR'     },
-    { id: 'spo2',   label: 'SpO2',             unit: '%',    key: 'spo2',   placeholder: 'SpO2'   },
-    { id: 'weight', label: 'Weight',           unit: 'kg',   key: 'weight', placeholder: 'Weight', step: '0.1' },
-    { id: 'height', label: 'Height',           unit: 'cm',   key: 'height', placeholder: 'Height' },
-  ];
-
-  const handleDemoFill = () => {
+  const handleDemoFill = () =>
     dispatch({
       type: 'SET_VITALS',
-      payload: {
-        bpSystolic: '120',
-        bpDiastolic: '80',
-        hr: '72',
-        temp: '36.8',
-        rr: '14',
-        spo2: '99',
-        weight: '70',
-        height: '170'
-      }
+      payload: { bpSystolic: '142', bpDiastolic: '88', hr: '82', temp: '36.8', rr: '16', spo2: '97', weight: '72', height: '168' },
     });
-  };
+
+  const divider = (
+    <div className={`h-px w-full my-3 ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
+  );
 
   return (
     <>
-    {showScanner && <RPPGScanModal onClose={() => setShowScanner(false)} />}
-    <GlassCard className="p-5">
-      <div className="flex items-center justify-between mb-5">
-        <div>
-          <p className={`text-[10px] font-semibold tracking-widest uppercase mb-0.5 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Assessment</p>
-          <h3 className={`text-xl font-semibold tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>Vital Signs</h3>
-        </div>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setShowScanner(true)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
-              ${isDark
-                ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30'
-                : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
-              }`}
-          >
-            <Scan className="w-4 h-4" />
-            Scan with rPPG
-          </button>
-          <button
-            onClick={handleDemoFill}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
-              ${isDark
-                ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
-                : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
-              }`}
-            title="Fill with demo data"
-          >
-            <Zap className="w-4 h-4" />
-            Demo Fill
-          </button>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {vitalFields.map((vital) => (
-          <div key={vital.id} className="space-y-1">
-            <label className="ds-label">{vital.label}</label>
-            {vital.dual ? (
-              <div className="flex items-center gap-1">
-                {vital.fields.map((field, idx) => (
-                  <React.Fragment key={field.key}>
-                    <input
-                      type="number"
-                      placeholder={field.placeholder}
-                      value={vitals[field.key] || ''}
-                      onChange={(e) => handleChange(field.key, e.target.value)}
-                      className={`w-full px-3 py-2 backdrop-blur-sm border rounded-lg text-sm
-                        ${isDark 
-                          ? 'bg-white/10 border-white/20 text-white placeholder-slate-400' 
-                          : 'bg-white/80 border-slate-300 text-slate-800 placeholder-slate-400'
-                        } focus:ring-2 focus:ring-[var(--accent-primary)]/50`}
-                    />
-                    {idx === 0 && <span className={isDark ? 'text-slate-400' : 'text-slate-600'}>/</span>}
-                  </React.Fragment>
-                ))}
-              </div>
-            ) : (
-              <div className="relative">
-                <input
-                  type="number"
-                  step={vital.step || '1'}
-                  placeholder={vital.placeholder}
-                  value={vitals[vital.key] || ''}
-                  onChange={(e) => handleChange(vital.key, e.target.value)}
-                  className={`w-full px-3 py-2 backdrop-blur-sm border rounded-lg text-sm
-                    ${isDark 
-                      ? 'bg-white/10 border-white/20 text-white placeholder-slate-400' 
-                      : 'bg-white/80 border-slate-300 text-slate-800 placeholder-slate-400'
-                    } focus:ring-2 focus:ring-[var(--accent-primary)]/50`}
-                />
-                <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                  {vital.unit}
-                </span>
-              </div>
-            )}
+      {showScanner && <RPPGScanModal onClose={() => setShowScanner(false)} />}
+      <GlassCard className="p-5">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-1">
+          <div>
+            <h3 className={`text-lg font-semibold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+              Vital signs
+            </h3>
+            <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              8 measurements · BMI auto-calculated
+            </p>
           </div>
+          <div className="flex items-center gap-2">
+            {/* rPPG — primary teal */}
+            <button
+              onClick={() => setShowScanner(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors"
+            >
+              <Scan className="w-4 h-4" strokeWidth={1.5} />
+              rPPG scan
+            </button>
+            {/* Sample data — ghost */}
+            <button
+              onClick={handleDemoFill}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+                isDark
+                  ? 'border-white/20 text-slate-400 hover:bg-white/10'
+                  : 'border-slate-300 text-slate-500 hover:bg-slate-50'
+              }`}
+              title="Fill with sample data"
+            >
+              Sample data
+            </button>
+          </div>
+        </div>
+
+        {/* Groups */}
+        {GROUPS.map((group, gi) => (
+          <React.Fragment key={group.id}>
+            {/* Group divider + label */}
+            <div className="flex items-center gap-3 mt-4 mb-3">
+              <span className={`text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                {group.label}
+              </span>
+              <div className={`flex-1 h-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
+            </div>
+
+            <div className={`grid ${group.cols} gap-4`}>
+              {group.fields.map((vital) => {
+                // BMI display cell
+                if (vital.bmiDisplay) {
+                  return (
+                    <div key="bmi" className="space-y-1">
+                      <label className={`block text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                        BMI
+                      </label>
+                      <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${isDark ? 'bg-[var(--accent-primary)]/15 border border-[var(--accent-primary)]/20' : 'bg-teal-50 border border-teal-200'}`}>
+                        <span className={`text-sm font-semibold ds-mono ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                          {bmi || '—'}
+                        </span>
+                        {bmiCategory && (
+                          <span className={`text-xs font-medium ${
+                            bmiCategory.variant === 'success' ? (isDark ? 'text-emerald-400' : 'text-emerald-600') :
+                            bmiCategory.variant === 'danger'  ? (isDark ? 'text-red-400'     : 'text-red-600')     :
+                                                                (isDark ? 'text-amber-400'   : 'text-amber-600')
+                          }`}>
+                            {bmiCategory.label}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                }
+
+                return (
+                  <div key={vital.id} className="space-y-1">
+                    <label className={`block text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                      {vital.label}
+                    </label>
+                    {vital.dual ? (
+                      <div className="flex items-center gap-1.5">
+                        {vital.fields.map((f, idx) => (
+                          <React.Fragment key={f.key}>
+                            <input
+                              type="number"
+                              placeholder={f.placeholder}
+                              value={vitals[f.key] || ''}
+                              onChange={(e) => handleChange(f.key, e.target.value)}
+                              className={inputCls(isDark)}
+                            />
+                            {idx === 0 && (
+                              <span className={`text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>/</span>
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    ) : (
+                      <input
+                        type="number"
+                        step={vital.step || '1'}
+                        placeholder={vital.placeholder}
+                        value={vitals[vital.key] || ''}
+                        onChange={(e) => handleChange(vital.key, e.target.value)}
+                        className={inputCls(isDark)}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </React.Fragment>
         ))}
-
-        {/* BMI Display */}
-        <div className="space-y-1">
-          <label className="ds-label">BMI (Calculated)</label>
-          <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${isDark ? 'bg-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/10'}`}>
-            <span className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-              {bmi || '--'}
-            </span>
-            {bmiCategory && (
-              <Badge variant={bmiCategory.variant} size="sm">
-                {bmiCategory.label}
-              </Badge>
-            )}
-          </div>
-        </div>
-      </div>
-    </GlassCard>
+      </GlassCard>
     </>
   );
 }

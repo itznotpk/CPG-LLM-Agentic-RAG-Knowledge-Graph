@@ -468,7 +468,7 @@ async def _extract_symptom_phrase(
     client: openai.AsyncOpenAI,
     model: str,
     extra_body: dict | None = None,
-) -> str:
+) -> tuple[str, bool]:
     """Compress clinical notes to a symptom-focused query string for DDx vector search.
 
     Long clinical narratives dilute the ICD-11 vector match. This pre-step extracts
@@ -477,6 +477,11 @@ async def _extract_symptom_phrase(
     extra_body is forwarded to the API call. For reasoning models (e.g. mimo) this
     MUST disable thinking — otherwise the model spends its whole token budget on
     hidden reasoning and returns empty content, forcing a fallback to raw notes.
+
+    Returns (query, fell_back). fell_back=True means extraction produced nothing
+    usable and the raw notes are used verbatim — which dilutes the vector match and
+    is worth surfacing in the trace so a clinician/debugger knows the query wasn't
+    distilled.
     """
     # Concise prompt without few-shot examples — MiMo follows direct instructions
     # better than imitating examples (which it can confuse with the expected output format).
@@ -511,13 +516,54 @@ async def _extract_symptom_phrase(
 
         if not phrase:
             logger.warning("Symptom extraction returned empty — falling back to raw notes")
-            return notes
+            return notes, True
 
         logger.info("Symptom extraction OK: %r → %r (%d words)", notes[:60], phrase, len(phrase.split()))
-        return phrase
+        return phrase, False
     except Exception as exc:
         logger.warning("Symptom extraction FAILED (%s) — falling back to raw notes", exc)
-        return notes
+        return notes, True
+
+
+async def _generate_condition_hypotheses(
+    notes: str,
+    client: openai.AsyncOpenAI,
+    model: str,
+    extra_body: dict | None = None,
+    max_n: int = 5,
+) -> list[str]:
+    """Ask the LLM for likely NAMED conditions for the presentation.
+
+    The ICD-11 vector index maps disease *names* to codes far more reliably than
+    symptom narratives (the symptom→disease gap: "palpitations, irregular pulse"
+    embeds near symptom codes, not "atrial fibrillation"). Searching these named
+    hypotheses alongside the symptom phrase surfaces disease codes the symptom
+    query misses. Returns [] on any failure — the caller then relies on the
+    symptom-phrase query alone, i.e. prior behaviour.
+    """
+    prompt = (
+        "List the most likely diagnoses for this patient as named medical "
+        "conditions only — comma-separated, no numbering, no explanation, "
+        f"maximum {max_n} conditions.\n\n"
+        f"Presentation: {notes}\n\n"
+        "Conditions:"
+    )
+    try:
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=120,
+            temperature=0,
+            **({"extra_body": extra_body} if extra_body else {}),
+        )
+        txt = (resp.choices[0].message.content or "").strip()
+        conds = [c.strip(" .;-\t") for c in txt.replace("\n", ",").split(",")]
+        conds = [c for c in conds if c and len(c) <= 60][:max_n]
+        logger.info("Condition hypotheses: %s", conds)
+        return conds
+    except Exception as exc:
+        logger.warning("Condition hypothesis generation failed (%s) — symptom query only", exc)
+        return []
 
 
 async def stage_2_ddx(
@@ -558,19 +604,62 @@ async def stage_2_ddx(
     extraction_extra_body = (
         {"chat_template_kwargs": {"enable_thinking": False}} if _using_override else None
     )
-    query = await _extract_symptom_phrase(
+    query, extraction_fell_back = await _extract_symptom_phrase(
         case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body
     )
 
     if emit is not None:
+        if extraction_fell_back:
+            # Surface the silent fail-open: extraction produced nothing usable, so the
+            # raw (diluting) notes are being searched verbatim. This is the indicator
+            # that would have made the mimo-empty regression obvious in the UI.
+            await emit("sub_step", {
+                "stage": 2,
+                "detail": f"⚠ Symptom extraction fell back to raw notes: \"{query}\"",
+                "badge": "fallback",
+            })
+        else:
+            await emit("sub_step", {
+                "stage": 2,
+                "detail": f"Extracted symptom query: \"{query}\"",
+                "badge": "DDx",
+            })
+
+    fetch_k = top_k * 2 if rerank else top_k
+
+    # Multi-query retrieval to bridge the symptom→disease gap. We search BOTH the
+    # symptom phrase (recall on symptom codes) AND a few LLM-named condition
+    # hypotheses (recall on disease codes). Disease names map to ICD codes far more
+    # reliably than symptom narratives, so this surfaces e.g. atrial fibrillation
+    # that the phrase alone misses. Candidates are pooled by code, keeping the best
+    # similarity seen across queries. Fails open to the phrase-only query.
+    hypotheses = await _generate_condition_hypotheses(
+        _build_symptom_text(case), client, extraction_model, extra_body=extraction_extra_body
+    )
+    if hypotheses and emit is not None:
         await emit("sub_step", {
             "stage": 2,
-            "detail": f"Extracted symptom query: \"{query}\"",
+            "detail": "Condition hypotheses: " + ", ".join(hypotheses),
             "badge": "DDx",
         })
 
-    fetch_k = top_k * 2 if rerank else top_k
-    raw = await search_ddx(query, top_k=fetch_k)
+    queries = [query] + hypotheses
+    search_results = await asyncio.gather(
+        *(search_ddx(q, top_k=fetch_k) for q in queries),
+        return_exceptions=True,
+    )
+    pool: dict[str, dict] = {}
+    for res in search_results:
+        if isinstance(res, Exception):
+            logger.warning("A DDx sub-query failed: %s", res)
+            continue
+        for r in res:
+            code = r.get("code")
+            if not code:
+                continue
+            if code not in pool or r.get("similarity", 0) > pool[code].get("similarity", 0):
+                pool[code] = r
+    raw = sorted(pool.values(), key=lambda r: r.get("similarity", 0), reverse=True)[: max(fetch_k, 10)]
 
     results: list[DDxResult] = []
     for r in raw:
@@ -698,27 +787,84 @@ def _extract_procedure_tags(clinical_text: str) -> list[str]:
     return list(found)
 
 
+# CPGs that apply to only one biological sex. Routing a male to an obstetric CPG
+# (or a female to erectile-dysfunction) is never clinically valid — filter these
+# out and surface the exclusion in the trace. Only fires for an explicit "M"/"F";
+# sex None/"other" never filters, since we can't be sure.
+_SEX_REQUIRED_CPGS: dict[str, str] = {
+    "Heart-Disease-in-Pregnancy(2nd Edition)": "F",
+    "Diabetes-in-Pregnancy(2017)": "F",
+    "Cervical-Cancer(2nd Edition)": "F",
+    "CVD-Prevention-Women(2016)": "F",
+    "Erectile-Dysfunction(2024)": "M",
+}
+
+
+def _required_sex_for_cpg(cpg_name: str) -> str | None:
+    """Return the sex a CPG is restricted to ('M'/'F'), or None if unrestricted."""
+    if cpg_name in _SEX_REQUIRED_CPGS:
+        return _SEX_REQUIRED_CPGS[cpg_name]
+    # Robust catch for any obstetric CPG added later, even if not in the registry.
+    low = cpg_name.lower()
+    if "pregnancy" in low or "antenatal" in low or "obstetric" in low:
+        return "F"
+    return None
+
+
+def sex_incompatible_reason(cpg_name: str, sex: str | None) -> str | None:
+    """If this CPG is incompatible with the patient's sex, return a reason; else None."""
+    if sex not in ("M", "F"):
+        return None
+    req = _required_sex_for_cpg(cpg_name)
+    if req is not None and req != sex:
+        who = "female" if req == "F" else "male"
+        return f"{who}-only CPG (patient sex: {sex})"
+    return None
+
+
 async def stage_3_route(
     ddx: list[DDxResult],
     top_k_codes: int = 2,
     top_k_cpgs: int = 3,
     emit=None,                      # async callable | None
     clinical_context: str | None = None,  # free-text query for procedure-scope routing
+    patient_sex: str | None = None,       # "M"/"F"/"other"/None — drops sex-incompatible CPGs
 ) -> list[CPGDocRef]:
     """Map the top DDx ICD-11 codes to CPG document sets."""
     procedure_tags = _extract_procedure_tags(clinical_context or "")
     all_refs: dict[str, CPGDocRef] = {}
+    excluded_names: set[str] = set()
 
     for result in ddx[:top_k_codes]:
         refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs, procedure_tags=procedure_tags or None)
-        if refs:
-            primary_ref = refs[0]
+
+        # Drop CPGs biologically incompatible with the patient's sex before they
+        # can become the primary match or feed retrieval.
+        compat_refs: list[CPGDocRef] = []
+        for ref in refs:
+            reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
+            if reason is not None:
+                if ref.cpg_name not in excluded_names:
+                    excluded_names.add(ref.cpg_name)
+                    logger.info("Stage 3 sex-filter excluded %s: %s", ref.cpg_name, reason)
+                    if emit:
+                        await emit("sub_step", {
+                            "stage": 3,
+                            "detail": f"Excluded {ref.cpg_name} — {reason}",
+                            "badge": "excluded",
+                            "status": "complete",
+                        })
+                continue
+            compat_refs.append(ref)
+
+        if compat_refs:
+            primary_ref = compat_refs[0]
             result.score_breakdown = build_score_breakdown(
                 result,
                 route_method=primary_ref.match_type,
             )
             result.matched_cpg_title = primary_ref.title
-        for ref in refs:
+        for ref in compat_refs:
             if ref.cpg_name not in all_refs:
                 all_refs[ref.cpg_name] = ref
                 if emit:

@@ -21,6 +21,7 @@ def selected_ddx():
 def mock_plan():
     return TreatmentPlan(
         icd_primary="BC81.3",
+        summary="Atrial fibrillation management plan.",
         recommendations=[
             {
                 "intervention": "Rate control with beta-blocker",

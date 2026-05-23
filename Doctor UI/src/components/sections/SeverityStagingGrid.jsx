@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import { GlassCard } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -111,32 +110,35 @@ export function SeverityStagingGrid() {
 
   return (
     <GlassCard className="p-5">
-      <button
-        onClick={() => setExpanded((v) => !v)}
-        className="w-full flex items-center justify-between"
-        type="button"
-      >
-        <div className="text-left">
-          <p className={`text-[10px] font-semibold tracking-widest uppercase mb-0.5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>Staging</p>
-          <h3 className={`text-xl font-semibold tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>
-            Severity Staging
-          </h3>
-          <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-            {filledCount > 0
-              ? `${filledCount} field${filledCount > 1 ? 's' : ''} entered`
-              : 'Optional — improves CPG query precision'}
-          </p>
+      <div className="flex items-start justify-between">
+        <div>
+          <div className="flex items-center gap-2">
+            <h3 className={`text-lg font-semibold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+              Severity staging
+            </h3>
+            <span className={`text-xs font-medium ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>optional</span>
+          </div>
+          {filledCount > 0 && (
+            <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              {filledCount} field{filledCount > 1 ? 's' : ''} entered
+            </p>
+          )}
         </div>
-        <div className={`p-1.5 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100'}`}>
-          {expanded
-            ? <ChevronUp className={`w-5 h-5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`} />
-            : <ChevronDown className={`w-5 h-5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`} />
-          }
-        </div>
-      </button>
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          type="button"
+          className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors flex-shrink-0 ${
+            isDark
+              ? 'border-white/20 text-slate-300 hover:bg-white/10'
+              : 'border-slate-300 text-slate-600 hover:bg-slate-50'
+          }`}
+        >
+          {expanded ? '− Hide' : '+ Add stage'}
+        </button>
+      </div>
 
       {expanded && (
-        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {stagingFields.map((field) => {
             const isEGFR = field.key === 'eGFR';
             const displayValue = isEGFR && isAutoEGFR
@@ -146,7 +148,7 @@ export function SeverityStagingGrid() {
             return (
               <div key={field.key} className="space-y-1">
                 <label
-                  className={`flex items-center gap-1 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}
+                  className={`flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}
                 >
                   {field.label}
                   {isEGFR && isAutoEGFR && (

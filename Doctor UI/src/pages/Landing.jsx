@@ -99,12 +99,6 @@ function Hero({ onSignIn }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 pl-2 bg-white/70 backdrop-blur border border-slate-200/60 rounded-full text-xs text-slate-700 font-medium mb-6">
-            <span className="bg-teal-50 text-teal-700 border border-teal-100 px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide">NEW</span>
-            Now piloting
-            <span className="text-slate-400" aria-hidden>→</span>
-          </div>
-
           <h1 className="font-display text-[76px] leading-[1.02] tracking-[-0.02em] text-slate-900 mb-6 text-balance">
             Clinician's <em className="italic text-teal-700 not-italic-fix">second opinion</em>, at the speed of a glance.
           </h1>

@@ -74,31 +74,36 @@ def _ddx_hit(code: str, title: str, similarity: float) -> dict:
 
 async def test_extraction_returns_compressed_phrase():
     phrase = "Chest pain radiating to left arm, diaphoresis, 3 hours"  # 9 words
-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client(phrase), "test-model")
+    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client(phrase), "test-model")
     assert result == phrase
+    assert fell_back is False
 
 
 async def test_extraction_truncates_echoed_input():
     # LLM echoes full 34-word input → >25 words → truncated to 15
-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client(NOTES_LONG), "test-model")
+    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client(NOTES_LONG), "test-model")
     assert len(result.split()) == 15
+    assert fell_back is False
 
 
 async def test_extraction_falls_back_on_empty():
-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client(""), "test-model")
+    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client(""), "test-model")
     assert result == NOTES_LONG
+    assert fell_back is True
 
 
 async def test_extraction_falls_back_on_exception():
     client = _mock_client_raises(Exception("mock API error"))
-    result = await _extract_symptom_phrase(NOTES_LONG, client, "test-model")
+    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, client, "test-model")
     assert result == NOTES_LONG
+    assert fell_back is True
 
 
 async def test_extraction_strips_quotes_and_trailing_period():
     # LLM returns quoted phrase with trailing period
-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client('"Chest pain, 3 hours."'), "test-model")
+    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client('"Chest pain, 3 hours."'), "test-model")
     assert result == "Chest pain, 3 hours"
+    assert fell_back is False
 
 
 # ---------------------------------------------------------------------------

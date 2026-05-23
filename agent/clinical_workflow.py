@@ -19,17 +19,22 @@ async def route_comorbidities(
     comorbidities: list[str],
     existing_cpgs: list[CPGDocRef],
     top_k: int = 2,
+    patient_sex: str | None = None,
+    emit=None,
 ) -> list[CPGDocRef]:
     """Map free-text comorbidity names to additional CPG documents.
 
     For each comorbidity, run a DDx lookup (top_k=3) to obtain an ICD-11 code,
     then route that code to CPGs. Skips matches below similarity 0.55 to prevent
     semantic-fallback drift (e.g. DM/CKD routing to Breast Cancer CPG).
-    Deduplicated against existing_cpgs.
+    Deduplicated against existing_cpgs. Sex-incompatible CPGs (e.g. a pregnancy CPG
+    for a male patient) are dropped and surfaced in the trace.
     """
     from ddx.search_ddx import search_ddx
+    from .clinical_stages import sex_incompatible_reason
     additional: list[CPGDocRef] = []
     existing_names = {c.cpg_name for c in existing_cpgs}
+    sex_excluded: set[str] = set()
     for condition in comorbidities[:4]:           # cap at 4 to limit latency
         if not condition.strip():
             continue
@@ -61,9 +66,26 @@ async def route_comorbidities(
             )
 
             for ref in refs:
-                if ref.cpg_name not in existing_names:
-                    additional.append(ref)
-                    existing_names.add(ref.cpg_name)
+                if ref.cpg_name in existing_names:
+                    continue
+                reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
+                if reason is not None:
+                    if ref.cpg_name not in sex_excluded:
+                        sex_excluded.add(ref.cpg_name)
+                        logger.info(
+                            "Comorbidity sex-filter excluded %s (via %r): %s",
+                            ref.cpg_name, condition, reason,
+                        )
+                        if emit:
+                            await emit("sub_step", {
+                                "stage": 3,
+                                "detail": f"Excluded {ref.cpg_name} — {reason}",
+                                "badge": "excluded",
+                                "status": "complete",
+                            })
+                    continue
+                additional.append(ref)
+                existing_names.add(ref.cpg_name)
         except Exception as exc:
             logger.warning("Comorbidity routing failed for %r: %s", condition, exc)
     return additional
@@ -110,8 +132,9 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     # Stage 3 — Route
     try:
         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3,
-                                   clinical_context=_build_symptom_text(case))
-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
+                                   clinical_context=_build_symptom_text(case),
+                                   patient_sex=case.sex)
+        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex)
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
         logger.info("Stage 3 Routing: %d CPGs matched: %s",
@@ -166,6 +189,47 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     )
 
 
+async def run_ddx_only_streaming(
+    case: PatientCase,
+    emit,                           # async callable: emit(event_type: str, data: dict) -> None
+) -> list[DDxResult]:
+    """
+    Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and stream it, then stop.
+
+    The clinician reviews the ranked top-k, confirms or overrides, and the UI then
+    calls the resynthesize path (Stages 3–5) on the agreed diagnosis. This keeps the
+    expensive, authoritative care plan from ever being generated against an
+    unvalidated diagnosis.
+
+    Emits the same Stage-2 events as the full workflow, plus a terminal `ddx_ready`
+    event carrying the candidate list so the caller can render the confirmation gate.
+    Never raises — on Stage-2 failure it emits an error stage_update and returns [].
+    """
+    await emit("stage_update", {
+        "stage": 2, "name": "DDx Analysis",
+        "status": "running", "detail": "Analyzing symptoms and history…"
+    })
+    try:
+        ddx = await stage_2_ddx(case, top_k=5, emit=emit)
+        top = ddx[0].code if ddx else "none"
+        await emit("stage_update", {
+            "stage": 2, "name": "DDx Analysis", "status": "complete",
+            "detail": f"{len(ddx)} candidates · top: {top}",
+            "data": [d.model_dump() for d in ddx],
+        })
+        logger.info("DDx-only Stage 2: %d candidates. Top: %s", len(ddx), top)
+    except Exception as e:
+        logger.error("DDx-only Stage 2 failed: %s", e)
+        await emit("stage_update", {
+            "stage": 2, "name": "DDx Analysis", "status": "error", "detail": str(e),
+        })
+        ddx = []
+
+    # Terminal event: hand the candidates to the UI gate. Pipeline pauses here.
+    await emit("ddx_ready", {"ddx": [d.model_dump() for d in ddx]})
+    return ddx
+
+
 async def run_clinical_workflow_streaming(
     case: PatientCase,
     emit,                           # async callable: emit(event_type: str, data: dict) -> None
@@ -209,8 +273,9 @@ async def run_clinical_workflow_streaming(
     })
     try:
         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit,
-                                   clinical_context=_build_symptom_text(case))
-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
+                                   clinical_context=_build_symptom_text(case),
+                                   patient_sex=case.sex)
+        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit)
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
             for c in extra_cpgs:
@@ -323,7 +388,8 @@ async def run_resynthesize_streaming(
     })
     try:
         cpgs = await stage_3_route(selected_ddx, top_k_codes=len(selected_ddx), top_k_cpgs=3, emit=emit,
-                                   clinical_context=_build_symptom_text(case))
+                                   clinical_context=_build_symptom_text(case),
+                                   patient_sex=case.sex)
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",

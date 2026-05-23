@@ -5,7 +5,7 @@ All mocked — no real DB, no real LLM, no real embeddings.
 from __future__ import annotations
 
 import pytest
-from unittest.mock import AsyncMock, patch, MagicMock
+from unittest.mock import AsyncMock, patch
 
 from agent.models import PatientCase, TreatmentPlan, Recommendation
 from agent.clinical_stages import DDxResult
@@ -35,13 +35,22 @@ def make_ddx() -> list[DDxResult]:
 
 
 def make_cpgs() -> list[CPGDocRef]:
-    return [CPGDocRef(cpg_name="CPG AF Management", document_ids=["doc-001"])]
+    return [CPGDocRef(
+        cpg_name="CPG AF Management",
+        document_id="doc-001",
+        document_ids=["doc-001"],
+        title="CPG AF Management",
+        match_type="exact",
+        score=0.9,
+        matched_scope="BC81.3",
+    )]
 
 
 def make_plan() -> TreatmentPlan:
     return TreatmentPlan(
         icd_primary="BC81.3",
         icd_alternates=["BC81.1"],
+        summary="Atrial fibrillation management plan.",
         recommendations=[
             Recommendation(
                 intervention="Rate control with bisoprolol 5mg OD",
@@ -50,7 +59,7 @@ def make_plan() -> TreatmentPlan:
                 rationale="Rate control for persistent AF with HR >100",
             )
         ],
-        monitoring=["Heart rate at each visit"],
+        monitoring=[{"parameter": "heart rate", "schedule": "at each visit"}],
         red_flags=["Haemodynamic compromise"],
         confidence=0.88,
         unresolved_questions=[],
@@ -211,7 +220,7 @@ async def test_clinical_plan_endpoint_200():
         stage_errors=[],
     )
 
-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
+    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
         assert resp.status_code == 200
@@ -227,7 +236,7 @@ async def test_clinical_plan_endpoint_500():
     from httpx import AsyncClient, ASGITransport
     from agent.api import app
 
-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, side_effect=RuntimeError("synthesis failed")):
+    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, side_effect=RuntimeError("synthesis failed")):
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
         assert resp.status_code == 500
@@ -247,7 +256,7 @@ async def test_clinical_plan_maps_ddx():
         stage_errors=[],
     )
 
-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
+    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
         body = resp.json()
@@ -273,7 +282,7 @@ async def test_clinical_plan_maps_cpgs():
         stage_errors=[],
     )
 
-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
+    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
         body = resp.json()

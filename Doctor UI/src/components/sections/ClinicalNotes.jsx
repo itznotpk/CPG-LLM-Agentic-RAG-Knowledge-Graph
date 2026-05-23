@@ -1,119 +1,107 @@
 import React from 'react';
-import { FileText, CheckCircle2, Edit3, Zap } from 'lucide-react';
-import { GlassCard, TextArea, Button, VoiceInputButton, VoiceStatusIndicator } from '../shared';
+import { GlassCard, VoiceInputButton } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 
-export function ClinicalNotes({ isConfirmed, onConfirm }) {
+export function ClinicalNotes() {
   const { state, dispatch } = useApp();
   const { isDark } = useTheme();
-  const { clinicalNotes, patient } = state;
-  const [isListening, setIsListening] = React.useState(false);
+  const { clinicalNotes } = state;
+  const [savedAt, setSavedAt] = React.useState(null);
+  const debounceRef = React.useRef(null);
 
-  const handleChange = (value) => {
+  const persist = (value) => {
     dispatch({ type: 'SET_CLINICAL_NOTES', payload: value });
-    // If notes change after confirmation, reset confirmation
-    if (isConfirmed && onConfirm) {
-      onConfirm(false);
-    }
+    setSavedAt(new Date());
+  };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    // Optimistic local update (context is source of truth; debounce the "Saved" timestamp)
+    dispatch({ type: 'SET_CLINICAL_NOTES', payload: value });
+    clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => setSavedAt(new Date()), 500);
+  };
+
+  const handleBlur = () => {
+    clearTimeout(debounceRef.current);
+    if (clinicalNotes?.trim()) setSavedAt(new Date());
   };
 
   const handleVoiceTranscript = (transcript) => {
-    // Append the transcript to existing notes
-    const newValue = clinicalNotes
-      ? clinicalNotes + ' ' + transcript
-      : transcript;
-    handleChange(newValue);
+    const next = clinicalNotes ? clinicalNotes + ' ' + transcript : transcript;
+    persist(next);
   };
 
-  const handleConfirm = () => {
-    // Just confirm the notes locally - actual save happens when "Analyze Clinical Assessment" is pressed
-    // This creates a new consultation row in the database with the clinical notes
-    if (onConfirm) onConfirm(true);
+  const handleSampleFill = () => {
+    const sample = `CC: Chest pain radiating to left arm, 30 min onset.\n\nHPI: 58yo M with known T2DM (HbA1c 8.5%), HTN. Awoke with central chest pressure, 7/10, diaphoresis. No previous cardiac history.\n\nPE: Anxious, diaphoretic. BP 142/88, HR 82, regular. No murmur.`;
+    persist(sample);
   };
 
-  const handleEdit = () => {
-    if (onConfirm) onConfirm(false);
-  };
+  const wordCount = clinicalNotes?.trim()
+    ? clinicalNotes.trim().split(/\s+/).length
+    : 0;
 
-  const handleDemoFill = () => {
-    const demoNotes = `Chest pain and tends to vomit`;
-    handleChange(demoNotes);
-  };
+  const savedTime = savedAt
+    ? savedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    : null;
+
+  const textareaCls = `w-full px-4 py-3 rounded-xl border text-sm leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 ${
+    isDark
+      ? 'bg-white/5 border-white/10 text-white placeholder-slate-500'
+      : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400'
+  }`;
 
   return (
-    <GlassCard className={`p-5 ${isConfirmed ? 'border-2 border-green-500/30' : ''}`}>
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-xl ${isConfirmed ? 'bg-green-500/20' : 'bg-[var(--accent-primary)]/20'}`}>
-            {isConfirmed
-              ? <CheckCircle2 className="w-5 h-5 text-green-500" />
-              : <FileText className="w-5 h-5 text-[var(--accent-primary)]" />
-            }
-          </div>
-          <div>
-            <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Clinical Notes</h3>
-            {isConfirmed && (
-              <p className="text-xs text-green-500">Notes confirmed ✓</p>
-            )}
-          </div>
-          <VoiceStatusIndicator isListening={isListening} />
+    <GlassCard className="p-5">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-3">
+        <div>
+          <h3 className={`text-lg font-semibold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            Clinical notes
+          </h3>
+          <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+            HPI · Exam · pertinent positives &amp; negatives
+          </p>
         </div>
         <div className="flex items-center gap-2">
+          <VoiceInputButton onTranscript={handleVoiceTranscript} />
           <button
-            onClick={handleDemoFill}
-            disabled={isConfirmed}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
-              ${isConfirmed
-                ? 'opacity-50 cursor-not-allowed'
-                : isDark
-                  ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
-                  : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
-              }`}
-            title="Fill with demo data"
+            onClick={handleSampleFill}
+            className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors ${
+              isDark
+                ? 'border-white/20 text-slate-400 hover:bg-white/10'
+                : 'border-slate-300 text-slate-500 hover:bg-slate-50'
+            }`}
           >
-            <Zap className="w-4 h-4" />
-            Demo Fill
+            Sample
           </button>
-          <VoiceInputButton
-            onTranscript={handleVoiceTranscript}
-          />
         </div>
       </div>
 
-      <TextArea
-        id="clinical-notes"
-        label="History & Physical Examination"
-        rows={6}
-        placeholder="Enter clinical history, presenting complaints, physical examination findings... or use voice input"
-        value={clinicalNotes}
-        onChange={(e) => handleChange(e.target.value)}
-        helper="Include relevant symptoms, duration, and examination findings. Voice dictation supported."
-        disabled={isConfirmed}
+      {/* Textarea */}
+      <textarea
+        rows={7}
+        placeholder="CC: …&#10;&#10;HPI: …&#10;&#10;PE: …"
+        value={clinicalNotes || ''}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={textareaCls}
       />
 
-      {/* Confirm/Edit Button */}
-      <div className="mt-4 flex justify-end">
-        {isConfirmed ? (
-          <Button
-            variant="secondary"
-            size="sm"
-            icon={Edit3}
-            onClick={handleEdit}
-          >
-            Edit Notes
-          </Button>
-        ) : (
-          <Button
-            variant="success"
-            size="md"
-            icon={CheckCircle2}
-            onClick={handleConfirm}
-            disabled={!clinicalNotes?.trim()}
-          >
-            Confirm Clinical Notes
-          </Button>
-        )}
+      {/* Footer */}
+      <div className={`flex items-center justify-between mt-2 text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+        <span className="flex items-center gap-1.5">
+          {savedTime && clinicalNotes?.trim() ? (
+            <>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+              Saved · {savedTime}
+            </>
+          ) : (
+            <span className="opacity-0 select-none">·</span>
+          )}
+        </span>
+        <span>{wordCount > 0 ? `${wordCount} words · markdown enabled` : 'markdown enabled'}</span>
       </div>
     </GlassCard>
   );

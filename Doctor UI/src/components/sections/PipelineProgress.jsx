@@ -31,7 +31,84 @@ const MATCH_TYPE_COLORS = {
   parent:   'bg-blue-500/20   text-blue-400    border-blue-500/30',
   range:    'bg-blue-500/20   text-blue-400    border-blue-500/30',
   semantic: 'bg-amber-500/20  text-amber-400   border-amber-500/30',
+  fallback: 'bg-red-500/20    text-red-400     border-red-500/30',
+  DDx:      'bg-indigo-500/20 text-indigo-300  border-indigo-500/30',
+  excluded: 'bg-red-500/20    text-red-400     border-red-500/30',
+  out_of_scope: 'bg-slate-600/30 text-slate-400 border-slate-500/40',
 };
+
+// Compact before/after re-rank + score-breakdown table for the DDx stage.
+// All fields come from the stage-2 stage_update `data` (DDxResult.model_dump()).
+function DDxCandidateTable({ candidates, isDark }) {
+  if (!candidates?.length) return null;
+
+  const fmt = (n, sign = false) => {
+    if (n === null || n === undefined) return '—';
+    const v = Number(n);
+    const s = v.toFixed(2);
+    return sign && v > 0 ? `+${s}` : s;
+  };
+
+  return (
+    <div className="mt-2 space-y-1.5">
+      {candidates.map((c, i) => {
+        const sb = c.score_breakdown || {};
+        const mathRank = c.math_rank;
+        const aiRank = c.llm_rank ?? i + 1;
+        const delta = c.rank_delta;
+        const moved = typeof delta === 'number' && delta !== 0;
+        const arrow = !moved ? '=' : delta > 0 ? `↑${delta}` : `↓${Math.abs(delta)}`;
+        const arrowColor = !moved
+          ? 'text-slate-500'
+          : delta > 0 ? 'text-emerald-400' : 'text-red-400';
+        const incl = Number(sb.inclusion_match || 0);
+        const excl = Number(sb.exclusion_penalty || 0);
+
+        return (
+          <div
+            key={c.code || i}
+            className={`rounded-lg px-3 py-2 text-xs border ${isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-slate-50 border-slate-200'}`}
+          >
+            {/* Row 1: rank, code, title, before→after */}
+            <div className="flex items-center gap-2">
+              <span className="font-mono font-bold text-slate-400 shrink-0">#{aiRank}</span>
+              <span className="font-mono text-[var(--accent-primary)] shrink-0">{c.code}</span>
+              <span className={`truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.title}</span>
+              {mathRank != null && (
+                <span className="ml-auto shrink-0 font-mono text-[11px] text-slate-500">
+                  math #{mathRank} → AI #{aiRank}{' '}
+                  <span className={`font-bold ${arrowColor}`}>{arrow}</span>
+                </span>
+              )}
+            </div>
+
+            {/* Row 2: score breakdown */}
+            <div className={`mt-1 font-mono text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              <span title="base vector similarity">base {fmt(sb.base_similarity)}</span>
+              <span className={incl > 0 ? 'text-emerald-400' : 'opacity-40'} title={sb.inclusion_phrase || 'inclusion-term match'}>
+                {'  + incl '}{fmt(incl, true)}
+              </span>
+              <span className={excl > 0 ? 'text-red-400' : 'opacity-40'} title={sb.exclusion_phrase || 'exclusion-term penalty'}>
+                {'  − excl '}{fmt(excl)}
+              </span>
+              <span className={`font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+                {'  = '}{fmt(sb.final_score)}
+              </span>
+            </div>
+
+            {/* Row 3: override reason, if the AI re-ranked against the math order */}
+            {c.override_reason && (
+              <div className="mt-1 flex items-start gap-1 text-[11px] text-amber-400">
+                <span className="shrink-0">⤷ override:</span>
+                <span className="italic">{c.override_reason}</span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 function StatusDot({ status, num }) {
   const base = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border-2 shrink-0 transition-all duration-300';
@@ -116,7 +193,8 @@ export function PipelineProgress({
     const status = stageUpdate?.status || 'pending';
     const detail = stageUpdate?.detail || '';
     const badge  = stageUpdate?.badge || null;
-    return { ...def, status, detail, badge, subSteps };
+    const data   = stageUpdate?.data || null;   // DDx candidates (stage 2) etc.
+    return { ...def, status, detail, badge, subSteps, data };
   });
 
   const thinkingText = pipelineThinking['DDx Re-rank'] || '';
@@ -127,7 +205,7 @@ export function PipelineProgress({
     : isLive ? 'Analysing…' : '';
 
   return (
-    <div className={`overflow-hidden rounded-xl border-2 ${isLive ? 'border-[var(--accent-primary)] shadow-lg shadow-[var(--accent-primary)]/10' : isDark ? 'border-indigo-500/30 bg-slate-800/80' : 'border-indigo-200 bg-white'} transition-all duration-300`}>
+    <div className={`overflow-hidden rounded-xl border-2 ${isLive ? 'border-[var(--accent-primary)]' : isDark ? 'border-indigo-500/30 bg-slate-800/80' : 'border-indigo-200 bg-white'} transition-all duration-300`}>
       {/* Header */}
       <div
         className={`flex items-center justify-between px-5 py-3 border-b ${isDark ? 'bg-indigo-900/20 border-indigo-500/20' : 'bg-indigo-50 border-indigo-100'} ${onToggle ? 'cursor-pointer select-none' : ''}`}
@@ -262,6 +340,11 @@ export function PipelineProgress({
                           );
                         })}
                       </div>
+                    )}
+
+                    {/* DDx candidates: before/after re-rank + score breakdown (stage 2) */}
+                    {stage.stage === 2 && Array.isArray(stage.data) && stage.data.length > 0 && (
+                      <DDxCandidateTable candidates={stage.data} isDark={isDark} />
                     )}
 
                     {/* Thinking dropdown — DDx stage only */}

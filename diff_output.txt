@@ -1,0 +1,3103 @@
+﻿diff --git a/Doctor UI/src/components/sections/ClinicalNotes.jsx b/Doctor UI/src/components/sections/ClinicalNotes.jsx
+index ee8c4c5..7f1dbb6 100644
+--- a/Doctor UI/src/components/sections/ClinicalNotes.jsx	
++++ b/Doctor UI/src/components/sections/ClinicalNotes.jsx	
+@@ -1,119 +1,107 @@
+ import React from 'react';
+-import { FileText, CheckCircle2, Edit3, Zap } from 'lucide-react';
+-import { GlassCard, TextArea, Button, VoiceInputButton, VoiceStatusIndicator } from '../shared';
++import { GlassCard, VoiceInputButton } from '../shared';
+ import { useApp } from '../../context/AppContext';
+ import { useTheme } from '../../context/ThemeContext';
+ 
+-export function ClinicalNotes({ isConfirmed, onConfirm }) {
++export function ClinicalNotes() {
+   const { state, dispatch } = useApp();
+   const { isDark } = useTheme();
+-  const { clinicalNotes, patient } = state;
+-  const [isListening, setIsListening] = React.useState(false);
++  const { clinicalNotes } = state;
++  const [savedAt, setSavedAt] = React.useState(null);
++  const debounceRef = React.useRef(null);
+ 
+-  const handleChange = (value) => {
++  const persist = (value) => {
+     dispatch({ type: 'SET_CLINICAL_NOTES', payload: value });
+-    // If notes change after confirmation, reset confirmation
+-    if (isConfirmed && onConfirm) {
+-      onConfirm(false);
+-    }
++    setSavedAt(new Date());
+   };
+ 
+-  const handleVoiceTranscript = (transcript) => {
+-    // Append the transcript to existing notes
+-    const newValue = clinicalNotes
+-      ? clinicalNotes + ' ' + transcript
+-      : transcript;
+-    handleChange(newValue);
++  const handleChange = (e) => {
++    const value = e.target.value;
++    // Optimistic local update (context is source of truth; debounce the "Saved" timestamp)
++    dispatch({ type: 'SET_CLINICAL_NOTES', payload: value });
++    clearTimeout(debounceRef.current);
++    debounceRef.current = setTimeout(() => setSavedAt(new Date()), 500);
+   };
+ 
+-  const handleConfirm = () => {
+-    // Just confirm the notes locally - actual save happens when "Analyze Clinical Assessment" is pressed
+-    // This creates a new consultation row in the database with the clinical notes
+-    if (onConfirm) onConfirm(true);
++  const handleBlur = () => {
++    clearTimeout(debounceRef.current);
++    if (clinicalNotes?.trim()) setSavedAt(new Date());
+   };
+ 
+-  const handleEdit = () => {
+-    if (onConfirm) onConfirm(false);
++  const handleVoiceTranscript = (transcript) => {
++    const next = clinicalNotes ? clinicalNotes + ' ' + transcript : transcript;
++    persist(next);
+   };
+ 
+-  const handleDemoFill = () => {
+-    const demoNotes = `Chest pain and tends to vomit`;
+-    handleChange(demoNotes);
++  const handleSampleFill = () => {
++    const sample = `CC: Chest pain radiating to left arm, 30 min onset.\n\nHPI: 58yo M with known T2DM (HbA1c 8.5%), HTN. Awoke with central chest pressure, 7/10, diaphoresis. No previous cardiac history.\n\nPE: Anxious, diaphoretic. BP 142/88, HR 82, regular. No murmur.`;
++    persist(sample);
+   };
+ 
++  const wordCount = clinicalNotes?.trim()
++    ? clinicalNotes.trim().split(/\s+/).length
++    : 0;
++
++  const savedTime = savedAt
++    ? savedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
++    : null;
++
++  const textareaCls = `w-full px-4 py-3 rounded-xl border text-sm leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 ${
++    isDark
++      ? 'bg-white/5 border-white/10 text-white placeholder-slate-500'
++      : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400'
++  }`;
++
+   return (
+-    <GlassCard className={`p-5 ${isConfirmed ? 'border-2 border-green-500/30' : ''}`}>
+-      <div className="flex items-center justify-between mb-4">
+-        <div className="flex items-center gap-3">
+-          <div className={`p-2 rounded-xl ${isConfirmed ? 'bg-green-500/20' : 'bg-[var(--accent-primary)]/20'}`}>
+-            {isConfirmed
+-              ? <CheckCircle2 className="w-5 h-5 text-green-500" />
+-              : <FileText className="w-5 h-5 text-[var(--accent-primary)]" />
+-            }
+-          </div>
+-          <div>
+-            <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Clinical Notes</h3>
+-            {isConfirmed && (
+-              <p className="text-xs text-green-500">Notes confirmed Γ£ô</p>
+-            )}
+-          </div>
+-          <VoiceStatusIndicator isListening={isListening} />
++    <GlassCard className="p-5">
++      {/* Header */}
++      <div className="flex items-start justify-between mb-3">
++        <div>
++          <h3 className={`text-lg font-semibold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
++            Clinical notes
++          </h3>
++          <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++            HPI ┬╖ Exam ┬╖ pertinent positives &amp; negatives
++          </p>
+         </div>
+         <div className="flex items-center gap-2">
++          <VoiceInputButton onTranscript={handleVoiceTranscript} />
+           <button
+-            onClick={handleDemoFill}
+-            disabled={isConfirmed}
+-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
+-              ${isConfirmed
+-                ? 'opacity-50 cursor-not-allowed'
+-                : isDark
+-                  ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
+-                  : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+-              }`}
+-            title="Fill with demo data"
++            onClick={handleSampleFill}
++            className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors ${
++              isDark
++                ? 'border-white/20 text-slate-400 hover:bg-white/10'
++                : 'border-slate-300 text-slate-500 hover:bg-slate-50'
++            }`}
+           >
+-            <Zap className="w-4 h-4" />
+-            Demo Fill
++            Sample
+           </button>
+-          <VoiceInputButton
+-            onTranscript={handleVoiceTranscript}
+-          />
+         </div>
+       </div>
+ 
+-      <TextArea
+-        id="clinical-notes"
+-        label="History & Physical Examination"
+-        rows={6}
+-        placeholder="Enter clinical history, presenting complaints, physical examination findings... or use voice input"
+-        value={clinicalNotes}
+-        onChange={(e) => handleChange(e.target.value)}
+-        helper="Include relevant symptoms, duration, and examination findings. Voice dictation supported."
+-        disabled={isConfirmed}
++      {/* Textarea */}
++      <textarea
++        rows={7}
++        placeholder="CC: ΓÇª&#10;&#10;HPI: ΓÇª&#10;&#10;PE: ΓÇª"
++        value={clinicalNotes || ''}
++        onChange={handleChange}
++        onBlur={handleBlur}
++        className={textareaCls}
+       />
+ 
+-      {/* Confirm/Edit Button */}
+-      <div className="mt-4 flex justify-end">
+-        {isConfirmed ? (
+-          <Button
+-            variant="secondary"
+-            size="sm"
+-            icon={Edit3}
+-            onClick={handleEdit}
+-          >
+-            Edit Notes
+-          </Button>
+-        ) : (
+-          <Button
+-            variant="success"
+-            size="md"
+-            icon={CheckCircle2}
+-            onClick={handleConfirm}
+-            disabled={!clinicalNotes?.trim()}
+-          >
+-            Confirm Clinical Notes
+-          </Button>
+-        )}
++      {/* Footer */}
++      <div className={`flex items-center justify-between mt-2 text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++        <span className="flex items-center gap-1.5">
++          {savedTime && clinicalNotes?.trim() ? (
++            <>
++              <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
++              Saved ┬╖ {savedTime}
++            </>
++          ) : (
++            <span className="opacity-0 select-none">┬╖</span>
++          )}
++        </span>
++        <span>{wordCount > 0 ? `${wordCount} words ┬╖ markdown enabled` : 'markdown enabled'}</span>
+       </div>
+     </GlassCard>
+   );
+diff --git a/Doctor UI/src/components/sections/DataInputSection.jsx b/Doctor UI/src/components/sections/DataInputSection.jsx
+index 64dbc9e..a765e7c 100644
+--- a/Doctor UI/src/components/sections/DataInputSection.jsx	
++++ b/Doctor UI/src/components/sections/DataInputSection.jsx	
+@@ -1,5 +1,5 @@
+ import React from 'react';
+-import { Stethoscope, Sparkles, Brain, FileText, Activity, Search, UserPlus, CheckCircle, AlertCircle, X, Database, Heart, Pill, BarChart2, Wind, Scale, Thermometer, Loader2, ClipboardList, Pencil } from 'lucide-react';
++import { Brain, Activity, UserPlus, X, Database, Heart, BarChart2, Wind, Scale, Thermometer, Loader2 } from 'lucide-react';
+ import { ClinicalNotes } from './ClinicalNotes';
+ import { PipelineProgress } from './PipelineProgress';
+ import { VitalsGrid } from './VitalsGrid';
+@@ -241,534 +241,425 @@ function ChartModal({ patient, isOpen, onClose }) {
+   );
+ }
+ 
+-// Patient Info Display Card for found patients
++// Patient Info Display Card ΓÇö read-only by default, Edit unlocks all fields
+ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
+   const { isDark } = useTheme();
+   const { dispatch } = useApp();
+-  const [previousNotes, setPreviousNotes] = React.useState(null);
+-  const [loadingNotes, setLoadingNotes] = React.useState(true);
+ 
+-  // ΓöÇΓöÇ Edit mode for the patient record (allergies / comorbidities / meds) ΓöÇΓöÇ
+   const [isEditing, setIsEditing] = React.useState(false);
+   const [isSaving, setIsSaving] = React.useState(false);
+   const [saveError, setSaveError] = React.useState('');
++  const [savedAt, setSavedAt] = React.useState(null);
+   const [draft, setDraft] = React.useState(null);
+ 
++  // Track unsaved change count
++  const countChanges = (d) => {
++    if (!d) return 0;
++    let n = 0;
++    const orig = {
++      name: patient?.name || '',
++      gender: patient?.gender || '',
++      race: mpisData?.race || '',
++      allergies: (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean),
++      comorbidities: mpisData?.comorbidities || [],
++      currentMeds: mpisData?.currentMeds || [],
++    };
++    if (d.name !== orig.name) n++;
++    if (d.gender !== orig.gender) n++;
++    if (d.race !== orig.race) n++;
++    if (JSON.stringify(d.allergies) !== JSON.stringify(orig.allergies)) n++;
++    if (JSON.stringify(d.comorbidities) !== JSON.stringify(orig.comorbidities)) n++;
++    if (JSON.stringify(d.currentMeds) !== JSON.stringify(orig.currentMeds)) n++;
++    return n;
++  };
++
+   const startEdit = () => {
+     setDraft({
+-      allergies: mpisData?.allergies || '',
++      name: patient?.name || '',
++      gender: patient?.gender || '',
++      race: mpisData?.race || '',
++      allergies: (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean),
+       comorbidities: mpisData?.comorbidities || [],
+-      currentMeds: mpisData?.currentMeds || [],
++      currentMeds: mpisData?.currentMeds ? mpisData.currentMeds.map(m => ({ ...m })) : [],
++      // inline add state
++      allergyInput: '',
++      conditionInput: '',
++      medInput: '',
+     });
+     setSaveError('');
+     setIsEditing(true);
+   };
+ 
+-  const cancelEdit = () => {
+-    setIsEditing(false);
+-    setDraft(null);
+-    setSaveError('');
+-  };
++  const cancelEdit = () => { setIsEditing(false); setDraft(null); setSaveError(''); };
+ 
+-  const handleSaveRecord = async () => {
++  const handleSave = async () => {
+     if (!patient?.nsn || !draft) return;
+-    setIsSaving(true);
+-    setSaveError('');
++    setIsSaving(true); setSaveError('');
+     try {
+       const { updatePatientFromMPIS } = await import('../../lib/supabase');
+       const payload = {
+-        allergies: draft.allergies || null,
+-        comorbidities: draft.comorbidities || [],
+-        currentMeds: draft.currentMeds || [],
++        allergies: draft.allergies.join(', ') || null,
++        comorbidities: draft.comorbidities,
++        currentMeds: draft.currentMeds,
+       };
+       const { success, error } = await updatePatientFromMPIS(patient.nsn, payload);
+-      if (!success || error) {
+-        setSaveError(error?.message || 'Failed to save changes');
+-      } else {
+-        // Reflect the saved values in app state so the rest of the flow sees them.
+-        dispatch({ type: 'SET_MPIS_DATA', payload: { ...mpisData, ...payload } });
+-        setIsEditing(false);
+-        setDraft(null);
+-      }
+-    } catch (err) {
+-      setSaveError(err.message || 'Failed to save changes');
+-    } finally {
+-      setIsSaving(false);
+-    }
++      if (!success || error) { setSaveError(error?.message || 'Failed to save'); return; }
++      dispatch({ type: 'SET_MPIS_DATA', payload: { ...mpisData, ...payload } });
++      dispatch({ type: 'SET_PATIENT', payload: { name: draft.name, gender: draft.gender } });
++      setSavedAt(new Date());
++      setIsEditing(false); setDraft(null);
++    } catch (err) { setSaveError(err.message || 'Failed to save'); }
++    finally { setIsSaving(false); }
+   };
+ 
+-  // Fetch previous clinical notes when patient is loaded
+-  React.useEffect(() => {
+-    const fetchNotes = async () => {
+-      if (!patient?.nsn) return;
+-      setLoadingNotes(true);
+-      try {
+-        const result = await getPatientConsultation(patient.nsn);
+-        if (result.found) {
+-          setPreviousNotes(result.consultation);
+-        } else {
+-          setPreviousNotes(null);
+-        }
+-      } catch (err) {
+-        console.error('Error fetching notes:', err);
+-        setPreviousNotes(null);
+-      } finally {
+-        setLoadingNotes(false);
+-      }
+-    };
+-    fetchNotes();
+-  }, [patient?.nsn]);
++  const initials = (patient?.name || '??').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
++  const savedTime = savedAt ? savedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : null;
++  const unsaved = isEditing ? countChanges(draft) : 0;
++
++  // ΓöÇΓöÇ shared styles ΓöÇΓöÇ
++  const divider = `${isDark ? 'border-white/10' : 'border-slate-200'}`;
++  const inputCls = `w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/60 ${isDark ? 'bg-white/5 border-white/20 text-white placeholder-slate-500' : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'}`;
++  const selectCls = `w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/60 ${isDark ? 'bg-slate-800 border-white/20 text-white' : 'bg-white border-slate-300 text-slate-700'}`;
++  const eyebrow = `text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`;
++  const roText = `text-sm ${isDark ? 'text-white' : 'text-slate-800'}`;
+ 
+   return (
+-    <GlassCard variant="success" className="p-6">
+-      <div className="flex items-center justify-between mb-4">
+-        <div className="flex items-center gap-3">
+-          <div className="p-2 bg-green-500/20 rounded-xl">
+-            <CheckCircle className="w-6 h-6 text-green-500" strokeWidth={1.5} />
+-          </div>
+-          <div>
+-            <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+-              Patient Found
+-            </h3>
+-          </div>
++    <GlassCard className="overflow-hidden">
++      {/* ΓöÇΓöÇ Header ΓöÇΓöÇ */}
++      <div className={`flex items-start gap-3 px-5 pt-5 pb-4 border-b ${divider}`}>
++        <div className="w-10 h-10 rounded-full bg-[var(--accent-primary)]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
++          <span className="text-sm font-semibold text-[var(--accent-primary)]">{initials}</span>
++        </div>
++        <div className="flex-1 min-w-0">
++          <h3 className={`text-base font-semibold leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.name || 'ΓÇö'}</h3>
++          <p className={`text-xs font-mono mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
++            {patient?.nsn}
++            {patient?.age && <> ┬╖ {patient.age} {patient.gender === 'Male' ? 'M' : patient.gender === 'Female' ? 'F' : patient.gender || ''}</>}
++            {mpisData?.race && <> ┬╖ {mpisData.race}</>}
++          </p>
+         </div>
+-        <div className="flex items-center gap-2">
+-          {isEditing ? (
++        <div className="flex items-center gap-2 flex-shrink-0">
++          <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${
++            isEditing
++              ? (isDark ? 'border-[var(--accent-primary)]/40 text-[var(--accent-primary)] bg-[var(--accent-primary)]/10' : 'border-teal-300 text-teal-700 bg-teal-50')
++              : (isDark ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10' : 'border-emerald-200 text-emerald-700 bg-emerald-50')
++          }`}>
++            {isEditing ? 'Editing' : 'Patient matched'}
++          </span>
++          {!isEditing && (
+             <>
+-              <Button variant="primary" size="sm" icon={Database} onClick={handleSaveRecord} loading={isSaving} disabled={isSaving}>
+-                Save
+-              </Button>
+-              <Button variant="ghost" size="sm" onClick={cancelEdit} disabled={isSaving}>
+-                Cancel
+-              </Button>
+-            </>
+-          ) : (
+-            <>
+-              <Button variant="secondary" size="sm" icon={Pencil} onClick={startEdit}>
+-                Edit
+-              </Button>
+-              {onViewChart && (
+-                <Button
+-                  variant="success"
+-                  size="sm"
+-                  icon={BarChart2}
+-                  onClick={() => onViewChart(patient)}
+-                >
+-                  View Chart
+-                </Button>
+-              )}
+-              <Button variant="ghost" size="sm" icon={X} onClick={onClear}>
+-                Clear
+-              </Button>
++              <button onClick={startEdit} className={`text-xs px-3 py-1 rounded-lg border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-300 hover:bg-white/10' : 'border-slate-300 text-slate-600 hover:bg-slate-50'}`}>Edit</button>
++              {onViewChart && <button onClick={() => onViewChart(patient)} className={`text-xs px-3 py-1 rounded-lg border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-300 hover:bg-white/10' : 'border-slate-300 text-slate-600 hover:bg-slate-50'}`}>Chart</button>}
+             </>
+           )}
+         </div>
+       </div>
+ 
+-      {/* Save error */}
+-      {saveError && (
+-        <div className="mb-4 p-3 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center gap-2">
+-          <AlertCircle className="w-5 h-5 text-red-500" strokeWidth={1.5} />
+-          <span className={`text-sm font-medium ${isDark ? 'text-red-400' : 'text-red-700'}`}>{saveError}</span>
+-        </div>
+-      )}
+-
+-      {/* Patient Demographics ΓÇö bordered grid with ds-eyebrow labels */}
+-      <div className={`grid grid-cols-2 md:grid-cols-4 text-sm mb-4 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'} border rounded-xl overflow-hidden ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+-        {[
+-          { label: 'Full name', value: patient?.name || 'ΓÇö', cls: '' },
+-          { label: 'NRIC', value: patient?.nsn || 'ΓÇö', cls: 'ds-mono' },
+-          { label: 'Date of birth', value: patient?.dob || 'ΓÇö', cls: 'ds-numeric' },
+-          { label: 'Age / Gender', value: `${patient?.age || 'ΓÇö'} / ${patient?.gender || 'ΓÇö'}`, cls: 'ds-numeric' },
+-        ].map(({ label, value, cls }) => (
+-          <div key={label} className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
+-            <p className="ds-eyebrow mb-1">{label}</p>
+-            <p className={`font-medium text-sm ${cls} ${isDark ? 'text-white' : 'text-slate-800'}`}>{value}</p>
++      {/* ΓöÇΓöÇ Demographics ΓöÇΓöÇ */}
++      <div className={`px-5 py-4 border-b ${divider}`}>
++        <p className={`${eyebrow} mb-3`}>
++          Demographics{!isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>read-only ┬╖ press Edit to change</span>}
++        </p>
++        <div className="space-y-3">
++          {/* Full Name */}
++          <div>
++            <p className={`${eyebrow} mb-1`}>Full name</p>
++            {isEditing
++              ? <input type="text" className={inputCls} value={draft.name} onChange={e => setDraft(d => ({ ...d, name: e.target.value }))} />
++              : <p className={roText}>{patient?.name || 'ΓÇö'}</p>
++            }
+           </div>
+-        ))}
++          {/* Sex + Ethnicity */}
++          <div className="grid grid-cols-2 gap-3">
++            <div>
++              <p className={`${eyebrow} mb-1`}>Sex</p>
++              {isEditing
++                ? <select className={selectCls} value={draft.gender} onChange={e => setDraft(d => ({ ...d, gender: e.target.value }))}>
++                    <option value="">ΓÇö</option>
++                    <option value="Male">Male</option>
++                    <option value="Female">Female</option>
++                    <option value="Other">Other</option>
++                  </select>
++                : <p className={roText}>{patient?.gender || 'ΓÇö'}</p>
++              }
++            </div>
++            <div>
++              <p className={`${eyebrow} mb-1`}>Ethnicity</p>
++              {isEditing
++                ? <select className={selectCls} value={draft.race} onChange={e => setDraft(d => ({ ...d, race: e.target.value }))}>
++                    <option value="">ΓÇö</option>
++                    <option value="Malay">Malay</option>
++                    <option value="Chinese">Chinese</option>
++                    <option value="Indian">Indian</option>
++                    <option value="Other">Other</option>
++                  </select>
++                : <p className={roText}>{mpisData?.race || 'ΓÇö'}</p>
++              }
++            </div>
++          </div>
++        </div>
+       </div>
+ 
+-      {/* Race + Allergies row */}
+-      <div className={`grid grid-cols-2 text-sm mb-4 divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'} border rounded-xl overflow-hidden ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+-        <div className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
+-          <p className="ds-eyebrow mb-1">Race</p>
+-          <p className={`font-medium text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{mpisData?.race || 'ΓÇö'}</p>
++      {/* ΓöÇΓöÇ Known Allergies ΓöÇΓöÇ */}
++      <div className={`px-5 py-4 border-b ${divider}`}>
++        <p className={`${eyebrow} mb-2`}>
++          Known allergies{isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>click ├ù to remove</span>}
++        </p>
++        <div className="flex flex-wrap gap-1.5 mb-2">
++          {(isEditing ? draft.allergies : (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean)).map((a, idx) => (
++            <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-red-500/10 text-red-400 border-red-500/30' : 'bg-red-50 text-red-600 border-red-200'}`}>
++              <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />{a}
++              {isEditing && <button onClick={() => setDraft(d => ({ ...d, allergies: d.allergies.filter((_, i) => i !== idx) }))}><X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} /></button>}
++            </span>
++          ))}
++          {!isEditing && !(mpisData?.allergies) && <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No known allergies</p>}
+         </div>
+-        <div className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
+-          <p className="ds-eyebrow mb-1">Allergies</p>
+-          {isEditing ? (
++        {isEditing && (
++          <>
+             <input
+-              type="text"
+-              className={`w-full px-2.5 py-1.5 rounded-lg border text-sm ${isDark
+-                ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+-                } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-              placeholder="e.g., Penicillin (or leave blank)"
+-              value={draft?.allergies || ''}
+-              onChange={e => setDraft(d => ({ ...d, allergies: e.target.value }))}
++              type="text" placeholder="Add another allergyΓÇª" className={inputCls}
++              value={draft.allergyInput || ''}
++              onChange={e => setDraft(d => ({ ...d, allergyInput: e.target.value }))}
++              onKeyDown={e => {
++                if (e.key === 'Enter' && draft.allergyInput?.trim()) {
++                  setDraft(d => ({ ...d, allergies: [...d.allergies, d.allergyInput.trim()], allergyInput: '' }));
++                }
++              }}
+             />
+-          ) : (
+-            <p className={`font-medium text-sm ${mpisData?.allergies ? 'text-red-500' : isDark ? 'text-white' : 'text-slate-800'}`}>
+-              {mpisData?.allergies || 'No known allergies'}
+-            </p>
+-          )}
++            <div className="flex gap-2 mt-2">
++              {['NSAIDs', 'Sulfa', 'Latex', 'Aspirin'].map(s => (
++                <button key={s} onClick={() => setDraft(d => ({ ...d, allergies: d.allergies.includes(s) ? d.allergies : [...d.allergies, s] }))}
++                  className={`text-xs px-2 py-1 rounded-md border transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}>
++                  +{s}
++                </button>
++              ))}
++            </div>
++          </>
++        )}
++      </div>
++
++      {/* ΓöÇΓöÇ Comorbidities ΓöÇΓöÇ */}
++      <div className={`px-5 py-4 border-b ${divider}`}>
++        <p className={`${eyebrow} mb-2`}>
++          Comorbidities{isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>click ├ù to remove</span>}
++        </p>
++        <div className="flex flex-wrap gap-1.5 mb-2">
++          {(isEditing ? draft.comorbidities : (mpisData?.comorbidities || [])).map((c, idx) => (
++            <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/30' : 'bg-teal-50 text-teal-700 border-teal-200'}`}>
++              {c}
++              {isEditing && <button onClick={() => setDraft(d => ({ ...d, comorbidities: d.comorbidities.filter((_, i) => i !== idx) }))}><X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} /></button>}
++            </span>
++          ))}
++          {!isEditing && !(mpisData?.comorbidities?.length) && <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>None recorded</p>}
+         </div>
++        {isEditing && (
++          <input
++            type="text" placeholder="Add another conditionΓÇª" className={inputCls}
++            value={draft.conditionInput || ''}
++            onChange={e => setDraft(d => ({ ...d, conditionInput: e.target.value }))}
++            onKeyDown={e => {
++              if (e.key === 'Enter' && draft.conditionInput?.trim()) {
++                setDraft(d => ({ ...d, comorbidities: [...d.comorbidities, d.conditionInput.trim()], conditionInput: '' }));
++              }
++            }}
++          />
++        )}
+       </div>
+ 
+-      {/* Three-panel row: Comorbidities | Previous notes | Current medications */}
+-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+-        {/* Comorbidities */}
+-        <div className={`p-4 rounded-xl border-l-2 border-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20'}`}>
+-          <p className="ds-eyebrow mb-2">Comorbidities</p>
+-          {isEditing ? (
++      {/* ΓöÇΓöÇ Current Medications ΓöÇΓöÇ */}
++      <div className="px-5 py-4">
++        <p className={`${eyebrow} mb-3`}>
++          Current medications
++          {(isEditing ? draft.currentMeds : mpisData?.currentMeds)?.length > 0 && (
++            <span className="ml-1.5 normal-case font-normal">
++              {(isEditing ? draft.currentMeds : mpisData?.currentMeds).length} active
++            </span>
++          )}
++          {isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>click row to edit/stop</span>}
++        </p>
++        <div className="space-y-1">
++          {(isEditing ? draft.currentMeds : (mpisData?.currentMeds || [])).map((med, idx) => (
++            <div key={idx} className={`flex items-center justify-between text-sm py-1.5 border-b last:border-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
++              <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
++                {med.name}
++                {isEditing && (
++                  <>
++                    <button onClick={() => {/* inline edit could be added */}} className={`ml-2 text-xs font-normal ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'}`}>edit</button>
++                    <span className={isDark ? 'text-slate-700 mx-1' : 'text-slate-300 mx-1'}>┬╖</span>
++                    <button onClick={() => setDraft(d => ({ ...d, currentMeds: d.currentMeds.filter((_, i) => i !== idx) }))} className={`text-xs font-normal ${isDark ? 'text-slate-500 hover:text-red-400' : 'text-slate-400 hover:text-red-500'}`}>stop</button>
++                  </>
++                )}
++              </span>
++              <span className={`ds-mono text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
++                {[med.dose, med.frequency].filter(Boolean).join(' ┬╖ ')}
++              </span>
++            </div>
++          ))}
++          {!isEditing && !(mpisData?.currentMeds?.length) && <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>None recorded</p>}
++          {isEditing && (
+             <input
+-              type="text"
+-              className={`w-full px-2.5 py-1.5 rounded-lg border text-sm ${isDark
+-                ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+-                } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-              placeholder="e.g., Hypertension, Diabetes"
+-              value={draft?.comorbidities?.join(', ') || ''}
+-              onChange={e => setDraft(d => ({ ...d, comorbidities: e.target.value.split(',').map(s => s.trim()).filter(Boolean) }))}
++              type="text" placeholder="Add medication ΓÇö e.g. Atorvastatin 20mg OD" className={`${inputCls} mt-2`}
++              value={draft.medInput || ''}
++              onChange={e => setDraft(d => ({ ...d, medInput: e.target.value }))}
++              onKeyDown={e => {
++                if (e.key === 'Enter' && draft.medInput?.trim()) {
++                  setDraft(d => ({ ...d, currentMeds: [...d.currentMeds, { name: d.medInput.trim(), dose: '', frequency: '' }], medInput: '' }));
++                }
++              }}
+             />
+-          ) : mpisData?.comorbidities?.length > 0 ? (
+-            <div className="flex flex-wrap gap-1.5">
+-              {mpisData.comorbidities.map((condition, idx) => (
+-                <Badge key={idx} variant="warning" size="sm">{condition}</Badge>
+-              ))}
+-            </div>
+-          ) : (
+-            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>None recorded</p>
+           )}
+         </div>
++      </div>
+ 
+-        {/* Previous Clinical Notes */}
+-        <div className={`p-4 rounded-xl border-l-2 border-blue-400 ${isDark ? 'bg-blue-500/5 border border-blue-500/20' : 'bg-blue-50/60 border border-blue-200'}`}>
+-          <p className="ds-eyebrow mb-2" style={{ color: 'rgb(59,130,246)' }}>Previous clinical notes</p>
+-          {loadingNotes ? (
++      {/* ΓöÇΓöÇ Footer ΓöÇΓöÇ */}
++      <div className={`flex items-center justify-between px-5 py-3 rounded-b-2xl text-xs border-t ${divider} ${isDark ? 'bg-white/3 text-slate-500' : 'bg-slate-50 text-slate-400'}`}>
++        {isEditing ? (
++          <>
++            <span>{unsaved > 0 ? `${unsaved} unsaved change${unsaved > 1 ? 's' : ''}` : 'No changes yet'}</span>
+             <div className="flex items-center gap-2">
+-              <Loader2 className="w-4 h-4 animate-spin text-slate-400" strokeWidth={1.5} />
+-              <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading...</span>
+-            </div>
+-          ) : previousNotes?.clinicalNotes ? (
+-            <div>
+-              <p className={`text-sm whitespace-pre-wrap leading-relaxed ${isDark ? 'text-white' : 'text-slate-800'}`}>
+-                {previousNotes.clinicalNotes}
+-              </p>
+-              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+-                Last updated: {new Date(previousNotes.consultationTime).toLocaleString()}
+-                {previousNotes.doctorName && ` ┬╖ ${previousNotes.doctorName}`}
+-              </p>
+-            </div>
+-          ) : (
+-            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No previous clinical notes</p>
+-          )}
+-        </div>
+-
+-        {/* Current Medications */}
+-        <div className={`p-4 rounded-xl border-l-2 border-amber-400 ${isDark ? 'bg-amber-500/5 border border-amber-500/20' : 'bg-amber-50/60 border border-amber-200'}`}>
+-          <p className="ds-eyebrow mb-2" style={{ color: 'rgb(245,158,11)' }}>Current medications</p>
+-          {isEditing ? (
+-            <input
+-              type="text"
+-              className={`w-full px-2.5 py-1.5 rounded-lg border text-sm ${isDark
+-                ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+-                } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-              placeholder="e.g., Metformin 500mg BD, Amlodipine 5mg OD"
+-              value={medsToText(draft?.currentMeds)}
+-              onChange={e => setDraft(d => ({ ...d, currentMeds: textToMeds(e.target.value) }))}
+-            />
+-          ) : mpisData?.currentMeds?.length > 0 ? (
+-            <div className="space-y-1.5">
+-              {mpisData.currentMeds.map((med, idx) => (
+-                <div key={idx} className={`flex items-center justify-between text-sm ${isDark ? 'border-b border-white/10' : 'border-b border-amber-100'} pb-1 last:border-0 last:pb-0`}>
+-                  <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{med.name}</span>
+-                  <span className={`ds-mono text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{med.dose} {med.frequency}</span>
+-                </div>
+-              ))}
++              {saveError && <span className="text-red-500 mr-1">{saveError}</span>}
++              <button onClick={cancelEdit} className={`text-xs px-3 py-1.5 rounded-lg border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-300 hover:bg-white/10' : 'border-slate-300 text-slate-600 hover:bg-slate-50'}`}>Cancel</button>
++              <button onClick={handleSave} disabled={isSaving} className="text-xs px-4 py-1.5 rounded-lg bg-teal-600 text-white font-medium hover:bg-teal-700 transition-colors disabled:opacity-60">
++                {isSaving ? 'SavingΓÇª' : 'Save changes'}
++              </button>
+             </div>
+-          ) : (
+-            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No medications recorded</p>
+-          )}
+-        </div>
++          </>
++        ) : (
++          <>
++            <span className="flex items-center gap-1.5">
++              <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
++              Up-to-date{savedTime ? ` ┬╖ last saved ${savedTime}` : ''}
++            </span>
++            <span>Press Edit to change</span>
++          </>
++        )}
+       </div>
+     </GlassCard>
+   );
+ }
+ 
+-// New Patient Registration Form
+-function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
++// New Patient ΓÇö same card structure as PatientInfoCard, always in "editing" state
++function NewPatientForm({ nsn, onClear }) {
+   const { isDark } = useTheme();
+   const { state, dispatch } = useApp();
+   const { patient, mpisData } = state;
+-  const [isRegistering, setIsRegistering] = React.useState(false);
+-  const [registrationError, setRegistrationError] = React.useState('');
+-  const [registrationSuccess, setRegistrationSuccess] = React.useState(false);
+-
+-  // Parse Malaysian NRIC to extract DOB and Gender
+-  // Format: YYMMDD-PB-#### (e.g., 040911-07-0517)
+-  // - First 6 digits: YYMMDD (date of birth)
+-  // - Next 2 digits: PB (place of birth code)
+-  // - Last 4 digits: #### (last digit: odd = male, even = female)
+-  const parseNRIC = (nric) => {
+-    if (!nric || nric.length < 14) return null;
+-
+-    const cleanNric = nric.replace(/-/g, '');
+-    if (cleanNric.length !== 12) return null;
+-
+-    // Extract date components
+-    const yy = cleanNric.substring(0, 2);
+-    const mm = cleanNric.substring(2, 4);
+-    const dd = cleanNric.substring(4, 6);
+-
+-    // Determine century: if YY > current year's last 2 digits, it's 1900s, else 2000s
+-    const currentYear = new Date().getFullYear();
+-    const currentYY = currentYear % 100;
+-    const century = parseInt(yy) > currentYY ? '19' : '20';
+-    const fullYear = century + yy;
+-
+-    // Format DOB as YYYY-MM-DD for date input
+-    const dob = `${fullYear}-${mm}-${dd}`;
+ 
+-    // Calculate age
+-    const birthDate = new Date(dob);
++  // ΓöÇΓöÇ local form state (mirrors PatientInfoCard draft shape) ΓöÇΓöÇ
++  const [allergies, setAllergies] = React.useState([]);
++  const [conditions, setConditions] = React.useState([]);
++  const [meds, setMeds] = React.useState([]);
++  const [allergyInput, setAllergyInput] = React.useState('');
++  const [conditionInput, setConditionInput] = React.useState('');
++  const [medInput, setMedInput] = React.useState('');
++
++  // Sync tags/meds back to context so StatusStrip and handleAnalyze see them
++  React.useEffect(() => {
++    dispatch({
++      type: 'SET_MPIS_DATA',
++      payload: { ...mpisData, allergies: allergies.join(', ') || null, comorbidities: conditions, currentMeds: meds },
++    });
++  }, [allergies, conditions, meds]);
++
++  // Parse NRIC ΓåÆ DOB + age + sex on mount
++  React.useEffect(() => {
++    if (!nsn || patient?.dob) return;
++    const clean = nsn.replace(/-/g, '');
++    if (clean.length !== 12) return;
++    const yy = clean.slice(0, 2), mm = clean.slice(2, 4), dd = clean.slice(4, 6);
++    const cy = new Date().getFullYear() % 100;
++    const fullYear = (parseInt(yy) > cy ? '19' : '20') + yy;
++    const dob = `${fullYear}-${mm}-${dd}`;
++    const birth = new Date(dob);
+     const today = new Date();
+-    let age = today.getFullYear() - birthDate.getFullYear();
+-    const monthDiff = today.getMonth() - birthDate.getMonth();
+-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+-      age--;
+-    }
++    let age = today.getFullYear() - birth.getFullYear();
++    if (today.getMonth() < birth.getMonth() || (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())) age--;
+ 
+-    // Determine gender from last digit (odd = male, even = female)
+-    const lastDigit = parseInt(cleanNric.charAt(11));
++    // Pre-fill the sex based on NRIC last digit: odd = Male, even = Female
++    const lastDigit = parseInt(clean.slice(-1), 10);
+     const gender = lastDigit % 2 === 1 ? 'Male' : 'Female';
+ 
+-    return { dob, age, gender };
+-  };
+-
+-  // Auto-fill DOB on mount if we have a valid NRIC (gender is NOT auto-filled)
+-  React.useEffect(() => {
+-    if (nsn && !patient?.dob) {
+-      const parsed = parseNRIC(nsn);
+-      if (parsed) {
+-        dispatch({
+-          type: 'SET_PATIENT', payload: {
+-            nsn: nsn,
+-            dob: parsed.dob,
+-            age: parsed.age,
+-            // Gender is NOT auto-filled - user must select
+-          }
+-        });
+-      }
+-    }
++    dispatch({ type: 'SET_PATIENT', payload: { nsn, dob, age, gender } });
+   }, [nsn]);
+ 
+-  // Calculate age dynamically when DOB changes
++  // Recalculate age when DOB changes
+   React.useEffect(() => {
+-    if (patient?.dob) {
+-      const birthDate = new Date(patient.dob);
+-      const today = new Date();
+-      let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+-      const monthDiff = today.getMonth() - birthDate.getMonth();
+-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+-        calculatedAge--;
+-      }
+-      if (calculatedAge !== patient?.age && calculatedAge >= 0) {
+-        dispatch({ type: 'SET_PATIENT', payload: { age: calculatedAge } });
+-      }
+-    }
++    if (!patient?.dob) return;
++    const birth = new Date(patient.dob);
++    const today = new Date();
++    let age = today.getFullYear() - birth.getFullYear();
++    if (today.getMonth() < birth.getMonth() || (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())) age--;
++    if (age >= 0 && age !== patient?.age) dispatch({ type: 'SET_PATIENT', payload: { age } });
+   }, [patient?.dob]);
+ 
+-  const handlePatientChange = (field, value) => {
+-    dispatch({ type: 'SET_PATIENT', payload: { [field]: value } });
+-    setRegistrationError('');
+-    setRegistrationSuccess(false);
+-  };
++  const setField = (field, value) => dispatch({ type: 'SET_PATIENT', payload: { [field]: value } });
++  const setMpisField = (field, value) => dispatch({ type: 'SET_MPIS_DATA', payload: { ...mpisData, [field]: value } });
+ 
+-  const handleMpisChange = (field, value) => {
+-    dispatch({ type: 'SET_MPIS_DATA', payload: { ...mpisData, [field]: value } });
+-    setRegistrationError('');
+-    setRegistrationSuccess(false);
+-  };
++  const initials = patient?.name
++    ? patient.name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase()
++    : '?';
+ 
+-  // Check if required fields are filled
+-  const canRegister = patient?.name && patient?.dob && patient?.gender;
+-
+-  // Handle patient registration to Supabase
+-  const handleRegisterPatient = async () => {
+-    if (!canRegister) {
+-      setRegistrationError('Please fill in all required fields (Name, DOB, Gender)');
+-      return;
+-    }
+-
+-    setIsRegistering(true);
+-    setRegistrationError('');
+-
+-    try {
+-      // Import the register + update functions
+-      const { registerPatient, updatePatientFromMPIS } = await import('../../lib/supabase');
+-
+-      const nric = patient.nsn || nsn;
+-      const result = await registerPatient({
+-        nric,
+-        fullName: patient.name,
+-        dateOfBirth: patient.dob,
+-        gender: patient.gender,
+-        race: mpisData?.race || null,
+-        ethnicity: mpisData?.ethnicity || null,
+-        allergies: mpisData?.allergies || null,
+-        comorbidities: mpisData?.comorbidities || null,
+-      });
+-
+-      if (result.error) {
+-        setRegistrationError(result.error.message || 'Failed to register patient');
+-      } else {
+-        // register_patient RPC does not accept current_medications, so persist
+-        // meds (and re-affirm allergies/comorbidities) in a follow-up update.
+-        if (mpisData?.currentMeds?.length > 0) {
+-          await updatePatientFromMPIS(nric, {
+-            allergies: mpisData?.allergies || null,
+-            comorbidities: mpisData?.comorbidities || null,
+-            currentMeds: mpisData.currentMeds,
+-          });
+-        }
+-        setRegistrationSuccess(true);
+-        console.log('Γ£à Patient registered successfully:', result.patientId);
+-        // Important: Update parent state that patient is now in DB
+-        if (onPatientRegistered) {
+-          onPatientRegistered(result.patientId);
+-        }
+-      }
+-    } catch (err) {
+-      console.error('Registration error:', err);
+-      setRegistrationError(err.message || 'Failed to register patient');
+-    } finally {
+-      setIsRegistering(false);
+-    }
+-  };
++  const divider = `${isDark ? 'border-white/10' : 'border-slate-200'}`;
++  const inputCls = `w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/60 ${isDark ? 'bg-white/5 border-white/20 text-white placeholder-slate-500' : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'}`;
++  const selectCls = `w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/60 ${isDark ? 'bg-slate-800 border-white/20 text-white' : 'bg-white border-slate-300 text-slate-700'}`;
++  const eyebrow = `text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`;
+ 
+   return (
+-    <GlassCard variant="warning" className="p-6">
+-      <div className="flex items-center justify-between mb-6">
+-        <div className="flex items-center gap-3">
+-          <div className="p-2 bg-amber-500/20 rounded-xl">
+-            <UserPlus className="w-6 h-6 text-amber-500" strokeWidth={1.5} />
+-          </div>
+-          <div>
+-            <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+-              New patient
+-            </h3>
+-            <p className={`text-sm font-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+-              {nsn}
+-            </p>
+-          </div>
+-        </div>
+-        <Button variant="ghost" size="sm" icon={X} onClick={onClear}>
+-          Clear
+-        </Button>
+-      </div>
+-
+-      {/* Success Message */}
+-      {registrationSuccess && (
+-        <div className="mb-4 p-3 rounded-lg bg-green-500/20 border border-green-500/30 flex items-center gap-2">
+-          <CheckCircle className="w-5 h-5 text-green-500" strokeWidth={1.5} />
+-          <span className={`text-sm font-medium ${isDark ? 'text-green-400' : 'text-green-700'}`}>
+-            Patient registered successfully! You can now proceed with the clinical assessment.
++    <GlassCard className="overflow-hidden">
++      {/* ΓöÇΓöÇ Header ΓöÇΓöÇ */}
++      <div className={`flex items-start gap-3 px-5 pt-5 pb-4 border-b ${divider}`}>
++        <div className={`w-10 h-10 rounded-full border-2 border-dashed flex items-center justify-center flex-shrink-0 mt-0.5 ${isDark ? 'border-white/20' : 'border-slate-300'}`}>
++          <span className={`text-xs font-semibold ${patient?.name ? 'text-[var(--accent-primary)]' : (isDark ? 'text-slate-500' : 'text-slate-400')}`}>
++            {patient?.name ? initials : 'NEW'}
+           </span>
+         </div>
+-      )}
+-
+-      {/* Error Message */}
+-      {registrationError && (
+-        <div className="mb-4 p-3 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center gap-2">
+-          <AlertCircle className="w-5 h-5 text-red-500" strokeWidth={1.5} />
+-          <span className={`text-sm font-medium ${isDark ? 'text-red-400' : 'text-red-700'}`}>
+-            {registrationError}
++        <div className="flex-1 min-w-0">
++          <p className={`text-base font-semibold leading-tight ${patient?.name ? (isDark ? 'text-white' : 'text-slate-800') : (isDark ? 'text-slate-500' : 'text-slate-400')}`}>
++            {patient?.name || 'New patient'}
++          </p>
++          <p className={`text-xs font-mono mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++            {nsn || 'ΓÇö'}
++            {patient?.age && <> ┬╖ {patient.age} yrs</>}
++            {patient?.gender && <> ┬╖ {patient.gender === 'Male' ? 'M' : patient.gender === 'Female' ? 'F' : patient.gender}</>}
++          </p>
++        </div>
++        <div className="flex items-center gap-2 flex-shrink-0">
++          <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'border-[var(--accent-primary)]/40 text-[var(--accent-primary)] bg-[var(--accent-primary)]/10' : 'border-teal-300 text-teal-700 bg-teal-50'}`}>
++            New patient
+           </span>
++          <button onClick={onClear} className={`text-xs px-3 py-1 rounded-lg border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-300 hover:bg-white/10' : 'border-slate-300 text-slate-600 hover:bg-slate-50'}`}>
++            Clear
++          </button>
+         </div>
+-      )}
++      </div>
+ 
+-      {/* Patient Demographics */}
+-      <div className="space-y-6">
+-        <div>
+-          <h4 className="ds-eyebrow mb-3">Demographics</h4>
+-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+-            <div>
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Full Name *
+-              </label>
+-              <input
+-                type="text"
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                  : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                placeholder="Full Name"
+-                value={patient?.name || ''}
+-                onChange={e => handlePatientChange('name', e.target.value)}
+-              />
+-            </div>
+-            <div>
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Date of Birth *
+-              </label>
+-              <input
+-                type="date"
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white'
+-                  : 'bg-white/60 border-slate-300 text-slate-800'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                value={patient?.dob || ''}
+-                onChange={e => handlePatientChange('dob', e.target.value)}
+-              />
+-            </div>
+-            <div>
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Age
+-              </label>
+-              <input
+-                type="number"
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                  : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                placeholder="Age"
+-                value={patient?.age || ''}
+-                readOnly
+-              />
+-            </div>
++      {/* ΓöÇΓöÇ Demographics ΓöÇΓöÇ */}
++      <div className={`px-5 py-4 border-b ${divider}`}>
++        <p className={`${eyebrow} mb-3`}>Demographics</p>
++        <div className="space-y-3">
++          <div>
++            <p className={`${eyebrow} mb-1`}>Full name *</p>
++            <input type="text" placeholder="Full name" className={inputCls}
++              value={patient?.name || ''} onChange={e => setField('name', e.target.value)} />
++          </div>
++          <div>
++            <p className={`${eyebrow} mb-1`}>Date of birth *</p>
++            <input type="date" className={inputCls}
++              value={patient?.dob || ''} onChange={e => setField('dob', e.target.value)} />
++          </div>
++          <div className="grid grid-cols-2 gap-3">
+             <div>
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Gender *
+-              </label>
+-              <select
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white'
+-                  : 'bg-white/60 border-slate-300 text-slate-800'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                value={patient?.gender || ''}
+-                onChange={e => handlePatientChange('gender', e.target.value)}
+-              >
+-                <option value="">Select Gender</option>
++              <p className={`${eyebrow} mb-1`}>Sex *</p>
++              <select className={selectCls} value={patient?.gender || ''} onChange={e => setField('gender', e.target.value)}>
++                <option value="">ΓÇö</option>
+                 <option value="Male">Male</option>
+                 <option value="Female">Female</option>
+                 <option value="Other">Other</option>
+               </select>
+             </div>
+             <div>
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Race
+-              </label>
+-              <select
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white'
+-                  : 'bg-white/60 border-slate-300 text-slate-800'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                value={mpisData?.race || ''}
+-                onChange={e => handleMpisChange('race', e.target.value)}
+-              >
+-                <option value="">Select Race</option>
++              <p className={`${eyebrow} mb-1`}>Ethnicity</p>
++              <select className={selectCls} value={mpisData?.race || ''} onChange={e => setMpisField('race', e.target.value)}>
++                <option value="">ΓÇö</option>
+                 <option value="Malay">Malay</option>
+                 <option value="Chinese">Chinese</option>
+                 <option value="Indian">Indian</option>
+@@ -777,76 +668,163 @@ function NewPatientForm({ nsn, onClear, onPatientRegistered }) {
+             </div>
+           </div>
+         </div>
++      </div>
+ 
+-        {/* Medical Information */}
+-        <div>
+-          <h4 className="ds-eyebrow mb-3">Medical</h4>
+-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+-            <div>
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Known Allergies
+-              </label>
+-              <input
+-                type="text"
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                  : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                placeholder="e.g., Penicillin, Sulfa drugs (or None known)"
+-                value={mpisData?.allergies || ''}
+-                onChange={e => handleMpisChange('allergies', e.target.value)}
+-              />
+-            </div>
+-            <div>
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Comorbidities
+-              </label>
+-              <input
+-                type="text"
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                  : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                placeholder="e.g., Hypertension, Diabetes"
+-                value={mpisData?.comorbidities?.join(', ') || ''}
+-                onChange={e => handleMpisChange('comorbidities', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+-              />
+-            </div>
+-            <div className="md:col-span-2">
+-              <label className={`block text-xs font-medium mb-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                Current Medications
+-              </label>
+-              <input
+-                type="text"
+-                className={`w-full px-3 py-2 rounded-lg border ${isDark
+-                  ? 'bg-slate-800/50 border-white/20 text-white placeholder-slate-500'
+-                  : 'bg-white/60 border-slate-300 text-slate-800 placeholder-slate-400'
+-                  } focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]`}
+-                placeholder="e.g., Metformin 500mg BD, Amlodipine 5mg OD"
+-                value={medsToText(mpisData?.currentMeds)}
+-                onChange={e => handleMpisChange('currentMeds', textToMeds(e.target.value))}
+-              />
+-            </div>
+-          </div>
++      {/* ΓöÇΓöÇ Known Allergies ΓöÇΓöÇ */}
++      <div className={`px-5 py-4 border-b ${divider}`}>
++        <p className={`${eyebrow} mb-2`}>Known allergies <span className={`ml-1 normal-case text-[10px] font-normal ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>click ├ù to remove</span></p>
++        <div className="flex flex-wrap gap-1.5 mb-2">
++          {allergies.map((a, idx) => (
++            <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-red-500/10 text-red-400 border-red-500/30' : 'bg-red-50 text-red-600 border-red-200'}`}>
++              <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />{a}
++              <button onClick={() => setAllergies(p => p.filter((_, i) => i !== idx))}><X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} /></button>
++            </span>
++          ))}
++          {allergies.length === 0 && <p className={`text-sm ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>None recorded</p>}
++        </div>
++        <input type="text" placeholder="Add another allergyΓÇª" className={inputCls}
++          value={allergyInput} onChange={e => setAllergyInput(e.target.value)}
++          onKeyDown={e => { if (e.key === 'Enter' && allergyInput.trim()) { setAllergies(p => [...p, allergyInput.trim()]); setAllergyInput(''); } }} />
++        <div className="flex gap-2 mt-2">
++          {['NSAIDs', 'Sulfa', 'Latex', 'Aspirin'].map(s => (
++            <button key={s} onClick={() => { if (!allergies.includes(s)) setAllergies(p => [...p, s]); }}
++              className={`text-xs px-2 py-1 rounded-md border transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}>
++              +{s}
++            </button>
++          ))}
+         </div>
++      </div>
+ 
+-        {/* Register Button */}
+-        <div className="pt-5 border-t border-amber-500/20 flex justify-end">
+-          <Button
+-            variant={registrationSuccess ? 'success' : 'primary'}
+-            icon={registrationSuccess ? CheckCircle : Database}
+-            onClick={handleRegisterPatient}
+-            loading={isRegistering}
+-            disabled={!canRegister || isRegistering || registrationSuccess}
+-          >
+-            {registrationSuccess ? 'Registered' : isRegistering ? 'RegisteringΓÇª' : 'Register patient'}
+-          </Button>
++      {/* ΓöÇΓöÇ Comorbidities ΓöÇΓöÇ */}
++      <div className={`px-5 py-4 border-b ${divider}`}>
++        <p className={`${eyebrow} mb-2`}>Comorbidities <span className={`ml-1 normal-case text-[10px] font-normal ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>click ├ù to remove</span></p>
++        <div className="flex flex-wrap gap-1.5 mb-2">
++          {conditions.map((c, idx) => (
++            <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/30' : 'bg-teal-50 text-teal-700 border-teal-200'}`}>
++              {c}
++              <button onClick={() => setConditions(p => p.filter((_, i) => i !== idx))}><X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} /></button>
++            </span>
++          ))}
++          {conditions.length === 0 && <p className={`text-sm ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>None recorded</p>}
++        </div>
++        <input type="text" placeholder="Add another conditionΓÇª" className={inputCls}
++          value={conditionInput} onChange={e => setConditionInput(e.target.value)}
++          onKeyDown={e => { if (e.key === 'Enter' && conditionInput.trim()) { setConditions(p => [...p, conditionInput.trim()]); setConditionInput(''); } }} />
++      </div>
++
++      {/* ΓöÇΓöÇ Current Medications ΓöÇΓöÇ */}
++      <div className="px-5 py-4">
++        <p className={`${eyebrow} mb-3`}>
++          Current medications{meds.length > 0 && <span className="ml-1.5 normal-case font-normal">{meds.length} active</span>}
++        </p>
++        <div className="space-y-1">
++          {meds.map((med, idx) => (
++            <div key={idx} className={`flex items-center justify-between text-sm py-1.5 border-b last:border-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
++              <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
++                {med.name}
++                <button onClick={() => setMeds(p => p.filter((_, i) => i !== idx))} className={`ml-2 text-xs font-normal ${isDark ? 'text-slate-500 hover:text-red-400' : 'text-slate-400 hover:text-red-500'}`}>remove</button>
++              </span>
++              <span className={`ds-mono text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
++                {[med.dose, med.frequency].filter(Boolean).join(' ┬╖ ')}
++              </span>
++            </div>
++          ))}
++          {meds.length === 0 && <p className={`text-sm ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>None recorded</p>}
++          <input type="text" placeholder="Add medication ΓÇö e.g. Atorvastatin 20mg OD" className={`${inputCls} mt-2`}
++            value={medInput} onChange={e => setMedInput(e.target.value)}
++            onKeyDown={e => { if (e.key === 'Enter' && medInput.trim()) { setMeds(p => [...p, { name: medInput.trim(), dose: '', frequency: '' }]); setMedInput(''); } }} />
+         </div>
+       </div>
++
++      {/* ΓöÇΓöÇ Footer ΓöÇΓöÇ */}
++      <div className={`px-5 py-3 rounded-b-2xl text-xs border-t ${divider} ${isDark ? 'bg-white/3 text-slate-500' : 'bg-slate-50 text-slate-400'}`}>
++        Patient record is created automatically when you continue.
++      </div>
+     </GlassCard>
+   );
+ }
+ 
++// ΓöÇΓöÇ Status strip + Analyze button ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
++function StatusStrip({ mpisChecked, vitals, clinicalNotes, isDark, onAnalyze }) {
++  const filledVitals = [
++    vitals.bpSystolic && vitals.bpDiastolic,
++    vitals.hr, vitals.temp, vitals.rr, vitals.spo2, vitals.weight, vitals.height,
++  ].filter(Boolean).length;
++  const totalVitals = 7; // BP counts as 1
++
++  const missingVitals = [];
++  if (!vitals.bpSystolic || !vitals.bpDiastolic) missingVitals.push('BP');
++  if (!vitals.hr)     missingVitals.push('Heart Rate');
++  if (!vitals.rr)     missingVitals.push('RR');
++  if (!vitals.temp)   missingVitals.push('Temperature');
++  if (!vitals.spo2)   missingVitals.push('SpOΓéé');
++  if (!vitals.weight) missingVitals.push('Weight');
++  if (!vitals.height) missingVitals.push('Height');
++
++  const hasMissingVitals = missingVitals.length > 0;
++  const hasNotes = clinicalNotes?.trim().length > 0;
++
++  const checks = [
++    { label: 'Patient', ok: mpisChecked },
++    { label: `Vitals ┬╖ ${filledVitals} of ${totalVitals}`, ok: !hasMissingVitals },
++    { label: hasNotes ? 'Notes ┬╖ saved' : 'Notes', ok: hasNotes },
++    { label: 'Staging ┬╖ optional', ok: null }, // always neutral
++  ];
++
++  return (
++    <div className="space-y-2 pt-2">
++      {/* Strip card */}
++      <div className={`flex items-center gap-1 rounded-2xl border px-4 py-3 ${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-slate-200'}`}>
++        {/* Dot checks */}
++        <div className="flex items-center gap-4 flex-1 flex-wrap">
++          {checks.map((c) => (
++            <span key={c.label} className={`flex items-center gap-1.5 text-sm ${
++              c.ok === null
++                ? (isDark ? 'text-slate-500' : 'text-slate-400')
++                : c.ok
++                  ? (isDark ? 'text-slate-200' : 'text-slate-700')
++                  : (isDark ? 'text-slate-400' : 'text-slate-500')
++            }`}>
++              <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
++                c.ok === null ? (isDark ? 'bg-slate-600' : 'bg-slate-300')
++                : c.ok ? 'bg-emerald-500'
++                : (isDark ? 'bg-slate-600' : 'bg-slate-300')
++              }`} />
++              {c.label}
++            </span>
++          ))}
++        </div>
++
++        {/* Analyze button ΓÇö never disabled */}
++        <button
++          onClick={onAnalyze}
++          className="ml-4 flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 text-white text-sm font-semibold hover:bg-teal-700 active:scale-[0.98] transition-all focus:outline-none focus:ring-2 focus:ring-teal-500/50"
++        >
++          Analyze assessment ΓåÆ
++        </button>
++      </div>
++
++      {/* Thin inline hint when vitals are missing */}
++      {hasMissingVitals && (
++        <div className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm ${isDark ? 'bg-amber-500/5 border-amber-500/20 text-slate-300' : 'bg-white border-slate-200 text-slate-600'}`}>
++          <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0" />
++          <span>
++            Missing:{' '}
++            {missingVitals.map((v, i) => (
++              <React.Fragment key={v}>
++                <strong>{v}</strong>
++                {i < missingVitals.length - 1 && <span className={isDark ? 'text-slate-500' : 'text-slate-400'}> , </span>}
++              </React.Fragment>
++            ))}
++            {'. '}
++            <span className={isDark ? 'text-slate-400' : 'text-slate-400'}>Fill or click "Analyze anyway".</span>
++          </span>
++        </div>
++      )}
++    </div>
++  );
++}
++
+ export function DataInputSection({ onViewChart }) {
+   const { state, dispatch, syncMPIS, analyzeAssessment, saveVitalsToDB } = useApp();
+   const { isDark } = useTheme();
+@@ -857,8 +835,6 @@ export function DataInputSection({ onViewChart }) {
+   const [mpisChecked, setMpisChecked] = React.useState(false);
+   const [mpisFound, setMpisFound] = React.useState(false);
+   const [isChartModalOpen, setIsChartModalOpen] = React.useState(false);
+-  const [notesConfirmed, setNotesConfirmed] = React.useState(false);
+-  const [showValidationWarning, setShowValidationWarning] = React.useState(false);
+ 
+   // Auto-populate NRIC when navigating from Home page's Start Consult
+   React.useEffect(() => {
+@@ -884,53 +860,34 @@ export function DataInputSection({ onViewChart }) {
+     return nric;
+   };
+ 
+-  // Check if ALL vital signs fields are filled
+-  const hasAllVitals = vitals.bpSystolic && vitals.bpDiastolic && vitals.hr &&
+-    vitals.temp && vitals.rr && vitals.spo2 &&
+-    vitals.weight && vitals.height;
+-  const hasClinicaNotes = clinicalNotes.trim().length > 0 && notesConfirmed;
+-
+-  // Check if any vitals are filled (for partial fill detection)
+-  const hasAnyVitals = vitals.bpSystolic || vitals.bpDiastolic || vitals.hr ||
+-    vitals.temp || vitals.rr || vitals.spo2 ||
+-    vitals.weight || vitals.height;
+-  const hasAnyClinicalNotes = clinicalNotes.trim().length > 0;
+-
+-  // Determine if completely blank vs partially filled
+-  const isCompletelyBlank = !hasAnyVitals && !hasAnyClinicalNotes;
+-
+-  // Get specific missing fields
+-  const getMissingVitalFields = () => {
+-    const missing = [];
+-    if (!vitals.bpSystolic || !vitals.bpDiastolic) missing.push('Blood Pressure (Systolic/Diastolic)');
+-    if (!vitals.hr) missing.push('Heart Rate');
+-    if (!vitals.temp) missing.push('Temperature');
+-    if (!vitals.rr) missing.push('Respiratory Rate');
+-    if (!vitals.spo2) missing.push('SpO2');
+-    if (!vitals.weight) missing.push('Weight');
+-    if (!vitals.height) missing.push('Height');
+-    return missing;
+-  };
+-
+-  const getMissingClinicalFields = () => {
+-    const missing = [];
+-    if (!clinicalNotes.trim()) missing.push('Clinical Notes');
+-    else if (!notesConfirmed) missing.push('Confirm Clinical Notes (click checkbox)');
+-    return missing;
+-  };
+ 
+-  const canAnalyze = hasAllVitals && hasClinicaNotes && mpisChecked;
+ 
+   const handleAnalyze = async () => {
+-    // Check validation and show warning if not ready
+-    if (!canAnalyze) {
+-      setShowValidationWarning(true);
+-      return;
++
++    // For new patients: register to Supabase implicitly before analyzing
++    if (!mpisFound && patient?.name && patient?.dob && patient?.gender) {
++      try {
++        const { registerPatient, updatePatientFromMPIS } = await import('../../lib/supabase');
++        const nric = patient.nsn || nsn;
++        const result = await registerPatient({
++          nric,
++          fullName: patient.name,
++          dateOfBirth: patient.dob,
++          gender: patient.gender,
++          race: mpisData?.race || null,
++          allergies: mpisData?.allergies || null,
++          comorbidities: mpisData?.comorbidities || null,
++        });
++        if (!result.error && mpisData?.currentMeds?.length > 0) {
++          await updatePatientFromMPIS(nric, {
++            allergies: mpisData?.allergies || null,
++            comorbidities: mpisData?.comorbidities || null,
++            currentMeds: mpisData.currentMeds,
++          });
++        }
++      } catch (_) {}
+     }
+ 
+-    setShowValidationWarning(false);
+-    // Save vitals to history before proceeding
+-    // We only save if the patient was found (has a record in DB)
+     if (mpisFound) {
+       await saveVitalsToDB();
+     }
+@@ -1029,12 +986,6 @@ export function DataInputSection({ onViewChart }) {
+ 
+               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-end">
+                 <div className="flex-1">
+-                  <label
+-                    htmlFor="nsn-input"
+-                    className={`block text-sm font-medium mb-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}
+-                  >
+-                    National Registration Identity Card (NRIC)
+-                  </label>
+                   <input
+                     id="nsn-input"
+                     name="nric"
+@@ -1065,13 +1016,12 @@ export function DataInputSection({ onViewChart }) {
+                 <Button
+                   variant="primary"
+                   size="lg"
+-                  icon={Search}
+                   onClick={handleCheckNRIC}
+                   loading={mpisLoading}
+                   disabled={!nsn.trim() || mpisLoading}
+                   className="min-w-[160px]"
+                 >
+-                  {mpisLoading ? 'Searching...' : 'Search Patient'}
++                  {mpisLoading ? 'Searching...' : 'Continue ΓåÆ'}
+                 </Button>
+               </div>
+ 
+@@ -1089,24 +1039,6 @@ export function DataInputSection({ onViewChart }) {
+               </div>
+               </GlassCard>
+ 
+-              {/* What happens next */}
+-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+-                {[
+-                  { icon: UserPlus, label: 'Verify Identity', desc: 'Confirm patient & MPIS record' },
+-                  { icon: Activity, label: 'Capture Vitals', desc: 'Enter vitals & clinical notes' },
+-                  { icon: Brain, label: 'AI Analysis', desc: 'Generate diagnosis & care plan' },
+-                ].map((s, i) => (
+-                  <div key={i} className={`p-3 rounded-xl border flex items-start gap-3 ${isDark ? 'bg-white/5 border-white/10' : 'bg-white/60 border-slate-200'}`}>
+-                    <div className="p-1.5 rounded-lg bg-[var(--accent-primary)]/10 flex-shrink-0">
+-                      <s.icon className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.5} />
+-                    </div>
+-                    <div className="min-w-0">
+-                      <p className={`text-xs font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{i + 1}. {s.label}</p>
+-                      <p className={`text-[11px] mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{s.desc}</p>
+-                    </div>
+-                  </div>
+-                ))}
+-              </div>
+             </div>
+           )}
+ 
+@@ -1123,7 +1055,6 @@ export function DataInputSection({ onViewChart }) {
+               <NewPatientForm
+                 nsn={patient?.nsn || nsn}
+                 onClear={handleClear}
+-                onPatientRegistered={() => setMpisFound(true)}
+               />
+             )
+           )}
+@@ -1135,85 +1066,16 @@ export function DataInputSection({ onViewChart }) {
+             <VitalsGrid />
+             <SeverityStagingGrid />
+             <ClinicalNotes
+-              isConfirmed={notesConfirmed}
+-              onConfirm={setNotesConfirmed}
+             />
+ 
+-            {/* Validation Warning */}
+-            {showValidationWarning && !canAnalyze && (
+-              <div className={`p-4 rounded-xl border-2 ${isDark ? 'bg-amber-500/10 border-amber-500/30' : 'bg-amber-50 border-amber-300'} animate-fadeIn`}>
+-                <div className="flex items-start gap-3">
+-                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+-                  <div className="flex-1">
+-                    {isCompletelyBlank ? (
+-                      <>
+-                        <h4 className={`font-semibold mb-1 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
+-                          Please complete vital signs and clinical notes
+-                        </h4>
+-                        <p className={`text-sm ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
+-                          All vital signs fields and clinical notes are required before proceeding with the analysis.
+-                        </p>
+-                      </>
+-                    ) : (
+-                      <>
+-                        <h4 className={`font-semibold mb-2 ${isDark ? 'text-amber-400' : 'text-amber-700'}`}>
+-                          Please complete the following missing fields:
+-                        </h4>
+-                        {getMissingVitalFields().length > 0 && (
+-                          <div className="mb-2">
+-                            <span className={`text-xs font-medium ${isDark ? 'text-amber-400/70' : 'text-amber-600/80'}`}>Vital Signs:</span>
+-                            <ul className={`text-sm space-y-1 mt-1 ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
+-                              {getMissingVitalFields().map((field, idx) => (
+-                                <li key={idx} className="flex items-center gap-2">
+-                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+-                                  {field}
+-                                </li>
+-                              ))}
+-                            </ul>
+-                          </div>
+-                        )}
+-                        {getMissingClinicalFields().length > 0 && (
+-                          <div>
+-                            <span className={`text-xs font-medium ${isDark ? 'text-amber-400/70' : 'text-amber-600/80'}`}>Clinical Notes:</span>
+-                            <ul className={`text-sm space-y-1 mt-1 ${isDark ? 'text-amber-300' : 'text-amber-600'}`}>
+-                              {getMissingClinicalFields().map((field, idx) => (
+-                                <li key={idx} className="flex items-center gap-2">
+-                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+-                                  {field}
+-                                </li>
+-                              ))}
+-                            </ul>
+-                          </div>
+-                        )}
+-                      </>
+-                    )}
+-                  </div>
+-                  <button
+-                    onClick={() => setShowValidationWarning(false)}
+-                    className={`p-1 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-amber-100'}`}
+-                  >
+-                    <X className="w-4 h-4 text-amber-500" strokeWidth={1.5} />
+-                  </button>
+-                </div>
+-              </div>
+-            )}
+-
+-            <div className="pt-4">
+-              <button
+-                onClick={handleAnalyze}
+-                className={`
+-                  w-full inline-flex items-center justify-center px-8 py-4 text-xl font-semibold
+-                  rounded-2xl backdrop-blur-xl border transition-all duration-200
+-                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent-primary)]/50
+-                  ${isDark
+-                    ? 'bg-[var(--accent-primary)]/20 hover:bg-[var(--accent-primary)]/30 border-[var(--accent-primary)]/40 text-white'
+-                    : 'bg-[var(--accent-primary)]/15 hover:bg-[var(--accent-primary)]/25 border-[var(--accent-primary)]/40 text-[var(--accent-primary-hover)]'}
+-                  ${canAnalyze ? 'animate-pulse-glow shadow-[var(--shadow-accent)]' : 'shadow-md'}
+-                `}
+-              >
+-                Analyze Clinical Assessment
+-              </button>
+-            </div>
++            {/* Status strip + Analyze */}
++            <StatusStrip
++              mpisChecked={mpisChecked}
++              vitals={vitals}
++              clinicalNotes={clinicalNotes}
++              isDark={isDark}
++              onAnalyze={handleAnalyze}
++            />
+           </div>
+         )}
+       </div>
+diff --git a/Doctor UI/src/components/sections/PipelineProgress.jsx b/Doctor UI/src/components/sections/PipelineProgress.jsx
+index 698c0bd..19f4efc 100644
+--- a/Doctor UI/src/components/sections/PipelineProgress.jsx	
++++ b/Doctor UI/src/components/sections/PipelineProgress.jsx	
+@@ -31,8 +31,85 @@ const MATCH_TYPE_COLORS = {
+   parent:   'bg-blue-500/20   text-blue-400    border-blue-500/30',
+   range:    'bg-blue-500/20   text-blue-400    border-blue-500/30',
+   semantic: 'bg-amber-500/20  text-amber-400   border-amber-500/30',
++  fallback: 'bg-red-500/20    text-red-400     border-red-500/30',
++  DDx:      'bg-indigo-500/20 text-indigo-300  border-indigo-500/30',
++  excluded: 'bg-red-500/20    text-red-400     border-red-500/30',
++  out_of_scope: 'bg-slate-600/30 text-slate-400 border-slate-500/40',
+ };
+ 
++// Compact before/after re-rank + score-breakdown table for the DDx stage.
++// All fields come from the stage-2 stage_update `data` (DDxResult.model_dump()).
++function DDxCandidateTable({ candidates, isDark }) {
++  if (!candidates?.length) return null;
++
++  const fmt = (n, sign = false) => {
++    if (n === null || n === undefined) return 'ΓÇö';
++    const v = Number(n);
++    const s = v.toFixed(2);
++    return sign && v > 0 ? `+${s}` : s;
++  };
++
++  return (
++    <div className="mt-2 space-y-1.5">
++      {candidates.map((c, i) => {
++        const sb = c.score_breakdown || {};
++        const mathRank = c.math_rank;
++        const aiRank = c.llm_rank ?? i + 1;
++        const delta = c.rank_delta;
++        const moved = typeof delta === 'number' && delta !== 0;
++        const arrow = !moved ? '=' : delta > 0 ? `Γåæ${delta}` : `Γåô${Math.abs(delta)}`;
++        const arrowColor = !moved
++          ? 'text-slate-500'
++          : delta > 0 ? 'text-emerald-400' : 'text-red-400';
++        const incl = Number(sb.inclusion_match || 0);
++        const excl = Number(sb.exclusion_penalty || 0);
++
++        return (
++          <div
++            key={c.code || i}
++            className={`rounded-lg px-3 py-2 text-xs border ${isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-slate-50 border-slate-200'}`}
++          >
++            {/* Row 1: rank, code, title, beforeΓåÆafter */}
++            <div className="flex items-center gap-2">
++              <span className="font-mono font-bold text-slate-400 shrink-0">#{aiRank}</span>
++              <span className="font-mono text-[var(--accent-primary)] shrink-0">{c.code}</span>
++              <span className={`truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.title}</span>
++              {mathRank != null && (
++                <span className="ml-auto shrink-0 font-mono text-[11px] text-slate-500">
++                  math #{mathRank} ΓåÆ AI #{aiRank}{' '}
++                  <span className={`font-bold ${arrowColor}`}>{arrow}</span>
++                </span>
++              )}
++            </div>
++
++            {/* Row 2: score breakdown */}
++            <div className={`mt-1 font-mono text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
++              <span title="base vector similarity">base {fmt(sb.base_similarity)}</span>
++              <span className={incl > 0 ? 'text-emerald-400' : 'opacity-40'} title={sb.inclusion_phrase || 'inclusion-term match'}>
++                {'  + incl '}{fmt(incl, true)}
++              </span>
++              <span className={excl > 0 ? 'text-red-400' : 'opacity-40'} title={sb.exclusion_phrase || 'exclusion-term penalty'}>
++                {'  ΓêÆ excl '}{fmt(excl)}
++              </span>
++              <span className={`font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
++                {'  = '}{fmt(sb.final_score)}
++              </span>
++            </div>
++
++            {/* Row 3: override reason, if the AI re-ranked against the math order */}
++            {c.override_reason && (
++              <div className="mt-1 flex items-start gap-1 text-[11px] text-amber-400">
++                <span className="shrink-0">Γñ╖ override:</span>
++                <span className="italic">{c.override_reason}</span>
++              </div>
++            )}
++          </div>
++        );
++      })}
++    </div>
++  );
++}
++
+ function StatusDot({ status, num }) {
+   const base = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border-2 shrink-0 transition-all duration-300';
+   if (status === 'complete') return (
+@@ -116,7 +193,8 @@ export function PipelineProgress({
+     const status = stageUpdate?.status || 'pending';
+     const detail = stageUpdate?.detail || '';
+     const badge  = stageUpdate?.badge || null;
+-    return { ...def, status, detail, badge, subSteps };
++    const data   = stageUpdate?.data || null;   // DDx candidates (stage 2) etc.
++    return { ...def, status, detail, badge, subSteps, data };
+   });
+ 
+   const thinkingText = pipelineThinking['DDx Re-rank'] || '';
+@@ -127,7 +205,7 @@ export function PipelineProgress({
+     : isLive ? 'AnalysingΓÇª' : '';
+ 
+   return (
+-    <div className={`overflow-hidden rounded-xl border-2 ${isLive ? 'border-[var(--accent-primary)] shadow-lg shadow-[var(--accent-primary)]/10' : isDark ? 'border-indigo-500/30 bg-slate-800/80' : 'border-indigo-200 bg-white'} transition-all duration-300`}>
++    <div className={`overflow-hidden rounded-xl border-2 ${isLive ? 'border-[var(--accent-primary)]' : isDark ? 'border-indigo-500/30 bg-slate-800/80' : 'border-indigo-200 bg-white'} transition-all duration-300`}>
+       {/* Header */}
+       <div
+         className={`flex items-center justify-between px-5 py-3 border-b ${isDark ? 'bg-indigo-900/20 border-indigo-500/20' : 'bg-indigo-50 border-indigo-100'} ${onToggle ? 'cursor-pointer select-none' : ''}`}
+@@ -264,6 +342,11 @@ export function PipelineProgress({
+                       </div>
+                     )}
+ 
++                    {/* DDx candidates: before/after re-rank + score breakdown (stage 2) */}
++                    {stage.stage === 2 && Array.isArray(stage.data) && stage.data.length > 0 && (
++                      <DDxCandidateTable candidates={stage.data} isDark={isDark} />
++                    )}
++
+                     {/* Thinking dropdown ΓÇö DDx stage only */}
+                     {stage.hasThinking && thinkingText && (
+                       <div className="mt-2">
+diff --git a/Doctor UI/src/components/sections/SeverityStagingGrid.jsx b/Doctor UI/src/components/sections/SeverityStagingGrid.jsx
+index 6093d03..a1806c3 100644
+--- a/Doctor UI/src/components/sections/SeverityStagingGrid.jsx	
++++ b/Doctor UI/src/components/sections/SeverityStagingGrid.jsx	
+@@ -1,5 +1,4 @@
+ import React, { useMemo } from 'react';
+-import { ChevronDown, ChevronUp } from 'lucide-react';
+ import { GlassCard } from '../shared';
+ import { useApp } from '../../context/AppContext';
+ import { useTheme } from '../../context/ThemeContext';
+@@ -111,32 +110,35 @@ export function SeverityStagingGrid() {
+ 
+   return (
+     <GlassCard className="p-5">
+-      <button
+-        onClick={() => setExpanded((v) => !v)}
+-        className="w-full flex items-center justify-between"
+-        type="button"
+-      >
+-        <div className="text-left">
+-          <p className={`text-[10px] font-semibold tracking-widest uppercase mb-0.5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>Staging</p>
+-          <h3 className={`text-xl font-semibold tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>
+-            Severity Staging
+-          </h3>
+-          <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+-            {filledCount > 0
+-              ? `${filledCount} field${filledCount > 1 ? 's' : ''} entered`
+-              : 'Optional ΓÇö improves CPG query precision'}
+-          </p>
++      <div className="flex items-start justify-between">
++        <div>
++          <div className="flex items-center gap-2">
++            <h3 className={`text-lg font-semibold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
++              Severity staging
++            </h3>
++            <span className={`text-xs font-medium ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>optional</span>
++          </div>
++          {filledCount > 0 && (
++            <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++              {filledCount} field{filledCount > 1 ? 's' : ''} entered
++            </p>
++          )}
+         </div>
+-        <div className={`p-1.5 rounded-lg ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100'}`}>
+-          {expanded
+-            ? <ChevronUp className={`w-5 h-5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`} />
+-            : <ChevronDown className={`w-5 h-5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`} />
+-          }
+-        </div>
+-      </button>
++        <button
++          onClick={() => setExpanded((v) => !v)}
++          type="button"
++          className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors flex-shrink-0 ${
++            isDark
++              ? 'border-white/20 text-slate-300 hover:bg-white/10'
++              : 'border-slate-300 text-slate-600 hover:bg-slate-50'
++          }`}
++        >
++          {expanded ? 'ΓêÆ Hide' : '+ Add stage'}
++        </button>
++      </div>
+ 
+       {expanded && (
+-        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
++        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+           {stagingFields.map((field) => {
+             const isEGFR = field.key === 'eGFR';
+             const displayValue = isEGFR && isAutoEGFR
+@@ -146,7 +148,7 @@ export function SeverityStagingGrid() {
+             return (
+               <div key={field.key} className="space-y-1">
+                 <label
+-                  className={`flex items-center gap-1 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}
++                  className={`flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}
+                 >
+                   {field.label}
+                   {isEGFR && isAutoEGFR && (
+diff --git a/Doctor UI/src/components/sections/VitalsGrid.jsx b/Doctor UI/src/components/sections/VitalsGrid.jsx
+index 2e02eb8..6f0eed5 100644
+--- a/Doctor UI/src/components/sections/VitalsGrid.jsx	
++++ b/Doctor UI/src/components/sections/VitalsGrid.jsx	
+@@ -1,165 +1,202 @@
+ import React, { useMemo, useState } from 'react';
+-import { Zap, Scan } from 'lucide-react';
+-import { GlassCard, Input, Badge } from '../shared';
++import { Scan } from 'lucide-react';
++import { GlassCard, Badge } from '../shared';
+ import { RPPGScanModal } from '../shared/RPPGScanModal';
+ import { useApp } from '../../context/AppContext';
+ import { useTheme } from '../../context/ThemeContext';
+ 
++const GROUPS = [
++  {
++    id: 'haemo',
++    label: 'Haemodynamic',
++    cols: 'grid-cols-2',
++    fields: [
++      {
++        id: 'bp', label: 'Blood Pressure (mmHg)', dual: true,
++        fields: [
++          { key: 'bpSystolic', placeholder: 'ΓÇö' },
++          { key: 'bpDiastolic', placeholder: 'ΓÇö' },
++        ],
++      },
++      { id: 'hr', label: 'Heart Rate (bpm)', key: 'hr', placeholder: 'ΓÇö' },
++    ],
++  },
++  {
++    id: 'resp',
++    label: 'Respiratory',
++    cols: 'grid-cols-3',
++    fields: [
++      { id: 'rr',   label: 'RR (/min)',  key: 'rr',   placeholder: 'ΓÇö' },
++      { id: 'spo2', label: 'SpOΓéé (%)',   key: 'spo2', placeholder: 'ΓÇö' },
++      { id: 'temp', label: 'Temp (┬░C)',  key: 'temp', placeholder: 'ΓÇö', step: '0.1' },
++    ],
++  },
++  {
++    id: 'anthro',
++    label: 'Anthropometry',
++    cols: 'grid-cols-3',
++    fields: [
++      { id: 'weight', label: 'Weight (kg)', key: 'weight', placeholder: 'ΓÇö', step: '0.1' },
++      { id: 'height', label: 'Height (cm)', key: 'height', placeholder: 'ΓÇö' },
++      { id: 'bmi',    label: 'BMI',         bmiDisplay: true },
++    ],
++  },
++];
++
++const inputCls = (isDark) =>
++  `w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 ${
++    isDark
++      ? 'bg-white/10 border-white/20 text-white placeholder-slate-500'
++      : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
++  }`;
++
+ export function VitalsGrid() {
+   const { state, dispatch, calculateBMI } = useApp();
+   const { isDark } = useTheme();
+   const { vitals } = state;
+   const [showScanner, setShowScanner] = useState(false);
+ 
+-  const handleChange = (field, value) => {
++  const handleChange = (field, value) =>
+     dispatch({ type: 'SET_VITALS', payload: { [field]: value } });
+-  };
+ 
+   const bmi = useMemo(() => calculateBMI(), [vitals.weight, vitals.height]);
+ 
+   const getBMICategory = (bmi) => {
+     if (!bmi) return null;
+-    const bmiValue = parseFloat(bmi);
+-    if (bmiValue < 18.5) return { label: 'Underweight', variant: 'warning' };
+-    if (bmiValue < 25) return { label: 'Normal', variant: 'success' };
+-    if (bmiValue < 30) return { label: 'Overweight', variant: 'warning' };
+-    return { label: 'Obese', variant: 'danger' };
++    const v = parseFloat(bmi);
++    if (v < 18.5) return { label: 'Under', variant: 'warning' };
++    if (v < 25)   return { label: 'Normal', variant: 'success' };
++    if (v < 30)   return { label: 'Over',   variant: 'warning' };
++    return           { label: 'Obese',  variant: 'danger' };
+   };
+ 
+   const bmiCategory = getBMICategory(bmi);
+ 
+-  const vitalFields = [
+-    {
+-      id: 'bp',
+-      label: 'Blood Pressure',
+-      unit: 'mmHg',
+-      dual: true,
+-      fields: [
+-        { key: 'bpSystolic', placeholder: 'Sys' },
+-        { key: 'bpDiastolic', placeholder: 'Dia' },
+-      ],
+-    },
+-    { id: 'hr',     label: 'Heart Rate',       unit: 'bpm',  key: 'hr',     placeholder: 'HR'     },
+-    { id: 'temp',   label: 'Temperature',      unit: '┬░C',   key: 'temp',   placeholder: 'Temp',  step: '0.1' },
+-    { id: 'rr',     label: 'Respiratory Rate', unit: '/min', key: 'rr',     placeholder: 'RR'     },
+-    { id: 'spo2',   label: 'SpO2',             unit: '%',    key: 'spo2',   placeholder: 'SpO2'   },
+-    { id: 'weight', label: 'Weight',           unit: 'kg',   key: 'weight', placeholder: 'Weight', step: '0.1' },
+-    { id: 'height', label: 'Height',           unit: 'cm',   key: 'height', placeholder: 'Height' },
+-  ];
+-
+-  const handleDemoFill = () => {
++  const handleDemoFill = () =>
+     dispatch({
+       type: 'SET_VITALS',
+-      payload: {
+-        bpSystolic: '120',
+-        bpDiastolic: '80',
+-        hr: '72',
+-        temp: '36.8',
+-        rr: '14',
+-        spo2: '99',
+-        weight: '70',
+-        height: '170'
+-      }
++      payload: { bpSystolic: '142', bpDiastolic: '88', hr: '82', temp: '36.8', rr: '16', spo2: '97', weight: '72', height: '168' },
+     });
+-  };
++
++  const divider = (
++    <div className={`h-px w-full my-3 ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
++  );
+ 
+   return (
+     <>
+-    {showScanner && <RPPGScanModal onClose={() => setShowScanner(false)} />}
+-    <GlassCard className="p-5">
+-      <div className="flex items-center justify-between mb-5">
+-        <div>
+-          <p className={`text-[10px] font-semibold tracking-widest uppercase mb-0.5 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Assessment</p>
+-          <h3 className={`text-xl font-semibold tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>Vital Signs</h3>
+-        </div>
+-        <div className="flex items-center gap-2">
+-          <button
+-            onClick={() => setShowScanner(true)}
+-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
+-              ${isDark
+-                ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30'
+-                : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+-              }`}
+-          >
+-            <Scan className="w-4 h-4" />
+-            Scan with rPPG
+-          </button>
+-          <button
+-            onClick={handleDemoFill}
+-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
+-              ${isDark
+-                ? 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'
+-                : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
++      {showScanner && <RPPGScanModal onClose={() => setShowScanner(false)} />}
++      <GlassCard className="p-5">
++        {/* Header */}
++        <div className="flex items-start justify-between mb-1">
++          <div>
++            <h3 className={`text-lg font-semibold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
++              Vital signs
++            </h3>
++            <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++              8 measurements ┬╖ BMI auto-calculated
++            </p>
++          </div>
++          <div className="flex items-center gap-2">
++            {/* rPPG ΓÇö primary teal */}
++            <button
++              onClick={() => setShowScanner(true)}
++              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors"
++            >
++              <Scan className="w-4 h-4" strokeWidth={1.5} />
++              rPPG scan
++            </button>
++            {/* Sample data ΓÇö ghost */}
++            <button
++              onClick={handleDemoFill}
++              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
++                isDark
++                  ? 'border-white/20 text-slate-400 hover:bg-white/10'
++                  : 'border-slate-300 text-slate-500 hover:bg-slate-50'
+               }`}
+-            title="Fill with demo data"
+-          >
+-            <Zap className="w-4 h-4" />
+-            Demo Fill
+-          </button>
++              title="Fill with sample data"
++            >
++              Sample data
++            </button>
++          </div>
+         </div>
+-      </div>
+ 
+-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+-        {vitalFields.map((vital) => (
+-          <div key={vital.id} className="space-y-1">
+-            <label className="ds-label">{vital.label}</label>
+-            {vital.dual ? (
+-              <div className="flex items-center gap-1">
+-                {vital.fields.map((field, idx) => (
+-                  <React.Fragment key={field.key}>
+-                    <input
+-                      type="number"
+-                      placeholder={field.placeholder}
+-                      value={vitals[field.key] || ''}
+-                      onChange={(e) => handleChange(field.key, e.target.value)}
+-                      className={`w-full px-3 py-2 backdrop-blur-sm border rounded-lg text-sm
+-                        ${isDark 
+-                          ? 'bg-white/10 border-white/20 text-white placeholder-slate-400' 
+-                          : 'bg-white/80 border-slate-300 text-slate-800 placeholder-slate-400'
+-                        } focus:ring-2 focus:ring-[var(--accent-primary)]/50`}
+-                    />
+-                    {idx === 0 && <span className={isDark ? 'text-slate-400' : 'text-slate-600'}>/</span>}
+-                  </React.Fragment>
+-                ))}
+-              </div>
+-            ) : (
+-              <div className="relative">
+-                <input
+-                  type="number"
+-                  step={vital.step || '1'}
+-                  placeholder={vital.placeholder}
+-                  value={vitals[vital.key] || ''}
+-                  onChange={(e) => handleChange(vital.key, e.target.value)}
+-                  className={`w-full px-3 py-2 backdrop-blur-sm border rounded-lg text-sm
+-                    ${isDark 
+-                      ? 'bg-white/10 border-white/20 text-white placeholder-slate-400' 
+-                      : 'bg-white/80 border-slate-300 text-slate-800 placeholder-slate-400'
+-                    } focus:ring-2 focus:ring-[var(--accent-primary)]/50`}
+-                />
+-                <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+-                  {vital.unit}
+-                </span>
+-              </div>
+-            )}
+-          </div>
+-        ))}
++        {/* Groups */}
++        {GROUPS.map((group, gi) => (
++          <React.Fragment key={group.id}>
++            {/* Group divider + label */}
++            <div className="flex items-center gap-3 mt-4 mb-3">
++              <span className={`text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++                {group.label}
++              </span>
++              <div className={`flex-1 h-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
++            </div>
+ 
+-        {/* BMI Display */}
+-        <div className="space-y-1">
+-          <label className="ds-label">BMI (Calculated)</label>
+-          <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${isDark ? 'bg-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/10'}`}>
+-            <span className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+-              {bmi || '--'}
+-            </span>
+-            {bmiCategory && (
+-              <Badge variant={bmiCategory.variant} size="sm">
+-                {bmiCategory.label}
+-              </Badge>
+-            )}
+-          </div>
+-        </div>
+-      </div>
+-    </GlassCard>
++            <div className={`grid ${group.cols} gap-4`}>
++              {group.fields.map((vital) => {
++                // BMI display cell
++                if (vital.bmiDisplay) {
++                  return (
++                    <div key="bmi" className="space-y-1">
++                      <label className={`block text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++                        BMI
++                      </label>
++                      <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${isDark ? 'bg-[var(--accent-primary)]/15 border border-[var(--accent-primary)]/20' : 'bg-teal-50 border border-teal-200'}`}>
++                        <span className={`text-sm font-semibold ds-mono ${isDark ? 'text-white' : 'text-slate-800'}`}>
++                          {bmi || 'ΓÇö'}
++                        </span>
++                        {bmiCategory && (
++                          <span className={`text-xs font-medium ${
++                            bmiCategory.variant === 'success' ? (isDark ? 'text-emerald-400' : 'text-emerald-600') :
++                            bmiCategory.variant === 'danger'  ? (isDark ? 'text-red-400'     : 'text-red-600')     :
++                                                                (isDark ? 'text-amber-400'   : 'text-amber-600')
++                          }`}>
++                            {bmiCategory.label}
++                          </span>
++                        )}
++                      </div>
++                    </div>
++                  );
++                }
++
++                return (
++                  <div key={vital.id} className="space-y-1">
++                    <label className={`block text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
++                      {vital.label}
++                    </label>
++                    {vital.dual ? (
++                      <div className="flex items-center gap-1.5">
++                        {vital.fields.map((f, idx) => (
++                          <React.Fragment key={f.key}>
++                            <input
++                              type="number"
++                              placeholder={f.placeholder}
++                              value={vitals[f.key] || ''}
++                              onChange={(e) => handleChange(f.key, e.target.value)}
++                              className={inputCls(isDark)}
++                            />
++                            {idx === 0 && (
++                              <span className={`text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>/</span>
++                            )}
++                          </React.Fragment>
++                        ))}
++                      </div>
++                    ) : (
++                      <input
++                        type="number"
++                        step={vital.step || '1'}
++                        placeholder={vital.placeholder}
++                        value={vitals[vital.key] || ''}
++                        onChange={(e) => handleChange(vital.key, e.target.value)}
++                        className={inputCls(isDark)}
++                      />
++                    )}
++                  </div>
++                );
++              })}
++            </div>
++          </React.Fragment>
++        ))}
++      </GlassCard>
+     </>
+   );
+ }
+diff --git a/Doctor UI/src/context/AppContext.jsx b/Doctor UI/src/context/AppContext.jsx
+index 2dda2ee..085b91b 100644
+--- a/Doctor UI/src/context/AppContext.jsx	
++++ b/Doctor UI/src/context/AppContext.jsx	
+@@ -3,7 +3,7 @@ import {
+   sampleDiagnosis,
+   sampleCarePlan,
+ } from '../data/sampleData';
+-import { runClinicalPlan, runClinicalPlanStream, resynthesizePlanStream } from '../lib/clinicalApi';
++import { runClinicalPlan, runDDxStream, resynthesizePlanStream } from '../lib/clinicalApi';
+ import { mapDdxToDiagnosis, mapTreatmentPlanToCarePlan } from '../lib/clinicalMappers';
+ import {
+   searchPatientByNRIC,
+@@ -285,7 +285,11 @@ export function AppProvider({ children }) {
+     try {
+       dispatch({ type: 'RESET_PIPELINE' });
+ 
+-      const response = await runClinicalPlanStream(
++      // Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and pause.
++      // The care plan (Stages 3ΓÇô5) is NOT generated until the clinician confirms
++      // a diagnosis in confirmDiagnosis() ΓÇö so the authoritative plan is never
++      // produced against an unvalidated diagnosis.
++      const { ddx } = await runDDxStream(
+         state.patient,
+         state.vitals,
+         state.clinicalNotes,
+@@ -304,30 +308,23 @@ export function AppProvider({ children }) {
+         },
+         state.severityStaging || {},
+         undefined, // structuredComorbidities ΓÇö not used in this call path
+-        (safetyReport) => {
+-          dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport });
+-        },
+       );
+ 
+-      const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
+-      const carePlan  = mapTreatmentPlanToCarePlan(response.treatment_plan);
+-
+-      if (response.stage_errors?.length > 0) {
+-        console.warn('Clinical pipeline stage errors:', response.stage_errors);
+-      }
++      const diagnosis = mapDdxToDiagnosis(ddx, []); // no CPGs yet ΓÇö routing runs on confirm
+ 
+       dispatch({
+         type: 'SET_PIPELINE_SUMMARY',
+         payload: {
+-          elapsed_ms: response.elapsed_ms,
+-          ddxCount: response.ddx?.length || 0,
+-          cpgCount: response.cpgs_matched?.length || 0,
++          elapsed_ms: null,
++          ddxCount: ddx?.length || 0,
++          cpgCount: 0,
+           chunkCount: null,
+         },
+       });
+-      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
++      // Stash DDx-only response so confirmDiagnosis can read the AI top picks.
++      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: { ddx, cpgs_matched: [], treatment_plan: null } });
+       dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
+-      dispatch({ type: 'SET_CARE_PLAN', payload: carePlan });
++      // Care plan intentionally left unset until confirmation.
+       dispatch({ type: 'SET_ANALYZING', payload: false });
+       dispatch({ type: 'SET_STEP', payload: 2 });
+       return diagnosis;
+@@ -431,43 +428,47 @@ export function AppProvider({ children }) {
+       }
+     }
+ 
+-    // ΓöÇΓöÇ Re-synthesis logic ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+-    // Determine if clinician selected codes different from what the pipeline used.
+-    // The pipeline routes on the AI's top-2 DDx codes; if the clinician picked
+-    // anything outside that set, we must re-run Stages 3-5.
++    // ΓöÇΓöÇ Stop-and-confirm phase 2: synthesize the care plan ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
++    // Phase 1 produced only DDx; the care plan (Stages 3ΓÇô5) is generated HERE,
++    // against the clinician-confirmed diagnosis. This always runs ΓÇö whether the
++    // clinician accepted the AI top pick or overrode it. If the selection differs
++    // from the AI's top-2, flag it as an override for the trace.
+     const aiTopCodes = new Set(
+       (state.clinicalPlanResponse?.ddx || []).slice(0, 2).map((d) => d.code)
+     );
+-    const needsResynth = selectedDiagnoses.some((d) => !aiTopCodes.has(d.icdCode));
+-
+-    if (needsResynth) {
+-      console.log('≡ƒöä Clinician override detected ΓÇö re-running Stages 3-5 for:', selectedDiagnoses.map(d => d.icdCode));
+-      dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 3 });
++    const isOverride = selectedDiagnoses.some((d) => !aiTopCodes.has(d.icdCode));
++    console.log(
++      isOverride
++        ? '≡ƒöä Clinician override ΓÇö synthesizing plan for:'
++        : 'Γ£à Clinician confirmed AI diagnosis ΓÇö synthesizing plan for:',
++      selectedDiagnoses.map((d) => d.icdCode),
++    );
++    dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 3 });
+ 
+-      try {
+-        const response = await resynthesizePlanStream(
+-          state.patient, state.vitals, state.clinicalNotes, state.mpisData,
+-          selectedDiagnoses,
+-          (stageUpdate)  => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
+-          (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
+-          (overrideData) => dispatch({ type: 'SET_RESYNTH_OVERRIDE', payload: overrideData }),
+-          state.severityStaging || {},
+-          undefined,
+-          (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
+-        );
++    try {
++      const response = await resynthesizePlanStream(
++        state.patient, state.vitals, state.clinicalNotes, state.mpisData,
++        selectedDiagnoses,
++        (stageUpdate)  => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
++        (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
++        (overrideData) => dispatch({ type: 'SET_RESYNTH_OVERRIDE', payload: overrideData }),
++        state.severityStaging || {},
++        undefined,
++        (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
++      );
+ 
+-        const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);
+-        dispatch({ type: 'SET_CARE_PLAN', payload: newCarePlan });
+-        dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
+-        dispatch({
+-          type: 'SET_PIPELINE_SUMMARY',
+-          payload: { elapsed_ms: response.elapsed_ms, ddxCount: selectedDiagnoses.length, cpgCount: response.cpgs_matched?.length || 0 },
+-        });
+-        console.log('Γ£à Re-synthesis complete for clinician-selected diagnosis');
+-      } catch (err) {
+-        console.error('Re-synthesis failed ΓÇö keeping original plan:', err);
+-        // Non-fatal: keep the original care plan, still advance to Step 3
+-      }
++      const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);
++      dispatch({ type: 'SET_CARE_PLAN', payload: newCarePlan });
++      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
++      dispatch({ type: 'SET_DIAGNOSIS', payload: mapDdxToDiagnosis(response.ddx, response.cpgs_matched) });
++      dispatch({
++        type: 'SET_PIPELINE_SUMMARY',
++        payload: { elapsed_ms: response.elapsed_ms, ddxCount: selectedDiagnoses.length, cpgCount: response.cpgs_matched?.length || 0 },
++      });
++      console.log('Γ£à Plan synthesis complete for confirmed diagnosis');
++    } catch (err) {
++      console.error('Plan synthesis failed:', err);
++      // Non-fatal: advance to Step 3 anyway so the clinician isn't stuck.
+     }
+ 
+     dispatch({ type: 'SET_GENERATING_PLAN', payload: false });
+diff --git a/Doctor UI/src/lib/clinicalApi.js b/Doctor UI/src/lib/clinicalApi.js
+index 39a6fdf..e453ebf 100644
+--- a/Doctor UI/src/lib/clinicalApi.js	
++++ b/Doctor UI/src/lib/clinicalApi.js	
+@@ -56,6 +56,88 @@ export async function runClinicalPlan(patientState, vitals, clinicalNotes, mpisD
+   return resp.json();   // ClinicalPlanResponse shape
+ }
+ 
++// ΓöÇΓöÇΓöÇ stop-and-confirm phase 1: DDx only ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
++/**
++ * Run ONLY Stage 2 (DDx) and stream it, then stop for clinician confirmation.
++ *
++ * Resolves with the candidate list (from the terminal `ddx_ready` event). The UI
++ * then renders the confirm/override gate and calls resynthesizePlanStream to run
++ * Stages 3ΓÇô5 on the agreed diagnosis.
++ *
++ * @returns {Promise<{ddx: Array}>}  resolves with the DDx candidates
++ */
++export async function runDDxStream(
++  patientState,
++  vitals,
++  clinicalNotes,
++  mpisData,
++  onStageUpdate,
++  onThinkingChunk,
++  onSubStep,
++  stagingData,
++  structuredComorbidities,
++) {
++  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities);
++
++  const response = await fetch(`${CLINICAL_API_BASE}/clinical/plan/ddx/stream`, {
++    method: 'POST',
++    headers: { 'Content-Type': 'application/json' },
++    body: JSON.stringify(body),
++  });
++
++  if (!response.ok) {
++    const text = await response.text();
++    throw new Error(`DDx stream API error ${response.status}: ${text}`);
++  }
++
++  return new Promise((resolve, reject) => {
++    const reader = response.body.getReader();
++    const decoder = new TextDecoder();
++    let buffer = '';
++    let ddxResult = null;
++
++    const pump = async () => {
++      try {
++        while (true) {
++          const { done, value } = await reader.read();
++          if (done) {
++            // Stream closed: resolve with whatever we captured (or empty).
++            resolve(ddxResult || { ddx: [] });
++            return;
++          }
++          buffer += decoder.decode(value, { stream: true });
++
++          const frames = buffer.split('\n\n');
++          buffer = frames.pop();
++
++          for (const frame of frames) {
++            if (!frame.trim()) continue;
++            let eventType = 'message', dataStr = '';
++            for (const line of frame.split('\n')) {
++              if (line.startsWith('event: ')) eventType = line.slice(7).trim();
++              else if (line.startsWith('data: ')) dataStr = line.slice(6).trim();
++            }
++            if (!dataStr) continue;
++            let payload;
++            try { payload = JSON.parse(dataStr); } catch { continue; }
++
++            if      (eventType === 'stage_update'   && onStageUpdate)   onStageUpdate(payload);
++            else if (eventType === 'thinking_delta' && onThinkingChunk) onThinkingChunk(payload);
++            else if (eventType === 'sub_step'       && onSubStep)       onSubStep(payload);
++            else if (eventType === 'ddx_ready')                          ddxResult = payload;
++            else if (eventType === 'error')                             reject(new Error(payload.detail || 'DDx pipeline error'));
++            else if (eventType === 'done')                             { resolve(ddxResult || { ddx: [] }); return; }
++          }
++        }
++      } catch (err) {
++        reject(err);
++      }
++    };
++
++    pump();
++  });
++}
++
+ // ΓöÇΓöÇΓöÇ streaming variant ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+ /**
+  * Run the clinical pipeline and stream SSE stage-update + thinking events.
+diff --git a/Doctor UI/src/pages/Landing.jsx b/Doctor UI/src/pages/Landing.jsx
+index 0715aa3..30ab885 100644
+--- a/Doctor UI/src/pages/Landing.jsx	
++++ b/Doctor UI/src/pages/Landing.jsx	
+@@ -99,12 +99,6 @@ function Hero({ onSignIn }) {
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.5, ease: 'easeOut' }}
+         >
+-          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 pl-2 bg-white/70 backdrop-blur border border-slate-200/60 rounded-full text-xs text-slate-700 font-medium mb-6">
+-            <span className="bg-teal-50 text-teal-700 border border-teal-100 px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide">NEW</span>
+-            Now piloting
+-            <span className="text-slate-400" aria-hidden>ΓåÆ</span>
+-          </div>
+-
+           <h1 className="font-display text-[76px] leading-[1.02] tracking-[-0.02em] text-slate-900 mb-6 text-balance">
+             Clinician's <em className="italic text-teal-700 not-italic-fix">second opinion</em>, at the speed of a glance.
+           </h1>
+diff --git a/Doctor UI/src/pages/Login.module.css b/Doctor UI/src/pages/Login.module.css
+index b01d0c0..b614d42 100644
+--- a/Doctor UI/src/pages/Login.module.css	
++++ b/Doctor UI/src/pages/Login.module.css	
+@@ -63,17 +63,17 @@
+   display: flex; align-items: center; justify-content: space-between;
+ }
+ .brand {
+-  display: flex; align-items: center; gap: 18px;
++  display: flex; align-items: center; gap: 14px;
+ }
+ .logo {
+-  height: 52px; width: auto; display: block;
++  height: 36px; width: auto; display: block;
+ }
+ .logoMh {
+-  height: 76px;
++  height: 56px;
+   margin: -10px 0;
+ }
+ .sep {
+-  width: 1px; height: 42px;
++  width: 1px; height: 28px;
+   background: var(--slate-300);
+ }
+ .meta {
+diff --git a/agent/api.py b/agent/api.py
+index f1a4771..890c032 100644
+--- a/agent/api.py
++++ b/agent/api.py
+@@ -676,6 +676,55 @@ async def clinical_plan_stream(request: ClinicalPlanRequest):
+     )
+ 
+ 
++@app.post("/clinical/plan/ddx/stream")
++async def clinical_ddx_stream(request: ClinicalPlanRequest):
++    """
++    Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and stream it, then stop.
++
++    The UI renders the ranked candidates and a confirm/override gate; on confirm it
++    calls /clinical/plan/resynthesize/stream to run Stages 3ΓÇô5 on the agreed
++    diagnosis. Events match /clinical/plan/stream (stage_update, thinking_delta,
++    sub_step) plus a terminal:
++      event: ddx_ready   data: {"ddx": [DDxResult, ...]}
++    """
++    from .clinical_workflow import run_ddx_only_streaming
++
++    async def generate():
++        queue: asyncio.Queue = asyncio.Queue()
++
++        async def emit(event_type: str, data: dict):
++            await queue.put((event_type, data))
++
++        async def run_workflow():
++            try:
++                await run_ddx_only_streaming(request.case, emit)
++            except Exception as e:
++                logger.error("DDx-only streaming failed: %s", e)
++                await queue.put(("error", {"detail": str(e)}))
++            finally:
++                await queue.put(None)
++
++        asyncio.create_task(run_workflow())
++
++        while True:
++            item = await queue.get()
++            if item is None:
++                yield f"event: done\ndata: {{}}\n\n"
++                break
++            event_type, data = item
++            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
++
++    return StreamingResponse(
++        generate(),
++        media_type="text/event-stream",
++        headers={
++            "Cache-Control": "no-cache",
++            "Connection": "keep-alive",
++            "X-Accel-Buffering": "no",
++        },
++    )
++
++
+ @app.post("/clinical/plan/resynthesize/stream")
+ async def clinical_resynthesize_stream(request: ResynthesizeRequest):
+     """
+diff --git a/agent/clinical_stages.py b/agent/clinical_stages.py
+index 9467e62..becb3ad 100644
+--- a/agent/clinical_stages.py
++++ b/agent/clinical_stages.py
+@@ -468,7 +468,7 @@ async def _extract_symptom_phrase(
+     client: openai.AsyncOpenAI,
+     model: str,
+     extra_body: dict | None = None,
+-) -> str:
++) -> tuple[str, bool]:
+     """Compress clinical notes to a symptom-focused query string for DDx vector search.
+ 
+     Long clinical narratives dilute the ICD-11 vector match. This pre-step extracts
+@@ -477,6 +477,11 @@ async def _extract_symptom_phrase(
+     extra_body is forwarded to the API call. For reasoning models (e.g. mimo) this
+     MUST disable thinking ΓÇö otherwise the model spends its whole token budget on
+     hidden reasoning and returns empty content, forcing a fallback to raw notes.
++
++    Returns (query, fell_back). fell_back=True means extraction produced nothing
++    usable and the raw notes are used verbatim ΓÇö which dilutes the vector match and
++    is worth surfacing in the trace so a clinician/debugger knows the query wasn't
++    distilled.
+     """
+     # Concise prompt without few-shot examples ΓÇö MiMo follows direct instructions
+     # better than imitating examples (which it can confuse with the expected output format).
+@@ -511,13 +516,54 @@ async def _extract_symptom_phrase(
+ 
+         if not phrase:
+             logger.warning("Symptom extraction returned empty ΓÇö falling back to raw notes")
+-            return notes
++            return notes, True
+ 
+         logger.info("Symptom extraction OK: %r ΓåÆ %r (%d words)", notes[:60], phrase, len(phrase.split()))
+-        return phrase
++        return phrase, False
+     except Exception as exc:
+         logger.warning("Symptom extraction FAILED (%s) ΓÇö falling back to raw notes", exc)
+-        return notes
++        return notes, True
++
++
++async def _generate_condition_hypotheses(
++    notes: str,
++    client: openai.AsyncOpenAI,
++    model: str,
++    extra_body: dict | None = None,
++    max_n: int = 5,
++) -> list[str]:
++    """Ask the LLM for likely NAMED conditions for the presentation.
++
++    The ICD-11 vector index maps disease *names* to codes far more reliably than
++    symptom narratives (the symptomΓåÆdisease gap: "palpitations, irregular pulse"
++    embeds near symptom codes, not "atrial fibrillation"). Searching these named
++    hypotheses alongside the symptom phrase surfaces disease codes the symptom
++    query misses. Returns [] on any failure ΓÇö the caller then relies on the
++    symptom-phrase query alone, i.e. prior behaviour.
++    """
++    prompt = (
++        "List the most likely diagnoses for this patient as named medical "
++        "conditions only ΓÇö comma-separated, no numbering, no explanation, "
++        f"maximum {max_n} conditions.\n\n"
++        f"Presentation: {notes}\n\n"
++        "Conditions:"
++    )
++    try:
++        resp = await client.chat.completions.create(
++            model=model,
++            messages=[{"role": "user", "content": prompt}],
++            max_tokens=120,
++            temperature=0,
++            **({"extra_body": extra_body} if extra_body else {}),
++        )
++        txt = (resp.choices[0].message.content or "").strip()
++        conds = [c.strip(" .;-\t") for c in txt.replace("\n", ",").split(",")]
++        conds = [c for c in conds if c and len(c) <= 60][:max_n]
++        logger.info("Condition hypotheses: %s", conds)
++        return conds
++    except Exception as exc:
++        logger.warning("Condition hypothesis generation failed (%s) ΓÇö symptom query only", exc)
++        return []
+ 
+ 
+ async def stage_2_ddx(
+@@ -558,19 +604,62 @@ async def stage_2_ddx(
+     extraction_extra_body = (
+         {"chat_template_kwargs": {"enable_thinking": False}} if _using_override else None
+     )
+-    query = await _extract_symptom_phrase(
++    query, extraction_fell_back = await _extract_symptom_phrase(
+         case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body
+     )
+ 
+     if emit is not None:
++        if extraction_fell_back:
++            # Surface the silent fail-open: extraction produced nothing usable, so the
++            # raw (diluting) notes are being searched verbatim. This is the indicator
++            # that would have made the mimo-empty regression obvious in the UI.
++            await emit("sub_step", {
++                "stage": 2,
++                "detail": f"ΓÜá Symptom extraction fell back to raw notes: \"{query}\"",
++                "badge": "fallback",
++            })
++        else:
++            await emit("sub_step", {
++                "stage": 2,
++                "detail": f"Extracted symptom query: \"{query}\"",
++                "badge": "DDx",
++            })
++
++    fetch_k = top_k * 2 if rerank else top_k
++
++    # Multi-query retrieval to bridge the symptomΓåÆdisease gap. We search BOTH the
++    # symptom phrase (recall on symptom codes) AND a few LLM-named condition
++    # hypotheses (recall on disease codes). Disease names map to ICD codes far more
++    # reliably than symptom narratives, so this surfaces e.g. atrial fibrillation
++    # that the phrase alone misses. Candidates are pooled by code, keeping the best
++    # similarity seen across queries. Fails open to the phrase-only query.
++    hypotheses = await _generate_condition_hypotheses(
++        _build_symptom_text(case), client, extraction_model, extra_body=extraction_extra_body
++    )
++    if hypotheses and emit is not None:
+         await emit("sub_step", {
+             "stage": 2,
+-            "detail": f"Extracted symptom query: \"{query}\"",
++            "detail": "Condition hypotheses: " + ", ".join(hypotheses),
+             "badge": "DDx",
+         })
+ 
+-    fetch_k = top_k * 2 if rerank else top_k
+-    raw = await search_ddx(query, top_k=fetch_k)
++    queries = [query] + hypotheses
++    search_results = await asyncio.gather(
++        *(search_ddx(q, top_k=fetch_k) for q in queries),
++        return_exceptions=True,
++    )
++    pool: dict[str, dict] = {}
++    for res in search_results:
++        if isinstance(res, Exception):
++            logger.warning("A DDx sub-query failed: %s", res)
++            continue
++        for r in res:
++            code = r.get("code")
++            if not code:
++                continue
++            if code not in pool or r.get("similarity", 0) > pool[code].get("similarity", 0):
++                pool[code] = r
++    raw = sorted(pool.values(), key=lambda r: r.get("similarity", 0), reverse=True)[: max(fetch_k, 10)]
+ 
+     results: list[DDxResult] = []
+     for r in raw:
+@@ -698,27 +787,84 @@ def _extract_procedure_tags(clinical_text: str) -> list[str]:
+     return list(found)
+ 
+ 
++# CPGs that apply to only one biological sex. Routing a male to an obstetric CPG
++# (or a female to erectile-dysfunction) is never clinically valid ΓÇö filter these
++# out and surface the exclusion in the trace. Only fires for an explicit "M"/"F";
++# sex None/"other" never filters, since we can't be sure.
++_SEX_REQUIRED_CPGS: dict[str, str] = {
++    "Heart-Disease-in-Pregnancy(2nd Edition)": "F",
++    "Diabetes-in-Pregnancy(2017)": "F",
++    "Cervical-Cancer(2nd Edition)": "F",
++    "CVD-Prevention-Women(2016)": "F",
++    "Erectile-Dysfunction(2024)": "M",
++}
++
++
++def _required_sex_for_cpg(cpg_name: str) -> str | None:
++    """Return the sex a CPG is restricted to ('M'/'F'), or None if unrestricted."""
++    if cpg_name in _SEX_REQUIRED_CPGS:
++        return _SEX_REQUIRED_CPGS[cpg_name]
++    # Robust catch for any obstetric CPG added later, even if not in the registry.
++    low = cpg_name.lower()
++    if "pregnancy" in low or "antenatal" in low or "obstetric" in low:
++        return "F"
++    return None
++
++
++def sex_incompatible_reason(cpg_name: str, sex: str | None) -> str | None:
++    """If this CPG is incompatible with the patient's sex, return a reason; else None."""
++    if sex not in ("M", "F"):
++        return None
++    req = _required_sex_for_cpg(cpg_name)
++    if req is not None and req != sex:
++        who = "female" if req == "F" else "male"
++        return f"{who}-only CPG (patient sex: {sex})"
++    return None
++
++
+ async def stage_3_route(
+     ddx: list[DDxResult],
+     top_k_codes: int = 2,
+     top_k_cpgs: int = 3,
+     emit=None,                      # async callable | None
+     clinical_context: str | None = None,  # free-text query for procedure-scope routing
++    patient_sex: str | None = None,       # "M"/"F"/"other"/None ΓÇö drops sex-incompatible CPGs
+ ) -> list[CPGDocRef]:
+     """Map the top DDx ICD-11 codes to CPG document sets."""
+     procedure_tags = _extract_procedure_tags(clinical_context or "")
+     all_refs: dict[str, CPGDocRef] = {}
++    excluded_names: set[str] = set()
+ 
+     for result in ddx[:top_k_codes]:
+         refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs, procedure_tags=procedure_tags or None)
+-        if refs:
+-            primary_ref = refs[0]
++
++        # Drop CPGs biologically incompatible with the patient's sex before they
++        # can become the primary match or feed retrieval.
++        compat_refs: list[CPGDocRef] = []
++        for ref in refs:
++            reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
++            if reason is not None:
++                if ref.cpg_name not in excluded_names:
++                    excluded_names.add(ref.cpg_name)
++                    logger.info("Stage 3 sex-filter excluded %s: %s", ref.cpg_name, reason)
++                    if emit:
++                        await emit("sub_step", {
++                            "stage": 3,
++                            "detail": f"Excluded {ref.cpg_name} ΓÇö {reason}",
++                            "badge": "excluded",
++                            "status": "complete",
++                        })
++                continue
++            compat_refs.append(ref)
++
++        if compat_refs:
++            primary_ref = compat_refs[0]
+             result.score_breakdown = build_score_breakdown(
+                 result,
+                 route_method=primary_ref.match_type,
+             )
+             result.matched_cpg_title = primary_ref.title
+-        for ref in refs:
++        for ref in compat_refs:
+             if ref.cpg_name not in all_refs:
+                 all_refs[ref.cpg_name] = ref
+                 if emit:
+diff --git a/agent/clinical_workflow.py b/agent/clinical_workflow.py
+index 200b2e3..49675a9 100644
+--- a/agent/clinical_workflow.py
++++ b/agent/clinical_workflow.py
+@@ -19,17 +19,22 @@ async def route_comorbidities(
+     comorbidities: list[str],
+     existing_cpgs: list[CPGDocRef],
+     top_k: int = 2,
++    patient_sex: str | None = None,
++    emit=None,
+ ) -> list[CPGDocRef]:
+     """Map free-text comorbidity names to additional CPG documents.
+ 
+     For each comorbidity, run a DDx lookup (top_k=3) to obtain an ICD-11 code,
+     then route that code to CPGs. Skips matches below similarity 0.55 to prevent
+     semantic-fallback drift (e.g. DM/CKD routing to Breast Cancer CPG).
+-    Deduplicated against existing_cpgs.
++    Deduplicated against existing_cpgs. Sex-incompatible CPGs (e.g. a pregnancy CPG
++    for a male patient) are dropped and surfaced in the trace.
+     """
+     from ddx.search_ddx import search_ddx
++    from .clinical_stages import sex_incompatible_reason
+     additional: list[CPGDocRef] = []
+     existing_names = {c.cpg_name for c in existing_cpgs}
++    sex_excluded: set[str] = set()
+     for condition in comorbidities[:4]:           # cap at 4 to limit latency
+         if not condition.strip():
+             continue
+@@ -61,9 +66,26 @@ async def route_comorbidities(
+             )
+ 
+             for ref in refs:
+-                if ref.cpg_name not in existing_names:
+-                    additional.append(ref)
+-                    existing_names.add(ref.cpg_name)
++                if ref.cpg_name in existing_names:
++                    continue
++                reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
++                if reason is not None:
++                    if ref.cpg_name not in sex_excluded:
++                        sex_excluded.add(ref.cpg_name)
++                        logger.info(
++                            "Comorbidity sex-filter excluded %s (via %r): %s",
++                            ref.cpg_name, condition, reason,
++                        )
++                        if emit:
++                            await emit("sub_step", {
++                                "stage": 3,
++                                "detail": f"Excluded {ref.cpg_name} ΓÇö {reason}",
++                                "badge": "excluded",
++                                "status": "complete",
++                            })
++                    continue
++                additional.append(ref)
++                existing_names.add(ref.cpg_name)
+         except Exception as exc:
+             logger.warning("Comorbidity routing failed for %r: %s", condition, exc)
+     return additional
+@@ -110,8 +132,9 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
+     # Stage 3 ΓÇö Route
+     try:
+         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3,
+-                                   clinical_context=_build_symptom_text(case))
+-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
++                                   clinical_context=_build_symptom_text(case),
++                                   patient_sex=case.sex)
++        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex)
+         if extra_cpgs:
+             cpgs = cpgs + extra_cpgs
+         logger.info("Stage 3 Routing: %d CPGs matched: %s",
+@@ -166,6 +189,47 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
+     )
+ 
+ 
++async def run_ddx_only_streaming(
++    case: PatientCase,
++    emit,                           # async callable: emit(event_type: str, data: dict) -> None
++) -> list[DDxResult]:
++    """
++    Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and stream it, then stop.
++
++    The clinician reviews the ranked top-k, confirms or overrides, and the UI then
++    calls the resynthesize path (Stages 3ΓÇô5) on the agreed diagnosis. This keeps the
++    expensive, authoritative care plan from ever being generated against an
++    unvalidated diagnosis.
++
++    Emits the same Stage-2 events as the full workflow, plus a terminal `ddx_ready`
++    event carrying the candidate list so the caller can render the confirmation gate.
++    Never raises ΓÇö on Stage-2 failure it emits an error stage_update and returns [].
++    """
++    await emit("stage_update", {
++        "stage": 2, "name": "DDx Analysis",
++        "status": "running", "detail": "Analyzing symptoms and historyΓÇª"
++    })
++    try:
++        ddx = await stage_2_ddx(case, top_k=5, emit=emit)
++        top = ddx[0].code if ddx else "none"
++        await emit("stage_update", {
++            "stage": 2, "name": "DDx Analysis", "status": "complete",
++            "detail": f"{len(ddx)} candidates ┬╖ top: {top}",
++            "data": [d.model_dump() for d in ddx],
++        })
++        logger.info("DDx-only Stage 2: %d candidates. Top: %s", len(ddx), top)
++    except Exception as e:
++        logger.error("DDx-only Stage 2 failed: %s", e)
++        await emit("stage_update", {
++            "stage": 2, "name": "DDx Analysis", "status": "error", "detail": str(e),
++        })
++        ddx = []
++
++    # Terminal event: hand the candidates to the UI gate. Pipeline pauses here.
++    await emit("ddx_ready", {"ddx": [d.model_dump() for d in ddx]})
++    return ddx
++
++
+ async def run_clinical_workflow_streaming(
+     case: PatientCase,
+     emit,                           # async callable: emit(event_type: str, data: dict) -> None
+@@ -209,8 +273,9 @@ async def run_clinical_workflow_streaming(
+     })
+     try:
+         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit,
+-                                   clinical_context=_build_symptom_text(case))
+-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs)
++                                   clinical_context=_build_symptom_text(case),
++                                   patient_sex=case.sex)
++        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit)
+         if extra_cpgs:
+             cpgs = cpgs + extra_cpgs
+             for c in extra_cpgs:
+@@ -323,7 +388,8 @@ async def run_resynthesize_streaming(
+     })
+     try:
+         cpgs = await stage_3_route(selected_ddx, top_k_codes=len(selected_ddx), top_k_cpgs=3, emit=emit,
+-                                   clinical_context=_build_symptom_text(case))
++                                   clinical_context=_build_symptom_text(case),
++                                   patient_sex=case.sex)
+         names = [c.cpg_name for c in cpgs]
+         await emit("stage_update", {
+             "stage": 3, "name": "CPG Routing", "status": "complete",
+diff --git a/tests/test_clinical_schemas.py b/tests/test_clinical_schemas.py
+index 10bfc7d..726a6b3 100644
+--- a/tests/test_clinical_schemas.py
++++ b/tests/test_clinical_schemas.py
+@@ -26,6 +26,7 @@ def _minimal_recommendation(**overrides) -> dict:
+ def _minimal_treatment_plan(**overrides) -> dict:
+     base = {
+         "icd_primary": "BC81.1",
++        "summary": "Management plan per CPG.",
+         "recommendations": [_minimal_recommendation()],
+         "confidence": 0.85,
+     }
+@@ -203,12 +204,16 @@ class TestTreatmentPlanValid:
+     def test_all_fields_populated(self):
+         plan = TreatmentPlan(
+             icd_primary="BC81.1",
++            summary="Atrial fibrillation management plan.",
+             icd_alternates=["BC81.0", "BC81.Z"],
+             recommendations=[
+                 Recommendation(**_minimal_recommendation()),
+                 Recommendation(**_minimal_recommendation(type="lifestyle", intervention="Salt restriction")),
+             ],
+-            monitoring=["heart rate at each visit", "INR monthly"],
++            monitoring=[
++                {"parameter": "heart rate", "schedule": "at each visit"},
++                {"parameter": "INR", "schedule": "monthly"},
++            ],
+             red_flags=["syncope", "stroke symptoms"],
+             confidence=0.92,
+             unresolved_questions=["Patient's renal function not provided"],
+@@ -233,11 +238,12 @@ class TestTreatmentPlanValid:
+     def test_json_round_trip_full(self):
+         plan = TreatmentPlan(
+             icd_primary="BC81.1",
++            summary="Atrial fibrillation management plan.",
+             icd_alternates=["BC81.0"],
+             recommendations=[
+                 Recommendation(**_minimal_recommendation(evidence_grade="Grade A, Level 1")),
+             ],
+-            monitoring=["ECG at 3 months"],
++            monitoring=[{"parameter": "ECG", "schedule": "at 3 months"}],
+             red_flags=["acute chest pain"],
+             confidence=0.9,
+             unresolved_questions=["Thyroid function unknown"],
+diff --git a/tests/test_clinical_stages.py b/tests/test_clinical_stages.py
+index b46ff9c..d07e1e8 100644
+--- a/tests/test_clinical_stages.py
++++ b/tests/test_clinical_stages.py
+@@ -161,7 +161,9 @@ async def test_stage2_calls_search_ddx():
+     # (extraction now succeeds and may rephrase/recapitalise the notes).
+     with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=raw_results)) as mock_ddx, \
+          patch("agent.clinical_stages._extract_symptom_phrase",
+-               new=AsyncMock(return_value="palpitations, irregular pulse")):
++               new=AsyncMock(return_value=("palpitations, irregular pulse", False))), \
++         patch("agent.clinical_stages._generate_condition_hypotheses",
++               new=AsyncMock(return_value=[])):
+         result = await stage_2_ddx(case, top_k=5, rerank=False)
+ 
+     mock_ddx.assert_awaited_once()
+@@ -177,7 +179,11 @@ async def test_stage2_calls_search_ddx():
+ async def test_stage2_handles_empty_ddx():
+     case = _make_case()
+ 
+-    with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=[])):
++    with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=[])), \
++         patch("agent.clinical_stages._extract_symptom_phrase",
++               new=AsyncMock(return_value=("palpitations", False))), \
++         patch("agent.clinical_stages._generate_condition_hypotheses",
++               new=AsyncMock(return_value=[])):
+         result = await stage_2_ddx(case, rerank=False)
+ 
+     assert result == []
+@@ -572,6 +578,8 @@ async def test_stage5_empty_evidence_populates_unresolved():
+ async def test_stage2_rerank_called_by_default(minimal_case):
+     """rerank=True by default ΓåÆ _llm_rerank_ddx is called."""
+     with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=MOCK_DDX_RAW[:4])), \
++         patch("agent.clinical_stages._extract_symptom_phrase", new=AsyncMock(return_value=("palpitations", False))), \
++         patch("agent.clinical_stages._generate_condition_hypotheses", new=AsyncMock(return_value=[])), \
+          patch("agent.clinical_stages._llm_rerank_ddx", new_callable=AsyncMock) as mock_rerank:
+         mock_rerank.return_value = [DDxResult(code="BC81.3", title="AF", similarity=0.91)]
+         result = await stage_2_ddx(minimal_case, top_k=1)
+@@ -583,6 +591,8 @@ async def test_stage2_rerank_called_by_default(minimal_case):
+ async def test_stage2_rerank_skipped_when_false(minimal_case):
+     """rerank=False ΓåÆ _llm_rerank_ddx is never called."""
+     with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=MOCK_DDX_RAW[:2])), \
++         patch("agent.clinical_stages._extract_symptom_phrase", new=AsyncMock(return_value=("palpitations", False))), \
++         patch("agent.clinical_stages._generate_condition_hypotheses", new=AsyncMock(return_value=[])), \
+          patch("agent.clinical_stages._llm_rerank_ddx", new_callable=AsyncMock) as mock_rerank:
+         await stage_2_ddx(minimal_case, top_k=2, rerank=False)
+         mock_rerank.assert_not_called()
+diff --git a/tests/test_clinical_workflow.py b/tests/test_clinical_workflow.py
+index 4f7d8a3..4bdb18b 100644
+--- a/tests/test_clinical_workflow.py
++++ b/tests/test_clinical_workflow.py
+@@ -5,7 +5,7 @@ All mocked ΓÇö no real DB, no real LLM, no real embeddings.
+ from __future__ import annotations
+ 
+ import pytest
+-from unittest.mock import AsyncMock, patch, MagicMock
++from unittest.mock import AsyncMock, patch
+ 
+ from agent.models import PatientCase, TreatmentPlan, Recommendation
+ from agent.clinical_stages import DDxResult
+@@ -35,13 +35,22 @@ def make_ddx() -> list[DDxResult]:
+ 
+ 
+ def make_cpgs() -> list[CPGDocRef]:
+-    return [CPGDocRef(cpg_name="CPG AF Management", document_ids=["doc-001"])]
++    return [CPGDocRef(
++        cpg_name="CPG AF Management",
++        document_id="doc-001",
++        document_ids=["doc-001"],
++        title="CPG AF Management",
++        match_type="exact",
++        score=0.9,
++        matched_scope="BC81.3",
++    )]
+ 
+ 
+ def make_plan() -> TreatmentPlan:
+     return TreatmentPlan(
+         icd_primary="BC81.3",
+         icd_alternates=["BC81.1"],
++        summary="Atrial fibrillation management plan.",
+         recommendations=[
+             Recommendation(
+                 intervention="Rate control with bisoprolol 5mg OD",
+@@ -50,7 +59,7 @@ def make_plan() -> TreatmentPlan:
+                 rationale="Rate control for persistent AF with HR >100",
+             )
+         ],
+-        monitoring=["Heart rate at each visit"],
++        monitoring=[{"parameter": "heart rate", "schedule": "at each visit"}],
+         red_flags=["Haemodynamic compromise"],
+         confidence=0.88,
+         unresolved_questions=[],
+@@ -211,7 +220,7 @@ async def test_clinical_plan_endpoint_200():
+         stage_errors=[],
+     )
+ 
+-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
++    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
+         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
+             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
+         assert resp.status_code == 200
+@@ -227,7 +236,7 @@ async def test_clinical_plan_endpoint_500():
+     from httpx import AsyncClient, ASGITransport
+     from agent.api import app
+ 
+-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, side_effect=RuntimeError("synthesis failed")):
++    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, side_effect=RuntimeError("synthesis failed")):
+         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
+             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
+         assert resp.status_code == 500
+@@ -247,7 +256,7 @@ async def test_clinical_plan_maps_ddx():
+         stage_errors=[],
+     )
+ 
+-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
++    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
+         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
+             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
+         body = resp.json()
+@@ -273,7 +282,7 @@ async def test_clinical_plan_maps_cpgs():
+         stage_errors=[],
+     )
+ 
+-    with patch("agent.api.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
++    with patch("agent.clinical_workflow.run_clinical_workflow", new_callable=AsyncMock, return_value=mock_result):
+         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
+             resp = await ac.post("/clinical/plan", json={"case": {"chief_complaint": "palpitations"}})
+         body = resp.json()
+diff --git a/tests/test_e2e_smoke.py b/tests/test_e2e_smoke.py
+index 992c70c..33cf2c5 100644
+--- a/tests/test_e2e_smoke.py
++++ b/tests/test_e2e_smoke.py
+@@ -20,6 +20,7 @@ def make_plan(icd_primary: str, icd_alternates: list[str], confidence: float,
+               unresolved: list[str] | None = None) -> TreatmentPlan:
+     return TreatmentPlan(
+         icd_primary=icd_primary,
++        summary="Management plan per CPG.",
+         icd_alternates=icd_alternates,
+         recommendations=[
+             Recommendation(
+@@ -29,7 +30,7 @@ def make_plan(icd_primary: str, icd_alternates: list[str], confidence: float,
+                 rationale="Guideline-recommended first-line therapy",
+             )
+         ],
+-        monitoring=["Follow-up in 4 weeks"],
++        monitoring=[{"parameter": "clinical review", "schedule": "follow-up in 4 weeks"}],
+         red_flags=["Haemodynamic compromise"],
+         confidence=confidence,
+         unresolved_questions=unresolved or [],
+@@ -41,7 +42,15 @@ def make_ddx(code: str, title: str) -> list[DDxResult]:
+ 
+ 
+ def make_cpg(name: str) -> list[CPGDocRef]:
+-    return [CPGDocRef(cpg_name=name, document_ids=["doc-001"])]
++    return [CPGDocRef(
++        cpg_name=name,
++        document_id="doc-001",
++        document_ids=["doc-001"],
++        title=name,
++        match_type="exact",
++        score=0.9,
++        matched_scope="BC81.3",
++    )]
+ 
+ 
+ # ---------------------------------------------------------------------------
+diff --git a/tests/test_extraction_and_routing.py b/tests/test_extraction_and_routing.py
+index ce3e0af..6859281 100644
+--- a/tests/test_extraction_and_routing.py
++++ b/tests/test_extraction_and_routing.py
+@@ -74,31 +74,36 @@ def _ddx_hit(code: str, title: str, similarity: float) -> dict:
+ 
+ async def test_extraction_returns_compressed_phrase():
+     phrase = "Chest pain radiating to left arm, diaphoresis, 3 hours"  # 9 words
+-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client(phrase), "test-model")
++    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client(phrase), "test-model")
+     assert result == phrase
++    assert fell_back is False
+ 
+ 
+ async def test_extraction_truncates_echoed_input():
+     # LLM echoes full 34-word input ΓåÆ >25 words ΓåÆ truncated to 15
+-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client(NOTES_LONG), "test-model")
++    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client(NOTES_LONG), "test-model")
+     assert len(result.split()) == 15
++    assert fell_back is False
+ 
+ 
+ async def test_extraction_falls_back_on_empty():
+-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client(""), "test-model")
++    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client(""), "test-model")
+     assert result == NOTES_LONG
++    assert fell_back is True
+ 
+ 
+ async def test_extraction_falls_back_on_exception():
+     client = _mock_client_raises(Exception("mock API error"))
+-    result = await _extract_symptom_phrase(NOTES_LONG, client, "test-model")
++    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, client, "test-model")
+     assert result == NOTES_LONG
++    assert fell_back is True
+ 
+ 
+ async def test_extraction_strips_quotes_and_trailing_period():
+     # LLM returns quoted phrase with trailing period
+-    result = await _extract_symptom_phrase(NOTES_LONG, _mock_client('"Chest pain, 3 hours."'), "test-model")
++    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client('"Chest pain, 3 hours."'), "test-model")
+     assert result == "Chest pain, 3 hours"
++    assert fell_back is False
+ 
+ 
+ # ---------------------------------------------------------------------------
+diff --git a/tests/test_resynthesize.py b/tests/test_resynthesize.py
+index f3767e4..80e0341 100644
+--- a/tests/test_resynthesize.py
++++ b/tests/test_resynthesize.py
+@@ -21,6 +21,7 @@ def selected_ddx():
+ def mock_plan():
+     return TreatmentPlan(
+         icd_primary="BC81.3",
++        summary="Atrial fibrillation management plan.",
+         recommendations=[
+             {
+                 "intervention": "Rate control with beta-blocker",
+diff --git a/tests/test_streaming.py b/tests/test_streaming.py
+index d8d9984..36583c5 100644
+--- a/tests/test_streaming.py
++++ b/tests/test_streaming.py
+@@ -1,13 +1,11 @@
+ """Tests for clinical workflow streaming + thinking token emission."""
+-import asyncio
+ import json
+ import pytest
+ from unittest.mock import AsyncMock, patch, MagicMock
+ 
+ from agent.clinical_workflow import run_clinical_workflow_streaming, WorkflowResult
+-from agent.clinical_stages import DDxResult, _llm_rerank_ddx, DDX_RERANK_MODEL, DDX_THINKING_BUDGET
++from agent.clinical_stages import DDxResult, _llm_rerank_ddx
+ from agent.models import PatientCase, TreatmentPlan
+-from agent.routing import CPGDocRef
+ 
+ 
+ @pytest.fixture
+@@ -24,6 +22,7 @@ def mock_ddx():
+ def mock_plan():
+     return TreatmentPlan(
+         icd_primary="BC81.3",
++        summary="Atrial fibrillation management plan.",
+         recommendations=[{
+             "intervention": "Rate control with beta-blocker",
+             "type": "pharmacological",
+@@ -136,6 +135,7 @@ async def test_rerank_streams_thinking_tokens_when_emit_provided(minimal_case):
+         chunk2.choices = [MagicMock()]
+         chunk2.choices[0].delta = MagicMock(
+             reasoning=None,
++            thinking=None,
+             reasoning_content=None,
+             content='[{"code":"BC81.3","confidence":0.92,"reasoning":"fits best"}]',
+         )

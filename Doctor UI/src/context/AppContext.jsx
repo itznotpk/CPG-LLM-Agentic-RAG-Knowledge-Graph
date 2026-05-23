@@ -3,7 +3,7 @@ import {
   sampleDiagnosis,
   sampleCarePlan,
 } from '../data/sampleData';
-import { runClinicalPlan, runClinicalPlanStream, resynthesizePlanStream } from '../lib/clinicalApi';
+import { runClinicalPlan, runDDxStream, resynthesizePlanStream } from '../lib/clinicalApi';
 import { mapDdxToDiagnosis, mapTreatmentPlanToCarePlan } from '../lib/clinicalMappers';
 import {
   searchPatientByNRIC,
@@ -285,7 +285,11 @@ export function AppProvider({ children }) {
     try {
       dispatch({ type: 'RESET_PIPELINE' });
 
-      const response = await runClinicalPlanStream(
+      // Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and pause.
+      // The care plan (Stages 3–5) is NOT generated until the clinician confirms
+      // a diagnosis in confirmDiagnosis() — so the authoritative plan is never
+      // produced against an unvalidated diagnosis.
+      const { ddx } = await runDDxStream(
         state.patient,
         state.vitals,
         state.clinicalNotes,
@@ -304,30 +308,23 @@ export function AppProvider({ children }) {
         },
         state.severityStaging || {},
         undefined, // structuredComorbidities — not used in this call path
-        (safetyReport) => {
-          dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport });
-        },
       );
 
-      const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
-      const carePlan  = mapTreatmentPlanToCarePlan(response.treatment_plan);
-
-      if (response.stage_errors?.length > 0) {
-        console.warn('Clinical pipeline stage errors:', response.stage_errors);
-      }
+      const diagnosis = mapDdxToDiagnosis(ddx, []); // no CPGs yet — routing runs on confirm
 
       dispatch({
         type: 'SET_PIPELINE_SUMMARY',
         payload: {
-          elapsed_ms: response.elapsed_ms,
-          ddxCount: response.ddx?.length || 0,
-          cpgCount: response.cpgs_matched?.length || 0,
+          elapsed_ms: null,
+          ddxCount: ddx?.length || 0,
+          cpgCount: 0,
           chunkCount: null,
         },
       });
-      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
+      // Stash DDx-only response so confirmDiagnosis can read the AI top picks.
+      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: { ddx, cpgs_matched: [], treatment_plan: null } });
       dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
-      dispatch({ type: 'SET_CARE_PLAN', payload: carePlan });
+      // Care plan intentionally left unset until confirmation.
       dispatch({ type: 'SET_ANALYZING', payload: false });
       dispatch({ type: 'SET_STEP', payload: 2 });
       return diagnosis;
@@ -431,43 +428,47 @@ export function AppProvider({ children }) {
       }
     }
 
-    // ── Re-synthesis logic ──────────────────────────────────────────────────
-    // Determine if clinician selected codes different from what the pipeline used.
-    // The pipeline routes on the AI's top-2 DDx codes; if the clinician picked
-    // anything outside that set, we must re-run Stages 3-5.
+    // ── Stop-and-confirm phase 2: synthesize the care plan ────────────────────
+    // Phase 1 produced only DDx; the care plan (Stages 3–5) is generated HERE,
+    // against the clinician-confirmed diagnosis. This always runs — whether the
+    // clinician accepted the AI top pick or overrode it. If the selection differs
+    // from the AI's top-2, flag it as an override for the trace.
     const aiTopCodes = new Set(
       (state.clinicalPlanResponse?.ddx || []).slice(0, 2).map((d) => d.code)
     );
-    const needsResynth = selectedDiagnoses.some((d) => !aiTopCodes.has(d.icdCode));
+    const isOverride = selectedDiagnoses.some((d) => !aiTopCodes.has(d.icdCode));
+    console.log(
+      isOverride
+        ? '🔄 Clinician override — synthesizing plan for:'
+        : '✅ Clinician confirmed AI diagnosis — synthesizing plan for:',
+      selectedDiagnoses.map((d) => d.icdCode),
+    );
+    dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 3 });
 
-    if (needsResynth) {
-      console.log('🔄 Clinician override detected — re-running Stages 3-5 for:', selectedDiagnoses.map(d => d.icdCode));
-      dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 3 });
+    try {
+      const response = await resynthesizePlanStream(
+        state.patient, state.vitals, state.clinicalNotes, state.mpisData,
+        selectedDiagnoses,
+        (stageUpdate)  => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
+        (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
+        (overrideData) => dispatch({ type: 'SET_RESYNTH_OVERRIDE', payload: overrideData }),
+        state.severityStaging || {},
+        undefined,
+        (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
+      );
 
-      try {
-        const response = await resynthesizePlanStream(
-          state.patient, state.vitals, state.clinicalNotes, state.mpisData,
-          selectedDiagnoses,
-          (stageUpdate)  => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
-          (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
-          (overrideData) => dispatch({ type: 'SET_RESYNTH_OVERRIDE', payload: overrideData }),
-          state.severityStaging || {},
-          undefined,
-          (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
-        );
-
-        const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);
-        dispatch({ type: 'SET_CARE_PLAN', payload: newCarePlan });
-        dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
-        dispatch({
-          type: 'SET_PIPELINE_SUMMARY',
-          payload: { elapsed_ms: response.elapsed_ms, ddxCount: selectedDiagnoses.length, cpgCount: response.cpgs_matched?.length || 0 },
-        });
-        console.log('✅ Re-synthesis complete for clinician-selected diagnosis');
-      } catch (err) {
-        console.error('Re-synthesis failed — keeping original plan:', err);
-        // Non-fatal: keep the original care plan, still advance to Step 3
-      }
+      const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);
+      dispatch({ type: 'SET_CARE_PLAN', payload: newCarePlan });
+      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
+      dispatch({ type: 'SET_DIAGNOSIS', payload: mapDdxToDiagnosis(response.ddx, response.cpgs_matched) });
+      dispatch({
+        type: 'SET_PIPELINE_SUMMARY',
+        payload: { elapsed_ms: response.elapsed_ms, ddxCount: selectedDiagnoses.length, cpgCount: response.cpgs_matched?.length || 0 },
+      });
+      console.log('✅ Plan synthesis complete for confirmed diagnosis');
+    } catch (err) {
+      console.error('Plan synthesis failed:', err);
+      // Non-fatal: advance to Step 3 anyway so the clinician isn't stuck.
     }
 
     dispatch({ type: 'SET_GENERATING_PLAN', payload: false });

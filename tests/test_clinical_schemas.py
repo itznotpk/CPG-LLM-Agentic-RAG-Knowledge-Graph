@@ -26,6 +26,7 @@ def _minimal_recommendation(**overrides) -> dict:
 def _minimal_treatment_plan(**overrides) -> dict:
     base = {
         "icd_primary": "BC81.1",
+        "summary": "Management plan per CPG.",
         "recommendations": [_minimal_recommendation()],
         "confidence": 0.85,
     }
@@ -203,12 +204,16 @@ class TestTreatmentPlanValid:
     def test_all_fields_populated(self):
         plan = TreatmentPlan(
             icd_primary="BC81.1",
+            summary="Atrial fibrillation management plan.",
             icd_alternates=["BC81.0", "BC81.Z"],
             recommendations=[
                 Recommendation(**_minimal_recommendation()),
                 Recommendation(**_minimal_recommendation(type="lifestyle", intervention="Salt restriction")),
             ],
-            monitoring=["heart rate at each visit", "INR monthly"],
+            monitoring=[
+                {"parameter": "heart rate", "schedule": "at each visit"},
+                {"parameter": "INR", "schedule": "monthly"},
+            ],
             red_flags=["syncope", "stroke symptoms"],
             confidence=0.92,
             unresolved_questions=["Patient's renal function not provided"],
@@ -233,11 +238,12 @@ class TestTreatmentPlanValid:
     def test_json_round_trip_full(self):
         plan = TreatmentPlan(
             icd_primary="BC81.1",
+            summary="Atrial fibrillation management plan.",
             icd_alternates=["BC81.0"],
             recommendations=[
                 Recommendation(**_minimal_recommendation(evidence_grade="Grade A, Level 1")),
             ],
-            monitoring=["ECG at 3 months"],
+            monitoring=[{"parameter": "ECG", "schedule": "at 3 months"}],
             red_flags=["acute chest pain"],
             confidence=0.9,
             unresolved_questions=["Thyroid function unknown"],
