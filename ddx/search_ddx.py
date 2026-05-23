@@ -317,12 +317,25 @@ async def apply_tabulation_filter(
                         matched_exclusion = exc_text
                         exclusion_similarity = sim
 
-        if exclusion_similarity > EXCLUSION_TRACE_THRESHOLD:
-            exclusion_match = True
-
         base_score = float(candidate.get("similarity") or 0.0)
         inclusion_score = match_similarity
-        exclusion_penalty = EXCLUSION_PENALTY_WEIGHT * exclusion_similarity
+
+        # Apply the exclusion penalty only when it is BOTH (a) a real, surfaced
+        # match (> trace threshold — no silent sub-threshold penalties) AND (b) the
+        # query resembles the excluded condition MORE than the code itself
+        # (exclusion_sim > base_sim). Without (b), a generic WHO exclusion like
+        # "Diabetes mellitus, other specified type" self-penalises the very code the
+        # user asked for — querying "type 1 diabetes" wrongly downranks 5A10 below
+        # rarer wrong subtypes. Gating on base keeps the safety value (downranking a
+        # code whose exclusion is the dominant signal) without the false positives.
+        if exclusion_similarity > EXCLUSION_TRACE_THRESHOLD and exclusion_similarity > base_score:
+            exclusion_match = True
+            exclusion_penalty = EXCLUSION_PENALTY_WEIGHT * exclusion_similarity
+        else:
+            exclusion_match = False
+            matched_exclusion = None
+            exclusion_penalty = 0.0
+
         final_score = base_score + inclusion_score - exclusion_penalty
         
         candidate["inclusion_match"] = inclusion_match

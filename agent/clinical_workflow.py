@@ -14,6 +14,15 @@ from .routing import CPGDocRef, route_icd_to_cpgs
 
 logger = logging.getLogger(__name__)
 
+# High-trust routes for COMORBIDITY mapping only. A comorbidity is a bare term
+# routed without an LLM rerank safety net, so we accept tight structural matches
+# (≤1 hop) plus the calibrated semantic_scope (0.40 floor — gives clinically sound
+# cross-maps like IHD→Stable-CAD), but DROP the broad multi-hop structural
+# fallbacks (ancestor_d1_sibling, ancestor_d1_sibling_child, ancestor_d2) that
+# otherwise drift — e.g. "Depression"/"Osteoarthritis" symptom codes reaching
+# Cancer-Pain via ancestor_d1_sibling_child. Primary DDx routing keeps all methods.
+_COMORBIDITY_TRUSTED_ROUTES = {"exact", "sibling", "ancestor_d1", "semantic_scope"}
+
 
 async def route_comorbidities(
     comorbidities: list[str],
@@ -67,6 +76,18 @@ async def route_comorbidities(
 
             for ref in refs:
                 if ref.cpg_name in existing_names:
+                    continue
+                # Comorbidities are secondary context with no LLM rerank to catch a
+                # bad map, so only trust HIGH-confidence structural routes. The broad
+                # fallbacks (ancestor_d1_sibling[_child], ancestor_d2, procedure_scope,
+                # semantic_scope) cast too wide for a bare comorbidity name and cause
+                # drift — e.g. "Depression"/"Osteoarthritis" reaching Cancer-Pain via
+                # ancestor_d1_sibling_child. Primary DDx routing keeps all methods.
+                if ref.match_type not in _COMORBIDITY_TRUSTED_ROUTES:
+                    logger.info(
+                        "Comorbidity %r → %s skipped: low-trust route_method=%s",
+                        condition, ref.cpg_name, ref.match_type,
+                    )
                     continue
                 reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
                 if reason is not None:
