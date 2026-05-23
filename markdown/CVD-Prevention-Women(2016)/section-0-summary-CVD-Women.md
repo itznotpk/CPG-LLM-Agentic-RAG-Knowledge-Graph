@@ -55,7 +55,8 @@ To ensure compliance to the guidelines, periodic audit of simple parameters shou
 - Fasting glucose and glycated haemoglobin A1c (HbA1c) levels
 
 ## 0.2: Critical Reference Tables
-Table 1: Classification Of CVD Risk In Women
+
+### 0.2.1: Table 1 — Classification Of CVD Risk In Women
 | Risk Category | Criteria |
 |---|---|
 | High Risk | Established CHD and/or CHD Equivalents which are: |
@@ -84,7 +85,7 @@ Table 1: Classification Of CVD Risk In Women
 | | • Abstinence from smoking |
 | | • Physical activity at goal for adults > 20 years of age:<br>&nbsp;&nbsp; ≥ 150 min/week moderate intensity,<br>&nbsp;&nbsp; ≥ 75 min/week vigorous intensity, or combination |
 
-Table 2: Framingham Risk Score For Asessment Of CVD Risk
+### 0.2.2: Table 2 — Framingham Risk Score For Assessment Of CVD Risk
 Table 2A: CVD Points For Women
 | Points | Age, y | HDL-C | TC | SBP (not treated) | SBP (treated) | Smoker | Diabetes |
 |---|---|---|---|---|---|---|---|
@@ -146,7 +147,7 @@ To determine a women's 10 year CVD risk, calculate in order:
 - 10 year Risk of CVD (Table 2B)
 - Heart Age/ Vascular Age for Women (Table 2C)
 
-Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
+### 0.2.3: Table 3 — 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
 | Risk Factor | Units | Patient’s Value | Acceptable range of values | Optimal Values |
 |---|---|---|---|---|
 | Sex | M(males) or F(females) | | M or F | |
@@ -159,7 +160,7 @@ Table 3: 2013 ACC/AHA Atherosclerotic Cardiovascular Disease Risk Calculator
 | Diabetes | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
 | Smoker | Y (Yes); N (For No) | | Y (Yes); N (For No) | N |
 
-Table 4: General Recommendations For Prevention Of CVD In Women
+### 0.2.4: Table 4 — General Recommendations For Prevention Of CVD In Women
 | Category | Recommendations | Grade of Rec / Level of Evidence |
 |---|---|---|
 | Nutrition | • Know one’s daily calorie requirements.<br>• Home cooked meals are preferable.<br>• Diet should encompass all food groups. Eat more fruits, vegetables, whole grain cereals and bread, fish especially oily fish rich in omega-3 fatty acids (such as *ikan tenggiri*, *carp*), lean meat, nuts and legumes, low fat milk and cheese, skinless poultry, non-tropical vegetable oils.<br>• A high fiber diet: 20-30 gm/day<br>• Eat more complex carbohydrates-whole grains, peas, beans, lentils. Whole grains should form 50% of total grain intake.<br>• Naturally occurring sugars are preferred. Avoid sweets and sucrose-sweetened beverages.<br>• Reduce daily salt intake to approximately 1-1¼ teaspoon salt.<br>• Replace saturated and *trans*-fats with monounsaturated and polyunsaturated fats. | I, B |
@@ -188,7 +189,7 @@ Table 4: General Recommendations For Prevention Of CVD In Women
 | Age 64-74 years | 1 |
 | Female gender | 1 |
 
-Table 5: Targets Of Treatment
+### 0.2.5: Table 5 — Targets Of Treatment
 | Risk Factor/Category | Target | Grade of Rec / Level of Evidence |
 |---|---|---|
 | Dyslipidemia | **Low density lipoprotein cholesterol (LDL-C):** | |
