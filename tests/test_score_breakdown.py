@@ -47,11 +47,13 @@ def test_build_score_breakdown_names_score_contributors():
     breakdown = build_score_breakdown(_ddx(), route_method="exact")
 
     assert breakdown.base_similarity == 0.40
-    assert breakdown.inclusion_match == 0.70
+    # inclusion_match is the WEIGHTED addend (0.3 × raw 0.70); phrase still shows
+    # because the RAW match (0.70) clears the display floor.
+    assert breakdown.inclusion_match == pytest.approx(0.21)
     assert breakdown.inclusion_phrase == "adult onset diabetes"
     assert breakdown.exclusion_penalty == 0.18
     assert breakdown.exclusion_phrase == "type 1 diabetes mellitus"
-    assert breakdown.final_score == pytest.approx(0.92)
+    assert breakdown.final_score == pytest.approx(0.43)  # 0.40 + 0.21 − 0.18
     assert breakdown.route_method == "exact"
 
 

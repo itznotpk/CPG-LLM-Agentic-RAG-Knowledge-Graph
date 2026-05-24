@@ -23,6 +23,13 @@ import re
 
 EXCLUSION_PENALTY_WEIGHT = 0.3
 EXCLUSION_TRACE_THRESHOLD = 0.5
+# Inclusion (synonym/lay-term) match weight. Previously the raw cosine (≤1.0) was
+# added at full weight while exclusion used λ=0.3 — so any synonym match dominated
+# base similarity and pushed final_score past 1.0 (→ ">100% confidence" in the UI).
+# Weighting it symmetrically with the exclusion penalty keeps lay-term wins (e.g.
+# "high blood pressure"→BA00) while stopping a marginal 0.70 match from leapfrogging
+# a clearly-better base match (e.g. "thyroid problem"→Thyroid storm).
+INCLUSION_BOOST_WEIGHT = 0.3
 
 
 # Clinical abbreviation → ICD-11 full-form expansion.
@@ -127,16 +134,35 @@ def validate_query(query: str) -> tuple[bool, str]:
     return True, ""
 
 
+_bedrock_runtime_client = None
+
+
+def _get_bedrock_client():
+    """Lazily create and cache the Bedrock runtime client.
+
+    boto3 client creation (credential resolution, session + endpoint setup) costs
+    seconds and was previously paid on EVERY embedding call — a few seconds each,
+    multiplied by the ~6 multi-query embeddings per DDx. The client is thread-safe
+    for invoke_model, so we create it once and reuse it.
+    """
+    global _bedrock_runtime_client
+    if _bedrock_runtime_client is None:
+        import boto3
+        _bedrock_runtime_client = boto3.client(
+            "bedrock-runtime", region_name=os.getenv("AWS_REGION", "us-east-1")
+        )
+    return _bedrock_runtime_client
+
+
 async def generate_embedding(text: str) -> list[float]:
     """Generate embedding using the configured embedding provider."""
     embedding_provider = os.getenv("EMBEDDING_PROVIDER", "openai").lower()
 
     if embedding_provider == "bedrock":
-        import boto3
         import json
         import asyncio
 
-        client = boto3.client("bedrock-runtime", region_name=os.getenv("AWS_REGION", "us-east-1"))
+        client = _get_bedrock_client()
         model_id = os.getenv("EMBEDDING_MODEL", "amazon.titan-embed-text-v1")
         dimension = int(os.getenv("VECTOR_DIMENSION", "1536"))
 
@@ -318,7 +344,7 @@ async def apply_tabulation_filter(
                         exclusion_similarity = sim
 
         base_score = float(candidate.get("similarity") or 0.0)
-        inclusion_score = match_similarity
+        inclusion_score = INCLUSION_BOOST_WEIGHT * match_similarity
 
         # Apply the exclusion penalty only when it is BOTH (a) a real, surfaced
         # match (> trace threshold — no silent sub-threshold penalties) AND (b) the
