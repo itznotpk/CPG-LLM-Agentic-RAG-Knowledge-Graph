@@ -17,6 +17,7 @@ WRITES NOTHING to Neo4j. Produces three artifacts under tasks/:
 import asyncio
 import json
 import os
+import random
 import re
 import sys
 from collections import defaultdict
@@ -120,6 +121,8 @@ def normalise(s: Optional[str]) -> str:
     out = s.lower().strip()
     out = out.replace("²", "2").replace("μ", "u").replace("µ", "u")
     out = out.replace("≥", ">=").replace("≤", "<=")
+    out = out.replace("–", "-").replace("—", "-")   # en/em dash to ascii hyphen
+    out = out.replace("→", " ")
     out = re.sub(r"\s+", " ", out)
     return out
 
@@ -183,10 +186,10 @@ def op_in_text(op: Optional[str], text: str) -> bool:
         return ("-" in t) or (" to " in t) or ("between" in t)
     # extracted op -> set of literal forms that satisfy it
     forms = {
-        "<": ["<", "below", "less than", "under"],
-        "<=": ["<=", "≤", "less than or equal", "up to", "no more than"],
-        ">": [">", "above", "more than", "greater than", "over"],
-        ">=": [">=", "≥", "at least", "no less than"],
+        "<": ["<", "below", "less than", "under", "fewer than", "fails to", "does not"],
+        "<=": ["<=", "less than or equal", "up to", "no more than", "maximum", "max ", "(max", "within", "do not exceed", "not exceed", "should not exceed"],
+        ">": [">", "above", "more than", "greater than", "over", "longer than", "exceeds", "beyond", "persists after", "after"],
+        ">=": [">=", "at least", "no less than", "minimum", "min ", "(min", "from", "for at least", "after"],
         "=": ["="],
     }.get(op, [op])
     return any(f in t for f in forms)
@@ -353,29 +356,72 @@ async def main():
         for r in approved:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
+    def fmt_row(e: Dict[str, Any], x: Dict[str, Any]) -> str:
+        v = x.get("threshold_value")
+        v2 = x.get("threshold_value2")
+        val_str = f"{v}..{v2}" if v2 is not None else f"{v}"
+        return (
+            f"- **trigger:** `{e.get('trigger')!r}`\n"
+            f"- **evidence:** _{(e.get('evidence') or '').strip()}_\n"
+            f"- **extracted:** `{x.get('threshold_param')} {x.get('threshold_op')} {val_str} {x.get('threshold_unit') or ''}`\n"
+            f"- **source:** {e.get('source_document')}\n"
+            f"- **edge_id:** `{e['edge_id']}`\n"
+        )
+
     with open(OUT_REVIEW, "w", encoding="utf-8") as f:
-        f.write("# Path B — Tier 3 review (grouped by failure pattern)\n\n")
-        f.write(f"Total Tier-3 rows: {sum(len(v) for v in review_groups.values())}\n\n")
-        f.write("Each group shares a single failure pattern. Decide on the **pattern** "
-                "(typically a one-line rule) and that decision applies to every row in the group.\n\n")
-        for reason, rows in sorted(review_groups.items(), key=lambda kv: -len(kv[1])):
-            f.write(f"## Pattern: `{reason}` ({len(rows)} rows)\n\n")
+        f.write("# Path B — Tier 3 review\n\n")
+        f.write(f"**Total Tier-3 rows:** {sum(len(v) for v in review_groups.values())}\n\n")
+        f.write("## How to validate each pattern\n\n")
+        f.write("| Pattern | What it means | What to check | Default action |\n|---|---|---|---|\n")
+        f.write("| `value_not_in_evidence` | The number itself does **not** appear literally in the evidence text — the extractor inferred it. **Highest hallucination risk.** | Open each row, scan the evidence for the number. If it's not there in any form, reject. | **REJECT each row** unless you find the number. |\n")
+        f.write("| `param_paraphrased` | The number matches but the parameter is renamed (e.g. extractor said `K+` but evidence said `hyperkalaemia`). | Spot-check 5–8 rows in the group. If the renaming is faithful in every sample, approve the whole group. | **APPROVE group** if all samples are faithful renames. |\n")
+        f.write("| `op_paraphrased_or_missing` | The comparison operator is described in words rather than `<`/`>` (e.g. `\"after 24 hours\"` → `>=`). | Spot-check 5–8 rows. Confirm the directional intent matches the extracted op. | **APPROVE group** if direction matches in all samples. |\n")
+        f.write("| `unit_paraphrased_or_missing` | The numeric is right but the unit is stripped or paraphrased (e.g. extracted `mmHg` but evidence says `mm Hg`). | Spot-check 5–8 rows. Confirm the unit is unambiguous from context. | **APPROVE group** if context makes the unit obvious. |\n\n")
+        f.write("---\n\n")
+
+        # value_not_in_evidence first, fully expanded per row (per-row review)
+        priority = ["value_not_in_evidence", "param_paraphrased", "op_paraphrased_or_missing", "unit_paraphrased_or_missing"]
+        seen = set()
+        for reason in priority:
+            if reason not in review_groups:
+                continue
+            seen.add(reason)
+            rows = review_groups[reason]
+            if reason == "value_not_in_evidence":
+                f.write(f"## ⚠️ `{reason}` — review EACH row ({len(rows)} rows)\n\n")
+                f.write("Reject unless the number is literally present in the evidence string. "
+                        "Approve only if you spot the value and the extractor was right.\n\n")
+                for i, r in enumerate(rows, 1):
+                    e, x = r["edge"], r["extracted"]
+                    f.write(f"### {i}. {e['relation']} `{e['subject']}` → `{e['object']}`\n\n")
+                    f.write(fmt_row(e, x))
+                    f.write("\n- [ ] Approve  [ ] Reject\n\n")
+                f.write("---\n\n")
+                continue
+            f.write(f"## `{reason}` ({len(rows)} rows) — group decision\n\n")
             f.write("- [ ] Approve all  [ ] Reject all  [ ] Mixed — review individually\n\n")
-            # show up to 12 representative rows
-            for i, r in enumerate(rows[:12], 1):
+            sample_n = min(15, len(rows))
+            rng = random.Random(42)  # deterministic seed so re-runs show the same samples
+            sampled = rng.sample(rows, sample_n)
+            f.write(f"**Random-sampled {sample_n} of {len(rows)} for spot-check** (seed=42):\n\n")
+            for i, r in enumerate(sampled, 1):
                 e, x = r["edge"], r["extracted"]
-                v = x.get("threshold_value")
-                v2 = x.get("threshold_value2")
-                val_str = f"{v}..{v2}" if v2 is not None else f"{v}"
                 f.write(f"<details><summary>{i}. {e['relation']} `{e['subject']}` → `{e['object']}`</summary>\n\n")
-                f.write(f"- trigger: `{e.get('trigger')!r}`\n")
-                f.write(f"- evidence: _{(e.get('evidence') or '').strip()}_\n")
-                f.write(f"- extracted: `{x.get('threshold_param')} {x.get('threshold_op')} {val_str} {x.get('threshold_unit') or ''}`\n")
-                f.write(f"- source: {e.get('source_document')}\n")
-                f.write(f"- edge_id: `{e['edge_id']}`\n\n")
-                f.write("</details>\n\n")
-            if len(rows) > 12:
-                f.write(f"_…plus {len(rows) - 12} more rows in this group._\n\n")
+                f.write(fmt_row(e, x))
+                f.write("\n</details>\n\n")
+            if len(rows) > sample_n:
+                f.write(f"_…{len(rows) - sample_n} more rows in this group are not shown; "
+                        f"the group decision applies to all {len(rows)}._\n\n")
+            f.write("---\n\n")
+        for reason, rows in review_groups.items():
+            if reason in seen:
+                continue
+            f.write(f"## `{reason}` ({len(rows)} rows)\n\n")
+            for i, r in enumerate(rows[:8], 1):
+                e, x = r["edge"], r["extracted"]
+                f.write(f"<details><summary>{i}. {e['relation']} `{e['subject']}` → `{e['object']}`</summary>\n\n")
+                f.write(fmt_row(e, x))
+                f.write("\n</details>\n\n")
 
     with open(OUT_SUMMARY, "w", encoding="utf-8") as f:
         f.write("# Path B extraction summary\n\n")

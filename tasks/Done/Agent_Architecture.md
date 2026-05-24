@@ -161,7 +161,9 @@ assert `SafetyReport.flags` contains at least one MAJOR flag.
 
 ## Agent 2 — Graph Navigator (Multi-Morbidity Reasoner)
 
-**Priority: MEDIUM** | **Pattern: Symbolic + Neural hybrid**
+**Status: SHIPPED (2026-05-25)** | **Pattern: Symbolic + Neural hybrid**
+
+> Implemented as `agent/graph_navigator.py` (Path A — preferred-agent rules keyed by DDx + comorbidities, CPG-scope-filtered, table-row-noise-filtered). Path B (typed-threshold extraction) shipped via `ingestion/graph_builder.py`; 721 typed edges live. Upstream comparison-table parser-error fix shipped at extractor + navigator (defence-in-depth) with 6 historical noise edges cleaned from Neo4j. Wired into `clinical_workflow.py` at all three call sites; surfaced via `WorkflowResult.graph_navigator_rules`, SSE `graph_navigator` event, and `Doctor UI/src/components/GraphNavigatorPanel.jsx`. See DDx_Routing_Robustness_And_Exclusion_Rerank.md entry 13 for full history.
 
 ### What it does
 
@@ -308,8 +310,8 @@ Agent 2 — Graph Navigator         ← requires structured comorbidity data
 
 | Agent | When to build | Effort | Patient safety impact |
 |---|---|---|---|
-| Safety Critic | After Gaps 1–3 closed | ~4 h | 🔴 Critical |
-| Graph Navigator | After Gap 4 + Agent 1 | ~6 h | 🟠 High |
+| Safety Critic | Shipped | ~4 h | 🔴 Critical |
+| Graph Navigator | Shipped 2026-05-25 | ~6 h | 🟠 High |
 | ~~Medical Scribe~~ | Removed 2026-05-19 — deterministic SOAP wiring, not an agent; already shipped in the Doctor UI | — | — |
 
 **If only one agent gets built:** build the Safety Critic. A second LLM independently

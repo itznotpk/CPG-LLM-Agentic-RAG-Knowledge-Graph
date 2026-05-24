@@ -47,7 +47,7 @@ _PREFER_EDGES = ("FIRST_LINE_FOR", "SECOND_LINE_FOR", "RECOMMENDED_FOR")
 # into a relationship — e.g. `"Asthma | + | - | + | + | + | +"`. We require
 # 3+ pipe separators with single-char (or 1–3 char) cells to avoid false
 # positives on legitimate evidence sentences that happen to contain a pipe.
-_TABLE_ROW_NOISE = re.compile(r"(?:\|\s*[+\-A-Za-z0-9]{1,3}\s*){3,}")
+_TABLE_ROW_NOISE = re.compile(r"(?:\|\s*[+\-]{1,3}\$?\s*){3,}")
 
 
 def _is_table_row_noise(evidence: str) -> bool:

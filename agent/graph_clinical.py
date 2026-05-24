@@ -17,8 +17,9 @@ Usage from clinical_stages.py:
 """
 
 import os
+import re
 import logging
-from typing import List, Optional, Literal
+from typing import Any, Dict, List, Optional, Literal
 from dataclasses import dataclass, field
 
 from dotenv import load_dotenv
@@ -47,6 +48,14 @@ class ClinicalFlag:
     source_document: str = ""
     cpg_chunk_id: Optional[str] = None
     cpg_chunk_ids: List[str] = field(default_factory=list)  # all source chunk UUIDs
+    # Path B typed thresholds (populated when the KG edge has them — backfill or new ingest).
+    threshold_param: Optional[str] = None     # e.g. "eGFR"
+    threshold_op: Optional[str] = None        # "<", "<=", "=", ">=", ">", "between"
+    threshold_value: Optional[float] = None
+    threshold_value2: Optional[float] = None  # upper bound when op="between"
+    threshold_unit: Optional[str] = None
+    threshold_negated: Optional[bool] = None
+    threshold_breach: Optional[bool] = None   # set by clinical_graph_lookup when patient_params provided
 
 
 # ---------------------------------------------------------------------------
@@ -92,6 +101,124 @@ async def _get_neo4j_session():
 
 
 # ---------------------------------------------------------------------------
+# Threshold evaluation
+# ---------------------------------------------------------------------------
+
+# Map KG threshold_param canonical names -> keys to look up in patient_params.
+# Patient_params is built from PatientCase.vitals + severity_staging + age.
+_PARAM_ALIASES = {
+    "egfr": ["egfr", "gfr"],
+    "crcl": ["crcl", "creatinine_clearance"],
+    "sbp": ["sbp", "systolic_bp", "systolic"],
+    "dbp": ["dbp", "diastolic_bp", "diastolic"],
+    "hr": ["hr", "heart_rate", "pulse"],
+    "k+": ["k+", "potassium", "serum_potassium", "k"],
+    "na+": ["na+", "sodium", "na"],
+    "inr": ["inr"],
+    "tsh": ["tsh"],
+    "ldl": ["ldl", "ldl-c", "ldl_c"],
+    "platelet": ["platelet", "platelets"],
+    "age": ["age"],
+    "weight": ["weight", "body_weight", "kg"],
+    "hba1c": ["hba1c"],
+    "lvef": ["lvef", "ef"],
+}
+
+
+def _resolve_patient_value(param: str, patient_params: Dict[str, Any]) -> Optional[float]:
+    """Return the patient's numeric value for a threshold_param, or None if unknown."""
+    if not param or not patient_params:
+        return None
+    p = param.lower().strip()
+    # Normalise patient_params keys once.
+    pp = {k.lower(): v for k, v in patient_params.items() if v is not None}
+    # Direct match.
+    if p in pp:
+        try:
+            return float(pp[p])
+        except (TypeError, ValueError):
+            return None
+    # Alias match.
+    for canonical, aliases in _PARAM_ALIASES.items():
+        if p == canonical or p in aliases:
+            for a in [canonical] + aliases:
+                if a in pp:
+                    try:
+                        return float(pp[a])
+                    except (TypeError, ValueError):
+                        return None
+    return None
+
+
+def evaluate_threshold(
+    param: Optional[str],
+    op: Optional[str],
+    value: Optional[float],
+    value2: Optional[float],
+    patient_params: Dict[str, Any],
+) -> Optional[bool]:
+    """Return True if the patient meets the threshold (breach), False if clearly not,
+    or None if the patient's value for `param` is unknown / inputs invalid.
+
+    A "breach" means the rule's condition is satisfied by the patient — i.e. the
+    flag is actionable for THIS patient (e.g. drug requires dose-adjust if eGFR<30
+    and the patient has eGFR=22 → breach=True; eGFR=80 → breach=False).
+    """
+    if not param or not op or value is None:
+        return None
+    pv = _resolve_patient_value(param, patient_params)
+    if pv is None:
+        return None
+    try:
+        v = float(value)
+        v2 = float(value2) if value2 is not None else None
+    except (TypeError, ValueError):
+        return None
+    if op == "<":
+        return pv < v
+    if op == "<=":
+        return pv <= v
+    if op == ">":
+        return pv > v
+    if op == ">=":
+        return pv >= v
+    if op == "=":
+        return pv == v
+    if op == "between" and v2 is not None:
+        lo, hi = (v, v2) if v <= v2 else (v2, v)
+        return lo <= pv <= hi
+    return None
+
+
+def build_patient_params(case: Any) -> Dict[str, Any]:
+    """Flatten PatientCase.vitals + severity_staging + age into a single dict
+    consumable by `evaluate_threshold`. Keys are lower-cased; missing fields are
+    skipped silently."""
+    out: Dict[str, Any] = {}
+    if case is None:
+        return out
+    age = getattr(case, "age", None)
+    if age is not None:
+        out["age"] = age
+    for source in ("vitals", "severity_staging"):
+        d = getattr(case, source, None) or {}
+        for k, v in d.items():
+            if v is None:
+                continue
+            # severity_staging values may be strings like "30" or "30 mL/min" — try to extract leading number.
+            if isinstance(v, str):
+                m = re.search(r"-?\d+(?:\.\d+)?", v)
+                if not m:
+                    continue
+                try:
+                    v = float(m.group())
+                except ValueError:
+                    continue
+            out[k.lower()] = v
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Cypher queries
 # ---------------------------------------------------------------------------
 
@@ -118,7 +245,10 @@ async def _query_drug_interactions(
            coalesce(r.source_document, '') AS source,
            coalesce(r.severity, 'UNSPECIFIED') AS severity,
            r.cpg_chunk_id AS chunk_id,
-           coalesce(r.cpg_chunk_ids, []) AS chunk_ids
+           coalesce(r.cpg_chunk_ids, []) AS chunk_ids,
+           r.threshold_param AS t_param, r.threshold_op AS t_op,
+           r.threshold_value AS t_value, r.threshold_value2 AS t_value2,
+           r.threshold_unit AS t_unit, r.threshold_negated AS t_negated
     """
     result = await session.run(
         cypher,
@@ -138,6 +268,12 @@ async def _query_drug_interactions(
             source_document=record["source"],
             cpg_chunk_id=record["chunk_id"],
             cpg_chunk_ids=list(record["chunk_ids"]),
+            threshold_param=record["t_param"],
+            threshold_op=record["t_op"],
+            threshold_value=record["t_value"],
+            threshold_value2=record["t_value2"],
+            threshold_unit=record["t_unit"],
+            threshold_negated=record["t_negated"],
         ))
     return flags
 
@@ -166,7 +302,10 @@ async def _query_comorbidity_flags(
            coalesce(r.severity, 'UNSPECIFIED') AS severity,
            r.cpg_chunk_id AS chunk_id,
            coalesce(r.cpg_chunk_ids, []) AS chunk_ids,
-           r.trigger AS trigger
+           r.trigger AS trigger,
+           r.threshold_param AS t_param, r.threshold_op AS t_op,
+           r.threshold_value AS t_value, r.threshold_value2 AS t_value2,
+           r.threshold_unit AS t_unit, r.threshold_negated AS t_negated
     """
     result = await session.run(
         cypher,
@@ -193,6 +332,12 @@ async def _query_comorbidity_flags(
             source_document=record["source"],
             cpg_chunk_id=record["chunk_id"],
             cpg_chunk_ids=list(record["chunk_ids"]),
+            threshold_param=record["t_param"],
+            threshold_op=record["t_op"],
+            threshold_value=record["t_value"],
+            threshold_value2=record["t_value2"],
+            threshold_unit=record["t_unit"],
+            threshold_negated=record["t_negated"],
         ))
     return flags
 
@@ -327,6 +472,7 @@ async def clinical_graph_lookup(
     candidate_drugs: Optional[List[str]] = None,
     comorbidities: Optional[List[str]] = None,
     allergies: Optional[List[str]] = None,
+    patient_params: Optional[Dict[str, Any]] = None,
 ) -> List[ClinicalFlag]:
     """
     Run structured Cypher queries against the KG and return clinical flags.
@@ -381,6 +527,20 @@ async def clinical_graph_lookup(
                 if key not in seen:
                     seen.add(key)
                     unique_flags.append(f)
+
+            # Evaluate typed thresholds against patient parameters, when provided.
+            if patient_params:
+                breach_count = 0
+                for f in unique_flags:
+                    f.threshold_breach = evaluate_threshold(
+                        f.threshold_param, f.threshold_op,
+                        f.threshold_value, f.threshold_value2,
+                        patient_params,
+                    )
+                    if f.threshold_breach is True:
+                        breach_count += 1
+                if breach_count:
+                    logger.info(f"clinical_graph_lookup: {breach_count} threshold breach(es) confirmed against patient params")
 
             logger.info(f"clinical_graph_lookup: {len(unique_flags)} flags found")
             return unique_flags

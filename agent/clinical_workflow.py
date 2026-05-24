@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 
 from .models import PatientCase, TreatmentPlan, SafetyReport
 from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
-from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks
+from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
 from .routing import CPGDocRef, route_icd_to_cpgs
 
@@ -198,6 +198,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
             candidate_drugs=_candidate_drugs,
             comorbidities=case.comorbidities,
             allergies=case.allergies,
+            patient_params=build_patient_params(case),
         )
         logger.info("KG lookup: %d flags", len(kg_flags))
     except Exception as e:
@@ -370,6 +371,7 @@ async def run_clinical_workflow_streaming(
             candidate_drugs=_candidate_drugs,
             comorbidities=case.comorbidities,
             allergies=case.allergies,
+            patient_params=build_patient_params(case),
         )
         logger.info("KG lookup: %d flags", len(kg_flags))
     except Exception as e:
@@ -491,6 +493,7 @@ async def run_resynthesize_streaming(
             candidate_drugs=_candidate_drugs,
             comorbidities=case.comorbidities,
             allergies=case.allergies,
+            patient_params=build_patient_params(case),
         )
         logger.info("KG lookup: %d flags", len(kg_flags))
     except Exception as e:

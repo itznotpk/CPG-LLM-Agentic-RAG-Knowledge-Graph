@@ -436,6 +436,15 @@ EXTRACT relationships as JSON triples. Each triple must have:
 - severity: MAJOR, MODERATE, MINOR, or null. Use ONLY when the text explicitly states a severity level or urgency (e.g. "avoid", "major risk", "monitor closely"). If not stated, return null. DO NOT infer.
 - trigger: string or null. Use for REQUIRES_DOSE_ADJUSTMENT only. The specific condition triggering the adjustment (e.g. "eGFR<30", "hepatic impairment"). If not stated, return null.
 - risk_pct: string or null. Use for CROSS_REACTS_WITH only. The stated cross-reactivity percentage if explicitly given. If not stated, return null.
+- threshold_param, threshold_op, threshold_value, threshold_value2, threshold_unit, threshold_negated, threshold_confidence: typed numeric threshold. Use ONLY for REQUIRES_DOSE_ADJUSTMENT, REQUIRES_MONITORING, CONTRAINDICATED_WITH, HAS_DOSAGE when a numeric cut-off is explicitly stated in the evidence (e.g. "eGFR <30 mL/min", "age >75 years", "Maximum 200 mg/day", "2.5-10 mg"). Otherwise set all SEVEN to null.
+    * threshold_param: canonical clinical name. Use snake_case. Common: eGFR, CrCl, SBP, DBP, HR, age, weight, K+, Na+, INR, LDL, TSH, platelet, duration, <drug>_dose (e.g. metformin_dose).
+    * threshold_op: one of "<", "<=", "=", ">=", ">", "between". Use "between" for ranges (then set value AND value2).
+    * threshold_value: numeric (int or float). For "between", the lower bound.
+    * threshold_value2: numeric or null. Upper bound when op="between"; otherwise null.
+    * threshold_unit: string or null. Use the unit as written ("mg/day", "mL/min/1.73m2", "mmHg", "years"). Strip whitespace. null if no unit.
+    * threshold_negated: false by default. true ONLY if the rule means "do NOT exceed" framed via negation in the evidence sentence (rare; usually the op already captures direction).
+    * threshold_confidence: "high" | "medium" | "low". Use "high" ONLY when you can quote the exact number AND unit AND operator literally from the [FOCUS] evidence sentence. Anything paraphrased or inferred -> "medium" or "low". Only "high" is persisted; medium/low are dropped.
+    * If you cannot quote the exact number from the [FOCUS] evidence sentence, set all seven to null.
 
 RELATION TYPES (use exactly as written):
 {relation_list}
@@ -470,7 +479,7 @@ Return format:
 [
   {{"subject": "Warfarin", "subject_type": "Drug", "relation": "INTERACTS_WITH", "object": "Amiodarone", "object_type": "Drug", "evidence": "Amiodarone significantly potentiates the anticoagulant effect of warfarin, increasing risk of fatal bleeding.", "severity": "MAJOR", "trigger": null, "risk_pct": null}},
   {{"subject": "Beta-Blocker", "subject_type": "Drug", "relation": "INTERACTS_WITH", "object": "Decompensated Heart Failure", "object_type": "Condition", "evidence": "Avoid beta-blockers in decompensated heart failure; use with caution in stable HF.", "severity": "MODERATE", "trigger": null, "risk_pct": null}},
-  {{"subject": "Metformin", "subject_type": "Drug", "relation": "REQUIRES_DOSE_ADJUSTMENT", "object": "Renal Impairment", "object_type": "Condition", "evidence": "Reduce metformin dose when eGFR falls below 30 mL/min/1.73m2.", "severity": null, "trigger": "eGFR<30", "risk_pct": null}},
+  {{"subject": "Metformin", "subject_type": "Drug", "relation": "REQUIRES_DOSE_ADJUSTMENT", "object": "Renal Impairment", "object_type": "Condition", "evidence": "Reduce metformin dose when eGFR falls below 30 mL/min/1.73m2.", "severity": null, "trigger": "eGFR<30", "risk_pct": null, "threshold_param": "eGFR", "threshold_op": "<", "threshold_value": 30, "threshold_value2": null, "threshold_unit": "mL/min/1.73m2", "threshold_negated": false, "threshold_confidence": "high"}},
   {{"subject": "Tamoxifen", "subject_type": "Drug", "relation": "TREATS", "object": "ER-positive Breast Cancer", "object_type": "Condition", "evidence": "Tamoxifen is recommended for ER-positive breast cancer patients.", "severity": null, "trigger": null, "risk_pct": null}},
   ...
 ]
@@ -493,11 +502,17 @@ Return format:
             
             # Validate and clean triples
             valid_severities = {"MAJOR", "MODERATE", "MINOR"}
+            # Drops triples extracted from comparison-table rows like
+            # "Asthma | + | - | + | + | + | +" — a long-standing extractor
+            # defect previously mitigated downstream in graph_navigator.
+            _table_row_noise = re.compile(r"(?:\|\s*[+\-]{1,3}\$?\s*){3,}")
             valid_triples = []
             for t in triples:
                 if not isinstance(t, dict):
                     continue
                 if not all(k in t for k in ["subject", "relation", "object"]):
+                    continue
+                if _table_row_noise.search(str(t.get("evidence") or "")):
                     continue
                 if t.get("relation") not in self.CLINICAL_RELATION_TYPES:
                     t["relation"] = "OTHER"
@@ -509,6 +524,34 @@ Return format:
                     t["trigger"] = None
                 if not t.get("risk_pct"):
                     t["risk_pct"] = None
+                # Validate typed thresholds: only kept for the 4 target relations + must have op+value+param.
+                _threshold_rels = {"REQUIRES_DOSE_ADJUSTMENT", "REQUIRES_MONITORING",
+                                   "CONTRAINDICATED_WITH", "HAS_DOSAGE"}
+                _valid_ops = {"<", "<=", "=", ">=", ">", "between"}
+                tp = t.get("threshold_param"); op = t.get("threshold_op"); val = t.get("threshold_value")
+                conf = t.get("threshold_confidence")
+                if (t.get("relation") not in _threshold_rels
+                        or not tp or op not in _valid_ops
+                        or not isinstance(val, (int, float))
+                        or conf != "high"):
+                    # drop the whole threshold envelope
+                    for k in ("threshold_param", "threshold_op", "threshold_value",
+                              "threshold_value2", "threshold_unit", "threshold_negated"):
+                        t[k] = None
+                else:
+                    # coerce value2 numeric or null; require value2 when op=="between"
+                    v2 = t.get("threshold_value2")
+                    if op == "between" and not isinstance(v2, (int, float)):
+                        for k in ("threshold_param", "threshold_op", "threshold_value",
+                                  "threshold_value2", "threshold_unit", "threshold_negated"):
+                            t[k] = None
+                    else:
+                        if not isinstance(v2, (int, float)):
+                            t["threshold_value2"] = None
+                        if not isinstance(t.get("threshold_negated"), bool):
+                            t["threshold_negated"] = False
+                        u = t.get("threshold_unit")
+                        t["threshold_unit"] = (u.strip() if isinstance(u, str) and u.strip() else None)
                 t["chunk_index"] = chunk_index
                 t["source"] = source
                 if cpg_chunk_id:
@@ -572,6 +615,13 @@ Return format:
                     severity = triple.get("severity")      # MAJOR/MODERATE/MINOR or None
                     trigger = triple.get("trigger")        # e.g. "eGFR<30" or None
                     risk_pct = triple.get("risk_pct")      # e.g. "10%" or None
+                    threshold_param = triple.get("threshold_param")
+                    threshold_op = triple.get("threshold_op")
+                    threshold_value = triple.get("threshold_value")
+                    threshold_value2 = triple.get("threshold_value2")
+                    threshold_unit = triple.get("threshold_unit")
+                    threshold_negated = triple.get("threshold_negated")
+                    threshold_source = "ingest_v1" if threshold_param else None
 
                     if not subject_norm or not obj_norm:
                         continue
@@ -601,6 +651,13 @@ Return format:
                         r.severity = $severity,
                         r.trigger = $trigger,
                         r.risk_pct = $risk_pct,
+                        r.threshold_param = $threshold_param,
+                        r.threshold_op = $threshold_op,
+                        r.threshold_value = $threshold_value,
+                        r.threshold_value2 = $threshold_value2,
+                        r.threshold_unit = $threshold_unit,
+                        r.threshold_negated = $threshold_negated,
+                        r.threshold_source = $threshold_source,
                         r.created_at = datetime()
                     ON MATCH SET
                         r.evidence_list = CASE
@@ -615,7 +672,14 @@ Return format:
                         r.source_document = $document_title,
                         r.severity = CASE WHEN r.severity IS NULL THEN $severity ELSE r.severity END,
                         r.trigger = CASE WHEN r.trigger IS NULL THEN $trigger ELSE r.trigger END,
-                        r.risk_pct = CASE WHEN r.risk_pct IS NULL THEN $risk_pct ELSE r.risk_pct END
+                        r.risk_pct = CASE WHEN r.risk_pct IS NULL THEN $risk_pct ELSE r.risk_pct END,
+                        r.threshold_param = CASE WHEN r.threshold_param IS NULL THEN $threshold_param ELSE r.threshold_param END,
+                        r.threshold_op = CASE WHEN r.threshold_op IS NULL THEN $threshold_op ELSE r.threshold_op END,
+                        r.threshold_value = CASE WHEN r.threshold_value IS NULL THEN $threshold_value ELSE r.threshold_value END,
+                        r.threshold_value2 = CASE WHEN r.threshold_value2 IS NULL THEN $threshold_value2 ELSE r.threshold_value2 END,
+                        r.threshold_unit = CASE WHEN r.threshold_unit IS NULL THEN $threshold_unit ELSE r.threshold_unit END,
+                        r.threshold_negated = CASE WHEN r.threshold_negated IS NULL THEN $threshold_negated ELSE r.threshold_negated END,
+                        r.threshold_source = CASE WHEN r.threshold_source IS NULL THEN $threshold_source ELSE r.threshold_source END
                     """
 
                     await session.run(
@@ -632,6 +696,13 @@ Return format:
                         severity=severity,
                         trigger=trigger,
                         risk_pct=risk_pct,
+                        threshold_param=threshold_param,
+                        threshold_op=threshold_op,
+                        threshold_value=threshold_value,
+                        threshold_value2=threshold_value2,
+                        threshold_unit=threshold_unit,
+                        threshold_negated=threshold_negated,
+                        threshold_source=threshold_source,
                     )
             
             logger.info(f"Wrote {len(triples)} triples to Neo4j for '{document_title}'")

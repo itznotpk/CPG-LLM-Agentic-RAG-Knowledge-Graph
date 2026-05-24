@@ -18,7 +18,7 @@ import openai
 from pydantic import ValidationError
 
 from .models import PatientCase, TreatmentPlan, SafetyFlag, SafetyReport  # noqa: F401 re-export
-from .graph_clinical import clinical_graph_lookup, match_plan_drugs, ClinicalFlag, _norm as _kg_norm
+from .graph_clinical import clinical_graph_lookup, match_plan_drugs, ClinicalFlag, build_patient_params, _norm as _kg_norm
 
 logger = logging.getLogger(__name__)
 
@@ -82,8 +82,30 @@ def _kg_flag_to_safety(
     detail = f"{cf.subject} {relation_pretty} {cf.object}."
     if evidence_snippet:
         detail = f"{detail} Evidence: {evidence_snippet}"
+
+    severity = _kg_severity_to_safety(cf.severity)
+
+    # Typed-threshold awareness: if the patient actually meets the rule's numeric
+    # condition (breach=True), surface that fact and escalate one severity step.
+    # If the patient clearly does not (breach=False), append a note so the clinician
+    # understands why the flag is informational rather than actionable.
+    if cf.threshold_param and cf.threshold_op and cf.threshold_value is not None:
+        v2 = f"-{cf.threshold_value2}" if cf.threshold_value2 is not None else ""
+        unit = f" {cf.threshold_unit}" if cf.threshold_unit else ""
+        rule_str = f"{cf.threshold_param} {cf.threshold_op} {cf.threshold_value}{v2}{unit}".strip()
+        if cf.threshold_breach is True:
+            detail = f"{detail} Patient meets threshold ({rule_str}); rule is actionable."
+            if severity == "MODERATE":
+                severity = "MAJOR"
+            elif severity == "MAJOR":
+                severity = "CRITICAL"
+        elif cf.threshold_breach is False:
+            detail = f"{detail} Threshold ({rule_str}) not met by this patient — informational."
+        else:
+            detail = f"{detail} Threshold: {rule_str} (patient value unknown)."
+
     return SafetyFlag(
-        severity=_kg_severity_to_safety(cf.severity),
+        severity=severity,
         recommendation_index=rec_index,
         flag_type=safety_type,
         detail=detail,
@@ -123,6 +145,7 @@ async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> list[Safety
                 candidate_drugs=list(drug_idx_map.keys()),
                 comorbidities=case.comorbidities,
                 allergies=case.allergies,
+                patient_params=build_patient_params(case),
             )
             out: list[SafetyFlag] = []
             for cf in kg_flags:
