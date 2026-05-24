@@ -9,11 +9,13 @@
 
 ---
 
-## Phase 1 — Category-aware retrieval (no re-ingestion) — 🟡 OPTIONAL / DEFER
+## Phase 1 — Category-aware retrieval (no re-ingestion) — ❌ NOT NEEDED
 
 ### R3 Phase 2 Step 1 — query-aware SQL category filter (plumbing + conservative default)
 
-> **Status (2026-05-18): 🟡 OPTIONAL — defer until after Friend 1's re-ingest (A-13), low value.**
+> **Status (2026-05-25): ❌ NOT NEEDED — superseded by shipped code.** Verified in codebase: `category_filter` on `VectorSearchInput`, the SQL clause, and `EXCLUDED_CATEGORIES` were never added. Both user-facing problems are fully solved by what *is* shipped: post-retrieval `_CATEGORY_BOOST` ([clinical_stages.py:1083](../agent/clinical_stages.py)) sinks Methodology/Epidemiology below the top-20 cut, and the token-budgeted assembler (`_TOTAL_TOKEN_BUDGET = 50_000`) prevents low-ranked noise from reaching the budget. A hard SQL filter is marginally cleaner but adds zero correctness or safety value. Do not build.
+>
+> **Original (now-obsolete) deferral rationale (2026-05-18):**
 > Two of the three justifications below are now obsolete:
 > 1. **The user-facing problem is already solved by the shipped score-boost** (`clinical_stages.py:489-510`): `Methodology ×0.3`, `Epidemiology ×0.4` sort to the bottom and fall outside the `all_chunks[:20]` cut — the clinician never sees them.
 > 2. **The "consumes token budget" argument was killed by Phase A Step 1** — the old flat 4000-char/80k caps were replaced with a token-budgeted whole-chunk-or-skip assembler (`_TOTAL_TOKEN_BUDGET`). Low-ranked noise no longer reaches the budget.
@@ -111,9 +113,9 @@ async def route_comorbidities(
 
 ## Phase 5 — Agentic sub-loops inside Stage 4 and Stage 5
 
-Only start once Phase 4 is shipped and graph results are clinically validated.
+Phase 4 is shipped and validated. 5c is shipped (hybrid-deterministic, not agentic — see note). 5a and 5b remain 🟡 OPTIONAL — value is now marginal given Stage 4.5 KG injection + Stage 6 hybrid Safety Critic already cover the failure modes these were designed to catch.
 
-### 5a — Stage 4 retrieval agent
+### 5a — Stage 4 retrieval agent — ❌ NOT NEEDED
 
 **Why:** Conditional graph lookups (drugs × meds × comorbidities) and retrieval self-correction (re-query thin domains) are exactly what an agent loop handles well — and what nested deterministic loops handle poorly.
 
@@ -125,7 +127,9 @@ Only start once Phase 4 is shipped and graph results are clinically validated.
 - Outer pipeline contract unchanged: one call in, `list[ChunkResult]` + interaction flags out.
 - New SSE event (or reuse `sub_step`) so the UI can show `Agent called find_interactions(warfarin, bosentan) → MAJOR`.
 
-### 5b — Stage 5 self-critique loop
+> **Status (2026-05-25): 🟡 OPTIONAL.** Stage 4.5 `clinical_graph_lookup` already injects deterministic KG flags (interactions, contraindications, dose-adjust, cross-react) into Stage 5 with `cpg_chunk_id` citations. Graph Navigator Agent 2 (`graph_navigator.py`) adds the positive-edge PREFER arm. Both run in parallel with Stage 4 retrieval — there is no remaining "conditional graph lookup" gap an agent loop would close. Re-query-thin-domains is the only remaining win; defer until a real case shows the need.
+
+### 5b — Stage 5 self-critique loop — ❌ NOT NEEDED
 
 **Why:** Stage 5 currently commits to its first JSON pass. If `monitoring=[]` and `red_flags=[]` despite the patient needing them, there's no recovery.
 
@@ -134,9 +138,13 @@ Only start once Phase 4 is shipped and graph results are clinically validated.
 - After first JSON draft, inspect output coverage. If any mandatory section is empty AND no `unresolved_questions` entry justifies it, allow Stage 5 to call `request_more_evidence(domain, query)` and re-draft.
 - Cap: one critique pass (two LLM calls max for thin cases, one for clean cases).
 
-**Effort:** ~3–4 days total for 5a + 5b.
+> **Status (2026-05-25): 🟡 OPTIONAL.** Stage 6 Safety Critic now catches the "missing monitoring / missing red_flags" failure mode post-hoc via KG verify + LLM critic merge — and surfaces it to the clinician rather than silently re-drafting. A self-critique loop would add latency and another LLM call for a problem already covered downstream. Defer.
 
-### 5c — Safety Critic Phase 2: KG-grounded evaluator
+### 5c — Safety Critic Phase 2: KG-grounded evaluator — ✅ SHIPPED (hybrid, not agentic)
+
+> **Status (2026-05-25): ✅ SHIPPED — different shape than spec.** Implemented as `asyncio.gather(_llm_critic(), _kg_verify_plan(case, plan))` in [agent/safety_critic.py:238](../agent/safety_critic.py), merged without dedup. `_kg_verify_plan` ([:117](../agent/safety_critic.py)) runs deterministic Cypher (CONTRAINDICATED_WITH / INTERACTS_WITH / CROSS_REACTS_WITH / REQUIRES_DOSE_ADJUSTMENT / REQUIRES_MONITORING) — no pydantic-ai tool loop. Every flag carries `cpg_chunk_id`. Hardcoded sulfonamide list **removed** from `SAFETY_CRITIC_SYSTEM` (0 grep matches). Functionally equivalent to the agentic design at lower latency and zero extra LLM calls. **Do not re-implement as a tool-calling agent — the deterministic parallel shape is strictly better for a safety gate.**
+
+#### Original spec (retained for history)
 
 **Why:** The Safety Critic (already shipped as a post-Stage-5 LLM pass) currently relies on MiMo's training-time pharmacology memory. Smoke testing confirmed this is unreliable for nuanced cross-reactivities — the sulfa + furosemide case initially missed and required hardcoding the sulfonamide-derived drug list directly into the prompt. That hardcoded list is fragile maintenance debt; the KG is the principled fix.
 
@@ -169,13 +177,13 @@ The LLM's role shrinks to: receive structured graph results → assign severity 
 
 | # | Phase | Task | Effort | Status |
 |---|---|---|---|---|
-| 1 | 1 | R3 Phase 2 Step 1 — SQL category filter | 1 h | 🟡 OPTIONAL / defer post-A-13 — superseded in value by shipped score-boost + Phase A Step 1 token budgeting; not a standalone lane |
+| 1 | 1 | R3 Phase 2 Step 1 — SQL category filter | 1 h | ❌ NOT NEEDED — superseded by shipped `_CATEGORY_BOOST` + token-budgeted assembler |
 | 2 | 2 | C1 — comorbidity routing | 3 h | ✅ DONE (code exceeds spec) |
 | — | 3 | ~~R7 — sibling fetch at retrieval~~ | — | ❌ DELETED — superseded by Phase A Step 2 parent-child chain (`Phase_A_Step2_ParentChild_Ingest.md`); whole parent section now attached to every child hit |
 | 4 | 4 | R6 — KG extraction + deterministic Stage 4 wiring | 2.5 days | ✅ DONE / Superseded (wiring live; steps 1+3 cancelled by design; batch rides Friend 1's re-ingest) |
-| 5 | 5a | Stage 4 → agentic sub-agent | 2 days | needs Phase 4 validated |
-| 6 | 5b | Stage 5 → self-critique loop | 1.5 days | needs Phase 5a (proves the agentic pattern works) |
-| 7 | 5c | Safety Critic → KG-grounded pydantic-ai agent; remove hardcoded sulfonamide list | 1 day | needs Phase 4 KG relations validated |
+| 5 | 5a | Stage 4 → agentic sub-agent | 2 days | ❌ NOT NEEDED — superseded by Stage 4.5 KG + Graph Navigator + 7-domain queries |
+| 6 | 5b | Stage 5 → self-critique loop | 1.5 days | ❌ NOT NEEDED — superseded by Stage 6 Safety Critic (visible flags > silent re-draft) |
+| 7 | 5c | Safety Critic → KG-grounded | 1 day | ✅ DONE (hybrid-deterministic, not pydantic-ai agent — strictly better) |
 
 ---
 
@@ -190,3 +198,7 @@ The LLM's role shrinks to: receive structured graph results → assign severity 
 | R4 | 7-domain query generation (covers all 6 care plan sections) | [stage4_query_generation.txt](../agent/prompts/stage4_query_generation.txt) |
 | R5 | Mandatory 6-section synthesis rules + structured `monitoring` / `red_flags` | [stage5_synthesis.txt](../agent/prompts/stage5_synthesis.txt) |
 | Safety Critic Phase 1 | Post-Stage-5 MiMo adversarial reviewer; `SafetyReport` banner in Doctor UI; fail-open; sulfonamide list hardcoded as Phase 1 workaround | [agent/safety_critic.py](../agent/safety_critic.py) |
+| Safety Critic Phase 2 (5c) | Hybrid LLM critic + deterministic `_kg_verify_plan` via `asyncio.gather`; merged without dedup; sulfonamide hardcode removed; every flag carries `cpg_chunk_id` | [agent/safety_critic.py](../agent/safety_critic.py) |
+| Graph Navigator (Agent 2) | Positive-edge PREFER arm (FIRST_LINE_FOR / SECOND_LINE_FOR / RECOMMENDED_FOR); CPG-scope filter + table-row-noise filter; fail-open | [agent/graph_navigator.py](../agent/graph_navigator.py) |
+| Path B typed thresholds | `threshold_param/op/value/unit/negated` extraction in `graph_builder.py`, gated by `threshold_confidence="high"`; extractor-side table-row-noise filter; 721 typed edges live in Neo4j | [ingestion/graph_builder.py](../ingestion/graph_builder.py) |
+| Routing D1–D6 + exclusion_rerank D3 gate + semantic_scope D5 | Deterministic ICD→CPG resolution with calibrated thresholds | [agent/routing.py](../agent/routing.py) — see `Next-Step/Last Step Improvement/DDx Gap/DDx_Routing_Robustness_And_Exclusion_Rerank.md` |

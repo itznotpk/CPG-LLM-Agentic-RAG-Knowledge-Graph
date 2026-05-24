@@ -1055,6 +1055,7 @@ async def stage_4_retrieve(
     ]
     results_per_query = await asyncio.gather(*search_tasks, return_exceptions=True)
 
+    thin_queries: list[tuple[str, int, int]] = []
     for q, result in zip(queries, results_per_query):
         if isinstance(result, Exception):
             logger.warning("Query %r failed: %s", q, result)
@@ -1065,6 +1066,11 @@ async def stage_4_retrieve(
                 seen_chunk_ids.add(chunk.chunk_id)
                 all_chunks.append(chunk)
                 new_chunks += 1
+        # Instrumentation (5a deferral): flag a domain that came back thin so we
+        # can later measure whether auto-re-query would have helped. <2 new
+        # chunks per 5-chunk query means most hits were already-seen duplicates.
+        if new_chunks < 2:
+            thin_queries.append((q, new_chunks, len(result)))
         if emit:
             total = len(result)
             await emit("sub_step", {
@@ -1097,6 +1103,13 @@ async def stage_4_retrieve(
 
     all_chunks.sort(key=_boosted_score, reverse=True)
     final = all_chunks[:20]
+
+    if thin_queries:
+        logger.info(
+            "stage_4_thin_retrieval: %d/%d queries returned <2 new chunks: %s",
+            len(thin_queries), len(queries),
+            [{"q": q[:80], "new": n, "total": t} for q, n, t in thin_queries],
+        )
 
     if emit:
         await emit("sub_step", {
@@ -1677,7 +1690,24 @@ Produce a TreatmentPlan JSON object matching this schema:
     data.setdefault("follow_up", [])
 
     try:
-        return TreatmentPlan.model_validate(data)
+        plan = TreatmentPlan.model_validate(data)
     except ValidationError as exc:
         logger.error("TreatmentPlan validation failed. Raw JSON: %s", raw_json)
         raise RuntimeError(f"TreatmentPlan validation failed: {exc}") from exc
+
+    # Instrumentation (5b deferral): log when Stage 5 emits empty mandatory
+    # sections so we can measure whether auto-re-draft would have helped.
+    empty_sections = [
+        name for name, val in (
+            ("monitoring", plan.monitoring),
+            ("red_flags", plan.red_flags),
+            ("follow_up", plan.follow_up),
+        ) if not val
+    ]
+    if empty_sections:
+        logger.info(
+            "stage_5_empty_sections: %s (icd=%s, evidence_chunks=%d, flags=%d)",
+            empty_sections, icd_primary, len(evidence), len(flags or []),
+        )
+
+    return plan

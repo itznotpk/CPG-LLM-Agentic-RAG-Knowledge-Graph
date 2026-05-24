@@ -72,6 +72,51 @@ def _expand_clinical_synonyms(text: str) -> str:
     return text
 
 
+# Symptom-phrase → candidate-disease hints, scoped to the 30 ingested CPGs.
+# Appended to symptom-shaped queries before embedding so the Titan vector
+# lands closer to named-disease ICD codes instead of generic symptom codes.
+# Hints are concatenated, not substituted — original symptom text stays.
+_SYMPTOM_DISEASE_HINTS: list[tuple[str, str]] = [
+    (r"\bwheez(e|ing)\b",            "asthma chronic obstructive pulmonary disease"),
+    (r"\bdyspn(o|oe)a\b",            "heart failure asthma chronic obstructive pulmonary disease pulmonary embolism"),
+    (r"\bshortness of breath\b",     "heart failure asthma chronic obstructive pulmonary disease pulmonary embolism"),
+    (r"\bbreathless(ness)?\b",       "heart failure asthma chronic obstructive pulmonary disease"),
+    (r"\bhaemoptysis\b",             "pulmonary embolism tuberculosis lung cancer"),
+    (r"\bchronic cough\b",           "chronic obstructive pulmonary disease asthma"),
+    (r"\bchest pain\b",              "acute coronary syndrome myocardial infarction angina pulmonary embolism aortic dissection"),
+    (r"\bpalpitation(s)?\b",         "atrial fibrillation supraventricular tachycardia"),
+    (r"\bsyncope\b",                 "atrial fibrillation aortic stenosis arrhythmia"),
+    (r"\bankle (oedema|swelling)\b", "heart failure chronic venous insufficiency"),
+    (r"\borthopn(o|oe)a\b",          "heart failure"),
+    (r"\bclaudication\b",            "peripheral arterial disease"),
+    (r"\bfacial droop\b",            "stroke transient ischaemic attack"),
+    (r"\bhemiparesis\b",             "stroke"),
+    (r"\bslurred speech\b",          "stroke transient ischaemic attack"),
+    (r"\bsudden weakness\b",         "stroke transient ischaemic attack"),
+    (r"\bpolyuria\b",                "diabetes mellitus"),
+    (r"\bpolydipsia\b",              "diabetes mellitus"),
+    (r"\bfrothy urine\b",            "chronic kidney disease nephrotic syndrome"),
+    (r"\b(leg|calf) (pain|swelling)\b", "deep vein thrombosis"),
+    (r"\bhaematemesis\b",            "peptic ulcer disease variceal bleeding"),
+    (r"\bmelaena\b",                 "upper gastrointestinal bleeding peptic ulcer disease"),
+    (r"\bjaundice\b",                "hepatitis cirrhosis biliary obstruction"),
+    (r"\bfever and (cough|sputum)\b", "pneumonia tuberculosis"),
+]
+
+
+def _inject_disease_hints(text: str) -> str:
+    """Append candidate disease names for matched symptom phrases.
+    Original text is preserved; hints are space-appended so the embedding
+    averages symptom + disease tokens instead of replacing them."""
+    hints: list[str] = []
+    for pattern, candidates in _SYMPTOM_DISEASE_HINTS:
+        if re.search(pattern, text, flags=re.IGNORECASE):
+            hints.append(candidates)
+    if not hints:
+        return text
+    return f"{text} {' '.join(hints)}"
+
+
 def normalize_query(query: str) -> str:
     """
     Normalize user query for consistent embedding results.
@@ -104,6 +149,9 @@ def normalize_query(query: str) -> str:
 
     # Expand clinical abbreviations BEFORE embedding so vector search matches full ICD-11 titles
     query = _expand_clinical_synonyms(query)
+
+    # Append candidate diseases for symptom-shaped queries (closes symptom→disease gap)
+    query = _inject_disease_hints(query)
 
     # Collapse any whitespace introduced by multi-word expansions
     query = re.sub(r'\s+', ' ', query).strip()
@@ -420,78 +468,11 @@ async def search_ddx(symptoms: str, top_k: int = 5) -> list[dict]:
         raise RuntimeError(f"Failed to generate embedding: {e}")
 
     if not database_url:
-        print("\n⚠️  WARNING: DATABASE_URL not set. Running in MOCK/DEMO mode.")
-        print("    Returning static example results.")
-        
-        # Simulated Database Candidates (Rich Data)
-        # This allows us to test the 'apply_tabulation_filter' logic without a real DB.
-        mock_candidates = [
-            {
-                "code": "HA00.0",
-                "title": "Hypoactive sexual desire dysfunction",
-                "description": "Hypoactive sexual desire dysfunction is characterized by deficiency or absence of sexual thoughts or fantasies and desire for sexual activity.",
-                "inclusions": ["Frigidity in female", "Hypoactive sexual desire disorder"],
-                "exclusions": ["Sexual aversion disorder"],
-                "similarity": 0.9234
-            },
-            {
-                "code": "HA02.0",
-                "title": "Anorgasmia",
-                "description": "Anorgasmia is characterised by the absence or marked infrequency of the orgasm experience or markedly diminished intensity of orgasmic sensations.",
-                "inclusions": ["Psychogenic anorgasmy", "Inhibited orgasm"],
-                "exclusions": [],
-                "exclusion_embeddings": {},
-                "similarity": 0.8100 
-            },
-            {
-                "code": "HA01",
-                "title": "Sexual arousal dysfunctions",
-                "description": "Sexual arousal dysfunctions are characterized by the inability to attain or maintain adequate lubrication or vasocongestion responses.",
-                "inclusions": ["Female sexual arousal dysfunction"],
-                "exclusions": [],
-                "exclusion_embeddings": {},
-                "similarity": 0.7500
-            },
-            {
-                "code": "HA03",
-                "title": "Ejaculatory dysfunctions",
-                "description": "Ejaculatory dysfunctions involve the inability to ejaculate or premature ejaculation during sexual activity.",
-                "inclusions": ["Premature ejaculation", "Delayed ejaculation"],
-                "exclusions": [],
-                "exclusion_embeddings": {},
-                "similarity": 0.6500
-            },
-            {
-                "code": "HA04",
-                "title": "Sexual pain disorders",
-                "description": "Persistent or recurrent pain associated with sexual intercourse or other sexual activities.",
-                "inclusions": ["Dyspareunia", "Vaginismus"],
-                "exclusions": [],
-                "exclusion_embeddings": {},
-                "similarity": 0.5400
-            }
-        ]
-        
-        # Apply the ACTUAL Morbidity Tabulation Layer logic to these mock candidates
-        print("    [Mock] applying tabulation filter logic...")
-        filtered = await apply_tabulation_filter(mock_candidates, normalized_symptoms, embedding)
-        
-        # Format for output (ensure description length, etc)
-        suggestions = []
-        for item in filtered: # return all matches from mock db
-            desc = item["description"] or ""
-            suggestions.append({
-                "code": item["code"],
-                "title": item["title"],
-                "description": desc, # print_results handles wrapping
-                "similarity": item["similarity"],
-                "inclusion_match": item.get("inclusion_match", False),
-                "matched_term": item.get("matched_term"),
-                "reasoning": build_reasoning(item, normalized_symptoms)
-            })
-            
-        return suggestions[:top_k] # Filter to top K
-    
+        raise RuntimeError(
+            "DATABASE_URL not set — DDx search requires the icd11_codes pgvector table"
+        )
+
+
     conn = await asyncpg.connect(database_url)
 
     try:
@@ -582,7 +563,7 @@ def print_header():
     """Print the DDx search header."""
     print("\n" + "═" * 70)
     print("  🏥  ICD-11 DIFFERENTIAL DIAGNOSIS ENGINE  🏥")
-    print("     Chapter 17: Conditions Related to Sexual Health")
+    print("     Full ICD-11 corpus (all chapters)")
     print("═" * 70)
     print("\nEnter patient symptoms/condition to get top 5 ICD-11 diagnoses.")
     print("Type 'q', 'exit' or 'quit' to exit.\n")
