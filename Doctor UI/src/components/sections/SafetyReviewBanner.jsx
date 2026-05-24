@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, ShieldAlert, ShieldX, ChevronDown, ChevronUp } from 'lucide-react';
+import { ShieldCheck, ShieldAlert, ShieldX, ChevronDown, ChevronUp, Network, Bot } from 'lucide-react';
 import { GlassCard, Button, Badge } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -77,6 +77,9 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
     modCount   ? `${modCount} MODERATE`   : null,
   ].filter(Boolean).join(', ');
 
+  const graphCount = flags.filter(f => f.source === 'graph').length;
+  const llmCount   = flags.filter(f => (f.source ?? 'llm') === 'llm').length;
+
   return (
     <div className={`rounded-xl border mb-4 overflow-hidden ${bannerBg}`}>
       {/* Header row */}
@@ -90,6 +93,20 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
             {isRed ? 'Safety concerns require acknowledgement' : 'Safety concerns detected'}
           </span>
           <span className={`text-xs font-medium ${textColor} opacity-80`}>— {summary}</span>
+          {(graphCount > 0 || llmCount > 0) && (
+            <span className={`hidden sm:inline-flex items-center gap-1 ml-1 text-[10px] font-medium ${textColor} opacity-70`}>
+              {graphCount > 0 && (
+                <span className="inline-flex items-center gap-0.5">
+                  <Network className="w-3 h-3" /> {graphCount} KG
+                </span>
+              )}
+              {llmCount > 0 && (
+                <span className="inline-flex items-center gap-0.5">
+                  <Bot className="w-3 h-3" /> {llmCount} LLM
+                </span>
+              )}
+            </span>
+          )}
         </div>
         <div className={`w-5 h-5 ${textColor}`}>
           {expanded ? <ChevronUp strokeWidth={2} /> : <ChevronDown strokeWidth={2} />}
@@ -112,10 +129,35 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
                 >
                   {flag.severity}
                 </Badge>
-                <div className="min-w-0">
-                  <p className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
-                    {flag.flag_type.replace('_', ' ')} · rec #{flag.recommendation_index + 1}
-                  </p>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <p className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
+                      {flag.flag_type.replace('_', ' ')} · rec #{flag.recommendation_index + 1}
+                    </p>
+                    {flag.source === 'graph' ? (
+                      <span
+                        title="Verified against a structured edge in the Neo4j clinical knowledge graph"
+                        className={`inline-flex items-center gap-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full border ${
+                          isDark
+                            ? 'bg-emerald-900/30 border-emerald-700/50 text-emerald-300'
+                            : 'bg-emerald-50 border-emerald-300 text-emerald-800'
+                        }`}
+                      >
+                        <Network className="w-3 h-3" /> Graph-verified
+                      </span>
+                    ) : (
+                      <span
+                        title="Adversarial LLM critic finding (independent pharmacist review)"
+                        className={`inline-flex items-center gap-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full border ${
+                          isDark
+                            ? 'bg-slate-800/60 border-slate-600/50 text-slate-300'
+                            : 'bg-slate-100 border-slate-300 text-slate-700'
+                        }`}
+                      >
+                        <Bot className="w-3 h-3" /> LLM critic
+                      </span>
+                    )}
+                  </div>
                   <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                     {flag.detail}
                   </p>

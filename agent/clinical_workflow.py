@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from .models import PatientCase, TreatmentPlan, SafetyReport
 from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks
+from .graph_navigator import get_graph_constraints
 from .routing import CPGDocRef, route_icd_to_cpgs
 
 logger = logging.getLogger(__name__)
@@ -112,6 +113,19 @@ async def route_comorbidities(
     return additional
 
 
+def _nav_flag_to_dict(f) -> dict:
+    """Serialise a graph-navigator ClinicalFlag (PREFER) for transport.
+    Trims fields the clinician UI needs; drops bulky chunk_ids list."""
+    return {
+        "drug": f.subject,
+        "condition": f.object,
+        "relation": f.relation,                      # FIRST_LINE_FOR / SECOND_LINE_FOR / RECOMMENDED_FOR
+        "evidence": (f.evidence or "")[:240],
+        "source_document": f.source_document,
+        "cpg_chunk_id": f.cpg_chunk_id,
+    }
+
+
 @dataclass
 class WorkflowResult:
     treatment_plan: TreatmentPlan
@@ -120,6 +134,7 @@ class WorkflowResult:
     elapsed_ms: float
     stage_errors: list[str] = field(default_factory=list)
     safety_report: SafetyReport | None = None
+    graph_navigator_rules: list[dict] = field(default_factory=list)
 
 
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
@@ -189,6 +204,15 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         logger.warning("KG lookup failed (non-fatal): %s", e)
         kg_flags = []
 
+    # Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open
+    nav_flags = []
+    try:
+        nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
+        logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
+        kg_flags = list(kg_flags) + list(nav_flags)
+    except Exception as e:
+        logger.warning("Graph navigator failed (non-fatal): %s", e)
+
     # Stage 5 — Synthesize (unrecoverable if it fails)
     treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
 
@@ -207,6 +231,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         elapsed_ms=elapsed_ms,
         stage_errors=errors,
         safety_report=safety_report,
+        graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
     )
 
 
@@ -351,6 +376,20 @@ async def run_clinical_workflow_streaming(
         logger.warning("KG lookup failed (non-fatal): %s", e)
         kg_flags = []
 
+    # Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open
+    nav_flags = []
+    try:
+        nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
+        logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
+        kg_flags = list(kg_flags) + list(nav_flags)
+    except Exception as e:
+        logger.warning("Graph navigator failed (non-fatal): %s", e)
+    if nav_flags:
+        try:
+            await emit("graph_navigator", {"rules": [_nav_flag_to_dict(f) for f in nav_flags]})
+        except Exception:
+            pass
+
     # Stage 5 — Synthesize (unrecoverable if it fails)
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis",
@@ -377,6 +416,7 @@ async def run_clinical_workflow_streaming(
         elapsed_ms=elapsed_ms,
         stage_errors=errors,
         safety_report=safety_report,
+        graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
     )
 
 
@@ -457,6 +497,20 @@ async def run_resynthesize_streaming(
         logger.warning("KG lookup failed (non-fatal): %s", e)
         kg_flags = []
 
+    # Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open
+    nav_flags = []
+    try:
+        nav_flags = await get_graph_constraints(case, selected_ddx, cpgs=cpgs)
+        logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
+        kg_flags = list(kg_flags) + list(nav_flags)
+    except Exception as e:
+        logger.warning("Graph navigator failed (non-fatal): %s", e)
+    if nav_flags:
+        try:
+            await emit("graph_navigator", {"rules": [_nav_flag_to_dict(f) for f in nav_flags]})
+        except Exception:
+            pass
+
     # Stage 5 — Synthesize (unrecoverable)
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis",
@@ -483,4 +537,5 @@ async def run_resynthesize_streaming(
         elapsed_ms=elapsed_ms,
         stage_errors=errors,
         safety_report=safety_report,
+        graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
     )

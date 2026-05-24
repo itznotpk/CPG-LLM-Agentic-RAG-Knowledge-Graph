@@ -67,6 +67,7 @@ class ClinicalPlanResponse(_BaseModel):
     cpgs_matched: list[str]
     elapsed_ms: float
     stage_errors: list[str] = []
+    graph_navigator_rules: list[dict] = []
 
 from .tools import (
     vector_search_tool,
@@ -609,6 +610,7 @@ async def clinical_plan(request: ClinicalPlanRequest):
             cpgs_matched=[c.cpg_name for c in result.cpgs],
             elapsed_ms=result.elapsed_ms,
             stage_errors=result.stage_errors,
+            graph_navigator_rules=result.graph_navigator_rules,
         )
     except RuntimeError as e:
         logger.error("Clinical plan synthesis failed: %s", e)
@@ -618,173 +620,177 @@ async def clinical_plan(request: ClinicalPlanRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ---------------------------------------------------------------------------
+# Shared SSE plumbing for clinical streaming endpoints.
+#
+# Guarantees:
+#   - Ordered, gap-free delivery via monotonic `id:` sequence numbers per response.
+#   - Bounded back-pressure (queue cap) so a slow client throttles the producer
+#     instead of leaking memory.
+#   - Client-disconnect detection cancels the producer task immediately, so
+#     Stage 5 (Gemini synthesis) and Stage 6 (LLM critic + Neo4j KG verify)
+#     stop burning tokens the moment the browser drops.
+#   - Periodic heartbeat comment keeps proxies (nginx/CloudFront) from idling
+#     the TCP connection and doubles as a disconnect probe.
+#   - Producer exceptions are surfaced as a final `event: error` then `done`,
+#     never an HTTP 500 mid-stream (which clients render as a hard failure).
+# ---------------------------------------------------------------------------
+
+_SSE_QUEUE_MAX = 256          # back-pressure cap; producer awaits when full
+_SSE_HEARTBEAT_SEC = 15.0     # also the disconnect-probe interval
+_SSE_HEADERS = {
+    "Cache-Control": "no-cache, no-transform",
+    "Connection": "keep-alive",
+    "X-Accel-Buffering": "no",   # disables nginx response buffering
+    "Content-Encoding": "identity",
+}
+_SSE_DONE = object()
+
+
+async def _sse_stream(request: Request, producer, log_label: str) -> StreamingResponse:
+    """
+    Run `producer(emit)` and stream its events as SSE.
+
+    `producer` is `async def producer(emit) -> None` where
+    `emit(event_type: str, data: dict)` is awaitable.
+    """
+    queue: asyncio.Queue = asyncio.Queue(maxsize=_SSE_QUEUE_MAX)
+
+    async def emit(event_type: str, data: dict) -> None:
+        await queue.put((event_type, data))
+
+    async def run_producer() -> None:
+        try:
+            await producer(emit)
+        except asyncio.CancelledError:
+            raise
+        except Exception as e:
+            logger.exception("%s producer failed", log_label)
+            try:
+                queue.put_nowait(("error", {"detail": str(e)}))
+            except asyncio.QueueFull:
+                pass
+        finally:
+            # Always terminate the consumer loop, even under cancellation.
+            try:
+                queue.put_nowait(_SSE_DONE)
+            except asyncio.QueueFull:
+                pass
+
+    async def generate():
+        seq = 0
+        prod_task = asyncio.create_task(run_producer(), name=f"sse-{log_label}")
+        try:
+            while True:
+                try:
+                    item = await asyncio.wait_for(queue.get(), timeout=_SSE_HEARTBEAT_SEC)
+                except asyncio.TimeoutError:
+                    if await request.is_disconnected():
+                        return
+                    # SSE comment line — keeps the socket warm, never fires UI handlers.
+                    yield ": ping\n\n"
+                    continue
+
+                if item is _SSE_DONE:
+                    seq += 1
+                    yield f"id: {seq}\nevent: done\ndata: {{}}\n\n"
+                    return
+
+                event_type, data = item
+                seq += 1
+                payload = json.dumps(data, separators=(",", ":"), default=str)
+                yield f"id: {seq}\nevent: {event_type}\ndata: {payload}\n\n"
+        finally:
+            # Client closed the connection, response was cancelled, or we
+            # exited normally. Either way, stop the producer to free LLM /
+            # DB / KG work that nobody will see.
+            if not prod_task.done():
+                prod_task.cancel()
+                try:
+                    await prod_task
+                except (asyncio.CancelledError, Exception):
+                    pass
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers=_SSE_HEADERS,
+    )
+
+
 @app.post("/clinical/plan/stream")
-async def clinical_plan_stream(request: ClinicalPlanRequest):
+async def clinical_plan_stream(request: Request, payload: ClinicalPlanRequest):
     """
     Run clinical workflow and stream stage progress + DDx thinking as SSE events.
 
-    Events:
-      event: stage_update    data: {stage, name, status, detail, data?}
-      event: thinking_delta  data: {stage, node, chunk}
-      event: final_result    data: ClinicalPlanResponse JSON
-      event: error           data: {detail}
-      event: done            data: {}
+    Event order is contractual:
+      stage_update (2→5) · thinking_delta · sub_step · safety_review · final_result · done
+    Each frame carries a monotonic `id:` so the UI can dedupe on EventSource reconnect.
     """
     from .clinical_workflow import run_clinical_workflow_streaming
 
-    async def generate():
-        queue: asyncio.Queue = asyncio.Queue()
+    async def producer(emit):
+        result = await run_clinical_workflow_streaming(payload.case, emit)
+        final = ClinicalPlanResponse(
+            treatment_plan=result.treatment_plan,
+            ddx=[d.model_dump() for d in result.ddx],
+            cpgs_matched=[c.cpg_name for c in result.cpgs],
+            elapsed_ms=result.elapsed_ms,
+            stage_errors=result.stage_errors,
+            graph_navigator_rules=result.graph_navigator_rules,
+        )
+        # safety_review was already emitted inside the workflow; final_result
+        # is intentionally last so the UI can gate rendering on safety arrival.
+        await emit("final_result", final.model_dump())
 
-        async def emit(event_type: str, data: dict):
-            await queue.put((event_type, data))
-
-        async def run_workflow():
-            try:
-                result = await run_clinical_workflow_streaming(request.case, emit)
-                final = ClinicalPlanResponse(
-                    treatment_plan=result.treatment_plan,
-                    ddx=[d.model_dump() for d in result.ddx],
-                    cpgs_matched=[c.cpg_name for c in result.cpgs],
-                    elapsed_ms=result.elapsed_ms,
-                    stage_errors=result.stage_errors,
-                )
-                await queue.put(("final_result", final.model_dump()))
-            except Exception as e:
-                logger.error("Streaming clinical plan failed: %s", e)
-                await queue.put(("error", {"detail": str(e)}))
-            finally:
-                await queue.put(None)
-
-        asyncio.create_task(run_workflow())
-
-        while True:
-            item = await queue.get()
-            if item is None:
-                yield f"event: done\ndata: {{}}\n\n"
-                break
-            event_type, data = item
-            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
-
-    return StreamingResponse(
-        generate(),
-        media_type="text/event-stream",
-        headers={
-            "Cache-Control": "no-cache",
-            "Connection": "keep-alive",
-            "X-Accel-Buffering": "no",
-        },
-    )
+    return await _sse_stream(request, producer, "clinical_plan_stream")
 
 
 @app.post("/clinical/plan/ddx/stream")
-async def clinical_ddx_stream(request: ClinicalPlanRequest):
+async def clinical_ddx_stream(request: Request, payload: ClinicalPlanRequest):
     """
     Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and stream it, then stop.
 
-    The UI renders the ranked candidates and a confirm/override gate; on confirm it
-    calls /clinical/plan/resynthesize/stream to run Stages 3–5 on the agreed
-    diagnosis. Events match /clinical/plan/stream (stage_update, thinking_delta,
-    sub_step) plus a terminal:
-      event: ddx_ready   data: {"ddx": [DDxResult, ...]}
+    Terminal event: `ddx_ready` with the ranked candidates.
     """
     from .clinical_workflow import run_ddx_only_streaming
 
-    async def generate():
-        queue: asyncio.Queue = asyncio.Queue()
+    async def producer(emit):
+        await run_ddx_only_streaming(payload.case, emit)
 
-        async def emit(event_type: str, data: dict):
-            await queue.put((event_type, data))
-
-        async def run_workflow():
-            try:
-                await run_ddx_only_streaming(request.case, emit)
-            except Exception as e:
-                logger.error("DDx-only streaming failed: %s", e)
-                await queue.put(("error", {"detail": str(e)}))
-            finally:
-                await queue.put(None)
-
-        asyncio.create_task(run_workflow())
-
-        while True:
-            item = await queue.get()
-            if item is None:
-                yield f"event: done\ndata: {{}}\n\n"
-                break
-            event_type, data = item
-            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
-
-    return StreamingResponse(
-        generate(),
-        media_type="text/event-stream",
-        headers={
-            "Cache-Control": "no-cache",
-            "Connection": "keep-alive",
-            "X-Accel-Buffering": "no",
-        },
-    )
+    return await _sse_stream(request, producer, "clinical_ddx_stream")
 
 
 @app.post("/clinical/plan/resynthesize/stream")
-async def clinical_resynthesize_stream(request: ResynthesizeRequest):
+async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRequest):
     """
     Re-run Stages 3–5 with clinician-selected diagnoses and stream SSE events.
-
-    Called when the clinician confirms a diagnosis that differs from the AI top pick.
-    Stage 2 is skipped. Events are identical in shape to /clinical/plan/stream.
-    Extra event:
-      event: clinician_override   data: {"codes": ["BC81.3 AF", ...]}
     """
     from .clinical_workflow import run_resynthesize_streaming
     from .clinical_stages import DDxResult
 
-    async def generate():
-        queue: asyncio.Queue = asyncio.Queue()
+    async def producer(emit):
+        selected_ddx = [
+            DDxResult(
+                code=d.code,
+                title=d.title,
+                similarity=d.probability,
+                reasoning=d.reasoning,
+            )
+            for d in payload.selected_diagnoses
+        ]
+        result = await run_resynthesize_streaming(payload.case, selected_ddx, emit)
+        final = ClinicalPlanResponse(
+            treatment_plan=result.treatment_plan,
+            ddx=[d.model_dump() for d in result.ddx],
+            cpgs_matched=[c.cpg_name for c in result.cpgs],
+            elapsed_ms=result.elapsed_ms,
+            stage_errors=result.stage_errors,
+            graph_navigator_rules=result.graph_navigator_rules,
+        )
+        await emit("final_result", final.model_dump())
 
-        async def emit(event_type: str, data: dict):
-            await queue.put((event_type, data))
-
-        async def run_workflow():
-            try:
-                selected_ddx = [
-                    DDxResult(
-                        code=d.code,
-                        title=d.title,
-                        similarity=d.probability,
-                        reasoning=d.reasoning,
-                    )
-                    for d in request.selected_diagnoses
-                ]
-                result = await run_resynthesize_streaming(request.case, selected_ddx, emit)
-                final = ClinicalPlanResponse(
-                    treatment_plan=result.treatment_plan,
-                    ddx=[d.model_dump() for d in result.ddx],
-                    cpgs_matched=[c.cpg_name for c in result.cpgs],
-                    elapsed_ms=result.elapsed_ms,
-                    stage_errors=result.stage_errors,
-                )
-                await queue.put(("final_result", final.model_dump()))
-            except Exception as e:
-                logger.error("Re-synthesis streaming failed: %s", e)
-                await queue.put(("error", {"detail": str(e)}))
-            finally:
-                await queue.put(None)
-
-        asyncio.create_task(run_workflow())
-
-        while True:
-            item = await queue.get()
-            if item is None:
-                yield f"event: done\ndata: {{}}\n\n"
-                break
-            event_type, data = item
-            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
-
-    return StreamingResponse(
-        generate(),
-        media_type="text/event-stream",
-        headers={"Cache-Control": "no-cache", "Connection": "keep-alive", "X-Accel-Buffering": "no"},
-    )
+    return await _sse_stream(request, producer, "clinical_resynthesize_stream")
 
 
 @app.post("/chat/stream")

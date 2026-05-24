@@ -9,6 +9,7 @@ Fail-open: a failed critic call returns an empty SafetyReport so the clinician
 always sees the care plan, and a warning is logged.
 """
 from __future__ import annotations
+import asyncio
 import json
 import logging
 import os
@@ -17,41 +18,128 @@ import openai
 from pydantic import ValidationError
 
 from .models import PatientCase, TreatmentPlan, SafetyFlag, SafetyReport  # noqa: F401 re-export
+from .graph_clinical import clinical_graph_lookup, match_plan_drugs, ClinicalFlag, _norm as _kg_norm
 
 logger = logging.getLogger(__name__)
 
-SAFETY_CRITIC_SYSTEM = """You are a clinical pharmacist performing an independent medication safety review.
+def _load_prompt(filename: str) -> str:
+    """Load a prompt from agent/prompts/<filename>. Falls back to empty string on error."""
+    prompt_path = os.path.join(os.path.dirname(__file__), "prompts", filename)
+    try:
+        with open(prompt_path, encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        logger.warning("Prompt file not found: %s", prompt_path)
+        return ""
 
-You have NOT seen the reasoning that produced this treatment plan. Your ONLY job is to find reasons it could harm THIS SPECIFIC patient. Do not justify the plan. Do not summarise it.
 
-For each pharmacological recommendation (recommendations[*] where type == 'pharmacological'), check:
+SAFETY_CRITIC_SYSTEM = _load_prompt("stage6_safety_critic.txt")
 
-1. flag_type "drug_allergy" — Does the drug, its class, or a known cross-reactant conflict with any listed allergy?
-   For sulfa/sulfonamide allergy specifically, check ALL of these sulfonamide-derived drugs even though they are
-   not sulfa antibiotics: furosemide, hydrochlorothiazide, indapamide, chlorthalidone, gliclazide, glibenclamide,
-   glipizide, celecoxib, acetazolamide, probenecid, sumatriptan. Flag as MODERATE (or MAJOR if history of
-   anaphylaxis to sulfa).
-   Example: sulfa allergy + furosemide → cross-reactivity risk → flag_type "drug_allergy" severity MODERATE
-2. flag_type "drug_interaction" — Does the drug interact dangerously with any current medication?
-   Example: warfarin + new NSAID → bleeding risk
-3. flag_type "dose" — Is the implicit dose appropriate for the patient's renal/hepatic function inferred from comorbidities and vitals?
-   Example: metformin standard dose + CKD Stage 4 eGFR<30 → contraindicated
-4. flag_type "contraindication" — Is the drug contraindicated given any listed comorbidity or vital sign?
-   Example: non-cardioselective beta-blocker + severe asthma → bronchospasm risk
 
-Flag EVERY concern you find. Do not suppress concerns because the plan "looks reasonable overall". Conversely, do NOT invent concerns — return an empty flags array if you find none.
+# ---------------------------------------------------------------------------
+# KG verification pass (hybrid Agent 1 — deterministic fact-check of FINAL plan)
+# ---------------------------------------------------------------------------
 
-Severity scale:
-- CRITICAL : life-threatening if the plan is enacted as written (e.g. PDE5i + nitrate)
-- MAJOR    : significant harm likely without modification (e.g. wrong dose in renal failure)
-- MODERATE : monitoring or dose adjustment warranted, not an outright stop
+# KG flag_type → SafetyFlag.flag_type. MONITORING is intentionally omitted: it's
+# workflow guidance (already injected into Stage 5 evidence by the pre-screen),
+# not a patient-safety harm gate.
+_KG_FLAG_TYPE_MAP = {
+    "INTERACTION":      "drug_interaction",
+    "ALLERGY_CROSS":    "drug_allergy",
+    "CONTRAINDICATION": "contraindication",
+    "DOSE_ADJUSTMENT":  "dose",
+}
 
-For each flag, set recommendation_index to the 0-based index of the recommendation in the input array. Provide a one-sentence patient-specific detail. Suggest an alternative only if one is clearly clinically supported.
 
-Set safe_to_proceed = false if ANY CRITICAL or MAJOR flag is present, else true.
+def _kg_severity_to_safety(sev: str | None) -> str:
+    """Map KG severity (MAJOR/MODERATE/MINOR/UNSPECIFIED/None) to SafetyFlag
+    severity (CRITICAL/MAJOR/MODERATE). KG never emits CRITICAL today, so the
+    conservative default for missing/MINOR is MODERATE."""
+    if sev == "MAJOR":
+        return "MAJOR"
+    if sev == "MODERATE":
+        return "MODERATE"
+    return "MODERATE"
 
-Return a valid SafetyReport JSON object with this exact shape — no markdown fences, no preamble:
-{"flags": [{"severity": "CRITICAL|MAJOR|MODERATE", "recommendation_index": 0, "flag_type": "drug_allergy|drug_interaction|dose|contraindication", "detail": "...", "suggested_alternative": "...or null"}], "safe_to_proceed": true, "reviewer_notes": "...or null"}"""
+
+def _kg_flag_to_safety(
+    cf: ClinicalFlag,
+    drug_idx_map: dict,
+    pharm_recommendation_indices: list[int],
+) -> SafetyFlag | None:
+    """Convert a KG ClinicalFlag into a SafetyFlag(source="graph"), mapping the
+    drug back to the TreatmentPlan.recommendations index it came from."""
+    safety_type = _KG_FLAG_TYPE_MAP.get(cf.flag_type)
+    if safety_type is None:
+        return None
+    iv_idx = drug_idx_map.get(_kg_norm(cf.subject))
+    if iv_idx is None or iv_idx >= len(pharm_recommendation_indices):
+        rec_index = 0  # safe fallback — clinician still sees the flag
+    else:
+        rec_index = pharm_recommendation_indices[iv_idx]
+    evidence_snippet = (cf.evidence or "").strip()[:160]
+    relation_pretty = cf.relation.replace("_", " ").lower()
+    detail = f"{cf.subject} {relation_pretty} {cf.object}."
+    if evidence_snippet:
+        detail = f"{detail} Evidence: {evidence_snippet}"
+    return SafetyFlag(
+        severity=_kg_severity_to_safety(cf.severity),
+        recommendation_index=rec_index,
+        flag_type=safety_type,
+        detail=detail,
+        suggested_alternative=None,
+        source="graph",
+    )
+
+
+async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> list[SafetyFlag]:
+    """Deterministic post-Stage-5 KG verification of the final TreatmentPlan.
+
+    Different from the pre-Stage-5 `clinical_graph_lookup` in two ways:
+    (1) the candidate drug set comes from the **final plan's recommendations**
+        (what the patient would actually receive), not chunk-derived candidates;
+    (2) the output is merged into the `SafetyReport` the clinician sees, not into
+        the synthesis prompt the LLM consumes.
+
+    Fail-open with one retry on transient errors — a Neo4j connection reset has
+    been observed in the wild and shouldn't drop the whole safety pass.
+    """
+    pharm = [
+        (i, r.intervention) for i, r in enumerate(plan.recommendations)
+        if r.type == "pharmacological"
+    ]
+    if not pharm:
+        return []
+    pharm_recommendation_indices = [i for i, _ in pharm]
+    interventions = [iv for _, iv in pharm]
+
+    for attempt in (1, 2):
+        try:
+            drug_idx_map = await match_plan_drugs(interventions)
+            if not drug_idx_map:
+                return []
+            kg_flags = await clinical_graph_lookup(
+                patient_meds=case.current_medications,
+                candidate_drugs=list(drug_idx_map.keys()),
+                comorbidities=case.comorbidities,
+                allergies=case.allergies,
+            )
+            out: list[SafetyFlag] = []
+            for cf in kg_flags:
+                sf = _kg_flag_to_safety(cf, drug_idx_map, pharm_recommendation_indices)
+                if sf is not None:
+                    out.append(sf)
+            logger.info(
+                "KG verify: %d graph-sourced safety flags from %d KG flags (plan drugs: %d)",
+                len(out), len(kg_flags), len(drug_idx_map),
+            )
+            return out
+        except Exception as exc:
+            logger.warning(
+                "KG verify attempt %d failed (%s)%s",
+                attempt, exc, "; retrying" if attempt == 1 else "; giving up (fail-open)",
+            )
+    return []
 
 
 async def run_safety_critic(
@@ -97,26 +185,45 @@ async def run_safety_critic(
     if emit:
         await emit("sub_step", {"stage": 6, "detail": "Safety review running…", "status": "running"})
 
-    try:
-        resp = await client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": SAFETY_CRITIC_SYSTEM},
-                {"role": "user", "content": user_prompt},
-            ],
-            temperature=0.0,
-            response_format={"type": "json_object"},
-        )
-        raw_json = resp.choices[0].message.content.strip()
-        data = json.loads(raw_json)
-        report = SafetyReport.model_validate(data)
-        # Enforce the safe_to_proceed invariant regardless of LLM choice
-        report.safe_to_proceed = not any(f.severity in ("CRITICAL", "MAJOR") for f in report.flags)
-        return report
-    except (json.JSONDecodeError, ValidationError, Exception) as exc:
-        logger.warning("Safety critic failed (%s); returning empty report (fail-open)", exc)
-        return SafetyReport(
-            flags=[],
-            safe_to_proceed=True,
-            reviewer_notes=f"Safety review unavailable: {exc.__class__.__name__}",
-        )
+    # Hybrid Agent 1: run the LLM adversarial critic AND the deterministic KG
+    # verification of the final plan concurrently, then merge.
+    async def _llm_critic() -> SafetyReport:
+        try:
+            resp = await client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": SAFETY_CRITIC_SYSTEM},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=0.0,
+                response_format={"type": "json_object"},
+            )
+            raw_json = (resp.choices[0].message.content or "").strip()
+            data = json.loads(raw_json)
+            rep = SafetyReport.model_validate(data)
+            return rep
+        except (json.JSONDecodeError, ValidationError, Exception) as exc:
+            logger.warning("Safety critic LLM failed (%s); fail-open empty LLM report", exc)
+            return SafetyReport(
+                flags=[],
+                safe_to_proceed=True,
+                reviewer_notes=f"LLM safety review unavailable: {exc.__class__.__name__}",
+            )
+
+    llm_report, kg_flags = await asyncio.gather(
+        _llm_critic(),
+        _kg_verify_plan(case, plan),
+        return_exceptions=False,  # both halves already fail-open internally
+    )
+
+    # Merge — keep BOTH sources (safety: don't hide concerns by deduping). Each
+    # flag carries `source` so the UI can tag graph-verified ones distinctly.
+    merged_flags = list(llm_report.flags) + list(kg_flags)
+    safe_to_proceed = not any(f.severity in ("CRITICAL", "MAJOR") for f in merged_flags)
+
+    notes = llm_report.reviewer_notes
+    if kg_flags:
+        graph_note = f"{len(kg_flags)} graph-verified flag(s) added from Neo4j KG"
+        notes = f"{notes} | {graph_note}" if notes else graph_note
+
+    return SafetyReport(flags=merged_flags, safe_to_proceed=safe_to_proceed, reviewer_notes=notes)
