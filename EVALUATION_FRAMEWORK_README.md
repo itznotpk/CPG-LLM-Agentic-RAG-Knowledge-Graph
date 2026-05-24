@@ -639,3 +639,152 @@ You now have a complete evaluation framework:
 - Weight evaluation metrics based on clinician feedback
 - Create final evaluation scorecard showing your system's clinical value proposition
 - Use results in product marketing and positioning
+
+---
+
+# COMORBIDITY TEST CASES (Cross-CPG Evaluation)
+
+> These 5 cases are designed as the highest-value benchmarking scenarios. Each spans **2–5 CPGs simultaneously**, requiring the system to synthesize potentially conflicting guidelines, quantify uncertainty at decision branch points, and flag appropriate specialist deferral. They are the best cases for differentiating this system from single-guideline tools (Qmed AskCPG) and general LLMs (GPT-4/Gemini).
+
+## Case 8: T2DM + Heart Failure with Reduced EF + Obesity (Metabolic Heart Failure)
+**Target CPGs:** T2-Diabetes-Mellitus (6th Edition) · Heart-Failure (5th Edition) · Obesity-Management (2023)
+**Test Focus:** Multi-guideline medication reconciliation; SGLT2i dual indication; risk of hypoglycemia in HFrEF.
+
+**User Query:**
+> "A 62-year-old male with a BMI of 34 (obese) and Type 2 Diabetes (HbA1c 8.4%) on Metformin 1g BD and Gliclazide MR 60mg OD is newly diagnosed with Heart Failure with reduced Ejection Fraction (HFrEF), LVEF 25%. BP is 128/76 mmHg, eGFR 58 ml/min/1.73m². He is clinically stable and euvolemic. What medication changes are required, and how should his anti-diabetic regimen be adjusted?"
+
+**Expected Ground Truth:**
+*   **Summary:** Stable HFrEF newly diagnosed in a patient with T2DM and obesity. Requires initiation of all 4 pillars of HFrEF GDMT, reconciled with his anti-diabetic therapy.
+*   **Medication Changes:**
+    *   START (HFrEF Pillars — initiate all four simultaneously or sequentially):
+        1.  ACE-Inhibitor (e.g., Ramipril) OR ARNI (Sacubitril/Valsartan if tolerated and affordable).
+        2.  Beta-blocker with proven HFrEF efficacy (Bisoprolol, Carvedilol, or Nebivolol — NOT atenolol).
+        3.  Mineralocorticoid Receptor Antagonist (MRA): Spironolactone 25mg OD (monitor potassium and renal function closely given eGFR 58).
+        4.  SGLT2 inhibitor: Dapagliflozin 10mg OD or Empagliflozin 10mg OD — **dual indication** (HFrEF mortality benefit AND T2DM glycaemic control). This is the cornerstone addition.
+    *   REVIEW Gliclazide MR: High risk of hypoglycemia in the context of new HFrEF (reduced oral intake, altered renal perfusion). Consider dose reduction or cessation; replace with SGLT2i which is now serving dual purpose.
+    *   CONTINUE Metformin: Safe to continue at eGFR 58 (contraindicated only at eGFR <30 per Malaysian T2DM CPG). No dose change required at this eGFR.
+    *   WEIGHT: Obesity management (lifestyle, dietitian referral) remains important but GLP-1 RA agents (e.g., semaglutide) have insufficient safety data in severe HFrEF (LVEF ≤25%) — defer to cardiologist before adding.
+*   **Uncertainty Flag:** Metformin in HFrEF has historically been avoided; however, current evidence and Malaysian CPG permit use in stable HFrEF if eGFR ≥30. Clinician should confirm haemodynamic stability before continuing.
+*   **Monitoring & Next Steps:**
+    *   Repeat eGFR and potassium at 2 weeks post-MRA initiation.
+    *   Titrate beta-blocker and ACEI/ARNI to maximally tolerated doses over 4–8 weeks.
+    *   Refer to HF specialist/cardiologist for further optimisation.
+
+---
+
+## Case 9: Non-Valvular AF + Post-PCI (Drug-Eluting Stent) + T2DM (Triple Antithrombotic Therapy Dilemma)
+**Target CPGs:** Atrial-Fibrillation (2012) · Percutaneous-Coronary-Intervention · NSTE-ACS (3rd Edition) · T2-Diabetes-Mellitus (6th Edition)
+**Test Focus:** Anticoagulation-antiplatelet conflict; bleeding vs thromboembolism risk; preferred P2Y12 in triple therapy.
+
+**User Query:**
+> "A 67-year-old female with known non-valvular Atrial Fibrillation (CHA2DS2-VASc = 4) on Warfarin (INR 2.4) has just undergone successful primary PCI with a Drug-Eluting Stent (DES) for NSTEMI. She also has Type 2 Diabetes. What is the recommended antithrombotic strategy post-PCI, including which P2Y12 inhibitor to choose and for how long?"
+
+**Expected Ground Truth:**
+*   **Summary:** AF patient on OAC undergoing PCI with DES — classic triple antithrombotic therapy scenario. Goal: minimise bleeding while preventing stent thrombosis and stroke.
+*   **Medication Changes:**
+    *   Triple Therapy duration: **Minimise to shortest possible period** (1 week, or as clinically indicated) due to high bleeding risk (OAC + DAPT).
+    *   P2Y12 of choice in triple therapy: **Clopidogrel 75mg OD** — NOT ticagrelor or prasugrel, as these carry significantly higher bleeding risk without additional stent benefit in this context.
+    *   After triple therapy phase: Transition to **Dual Therapy: OAC (preferably DOAC) + Clopidogrel 75mg** for up to 12 months.
+    *   After 12 months: **Monotherapy with OAC alone** (AF remains the dominant long-term indication).
+    *   Anticoagulant switch: Consider transitioning from Warfarin to a **DOAC** (Apixaban preferred in AF + DM due to lower bleeding risk profile) after PCI stabilisation — requires haematology/cardiology co-decision.
+*   **Diabetes consideration:** T2DM increases platelet reactivity. However, this does NOT warrant switching to ticagrelor in the context of triple therapy — bleeding risk remains paramount.
+*   **Uncertainty Flag:** The optimal triple therapy duration (1 week vs 1 month) should be individualised based on stent complexity (LAD, bifurcation, long stent = consider 1 month). Clinician should risk-stratify using HAS-BLED score.
+*   **Monitoring & Next Steps:**
+    *   Regular INR monitoring if continuing Warfarin (target 2.0–2.5 in AF + coronary stent).
+    *   HAS-BLED score assessment to guide duration.
+    *   Refer to Cardiologist for ongoing antithrombotic management review at 1, 3, 6, and 12 months.
+
+---
+
+## Case 10: Hypertension in Pregnancy + Gestational Diabetes (Obstetric Pharmacological Safety)
+**Target CPGs:** Hypertension (5th Edition) · Diabetes-in-Pregnancy (2017) · Heart-Disease-in-Pregnancy (2nd Edition)
+**Test Focus:** Drug safety in pregnancy (teratogens); BP target modification; anti-diabetic agents in pregnancy; high-stakes deferral.
+
+**User Query:**
+> "A 35-year-old primigravida at 30 weeks gestation presents with BP readings of 158/104 mmHg on two occasions 4 hours apart. She has no proteinuria and no symptoms of severe features. She is newly diagnosed with Gestational Diabetes (fasting blood glucose 7.4 mmol/L). She is currently on no medications. What antihypertensive and anti-diabetic therapy should be initiated, and what medications must be absolutely avoided?"
+
+**Expected Ground Truth:**
+*   **Summary:** Gestational hypertension (non-severe, no severe features) with co-existing gestational diabetes at 30 weeks. Pharmacological management must balance maternal BP control with foetal safety.
+*   **Medication Changes — Antihypertensive (SAFE in pregnancy):**
+    *   **First-line options:** Methyldopa 250–500mg TDS, **OR** Labetalol 100–200mg BD/TDS, **OR** Nifedipine (slow-release) 20–30mg OD.
+    *   Target BP: `<150/100 mmHg` (NOT as aggressively as in non-pregnant patients; overly tight control risks uteroplacental insufficiency).
+    *   **ABSOLUTELY AVOID:** ACE inhibitors (Ramipril, Enalapril) and Angiotensin Receptor Blockers (Losartan, Valsartan) — **Category X teratogens** (foetal renal dysgenesis, oligohydramnios, neonatal anuria).
+*   **Medication Changes — Anti-Diabetic (SAFE in pregnancy):**
+    *   **First-line:** Dietary modification + Medical Nutrition Therapy. If targets not met:
+    *   **Insulin therapy** is the gold standard (does not cross the placenta; multiple regimens available — basal-bolus preferred if uncontrolled).
+    *   **Metformin:** Conditionally acceptable per Malaysian Diabetes in Pregnancy CPG; however, crosses the placenta — requires shared decision-making with patient.
+    *   **AVOID:** Sulfonylureas (except as last resort) — risk of neonatal hypoglycemia.
+*   **Uncertainty Flag:** BP threshold for pharmacotherapy in gestational hypertension (140/90 vs 150/100) varies by guideline. At 158/104, initiation is indicated per most guidelines, but the specific target (140 vs 150 systolic) has moderate uncertainty.
+*   **Monitoring & Next Steps:**
+    *   Urgent referral to Maternal-Foetal Medicine / Obstetric specialist — this case requires multidisciplinary management.
+    *   Foetal surveillance: regular growth scans, Doppler studies.
+    *   Serial urinalysis for proteinuria — to detect progression to Pre-eclampsia.
+    *   Consider delivery planning if gestation reaches 37 weeks or if maternal/foetal deterioration occurs.
+
+---
+
+## Case 11: Stable CAD + Erectile Dysfunction (PDE5 Inhibitor + Nitrate Absolute Contraindication)
+**Target CPGs:** Stable-Coronary-Artery-Disease (2nd Edition) · Erectile-Dysfunction (2024)
+**Test Focus:** Critical drug-drug interaction (absolute contraindication); alternative therapy recommendation; appropriate specialist deferral.
+
+**User Query:**
+> "A 56-year-old male with known Stable Coronary Artery Disease is on Isosorbide Mononitrate (ISMN) 60mg OD (long-acting nitrate), Aspirin 100mg OD, and Atorvastatin 40mg OD. He presents requesting a prescription for Sildenafil (Viagra) 50mg for erectile dysfunction. He reports the ED has significantly affected his quality of life. Is it safe to prescribe Sildenafil? What are his options?"
+
+**Expected Ground Truth:**
+*   **Summary:** Absolute contraindication identified: PDE5 inhibitor + concurrent nitrate therapy. Sildenafil cannot be prescribed safely while the patient remains on long-acting nitrate.
+*   **Medication Changes:**
+    *   **DO NOT PRESCRIBE Sildenafil (or any PDE5 inhibitor)** while patient is on long-acting ISMN. This is an **absolute contraindication** — combined use causes severe, potentially fatal hypotension due to synergistic vasodilation.
+    *   The 24-hour nitrate-free interval concept applies to SHORT-ACTING nitrates (GTN PRN); with long-acting ISMN 60mg OD, NO safe washout window exists.
+*   **Clinically Safe Alternatives for ED:**
+    *   **Vacuum Erection Device (VED):** Non-pharmacological, no cardiovascular risk — recommended as first alternative.
+    *   **Intracavernosal Alprostadil (ICI):** Effective second-line; no interaction with nitrates; requires patient training.
+    *   **Intraurethral Alprostadil (MUSE):** Less effective than ICI; suitable for patients who decline injection.
+*   **Pathway to PDE5i (if clinically feasible):**
+    *   If the cardiologist determines ISMN is not essential for symptom control (patient is asymptomatic, stable, on aspirin + statin alone sufficient): consider a **nitrate holiday** — stop ISMN, reassess angina symptoms, and then prescribe PDE5i only if nitrate-free.
+    *   This decision requires **cardiologist involvement**, NOT primary care prescribing.
+*   **Uncertainty Flag:** Low-risk CAD patients who are angina-free may be candidates for nitrate de-escalation. Confidence in this pathway is moderate (70%) — highly dependent on individual CAD severity and symptom burden.
+*   **Monitoring & Next Steps:**
+    *   REFER to Cardiologist: Review necessity of long-acting nitrate in this patient's regimen.
+    *   REFER to Urologist or Sexual Medicine specialist: Comprehensive ED assessment and non-pharmacological options.
+    *   Patient education: Explain the contraindication clearly; document consent that Sildenafil was withheld for safety.
+
+---
+
+## Case 12: Obesity + T2DM + Dyslipidaemia + Hypertension (Full Metabolic Syndrome — Primary CVD Prevention)
+**Target CPGs:** Obesity-Management (2023) · T2-Diabetes-Mellitus (6th Edition) · Dyslipidaemia (6th Edition) · Hypertension (5th Edition) · Primary-Secondary-Prevention-of-CVD (2017)
+**Test Focus:** Multi-risk-factor CVD primary prevention; priority-ordering of interventions; Asian BMI threshold for bariatric surgery; GLP-1 RA dual indication.
+
+**User Query:**
+> "A 46-year-old Malay male presents for a comprehensive health review. BMI 38.5 kg/m² (Obese Class II). Newly diagnosed Type 2 Diabetes (HbA1c 9.2%). LDL-C is 4.4 mmol/L. BP is 148/94 mmHg (confirmed on two visits). He has no prior cardiovascular events, no chest pain, no kidney disease (eGFR 82). He is currently on no medications. What is the comprehensive, prioritised management plan addressing all his conditions?"
+
+**Expected Ground Truth:**
+*   **Summary:** Full metabolic syndrome with 4 major CVD risk factors (obesity, T2DM, dyslipidaemia, hypertension) and no prior CVD event. Patient qualifies as **HIGH RISK** for primary CVD prevention. Multiple CPGs converge on this patient.
+*   **CVD Risk Classification:**
+    *   Framingham/SCORE risk assessment indicates **HIGH cardiovascular risk** due to T2DM + dyslipidaemia + hypertension combined. Consider Very High Risk if 10-year CVD risk >10%.
+*   **Priority 1 — Lifestyle Modification (All CPGs converge here):**
+    *   Intensive lifestyle programme: calorie-restricted diet, ≥150 min/week moderate physical activity.
+    *   Dietitian referral mandatory.
+    *   Smoking cessation if applicable.
+*   **Priority 2 — Anti-Diabetic Therapy:**
+    *   With HbA1c 9.2%, lifestyle alone insufficient — initiate pharmacotherapy.
+    *   **First-line:** GLP-1 Receptor Agonist (e.g., Semaglutide OD or Dulaglutide weekly) — **dual indication**: T2DM glycaemic control AND obesity management (average 5–15% weight loss). Supported by both T2DM CPG and Obesity CPG.
+    *   **Alternative/Add-on:** SGLT2 inhibitor (Dapagliflozin or Empagliflozin) — cardiovascular outcome benefit in T2DM even without prior CVD; also supports modest weight loss and BP reduction.
+    *   Metformin 500mg OD, titrate to 1g BD as background therapy.
+    *   Target HbA1c: `<7.0%` (or `<6.5%` if achievable without hypoglycemia).
+*   **Priority 3 — Dyslipidaemia:**
+    *   START: High-intensity statin (Atorvastatin 40–80mg OD OR Rosuvastatin 20–40mg OD).
+    *   LDL-C target for HIGH RISK (T2DM without prior CVD): `<1.8 mmol/L` AND `>50% reduction from baseline`.
+    *   If Very High Risk: `<1.4 mmol/L` — may require add-on Ezetimibe.
+*   **Priority 4 — Hypertension:**
+    *   BP 148/94 confirmed on 2 visits — pharmacotherapy indicated.
+    *   **Preferred agent:** ACE inhibitor (e.g., Ramipril 5mg OD) or ARB (Losartan 50mg OD) — preferred in T2DM due to nephroprotective benefit (delays diabetic nephropathy).
+    *   Target BP: `<130/80 mmHg` in T2DM patients per Hypertension CPG.
+*   **Priority 5 — Bariatric Surgery Assessment:**
+    *   BMI 38.5 with comorbidities (T2DM, HTN, dyslipidaemia): **meets Asian threshold for bariatric surgery referral** (BMI ≥37.5 with ≥1 obesity-related comorbidity per Malaysian Obesity CPG).
+    *   Referral to bariatric surgery centre if lifestyle + pharmacotherapy fail to achieve adequate weight loss at 3–6 months.
+*   **Uncertainty Flag:** GLP-1 RA vs SGLT2i as first add-on to Metformin — both are CPG-supported, preference guided by weight loss priority (GLP-1 RA superior) vs cardiorenal protection (SGLT2i may be preferred if borderline CKD develops). Decision should be individualised with patient.
+*   **Monitoring & Next Steps:**
+    *   HbA1c every 3 months until target achieved, then 6-monthly.
+    *   Fasting lipid profile at 6 weeks post-statin, then annually.
+    *   Annual eGFR + urine albumin-creatinine ratio (screen for diabetic nephropathy).
+    *   Refer to: Endocrinologist (complex T2DM management), Dietitian, and Bariatric Surgery team if BMI target not met.
