@@ -354,9 +354,9 @@ async def _llm_rerank_ddx(
 
     candidate_lines = "\n".join(_candidate_block(i, c) for i, c in enumerate(candidates))
 
-    prompt = f"""You are a clinical coding expert performing differential diagnosis.
+    system_prompt = _load_prompt("stage2_ddx_rerank.txt")
 
-Patient:
+    user_prompt = f"""Patient:
 - Chief complaint: {case.chief_complaint}
 - Age / sex: {case.age or "unknown"} / {case.sex or "unknown"}
 - History: {case.history or "none"}
@@ -366,29 +366,13 @@ Patient:
 - Vitals: {vitals_str}
 
 Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
-{candidate_lines}
+{candidate_lines}"""
 
-Re-rank these candidates based on clinical probability for THIS specific patient.
-Apply reasoning about:
-- How age, sex, vitals, and comorbidities shift the prior probability of each code
-- Whether current medications suggest an existing diagnosis
-- Which codes are actionable vs incidental findings
-- The math signals above (vector_score, symptom_match, inclusion_match) represent quantitative evidence
-- WHO exclusion terms show when the patient's presentation matches what the code explicitly excludes
-
-CRITICAL OUTPUT RULES:
-- Keep ALL reasoning extremely concise — one short sentence per code, max 20 words each.
-- Your TOTAL response must be under 1500 tokens. The JSON array is the required output.
-- Return ONLY the JSON array. No preamble, no markdown fences, no explanation before/after.
-- Include ALL candidate codes, ordered from most to least likely.
-- Include "override_reason" when you reorder a candidate by 2 or more positions from its math_rank.
-- You MUST include a non-empty "override_reason" when you promote (move up) a candidate that has a WHO exclusion penalty.
-
-Format:
-[
-  {{"code": "BC81.3", "confidence": 0.91, "reasoning": "68M with irregular HR 110 — persistent AF fits best", "override_reason": null}},
-  {{"code": "BC81.1", "confidence": 0.72, "reasoning": "Paroxysmal AF cannot be excluded without Holter", "override_reason": null}}
-]"""
+    messages = (
+        [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
+        if system_prompt
+        else [{"role": "user", "content": user_prompt}]
+    )
 
     try:
         raw_content = ""
@@ -405,7 +389,7 @@ Format:
             # verbose reasoning and run out before emitting the JSON array.
             stream = await client.chat.completions.create(
                 model=active_model,
-                messages=[{"role": "user", "content": prompt}],
+                messages=messages,
                 temperature=1,
                 max_tokens=8000,
                 stream=True,
@@ -435,7 +419,7 @@ Format:
             # Non-streaming path — identical to pre-Step-09 behavior
             resp = await client.chat.completions.create(
                 model=active_model,
-                messages=[{"role": "user", "content": prompt}],
+                messages=messages,
                 temperature=1,
                 max_tokens=8000,
             )
