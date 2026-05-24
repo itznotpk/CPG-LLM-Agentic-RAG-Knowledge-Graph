@@ -49,6 +49,27 @@ export function AuthProvider({ children }) {
     return data;
   };
 
+  const signUp = async (email, password, metadata) => {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: metadata,
+      },
+    });
+    if (error) throw error;
+
+    // Attempt to update profile immediately if session exists
+    if (data?.session) {
+      const updates = { full_name: metadata.full_name };
+      if (metadata.role) updates.role = metadata.role.toLowerCase();
+      if (metadata.facility) updates.facility = metadata.facility;
+      await supabase.from('profiles').update(updates).eq('id', data.user.id);
+    }
+
+    return data;
+  };
+
   const signOut = async () => {
     await supabase.auth.signOut();
   };
@@ -56,7 +77,7 @@ export function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{
       session, user, profile, loading,
-      signIn, signOut, refreshProfile: loadProfile,
+      signIn, signUp, signOut, refreshProfile: loadProfile,
     }}>
       {children}
     </AuthContext.Provider>

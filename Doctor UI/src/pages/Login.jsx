@@ -7,7 +7,7 @@ export default function Login({ onBackToLanding }) {
   const cardRef = useRef(null);
   const wrapRef = useRef(null);
 
-  const { signIn } = useAuth();
+  const { signIn, signUp } = useAuth();
   const [email, setEmail]               = useState('');
   const [password, setPassword]         = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -20,20 +20,40 @@ export default function Login({ onBackToLanding }) {
   const [accessDone, setAccessDone]     = useState(false);
   const [reqName, setReqName]           = useState('');
   const [reqEmail, setReqEmail]         = useState('');
+  const [reqPassword, setReqPassword]   = useState('');
   const [reqRole, setReqRole]           = useState('Doctor');
   const [reqFacility, setReqFacility]   = useState('');
+  const [reqLoading, setReqLoading]     = useState(false);
+  const [reqError, setReqError]         = useState('');
 
-  const handleRequestAccess = (e) => {
+  const handleRequestAccess = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent('ClearPath Access Request');
-    const body = encodeURIComponent(
-      `Name: ${reqName}\nEmail: ${reqEmail}\nRole: ${reqRole}\nFacility: ${reqFacility}`
-    );
-    window.location.href = `mailto:access@mhnexus.com?subject=${subject}&body=${body}`;
-    setAccessDone(true);
+    setReqError('');
+    setReqLoading(true);
+    try {
+      await signUp(reqEmail, reqPassword, {
+        full_name: reqName,
+        role: reqRole,
+        facility: reqFacility
+      });
+      setAccessDone(true);
+    } catch (err) {
+      setReqError(err.message || 'Failed to create account.');
+    } finally {
+      setReqLoading(false);
+    }
   };
 
-  const closeAccess = () => { setShowAccess(false); setAccessDone(false); setReqName(''); setReqEmail(''); setReqRole('Doctor'); setReqFacility(''); };
+  const closeAccess = () => { 
+    setShowAccess(false); 
+    setAccessDone(false); 
+    setReqName(''); 
+    setReqEmail(''); 
+    setReqPassword('');
+    setReqRole('Doctor'); 
+    setReqFacility(''); 
+    setReqError('');
+  };
 
   // 3D mouse-tilt — matches Landing Page.html script exactly
   useEffect(() => {
@@ -360,9 +380,9 @@ export default function Login({ onBackToLanding }) {
             {accessDone ? (
               <div style={{ textAlign: 'center', padding: '24px 0' }}>
                 <div style={{ fontSize: 40, marginBottom: 12 }}>✅</div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 8px', color: 'var(--fg-primary)' }}>Request sent!</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 8px', color: 'var(--fg-primary)' }}>Account created!</h3>
                 <p style={{ fontSize: 14, color: 'var(--fg-secondary)', margin: '0 0 24px' }}>
-                  Your mail client should have opened. We'll review your request and be in touch within 1–2 business days.
+                  Your account has been successfully created. Please check your inbox for a confirmation email to verify your account before logging in.
                 </p>
                 <button onClick={closeAccess} className={styles.btnPrimary}>Close</button>
               </div>
@@ -371,10 +391,10 @@ export default function Login({ onBackToLanding }) {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
                   <div>
                     <h3 style={{ fontSize: 22, fontWeight: 700, margin: '0 0 4px', color: 'var(--fg-primary)', letterSpacing: '-.02em' }}>
-                      Apply for Access
+                      Sign Up for Access
                     </h3>
                     <p style={{ fontSize: 13, color: 'var(--fg-secondary)', margin: 0 }}>
-                      We'll review and onboard you within 1–2 business days.
+                      Create an account to access the ClearPath workspace.
                     </p>
                   </div>
                   <button
@@ -401,6 +421,14 @@ export default function Login({ onBackToLanding }) {
                     </div>
                   </div>
 
+                  <div className={styles.field} style={{ marginBottom: 0 }}>
+                    <label className={styles.fieldLabel}>Password</label>
+                    <div className={styles.inputWrap}>
+                      <input className={styles.inputField} type="password" placeholder="••••••••" required minLength={6}
+                        value={reqPassword} onChange={(e) => setReqPassword(e.target.value)} />
+                    </div>
+                  </div>
+
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                     <div className={styles.field} style={{ marginBottom: 0 }}>
                       <label className={styles.fieldLabel}>Role</label>
@@ -423,11 +451,19 @@ export default function Login({ onBackToLanding }) {
                     </div>
                   </div>
 
-                  <button type="submit" className={styles.btnPrimary} style={{ marginTop: 4 }}>
-                    Send request
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
-                    </svg>
+                  {reqError && (
+                    <p style={{ color: 'var(--danger, #ef4444)', fontSize: 13, margin: '4px 0 0' }}>
+                      {reqError}
+                    </p>
+                  )}
+
+                  <button type="submit" className={styles.btnPrimary} style={{ marginTop: 4 }} disabled={reqLoading}>
+                    {reqLoading ? 'Signing up...' : 'Sign up'}
+                    {!reqLoading && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
+                      </svg>
+                    )}
                   </button>
                 </form>
               </>
