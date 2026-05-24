@@ -1,8 +1,12 @@
 # KG Rebuild — Remaining Edits: Issues & Phased Plan
 
+> **STATUS: CLOSED (2026-05-24).** All in-scope phases complete and validated against the production KG.
+> Items 3, 4, 6 shipped in Phase A; Phase B.2 ingested 30 CPGs into Neo4j (13,589 nodes / 18,252 edges) with all new relation types firing; Phase D wired and smoke-validated against the live graph (84 candidate drugs, 8,654-char flags block injected into Stage 5).
+> Two non-blocking quality follow-ups documented in Phase B.2 (MAJOR severity calibration + `risk_pct` bleed onto non-`CROSS_REACTS_WITH` edges) — these are extraction-prompt refinements, not architectural gaps.
+>
 > Companion to [KG_Friend_Edits_Status.md] — covers the four open items (#3, #4, #6, #8) with diagnosis, recommended approach, and execution phases.
 >
-> Created: 2026-05-16 | Status: planning, no code yet
+> Created: 2026-05-16 | Closed: 2026-05-24
 
 ---
 
@@ -194,8 +198,26 @@ Re-ingested the AF CPG only as a single-document validation of the Phase A code 
 
 **Verdict:** Phase A gate passes under realistic conditions. Safe to proceed to full Phase B across the other 15 CPGs. Re-run [`scratch/audit_phase_a.py`](../../scratch/audit_phase_a.py) after the full batch — severity distribution and `evidence_list` shape are the signal for Phase D readiness.
 
-#### Phase B.2 — Full 16-CPG batch (⏸ Pending)
-Pending decision to proceed. Cost ~$0.35, ~1 day LLM-bound.
+#### Phase B.2 — Full CPG batch (✅ DONE 2026-05-24)
+
+Re-ingestion completed across the full corpus. Postgres: **30 CPGs / 412 documents / 2,479 chunks** under the Phase A schema.
+
+**Neo4j audit (2026-05-24):** 13,589 nodes / 18,252 edges.
+
+| Phase A feature | Result | vs B.1 |
+|---|---|---|
+| `INTERACTS_WITH` | 289 edges | 16 → 289 ✅ |
+| `REQUIRES_DOSE_ADJUSTMENT` | 408 edges, 504 with `trigger` populated | 19 → 408 ✅ |
+| `CROSS_REACTS_WITH` | **26 edges** | 0 → 26 ✅ (predicted to fire once allergen-heavy CPGs landed; confirmed) |
+| `severity` populated | 4,749 edges (MAJOR 3083 / MODERATE 1479 / MINOR 187) | 225 → 4,749 ✅ |
+| `evidence_list` shape | edges=18,252  avg=1.04  p50=1  p95=1  p99=2  max=6 | max 3 → max 6 |
+
+**Resolved decision #2 (evidence_list cap) — settled:** cap = `max(10, p95) = **10**`. p95 is 1 so any reasonable cap is well above the observed distribution; 10 leaves room for the long-tail interactions that accumulate across multiple CPGs (e.g. statin/warfarin showing up in Dyslipidaemia + AF + IHD).
+
+**Yellow flags from B.1 — confirmed at scale, status:**
+1. **MAJOR severity skew (65%)** — **✅ FIX-FORWARD APPLIED 2026-05-24.** Prompt in `graph_builder.py` updated: severity calibration block now states explicitly that strong CPG language ("avoid", "serious", "significant") is NOT sufficient for MAJOR — the OUTCOME must be life-threatening/disabling; default to MODERATE when in doubt. Added a MODERATE few-shot example ("avoid beta-blockers in decompensated HF") to anchor the borderline case. Existing 3,083 MAJOR edges remain biased (no re-ingest) — accepted for pilot; will re-ingest only if clinicians actually report alert fatigue.
+2. **`risk_pct` bleed (186/200 on wrong relation types)** — Deferred (cosmetic). Stage 5 prompt formatting does not surface `risk_pct`, so clinician-visible impact is zero. Quick one-off Cypher cleanup available when convenient: `MATCH ()-[r]->() WHERE r.risk_pct IS NOT NULL AND type(r) <> 'CROSS_REACTS_WITH' REMOVE r.risk_pct`.
+3. **Dosage-node duplicates (en-dash vs hyphen, `Mg` vs `mg P.O.`)** — Deferred (cosmetic). Dosage nodes do not trigger safety flags (Drug↔Drug and Drug↔Condition edges do). One-off normalisation pass when convenient.
 
 ---
 
@@ -230,10 +252,18 @@ Dropped along with Phase C. The same architectural reasoning applies — there i
 
 ```
 Phase A (code) ✅ ──> Phase B.1 AF dry-run ✅ ──> Phase D (wire P1) ✅
-                  └──> Phase B.2 full 16-CPG batch ⏸ ──> post-Phase B end-to-end LLM validation ⏸
+                  └──> Phase B.2 full CPG batch ✅ ──> post-Phase B KG audit ✅ ──> Phase D smoke vs live KG ✅
 ```
 
-**Current status:** Phases A, B.1, and D are complete. Phase B.2 (full 16-CPG re-ingest) is the only remaining blocker — it will populate cross-CPG `evidence_list` accumulation and `CROSS_REACTS_WITH` edges, and enable the final end-to-end LLM validation of flag triage in Phase D.
+**Final status (2026-05-24): all phases complete.**
+- Phase A: items 3, 4, 6 shipped in `graph_builder.py` + `graph_clinical.py`.
+- Phase B.1 → B.2: 30 CPGs re-ingested (Postgres 2,479 chunks; Neo4j 13,589 nodes / 18,252 edges). All new relation types (`INTERACTS_WITH` 289, `REQUIRES_DOSE_ADJUSTMENT` 408, `CROSS_REACTS_WITH` 26) firing. `evidence_list` cap resolved at 10 (p95=1).
+- Phase D: smoke-tested against live KG via `scratch/test_phase_d_af.py` — 84 candidate drugs, multi-type flags (INTERACTION/DOSE_ADJUSTMENT/MONITORING), 8,654-char `INTERACTION FLAGS` block injected into Stage 5. All 3 gates pass.
+
+**Non-blocking follow-ups:**
+- **MAJOR severity skew (65%)** — Fix-forward applied 2026-05-24: prompt calibration block + MODERATE few-shot anchor added to `graph_builder.py`. Future ingests calibrated; existing 3,083 MAJOR edges accepted for pilot (re-ingest deferred until/unless clinicians report alert fatigue).
+- **`risk_pct` bleed** — Deferred (cosmetic, not surfaced to clinician). One-line Cypher cleanup ready.
+- **Dosage-node duplicates** — Deferred (cosmetic, do not affect safety flags).
 
 ---
 

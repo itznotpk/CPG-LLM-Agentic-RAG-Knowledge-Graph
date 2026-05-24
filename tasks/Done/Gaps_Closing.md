@@ -1,5 +1,8 @@
 # Clinical Pipeline — Gap Closing Plan
 
+> **STATUS: CLOSED (2026-05-24).** All in-scope gaps resolved or formally deferred to other tracking docs.
+> Remaining follow-ups live in `Gap_1_CPG_Ingestion.md` (DM/CKD ingestion) and `RAG_Pipeline_and_Prompt_Gaps.md` (Gap R6 KG wiring).
+
 > Audit of the current ICD-11 → Care Plan generation pipeline against real clinical requirements.
 > Each gap is rated by patient safety impact and includes a concrete implementation plan.
 
@@ -369,12 +372,12 @@ When Gap 4 is implemented and the Doctor UI starts sending structured comorbidit
 |---|---|---|---|---|---|
 | 1 | Comorbidity routing | `clinical_workflow.py`, `ddx/search_ddx.py` | ~3 h | 🔴 Critical | ✅ Code complete (see Gap_1_CPG_Ingestion.md for data follow-up) |
 | 2 | Drug interaction lookup | — | — | 🔴 Critical | 🟡 Deferred → folded into Gap R6 (KG wiring) in `RAG_Pipeline_and_Prompt_Gaps.md` |
-| 3 | 5 domain-templated queries | `clinical_stages.py`, `stage4_query_generation.txt` | ~1 h | 🟠 High | ✅ Done (R4 in RAG gaps) |
-| 4 | Severity staging in PatientCase + queries | `models.py`, `DataInputSection.jsx`, `clinical_stages.py` | ~4 h | 🟠 High | 🔜 Next |
-| 5 | CPG currency warning | SQL migration 005, `clinical_stages.py`, `stage5_synthesis.txt`, `db_utils.py` | ~1.5 h | 🟡 Medium | ✅ Done |
-| D1 | Deterministic comorbidity → ICD map | — | — | 🟡 Medium | 🟡 Deferred (superseded by Gap 4 + synonym expansion bridge) |
+| 3 | Domain-templated queries (expanded to 7 domains: + Lifestyle & Counselling, Follow-up & Review) | `clinical_stages.py`, `stage4_query_generation.txt` | ~1 h | 🟠 High | ✅ Done (R4 in RAG gaps) |
+| 4 | Severity staging in PatientCase + queries | `models.py`, `DataInputSection.jsx`, `clinical_stages.py`, `clinicalApi.js`, `stage4_query_generation.txt` | ~4 h | 🟠 High | ✅ Done — `severity_staging` field wired end-to-end; embedded in Domains 1/4/5/7; covered by `tests/test_severity_staging.py` |
+| 5 | CPG currency warning | SQL migration 005, `clinical_stages.py`, `stage5_synthesis.txt`, `db_utils.py` | ~1.5 h | 🟡 Medium | ✅ Done (age-based warning at `clinical_stages.py:1472-1479`, richer than spec) |
+| D1 | Deterministic comorbidity → ICD map | — | — | 🟡 Medium | 🟡 Deferred (superseded by Gap 4 + synonym expansion bridge). Revisit trigger met — Gap 4 landed structured input; the `route_comorbidities` DDx-lookup path can now be replaced with direct `route_icd_to_cpgs(icd_code)` per submitted code, or left as free-text fallback. |
 
-Gap 1 code is complete; data-side blocked on `Gap_1_CPG_Ingestion.md` (DM and CKD CPG ingestion). Gap 4 is the next active item — it also retires the deferred Gap D1 once structured comorbidity input lands.
+**File closed.** Gap 1 code is complete; data-side tracked in `Gap_1_CPG_Ingestion.md` (DM and CKD CPG ingestion). Gap 2 tracked in `RAG_Pipeline_and_Prompt_Gaps.md` (Gap R6 — KG wiring). All other gaps resolved.
 
 ---
 

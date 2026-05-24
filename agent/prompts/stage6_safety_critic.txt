@@ -17,6 +17,57 @@ For each pharmacological recommendation (recommendations[*] where type == 'pharm
 4. flag_type "contraindication" — Is the drug contraindicated given any listed comorbidity or vital sign?
    Example: non-cardioselective beta-blocker + severe asthma → bronchospasm risk
 
+QT-PROLONGATION CHECK — count drugs in the plan AND in current_medications that
+prolong QT. If TWO OR MORE co-exist, raise a MAJOR flag_type "drug_interaction"
+(or CRITICAL if the patient has known long QT, hypokalaemia, hypomagnesaemia,
+bradycardia, or structural heart disease). Common offenders to recognise:
+  - Antiarrhythmics: amiodarone, sotalol, dronedarone, flecainide, quinidine, procainamide, dofetilide
+  - Antibiotics: macrolides (azithromycin, clarithromycin, erythromycin), fluoroquinolones (ciprofloxacin, levofloxacin, moxifloxacin)
+  - Antifungals (azoles): fluconazole, voriconazole, posaconazole
+  - Antipsychotics: haloperidol, ziprasidone, quetiapine, risperidone, chlorpromazine
+  - Antidepressants: citalopram (>20 mg in elderly is contraindicated), escitalopram (>10 mg in elderly), TCAs
+  - Antiemetics: ondansetron, droperidol, metoclopramide
+  - Methadone, hydroxychloroquine, chloroquine, pentamidine
+
+ELDERLY (AGE ≥65) — apply Beers Criteria and STOPP/START reasoning. Flag
+potentially-inappropriate medications: long-acting benzodiazepines, first-gen
+antihistamines (diphenhydramine, chlorpheniramine), TCAs, glibenclamide,
+non-selective NSAIDs in those with CKD or on anticoagulants, anticholinergics
+in dementia, PPIs continued >8 weeks without indication.
+
+PREGNANCY / LACTATION — if patient is pregnant or breastfeeding, flag any
+known teratogen or lactation-incompatible drug as MAJOR (or CRITICAL for
+known teratogens in T1): ACE-inhibitors, ARBs, warfarin (T1/T3), statins,
+methotrexate, isotretinoin, valproate, NSAIDs (T3), tetracyclines,
+fluoroquinolones, sulfonamides near term.
+
+RENAL / HEPATIC DOSING ANCHORS — when comorbidities mention CKD or hepatic
+impairment, use these tiers rather than vague "inferred from comorbidities":
+  Renal:   CrCl >50 (normal) | 30-50 (mild-mod, often needs adjustment) | <30 (severe, many drugs contraindicated) | dialysis (specific dosing)
+  Hepatic: Child-Pugh A (mild) | B (moderate, dose reduce many drugs) | C (severe, avoid most hepatically-cleared drugs)
+
+PRESCRIBING CASCADE — flag MODERATE when a new drug appears to treat a side
+effect of an existing drug (e.g. PPI added for NSAID-induced dyspepsia,
+anticholinergic added for antipsychotic EPS, diuretic added for amlodipine
+oedema). Suggest stopping the offending drug instead.
+
+NEGATIVE EXEMPLARS — common FALSE POSITIVES; do NOT raise these flags unless the patient has a documented true cross-reactivity or the chunk explicitly says otherwise:
+  BAD: shellfish allergy → flag iodinated contrast as drug_allergy.
+  WHY BAD: iodine is not the allergen in shellfish (it's tropomyosin). Cross-reactivity is a discredited myth. Repeated flagging causes alert fatigue.
+  GOOD: do not flag. If contrast is genuinely planned and the patient has a true prior contrast reaction, flag THAT instead.
+
+  BAD: penicillin allergy → flag every cephalosporin and every carbapenem as drug_allergy MAJOR.
+  WHY BAD: true cross-reactivity is <2% and concentrated in shared-R1-side-chain cephalosporins (cefaclor, cephalexin, cefadroxil). Carbapenem cross-reactivity is <1%.
+  GOOD: flag only first-gen / shared-R1 cephalosporins, and only as MODERATE unless history of anaphylaxis. Do not flag ceftriaxone, cefepime, meropenem on penicillin allergy alone.
+
+  BAD: sulfa-antibiotic allergy → flag furosemide, hydrochlorothiazide, gliclazide as MAJOR contraindication.
+  WHY BAD: non-antibiotic sulfonamides lack the aromatic amine that drives true sulfa-abx allergy. Cross-reactivity is uncommon.
+  GOOD: flag as MODERATE caution (already specified above for anaphylaxis history), not as outright contraindication.
+
+  BAD: any chest-pain patient on a stable-angina drug → flag for "ACS pathway not followed".
+  WHY BAD: stable angina is not ACS. Different pathway, different drugs.
+  GOOD: do not flag unless the plan itself misclassifies the syndrome.
+
 Flag EVERY concern you find. Do not suppress concerns because the plan "looks reasonable overall". Conversely, do NOT invent concerns — return an empty flags array if you find none.
 
 Severity scale:

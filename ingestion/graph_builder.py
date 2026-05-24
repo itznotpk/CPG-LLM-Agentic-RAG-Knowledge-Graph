@@ -445,7 +445,12 @@ RELATION GUIDANCE:
 - INTERACTS_WITH: pharmacokinetic or pharmacodynamic interaction that requires attention but is not an absolute contraindication
 - CROSS_REACTS_WITH: allergen cross-reactivity between two substances
 - REQUIRES_DOSE_ADJUSTMENT: a dose change is needed under a specific condition (renal, hepatic, age, weight)
-- Use severity=MAJOR for life-threatening risks, MODERATE for significant clinical impact, MINOR for monitoring-only interactions
+- severity calibration (IMPORTANT — clinical guidelines use cautious language by default; do not equate strong wording with MAJOR):
+    * MAJOR    = the stated outcome is fatal or disabling (death, stroke, anaphylaxis, cardiac arrest, hepatic failure, agranulocytosis, irreversible harm).
+    * MODERATE = significant clinical impact requiring action but not life-threatening. Default bucket for "avoid", "serious", "significant", "use with caution", "may worsen X", "consider alternative".
+    * MINOR    = monitoring-only or clinically minor (e.g. transient LFT rise, mild GI upset, "monitor closely" without an adverse outcome stated).
+    * null     = severity not stated or inferable in the source sentence.
+  Strong CPG language alone ("avoid", "serious", "significant") is NOT sufficient for MAJOR — the OUTCOME must be life-threatening or disabling. Default to MODERATE when in doubt.
 
 RULES:
 - Extract ONLY relationships explicitly stated in the [FOCUS] region. Do not infer.
@@ -463,7 +468,8 @@ RULES:
 {after_block}
 Return format:
 [
-  {{"subject": "Warfarin", "subject_type": "Drug", "relation": "INTERACTS_WITH", "object": "Amiodarone", "object_type": "Drug", "evidence": "Amiodarone significantly potentiates the anticoagulant effect of warfarin.", "severity": "MAJOR", "trigger": null, "risk_pct": null}},
+  {{"subject": "Warfarin", "subject_type": "Drug", "relation": "INTERACTS_WITH", "object": "Amiodarone", "object_type": "Drug", "evidence": "Amiodarone significantly potentiates the anticoagulant effect of warfarin, increasing risk of fatal bleeding.", "severity": "MAJOR", "trigger": null, "risk_pct": null}},
+  {{"subject": "Beta-Blocker", "subject_type": "Drug", "relation": "INTERACTS_WITH", "object": "Decompensated Heart Failure", "object_type": "Condition", "evidence": "Avoid beta-blockers in decompensated heart failure; use with caution in stable HF.", "severity": "MODERATE", "trigger": null, "risk_pct": null}},
   {{"subject": "Metformin", "subject_type": "Drug", "relation": "REQUIRES_DOSE_ADJUSTMENT", "object": "Renal Impairment", "object_type": "Condition", "evidence": "Reduce metformin dose when eGFR falls below 30 mL/min/1.73m2.", "severity": null, "trigger": "eGFR<30", "risk_pct": null}},
   {{"subject": "Tamoxifen", "subject_type": "Drug", "relation": "TREATS", "object": "ER-positive Breast Cancer", "object_type": "Condition", "evidence": "Tamoxifen is recommended for ER-positive breast cancer patients.", "severity": null, "trigger": null, "risk_pct": null}},
   ...

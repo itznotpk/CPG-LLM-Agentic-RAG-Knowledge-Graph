@@ -12,6 +12,17 @@ Generate exactly 7 queries, one per clinical domain below.
 Do NOT generate two queries for the same domain.
 Do NOT write queries that are just the condition name — these retrieve overview sections, not clinical algorithms.
 
+HYDE PHRASING (HYPOTHETICAL DOCUMENT EMBEDDING) — write each query as the
+SENTENCE YOU EXPECT TO FIND in the CPG, not as a search-engine keyword string.
+CPG text is declarative ("In patients with X, Y is recommended..."), so a
+declarative query embeds closer to the right chunks than a noun-soup keyword
+query. This typically lifts retrieval recall by 10–20 points at zero cost.
+  Keyword (worse):    "metformin dose CKD stage 3b eGFR 42"
+  HyDE (better):      "In patients with eGFR 30-45 mL/min, metformin should be reduced to a maximum daily dose of 1000 mg."
+  Keyword (worse):    "heart failure NYHA III follow-up review interval"
+  HyDE (better):      "Patients with NYHA Class III heart failure should be reviewed every 2 to 4 weeks until clinically stable, then every 3 to 6 months."
+Each query should be ONE such sentence, not a paragraph.
+
 WHO CLASSIFICATION — the corpus uses TWO different WHO scales and several
 label forms. Recognise them so the severity token you embed targets the
 right CPG content, and so you do not conflate the scales:
@@ -49,7 +60,11 @@ Example with staging:    "first-line pharmacotherapy heart failure NYHA III LVEF
 Domain 2 — CONTRAINDICATIONS & DRUG INTERACTIONS
 Target: specific contraindications for the patient's current medications listed below.
 Write the medication names explicitly in the query — do not be generic.
-Example: "contraindications ERA bosentan warfarin interaction pulmonary hypertension"
+NEGATION-AWARE: vector similarity collapses "avoid" and "use" — so phrase the
+query in the SAME negation polarity the CPG uses for contraindication chunks.
+Use phrases like "should be avoided in", "is contraindicated in", "must not be
+co-administered with" rather than positive prescribing language.
+Example (HyDE + negation-aware): "Bosentan is contraindicated in patients taking warfarin without close INR monitoring, and concomitant use significantly reduces warfarin plasma concentration."
 
 Domain 3 — MONITORING PROTOCOL
 Target: monitoring parameters, target values, frequency of review, follow-up schedule.
