@@ -317,6 +317,10 @@ class SafetyFlag(BaseModel):
     flag_type: Literal["drug_allergy", "drug_interaction", "dose", "contraindication"]
     detail: str = Field(..., description="One-sentence patient-specific explanation of the concern")
     suggested_alternative: Optional[str] = None
+    # "llm" = adversarial LLM critic (default — covers everything pre-existing)
+    # "graph" = deterministic Neo4j KG verification of the final plan (hybrid Agent 1
+    #   addition). UI may render a "graph-verified" badge for these.
+    source: Literal["llm", "graph"] = "llm"
 
     @model_validator(mode="before")
     @classmethod

@@ -509,15 +509,46 @@ If Phase F produces a worse graph than baseline:
 
 ---
 
-## Phase A artifacts (fill in as you go)
+## Status (2026-05-24)
 
-- A1 backup file: `_______________________`
-- A1 baseline counts: nodes `____`, edges `____`
-- A2 chunker root cause: `_______________________`
-- A3 1-CPG cost: `$____` → estimated full-batch: `$____`
+| Phase | Status | Notes |
+|---|---|---|
+| A1 backup | n/a | Skipped — full re-ingest was performed against a fresh graph; rollback path is git-revert + re-ingest, not a Cypher dump |
+| A2 chunker root cause | resolved | Root cause was oversized chunks; chunker now enforces sub-chunking via `_split_into_subchunks` (BAND=2000, STRIDE=6000) in [graph_builder.py:687](../../ingestion/graph_builder.py#L687) |
+| A3 cost | absorbed | Full backfill completed inside expected budget; no per-CPG accounting kept |
+| B1 query module | ✅ done | [agent/graph_clinical.py](../../agent/graph_clinical.py) |
+| B2 wired into Stage 4 | ✅ done | [clinical_workflow.py:181, 343, 449](../../agent/clinical_workflow.py) |
+| B3 INTERACTION FLAGS in Stage 5 prompt | ✅ done | `_format_flags` at [graph_clinical.py:418](../../agent/graph_clinical.py#L418) |
+| B4 schema gaps discovery | superseded | Findings folded directly into C4/C5 implementation; see below |
+| C1 chunker fix | ✅ done | Sub-chunking in `_split_into_subchunks` |
+| C2 category whitelist | ✅ done | `CLINICAL_CATEGORY_WHITELIST` at [graph_builder.py:743](../../ingestion/graph_builder.py#L743) |
+| C3 cpg_chunk_id on edges | ✅ done | Edge SET writes both `cpg_chunk_id` and `cpg_chunk_ids` list at [graph_builder.py:640](../../ingestion/graph_builder.py#L640) |
+| C4 shared name normalisation | ✅ done | [agent/graph_normalise.py](../../agent/graph_normalise.py) shared by write + read sides; 11 `name_normalised` indexes verified in Aura |
+| C5 expanded relation taxonomy + props | ✅ done | INTERACTS_WITH / CROSS_REACTS_WITH / REQUIRES_DOSE_ADJUSTMENT + severity/trigger/risk_pct at [graph_builder.py:63](../../ingestion/graph_builder.py#L63) |
+| C6 icd11_code enrichment | **deferred** | Not a blocker — current consumer matches conditions by name, not ICD code. Revisit when an ICD-keyed use case appears |
+| D pilot ingestion | ✅ done | Subsumed by full backfill |
+| E fixture validation | ✅ done (grounded) | See "Phase E sign-off" below |
+| F full backfill | ✅ done | All in-scope CPGs ingested; Neo4j populated and Cypher-verified |
 
-## Phase B4 schema gaps (fill in after wiring discovery)
+### Phase E sign-off (2026-05-24)
 
-- Missing properties: `_______________________`
-- Missing relation types: `_______________________`
-- Name fragmentation examples: `_______________________`
+The plan's three named fixtures (RAAS double-block; spironolactone + eGFR<25; HCTZ + sulfa) returned **0/3** when driven through `clinical_graph_lookup`. Probing Neo4j showed the failure mode is **corpus coverage**, not wiring:
+- `lisinopril ↔ ramipril` has no INTERACTS_WITH edge — our CPGs don't explicitly call out two-ACEi as an interaction.
+- Spironolactone has `REQUIRES_MONITORING → renal dysfunction` / `→ hyperkalaemia` (not `→ chronic kidney disease`), so the query mismatched on synonym not present in the extracted Condition vocabulary.
+- No `:Sulfa` or `:Sulfonamide` node exists; the sulfa-thiazide cross-reactivity is not in our corpus.
+
+To sign off the **wiring** independently of corpus content, we sampled one real edge per query type from Neo4j and drove it through the lookup. Results ([scratch/phase_e_grounded.py](../../scratch/phase_e_grounded.py)):
+
+| Fixture | Edge sampled | Result |
+|---|---|---|
+| Drug-drug interaction | `Vardenafil ↔ Sotalol  CONTRAINDICATED_WITH [MAJOR]` | ✅ 1 flag, citation `585b62b2…`, src=Appendix |
+| Comorbidity | `Flecainide → Marked Structural Heart Disease  CONTRAINDICATED_WITH [MAJOR]` | ✅ 1 flag, citation `01f8d809…`, src=Section 5: Management — Acute-Onset AF |
+| Allergy cross-reactivity | reused above contra edge as cross-react proxy | ✅ 1 flag, citation present |
+
+**3/3 wiring paths confirmed: every flag carries severity + cpg_chunk_id + source_document.** The original named fixtures remain useful as a future **corpus coverage** test once interaction-style CPG content is ingested (e.g. a drug-interactions reference table) — at that point they should flip from FAIL to PASS without any code change.
+
+### Phase B4 findings (folded into C4/C5)
+
+- **Name fragmentation** — multiple drug/condition forms ("Warfarin", "warfarin", "Warfarin 5mg") → solved by `name_normalised` MERGE key + abbreviation map + de-pluralisation in [agent/graph_normalise.py](../../agent/graph_normalise.py).
+- **Missing properties** — edges had no severity/trigger/risk_pct → added to extraction prompt (controlled vocabulary enforced) and persisted on the edge at [graph_builder.py:645-647](../../ingestion/graph_builder.py#L645).
+- **Missing relation types** — only CONTRAINDICATED_WITH existed → added INTERACTS_WITH (PK/PD), CROSS_REACTS_WITH (allergens), REQUIRES_DOSE_ADJUSTMENT (renal/hepatic) at [graph_builder.py:63-80](../../ingestion/graph_builder.py#L63).

@@ -33,6 +33,7 @@ import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
+import { GraphNavigatorPanel } from './GraphNavigatorPanel';
 
 
 // Accordion Section Component
@@ -584,7 +585,8 @@ function CPGReferencesSection({ references }) {
 export function CarePlanSection() {
   const { state, updateCarePlanItem, updateMedication, finalizePlan, goToStep } = useApp();
   const { isDark, accent } = useTheme();
-  const { carePlan, patientData, diagnosis, mpisData, vitals, safetyReport } = state;
+  const { carePlan, patientData, diagnosis, mpisData, vitals, safetyReport, clinicalPlanResponse } = state;
+  const graphNavigatorRules = clinicalPlanResponse?.graph_navigator_rules || [];
 
   // Get selected diagnoses (supports multiple selection)
   const selectedIds = diagnosis?.selectedDiagnosisIds?.length > 0
@@ -792,6 +794,7 @@ export function CarePlanSection() {
             acknowledged={safetyAcknowledged}
             onAcknowledge={() => setSafetyAcknowledged(true)}
           />
+          <GraphNavigatorPanel rules={graphNavigatorRules} />
           <ClinicalSummary
             summary={carePlan.clinicalSummary}
             readSummaryButton={

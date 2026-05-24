@@ -31,6 +31,27 @@ embedding_client = get_embedding_client()
 EMBEDDING_MODEL = get_embedding_model()
 
 
+_bedrock_runtime_client = None
+
+
+def _get_bedrock_client():
+    """Lazily create and cache the Bedrock runtime client.
+
+    Client creation (credential resolution, session/endpoint setup) costs seconds
+    and was previously paid on every embedding call — multiplied across the ~7
+    stage-4 retrieval queries per request. boto3 clients are thread-safe for
+    invoke_model, so build once and reuse.
+    """
+    global _bedrock_runtime_client
+    if _bedrock_runtime_client is None:
+        import boto3
+        import os
+        _bedrock_runtime_client = boto3.client(
+            'bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1')
+        )
+    return _bedrock_runtime_client
+
+
 async def generate_embedding(text: str) -> List[float]:
     """
     Generate embedding for text using configured provider (OpenAI or Bedrock).
@@ -46,11 +67,10 @@ async def generate_embedding(text: str) -> List[float]:
     
     if embedding_provider == 'bedrock':
         # Use Bedrock Titan/Cohere for embeddings (matches ingestion pipeline)
-        import boto3
         import json
         import asyncio
-        
-        client = boto3.client('bedrock-runtime', region_name=os.getenv('AWS_REGION', 'us-east-1'))
+
+        client = _get_bedrock_client()  # cached — client creation costs seconds
         model_id = os.getenv('EMBEDDING_MODEL', 'amazon.titan-embed-text-v1')
         dimension = int(os.getenv('VECTOR_DIMENSION', '1536'))
         

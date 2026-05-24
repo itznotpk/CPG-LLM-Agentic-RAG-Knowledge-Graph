@@ -237,71 +237,21 @@ class GraphBuilder:
         """Check if content is too large for Graphiti processing."""
         return self._estimate_tokens(content) > max_tokens
     
-    # Known clinical abbreviation -> canonical full form mapping.
-    # When the LLM extracts "DCCV" in one chunk and "Direct Current Cardioversion"
-    # in another, both resolve to the same canonical name so MERGE creates one node.
-    _ABBREV_MAP = {
-        "af": "Atrial Fibrillation",
-        "afl": "Atrial Flutter",
-        "hf": "Heart Failure",
-        "vka": "Vitamin K Antagonist",
-        "oac": "Oral Anticoagulant",
-        "dccv": "Direct Current Cardioversion",
-        "inr": "International Normalized Ratio",
-        "tia": "Transient Ischaemic Attack",
-        "lmwh": "Low Molecular Weight Heparin",
-        "ecg": "Electrocardiography",
-        "toe": "Transoesophageal Echocardiography",
-        "laa": "Left Atrial Appendage",
-        "tte": "Transthoracic Echocardiography",
-        "ufh": "Unfractionated Heparin",
-        "pci": "Percutaneous Coronary Intervention",
-        "bms": "Bare Metal Stent",
-        "acs": "Acute Coronary Syndrome",
-        "nstemi": "Non-ST Elevation Myocardial Infarction",
-        "lvef": "Left Ventricular Ejection Fraction",
-        "la": "Left Atrium",
-        "lv": "Left Ventricle",
-    }
-
+    # Name normalisation is shared with the read side (agent/graph_clinical.py)
+    # via agent.graph_normalise. Do not fork the logic here - update the shared
+    # module instead so write-time MERGE keys stay symmetric with read-time
+    # lookup keys.
     @staticmethod
     def _normalize_entity_name(name: str) -> str:
+        """Return the display name (title-cased, abbreviation-expanded,
+        de-pluralised). The lowercase MERGE key is `display.lower()`.
         """
-        Normalize an entity name so that case variants, plurals, and
-        known abbreviations all resolve to a single canonical form.
-
-        Rules applied in order:
-          1. Strip leading/trailing whitespace.
-          2. If the lowered name is a known abbreviation, expand it.
-          3. Title-case the result ("atrial fibrillation" -> "Atrial Fibrillation").
-          4. De-pluralize trailing 's' ONLY for simple cases ("Strokes" -> "Stroke")
-             but protect known plurals that should stay (e.g. "Antiarrhythmic Drugs").
-        """
-        if not name:
-            return name
-
-        name = name.strip()
-        lowered = name.lower()
-
-        # Expand known abbreviations
-        if lowered in GraphBuilder._ABBREV_MAP:
-            return GraphBuilder._ABBREV_MAP[lowered]
-
-        # Title-case for consistent casing
-        name = name.title()
-
-        # Simple de-pluralization: remove trailing 's' if the word is > 4 chars
-        # and does NOT end in 'ss' (e.g. "stress"), 'us' (e.g. "status"),
-        # 'is' (e.g. "diagnosis"), or 'sis' (e.g. "analysis")
-        protected_suffixes = ('ss', 'us', 'is', 'sis', 'ics', 'ies')
-        if (
-            len(name) > 4
-            and name.endswith('s')
-            and not name.lower().endswith(protected_suffixes)
-        ):
-            name = name[:-1]
-
-        return name
+        try:
+            from agent.graph_normalise import canonical_form
+        except ImportError:
+            from ..agent.graph_normalise import canonical_form
+        display, _ = canonical_form(name or "")
+        return display or name
 
     
     # ==========================================================================

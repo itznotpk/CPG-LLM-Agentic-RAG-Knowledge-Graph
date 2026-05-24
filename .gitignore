@@ -233,3 +233,5 @@ markdown/cleaned_*.md
 
 # Source PDFs (keep in documents/ only)
 markdown/*.pdf
+gen-lang-client-*.json
+gen-lang-client-0356470935-3e9c2f32bfa1.json

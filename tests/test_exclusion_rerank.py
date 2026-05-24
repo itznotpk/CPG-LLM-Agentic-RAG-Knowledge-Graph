@@ -5,6 +5,7 @@ import pytest
 from ddx.backfill_exclusion_embeddings import _needs_processing
 from ddx.search_ddx import (
     EXCLUSION_PENALTY_WEIGHT,
+    INCLUSION_BOOST_WEIGHT,
     apply_tabulation_filter,
 )
 
@@ -104,4 +105,6 @@ async def test_inclusion_boost_and_exclusion_penalty_are_both_in_final_score():
     result = ranked[0]
     assert result["inclusion_match"] is True
     assert result["exclusion_match"] is True
-    assert result["final_score"] == pytest.approx(0.40 + 1.0 - (EXCLUSION_PENALTY_WEIGHT * 0.6))
+    assert result["final_score"] == pytest.approx(
+        0.40 + (INCLUSION_BOOST_WEIGHT * 1.0) - (EXCLUSION_PENALTY_WEIGHT * 0.6)
+    )

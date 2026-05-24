@@ -34,6 +34,7 @@ logger = logging.getLogger(__name__)
 
 DDX_RERANK_MODEL = os.getenv("LLM_CHOICE", "gpt-4o")
 EXCLUSION_PENALTY_WEIGHT = 0.3       # λ — applied in ddx/search_ddx.py; defined here for central reference
+INCLUSION_BOOST_WEIGHT = 0.3         # mirrors ddx/search_ddx.py; weights the synonym-match addend
 OUT_OF_SCOPE_INCL_THRESHOLD = 0.3
 DDX_DISPLAY_FLOOR = 0.30
 SCORE_TERM_DISPLAY_FLOOR = 0.50
@@ -120,13 +121,19 @@ def build_score_breakdown(
     route_method: ScoreRouteMethod | None = None,
 ) -> ScoreBreakdown:
     base_similarity = float(result.base_similarity if result.base_similarity is not None else result.similarity)
-    inclusion_match = float(result.inclusion_similarity or 0.0)
+    # result.inclusion_similarity is the RAW synonym-match cosine; the actual score
+    # contribution is weighted (mirrors search_ddx) so it can't dominate base or push
+    # final past 1.0. exclusion_penalty is already weighted upstream.
+    raw_inclusion = float(result.inclusion_similarity or 0.0)
+    inclusion_match = round(INCLUSION_BOOST_WEIGHT * raw_inclusion, 4)
     exclusion_penalty = float(result.exclusion_penalty or 0.0)
     final_score = round(base_similarity + inclusion_match - exclusion_penalty, 4)
 
+    # Phrase is shown when the underlying MATCH (raw cosine) is strong — not the
+    # weighted addend (which is always < the floor after weighting).
     inclusion_phrase = (
         result.matched_term
-        if inclusion_match >= SCORE_TERM_DISPLAY_FLOOR and result.matched_term
+        if raw_inclusion >= SCORE_TERM_DISPLAY_FLOOR and result.matched_term
         else None
     )
     exclusion_phrase = (
@@ -169,7 +176,10 @@ def route_provenance_badge(route_method: ScoreRouteMethod | None) -> str:
 def render_ddx_candidate(candidate: DDxResult, rank: int) -> str:
     breakdown = candidate.score_breakdown or build_score_breakdown(candidate)
     badge = route_provenance_badge(breakdown.route_method)
-    confidence = f"{breakdown.final_score:.0%}"
+    # Clamp to [0,1] for display — a strong synonym boost can lift final_score above
+    # 1.0, and "159% confidence" is nonsensical to a clinician.
+    shown = max(0.0, min(breakdown.final_score, 1.0))
+    confidence = f"{shown:.0%}"
     if breakdown.final_score < DDX_DISPLAY_FLOOR:
         confidence = f"{confidence} low confidence"
 

@@ -17,7 +17,6 @@ Usage from clinical_stages.py:
 """
 
 import os
-import re
 import logging
 from typing import List, Optional, Literal
 from dataclasses import dataclass, field
@@ -42,6 +41,7 @@ class ClinicalFlag:
     object: str            # e.g., interacting drug / condition
     relation: str          # Neo4j relationship type
     severity: Optional[str] = None  # MAJOR / MODERATE / MINOR / UNSPECIFIED
+    trigger: Optional[str] = None   # raw condition string e.g. "eGFR<30", "in CKD Stage 4"
     evidence: str = ""
     evidence_list: List[str] = field(default_factory=list)  # all supporting evidence across CPGs
     source_document: str = ""
@@ -53,24 +53,7 @@ class ClinicalFlag:
 # Name normalisation (symmetric with graph_builder._normalize_entity_name)
 # ---------------------------------------------------------------------------
 
-def _norm(name: str) -> str:
-    """Normalise a name for Cypher matching against name_normalised.
-
-    Must produce the same canonical form as
-    graph_builder._normalize_entity_name(name).lower()
-    so that read queries hit the same MERGE key used at write time.
-
-    Steps:
-    - strip whitespace
-    - remove parenthetical brand names: "sildenafil (Viagra)" -> "sildenafil"
-    - remove trailing dose info: "warfarin 5 mg" -> "warfarin"
-    - title-case then lowercase (same as write side)
-    """
-    s = name.strip()
-    s = re.sub(r"\s*\([^)]*\)", "", s)        # strip parenthetical
-    s = re.sub(r"\s+\d+\s*mg.*$", "", s, flags=re.IGNORECASE)  # strip trailing dose
-    s = s.title()  # title-case first, matching _normalize_entity_name
-    return s.lower().strip()
+from .graph_normalise import normalise_for_lookup as _norm  # symmetric with write side
 
 
 def _norm_list(names: List[str]) -> List[str]:
@@ -204,6 +187,7 @@ async def _query_comorbidity_flags(
             object=record["obj"],
             relation=rel,
             severity=record["severity"],
+            trigger=record["trigger"],
             evidence=record["evidence"],
             evidence_list=list(record["evidence_list"]),
             source_document=record["source"],
@@ -261,6 +245,49 @@ async def _query_allergy_cross_reactivity(
 # ---------------------------------------------------------------------------
 # Candidate drug extraction from retrieved chunk IDs
 # ---------------------------------------------------------------------------
+
+async def match_plan_drugs(interventions: List[str]) -> dict:
+    """Map plan intervention strings to KG Drug nodes by substring match on
+    `name_normalised`.
+
+    Used by the post-Stage-5 hybrid Safety Critic (upgraded Agent 1) to identify
+    which drugs the synthesis LLM actually recommended, so we can run the existing
+    KG interaction / contraindication / allergy queries against the *final* plan
+    (rather than chunk-derived candidates, which is what the pre-screen does).
+
+    Returns:
+        {drug_name_normalised: first_intervention_index} — first intervention
+        position that contained the drug. Caller maps that back to the
+        `TreatmentPlan.recommendations` index. Returns {} on any failure.
+
+    Notes:
+    - We require `size(name_normalised) >= 4` to avoid short-name false positives
+      (e.g. a 3-letter drug code substring-matching inside an unrelated word).
+    - Match is `CONTAINS` on the lowercased intervention — same canonical form
+      `_norm` uses on the write side.
+    """
+    interventions = [iv for iv in (interventions or []) if iv]
+    if not interventions:
+        return {}
+    cypher = """
+    UNWIND range(0, size($iv) - 1) AS i
+    MATCH (d:Drug)
+    WHERE d.name_normalised IS NOT NULL
+      AND size(d.name_normalised) >= 4
+      AND toLower($iv[i]) CONTAINS d.name_normalised
+    RETURN d.name_normalised AS drug, min(i) AS idx
+    """
+    try:
+        session_ctx = await _get_neo4j_session()
+        async with session_ctx as session:
+            result = await session.run(cypher, iv=interventions)
+            mapping = {rec["drug"]: int(rec["idx"]) async for rec in result}
+            logger.debug("match_plan_drugs: %d drugs from %d interventions", len(mapping), len(interventions))
+            return mapping
+    except Exception as e:
+        logger.warning("match_plan_drugs failed: %s", e)
+        return {}
+
 
 async def extract_candidate_drugs_from_chunks(chunk_ids: List[str]) -> List[str]:
     """
@@ -377,6 +404,7 @@ def format_flags_for_prompt(flags: List[ClinicalFlag]) -> str:
     lines = ["INTERACTION FLAGS (graph-verified, MUST be addressed in response):"]
     for f in flags:
         severity_str = f"[{f.severity}]" if f.severity else ""
+        trigger_line = f"    Trigger: {f.trigger}\n" if f.trigger else ""
         # Use evidence_list when available (accumulates across CPGs); fall back to single evidence
         all_evidence = f.evidence_list if f.evidence_list else ([f.evidence] if f.evidence else [])
         evidence_block = "\n".join(f'    Evidence {i+1}: "{e[:200]}"' for i, e in enumerate(all_evidence[:3]))
@@ -384,6 +412,7 @@ def format_flags_for_prompt(flags: List[ClinicalFlag]) -> str:
         lines.append(
             f"- {f.flag_type} {severity_str}: {f.subject} <-> {f.object}\n"
             f"    Relation: {f.relation}\n"
+            f"{trigger_line}"
             f"{evidence_block}\n"
             f"    Source: {f.source_document}"
             + (f" (chunks: {chunk_refs})" if chunk_refs else "")
