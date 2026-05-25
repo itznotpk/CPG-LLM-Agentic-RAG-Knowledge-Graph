@@ -31,8 +31,42 @@ function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, st
       } : {},
       severity_staging: stagingData || {},
       ...(structuredComorbidities?.length ? { staged_comorbidities: structuredComorbidities } : {}),
+      ...(patientState?.priorVisit ? { prior_visit: patientState.priorVisit } : {}),
     },
   };
+}
+
+/**
+ * Generate the lean PriorVisitSummary JSON for a just-finalised consultation.
+ * Called ONLY after the clinician explicitly agrees on the final care plan.
+ * Caller is responsible for writing the returned JSON back into Supabase via
+ * update_prior_visit_summary_bypass().
+ *
+ * @returns {Promise<Object>} { visit_date, prior_icd_primary, prior_plan_summary, key_labs_delta, what_changed }
+ */
+export async function summarisePriorVisit({
+  consultationDate,
+  clinicalNotes,
+  carePlanSummary,
+  priorIcdPrimary,
+  medicationRecommendations,
+}) {
+  const resp = await fetch(`${CLINICAL_API_BASE}/clinical/summarise-prior`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      consultation_date: consultationDate,
+      clinical_notes: clinicalNotes || '',
+      care_plan_summary: carePlanSummary || null,
+      prior_icd_primary: priorIcdPrimary || null,
+      medication_recommendations: medicationRecommendations || null,
+    }),
+  });
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({ detail: resp.statusText }));
+    throw new Error(err.detail || 'summarise-prior request failed');
+  }
+  return resp.json();
 }
 
 /**

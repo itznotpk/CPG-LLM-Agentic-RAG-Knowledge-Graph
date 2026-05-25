@@ -7,14 +7,14 @@ const SEVERITY_ORDER = { CRITICAL: 0, MAJOR: 1, MODERATE: 2 };
 
 function severityColor(severity, isDark) {
   if (severity === 'CRITICAL') return isDark ? 'text-red-400' : 'text-red-700';
-  if (severity === 'MAJOR')    return isDark ? 'text-orange-400' : 'text-orange-700';
-  return isDark ? 'text-yellow-400' : 'text-yellow-700';
+  if (severity === 'MAJOR')    return isDark ? 'text-amber-400' : 'text-amber-700';
+  return isDark ? 'text-slate-400' : 'text-slate-600';
 }
 
 function severityBg(severity, isDark) {
-  if (severity === 'CRITICAL') return isDark ? 'bg-red-900/30 border-red-700/50' : 'bg-red-50 border-red-300';
-  if (severity === 'MAJOR')    return isDark ? 'bg-orange-900/30 border-orange-700/50' : 'bg-orange-50 border-orange-300';
-  return isDark ? 'bg-yellow-900/30 border-yellow-700/50' : 'bg-yellow-50 border-yellow-300';
+  if (severity === 'CRITICAL') return isDark ? 'bg-red-500/10 border-red-500/20' : 'bg-red-50/50 border-red-200';
+  if (severity === 'MAJOR')    return isDark ? 'bg-amber-500/10 border-amber-500/20' : 'bg-amber-50/50 border-amber-200';
+  return isDark ? 'bg-slate-500/10 border-slate-500/20' : 'bg-slate-50 border-slate-200';
 }
 
 /**
@@ -123,10 +123,15 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
             >
               <div className="flex items-start gap-2">
                 <Badge
-                  variant="default"
+                  variant={flag.severity === 'CRITICAL' ? 'danger' : flag.severity === 'MAJOR' ? 'warning' : 'gray'}
                   size="sm"
-                  className={`shrink-0 mt-0.5 font-bold uppercase text-[10px] ${severityColor(flag.severity, isDark)}`}
+                  className="shrink-0 mt-0.5 font-bold uppercase text-[10px] gap-1.5"
                 >
+                  <span className={`w-1.5 h-1.5 rounded-full ${
+                    flag.severity === 'CRITICAL' ? 'bg-red-500 animate-pulse' :
+                    flag.severity === 'MAJOR' ? 'bg-amber-500' :
+                    'bg-slate-400'
+                  }`} />
                   {flag.severity}
                 </Badge>
                 <div className="min-w-0 flex-1">

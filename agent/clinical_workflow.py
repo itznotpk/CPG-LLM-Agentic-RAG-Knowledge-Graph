@@ -7,7 +7,7 @@ import logging
 import time
 from contextlib import contextmanager
 from dataclasses import dataclass, field
-from .models import PatientCase, TreatmentPlan, SafetyReport
+from .models import PatientCase, TreatmentPlan, SafetyReport, StagedComorbidity
 from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
@@ -31,46 +31,74 @@ async def route_comorbidities(
     top_k: int = 4,
     patient_sex: str | None = None,
     emit=None,
+    staged_comorbidities: list[StagedComorbidity] | None = None,
 ) -> list[CPGDocRef]:
-    """Map free-text comorbidity names to additional CPG documents.
+    """Map free-text and structured comorbidities to additional CPG documents.
 
-    For each comorbidity, run a DDx lookup (top_k=3) to obtain an ICD-11 code,
-    then route that code to CPGs. Skips matches below similarity 0.55 to prevent
-    semantic-fallback drift (e.g. DM/CKD routing to Breast Cancer CPG).
-    Deduplicated against existing_cpgs. Sex-incompatible CPGs (e.g. a pregnancy CPG
-    for a male patient) are dropped and surfaced in the trace.
+    If a comorbidity has a confirmed ICD-11 code from staged_comorbidities,
+    we bypass search_ddx entirely (short-circuit). Free-text comorbidities
+    fall back to vector similarity search (search_ddx) with a 0.55 threshold.
+    Deduplicated against existing_cpgs. Sex-incompatible CPGs are dropped.
     """
     from ddx.search_ddx import search_ddx
     from .clinical_stages import sex_incompatible_reason
     additional: list[CPGDocRef] = []
     existing_names = {c.cpg_name for c in existing_cpgs}
     sex_excluded: set[str] = set()
-    for condition in comorbidities[:4]:           # cap at 4 to limit latency
-        if not condition.strip():
-            continue
+
+    # Merge staged and legacy comorbidities, deduplicating by normalized label name
+    items_to_process: list[tuple[str, str | None]] = []
+    seen_labels: set[str] = set()
+
+    if staged_comorbidities:
+        for sc in staged_comorbidities:
+            if sc.label and sc.label.strip():
+                lbl_normalized = sc.label.strip().lower()
+                if lbl_normalized not in seen_labels:
+                    seen_labels.add(lbl_normalized)
+                    items_to_process.append((sc.label.strip(), sc.icd_code))
+
+    for c in comorbidities:
+        if c and c.strip():
+            lbl_normalized = c.strip().lower()
+            if lbl_normalized not in seen_labels:
+                seen_labels.add(lbl_normalized)
+                items_to_process.append((c.strip(), None))
+
+    for condition, icd_code in items_to_process[:4]:           # cap at 4 to limit latency
         try:
-            hits = await search_ddx(condition, top_k=3)
-            logger.info(
-                "Comorbidity %r → DDx candidates: %s",
-                condition,
-                [(h.get("code"), h.get("title"), round(h.get("similarity", 0), 3)) for h in hits[:3]],
-            )
-            if not hits:
-                continue
-
-            top = hits[0]
-            top_similarity = top.get("similarity", 0)
-            if top_similarity < 0.55:
-                logger.warning(
-                    "Comorbidity %r — top DDx %s (%s) similarity %.3f below 0.55 threshold; skipping",
-                    condition, top.get("code"), top.get("title"), top_similarity,
+            if icd_code and icd_code.strip():
+                # SHORT-CIRCUIT: Direct confirmed code routing
+                code_to_route = icd_code.strip()
+                logger.info(
+                    "Comorbidity %r has confirmed ICD code %s — skipping search_ddx",
+                    condition, code_to_route,
                 )
-                continue
+            else:
+                # Legacy free-text path: run search_ddx
+                hits = await search_ddx(condition, top_k=3)
+                logger.info(
+                    "Comorbidity %r → DDx candidates: %s",
+                    condition,
+                    [(h.get("code"), h.get("title"), round(h.get("similarity", 0), 3)) for h in hits[:3]],
+                )
+                if not hits:
+                    continue
 
-            refs = await route_icd_to_cpgs(top.get("code"), top_k=top_k)
+                top = hits[0]
+                top_similarity = top.get("similarity", 0)
+                if top_similarity < 0.55:
+                    logger.warning(
+                        "Comorbidity %r — top DDx %s (%s) similarity %.3f below 0.55 threshold; skipping",
+                        condition, top.get("code"), top.get("title"), top_similarity,
+                    )
+                    continue
+                code_to_route = top.get("code")
+
+            refs = await route_icd_to_cpgs(code_to_route, top_k=top_k)
             logger.info(
                 "Comorbidity %r → ICD %s → CPGs: %s (match_types=%s)",
-                condition, top.get("code"),
+                condition, code_to_route,
                 [r.cpg_name for r in refs],
                 [r.match_type for r in refs],
             )
@@ -190,7 +218,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
                                        clinical_context=_build_symptom_text(case),
                                        patient_sex=case.sex)
         with _time_stage("stage_3_route_comorbidities", timings):
-            extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex)
+            extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, staged_comorbidities=case.staged_comorbidities)
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
         logger.info("Stage 3 Routing: %d CPGs matched: %s",
@@ -349,7 +377,7 @@ async def run_clinical_workflow_streaming(
         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit,
                                    clinical_context=_build_symptom_text(case),
                                    patient_sex=case.sex)
-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit)
+        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit, staged_comorbidities=case.staged_comorbidities)
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
             for c in extra_cpgs:

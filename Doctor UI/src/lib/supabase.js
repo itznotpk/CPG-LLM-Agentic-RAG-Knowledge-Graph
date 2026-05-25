@@ -605,6 +605,7 @@ export const startConsultation = async (patientNric, clinicalNotes) => {
     return {
       success: true,
       consultationId: data.consultation_id,
+      consultationNumber: data.consultation_number,
       error: null
     };
   } catch (err) {
@@ -820,6 +821,72 @@ export const getAllPatientConsultations = async (patientNric, limit = 10) => {
   } catch (err) {
     console.error('Exception fetching consultations:', err);
     return { consultations: [], error: err };
+  }
+};
+
+// ==============================================================================
+// PRIOR VISIT SUMMARY FUNCTIONS
+// ==============================================================================
+
+/**
+ * Persist a lean PriorVisitSummary JSON onto an existing consultation row.
+ * Called AFTER the clinician finalises the care plan and the agent
+ * /clinical/summarise-prior endpoint returns the JSON.
+ *
+ * @param {string} patientNric
+ * @param {number} consultationNumber - per-patient consultation number
+ * @param {Object} priorVisitSummary  - { visit_date, prior_icd_primary, prior_plan_summary, key_labs_delta, what_changed }
+ */
+export const writePriorVisitSummary = async (patientNric, consultationNumber, priorVisitSummary) => {
+  try {
+    const { data, error } = await supabase
+      .rpc('update_prior_visit_summary_bypass', {
+        p_patient_nric: patientNric,
+        p_consultation_number: consultationNumber,
+        p_prior_visit_summary: priorVisitSummary,
+      });
+
+    if (error) {
+      console.error('Error writing prior_visit_summary:', error);
+      return { success: false, error };
+    }
+    return { success: true, data, error: null };
+  } catch (err) {
+    console.error('Exception writing prior_visit_summary:', err);
+    return { success: false, error: err };
+  }
+};
+
+/**
+ * Read the most recent non-null prior_visit_summary for a patient.
+ * Used when opening a returning patient in DataInputSection — the result
+ * should be passed into PatientCase.prior_visit (clinicalApi already wires
+ * patientState.priorVisit through to the agent).
+ *
+ * @returns {Promise<{summary: Object|null, visitMeta: Object|null, error: Error|null}>}
+ */
+export const getLatestPriorVisitSummary = async (patientNric) => {
+  try {
+    const { data, error } = await supabase
+      .rpc('get_latest_prior_visit_summary', { p_patient_nric: patientNric });
+
+    if (error) {
+      console.error('Error reading prior_visit_summary:', error);
+      return { summary: null, visitMeta: null, error };
+    }
+
+    const summary = data?.prior_visit_summary ?? null;
+    const visitMeta = data
+      ? {
+          consultationId: data.consultation_id ?? null,
+          consultationNumber: data.consultation_number ?? null,
+          consultationTime: data.consultation_time ?? null,
+        }
+      : null;
+    return { summary, visitMeta, error: null };
+  } catch (err) {
+    console.error('Exception reading prior_visit_summary:', err);
+    return { summary: null, visitMeta: null, error: err };
   }
 };
 

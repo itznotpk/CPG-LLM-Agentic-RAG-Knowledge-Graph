@@ -3,7 +3,7 @@ import {
   sampleDiagnosis,
   sampleCarePlan,
 } from '../data/sampleData';
-import { runClinicalPlan, runDDxStream, resynthesizePlanStream } from '../lib/clinicalApi';
+import { runClinicalPlan, runDDxStream, resynthesizePlanStream, summarisePriorVisit } from '../lib/clinicalApi';
 import { mapDdxToDiagnosis, mapTreatmentPlanToCarePlan } from '../lib/clinicalMappers';
 import {
   supabase,
@@ -15,7 +15,9 @@ import {
   updatePatientMedications,
   updatePatientRiskLevel,
   updatePatientStatus,
-  uploadCarePlanPDF
+  uploadCarePlanPDF,
+  writePriorVisitSummary,
+  getLatestPriorVisitSummary,
 } from '../lib/supabase';
 import { generateCarePlanPDFBlob } from '../utils/pdfGenerator';
 import { getNowUTC8, getTodayUTC8 } from '../utils/timezone';
@@ -58,6 +60,9 @@ const initialState = {
   nextReviewDate: '', // TCA date from step 1
   patientStatus: 'active', // Patient status from step 3 (active, follow-up, discharged)
   currentConsultationId: null, // ID of the current consultation in progress
+  currentConsultationNumber: null, // per-patient consultation_number (used by prior-visit RPCs)
+  priorVisit: null, // PriorVisitSummary from previous consultation, surfaced into PatientCase
+  priorVisitMeta: null, // { consultationId, consultationNumber, consultationTime } for the row that produced priorVisit
   clinicalPlanResponse: null,
   diagnosis: null,
   carePlan: null,
@@ -95,6 +100,10 @@ function appReducer(state, action) {
       return { ...state, patientStatus: action.payload };
     case 'SET_CONSULTATION_ID':
       return { ...state, currentConsultationId: action.payload };
+    case 'SET_CONSULTATION_NUMBER':
+      return { ...state, currentConsultationNumber: action.payload };
+    case 'SET_PRIOR_VISIT':
+      return { ...state, priorVisit: action.payload?.summary ?? null, priorVisitMeta: action.payload?.meta ?? null };
     case 'SET_VITALS':
       return { ...state, vitals: { ...state.vitals, ...action.payload } };
     case 'SET_SEVERITY_STAGING':
@@ -394,6 +403,18 @@ export function AppProvider({ children }) {
             vitalsHistory: patient.vitalsHistory,
           }
         });
+        // Fetch the latest prior-visit summary (best-effort; never block patient load).
+        try {
+          const { summary, visitMeta } = await getLatestPriorVisitSummary(nsn);
+          if (summary) {
+            console.log('📜 Loaded prior visit summary:', summary);
+            dispatch({ type: 'SET_PRIOR_VISIT', payload: { summary, meta: visitMeta } });
+          } else {
+            dispatch({ type: 'SET_PRIOR_VISIT', payload: { summary: null, meta: null } });
+          }
+        } catch (e) {
+          console.warn('prior visit summary load failed (non-fatal):', e);
+        }
         return { found: true, patient: patient, mpisData: patient };
       } else {
         console.log('❌ Patient not found in Supabase');
@@ -425,8 +446,11 @@ export function AppProvider({ children }) {
         console.log('🆕 Starting new consultation for patient:', state.patient.nsn);
         const result = await startConsultation(state.patient.nsn, notesToSave);
         if (result.success && result.consultationId) {
-          console.log('✅ New consultation created with ID:', result.consultationId);
+          console.log('✅ New consultation created with ID:', result.consultationId, 'number:', result.consultationNumber);
           dispatch({ type: 'SET_CONSULTATION_ID', payload: result.consultationId });
+          if (result.consultationNumber != null) {
+            dispatch({ type: 'SET_CONSULTATION_NUMBER', payload: result.consultationNumber });
+          }
         } else {
           console.warn('⚠️ Failed to start consultation:', result.error);
         }
@@ -443,7 +467,7 @@ export function AppProvider({ children }) {
       // a diagnosis in confirmDiagnosis() — so the authoritative plan is never
       // produced against an unvalidated diagnosis.
       const { ddx } = await runDDxStream(
-        state.patient,
+        { ...state.patient, priorVisit: state.priorVisit },
         state.vitals,
         state.clinicalNotes,
         state.mpisData,
@@ -486,7 +510,7 @@ export function AppProvider({ children }) {
       console.error('Streaming failed, falling back to non-streaming:', err);
       try {
         const response = await runClinicalPlan(
-          state.patient, state.vitals, state.clinicalNotes, state.mpisData,
+          { ...state.patient, priorVisit: state.priorVisit }, state.vitals, state.clinicalNotes, state.mpisData,
           state.severityStaging || {},
         );
         const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
@@ -600,7 +624,7 @@ export function AppProvider({ children }) {
 
     try {
       const response = await resynthesizePlanStream(
-        state.patient, state.vitals, state.clinicalNotes, state.mpisData,
+        { ...state.patient, priorVisit: state.priorVisit }, state.vitals, state.clinicalNotes, state.mpisData,
         selectedDiagnoses,
         (stageUpdate)  => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
         (subStep)      => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
@@ -732,6 +756,41 @@ export function AppProvider({ children }) {
         }
       } catch (err) {
         console.error('💥 Exception uploading care plan PDF:', err);
+      }
+    }
+
+    // PRIOR-VISIT SUMMARISER — fires ONLY here, after the clinician has agreed
+    // and finalised the care plan. Best-effort: never blocks the step transition.
+    if (USE_SUPABASE && state.currentConsultationId && state.currentConsultationNumber != null && state.patient?.nsn) {
+      try {
+        const carePlanSummary = state.carePlan?.clinicalSummary || state.carePlan?.summary || null;
+        const priorIcdPrimary = state.carePlan?.icdPrimary
+          || state.clinicalPlanResponse?.treatment_plan?.icd_primary
+          || null;
+        const medicationRecommendations = state.carePlan?.medications || null;
+
+        console.log('📝 Generating prior-visit summary for next consultation...');
+        const summary = await summarisePriorVisit({
+          consultationDate: new Date().toISOString().split('T')[0],
+          clinicalNotes: state.clinicalNotes || '',
+          carePlanSummary,
+          priorIcdPrimary,
+          medicationRecommendations,
+        });
+        console.log('✅ Prior-visit summary generated:', summary);
+
+        const writeResult = await writePriorVisitSummary(
+          state.patient.nsn,
+          state.currentConsultationNumber,
+          summary,
+        );
+        if (writeResult.success) {
+          console.log('✅ Prior-visit summary persisted to Supabase');
+        } else {
+          console.error('❌ Failed to persist prior-visit summary:', writeResult.error);
+        }
+      } catch (err) {
+        console.error('💥 Exception during prior-visit summariser:', err);
       }
     }
 
