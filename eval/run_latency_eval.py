@@ -13,12 +13,23 @@ accuracy numbers are directly comparable in your report.
 from __future__ import annotations
 import asyncio
 import statistics
-import time
 
-from agent.clinical_stages import stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize
+from agent.clinical_workflow import run_clinical_workflow
 
 from eval._helpers import to_patient_case
 from eval.io_utils import load_jsonl, write_results, print_summary
+
+# Stage segments emitted by run_clinical_workflow.stage_timings, in pipeline order.
+_STAGE_KEYS = [
+    "stage_2_ddx",
+    "stage_3_route",
+    "stage_3_route_comorbidities",
+    "stage_4_retrieve",
+    "kg_lookup",
+    "graph_navigator",
+    "stage_5_synthesize",
+    "stage_6_safety",
+]
 
 
 def percentiles(xs: list[float]) -> dict[str, float]:
@@ -33,36 +44,40 @@ def percentiles(xs: list[float]) -> dict[str, float]:
 
 
 async def time_pipeline(case) -> dict[str, float]:
-    timings: dict[str, float] = {}
+    """Run the full workflow and pull its per-stage breakdown.
 
-    t0 = time.perf_counter()
-    ddx = await stage_2_ddx(case, top_k=5)
-    timings["stage2_ddx_ms"] = (time.perf_counter() - t0) * 1000
-
-    t0 = time.perf_counter()
-    cpgs = await stage_3_route(ddx)
-    timings["stage3_route_ms"] = (time.perf_counter() - t0) * 1000
-
-    t0 = time.perf_counter()
-    evidence = await stage_4_retrieve(case, ddx, cpgs)
-    timings["stage4_retrieve_ms"] = (time.perf_counter() - t0) * 1000
-
-    t0 = time.perf_counter()
-    await stage_5_synthesize(case, ddx, cpgs, evidence)
-    timings["stage5_synth_ms"] = (time.perf_counter() - t0) * 1000
-
-    timings["total_ms"] = sum(timings.values())
+    Uses run_clinical_workflow so the timing covers the SAME path a real request
+    takes — including KG lookup, graph navigator, comorbidity routing, and the
+    Stage 6 safety review, which the old stage-2-to-5 timing missed entirely.
+    """
+    result = await run_clinical_workflow(case)
+    timings: dict[str, float] = {
+        f"{key}_ms": result.stage_timings.get(key, 0.0) for key in _STAGE_KEYS
+    }
+    timings["total_ms"] = result.elapsed_ms
     return timings
 
 
-async def main():
+async def main(limit: int | None = None):
     gold = load_jsonl("clinical_qa_gold.jsonl")
+    if limit is not None:
+        gold = gold[:limit]
     rows = []
     for item in gold:
         case = to_patient_case(item["patient_case"])
+        print(f"[run] {item['id']}…", flush=True)
         try:
             t = await time_pipeline(case)
             rows.append({"id": item["id"], **t})
+            # Per-case breakdown so a single-case run gives an immediate answer.
+            ordered = sorted(
+                ((k, t[f"{k}_ms"]) for k in _STAGE_KEYS),
+                key=lambda kv: kv[1], reverse=True,
+            )
+            print(f"[done] {item['id']} total={t['total_ms']:.0f}ms")
+            for name, ms in ordered:
+                pct = (ms / t["total_ms"] * 100) if t["total_ms"] else 0
+                print(f"        {name:32s} {ms:8.0f}ms  ({pct:4.0f}%)")
         except Exception as exc:
             print(f"[warn] {item['id']} failed: {exc}")
 
@@ -71,7 +86,7 @@ async def main():
         return
 
     summary: dict[str, float | int] = {"n": len(rows)}
-    for key in ("stage2_ddx_ms", "stage3_route_ms", "stage4_retrieve_ms", "stage5_synth_ms", "total_ms"):
+    for key in [f"{k}_ms" for k in _STAGE_KEYS] + ["total_ms"]:
         pcts = percentiles([r[key] for r in rows])
         for pn, pv in pcts.items():
             summary[f"{key}_{pn}"] = pv
@@ -81,4 +96,9 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Run only the first N gold cases (e.g. --limit 1).")
+    args = parser.parse_args()
+    asyncio.run(main(limit=args.limit))

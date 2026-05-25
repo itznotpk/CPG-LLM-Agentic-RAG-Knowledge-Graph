@@ -5,8 +5,8 @@ Calls pipeline stages 2–5 sequentially and returns a TreatmentPlan.
 from __future__ import annotations
 import logging
 import time
+from contextlib import contextmanager
 from dataclasses import dataclass, field
-
 from .models import PatientCase, TreatmentPlan, SafetyReport
 from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
@@ -126,6 +126,21 @@ def _nav_flag_to_dict(f) -> dict:
     }
 
 
+@contextmanager
+def _time_stage(name: str, timings: dict[str, float]):
+    start = time.monotonic()
+    try:
+        yield
+    finally:
+        timings[name] = (time.monotonic() - start) * 1000
+
+
+def _log_stage_breakdown(timings: dict[str, float], total_ms: float) -> None:
+    ordered = sorted(timings.items(), key=lambda kv: kv[1], reverse=True)
+    parts = [f"{name}={ms:.0f}ms ({ms / total_ms * 100:.0f}%)" for name, ms in ordered] if total_ms else []
+    logger.info("Stage timing breakdown (total %.0f ms): %s", total_ms, " | ".join(parts))
+
+
 @dataclass
 class WorkflowResult:
     treatment_plan: TreatmentPlan
@@ -135,6 +150,7 @@ class WorkflowResult:
     stage_errors: list[str] = field(default_factory=list)
     safety_report: SafetyReport | None = None
     graph_navigator_rules: list[dict] = field(default_factory=list)
+    stage_timings: dict[str, float] = field(default_factory=dict)
 
 
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
@@ -154,10 +170,12 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     """
     t0 = time.monotonic()
     errors: list[str] = []
+    timings: dict[str, float] = {}
 
     # Stage 2 — DDx
     try:
-        ddx = await stage_2_ddx(case, top_k=5)
+        with _time_stage("stage_2_ddx", timings):
+            ddx = await stage_2_ddx(case, top_k=5)
         logger.info("Stage 2 DDx: %d candidates. Top: %s",
                     len(ddx), ddx[0].code if ddx else "none")
     except Exception as e:
@@ -167,10 +185,12 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
 
     # Stage 3 — Route
     try:
-        cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3,
-                                   clinical_context=_build_symptom_text(case),
-                                   patient_sex=case.sex)
-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex)
+        with _time_stage("stage_3_route", timings):
+            cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3,
+                                       clinical_context=_build_symptom_text(case),
+                                       patient_sex=case.sex)
+        with _time_stage("stage_3_route_comorbidities", timings):
+            extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex)
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
         logger.info("Stage 3 Routing: %d CPGs matched: %s",
@@ -182,7 +202,8 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
 
     # Stage 4 — Retrieve
     try:
-        evidence = await stage_4_retrieve(case, ddx, cpgs)
+        with _time_stage("stage_4_retrieve", timings):
+            evidence = await stage_4_retrieve(case, ddx, cpgs)
         logger.info("Stage 4 Retrieval: %d evidence chunks", len(evidence))
     except Exception as e:
         logger.error("Stage 4 Retrieval failed: %s", e)
@@ -191,15 +212,16 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
 
     # KG lookup — runs between Stage 4 and Stage 5, fail-open
     try:
-        _chunk_ids = [c.chunk_id for c in evidence]
-        _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
-        kg_flags = await clinical_graph_lookup(
-            patient_meds=case.current_medications,
-            candidate_drugs=_candidate_drugs,
-            comorbidities=case.comorbidities,
-            allergies=case.allergies,
-            patient_params=build_patient_params(case),
-        )
+        with _time_stage("kg_lookup", timings):
+            _chunk_ids = [c.chunk_id for c in evidence]
+            _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
+            kg_flags = await clinical_graph_lookup(
+                patient_meds=case.current_medications,
+                candidate_drugs=_candidate_drugs,
+                comorbidities=case.comorbidities,
+                allergies=case.allergies,
+                patient_params=build_patient_params(case),
+            )
         logger.info("KG lookup: %d flags", len(kg_flags))
     except Exception as e:
         logger.warning("KG lookup failed (non-fatal): %s", e)
@@ -208,20 +230,24 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     # Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open
     nav_flags = []
     try:
-        nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
+        with _time_stage("graph_navigator", timings):
+            nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
         logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
         kg_flags = list(kg_flags) + list(nav_flags)
     except Exception as e:
         logger.warning("Graph navigator failed (non-fatal): %s", e)
 
     # Stage 5 — Synthesize (unrecoverable if it fails)
-    treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
+    with _time_stage("stage_5_synthesize", timings):
+        treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
 
     # Stage 6 — Safety review (fail-open, never raises)
     from .safety_critic import run_safety_critic
-    safety_report = await run_safety_critic(case, treatment_plan)
+    with _time_stage("stage_6_safety", timings):
+        safety_report = await run_safety_critic(case, treatment_plan)
 
     elapsed_ms = (time.monotonic() - t0) * 1000
+    _log_stage_breakdown(timings, elapsed_ms)
     logger.info("Workflow complete in %.0f ms. ICD primary: %s",
                 elapsed_ms, treatment_plan.icd_primary)
 
@@ -233,6 +259,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         stage_errors=errors,
         safety_report=safety_report,
         graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
+        stage_timings=timings,
     )
 
 

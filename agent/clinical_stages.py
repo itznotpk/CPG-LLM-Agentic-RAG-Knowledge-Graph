@@ -29,6 +29,14 @@ from .graph_clinical import ClinicalFlag, format_flags_for_prompt
 from .models import ChunkResult, PatientCase, Recommendation, TreatmentPlan
 from .routing import CPGDocRef, route_icd_to_cpgs
 from .tools import VectorSearchInput, vector_search_tool
+from .providers import make_vertex_client
+
+
+def _make_openai_client(base_url: str, api_key: str, provider: str = "", **kwargs) -> openai.AsyncOpenAI:
+    """Build AsyncOpenAI client, using Vertex ADC token when provider=='vertex'."""
+    if provider.lower() == "vertex" or api_key == "vertex-adc":
+        return make_vertex_client(base_url, **kwargs)
+    return openai.AsyncOpenAI(base_url=base_url, api_key=api_key, **kwargs)
 
 logger = logging.getLogger(__name__)
 
@@ -381,16 +389,30 @@ async def _llm_rerank_ddx(
     if not candidates:
         return candidates
 
-    # Stage 2 override (e.g. MiMo) takes precedence over primary LLM_* vars.
-    # Trades thinking-token transparency for availability when Google credits are exhausted.
-    stage2_base = os.getenv("STAGE2_LLM_BASE_URL")
-    stage2_key = os.getenv("STAGE2_LLM_API_KEY")
-    stage2_model = os.getenv("STAGE2_LLM_CHOICE")
+    # STAGE2_RERANK_LLM_* takes priority — allows re-rank to stay on a heavy model
+    # (MiMo) while extraction/hypotheses move to a lighter model (Gemini Flash).
+    # Falls back to STAGE2_LLM_* then the global LLM_* config.
+    stage2_base = (
+        os.getenv("STAGE2_RERANK_LLM_BASE_URL")
+        or os.getenv("STAGE2_LLM_BASE_URL")
+    )
+    stage2_key = (
+        os.getenv("STAGE2_RERANK_LLM_API_KEY")
+        or os.getenv("STAGE2_LLM_API_KEY")
+    )
+    stage2_model = (
+        os.getenv("STAGE2_RERANK_LLM_CHOICE")
+        or os.getenv("STAGE2_LLM_CHOICE")
+    )
+    stage2_provider = os.getenv("STAGE2_RERANK_LLM_PROVIDER", "") or os.getenv("STAGE2_LLM_PROVIDER", "")
     using_override = bool(stage2_base and stage2_key and stage2_model)
 
-    client = openai.AsyncOpenAI(
+    client = _make_openai_client(
         base_url=stage2_base or os.getenv("LLM_BASE_URL"),
         api_key=stage2_key or os.getenv("LLM_API_KEY"),
+        provider=stage2_provider,
+        timeout=120,
+        max_retries=1,
     )
     active_model = stage2_model or DDX_RERANK_MODEL
     logger.info(
@@ -466,7 +488,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 model=active_model,
                 messages=messages,
                 temperature=1,
-                max_tokens=8000,
+                max_tokens=4000,
                 stream=True,
             )
             async for chunk in stream:
@@ -496,7 +518,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 model=active_model,
                 messages=messages,
                 temperature=1,
-                max_tokens=8000,
+                max_tokens=3000,
             )
             raw_content = resp.choices[0].message.content
 
@@ -714,11 +736,13 @@ async def stage_2_ddx(
     _s2_base = os.getenv("STAGE2_LLM_BASE_URL")
     _s2_key = os.getenv("STAGE2_LLM_API_KEY")
     _s2_model = os.getenv("STAGE2_LLM_CHOICE")
+    _s2_provider = os.getenv("STAGE2_LLM_PROVIDER", "")
     _using_override = bool(_s2_base and _s2_key and _s2_model)
 
-    client = openai.AsyncOpenAI(
+    client = _make_openai_client(
         base_url=_s2_base or os.getenv("LLM_BASE_URL"),
         api_key=_s2_key or os.getenv("LLM_API_KEY"),
+        provider=_s2_provider,
         max_retries=0,   # extraction has a clean fallback; don't waste 3s on 429 retries
     )
     extraction_model = (
@@ -729,7 +753,9 @@ async def stage_2_ddx(
     # thinking disabled for extraction, or they burn the whole token budget on hidden
     # reasoning and return empty content → silent fallback to the raw, diluting notes.
     extraction_extra_body = (
-        {"chat_template_kwargs": {"enable_thinking": False}} if _using_override else None
+        {"chat_template_kwargs": {"enable_thinking": False}}
+        if "mimo" in extraction_model.lower()
+        else None
     )
     query, extraction_fell_back = await _extract_symptom_phrase(
         case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body
@@ -1053,11 +1079,9 @@ async def _generate_retrieval_queries(
     base_url = os.getenv("STAGE4_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("STAGE4_LLM_API_KEY") or os.getenv("LLM_API_KEY")
     model = os.getenv("STAGE4_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
+    provider = os.getenv("STAGE4_LLM_PROVIDER", "")
 
-    client = openai.AsyncOpenAI(
-        base_url=base_url,
-        api_key=api_key,
-    )
+    client = _make_openai_client(base_url=base_url, api_key=api_key, provider=provider)
 
     icd_summary = ", ".join(f"{d.code} ({d.title})" for d in ddx[:2])
     cpg_names = ", ".join(c.cpg_name for c in cpgs)
@@ -1096,6 +1120,13 @@ Generate exactly {n} queries (one per domain as instructed)."""
     raw = raw.strip("` \n")
     if raw.startswith("json"):
         raw = raw[4:]
+    # Gemini 2.5 Flash sometimes returns JSONL (one object per line) instead of
+    # a single array — extract just the first valid JSON array if present.
+    bracket_idx = raw.find("[")
+    if bracket_idx != -1:
+        end_idx = raw.find("]", bracket_idx)
+        if end_idx != -1:
+            raw = raw[bracket_idx:end_idx + 1]
     queries = json.loads(raw)
     return [q for q in queries if isinstance(q, str)][:n]
 

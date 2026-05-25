@@ -19,6 +19,7 @@ from pydantic import ValidationError
 
 from .models import PatientCase, TreatmentPlan, SafetyFlag, SafetyReport  # noqa: F401 re-export
 from .graph_clinical import clinical_graph_lookup, match_plan_drugs, ClinicalFlag, build_patient_params, _norm as _kg_norm
+from .providers import make_vertex_client
 
 logger = logging.getLogger(__name__)
 
@@ -180,11 +181,15 @@ async def run_safety_critic(
     """
     base_url = os.getenv("SAFETY_CRITIC_LLM_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("SAFETY_CRITIC_LLM_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
+    provider = os.getenv("SAFETY_CRITIC_LLM_PROVIDER", "")
     # Prefer a cheaper/faster model for the critic; fall back to Stage 5 model
     stage5_model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
     model = os.getenv("SAFETY_CRITIC_MODEL", stage5_model)
 
-    client = openai.AsyncOpenAI(base_url=base_url, api_key=api_key)
+    if provider.lower() == "vertex" or api_key == "vertex-adc":
+        client = make_vertex_client(base_url)
+    else:
+        client = openai.AsyncOpenAI(base_url=base_url, api_key=api_key)
 
     user_prompt = json.dumps({
         "patient": {

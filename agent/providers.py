@@ -14,6 +14,31 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 
+def get_vertex_token() -> str:
+    """
+    Return a fresh OAuth2 bearer token for Vertex AI using Application Default Credentials.
+    Requires: gcloud auth application-default login  (or a service account key via
+    GOOGLE_APPLICATION_CREDENTIALS env var).
+    """
+    import google.auth
+    import google.auth.transport.requests
+
+    creds, _ = google.auth.default(
+        scopes=["https://www.googleapis.com/auth/cloud-platform"]
+    )
+    creds.refresh(google.auth.transport.requests.Request())
+    return creds.token
+
+
+def make_vertex_client(base_url: str, **kwargs) -> openai.AsyncOpenAI:
+    """
+    Build an AsyncOpenAI client pointed at a Vertex AI OpenAI-compatible endpoint.
+    The bearer token is fetched fresh on each call (tokens last ~1 h).
+    """
+    token = get_vertex_token()
+    return openai.AsyncOpenAI(base_url=base_url, api_key=token, **kwargs)
+
+
 def get_llm_model(model_choice: Optional[str] = None) -> OpenAIModel | BedrockConverseModel:
     """
     Get LLM model configuration based on environment variables.
