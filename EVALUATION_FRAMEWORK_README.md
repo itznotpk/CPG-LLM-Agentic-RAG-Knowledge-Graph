@@ -808,3 +808,103 @@ You now have a complete evaluation framework:
 *   **Uncertainty flag:** GLP-1 RA vs SGLT2i first-line — both CPG-supported; preference depends on weight-loss priority (GLP-1 RA superior) vs cardiorenal protection (SGLT2i if CKD develops). Individualise.
 
 ---
+
+# CLINICIAN EVALUATION RUBRICS
+
+> This section defines the **finalized scoring instruments** to be used when doctors evaluate the system. There are two separate rubrics: **(a)** for evaluating the care plan output quality, and **(b)** for evaluating workflow and UI/UX. Both are designed to be administered as a Google Form or printed PDF.
+
+---
+
+## Protocol Overview
+
+- **Format:** Each clinician sees the same patient vignette + **N anonymised outputs labelled A / B / C / D** (your system + 3 competitors). Systems are **blinded** — no names, logos, or styling that identifies "Our System."
+- **Cases:** Use Cases 8–12 (the 5 comorbidity cases above). Case 11 (nitrate + PDE5i) doubles as the **calibration case** — every reasonable system must refuse to prescribe sildenafil. If a clinician scores all 4 systems equally on Case 11, their scoring is noise.
+- **Time budget:** Tell clinicians up-front: ~10 min per case × 5 cases = ~1 hr total. Be explicit — open-ended requests lead to under-engagement.
+- **Reviewers:** Minimum 2 clinicians per case for inter-rater reliability. Target 3–5 across specialties (Cardiology, Endocrine/Internal Med, O&G — matching Cases 9/12, 8/12, 10).
+- **Demographic mini-form** (collected before scoring): Specialty, years in practice, prior AI-tool experience (None / Occasional / Regular). Enables slicing results by familiarity.
+- **Gold answer key:** Locked down before sending to clinicians (co-written with advisor + 1 other MD). Kept private — sent to evaluators only *after* scoring is complete. Without this you can score opinions but not accuracy.
+- **Output-length normalisation:** If your system writes 800 words and GPT-4 writes 200, clinicians will assume yours is "more thorough" before reading. Truncate or tag outputs to comparable length before blinding.
+
+---
+
+## (a) Output — Care Plan Rubric
+
+**8 dimensions, each scored 1–5** (1 = unacceptable, 5 = excellent) **+ 2 free-text fields per case.**
+
+| # | Dimension | What the clinician asks themselves |
+|---|---|---|
+| 1 | **Clinical correctness** | Does the plan match what I'd prescribe / avoid, given the vignette? |
+| 2 | **Guideline fidelity** | Are the cited recommendations consistent with Malaysian MoH CPGs (or whichever guideline the system claims)? |
+| 3 | **Safety — contraindications & DDIs** | Does it catch the critical interactions (e.g. nitrate + PDE5i, warfarin + NSAID)? Any dangerous omission? |
+| 4 | **Reasoning transparency** | Can I follow *why* it reached the conclusion, step by step? |
+| 5 | **Evidence citation quality** | Are guidelines named *and* locatable (section / edition)? Any hallucinated refs? |
+| 6 | **Uncertainty handling** | Does it flag what it's unsure about and what assumptions it made? |
+| 7 | **Appropriate deferral** | Does it correctly recommend specialist referral / escalation where needed? |
+| 8 | **Trust to use** | Would I act on this in clinic without re-checking everything? |
+
+**Free-text per case (2 fields):**
+- "Single biggest concern with this output"
+- "Single biggest strength"
+
+**Forced ranking at end of each case:**
+> "Rank A / B / C / D best-to-worst overall, for clinical use."
+> Forced ranking surfaces preference more clearly than scores alone — use this as the primary head-to-head signal.
+
+**Process question (add after each case):**
+> "In Case X, did the system reach the right answer for the *right reason*, or right answer by coincidence?"
+> This is where reasoning transparency wins — a system that gets the correct contraindication by retrieval but shows no mechanism scores lower here than one that explains the pharmacokinetics.
+
+---
+
+## (b) Workflow / UI-UX Rubric
+
+**Delivery:** Send the demo video walkthrough + this short follow-up form.
+
+**6 dimensions, each scored 1–5:**
+
+| # | Dimension | What the clinician asks themselves |
+|---|---|---|
+| 1 | **Workflow fit** | Can I imagine using this *during* a patient encounter, or only after? |
+| 2 | **Time-to-answer (perceived)** | Is the latency acceptable given what I'm getting back? |
+| 3 | **Information density** | Is what's shown the right amount — not overwhelming, not too sparse? |
+| 4 | **Reasoning visibility** | Can I expand/collapse the CoT chain when I want depth vs speed? |
+| 5 | **Safety surfacing** | Are critical flags (interactions, contraindications) impossible to miss? |
+| 6 | **Override & feedback** | If I disagree with a step, can I push back / annotate / correct? |
+
+**Open questions (3):**
+1. Where in your day would this tool fit? (pre-consult / during / post / teaching)
+2. One thing you'd remove from the UI; one thing you'd add.
+3. Would you recommend it to a colleague? Why / why not?
+
+---
+
+## What the Current Plan Is Still Missing
+
+Address these before sending to clinicians:
+
+| # | Gap | Fix |
+|---|---|---|
+| 1 | **Ground truth / reference answer** | Lock a gold answer per case (advisor + 1 MD) before sending. Without it you have opinions, not accuracy scores. |
+| 2 | **≥2 reviewers per case** | One clinician scoring 5 cases is anecdote. Three clinicians scoring the same 5 cases is data. |
+| 3 | **Blinding protocol** | Strip system names, logos, and styling from all outputs before sending. Brand bias dominates if not blinded. |
+| 4 | **Output-length normalisation** | If outputs differ wildly in length, truncate or tag them before blinding — length creates perceived-thoroughness bias. |
+| 5 | **Calibration case** | Case 11 (nitrate + PDE5i) must be included. If a clinician scores all 4 systems equally on this obvious contraindication, discard their scoring. |
+| 6 | **Process question** | "Right answer for the right reason?" — add this after each case to capture reasoning quality, not just output quality. |
+| 7 | **Time budget disclosed up-front** | Tell clinicians: ~10 min × 5 cases = ~1 hr. Honest framing increases engagement quality. |
+| 8 | **Demographic mini-form** | Specialty + years in practice + prior AI-tool experience. Required to slice results meaningfully. |
+| 9 | **Scope disclaimer** | State plainly what you're NOT testing: no longitudinal use, no EMR integration, no actual clinical-outcome impact. Manage expectations. |
+
+---
+
+## Suggested Deliverable to Advisor (Dr. Teh)
+
+A **1-page brief** containing:
+1. The 5 patient vignettes (Cases 8–12)
+2. The scoring sheet — the two rubric tables above, formatted as a Google Form or PDF
+3. The gold answer key — kept private, shared with you only, not the scorers
+4. ETA + how many clinicians she can recruit
+
+Ask for **2–3 reviewers minimum** spread across specialties relevant to the cases:
+- Cardiology — Cases 9, 11
+- Endocrinology / Internal Medicine — Cases 8, 12
+- O&G — Case 10
