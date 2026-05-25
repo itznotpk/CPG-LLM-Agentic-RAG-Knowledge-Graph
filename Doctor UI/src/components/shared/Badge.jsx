@@ -22,6 +22,9 @@ export function Badge({ children, variant = 'default', size = 'md', className = 
     info: isDark 
       ? 'bg-blue-500/20 text-blue-400 font-semibold'
       : 'bg-blue-100 text-blue-800 font-semibold',
+    gray: isDark
+      ? 'bg-slate-500/20 text-slate-300 border border-slate-700/30 font-semibold'
+      : 'bg-slate-100 text-slate-600 border border-slate-200 font-semibold',
     outline: isDark 
       ? 'bg-white/10 border border-[var(--accent-primary)]/50 text-slate-200 font-semibold'
       : 'bg-white/50 border border-[var(--accent-primary)]/50 text-slate-700 font-semibold',
